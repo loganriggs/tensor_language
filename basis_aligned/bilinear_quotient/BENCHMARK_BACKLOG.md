@@ -3222,4 +3222,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     census <=0.012 and >=50 certs; all fresh8 <=0.020; damage within
     0.008 of +0.0053 transport prediction. Null: census >=0.040.
     Physical factor-rank tripwire required. Approximate price 123.4M;
-    exact component bill pending. -> ops/mixed_native_a1v.py [RUNNING]
+    exact component bill pending. -> ops/mixed_native_a1v.py
+    RUN 2026-09-01: ALL HELD — +0.00853845 census, 52/62, fresh8
+    in [-0.0061,+0.0052], transport error 0.00324, rank tripwire live.
+
+291. [CODEX, board-claimed 01:58Z] SIGNED a16 FALSIFIER on corrected
+    mixed. Bars: live census <=0.012/max fresh <=0.020; direct effect
+    cosine >=0.90 and normalized error <=0.60; non-own circuit rho
+    >=0.90 and own median ratio in [0.60,1.40]. Null: cosine <0.70 or
+    rho <0.75. -> ops/a16_transfer_mixed_native_a1v.py [BUILDING]

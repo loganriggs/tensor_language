@@ -854,11 +854,20 @@ def main():
     if SEL.get('clsdmg'):
         _ROWS=SEL.get('ext_rows',FR)
         cur['clsmap']=classify2(_ROWS).to(DEV)
+        _abl_handle=None
         if SEL.get('ablate_on_census'):
+            if '_ablh' not in SEL:
+                raise RuntimeError('ablate_on_census requires SEL[_ablh]')
+            # Register after the permanent tail-QK hook so the intervention
+            # replaces the compiled module output rather than being overwritten.
+            _abl_handle=m.transformer.h[16].attn.register_forward_hook(SEL['_ablh'])
             SEL['abl_on']=True
-        SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
-        if SEL.get('ablate_on_census'):
-            SEL['abl_on']=False
+        try:
+            SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
+        finally:
+            if SEL.get('ablate_on_census'):
+                SEL['abl_on']=False
+                _abl_handle.remove()
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
     if SEL.get('head16'):
         HD16=D//9

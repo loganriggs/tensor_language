@@ -1,0 +1,71 @@
+ARM: corrected mixed with a16 mean ablated only at census
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2347 | fresh +0.2154
+  window 0 (7 docs): L2 fresh +0.0035
+  window 1 (42 docs): L2 fresh +0.0047
+  window 2 (17 docs): L2 fresh -0.0061
+  window 3 (23 docs): L2 fresh +0.0009
+  window 4 (43 docs): L2 fresh +0.0024
+  window 5 (26 docs): L2 fresh +0.0052
+  window 6 (35 docs): L2 fresh -0.0016
+  window 7 (35 docs): L2 fresh +0.0042
+L2 empirical: C +0.0157 | fresh +0.0068 | tail-attn increment -0.2086
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "convention": "signed effect = KO CE minus unablated CE within each model",
+  "physical_qk_factor_ranks": [
+    96
+  ],
+  "unablated_fresh_damage": 0.0068,
+  "unablated_census_damage": 0.00853845,
+  "compiled_ko_census_damage": 0.0194456,
+  "native_ko_census_damage": 0.0109878,
+  "effect_cosine": 0.9926052,
+  "effect_normalized_error": 0.1330502,
+  "effect_norm_ratio": 1.0468413,
+  "collateral_spearman": 0.9973469,
+  "own_effect_median_ratio": 1.0538323,
+  "own_effect_ratios": [
+    1.0228983,
+    1.0363203,
+    1.0377828,
+    1.049477,
+    1.0509342,
+    1.0527107,
+    1.0538323,
+    1.0545662,
+    1.0556816,
+    1.0561573,
+    1.0561885,
+    1.0577755,
+    1.0635845
+  ],
+  "pred_a_live_config": true,
+  "pred_b_signed_effect": true,
+  "pred_c_circuits": true,
+  "null_triggered": false,
+  "decision_level": "a16 causal falsifier for corrected mixed adoption",
+  "runtime_s": 136.0
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/a16_transfer_mixed_native_a1v_results.json, /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_a16ko_mixed_native_a1v.pt, and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_a16ko_native.pt
