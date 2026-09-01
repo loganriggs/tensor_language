@@ -12,7 +12,7 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [explanation_2026-09-01_1957.md](explanation_2026-09-01_1957.md) — complete update since 18:07 covering rungs
-  418–424, all nulls and instrument repairs, the continuous QK1×QK2×OV result, and a concrete leakage-safe method
+  418–425, all nulls, repairs, and fresh-row replication, the continuous QK1×QK2×OV result, and a leakage-safe method
   for using the 62 circuit-behavior response vector to discover and falsify decompositions
 - [explanation_2026-09-01_1951.md](explanation_2026-09-01_1951.md) — held-out continuous attention-edge result:
   jointly fitted rank6/rank6/rank32 score–score–payload blocks retain 98.5% of routed signal and about 99.3% of six
