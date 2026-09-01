@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 309, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 199, in main
+    cluster_b, cluster_count_b = _state_programs(
+                                 ^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 87, in _state_programs
+    raise RuntimeError(f"state {state} has only {len(member)} contextual fit tokens")
+RuntimeError: state 0 has only 1018 contextual fit tokens

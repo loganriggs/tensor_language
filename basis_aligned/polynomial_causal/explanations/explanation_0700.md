@@ -60,6 +60,11 @@ That final probe has now landed. Rank48 reaches **508,055,862 scalars** and rema
 **29/62**, below the frozen 34 bar. This is the Q/K certificate ledge. The pure ladder is closed at rank56: no
 rank48 signed gate, no rank40 sweep, and no relaxed certificate threshold.
 
+Composing gated QK56 with gated MLP0-p512 reaches an even smaller **507,253,046 scalars** and remains close to
+additive (`1.052x`, only `+.000969` excess damage), but it also retains exactly 29 certificates. Changing which
+family spends the rank budget therefore does not evade the ledge. It is a useful predictive tier, not an adopted
+certificate-grade program, and we do not tune MLP rank after the registered miss.
+
 ## What composition taught us
 
 Three physical Q/K × MLP0 combinations landed at `1.0199x–1.0241x` their additive component prediction. Earlier
@@ -167,3 +172,11 @@ damage did not improve reliably: FineWeb max worsened `.02379→.02448`, and p44
 held, the tail and safety bars failed, and the null did not fire. High input leverage is therefore not the rare-loss
 variable. We will not tune this mixture post hoc; a continuation must use consequence weighting such as loss
 gradient or influence.
+
+We tested that continuation by weighting each MLP0 input by the complete suffix-loss gradient norm at its output.
+At p384 it improved FineWeb mean/p95/max from `.00842/.03130/.04463` to `.00794/.02921/.04275`, and WikiText from
+`.01120/.03487/.05420` to `.01082/.02987/.03915`. The WikiText tail repair is real, but FineWeb max improves only
+4.2%, short of the frozen 10% cross-corpus requirement. Split overlap remains strong (`.734/.744`); two predicates
+hold, the primary tail predicate fails, null false. Scalar consequence is more aligned than leverage but still not
+a stable tail selector. A future version must use a vector-valued joint downstream objective rather than tuning
+this scalar weighting.
