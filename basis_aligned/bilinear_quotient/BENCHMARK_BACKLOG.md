@@ -4131,3 +4131,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - RUN 2026-09-01: B/C held, A/D failed, strong null fired. Exact-z/raw full write R2 .39746/.39695; rank64 token
   retrieval 97.58% and joint response R2 .96404. But mean-preserving shuffled r256 itself scores .92525, within
   .04517 of real r256; correct rung395's 97% interpretation. No live TT transfer or rank tuning.
+
+### Rung 397 — exact MLP0 mean/linear/quadratic token causal factorial — QUEUED
+
+- Freeze `F=M+L+Q` on heldout length-one tokens: training-write mean M, complete canonical degree-one projection L,
+  and exact residual Q. No selected rank and no compression claim.
+- Run all eight native-block1 subsets and exact vector Möbius decomposition for attention1 and MLP1. Compare aligned
+  conditional error recovery against fixed shuffled-L, shuffled-Q, and wrong-token full-write controls.
+- Distinct L action routes to consumer-effect token interchange classes; Q or interaction dominance routes to a
+  consumer-aware quadratic spectrum. This rung cannot license live token-by-context transfer.
