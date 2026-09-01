@@ -3715,9 +3715,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 343. [CODEX, board-claimed 06:41Z] QK80 + CONTEXT-VALUE96 PHYSICAL OOD:
     factor c_v head maps at layers2--17 under split-B covariance, 144 maps;
-    census/certs/surcharge, Wiki skip260000 tails, exact QK80/value96 identity,
+    census/certs/surcharge, terminal Wiki skip270840 n56 tails, exact QK80/value96 identity,
     522,539,318 bill and saved CEV.
     -> ops/mixed80_context_qk_value96_context_ood.py
+    PREFLIGHT CORRECTION: skip260000 n120 exceeded 286,177-token stream before
+    model load. Freeze untouched terminal skip270840 n56; numerical bars unchanged.
 
 344. [CODEX, board-claimed 06:41Z] CONTEXT-QK72 SIGNED a16 GATE:
     identical native/compiled a16 mean ablation against saved r342 CEV,
@@ -3726,5 +3728,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 345. [CODEX, board-claimed 06:45Z] CONTEXT-QK64 PHYSICAL + OOD:
     fixed split-B context rank64 at all 440 maps, census/certs/fresh, untouched
-    Wiki skip280000 tails, exact 517,067,062 bill and saved CEV.
+    terminal Wiki skip270840 n56 tails, exact 517,067,062 bill and saved CEV.
     -> ops/mixed64_context_metric_qk_ood.py
+    PREFLIGHT CORRECTION: skip280000 n120 exceeded stream before model load.
+    Freeze untouched terminal skip270840 n56; numerical bars unchanged.

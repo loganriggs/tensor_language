@@ -99,7 +99,7 @@ def main() -> None:
         "drop_a1v": True, "drop_a0": True,
         "qk_context_covariances": covariances,
         "extra_eval_rows": rows_ood,
-        "extra_eval_name": "wikitext-2-raw-v1-test-skip180000",
+        "extra_eval_name": f"wikitext-2-raw-v1-test-skip{WIKI_SKIP}",
     })
     print("ARM: split-B context-QK88 + new shifted WikiText", flush=True)
     run = C.main()

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed80_context_qk_value96_context_ood.py", line 208, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed80_context_qk_value96_context_ood.py", line 87, in main
+    rows_ood, fingerprint, token_count = wikitext_rows(n=N_ROWS, skip=WIKI_SKIP)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed104_online_cv0_ood.py", line 59, in wikitext_rows
+    raise RuntimeError(f'WikiText token stream too short: {len(toks)} < {stop}')
+RuntimeError: WikiText token stream too short: 286177 < 290840

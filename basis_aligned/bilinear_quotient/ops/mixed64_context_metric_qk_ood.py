@@ -8,7 +8,7 @@ Frozen predictions
 pred_a_rank64_retains_predictive_census_and_certificates:
     Census <=.012, >=44 certificates, surcharge over rank72 <=.007.
 pred_b_new_shifted_ood_mean_and_tails_hold:
-    WikiText skip280000 mean/p95/max <=.018/.045/.100.
+    WikiText terminal skip270840 n56 mean/p95/max <=.018/.045/.100.
 pred_c_context64_identity_price_dataset_and_fresh_hold:
     Split-B context rank64 at 440 maps/layers2--17, active set, dataset, bill,
     saved CEV, and fresh max <=.020 are exact.
@@ -35,8 +35,8 @@ FIT_CACHE = "fineweb_n192_skip11000.pt"
 FIT_SLICE = (72, 96)
 LAYERS = tuple(range(2, 18))
 RANK = 64
-WIKI_SKIP = 280000
-N_ROWS = 120
+WIKI_SKIP = 270840
+N_ROWS = 56
 SCALARS = 517_067_062
 BYTES = 1_952_326_252
 

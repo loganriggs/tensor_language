@@ -9,7 +9,7 @@ Frozen predictions
 pred_a_value96_adds_bounded_census_damage_and_certificates:
     Combined census <=.012, >=45 certificates, surcharge over QK80 <=.008.
 pred_b_new_shifted_ood_mean_and_tails_hold:
-    WikiText skip260000 mean/p95/max <=.015/.040/.090.
+    WikiText terminal skip270840 n56 mean/p95/max <=.015/.040/.090.
 pred_c_exact_qk80_value96_context_identity_price_and_fresh:
     QK80 at 440 maps, value96 at 144 maps, split-B context layers2--17,
     dataset, active set, 522,539,318-scalar bill, and fresh max <=.020.
@@ -40,8 +40,8 @@ FIT_SLICE = (72, 96)
 LAYERS = tuple(range(2, 18))
 QK_RANK = 80
 VALUE_RANK = 96
-WIKI_SKIP = 260000
-N_ROWS = 120
+WIKI_SKIP = 270840
+N_ROWS = 56
 SCALARS = 522_539_318
 BYTES = 1_974_215_276
 
@@ -104,7 +104,7 @@ def main() -> None:
         "value_r": VALUE_RANK,
         "value_context_covariances": covariances,
         "extra_eval_rows": rows_ood,
-        "extra_eval_name": "wikitext-2-raw-v1-test-skip260000",
+        "extra_eval_name": f"wikitext-2-raw-v1-test-skip{WIKI_SKIP}",
     })
     print("ARM: context-QK80 + context-value96 + new shifted WikiText", flush=True)
     run = C.main()
