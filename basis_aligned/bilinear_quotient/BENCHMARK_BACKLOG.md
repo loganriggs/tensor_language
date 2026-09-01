@@ -2940,3 +2940,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 259. Head-parity band test II: EVEN heads (mirror). Same bars/null.
     -> ops/band_evenheads.py [QUEUED 01:00Z]
+    RUN 2026-09-01, S2359: INSTRUMENT FAIL self-caught - scalar-
+    proximity tripwire collides with a null that predicts landing on
+    the anchor. Rule filed; S2358 parity labels corrected (halves
+    swapped, conclusion stands). Rerun = 260; quarter = 261.
+
+260. Head-parity mirror v2 (odd heads deficient; fixed prereg): pred_a
+    census in [0.048, 0.062] (global-symmetric); pred_b valid >= 11;
+    pred_c range. Null: asymmetric (< 0.048).
+    -> ops/band_mirror.py [QUEUED 01:28Z]
+
+261. Quarter-deficiency (18/72 heads): pred_a census >= 0.045 (extreme
+    globality); pred_b valid >= 11; pred_c range. Null: partial
+    additivity below half (<= 0.035). -> ops/band_quarter.py [QUEUED 01:28Z]
