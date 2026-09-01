@@ -1,0 +1,156 @@
+TRAIN I72 independent dictionaries
+TRAIN G54 global dictionary
+TRAIN P54 permuted-token global control
+ENCODE physical FP16/uint16 artifacts
+{
+  "status": "attention0_cross_head_sparse_qk_vocabulary_complete",
+  "loss_decrease": {
+    "I72": 0.2910921469864113,
+    "G54": 0.8552746591370841,
+    "P54": 0.28284308887586396
+  },
+  "fvu": {
+    "I72": 0.6185242199120661,
+    "G54": 0.4615067814423032,
+    "G72": 0.42825590926976065,
+    "D54": 1.452273021320052,
+    "P54": 0.8118928042113236
+  },
+  "G54_advantage_over_P54": 0.43156685334757583,
+  "participation": {
+    "mean": 8.025200981259939,
+    "median": 8.03529710871048,
+    "fraction_ge_3": 1.0,
+    "fraction_ge_5": 1.0,
+    "min": 5.122991343781975,
+    "max": 8.749288543583999
+  },
+  "score_metrics": {
+    "I72": {
+      "branch_relative_squared_error": [
+        0.7062447968506946,
+        0.8702270247819854
+      ],
+      "complete_pattern_relative_squared_error": 1.473999730447071
+    },
+    "G54": {
+      "branch_relative_squared_error": [
+        0.43351526605195856,
+        0.5275512107913378
+      ],
+      "complete_pattern_relative_squared_error": 0.6437466217802437
+    },
+    "G72": {
+      "branch_relative_squared_error": [
+        0.3827950310922401,
+        0.4666003981205785
+      ],
+      "complete_pattern_relative_squared_error": 0.483746191580884
+    },
+    "D54": {
+      "branch_relative_squared_error": [
+        1.3540051770072834,
+        1.4962822950359218
+      ],
+      "complete_pattern_relative_squared_error": 0.7722784802943988
+    }
+  },
+  "document_metrics": {
+    "full_attention0_write_relative_squared_error": {
+      "I72": 0.6021004651016265,
+      "G54": 0.5006428201724243,
+      "G72": 0.41357709447377394,
+      "D54": 0.8906120776056081
+    },
+    "consumer_relative_squared_error": {
+      "I72": {
+        "mlp0": 0.21046819273404813,
+        "q1": 0.20484987695156265,
+        "k1": 0.25208378800622255,
+        "q2": 0.2534336739460026,
+        "k2": 0.26700347877753766,
+        "fresh_v": 0.26778051086327637
+      },
+      "G54": {
+        "mlp0": 0.22650835233375657,
+        "q1": 0.22458762280193723,
+        "k1": 0.2640304725707327,
+        "q2": 0.29084930208606846,
+        "k2": 0.2916242508299249,
+        "fresh_v": 0.29117659352127334
+      },
+      "G72": {
+        "mlp0": 0.1983259938234131,
+        "q1": 0.1962985622180523,
+        "k1": 0.22610914246659397,
+        "q2": 0.2550998483437158,
+        "k2": 0.2529735280996729,
+        "fresh_v": 0.2510289252215013
+      },
+      "D54": {
+        "mlp0": 0.4476315283400654,
+        "q1": 0.4882659274339764,
+        "k1": 0.5480139970726992,
+        "q2": 0.5931100572117368,
+        "k2": 0.6058500603872204,
+        "fresh_v": 0.6134272516773377
+      }
+    },
+    "mean_consumer_relative_squared_error": {
+      "I72": 0.24260325354644166,
+      "G54": 0.26479609902394885,
+      "G72": 0.22997266669549155,
+      "D54": 0.549383137020506
+    },
+    "ce": {
+      "native": {
+        "mean": 3.051129925996065,
+        "damage": 0.0,
+        "wave_damage": [
+          0.0,
+          0.0
+        ]
+      },
+      "I72": {
+        "mean": 3.071856456498305,
+        "damage": 0.020726530502239715,
+        "wave_damage": [
+          0.02207377552986145,
+          0.019379285474618424
+        ]
+      },
+      "G54": {
+        "mean": 3.0726161152124405,
+        "damage": 0.02148618921637535,
+        "wave_damage": [
+          0.0229990681012473,
+          0.019973310331503402
+        ]
+      },
+      "G72": {
+        "mean": 3.068687930703163,
+        "damage": 0.017558004707098007,
+        "wave_damage": [
+          0.018737385670343887,
+          0.016378623743852128
+        ]
+      },
+      "D54": {
+        "mean": 3.175437491387129,
+        "damage": 0.12430756539106369,
+        "wave_damage": [
+          0.12419219315052032,
+          0.12442293763160706
+        ]
+      }
+    }
+  },
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "strong_null": false,
+  "next_step": "close_cross_head_sparse_atoms_continue_continuous_generator",
+  "runtime_s": 20.01481032371521
+}
+ATTENTION0 CROSS-HEAD SPARSE QK DONE
