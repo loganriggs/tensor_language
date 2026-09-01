@@ -3410,3 +3410,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     safe, but layer-rank rho .298; selected quartet +.130/.122 at 1.78x/1.61x
     additive, worse than fixed {0,5,11,17} +.098/.084. Advance pair-interaction
     allocator once; scalar sensitivity selection is killed.
+
+307. [CODEX, board-claimed 03:49Z] PAIR-INTERACTION MLP PCA ALLOCATOR:
+    score all 153 pairs on two calibration halves; penalize unstable negative
+    excess interactions; enumerate 3,060 quartets and validate once.
+    -> ops/mlp_pca_pair_interaction_allocator.py
+    RUN 2026-09-01, S2405: all joint preds failed, null false. Pair excess rho
+    .917 (real law), total pair rho .476; selected {0,4,14,15} +.0876/.0586,
+    ratios 1.324/1.415. Large win over naive, only 10.9% FW win over fixed.
+    Reduce to a three-layer interaction-selected final screen.

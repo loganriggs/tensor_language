@@ -329,3 +329,17 @@ close enough to the desired range to justify one mathematical follow-up. I will 
 calibration halves, estimate its excess-over-additive interaction, penalize interactions that do not replicate,
 and enumerate all 3,060 four-layer subsets. Only the frozen risk-adjusted winner is evaluated on the disjoint
 FineWeb/WikiText windows.
+
+## Exploit checkpoint: pair interactions transfer, four layers narrowly miss (03:53 UTC)
+
+The excess-over-additive pair term is exceptionally reproducible across calibration halves (`rho=.917`), even
+though total pair damage ranks only reach `.476`. Penalizing non-replicating attractive interactions and enumerating
+all quartets selects layers `{0,4,14,15}`. On heldout text that quartet lands `+.0876` FineWeb and `+.0586`
+WikiText, a large improvement over the scalar-selected `+.130/.122` and a modest improvement over fixed-spaced
+`+.098/.084`.
+
+The registered result is still a miss: FineWeb is `.0076` above the `.08` bar, and its 10.9% improvement over the
+fixed control misses the 15% requirement. But the stable interaction law and shifted-corpus improvement justify a
+final smaller candidate. I now enumerate triples using only the already frozen calibration pair model, then test
+the winner on untouched cache rows and a later WikiText window. Three layers save 11.50M scalars and remove three
+of a quartet's six pair interactions; this is the last MLP exploit before the morning synthesis.

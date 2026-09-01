@@ -1,0 +1,52 @@
+fit layer 0: top256 energy 0.8573
+fit layer 1: top256 energy 0.8149
+fit layer 2: top256 energy 0.7641
+fit layer 3: top256 energy 0.7684
+fit layer 4: top256 energy 0.8068
+fit layer 5: top256 energy 0.7990
+fit layer 6: top256 energy 0.7612
+fit layer 7: top256 energy 0.7039
+fit layer 8: top256 energy 0.7077
+fit layer 9: top256 energy 0.6922
+fit layer 10: top256 energy 0.6802
+fit layer 11: top256 energy 0.7017
+fit layer 12: top256 energy 0.7017
+fit layer 13: top256 energy 0.7009
+fit layer 14: top256 energy 0.6800
+fit layer 15: top256 energy 0.7504
+fit layer 16: top256 energy 0.9595
+fit layer 17: top256 energy 0.9896
+scored pairs 25/153
+scored pairs 50/153
+scored pairs 75/153
+scored pairs 100/153
+scored pairs 125/153
+scored pairs 150/153
+scored pairs 153/153
+interaction_selected (0, 4, 14, 15): FW/WT +0.0876/+0.0586
+naive_scalar_control (6, 7, 9, 12): FW/WT +0.1304/+0.1217
+fixed_spaced_control (0, 5, 11, 17): FW/WT +0.0983/+0.0835
+{
+  "selected": [
+    0,
+    4,
+    14,
+    15
+  ],
+  "pair_rhos": [
+    0.47587216704863766,
+    0.9165627973677509
+  ],
+  "ratios": {
+    "fineweb": 1.324055259342428,
+    "wikitext": 1.4146769278624878
+  },
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "null": false,
+  "runtime_s": 34.92486071586609
+}
+MLP PCA PAIR INTERACTION ALLOCATOR DONE

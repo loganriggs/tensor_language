@@ -288,3 +288,16 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   exists, while targeted scalar ranking again loses to a spread allocation.
 - Decision: advance one interaction-aware allocator. Measure all 153 layer pairs on two calibration halves,
   penalize unstable attractive interactions, enumerate 3,060 quartets, then freeze and validate the winner.
+
+### `03:53 UTC` — exploit checkpoint `307`
+
+- Result: pair total-damage Spearman across calibration halves was `.476`, narrowly below `.50`, while the more
+  important excess-over-additive interaction replicated at **`.917`**. The risk-adjusted quartet `{0,4,14,15}`
+  validated at `+.0876/.0586`, ratios 1.324/1.415 to its nonnegative individual sums. It improved the naive
+  quartet by 32.8%/51.8% and fixed spaced control by 10.9%/29.8%. All registered joint predictions were false:
+  FineWeb missed `.08`, pair-damage rho missed `.50`, and the fixed-control improvement missed 15% on FineWeb.
+- Information gained: pair interactions are highly stable even when marginal layer sensitivity is not. The
+  quadratic allocator transfers and removes most of the naive composition tax, but four layers remain just above
+  the strict FineWeb quality bar.
+- Decision: reduce capacity once. Enumerate triples from the already frozen two-half pair model, then evaluate the
+  winner on untouched skip11000 rows 8–15 and WikiText skip40000. Stop MLP exploitation after this gate.
