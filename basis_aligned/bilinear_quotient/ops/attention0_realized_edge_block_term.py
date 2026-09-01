@@ -286,6 +286,10 @@ def _reconstruct_u(score1, score2, tokens, all_payload, model, arm):
     if arm == "deranged":
         order = torch.tensor(DERANGEMENT, device=score1.device)
         rec2 = rec2[:, order]
+    causal = torch.tril(torch.ones(
+        shape[2], shape[3], dtype=torch.bool, device=score1.device))
+    rec1 = rec1.masked_fill(~causal, 0)
+    rec2 = rec2.masked_fill(~causal, 0)
     return torch.einsum("bhqk,bkhc->bqc", rec1 * rec2, recv)
 
 
@@ -410,6 +414,8 @@ def main():
     receipt = json.loads(ROWS_RECEIPT.read_text())
     fit_rows = rows_parent.load_role(receipt["entries"]["FIT"])
     select_rows = rows_parent.load_role(receipt["entries"]["SELECT"])
+    fit_hash = base._digest(fit_rows)
+    select_hash = base._digest(select_rows)
     model, checkpoint = facade.load_bilin18(device=device, dtype=torch.float32)
     model.eval()
     for parameter in model.parameters():
@@ -525,6 +531,8 @@ def main():
                 for model_arm in models.values()
                 for key in ("basis1", "basis2", "basisv"))
         and SCREEN_VALUES == 23_310
+        and fit_hash == receipt["entries"]["FIT"]["tensor_sha256"]
+        and select_hash == receipt["entries"]["SELECT"]["tensor_sha256"]
         and len(fit_edges["source"]) == len(select_edges["source"])
         and not torch.equal(fit_rows, select_rows))
     pred_b = (
@@ -574,7 +582,9 @@ def main():
             "joint": "same shapes optimized for normalized individual plus head-summed response-metric edge error",
             "deranged": "joint reconstruction with score2 head h mapped to (h+4) mod 9 before product",
         },
-        "documents": {"FIT": len(fit_rows), "SELECT": len(select_rows), "FINAL_opened": 0},
+        "documents": {"FIT": len(fit_rows), "SELECT": len(select_rows),
+                      "FIT_sha256": fit_hash, "SELECT_sha256": select_hash,
+                      "FINAL_opened": 0},
         "edges": {"FIT": len(fit_edges["source"]), "SELECT": len(select_edges["source"]),
                   "query_positions": list(POSITIONS), "all_causal_sources": True},
         "instrument": {

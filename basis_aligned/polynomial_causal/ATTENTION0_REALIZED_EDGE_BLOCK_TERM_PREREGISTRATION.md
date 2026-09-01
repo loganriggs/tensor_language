@@ -124,7 +124,7 @@ CE is cross-entropy added above the native model in natural-log units; lower is 
 
 ### A. Instrument validity
 
-All split, source hash, U16, response metric, exact edge, native-forward, call-count, finite-value, orthogonality,
+All split, source hash, U16, response metric, exact edge, native-forward, finite-value, orthogonality,
 rank, and price checks above hold. `FINAL_opened=0`.
 
 ### B. The complete edge product contains a joint continuous block
