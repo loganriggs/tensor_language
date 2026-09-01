@@ -369,7 +369,7 @@ def parent() -> None:
         "native_replay_max_abs": replay_max, "native_effect_norm": float(native_effect.norm()),
         "complete_identity_all_conditions": same_identity, "complete_differs_from_local": complete_differs,
         "intervention_counts": {name: data[name]["intervention_calls"] for name in CONDITIONS},
-        "native_aux_counts": base["native_counts"], "arms": arms,
+        "native_aux_counts": data["unablated"]["native_counts"], "arms": arms,
         "removal_error_span": removal_span, "composition_error_span": composition_span,
         "rank_removal_spearman": rank_removal, "rank_composition_spearman": rank_composition,
         "removal_wave_order_spearman": removal_wave,

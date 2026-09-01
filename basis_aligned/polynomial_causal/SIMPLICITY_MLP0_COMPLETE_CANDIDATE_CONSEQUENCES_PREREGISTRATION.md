@@ -54,3 +54,11 @@ field. Preserve the failed runlog and the three complete condition files. Repair
 the parent to reuse the condition files when all three exist; a partial set still aborts. Candidate programs, model
 calls, rows, interventions, partner, hashes, metrics, masks, A/B/C/D bars, null, and routing do not change. The repair
 is scorer-only and must still be committed, gated, and submitted through the managed queue before authoritative output.
+
+## 449c final-payload repair
+
+The 449b managed scorer computed the metrics and wrote a provisional bundle, then the final JSON construction repeated
+the same stale `base["native_counts"]` lookup and stopped before writing a result. Preserve that provisional bundle as
+`_second_scorer_invalid`; it is not authoritative. An exhaustive source search finds this as the only remaining stale
+lookup. Repair it to the already registered sibling path. Conditions, computed tensors, formulas, predicates, bars,
+and routing remain unchanged; score the same three condition files again under the managed queue.
