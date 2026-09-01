@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_ov_downstream_codebook.py", line 865, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_ov_downstream_codebook.py", line 711, in main
+    codebook = _fit_codebook(all_a, all_a, factor, fit_mask, select_mask)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_ov_downstream_codebook.py", line 410, in _fit_codebook
+    train = (train_a[fit_mask] @ factor.T).permute(1, 0, 2).contiguous()
+             ~~~~~~~^^^^^^^^^^
+IndexError: The shape of the mask [50257] at index 0 does not match the shape of the indexed tensor [50304, 9, 16] at index 0
