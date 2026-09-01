@@ -414,8 +414,10 @@ def main():
     receipt = json.loads(ROWS_RECEIPT.read_text())
     fit_rows = rows_parent.load_role(receipt["entries"]["FIT"])
     select_rows = rows_parent.load_role(receipt["entries"]["SELECT"])
-    fit_hash = base._digest(fit_rows)
-    select_hash = base._digest(select_rows)
+    # The row receipt uses the repository's semantic tensor hash (which binds
+    # dtype and shape), not the raw-byte digest used for learned arrays.
+    fit_hash = rows_parent.rows_life.base.tensor_sha256(fit_rows)
+    select_hash = rows_parent.rows_life.base.tensor_sha256(select_rows)
     model, checkpoint = facade.load_bilin18(device=device, dtype=torch.float32)
     model.eval()
     for parameter in model.parameters():
