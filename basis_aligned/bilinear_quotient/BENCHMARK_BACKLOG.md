@@ -4121,3 +4121,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   cosine .387 reject a simple linear copy, but exact token retrieval is 90.4% top1/96.2% top5 versus shuffle 0%.
   The raw-token-predicted component reproduces attention1/MLP1/joint response R2 .926/.972/.972 despite only .397
   write R2. Residual PR is 3.98x native and residual-only joint R2 .247. Pivot to exact quadratic token kernel.
+
+### Rung 396 — exact MLP0-input degree-one token-kernel rank curve — QUEUED
+
+- In exact normalized MLP0-input z coordinates, project the exhaustive quadratic write onto constant+degree-one
+  functions under the empirical vocabulary metric; freeze ranks16..1152 and exact factor prices.
+- Score heldout write, physical attention1/MLP1 response, and exact-token retrieval; compare raw-x0 rank curves and
+  shuffled z→write r256. Full pass licenses one live TT transfer; miss closes degree-one rank tuning.
