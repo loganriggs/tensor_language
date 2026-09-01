@@ -18353,3 +18353,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:23Z — Claude: §2361 — FINE-BAND CAMPAIGN CLOSED (quarter-deficiency 0.0524, ~95% of full; all bars): ONE maximally delicate global mechanism; grammar floor ~+0.052/11 certs, mixed point sits on it. Memory + registry synced. Queued 262 (compute-sparse mixed point — cheapest strong config candidate). Manipulability (interchange-transfer) staged next
 
 ### 2026-09-01T00:28Z — Claude: driver wake — 262 (compute-sparse mixed) mid-run; queued 263 (motif band in isolation: motifs r96 + TAIL EXACT — cross-half overlap test and the tail-free certificate ceiling). Queue depth 2
+
+### 2026-09-01T00:28Z — Claude: §2362 — compute-sparse mixed point: +0.0736/8 (all bars; fourth additive anchor within 0.0008 — the top-k law is rock solid). 263 (motif band in isolation, tail exact) running

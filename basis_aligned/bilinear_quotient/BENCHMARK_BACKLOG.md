@@ -2965,6 +2965,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mixed_topk.py [QUEUED 02:00Z]
     BUILDER NOTE: first build failed a multiline pc anchor (tripwire
     block layout drifted); rebuilt line-wise, enqueued 02:05Z.
+    RUN 2026-09-01, S2362: ALL HELD - +0.0736/8 (surcharge +0.0163,
+    fourth additive anchor within 0.0008). Best-value config on joint
+    axes.
 
 263. Motif band in isolation ({motifs r96, tail EXACT} — cross-half
     overlap test + tail-free certificate ceiling): pred_a census <=
