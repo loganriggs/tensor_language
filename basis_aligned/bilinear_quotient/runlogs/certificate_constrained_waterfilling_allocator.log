@@ -1,10 +1,78 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/certificate_constrained_waterfilling_allocator.py", line 327, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/certificate_constrained_waterfilling_allocator.py", line 154, in main
-    assert count == int(base_receipt["certificates_valid"])
-                        ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'certificates_valid'
+{
+  "heldout_log_scale_r2": 0.951685124519328,
+  "heldout_median_relative_scale_error": 0.04420160502195358,
+  "heldout_certificate_mae_from_measured_damage": 0.5,
+  "taxes": [
+    1.0198689447073706,
+    1.0240569024242423,
+    1.021347606470418,
+    1.0522727802775025
+  ],
+  "end_to_end_certificate_mae": 0.0,
+  "strict_frontier_improvers": [],
+  "tier_summary": {
+    "43": {
+      "qk_rank": 64,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 517067062,
+      "central_predicted_damage": 0.008193064481019974,
+      "central_predicted_scale": 7.230652080247122,
+      "central_predicted_certificates": 50,
+      "conservative_upper_scale": 7.68315260234753,
+      "conservative_certificate_lower_bound": 49,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "40": {
+      "qk_rank": 72,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 516264246,
+      "central_predicted_damage": 0.01167790043363411,
+      "central_predicted_scale": 8.52605842988397,
+      "central_predicted_certificates": 45,
+      "conservative_upper_scale": 9.129023838494904,
+      "conservative_certificate_lower_bound": 40,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "38": {
+      "qk_rank": 56,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 512561462,
+      "central_predicted_damage": 0.012507797218859196,
+      "central_predicted_scale": 8.8026318516869,
+      "central_predicted_certificates": 43,
+      "conservative_upper_scale": 9.35350824077875,
+      "conservative_certificate_lower_bound": 39,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "34": {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "30": {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    }
+  },
+  "predicates": [
+    true,
+    true,
+    true
+  ],
+  "null": false,
+  "runtime_s": 3.602104902267456
+}
+CERTIFICATE-CONSTRAINED WATER-FILLING ALLOCATOR DONE

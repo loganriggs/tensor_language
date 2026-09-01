@@ -1,0 +1,799 @@
+{
+  "status": "certificate_constrained_waterfilling_allocator_complete",
+  "rung": 357,
+  "claim_level": "cpu_crossvalidated_discrete_grid_allocator_and_no_improvement_screen",
+  "training_programs": [
+    {
+      "name": "qk96",
+      "damage": 0.0014153505908325315,
+      "scale": 3.2774028963485784,
+      "certificates": 61
+    },
+    {
+      "name": "qk88",
+      "damage": 0.0021960639860481024,
+      "scale": 3.9911835741800683,
+      "certificates": 58
+    },
+    {
+      "name": "qk80",
+      "damage": 0.0033358531072735786,
+      "scale": 4.825430498176611,
+      "certificates": 54
+    },
+    {
+      "name": "qk72",
+      "damage": 0.005237827077507973,
+      "scale": 5.899936648685904,
+      "certificates": 54
+    },
+    {
+      "name": "qk64",
+      "damage": 0.008193064481019974,
+      "scale": 7.214726026332482,
+      "certificates": 50
+    },
+    {
+      "name": "qk56",
+      "damage": 0.012507797218859196,
+      "scale": 8.723502331084743,
+      "certificates": 43
+    },
+    {
+      "name": "qk48",
+      "damage": 0.01877571828663349,
+      "scale": 10.548798015893158,
+      "certificates": 29
+    },
+    {
+      "name": "mixed104",
+      "damage": 0.00469195,
+      "scale": 5.127599692394898,
+      "certificates": 54
+    },
+    {
+      "name": "mixed104_mlp0_640",
+      "damage": 0.00826465804129839,
+      "scale": 7.1154188823473135,
+      "certificates": 52
+    },
+    {
+      "name": "mixed104_mlp0_512",
+      "damage": 0.010727745480835438,
+      "scale": 8.213237478165102,
+      "certificates": 48
+    },
+    {
+      "name": "mixed104_mlp0_448",
+      "damage": 0.012661711312830448,
+      "scale": 9.038938233444911,
+      "certificates": 43
+    },
+    {
+      "name": "mixed104_mlp0_384",
+      "damage": 0.015788313001394272,
+      "scale": 10.018471633979415,
+      "certificates": 39
+    },
+    {
+      "name": "mixed104_mlp0_256",
+      "damage": 0.02687801606953144,
+      "scale": 12.798485154967576,
+      "certificates": 25
+    }
+  ],
+  "intensity_law": {
+    "formula": "log(scale)=intercept+exponent*log(census_damage)",
+    "intercept": 4.2123686080291485,
+    "exponent": 0.46499211170354154
+  },
+  "heldout_qk_mlp_family": [
+    {
+      "name": "qk96_mlp0_640",
+      "qk_rank": 96,
+      "mlp0_rank": 640,
+      "actual_damage": 0.005087166093289852,
+      "actual_scale": 6.0129184789957195,
+      "actual_certificates": 54,
+      "scale_from_measured_damage": 5.793457638549979,
+      "relative_scale_error": 0.03649822315276008,
+      "certificates_from_measured_damage": 54,
+      "certificate_error_from_measured_damage": 0,
+      "component_sum": 0.004988058632130921,
+      "measured_interaction_tax": 1.0198689447073706,
+      "end_to_end_predicted_damage": 0.005166932967792521,
+      "end_to_end_predicted_scale": 5.835522469321631,
+      "end_to_end_predicted_certificates": 54,
+      "end_to_end_certificate_error": 0
+    },
+    {
+      "name": "qk96_mlp0_512",
+      "qk_rank": 96,
+      "mlp0_rank": 512,
+      "actual_damage": 0.007630397565662861,
+      "actual_scale": 7.359324679026852,
+      "actual_certificates": 51,
+      "scale_from_measured_damage": 6.995352081310735,
+      "relative_scale_error": 0.049457336588694445,
+      "certificates_from_measured_damage": 51,
+      "certificate_error_from_measured_damage": 0,
+      "component_sum": 0.007451146071667969,
+      "measured_interaction_tax": 1.0240569024242423,
+      "end_to_end_predicted_damage": 0.007718347983630614,
+      "end_to_end_predicted_scale": 7.032729785615086,
+      "end_to_end_predicted_certificates": 51,
+      "end_to_end_certificate_error": 0
+    },
+    {
+      "name": "qk96_mlp0_448",
+      "qk_rank": 96,
+      "mlp0_rank": 448,
+      "actual_damage": 0.00958546157926321,
+      "actual_scale": 8.297372979898974,
+      "actual_certificates": 49,
+      "scale_from_measured_damage": 7.778116132273442,
+      "relative_scale_error": 0.06258087335394846,
+      "certificates_from_measured_damage": 49,
+      "certificate_error_from_measured_damage": 0,
+      "component_sum": 0.00938511190366298,
+      "measured_interaction_tax": 1.021347606470418,
+      "end_to_end_predicted_damage": 0.009721666820251907,
+      "end_to_end_predicted_scale": 7.829314815166439,
+      "end_to_end_predicted_certificates": 49,
+      "end_to_end_certificate_error": 0
+    },
+    {
+      "name": "qk56_mlp0_512",
+      "qk_rank": 56,
+      "mlp0_rank": 512,
+      "actual_damage": 0.01951291784644127,
+      "actual_scale": 11.325449856589552,
+      "actual_certificates": 29,
+      "scale_from_measured_damage": 10.824846811732003,
+      "relative_scale_error": 0.04420160357394365,
+      "certificates_from_measured_damage": 27,
+      "certificate_error_from_measured_damage": 2,
+      "component_sum": 0.018543592699694633,
+      "measured_interaction_tax": 1.0522727802775025,
+      "end_to_end_predicted_damage": 0.019208575425352807,
+      "end_to_end_predicted_scale": 10.74600975902475,
+      "end_to_end_predicted_certificates": 29,
+      "end_to_end_certificate_error": 0
+    }
+  ],
+  "heldout_log_scale_r2": 0.951685124519328,
+  "heldout_median_relative_scale_error": 0.04420160502195358,
+  "heldout_max_relative_scale_error": 0.06258087335394846,
+  "heldout_certificate_mae_from_measured_damage": 0.5,
+  "cross_family_tax_envelope": [
+    1.019,
+    1.053
+  ],
+  "cross_family_tax_center": 1.0358605118451034,
+  "all_measured_taxes_covered": true,
+  "end_to_end_heldout_certificate_mae": 0.0,
+  "conservative_scale_uncertainty_factor": 1.0625808733539484,
+  "frontier_constraint": {
+    "scalars_less_than": 512561462,
+    "certificates_at_least": 43
+  },
+  "enumerated_grid": [
+    {
+      "qk_rank": 96,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 535089462,
+      "central_predicted_damage": 0.0014153505908325315,
+      "central_predicted_scale": 3.1958228030828515,
+      "central_predicted_certificates": 61,
+      "conservative_upper_scale": 3.3958201851842396,
+      "conservative_certificate_lower_bound": 61,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 96,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 531108150,
+      "central_predicted_damage": 0.005166932967792521,
+      "central_predicted_scale": 5.835522469321631,
+      "central_predicted_certificates": 54,
+      "conservative_upper_scale": 6.2482123680724975,
+      "conservative_certificate_lower_bound": 53,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 96,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 529781046,
+      "central_predicted_damage": 0.007718347983630614,
+      "central_predicted_scale": 7.032729785615086,
+      "central_predicted_certificates": 51,
+      "conservative_upper_scale": 7.530086544744332,
+      "conservative_certificate_lower_bound": 50,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 96,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 529117494,
+      "central_predicted_damage": 0.009721666820251907,
+      "central_predicted_scale": 7.829314815166439,
+      "central_predicted_certificates": 49,
+      "conservative_upper_scale": 8.383006306433256,
+      "conservative_certificate_lower_bound": 45,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 96,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 528453942,
+      "central_predicted_damage": 0.012960390045703393,
+      "central_predicted_scale": 8.949334352327234,
+      "central_predicted_certificates": 41,
+      "conservative_upper_scale": 9.582233961088221,
+      "conservative_certificate_lower_bound": 38,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 96,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 527126838,
+      "central_predicted_damage": 0.024447775542074175,
+      "central_predicted_scale": 12.021328189678506,
+      "central_predicted_certificates": 26,
+      "conservative_upper_scale": 12.871480123722234,
+      "conservative_certificate_lower_bound": 23,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 530583862,
+      "central_predicted_damage": 0.0021960639860481024,
+      "central_predicted_scale": 3.920074605046938,
+      "central_predicted_certificates": 58,
+      "conservative_upper_scale": 4.16539629744341,
+      "conservative_certificate_lower_bound": 58,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 526602550,
+      "central_predicted_damage": 0.005975643144964852,
+      "central_predicted_scale": 6.243740531637613,
+      "central_predicted_certificates": 53,
+      "conservative_upper_scale": 6.6852997341553895,
+      "conservative_certificate_lower_bound": 51,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 525275446,
+      "central_predicted_damage": 0.008527058160802944,
+      "central_predicted_scale": 7.366249156914249,
+      "central_predicted_certificates": 50,
+      "conservative_upper_scale": 7.887192505984073,
+      "conservative_certificate_lower_bound": 49,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 524611894,
+      "central_predicted_damage": 0.010530376997424236,
+      "central_predicted_scale": 8.12569401651202,
+      "central_predicted_certificates": 47,
+      "conservative_upper_scale": 8.7003455337642,
+      "conservative_certificate_lower_bound": 43,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 523948342,
+      "central_predicted_damage": 0.013769100222875724,
+      "central_predicted_scale": 9.204796869602248,
+      "central_predicted_certificates": 39,
+      "conservative_upper_scale": 9.855762864182685,
+      "conservative_certificate_lower_bound": 37,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 88,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 522621238,
+      "central_predicted_damage": 0.025256485719246505,
+      "central_predicted_scale": 12.204625372868879,
+      "central_predicted_certificates": 24,
+      "conservative_upper_scale": 13.067740138667563,
+      "conservative_certificate_lower_bound": 22,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 526078262,
+      "central_predicted_damage": 0.0033358531072735786,
+      "central_predicted_scale": 4.761230390084595,
+      "central_predicted_certificates": 54,
+      "conservative_upper_scale": 5.0591923461354495,
+      "conservative_certificate_lower_bound": 54,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 522096950,
+      "central_predicted_damage": 0.007156305687472954,
+      "central_predicted_scale": 6.7897798944516525,
+      "central_predicted_certificates": 51,
+      "conservative_upper_scale": 7.269955164431836,
+      "conservative_certificate_lower_bound": 50,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 520769846,
+      "central_predicted_damage": 0.009707720703311046,
+      "central_predicted_scale": 7.824090267929702,
+      "central_predicted_certificates": 49,
+      "conservative_upper_scale": 8.377412277649412,
+      "conservative_certificate_lower_bound": 45,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 520106294,
+      "central_predicted_damage": 0.01171103953993234,
+      "central_predicted_scale": 8.537300352424344,
+      "central_predicted_certificates": 45,
+      "conservative_upper_scale": 9.141060793168107,
+      "conservative_certificate_lower_bound": 40,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 519442742,
+      "central_predicted_damage": 0.014949762765383826,
+      "central_predicted_scale": 9.563740667858227,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.240091275476882,
+      "conservative_certificate_lower_bound": 34,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 80,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 518115638,
+      "central_predicted_damage": 0.026437148261754608,
+      "central_predicted_scale": 12.466676220947763,
+      "central_predicted_certificates": 24,
+      "conservative_upper_scale": 13.348323301295796,
+      "conservative_certificate_lower_bound": 22,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 521572662,
+      "central_predicted_damage": 0.005237827077507973,
+      "central_predicted_scale": 5.872617594970523,
+      "central_predicted_certificates": 54,
+      "conservative_upper_scale": 6.240131132937542,
+      "conservative_certificate_lower_bound": 53,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 517591350,
+      "central_predicted_damage": 0.009126485417796017,
+      "central_predicted_scale": 7.602662110302965,
+      "central_predicted_certificates": 50,
+      "conservative_upper_scale": 8.140324654322388,
+      "conservative_certificate_lower_bound": 47,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 516264246,
+      "central_predicted_damage": 0.01167790043363411,
+      "central_predicted_scale": 8.52605842988397,
+      "central_predicted_certificates": 45,
+      "conservative_upper_scale": 9.129023838494904,
+      "conservative_certificate_lower_bound": 40,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 515600694,
+      "central_predicted_damage": 0.013681219270255401,
+      "central_predicted_scale": 9.177432070038005,
+      "central_predicted_certificates": 40,
+      "conservative_upper_scale": 9.826462817788217,
+      "conservative_certificate_lower_bound": 37,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 514937142,
+      "central_predicted_damage": 0.01691994249570689,
+      "central_predicted_scale": 10.130430410699777,
+      "central_predicted_certificates": 36,
+      "conservative_upper_scale": 10.846857486848181,
+      "conservative_certificate_lower_bound": 27,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 72,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 513610038,
+      "central_predicted_damage": 0.02840732799207767,
+      "central_predicted_scale": 12.890381516426775,
+      "central_predicted_certificates": 23,
+      "conservative_upper_scale": 13.80199316231469,
+      "conservative_certificate_lower_bound": 20,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 517067062,
+      "central_predicted_damage": 0.008193064481019974,
+      "central_predicted_scale": 7.230652080247122,
+      "central_predicted_certificates": 50,
+      "conservative_upper_scale": 7.68315260234753,
+      "conservative_certificate_lower_bound": 49,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 513085750,
+      "central_predicted_damage": 0.012187699147221754,
+      "central_predicted_scale": 8.697153660531926,
+      "central_predicted_certificates": 43,
+      "conservative_upper_scale": 9.312218975155398,
+      "conservative_certificate_lower_bound": 39,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 511095094,
+      "central_predicted_damage": 0.016742432999681138,
+      "central_predicted_scale": 10.08087171528018,
+      "central_predicted_certificates": 36,
+      "conservative_upper_scale": 10.793793985628849,
+      "conservative_certificate_lower_bound": 29,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 510431542,
+      "central_predicted_damage": 0.019981156225132624,
+      "central_predicted_scale": 10.944865616725055,
+      "central_predicted_certificates": 27,
+      "conservative_upper_scale": 11.718889794843454,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 509104438,
+      "central_predicted_damage": 0.03146854172150341,
+      "central_predicted_scale": 13.518637376080571,
+      "central_predicted_certificates": 20,
+      "conservative_upper_scale": 14.474679464739157,
+      "conservative_certificate_lower_bound": 18,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 512561462,
+      "central_predicted_damage": 0.012507797218859196,
+      "central_predicted_scale": 8.8026318516869,
+      "central_predicted_certificates": 43,
+      "conservative_upper_scale": 9.35350824077875,
+      "conservative_certificate_lower_bound": 39,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 508580150,
+      "central_predicted_damage": 0.016657160409514715,
+      "central_predicted_scale": 10.05696458731079,
+      "central_predicted_certificates": 36,
+      "conservative_upper_scale": 10.768196138401159,
+      "conservative_certificate_lower_bound": 29,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 507253046,
+      "central_predicted_damage": 0.019208575425352807,
+      "central_predicted_scale": 10.74600975902475,
+      "central_predicted_certificates": 29,
+      "conservative_upper_scale": 11.505970791261728,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 506589494,
+      "central_predicted_damage": 0.021211894261974097,
+      "central_predicted_scale": 11.253330879975644,
+      "central_predicted_certificates": 27,
+      "conservative_upper_scale": 12.049169814001205,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 505925942,
+      "central_predicted_damage": 0.024450617487425587,
+      "central_predicted_scale": 12.021977961551443,
+      "central_predicted_certificates": 26,
+      "conservative_upper_scale": 12.87217584765684,
+      "conservative_certificate_lower_bound": 23,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 504598838,
+      "central_predicted_damage": 0.03593800298379637,
+      "central_predicted_scale": 14.379785860737831,
+      "central_predicted_certificates": 19,
+      "conservative_upper_scale": 15.396728628437755,
+      "conservative_certificate_lower_bound": 15,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 508055862,
+      "central_predicted_damage": 0.01877571828663349,
+      "central_predicted_scale": 10.632722051409857,
+      "central_predicted_certificates": 29,
+      "conservative_upper_scale": 11.29812708351687,
+      "conservative_certificate_lower_bound": 27,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 504074550,
+      "central_predicted_damage": 0.0231498523349841,
+      "central_predicted_scale": 11.720233599737549,
+      "central_predicted_certificates": 26,
+      "conservative_upper_scale": 12.549092034100575,
+      "conservative_certificate_lower_bound": 24,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 502747446,
+      "central_predicted_damage": 0.025701267350822194,
+      "central_predicted_scale": 12.304099818125499,
+      "central_predicted_certificates": 24,
+      "conservative_upper_scale": 13.174249446519113,
+      "conservative_certificate_lower_bound": 22,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 502083894,
+      "central_predicted_damage": 0.027704586187443488,
+      "central_predicted_scale": 12.741109650570998,
+      "central_predicted_certificates": 24,
+      "conservative_upper_scale": 13.642164745347987,
+      "conservative_certificate_lower_bound": 20,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 501420342,
+      "central_predicted_damage": 0.030943309412894974,
+      "central_predicted_scale": 13.41324608688922,
+      "central_predicted_certificates": 21,
+      "conservative_upper_scale": 14.361834871975717,
+      "conservative_certificate_lower_bound": 19,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 256,
+      "literal_standalone_scalars": 500093238,
+      "central_predicted_damage": 0.04243069490926576,
+      "central_predicted_scale": 15.534258744869058,
+      "central_predicted_certificates": 15,
+      "conservative_upper_scale": 16.63284618109138,
+      "conservative_certificate_lower_bound": 14,
+      "strictly_improves_43_certificate_frontier": false
+    }
+  ],
+  "strict_frontier_improvers": [],
+  "best_cheaper_rows_by_conservative_certificate_count": [
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 508580150,
+      "central_predicted_damage": 0.016657160409514715,
+      "central_predicted_scale": 10.05696458731079,
+      "central_predicted_certificates": 36,
+      "conservative_upper_scale": 10.768196138401159,
+      "conservative_certificate_lower_bound": 29,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 511095094,
+      "central_predicted_damage": 0.016742432999681138,
+      "central_predicted_scale": 10.08087171528018,
+      "central_predicted_certificates": 36,
+      "conservative_upper_scale": 10.793793985628849,
+      "conservative_certificate_lower_bound": 29,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 508055862,
+      "central_predicted_damage": 0.01877571828663349,
+      "central_predicted_scale": 10.632722051409857,
+      "central_predicted_certificates": 29,
+      "conservative_upper_scale": 11.29812708351687,
+      "conservative_certificate_lower_bound": 27,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 448,
+      "literal_standalone_scalars": 506589494,
+      "central_predicted_damage": 0.021211894261974097,
+      "central_predicted_scale": 11.253330879975644,
+      "central_predicted_certificates": 27,
+      "conservative_upper_scale": 12.049169814001205,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 56,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 507253046,
+      "central_predicted_damage": 0.019208575425352807,
+      "central_predicted_scale": 10.74600975902475,
+      "central_predicted_certificates": 29,
+      "conservative_upper_scale": 11.505970791261728,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 64,
+      "mlp0_rank": 384,
+      "literal_standalone_scalars": 510431542,
+      "central_predicted_damage": 0.019981156225132624,
+      "central_predicted_scale": 10.944865616725055,
+      "central_predicted_certificates": 27,
+      "conservative_upper_scale": 11.718889794843454,
+      "conservative_certificate_lower_bound": 26,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    {
+      "qk_rank": 48,
+      "mlp0_rank": 640,
+      "literal_standalone_scalars": 504074550,
+      "central_predicted_damage": 0.0231498523349841,
+      "central_predicted_scale": 11.720233599737549,
+      "central_predicted_certificates": 26,
+      "conservative_upper_scale": 12.549092034100575,
+      "conservative_certificate_lower_bound": 24,
+      "strictly_improves_43_certificate_frontier": false
+    }
+  ],
+  "minimum_price_by_conservative_certificate_bar": {
+    "43": {
+      "qk_rank": 64,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 517067062,
+      "central_predicted_damage": 0.008193064481019974,
+      "central_predicted_scale": 7.230652080247122,
+      "central_predicted_certificates": 50,
+      "conservative_upper_scale": 7.68315260234753,
+      "conservative_certificate_lower_bound": 49,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "40": {
+      "qk_rank": 72,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 516264246,
+      "central_predicted_damage": 0.01167790043363411,
+      "central_predicted_scale": 8.52605842988397,
+      "central_predicted_certificates": 45,
+      "conservative_upper_scale": 9.129023838494904,
+      "conservative_certificate_lower_bound": 40,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "38": {
+      "qk_rank": 56,
+      "mlp0_rank": "native",
+      "literal_standalone_scalars": 512561462,
+      "central_predicted_damage": 0.012507797218859196,
+      "central_predicted_scale": 8.8026318516869,
+      "central_predicted_certificates": 43,
+      "conservative_upper_scale": 9.35350824077875,
+      "conservative_certificate_lower_bound": 39,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "34": {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    },
+    "30": {
+      "qk_rank": 64,
+      "mlp0_rank": 512,
+      "literal_standalone_scalars": 511758646,
+      "central_predicted_damage": 0.014739114163059844,
+      "central_predicted_scale": 9.500841716304793,
+      "central_predicted_certificates": 38,
+      "conservative_upper_scale": 10.172744091209996,
+      "conservative_certificate_lower_bound": 35,
+      "strictly_improves_43_certificate_frontier": false
+    }
+  },
+  "discrete_no_improvement_at_43": true,
+  "pred_a_intensity_transfers_to_heldout_compositions": true,
+  "pred_b_tail_plus_tax_predicts_end_to_end_counts": true,
+  "pred_c_discrete_frontier_is_resolved": true,
+  "null_allocator_is_not_predictive": false,
+  "scope_warning": "No theorem outside the enumerated calibrated ranks or QK/MLP0 families; conservative bound is empirical heldout error, not a probabilistic guarantee.",
+  "runtime_s": 3.602104902267456
+}
