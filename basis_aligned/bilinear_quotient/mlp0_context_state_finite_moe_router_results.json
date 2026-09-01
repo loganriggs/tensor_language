@@ -1,0 +1,142 @@
+{
+  "status": "mlp0_context_state_finite_moe_router_complete",
+  "rung": 359,
+  "claim_level": "live_context_state_two_fit_two_corpus_equal_price_screen_only",
+  "program": {
+    "states": 4,
+    "expert_rank": 128,
+    "router": "center_then_pca32_normalize_then_nearest_of_four_centroids",
+    "router_mean_scalars": 1152,
+    "router_projection_scalars": 36864,
+    "router_centroid_scalars": 128,
+    "literal_mlp0_scalars": 10656128,
+    "global_control_prices": {
+      "515": 10649088,
+      "516": 10659456
+    }
+  },
+  "fit": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_a": [
+      0,
+      48
+    ],
+    "fit_b": [
+      48,
+      96
+    ],
+    "kmeans_counts_a": [
+      5136,
+      1846,
+      3494,
+      1812
+    ],
+    "kmeans_counts_b": [
+      2811,
+      4040,
+      3525,
+      1912
+    ],
+    "kmeans_fractions_a": [
+      0.41796875,
+      0.15022786458333334,
+      0.2843424479166667,
+      0.1474609375
+    ],
+    "kmeans_fractions_b": [
+      0.228759765625,
+      0.3287760416666667,
+      0.286865234375,
+      0.15559895833333334
+    ],
+    "random_centroid_counts_a": [
+      2416,
+      3379,
+      2569,
+      3924
+    ],
+    "random_centroid_feasible_seed_a": 36901,
+    "live_route_reproduction": true
+  },
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_rows_half_open": [
+      80,
+      120
+    ],
+    "wikitext103_train_token_span_half_open": [
+      123360,
+      133640
+    ],
+    "dataset_fingerprint": "7dabb830ac9ebb0d",
+    "source_token_count": 675457
+  },
+  "row_damage_summaries": {
+    "kmeans_fit_a": {
+      "fineweb": {
+        "mean": 0.042441928386688234,
+        "p95": 0.07900830507278439,
+        "max": 0.11454129219055176
+      },
+      "wikitext": {
+        "mean": 0.060624736547470096,
+        "p95": 0.1254074692726134,
+        "max": 0.20551300048828125
+      }
+    },
+    "kmeans_fit_b": {
+      "fineweb": {
+        "mean": 0.03603862524032593,
+        "p95": 0.07569714784622189,
+        "max": 0.09338212013244629
+      },
+      "wikitext": {
+        "mean": 0.07511278986930847,
+        "p95": 0.16334724426269523,
+        "max": 0.22667217254638672
+      }
+    },
+    "random_centroid_fit_a": {
+      "fineweb": {
+        "mean": 0.044564008712768555,
+        "p95": 0.08999778032302853,
+        "max": 0.11789894104003906
+      },
+      "wikitext": {
+        "mean": 0.0598549485206604,
+        "p95": 0.12491705417633053,
+        "max": 0.2127699851989746
+      }
+    },
+    "global_p515": {
+      "fineweb": {
+        "mean": 0.0015869855880737305,
+        "p95": 0.01347283124923706,
+        "max": 0.02474212646484375
+      },
+      "wikitext": {
+        "mean": 0.0030972063541412354,
+        "p95": 0.021414768695831293,
+        "max": 0.028145313262939453
+      }
+    },
+    "global_p516": {
+      "fineweb": {
+        "mean": 0.0015560567378997802,
+        "p95": 0.0134066104888916,
+        "max": 0.025049686431884766
+      },
+      "wikitext": {
+        "mean": 0.0029364585876464843,
+        "p95": 0.021049976348876946,
+        "max": 0.027849674224853516
+      }
+    }
+  },
+  "pred_a_context_router_beats_cheaper_global_mean": false,
+  "pred_b_context_router_beats_cheaper_global_tails": false,
+  "pred_c_states_are_live_balanced_stable_and_nonrandom": false,
+  "null_context_router_has_no_equal_price_advantage": true,
+  "stop_rule": "no_state_rank_pca_or_cluster_tuning_after_result",
+  "runtime_s": 15.705793142318726
+}

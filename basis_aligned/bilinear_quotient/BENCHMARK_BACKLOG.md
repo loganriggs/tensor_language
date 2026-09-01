@@ -3834,3 +3834,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL HELD, null false. Every adopted point has a nonempty
     interval. Uniform16 transitions at 11.581/16.909/26.272/43.840/64.004/
     84.732B tokens from qk56 through native; literal bytes equal uniform32.
+
+359. [CODEX, board-claimed 07:43Z] CONTEXT-STATE FINITE-MOE FALSIFIER:
+    four nearest-centroid states in live MLP0-input PCA32, four fixed p128
+    experts, literal router price; p515/p516 shared and random-centroid controls.
+    -> ops/mlp0_context_state_finite_moe_router.py
