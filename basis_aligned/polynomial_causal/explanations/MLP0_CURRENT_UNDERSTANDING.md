@@ -1,9 +1,8 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-28. Compiler-v2.1's sealed final evaluation is complete and
-negative at the registered joint-composition gate. The dossier below incorporates
-that result and motivates the matched local-loss versus suffix-loss transport test;
-no whole-model executable claim is made.*
+*Last updated: 2026-09-01. Compiler-v2.1's sealed final evaluation is complete and
+negative at the registered joint-composition gate. Rungs 394–401 subsequently closed the token-only anatomy and
+established an exact natural-context causal grammar; no whole-model executable claim is made from that attribution.*
 
 *2026-09-01 addendum: rung394 exhaustively measured the token-only bias-free-write removal response for all
 50,257 tokens. The new result is summarized in §13 below and supersedes the “small correction” intuition without
@@ -1094,6 +1093,40 @@ degree-one, grouping, and reader-weighted compression routes are closed. Attenti
 reads broad token-private Q. Retain exact Q rather than tune ranks. The next program must reuse the existing exact
 TT/X/CC real-context factorial and connect this length-one token anatomy to X and CC under new crossed controls.
 
+## 14. Exact natural-context causal grammar (2026-09-01)
+
+Rungs400–401 performed that connection without repeating the old TT/X/CC assay. Write the pre-normalization MLP0
+state as token ray `e` plus attention0 context write `a`, and define the bilinear MLP map
+
+`T(u,v) = Down((Left u) * (Right v))`.
+
+For `G(e,a)=T(e+a,e+a)`, independently crossing the fitting token and context distributions gives the exact
+functional ANOVA `G=mu+FT(e)+FC(a)+FTC(e,a)`. After restoring the observed normalization, the four intervened roles
+are fixed-gain token main `T`, fixed-gain context main `C`, centered token×context interaction `I`, and observed
+normalization-gain modulation `S`. The actual normalized vector has a small non-scalar residual
+`r=z-s(e+a)`; retaining
+
+`R=T(s(e+a),r)+T(r,s(e+a))+T(r,r)`
+
+in every arm makes the identity exact rather than treating BF16 error as semantics. The repaired analytical relative
+MSE is `2.88e-13` on FIT and `2.89e-13` on SELECT. It reproduces every rung400 arm CE and every Shapley value exactly.
+
+The held-out SELECT Shapley CE benefits are `I=1.53753`, `T=1.49833`, `C=.41773`, and `S=.06749` nats; FIT gives the
+same signs and order. Combined context-dependent contribution `C+I+S=2.02275` exceeds token main `T=1.49833`.
+The preregistered standalone-context bar `C>=.50` honestly failed. The supported conclusion is therefore not “a
+large additive context write,” but that context acts chiefly through the bilinear token×context interaction. This is
+exact causal attribution, not compression: all 15,926,400 native MLP0 values remain in use, no FINAL rows were opened,
+and no replacement is licensed.
+
+The length-one `M/L/Q` and natural-context `T/C/I/S` decompositions answer different levels of the same mechanism.
+At length one, attention0 is deterministic in the current token, so `M/L/Q` describes the complete token-fed
+function. On natural text, `T` is the token effect averaged over independently crossed contexts, while `I` is the
+additional computation that a particular attention0 context induces for a particular token. Rung401 prospectively
+selects `I` as the next branch because it is largest on both document splits. The next legal interpretation step is
+to audit prior attention0 work, then resolve `I` into attention-head/source-position contributions and validate the
+largest terms physically; a complementary adoption link is to measure which branch the already adopted rank448
+MLP0 context projection preserves or damages.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1108,3 +1141,4 @@ TT/X/CC real-context factorial and connect this length-one token anatomy to X an
 - `explanation_2026-09-01_1421.md`
 - `explanation_2026-09-01_1432.md`
 - `explanation_2026-09-01_1441.md`
+- `explanation_2026-09-01_1502.md`
