@@ -3815,3 +3815,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL HELD, null false. QK ray R2 .999452 and zero
     leave-one-rank count MAE; combo cosine/R2/count .998523/.989801/27-vs-29;
     value .997734/.983549/45-vs-46. Shape identified; prospective scale pending.
+
+357. [CODEX, board-claimed 07:36Z] PROSPECTIVE CERTIFICATE-CONSTRAINED ALLOCATOR:
+    fit ray intensity from damage on pure QK + mixed104/MLP saved CEVs;
+    hold out every QK+MLP construction; combine with measured tail-law
+    components/tax envelope and enumerate exact-price calibrated-rank grid.
+    -> ops/certificate_constrained_waterfilling_allocator.py
