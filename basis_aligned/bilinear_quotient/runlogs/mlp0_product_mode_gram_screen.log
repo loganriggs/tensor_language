@@ -1,0 +1,52 @@
+{
+  "status": "mlp0_product_mode_gram_screen_complete",
+  "rung": 382,
+  "claim_level": "product_mode_width_gram_closure_screen_only",
+  "tensor_definition": "M[u,v]=(d_u.d_v)*<sym(l_u,r_u),sym(l_v,r_v)>_C",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_a": [
+    0,
+    24
+  ],
+  "fit_b": [
+    24,
+    48
+  ],
+  "dimensions": {
+    "d": 1152,
+    "product_width": 4608
+  },
+  "widths": [
+    576,
+    1152,
+    2304,
+    3456
+  ],
+  "context_b_retained_energy": {
+    "576": 0.293183296918869,
+    "1152": 0.4310985803604126,
+    "2304": 0.6587068438529968,
+    "3456": 0.8496880531311035
+  },
+  "context_a_retained_energy": {
+    "576": 0.29225414991378784,
+    "1152": 0.4307704269886017,
+    "2304": 0.6594358086585999,
+    "3456": 0.8504754304885864
+  },
+  "trace_product_mode": 192962784.0,
+  "trace_output_mode_independent": 282011744.0,
+  "trace_relative_error": 0.31576330381475176,
+  "min_eigenvalue": 3701.298828125,
+  "max_eigenvalue": 6802499.0,
+  "split_top2304_overlap": 0.829229474067688,
+  "frozen_grid_corner_prices": {
+    "r512_k1152_p768": 3540096,
+    "r768_k2304_p768": 7079040
+  },
+  "license_determination": "all k<3456 corners closed; calibration build must use k>=3456",
+  "pred_a_gram_instrument_identities_hold": false,
+  "pred_b_spectrum_decreasing_and_split_stable": true,
+  "pred_c_product_mode_flatter_than_output_mode": true,
+  "null_product_gram_instrument_fails": true
+}

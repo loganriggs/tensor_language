@@ -1,4 +1,4 @@
-"""RUNG 382 -- MLP0 PRODUCT-MODE (WIDTH) GRAM SCREEN.
+"""RUNG 383 -- MLP0 PRODUCT-MODE (WIDTH) GRAM SCREEN.
 
 Border-rank-style closure instrument for the joint Tucker-core grid
 (MATHEMATICAL_REVIEW_2026-09-01_1000.md): compute the exact 4608x4608
@@ -9,9 +9,10 @@ Tucker/CP core needs in this metric.
 
 Frozen predictions
 ------------------
-pred_a (instrument): M is PSD (min eig >= -1e-6 * max eig) and trace(M)
-    matches the independently computed output-mode Gram trace within
-    rel 1e-3 under context-B.
+pred_a (instrument): M is PSD (min eig >= -1e-6 * max eig) and the ENTRY
+    SUM of M matches the independently computed output-mode Gram trace
+    within rel 1e-3 under context-B (corrected identity; rung 382 froze the
+    wrong trace form and fired its own null -- see #2479).
 pred_b (transfer): eigenvalue mass strictly decreasing across
     k in {576,1152,2304,3456}; context A/B top-2304 subspace overlap >= .70.
 pred_c (registered prediction): the product mode is FLATTER than the output
@@ -133,8 +134,9 @@ def main() -> None:
     _va, retained_a, basis_a = _spectrum(gram_a)
 
     trace_product = float(gram_b.trace())
+    entry_sum_product = float(gram_b.sum())
     trace_output = _output_gram_trace(left, right, down, context_b)
-    trace_rel_err = abs(trace_product - trace_output) / max(abs(trace_output), 1e-30)
+    trace_rel_err = abs(entry_sum_product - trace_output) / max(abs(trace_output), 1e-30)
     min_eig = float(values_b[-1])
     max_eig = float(values_b[0])
     psd_ok = min_eig >= -1e-6 * max_eig
@@ -156,7 +158,7 @@ def main() -> None:
 
     result = {
         "status": "mlp0_product_mode_gram_screen_complete",
-        "rung": 382,
+        "rung": 383,
         "claim_level": "product_mode_width_gram_closure_screen_only",
         "tensor_definition": "M[u,v]=(d_u.d_v)*<sym(l_u,r_u),sym(l_v,r_v)>_C",
         "fit_cache": CACHE.name, "fit_a": list(FIT_A), "fit_b": list(FIT_B),
@@ -164,7 +166,8 @@ def main() -> None:
         "widths": list(WIDTHS),
         "context_b_retained_energy": retained_b,
         "context_a_retained_energy": retained_a,
-        "trace_product_mode": trace_product,
+        "trace_product_mode_diagonal": trace_product,
+        "entry_sum_product_mode": entry_sum_product,
         "trace_output_mode_independent": trace_output,
         "trace_relative_error": trace_rel_err,
         "min_eigenvalue": min_eig, "max_eigenvalue": max_eig,
