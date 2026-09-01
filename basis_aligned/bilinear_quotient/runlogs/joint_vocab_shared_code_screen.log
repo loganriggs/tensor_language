@@ -1,0 +1,27 @@
+s=0 r_ind=25 price=0.511 | FW shared/ind +1.8582/+4.4963 | WT shared/ind +1.6021/+4.3281
+s=128 r_ind=153 price=0.568 | FW shared/ind +1.1784/+3.2393 | WT shared/ind +1.0615/+3.2705
+s=256 r_ind=281 price=0.625 | FW shared/ind +0.9849/+2.5111 | WT shared/ind +0.8855/+2.7757
+s=512 r_ind=537 price=0.739 | FW shared/ind +0.7430/+1.7377 | WT shared/ind +0.6474/+2.0295
+{
+  "price": {
+    "native_vocab_scalars": 115900416,
+    "price_ceiling_25pct_saving": 86925312,
+    "max_shared_residual_rank_at_ceiling": 537,
+    "shared_formula": "50304*1152 + 1152^2 + s*(50304+1152)",
+    "independent_formula": "50304*1152 + r*(50304+1152)"
+  },
+  "full_map_output_weight_r2": 0.33243951712757736,
+  "native_ce": {
+    "fineweb": 2.9420975625637302,
+    "wikitext": 3.985010023045419
+  },
+  "best_rank": 512,
+  "predicates": [
+    false,
+    true,
+    true
+  ],
+  "null": true,
+  "runtime_s": 7.473639249801636
+}
+JOINT VOCAB SHARED CODE SCREEN DONE
