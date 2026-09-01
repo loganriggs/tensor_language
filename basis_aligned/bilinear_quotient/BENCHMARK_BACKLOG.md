@@ -2989,3 +2989,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     knockout's (era rho -0.21). First manipulability win.
 
 265. MANIPULABILITY II: same at m13. -> ops/ko_transfer_m13.py [QUEUED 00:40Z]
+    RUN 2026-09-01, S2365: 1/3 - own ratio 1.319 held; collateral rho
+    0.649 and census 0.1027 failed. Signal-to-floor law proposed:
+    small components' collateral sits inside the compression floor.
+    Test pair = 266 (m17, big) / 267 (m14, small).
+
+266. Signal-to-floor test, BIG arm: m17 knockout in the mixed config
+    (own-mean 2.52): pred_a own ratio in [0.7,1.6]; pred_b Spearman >=
+    0.8; pred_c census in [0.5,5]. Null: rho < 0.7 despite huge signal.
+    -> ops/ko_transfer_m17.py [QUEUED 01:03Z]
+
+267. Signal-to-floor test, SMALL arm: m14 (own-mean 0.596): pred_a own
+    ratio in [0.7,1.6]; pred_b Spearman < 0.8 (degradation predicted);
+    pred_c census in [0.08,0.5]. Null: rho >= 0.85 (floor hypothesis
+    dies). -> ops/ko_transfer_m14.py [QUEUED 01:03Z]

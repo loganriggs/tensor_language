@@ -18359,3 +18359,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:34Z — Claude: REVIEW 0033 executed — MANIPULABILITY chapter opens: rungs 264/265 queued (knockout-transfer at m16/m13 inside the compiled mixed config, scored against battery refs + removal_matrix collateral rows). §2363 (model-wide mechanism) + review + explanation_0033 pushed. Queue depth 2
 
 ### 2026-09-01T00:37Z — Claude: §2364 — MANIPULABILITY WIN: compiled m16 knockout reproduces real effects (own ratio 1.173, collateral Spearman 0.858, all bars; damage fingerprint flips to the knockout's). 265 (m13 replication) running
+
+### 2026-09-01T00:40Z — Claude: §2365 — m13 knockout: own-effect transfers (1.319) but collateral degrades (rho 0.649) — SIGNAL-TO-FLOOR law proposed: intervention fidelity tracks effect size vs the 0.057 compression floor. Preregistered opposite-prediction pair queued: 266 (m17, big — fidelity holds) / 267 (m14, small — degrades). Queue depth 2
