@@ -4230,3 +4230,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   compact analytical identities were `2.9e-13/3.3e-13`, both endpoints and parent CEs exact, and all calls live, but
   content remains unpublished. Same-rung repair reconstructs factors from the original pinned float32 source model,
   then evaluates unchanged BF16 arms. No stored historical factor tensor exists; first receipt is commit `e40f9f57`.
+- REPAIRED RUN 2026-09-01: A/B/D held, C failed, null false. Rung328 retained energy matches exactly; parent CEs and
+  endpoint states are0.0-error; identities `~3e-13`; live calls. p448 total damage FIT/SELECT `.00712/.00564`; named
+  ordering `I>T>C>S` transports at rho1.0. SELECT Shapley `I=.00581`, `T=.00190`, `C=.00006`, `S=-.00201`,
+  AUX `=-.00012`. The compressor's error is interaction-led. Confirm on larger documents before changing metric.
+
+### Rung 404 — large-document confirmation of p448 interaction-led damage — CLAIMED
+
+- Select exactly chunk0 from each of 384 frozen, disjoint FineWeb source documents; split into four fixed96-document
+  waves and score the unchanged rung403 32-arm factorial with the same map/reference.
+- Freeze population, program, exactness, all-wave I dominance, pooled transport/concentration, auxiliary bound,
+  total-damage stability, and strong null in `MLP0_RANK448_BRANCH_LARGE_CONFIRMATION_PREREGISTRATION.md`.
+- A full pass routes to a global equal-price interaction-weighted projection; no compressor/adoption by confirmation.
