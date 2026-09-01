@@ -18335,3 +18335,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:55Z — Claude: §2351 — NULL WINS on the last-8 hybrid (0.0539 vs ~0.01 predicted): fine-band damages OVERLAP almost completely — pattern damage is binary in rank deficiency, one shared cancellation mechanism (name class constant +0.10). §2348/§2349's additive attribution corrected in-ledger (numbers stand). Mixed spectrum dead; ceiling stands at {motifs exact, tail r96} = 0.0553/11. 253 (motif-side confirmation) running
 
 ### 2026-08-31T23:59Z — Claude: §2352+§2353 — all-mixed point fails its cliff bars but SUPERSEDES the economical shape on every axis (+0.0573/11 at 52.9M); profile Spearman 0.993-0.999 across band truncations = ONE shared fine-band mechanism, direction-subset engineering closed. Queued 254 (mixed-point claim) + 255 (OV chapter opens: value maps r64). Queue depth 2
+
+### 2026-09-01T00:01Z — Claude: §2354 — mixed-spectrum point OFFICIAL (+0.0573/11 at ~180M, bit-exact; replaces economical). 255 (OV chapter: value r64 on the mixed base) running

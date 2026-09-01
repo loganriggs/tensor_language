@@ -2903,6 +2903,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 254. Registered claim: mixed-spectrum point (supersedes economical):
     |census-0.0573|<=0.015; valid >= 11; |L2F-0.0584|<=0.015.
     -> ops/frontier_claim_mixed.py [QUEUED 00:28Z]
+    RUN 2026-09-01, S2354: ALL HELD, bit-exact - mixed-spectrum point
+    official (+0.0573/11/~180M); replaces economical. (Cosmetic pred_c
+    label bug noted; builder rule upgraded.)
 
 255. OV CHAPTER OPENS: value maps r64 at all replaced heads on the
     mixed base (+~9.0M factors): pred_a census <= 0.075; pred_b valid
