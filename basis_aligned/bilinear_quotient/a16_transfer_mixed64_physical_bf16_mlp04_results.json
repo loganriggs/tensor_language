@@ -1,0 +1,64 @@
+{
+  "status": "a16_transfer_mixed64_physical_bf16_mlp04_complete",
+  "rung": 413,
+  "claim_level": "final_original_native_signed_physical_all_two_byte_adoption_gate",
+  "convention": "signed effect = KO CE minus unablated CE within original-native and compiled models",
+  "native_ko_measured_before_global_rounding": true,
+  "unablated_census_damage": 0.012331083416938782,
+  "unablated_certificates_valid": 43,
+  "unablated_shifted_damage_row_max": 0.06309712678194046,
+  "live_unablated_fresh_damage": 0.0077,
+  "effect_cosine": 0.9865219593048096,
+  "effect_normalized_error": 0.19160784780979156,
+  "effect_norm_ratio": 1.0860706567764282,
+  "collateral_spearman": 0.9957143068313599,
+  "own_effect_median_ratio": 1.0854692770420613,
+  "own_effect_ratios": [
+    1.0571076858490038,
+    1.0664540672558236,
+    1.0719511933388028,
+    1.078982835976555,
+    1.0813906978424326,
+    1.083387859895811,
+    1.0854692770420613,
+    1.0927610594468034,
+    1.0932475870405285,
+    1.1002672009592334,
+    1.1030744589247417,
+    1.1079897456211916,
+    1.1086073532717686
+  ],
+  "global_storage_dtype": "source-fp32_to_bfloat16; source-bfloat16_exact",
+  "qk_storage_dtype": "float16",
+  "qk_rank": 64,
+  "qk_factorized_maps": 440,
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "literal_standalone_scalars": 511758646,
+  "literal_raw_tensor_bytes": 1023517292,
+  "runtime_s": 129.05303406715393,
+  "generated_mlp_program_dtypes": {
+    "0": {
+      "bias": "torch.bfloat16",
+      "down": "torch.bfloat16",
+      "encoder": "torch.bfloat16",
+      "left": "torch.bfloat16",
+      "right": "torch.bfloat16"
+    },
+    "4": {
+      "bias": "torch.bfloat16",
+      "down": "torch.bfloat16",
+      "encoder": "torch.bfloat16",
+      "left": "torch.bfloat16",
+      "right": "torch.bfloat16"
+    }
+  },
+  "generated_mlp_program_scalars": 26544384,
+  "generated_mlp_program_bytes": 53088768,
+  "pred_a_physical_baseline_identity_and_bill_hold": true,
+  "pred_b_original_native_signed_effect_holds": true,
+  "pred_c_circuit_profile_holds": true,
+  "null_physical_all_two_byte_signed_transport_fails": false
+}
