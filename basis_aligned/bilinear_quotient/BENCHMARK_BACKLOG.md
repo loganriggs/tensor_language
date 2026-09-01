@@ -3660,3 +3660,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     identical a16 mean ablation against saved rung334 CEV, direct signed
     vector/collateral/own effects, live dual identities and 529,117,494 bill.
     -> ops/a16_transfer_mixed96_context_qk_mlp0_p448.py
+
+336. [CODEX, board-claimed 06:24Z] CONTEXT-QK88 PHYSICAL + OOD:
+    fixed split-B covariance, rank88 at all 440 Q/K maps, census/certs/fresh,
+    untouched WikiText skip180000 tails, exact 530,583,862 bill and saved CEV.
+    -> ops/mixed88_context_metric_qk_ood.py
