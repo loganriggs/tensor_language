@@ -916,7 +916,23 @@ def main():
             _abl_handle=m.transformer.h[16].attn.register_forward_hook(SEL['_ablh'])
             SEL['abl_on']=True
         try:
-            SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
+            _variants=SEL.get('final_mlp_projector_variants')
+            if _variants:
+                _primary=str(SEL.get('final_mlp_primary_variant'))
+                if _primary not in _variants:
+                    raise ValueError(f'final_mlp_primary_variant {_primary!r} not in variants')
+                SEL['_final_mlp_variant_cevs']={}
+                SEL['_final_mlp_variant_observed']={}
+                for _name,_projectors in _variants.items():
+                    SEL['final_mlp_projectors']=_projectors
+                    _value=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
+                    SEL['_final_mlp_variant_cevs'][str(_name)]=_value
+                    SEL['_final_mlp_variant_observed'][str(_name)]=dict(
+                        SEL.get('_final_mlp_projectors_observed',{}))
+                SEL['final_mlp_projectors']=_variants[_primary]
+                SEL['cev']=SEL['_final_mlp_variant_cevs'][_primary]
+            else:
+                SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
         finally:
             if SEL.get('ablate_on_census'):
                 SEL['abl_on']=False

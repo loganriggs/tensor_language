@@ -3435,3 +3435,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2407: ALL HELD, null false. Means .0589/.0600/.0477;
     p95 .1027/.1002/.0997; maxima .1539/.1421/.1208; spread .0123.
     Advance exact composition with adopted mixed104 plus certs/bill/tripwires.
+
+310. [CODEX, board-claimed 03:59Z] MIXED104 + FIXED PCA TRIPLE COMPOSITION:
+    final-only physical PCA hooks {0,8,17}:256 inside adopted mixed104 online-c_v0;
+    census, 62 certs, fresh8, exact identities, proposed 528,093,494 bill.
+    -> ops/mixed104_online_cv0_pca_fixed_triple.py
+    RUN 2026-09-01, S2408: pred_b/c held, pred_a failed, null false. Census
+    +.06745057, MLP surcharge +.06275862, fresh max +.0687, all identities live;
+    but only 8/62 certificates. Not adopted. Test exactly three two-layer subsets.

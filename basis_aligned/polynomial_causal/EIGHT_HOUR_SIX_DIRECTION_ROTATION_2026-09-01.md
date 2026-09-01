@@ -321,3 +321,15 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   tonight to clear a prospectively frozen broad transfer screen at a literal 11,501,568-scalar saving.
 - Decision: advance to composition with adopted mixed104 online-c_v0, census/certificates, and exact active-object
   tripwires. Proposed combined bill is 528,093,494 scalars, pending the live integration audit.
+
+### `04:05 UTC` — exploit checkpoint `310`
+
+- Result: physical composition landed census `+.06745057`, a `+.06275862` surcharge over adopted mixed104,
+  inside the frozen range. Fresh8 was `[+.0570,+.0687,+.0562,+.0649,+.0604,+.0578,+.0277,+.0519]`.
+  Exact `{0,8,17}:256`, mixed104 QK indices/width, active sets, and no-table tripwires passed. Proposed live bill
+  is **528,093,494 scalars / 1,996,431,980 bytes**. But only **8/62** certificates survived versus >=10.
+  pred_b/c held, pred_a failed; strong null false.
+- Information gained: storage and aggregate/fresh prediction compose nearly additively, while circuit thresholds
+  collapse from 54 to 8. This is the same certificate sensitivity seen in compute top-k, now for low-rank MLPs.
+- Decision: do not adopt triple. Test the three two-layer subsets in one frozen mixed104 rebuild; ask whether one
+  recovers certificate thresholds disproportionately at 7,667,712-scalar saving. No further layer search.

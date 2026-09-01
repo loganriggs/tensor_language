@@ -367,3 +367,15 @@ scalar than the adopted QK program, and composition taxes are the central risk. 
 three factorized MLP Down maps with mixed104 online-c_v0. If the dependencies are disjoint, the proposed standalone
 bill is `539,595,062 - 11,501,568 = 528,093,494` scalars. That number is not adopted until live active-set checks,
 census, all 62 certificates, fresh windows, and a standalone dependency audit agree.
+
+## Physical composition checkpoint: prediction composes, certificates collapse (04:05 UTC)
+
+The combined program is physically coherent. Census damage is `+.06745`; subtracting adopted mixed104's
+`+.00469` gives an MLP surcharge `+.06276`, consistent with the standalone triple. Every fresh window remains
+below `+.069`, and all exact projector/QK/active-object tripwires pass. The standalone arithmetic is therefore
+`528,093,494` scalars and `1,996,431,980` raw bytes.
+
+The blocker is manipulability: only 8 of 62 certificates survive, missing the preregistered 10 and collapsing far
+below the parent's 54. The triple is not adopted. One final capacity frontier tests its three two-layer subsets in
+the same frozen mixed104 rebuild. If a pair restores certificate thresholds at a useful rate, it may earn fresh/OOD
+confirmation; otherwise MLP compression closes as prediction-cheap but certificate-expensive.
