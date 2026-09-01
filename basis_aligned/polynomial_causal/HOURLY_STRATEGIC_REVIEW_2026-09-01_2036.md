@@ -59,3 +59,58 @@ any semantic name or adoption claim.
 
 This review changes no registered rung-430 bar, arm, seed, split, or objective. The number was repaired after the
 review because the red-team lane had already claimed and executed rungs 428 and 429; no scientific content changed.
+
+## 20:45 addendum — user correction: simplicity is validated by its consequences
+
+The user correctly objected to wording that treated fewer parameters or bytes as the definition of simplicity.
+The repository already has the stronger contract in `SIMPLICITY_CONSEQUENCE_VALIDATION_V1.md`, `FORMALISM.md`, and
+the MLP0 dossier: **a simplicity measure earns trust only when its ordering predicts a named useful consequence on
+untouched data at matched causal fidelity**. “Smaller” without that consequence is bookkeeping.
+
+The project should therefore keep two objects separate:
+
+1. `K(P)`, a vector of candidate resource/structure measures—standalone and amortized bits, operations, sequential
+   depth, gauge-quotiented dimension, interface capacity, graph locality, conditioning, and certificate status;
+2. `Y(P)`, the consequences the proposed kind of simplicity promises.
+
+For the user's current goal, the primary consequence vector is:
+
+- **OOD prediction/generalization:** a circuit description learned on one document/token population predicts
+  activations, behavior, and intervention effects on unseen documents, shifted corpora, and held-out token classes;
+- **circuit extraction:** a small declared set of variables/edges predicts a named behavior above difficulty- and
+  shuffle-matched controls, including signed responses rather than only activation correlation;
+- **selective circuit removal:** intervening on those variables reproduces the native target effect while changes to
+  unrelated, non-descendant circuits remain below a preregistered collateral bound.
+
+Composition and reuse are supporting requirements, not merely extra aesthetic goals. If two extracted circuits
+cannot be installed or edited together with predictable effects, the representation has not separated their causal
+dependencies. If one subprogram is reused across several circuits, its amortized price and intervention semantics
+must be shared consistently rather than copied or redefined. Composition therefore tests whether extracted parts
+are actual modules; reuse tests whether a proposed shared abstraction remains the same object across consumers.
+
+Operationally, compare candidate measures only after matching validation causal distortion:
+
+`C_j(P) < C_j(Q)` and `D_val(P) approximately D_val(Q)` must predict `Y_j(P) > Y_j(Q)` on untouched tests.
+
+Different measures may win for different promises: bytes can predict storage, sparse typed graphs may predict edit
+locality, causal-interface dimension may predict intervention transport, and prequential description length may
+predict data efficiency. No one scalar is assumed to dominate. A candidate can stay on a storage frontier while
+failing circuit usefulness, but it must be called storage compression—not a simpler interpretable program.
+
+### Consequence for the live attention0 route
+
+The direct continuous six/six/32 generator remains the next construction, but its acceptance ladder is amended at
+the project level, not by changing any already-frozen rung:
+
+1. independence and real execution: no native generator calls, complete producer/decoder price;
+2. matched causal fidelity: fresh-document output, consumer responses, CE, and gauge invariance;
+3. OOD transport: a second corpus or code distribution and held-out token/offset families;
+4. extraction: predict at least one held-out named attention0 behavior from the proposed interface;
+5. selective removal: remove that behavior with a native-matched signed target effect and bounded unrelated-circuit
+   collateral;
+6. composition/reuse: jointly install with the current frontier and predict interaction effects before measurement.
+
+Thus a smaller physical continuous generator would be only a storage/execution result after steps 1–2. It becomes
+evidence for the user's desired kind of simplicity only when the same representation makes steps 3–6 work better
+than matched-fidelity ordinary rank, the sparse generator, and difficulty-matched controls. Future hourly reviews
+will report these consequence ledgers explicitly rather than using “simpler” as shorthand for fewer bytes.
