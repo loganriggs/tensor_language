@@ -25,3 +25,19 @@ L1 (+38 heads): C +0.2280 | fresh +0.2107
   window 0 (7 docs): L2 fresh +0.0436
   window 1 (42 docs): L2 fresh +0.0496
   window 2 (17 docs): L2 fresh +0.0626
+  window 3 (23 docs): L2 fresh +0.0461
+  window 4 (43 docs): L2 fresh +0.0466
+  window 5 (26 docs): L2 fresh +0.0521
+  window 6 (35 docs): L2 fresh +0.0346
+  window 7 (35 docs): L2 fresh +0.0436
+L2 empirical: C +0.0430 | fresh +0.0584 | tail-attn increment -0.1523
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.177 bclose:-0.012 newline:+0.057 sentend:+0.030 comma:+0.072 name:+0.782 rep:+0.073 subword:+1.017 ind:+0.076 other:+0.162
+  era Spearman vs rung-132: -0.2141 over 62
+  median member/ref ratio 1.351; tau-curve {'0.5': 1, '1.0': 13, '1.5': 32, '2.0': 48, '3.0': 54}
+L2 fresh +0.0584 (was +1.8765); census +0.2429 (was +1.9474); increment -0.1523; valid 1/62
+(a) BASELINE-INDEPENDENT - subtracted own 0.726 in [0.5, 1.0]: HELD
+(b) subtracted collateral Spearman 0.941 >= 0.85: HELD
+(c) ablated census +0.2429 in [0.2, 5.0]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ko_m16_corner_results.json (129s)

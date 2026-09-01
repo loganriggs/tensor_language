@@ -3078,6 +3078,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 272. ADDITIVITY CONTROL: m16 on corner (mixed subtracted 0.755/0.934):
     pred_a in [0.50, 1.00]; pred_b >= 0.85; pred_c [0.2, 5.0].
     -> ops/ko_m16_corner.py [QUEUED 01:05Z]
+    RUN 2026-09-01, S2372: pre-declared INVALID (dead knob, S2371);
+    bars void, nothing scored.
 
 273. ADDITIVITY CONTROL v2: m13 on the TRUE corner config (corner
     lineage + live L2F tripwire): pred_a subtracted own in [0.24,0.74];
@@ -3088,3 +3090,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 274. ADDITIVITY CONTROL v2: m16 on corner (mixed subtracted 0.755/
     0.934): pred_a in [0.50,1.00]; pred_b >= 0.85; pred_c [0.2,5.0].
     -> ops/ko_m16_corner2.py [QUEUED 01:20Z]
+
+275. cev-dump repro: frontier (corner+tail-r96) with the per-position
+    damage vector saved (bars = the S2347 repro claims, unchanged).
+    Registered follow-up bar (math review 0107): cosine(d_ct96, d_t120)
+    >= 0.95 = rank-one mechanism. -> ops/cevdump_ct96.py [QUEUED 01:10Z]
+
+276. cev-dump repro: corner+tail-r120 (bars = S2349 cliff preds,
+    unchanged). -> ops/cevdump_t120.py [QUEUED 01:10Z]
