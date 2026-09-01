@@ -3148,6 +3148,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b valid >= 12; pred_c range + cev saved. NULL (the flip):
     census >= 0.04 - the "mechanism" is path cost.
     -> ops/path_full.py [QUEUED 01:24Z]
+    RUN 2026-09-01, S2381: NULL WINS - full-rank path costs +0.0520
+    (pred_a/b FAILED as registered). Flip pending 282's independent-
+    lineage confirmation; 283 bounds harness leakage.
 
 282. PATH CONTROL II (corner lineage, independent implementation):
     same bars; disagreement with 281 by > 0.01 = lineage bug.

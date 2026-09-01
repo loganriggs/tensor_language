@@ -78,12 +78,21 @@ def native_states(rows):
 
 
 @torch.no_grad()
-def score_state(hstate, targets, base_ce, leaves, refs):
+def score_rank(compiled, native, targets, base_ce, leaves, refs, rank, mx, my, w, u):
     ces = []
-    for i in range(0, hstate.shape[0], 2048):
-        h = hstate[i:i + 2048].to(C.DEV, dtype=torch.float32)
+    residual_sse = 0.0
+    native_delta_sse = 0.0
+    for i in range(0, compiled.shape[0], 2048):
+        x = compiled[i:i + 2048].to(C.DEV, dtype=torch.float32)
+        h_native = native[i:i + x.shape[0]].to(C.DEV, dtype=torch.float32)
+        correction = my
+        if rank:
+            correction = correction + ((x - mx) @ w[:, :rank]) @ u[:, :rank].T
+        h = x + correction
+        residual_sse += float((h - h_native).square().sum())
+        native_delta_sse += float((x - h_native).square().sum())
         logits = 30 * torch.tanh(C.m.lm_head(h) / 30)
-        ce = F.cross_entropy(logits, targets[i:i + h.shape[0]].to(C.DEV), reduction='none')
+        ce = F.cross_entropy(logits, targets[i:i + x.shape[0]].to(C.DEV), reduction='none')
         ces.append(ce.cpu())
     d = torch.cat(ces).float() - base_ce
     valid = 0
@@ -92,7 +101,9 @@ def score_state(hstate, targets, base_ce, leaves, refs):
         val = float(d[member].abs().mean())
         member_abs[tag] = round(val, 6)
         valid += int(val < 0.5 * refs[tag])
-    return d, valid, member_abs
+    nscalar = compiled.shape[0] * D
+    return d, valid, member_abs, (residual_sse / nscalar) ** 0.5, \
+        (residual_sse / max(native_delta_sse, 1e-30)) ** 0.5
 
 
 @torch.no_grad()
@@ -142,8 +153,8 @@ def main():
     explained = evals.flip(0).clamp_min(0)
     explained = torch.cumsum(explained, 0) / explained.sum().clamp_min(1e-12)
 
-    eval_compiled = compiled[nfit:].float()
-    eval_native = native[nfit:].float()
+    eval_compiled = compiled[nfit:]
+    eval_native = native[nfit:]
     targets = census[:, 1:257].reshape(-1).long()
     assert targets.numel() == nflat
 
@@ -163,24 +174,21 @@ def main():
 
     baseline_d = compiled_ce[nfit:] - base_ce
     baseline_damage = float(baseline_d.mean())
+    del xfit, yfit, xc, yc, gram, cov_y, evals, evecs, z
+    torch.cuda.empty_cache()
     arms = {}
     for rank in RANKS:
-        if rank == 0:
-            corrected = eval_compiled + my.cpu()
-        else:
-            wr = w[:, :rank].cpu()
-            ur = u[:, :rank].cpu()
-            corrected = eval_compiled + my.cpu() + ((eval_compiled - mx.cpu()) @ wr) @ ur.T
-        d, valid, member_abs = score_state(corrected, targets, base_ce, leaves, refs)
-        residual = corrected - eval_native
-        native_delta = eval_compiled - eval_native
+        d, valid, member_abs, state_rmse, state_fraction = score_rank(
+            eval_compiled, eval_native, targets, base_ce, leaves, refs,
+            rank, mx, my, w, u,
+        )
         arms[str(rank)] = {
             'price_values': D * (2 * rank + 1),
             'multiplies_per_token': 2 * D * rank,
             'census_damage': round(float(d.mean()), 7),
             'certificates_valid': valid,
-            'state_rmse': round(float(residual.square().mean().sqrt()), 7),
-            'state_error_fraction': round(float(residual.norm() / native_delta.norm()), 7),
+            'state_rmse': round(state_rmse, 7),
+            'state_error_fraction': round(state_fraction, 7),
             'member_abs_dce': member_abs,
         }
         print(f"rank {rank:2d}: damage {arms[str(rank)]['census_damage']:+.6f}, "
