@@ -1,0 +1,90 @@
+{
+  "status": "mlp0_token_identity_transport_complete",
+  "rung": 395,
+  "claim_level": "exhaustive_token_private_identity_transport_and_causal_decomposition_screen",
+  "population": {
+    "real_tokens": 50257,
+    "fit_tokens": 40205,
+    "heldout_tokens": 10052,
+    "split": "token_id_mod5"
+  },
+  "maps": {
+    "type": "full linear with intercept and ridge=1; diagnostic, not compressed",
+    "raw_to_write_heldout_r2": 0.3969634771347046,
+    "write_to_raw_heldout_r2": 0.2274295687675476,
+    "shuffled_write_to_raw_heldout_r2": -0.02946925163269043,
+    "orthogonal_procrustes": {
+      "heldout_r2": -0.21854746341705322,
+      "heldout_mean_cosine": 0.38690197467803955,
+      "heldout_median_cosine": 0.39203178882598877
+    },
+    "stored_scalars_per_direction": 1328256
+  },
+  "token_retrieval_from_mlp0_write": {
+    "top1_accuracy": 0.9041981695185037,
+    "top5_accuracy": 0.9623955431754875,
+    "mean_reciprocal_rank": 0.9306761392122049
+  },
+  "shuffled_pair_token_retrieval": {
+    "top1_accuracy": 0.0,
+    "top5_accuracy": 0.0,
+    "mean_reciprocal_rank": 0.00016240418213762424
+  },
+  "causal_component_injection": {
+    "identity_attention1": {
+      "r2": 0.9257018566131592,
+      "cosine": 0.9786609411239624,
+      "norm_ratio": 1.1577565670013428
+    },
+    "identity_mlp1": {
+      "r2": 0.9717293381690979,
+      "cosine": 0.9860411882400513,
+      "norm_ratio": 1.009452223777771
+    },
+    "identity_joint": {
+      "r2": 0.9716930389404297,
+      "cosine": 0.9860261678695679,
+      "norm_ratio": 1.0095775127410889
+    },
+    "residual_attention1": {
+      "r2": -0.04575538635253906,
+      "cosine": 0.07825706154108047,
+      "norm_ratio": 0.30602794885635376
+    },
+    "residual_mlp1": {
+      "r2": 0.24724632501602173,
+      "cosine": 0.5702193379402161,
+      "norm_ratio": 0.8493317365646362
+    },
+    "residual_joint": {
+      "r2": 0.24701547622680664,
+      "cosine": 0.5699877142906189,
+      "norm_ratio": 0.849040687084198
+    }
+  },
+  "identity_residual_decomposition": {
+    "native_write_spectrum": {
+      "rank80": 345,
+      "rank90": 574,
+      "rank95": 765,
+      "participation_rank": 73.09197998046875
+    },
+    "residual_write_spectrum": {
+      "rank80": 502,
+      "rank90": 710,
+      "rank95": 869,
+      "participation_rank": 290.8828430175781
+    },
+    "residual_to_native_participation_rank_ratio": 3.979682081335138,
+    "residual_only_joint_response_norm_ratio": 0.849040687084198,
+    "identity_plus_residual_action_reconstruction_max_error": 9.5367431640625e-07
+  },
+  "pred_a_mlp0_write_linearly_recovers_exact_token_identity": false,
+  "pred_b_raw_token_linearly_predicts_mlp0_write": false,
+  "pred_c_identity_component_carries_downstream_response": true,
+  "pred_d_residual_is_smaller_shared_feature_target": false,
+  "null_no_token_identity_transport": false,
+  "private_token_identity_transport_identified": false,
+  "residual_feature_program_licensed": false,
+  "runtime_s": 4.943133592605591
+}
