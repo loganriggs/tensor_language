@@ -2998,6 +2998,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (own-mean 2.52): pred_a own ratio in [0.7,1.6]; pred_b Spearman >=
     0.8; pred_c census in [0.5,5]. Null: rho < 0.7 despite huge signal.
     -> ops/ko_transfer_m17.py [QUEUED 01:03Z]
+    RUN 2026-09-01, S2366: 1/3 - own ratio 0.987 (perfect transfer);
+    collateral rho 0.761 (missed 0.8 by 0.039), census 0.485 (missed
+    floor by 0.015). Fidelity NOT monotone in signal (m16 0.858 > m17
+    0.761). Law verdict deferred to m14.
 
 267. Signal-to-floor test, SMALL arm: m14 (own-mean 0.596): pred_a own
     ratio in [0.7,1.6]; pred_b Spearman < 0.8 (degradation predicted);

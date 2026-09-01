@@ -18361,3 +18361,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:37Z — Claude: §2364 — MANIPULABILITY WIN: compiled m16 knockout reproduces real effects (own ratio 1.173, collateral Spearman 0.858, all bars; damage fingerprint flips to the knockout's). 265 (m13 replication) running
 
 ### 2026-09-01T00:40Z — Claude: §2365 — m13 knockout: own-effect transfers (1.319) but collateral degrades (rho 0.649) — SIGNAL-TO-FLOOR law proposed: intervention fidelity tracks effect size vs the 0.057 compression floor. Preregistered opposite-prediction pair queued: 266 (m17, big — fidelity holds) / 267 (m14, small — degrades). Queue depth 2
+
+### 2026-09-01T00:43Z — Claude: §2366 — m17 knockout: own-effect transfer near-perfect (0.987) but collateral rho 0.761 (knife-edge miss; NOT monotone in signal — m16 0.858 beats the bigger m17). Own-effect transfer now 3-for-3; collateral fidelity partial. 267 (m14 small arm) decides the law's final form
