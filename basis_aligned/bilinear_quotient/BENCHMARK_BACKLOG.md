@@ -4519,3 +4519,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
   source, output-file, tensor, bank, and receipt hashes pass; no model or consequence access occurred.
 - A/B/C/D true, null false. Next preregister exact teaching-family signed-removal/composition harness and bars before
   any of35 teaching candidates run. These rows are candidate-consequence fresh, not globally virgin or OOD.
+
+### Rung 448 — MLP0 context-input removal/composition teaching labels — COMPLETE / ALL HELD
+
+- Deterministically rebuild the five rank256/384/448/512/640 MLP0 context-input programs from the frozen24-row fit
+  prefix. On96 TEACHING rows, compare their per-token CE effect under a native attention16 mean knockout and their
+  physical composition with the independent14,984-value MLP16 rank2 program.
+- The instrument is exact/live: native replay max0; native removal norm26.364; candidate/partner/knockout dispatch
+  counts360/144/144. The SEALED_CONFIRMATION role remains unopened.
+- Removal normalized error falls monotonically `.14949,.10608,.09090,.07714,.05650`; composition error falls
+  `.15650,.12944,.11643,.10467,.08293`. Rank-vs-lower-error Spearman is1.0 for both, spans are.09299/.07358, and
+  both orderings reproduce at Spearman1.0 across the two fixed48-row waves.
+- A/B/C/D true, strong null false. Count MLP0-context as one eligible teaching family; generate the seven MLP-PCA
+  and23 vocabulary labels next. This is causal-label generation, not a learned predictor, semantic explanation,
+  compression, or adoption result.

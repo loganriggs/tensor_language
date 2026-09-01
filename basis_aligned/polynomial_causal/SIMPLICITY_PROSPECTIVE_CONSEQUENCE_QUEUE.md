@@ -40,9 +40,11 @@ written separately and joined only by hash-bound candidate IDs.
    manifest supplies35 teaching candidates across vocabulary, MLP-PCA, and MLP0-context families, plus10 sparse-Q/K
    attention0 candidates in a sealed fourth family. All45 map to hash-pinned rebuild sources; candidate IDs and
    whole-family roles are frozen before new consequence generation.
-2. **Teaching-family consequence generation.** On new frozen rows, measure one common distant attention16 signed
-   knockout and composition with the physical MLP16 rank2 program for the35 teaching candidates. Keep labels in a
-   physically separate file.
+2. **Teaching-family consequence generation — active;5/35 candidates complete at rung448.** On new frozen rows,
+   measure one common distant attention16 signed knockout and composition with the physical MLP16 rank2 program for
+   the35 teaching candidates. The five MLP0 context-input ranks passed the family-eligibility gate with monotone,
+   two-wave-stable removal and composition errors. Keep labels in a physically separate file; vocabulary23 and
+   MLP-PCA7 remain queued rather than silently dropped.
 3. **Consequence-specific rule fitting.** Fit removal and composition predictors only on the three teaching families,
    choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
    uncertainty rule, and hashes before the attention0 label file exists.
