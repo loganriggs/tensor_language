@@ -393,3 +393,29 @@ lies in the expected aggregate-loss band. The next test buys rank rather than se
 rank 384 and 512 on the frozen best pair at equal layer identities. This measures the certificate/scalar frontier
 directly. If higher rank cannot restore certificates faster than its storage cost, the honest outcome is a
 certificate-grade identification tier plus a lower-fidelity compression tier, not another adoption claim.
+
+## Rank frontier: certificates are a thresholded one-dimensional damage law (04:19 UTC)
+
+On the fixed `{8,17}` pair, rank 384 lands at `+.03379` with `24/62` certificates and 6,193,152 scalars saved;
+rank 512 lands at `+.02490` with `32/62` and 4,718,592 saved. The frontier is monotone, but neither the registered
+rank-specific certificate bar nor the required certificate recovery per returned scalar holds.
+
+The stronger result comes from a prospective CPU calculation made before those two counts were visible. For every
+certificate, I regressed its absolute member damage on whole-census damage using only the adopted parent, the three
+rank-256 pairs, and the rank-256 triple. Median per-certificate R2 was `.947`. At census damage `.025`, this frozen
+62-threshold model predicts exactly **32** valid certificates—the subsequently observed rank-512 count. Thus the
+battery is close to a single common damage coordinate followed by 62 different thresholds. Buying ordinary PCA
+rank moves down that coordinate; it does not change direction.
+
+One qualitatively different falsifier remains. At the same rank256 and same `{8,17}` price, reserve 32 or 64 output
+dimensions for certificate-loss gradient directions orthogonal to the leading activation-PCA space. Fit gradients
+using one frozen half of tags and only 16 explicitly removed census rows; score the other tag half after excluding
+those rows. The mathematical bound is
+
+$$
+|g^T(I-QQ^T)(y-\mu)| \leq \|(I-QQ^T)g\|\,\|(I-QQ^T)(y-\mu)\|.
+$$
+
+Ordinary PCA minimizes only the second factor. The hybrid sacrifices some activation variance to reduce the first.
+It advances only if it beats both plain PCA and the already-frozen one-dimensional threshold prediction on held-out
+tags. Otherwise the MLP campaign closes with a two-tier result.

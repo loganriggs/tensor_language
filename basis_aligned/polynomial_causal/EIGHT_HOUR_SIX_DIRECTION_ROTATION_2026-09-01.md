@@ -346,3 +346,17 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
 - Decision: stop subset search. Measure ranks 384 and 512 on the fixed `{8,17}` pair in one rebuild, with literal
   prices and certificates. This directly tests whether capacity buys certificates efficiently before attempting a
   constraint-aware basis or accepting a two-tier identification/compression result.
+
+### `04:19 UTC` — exploit checkpoint `312`
+
+- Result: fixed `{8,17}` rank384 scored `+.033793/24` and saved 6,193,152 scalars; rank512 scored
+  `+.024899/32` and saved 4,718,592. The curve was monotone, but neither rank crossed its frozen certificate bar
+  and neither recovered certificates at the required rate per returned scalar. pred_b held; pred_a/c failed;
+  strong null false.
+- Mathematical check: a per-certificate affine regression on the five prior parent/pair/triple configs had median
+  R2 `.947`; at census `+.025` it predicted exactly 32 valid certificates before rank512 finished. The battery is
+  approximately one shared damage coordinate with tag-specific thresholds.
+- Decision: stop rank and layer-frontier search. Run one same-rank, same-price basis falsifier that reserves 32/64
+  directions for certificate-loss gradients orthogonal to the leading PCA basis, fitted on split tags/removed rows.
+  Require held-out certificate improvement beyond the frozen one-dimensional prediction. A miss closes MLP
+  adoption work and yields the two-tier morning conclusion.

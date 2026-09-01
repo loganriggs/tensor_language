@@ -3452,3 +3452,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     `{0,17}` +.04970/17, `{8,17}` +.04726/19. No pair reaches the frozen
     20-certificate bar or improves the triple-normalized price/damage tradeoff.
     Stop subset search; test a fixed-pair rank frontier.
+
+312. [CODEX, board-claimed 04:12Z] FIXED `{8,17}` PCA RANK FRONTIER:
+    compare ranks 256/384/512 in one rebuild with exact prices and certificates.
+    -> ops/mixed104_pca_fixed_pair_rank_frontier.py
+    RUN 2026-09-01, S2410: pred_b only, null false. r256 +.04726/19 certs,
+    r384 +.03379/24, r512 +.02490/32; savings 7.67M/6.19M/4.72M.
+    Capacity is monotone but misses both certificate/scalar bars. Stop rank sweep;
+    test one split-tag certificate-gradient hybrid at equal r256 price.
