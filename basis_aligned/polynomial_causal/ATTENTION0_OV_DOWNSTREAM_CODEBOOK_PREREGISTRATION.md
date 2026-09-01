@@ -1,6 +1,6 @@
 # Attention0 OV downstream-codebook preregistration
 
-Date: 2026-09-01 19:05 UTC
+Date: 2026-09-01 18:50 UTC
 
 ## Claim and why this is not another head-clustering run
 
