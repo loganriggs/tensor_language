@@ -1,0 +1,476 @@
+{
+  "status": "mlp0_centered_context_anova_exact_residual_complete",
+  "rung": 401,
+  "claim_level": "exact_context_causal_attribution_not_compression",
+  "definition": {
+    "T": "fixed-gain centered token main effect",
+    "C": "fixed-gain centered continuous-context main effect",
+    "I": "fixed-gain centered token-context bilinear interaction",
+    "S": "observed RMS-gain modulation of the complete numerator"
+  },
+  "documents": {
+    "FIT": 96,
+    "SELECT": 96,
+    "FINAL_opened": 0
+  },
+  "positions_per_document": 192,
+  "literal_diagnostic_storage": {
+    "native_values_reused": 15926400,
+    "reference_values_added": 5761,
+    "compression_claim": false
+  },
+  "reference": {
+    "gain_mean": 0.003969388082623482,
+    "fit_positions": 24576,
+    "fit_gain_mean": 0.003969388082623482,
+    "fit_gain_p05": 0.002696550451219082,
+    "fit_gain_p95": 0.00528460368514061
+  },
+  "roles": {
+    "FIT": {
+      "pooled_ce": {
+        "EMPTY": 6.440321321288745,
+        "T": 3.2300656338532767,
+        "C": 5.501225200792153,
+        "T+C": 3.1448741952578225,
+        "I": 3.212507697443167,
+        "T+I": 3.0868867188692093,
+        "C+I": 3.1516730735699334,
+        "T+C+I": 3.065124601125717,
+        "S": 6.134008909265201,
+        "T+S": 3.373309617241224,
+        "C+S": 5.4713306079308195,
+        "T+C+S": 3.1802481189370155,
+        "I+S": 3.2889096761743226,
+        "T+I+S": 3.1385134384036064,
+        "C+I+S": 3.1451193218429885,
+        "T+C+I+S": 3.0642469177643457
+      },
+      "full_minus_empty_ce_benefit": 3.3760744035243992,
+      "shapley_ce_benefit": {
+        "T": 1.4703402291569447,
+        "C": 0.3506171881324717,
+        "I": 1.500835984117455,
+        "S": 0.0542810021175278
+      },
+      "mobius_negative_ce": {
+        "EMPTY": -6.440321321288745,
+        "T": 3.210255687435468,
+        "C": 0.9390961204965915,
+        "T+C": -0.8539046819011373,
+        "I": 3.2278136238455777,
+        "T+I": -3.0846347088615103,
+        "C+I": -0.8782614966233577,
+        "T+C+I": 0.8148321757713957,
+        "S": 0.3063124120235443,
+        "T+S": -0.4495563954114914,
+        "C+S": -0.2764178191622104,
+        "T+C+S": 0.38428787887096494,
+        "I+S": -0.3827143907546997,
+        "T+I+S": 0.47433165460824966,
+        "C+I+S": 0.3593735496203099,
+        "T+C+I+S": -0.41473920643329487
+      },
+      "component_gram_per_position": [
+        [
+          698414081.5605674,
+          -2856656.619854468,
+          -27250840.182410542,
+          -8144631.312121319
+        ],
+        [
+          -2856656.619854468,
+          497238031.3600023,
+          -78065613.47390333,
+          -164164597.77707633
+        ],
+        [
+          -27250840.182410542,
+          -78065613.47390333,
+          628213810.5187811,
+          -77059558.44581978
+        ],
+        [
+          -8144631.312121319,
+          -164164597.77707633,
+          -77059558.44581978,
+          199120878.1042642
+        ]
+      ],
+      "component_correlations": [
+        [
+          1.0,
+          -0.004847517404787135,
+          -0.04114050926472064,
+          -0.021840196258162765
+        ],
+        [
+          -0.004847517404787135,
+          1.0,
+          -0.13967666851771487,
+          -0.5217217452051557
+        ],
+        [
+          -0.04114050926472064,
+          -0.13967666851771487,
+          0.9999999999999998,
+          -0.21787850013869528
+        ],
+        [
+          -0.021840196258162765,
+          -0.5217217452051557,
+          -0.21787850013869528,
+          1.0000000000000002
+        ]
+      ],
+      "diagnostics": {
+        "analytical_identity_relative_mse": 2.880660898401011e-13,
+        "deployed_bf16_residual_relative_mse": 5.4729486833627624e-06,
+        "mean_state_collinearity_relative_mse": 5.889218338476591e-06,
+        "max_state_collinearity_relative_mse": 1.0316976840840653e-05,
+        "live_census": true
+      },
+      "calls": {
+        "EMPTY": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    },
+    "SELECT": {
+      "pooled_ce": {
+        "EMPTY": 6.48068789144357,
+        "T": 3.1369058142105737,
+        "C": 5.29975522061189,
+        "T+C": 3.0447599925100803,
+        "I": 3.1047912960251174,
+        "T+I": 2.983716825644175,
+        "C+I": 3.0445199385285378,
+        "T+C+I": 2.960374139249325,
+        "S": 6.126224651932716,
+        "T+S": 3.2568425461649895,
+        "C+S": 5.299217507243156,
+        "T+C+S": 3.0851410627365112,
+        "I+S": 3.173799604177475,
+        "T+I+S": 3.0139332935214043,
+        "C+I+S": 3.0413107772668204,
+        "T+C+I+S": 2.9596006025870643
+      },
+      "full_minus_empty_ce_benefit": 3.521087288856506,
+      "shapley_ce_benefit": {
+        "T": 1.4983347595358891,
+        "C": 0.4177294504932231,
+        "I": 1.5375301934157806,
+        "S": 0.06749288541161336
+      },
+      "mobius_negative_ce": {
+        "EMPTY": -6.48068789144357,
+        "T": 3.3437820772329965,
+        "C": 1.1809326708316803,
+        "T+C": -1.088786849131187,
+        "I": 3.3758965954184528,
+        "T+I": -3.222707606852054,
+        "C+I": -1.1206613133351007,
+        "T+C+I": 1.0518581780294571,
+        "S": 0.3544632395108538,
+        "T+S": -0.4743999714652696,
+        "C+S": -0.35392552614212036,
+        "T+C+S": 0.4334811878701057,
+        "I+S": -0.4234715476632114,
+        "T+I+S": 0.513191811740398,
+        "C+I+S": 0.42614299555619484,
+        "T+C+I+S": -0.47470865274468954
+      },
+      "component_gram_per_position": [
+        [
+          706467858.0089586,
+          -854728.2193271697,
+          -29502323.81758668,
+          -11423943.181707405
+        ],
+        [
+          -854728.2193271697,
+          491530281.181422,
+          -80237928.42724971,
+          -153230494.04871368
+        ],
+        [
+          -29502323.81758668,
+          -80237928.42724971,
+          647812828.8232359,
+          -81791711.96520972
+        ],
+        [
+          -11423943.181707405,
+          -153230494.04871368,
+          -81791711.96520972,
+          191701554.62932482
+        ]
+      ],
+      "component_correlations": [
+        [
+          1.0,
+          -0.0014504631501957477,
+          -0.04360991594325071,
+          -0.031042523114380452
+        ],
+        [
+          -0.0014504631501957477,
+          1.0000000000000002,
+          -0.14219351709432607,
+          -0.4991800789098256
+        ],
+        [
+          -0.04360991594325071,
+          -0.14219351709432607,
+          1.0000000000000002,
+          -0.232098166066651
+        ],
+        [
+          -0.031042523114380452,
+          -0.4991800789098256,
+          -0.232098166066651,
+          1.0
+        ]
+      ],
+      "diagnostics": {
+        "analytical_identity_relative_mse": 2.8909664464570613e-13,
+        "deployed_bf16_residual_relative_mse": 5.479348817800967e-06,
+        "mean_state_collinearity_relative_mse": 5.88669954974345e-06,
+        "max_state_collinearity_relative_mse": 1.0563462637946941e-05,
+        "live_census": true
+      },
+      "calls": {
+        "EMPTY": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    }
+  },
+  "transport": {
+    "signs_match": true,
+    "fit_order": [
+      "I",
+      "T",
+      "C",
+      "S"
+    ],
+    "select_order": [
+      "I",
+      "T",
+      "C",
+      "S"
+    ],
+    "rank_order_matches": true
+  },
+  "select_combined_context_shapley": 2.022752529320617,
+  "next_context_branch_by_absolute_shapley": "I",
+  "compression_or_adoption_licensed": false,
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "runtime_s": 70.51598238945007,
+  "exact_normalization_residual": "R=T(s(e+a),r)+T(r,s(e+a))+T(r,r), r=z-s(e+a); retained in every arm",
+  "parent_rung400_result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_centered_context_anova_factorial_results.json",
+  "maximum_pooled_arm_ce_difference_vs_rung400": 0.0,
+  "maximum_shapley_difference_vs_rung400": 0.0,
+  "original_rung400_pred_b_remains_failed": true,
+  "pred_a_exact_residual_identity_and_live_census": true,
+  "pred_b_all_physical_arms_reproduce_rung400": true,
+  "pred_c_inherited_context_outcome_holds_without_bar_change": true,
+  "pred_d_fit_select_sign_and_order_transport": true,
+  "null_exact_repair_or_context_stability_fails": false,
+  "next_context_branch": "I",
+  "FINAL_opened": 0
+}
