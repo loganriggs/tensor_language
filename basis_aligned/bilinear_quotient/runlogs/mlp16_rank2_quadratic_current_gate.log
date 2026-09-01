@@ -1,19 +1,83 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 388, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 235, in main
-    clean = _build_clean(model, xb, yb, random_output=False)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 121, in _build_clean
-    form_for_direction(mlp, output_directions[index]) for index in range(R)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/experiments/structure_mapping/bilin18_identifiable.py", line 72, in form_for_direction
-    c = (mlp.Down.weight.T @ d).double()            # (4608,)
-         ~~~~~~~~~~~~~~~~~~^~~
-RuntimeError: expected scalar type Float but found Double
+{
+  "legacy": {
+    "ce": 3.4864777624607086,
+    "damage_from_recorded_baseline": 0.03073444962501526
+  },
+  "local": {
+    "clean": {
+      "heldout_r2": 0.8236806392669678,
+      "fresh_r2": 0.821777880191803
+    },
+    "random_output": {
+      "heldout_r2": -0.006174802780151367,
+      "fresh_r2": -0.00036513805389404297
+    }
+  },
+  "prices": {
+    "old_reported_layer_scalars_omitting_constant": 13832,
+    "corrected_layer_scalars": 14984,
+    "native_layer_scalars": 15926400,
+    "program_fraction_of_native_layer": 0.0009408278079164155,
+    "program_fraction_of_rung388_tucker_layer": 0.007254291380058251,
+    "native_model_scalars": 545902902,
+    "program_model_scalars": 529991486
+  },
+  "census": {
+    "clean": {
+      "damage": 0.03897828608751297,
+      "mean_absolute_position_damage": 0.18528975546360016,
+      "certificates": 27,
+      "ray_projection_scale": 11.884105138213735,
+      "ray_cosine": 0.9772206399838139,
+      "ray_vector_r2": 0.8147646746856825,
+      "ray_predicted_certificates": 26,
+      "ray_certificate_count_error": 1
+    },
+    "random_output": {
+      "damage": 0.148197740316391,
+      "mean_absolute_position_damage": 0.32141345739364624,
+      "certificates": 5,
+      "ray_projection_scale": 21.07583313056247,
+      "ray_cosine": 0.957054608430147,
+      "ray_vector_r2": 0.6539922873124997,
+      "ray_predicted_certificates": 9,
+      "ray_certificate_count_error": 4
+    }
+  },
+  "transfer": {
+    "clean": {
+      "wikitext103": {
+        "mean": 0.03966343846404641,
+        "p95": 0.07197831222397326,
+        "max": 0.09441948742824025
+      },
+      "fineweb_fresh": {
+        "mean": 0.040633669194506915,
+        "p95": 0.06292191262771141,
+        "max": 0.06633850939942931
+      }
+    },
+    "random_output": {
+      "wikitext103": {
+        "mean": 0.17319791234010182,
+        "p95": 0.2935177617549925,
+        "max": 0.3945638344521285
+      },
+      "fineweb_fresh": {
+        "mean": 0.12487526061844652,
+        "p95": 0.19003078390334094,
+        "max": 0.20400888563573005
+      }
+    }
+  },
+  "predicates": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "strong_null": false,
+  "composition_licensed": true,
+  "runtime_s": 35.925849199295044
+}
+L16 RANK2 QUADRATIC CURRENT GATE DONE
