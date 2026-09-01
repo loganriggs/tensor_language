@@ -3035,3 +3035,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     flips); pred_c census band + collateral >= 0.4. Null: overshoot
     persists (own > 1.8) - replaced-path dynamics distort.
     -> ops/ko_a16_cfgmean.py [QUEUED 01:42Z]
+    RUN 2026-09-01: CRASHED on a malformed f-string key (chr(39)
+    construction quoted the dict key) - print-line bug, no science.
+    Fixed, re-queued 01:47Z.

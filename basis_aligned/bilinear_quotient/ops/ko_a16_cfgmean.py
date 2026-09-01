@@ -862,7 +862,7 @@ def main():
         _=evalV(FW,64,order2,ML)
         _h2.remove()
         _mu2=(_cap2['s']/max(_cap2['n'],1)).clone()
-        print(f'config-frame a16 mean captured over 64 FW rows (n={int(_cap2[chr(39)+"n"+chr(39)])})',flush=True)
+        print(f"config-frame a16 mean captured over 64 FW rows (n={int(_cap2['n'])})",flush=True)
         def _ab2(mo,i_,o_):
             if not SEL.get('abl_on'): return None
             y,v1=o_
