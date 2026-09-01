@@ -1,4 +1,4 @@
-"""RUNG 286 (HELD pending path correction): target-free reduced-rank output-state repair of ct96.
+"""UNNUMBERED / PARKED: target-free reduced-rank output-state repair of ct96.
 
 WHY: ct96 and t120 have nearly collinear signed CE-damage vectors (cosine 0.984), but rung 280
 falsified the stronger universal damage-family algebra. A CE vector depends on the true next token and
