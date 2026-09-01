@@ -265,3 +265,22 @@ the `+.05` budget, but could not reject PCA rank64: its lower bound was `+.033` 
 It is retained as an instrument, not claimed as a theorem or compression result. All six directions are now ready
 for a common comparison; the leading executable route is the shared vocabulary code, with activation-PCA MLP0 as
 the secondary seed and this error law as a possible low-cost screening tool.
+
+## Common comparison and exploit choice (03:42 UTC)
+
+The audit immediately paid for itself. Rung 302's label “shuffle” was actually the complementary binary partition,
+so it could never change centroid R2. A corrected 64-permutation control preserved the classifier-level result but
+dissolved the representation-level claim: every heldout classifier beat mean shuffled accuracy by at least `.10`,
+while parenthesis R2 did not clear the shuffled 95th percentile. Predictive state is therefore retained only as a
+circuit observation and killed as a compiler route.
+
+Across all six directions, the vocabulary code is the only route with a large literal saving, an executable map,
+and a shifted-corpus advantage over a slightly cheaper matched control. Activation-PCA MLP0 is second, because its
+rank-256 program is small and predictive but untested under composition. The error power law ranks third as a cheap
+screen, not a bound. The remaining forms either failed their controls or lack an executable candidate.
+
+The exploit phase uses the small amount of room still available under a strict 25% vocabulary saving: at most
+1,129 indexed exact residual rows. A diagonal Fisher score estimates, using fit contexts only, which rare rows'
+logit errors contribute most to CE. That selection is compared prospectively against equal-price residual-norm and
+random rare-row controls on new FineWeb and WikiText windows. A pass must repair the unseen-token tail as well as
+aggregate CE; simply protecting common tokens again will not count.

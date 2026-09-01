@@ -20,8 +20,8 @@ only explicitly priced small finite router states count as a structural decompos
 | 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | COMPLETED 03:20 |
 | 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | COMPLETED 03:26 |
 | 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | COMPLETED 03:31 |
-| 08:40–09:40 | Common comparison | Completed scorecard and confound audit | IN PROGRESS (early start 03:31) |
-| 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | PENDING |
+| 08:40–09:40 | Common comparison | Completed scorecard and confound audit | COMPLETED 03:42 |
+| 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | IN PROGRESS (early start 03:42) |
 
 ## Hourly checkpoint template
 
@@ -44,7 +44,7 @@ only explicitly priced small finite router states count as a structural decompos
 | Shared MLP tensor | coefficient sharing indistinguishable from orthogonal null | 71.7M at 25%, but capacity absent | coefficient screen only | none | planted instrument valid; real null | high for arbitrary joint CP, low for reuse | kill native-atom reuse/layer mixing; leave changed-metric CP open |
 | Joint vocabulary maps | strong shared-code + frequency-metric signal | 30.28M at tested point (26.1% of vocab) | +.193 FW / +.225 Wiki screen | none | external two-corpus discriminator; fit/eval split | moderate: full census + sparse rare residual | advance; exploit hybrid rare-row correction |
 | Causal-response coordinates | predictive but dominated and split-unstable | 4.57M on MLP0 Down at r128, already beaten | response +.0875/.0616 vs PCA +.0500/.0302 | empirical suffix gradient only | overlap .283 vs PCA .683 | low | kill signed-response ranking; retain ordinary PCA baseline |
-| Predictive causal state | weak quote signal; joint bars all fail | tiny circuit interface only; no native replacement | quote acc .875, R2 .19–.24; paren transfer .625 | head13.8 separation drop only 6–7% | suffix NLL 10–12 confound | low to refine, low storage upside | park delimiter classifier; kill as compiler route |
+| Predictive causal state | classifier signal only; R2 claim withdrawn under live shuffle | tiny circuit interface only; no native replacement | quote acc .875; paren transfer .625; R2 fails shuffle-p95 | head13.8 separation drop only 6–7% | repaired control valid; suffix NLL 10–12 confound | low to refine, low storage upside | circuit classifier only; kill as compiler route |
 | Error contracts/lower bounds | transferable but loose power-law envelope | no direct win; allocator/screen only | 9/9 validation arms covered; rho .867/.917 | none | prospective split, but one module/family and 8-row windows | low for basis-conditional calibration | park as screen; cannot certify PCA r64 |
 
 ## Invariants
@@ -229,3 +229,20 @@ only explicitly priced small finite router states count as a structural decompos
   refinement if it can be validated on a new module and corpus.
 - Next direction started: common six-way scorecard and confound audit. The first audit action is to repair rung
   302's inert roll-by-three shuffled-label control before assigning any positive evidence to its R2 statistic.
+
+### `03:42 UTC` — common comparison
+
+- Corrective receipt: rung 302B replaced the complementary-label roll with 64 seeded balanced permutations.
+  The control was live. Real heldout classification exceeded mean shuffled accuracy by >=.10 for every
+  task/corpus, but real state R2 failed to exceed the shuffle 95th percentile by .05 for both parenthesis arms.
+  The R2-level state claim is withdrawn; this only strengthens the existing compiler-route kill.
+- Ranking: shared vocabulary code first; activation-PCA MLP0 second; omitted-energy law third as an instrument.
+  Changed-metric joint CP and structural MDL remain research options without earned executable wins. Native-atom
+  reuse, signed-response allocation, and predictive finite state are stopped in their tested forms.
+- Common confound audit: the vocabulary route alone combines material price, a live executable map, a shifted-
+  corpus win over a price-matched control, and a tractable next falsifier. Its rare-tail transfer and post-result
+  metric are blocking adoption issues, so the exploit must freeze new bars and populations.
+- Exploit started: exact up to 1,129 indexed rare residual rows within the 25%-saving vocabulary ceiling, selected
+  on fit data by a diagonal Fisher-error score and compared with norm-selected and random rare rows at equal price.
+
+Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.

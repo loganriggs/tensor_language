@@ -3374,3 +3374,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     calibration/validation Spearman .867/.917. The lower bound rejects two of
     three rank64 arms but not PCA r64 (+.033 bound, +.096 observed). Retain as
     a screening heuristic, not a rank certificate or theorem.
+
+302B. [CODEX, board-claimed 03:31Z] DELIMITER STATE CONTROL REPAIR:
+    replace the inert roll-by-three complement with 64 seeded balanced label
+    permutations; test both centroid R2 and disjoint-half classifier accuracy.
+    -> ops/delimiter_predictive_state_control_repair.py
+    RUN 2026-09-01, S2401: live-control and classifier bars held; R2 bar failed;
+    null false. All real classifiers beat mean shuffle by >=.10, but parenthesis
+    R2 fell below shuffle-p95. Withdraw R2-level state evidence; circuit-level
+    classifier survives. Compiler-route kill unchanged.
