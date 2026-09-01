@@ -24,3 +24,146 @@ L1 (+38 heads): C +0.2070 | fresh +0.2073
   extra eval wikitext-2-raw-v1-test-skip180000: native 3.777375 compiled 3.776497 damage -0.00087850
   window 0 (7 docs): L2 fresh +0.0000
   window 1 (42 docs): L2 fresh +0.0018
+  window 2 (17 docs): L2 fresh +0.0015
+  window 3 (23 docs): L2 fresh -0.0004
+  window 4 (43 docs): L2 fresh +0.0027
+  window 5 (26 docs): L2 fresh +0.0019
+  window 6 (35 docs): L2 fresh -0.0033
+  window 7 (35 docs): L2 fresh +0.0016
+L2 empirical: C -0.0025 | fresh +0.0019 | tail-attn increment -0.2054
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "mixed88_context_metric_qk_ood_complete",
+  "rung": 336,
+  "claim_level": "physical_context_qk88_census_ood_price_screen",
+  "convention": "compiled CE minus native CE on identical positions",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_rows_half_open": [
+    72,
+    96
+  ],
+  "dataset_fingerprint": "a46124b21ac53738",
+  "row_construction": {
+    "skip_tokens": 220000,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.0033358531072735786,
+  "surcharge_vs_context_qk96": 0.0011397891212254763,
+  "certificates_valid": 54,
+  "shifted_damage_mean": -0.0008784990641288459,
+  "shifted_damage_row_p50": -0.0009141977643594146,
+  "shifted_damage_row_p95": 0.013861240819096565,
+  "shifted_damage_row_max": 0.02613387256860733,
+  "max_fresh_damage": 0.0027,
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 80,
+  "qk_factorized_maps": 440,
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "literal_standalone_scalars": 526078262,
+  "literal_raw_tensor_bytes": 1988371052,
+  "saved_census_cev_file": "cev_mixed80_context_metric_qk.pt",
+  "pred_a_rank88_retains_high_fidelity_census_and_certificates": true,
+  "pred_b_new_shifted_ood_mean_and_tails_hold": true,
+  "pred_c_context88_identity_price_dataset_and_fresh_hold": false,
+  "null_context_qk88_crosses_cliff": false,
+  "runtime_s": 136.0532968044281
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed80_context_metric_qk_ood_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_mixed80_context_metric_qk.pt
+{
+  "status": "mixed80_context_metric_qk_ood_complete",
+  "rung": 339,
+  "claim_level": "physical_context_qk80_census_ood_price_screen",
+  "convention": "compiled CE minus native CE on identical positions",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_rows_half_open": [
+    72,
+    96
+  ],
+  "dataset_fingerprint": "a46124b21ac53738",
+  "row_construction": {
+    "skip_tokens": 220000,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.0033358531072735786,
+  "certificates_valid": 54,
+  "shifted_damage_mean": -0.0008784990641288459,
+  "shifted_damage_row_p50": -0.0009141977643594146,
+  "shifted_damage_row_p95": 0.013861240819096565,
+  "shifted_damage_row_max": 0.02613387256860733,
+  "max_fresh_damage": 0.0027,
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 80,
+  "qk_factorized_maps": 440,
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "literal_standalone_scalars": 526078262,
+  "literal_raw_tensor_bytes": 1988371052,
+  "saved_census_cev_file": "cev_mixed80_context_metric_qk.pt",
+  "runtime_s": 136.0532968044281,
+  "surcharge_vs_context_qk88": 0.0011397891212254763,
+  "pred_a_rank80_retains_high_fidelity_census_and_certificates": true,
+  "pred_b_new_shifted_ood_mean_and_tails_hold": true,
+  "pred_c_context80_identity_price_dataset_and_fresh_hold": true,
+  "null_context_qk80_crosses_cliff": false
+}
+rescored rank80 receipt at /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed80_context_metric_qk_ood_results.json
