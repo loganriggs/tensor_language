@@ -160,3 +160,20 @@ learned simplicity rule itself has a description length and must beat bytes, ran
 interface dimension, and shuffled-rule controls. This protocol is now a standing item in hourly reviews: ask not
 only for alternative program decompositions, but whether the accumulated circuit ledger can train and prospectively
 falsify a better simplicity prior without reusing held-out circuit or data roles.
+
+## 21:03 outcome addendum — raw composite bilinear generation is closed
+
+Rung 431 cleanly reproduced the rung-424 quotient and candidate independence, but MODE96 failed every useful
+fidelity scale: product relative error 10.390, full-write relative error 4.864, routed R² -4.617, and +1.032 nat CE.
+The head and permutation controls numerically diverged, so formal comparative predicates against them are not
+scientific positives. The preregistered strong null fires; do not tune this family.
+
+The mathematical reason is now concrete. For head `h`, a native branch score contains
+
+`(x W_qh)^T R_delta (y W_kh) / (128 × rms(x W_qh) × rms(y W_kh))`.
+
+Rung 431 tried to replace a mixture of these functions by raw linear query/key maps. The nine token-specific
+denominators do not combine into one bilinear form. Each squared denominator is itself a quadratic function,
+`rms(x W_h)^2 = x^T(W_h W_h^T / 128)x`, so the next tensor-network object is explicit: jointly factor the numerator
+maps and the 36 query/key quadratic normalizers, then apply reciprocal square root. This is preferable to a blind
+rank or optimizer sweep and remains separate from the archetypal score-profile identifiability experiment.
