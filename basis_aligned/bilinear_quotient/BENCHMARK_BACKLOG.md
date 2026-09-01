@@ -3863,3 +3863,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     round every source-fp32 checkpoint tensor through bf16, preserve original
     bf16 tensors; exact 2-byte/scalar bill; 40 FW + 40 new WT103 rows.
     -> ops/bilin18_universal_bf16_storage_screen.py
+    RUN 2026-09-01: ALL HELD, null false. FW mean/p95/max
+    +.000093/.001104/.001471; WT -.001133/-.000233/+.000158. Exact 218
+    tensors, dtype ledger, and 1,091,805,804-byte bill. Licenses rung363 only.
+
+363. [CODEX, conditional board-claim 07:56Z] UNIVERSAL BF16 + FP16-QK56:
+    source-aware bf16 storage for all model tensors, identical split-B
+    context-QK56 factors stored fp16, original-native census/certs/fresh and
+    next WT103 tokens174760:205600; exact 1,025,122,924-byte bill.
+
+364. [CODEX, conditional board-claim 08:00Z] ORIGINAL-NATIVE SIGNED GATE:
+    only after full rung363 pass; measure original-native a16 KO before model
+    rounding, then exact combined-program KO; tight .98/.30/.98 signed bars.

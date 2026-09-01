@@ -220,3 +220,17 @@ The independent alternatives remain alive but ranked behind this bridge: an expl
 for the promising shared vocabulary code; a vector-valued suffix-Jacobian objective for MLP0 tails; and a
 task-conditioned folded-MLP contraction/router whose state is named before fitting. The important methodological
 change is that GPU time is now for falsifying one theory-selected program, not searching a rank grid.
+
+### The larger precision axis: the entire checkpoint survives BF16 storage
+
+The factor-only result suggested a stronger orthogonal question: can every semantic tensor be stored in two
+bytes while retaining fp32 computation? A source-aware screen rounded all 487,931,904 source-fp32 scalars through
+bfloat16 and left the checkpoint's 57,970,998 source-bfloat16 scalars exact. On untouched FineWeb the mean damage
+was only `+.000093`, with maximum `+.00147`; on the next nonoverlapping WikiText span the mean was `-.00113` and
+maximum `+.00016`. All 218 tensor identities and the exact **1,091,805,804-byte** bill held.
+
+This is a 47.20% raw-tensor reduction in isolation, but it is only a screen. Before constructing a composition,
+we froze a single next test: combine source-aware BF16 storage with the already-gated rank56 Q/K program, whose
+factors remain fp16, for **512,561,462 semantic scalars and 1,025,122,924 bytes**—50.42% below native. It must still
+pass original-native census, certificate, shifted-text, fresh, exact-identity, and then signed-intervention gates.
+No layer exceptions, nearby precisions, or rank changes are permitted if the physical composition fails.

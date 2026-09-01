@@ -1,0 +1,119 @@
+ARM: universal-BF16/fp32-compute + split-B context-QK56 fp16 factors
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-56 factors built for all motif heads
+  QK rank-56 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2211 | fresh +0.2159
+  extra eval wikitext-103-raw-v1-train-skip174760: native 3.840693 compiled 3.849873 damage +0.00917977
+  window 0 (7 docs): L2 fresh +0.0018
+  window 1 (42 docs): L2 fresh +0.0047
+  window 2 (17 docs): L2 fresh +0.0054
+  window 3 (23 docs): L2 fresh +0.0046
+  window 4 (43 docs): L2 fresh +0.0066
+  window 5 (26 docs): L2 fresh +0.0064
+  window 6 (35 docs): L2 fresh +0.0001
+  window 7 (35 docs): L2 fresh +0.0053
+L2 empirical: C +0.0005 | fresh +0.0063 | tail-attn increment -0.2096
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "mixed56_universal_bf16_qk_fp16_storage_ood_complete",
+  "rung": 363,
+  "claim_level": "physical_global_bf16_plus_fp16_qk56_census_certificate_ood_screen",
+  "convention": "compiled CE minus original native CE on identical positions",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_rows_half_open": [
+    72,
+    96
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 174760,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.012611602433025837,
+  "certificates_valid": 43,
+  "shifted_damage_mean": 0.008267879965327058,
+  "shifted_damage_row_p95": 0.0409025702625513,
+  "shifted_damage_row_max": 0.052098002284765244,
+  "shifted_broad_rounding_mean": -0.0009118914604187012,
+  "shifted_structural_mean": 0.00917977142574576,
+  "max_fresh_structural_damage": 0.0066,
+  "global_storage_dtype": "source-fp32_to_bfloat16; source-bfloat16_exact",
+  "global_compute_dtype": "float32_explicit_dequantization",
+  "source_dtype_scalars": {
+    "torch.float32": 487931904,
+    "torch.bfloat16": 57970998
+  },
+  "source_bfloat16_tensors_bit_exact": true,
+  "rounded_fp32_tensors_changed": 163,
+  "rounded_fp32_scalars_changed": 487924449,
+  "qk_metric": "context_rrr",
+  "qk_storage_dtype": "float16",
+  "qk_compute_dtype": "float32_explicit_dequantization",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 56,
+  "qk_factorized_maps": 440,
+  "qk_factor_scalars": 31539200,
+  "qk_factor_tensor_dtypes": [
+    "torch.float16"
+  ],
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "literal_standalone_scalars": 512561462,
+  "literal_raw_tensor_bytes": 1025122924,
+  "byte_saving_vs_native": 1042546688,
+  "byte_saving_fraction_vs_native": 0.5042133820362013,
+  "saved_census_cev_file": "cev_mixed56_universal_bf16_qk_fp16_storage.pt",
+  "pred_a_combined_census_and_certificates_hold": true,
+  "pred_b_combined_shifted_and_fresh_transfer_hold": true,
+  "pred_c_combined_identity_and_two_byte_bill_hold": true,
+  "null_combined_precision_structure_breaks_prediction": false,
+  "runtime_s": 137.9761130809784
+}
+UNIVERSAL-BF16 + FP16-QK56 DONE
