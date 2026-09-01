@@ -259,7 +259,7 @@ def _score_role(model, rows: torch.Tensor, device: torch.device, reference: dict
                     flat = torch.stack([
                         branches[name][:, SCORING].double().reshape(-1, D)
                         for name in BRANCHES])
-                    gram += torch.einsum("and,bnd->ab", flat, flat).cpu()
+                    gram.add_(torch.einsum("and,bnd->ab", flat, flat).cpu())
                     gram_count += flat.shape[1]
                 return native - omitted.to(native.dtype)
 
