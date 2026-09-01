@@ -3362,3 +3362,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Quote transfer .875 but R2 .191/.239 and r90 5/4; paren transfer .625,
     R2 .147/.140, r90 5/5; head13.8 effect only 6-7%. Suffix NLL 10-12
     is a scope confound. Park quote classifier; kill as compression route.
+
+303. [CODEX, board-claimed 03:26Z] MLP0 PROJECTION ERROR CONTRACT:
+    fit log finite-CE damage from local omitted MLP0 output energy on eight
+    skip7000 rows; freeze residual envelope and validate across PCA/Down-SVD/
+    response bases at ranks 64/128/256 on eight skip11000 rows. Compare the
+    exponent with the historical site-1 isotropic error curve.
+    -> ops/mlp0_projection_error_contract.py
+    RUN 2026-09-01, S2400: 1/3 positive bars, null false. All 9/9 validation
+    arms covered; exponent 1.746 vs historical 1.534; interval width 3.414x;
+    calibration/validation Spearman .867/.917. The lower bound rejects two of
+    three rank64 arms but not PCA r64 (+.033 bound, +.096 observed). Retain as
+    a screening heuristic, not a rank certificate or theorem.

@@ -19,8 +19,8 @@ only explicitly priced small finite router states count as a structural decompos
 | 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | COMPLETED 03:15 |
 | 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | COMPLETED 03:20 |
 | 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | COMPLETED 03:26 |
-| 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | IN PROGRESS (early start 03:26) |
-| 08:40–09:40 | Common comparison | Completed scorecard and confound audit | PENDING |
+| 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | COMPLETED 03:31 |
+| 08:40–09:40 | Common comparison | Completed scorecard and confound audit | IN PROGRESS (early start 03:31) |
 | 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | PENDING |
 
 ## Hourly checkpoint template
@@ -45,7 +45,7 @@ only explicitly priced small finite router states count as a structural decompos
 | Joint vocabulary maps | strong shared-code + frequency-metric signal | 30.28M at tested point (26.1% of vocab) | +.193 FW / +.225 Wiki screen | none | external two-corpus discriminator; fit/eval split | moderate: full census + sparse rare residual | advance; exploit hybrid rare-row correction |
 | Causal-response coordinates | predictive but dominated and split-unstable | 4.57M on MLP0 Down at r128, already beaten | response +.0875/.0616 vs PCA +.0500/.0302 | empirical suffix gradient only | overlap .283 vs PCA .683 | low | kill signed-response ranking; retain ordinary PCA baseline |
 | Predictive causal state | weak quote signal; joint bars all fail | tiny circuit interface only; no native replacement | quote acc .875, R2 .19–.24; paren transfer .625 | head13.8 separation drop only 6–7% | suffix NLL 10–12 confound | low to refine, low storage upside | park delimiter classifier; kill as compiler route |
-| Error contracts/lower bounds | — | — | — | — | — | — | pending |
+| Error contracts/lower bounds | transferable but loose power-law envelope | no direct win; allocator/screen only | 9/9 validation arms covered; rho .867/.917 | none | prospective split, but one module/family and 8-row windows | low for basis-conditional calibration | park as screen; cannot certify PCA r64 |
 
 ## Invariants
 
@@ -200,3 +200,32 @@ only explicitly priced small finite router states count as a structural decompos
 - Next direction started: calibrate a literal empirical error interval on actual MLP0 low-rank replacements,
   fit on one fresh window and validate on another. Test whether local omitted energy provides a transferable,
   nonvacuous upper contract and an empirical rank lower bound.
+
+### `03:31 UTC` — direction `5`
+
+- Full goal restated: use mathematical error contracts to rule executable candidates in or out cheaply, but do
+  not promote an empirical correlation into a theorem or a standalone compressed program.
+- Exact object and literal price: the local relative omitted energy
+  `epsilon=sum||y-yhat||^2/sum||y-mean(y)||^2` for the nine real MLP0 projection arms (PCA, Down SVD, signed
+  response times ranks 64/128/256). Their factorized-Down prices are unchanged from rung 301; rank 128 is
+  11,355,264 scalars. A log-linear power law and residual envelope were fit on eight skip7000 rows and frozen
+  before evaluation on eight skip11000 rows.
+- Opposing predictions and frozen bars: at least 8/9 heldout coverage; interval width <=4 with Spearman >=.90
+  on both windows; and every rank-64 lower bound >+.05 while at least one rank-128 arm remains admissible.
+  Null: coverage <6/9, width >10, or either Spearman <.60.
+- Result/receipt: all 9/9 validation arms were covered. The fitted damage law was approximately
+  `delta=exp(-1.049)*epsilon^1.746` with a 3.414x envelope; the historical isotropic random-error exponent was
+  1.534. Calibration/validation Spearman was `.867/.917`. The response and weight-SVD rank-64 lower bounds
+  exceeded +.05, but PCA rank64 did not (`+.033` lower versus `+.096` observed); all rank128 lower bounds were
+  <=+.041. pred_a held, pred_b/c failed, and the strong null was false.
+- Null, confound, or identifiability limit: the same envelope transfers across disjoint natural-text windows,
+  but it pools three residual geometries and only eight rows per window. Its width is too large for the most
+  important PCA rank decision, so it is not a certificate or a universal error theorem.
+- Information gained: local omitted energy has a stable superlinear relation to CE damage for this executable
+  family, close to the older isotropic-error scaling, and can cheaply reject obviously weak bases. Residual
+  orientation still matters enough that a single scalar cannot certify the best basis.
+- Continue/kill/park decision: **park/retain** as a screening instrument; do not use it to certify rank 64 or
+  allocate whole-model error. A basis-conditional or sensitivity-weighted residual is the next mathematical
+  refinement if it can be validated on a new module and corpus.
+- Next direction started: common six-way scorecard and confound audit. The first audit action is to repair rung
+  302's inert roll-by-three shuffled-label control before assigning any positive evidence to its R2 statistic.

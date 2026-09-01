@@ -249,3 +249,19 @@ anchored object is still not a broad natural-continuation interface. The result 
 distributed circuit classifier, not a small causal state capable of replacing native computation. It is parked;
 generic Hankel expansion remains closed. The last independent direction now tests whether empirical error bounds
 can cheaply rule compression candidates in or out.
+
+## Sixth live checkpoint: executable error contract (03:31 UTC)
+
+For the nine actual MLP0 projection programs from the prior direction, I measured the fraction of centered output
+energy discarded locally and the finite end-to-end CE damage. A power law fitted only on eight skip7000 rows was
+then frozen and tested on eight different skip11000 rows. It covered all nine heldout programs. The fitted exponent
+was `1.746`, reasonably close to the old isotropic-random-error exponent `1.534`, so the relationship is not merely
+a rank label in disguise.
+
+The important limitation is width. The transferred interval spans a factor of `3.414`; calibration and validation
+rank correlations were `.867/.917`. It correctly lower-bounded the rank-64 weight-SVD and response programs above
+the `+.05` budget, but could not reject PCA rank64: its lower bound was `+.033` even though actual damage was
+`+.096`. Thus omitted energy is a good cheap screening coordinate and a bad certificate for the strongest basis.
+It is retained as an instrument, not claimed as a theorem or compression result. All six directions are now ready
+for a common comparison; the leading executable route is the shared vocabulary code, with activation-PCA MLP0 as
+the secondary seed and this error law as a possible low-cost screening tool.
