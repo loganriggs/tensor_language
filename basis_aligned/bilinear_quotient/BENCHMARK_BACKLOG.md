@@ -4383,3 +4383,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   median1.085469; exact MLP BF16 and whole bill identities. A/B/C held, null false.
 - Formal adoption restored at511,758,646 scalar values /1,023,517,292 bytes. Scope is stored tensors plus fp32
   dequantized compute, not latency or native BF16 kernels.
+### Rung 414 — physical all-two-byte sub-500M composite — COMPLETE / NEAR-MISS, NOT ADOPTED
+
+- Rebuild adopted QK64+MLP0/4-p768+factored-L16 with source-native BF16, QK fp16, both generated MLP programs BF16,
+  and all14,984 L16 values BF16; runtime dequantizes fp32. New untouched WT103 [439984,470824).
+- RUN: all identities hold at495,847,230 values/991,694,460 bytes (.92359GiB), with2,545 live L16 calls.
+  Census+.052983/17; tax/vector cosine/cert difference1.03438/.999962/0; OOD mean/p95/max
+  .047773/.086460/.134243; fresh.0125.
+- A/C/D held, B failed, strong null false. Parent-r392 CEV mean/max delta .006527/.117641; maximum exceeded frozen
+  .100. No signed gate, rerun, threshold relaxation, or adoption. Move to L17 current-harness screen.
