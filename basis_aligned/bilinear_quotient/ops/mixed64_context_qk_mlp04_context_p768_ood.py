@@ -97,9 +97,11 @@ def main() -> None:
         screen = json.loads(SCREEN.read_text())
         selected, _eligible = _selected_layers(screen)
         assert selected == EXPECTED_SELECTED and set(selected) == set(LAYERS)
-        assert 517_067_062 - SELECT_COUNT * 2_654_208 == SCALARS
+        qk_base_scalars = 517_067_062 + (QK_RANK - 64) * 563_200
+        assert qk_base_scalars - SELECT_COUNT * 2_654_208 == SCALARS
         if QK_STORAGE_DTYPE is None:
-            assert 1_952_326_252 - SELECT_COUNT * 4 * 2_654_208 == BYTES
+            qk_base_bytes = 1_952_326_252 + 4 * (QK_RANK - 64) * 563_200
+            assert qk_base_bytes - SELECT_COUNT * 4 * 2_654_208 == BYTES
         else:
             assert QK_STORAGE_DTYPE == "float16" and BYTES == 2 * SCALARS
         assert WIKI_STOP == WIKI_SKIP + N_ROWS * 257
@@ -206,7 +208,8 @@ def main() -> None:
               and metric == "context_rrr" and context_layers == QK_LAYERS
               and widths == {QK_RANK} and factor_dtypes == {EXPECTED_QK_FACTOR_DTYPE}
               and len(factor_pairs) == 440 and all(value == wanted_qk for value in index_sets.values())
-              and SCALARS == 517_067_062 - SELECT_COUNT * 2_654_208
+              and SCALARS == (517_067_062 + (QK_RANK - 64) * 563_200
+                              - SELECT_COUNT * 2_654_208)
               and BYTES > 0 and CEV.exists())
     null = census >= NULL_CENSUS or certificates <= NULL_CERTIFICATES
     result = {

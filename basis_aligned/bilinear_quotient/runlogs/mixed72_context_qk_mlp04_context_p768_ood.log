@@ -1,0 +1,167 @@
+ARM: context-QK64 + split-B context-MLP{0,4}@p768
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-72 factors built for all motif heads
+  QK rank-72 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2104 | fresh +0.2091
+  extra eval wikitext-103-raw-v1-train-skip316624: native 3.980672 compiled 3.982932 damage +0.00226023
+  window 0 (7 docs): L2 fresh +0.0041
+  window 1 (42 docs): L2 fresh +0.0086
+  window 2 (17 docs): L2 fresh +0.0118
+  window 3 (23 docs): L2 fresh +0.0077
+  window 4 (43 docs): L2 fresh +0.0089
+  window 5 (26 docs): L2 fresh +0.0093
+  window 6 (35 docs): L2 fresh -0.0013
+  window 7 (35 docs): L2 fresh +0.0075
+L2 empirical: C -0.0035 | fresh +0.0062 | tail-attn increment -0.2030
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "mixed64_context_qk_mlp04_context_p768_ood_complete",
+  "rung": 367,
+  "claim_level": "physical_selected_two_mlp_context_qk64_census_certificate_ood_screen",
+  "convention": "compiled CE minus original native CE; lower is better",
+  "selection_rule": "two smallest fit-A max among overlap>=.80 and fit-B max<=.010",
+  "selection_ranking": [
+    [
+      0.0010136663913726807,
+      4
+    ],
+    [
+      0.002253890037536621,
+      0
+    ],
+    [
+      0.0029458999633789062,
+      2
+    ],
+    [
+      0.003434509038925171,
+      5
+    ],
+    [
+      0.003966778516769409,
+      1
+    ],
+    [
+      0.004573702812194824,
+      7
+    ],
+    [
+      0.006230056285858154,
+      3
+    ],
+    [
+      0.008353978395462036,
+      6
+    ]
+  ],
+  "selected_layers_ordered": [
+    4,
+    0
+  ],
+  "mlp_fit_cache": "fineweb_n192_skip11000.pt",
+  "mlp_fit_rows_half_open": [
+    24,
+    48
+  ],
+  "mlp_fit_diagnostics": {
+    "0": {
+      "context_cov_retained_energy": 0.9689912796020508,
+      "rank": 768,
+      "context_cov_condition_after_floor": 2537.1162109375,
+      "covariance_floor": 8.174586486816406e-05
+    },
+    "4": {
+      "context_cov_retained_energy": 0.9769365787506104,
+      "rank": 768,
+      "context_cov_condition_after_floor": 14862.3173828125,
+      "covariance_floor": 0.00041547717285156247
+    }
+  },
+  "mlp_rank": 768,
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "qk_fit_rows_half_open": [
+    72,
+    96
+  ],
+  "qk_metric": "context_rrr",
+  "qk_storage_dtype": "float32",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 72,
+  "qk_factorized_maps": 440,
+  "qk_factor_tensor_dtypes": [
+    "torch.float32"
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 316624,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.009226899594068527,
+  "certificates_valid": 50,
+  "shifted_damage_mean": 0.0022602309472858906,
+  "shifted_damage_row_p95": 0.02420031828805804,
+  "shifted_damage_row_max": 0.03649335354566574,
+  "max_fresh_damage": 0.0118,
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "saved_census_cev_file": "cev_mixed72_context_qk_mlp04_context_p768.pt",
+  "literal_standalone_scalars": 516264246,
+  "literal_raw_tensor_bytes": 1949114988,
+  "saving_vs_native_scalars": 29638656,
+  "pred_a_census_and_certificate_frontier_improves": true,
+  "pred_b_shifted_ood_and_fresh_hold": true,
+  "pred_c_selection_program_identity_and_price_hold": true,
+  "null_selected_two_mlp_context_qk64_not_useful": false,
+  "runtime_s": 136.043603181839
+}
+CONTEXT-QK64 + SELECTED MLP{0,4}@P768 DONE

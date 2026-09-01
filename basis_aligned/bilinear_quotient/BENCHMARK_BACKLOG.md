@@ -3944,3 +3944,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     from inherited old scalar literal, while recorded identities/bill are
     exact; constant repaired for future use, receipt preserved, no rerun.
     Close this continuation and retain rung369 as the 43-cert frontier.
+
+373. [CODEX, board-claim 08:47Z] QK72 + SELECTED MLP{4,0}@P768:
+    prospective mid-fidelity tier using the already-frozen two-layer rule;
+    census/all62/fresh and untouched WT103 tokens316624:347464. Exact
+    516,264,246-scalar / 1,949,114,988-byte fp32 bill. Requires <=.011 and
+    >=48 certs plus frozen OOD/identity bars; no QK-rank interpolation.
+    RUN 2026-09-01: ALL FUNCTIONAL/IDENTITY BARS HELD, null false.
+    +.00922690/50, OOD .002260/.024200/.036493, fresh .0118; exact
+    516,264,246 / 1,949,114,988 bill. Generic harness status/rung/prose labels
+    remain stale 367/QK64; recorded qk_rank/maps/selection/bill are exact.
+
+374. [CODEX, conditional board-claim 08:49Z] FIXED CERTIFICATE-RAY AUDIT:
+    project saved CEV vectors for rungs367/372/373 onto rung356's frozen
+    QK-only 62-member shape; require cosine>=.95, R2>=.80 and count error<=3
+    for each, with exact count/CEV/tag/threshold reproduction. CPU only; no
+    ray refit, no threshold adjustment.
+    NO-RECEIPT CPU ATTEMPT: census_lib transitively loads the CUDA model even
+    for saved-state arithmetic. Dryrun/gate passed; enqueue identical script.
