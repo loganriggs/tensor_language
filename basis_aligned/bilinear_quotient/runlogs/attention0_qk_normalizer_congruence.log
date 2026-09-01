@@ -1,0 +1,45 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_exact_r256_common_square_impossible": true,
+    "pred_c_useful_common_congruence": false,
+    "pred_d_weaker_alignment_above_null": false,
+    "strong_null": true
+  },
+  "union_range": {
+    "numerical_rank_by_relative_singular_threshold": {
+      "1e-06": 1152,
+      "1e-08": 1152,
+      "1e-10": 1152
+    },
+    "squared_singular_energy_rank": {
+      "0.9": 845,
+      "0.95": 970,
+      "0.99": 1106,
+      "0.999": 1147
+    }
+  },
+  "real_commutator_median": 0.031670007987036064,
+  "control_commutator_medians": [
+    0.031108791958636573,
+    0.03113048233921145,
+    0.03112247495172256,
+    0.03111654211311685,
+    0.031162587050135977,
+    0.031141939969642957,
+    0.03112233945927892,
+    0.031146533636802993
+  ],
+  "real_best_diagonalization_residual": 0.8613759753133761,
+  "control_best_diagonalization_residuals": [
+    0.8559929459720232,
+    0.856611015820422,
+    0.8563866474358006,
+    0.8565946675283561,
+    0.8564141879567646,
+    0.8567990275125443,
+    0.8565709264187595,
+    0.8568169514467758
+  ],
+  "output": "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention0_qk_normalizer_congruence_results.json"
+}

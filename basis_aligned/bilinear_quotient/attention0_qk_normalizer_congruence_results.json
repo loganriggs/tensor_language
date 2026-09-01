@@ -1,0 +1,633 @@
+{
+  "schema": "attention0_qk_normalizer_congruence_v1",
+  "status": "complete",
+  "elapsed_seconds": 11.684824228286743,
+  "checkpoint": "CheckpointReceipt(revision='ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240', snapshot='/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240', config_sha256='428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c', weights_sha256='680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3', weights_bytes=2067738635, tokenizer_vocab=50257, logit_vocab=50304)",
+  "dimensions": {
+    "residual": 1152,
+    "head_width": 128,
+    "slices": 36
+  },
+  "labels": [
+    "c_q.h0",
+    "c_q.h1",
+    "c_q.h2",
+    "c_q.h3",
+    "c_q.h4",
+    "c_q.h5",
+    "c_q.h6",
+    "c_q.h7",
+    "c_q.h8",
+    "c_k.h0",
+    "c_k.h1",
+    "c_k.h2",
+    "c_k.h3",
+    "c_k.h4",
+    "c_k.h5",
+    "c_k.h6",
+    "c_k.h7",
+    "c_k.h8",
+    "c_q2.h0",
+    "c_q2.h1",
+    "c_q2.h2",
+    "c_q2.h3",
+    "c_q2.h4",
+    "c_q2.h5",
+    "c_q2.h6",
+    "c_q2.h7",
+    "c_q2.h8",
+    "c_k2.h0",
+    "c_k2.h1",
+    "c_k2.h2",
+    "c_k2.h3",
+    "c_k2.h4",
+    "c_k2.h5",
+    "c_k2.h6",
+    "c_k2.h7",
+    "c_k2.h8"
+  ],
+  "union_range": {
+    "numerical_rank_by_relative_singular_threshold": {
+      "1e-06": 1152,
+      "1e-08": 1152,
+      "1e-10": 1152
+    },
+    "squared_singular_energy_rank": {
+      "0.9": 845,
+      "0.95": 970,
+      "0.99": 1106,
+      "0.999": 1147
+    }
+  },
+  "real": {
+    "instrument": {
+      "aggregate_min_eigenvalue": 0.00906462676561411,
+      "aggregate_max_eigenvalue": 1.67974144728734,
+      "aggregate_min_to_max_ratio": 0.005396441684672853,
+      "whitening_relative_frobenius_residual": 1.2418735206492939e-14,
+      "factor_reconstruction_max_relative_frobenius": 5.206806419918929e-15
+    },
+    "commutator": {
+      "count": 630,
+      "minimum": 0.02840847982770223,
+      "p10": 0.03038621156383924,
+      "median": 0.031670007987036064,
+      "p90": 0.03245691406446266,
+      "maximum": 0.050220930077494154,
+      "mean": 0.031749569861289774
+    },
+    "joint_diagonalization": {
+      "best": {
+        "seed": 43504,
+        "off_diagonal_energy_fraction": 0.8613759753133761
+      },
+      "all": [
+        {
+          "seed": 43500,
+          "off_diagonal_energy_fraction": 0.8639093299531595
+        },
+        {
+          "seed": 43501,
+          "off_diagonal_energy_fraction": 0.8660120386443106
+        },
+        {
+          "seed": 43502,
+          "off_diagonal_energy_fraction": 0.8636807762848324
+        },
+        {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.861763322558035
+        },
+        {
+          "seed": 43504,
+          "off_diagonal_energy_fraction": 0.8613759753133761
+        },
+        {
+          "seed": 43505,
+          "off_diagonal_energy_fraction": 0.8654794520374507
+        },
+        {
+          "seed": 43506,
+          "off_diagonal_energy_fraction": 0.865409348914634
+        },
+        {
+          "seed": 43507,
+          "off_diagonal_energy_fraction": 0.8671450463503521
+        }
+      ]
+    }
+  },
+  "controls": [
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009938544738380014,
+        "aggregate_max_eigenvalue": 0.4019111815084267,
+        "aggregate_min_to_max_ratio": 0.02472821159411221,
+        "whitening_relative_frobenius_residual": 1.0304395137687244e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.558207442874493e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.027867334888591836,
+        "p10": 0.02971346550637313,
+        "median": 0.031108791958636573,
+        "p90": 0.03188872420775596,
+        "maximum": 0.032709331066238856,
+        "mean": 0.030980360717426048
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8559929459720232
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8598726637328856
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8623752801811617
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.8592770362465103
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8559929459720232
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8586447949595056
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8641167088985786
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8585137600576377
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8607270841738143
+          }
+        ]
+      },
+      "seed": 435100
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009875032429010822,
+        "aggregate_max_eigenvalue": 0.41882973548005803,
+        "aggregate_min_to_max_ratio": 0.023577677496303285,
+        "whitening_relative_frobenius_residual": 1.0351263606213106e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.5198632167571335e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.027851281636866555,
+        "p10": 0.02974935628252002,
+        "median": 0.03113048233921145,
+        "p90": 0.03189886083042094,
+        "maximum": 0.03267861356194145,
+        "mean": 0.030989485648868373
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.856611015820422
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8596473739739672
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8623591516235324
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.858681820788233
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.856611015820422
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8586036788658611
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8640236056709301
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8589022680092316
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8612182470145171
+          }
+        ]
+      },
+      "seed": 435101
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.00977007972710377,
+        "aggregate_max_eigenvalue": 0.4078324076039782,
+        "aggregate_min_to_max_ratio": 0.023956114190392917,
+        "whitening_relative_frobenius_residual": 1.036474539699926e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.514099506593137e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.028121711359419353,
+        "p10": 0.029729769880179346,
+        "median": 0.03112247495172256,
+        "p90": 0.03191484616705498,
+        "maximum": 0.03257099434486568,
+        "mean": 0.030984416075108222
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8563866474358006
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8602779145808923
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8615560201374298
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.858812620669601
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8563866474358006
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8586566109478297
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8642091177075167
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8587104136801855
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8601377664219406
+          }
+        ]
+      },
+      "seed": 435102
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009831305026841429,
+        "aggregate_max_eigenvalue": 0.4054480695453961,
+        "aggregate_min_to_max_ratio": 0.024248000583316786,
+        "whitening_relative_frobenius_residual": 1.0411259255943042e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.5193101076095886e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.027958473608474515,
+        "p10": 0.029774504378285865,
+        "median": 0.03111654211311685,
+        "p90": 0.03193018410828645,
+        "maximum": 0.032795362930859724,
+        "mean": 0.030979620131903043
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8565946675283561
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8596070123902245
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8616130404166266
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.8589709815144486
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8565946675283561
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8584874022923437
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8641377935280706
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8589024793182904
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8603141223908966
+          }
+        ]
+      },
+      "seed": 435103
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.0096888227063933,
+        "aggregate_max_eigenvalue": 0.4012977119229775,
+        "aggregate_min_to_max_ratio": 0.024143727757543035,
+        "whitening_relative_frobenius_residual": 1.0322941113100497e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.545400275489144e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.028157819480123667,
+        "p10": 0.029723631431634586,
+        "median": 0.031162587050135977,
+        "p90": 0.0318682804991483,
+        "maximum": 0.032717320158139156,
+        "mean": 0.030981038898837854
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8564141879567646
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.859623525332452
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8619497221527819
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.8587081687734526
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8564141879567646
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8587524689946024
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8644183036299257
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8586713481656016
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8612476646927103
+          }
+        ]
+      },
+      "seed": 435104
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009741747542761662,
+        "aggregate_max_eigenvalue": 0.40727107256137784,
+        "aggregate_min_to_max_ratio": 0.02391956659601335,
+        "whitening_relative_frobenius_residual": 1.0437122318742691e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.507261704904694e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.0280004264382819,
+        "p10": 0.02976031242647447,
+        "median": 0.031141939969642957,
+        "p90": 0.03190945754048998,
+        "maximum": 0.032592798413581925,
+        "mean": 0.030980038311576318
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8567990275125443
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8597110355660966
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8619818497566123
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.859086126766929
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8567990275125443
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.8589981502322339
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8642669006863213
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8602245732179361
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8609665903137171
+          }
+        ]
+      },
+      "seed": 435105
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009828465697750068,
+        "aggregate_max_eigenvalue": 0.41355214448873806,
+        "aggregate_min_to_max_ratio": 0.02376596477307765,
+        "whitening_relative_frobenius_residual": 1.0367920870151717e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.5581931578353225e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.02818033001633455,
+        "p10": 0.029773651880208377,
+        "median": 0.03112233945927892,
+        "p90": 0.031890838508416064,
+        "maximum": 0.03276000326088515,
+        "mean": 0.03098375585346293
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8565709264187595
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8597017369692254
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8616922016437532
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.8585807592481955
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8565709264187595
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.858927067693819
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.864260138453876
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8599038269468449
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8603384005723793
+          }
+        ]
+      },
+      "seed": 435106
+    },
+    {
+      "instrument": {
+        "aggregate_min_eigenvalue": 0.009739005019654148,
+        "aggregate_max_eigenvalue": 0.4142824874983124,
+        "aggregate_min_to_max_ratio": 0.0235081262509167,
+        "whitening_relative_frobenius_residual": 1.0412877950226972e-14,
+        "factor_reconstruction_max_relative_frobenius": 4.554986555738693e-15
+      },
+      "commutator": {
+        "count": 630,
+        "minimum": 0.027916386721471887,
+        "p10": 0.029806618868835524,
+        "median": 0.031146533636802993,
+        "p90": 0.031892565144771796,
+        "maximum": 0.03284929106030998,
+        "mean": 0.030988579796609718
+      },
+      "joint_diagonalization": {
+        "best": {
+          "seed": 43503,
+          "off_diagonal_energy_fraction": 0.8568169514467758
+        },
+        "all": [
+          {
+            "seed": 43500,
+            "off_diagonal_energy_fraction": 0.8599915796843023
+          },
+          {
+            "seed": 43501,
+            "off_diagonal_energy_fraction": 0.8613875948225215
+          },
+          {
+            "seed": 43502,
+            "off_diagonal_energy_fraction": 0.8591736742956441
+          },
+          {
+            "seed": 43503,
+            "off_diagonal_energy_fraction": 0.8568169514467758
+          },
+          {
+            "seed": 43504,
+            "off_diagonal_energy_fraction": 0.859225793900286
+          },
+          {
+            "seed": 43505,
+            "off_diagonal_energy_fraction": 0.8645030456978126
+          },
+          {
+            "seed": 43506,
+            "off_diagonal_energy_fraction": 0.8581550172943834
+          },
+          {
+            "seed": 43507,
+            "off_diagonal_energy_fraction": 0.8616351128074076
+          }
+        ]
+      },
+      "seed": 435107
+    }
+  ],
+  "control_summary": {
+    "commutator_medians": [
+      0.031108791958636573,
+      0.03113048233921145,
+      0.03112247495172256,
+      0.03111654211311685,
+      0.031162587050135977,
+      0.031141939969642957,
+      0.03112233945927892,
+      0.031146533636802993
+    ],
+    "joint_diagonalization_best_residuals": [
+      0.8559929459720232,
+      0.856611015820422,
+      0.8563866474358006,
+      0.8565946675283561,
+      0.8564141879567646,
+      0.8567990275125443,
+      0.8565709264187595,
+      0.8568169514467758
+    ],
+    "minimum_commutator_median": 0.031108791958636573,
+    "median_commutator_median": 0.031122475862503052,
+    "minimum_joint_diagonalization_residual": 0.8559929459720232,
+    "median_joint_diagonalization_residual": 0.8565708994865417,
+    "max_slice_spectrum_preservation_relative_error": 4.3526868581686356e-16
+  },
+  "comparisons": {
+    "real_to_min_control_commutator_ratio": 1.0180404314364153,
+    "real_to_min_control_diagonalization_ratio": 1.0062886375018432
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_exact_r256_common_square_impossible": true,
+    "pred_c_useful_common_congruence": false,
+    "pred_d_weaker_alignment_above_null": false,
+    "strong_null": true
+  },
+  "scope": "algebraic identification only; no token behavior, semantics, or adoption"
+}
