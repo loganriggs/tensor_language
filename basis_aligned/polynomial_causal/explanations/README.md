@@ -187,3 +187,7 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_1630.md](explanation_1630.md) — five smart metrics lose to plain variance: a closed question; honesty notes
 - [explanation_1730.md](explanation_1730.md) — MLP0 finished: exact residual formula, six certificates, one surviving curve
 - [explanation_2131.md](explanation_2026-09-01_2131.md) — the positive turn: block read-out, sparse vocabulary, normalizer necessity; the census closes; three dead bars owned
+
+# Latest cumulative update
+
+- [`explanation_2026-09-01_2153.md`](explanation_2026-09-01_2153.md) — full update since 19:57: sparse SAE-style Q/K results, the continuous quotient and failed generator, necessary normalization functions, why quantization is not interpretability, and the anti-Goodhart learned-simplicity direction.
