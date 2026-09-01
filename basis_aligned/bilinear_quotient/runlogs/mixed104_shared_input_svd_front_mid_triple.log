@@ -16,3 +16,8 @@ fit a14
 fit a15
 fit a16
 fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2280 | fresh +0.2107

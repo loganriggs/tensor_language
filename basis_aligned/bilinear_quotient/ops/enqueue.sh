@@ -30,7 +30,9 @@ case "$f" in /*) ;; *) echo "REFUSED: path is not absolute: $f" >&2; exit 1;; es
 [ -f "$f" ] || { echo "REFUSED: no such file: $f" >&2; exit 1; }
 python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f" \
   || { echo "REFUSED: does not parse: $f" >&2; exit 1; }
-D="$(dirname "$(dirname "$f")")"
+D="$(dirname "$f")"
+# scripts may live in <proj>/ops/ or at <proj>/ top level; walk up until ops/test_fast.py is found
+[ -f "$D/ops/test_fast.py" ] || D="$(dirname "$D")"
 # The fast suite (~0.4s, no GPU) runs before every enqueue: a broken bqlib or a regressed gate cannot
 # reach the GPU. It encodes the mistakes that actually cost runs -- see ops/test_fast.py.
 python3 "$D/ops/test_fast.py" >/tmp/bq_test_fast.out 2>&1 || {
