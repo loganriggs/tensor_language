@@ -50,8 +50,12 @@ def check(path: Path) -> list[str]:
             "CONTROL WINDOW: absolute numeric bounds on a shuffle/control "
             "statistic; three window mis-derivations on 2026-09-01 "
             "(428/429/432) -- prefer matched-control excess statistics.")
-    abs_replay = re.search(r"replay[a-z_]*max_abs[\"'\]]*\s*<=\s*[0-9.e-]+", text)
-    rel_available = re.search(r"relative_squared", text)
+    abs_replay = any(
+        re.search(r"replay|logit_difference", line)
+        and re.search(r"(<=|<)\s*[0-9.]*e-[0-9]+", line)
+        and not re.search(r"relative", line)
+        for line in text.splitlines())
+    rel_available = False  # suppression is line-scoped above
     if abs_replay and not rel_available:
         warnings.append(
             "ABS-VS-REL: absolute max-abs bar on a replay quantity with no "
