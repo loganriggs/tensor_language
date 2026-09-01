@@ -1,0 +1,80 @@
+{
+  "status": "mlp0_full_fold_contraction_graph_complete",
+  "rung": 346,
+  "claim_level": "full_space_exact_fold_gauge_invariant_structural_screen",
+  "object": "full 1152D quadratic contraction graph under all-token exact MLP0-input covariance",
+  "exact_fold_rows": 50304,
+  "output_contractions": 7,
+  "covariance_diagnostics": {
+    "covariance_min_eigenvalue": 0.2801256477832794,
+    "covariance_max_eigenvalue": 26.535310745239258,
+    "covariance_effective_rank": 423.3226623535156
+  },
+  "toy": {
+    "recovered_component_sizes": [
+      3,
+      4,
+      5
+    ],
+    "null_component_sizes": [
+      12
+    ],
+    "smallest_laplacian_values": [
+      -1.3609676894195557e-16,
+      -3.077967211367282e-17,
+      3.4094898709565617e-19,
+      0.26953661880976143,
+      0.34160308885145224,
+      0.3520431941476827
+    ],
+    "null_smallest_laplacian_values": [
+      -1.6094261272542147e-16,
+      0.17469632076175404,
+      0.21934382159594845,
+      0.24520260943910516
+    ],
+    "common_gauge_relative_max_difference": 1.3507745979209169e-15
+  },
+  "real": {
+    "normalized_fiedler": 0.5237501263618469,
+    "null_normalized_fiedler": 0.40467992424964905,
+    "real_to_null_ratio_full": 1.2942330344975128,
+    "real_to_null_ratio_split_a": 1.2354524129292688,
+    "real_to_null_ratio_split_b": 1.2339470889183748,
+    "split_projector_overlap": 0.17186760902404785,
+    "projector_rank": 132,
+    "split_projector_ranks": [
+      65,
+      75
+    ],
+    "null_projector_rank": 78,
+    "real_offblock_energy_fraction": 0.051272667944431305,
+    "null_offblock_energy_fraction": 0.04322653263807297,
+    "smallest_laplacian_values": [
+      9.867657801976293e-09,
+      0.0012647883268073201,
+      0.0012804885627701879,
+      0.001289978506974876,
+      0.0012965068453922868,
+      0.0012966966023668647,
+      0.0012997649610042572,
+      0.0013013427378609776
+    ],
+    "null_smallest_laplacian_values": [
+      -7.013174041503589e-09,
+      0.0014728604583069682,
+      0.0015318789519369602,
+      0.001579619711264968,
+      0.0016378088621422648,
+      0.0016579736256971955,
+      0.0016609266167506576,
+      0.001669835182838142
+    ]
+  },
+  "pred_a_planted_full_graph_recovers_blocks_and_controls": true,
+  "pred_b_real_full_space_has_nontrivial_block_signal": false,
+  "pred_c_real_partition_is_split_stable_and_reducing": false,
+  "null_full_mlp0_is_as_irreducible_as_graph_null": true,
+  "runtime_s": 3.8804752826690674
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_full_fold_contraction_graph_results.json
