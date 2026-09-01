@@ -1,0 +1,104 @@
+a L00 tails p512=3.353e+04 p640=1.903e+04 p768=1.019e+04 p896=4795
+a L01 tails p512=5326 p640=3138 p768=1735 p896=847.2
+a L02 tails p512=2.127e+04 p640=1.223e+04 p768=6666 p896=3229
+a L03 tails p512=2.936e+04 p640=1.719e+04 p768=9561 p896=4734
+a L04 tails p512=2.484e+04 p640=1.473e+04 p768=8319 p896=4187
+a L05 tails p512=2935 p640=1757 p768=988.1 p896=491.3
+a L06 tails p512=2543 p640=1548 p768=886 p896=449.3
+a L07 tails p512=2989 p640=1859 p768=1089 p896=564.2
+a L08 tails p512=5522 p640=3494 p768=2076 p896=1090
+a L09 tails p512=5902 p640=3735 p768=2226 p896=1174
+a L10 tails p512=6375 p640=4038 p768=2411 p896=1270
+a L11 tails p512=8278 p640=5228 p768=3115 p896=1642
+a L12 tails p512=9090 p640=5733 p768=3408 p896=1793
+a L13 tails p512=1.025e+04 p640=6470 p768=3849 p896=2026
+a L14 tails p512=1.18e+04 p640=7459 p768=4441 p896=2331
+a L15 tails p512=1.486e+04 p640=9389 p768=5577 p896=2927
+a L16 tails p512=1.804e+04 p640=1.14e+04 p768=6780 p896=3556
+a L17 tails p512=1.723e+04 p640=1.092e+04 p768=6509 p896=3425
+b L00 tails p512=3.69e+04 p640=2.12e+04 p768=1.149e+04 p896=5471
+b L01 tails p512=5892 p640=3505 p768=1961 p896=964.1
+b L02 tails p512=2.431e+04 p640=1.41e+04 p768=7755 p896=3794
+b L03 tails p512=3.33e+04 p640=1.962e+04 p768=1.096e+04 p896=5449
+b L04 tails p512=2.835e+04 p640=1.692e+04 p768=9588 p896=4849
+b L05 tails p512=3289 p640=1978 p768=1118 p896=556.6
+b L06 tails p512=2818 p640=1723 p768=989.6 p896=502.5
+b L07 tails p512=3320 p640=2074 p768=1219 p896=632.6
+b L08 tails p512=6098 p640=3866 p768=2304 p896=1212
+b L09 tails p512=6601 p640=4189 p768=2503 p896=1322
+b L10 tails p512=7306 p640=4650 p768=2784 p896=1472
+b L11 tails p512=9575 p640=6077 p768=3636 p896=1922
+b L12 tails p512=1.064e+04 p640=6738 p768=4021 p896=2123
+b L13 tails p512=1.209e+04 p640=7669 p768=4579 p896=2415
+b L14 tails p512=1.374e+04 p640=8735 p768=5217 p896=2751
+b L15 tails p512=1.723e+04 p640=1.095e+04 p768=6546 p896=3450
+b L16 tails p512=2.079e+04 p640=1.322e+04 p768=7891 p896=4156
+b L17 tails p512=1.983e+04 p640=1.265e+04 p768=7578 p896=4008
+{
+  "status": "mlp_all_layer_variable_rank_waterfill_complete",
+  "rung": 375,
+  "claim_level": "all_layer_tail_calibrated_variable_rank_allocator_screen",
+  "fixed_exponent_source": "rung355 MLP0 induced-metric law",
+  "fixed_exponent": 1.0823445857830927,
+  "damage_target": "max(1e-4, max(FineWeb, WikiText CE added))",
+  "fit_rows": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_a": [
+      0,
+      24
+    ],
+    "fit_b": [
+      24,
+      48
+    ]
+  },
+  "ranks": [
+    512,
+    640,
+    768,
+    896
+  ],
+  "saving_unit_scalars": 1327104,
+  "fit_b_median_multiplicative_error": 1.223363598465931,
+  "fit_b_spearman": 0.9521235521235523,
+  "fit_b_rank_order_agree_layers": 18,
+  "comparator_mlp04_p768_predicted_damage": 0.0037547991693229563,
+  "exact4": {
+    "saving_units": 4,
+    "saving_scalars": 5308416,
+    "predicted_component_damage": 0.0037547991693229563,
+    "installed": [
+      [
+        0,
+        768
+      ],
+      [
+        4,
+        768
+      ]
+    ],
+    "installed_layers": 2
+  },
+  "exact4_damage_ratio_vs_mlp04": 1.0,
+  "exact5": {
+    "saving_units": 5,
+    "saving_scalars": 6635520,
+    "predicted_component_damage": 0.005139567255962487,
+    "installed": [
+      [
+        0,
+        768
+      ],
+      [
+        4,
+        640
+      ]
+    ],
+    "installed_layers": 2
+  },
+  "exact5_damage_ratio_vs_mlp04": 1.36879950809439,
+  "pred_a_tail_model_transfers_to_fit_b": true,
+  "pred_b_exact_four_spreading_beats_two_deep_cuts": false,
+  "pred_c_exact_five_candidate_beats_comparator_at_lower_price": false,
+  "null_variable_rank_waterfill_not_useful": true
+}

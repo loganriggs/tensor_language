@@ -3962,3 +3962,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ray refit, no threshold adjustment.
     NO-RECEIPT CPU ATTEMPT: census_lib transitively loads the CUDA model even
     for saved-state arithmetic. Dryrun/gate passed; enqueue identical script.
+    RUN 2026-09-01: ALL HELD, null false. Fixed-shape cosine
+    .999417/.998808/.999024, R2 .995891/.991662/.993161, predicted/actual
+    counts 41/43,37/38,49/50. Distributed MLP cuts remain on the QK-only ray.
+
+375. [CODEX, board-claim 08:55Z] ALL-LAYER VARIABLE-RANK WATER-FILL:
+    exact context-metric tails at p512/p640/p768/p896 for all18 layers/two fits;
+    frozen rung355 exponent, fit-A layer gains, untouched fit-B validation;
+    dynamic programs at exact four and five 1,327,104-scalar saving units.
+    Screen only; a full pass licenses one physical seven-unit build.
+    NO-RECEIPT CORRECTION: dryrun caught encoder-overhead price; p1024 is
+    break-even. Correct matched/below-frontier prices are5,308,416/6,635,520
+    saved and QK64 exact5 bill510,431,542. No empirical output preceded fix.
