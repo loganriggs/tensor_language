@@ -21,3 +21,28 @@ fit a17
   QK rank-128 factors built for tail blocks 10-17
   tail QK hooks registered (gated)
 L1 (+38 heads): C +0.2160 | fresh +0.2067
+  window 0 (7 docs): L2 fresh +0.0000
+  window 1 (42 docs): L2 fresh +0.0000
+  window 2 (17 docs): L2 fresh +0.0000
+  window 3 (23 docs): L2 fresh +0.0000
+  window 4 (43 docs): L2 fresh +0.0000
+  window 5 (26 docs): L2 fresh +0.0000
+  window 6 (35 docs): L2 fresh +0.0000
+  window 7 (35 docs): L2 fresh +0.0000
+L2 empirical: C -0.0000 | fresh +0.0000 | tail-attn increment -0.2067
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "convention": "CE added above native model; lower is better",
+  "pathfull_anchor_damage": 0.052,
+  "census_damage": -0.0,
+  "certificates_valid": 62,
+  "vector_norm_ratio_vs_pathfull": 0.0002262,
+  "cosine_vs_pathfull": -0.0010943,
+  "pred_a_live_path": true,
+  "pred_b_a1v_culprit": true,
+  "pred_c_vector_removed": true,
+  "null_triggered": false,
+  "runtime_s": 146.6
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/path_drop_a1v_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_path_drop_a1v.pt

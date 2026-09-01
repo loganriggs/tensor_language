@@ -3172,6 +3172,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (factor arithmetic culprit); pred_b valid >= 12; pred_c range +
     cev saved. Null: recompute structure carries it (>= 0.04) - fix =
     bf16-matched op order. -> ops/path_direct.py [QUEUED 01:32Z]
+    RUN 2026-09-01, S2384: bit-exact +0.0520 again - factor arithmetic
+    exonerated; recompute structure convicted (deterministic).
+    Localization dump = 286 (in design).
 
 285. HARNESS NULL v2: explicit empty actives at the census call (no
     knob semantics): pred_a |census| <= 0.003; pred_b valid >= 55;
