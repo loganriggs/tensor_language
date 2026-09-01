@@ -4264,7 +4264,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Close these Euclidean T/I derivative metrics. Do not claim all p448 subspaces impossible; CE-Fisher weighting,
   direct nonlinear fitting, and observable-state routing are mathematically different candidates.
 
-### Rung 406 — downstream CE-Fisher rank448 screen — CLAIMED
+### Rung 406 — downstream CE-Fisher rank448 screen — COMPLETE / STRONG NULL
 
 - Preserve full directional suffix-CE gradients at MLP0 input on the unchanged24 fit documents, rather than
   rung353's scalar gradient-norm weights or rung405's isotropic T/I probes.
@@ -4273,3 +4273,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Freeze split stability, predictive wave gains, shuffled control, T+I repair, identities, price, and strong null in
   `MLP0_RANK448_DOWNSTREAM_FISHER_PREREGISTRATION.md`.
 - Screen only. Null routes to direct nonlinear CE fitting versus a small-state oracle/headroom test.
+- RUN 2026-09-01: A/B held, C/D failed, null true. Fisher is real/stable: half-fit overlap `.7749`, top448 energy
+  `.9760`, and shuffled damage `.18490`; all identities/baselines exact. But real Fisher damage `.008513` exceeds
+  covariance `.007107` in all4 waves, T/I relative MSE both worsen, and SELECT T+I Shapley damage rises
+  `.007710 -> .010280`. Close fixed first-order p448 metrics; do not clip/interpolate/tune. Measure heldout oracle
+  headroom before any small-state router, and compare that route with direct nonlinear CE fitting.
