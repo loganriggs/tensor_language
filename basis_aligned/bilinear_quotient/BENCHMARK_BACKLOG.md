@@ -3660,8 +3660,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     identical a16 mean ablation against saved rung334 CEV, direct signed
     vector/collateral/own effects, live dual identities and 529,117,494 bill.
     -> ops/a16_transfer_mixed96_context_qk_mlp0_p448.py
+    RUN 2026-09-01: ALL HELD, null false. cosine/error/norm
+    .994186/.113081/1.028356; rho .997653, own ratio 1.028231. Formally
+    adopt 529,117,494 / +.00958546 / 49; gated frontier collapses to two.
 
 336. [CODEX, board-claimed 06:24Z] CONTEXT-QK88 PHYSICAL + OOD:
     fixed split-B covariance, rank88 at all 440 Q/K maps, census/certs/fresh,
     untouched WikiText skip180000 tails, exact 530,583,862 bill and saved CEV.
     -> ops/mixed88_context_metric_qk_ood.py
+
+337. [CODEX, board-claimed 06:23Z] CROSS-FAMILY ADDITIVITY p512/p640:
+    compose context-QK96 with context-MLP0 p512/p640 in one physical variant
+    run; frozen near-additive ratios, census/certs, Wiki skip200000 tails,
+    exact 529,781,046 / 531,108,150 bills, identities, fresh and saved CEVs.
+    -> ops/mixed96_context_qk_mlp0_context_p512_p640_ood.py

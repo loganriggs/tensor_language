@@ -57,7 +57,12 @@ program at **529,117,494 scalars / 2,000,527,980 bytes**. It landed at `+.009585
 additivity predicted `+.009385`: the residual is only `+.000200`, or a 1.021x ratio. New WikiText
 mean/p95/max is `+.001609 / +.028941 / +.049312`, and every frozen physical gate held. This is the first evidence
 that the recurring ~1.3x tax may be mainly **within** a map family; Q/K and MLP0 residuals appear much closer to
-orthogonal. One result is not yet a law. The exact saved artifact is now receiving its direct signed a16 gate.
+orthogonal. One result is not yet a law. The exact saved artifact then passed its direct signed a16 gate with
+cosine `.994186`, normalized error `.113081`, collateral rho `.997653`, and own-effect ratio `1.028231`.
+It is formally adopted. The fully gated Pareto frontier now has only two non-dominated points:
+
+- 535,089,462 scalars, `+.001415`, 61/62 certificates — high fidelity;
+- 529,117,494 scalars, `+.009585`, 49/62 certificates — substantially smaller.
 
 ## Independent next paths
 
