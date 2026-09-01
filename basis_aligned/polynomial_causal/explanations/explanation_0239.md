@@ -479,3 +479,14 @@ Rank 768 is the strongest new candidate: it saves another 2,654,208 scalars over
 `+.004320` MLP surcharge, retains 50 certificates, and is directly visible in `[Left;Right]`'s shared right-singular
 subspace. It now gets the same shifted-corpus and signed-intervention gates as the adopted parent. Rank 512 does not
 advance, preventing post-hoc relaxation of its certificate bar.
+
+## Rank-768 shifted transport holds (04:42 UTC)
+
+On 120 frozen WikiText-2 test chunks after token 70,000, the physical p768 program has mean damage `+.01062046`,
+row-median `+.01069`, p95 `+.03245`, and worst row `+.03918`. All are inside the preregistered `.015/.035/.080`
+bars. Census reproduces bit-for-summary at `+.00901182`, `50/62` certificates; all eight new FineWeb windows are
+non-positive (`-.0127` to `-.0004`). Exact p768 and mixed104 identities and the 536,940,854-scalar bill hold.
+
+The run saved the full unablated 256,000-position CE vector, so the final gate can compare the signed effect of the
+same native a16 mean ablation within native and compiled models. No aggregate subtraction or unsigned proxy is
+accepted: cosine, normalized vector error, collateral circuit ordering, and a16-own magnitude ratios are frozen.

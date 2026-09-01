@@ -395,3 +395,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   lies just beyond the adopted parent at a measured +.00432 surcharge for 2.65M additional scalar saving.
 - Decision: do not relax the rank512 bar. Advance rank768 alone to 120-row shifted WikiText, saving its exact CEV,
   then run the signed a16 causal gate against that same unablated baseline.
+
+### `04:42 UTC` — exploit checkpoint `316`
+
+- Result: all shifted bars hold. WikiText mean/p95/max row damage is
+  `+.010620/+.032453/+.039183`; census and certificates exactly reproduce `+.00901182/50`; fresh8 ranges
+  `-.0127` to `-.0004`. Dataset fingerprint, p768 map, mixed104 identities, and 536,940,854 bill are exact.
+- Information gained: the shared MLP0 input subspace transfers under physical composition to a late, shifted corpus;
+  its gain is not a twelve-row or FineWeb-window artifact.
+- Decision: use the saved unablated CEV for a direct signed a16 effect comparison. Adoption requires effect cosine
+  >=.90, normalized error <=.60, collateral rho >=.90, own-effect ratio in [.60,1.40], plus live baseline identity.

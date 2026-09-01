@@ -3489,3 +3489,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     +.018900/31 certs at 534,286,646; p768 +.009012/50 at 536,940,854.
     Primary p512 fresh max +.0071; identities exact. Stop p512 at its missed
     35-cert bar; advance p768 to shifted OOD and signed intervention gates.
+
+316. [CODEX, board-claimed 04:36Z] MLP0 SVD768 SHIFTED OOD + BASELINE CEV:
+    rebuild exact p768 mixed104; evaluate WikiText test skip70000 n120, reproduce
+    census/certs, save unablated 256k-position CE vector for signed effects.
+    -> ops/mixed104_mlp0_svd768_ood.py
+    RUN 2026-09-01, S2414: ALL HELD, null false. Wiki mean/p95/max
+    +.010620/+.032453/+.039183; census +.00901182, 50 certs; fresh8 all <=-.0004.
+    Identities/bill exact. Advance to direct signed a16 transfer.
