@@ -29,7 +29,7 @@ router-state negatives (298), support-index information cost (explanation_0239).
 | 2. Shared MLP atoms | 299 | pos ~1.0 / neg ~0.02 controls ✓ | none | KILL (coefficient grain; agrees with §2312) |
 | 3. Vocab factorization | 300/300B | two-corpus ✓, label-free ✓, priced ✓ | TAIL TRANSFER (rare-token damage rises under freq weighting); post-result metric — bars must re-freeze | LIVE with conditions (hybrid head/tail pricing; certificate battery unchecked) |
 | 4. Causal-response coords | 301 | two-corpus ✓, priced ✓ | none | KILL as proposed; SEED: activation-PCA r256 (MLP0 76% @ +0.021) — composition + full-bill checks required before any extrapolation |
-| 5. Predictive state | 302 | toy control ✓, transfer ✓ | INERT SHUFFLE CONTROL (state_r2 == shuffled, bit-exact) — fix before rerun; no price constructed | PARK (state real at head 13.8; small-state form unproven) |
+| 5. Predictive state | 302/302B | toy control ✓, transfer ✓, REPAIRED live shuffle ✓ | R²-level state claim withdrawn under live null; no price constructed | PARK (behavioral state + head-13.8 effect survive; representation-level claim dissolved) |
 | 6. Error contracts | 303 | prospective split ✓, control power-law ✓ | bound width 3.41x = vacuous for gating | PARK (use as ranking prior only; Spearman 0.92) |
 
 Standing cross-refs: composition super-additivity (§2329/§2330) applies to ANY multi-module extrapolation;
