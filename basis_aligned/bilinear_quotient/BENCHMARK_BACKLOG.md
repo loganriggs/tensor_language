@@ -4350,3 +4350,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   only `.3570` data-metric form energy rather than `.70`, and rank640 is far better at `.002868` for only145,856
   more values. No promotion or rank tuning. The independent-per-output low-rank form is broad; next mathematical
   screen may test a joint tensor factorization sharing input directions across the64 forms.
+
+### Rung 411 — joint-input Tucker factorization of the exact U64 correction tensor — CLAIMED
+
+- Factor all64 data-weighted symmetric coefficient forms together as a tied-input Tucker tensor, rather than
+  truncating each matrix independently. Freeze shared ranks96/160/226 and a Haar226 control.
+- Charge `U`, shared input directions, symmetric64-core, and offsets exactly:482,368/1,082,432/1,975,808 values.
+- Compare each producer against the equal-or-cheaper covariance rank p494/p552/p638, not merely p640; reconstruct
+  rung410 r24 and the full/U64 oracle controls on the same heldout documents.
+- Full registration: `MLP0_P448_JOINT_TUCKER_QUADRATIC_PRODUCER_PREREGISTRATION.md`. Screen only; failure closes
+  low-rank quadratic producers without rank or metric tuning.
