@@ -11,6 +11,12 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_1951.md](explanation_2026-09-01_1951.md) — held-out continuous attention-edge result:
+  jointly fitted rank6/rank6/rank32 score–score–payload blocks retain 98.5% of routed signal and about 99.3% of six
+  downstream responses, while a wrong-head contraction collapses; defines every computation, records instrument
+  repairs, and separates this identification result from the next physical compression test
+- [explanation_2026-09-01_1933.md](explanation_2026-09-01_1933.md) — discrete output vocabulary null, falsified
+  rank24 common-carrier model, and the broad token-input geometry shared by QK and MLP0's degree-one token action
 - [explanation_2026-09-01_1807.md](explanation_2026-09-01_1807.md) — full update since 15:18: exact MLP0 branch
   priorities, rank448 interaction audit and closure results, repaired physical byte frontier, clean-split layer17
   correction, and a downstream-discrimination framework for shared head outputs, shared reader inputs, LL1/Tucker
