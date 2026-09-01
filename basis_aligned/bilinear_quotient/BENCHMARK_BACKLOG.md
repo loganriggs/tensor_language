@@ -2963,3 +2963,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
     additive ~0.073): pred_a census <= 0.078; pred_b valid >= 8;
     pred_c range. Null: interaction (>= 0.088 or <= 6).
     -> ops/mixed_topk.py [QUEUED 02:00Z]
+    BUILDER NOTE: first build failed a multiline pc anchor (tripwire
+    block layout drifted); rebuilt line-wise, enqueued 02:05Z.
