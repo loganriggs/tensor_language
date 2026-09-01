@@ -3899,6 +3899,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     frozen screen rule selects layers4,0; install split-B programs with
     context-QK64; census/certs/fresh and WT103 tokens209712:240552; exact
     511,758,646-scalar / 1,931,092,588-byte structural price.
+    RUN 2026-09-01: ALL HELD, null false. +.01224396/43, OOD
+    .007718/.033071/.054272, fresh max .0122; exact selection/maps/price.
+    New semantic frontier, 802,816 scalars below QK56; advances rung368 only.
 
 368. [CODEX, conditional board-claim 08:17Z] TWO-BYTE QK64+MLP{0,4}:
     only after rung367 full pass; global source-aware BF16, fp16 QK factors,

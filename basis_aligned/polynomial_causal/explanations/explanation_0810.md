@@ -124,3 +124,10 @@ fit is split-stable, and the worst p768 damage on either corpus is `.011604`. Th
 also hold. The frozen rule selects layers4 and0 at p768, using fit-A only to rank layers and split-B to build the
 physical maps. Composing those two maps with Q/K64 costs **511,758,646 scalars**, 802,816 fewer than Q/K56. That
 single census/certificate/OOD experiment is now the final structural exploit; no subset or rank sweep follows it.
+
+That physical experiment passes. Q/K64 plus split-B p768 maps at layers4 and0 uses **511,758,646 scalars** and
+scores `.012244` census damage with 43/62 certificates. Shifted mean/p95/max is `.00772/.03307/.05427`; fresh max
+is `.0122`. This is 802,816 scalars smaller and slightly more accurate than Q/K56. Crucially, the equal-price
+Q/K64+MLP0-p512 program retained only29 certificates: distributing the same rank budget across two independently
+low-damage bilinear layers escapes the MLP0-only allocation grid. The only remaining work is the already-frozen
+global two-byte rebuild and original-native signed gate.
