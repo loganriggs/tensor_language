@@ -192,7 +192,8 @@ def _table_structure(denominators: torch.Tensor) -> dict:
 
 
 @torch.no_grad()
-def _physical(model, rows: torch.Tensor, denominators: torch.Tensor,
+def _physical(model, rows: torch.Tensor, state_table: torch.Tensor,
+              denominators: torch.Tensor,
               constants: torch.Tensor, interface: torch.Tensor,
               rope_tables, apply_rot, base, edge_mod, scoring) -> dict:
     arms = ("EXACT_TABLE", "CONSTANT")
@@ -223,7 +224,7 @@ def _physical(model, rows: torch.Tensor, denominators: torch.Tensor,
         x0 = F.rms_norm(model.transformer.wte(tokens), (D,))
         token_base = (block0.lambdas[0] + block0.lambdas[1]) * x0
         state = F.rms_norm(token_base, (D,))
-        state_max = max(state_max, float((state - state_table_global[tokens]).abs().max()))
+        state_max = max(state_max, float((state - state_table[tokens]).abs().max()))
         native_attention, first_value = block0.attn(state, None)
         native_score1, native_score2 = edge_mod._score_halves(
             block0, state, rope_tables, apply_rot)
@@ -373,8 +374,7 @@ def main() -> None:
     for parameter in model.parameters():
         parameter.requires_grad_(False)
 
-    global state_table_global
-    state_table_global, denominators, epsilon, reconstruction = _denominator_tables(model)
+    state_table, denominators, epsilon, reconstruction = _denominator_tables(model)
     ids = torch.arange(VOCAB, device="cuda")
     fit_mask = ids.remainder(5) != 4
     constants = denominators[:, fit_mask].double().square().mean(1).sqrt().float()
@@ -385,7 +385,7 @@ def main() -> None:
     a_factor, _b_factor = base._asvd(block0.attn.c_proj.weight.detach().float(), captured_cproj)
     interface = torch.linalg.qr(a_factor[:, :U_RANK].float(), mode="reduced").Q
     physical = _physical(
-        model, select_rows, denominators, constants, interface,
+        model, select_rows, state_table, denominators, constants, interface,
         rope_tables, apply_rot, base, edge_mod, scoring)
 
     max_table_rel = max(value["relative_squared"] for value in reconstruction.values())
@@ -449,10 +449,10 @@ def main() -> None:
         "table_structure": structure,
         "physical": physical,
         "predictions": {
-            "A_exact_table_instrument": pred_a,
-            "B_token_dependent_denominators_causally_material": pred_b,
-            "C_shared_stable_token_vocabulary": pred_c,
-            "D_not_one_exceptional_map": pred_d,
+            'pred_a_exact_table_instrument': pred_a,
+            'pred_b_token_dependent_denominators_causally_material': pred_b,
+            'pred_c_shared_stable_token_vocabulary': pred_c,
+            'pred_d_not_one_exceptional_map': pred_d,
             "strong_null": strong_null,
         },
         "scope": "diagnostic only; native numerators retained; no compression or semantics",
