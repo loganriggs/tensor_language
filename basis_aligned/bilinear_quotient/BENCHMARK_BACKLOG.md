@@ -4351,7 +4351,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   more values. No promotion or rank tuning. The independent-per-output low-rank form is broad; next mathematical
   screen may test a joint tensor factorization sharing input directions across the64 forms.
 
-### Rung 411 — joint-input Tucker factorization of the exact U64 correction tensor — CLAIMED
+### Rung 411 — joint-input Tucker factorization of the exact U64 correction tensor — COMPLETE / STRONG NULL
 
 - Factor all64 data-weighted symmetric coefficient forms together as a tied-input Tucker tensor, rather than
   truncating each matrix independently. Freeze shared ranks96/160/226 and a Haar226 control.
@@ -4360,3 +4360,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   rung410 r24 and the full/U64 oracle controls on the same heldout documents.
 - Full registration: `MLP0_P448_JOINT_TUCKER_QUADRATIC_PRODUCER_PREREGISTRATION.md`. Screen only; failure closes
   low-rank quadratic producers without rank or metric tuning.
+- RUN 2026-09-01: A held, B/C/D failed, strong null true. Exact losses/calls/U64/form identity/r24 reproduction and
+  all prices hold. Tucker96/160/226 damages `.007238/.007153/.006989` versus smaller matched covariance
+  p494/p552/p638 `.006051/.004365/.002820`; margins are negative by`.001187/.002787/.004168`. Tucker226 retains
+  `.4361` tied energy, recovers30.2% oracle gain, barely beats Haar by`.000350`, and is worse than independent r24
+  by`.000060`. No promotion or tuning; close fixed low-rank U64 quadratic producers.

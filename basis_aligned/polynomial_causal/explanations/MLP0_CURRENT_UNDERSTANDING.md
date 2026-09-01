@@ -1153,6 +1153,33 @@ has one dominant local head plus a stable distributed supporting tail. Per the f
 by source position. Next perform a branch-resolved physical audit of the rank448 MLP0 context program: determine
 whether its error lies in T, C, I, S, or their downstream composition before designing another compressor.
 
+## 16. Rank448 error anatomy and exact quadratic-producer closure (2026-09-01)
+
+Rungs403–404 audited the fixed context-covariance rank448 replacement under the exact T/C/I/S grammar. On 384
+distinct source documents its heldout CE damage is `.0071068` nat. The stable statement is token-grammar-led:
+positive named damage is 38.0% T and 54.4% I, or 92.4% jointly; I alone leads T in only two of four waves, so the
+earlier interaction-only headline is withdrawn. C is secondary and S compensates. Five input-metric families and
+five routing levels subsequently failed to improve the priced program.
+
+Rung409 changed object to output error. One train-only rank64 total-error basis reduces heldout p448 damage from
+`.007947` to `.004769` as an oracle, but it reads the native error. Separate T32/I32 bases are worse than one joint
+T+I basis (`.005876` versus `.004838`), so T and I retain distinct causal definitions but share a better output
+interface. The old historical B0 basis removes only17% of damage and is not reusable.
+
+Rung410 then contracted that output basis into the known native-minus-p448 bilinear weights. Every coefficient is
+exactly `q_j(z)=z^T A_jz+beta_j`; the full derivation matches directly computed coefficients at relative MSE
+`4.05e-12`. An executable independent rank24 approximation improves damage to`.006929` and beats affine/shuffled
+controls, but recovers only32.0% of oracle gain and retains35.7% of weighted form energy. Its total price11,799,232
+is only145,856 below p640, whose damage is `.002868`.
+
+Rung411 tested a genuinely different joint Tucker factorization sharing input directions across all64 matrices.
+At total prices10,436,800/11,036,864/11,930,240, Tucker96/160/226 damages are
+`.007238/.007153/.006989`. Equal-or-cheaper ordinary covariance ranks494/552/638 achieve
+`.006051/.004365/.002820`. No Tucker arm wins its price comparison; the strong null fires. Thus the residual is
+**output-low-rank but input-broad**. Its exact quadratic tensor is a useful interpretation, but fixed low-rank U64
+producers are closed as replacements unless a new grammar changes the computation rather than refactoring these
+same forms.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
