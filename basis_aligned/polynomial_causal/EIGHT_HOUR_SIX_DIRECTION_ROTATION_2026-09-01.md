@@ -520,3 +520,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   strictly dominates adopted weight-p768; p512 extends the fully gated size frontier.
 - Decision: formally adopt p640 (535,613,750, +.008265, 52/62) and p512 (534,286,646, +.010728, 48/62).
   Continue with a lower-rank single-site MLP0 frontier before risking further multi-site composition.
+
+### `05:54 UTC` — exploit checkpoint `328`
+
+- Result: p448 `+.012662/43` at 533,623,094; p384 `+.015788/39` at 532,959,542; p256 `+.026878/25` at
+  531,632,438. Primary fresh max +.0265; all three predicates hold, null false, identities/bills exact.
+- Information gained: the contextual MLP0 frontier remains smooth below p512 and buys roughly 4--5 certificates
+  per returned rank step. p448/p384 are plausible fully gated points; p256 is a lower-fidelity compression tier.
+- Decision: common shifted WikiText skip120000 n120 for all three, census/certificate reproduction and saved CEVs.
+  Do not insert intermediate ranks; causal gates follow only after OOD.

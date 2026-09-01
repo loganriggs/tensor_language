@@ -3603,3 +3603,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     one physical mixed104 rebuild with fixed p448/p384/p256; census, all
     certificates, primary fresh8, fit/maps/QK identities, exact bills.
     -> ops/mixed104_mlp0_context_metric_lower_rank_frontier.py
+    RUN 2026-09-01: ALL HELD, null false. p448 +.012662/43 at 533,623,094;
+    p384 +.015788/39 at 532,959,542; p256 +.026878/25 at 531,632,438.
+    Primary fresh max +.0265, identities exact. Advance common shifted OOD.
+
+329. [CODEX, board-claimed 05:55Z] LOWER-RANK CONTEXT-RRR SHIFTED OOD:
+    rebuild p448/p384/p256, WikiText skip120000 n120, reproduce census/certs,
+    exact identities/bills and save all three unablated CEVs.
+    -> ops/mixed104_mlp0_context_metric_lower_rank_ood.py
