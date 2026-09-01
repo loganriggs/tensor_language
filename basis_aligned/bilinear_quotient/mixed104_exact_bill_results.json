@@ -1,0 +1,372 @@
+{
+  "decision": "historical_180m_and_123.4m_totals_rejected",
+  "reason": "the historical ledger priced replacement coverage, while the standalone dependency graph retains embeddings, output map, all MLP weights, values, output projections, and unreplaced Q/K rows",
+  "model_config": {
+    "vocab_size": 50304,
+    "n_layer": 18,
+    "n_head": 9,
+    "n_embd": 1152,
+    "squared_mlp": false,
+    "bilinear": true,
+    "expansion_factor": 4,
+    "gated": false,
+    "squared_attn": true,
+    "bilinear_attn": true
+  },
+  "source_assertions": {
+    "checkpoint_state_entries": 218,
+    "motif_heads": 38,
+    "tail_heads": 72,
+    "replaced_heads": 110,
+    "factor_maps": 440,
+    "factor_width": 104,
+    "native_qk_headmaps": 208,
+    "drop_a1v": true,
+    "drop_tailE": true,
+    "cp_full_width": 4608
+  },
+  "native_checkpoint": {
+    "scalars": 545902902,
+    "raw_tensor_bytes": 2067669612
+  },
+  "tested_artifact_literal": {
+    "manifest": [
+      {
+        "role": "input token embedding",
+        "shape": [
+          50304,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "bfloat16",
+        "scalars": 57950208,
+        "raw_bytes": 115900416,
+        "source": "transformer.wte.weight",
+        "note": ""
+      },
+      {
+        "role": "output logit map",
+        "shape": [
+          50304,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "float32",
+        "scalars": 57950208,
+        "raw_bytes": 231800832,
+        "source": "lm_head.weight",
+        "note": "not tied to input embedding"
+      },
+      {
+        "role": "unreplaced dense Q/K head rows",
+        "shape": [
+          128,
+          1152
+        ],
+        "multiplicity": 208,
+        "dtype": "float32",
+        "scalars": 30670848,
+        "raw_bytes": 122683392,
+        "source": "blocks 0-1 all heads; blocks 2-9 non-motif heads",
+        "note": ""
+      },
+      {
+        "role": "mixed104 Q/K left factors",
+        "shape": [
+          128,
+          104
+        ],
+        "multiplicity": 440,
+        "dtype": "float32",
+        "scalars": 5857280,
+        "raw_bytes": 23429120,
+        "source": "SVD U[:,indices]*sigma",
+        "note": ""
+      },
+      {
+        "role": "mixed104 Q/K right factors",
+        "shape": [
+          104,
+          1152
+        ],
+        "multiplicity": 440,
+        "dtype": "float32",
+        "scalars": 52715520,
+        "raw_bytes": 210862080,
+        "source": "SVD Vh[indices,:]",
+        "note": ""
+      },
+      {
+        "role": "native value matrices, blocks 1-17",
+        "shape": [
+          1152,
+          1152
+        ],
+        "multiplicity": 17,
+        "dtype": "float32",
+        "scalars": 22560768,
+        "raw_bytes": 90243072,
+        "source": "attn.c_v.weight",
+        "note": ""
+      },
+      {
+        "role": "attention output matrices",
+        "shape": [
+          1152,
+          1152
+        ],
+        "multiplicity": 18,
+        "dtype": "float32",
+        "scalars": 23887872,
+        "raw_bytes": 95551488,
+        "source": "attn.c_proj.weight",
+        "note": ""
+      },
+      {
+        "role": "attention value-mix scalars",
+        "shape": [],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 18,
+        "raw_bytes": 36,
+        "source": "attn.lamb",
+        "note": ""
+      },
+      {
+        "role": "bilinear MLP Left/Right/Down matrices",
+        "shape": [
+          1152,
+          4608
+        ],
+        "multiplicity": 54,
+        "dtype": "float32",
+        "scalars": 286654464,
+        "raw_bytes": 1146617856,
+        "source": "blocks 0-9 CP full width; blocks 10-17 native",
+        "note": "CP hooks reorder exact native units and do not compress storage"
+      },
+      {
+        "role": "bilinear MLP output biases",
+        "shape": [
+          1152
+        ],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 20736,
+        "raw_bytes": 41472,
+        "source": "mlp.Down_bias",
+        "note": ""
+      },
+      {
+        "role": "block residual mixing scalars",
+        "shape": [
+          2
+        ],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 36,
+        "raw_bytes": 72,
+        "source": "block.lambdas",
+        "note": ""
+      },
+      {
+        "role": "block-0 token-value lookup",
+        "shape": [
+          50257,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "float16",
+        "scalars": 57896064,
+        "raw_bytes": 115792128,
+        "source": "S['a0']",
+        "note": "physically tested table; valid GPT-2 input ids 0..50256"
+      }
+    ],
+    "scalars": 596164022,
+    "raw_bytes": 2152921964,
+    "delta_scalars_vs_native": 50261120,
+    "delta_raw_bytes_vs_native": 85252352,
+    "linear_map_macs_per_token": 480296960
+  },
+  "storage_minimal_semantic_candidate": {
+    "manifest": [
+      {
+        "role": "input token embedding",
+        "shape": [
+          50304,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "bfloat16",
+        "scalars": 57950208,
+        "raw_bytes": 115900416,
+        "source": "transformer.wte.weight",
+        "note": ""
+      },
+      {
+        "role": "output logit map",
+        "shape": [
+          50304,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "float32",
+        "scalars": 57950208,
+        "raw_bytes": 231800832,
+        "source": "lm_head.weight",
+        "note": "not tied to input embedding"
+      },
+      {
+        "role": "unreplaced dense Q/K head rows",
+        "shape": [
+          128,
+          1152
+        ],
+        "multiplicity": 208,
+        "dtype": "float32",
+        "scalars": 30670848,
+        "raw_bytes": 122683392,
+        "source": "blocks 0-1 all heads; blocks 2-9 non-motif heads",
+        "note": ""
+      },
+      {
+        "role": "mixed104 Q/K left factors",
+        "shape": [
+          128,
+          104
+        ],
+        "multiplicity": 440,
+        "dtype": "float32",
+        "scalars": 5857280,
+        "raw_bytes": 23429120,
+        "source": "SVD U[:,indices]*sigma",
+        "note": ""
+      },
+      {
+        "role": "mixed104 Q/K right factors",
+        "shape": [
+          104,
+          1152
+        ],
+        "multiplicity": 440,
+        "dtype": "float32",
+        "scalars": 52715520,
+        "raw_bytes": 210862080,
+        "source": "SVD Vh[indices,:]",
+        "note": ""
+      },
+      {
+        "role": "native value matrices, blocks 1-17",
+        "shape": [
+          1152,
+          1152
+        ],
+        "multiplicity": 17,
+        "dtype": "float32",
+        "scalars": 22560768,
+        "raw_bytes": 90243072,
+        "source": "attn.c_v.weight",
+        "note": ""
+      },
+      {
+        "role": "attention output matrices",
+        "shape": [
+          1152,
+          1152
+        ],
+        "multiplicity": 18,
+        "dtype": "float32",
+        "scalars": 23887872,
+        "raw_bytes": 95551488,
+        "source": "attn.c_proj.weight",
+        "note": ""
+      },
+      {
+        "role": "attention value-mix scalars",
+        "shape": [],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 18,
+        "raw_bytes": 36,
+        "source": "attn.lamb",
+        "note": ""
+      },
+      {
+        "role": "bilinear MLP Left/Right/Down matrices",
+        "shape": [
+          1152,
+          4608
+        ],
+        "multiplicity": 54,
+        "dtype": "float32",
+        "scalars": 286654464,
+        "raw_bytes": 1146617856,
+        "source": "blocks 0-9 CP full width; blocks 10-17 native",
+        "note": "CP hooks reorder exact native units and do not compress storage"
+      },
+      {
+        "role": "bilinear MLP output biases",
+        "shape": [
+          1152
+        ],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 20736,
+        "raw_bytes": 41472,
+        "source": "mlp.Down_bias",
+        "note": ""
+      },
+      {
+        "role": "block residual mixing scalars",
+        "shape": [
+          2
+        ],
+        "multiplicity": 18,
+        "dtype": "bfloat16",
+        "scalars": 36,
+        "raw_bytes": 72,
+        "source": "block.lambdas",
+        "note": ""
+      },
+      {
+        "role": "block-0 native value matrix",
+        "shape": [
+          1152,
+          1152
+        ],
+        "multiplicity": 1,
+        "dtype": "float32",
+        "scalars": 1327104,
+        "raw_bytes": 5308416,
+        "source": "transformer.h.0.attn.c_v.weight",
+        "note": "recomputes the table from the already-required normalized embedding"
+      }
+    ],
+    "scalars": 539595062,
+    "raw_bytes": 2042438252,
+    "delta_scalars_vs_native": -6307840,
+    "delta_raw_bytes_vs_native": -25231360,
+    "linear_map_macs_per_token": 481624064,
+    "status": "requires live a0-table versus native-c_v0 equivalence gate"
+  },
+  "sequence_dependent_compute": {
+    "causal_pairs_for_length_T": "T*(T+1)/2",
+    "attention_score_and_value_MACs_per_causal_pair": 62208,
+    "explanation": "two 128-d QK dot products plus one 128-d value accumulation per head"
+  },
+  "excluded_nonsemantic_harness_state": [
+    "full overwritten native Q/K rows",
+    "overwritten native block-0 c_v output",
+    "fit-row captures",
+    "class probes and dictionaries",
+    "SVD workspaces",
+    "census rows and cached logits",
+    "hook objects"
+  ],
+  "behavior_receipt": {
+    "census_damage": 0.00469196,
+    "certificates_valid": 54,
+    "max_fresh_damage": 0.0032
+  }
+}

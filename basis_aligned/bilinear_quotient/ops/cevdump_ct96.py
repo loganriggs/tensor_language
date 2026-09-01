@@ -811,7 +811,9 @@ def main():
 
     order2=[nm for nm in cfgF
             if not (SEL.get('drop_tailE') and nm=='tailE')
-            and not (SEL.get('drop_a1v') and nm=='a1v')]
+            and not (SEL.get('drop_a1v') and nm=='a1v')
+            and not (SEL.get('drop_a0') and nm=='a0')]
+    SEL['_ORDER2']=tuple(order2)
     Wp2=None
     ML=[l for l in range(2,10) if l not in SEL.get('motif_off',())]
     for li in range(10,18):

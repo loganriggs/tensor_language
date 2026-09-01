@@ -3269,3 +3269,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     with source/shape/multiplicity assertions; storage and compute separate.
     First closed line: mixed104 QK factors =110*4*(128+1152)*104
     =58,572,800 scalars. Historical 52.9M headline cannot be reused.
+    RUN 2026-09-01, S2392: historical totals REJECTED. Native checkpoint
+    545,902,902 scalars; tested table artifact 596,164,022 (larger than
+    native); storage-minimal online-c_v0 candidate 539,595,062, requiring
+    its own live gate. -> ops/mixed104_exact_bill.py
+
+296. [CODEX, board-claimed 02:24Z] LITERAL MIXED104 ONLINE-c_v0:
+    remove the fp16 a0 table and execute native block-0 c_v from the already
+    required normalized embedding. Bars: census <=0.0065 and >=54 certs;
+    mean absolute per-position CE difference vs saved table artifact <=0.002
+    and |mean difference| <=0.0015; all fresh8 <=0.020; exact mixed104
+    index/factor and final-active-set tripwires. Null: census >=0.010 or
+    <=50 certs. Exact bill 539,595,062 scalars / 2,042,438,252 raw bytes.
+    -> ops/mixed104_online_cv0.py [QUEUED 02:24Z]
