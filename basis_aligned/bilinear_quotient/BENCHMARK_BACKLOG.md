@@ -3781,3 +3781,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compose two gated components at 507,253,046 scalars; census/certs/additive
     law, next WT103 tokens71960:102800, exact identity/price/fresh/saved CEV.
     -> ops/mixed56_context_qk_mlp0_context_p512_ood.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. 507,253,046,
+    +.01951292/29, ratio1.05227, OOD +.014038/.042132/.060740. No tuning/gate.
+
+353. [CODEX, board-claimed 07:10Z] MLP0 CONSEQUENCE-WEIGHTED CONTEXT METRIC:
+    weight inputs by clipped full-suffix CE gradient norm at MLP0 output;
+    compare p384/p448 against ordinary covariance on two fits/two tail sets.
+    -> ops/mlp0_consequence_weighted_context_metric_screen.py

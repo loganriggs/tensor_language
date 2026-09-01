@@ -8,3 +8,202 @@ fit a6
 fit a7
 fit a8
 fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-56 factors built for all motif heads
+  QK rank-56 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2206 | fresh +0.2158
+  extra eval wikitext-2-raw-v1-test-skip160000: native 3.853786 compiled 3.867824 damage +0.01403814
+  window 0 (7 docs): L2 fresh +0.0062
+  window 1 (42 docs): L2 fresh +0.0133
+  window 2 (17 docs): L2 fresh +0.0174
+  window 3 (23 docs): L2 fresh +0.0120
+  window 4 (43 docs): L2 fresh +0.0142
+  window 5 (26 docs): L2 fresh +0.0154
+  window 6 (35 docs): L2 fresh +0.0056
+  window 7 (35 docs): L2 fresh +0.0112
+L2 empirical: C +0.0026 | fresh +0.0106 | tail-attn increment -0.2052
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "mixed96_context_qk_mlp0_context_p448_ood_complete",
+  "rung": 334,
+  "claim_level": "physical_dual_context_composition_census_ood_price_screen",
+  "convention": "compiled CE minus native CE on identical positions",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "qk_fit_rows_half_open": [
+    72,
+    96
+  ],
+  "mlp_fit_rows_half_open": [
+    0,
+    24
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 71960,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.01951291784644127,
+  "certificates_valid": 29,
+  "additive_component_prediction": 0.018543592699694633,
+  "composition_residual": 0.0009693251467466357,
+  "composition_ratio": 1.0522727802775025,
+  "shifted_damage_mean": 0.014038135297596455,
+  "shifted_damage_row_p50": 0.013443490490317345,
+  "shifted_damage_row_p95": 0.04213184118270874,
+  "shifted_damage_row_max": 0.06073950231075287,
+  "max_fresh_damage": 0.0174,
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 56,
+  "qk_factorized_maps": 440,
+  "mlp0_rank": 512,
+  "mlp0_fit_diagnostic": {
+    "context_cov_retained_energy": 0.9218083620071411,
+    "rank": 512,
+    "context_cov_condition_after_floor": 3212.24560546875,
+    "covariance_floor": 8.654058837890625e-05
+  },
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "literal_standalone_scalars": 507253046,
+  "literal_raw_tensor_bytes": 1913070188,
+  "saved_census_cev_file": "cev_mixed56_context_qk_mlp0_context_p512.pt",
+  "pred_a_census_certificates_and_composition_residual_hold": false,
+  "pred_b_new_shifted_ood_mean_and_tails_hold": true,
+  "pred_c_exact_dual_context_identity_price_and_fresh_hold": false,
+  "null_dual_context_composition_fails": false,
+  "runtime_s": 131.72459435462952
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed56_context_qk_mlp0_context_p512_ood_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_mixed56_context_qk_mlp0_context_p512.pt
+{
+  "status": "mixed56_context_qk_mlp0_context_p512_ood_complete",
+  "rung": 352,
+  "claim_level": "lower_boundary_cross_family_composition_physical_ood_price_screen",
+  "convention": "compiled CE minus native CE on identical positions",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "qk_fit_rows_half_open": [
+    72,
+    96
+  ],
+  "mlp_fit_rows_half_open": [
+    0,
+    24
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 71960,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.01951291784644127,
+  "certificates_valid": 29,
+  "additive_component_prediction": 0.018543592699694633,
+  "composition_residual": 0.0009693251467466357,
+  "composition_ratio": 1.0522727802775025,
+  "shifted_damage_mean": 0.014038135297596455,
+  "shifted_damage_row_p50": 0.013443490490317345,
+  "shifted_damage_row_p95": 0.04213184118270874,
+  "shifted_damage_row_max": 0.06073950231075287,
+  "max_fresh_damage": 0.0174,
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 56,
+  "qk_factorized_maps": 440,
+  "mlp0_rank": 512,
+  "mlp0_fit_diagnostic": {
+    "context_cov_retained_energy": 0.9218083620071411,
+    "rank": 512,
+    "context_cov_condition_after_floor": 3212.24560546875,
+    "covariance_floor": 8.654058837890625e-05
+  },
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "literal_standalone_scalars": 507253046,
+  "literal_raw_tensor_bytes": 1913070188,
+  "saved_census_cev_file": "cev_mixed56_context_qk_mlp0_context_p512.pt",
+  "runtime_s": 131.72459435462952,
+  "shifted_corpus": {
+    "dataset": "Salesforce/wikitext",
+    "config": "wikitext-103-raw-v1",
+    "split": "train",
+    "source_rows_half_open": [
+      100000,
+      110000
+    ],
+    "token_span_half_open": [
+      71960,
+      102800
+    ],
+    "token_sha256_prefix": "4e1ca0fd7f5c6f00"
+  },
+  "pred_a_composition_is_near_additive_predictive_and_certified": false,
+  "pred_b_new_shifted_ood_mean_and_tails_hold": true,
+  "pred_c_exact_dual_context_identity_price_and_fresh_hold": true,
+  "null_lower_boundary_cross_family_composition_fails": false
+}
+rescored QK56+p512 receipt at /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed56_context_qk_mlp0_context_p512_ood_results.json

@@ -1,0 +1,208 @@
+{
+  "status": "mlp0_consequence_weighted_context_metric_screen_complete",
+  "rung": 353,
+  "claim_level": "split_fit_two_corpus_suffix_gradient_metric_screen_only",
+  "metric": {
+    "formula": "C_grad=sum clip(||dL/dy0||/median,.25,4) xxT / sum w",
+    "weight_clip": [
+      0.25,
+      4.0
+    ]
+  },
+  "fit_rows": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_a": [
+      0,
+      24
+    ],
+    "fit_b": [
+      24,
+      48
+    ]
+  },
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_rows_half_open": [
+      80,
+      120
+    ],
+    "wikitext103_train_token_span_half_open": [
+      102800,
+      113080
+    ],
+    "dataset_fingerprint": "7dabb830ac9ebb0d",
+    "source_token_count": 675457
+  },
+  "weight_and_fit_diagnostics": {
+    "a": {
+      "raw_gradient_norm_median": 0.00015345409337896854,
+      "raw_gradient_norm_p95": 0.0005337328766472638,
+      "weight_mean_before_normalization": 1.2858591079711914,
+      "lower_clip_fraction": 0.0162760429084301,
+      "upper_clip_fraction": 0.0354817733168602,
+      "ordinary_384": {
+        "context_cov_retained_energy": 0.8754005432128906,
+        "rank": 384,
+        "context_cov_condition_after_floor": 3212.24072265625,
+        "covariance_floor": 8.654058074951172e-05
+      },
+      "ordinary_448": {
+        "context_cov_retained_energy": 0.9011108875274658,
+        "rank": 448,
+        "context_cov_condition_after_floor": 3212.24072265625,
+        "covariance_floor": 8.654058074951172e-05
+      },
+      "consequence_384": {
+        "context_cov_retained_energy": 0.8625324964523315,
+        "rank": 384,
+        "context_cov_condition_after_floor": 3195.607177734375,
+        "covariance_floor": 8.058709716796875e-05
+      },
+      "consequence_448": {
+        "context_cov_retained_energy": 0.8918228149414062,
+        "rank": 448,
+        "context_cov_condition_after_floor": 3195.607177734375,
+        "covariance_floor": 8.058709716796875e-05
+      }
+    },
+    "b": {
+      "raw_gradient_norm_median": 0.00015939411241561174,
+      "raw_gradient_norm_p95": 0.0005293259164318442,
+      "weight_mean_before_normalization": 1.2556967735290527,
+      "lower_clip_fraction": 0.02197265625,
+      "upper_clip_fraction": 0.02620442770421505,
+      "ordinary_384": {
+        "context_cov_retained_energy": 0.8638015985488892,
+        "rank": 384,
+        "context_cov_condition_after_floor": 2537.12744140625,
+        "covariance_floor": 8.174587249755859e-05
+      },
+      "ordinary_448": {
+        "context_cov_retained_energy": 0.8912012577056885,
+        "rank": 448,
+        "context_cov_condition_after_floor": 2537.12744140625,
+        "covariance_floor": 8.174587249755859e-05
+      },
+      "consequence_384": {
+        "context_cov_retained_energy": 0.847618818283081,
+        "rank": 384,
+        "context_cov_condition_after_floor": 2303.5771484375,
+        "covariance_floor": 7.340677642822265e-05
+      },
+      "consequence_448": {
+        "context_cov_retained_energy": 0.8789824843406677,
+        "rank": 448,
+        "context_cov_condition_after_floor": 2303.5771484375,
+        "covariance_floor": 7.340677642822265e-05
+      }
+    }
+  },
+  "consequence_split_subspace_overlap": {
+    "384": 0.7338697910308838,
+    "448": 0.7439701557159424
+  },
+  "row_damage_summaries": {
+    "a_ordinary_384": {
+      "fineweb": {
+        "mean": 0.008416062593460083,
+        "p95": 0.03130464553833007,
+        "max": 0.04462623596191406
+      },
+      "wikitext": {
+        "mean": 0.011200135946273804,
+        "p95": 0.03487145900726316,
+        "max": 0.054197072982788086
+      }
+    },
+    "a_ordinary_448": {
+      "fineweb": {
+        "mean": 0.00565374493598938,
+        "p95": 0.023470151424407944,
+        "max": 0.0377655029296875
+      },
+      "wikitext": {
+        "mean": 0.008860206604003907,
+        "p95": 0.030085718631744376,
+        "max": 0.04310417175292969
+      }
+    },
+    "a_consequence_384": {
+      "fineweb": {
+        "mean": 0.007940852642059326,
+        "p95": 0.029209065437316873,
+        "max": 0.0427546501159668
+      },
+      "wikitext": {
+        "mean": 0.010821425914764404,
+        "p95": 0.029866778850555394,
+        "max": 0.03914999961853027
+      }
+    },
+    "a_consequence_448": {
+      "fineweb": {
+        "mean": 0.006213539838790893,
+        "p95": 0.02417068481445312,
+        "max": 0.03247714042663574
+      },
+      "wikitext": {
+        "mean": 0.006843507289886475,
+        "p95": 0.024988043308258046,
+        "max": 0.03746342658996582
+      }
+    },
+    "b_ordinary_384": {
+      "fineweb": {
+        "mean": 0.006373876333236694,
+        "p95": 0.024966430664062487,
+        "max": 0.0347442626953125
+      },
+      "wikitext": {
+        "mean": 0.010520285367965699,
+        "p95": 0.03198516368865967,
+        "max": 0.032640933990478516
+      }
+    },
+    "b_ordinary_448": {
+      "fineweb": {
+        "mean": 0.003794461488723755,
+        "p95": 0.020758569240570058,
+        "max": 0.03156709671020508
+      },
+      "wikitext": {
+        "mean": 0.006916707754135132,
+        "p95": 0.02022502422332762,
+        "max": 0.02623891830444336
+      }
+    },
+    "b_consequence_384": {
+      "fineweb": {
+        "mean": 0.006655746698379516,
+        "p95": 0.024568939208984352,
+        "max": 0.03401517868041992
+      },
+      "wikitext": {
+        "mean": 0.011130988597869873,
+        "p95": 0.02958887815475463,
+        "max": 0.0332183837890625
+      }
+    },
+    "b_consequence_448": {
+      "fineweb": {
+        "mean": 0.003416663408279419,
+        "p95": 0.0189385175704956,
+        "max": 0.023283004760742188
+      },
+      "wikitext": {
+        "mean": 0.006952649354934693,
+        "p95": 0.023955011367797853,
+        "max": 0.02645254135131836
+      }
+    }
+  },
+  "pred_a_gradient_p384_reduces_both_tail_distributions": false,
+  "pred_b_gradient_p384_preserves_mean_prediction": true,
+  "pred_c_metric_is_split_stable_clipped_and_p448_safe": true,
+  "null_consequence_metric_has_no_replicable_advantage": false,
+  "stop_rule": "no_weight_clip_or_rank_tuning_after_result",
+  "runtime_s": 18.760560512542725
+}
