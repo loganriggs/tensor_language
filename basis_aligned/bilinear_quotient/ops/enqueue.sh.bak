@@ -1,18 +1,4 @@
 #!/bin/bash
-
-# --- dedup guard (added 2026-09-01 after two symmetric double-enqueue races) ---
-BASE=$(basename "${1%.py}")
-QDIR=$(dirname "$0")/..
-if [ "${FORCE:-0}" != "1" ]; then
-  if grep -q "/$BASE\.py$" "$QDIR/queue.txt" 2>/dev/null; then
-    echo "DEDUP: $BASE already queued (FORCE=1 to override)"; exit 3
-  fi
-  if [ -f "$QDIR/runlogs/$BASE.log" ] && find "$QDIR/runlogs/$BASE.log" -newermt '-10 minutes' | grep -q .; then
-    echo "DEDUP: $BASE ran/running within 10 min (FORCE=1 to override)"; exit 3
-  fi
-fi
-# --- end dedup guard ---
-
 # Append a script to lane 1 ONLY if it exists, parses and gates.
 #
 # 2026-08-29, MEASURED: this script used to also REFUSE when the GPU was busy. That guard came from the

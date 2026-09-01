@@ -922,6 +922,33 @@ def main():
             print(f'  prefix +{_kk} tail-attn dicts: L2 fresh {_v:+.4f}',flush=True)
         del cur['clsmap']
         SEL['prefix_result']={'prefix':_pl,'marginals':[round(_pl[_i+1]-_pl[_i],4) for _i in range(8)]}
+    if SEL.get('extra_eval_rows') is not None:
+        _XR=SEL['extra_eval_rows'].cpu()
+        _XN=int(_XR.shape[0])
+        if _XR.ndim != 2 or _XR.shape[1] < 257:
+            raise ValueError(f'extra_eval_rows must be [N,>=257], got {tuple(_XR.shape)}')
+        cur['clsmap']=classify2(_XR).to(DEV)
+        _old_tail=bool(SEL.get('qk_tail_on'))
+        try:
+            SEL['qk_tail_on']=False
+            _xb=evalV(_XR,_XN,[],[]).float().cpu()
+            SEL['qk_tail_on']=_old_tail
+            _xc=evalV(_XR,_XN,order2,ML).float().cpu()
+        finally:
+            SEL['qk_tail_on']=_old_tail
+            del cur['clsmap']
+        _xd=(_xc-_xb).reshape(_XN,-1)
+        SEL['extra_eval']={
+            'name':str(SEL.get('extra_eval_name','unnamed')),
+            'n_rows':_XN,
+            'native_ce':float(_xb.mean()),
+            'compiled_ce':float(_xc.mean()),
+            'damage_mean':float(_xd.mean()),
+            'damage_mean_abs_position':float(_xd.abs().mean()),
+            'damage_by_row':[float(v) for v in _xd.mean(1)],
+        }
+        print(f"  extra eval {SEL['extra_eval']['name']}: native {_xb.mean():.6f} "
+              f"compiled {_xc.mean():.6f} damage {_xd.mean():+.8f}",flush=True)
     W8banned=set(); W8RES=[]
     for wi in range(8):
         rws=[]; used=set()
