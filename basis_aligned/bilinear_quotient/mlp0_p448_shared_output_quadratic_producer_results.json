@@ -1,0 +1,281 @@
+{
+  "status": "mlp0_p448_shared_output_quadratic_producer_complete",
+  "rung": 410,
+  "claim_level": "heldout_executable_shared_output_producer_screen_not_adoption",
+  "convention": "CE added above native; lower is better",
+  "authority": {
+    "parent": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_p448_causal_output_interface_oracle_results.json",
+    "source_documents": 384,
+    "train_documents_half_open": [
+      0,
+      192
+    ],
+    "evaluation_documents_half_open": [
+      192,
+      384
+    ],
+    "evaluation_waves": [
+      [
+        192,
+        288
+      ],
+      [
+        288,
+        384
+      ]
+    ],
+    "scoring_positions_half_open": [
+      64,
+      256
+    ],
+    "population_exact": true,
+    "loss_tensor_sha256": "e6d92614ad4fbe5b6e63aa2939e7df6ecb197281c114aae9696baf3bc68ab082",
+    "loss_authority_exact": true,
+    "baseline_saved_loss_max_abs_error": {
+      "NATIVE": 0.0,
+      "P448": 0.0,
+      "P640": 0.0,
+      "P768": 0.0
+    },
+    "FINAL_opened": 0
+  },
+  "programs": {
+    "source_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "evaluation_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "diagnostics": {
+      "448": {
+        "context_cov_retained_energy": 0.9011108875274658,
+        "rank": 448,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "640": {
+        "context_cov_retained_energy": 0.9522833228111267,
+        "rank": 640,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "768": {
+        "context_cov_retained_energy": 0.9727116823196411,
+        "rank": 768,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      }
+    },
+    "exact": true
+  },
+  "output_basis": {
+    "sha256": "9367ae3cd67bf2369fbeacd6d62855223d2c60376f0fd4147f0b5b7779d742d3",
+    "training_retained_error_energy": 0.36661841744898277,
+    "orthogonality_max_abs": 8.093193173408508e-07
+  },
+  "quadratic_derivation": {
+    "uncentered_covariance_floor": 8.701451110839843e-05,
+    "square_inverse_max_abs_error": 2.2649765014648438e-06,
+    "full_form_sample_relative_mse": 4.051639985090824e-12,
+    "rank24_sample_relative_mse": 0.4448536448995314,
+    "data_metric_form_energy_retained": {
+      "8": 0.19787375630397722,
+      "16": 0.28973550152586325,
+      "24": 0.3569902499205184
+    },
+    "beta_max_abs": 46.209800720214844,
+    "directions_sha256": "10a7d92392e54dc7afb89cf93e31cbf91dd262dfe2f00bedd627d9b863f55e10",
+    "signed_values_sha256": "b29b49a96656a9b86d369054dfdc1c7e8134de41cb720d137707a022483f835e"
+  },
+  "affine": {
+    "ridge": 34.501250895364755,
+    "training_positions": 36864,
+    "weight_sha256": "7620c5206eee082b72b7fd2350a0d81ddbb8715e14810f1a2aa913547bdcdb7f",
+    "bias_sha256": "f5d66341b687a09fa94e6ceba84f1dd4fa0d0f9057560e51841f05092e191c52"
+  },
+  "physical": {
+    "native_ce": 3.029153713290476,
+    "damage": {
+      "NATIVE": 0.0,
+      "P448": 0.007946509265893464,
+      "P640": 0.00286791017503063,
+      "P768": 0.0014020785533999103,
+      "ORACLE64": 0.004769479165072976,
+      "FULL_ANALYTIC": 0.004963027594568459,
+      "AFFINE": 0.007631057768449967,
+      "R8": 0.007402205848491494,
+      "R16": 0.007159569030501078,
+      "R24": 0.006928635183113929,
+      "SHUFFLED24": 0.008842342299040684
+    },
+    "wave_damage": {
+      "NATIVE": [
+        0.0,
+        0.0
+      ],
+      "P448": [
+        0.008612539082635262,
+        0.007280479449151667
+      ],
+      "P640": [
+        0.002970703612074743,
+        0.0027651167379869612
+      ],
+      "P768": [
+        0.001792879815599946,
+        0.0010112772911998746
+      ],
+      "ORACLE64": [
+        0.005497735227142808,
+        0.004041223103003144
+      ],
+      "FULL_ANALYTIC": [
+        0.005736136940715397,
+        0.004189918248421076
+      ],
+      "AFFINE": [
+        0.008137975679607834,
+        0.0071241398572921
+      ],
+      "R8": [
+        0.008126787652515066,
+        0.0066776240444679225
+      ],
+      "R16": [
+        0.008204184421800598,
+        0.006114953639200671
+      ],
+      "R24": [
+        0.007630305673566262,
+        0.006226964692661152
+      ],
+      "SHUFFLED24": [
+        0.0093399125295206,
+        0.008344772068561213
+      ]
+    },
+    "coefficient_relative_mse_vs_deployed_oracle": {
+      "AFFINE": 0.38639441721566986,
+      "R8": 0.775452166848322,
+      "R16": 0.6759466388373951,
+      "R24": 0.6004446913691205,
+      "SHUFFLED24": 1.1757079941588378
+    },
+    "calls": {
+      "NATIVE": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P448": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P640": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P768": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "ORACLE64": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "FULL_ANALYTIC": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "AFFINE": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "R8": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "R16": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "R24": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "SHUFFLED24": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      }
+    },
+    "calls_live": true,
+    "training_pass1_site0_calls": 48,
+    "training_pass2_site0_calls": 48,
+    "state_replay_max_abs_error": 0.0
+  },
+  "literal_price": {
+    "p448_values": 9954432,
+    "quadratic_producer_interface_values": {
+      "8": 664128,
+      "16": 1254464,
+      "24": 1844800
+    },
+    "p448_plus_quadratic_values": {
+      "8": 10618560,
+      "16": 11208896,
+      "24": 11799232
+    },
+    "affine_producer_interface_values": 147520,
+    "p448_plus_affine_values": 10101952,
+    "p640_values": 11945088,
+    "p768_values": 13272192,
+    "rank24_component_count": 1536,
+    "rank24_projection_multiplications_per_token": 1769472,
+    "rank24_output_multiplications_per_token": 73728,
+    "fit_dense_forms_not_runtime_storage": true
+  },
+  "oracle_gain": 0.003177030100820488,
+  "rank24_oracle_gain_recovery": 0.3203854072760163,
+  "selected_screen_producer": "R24",
+  "pred_a_weight_derivation_authority_and_price_are_exact": true,
+  "pred_b_priced_rank24_recovers_half_the_output_oracle": false,
+  "pred_c_quadratic_spectrum_is_live_and_ordered": false,
+  "pred_d_quadratic_producer_beats_shuffle_and_affine": true,
+  "null_no_specific_priced_executable_output_producer": false,
+  "next_object": "mathematical_screen_only",
+  "adoption_licensed": false,
+  "runtime_s": 48.68941283226013
+}
