@@ -1,0 +1,160 @@
+{
+  "status": "mlp04_shared_grassmann_encoder_screen_complete",
+  "rung": 370,
+  "claim_level": "split_fit_two_layer_shared_encoder_two_corpus_screen_only",
+  "convention": "CE added above native; lower is better",
+  "mathematical_object": "rank768 chordal midpoint of independent encoder rowspace projectors",
+  "fit_rows": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "half_open": [
+      24,
+      48
+    ]
+  },
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_rows_half_open": [
+      176,
+      192
+    ],
+    "wikitext103_train_span_half_open": [
+      271392,
+      275504
+    ],
+    "dataset_fingerprint": "7dabb830ac9ebb0d"
+  },
+  "layers": [
+    0,
+    4
+  ],
+  "rank": 768,
+  "independent_encoder_rowspace_overlap": 0.6787792444229126,
+  "summaries": {
+    "independent": {
+      "fineweb": {
+        "mean": 0.003679215908050537,
+        "p95": 0.016640663146972656,
+        "max": 0.01717066764831543
+      },
+      "wikitext": {
+        "mean": 0.0011013150215148926,
+        "p95": 0.0130729079246521,
+        "max": 0.016683340072631836
+      }
+    },
+    "midpoint": {
+      "fineweb": {
+        "mean": 0.005953267216682434,
+        "p95": 0.02372676134109497,
+        "max": 0.023954391479492188
+      },
+      "wikitext": {
+        "mean": 0.003992170095443726,
+        "p95": 0.020716488361358643,
+        "max": 0.023642778396606445
+      }
+    },
+    "one_sided_0": {
+      "fineweb": {
+        "mean": 0.01047542691230774,
+        "p95": 0.034637272357940674,
+        "max": 0.03524184226989746
+      },
+      "wikitext": {
+        "mean": 0.008529111742973328,
+        "p95": 0.02337503433227539,
+        "max": 0.029036998748779297
+      }
+    },
+    "one_sided_4": {
+      "fineweb": {
+        "mean": 0.008253827691078186,
+        "p95": 0.029334723949432373,
+        "max": 0.03164839744567871
+      },
+      "wikitext": {
+        "mean": 0.007263898849487305,
+        "p95": 0.021914541721343994,
+        "max": 0.02390599250793457
+      }
+    },
+    "random": {
+      "fineweb": {
+        "mean": 0.020709484815597534,
+        "p95": 0.048019349575042725,
+        "max": 0.049698591232299805
+      },
+      "wikitext": {
+        "mean": 0.018061906099319458,
+        "p95": 0.03851109743118286,
+        "max": 0.045198917388916016
+      }
+    }
+  },
+  "shared_encoder_pointer_identity": {
+    "independent": {
+      "fineweb_encoder_data_ptrs": [
+        15194259456,
+        15213723648
+      ],
+      "wikitext_encoder_data_ptrs": [
+        15194259456,
+        15213723648
+      ],
+      "one_shared_tensor": false
+    },
+    "midpoint": {
+      "fineweb_encoder_data_ptrs": [
+        15118499840,
+        15118499840
+      ],
+      "wikitext_encoder_data_ptrs": [
+        15118499840,
+        15118499840
+      ],
+      "one_shared_tensor": true
+    },
+    "one_sided_0": {
+      "fineweb_encoder_data_ptrs": [
+        15130558464,
+        15130558464
+      ],
+      "wikitext_encoder_data_ptrs": [
+        15130558464,
+        15130558464
+      ],
+      "one_shared_tensor": true
+    },
+    "one_sided_4": {
+      "fineweb_encoder_data_ptrs": [
+        15197798400,
+        15197798400
+      ],
+      "wikitext_encoder_data_ptrs": [
+        15197798400,
+        15197798400
+      ],
+      "one_shared_tensor": true
+    },
+    "random": {
+      "fineweb_encoder_data_ptrs": [
+        15112601600,
+        15112601600
+      ],
+      "wikitext_encoder_data_ptrs": [
+        15112601600,
+        15112601600
+      ],
+      "one_shared_tensor": true
+    }
+  },
+  "independent_pair_scalars": 26544384,
+  "shared_pair_scalars": 25659648,
+  "saving_from_one_shared_encoder": 884736,
+  "prospective_full_program_scalars": 510873910,
+  "pred_a_midpoint_matches_independent_pair": true,
+  "pred_b_midpoint_preserves_row_tails": true,
+  "pred_c_shared_geometry_identity_and_price_hold": false,
+  "null_shared_midpoint_encoder_not_useful": false,
+  "runtime_s": 8.857190608978271
+}

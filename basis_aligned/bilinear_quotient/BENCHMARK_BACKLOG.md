@@ -3917,3 +3917,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL TIGHT BARS HELD, null false. signed cosine/error/norm
     .986524/.191595/1.086070, rho .995306, own1.085463. Formally adopt
     511,758,646 scalars / 1,023,517,292 bytes / +.01232938 /43.
+
+370. [CODEX, board-claim 08:30Z] SHARED GRASSMANN ENCODER FOR MLP0/4:
+    midpoint of split-B p768 encoder rowspaces; covariance-optimal per-layer
+    coefficients; independent/one-sided/random controls on two new corpora;
+    exact 884,736-scalar prospective saving.
