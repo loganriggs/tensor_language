@@ -3974,3 +3974,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     NO-RECEIPT CORRECTION: dryrun caught encoder-overhead price; p1024 is
     break-even. Correct matched/below-frontier prices are5,308,416/6,635,520
     saved and QK64 exact5 bill510,431,542. No empirical output preceded fix.
+    RUN 2026-09-01: pred_a held; pred_b/c failed; NULL FIRED. Split-B factor
+    error1.223, rho.9521, order18/18, so the model is identified—but exact4
+    chooses the existing `{0:768,4:768}` at ratio1.000, and exact5 deepens
+    layer4 to640 at ratio1.369. No build; current local rank grid is closed.

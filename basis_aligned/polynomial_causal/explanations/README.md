@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0900.md`](explanation_0900.md) — 2026-09-01 completed overnight synthesis: goal and six-route
+  scorecard, exact MLP0 identifiability limits, 511.76M/1.0235GB adopted frontier, 516.26M/50-cert mid-tier,
+  universal certificate ray, local water-fill closure, and genuinely different next directions
 - [`explanation_0810.md`](explanation_0810.md) — 2026-09-01 overnight synthesis: six-route scorecard,
   induced-tail and certificate-ray compiler laws, fully gated 1.092GB/62 and 1.025GB/43 byte frontier,
   folded-MLP0/MoE conclusions, and ranked next scalar directions
