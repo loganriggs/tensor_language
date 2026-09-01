@@ -548,3 +548,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   distortion, is what stops lower ranks.
 - Decision: formally adopt 533,623,094 scalars, +.012662, 43/62, Wiki +.011411 as the smallest fully gated point.
   Switch modules and test contextual rank96 Q/K factors against mixed104's hand-selected rank104 fine band.
+
+### `06:20 UTC` — exploit checkpoint `331`
+
+- Result: context-QK96 is **`+.00124485`, 62/62 certificates**, fresh max +.0015 at 535,089,462 scalars.
+  It improves physical weight-top96 by .007294 and mixed104 by .003447 while saving 4,505,600 scalars. All
+  predicates hold, null false, exact 440-map/rank96 context identity and bill.
+- Information gained: mixed104's hand-selected bottom-eight band was compensating for the wrong Frobenius metric.
+  Contextual attention-input covariance makes rank96 both smaller and substantially more faithful than rank104.
+- Decision: freeze independent fit rows72:96 as the shipping map; require census reproduction, 58+ certificates,
+  WikiText skip140000 mean/p95/max, exact bill/identity, and save CEV before signed causal testing.

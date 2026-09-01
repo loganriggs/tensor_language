@@ -3627,3 +3627,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     rank96 RRR under contextual attention-input covariance for all 440 Q/K
     maps; compare physical weight-top96 and mixed104, exact price/identity.
     -> ops/mixed96_context_metric_qk.py
+    RUN 2026-09-01: ALL HELD, null false. +.00124485, 62/62, fresh max+.0015,
+    535,089,462 scalars. Beats weight-top96 by .007294 and mixed104 by .003447
+    while smaller. Advance independent split-fit + shifted OOD.
+
+332. [CODEX, board-claimed 06:22Z] CONTEXT-QK96 SPLIT REPRO + OOD:
+    freeze independent covariance fit rows72:96 as shipping map; census/certs,
+    WikiText skip140000 n120, exact 440-map identity/bill, save unablated CEV.
+    -> ops/mixed96_context_metric_qk_split_ood.py
