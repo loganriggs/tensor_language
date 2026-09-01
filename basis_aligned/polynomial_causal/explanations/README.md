@@ -7,6 +7,7 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0112.md`](explanation_0112.md) — 2026-09-01 research plan: the full predictive/composable/manipulable/simplicity goal, the current function-space rank-one repair test, and four independent mathematical routes (tangent compiler, predictive-state quotient, shared invariant, causal-response basis)
 - [`explanation_0335.md`](explanation_0335.md) — 2026-08-31 03:35: the twins give way — anatomy (84% flows through block 3; no compensation; different write directions), the working scalar merge (55% recovery), and the corrected knockout numbers in flight
 - [`explanation_0100.md`](explanation_0100.md) — 2026-08-31 01:00: the measured skeleton of the retrieval system (backup readers at 14/16, the general suppressor m16, four defeated theories, the cross-depth range law)
 - [`explanation_2335.md`](explanation_2335.md) — 2026-08-30 23:35: the block-16 arc, the two ledgers (coverage vs price), and the discovery that the whole tail price is an in-document-retrieval price (§2136–§2157)
