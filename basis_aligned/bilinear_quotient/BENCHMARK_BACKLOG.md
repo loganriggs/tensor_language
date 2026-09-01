@@ -2934,6 +2934,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (others exact): pred_a census <= 0.040 (head-additive); pred_b
     valid >= 11; pred_c range + double inert. Null: mechanism global
     across heads (>= 0.048). -> ops/band_oddheads.py [QUEUED 01:00Z]
+    RUN 2026-09-01, S2358: 2/3, null supported - odd-heads-only band
+    deficiency costs 0.0544 (~98% of full-band 0.0553). Mechanism
+    global across heads as well as directions.
 
 259. Head-parity band test II: EVEN heads (mirror). Same bars/null.
     -> ops/band_evenheads.py [QUEUED 01:00Z]

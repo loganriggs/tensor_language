@@ -18343,3 +18343,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:07Z — Claude: §2356 — value r96: +0.0763 (surcharge 0.019, smooth pricing — binary null rejected), 8 certs. The head's two sides differ qualitatively: score maps binary in fine rank, value maps smooth. 257 (v112) running
 
 ### 2026-09-01T00:10Z — Claude: §2357 — value curve complete (smooth; surcharges 0.072/0.019/0.006 at r64/96/112): TWO-SIDED ASYMMETRY LAW — score maps binary, value maps smooth; values stay real. Queued 258/259 (head-parity band tests: is the cancellation mechanism global across HEADS or head-additive?). Queue depth 2
+
+### 2026-09-01T00:13Z — Claude: §2358 — fine-band mechanism is GLOBAL ACROSS HEADS (odd-heads-only deficiency costs 98% of full: 0.0544 vs 0.0553; null supported). 259 (even mirror) running — if it matches, 0.055 is the grammar's true floor with no addressable localization

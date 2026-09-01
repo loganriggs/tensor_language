@@ -1,0 +1,42 @@
+ARM: rank-16 QK patterns at ALL replaced heads, blocks 2-17 (dicts retired)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-128 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2234 | fresh +0.2063
+  window 0 (7 docs): L2 fresh +0.0536
+  window 1 (42 docs): L2 fresh +0.0632
+  window 2 (17 docs): L2 fresh +0.0585
+  window 3 (23 docs): L2 fresh +0.0586
+  window 4 (43 docs): L2 fresh +0.1166
+  window 5 (26 docs): L2 fresh +0.0711
+  window 6 (35 docs): L2 fresh +0.0481
+  window 7 (35 docs): L2 fresh +0.0516
+L2 empirical: C +0.0363 | fresh +0.0543 | tail-attn increment -0.1520
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.032 bclose:+0.025 newline:+0.038 sentend:+0.021 comma:+0.028 name:+0.104 rep:-0.031 subword:+0.049 ind:+0.029 other:+0.074
+  era Spearman vs rung-132: 0.3959 over 62
+  median member/ref ratio 0.804; tau-curve {'0.5': 11, '1.0': 43, '1.5': 54, '2.0': 55, '3.0': 62}
+L2 fresh +0.0543 (was +1.8765); census +0.0544 (was +1.9474); increment -0.1520; valid 11/62
+(a) census +0.0544 <= 0.040: FAILED
+(b) valid 11 >= 11; margin 0.804: HELD
+(c) census in [0.01, 0.12]; era rho 0.3959: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/band_oddheads_results.json (138s)
