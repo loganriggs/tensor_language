@@ -4332,7 +4332,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   TI64 in branch MSE (`.750>.708`) and physical damage (`.005876>.004838`). Total-error64 reaches `.004769`, still
   above p640 `.002868`. Select one shared rank64 T+I output producer; no separate path dictionaries or B0 reuse.
 
-### Rung 410 — weight-derived shared rank64 output quadratic producer — CLAIMED
+### Rung 410 — weight-derived shared rank64 output quadratic producer — COMPLETE / SCREEN ONLY
 
 - Reconstruct rung409's total-error U64 on train docs0:192. Contract U64 into the exact native-minus-p448 bilinear
   weights to obtain64 symmetric quadratic coefficient forms in the causally available normalized MLP0 input.
@@ -4343,3 +4343,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `MLP0_P448_SHARED_OUTPUT_QUADRATIC_PRODUCER_PREREGISTRATION.md`.
 - Executable screen only. A priced pass selects one fresh/OOD+signed+composition gate; miss routes away without rank
   tuning. The runtime never reads native output, target IDs, future loss, document ID, or evaluation lookup.
+- RUN 2026-09-01: A/D held, B/C failed, strong null false. Exact rows/losses/calls/prices hold; the full quadratic
+  derivation matches direct coefficients at relative MSE `4.05e-12` and physical oracle damage within `.000194`.
+  Rank24 improves p448 damage `.007947 -> .006929`, a `.001018` gain or `32.0%` of the oracle, and specifically
+  beats shuffled24 `.008842` and affine `.007631` in both waves. But it misses the frozen50% recovery bar, retains
+  only `.3570` data-metric form energy rather than `.70`, and rank640 is far better at `.002868` for only145,856
+  more values. No promotion or rank tuning. The independent-per-output low-rank form is broad; next mathematical
+  screen may test a joint tensor factorization sharing input directions across the64 forms.
