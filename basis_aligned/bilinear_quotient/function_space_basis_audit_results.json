@@ -68,5 +68,43 @@
   "pred_b_vector_additivity": false,
   "pred_c_low_rank_family_algebra": false,
   "null_triggered": true,
-  "decision_level": "identification screen; adoption requires a legal held-out repair"
+  "decision_level": "identification screen; adoption requires a legal held-out repair",
+  "posthoc_path_control_addendum": {
+    "status": "exploratory recalibration; path control landed after preregistration",
+    "path_damage_mean": 0.0520262,
+    "path_cosine_with_ct96": 0.971189,
+    "path_cosine_with_t120": 0.994901,
+    "corrected_band_means": {
+      "ct96_minus_path": 0.0032699,
+      "t120_minus_path": 0.0005672
+    },
+    "corrected_band_pair_cosine": 0.738132,
+    "pure_value_vs_contained_value_residual_cosine": 0.9147464,
+    "vector_additivity_relative_error": 0.4435849,
+    "pure_value_vs_corrected_band_cosine": 0.0273712,
+    "family_names": [
+      "band_after_path",
+      "pure_value_after_path",
+      "m16_ko_residual"
+    ],
+    "family_cosine_gram": [
+      [
+        1.0,
+        0.0273712,
+        -0.0027963
+      ],
+      [
+        0.0273712,
+        1.0,
+        0.0117452
+      ],
+      [
+        -0.0027963,
+        0.0117452,
+        1.0
+      ]
+    ],
+    "max_abs_family_offdiagonal": 0.0273712,
+    "interpretation": "the common 0.055 mode is path-dominated; after subtraction, damage families are approximately orthogonal but ct96/t120 no longer support a rank-one floor"
+  }
 }

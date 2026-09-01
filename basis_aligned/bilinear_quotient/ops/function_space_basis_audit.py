@@ -154,6 +154,54 @@ def main() -> None:
         "null_triggered": bool(null_triggered),
         "decision_level": "identification screen; adoption requires a legal held-out repair",
     }
+    # Post-outcome correction, reported separately from the registered scores above.  The full-rank
+    # path control landed only after this audit was registered and exposed a shared instrument vector.
+    # It must not silently rewrite the preregistered verdict, but it does change the scientific object.
+    path_file = ROOT / "cev_pathfull.pt"
+    if path_file.exists():
+        path_damage = torch.load(path_file, map_location="cpu", weights_only=False).reshape(-1).double() - base
+        corrected_band_a = band_a - path_damage
+        corrected_band_b = band_b - path_damage
+        corrected_band = 0.5 * (corrected_band_a + corrected_band_b)
+        corrected_pure = pure_value - path_damage
+        corrected_family = {
+            "band_after_path": corrected_band,
+            "pure_value_after_path": corrected_pure,
+            "m16_ko_residual": ko_residual,
+        }
+        corrected_names = list(corrected_family)
+        corrected_gram = torch.empty((3, 3), dtype=torch.float64)
+        for i, left in enumerate(corrected_names):
+            for j, right in enumerate(corrected_names):
+                corrected_gram[i, j] = cosine(corrected_family[left], corrected_family[right])
+        corrected_offdiag = corrected_gram - torch.eye(3, dtype=torch.float64)
+        result["posthoc_path_control_addendum"] = {
+            "status": "exploratory recalibration; path control landed after preregistration",
+            "path_damage_mean": round(float(path_damage.mean()), 7),
+            "path_cosine_with_ct96": round(cosine(path_damage, band_a), 7),
+            "path_cosine_with_t120": round(cosine(path_damage, band_b), 7),
+            "corrected_band_means": {
+                "ct96_minus_path": round(float(corrected_band_a.mean()), 7),
+                "t120_minus_path": round(float(corrected_band_b.mean()), 7),
+            },
+            "corrected_band_pair_cosine": round(cosine(corrected_band_a, corrected_band_b), 7),
+            "pure_value_vs_contained_value_residual_cosine": round(
+                cosine(corrected_pure, value_residual), 7
+            ),
+            "vector_additivity_relative_error": round(
+                float((value_residual - corrected_pure).norm() / corrected_pure.norm()), 7
+            ),
+            "pure_value_vs_corrected_band_cosine": round(cosine(corrected_pure, corrected_band), 7),
+            "family_names": corrected_names,
+            "family_cosine_gram": [
+                [round(float(x), 7) for x in row] for row in corrected_gram
+            ],
+            "max_abs_family_offdiagonal": round(float(corrected_offdiag.abs().max()), 7),
+            "interpretation": (
+                "the common 0.055 mode is path-dominated; after subtraction, damage families are "
+                "approximately orthogonal but ct96/t120 no longer support a rank-one floor"
+            ),
+        }
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2), flush=True)
     print(f"wrote {OUT}", flush=True)
