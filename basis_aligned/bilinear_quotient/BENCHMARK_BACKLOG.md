@@ -4169,7 +4169,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   .106 attention R2 over MLP-aware; MLP-aware gains .069 MLP R2), but joint response-aware R2 at16/64/256/512 is
   .189/.375/.665/.827 versus PCA .207/.398/.698/.865. No response-aware rank beats PCA. No confirmation; exact Q.
 
-### Rung 400 — centered token/context/normalization causal ANOVA — QUEUED
+### Rung 400 — centered token/context/normalization causal ANOVA — COMPLETE / IDENTITY-REJECTED
 
 - Reuse exact MLP0 bilinear algebra but change to an independently crossed product-reference decomposition of the
   unnormalized numerator: constant, token main, context main, centered token×context, and explicit RMS-gain residual.
@@ -4177,3 +4177,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   retaining the constant, native bias, and bf16 residual.
 - Identify whether continuous context meaning is primarily centered CC, centered X, or normalization modulation.
   Diagnostic only; no compression/adoption or token-only tuning.
+- RUN 2026-09-01: A/B failed, C/D held, strong null fired on identity. Scalar-only relMSE1.55e-6 exceeds1e-8.
+  Pending exact repair only: split-stable Shapley I1.538, T1.498, C.418, S.067; combined context2.023. Do not
+  publish/promote until explicit vector RMS residual reproduces all arms and closes exactness.
+
+### Rung 401 — exact vector normalization-residual repair of centered ANOVA — QUEUED
+
+- Keep every rung400 physical arm unchanged but write `z=s(e+a)+r` and explicitly retain the missing bilinear
+  residual involving r. Preserve the original 1e-8 identity bar rather than relaxing it.
+- Require all16 FIT/SELECT arm CEs and T/C/I/S Shapleys to reproduce rung400, then rescore its frozen B/C/D outcome.
+- Exact attribution only; no FINAL, compression, or adoption. Largest stable contextual role selects the next grammar.
