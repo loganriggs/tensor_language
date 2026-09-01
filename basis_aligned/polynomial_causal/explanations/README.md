@@ -130,3 +130,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_1030.md](explanation_1030.md) — fidelity dial shipped; solo ops; the apparatus audits its auditor
 - [explanation_1230.md](explanation_1230.md) — depth map done; the one question bounds can't answer is now running
 - [explanation_1330.md](explanation_1330.md) — the 15K-parameter layer, the price scandal, and the 40-minute save
+- [explanation_1430.md](explanation_1430.md) — sub-500M ships; MLP0 anatomy (carrier+linear+quadratic, split consumers); injection illusion fixed

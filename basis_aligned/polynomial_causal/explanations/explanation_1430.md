@@ -1,0 +1,9 @@
+# Plain-English update — 2026-09-01 14:30 UTC
+
+**Headline:** the first sub-500-million-parameter version of the model shipped this hour — and then the team dissected exactly how the first layer's computation works, catching and fixing a subtle measurement illusion along the way.
+
+**The artifact.** The tiny four-quadratic replacement for layer 16 was composed with the existing best compressed model: 495.8 million parameters (9% under the original), passing out-of-distribution and causal tests. It's a low-fidelity tier (17 of 62 behavior checks) — a far point on the dial, not a replacement for the high-fidelity tiers. Notably, the prediction machinery called this result in advance almost perfectly: predicted damage within 3%, predicted certificate count exactly.
+
+**The anatomy.** Four rapid experiments then took the first MLP layer apart. The illusion: injecting almost ANY large, roughly-shaped signal into the layer's output slot looks 92% "correct" downstream, because most of the response comes from a constant average component. Once that average is subtracted out (using shuffled-token controls), the real structure appeared: the layer's output = a big constant carrier + a linear per-token part + a quadratic per-token part — and the two downstream consumers read DIFFERENT parts: the next attention block reads the linear component, the next MLP reads the quadratic one. The parts combine almost independently.
+
+**Why it matters:** that's a real piece of reverse-engineering — not "the layer compresses to X" but "the layer computes A for reader 1 and B for reader 2, plus a bias." It also closes the question of whether sparse dictionaries or linear maps could stand in for this layer: they can't, because the causal content is genuinely quadratic. Every claim above sits behind pre-frozen pass/fail bars, with the one measurement illusion caught by a control the experimenters aimed at themselves.
