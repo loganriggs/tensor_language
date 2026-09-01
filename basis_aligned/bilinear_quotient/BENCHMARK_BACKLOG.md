@@ -4029,3 +4029,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: pred_b/c held, pred_a failed, null false. Context p256/
     p512 energy.657/.826 (<.75/.90), but split/embedding overlaps.927/.836
     and real-null gaps.139/.078. Real stable broad alignment; no promotion/tuning.
+
+388. [CODEX, board-claim 12:55Z] PHYSICAL L16 TUCKER CALIBRATION:
+    frozen `(r512,k576,p512)` importance-truncation core versus the same selected
+    576 native product atoms and seed388 random-product negative; diverse census,
+    all62 certificates/ray, untouched FineWeb, WikiText-103, exact identities and
+    literal prices. First attempt crashed before predicates because 513-token
+    census source rows were not sliced to the frozen 257-token window; mechanical
+    repair only. RUN 2026-09-01: pred_c/d held, pred_a/b failed, null false.
+    Tucker local R2 .81456/.83063, census +.047796/22 certs, WT103
+    .05451/.08367/.09696, fresh .05396/.08307; ray cosine/R2 .98157/.83791,
+    predicted/actual24/22. Equal-cheaper selected product is +.75230/0 certs and
+    random +.75159/0, so joint coordinates are necessary but the L16 2.07M corner
+    is not adoption-grade. No signed/composition gate and no L16 rank tuning.
