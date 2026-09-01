@@ -4002,3 +4002,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL HELD, null false. Baseline+.00930063/50; signed
     cosine/error/norm.990600/.153655/1.060392, rho.996633, own1.065080;
     exact516,264,246 /1,032,528,492. Formally adopt 50-cert middle tier.
+
+379. [CODEX, board-claim 09:13Z] VALUE PRICE-FIRST TAIL CLOSURE:
+    exact context-metric c_v tails for144 maps at ranks64:8:112; calibrate on
+    measured value96 surcharge, give every rank the optimistic exponent from
+    the observed MLP/QK envelope, and compare CE/saved-scalar to adopted MLP04.
+    Screen only; pass closes this rank grid, fail licenses one winning build.
