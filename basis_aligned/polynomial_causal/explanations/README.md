@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2347.md](explanation_2026-09-01_2347.md) — reports the complete MLP-PCA near-miss: the
+  rank ladder and composition replicate, but close rank256 removal variants reorder across document waves; explains
+  why the family is not counted and specifies an independent uncertainty-aware follow-up
 - [explanation_2026-09-01_2335.md](explanation_2026-09-01_2335.md) — reports the corrected full mixed104+MLP0 result:
   five legal teaching labels, perfect two-wave rank ordering for removal and composition, a complete-versus-local
   graph, and the two preserved scorer-only failures

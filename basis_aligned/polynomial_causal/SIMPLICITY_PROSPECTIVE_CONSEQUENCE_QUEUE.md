@@ -40,12 +40,14 @@ written separately and joined only by hash-bound candidate IDs.
    manifest supplies35 teaching candidates across vocabulary, MLP-PCA, and MLP0-context families, plus10 sparse-Q/K
    attention0 candidates in a sealed fourth family. All45 map to hash-pinned rebuild sources; candidate IDs and
    whole-family roles are frozen before new consequence generation.
-2. **Teaching-family consequence generation — active;5/35 complete-candidate labels, family1/3.** On new frozen rows, measure
+2. **Teaching-family consequence generation — active;12/35 complete-candidate labels measured,5 eligible; family1/3.** On new frozen rows, measure
    one common distant attention16 signed knockout and composition with the physical MLP16 rank2 program for the35
    teaching candidates. Rung448 produced valid local-MLP0 labels, but the frozen bank prices and names the complete
    mixed104+MLP0 candidate; those local interventions therefore do not count as bank labels. Rung449 repaired the
-   object and all five complete candidates passed the variation and two-wave stability gates. Vocabulary23 and
-   MLP-PCA7 remain queued rather than silently dropped.
+   object and all five complete candidates passed the variation and two-wave stability gates. Rung450 measured all
+   seven MLP-PCA labels: instrument/rank-ladder/variation pass, but removal wave-order rho`.50` misses`.70`, so the
+   family does not count yet. Freeze an independent larger reliability role and a tie/uncertainty-aware test before
+   reconsideration; do not relax rung450. Vocabulary23 remains queued rather than silently dropped.
 3. **Consequence-specific rule fitting.** Fit removal and composition predictors only on the three teaching families,
    choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
    uncertainty rule, and hashes before the attention0 label file exists.

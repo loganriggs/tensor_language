@@ -4548,3 +4548,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
   spans `.06786/.04380` exceed`.015`.
 - A/B/C/D true, strong null false. Count five complete labels and MLP0-context as teaching family1/3. Next run the
   seven complete MLP-PCA candidates; fit nothing until all three teaching families exist.
+
+### Rung 450 — complete mixed104 MLP-PCA consequence labels — COMPLETE / STABILITY NEAR-MISS, NOT ELIGIBLE
+
+- Rebuild seven full candidates in isolated conditions: layer pairs0+8/0+17/8+17 at rank256, the8+17 rank384/512
+  ladder, and same-price rank256 gradient32/64 hybrids. All three rank104 Q/K/active-program identities and exact
+  prices hold; KO/partner each fire168 calls; SEALED stays closed.
+- A/B/C hold: the8+17 rank ladder monotonically lowers removal `.24634→.20865→.17966` and composition
+  `.24792→.22983→.21273` (both Spearman1); seven-arm spans are`.06669/.05426`.
+- D fails: composition wave ordering is stable at`.82143`, but removal is`.50` versus`.70`. The five rank256
+  pair/hybrid arms are close and reorder across48-document waves; the high-rank ladder remains separated.
+- Strong null false, but full pass was required. Preserve all seven labels; count no second family and fit nothing.
+  Next preregister independent additional documents plus a tie/uncertainty-aware reliability test without changing
+  rung450, while continuing the still-queued vocabulary family.
