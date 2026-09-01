@@ -519,24 +519,28 @@ def main():
     gradient_live = all(value > 0 for restart in restarts for value in restart["gradient_max"].values())
     movement_live = all(value > 1e-8 for value in joint["movement_from_pca"].values())
 
-    pred_a = (
-        calibration["u16_orthogonality_max_abs"] <= 2e-5
-        and abs(calibration["full"]) < 1e-3
-        and calibration["rank16"] <= .12
-        and all(calibration[f"haar_{index}"] >= .80 for index in range(3))
-        and calibration["local_forward_replay_max_abs"] <= 2e-5
-        and payload_fold_error <= 1e-10
-        and gram_relative_error <= 1e-6
-        and transport["edge_replay_after_remainder_max_abs"] <= 2e-5
-        and transport["edge_replay_relative_squared_after_remainder"] <= 1e-12
-        and all(_orth_error(model_arm[key]) <= 2e-5
-                for model_arm in models.values()
-                for key in ("basis1", "basis2", "basisv"))
-        and SCREEN_VALUES == 23_310
-        and fit_hash == receipt["entries"]["FIT"]["tensor_sha256"]
-        and select_hash == receipt["entries"]["SELECT"]["tensor_sha256"]
-        and len(fit_edges["source"]) == len(select_edges["source"])
-        and not torch.equal(fit_rows, select_rows))
+    model_orthogonality_max_abs = max(
+        _orth_error(model_arm[key])
+        for model_arm in models.values()
+        for key in ("basis1", "basis2", "basisv"))
+    instrument_checks = {
+        "u16_orthogonality": calibration["u16_orthogonality_max_abs"] <= 2e-5,
+        "full_interface_ce": abs(calibration["full"]) < 1e-3,
+        "rank16_ce": calibration["rank16"] <= .12,
+        "haar_ce": all(calibration[f"haar_{index}"] >= .80 for index in range(3)),
+        "local_forward_replay": calibration["local_forward_replay_max_abs"] <= 2e-5,
+        "payload_fold": payload_fold_error <= 1e-10,
+        "response_gram_reproduction": gram_relative_error <= 1e-6,
+        "edge_replay_max": transport["edge_replay_after_remainder_max_abs"] <= 2e-5,
+        "edge_replay_relative": transport["edge_replay_relative_squared_after_remainder"] <= 1e-12,
+        "model_orthogonality": model_orthogonality_max_abs <= 2e-5,
+        "literal_price": SCREEN_VALUES == 23_310,
+        "fit_hash": fit_hash == receipt["entries"]["FIT"]["tensor_sha256"],
+        "select_hash": select_hash == receipt["entries"]["SELECT"]["tensor_sha256"],
+        "equal_edge_counts": len(fit_edges["source"]) == len(select_edges["source"]),
+        "disjoint_role_tensors": not torch.equal(fit_rows, select_rows),
+    }
+    pred_a = all(instrument_checks.values())
     pred_b = (
         joint_summed <= .45
         and joint_gain >= .20
@@ -590,6 +594,8 @@ def main():
         "edges": {"FIT": len(fit_edges["source"]), "SELECT": len(select_edges["source"]),
                   "query_positions": list(POSITIONS), "all_causal_sources": True},
         "instrument": {
+            "checks": instrument_checks,
+            "model_orthogonality_max_abs": model_orthogonality_max_abs,
             "calibration": calibration,
             "payload_fold_max_abs": payload_fold_error,
             "response_gram_parent_relative_error": gram_relative_error,
