@@ -3922,3 +3922,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     midpoint of split-B p768 encoder rowspaces; covariance-optimal per-layer
     coefficients; independent/one-sided/random controls on two new corpora;
     exact 884,736-scalar prospective saving.
+    RUN 2026-09-01: pred_a/b held, pred_c failed, null false. Midpoint
+    FW/WT .005953/.003992 and tails pass, but rowspace overlap .678779 is
+    near random .666667 and below .72. No physical promotion/tuning.
+
+371. [CODEX, board-claim 08:31Z] BEHAVIOR-NAMED FINITE MLP0 ROUTER:
+    four exact token-morphology states, four p128 context experts, matched
+    global p517 and balanced-random controls; two fit halves/two corpora.
