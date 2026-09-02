@@ -1,0 +1,24 @@
+{
+  "next_step": "heldout_factor_graph_failed_no_claim",
+  "predictions": {
+    "pred_a_exact_lawful_instrument": false,
+    "pred_b_stable_own_finite_responses": true,
+    "pred_c_at_least_one_factor_interchange_edge": true,
+    "pred_d_stable_factor_sharing_graph": true,
+    "pred_e_heldout_documents": false
+  },
+  "rung": 487,
+  "runtime_s": 287.9466881752014,
+  "selected_edges": [
+    {
+      "pair": [
+        "T",
+        "I"
+      ],
+      "type": "context"
+    }
+  ],
+  "status": "complete",
+  "strong_null": true,
+  "validation_opened": false
+}

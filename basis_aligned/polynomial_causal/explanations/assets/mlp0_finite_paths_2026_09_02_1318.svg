@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+  <rect width="1100" height="620" fill="#fbfbfd"/>
+  <style>
+    text { font-family: Inter, Arial, sans-serif; fill: #20242b; }
+    .title { font-size: 21px; font-weight: 700; }
+    .subtitle { font-size: 13px; fill: #5b6472; }
+    .axis { stroke: #79818d; stroke-width: 1; }
+    .grid { stroke: #dce1e8; stroke-width: 1; }
+    .label { font-size: 13px; }
+    .small { font-size: 11px; fill: #5b6472; }
+    .value { font-size: 11px; font-weight: 600; }
+  </style>
+  <text x="40" y="38" class="title">MLP0 finite downstream paths: stable anatomy, context tables fail</text>
+  <text x="40" y="60" class="subtitle">Signed percent of absolute mean carrier effect (left); held-out RMSE change from adding previous×current token (right)</text>
+
+  <text x="45" y="98" class="label" font-weight="700">A. Which block-1 path carries each MLP0 branch?</text>
+  <line x1="60" y1="310" x2="690" y2="310" class="axis"/>
+  <line x1="60" y1="110" x2="60" y2="380" class="axis"/>
+  <line x1="60" y1="185" x2="690" y2="185" class="grid"/>
+  <line x1="60" y1="248" x2="690" y2="248" class="grid"/>
+  <line x1="60" y1="373" x2="690" y2="373" class="grid"/>
+  <text x="25" y="189" class="small">50%</text>
+  <text x="25" y="252" class="small">25%</text>
+  <text x="35" y="314" class="small">0</text>
+  <text x="20" y="377" class="small">−25%</text>
+
+  <!-- T bars -->
+  <rect x="90" y="265" width="16" height="45" fill="#3b82f6"/><rect x="108" y="298" width="16" height="12" fill="#f59e0b"/><rect x="126" y="310" width="16" height="3" fill="#10b981"/>
+  <rect x="180" y="185" width="16" height="125" fill="#3b82f6"/><rect x="198" y="310" width="16" height="44" fill="#f59e0b"/><rect x="216" y="310" width="16" height="11" fill="#10b981"/>
+  <text x="91" y="258" class="value">18</text><text x="183" y="178" class="value">53</text>
+  <!-- C bars -->
+  <rect x="270" y="293" width="16" height="17" fill="#3b82f6"/><rect x="288" y="296" width="16" height="14" fill="#f59e0b"/><rect x="306" y="310" width="16" height="1" fill="#10b981"/>
+  <rect x="360" y="122" width="16" height="188" fill="#3b82f6"/><rect x="378" y="310" width="16" height="15" fill="#f59e0b"/><rect x="396" y="310" width="16" height="13" fill="#10b981"/>
+  <text x="362" y="115" class="value">75</text>
+  <!-- I bars -->
+  <rect x="450" y="278" width="16" height="32" fill="#3b82f6"/><rect x="468" y="293" width="16" height="17" fill="#f59e0b"/><rect x="486" y="310" width="16" height="3" fill="#10b981"/>
+  <rect x="540" y="161" width="16" height="149" fill="#3b82f6"/><rect x="558" y="310" width="16" height="31" fill="#f59e0b"/><rect x="576" y="310" width="16" height="16" fill="#10b981"/>
+  <text x="451" y="271" class="value">13</text><text x="543" y="154" class="value">59</text>
+
+  <text x="101" y="397" class="label">D/A/D×A</text><text x="188" y="397" class="label">M + interactions</text>
+  <text x="281" y="397" class="label">D/A/D×A</text><text x="368" y="397" class="label">M + interactions</text>
+  <text x="461" y="397" class="label">D/A/D×A</text><text x="548" y="397" class="label">M + interactions</text>
+  <text x="155" y="425" class="label" font-weight="700">T</text><text x="335" y="425" class="label" font-weight="700">C</text><text x="515" y="425" class="label" font-weight="700">I</text>
+  <rect x="75" y="453" width="12" height="12" fill="#3b82f6"/><text x="93" y="464" class="small">first listed term</text>
+  <rect x="210" y="453" width="12" height="12" fill="#f59e0b"/><text x="228" y="464" class="small">second / D×M</text>
+  <rect x="365" y="453" width="12" height="12" fill="#10b981"/><text x="383" y="464" class="small">interaction remainder</text>
+  <text x="60" y="493" class="subtitle">M is the direct MLP1 write. Its singleton is the largest term for T, C, and I; M-containing interactions mostly cancel part of it.</text>
+
+  <text x="735" y="98" class="label" font-weight="700">B. Does the bigram improve held-out prediction?</text>
+  <line x1="900" y1="125" x2="900" y2="430" class="axis"/>
+  <line x1="740" y1="430" x2="1050" y2="430" class="axis"/>
+  <text x="742" y="452" class="small">−2%</text><text x="892" y="452" class="small">0</text><text x="1030" y="452" class="small">+2%</text>
+  <text x="750" y="151" class="label">T full route</text><rect x="851" y="133" width="49" height="24" fill="#ef4444"/><text x="810" y="150" class="value">−0.65%</text>
+  <text x="750" y="201" class="label">T 7-path vector</text><rect x="845" y="183" width="55" height="24" fill="#ef4444"/><text x="804" y="200" class="value">−0.74%</text>
+  <text x="750" y="261" class="label">C full route</text><rect x="779" y="243" width="121" height="24" fill="#ef4444"/><text x="738" y="260" class="value">−1.62%</text>
+  <text x="750" y="311" class="label">C 7-path vector</text><rect x="797" y="293" width="103" height="24" fill="#ef4444"/><text x="756" y="310" class="value">−1.37%</text>
+  <text x="750" y="371" class="label">I full route</text><rect x="881" y="353" width="19" height="24" fill="#ef4444"/><text x="840" y="370" class="value">−0.26%</text>
+  <text x="750" y="421" class="label">I 7-path vector</text><rect x="900" y="403" width="8" height="24" fill="#10b981"/><text x="914" y="420" class="value">+0.11%</text>
+  <text x="735" y="493" class="subtitle">Positive means lower prediction error than current-token means.</text>
+  <text x="735" y="514" class="subtitle">None approaches the preregistered +10% requirement.</text>
+
+  <text x="40" y="565" class="subtitle">D = direct MLP0 residual write · A = attention1 write · M = MLP1 write · T = token-only · C = context-only · I = token×context</text>
+  <text x="40" y="592" class="small">Source: exact finite interventions, documents 0–499; pair predictor fit on 0–249 and evaluated on 250–499.</text>
+</svg>
