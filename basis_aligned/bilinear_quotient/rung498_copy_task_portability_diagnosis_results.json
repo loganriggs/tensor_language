@@ -1,0 +1,1087 @@
+{
+ "status": "complete",
+ "claim_level": "posthoc_cpu_diagnosis_not_circuit_evidence",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/RUNG498_COPY_TASK_PORTABILITY_DIAGNOSIS_PLAN.md": "3b777d5623b20ae385e0d22e928d19cffb4b27941e273963f928b9255f73bc6d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_matcher_causal_action_quotient_rung498.py": "3186d610b77e1684849a54af79e83ce3d7a6a4338e36b3ec27ce2d7cc8696e59",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_matcher_causal_action_quotient_rung498_results.json": "206ab207fc8698016c76a611cc2dbc353428fc54772c10cd173e45c9cd774a55",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_matcher_causal_action_quotient_rung498_bundle.pt": "dcdee47c84649e4bd01e124d7a7758ca63acf461a7d04d09beb4e7bffe625588",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_induction_equality_tensor_final_ood_v2/final_natural.pt": "5f2813eacc3ec66162c2ce695b978264137c66126fdc25e3d49b4efd44a9d759",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_state_diverse.pt": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+ },
+ "mask_definitions": {
+  "broad_equality": "any earlier equal-token successor edge",
+  "copy_positive": "nearest earlier equal token is followed by current next-token target"
+ },
+ "supports_by_discovery_half": {
+  "broad_equality": [
+   21973,
+   21701
+  ],
+  "copy_positive": [
+   3627,
+   3431
+  ],
+  "noncopy_equality": [
+   18346,
+   18270
+  ],
+  "copy_near": [
+   893,
+   820
+  ],
+  "copy_far": [
+   2734,
+   2611
+  ],
+  "copy_one_predecessor": [
+   1592,
+   1532
+  ],
+  "copy_multiple_predecessors": [
+   2035,
+   1899
+  ]
+ },
+ "reports": {
+  "broad_equality": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0032885305816846623,
+       "hybrid_restored_effect_nat": 0.001529301069052091,
+       "recovery": 0.46504085367777065,
+       "cosine": 0.7981848183959882,
+       "positive_fit_scale": 0.872247922012651,
+       "scaled_residual": 0.6024126456857982
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0027421117774564536,
+       "hybrid_restored_effect_nat": 0.0020262004061013346,
+       "recovery": 0.7389196978617738,
+       "cosine": 0.8000761412692907,
+       "positive_fit_scale": 0.814589797780088,
+       "scaled_residual": 0.5998984648852187
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0032885305816846623,
+       "hybrid_restored_effect_nat": 0.0004953304560764531,
+       "recovery": 0.15062364292282274,
+       "cosine": 0.48106904959149904,
+       "positive_fit_scale": 0.4966887335865462,
+       "scaled_residual": 0.8766827074404581
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0027421117774564536,
+       "hybrid_restored_effect_nat": -0.00011413291801971226,
+       "recovery": -0.04162227045521114,
+       "cosine": 0.2469852493468726,
+       "positive_fit_scale": 0.28675203622783674,
+       "scaled_residual": 0.9690192395432936
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.006744213101155717,
+       "hybrid_restored_effect_nat": 0.006327225167217405,
+       "recovery": 0.9381710026530962,
+       "cosine": 0.8583765604301119,
+       "positive_fit_scale": 0.8354582411224258,
+       "scaled_residual": 0.5130201560408425
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0060230676029992955,
+       "hybrid_restored_effect_nat": 0.006231986735923863,
+       "recovery": 1.0346864997531378,
+       "cosine": 0.8837821619412545,
+       "positive_fit_scale": 0.8673088003431754,
+       "scaled_residual": 0.46789858969058906
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.006744213101155717,
+       "hybrid_restored_effect_nat": 0.009930306123594877,
+       "recovery": 1.4724187944021485,
+       "cosine": 0.6495978784316557,
+       "positive_fit_scale": 0.4060979626014215,
+       "scaled_residual": 0.7602779730710943
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0060230676029992955,
+       "hybrid_restored_effect_nat": 0.007377646182939816,
+       "recovery": 1.2248984519559407,
+       "cosine": 0.7160159011912808,
+       "positive_fit_scale": 0.6211062149734369,
+       "scaled_residual": 0.6980839700503356
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0032885305816846623,
+       "hybrid_restored_effect_nat": -0.01064588974332443,
+       "recovery": -3.237278620006237,
+       "cosine": -0.7350347971692788,
+       "positive_fit_scale": -0.3758002180081108,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.0027421117774564536,
+       "hybrid_restored_effect_nat": -0.010977917137176435,
+       "recovery": -4.0034535526335855,
+       "cosine": -0.6618503874328084,
+       "positive_fit_scale": -0.308129447294203,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 21973,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.005833244856150799,
+       "hybrid_restored_effect_nat": -0.016612819536570494,
+       "recovery": -2.8479551169626105,
+       "cosine": -0.8569232310651569,
+       "positive_fit_scale": -0.42831737961560773,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 21701,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.005517224129245961,
+       "hybrid_restored_effect_nat": -0.016921776142859148,
+       "recovery": -3.067081515351062,
+       "cosine": -0.7469735814433086,
+       "positive_fit_scale": -0.30157970821039953,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "copy_positive": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.04346588616219119,
+       "hybrid_restored_effect_nat": 0.04610503482867082,
+       "recovery": 1.0607177006959378,
+       "cosine": 0.9250939726076257,
+       "positive_fit_scale": 0.9077717479746065,
+       "scaled_residual": 0.3797382543872045
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03857855549281322,
+       "hybrid_restored_effect_nat": 0.04436827442301729,
+       "recovery": 1.1500760942509274,
+       "cosine": 0.9156228851068501,
+       "positive_fit_scale": 0.9162046578444517,
+       "scaled_residual": 0.4020382223975824
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.04346588616219119,
+       "hybrid_restored_effect_nat": 0.026336042069879714,
+       "recovery": 0.6059014182204371,
+       "cosine": 0.7560307918213116,
+       "positive_fit_scale": 0.9284990786771237,
+       "scaled_residual": 0.6545360508161798
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03857855549281322,
+       "hybrid_restored_effect_nat": 0.02258097071485309,
+       "recovery": 0.5853244225035767,
+       "cosine": 0.6885348890768661,
+       "positive_fit_scale": 0.9503252895426524,
+       "scaled_residual": 0.7252032173976531
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.059164262277081964,
+       "hybrid_restored_effect_nat": 0.06934070017301522,
+       "recovery": 1.1720031232414305,
+       "cosine": 0.8994840444365475,
+       "positive_fit_scale": 0.7212767948408623,
+       "scaled_residual": 0.4369536060087746
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.05299300785274297,
+       "hybrid_restored_effect_nat": 0.062304960339884925,
+       "recovery": 1.1757203990575138,
+       "cosine": 0.9302217613458941,
+       "positive_fit_scale": 0.8496028657968512,
+       "scaled_residual": 0.36699792195398423
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.059164262277081964,
+       "hybrid_restored_effect_nat": 0.06222828707327243,
+       "recovery": 1.0517884391398447,
+       "cosine": 0.6697869400938727,
+       "positive_fit_scale": 0.4063404584652827,
+       "scaled_residual": 0.7425533347037683
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.05299300785274297,
+       "hybrid_restored_effect_nat": 0.05054923750655165,
+       "recovery": 0.9538850417213142,
+       "cosine": 0.8277128220957837,
+       "positive_fit_scale": 0.7356606749228963,
+       "scaled_residual": 0.5611519260754911
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.04346588616219119,
+       "hybrid_restored_effect_nat": -0.07470529985909559,
+       "recovery": -1.7187110733308368,
+       "cosine": -0.8941283098136604,
+       "positive_fit_scale": -0.5489231790537418,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03857855549281322,
+       "hybrid_restored_effect_nat": -0.0812737107729979,
+       "recovery": -2.106706944694659,
+       "cosine": -0.9099196080255062,
+       "positive_fit_scale": -0.4657998088688625,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 3627,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.05458103800129488,
+       "hybrid_restored_effect_nat": -0.10077501869049289,
+       "recovery": -1.8463375263787052,
+       "cosine": -0.9067906886996071,
+       "positive_fit_scale": -0.5272761508371515,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 3431,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.048629524343170145,
+       "hybrid_restored_effect_nat": -0.10740206650630374,
+       "recovery": -2.2085773602963075,
+       "cosine": -0.8932678259141061,
+       "positive_fit_scale": -0.45650243734174867,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "noncopy_equality": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.004654523418669484,
+       "hybrid_restored_effect_nat": -0.007283311290379782,
+       "recovery": 1.5647813181401389,
+       "cosine": 0.8080402383125873,
+       "positive_fit_scale": 0.6981860339720276,
+       "scaled_residual": 0.5891272980160885
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.003987764434223298,
+       "hybrid_restored_effect_nat": -0.005925395431448673,
+       "recovery": 1.4858940464477985,
+       "cosine": 0.7720498422663179,
+       "positive_fit_scale": 0.6471728533318504,
+       "scaled_residual": 0.6355619883666374
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.004654523418669484,
+       "hybrid_restored_effect_nat": -0.004613372314187606,
+       "recovery": 0.9911589005403174,
+       "cosine": 0.4534131534272727,
+       "positive_fit_scale": 0.38327287316188186,
+       "scaled_residual": 0.8913004612918902
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.003987764434223298,
+       "hybrid_restored_effect_nat": -0.004376141706437149,
+       "recovery": 1.097392230313498,
+       "cosine": 0.5611171145329077,
+       "positive_fit_scale": 0.4635397934575055,
+       "scaled_residual": 0.8277364216816027
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.003619218620259551,
+       "hybrid_restored_effect_nat": -0.006130524415581496,
+       "recovery": 1.693880657350798,
+       "cosine": 0.7539510585659579,
+       "positive_fit_scale": 0.701608305857781,
+       "scaled_residual": 0.656930590920587
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.0027976146628392665,
+       "hybrid_restored_effect_nat": -0.00429819237930276,
+       "recovery": 1.5363775563503,
+       "cosine": 0.7433377462489844,
+       "positive_fit_scale": 0.6806464839623346,
+       "scaled_residual": 0.6689162840008309
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.003619218620259551,
+       "hybrid_restored_effect_nat": -0.0004089927374364376,
+       "recovery": 0.11300581157131283,
+       "cosine": 0.4531156327898745,
+       "positive_fit_scale": 0.3538109968600506,
+       "scaled_residual": 0.8914517504169431
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.0027976146628392665,
+       "hybrid_restored_effect_nat": -0.0007297281920635888,
+       "recovery": 0.2608394221536558,
+       "cosine": 0.47101070007336615,
+       "positive_fit_scale": 0.34980214022974365,
+       "scaled_residual": 0.8821274966899046
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.004654523418669484,
+       "hybrid_restored_effect_nat": 0.0020186409712674154,
+       "recovery": -0.43369444939745355,
+       "cosine": -0.49004005583255805,
+       "positive_fit_scale": -0.4619075902415665,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.003987764434223298,
+       "hybrid_restored_effect_nat": 0.0022232250612090844,
+       "recovery": -0.5575116328660733,
+       "cosine": -0.5217586793065385,
+       "positive_fit_scale": -0.5701483687214741,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 18346,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.0038041826886784594,
+       "hybrid_restored_effect_nat": 2.602796867732719e-05,
+       "recovery": -0.006841934472492193,
+       "cosine": -0.5972102063556041,
+       "positive_fit_scale": -0.4251433702437811,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 18270,
+       "documents": 250,
+       "native_recipient_effect_nat": -0.002579015719356878,
+       "hybrid_restored_effect_nat": 6.989743333014645e-05,
+       "recovery": -0.027102368087766667,
+       "cosine": -0.4457461592205824,
+       "positive_fit_scale": -0.43144045554845356,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "copy_near": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.04037722540672112,
+       "hybrid_restored_effect_nat": 0.046959980957665674,
+       "recovery": 1.1630313991275092,
+       "cosine": 0.6692419650241836,
+       "positive_fit_scale": 0.5692728251276106,
+       "scaled_residual": 0.7430445425750529
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.047219263865793816,
+       "hybrid_restored_effect_nat": 0.06197895638671492,
+       "recovery": 1.3125777767919249,
+       "cosine": 0.8488994177473227,
+       "positive_fit_scale": 0.7464274965139368,
+       "scaled_residual": 0.5285544234497115
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.04037722540672112,
+       "hybrid_restored_effect_nat": 0.025447176566146004,
+       "recovery": 0.6302358894108191,
+       "cosine": 0.6828047080787785,
+       "positive_fit_scale": 0.9820833693540219,
+       "scaled_residual": 0.7306009380129856
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.047219263865793816,
+       "hybrid_restored_effect_nat": 0.026379266287809826,
+       "recovery": 0.5586547550335547,
+       "cosine": 0.6222924997749795,
+       "positive_fit_scale": 0.704860905780083,
+       "scaled_residual": 0.7827848010301472
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.05086027286280376,
+       "hybrid_restored_effect_nat": 0.06469968447362827,
+       "recovery": 1.272106515200115,
+       "cosine": 0.7032302471088246,
+       "positive_fit_scale": 0.47679621527157867,
+       "scaled_residual": 0.7109621787066183
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.05640680049519222,
+       "hybrid_restored_effect_nat": 0.07349912301756709,
+       "recovery": 1.3030188270265697,
+       "cosine": 0.9234795073512877,
+       "positive_fit_scale": 0.7878569950839717,
+       "scaled_residual": 0.3836477544600291
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.05086027286280376,
+       "hybrid_restored_effect_nat": 0.04896878285892956,
+       "recovery": 0.9628100696790103,
+       "cosine": 0.7206531148797118,
+       "positive_fit_scale": 0.6851844917407477,
+       "scaled_residual": 0.6932958156618059
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.05640680049519222,
+       "hybrid_restored_effect_nat": 0.044993453990350755,
+       "recovery": 0.7976600976363787,
+       "cosine": 0.7964812165003817,
+       "positive_fit_scale": 0.7449722270431622,
+       "scaled_residual": 0.6046632713850512
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.04037722540672112,
+       "hybrid_restored_effect_nat": -0.06413045436232555,
+       "recovery": -1.5882828430219607,
+       "cosine": -0.8397396806579536,
+       "positive_fit_scale": -0.6851428798599728,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.047219263865793816,
+       "hybrid_restored_effect_nat": -0.10777922423662303,
+       "recovery": -2.282526566762079,
+       "cosine": -0.8643125679924291,
+       "positive_fit_scale": -0.4848574922741479,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 893,
+       "documents": 210,
+       "native_recipient_effect_nat": 0.047415824770304094,
+       "hybrid_restored_effect_nat": -0.08417108014806302,
+       "recovery": -1.775168534045584,
+       "cosine": -0.8508030958228925,
+       "positive_fit_scale": -0.6078674848825589,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 820,
+       "documents": 190,
+       "native_recipient_effect_nat": 0.05734836154652596,
+       "hybrid_restored_effect_nat": -0.1353437900517969,
+       "recovery": -2.360028890136544,
+       "cosine": -0.8756339774829133,
+       "positive_fit_scale": -0.4992772399780888,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "copy_far": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.044474728171933244,
+       "hybrid_restored_effect_nat": 0.04582578578214836,
+       "recovery": 1.030378097084531,
+       "cosine": 0.9108050941875048,
+       "positive_fit_scale": 0.8959272127904256,
+       "scaled_residual": 0.4128366267691021
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03586488989884766,
+       "hybrid_restored_effect_nat": 0.03883753554510382,
+       "recovery": 1.0828845607679303,
+       "cosine": 0.8758804544807801,
+       "positive_fit_scale": 0.9876979568426747,
+       "scaled_residual": 0.4825281644200073
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.044474728171933244,
+       "hybrid_restored_effect_nat": 0.026626370122123388,
+       "recovery": 0.598685393178559,
+       "cosine": 0.6184803331345433,
+       "positive_fit_scale": 0.6040785047365433,
+       "scaled_residual": 0.7858002783950794
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03586488989884766,
+       "hybrid_restored_effect_nat": 0.0213880935146139,
+       "recovery": 0.5963518520462849,
+       "cosine": 0.5769852876849192,
+       "positive_fit_scale": 0.7743051053211525,
+       "scaled_residual": 0.8167545395007919
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.06187657483997532,
+       "hybrid_restored_effect_nat": 0.07085658423283692,
+       "recovery": 1.1451277711490273,
+       "cosine": 0.8941160565543808,
+       "positive_fit_scale": 0.7192035665864411,
+       "scaled_residual": 0.44783532398823095
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.05192088607303849,
+       "hybrid_restored_effect_nat": 0.05878936731204143,
+       "recovery": 1.1322874426553673,
+       "cosine": 0.8903331470883314,
+       "positive_fit_scale": 0.8621686951481171,
+       "scaled_residual": 0.4553096607758146
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.06187657483997532,
+       "hybrid_restored_effect_nat": 0.06655920779873263,
+       "recovery": 1.0756769903774972,
+       "cosine": 0.6775247726753488,
+       "positive_fit_scale": 0.407503295380235,
+       "scaled_residual": 0.7354999540524912
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.05192088607303849,
+       "hybrid_restored_effect_nat": 0.052294064194902755,
+       "recovery": 1.007187437466674,
+       "cosine": 0.7740724810789914,
+       "positive_fit_scale": 0.6478097583776542,
+       "scaled_residual": 0.633096986279523
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.044474728171933244,
+       "hybrid_restored_effect_nat": -0.0781593368117714,
+       "recovery": -1.7573876226880587,
+       "cosine": -0.8732578851210198,
+       "positive_fit_scale": -0.5297196823952937,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.03586488989884766,
+       "hybrid_restored_effect_nat": -0.07294949742938525,
+       "recovery": -2.0340086818927925,
+       "cosine": -0.8998504045144095,
+       "positive_fit_scale": -0.47799078403617984,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 2734,
+       "documents": 250,
+       "native_recipient_effect_nat": 0.05692139477352413,
+       "hybrid_restored_effect_nat": -0.10619832414710953,
+       "recovery": -1.8657013688727389,
+       "cosine": -0.8921287718513179,
+       "positive_fit_scale": -0.49982803011593324,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 2611,
+       "documents": 249,
+       "native_recipient_effect_nat": 0.04589132192771562,
+       "hybrid_restored_effect_nat": -0.09862680288803319,
+       "recovery": -2.1491384153932707,
+       "cosine": -0.8795782360411151,
+       "positive_fit_scale": -0.45046974956343133,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "copy_one_predecessor": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.05991247674908683,
+       "hybrid_restored_effect_nat": 0.06355250228294572,
+       "recovery": 1.0607557178632976,
+       "cosine": 0.8704653508995611,
+       "positive_fit_scale": 0.7973144965832771,
+       "scaled_residual": 0.4922296952473552
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.054811633561948646,
+       "hybrid_restored_effect_nat": 0.06004027876709095,
+       "recovery": 1.0953929825724467,
+       "cosine": 0.8839010243967396,
+       "positive_fit_scale": 0.8272490931631339,
+       "scaled_residual": 0.46767400940226983
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.05991247674908683,
+       "hybrid_restored_effect_nat": 0.035929304522154044,
+       "recovery": 0.5996965318697439,
+       "cosine": 0.7996160343824515,
+       "positive_fit_scale": 1.0053492255893182,
+       "scaled_residual": 0.6005116131753673
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.054811633561948646,
+       "hybrid_restored_effect_nat": 0.033485541887272145,
+       "recovery": 0.610920341380201,
+       "cosine": 0.7508495008460462,
+       "positive_fit_scale": 1.022513856096773,
+       "scaled_residual": 0.6604733356307757
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.08212238392658933,
+       "hybrid_restored_effect_nat": 0.09480234921009117,
+       "recovery": 1.15440327809817,
+       "cosine": 0.8557461139401157,
+       "positive_fit_scale": 0.6757150847630172,
+       "scaled_residual": 0.5173959687477192
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.07534251290768372,
+       "hybrid_restored_effect_nat": 0.08726537589301513,
+       "recovery": 1.1582488096719092,
+       "cosine": 0.9012794654946801,
+       "positive_fit_scale": 0.8054654052703273,
+       "scaled_residual": 0.4332381851564144
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.08212238392658933,
+       "hybrid_restored_effect_nat": 0.07984193248961532,
+       "recovery": 0.9722310613996235,
+       "cosine": 0.7402665012584477,
+       "positive_fit_scale": 0.6117351962679505,
+       "scaled_residual": 0.6723135482158431
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.07534251290768372,
+       "hybrid_restored_effect_nat": 0.07746307180141776,
+       "recovery": 1.0281455822469359,
+       "cosine": 0.8448286183359579,
+       "positive_fit_scale": 0.6116006262540437,
+       "scaled_residual": 0.5350370133369803
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.05991247674908683,
+       "hybrid_restored_effect_nat": -0.10050553289857644,
+       "recovery": -1.677539276493161,
+       "cosine": -0.8782132934570132,
+       "positive_fit_scale": -0.5304668478330531,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.054811633561948646,
+       "hybrid_restored_effect_nat": -0.10577398147677257,
+       "recovery": -1.9297724698758663,
+       "cosine": -0.8800357245164193,
+       "positive_fit_scale": -0.4476155698561142,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 1592,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.0746829997367333,
+       "hybrid_restored_effect_nat": -0.12832838275981592,
+       "recovery": -1.7183078238981984,
+       "cosine": -0.9006794482764721,
+       "positive_fit_scale": -0.5207808089027292,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 1532,
+       "documents": 245,
+       "native_recipient_effect_nat": 0.06980630111737104,
+       "hybrid_restored_effect_nat": -0.13866235838088325,
+       "recovery": -1.986387420065975,
+       "cosine": -0.85142155012115,
+       "positive_fit_scale": -0.4237674637220733,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "copy_multiple_predecessors": {
+   "L5H5": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.030599560749740153,
+       "hybrid_restored_effect_nat": 0.03245571385215699,
+       "recovery": 1.0606594688596174,
+       "cosine": 0.7860468434304314,
+       "positive_fit_scale": 0.7605732820059925,
+       "scaled_residual": 0.6181669353281967
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.025482675765632876,
+       "hybrid_restored_effect_nat": 0.03172503553143179,
+       "recovery": 1.2449648468320447,
+       "cosine": 0.838901547506898,
+       "positive_fit_scale": 0.7569692619161826,
+       "scaled_residual": 0.5442831924564008
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.030599560749740153,
+       "hybrid_restored_effect_nat": 0.018831140927854782,
+       "recovery": 0.6154055962393085,
+       "cosine": 0.688834291274447,
+       "positive_fit_scale": 0.7059725886075674,
+       "scaled_residual": 0.7249188362599157
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.025482675765632876,
+       "hybrid_restored_effect_nat": 0.013783812717935764,
+       "recovery": 0.5409091590187423,
+       "cosine": 0.6224680823165357,
+       "positive_fit_scale": 0.5872849734628748,
+       "scaled_residual": 0.7826451855708143
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.041203903718843284,
+       "hybrid_restored_effect_nat": 0.04942180814990715,
+       "recovery": 1.1994448022968676,
+       "cosine": 0.8330512051951046,
+       "positive_fit_scale": 0.6232041010560768,
+       "scaled_residual": 0.5531958871168372
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.03496275943559223,
+       "hybrid_restored_effect_nat": 0.042168384970008424,
+       "recovery": 1.206094302930816,
+       "cosine": 0.8943589153143235,
+       "positive_fit_scale": 0.7814150763407135,
+       "scaled_residual": 0.4473501208201324
+      }
+     ],
+     "payload_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.041203903718843284,
+       "hybrid_restored_effect_nat": 0.04844896348466413,
+       "recovery": 1.175834304809026,
+       "cosine": 0.6361147374023145,
+       "positive_fit_scale": 0.2765974821301893,
+       "scaled_residual": 0.7715944795419319
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.03496275943559223,
+       "hybrid_restored_effect_nat": 0.028836760339761302,
+       "recovery": 0.8247850228436305,
+       "cosine": 0.7563820878800097,
+       "positive_fit_scale": 0.6583091189823608,
+       "scaled_residual": 0.654130061328997
+      }
+     ]
+    }
+   },
+   "L7H3": {
+    "early_present": {
+     "score_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.030599560749740153,
+       "hybrid_restored_effect_nat": -0.05452153032648944,
+       "recovery": -1.781774933712159,
+       "cosine": -0.8303236050676156,
+       "positive_fit_scale": -0.5481522869947525,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.025482675765632876,
+       "hybrid_restored_effect_nat": -0.06150835283819917,
+       "recovery": -2.413732113687692,
+       "cosine": -0.75268544874061,
+       "positive_fit_scale": -0.4105215929029096,
+       "scaled_residual": 1.0
+      }
+     ]
+    },
+    "early_absent": {
+     "score_donor": [
+      {
+       "tokens": 2035,
+       "documents": 244,
+       "native_recipient_effect_nat": 0.038855080712440836,
+       "hybrid_restored_effect_nat": -0.07921975795419695,
+       "recovery": -2.038851972551222,
+       "cosine": -0.8031595479781819,
+       "positive_fit_scale": -0.4680052613530519,
+       "scaled_residual": 1.0
+      },
+      {
+       "tokens": 1899,
+       "documents": 239,
+       "native_recipient_effect_nat": 0.03154536319621081,
+       "hybrid_restored_effect_nat": -0.0821831264579331,
+       "recovery": -2.6052363368510796,
+       "cosine": -0.7655509533385785,
+       "positive_fit_scale": -0.3882568672898078,
+       "scaled_residual": 1.0
+      }
+     ]
+    }
+   }
+  }
+ },
+ "old_rung459_rows": 192,
+ "census_rows": 1000,
+ "exact_256_token_prefix_overlap": 0,
+ "copy_recovery_early_service_absolute_differences": [
+  0.11128542254549267,
+  0.025644304806586415
+ ],
+ "pred_a_hashes_masks_bundle_and_no_validation": true,
+ "pred_b_task_mask_mismatch": true,
+ "pred_c_earlier_service_interaction": false,
+ "classification": "task_mask_mismatch",
+ "gpu_used": false,
+ "model_loaded": false,
+ "validation_nll_opened": false,
+ "deployed_parameters_added": 0,
+ "deployed_parameters_saved": 0,
+ "next_step": "preregister_unopened_copy_task_calibration"
+}

@@ -66664,3 +66664,30 @@ task masks and the32/30 downstream circuit split. A valid action-defined quotien
 matcher relation, reject the controls, and remain stable when the redundant earlier equality term is present versus
 removed before it may search for new groups. Source/result/matrix SHAs `f3ebcde9…/3f5eb000…/ced44c0d…`; CPU only;
 **0 deployed parameters saved or added.**
+## §2622 — RUNG 498: THE COMMON FINITE-ACTION ASSAY IS EXACT, BUT ITS BROAD EQUALITY MASK DOES NOT RECOVER THE KNOWN COPY-TASK POSITIVE; VALIDATION STAYS CLOSED
+
+Rung498 evaluated the fixed `L5H5 score -> L8H4` positive, `L7H3` score control, and `L5H5` payload control under
+late remove/restore/substitute actions with the earlier donor term present and absent. The instrument is exact:
+native/analytical replay logits match bitwise, factor reconstruction relative-squared error is `5.09e-14`, every
+intended edit is live (minimum RMS `1.230`), all32 discovery circuit/member-control cells have support, and the exact
+price is125 native plus2,375 analytical forwards (2,500 total,55.9s,3.16GB peak).
+
+Scored exactly as registered, A=true, B=false, C=false, D=true, E/F=false, strong null true; validation outcomes are
+absent. Under the registered broad mask—any position with any earlier equal-token edge—the L5 score hybrid has good
+per-document direction (`.798/.800` early-present; `.858/.884` early-absent) and circuit direction
+(`.870/.925`; `.850/.939`), but recovery is only`.465/.739` while the earlier service is present, below the frozen
+`.75` floor. It becomes`.938/1.035` when the earlier term is absent. The L7 score is correctly sign-reversed
+throughout. C misses one of eight comparisons because the L5 payload happens to match total recovery within`.190`
+rather than the required`.200` despite a worse response pattern. No quotient calibration or candidate search is
+licensed by this receipt.
+
+The registered CPU diagnosis then found a semantic observation mismatch rather than a corpus or action failure.
+Rung459's known-positive task required the token following the *nearest* earlier occurrence to equal the current
+next-token target; rung498's broad mask did not. On the exact copy-positive subset, using the already-open discovery
+NLL bundle only, L5 score recovery is`1.061/1.150` with the earlier service present and`1.172/1.176` absent;
+per-document cosine is`.899-.930` and scaled residual`.367-.437`, passing the original B bars in all four cells.
+The non-copy equality subset fails the recovery interval, and the apparent service effect falls to`.111/.026`, below
+the registered`.20` diagnostic threshold. The old192 rows have zero exact256-token-prefix overlap with the census,
+so this also reproduces the relation on different FineWeb text. This posthoc diagnosis does not reverse rung498; it
+licenses only a prospective corrected-mask calibration on the still-unopened documents500:1000. Source/result/bundle
+SHAs `3186d610…/206ab207…/dcdee47c…`; diagnosis result SHA `6a733bf5…`; **0 deployed parameters saved or added.**

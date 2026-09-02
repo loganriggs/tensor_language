@@ -4628,3 +4628,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 - Rung 496 (§2619): A true, B/C/D/E false, lawful strong null. The h0.Q2/h2.Q2 Shapley pair is `.553/.571` raw/centered on selection but reverses to `-.039/-.152` without reselection; factor-first is only`.214/.249` even on selection. Exact five-factor closure and calls pass. No stable shared attention1 Q/K side is identified; validation stays closed. Route changes to finite action-conditioned grouping across module boundaries, not another rank/similarity sweep.
 - Rung 497 (§2621): CPU archive audit A true, B/C false. Fifteen lawful receipts across five candidate families do not form one per-example remove/restore/substitute/compose table with task masks plus held-out circuits. This is missing common evidence, not a model null. Next calibrate the action-defined quotient on the known `L5H5→L8H4` shared equality score against the `L7H3` score and output/payload controls, using the common circuit rows and a real downstream action background.
+- Rung498 (§2622): exact finite-action instrument, but registered broad any-equality mask fails to recover the known
+  copy-task positive (`.465/.739` recovery with earlier service present); A true, B/C false, validation closed. A
+  frozen CPU diagnosis finds task-mask mismatch: exact nearest-predecessor copy positives recover`1.061-1.176` with
+  `.899-.930` direction in all four cells and no material early-service dependence. Preserve rung498; prospectively
+  calibrate the corrected task on unopened documents500:1000 before any quotient search. No rank/compression.
