@@ -1,0 +1,443 @@
+{
+  "analysis": {
+    "largest_pair_indices_in_window_source_order": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    "material_pair_exists": true,
+    "max_mobius_closure_abs": 0.0,
+    "old_total_interaction_source_cosines": [
+      0.9792615931091778,
+      -0.8747872455097842,
+      0.07423149618349967
+    ],
+    "pair_names": [
+      "m8+m9",
+      "m8+m12",
+      "m9+m12"
+    ],
+    "pred_b_stable_pair": false,
+    "pred_c_register_source_dependent": true,
+    "pred_d_pairwise_sufficient": false,
+    "pred_e_half_stable": false,
+    "reports": {
+      "code_validation": {
+        "H": {
+          "largest_pair": "m8+m9",
+          "largest_pair_fraction_of_total": 0.6085932154046538,
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.3780629883946747,
+              "signed_mean": 0.00869904927094467
+            },
+            {
+              "norm": 0.42432536513253966,
+              "signed_mean": 0.006570734078801858
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.7650905675924262,
+            "normalized_l2_error": 0.7019243394776113,
+            "pearson": 0.7658000633115866,
+            "prediction_norm": 0.9697805888066403,
+            "projection_on_target": 0.7991257667764362,
+            "target_norm": 0.928477108332015
+          },
+          "pair_context_norms": [
+            0.01622223951879113,
+            0.009232926757537039,
+            0.007790150112620691
+          ],
+          "pair_context_vectors": [
+            [
+              0.008883444009000784,
+              0.0065099583837286675,
+              0.0021652076677305667,
+              0.01171229248019782
+            ],
+            [
+              0.00623865298169491,
+              0.0015334036837488707,
+              -8.2931617592893e-05,
+              0.006630832600322637
+            ],
+            [
+              0.0030391017834727582,
+              0.004588926953291244,
+              0.002310153500108821,
+              0.005005520886995575
+            ]
+          ],
+          "total_interaction_context_norm": 0.02665530786110548,
+          "triple_context_norm": 0.008005511757444711,
+          "triple_context_vector": [
+            -0.00021020734457524268,
+            -0.006114659554297381,
+            -0.0009596849587268946,
+            -0.005072866515679793
+          ]
+        },
+        "N": {
+          "largest_pair": "m8+m9",
+          "largest_pair_fraction_of_total": 0.7737131092453999,
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.4766859131755788,
+              "signed_mean": 0.004799294867552817
+            },
+            {
+              "norm": 0.49890923247185215,
+              "signed_mean": 0.0077690719335805625
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.8334803035762578,
+            "normalized_l2_error": 0.588179128050103,
+            "pearson": 0.8338876764865409,
+            "prediction_norm": 1.1098501722716307,
+            "projection_on_target": 0.8627222355084562,
+            "target_norm": 1.0722318498768468
+          },
+          "pair_context_norms": [
+            0.014298772370157307,
+            0.010210744065860871,
+            0.006200040797694073
+          ],
+          "pair_context_vectors": [
+            [
+              0.008516028543913758,
+              0.004273313023887649,
+              0.0004232352849368642,
+              0.010653253814036196
+            ],
+            [
+              0.004656266160104628,
+              0.005282301741587643,
+              0.006133519629834265,
+              0.004129855334758759
+            ],
+            [
+              0.002177946786345034,
+              -0.0017542218060998043,
+              -0.00434321849947659,
+              0.003428733382712711
+            ]
+          ],
+          "total_interaction_context_norm": 0.018480716171531405,
+          "triple_context_norm": 0.007743601644193227,
+          "triple_context_vector": [
+            -0.004504533970708048,
+            -0.0005639925654424299,
+            0.0021915776007695167,
+            -0.005878047306429256
+          ]
+        },
+        "pair_source_comparison": [
+          {
+            "cosine": 0.9879420439502938,
+            "pair": "m8+m9"
+          },
+          {
+            "cosine": 0.6791239566590141,
+            "pair": "m8+m12"
+          },
+          {
+            "cosine": 0.11797494897378617,
+            "pair": "m9+m12"
+          }
+        ]
+      },
+      "natural_wave0": {
+        "H": {
+          "largest_pair": "m8+m12",
+          "largest_pair_fraction_of_total": 1.2500205856328117,
+          "largest_pair_half_stable": false,
+          "largest_pair_halves": [
+            {
+              "norm": 0.35581823974390386,
+              "signed_mean": -0.0008513019773167895
+            },
+            {
+              "norm": 0.3636168004921187,
+              "signed_mean": 0.0041130922428844014
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.5411955603515821,
+            "normalized_l2_error": 1.1948786533367246,
+            "pearson": 0.5373227076420236,
+            "prediction_norm": 0.7850174411139987,
+            "projection_on_target": 0.7523124047914893,
+            "target_norm": 0.564722781684301
+          },
+          "pair_context_norms": [
+            0.007261360553881247,
+            0.00838074073927899,
+            0.005015746102998951
+          ],
+          "pair_context_vectors": [
+            [
+              -0.0005401158647822909,
+              0.004508809108388266,
+              0.0020641567139418598,
+              0.0052768863385974875
+            ],
+            [
+              -0.0034657600159800155,
+              0.0031555248308589453,
+              0.0055938137216654206,
+              -0.004120343910377509
+            ],
+            [
+              -0.0021779403847853413,
+              0.0033013273582551835,
+              0.0017218079635063681,
+              0.002559472535604191
+            ]
+          ],
+          "total_interaction_context_norm": 0.006704482178616534,
+          "triple_context_norm": 0.01036125165489066,
+          "triple_context_vector": [
+            0.005807121704619508,
+            -0.006366339348497437,
+            -0.005731768508707544,
+            -0.0004994260967082068
+          ]
+        },
+        "N": {
+          "largest_pair": "m8+m12",
+          "largest_pair_fraction_of_total": 0.7737617914981085,
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.30645676942322647,
+              "signed_mean": -0.0018967789138959563
+            },
+            {
+              "norm": 0.3207419067474669,
+              "signed_mean": -0.007428815535092781
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.5344055268287007,
+            "normalized_l2_error": 1.1335552027019014,
+            "pearson": 0.535537736352287,
+            "prediction_norm": 0.780382291190555,
+            "projection_on_target": 0.689246482972491,
+            "target_norm": 0.6050674464857907
+          },
+          "pair_context_norms": [
+            0.0118197950311867,
+            0.012984287981523969,
+            0.0094326000441135
+          ],
+          "pair_context_vectors": [
+            [
+              -0.0018690055111683038,
+              -0.005023157110489821,
+              -6.732181645929813e-05,
+              -0.010534596973536883
+            ],
+            [
+              -0.009352467927762285,
+              -0.003328621689669038,
+              -0.0024323157906383937,
+              -0.0080079457783505
+            ],
+            [
+              0.002923301122622391,
+              -0.0065132522125285735,
+              -0.00559170349692695,
+              -0.0025958913222882086
+            ]
+          ],
+          "total_interaction_context_norm": 0.016780730354214846,
+          "triple_context_norm": 0.011566929116193463,
+          "triple_context_vector": [
+            0.0037206140462563613,
+            0.005792273361046583,
+            0.0029428149737052997,
+            0.0088170454030412
+          ]
+        },
+        "pair_source_comparison": [
+          {
+            "cosine": -0.9014307321275029,
+            "pair": "m8+m9"
+          },
+          {
+            "cosine": 0.37952773141448704,
+            "pair": "m8+m12"
+          },
+          {
+            "cosine": -0.9329883926466775,
+            "pair": "m9+m12"
+          }
+        ]
+      },
+      "natural_wave1": {
+        "H": {
+          "largest_pair": "m8+m9",
+          "largest_pair_fraction_of_total": 0.8687460034265168,
+          "largest_pair_half_stable": false,
+          "largest_pair_halves": [
+            {
+              "norm": 0.317409142391316,
+              "signed_mean": 0.0008386673961998289
+            },
+            {
+              "norm": 0.3456244071707162,
+              "signed_mean": -8.524855760091062e-05
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.487117493958722,
+            "normalized_l2_error": 1.288103428605966,
+            "pearson": 0.4863647646068231,
+            "prediction_norm": 0.6249746271392926,
+            "projection_on_target": 0.6985026709673552,
+            "target_norm": 0.435840959259706
+          },
+          "pair_context_norms": [
+            0.008720783435361978,
+            0.0025887445434671858,
+            0.007089543230199712
+          ],
+          "pair_context_vectors": [
+            [
+              -0.007678115215056982,
+              0.0024299000123707087,
+              -0.0012575358707787624,
+              0.0031004515694298285
+            ],
+            [
+              0.0006911442615091801,
+              0.0012386745430001825,
+              0.0021061542471215943,
+              -0.0005037038663431304
+            ],
+            [
+              -0.003995155205185979,
+              -0.0017784831018384556,
+              -0.00022055631076606613,
+              -0.005575725142939013
+            ]
+          ],
+          "total_interaction_context_norm": 0.010038358048227418,
+          "triple_context_norm": 0.004076892163135563,
+          "triple_context_vector": [
+            0.002025495677326734,
+            -0.0026542376543777944,
+            -0.001953002198509542,
+            -0.001288107859484929
+          ]
+        },
+        "N": {
+          "largest_pair": "m8+m12",
+          "largest_pair_fraction_of_total": 0.9975166064699407,
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.21727541847206866,
+              "signed_mean": 0.0024299126345871023
+            },
+            {
+              "norm": 0.21448925127875942,
+              "signed_mean": 0.001727824903052048
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "no_triple_metrics": {
+            "cosine": 0.5545611045144458,
+            "normalized_l2_error": 1.3393111220453382,
+            "pearson": 0.5393198022631791,
+            "prediction_norm": 0.59845019720502,
+            "projection_on_target": 0.8895081656154141,
+            "target_norm": 0.3731019176527645
+          },
+          "pair_context_norms": [
+            0.002757608488095737,
+            0.004385771131445548,
+            0.003869551848243518
+          ],
+          "pair_context_vectors": [
+            [
+              0.0011215051039098166,
+              0.0015326401838797656,
+              0.001813699847055735,
+              0.000841509243602761
+            ],
+            [
+              0.00272247481207626,
+              0.0019148123264208121,
+              0.0025214429697977417,
+              0.0013412451005226306
+            ],
+            [
+              0.00024009935366801726,
+              0.0025695229881843307,
+              0.0025703812580710897,
+              0.0013063214030100629
+            ]
+          ],
+          "total_interaction_context_norm": 0.004396689842554225,
+          "triple_context_norm": 0.010904648600146236,
+          "triple_context_vector": [
+            -0.0030613111881300425,
+            -0.006168593365788076,
+            -0.00460547114732132,
+            -0.007090685883667902
+          ]
+        },
+        "pair_source_comparison": [
+          {
+            "cosine": -0.18955925500713286,
+            "pair": "m8+m9"
+          },
+          {
+            "cosine": 0.7828686442367324,
+            "pair": "m8+m12"
+          },
+          {
+            "cosine": -0.4877161485513018,
+            "pair": "m9+m12"
+          }
+        ]
+      }
+    },
+    "triple_dominant_condition_count": 0
+  },
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "forwards": 1368,
+    "patch_calls": 2160,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "register_conditioned_downstream_state_query_decomposition",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_stable_pair": false,
+    "pred_c_register_source_dependent": true,
+    "pred_d_pairwise_sufficient": false,
+    "pred_e_half_stable": false
+  },
+  "rung": 473,
+  "runtime_s": 31.95941686630249,
+  "status": "complete",
+  "strong_null": false
+}
