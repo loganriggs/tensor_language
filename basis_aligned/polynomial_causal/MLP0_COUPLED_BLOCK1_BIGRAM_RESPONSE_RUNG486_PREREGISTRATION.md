@@ -118,8 +118,9 @@ half1 I tensor with relative error at most`.35`.
 ### D-split — T and I require different downstream carrier laws
 
 D-split holds if the weighted tensor cosine is at most`.60` in both halves and, on half1 occurrences, each branch's
-own half0 pair predictor beats the other branch's predictor by at least`.10` relative RMSE. T and I may share an
-average carrier profile without satisfying D-shared; intermediate results identify no relation.
+own half0 pair predictor beats the other branch's predictor by at least`.10` relative RMSE, where the improvement is
+`(cross-branch predictor RMSE - own predictor RMSE) / cross-branch predictor RMSE`. T and I may share an average
+carrier profile without satisfying D-shared; intermediate results identify no relation.
 
 The D outcomes are mutually exclusive.
 
