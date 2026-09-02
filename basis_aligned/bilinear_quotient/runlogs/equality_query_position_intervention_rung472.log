@@ -1,0 +1,597 @@
+{
+  "analysis": {
+    "any_natural_positive_query_relationship": true,
+    "individual_positive_intersection": [
+      "m12",
+      "m8",
+      "m9"
+    ],
+    "pred_b_query_component": true,
+    "pred_c_query_advantage": true,
+    "pred_d_query_composition": false,
+    "pred_e_selectivity": true,
+    "reports": {
+      "code_validation": {
+        "H": {
+          "full_context_vector": [
+            -0.021458113903773356,
+            0.003870462722117358,
+            0.0111556117332018,
+            -0.02251392538574609
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.7875849614919174,
+              "normalized_l2_error": 0.621005550919395,
+              "pearson": 0.7943091992226042,
+              "prediction_norm": 0.39869229632807557,
+              "projection_on_target": 0.6809799492780864,
+              "rmse": 0.020665494512485116,
+              "target_norm": 0.46110617086971556
+            },
+            "m8": {
+              "cosine": 0.8007460676538675,
+              "normalized_l2_error": 0.62740323483193,
+              "pearson": 0.7965181196034796,
+              "prediction_norm": 0.6044341747363184,
+              "projection_on_target": 0.7906339144652879,
+              "rmse": 0.027718168183897825,
+              "target_norm": 0.6121648461071262
+            },
+            "m9": {
+              "cosine": 0.8072818299472051,
+              "normalized_l2_error": 0.6233027941786372,
+              "pearson": 0.8062710749634019,
+              "prediction_norm": 0.6120521202125305,
+              "projection_on_target": 0.8135842437040316,
+              "rmse": 0.027318667640895158,
+              "target_norm": 0.6073108709415755
+            }
+          },
+          "nonquery_context_vector": [
+            -0.01134175933631403,
+            -0.00845273132758713,
+            -0.003596889286688188,
+            -0.014462554928931323
+          ],
+          "nonquery_metrics": {
+            "cosine": 0.3856023517427988,
+            "normalized_l2_error": 0.9252805869952843,
+            "pearson": 0.3692200406849739,
+            "prediction_norm": 0.42856260881290575,
+            "projection_on_target": 0.1754971031649228,
+            "rmse": 0.0628791750000511,
+            "target_norm": 0.9416380489881244
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.8478154911730599,
+            "normalized_l2_error": 0.5312084263145103,
+            "prediction_norm": 0.02716708125698845,
+            "projection_on_target": 0.6923384586001468,
+            "target_norm": 0.03326793716790242
+          },
+          "query_context_vector": [
+            -0.012872707651375414,
+            0.01288928464977163,
+            0.01670897914460156,
+            -0.011270317604595964
+          ],
+          "query_interaction_norm": 0.02665530786110548,
+          "query_interaction_vector": [
+            0.017950991429593208,
+            0.0065176294664714,
+            0.0034327445915196,
+            0.018275779451836238
+          ],
+          "query_metrics": {
+            "cosine": 0.8893785391939425,
+            "normalized_l2_error": 0.46727511645543335,
+            "pearson": 0.8970871456369273,
+            "prediction_norm": 0.928477108332015,
+            "projection_on_target": 0.876948011150044,
+            "rmse": 0.03175455557344379,
+            "target_norm": 0.9416380489881244
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 0.00013626838541351086,
+            "absolute_target_mean": 0.0006791737153738117,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "N": {
+          "full_context_vector": [
+            -0.021301237201052054,
+            8.96468979887443e-05,
+            0.011821916724396189,
+            -0.02635232199999419
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.8380744921294304,
+              "normalized_l2_error": 0.566166932045229,
+              "pearson": 0.8439724528365765,
+              "prediction_norm": 0.5522492123389448,
+              "projection_on_target": 0.8292308820945504,
+              "rmse": 0.02280531869534209,
+              "target_norm": 0.558138858734722
+            },
+            "m8": {
+              "cosine": 0.8869439940427657,
+              "normalized_l2_error": 0.4640609281320043,
+              "pearson": 0.8851284213563622,
+              "prediction_norm": 0.7816602054595594,
+              "projection_on_target": 0.8265544617013035,
+              "rmse": 0.028090994525479092,
+              "target_norm": 0.8387696839571691
+            },
+            "m9": {
+              "cosine": 0.8608307786937938,
+              "normalized_l2_error": 0.5225793421072054,
+              "pearson": 0.8600692657443194,
+              "prediction_norm": 0.7205241014821712,
+              "projection_on_target": 0.8433157376273837,
+              "rmse": 0.027738164383030468,
+              "target_norm": 0.7354888515321395
+            }
+          },
+          "nonquery_context_vector": [
+            -0.009172923637779204,
+            -0.003252217181875269,
+            -4.330568765176506e-05,
+            -0.01054235381836241
+          ],
+          "nonquery_metrics": {
+            "cosine": 0.3189204705792213,
+            "normalized_l2_error": 0.9508443058591736,
+            "pearson": 0.30446866676818396,
+            "prediction_norm": 0.4618359367608124,
+            "projection_on_target": 0.1260302486372736,
+            "rmse": 0.08019626134747342,
+            "target_norm": 1.16867923276153
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.9083827878304994,
+            "normalized_l2_error": 0.4222573550698411,
+            "prediction_norm": 0.030488930896715453,
+            "projection_on_target": 0.7717222625627157,
+            "target_norm": 0.035888066717110007
+          },
+          "query_context_vector": [
+            -0.015660064888524484,
+            0.009335082918774374,
+            0.017288367298045535,
+            -0.017271533168175004
+          ],
+          "query_interaction_norm": 0.018480716171531405,
+          "query_interaction_vector": [
+            0.010845707519655372,
+            0.007237400393933058,
+            0.004405114016064056,
+            0.012333795225078409
+          ],
+          "query_metrics": {
+            "cosine": 0.9244852275104691,
+            "normalized_l2_error": 0.38128235331793614,
+            "pearson": 0.9277114605396474,
+            "prediction_norm": 1.0722318498768468,
+            "projection_on_target": 0.8481903998029164,
+            "rmse": 0.03215817675453759,
+            "target_norm": 1.16867923276153
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 0.00029459022535860413,
+            "absolute_target_mean": 0.002511575677393315,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "interaction_source_comparison": {
+          "both_small": false,
+          "cosine": 0.9792615931091778,
+          "holds": true,
+          "same_sum_sign": true
+        }
+      },
+      "natural_wave0": {
+        "H": {
+          "full_context_vector": [
+            0.00390745974639918,
+            0.002941046199203211,
+            0.0014211743601558696,
+            0.005711192956888616
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.7910414693649171,
+              "normalized_l2_error": 0.6518038470934773,
+              "pearson": 0.790589889639819,
+              "prediction_norm": 0.45529040989306474,
+              "projection_on_target": 0.8036779491319397,
+              "rmse": 0.021190725238012114,
+              "target_norm": 0.44813173637346987
+            },
+            "m8": {
+              "cosine": 0.7792719237730396,
+              "normalized_l2_error": 0.7232996069362722,
+              "pearson": 0.7804509317563918,
+              "prediction_norm": 0.5268198798373857,
+              "projection_on_target": 0.8886963374740778,
+              "rmse": 0.02424036877749865,
+              "target_norm": 0.4619530023152997
+            },
+            "m9": {
+              "cosine": 0.7682672601444941,
+              "normalized_l2_error": 0.6631777445321492,
+              "pearson": 0.7696129381989444,
+              "prediction_norm": 0.3962378546975181,
+              "projection_on_target": 0.7233895152632724,
+              "rmse": 0.020246465730241036,
+              "target_norm": 0.4208197168619512
+            }
+          },
+          "nonquery_context_vector": [
+            -0.00024751149155849287,
+            0.00182314575018225,
+            0.0006572113066408949,
+            0.0023778513440175903
+          ],
+          "nonquery_metrics": {
+            "cosine": 0.5705597761612298,
+            "normalized_l2_error": 0.8229262100674943,
+            "pearson": 0.5689318343171668,
+            "prediction_norm": 0.3300146864615082,
+            "projection_on_target": 0.29563978996642376,
+            "rmse": 0.0380238097042013,
+            "target_norm": 0.6369004174261563
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.9181848727929467,
+            "normalized_l2_error": 0.39734082665337794,
+            "prediction_norm": 0.007261100488801678,
+            "projection_on_target": 0.8712622492921434,
+            "target_norm": 0.007652153681700085
+          },
+          "query_context_vector": [
+            0.004940152892147104,
+            0.002701740281940592,
+            0.003081206794425359,
+            0.003394883481006844
+          ],
+          "query_interaction_norm": 0.006704482178616534,
+          "query_interaction_vector": [
+            -0.00037669456092814026,
+            0.004599321949004958,
+            0.003648009890406104,
+            0.003216588867115962
+          ],
+          "query_metrics": {
+            "cosine": 0.8679120509084622,
+            "normalized_l2_error": 0.4970720947309688,
+            "pearson": 0.8672440615433431,
+            "prediction_norm": 0.564722781684301,
+            "projection_on_target": 0.7695546968348157,
+            "rmse": 0.022967520669646555,
+            "target_norm": 0.6369004174261563
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 4.907540963981056e-05,
+            "absolute_target_mean": 0.003208328398987329,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "N": {
+          "full_context_vector": [
+            0.019959438351242868,
+            0.004785838847260029,
+            0.00535690532847868,
+            0.012421348799124373
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.8494001563707796,
+              "normalized_l2_error": 0.5752235591862486,
+              "pearson": 0.8481240568956078,
+              "prediction_norm": 0.4004690457904917,
+              "projection_on_target": 0.9158481206403809,
+              "rmse": 0.01549950025163292,
+              "target_norm": 0.3714136246501816
+            },
+            "m8": {
+              "cosine": 0.7923404186997092,
+              "normalized_l2_error": 0.6757547362633964,
+              "pearson": 0.7923838398423665,
+              "prediction_norm": 0.5522644540175005,
+              "projection_on_target": 0.8580567050033246,
+              "rmse": 0.02500087509094361,
+              "target_norm": 0.5099679848402292
+            },
+            "m9": {
+              "cosine": 0.4721046635685174,
+              "normalized_l2_error": 1.1485769832423505,
+              "pearson": 0.4570843794798601,
+              "prediction_norm": 0.37547954021771673,
+              "projection_on_target": 0.5704852089021372,
+              "rmse": 0.025891874162705383,
+              "target_norm": 0.3107278492854938
+            }
+          },
+          "nonquery_context_vector": [
+            -0.0007964619915921588,
+            0.0029894010426594793,
+            0.0014511857460463107,
+            0.0031325986796006174
+          ],
+          "nonquery_metrics": {
+            "cosine": -0.018122801987981635,
+            "normalized_l2_error": 1.0909826318341118,
+            "pearson": -0.03778635729053327,
+            "prediction_norm": 0.2717886384204999,
+            "projection_on_target": -0.0075829826811907915,
+            "rmse": 0.051411185148871046,
+            "target_norm": 0.6495559707521805
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.9746343059928007,
+            "normalized_l2_error": 0.3048454354781889,
+            "prediction_norm": 0.018870279145662354,
+            "projection_on_target": 0.7481773963269042,
+            "target_norm": 0.024581899305318122
+          },
+          "query_context_vector": [
+            0.012915099047457388,
+            0.006405868099167504,
+            0.006046296400095303,
+            0.010568576316980799
+          ],
+          "query_interaction_norm": 0.016780730354214846,
+          "query_interaction_vector": [
+            -0.0045775582700518375,
+            -0.00907275765164085,
+            -0.005148526130319343,
+            -0.012321388671134392
+          ],
+          "query_metrics": {
+            "cosine": 0.872520219168528,
+            "normalized_l2_error": 0.49212618526643864,
+            "pearson": 0.8684117994219724,
+            "prediction_norm": 0.6050674464857907,
+            "projection_on_target": 0.8127607239268094,
+            "rmse": 0.02319082787303948,
+            "target_norm": 0.6495559707521805
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 0.00020764873830366444,
+            "absolute_target_mean": 0.007879009840096268,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "interaction_source_comparison": {
+          "both_small": false,
+          "cosine": -0.8747872455097842,
+          "holds": false,
+          "same_sum_sign": false
+        }
+      },
+      "natural_wave1": {
+        "H": {
+          "full_context_vector": [
+            0.006993781978216691,
+            0.0032300686000905675,
+            0.004854225836970727,
+            0.0025618179517752854
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.7268882762336843,
+              "normalized_l2_error": 0.7118685454736223,
+              "pearson": 0.7266711559484507,
+              "prediction_norm": 0.29733415381674294,
+              "projection_on_target": 0.6645944124227201,
+              "rmse": 0.016707249801457817,
+              "target_norm": 0.3252039236161727
+            },
+            "m8": {
+              "cosine": 0.70831437610251,
+              "normalized_l2_error": 0.8123005154930921,
+              "pearson": 0.7042769192363421,
+              "prediction_norm": 0.3755351350030738,
+              "projection_on_target": 0.7863964642944974,
+              "rmse": 0.019829017427489787,
+              "target_norm": 0.3382478774149993
+            },
+            "m9": {
+              "cosine": 0.8016512609080103,
+              "normalized_l2_error": 0.650488639403867,
+              "pearson": 0.8017726492531693,
+              "prediction_norm": 0.4156716840090417,
+              "projection_on_target": 0.8482494835157112,
+              "rmse": 0.018441719786151393,
+              "target_norm": 0.3928369378175194
+            }
+          },
+          "nonquery_context_vector": [
+            0.006566275263396211,
+            -0.0021534303258008815,
+            -0.002104137653380652,
+            0.0024875890809804937
+          ],
+          "nonquery_metrics": {
+            "cosine": 0.420368563751113,
+            "normalized_l2_error": 0.9338892873941974,
+            "pearson": 0.4253488228484162,
+            "prediction_norm": 0.30488354034630877,
+            "projection_on_target": 0.2696282333972644,
+            "rmse": 0.0320363937536092,
+            "target_norm": 0.4753339602158766
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.8426639626494794,
+            "normalized_l2_error": 0.6084726329079249,
+            "prediction_norm": 0.005289980729425081,
+            "projection_on_target": 0.47126275764024766,
+            "target_norm": 0.009459003605796537
+          },
+          "query_context_vector": [
+            0.004934086822546446,
+            -3.1080280190555904e-05,
+            0.001847713895282747,
+            -0.00047293839199685154
+          ],
+          "query_interaction_norm": 0.010038358048227418,
+          "query_interaction_vector": [
+            -0.008956630481407046,
+            -0.000764146200845359,
+            -0.0013249401329327763,
+            -0.004267085299337244
+          ],
+          "query_metrics": {
+            "cosine": 0.8613630876305612,
+            "normalized_l2_error": 0.511018272225044,
+            "pearson": 0.8640368532374739,
+            "prediction_norm": 0.435840959259706,
+            "projection_on_target": 0.7897969549941424,
+            "rmse": 0.01753011069435283,
+            "target_norm": 0.4753339602158766
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 4.157905995801532e-06,
+            "absolute_target_mean": 0.0009774692875528974,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "N": {
+          "full_context_vector": [
+            0.0011018138163937973,
+            0.006675778854639479,
+            0.006241791471681305,
+            0.004379860097186692
+          ],
+          "individual_query_metrics": {
+            "m12": {
+              "cosine": 0.5713287007070301,
+              "normalized_l2_error": 0.8954047591682227,
+              "pearson": 0.5707920035096739,
+              "prediction_norm": 0.23375348990934228,
+              "projection_on_target": 0.5309538882386139,
+              "rmse": 0.016253845356292276,
+              "target_norm": 0.2515285802288355
+            },
+            "m8": {
+              "cosine": 0.7190781689857151,
+              "normalized_l2_error": 0.7499482975096736,
+              "pearson": 0.7145007510198691,
+              "prediction_norm": 0.3693499979715942,
+              "projection_on_target": 0.7198175787941368,
+              "rmse": 0.019969742534102126,
+              "target_norm": 0.36897059488491457
+            },
+            "m9": {
+              "cosine": 0.7448844087040711,
+              "normalized_l2_error": 0.6727018366474866,
+              "pearson": 0.7450489468087973,
+              "prediction_norm": 0.2672017701079249,
+              "projection_on_target": 0.6188458680352463,
+              "rmse": 0.015614127395328586,
+              "target_norm": 0.32162197860903674
+            }
+          },
+          "nonquery_context_vector": [
+            0.0005996596808425891,
+            -0.0013252071423706785,
+            -0.0022975516492806493,
+            0.0013380032317197926
+          ],
+          "nonquery_metrics": {
+            "cosine": 0.371983581200876,
+            "normalized_l2_error": 0.9787615447525219,
+            "pearson": 0.38734623978590055,
+            "prediction_norm": 0.28491997218575704,
+            "projection_on_target": 0.2538341617520592,
+            "rmse": 0.029493266662999833,
+            "target_norm": 0.4175385648557295
+          },
+          "pred_b_window": true,
+          "pred_c_window": true,
+          "query_context_metrics": {
+            "cosine": 0.8999027121377773,
+            "normalized_l2_error": 0.44182667484145877,
+            "prediction_norm": 0.008450438968322309,
+            "projection_on_target": 0.745965383363813,
+            "target_norm": 0.010194270559923821
+          },
+          "query_context_vector": [
+            0.004386362601787998,
+            0.004233375080147632,
+            0.005083435539260487,
+            0.0028994758891814046
+          ],
+          "query_interaction_norm": 0.004396689842554225,
+          "query_interaction_vector": [
+            0.0010227680815240513,
+            -0.0001516178673031676,
+            0.0023000529276032467,
+            -0.003601610136532448
+          ],
+          "query_metrics": {
+            "cosine": 0.71638983619269,
+            "normalized_l2_error": 0.7198472722644381,
+            "pearson": 0.7081246879155897,
+            "prediction_norm": 0.3731019176527645,
+            "projection_on_target": 0.6401478669707958,
+            "rmse": 0.0216913380703941,
+            "target_norm": 0.4175385648557295
+          },
+          "selectivity": {
+            "absolute_off_target_mean": 1.1273940098514383e-06,
+            "absolute_target_mean": 0.004264450670480831,
+            "half_target_exceeds_off_target": true,
+            "holds": true
+          }
+        },
+        "interaction_source_comparison": {
+          "both_small": false,
+          "cosine": 0.07423149618349967,
+          "holds": false,
+          "same_sum_sign": true
+        }
+      }
+    }
+  },
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "forwards": 2232,
+    "parent_error": 0.0,
+    "patch_calls": 3888,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "nonlinear_query_context_interaction_or_register_specific_regimes",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_query_component": true,
+    "pred_c_query_advantage": true,
+    "pred_d_query_composition": false,
+    "pred_e_selectivity": true
+  },
+  "rung": 472,
+  "runtime_s": 49.32669687271118,
+  "status": "complete",
+  "strong_null": false
+}
