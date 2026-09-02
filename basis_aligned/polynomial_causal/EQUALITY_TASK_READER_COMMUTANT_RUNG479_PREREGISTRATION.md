@@ -79,6 +79,10 @@ leaving circuit labels, individual spectra, and each MLP's internal family intac
 block alignment. Repeat the identical calculation. These controls determine whether a small `lambda2` is evidence of
 cross-MLP structure rather than generic smoothness of each family.
 
+Select the MLP pair with the largest ratio `control_5th_percentile(lambda2) / real_lambda2`; ties use the fixed order
+MLP8+9, MLP8+12, MLP9+12. Score C--E only for that frozen winner. If a proposed split is numerically invalid, give
+that pair score negative infinity rather than choosing another split rule.
+
 For the proposed two projectors, report the median and90th-percentile fraction of each reader matrix lying outside
 the two diagonal blocks. Apply the fit projectors unchanged to the other three source×half views.
 
