@@ -1,6 +1,6 @@
 # Rung498 result-route audit — frozen before outcomes
 
-**Written:** 2026-09-02 17:59 UTC  
+**Written:** 2026-09-02 17:59 UTC
 **Outcome state:** rung498 managed-GPU process live; result and bundle absent; no measurement opened.
 
 ## Decision this experiment actually resolves
