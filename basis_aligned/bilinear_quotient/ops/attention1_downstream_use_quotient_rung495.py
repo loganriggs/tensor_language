@@ -597,6 +597,14 @@ def _instrument_valid(instrument, require_contraction=True):
         and instrument["response_abs_max"] > 0)
 
 
+def _next_step(pred_a, pred_e):
+    if not pred_a:
+        return "repair_instrument_only_no_scientific_successor"
+    if pred_e:
+        return "preregister_physical_cross_head_piece_interchange"
+    return "split_QK_score_sides_into_query_and_key_downstream_use"
+
+
 def _b_holds(preliminary, position):
     if not preliminary["preliminary_holds"] or position is None:
         return False
@@ -760,9 +768,7 @@ def main():
             "deployed_parameters_saved": 0, "deployed_parameters_added": 0,
             "peak_gpu_memory_bytes": int(torch.cuda.max_memory_allocated()),
         },
-        "next_step": (
-            "preregister_physical_cross_head_piece_interchange" if pred_e else
-            "split_QK_score_sides_into_query_and_key_downstream_use"),
+        "next_step": _next_step(pred_a, pred_e),
         "runtime_s": time.time() - started,
     }
     dump(receipt, OUT)

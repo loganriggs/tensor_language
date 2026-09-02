@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1714.md](explanation_2026-09-02_1714.md) — update since 16:01: the quadratic response
+  falsifier, rung495's exact 63-piece attention1 computation, the preserved BF16 instrument failure and lawful
+  float32 repair, the valid cross-head strong null with a percentage graph, and the active exact Q1/K1/Q2/K2/V
+  downstream-use split with Shapley-average plus factor-first/factor-last controls
 - [explanation_2026-09-02_1601.md](explanation_2026-09-02_1601.md) — compact full update since 02:19 through
   rung495: shared cross-head equality matching, failed within-MLP groupings, continuous attention0 and exact MLP0
   results, attention1's causal-but-nonportable MLP1 dependency, the generic MLP1 bottleneck, the half-strength

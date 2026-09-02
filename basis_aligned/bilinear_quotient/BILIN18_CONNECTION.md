@@ -66563,3 +66563,31 @@ Registered 16:38, landed 16:42 (109.5s, 5,130 forwards exact, all instrument cla
 **Preserved fragments (descriptive, no bars):** (1) The qualitative second-order story survives — sign(a·b) opposition fraction .837–.939 per cell: the concavity direction is overwhelmingly present per occurrence; what fails is quantitative two-point determination, with median |b/a| ≈ .89–.98 (curvature as large as the linear term at unit strength — no low-order dominance at these magnitudes). (2) The quadratic prediction IS position-specific: it beats its 16 permuted-donor controls everywhere (ratios to q05 .41–.82) — the per-occurrence information in (y½,y1) is real; the extrapolation functional (coefficients 6,−8 vs additive's 2) amplifies the higher-order residue ~5×, exactly the observed 3.6–4.1× loss. (3) New-scale descriptive: at λ=2.0 the isotonic incumbent beats additive in all 6 cells (e.g. code-N .0107 vs .0170) with in-range fractions .52–.64 — the monotone-SATURATING readout remains the best available predictor deeper into the nonlinear regime, strengthening 494's concave-saturation reading at a strength it never measured.
 
 **Interpretation boundary:** exact per-λ algebra (Down linearity + layer-wise quadraticity) does not compose into a low-order global response law — the fifth descriptive→causal boundary datum, joining frame-relativity (§2592), output-algebra≠input-edit (492), Gram-geometry≠merge-causality (493), and small-perturbation additivity (494). A least-squares (a,b) over more λ points could disentangle degree from interpolation-functional amplification, but that is a new registration, not run here, and nothing in this receipt licenses it as a priority over the attention1 main line.
+
+## §2616 — RUNG 495/495B: COMPLETE QK1×QK2×OV PIECES DO NOT DEFINE A STABLE CROSS-HEAD DOWNSTREAM VARIABLE; THE LAWFUL NULL OPENS THE FINER QUERY/KEY SPLIT.
+
+The first rung495 receipt is preserved as instrument-invalid. It accidentally performed the registered float32
+eight-arm Möbius algebra in BF16: absent endpoint regrouping relative-squared error `4.85e-6`, 63-piece closure
+`7.83e-3`, and summed gradient-contraction error `1.44e-5`. Calls, masks, branch identities, and liveness were exact;
+validation remained closed. No scientific fork was licensed. Rung495b changed only the analytical factor/arm/piece
+arithmetic to the parent rung484 float32 path while leaving the production BF16 forward, raw-write gradient, real
+RMS normalization and suffix, documents, tags, bars, controls, and selection frozen.
+
+The repair passed A exactly: normal and branch-absent endpoint errors `2.71e-14/3.07e-14`, Möbius closure `6.29e-12`,
+gradient contraction `3.71e-13`, exact 125 prefixes/500 absent forwards/28,364 backwards, nonzero complete-write RMS
+at least1.318 and gradient RMS at least`2.49e-7`. B failed far from its bars. The selected material mutual-nearest
+pair was `h0.OV`/`h8.OV`; raw downstream-use cosine was `.5574` on documents0:250 versus the registered`.90`, then
+`.3467` on documents250:500 versus`.80`. Best-scale residuals were`.830/.938`; after removing the shared four-branch
+mean, cosines were`.545/.316` and residuals`.838/.949`. Circuit-permutation q95 values were only`.226-.284`, so the
+pair is nonrandom on the first half but neither close enough nor stable enough to be one downstream variable. No
+position pass or validation data opened. D also failed: the most anti-aligned within-head pair (`h8.QK1×OV` versus
+`h8.QK1×QK2×OV`) had cosine about`-.80/-.71`, which is mostly the same axis with opposite sign; its scaled residual
+`.60/.70` missed the registered distinct-function bars `.85/.80`.
+
+A=true, B/C/D/E=false, strong null true. CLAIM SCOPE: among the 63 exact finite changes defined by whole score1,
+whole score2, and value/output factors, no cross-head pair has sufficiently equal and held-out-stable use across the
+32 downstream probes; this says nothing yet about sharing only a query or key side. DECISION: split each score into
+Q1/K1/Q2/K2, retain V for exact accounting, and test gauge-invariant factor contributions by downstream use. Rung496
+uses exact five-factor Shapley allocation plus factor-first/factor-last robustness controls; it does not tune rank or
+repeat rung418's weight-space subspace screen. Repaired result/bundle SHAs `f06b6098…/295bf804…`; **0 deployed
+parameters saved or added**,551.96s,4.01GB peak allocated.

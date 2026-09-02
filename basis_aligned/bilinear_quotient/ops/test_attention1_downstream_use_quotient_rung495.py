@@ -103,3 +103,12 @@ def test_registered_analysis_selects_cross_head_pair_and_position_control():
             controls["complete_sums"][half, branch, 0] = 2.2 * vector
     position = subject._position_and_validation_report(controls, (0, 7))
     assert subject._b_holds(preliminary, position) is True
+
+
+def test_instrument_failure_does_not_license_scientific_successor():
+    assert subject._next_step(False, False) == \
+        "repair_instrument_only_no_scientific_successor"
+    assert subject._next_step(True, False) == \
+        "split_QK_score_sides_into_query_and_key_downstream_use"
+    assert subject._next_step(True, True) == \
+        "preregister_physical_cross_head_piece_interchange"

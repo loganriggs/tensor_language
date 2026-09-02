@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Rung495b similarity of the best cross-head attention pieces</title>
+  <desc id="desc">The head zero and head eight output-value pieces reached 55.7 and 34.7 percent cosine similarity on the selection and confirmation halves, below the required 90 and 80 percent. Removing the mean over MLP0 branches gave 54.5 and 31.6 percent.</desc>
+  <rect width="1000" height="430" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="700" fill="#17212b">Best cross-head attention-piece match did not confirm</text>
+  <text x="500" y="59" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#52606d">Cosine similarity as a percentage; colored ticks are the preregistered minimums</text>
+
+  <line x1="260" y1="85" x2="260" y2="354" stroke="#9aa5b1"/>
+  <line x1="260" y1="354" x2="930" y2="354" stroke="#9aa5b1"/>
+  <line x1="595" y1="85" x2="595" y2="354" stroke="#e4e7ec"/>
+  <line x1="930" y1="85" x2="930" y2="354" stroke="#e4e7ec"/>
+  <text x="260" y="376" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#52606d">0%</text>
+  <text x="595" y="376" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#52606d">50%</text>
+  <text x="930" y="376" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#52606d">100%</text>
+
+  <text x="24" y="125" font-family="sans-serif" font-size="14" fill="#344054">selection · raw</text>
+  <rect x="260" y="108" width="373" height="24" rx="4" fill="#f79009"/>
+  <line x1="863" y1="101" x2="863" y2="139" stroke="#b42318" stroke-width="4"/>
+  <text x="643" y="126" font-family="sans-serif" font-size="13" fill="#344054">55.7%</text>
+  <text x="863" y="96" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#b42318">90% required</text>
+
+  <text x="24" y="185" font-family="sans-serif" font-size="14" fill="#344054">confirmation · raw</text>
+  <rect x="260" y="168" width="232" height="24" rx="4" fill="#d92d20"/>
+  <line x1="796" y1="161" x2="796" y2="199" stroke="#b42318" stroke-width="4"/>
+  <text x="502" y="186" font-family="sans-serif" font-size="13" fill="#344054">34.7%</text>
+  <text x="796" y="156" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#b42318">80% required</text>
+
+  <text x="24" y="245" font-family="sans-serif" font-size="14" fill="#344054">selection · branch mean removed</text>
+  <rect x="260" y="228" width="365" height="24" rx="4" fill="#f79009"/>
+  <line x1="863" y1="221" x2="863" y2="259" stroke="#b42318" stroke-width="4"/>
+  <text x="635" y="246" font-family="sans-serif" font-size="13" fill="#344054">54.5%</text>
+
+  <text x="24" y="305" font-family="sans-serif" font-size="14" fill="#344054">confirmation · branch mean removed</text>
+  <rect x="260" y="288" width="212" height="24" rx="4" fill="#d92d20"/>
+  <line x1="796" y1="281" x2="796" y2="319" stroke="#b42318" stroke-width="4"/>
+  <text x="482" y="306" font-family="sans-serif" font-size="13" fill="#344054">31.6%</text>
+
+  <rect x="24" y="400" width="14" height="14" rx="2" fill="#f79009"/>
+  <text x="45" y="412" font-family="sans-serif" font-size="12" fill="#344054">selection half</text>
+  <rect x="165" y="400" width="14" height="14" rx="2" fill="#d92d20"/>
+  <text x="186" y="412" font-family="sans-serif" font-size="12" fill="#344054">confirmation half</text>
+  <text x="520" y="412" font-family="sans-serif" font-size="12" fill="#52606d">candidate: head 0 OV-only ↔ head 8 OV-only</text>
+</svg>
