@@ -10,6 +10,11 @@ Targets the three instrument-clause failure classes that cost reruns on
                      `_orth_error(...) <= tol` without a QR retraction.
   3. ABS-VS-REL   -- absolute `*_max_abs` tolerance bars on float32
                      replay quantities (prefer relative-squared bars).
+  5. ORDER CHECK  -- tuple(...) equality against a frozen ID sequence
+                     where the operand comes from JSON/dict iteration
+                     (rung 456: spec reserialized in a different order,
+                     zero content change, one abort).  Prefer set
+                     equality + explicit IDS-indexed lookup.
   4. CONTROL WIN  -- absolute numeric windows on shuffle/permutation
                      control statistics (rungs 428/429/432: three window
                      mis-derivations; prefer matched-control EXCESS).
@@ -64,10 +69,25 @@ def check(path: Path) -> list[str]:
     return warnings
 
 
+
+def _order_check(text):
+    import re as _re
+    loads_json = _re.search(r"json\.loads?\(", text)
+    hits = [line.strip() for line in text.splitlines()
+            if _re.search(r"tuple\([^)]*\)\s*[!=]=", line)]
+    if loads_json and hits:
+        return ("ORDER CHECK: tuple(...) equality likely freezes dict/JSON "
+                "iteration order (rung 456 class); prefer set equality + "
+                "IDS-indexed lookup. Lines: " + " | ".join(h[:70] for h in hits[:2]))
+    return None
+
+
 def main() -> None:
     bad = 0
     for arg in sys.argv[1:]:
-        for warning in check(Path(arg)):
+        extra = _order_check(Path(arg).read_text())
+        warnings_all = check(Path(arg)) + ([extra] if extra else [])
+        for warning in warnings_all:
             bad += 1
             print(f"{arg}: WARN {warning}")
     if not bad:
