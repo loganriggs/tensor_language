@@ -70,6 +70,14 @@ def check(path: Path) -> list[str]:
             "ABS-VS-REL: absolute max-abs bar on a replay quantity with no "
             "relative-squared companion; float32 magnitudes broke this bar "
             "on rung 419 (1 rerun).")
+    func_ad = re.search(r"torch\.func\.(jvp|vjp|grad|jacfwd|jacrev)", text)
+    bf16 = re.search(r"bfloat16|bf16", text)
+    if func_ad and bf16:
+        warnings.append(
+            "FUNC-AD DTYPE: torch.func autodiff alongside a bfloat16 model; "
+            "torch.func.jvp promoted BF16 duals to float32 and crashed rung "
+            "483 pre-outcome (11:29). Prefer torch.autograd.functional.* or "
+            "pin dual dtypes explicitly.")
     batch_consts = {m.group(1): int(m.group(2)) for m in re.finditer(
         r"^([A-Z_]*BATCH[A-Z_]*)\s*=\s*(\d+)\s*$", text, re.M)}
     bound_consts = {m.group(1): int(m.group(3)) for m in re.finditer(
