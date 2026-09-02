@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1748.md](explanation_2026-09-02_1748.md) — result update to the full 02:19 report:
+  rung496's query/key-side null, rung497's action-table audit, and the rung498 equality-matcher calibration plan
 - [explanation_2026-09-02_1727.md](explanation_2026-09-02_1727.md) — full update since 02:19 in ordinary
   interpretability language: the shared cross-head equality matcher, distributed downstream correction, failed
   within-MLP groupings, exact MLP0 T/C/I/S paths, held-out MLP1 response law, attention1 dependency and portability

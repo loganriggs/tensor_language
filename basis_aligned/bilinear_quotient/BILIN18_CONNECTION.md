@@ -66611,3 +66611,56 @@ Registered 17:35 (sha 4d8481b7…), landed 17:36 (86.4s; calls exact 125/250/750
 **Descriptives (no evidential weight, preserved for the successor's design):** the sign pattern runs pro-hypothesis in all four cells — DONOR_MATCH positive everywhere (.095/.052/.020/.494) and DONOR_MISMATCH negative everywhere (−.02/−.23/−.004/−.026; pred_c's clauses were true 4/4) — but pred_b's margins fail in half0 for both branches ([F,T,F,T]). I-half1 is striking: donor-match .494 vs its own-restoration ceiling .534 (92% of ceiling, cosine .669 vs .736). And the ceiling itself is the sleeper finding: OWN restoration restricted to the sparse matched mask recovers only .15–.53 of the effect AT those very positions (vs .956–.963 for the full write, §2618) — the write's effect at position p is substantially carried by writes at OTHER positions propagating through attention; locality of the chokepoint's carrying is itself partial.
 
 **Repair honesty:** raising the match supply (donor selection by maximal same-position overlap, or matching donor tokens at any position) is a DESIGN change requiring a fresh registration — not a 495b-style precision repair. Until then the token-keying question stands OPEN, not answered: §2618's context-boundedness is neither explained nor deepened by this receipt.
+
+## §2619 — RUNG 496: QUERY/KEY-SIDE DOWNSTREAM USE DOES NOT IDENTIFY A SHARED ATTENTION1 INPUT SIDE; CONFIRMATION REVERSES THE SELECTED RELATION
+
+Rung496 split each of attention1's nine heads into `Q1,K1,Q2,K2,V` under each exact MLP0 T/C/I/S removal. All32
+normal-versus-absent factor arms were reconstructed in float32. Five-way Möbius subtraction generated31 finite
+interactions per head; dividing every interaction equally among its participating factors produced five Shapley
+allocations which sum exactly to the complete raw-write change. Factor-first and factor-last marginals were retained
+as allocation-independent controls. The bank contained36 Q/K sides and288 cross-head query/query or key/key pairs;
+private128-dimensional coordinates were never compared.
+
+The instrument passed exactly: normal/absent factor rebuild relative-squared errors `2.71e-14/3.07e-14`, Möbius and
+Shapley closures `6.56e-12`, gradient-contraction closure `1.30e-13`, exact125 native prefixes/500 branch-absent
+forwards/28,364 backwards, and every view/control live. Of288 eligible pairs,131 cleared the selection-half5%
+materiality filter. The frozen selected pair was `h0.Q2/h2.Q2`, a mutual nearest neighbour. Its Shapley fingerprint
+was nonrandom on documents0:250—raw cosine`.5531` versus circuit-permutation q95`.0910`, branch-mean-removed
+cosine`.5710` versus`.1079`—but already far below the registered`.90` equivalence bar. More decisively, without
+reselection on documents250:500 the raw relation reversed to`-.0388` with scaled residual`.9992`, and the centered
+relation fell to`-.1520` with residual`.9884`; both fitted scales changed sign. Factor-first was only`.214/.249` on
+selection and `-.117/-.177` on confirmation. Factor-last was`.575/.553` on selection and only`.098/.056` on
+confirmation. Position controls and held-out documents/tags stayed unopened as registered.
+
+A=true, B/C/D/E=false, strong null true. CLAIM SCOPE: neither complete score/value interaction pieces (rung495b) nor
+gauge-invariant query/key-attributed pieces (rung496) expose a stable cross-head downstream variable in attention1
+under these downstream circuits. The `.55→-.04` confirmation collapse is a selection-effect result, not a threshold
+near-miss or a Shapley-convention artifact. DECISION: change the object to finite action-conditioned equivalence
+across module boundaries. Before another model run, audit whether existing receipts form a complete action table;
+do not tune rank, sparsity, allocation, or similarity bars. Source/result/bundle SHAs
+`c85ea56c…/4e43f303…/e48a0bc4…`;616.0s,7.28GB peak allocated; **0 deployed parameters saved or added.**
+
+## §2621 — RUNG 497: THE ARCHIVE DOES NOT YET FORM A CLOSED FINITE-ACTION TABLE; CALIBRATE ON THE KNOWN SHARED EQUALITY MATCHER
+
+The CPU-only audit hash-verified15 lawful post-02:19 receipts across five fixed candidate families: equality attention
+terms, downstream equality corrections, MLP0 branches through block1, MLP1 write adjustments, and attention1
+factor-attributed writes. It required the same four finite actions—remove, restore, substitute, compose—together with
+per-example effects, two document splits, common action semantics, full suffix recomputation, a live task condition,
+and discovery plus held-out downstream circuits. Missing cells were not imputed; local derivatives did not count as
+finite actions; equalization did not count as bidirectional substitution.
+
+Audit integrity passed, including every claimed bundle hash. No family was archive-ready and none supported
+transition refinement. The reasons are complementary rather than a lack of work: the equality-head and equality-
+correction families contain all four actions but not per-example62-circuit effects; MLP0 has finite branch/circuit
+summaries but no common per-example action table and its held-out circuit tags stayed closed; the MLP1-write bundle
+has per-token own restoration and donor substitution but no removal/composition or circuit battery; and rungs495b/
+496 have32-circuit derivative contractions but no finite factor action.
+
+A=true, B/C=false. This is an archive-coverage result, not a scientific null about the model. DECISION: the smallest
+prospective calibration uses the equality attention family. It uniquely supplies a previously held finite positive
+(`L5H5` score driving `L8H4`) and matched negatives (the `L7H3` score control and score-versus-output split). Recollect
+remove/restore/substitute/compose effects per example on the common1000-document circuit rows, retaining both equality
+task masks and the32/30 downstream circuit split. A valid action-defined quotient must recover the known directed
+matcher relation, reject the controls, and remain stable when the redundant earlier equality term is present versus
+removed before it may search for new groups. Source/result/matrix SHAs `f3ebcde9…/3f5eb000…/ced44c0d…`; CPU only;
+**0 deployed parameters saved or added.**

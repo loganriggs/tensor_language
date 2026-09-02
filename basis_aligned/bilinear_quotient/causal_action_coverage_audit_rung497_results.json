@@ -1,0 +1,200 @@
+{
+  "archive_insufficient": true,
+  "claim_level": "cpu_provenance_and_experiment_design_audit",
+  "deployed_parameters_added": 0,
+  "deployed_parameters_saved": 0,
+  "evidence_record_count": 15,
+  "family_count": 5,
+  "family_coverage": {
+    "attention1_factor_writes": {
+      "actions_observed_any_quality": [
+        "local_derivative"
+      ],
+      "archive_ready": false,
+      "candidate_count_max": 63,
+      "corpora": [
+        "natural"
+      ],
+      "evidence_records": 2,
+      "has_any_circuit_record": true,
+      "has_heldout_circuit_record": false,
+      "has_known_negative": false,
+      "has_known_positive": false,
+      "has_per_example_record": false,
+      "missing_qualified_actions": [
+        "remove",
+        "restore",
+        "substitute",
+        "compose"
+      ],
+      "qualified_finite_actions": {
+        "compose": false,
+        "remove": false,
+        "restore": false,
+        "substitute": false
+      },
+      "transition_refinement_ready": false
+    },
+    "equality_attention_terms": {
+      "actions_observed_any_quality": [
+        "compose",
+        "remove",
+        "restore",
+        "substitute"
+      ],
+      "archive_ready": false,
+      "candidate_count_max": 4,
+      "corpora": [
+        "code",
+        "natural"
+      ],
+      "evidence_records": 3,
+      "has_any_circuit_record": false,
+      "has_heldout_circuit_record": false,
+      "has_known_negative": true,
+      "has_known_positive": true,
+      "has_per_example_record": false,
+      "missing_qualified_actions": [
+        "remove",
+        "restore",
+        "substitute",
+        "compose"
+      ],
+      "qualified_finite_actions": {
+        "compose": false,
+        "remove": false,
+        "restore": false,
+        "substitute": false
+      },
+      "transition_refinement_ready": false
+    },
+    "equality_correction_sites": {
+      "actions_observed_any_quality": [
+        "compose",
+        "remove",
+        "restore",
+        "substitute"
+      ],
+      "archive_ready": false,
+      "candidate_count_max": 5,
+      "corpora": [
+        "code",
+        "natural+code"
+      ],
+      "evidence_records": 4,
+      "has_any_circuit_record": false,
+      "has_heldout_circuit_record": false,
+      "has_known_negative": false,
+      "has_known_positive": false,
+      "has_per_example_record": true,
+      "missing_qualified_actions": [
+        "remove",
+        "restore",
+        "substitute",
+        "compose"
+      ],
+      "qualified_finite_actions": {
+        "compose": false,
+        "remove": false,
+        "restore": false,
+        "substitute": false
+      },
+      "transition_refinement_ready": false
+    },
+    "mlp0_branches_block1": {
+      "actions_observed_any_quality": [
+        "compose",
+        "equalize",
+        "remove",
+        "restore",
+        "substitute"
+      ],
+      "archive_ready": false,
+      "candidate_count_max": 4,
+      "corpora": [
+        "natural"
+      ],
+      "evidence_records": 5,
+      "has_any_circuit_record": true,
+      "has_heldout_circuit_record": false,
+      "has_known_negative": false,
+      "has_known_positive": false,
+      "has_per_example_record": false,
+      "missing_qualified_actions": [
+        "remove",
+        "restore",
+        "substitute",
+        "compose"
+      ],
+      "qualified_finite_actions": {
+        "compose": false,
+        "remove": false,
+        "restore": false,
+        "substitute": false
+      },
+      "transition_refinement_ready": false
+    },
+    "mlp1_write_adjustments": {
+      "actions_observed_any_quality": [
+        "restore",
+        "substitute"
+      ],
+      "archive_ready": false,
+      "candidate_count_max": 2,
+      "corpora": [
+        "natural"
+      ],
+      "evidence_records": 1,
+      "has_any_circuit_record": false,
+      "has_heldout_circuit_record": false,
+      "has_known_negative": true,
+      "has_known_positive": true,
+      "has_per_example_record": true,
+      "missing_qualified_actions": [
+        "remove",
+        "restore",
+        "substitute",
+        "compose"
+      ],
+      "qualified_finite_actions": {
+        "compose": false,
+        "remove": false,
+        "restore": false,
+        "substitute": false
+      },
+      "transition_refinement_ready": false
+    }
+  },
+  "frozen_action_alphabet": [
+    "remove",
+    "restore",
+    "substitute",
+    "compose"
+  ],
+  "gpu_used": false,
+  "matrix": {
+    "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/causal_action_coverage_audit_rung497_matrix.csv",
+    "sha256": "ced44c0d671f547536dc5c49c8a95d16c4976b105642bb60c6360fda75eade7b"
+  },
+  "model_loaded": false,
+  "next_step": "preregister_equality_matcher_action_quotient_calibration",
+  "pred_a_audit_integrity": true,
+  "pred_b_archive_action_complete": false,
+  "pred_c_transition_refinement_ready": false,
+  "required_observations": [
+    "per_example",
+    "two_document_splits",
+    "same_action_semantics",
+    "physical_suffix",
+    "dedicated_task",
+    "heldout_circuits"
+  ],
+  "rung": 497,
+  "selected_calibration_family": "equality_attention_terms",
+  "selection_reason": "Only family with a held-out finite known-positive score transplant and a matched known-negative score/output split; recollect its full action table with dedicated equality masks plus downstream circuits before searching for new quotients.",
+  "source_hashes": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention1_query_key_downstream_shapley_rung496_results.json": "4e43f303c3f7bc7e2e70f6abc967c9fdc9b4b5d0e8bb4154ffec5b9b86dc177d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CAUSAL_ACTION_COVERAGE_AUDIT_RUNG497_PREREGISTRATION.md": "cd9a875840794d74637bd16f04d146eef02226f325ff9eb10aaffe68af59a300"
+  },
+  "status": "complete"
+}
