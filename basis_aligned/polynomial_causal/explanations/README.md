@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1601.md](explanation_2026-09-02_1601.md) — compact full update since 02:19 through
+  rung495: shared cross-head equality matching, failed within-MLP groupings, continuous attention0 and exact MLP0
+  results, attention1's causal-but-nonportable MLP1 dependency, the generic MLP1 bottleneck, the half-strength
+  single-index null and qualified 1.5× result with an inline graph, and the exact 63-piece attention1 decomposition
+  now being implemented against the existing 62 downstream circuits
 - [explanation_2026-09-02_1510.md](explanation_2026-09-02_1510.md) — full update since 02:19: the shared cross-head
   equality matcher, downstream equality roles and failed common-MLP bases, exact MLP0 paths, the corrected held-out
   T/I-versus-C MLP1 response law, attention1 as the unique named source necessary for both T and I, and the live
