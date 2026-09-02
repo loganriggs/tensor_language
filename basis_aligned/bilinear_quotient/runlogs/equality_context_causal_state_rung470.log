@@ -1,0 +1,532 @@
+{
+  "execution_price": {
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 1440,
+    "peak_gpu_memory_bytes": 3159521280
+  },
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "parent_error": 1.0908612554927366e-11,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "interaction_reports": {
+    "code_validation": {
+      "H": {
+        "baseline_context_vector": [
+          0.012754032130797899,
+          0.001174550079837742,
+          -0.002069074867126854,
+          0.011157302367884193
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.05310849448538833,
+          "pearson": 0.14799365426472127,
+          "rmse": 0.052537605610292665,
+          "rmse_improvement": 0.010749483310108388
+        },
+        "context_metrics": {
+          "cosine": 0.9804748003105492,
+          "normalized_l2_error": 0.19669963757224174,
+          "prediction_norm": 0.018247360132949756,
+          "projection_on_target": 0.9658857136042952,
+          "target_norm": 0.01852297485153427
+        },
+        "exact_context_vector": [
+          0.01356499664806049,
+          0.003560790762761444,
+          0.0012267719568851876,
+          0.012037743268499771
+        ],
+        "metrics": {
+          "baseline_rmse": 0.05287084987311113,
+          "pearson": 0.14799365426472127,
+          "rmse": 0.052537605610292665,
+          "rmse_improvement": 0.006302986685824852
+        },
+        "predicted_context_vector": [
+          0.013929390685951306,
+          0.0009405607062709303,
+          -0.0012532079213322367,
+          0.011682595704869122
+        ],
+        "predicted_norm": 0.018247360132949756,
+        "registered_clause_holds": true,
+        "registered_norm": 0.01852297485153427
+      },
+      "N": {
+        "baseline_context_vector": [
+          0.0142561250647562,
+          0.0072781806486758565,
+          0.003254934877552601,
+          0.013946474004401308
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.056071375931824326,
+          "pearson": 0.18219222301427862,
+          "rmse": 0.05514573616143689,
+          "rmse_improvement": 0.016508240702223786
+        },
+        "context_metrics": {
+          "cosine": 0.9999129108362729,
+          "normalized_l2_error": 0.036135140040006994,
+          "prediction_norm": 0.023029814565419124,
+          "projection_on_target": 0.9661898289736301,
+          "target_norm": 0.023833627955481534
+        },
+        "exact_context_vector": [
+          0.01688476717269948,
+          0.005791976016416937,
+          0.001535999565967821,
+          0.015717511832431953
+        ],
+        "metrics": {
+          "baseline_rmse": 0.05570080714318398,
+          "pearson": 0.18219222301427862,
+          "rmse": 0.05514573616143689,
+          "rmse_improvement": 0.009965223310323346
+        },
+        "predicted_context_vector": [
+          0.016223195627992983,
+          0.005823401416472349,
+          0.001664318138462075,
+          0.01518217124162661
+        ],
+        "predicted_norm": 0.023029814565419124,
+        "registered_clause_holds": true,
+        "registered_norm": 0.023833627955481534
+      }
+    },
+    "natural_wave0": {
+      "H": {
+        "baseline_context_vector": [
+          0.008331332626254401,
+          0.0011129074879419837,
+          -0.0019386062656927194,
+          0.006505706660522952
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.04492010583893266,
+          "pearson": 0.019797084617056336,
+          "rmse": 0.04429298462093463,
+          "rmse_improvement": 0.013960813455040855
+        },
+        "context_metrics": {
+          "cosine": 0.9586592410374688,
+          "normalized_l2_error": 4.78433537139067,
+          "prediction_norm": 0.005844461271687365,
+          "projection_on_target": 5.497455257623635,
+          "target_norm": 0.0010191709699171997
+        },
+        "exact_context_vector": [
+          0.0008546590793516121,
+          -3.7692760106793524e-05,
+          -0.0002471859886729642,
+          0.0004957274118334807
+        ],
+        "metrics": {
+          "baseline_rmse": 0.04447492550300643,
+          "pearson": 0.019797084617056336,
+          "rmse": 0.04429298462093463,
+          "rmse_improvement": 0.004090864234488678
+        },
+        "predicted_context_vector": [
+          0.004244488155967119,
+          0.0009218404650669323,
+          -0.0009672717016980997,
+          0.0037890161601882326
+        ],
+        "predicted_norm": 0.005844461271687365,
+        "registered_clause_holds": true,
+        "registered_norm": 0.0010191709699171997
+      },
+      "N": {
+        "baseline_context_vector": [
+          0.010438757617228366,
+          0.00720536157835435,
+          0.003442867313891825,
+          0.011523968789144684
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.04829420617709723,
+          "pearson": -0.0014663015287914303,
+          "rmse": 0.04782893975737977,
+          "rmse_improvement": 0.009634000774571327
+        },
+        "context_metrics": {
+          "cosine": 0.22872206080732008,
+          "normalized_l2_error": 5.140865680890395,
+          "prediction_norm": 0.01492148594791999,
+          "projection_on_target": 1.2068689819122416,
+          "target_norm": 0.0028278736693589978
+        },
+        "exact_context_vector": [
+          -0.0016992881060806603,
+          0.0017839285047590724,
+          0.000937444214755299,
+          0.0010237611325483137
+        ],
+        "metrics": {
+          "baseline_rmse": 0.04788661208898873,
+          "pearson": -0.0014663015287914303,
+          "rmse": 0.04782893975737977,
+          "rmse_improvement": 0.0012043518865311187
+        },
+        "predicted_context_vector": [
+          0.008440390627541254,
+          0.006296176317707255,
+          0.002359106069848002,
+          0.010305500049780997
+        ],
+        "predicted_norm": 0.01492148594791999,
+        "registered_clause_holds": false,
+        "registered_norm": 0.0028278736693589978
+      }
+    },
+    "natural_wave1": {
+      "H": {
+        "baseline_context_vector": [
+          0.008584839090101387,
+          0.0010823264469700382,
+          -0.0019318302826085278,
+          0.006674247218278776
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.04384291805845719,
+          "pearson": -0.010875572526070989,
+          "rmse": 0.043475152058504093,
+          "rmse_improvement": 0.008388264655713518
+        },
+        "context_metrics": {
+          "cosine": 0.9306432202068097,
+          "normalized_l2_error": 0.9231613223859796,
+          "prediction_norm": 0.005571622952463166,
+          "projection_on_target": 1.6548539269575555,
+          "target_norm": 0.0031333237585455384
+        },
+        "exact_context_vector": [
+          0.0017652254764224378,
+          0.0012458196313716269,
+          0.00025575636050168704,
+          0.002254821261964485
+        ],
+        "metrics": {
+          "baseline_rmse": 0.04369512881568474,
+          "pearson": -0.010875572526070989,
+          "rmse": 0.043475152058504093,
+          "rmse_improvement": 0.005034354243663053
+        },
+        "predicted_context_vector": [
+          0.00388910202111088,
+          0.0009526564665694009,
+          -0.0009873672928186366,
+          0.0037463874972540052
+        ],
+        "predicted_norm": 0.005571622952463166,
+        "registered_clause_holds": true,
+        "registered_norm": 0.0031333237585455384
+      },
+      "N": {
+        "baseline_context_vector": [
+          0.0106575668132484,
+          0.0071692358590334185,
+          0.0034526277236425836,
+          0.011611743051103782
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.04363647949584236,
+          "pearson": -0.028677179141219762,
+          "rmse": 0.043154056635686916,
+          "rmse_improvement": 0.011055494524974452
+        },
+        "context_metrics": {
+          "cosine": 0.34594056883404334,
+          "normalized_l2_error": 4.623294553555748,
+          "prediction_norm": 0.014366787100661204,
+          "projection_on_target": 1.6857783379508422,
+          "target_norm": 0.0029482253924093677
+        },
+        "exact_context_vector": [
+          0.0020295054199676896,
+          7.548542561172365e-05,
+          0.00203512911766402,
+          -0.0006524508715033088
+        ],
+        "metrics": {
+          "baseline_rmse": 0.04328750893738525,
+          "pearson": -0.028677179141219762,
+          "rmse": 0.043154056635686916,
+          "rmse_improvement": 0.0030829286548081924
+        },
+        "predicted_context_vector": [
+          0.008136882920902493,
+          0.005979491273537259,
+          0.0020720842159645285,
+          0.010007390221176193
+        ],
+        "predicted_norm": 0.014366787100661204,
+        "registered_clause_holds": false,
+        "registered_norm": 0.0029482253924093677
+      }
+    }
+  },
+  "next_step": "add_measured_downstream_use_or_paired_response_kernel_no_rank_tuning",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_heldout_code": false,
+    "pred_c_natural": false,
+    "pred_d_shared_mlp_law": false,
+    "pred_e_interaction": false
+  },
+  "rung": 470,
+  "runtime_s": 33.42838525772095,
+  "shared_module_intersection": [],
+  "status": "complete",
+  "strong_null": true,
+  "union_reports": {
+    "code_validation": {
+      "H": {
+        "baseline_context_vector": [
+          -0.025352380213377834,
+          0.021605882355077908,
+          0.04058299905693027,
+          -0.020714163933828
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.08005568855468247,
+          "pearson": 0.46344382228067793,
+          "rmse": 0.0709928147718973,
+          "rmse_improvement": 0.11320711802503236
+        },
+        "context_metrics": {
+          "cosine": 0.9958695719834892,
+          "normalized_l2_error": 0.2120637529034746,
+          "prediction_norm": 0.06313698816884768,
+          "projection_on_target": 1.18260815708097,
+          "target_norm": 0.053167403765617696
+        },
+        "exact_context_vector": [
+          -0.027561892824093062,
+          0.019210825817897282,
+          0.03489034261641028,
+          -0.021925397388265096
+        ],
+        "metrics": {
+          "baseline_rmse": 0.074719617693876,
+          "pearson": 0.46344382228067793,
+          "rmse": 0.0709928147718973,
+          "rmse_improvement": 0.049877167964741176
+        },
+        "predicted_context_vector": [
+          -0.030493894747618513,
+          0.026643320541130392,
+          0.04281090726495201,
+          -0.022666304238861592
+        ]
+      },
+      "N": {
+        "baseline_context_vector": [
+          -0.030526485791356726,
+          0.021048490673587966,
+          0.04362645572613254,
+          -0.025979618904187738
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.0925066828013228,
+          "pearson": 0.4629938580805691,
+          "rmse": 0.08201452707225486,
+          "rmse_improvement": 0.11342051634909467
+        },
+        "context_metrics": {
+          "cosine": 0.9895647389076364,
+          "normalized_l2_error": 0.21565781936163686,
+          "prediction_norm": 0.07125281562935602,
+          "projection_on_target": 1.138021636154073,
+          "target_norm": 0.061957762185420893
+        },
+        "exact_context_vector": [
+          -0.034636963209815304,
+          0.016496445281925603,
+          0.03833430124642039,
+          -0.029956530433883684
+        ],
+        "metrics": {
+          "baseline_rmse": 0.0865506944864435,
+          "pearson": 0.4629938580805691,
+          "rmse": 0.08201452707225486,
+          "rmse_improvement": 0.05241052589010875
+        },
+        "predicted_context_vector": [
+          -0.03684593045315317,
+          0.026620449916267247,
+          0.046692728850659185,
+          -0.028818082220833655
+        ]
+      }
+    },
+    "natural_wave0": {
+      "H": {
+        "baseline_context_vector": [
+          -0.005766311498705714,
+          0.021994098161576922,
+          0.04001742867499323,
+          -0.0037402318127689577
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.05938572674049351,
+          "pearson": 0.02140662334691831,
+          "rmse": 0.06102307016173931,
+          "rmse_improvement": -0.027571329191621086
+        },
+        "context_metrics": {
+          "cosine": 0.9175319021178816,
+          "normalized_l2_error": 1.3909089129893106,
+          "prediction_norm": 0.051326412500397,
+          "projection_on_target": 2.064798313752667,
+          "target_norm": 0.022807855167600356
+        },
+        "exact_context_vector": [
+          0.012129427793198764,
+          0.010546587884910632,
+          0.01359513170956293,
+          0.008775939638654338
+        ],
+        "metrics": {
+          "baseline_rmse": 0.061465006444071886,
+          "pearson": 0.02140662334691831,
+          "rmse": 0.06102307016173931,
+          "rmse_improvement": 0.007190046953540974
+        },
+        "predicted_context_vector": [
+          0.013289094833509823,
+          0.026092113659152927,
+          0.04122447859250681,
+          0.008805938237387574
+        ]
+      },
+      "N": {
+        "baseline_context_vector": [
+          -0.010676272944227155,
+          0.021567186906305245,
+          0.043361094214679784,
+          -0.009006129531000898
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.058992546235587924,
+          "pearson": 0.015003735474843257,
+          "rmse": 0.06275167080438881,
+          "rmse_improvement": -0.06372202606391575
+        },
+        "context_metrics": {
+          "cosine": 0.7807220632806741,
+          "normalized_l2_error": 1.9666667836209821,
+          "prediction_norm": 0.05413127305770073,
+          "projection_on_target": 2.065381048460709,
+          "target_norm": 0.020461831593310296
+        },
+        "exact_context_vector": [
+          0.01296842057320256,
+          0.007759570014546724,
+          0.012257116395060422,
+          0.006329201439108749
+        ],
+        "metrics": {
+          "baseline_rmse": 0.062156808733286835,
+          "pearson": 0.015003735474843257,
+          "rmse": 0.06275167080438881,
+          "rmse_improvement": -0.009570344475928971
+        },
+        "predicted_context_vector": [
+          0.005144718757587848,
+          0.02718332716933254,
+          0.04644173015456363,
+          0.0028211728072563263
+        ]
+      }
+    },
+    "natural_wave1": {
+      "H": {
+        "baseline_context_vector": [
+          -0.006888973125483615,
+          0.022186692974990672,
+          0.03998805535989059,
+          -0.004355245706273404
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.05579749298611813,
+          "pearson": 0.06679333178549338,
+          "rmse": 0.0576619681147311,
+          "rmse_improvement": -0.03341503406034452
+        },
+        "context_metrics": {
+          "cosine": 0.9873069800696052,
+          "normalized_l2_error": 1.872919428117584,
+          "prediction_norm": 0.0535523055086571,
+          "projection_on_target": 2.8172608581962173,
+          "target_norm": 0.01876736578144537
+        },
+        "exact_context_vector": [
+          0.005063313388610321,
+          0.01061452078818437,
+          0.013278000231804216,
+          0.006132172060917337
+        ],
+        "metrics": {
+          "baseline_rmse": 0.05770533966987861,
+          "pearson": 0.06679333178549338,
+          "rmse": 0.0576619681147311,
+          "rmse_improvement": 0.0007516038445598561
+        },
+        "predicted_context_vector": [
+          0.01514570475839444,
+          0.02749161822420348,
+          0.042065249953770284,
+          0.010638737068165842
+        ]
+      },
+      "N": {
+        "baseline_context_vector": [
+          -0.011814075153108007,
+          0.021824513379071753,
+          0.0433473124687805,
+          -0.009621127382489223
+        ],
+        "constant_metrics": {
+          "baseline_rmse": 0.04705820790521622,
+          "pearson": 0.06612487315520589,
+          "rmse": 0.0519323144969724,
+          "rmse_improvement": -0.10357612005908767
+        },
+        "context_metrics": {
+          "cosine": 0.8894482285611706,
+          "normalized_l2_error": 2.7102168931932322,
+          "prediction_norm": 0.05591294695449719,
+          "projection_on_target": 3.1671927792958856,
+          "target_norm": 0.01570212964219005
+        },
+        "exact_context_vector": [
+          0.00841688112068812,
+          0.006430206658187794,
+          0.011007640616438606,
+          0.0036328057879104706
+        ],
+        "metrics": {
+          "baseline_rmse": 0.051503876626040626,
+          "pearson": 0.06612487315520589,
+          "rmse": 0.0519323144969724,
+          "rmse_improvement": -0.008318555786442472
+        },
+        "predicted_context_vector": [
+          0.006971860899499923,
+          0.028819719474304655,
+          0.04714557159005167,
+          0.004936561718862448
+        ]
+      }
+    }
+  }
+}
