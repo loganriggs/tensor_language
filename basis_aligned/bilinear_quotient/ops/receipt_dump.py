@@ -43,6 +43,8 @@ def main():
     parser.add_argument("receipt")
     parser.add_argument("--depth", type=int, default=None)
     parser.add_argument("--grep", default=None)
+    parser.add_argument("--verdict", action="store_true",
+                        help="print only top-level pred_*/strong_null/next_step/status/runtime rows")
     args = parser.parse_args()
     with open(args.receipt) as handle:
         data = json.load(handle)
@@ -50,6 +52,12 @@ def main():
     walk(data, "", rows, 0, args.depth)
     needle = args.grep.lower() if args.grep else None
     for path, value in rows:
+        if args.verdict:
+            if "." not in path and any(path.startswith(k) for k in
+                    ("pred_", "strong_null", "next_step", "status", "claim_level",
+                     "runtime_s", "validation_opened")):
+                print(f"{path} = {value}")
+            continue
         if needle is None or needle in path.lower():
             print(f"{path} = {value}")
 
