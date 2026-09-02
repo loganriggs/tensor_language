@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0303.md](explanation_2026-09-02_0303.md) — rung-458 strong null: no whole equality-term
+  pair and later attention/MLP output forms a task-specific shared variable; defines the 72-candidate response-cosine
+  computation, graphs the failed fit thresholds, explains why validation was correctly withheld, records the active-
+  loop safeguard, and begins the finer QK-score versus value/output split
 - [explanation_2026-09-02_0244.md](explanation_2026-09-02_0244.md) — rung-457 result since 02:28: exact
   natural-text subset factorial passes its instrument; the L8H3/L8H4 pair remains unresolved, the early-versus-layer8
   blocks have robust overlapping benefit, repeat context changes effect size, and the next step moves below head-term
