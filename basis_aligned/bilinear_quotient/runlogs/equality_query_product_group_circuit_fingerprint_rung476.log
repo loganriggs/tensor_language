@@ -1,0 +1,421 @@
+{
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 5.085501652043494e-14,
+    "forwards": 9250,
+    "partition_error": 0.0,
+    "patch_calls": 9000,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "learn_partition_on_discovery_circuit_families",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_selected_group": false,
+    "pred_c_half_stable": false,
+    "pred_d_beats_controls": false,
+    "pred_e_separates_complement": false
+  },
+  "rung": 476,
+  "runtime_s": 195.06233644485474,
+  "status": "complete",
+  "strong_null": true,
+  "summary": {
+    "comparisons": {
+      "H": {
+        "amplitude": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5348196062382524,
+              "cosine": 0.6336407329099774,
+              "improvement_over_parent": 0.09882112667172493,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.01349822541231357,
+              "cosine": 0.17726363162606304,
+              "improvement_over_parent": 0.16376540621374946,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.05329920462643536,
+              "cosine": 0.17163514184736398,
+              "improvement_over_parent": 0.11833593722092861,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.572922401660206,
+              "cosine": 0.6345415529839694,
+              "improvement_over_parent": 0.06161915132376339,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": -0.03332627823024451,
+              "cosine": 0.20233877064548303,
+              "improvement_over_parent": 0.23566504887572753,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": -0.00716202477241133,
+              "cosine": 0.1703505716392927,
+              "improvement_over_parent": 0.17751259641170403,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ]
+        },
+        "complement": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5348196062382524,
+              "cosine": 0.6744793541614382,
+              "improvement_over_parent": 0.1396597479231858,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.05329920462643536,
+              "cosine": 0.37160982969604817,
+              "improvement_over_parent": 0.31831062506961283,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.01349822541231357,
+              "cosine": 0.3235031059126467,
+              "improvement_over_parent": 0.31000488050033315,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.572922401660206,
+              "cosine": 0.6856433556617861,
+              "improvement_over_parent": 0.11272095400158011,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": -0.00716202477241133,
+              "cosine": 0.35766804559408316,
+              "improvement_over_parent": 0.3648300703664945,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": -0.03332627823024451,
+              "cosine": 0.31651398338790687,
+              "improvement_over_parent": 0.3498402616181514,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ]
+        },
+        "random": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5348196062382524,
+              "cosine": 0.6923683917956208,
+              "improvement_over_parent": 0.1575487855573684,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.01349822541231357,
+              "cosine": 0.5521518898145809,
+              "improvement_over_parent": 0.5386536644022673,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.05329920462643536,
+              "cosine": 0.41173045277680304,
+              "improvement_over_parent": 0.3584312481503677,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.572922401660206,
+              "cosine": 0.6916346905103465,
+              "improvement_over_parent": 0.11871228885014051,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": -0.03332627823024451,
+              "cosine": 0.5522866946706546,
+              "improvement_over_parent": 0.5856129729008991,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": -0.00716202477241133,
+              "cosine": 0.4119116047549115,
+              "improvement_over_parent": 0.41907362952732286,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ]
+        },
+        "selected": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5348196062382524,
+              "cosine": 0.42468469913202705,
+              "improvement_over_parent": -0.11013490710622537,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.01349822541231357,
+              "cosine": 0.4211514140455402,
+              "improvement_over_parent": 0.40765318863322664,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.05329920462643536,
+              "cosine": 0.3640132816026095,
+              "improvement_over_parent": 0.31071407697617415,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.572922401660206,
+              "cosine": 0.4143364182128786,
+              "improvement_over_parent": -0.15858598344732744,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": -0.03332627823024451,
+              "cosine": 0.4073125136419367,
+              "improvement_over_parent": 0.44063879187218125,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": -0.00716202477241133,
+              "cosine": 0.3713000029375626,
+              "improvement_over_parent": 0.37846202770997395,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ]
+        }
+      },
+      "N": {
+        "amplitude": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.6096913801902442,
+              "cosine": 0.5219109451555388,
+              "improvement_over_parent": -0.08778043503470534,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6277594431936706,
+              "cosine": 0.30407943434185897,
+              "improvement_over_parent": -0.32368000885181164,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.5135752482498457,
+              "cosine": 0.23288876296576705,
+              "improvement_over_parent": -0.28068648528407864,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.6393443474525697,
+              "cosine": 0.5376655110325168,
+              "improvement_over_parent": -0.10167883642005293,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6135346167218798,
+              "cosine": 0.3068700185810833,
+              "improvement_over_parent": -0.3066645981407965,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.4903421457696824,
+              "cosine": 0.23314721812298742,
+              "improvement_over_parent": -0.25719492764669494,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ]
+        },
+        "complement": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.6096913801902442,
+              "cosine": 0.6345314611085295,
+              "improvement_over_parent": 0.02484008091828538,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6277594431936706,
+              "cosine": 0.13309635910587084,
+              "improvement_over_parent": -0.4946630840877998,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.5135752482498457,
+              "cosine": 0.0064051265418694795,
+              "improvement_over_parent": -0.5071701217079762,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.6393443474525697,
+              "cosine": 0.6471068308431808,
+              "improvement_over_parent": 0.00776248339061103,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6135346167218798,
+              "cosine": 0.0716137097626495,
+              "improvement_over_parent": -0.5419209069592303,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.4903421457696824,
+              "cosine": 0.005098761594604572,
+              "improvement_over_parent": -0.4852433841750778,
+              "pair": "m9+m12",
+              "pair_index": 2
+            }
+          ]
+        },
+        "random": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5135752482498457,
+              "cosine": 0.4873091856538323,
+              "improvement_over_parent": -0.026266062596013384,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.6277594431936706,
+              "cosine": 0.4802354302122686,
+              "improvement_over_parent": -0.147524012981402,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.6096913801902442,
+              "cosine": 0.3146360036330004,
+              "improvement_over_parent": -0.29505537655724373,
+              "pair": "m8+m9",
+              "pair_index": 0
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.6135346167218798,
+              "cosine": 0.4922868181767676,
+              "improvement_over_parent": -0.1212477985451122,
+              "pair": "m8+m12",
+              "pair_index": 1
+            },
+            {
+              "complete_parent_cosine": 0.4903421457696824,
+              "cosine": 0.4875812285111956,
+              "improvement_over_parent": -0.0027609172584867614,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.6393443474525697,
+              "cosine": 0.3176220873192188,
+              "improvement_over_parent": -0.3217222601333509,
+              "pair": "m8+m9",
+              "pair_index": 0
+            }
+          ]
+        },
+        "selected": {
+          "raw": [
+            {
+              "complete_parent_cosine": 0.5135752482498457,
+              "cosine": 0.3697016425441498,
+              "improvement_over_parent": -0.1438736057056959,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.6096913801902442,
+              "cosine": 0.3314968029920612,
+              "improvement_over_parent": -0.27819457719818297,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6277594431936706,
+              "cosine": 0.2711122931980262,
+              "improvement_over_parent": -0.3566471499956444,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ],
+          "residual": [
+            {
+              "complete_parent_cosine": 0.4903421457696824,
+              "cosine": 0.37291234138531204,
+              "improvement_over_parent": -0.11742980438437034,
+              "pair": "m9+m12",
+              "pair_index": 2
+            },
+            {
+              "complete_parent_cosine": 0.6393443474525697,
+              "cosine": 0.34267058968329234,
+              "improvement_over_parent": -0.2966737577692774,
+              "pair": "m8+m9",
+              "pair_index": 0
+            },
+            {
+              "complete_parent_cosine": 0.6135346167218798,
+              "cosine": 0.270378987019849,
+              "improvement_over_parent": -0.3431556297020308,
+              "pair": "m8+m12",
+              "pair_index": 1
+            }
+          ]
+        }
+      }
+    },
+    "complement_margins": [],
+    "control_margins": [],
+    "proposed_pair": null,
+    "selective_circuit_count": 0
+  }
+}
