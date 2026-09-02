@@ -26,9 +26,10 @@ for l in tail:
     except Exception: pass
 # keep only entries within the window of the last entry, handling wrap
 if mins:
-    end = mins[-1]
-    windowed = [m if m <= end else m - 1440 for m in mins]
-    windowed = [m for m in windowed if end - m <= back]
+    lt = time.localtime(now)
+    end = lt.tm_hour * 60 + lt.tm_min          # anchor to NOW (10:06 bug:
+    windowed = [m if m <= end else m - 1440 for m in mins]  # stale 08:24
+    windowed = [m for m in windowed if end - m <= back]     # rows counted)
     gaps = [windowed[i+1] - windowed[i] for i in range(len(windowed) - 1) if windowed[i+1] >= windowed[i]]
     if gaps:
         print(f"landings in window: {len(windowed)} | mean gap {sum(gaps)/len(gaps):.1f} min | "
@@ -48,7 +49,7 @@ try:
         _nowsec = _lt.tm_hour * 3600 + _lt.tm_min * 60 + _lt.tm_sec
         _elapsed = (_nowsec - _started) % 86400
         print(f"IN-FLIGHT: {_last.split(' running ')[-1]} for {_elapsed/60:.0f} min "
-              f"(true busy-fraction ~{(busy + _elapsed)/60/max(back,1)*100:.0f}%)")
+              f"(true busy-fraction ~{min(100.0, (busy + _elapsed)/60/max(back,1)*100):.0f}%)")
 except Exception:
     pass
 
