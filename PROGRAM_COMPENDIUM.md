@@ -417,7 +417,7 @@ scoring.py shipped with zero adoption; the ECG .out stubs whose scripts were nev
 two unanswered asks (SVHN; two-real-layer composition); the 7-ring inversion; GPT-2-numerals-without-a-map.
 **Provenance hazards:** 469 orphan receipt stems (245 bilin18_* with zero scripts — the entire early bilin18
 era is receipts-only); runs_lm/ gitignored (prehistory numbers unreproducible); e6b/e6c/e7b/e7c mutate shared
-JSONs; §1–§803 of the ledger are NOT ON DISK (cited internally; exist only in git history and receipts).
+JSONs; the §1–§803 'gap' is mostly a deliberate numbering jump (probe 09-02: §200–§803 never existed in any commit; §100-era = qk_mdl).
 
 ## R3. WHAT STANDS — the positive results worth building on (repo-wide)
 **Mechanistic findings:** induction reverse-engineered with the XNOR signature; the locality law (+0.0141 for
@@ -505,9 +505,12 @@ Native price per MLP: 15,926,400 stored numbers. Dossiers exist for 6 of 18 MLPs
 
 ## Appendix A — Ledger/§ namespace map
 - **BILIN18_CONNECTION.md** (bilinear_quotient/): §804–§2611, 1,811 entries, started 08-21 (§804 = gpt2-medium
-  mlp0 diagnosis). Prologue: "what the toys say about bilin18". §1–§803: NOT on disk — cited internally
-  (§429–432 sink arc, §513, §546, §649...), reconstructable only from git history + the 245 orphan bilin18_*
-  receipts + RESULTS.md-era docs. Rung numbers: backlog rungs 1–390 (duplicates exist) and experiment rungs
+  mlp0 diagnosis). Prologue: "what the toys say about bilin18". §1–§803: RESOLVED (git-pickaxe probe 09-02):
+  §200/§300/§400/§500/§700/§803 never existed in ANY commit; the §100-era lived in qk_mdl/RESULTS_l0_mdl.md
+  (07-31). The range was never a contiguous ledger — §804 was a NUMBERING JUMP continuing qk_mdl's ~§100-max
+  namespace with an offset. Internal citations to §429–432/§513/§546/§649 refer to entries that exist only in
+  the 245 orphan bilin18_* receipts + git history of since-trimmed files; most of the "missing" range is
+  deliberate offset, not lost content. Rung numbers: backlog rungs 1–390 (duplicates exist) and experiment rungs
   →490 (RUNG482 prereg missing).
 - **qk_mdl**: separate small namespaces — RESULTS_l0_mdl.md §32–§39d (89 entries), LOG.md §21–§43,
   redteam §40–41, RESULTS_scale_draft §S1–S6. Commit messages 07-29/30 reference §50–§80.
