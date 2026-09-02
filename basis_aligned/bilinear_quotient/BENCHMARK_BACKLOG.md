@@ -4660,3 +4660,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Strong aggregate response/downstream fingerprints are descriptive family anatomy, not an identified group. Next use
   finite raw-source interventions around the attention8-driven MLP9 response (or a labeled float32 control), never a
   third allocation, post-outcome intersection, rank sweep, or quantization.
+- Rung503 (§2631): A true, B false, C/D/E closed; lawful finite-singleton strong null. Exact BF16 source removals,
+  calls, parent response, and liveness pass, but the no-top-k selector is empty. A5/A6/A7/A9/M5/M6 materially oppose
+  the response; M8 supports response direction but opposes copy-loss direction. This is cancellation-heavy local
+  anatomy, not source irrelevance. Rung504 tests all153 exact two-source removals and their finite mixed differences,
+  requiring prospective response+copy agreement and held-out exact-set replication; no rank/compression.

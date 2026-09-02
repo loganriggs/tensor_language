@@ -66853,3 +66853,28 @@ Registered 19:35-frozen (sha 5ada45c2…), landed 19:32 (59.1s; 2,500 + 24 forwa
 **CLAIM CEILING (registered):** this is a discovery-documents result on two directions into one recipient. Per the prereg and 501's typed-semantics discipline, it licenses ONLY: (a) registered validation on documents 500:1000, and (b) the reverse directions (L8H4→L7H3 etc.) — NO equivalence or dictionary-halving language until both land. The stake if they do: the four equality scores realize ONE abstract copy-score computation up to a Z2 sign gauge, and the program's score dictionary halves. Successor registration (validation + reverses, ~same price) is my lane's next dedicated block; Codex's 503 (finite raw-source interactions at MLP9) is untouched and complementary — their anatomy question and this gauge question meet at the same A8 recipient.
 
 Sixth standing-claim candidate (pending validation): "each of the four equality scores can supply L8H4's copy-score computation, with cross-family donors requiring exactly a sign flip."
+
+## §2631 — RUNG503: THE FINITE SINGLE-SOURCE INSTRUMENT PASSES, BUT NO SOURCE IS A STABLE POSITIVE PARTNER FOR THE ATTENTION8-DRIVEN MLP9 RESPONSE
+
+Rung503 physically removed each of18 explicit upstream attention/MLP contributions from the exact BF16 state entering
+MLP9, reran the real RMS normalization and deployed BF16 MLP9, and measured
+`J_t = Delta - Delta_without_t`. A is true; B is false; C/D/E stay closed; the registered strong null fires. The
+instrument is valid: exact496 full forwards,6,696 local MLP9 evaluations,124 backwards, call counts exact; raw factor
+reconstruction error`5.09e-14`; raw complement ratio`.00516`; minimum input edit RMS`.000159`; minimum MLP9 output
+change RMS`.0233`; correct-background native discrepancy0. The parent score response is stable at cosine`.830-.836`,
+and differs from rung501 by only`.00038/.00050`.
+
+The literal no-top-k selector returns no sources. No eligible source simultaneously clears response fraction>=`.01`,
+copy-gradient fraction>=`.01`, payload<=half-score, and positive score/gradient signs in both document halves under
+both backgrounds. This is a cancellation result rather than an inactivity result. A5 has response fractions
+`-.506/-.539` and gradient fractions`-.477/-.490`; A6/A7/A9/M5/M6 are also materially negative. M8 has positive
+response fractions`.254/.268` but negative/unstable gradient fractions`-.278/-.016`. A3/M2/M3 have some positive
+gradient support but response fractions below1%. Response-only selection would therefore misidentify M8, while a
+single positive-partner account is falsified.
+
+Claim scope: valid finite local singleton screen, not a circuit, source irrelevance result, or compression. Documents
+248:1000 and all downstream confirmation remained unopened. The registered next object is the complete153-pair finite
+removal screen with mixed difference `K_st=J_st-J_s-J_t`, prospectively requiring material response+copy support,
+payload rejection, and exact held-out pair-set replication before downstream validation. No top-k, rank,
+quantization, third normalized allocation, or favorable singleton intersection. Result/bundle/source SHAs
+`b320e970…/7c594527…/dd792fa6…`;19.81s, peak3.30GB; **0 deployed parameters added or saved.**

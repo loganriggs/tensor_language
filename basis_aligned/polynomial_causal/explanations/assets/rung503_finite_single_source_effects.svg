@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="650" viewBox="0 0 980 650">
+  <rect width="980" height="650" fill="#fff"/>
+  <style>
+    text { font-family: Inter, Arial, sans-serif; fill: #1f2937; }
+    .title { font-size: 20px; font-weight: 700; }
+    .small { font-size: 12px; }
+    .label { font-size: 13px; }
+    .grid { stroke: #d1d5db; stroke-width: 1; }
+    .zero { stroke: #111827; stroke-width: 1.5; }
+    .response { fill: #2563eb; }
+    .gradient { fill: #f59e0b; }
+  </style>
+  <text x="24" y="30" class="title">Rung503: removing one source never gives a stable positive copy partner</text>
+  <text x="24" y="50" class="small">Bars average the two early-background results on selection documents. Fractions are relative to the complete A8 score response.</text>
+  <rect x="640" y="63" width="15" height="10" class="response"/><text x="661" y="73" class="small">MLP9 response fraction</text>
+  <rect x="795" y="63" width="15" height="10" class="gradient"/><text x="816" y="73" class="small">copy-loss gradient fraction</text>
+  <line x1="180" y1="83" x2="180" y2="610" class="grid"/><text x="167" y="628" class="small">-55%</text>
+  <line x1="407" y1="83" x2="407" y2="610" class="grid"/><text x="394" y="628" class="small">-25%</text>
+  <line x1="596" y1="83" x2="596" y2="610" class="zero"/><text x="590" y="628" class="small">0</text>
+  <line x1="785" y1="83" x2="785" y2="610" class="grid"/><text x="773" y="628" class="small">25%</text>
+  <text x="922" y="628" class="small">fraction</text>
+  <!-- scale: 756 px per unit, zero x=596 -->
+  <g transform="translate(0,94)">
+    <text x="144" y="10" class="label">A0</text><rect x="596" y="1" width="0.01" height="7" class="response"/><rect x="595.9" y="10" width="0.1" height="7" class="gradient"/>
+    <text x="144" y="38" class="label">A1</text><rect x="596" y="29" width="1.1" height="7" class="response"/><rect x="596" y="38" width="2.7" height="7" class="gradient"/>
+    <text x="144" y="66" class="label">A2</text><rect x="596" y="57" width="3.0" height="7" class="response"/><rect x="596" y="66" width="0.9" height="7" class="gradient"/>
+    <text x="144" y="94" class="label">A3</text><rect x="596" y="85" width="4.3" height="7" class="response"/><rect x="596" y="94" width="8.2" height="7" class="gradient"/>
+    <text x="144" y="122" class="label">A4</text><rect x="591.7" y="113" width="4.3" height="7" class="response"/><rect x="590.4" y="122" width="5.6" height="7" class="gradient"/>
+    <text x="144" y="150" class="label">A5</text><rect x="201.0" y="141" width="395.0" height="7" class="response"/><rect x="230.8" y="150" width="365.2" height="7" class="gradient"/>
+    <text x="144" y="178" class="label">A6</text><rect x="339.5" y="169" width="256.5" height="7" class="response"/><rect x="392.4" y="178" width="203.6" height="7" class="gradient"/>
+    <text x="144" y="206" class="label">A7</text><rect x="469.6" y="197" width="126.4" height="7" class="response"/><rect x="492.1" y="206" width="103.9" height="7" class="gradient"/>
+    <text x="144" y="234" class="label">A9</text><rect x="526.2" y="225" width="69.8" height="7" class="response"/><rect x="523.0" y="234" width="73.0" height="7" class="gradient"/>
+    <text x="144" y="262" class="label">M0</text><rect x="596" y="253" width="0.5" height="7" class="response"/><rect x="595.1" y="262" width="0.9" height="7" class="gradient"/>
+    <text x="144" y="290" class="label">M1</text><rect x="596" y="281" width="3.5" height="7" class="response"/><rect x="596" y="290" width="1.4" height="7" class="gradient"/>
+    <text x="144" y="318" class="label">M2</text><rect x="596" y="309" width="5.1" height="7" class="response"/><rect x="596" y="318" width="9.2" height="7" class="gradient"/>
+    <text x="144" y="346" class="label">M3</text><rect x="596" y="337" width="3.7" height="7" class="response"/><rect x="596" y="346" width="13.5" height="7" class="gradient"/>
+    <text x="144" y="374" class="label">M4</text><rect x="595.9" y="365" width="0.1" height="7" class="response"/><rect x="593.7" y="374" width="2.3" height="7" class="gradient"/>
+    <text x="144" y="402" class="label">M5</text><rect x="548.8" y="393" width="47.2" height="7" class="response"/><rect x="522.1" y="402" width="73.9" height="7" class="gradient"/>
+    <text x="144" y="430" class="label">M6</text><rect x="503.9" y="421" width="92.1" height="7" class="response"/><rect x="546.5" y="430" width="49.5" height="7" class="gradient"/>
+    <text x="144" y="458" class="label">M7</text><rect x="595.3" y="449" width="0.7" height="7" class="response"/><rect x="575.4" y="458" width="20.6" height="7" class="gradient"/>
+    <text x="144" y="486" class="label">M8</text><rect x="596" y="477" width="197.4" height="7" class="response"/><rect x="484.8" y="486" width="111.2" height="7" class="gradient"/>
+  </g>
+  <text x="24" y="642" class="small">A = attention output; M = earlier MLP output. Positive means the removed source supported the measured response; negative means it opposed it.</text>
+</svg>
