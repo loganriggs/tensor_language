@@ -1,0 +1,1601 @@
+{
+  "status": "complete",
+  "rung": 454,
+  "claim_level": "prospective_complete_vocabulary_candidate_teaching_label_generation",
+  "sealed_opened": false,
+  "candidate_ids": [
+    "vocab_r300_shared_0",
+    "vocab_r300_independent_0",
+    "vocab_r300_shared_128",
+    "vocab_r300_independent_128",
+    "vocab_r300_shared_256",
+    "vocab_r300_independent_256",
+    "vocab_r300_shared_512",
+    "vocab_r300_independent_512",
+    "vocab_r304_fisher_rare",
+    "vocab_r304_norm_rare",
+    "vocab_r304_random_rare",
+    "vocab_r305_sqrt_count_plus_1_s512_shared",
+    "vocab_r305_sqrt_count_plus_1_s512_independent",
+    "vocab_r305_sqrt_count_plus_1_s640_shared",
+    "vocab_r305_sqrt_count_plus_1_s640_independent",
+    "vocab_r305_sqrt_count_plus_1_s768_shared",
+    "vocab_r305_sqrt_count_plus_1_s768_independent",
+    "vocab_r305_count_plus_1_s512_shared",
+    "vocab_r305_count_plus_1_s512_independent",
+    "vocab_r305_count_plus_1_s640_shared",
+    "vocab_r305_count_plus_1_s640_independent",
+    "vocab_r305_count_plus_1_s768_shared",
+    "vocab_r305_count_plus_1_s768_independent"
+  ],
+  "candidate_prices": {
+    "vocab_r300_shared_0": 59277312,
+    "vocab_r300_independent_0": 59236608,
+    "vocab_r300_shared_128": 65863680,
+    "vocab_r300_independent_128": 65822976,
+    "vocab_r300_shared_256": 72450048,
+    "vocab_r300_independent_256": 72409344,
+    "vocab_r300_shared_512": 85622784,
+    "vocab_r300_independent_512": 85582080,
+    "vocab_r304_fisher_rare": 86924521,
+    "vocab_r304_norm_rare": 86924521,
+    "vocab_r304_random_rare": 86924521,
+    "vocab_r305_sqrt_count_plus_1_s512_shared": 85622784,
+    "vocab_r305_sqrt_count_plus_1_s512_independent": 85582080,
+    "vocab_r305_sqrt_count_plus_1_s640_shared": 92209152,
+    "vocab_r305_sqrt_count_plus_1_s640_independent": 92168448,
+    "vocab_r305_sqrt_count_plus_1_s768_shared": 98795520,
+    "vocab_r305_sqrt_count_plus_1_s768_independent": 98754816,
+    "vocab_r305_count_plus_1_s512_shared": 85622784,
+    "vocab_r305_count_plus_1_s512_independent": 85582080,
+    "vocab_r305_count_plus_1_s640_shared": 92209152,
+    "vocab_r305_count_plus_1_s640_independent": 92168448,
+    "vocab_r305_count_plus_1_s768_shared": 98795520,
+    "vocab_r305_count_plus_1_s768_independent": 98754816
+  },
+  "program_scope": "exact_input_embedding_candidate_output_vocabulary_map",
+  "native_hidden_replay_max_abs": 0.0,
+  "native_ce_replay_max_abs": 0.0,
+  "capture_counts": {
+    "attention_mean_positions": 32768,
+    "knockout_calls": 24,
+    "partner_calls": 24
+  },
+  "sparse_selection_receipts": {
+    "fisher": {
+      "count": 1129,
+      "semantic_sha256": "ca6532152cd97cab2885254ef896452a316c804d801bc9c3a8eb3939c4a2db62",
+      "fit_count_histogram": {
+        "0": 610,
+        "1": 325,
+        "2": 194
+      }
+    },
+    "norm": {
+      "count": 1129,
+      "semantic_sha256": "7af877d85715446fc5385567d98061628f5f86daaa0205eac71aee9077066413",
+      "fit_count_histogram": {
+        "0": 1045,
+        "1": 78,
+        "2": 6
+      }
+    },
+    "random": {
+      "count": 1129,
+      "semantic_sha256": "0dbe708c531cb028611d28f3aa4ab401d1f16bd78398062fe1677b057e46c7d0",
+      "fit_count_histogram": {
+        "0": 872,
+        "1": 197,
+        "2": 60
+      }
+    }
+  },
+  "arms": {
+    "vocab_r300_shared_0": {
+      "price_scalars": 59277312,
+      "full": {
+        "removal_cosine": 0.7555083751411344,
+        "removal_normalized_error": 0.7018048244729268,
+        "removal_norm_ratio": 1.0071488261061188,
+        "composition_cosine": 0.9936538319080328,
+        "composition_normalized_error": 0.11700634060004157,
+        "composition_interaction_mean": -0.08471776596828799,
+        "candidate_ce_damage": 1.9596681594848633,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 1.9143372774124146
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.7731417862574699,
+          "removal_normalized_error": 0.6659191819646907,
+          "removal_norm_ratio": 0.9761111892863809,
+          "composition_cosine": 0.993848416361077,
+          "composition_normalized_error": 0.11526949121762127,
+          "composition_interaction_mean": -0.0850054845180684,
+          "candidate_ce_damage": 1.9640969038009644,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 1.9201158285140991
+        },
+        {
+          "removal_cosine": 0.7352446374460231,
+          "removal_normalized_error": 0.7455843770701922,
+          "removal_norm_ratio": 1.0458581275334276,
+          "composition_cosine": 0.9934571215221865,
+          "composition_normalized_error": 0.11873668398437982,
+          "composition_interaction_mean": -0.08443004741850757,
+          "candidate_ce_damage": 1.9552396535873413,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 1.9085592031478882
+        }
+      ]
+    },
+    "vocab_r300_independent_0": {
+      "price_scalars": 59236608,
+      "full": {
+        "removal_cosine": -0.010328696588330813,
+        "removal_normalized_error": 1.1306802890806174,
+        "removal_norm_ratio": 0.5174445483650728,
+        "composition_cosine": 0.9963264048174316,
+        "composition_normalized_error": 0.08794039955508971,
+        "composition_interaction_mean": -0.0843073519954487,
+        "candidate_ce_damage": 4.7719645500183105,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 4.727043628692627
+      },
+      "waves": [
+        {
+          "removal_cosine": -0.028393334748013293,
+          "removal_normalized_error": 1.13197233257682,
+          "removal_norm_ratio": 0.502801114750022,
+          "composition_cosine": 0.9964207667566369,
+          "composition_normalized_error": 0.08630193679443186,
+          "composition_interaction_mean": -0.07885714887500701,
+          "candidate_ce_damage": 4.837608337402344,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 4.79977560043335
+        },
+        {
+          "removal_cosine": 0.011547298909505201,
+          "removal_normalized_error": 1.1290100311473827,
+          "removal_norm_ratio": 0.5357581253367358,
+          "composition_cosine": 0.9962374111713949,
+          "composition_normalized_error": 0.08958276775195587,
+          "composition_interaction_mean": -0.08975755511589038,
+          "candidate_ce_damage": 4.706320762634277,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 4.654312610626221
+        }
+      ]
+    },
+    "vocab_r300_shared_128": {
+      "price_scalars": 65863680,
+      "full": {
+        "removal_cosine": 0.7961833151434368,
+        "removal_normalized_error": 0.6420455211412247,
+        "removal_norm_ratio": 1.0109630221231412,
+        "composition_cosine": 0.9910712617550381,
+        "composition_normalized_error": 0.13392697413427584,
+        "composition_interaction_mean": -0.025386980236515793,
+        "candidate_ce_damage": 1.2103102207183838,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 1.224310278892517
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.812433600870391,
+          "removal_normalized_error": 0.6057549103557146,
+          "removal_norm_ratio": 0.9767119233700043,
+          "composition_cosine": 0.9916854785032789,
+          "composition_normalized_error": 0.12940060107054271,
+          "composition_interaction_mean": -0.02756801235126834,
+          "candidate_ce_damage": 1.219542384147644,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 1.2329987287521362
+        },
+        {
+          "removal_cosine": 0.7779770593105464,
+          "removal_normalized_error": 0.6860647788957938,
+          "removal_norm_ratio": 1.0535368271555954,
+          "composition_cosine": 0.9904406265677341,
+          "composition_normalized_error": 0.1384249368097881,
+          "composition_interaction_mean": -0.023205948121763242,
+          "candidate_ce_damage": 1.201077938079834,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 1.2156215906143188
+        }
+      ]
+    },
+    "vocab_r300_independent_128": {
+      "price_scalars": 65822976,
+      "full": {
+        "removal_cosine": 0.5039693525541018,
+        "removal_normalized_error": 0.8877044695583788,
+        "removal_norm_ratio": 0.7089189404720048,
+        "composition_cosine": 0.9944519625871717,
+        "composition_normalized_error": 0.10586638736283654,
+        "composition_interaction_mean": -0.048683403461078946,
+        "candidate_ce_damage": 3.3530619144439697,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 3.3437654972076416
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.5166650513730735,
+          "removal_normalized_error": 0.873484362189275,
+          "removal_norm_ratio": 0.6896324075404855,
+          "composition_cosine": 0.9944702376656551,
+          "composition_normalized_error": 0.10539148677297533,
+          "composition_interaction_mean": -0.04179766742284604,
+          "candidate_ce_damage": 3.3956010341644287,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 3.3948280811309814
+        },
+        {
+          "removal_cosine": 0.48906559507790465,
+          "removal_normalized_error": 0.9057329869624865,
+          "removal_norm_ratio": 0.7330684638333611,
+          "composition_cosine": 0.9944434547806165,
+          "composition_normalized_error": 0.10634653169314444,
+          "composition_interaction_mean": -0.05556913949931186,
+          "candidate_ce_damage": 3.310523271560669,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 3.29270339012146
+        }
+      ]
+    },
+    "vocab_r300_shared_256": {
+      "price_scalars": 72450048,
+      "full": {
+        "removal_cosine": 0.823009857532061,
+        "removal_normalized_error": 0.6003341465512492,
+        "removal_norm_ratio": 1.0172939616434031,
+        "composition_cosine": 0.9900843861713634,
+        "composition_normalized_error": 0.1406515104045582,
+        "composition_interaction_mean": -0.017321942652519223,
+        "candidate_ce_damage": 1.0067700147628784,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 1.0288350582122803
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.8361272131765533,
+          "removal_normalized_error": 0.5692809100261654,
+          "removal_norm_ratio": 0.9884081086776177,
+          "composition_cosine": 0.9907873171063715,
+          "composition_normalized_error": 0.13562304606113315,
+          "composition_interaction_mean": -0.017910899513119933,
+          "candidate_ce_damage": 1.015931248664856,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 1.039044737815857
+        },
+        {
+          "removal_cosine": 0.8080346810153879,
+          "removal_normalized_error": 0.6381942083775148,
+          "removal_norm_ratio": 1.0534157995437683,
+          "composition_cosine": 0.9893593634754667,
+          "composition_normalized_error": 0.14565305210927285,
+          "composition_interaction_mean": -0.01673298579191851,
+          "candidate_ce_damage": 0.9976088404655457,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 1.0186253786087036
+        }
+      ]
+    },
+    "vocab_r300_independent_256": {
+      "price_scalars": 72409344,
+      "full": {
+        "removal_cosine": 0.6869205341194938,
+        "removal_normalized_error": 0.750152708535942,
+        "removal_norm_ratio": 0.872901464106451,
+        "composition_cosine": 0.9929130141881789,
+        "composition_normalized_error": 0.11886982501093095,
+        "composition_interaction_mean": -0.02073297925217806,
+        "candidate_ce_damage": 2.6402840614318848,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 2.65893816947937
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.7025485098451232,
+          "removal_normalized_error": 0.7291951933747081,
+          "removal_norm_ratio": 0.861608368786277,
+          "composition_cosine": 0.9929499797026062,
+          "composition_normalized_error": 0.11853424495755793,
+          "composition_interaction_mean": -0.015509915495916479,
+          "candidate_ce_damage": 2.661755323410034,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 2.687269449234009
+        },
+        {
+          "removal_cosine": 0.6674923590919466,
+          "removal_normalized_error": 0.7763733515280629,
+          "removal_norm_ratio": 0.8872686781280239,
+          "composition_cosine": 0.9928812282063953,
+          "composition_normalized_error": 0.11920880327375805,
+          "composition_interaction_mean": -0.02595604300843964,
+          "candidate_ce_damage": 2.6188132762908936,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 2.6306066513061523
+        }
+      ]
+    },
+    "vocab_r300_shared_512": {
+      "price_scalars": 85622784,
+      "full": {
+        "removal_cosine": 0.8644364217248441,
+        "removal_normalized_error": 0.5282671253232128,
+        "removal_norm_ratio": 1.0266599801301821,
+        "composition_cosine": 0.9901674239767921,
+        "composition_normalized_error": 0.1398912860849419,
+        "composition_interaction_mean": -0.013359184731969028,
+        "candidate_ce_damage": 0.7490761876106262,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.7751038670539856
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.8746177579062908,
+          "removal_normalized_error": 0.5006084929634566,
+          "removal_norm_ratio": 0.9993778704109186,
+          "composition_cosine": 0.990747507359145,
+          "composition_normalized_error": 0.1357181396680405,
+          "composition_interaction_mean": -0.01467499137109011,
+          "candidate_ce_damage": 0.7575333714485168,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.7838827967643738
+        },
+        {
+          "removal_cosine": 0.8528986952214808,
+          "removal_normalized_error": 0.5619657182371923,
+          "removal_norm_ratio": 1.0608449690143644,
+          "composition_cosine": 0.9895580298431553,
+          "composition_normalized_error": 0.1441482418930459,
+          "composition_interaction_mean": -0.012043378092847945,
+          "candidate_ce_damage": 0.7406190037727356,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.7663251757621765
+        }
+      ]
+    },
+    "vocab_r300_independent_512": {
+      "price_scalars": 85582080,
+      "full": {
+        "removal_cosine": 0.8053768589108766,
+        "removal_normalized_error": 0.6176468460706636,
+        "removal_norm_ratio": 0.9789265962491355,
+        "composition_cosine": 0.9923408871218689,
+        "composition_normalized_error": 0.12391995174156319,
+        "composition_interaction_mean": 0.008043215938525824,
+        "candidate_ce_damage": 1.8739057779312134,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 1.9213361740112305
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.811936534812997,
+          "removal_normalized_error": 0.6034262945560166,
+          "removal_norm_ratio": 0.9647901560515514,
+          "composition_cosine": 0.9925689601870197,
+          "composition_normalized_error": 0.12210786807813198,
+          "composition_interaction_mean": 0.007732649065493054,
+          "candidate_ce_damage": 1.901002287864685,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 1.9497591257095337
+        },
+        {
+          "removal_cosine": 0.7974201958012973,
+          "removal_normalized_error": 0.6355356477718807,
+          "removal_norm_ratio": 0.9968807890537008,
+          "composition_cosine": 0.9921031090772745,
+          "composition_normalized_error": 0.12578187332814253,
+          "composition_interaction_mean": 0.008353782811558593,
+          "candidate_ce_damage": 1.8468098640441895,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 1.8929129838943481
+        }
+      ]
+    },
+    "vocab_r304_fisher_rare": {
+      "price_scalars": 86924521,
+      "full": {
+        "removal_cosine": 0.9280123018537751,
+        "removal_normalized_error": 0.3726567383643282,
+        "removal_norm_ratio": 0.9369496974625411,
+        "composition_cosine": 0.9871285187092087,
+        "composition_normalized_error": 0.16108137357846064,
+        "composition_interaction_mean": 0.0010490700988364798,
+        "candidate_ce_damage": 0.25811681151390076,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.2985527813434601
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9329592556843664,
+          "removal_normalized_error": 0.36012919569395385,
+          "removal_norm_ratio": 0.9226631225122833,
+          "composition_cosine": 0.9875060660059596,
+          "composition_normalized_error": 0.15862712286939526,
+          "composition_interaction_mean": -0.0009555394507901512,
+          "candidate_ce_damage": 0.2624861001968384,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.3025549352169037
+        },
+        {
+          "removal_cosine": 0.9221494243991484,
+          "removal_normalized_error": 0.38823284203838104,
+          "removal_norm_ratio": 0.9550781437315935,
+          "composition_cosine": 0.9867467562675957,
+          "composition_normalized_error": 0.16353224349253592,
+          "composition_interaction_mean": 0.003053679648463111,
+          "candidate_ce_damage": 0.25374743342399597,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.29455065727233887
+        }
+      ]
+    },
+    "vocab_r304_norm_rare": {
+      "price_scalars": 86924521,
+      "full": {
+        "removal_cosine": 0.9276968957088025,
+        "removal_normalized_error": 0.3733920522200774,
+        "removal_norm_ratio": 0.934266139870482,
+        "composition_cosine": 0.9874672561543661,
+        "composition_normalized_error": 0.15906160069167163,
+        "composition_interaction_mean": 0.0004536025295765282,
+        "candidate_ce_damage": 0.2558397352695465,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.2956802546977997
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9329315475611325,
+          "removal_normalized_error": 0.3603239579510701,
+          "removal_norm_ratio": 0.9189806655699703,
+          "composition_cosine": 0.9874826922845061,
+          "composition_normalized_error": 0.15882673977206171,
+          "composition_interaction_mean": -0.001081833081727342,
+          "candidate_ce_damage": 0.2595224678516388,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.29946497082710266
+        },
+        {
+          "removal_cosine": 0.9215368041743055,
+          "removal_normalized_error": 0.3896157089960538,
+          "removal_norm_ratio": 0.9536379278974062,
+          "composition_cosine": 0.9874531237888089,
+          "composition_normalized_error": 0.1592977224160684,
+          "composition_interaction_mean": 0.0019890381408803983,
+          "candidate_ce_damage": 0.2521570026874542,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.2918955385684967
+        }
+      ]
+    },
+    "vocab_r304_random_rare": {
+      "price_scalars": 86924521,
+      "full": {
+        "removal_cosine": 0.9277480421949471,
+        "removal_normalized_error": 0.37327463600230376,
+        "removal_norm_ratio": 0.9348461883752113,
+        "composition_cosine": 0.9871176786846687,
+        "composition_normalized_error": 0.16099559016345028,
+        "composition_interaction_mean": 0.0015119831844269127,
+        "candidate_ce_damage": 0.2573927938938141,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.2982916831970215
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9328330288365111,
+          "removal_normalized_error": 0.3605555943726019,
+          "removal_norm_ratio": 0.9194990001251215,
+          "composition_cosine": 0.9874320202279576,
+          "composition_normalized_error": 0.15897331063647768,
+          "composition_interaction_mean": -0.0003186920659892234,
+          "candidate_ce_damage": 0.26085931062698364,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.3015649616718292
+        },
+        {
+          "removal_cosine": 0.921777322761902,
+          "removal_normalized_error": 0.3890809231352995,
+          "removal_norm_ratio": 0.9542949719068307,
+          "composition_cosine": 0.9868025187989297,
+          "composition_normalized_error": 0.16300115754825817,
+          "composition_interaction_mean": 0.003342658434843049,
+          "candidate_ce_damage": 0.25392627716064453,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.2950184643268585
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s512_shared": {
+      "price_scalars": 85622784,
+      "full": {
+        "removal_cosine": 0.9297460847666331,
+        "removal_normalized_error": 0.3693988930670943,
+        "removal_norm_ratio": 0.9594668576042148,
+        "composition_cosine": 0.9851521969925399,
+        "composition_normalized_error": 0.17253420515733633,
+        "composition_interaction_mean": -2.559564339625157e-06,
+        "candidate_ce_damage": 0.2526858448982239,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.2920702397823334
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9339506443112199,
+          "removal_normalized_error": 0.35746344831826804,
+          "removal_norm_ratio": 0.9405780791790039,
+          "composition_cosine": 0.9851735898284482,
+          "composition_normalized_error": 0.1722045456828312,
+          "composition_interaction_mean": -0.0014544385625962313,
+          "candidate_ce_damage": 0.2559329569339752,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.2955028712749481
+        },
+        {
+          "removal_cosine": 0.925061019104517,
+          "removal_normalized_error": 0.3842600751405574,
+          "removal_norm_ratio": 0.9833164430040143,
+          "composition_cosine": 0.9851359888551399,
+          "composition_normalized_error": 0.17286546232808037,
+          "composition_interaction_mean": 0.0014493194339169808,
+          "candidate_ce_damage": 0.24943868815898895,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.28863754868507385
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s512_independent": {
+      "price_scalars": 85582080,
+      "full": {
+        "removal_cosine": 0.8687547727422049,
+        "removal_normalized_error": 0.497167589557362,
+        "removal_norm_ratio": 0.9124636650711798,
+        "composition_cosine": 0.9865230322169872,
+        "composition_normalized_error": 0.16413659537958386,
+        "composition_interaction_mean": -0.004207939032776831,
+        "candidate_ce_damage": 0.7093305587768555,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.7445095181465149
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.8740103285852938,
+          "removal_normalized_error": 0.4868383143278821,
+          "removal_norm_ratio": 0.9041034967698433,
+          "composition_cosine": 0.9872383861328677,
+          "composition_normalized_error": 0.15999584072107131,
+          "composition_interaction_mean": -0.008671838997373227,
+          "candidate_ce_damage": 0.7214801907539368,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.7538326382637024
+        },
+        {
+          "removal_cosine": 0.8622149952824817,
+          "removal_normalized_error": 0.510193847781654,
+          "removal_norm_ratio": 0.9231449583894465,
+          "composition_cosine": 0.9857975038829453,
+          "composition_normalized_error": 0.16826498363943035,
+          "composition_interaction_mean": 0.0002559609318195655,
+          "candidate_ce_damage": 0.6971809267997742,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.7351863384246826
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s640_shared": {
+      "price_scalars": 92209152,
+      "full": {
+        "removal_cosine": 0.9419933559126017,
+        "removal_normalized_error": 0.3367767127594304,
+        "removal_norm_ratio": 0.9697428935757072,
+        "composition_cosine": 0.9856634247201126,
+        "composition_normalized_error": 0.16944932071577654,
+        "composition_interaction_mean": 0.0005855761131816628,
+        "candidate_ce_damage": 0.19181914627552032,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.2317916750907898
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9461867608523722,
+          "removal_normalized_error": 0.32367909231410497,
+          "removal_norm_ratio": 0.9523138493602522,
+          "composition_cosine": 0.9854984494449974,
+          "composition_normalized_error": 0.17029975542896636,
+          "composition_interaction_mean": -0.0010154107349832724,
+          "candidate_ce_damage": 0.19568204879760742,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.23569099605083466
+        },
+        {
+          "removal_cosine": 0.9372251487002492,
+          "removal_normalized_error": 0.3529681404687417,
+          "removal_norm_ratio": 0.9917915077702986,
+          "composition_cosine": 0.9858297900379422,
+          "composition_normalized_error": 0.16859508684860927,
+          "composition_interaction_mean": 0.0021865629613465978,
+          "candidate_ce_damage": 0.1879562884569168,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.22789239883422852
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s640_independent": {
+      "price_scalars": 92168448,
+      "full": {
+        "removal_cosine": 0.907309570209843,
+        "removal_normalized_error": 0.42287976722690207,
+        "removal_norm_ratio": 0.9524532710354634,
+        "composition_cosine": 0.9847791800411615,
+        "composition_normalized_error": 0.1740906917297638,
+        "composition_interaction_mean": 0.0019103506165696338,
+        "candidate_ce_damage": 0.5056094527244568,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.5469067692756653
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9112459470744434,
+          "removal_normalized_error": 0.4131737382026281,
+          "removal_norm_ratio": 0.9441353678648673,
+          "composition_cosine": 0.9852990140163068,
+          "composition_normalized_error": 0.17116217543273646,
+          "composition_interaction_mean": -0.0013975186785953515,
+          "candidate_ce_damage": 0.5163131356239319,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.5559399724006653
+        },
+        {
+          "removal_cosine": 0.9024276582437938,
+          "removal_normalized_error": 0.4350904762735768,
+          "removal_norm_ratio": 0.9630857237202123,
+          "composition_cosine": 0.9842472596934714,
+          "composition_normalized_error": 0.17703796562089383,
+          "composition_interaction_mean": 0.005218219911734619,
+          "candidate_ce_damage": 0.4949057996273041,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.5378735661506653
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s768_shared": {
+      "price_scalars": 98795520,
+      "full": {
+        "removal_cosine": 0.9536737688945965,
+        "removal_normalized_error": 0.30204946274473843,
+        "removal_norm_ratio": 0.9806466334438502,
+        "composition_cosine": 0.9864720211700475,
+        "composition_normalized_error": 0.1643836119060635,
+        "composition_interaction_mean": 0.00022782471500896553,
+        "candidate_ce_damage": 0.1478242427110672,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.18743900954723358
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9573768484977865,
+          "removal_normalized_error": 0.28897711789989045,
+          "removal_norm_ratio": 0.966220191150723,
+          "composition_cosine": 0.9859747539835553,
+          "composition_normalized_error": 0.16712443226483142,
+          "composition_interaction_mean": -0.00024341693858705624,
+          "candidate_ce_damage": 0.15082857012748718,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.19160950183868408
+        },
+        {
+          "removal_cosine": 0.949343768961038,
+          "removal_normalized_error": 0.31813288843802134,
+          "removal_norm_ratio": 0.9989635872906437,
+          "composition_cosine": 0.9869691668983098,
+          "composition_normalized_error": 0.16166298708384977,
+          "composition_interaction_mean": 0.0006990663686049873,
+          "candidate_ce_damage": 0.1448199301958084,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.18326853215694427
+        }
+      ]
+    },
+    "vocab_r305_sqrt_count_plus_1_s768_independent": {
+      "price_scalars": 98754816,
+      "full": {
+        "removal_cosine": 0.9355688265758766,
+        "removal_normalized_error": 0.35641667499712787,
+        "removal_norm_ratio": 0.9837546696893292,
+        "composition_cosine": 0.9842679862249231,
+        "composition_normalized_error": 0.1767092715311771,
+        "composition_interaction_mean": 0.00487619441829068,
+        "candidate_ce_damage": 0.373380184173584,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.41764330863952637
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9388954689373814,
+          "removal_normalized_error": 0.346346253559649,
+          "removal_norm_ratio": 0.9773718116163114,
+          "composition_cosine": 0.9842239395434655,
+          "composition_normalized_error": 0.17693727303571313,
+          "composition_interaction_mean": 0.0027230506652304123,
+          "candidate_ce_damage": 0.3812588155269623,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.4250061511993408
+        },
+        {
+          "removal_cosine": 0.931394360820673,
+          "removal_normalized_error": 0.36901171048571746,
+          "removal_norm_ratio": 0.9919344123910245,
+          "composition_cosine": 0.9843146903409835,
+          "composition_normalized_error": 0.17647534419625757,
+          "composition_interaction_mean": 0.007029338171350948,
+          "candidate_ce_damage": 0.3655015528202057,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.4102804362773895
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s512_shared": {
+      "price_scalars": 85622784,
+      "full": {
+        "removal_cosine": 0.9268374641527698,
+        "removal_normalized_error": 0.37554663981028086,
+        "removal_norm_ratio": 0.9347724266552498,
+        "composition_cosine": 0.9868537949600749,
+        "composition_normalized_error": 0.16252960342496456,
+        "composition_interaction_mean": 0.0018088298868386514,
+        "candidate_ce_damage": 0.2607201039791107,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.30191585421562195
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9322039919308494,
+          "removal_normalized_error": 0.362152782266895,
+          "removal_norm_ratio": 0.919597633397912,
+          "composition_cosine": 0.9870720761413687,
+          "composition_normalized_error": 0.16113287771904172,
+          "composition_interaction_mean": -0.0002737188733255014,
+          "candidate_ce_damage": 0.26630207896232605,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.30705273151397705
+        },
+        {
+          "removal_cosine": 0.9205057298469876,
+          "removal_normalized_error": 0.3921626134490003,
+          "removal_norm_ratio": 0.9540066860763423,
+          "composition_cosine": 0.9866319534128822,
+          "composition_normalized_error": 0.16393932217745727,
+          "composition_interaction_mean": 0.0038913786470028042,
+          "candidate_ce_damage": 0.2551381289958954,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.296779066324234
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s512_independent": {
+      "price_scalars": 85582080,
+      "full": {
+        "removal_cosine": 0.8260808011328772,
+        "removal_normalized_error": 0.5655777985700812,
+        "removal_norm_ratio": 0.7782505153747266,
+        "composition_cosine": 0.9911674498315814,
+        "composition_normalized_error": 0.13411735014316795,
+        "composition_interaction_mean": -0.003190211994535175,
+        "candidate_ce_damage": 0.7227420210838318,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.758938729763031
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.829846362574906,
+          "removal_normalized_error": 0.5622257878121343,
+          "removal_norm_ratio": 0.7609782134798823,
+          "composition_cosine": 0.9916734199284375,
+          "composition_normalized_error": 0.13034302384214416,
+          "composition_interaction_mean": -0.005365141343289803,
+          "candidate_ce_damage": 0.738396167755127,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.7740554809570312
+        },
+        {
+          "removal_cosine": 0.8220257456041016,
+          "removal_normalized_error": 0.5698761981269793,
+          "removal_norm_ratio": 0.7999983166203237,
+          "composition_cosine": 0.9906515479154283,
+          "composition_normalized_error": 0.13785761166538987,
+          "composition_interaction_mean": -0.0010152826457805464,
+          "candidate_ce_damage": 0.7070877552032471,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.7438220977783203
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s640_shared": {
+      "price_scalars": 92209152,
+      "full": {
+        "removal_cosine": 0.9404619847817721,
+        "removal_normalized_error": 0.3399663968770432,
+        "removal_norm_ratio": 0.9472366305447916,
+        "composition_cosine": 0.9869755078332683,
+        "composition_normalized_error": 0.16172298613949684,
+        "composition_interaction_mean": 0.00202777256704334,
+        "candidate_ce_damage": 0.18970470130443573,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.23111943900585175
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9442034013162002,
+          "removal_normalized_error": 0.3296172996020206,
+          "removal_norm_ratio": 0.9312563068928865,
+          "composition_cosine": 0.9868446808017479,
+          "composition_normalized_error": 0.16243828802938676,
+          "composition_interaction_mean": 0.00019975284252023626,
+          "candidate_ce_damage": 0.19475919008255005,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.23598329722881317
+        },
+        {
+          "removal_cosine": 0.9361919181803797,
+          "removal_normalized_error": 0.352878843896178,
+          "removal_norm_ratio": 0.9674774761226228,
+          "composition_cosine": 0.987108548762233,
+          "composition_normalized_error": 0.16099610397128772,
+          "composition_interaction_mean": 0.0038557922915664435,
+          "candidate_ce_damage": 0.1846502274274826,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.22625553607940674
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s640_independent": {
+      "price_scalars": 92168448,
+      "full": {
+        "removal_cosine": 0.8880696506354168,
+        "removal_normalized_error": 0.46002292170714093,
+        "removal_norm_ratio": 0.8710757436192771,
+        "composition_cosine": 0.9891379645314952,
+        "composition_normalized_error": 0.1486471443355387,
+        "composition_interaction_mean": 0.0018761766358218468,
+        "candidate_ce_damage": 0.48143497109413147,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.5226981043815613
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.8916803052449309,
+          "removal_normalized_error": 0.45369184715819677,
+          "removal_norm_ratio": 0.8611834375450178,
+          "composition_cosine": 0.9898580021100467,
+          "composition_normalized_error": 0.14377843212074595,
+          "composition_interaction_mean": 0.00021994557155813332,
+          "candidate_ce_damage": 0.49056756496429443,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.5318117737770081
+        },
+        {
+          "removal_cosine": 0.8836914318777316,
+          "removal_normalized_error": 0.4680699235074491,
+          "removal_norm_ratio": 0.8836832844288319,
+          "composition_cosine": 0.9884122900888522,
+          "composition_normalized_error": 0.1533942872506132,
+          "composition_interaction_mean": 0.0035324077000855603,
+          "candidate_ce_damage": 0.4723023474216461,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.5135842561721802
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s768_shared": {
+      "price_scalars": 98795520,
+      "full": {
+        "removal_cosine": 0.9522393143141318,
+        "removal_normalized_error": 0.3054444808527559,
+        "removal_norm_ratio": 0.9597254754694319,
+        "composition_cosine": 0.9875955831788974,
+        "composition_normalized_error": 0.15774584456399487,
+        "composition_interaction_mean": 0.0009688611228005536,
+        "candidate_ce_damage": 0.1377972662448883,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.17815305292606354
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9554964202344871,
+          "removal_normalized_error": 0.29516765528382044,
+          "removal_norm_ratio": 0.9456296169698083,
+          "composition_cosine": 0.9871510995486524,
+          "composition_normalized_error": 0.1603706419982769,
+          "composition_interaction_mean": 0.0002172384818011075,
+          "candidate_ce_damage": 0.1408618539571762,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.1821034550666809
+        },
+        {
+          "removal_cosine": 0.9484646193080504,
+          "removal_normalized_error": 0.31822175770523276,
+          "removal_norm_ratio": 0.9776231713325934,
+          "composition_cosine": 0.9880395969148541,
+          "composition_normalized_error": 0.15509201954709476,
+          "composition_interaction_mean": 0.0017204837637999997,
+          "candidate_ce_damage": 0.13473264873027802,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.17420266568660736
+        }
+      ]
+    },
+    "vocab_r305_count_plus_1_s768_independent": {
+      "price_scalars": 98754816,
+      "full": {
+        "removal_cosine": 0.9249808914669048,
+        "removal_normalized_error": 0.3801789487799429,
+        "removal_norm_ratio": 0.9361917199071926,
+        "composition_cosine": 0.9877074378376933,
+        "composition_normalized_error": 0.15774313402739368,
+        "composition_interaction_mean": 0.004048733452124568,
+        "candidate_ce_damage": 0.31666603684425354,
+        "partner_ce_damage": 0.03938693553209305,
+        "physical_composition_ce_damage": 0.36010169982910156
+      },
+      "waves": [
+        {
+          "removal_cosine": 0.9279523211365974,
+          "removal_normalized_error": 0.3727326648867887,
+          "removal_norm_ratio": 0.9329672764108288,
+          "composition_cosine": 0.9880028211656124,
+          "composition_normalized_error": 0.15565780179357358,
+          "composition_interaction_mean": 0.0035455399324743433,
+          "candidate_ce_damage": 0.3216981589794159,
+          "partner_ce_damage": 0.041024353355169296,
+          "physical_composition_ce_damage": 0.3662680685520172
+        },
+        {
+          "removal_cosine": 0.921190831952477,
+          "removal_normalized_error": 0.38958192215034476,
+          "removal_norm_ratio": 0.9403382322890625,
+          "composition_cosine": 0.987409551260355,
+          "composition_normalized_error": 0.15984051983651004,
+          "composition_interaction_mean": 0.004551926971774793,
+          "candidate_ce_damage": 0.3116339147090912,
+          "partner_ce_damage": 0.0377495177090168,
+          "physical_composition_ce_damage": 0.3539353609085083
+        }
+      ]
+    }
+  },
+  "structured_rank_edges": [
+    [
+      "vocab_r300_shared_0",
+      "vocab_r300_shared_128"
+    ],
+    [
+      "vocab_r300_shared_128",
+      "vocab_r300_shared_256"
+    ],
+    [
+      "vocab_r300_shared_256",
+      "vocab_r300_shared_512"
+    ],
+    [
+      "vocab_r300_independent_0",
+      "vocab_r300_independent_128"
+    ],
+    [
+      "vocab_r300_independent_128",
+      "vocab_r300_independent_256"
+    ],
+    [
+      "vocab_r300_independent_256",
+      "vocab_r300_independent_512"
+    ],
+    [
+      "vocab_r305_sqrt_count_plus_1_s512_shared",
+      "vocab_r305_sqrt_count_plus_1_s640_shared"
+    ],
+    [
+      "vocab_r305_sqrt_count_plus_1_s640_shared",
+      "vocab_r305_sqrt_count_plus_1_s768_shared"
+    ],
+    [
+      "vocab_r305_sqrt_count_plus_1_s512_independent",
+      "vocab_r305_sqrt_count_plus_1_s640_independent"
+    ],
+    [
+      "vocab_r305_sqrt_count_plus_1_s640_independent",
+      "vocab_r305_sqrt_count_plus_1_s768_independent"
+    ],
+    [
+      "vocab_r305_count_plus_1_s512_shared",
+      "vocab_r305_count_plus_1_s640_shared"
+    ],
+    [
+      "vocab_r305_count_plus_1_s640_shared",
+      "vocab_r305_count_plus_1_s768_shared"
+    ],
+    [
+      "vocab_r305_count_plus_1_s512_independent",
+      "vocab_r305_count_plus_1_s640_independent"
+    ],
+    [
+      "vocab_r305_count_plus_1_s640_independent",
+      "vocab_r305_count_plus_1_s768_independent"
+    ]
+  ],
+  "structured_rank_accuracy": {
+    "removal": {
+      "correct": 14,
+      "total": 14,
+      "accuracy": 1.0,
+      "edges": [
+        {
+          "lower_rank": "vocab_r300_shared_0",
+          "higher_rank": "vocab_r300_shared_128",
+          "lower_minus_higher": 0.059759303331702096,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_shared_128",
+          "higher_rank": "vocab_r300_shared_256",
+          "lower_minus_higher": 0.041711374589975536,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_shared_256",
+          "higher_rank": "vocab_r300_shared_512",
+          "lower_minus_higher": 0.07206702122803632,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_independent_0",
+          "higher_rank": "vocab_r300_independent_128",
+          "lower_minus_higher": 0.24297581952223857,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_independent_128",
+          "higher_rank": "vocab_r300_independent_256",
+          "lower_minus_higher": 0.13755176102243682,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_independent_256",
+          "higher_rank": "vocab_r300_independent_512",
+          "lower_minus_higher": 0.1325058624652784,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+          "lower_minus_higher": 0.032622180307663895,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+          "lower_minus_higher": 0.03472725001469196,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+          "lower_minus_higher": 0.07428782233045994,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+          "lower_minus_higher": 0.0664630922297742,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+          "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+          "lower_minus_higher": 0.03558024293323764,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+          "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+          "lower_minus_higher": 0.034521916024287336,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+          "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+          "lower_minus_higher": 0.10555487686294024,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+          "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+          "lower_minus_higher": 0.07984397292719803,
+          "ordered": true
+        }
+      ]
+    },
+    "composition": {
+      "correct": 5,
+      "total": 14,
+      "accuracy": 0.35714285714285715,
+      "edges": [
+        {
+          "lower_rank": "vocab_r300_shared_0",
+          "higher_rank": "vocab_r300_shared_128",
+          "lower_minus_higher": -0.016920633534234272,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r300_shared_128",
+          "higher_rank": "vocab_r300_shared_256",
+          "lower_minus_higher": -0.006724536270282355,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r300_shared_256",
+          "higher_rank": "vocab_r300_shared_512",
+          "lower_minus_higher": 0.0007602243196163094,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r300_independent_0",
+          "higher_rank": "vocab_r300_independent_128",
+          "lower_minus_higher": -0.017925987807746832,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r300_independent_128",
+          "higher_rank": "vocab_r300_independent_256",
+          "lower_minus_higher": -0.013003437648094404,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r300_independent_256",
+          "higher_rank": "vocab_r300_independent_512",
+          "lower_minus_higher": -0.005050126730632237,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+          "lower_minus_higher": 0.0030848844415597987,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+          "lower_minus_higher": 0.005065708809713049,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+          "lower_minus_higher": -0.009954096350179936,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+          "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+          "lower_minus_higher": -0.0026185798014133066,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+          "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+          "lower_minus_higher": 0.0008066172854677145,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+          "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+          "lower_minus_higher": 0.003977141575501969,
+          "ordered": true
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+          "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+          "lower_minus_higher": -0.014529794192370743,
+          "ordered": false
+        },
+        {
+          "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+          "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+          "lower_minus_higher": -0.009095989691854989,
+          "ordered": false
+        }
+      ]
+    }
+  },
+  "wave_structured_rank_accuracy": [
+    {
+      "removal": {
+        "correct": 14,
+        "total": 14,
+        "accuracy": 1.0,
+        "edges": [
+          {
+            "lower_rank": "vocab_r300_shared_0",
+            "higher_rank": "vocab_r300_shared_128",
+            "lower_minus_higher": 0.06016427160897608,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_shared_128",
+            "higher_rank": "vocab_r300_shared_256",
+            "lower_minus_higher": 0.03647400032954917,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_shared_256",
+            "higher_rank": "vocab_r300_shared_512",
+            "lower_minus_higher": 0.06867241706270888,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_0",
+            "higher_rank": "vocab_r300_independent_128",
+            "lower_minus_higher": 0.258487970387545,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_128",
+            "higher_rank": "vocab_r300_independent_256",
+            "lower_minus_higher": 0.144289168814567,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_256",
+            "higher_rank": "vocab_r300_independent_512",
+            "lower_minus_higher": 0.12576889881869147,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.033784356004163074,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.03470197441421452,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "lower_minus_higher": 0.07366457612525401,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+            "lower_minus_higher": 0.06682748464297911,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.03253548266487444,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.034449644318200134,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+            "lower_minus_higher": 0.10853394065393751,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+            "lower_minus_higher": 0.08095918227140808,
+            "ordered": true
+          }
+        ]
+      },
+      "composition": {
+        "correct": 3,
+        "total": 14,
+        "accuracy": 0.21428571428571427,
+        "edges": [
+          {
+            "lower_rank": "vocab_r300_shared_0",
+            "higher_rank": "vocab_r300_shared_128",
+            "lower_minus_higher": -0.014131109852921445,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_shared_128",
+            "higher_rank": "vocab_r300_shared_256",
+            "lower_minus_higher": -0.006222444990590437,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_shared_256",
+            "higher_rank": "vocab_r300_shared_512",
+            "lower_minus_higher": -9.509360690734825e-05,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_independent_0",
+            "higher_rank": "vocab_r300_independent_128",
+            "lower_minus_higher": -0.019089549978543466,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_independent_128",
+            "higher_rank": "vocab_r300_independent_256",
+            "lower_minus_higher": -0.013142758184582604,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_independent_256",
+            "higher_rank": "vocab_r300_independent_512",
+            "lower_minus_higher": -0.0035736231205740487,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.0019047902538648354,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.0031753231641349355,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "lower_minus_higher": -0.011166334711665143,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+            "lower_minus_higher": -0.005775097602976675,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+            "lower_minus_higher": -0.0013054103103450343,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.0020676460311098432,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+            "lower_minus_higher": -0.01343540827860179,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+            "lower_minus_higher": -0.011879369672827628,
+            "ordered": false
+          }
+        ]
+      }
+    },
+    {
+      "removal": {
+        "correct": 14,
+        "total": 14,
+        "accuracy": 1.0,
+        "edges": [
+          {
+            "lower_rank": "vocab_r300_shared_0",
+            "higher_rank": "vocab_r300_shared_128",
+            "lower_minus_higher": 0.05951959817439845,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_shared_128",
+            "higher_rank": "vocab_r300_shared_256",
+            "lower_minus_higher": 0.04787057051827892,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_shared_256",
+            "higher_rank": "vocab_r300_shared_512",
+            "lower_minus_higher": 0.07622849014032251,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_0",
+            "higher_rank": "vocab_r300_independent_128",
+            "lower_minus_higher": 0.22327704418489625,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_128",
+            "higher_rank": "vocab_r300_independent_256",
+            "lower_minus_higher": 0.12935963543442364,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_256",
+            "higher_rank": "vocab_r300_independent_512",
+            "lower_minus_higher": 0.1408377037561822,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.03129193467181568,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.034835252030720354,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "lower_minus_higher": 0.07510337150807722,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+            "lower_minus_higher": 0.06607876578785932,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.039283769552822256,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.03465708619094526,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+            "lower_minus_higher": 0.10180627461953023,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+            "lower_minus_higher": 0.07848800135710432,
+            "ordered": true
+          }
+        ]
+      },
+      "composition": {
+        "correct": 6,
+        "total": 14,
+        "accuracy": 0.42857142857142855,
+        "edges": [
+          {
+            "lower_rank": "vocab_r300_shared_0",
+            "higher_rank": "vocab_r300_shared_128",
+            "lower_minus_higher": -0.019688252825408273,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_shared_128",
+            "higher_rank": "vocab_r300_shared_256",
+            "lower_minus_higher": -0.00722811529948475,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_shared_256",
+            "higher_rank": "vocab_r300_shared_512",
+            "lower_minus_higher": 0.0015048102162269483,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r300_independent_0",
+            "higher_rank": "vocab_r300_independent_128",
+            "lower_minus_higher": -0.016763763941188572,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_independent_128",
+            "higher_rank": "vocab_r300_independent_256",
+            "lower_minus_higher": -0.012862271580613607,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r300_independent_256",
+            "higher_rank": "vocab_r300_independent_512",
+            "lower_minus_higher": -0.006573070054384483,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.004270375479471095,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.006932099764759503,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "lower_minus_higher": -0.008772981981463479,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_sqrt_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_sqrt_count_plus_1_s768_independent",
+            "lower_minus_higher": 0.000562621424636256,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s640_shared",
+            "lower_minus_higher": 0.002943218206169551,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_shared",
+            "higher_rank": "vocab_r305_count_plus_1_s768_shared",
+            "lower_minus_higher": 0.005904084424192962,
+            "ordered": true
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s512_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s640_independent",
+            "lower_minus_higher": -0.015536675585223314,
+            "ordered": false
+          },
+          {
+            "lower_rank": "vocab_r305_count_plus_1_s640_independent",
+            "higher_rank": "vocab_r305_count_plus_1_s768_independent",
+            "lower_minus_higher": -0.006446232585896855,
+            "ordered": false
+          }
+        ]
+      }
+    }
+  ],
+  "wave_continuous_pearson": {
+    "removal": 0.9949027929080922,
+    "composition": 0.9833236282176167
+  },
+  "error_spans": {
+    "removal": 0.8286308263358789,
+    "composition": 0.08876887197608739
+  },
+  "bundle": {
+    "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/simplicity_vocabulary_complete_candidate_consequences_bundle.pt",
+    "sha256": "7a1163eb3fd333b5496b9ef7637c99b764b44435a05de733806656cd9dd435ab"
+  },
+  "pred_a_complete_instrument": true,
+  "pred_b_structured_rank_edges_order": false,
+  "pred_c_labels_vary": true,
+  "pred_d_wave_reliability": false,
+  "strong_null_complete_family_unusable": true,
+  "next_step": "do_not_count_vocabulary_family_add_new_teaching_family",
+  "new_deployed_values": 0,
+  "runtime_s": 12.69345211982727
+}
