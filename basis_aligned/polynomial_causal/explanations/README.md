@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1727.md](explanation_2026-09-02_1727.md) — full update since 02:19 in ordinary
+  interpretability language: the shared cross-head equality matcher, distributed downstream correction, failed
+  within-MLP groupings, exact MLP0 T/C/I/S paths, held-out MLP1 response law, attention1 dependency and portability
+  failures, nonlinear-composition nulls, the exact 63-piece attention1 result, and the live query/key-side split;
+  includes computational definitions, corrections, and inline graphs
 - [explanation_2026-09-02_1714.md](explanation_2026-09-02_1714.md) — update since 16:01: the quadratic response
   falsifier, rung495's exact 63-piece attention1 computation, the preserved BF16 instrument failure and lawful
   float32 repair, the valid cross-head strong null with a percentage graph, and the active exact Q1/K1/Q2/K2/V
