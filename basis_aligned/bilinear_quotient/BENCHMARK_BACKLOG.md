@@ -4570,3 +4570,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
   overlap with TEACHING, SEALED_CONFIRMATION, or bank fit caches under every registered key.
 - Receipt `d9914694…`, tensor `ff34039b…`; model and consequence access false. Next preregister uncertainty-aware
   replication; this row instrument does not reverse rung450 or count family2.
+
+### Rung 452 — uncertainty-separated MLP-PCA comparison freezer — COMPLETE / ALL HELD
+
+- Reconstruct every rung450 normalized error from per-document sufficient statistics, then draw2,000 shared96-document
+  bootstrap resamples at seed452. Freeze a pair only when the95% percentile interval for left-minus-right excludes0.
+- A/B/C/D true, null false: exact old sources and all14 metrics reproduce;13/21 removal and16/21 composition pairs are
+  separated; rung451 rows/model/outcomes and SEALED remain unopened. Spec SHA `90ff8209…`.
+- The eight unresolved comparisons are all internal to the close same-price rank256 group. This freezes the independent
+  questions; it does not change rung450 or count the family.
+
+### Rung 453 — independent complete MLP-PCA consequence reliability — COMPLETE / ALL HELD
+
+- Rebuild all seven complete candidates on the disjoint192-document role in isolated unablated/knockout/partner
+  processes. Exact identities/prices/replay hold; candidate interventions fire336/336, native48/48, SEALED stays closed.
+- Old-to-independent continuous-error Pearson is`.99021` removal and`.98168` composition; mean absolute shifts are
+  `.01288/.01150`, passing`.85/.04` bars.
+- All13/13 removal and16/16 composition directions reproduce pooled and separately in each96-document wave. The
+ 8+17 rank256→384→512 ladder decreases for both errors in the full role and both waves.
+- A/B/C/D true, strong null false. Count all seven labels and MLP-PCA as teaching family2/3 without retro-passing
+  rung450. Vocabulary23 is next; predictor fitting and sealed attention0 remain closed.

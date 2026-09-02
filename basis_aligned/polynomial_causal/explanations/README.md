@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0008.md](explanation_2026-09-02_0008.md) — clarifies that viable dropped work is queued and
+  being run; reports the independent MLP-PCA pass with continuous old-to-new correlations,100% reproduction of all
+  pre-frozen separated pairs in both waves, a graph, and vocabulary23 as the next teaching family
 - [explanation_2026-09-01_2347.md](explanation_2026-09-01_2347.md) — reports the complete MLP-PCA near-miss: the
   rank ladder and composition replicate, but close rank256 removal variants reorder across document waves; explains
   why the family is not counted and specifies an independent uncertainty-aware follow-up
