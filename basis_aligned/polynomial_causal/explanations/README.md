@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1052.md](explanation_2026-09-02_1052.md) — full update since07:54: the exact downstream-
+  response computation inside attention0, the pre-outcome affine/gauge corrections, current long-run status, the
+  separately discovered cross-process numerical drift with a graph and precise trust boundary, the coupled-tensor
+  identifiability route, and the implemented exact `T/C/I/S × circuit` MLP0 fallback with opposing split/shared tests
 - [explanation_2026-09-02_0754.md](explanation_2026-09-02_0754.md) — full update since 06:10: the frozen product
   groups, native products, sparse mixtures, and gauge-aware common-block test all fail to identify shared coordinates
   across MLP8/9/12; includes a four-panel percentage graph, careful scope limits, and the started downstream-canonical
