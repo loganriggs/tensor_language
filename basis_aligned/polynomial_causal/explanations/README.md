@@ -12,6 +12,9 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
+- [explanation_2026-09-02_2024.md](explanation_2026-09-02_2024.md) — rung504's exact finite two-source strong null,
+  recovered singleton copy effects, percentage graph, duplicate-work check against the MLP8/9/12 dossier, and the
+  fixed downstream-program sign-gauge successor
 - [explanation_2026-09-02_1944.md](explanation_2026-09-02_1944.md) — rung503's valid finite single-source null,
   cancellation structure inside MLP9, computational definitions, percentage graph, and the finite two-source successor
 - [explanation_2026-09-02_1922.md](explanation_2026-09-02_1922.md) — complete update since 02:19 through the

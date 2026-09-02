@@ -4665,3 +4665,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the response; M8 supports response direction but opposes copy-loss direction. This is cancellation-heavy local
   anatomy, not source irrelevance. Rung504 tests all153 exact two-source removals and their finite mixed differences,
   requiring prospective response+copy agreement and held-out exact-set replication; no rank/compression.
+- Rung504 (§2632): A true, B false, C/D/E gated; lawful finite-pair strong null. All153 raw-source pairs were removed
+  before MLP9 and the deployed layers10--17 suffix was recomputed exactly (496 fronts,63,984 suffix evaluations,
+  0 backwards). M8-containing pairs carry `.254-.275` of the local response but at most a few percent of the positive
+  copy-loss effect; A5+M8 is the lone local mixed near-miss (`.088/.098` vs `.10`) and is strongly copy-antagonistic
+  (`-.218/-.119`). Complete-graph inversion of `C_st-Q_st=C_s+C_t` shows M8's singleton finite copy share is only
+  `.0064/.0141` while A7 is `-.203/-.202`. Do not lower bars, try triples, or treat MLP9 as the mediator. The older
+  dossier already identifies the code-data program `{MLP8,9,12}`, `{attention14,MLP17}`, and their interaction;
+  next change observation by testing that fixed program on natural text across validated sign-gauge score sources.

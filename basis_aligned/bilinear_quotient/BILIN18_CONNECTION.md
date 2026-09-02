@@ -66888,3 +66888,39 @@ Registered 20:00 (sha 06dae216…), landed 20:03 (158.4s; 7,250 + 24 forwards ex
 **SIXTH STANDING CLAIM (licensed as registered, ceiling stated):** *Each of the four equality scores can supply the L8-recipient copy-score computation, with cross-family donors requiring exactly a global sign flip; L8H3 and L8H4 realize one copy-score computation up to a Z2 sign gauge in both directions, validated prospectively on documents 500:1000.* The program's equality-score dictionary is thereby TWO entries up to gauge — {abstract copy-score, sign} — not four. NOT claimed: whole-head equivalence (payload/output sides remain distinct per §2627's payload rejections, reconfirmed here by NEG_PAYLOAD staying weak), an executable extracted circuit, or any compression; the causally unavailable reverses (later→earlier) remain untested by constraint, stated in the registration.
 
 **Arc note:** claim-bearing passes now bracket the day — 500 (MLP9 calibrated reader), §2630→§2633 (sign-gauge discovery→validation) — each built strictly on typed nulls (495b/496 grouping nulls → 497 coverage → 498/499 calibration → 501's family split → this gauge). The gauge also retroactively explains 501's "most informative failed candidate": L7H3→L8H3 reproduced the copy effect POSITIVELY because both sit in the SAME family — same-family transplants need no flip, and its payload-confusion failure was orthogonal to the gauge. Successors this licenses (not run): the gauge as a program transform (write the two families as one score with a sign bit and price the dictionary); a payload-side gauge question is NOT licensed (§2627's asymmetry stands).
+
+## §2632 — RUNG504: NO TWO RAW SOURCES FORM A POSITIVE MLP9-LOCAL AND COPY-CAUSAL INTERACTION; CHANGE THE DOWNSTREAM OBSERVATION
+
+Rung504 evaluated all153 unordered pairs among the18 explicit non-A8/non-embedding sources. For every pair it
+subtracted both raw contributions from the exact BF16 state before MLP9, reran the deployed RMS normalization and
+MLP9, then recomputed layers10--17. This supplied both the local MLP9 finite difference
+`K_st=J_st-J_s-J_t` and the actual copy-loss inclusion--exclusion term `Q_st=C_st-C_s-C_t`; no gradient, rank,
+top-k, or normalized-source allocation entered selection. A is true, B is false, C/D/E remain gated closed, and the
+registered strong null fires. The instrument executed exactly496 full forwards and63,984 MLP9-plus-suffix candidate
+evaluations with0 backwards. Factor error was`5.09e-14`, the raw complement ratio`.00516`, the smallest source edit
+RMS`.000159`, and the zero-removal replay reproduced both the MLP9 write and per-token loss exactly. Rung503's parent
+response and singleton local statistics reproduced exactly.
+
+The selector is empty by large causal margins. M8-containing pairs carry the largest local response fractions
+(`.254-.275`), but their response cosine is only`.44-.50` versus`.75`, and none carries a material positive copy
+effect. The largest positive local mixed terms are A5+M8 (`.088/.098`), A6+M8 (`.064/.068`), and A7+M8
+(`.040/.043`); A5+M8 narrowly misses the`.10` local mixed floor, but its finite copy fractions are strongly negative
+(`-.218/-.119`), so it fails the causal sign by a wide margin. Across the complete vocabulary, the maximum positive
+joint copy fraction is only`.0317/.0224` versus the frozen`.20` floor, and the maximum positive mixed copy fraction
+is`.0241/.0226` versus`.10`. No pair keeps every required sign in both halves and backgrounds.
+
+An exact after-outcome CPU identity recovers singleton loss effects from the complete pair table:
+`C_st-Q_st=C_s+C_t`. The complete-graph solution closes within`2.18e-7` accumulated nat. It shows that M8 carries
+only`.0064/.0141` of the actual finite copy benefit despite carrying`.254/.268` of the local MLP9 response. A7 is
+instead a large antagonistic singleton (`-.203/-.202`), with A5 at`-.146/-.088`. Therefore MLP9 is a calibrated
+downstream reader of the score substitution, but its local source anatomy is not a standalone causal mediator of the
+copy effect at singleton or pair grain.
+
+Claim scope: a valid causal strong null for one- and two-source removal before MLP9, not source irrelevance and not a
+reason to lower thresholds or enumerate triples. The dossier check finds that rungs465--466 already identified the
+larger downstream object on code data: a task-shaped `{MLP8,MLP9,MLP12}` group, a broad-suppressor
+`{attention14,MLP17}` group, and their finite interaction. The highest-information successor is therefore to change
+the downstream observation: test that fixed three-part program on natural text and across the newly validated
+sign-gauged equality-score implementations, rather than repeat MLP9 mediation or run a float32 explanation that
+cannot repair the failed finite copy bars. Result/bundle/CPU-audit SHAs
+`b5ff59ec…/2a2dc513…/167b1898…`;357.40s, peak10.52GB; **0 deployed parameters added or saved.**
