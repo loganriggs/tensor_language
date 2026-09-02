@@ -219,7 +219,7 @@ def collect_factorial(model, rows, task_masks, circuit_masks, circuit_tags,
         diagnostics["hooks"] += 1
         r510.r509._update_diagnostics(diagnostics, absent_diag)
         base_task[local:local + r510.r509.parent.BATCH] = r510.r509.parent._task_sums(
-            r510.r509.parent._nll(direct_logits, batch_rows).unsqueeze(0), masks)[0]
+            r510.r509.parent._nll(direct_logits, batch_rows).detach().cpu().unsqueeze(0), masks)[0]
         action_nll = []
         for action_index, source in enumerate(r510.r509.parent.SOURCES):
             logits, current, current_diag, _ = _captured_forward(
@@ -238,7 +238,7 @@ def collect_factorial(model, rows, task_masks, circuit_masks, circuit_tags,
             branches, branch_diag = deployed_branches(mlp, absent, current)
             diagnostics["four_corner_replays"] += 1
             _update_branch_diagnostics(diagnostics, branch_diag)
-            nll_rows = [r510.r509.parent._nll(logits, batch_rows)]
+            nll_rows = [r510.r509.parent._nll(logits, batch_rows).detach().cpu()]
             for subset_index in range(N_SUBSETS):
                 delta = subset_output(branches, subset_index)
                 replacement = current["deployed_write"].float() - delta
@@ -253,7 +253,8 @@ def collect_factorial(model, rows, task_masks, circuit_masks, circuit_tags,
                 if edit_rms > 0:
                     diagnostics["minimum_nonzero_term_edit_rms"] = min(
                         diagnostics["minimum_nonzero_term_edit_rms"], edit_rms)
-                nll_rows.append(r510.r509.parent._nll(edited_logits, batch_rows))
+                nll_rows.append(
+                    r510.r509.parent._nll(edited_logits, batch_rows).detach().cpu())
             nll_stack = torch.stack(nll_rows)
             task[action_index, :, local:local + r510.r509.parent.BATCH] = \
                 r510.r509.parent._task_sums(nll_stack, masks)
@@ -606,7 +607,7 @@ def collect_substitutions(model, rows, task_masks, circuit_masks, circuit_tags,
             if edit_rms > 0:
                 diagnostics["minimum_nonzero_term_edit_rms"] = min(
                     diagnostics["minimum_nonzero_term_edit_rms"], edit_rms)
-            nll_rows.append(r510.r509.parent._nll(logits, batch_rows))
+            nll_rows.append(r510.r509.parent._nll(logits, batch_rows).detach().cpu())
         nll_stack = torch.stack(nll_rows)
         task[:, local:local + r510.r509.parent.BATCH] = r510.r509.parent._task_sums(
             nll_stack, masks)
