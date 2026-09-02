@@ -16,6 +16,18 @@ It asks how the actual next attention and MLP computations read each exact MLP0 
 3. Does the complete path, with attention1 recomputed, treat them as the same direction?
 4. Do complete two-branch removals show that any pair must be analyzed jointly?
 
+## Dossier check: what this does not repeat
+
+Rungs394--399 already measured the length-one token-only `M/L/Q` decomposition at attention1 and MLP1. They found
+that attention1 reads a narrower token-only quadratic signal than MLP1, rejected one universal sparse token quotient,
+bounded token-to-token interchange, and found no response-weighted low-rank replacement that beat ordinary PCA.
+Those token-only spectra, ranks, sparse codes, and interchange searches are closed.
+
+Rung483 does not recompute them. Its input objects are the natural-context `T` and `I` branches from rung401, and it
+separates MLP1's direct response from the path through recomputed attention1. It compares complete exact branch
+directions without selecting an output rank or token grouping. This is the consumer-defined comparison proposed in
+the dossier after the length-one work, applied to the real-context interaction that work did not contain.
+
 ## Exact branch intervention
 
 Use rung401's exact decomposition
@@ -174,3 +186,15 @@ directional derivatives, eight finite-difference prefixes, four singleton-remova
 prefixes. The conditional validation repeats the same work. It stores only Gram matrices, contracted derivative
 checks, pair norms/means, hashes, and call audits—no tokens, logits, or raw hidden states. Deployed parameters saved
 and added are both zero.
+
+## Pre-outcome automatic-differentiation implementation repair
+
+The first managed attempt exited on its first document batch before any response statistic or result receipt was
+written. `torch.func.jvp` represented the scalar dual tangent as float32 inside the BF16 module, so attention1's BF16
+linear map rejected a float32 input. This is an implementation incompatibility, not a numerical or scientific
+outcome. The failed log is preserved.
+
+The unchanged repair uses `torch.autograd.functional.jvp`, which computes the same Jacobian-vector product through
+reverse-over-reverse automatic differentiation while preserving the BF16 primal dtype. Branches, consumers, data,
+epsilon, contractions, predictions, thresholds, and validation license are unchanged. The finite-difference check in
+A remains the independent test that the repaired automatic derivative has the intended value and sign.

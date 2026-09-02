@@ -41,7 +41,7 @@ PARENT_SOURCE = ROOT / "ops/mlp0_branch_circuit_response_rung481.py"
 PARENT_RESULT = ROOT / "mlp0_branch_circuit_response_rung481_results.json"
 OUT = ROOT / "mlp0_immediate_consumer_quotient_rung483_results.json"
 HASHES = {
-    PREREG: "cc9beaa755e98203be1e481c702bf685c98578ee69f330d6a6c2e347ed59c061",
+    PREREG: "210136132fc3ab256812acc05545891181eb4a7e1c361b2f664e274deb82f143",
     PARENT_SOURCE: "ef08017a30ceb0c9e4481198fc1d58c5b0bf8cd37707d2223c42db9eb04f1f44",
     PARENT_RESULT: "2af2e9d934d85223cb01cb731ad2bcbe54b8b90cbf21f6ba6753cc1347e84573",
     POLY / "bilin18_observed_model_facade.py":
@@ -196,7 +196,8 @@ def _directional_response(model, cache, branch):
     def function(value):
         return _consumer_outputs(model, cache, value * branch)
 
-    primal, tangent = torch.func.jvp(function, (alpha,), (tangent_alpha,))
+    primal, tangent = torch.autograd.functional.jvp(
+        function, alpha, tangent_alpha, create_graph=False, strict=True)
     return tuple(value.detach() for value in primal), tuple(value.detach() for value in tangent)
 
 
