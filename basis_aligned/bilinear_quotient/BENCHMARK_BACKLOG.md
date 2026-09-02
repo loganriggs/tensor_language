@@ -4602,3 +4602,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Rungs 480/481 + decider trio (§2600–§2602): attention0 gauge-stable B-positive preserved (geometry fixed, semantics view-specific); MLP0 branches task-unselective at circuit grain; breach H-B confirmed + contained (cause unknown, tripwire live); projector-form code-register alignment .9389 CLAIMED (c-variant, sound instrument); next objects: consumer attention1/MLP1 Jacobians (Codex), natural-register arc still parked.
 
 - Guard (§2603): projector code claim half-stable, GUARDED. Frame-comparison: natural composition is orthogonal-component-carried (projector shrinks natural norms 5-20x to sub-material while code stays material) — mirror-test (orthogonal-complement projector rung) is the natural-arc's concrete opener when it wakes.
+
+- Rung 483 (§2604): strong null — tangent readers inadequate for complete branch removal (transfer errors .83-.98); consumers descriptively SPLIT T/I (attention1 .015, MLP1-direct .25, MLP1-total .59). Rung 484 (finite A×B×V path factorial) registered; my pre-audit on board 11:59.
