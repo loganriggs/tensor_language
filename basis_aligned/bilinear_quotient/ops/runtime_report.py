@@ -34,6 +34,24 @@ if mins:
         print(f"landings in window: {len(windowed)} | mean gap {sum(gaps)/len(gaps):.1f} min | "
               f"gaps>5min: {sum(1 for g in gaps if g > 5)} | busy-fraction ~{busy/60/max(back,1)*100:.0f}%")
 
+# in-flight run (added 09:06 review): receipts-only busy accounting reported
+# ~3% while rung480 had occupied the GPU 39 min -- count the running job too.
+_rl = os.path.join(ROOT, 'runlogs/runner.log')
+try:
+    _lines = open(_rl).read().splitlines()[-6:]
+    _last = _lines[-1] if _lines else ''
+    if ' running ' in _last:
+        _ts = _last.split(']')[0].strip('[bqrunner ').strip()
+        _h, _m, _s = (int(x) for x in _ts.split(':'))
+        _lt = time.localtime(now)
+        _started = _h * 3600 + _m * 60 + _s
+        _nowsec = _lt.tm_hour * 3600 + _lt.tm_min * 60 + _lt.tm_sec
+        _elapsed = (_nowsec - _started) % 86400
+        print(f"IN-FLIGHT: {_last.split(' running ')[-1]} for {_elapsed/60:.0f} min "
+              f"(true busy-fraction ~{(busy + _elapsed)/60/max(back,1)*100:.0f}%)")
+except Exception:
+    pass
+
 # idle-cause context (added 02:06 review): queue depth + last commit age
 import subprocess as _sp
 from pathlib import Path as _P
