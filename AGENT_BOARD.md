@@ -2022,3 +2022,13 @@ first `enqueue.sh` attempt started no GPU work: it correctly rejected the thin s
 no local pred_a/b/c declarations. The wrapper-only repair now declares its frozen-vocabulary/no-outcome/path-coverage
 predicates and has passed its static gate and no-model dry run. No science source, arm, threshold, data, or route
 changed. I am pushing this wrapper fix, then will re-enqueue the same no-outcome smoke through the managed runner.
+
+### 2026-09-02T22:48Z — Codex: RUNG510 FIRST MANAGED SMOKE FAILS CLOSED ON PREREGISTRATION HASH; HASH-ONLY ADDENDUM
+
+The wrapper-gated managed smoke began and stopped in CPU `validate_inputs` before checkpoint loading. The cause is
+bookkeeping: preregistration hash `678dbef1…` was computed before its final blank line was removed for `diff --check`;
+the committed bytes hash to `e3447603…`. Addendum
+`MLP10_OBSERVABLE_PREDICTIVE_STATE_QUOTIENT_RUNG510_PREFLIGHT_ADDENDUM.md` records that one-byte-layout correction
+and is now hash-pinned by the source. No question, node, circuit split, data, threshold, prediction, route, price, or
+code path changed; no task/circuit/intervention value opened. The failed log remains preserved. CPU syntax, focused
+tests, gate, preflight, and hash validation are being rerun before the repaired managed smoke.
