@@ -38,6 +38,7 @@ import mlp10_score_change_three_branch_factorial_rung511 as r511
 
 
 PREREG = POLY / "MLP10_BRANCH_FIRST_CONSUMER_QUOTIENT_RUNG512_PREREGISTRATION.md"
+PREFLIGHT_ADDENDUM = POLY / "MLP10_BRANCH_FIRST_CONSUMER_QUOTIENT_RUNG512_PREFLIGHT_ADDENDUM.md"
 R511_RESULT = ROOT / "mlp10_score_change_three_branch_factorial_rung511_results.json"
 R511_BUNDLE = ROOT / "mlp10_score_change_three_branch_factorial_rung511_bundle.pt"
 R511_SOURCE = ROOT / "ops/mlp10_score_change_three_branch_factorial_rung511.py"
@@ -51,6 +52,7 @@ BUNDLE = ROOT / "mlp10_branch_first_consumer_quotient_rung512_bundle.pt"
 
 HASHES = {
     PREREG: "b72ab252feb82132602f1f674f594eded0eb419d54319aa7801ad2293f17daf8",
+    PREFLIGHT_ADDENDUM: "d31e4fa39273f91afd7c09872f995d285133d7759f7f4bf0700870a5d64d68bd",
     R511_RESULT: "39a6afc592ceea8ed3f79d2928333eb70442ca63f5d147f61635649e57fca6d4",
     R511_BUNDLE: "16a70cb757ba97a6bc72b1b5bf2a35eaae4b7c5538b474254cad4beabb377a6e",
     R511_SOURCE: "6d07301b253c1216ea24e310eb82e1deab5c18baa3ce120b590cfa7fdba95031",
@@ -97,13 +99,23 @@ def question_token_mask() -> torch.Tensor:
 
 @torch.no_grad()
 def build_question_basis(model) -> dict:
-    token_mask = question_token_mask().to(next(model.parameters()).device)
-    unembedding = model.lm_head.weight.float()[:50257]
+    device = next(model.parameters()).device
+    token_mask = question_token_mask().to(device)
+    # The published form was derived from the checkpoint's stored float32
+    # tensors.  The execution model is deliberately bf16 and must not silently
+    # redefine that archived semantic object by downcasting these weights.
+    state = torch.load(
+        facade.DEFAULT_SNAPSHOT / "pytorch_model.bin", map_location="cpu",
+        weights_only=True, mmap=True)
+    unembedding = state["lm_head.weight"][:50257].to(device=device, dtype=torch.float32)
     direction = unembedding[token_mask].mean(0)
     direction = direction / direction.norm()
-    mlp = model.transformer.h[11].mlp
-    output_weight = direction @ mlp.Down.weight.float()
-    raw = mlp.Left.weight.float().T @ (output_weight[:, None] * mlp.Right.weight.float())
+    left = state["transformer.h.11.mlp.Left.weight"].to(device=device, dtype=torch.float32)
+    right = state["transformer.h.11.mlp.Right.weight"].to(device=device, dtype=torch.float32)
+    down = state["transformer.h.11.mlp.Down.weight"].to(device=device, dtype=torch.float32)
+    output_weight = direction @ down
+    raw = left.T @ (output_weight[:, None] * right)
+    del state, unembedding, left, right, down, output_weight
     symmetric = 0.5 * (raw + raw.T)
     eigenvalues, eigenvectors = torch.linalg.eigh(symmetric)
     order = eigenvalues.abs().argsort(descending=True)[:2]
@@ -618,7 +630,7 @@ def collect_physical(model, rows, task_masks, circuit_masks, circuit_tags,
                 diagnostics["minimum_patch_rms"] = min(diagnostics["minimum_patch_rms"], patch_rms)
             diagnostics["maximum_patch_capture_error"] = max(
                 diagnostics["maximum_patch_capture_error"],
-                float((captures[key].float() - replacement.float()).abs().max()))
+                float((captures[key] - replacement.to(captures[key].dtype)).float().abs().max()))
             nll = r511.r510.r509.parent._nll(logits, batch_rows).detach().cpu()
             data["substitution_task"][direction_index, local:local + len(batch_rows)] = \
                 r511.r510.r509.parent._task_sums(nll.unsqueeze(0), masks)[0]

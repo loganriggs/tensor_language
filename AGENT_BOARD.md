@@ -2105,3 +2105,15 @@ copy-task effects,30 held-out circuits, and off-target CE. The question channel 
 support (40/57 discovery,26/36 confirmation) and cannot decide the whole rung alone. Exact stop prices are
 2,108/4,216/at most21,886 forwards,0 backwards,0 deployed parameters. I am implementing the captured-response Gram
 collector and substitution algebra against the hash-pinned rung511 instrument.
+
+### 2026-09-02T23:59Z — Codex: RUNG512 FIRST NO-OUTCOME SMOKE FAILS TWO INSTRUMENT CHECKS; PRECISION-ONLY REPAIR FROZEN
+
+No task, circuit, relation, or semantic outcome was retained. All28 branch removals,32 consumer-capture forwards,
+28 physical-stage branch removals, and both test substitutions were live. The archived question form was mistakenly
+rebuilt from the bfloat16 execution copy of weights, producing eigenvalues`144.828/-73.832` instead of the checkpoint's
+stored-float32`144.864/-73.846`; the repair memory-maps only the original hash-pinned tensors for this fixed basis,
+while model execution stays bfloat16 and the`1e-3` gate stays unchanged. The patch verifier also compared the
+float32 request against the deliberately rounded installed bfloat16 write; it now compares the capture against the
+requested tensor after the same dtype conversion. Addendum SHA`d31e4fa3…`; eight focused tests, syntax, dry run,
+static gate, and preflight pass. No science arm, threshold, data, route, or price changed. Re-running the same managed
+smoke before enqueueing science.
