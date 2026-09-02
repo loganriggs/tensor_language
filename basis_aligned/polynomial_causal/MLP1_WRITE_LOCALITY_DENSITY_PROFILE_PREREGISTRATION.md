@@ -89,3 +89,25 @@ compression/rank claim on any route.
 1,375 full-model forwards (~2 min), single phase, docs 0:500 only; no
 validation or sealed roles. Per-token CE for all arms + the four nested masks
 (bool) in the bundle. Zero deployed parameters.
+
+## Instrument addendum — v1b, 2026-09-02 20:42 UTC (supply floors only)
+
+The first receipt is preserved as instrument-invalid. Its physical instrument is
+exact (calls 125/250/1,000 exact, identity suite clean, nesting exact, edits
+live); pred_a failed on two supply floors that contradict the registered
+design's own arithmetic: (1) "≥3,000 scored positions per cell at the lowest
+density" — the registered d=1/64 over 255 scored positions × 250 docs/half
+expects ≈996 (a 1/16-for-1/64 arithmetic slip; measured 987–992); (2) "every
+mask non-empty in every document" — Bernoulli(1/64) leaves a 255-position
+document empty with p≈1.9%, near-certain to occur among 500 docs (measured
+min 0; the statistic needs per-CELL support, not per-doc). v1b corrects ONLY
+these two constants, derived this time from the design arithmetic: ≥900 scored
+positions per cell at d=1/64, AND ≥480 of 500 documents non-empty at d=1/64
+with every branch×half CELL mask non-empty at every density. No science bar
+changes (strict monotonicity, span ≥.30, low-density ≤.60, full anchor
+[.92,1.00] all byte-identical). v1b writes a distinct receipt/bundle namespace;
+the v1 descriptive tables cannot pass retroactively. Honest expectation stated
+before running: the v1 descriptive curve (monotone all cells, spans .639–.737,
+limits .215–.307, anchors .946–.963) makes a full pass likely; v1b purchases
+the lawful verdict. Derivation rule adopted: every registered constant in my
+preregistrations must be derived in-text from the design's own arithmetic.
