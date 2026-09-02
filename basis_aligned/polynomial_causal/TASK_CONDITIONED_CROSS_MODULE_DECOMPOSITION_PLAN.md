@@ -110,3 +110,7 @@ Before a GPU collection, audit the exact existing copy/equality and ordered-succ
 intervention to the producer–composition–consumer schema. Determine which fine-grained Q/K/OV and MLP terms can be
 reconstructed without refitting. Then freeze the smallest missing response collection. Do not rerun whole-component
 localization or another generic rank sweep.
+
+Completed audit: `TASK_DECOMPOSITION_ARTIFACT_AUDIT_2026-09-02.md`. It finds that the four exact equality-edge terms
+can already be independently manipulated and recommends a 16-subset removal plus 16-subset extraction factorial with
+downstream component captures. The ordered-successor rank plan is deferred and must be redesigned around task roles.
