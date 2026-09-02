@@ -142,6 +142,7 @@ def collect(model, rows, reference):
     donor_all = torch.zeros(DOC_RANGE[1], dtype=torch.long)
     match_per_doc = torch.zeros(DOC_RANGE[1], dtype=torch.long)
 
+    # Donor maps and masks per half (pairing stays within-half).
     for half_start in range(DOC_RANGE[0], DOC_RANGE[1], HALF):
         half_stop = half_start + HALF
         tokens_half = rows[half_start:half_stop, :-1]
@@ -152,89 +153,94 @@ def collect(model, rows, reference):
         mismatch_all[half_start:half_stop] = mismatch
         match_per_doc[half_start:half_stop] = match.sum(1)
 
-        # Pass 1: baselines; cache CPU bf16 trajectories + float32 M writes.
-        cache = {}
-        for start in range(half_start, half_stop, BATCH):
-            stop = start + BATCH
-            tokens = rows[start:stop, :-1].to(device)
-            targets = rows[start:stop, 1:].to(device)
-            native_logits, native, _c = r493.parent._native_all(
-                model, tokens, reference)
-            calls["native_forwards"] += 1
-            native_ce[start:stop] = ce(native_logits, targets).double().cpu()
-            for name, value in native["prefix_errors"].items():
-                r493._update_max(errors, f"native_prefix_{name}_relative_squared_max", value)
-            r493._update_max(errors, "prefix_z_relative_squared_max",
-                             native["prefix_z_relative_squared"])
-            r493._update_max(errors, "S_prefix_replay_relative_squared_max",
-                             native["S_prefix_replay_relative_squared"])
-            r493._update_max(errors, "state_source_relative_squared_max",
-                             native["state_source_relative_squared"])
-            for key in ("analytical_num", "analytical_den",
-                        "deployed_num", "deployed_den"):
-                errors[key] += native["identity"][key]
-            entry = {"native_M": native["M"].float().cpu()}
-            for branch_index, branch in enumerate(TI):
-                logits, capture, _a = r493.parent.parent.base._absent_forward(
-                    model, tokens, native, native["branches"][branch])
-                calls["absent_forwards"] += 1
-                absent_ce[branch_index, start:stop] = ce(logits, targets).double().cpu()
-                r493._update_max(errors, "mlp0_state_max_abs", capture["mlp0_state_error"])
-                entry[branch] = {key: capture[key].cpu() for key in ("D", "A", "M")}
-            both_branch = native["branches"]["T"] + native["branches"]["I"]
+    # Pass 1: baselines over 0-aligned batches; global CPU cache (donor
+    # lookups use key (doc//BATCH)*BATCH, which requires this alignment --
+    # the per-half loop in the first enqueue misaligned half1's batches,
+    # the exact batch-boundary-straddle class).
+    cache = {}
+    for start in range(DOC_RANGE[0], DOC_RANGE[1], BATCH):
+        stop = start + BATCH
+        if stop > DOC_RANGE[1]:
+            raise RuntimeError("document range must be a multiple of the batch size")
+        tokens = rows[start:stop, :-1].to(device)
+        targets = rows[start:stop, 1:].to(device)
+        native_logits, native, _c = r493.parent._native_all(
+            model, tokens, reference)
+        calls["native_forwards"] += 1
+        native_ce[start:stop] = ce(native_logits, targets).double().cpu()
+        for name, value in native["prefix_errors"].items():
+            r493._update_max(errors, f"native_prefix_{name}_relative_squared_max", value)
+        r493._update_max(errors, "prefix_z_relative_squared_max",
+                         native["prefix_z_relative_squared"])
+        r493._update_max(errors, "S_prefix_replay_relative_squared_max",
+                         native["S_prefix_replay_relative_squared"])
+        r493._update_max(errors, "state_source_relative_squared_max",
+                         native["state_source_relative_squared"])
+        for key in ("analytical_num", "analytical_den",
+                    "deployed_num", "deployed_den"):
+            errors[key] += native["identity"][key]
+        entry = {"native_M": native["M"].float().cpu()}
+        for branch_index, branch in enumerate(TI):
             logits, capture, _a = r493.parent.parent.base._absent_forward(
-                model, tokens, native, both_branch)
-            calls["both_absent_forwards"] += 1
+                model, tokens, native, native["branches"][branch])
+            calls["absent_forwards"] += 1
+            absent_ce[branch_index, start:stop] = ce(logits, targets).double().cpu()
             r493._update_max(errors, "mlp0_state_max_abs", capture["mlp0_state_error"])
-            entry["BOTH"] = {key: capture[key].cpu() for key in ("D", "A", "M")}
-            cache[start] = entry
+            entry[branch] = {key: capture[key].cpu() for key in ("D", "A", "M")}
+        both_branch = native["branches"]["T"] + native["branches"]["I"]
+        logits, capture, _a = r493.parent.parent.base._absent_forward(
+            model, tokens, native, both_branch)
+        calls["both_absent_forwards"] += 1
+        r493._update_max(errors, "mlp0_state_max_abs", capture["mlp0_state_error"])
+        entry["BOTH"] = {key: capture[key].cpu() for key in ("D", "A", "M")}
+        cache[start] = entry
 
-        # Pass 2: edited forwards with cached donor adjustments.
-        for start in range(half_start, half_stop, BATCH):
-            stop = start + BATCH
-            tokens = rows[start:stop, :-1].to(device)
-            targets = rows[start:stop, 1:].to(device)
-            entry = cache[start]
-            match_d = match_all[start:stop].to(device)
-            mismatch_d = mismatch_all[start:stop].to(device)
-            native_M = entry["native_M"].to(device)
-            for branch_index, branch in enumerate(TI):
-                trajectory = {key: value.to(device)
-                              for key, value in entry[branch].items()}
-                both = {key: value.to(device) for key, value in entry["BOTH"].items()}
-                base = trajectory["M"].float()
-                both_base = both["M"].float()
-                donor_adj = torch.stack([
-                    cache[(int(donor_all[doc]) // BATCH) * BATCH]["native_M"][
-                        int(donor_all[doc]) % BATCH].to(device)
-                    - cache[(int(donor_all[doc]) // BATCH) * BATCH][branch]["M"][
-                        int(donor_all[doc]) % BATCH].to(device).float()
-                    for doc in range(start, stop)])
-                edited_bank = {
-                    "OWN_MATCH": (torch.where(match_d.unsqueeze(-1), native_M.float(), base),
-                                  trajectory),
-                    "DONOR_MATCH": (torch.where(match_d.unsqueeze(-1),
-                                                base + donor_adj, base), trajectory),
-                    "DONOR_MISMATCH": (torch.where(mismatch_d.unsqueeze(-1),
-                                                   base + donor_adj, base), trajectory),
-                    "COMPOSE": (torch.where(match_d.unsqueeze(-1),
-                                            both_base + donor_adj, both_base), both),
-                }
-                for arm_index, arm in enumerate(ARMS):
-                    edited_f, traj = edited_bank[arm]
-                    reference_base = both_base if arm == "COMPOSE" else base
-                    edited = edited_f.to(trajectory["M"].dtype)
-                    errors["edit_rms_min"] = min(
-                        errors["edit_rms_min"],
-                        r493._rms(edited.float() - reference_base))
-                    logits, audit, _actual = r493._merge_forward(
-                        model, tokens, traj, "M_ONLY", edited)
-                    calls["merge_forwards"] += 1
-                    r493._update_max(errors, "edited_write_max_abs_error",
-                                     audit["edited_write_max_abs_error"])
-                    arm_ce[branch_index, arm_index, start:stop] = \
-                        ce(logits, targets).double().cpu()
-        del cache
+    # Pass 2: edited forwards over the same 0-aligned batches.
+    for start in range(DOC_RANGE[0], DOC_RANGE[1], BATCH):
+        stop = start + BATCH
+        tokens = rows[start:stop, :-1].to(device)
+        targets = rows[start:stop, 1:].to(device)
+        entry = cache[start]
+        match_d = match_all[start:stop].to(device)
+        mismatch_d = mismatch_all[start:stop].to(device)
+        native_M = entry["native_M"].to(device)
+        for branch_index, branch in enumerate(TI):
+            trajectory = {key: value.to(device)
+                          for key, value in entry[branch].items()}
+            both = {key: value.to(device) for key, value in entry["BOTH"].items()}
+            base = trajectory["M"].float()
+            both_base = both["M"].float()
+            donor_adj = torch.stack([
+                cache[(int(donor_all[doc]) // BATCH) * BATCH]["native_M"][
+                    int(donor_all[doc]) % BATCH].to(device)
+                - cache[(int(donor_all[doc]) // BATCH) * BATCH][branch]["M"][
+                    int(donor_all[doc]) % BATCH].to(device).float()
+                for doc in range(start, stop)])
+            edited_bank = {
+                "OWN_MATCH": (torch.where(match_d.unsqueeze(-1), native_M.float(), base),
+                              trajectory),
+                "DONOR_MATCH": (torch.where(match_d.unsqueeze(-1),
+                                            base + donor_adj, base), trajectory),
+                "DONOR_MISMATCH": (torch.where(mismatch_d.unsqueeze(-1),
+                                               base + donor_adj, base), trajectory),
+                "COMPOSE": (torch.where(match_d.unsqueeze(-1),
+                                        both_base + donor_adj, both_base), both),
+            }
+            for arm_index, arm in enumerate(ARMS):
+                edited_f, traj = edited_bank[arm]
+                reference_base = both_base if arm == "COMPOSE" else base
+                edited = edited_f.to(trajectory["M"].dtype)
+                errors["edit_rms_min"] = min(
+                    errors["edit_rms_min"],
+                    r493._rms(edited.float() - reference_base))
+                logits, audit, _actual = r493._merge_forward(
+                    model, tokens, traj, "M_ONLY", edited)
+                calls["merge_forwards"] += 1
+                r493._update_max(errors, "edited_write_max_abs_error",
+                                 audit["edited_write_max_abs_error"])
+                arm_ce[branch_index, arm_index, start:stop] = \
+                    ce(logits, targets).double().cpu()
+    del cache
 
     expected = {"native_forwards": EXPECTED_NATIVE,
                 "absent_forwards": EXPECTED_ABSENT,
