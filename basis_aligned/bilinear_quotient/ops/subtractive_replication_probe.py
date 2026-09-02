@@ -14,14 +14,14 @@ code_validation batch (truncated selection, full arm sequence: native,
 replay, absent, both sources, empty, both slots, all 7 subsets) and compares
 every produced effect to the bundle at the same coordinates.
 
-Frozen forks: 'pred_a_474_code_reproduces_bundle' TRUE (max abs <= 1e-6)
+Frozen forks: pred_a (474 code reproduces bundle) TRUE (max abs <= 1e-6)
 => today's physics matches 05:57 and my projector rung's COPIED collector
 deviates -- diff the copy next, no program alarm.  FALSE with error ~.03-.2
 => rung 474's own frozen code no longer reproduces its own receipt on
 unchanged data/weights/env -- a temporal reproducibility alarm that Codex
 must see before any further cross-session bundle comparison is trusted.
-'pred_b_replay_empty_exact': replay and empty-patch checks 0 as in 474.
-'pred_c_counts_exact': 35 forwards, patch calls formula-exact for one batch.
+pred_b: replay and empty-patch checks 0 as in 474.
+pred_c: 35 forwards, patch calls formula-exact for one batch.
 No null; nothing scientific is licensed either way.  Price: 35 forwards,
 <120s, 0 deployed parameters; already-opened objects only.
 """
