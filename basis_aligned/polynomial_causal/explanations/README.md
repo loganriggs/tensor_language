@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0228.md](explanation_2026-09-02_0228.md) — update since 02:19: no new model result;
+  freezes the honest natural-text-then-code two-stage equality-term factorial, explains the task conditions and
+  computations in ordinary interpretability language, and records the active-goal continuation repair after the
+  previous pause
 - [explanation_2026-09-02_0219.md](explanation_2026-09-02_0219.md) — full update since 00:24: no new model result;
   direction corrected from rank reduction to task-conditioned circuit boundaries; exact four-head equality subset
   factorial specified; interaction and interchange computations defined; downstream MLP-consumer plan explained;
