@@ -489,10 +489,10 @@ def collect(model, rows, circuit_masks, tags, scales):
                     score["deployed_write"], payload["deployed_write"])
                 stats["pair_response_num"][background_index, quarter] += (
                     source_response[:, chosen].double()
-                    * delta[chosen].double().unsqueeze(0)).sum((1, 2))
+                    * delta[chosen].double().unsqueeze(0)).sum((1, 2)).cpu()
                 stats["pair_payload_num"][background_index, quarter] += (
                     source_payload[:, chosen].double()
-                    * delta[chosen].double().unsqueeze(0)).sum((1, 2))
+                    * delta[chosen].double().unsqueeze(0)).sum((1, 2)).cpu()
                 if confirmation_opened:
                     g, f, p = (group[chosen].double(), delta[chosen].double(),
                                payload_group[chosen].double())
@@ -528,7 +528,7 @@ def collect(model, rows, circuit_masks, tags, scales):
                 if kind == "copy":
                     stats["pair_gradient_num"][background_index, quarter] += (
                         source_response.double()
-                        * gradient.double().unsqueeze(0)).sum((1, 2, 3))
+                        * gradient.double().unsqueeze(0)).sum((1, 2, 3)).cpu()
                     complete = float((gradient.float() * delta).sum())
                     stats["denominators"][background_index, quarter, 5] += complete
                     stats["denominators"][background_index, quarter, 7] += 1
