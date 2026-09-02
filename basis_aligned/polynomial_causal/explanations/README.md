@@ -13,7 +13,8 @@ state what was actually measured and what unit is being used.
 
 - [explanation_2026-09-02_0512.md](explanation_2026-09-02_0512.md) — full update since 04:31: exact MLP product
   computation, rung467's held-out code split, rung468's frozen natural-text transfer null, a percentage graph, the
-  factorization-independent quadratic reader/state computation now running in rung469, and the active-loop safeguard
+  rung469 finding that separately averaged quadratic readers and states erase their essential covariance, the
+  continuous context-to-causal-effect rung470 successor, and the active-loop safeguard
 - [explanation_2026-09-02_0303.md](explanation_2026-09-02_0303.md) — rung-458 strong null: no whole equality-term
   pair and later attention/MLP output forms a task-specific shared variable; defines the 72-candidate response-cosine
   computation, graphs the failed fit thresholds, explains why validation was correctly withheld, records the active-
