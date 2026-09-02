@@ -267,3 +267,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_1030.md](explanation_2026-09-02_1030.md) — the reproducibility breach chased to a law: 1.218×/layer noise amplification, the .015 tolerance retrodicted at depth 0, in-run baselines and a queued cure
 - [explanation_1131.md](explanation_2026-09-02_1131.md) — the hour everything landed: the guarded .94 composition claim (third try), the geometric code/natural split, six verdicts in thirty minutes
 - [explanation_1318.md](explanation_2026-09-02_1318.md) — MLP0's exact finite paths: MLP1 dominates, token and bigram downstream lookups fail, and an exact continuous secant-factor interchange is running
+- [explanation_1330.md](explanation_2026-09-02_1330.md) — full update since 02:19: shared equality matcher, selective MLP components, gauge/reproducibility corrections, MLP0's exact paths, and the T–I continuous-reader screen
