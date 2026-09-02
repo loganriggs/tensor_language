@@ -34,5 +34,5 @@ def test_pair_graph_finds_mutual_identical_terms_on_cpu():
 
 def test_frozen_family_split_and_forward_formula():
     assert set(subject.DISCOVERY_ROOTS).isdisjoint(subject.VALIDATION_ROOTS)
-    assert subject.EXPECTED_FORWARDS == 315
+    assert subject.EXPECTED_FORWARDS == 625
     assert len(subject.PERMUTATION_SEEDS) == 16
