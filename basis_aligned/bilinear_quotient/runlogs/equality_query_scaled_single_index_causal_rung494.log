@@ -1,0 +1,606 @@
+{
+  "analysis": {
+    "all_scaled_interventions_live": true,
+    "minimum_half_vs_one_and_half_effect_difference_rms_nat": 0.02120925411536415,
+    "pred_b_half_strength_causal_interpolation": false,
+    "pred_c_one_and_half_strength_causal_transfer": true,
+    "pred_d_document_half_stability": false,
+    "reports": {
+      "code_validation": {
+        "H": {
+          "0.5": {
+            "actual_rms_nat": 0.0293503139417514,
+            "additive_median_absolute_error_nat": 0.007358551025390625,
+            "cosine": 0.6527826943341,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.00654204934835434,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.007837638258934021,
+                "single_over_additive": 1.198040222809629
+              },
+              {
+                "additive_median_absolute_error_nat": 0.00796530768275261,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.00886770710349083,
+                "single_over_additive": 1.1132912194581257
+              }
+            ],
+            "improvement_fraction": -0.10944352729825035,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.6528443737095072,
+            "position_permuted_error_q05_nat": 0.008488405975321921,
+            "position_permuted_median_errors_nat": [
+              0.008609614567831159,
+              0.009507633390880767,
+              0.008959965780377388,
+              0.009164243936538696,
+              0.009565363797578412,
+              0.008488405975321921,
+              0.010431602597236633,
+              0.00867533148266375,
+              0.00892249652633044,
+              0.009431965478447421,
+              0.008893710561096668,
+              0.009266793727874756,
+              0.008943210178841069,
+              0.010114986449480057,
+              0.009201128445748925,
+              0.009701249775790212
+            ],
+            "prediction_rms_nat": 0.01944998332276823,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.008163896805413531,
+            "single_over_additive": 1.1094435272982504,
+            "single_over_permuted_q05": 0.961770305184292
+          },
+          "1.5": {
+            "actual_rms_nat": 0.05100373533414181,
+            "additive_median_absolute_error_nat": 0.01281719096004963,
+            "cosine": 0.8327101710351555,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.012768059968948364,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.010501302990490308,
+                "single_over_additive": 0.8224666093383992
+              },
+              {
+                "additive_median_absolute_error_nat": 0.013082034885883331,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.009247047475947873,
+                "single_over_additive": 0.7068508497807364
+              }
+            ],
+            "improvement_fraction": 0.20651869101269538,
+            "in_fitted_index_range_fraction": 0.7569444444444444,
+            "pearson": 0.8316413956515304,
+            "position_permuted_error_q05_nat": 0.015195050335923159,
+            "position_permuted_median_errors_nat": [
+              0.016026578843593597,
+              0.017332881689071655,
+              0.015521720051765442,
+              0.015454087406396866,
+              0.015195050335923159,
+              0.01569589227437973,
+              0.017394930124282837,
+              0.017243821173906326,
+              0.015547220444279777,
+              0.01817299580822388,
+              0.017034122791202852,
+              0.018134822583314086,
+              0.015196973079916524,
+              0.015684332698583603,
+              0.016415461897850037,
+              0.016431540250778198
+            ],
+            "prediction_rms_nat": 0.04840708949924042,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.010170201460520428,
+            "single_over_additive": 0.7934813089873046,
+            "single_over_permuted_q05": 0.6693101526933868
+          }
+        },
+        "N": {
+          "0.5": {
+            "actual_rms_nat": 0.03503852851179483,
+            "additive_median_absolute_error_nat": 0.007432060316205025,
+            "cosine": 0.587907606894473,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.007769886404275894,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.008397943650682766,
+                "single_over_additive": 1.0808322301933837
+              },
+              {
+                "additive_median_absolute_error_nat": 0.007248878479003906,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.007525844499468803,
+                "single_over_additive": 1.0382081202308906
+              }
+            ],
+            "improvement_fraction": -0.0655548847959142,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.5917754928985968,
+            "position_permuted_error_q05_nat": 0.009558886289596558,
+            "position_permuted_median_errors_nat": [
+              0.010093600160114478,
+              0.0104621525502108,
+              0.011276930570602417,
+              0.010913252830505371,
+              0.010399674996733665,
+              0.010369670266906422,
+              0.010339528322219849,
+              0.009872227907180786,
+              0.010371627040583774,
+              0.009558886289596558,
+              0.011403791606426239,
+              0.010166728403419256,
+              0.010498963296413422,
+              0.011616997420787811,
+              0.011512253433465958,
+              0.010313530762990315
+            ],
+            "prediction_rms_nat": 0.02658650543161819,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.00791926817403013,
+            "single_over_additive": 1.0655548847959142,
+            "single_over_permuted_q05": 0.8284718464167828
+          },
+          "1.5": {
+            "actual_rms_nat": 0.06512442924093242,
+            "additive_median_absolute_error_nat": 0.012696973979473114,
+            "cosine": 0.871797502886808,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.012562498450279236,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.009944695234298705,
+                "single_over_additive": 0.7916176287430832
+              },
+              {
+                "additive_median_absolute_error_nat": 0.012729160487651825,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.008842057126478519,
+                "single_over_additive": 0.6946300296123953
+              }
+            ],
+            "improvement_fraction": 0.24168124463067076,
+            "in_fitted_index_range_fraction": 0.7604166666666666,
+            "pearson": 0.8709054955274412,
+            "position_permuted_error_q05_nat": 0.015074223279953003,
+            "position_permuted_median_errors_nat": [
+              0.015074223279953003,
+              0.01756715370388324,
+              0.019173379261647527,
+              0.018273051883593218,
+              0.019440840929746628,
+              0.01849398513634999,
+              0.016728973317321927,
+              0.018534556031227112,
+              0.01716218071266949,
+              0.018832445699564892,
+              0.018187879469468746,
+              0.017473432509976107,
+              0.018931115188330037,
+              0.018902510404586792,
+              0.019236240535974503,
+              0.017137197669158673
+            ],
+            "prediction_rms_nat": 0.061289631357818564,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.00962835350507081,
+            "single_over_additive": 0.7583187553693292,
+            "single_over_permuted_q05": 0.638729659648562
+          }
+        }
+      },
+      "natural_wave0": {
+        "H": {
+          "0.5": {
+            "actual_rms_nat": 0.022617124700487073,
+            "additive_median_absolute_error_nat": 0.0024257758632302284,
+            "cosine": 0.628194502194184,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.0024257758632302284,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.002289927234560232,
+                "single_over_additive": 0.9439978644650637
+              },
+              {
+                "additive_median_absolute_error_nat": 0.002445623278617859,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.002544075683844577,
+                "single_over_additive": 1.0402565702115651
+              }
+            ],
+            "improvement_fraction": -0.0015349775763287,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.6292691146966195,
+            "position_permuted_error_q05_nat": 0.0025766855105757713,
+            "position_permuted_median_errors_nat": [
+              0.0029503547702915967,
+              0.0026542420095424547,
+              0.003137567256285276,
+              0.0026195268146693707,
+              0.002815415500663221,
+              0.0032093077898025513,
+              0.0025766855105757713,
+              0.0028169236186956154,
+              0.0035535779286448915,
+              0.0035878016454878705,
+              0.0029827323316882312,
+              0.0025813207030296326,
+              0.0036178995214868337,
+              0.0030333267112980337,
+              0.0029135658913917676,
+              0.003562907998760541
+            ],
+            "prediction_rms_nat": 0.0178635878330063,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.002429499374785486,
+            "single_over_additive": 1.0015349775763287,
+            "single_over_permuted_q05": 0.9428777259831775
+          },
+          "1.5": {
+            "actual_rms_nat": 0.038734506342826526,
+            "additive_median_absolute_error_nat": 0.004115822724997997,
+            "cosine": 0.8316709041120129,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.004006009548902512,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.0022641451321369645,
+                "single_over_additive": 0.5651871530753717
+              },
+              {
+                "additive_median_absolute_error_nat": 0.004326587077230215,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.002546684228058594,
+                "single_over_additive": 0.5886127292944546
+              }
+            ],
+            "improvement_fraction": 0.43858746677699856,
+            "in_fitted_index_range_fraction": 0.6596491228070176,
+            "pearson": 0.83178151170091,
+            "position_permuted_error_q05_nat": 0.004053938601698194,
+            "position_permuted_median_errors_nat": [
+              0.004053938601698194,
+              0.004683225793996826,
+              0.004682652419432998,
+              0.004317320883274078,
+              0.004430136135067822,
+              0.004859983906987276,
+              0.004097707569599152,
+              0.004206277779303491,
+              0.004531060659792275,
+              0.00493267085403204,
+              0.0047195922583341595,
+              0.0045960769057273865,
+              0.0053711754735559225,
+              0.004632198657857132,
+              0.004084548977400671,
+              0.004489904083311558
+            ],
+            "prediction_rms_nat": 0.03500959512547639,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.0023106744623379227,
+            "single_over_additive": 0.5614125332230014,
+            "single_over_permuted_q05": 0.5699825994823853
+          }
+        },
+        "N": {
+          "0.5": {
+            "actual_rms_nat": 0.023939786921928528,
+            "additive_median_absolute_error_nat": 0.002289094030857086,
+            "cosine": 0.37825997802677436,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.0024320315569639206,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.002301090403218397,
+                "single_over_additive": 0.9461597636878583
+              },
+              {
+                "additive_median_absolute_error_nat": 0.0022003762423992157,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.0032092807814478874,
+                "single_over_additive": 1.4585145574688612
+              }
+            ],
+            "improvement_fraction": -0.21874359208038086,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.3646629983387378,
+            "position_permuted_error_q05_nat": 0.003026607135931651,
+            "position_permuted_median_errors_nat": [
+              0.0034156798629135328,
+              0.0036132342315145904,
+              0.003707478443781535,
+              0.0035531212686273216,
+              0.0031642692629247904,
+              0.003026607135931651,
+              0.0033738974016159773,
+              0.004376230824351401,
+              0.003258896234910935,
+              0.003404070224080767,
+              0.0035112552344799043,
+              0.0031602895663430295,
+              0.00398798834066838,
+              0.003379471899825148,
+              0.0033358726243022828,
+              0.003873773996019736
+            ],
+            "prediction_rms_nat": 0.017145971375585226,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.0027898186817765236,
+            "single_over_additive": 1.2187435920803809,
+            "single_over_permuted_q05": 0.9217643904476426
+          },
+          "1.5": {
+            "actual_rms_nat": 0.035844959337013066,
+            "additive_median_absolute_error_nat": 0.004834137856960297,
+            "cosine": 0.7795272739565661,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.005335984751582146,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.002584136528883758,
+                "single_over_additive": 0.48428484135333194
+              },
+              {
+                "additive_median_absolute_error_nat": 0.004105245694518089,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.0033043747146924343,
+                "single_over_additive": 0.804915213504738
+              }
+            ],
+            "improvement_fraction": 0.366276822121562,
+            "in_fitted_index_range_fraction": 0.7070175438596491,
+            "pearson": 0.7758118312229249,
+            "position_permuted_error_q05_nat": 0.0042895968072116375,
+            "position_permuted_median_errors_nat": [
+              0.004754958121338859,
+              0.0047208353165337,
+              0.004566888324916363,
+              0.005598470568656921,
+              0.004387484203713635,
+              0.00431935153901577,
+              0.004905428504571319,
+              0.005267972042760546,
+              0.004473841661820188,
+              0.004680254802224226,
+              0.0058237044140696526,
+              0.004856413695961237,
+              0.005062893872960408,
+              0.004706248591537588,
+              0.0042895968072116375,
+              0.004834915774630471
+            ],
+            "prediction_rms_nat": 0.0367177261240763,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.0030635052050153413,
+            "single_over_additive": 0.633723177878438,
+            "single_over_permuted_q05": 0.7141708982683407
+          }
+        }
+      },
+      "natural_wave1": {
+        "H": {
+          "0.5": {
+            "actual_rms_nat": 0.021592095701661592,
+            "additive_median_absolute_error_nat": 0.0029997536912560463,
+            "cosine": 0.5371817773356499,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.003866475075483322,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.0037427717241532727,
+                "single_over_additive": 0.9680061686898147
+              },
+              {
+                "additive_median_absolute_error_nat": 0.0023674527183175087,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.002293571970760447,
+                "single_over_additive": 0.9687931475946997
+              }
+            ],
+            "improvement_fraction": 0.004048791649448713,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.537860608263173,
+            "position_permuted_error_q05_nat": 0.003422404054793056,
+            "position_permuted_median_errors_nat": [
+              0.0039772614990013,
+              0.004356971878478675,
+              0.0035283267498016357,
+              0.00404993556234509,
+              0.004140790008629362,
+              0.004281613864804967,
+              0.003614179790019989,
+              0.004091285727564875,
+              0.004189818352460861,
+              0.004011801496294178,
+              0.0035535867345841757,
+              0.004408232402056456,
+              0.004188055793444315,
+              0.003422404054793056,
+              0.004258137429133058,
+              0.004135920687455401
+            ],
+            "prediction_rms_nat": 0.012890160079803231,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.002987608313560486,
+            "single_over_additive": 0.9959512083505513,
+            "single_over_permuted_q05": 0.8729560466059987
+          },
+          "1.5": {
+            "actual_rms_nat": 0.028872778703251584,
+            "additive_median_absolute_error_nat": 0.004290010780096054,
+            "cosine": 0.7134408506613938,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.004894993267953396,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.0033879726406694116,
+                "single_over_additive": 0.6921301941005382
+              },
+              {
+                "additive_median_absolute_error_nat": 0.003538733348250389,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.002449329259505747,
+                "single_over_additive": 0.6921485792979394
+              }
+            ],
+            "improvement_fraction": 0.33429837503071835,
+            "in_fitted_index_range_fraction": 0.6892361111111112,
+            "pearson": 0.7124518251852554,
+            "position_permuted_error_q05_nat": 0.004833844490349293,
+            "position_permuted_median_errors_nat": [
+              0.005353379718144424,
+              0.005961745671811514,
+              0.005120793357491493,
+              0.005176653624403116,
+              0.005374236032366753,
+              0.005674883723258972,
+              0.004833844490349293,
+              0.005914593115448952,
+              0.005509899579919875,
+              0.005726263450924307,
+              0.005342605523765087,
+              0.005745461037949548,
+              0.005868914257735014,
+              0.0049643936256567635,
+              0.006274059414863586,
+              0.005112148355692625
+            ],
+            "prediction_rms_nat": 0.02556764596082255,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.0028558671474456787,
+            "single_over_additive": 0.6657016249692816,
+            "single_over_permuted_q05": 0.5908065832790815
+          }
+        },
+        "N": {
+          "0.5": {
+            "actual_rms_nat": 0.020757075222798148,
+            "additive_median_absolute_error_nat": 0.002244526520371437,
+            "cosine": 0.4750967515764124,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.003255009651184082,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.0034155094693349773,
+                "single_over_additive": 1.049308553691234
+              },
+              {
+                "additive_median_absolute_error_nat": 0.0016543855890631676,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.0019624051364458546,
+                "single_over_additive": 1.186183649941674
+              }
+            ],
+            "improvement_fraction": -0.08489682517951014,
+            "in_fitted_index_range_fraction": 1.0,
+            "pearson": 0.4732819390683134,
+            "position_permuted_error_q05_nat": 0.0029838881787977046,
+            "position_permuted_median_errors_nat": [
+              0.0033301070370385577,
+              0.003200267122183702,
+              0.0037959907203912735,
+              0.0036741401224086685,
+              0.0029838881787977046,
+              0.0032979478460869616,
+              0.0034818782693429974,
+              0.0032594756890931805,
+              0.0032760900212451816,
+              0.003640432310007253,
+              0.0033128409025569754,
+              0.003423780290066426,
+              0.003175973892211914,
+              0.003915277369796752,
+              0.003222113475203514,
+              0.0036004977286049535
+            ],
+            "prediction_rms_nat": 0.011119387659230942,
+            "primary_holds": false,
+            "single_index_median_absolute_error_nat": 0.0024350796959821852,
+            "single_over_additive": 1.0848968251795101,
+            "single_over_permuted_q05": 0.8160760558270483
+          },
+          "1.5": {
+            "actual_rms_nat": 0.028206556297487258,
+            "additive_median_absolute_error_nat": 0.003456217236816883,
+            "cosine": 0.752165086677215,
+            "halves": [
+              {
+                "additive_median_absolute_error_nat": 0.006408138200640678,
+                "holds": true,
+                "single_index_median_absolute_error_nat": 0.004102898495537894,
+                "single_over_additive": 0.6402637345005592
+              },
+              {
+                "additive_median_absolute_error_nat": 0.002033485099673271,
+                "holds": false,
+                "single_index_median_absolute_error_nat": 0.002180368913290834,
+                "single_over_additive": 1.0722325497448508
+              }
+            ],
+            "improvement_fraction": 0.17239133125862705,
+            "in_fitted_index_range_fraction": 0.6284722222222222,
+            "pearson": 0.7501939404343958,
+            "position_permuted_error_q05_nat": 0.0038669737987220287,
+            "position_permuted_median_errors_nat": [
+              0.004040920262923464,
+              0.004216794079790512,
+              0.004763312899740413,
+              0.004182799719274044,
+              0.00413595512509346,
+              0.004314938792958856,
+              0.0038669737987220287,
+              0.003966037194913952,
+              0.004518707493969215,
+              0.004501538234762847,
+              0.0045411603059619665,
+              0.0044415098509845725,
+              0.004285620853589283,
+              0.004809733436559327,
+              0.004420941575695471,
+              0.004586986824870109
+            ],
+            "prediction_rms_nat": 0.022570208197639028,
+            "primary_holds": true,
+            "single_index_median_absolute_error_nat": 0.0028603953462430073,
+            "single_over_additive": 0.827608668741373,
+            "single_over_permuted_q05": 0.7396986623463342
+          }
+        }
+      }
+    }
+  },
+  "instrument": {
+    "empty_query_mask_max_abs": 0.0,
+    "expected_forwards": 4266,
+    "expected_patch_calls": 5634,
+    "factor_reconstruction_relative_squared_max": 7.358423656770381e-14,
+    "forwards": 4266,
+    "native_replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    },
+    "patch_calls": 5634,
+    "unit_strength_bridge_max_abs_nat": 0.0
+  },
+  "next_step": "attention1_exact_QK1_QK2_OV_downstream_use_decomposition",
+  "predictions": {
+    "pred_a_exact_live_scaled_intervention": true,
+    "pred_b_half_strength_causal_interpolation": false,
+    "pred_c_one_and_half_strength_causal_transfer": true,
+    "pred_d_document_half_stability": false,
+    "pred_e_local_causal_single_index_interpretation": false
+  },
+  "rung": 494,
+  "runtime_s": 91.6421365737915,
+  "status": "complete",
+  "strong_null": true
+}
