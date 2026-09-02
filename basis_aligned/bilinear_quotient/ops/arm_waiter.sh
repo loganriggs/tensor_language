@@ -8,11 +8,13 @@
 # in a shell whose cwd had drifted; the failure is silent in a background task.
 BQ="$(cd "$(dirname "$0")/.." && pwd)"
 MAX="${1:-240}"; IV="${2:-30}"
-OTHERS=$(pgrep -f "arm_waiter.sh" | grep -vw "$$" | tr '\n' ' ')
-if [ -n "$OTHERS" ]; then
-  echo "ALREADY-ARMED: another arm_waiter is live (pid(s): $OTHERS); refusing duplicate arm"
+PIDFILE="$BQ/runlogs/.arm_waiter.pid"
+if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+  echo "ALREADY-ARMED: live arm_waiter pid $(cat "$PIDFILE") holds $PIDFILE; refusing duplicate arm"
   exit 3
 fi
+echo $$ > "$PIDFILE"
+trap 'rm -f "$PIDFILE"' EXIT
 SENTINEL=$(grep -v canary "$BQ/runlogs/_completed.txt" | tail -1)
 echo "ARMED pid=$$ interval=${IV}s max=${MAX} sentinel=[$SENTINEL]"
 for i in $(seq 1 "$MAX"); do
