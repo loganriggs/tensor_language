@@ -11,11 +11,17 @@ for f in glob.glob(os.path.join(ROOT, '*_results.json')):
     if now - os.path.getmtime(f) < back * 60:
         try:
             rt = json.load(open(f)).get('runtime_s')
-            if rt: rows.append((os.path.basename(f)[:44], round(rt, 1)))
+            if rt:
+                # clip to window overlap: a 2.5h run landing 5 min ago must
+                # not claim 2.5h of THIS window (11:07 bug: busy ~224%)
+                end = os.path.getmtime(f)
+                overlap = min(end, now) - max(end - rt, now - back * 60)
+                rows.append((os.path.basename(f)[:44], round(rt, 1),
+                             round(max(0.0, overlap), 1)))
         except Exception: pass
 rows.sort(key=lambda r: -r[1])
 heavy = [r[1] for r in rows if r[1] > 100]; light = [r[1] for r in rows if r[1] <= 100]
-busy = sum(r[1] for r in rows)
+busy = sum(r[2] for r in rows)   # window-clipped
 print(f"receipts<{back}m: {len(rows)} | heavy {len(heavy)} median {statistics.median(heavy) if heavy else 0} | "
       f"light {len(light)} median {statistics.median(light) if light else 0} | busy {busy/60:.1f} min")
 tail = [l.split() for l in open(os.path.join(ROOT, 'runlogs/_completed.txt')).read().splitlines()[-40:] if l.strip()]
