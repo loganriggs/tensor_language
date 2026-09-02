@@ -100,7 +100,7 @@ No FINAL or SEALED model outcomes are used.
 
 1. **Matched positions:** branch effects on `member` and `slice_control` positions are retained separately; only their
    difference is called circuit-selective.
-2. **Circuit-label permutation:** for16 fixed seeds, permute the circuit labels in the second document half before
+2. **Circuit-label permutation:** for16 fixed seeds `2026090281..2026090296`, permute the circuit labels in the second document half before
    calculating cross-half profile cosine. This keeps effect sizes and branch geometry but destroys circuit identity.
 3. **Token-difficulty residual:** regress each branch profile on the full-model member-minus-control CE profile using
    only the first document half, then apply the frozen coefficient to the second half. Stability must hold both before
@@ -140,9 +140,10 @@ In both discovery halves, `abs(cosine(p_T,p_I)) <= .70`, and at least eight of t
 
 ### C-shared — downstream computation treats them as one variable
 
-In both discovery halves, `cosine(p_T,p_I) >= .90`; after fitting one scalar mapping from `p_T` to `p_I` on the first
-half, the scale-adjusted relative error is at most`.35` on the second half; and at most three circuits reverse the
-mapped sign across halves.
+In both discovery halves, `cosine(p_T,p_I) >= .90`. Fit
+`alpha=<p_T_half0,p_I_half0>/<p_T_half0,p_T_half0>` and require
+`norm(p_I_half1-alpha*p_T_half1)/norm(p_I_half1) <= .35`; at most three second-half circuits may have opposite signs
+between `p_I_half1` and `alpha*p_T_half1`.
 
 These are opposing hypotheses. The interval between them is deliberately unresolved: neither “some similarity” nor
 “some difference” licenses grouping or splitting.
@@ -166,8 +167,9 @@ Open the30 validation tags only if A and B hold and exactly one of C-split or C-
 
 - `T` and `I` again satisfy B's raw/residualized stability and control margins;
 - whichever of C-split or C-shared won on discovery satisfies the same thresholds on the30 new circuits; and
-- any branch pair selected as material by D keeps the same interaction sign and at least`.50` profile cosine between
-  the two validation halves.
+- any branch pair selected as material by D has at least`.50` profile cosine between the two validation halves, and
+  the sign of its median validation member-minus-control interaction matches the sign of its pooled discovery
+  median.
 
 ## Null and routing
 
