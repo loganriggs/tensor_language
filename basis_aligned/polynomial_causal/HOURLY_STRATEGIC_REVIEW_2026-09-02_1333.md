@@ -74,10 +74,10 @@ not retroactively passed.
 1. **Score rung488 and follow its frozen fork.** This directly advances cross-module grouping, held-out prediction,
    and selective factor interchange. It dies if discovery does not reproduce exactly the T--I context edge, either
    repaired instrument fails, or either validation quarter misses any original `.80/.50` or control clause.
-2. **If rung488 passes, extract the shared T/I midpoint reader.** Replace the two branch-specific midpoint uses by a
-   single explicit reader interface, test cross-document factor swaps, and measure unrelated T/C/I and equality
-   effects. It dies if the installed shared interface cannot reproduce the two native effects or causes comparable C
-   or off-target damage.
+2. **If rung488 passes, first test native-state dominance.** The post-review cell audit shows `T<-C` slightly beats
+   `T<-I`, while `I<-C` nearly matches `I<-T`. Since every midpoint is `z_N-change/2`, compare all donor midpoints
+   against the explicit `B(change,z_N)` term within each fixed target. A T/I-specific reader dies if T/I does not beat
+   both the C donor and native-state baseline. Only a survivor licenses extraction.
 3. **Test the site-graded T/I filtration.** Delete only the T-minus-I component entering attention1 and separately at
    MLP1-total. The existing Gram calculation predicts large damage at attention1 but small damage after MLP1. It dies
    if the two observation points lose proportionally similar effects. This can distinguish a true depth-dependent
@@ -95,3 +95,6 @@ Rung488 is active in the managed GPU runner. Its result, not the attractive rung
 The queue will not be allowed to drain without a scored receipt and an actually started result-dependent experiment.
 The next three-hour mathematical review is due after the 13:10 review's three-hour interval, not at the older 11:14
 clock.
+
+Post-review correction at 13:36: the native-state dominance control above supersedes immediate extraction on a
+rung488 pass. This is a stricter interpretation gate, not a change to rung488's registered scoring.
