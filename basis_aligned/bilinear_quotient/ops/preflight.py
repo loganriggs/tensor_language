@@ -10,6 +10,10 @@ Targets the three instrument-clause failure classes that cost reruns on
                      `_orth_error(...) <= tol` without a QR retraction.
   3. ABS-VS-REL   -- absolute `*_max_abs` tolerance bars on float32
                      replay quantities (prefer relative-squared bars).
+  6. CHAIN HOP    -- multi-hop module attribute chains like
+                     `parent.parent.path_parent.parent.helper(...)` (rung
+                     467: one hop wrong in a 6-deep inheritance chain =
+                     one abort).  Import the owning module directly.
   5. ORDER CHECK  -- tuple(...) equality against a frozen ID sequence
                      where the operand comes from JSON/dict iteration
                      (rung 456: spec reserialized in a different order,
@@ -70,6 +74,17 @@ def check(path: Path) -> list[str]:
 
 
 
+def _chain_check(text):
+    import re as _re
+    hits = [line.strip() for line in text.splitlines()
+            if _re.search(r"\w+(\.(parent|path_parent)){2,}\.", line)]
+    if hits:
+        return ("CHAIN HOP: multi-hop module attribute chain (rung 467 "
+                "class); import the helper's owning module directly. "
+                "Lines: " + " | ".join(h[:60] for h in hits[:2]))
+    return None
+
+
 def _order_check(text):
     import re as _re
     loads_json = _re.search(r"json\.loads?\(", text)
@@ -85,8 +100,9 @@ def _order_check(text):
 def main() -> None:
     bad = 0
     for arg in sys.argv[1:]:
-        extra = _order_check(Path(arg).read_text())
-        warnings_all = check(Path(arg)) + ([extra] if extra else [])
+        _text = Path(arg).read_text()
+        extras = [w for w in (_order_check(_text), _chain_check(_text)) if w]
+        warnings_all = check(Path(arg)) + extras
         for warning in warnings_all:
             bad += 1
             print(f"{arg}: WARN {warning}")
