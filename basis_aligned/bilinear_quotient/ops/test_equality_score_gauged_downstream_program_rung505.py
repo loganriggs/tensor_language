@@ -93,6 +93,20 @@ def test_mobius_interaction_vanishes_for_additive_subset_values():
         for mask in r505.SUBSETS:
             if mask.bit_count() >= 2:
                 assert max(abs(value) for value in window["mobius_dividends"][source][mask].values()) < 1e-12
+    analysis = r505.analyze(data)
+    diagnostics = {
+        "native_replay_logit_max_abs": 0.0,
+        "native_replay_relative_squared": 0.0,
+        "factor_reconstruction_max": 0.0,
+        "minimum_score_edit_rms": 1.0,
+        "source_patch_rms_max": {source: 1.0 for source in r505.SOURCES},
+        "calls_exact": True,
+        "captures_exact": True,
+        "patches_exact": True,
+        "support": {cell: [1, 1] for cell in r505.CELLS},
+    }
+    verdict = r505.score(analysis, diagnostics)
+    assert len(verdict) == 6 and all(isinstance(value, bool) for value in verdict)
 
 
 def test_true_dry_run_opens_no_model_or_outcomes():
