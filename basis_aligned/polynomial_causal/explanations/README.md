@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1330.md](explanation_2026-09-02_1330.md) — full update since 02:19, now current through
+  14:19: shared cross-head equality matching, selective downstream MLP parts, failed within-MLP grouping routes,
+  exact MLP0 paths, the held-out midpoint graph and its native-state confound, the validated T/I-versus-C MLP1
+  response rule, a percentage graph, and the live exact named-source decomposition
 - [explanation_2026-09-02_1140.md](explanation_2026-09-02_1140.md) — consolidated update since 02:19: the whole-head
   equality factorial, shared cross-head matcher, distributed three-MLP correction, failed product/sparse/common-block
   groupings, exact query-position circuit, guarded code-only composition result, downstream-defined attention0
