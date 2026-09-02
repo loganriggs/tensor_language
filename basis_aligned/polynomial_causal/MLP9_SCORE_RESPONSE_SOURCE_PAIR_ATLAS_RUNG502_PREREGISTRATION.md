@@ -177,3 +177,75 @@ All 500 documents are still used exactly once in globally aligned four-document 
 source definitions, 210 pairs, selection rule, gradients, controls, thresholds, circuit tags, and closed validation
 set are unchanged. The implementation must assert these four exact intervals. This is a pre-outcome batching repair,
 not a result-dependent scientific change.
+
+## Instrument-repair addendum — rung 502b, 2026-09-02 19:12 UTC
+
+The first rung502 receipt is preserved at result SHA256
+`77984dd9d68da79640d72a8c273718b32199d9eb67fea0b7c4038770141099c0` and bundle SHA256
+`c2d3a35565951218dd7f335bed6adb6322172db9b8fe3f12cf5ae1d4cad2604e`. It is instrument-invalid and none of
+its pair, group, or circuit outcomes may be reused to pass rung502b.
+
+Two independent instrument failures require a distinct namespace and complete rerun:
+
+1. The first implementation compared the early-absent score response with the fully native MLP9 write. The registered
+   parent response instead requires the `late_native` write in the same early-absent background. Rung502b therefore
+   runs one native early-present trajectory plus four early-absent trajectories (`late_native`, `late_absent`, score,
+   payload), for eight model forwards per batch and exactly1,000 forwards total.
+2. The explicit numerical source carried10.9--13.3% of the small MLP9 response, above the frozen2% ceiling. Whole-state
+   closure, float32/BF16 write agreement, and normalization-gain drift all passed, so silently discarding that term or
+   loosening2% is forbidden. Rung502b replaces the invalid source-accounting instrument with two exact allocation
+   gauges and requires the scientific answer to agree across them.
+
+### Exact deployed residual and two source-allocation gauges
+
+Rung502b owns a source-closed copy of the production forward loop so it can capture the exact deployed BF16 residual
+`x` immediately after attention9 and before MLP9 RMS normalization. The19 explicit attention/MLP sources retain the
+same registered residual-mixing coefficients. Let `e0` be the analytic embedding/skip contribution and let
+
+`raw_round = x.float() - e0 - sum(explicit_write_sources)`.
+
+Let `alpha=<z,x>/<x,x>` for the deployed normalized state `z`, and let
+
+`norm_round = z - alpha*x.float()`.
+
+Both complements are reported separately. They are implementation arithmetic, not semantic sources. Construct two
+20-source gauges:
+
+- `E_ABSORBS`: add all `raw_round` to `E`, multiply every raw source by `alpha`, then add all `norm_round` to `E`;
+- `PROPORTIONAL`: distribute `raw_round` among all20 raw sources in proportion to their per-token squared norms;
+  after multiplying by `alpha`, distribute `norm_round` in proportion to the resulting per-token squared norms.
+
+Each gauge sums exactly to the same deployed `z`. Every gauge independently produces the same named210-pair list and
+must meet the old float32 pair-closure and float32-versus-BF16 write bounds. Neither creates or selects a `NUMERICAL`
+source. Report the raw and normalized complement RMS relative to `x` and `z`, and their response contribution under
+the old explicit-numerical convention, but these diagnostics cannot be called semantic computation.
+
+### Frozen repaired predictions
+
+`A_b` holds only if all hashes, data roles, source names, edits, exact intervals, and the corrected1,000-forward price
+match; background-native replay is exact; both gauges reconstruct every deployed normalized state to `1e-12`, every
+independent float32 MLP9 write to `1e-8`, and deployed BF16 writes to the old `16u^2` bound; all responses/gradients
+are live and finite. The first receipt's `<2% NUMERICAL` clause cannot pass retroactively and is replaced only by the
+two exact allocations plus the cross-gauge requirements below.
+
+`B_b` repeats the old parent-response and payload-rejection bars in all four fixed document halves and both backgrounds,
+using each background's own `late_native` write. It must numerically reproduce rung501's background-specific MLP9
+cosines to absolute error at most`.03`.
+
+`C_b` applies the original per-pair selection and compact-group rules independently in `E_ABSORBS` and `PROPORTIONAL`.
+The complete selected pair-name sets must be identical, nonempty, and at most32. Without reselection, that same set
+must meet every original C confirmation bar in both gauges, and every selected pair must preserve both registered
+signs across halves and gauges. No union, intersection, or best gauge is permitted after seeing outcomes.
+
+`D_b` applies the original32-tag member-minus-control,16-position-roll, norm, residual, and payload bars independently
+in both gauges. All support-qualified coordinates are retained. Both gauges must pass and must agree on the sign of
+every selected-pair copy-gradient contribution in every confirmation half/background.
+
+`E_b` is true only if `A_b--D_b` hold. It licenses the same separately preregistered finite MLP9 group-removal test and
+nothing stronger. Gauge disagreement means the semantic source-pair atlas is not identified at deployed precision;
+the next object is an exact finite upstream-source factorial or a clearly labeled float32 explanatory tensor, not a
+third allocation, rank sweep, or threshold change.
+
+The data,20 source names,210 pairs,0:248 selection,248:500 confirmation, pair thresholds, compactness ceiling,
+payload controls, circuit masks, position controls, closed documents500:1000/30 validation tags, and zero deployed-
+parameter claim remain unchanged. Store sufficient statistics for both gauges and no raw token/logit/vector data.
