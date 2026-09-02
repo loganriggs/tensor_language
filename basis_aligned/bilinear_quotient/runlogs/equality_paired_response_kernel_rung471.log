@@ -1,0 +1,678 @@
+{
+  "analysis": {
+    "any_natural_improvement": true,
+    "cross_source_ok": false,
+    "frozen_scales": {
+      "H": {
+        "m12": 0.8998058014472895,
+        "m8": 1.0189559554557848,
+        "m9": 0.8033763010311907,
+        "union": 0.7306650559361868
+      },
+      "N": {
+        "m12": 0.9273700209649979,
+        "m8": 1.11528940984697,
+        "m9": 0.93154468890244,
+        "union": 0.75469485564242
+      }
+    },
+    "individual_prediction_intersection": [
+      "m12",
+      "m8",
+      "m9"
+    ],
+    "pred_b_heldout_code": false,
+    "pred_c_natural": false,
+    "pred_d_spatial_computation": false,
+    "pred_e_shared_downstream_use": false,
+    "reports": {
+      "code_validation": {
+        "H": {
+          "cross_source_kernel_cosine": 0.8597796890031052,
+          "m12": {
+            "absolute_profile_cosine": 0.999367540693457,
+            "absolute_region_profile": [
+              0.01450876449327628,
+              0.000378502959819708,
+              0.0040316539115584265,
+              0.004168646986381456
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.0306789360171096,
+              "pearson": 0.7248612446007395,
+              "rmse": 0.0226608086966428,
+              "rmse_improvement": 0.2613561081777771
+            },
+            "signed_profile_cosine": 0.8633956843486693,
+            "signed_region_profile": [
+              -0.0017987778257406717,
+              -0.00030688616009359276,
+              -0.0020982141659639333,
+              -0.0018687220202314354
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.9995841067200604,
+            "absolute_region_profile": [
+              0.025504602561341017,
+              0.0009950050062741411,
+              0.006068705257405327,
+              0.006233556561679639
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.042519015170270465,
+              "pearson": 0.7592530038281627,
+              "rmse": 0.028927116637265864,
+              "rmse_improvement": 0.3196663534791402
+            },
+            "signed_profile_cosine": 0.6173470730763738,
+            "signed_region_profile": [
+              -0.0059510767326476826,
+              -0.0006693150025493347,
+              0.0010792369698909472,
+              -1.1039035932469687e-05
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9994281689569678,
+            "absolute_region_profile": [
+              0.019936276267041347,
+              0.0006788803422212627,
+              0.0059849388367183565,
+              0.00615733892297025
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.04281700314041128,
+              "pearson": 0.7735599734444717,
+              "rmse": 0.028753223541058782,
+              "rmse_improvement": 0.3284624931182749
+            },
+            "signed_profile_cosine": 0.061640074667213156,
+            "signed_region_profile": [
+              -0.004624620059530571,
+              -0.00033922484750348314,
+              -0.0005647498673984804,
+              -0.0025294205854251572
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.9752990437737925,
+              "normalized_l2_error": 0.3851614339142956,
+              "prediction_norm": 0.04294313380689894,
+              "projection_on_target": 1.258941819179806,
+              "target_norm": 0.03326793716790242
+            },
+            "exact_context_vector": [
+              -0.021458113903773356,
+              0.003870462722117358,
+              0.0111556117332018,
+              -0.02251392538574609
+            ],
+            "metrics": {
+              "context_control_rmse": 0.06548434892943354,
+              "pearson": 0.8950080422287521,
+              "rmse": 0.030800371700920336,
+              "rmse_improvement": 0.5296529292196054
+            },
+            "predicted_context_vector": [
+              -0.028128966778964738,
+              -0.0019952461316722413,
+              0.008315235205170527,
+              -0.03130095566371519
+            ]
+          }
+        },
+        "N": {
+          "cross_source_kernel_cosine": 0.8597796890031052,
+          "m12": {
+            "absolute_profile_cosine": 0.9997569562622365,
+            "absolute_region_profile": [
+              0.018131135174371593,
+              0.00035467911140263375,
+              0.004388338860162359,
+              0.003963765057347264
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03839863934013734,
+              "pearson": 0.7823930333886673,
+              "rmse": 0.02502589086257583,
+              "rmse_improvement": 0.34826099849801817
+            },
+            "signed_profile_cosine": 0.47585376497171966,
+            "signed_region_profile": [
+              -0.0039406303206609055,
+              -0.0002751500231733169,
+              -0.002238493772734292,
+              -0.0016882305308835537
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.9996446402517678,
+            "absolute_region_profile": [
+              0.03172220300651437,
+              0.0012045548389304865,
+              0.006922540962634116,
+              0.0065789413666053065
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.060276059210472306,
+              "pearson": 0.8369552553387667,
+              "rmse": 0.03355879997436104,
+              "rmse_improvement": 0.4432482744570242
+            },
+            "signed_profile_cosine": 0.9728925152767117,
+            "signed_region_profile": [
+              -0.013841304858033254,
+              -0.0007082461285582061,
+              0.0009722225385632536,
+              0.000730004827974066
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9992583556821971,
+            "absolute_region_profile": [
+              0.024558430618602262,
+              0.0006707384458004562,
+              0.006410743325422648,
+              0.005750830149359842
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.05212516783748881,
+              "pearson": 0.767505235894902,
+              "rmse": 0.03470425359663175,
+              "rmse_improvement": 0.334213105944722
+            },
+            "signed_profile_cosine": 0.7220554680620132,
+            "signed_region_profile": [
+              -0.009102584181997978,
+              -0.00021380541334314884,
+              0.00010076667305725096,
+              -0.0021212662529042823
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.9400215487057846,
+              "normalized_l2_error": 0.818725350700596,
+              "prediction_norm": 0.060446302085978794,
+              "projection_on_target": 1.58327911470666,
+              "target_norm": 0.035888066717110007
+            },
+            "exact_context_vector": [
+              -0.021301237201052054,
+              8.96468979887443e-05,
+              0.011821916724396189,
+              -0.02635232199999419
+            ],
+            "metrics": {
+              "context_control_rmse": 0.08406785797282992,
+              "pearson": 0.9175974898483185,
+              "rmse": 0.03624979503543641,
+              "rmse_improvement": 0.5688031560510074
+            },
+            "predicted_context_vector": [
+              -0.03504392849385355,
+              -0.01480385614880842,
+              0.0054618024723431715,
+              -0.04665504333365876
+            ]
+          }
+        }
+      },
+      "natural_wave0": {
+        "H": {
+          "cross_source_kernel_cosine": 0.8245572759015428,
+          "m12": {
+            "absolute_profile_cosine": 0.962190298445781,
+            "absolute_region_profile": [
+              0.005943853884478756,
+              1.7761913923851347e-05,
+              0.0006625808952532783,
+              0.00045965110616266416
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03365949069432043,
+              "pearson": 0.6001648148551453,
+              "rmse": 0.02615350556858643,
+              "rmse_improvement": 0.22299758466043962
+            },
+            "signed_profile_cosine": 0.05324776309985756,
+            "signed_region_profile": [
+              -0.0011732909330802953,
+              -3.6763484960293014e-06,
+              -3.8073310259782065e-05,
+              2.3769469651301274e-05
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.981029456636739,
+            "absolute_region_profile": [
+              0.008946349601881788,
+              8.013279072338327e-05,
+              0.0011724664037245514,
+              0.0005649353639676738
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03797314494531275,
+              "pearson": 0.6269687823008222,
+              "rmse": 0.026361411080835086,
+              "rmse_improvement": 0.3057880478743694
+            },
+            "signed_profile_cosine": -0.3418169247386744,
+            "signed_region_profile": [
+              0.0008302590814978235,
+              1.3770275603022358e-05,
+              0.00015689938359671882,
+              3.7659384724411806e-05
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9779590737910535,
+            "absolute_region_profile": [
+              0.005886563739226939,
+              4.969100001618262e-05,
+              0.00123434577385565,
+              0.00068085448462519
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03126655072340715,
+              "pearson": 0.529622969841688,
+              "rmse": 0.026321037976710333,
+              "rmse_improvement": 0.1581726360047272
+            },
+            "signed_profile_cosine": 0.39233375762400763,
+            "signed_region_profile": [
+              0.0005812903220374503,
+              1.7557343904409837e-05,
+              -0.0001296909816392411,
+              4.0466562539199835e-05
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.03463338524912846,
+              "normalized_l2_error": 1.074048313663337,
+              "prediction_norm": 0.003275529850818666,
+              "projection_on_target": 0.014824935820319211,
+              "target_norm": 0.007652153681700085
+            },
+            "exact_context_vector": [
+              0.00390745974639918,
+              0.002941046199203211,
+              0.0014211743601558696,
+              0.005711192956888616
+            ],
+            "metrics": {
+              "context_control_rmse": 0.0569854731913813,
+              "pearson": 0.7863903392209707,
+              "rmse": 0.02898376501069124,
+              "rmse_improvement": 0.49138327037574103
+            },
+            "predicted_context_vector": [
+              0.0023291215678623977,
+              -0.00034421469516699246,
+              0.0015654614707218651,
+              -0.001653824402117343
+            ]
+          }
+        },
+        "N": {
+          "cross_source_kernel_cosine": 0.8245572759015428,
+          "m12": {
+            "absolute_profile_cosine": 0.9858153062657141,
+            "absolute_region_profile": [
+              0.00473565106817076,
+              1.4649327383045293e-05,
+              0.0005596742850920371,
+              0.0003950020897715795
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.028161111154023057,
+              "pearson": 0.6418237438301911,
+              "rmse": 0.020741836434601507,
+              "rmse_improvement": 0.2634581667904692
+            },
+            "signed_profile_cosine": 0.5943606025511377,
+            "signed_region_profile": [
+              -3.697200112969169e-05,
+              -3.465924236113968e-06,
+              -6.12746917802799e-05,
+              1.8204528150945228e-06
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.9885397372076346,
+            "absolute_region_profile": [
+              0.006676830501350409,
+              6.50600501285637e-05,
+              0.0008467092627924865,
+              0.000372359047799414
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.04187597988318204,
+              "pearson": 0.7041730156893824,
+              "rmse": 0.026166513389391025,
+              "rmse_improvement": 0.3751426602461463
+            },
+            "signed_profile_cosine": -0.9609289414304342,
+            "signed_region_profile": [
+              0.0027499524720851,
+              -1.2637767132629487e-05,
+              -8.696612613082334e-06,
+              1.8608765758730185e-07
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9932794948854725,
+            "absolute_region_profile": [
+              0.004379507192387683,
+              4.0262350039179196e-05,
+              0.000989356477382857,
+              0.0005062245681724794
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.02462629298480641,
+              "pearson": 0.35978444692826167,
+              "rmse": 0.021210554467960233,
+              "rmse_improvement": 0.13870291070416374
+            },
+            "signed_profile_cosine": -0.5755254786375403,
+            "signed_region_profile": [
+              0.0007520434937676232,
+              1.46695827441616e-05,
+              -3.47392358799606e-05,
+              2.3278049954900127e-05
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.9771080812580626,
+              "normalized_l2_error": 0.6382536158523864,
+              "prediction_norm": 0.009226916145736584,
+              "projection_on_target": 0.3667615028078497,
+              "target_norm": 0.024581899305318122
+            },
+            "exact_context_vector": [
+              0.019959438351242868,
+              0.004785838847260029,
+              0.00535690532847868,
+              0.012421348799124373
+            ],
+            "metrics": {
+              "context_control_rmse": 0.05956922840325635,
+              "pearson": 0.8394078124818578,
+              "rmse": 0.026388445699954837,
+              "rmse_improvement": 0.557012128454692
+            },
+            "predicted_context_vector": [
+              0.00835616010230155,
+              0.0008567837456925417,
+              0.0021397464733581293,
+              0.0031619577081337885
+            ]
+          }
+        }
+      },
+      "natural_wave1": {
+        "H": {
+          "cross_source_kernel_cosine": 0.7956192014445419,
+          "m12": {
+            "absolute_profile_cosine": 0.967694034512681,
+            "absolute_region_profile": [
+              0.003828136776363659,
+              1.304217380579976e-05,
+              0.0005341130772460456,
+              0.00032738137959908986
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.024827754944267155,
+              "pearson": 0.5177469992776709,
+              "rmse": 0.02035908638751054,
+              "rmse_improvement": 0.17998681583525344
+            },
+            "signed_profile_cosine": 0.025572383118968985,
+            "signed_region_profile": [
+              -0.0010998101210214866,
+              2.5396363395451906e-06,
+              6.303031776006922e-06,
+              2.4287148664615493e-05
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.9859502804412822,
+            "absolute_region_profile": [
+              0.005894035198693581,
+              6.232727532699822e-05,
+              0.0011666455813555594,
+              0.0004425119149233612
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.02881193478031434,
+              "pearson": 0.38035250922065583,
+              "rmse": 0.023015214228128553,
+              "rmse_improvement": 0.20119164493411168
+            },
+            "signed_profile_cosine": -0.474733040511781,
+            "signed_region_profile": [
+              0.002908472091334824,
+              -4.2044178653379465e-06,
+              -1.0026470463904888e-05,
+              2.3583771790871427e-05
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9687652360733554,
+            "absolute_region_profile": [
+              0.0054334705179364855,
+              4.4544857324204636e-05,
+              0.0009687602147496754,
+              0.00044507598206906346
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03057648199607009,
+              "pearson": 0.6709574498070943,
+              "rmse": 0.022281578906902473,
+              "rmse_improvement": 0.27128376280285404
+            },
+            "signed_profile_cosine": 0.32201192163932874,
+            "signed_region_profile": [
+              2.2203895539825897e-05,
+              -1.4565005091546923e-05,
+              -5.4246932673770086e-05,
+              -5.824193134301714e-07
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.7826179270711121,
+              "normalized_l2_error": 0.7665534124429553,
+              "prediction_norm": 0.0031715867170957006,
+              "projection_on_target": 0.2624103685232385,
+              "target_norm": 0.009459003605796537
+            },
+            "exact_context_vector": [
+              0.006993781978216691,
+              0.0032300686000905675,
+              0.004854225836970727,
+              0.0025618179517752854
+            ],
+            "metrics": {
+              "context_control_rmse": 0.04726907641510981,
+              "pearson": 0.7028755114529207,
+              "rmse": 0.02461730638457904,
+              "rmse_improvement": 0.47920906750126413
+            },
+            "predicted_context_vector": [
+              0.0012423343196336126,
+              0.0013373956859960138,
+              0.002507241290044923,
+              -0.0006638385608651361
+            ]
+          }
+        },
+        "N": {
+          "cross_source_kernel_cosine": 0.7956192014445419,
+          "m12": {
+            "absolute_profile_cosine": 0.9922206443679739,
+            "absolute_region_profile": [
+              0.002789238426987417,
+              1.1093704887190498e-05,
+              0.0005470016155512866,
+              0.0002758589678527601
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.019761096347033217,
+              "pearson": 0.36895699991835595,
+              "rmse": 0.016973850559976744,
+              "rmse_improvement": 0.1410471229990703
+            },
+            "signed_profile_cosine": -0.03371975073468463,
+            "signed_region_profile": [
+              -0.0006361909686664428,
+              1.5594971055250817e-06,
+              -6.839839160056409e-05,
+              -6.429243761234503e-06
+            ]
+          },
+          "m8": {
+            "absolute_profile_cosine": 0.9930553662478541,
+            "absolute_region_profile": [
+              0.004049663909460617,
+              6.08255656877899e-05,
+              0.0009602071275210214,
+              0.00033107014524604017
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.03191164796052018,
+              "pearson": 0.5418429986661429,
+              "rmse": 0.022288645415624846,
+              "rmse_improvement": 0.3015514133522822
+            },
+            "signed_profile_cosine": -0.9536155470608425,
+            "signed_region_profile": [
+              0.0025959284688965765,
+              -2.3205376860394266e-05,
+              4.5969742088411425e-05,
+              -4.250654810875517e-05
+            ]
+          },
+          "m9": {
+            "absolute_profile_cosine": 0.9893111445789998,
+            "absolute_region_profile": [
+              0.004121277865828314,
+              3.50412611245729e-05,
+              0.0007518513518397126,
+              0.0003620149278165489
+            ],
+            "dominant_region": "query",
+            "dominant_same_as_fit": true,
+            "metrics": {
+              "context_control_rmse": 0.026939976591727765,
+              "pearson": 0.5844920142190783,
+              "rmse": 0.0188702141474073,
+              "rmse_improvement": 0.2995460080243121
+            },
+            "signed_profile_cosine": -0.3678858978289606,
+            "signed_region_profile": [
+              0.00015719216447429574,
+              -1.1925709137298087e-05,
+              3.549559031726842e-05,
+              -2.6548128283371275e-05
+            ]
+          },
+          "union": {
+            "context_metrics": {
+              "cosine": 0.9159663634228868,
+              "normalized_l2_error": 0.7415246643561537,
+              "prediction_norm": 0.0029806559666974253,
+              "projection_on_target": 0.2678151997616759,
+              "target_norm": 0.010194270559923821
+            },
+            "exact_context_vector": [
+              0.0011018138163937973,
+              0.006675778854639479,
+              0.006241791471681305,
+              0.004379860097186692
+            ],
+            "metrics": {
+              "context_control_rmse": 0.04696925026970069,
+              "pearson": 0.5883461518386912,
+              "rmse": 0.024285154069833382,
+              "rmse_improvement": 0.4829563186470649
+            },
+            "predicted_context_vector": [
+              0.0014581579756744508,
+              0.0015422814584425883,
+              0.0017808016243013257,
+              0.0010991809621786182
+            ]
+          }
+        }
+      }
+    },
+    "spatial_module_intersection": []
+  },
+  "execution_price": {
+    "backwards": 1532,
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 480,
+    "peak_gpu_memory_bytes": 3295599616
+  },
+  "instrument": {
+    "factor_error": 7.358423656770381e-14,
+    "future_abs": 0.0,
+    "region_error": 1.8248101696372032e-08,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "exact_target_region_intervention_or_nonlinear_state_use_variable_no_rank_tuning",
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_heldout_code": false,
+    "pred_c_natural": false,
+    "pred_d_spatial_computation": false,
+    "pred_e_shared_downstream_use": false
+  },
+  "rung": 471,
+  "runtime_s": 30.55385422706604,
+  "status": "complete",
+  "strong_null": true
+}
