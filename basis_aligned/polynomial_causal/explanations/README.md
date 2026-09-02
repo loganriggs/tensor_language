@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0219.md](explanation_2026-09-02_0219.md) — full update since 00:24: no new model result;
+  direction corrected from rank reduction to task-conditioned circuit boundaries; exact four-head equality subset
+  factorial specified; interaction and interchange computations defined; downstream MLP-consumer plan explained;
+  completed preparation separated from the still-unrun experiment
 - [explanation_2026-09-02_0024.md](explanation_2026-09-02_0024.md) — explains and preserves the recent common causal
   measurements, corrects their role from simplicity supervision to later robustness validation, explicitly lists
   the seven circuit-interpretation goals, and redirects current work from rank reduction to task-conditioned grouping
