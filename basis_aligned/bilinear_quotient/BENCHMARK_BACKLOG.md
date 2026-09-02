@@ -4600,3 +4600,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Projector factorial + diagnostics (§2599): TEMPORAL REPRODUCIBILITY BREACH — 474's own code fresh-vs-bundle .084 nat; cross-session bundle bridges unsafe at <.1 nat; canary fingerprint live (first baseline 08:24). Projector-form question OPEN pending in-run-baseline b-variant (code cosine .9389 unclaimed).
 
 - Rungs 480/481 + decider trio (§2600–§2602): attention0 gauge-stable B-positive preserved (geometry fixed, semantics view-specific); MLP0 branches task-unselective at circuit grain; breach H-B confirmed + contained (cause unknown, tripwire live); projector-form code-register alignment .9389 CLAIMED (c-variant, sound instrument); next objects: consumer attention1/MLP1 Jacobians (Codex), natural-register arc still parked.
+
+- Guard (§2603): projector code claim half-stable, GUARDED. Frame-comparison: natural composition is orthogonal-component-carried (projector shrinks natural norms 5-20x to sub-material while code stays material) — mirror-test (orthogonal-complement projector rung) is the natural-arc's concrete opener when it wakes.
