@@ -1,0 +1,1447 @@
+{
+  "execution_price": {
+    "deployed_parameters_saved": 0,
+    "fit_candidates": 19,
+    "outer_forwards": 576,
+    "peak_gpu_memory_bytes": 3159521280,
+    "validation_candidates": 0
+  },
+  "factor_reconstruction_relative_squared_max": 7.133443060238379e-14,
+  "fit_screen": {
+    "candidates": [
+      {
+        "all_positive_recovery": -0.0017729916165054637,
+        "candidate": "m8",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.00019487012119373328,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.020853996633384025,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.0111746112796001,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.013761619139861066,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.007299238047079252,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.038393607272624766,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9145118343938579,
+            "hybrid_raw_coordinate_rms": 23.202250987677058,
+            "reference_raw_coordinate_rms": 24.932567695692352,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9285848922280096,
+            "hybrid_raw_coordinate_rms": 11.67644307471679,
+            "reference_raw_coordinate_rms": 15.984752071037455,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9139337817778914,
+            "hybrid_raw_coordinate_rms": 25.756528952606395,
+            "reference_raw_coordinate_rms": 27.43875227941058,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9169618879941558,
+            "hybrid_raw_coordinate_rms": 28.239177558474864,
+            "reference_raw_coordinate_rms": 29.28499279594402,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8573168213282018,
+            "hybrid_raw_coordinate_rms": 8.443822666511208,
+            "reference_raw_coordinate_rms": 10.055904085775584,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9398387307245399,
+            "hybrid_raw_coordinate_rms": 9.941778184410571,
+            "reference_raw_coordinate_rms": 12.662738764856272,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.026942103633348927,
+        "candidate": "a9",
+        "context_order": {
+          "far_gt_near": false,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.002961215919674174,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.0048751924168639,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.0039150874969643935,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.0017275894699578821,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": -0.00022255809641055427,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.0003911811237377415,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9450657680172746,
+            "hybrid_raw_coordinate_rms": 15.519949013813797,
+            "reference_raw_coordinate_rms": 15.395411919249897,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9354622684033489,
+            "hybrid_raw_coordinate_rms": 5.782333341500135,
+            "reference_raw_coordinate_rms": 6.716961454508047,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9455890687255943,
+            "hybrid_raw_coordinate_rms": 17.46257961198307,
+            "reference_raw_coordinate_rms": 17.274274077224906,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9465788147779259,
+            "hybrid_raw_coordinate_rms": 19.353736096641722,
+            "reference_raw_coordinate_rms": 18.992257949678038,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.9198450609112347,
+            "hybrid_raw_coordinate_rms": 5.2377258852116535,
+            "reference_raw_coordinate_rms": 5.575733971950428,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.927176784554695,
+            "hybrid_raw_coordinate_rms": 3.96026475090068,
+            "reference_raw_coordinate_rms": 4.6142449812165145,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.058927051526535365,
+        "candidate": "m9",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.006476692594406255,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.009689918311314175,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.013421616782454586,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.016896652737517483,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.007535802549483557,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.017931355479395866,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9171275174136672,
+            "hybrid_raw_coordinate_rms": 19.85264708832053,
+            "reference_raw_coordinate_rms": 21.423121092721757,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9257118655241201,
+            "hybrid_raw_coordinate_rms": 10.487411196390902,
+            "reference_raw_coordinate_rms": 14.155158163714567,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9166517410814716,
+            "hybrid_raw_coordinate_rms": 21.997610499240686,
+            "reference_raw_coordinate_rms": 23.54395687070833,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9200235898210966,
+            "hybrid_raw_coordinate_rms": 24.026384889810597,
+            "reference_raw_coordinate_rms": 25.012301451877068,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8543640535087647,
+            "hybrid_raw_coordinate_rms": 7.6566587355145534,
+            "reference_raw_coordinate_rms": 8.986200350382436,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9369047895598985,
+            "hybrid_raw_coordinate_rms": 8.867868107396236,
+            "reference_raw_coordinate_rms": 11.12557852872588,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": 0.005167463657699447,
+        "candidate": "a10",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": false
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.0005679577161367815,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.0036925624021290357,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.001085728920276861,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.0014459619904046421,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.001388014723119615,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.0012517575319619819,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9381695591130608,
+            "hybrid_raw_coordinate_rms": 10.513165046185525,
+            "reference_raw_coordinate_rms": 9.974547731031164,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9454531092947701,
+            "hybrid_raw_coordinate_rms": 4.989215657918232,
+            "reference_raw_coordinate_rms": 5.743789529364145,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9387789152560059,
+            "hybrid_raw_coordinate_rms": 11.790911396264685,
+            "reference_raw_coordinate_rms": 11.128896532601166,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9396678615324979,
+            "hybrid_raw_coordinate_rms": 12.873269184713617,
+            "reference_raw_coordinate_rms": 11.931200514459244,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.9039546465742431,
+            "hybrid_raw_coordinate_rms": 3.586997716999685,
+            "reference_raw_coordinate_rms": 3.8151405154585047,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9337420970275889,
+            "hybrid_raw_coordinate_rms": 3.219721396666304,
+            "reference_raw_coordinate_rms": 3.724968296409889,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": 0.05632533227793842,
+        "candidate": "m10",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.006190736732818236,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.012968227416445665,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.0016788018355765792,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": 0.0018224010806799933,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0026951243282562235,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.022048004702317544,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9175255809712131,
+            "hybrid_raw_coordinate_rms": 17.032205663684806,
+            "reference_raw_coordinate_rms": 18.294458171631568,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9257145554746908,
+            "hybrid_raw_coordinate_rms": 9.487668704388303,
+            "reference_raw_coordinate_rms": 12.641406673125898,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9170772110904202,
+            "hybrid_raw_coordinate_rms": 18.809116306764523,
+            "reference_raw_coordinate_rms": 20.01209342890622,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9205710533858256,
+            "hybrid_raw_coordinate_rms": 20.47082962405996,
+            "reference_raw_coordinate_rms": 21.151948852679116,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8509307034682604,
+            "hybrid_raw_coordinate_rms": 6.756604025309087,
+            "reference_raw_coordinate_rms": 7.872876707751211,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9358546545311239,
+            "hybrid_raw_coordinate_rms": 8.140494916931004,
+            "reference_raw_coordinate_rms": 10.170726534786377,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.007508867673160173,
+        "candidate": "a11",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.0008253022405038088,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.00016654984298168106,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.0012575177024066245,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.001249891770516602,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": -0.00016056743723756906,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.0006937259715707642,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9093617999869432,
+            "hybrid_raw_coordinate_rms": 8.566867806687469,
+            "reference_raw_coordinate_rms": 8.835990325832645,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9230082828516335,
+            "hybrid_raw_coordinate_rms": 6.647411431277179,
+            "reference_raw_coordinate_rms": 7.463954330926251,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9098408080656768,
+            "hybrid_raw_coordinate_rms": 9.369528014417506,
+            "reference_raw_coordinate_rms": 9.546881382447685,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9061666986500979,
+            "hybrid_raw_coordinate_rms": 9.6027963529803,
+            "reference_raw_coordinate_rms": 9.617130147544827,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.873592532257212,
+            "hybrid_raw_coordinate_rms": 4.124165958829382,
+            "reference_raw_coordinate_rms": 4.663776636692451,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9136345672553109,
+            "hybrid_raw_coordinate_rms": 4.774235727230471,
+            "reference_raw_coordinate_rms": 5.669766682613233,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": 0.03617551089150244,
+        "candidate": "m11",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.003976062901846538,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.017112775286070622,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.0003664406849006845,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.004491019052027623,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0030174227772181263,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.019237861797850083,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9149080719743868,
+            "hybrid_raw_coordinate_rms": 19.051682247326568,
+            "reference_raw_coordinate_rms": 20.561541906009342,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.922442564282579,
+            "hybrid_raw_coordinate_rms": 11.609651343418866,
+            "reference_raw_coordinate_rms": 15.263422017921773,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9142690418189717,
+            "hybrid_raw_coordinate_rms": 20.90143151727819,
+            "reference_raw_coordinate_rms": 22.308795757600905,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9179944704458627,
+            "hybrid_raw_coordinate_rms": 22.58403109888377,
+            "reference_raw_coordinate_rms": 23.347657470781943,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8451129477976489,
+            "hybrid_raw_coordinate_rms": 8.2394775193014,
+            "reference_raw_coordinate_rms": 9.552182299219378,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9329410074919252,
+            "hybrid_raw_coordinate_rms": 10.16033792359389,
+            "reference_raw_coordinate_rms": 12.630159294883185,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.0610000588498251,
+        "candidate": "a12",
+        "context_order": {
+          "far_gt_near": false,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.006704537545597384,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.00870236570579108,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.008356514147911503,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.005416865693815665,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.000820441506454311,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.000898639131980505,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9449231763630062,
+            "hybrid_raw_coordinate_rms": 7.279342971488893,
+            "reference_raw_coordinate_rms": 7.335627299591235,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9389748009140615,
+            "hybrid_raw_coordinate_rms": 4.357911712535804,
+            "reference_raw_coordinate_rms": 4.900429074270237,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9461139766400527,
+            "hybrid_raw_coordinate_rms": 8.099597463716579,
+            "reference_raw_coordinate_rms": 8.105020588744768,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9472856730692155,
+            "hybrid_raw_coordinate_rms": 8.654559566791775,
+            "reference_raw_coordinate_rms": 8.544987272280428,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.9106750931092977,
+            "hybrid_raw_coordinate_rms": 3.163735531956956,
+            "reference_raw_coordinate_rms": 3.4399836398363304,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9304027652225979,
+            "hybrid_raw_coordinate_rms": 2.9418463714043037,
+            "reference_raw_coordinate_rms": 3.472639478807408,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.029503357065841337,
+        "candidate": "m12",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.003242724169431949,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.008332429145301612,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.008026473537894067,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.010703325336448822,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.004495821746295916,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.01356984014327604,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9170300482287246,
+            "hybrid_raw_coordinate_rms": 18.858046751731752,
+            "reference_raw_coordinate_rms": 20.450874710950036,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9219271975972901,
+            "hybrid_raw_coordinate_rms": 11.654417448140865,
+            "reference_raw_coordinate_rms": 15.325572204451353,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9166475352218163,
+            "hybrid_raw_coordinate_rms": 20.659732987807587,
+            "reference_raw_coordinate_rms": 22.150676212902578,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9206037615251648,
+            "hybrid_raw_coordinate_rms": 22.300116936734266,
+            "reference_raw_coordinate_rms": 23.160821772409662,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8431117394077983,
+            "hybrid_raw_coordinate_rms": 8.238564355933581,
+            "reference_raw_coordinate_rms": 9.571230346509813,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9313391693460806,
+            "hybrid_raw_coordinate_rms": 10.266312201498549,
+            "reference_raw_coordinate_rms": 12.79599593919023,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.04281309254961013,
+        "candidate": "a13",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.004705601795379576,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.0031923922888431383,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.005820350875919761,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.005680919556055528,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.00024682897727558976,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.0007877981719972131,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.909891959138348,
+            "hybrid_raw_coordinate_rms": 6.796790872810563,
+            "reference_raw_coordinate_rms": 7.490644709660112,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9141023886516028,
+            "hybrid_raw_coordinate_rms": 5.437268937909373,
+            "reference_raw_coordinate_rms": 6.527451998377293,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9080916140696033,
+            "hybrid_raw_coordinate_rms": 7.2716903174822045,
+            "reference_raw_coordinate_rms": 7.958680354851574,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9100337830658909,
+            "hybrid_raw_coordinate_rms": 7.544308482710404,
+            "reference_raw_coordinate_rms": 8.050612596995096,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.868428684677067,
+            "hybrid_raw_coordinate_rms": 4.0933771355649045,
+            "reference_raw_coordinate_rms": 4.5942263655471,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9252229859978031,
+            "hybrid_raw_coordinate_rms": 4.766076364071145,
+            "reference_raw_coordinate_rms": 5.540475377518536,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": 0.04214626502567887,
+        "candidate": "m13",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.00463231055181469,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.008729776960034913,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.0019108500977587672,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": 0.0019913465977503047,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0010299075171040612,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.014196927212117683,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9156937409643702,
+            "hybrid_raw_coordinate_rms": 18.118945941102456,
+            "reference_raw_coordinate_rms": 19.577126169091578,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9215019944802249,
+            "hybrid_raw_coordinate_rms": 11.413480679909203,
+            "reference_raw_coordinate_rms": 14.93846072589384,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9153354188546574,
+            "hybrid_raw_coordinate_rms": 19.78447302098586,
+            "reference_raw_coordinate_rms": 21.10367257252008,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9192055679191714,
+            "hybrid_raw_coordinate_rms": 21.352582269042802,
+            "reference_raw_coordinate_rms": 22.05579496602721,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8405369919811545,
+            "hybrid_raw_coordinate_rms": 7.964945399744481,
+            "reference_raw_coordinate_rms": 9.20530684473525,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9297286728768971,
+            "hybrid_raw_coordinate_rms": 10.316381533432077,
+            "reference_raw_coordinate_rms": 12.845560872915785,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.14216106943239826,
+        "candidate": "a14",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.015624972262375506,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.0058022031669633135,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.019277819789257526,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.021956098994259862,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.004279243446508249,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.0027869807122530596,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.923790473355657,
+            "hybrid_raw_coordinate_rms": 12.420008896060677,
+            "reference_raw_coordinate_rms": 13.080332398554821,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9095092241479463,
+            "hybrid_raw_coordinate_rms": 8.021242305541499,
+            "reference_raw_coordinate_rms": 9.51224294751029,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9242031404940014,
+            "hybrid_raw_coordinate_rms": 13.643525757277354,
+            "reference_raw_coordinate_rms": 14.282182168474765,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9288249715480261,
+            "hybrid_raw_coordinate_rms": 14.567459955600917,
+            "reference_raw_coordinate_rms": 14.93494654461993,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8712857836185665,
+            "hybrid_raw_coordinate_rms": 6.182617600389202,
+            "reference_raw_coordinate_rms": 6.975041315848858,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9215733211790584,
+            "hybrid_raw_coordinate_rms": 6.494737079784144,
+            "reference_raw_coordinate_rms": 7.451040054204844,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.004552962784228299,
+        "candidate": "m14",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.0005004177128044485,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.00048807715120429893,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.001974220557786168,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.001137538080499863,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 4.3518380134976345e-05,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.004679286156897433,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9171501960205128,
+            "hybrid_raw_coordinate_rms": 17.809672172282255,
+            "reference_raw_coordinate_rms": 19.332784266040772,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9198588372699104,
+            "hybrid_raw_coordinate_rms": 11.905280292545392,
+            "reference_raw_coordinate_rms": 15.460419433452971,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9171048140075346,
+            "hybrid_raw_coordinate_rms": 19.309519488607393,
+            "reference_raw_coordinate_rms": 20.656264364337982,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9214218885006817,
+            "hybrid_raw_coordinate_rms": 20.742888561715898,
+            "reference_raw_coordinate_rms": 21.46150353161777,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8397262337372529,
+            "hybrid_raw_coordinate_rms": 8.331416276576768,
+            "reference_raw_coordinate_rms": 9.583679999982326,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9269106804683609,
+            "hybrid_raw_coordinate_rms": 11.02362747990516,
+            "reference_raw_coordinate_rms": 13.702255582228592,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.04240971193474804,
+        "candidate": "a15",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.004661266092619564,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.0036069159002679826,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.005114625632683197,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.0053408325796992845,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0008169297511565416,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.003067926676815278,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9236179820879648,
+            "hybrid_raw_coordinate_rms": 8.75364264280352,
+            "reference_raw_coordinate_rms": 9.352095580009037,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9220269185744641,
+            "hybrid_raw_coordinate_rms": 4.752385364282115,
+            "reference_raw_coordinate_rms": 5.836361857859744,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9238981443320128,
+            "hybrid_raw_coordinate_rms": 9.689506848532286,
+            "reference_raw_coordinate_rms": 10.28441976174362,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9254516447577904,
+            "hybrid_raw_coordinate_rms": 10.55735186204404,
+            "reference_raw_coordinate_rms": 11.03988154547895,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8915511897251747,
+            "hybrid_raw_coordinate_rms": 3.8561297007996305,
+            "reference_raw_coordinate_rms": 4.363363593422355,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9254206472970088,
+            "hybrid_raw_coordinate_rms": 3.995586020345056,
+            "reference_raw_coordinate_rms": 4.808257563199045,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": 0.0017870147654255946,
+        "candidate": "m15",
+        "context_order": {
+          "far_gt_near": false,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.00019641141033697795,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 1.7513910481670605e-06,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.0006748155743674815,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": 0.00032187676942030673,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0017069341569356574,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.003258352700128941,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.913178334921815,
+            "hybrid_raw_coordinate_rms": 20.01148711749742,
+            "reference_raw_coordinate_rms": 22.31438732463902,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9178762985221427,
+            "hybrid_raw_coordinate_rms": 14.831078918660042,
+            "reference_raw_coordinate_rms": 19.287296044884894,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9123067498963882,
+            "hybrid_raw_coordinate_rms": 21.45260768897882,
+            "reference_raw_coordinate_rms": 23.575351181710573,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9164774941696464,
+            "hybrid_raw_coordinate_rms": 22.733181017103274,
+            "reference_raw_coordinate_rms": 24.06448893038748,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8315633859496414,
+            "hybrid_raw_coordinate_rms": 9.965677642337267,
+            "reference_raw_coordinate_rms": 11.581371732722534,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9258891197913212,
+            "hybrid_raw_coordinate_rms": 13.800382148152124,
+            "reference_raw_coordinate_rms": 17.16284753481986,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.03757557837872626,
+        "candidate": "a16",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.004129944803134068,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": 0.0004110778024776286,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.004928610106385619,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.007056796623554768,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0015131815901995736,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.0013230227131580544,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9174855254733749,
+            "hybrid_raw_coordinate_rms": 13.181772169536767,
+            "reference_raw_coordinate_rms": 14.085201535264305,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9188427480597795,
+            "hybrid_raw_coordinate_rms": 8.871088117782007,
+            "reference_raw_coordinate_rms": 10.56825237030289,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.917780155399188,
+            "hybrid_raw_coordinate_rms": 14.447016228069476,
+            "reference_raw_coordinate_rms": 15.343400162537435,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9188256549212758,
+            "hybrid_raw_coordinate_rms": 15.330706855597281,
+            "reference_raw_coordinate_rms": 15.946076315829254,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8794936357442199,
+            "hybrid_raw_coordinate_rms": 6.884809132620212,
+            "reference_raw_coordinate_rms": 7.653634341972357,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9167857099476091,
+            "hybrid_raw_coordinate_rms": 7.13453741345174,
+            "reference_raw_coordinate_rms": 8.26201137016528,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.025283590459046334,
+        "candidate": "m16",
+        "context_order": {
+          "far_gt_near": false,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.002778928163618812,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.00313911426083833,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.004565507364843469,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.0025467753148233885,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": -9.078745964094299e-05,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.0035000332548788134,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.8959887313151293,
+            "hybrid_raw_coordinate_rms": 35.737554925638634,
+            "reference_raw_coordinate_rms": 41.11705917352547,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9094031568311324,
+            "hybrid_raw_coordinate_rms": 29.765701090515336,
+            "reference_raw_coordinate_rms": 39.60157146725348,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.8934664804585682,
+            "hybrid_raw_coordinate_rms": 37.995898545865245,
+            "reference_raw_coordinate_rms": 43.13238683069501,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.8961978647883595,
+            "hybrid_raw_coordinate_rms": 39.10626152312843,
+            "reference_raw_coordinate_rms": 42.06491910578098,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8187223278770346,
+            "hybrid_raw_coordinate_rms": 18.6607265741582,
+            "reference_raw_coordinate_rms": 22.182479902909193,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9167536685791958,
+            "hybrid_raw_coordinate_rms": 26.304970797270872,
+            "reference_raw_coordinate_rms": 33.07388954838652,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.037219475525346976,
+        "candidate": "a17",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.004090805415474566,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.00043362806702753037,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.005430206515291063,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.006447987290472449,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.0011461869706799635,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.0006165413530740602,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9198293396676857,
+            "hybrid_raw_coordinate_rms": 27.92392322400273,
+            "reference_raw_coordinate_rms": 29.96355028859805,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9182480294312876,
+            "hybrid_raw_coordinate_rms": 14.027809032506426,
+            "reference_raw_coordinate_rms": 19.250069228305474,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.920024934696849,
+            "hybrid_raw_coordinate_rms": 31.309306593974455,
+            "reference_raw_coordinate_rms": 33.50181296595017,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9247311029513648,
+            "hybrid_raw_coordinate_rms": 33.99246924757113,
+            "reference_raw_coordinate_rms": 35.18018393461289,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8895750920927613,
+            "hybrid_raw_coordinate_rms": 9.797793519260518,
+            "reference_raw_coordinate_rms": 10.959766065519677,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.918044741345939,
+            "hybrid_raw_coordinate_rms": 8.659641292847443,
+            "reference_raw_coordinate_rms": 10.421358511568753,
+            "tokens": 1240
+          }
+        }
+      },
+      {
+        "all_positive_recovery": -0.7230006852238929,
+        "candidate": "m17",
+        "context_order": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.07946525513212885,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "effect_nat": -0.05689612498814444,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.09315755908024216,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "effect_nat": -0.09401186839179448,
+            "tokens": 3404
+          },
+          "off_target": {
+            "effect_nat": 0.012708626232706207,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.031343432062872566,
+            "tokens": 1240
+          }
+        },
+        "qualifies": false,
+        "response_companion_not_used_for_selection": {
+          "all_positive": {
+            "cosine": 0.9194682334145988,
+            "hybrid_raw_coordinate_rms": 191.5963755725753,
+            "reference_raw_coordinate_rms": 212.46570134668707,
+            "tokens": 5598
+          },
+          "far_positive": {
+            "cosine": 0.9192058375034783,
+            "hybrid_raw_coordinate_rms": 92.01908705401632,
+            "reference_raw_coordinate_rms": 130.31361607440226,
+            "tokens": 2194
+          },
+          "multiple_predecessor_positive": {
+            "cosine": 0.9200102169735719,
+            "hybrid_raw_coordinate_rms": 213.99202380605996,
+            "reference_raw_coordinate_rms": 235.9082237246227,
+            "tokens": 4358
+          },
+          "near_positive": {
+            "cosine": 0.9236074013064312,
+            "hybrid_raw_coordinate_rms": 234.33295069111747,
+            "reference_raw_coordinate_rms": 251.57866571399438,
+            "tokens": 3404
+          },
+          "off_target": {
+            "cosine": 0.8664865385971265,
+            "hybrid_raw_coordinate_rms": 65.1022877723722,
+            "reference_raw_coordinate_rms": 77.71211025169809,
+            "tokens": 12285
+          },
+          "one_predecessor_positive": {
+            "cosine": 0.9172559621678351,
+            "hybrid_raw_coordinate_rms": 69.176304164849,
+            "reference_raw_coordinate_rms": 90.55682592095494,
+            "tokens": 1240
+          }
+        }
+      }
+    ],
+    "native_stakes": {
+      "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+      },
+      "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+      },
+      "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+      },
+      "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+      },
+      "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+      },
+      "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+      }
+    },
+    "qualified_count": 0,
+    "selected": null
+  },
+  "native_replay": {
+    "max_abs": 0.0,
+    "relative_squared": 0.0
+  },
+  "next_step": "test_distributed_cumulative_suffix_boundary_not_rank",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_discovery_candidate": false,
+    "pred_c_heldout_mediation": false,
+    "pred_d_context_law": false,
+    "pred_e_alignment_and_transplant": false
+  },
+  "rung": 462,
+  "runtime_s": 16.750518083572388,
+  "selected_candidate": null,
+  "status": "complete",
+  "strong_null": true,
+  "validation": null
+}
