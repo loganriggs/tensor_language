@@ -1,0 +1,65 @@
+{
+  "analysis": {
+    "eligible_counts": {
+      "m12": 4,
+      "m8": 3,
+      "m9": 4
+    },
+    "graphs": [
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m8+m9",
+        "pair_index": 0,
+        "right_indices": []
+      },
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m8+m12",
+        "pair_index": 1,
+        "right_indices": []
+      },
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m9+m12",
+        "pair_index": 2,
+        "right_indices": []
+      }
+    ],
+    "proposed_pair": null
+  },
+  "instrument": {
+    "backwards": 14182,
+    "contraction_error": 4.747653231408417e-14,
+    "control_min": 439,
+    "factor_error": 5.085501652043494e-14,
+    "forwards": 625,
+    "member_min": 39,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    },
+    "total_counts_exact": true,
+    "total_response_relative_squared": 1.8331514342333863e-17
+  },
+  "native_coordinate_strong_null_remains": true,
+  "next_step": "sparse_mixed_product_response_directions",
+  "predictions": {
+    "pred_a_corrected_instrument": true,
+    "pred_b_native_instability_robust": true,
+    "pred_c_graph_remains_empty": true,
+    "pred_d_only_half_allocation_changed": true,
+    "pred_e_reserved_outcomes_closed": true
+  },
+  "rung": "477b",
+  "runtime_s": 190.63143062591553,
+  "status": "complete"
+}
