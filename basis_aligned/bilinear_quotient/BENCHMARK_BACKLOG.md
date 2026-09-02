@@ -4608,3 +4608,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Rung 484 (§2605): strong null — exact attention1 A×B×V profiles are stable and T/I anti-aligned, but T needs the full interaction-heavy path and I's B+V near-miss is generic rather than equality-specific. Route: rung485 exact direct-MLP1 Left×Right finite path plus frozen token-conditioned effect test; no attention subset/rank tuning.
 
 - Mirror test (§2606): null fired, geometric reading retired; DISCOVERY — orthogonal component negligible everywhere (~5e-7 vs .003): the equality query channel is one-dimensional per position; frame differences = scalar magnitude bookkeeping; natural arc's question is now scalar recombination.
+
+- Rung 485 (§2607): strong null — exact MLP1 Left/Right path profiles are stable and shared on average across T/I, but neither side predicts the individual finite route and current-token means have near-zero held-out effect correlation. Next: rung486 full direct/attention1/MLP1 carrier cube for T/C/I plus the dossier's named previous×current context test; no rank or subset search.
