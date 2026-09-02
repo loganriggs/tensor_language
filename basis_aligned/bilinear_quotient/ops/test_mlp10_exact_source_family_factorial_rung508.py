@@ -45,5 +45,17 @@ def test_family_relationship_keeps_shared_input_separate_from_same_output():
     assert row["same_right_family"] is False
 
 
+def test_family_rounding_remainder_closes_in_float64_without_hiding_float32_error():
+    torch.manual_seed(509)
+    current = torch.randn(2, 3, 21, 5)
+    absent = torch.randn(2, 3, 21, 5)
+    current_semantic = current.double().sum(2).float()
+    absent_semantic = absent.double().sum(2).float()
+    _delta, preclosure, closure = rung._family_delta_closures(
+        current, absent, current_semantic, absent_semantic)
+    assert preclosure >= 0
+    assert closure < 1e-12
+
+
 def test_registered_price_includes_replay_and_intact_factor_captures():
     assert 12276 + 496 * torch.combinations(torch.arange(8), r=2).shape[0] == 26164

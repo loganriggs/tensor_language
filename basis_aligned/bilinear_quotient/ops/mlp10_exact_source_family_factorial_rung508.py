@@ -119,6 +119,24 @@ def _family_outputs(mlp, factors):
     return outputs, hidden.sum(2)
 
 
+def _family_delta_closures(current_groups, absent_groups, current_semantic, absent_semantic):
+    """Report native float32 discrepancy and close its bookkeeping remainder in float64."""
+    float32_delta = current_groups - absent_groups
+    semantic_delta = current_semantic - absent_semantic
+    preclosure = parent._relative_squared(float32_delta.sum(2), semantic_delta)
+    current64 = current_groups.double()
+    absent64 = absent_groups.double()
+    current_semantic64 = current_semantic.double()
+    absent_semantic64 = absent_semantic.double()
+    delta64 = (current64 - absent64).sum(2)
+    current_rounding64 = current_semantic64 - current64.sum(2)
+    absent_rounding64 = absent_semantic64 - absent64.sum(2)
+    closure = parent._relative_squared(
+        delta64 + current_rounding64 - absent_rounding64,
+        current_semantic64 - absent_semantic64)
+    return float32_delta, preclosure, closure
+
+
 def validate_inputs():
     for path, expected in HASHES.items():
         if not path.is_file() or sha256(path) != expected:
@@ -238,21 +256,17 @@ def collect_singletons(model, rows, task_masks, circuit_masks, circuit_tags, sca
                 parent._relative_squared(absent_sum,
                                          absent["factors"]["left"].sum(2)
                                          * absent["factors"]["right"].sum(2)))
-            group_deltas = current_groups - absent_groups
+            group_deltas, preclosure, closure = _family_delta_closures(
+                current_groups, absent_groups,
+                current["factors"]["semantic_output"],
+                absent["factors"]["semantic_output"])
             summed_delta = group_deltas.sum(2)
-            semantic_delta = current["factors"]["semantic_output"] \
-                - absent["factors"]["semantic_output"]
-            current_rounding = current["factors"]["semantic_output"] \
-                - current_groups.sum(2)
-            absent_rounding = absent["factors"]["semantic_output"] \
-                - absent_groups.sum(2)
             diagnostics["family_score_delta_preclosure_relative_squared"] = max(
                 diagnostics["family_score_delta_preclosure_relative_squared"],
-                parent._relative_squared(summed_delta, semantic_delta))
+                preclosure)
             diagnostics["family_score_delta_closure_relative_squared"] = max(
                 diagnostics["family_score_delta_closure_relative_squared"],
-                parent._relative_squared(
-                    summed_delta + current_rounding - absent_rounding, semantic_delta))
+                closure)
             source_nll = [parent._nll(logits, batch_rows).detach().cpu()]
             patch_deltas = (summed_delta,) + tuple(group_deltas[:, :, index]
                                                       for index in range(len(GROUP_NAMES)))
@@ -338,21 +352,16 @@ def collect_pairs(model, rows, task_masks, scales, bounds, pair_names):
                 parent._relative_squared(absent_sum,
                                          absent["factors"]["left"].sum(2)
                                          * absent["factors"]["right"].sum(2)))
-            group_deltas = current_groups - absent_groups
-            semantic_delta = current["factors"]["semantic_output"] \
-                - absent["factors"]["semantic_output"]
-            current_rounding = current["factors"]["semantic_output"] \
-                - current_groups.sum(2)
-            absent_rounding = absent["factors"]["semantic_output"] \
-                - absent_groups.sum(2)
+            group_deltas, preclosure, closure = _family_delta_closures(
+                current_groups, absent_groups,
+                current["factors"]["semantic_output"],
+                absent["factors"]["semantic_output"])
             diagnostics["family_score_delta_preclosure_relative_squared"] = max(
                 diagnostics["family_score_delta_preclosure_relative_squared"],
-                parent._relative_squared(group_deltas.sum(2), semantic_delta))
+                preclosure)
             diagnostics["family_score_delta_closure_relative_squared"] = max(
                 diagnostics["family_score_delta_closure_relative_squared"],
-                parent._relative_squared(
-                    group_deltas.sum(2) + current_rounding - absent_rounding,
-                    semantic_delta))
+                closure)
             for left_index, right_index in pair_indices:
                 delta = group_deltas[:, :, left_index] + group_deltas[:, :, right_index]
                 replacement = current["deployed_write"] - delta.to(
