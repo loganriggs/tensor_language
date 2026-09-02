@@ -11,6 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1849.md](explanation_2026-09-02_1849.md) — rung501 tests all seven directed score replacements, recovers only the calibrated L5H5-to-L8H4 copy-score edge, and freezes the exact 20-source/210-pair MLP9 response decomposition as rung502
 - [explanation_2026-09-02_1819.md](explanation_2026-09-02_1819.md) — rung498's broad-mask failure, the exact
   copy-task correction, rung499's prospective task positive/general-circuit null, and rung500's calibrated MLP9 reader
 - [explanation_2026-09-02_1748.md](explanation_2026-09-02_1748.md) — result update to the full 02:19 report:

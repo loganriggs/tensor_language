@@ -66764,3 +66764,29 @@ Landed 18:41 (107.6s; pred_a TRUE at the corrected price — calls exact 125/250
 **Preserved fragments:** (1) the pro-hypothesis SIGN structure is real but weak — keyed restoration exists at .05–.27 fractional strength against own-ceilings of .18–.41 (best cell I-half1: donor .266 vs ceiling .408 — 65% of ceiling; worst cells ~.3× ceiling with off-key barely distinguishable); token identity captures SOME portable content, far short of the registered .25 margins. (2) COMPOSE is destructively negative in every cell (−.55…−1.28): even the weak keyed effect does not survive removing the other branch's service — keyed content and branch context are entangled. (3) The v1→v2→v2b instrument ladder is itself a receipt: supply floors, price arithmetic, and routing template each failed once, each caught by a registered clause, each repaired without touching a bar.
 
 **Routing as registered:** the mechanism question closes at transplant grain; the route is CONTENT DECOMPOSITION of the write (what keys it beyond token identity), not further transplant variants. §2618 stands unchanged; boundary datum #6 keeps its sharpest form: in-place sufficiency (.956 whole-write) ≠ cross-context executability, now shown to persist even conditioned on token identity.
+
+## §2627 — RUNG 501: THE DIRECTED SCORE SEARCH RECOVERS ONLY THE CALIBRATED COPY EDGE; NO NEW EDGE IS IDENTIFIED
+
+Rung 501 ran the seven causally available directed score substitutions among `L5H5`, `L7H3`, `L8H3`, and `L8H4`
+against the fixed copy-task and MLP9 observations. A/B are true; C/D/E/F are false. The registered strong null fires
+because there is no new edge, and validation remains closed. The instrument is valid: native replay error is zero for
+both logits and MLP9, factor reconstruction error is `4.88e-14`, all actions are live, and the exact price is 24 fit
+forwards plus 8,125 discovery forwards in 176.5 seconds.
+
+The known `L5H5 score -> L8H4` positive is the only edge in both 250-document halves. Across the two halves and both
+early-present/early-absent backgrounds, copy-task recovery is `1.090--1.211`, task-effect cosine `.897--.926`, MLP9
+response cosine `.822--.835`, and MLP9 residual `.550--.569`. Its payload-control MLP9 cosine is only `.108--.123`;
+copy-versus-noncopy specificity margins are `.207--.223`. Removing the early donor changes task recovery by only
+`.046/.108`, while the two background response directions agree at `.949/.945`.
+
+The registered `L7H3 -> L8H4` negative remains negative in every cell: task cosine is `-.896` to `-.911` and MLP9
+cosine `-.788` to `-.795`. The most informative failed candidate is `L7H3 -> L8H3`. It reproduces the copy-task
+effect (`.991--1.007` recovery; `.948--.979` task cosine) and has an MLP9 response cosine of `.821--.851`, but its
+payload response is also similar (`.650--.670` cosine) and one copy-specificity margin is `.095 < .10`. It may expose
+a broader shared response, but it is not the typed copy-score computation under the frozen definition. Every other
+new candidate fails more strongly. No whole-head, mutual-equivalence, or new directed-graph claim is made.
+
+Decision: keep the uniquely calibrated `L5H5 -> L8H4` edge and decompose its MLP9 response exactly into the 210
+unordered products among the 20 named residual sources entering MLP9. Use copy/circuit gradients only to shortlist
+exact terms, then require a finite held-out suffix intervention before circuit language. Result/bundle/source SHAs
+`b17a9b27.../728d9be2.../97f3946f...`; **0 deployed parameters added or saved.**

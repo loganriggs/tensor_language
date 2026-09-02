@@ -4643,3 +4643,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (`.940-.946`), and is copy-selective by`.234-.249`. This calibrates a downstream interaction-defined observation,
   not all of MLP9 as a circuit. Next search directed relations among the four known equality scores with task+MLP9
   criteria frozen; no rank/compression.
+- Rung501 (§2627): A/B true, C/D/E/F false; lawful strong null from no new directed edge. Exact assay and both
+  tripwires pass. `L5H5->L8H4` is the sole confirmed edge (task recovery`1.090-1.211`, MLP9 cosine`.822-.835`, payload
+  cosine`.108-.123`); `L7H3->L8H4` remains anti-aligned. `L7H3->L8H3` is a useful typed failure: task and MLP9 match,
+  but payload also matches and copy specificity narrowly fails. No new graph/head equivalence. Rung502 is claimed to
+  expand the known edge's MLP9 response into exact named residual-source pairs, with gradients only as a shortlist
+  and finite suffix validation required before circuit language; no rank/compression.
