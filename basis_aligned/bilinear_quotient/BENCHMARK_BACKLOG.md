@@ -4633,3 +4633,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   frozen CPU diagnosis finds task-mask mismatch: exact nearest-predecessor copy positives recover`1.061-1.176` with
   `.899-.930` direction in all four cells and no material early-service dependence. Preserve rung498; prospectively
   calibrate the corrected task on unopened documents500:1000 before any quotient search. No rank/compression.
+- Rung499 (§2623): prospective corrected copy-task calibration A/B true, C/D false, E false. The known L5 score
+  replacement reproduces on untouched documents500:1000 (`1.063-1.195` recovery,`.906-.955` document cosine,
+  off-target `<.001` nat), but the support-qualified general circuits cannot consistently separate it from L5 payload
+  and narrowly miss stability in quarter2. Preserve the positive task relation; change observation to rung459's
+  independently selected MLP9 reader, not thresholds/rank/compression, before any four-score search.

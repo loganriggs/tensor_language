@@ -66691,3 +66691,32 @@ the registered`.20` diagnostic threshold. The old192 rows have zero exact256-tok
 so this also reproduces the relation on different FineWeb text. This posthoc diagnosis does not reverse rung498; it
 licenses only a prospective corrected-mask calibration on the still-unopened documents500:1000. Source/result/bundle
 SHAs `3186d610…/206ab207…/dcdee47c…`; diagnosis result SHA `6a733bf5…`; **0 deployed parameters saved or added.**
+## §2623 — RUNG 499: THE KNOWN COPY-SCORE RELATION REPRODUCES PROSPECTIVELY, BUT THE GENERAL CIRCUIT BATTERY CANNOT CONSISTENTLY DISTINGUISH SCORE FROM PAYLOAD
+
+Rung499 opened only the previously uncomputed action outcomes on documents500:1000 and used the exact
+nearest-predecessor copy-task mask. Nine validation circuit tags were fixed from token support alone before the run,
+with at least10 copy-positive member and control positions in each250-document quarter. The source hash-checks but
+never deserializes rung498's discovery result/bundle; `document_0_500_outcomes_loaded=false`.
+
+A=true and B=true. Exact replay, factor reconstruction (`5.09e-14`), edit liveness, supports, weights, and125+2,375
+call price all hold. The known L5H5-score replacement prospectively restores`1.111/1.063` of L8H4's copy effect with
+the earlier term present and`1.150/1.195` absent. Per-document effect cosine is`.906-.955`, residual`.295-.423`,
+and off-target CE change is only`.00071-.00098` nat. Together with the posthoc discovery diagnosis and zero exact
+row overlap with rung459, this establishes that the directed copy-score relation is stable on different FineWeb text
+and under earlier-service removal at the dedicated task level.
+
+C=false and D=false, so E=false and the registered result is a strong null for *assay calibration*. The L7H3 score
+control is cleanly rejected in every task and circuit cell (task cosine `-.854` to`-.887`). The L5H5 payload control,
+however, is not consistently separated by the nine general circuits: three of four background/quarter comparisons
+miss the task-and-circuit conjunction, including an early-absent second-quarter circuit cosine `.741` for payload
+versus`.587` for score. The score circuit fingerprint also narrowly misses D in that quarter: `.573/.587` cosine
+versus`.60`, residual`.820/.810` versus`.80`, although its cross-background cosine `.832` and scale drift`.019`
+pass. The other quarter passes strongly (`.803/.925` circuit cosine and cross-background`.962`).
+
+CLAIM SCOPE: the copy-score transplant itself is prospectively reproduced; the62-circuit battery, after a lawful
+support-only reduction to nine tags, is not an identifying observation basis for score versus payload. Do not search
+new quotients or loosen bars. Rung459 already supplies a frozen, independently chosen named observation: MLP9's
+write-response cosine was`.844` for the L5 score,`.116` for L5 payload, and`-.803` for L7 score. The next calibration
+tests that exact named reader on the current rows/actions without fitting or selecting a new component. Source/result/
+bundle SHAs `2c85a758…` / `2c5b7faa…` / `b2cddade…`;55.9s,2,500 forwards,3.16GB; **0 deployed parameters
+saved or added.**
