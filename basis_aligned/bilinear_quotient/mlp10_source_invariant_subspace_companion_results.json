@@ -1,0 +1,299 @@
+{
+ "status": "complete",
+ "rung": "mlp10_source_invariant_subspace_companion",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "exact_linear_invariance_analysis_of_published_statistics",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_SOURCE_INVARIANT_SUBSPACE_COMPANION_V2_PREREGISTRATION.md": "7884a7927c1f1750468bbcc20dac3cef413ca0f90b0f56399a0ee1f99aa4ac6d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_observable_predictive_state_quotient_rung510_results.json": "16d100e7b92152fc70939b000934699882605c30c513c570f6c519b80f943177"
+ },
+ "rung510_bundle_sha256": "a8832624c94e3e9aa491d26290e55a14f94aa103eb7cddc3df3a0e1b34c3eed7",
+ "mapping": {
+  "bounds": [
+   500,
+   748,
+   624
+  ],
+  "arm0": "intact",
+  "member_index_assumed": 0,
+  "control_index_assumed": 1,
+  "context_cell_indices": [
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "material_nodes_reproduced": 726,
+ "material_nodes_expected": 716,
+ "halves": [
+  {
+   "epsilon": 1.5615802198479678,
+   "ceiling": 3.1231604396959356,
+   "mu": 0.05,
+   "k": 35,
+   "qualifying": [
+    {
+     "response": 1.409272057404429,
+     "variation": 3.163421648855316e-12
+    },
+    {
+     "response": 1.2873616988458663,
+     "variation": 3.2254368842082508e-12
+    },
+    {
+     "response": 1.1554462818625217,
+     "variation": 3.029107120513281e-12
+    },
+    {
+     "response": 1.1261877863059395,
+     "variation": 2.9061841359678644e-12
+    },
+    {
+     "response": 1.1076803977652419,
+     "variation": 3.0540738776083286e-12
+    },
+    {
+     "response": 1.00240812072499,
+     "variation": 3.73845769213853e-12
+    },
+    {
+     "response": 0.961711324407787,
+     "variation": 3.1413468141895805e-12
+    },
+    {
+     "response": 0.9583220537391788,
+     "variation": 2.920255768615126e-12
+    },
+    {
+     "response": 0.9429225047740176,
+     "variation": 3.59542263026011e-12
+    },
+    {
+     "response": 0.8816911133843854,
+     "variation": 3.3670875223413294e-12
+    },
+    {
+     "response": 0.8440818792573828,
+     "variation": 3.2584048889282416e-12
+    },
+    {
+     "response": 0.8298871429063197,
+     "variation": 3.9928698175785756e-12
+    },
+    {
+     "response": 0.7835400998534935,
+     "variation": 4.321230150567089e-12
+    },
+    {
+     "response": 0.7512296789765863,
+     "variation": 4.022213935087582e-12
+    },
+    {
+     "response": 0.7264157479194623,
+     "variation": 4.366768103850438e-12
+    },
+    {
+     "response": 0.7164449591219738,
+     "variation": 4.03470500833963e-12
+    },
+    {
+     "response": 0.6590959893510872,
+     "variation": 4.7292727657010865e-12
+    },
+    {
+     "response": 0.6458847114717902,
+     "variation": 4.499621731407964e-12
+    },
+    {
+     "response": 0.6018535091517307,
+     "variation": 5.001736335868018e-12
+    },
+    {
+     "response": 0.5883244026432991,
+     "variation": 4.4983705440548036e-12
+    },
+    {
+     "response": 0.5817585765331719,
+     "variation": 5.402095971420184e-12
+    },
+    {
+     "response": 0.5613905248109118,
+     "variation": 5.4801063240562855e-12
+    },
+    {
+     "response": 0.527305008533241,
+     "variation": 6.179075160271321e-12
+    },
+    {
+     "response": 0.5207738765455948,
+     "variation": 5.092562477541035e-12
+    }
+   ],
+   "perm_counts": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "perm_q95": 35.0,
+   "macro": {
+    "response": 6.649120321729322,
+    "variation": 12.571821038328594,
+    "passes_ceiling": false
+   }
+  },
+  {
+   "epsilon": 1.4907738703979312,
+   "ceiling": 2.9815477407958624,
+   "mu": 0.05,
+   "k": 35,
+   "qualifying": [
+    {
+     "response": 1.384123622167998,
+     "variation": 2.336907196904568e-12
+    },
+    {
+     "response": 1.2454726045930373,
+     "variation": 2.6380563773485686e-12
+    },
+    {
+     "response": 1.1687715969698735,
+     "variation": 3.4953279444212353e-12
+    },
+    {
+     "response": 1.0918411638392824,
+     "variation": 3.180381300988243e-12
+    },
+    {
+     "response": 1.0565579103539602,
+     "variation": 3.3724019882086413e-12
+    },
+    {
+     "response": 0.992044773936749,
+     "variation": 3.236437009310201e-12
+    },
+    {
+     "response": 0.9319580025836568,
+     "variation": 3.4330564399923217e-12
+    },
+    {
+     "response": 0.9031306918192479,
+     "variation": 3.0627620717836893e-12
+    },
+    {
+     "response": 0.8495280192628142,
+     "variation": 3.136422538281664e-12
+    },
+    {
+     "response": 0.7844739244430642,
+     "variation": 3.5855501233878014e-12
+    },
+    {
+     "response": 0.7659244708929932,
+     "variation": 3.5109758784485423e-12
+    },
+    {
+     "response": 0.7494850673846684,
+     "variation": 3.812762877281425e-12
+    },
+    {
+     "response": 0.7156735088460676,
+     "variation": 3.155548651557324e-12
+    },
+    {
+     "response": 0.6653833710781898,
+     "variation": 3.941359513041612e-12
+    },
+    {
+     "response": 0.6570763772221312,
+     "variation": 3.786913694449156e-12
+    },
+    {
+     "response": 0.6313733535161976,
+     "variation": 4.2683685639399355e-12
+    },
+    {
+     "response": 0.6012101155937711,
+     "variation": 5.385131680374711e-12
+    },
+    {
+     "response": 0.5941130798281853,
+     "variation": 4.4913650010357045e-12
+    },
+    {
+     "response": 0.5638151230597039,
+     "variation": 4.6136571933068426e-12
+    },
+    {
+     "response": 0.5515987633848344,
+     "variation": 4.248951344054691e-12
+    },
+    {
+     "response": 0.5275023036225361,
+     "variation": 4.820549767807378e-12
+    },
+    {
+     "response": 0.5268025266643579,
+     "variation": 5.860001102583812e-12
+    },
+    {
+     "response": 0.5062336327894391,
+     "variation": 4.823360059522369e-12
+    },
+    {
+     "response": 0.4745157451069163,
+     "variation": 5.3406150592727535e-12
+    }
+   ],
+   "perm_counts": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "perm_q95": 35.0,
+   "macro": {
+    "response": 7.533094406607677,
+    "variation": 12.017820152581923,
+    "passes_ceiling": false
+   }
+  }
+ ],
+ "identified_directions": [],
+ "nonmacro_identified_count": 0,
+ "pred_a_exact_mapped_input_and_sanity": false,
+ "pred_b_nonmacro_material_invariant_direction_identified": false,
+ "pred_c_identified_direction_term_stability": false,
+ "strong_null": true,
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "next_step": "instrument_mapping_repair_only",
+ "runtime_s": 0.6580913066864014
+}
