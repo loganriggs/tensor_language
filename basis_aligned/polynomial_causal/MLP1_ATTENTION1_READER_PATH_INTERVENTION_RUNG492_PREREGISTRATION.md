@@ -77,8 +77,10 @@ or new-corpus OOD evidence. Final and sealed roles remain closed.
 - Normal native/absent prefixes reproduce exactly, the T/C/I/S branch identity retains its existing float32 and
   deployed bounds, and all call/injection counts are exact.
 - In float32, the selective input-edit write difference equals `OWN-B(delta,a)` at relative squared error at most
-  `1e-8` for every branch. The same difference after deployed BF16 injection must remain within `16u^2`, where
-  `u=2^-8`; the complete normal OWN write retains its `4u^2` bound.
+  `1e-8` for every branch. Reconstructing the native edited write by adding that float32 difference to the absent
+  edited write and casting to deployed BF16 must remain within `16u^2`, where `u=2^-8`; the complete normal OWN write
+  retains its `4u^2` bound. This reconstruction check matches the physical injection operation and avoids dividing a
+  rounding residual by a much smaller cancellation difference.
 - The selective intervention leaves attention1's captured residual write unchanged bit-for-bit. The full knockout
   has exactly zero attention1 write at site1. Every same-position intervention and every shifted control is live.
 
@@ -133,9 +135,10 @@ T/I as predicted, the upstream-source interpretation is falsified.
 
 At batch size4, each phase runs125 normal native batches,500 normal branch-absent batches,2,125 selective native
 batches (same-position plus16 shifts),8,500 selective branch-absent batches,125 full-knockout native batches, and500
-full-knockout branch-absent batches:11,875 full-model forwards per phase. Conditional validation repeats this only if
-licensed. Store per-token effects only as contracted sufficient statistics plus exact audit fields. Add and remove
-zero deployed parameters.
+full-knockout branch-absent batches:11,875 full-model forwards per phase. It also performs11,250 explicitly counted
+standalone MLP1 evaluations to construct the edited writes; normal native/absent MLP1 values are computed once per
+batch and reused across controls. Conditional validation repeats this only if licensed. Store per-token effects only
+as contracted sufficient statistics plus exact audit fields. Add and remove zero deployed parameters.
 
 This experiment advances computational specification, cross-branch grouping, extraction, selective manipulation,
 and held-out causal prediction. It neither learns nor evaluates a lower-rank, sparse, quantized, or compressed basis.
