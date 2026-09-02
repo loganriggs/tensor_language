@@ -1,0 +1,216 @@
+{
+  "analysis": "after_outcome_cpu_clause_audit_no_new_model_outcomes",
+  "cross_source_headlines": {
+    "minimum_N_or_P_to_Z_interaction_cosine": 0.9537186301628854,
+    "minimum_N_or_P_to_Z_suppressor_cosine": 0.9965507664071239,
+    "minimum_N_or_P_to_Z_task_cosine": 0.985425450078806,
+    "minimum_correct_vs_wrong_orientation_margin": 1.5083239753176763
+  },
+  "interpretation": "The fixed five sites are not one cross-corpus semantic program: the natural task-group vector is positive in every context, contradicting the code-derived near-/far+/one+/multiple- role, and its natural magnitude is below the registered floor.  Within natural text, however, the task, suppressor, and interaction vectors are highly stable across correctly gauged score sources and reverse under wrong sign.  Preserve this as a source-invariance fragment, not a cross-corpus identification or permission to weaken C.",
+  "new_model_outcomes_opened": false,
+  "registered_verdict": {
+    "next_step": "abandon_fixed_five_site_program_as_code_specific",
+    "pred_a_exact_live_intervention_instrument": true,
+    "pred_b_score_actions_calibrated_in_patch_harness": true,
+    "pred_c_fixed_program_transfers_code_to_natural": false,
+    "pred_d_program_invariant_across_sign_gauge": false,
+    "pred_e_correct_gauge_orientation_specific": true,
+    "strong_null": false
+  },
+  "rung505_receipt_sha256": "3720a2feb24fc5ec4554d858a00a576a1fcd44f0e789d2b728e66483d7d8d1a1",
+  "source_clause_checks": {
+    "N": {
+      "half_suppressor_signs": [
+        true,
+        true
+      ],
+      "half_task_signs": [
+        false,
+        false
+      ],
+      "interaction_norm": 0.005207242409868034,
+      "interaction_norm_at_least_005": true,
+      "interaction_vector_nat": [
+        0.003220810194714617,
+        0.0020955680283763767,
+        0.0029280821698251455,
+        0.001943369406456081
+      ],
+      "suppressor_all_negative": true,
+      "suppressor_correction_cosine": -0.7702955731341173,
+      "suppressor_correction_cosine_below_70": true,
+      "suppressor_vector_nat": [
+        -0.007876029831337894,
+        -0.005884163185660013,
+        -0.007423071103135795,
+        -0.005562396308126386
+      ],
+      "task_correction_cosine": 0.9186956606974056,
+      "task_correction_cosine_at_least_80": true,
+      "task_norm": 0.011978742904601823,
+      "task_norm_at_least_015": false,
+      "task_sign_pattern_holds": false,
+      "task_vector_nat": [
+        0.004781991483321646,
+        0.005974016942060331,
+        0.008596187122994994,
+        0.0033225784490992713
+      ],
+      "union_correction_cosine": 0.9901146539550129,
+      "union_correction_cosine_at_least_80": true,
+      "union_projection": 0.533800217224925,
+      "union_projection_in_40_160": true,
+      "union_vector_nat": [
+        0.00012677184669836888,
+        0.002185421784776695,
+        0.004101198189684345,
+        -0.00029644845257103397
+      ]
+    },
+    "P": {
+      "half_suppressor_signs": [
+        true,
+        true
+      ],
+      "half_task_signs": [
+        false,
+        false
+      ],
+      "interaction_norm": 0.005068301257101024,
+      "interaction_norm_at_least_005": true,
+      "interaction_vector_nat": [
+        0.002967838763378472,
+        0.0020670207419962866,
+        0.0031738935871759924,
+        0.001591676932282491
+      ],
+      "suppressor_all_negative": true,
+      "suppressor_correction_cosine": -0.6981106967357484,
+      "suppressor_correction_cosine_below_70": true,
+      "suppressor_vector_nat": [
+        -0.008515398286709129,
+        -0.006608034008345989,
+        -0.008347747482559675,
+        -0.006086330869897447
+      ],
+      "task_correction_cosine": 0.8283380666170805,
+      "task_correction_cosine_at_least_80": true,
+      "task_norm": 0.013826507686849024,
+      "task_norm_at_least_015": false,
+      "task_sign_pattern_holds": false,
+      "task_vector_nat": [
+        0.006575754540945361,
+        0.006397823202106294,
+        0.009565696900513732,
+        0.003936631569479671
+      ],
+      "union_correction_cosine": 0.9981202310657487,
+      "union_correction_cosine_at_least_80": true,
+      "union_projection": 0.7030170584747465,
+      "union_projection_in_40_160": true,
+      "union_vector_nat": [
+        0.001028195017614704,
+        0.0018568099357565912,
+        0.004391843005130049,
+        -0.0005580223681352844
+      ]
+    },
+    "Z7": {
+      "half_suppressor_signs": [
+        true,
+        true
+      ],
+      "half_task_signs": [
+        false,
+        false
+      ],
+      "interaction_norm": 0.006072241313359344,
+      "interaction_norm_at_least_005": true,
+      "interaction_vector_nat": [
+        0.0034743406031063767,
+        0.0026494730751549025,
+        0.0035098567295345356,
+        0.0023371499959234064
+      ],
+      "suppressor_all_negative": true,
+      "suppressor_correction_cosine": -0.645139717405259,
+      "suppressor_correction_cosine_below_70": true,
+      "suppressor_vector_nat": [
+        -0.008971383989263788,
+        -0.0063977654877456006,
+        -0.008294408309781974,
+        -0.006055647455372678
+      ],
+      "task_correction_cosine": 0.7911764123783008,
+      "task_correction_cosine_at_least_80": false,
+      "task_norm": 0.010783661936387356,
+      "task_norm_at_least_015": false,
+      "task_sign_pattern_holds": false,
+      "task_vector_nat": [
+        0.004972974702169057,
+        0.005182876354458736,
+        0.007292491063622633,
+        0.0033932660006625835
+      ],
+      "union_correction_cosine": 0.9886804999969836,
+      "union_correction_cosine_at_least_80": true,
+      "union_projection": 0.4507819114494151,
+      "union_projection_in_40_160": true,
+      "union_vector_nat": [
+        -0.0005240686839883546,
+        0.0014345839418680381,
+        0.0025079394833751947,
+        -0.00032523145878668794
+      ]
+    },
+    "Z8": {
+      "half_suppressor_signs": [
+        true,
+        true
+      ],
+      "half_task_signs": [
+        false,
+        false
+      ],
+      "interaction_norm": 0.003928735318317556,
+      "interaction_norm_at_least_005": false,
+      "interaction_vector_nat": [
+        0.0023076375069519123,
+        0.0017470019926418626,
+        0.0016394091729906718,
+        0.002090476486144705
+      ],
+      "suppressor_all_negative": true,
+      "suppressor_correction_cosine": -0.7686390791871003,
+      "suppressor_correction_cosine_below_70": true,
+      "suppressor_vector_nat": [
+        -0.006060479396870412,
+        -0.0047075190869650535,
+        -0.005253514808671499,
+        -0.0048897366801285945
+      ],
+      "task_correction_cosine": 0.8968191825526105,
+      "task_correction_cosine_at_least_80": true,
+      "task_norm": 0.008855089673766095,
+      "task_norm_at_least_015": false,
+      "task_sign_pattern_holds": false,
+      "task_vector_nat": [
+        0.004813130340692459,
+        0.003759506352477314,
+        0.005890821883940814,
+        0.0025319397645503644
+      ],
+      "union_correction_cosine": 0.9828968360600635,
+      "union_correction_cosine_at_least_80": true,
+      "union_projection": 0.35904175372063213,
+      "union_projection_in_40_160": false,
+      "union_vector_nat": [
+        0.0010602884507739593,
+        0.000798989258154123,
+        0.002276716248259987,
+        -0.0002673204294335249
+      ]
+    }
+  },
+  "status": "complete"
+}
