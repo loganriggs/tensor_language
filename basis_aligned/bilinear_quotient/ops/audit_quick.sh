@@ -10,4 +10,6 @@ echo "== VERDICT =="
 python3 "$D/receipt_dump.py" "$R" --verdict
 echo "== SCIENCE LEAVES =="
 python3 "$D/receipt_dump.py" "$R" | grep -iE "cosine|recovery|residual|fraction|margin|q95|drift|rms_min|closure|_exact" | head -60
+echo "== FLAGS =="
+python3 "$D/receipt_dump.py" "$R" --grep "_flags" | head -12
 if [ -n "${2:-}" ]; then echo "== EXTRA: $2 =="; python3 "$D/receipt_dump.py" "$R" --grep "$2" | head -40; fi
