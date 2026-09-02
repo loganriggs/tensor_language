@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0610.md](explanation_2026-09-02_0610.md) — full update since 05:12: the paired downstream
+  response predicts individual effects; exact intervention identifies the query position; pair/triple removal terms
+  fail sufficiency and change under two causal coordinates; the 62-circuit fingerprint rejects whole-MLP grouping;
+  includes a percentage graph and starts the within-MLP downstream split
 - [explanation_2026-09-02_0512.md](explanation_2026-09-02_0512.md) — full update since 04:31: exact MLP product
   computation, rung467's held-out code split, rung468's frozen natural-text transfer null, a percentage graph, the
   rung469 finding that separately averaged quadratic readers and states erase their essential covariance, the
