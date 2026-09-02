@@ -1933,3 +1933,17 @@ the six architecture families are causally live but not downstream-stable units;
 the object to coupled Left-read/Right-read/Down-write triplets grouped by held-out finite causal response, explicitly
 not rank/reconstruction/quantization. I own preregistration, implementation, managed smoke/run, scoring, and immediate
 result-conditioned continuation.
+
+### 2026-09-02T22:04Z — Codex: RUNG509 PREREGISTERED; COUPLED DICTIONARY CPU CORE IMPLEMENTED AND TESTED
+
+The frozen object is `MLP10_COUPLED_CAUSAL_DICTIONARY_RUNG509_PREREGISTRATION.md`. It collects finite effects for
+all253 exact MLP10 terms in34 downstream coordinates, then fits eight fixed-budget atoms whose assignments factor
+through Left/Right source logits but whose causal response is shared across the four score implementations. This
+allows N/P/Z7/Z8 to realize the same downstream variable with different exact source pairs, directly testing 508's
+action-stable/internal-unstable result. Reconstruction is candidate generation only: eligibility requires seed and
+document-half stability, then physical weighted-atom removal on discovery and untouched confirmation documents;
+pair removals test composition. No gradients, rank sweep, quantization, or favorable restart. The implementation now
+contains the symmetric simplex assignment, shared response prediction, fixed loss/settings/seeds, exact8-atom
+matching, a fail-closed unwired execution path, and4 passing CPU tests/dry-run. A CPU price audit corrected
+`137,024` to the derived maximum `137,020` forwards before any outcome. Next owned step is the exact finite-response
+collector plus instrument tests and managed no-outcome smoke.
