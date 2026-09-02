@@ -4594,3 +4594,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Rung 478 (§2596): sparse mixed-product gates — strong null; all six candidates fit in-view (.982+) but best non-fit transfer .059 < alignment-destroyed control q95 .339. Sparse weighted native-product mixtures CLOSED. Next: rung 479 gauge-aware commutant screen; support-stability (Jaccard across fit-half bisection) is a standing audit requirement for any future fitted-gate survivor.
 
 - Commutant null calibration (§2597): probe calibrated at n=32; interpolation floor q05 .124; recommend 479 genuine-block bar <=.03 off-mass; commutant_dim criterion 0/32 false positives.
+
+- Rung 479 (§2598): gauge-aware commutant screen — strong null; lambda2 ratios .95-.97 vs 4x bar; equality-MLP trio closed at every grain; routing: attention0/1 Q/K/output tensors. Chapter explanation explanation_2026-09-02_0753.md.
