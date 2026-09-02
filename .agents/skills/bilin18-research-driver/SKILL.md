@@ -53,6 +53,23 @@ Pause only for a real dependency, missing authority, unsafe collision, or a user
 choice that materially changes scope. Waiting for one live run is not a reason to go idle when
 useful receipt analysis, mathematical derivation, falsifier design, or documentation remains.
 
+## Turn-boundary continuation gate
+
+Before yielding after any research update, explanation, completed run, null, or failed instrument,
+check the durable goal state. If the program goal is active and the overall objective remains
+unfinished, do not treat the completed artifact as a stopping point. At the same safe boundary:
+
+1. interpret what the result changes at circuit level;
+2. choose the next highest-information in-scope action under the anti-rank-drift gate; and
+3. actually begin that action—perform the CPU step, publish its preregistration/claim, or enqueue
+   its audited GPU job through the managed runner.
+
+An explanation file, a clean commit, an empty queue, one completed experiment, or one achieved
+subgoal is not a reason to pause the durable research goal. End a turn without starting the next
+action only for one of the real pause conditions above, and state the exact blocker and the useful
+work already exhausted. Never mark the durable research goal complete while a registered next
+step or unresolved program-level objective remains.
+
 ## Hourly strategic checkpoint
 
 At the first safe boundary after each elapsed hour of active work, perform a step-back review.
