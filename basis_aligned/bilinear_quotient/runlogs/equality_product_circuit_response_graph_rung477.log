@@ -1,0 +1,169 @@
+{
+  "analysis": {
+    "aggregate_group_report": {
+      "m8": {
+        "half_cosines": [
+          0.0,
+          0.0
+        ],
+        "member_control_norm_ratios": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "passes": false,
+        "source_cosine": 0.0,
+        "term_count": 0
+      },
+      "m9": {
+        "half_cosines": [
+          0.0,
+          0.0
+        ],
+        "member_control_norm_ratios": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "passes": false,
+        "source_cosine": 0.0,
+        "term_count": 0
+      }
+    },
+    "eligible_counts": {
+      "m12": 4,
+      "m8": 2,
+      "m9": 4
+    },
+    "graphs": [
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m8+m9",
+        "pair_index": 0,
+        "right_indices": []
+      },
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m8+m12",
+        "pair_index": 1,
+        "right_indices": []
+      },
+      {
+        "count": 0,
+        "left_indices": [],
+        "minimum_view_cosine_median": null,
+        "minimum_view_cosine_min": null,
+        "pair": "m9+m12",
+        "pair_index": 2,
+        "right_indices": []
+      }
+    ],
+    "leave_one_family": [
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 0,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      },
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 2,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      },
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 4,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      },
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 6,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      },
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 8,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      },
+      {
+        "count": 0,
+        "left_endpoint_jaccard": 0.0,
+        "omitted_root": 18,
+        "right_endpoint_jaccard": 0.0,
+        "winning_pair": "m8+m9"
+      }
+    ],
+    "permuted_graph_count_95pct": 0,
+    "permuted_graph_counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pred_b_stable_terms": false,
+    "pred_c_response_graph": false,
+    "pred_d_leave_family_stable": false,
+    "pred_e_selective_aggregate": false,
+    "proposed_pair": null,
+    "weak_graph_survives_control": false
+  },
+  "instrument": {
+    "backwards": 14106,
+    "contraction_error": 4.748545592096135e-14,
+    "factor_error": 5.085501652043494e-14,
+    "forwards": 625,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "sparse_mixed_product_response_directions",
+  "predictions": {
+    "pred_a_instrument": false,
+    "pred_b_stable_terms": false,
+    "pred_c_response_graph": false,
+    "pred_d_leave_family_stable": false,
+    "pred_e_selective_aggregate": false
+  },
+  "rung": 477,
+  "runtime_s": 188.7701337337494,
+  "status": "complete",
+  "strong_null": true
+}
