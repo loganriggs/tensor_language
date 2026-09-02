@@ -64,3 +64,45 @@ def test_frozen_masks_and_code_role_exclusion() -> None:
         masks["near_positive"] | masks["far_positive"], masks["all_positive"],
     )
     assert "ood_code" not in str(module.ROWS)
+
+
+def test_full_analysis_recovers_stable_redundant_pair() -> None:
+    original_draws = module.BOOTSTRAP_DRAWS
+    module.BOOTSTRAP_DRAWS = 1_000
+    try:
+        arms, documents, cells = len(module.ARMS), module.DOCUMENTS, len(module.CELLS)
+        counts = torch.ones(documents, cells, dtype=torch.float64)
+        loss = torch.full((arms, documents, cells), 2.0, dtype=torch.float64)
+        cell_scale = {
+            "matched_positive": 1.0, "matched_negative": .10, "all_positive": 1.0,
+            "near_positive": 1.20, "far_positive": .80,
+            "one_predecessor_positive": 1.10, "multiple_predecessor_positive": .90,
+            "off_target": .02, "all": .05,
+        }
+        singleton = (.10, .12, .20, .22)
+        for cell_index, cell in enumerate(module.CELLS):
+            scale = cell_scale[cell]
+            for mask in module.SUBSETS:
+                recovered = scale * sum(
+                    singleton[bit] for bit in range(4) if mask & (1 << bit)
+                )
+                if mask & 0b1100 == 0b1100:
+                    recovered -= scale * .05
+                extraction_arm = module.ARMS.index(f"extract:{mask:04b}")
+                removal_arm = module.ARMS.index(f"remove:{mask:04b}")
+                loss[extraction_arm, :, cell_index] = 3.0 - recovered
+                loss[removal_arm, :, cell_index] = 2.0 + .5 * recovered
+        stats = {
+            "loss_sums": loss, "kl_sums": torch.zeros_like(loss),
+            "correct_sums": torch.zeros_like(loss), "counts": counts,
+            "replay_relative_squared": 0.0,
+        }
+        result = module.analyze(stats)
+        assert result["primary_pair"]["classification"] == "redundant"
+        assert result["primary_pair"]["stable"]
+        assert result["shapley_all_positive"]["half_spearman"] > .999
+        assert result['pred_d_context_specialization_stable']
+        assert result['pred_e_natural_grouping_eligible_for_code_confirmation']
+        assert not result["strong_null"]
+    finally:
+        module.BOOTSTRAP_DRAWS = original_draws

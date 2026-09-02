@@ -1,0 +1,121 @@
+{
+  "context_specialization": [
+    {
+      "contrast": "near_positive_minus_far_positive",
+      "half_pair_interaction_differences": [
+        0.049006884445208954,
+        0.07023278392994481
+      ],
+      "half_singleton_differences": [
+        [
+          -0.04104909328750583,
+          -0.05587722102202852,
+          -0.06919600664142644,
+          -0.04547361577423059
+        ],
+        [
+          -0.15474808647237703,
+          -0.09225963473204812,
+          -0.1853640364364868,
+          -0.09132981260396356
+        ]
+      ],
+      "half_singleton_spearman": 0.3999999999999999,
+      "largest_singleton_term": "L8H3",
+      "pair_interaction_difference": 0.05948517840023493,
+      "pair_specialization_stable": true,
+      "singleton_difference": [
+        -0.09847338965065211,
+        -0.07407694111309437,
+        -0.12746951172091647,
+        -0.06845367639261479
+      ],
+      "singleton_specialization_stable": false
+    },
+    {
+      "contrast": "one_predecessor_positive_minus_multiple_predecessor_positive",
+      "half_pair_interaction_differences": [
+        -0.03493308303094722,
+        -0.025955882914228567
+      ],
+      "half_singleton_differences": [
+        [
+          0.09998633039718385,
+          0.045772063801153284,
+          0.1300002845292174,
+          0.07219617567841485
+        ],
+        [
+          0.11569304876753939,
+          0.06481444044320239,
+          0.18115225125881484,
+          0.09084767838580365
+        ]
+      ],
+      "half_singleton_spearman": 0.9999999999999998,
+      "largest_singleton_term": "L8H3",
+      "pair_interaction_difference": -0.030415640571689773,
+      "pair_specialization_stable": true,
+      "singleton_difference": [
+        0.10794400088718237,
+        0.05540293049204881,
+        0.15587244498990738,
+        0.0816321772897628
+      ],
+      "singleton_specialization_stable": true
+    }
+  ],
+  "early_vs_layer8_block": {
+    "classification": "redundant",
+    "early_terms": [
+      "L5H5",
+      "L7H3"
+    ],
+    "half_classifications": [
+      "redundant",
+      "redundant"
+    ],
+    "half_points_nat": [
+      -0.18687953295283566,
+      -0.2607564086726698
+    ],
+    "layer8_terms": [
+      "L8H3",
+      "L8H4"
+    ],
+    "point_nat": -0.22417729413823817,
+    "simultaneous_high": -0.1726557907127868,
+    "simultaneous_low": -0.27569879756368953
+  },
+  "next_step": "decompose_equality_terms_below_head_grain_using_qk_value_or_downstream_readers",
+  "predictions": {
+    "pred_a_instrument_and_endpoint_liveness": true,
+    "pred_b_primary_pair_resolved": false,
+    "pred_c_cross_layer_composition_resolved": true,
+    "pred_d_context_specialization_stable": true,
+    "pred_e_natural_grouping_eligible_for_code_confirmation": false
+  },
+  "primary_pair": {
+    "classification": "additive_or_unresolved",
+    "half_classifications": [
+      "redundant",
+      "redundant"
+    ],
+    "half_points_nat": [
+      -0.09122079213750112,
+      -0.12393692146562052
+    ],
+    "point_nat": -0.10773798194420725,
+    "simultaneous_high": 0.040524669012397485,
+    "simultaneous_low": -0.256000632900812,
+    "stable": false,
+    "terms": [
+      "L8H3",
+      "L8H4"
+    ]
+  },
+  "rung": 457,
+  "runtime_s": 41.95108938217163,
+  "status": "complete",
+  "strong_null": false
+}
