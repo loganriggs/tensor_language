@@ -4654,3 +4654,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   numerical source contributes10.9-13.3% of the small response versus the frozen<2% ceiling. Preserve the descriptive
   four-pair screen but do not interpret it. Rung502b must add the missing early-absent native arm (1,000 true forwards)
   and make rounding allocation explicit/gauge-tested before any source-pair or circuit claim; no bar relaxation.
+- Rung502b (§2629): A/B true, C/D/E false; lawful scientific strong null. Exact raw/normalized complement bounds,
+  two-gauge closure, calls, and the corrected background-specific parent all pass. E-absorbed selects13 pairs and
+  proportional12, differing by `E×M8`; common `A8×M8` also reverses copy-gradient sign in one held-out cell under both.
+  Strong aggregate response/downstream fingerprints are descriptive family anatomy, not an identified group. Next use
+  finite raw-source interventions around the attention8-driven MLP9 response (or a labeled float32 control), never a
+  third allocation, post-outcome intersection, rank sweep, or quantization.

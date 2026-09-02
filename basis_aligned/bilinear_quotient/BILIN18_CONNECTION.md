@@ -66816,3 +66816,28 @@ an instrument repair with the correct early-absent native arm and an exact deplo
 Require semantic attribution to be stable under fixed alternative allocations of the rounding complement before
 reading any source-pair group as mechanism. Result/bundle/source SHAs
 `77984dd9.../c2d3a355.../84670771...`; **0 deployed parameters added or saved.**
+
+## §2629 — RUNG 502B: THE EXACT INSTRUMENT AND PARENT RESPONSE PASS, BUT THE SOURCE-PAIR GROUP IS NOT IDENTIFIED ACROSS ACCOUNTING METHODS
+
+Rung502b reran all500 discovery documents with the correct background-specific native MLP9 reference and two exact
+allocations of the BF16 raw/RMS complement. A/B are true; C/D/E are false; the registered strong null fires before
+finite group removal. Calls are exact at1,000 forwards and7,366 backwards. The raw complement is at most`.00518` RMS
+of the deployed raw state versus the frozen`.03125` limit; normalized complements are`.001647` versus`.015625`.
+Both gauges close the normalized state below`3.56e-15`, close the float32 MLP9 pair sum exactly at stored precision,
+and agree with the deployed BF16 write to`1.024e-5`. The fixed parent MLP9 cosine is`.822-.835`, only`.00038-.00061`
+from rung501, so the first receipt's background error is repaired.
+
+The E-absorbed gauge selects13 pairs and the proportional gauge12. Their intersection has12 pairs; only `E×M8` is
+allocation-dependent. Each aggregate looks strong descriptively: it explains`.798-.824` of the MLP9 response,
+matches its direction at`.923-.934`, has gradient fraction`1.001-1.175`, and has payload/score response ratio only
+`.075-.111`. Across all32 supported downstream tags, group/full cosine is`.941-.972`, group norm ratio`.749-1.027`,
+position margin`.508-.545`, and payload margin`.506-.857`.
+
+These aggregates do not rescue C. The complete selected sets are not identical, and common pair `A8×M8` reverses its
+copy-gradient sign in the early-absent second confirmation half under both gauges. Therefore neither selected set
+preserves every pair sign, no post-outcome intersection/drop is allowed, and D/E remain gated false despite strong
+aggregate fingerprints. Claim scope: MLP9's copy-score response has robust late-source/attention8-centered anatomy,
+but no exact semantic source-pair group is identified at deployed precision. Next change the object to finite raw-source
+interventions around the attention8-driven response (or a separately labeled float32 explanatory control), not a third
+allocation, rank sweep, or threshold change. Result/bundle/source SHAs
+`ab25bce7.../17d12ba3.../b48cad19...`;203.6s, peak9.69GB; **0 deployed parameters added or saved.**

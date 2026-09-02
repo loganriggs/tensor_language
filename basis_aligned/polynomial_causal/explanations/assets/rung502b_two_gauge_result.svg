@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470">
+  <style>
+    text { font-family: Inter, Arial, sans-serif; fill: #172033; }
+    .title { font-size: 24px; font-weight: 700; }
+    .sub { font-size: 14px; fill: #526078; }
+    .label { font-size: 15px; font-weight: 600; }
+    .small { font-size: 13px; }
+    .axis { stroke: #a9b2c3; stroke-width: 1; }
+    .grid { stroke: #e4e8ef; stroke-width: 1; }
+    .good { fill: #258c68; }
+    .good2 { fill: #5a7ec8; }
+    .warn { fill: #dc8b2d; }
+    .fail { fill: #c84d55; }
+    .box { fill: #f7f9fc; stroke: #d9dfeb; }
+  </style>
+  <text x="28" y="35" class="title">Rung502b: strong local signal, but source-pair identity is not stable</text>
+  <text x="28" y="58" class="sub">Percentages are ranges across two held-out halves and two early-component backgrounds.</text>
+
+  <text x="28" y="96" class="label">Local group measurements</text>
+  <line x1="245" y1="112" x2="925" y2="112" class="axis"/>
+  <line x1="245" y1="112" x2="245" y2="300" class="axis"/>
+  <line x1="415" y1="112" x2="415" y2="300" class="grid"/>
+  <line x1="585" y1="112" x2="585" y2="300" class="grid"/>
+  <line x1="755" y1="112" x2="755" y2="300" class="grid"/>
+  <line x1="925" y1="112" x2="925" y2="300" class="grid"/>
+  <text x="240" y="327" class="small">0%</text><text x="402" y="327" class="small">25%</text>
+  <text x="572" y="327" class="small">50%</text><text x="742" y="327" class="small">75%</text>
+  <text x="905" y="327" class="small">100%</text>
+
+  <text x="28" y="145" class="small">MLP9 parent direction match</text>
+  <rect x="245" y="128" width="568" height="22" rx="4" class="good"/>
+  <text x="822" y="145" class="small">82.2–83.5%</text>
+
+  <text x="28" y="195" class="small">Group share of MLP9 response</text>
+  <rect x="245" y="165" width="560" height="18" rx="4" class="good"/>
+  <rect x="245" y="188" width="553" height="18" rx="4" class="good2"/>
+  <text x="814" y="179" class="small">E absorbs: 80.9–82.4%</text>
+  <text x="807" y="202" class="small">Proportional: 79.8–81.4%</text>
+
+  <text x="28" y="254" class="small">Downstream-use direction match</text>
+  <rect x="245" y="224" width="661" height="18" rx="4" class="good"/>
+  <rect x="245" y="247" width="655" height="18" rx="4" class="good2"/>
+  <text x="914" y="238" class="small">94.8–97.2%</text>
+  <text x="908" y="261" class="small">94.1–97.1%</text>
+
+  <rect x="28" y="350" width="452" height="92" rx="8" class="box"/>
+  <text x="46" y="377" class="label">Accounting method 1: E absorbs rounding</text>
+  <text x="46" y="402" class="small">13 selected pairs; 12 shared with method 2</text>
+  <text x="46" y="425" class="small">extra pair: E × MLP8</text>
+  <circle cx="449" cy="415" r="9" class="warn"/>
+
+  <rect x="500" y="350" width="472" height="92" rx="8" class="box"/>
+  <text x="518" y="377" class="label">Accounting method 2: proportional rounding</text>
+  <text x="518" y="402" class="small">12 selected pairs; set differs from method 1</text>
+  <text x="518" y="425" class="small">A8 × MLP8 also flips sign on one held-out cell</text>
+  <circle cx="942" cy="415" r="9" class="fail"/>
+</svg>
