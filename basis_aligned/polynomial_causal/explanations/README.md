@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1140.md](explanation_2026-09-02_1140.md) — consolidated update since 02:19: the whole-head
+  equality factorial, shared cross-head matcher, distributed three-MLP correction, failed product/sparse/common-block
+  groupings, exact query-position circuit, guarded code-only composition result, downstream-defined attention0
+  geometry, MLP0 branch factorial, newest immediate-consumer T/I split screen, numerical trust boundary, graphs, and
+  the active finite task-conditioned successor
 - [explanation_2026-09-02_1052.md](explanation_2026-09-02_1052.md) — full update since07:54: the exact downstream-
   response computation inside attention0, the pre-outcome affine/gauge corrections, current long-run status, the
   separately discovered cross-process numerical drift with a graph and precise trust boundary, the coupled-tensor
