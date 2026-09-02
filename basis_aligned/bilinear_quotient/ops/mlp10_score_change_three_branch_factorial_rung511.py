@@ -36,6 +36,8 @@ import mlp10_observable_predictive_state_quotient_rung510 as r510
 
 
 PREREG = POLY / "MLP10_SCORE_CHANGE_THREE_BRANCH_FACTORIAL_RUNG511_PREREGISTRATION.md"
+PREFLIGHT_ADDENDUM = (
+    POLY / "MLP10_SCORE_CHANGE_THREE_BRANCH_FACTORIAL_RUNG511_PREFLIGHT_ADDENDUM.md")
 R510_RESULT = ROOT / "mlp10_observable_predictive_state_quotient_rung510_results.json"
 R510_BUNDLE = ROOT / "mlp10_observable_predictive_state_quotient_rung510_bundle.pt"
 R510_SOURCE = ROOT / "ops/mlp10_observable_predictive_state_quotient_rung510.py"
@@ -44,6 +46,7 @@ BUNDLE = ROOT / "mlp10_score_change_three_branch_factorial_rung511_bundle.pt"
 
 HASHES = {
     PREREG: "95a296478a5adc21ef0ef9bf8a1762ddd86e8f1312258733ce1de2eb2d9b4cd4",
+    PREFLIGHT_ADDENDUM: "e8813b55944265b5934a38fbc76e3cc06b86422dfd1945c878208617476903f4",
     R510_RESULT: "16d100e7b92152fc70939b000934699882605c30c513c570f6c519b80f943177",
     R510_BUNDLE: "a8832624c94e3e9aa491d26290e55a14f94aa103eb7cddc3df3a0e1b34c3eed7",
     R510_SOURCE: "7901aa5d9c7c39bf5666e0f081bfe08047f23c73eec08b12508c601def7b967a",
@@ -219,7 +222,7 @@ def collect_factorial(model, rows, task_masks, circuit_masks, circuit_tags,
         diagnostics["hooks"] += 1
         r510.r509._update_diagnostics(diagnostics, absent_diag)
         base_task[local:local + r510.r509.parent.BATCH] = r510.r509.parent._task_sums(
-            r510.r509.parent._nll(direct_logits, batch_rows).detach().cpu().unsqueeze(0), masks)[0]
+            r510.r509.parent._nll(absent_logits, batch_rows).detach().cpu().unsqueeze(0), masks)[0]
         action_nll = []
         for action_index, source in enumerate(r510.r509.parent.SOURCES):
             logits, current, current_diag, _ = _captured_forward(
@@ -803,10 +806,19 @@ def _gpu_smoke() -> None:
     substitutions = collect_substitutions(
         model, rows, task_masks, circuit_masks, discovery_tags,
         scales, bounds, [candidate])
+    calibration = r510.r509.parent._calibration(
+        factorial["base_task"], factorial["source_task"],
+        factorial["task_counts"], bounds)
+    native_reference_live = all(
+        abs(calibration[window]["N"]["all_copy_effect_nat"]) > 1e-8
+        and abs(calibration[window]["N"]["recovery_vs_native"] - 1.0) <= 1e-12
+        and calibration[window]["N"]["per_document_cosine_vs_native"] >= 1 - 1e-12
+        for window in ("half0", "half1", "pooled"))
     checks = {
         "weights": checkpoint.weights_sha256 == facade.WEIGHTS_SHA256,
         "factorial": _instrument(factorial),
         "substitutions": _substitution_instrument(substitutions),
+        "score_absent_native_reference_live": native_reference_live,
         "all_twenty_eight_subset_patches": factorial["diagnostics"]["subset_patches"] == 28,
         "both_substitution_patches": substitutions["diagnostics"]["substitution_patches"] == 2,
     }

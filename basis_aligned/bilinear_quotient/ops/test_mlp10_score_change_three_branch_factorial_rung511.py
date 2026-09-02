@@ -90,6 +90,14 @@ def test_preregistration_hash_and_rung510_zero_pair_route_are_pinned():
     assert result["next_step"] == "registered_multi_term_signed_combinations_without_pair_ranking"
 
 
+def test_factorial_calibration_uses_score_absent_not_direct_native_baseline():
+    source = (OPS / "mlp10_score_change_three_branch_factorial_rung511.py").read_text()
+    assignment = source.index("base_task[local:local + r510.r509.parent.BATCH]")
+    following = source[assignment:assignment + 350]
+    assert "_nll(absent_logits, batch_rows)" in following
+    assert "_nll(direct_logits, batch_rows)" not in following
+
+
 def test_dry_run_opens_no_model_outcome(capsys):
     rung.dry_run()
     output = capsys.readouterr().out
