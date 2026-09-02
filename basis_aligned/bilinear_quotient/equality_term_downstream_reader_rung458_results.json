@@ -1,0 +1,6733 @@
+{
+ "status": "complete",
+ "rung": 458,
+ "claim_level": "natural_text_reader_screen_and_heldout_patch_interchange_not_ood_or_adoption",
+ "input_identity": {
+  "document_ids_sha256": "8ee98c5118a2f34e5c9677d60d909c510a59a7f760fcaddfdb969a3ee0fddc2f",
+  "support": {
+   "matched_positive": {
+    "tokens": 225,
+    "documents": 121,
+    "mask_sha256": "f223b973321fdff4a556f50e7fa9a4d5b44b33ad88552c48e2afd1b29a207d5b"
+   },
+   "matched_negative": {
+    "tokens": 225,
+    "documents": 131,
+    "mask_sha256": "2610d3a485cafc8c483601d3278ef7689a707334eebfd4a369b256569a903620"
+   },
+   "all_positive": {
+    "tokens": 3084,
+    "documents": 191,
+    "mask_sha256": "3fcea318992bba285621c1f56dc891675cc3eb95b507d08d8b38b9eb015131c1"
+   },
+   "near_positive": {
+    "tokens": 719,
+    "documents": 160,
+    "mask_sha256": "2af1a2c10cd021f0c9f6942943238c4686d6b9632c810793f6e25e75043a4ea1"
+   },
+   "far_positive": {
+    "tokens": 2365,
+    "documents": 191,
+    "mask_sha256": "a8c6061993a809b059455af8974d68d0da4c12b6d08b87cce49e80327408681b"
+   },
+   "one_predecessor_positive": {
+    "tokens": 1366,
+    "documents": 190,
+    "mask_sha256": "92ae6e70e3f08200a00b3c3eaaca5e7fa214736c4c508a8c8256d6494c0b1976"
+   },
+   "multiple_predecessor_positive": {
+    "tokens": 1718,
+    "documents": 185,
+    "mask_sha256": "6192eb5fab28d312dcc34b634753642f883ec2784e59464ec6a38a3069f33151"
+   },
+   "off_target": {
+    "tokens": 33555,
+    "documents": 192,
+    "mask_sha256": "abca651d6acfc7819753ab796c0209508064a8cba684140b473a836cbbd305fd"
+   },
+   "all": {
+    "tokens": 36864,
+    "documents": 192,
+    "mask_sha256": "890d0ff7e9d07db1992a98466f614d3b1b068bd247c1f8863afe220799739413"
+   }
+  },
+  "row_file_sha256": "5f2813eacc3ec66162c2ce695b978264137c66126fdc25e3d49b4efd44a9d759",
+  "row_receipt_sha256": "755c456db9384420d3b2a2d5d27f0201739592b65b55eefa5871a75851dc702e"
+ },
+ "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "code_ood_loaded": false,
+ "sealed_attention0_confirmation_opened": false,
+ "terms": [
+  [
+   "L5H5",
+   5,
+   5
+  ],
+  [
+   "L7H3",
+   7,
+   3
+  ],
+  [
+   "L8H3",
+   8,
+   3
+  ],
+  [
+   "L8H4",
+   8,
+   4
+  ]
+ ],
+ "common_suffix_components": [
+  "a9",
+  "m9",
+  "a10",
+  "m10",
+  "a11",
+  "m11",
+  "a12",
+  "m12",
+  "a13",
+  "m13",
+  "a14",
+  "m14",
+  "a15",
+  "m15",
+  "a16",
+  "m16",
+  "a17",
+  "m17"
+ ],
+ "fit_screen": {
+  "candidate_count": 72,
+  "qualified_count": 0,
+  "selected": null,
+  "candidates": [
+   {
+    "component": "a9",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.09374213907003526,
+    "matched_negative_cosine": -0.0046023142783745115,
+    "off_target_cosine": 0.01504392719846993,
+    "task_margin": -0.10878606626850519,
+    "minimum_relative_response_rms": 0.041810656096653284,
+    "qualified": false
+   },
+   {
+    "component": "a9",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.022396834647012743,
+    "matched_negative_cosine": 0.028830961060241724,
+    "off_target_cosine": -0.006930334655653813,
+    "task_margin": -0.05122779570725447,
+    "minimum_relative_response_rms": 0.030147112842728994,
+    "qualified": false
+   },
+   {
+    "component": "a9",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.387333706756929,
+    "matched_negative_cosine": 0.3184196531814555,
+    "off_target_cosine": 0.43957560648296257,
+    "task_margin": -0.05224189972603355,
+    "minimum_relative_response_rms": 0.03134811410393063,
+    "qualified": false
+   },
+   {
+    "component": "a9",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.10444163844165441,
+    "matched_negative_cosine": 0.15560880235350136,
+    "off_target_cosine": 0.1295971132316723,
+    "task_margin": -0.05116716391184695,
+    "minimum_relative_response_rms": 0.030147112842728994,
+    "qualified": false
+   },
+   {
+    "component": "m9",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.03298500162831515,
+    "matched_negative_cosine": 0.07877646114117318,
+    "off_target_cosine": 0.04540420357681345,
+    "task_margin": -0.11176146276948833,
+    "minimum_relative_response_rms": 0.12894246253436945,
+    "qualified": false
+   },
+   {
+    "component": "m9",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.0026342882137869775,
+    "matched_negative_cosine": 0.09519800688614818,
+    "off_target_cosine": 0.03651143401585911,
+    "task_margin": -0.09256371867236121,
+    "minimum_relative_response_rms": 0.09807971333819454,
+    "qualified": false
+   },
+   {
+    "component": "m9",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.434601904442394,
+    "matched_negative_cosine": 0.44447634742402986,
+    "off_target_cosine": 0.369472909209688,
+    "task_margin": -0.009874442981635867,
+    "minimum_relative_response_rms": 0.08012556797994946,
+    "qualified": false
+   },
+   {
+    "component": "m9",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.16839720626747207,
+    "matched_negative_cosine": 0.17661184690744203,
+    "off_target_cosine": 0.14194593731114913,
+    "task_margin": -0.008214640639969961,
+    "minimum_relative_response_rms": 0.08012556797994946,
+    "qualified": false
+   },
+   {
+    "component": "a10",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.15272385028007382,
+    "matched_negative_cosine": 0.12553935264297555,
+    "off_target_cosine": -0.04423882050164323,
+    "task_margin": -0.2782632029230494,
+    "minimum_relative_response_rms": 0.06982166769271078,
+    "qualified": false
+   },
+   {
+    "component": "a10",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.10965247774838309,
+    "matched_negative_cosine": 0.07447176909910212,
+    "off_target_cosine": -0.017224169138528783,
+    "task_margin": -0.1841242468474852,
+    "minimum_relative_response_rms": 0.03379626627776853,
+    "qualified": false
+   },
+   {
+    "component": "a10",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.4383617549638189,
+    "matched_negative_cosine": 0.5545608428641118,
+    "off_target_cosine": 0.3873681616819069,
+    "task_margin": -0.11619908790029287,
+    "minimum_relative_response_rms": 0.03333090809074468,
+    "qualified": false
+   },
+   {
+    "component": "a10",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.2399100513530238,
+    "matched_negative_cosine": 0.29645114286622176,
+    "off_target_cosine": 0.25109064829988487,
+    "task_margin": -0.05654109151319797,
+    "minimum_relative_response_rms": 0.03333090809074468,
+    "qualified": false
+   },
+   {
+    "component": "m10",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.01977423874380657,
+    "matched_negative_cosine": 0.11934241670969195,
+    "off_target_cosine": 0.06929423579057839,
+    "task_margin": -0.13911665545349852,
+    "minimum_relative_response_rms": 0.13958862890417734,
+    "qualified": false
+   },
+   {
+    "component": "m10",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.006698113813506147,
+    "matched_negative_cosine": 0.11734448668719542,
+    "off_target_cosine": 0.057688712845690125,
+    "task_margin": -0.11064637287368928,
+    "minimum_relative_response_rms": 0.10986648824339795,
+    "qualified": false
+   },
+   {
+    "component": "m10",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.4030748774321025,
+    "matched_negative_cosine": 0.4659641960040129,
+    "off_target_cosine": 0.3713856028328425,
+    "task_margin": -0.06288931857191038,
+    "minimum_relative_response_rms": 0.0875476882208148,
+    "qualified": false
+   },
+   {
+    "component": "m10",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.15127909242792673,
+    "matched_negative_cosine": 0.19649847614790186,
+    "off_target_cosine": 0.1633402751942766,
+    "task_margin": -0.04521938371997514,
+    "minimum_relative_response_rms": 0.0875476882208148,
+    "qualified": false
+   },
+   {
+    "component": "a11",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.07507289655128585,
+    "matched_negative_cosine": 0.17288417495629288,
+    "off_target_cosine": 0.028354023177087576,
+    "task_margin": -0.24795707150757873,
+    "minimum_relative_response_rms": 0.06843052726826757,
+    "qualified": false
+   },
+   {
+    "component": "a11",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.011429410762351384,
+    "matched_negative_cosine": 0.15913382075637128,
+    "off_target_cosine": 0.048677257830654436,
+    "task_margin": -0.17056323151872266,
+    "minimum_relative_response_rms": 0.04746268276865973,
+    "qualified": false
+   },
+   {
+    "component": "a11",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.49944887512872743,
+    "matched_negative_cosine": 0.5406083074001224,
+    "off_target_cosine": 0.40830711567063865,
+    "task_margin": -0.04115943227139501,
+    "minimum_relative_response_rms": 0.05124077343469442,
+    "qualified": false
+   },
+   {
+    "component": "a11",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.32063876184480694,
+    "matched_negative_cosine": 0.3401843815840186,
+    "off_target_cosine": 0.22447424280807907,
+    "task_margin": -0.01954561973921165,
+    "minimum_relative_response_rms": 0.04746268276865973,
+    "qualified": false
+   },
+   {
+    "component": "m11",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.011160949769585074,
+    "matched_negative_cosine": 0.10442724121510912,
+    "off_target_cosine": 0.08852248542191501,
+    "task_margin": -0.1155881909846942,
+    "minimum_relative_response_rms": 0.09692595403467572,
+    "qualified": false
+   },
+   {
+    "component": "m11",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.006697489776751159,
+    "matched_negative_cosine": 0.11276565373925358,
+    "off_target_cosine": 0.07772477181095262,
+    "task_margin": -0.10606816396250242,
+    "minimum_relative_response_rms": 0.07673709719417728,
+    "qualified": false
+   },
+   {
+    "component": "m11",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.40776697317858585,
+    "matched_negative_cosine": 0.44062483332536095,
+    "off_target_cosine": 0.38353645766460437,
+    "task_margin": -0.03285786014677511,
+    "minimum_relative_response_rms": 0.06399421682689406,
+    "qualified": false
+   },
+   {
+    "component": "m11",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.17512772548057567,
+    "matched_negative_cosine": 0.20353374229305585,
+    "off_target_cosine": 0.1958962310904821,
+    "task_margin": -0.028406016812480173,
+    "minimum_relative_response_rms": 0.06399421682689406,
+    "qualified": false
+   },
+   {
+    "component": "a12",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.06257069235360506,
+    "matched_negative_cosine": 0.02592705955730439,
+    "off_target_cosine": 0.032477502620710016,
+    "task_margin": -0.09504819497431508,
+    "minimum_relative_response_rms": 0.04678419364068708,
+    "qualified": false
+   },
+   {
+    "component": "a12",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.03784841232676438,
+    "matched_negative_cosine": 0.11949013673469912,
+    "off_target_cosine": 0.055300051333239106,
+    "task_margin": -0.1573385490614635,
+    "minimum_relative_response_rms": 0.032762827215624395,
+    "qualified": false
+   },
+   {
+    "component": "a12",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.38784824151444597,
+    "matched_negative_cosine": 0.3798342393784666,
+    "off_target_cosine": 0.38154600465354305,
+    "task_margin": 0.006302236860902921,
+    "minimum_relative_response_rms": 0.03404265327628274,
+    "qualified": false
+   },
+   {
+    "component": "a12",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.19507932226382527,
+    "matched_negative_cosine": 0.17423284499610903,
+    "off_target_cosine": 0.2041941753070378,
+    "task_margin": -0.009114853043212523,
+    "minimum_relative_response_rms": 0.032762827215624395,
+    "qualified": false
+   },
+   {
+    "component": "m12",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.00028408204706852796,
+    "matched_negative_cosine": 0.11283497192893348,
+    "off_target_cosine": 0.10373138257471828,
+    "task_margin": -0.11255088988186494,
+    "minimum_relative_response_rms": 0.10306365842340645,
+    "qualified": false
+   },
+   {
+    "component": "m12",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.011246608983207866,
+    "matched_negative_cosine": 0.11652092430572127,
+    "off_target_cosine": 0.0880653329295478,
+    "task_margin": -0.1052743153225134,
+    "minimum_relative_response_rms": 0.08011620532117483,
+    "qualified": false
+   },
+   {
+    "component": "m12",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.412393349863457,
+    "matched_negative_cosine": 0.4565100505513628,
+    "off_target_cosine": 0.4093182233811082,
+    "task_margin": -0.0441167006879058,
+    "minimum_relative_response_rms": 0.06766736476519503,
+    "qualified": false
+   },
+   {
+    "component": "m12",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.17725442131400213,
+    "matched_negative_cosine": 0.21622010704083264,
+    "off_target_cosine": 0.21785304615454154,
+    "task_margin": -0.040598624840539416,
+    "minimum_relative_response_rms": 0.06766736476519503,
+    "qualified": false
+   },
+   {
+    "component": "a13",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.005627912307372754,
+    "matched_negative_cosine": 0.12091654074898246,
+    "off_target_cosine": 0.03896293658477002,
+    "task_margin": -0.12654445305635523,
+    "minimum_relative_response_rms": 0.062022525994025086,
+    "qualified": false
+   },
+   {
+    "component": "a13",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.01695354649741986,
+    "matched_negative_cosine": 0.1061622335745869,
+    "off_target_cosine": 0.05083873605486075,
+    "task_margin": -0.12311578007200676,
+    "minimum_relative_response_rms": 0.040171998094840476,
+    "qualified": false
+   },
+   {
+    "component": "a13",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.3464360927429371,
+    "matched_negative_cosine": 0.510932049818936,
+    "off_target_cosine": 0.34380317355696915,
+    "task_margin": -0.16449595707599896,
+    "minimum_relative_response_rms": 0.043420683795777446,
+    "qualified": false
+   },
+   {
+    "component": "a13",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.10940410331984075,
+    "matched_negative_cosine": 0.2635661235414488,
+    "off_target_cosine": 0.19770680165313978,
+    "task_margin": -0.15416202022160808,
+    "minimum_relative_response_rms": 0.040171998094840476,
+    "qualified": false
+   },
+   {
+    "component": "m13",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.007913246973894568,
+    "matched_negative_cosine": 0.1360398395720503,
+    "off_target_cosine": 0.12221299142682528,
+    "task_margin": -0.12812659259815573,
+    "minimum_relative_response_rms": 0.09870066530235655,
+    "qualified": false
+   },
+   {
+    "component": "m13",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.018060380776153274,
+    "matched_negative_cosine": 0.1421903823519125,
+    "off_target_cosine": 0.10027435857132709,
+    "task_margin": -0.12413000157575924,
+    "minimum_relative_response_rms": 0.07440343692081931,
+    "qualified": false
+   },
+   {
+    "component": "m13",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.4151328310526627,
+    "matched_negative_cosine": 0.4828198925295496,
+    "off_target_cosine": 0.4185075717237172,
+    "task_margin": -0.06768706147688691,
+    "minimum_relative_response_rms": 0.06343327596719747,
+    "qualified": false
+   },
+   {
+    "component": "m13",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.16139817592914166,
+    "matched_negative_cosine": 0.23030933477396656,
+    "off_target_cosine": 0.22436509576263722,
+    "task_margin": -0.0689111588448249,
+    "minimum_relative_response_rms": 0.06343327596719747,
+    "qualified": false
+   },
+   {
+    "component": "a14",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.016265126708218777,
+    "matched_negative_cosine": 0.11731038753691644,
+    "off_target_cosine": 0.049791245206873204,
+    "task_margin": -0.13357551424513522,
+    "minimum_relative_response_rms": 0.06494020795336834,
+    "qualified": false
+   },
+   {
+    "component": "a14",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.02091426307925932,
+    "matched_negative_cosine": 0.08452615946275932,
+    "off_target_cosine": 0.05836638433300252,
+    "task_margin": -0.10544042254201864,
+    "minimum_relative_response_rms": 0.04099106634851549,
+    "qualified": false
+   },
+   {
+    "component": "a14",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.3260536200322674,
+    "matched_negative_cosine": 0.4558843604400182,
+    "off_target_cosine": 0.36823372270805277,
+    "task_margin": -0.12983074040775078,
+    "minimum_relative_response_rms": 0.044254275048117984,
+    "qualified": false
+   },
+   {
+    "component": "a14",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.09885215923778543,
+    "matched_negative_cosine": 0.20733982110833366,
+    "off_target_cosine": 0.18628179688610413,
+    "task_margin": -0.10848766187054823,
+    "minimum_relative_response_rms": 0.04099106634851549,
+    "qualified": false
+   },
+   {
+    "component": "m14",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.023000220324787105,
+    "matched_negative_cosine": 0.1563146012783737,
+    "off_target_cosine": 0.13651373313040907,
+    "task_margin": -0.1333143809535866,
+    "minimum_relative_response_rms": 0.10473804072842548,
+    "qualified": false
+   },
+   {
+    "component": "m14",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.013429645145317174,
+    "matched_negative_cosine": 0.13642939949893235,
+    "off_target_cosine": 0.11375708870043073,
+    "task_margin": -0.12299975435361517,
+    "minimum_relative_response_rms": 0.076981898120549,
+    "qualified": false
+   },
+   {
+    "component": "m14",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.40692298691591783,
+    "matched_negative_cosine": 0.4922176110584168,
+    "off_target_cosine": 0.4083074121738005,
+    "task_margin": -0.085294624142499,
+    "minimum_relative_response_rms": 0.06598517982947728,
+    "qualified": false
+   },
+   {
+    "component": "m14",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.1496008713759148,
+    "matched_negative_cosine": 0.24922810165747625,
+    "off_target_cosine": 0.23263103873663082,
+    "task_margin": -0.09962723028156145,
+    "minimum_relative_response_rms": 0.06598517982947728,
+    "qualified": false
+   },
+   {
+    "component": "a15",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.017286276269639266,
+    "matched_negative_cosine": 0.0987935277269615,
+    "off_target_cosine": 0.06897464957750354,
+    "task_margin": -0.11607980399660076,
+    "minimum_relative_response_rms": 0.05530270537279973,
+    "qualified": false
+   },
+   {
+    "component": "a15",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.009032014116231515,
+    "matched_negative_cosine": 0.10830454471295173,
+    "off_target_cosine": 0.06504942630449684,
+    "task_margin": -0.11733655882918324,
+    "minimum_relative_response_rms": 0.035981658960427904,
+    "qualified": false
+   },
+   {
+    "component": "a15",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.42324242642284055,
+    "matched_negative_cosine": 0.43377184672647856,
+    "off_target_cosine": 0.41138198282784594,
+    "task_margin": -0.010529420303638015,
+    "minimum_relative_response_rms": 0.037420611583272805,
+    "qualified": false
+   },
+   {
+    "component": "a15",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.24234189291317676,
+    "matched_negative_cosine": 0.26341744091948627,
+    "off_target_cosine": 0.2485321738275512,
+    "task_margin": -0.021075548006309508,
+    "minimum_relative_response_rms": 0.035981658960427904,
+    "qualified": false
+   },
+   {
+    "component": "m15",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.010585959941630118,
+    "matched_negative_cosine": 0.15630478016068888,
+    "off_target_cosine": 0.1403032409338853,
+    "task_margin": -0.14571882021905877,
+    "minimum_relative_response_rms": 0.054579476417854315,
+    "qualified": false
+   },
+   {
+    "component": "m15",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.012121825520908496,
+    "matched_negative_cosine": 0.12182862108091842,
+    "off_target_cosine": 0.11594170878773456,
+    "task_margin": -0.10970679556000992,
+    "minimum_relative_response_rms": 0.03929528314049715,
+    "qualified": false
+   },
+   {
+    "component": "m15",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.4092576593427501,
+    "matched_negative_cosine": 0.49355420777318393,
+    "off_target_cosine": 0.4047370053386839,
+    "task_margin": -0.08429654843043383,
+    "minimum_relative_response_rms": 0.034908961699558524,
+    "qualified": false
+   },
+   {
+    "component": "m15",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.16555984119676598,
+    "matched_negative_cosine": 0.2672407046803353,
+    "off_target_cosine": 0.244509342346445,
+    "task_margin": -0.1016808634835693,
+    "minimum_relative_response_rms": 0.034908961699558524,
+    "qualified": false
+   },
+   {
+    "component": "a16",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": -0.01629896594487201,
+    "matched_negative_cosine": 0.11730267444516769,
+    "off_target_cosine": 0.10100584094960582,
+    "task_margin": -0.1336016403900397,
+    "minimum_relative_response_rms": 0.06552448522266477,
+    "qualified": false
+   },
+   {
+    "component": "a16",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.03867988107080275,
+    "matched_negative_cosine": 0.08217712097464015,
+    "off_target_cosine": 0.09959940594028552,
+    "task_margin": -0.060919524869482766,
+    "minimum_relative_response_rms": 0.04236204035589794,
+    "qualified": false
+   },
+   {
+    "component": "a16",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.3512221410028642,
+    "matched_negative_cosine": 0.49100331514374596,
+    "off_target_cosine": 0.423823767191228,
+    "task_margin": -0.13978117414088176,
+    "minimum_relative_response_rms": 0.039807809890939606,
+    "qualified": false
+   },
+   {
+    "component": "a16",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.14231034499248674,
+    "matched_negative_cosine": 0.21437934822198526,
+    "off_target_cosine": 0.2534644497987163,
+    "task_margin": -0.11115410480622956,
+    "minimum_relative_response_rms": 0.039807809890939606,
+    "qualified": false
+   },
+   {
+    "component": "m16",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.12743111415774466,
+    "matched_negative_cosine": 0.18743891546365254,
+    "off_target_cosine": 0.13765641761698866,
+    "task_margin": -0.06000780130590788,
+    "minimum_relative_response_rms": 0.03853291889177527,
+    "qualified": false
+   },
+   {
+    "component": "m16",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": 0.04312318541847769,
+    "matched_negative_cosine": 0.1312104473881183,
+    "off_target_cosine": 0.10659993739510155,
+    "task_margin": -0.0880872619696406,
+    "minimum_relative_response_rms": 0.023978110778239352,
+    "qualified": false
+   },
+   {
+    "component": "m16",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.5318264863978757,
+    "matched_negative_cosine": 0.5121638862640893,
+    "off_target_cosine": 0.44188466860970704,
+    "task_margin": 0.0196626001337864,
+    "minimum_relative_response_rms": 0.029843692749927233,
+    "qualified": false
+   },
+   {
+    "component": "m16",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.25631994102243216,
+    "matched_negative_cosine": 0.2912470337782406,
+    "off_target_cosine": 0.284878976802535,
+    "task_margin": -0.034927092755808464,
+    "minimum_relative_response_rms": 0.023978110778239352,
+    "qualified": false
+   },
+   {
+    "component": "a17",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.08250212287358455,
+    "matched_negative_cosine": 0.0020366263233574937,
+    "off_target_cosine": 0.11650691419048646,
+    "task_margin": -0.034004791316901914,
+    "minimum_relative_response_rms": 0.052176302440712904,
+    "qualified": false
+   },
+   {
+    "component": "a17",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.001921392826107507,
+    "matched_negative_cosine": -0.07137562602838154,
+    "off_target_cosine": 0.08229222951706798,
+    "task_margin": -0.08421362234317549,
+    "minimum_relative_response_rms": 0.03258883368363301,
+    "qualified": false
+   },
+   {
+    "component": "a17",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.3717964762892024,
+    "matched_negative_cosine": 0.3341228695249545,
+    "off_target_cosine": 0.4286688532006985,
+    "task_margin": -0.05687237691149605,
+    "minimum_relative_response_rms": 0.04427401571902074,
+    "qualified": false
+   },
+   {
+    "component": "a17",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.21567564541111559,
+    "matched_negative_cosine": 0.11627807398997778,
+    "off_target_cosine": 0.28740005817428055,
+    "task_margin": -0.07172441276316496,
+    "minimum_relative_response_rms": 0.03258883368363301,
+    "qualified": false
+   },
+   {
+    "component": "m17",
+    "pair_indices": [
+     0,
+     2
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H3"
+    ],
+    "positive_cosine": 0.01515564847812939,
+    "matched_negative_cosine": 0.0421620272404613,
+    "off_target_cosine": 0.17759056008324656,
+    "task_margin": -0.16243491160511717,
+    "minimum_relative_response_rms": 0.056152678085505336,
+    "qualified": false
+   },
+   {
+    "component": "m17",
+    "pair_indices": [
+     0,
+     3
+    ],
+    "pair_terms": [
+     "L5H5",
+     "L8H4"
+    ],
+    "positive_cosine": -0.03203393665193804,
+    "matched_negative_cosine": 0.15583324693802036,
+    "off_target_cosine": 0.10271038487707035,
+    "task_margin": -0.1878671835899584,
+    "minimum_relative_response_rms": 0.03223975496549053,
+    "qualified": false
+   },
+   {
+    "component": "m17",
+    "pair_indices": [
+     1,
+     2
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H3"
+    ],
+    "positive_cosine": 0.43991547141690646,
+    "matched_negative_cosine": 0.4557142137288755,
+    "off_target_cosine": 0.5291111140602607,
+    "task_margin": -0.08919564264335422,
+    "minimum_relative_response_rms": 0.037076989267138684,
+    "qualified": false
+   },
+   {
+    "component": "m17",
+    "pair_indices": [
+     1,
+     3
+    ],
+    "pair_terms": [
+     "L7H3",
+     "L8H4"
+    ],
+    "positive_cosine": 0.2779655780046486,
+    "matched_negative_cosine": 0.3376239000718678,
+    "off_target_cosine": 0.2758872956227797,
+    "task_margin": -0.059658322067219216,
+    "minimum_relative_response_rms": 0.03223975496549053,
+    "qualified": false
+   }
+  ],
+  "response_reports": {
+   "all_positive": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.15043967440653616,
+       -0.09374213907003526,
+       -0.022396834647012743
+      ],
+      [
+       0.15043967440653616,
+       1.0,
+       0.387333706756929,
+       0.10444163844165441
+      ],
+      [
+       -0.09374213907003526,
+       0.387333706756929,
+       1.0,
+       0.12971928648981185
+      ],
+      [
+       -0.022396834647012743,
+       0.10444163844165441,
+       0.12971928648981185,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10234230661936965,
+      0.03134811410393063,
+      0.041810656096653284,
+      0.030147112842728994
+     ],
+     "response_square": [
+      101801716.0625,
+      9551411.03125,
+      16990989.1328125,
+      8833567.8671875
+     ],
+     "native_write_square": 9719517296.0,
+     "tokens": 1527
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.14701207495605179,
+       -0.03298500162831515,
+       0.0026342882137869775
+      ],
+      [
+       0.14701207495605179,
+       1.0,
+       0.434601904442394,
+       0.16839720626747207
+      ],
+      [
+       -0.03298500162831515,
+       0.434601904442394,
+       1.0,
+       0.16699649268245298
+      ],
+      [
+       0.0026342882137869775,
+       0.16839720626747207,
+       0.16699649268245298,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1591703627285915,
+      0.08012556797994946,
+      0.12894246253436945,
+      0.09807971333819454
+     ],
+     "response_square": [
+      235010040.0,
+      59553082.625,
+      154224696.625,
+      89231949.25
+     ],
+     "native_write_square": 9276027008.0,
+     "tokens": 1527
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.10909741492852017,
+       -0.15272385028007382,
+       -0.10965247774838309
+      ],
+      [
+       0.10909741492852017,
+       1.0,
+       0.4383617549638189,
+       0.2399100513530238
+      ],
+      [
+       -0.15272385028007382,
+       0.4383617549638189,
+       1.0,
+       0.38969735498123487
+      ],
+      [
+       -0.10965247774838309,
+       0.2399100513530238,
+       0.38969735498123487,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.09300802571596692,
+      0.03333090809074468,
+      0.06982166769271078,
+      0.03379626627776853
+     ],
+     "response_square": [
+      46233757.359375,
+      5937623.1484375,
+      26055461.71875,
+      6104579.9296875
+     ],
+     "native_write_square": 5344638528.0,
+     "tokens": 1527
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.16040519117404242,
+       -0.01977423874380657,
+       0.006698113813506147
+      ],
+      [
+       0.16040519117404242,
+       1.0,
+       0.4030748774321025,
+       0.15127909242792673
+      ],
+      [
+       -0.01977423874380657,
+       0.4030748774321025,
+       1.0,
+       0.14168736900766962
+      ],
+      [
+       0.006698113813506147,
+       0.15127909242792673,
+       0.14168736900766962,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1742803608174732,
+      0.0875476882208148,
+      0.13958862890417734,
+      0.10986648824339795
+     ],
+     "response_square": [
+      196949108.625,
+      49698866.53125,
+      126344750.375,
+      78268607.0625
+     ],
+     "native_write_square": 6484210704.0,
+     "tokens": 1527
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.11767652268422107,
+       -0.07507289655128585,
+       -0.011429410762351384
+      ],
+      [
+       0.11767652268422107,
+       1.0,
+       0.49944887512872743,
+       0.32063876184480694
+      ],
+      [
+       -0.07507289655128585,
+       0.49944887512872743,
+       1.0,
+       0.34801824238576823
+      ],
+      [
+       -0.011429410762351384,
+       0.32063876184480694,
+       0.34801824238576823,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12521907391113268,
+      0.05124077343469442,
+      0.06843052726826757,
+      0.04746268276865973
+     ],
+     "response_square": [
+      112986561.0625,
+      18919827.3125,
+      33743147.3125,
+      16232685.71875
+     ],
+     "native_write_square": 7205859920.0,
+     "tokens": 1527
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.16691123801805097,
+       -0.011160949769585074,
+       0.006697489776751159
+      ],
+      [
+       0.16691123801805097,
+       1.0,
+       0.40776697317858585,
+       0.17512772548057567
+      ],
+      [
+       -0.011160949769585074,
+       0.40776697317858585,
+       1.0,
+       0.1501721003859573
+      ],
+      [
+       0.006697489776751159,
+       0.17512772548057567,
+       0.1501721003859573,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12992960975029255,
+      0.06399421682689406,
+      0.09692595403467572,
+      0.07673709719417728
+     ],
+     "response_square": [
+      366561883.25,
+      88922669.5,
+      203991092.5,
+      127862081.0
+     ],
+     "native_write_square": 21713560096.0,
+     "tokens": 1527
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.20305359952628005,
+       -0.06257069235360506,
+       -0.03784841232676438
+      ],
+      [
+       0.20305359952628005,
+       1.0,
+       0.38784824151444597,
+       0.19507932226382527
+      ],
+      [
+       -0.06257069235360506,
+       0.38784824151444597,
+       1.0,
+       0.217754216803725
+      ],
+      [
+       -0.03784841232676438,
+       0.19507932226382527,
+       0.217754216803725,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12967385752730107,
+      0.03404265327628274,
+      0.04678419364068708,
+      0.032762827215624395
+     ],
+     "response_square": [
+      80795809.15625,
+      5568404.515625,
+      10516767.453125,
+      5157588.83203125
+     ],
+     "native_write_square": 4804895800.0,
+     "tokens": 1527
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.17478774687154972,
+       0.00028408204706852796,
+       0.011246608983207866
+      ],
+      [
+       0.17478774687154972,
+       1.0,
+       0.412393349863457,
+       0.17725442131400213
+      ],
+      [
+       0.00028408204706852796,
+       0.412393349863457,
+       1.0,
+       0.1543761162067444
+      ],
+      [
+       0.011246608983207866,
+       0.17725442131400213,
+       0.1543761162067444,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1374811134065778,
+      0.06766736476519503,
+      0.10306365842340645,
+      0.08011620532117483
+     ],
+     "response_square": [
+      415407869.5,
+      100634563.125,
+      233453154.75,
+      141068282.875
+     ],
+     "native_write_square": 21978023744.0,
+     "tokens": 1527
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.25338406651686746,
+       -0.005627912307372754,
+       -0.01695354649741986
+      ],
+      [
+       0.25338406651686746,
+       1.0,
+       0.3464360927429371,
+       0.10940410331984075
+      ],
+      [
+       -0.005627912307372754,
+       0.3464360927429371,
+       1.0,
+       0.18802785016736548
+      ],
+      [
+       -0.01695354649741986,
+       0.10940410331984075,
+       0.18802785016736548,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12446116478240297,
+      0.043420683795777446,
+      0.062022525994025086,
+      0.040171998094840476
+     ],
+     "response_square": [
+      105627331.3125,
+      12855882.734375,
+      26230555.3125,
+      11004123.40625
+     ],
+     "native_write_square": 6818809936.0,
+     "tokens": 1527
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.19075233197742872,
+       0.007913246973894568,
+       0.018060380776153274
+      ],
+      [
+       0.19075233197742872,
+       1.0,
+       0.4151328310526627,
+       0.16139817592914166
+      ],
+      [
+       0.007913246973894568,
+       0.4151328310526627,
+       1.0,
+       0.15361290988008006
+      ],
+      [
+       0.018060380776153274,
+       0.16139817592914166,
+       0.15361290988008006,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12999567303456233,
+      0.06343327596719747,
+      0.09870066530235655,
+      0.07440343692081931
+     ],
+     "response_square": [
+      446092331.0,
+      106218764.375,
+      257162194.75,
+      146134567.375
+     ],
+     "native_write_square": 26397753152.0,
+     "tokens": 1527
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.3182747230692858,
+       -0.016265126708218777,
+       -0.02091426307925932
+      ],
+      [
+       0.3182747230692858,
+       1.0,
+       0.3260536200322674,
+       0.09885215923778543
+      ],
+      [
+       -0.016265126708218777,
+       0.3260536200322674,
+       1.0,
+       0.24777466501282852
+      ],
+      [
+       -0.02091426307925932,
+       0.09885215923778543,
+       0.24777466501282852,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12501581582173402,
+      0.044254275048117984,
+      0.06494020795336834,
+      0.04099106634851549
+     ],
+     "response_square": [
+      190899786.125,
+      23921366.484375,
+      51511343.03125,
+      20523619.5625
+     ],
+     "native_write_square": 12214495200.0,
+     "tokens": 1527
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.20982435080292455,
+       0.023000220324787105,
+       0.013429645145317174
+      ],
+      [
+       0.20982435080292455,
+       1.0,
+       0.40692298691591783,
+       0.1496008713759148
+      ],
+      [
+       0.023000220324787105,
+       0.40692298691591783,
+       1.0,
+       0.15161109958927282
+      ],
+      [
+       0.013429645145317174,
+       0.1496008713759148,
+       0.15161109958927282,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13904501141577977,
+      0.06598517982947728,
+      0.10473804072842548,
+      0.076981898120549
+     ],
+     "response_square": [
+      547535950.0,
+      123308957.0,
+      310678147.0,
+      167833652.25
+     ],
+     "native_write_square": 28320558592.0,
+     "tokens": 1527
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.2234771586401709,
+       -0.017286276269639266,
+       -0.009032014116231515
+      ],
+      [
+       0.2234771586401709,
+       1.0,
+       0.42324242642284055,
+       0.24234189291317676
+      ],
+      [
+       -0.017286276269639266,
+       0.42324242642284055,
+       1.0,
+       0.37156759575444226
+      ],
+      [
+       -0.009032014116231515,
+       0.24234189291317676,
+       0.37156759575444226,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12194527779188168,
+      0.037420611583272805,
+      0.05530270537279973,
+      0.035981658960427904
+     ],
+     "response_square": [
+      97379044.25,
+      9169745.7734375,
+      20027571.34375,
+      8478087.5859375
+     ],
+     "native_write_square": 6548405024.0,
+     "tokens": 1527
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.2423635251617759,
+       0.010585959941630118,
+       0.012121825520908496
+      ],
+      [
+       0.2423635251617759,
+       1.0,
+       0.4092576593427501,
+       0.16555984119676598
+      ],
+      [
+       0.010585959941630118,
+       0.4092576593427501,
+       1.0,
+       0.18177272536731562
+      ],
+      [
+       0.012121825520908496,
+       0.16555984119676598,
+       0.18177272536731562,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07253552934526772,
+      0.034908961699558524,
+      0.054579476417854315,
+      0.03929528314049715
+     ],
+     "response_square": [
+      947259306.0,
+      219402299.25,
+      536322530.0,
+      278002150.75
+     ],
+     "native_write_square": 180039298048.0,
+     "tokens": 1527
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.2555924188743803,
+       -0.01629896594487201,
+       0.03867988107080275
+      ],
+      [
+       0.2555924188743803,
+       1.0,
+       0.3512221410028642,
+       0.14231034499248674
+      ],
+      [
+       -0.01629896594487201,
+       0.3512221410028642,
+       1.0,
+       0.3566958909892294
+      ],
+      [
+       0.03867988107080275,
+       0.14231034499248674,
+       0.3566958909892294,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12010672662938746,
+      0.039807809890939606,
+      0.06552448522266477,
+      0.04236204035589794
+     ],
+     "response_square": [
+      190166731.875,
+      20889904.296875,
+      56598786.0625,
+      23656670.46875
+     ],
+     "native_write_square": 13182563776.0,
+     "tokens": 1527
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.3920475025643208,
+       0.12743111415774466,
+       0.04312318541847769
+      ],
+      [
+       0.3920475025643208,
+       1.0,
+       0.5318264863978757,
+       0.25631994102243216
+      ],
+      [
+       0.12743111415774466,
+       0.5318264863978757,
+       1.0,
+       0.2805860611733585
+      ],
+      [
+       0.04312318541847769,
+       0.25631994102243216,
+       0.2805860611733585,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07635558451695357,
+      0.029843692749927233,
+      0.03853291889177527,
+      0.023978110778239352
+     ],
+     "response_square": [
+      7841233534.0,
+      1197865058.0,
+      1996947250.0,
+      773272741.0
+     ],
+     "native_write_square": 1344939585536.0,
+     "tokens": 1527
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.4204036553062793,
+       0.08250212287358455,
+       -0.001921392826107507
+      ],
+      [
+       0.4204036553062793,
+       1.0,
+       0.3717964762892024,
+       0.21567564541111559
+      ],
+      [
+       0.08250212287358455,
+       0.3717964762892024,
+       1.0,
+       0.4924749850609861
+      ],
+      [
+       -0.001921392826107507,
+       0.21567564541111559,
+       0.4924749850609861,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1819850563752692,
+      0.04427401571902074,
+      0.052176302440712904,
+      0.03258883368363301
+     ],
+     "response_square": [
+      1856052395.25,
+      109854185.0625,
+      152568675.0,
+      59519107.8125
+     ],
+     "native_write_square": 56042664704.0,
+     "tokens": 1527
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.34757442010335693,
+       0.01515564847812939,
+       -0.03203393665193804
+      ],
+      [
+       0.34757442010335693,
+       1.0,
+       0.43991547141690646,
+       0.2779655780046486
+      ],
+      [
+       0.01515564847812939,
+       0.43991547141690646,
+       1.0,
+       0.5504417895279153
+      ],
+      [
+       -0.03203393665193804,
+       0.2779655780046486,
+       0.5504417895279153,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11799808118618509,
+      0.037076989267138684,
+      0.056152678085505336,
+      0.03223975496549053
+     ],
+     "response_square": [
+      57509029584.0,
+      5677995860.0,
+      13023481480.0,
+      4293086250.0
+     ],
+     "native_write_square": 4130343288832.0,
+     "tokens": 1527
+    }
+   },
+   "matched_negative": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.18306782638264027,
+       -0.0046023142783745115,
+       0.028830961060241724
+      ],
+      [
+       0.18306782638264027,
+       1.0,
+       0.3184196531814555,
+       0.15560880235350136
+      ],
+      [
+       -0.0046023142783745115,
+       0.3184196531814555,
+       1.0,
+       0.1394925043920438
+      ],
+      [
+       0.028830961060241724,
+       0.15560880235350136,
+       0.1394925043920438,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.05233182282666738,
+      0.015126069422678953,
+      0.018881914552020505,
+      0.014879904040643308
+     ],
+     "response_square": [
+      2979339.9575195312,
+      248908.9512939453,
+      387864.8219604492,
+      240873.26385498047
+     ],
+     "native_write_square": 1087898396.0,
+     "tokens": 119
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.24321837956875839,
+       0.07877646114117318,
+       0.09519800688614818
+      ],
+      [
+       0.24321837956875839,
+       1.0,
+       0.44447634742402986,
+       0.17661184690744203
+      ],
+      [
+       0.07877646114117318,
+       0.44447634742402986,
+       1.0,
+       0.11690567854381079
+      ],
+      [
+       0.09519800688614818,
+       0.17661184690744203,
+       0.11690567854381079,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.09098105160669122,
+      0.04014674424664044,
+      0.06077087169358827,
+      0.045594963252278686
+     ],
+     "response_square": [
+      7593530.7041015625,
+      1478572.1149902344,
+      3387917.143310547,
+      1907109.3208007812
+     ],
+     "native_write_square": 917364328.5,
+     "tokens": 119
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.24492648908278764,
+       0.12553935264297555,
+       0.07447176909910212
+      ],
+      [
+       0.24492648908278764,
+       1.0,
+       0.5545608428641118,
+       0.29645114286622176
+      ],
+      [
+       0.12553935264297555,
+       0.5545608428641118,
+       1.0,
+       0.37061402137232974
+      ],
+      [
+       0.07447176909910212,
+       0.29645114286622176,
+       0.37061402137232974,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.05160659449815304,
+      0.017409070344931263,
+      0.029119612337457114,
+      0.015125319495058857
+     ],
+     "response_square": [
+      1903923.2678222656,
+      216665.71759033203,
+      606192.0232849121,
+      163549.0980834961
+     ],
+     "native_write_square": 714889699.0,
+     "tokens": 119
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.2734980882483812,
+       0.11934241670969195,
+       0.11734448668719542
+      ],
+      [
+       0.2734980882483812,
+       1.0,
+       0.4659641960040129,
+       0.19649847614790186
+      ],
+      [
+       0.11934241670969195,
+       0.4659641960040129,
+       1.0,
+       0.1360295206216383
+      ],
+      [
+       0.11734448668719542,
+       0.19649847614790186,
+       0.1360295206216383,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10038649976928982,
+      0.04513627879578988,
+      0.06773070127196844,
+      0.05049717108126385
+     ],
+     "response_square": [
+      6386654.083984375,
+      1291142.7878417969,
+      2907327.226928711,
+      1616057.7231445312
+     ],
+     "native_write_square": 633757002.5,
+     "tokens": 119
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.36023530787989755,
+       0.17288417495629288,
+       0.15913382075637128
+      ],
+      [
+       0.36023530787989755,
+       1.0,
+       0.5406083074001224,
+       0.3401843815840186
+      ],
+      [
+       0.17288417495629288,
+       0.5406083074001224,
+       1.0,
+       0.2991752120207388
+      ],
+      [
+       0.15913382075637128,
+       0.3401843815840186,
+       0.2991752120207388,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06738881118758495,
+      0.02438189759327917,
+      0.03383796151464501,
+      0.02322683448627771
+     ],
+     "response_square": [
+      3876362.7587890625,
+      507438.9832763672,
+      977365.9545898438,
+      460499.1923828125
+     ],
+     "native_write_square": 853589025.0,
+     "tokens": 119
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.289594966955519,
+       0.10442724121510912,
+       0.11276565373925358
+      ],
+      [
+       0.289594966955519,
+       1.0,
+       0.44062483332536095,
+       0.20353374229305585
+      ],
+      [
+       0.10442724121510912,
+       0.44062483332536095,
+       1.0,
+       0.12252470446049599
+      ],
+      [
+       0.11276565373925358,
+       0.20353374229305585,
+       0.12252470446049599,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07254532668135845,
+      0.030890398532936306,
+      0.04482357704062309,
+      0.03395473150228178
+     ],
+     "response_square": [
+      12113229.767578125,
+      2196281.970703125,
+      4624386.200439453,
+      2653637.9833984375
+     ],
+     "native_write_square": 2301659488.0,
+     "tokens": 119
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.2870946287341054,
+       0.02592705955730439,
+       0.11949013673469912
+      ],
+      [
+       0.2870946287341054,
+       1.0,
+       0.3798342393784666,
+       0.17423284499610903
+      ],
+      [
+       0.02592705955730439,
+       0.3798342393784666,
+       1.0,
+       0.21065620752472267
+      ],
+      [
+       0.11949013673469912,
+       0.17423284499610903,
+       0.21065620752472267,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.05001598623830179,
+      0.014948744614763919,
+      0.021337861426631893,
+      0.01646559218436362
+     ],
+     "response_square": [
+      1904362.8776855469,
+      170114.55688476562,
+      346604.19451904297,
+      206389.09313964844
+     ],
+     "native_write_square": 761258287.0,
+     "tokens": 119
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.2905723518391262,
+       0.11283497192893348,
+       0.11652092430572127
+      ],
+      [
+       0.2905723518391262,
+       1.0,
+       0.4565100505513628,
+       0.21622010704083264
+      ],
+      [
+       0.11283497192893348,
+       0.4565100505513628,
+       1.0,
+       0.14367494553506055
+      ],
+      [
+       0.11652092430572127,
+       0.21622010704083264,
+       0.14367494553506055,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.074768456681522,
+      0.031189453748643844,
+      0.04597262587990168,
+      0.03428253529137736
+     ],
+     "response_square": [
+      13542547.149414062,
+      2356563.0336914062,
+      5119907.855224609,
+      2847143.69921875
+     ],
+     "native_write_square": 2422498538.0,
+     "tokens": 119
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.34557829135490753,
+       0.12091654074898246,
+       0.1061622335745869
+      ],
+      [
+       0.34557829135490753,
+       1.0,
+       0.510932049818936,
+       0.2635661235414488
+      ],
+      [
+       0.12091654074898246,
+       0.510932049818936,
+       1.0,
+       0.1808600585410717
+      ],
+      [
+       0.1061622335745869,
+       0.2635661235414488,
+       0.1808600585410717,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06666266109290084,
+      0.02214896702025648,
+      0.030457295902470028,
+      0.020569083404272638
+     ],
+     "response_square": [
+      4405704.197753906,
+      486359.04333496094,
+      919671.4992675781,
+      419449.7316894531
+     ],
+     "native_write_square": 991402575.0,
+     "tokens": 119
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.3222312359839531,
+       0.1360398395720503,
+       0.1421903823519125
+      ],
+      [
+       0.3222312359839531,
+       1.0,
+       0.4828198925295496,
+       0.23030933477396656
+      ],
+      [
+       0.1360398395720503,
+       0.4828198925295496,
+       1.0,
+       0.14762611919091093
+      ],
+      [
+       0.1421903823519125,
+       0.23030933477396656,
+       0.14762611919091093,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07270892158555005,
+      0.030339387619042955,
+      0.044000241841457025,
+      0.03246345143257338
+     ],
+     "response_square": [
+      14600140.798828125,
+      2542115.3828125,
+      5346773.224609375,
+      2910522.892578125
+     ],
+     "native_write_square": 2761732670.0,
+     "tokens": 119
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.41271583187227234,
+       0.11731038753691644,
+       0.08452615946275932
+      ],
+      [
+       0.41271583187227234,
+       1.0,
+       0.4558843604400182,
+       0.20733982110833366
+      ],
+      [
+       0.11731038753691644,
+       0.4558843604400182,
+       1.0,
+       0.18644789216929852
+      ],
+      [
+       0.08452615946275932,
+       0.20733982110833366,
+       0.18644789216929852,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06941516255897053,
+      0.02364436715078497,
+      0.03008077717452287,
+      0.019931493959468496
+     ],
+     "response_square": [
+      8917001.00390625,
+      1034583.4204101562,
+      1674511.8708496094,
+      735173.4763183594
+     ],
+     "native_write_square": 1850589635.25,
+     "tokens": 119
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.33501649381452026,
+       0.1563146012783737,
+       0.13642939949893235
+      ],
+      [
+       0.33501649381452026,
+       1.0,
+       0.4922176110584168,
+       0.24922810165747625
+      ],
+      [
+       0.1563146012783737,
+       0.4922176110584168,
+       1.0,
+       0.17081443086257375
+      ],
+      [
+       0.13642939949893235,
+       0.24922810165747625,
+       0.17081443086257375,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.08589095652529535,
+      0.0363364105095293,
+      0.05132659097964029,
+      0.03726996310535346
+     ],
+     "response_square": [
+      17517302.25,
+      3135136.0478515625,
+      6255430.239990234,
+      3298300.879638672
+     ],
+     "native_write_square": 2374500935.0,
+     "tokens": 119
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.3709716314014935,
+       0.0987935277269615,
+       0.10830454471295173
+      ],
+      [
+       0.3709716314014935,
+       1.0,
+       0.43377184672647856,
+       0.26341744091948627
+      ],
+      [
+       0.0987935277269615,
+       0.43377184672647856,
+       1.0,
+       0.29057489477676113
+      ],
+      [
+       0.10830454471295173,
+       0.26341744091948627,
+       0.29057489477676113,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06169249222258734,
+      0.01741925583935512,
+      0.023514308564652746,
+      0.018412283193082902
+     ],
+     "response_square": [
+      3251240.9865722656,
+      259205.2100830078,
+      472333.7264404297,
+      289600.8439941406
+     ],
+     "native_write_square": 854249102.5,
+     "tokens": 119
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.35225675457908556,
+       0.15630478016068888,
+       0.12182862108091842
+      ],
+      [
+       0.35225675457908556,
+       1.0,
+       0.49355420777318393,
+       0.2672407046803353
+      ],
+      [
+       0.15630478016068888,
+       0.49355420777318393,
+       1.0,
+       0.1955230791351161
+      ],
+      [
+       0.12182862108091842,
+       0.2672407046803353,
+       0.1955230791351161,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.04404455164577526,
+      0.017508171479030367,
+      0.024159911941195752,
+      0.017733313183697287
+     ],
+     "response_square": [
+      32846275.811523438,
+      5190190.896484375,
+      9883082.997558594,
+      5324532.9228515625
+     ],
+     "native_write_square": 16931746144.0,
+     "tokens": 119
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.3657641039835035,
+       0.11730267444516769,
+       0.08217712097464015
+      ],
+      [
+       0.3657641039835035,
+       1.0,
+       0.49100331514374596,
+       0.21437934822198526
+      ],
+      [
+       0.11730267444516769,
+       0.49100331514374596,
+       1.0,
+       0.25750969395856
+      ],
+      [
+       0.08217712097464015,
+       0.21437934822198526,
+       0.25750969395856,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.059189492017106785,
+      0.019610747883797672,
+      0.0256538861784481,
+      0.018829515236088976
+     ],
+     "response_square": [
+      6389398.7998046875,
+      701389.2143554688,
+      1200264.8763427734,
+      646619.8745117188
+     ],
+     "native_write_square": 1823772951.5,
+     "tokens": 119
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.38479885092980093,
+       0.18743891546365254,
+       0.1312104473881183
+      ],
+      [
+       0.38479885092980093,
+       1.0,
+       0.5121638862640893,
+       0.2912470337782406
+      ],
+      [
+       0.18743891546365254,
+       0.5121638862640893,
+       1.0,
+       0.23114055762356264
+      ],
+      [
+       0.1312104473881183,
+       0.2912470337782406,
+       0.23114055762356264,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.03539447191192527,
+      0.010883558570286916,
+      0.01302783338757904,
+      0.009417729747421468
+     ],
+     "response_square": [
+      210719914.4375,
+      19924000.5390625,
+      28548224.19921875,
+      14918568.56640625
+     ],
+     "native_write_square": 168203375616.0,
+     "tokens": 119
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.5254985898088086,
+       0.0020366263233574937,
+       -0.07137562602838154
+      ],
+      [
+       0.5254985898088086,
+       1.0,
+       0.3341228695249545,
+       0.11627807398997778
+      ],
+      [
+       0.0020366263233574937,
+       0.3341228695249545,
+       1.0,
+       0.2830989687866879
+      ],
+      [
+       -0.07137562602838154,
+       0.11627807398997778,
+       0.2830989687866879,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.08066719777930949,
+      0.020800723608865014,
+      0.026085729638821088,
+      0.016097634565371978
+     ],
+     "response_square": [
+      29540136.7734375,
+      1964153.5991210938,
+      3089047.1557617188,
+      1176366.6096191406
+     ],
+     "native_write_square": 4539610172.0,
+     "tokens": 119
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.41689836789726575,
+       0.0421620272404613,
+       0.15583324693802036
+      ],
+      [
+       0.41689836789726575,
+       1.0,
+       0.4557142137288755,
+       0.3376239000718678
+      ],
+      [
+       0.0421620272404613,
+       0.4557142137288755,
+       1.0,
+       0.23516889714472253
+      ],
+      [
+       0.15583324693802036,
+       0.3376239000718678,
+       0.23516889714472253,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06376581947069256,
+      0.015695859588471462,
+      0.020851393751409784,
+      0.012150384929805505
+     ],
+     "response_square": [
+      1922950533.5625,
+      116509793.3125,
+      205618601.40625,
+      69818786.390625
+     ],
+     "native_write_square": 472924944896.0,
+     "tokens": 119
+    }
+   },
+   "off_target": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.17637884503125065,
+       0.01504392719846993,
+       -0.006930334655653813
+      ],
+      [
+       0.17637884503125065,
+       1.0,
+       0.43957560648296257,
+       0.1295971132316723
+      ],
+      [
+       0.01504392719846993,
+       0.43957560648296257,
+       1.0,
+       0.12130951894775813
+      ],
+      [
+       -0.006930334655653813,
+       0.1295971132316723,
+       0.12130951894775813,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.03608764108640656,
+      0.012368171712613413,
+      0.017428463629984955,
+      0.011187487612293514
+     ],
+     "response_square": [
+      205586616.25,
+      24148427.8125,
+      47950822.15625,
+      19758000.125
+     ],
+     "native_write_square": 157862090240.0,
+     "tokens": 16786
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.1700034887131598,
+       0.04540420357681345,
+       0.03651143401585911
+      ],
+      [
+       0.1700034887131598,
+       1.0,
+       0.369472909209688,
+       0.14194593731114913
+      ],
+      [
+       0.04540420357681345,
+       0.369472909209688,
+       1.0,
+       0.10372724586316039
+      ],
+      [
+       0.03651143401585911,
+       0.14194593731114913,
+       0.10372724586316039,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.05749588068979343,
+      0.02636360357681943,
+      0.04396526308752523,
+      0.029517888143443367
+     ],
+     "response_square": [
+      439157516.5,
+      92332884.75,
+      256782966.5,
+      115749047.125
+     ],
+     "native_write_square": 132845503488.0,
+     "tokens": 16786
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.1623993233001123,
+       -0.04423882050164323,
+       -0.017224169138528783
+      ],
+      [
+       0.1623993233001123,
+       1.0,
+       0.3873681616819069,
+       0.25109064829988487
+      ],
+      [
+       -0.04423882050164323,
+       0.3873681616819069,
+       1.0,
+       0.2842299020153825
+      ],
+      [
+       -0.017224169138528783,
+       0.25109064829988487,
+       0.2842299020153825,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.03284435548416337,
+      0.011992035379191556,
+      0.023596321298739942,
+      0.01164400555349244
+     ],
+     "response_square": [
+      89466647.375,
+      11926842.3125,
+      46177272.5,
+      11244612.21875
+     ],
+     "native_write_square": 82935348736.0,
+     "tokens": 16786
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.1948572236235766,
+       0.06929423579057839,
+       0.057688712845690125
+      ],
+      [
+       0.1948572236235766,
+       1.0,
+       0.3713856028328425,
+       0.1633402751942766
+      ],
+      [
+       0.06929423579057839,
+       0.3713856028328425,
+       1.0,
+       0.11309263247538447
+      ],
+      [
+       0.057688712845690125,
+       0.1633402751942766,
+       0.11309263247538447,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06102214388966189,
+      0.02927159072818286,
+      0.04612007485033893,
+      0.031722363004548816
+     ],
+     "response_square": [
+      392487273.5,
+      90311551.75,
+      224197447.0,
+      106067349.625
+     ],
+     "native_write_square": 105402437888.0,
+     "tokens": 16786
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.1963060513169791,
+       0.028354023177087576,
+       0.048677257830654436
+      ],
+      [
+       0.1963060513169791,
+       1.0,
+       0.40830711567063865,
+       0.22447424280807907
+      ],
+      [
+       0.028354023177087576,
+       0.40830711567063865,
+       1.0,
+       0.2132209908538674
+      ],
+      [
+       0.048677257830654436,
+       0.22447424280807907,
+       0.2132209908538674,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.045096260705018966,
+      0.017112620075176742,
+      0.024667665595105952,
+      0.016731740750998505
+     ],
+     "response_square": [
+      259092190.75,
+      37308370.0,
+      77522784.375,
+      35666090.875
+     ],
+     "native_write_square": 127401123584.0,
+     "tokens": 16786
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.21605382023593858,
+       0.08852248542191501,
+       0.07772477181095262
+      ],
+      [
+       0.21605382023593858,
+       1.0,
+       0.38353645766460437,
+       0.1958962310904821
+      ],
+      [
+       0.08852248542191501,
+       0.38353645766460437,
+       1.0,
+       0.1342955099127312
+      ],
+      [
+       0.07772477181095262,
+       0.1958962310904821,
+       0.1342955099127312,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.047322226181411985,
+      0.02292247980564449,
+      0.03409936333982548,
+      0.023553974837084962
+     ],
+     "response_square": [
+      773977354.0,
+      181602205.0,
+      401874510.0,
+      191746009.0
+     ],
+     "native_write_square": 345619247104.0,
+     "tokens": 16786
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.215000986840896,
+       0.032477502620710016,
+       0.055300051333239106
+      ],
+      [
+       0.215000986840896,
+       1.0,
+       0.38154600465354305,
+       0.2041941753070378
+      ],
+      [
+       0.032477502620710016,
+       0.38154600465354305,
+       1.0,
+       0.1708179617839937
+      ],
+      [
+       0.055300051333239106,
+       0.2041941753070378,
+       0.1708179617839937,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.039402390530608046,
+      0.014080572547870932,
+      0.02041646689219424,
+      0.013910117752521314
+     ],
+     "response_square": [
+      120797359.625,
+      15425985.84375,
+      32431981.0,
+      15054762.625
+     ],
+     "native_write_square": 77805858560.0,
+     "tokens": 16786
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.23456682112309327,
+       0.10373138257471828,
+       0.0880653329295478
+      ],
+      [
+       0.23456682112309327,
+       1.0,
+       0.4093182233811082,
+       0.21785304615454154
+      ],
+      [
+       0.10373138257471828,
+       0.4093182233811082,
+       1.0,
+       0.1551265953785712
+      ],
+      [
+       0.0880653329295478,
+       0.21785304615454154,
+       0.1551265953785712,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.04980537894112008,
+      0.02524484919521641,
+      0.03622219798018269,
+      0.0246612846144971
+     ],
+     "response_square": [
+      922462988.0,
+      236996544.5,
+      487917115.0,
+      226166274.0
+     ],
+     "native_write_square": 371874545664.0,
+     "tokens": 16786
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.2743378973090089,
+       0.03896293658477002,
+       0.05083873605486075
+      ],
+      [
+       0.2743378973090089,
+       1.0,
+       0.34380317355696915,
+       0.19770680165313978
+      ],
+      [
+       0.03896293658477002,
+       0.34380317355696915,
+       1.0,
+       0.1775386346601029
+      ],
+      [
+       0.05083873605486075,
+       0.19770680165313978,
+       0.1775386346601029,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.0517692802745529,
+      0.01875908112563415,
+      0.02703300572235021,
+      0.0183682296169501
+     ],
+     "response_square": [
+      264111889.0,
+      34679020.3125,
+      72016559.5,
+      33248977.6875
+     ],
+     "native_write_square": 98547065600.0,
+     "tokens": 16786
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.2603302488133621,
+       0.12221299142682528,
+       0.10027435857132709
+      ],
+      [
+       0.2603302488133621,
+       1.0,
+       0.4185075717237172,
+       0.22436509576263722
+      ],
+      [
+       0.12221299142682528,
+       0.4185075717237172,
+       1.0,
+       0.16456088107400837
+      ],
+      [
+       0.10027435857132709,
+       0.22436509576263722,
+       0.16456088107400837,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.048379402623799056,
+      0.025101324264069705,
+      0.035103163093851086,
+      0.023666597376140873
+     ],
+     "response_square": [
+      993170514.0,
+      267359784.5,
+      522871918.5,
+      237670051.0
+     ],
+     "native_write_square": 424329098240.0,
+     "tokens": 16786
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.2982598134676922,
+       0.049791245206873204,
+       0.05836638433300252
+      ],
+      [
+       0.2982598134676922,
+       1.0,
+       0.36823372270805277,
+       0.18628179688610413
+      ],
+      [
+       0.049791245206873204,
+       0.36823372270805277,
+       1.0,
+       0.17474620722589387
+      ],
+      [
+       0.05836638433300252,
+       0.18628179688610413,
+       0.17474620722589387,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.058126939792469974,
+      0.02173488655435492,
+      0.03229997692690406,
+      0.020593090043266687
+     ],
+     "response_square": [
+      512263257.5,
+      71623088.375,
+      158176773.5,
+      64295610.625
+     ],
+     "native_write_square": 151613644800.0,
+     "tokens": 16786
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.28546898010852195,
+       0.13651373313040907,
+       0.11375708870043073
+      ],
+      [
+       0.28546898010852195,
+       1.0,
+       0.4083074121738005,
+       0.23263103873663082
+      ],
+      [
+       0.13651373313040907,
+       0.4083074121738005,
+       1.0,
+       0.1739897622589281
+      ],
+      [
+       0.11375708870043073,
+       0.23263103873663082,
+       0.1739897622589281,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.05345453899499594,
+      0.02848951663011375,
+      0.03843067793199805,
+      0.02596814548141502
+     ],
+     "response_square": [
+      1171557826.0,
+      332785744.5,
+      605550886.0,
+      276488087.0
+     ],
+     "native_write_square": 410010097664.0,
+     "tokens": 16786
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.27459119853056596,
+       0.06897464957750354,
+       0.06504942630449684
+      ],
+      [
+       0.27459119853056596,
+       1.0,
+       0.41138198282784594,
+       0.2485321738275512
+      ],
+      [
+       0.06897464957750354,
+       0.41138198282784594,
+       1.0,
+       0.2520824432750572
+      ],
+      [
+       0.06504942630449684,
+       0.2485321738275512,
+       0.2520824432750572,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.04075885381350953,
+      0.015490188251504784,
+      0.021740818325850706,
+      0.014954532520164132
+     ],
+     "response_square": [
+      164699545.75,
+      23788215.6875,
+      46859780.5,
+      22171453.1875
+     ],
+     "native_write_square": 99139899904.0,
+     "tokens": 16786
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.31931707718204494,
+       0.1403032409338853,
+       0.11594170878773456
+      ],
+      [
+       0.31931707718204494,
+       1.0,
+       0.4047370053386839,
+       0.244509342346445
+      ],
+      [
+       0.1403032409338853,
+       0.4047370053386839,
+       1.0,
+       0.19481257333921323
+      ],
+      [
+       0.11594170878773456,
+       0.244509342346445,
+       0.19481257333921323,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.029910142852949927,
+      0.015947988318787812,
+      0.020702546193326055,
+      0.014076666670562427
+     ],
+     "response_square": [
+      2029469968.0,
+      576975633.0,
+      972284090.0,
+      449516159.0
+     ],
+     "native_write_square": 2268535889920.0,
+     "tokens": 16786
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.31870117557694716,
+       0.10100584094960582,
+       0.09959940594028552
+      ],
+      [
+       0.31870117557694716,
+       1.0,
+       0.423823767191228,
+       0.2534644497987163
+      ],
+      [
+       0.10100584094960582,
+       0.423823767191228,
+       1.0,
+       0.23901941648608258
+      ],
+      [
+       0.09959940594028552,
+       0.2534644497987163,
+       0.23901941648608258,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.045996312201911076,
+      0.018762702870032802,
+      0.025854557238807994,
+      0.018030751182676046
+     ],
+     "response_square": [
+      387721980.5,
+      64515668.0,
+      122503530.75,
+      59580211.0
+     ],
+     "native_write_square": 183262833152.0,
+     "tokens": 16786
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.35067273438120466,
+       0.13765641761698866,
+       0.10659993739510155
+      ],
+      [
+       0.35067273438120466,
+       1.0,
+       0.44188466860970704,
+       0.284878976802535
+      ],
+      [
+       0.13765641761698866,
+       0.44188466860970704,
+       1.0,
+       0.25434018356966653
+      ],
+      [
+       0.10659993739510155,
+       0.284878976802535,
+       0.25434018356966653,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.026300642270132825,
+      0.010670765322718932,
+      0.01280544208559261,
+      0.008844754856185265
+     ],
+     "response_square": [
+      11164332000.0,
+      1837770060.0,
+      2646605356.0,
+      1262617008.0
+     ],
+     "native_write_square": 16139870076928.0,
+     "tokens": 16786
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.37263403837837455,
+       0.11650691419048646,
+       0.08229222951706798
+      ],
+      [
+       0.37263403837837455,
+       1.0,
+       0.4286688532006985,
+       0.28740005817428055
+      ],
+      [
+       0.11650691419048646,
+       0.4286688532006985,
+       1.0,
+       0.3247957321254869
+      ],
+      [
+       0.08229222951706798,
+       0.28740005817428055,
+       0.3247957321254869,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.04466527358560771,
+      0.014346899647619557,
+      0.0168094586864741,
+      0.01184009508191921
+     ],
+     "response_square": [
+      1558619104.0,
+      160811135.75,
+      220753427.0,
+      109524272.75
+     ],
+     "native_write_square": 781267931136.0,
+     "tokens": 16786
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.3981467737982818,
+       0.17759056008324656,
+       0.10271038487707035
+      ],
+      [
+       0.3981467737982818,
+       1.0,
+       0.5291111140602607,
+       0.2758872956227797
+      ],
+      [
+       0.17759056008324656,
+       0.5291111140602607,
+       1.0,
+       0.33672820056566766
+      ],
+      [
+       0.10271038487707035,
+       0.2758872956227797,
+       0.33672820056566766,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.040026376439282835,
+      0.016986513109455616,
+      0.017319727626218324,
+      0.01092105497074214
+     ],
+     "response_square": [
+      96589143168.0,
+      17395793344.0,
+      18084973568.0,
+      7190596992.0
+     ],
+     "native_write_square": 60288678232064.0,
+     "tokens": 16786
+    }
+   },
+   "near_positive": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.1461600168017043,
+       -0.07433342039251722,
+       0.03809656534951496
+      ],
+      [
+       0.1461600168017043,
+       1.0,
+       0.4234776986602293,
+       0.040760485639756296
+      ],
+      [
+       -0.07433342039251722,
+       0.4234776986602293,
+       1.0,
+       0.08688017918271228
+      ],
+      [
+       0.03809656534951496,
+       0.040760485639756296,
+       0.08688017918271228,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12226029729204456,
+      0.03843796789286543,
+      0.05237564882803503,
+      0.03424156629403812
+     ],
+     "response_square": [
+      30037411.119140625,
+      2969015.3510742188,
+      5512523.2705078125,
+      2356127.8244628906
+     ],
+     "native_write_square": 2009516626.0,
+     "tokens": 350
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.12426522815008159,
+       -0.004826742131948275,
+       0.011402921412121955
+      ],
+      [
+       0.12426522815008159,
+       1.0,
+       0.41794826905600735,
+       0.15507729616516952
+      ],
+      [
+       -0.004826742131948275,
+       0.41794826905600735,
+       1.0,
+       0.1627952800169022
+      ],
+      [
+       0.011402921412121955,
+       0.15507729616516952,
+       0.1627952800169022,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.17955269647701688,
+      0.0902338857396861,
+      0.13831185240258262,
+      0.10062758072498341
+     ],
+     "response_square": [
+      64220967.5546875,
+      16219307.240234375,
+      38107615.69140625,
+      20170982.111328125
+     ],
+     "native_write_square": 1992016728.0,
+     "tokens": 350
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.17085046961774786,
+       -0.11003116350717447,
+       -0.1106697708717282
+      ],
+      [
+       0.17085046961774786,
+       1.0,
+       0.3560428188323222,
+       0.1735153010227078
+      ],
+      [
+       -0.11003116350717447,
+       0.3560428188323222,
+       1.0,
+       0.38157771310717276
+      ],
+      [
+       -0.1106697708717282,
+       0.1735153010227078,
+       0.38157771310717276,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11229789074056554,
+      0.037598301513188506,
+      0.07899226058074127,
+      0.03630650656087763
+     ],
+     "response_square": [
+      13752854.966796875,
+      1541651.172241211,
+      6804853.031738281,
+      1437535.5397949219
+     ],
+     "native_write_square": 1090560252.25,
+     "tokens": 350
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.13038766494969314,
+       0.004159577945614902,
+       0.015732221565063143
+      ],
+      [
+       0.13038766494969314,
+       1.0,
+       0.3957463176583204,
+       0.13978420823439278
+      ],
+      [
+       0.004159577945614902,
+       0.3957463176583204,
+       1.0,
+       0.1367912518632471
+      ],
+      [
+       0.015732221565063143,
+       0.13978420823439278,
+       0.1367912518632471,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.19444994197431795,
+      0.09841086411408108,
+      0.14887125873698023,
+      0.11274464594194229
+     ],
+     "response_square": [
+      53264044.671875,
+      13642834.05859375,
+      31220526.8203125,
+      17906485.7109375
+     ],
+     "native_write_square": 1408699973.0,
+     "tokens": 350
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.04827669226886406,
+       -0.1076671488467182,
+       -0.05337396268311286
+      ],
+      [
+       0.04827669226886406,
+       1.0,
+       0.5220698009303129,
+       0.3211208841699554
+      ],
+      [
+       -0.1076671488467182,
+       0.5220698009303129,
+       1.0,
+       0.35717816377322065
+      ],
+      [
+       -0.05337396268311286,
+       0.3211208841699554,
+       0.35717816377322065,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12975858130581377,
+      0.059092458978275746,
+      0.07867969461283125,
+      0.046982746149460984
+     ],
+     "response_square": [
+      25523175.650390625,
+      5293301.808105469,
+      9383997.064453125,
+      3346103.171875
+     ],
+     "native_write_square": 1515872003.5,
+     "tokens": 350
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.128431722372904,
+       0.0036178534479932877,
+       0.005211558173747833
+      ],
+      [
+       0.128431722372904,
+       1.0,
+       0.40136875475249806,
+       0.15556328272791597
+      ],
+      [
+       0.0036178534479932877,
+       0.40136875475249806,
+       1.0,
+       0.13656611504585398
+      ],
+      [
+       0.005211558173747833,
+       0.15556328272791597,
+       0.13656611504585398,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14468851050736245,
+      0.07283399081128313,
+      0.10598345176011831,
+      0.0803152000144106
+     ],
+     "response_square": [
+      97397856.90625,
+      24680248.224609375,
+      52258558.875,
+      30010746.599609375
+     ],
+     "native_write_square": 4652445660.0,
+     "tokens": 350
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.17131781338075355,
+       -0.029429560652589767,
+       -0.04159709737434444
+      ],
+      [
+       0.17131781338075355,
+       1.0,
+       0.40617687146116443,
+       0.21584862633082533
+      ],
+      [
+       -0.029429560652589767,
+       0.40617687146116443,
+       1.0,
+       0.20688716873360571
+      ],
+      [
+       -0.04159709737434444,
+       0.21584862633082533,
+       0.20688716873360571,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12852067571545558,
+      0.03822655777196011,
+      0.05136462647391775,
+      0.03395104426728987
+     ],
+     "response_square": [
+      17579967.143554688,
+      1555257.9978027344,
+      2808020.8427734375,
+      1226812.8952636719
+     ],
+     "native_write_square": 1064319596.5,
+     "tokens": 350
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.1432931309998056,
+       0.020680729268555537,
+       0.012134869847701945
+      ],
+      [
+       0.1432931309998056,
+       1.0,
+       0.40869768572663145,
+       0.16304322046163816
+      ],
+      [
+       0.020680729268555537,
+       0.40869768572663145,
+       1.0,
+       0.1441898692198892
+      ],
+      [
+       0.012134869847701945,
+       0.16304322046163816,
+       0.1441898692198892,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14789685969363023,
+      0.07657397151049054,
+      0.11054085532162598,
+      0.08221574601218938
+     ],
+     "response_square": [
+      107941153.6875,
+      28935533.5546875,
+      60299650.01953125,
+      33356398.5234375
+     ],
+     "native_write_square": 4934795388.0,
+     "tokens": 350
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.1829508798063406,
+       0.011273882552500235,
+       -0.022804116526253942
+      ],
+      [
+       0.1829508798063406,
+       1.0,
+       0.3625885395069324,
+       0.16152112623393783
+      ],
+      [
+       0.011273882552500235,
+       0.3625885395069324,
+       1.0,
+       0.18100761833488982
+      ],
+      [
+       -0.022804116526253942,
+       0.16152112623393783,
+       0.18100761833488982,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13195963364791422,
+      0.047313907818411556,
+      0.06882251919284879,
+      0.04135285615020471
+     ],
+     "response_square": [
+      25033814.400390625,
+      3218269.9086914062,
+      6809354.694824219,
+      2458418.6794433594
+     ],
+     "native_write_square": 1437622382.5,
+     "tokens": 350
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.15920055859040594,
+       0.027481926977399374,
+       0.015991028614110916
+      ],
+      [
+       0.15920055859040594,
+       1.0,
+       0.41309673238777966,
+       0.1473125558342208
+      ],
+      [
+       0.027481926977399374,
+       0.41309673238777966,
+       1.0,
+       0.14076319652347452
+      ],
+      [
+       0.015991028614110916,
+       0.1473125558342208,
+       0.14076319652347452,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1367861821304819,
+      0.0711017442760335,
+      0.10459468176031085,
+      0.07483836008125588
+     ],
+     "response_square": [
+      112350714.1796875,
+      30356513.55859375,
+      65691713.046875,
+      33631009.6796875
+     ],
+     "native_write_square": 6004700924.0,
+     "tokens": 350
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.26284080845770025,
+       -0.0486157913973137,
+       -0.044880160143602445
+      ],
+      [
+       0.26284080845770025,
+       1.0,
+       0.323616250233366,
+       0.14274139659771048
+      ],
+      [
+       -0.0486157913973137,
+       0.323616250233366,
+       1.0,
+       0.28930719355782275
+      ],
+      [
+       -0.044880160143602445,
+       0.14274139659771048,
+       0.28930719355782275,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14067067239023415,
+      0.047380678186383786,
+      0.08039885572629323,
+      0.04287664277696531
+     ],
+     "response_square": [
+      47421175.751953125,
+      5379819.8916015625,
+      15490481.818359375,
+      4405616.974609375
+     ],
+     "native_write_square": 2396432445.5,
+     "tokens": 350
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.18464214368847476,
+       0.04852751596653167,
+       0.018025259367347515
+      ],
+      [
+       0.18464214368847476,
+       1.0,
+       0.41209915229785826,
+       0.14777553583898417
+      ],
+      [
+       0.04852751596653167,
+       0.41209915229785826,
+       1.0,
+       0.1495554292260082
+      ],
+      [
+       0.018025259367347515,
+       0.14777553583898417,
+       0.1495554292260082,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14678420471683196,
+      0.07376590429754433,
+      0.11117972545520094,
+      0.07795738194077555
+     ],
+     "response_square": [
+      135114633.828125,
+      34123618.8125,
+      77516639.125,
+      38111692.140625
+     ],
+     "native_write_square": 6271100204.0,
+     "tokens": 350
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.20132970707402592,
+       -0.03240562226198765,
+       -0.06150392393694227
+      ],
+      [
+       0.20132970707402592,
+       1.0,
+       0.3696751924163597,
+       0.19835320226538342
+      ],
+      [
+       -0.03240562226198765,
+       0.3696751924163597,
+       1.0,
+       0.34715932148408873
+      ],
+      [
+       -0.06150392393694227,
+       0.19835320226538342,
+       0.34715932148408873,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13582143086012022,
+      0.039327803700247514,
+      0.056681655962108474,
+      0.036026417790704576
+     ],
+     "response_square": [
+      25677302.642089844,
+      2152842.131591797,
+      4471959.446777344,
+      1806570.6877441406
+     ],
+     "native_write_square": 1391915263.0,
+     "tokens": 350
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.21647900035915507,
+       0.04279679546150435,
+       0.01937347160551119
+      ],
+      [
+       0.21647900035915507,
+       1.0,
+       0.4166047331457735,
+       0.16162866222956088
+      ],
+      [
+       0.04279679546150435,
+       0.4166047331457735,
+       1.0,
+       0.1717083543419259
+      ],
+      [
+       0.01937347160551119,
+       0.16162866222956088,
+       0.1717083543419259,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07616631601015147,
+      0.03801029375305921,
+      0.05737695322097753,
+      0.03914761513772032
+     ],
+     "response_square": [
+      228822044.609375,
+      56986818.71875,
+      129851487.0,
+      60448089.8125
+     ],
+     "native_write_square": 39443183616.0,
+     "tokens": 350
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.20808650220827984,
+       -0.02241316621747749,
+       -0.009703493887223975
+      ],
+      [
+       0.20808650220827984,
+       1.0,
+       0.36839124675352647,
+       0.16242222234627354
+      ],
+      [
+       -0.02241316621747749,
+       0.36839124675352647,
+       1.0,
+       0.3096552660859085
+      ],
+      [
+       -0.009703493887223975,
+       0.16242222234627354,
+       0.3096552660859085,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13549717269521727,
+      0.04360653176495343,
+      0.07316710868614111,
+      0.04398514039015802
+     ],
+     "response_square": [
+      49998260.513671875,
+      5178422.984863281,
+      14578948.96484375,
+      5268735.4609375
+     ],
+     "native_write_square": 2723293369.0,
+     "tokens": 350
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.3359662804905138,
+       0.12640748626654777,
+       0.03136143644691827
+      ],
+      [
+       0.3359662804905138,
+       1.0,
+       0.5074623084782532,
+       0.2646874924781299
+      ],
+      [
+       0.12640748626654777,
+       0.5074623084782532,
+       1.0,
+       0.27377078242761144
+      ],
+      [
+       0.03136143644691827,
+       0.2646874924781299,
+       0.27377078242761144,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.08201069288303371,
+      0.030029207183412943,
+      0.040334369610213056,
+      0.023803794025584864
+     ],
+     "response_square": [
+      2007305850.375,
+      269128890.34375,
+      485537899.875,
+      169108312.34375
+     ],
+     "native_write_square": 298450690560.0,
+     "tokens": 350
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.5407887001350098,
+       0.15469661599081358,
+       0.07644219817332003
+      ],
+      [
+       0.5407887001350098,
+       1.0,
+       0.35107591055286813,
+       0.2552513438408985
+      ],
+      [
+       0.15469661599081358,
+       0.35107591055286813,
+       1.0,
+       0.4337157090016934
+      ],
+      [
+       0.07644219817332003,
+       0.2552513438408985,
+       0.4337157090016934,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.16345062052074,
+      0.05011200197147965,
+      0.049268712328147175,
+      0.03031484483036004
+     ],
+     "response_square": [
+      373541416.66796875,
+      35111478.74316406,
+      33939703.0234375,
+      12849206.637695312
+     ],
+     "native_write_square": 13981881408.0,
+     "tokens": 350
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.35931452585047274,
+       0.039064675826597436,
+       -0.0010236697150196076
+      ],
+      [
+       0.35931452585047274,
+       1.0,
+       0.4463477429003215,
+       0.3311628404756418
+      ],
+      [
+       0.039064675826597436,
+       0.4463477429003215,
+       1.0,
+       0.5210286609278348
+      ],
+      [
+       -0.0010236697150196076,
+       0.3311628404756418,
+       0.5210286609278348,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12704054391694153,
+      0.0389831611727263,
+      0.05781779586250862,
+      0.032895114398108875
+     ],
+     "response_square": [
+      15424779850.375,
+      1452407196.875,
+      3194900579.75,
+      1034182268.75
+     ],
+     "native_write_square": 955727946240.0,
+     "tokens": 350
+    }
+   },
+   "far_positive": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.15233103030555506,
+       -0.10251248913608788,
+       -0.04601615868106156
+      ],
+      [
+       0.15233103030555506,
+       1.0,
+       0.37057194965380064,
+       0.13041013569725673
+      ],
+      [
+       -0.10251248913608788,
+       0.37057194965380064,
+       1.0,
+       0.14799338792532388
+      ],
+      [
+       -0.04601615868106156,
+       0.13041013569725673,
+       0.14799338792532388,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.09647771857368548,
+      0.029218963678469788,
+      0.03858466173224721,
+      0.028985080377036905
+     ],
+     "response_square": [
+      71764301.109375,
+      6582396.3125,
+      11478464.7265625,
+      6477440.4296875
+     ],
+     "native_write_square": 7710000560.0,
+     "tokens": 1177
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.15554580252351988,
+       -0.04289657833892563,
+       -0.00026642259076075617
+      ],
+      [
+       0.15554580252351988,
+       1.0,
+       0.4406823072992568,
+       0.17312317621719386
+      ],
+      [
+       -0.04289657833892563,
+       0.4406823072992568,
+       1.0,
+       0.16836426151526382
+      ],
+      [
+       -0.00026642259076075617,
+       0.17312317621719386,
+       0.16836426151526382,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.153124521662251,
+      0.07713082363598538,
+      0.12625911747652,
+      0.0973713215144609
+     ],
+     "response_square": [
+      170789061.5,
+      43333772.59375,
+      116117067.875,
+      69060972.625
+     ],
+     "native_write_square": 7284010480.0,
+     "tokens": 1177
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.08543599918417534,
+       -0.16941411706709944,
+       -0.10965362781945914
+      ],
+      [
+       0.08543599918417534,
+       1.0,
+       0.46734630557826373,
+       0.2618566321461298
+      ],
+      [
+       -0.16941411706709944,
+       0.46734630557826373,
+       1.0,
+       0.39260576393028024
+      ],
+      [
+       -0.10965362781945914,
+       0.2618566321461298,
+       0.39260576393028024,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.08737985299862382,
+      0.03214583608990214,
+      0.06726970015405892,
+      0.033122127737756024
+     ],
+     "response_square": [
+      32480903.28125,
+      4395972.1328125,
+      19250608.53125,
+      4667044.41796875
+     ],
+     "native_write_square": 4254078296.0,
+     "tokens": 1177
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.17164964386147466,
+       -0.02813201596254666,
+       0.0037126242351065934
+      ],
+      [
+       0.17164964386147466,
+       1.0,
+       0.4059231277372112,
+       0.1554114015885619
+      ],
+      [
+       -0.02813201596254666,
+       0.4059231277372112,
+       1.0,
+       0.14325815140502646
+      ],
+      [
+       0.0037126242351065934,
+       0.1554114015885619,
+       0.14325815140502646,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.16825421117673398,
+      0.08428476782050356,
+      0.13690071306844798,
+      0.1090541915892453
+     ],
+     "response_square": [
+      143685070.25,
+      36056033.5,
+      95124235.5,
+      60362120.0
+     ],
+     "native_write_square": 5075510832.0,
+     "tokens": 1177
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.14134587956376074,
+       -0.06432633159826621,
+       0.00011235141189668634
+      ],
+      [
+       0.14134587956376074,
+       1.0,
+       0.4906993644342901,
+       0.3220556232621489
+      ],
+      [
+       -0.06432633159826621,
+       0.4906993644342901,
+       1.0,
+       0.3467502380594808
+      ],
+      [
+       0.00011235141189668634,
+       0.3220556232621489,
+       0.3467502380594808,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12398167015150988,
+      0.04893694901447435,
+      0.0654297758026095,
+      0.047589725106955534
+     ],
+     "response_square": [
+      87463389.625,
+      13626525.046875,
+      24359154.15625,
+      12886581.7109375
+     ],
+     "native_write_square": 5689987856.0,
+     "tokens": 1177
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.18127848457427195,
+       -0.01637912135901211,
+       0.007198227909716307
+      ],
+      [
+       0.18127848457427195,
+       1.0,
+       0.41025660489585636,
+       0.18212724685421725
+      ],
+      [
+       -0.01637912135901211,
+       0.41025660489585636,
+       1.0,
+       0.15465609077111242
+      ],
+      [
+       0.007198227909716307,
+       0.18212724685421725,
+       0.15465609077111242,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1256043878453511,
+      0.0613630994736724,
+      0.09430520656028862,
+      0.07573204376980493
+     ],
+     "response_square": [
+      269164031.75,
+      64242432.6875,
+      151732545.5,
+      97851335.375
+     ],
+     "native_write_square": 17061114688.0,
+     "tokens": 1177
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.21416361074161266,
+       -0.07325640899441326,
+       -0.03675835023528801
+      ],
+      [
+       0.21416361074161266,
+       1.0,
+       0.3810125922984524,
+       0.18815110040851468
+      ],
+      [
+       -0.07325640899441326,
+       0.3810125922984524,
+       1.0,
+       0.2215823446905604
+      ],
+      [
+       -0.03675835023528801,
+       0.18815110040851468,
+       0.2215823446905604,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13000010158387035,
+      0.03275467000587983,
+      0.04539652522765253,
+      0.032416781672915805
+     ],
+     "response_square": [
+      63215836.5078125,
+      4013146.025390625,
+      7708745.890625,
+      3930776.01953125
+     ],
+     "native_write_square": 3740576196.0,
+     "tokens": 1177
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.1867585166806363,
+       -0.006847649124967792,
+       0.010959213978201297
+      ],
+      [
+       0.1867585166806363,
+       1.0,
+       0.4140844597850674,
+       0.1826844210634285
+      ],
+      [
+       -0.006847649124967792,
+       0.4140844597850674,
+       1.0,
+       0.15778696729501776
+      ],
+      [
+       0.010959213978201297,
+       0.1826844210634285,
+       0.15778696729501776,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13431457260689625,
+      0.06486056218988333,
+      0.10079516049657049,
+      0.07949794572918427
+     ],
+     "response_square": [
+      307466732.0,
+      71699030.0,
+      173153480.0,
+      107711897.25
+     ],
+     "native_write_square": 17043228352.0,
+     "tokens": 1177
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.2761083448802277,
+       -0.011208242120616559,
+       -0.015207515715332773
+      ],
+      [
+       0.2761083448802277,
+       1.0,
+       0.34093542140141614,
+       0.09332279002505138
+      ],
+      [
+       -0.011208242120616559,
+       0.34093542140141614,
+       1.0,
+       0.1904792377857521
+      ],
+      [
+       -0.015207515715332773,
+       0.09332279002505138,
+       0.1904792377857521,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12238014976404217,
+      0.042320002964458335,
+      0.0600757209122353,
+      0.039850601800492144
+     ],
+     "response_square": [
+      80593512.09375,
+      9637613.375,
+      19421201.90625,
+      8545704.859375
+     ],
+     "native_write_square": 5381187456.0,
+     "tokens": 1177
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.202523930175131,
+       0.001262921507711517,
+       0.01872450893999084
+      ],
+      [
+       0.202523930175131,
+       1.0,
+       0.41621946186732256,
+       0.16671109037729018
+      ],
+      [
+       0.001262921507711517,
+       0.41621946186732256,
+       1.0,
+       0.15781647687496073
+      ],
+      [
+       0.01872450893999084,
+       0.16671109037729018,
+       0.15781647687496073,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1279275360872843,
+      0.06099184162910073,
+      0.09689687709422003,
+      0.07427489192557887
+     ],
+     "response_square": [
+      333741566.5,
+      75862250.6875,
+      191470464.125,
+      112503565.5
+     ],
+     "native_write_square": 20393052128.0,
+     "tokens": 1177
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.3356007602600428,
+       -0.0041073369269662785,
+       -0.013732727981858336
+      ],
+      [
+       0.3356007602600428,
+       1.0,
+       0.3285640497550817,
+       0.08650187775249338
+      ],
+      [
+       -0.0041073369269662785,
+       0.3285640497550817,
+       1.0,
+       0.23516226406767055
+      ],
+      [
+       -0.013732727981858336,
+       0.08650187775249338,
+       0.23516226406767055,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12088730070721974,
+      0.04345703183311159,
+      0.06057091814973261,
+      0.04051750736943676
+     ],
+     "response_square": [
+      143478614.6875,
+      18541545.640625,
+      36020864.1875,
+      16118003.796875
+     ],
+     "native_write_square": 9818062992.0,
+     "tokens": 1177
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.21890526516101233,
+       0.014575677548559728,
+       0.01200860300073526
+      ],
+      [
+       0.21890526516101233,
+       1.0,
+       0.40534088947922103,
+       0.15054068580781005
+      ],
+      [
+       0.014575677548559728,
+       0.40534088947922103,
+       1.0,
+       0.15232254191763303
+      ],
+      [
+       0.01200860300073526,
+       0.15054068580781005,
+       0.15232254191763303,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1367639400787079,
+      0.06359863053392789,
+      0.1028322798151111,
+      0.07670219408733135
+     ],
+     "response_square": [
+      412421347.0,
+      89185336.75,
+      233161508.75,
+      129721960.25
+     ],
+     "native_write_square": 22049458496.0,
+     "tokens": 1177
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.23098466183928953,
+       -0.012460429486244057,
+       0.007287018570263073
+      ],
+      [
+       0.23098466183928953,
+       1.0,
+       0.4392025869862667,
+       0.2551267436111134
+      ],
+      [
+       -0.012460429486244057,
+       0.4392025869862667,
+       1.0,
+       0.37841401917919715
+      ],
+      [
+       0.007287018570263073,
+       0.2551267436111134,
+       0.37841401917919715,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11792007797475754,
+      0.036888897634019244,
+      0.05492454228006131,
+      0.03596956830153994
+     ],
+     "response_square": [
+      71701736.71875,
+      7016903.6640625,
+      15555610.21875,
+      6671517.2109375
+     ],
+     "native_write_square": 5156489760.0,
+     "tokens": 1177
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.2510877138282909,
+       0.0003113572860111933,
+       0.00997106157506236
+      ],
+      [
+       0.2510877138282909,
+       1.0,
+       0.40691068907712014,
+       0.16705549075568085
+      ],
+      [
+       0.0003113572860111933,
+       0.40691068907712014,
+       1.0,
+       0.1848727886976418
+      ],
+      [
+       0.00997106157506236,
+       0.16705549075568085,
+       0.1848727886976418,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07148382014178432,
+      0.03398811278914638,
+      0.05376853110247589,
+      0.039336610351725296
+     ],
+     "response_square": [
+      718437221.5,
+      162415479.75,
+      406471090.0,
+      217554056.5
+     ],
+     "native_write_square": 140596114176.0,
+     "tokens": 1177
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.2719322192207969,
+       -0.014148433779656543,
+       0.054204145466979985
+      ],
+      [
+       0.2719322192207969,
+       1.0,
+       0.3454454016434054,
+       0.1362117531606534
+      ],
+      [
+       -0.014148433779656543,
+       0.3454454016434054,
+       1.0,
+       0.3719191882276364
+      ],
+      [
+       0.054204145466979985,
+       0.1362117531606534,
+       0.3719191882276364,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11576425470618693,
+      0.038757689095559156,
+      0.06338353974086344,
+      0.04192912410258978
+     ],
+     "response_square": [
+      140168477.15625,
+      15711481.703125,
+      42019837.96875,
+      18387935.640625
+     ],
+     "native_write_square": 10459270496.0,
+     "tokens": 1177
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.410102771262068,
+       0.12779013393746047,
+       0.0468276867457119
+      ],
+      [
+       0.410102771262068,
+       1.0,
+       0.539425354489344,
+       0.2539453913593422
+      ],
+      [
+       0.12779013393746047,
+       0.539425354489344,
+       1.0,
+       0.28278333113049653
+      ],
+      [
+       0.0468276867457119,
+       0.2539453913593422,
+       0.28278333113049653,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07466433824460889,
+      0.029790574593157322,
+      0.038003512156894,
+      0.02402759277979561
+     ],
+     "response_square": [
+      5833927976.0,
+      928736218.5,
+      1511409305.0,
+      604164424.0
+     ],
+     "native_write_square": 1046488891392.0,
+     "tokens": 1177
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.3842241656566455,
+       0.06315383073030113,
+       -0.022561532457236872
+      ],
+      [
+       0.3842241656566455,
+       1.0,
+       0.38246494213637483,
+       0.20348366865326364
+      ],
+      [
+       0.06315383073030113,
+       0.38246494213637483,
+       1.0,
+       0.5089862392155896
+      ],
+      [
+       -0.022561532457236872,
+       0.20348366865326364,
+       0.5089862392155896,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.187741505138446,
+      0.042154676293106284,
+      0.05310760540819359,
+      0.033310391887481
+     ],
+     "response_square": [
+      1482511108.25,
+      74742717.328125,
+      118628982.40625,
+      46669897.78125
+     ],
+     "native_write_square": 42060784192.0,
+     "tokens": 1177
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.3434543646954136,
+       0.006909974315780645,
+       -0.04263099635255095
+      ],
+      [
+       0.3434543646954136,
+       1.0,
+       0.43780825002822205,
+       0.2604513163094176
+      ],
+      [
+       0.006909974315780645,
+       0.43780825002822205,
+       1.0,
+       0.5598982737969675
+      ],
+      [
+       -0.04263099635255095,
+       0.2604513163094176,
+       0.5598982737969675,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11513682184831944,
+      0.036483634841533254,
+      0.05564163062281271,
+      0.032039831892050445
+     ],
+     "response_square": [
+      42084249392.0,
+      4225589566.0,
+      9828580716.0,
+      3258904008.0
+     ],
+     "native_write_square": 3174615343104.0,
+     "tokens": 1177
+    }
+   },
+   "one_predecessor_positive": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.15754718873369003,
+       -0.0719253169544966,
+       -0.00047381087146295135
+      ],
+      [
+       0.15754718873369003,
+       1.0,
+       0.3976788294049472,
+       0.149530040160684
+      ],
+      [
+       -0.0719253169544966,
+       0.3976788294049472,
+       1.0,
+       0.13129027223550485
+      ],
+      [
+       -0.00047381087146295135,
+       0.149530040160684,
+       0.13129027223550485,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.09480049962969547,
+      0.025471720313919827,
+      0.03918438812207072,
+      0.029178757492169066
+     ],
+     "response_square": [
+      40682476.046875,
+      2936991.43359375,
+      6950439.4453125,
+      3854071.02734375
+     ],
+     "native_write_square": 4526745984.0,
+     "tokens": 676
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.25726834828585277,
+       0.07210810410182743,
+       0.07305188396778509
+      ],
+      [
+       0.25726834828585277,
+       1.0,
+       0.46747327184205584,
+       0.2221468562113195
+      ],
+      [
+       0.07210810410182743,
+       0.46747327184205584,
+       1.0,
+       0.1770384187520666
+      ],
+      [
+       0.07305188396778509,
+       0.2221468562113195,
+       0.1770384187520666,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14180775378829652,
+      0.0719338648089118,
+      0.132460401610746,
+      0.0993814119689487
+     ],
+     "response_square": [
+      81301430.0,
+      20920160.75,
+      70936599.125,
+      39930849.90625
+     ],
+     "native_write_square": 4042948680.0,
+     "tokens": 676
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.17909809333711438,
+       -0.005207320453287618,
+       0.01022842694389446
+      ],
+      [
+       0.17909809333711438,
+       1.0,
+       0.5199346450284444,
+       0.2920826701426147
+      ],
+      [
+       -0.005207320453287618,
+       0.5199346450284444,
+       1.0,
+       0.3640216942253709
+      ],
+      [
+       0.01022842694389446,
+       0.2920826701426147,
+       0.3640216942253709,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.08140361191683897,
+      0.029844996209558956,
+      0.0674911038940633,
+      0.03276307261648868
+     ],
+     "response_square": [
+      14583251.7734375,
+      1960243.7578125,
+      10024439.2109375,
+      2362306.6484375
+     ],
+     "native_write_square": 2200731316.0,
+     "tokens": 676
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.25557944971883306,
+       0.05755842864285482,
+       0.0632697609556142
+      ],
+      [
+       0.25557944971883306,
+       1.0,
+       0.42309897952739867,
+       0.19944154810975584
+      ],
+      [
+       0.05755842864285482,
+       0.42309897952739867,
+       1.0,
+       0.14693237610472962
+      ],
+      [
+       0.0632697609556142,
+       0.19944154810975584,
+       0.14693237610472962,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.15039184356541027,
+      0.0768346614749654,
+      0.14080721192546486,
+      0.10989421828913153
+     ],
+     "response_square": [
+      66400171.75,
+      17331454.078125,
+      58206359.1875,
+      35454415.0625
+     ],
+     "native_write_square": 2935760592.0,
+     "tokens": 676
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.21740037663194137,
+       -0.0030155439692237922,
+       0.046000552932281814
+      ],
+      [
+       0.21740037663194137,
+       1.0,
+       0.4788255680594416,
+       0.34152573432091704
+      ],
+      [
+       -0.0030155439692237922,
+       0.4788255680594416,
+       1.0,
+       0.35454082312569996
+      ],
+      [
+       0.046000552932281814,
+       0.34152573432091704,
+       0.35454082312569996,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10725109818187498,
+      0.04443959636215701,
+      0.07079054351473305,
+      0.04943553450669782
+     ],
+     "response_square": [
+      35155934.90625,
+      6035807.3203125,
+      15316010.296875,
+      7469192.01953125
+     ],
+     "native_write_square": 3056294192.0,
+     "tokens": 676
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.2536280610268132,
+       0.05781902281866078,
+       0.0577935874914096
+      ],
+      [
+       0.2536280610268132,
+       1.0,
+       0.4230796695965451,
+       0.22022568176354645
+      ],
+      [
+       0.05781902281866078,
+       0.4230796695965451,
+       1.0,
+       0.1524801885755977
+      ],
+      [
+       0.0577935874914096,
+       0.22022568176354645,
+       0.1524801885755977,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11460098128452062,
+      0.05753606418542252,
+      0.09979315379871752,
+      0.07740370245517336
+     ],
+     "response_square": [
+      125017511.125,
+      31511891.78125,
+      94797235.375,
+      57031874.4375
+     ],
+     "native_write_square": 9519062448.0,
+     "tokens": 676
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.26845688848454147,
+       -0.03661264295340465,
+       0.007678823796620064
+      ],
+      [
+       0.26845688848454147,
+       1.0,
+       0.4042571558864775,
+       0.2267321572424129
+      ],
+      [
+       -0.03661264295340465,
+       0.4042571558864775,
+       1.0,
+       0.2236364173268204
+      ],
+      [
+       0.007678823796620064,
+       0.2267321572424129,
+       0.2236364173268204,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12675689024791945,
+      0.03229676120171547,
+      0.05305396937527163,
+      0.035240839280150836
+     ],
+     "response_square": [
+      26717861.2734375,
+      1734508.703125,
+      4680522.1328125,
+      2065147.25390625
+     ],
+     "native_write_square": 1662870920.0,
+     "tokens": 676
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.26057625268116963,
+       0.06668280772666639,
+       0.05972905112340923
+      ],
+      [
+       0.26057625268116963,
+       1.0,
+       0.4267430331005625,
+       0.2204092261790011
+      ],
+      [
+       0.06668280772666639,
+       0.4267430331005625,
+       1.0,
+       0.15795884068350763
+      ],
+      [
+       0.05972905112340923,
+       0.2204092261790011,
+       0.15795884068350763,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12259710000981482,
+      0.061676735592229824,
+      0.108184836609409,
+      0.08295669500224628
+     ],
+     "response_square": [
+      140050970.125,
+      35446102.25,
+      109058247.375,
+      64125181.875
+     ],
+     "native_write_square": 9318064816.0,
+     "tokens": 676
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.33714243004289984,
+       0.03851561102739377,
+       0.017615141344121128
+      ],
+      [
+       0.33714243004289984,
+       1.0,
+       0.3498741298757442,
+       0.15241788099541517
+      ],
+      [
+       0.03851561102739377,
+       0.3498741298757442,
+       1.0,
+       0.19512656676018708
+      ],
+      [
+       0.017615141344121128,
+       0.15241788099541517,
+       0.19512656676018708,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1107228547215792,
+      0.03842660574551472,
+      0.06711427464078128,
+      0.041752538695901543
+     ],
+     "response_square": [
+      31772867.296875,
+      3826889.3828125,
+      11673784.21875,
+      4518014.64453125
+     ],
+     "native_write_square": 2591682880.0,
+     "tokens": 676
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.2784730842540837,
+       0.07727030592614854,
+       0.06956079806622269
+      ],
+      [
+       0.2784730842540837,
+       1.0,
+       0.4301206776795235,
+       0.207276212168021
+      ],
+      [
+       0.07727030592614854,
+       0.4301206776795235,
+       1.0,
+       0.1573451419645986
+      ],
+      [
+       0.06956079806622269,
+       0.207276212168021,
+       0.1573451419645986,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11520864534695253,
+      0.05759591548198502,
+      0.1031651300766151,
+      0.07705921138210882
+     ],
+     "response_square": [
+      152747427.125,
+      38175711.0625,
+      122481253.875,
+      68336523.9375
+     ],
+     "native_write_square": 11508103616.0,
+     "tokens": 676
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.376276537896903,
+       0.061450492509927485,
+       0.014387142673420445
+      ],
+      [
+       0.376276537896903,
+       1.0,
+       0.3547593713018399,
+       0.15387440121179316
+      ],
+      [
+       0.061450492509927485,
+       0.3547593713018399,
+       1.0,
+       0.244821611627723
+      ],
+      [
+       0.014387142673420445,
+       0.15387440121179316,
+       0.244821611627723,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12166049136358957,
+      0.04278667158347028,
+      0.07050414197647252,
+      0.04410836294771383
+     ],
+     "response_square": [
+      63657296.96875,
+      7873468.03125,
+      21378553.875,
+      8367407.890625
+     ],
+     "native_write_square": 4300798160.0,
+     "tokens": 676
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.3011058235979336,
+       0.09019339168499486,
+       0.06776018681613477
+      ],
+      [
+       0.3011058235979336,
+       1.0,
+       0.4231153713714732,
+       0.18974844584239822
+      ],
+      [
+       0.09019339168499486,
+       0.4231153713714732,
+       1.0,
+       0.1523011714648155
+      ],
+      [
+       0.06776018681613477,
+       0.18974844584239822,
+       0.1523011714648155,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12143607649045589,
+      0.05937366703415451,
+      0.1084841953449507,
+      0.07877800487567566
+     ],
+     "response_square": [
+      190486387.0,
+      45536142.3125,
+      152020247.25,
+      80163827.6875
+     ],
+     "native_write_square": 12917203168.0,
+     "tokens": 676
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.2812584051512339,
+       0.08378782682889634,
+       0.06899033025748483
+      ],
+      [
+       0.2812584051512339,
+       1.0,
+       0.46934019168225716,
+       0.3233161252513207
+      ],
+      [
+       0.08378782682889634,
+       0.46934019168225716,
+       1.0,
+       0.3931746600995074
+      ],
+      [
+       0.06899033025748483,
+       0.3233161252513207,
+       0.3931746600995074,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10032693268085822,
+      0.03440673566873898,
+      0.0591746906488512,
+      0.03705348404502113
+     ],
+     "response_square": [
+      25728783.5390625,
+      3026015.34375,
+      8950683.0,
+      3509476.0546875
+     ],
+     "native_write_square": 2556137336.0,
+     "tokens": 676
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.3411216993725102,
+       0.0937619244796406,
+       0.0709938049636154
+      ],
+      [
+       0.3411216993725102,
+       1.0,
+       0.428293555093909,
+       0.21130005119681874
+      ],
+      [
+       0.0937619244796406,
+       0.428293555093909,
+       1.0,
+       0.1844998455011559
+      ],
+      [
+       0.0709938049636154,
+       0.21130005119681874,
+       0.1844998455011559,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.06502043892967951,
+      0.03272432903879549,
+      0.057846054124379785,
+      0.04187411588687509
+     ],
+     "response_square": [
+      329520547.5,
+      83468807.375,
+      260813571.25,
+      136670256.0
+     ],
+     "native_write_square": 77944003072.0,
+     "tokens": 676
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.3292116010504652,
+       0.07559892329293778,
+       0.07085775782805376
+      ],
+      [
+       0.3292116010504652,
+       1.0,
+       0.37002521059172555,
+       0.208678439370516
+      ],
+      [
+       0.07559892329293778,
+       0.37002521059172555,
+       1.0,
+       0.36340506220778773
+      ],
+      [
+       0.07085775782805376,
+       0.208678439370516,
+       0.36340506220778773,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.11123346738786981,
+      0.03857775217480709,
+      0.06991820152244387,
+      0.043520397961364664
+     ],
+     "response_square": [
+      55149773.25,
+      6633559.3359375,
+      21789801.6875,
+      8442255.59375
+     ],
+     "native_write_square": 4457309392.0,
+     "tokens": 676
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.4534026656703729,
+       0.18707477764705652,
+       0.07447458074759901
+      ],
+      [
+       0.4534026656703729,
+       1.0,
+       0.5279074756921059,
+       0.2816068314820627
+      ],
+      [
+       0.18707477764705652,
+       0.5279074756921059,
+       1.0,
+       0.2785869850233966
+      ],
+      [
+       0.07447458074759901,
+       0.2816068314820627,
+       0.2785869850233966,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07168535223977422,
+      0.028344543804600462,
+      0.041041659200803056,
+      0.02689242315906732
+     ],
+     "response_square": [
+      2577792676.0,
+      403019520.0,
+      844961571.5,
+      362783069.5
+     ],
+     "native_write_square": 501634200576.0,
+     "tokens": 676
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.3512096319047965,
+       0.05768379568939041,
+       -0.03091746898760702
+      ],
+      [
+       0.3512096319047965,
+       1.0,
+       0.4228656979813549,
+       0.22187970938531795
+      ],
+      [
+       0.05768379568939041,
+       0.4228656979813549,
+       1.0,
+       0.4814440963608754
+      ],
+      [
+       -0.03091746898760702,
+       0.22187970938531795,
+       0.4814440963608754,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.15705088319608584,
+      0.03715408452994327,
+      0.054555355796912064,
+      0.03428663763989972
+     ],
+     "response_square": [
+      583502681.625,
+      32656919.8125,
+      70410410.3125,
+      27810697.765625
+     ],
+     "native_write_square": 23657131840.0,
+     "tokens": 676
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.37745483187529816,
+       0.04923767238169469,
+       -0.0006363036635826272
+      ],
+      [
+       0.37745483187529816,
+       1.0,
+       0.461426570849236,
+       0.29089118338979963
+      ],
+      [
+       0.04923767238169469,
+       0.461426570849236,
+       1.0,
+       0.5444781700811959
+      ],
+      [
+       -0.0006363036635826272,
+       0.29089118338979963,
+       0.5444781700811959,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.09735546772315895,
+      0.032597991759384576,
+      0.05766553278243047,
+      0.032877771641681396
+     ],
+     "response_square": [
+      15629796368.0,
+      1752323624.0,
+      5483593368.0,
+      1782532160.0
+     ],
+     "native_write_square": 1649045446656.0,
+     "tokens": 676
+    }
+   },
+   "multiple_predecessor_positive": {
+    "a9": {
+     "cosine": [
+      [
+       1.0,
+       0.14766226116084546,
+       -0.10855869372492734,
+       -0.03815900920868864
+      ],
+      [
+       0.14766226116084546,
+       1.0,
+       0.38500753351666206,
+       0.07950182573243854
+      ],
+      [
+       -0.10855869372492734,
+       0.38500753351666206,
+       1.0,
+       0.128654771853216
+      ],
+      [
+       -0.03815900920868864,
+       0.07950182573243854,
+       0.128654771853216,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10848992160908344,
+      0.03568998001733901,
+      0.043972293680458734,
+      0.030966574394255764
+     ],
+     "response_square": [
+      61119244.828125,
+      6614420.4609375,
+      10040548.2734375,
+      4979497.505859375
+     ],
+     "native_write_square": 5192771216.0,
+     "tokens": 851
+    },
+    "m9": {
+     "cosine": [
+      [
+       1.0,
+       0.08800812234799996,
+       -0.10389844161818092,
+       -0.04343208119395072
+      ],
+      [
+       0.08800812234799996,
+       1.0,
+       0.4167898932989583,
+       0.13416144844044783
+      ],
+      [
+       -0.10389844161818092,
+       0.4167898932989583,
+       1.0,
+       0.15868003346447906
+      ],
+      [
+       -0.04343208119395072,
+       0.13416144844044783,
+       0.15868003346447906,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.17138407564241473,
+      0.08592116364456748,
+      0.12615743044104874,
+      0.09706210254533511
+     ],
+     "response_square": [
+      153708609.125,
+      38632922.25,
+      83288095.09375,
+      49301104.53125
+     ],
+     "native_write_square": 5233078624.0,
+     "tokens": 851
+    },
+    "a10": {
+     "cosine": [
+      [
+       1.0,
+       0.07575970519221517,
+       -0.23252818584093826,
+       -0.1747815423798214
+      ],
+      [
+       0.07575970519221517,
+       1.0,
+       0.39418597389132437,
+       0.21146760187817812
+      ],
+      [
+       -0.23252818584093826,
+       0.39418597389132437,
+       1.0,
+       0.40583044332491525
+      ],
+      [
+       -0.1747815423798214,
+       0.21146760187817812,
+       0.40583044332491525,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.10033570268759322,
+      0.03556834361290243,
+      0.07140781485952771,
+      0.034501095474636825
+     ],
+     "response_square": [
+      31650510.5703125,
+      3977379.298828125,
+      16031022.1484375,
+      3742273.265625
+     ],
+     "native_write_square": 3143907264.0,
+     "tokens": 851
+    },
+    "m10": {
+     "cosine": [
+      [
+       1.0,
+       0.11075489997104608,
+       -0.07101284434575779,
+       -0.029938025775213473
+      ],
+      [
+       0.11075489997104608,
+       1.0,
+       0.39397258063843066,
+       0.12064654351948721
+      ],
+      [
+       -0.07101284434575779,
+       0.39397258063843066,
+       1.0,
+       0.13728377485504215
+      ],
+      [
+       -0.029938025775213473,
+       0.12064654351948721,
+       0.13728377485504215,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.19180826339189827,
+      0.09550687369956666,
+      0.13857235662713854,
+      0.10984354405983628
+     ],
+     "response_square": [
+      130548936.0625,
+      32367411.453125,
+      68138397.5625,
+      42814195.1015625
+     ],
+     "native_write_square": 3548450164.0,
+     "tokens": 851
+    },
+    "a11": {
+     "cosine": [
+      [
+       1.0,
+       0.07180887287777564,
+       -0.1205533234052088,
+       -0.04728416863832134
+      ],
+      [
+       0.07180887287777564,
+       1.0,
+       0.520219348922686,
+       0.3130110542309405
+      ],
+      [
+       -0.1205533234052088,
+       0.520219348922686,
+       1.0,
+       0.34254089419630984
+      ],
+      [
+       -0.04728416863832134,
+       0.3130110542309405,
+       0.34254089419630984,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13695375690387843,
+      0.0557216965358093,
+      0.06663887315299116,
+      0.045955479944785466
+     ],
+     "response_square": [
+      77830629.75,
+      12884017.48046875,
+      18427139.90625,
+      8763493.2421875
+     ],
+     "native_write_square": 4149565688.0,
+     "tokens": 851
+    },
+    "m11": {
+     "cosine": [
+      [
+       1.0,
+       0.12071615535530789,
+       -0.05754998710399551,
+       -0.026223890189088748
+      ],
+      [
+       0.12071615535530789,
+       1.0,
+       0.4015775153354372,
+       0.14643137093057432
+      ],
+      [
+       -0.05754998710399551,
+       0.4015775153354372,
+       1.0,
+       0.14829081726745588
+      ],
+      [
+       -0.026223890189088748,
+       0.14643137093057432,
+       0.14829081726745588,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14073965868393237,
+      0.06861432135129766,
+      0.09462745327002305,
+      0.07621268449173083
+     ],
+     "response_square": [
+      241544367.875,
+      57410783.375,
+      109193863.5,
+      70830196.59375
+     ],
+     "native_write_square": 12194498048.0,
+     "tokens": 851
+    },
+    "a12": {
+     "cosine": [
+      [
+       1.0,
+       0.1721954275370573,
+       -0.07962036176242519,
+       -0.06415614085678438
+      ],
+      [
+       0.1721954275370573,
+       1.0,
+       0.38394928943551787,
+       0.17899383738260488
+      ],
+      [
+       -0.07962036176242519,
+       0.38394928943551787,
+       1.0,
+       0.21383514379908206
+      ],
+      [
+       -0.06415614085678438,
+       0.17899383738260488,
+       0.21383514379908206,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13119137549655704,
+      0.034931347521575354,
+      0.04309847977991138,
+      0.03137226968377766
+     ],
+     "response_square": [
+      54077946.15625,
+      3833895.7265625,
+      5836245.08203125,
+      3092441.5322265625
+     ],
+     "native_write_square": 3142024868.0,
+     "tokens": 851
+    },
+    "m12": {
+     "cosine": [
+      [
+       1.0,
+       0.12970611924830003,
+       -0.044050378182439134,
+       -0.02018323329519823
+      ],
+      [
+       0.12970611924830003,
+       1.0,
+       0.4072965069831534,
+       0.14983104830575117
+      ],
+      [
+       -0.044050378182439134,
+       0.4072965069831534,
+       1.0,
+       0.15133648059262494
+      ],
+      [
+       -0.02018323329519823,
+       0.14983104830575117,
+       0.15133648059262494,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14747956602538148,
+      0.0717578143341468,
+      0.09912543762838415,
+      0.07795944050264565
+     ],
+     "response_square": [
+      275356921.5,
+      65188456.75,
+      124394887.3125,
+      76943107.625
+     ],
+     "native_write_square": 12659958896.0,
+     "tokens": 851
+    },
+    "a13": {
+     "cosine": [
+      [
+       1.0,
+       0.21762011106436785,
+       -0.03165777802956323,
+       -0.03605153535694335
+      ],
+      [
+       0.21762011106436785,
+       1.0,
+       0.3509334951348253,
+       0.08722251685594527
+      ],
+      [
+       -0.03165777802956323,
+       0.3509334951348253,
+       1.0,
+       0.18292177243741722
+      ],
+      [
+       -0.03605153535694335,
+       0.08722251685594527,
+       0.18292177243741722,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.13217999466575245,
+      0.04621649764105342,
+      0.05868267191297491,
+      0.03917143310733444
+     ],
+     "response_square": [
+      73854464.78125,
+      9028993.84375,
+      14556771.15625,
+      6486108.609375
+     ],
+     "native_write_square": 4227126992.0,
+     "tokens": 851
+    },
+    "m13": {
+     "cosine": [
+      [
+       1.0,
+       0.1433854720689478,
+       -0.03968881889705655,
+       -0.01651996260492067
+      ],
+      [
+       0.1433854720689478,
+       1.0,
+       0.409477570759303,
+       0.13086534467196817
+      ],
+      [
+       -0.03968881889705655,
+       0.409477570759303,
+       1.0,
+       0.15028808794917936
+      ],
+      [
+       -0.01651996260492067,
+       0.13086534467196817,
+       0.15028808794917936,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.14036117693157593,
+      0.06760045987051261,
+      0.09510663307011363,
+      0.07228399056637012
+     ],
+     "response_square": [
+      293344859.5,
+      68043051.28125,
+      134680926.1875,
+      77798051.6875
+     ],
+     "native_write_square": 14889649680.0,
+     "tokens": 851
+    },
+    "a14": {
+     "cosine": [
+      [
+       1.0,
+       0.2895439612127109,
+       -0.06265835182439053,
+       -0.04172830246507996
+      ],
+      [
+       0.2895439612127109,
+       1.0,
+       0.3111768863237486,
+       0.06739830667180868
+      ],
+      [
+       -0.06265835182439053,
+       0.3111768863237486,
+       1.0,
+       0.2498499790920222
+      ],
+      [
+       -0.04172830246507996,
+       0.06739830667180868,
+       0.2498499790920222,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1268020739837989,
+      0.045031808261548276,
+      0.06170636032390101,
+      0.03919308427265296
+     ],
+     "response_square": [
+      127242484.4375,
+      16047899.625,
+      30132786.046875,
+      12156213.21875
+     ],
+     "native_write_square": 7913697152.0,
+     "tokens": 851
+    },
+    "m14": {
+     "cosine": [
+      [
+       1.0,
+       0.15888875351913861,
+       -0.0246290855209722,
+       -0.024316491153114822
+      ],
+      [
+       0.15888875351913861,
+       1.0,
+       0.4000865077173863,
+       0.12179710860673754
+      ],
+      [
+       -0.0246290855209722,
+       0.4000865077173863,
+       1.0,
+       0.15098522629999533
+      ],
+      [
+       -0.024316491153114822,
+       0.12179710860673754,
+       0.15098522629999533,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1522497424033744,
+      0.07105689837794339,
+      0.10148998102448935,
+      0.07544273023396666
+     ],
+     "response_square": [
+      357049542.5,
+      77772819.0625,
+      158657895.9375,
+      87669825.421875
+     ],
+     "native_write_square": 15403355824.0,
+     "tokens": 851
+    },
+    "a15": {
+     "cosine": [
+      [
+       1.0,
+       0.20000355021248084,
+       -0.07223127423480832,
+       -0.048499375787860136
+      ],
+      [
+       0.20000355021248084,
+       1.0,
+       0.3991838189303736,
+       0.19604315546348758
+      ],
+      [
+       -0.07223127423480832,
+       0.3991838189303736,
+       1.0,
+       0.355605777144406
+      ],
+      [
+       -0.048499375787860136,
+       0.19604315546348758,
+       0.355605777144406,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.1339673751416489,
+      0.03922891295070465,
+      0.05267432895022406,
+      0.03527830322832579
+     ],
+     "response_square": [
+      71650257.90625,
+      6143731.2421875,
+      11076885.96484375,
+      4968611.48828125
+     ],
+     "native_write_square": 3992267760.0,
+     "tokens": 851
+    },
+    "m15": {
+     "cosine": [
+      [
+       1.0,
+       0.18606086769754876,
+       -0.04833915675252222,
+       -0.02993644726617345
+      ],
+      [
+       0.18606086769754876,
+       1.0,
+       0.39889540570168674,
+       0.13217327191628686
+      ],
+      [
+       -0.04833915675252222,
+       0.39889540570168674,
+       1.0,
+       0.179168485665174
+      ],
+      [
+       -0.02993644726617345,
+       0.13217327191628686,
+       0.179168485665174,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07778566307926801,
+      0.036488866788610165,
+      0.051947542176317,
+      0.03720636102685607
+     ],
+     "response_square": [
+      617738757.25,
+      135933495.75,
+      275508969.53125,
+      141331876.5625
+     ],
+     "native_write_square": 102095296256.0,
+     "tokens": 851
+    },
+    "a16": {
+     "cosine": [
+      [
+       1.0,
+       0.2236620494049518,
+       -0.06289292372788037,
+       0.02350712288065067
+      ],
+      [
+       0.2236620494049518,
+       1.0,
+       0.34242894316972844,
+       0.10877288522402066
+      ],
+      [
+       -0.06289292372788037,
+       0.34242894316972844,
+       1.0,
+       0.3529821114782252
+      ],
+      [
+       0.02350712288065067,
+       0.10877288522402066,
+       0.3529821114782252,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12439562695981816,
+      0.04042174536741903,
+      0.06316211098238217,
+      0.04175789202655843
+     ],
+     "response_square": [
+      135016960.65625,
+      14256345.921875,
+      34808986.109375,
+      15214414.1796875
+     ],
+     "native_write_square": 8725254448.0,
+     "tokens": 851
+    },
+    "m16": {
+     "cosine": [
+      [
+       1.0,
+       0.36149249951687035,
+       0.0926581643257093,
+       0.023243931639027944
+      ],
+      [
+       0.36149249951687035,
+       1.0,
+       0.5376522373833608,
+       0.2433658777029859
+      ],
+      [
+       0.0926581643257093,
+       0.5376522373833608,
+       1.0,
+       0.28273926562772816
+      ],
+      [
+       0.023243931639027944,
+       0.2433658777029859,
+       0.28273926562772816,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.07900279280730077,
+      0.030700746373439558,
+      0.03695992444738816,
+      0.022062700868705938
+     ],
+     "response_square": [
+      5263441066.0,
+      794845544.0,
+      1151985534.625,
+      410489667.3125
+     ],
+     "native_write_square": 843305390080.0,
+     "tokens": 851
+    },
+    "a17": {
+     "cosine": [
+      [
+       1.0,
+       0.45098283857135896,
+       0.09961795509844833,
+       0.016427614435731142
+      ],
+      [
+       0.45098283857135896,
+       1.0,
+       0.3497795057119071,
+       0.21733998851669747
+      ],
+      [
+       0.09961795509844833,
+       0.3497795057119071,
+       1.0,
+       0.5020538772532401
+      ],
+      [
+       0.016427614435731142,
+       0.21733998851669747,
+       0.5020538772532401,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.19822655362666192,
+      0.04882310625503235,
+      0.05036747709358778,
+      0.031290441580241135
+     ],
+     "response_square": [
+      1272549591.0,
+      77197256.9453125,
+      82158301.09375,
+      31708408.1015625
+     ],
+     "native_write_square": 32385533440.0,
+     "tokens": 851
+    },
+    "m17": {
+     "cosine": [
+      [
+       1.0,
+       0.33578211752471987,
+       -0.0023109685911702157,
+       -0.048760872215084454
+      ],
+      [
+       0.33578211752471987,
+       1.0,
+       0.43242227660521637,
+       0.2733884699369259
+      ],
+      [
+       -0.0023109685911702157,
+       0.43242227660521637,
+       1.0,
+       0.5547438148625615
+      ],
+      [
+       -0.048760872215084454,
+       0.2733884699369259,
+       0.5547438148625615,
+       1.0
+      ]
+     ],
+     "response_rms_over_native_write_rms": [
+      0.12991519230750867,
+      0.03977568002667347,
+      0.05512428816751958,
+      0.03180865852345853
+     ],
+     "response_square": [
+      41879237932.0,
+      3925672954.0,
+      7539887709.0,
+      2510554172.5
+     ],
+     "native_write_square": 2481297793024.0,
+     "tokens": 851
+    }
+   }
+  }
+ },
+ "native_replay": {
+  "max_abs": 0.0,
+  "relative_squared": 0.0
+ },
+ "response_validation": null,
+ "patch": null,
+ "interchange": null,
+ "audit_totals": {
+  "fit:native": {
+   "forwards": 24,
+   "native_attention": 432,
+   "replayed_attention": 0,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:replay": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 0
+  },
+  "fit:remove:L5H5": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:remove:L7H3": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:remove:L8H3": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:remove:L8H4": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:remove:early_block": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  },
+  "fit:remove:layer8_block": {
+   "forwards": 24,
+   "native_attention": 360,
+   "replayed_attention": 72,
+   "native_mlp": 432,
+   "patch_overrides": 0,
+   "captures": 432
+  }
+ },
+ "sufficient_statistics": {
+  "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_term_downstream_reader_rung458_sufficient_statistics.pt",
+  "sha256": "e9b4993d7b523ac53e53df9a47dd99b09390ed941c5d5f49da9da5172a2c22d3",
+  "bytes": 23083
+ },
+ "execution_price": {
+  "outer_forwards": 192,
+  "searched_pair_reader_candidates": 72,
+  "peak_gpu_memory_bytes": 3159521280,
+  "deployed_parameters_saved": 0
+ },
+ "pred_a_instrument": true,
+ "pred_b_fit_task_conditioned_pair_reader": false,
+ "pred_c_heldout_response_transfer": false,
+ "pred_d_heldout_causal_patch": false,
+ "pred_e_heldout_interchange": false,
+ "strong_null": true,
+ "runtime_s": 14.001482248306274,
+ "next_step": "split_equality_terms_into_qk_score_and_value_output_pieces"
+}
