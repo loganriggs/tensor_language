@@ -70,6 +70,22 @@ def check(path: Path) -> list[str]:
             "ABS-VS-REL: absolute max-abs bar on a replay quantity with no "
             "relative-squared companion; float32 magnitudes broke this bar "
             "on rung 419 (1 rerun).")
+    batch_consts = {m.group(1): int(m.group(2)) for m in re.finditer(
+        r"^([A-Z_]*BATCH[A-Z_]*)\s*=\s*(\d+)\s*$", text, re.M)}
+    bound_consts = {m.group(1): int(m.group(3)) for m in re.finditer(
+        r"^([A-Z_]*(HALF|BOUNDARY|SPLIT|STOP)[A-Z_]*)\s*=\s*(\d+)\s*$", text, re.M)}
+    batch_granular = re.search(r"int\(\bstart\b\s*>=|=\s*\bstart\b\s*>=", text)
+    per_row = re.search(r"\brows?\b\s*>=", text)
+    if batch_consts and bound_consts and batch_granular and not per_row:
+        for bn, bv in batch_consts.items():
+            for cn, cv in bound_consts.items():
+                if bv > 1 and cv % bv != 0:
+                    warnings.append(
+                        f"BATCH-BOUNDARY STRADDLE: {cn}={cv} is not a multiple of "
+                        f"{bn}={bv} and a group label is derived from the batch "
+                        "start; the batch crossing the boundary gets wholly "
+                        "assigned to one side (rung 477 data defect, cost a "
+                        "repair rung). Use per-row masks (rows >= boundary).")
     return warnings
 
 
