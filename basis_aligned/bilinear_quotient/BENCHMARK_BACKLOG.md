@@ -4610,3 +4610,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Mirror test (§2606): null fired, geometric reading retired; DISCOVERY — orthogonal component negligible everywhere (~5e-7 vs .003): the equality query channel is one-dimensional per position; frame differences = scalar magnitude bookkeeping; natural arc's question is now scalar recombination.
 
 - Rung 485 (§2607): strong null — exact MLP1 Left/Right path profiles are stable and shared on average across T/I, but neither side predicts the individual finite route and current-token means have near-zero held-out effect correlation. Next: rung486 full direct/attention1/MLP1 carrier cube for T/C/I plus the dossier's named previous×current context test; no rank or subset search.
+
+- Rung 486 (§2608): A/B true, strong null — all T/C/I carrier profiles are stable and MLP1's singleton write dominates (`.526/.752/.595` shares), but frozen previous×current means worsen held-out effect prediction and T/I relation remains intermediate. Categorical context tables close; next rung487 exact MLP1 finite-secant factor interchange (branch-induced change versus continuous midpoint state), no rank.
