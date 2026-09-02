@@ -131,3 +131,30 @@ saves zero deployed parameters and adds zero runtime parameters.
 
 No threshold, factor vocabulary, tag split, branch set, control, or validation condition may change after any
 downstream-use outcome is opened.
+
+## Instrument addendum — rung495b, 2026-09-02 17:00 UTC
+
+The first receipt is preserved as instrument-invalid. Calls, masks, branch identities, liveness, and data scope were
+correct, and validation remained closed. However, the implementation built the eight factor arms and performed
+Möbius subtraction in the deployed BF16 dtype. Repeated BF16 cancellation produced a maximum factor-closure relative
+squared error of `0.0078267`; the absent endpoint's independently regrouped head sum differed from the deployed
+flattened projection by `4.8468e-6`. Consequently the piece-sum gradient contraction also missed its registered bar
+at `1.4368e-5`. These are failures of the registered float32 algebra instrument, not scientific null evidence.
+
+Rung495b changes only the arithmetic path already required by prediction A and used by the parent rung484 factor
+checks:
+
+1. recompute normal and branch-absent QK1/QK2/OV factors from the same deployed states and first-value tensors in
+   float32;
+2. compute the eight per-head arms, seven Möbius pieces, both endpoint rebuilds, and the piece-gradient contractions
+   in float32; and
+3. compare endpoint arms with independent direct float32 attention forwards.
+
+The actual branch-absent model forward, raw attention-write gradient, RMS normalization, MLP1, and suffix remain the
+production BF16 computation. Thus the repair changes only the precision of the analytical factor decomposition being
+contracted with that real gradient. The first selected pair and all first-run scientific metrics are preserved but
+cannot pass retroactively.
+
+All hashes, documents, circuit tags, branch/factor vocabulary, selection rule, controls, bars, conditional opening,
+call counts, nulls, and routing remain frozen. Rung495b writes a distinct receipt and bundle, and must independently
+rerun discovery from the model. No threshold is changed in response to the first result.

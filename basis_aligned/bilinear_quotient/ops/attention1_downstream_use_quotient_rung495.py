@@ -51,10 +51,10 @@ R493_RESULT = ROOT / "mlp0_TI_site_graded_merge_intervention_rung493_results.jso
 R484_SOURCE = ROOT / "ops/mlp0_attention1_finite_path_factorial_rung484.py"
 R481_SOURCE = ROOT / "ops/mlp0_branch_circuit_response_rung481.py"
 COMPONENT_SOURCE = ROOT / "ops/mlp0_centered_context_anova_factorial.py"
-OUT = ROOT / "attention1_downstream_use_quotient_rung495_results.json"
-BUNDLE = ROOT / "attention1_downstream_use_quotient_rung495_bundle.pt"
+OUT = ROOT / "attention1_downstream_use_quotient_rung495b_results.json"
+BUNDLE = ROOT / "attention1_downstream_use_quotient_rung495b_bundle.pt"
 HASHES = {
-    PREREG: "daaab8d41b1a2aaadbd7b56bb3335539ad9659b1d2907054f0330d1ea06ada2f",
+    PREREG: "084ce5c20d1aac72f0a8325b454532ac9d4fc3d56eacc618434dff34f7b67568",
     R494_RESULT: "8b384663af5fe6b9291c4180f1ea6147a40835cc5e64a172a72f73087ddad261",
     R493_SOURCE: "4f77c3898d8237373a7a35439dabc590882eda47490aaed33a797ddec2cfe08b",
     R493_RESULT: "1131a0dc61f94ca2dba92073eed1a21c2f46a46ac18004be146e15a78161339d",
@@ -143,7 +143,10 @@ def _linear(value, weight):
 
 def _per_head_attention_writes(attention, parts):
     """Return [batch, query, head, residual] before summing native heads."""
-    score_a, score_b, value = parts
+    # The registered exact factor algebra is float32.  The production forward
+    # and its differentiated raw-write leaf remain BF16; only the analytical
+    # eight-arm/Mobius construction uses the parent rung484 precision path.
+    score_a, score_b, value = (part.float() for part in parts)
     length = score_a.shape[-1]
     pattern = score_a * score_b
     causal = torch.tril(torch.ones(
@@ -226,11 +229,11 @@ def _native_factor_cache(model, tokens, reference):
     after_m0 = cache["before_m0"] + cache["m0"]
     before_a1 = block1.lambdas[0] * after_m0 + block1.lambdas[1] * cache["x0"]
     state1 = F.rms_norm(before_a1, (D,))
-    parts = factor_parent._attention_parts(
-        block1.attn, state1, cache["first_value"])
-    rebuilt = factor_parent._attention_write(block1.attn, parts)
-    cache["attention1_parts"] = tuple(value.detach() for value in parts)
-    cache["attention1_rebuild"] = rebuilt.detach()
+    parts32 = factor_parent._attention_parts(
+        block1.attn, state1.float(), cache["first_value"].float())
+    direct32, _ = block1.attn(state1.float(), cache["first_value"].float())
+    cache["attention1_parts"] = tuple(value.detach() for value in parts32)
+    cache["attention1_direct32"] = direct32.detach()
     return cache
 
 
@@ -243,9 +246,12 @@ def _absent_gradient_forward(model, tokens, cache, branch):
         write, first_value = event.block.attn(event.state, event.first_value)
         if event.site == 1:
             calls["a1_leaf"] += 1
-            capture["parts"] = tuple(value.detach() for value in factor_parent._attention_parts(
-                event.block.attn, event.state, event.first_value))
-            capture["attention1_direct"] = write.detach()
+            parts32 = factor_parent._attention_parts(
+                event.block.attn, event.state.float(), event.first_value.float())
+            direct32, _ = event.block.attn(
+                event.state.float(), event.first_value.float())
+            capture["parts"] = tuple(value.detach() for value in parts32)
+            capture["attention1_direct32"] = direct32.detach()
             write = write.detach().requires_grad_(True)
             capture["attention1_leaf"] = write
         return write, first_value
@@ -263,7 +269,7 @@ def _absent_gradient_forward(model, tokens, cache, branch):
     logits = facade.forward_with_dispatch(
         model, tokens, attention, mlp, require_production=True)
     if set(capture) != {
-            "parts", "attention1_direct", "attention1_leaf", "mlp0_state_error"}:
+            "parts", "attention1_direct32", "attention1_leaf", "mlp0_state_error"}:
         raise RuntimeError("branch-absent attention1 gradient capture failed")
     return logits, capture, calls
 
@@ -323,9 +329,6 @@ def collect_phase(model, rows, circuit_masks, tags, reference, start_doc, stop_d
         targets = batch_rows[:, 1:].to(device)
         cache = _native_factor_cache(model, tokens, reference)
         calls["native_prefixes"] += 1
-        errors["native_factor_rebuild_relative_squared_max"] = max(
-            errors["native_factor_rebuild_relative_squared_max"],
-            _relative_squared(cache["attention1_rebuild"], cache["a1"]))
         errors["analytical_num"] += cache["analytical_num"]
         errors["analytical_den"] += cache["analytical_den"]
         errors["deployed_num"] += cache["deployed_num"]
@@ -349,9 +352,14 @@ def collect_phase(model, rows, circuit_masks, tags, reference, start_doc, stop_d
 
             pieces, detail = exact_factor_pieces(
                 block1.attn, cache["attention1_parts"], capture["parts"])
+            errors["native_factor_rebuild_relative_squared_max"] = max(
+                errors["native_factor_rebuild_relative_squared_max"],
+                _relative_squared(
+                    detail["normal_write"], cache["attention1_direct32"]))
             errors["absent_factor_rebuild_relative_squared_max"] = max(
                 errors["absent_factor_rebuild_relative_squared_max"],
-                _relative_squared(detail["absent_write"], capture["attention1_direct"]))
+                _relative_squared(
+                    detail["absent_write"], capture["attention1_direct32"]))
             errors["factor_mobius_closure_relative_squared_max"] = max(
                 errors["factor_mobius_closure_relative_squared_max"],
                 _relative_squared(detail["reconstructed_delta"], detail["factor_delta"]))
@@ -697,7 +705,7 @@ def main():
     strong_null = bool(not pred_a or not pred_b)
 
     bundle = {
-        "schema": "rung495_attention1_downstream_use_v1",
+        "schema": "rung495b_attention1_downstream_use_v1",
         "discovery": {key: value for key, value in discovery.items()
                       if key != "instrument"},
         "position_controls": None if position_collection is None else
@@ -710,7 +718,8 @@ def main():
     }
     torch.save(bundle, BUNDLE)
     receipt = {
-        "status": "completed", "rung": 495, "claim_level": "screen",
+        "status": "completed", "rung": 495, "repair_id": "495b_float32_factor_arithmetic",
+        "claim_level": "screen",
         "source_hashes": {str(path): sha256(path) for path in HASHES},
         "checkpoint_weights_sha256": checkpoint.weights_sha256,
         "input_identity": metadata,

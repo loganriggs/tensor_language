@@ -43,6 +43,36 @@ def test_exact_factor_mobius_and_gradient_contraction():
         float(complete.abs().detach()), 1.0)
 
 
+def test_bf16_factor_inputs_use_registered_float32_algebra():
+    generator = torch.Generator().manual_seed(49501)
+    batch, length = 1, 2
+    attention = SimpleNamespace(c_proj=torch.nn.Linear(subject.D, subject.D, bias=False))
+    attention.c_proj.weight.data.copy_(torch.randn(
+        attention.c_proj.weight.shape, generator=generator) / subject.D ** .5)
+    normal = (
+        torch.randn(batch, subject.HEADS, length, length, generator=generator).bfloat16(),
+        torch.randn(batch, subject.HEADS, length, length, generator=generator).bfloat16(),
+        torch.randn(
+            batch, length, subject.HEADS, subject.HEAD_DIM,
+            generator=generator).bfloat16(),
+    )
+    absent = tuple(
+        (value.float() + .1 * torch.randn(value.shape, generator=generator)).bfloat16()
+        for value in normal)
+    pieces, detail = subject.exact_factor_pieces(attention, normal, absent)
+
+    assert pieces.dtype == torch.float32
+    assert detail["normal_write"].dtype == torch.float32
+    assert _relative_squared(
+        detail["reconstructed_delta"], detail["factor_delta"]) < 1e-10
+    normal32 = tuple(value.float() for value in normal)
+    absent32 = tuple(value.float() for value in absent)
+    assert _relative_squared(
+        detail["normal_write"], factor_parent._attention_write(attention, normal32)) < 1e-10
+    assert _relative_squared(
+        detail["absent_write"], factor_parent._attention_write(attention, absent32)) < 1e-10
+
+
 def test_registered_analysis_selects_cross_head_pair_and_position_control():
     tags = [f"tag{index}" for index in range(32)]
     discovery = subject._empty_collection(tags, tuple(range(63)), (0,))
