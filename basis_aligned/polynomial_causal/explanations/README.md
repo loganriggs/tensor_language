@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1510.md](explanation_2026-09-02_1510.md) — full update since 02:19: the shared cross-head
+  equality matcher, downstream equality roles and failed common-MLP bases, exact MLP0 paths, the corrected held-out
+  T/I-versus-C MLP1 response law, attention1 as the unique named source necessary for both T and I, and the live
+  selective attention1→MLP1 reader-path intervention
 - [explanation_2026-09-02_1500.md](explanation_2026-09-02_1500.md) — attention1 identified as the unique exact named
   native-state source necessary for both MLP0 token-only and interaction responses at MLP1; defines the computation,
   reports the held-out necessity and shifted-position controls with a percentage graph, distinguishes necessary from
