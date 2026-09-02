@@ -33,3 +33,15 @@ if mins:
     if gaps:
         print(f"landings in window: {len(windowed)} | mean gap {sum(gaps)/len(gaps):.1f} min | "
               f"gaps>5min: {sum(1 for g in gaps if g > 5)} | busy-fraction ~{busy/60/max(back,1)*100:.0f}%")
+
+# idle-cause context (added 02:06 review): queue depth + last commit age
+import subprocess as _sp
+from pathlib import Path as _P
+_q = _P(__file__).resolve().parent.parent / "queue.txt"
+_depth = sum(1 for l in _q.read_text().splitlines() if l.strip() and not l.startswith("#")) if _q.exists() else 0
+try:
+    _age = _sp.run(["git", "-C", "/workspace/tensor_language", "log", "-1", "--format=%cr"],
+                   capture_output=True, text=True, timeout=10).stdout.strip()
+except Exception:
+    _age = "?"
+print(f"queue depth: {_depth} | last commit: {_age}")
