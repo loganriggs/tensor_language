@@ -74,10 +74,12 @@ three-way interaction. For example,
 These seven terms must sum exactly to `y({A,B,V})-y({})`. They describe this explicit native-versus-removed causal
 coordinate; they are not claimed to be coordinate-free semantic features.
 
-On documents0:250, select separately for `T` and `I` the smallest physical subset of `{A,B,V}` whose per-token CE
-effect best predicts the complete attention1-route effect. Break ties by lower subset bit mask. The selection is
-eligible only if cosine is at least`.90` and best scalar-adjusted relative error is at most`.35`. Apply that frozen
-subset without refitting on documents250:500.
+On equality-positive positions in documents0:250, select separately for `T` and `I` the smallest **nonempty proper**
+physical subset of `{A,B,V}` whose per-token CE effect predicts the complete attention1-route effect. The full
+`{A,B,V}` corner is excluded because it predicts itself trivially. Among eligible subsets, minimize component count,
+then scale-adjusted relative error, then the integer subset bit mask. A subset is eligible only if cosine is at
+least`.90` and best scalar-adjusted relative error is at most`.35`. If no proper subset qualifies, selection is null
+and B fails. Apply the frozen subset without refitting on documents250:500.
 
 ## Data and task-conditioned views
 
@@ -128,9 +130,10 @@ relative error at most`.35` on equality-positive positions.
 
 ### D-split — `T` and `I` use different attention1 paths
 
-In both discovery halves, their path-profile cosine is at most`.60`, their selected physical subsets differ, and the
-larger branch-specific subset loses at least`.20` cosine when used to predict the other branch's attention-route
-effect instead of its own.
+In both discovery halves, their path-profile cosine is at most`.60` and their selected physical subsets differ. For
+each branch's selected mask, its cosine with that branch's complete route must exceed the cosine produced by applying
+the same mask to the other branch by at least`.20`, in both halves. This tests branch-specific routing rather than
+merely obtaining two different labels from the subset search.
 
 The shared and split outcomes are mutually exclusive. Intermediate values identify no relation.
 
