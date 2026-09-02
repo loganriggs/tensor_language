@@ -1,7 +1,139 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_mlp_product_term_group_rung467.py", line 772, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_mlp_product_term_group_rung467.py", line 676, in main
-    parent.parent.path_parent.parent._record_audit(
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: module 'equality_correction_paired_necessity_rung465' has no attribute 'path_parent'
+{
+  "composition": {
+    "approximately_additive": false,
+    "regime": "stably_interactive",
+    "source_interaction_cosine": 0.9846735870965757,
+    "source_interactions": {
+      "H": {
+        "norm": 0.016773425042629242,
+        "relative_to_union": 0.23678790032863617,
+        "vector": [
+          0.01279706135392189,
+          0.0014464743435382843,
+          -0.00018954183906316757,
+          0.010744988918304443
+        ]
+      },
+      "N": {
+        "norm": 0.02058652974665165,
+        "relative_to_union": 0.2537404000759125,
+        "vector": [
+          0.016614019870758057,
+          -0.0015227608382701874,
+          -9.602680802345276e-05,
+          0.01206032931804657
+        ]
+      }
+    },
+    "stably_interactive": true
+  },
+  "controls": {
+    "H": {
+      "controls": {
+        "amplitude": {
+          "cosine": -0.40826117067558493,
+          "parent_norm": 0.05316740376359706,
+          "projection_on_parent": -0.09320340327784114,
+          "vector_norm": 0.012137776820691141
+        },
+        "random": {
+          "cosine": -0.6901947268966813,
+          "parent_norm": 0.05316740376359706,
+          "projection_on_parent": -0.05719412058550981,
+          "vector_norm": 0.004405804309381314
+        }
+      },
+      "half_wins": true,
+      "selected": {
+        "cosine": 0.8643571332839112,
+        "parent_norm": 0.05316740376359706,
+        "projection_on_parent": 1.1516221111878762,
+        "vector_norm": 0.07083733726589186
+      },
+      "winning_branch": "cosine"
+    },
+    "N": {
+      "controls": {
+        "amplitude": {
+          "cosine": -0.34607565385016004,
+          "parent_norm": 0.06195776218879807,
+          "projection_on_parent": -0.07327902514373921,
+          "vector_norm": 0.013119109543743042
+        },
+        "random": {
+          "cosine": -0.14715178357753567,
+          "parent_norm": 0.06195776218879807,
+          "projection_on_parent": -0.01181490396415907,
+          "vector_norm": 0.004974625466969922
+        }
+      },
+      "half_wins": true,
+      "selected": {
+        "cosine": 0.8853293734921828,
+        "parent_norm": 0.06195776218879807,
+        "projection_on_parent": 1.159318248131439,
+        "vector_norm": 0.08113225028955386
+      },
+      "winning_branch": "cosine"
+    }
+  },
+  "execution_price": {
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "discovery_backwards": 192,
+    "outer_forwards": 1392,
+    "peak_gpu_memory_bytes": 3300348416
+  },
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "parent_error": 0.0,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "fresh_corpus_confirmation_without_refitting",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_stable_split": true,
+    "pred_c_exact_heldout_correction": true,
+    "pred_d_beats_matched_controls": true,
+    "pred_e_cross_module_composition": true
+  },
+  "qualifying_modules": [
+    "m8",
+    "m9",
+    "m12"
+  ],
+  "rung": 467,
+  "runtime_s": 36.55934953689575,
+  "selected_counts": {
+    "m12": 482,
+    "m8": 450,
+    "m9": 426
+  },
+  "selected_total": 1358,
+  "source_agreement": {
+    "cosine": 0.9998433337133289,
+    "parent_norm": 0.08113225028955386,
+    "projection_on_parent": 0.8729726981629641,
+    "vector_norm": 0.07083733726589186
+  },
+  "status": "complete",
+  "strong_null": false,
+  "union_metrics": {
+    "H": {
+      "cosine": 0.8643571332839112,
+      "parent_norm": 0.05316740376359706,
+      "projection_on_parent": 1.1516221111878762,
+      "vector_norm": 0.07083733726589186
+    },
+    "N": {
+      "cosine": 0.8853293734921828,
+      "parent_norm": 0.06195776218879807,
+      "projection_on_parent": 1.159318248131439,
+      "vector_norm": 0.08113225028955386
+    }
+  }
+}
