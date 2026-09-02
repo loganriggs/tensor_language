@@ -103,7 +103,7 @@ def main() -> None:
     old_fixed = {name: arm["fixed_scale_composition_error"]
                  for name, arm in spec["families"]["vocabulary"]["arms"].items()}
     old_result = json.loads(OLD_RESULT.read_text())
-    if tuple(old_fixed) != IDS or tuple(old_result["arms"]) != IDS:
+    if set(old_fixed) != set(IDS) or tuple(old_result["arms"]) != IDS:
         raise RuntimeError("old vocabulary arm identity changed")
 
     sys.path.insert(0, str(POLY))
