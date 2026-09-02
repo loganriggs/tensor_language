@@ -1,0 +1,68 @@
+{
+  "execution_price": {
+    "candidate_sites": 19,
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 2160,
+    "peak_gpu_memory_bytes": 3159521280,
+    "source_trajectories": 2
+  },
+  "factor_reconstruction_relative_squared_max": 7.358423656770381e-14,
+  "headline": {
+    "amplitude_spearman": {
+      "H": 0.29298245614035084,
+      "N": 0.3280701754385964
+    },
+    "norm_rank_spearman": 0.9736842105263156,
+    "primary": {
+      "cosine": 0.9974969865982821,
+      "larger_over_smaller": 1.243577465934077,
+      "left_norm": 0.08874340216236233,
+      "right_norm": 0.07136137843709263
+    },
+    "primary_alignment": {
+      "H": {
+        "cosine": 0.40289662126388937,
+        "larger_over_smaller": 1.635554216659263,
+        "left_norm": 0.11671540340940426,
+        "right_norm": 0.07136137843709263
+      },
+      "N": {
+        "cosine": 0.4761537502000934,
+        "larger_over_smaller": 1.4921993127568094,
+        "left_norm": 0.13242284371837823,
+        "right_norm": 0.08874340216236233
+      }
+    },
+    "primary_rank": {
+      "H": 1,
+      "N": 1
+    },
+    "qualified_shared_sites": [
+      "m8",
+      "m9",
+      "m10",
+      "m11",
+      "a12",
+      "m12",
+      "a14",
+      "m17"
+    ]
+  },
+  "native_replay": {
+    "max_abs": 0.0,
+    "relative_squared": 0.0
+  },
+  "next_step": "state_level_correction_boundary_or_fixed_qualified_sites",
+  "parent_effect_max_abs_error_nat": 0.0,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mlp17_shared_role": true,
+    "pred_c_mlp17_context_correction": false,
+    "pred_d_shared_multisite_program": true,
+    "pred_e_not_raw_amplitude": true
+  },
+  "rung": 465,
+  "runtime_s": 50.143454790115356,
+  "status": "complete",
+  "strong_null": false
+}
