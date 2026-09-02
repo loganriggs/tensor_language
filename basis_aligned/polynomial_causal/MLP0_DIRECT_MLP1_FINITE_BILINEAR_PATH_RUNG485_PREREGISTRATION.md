@@ -80,7 +80,10 @@ For each branch's complete direct-MLP1 restoration effect:
 2. apply those means without refitting to every occurrence in documents250:500; and
 3. compare prediction prediction error with one global mean fitted on documents0:250.
 
-Also compare the 698-dimensional token-mean profiles between halves. This is a diagnostic lookup, not a proposed
+Also compare the 698-dimensional token-mean profiles between halves. The unweighted cosine gives every token one
+coordinate. For the weighted cosine, multiply both halves' coordinate for token `v` by
+`sqrt(min(count_half0[v], count_half1[v]))` before taking the cosine, so a token's contribution is proportional to
+its smaller-half support and neither half can supply weight the other lacks. This is a diagnostic lookup, not a proposed
 compressed circuit. A pass licenses a separately validated grouping of tokens with similar downstream effects; it
 does not license storing 698 labels as the explanation.
 
