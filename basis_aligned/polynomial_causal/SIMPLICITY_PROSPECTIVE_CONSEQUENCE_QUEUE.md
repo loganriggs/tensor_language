@@ -1,8 +1,15 @@
 # Prospective removal/composition queue for learned simplicity
 
-Status: active queue design, 2026-09-01 22:49 UTC. This file does not open an evaluation role or authorize an
+Status: paused as the main research route after the 2026-09-02 00:47 UTC task-decomposition correction. This file
+retains the completed measurements and original protocol; it does not open an evaluation role or authorize an
 unregistered model run. Each executable experiment still needs its own frozen preregistration, source gate, and
 managed-GPU queue entry.
+
+The attention16-ablation and MLP16 two-edit outcomes measure robustness of an already chosen approximation. They do
+not discover how to group computations across heads/MLPs or split a module into task-specific parts. Predictor
+fitting, the proposed MLP2 consequence group, and opening the attention0 outcome set are therefore paused. The active
+direction is `TASK_CONDITIONED_CROSS_MODULE_DECOMPOSITION_PLAN.md`: use downstream task/interchange fingerprints to
+discover shared and private computation, with these outcomes retained only as later validation.
 
 ## Why this queue exists
 
@@ -55,12 +62,13 @@ written separately and joined only by hash-bound candidate IDs.
    those23 labels and the null, but do not count the family. Rung455's CPU-only audit froze a candidate-independent
    partner-scale companion after reconstructing every old score: on already-open data its raw/fixed interaction orders
    vocabulary14/14, MLP0 4/4, and the MLP-PCA main ladder2/2. This is a post-hoc diagnosis, not family salvage.
-   Next preregister an independent192-document vocabulary fixed-scale test, then freeze any protocol-v2 decision and
-   obtain the genuinely new outcome-free third teaching family required by rung454's original routing.
-3. **Consequence-specific rule fitting — blocked on a legal third family and common-label version.** Fit removal and composition predictors only on the three teaching families,
+   Rung456 subsequently passed an independently registered192-document vocabulary fixed-scale test: fixed-scale
+   interaction and removal ordered14/14 comparisons in full and in both96-document halves. This validates the metric
+   correction but does not turn these outcomes into a decomposition objective.
+3. **Consequence-specific rule fitting — paused by directional correction.** If resumed, fit removal and composition predictors only on three teaching families,
    choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
    uncertainty rule, and hashes before the attention0 label file exists.
-4. **Sealed attention0 confirmation.** Generate the same consequences for the10 sparse-Q/K candidates and controls,
+4. **Held-out attention0 confirmation — not opened.** If the predictor route is resumed, generate the same consequences for the10 sparse-Q/K candidates and controls,
    then test the frozen consequence-specific rules against bytes, rank, sparse edge count, validation distortion,
    shuffled labels, and the already-frozen rung443 recovery score. Rung443 is a baseline because it was trained for
    reconstruction recovery, not silently renamed a causal-simplicity rule.

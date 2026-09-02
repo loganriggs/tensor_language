@@ -30,7 +30,7 @@ recover 80% of that module's loss benefit on the old held-out evaluation (§713)
 |---:|---:|---|---|
 | 0 | 8 | [MLP0_CURRENT_UNDERSTANDING.md](MLP0_CURRENT_UNDERSTANDING.md) | exact position-zero fold, token/context decomposition, Down and shared-input replacements already extensive |
 | 1 | 128 | not yet consolidated | high-benefit, high-rank early module; check §§13–19 and §§713–714 before work |
-| 2 | 256 | not yet consolidated | early-middle map; check §713 and MLP0→MLP2 composition records |
+| 2 | 256 | [MLP2_CURRENT_UNDERSTANDING.md](MLP2_CURRENT_UNDERSTANDING.md) | native-channel K512 and dense Tucker closed; five equal-price learned rank512 programs documented for possible later validation, not the current decomposition priority |
 | 3 | 256 | not yet consolidated | check §713 and depth/class records |
 | 4 | 64 | not yet consolidated | adopted p768 shared-input replacement; check §§2416–2422 and §§2464–2475 |
 | 5 | 256 | not yet consolidated | check §713 and bias/linearization records |

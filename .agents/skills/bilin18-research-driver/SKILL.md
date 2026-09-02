@@ -59,7 +59,29 @@ At the first safe boundary after each elapsed hour of active work, perform a ste
 Use the timestamp of the latest Codex strategic review or board checkpoint; do not create noisy
 duplicates within the same hour.
 
-The checkpoint must:
+The checkpoint must begin by restating the **circuit interpretation targets**. A useful circuit decomposition should
+eventually provide:
+
+1. **Computational specification:** identify what information is read, what operation or composition is performed,
+   what is written, and which downstream computations use it.
+2. **Cross-boundary grouping and within-module splitting:** merge parts of different attention heads or MLPs when
+   downstream computation treats them as the same variable, and split one native module when its parts serve
+   different tasks or compositions. Native head/MLP boundaries are proposals, not assumed semantic units.
+3. **Held-out and OOD prediction:** predict the circuit's activation and behavioral effect on unseen inputs, task
+   variations, and shifted data—not merely reconstruct the examples used to find it.
+4. **Extraction or sufficiency:** an isolated executable circuit, or a clearly specified interface plus background,
+   reproduces the target computation or its signed causal effect.
+5. **Selective manipulation:** removing, swapping, or editing the circuit changes the intended behavior while
+   preserving unrelated behaviors; explicitly account for redundancy and interactions.
+6. **Composition and reuse:** shared subcomputations can serve multiple tasks/modules, and their joint behavior is
+   predictable when combined with task-specific branches.
+7. **Stable identification:** the claimed units survive document/corpus splits, plausible gauges, and fitting
+   restarts, or are defined by operational equivalence under downstream readers.
+
+Literal storage and compute remain important for an eventually simpler executable model, but compression is not a
+substitute for any target above.
+
+The checkpoint must then:
 
 1. Restate the full predictive + composable + manipulable + simplicity goal.
 2. Summarize what changed since the prior checkpoint, including failures and corrections.
@@ -74,6 +96,22 @@ The checkpoint must:
 6. Rank the best next moves by expected information and state what evidence would kill each.
 7. Change direction when the evidence warrants it. If it does not, record why the current route
    survives the alternatives.
+
+### Anti-rank-drift gate
+
+For every proposed next experiment, name the circuit target(s) above that it can change and the measurement that
+would demonstrate that change. Reject or demote a proposal whose only expected result is lower rank, fewer stored
+values, lower reconstruction error, better CE, or preservation of more aggregate variance. Those quantities may be:
+
+- matched-capacity controls preventing a task-guided method from winning by using more capacity;
+- mathematical lower bounds or implementation prices; or
+- post-identification engineering of a circuit already supported by task and intervention evidence.
+
+They do not by themselves discover, group, split, name, extract, or selectively manipulate a circuit. A low-rank or
+sparse coordinate system with rotational freedom is a probe basis until downstream interchange, selective
+intervention, and held-out task prediction identify its units. When an hourly review selects a rank-focused action,
+it must explicitly explain why this is not merely another compression sweep and what circuit-level decision becomes
+possible afterward. Otherwise choose a task-conditioned decomposition or a more direct causal test.
 
 Write a concise review under `basis_aligned/polynomial_causal/` when it changes strategy or
 creates durable reasoning. Post a short append-only board entry for material direction or

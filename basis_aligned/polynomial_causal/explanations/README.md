@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0024.md](explanation_2026-09-02_0024.md) — explains and preserves the recent common causal
+  measurements, corrects their role from simplicity supervision to later robustness validation, explicitly lists
+  the seven circuit-interpretation goals, and redirects current work from rank reduction to task-conditioned grouping
+  across heads/MLPs and task-specific splitting within a module
 - [explanation_2026-09-02_0008.md](explanation_2026-09-02_0008.md) — clarifies that viable dropped work is queued and
   being run; reports the independent MLP-PCA pass with continuous old-to-new correlations,100% reproduction of all
   pre-frozen separated pairs in both waves, a graph, and vocabulary23 as the next teaching family
