@@ -32,6 +32,8 @@ Use seven exact configurations:
 - remove the early block L5H5+L7H3; and
 - remove the layer-8 block L8H3+L8H4.
 
+Also run one `remove:empty` analytical replay solely for the native-replay integrity check. It is not a fitting arm.
+
 For every attention and MLP write in layers 9 through 17, capture on the fitting half
 
 `Delta_j(h,x) = write_j(remove h,x) - write_j(native,x)`.
@@ -104,8 +106,10 @@ Use the already-shipped commutation statistic:
 `separation = mean absolute between-group change / mean absolute within-group change`.
 
 Require separation at least `2.0`, exact label-permutation `p <= .05`, and mean within-group change no more than 25%
-of the native-to-removal stake. Matched-negative and off-target swap effects are reported and may not be used to choose
-the group.
+of the native-to-removal stake. The numerator is the mean absolute per-document within-swap CE change over documents
+with all-positive support. The denominator is the mean absolute per-document singleton-removal CE stake over the same
+target terms and supported documents. Matched-negative and off-target swap effects are reported and may not be used
+to choose the group.
 
 ## Registered predictions
 
