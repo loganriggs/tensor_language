@@ -363,6 +363,9 @@ def main():
     if sub_bundle.get("schema") != "rung474_subtractive_query_factorial_v1":
         raise RuntimeError("rung474 bundle schema changed")
     if os.environ.get("BQLIB_DRYRUN") == "1":
+        for name, role, _, _ in WINDOWS:
+            payload, _ = roles[role]           # the exact indexing main() uses
+            assert "rows" in payload and name in selections
         print(json.dumps({
             "status": "dry_run_passed", "rung": "projector_factorial",
             "model_loaded": False, "projector_outcomes_opened": False,
@@ -373,9 +376,10 @@ def main():
     model, checkpoint = sub474.facade.load_bilin18()
     audit_totals, replay = {}, {"max_abs": 0.0, "relative_squared": 0.0}
     windows, reconstruction = {}, 0.0
-    for name, _, _, _ in WINDOWS:
+    for name, role, _, _ in WINDOWS:
+        payload, _ = roles[role]
         window, error = collect_window(
-            model, roles[name], scale, selections[name], audit_totals, replay,
+            model, payload, scale, selections[name], audit_totals, replay,
         )
         windows[name] = window
         reconstruction = max(reconstruction, error)
