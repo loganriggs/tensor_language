@@ -94,6 +94,21 @@ def check(path: Path) -> list[str]:
                         "start; the batch crossing the boundary gets wholly "
                         "assigned to one side (rung 477 data defect, cost a "
                         "repair rung). Use per-row masks (rows >= boundary).")
+    loop_consts = {m.group(1): int(m.group(2)) for m in re.finditer(
+        r"^([A-Z_]+)\s*=\s*(\d+)\s*$", text, re.M)}
+    for stride_name in [n for n in ("BATCH",) if n in loop_consts]:
+        stride = loop_consts[stride_name]
+        if stride <= 1:
+            continue
+        for name, value in loop_consts.items():
+            if name == stride_name or value % stride == 0:
+                continue
+            if re.search(rf"range\([^)]*{name}[^)]*,\s*{stride_name}\)", text):
+                warnings.append(
+                    f"BOUNDARY LOOP: range(...{name}..., {stride_name}) with "
+                    f"{name}={value} % {stride_name}={stride} != 0 -- misaligned "
+                    "batches; (i//BATCH)*BATCH cache keys break (v2 crash 18:32, "
+                    "Codex 502 caught same class pre-outcome 19:02).")
     return warnings
 
 
