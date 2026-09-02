@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Attention1 really affects T and I, but the narrow reader edit does not reproduce that effect</title>
+  <desc id="desc">The left panel shows knockout modulation relative to each normal branch effect. The right panel compares same-position reader-edit cosine with the best of sixteen shifted-position controls.</desc>
+  <rect width="900" height="500" fill="#ffffff"/>
+  <text x="450" y="34" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#111827">Attention1 is causal, but not through the proposed portable MLP1 input edit</text>
+  <rect x="661" y="50" width="14" height="14" fill="#3b82f6"/><text x="682" y="62" font-family="sans-serif" font-size="13" fill="#374151">documents 0–249</text>
+  <rect x="661" y="72" width="14" height="14" fill="#f59e0b"/><text x="682" y="84" font-family="sans-serif" font-size="13" fill="#374151">documents 250–499</text>
+  <text x="240" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="#111827">True knockout change / normal effect</text>
+  <text x="665" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="#111827">Reader edit versus true knockout</text>
+  <g stroke="#d1d5db" stroke-width="1" font-family="sans-serif" font-size="11" fill="#6b7280">
+    <line x1="70" y1="410" x2="420" y2="410"/><line x1="490" y1="410" x2="840" y2="410"/>
+    <line x1="70" y1="320" x2="420" y2="320"/><line x1="490" y1="320" x2="840" y2="320"/>
+    <line x1="70" y1="230" x2="420" y2="230"/><line x1="490" y1="230" x2="840" y2="230"/>
+    <line x1="70" y1="140" x2="420" y2="140"/><line x1="490" y1="140" x2="840" y2="140"/>
+    <text x="62" y="414" text-anchor="end">0×</text><text x="482" y="414" text-anchor="end">0.0</text>
+    <text x="62" y="324" text-anchor="end">2×</text><text x="482" y="324" text-anchor="end">0.2</text>
+    <text x="62" y="234" text-anchor="end">4×</text><text x="482" y="234" text-anchor="end">0.4</text>
+    <text x="62" y="144" text-anchor="end">6×</text><text x="482" y="144" text-anchor="end">0.6</text>
+  </g>
+  <g font-family="sans-serif" font-size="12" text-anchor="middle">
+    <rect x="122" y="147.9" width="48" height="262.1" fill="#3b82f6"/><text x="146" y="140" fill="#1f2937">5.82×</text>
+    <rect x="176" y="142.9" width="48" height="267.1" fill="#f59e0b"/><text x="200" y="160" fill="#ffffff">5.94×</text>
+    <rect x="282" y="329.9" width="48" height="80.1" fill="#3b82f6"/><text x="306" y="321" fill="#1f2937">1.78×</text>
+    <rect x="336" y="332.3" width="48" height="77.7" fill="#f59e0b"/><text x="360" y="349" fill="#ffffff">1.73×</text>
+    <rect x="525" y="219.7" width="38" height="190.3" fill="#3b82f6"/><text x="544" y="212" fill="#1f2937">.423</text>
+    <rect x="567" y="222.9" width="38" height="187.1" fill="#f59e0b"/><text x="586" y="240" fill="#ffffff">.416</text>
+    <rect x="611" y="199.1" width="22" height="210.9" fill="#9ca3af"/><text x="622" y="190" fill="#4b5563">shift .469/.464</text>
+    <rect x="690" y="410" width="38" height="2.6" fill="#3b82f6"/><text x="709" y="397" fill="#1f2937">−.006</text>
+    <rect x="732" y="402.3" width="38" height="7.7" fill="#f59e0b"/><text x="751" y="394" fill="#1f2937">.017</text>
+    <rect x="776" y="290.8" width="22" height="119.2" fill="#9ca3af"/><text x="787" y="282" fill="#4b5563">shift .265</text>
+  </g>
+  <g font-family="sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#374151">
+    <text x="173" y="440">Token-only (T)</text><text x="333" y="440">Interaction (I)</text>
+    <text x="579" y="440">Token-only (T)</text><text x="744" y="440">Interaction (I)</text>
+  </g>
+  <text x="450" y="475" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#4b5563">A useful reader edit should align with the knockout and beat shifted-position controls. This one does neither.</text>
+</svg>
