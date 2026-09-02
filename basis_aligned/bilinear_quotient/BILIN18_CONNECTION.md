@@ -66720,3 +66720,27 @@ write-response cosine was`.844` for the L5 score,`.116` for L5 payload, and`-.80
 tests that exact named reader on the current rows/actions without fitting or selecting a new component. Source/result/
 bundle SHAs `2c85a758…` / `2c5b7faa…` / `b2cddade…`;55.9s,2,500 forwards,3.16GB; **0 deployed parameters
 saved or added.**
+## §2624 — RUNG 500: MLP9 IS A PROSPECTIVELY CALIBRATED, COPY-SELECTIVE DOWNSTREAM READER OF THE SHARED SCORE COMPUTATION
+
+Rung500 froze MLP9 from rung459—no reader search on current data—and captured its1,152-dimensional write under the
+same two donors, two early backgrounds, and five recipient actions on documents500:1000. Rung499's outcome-bearing
+result and bundle were hash-checked but never deserialized. Only dot-product sufficient statistics were stored.
+
+All clauses pass: A/B/C/D/E/F=true, strong null false. Native/analytical logits and MLP9 writes match bitwise; factor
+reconstruction is`4.88e-14`; every edit/capture/call is live and exact (125 native+2,375 analytical,2,500 total).
+For L5H5 score supplying L8H4, MLP9 response cosine is`.848/.836` with the earlier service present and`.860/.835`
+absent; scaled residual is`.510-.550`, inside the frozen`.75/.70` bars. The L5 payload control is only`.109-.114`
+cosine with`.994` residual, and the L7 score is sign-reversed at`-.801` to`-.823`; all eight fixed `.30` control
+margins pass.
+
+The relation is action-stable: score-hybrid MLP9 responses under the two early backgrounds agree at`.946/.940`, and
+relative fit-scale drift is only`.004/.034`. It is also copy-selective: copy cosine exceeds both non-copy equality and
+all non-copy positions by`.234-.249`, more than twice the registered`.10` margin. Native and hybrid response RMS are
+about10.4-11.8% of MLP9's normal write RMS on copy positions, so this is not a numerically tiny alignment.
+
+CLAIM SCOPE: MLP9's write is a calibrated observation that tells the L5 score replacement apart from the payload and
+wrong-score controls across new reader outcomes and finite background changes. This does not make all of MLP9 the
+copy circuit. It identifies how one downstream consumer discriminates the upstream shared score computation, exactly
+the interaction-determined basis requested by the project. The calibrated task+MLP9 observation now licenses a
+prospective directed relation search among the four known equality scores. Source/result/bundle SHAs
+`83b52087…/9e4daa40…/e7dca9a4…`;56.4s,3.16GB; **0 deployed parameters saved or added.**

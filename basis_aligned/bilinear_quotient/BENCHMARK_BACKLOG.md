@@ -4638,3 +4638,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   off-target `<.001` nat), but the support-qualified general circuits cannot consistently separate it from L5 payload
   and narrowly miss stability in quarter2. Preserve the positive task relation; change observation to rung459's
   independently selected MLP9 reader, not thresholds/rank/compression, before any four-score search.
+- Rung500 (§2624): full pass. Independently frozen MLP9 reader prospectively distinguishes L5 score (`.835-.860`
+  cosine) from L5 payload (`.109-.114`) and L7 score (`-.801` to`-.823`), is stable under early removal
+  (`.940-.946`), and is copy-selective by`.234-.249`. This calibrates a downstream interaction-defined observation,
+  not all of MLP9 as a circuit. Next search directed relations among the four known equality scores with task+MLP9
+  criteria frozen; no rank/compression.

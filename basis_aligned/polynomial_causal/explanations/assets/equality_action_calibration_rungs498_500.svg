@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="410" viewBox="0 0 900 410" role="img" aria-labelledby="title desc">
+  <title id="title">Equality action calibration from broad mask to named MLP9 reader</title>
+  <desc id="desc">Two panels show copy-effect recovery and MLP9 response cosine for score and controls.</desc>
+  <rect width="900" height="410" fill="white"/>
+  <style>text{font-family:sans-serif;fill:#222}.axis{stroke:#555}.grid{stroke:#ddd}.a{fill:#c55a5a}.b{fill:#4f81bd}.c{fill:#70ad47}.d{fill:#999}.small{font-size:13px}.label{font-size:15px}</style>
+  <text x="450" y="28" text-anchor="middle" font-size="20" font-weight="bold">Correct task mask recovers the score; MLP9 separates its computation</text>
+  <text x="225" y="58" text-anchor="middle" class="label">L5 score replacement: copy-effect recovery</text>
+  <line x1="55" y1="270" x2="395" y2="270" class="axis"/><line x1="55" y1="80" x2="55" y2="270" class="axis"/>
+  <line x1="55" y1="118" x2="395" y2="118" class="grid"/><text x="47" y="122" text-anchor="end" class="small">100%</text>
+  <rect x="78" y="199" width="44" height="71" class="a"/><rect x="130" y="158" width="44" height="112" class="a"/>
+  <rect x="207" y="109" width="44" height="161" class="b"/><rect x="259" y="95" width="44" height="175" class="b"/>
+  <rect x="336" y="101" width="44" height="169" class="c"/>
+  <text x="100" y="192" text-anchor="middle" class="small">47%</text><text x="152" y="151" text-anchor="middle" class="small">74%</text>
+  <text x="229" y="102" text-anchor="middle" class="small">106%</text><text x="281" y="88" text-anchor="middle" class="small">115%</text>
+  <text x="358" y="94" text-anchor="middle" class="small">111%</text>
+  <text x="126" y="292" text-anchor="middle" class="small">broad equality</text><text x="255" y="292" text-anchor="middle" class="small">exact copy task</text><text x="358" y="292" text-anchor="middle" class="small">prospective</text>
+  <text x="675" y="58" text-anchor="middle" class="label">MLP9 response cosine (four-cell range)</text>
+  <line x1="505" y1="270" x2="845" y2="270" class="axis"/><line x1="505" y1="80" x2="505" y2="300" class="axis"/>
+  <line x1="505" y1="118" x2="845" y2="118" class="grid"/><text x="497" y="122" text-anchor="end" class="small">100%</text>
+  <rect x="545" y="139" width="65" height="131" class="c"/><rect x="640" y="253" width="65" height="17" class="d"/><rect x="735" y="270" width="65" height="125" class="a"/>
+  <text x="578" y="130" text-anchor="middle" class="small">84–86%</text><text x="672" y="244" text-anchor="middle" class="small">11%</text><text x="768" y="389" text-anchor="middle" class="small">−80 to −82%</text>
+  <text x="578" y="292" text-anchor="middle" class="small">L5 score</text><text x="672" y="292" text-anchor="middle" class="small">L5 payload</text><text x="768" y="312" text-anchor="middle" class="small">L7 score</text>
+  <text x="450" y="385" text-anchor="middle" class="small">Recovery: 100% = same total copy-task benefit. Cosine: 100% = same signed MLP9 response direction.</text>
+</svg>

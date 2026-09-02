@@ -11,6 +11,8 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_1819.md](explanation_2026-09-02_1819.md) — rung498's broad-mask failure, the exact
+  copy-task correction, rung499's prospective task positive/general-circuit null, and rung500's calibrated MLP9 reader
 - [explanation_2026-09-02_1748.md](explanation_2026-09-02_1748.md) — result update to the full 02:19 report:
   rung496's query/key-side null, rung497's action-table audit, and the rung498 equality-matcher calibration plan
 - [explanation_2026-09-02_1727.md](explanation_2026-09-02_1727.md) — full update since 02:19 in ordinary
