@@ -13,6 +13,11 @@ and exact held-out projector intervention passes.
 """
 
 # BQGATE: EXPERIMENT
+# pred_a lawful collection and exact projected algebra
+# pred_b nontrivial shared algebraic direction beats conjugated controls
+# pred_c fit view direction defines an approximate two block family
+# pred_d the same blocks survive source and document shifts
+# pred_e one block has a stable circuit labelled reader profile
 
 from __future__ import annotations
 
@@ -53,6 +58,8 @@ ROUTE_SOURCE = ROOT / "ops/equality_mixed_product_shared_response_rung478.py"
 PARENT_RESULT = ROOT / "equality_product_circuit_response_graph_rung477b_results.json"
 PARENT_BUNDLE = ROOT / "equality_product_circuit_response_graph_rung477b_bundle.pt"
 PARENT_SOURCE = ROOT / "ops/equality_product_circuit_response_graph_rung477b.py"
+CALIBRATION_RESULT = ROOT / "commutant_null_calibration_results.json"
+CALIBRATION_SOURCE = ROOT / "ops/commutant_null_calibration.py"
 OUT = ROOT / "equality_task_reader_commutant_rung479_results.json"
 BUNDLE = ROOT / "equality_task_reader_commutant_rung479_bundle.pt"
 SOURCES = parent.SOURCES
@@ -72,12 +79,14 @@ CHECK_INDICES = (29, 307, 614, 849, 1106, 1379, 1597, 1843,
 CONTROL_SEEDS = tuple(range(2026090240, 2026090256))
 EXPECTED_FORWARDS = parent.EXPECTED_FORWARDS
 HASHES = {
-    PREREG: "1cd18f1fe75a13995ff746302da708b7ef23855071e4c1919859deb067954bce",
+    PREREG: "3bf03353b5c04544876dd57ec69aa95759f2d4fad56fa053f3e468c14598a0a8",
     ROUTE_RESULT: "9a60806575a47765396e919ed6b221b27756fd209a0ae01366172039aae5d9e3",
     ROUTE_SOURCE: "fec94670dc4c744a58c4ded9f3e3ddbba38398e98c65ec9dafc85ecded393c8f",
     PARENT_RESULT: "38349612eb9ca8cf480afe63a1c9cad8c258948ed64383680f42dcf7876a2191",
     PARENT_BUNDLE: "c7d976945d1a0fdce627408e2b3dcb8e126c5f6b07e3a50442f0797decb7dd26",
     PARENT_SOURCE: "ebf9c91e0a823cd263ec997ff185822323d41aadb5f53cdee031bfc8c908cd6b",
+    CALIBRATION_RESULT: "17a81b5922c54537c8d83c750da2873f5d2b548f8b9d897437d536f3b74a2512",
+    CALIBRATION_SOURCE: "50fb8cdc6c52cf6648dd6ef203c0b6158814ccc5411c227969e1bc6ac6927f64",
 }
 
 
@@ -107,8 +116,21 @@ def validate_inputs():
                 "pred_e_task_selective",
             )) or route.get("strong_null") is not True:
         raise RuntimeError("rung478 frozen route changed")
-    rows, positive, circuit_masks, scale, tags, validation_tags, metadata, old_bundle = \
+    calibration = json.loads(CALIBRATION_RESULT.read_text())
+    if not all(calibration.get(key) is True for key in (
+        "pred_a_planted_exact_recovery", "pred_b_generic_and_control_clean",
+        "pred_c_detection_monotone_and_small_eps_exact",
+    )) or calibration.get("strong_null_probe_uncalibrated") is not False \
+            or calibration.get("generic_forced_offmass_q05_q50_q95") != [
+                0.12423146805977511, 0.19756968773822253, 0.2398216317818013,
+            ]:
+        raise RuntimeError("independent commutant calibration changed")
+    rows, positive, circuit_masks, scale, tags, validation_tags, metadata, _ = \
         parent.validate_inputs()
+    corrected_bundle = torch.load(PARENT_BUNDLE, map_location="cpu", weights_only=False)
+    if corrected_bundle.get("schema") != "rung477b_split_aware_discovery_response_v1" \
+            or corrected_bundle.get("validation_tags_or_responses_included") is not False:
+        raise RuntimeError("corrected rung477b bundle contract changed")
     if len(tags) != OBSERVATION_DIM or len(validation_tags) != 30:
         raise RuntimeError("discovery/validation family split changed")
     expected_backwards = parent.expected_backwards(circuit_masks, tags)
@@ -121,7 +143,7 @@ def validate_inputs():
         "checksum_product_indices": list(CHECK_INDICES),
     }
     return (rows, positive, circuit_masks, scale, tags, validation_tags,
-            metadata, old_bundle)
+            metadata, corrected_bundle)
 
 
 def collect_statistics(model, rows, positive, circuit_masks, scale, tags,
@@ -324,7 +346,7 @@ def approximate_commutant(matrices):
     direction /= max(np.linalg.norm(direction), 1e-30)
     direction_values, direction_vectors = np.linalg.eigh(direction)
     gaps = np.diff(direction_values)
-    eligible = np.arange(1, n - 1)
+    eligible = np.arange(2, n - 1)
     cut = int(eligible[np.argmax(gaps[eligible - 1])])
     projector_left = direction_vectors[:, :cut] @ direction_vectors[:, :cut].T
     projector_right = eye - projector_left
@@ -475,6 +497,13 @@ def main():
                               old_check.square().sum().clamp_min(1e-30))
     covariance = statistics["state_covariance_sums"]
     symmetry_error = float((covariance - covariance.transpose(-1, -2)).abs().max())
+    covariance_psd_relative_min = 0.0
+    for local in covariance.reshape(-1, STATE_DIM, STATE_DIM):
+        eigen_min = float(torch.linalg.eigvalsh(local.float().cuda())[0])
+        covariance_psd_relative_min = min(
+            covariance_psd_relative_min,
+            eigen_min / max(float(torch.trace(local)), 1e-30),
+        )
     finite = bool(torch.isfinite(covariance).all() and
                   torch.isfinite(statistics["gradient_sums"]).all())
     pair_reports = []
@@ -494,6 +523,7 @@ def main():
         and replay["relative_squared"] <= 1e-12
         and statistics["reconstruction"] <= 1e-10
         and checksum_relative <= 1e-10 and symmetry_error <= 1e-8 and finite
+        and covariance_psd_relative_min >= -1e-6
         and projected_identity <= 1e-4
         and int(statistics["response_counts"][:, 0].min()) >= 39
         and int(statistics["response_counts"][:, 1].min()) >= 439
@@ -508,11 +538,11 @@ def main():
     )
     pred_c = bool(
         min(selected["block_sizes"]) >= 2
-        and selected["fit_offblock"]["median"] <= .20
-        and selected["fit_offblock"]["p90"] <= .35
+        and selected["fit_offblock"]["median"] <= .03
+        and selected["fit_offblock"]["p90"] <= .03
     )
     pred_d = bool(
-        all(row["median"] <= .30 and row["p90"] <= .50 for row in nonfit_offblock)
+        all(row["median"] <= .05 and row["p90"] <= .08 for row in nonfit_offblock)
         and min(selected["view_subspace_overlap"][1:]) >= .70
     )
     leave_passes = sum(row["minimum_view_cosine"] >= .60
@@ -551,6 +581,7 @@ def main():
         "factor_reconstruction_relative_squared_max": statistics["reconstruction"],
         "checksum_vs_rung477b_relative_squared": checksum_relative,
         "covariance_symmetry_max_abs": symmetry_error,
+        "covariance_psd_relative_min": covariance_psd_relative_min,
         "projected_quadratic_identity_relative_max": projected_identity,
         "pair_reports": pair_reports, "selected_pair": selected,
         "sealed_attention0_confirmation_opened": False,
@@ -566,11 +597,11 @@ def main():
             "covariance_values_saved": int(covariance.numel()),
             "gradient_values_saved": int(statistics["gradient_sums"].numel()),
         },
-        "pred_a_lawful_collection": pred_a,
-        "pred_b_nontrivial_shared_algebra": pred_b,
-        "pred_c_fit_block_structure": pred_c,
-        "pred_d_cross_view_blocks": pred_d,
-        "pred_e_circuit_labelled_block": pred_e,
+        'pred_a_lawful_collection': pred_a,
+        'pred_b_nontrivial_shared_algebra': pred_b,
+        'pred_c_fit_block_structure': pred_c,
+        'pred_d_cross_view_blocks': pred_d,
+        'pred_e_circuit_labelled_block': pred_e,
         "strong_null": strong_null, "runtime_s": time.time() - started,
         "next_step": ("paired_response_and_exact_odd_family_projector_intervention"
                       if all((pred_a, pred_b, pred_c, pred_d, pred_e))
