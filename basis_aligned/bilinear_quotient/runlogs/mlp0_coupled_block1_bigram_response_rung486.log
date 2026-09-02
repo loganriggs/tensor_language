@@ -1,0 +1,30 @@
+{
+  "T_pair_carrier": {
+    "baseline_rmse_nat": 0.19769502026102495,
+    "cosine": 0.14559571947285732,
+    "pearson": 0.1361759213800883,
+    "prediction_rmse_nat": 0.19915503237569712,
+    "rmse_improvement_over_baseline": -0.0073851739550367945
+  },
+  "T_pair_route": {
+    "baseline_rmse_nat": 0.4470373501009689,
+    "cosine": 0.15437238744227574,
+    "pearson": 0.04521096454691669,
+    "prediction_rmse_nat": 0.4499471060820921,
+    "rmse_improvement_over_baseline": -0.006508977338171018
+  },
+  "next_step": "continuous_live_attention0_state_finite_reader",
+  "predictions": {
+    "pred_a_exact_lawful_instrument": true,
+    "pred_b_stable_complete_carrier_decomposition": true,
+    "pred_c_bigram_predicts_T_response": false,
+    "pred_d_exactly_one_T_I_relation": false,
+    "pred_e_heldout_documents": false
+  },
+  "rung": 486,
+  "runtime_s": 234.43386960029602,
+  "selected_relation": null,
+  "status": "complete",
+  "strong_null": true,
+  "validation_opened": false
+}
