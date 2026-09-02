@@ -36,6 +36,7 @@ import mlp10_exact_source_pair_causal_split_rung507 as parent
 
 PREREG = POLY / "MLP10_EXACT_SOURCE_FAMILY_FACTORIAL_RUNG508_PREREGISTRATION.md"
 ADDENDUM = POLY / "MLP10_EXACT_SOURCE_FAMILY_FACTORIAL_RUNG508_PREFLIGHT_ADDENDUM.md"
+REPAIR = POLY / "MLP10_EXACT_SOURCE_FAMILY_FACTORIAL_RUNG508_INSTRUMENT_REPAIR.md"
 PARENT_SOURCE = ROOT / "ops/mlp10_exact_source_pair_causal_split_rung507.py"
 PARENT_RESULT = ROOT / "mlp10_exact_source_pair_causal_split_rung507_results.json"
 PARENT_BUNDLE = ROOT / "mlp10_exact_source_pair_causal_split_rung507_bundle.pt"
@@ -44,6 +45,7 @@ BUNDLE = ROOT / "mlp10_exact_source_family_factorial_rung508_bundle.pt"
 HASHES = {
     PREREG: "eb2a8cbf3c2aaf97b31f35179bb207361e1285d183404480c46fad9fe7a48af6",
     ADDENDUM: "c4c6cec497f68e8dc7c9b1e5d2a7537040a0d51f42b648cf7ada9d7f54158914",
+    REPAIR: "504488664e2898722de398595a5c0a413c87428d34cda4cdfd4327c12507c8da",
     PARENT_SOURCE: "4bb6fbf9a12cbdae05162cff86abb84d31c834dfa2f7a1d92d75f5092d2e8035",
     PARENT_RESULT: "f3ce5669bb86e5e4a36e4fa44a2c2ff488bc3806ab86380ad359c0c6310fe57c",
     PARENT_BUNDLE: "bc72fcd9e1b7be5be3219ffd1284d8aa23c9c89778ca8a3e02faf8d0ba889dcd",
@@ -169,7 +171,8 @@ def _collection_diagnostics():
     diagnostics = parent._empty_diagnostics()
     diagnostics.update({
         "family_partition_relative_squared": 0.0,
-        "family_score_delta_relative_squared": 0.0,
+        "family_score_delta_preclosure_relative_squared": 0.0,
+        "family_score_delta_closure_relative_squared": 0.0,
         "patches": 0, "patches_expected": 0, "patches_exact": False,
     })
     return diagnostics
@@ -239,9 +242,17 @@ def collect_singletons(model, rows, task_masks, circuit_masks, circuit_tags, sca
             summed_delta = group_deltas.sum(2)
             semantic_delta = current["factors"]["semantic_output"] \
                 - absent["factors"]["semantic_output"]
-            diagnostics["family_score_delta_relative_squared"] = max(
-                diagnostics["family_score_delta_relative_squared"],
+            current_rounding = current["factors"]["semantic_output"] \
+                - current_groups.sum(2)
+            absent_rounding = absent["factors"]["semantic_output"] \
+                - absent_groups.sum(2)
+            diagnostics["family_score_delta_preclosure_relative_squared"] = max(
+                diagnostics["family_score_delta_preclosure_relative_squared"],
                 parent._relative_squared(summed_delta, semantic_delta))
+            diagnostics["family_score_delta_closure_relative_squared"] = max(
+                diagnostics["family_score_delta_closure_relative_squared"],
+                parent._relative_squared(
+                    summed_delta + current_rounding - absent_rounding, semantic_delta))
             source_nll = [parent._nll(logits, batch_rows).detach().cpu()]
             patch_deltas = (summed_delta,) + tuple(group_deltas[:, :, index]
                                                       for index in range(len(GROUP_NAMES)))
@@ -328,11 +339,20 @@ def collect_pairs(model, rows, task_masks, scales, bounds, pair_names):
                                          absent["factors"]["left"].sum(2)
                                          * absent["factors"]["right"].sum(2)))
             group_deltas = current_groups - absent_groups
-            diagnostics["family_score_delta_relative_squared"] = max(
-                diagnostics["family_score_delta_relative_squared"],
+            semantic_delta = current["factors"]["semantic_output"] \
+                - absent["factors"]["semantic_output"]
+            current_rounding = current["factors"]["semantic_output"] \
+                - current_groups.sum(2)
+            absent_rounding = absent["factors"]["semantic_output"] \
+                - absent_groups.sum(2)
+            diagnostics["family_score_delta_preclosure_relative_squared"] = max(
+                diagnostics["family_score_delta_preclosure_relative_squared"],
+                parent._relative_squared(group_deltas.sum(2), semantic_delta))
+            diagnostics["family_score_delta_closure_relative_squared"] = max(
+                diagnostics["family_score_delta_closure_relative_squared"],
                 parent._relative_squared(
-                    group_deltas.sum(2), current["factors"]["semantic_output"]
-                    - absent["factors"]["semantic_output"]))
+                    group_deltas.sum(2) + current_rounding - absent_rounding,
+                    semantic_delta))
             for left_index, right_index in pair_indices:
                 delta = group_deltas[:, :, left_index] + group_deltas[:, :, right_index]
                 replacement = current["deployed_write"] - delta.to(
@@ -512,7 +532,8 @@ def _instrument(collection, *, singleton):
         and math.isfinite(d["score_delta_predeployment_relative_squared"])
         and d["score_delta_deployed_closure_relative_squared"] <= 1e-12
         and d["family_partition_relative_squared"] <= 1e-10
-        and d["family_score_delta_relative_squared"] <= 1e-10
+        and math.isfinite(d["family_score_delta_preclosure_relative_squared"])
+        and d["family_score_delta_closure_relative_squared"] <= 1e-12
         and d["minimum_nonzero_score_edit_rms"] > 0
         and d["minimum_nonzero_term_edit_rms"] > 0)
     if singleton:
