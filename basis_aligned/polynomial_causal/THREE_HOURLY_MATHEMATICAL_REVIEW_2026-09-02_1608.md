@@ -1,5 +1,12 @@
 # Three-hour mathematical review — 2026-09-02 16:08 UTC
 
+> **Pre-outcome correction, 16:28 UTC.** The first version tried to propagate each raw attention factor piece
+> independently through MLP1's exact quadratic polarization. That omitted the shared RMS normalization between
+> attention1's residual write and MLP1. No downstream-use outcome had been opened. The corrected executable
+> consequence keeps the exact decomposition at attention1's raw write and uses derivatives through the real
+> normalization and complete suffix. The quadratic identity remains correct for actual MLP1 input changes, but it
+> cannot allocate an unnormalized attention difference without first choosing a noncanonical normalization path.
+
 ## Goal and present boundary
 
 The target is a smaller executable tensor program whose units say what information is read, what operation is
@@ -73,18 +80,28 @@ polarization:
 
 `P(u,v)=Down((Left u)*(Right v) + (Left v)*(Right u))`.
 
-Freeze the direct residual part to its branch-absent value `d_b`. If `a_N` and `a_b` are the normal and absent
-attention1 writes, then the attention-only change through MLP1 is exactly
+For two actual normalized MLP1 inputs `z_0,z_1`, the exact identity is
 
-`m(d_b+a_N)-m(d_b+a_b) = P(a_N-a_b, d_b+(a_N+a_b)/2)`.
+`m(z_1)-m(z_0) = P(z_1-z_0,(z_1+z_0)/2)`.
 
-Because `P` is linear in its first argument, each of the 63 attention pieces has an exact MLP1 response
+It does **not** follow that a decomposition of the raw attention write can be inserted for `z_1-z_0`. The production
+graph computes `z=RMSNorm(x_before+a)`, so the normalization couples all 63 pieces with one another and with the
+incoming residual. A path integral of the RMSNorm Jacobian could allocate this finite change, but the allocation
+would depend on a chosen path or averaging rule. It would therefore introduce exactly the arbitrary basis choice
+this experiment is intended to avoid.
 
-`rho[h,S] = P(theta[h,S], d_b+(a_N+a_b)/2)`,
+The canonical local alternative is the derivative of the actual downstream observation with respect to the raw
+attention write. For a downstream scalar `f`, branch-absent state `a_b`, and raw piece `theta[h,S]`, define
 
-and the 63 responses sum exactly to the complete attention-only MLP1 change. This avoids the pairwise explosion from
-expanding MLP1 independently in all head pairs while still including every self-head and cross-head interaction
-through the shared midpoint.
+`r_f[h,S] = <gradient_of_f_with_respect_to_a_at_a_b, theta[h,S]>`.
+
+Linearity of the derivative gives the exact first-order closure
+
+`sum_(h,S) r_f[h,S] = <gradient_of_f, a_N-a_b>`.
+
+The gradient is taken through the real RMS normalization, MLP1, direct residual route, and later blocks. This is
+only a local screen; it nominates pieces for a finite natural-state interchange rather than pretending that the
+finite raw-write effects add.
 
 ## What existing mathematics does and does not solve
 
@@ -132,11 +149,11 @@ move. See J. Håstad,
 
 ## Executable consequence: downstream-use quotient before factor fitting
 
-Rung495 should compute the 63 exact `QK1 × QK2 × OV` pieces for each of the four MLP0 branches and map each piece
-through the exact MLP1 polarization above. It should then use the existing 62 circuit masks as downstream probes.
-For circuit `c`, form the difference between its member-token CE average and its matched-control CE average and
-differentiate that scalar with respect to MLP1's write. The response coordinate for piece `theta` is the inner
-product of this gradient with `rho(theta)`.
+Rung495 should compute the 63 exact raw `QK1 × QK2 × OV` pieces for each of the four MLP0 branches and use the
+existing 62 circuit masks as downstream probes. For circuit `c`, form the difference between its member-token CE
+average and its matched-control CE average and differentiate that scalar with respect to attention1's raw write on
+the naturally produced branch-absent trajectory. The response coordinate for piece `theta` is the inner product of
+this gradient with `theta`; the derivative itself passes through the shared normalization and complete suffix.
 
 This produces a 62-number downstream-use signature for every below-head piece. It is a first-order screen, not a
 physical circuit result. A candidate cross-head merge must be a mutual nearest neighbour, have high response cosine
@@ -160,8 +177,7 @@ manipulation. If no candidate survives, the next different object is to split th
 
 No reviewed theorem exactly recovers the desired circuits under the real normalization, parameter ties, and
 downstream definition of equivalence. The strongest exact consequence is nevertheless useful: finite Möbius
-decomposition supplies 63 closure-checked pieces below the head boundary, exact quadratic polarization carries them
-through MLP1 without approximation, and the 62 circuit readers define the operational quotient the user proposed.
-This dominates another SAE/Tucker or rank experiment because it can merge across heads, split within a head, predict
-which later circuits use each piece, and nominate a selective physical interchange. Proceed with rung495 on that
-object.
+decomposition supplies 63 closure-checked raw-write pieces below the head boundary, and derivatives of the real
+normalized suffix define how the 62 circuit readers use them. This dominates another SAE/Tucker or rank experiment
+because it can merge across heads, split within a head, predict which later circuits use each piece, and nominate a
+selective physical interchange. Proceed with rung495 on that corrected object.

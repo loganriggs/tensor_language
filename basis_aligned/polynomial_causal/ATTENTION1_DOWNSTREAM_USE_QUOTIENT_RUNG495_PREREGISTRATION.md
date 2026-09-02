@@ -13,7 +13,8 @@ and a concrete candidate for selective manipulation. Rank and reconstruction are
 
 - Model and exact MLP0 `T/C/I/S` branches: the rung401 authority reached through rung493.
 - Attention factor implementation and closure convention: rung484.
-- Exact MLP1 polarization: rung487's float32 secant computation.
+- Normalized attention-to-suffix derivative convention: the production facade and rung477b's downstream-response
+  contraction.
 - Downstream masks: all 62 curated circuit tags in `circuits/BATTERY.json` and `census_state_diverse.pt`.
 - Discovery uses documents0:500 and the 32 discovery tags already frozen by rung477b/rung481.
 - Candidate selection uses documents0:250 only. Documents250:500 are the fixed confirmation half.
@@ -32,25 +33,34 @@ trajectory. Möbius subtraction gives the seven nonempty finite pieces
 There are `9 × 7 = 63` pieces. They must sum to the complete normal-minus-branch-absent attention1 write. Native head
 identity is retained only as provenance; comparisons include all cross-head pairs and all within-head factor pairs.
 
-Let `d_b` be the branch-absent direct residual input to MLP1 and let `a_N,a_b` be the normal and branch-absent
-attention1 writes. With MLP1's symmetric bilinear polarization `P`, each piece `theta` receives the exact response
+The seven-term equality is exact at attention1's **raw residual-stream write**. It is deliberately not propagated
+piece by piece using MLP1's quadratic polarization. The production model first computes
 
-`rho(theta) = P(theta, d_b + (a_N+a_b)/2)`.
+`z = RMSNorm(residual_before_attention1 + attention1_write)`
 
-The 63 responses must sum to `MLP1(d_b+a_N)-MLP1(d_b+a_b)` in float32. This isolates the attention route while
-including its exact interaction with the live MLP1 midpoint.
+and only then applies MLP1. RMS normalization couples every raw attention piece with every other piece and with the
+incoming residual. Treating the raw pieces as additive MLP1 inputs would therefore be false. This correction was
+made before any downstream-use outcome was opened.
 
 ## Downstream-use signature
 
 For each circuit tag, compute separately the mean CE on its member positions and its matched in-slice control
-positions. Differentiate each scalar with respect to MLP1's output write on the branch-absent trajectory. The
-coordinate assigned to `rho(theta)` is the gradient inner product with that exact response. The signed fingerprint
-is `member response - control response`.
+positions. Differentiate each scalar with respect to attention1's **raw write** on the branch-absent trajectory. This
+derivative runs through the real RMS normalization, MLP1, the direct residual route, and all later layers. The
+coordinate assigned to raw piece `theta` is the gradient inner product `<dCE/d attention1_write, theta>`. The signed
+fingerprint is `member response - control response`.
+
+Because differentiation is linear, the 63 piece responses must sum exactly, up to floating-point contraction error,
+to the derivative applied to the complete normal-minus-absent attention1 write. This is an exact first-order
+identity of the production graph, not a claim that a finite raw-write replacement is additive.
 
 Fingerprints stack all four MLP0 branches. A piece is material when its fingerprint norm is at least 5% of the
-complete attention-route fingerprint norm in both discovery halves. Pair similarity uses cosine and best-scale
-residual error. Sixteen circuit-label permutations and sixteen token-position rolls are frozen controls; no failed
-branch, factor type, head, tag, or document half may be dropped.
+complete attention-route fingerprint norm in both discovery halves. Pair similarity uses cosine and the symmetric
+best-scale residual `sqrt(1-cosine²)`; the reported left-to-right scale is `<left,right>/||left||²`. Sixteen
+circuit-label permutations are computed by permuting the right member of a pair only. If the preliminary
+top pair passes every non-position bar, a second pass over the same discovery documents computes sixteen
+token-position rolls for that frozen pair only; it cannot change the selected pair. No failed branch, factor type,
+head, tag, or document half may be dropped.
 
 This derivative is a first-order measurement of downstream use. It does not license a physical swap. A selected
 pair must face a separately preregistered natural-state interchange in the next rung.
@@ -61,9 +71,10 @@ pair must face a separately preregistered natural-state interchange in the next 
 
 All frozen hashes, branch identities, replay checks, circuit support counts, calls, and backward counts match.
 The eight factor arms reconstruct both endpoint attention writes with relative squared error at most `1e-10` in
-float32. The 63 Möbius pieces reconstruct the complete attention difference to `1e-10`. Their polarized MLP1
-responses reconstruct the direct attention-only MLP1 difference to `1e-9`. Every branch has nonzero complete
-attention and MLP1 response norm. Gradients and every control are finite and nonzero.
+float32. The 63 Möbius pieces reconstruct the complete attention difference to `1e-10`. Contracting each piece with
+the real downstream gradient and then summing reconstructs the complete attention-difference contraction to
+`1e-9`. Every branch has nonzero complete attention-write and downstream-response norm. Gradients and every control
+are finite and nonzero.
 
 ### B — one cross-head downstream equivalence survives discovery confirmation
 
@@ -109,11 +120,14 @@ text which preserves the selected 62-circuit effect while disturbing unrelated c
 
 ## Literal price
 
-Discovery uses 500 documents in batches of four. Per batch it makes two normal forward captures and four
-branch-absent forward/gradient captures: `125 × 6 = 750` model forwards. Factor recombination and MLP1 polarization
-are standalone tensor contractions, not additional model forwards. The exact backward count is computed from the
-frozen nonempty circuit masks before model loading and must match the receipt. Conditional validation has the same
-750-forward ceiling. The experiment saves zero deployed parameters and adds zero runtime parameters.
+Discovery uses 500 documents in batches of four. Per batch it makes one normal capture and four branch-absent
+forward/gradient captures: `125 × 5 = 625` model forwards. Factor recombination and gradient contractions are
+standalone tensor operations, not additional model forwards. The exact backward count is computed from the frozen
+nonempty circuit masks before model loading and must match the receipt. The selected-pair position-control pass has
+the same 625-forward ceiling and runs only after a preliminary candidate passes every other B bar. Conditional
+validation has the same 625-forward ceiling and collects only the frozen pair plus its controls. Thus the maximum
+discovery price is1,250 forward-equivalents and the maximum conditional validation price is625. The experiment
+saves zero deployed parameters and adds zero runtime parameters.
 
 No threshold, factor vocabulary, tag split, branch set, control, or validation condition may change after any
 downstream-use outcome is opened.
