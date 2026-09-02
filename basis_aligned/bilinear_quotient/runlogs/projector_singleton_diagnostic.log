@@ -1,0 +1,13 @@
+{
+ "status": "complete",
+ "rung": "projector_singleton_diagnostic",
+ "window": "code_validation",
+ "site": "m8",
+ "pred_a_live_equals_captured": true,
+ "pred_b_projector_update_reaches_absent": true,
+ "pred_c_damages_and_bundle_consistent": false,
+ "runtime_s": 4.42087459564209,
+ "raw_tokens_logits_or_hidden_states_included": false
+}
+N {'L1_live_vs_captured_max_abs': '0.000e+00', 'L2_projector_updated_vs_absent_max_abs': '7.629e-06', 'L3_subtractive_updated_vs_absent_max_abs': '9.537e-07', 'L4_projector_vs_subtractive_damage_max_abs_nat': '5.364e-07', 'L5_subtractive_vs_bundle_max_abs_nat': '3.583e-02', 'chosen_positions': 4}
+H {'L1_live_vs_captured_max_abs': '0.000e+00', 'L2_projector_updated_vs_absent_max_abs': '3.815e-06', 'L3_subtractive_updated_vs_absent_max_abs': '9.537e-07', 'L4_projector_vs_subtractive_damage_max_abs_nat': '2.086e-06', 'L5_subtractive_vs_bundle_max_abs_nat': '2.804e-02', 'chosen_positions': 4}
