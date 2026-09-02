@@ -4649,3 +4649,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   but payload also matches and copy specificity narrowly fails. No new graph/head equivalence. Rung502 is claimed to
   expand the known edge's MLP9 response into exact named residual-source pairs, with gradients only as a shortlist
   and finite suffix validation required before circuit language; no rank/compression.
+- Rung502 first receipt (§2628): instrument-invalid; pair outcomes are non-evidence. Exact source/pair/call arithmetic
+  passes, but early-absent used the fully native rather than background-specific native reference, and the explicit
+  numerical source contributes10.9-13.3% of the small response versus the frozen<2% ceiling. Preserve the descriptive
+  four-pair screen but do not interpret it. Rung502b must add the missing early-absent native arm (1,000 true forwards)
+  and make rounding allocation explicit/gauge-tested before any source-pair or circuit claim; no bar relaxation.

@@ -66790,3 +66790,29 @@ Decision: keep the uniquely calibrated `L5H5 -> L8H4` edge and decompose its MLP
 unordered products among the 20 named residual sources entering MLP9. Use copy/circuit gradients only to shortlist
 exact terms, then require a finite held-out suffix intervention before circuit language. Result/bundle/source SHAs
 `b17a9b27.../728d9be2.../97f3946f...`; **0 deployed parameters added or saved.**
+
+## §2628 — RUNG 502 FIRST RECEIPT: SOURCE-PAIR OUTCOMES ARE INVALID BECAUSE THE BACKGROUND REFERENCE AND NUMERICAL-SOURCE CEILING FAIL
+
+Rung 502 completed its registered 875 forwards and 7,366 backwards in 114.6 seconds, but A and B are false, so every
+pair/group/circuit result is non-evidence. Most of the new algebra is exact: state-source closure is zero, float32
+pair reconstruction error is `2.09e-13`, independent float32 versus deployed-BF16 write error is `1.02e-5` under the
+registered `2.44e-4` bound, attention-factor error is `5.09e-14`, and every call/edit is exact and live.
+
+The first defect is a background-reference error. The early-present parent response reproduces at `.821-.836`
+cosine and `.548-.571` residual, but the early-absent response appears to collapse to `.436-.505`/`.863-.900`.
+Inspection shows that both backgrounds were compared with the fully native MLP9 write. Rungs 500--501 define the
+early-absent reference using its own `late_native` trajectory, where the earlier donor is removed but the recipient
+is native. That missing trajectory means the seven-forward price was insufficient; the correct price is eight per
+batch, or 1,000 total.
+
+Independently, the explicitly retained `z_num` term contributes `10.9%-13.3%` of the complete MLP9 response RMS,
+well above the frozen `<2%` ceiling, even though each complete state reconstructs exactly. This means repeated BF16
+residual/RMS-normalization rounding is small at whole-write scale but material relative to the much smaller score-
+induced response. It cannot be silently discarded or assigned a semantic name.
+
+The receipt descriptively selected four pairs (`E×A8`, `A7×A8`, `A8×A8`, `A8×M6`), and their circuit fingerprints
+looked structured, but neither is claimable under A/B failure. Decision: preserve this receipt; register rung502b as
+an instrument repair with the correct early-absent native arm and an exact deployed-residual source definition.
+Require semantic attribution to be stable under fixed alternative allocations of the rounding complement before
+reading any source-pair group as mechanism. Result/bundle/source SHAs
+`77984dd9.../c2d3a355.../84670771...`; **0 deployed parameters added or saved.**
