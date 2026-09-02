@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Rung511 exact branch test</title>
+  <desc id="desc">All 28 action and branch subset nodes were material. Eight of 42 relations aligned in task direction, while zero passed the full circuit rule.</desc>
+  <rect width="900" height="420" fill="#ffffff"/>
+  <style>
+    .label{font:16px sans-serif;fill:#202124}.value{font:bold 16px sans-serif;fill:#202124}
+    .note{font:14px sans-serif;fill:#5f6368}.axis{stroke:#dadce0;stroke-width:1}
+  </style>
+  <text x="24" y="34" class="value">Rung511: percentage of each registered check that survived</text>
+  <line x1="310" y1="62" x2="850" y2="62" class="axis"/>
+  <line x1="310" y1="62" x2="310" y2="340" class="axis"/>
+  <line x1="445" y1="62" x2="445" y2="340" class="axis"/>
+  <line x1="580" y1="62" x2="580" y2="340" class="axis"/>
+  <line x1="715" y1="62" x2="715" y2="340" class="axis"/>
+  <line x1="850" y1="62" x2="850" y2="340" class="axis"/>
+  <text x="304" y="56" class="note">0%</text><text x="434" y="56" class="note">25%</text>
+  <text x="568" y="56" class="note">50%</text><text x="703" y="56" class="note">75%</text>
+  <text x="830" y="56" class="note">100%</text>
+  <text x="24" y="105" class="label">Exactness + calibration checks</text>
+  <rect x="310" y="82" width="540" height="34" rx="4" fill="#137333"/>
+  <text x="860" y="105" class="value">100%</text>
+  <text x="24" y="171" class="label">Material action × branch nodes</text>
+  <rect x="310" y="148" width="540" height="34" rx="4" fill="#1a73e8"/>
+  <text x="860" y="171" class="value">100% (28/28)</text>
+  <text x="24" y="237" class="label">Task-direction screen</text>
+  <rect x="310" y="214" width="103" height="34" rx="4" fill="#f9ab00"/>
+  <text x="423" y="237" class="value">19% (8/42)</text>
+  <text x="24" y="303" class="label">Full task + circuit relations</text>
+  <rect x="310" y="280" width="2" height="34" fill="#c5221f"/>
+  <text x="322" y="303" class="value">0% (0/42)</text>
+  <text x="24" y="370" class="note">The 19% bar is descriptive: cosine ≥ 0.70 in both document halves for the four-number copy-task effect.</text>
+  <text x="24" y="394" class="note">No relation passed the registered full rule, so held-out circuits and physical substitution stayed unopened.</text>
+</svg>

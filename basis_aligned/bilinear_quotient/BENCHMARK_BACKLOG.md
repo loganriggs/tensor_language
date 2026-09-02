@@ -4717,3 +4717,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   unopened. Pairwise proportional term equivalence is closed at this scale. Rung511 follows the registered signed-sum
   route with the exact bilinear `L`, `R`, and `LR` score-change branches, all seven fixed subsets, finite Möbius
   interactions, held-out30-circuit prediction, and physical cross-action substitution. No rank/reconstruction.
+- Rung511 (§2644): after preserving an instrument-invalid first receipt caused by a wrong calibration baseline, the
+  corrected frozen rerun passes every exactness and calibration check. All28 action-by-branch-subset nodes are live,
+  but0/42 fixed same-subset cross-action relations pass the task-plus-32-circuit discovery rule;16/16 permuted
+  controls also return0. Eight relations align in task direction at cosine≥`.70` in both halves, but none clears the
+  circuit-direction requirement. Confirmation, finite composition, and physical substitution remain unopened. Next
+  localize the exact branches at actual downstream computations, starting from attention11/MLP11 and explicitly the
+  archived question-mark quadratic form; require held-out prediction and a physical consumer-level intervention.
+  Do not return to rank, term dictionaries, family regrouping, or threshold relaxation.

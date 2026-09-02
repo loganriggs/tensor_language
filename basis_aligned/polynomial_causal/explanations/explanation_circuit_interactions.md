@@ -335,3 +335,21 @@ combination is compared across all four score implementations, frozen before the
 then physically substituted through layers11--17. If no global branch combination transfers, the registered route is
 consumer-local measurement, starting with MLP11's already-known question-form reader. See the full numerical update
 and computation in [explanation_2026-09-02_2326.md](explanation_2026-09-02_2326.md).
+
+## Update: the exact three-branch test landed
+
+The corrected rung511 run tested the planned `L`, `R`, and `LR` decomposition. All28 combinations of four score
+implementations and seven nonempty branch subsets had measurable effects. None of the42 same-subset cross-action
+comparisons passed the full task-plus-32-circuit rule. The important detail is that8/42 comparisons did align in
+copy-task direction at cosine at least`.70` in both document halves, but0/42 aligned in the global circuit
+fingerprint. So the branch decomposition is exact, but the present global observation does not make any branch a
+portable circuit variable.
+
+This changes the immediate experiment, not the goal. We will keep the same exact branch interventions and observe
+their effects at real downstream computations: attention11's score/value/output computation, MLP11's input and
+bilinear output, and the fixed two-dimensional question-mark form already identified at MLP11. The question is
+whether different score implementations produce effects that a particular consumer treats as the same variable even
+though the aggregate32-circuit vector does not. A positive local match must predict fresh documents and survive a
+direct intervention at that consumer before it counts as grouping; an activation cosine alone remains a screen.
+
+See [explanation_2026-09-02_2340.md](explanation_2026-09-02_2340.md) for the complete numerical receipt and graph.

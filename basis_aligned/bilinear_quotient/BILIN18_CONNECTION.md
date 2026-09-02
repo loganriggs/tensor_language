@@ -67137,3 +67137,38 @@ Registered 22:58 pre-outcome (sha 7884a792…), landed 23:28 (0.66s CPU, zero fo
 **Three independent instrument failures, owned:** (1) MAPPING: my reconstruction reproduces 726 material nodes vs the receipt's 716 — the self-validation clause did its job and caught a subtle pooling/materiality mismatch between my rebuild and 510's own computation; (2) CEILING DERIVATION: the registered sanity clause fired — the macro (complete-sum) direction shows source-variation 12.57/12.02 against my derived ceiling 3.12/2.98, meaning my ε (same-source cross-half fluctuation) is the WRONG noise scale for cross-source variation in these standardized coordinates; by my own prereg text this is "an instrument fault, not science"; (3) STRUCTURAL, and this is the one that closes the instrument rather than queuing a v3: with 253 term-dimensions and only 3×36=108 variation-constraint columns, null(A) has dimension ≥ 145 — ANY response-material direction inside that null space qualifies trivially, for the REAL A and for every row-permuted control alike (row permutation preserves column-space dimension). Measured signature exactly as the arithmetic predicts: k = 35 = permutation q95 = 35.0 in both halves. The registered k > q95 bar correctly refused, but no mapping or ceiling repair can make a 36-coordinate observation basis identify 253-dimensional directions. **My fit-free design was immune to the optimizer-convention artifact that killed 509 — and is NOT immune to under-constrained observation bases. The same lesson, one level up: neither repeatable optimization (509) nor exact algebra (this receipt) identifies structure the observation basis cannot support.**
 
 **Disposition (terminal, per the repair-only route):** the companion is CLOSED at this grain — a v3 on the same 36 coordinates is not registrable in good faith. The meaningful invariance question survives in two properly-constrained forms, both already on the main line: (a) rung 511's L/R/LR — THREE fixed signed combinations, fully constrained by 36 coordinates, tested by physical substitution; my registered branch-overlap offer transfers there naturally; (b) any future basis with coordinates ≥ candidate dimensions. Nothing else is licensed; the §2642 pairwise null and every prior receipt stand untouched.
+
+## §2644 — RUNG511: THE EXACT LEFT/RIGHT/JOINT BRANCHES ARE ALL LIVE, BUT NONE IS A GLOBAL CROSS-ACTION CIRCUIT VARIABLE
+
+Rung511 changed the object from individual source-pair terms to three fixed multi-term sums supplied by the bilinear
+identity itself. Relative to the score-absent MLP10 input, it evaluated the four deployed corners `f00`, `f10`,
+`f01`, and `f11`, then defined `L=f10-f00`, `R=f01-f00`, and `LR=(f11-f00)-L-R`. Thus `L+R+LR` is exactly the
+deployed score-induced MLP10 write change. It removed all seven nonempty branch subsets under each of the four fixed
+score implementations and tested all42 same-subset cross-action relations without ranking.
+
+The first full run is preserved as instrument-invalid. Its four-corner and branch identities were exact, but the
+collector accidentally used direct-native rather than score-absent losses as the calibration baseline. That made the
+native score effect zero by construction. The hash-pinned addendum changed only that assignment and strengthened the
+smoke test; no branch, subset, threshold, data split, or route changed. Invalid result/bundle SHAs are
+`2d9452d1…/a6ac5f13…`.
+
+The corrected managed run is valid and a registered strong null: A is true and B--E are false. It used exactly2,108
+full forwards,0 backwards,1,736/1,736 subset patches,310/310 captures, and248/248 four-corner replays in53.41s.
+Native replay error and both deployed corner replay errors are0; the deployed three-branch identity has relative
+squared error`1.35e-20`. Calibration reproduces the parent score interventions: P recovers`1.130--1.149` of the
+native copy effect with document cosine`.928--.940`; Z7 recovers`.951--.976` with cosine`.946--.960`; Z8
+recovers`.893--.900` with cosine`.945--.958`. All28 action-by-subset nodes are materially active.
+
+Nevertheless,0/42 relations pass the frozen task-plus-32-circuit discovery rule, and all16 permuted controls also
+produce0. The second documents,30 held-out circuit families, composition fits, and physical substitutions therefore
+remain unopened. A descriptive audit shows8/42 relations have task-direction cosine at least`.70` in both document
+halves, while0/42 reaches the circuit-direction requirement. This does not rescue a relation, but it localizes the
+failure: the global circuit fingerprint is the binding observation, so a known downstream reader is a higher-value
+next measurement than another decomposition of the253 terms.
+
+The narrow conclusion is that no fixed `L`, `R`, `LR`, or multi-branch subset has one proportional downstream meaning
+across the four score implementations in the present global32-circuit basis. It does not say the branches have no
+consumer-specific role. Honor the frozen route: localize each exact branch at the first downstream computations,
+explicitly including the already-certified MLP11 question-mark quadratic form, and require any proposed local
+equivalence to predict new documents and a physical intervention. Result/bundle SHAs are
+`39a6afc5…/16a70cb7…`;0 deployed parameters were added or saved.

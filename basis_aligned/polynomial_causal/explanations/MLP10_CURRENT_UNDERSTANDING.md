@@ -1,6 +1,6 @@
 # MLP10: current understanding and duplicate-work map
 
-**Updated:** 2026-09-02 22:55 UTC
+**Updated:** 2026-09-02 23:40 UTC
 
 This dossier consolidates the existing MLP10 results that were previously scattered across the main ledger. It is
 the required duplicate-work check for new MLP10 experiments. Numerical screens are kept separate from causal circuit
@@ -85,24 +85,24 @@ The standing equality result is therefore precise: MLP10 is causally involved as
 program, and its253-term algebra is exact, but gradients, broad source families, and the tested hidden dictionary do
 not identify stable internal circuit units.
 
-## Live experiment and what it can add
+## Latest exact-branch result
 
-Rung510 tests all1,012 directly observed `(score implementation, exact source-pair term)` removals. Thirty-two of the
-existing62 circuit families and one document split propose pairwise equivalences;30 different families and new
-documents test them. A pair only counts after its exact MLP10 output changes can be substituted bidirectionally
-through the real layers11--17 suffix.
+Rung510 tested all1,012 directly observed `(score implementation, exact source-pair term)` removals and found zero of
+all511,566 term pairs downstream-equivalent. Rung511 then used the bilinear computation itself to replace individual
+terms with three fixed sums: the change contributed through the Left input, the change contributed through the Right
+input, and their joint product. All seven nonempty subsets were physically removed under four score implementations.
 
-This is non-duplicate because it defines a unit by downstream interchangeability rather than activation geometry,
-gradient size, source location, or a fitted latent basis. Its possible claims are deliberately narrow:
+After preserving and repairing a calibration-only invalid first run, the corrected instrument was exact. All28
+action-by-subset effects were material, but0/42 same-subset cross-action relations passed the full discovery rule.
+Eight aligned in copy-task direction at the registered cosine floor in both document halves, while none aligned in
+the32-circuit fingerprint. Thus neither individual terms nor the exact three broad bilinear branches are portable
+global circuit variables across these score implementations.
 
-- two different exact terms are one downstream variable;
-- one exact term keeps the same meaning across score implementations; or
-- no small pairwise downstream quotient exists at the registered scale.
-
-If response-similar pairs fail the physical swap, the next consumer-local test should include the already identified
-MLP11 question-form interface as a fixed hypothesis and compare it with every other layer11--17 attention/MLP
-consumer. If no pair exists, the registered alternative is a physical test of predeclared signed multi-term
-combinations, not another rank or dictionary search.
+The next experiment changes the observation rather than changing the MLP10 decomposition again. It measures where
+the exact branch effects first become equal or distinguishable inside attention11 and MLP11, with the already-known
+MLP11 question-mark quadratic form included as a fixed semantic readout. Any proposed equivalence must predict new
+documents and survive a direct intervention at that consumer. This is a consumer-local circuit test, not a rank or
+compression test.
 
 ## Do-not-repeat list
 
@@ -120,5 +120,5 @@ combinations, not another rank or dictionary search.
 - `slice_writers_results.json` and ledger §§1597--1603 — MLP10 to MLP11 question-form circuit.
 - `mlp_mode_concentration_depth_profile_results.json` and ledger §2482 — exact tensor-mode spectra.
 - ledger §§2580--2586 — distributed equality correction and its MLP8/9/12 interaction structure.
-- rung506--509 receipts and ledger §§2637--2641 — whole-write, exact-term, family, and dictionary results.
-- rung510 preregistration — live observable downstream-equivalence test.
+- rung506--511 receipts and ledger §§2637--2644 — whole-write, exact-term, family, dictionary, pairwise-equivalence,
+  and exact Left/Right/joint-branch results.
