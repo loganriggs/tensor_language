@@ -50,10 +50,9 @@ For consumer output `F_c` and branch `b`, compute the exact forward-mode automat
 This is the consumer's local response to that complete MLP0 branch direction. Check it against the symmetric finite
 difference
 
-`[F_c(native + epsilon*b) - F_c(native - epsilon*b)] / (2 epsilon)`
+`[F_c(native - epsilon*b) - F_c(native + epsilon*b)] / (2 epsilon)`
 
-with `epsilon=1/8`. The signs are equivalent to the `native-alpha*b` convention after applying the same convention
-to both calculations.
+with `epsilon=1/8`. This has the same `native-alpha*b` sign convention as the automatic derivative.
 
 Also compute the physical removal response
 
