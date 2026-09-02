@@ -36,11 +36,11 @@ recover 80% of that module's loss benefit on the old held-out evaluation (§713)
 | 5 | 256 | not yet consolidated | check §713 and bias/linearization records |
 | 6 | 512 | not yet consolidated | individually small old Down-map benefit; do not infer joint irrelevance |
 | 7 | 512 | not yet consolidated | p768 input replacement/composition already screened |
-| 8 | 512 | not yet consolidated | p768 input replacement/composition already screened |
-| 9 | 512 | not yet consolidated | mid-stack quadratic-form ranks and input replacement already screened |
+| 8 | 512 | [MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md](MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md) | generic ladders, native-term truncation, and task-shaped equality role consolidated; next question is downstream-effect grouping, not rank |
+| 9 | 512 | [MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md](MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md) | generic clustering/whole-layer approximations and task-shaped equality role consolidated; do not repeat activation-only grouping |
 | 10 | 512 | not yet consolidated | lowest output-mode top-512 retention in rung 385; check §2482 |
 | 11 | 512 | not yet consolidated | input replacement already screened |
-| 12 | 512 | not yet consolidated | input replacement already screened |
+| 12 | 512 | [MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md](MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md) | generic whole-layer approximations and task-shaped equality role consolidated; next test must validate exact term groups causally |
 | 13 | 512 | not yet consolidated | input replacement already screened |
 | 14 | 512 | not yet consolidated | p768 input replacement and compositions already screened |
 | 15 | 4 | not yet consolidated | late input replacement, sequential refit, and mode spectra already screened |
