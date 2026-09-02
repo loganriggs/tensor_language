@@ -5,6 +5,26 @@ description: Keep the bilin18/Theseus mechanistic-interpretability research prog
 
 # Bilin18 Research Driver
 
+## Fail-closed anti-pause check
+
+This program has repeatedly paused after a completed rung even though its durable goal was
+still active. Treat that as a demonstrated workflow failure, not as a wording preference.
+
+At the start of the turn and again before any final response, inspect the durable goal. The
+program-level stopping condition is the smaller transparent tensor program described below,
+with its predictive, compositional, and manipulation evidence complete. A finished rung,
+explanation, commit, queue drain, useful null, or locally achieved subgoal cannot satisfy that
+stopping condition.
+
+If the durable goal is active and no real dependency or authority blocker exists, do not mark
+it complete and do not end at a result boundary. Require a concrete continuation receipt before
+yielding: an append-only board claim plus at least one of (a) the next CPU analysis actually
+performed, (b) the next preregistration committed and its implementation actively underway, or
+(c) the next audited GPU job present in the managed queue or runner. Merely naming a future
+experiment or writing a reminder is not a receipt. If the queued action finishes while the turn
+is still live, interpret it and repeat the check; do not let a fast successor recreate the same
+empty-queue pause.
+
 Advance the project toward a smaller, transparent tensor program that is jointly:
 
 - predictive on fresh and OOD text;
