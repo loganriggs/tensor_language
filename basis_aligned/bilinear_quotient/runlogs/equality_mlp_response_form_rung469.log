@@ -1,0 +1,872 @@
+{
+  "execution_price": {
+    "backwards": 768,
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 1440,
+    "peak_gpu_memory_bytes": 3754883584
+  },
+  "instrument": {
+    "accounting_error": 1.734723475976807e-18,
+    "empty_patch_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "matrix_term_identity_error": 1.7873142749286197e-06,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "localization": {
+    "natural_wave0": {
+      "H": {
+        "code_covariance_fraction_median": 0.7266060715663627,
+        "label": "mixed_or_unresolved",
+        "reader_q_median_cosine": 0.3314761927228484,
+        "state_s_median_cosine": 0.20264718817297045,
+        "target_covariance_fraction_median": 1.0095530718196248
+      },
+      "N": {
+        "code_covariance_fraction_median": 0.7428641306050197,
+        "label": "mixed_or_unresolved",
+        "reader_q_median_cosine": 0.3165333177965477,
+        "state_s_median_cosine": 0.2731142079158901,
+        "target_covariance_fraction_median": 1.0115381954264662
+      }
+    },
+    "natural_wave1": {
+      "H": {
+        "code_covariance_fraction_median": 0.7266060715663627,
+        "label": "mixed_or_unresolved",
+        "reader_q_median_cosine": 0.3487430321931102,
+        "state_s_median_cosine": 0.24755865602350355,
+        "target_covariance_fraction_median": 1.0134706036299008
+      },
+      "N": {
+        "code_covariance_fraction_median": 0.7428641306050197,
+        "label": "mixed_or_unresolved",
+        "reader_q_median_cosine": 0.332506884409724,
+        "state_s_median_cosine": 0.3255364208173037,
+        "target_covariance_fraction_median": 1.0226596277985616
+      }
+    }
+  },
+  "next_step": "context_conditioned_state_level_causal_quotient_no_product_or_rank_tuning",
+  "prediction_summary": {
+    "code_validation": {
+      "H": {
+        "causal_error_improvement": -8.13362288124674,
+        "causal_metrics": {
+          "cosine": -0.0759602123853021,
+          "normalized_l2_error": 1.107555587953685,
+          "prediction_norm": 0.0215949929457558,
+          "projection_on_target": -0.030852743124766026,
+          "target_norm": 0.053167403753540676
+        },
+        "causal_prediction": [
+          -0.010926881201024002,
+          -0.009989318212853626,
+          -0.012007956088256319,
+          -0.010147388815395312
+        ],
+        "cross_local_prediction": [
+          -0.014024546220384931,
+          -0.012821193203159355,
+          -0.0154120953704815,
+          -0.013024075290979823
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": -10.137745058581904,
+            "metrics": {
+              "cosine": 0.4643333305512539,
+              "normalized_l2_error": 0.9057437235754321,
+              "prediction_norm": 0.004620048036654864,
+              "projection_on_target": 0.1275323698431361,
+              "target_norm": 0.01682115916771065
+            },
+            "naive_metrics": {
+              "cosine": 0.9968542005486569,
+              "normalized_l2_error": 0.08132200178864163,
+              "prediction_norm": 0.01646194786708854,
+              "projection_on_target": 0.9755666489394278,
+              "target_norm": 0.01682115916771065
+            },
+            "prediction": [
+              -0.003005251341487028,
+              -0.0012623266246004677,
+              -0.0023036290314101065,
+              -0.0023266140663973918
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": -4.265720651256371,
+            "metrics": {
+              "cosine": -0.1604935127250668,
+              "normalized_l2_error": 1.1661409369869777,
+              "prediction_norm": 0.012216322902373749,
+              "projection_on_target": -0.07390854316423436,
+              "target_norm": 0.026527928859710424
+            },
+            "naive_metrics": {
+              "cosine": 0.9908676952633717,
+              "normalized_l2_error": 0.2214589444103426,
+              "prediction_norm": 0.030946048304527636,
+              "projection_on_target": 1.1558927092716498,
+              "target_norm": 0.026527928859710424
+            },
+            "prediction": [
+              -0.005574249392553521,
+              -0.005978069747131198,
+              -0.007404143936547781,
+              -0.005254295731113308
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": -4.668976610405877,
+            "metrics": {
+              "cosine": 0.3635886274956505,
+              "normalized_l2_error": 0.939514183614322,
+              "prediction_norm": 0.011199779195554116,
+              "projection_on_target": 0.17655389351892165,
+              "target_norm": 0.023064415430348158
+            },
+            "naive_metrics": {
+              "cosine": 0.9863760487413651,
+              "normalized_l2_error": 0.1657290633180186,
+              "prediction_norm": 0.023213679548007838,
+              "projection_on_target": 0.9927594990846283,
+              "target_norm": 0.023064415430348158
+            },
+            "prediction": [
+              -0.005460753396872205,
+              -0.005651477801629472,
+              -0.005821815626858743,
+              -0.005457333399405624
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": -12.328375460787292,
+        "local_metrics": {
+          "cosine": 0.26527838617465904,
+          "normalized_l2_error": 0.9744886720046243,
+          "prediction_norm": 0.02771696434919202,
+          "projection_on_target": 0.1078893960449683,
+          "target_norm": 0.06815045631685256
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.9951458034024292,
+          "normalized_l2_error": 0.12126136609249884,
+          "prediction_norm": 0.05667614164229913,
+          "projection_on_target": 1.060819609883991,
+          "target_norm": 0.053167403753540676
+        },
+        "naive_local_metrics": {
+          "cosine": 0.9973236344339018,
+          "normalized_l2_error": 0.07311383708176708,
+          "prediction_norm": 0.06798543223410866,
+          "projection_on_target": 0.9949086481393703,
+          "target_norm": 0.06815045631685256
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          -0.027561892673296014,
+          0.019210826030051014,
+          0.034890342554087864,
+          -0.02192539746183048
+        ],
+        "target_local": [
+          -0.04545893950551902,
+          0.01228577509749884,
+          0.03099355837766664,
+          -0.03829397582613535
+        ]
+      },
+      "N": {
+        "causal_error_improvement": -6.848358629092444,
+        "causal_metrics": {
+          "cosine": 0.023204834002983527,
+          "normalized_l2_error": 1.0561764567669583,
+          "prediction_norm": 0.022544063428544002,
+          "projection_on_target": 0.008443352793942064,
+          "target_norm": 0.0619577627962474
+        },
+        "causal_prediction": [
+          -0.01118523240124614,
+          -0.010514039269844773,
+          -0.012843444446534463,
+          -0.010374308891741837
+        ],
+        "cross_local_prediction": [
+          -0.01509752621467858,
+          -0.014191567756871713,
+          -0.017335736287135108,
+          -0.014002963446230747
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": -5.515880911651088,
+            "metrics": {
+              "cosine": 0.48711358634216667,
+              "normalized_l2_error": 0.9053338603421923,
+              "prediction_norm": 0.004847359797147127,
+              "projection_on_target": 0.1210756960830024,
+              "target_norm": 0.019501971836366434
+            },
+            "naive_metrics": {
+              "cosine": 0.9977757687649536,
+              "normalized_l2_error": 0.13894266525395807,
+              "prediction_norm": 0.017081149478809933,
+              "projection_on_target": 0.8739196833843911,
+              "target_norm": 0.019501971836366434
+            },
+            "prediction": [
+              -0.003142809879017819,
+              -0.0014008562157728438,
+              -0.0023298622580168104,
+              -0.002495793819358008
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": -7.37036024692949,
+            "metrics": {
+              "cosine": 0.030716696717785614,
+              "normalized_l2_error": 1.055160717379015,
+              "prediction_norm": 0.01238718264763232,
+              "projection_on_target": 0.011328650956332492,
+              "target_norm": 0.03358681753386094
+            },
+            "naive_metrics": {
+              "cosine": 0.9920235311545771,
+              "normalized_l2_error": 0.12605917621838092,
+              "prediction_norm": 0.03327639882327733,
+              "projection_on_target": 0.9828549737257838,
+              "target_norm": 0.03358681753386094
+            },
+            "prediction": [
+              -0.005586657288371484,
+              -0.006053003013468502,
+              -0.007622493757633398,
+              -0.005243119083319596
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": -5.442659975757412,
+            "metrics": {
+              "cosine": 0.4252384655981035,
+              "normalized_l2_error": 0.9052183739474908,
+              "prediction_norm": 0.011822640552788321,
+              "projection_on_target": 0.18752518631994786,
+              "target_norm": 0.02680942025253079
+            },
+            "naive_metrics": {
+              "cosine": 0.9924288493582684,
+              "normalized_l2_error": 0.1405038256486711,
+              "prediction_norm": 0.024777036311042368,
+              "projection_on_target": 0.9171942326635947,
+              "target_norm": 0.02680942025253079
+            },
+            "prediction": [
+              -0.005553806062639465,
+              -0.006006804211733586,
+              -0.006522289247544506,
+              -0.005505280555275002
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": -4.8389975537305725,
+        "local_metrics": {
+          "cosine": 0.43314885233569433,
+          "normalized_l2_error": 0.9044466364842236,
+          "prediction_norm": 0.030429371191241453,
+          "projection_on_target": 0.15508373037123868,
+          "target_norm": 0.08498923244386622
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.9912512289362724,
+          "normalized_l2_error": 0.1345729096593399,
+          "prediction_norm": 0.06304186891259667,
+          "projection_on_target": 1.0085956499035449,
+          "target_norm": 0.0619577627962474
+        },
+        "naive_local_metrics": {
+          "cosine": 0.9911368045255073,
+          "normalized_l2_error": 0.15489758784131824,
+          "prediction_norm": 0.07746586742674703,
+          "projection_on_target": 0.9033999966037334,
+          "target_norm": 0.08498923244386622
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          -0.034636963544886344,
+          0.016496445573556215,
+          0.03833430153306654,
+          -0.02995653078240041
+        ],
+        "target_local": [
+          -0.05849621767284339,
+          0.0007440937074740435,
+          0.029461269866826047,
+          -0.0541557203973633
+        ]
+      }
+    },
+    "natural_wave0": {
+      "H": {
+        "causal_error_improvement": 0.582500373660513,
+        "causal_metrics": {
+          "cosine": -0.9002877108242777,
+          "normalized_l2_error": 1.0316662913870995,
+          "prediction_norm": 0.0007993746730792633,
+          "projection_on_target": -0.031553479612906735,
+          "target_norm": 0.022807855214264875
+        },
+        "causal_prediction": [
+          -0.00014285280426685261,
+          -0.00045755907145781505,
+          -0.0006178114135300803,
+          -0.00016595691522892767
+        ],
+        "cross_local_prediction": [
+          -0.0001833501910832823,
+          -0.0005872726378333069,
+          -0.0007929549672162603,
+          -0.00021300409379416363
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": 0.8151655272815539,
+            "metrics": {
+              "cosine": -0.7325111390339817,
+              "normalized_l2_error": 1.006737031134481,
+              "prediction_norm": 2.560871069003409e-05,
+              "projection_on_target": -0.006717673637149283,
+              "target_norm": 0.002792434829374804
+            },
+            "naive_metrics": {
+              "cosine": 0.5162539851430212,
+              "normalized_l2_error": 5.44669517719251,
+              "prediction_norm": 0.01646194786708854,
+              "projection_on_target": 3.043417916221827,
+              "target_norm": 0.002792434829374804
+            },
+            "prediction": [
+              -1.1836277519925817e-05,
+              -6.086952997534917e-06,
+              -2.0939463460504038e-05,
+              -6.34006868016286e-06
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": 0.6030240511177791,
+            "metrics": {
+              "cosine": -0.8702559768031032,
+              "normalized_l2_error": 1.0450766057118615,
+              "prediction_norm": 0.0006063503580781808,
+              "projection_on_target": -0.044769320877592916,
+              "target_norm": 0.011786643460529753
+            },
+            "naive_metrics": {
+              "cosine": 0.1833531064164004,
+              "normalized_l2_error": 2.6325942633414448,
+              "prediction_norm": 0.030946048304527636,
+              "projection_on_target": 0.48139693942113204,
+              "target_norm": 0.011786643460529753
+            },
+            "prediction": [
+              -0.00010820025809074974,
+              -0.0003580520242614059,
+              -0.0004579639827106917,
+              -0.00013424306072458281
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": 0.6532040570945886,
+            "metrics": {
+              "cosine": -0.8765917743539735,
+              "normalized_l2_error": 1.0422740682876304,
+              "prediction_norm": 0.00041304570271694606,
+              "projection_on_target": -0.042018770483954415,
+              "target_norm": 0.008616921943782128
+            },
+            "naive_metrics": {
+              "cosine": -0.14388100401997492,
+              "normalized_l2_error": 3.0054390473994403,
+              "prediction_norm": 0.023213679548007838,
+              "projection_on_target": -0.3876102791873885,
+              "target_norm": 0.008616921943782128
+            },
+            "prediction": [
+              -6.629108050374975e-05,
+              -0.00023320219722065662,
+              -0.00032553176475298115,
+              -7.653790255062425e-05
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": 0.7412286764737515,
+        "local_metrics": {
+          "cosine": -0.8931518977171616,
+          "normalized_l2_error": 1.0519001729696544,
+          "prediction_norm": 0.0010259896528347543,
+          "projection_on_target": -0.05157945972916435,
+          "target_norm": 0.017766076075228766
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.2150537316144216,
+          "normalized_l2_error": 2.471059196944543,
+          "prediction_norm": 0.05667614164229913,
+          "projection_on_target": 0.5343955246638384,
+          "target_norm": 0.022807855214264875
+        },
+        "naive_local_metrics": {
+          "cosine": -0.11503800406618818,
+          "normalized_l2_error": 4.064979684130087,
+          "prediction_norm": 0.06798543223410866,
+          "projection_on_target": -0.440215858396196,
+          "target_norm": 0.017766076075228766
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          0.012129427764032568,
+          0.010546587948816352,
+          0.013595131688789857,
+          0.008775939755623265
+        ],
+        "target_local": [
+          0.010322766047403481,
+          0.007221335871975961,
+          0.01140256098625884,
+          0.005187279770761449
+        ]
+      },
+      "N": {
+        "causal_error_improvement": 0.6730279875356244,
+        "causal_metrics": {
+          "cosine": -0.8724497596078341,
+          "normalized_l2_error": 1.0285870053561479,
+          "prediction_norm": 0.0006675614895506706,
+          "projection_on_target": -0.02846342767047659,
+          "target_norm": 0.02046183150619043
+        },
+        "causal_prediction": [
+          -0.00013545467063373016,
+          -0.0003847447614786589,
+          -0.0005050022149341442,
+          -0.00015567467989675173
+        ],
+        "cross_local_prediction": [
+          -0.00018283307556180576,
+          -0.0005193181432454785,
+          -0.0006816384233187297,
+          -0.00021012550087390764
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": 0.8152450378098884,
+            "metrics": {
+              "cosine": -0.6978196816824048,
+              "normalized_l2_error": 1.0118176820861116,
+              "prediction_norm": 5.289598701082784e-05,
+              "projection_on_target": -0.011745849201444778,
+              "target_norm": 0.0031425450970060317
+            },
+            "naive_metrics": {
+              "cosine": 0.05074566215390045,
+              "normalized_l2_error": 5.476538600597684,
+              "prediction_norm": 0.017081149478809933,
+              "projection_on_target": 0.27582555345912924,
+              "target_norm": 0.0031425450970060317
+            },
+            "prediction": [
+              -2.570069109913938e-05,
+              -2.4646081581053163e-05,
+              -3.1202762950036594e-05,
+              -2.3588517669836334e-05
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": 0.6737180083622949,
+            "metrics": {
+              "cosine": -0.802742953625,
+              "normalized_l2_error": 1.0305366031438843,
+              "prediction_norm": 0.0004315351437524933,
+              "projection_on_target": -0.03029090816915166,
+              "target_norm": 0.011436164077828874
+            },
+            "naive_metrics": {
+              "cosine": -0.0874613252021362,
+              "normalized_l2_error": 3.1584231724568026,
+              "prediction_norm": 0.03327639882327733,
+              "projection_on_target": -0.25449074700501956,
+              "target_norm": 0.011436164077828874
+            },
+            "prediction": [
+              -8.064930928306787e-05,
+              -0.00025419644751751164,
+              -0.00032463940139809146,
+              -9.854792912595826e-05
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": 0.7713444672971279,
+            "metrics": {
+              "cosine": -0.7351158172736199,
+              "normalized_l2_error": 1.0456907165958294,
+              "prediction_norm": 0.0003780836205044928,
+              "projection_on_target": -0.04487158684270886,
+              "target_norm": 0.006194014280332742
+            },
+            "naive_metrics": {
+              "cosine": -0.4891085326075898,
+              "normalized_l2_error": 4.57321414546596,
+              "prediction_norm": 0.024777036311042368,
+              "projection_on_target": -1.956511451860568,
+              "target_norm": 0.006194014280332742
+            },
+            "prediction": [
+              -6.744621811682345e-05,
+              -0.00021589490555547254,
+              -0.0002927606030643008,
+              -7.796698534728466e-05
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": 0.7931490186006009,
+        "local_metrics": {
+          "cosine": -0.883091120656073,
+          "normalized_l2_error": 1.0485860903709912,
+          "prediction_norm": 0.0009010565651973657,
+          "projection_on_target": -0.04827237484679853,
+          "target_norm": 0.01648385964974802
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.09675943232306768,
+          "normalized_l2_error": 3.1457952550853716,
+          "prediction_norm": 0.06304186891259667,
+          "projection_on_target": 0.29811092163097264,
+          "target_norm": 0.02046183150619043
+        },
+        "naive_local_metrics": {
+          "cosine": -0.2779386123500319,
+          "normalized_l2_error": 5.069282646265643,
+          "prediction_norm": 0.07746586742674703,
+          "projection_on_target": -1.3061719860864465,
+          "target_norm": 0.01648385964974802
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          0.01296842067369393,
+          0.007759570073694016,
+          0.012257116174424541,
+          0.006329201306320385
+        ],
+        "target_local": [
+          0.010226754306100443,
+          0.0062962364715570705,
+          0.010228431819092219,
+          0.004782019879890017
+        ]
+      }
+    },
+    "natural_wave1": {
+      "H": {
+        "causal_error_improvement": 0.6151948800372804,
+        "causal_metrics": {
+          "cosine": -0.9513421107732639,
+          "normalized_l2_error": 1.0365705792151791,
+          "prediction_norm": 0.0007201068048005733,
+          "projection_on_target": -0.036503148286996565,
+          "target_norm": 0.018767365550910804
+        },
+        "causal_prediction": [
+          -8.433237938353062e-05,
+          -0.0003627808846684647,
+          -0.0006118115219289419,
+          -7.4286953509759e-05
+        ],
+        "cross_local_prediction": [
+          -0.00010823979237813297,
+          -0.00046562575279286613,
+          -0.0007852541644410294,
+          -9.534658553545602e-05
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": 0.8736907059527254,
+            "metrics": {
+              "cosine": -0.9129549858843252,
+              "normalized_l2_error": 1.0251034556883785,
+              "prediction_norm": 5.155299126570434e-05,
+              "projection_on_target": -0.025042345282003685,
+              "target_norm": 0.0018794390015498597
+            },
+            "naive_metrics": {
+              "cosine": 0.6766211850139658,
+              "normalized_l2_error": 8.115819690233607,
+              "prediction_norm": 0.01646194786708854,
+              "projection_on_target": 5.926503953723599,
+              "target_norm": 0.0018794390015498597
+            },
+            "prediction": [
+              8.947387677732238e-06,
+              -2.3441087262241312e-05,
+              -4.4353801968706226e-05,
+              7.804539773166197e-06
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": 0.56671950285647,
+            "metrics": {
+              "cosine": -0.9913288538507513,
+              "normalized_l2_error": 1.04821217058253,
+              "prediction_norm": 0.0005243140001235267,
+              "projection_on_target": -0.04819270481909002,
+              "target_norm": 0.010785192463288946
+            },
+            "naive_metrics": {
+              "cosine": 0.5890236316162222,
+              "normalized_l2_error": 2.419246140763395,
+              "prediction_norm": 0.030946048304527636,
+              "projection_on_target": 1.6900907256452697,
+              "target_norm": 0.010785192463288946
+            },
+            "prediction": [
+              -8.137416150464986e-05,
+              -0.0002812670238425276,
+              -0.00042684938988633825,
+              -8.349776175069886e-05
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": 0.7835230772801383,
+            "metrics": {
+              "cosine": -0.9536335969815602,
+              "normalized_l2_error": 1.0763164046649571,
+              "prediction_norm": 0.0003676721215962638,
+              "projection_on_target": -0.07604876418400036,
+              "target_norm": 0.004610521835428502
+            },
+            "naive_metrics": {
+              "cosine": 0.1618794613396455,
+              "normalized_l2_error": 4.9719683333534626,
+              "prediction_norm": 0.023213679548007838,
+              "projection_on_target": 0.8150526285477189,
+              "target_norm": 0.004610521835428502
+            },
+            "prediction": [
+              -3.890621117286034e-05,
+              -0.0001689626317885186,
+              -0.0003233737724497041,
+              -2.3454809357892385e-05
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": 0.7386967803331805,
+        "local_metrics": {
+          "cosine": -0.9875172793935957,
+          "normalized_l2_error": 1.0569197270030877,
+          "prediction_norm": 0.000924250111421813,
+          "projection_on_target": -0.05688078682373696,
+          "target_norm": 0.016046067687826206
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.4741279119284423,
+          "normalized_l2_error": 2.693754644729268,
+          "prediction_norm": 0.05667614164229913,
+          "projection_on_target": 1.4318333929249754,
+          "target_norm": 0.018767365550910804
+        },
+        "naive_local_metrics": {
+          "cosine": 0.3057454445626379,
+          "normalized_l2_error": 4.044801776077374,
+          "prediction_norm": 0.06798543223410866,
+          "projection_on_target": 1.2954099787308448,
+          "target_norm": 0.016046067687826206
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          0.005063313465858216,
+          0.010614520685138927,
+          0.01327799997036008,
+          0.006132172036060962
+        ],
+        "target_local": [
+          0.002248746352894913,
+          0.009168209912967226,
+          0.01246784727588512,
+          0.0035939030843381925
+        ]
+      },
+      "N": {
+        "causal_error_improvement": 0.7321532757681442,
+        "causal_metrics": {
+          "cosine": -0.9039596364405081,
+          "normalized_l2_error": 1.0390563738990237,
+          "prediction_norm": 0.0006755946633988811,
+          "projection_on_target": -0.03889346988882835,
+          "target_norm": 0.015702129639058475
+        },
+        "causal_prediction": [
+          -9.632425394955908e-05,
+          -0.00035756434119086397,
+          -0.0005567355480950628,
+          -9.66594988096971e-05
+        ],
+        "cross_local_prediction": [
+          -0.00013001589032256557,
+          -0.0004826307421168932,
+          -0.0007514666866530394,
+          -0.00013046839482874875
+        ],
+        "individual": {
+          "m12": {
+            "error_improvement": 0.8757169017189034,
+            "metrics": {
+              "cosine": -0.9109543805941537,
+              "normalized_l2_error": 1.0260681651640675,
+              "prediction_norm": 5.9465334232906916e-05,
+              "projection_on_target": -0.026000612130839793,
+              "target_norm": 0.002083420437963835
+            },
+            "naive_metrics": {
+              "cosine": 0.0035001432040699726,
+              "normalized_l2_error": 8.255894641790821,
+              "prediction_norm": 0.017081149478809933,
+              "projection_on_target": 0.02869630544874099,
+              "target_norm": 0.002083420437963835
+            },
+            "prediction": [
+              -4.211935949838208e-06,
+              -3.136968795554093e-05,
+              -5.011132234547272e-05,
+              -4.814937314847305e-06
+            ],
+            "qualifies": false
+          },
+          "m8": {
+            "error_improvement": 0.7093610140474309,
+            "metrics": {
+              "cosine": -0.9442519077597534,
+              "normalized_l2_error": 1.042721105860559,
+              "prediction_norm": 0.000402471259132744,
+              "projection_on_target": -0.042615238875856394,
+              "target_norm": 0.008917801807040241
+            },
+            "naive_metrics": {
+              "cosine": 0.2749987530045781,
+              "normalized_l2_error": 3.587684915852019,
+              "prediction_norm": 0.03327639882327733,
+              "projection_on_target": 1.0261461713199278,
+              "target_norm": 0.008917801807040241
+            },
+            "prediction": [
+              -5.341539379273951e-05,
+              -0.00021620114954658232,
+              -0.0003304547417669026,
+              -5.64503030316843e-05
+            ],
+            "qualifies": false
+          },
+          "m9": {
+            "error_improvement": 0.8809329557204392,
+            "metrics": {
+              "cosine": -0.6644361075792131,
+              "normalized_l2_error": 1.0981218072361443,
+              "prediction_norm": 0.0004039073555873038,
+              "projection_on_target": -0.09311578213446237,
+              "target_norm": 0.0028821175639324485
+            },
+            "naive_metrics": {
+              "cosine": -0.590525322977619,
+              "normalized_l2_error": 9.222718291871207,
+              "prediction_norm": 0.024777036311042368,
+              "projection_on_target": -5.07663793910019,
+              "target_norm": 0.0028821175639324485
+            },
+            "prediction": [
+              -6.534499099706394e-05,
+              -0.00021072651084515928,
+              -0.00033252636170616923,
+              -6.238381558229024e-05
+            ],
+            "qualifies": false
+          }
+        },
+        "local_error_improvement": 0.8366335751348525,
+        "local_metrics": {
+          "cosine": -0.9520677351838873,
+          "normalized_l2_error": 1.0724964911876556,
+          "prediction_norm": 0.0009118995274541818,
+          "projection_on_target": -0.07224528453367697,
+          "target_norm": 0.012017256536845046
+        },
+        "naive_causal_metrics": {
+          "cosine": 0.25781491226830416,
+          "normalized_l2_error": 3.879294685715801,
+          "prediction_norm": 0.06304186891259667,
+          "projection_on_target": 1.0350910530315556,
+          "target_norm": 0.015702129639058475
+        },
+        "naive_local_metrics": {
+          "cosine": -0.04228502242636648,
+          "normalized_l2_error": 6.564974976179828,
+          "prediction_norm": 0.07746586742674703,
+          "projection_on_target": -0.27257851501919456,
+          "target_norm": 0.012017256536845046
+        },
+        "pred_d_window": false,
+        "pred_e_window": false,
+        "qualifying_individual_count": 0,
+        "target_exact_causal": [
+          0.00841688119420191,
+          0.00643020667141987,
+          0.011007640575585158,
+          0.0036328057044173884
+        ],
+        "target_local": [
+          0.005106036650991133,
+          0.005551340596033856,
+          0.008978813526261111,
+          0.002627997267604596
+        ]
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_reader_stability": false,
+    "pred_c_failure_localization": false,
+    "pred_d_local_response_prediction": false,
+    "pred_e_exact_causal_prediction": false
+  },
+  "qualifying_reader_pairs": [],
+  "rung": 469,
+  "runtime_s": 43.19282102584839,
+  "status": "complete",
+  "strong_null": true
+}
