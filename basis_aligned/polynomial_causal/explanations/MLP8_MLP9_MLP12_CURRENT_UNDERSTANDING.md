@@ -96,3 +96,21 @@ extract/manipulate the equality correction. It can be killed cleanly: stop this 
 groups do not keep their signs and source agreement on held-out documents, or if exact held-out removal is no more
 selective than matched-size activation-selected and random groups. A successful held-out result would still need a
 fresh-corpus confirmation before adoption.
+
+## Result of the product-term test and its transfer check
+
+Rung 467 selected 450/426/482 exact terms in MLP8/9/12 from the first half of the code role. On the other half, their
+joint exact removal matched the complete three-MLP correction direction at cosine 0.885/0.864 under the two matcher
+sources, beat matched-count amplitude and random controls, and showed a source-stable cross-MLP interaction. This was
+a valid held-out code split.
+
+Rung 468 then froze every index and applied the same intervention to natural text. The direction remained similar
+(cosine 0.977/0.926), but the selected terms carried only 17.1%/12.4% of the complete correction, did not beat the
+matched controls, reduced to MLP8 as the only individually qualifying module, and lost the code interaction law.
+Therefore the selected native term indices are register-specific and are not the general equality component.
+
+This is the predeclared stopping result for term-index selection. Do not tune the 0.70 alignment threshold, select a
+new K, or call the code list a model-wide circuit. The next object should remove the coordinate dependence: contract
+the full bilinear MLP with its downstream causal response to obtain an input-space quadratic form, or define a
+state-level equivalence by indistinguishable downstream interventions. Either route must again pass code/natural
+transfer and exact causal removal.
