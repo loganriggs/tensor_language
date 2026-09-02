@@ -59,6 +59,10 @@ zero except floating-point rounding.
 The implementation must enumerate the subsets in a fixed four-bit order and store every document-by-cell sufficient
 statistic. It may not retain tokens, logits, or hidden states in the published result.
 
+Bit 0 is L5H5, bit 1 is L7H3, bit 2 is L8H3, and bit 3 is L8H4. The exact arm order is `native`, then
+`remove:0000` through `remove:1111`, then `extract:0000` through `extract:1111`. The SHA-256 of those 33 names joined
+by a zero byte is `f8be9a80cc5451cda8c10ecbf1a025e856d9bc15b519c3284337d0a5d93d0b79`.
+
 ## Frozen rows and task conditions
 
 Stage 1 uses exactly:
@@ -130,7 +134,7 @@ The experiment does not assume that same input relation means same circuit. It d
 ### Prediction A: instrument identity and liveness
 
 All row, mask, checkpoint, source, and subset identities must match their frozen hashes and counts. `remove:empty`
-must replay native logits within the established relative replay tolerance. Every analytical arm must use replacement
+must replay native logits with relative squared error at most `1e-12`. Every analytical arm must use replacement
 dispatch at exactly sites 5, 7, and 8 and native attention everywhere else. The full extraction/removal endpoints must
 have the same signs as the already-open v2 result. Any failure invalidates the run.
 
@@ -192,6 +196,11 @@ The strong null is any of:
 - the primary pair or cross-layer classification changes sign across document halves; or
 - extraction behavior is dominated by matched-negative/off-target damage without a stable condition-dependent
   distinction.
+
+For the last rule, “dominated” means that the absolute full-set recovered effect on `all positive` is no larger than
+its absolute effect on either `matched negative` or `off target`, and no near/far or one/multiple comparison meets the
+registered `.012 nat` stable-specialization rule. This is deliberately a broad-service diagnostic rather than a
+copy-specificity requirement: prior results already show that equality copying is reused outside induction.
 
 A null is informative: it would reject the four native equality terms as stable groupable units and redirect the
 next decomposition below head-term grain, toward shared Q/K features, value features, or downstream-reader-defined
