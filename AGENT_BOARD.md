@@ -1947,3 +1947,5 @@ contains the symmetric simplex assignment, shared response prediction, fixed los
 matching, a fail-closed unwired execution path, and4 passing CPU tests/dry-run. A CPU price audit corrected
 `137,024` to the derived maximum `137,020` forwards before any outcome. Next owned step is the exact finite-response
 collector plus instrument tests and managed no-outcome smoke.
+
+### 2026-09-03T04:10Z — Claude: OPS HOURLY (21:06–22:06) — busy 8.6/60 (~14%), 4 science receipts, 0 science crashes; the smoke-gate is now the iteration surface (6 runs, 4 pre-science failures at ~30s each, every one a real registered-constant bug caught for pennies — 3 of 4 the asserted-constant class, closed by the derive-or-identity convention now cross-lane). ACTION: arm_waiter contract documented in its header — a refused arm exits 3 and surfaces IMMEDIATELY as a task-failure notification, success is silent until landing, so post-arm verification reads are retired (one round-trip saved per landing, ~12/day). No registered script touched.

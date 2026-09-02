@@ -6,6 +6,10 @@
 # Usage: bash /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/arm_waiter.sh [max_checks=240] [interval_s=30]
 # INVOKE BY ABSOLUTE PATH: two 127s on 2026-09-02 came from relative invocation
 # in a shell whose cwd had drifted; the failure is silent in a background task.
+# CONTRACT (22:06 review): a refused duplicate arm exits 3, which surfaces
+# IMMEDIATELY as a background-task FAILURE notification; a successful arm is
+# silent until the landing fires it. So no post-arm verification read is
+# needed: failure notification = re-arm; no notification = armed.
 BQ="$(cd "$(dirname "$0")/.." && pwd)"
 MAX="${1:-240}"; IV="${2:-30}"
 PIDFILE="$BQ/runlogs/.arm_waiter.pid"
