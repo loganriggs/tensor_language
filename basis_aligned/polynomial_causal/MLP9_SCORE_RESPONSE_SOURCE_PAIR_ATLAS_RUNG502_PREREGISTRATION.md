@@ -162,3 +162,18 @@ model loading and asserted in the receipt. Pair construction and gradient contra
 operations, not model forwards. Store only dot-product sufficient statistics, support counts, source/pair names,
 and audit values—never raw tokens, logits, gradients, or 1,152-dimensional per-token pair vectors. This rung adds
 and saves zero deployed parameters.
+
+## Pre-outcome batch-alignment addendum — 2026-09-02 19:01 UTC
+
+Implementation review found that the originally written `0:250/250:500` boundary is not divisible by the production
+batch size of four. Splitting the model loop there would either run an invalid two-document production batch, repeat
+two documents, or retain two full MLP9 source-factor graphs across the boundary. Before any rung 502 model or
+source-pair outcome was opened, the split is changed to the nearest lower aligned boundary:
+
+- selection documents `0:248`, with fixed halves `0:124` and `124:248`;
+- confirmation documents `248:500`, with fixed halves `248:374` and `374:500`.
+
+All 500 documents are still used exactly once in globally aligned four-document batches. The 875-forward price,
+source definitions, 210 pairs, selection rule, gradients, controls, thresholds, circuit tags, and closed validation
+set are unchanged. The implementation must assert these four exact intervals. This is a pre-outcome batching repair,
+not a result-dependent scientific change.
