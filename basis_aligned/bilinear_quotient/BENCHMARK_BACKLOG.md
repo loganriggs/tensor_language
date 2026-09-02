@@ -4704,3 +4704,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   The hand-chosen source families are not stable circuit units. Next change the vocabulary to coupled Left-input,
   Right-input, and output/downstream atoms whose discovery fit must forecast finite held-out removals; do not lower
   bars or return to rank, quantization, reconstruction, or gradient selection.
+- Rung509 (§2641): pre-model instrument failure, not a model null. A free eight-atom response dictionary was highly
+  restart-stable but recovered only2/8 planted ground-truth atoms. Its frozen archetypal repair then failed a favorable
+  separable toy with eight distinct99.77%-pure observed anchors: minimum response/assignment cosine`.354/.672`,
+  minimum learned anchor weight`.000993`, and37/48 anchor identities correct. No checkpoint/model outcome opened and
+  the no-tuning route is binding. Rung510 replaces hidden atoms with pairwise operational equivalence among all1,012
+  observed action/term interventions, using32 circuit families for discovery,30 for held-out prediction, and
+  bidirectional physical cross-action term substitution before grouping. No rank/dictionary/quantization.

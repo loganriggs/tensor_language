@@ -12,6 +12,9 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
+- [explanation_2026-09-02_2244.md](explanation_2026-09-02_2244.md) — rung509's pre-model ground-truth failure of
+  both the free and convex-hull coupled dictionaries, a percentage graph of the failed recovery gates, and rung510's
+  directly observed all-62-circuit equivalence plus bidirectional physical-substitution test
 - [explanation_2026-09-02_2158.md](explanation_2026-09-02_2158.md) — rung508's exact finite-removal test of all21
   MLP10 source-family interactions, the lawful zero-group result, and the coupled Left/Right/output successor
 - [explanation_2026-09-02_2139.md](explanation_2026-09-02_2139.md) — rung507's exact 22-source/253-term MLP10

@@ -67073,3 +67073,31 @@ Registered 22:32 (sha 62075ff8…), landed 22:35 (138.7s; 1,875 forwards exact; 
 **The science (reported as-is, no refit, interpretations NOT licensed):** the locality curve floors out and RISES as density → 0 at MLP1. Two candidate readings, both preserved un-promoted: (a) small-mask estimator bias (few, isolated scored positions); (b) a real isolated-edit advantage (a single restored position competes with no other restored positions for downstream attention traffic). Distinguishing them needs a registered design (e.g., fixed scored-position count across densities); NOT run here. **The certificate survives in hull form:** the extraction-cost bound f̂(s) = max over measured d ≤ s of f(d) is monotone by construction over the six points — the §2636 deliverable is restated, not retired, and the tail measurement WIDENS the certified bound at very low s (a compiled program reproducing ~1/128 of write positions is certified to recover no more than ~.22–.36 depending on branch/half — the first measured tail number the program has).
 
 Instrument note for the annals: this receipt contains the program's first EXACT 0.00e+00 cross-registration reproduction (16 cells across two independently-run experiments, same seed, same arms) — the determinism regime §2599 fenced is, within one composition, perfect.
+
+## §2641 — RUNG509: BOTH LATENT DICTIONARY INSTRUMENTS FAIL GROUND-TRUTH RECOVERY BEFORE MODEL EXECUTION
+
+Rung509 proposed eight fixed-budget atoms coupling MLP10's Left and Right input-source assignments to one shared
+34-coordinate finite downstream response. Before any checkpoint load, a ground-truth toy falsified the original
+free-response fit: all six fits agreed with each other (minimum response cosine`.990`, assignment cosine`.99996`),
+yet only2/8 mean atoms matched the planted responses; the other cosines were`-.115` to`.246`. Restart stability was
+therefore a repeatable optimizer convention, not identification.
+
+A prospectively frozen repair constrained each response atom to the convex hull of the observed response rows,
+required a distinct observation with at least`.90` weight, and added a separable planted-recovery gate. The frozen
+toy gives every planted atom a distinct observed row with assignment weight`.997657`. Across six independently seeded
+2,000-step fits, the repair still fails every recovery family: minimum matched response cosine`.353555 < .90`,
+assignment cosine`.671523 < .80`, learned anchor weight`.000993 < .90`, and only`37/48` atom/run anchor identities
+are correct. The implementation now raises before checkpoint loading on that result. Rung509's model result and bundle
+namespaces remain absent; cost is six CPU fits, about12.3s, and zero model forwards/backwards.
+
+This is an instrument failure, not a null about the model and not evidence against convex-hull constraints in general.
+It establishes that this particular joint softmax/archetypal optimizer cannot support a latent circuit claim even in
+the favorable separable case. Per the frozen no-tuning route, no seed, penalty, atom-count, or initialization sweep is
+allowed. Result/implementation SHAs `7a10e97a…/f346b78a…`.
+
+Rung510 changes the object to directly observed operational equivalence. It will measure all1,012 action/term finite
+responses, use32 of the existing62 circuit families plus one document half to propose every pairwise proportional
+relation without ranking, test the frozen pairs on new documents and the other30 circuit families, and require
+bidirectional physical substitution of the exact term output changes through layers11--17. A positive result groups
+terms because downstream computation cannot distinguish them; a null closes the pairwise quotient at the registered
+scale. No hidden dictionary, rank, quantization, reconstruction, or parameter-reduction claim remains.
