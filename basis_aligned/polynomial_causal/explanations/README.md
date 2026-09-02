@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0244.md](explanation_2026-09-02_0244.md) — rung-457 result since 02:28: exact
+  natural-text subset factorial passes its instrument; the L8H3/L8H4 pair remains unresolved, the early-versus-layer8
+  blocks have robust overlapping benefit, repeat context changes effect size, and the next step moves below head-term
+  grain toward downstream-reader-defined pieces; includes a percentage graph and preserves a corrected interval
 - [explanation_2026-09-02_0228.md](explanation_2026-09-02_0228.md) — update since 02:19: no new model result;
   freezes the honest natural-text-then-code two-stage equality-term factorial, explains the task conditions and
   computations in ordinary interpretability language, and records the active-goal continuation repair after the

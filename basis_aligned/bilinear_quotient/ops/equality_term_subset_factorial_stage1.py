@@ -41,6 +41,9 @@ ROW_RECEIPT = ROOT / "induction_equality_tensor_final_ood_v2_rows_receipt.json"
 ROWS = ROOT / ".rowcache_induction_equality_tensor_final_ood_v2/final_natural.pt"
 OUT = ROOT / "equality_term_subset_factorial_stage1_results.json"
 BUNDLE = ROOT / "equality_term_subset_factorial_stage1_sufficient_statistics.pt"
+CORRECTION_OUT = ROOT / "equality_term_subset_factorial_stage1_analysis_correction.json"
+FIRST_RESULT_SHA256 = "8d5cdeb8c0beca3b80e343f0e63f74129ca472f708b2f9ef595a24049f919e68"
+SUFFICIENT_STATISTICS_SHA256 = "ed16123c97743b81d9775852f35e8f106147c43340c0e15f455aa9782d8a37dd"
 TERMS = (("L5H5", 5, 5), ("L7H3", 7, 3), ("L8H3", 8, 3), ("L8H4", 8, 4))
 SITE_HEADS = {5: (5,), 7: (3,), 8: (3, 4)}
 SUBSETS = tuple(range(16))
@@ -466,13 +469,30 @@ def analyze(stats: Mapping[str, object]) -> dict[str, object]:
             cell_parts.append(_mobius(recovered)[:, interaction_masks])
         bootstrap_parts.append(torch.cat(cell_parts, dim=1))
     boot = torch.cat(bootstrap_parts, dim=0)
-    deviations = (boot - point_vector.unsqueeze(0)).abs().max(1).values.sort().values
-    critical = float(deviations[math.ceil(.95 * BOOTSTRAP_DRAWS) - 1])
+    mask_to_column = {mask: mask - 1 for mask in interaction_masks}
+    cell_to_index = {name: index for index, name in enumerate(CELLS)}
+    all_positive = cell_to_index["all_positive"]
+    pair_mask, early_mask, full_mask = 0b1100, 0b0011, 0b1111
+    block_point = float(
+        extraction[all_positive, full_mask] - extraction[all_positive, early_mask]
+        - extraction[all_positive, pair_mask] + extraction[all_positive, 0]
+    )
+    # The block contrast equals the sum of all dividends that touch both blocks.
+    # Include it in the same maximum-deviation family as every reported dividend.
+    column_offset = all_positive * len(interaction_masks)
+    cross_masks = [mask for mask in interaction_masks
+                   if (mask & early_mask) and (mask & pair_mask)]
+    cross_columns = [column_offset + mask_to_column[mask] for mask in cross_masks]
+    block_boot = boot[:, cross_columns].sum(1)
+    dividend_max_deviation = (boot - point_vector.unsqueeze(0)).abs().max(1).values
+    joint_max_deviation = torch.maximum(
+        dividend_max_deviation, (block_boot - block_point).abs(),
+    ).sort().values
+    critical = float(joint_max_deviation[math.ceil(.95 * BOOTSTRAP_DRAWS) - 1])
     low_vector, high_vector = point_vector - critical, point_vector + critical
     low = low_vector.view(len(CELLS), len(interaction_masks))
     high = high_vector.view(len(CELLS), len(interaction_masks))
-    mask_to_column = {mask: mask - 1 for mask in interaction_masks}
-    cell_to_index = {name: index for index, name in enumerate(CELLS)}
+    block_low, block_high = block_point - critical, block_point + critical
 
     halves = []
     for document_slice in (slice(0, 96), slice(96, 192)):
@@ -486,27 +506,9 @@ def analyze(stats: Mapping[str, object]) -> dict[str, object]:
                                      for cell in range(len(CELLS))]),
         })
 
-    all_positive = cell_to_index["all_positive"]
-    pair_mask, early_mask, full_mask = 0b1100, 0b0011, 0b1111
     pair_point = float(dividends[all_positive, pair_mask])
     pair_low = float(low[all_positive, mask_to_column[pair_mask]])
     pair_high = float(high[all_positive, mask_to_column[pair_mask]])
-    block_point = float(
-        extraction[all_positive, full_mask] - extraction[all_positive, early_mask]
-        - extraction[all_positive, pair_mask] + extraction[all_positive, 0]
-    )
-    # The block contrast has four cells, so use the registered order-two .006 floor.
-    block_draw = []
-    column_offset = all_positive * len(interaction_masks)
-    # Reconstruct the contrast directly from bootstrap CE for an honest interval.
-    # It equals the sum of all dividends that touch both blocks.
-    cross_masks = [mask for mask in interaction_masks
-                   if (mask & early_mask) and (mask & pair_mask)]
-    cross_columns = [column_offset + mask_to_column[mask] for mask in cross_masks]
-    block_boot = boot[:, cross_columns].sum(1)
-    block_deviation = (block_boot - block_point).abs().sort().values
-    block_critical = float(block_deviation[math.ceil(.95 * BOOTSTRAP_DRAWS) - 1])
-    block_low, block_high = block_point - block_critical, block_point + block_critical
 
     pair_halves = [float(item["dividends"][all_positive, pair_mask]) for item in halves]
     block_halves = [float(sum(item["dividends"][all_positive, mask] for mask in cross_masks))
@@ -686,6 +688,47 @@ def main() -> None:
             "arms": len(ARMS), "subsets_per_background": len(SUBSETS),
             "documents": DOCUMENTS, "cells": list(CELLS), "metadata": metadata,
             "code_ood_loaded": False, "model_loaded": False,
+        }, indent=2, sort_keys=True))
+        return
+    if os.environ.get("EQUALITY_STAGE1_REANALYZE") == "1":
+        if CORRECTION_OUT.exists() or sha256(OUT) != FIRST_RESULT_SHA256 \
+                or sha256(BUNDLE) != SUFFICIENT_STATISTICS_SHA256:
+            raise RuntimeError("analysis-correction namespace or parent identity changed")
+        original = json.loads(OUT.read_text())
+        sufficient = torch.load(BUNDLE, map_location="cpu", weights_only=True)
+        if sufficient.get("schema") != "equality_term_subset_factorial_stage1_sufficient_statistics_v1" \
+                or list(sufficient.get("arms", ())) != list(ARMS) \
+                or list(sufficient.get("cells", ())) != list(CELLS) \
+                or sufficient.get("raw_rows_or_tokens_included") is not False \
+                or sufficient.get("logits_or_hidden_states_included") is not False:
+            raise RuntimeError("saved sufficient-statistics schema changed")
+        reanalysis_stats = {
+            "loss_sums": sufficient["loss_sums"], "kl_sums": sufficient["kl_sums"],
+            "correct_sums": sufficient["correct_sums"], "counts": sufficient["counts"],
+            "replay_relative_squared": original["replay"]["relative_squared"],
+        }
+        corrected_analysis = analyze(reanalysis_stats)
+        correction = {
+            "status": "analysis_corrected_without_new_model_forward",
+            "rung": 457,
+            "original_result_sha256": FIRST_RESULT_SHA256,
+            "sufficient_statistics_sha256": SUFFICIENT_STATISTICS_SHA256,
+            "original_result_preserved": True,
+            "invalid_original_field": "analysis.early_vs_layer8_block simultaneous interval",
+            "cause": "original block interval used its pointwise bootstrap critical value instead of the preregistered joint simultaneous maximum-deviation critical value",
+            "model_loaded": False, "code_ood_loaded": False,
+            "corrected_analysis": corrected_analysis,
+        }
+        dump(correction, CORRECTION_OUT)
+        print(json.dumps({
+            "status": correction["status"], "rung": 457,
+            "invalid_original_field": correction["invalid_original_field"],
+            "primary_pair": corrected_analysis["primary_pair"],
+            "early_vs_layer8_block": corrected_analysis["early_vs_layer8_block"],
+            "predictions": {key: value for key, value in corrected_analysis.items()
+                            if key.startswith("pred_")},
+            "strong_null": corrected_analysis["strong_null"],
+            "next_step": corrected_analysis["next_step"],
         }, indent=2, sort_keys=True))
         return
     if OUT.exists() or BUNDLE.exists():
