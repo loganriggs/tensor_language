@@ -1,0 +1,3380 @@
+{
+  "analysis": {
+    "direct_distributed_interaction": {
+      "all_positive": {
+        "direct_effect_nat": 0.1484458169610887,
+        "full_effect_nat": 0.11561160986583348,
+        "full_minus_direct_minus_mediated_nat": 0.03478276249484828,
+        "mediated_effect_nat": -0.06761696959010349
+      },
+      "far_positive": {
+        "direct_effect_nat": 0.19787044619358043,
+        "full_effect_nat": 0.22282887872741067,
+        "full_minus_direct_minus_mediated_nat": -0.013481824767061869,
+        "mediated_effect_nat": 0.0384402573008921
+      },
+      "multiple_predecessor_positive": {
+        "direct_effect_nat": 0.13303987652434884,
+        "full_effect_nat": 0.06504759902498061,
+        "full_minus_direct_minus_mediated_nat": 0.05257214960132839,
+        "mediated_effect_nat": -0.12056442710069662
+      },
+      "near_positive": {
+        "direct_effect_nat": 0.11528289568309516,
+        "full_effect_nat": 0.04367100247812087,
+        "full_minus_direct_minus_mediated_nat": 0.06716731919738686,
+        "mediated_effect_nat": -0.13877921240236116
+      },
+      "off_target": {
+        "direct_effect_nat": -0.025433812932894435,
+        "full_effect_nat": 0.004397543936495077,
+        "full_minus_direct_minus_mediated_nat": 0.005203384415194821,
+        "mediated_effect_nat": 0.02462797245419469
+      },
+      "one_predecessor_positive": {
+        "direct_effect_nat": 0.1999160837503408,
+        "full_effect_nat": 0.28454275292717024,
+        "full_minus_direct_minus_mediated_nat": -0.02465044797013871,
+        "mediated_effect_nat": 0.10927711714696814
+      }
+    },
+    "dominant_isolated_route": "direct_only",
+    "halves": [
+      {
+        "direct_only": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": 0.13977022199313402,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.18779811175747715,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.12389962607898508,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": 0.10881452571141581,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": -0.024435331404253108,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.19554768731076394,
+              "tokens": 1240
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.10991034553102906,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.21543991213372896,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.061098080423363045,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": 0.04189275765608089,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.004960755234710057,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.2814618385465198,
+              "tokens": 1240
+            }
+          },
+          "recovery": {
+            "all_positive": 1.2716748484215723,
+            "far_positive": 0.8716960097946297,
+            "multiple_predecessor_positive": 2.027880830632571,
+            "near_positive": 2.597454352485697,
+            "off_target": -4.925728089400744,
+            "one_predecessor_positive": 0.6947573721559556
+          }
+        },
+        "mediated_all": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.062010351614008634,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.04146267870336178,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.11108957354139681,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": -0.12870242814641483,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.024305983896829312,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.11047936545015076,
+              "tokens": 1240
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.10991034553102906,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.21543991213372896,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.061098080423363045,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": 0.04189275765608089,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.004960755234710057,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.2814618385465198,
+              "tokens": 1240
+            }
+          },
+          "recovery": {
+            "all_positive": -0.5641903072400254,
+            "far_positive": 0.19245588383653284,
+            "multiple_predecessor_positive": -1.818217082625688,
+            "near_positive": -3.0721880188217496,
+            "off_target": 4.899653933087052,
+            "one_predecessor_positive": 0.3925198741707602
+          }
+        },
+        "mediated_attention": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.0786198671807439,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": -0.03615929368548187,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.09731652168749381,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": -0.10598722859337756,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.01562422173240631,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": -0.012910173357827702,
+              "tokens": 1240
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.10991034553102906,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.21543991213372896,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.061098080423363045,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": 0.04189275765608089,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.004960755234710057,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.2814618385465198,
+              "tokens": 1240
+            }
+          },
+          "recovery": {
+            "all_positive": -0.715309071233413,
+            "far_positive": -0.16783934474981074,
+            "multiple_predecessor_positive": -1.5927918031657398,
+            "near_positive": -2.529965428952685,
+            "off_target": 3.1495651353819527,
+            "one_predecessor_positive": -0.04586829043857723
+          }
+        },
+        "mediated_mlp": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.008228600974597189,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.05928712130347579,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.04132988608734006,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": -0.05174490375899558,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.018211980206921462,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.10810639944583302,
+              "tokens": 1240
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.10991034553102906,
+              "tokens": 5598
+            },
+            "far_positive": {
+              "effect_nat": 0.21543991213372896,
+              "tokens": 2194
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.061098080423363045,
+              "tokens": 4358
+            },
+            "near_positive": {
+              "effect_nat": 0.04189275765608089,
+              "tokens": 3404
+            },
+            "off_target": {
+              "effect_nat": 0.004960755234710057,
+              "tokens": 12285
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.2814618385465198,
+              "tokens": 1240
+            }
+          },
+          "recovery": {
+            "all_positive": -0.07486648263037397,
+            "far_positive": 0.27519098349183685,
+            "multiple_predecessor_positive": -0.6764514662482931,
+            "near_positive": -1.2351754015287322,
+            "off_target": 3.6712112058046147,
+            "one_predecessor_positive": 0.3840890118678212
+          }
+        },
+        "suffix": [
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.062010351614008634,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.04146267870336178,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11108957354139681,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.12870242814641483,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.024305983896829312,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.11047936545015076,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.5641903072400254,
+              "far_positive": 0.19245588383653284,
+              "multiple_predecessor_positive": -1.818217082625688,
+              "near_positive": -3.0721880188217496,
+              "off_target": 4.899653933087052,
+              "one_predecessor_positive": 0.3925198741707602
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09237628152281138,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.0009915915274137882,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.13655428146507653,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.15127698946931617,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.024880236674325314,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.0628880118226657,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8404693941821192,
+              "far_positive": -0.004602636148488041,
+              "multiple_predecessor_positive": -2.235001173831643,
+              "near_positive": -3.6110535074159236,
+              "off_target": 5.01541307667027,
+              "one_predecessor_positive": 0.22343352884860662
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09033416967897065,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.0019484583795479852,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1330288196092339,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.1473019283719593,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.02441758271930288,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.0597168661243256,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8218895977673748,
+              "far_positive": -0.009044091970936788,
+              "multiple_predecessor_positive": -2.1772994943121904,
+              "near_positive": -3.5161669131747377,
+              "off_target": 4.922150270276341,
+              "one_predecessor_positive": 0.21216683026269526
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.11066073870735474,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.02517655428703851,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.15243190052465663,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.1657583593354904,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.025019842111264873,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.03614468322796916,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.006827320692153,
+              "far_positive": -0.11686114256958476,
+              "multiple_predecessor_positive": -2.494872170588993,
+              "near_positive": -3.956730676368591,
+              "off_target": 5.043555049078574,
+              "one_predecessor_positive": 0.12841770456208826
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09692544641610437,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.020671148544650502,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.13505609299449395,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.14607407436262898,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.023172763274852938,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.037085325994074436,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.881859173017895,
+              "far_positive": -0.09594855632794448,
+              "multiple_predecessor_positive": -2.2104801338873226,
+              "near_positive": -3.4868574554538974,
+              "off_target": 4.67121681648688,
+              "one_predecessor_positive": 0.13175969497529236
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1155485357768297,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.04317822307153253,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1513689558931356,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.16219379608100773,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.02322399447943847,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.01034290847063887,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0512980849851747,
+              "far_positive": -0.2004188668844737,
+              "multiple_predecessor_positive": -2.4774748215371796,
+              "near_positive": -3.8716428603850743,
+              "off_target": 4.681544115892235,
+              "one_predecessor_positive": 0.03674710761519239
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1143262988593819,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.04740739930074627,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.14969853178826437,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.15745792801086447,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.02288987774477334,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.009989984289061414,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0401777767781302,
+              "far_positive": -0.22004928813431426,
+              "multiple_predecessor_positive": -2.4501347792102117,
+              "near_positive": -3.7585954427616652,
+              "off_target": 4.614192126354969,
+              "one_predecessor_positive": 0.03549321052065208
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12717720786017003,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.06829617344657837,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.15925702140676962,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.16512814484707372,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.02234773081767126,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.014432185734298284,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.1570995182092874,
+              "far_positive": -0.3170079896996301,
+              "multiple_predecessor_positive": -2.6065797861936097,
+              "near_positive": -3.941687157543919,
+              "off_target": 4.504904951025552,
+              "one_predecessor_positive": -0.051275817030211515
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.11202419787562592,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.05767452859832791,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.14109785112053025,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.1470545076272099,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.021049823075412376,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.009844374616518655,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.019232514777238,
+              "far_positive": -0.26770586762274523,
+              "multiple_predecessor_positive": -2.3093663523113963,
+              "near_positive": -3.510260862616295,
+              "off_target": 4.243269840875889,
+              "one_predecessor_positive": -0.03497587689810953
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1233707575793512,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.07352277366934219,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1509217868197689,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.15549956977046747,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.01976656906902229,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.02654222094246389,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.1224671979993193,
+              "far_positive": -0.34126811945460117,
+              "multiple_predecessor_positive": -2.4701559488284435,
+              "near_positive": -3.7118485024796675,
+              "off_target": 3.984588663177129,
+              "one_predecessor_positive": -0.09430131302889579
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.11019926614054186,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.068670757283196,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1342330245788266,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.13696587848866668,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.01886083855955889,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.025732234467925025,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0026286934875592,
+              "far_positive": -0.31874668255792055,
+              "multiple_predecessor_positive": -2.19700886916077,
+              "near_positive": -3.2694404988349,
+              "off_target": 3.8020095060507972,
+              "one_predecessor_positive": -0.091423528677306
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12480581281512457,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.08500021363298876,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.14728962388120423,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.1504619481281698,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.01775608738900629,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04578609618127361,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -1.1355237963462714,
+              "far_positive": -0.39454255616399897,
+              "multiple_predecessor_positive": -2.4107078792099457,
+              "near_positive": -3.5915980839310944,
+              "off_target": 3.579311324366135,
+              "one_predecessor_positive": -0.162672483124941
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09716840565712913,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.07733090304096871,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11363001528757866,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.10995438707306801,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.014052073649874834,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.039313813101081556,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8840696950561153,
+              "far_positive": -0.3589441820463029,
+              "multiple_predecessor_positive": -1.8597968135857856,
+              "near_positive": -2.624663383961016,
+              "off_target": 2.832648051561476,
+              "one_predecessor_positive": -0.1396772411638454
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1017374580952453,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.08566712483690683,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11766764617153944,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.11209536384400987,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.014108291671182665,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04575055516259219,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9256404172300918,
+              "far_positive": -0.3976381348676521,
+              "multiple_predecessor_positive": -1.925881228283974,
+              "near_positive": -2.6757695152049465,
+              "off_target": 2.8439806044990763,
+              "one_predecessor_positive": -0.16254621016777937
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09993636606674307,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.08254199441786178,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11659131122743621,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.11114766201199734,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.01480014371889612,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.041402292671339255,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9092534973291462,
+              "far_positive": -0.3831323249269889,
+              "multiple_predecessor_positive": -1.9082647182947066,
+              "near_positive": -2.6531474228663927,
+              "off_target": 2.9834456687845736,
+              "one_predecessor_positive": -0.14709735744334776
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1064215855408723,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.0875382879665635,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.12268713686202032,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.11859254760844973,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.013361296531113943,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04925604307509568,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9682581291751845,
+              "far_positive": -0.40632344814653604,
+              "multiple_predecessor_positive": -2.0080358664608142,
+              "near_positive": -2.830860374054072,
+              "off_target": 2.693399673829075,
+              "one_predecessor_positive": -0.1750007863568854
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1010516157064177,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.08733381682972075,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11693410063052923,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.10989322873093976,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.012577096272754988,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.045232366271516035,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9194004005554651,
+              "far_positive": -0.4053743615320009,
+              "multiple_predecessor_positive": -1.9138751957551725,
+              "near_positive": -2.6232035053196925,
+              "off_target": 2.535318853216931,
+              "one_predecessor_positive": -0.16070514747255893
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.08922077263142696,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.06600947346411597,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.10510487186891765,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.10418128684208511,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.013499765975270413,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.03339584966611695,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8117595500256054,
+              "far_positive": -0.30639389336151523,
+              "multiple_predecessor_positive": -1.7202647143841696,
+              "near_positive": -2.4868567425749974,
+              "off_target": 2.721312650302417,
+              "one_predecessor_positive": -0.11865143011420112
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.07946525513212885,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": -0.05689612498814444,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.09315755908024216,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": -0.09401186839179448,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.012708626232706207,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.031343432062872566,
+                "tokens": 1240
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.10991034553102906,
+                "tokens": 5598
+              },
+              "far_positive": {
+                "effect_nat": 0.21543991213372896,
+                "tokens": 2194
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.061098080423363045,
+                "tokens": 4358
+              },
+              "near_positive": {
+                "effect_nat": 0.04189275765608089,
+                "tokens": 3404
+              },
+              "off_target": {
+                "effect_nat": 0.004960755234710057,
+                "tokens": 12285
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.2814618385465198,
+                "tokens": 1240
+              }
+            },
+            "recovery": {
+              "all_positive": -0.7230006852238929,
+              "far_positive": -0.264092778467286,
+              "multiple_predecessor_positive": -1.5247215368262212,
+              "near_positive": -2.2441078995941512,
+              "off_target": 2.561832953132789,
+              "one_predecessor_positive": -0.11135943765851636
+            }
+          }
+        ]
+      },
+      {
+        "direct_only": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": 0.1576964799383478,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.2080918623604678,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.14302063609360346,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": 0.12241318434358628,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": -0.02640740969290386,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.20421855522379223,
+              "tokens": 1259
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.12169078657940208,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.23032721022904698,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.06936030312566951,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": 0.045631217949048355,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.0038483693354496758,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.28757717217419687,
+              "tokens": 1259
+            }
+          },
+          "recovery": {
+            "all_positive": 1.2958785489931264,
+            "far_positive": 0.9034619146974975,
+            "multiple_predecessor_positive": 2.0619955457010257,
+            "near_positive": 2.682663094381403,
+            "off_target": -6.861973836463437,
+            "one_predecessor_positive": 0.7101347915754904
+          }
+        },
+        "mediated_all": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.07359522624347092,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.035373100706526474,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.13091055884998967,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": -0.14988717017672687,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.02494193621538476,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.10809301238450073,
+              "tokens": 1259
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.12169078657940208,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.23032721022904698,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.06936030312566951,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": 0.045631217949048355,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.0038483693354496758,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.28757717217419687,
+              "tokens": 1259
+            }
+          },
+          "recovery": {
+            "all_positive": -0.6047723768754731,
+            "far_positive": 0.153577602365565,
+            "multiple_predecessor_positive": -1.8873988859708581,
+            "near_positive": -3.2847505921075855,
+            "off_target": 6.481170085633253,
+            "one_predecessor_positive": 0.3758748010743513
+          }
+        },
+        "mediated_attention": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.08628518952393815,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": -0.03554827527093092,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.10984202983275297,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": -0.12180760164019516,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.01633876213680145,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": -0.011610567067639578,
+              "tokens": 1259
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.12169078657940208,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.23032721022904698,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.06936030312566951,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": 0.045631217949048355,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.0038483693354496758,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.28757717217419687,
+              "tokens": 1259
+            }
+          },
+          "recovery": {
+            "all_positive": -0.7090527717777376,
+            "far_positive": -0.15433814891249814,
+            "multiple_predecessor_positive": -1.583644028108372,
+            "near_positive": -2.6693918574824163,
+            "off_target": 4.245632555663291,
+            "one_predecessor_positive": -0.04037374378452612
+          }
+        },
+        "mediated_mlp": {
+          "effects": {
+            "all_positive": {
+              "effect_nat": -0.01576968448901815,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.05532159969767609,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": -0.05394145561996717,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": -0.06554279213527234,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.017371464908922538,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.10523392042251284,
+              "tokens": 1259
+            }
+          },
+          "native_stakes": {
+            "all_positive": {
+              "effect_nat": 0.12169078657940208,
+              "tokens": 5250
+            },
+            "far_positive": {
+              "effect_nat": 0.23032721022904698,
+              "tokens": 2162
+            },
+            "multiple_predecessor_positive": {
+              "effect_nat": 0.06936030312566951,
+              "tokens": 3991
+            },
+            "near_positive": {
+              "effect_nat": 0.045631217949048355,
+              "tokens": 3088
+            },
+            "off_target": {
+              "effect_nat": 0.0038483693354496758,
+              "tokens": 12599
+            },
+            "one_predecessor_positive": {
+              "effect_nat": 0.28757717217419687,
+              "tokens": 1259
+            }
+          },
+          "recovery": {
+            "all_positive": -0.1295881548002698,
+            "far_positive": 0.24018699155285206,
+            "multiple_predecessor_positive": -0.7776992485490452,
+            "near_positive": -1.4363585957415639,
+            "off_target": 4.513980700579694,
+            "one_predecessor_positive": 0.3659328020611055
+          }
+        },
+        "suffix": [
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.07359522624347092,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.035373100706526474,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.13091055884998967,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.14988717017672687,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02494193621538476,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.10809301238450073,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.6047723768754731,
+              "far_positive": 0.153577602365565,
+              "multiple_predecessor_positive": -1.8873988859708581,
+              "near_positive": -3.2847505921075855,
+              "off_target": 6.481170085633253,
+              "one_predecessor_positive": 0.3758748010743513
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.10568406426879977,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.005372406550938096,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1596648668442064,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1759152184093493,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.026097040179978218,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.06543379361717944,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8684639752890572,
+              "far_positive": -0.023325105816180167,
+              "multiple_predecessor_positive": -2.3019632217425547,
+              "near_positive": -3.8551506252972594,
+              "off_target": 6.781324219477188,
+              "one_predecessor_positive": 0.22753472788703688
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.10393284057063006,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.006025689740313749,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.15716467282025526,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1724805284252751,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02525291268045015,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.06481079922941298,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8540732087619046,
+              "far_positive": -0.02616143240011266,
+              "multiple_predecessor_positive": -2.2659167526344084,
+              "near_positive": -3.779880007100976,
+              "off_target": 6.561977419326721,
+              "one_predecessor_positive": 0.2253683723899841
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12640858861333912,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.030530642885538153,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.17923518982254444,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.19353557004582153,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.026107481824105064,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.04105047844459449,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0387687693255128,
+              "far_positive": -0.13255334814838945,
+              "multiple_predecessor_positive": -2.5841177409187446,
+              "near_positive": -4.24129748765248,
+              "off_target": 6.784037484035935,
+              "one_predecessor_positive": 0.14274595627405567
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.11493291606858284,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.02791637103668837,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.16412136756925977,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.17585576916409962,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02421807043578664,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.0409933031047306,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.944466868028585,
+              "far_positive": -0.1212030962773663,
+              "multiple_predecessor_positive": -2.3662146815001472,
+              "near_positive": -3.8538478056943277,
+              "off_target": 6.293073331787371,
+              "one_predecessor_positive": 0.142547138894249
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.13539999523976196,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.0491804566206781,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.18310295383726996,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1957648406071387,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.024810416124895197,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.015817246827477406,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.1126560937414498,
+              "far_positive": -0.21352430123983615,
+              "multiple_predecessor_positive": -2.639881107577015,
+              "near_positive": -4.290151554265524,
+              "off_target": 6.446994548145712,
+              "one_predecessor_positive": 0.055001746862912586
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1349915502941502,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.05570263050056763,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.18178059543246453,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1905040647351235,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.024620361650874584,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.013328607884572997,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.109299677392335,
+              "far_positive": -0.24184129371937693,
+              "multiple_predecessor_positive": -2.6208160466529082,
+              "near_positive": -4.174862589638515,
+              "off_target": 6.397608832416739,
+              "one_predecessor_positive": 0.04634793430856651
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.14907456970565197,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.07656305125732729,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.19304551371839132,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1998420253032161,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02372574399729033,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.009687724944061324,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.2250275792932133,
+              "far_positive": -0.33240992751655263,
+              "multiple_predecessor_positive": -2.7832276535560183,
+              "near_positive": -4.379502329443824,
+              "off_target": 6.16514214962115,
+              "one_predecessor_positive": -0.033687392051386766
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.13258884235688795,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.06677281703161564,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.17198929047900754,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.17866858547646008,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02260376666170978,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.007690360660796409,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.089555307216089,
+              "far_positive": -0.2899041627136193,
+              "multiple_predecessor_positive": -2.4796502138606735,
+              "near_positive": -3.915490173327408,
+              "off_target": 5.873595980898379,
+              "one_predecessor_positive": -0.026741902365386823
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.14523907841402772,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.08289944650037782,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1836804953987802,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.18888489583543674,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.02222097529059879,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.02338070257117852,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.193509241714537,
+              "far_positive": -0.35992033428416537,
+              "multiple_predecessor_positive": -2.64820779496856,
+              "near_positive": -4.139378792088015,
+              "off_target": 5.774127520949676,
+              "one_predecessor_positive": -0.08130235927424694
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12898433220940864,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.07961192976870332,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.16206245010377887,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.16355140930681955,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.020424022072136252,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.024127486684045962,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0599350685045297,
+              "far_positive": -0.3456470891543118,
+              "multiple_predecessor_positive": -2.336530303366008,
+              "near_positive": -3.5841999547204817,
+              "off_target": 5.307188653645619,
+              "one_predecessor_positive": -0.08389917218266195
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1458023711185725,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.09677989322984648,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1781502445889086,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1801244557025834,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.019807787432084504,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04326038301681598,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.198138127108233,
+              "far_positive": -0.4201843678547772,
+              "multiple_predecessor_positive": -2.5684755769612124,
+              "near_positive": -3.9473953095819114,
+              "off_target": 5.147059885760678,
+              "one_predecessor_positive": -0.15043051814492234
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.11735666010429019,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.09181198136258317,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1422460024194387,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.13524124411969515,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.01647314795832015,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.03845803803935162,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9643841033743018,
+              "far_positive": -0.3986154361496478,
+              "multiple_predecessor_positive": -2.050827288942383,
+              "near_positive": -2.9637877356397766,
+              "off_target": 4.280552754273334,
+              "one_predecessor_positive": -0.13373119204349107
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.1219658102793619,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.09978764379163557,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1459780279245072,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.13749339964026355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.01674922444972677,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.045847652517825015,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.0022600207270447,
+              "far_positive": -0.4332429663538345,
+              "multiple_predecessor_positive": -2.1046336498849914,
+              "near_positive": -3.013143322051762,
+              "off_target": 4.352291318673458,
+              "one_predecessor_positive": -0.15942730144815973
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12043971729788575,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.09738887408270115,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.14531786013095316,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.13657829340903505,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.017483325238537784,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04157659732427809,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9897192768928318,
+              "far_positive": -0.4228283492247989,
+              "multiple_predecessor_positive": -2.095115701378366,
+              "near_positive": -2.9930889322642638,
+              "off_target": 4.543047642929752,
+              "one_predecessor_positive": -0.14457544390586574
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12705423786548808,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.10094840348001215,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.151494479543003,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1453317035200862,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.01650073323734427,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04957925412048252,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -1.044074423683558,
+              "far_positive": -0.4382825779881797,
+              "multiple_predecessor_positive": -2.184166918482461,
+              "near_positive": -3.1849183530968435,
+              "off_target": 4.287720797831423,
+              "one_predecessor_positive": -0.17240330220108852
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.12078912034455598,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.10077972308284354,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.1440742387286341,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.1347982903185917,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.016074744280748805,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.04697584991496444,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.9925905135451009,
+              "far_positive": -0.43755022683869604,
+              "multiple_predecessor_positive": -2.0771858287238905,
+              "near_positive": -2.954080482118776,
+              "off_target": 4.177027431508337,
+              "one_predecessor_positive": -0.16335041324667213
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.10582284725878742,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.0747916230657909,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.12797879852877594,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.12754872378251103,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.01630774266872662,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.03558900967457445,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.8696044313078626,
+              "far_positive": -0.3247190073262078,
+              "multiple_predecessor_positive": -1.845130323275827,
+              "near_positive": -2.7952075249214574,
+              "off_target": 4.237572136984374,
+              "one_predecessor_positive": -0.12375464090389197
+            }
+          },
+          {
+            "effects": {
+              "all_positive": {
+                "effect_nat": -0.09397846527889903,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": -0.06197846701384197,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": -0.11356724236370887,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": -0.11638260914193445,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.015590501631703162,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": -0.03188250868995855,
+                "tokens": 1259
+              }
+            },
+            "native_stakes": {
+              "all_positive": {
+                "effect_nat": 0.12169078657940208,
+                "tokens": 5250
+              },
+              "far_positive": {
+                "effect_nat": 0.23032721022904698,
+                "tokens": 2162
+              },
+              "multiple_predecessor_positive": {
+                "effect_nat": 0.06936030312566951,
+                "tokens": 3991
+              },
+              "near_positive": {
+                "effect_nat": 0.045631217949048355,
+                "tokens": 3088
+              },
+              "off_target": {
+                "effect_nat": 0.0038483693354496758,
+                "tokens": 12599
+              },
+              "one_predecessor_positive": {
+                "effect_nat": 0.28757717217419687,
+                "tokens": 1259
+              }
+            },
+            "recovery": {
+              "all_positive": -0.7722726421657155,
+              "far_positive": -0.26908877571263945,
+              "multiple_predecessor_positive": -1.6373521632098929,
+              "near_positive": -2.55050411479016,
+              "off_target": 4.051196824610764,
+              "one_predecessor_positive": -0.1108659232195456
+            }
+          }
+        ]
+      }
+    ],
+    "pooled": {
+      "direct_only": {
+        "effects": {
+          "all_positive": {
+            "effect_nat": 0.1484458169610887,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.19787044619358043,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.13303987652434884,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": 0.11528289568309516,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": -0.025433812932894435,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.1999160837503408,
+            "tokens": 2499
+          }
+        },
+        "native_stakes": {
+          "all_positive": {
+            "effect_nat": 0.11561160986583348,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.22282887872741067,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.06504759902498061,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": 0.04367100247812087,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.004397543936495077,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.28454275292717024,
+            "tokens": 2499
+          }
+        },
+        "recovery": {
+          "all_positive": 1.2840044103992592,
+          "far_positive": 0.8879928280554595,
+          "multiple_predecessor_positive": 2.0452695951660993,
+          "near_positive": 2.6398041982400513,
+          "off_target": -5.783640436612817,
+          "one_predecessor_positive": 0.7025871567409417
+        }
+      },
+      "mediated_all": {
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.06761696959010349,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.0384402573008921,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.12056442710069662,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": -0.13877921240236116,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.02462797245419469,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.10927711714696814,
+            "tokens": 2499
+          }
+        },
+        "native_stakes": {
+          "all_positive": {
+            "effect_nat": 0.11561160986583348,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.22282887872741067,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.06504759902498061,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": 0.04367100247812087,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.004397543936495077,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.28454275292717024,
+            "tokens": 2499
+          }
+        },
+        "recovery": {
+          "all_positive": -0.5848631436632752,
+          "far_positive": 0.1725102128612178,
+          "multiple_predecessor_positive": -1.8534800501152326,
+          "near_positive": -3.1778343643906366,
+          "off_target": 5.600392585008175,
+          "one_predecessor_positive": 0.38404463309222997
+        }
+      },
+      "mediated_attention": {
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.08232957793865042,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": -0.03585602880663449,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.10330398162374119,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": -0.11351238447270176,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.01598600016653966,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": -0.012255429732638887,
+            "tokens": 2499
+          }
+        },
+        "native_stakes": {
+          "all_positive": {
+            "effect_nat": 0.11561160986583348,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.22282887872741067,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.06504759902498061,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": 0.04367100247812087,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.004397543936495077,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.28454275292717024,
+            "tokens": 2499
+          }
+        },
+        "recovery": {
+          "all_positive": -0.7121220613932576,
+          "far_positive": -0.16091284492122593,
+          "multiple_predecessor_positive": -1.5881290496835825,
+          "near_positive": -2.599262165542716,
+          "off_target": 3.6352110171935643,
+          "one_predecessor_positive": -0.04307060927246919
+        }
+      },
+      "mediated_mlp": {
+        "effects": {
+          "all_positive": {
+            "effect_nat": -0.011878185086941405,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.05731892623650174,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": -0.047358485201571085,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": -0.058308039819676825,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.017786419515734817,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.10665924014596903,
+            "tokens": 2499
+          }
+        },
+        "native_stakes": {
+          "all_positive": {
+            "effect_nat": 0.11561160986583348,
+            "tokens": 10848
+          },
+          "far_positive": {
+            "effect_nat": 0.22282887872741067,
+            "tokens": 4356
+          },
+          "multiple_predecessor_positive": {
+            "effect_nat": 0.06504759902498061,
+            "tokens": 8349
+          },
+          "near_positive": {
+            "effect_nat": 0.04367100247812087,
+            "tokens": 6492
+          },
+          "off_target": {
+            "effect_nat": 0.004397543936495077,
+            "tokens": 24884
+          },
+          "one_predecessor_positive": {
+            "effect_nat": 0.28454275292717024,
+            "tokens": 2499
+          }
+        },
+        "recovery": {
+          "all_positive": -0.10274214761584897,
+          "far_positive": 0.2572329339170651,
+          "multiple_predecessor_positive": -0.7280589277919962,
+          "near_positive": -1.3351660486586974,
+          "off_target": 4.044625766698062,
+          "one_predecessor_positive": 0.37484433902721415
+        }
+      }
+    },
+    "pred_b_direct_route": false,
+    "pred_c_cumulative_suffix": false,
+    "pred_d_mlp_over_attention": false,
+    "pred_e_dominant_context_law": false,
+    "route_classification": "registered_route_predictions_unresolved",
+    "strong_science_null": false,
+    "suffix_curve": {
+      "ascending_adjacent_increments": [
+        {
+          "from_count": 1,
+          "recovery_increment": -0.09312598220481061,
+          "to_count": 2
+        },
+        {
+          "from_count": 2,
+          "recovery_increment": -0.1154578364010388,
+          "to_count": 3
+        },
+        {
+          "from_count": 3,
+          "recovery_increment": -0.05019552685037476,
+          "to_count": 4
+        },
+        {
+          "from_count": 4,
+          "recovery_increment": 0.05663614633348957,
+          "to_count": 5
+        },
+        {
+          "from_count": 5,
+          "recovery_increment": -0.014427646522410797,
+          "to_count": 6
+        },
+        {
+          "from_count": 6,
+          "recovery_increment": 0.03968855853936293,
+          "to_count": 7
+        },
+        {
+          "from_count": 7,
+          "recovery_increment": -0.24243753778598576,
+          "to_count": 8
+        },
+        {
+          "from_count": 8,
+          "recovery_increment": 0.13559901869749935,
+          "to_count": 9
+        },
+        {
+          "from_count": 9,
+          "recovery_increment": -0.12683556589166534,
+          "to_count": 10
+        },
+        {
+          "from_count": 10,
+          "recovery_increment": 0.10360107567365162,
+          "to_count": 11
+        },
+        {
+          "from_count": 11,
+          "recovery_increment": -0.13664710779777756,
+          "to_count": 12
+        },
+        {
+          "from_count": 12,
+          "recovery_increment": 0.11631358986208351,
+          "to_count": 13
+        },
+        {
+          "from_count": 13,
+          "recovery_increment": -0.007165318532329046,
+          "to_count": 14
+        },
+        {
+          "from_count": 14,
+          "recovery_increment": 0.16880231162259596,
+          "to_count": 15
+        },
+        {
+          "from_count": 15,
+          "recovery_increment": -0.10934651228778003,
+          "to_count": 16
+        },
+        {
+          "from_count": 16,
+          "recovery_increment": 0.18481436344791302,
+          "to_count": 17
+        },
+        {
+          "from_count": 17,
+          "recovery_increment": -0.016445870510614302,
+          "to_count": 18
+        },
+        {
+          "from_count": 18,
+          "recovery_increment": 0.26986691788154593,
+          "to_count": 19
+        }
+      ],
+      "boundaries_in_execution_order": [
+        {
+          "all_positive_recovery": -0.5848631436632752,
+          "boundary": "m8",
+          "patched_write_count": 19
+        },
+        {
+          "all_positive_recovery": -0.8547300615448211,
+          "boundary": "a9",
+          "patched_write_count": 18
+        },
+        {
+          "all_positive_recovery": -0.8382841910342068,
+          "boundary": "m9",
+          "patched_write_count": 17
+        },
+        {
+          "all_positive_recovery": -1.0230985544821198,
+          "boundary": "a10",
+          "patched_write_count": 16
+        },
+        {
+          "all_positive_recovery": -0.9137520421943398,
+          "boundary": "m10",
+          "patched_write_count": 15
+        },
+        {
+          "all_positive_recovery": -1.0825543538169358,
+          "boundary": "a11",
+          "patched_write_count": 14
+        },
+        {
+          "all_positive_recovery": -1.0753890352846067,
+          "boundary": "m11",
+          "patched_write_count": 13
+        },
+        {
+          "all_positive_recovery": -1.1917026251466902,
+          "boundary": "a12",
+          "patched_write_count": 12
+        },
+        {
+          "all_positive_recovery": -1.0550555173489127,
+          "boundary": "m12",
+          "patched_write_count": 11
+        },
+        {
+          "all_positive_recovery": -1.1586565930225643,
+          "boundary": "a13",
+          "patched_write_count": 10
+        },
+        {
+          "all_positive_recovery": -1.031821027130899,
+          "boundary": "m13",
+          "patched_write_count": 9
+        },
+        {
+          "all_positive_recovery": -1.1674200458283983,
+          "boundary": "a14",
+          "patched_write_count": 8
+        },
+        {
+          "all_positive_recovery": -0.9249825080424126,
+          "boundary": "m14",
+          "patched_write_count": 7
+        },
+        {
+          "all_positive_recovery": -0.9646710665817755,
+          "boundary": "a15",
+          "patched_write_count": 6
+        },
+        {
+          "all_positive_recovery": -0.9502434200593647,
+          "boundary": "m15",
+          "patched_write_count": 5
+        },
+        {
+          "all_positive_recovery": -1.0068795663928543,
+          "boundary": "a16",
+          "patched_write_count": 4
+        },
+        {
+          "all_positive_recovery": -0.9566840395424795,
+          "boundary": "m16",
+          "patched_write_count": 3
+        },
+        {
+          "all_positive_recovery": -0.8412262031414407,
+          "boundary": "a17",
+          "patched_write_count": 2
+        },
+        {
+          "all_positive_recovery": -0.7481002209366301,
+          "boundary": "m17",
+          "patched_write_count": 1
+        }
+      ],
+      "half_spearman": [
+        -0.04561403508771929,
+        0.04210526315789473
+      ],
+      "patched_count_vs_recovery_spearman": -0.007017543859649121
+    }
+  },
+  "execution_price": {
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 1248,
+    "peak_gpu_memory_bytes": 3159521280,
+    "suffix_boundaries": 19
+  },
+  "factor_reconstruction_relative_squared_max": 7.358423656770381e-14,
+  "native_replay": {
+    "max_abs": 0.0,
+    "relative_squared": 0.0
+  },
+  "next_step": "audit_normalized_state_or_hidden_channels_before_branch_split",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_direct_route": false,
+    "pred_c_cumulative_suffix": false,
+    "pred_d_mlp_over_attention": false,
+    "pred_e_dominant_context_law": false
+  },
+  "rung": 463,
+  "runtime_s": 30.68605613708496,
+  "status": "complete",
+  "strong_null": false
+}

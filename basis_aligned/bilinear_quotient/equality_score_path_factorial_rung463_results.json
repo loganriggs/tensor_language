@@ -1,0 +1,4067 @@
+{
+ "status": "complete",
+ "rung": 463,
+ "claim_level": "already_open_code_path_factorial_not_ood_confirmation",
+ "input_identity": {
+  "role": "ood_code",
+  "row_file_sha256": "a82642da15dea4c82d486b46f118a55e480e7613e011ed588caa647eed16b660",
+  "row_receipt_sha256": "755c456db9384420d3b2a2d5d27f0201739592b65b55eefa5871a75851dc702e",
+  "support": {
+   "matched_positive": {
+    "tokens": 1132,
+    "documents": 187,
+    "mask_sha256": "63e9d4c1e10db173aa16350eedea5e827dfe1807a2dab89cbae00a78b157efac"
+   },
+   "matched_negative": {
+    "tokens": 1132,
+    "documents": 190,
+    "mask_sha256": "2cc7ff80ed6c4983958e2314a29d37e2c854f80742c2f3d9e44025aa6c9ae239"
+   },
+   "all_positive": {
+    "tokens": 10848,
+    "documents": 192,
+    "mask_sha256": "2424cf1d2bbe29d8c83b3597d8f8d3c2fa9114e6f05e053b986d0ae4cda5bfa0"
+   },
+   "near_positive": {
+    "tokens": 6492,
+    "documents": 190,
+    "mask_sha256": "1145eab271871ffc3c14645c277ccd16dec77dd8b4a2c082a32d9c77cd420354"
+   },
+   "far_positive": {
+    "tokens": 4356,
+    "documents": 192,
+    "mask_sha256": "d98bb37e3b3a9a4a406808420ab3bf8e5eb2a5c0e5e4e11a8aab0d441128e311"
+   },
+   "one_predecessor_positive": {
+    "tokens": 2499,
+    "documents": 192,
+    "mask_sha256": "ea937b673d8b8886312d0203b525a27e23899d9a391856ee8817cde674dd7bc6"
+   },
+   "multiple_predecessor_positive": {
+    "tokens": 8349,
+    "documents": 192,
+    "mask_sha256": "1d174423e97cfeda5f09c4123773c00e36cf010fb54215e7294acfd86dc022f6"
+   },
+   "off_target": {
+    "tokens": 24884,
+    "documents": 192,
+    "mask_sha256": "f63de8a6dd17fc4176c5fa5c30c91993ae79edd01957b8385e849ccc256f55a0"
+   },
+   "all": {
+    "tokens": 36864,
+    "documents": 192,
+    "mask_sha256": "890d0ff7e9d07db1992a98466f614d3b1b068bd247c1f8863afe220799739413"
+   }
+  },
+  "parent_result_sha256": "f157681ced170cbf8664db5710414a38d4f928f8d15dc0dd2b4d8cea9288aefa",
+  "parent_source_sha256": "9f9e66f689452cbcb14d741792b66eb9ff526dff5472a5938c58a2a4c82620d8",
+  "frozen_selected_pair": "L5H5->L8H4",
+  "frozen_control_pair": "L7H3->L8H4",
+  "frozen_factor": "score",
+  "frozen_component": "m9",
+  "rung460_result_sha256": "3910e5a9acb462f2527c8d5f8b7d8039ede410f5a90e1853c7ac279b174cf4a1",
+  "rung460_source_sha256": "94afe872f485e625ab483d30c37fc57bd13dda72e00449901355ce9cc5f8be2b",
+  "context_cells": [
+   "near_positive",
+   "far_positive",
+   "one_predecessor_positive",
+   "multiple_predecessor_positive",
+   "all_positive",
+   "off_target"
+  ],
+  "reporting_halves": [
+   [
+    0,
+    96
+   ],
+   [
+    96,
+    192
+   ]
+  ],
+  "rung461_result_sha256": "901e7e9f33618db95d62e85c75d283a2f4736dff240ab34d8b617f505018af36",
+  "rung461_source_sha256": "8b2021d306769ff653b0bebd82db9539bac66ec78d8e3c16a4fcd3324e4aa29a",
+  "fit_documents": [
+   0,
+   96
+  ],
+  "validation_documents": [
+   96,
+   192
+  ],
+  "validation_waves": [
+   [
+    96,
+    144
+   ],
+   [
+    144,
+    192
+   ]
+  ],
+  "candidate_order": [
+   "m8",
+   "a9",
+   "m9",
+   "a10",
+   "m10",
+   "a11",
+   "m11",
+   "a12",
+   "m12",
+   "a13",
+   "m13",
+   "a14",
+   "m14",
+   "a15",
+   "m15",
+   "a16",
+   "m16",
+   "a17",
+   "m17"
+  ],
+  "rung462_result_sha256": "875975ec22712a6041067d4254a2a86428428a7b0d499a91e9dbb602b7bb6acb",
+  "rung462_source_sha256": "bf5bf18a05e9dc57bf36b900b5cbe4ef32a63a30497d98fd0f61a679fbad3f23",
+  "document_halves": [
+   [
+    0,
+    96
+   ],
+   [
+    96,
+    192
+   ]
+  ],
+  "write_order": [
+   "m8",
+   "a9",
+   "m9",
+   "a10",
+   "m10",
+   "a11",
+   "m11",
+   "a12",
+   "m12",
+   "a13",
+   "m13",
+   "a14",
+   "m14",
+   "a15",
+   "m15",
+   "a16",
+   "m16",
+   "a17",
+   "m17"
+  ],
+  "mlp_keys": [
+   "m8",
+   "m9",
+   "m10",
+   "m11",
+   "m12",
+   "m13",
+   "m14",
+   "m15",
+   "m16",
+   "m17"
+  ],
+  "attention_keys": [
+   "a9",
+   "a10",
+   "a11",
+   "a12",
+   "a13",
+   "a14",
+   "a15",
+   "a16",
+   "a17"
+  ],
+  "suffix_boundaries": [
+   {
+    "boundary": "m8",
+    "patched_writes": [
+     "m8",
+     "a9",
+     "m9",
+     "a10",
+     "m10",
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a9",
+    "patched_writes": [
+     "a9",
+     "m9",
+     "a10",
+     "m10",
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m9",
+    "patched_writes": [
+     "m9",
+     "a10",
+     "m10",
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a10",
+    "patched_writes": [
+     "a10",
+     "m10",
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m10",
+    "patched_writes": [
+     "m10",
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a11",
+    "patched_writes": [
+     "a11",
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m11",
+    "patched_writes": [
+     "m11",
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a12",
+    "patched_writes": [
+     "a12",
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m12",
+    "patched_writes": [
+     "m12",
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a13",
+    "patched_writes": [
+     "a13",
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m13",
+    "patched_writes": [
+     "m13",
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a14",
+    "patched_writes": [
+     "a14",
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m14",
+    "patched_writes": [
+     "m14",
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a15",
+    "patched_writes": [
+     "a15",
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m15",
+    "patched_writes": [
+     "m15",
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a16",
+    "patched_writes": [
+     "a16",
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m16",
+    "patched_writes": [
+     "m16",
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "a17",
+    "patched_writes": [
+     "a17",
+     "m17"
+    ]
+   },
+   {
+    "boundary": "m17",
+    "patched_writes": [
+     "m17"
+    ]
+   }
+  ]
+ },
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EQUALITY_SCORE_PATH_FACTORIAL_RUNG463_PREREGISTRATION.md": "e9473bb331f75c55d092576527595092fc5baa6743ad1fbe984d9cd9cf874231",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_score_downstream_gate_rung462_results.json": "875975ec22712a6041067d4254a2a86428428a7b0d499a91e9dbb602b7bb6acb",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_score_downstream_gate_rung462.py": "bf5bf18a05e9dc57bf36b900b5cbe4ef32a63a30497d98fd0f61a679fbad3f23",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_equality_tensor_final_ood_v2_rows_receipt.json": "755c456db9384420d3b2a2d5d27f0201739592b65b55eefa5871a75851dc702e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_induction_equality_tensor_final_ood_v2/ood_code.pt": "a82642da15dea4c82d486b46f118a55e480e7613e011ed588caa647eed16b660",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c"
+ },
+ "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "sealed_attention0_confirmation_opened": false,
+ "frozen_pair": "L5H5->L8H4",
+ "analysis": {
+  "pooled": {
+   "direct_only": {
+    "native_stakes": {
+     "near_positive": {
+      "effect_nat": 0.04367100247812087,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.22282887872741067,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.28454275292717024,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": 0.06504759902498061,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": 0.11561160986583348,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.004397543936495077,
+      "tokens": 24884
+     }
+    },
+    "effects": {
+     "near_positive": {
+      "effect_nat": 0.11528289568309516,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.19787044619358043,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.1999160837503408,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": 0.13303987652434884,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": 0.1484458169610887,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": -0.025433812932894435,
+      "tokens": 24884
+     }
+    },
+    "recovery": {
+     "near_positive": 2.6398041982400513,
+     "far_positive": 0.8879928280554595,
+     "one_predecessor_positive": 0.7025871567409417,
+     "multiple_predecessor_positive": 2.0452695951660993,
+     "all_positive": 1.2840044103992592,
+     "off_target": -5.783640436612817
+    }
+   },
+   "mediated_mlp": {
+    "native_stakes": {
+     "near_positive": {
+      "effect_nat": 0.04367100247812087,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.22282887872741067,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.28454275292717024,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": 0.06504759902498061,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": 0.11561160986583348,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.004397543936495077,
+      "tokens": 24884
+     }
+    },
+    "effects": {
+     "near_positive": {
+      "effect_nat": -0.058308039819676825,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.05731892623650174,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.10665924014596903,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": -0.047358485201571085,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": -0.011878185086941405,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.017786419515734817,
+      "tokens": 24884
+     }
+    },
+    "recovery": {
+     "near_positive": -1.3351660486586974,
+     "far_positive": 0.2572329339170651,
+     "one_predecessor_positive": 0.37484433902721415,
+     "multiple_predecessor_positive": -0.7280589277919962,
+     "all_positive": -0.10274214761584897,
+     "off_target": 4.044625766698062
+    }
+   },
+   "mediated_attention": {
+    "native_stakes": {
+     "near_positive": {
+      "effect_nat": 0.04367100247812087,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.22282887872741067,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.28454275292717024,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": 0.06504759902498061,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": 0.11561160986583348,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.004397543936495077,
+      "tokens": 24884
+     }
+    },
+    "effects": {
+     "near_positive": {
+      "effect_nat": -0.11351238447270176,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": -0.03585602880663449,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": -0.012255429732638887,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": -0.10330398162374119,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": -0.08232957793865042,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.01598600016653966,
+      "tokens": 24884
+     }
+    },
+    "recovery": {
+     "near_positive": -2.599262165542716,
+     "far_positive": -0.16091284492122593,
+     "one_predecessor_positive": -0.04307060927246919,
+     "multiple_predecessor_positive": -1.5881290496835825,
+     "all_positive": -0.7121220613932576,
+     "off_target": 3.6352110171935643
+    }
+   },
+   "mediated_all": {
+    "native_stakes": {
+     "near_positive": {
+      "effect_nat": 0.04367100247812087,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.22282887872741067,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.28454275292717024,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": 0.06504759902498061,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": 0.11561160986583348,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.004397543936495077,
+      "tokens": 24884
+     }
+    },
+    "effects": {
+     "near_positive": {
+      "effect_nat": -0.13877921240236116,
+      "tokens": 6492
+     },
+     "far_positive": {
+      "effect_nat": 0.0384402573008921,
+      "tokens": 4356
+     },
+     "one_predecessor_positive": {
+      "effect_nat": 0.10927711714696814,
+      "tokens": 2499
+     },
+     "multiple_predecessor_positive": {
+      "effect_nat": -0.12056442710069662,
+      "tokens": 8349
+     },
+     "all_positive": {
+      "effect_nat": -0.06761696959010349,
+      "tokens": 10848
+     },
+     "off_target": {
+      "effect_nat": 0.02462797245419469,
+      "tokens": 24884
+     }
+    },
+    "recovery": {
+     "near_positive": -3.1778343643906366,
+     "far_positive": 0.1725102128612178,
+     "one_predecessor_positive": 0.38404463309222997,
+     "multiple_predecessor_positive": -1.8534800501152326,
+     "all_positive": -0.5848631436632752,
+     "off_target": 5.600392585008175
+    }
+   }
+  },
+  "halves": [
+   {
+    "direct_only": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.04189275765608089,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.21543991213372896,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.2814618385465198,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.061098080423363045,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": 0.10991034553102906,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.004960755234710057,
+       "tokens": 12285
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": 0.10881452571141581,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.18779811175747715,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.19554768731076394,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.12389962607898508,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": 0.13977022199313402,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": -0.024435331404253108,
+       "tokens": 12285
+      }
+     },
+     "recovery": {
+      "near_positive": 2.597454352485697,
+      "far_positive": 0.8716960097946297,
+      "one_predecessor_positive": 0.6947573721559556,
+      "multiple_predecessor_positive": 2.027880830632571,
+      "all_positive": 1.2716748484215723,
+      "off_target": -4.925728089400744
+     }
+    },
+    "mediated_mlp": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.04189275765608089,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.21543991213372896,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.2814618385465198,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.061098080423363045,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": 0.10991034553102906,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.004960755234710057,
+       "tokens": 12285
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.05174490375899558,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.05928712130347579,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.10810639944583302,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.04132988608734006,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": -0.008228600974597189,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.018211980206921462,
+       "tokens": 12285
+      }
+     },
+     "recovery": {
+      "near_positive": -1.2351754015287322,
+      "far_positive": 0.27519098349183685,
+      "one_predecessor_positive": 0.3840890118678212,
+      "multiple_predecessor_positive": -0.6764514662482931,
+      "all_positive": -0.07486648263037397,
+      "off_target": 3.6712112058046147
+     }
+    },
+    "mediated_attention": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.04189275765608089,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.21543991213372896,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.2814618385465198,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.061098080423363045,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": 0.10991034553102906,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.004960755234710057,
+       "tokens": 12285
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.10598722859337756,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": -0.03615929368548187,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": -0.012910173357827702,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.09731652168749381,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": -0.0786198671807439,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.01562422173240631,
+       "tokens": 12285
+      }
+     },
+     "recovery": {
+      "near_positive": -2.529965428952685,
+      "far_positive": -0.16783934474981074,
+      "one_predecessor_positive": -0.04586829043857723,
+      "multiple_predecessor_positive": -1.5927918031657398,
+      "all_positive": -0.715309071233413,
+      "off_target": 3.1495651353819527
+     }
+    },
+    "suffix": [
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.12870242814641483,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.04146267870336178,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.11047936545015076,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11108957354139681,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.062010351614008634,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.024305983896829312,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.0721880188217496,
+       "far_positive": 0.19245588383653284,
+       "one_predecessor_positive": 0.3925198741707602,
+       "multiple_predecessor_positive": -1.818217082625688,
+       "all_positive": -0.5641903072400254,
+       "off_target": 4.899653933087052
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.15127698946931617,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.0009915915274137882,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.0628880118226657,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.13655428146507653,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.09237628152281138,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.024880236674325314,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.6110535074159236,
+       "far_positive": -0.004602636148488041,
+       "one_predecessor_positive": 0.22343352884860662,
+       "multiple_predecessor_positive": -2.235001173831643,
+       "all_positive": -0.8404693941821192,
+       "off_target": 5.01541307667027
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1473019283719593,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.0019484583795479852,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.0597168661243256,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1330288196092339,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.09033416967897065,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.02441758271930288,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.5161669131747377,
+       "far_positive": -0.009044091970936788,
+       "one_predecessor_positive": 0.21216683026269526,
+       "multiple_predecessor_positive": -2.1772994943121904,
+       "all_positive": -0.8218895977673748,
+       "off_target": 4.922150270276341
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1657583593354904,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.02517655428703851,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.03614468322796916,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.15243190052465663,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.11066073870735474,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.025019842111264873,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.956730676368591,
+       "far_positive": -0.11686114256958476,
+       "one_predecessor_positive": 0.12841770456208826,
+       "multiple_predecessor_positive": -2.494872170588993,
+       "all_positive": -1.006827320692153,
+       "off_target": 5.043555049078574
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.14607407436262898,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.020671148544650502,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.037085325994074436,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.13505609299449395,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.09692544641610437,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.023172763274852938,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.4868574554538974,
+       "far_positive": -0.09594855632794448,
+       "one_predecessor_positive": 0.13175969497529236,
+       "multiple_predecessor_positive": -2.2104801338873226,
+       "all_positive": -0.881859173017895,
+       "off_target": 4.67121681648688
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.16219379608100773,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.04317822307153253,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.01034290847063887,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1513689558931356,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1155485357768297,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.02322399447943847,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.8716428603850743,
+       "far_positive": -0.2004188668844737,
+       "one_predecessor_positive": 0.03674710761519239,
+       "multiple_predecessor_positive": -2.4774748215371796,
+       "all_positive": -1.0512980849851747,
+       "off_target": 4.681544115892235
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.15745792801086447,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.04740739930074627,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.009989984289061414,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.14969853178826437,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1143262988593819,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.02288987774477334,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.7585954427616652,
+       "far_positive": -0.22004928813431426,
+       "one_predecessor_positive": 0.03549321052065208,
+       "multiple_predecessor_positive": -2.4501347792102117,
+       "all_positive": -1.0401777767781302,
+       "off_target": 4.614192126354969
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.16512814484707372,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.06829617344657837,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.014432185734298284,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.15925702140676962,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.12717720786017003,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.02234773081767126,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.941687157543919,
+       "far_positive": -0.3170079896996301,
+       "one_predecessor_positive": -0.051275817030211515,
+       "multiple_predecessor_positive": -2.6065797861936097,
+       "all_positive": -1.1570995182092874,
+       "off_target": 4.504904951025552
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1470545076272099,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.05767452859832791,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.009844374616518655,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.14109785112053025,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.11202419787562592,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.021049823075412376,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.510260862616295,
+       "far_positive": -0.26770586762274523,
+       "one_predecessor_positive": -0.03497587689810953,
+       "multiple_predecessor_positive": -2.3093663523113963,
+       "all_positive": -1.019232514777238,
+       "off_target": 4.243269840875889
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.15549956977046747,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.07352277366934219,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.02654222094246389,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1509217868197689,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1233707575793512,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.01976656906902229,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.7118485024796675,
+       "far_positive": -0.34126811945460117,
+       "one_predecessor_positive": -0.09430131302889579,
+       "multiple_predecessor_positive": -2.4701559488284435,
+       "all_positive": -1.1224671979993193,
+       "off_target": 3.984588663177129
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.13696587848866668,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.068670757283196,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.025732234467925025,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1342330245788266,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.11019926614054186,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.01886083855955889,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.2694404988349,
+       "far_positive": -0.31874668255792055,
+       "one_predecessor_positive": -0.091423528677306,
+       "multiple_predecessor_positive": -2.19700886916077,
+       "all_positive": -1.0026286934875592,
+       "off_target": 3.8020095060507972
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1504619481281698,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.08500021363298876,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04578609618127361,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.14728962388120423,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.12480581281512457,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.01775608738900629,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -3.5915980839310944,
+       "far_positive": -0.39454255616399897,
+       "one_predecessor_positive": -0.162672483124941,
+       "multiple_predecessor_positive": -2.4107078792099457,
+       "all_positive": -1.1355237963462714,
+       "off_target": 3.579311324366135
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.10995438707306801,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.07733090304096871,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.039313813101081556,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11363001528757866,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.09716840565712913,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.014052073649874834,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.624663383961016,
+       "far_positive": -0.3589441820463029,
+       "one_predecessor_positive": -0.1396772411638454,
+       "multiple_predecessor_positive": -1.8597968135857856,
+       "all_positive": -0.8840696950561153,
+       "off_target": 2.832648051561476
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.11209536384400987,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.08566712483690683,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04575055516259219,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11766764617153944,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1017374580952453,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.014108291671182665,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.6757695152049465,
+       "far_positive": -0.3976381348676521,
+       "one_predecessor_positive": -0.16254621016777937,
+       "multiple_predecessor_positive": -1.925881228283974,
+       "all_positive": -0.9256404172300918,
+       "off_target": 2.8439806044990763
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.11114766201199734,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.08254199441786178,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.041402292671339255,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11659131122743621,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.09993636606674307,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.01480014371889612,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.6531474228663927,
+       "far_positive": -0.3831323249269889,
+       "one_predecessor_positive": -0.14709735744334776,
+       "multiple_predecessor_positive": -1.9082647182947066,
+       "all_positive": -0.9092534973291462,
+       "off_target": 2.9834456687845736
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.11859254760844973,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.0875382879665635,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04925604307509568,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.12268713686202032,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1064215855408723,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.013361296531113943,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.830860374054072,
+       "far_positive": -0.40632344814653604,
+       "one_predecessor_positive": -0.1750007863568854,
+       "multiple_predecessor_positive": -2.0080358664608142,
+       "all_positive": -0.9682581291751845,
+       "off_target": 2.693399673829075
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.10989322873093976,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.08733381682972075,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.045232366271516035,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11693410063052923,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.1010516157064177,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.012577096272754988,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.6232035053196925,
+       "far_positive": -0.4053743615320009,
+       "one_predecessor_positive": -0.16070514747255893,
+       "multiple_predecessor_positive": -1.9138751957551725,
+       "all_positive": -0.9194004005554651,
+       "off_target": 2.535318853216931
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.10418128684208511,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.06600947346411597,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.03339584966611695,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.10510487186891765,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.08922077263142696,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.013499765975270413,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.4868567425749974,
+       "far_positive": -0.30639389336151523,
+       "one_predecessor_positive": -0.11865143011420112,
+       "multiple_predecessor_positive": -1.7202647143841696,
+       "all_positive": -0.8117595500256054,
+       "off_target": 2.721312650302417
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.04189275765608089,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": 0.21543991213372896,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.2814618385465198,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.061098080423363045,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": 0.10991034553102906,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.004960755234710057,
+        "tokens": 12285
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.09401186839179448,
+        "tokens": 3404
+       },
+       "far_positive": {
+        "effect_nat": -0.05689612498814444,
+        "tokens": 2194
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.031343432062872566,
+        "tokens": 1240
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.09315755908024216,
+        "tokens": 4358
+       },
+       "all_positive": {
+        "effect_nat": -0.07946525513212885,
+        "tokens": 5598
+       },
+       "off_target": {
+        "effect_nat": 0.012708626232706207,
+        "tokens": 12285
+       }
+      },
+      "recovery": {
+       "near_positive": -2.2441078995941512,
+       "far_positive": -0.264092778467286,
+       "one_predecessor_positive": -0.11135943765851636,
+       "multiple_predecessor_positive": -1.5247215368262212,
+       "all_positive": -0.7230006852238929,
+       "off_target": 2.561832953132789
+      }
+     }
+    ],
+    "mediated_all": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.04189275765608089,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.21543991213372896,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.2814618385465198,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.061098080423363045,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": 0.10991034553102906,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.004960755234710057,
+       "tokens": 12285
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.12870242814641483,
+       "tokens": 3404
+      },
+      "far_positive": {
+       "effect_nat": 0.04146267870336178,
+       "tokens": 2194
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.11047936545015076,
+       "tokens": 1240
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.11108957354139681,
+       "tokens": 4358
+      },
+      "all_positive": {
+       "effect_nat": -0.062010351614008634,
+       "tokens": 5598
+      },
+      "off_target": {
+       "effect_nat": 0.024305983896829312,
+       "tokens": 12285
+      }
+     },
+     "recovery": {
+      "near_positive": -3.0721880188217496,
+      "far_positive": 0.19245588383653284,
+      "one_predecessor_positive": 0.3925198741707602,
+      "multiple_predecessor_positive": -1.818217082625688,
+      "all_positive": -0.5641903072400254,
+      "off_target": 4.899653933087052
+     }
+    }
+   },
+   {
+    "direct_only": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.045631217949048355,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.23032721022904698,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.28757717217419687,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.06936030312566951,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": 0.12169078657940208,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.0038483693354496758,
+       "tokens": 12599
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": 0.12241318434358628,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.2080918623604678,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.20421855522379223,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.14302063609360346,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": 0.1576964799383478,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": -0.02640740969290386,
+       "tokens": 12599
+      }
+     },
+     "recovery": {
+      "near_positive": 2.682663094381403,
+      "far_positive": 0.9034619146974975,
+      "one_predecessor_positive": 0.7101347915754904,
+      "multiple_predecessor_positive": 2.0619955457010257,
+      "all_positive": 1.2958785489931264,
+      "off_target": -6.861973836463437
+     }
+    },
+    "mediated_mlp": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.045631217949048355,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.23032721022904698,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.28757717217419687,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.06936030312566951,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": 0.12169078657940208,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.0038483693354496758,
+       "tokens": 12599
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.06554279213527234,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.05532159969767609,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.10523392042251284,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.05394145561996717,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": -0.01576968448901815,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.017371464908922538,
+       "tokens": 12599
+      }
+     },
+     "recovery": {
+      "near_positive": -1.4363585957415639,
+      "far_positive": 0.24018699155285206,
+      "one_predecessor_positive": 0.3659328020611055,
+      "multiple_predecessor_positive": -0.7776992485490452,
+      "all_positive": -0.1295881548002698,
+      "off_target": 4.513980700579694
+     }
+    },
+    "mediated_attention": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.045631217949048355,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.23032721022904698,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.28757717217419687,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.06936030312566951,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": 0.12169078657940208,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.0038483693354496758,
+       "tokens": 12599
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.12180760164019516,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": -0.03554827527093092,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": -0.011610567067639578,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.10984202983275297,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": -0.08628518952393815,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.01633876213680145,
+       "tokens": 12599
+      }
+     },
+     "recovery": {
+      "near_positive": -2.6693918574824163,
+      "far_positive": -0.15433814891249814,
+      "one_predecessor_positive": -0.04037374378452612,
+      "multiple_predecessor_positive": -1.583644028108372,
+      "all_positive": -0.7090527717777376,
+      "off_target": 4.245632555663291
+     }
+    },
+    "suffix": [
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.14988717017672687,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.035373100706526474,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.10809301238450073,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.13091055884998967,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.07359522624347092,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02494193621538476,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.2847505921075855,
+       "far_positive": 0.153577602365565,
+       "one_predecessor_positive": 0.3758748010743513,
+       "multiple_predecessor_positive": -1.8873988859708581,
+       "all_positive": -0.6047723768754731,
+       "off_target": 6.481170085633253
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1759152184093493,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.005372406550938096,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.06543379361717944,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1596648668442064,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.10568406426879977,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.026097040179978218,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.8551506252972594,
+       "far_positive": -0.023325105816180167,
+       "one_predecessor_positive": 0.22753472788703688,
+       "multiple_predecessor_positive": -2.3019632217425547,
+       "all_positive": -0.8684639752890572,
+       "off_target": 6.781324219477188
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1724805284252751,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.006025689740313749,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.06481079922941298,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.15716467282025526,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.10393284057063006,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02525291268045015,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.779880007100976,
+       "far_positive": -0.02616143240011266,
+       "one_predecessor_positive": 0.2253683723899841,
+       "multiple_predecessor_positive": -2.2659167526344084,
+       "all_positive": -0.8540732087619046,
+       "off_target": 6.561977419326721
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.19353557004582153,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.030530642885538153,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.04105047844459449,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.17923518982254444,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.12640858861333912,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.026107481824105064,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -4.24129748765248,
+       "far_positive": -0.13255334814838945,
+       "one_predecessor_positive": 0.14274595627405567,
+       "multiple_predecessor_positive": -2.5841177409187446,
+       "all_positive": -1.0387687693255128,
+       "off_target": 6.784037484035935
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.17585576916409962,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.02791637103668837,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.0409933031047306,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.16412136756925977,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.11493291606858284,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02421807043578664,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.8538478056943277,
+       "far_positive": -0.1212030962773663,
+       "one_predecessor_positive": 0.142547138894249,
+       "multiple_predecessor_positive": -2.3662146815001472,
+       "all_positive": -0.944466868028585,
+       "off_target": 6.293073331787371
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1957648406071387,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.0491804566206781,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.015817246827477406,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.18310295383726996,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.13539999523976196,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.024810416124895197,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -4.290151554265524,
+       "far_positive": -0.21352430123983615,
+       "one_predecessor_positive": 0.055001746862912586,
+       "multiple_predecessor_positive": -2.639881107577015,
+       "all_positive": -1.1126560937414498,
+       "off_target": 6.446994548145712
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1905040647351235,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.05570263050056763,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.013328607884572997,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.18178059543246453,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.1349915502941502,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.024620361650874584,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -4.174862589638515,
+       "far_positive": -0.24184129371937693,
+       "one_predecessor_positive": 0.04634793430856651,
+       "multiple_predecessor_positive": -2.6208160466529082,
+       "all_positive": -1.109299677392335,
+       "off_target": 6.397608832416739
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1998420253032161,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.07656305125732729,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.009687724944061324,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.19304551371839132,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.14907456970565197,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02372574399729033,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -4.379502329443824,
+       "far_positive": -0.33240992751655263,
+       "one_predecessor_positive": -0.033687392051386766,
+       "multiple_predecessor_positive": -2.7832276535560183,
+       "all_positive": -1.2250275792932133,
+       "off_target": 6.16514214962115
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.17866858547646008,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.06677281703161564,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.007690360660796409,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.17198929047900754,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.13258884235688795,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02260376666170978,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.915490173327408,
+       "far_positive": -0.2899041627136193,
+       "one_predecessor_positive": -0.026741902365386823,
+       "multiple_predecessor_positive": -2.4796502138606735,
+       "all_positive": -1.089555307216089,
+       "off_target": 5.873595980898379
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.18888489583543674,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.08289944650037782,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.02338070257117852,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1836804953987802,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.14523907841402772,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.02222097529059879,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -4.139378792088015,
+       "far_positive": -0.35992033428416537,
+       "one_predecessor_positive": -0.08130235927424694,
+       "multiple_predecessor_positive": -2.64820779496856,
+       "all_positive": -1.193509241714537,
+       "off_target": 5.774127520949676
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.16355140930681955,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.07961192976870332,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.024127486684045962,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.16206245010377887,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.12898433220940864,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.020424022072136252,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.5841999547204817,
+       "far_positive": -0.3456470891543118,
+       "one_predecessor_positive": -0.08389917218266195,
+       "multiple_predecessor_positive": -2.336530303366008,
+       "all_positive": -1.0599350685045297,
+       "off_target": 5.307188653645619
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1801244557025834,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.09677989322984648,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04326038301681598,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1781502445889086,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.1458023711185725,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.019807787432084504,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.9473953095819114,
+       "far_positive": -0.4201843678547772,
+       "one_predecessor_positive": -0.15043051814492234,
+       "multiple_predecessor_positive": -2.5684755769612124,
+       "all_positive": -1.198138127108233,
+       "off_target": 5.147059885760678
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.13524124411969515,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.09181198136258317,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.03845803803935162,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1422460024194387,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.11735666010429019,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.01647314795832015,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -2.9637877356397766,
+       "far_positive": -0.3986154361496478,
+       "one_predecessor_positive": -0.13373119204349107,
+       "multiple_predecessor_positive": -2.050827288942383,
+       "all_positive": -0.9643841033743018,
+       "off_target": 4.280552754273334
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.13749339964026355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.09978764379163557,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.045847652517825015,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1459780279245072,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.1219658102793619,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.01674922444972677,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.013143322051762,
+       "far_positive": -0.4332429663538345,
+       "one_predecessor_positive": -0.15942730144815973,
+       "multiple_predecessor_positive": -2.1046336498849914,
+       "all_positive": -1.0022600207270447,
+       "off_target": 4.352291318673458
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.13657829340903505,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.09738887408270115,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04157659732427809,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.14531786013095316,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.12043971729788575,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.017483325238537784,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -2.9930889322642638,
+       "far_positive": -0.4228283492247989,
+       "one_predecessor_positive": -0.14457544390586574,
+       "multiple_predecessor_positive": -2.095115701378366,
+       "all_positive": -0.9897192768928318,
+       "off_target": 4.543047642929752
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1453317035200862,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.10094840348001215,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04957925412048252,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.151494479543003,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.12705423786548808,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.01650073323734427,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -3.1849183530968435,
+       "far_positive": -0.4382825779881797,
+       "one_predecessor_positive": -0.17240330220108852,
+       "multiple_predecessor_positive": -2.184166918482461,
+       "all_positive": -1.044074423683558,
+       "off_target": 4.287720797831423
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.1347982903185917,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.10077972308284354,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.04697584991496444,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.1440742387286341,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.12078912034455598,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.016074744280748805,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -2.954080482118776,
+       "far_positive": -0.43755022683869604,
+       "one_predecessor_positive": -0.16335041324667213,
+       "multiple_predecessor_positive": -2.0771858287238905,
+       "all_positive": -0.9925905135451009,
+       "off_target": 4.177027431508337
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.12754872378251103,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.0747916230657909,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.03558900967457445,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.12797879852877594,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.10582284725878742,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.01630774266872662,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -2.7952075249214574,
+       "far_positive": -0.3247190073262078,
+       "one_predecessor_positive": -0.12375464090389197,
+       "multiple_predecessor_positive": -1.845130323275827,
+       "all_positive": -0.8696044313078626,
+       "off_target": 4.237572136984374
+      }
+     },
+     {
+      "native_stakes": {
+       "near_positive": {
+        "effect_nat": 0.045631217949048355,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": 0.23032721022904698,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": 0.28757717217419687,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": 0.06936030312566951,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": 0.12169078657940208,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.0038483693354496758,
+        "tokens": 12599
+       }
+      },
+      "effects": {
+       "near_positive": {
+        "effect_nat": -0.11638260914193445,
+        "tokens": 3088
+       },
+       "far_positive": {
+        "effect_nat": -0.06197846701384197,
+        "tokens": 2162
+       },
+       "one_predecessor_positive": {
+        "effect_nat": -0.03188250868995855,
+        "tokens": 1259
+       },
+       "multiple_predecessor_positive": {
+        "effect_nat": -0.11356724236370887,
+        "tokens": 3991
+       },
+       "all_positive": {
+        "effect_nat": -0.09397846527889903,
+        "tokens": 5250
+       },
+       "off_target": {
+        "effect_nat": 0.015590501631703162,
+        "tokens": 12599
+       }
+      },
+      "recovery": {
+       "near_positive": -2.55050411479016,
+       "far_positive": -0.26908877571263945,
+       "one_predecessor_positive": -0.1108659232195456,
+       "multiple_predecessor_positive": -1.6373521632098929,
+       "all_positive": -0.7722726421657155,
+       "off_target": 4.051196824610764
+      }
+     }
+    ],
+    "mediated_all": {
+     "native_stakes": {
+      "near_positive": {
+       "effect_nat": 0.045631217949048355,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.23032721022904698,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.28757717217419687,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": 0.06936030312566951,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": 0.12169078657940208,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.0038483693354496758,
+       "tokens": 12599
+      }
+     },
+     "effects": {
+      "near_positive": {
+       "effect_nat": -0.14988717017672687,
+       "tokens": 3088
+      },
+      "far_positive": {
+       "effect_nat": 0.035373100706526474,
+       "tokens": 2162
+      },
+      "one_predecessor_positive": {
+       "effect_nat": 0.10809301238450073,
+       "tokens": 1259
+      },
+      "multiple_predecessor_positive": {
+       "effect_nat": -0.13091055884998967,
+       "tokens": 3991
+      },
+      "all_positive": {
+       "effect_nat": -0.07359522624347092,
+       "tokens": 5250
+      },
+      "off_target": {
+       "effect_nat": 0.02494193621538476,
+       "tokens": 12599
+      }
+     },
+     "recovery": {
+      "near_positive": -3.2847505921075855,
+      "far_positive": 0.153577602365565,
+      "one_predecessor_positive": 0.3758748010743513,
+      "multiple_predecessor_positive": -1.8873988859708581,
+      "all_positive": -0.6047723768754731,
+      "off_target": 6.481170085633253
+     }
+    }
+   }
+  ],
+  "suffix_curve": {
+   "boundaries_in_execution_order": [
+    {
+     "boundary": "m8",
+     "patched_write_count": 19,
+     "all_positive_recovery": -0.5848631436632752
+    },
+    {
+     "boundary": "a9",
+     "patched_write_count": 18,
+     "all_positive_recovery": -0.8547300615448211
+    },
+    {
+     "boundary": "m9",
+     "patched_write_count": 17,
+     "all_positive_recovery": -0.8382841910342068
+    },
+    {
+     "boundary": "a10",
+     "patched_write_count": 16,
+     "all_positive_recovery": -1.0230985544821198
+    },
+    {
+     "boundary": "m10",
+     "patched_write_count": 15,
+     "all_positive_recovery": -0.9137520421943398
+    },
+    {
+     "boundary": "a11",
+     "patched_write_count": 14,
+     "all_positive_recovery": -1.0825543538169358
+    },
+    {
+     "boundary": "m11",
+     "patched_write_count": 13,
+     "all_positive_recovery": -1.0753890352846067
+    },
+    {
+     "boundary": "a12",
+     "patched_write_count": 12,
+     "all_positive_recovery": -1.1917026251466902
+    },
+    {
+     "boundary": "m12",
+     "patched_write_count": 11,
+     "all_positive_recovery": -1.0550555173489127
+    },
+    {
+     "boundary": "a13",
+     "patched_write_count": 10,
+     "all_positive_recovery": -1.1586565930225643
+    },
+    {
+     "boundary": "m13",
+     "patched_write_count": 9,
+     "all_positive_recovery": -1.031821027130899
+    },
+    {
+     "boundary": "a14",
+     "patched_write_count": 8,
+     "all_positive_recovery": -1.1674200458283983
+    },
+    {
+     "boundary": "m14",
+     "patched_write_count": 7,
+     "all_positive_recovery": -0.9249825080424126
+    },
+    {
+     "boundary": "a15",
+     "patched_write_count": 6,
+     "all_positive_recovery": -0.9646710665817755
+    },
+    {
+     "boundary": "m15",
+     "patched_write_count": 5,
+     "all_positive_recovery": -0.9502434200593647
+    },
+    {
+     "boundary": "a16",
+     "patched_write_count": 4,
+     "all_positive_recovery": -1.0068795663928543
+    },
+    {
+     "boundary": "m16",
+     "patched_write_count": 3,
+     "all_positive_recovery": -0.9566840395424795
+    },
+    {
+     "boundary": "a17",
+     "patched_write_count": 2,
+     "all_positive_recovery": -0.8412262031414407
+    },
+    {
+     "boundary": "m17",
+     "patched_write_count": 1,
+     "all_positive_recovery": -0.7481002209366301
+    }
+   ],
+   "patched_count_vs_recovery_spearman": -0.007017543859649121,
+   "half_spearman": [
+    -0.04561403508771929,
+    0.04210526315789473
+   ],
+   "ascending_adjacent_increments": [
+    {
+     "from_count": 1,
+     "to_count": 2,
+     "recovery_increment": -0.09312598220481061
+    },
+    {
+     "from_count": 2,
+     "to_count": 3,
+     "recovery_increment": -0.1154578364010388
+    },
+    {
+     "from_count": 3,
+     "to_count": 4,
+     "recovery_increment": -0.05019552685037476
+    },
+    {
+     "from_count": 4,
+     "to_count": 5,
+     "recovery_increment": 0.05663614633348957
+    },
+    {
+     "from_count": 5,
+     "to_count": 6,
+     "recovery_increment": -0.014427646522410797
+    },
+    {
+     "from_count": 6,
+     "to_count": 7,
+     "recovery_increment": 0.03968855853936293
+    },
+    {
+     "from_count": 7,
+     "to_count": 8,
+     "recovery_increment": -0.24243753778598576
+    },
+    {
+     "from_count": 8,
+     "to_count": 9,
+     "recovery_increment": 0.13559901869749935
+    },
+    {
+     "from_count": 9,
+     "to_count": 10,
+     "recovery_increment": -0.12683556589166534
+    },
+    {
+     "from_count": 10,
+     "to_count": 11,
+     "recovery_increment": 0.10360107567365162
+    },
+    {
+     "from_count": 11,
+     "to_count": 12,
+     "recovery_increment": -0.13664710779777756
+    },
+    {
+     "from_count": 12,
+     "to_count": 13,
+     "recovery_increment": 0.11631358986208351
+    },
+    {
+     "from_count": 13,
+     "to_count": 14,
+     "recovery_increment": -0.007165318532329046
+    },
+    {
+     "from_count": 14,
+     "to_count": 15,
+     "recovery_increment": 0.16880231162259596
+    },
+    {
+     "from_count": 15,
+     "to_count": 16,
+     "recovery_increment": -0.10934651228778003
+    },
+    {
+     "from_count": 16,
+     "to_count": 17,
+     "recovery_increment": 0.18481436344791302
+    },
+    {
+     "from_count": 17,
+     "to_count": 18,
+     "recovery_increment": -0.016445870510614302
+    },
+    {
+     "from_count": 18,
+     "to_count": 19,
+     "recovery_increment": 0.26986691788154593
+    }
+   ]
+  },
+  "direct_distributed_interaction": {
+   "near_positive": {
+    "full_effect_nat": 0.04367100247812087,
+    "direct_effect_nat": 0.11528289568309516,
+    "mediated_effect_nat": -0.13877921240236116,
+    "full_minus_direct_minus_mediated_nat": 0.06716731919738686
+   },
+   "far_positive": {
+    "full_effect_nat": 0.22282887872741067,
+    "direct_effect_nat": 0.19787044619358043,
+    "mediated_effect_nat": 0.0384402573008921,
+    "full_minus_direct_minus_mediated_nat": -0.013481824767061869
+   },
+   "one_predecessor_positive": {
+    "full_effect_nat": 0.28454275292717024,
+    "direct_effect_nat": 0.1999160837503408,
+    "mediated_effect_nat": 0.10927711714696814,
+    "full_minus_direct_minus_mediated_nat": -0.02465044797013871
+   },
+   "multiple_predecessor_positive": {
+    "full_effect_nat": 0.06504759902498061,
+    "direct_effect_nat": 0.13303987652434884,
+    "mediated_effect_nat": -0.12056442710069662,
+    "full_minus_direct_minus_mediated_nat": 0.05257214960132839
+   },
+   "all_positive": {
+    "full_effect_nat": 0.11561160986583348,
+    "direct_effect_nat": 0.1484458169610887,
+    "mediated_effect_nat": -0.06761696959010349,
+    "full_minus_direct_minus_mediated_nat": 0.03478276249484828
+   },
+   "off_target": {
+    "full_effect_nat": 0.004397543936495077,
+    "direct_effect_nat": -0.025433812932894435,
+    "mediated_effect_nat": 0.02462797245419469,
+    "full_minus_direct_minus_mediated_nat": 0.005203384415194821
+   }
+  },
+  "dominant_isolated_route": "direct_only",
+  "route_classification": "registered_route_predictions_unresolved",
+  "pred_b_direct_route": false,
+  "pred_c_cumulative_suffix": false,
+  "pred_d_mlp_over_attention": false,
+  "pred_e_dominant_context_law": false,
+  "strong_science_null": false
+ },
+ "factor_reconstruction_relative_squared_max": 7.358423656770381e-14,
+ "native_replay": {
+  "max_abs": 0.0,
+  "relative_squared": 0.0
+ },
+ "audit_totals": {
+  "path:native": {
+   "forwards": 48,
+   "native_attention": 864,
+   "replayed_attention": 0,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 0
+  },
+  "path:replay": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 0
+  },
+  "path:base": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 912,
+   "patches": 0
+  },
+  "path:reference": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 912,
+   "patches": 0
+  },
+  "path:direct_only": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 912
+  },
+  "path:mediated_mlp": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 480
+  },
+  "path:mediated_attention": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 432
+  },
+  "path:suffix:m8": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 912
+  },
+  "path:suffix:a9": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 864
+  },
+  "path:suffix:m9": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 816
+  },
+  "path:suffix:a10": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 768
+  },
+  "path:suffix:m10": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 720
+  },
+  "path:suffix:a11": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 672
+  },
+  "path:suffix:m11": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 624
+  },
+  "path:suffix:a12": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 576
+  },
+  "path:suffix:m12": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 528
+  },
+  "path:suffix:a13": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 480
+  },
+  "path:suffix:m13": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 432
+  },
+  "path:suffix:a14": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 384
+  },
+  "path:suffix:m14": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 336
+  },
+  "path:suffix:a15": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 288
+  },
+  "path:suffix:m15": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 240
+  },
+  "path:suffix:a16": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 192
+  },
+  "path:suffix:m16": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 144
+  },
+  "path:suffix:a17": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 96
+  },
+  "path:suffix:m17": {
+   "forwards": 48,
+   "native_attention": 720,
+   "replayed_attention": 144,
+   "native_mlp": 864,
+   "captures": 0,
+   "patches": 48
+  }
+ },
+ "sufficient_statistics": {
+  "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_score_path_factorial_rung463_sufficient_statistics.pt",
+  "sha256": "67715bd426657e29bf4b610d9b3f8a6eb60e6d4364be7dfeab80b73c0cd5d39c",
+  "bytes": 234373
+ },
+ "execution_price": {
+  "outer_forwards": 1248,
+  "suffix_boundaries": 19,
+  "peak_gpu_memory_bytes": 3159521280,
+  "deployed_parameters_saved": 0
+ },
+ "pred_a_instrument": true,
+ "pred_b_direct_route": false,
+ "pred_c_cumulative_suffix": false,
+ "pred_d_mlp_over_attention": false,
+ "pred_e_dominant_context_law": false,
+ "strong_null": false,
+ "runtime_s": 30.68605613708496,
+ "next_step": "audit_normalized_state_or_hidden_channels_before_branch_split"
+}
