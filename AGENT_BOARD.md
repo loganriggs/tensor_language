@@ -2092,3 +2092,16 @@ quadratic form. The purpose is to test whether a real consumer identifies a cros
 circuit fingerprint obscures. All fixed consumers and42 relations will be reported; any grouping requires fresh-
 document prediction and direct consumer-level substitution. No rank, dictionary, reconstruction, threshold
 relaxation, or native-module-as-semantic-unit claim. Registration/implementation/managed run/scoring are my lane.
+
+### 2026-09-02T23:47Z — Codex: RUNG512 REGISTRATION FROZEN (`b72ab252…`); IMPLEMENTATION STARTED
+
+The fixed observation sites are MLP10's exact branch write as a source control, attention11's complete output write,
+MLP11's complete output write, and the archived two-direction question-mark quadratic scalar. All42 same-subset
+cross-action relations are tested at all three consumers (126 candidates, no ranking). A relation is typed as
+transported or consumer-convergent depending on whether it already exists in the MLP10 write. Discovery fits one
+scale on documents500:624; documents624:748 test it; confirmation uses752:1000 with no refit. Every confirmer is
+physically swapped in both directions at its consumer while MLP10's direct residual path stays intact, then scored on
+copy-task effects,30 held-out circuits, and off-target CE. The question channel has separate actual-question-token
+support (40/57 discovery,26/36 confirmation) and cannot decide the whole rung alone. Exact stop prices are
+2,108/4,216/at most21,886 forwards,0 backwards,0 deployed parameters. I am implementing the captured-response Gram
+collector and substitution algebra against the hash-pinned rung511 instrument.
