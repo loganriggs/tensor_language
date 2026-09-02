@@ -950,43 +950,67 @@ def _gpu_smoke():
         remove_terms=(singleton, partner), absent_capture=absent)
 
     diagnostics = (direct_diag, absent_diag, native_diag, score_diag)
-    passed = bool(
-        checkpoint.weights_sha256 == facade.WEIGHTS_SHA256
-        and max(row["factor_reconstruction_max"] for row in diagnostics) <= 1e-10
-        and max(row["raw_source_relative_squared"] for row in diagnostics)
-        <= DEPLOYED_BF16_BAR
-        and max(row["normalized_closure_relative_squared"] for row in diagnostics) <= 1e-12
-        and max(row["float32_mlp10_closure"] for row in diagnostics) <= 1e-10
-        and max(row["deployed_mlp10_relative_squared"] for row in diagnostics)
-        <= DEPLOYED_BF16_BAR
-        and closure["score_delta_float32_closure"] <= 1e-10
-        and closure["score_delta_deployed_relative_squared"] <= DEPLOYED_BF16_BAR
-        and float(native_difference.abs().max()) == 0.0 and native_relative <= 1e-12
-        and pair_enumeration_error <= 1e-10 and pair_output_error <= 1e-10
-        and attributions.ndim == 1 and attributions.numel() == len(SOURCE_PAIRS)
-        and bool(torch.isfinite(attributions).all())
-        and single_audit["mlp10_term_patches"] == 1
-        and joint_audit["mlp10_term_patches"] == 1
-        and single_diag["term_edit_rms"] > 0 and joint_diag["term_edit_rms"] > 0)
-    if not passed:
-        raise RuntimeError("rung507 CUDA smoke failed")
-    print(json.dumps({
-        "status": "smoke_passed", "rung": 507,
-        "scientific_outcomes_retained": False,
-        "native_replay_logit_max_abs": float(native_difference.abs().max()),
-        "native_replay_relative_squared": native_relative,
+    measurements = {
+        "weights_exact": checkpoint.weights_sha256 == facade.WEIGHTS_SHA256,
         "factor_reconstruction_max": max(
             row["factor_reconstruction_max"] for row in diagnostics),
-        "pair_enumeration_relative_squared": pair_enumeration_error,
-        "pair_output_relative_squared": pair_output_error,
+        "raw_source_relative_squared": max(
+            row["raw_source_relative_squared"] for row in diagnostics),
+        "normalized_closure_relative_squared": max(
+            row["normalized_closure_relative_squared"] for row in diagnostics),
+        "float32_mlp10_closure": max(
+            row["float32_mlp10_closure"] for row in diagnostics),
+        "deployed_mlp10_relative_squared": max(
+            row["deployed_mlp10_relative_squared"] for row in diagnostics),
         "score_delta_float32_closure": closure["score_delta_float32_closure"],
         "score_delta_deployed_relative_squared": closure[
             "score_delta_deployed_relative_squared"],
+        "native_replay_logit_max_abs": float(native_difference.abs().max()),
+        "native_replay_relative_squared": native_relative,
+        "pair_enumeration_relative_squared": pair_enumeration_error,
+        "pair_output_relative_squared": pair_output_error,
         "gradient_attribution_count": int(attributions.numel()),
+        "gradient_attributions_finite": bool(torch.isfinite(attributions).all()),
+        "singleton_patch_count": single_audit["mlp10_term_patches"],
+        "joint_patch_count": joint_audit["mlp10_term_patches"],
         "singleton_patch_live": single_diag["term_edit_rms"] > 0,
         "joint_patch_live": joint_diag["term_edit_rms"] > 0,
+    }
+    checks = {
+        "weights": measurements["weights_exact"],
+        "attention_factor_reconstruction": measurements["factor_reconstruction_max"] <= 1e-10,
+        "raw_source_identity": measurements["raw_source_relative_squared"] <= DEPLOYED_BF16_BAR,
+        "normalized_source_closure": measurements[
+            "normalized_closure_relative_squared"] <= 1e-12,
+        "float32_mlp10_closure": measurements["float32_mlp10_closure"] <= 1e-10,
+        "deployed_mlp10_bound": measurements[
+            "deployed_mlp10_relative_squared"] <= DEPLOYED_BF16_BAR,
+        "score_delta_float32_closure": measurements[
+            "score_delta_float32_closure"] <= 1e-10,
+        "score_delta_deployed_bound": measurements[
+            "score_delta_deployed_relative_squared"] <= DEPLOYED_BF16_BAR,
+        "native_replay": measurements["native_replay_logit_max_abs"] == 0.0
+        and measurements["native_replay_relative_squared"] <= 1e-12,
+        "pair_enumeration": measurements[
+            "pair_enumeration_relative_squared"] <= 1e-10,
+        "pair_output": measurements["pair_output_relative_squared"] <= 1e-10,
+        "gradient_path": measurements["gradient_attribution_count"] == len(SOURCE_PAIRS)
+        and measurements["gradient_attributions_finite"],
+        "singleton_patch": measurements["singleton_patch_count"] == 1
+        and measurements["singleton_patch_live"],
+        "joint_patch": measurements["joint_patch_count"] == 1
+        and measurements["joint_patch_live"],
+    }
+    passed = all(checks.values())
+    print(json.dumps({
+        "status": "smoke_passed" if passed else "smoke_failed", "rung": 507,
+        "scientific_outcomes_retained": False,
+        "checks": checks, "measurements": measurements,
         "full_forwards": 6, "backwards": 1,
     }, indent=2, sort_keys=True))
+    if not passed:
+        failed = sorted(name for name, value in checks.items() if not value)
+        raise RuntimeError(f"rung507 CUDA smoke failed: {failed}")
 
 
 def main():
