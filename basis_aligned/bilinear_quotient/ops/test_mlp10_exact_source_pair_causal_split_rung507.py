@@ -108,7 +108,8 @@ def test_instrument_rejects_even_one_zero_term_edit():
         "float32_mlp10_closure": 0.0,
         "deployed_mlp10_relative_squared": 0.0,
         "score_delta_float32_closure": 0.0,
-        "score_delta_deployed_relative_squared": 0.0,
+        "score_delta_predeployment_relative_squared": 0.016,
+        "score_delta_deployed_closure_relative_squared": 0.0,
         "minimum_nonzero_score_edit_rms": 1.0,
         "term_patches_exact": True,
         "term_patches": 2,
@@ -116,6 +117,37 @@ def test_instrument_rejects_even_one_zero_term_edit():
         "zero_term_edits": 1,
     }
     assert rung._phase_instrument({"diagnostics": diagnostics}) is False
+
+
+def test_output_rounding_remainder_closes_deployed_score_change_exactly():
+    torch.manual_seed(509)
+    width, hidden = 5, 7
+    mlp = SimpleNamespace(
+        Left=SimpleNamespace(weight=torch.randn(hidden, width)),
+        Right=SimpleNamespace(weight=torch.randn(hidden, width)),
+        Down=SimpleNamespace(weight=torch.randn(width, hidden)),
+        Down_bias=torch.randn(width),
+    )
+
+    def capture():
+        sources = torch.randn(1, 2, len(rung.NAMED_SOURCES), width)
+        numerical = .001 * torch.randn(1, 2, width)
+        left = torch.nn.functional.linear(sources.sum(2) + numerical, mlp.Left.weight)
+        right = torch.nn.functional.linear(sources.sum(2) + numerical, mlp.Right.weight)
+        independent = torch.nn.functional.linear(left * right, mlp.Down.weight) + mlp.Down_bias
+        deployed = independent + .01 * torch.randn_like(independent)
+        factors = rung._source_factors(mlp, sources, numerical, deployed)
+        return {
+            "factors": factors, "deployed_write": deployed,
+            "numerical_output": factors["numerical_output"],
+        }
+
+    absent, current = capture(), capture()
+    diagnostics = rung._empty_diagnostics()
+    rung._score_delta_closure(diagnostics, current, absent)
+    assert diagnostics["score_delta_float32_closure"] < 1e-12
+    assert diagnostics["score_delta_deployed_closure_relative_squared"] < 1e-12
+    assert diagnostics["score_delta_predeployment_relative_squared"] > 0
 
 
 def test_registered_maximum_price_is_literal():

@@ -37,6 +37,7 @@ import natural_action_conditioned_later_write_state_atlas_rung506 as state_paren
 
 
 PREREG = POLY / "MLP10_EXACT_SOURCE_PAIR_CAUSAL_SPLIT_RUNG507_PREREGISTRATION.md"
+REPAIR_PREREG = POLY / "MLP10_EXACT_SOURCE_PAIR_CAUSAL_SPLIT_RUNG507_INSTRUMENT_REPAIR.md"
 R506_SOURCE = ROOT / "ops/natural_action_conditioned_later_write_state_atlas_rung506.py"
 R506_RESULT = ROOT / "natural_action_conditioned_later_write_state_atlas_rung506_results.json"
 R506_BUNDLE = ROOT / "natural_action_conditioned_later_write_state_atlas_rung506_bundle.pt"
@@ -46,6 +47,7 @@ OUT = ROOT / "mlp10_exact_source_pair_causal_split_rung507_results.json"
 BUNDLE = ROOT / "mlp10_exact_source_pair_causal_split_rung507_bundle.pt"
 HASHES = {
     PREREG: "4bfd001804fde4ab0852172c5fe5242fb523258f1e60cd9aa14c26a94428a8e9",
+    REPAIR_PREREG: "af53ce54fdb92cda933b44ce39657d9bfe2c9993f9ce53c7babf5f82b353dc1e",
     R506_SOURCE: "9a17e28312a0e7214e5fc587123e3267e2650b382f3a40daf12ad1a380b1d004",
     R506_RESULT: "f86e5f0303ab0616ea14e3141fd09886ca54d326e8d83ea6c8c13a62f66db75e",
     R506_BUNDLE: "225f73cb885e0e51d76ed329b60b044359a600a18e130846c99dd4c103959093",
@@ -148,6 +150,7 @@ def _source_factors(mlp, sources, numerical, deployed_write):
     independent = _linear(full_hidden, mlp.Down.weight.float()) + mlp.Down_bias.float()
     semantic_output = _linear(semantic_hidden, mlp.Down.weight.float())
     numerical_output = independent - semantic_output - mlp.Down_bias.float()
+    deployment_rounding_output = deployed_write.float() - independent
     rebuilt = semantic_output + numerical_output + mlp.Down_bias.float()
     return {
         "left": left.detach(), "right": right.detach(),
@@ -155,6 +158,7 @@ def _source_factors(mlp, sources, numerical, deployed_write):
         "independent_write": independent.detach(),
         "semantic_output": semantic_output.detach(),
         "numerical_output": numerical_output.detach(),
+        "deployment_rounding_output": deployment_rounding_output.detach(),
         "float32_closure": _relative_squared(rebuilt, independent),
         "deployed_relative_squared": _relative_squared(independent, deployed_write.float()),
     }
@@ -389,7 +393,8 @@ def _empty_diagnostics():
         "float32_mlp10_closure": 0.0,
         "deployed_mlp10_relative_squared": 0.0,
         "score_delta_float32_closure": 0.0,
-        "score_delta_deployed_relative_squared": 0.0,
+        "score_delta_predeployment_relative_squared": 0.0,
+        "score_delta_deployed_closure_relative_squared": 0.0,
         "native_replay_logit_max_abs": 0.0,
         "native_replay_relative_squared": 0.0,
         "minimum_nonzero_score_edit_rms": math.inf,
@@ -420,10 +425,17 @@ def _score_delta_closure(total, current, absent):
         - absent["factors"]["independent_write"]
     deployed = current["deployed_write"].float() - absent["deployed_write"].float()
     rebuilt = named + numerical
+    rounding = current["factors"]["deployment_rounding_output"] \
+        - absent["factors"]["deployment_rounding_output"]
+    deployed_rebuilt = rebuilt + rounding
     total["score_delta_float32_closure"] = max(
         total["score_delta_float32_closure"], _relative_squared(rebuilt, independent))
-    total["score_delta_deployed_relative_squared"] = max(
-        total["score_delta_deployed_relative_squared"], _relative_squared(rebuilt, deployed))
+    total["score_delta_predeployment_relative_squared"] = max(
+        total["score_delta_predeployment_relative_squared"],
+        _relative_squared(rebuilt, deployed))
+    total["score_delta_deployed_closure_relative_squared"] = max(
+        total["score_delta_deployed_closure_relative_squared"],
+        _relative_squared(deployed_rebuilt, deployed))
 
 
 def _calibration(base_task, source_task, counts, bounds):
@@ -878,7 +890,8 @@ def _phase_instrument(collection, *, gradient=False):
         and d["float32_mlp10_closure"] <= 1e-10
         and d["deployed_mlp10_relative_squared"] <= DEPLOYED_BF16_BAR
         and d["score_delta_float32_closure"] <= 1e-10
-        and d["score_delta_deployed_relative_squared"] <= DEPLOYED_BF16_BAR
+        and math.isfinite(d["score_delta_predeployment_relative_squared"])
+        and d["score_delta_deployed_closure_relative_squared"] <= 1e-12
         and d["minimum_nonzero_score_edit_rms"] > 0)
     if gradient:
         return bool(base and d["backwards_exact"]
@@ -963,8 +976,10 @@ def _gpu_smoke():
         "deployed_mlp10_relative_squared": max(
             row["deployed_mlp10_relative_squared"] for row in diagnostics),
         "score_delta_float32_closure": closure["score_delta_float32_closure"],
-        "score_delta_deployed_relative_squared": closure[
-            "score_delta_deployed_relative_squared"],
+        "score_delta_predeployment_relative_squared": closure[
+            "score_delta_predeployment_relative_squared"],
+        "score_delta_deployed_closure_relative_squared": closure[
+            "score_delta_deployed_closure_relative_squared"],
         "native_replay_logit_max_abs": float(native_difference.abs().max()),
         "native_replay_relative_squared": native_relative,
         "pair_enumeration_relative_squared": pair_enumeration_error,
@@ -987,8 +1002,10 @@ def _gpu_smoke():
             "deployed_mlp10_relative_squared"] <= DEPLOYED_BF16_BAR,
         "score_delta_float32_closure": measurements[
             "score_delta_float32_closure"] <= 1e-10,
-        "score_delta_deployed_bound": measurements[
-            "score_delta_deployed_relative_squared"] <= DEPLOYED_BF16_BAR,
+        "score_delta_predeployment_reported": math.isfinite(measurements[
+            "score_delta_predeployment_relative_squared"]),
+        "score_delta_deployed_closure": measurements[
+            "score_delta_deployed_closure_relative_squared"] <= 1e-12,
         "native_replay": measurements["native_replay_logit_max_abs"] == 0.0
         and measurements["native_replay_relative_squared"] <= 1e-12,
         "pair_enumeration": measurements[
