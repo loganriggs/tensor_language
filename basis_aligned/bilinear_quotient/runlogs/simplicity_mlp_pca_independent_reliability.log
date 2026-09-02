@@ -1,0 +1,161 @@
+fit layer 0: top256 energy 0.8573
+fit layer 1: top256 energy 0.8149
+fit layer 2: top256 energy 0.7641
+fit layer 3: top256 energy 0.7684
+fit layer 4: top256 energy 0.8068
+fit layer 5: top256 energy 0.7990
+fit layer 6: top256 energy 0.7612
+fit layer 7: top256 energy 0.7039
+fit layer 8: top256 energy 0.7077
+fit layer 9: top256 energy 0.6922
+fit layer 10: top256 energy 0.6802
+fit layer 11: top256 energy 0.7017
+fit layer 12: top256 energy 0.7017
+fit layer 13: top256 energy 0.7009
+fit layer 14: top256 energy 0.6800
+fit layer 15: top256 energy 0.7504
+fit layer 16: top256 energy 0.9595
+fit layer 17: top256 energy 0.9896
+fit layer 8: top256/384/512 energy 0.7077/0.8135/0.8820
+fit layer 17: top256/384/512 energy 0.9896/0.9934/0.9958
+plain PCA layer 8: top256 energy 0.7077
+plain PCA layer 17: top256 energy 0.9896
+gradient layer 8: rms 0.000207645
+gradient layer 17: rms 4.88462e-05
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2280 | fresh +0.2107
+  window 0 (7 docs): L2 fresh +0.0348
+  window 1 (42 docs): L2 fresh +0.0319
+  window 2 (17 docs): L2 fresh +0.0166
+  window 3 (23 docs): L2 fresh +0.0272
+  window 4 (43 docs): L2 fresh +0.0259
+  window 5 (26 docs): L2 fresh +0.0294
+  window 6 (35 docs): L2 fresh +0.0033
+  window 7 (35 docs): L2 fresh +0.0245
+L2 empirical: C +0.0268 | fresh +0.0370 | tail-attn increment -0.1737
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+RUNG453 child unablated saved simplicity_mlp_pca_reliability_unablated.pt
+fit layer 0: top256 energy 0.8573
+fit layer 1: top256 energy 0.8149
+fit layer 2: top256 energy 0.7641
+fit layer 3: top256 energy 0.7684
+fit layer 4: top256 energy 0.8068
+fit layer 5: top256 energy 0.7990
+fit layer 6: top256 energy 0.7612
+fit layer 7: top256 energy 0.7039
+fit layer 8: top256 energy 0.7077
+fit layer 9: top256 energy 0.6922
+fit layer 10: top256 energy 0.6802
+fit layer 11: top256 energy 0.7017
+fit layer 12: top256 energy 0.7017
+fit layer 13: top256 energy 0.7009
+fit layer 14: top256 energy 0.6800
+fit layer 15: top256 energy 0.7504
+fit layer 16: top256 energy 0.9595
+fit layer 17: top256 energy 0.9896
+fit layer 8: top256/384/512 energy 0.7077/0.8135/0.8820
+fit layer 17: top256/384/512 energy 0.9896/0.9934/0.9958
+plain PCA layer 8: top256 energy 0.7077
+plain PCA layer 17: top256 energy 0.9896
+gradient layer 8: rms 0.000207645
+gradient layer 17: rms 4.88462e-05
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2280 | fresh +0.2108
+  window 0 (7 docs): L2 fresh +0.0348
+  window 1 (42 docs): L2 fresh +0.0319
+  window 2 (17 docs): L2 fresh +0.0166
+  window 3 (23 docs): L2 fresh +0.0272
+  window 4 (43 docs): L2 fresh +0.0259
+  window 5 (26 docs): L2 fresh +0.0294
+  window 6 (35 docs): L2 fresh +0.0033
+  window 7 (35 docs): L2 fresh +0.0245
+L2 empirical: C +0.0268 | fresh +0.0370 | tail-attn increment -0.1737
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+RUNG453 child knockout saved simplicity_mlp_pca_reliability_knockout.pt
+fit layer 0: top256 energy 0.8573
+fit layer 1: top256 energy 0.8149
+fit layer 2: top256 energy 0.7641
+fit layer 3: top256 energy 0.7684
+fit layer 4: top256 energy 0.8068
+fit layer 5: top256 energy 0.7990
+fit layer 6: top256 energy 0.7612
+fit layer 7: top256 energy 0.7039
+fit layer 8: top256 energy 0.7077
+fit layer 9: top256 energy 0.6922
+fit layer 10: top256 energy 0.6802
+fit layer 11: top256 energy 0.7017
+fit layer 12: top256 energy 0.7017
+fit layer 13: top256 energy 0.7009
+fit layer 14: top256 energy 0.6800
+fit layer 15: top256 energy 0.7504
+fit layer 16: top256 energy 0.9595
+fit layer 17: top256 energy 0.9896
+fit layer 8: top256/384/512 energy 0.7077/0.8135/0.8820
+fit layer 17: top256/384/512 energy 0.9896/0.9934/0.9958
+plain PCA layer 8: top256 energy 0.7077
+plain PCA layer 17: top256 energy 0.9896
+gradient layer 8: rms 0.000207645
+gradient layer 17: rms 4.88462e-05
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
