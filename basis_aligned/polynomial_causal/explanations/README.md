@@ -268,4 +268,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_1131.md](explanation_2026-09-02_1131.md) — the hour everything landed: the guarded .94 composition claim (third try), the geometric code/natural split, six verdicts in thirty minutes
 - [explanation_1318.md](explanation_2026-09-02_1318.md) — MLP0's exact finite paths: MLP1 dominates, token and bigram downstream lookups fail, and an exact continuous secant-factor interchange is running
 - [explanation_1330.md](explanation_2026-09-02_1330.md) — full update since 02:19: shared equality matcher, selective MLP components, gauge/reproducibility corrections, MLP0's exact paths, and the T–I continuous-reader screen
-- [explanation_1348.md](explanation_2026-09-02_1348.md) — the second claim, first to survive held-out validation: T and I share MLP1's live-state reader (.95–.97 both quarters); the day in one paragraph
+- [explanation_1348.md](explanation_2026-09-02_1348.md) — held-out T–I midpoint-interchange graph (.95–.97 both quarters), with the native-state confound and rung489 interpretation guard appended
