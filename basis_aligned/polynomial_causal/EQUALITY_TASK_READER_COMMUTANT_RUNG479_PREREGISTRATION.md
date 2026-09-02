@@ -4,6 +4,12 @@ Registered after rung478's strong null and before collecting any new reader or s
 circuits and documents500:1000 remain reserved. This is a discovery-only algebraic screen, not an intervention or
 adoption claim.
 
+Before rung479 opened any model outcome, the independent CPU-only commutant calibration landed. At dimension32 it
+had0/32 generic false positives; the forced generic two-block off-mass had5th/50th/95th percentiles
+`.124/.198/.240`, while planted shared blocks with noise through`.03` had maximum off-mass below`.029`. This
+outcome-independent calibration replaces the guessed C/D off-block bars below with measured stricter bars. Frozen
+calibration result/source hashes are `17a81b59...` / `50fb8cdc...`.
+
 ## Question
 
 Rung478 showed that sparse weighted sums of native MLP products can interpolate one32-circuit response view but do
@@ -111,12 +117,14 @@ conjugated control `lambda2` values, and the candidate direction is symmetric an
 
 ### C — the fit-view direction defines an approximate two-block family
 
-Both proposed blocks have dimension at least2. On the64 fit matrices, median off-block Frobenius fraction is at
-most`.20` and the90th percentile is at most`.35`.
+Both proposed blocks have dimension at least2. On the64 fit matrices, median and90th-percentile off-block Frobenius
+fractions are each at most`.03`, below the planted-noise`.03` calibration and more than fourfold below the generic
+forced-split5th percentile.
 
 ### D — the same blocks survive source and document shifts
 
-In each of the three non-fit views, median off-block fraction is at most`.30` and the90th percentile at most`.50`.
+In each of the three non-fit views, median off-block fraction is at most`.05` and the90th percentile at most`.08`.
+The latter remains below the independently measured generic forced-split5th percentile`.124`.
 The top32 equality-state subspace independently recomputed in that view has squared principal-overlap at least`.70`
 with `U_ab`.
 
