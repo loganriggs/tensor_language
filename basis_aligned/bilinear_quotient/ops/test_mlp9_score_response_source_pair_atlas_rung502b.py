@@ -46,6 +46,13 @@ def test_repaired_intervals_and_price_are_literal():
     assert len(rung.SOURCES) == 20 and len(rung.SOURCE_PAIRS) == 210
 
 
+def test_roundoff_limits_are_literal_in_scoring_source():
+    source = rung.Path(rung.__file__).read_text()
+    assert 'raw_round_rms_over_raw_max"] <= .03125' in source
+    assert 'norm_round_e_rms_over_z_max"] <= .015625' in source
+    assert 'norm_round_proportional_rms_over_z_max"] <= .015625' in source
+
+
 def test_first_invalid_receipt_and_authority_are_pinned():
     rows, masks, tags, metadata = rung.validate_inputs()
     assert tuple(rows.shape) == (1000, 257)

@@ -225,8 +225,12 @@ the old explicit-numerical convention, but these diagnostics cannot be called se
 `A_b` holds only if all hashes, data roles, source names, edits, exact intervals, and the corrected1,000-forward price
 match; background-native replay is exact; both gauges reconstruct every deployed normalized state to `1e-12`, every
 independent float32 MLP9 write to `1e-8`, and deployed BF16 writes to the old `16u^2` bound; all responses/gradients
-are live and finite. The first receipt's `<2% NUMERICAL` clause cannot pass retroactively and is replaced only by the
-two exact allocations plus the cross-gauge requirements below.
+are live and finite. Because the model's RMS normalization is unweighted, the captured raw-side complement is also
+an instrument check rather than a free remainder: `raw_round` RMS divided by deployed raw-residual RMS must be at
+most `8u=.03125`, and `norm_round` RMS divided by normalized-state RMS must be at most `4u=.015625`, where
+`u=2^-8` is the BF16 unit roundoff. Larger errors indicate a missing/misweighted source and fail A_b. The first
+receipt's `<2% NUMERICAL` clause cannot pass retroactively and is replaced only by the exact raw-residual capture,
+these roundoff bounds, the two exact allocations, and the cross-gauge requirements below.
 
 `B_b` repeats the old parent-response and payload-rejection bars in all four fixed document halves and both backgrounds,
 using each background's own `late_native` write. It must numerically reproduce rung501's background-specific MLP9

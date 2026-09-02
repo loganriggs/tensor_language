@@ -46,7 +46,7 @@ CIRCUIT_SOURCE = ROOT / "ops/mlp0_branch_circuit_response_rung481.py"
 OUT = ROOT / "mlp9_score_response_source_pair_atlas_rung502b_results.json"
 BUNDLE = ROOT / "mlp9_score_response_source_pair_atlas_rung502b_bundle.pt"
 HASHES = {
-    PREREG: "c015f51d3e0cfc94740665ce567c55011b3138efa3421dac9f78a8f5dbc29250",
+    PREREG: "ac32f5d857544596c0d80544218536a064bc32a6fae9244053b36d306c021d67",
     FIRST_SOURCE: "8467077102879bd028360a3626776b2de853342095c86ef186db8785c24ce3a5",
     FIRST_RESULT: "77984dd9d68da79640d72a8c273718b32199d9eb67fea0b7c4038770141099c0",
     FIRST_BUNDLE: "c2d3a35565951218dd7f335bed6adb6322172db9b8fe3f12cf5ae1d4cad2604e",
@@ -598,7 +598,10 @@ def main():
         and all(diagnostics["state_closure"][gauge] <= 1e-12 for gauge in GAUGES)
         and all(diagnostics["float32_pair_closure"][gauge] <= 1e-8 for gauge in GAUGES)
         and all(diagnostics["float32_vs_deployed"][gauge] <= DEPLOYED_BF16_BAR
-                for gauge in GAUGES))
+                for gauge in GAUGES)
+        and diagnostics["raw_round_rms_over_raw_max"] <= .03125
+        and diagnostics["norm_round_e_rms_over_z_max"] <= .015625
+        and diagnostics["norm_round_proportional_rms_over_z_max"] <= .015625)
 
     reports = {gauge: _parent_reports(banks[gauge]) for gauge in GAUGES}
     parent_bars = all(
