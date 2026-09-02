@@ -67101,3 +67101,31 @@ relation without ranking, test the frozen pairs on new documents and the other30
 bidirectional physical substitution of the exact term output changes through layers11--17. A positive result groups
 terms because downstream computation cannot distinguish them; a null closes the pairwise quotient at the registered
 scale. No hidden dictionary, rank, quantization, reconstruction, or parameter-reduction claim remains.
+
+## §2642 — RUNG510: 716 OF1,012 EXACT TERM NODES ARE LIVE, BUT ZERO OF ALL511,566 PAIRS IS DOWNSTREAM-EQUIVALENT
+
+Rung510 replaced rung509's unidentifiable hidden atoms with directly observed interventions. A node is one of253 exact
+MLP10 source-pair terms under one of four calibrated equality-score implementations. It removed every node, measured
+four copy-task effects and32 circuit member-minus-control effects on documents500:748, fit one signed scale per pair
+on the first document half, and tested that scale without refitting on the second half. All unordered pairs were
+tested and every passer would have been retained; no pair was ranked.
+
+The instrument passes exactly (A true). The managed run completed `exit=0` after63,116 forwards,0 backwards, and
+1,322.92 seconds, with62 direct and63,054 analytical calls and62,744/62,744 patches. Native replay error is0; factor
+reconstruction is`4.69e-14`; the253-term partition error is`4.79e-14`; float32 MLP closure is`2.30e-21`; and deployed
+score-change closure is`4.80e-16`. Score calibration passes. The result/bundle SHAs are
+`16d100e7…/a8832624…`; peak allocated GPU memory is7,924,227,072 bytes.
+
+B is false and the registered strong null fires:0 of511,566 pairs passes all frozen discovery criteria. This is not a
+dead-node result—716/1,012 nodes clear both materiality floors. All16 independent circuit-coordinate permutations
+also yield0 candidates, showing that the detector is strict rather than chance-rich. C/D/E correctly remain closed:
+documents752:1000, the other30 circuit families, and physical substitutions were never evaluated.
+
+The narrow causal conclusion is that no individual exact MLP10 term is a scaled downstream substitute for another at
+this observation scale. It does not close distributed variables made from several terms or consumer-specific
+equivalence. Honor the frozen route: rung511 uses the exact bilinear identity around the score-absent input to define
+three fixed signed sums—left-side change, right-side change, and their joint change—then runs all seven nonempty
+branch subsets. All42 same-subset cross-action relations are tested without ranking; held-out circuit prediction,
+bidirectional physical substitution, all-subset finite interactions, predictable composition, and copy selectivity
+are required. Its maximum price is9,796 forwards,0 backwards, and0 deployed parameters; no rank, reconstruction,
+quantization, or latent dictionary is used.

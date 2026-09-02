@@ -4711,3 +4711,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the no-tuning route is binding. Rung510 replaces hidden atoms with pairwise operational equivalence among all1,012
   observed action/term interventions, using32 circuit families for discovery,30 for held-out prediction, and
   bidirectional physical cross-action term substitution before grouping. No rank/dictionary/quantization.
+- Rung510 (§2642): A true, B/C/D/E false; lawful strong null at the discovery gate. Exact63,116 forwards and62,744
+  patches measure all1,012 action/term nodes and test all511,566 pairs without ranking. Although716 nodes are
+  materially active,0 pairs pass; all16 permuted controls also yield0. Confirmation and physical substitution remain
+  unopened. Pairwise proportional term equivalence is closed at this scale. Rung511 follows the registered signed-sum
+  route with the exact bilinear `L`, `R`, and `LR` score-change branches, all seven fixed subsets, finite Möbius
+  interactions, held-out30-circuit prediction, and physical cross-action substitution. No rank/reconstruction.

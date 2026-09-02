@@ -313,3 +313,25 @@ is technically feasible because each bilinear MLP exposes its interactions algeb
 use gradients for search, exact source-pair terms for local specification, and finite held-out interventions for
 causal claims. Starting from MLP9's now-calibrated copy reader gives this program a known positive and typed negative
 controls before we search—a much stronger starting point than an unconstrained decomposition of MLP10.
+
+## Update — 2026-09-02 23:26 UTC
+
+The source-pair program has now been carried through MLP10 more deeply than the original proposal above:
+
+- rung507 expanded MLP10 into all253 exact terms; its two gradient-selected terms failed finite causal confirmation;
+- rung508 removed all21 fixed six-family sums, but zero was stable across document halves and score implementations;
+- rung509's learned coupled dictionary failed planted ground-truth recovery before any model run; and
+- rung510 finitely measured all1,012 `(score implementation, exact term)` nodes and tested all511,566 pairs without
+  ranking. The instrument passed and716 nodes were active, but zero pair was downstream-equivalent.
+
+This changes the next interaction experiment. Instead of searching another basis over253 terms, rung511 uses the
+exact bilinear change from score-absent input `(L0,R0)` to score-present input `(La,Ra)`:
+
+`dL*R0 + L0*dR + dL*dR`.
+
+These left, right, and joint branches are fixed by the computation. All seven nonempty branch combinations are
+removed, so inclusion-exclusion gives their singleton, pairwise, and three-way finite causal interactions. The same
+combination is compared across all four score implementations, frozen before the other30 circuit families open, and
+then physically substituted through layers11--17. If no global branch combination transfers, the registered route is
+consumer-local measurement, starting with MLP11's already-known question-form reader. See the full numerical update
+and computation in [explanation_2026-09-02_2326.md](explanation_2026-09-02_2326.md).

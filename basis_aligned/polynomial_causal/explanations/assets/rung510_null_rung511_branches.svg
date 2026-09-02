@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 510 pairwise null and rung 511 exact MLP10 branches</title>
+  <desc id="desc">Seventy point eight percent of singleton nodes were materially active, but zero of 511566 pairs passed. The successor decomposes the score-induced MLP10 change into left, right, and joint branches.</desc>
+  <rect width="1120" height="520" fill="#fbfaf7"/>
+  <text x="40" y="46" font-family="sans-serif" font-size="25" font-weight="700" fill="#17202a">MLP10: active single terms, but no interchangeable pair</text>
+  <line x1="550" y1="78" x2="550" y2="480" stroke="#d5d8dc" stroke-width="2"/>
+
+  <text x="40" y="94" font-family="sans-serif" font-size="18" font-weight="700" fill="#2c3e50">Rung 510 discovery</text>
+  <text x="40" y="127" font-family="sans-serif" font-size="15" fill="#34495e">Materially active nodes</text>
+  <rect x="40" y="145" width="450" height="46" rx="5" fill="#e5e7e9"/>
+  <rect x="40" y="145" width="318.4" height="46" rx="5" fill="#2e86c1"/>
+  <text x="370" y="175" font-family="sans-serif" font-size="17" font-weight="700" fill="#17202a">716 / 1,012 = 70.8%</text>
+
+  <text x="40" y="231" font-family="sans-serif" font-size="15" fill="#34495e">Pairs passing every frozen relation test</text>
+  <rect x="40" y="249" width="450" height="46" rx="5" fill="#e5e7e9"/>
+  <rect x="40" y="249" width="2" height="46" rx="1" fill="#c0392b"/>
+  <text x="60" y="279" font-family="sans-serif" font-size="17" font-weight="700" fill="#17202a">0 / 511,566 = 0%</text>
+
+  <text x="40" y="338" font-family="sans-serif" font-size="15" fill="#34495e">All 16 independently permuted controls also found 0 pairs.</text>
+  <text x="40" y="371" font-family="sans-serif" font-size="15" fill="#34495e">Interpretation: the signal is live, but no single exact term is</text>
+  <text x="40" y="394" font-family="sans-serif" font-size="15" fill="#34495e">a scaled copy of another term under the downstream circuit tests.</text>
+  <text x="40" y="438" font-family="sans-serif" font-size="14" fill="#5d6d7e">63,116 model forwards · 0 backwards · confirmation correctly unopened</text>
+
+  <text x="590" y="94" font-family="sans-serif" font-size="18" font-weight="700" fill="#2c3e50">Rung 511: fixed bilinear branches</text>
+  <rect x="600" y="126" width="180" height="66" rx="8" fill="#ebf5fb" stroke="#2e86c1" stroke-width="2"/>
+  <text x="690" y="153" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#1b4f72">score absent</text>
+  <text x="690" y="177" text-anchor="middle" font-family="monospace" font-size="15" fill="#1b4f72">(L0, R0)</text>
+  <rect x="890" y="126" width="180" height="66" rx="8" fill="#e8f8f5" stroke="#148f77" stroke-width="2"/>
+  <text x="980" y="153" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#0e6251">score present</text>
+  <text x="980" y="177" text-anchor="middle" font-family="monospace" font-size="15" fill="#0e6251">(La, Ra)</text>
+  <line x1="780" y1="159" x2="882" y2="159" stroke="#566573" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="585" y="245" width="150" height="82" rx="8" fill="#fef9e7" stroke="#d4ac0d" stroke-width="2"/>
+  <text x="660" y="274" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#7d6608">Left branch</text>
+  <text x="660" y="302" text-anchor="middle" font-family="monospace" font-size="14" fill="#7d6608">dL × R0</text>
+
+  <rect x="765" y="245" width="150" height="82" rx="8" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/>
+  <text x="840" y="274" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#633974">Right branch</text>
+  <text x="840" y="302" text-anchor="middle" font-family="monospace" font-size="14" fill="#633974">L0 × dR</text>
+
+  <rect x="945" y="245" width="150" height="82" rx="8" fill="#fdedec" stroke="#c0392b" stroke-width="2"/>
+  <text x="1020" y="274" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#922b21">Joint branch</text>
+  <text x="1020" y="302" text-anchor="middle" font-family="monospace" font-size="14" fill="#922b21">dL × dR</text>
+
+  <path d="M690 193 C690 220 660 218 660 238" fill="none" stroke="#d4ac0d" stroke-width="2.5" marker-end="url(#arrowGold)"/>
+  <path d="M835 194 L840 238" fill="none" stroke="#8e44ad" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+  <path d="M980 193 C980 220 1020 218 1020 238" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <text x="590" y="370" font-family="sans-serif" font-size="15" fill="#34495e">All 7 nonempty combinations are tested—no subset selection:</text>
+  <text x="590" y="399" font-family="monospace" font-size="14" fill="#34495e">L, R, LR, L+R, L+LR, R+LR, L+R+LR</text>
+  <text x="590" y="434" font-family="sans-serif" font-size="15" fill="#34495e">All-subset finite interventions measure single, pair, and triple</text>
+  <text x="590" y="457" font-family="sans-serif" font-size="15" fill="#34495e">causal interactions; held-out tests and physical swaps decide grouping.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#566573"/></marker>
+    <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#d4ac0d"/></marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#8e44ad"/></marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker>
+  </defs>
+</svg>
