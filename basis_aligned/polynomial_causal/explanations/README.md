@@ -237,3 +237,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 
 - [`explanation_2026-09-01_2153.md`](explanation_2026-09-01_2153.md) — full update since 19:57: sparse SAE-style Q/K results, the continuous quotient and failed generator, necessary normalization functions, why quantization is not interpretability, and the anti-Goodhart learned-simplicity direction.
 - [`explanation_2026-09-01_2205.md`](explanation_2026-09-01_2205.md) — implementation audit of the 20:54 plan plus the completed Archetypal result: real convex token geometry improves stability but badly damages score/write/CE and fails identification; also specifies the still-to-build learned-simplicity backtest.
+- [explanation_0331.md](explanation_2026-09-02_0331.md) — the first task-conditioned mechanism: a shared, portable equality matcher (rungs 457–460)
