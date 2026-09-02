@@ -1,0 +1,27 @@
+{
+  "T_token_effect": {
+    "minimum_count_weighted_profile_cosine": 0.6721873010190401,
+    "per_position_pearson": 0.02759059405805388,
+    "rmse_improvement_over_global": -0.008484628393381932,
+    "unweighted_profile_cosine": 0.42455649912657933
+  },
+  "next_step": "coupled_token_by_context_finite_response_tensor",
+  "predictions": {
+    "pred_a_exact_lawful_instrument": true,
+    "pred_b_physical_mlp1_side": false,
+    "pred_c_stable_bilinear_path": false,
+    "pred_d_exactly_one_T_I_relation": false,
+    "pred_e_token_identity_predicts_T_effect": false,
+    "pred_f_heldout_documents": false
+  },
+  "rung": 485,
+  "runtime_s": 87.39501905441284,
+  "selected_relation": null,
+  "selected_sides": {
+    "I": null,
+    "T": null
+  },
+  "status": "complete",
+  "strong_null": true,
+  "validation_opened": false
+}
