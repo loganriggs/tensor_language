@@ -21,9 +21,42 @@ def spearman(a,b):
     rb=(rb-rb.mean())/rb.std().clamp_min(1e-9)
     return float((ra*rb).mean())
 
+def determinism_fingerprint():
+    """One fixed forward; bit-level logits fingerprint appended to history.
+    Time-locates any cross-session numeric flip (2026-09-02 .084-nat class:
+    rung474's own code stopped reproducing its own bundle between 05:57 and
+    08:02 with replay exact within-process).  DRIFT here = kernel/env change,
+    NOT model damage; it dates the flip, nothing else."""
+    import hashlib, os
+    from bilin18_joint_removal import m, FW, DEV
+    b = FW[0:4, :257].to(DEV)
+    with torch.no_grad():
+        out = m(b[:, :-1].contiguous(), b[:, 1:].contiguous())
+    logits = (out[0] if isinstance(out, (tuple, list)) else out).detach()
+    arr = logits.float().cpu().numpy()
+    entry = {"ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+             "sha": hashlib.sha256(arr.tobytes()).hexdigest(),
+             "sum": float(arr.sum()), "abs_sum": float(abs(arr).sum())}
+    hist = ('/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+            'ops/determinism_fingerprint_history.jsonl')
+    prev = None
+    if os.path.exists(hist):
+        lines = open(hist).read().strip().splitlines()
+        if lines:
+            prev = json.loads(lines[-1])
+    if prev and prev["sha"] != entry["sha"]:
+        print(f'DRIFT: logits fingerprint changed since {prev["ts"]} '
+              f'(sum {prev["sum"]:.6f} -> {entry["sum"]:.6f}) -- '
+              f'cross-session comparisons made across this boundary are unsafe')
+    with open(hist, "a") as fh:
+        fh.write(json.dumps(entry) + "\n")
+    return entry, bool(prev is None or prev["sha"] == entry["sha"])
+
+
 def main():
     t0=time.time()
     canary1_main()   # writes its own json; DRIFT prints surface in the log
+    fp_entry, fp_stable = determinism_fingerprint()
     c1=json.load(open('/workspace/tensor_language/basis_aligned/'
                       'bilinear_quotient/bilin18_canary_results.json'))
     ok1=c1['pa'] and c1['pb'] and c1['pc']
@@ -58,7 +91,7 @@ def main():
     ok5=smooth/len(keys)>=0.9
     allok=ok1 and ok2 and ok3 and ok4 and ok5
     out={'canary1':ok1,'atlases':ok2,'leverage':r,'fraction_spot':best,
-         'smooth_frac':smooth/len(keys),'ALL':bool(allok)}
+         'smooth_frac':smooth/len(keys),'fingerprint': fp_entry, 'fingerprint_stable_vs_previous': fp_stable, 'ALL':bool(allok)}
     print(f'\ncanary2: c1 {"OK" if ok1 else "DRIFT"} | atlases '
           f'{"OK" if ok2 else "DRIFT"} | leverage {r:.2f} '
           f'{"OK" if ok3 else "DRIFT"} | fraction spot L{best} '
