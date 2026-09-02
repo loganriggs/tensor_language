@@ -138,6 +138,11 @@ def _token_counts(token_ids):
     return torch.bincount(token_ids.reshape(-1), minlength=VOCAB).to(torch.int64)
 
 
+def _aggregate_error_key(key):
+    """Preserve quantities already named as maxima; otherwise record batch max."""
+    return key if key.endswith("_max_abs") else f"{key}_max"
+
+
 def _token_means(values, token_ids):
     values = torch.as_tensor(values, dtype=torch.float64).reshape(-1)
     token_ids = torch.as_tensor(token_ids, dtype=torch.long).reshape(-1)
@@ -243,8 +248,8 @@ def _arm_forward(model, tokens, capture, branch_name, mask):
         "attention1_restore": 0, "mlp1_injection": 0,
     }
     errors = {
-        "mlp0_state_max_abs_max": 0.0,
-        "attention1_write_max_abs_max": 0.0,
+        "mlp0_state_max_abs": 0.0,
+        "attention1_write_max_abs": 0.0,
         "absent_factor_bf16_relative_squared": 0.0,
         "absent_factor_float32_relative_squared": 0.0,
         "all_native_relative_squared": 0.0,
@@ -350,7 +355,8 @@ def collect_phase(model, rows, reference, start_doc, stop_doc):
                 audit["attention1_restore_calls"] += arm_audit["attention1_restore"]
                 audit["mlp1_injection_calls"] += arm_audit["mlp1_injection"]
                 for key in arm_errors:
-                    errors[f"{key}_max"] = max(errors[f"{key}_max"], arm_errors[key])
+                    aggregate_key = _aggregate_error_key(key)
+                    errors[aggregate_key] = max(errors[aggregate_key], arm_errors[key])
                 arms.append(parent._per_token_ce(logits, targets))
             branch_ce.append(torch.stack(arms, dim=-1))
         ce_batches.append(torch.stack(branch_ce, dim=0))
@@ -646,8 +652,8 @@ def _instrument_valid(instrument, analysis):
         and instrument["all_native_relative_squared_max"] <= 1e-5
         and instrument["prefix_attention1_relative_squared_max"] <= 1e-12
         and instrument["prefix_mlp1_relative_squared_max"] <= 1e-12
-        and instrument["mlp0_state_max_abs_max"] == 0.0
-        and instrument["attention1_write_max_abs_max"] == 0.0
+        and instrument["mlp0_state_max_abs"] == 0.0
+        and instrument["attention1_write_max_abs"] == 0.0
         and instrument["analytical_branch_identity_relative_squared"] <= 1e-8
         and instrument["deployed_branch_identity_relative_squared"] <= 1e-5
         and analysis["mobius_closure_holds"]

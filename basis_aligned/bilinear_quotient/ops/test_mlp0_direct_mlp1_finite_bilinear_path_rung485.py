@@ -53,3 +53,10 @@ def test_token_means_are_exact_for_repeated_ids():
     assert counts[1] == 3 and counts[2] == 3
     assert means[1] == 4.0
     assert means[2] == 12.0
+
+
+def test_error_aggregation_does_not_double_suffix_max_abs():
+    assert subject._aggregate_error_key("mlp0_state_max_abs") == \
+        "mlp0_state_max_abs"
+    assert subject._aggregate_error_key("all_native_relative_squared") == \
+        "all_native_relative_squared_max"
