@@ -362,10 +362,10 @@ def parent() -> None:
         "wave_pair_reproduction": wave_pairs, "rank_ladder": list(ladder),
         "rank_ladder_monotone": ladder_monotone,
         "bundle": {"path": str(BUNDLE), "sha256": sha256(BUNDLE)},
-        "pred_a_complete_instrument": pred_a,
-        "pred_b_continuous_magnitudes_reproduce": pred_b,
-        "pred_c_uncertainty_separated_pairs_reproduce": pred_c,
-        "pred_d_independent_wave_reliability": pred_d,
+        'pred_a_complete_instrument': pred_a,
+        'pred_b_continuous_magnitudes_reproduce': pred_b,
+        'pred_c_uncertainty_separated_pairs_reproduce': pred_c,
+        'pred_d_independent_wave_reliability': pred_d,
         "strong_null_complete_family_unusable": strong_null,
         "next_step": ("count_mlp_pca_family_and_build_vocabulary_teaching_family"
                       if pred_a and pred_b and pred_c and pred_d and not strong_null
