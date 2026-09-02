@@ -70,6 +70,10 @@ The circuit-selective response profile of branch `b` is
 
 `p_b[c] = Shapley_b(member,c) - Shapley_b(slice_control,c)`.
 
+All profile cosines and difficulty regressions center these values across circuits first, so they compare which
+circuits differ rather than a shared average branch effect. Norm ratios, magnitudes, and signs use the uncentered
+effects and are reported separately.
+
 Also compute the context-averaged pair interaction
 
 `J_bd[c] = mean over U subset of the other two branches of`
