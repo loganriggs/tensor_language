@@ -1,0 +1,133 @@
+{
+  "code_interaction_cosines": {
+    "H": 0.32505037877372417,
+    "N": -0.41990036123027036
+  },
+  "composition": {
+    "approximately_additive": false,
+    "regime": "unresolved",
+    "source_interaction_cosine": -0.7436108542861608,
+    "source_interactions": {
+      "H": {
+        "norm": 0.0011296500451862812,
+        "relative_to_union": 0.4127219617366791,
+        "vector": [
+          0.0007433080463670194,
+          -0.0006674325559288263,
+          -0.00047431024722754955,
+          -0.00023057719226926565
+        ]
+      },
+      "N": {
+        "norm": 0.0026294603012502193,
+        "relative_to_union": 0.8344458937644958,
+        "vector": [
+          -0.0020599993877112865,
+          0.001066913828253746,
+          -0.0005992676597088575,
+          0.0010830682003870606
+        ]
+      }
+    },
+    "stably_interactive": false
+  },
+  "controls": {
+    "H": {
+      "controls": {
+        "amplitude": {
+          "cosine": 0.960171475202499,
+          "parent_norm": 0.02049706839769179,
+          "projection_on_parent": 0.17582112893272633,
+          "vector_norm": 0.0037533063609637408
+        },
+        "random": {
+          "cosine": 0.9083331291972143,
+          "parent_norm": 0.02049706839769179,
+          "projection_on_parent": 0.12115321216559122,
+          "vector_norm": 0.0027338931021407514
+        }
+      },
+      "half_wins": false,
+      "selected": {
+        "cosine": 0.9255065437123638,
+        "parent_norm": 0.02049706839769179,
+        "projection_on_parent": 0.12358736593817178,
+        "vector_norm": 0.002737072698118656
+      },
+      "winning_branch": "failed"
+    },
+    "N": {
+      "controls": {
+        "amplitude": {
+          "cosine": 0.96378702604763,
+          "parent_norm": 0.01797756047476726,
+          "projection_on_parent": 0.11490084735439718,
+          "vector_norm": 0.002143250402930402
+        },
+        "random": {
+          "cosine": 0.9657071805121649,
+          "parent_norm": 0.01797756047476726,
+          "projection_on_parent": 0.1187533756613698,
+          "vector_norm": 0.0022107073817166645
+        }
+      },
+      "half_wins": false,
+      "selected": {
+        "cosine": 0.9768570345624402,
+        "parent_norm": 0.01797756047476726,
+        "projection_on_parent": 0.17122559186346106,
+        "vector_norm": 0.0031511452788298773
+      },
+      "winning_branch": "failed"
+    }
+  },
+  "execution_price": {
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 2544,
+    "peak_gpu_memory_bytes": 3159521280
+  },
+  "instrument": {
+    "empty": 0.0,
+    "factor": 4.9187082223447323e-14,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "retain_code_split_and_move_to_full_bilinear_form_or_state_quotient",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_union_transfer": false,
+    "pred_c_control_separation": false,
+    "pred_d_cross_module_transfer": false,
+    "pred_e_interaction_transfer": false
+  },
+  "qualifying": [
+    "m8"
+  ],
+  "rung": 468,
+  "runtime_s": 57.730857849121094,
+  "source_agreement": {
+    "cosine": 0.9148428171634877,
+    "parent_norm": 0.0031511452788298773,
+    "projection_on_parent": 0.7946289606989981,
+    "vector_norm": 0.002737072698118656
+  },
+  "status": "complete",
+  "strong_null": true,
+  "union": {
+    "H": {
+      "cosine": 0.9255065437123638,
+      "parent_norm": 0.02049706839769179,
+      "projection_on_parent": 0.12358736593817178,
+      "vector_norm": 0.002737072698118656
+    },
+    "N": {
+      "cosine": 0.9768570345624402,
+      "parent_norm": 0.01797756047476726,
+      "projection_on_parent": 0.17122559186346106,
+      "vector_norm": 0.0031511452788298773
+    }
+  }
+}
