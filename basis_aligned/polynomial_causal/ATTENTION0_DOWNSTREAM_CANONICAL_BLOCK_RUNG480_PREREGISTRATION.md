@@ -7,7 +7,7 @@ unopened.
 ## Goal and non-duplication boundary
 
 Rungs424/425 already identified and independently replicated a continuous attention0 interface. On unseen documents,
-six modes for each of the two score branches and32 modes for the head-by-output payload reproduce99.03% of the
+six varying modes for each of the two score branches and32 varying modes for the head-by-output payload reproduce99.03% of the
 head-summed response-metric edge signal, retain98.53% of the routed U16 signal, give99.19--99.45% R2 at six named
 downstream readers, and add only`.000200` nat CE. Permuting which heads' branches multiply destroys the result.
 
@@ -23,21 +23,29 @@ Instead, it asks whether downstream circuit behavior chooses reproducible direct
 6×6×32 continuous interface. This targets a split of one useful attention computation by what later computation does
 with it.
 
-## Exact trilinear object
+## Exact affine-trilinear object
 
 Deterministically rebuild rung424's selected joint fit on its original96 FIT documents and reproduce its SELECT and
-rung425 fresh-row metrics before using it. Let `B1[h,i]`, `B2[h,j]`, and `BV[h,u,k]` be the fitted bases for score
-branch1 (`i=1..6`), score branch2 (`j=1..6`), and the nine-head by16-output payload (`k=1..32`, `u=1..16`). For a
-realized causal edge `e`, let its projected coordinates be `a_e[i]`, `b_e[j]`, and `c_e[k]`. The exact fitted-block
-contribution of one latent triplet is
+rung425 fresh-row metrics before using it. Rung424's reconstructions are **affine** projectors: each contains a fixed
+offset in addition to its6/6/32 varying directions. A pre-implementation algebra audit on2026-09-02 caught that the
+original 1,152-triplet wording omitted these offsets and therefore could not be exact. No model or response outcome
+had been opened. This registration is amended before implementation to include one distinguished constant coordinate
+per mode while leaving all learned ranks unchanged.
 
-`edge[e,i,j,k,u] = a_e[i] b_e[j] c_e[k] sum_h B1[h,i] B2[h,j] BV[h,u,k]`.
+Let `B1[h,i]`, `B2[h,j]`, and `BV[h,u,k]` be the fitted varying bases for score branch1 (`i=1..6`), score branch2
+(`j=1..6`), and the nine-head by16-output payload (`k=1..32`, `u=1..16`). Define augmented bases whose coordinate0
+is the fixed affine offset and whose remaining coordinates are these varying bases. For realized edge `e`, define
+augmented coordinates `a_e=[1,(score1_e-mean1)B1]`, `b_e=[1,(score2_e-mean2)B2]`, and
+`c_e=[1,(payload_e-meanV)BV]`. The exact fitted-block contribution of one augmented triplet is
 
-Summing all `6×6×32=1,152` triplets must reproduce the fitted joint block's U16 edge output, and summing causal
+`edge[e,i,j,k,u] = a_e[i] b_e[j] c_e[k] sum_h B1_aug[h,i] B2_aug[h,j] BV_aug[h,u,k]`.
+
+Summing all `7×7×33=1,617` augmented triplets must reproduce the fitted joint block's U16 edge output, and summing causal
 source edges must reproduce its query output. The native remainder is kept separate and unchanged.
 
-The coordinates can rotate inside any of the three latent spaces. An individual mode is therefore not meaningful
-until a downstream statistic fixes its projector and that projector transfers.
+Only the6/6/32 varying coordinates can rotate; the constant coordinate is distinguished and cannot mix with them.
+An individual varying mode is therefore not meaningful until a downstream statistic fixes its projector and that
+projector transfers.
 
 ## Discovery response tensor
 
@@ -51,8 +59,9 @@ edge contributions into `q`. Average separately over circuit members and matched
 
 `R[half,source,mask,circuit,i,j,k]`,
 
-with shape `2×2×2×32×6×6×32`. The member-minus-control tensor is the task response used below. This is a first-order,
-query-local proposal. No mode is a causal circuit until later exact removal.
+with shape `2×2×2×32×7×7×33`. Coordinate0 in each latent mode is the fixed affine offset. The
+member-minus-control tensor is the task response used below. This is a first-order, query-local proposal. No mode is
+a causal circuit until later exact removal.
 
 Run a second deterministic joint-block fit on the two original FIT document halves. Align each refit's three latent
 spaces to the main fit by orthogonal Procrustes maps on `B1`, `B2`, and `BV`; transform its response tensor by those
@@ -61,24 +70,29 @@ match.
 
 ## Downstream-chosen projectors
 
-Fit only the native-source documents0:250 member-minus-control tensor. For each latent mode, contract over the other
-two latent modes and the32 circuits to form a response Gram matrix:
+Fit only the native-source documents0:250 member-minus-control tensor. For each latent mode, restrict that mode to
+its varying coordinates and contract over every augmented coordinate in the other two modes and the32 circuits to
+form a response Gram matrix:
 
-- `G1[i,i'] = sum_(c,j,k) R[c,i,j,k] R[c,i',j,k]`;
-- `G2[j,j'] = sum_(c,i,k) R[c,i,j,k] R[c,i,j',k]`; and
-- `GV[k,k'] = sum_(c,i,j) R[c,i,j,k] R[c,i,j,k']`.
+- `G1[i,i'] = sum_(c,j=0..6,k=0..32) R[c,i,j,k] R[c,i',j,k]`, for varying `i,i'=1..6`;
+- `G2[j,j'] = sum_(c,i=0..6,k=0..32) R[c,i,j,k] R[c,i,j',k]`, for varying `j,j'=1..6`; and
+- `GV[k,k'] = sum_(c,i=0..6,j=0..6) R[c,i,j,k] R[c,i,j,k']`, for varying `k,k'=1..32`.
 
 The leading eigenvector of each Gram defines one one-dimensional projector. This is a downstream-response direction,
 not a claim that rank one is sufficient. No other eigenvector, rank, cutoff, or subset is tried.
 
-The three proposed **slabs** retain the leading projector in one mode and all directions in the other two. For
-example, the branch1 slab is `P1 R`, not the single Cartesian triplet `P1×P2×PV`. A slab can therefore contain many
-compositions while testing whether one input/output direction has a stable downstream role.
+The three proposed **slabs** retain the leading projector in one mode's varying subspace and every augmented
+coordinate in the other two. For example, the branch1 slab is `P1 R`, not the single Cartesian triplet
+`P1×P2×PV`. Its complement is the full exact affine block minus that slab, so fixed-offset terms remain there. A
+slab can therefore contain many compositions while testing whether one varying input/output direction has a stable
+downstream role.
 
 ## Controls
 
-1. **Activation-only basis:** form the analogous three Gram matrices from the latent edge coordinates without CE
-   gradients or circuit labels. It has identical dimensions but cannot use downstream computation.
+1. **Activation-only basis:** form the leading varying-coordinate direction from the same causal-edge coordinates,
+   without CE gradients or circuit labels. It has the same per-mode dimension but cannot use downstream computation.
+   For B, compare the main downstream projector's refit/half stability with its overlap with this activation-only
+   direction; the downstream stability must be larger by`.10`.
 2. **Circuit-label control:** for16 frozen seeds, independently permute the32 circuit coordinates of the second
    document/source view after fitting. This preserves response magnitudes and latent geometry while destroying the
    claim that a slab means the same downstream thing.
@@ -93,7 +107,7 @@ compositions while testing whether one input/output direction has a stable downs
 
 - all rung479, rung424, rung425, circuit-authority, row, source, and model hashes match;
 - the rebuilt block reproduces rung424/425 metrics and fixed6/6/32 sizes;
-- triplet sums reproduce block edge/query outputs to relative squared error at most`1e-8`;
+- all1,617 augmented-triplet sums reproduce block edge/query outputs to relative squared error at most`1e-8`;
 - native replay, row250 allocation, support, gradient path, forward/backward counts, and all live controls pass; and
 - odd-root, documents500:1000, FINAL, and SEALED outcomes remain unopened.
 
@@ -101,8 +115,8 @@ compositions while testing whether one input/output direction has a stable downs
 
 At least two of branch1, branch2, and payload have fit leading/second response-Gram eigenvalue ratio at least`1.50`;
 their leading projectors overlap at least`.80` with the aligned independent-refit projectors and at least`.80` with
-projectors fit on each half of the native fitting documents. The downstream projector must exceed the corresponding
-activation-only projector's worst overlap by at least`.10`.
+projectors fit on each half of the native fitting documents. The downstream projector's minimum aligned-refit/fit-half
+overlap must exceed its overlap with the corresponding activation-only direction by at least`.10`.
 
 ### C — at least one slab has a stable circuit-labelled response
 
@@ -137,6 +151,6 @@ weights.
 ## Price
 
 Discovery-only GPU response collection plus deterministic block refits and CPU projector analysis. Zero deployed
-parameters saved or added. Report the full1152-triplet response tensor, exact identities, refit alignments, projector
+parameters saved or added. Report the full1,617-triplet affine response tensor, exact identities, refit alignments, projector
 spectra, slab profiles, control distributions, runtime, and literal stored values. Save no raw rows, tokens, logits,
 or hidden states.
