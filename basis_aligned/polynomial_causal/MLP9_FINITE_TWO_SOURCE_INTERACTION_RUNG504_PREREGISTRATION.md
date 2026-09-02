@@ -104,13 +104,16 @@ a hunt for tiny nonzero interactions.
 
 All hashes, rows, masks, source names, 153 pairs, intervals, actions, edits, and calls match. Native replays are exact;
 the 20-source raw recurrence remains within rung503's BF16 bound; all edited inputs are live; the unedited parent
-reproduces rung503's score/payload measurements within absolute `.01`; and all 18 remeasured singleton sufficient
-statistics reproduce rung503 within relative `1e-6` or absolute `1e-8`.
+reproduces rung503's score/payload measurements within absolute `.01`; and all 18 remeasured singleton local-response
+and payload sufficient statistics reproduce rung503 within relative `1e-6` or absolute `1e-8`. Rung503's gradient
+statistics are not remeasured or used.
 
 Discovery costs exactly 496 full prefix/model forwards and 63,612 batch-sized MLP9-plus-suffix evaluations:
 `62 batches * 2 backgrounds * 3 action states * (18 singletons + 153 pairs)`. It performs no backwards. If B opens
-confirmation, the totals are 1,000 full forwards and 128,250 MLP9-plus-suffix evaluations. Every call count is
-asserted literally. Zero deployed parameters are added or saved.
+confirmation, the ordinary-arm totals are 1,000 full forwards and 128,250 MLP9-plus-suffix evaluations. If the
+selection contains `k` pairs, the 16 shifted-position controls add exactly `63 * 2 * 3 * 16 * k = 6,048k`
+MLP9-plus-suffix evaluations, so the conditional total is `128,250 + 6,048k`. Every call count is asserted literally.
+Zero deployed parameters are added or saved.
 
 ### B — a compact finite pair set is selected
 
@@ -126,11 +129,12 @@ intersection, union, pair deletion, or threshold change is allowed.
 ### D — selected interactions separate known downstream circuits
 
 Only if B and C hold, use the 32 fixed discovery circuit tags on confirmation documents. For each selected pair,
-compute the finite member-minus-control fingerprint from its recomputed suffix logits for `J_st`, `K_st`, and their
-payload counterparts. All tags must have support in both halves. In every half/background, the score pair's fingerprint
+compute the finite member-minus-control fingerprint from its recomputed suffix losses for `C_st`, `Q_st`, and their
+payload counterparts. (`J` and `K` name the corresponding local MLP9 write-space quantities; `C` and `Q` name the
+finite loss-space quantities.) All tags must have support in both halves. In every half/background, the score pair's fingerprint
 must have cosine at least `.75` with the complete score-response fingerprint, positive-scale residual at most `.70`,
 and norm at least `.25` of complete. Its cosine must exceed the payload fingerprint by `.20` and the 95th percentile
-of 16 fixed position-roll controls by `.10`. The mixed `K_st` fingerprint must have cosine at least `.65` with the
+of 16 fixed position-roll controls by `.10`. The mixed `Q_st` fingerprint must have cosine at least `.65` with the
 complete fingerprint and norm at least `.10` of complete. Every selected pair must pass; no best-pair reporting can
 turn D true.
 
