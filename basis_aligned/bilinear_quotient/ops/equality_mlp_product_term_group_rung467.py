@@ -673,11 +673,11 @@ def main():
         for start in range(0, DOCUMENTS, BATCH):
             tokens = rows[start:start + BATCH, :-1].to(device)
             native, _, audit, _ = source_parent.run_forward(model, tokens, arm="native")
-            parent.parent.path_parent.parent._record_audit(
+            source_parent.path_parent.parent._record_audit(
                 audit_totals, "rung467:native", audit, analytical=False, captures=0, patches=0,
             )
             replay_logits, _, audit, error = source_parent.run_forward(model, tokens, arm="replay")
-            parent.parent.path_parent.parent._record_audit(
+            source_parent.path_parent.parent._record_audit(
                 audit_totals, "rung467:replay", audit, analytical=True, captures=0, patches=0,
             )
             difference = replay_logits - native
