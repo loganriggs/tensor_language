@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="610" viewBox="0 0 1000 610">
+  <rect width="1000" height="610" fill="#ffffff"/>
+  <style>
+    text { font-family: Inter, Arial, sans-serif; fill: #172033; }
+    .title { font-size: 24px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #526079; }
+    .panel { font-size: 18px; font-weight: 700; }
+    .axis { stroke: #7d8798; stroke-width: 1; }
+    .grid { stroke: #d9dee7; stroke-width: 1; }
+    .threshold { stroke: #d13f3f; stroke-width: 2; stroke-dasharray: 7 5; }
+    .tick { font-size: 12px; fill: #657086; }
+    .group { font-size: 14px; font-weight: 600; }
+    .value { font-size: 11px; font-weight: 600; }
+    .legend { font-size: 13px; }
+  </style>
+  <text x="50" y="38" class="title">Rung 507: gradient-selected terms fail finite confirmation</text>
+  <text x="50" y="62" class="subtitle">Cosines shown as percentages; red dashed lines are the frozen passing thresholds.</text>
+
+  <text x="55" y="100" class="panel">Gradient prediction vs finite removal</text>
+  <text x="535" y="100" class="panel">Finite removal: first half vs second half</text>
+
+  <line x1="65" y1="320" x2="475" y2="320" class="axis"/>
+  <line x1="545" y1="320" x2="955" y2="320" class="axis"/>
+  <line x1="65" y1="160" x2="475" y2="160" class="grid"/>
+  <line x1="545" y1="160" x2="955" y2="160" class="grid"/>
+  <line x1="65" y1="480" x2="475" y2="480" class="grid"/>
+  <line x1="545" y1="480" x2="955" y2="480" class="grid"/>
+  <line x1="65" y1="224" x2="475" y2="224" class="threshold"/>
+  <line x1="545" y1="240" x2="955" y2="240" class="threshold"/>
+
+  <text x="30" y="164" class="tick">100%</text><text x="38" y="324" class="tick">0%</text><text x="24" y="484" class="tick">−100%</text>
+  <text x="510" y="164" class="tick">100%</text><text x="518" y="324" class="tick">0%</text><text x="504" y="484" class="tick">−100%</text>
+  <text x="390" y="217" class="tick" fill="#d13f3f">60% required</text>
+  <text x="870" y="233" class="tick" fill="#d13f3f">50% required</text>
+
+  <!-- Panel 1: A7xA8 -->
+  <rect x="100" y="280.6" width="28" height="39.4" fill="#3977c9"/><text x="101" y="274" class="value">24.6</text>
+  <rect x="134" y="320" width="28" height="0.5" fill="#2d9b68"/><text x="135" y="338" class="value">−0.3</text>
+  <rect x="168" y="186.6" width="28" height="133.4" fill="#df8a32"/><text x="169" y="180" class="value">83.4</text>
+  <rect x="202" y="267.2" width="28" height="52.8" fill="#8356b6"/><text x="203" y="261" class="value">33.0</text>
+  <!-- Panel 1: A8xA8 -->
+  <rect x="300" y="320" width="28" height="11.7" fill="#3977c9"/><text x="299" y="348" class="value">−7.3</text>
+  <rect x="334" y="312" width="28" height="8" fill="#2d9b68"/><text x="337" y="305" class="value">5.0</text>
+  <rect x="368" y="320" width="28" height="88.3" fill="#df8a32"/><text x="365" y="425" class="value">−55.2</text>
+  <rect x="402" y="213.9" width="28" height="106.1" fill="#8356b6"/><text x="403" y="207" class="value">66.3</text>
+
+  <!-- Panel 2: A7xA8 -->
+  <rect x="580" y="190.4" width="28" height="129.6" fill="#3977c9"/><text x="581" y="184" class="value">81.0</text>
+  <rect x="614" y="261.9" width="28" height="58.1" fill="#2d9b68"/><text x="615" y="255" class="value">36.3</text>
+  <rect x="648" y="201.8" width="28" height="118.2" fill="#df8a32"/><text x="649" y="195" class="value">73.9</text>
+  <rect x="682" y="191.7" width="28" height="128.3" fill="#8356b6"/><text x="683" y="185" class="value">80.2</text>
+  <!-- Panel 2: A8xA8 -->
+  <rect x="780" y="300.6" width="28" height="19.4" fill="#3977c9"/><text x="781" y="294" class="value">12.1</text>
+  <rect x="814" y="320" width="28" height="69.4" fill="#2d9b68"/><text x="811" y="406" class="value">−43.4</text>
+  <rect x="848" y="320" width="28" height="112.2" fill="#df8a32"/><text x="845" y="449" class="value">−70.1</text>
+  <rect x="882" y="225.1" width="28" height="94.9" fill="#8356b6"/><text x="883" y="219" class="value">59.3</text>
+
+  <text x="130" y="515" class="group">A7 × A8</text><text x="330" y="515" class="group">A8 × A8</text>
+  <text x="610" y="515" class="group">A7 × A8</text><text x="810" y="515" class="group">A8 × A8</text>
+
+  <rect x="250" y="558" width="14" height="14" fill="#3977c9"/><text x="270" y="570" class="legend">Native</text>
+  <rect x="350" y="558" width="14" height="14" fill="#2d9b68"/><text x="370" y="570" class="legend">Positive L5→L8 score</text>
+  <rect x="560" y="558" width="14" height="14" fill="#df8a32"/><text x="580" y="570" class="legend">Sign-corrected L7</text>
+  <rect x="735" y="558" width="14" height="14" fill="#8356b6"/><text x="755" y="570" class="legend">Sign-corrected L8</text>
+</svg>

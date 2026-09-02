@@ -67007,3 +67007,27 @@ The frozen successor is rung507: split the user-named, task-stable MLP10 write i
 sources and253 unordered bilinear source-pair output terms; use gradients only as a no-ranking screen, physically
 remove candidates on new documents, and measure every confirming two-term finite interaction before circuit
 language. Result/bundle/audit SHAs `f86e5f03…/225f73cb…/96f58a2d…`;0 deployed parameters added or saved.
+
+## §2638 — RUNG507: EXACT MLP10 TERMS ARE ALGEBRAICALLY VALID, BUT THE TWO-TERM GRADIENT SHORTLIST FAILS FINITE CAUSAL CONFIRMATION
+
+Rung507 reconstructed MLP10's normalized input as22 coefficient-correct named sources and expanded its bilinear map
+into253 exact unordered source-pair terms. The first no-outcome CUDA smoke preserved an instrument failure: the
+float32 score change closes at`1.71e-16`, but subtracting separately rounded BF16 writes gives`.01629` relative
+squared discrepancy despite per-write error only`1.12e-5`. A prospectively hash-pinned repair added the explicit
+deployed-output rounding remainder, excluded it from every named term/selector/intervention, and obtained exact
+deployed closure`1.05e-16`. The full run's A instrument is true: native replay0, factor error`5.09e-14`, 22-source
+raw error≤`3.41e-5`, float32 closure≤`2.89e-21`, repaired delta closure≤`5.32e-16`, every patch live.
+
+A/B are true, C/D/E false; the registered strong null fires. The no-ranking gradient rule retains exactly
+`A7×A8` and `A8×A8`. Both are source-stable on discovery, but neither survives finite removal on documents248:496.
+For `A7×A8`, gradient-to-finite cosine is`.246/-.003/.834/.330` under `N/P/Z7/Z8`; its L7 finite vector has only
+`.165` cosine with native. For `A8×A8`, gradient-to-finite cosine is`-.073/.050/-.552/.663`, finite repeat cosine
+is`.121/-.434/-.701/.593`, and every all-copy magnitude misses`.00025` nat. Thus zero terms confirm, so validation
+and pair interactions correctly stay closed. Exact price:1,178 forwards,1,240 backwards,61.59s, peak5.64GB;
+result/bundle SHAs `f3ce5669…/bc72fcd9…`;0 fitted/deployed parameters.
+
+Claim scope: the exact decomposition is a valid computational coordinate system, and the two gradient terms are a
+screen only—not identified circuits. The result directly demonstrates finite curvature/background dependence rather
+than term irrelevance. Honor the frozen route: rung508 groups all253 terms into21 disjoint exact terms from six
+architecture-defined source families and selects using finite removals from the start on unopened family outcomes.
+No ranking, rank reduction, quantization, or threshold relaxation.

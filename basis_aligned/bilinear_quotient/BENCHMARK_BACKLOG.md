@@ -4690,3 +4690,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   rescore the registered circuit-coordinate null. Honor the zero-edge route: rung507 splits task-stable MLP10 into22
   named earlier inputs and253 exact bilinear source-pair terms, then requires finite singleton and joint-term effects
   on new documents; no gradient-only circuit, ranking, rank, or quantization.
+- Rung507 (§2638): A/B true, C/D/E false; lawful strong null. The repaired exact instrument passes after preserving a
+  no-outcome BF16 subtraction-cancellation failure and adding an explicit, nonselectable output-rounding remainder.
+  The no-ranking gradient screen retains exactly `A7×A8` and `A8×A8`; neither survives finite confirmation. The first
+  has source-dependent finite direction and the second has negative/unstable repeats plus sub-floor all-copy effect.
+  Validation and pair interactions stay closed. Rung508 is prospectively frozen: group all253 terms into21 disjoint
+  terms from six architecture-defined input families and use finite removals from the start on documents500:1000;
+  every passer must confirm and jointly compose. No rank, quantization, threshold change, or best-k selection.
