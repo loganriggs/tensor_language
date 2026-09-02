@@ -4596,3 +4596,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Commutant null calibration (§2597): probe calibrated at n=32; interpolation floor q05 .124; recommend 479 genuine-block bar <=.03 off-mass; commutant_dim criterion 0/32 false positives.
 
 - Rung 479 (§2598): gauge-aware commutant screen — strong null; lambda2 ratios .95-.97 vs 4x bar; equality-MLP trio closed at every grain; routing: attention0/1 Q/K/output tensors. Chapter explanation explanation_2026-09-02_0753.md.
+
+- Projector factorial + diagnostics (§2599): TEMPORAL REPRODUCIBILITY BREACH — 474's own code fresh-vs-bundle .084 nat; cross-session bundle bridges unsafe at <.1 nat; canary fingerprint live (first baseline 08:24). Projector-form question OPEN pending in-run-baseline b-variant (code cosine .9389 unclaimed).

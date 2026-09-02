@@ -1,0 +1,3 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_term_score_payload_rung459.py:146: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  error = float((factor_term - reference32).square().sum()) / max(

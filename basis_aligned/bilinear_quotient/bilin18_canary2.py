@@ -30,11 +30,23 @@ def determinism_fingerprint():
     import hashlib, os
     from bilin18_joint_removal import m, FW, DEV
     b = FW[0:4, :257].to(DEV)
-    with torch.no_grad():
-        out = m(b[:, :-1].contiguous(), b[:, 1:].contiguous())
-    logits = (out[0] if isinstance(out, (tuple, list)) else out).detach()
-    arr = logits.float().cpu().numpy()
+    grabbed = []
+    handle = m.transformer.h[17].mlp.register_forward_hook(
+        lambda mod, i_, o_: grabbed.append(o_.detach()))
+    try:
+        with torch.no_grad():
+            out = m(b[:, :-1].contiguous(), b[:, 1:].contiguous())
+    finally:
+        handle.remove()
+    scalar = (out[0] if isinstance(out, (tuple, list)) else out).detach()
+    import numpy as _np
+    # fingerprint over the full layer-17 MLP write (4x256x1152) PLUS the
+    # returned scalar -- bit-level over ~1.2M values, far stronger than the
+    # scalar alone (the first 08:24 baseline hashed only the scalar loss)
+    arr = _np.concatenate([grabbed[0].float().cpu().numpy().ravel(),
+                           scalar.float().cpu().numpy().ravel()])
     entry = {"ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+             "composition": "v2_layer17_mlp_plus_scalar",
              "sha": hashlib.sha256(arr.tobytes()).hexdigest(),
              "sum": float(arr.sum()), "abs_sum": float(abs(arr).sum())}
     hist = ('/workspace/tensor_language/basis_aligned/bilinear_quotient/'
@@ -44,6 +56,8 @@ def determinism_fingerprint():
         lines = open(hist).read().strip().splitlines()
         if lines:
             prev = json.loads(lines[-1])
+    if prev and prev.get("composition") != entry["composition"]:
+        prev = None   # composition changed; not a drift, a new baseline
     if prev and prev["sha"] != entry["sha"]:
         print(f'DRIFT: logits fingerprint changed since {prev["ts"]} '
               f'(sum {prev["sum"]:.6f} -> {entry["sum"]:.6f}) -- '
