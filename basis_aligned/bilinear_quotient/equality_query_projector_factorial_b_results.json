@@ -1,0 +1,106 @@
+{
+ "status": "complete",
+ "rung": "equality_query_projector_factorial_b",
+ "coordinate": "project_out_frozen_delta_direction_from_current_deviation",
+ "bridge": "in_run_subtractive_singletons_same_process",
+ "original_receipt_remains_failed": true,
+ "reports": {
+  "code_validation": {
+   "N": {
+    "inrun_bridge_max_abs_error_nat": 8.58306884765625e-06,
+    "vs_bundle_singleton_max_abs_nat": 0.15241050720214844,
+    "total_interaction_context_norm": 0.012742454618045133,
+    "total_interaction_context_vector": [
+     0.00788865974275293,
+     0.0031852645956274898,
+     -4.7801193077026344e-05,
+     0.00948635871437463
+    ]
+   },
+   "H": {
+    "inrun_bridge_max_abs_error_nat": 1.0013580322265625e-05,
+    "vs_bundle_singleton_max_abs_nat": 0.1245584487915039,
+    "total_interaction_context_norm": 0.008697727465734323,
+    "total_interaction_context_vector": [
+     0.0064853373198555065,
+     -0.00039707326634538055,
+     -0.0009443276595869442,
+     0.00570451058447361
+    ]
+   },
+   "projector_interaction_source_cosine": 0.938876084854868,
+   "both_norms_material": true
+  },
+  "natural_wave0": {
+   "N": {
+    "inrun_bridge_max_abs_error_nat": 8.106231689453125e-06,
+    "vs_bundle_singleton_max_abs_nat": 0.14768242835998535,
+    "total_interaction_context_norm": 0.0010584513321435737,
+    "total_interaction_context_vector": [
+     -0.000978209899649089,
+     0.00012604592978147724,
+     5.1137719399180365e-05,
+     -0.0003806861857031306
+    ]
+   },
+   "H": {
+    "inrun_bridge_max_abs_error_nat": 7.510185241699219e-06,
+    "vs_bundle_singleton_max_abs_nat": 0.2005150318145752,
+    "total_interaction_context_norm": 0.0005540472388673096,
+    "total_interaction_context_vector": [
+     0.00015992914065231332,
+     0.0003291569443476595,
+     0.0002784791696905282,
+     0.0003090243856120226
+    ]
+   },
+   "projector_interaction_source_cosine": -0.3723464721847595,
+   "both_norms_material": false
+  },
+  "natural_wave1": {
+   "N": {
+    "inrun_bridge_max_abs_error_nat": 7.271766662597656e-06,
+    "vs_bundle_singleton_max_abs_nat": 0.11544060707092285,
+    "total_interaction_context_norm": 0.00025872140136836243,
+    "total_interaction_context_vector": [
+     -5.305187705044563e-05,
+     0.00014745467271103395,
+     0.00020000872264063218,
+     -4.874312495909786e-05
+    ]
+   },
+   "H": {
+    "inrun_bridge_max_abs_error_nat": 8.58306884765625e-06,
+    "vs_bundle_singleton_max_abs_nat": 0.11470496654510498,
+    "total_interaction_context_norm": 0.0010454351410269097,
+    "total_interaction_context_vector": [
+     0.0006532368297951344,
+     0.00043906359682224837,
+     0.00047134506803558907,
+     0.0005012716459936604
+    ]
+   },
+   "projector_interaction_source_cosine": 0.36944480541522556,
+   "both_norms_material": false
+  }
+ },
+ "replay": {
+  "max_abs": 0.0,
+  "relative_squared": 0.0
+ },
+ "empty_patch_max_abs": 0.0,
+ "factor_reconstruction_max": 1.1096228802331757e-13,
+ "mobius_closure_max_abs": 0.0,
+ "inrun_bridge_max_abs_error_nat": 1.0013580322265625e-05,
+ "vs_bundle_singleton_max_abs_nat_diagnostic_only": 0.2005150318145752,
+ "doubled_delta_max_abs_nat": 0.0,
+ "forwards": 3426,
+ "expected_forwards": 3426,
+ "pred_a_instrument_and_inrun_bridge": false,
+ "pred_b_code_projector_alignment": true,
+ "pred_c_natural_projector_alignment": false,
+ "strong_null_third_frame_composition_individuated": false,
+ "raw_tokens_logits_or_hidden_states_included": false,
+ "validation_or_sealed_opened": false,
+ "runtime_s": 124.50598931312561
+}

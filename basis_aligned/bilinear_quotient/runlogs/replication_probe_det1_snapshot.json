@@ -4,6 +4,19 @@
  "window": "code_validation",
  "kept_coordinates": 8,
  "fresh_vs_bundle_max_abs_nat": 0.08405804634094238,
+ "fresh_vs_bundle_per_subset_max_abs_nat": {
+  "m8": 0.08405804634094238,
+  "m9": 0.06967806816101074,
+  "m12": 0.03833127021789551,
+  "m8+m9": 0.05142807960510254,
+  "m8+m12": 0.0832054615020752,
+  "m9+m12": 0.04619002342224121,
+  "m8+m9+m12": 0.06456136703491211
+ },
+ "replay": {
+  "max_abs": 0.0,
+  "relative_squared": 0.0
+ },
  "empty_patch_max_abs": 0.0,
  "factor_reconstruction_max": 8.187574141714061e-14,
  "forwards": 35,
@@ -12,6 +25,5 @@
  "pred_b_replay_empty_exact": true,
  "pred_c_counts_exact": true,
  "raw_tokens_logits_or_hidden_states_included": false,
- "runtime_s": 5.251801490783691
+ "runtime_s": 5.328862190246582
 }
-per-subset: {'m8': '8.406e-02', 'm9': '6.968e-02', 'm12': '3.833e-02', 'm8+m9': '5.143e-02', 'm8+m12': '8.321e-02', 'm9+m12': '4.619e-02', 'm8+m9+m12': '6.456e-02'}

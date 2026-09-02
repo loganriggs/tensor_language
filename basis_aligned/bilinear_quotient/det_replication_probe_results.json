@@ -1,0 +1,34 @@
+{
+ "status": "complete",
+ "rung": "det_replication_probe",
+ "run2_snapshot_present": true,
+ "det_pair_max_abs_diff": 0.0,
+ "det_pair_bundle_max_diff": 0.0,
+ "det1_per_subset": {
+  "m8": 0.08405804634094238,
+  "m9": 0.06967806816101074,
+  "m12": 0.03833127021789551,
+  "m8+m9": 0.05142807960510254,
+  "m8+m12": 0.0832054615020752,
+  "m9+m12": 0.04619002342224121,
+  "m8+m9+m12": 0.06456136703491211
+ },
+ "det2_per_subset": {
+  "m8": 0.08405804634094238,
+  "m9": 0.06967806816101074,
+  "m12": 0.03833127021789551,
+  "m8+m9": 0.05142807960510254,
+  "m8+m12": 0.0832054615020752,
+  "m9+m12": 0.04619002342224121,
+  "m8+m9+m12": 0.06456136703491211
+ },
+ "run2_vs_frozen_run1_max_abs_diff": 0.0,
+ "run2_vs_det1_max_abs_diff": 0.0,
+ "det1_vs_frozen_run1_max_abs_diff": 0.0,
+ "det1_reproduces_bundle": false,
+ "pred_a_children_instrument_exact": true,
+ "pred_b_workspace_pinning_cures": true,
+ "pred_c_unpinned_varies_per_process": false,
+ "strong_null": false,
+ "runtime_s": 13.493462324142456
+}

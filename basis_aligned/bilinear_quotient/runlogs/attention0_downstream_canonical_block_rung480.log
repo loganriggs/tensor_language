@@ -1,3 +1,22 @@
 /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_term_score_payload_rung459.py:146: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
 Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
   error = float((factor_term - reference32).square().sum()) / max(
+{
+  "next_step": "mlp0_token_token_context_context_functional_decomposition",
+  "passing_b_modes": [
+    "score_branch_1",
+    "score_branch_2"
+  ],
+  "predictions": {
+    "pred_a_exact_lawful_instrument": true,
+    "pred_b_downstream_projectors": true,
+    "pred_c_stable_circuit_labelled_slab": false,
+    "pred_d_leave_family_stable": false,
+    "pred_e_distinct_downstream_uses": true
+  },
+  "rung": 480,
+  "runtime_s": 9208.862421989441,
+  "status": "complete",
+  "strong_null": true,
+  "winning_slab": "score_branch_1"
+}
