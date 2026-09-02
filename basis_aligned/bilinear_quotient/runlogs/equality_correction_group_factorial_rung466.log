@@ -1,0 +1,112 @@
+{
+  "execution_price": {
+    "deployed_parameters_saved": 0,
+    "factorial_sites": 5,
+    "outer_forwards": 3408,
+    "peak_gpu_memory_bytes": 3159521280,
+    "subsets_per_source": 32
+  },
+  "headline": {
+    "all_alignment": {
+      "H": {
+        "cosine": 0.9341760357447889,
+        "larger_over_smaller": 1.4025654641060619,
+        "left_norm": 0.11671540340940426,
+        "right_norm": 0.08321565473864986,
+        "right_projection_on_left": 0.6660480809287534
+      },
+      "N": {
+        "cosine": 0.9277681703492756,
+        "larger_over_smaller": 1.3353178548768792,
+        "left_norm": 0.13242284371837823,
+        "right_norm": 0.09916952973761298,
+        "right_projection_on_left": 0.694792005484581
+      }
+    },
+    "interaction_source": {
+      "cosine": 0.9966794785294022,
+      "larger_over_smaller": 1.1733814890740684,
+      "left_norm": 0.056757613785433536,
+      "right_norm": 0.04837098106108846,
+      "right_projection_on_left": 0.8494078761340406
+    },
+    "interaction_vectors": {
+      "H": [
+        0.030894906944273208,
+        0.018370588266079735,
+        0.012432824907323725,
+        0.029886500051007674
+      ],
+      "N": [
+        0.034682952333725876,
+        0.024128889358528777,
+        0.011262591253230425,
+        0.036186603551859736
+      ]
+    },
+    "suppressor_alignment": {
+      "H": {
+        "cosine": 0.4441955086621237,
+        "larger_over_smaller": 1.2979587142722977,
+        "left_norm": 0.11671540340940426,
+        "right_norm": 0.08992227728509909,
+        "right_projection_on_left": 0.3422262232055374
+      },
+      "N": {
+        "cosine": 0.5126631154899378,
+        "larger_over_smaller": 1.2161510859379103,
+        "left_norm": 0.13242284371837823,
+        "right_norm": 0.10888683589527212,
+        "right_projection_on_left": 0.42154558049386254
+      }
+    },
+    "suppressor_source": {
+      "cosine": 0.9973045521886374,
+      "larger_over_smaller": 1.2108994476423878,
+      "left_norm": 0.10888683589527212,
+      "right_norm": 0.08992227728509909,
+      "right_projection_on_left": 0.8236064143314145
+    },
+    "task_alignment": {
+      "H": {
+        "cosine": 0.9916923498568306,
+        "larger_over_smaller": 2.1293018244429014,
+        "left_norm": 0.11671540340940426,
+        "right_norm": 0.05481393105927621,
+        "right_projection_on_left": 0.46573592267328817
+      },
+      "N": {
+        "cosine": 0.9920323737260128,
+        "larger_over_smaller": 2.12656166118358,
+        "left_norm": 0.13242284371837823,
+        "right_norm": 0.06227086951463033,
+        "right_projection_on_left": 0.4664959365315922
+      }
+    },
+    "task_source": {
+      "cosine": 0.9944343552357215,
+      "larger_over_smaller": 1.136040935420051,
+      "left_norm": 0.06227086951463033,
+      "right_norm": 0.05481393105927621,
+      "right_projection_on_left": 0.8753508119564632
+    }
+  },
+  "instrument_errors": {
+    "direct": 0.0,
+    "empty": 0.0,
+    "full": 0.0,
+    "singletons": 0.0
+  },
+  "next_step": "task_conditioned_within_mlp8_mlp9_mlp12_split",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_task_group_context": true,
+    "pred_c_broad_suppressor_role": true,
+    "pred_d_cross_group_interaction": true,
+    "pred_e_five_site_extraction": true
+  },
+  "rung": 466,
+  "runtime_s": 75.91183805465698,
+  "status": "complete",
+  "strong_null": false
+}
