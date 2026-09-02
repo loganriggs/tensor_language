@@ -1,0 +1,78 @@
+{
+ "status": "complete",
+ "rung": "projector_code_half_stability_guard",
+ "guards_claim": "S2602 c-variant pooled code cosine .938876",
+ "reports": {
+  "pooled_cosine": 0.938876084854868,
+  "half_cosines": [
+   0.9691542486264122,
+   0.8742627262356352
+  ],
+  "half_norms": {
+   "N_half0": 0.014442398074469585,
+   "N_half1": 0.010917129676928214,
+   "H_half0": 0.01009145344028176,
+   "H_half1": 0.007213188035892786
+  },
+  "half_vectors": {
+   "N": {
+    "pooled": [
+     0.00788865974275293,
+     0.0031852645956274898,
+     -4.7801193077026344e-05,
+     0.00948635871437463
+    ],
+    "half0": [
+     0.009838647985210022,
+     0.0029005033041660986,
+     -0.00024395313646112169,
+     0.010164223306003164
+    ],
+    "half1": [
+     0.005711928681405478,
+     0.0034431616143095044,
+     9.826940306006595e-05,
+     0.008642486467653391
+    ]
+   },
+   "H": {
+    "pooled": [
+     0.0064853373198555065,
+     -0.00039707326634538055,
+     -0.0009443276595869442,
+     0.00570451058447361
+    ],
+    "half0": [
+     0.007927981670945883,
+     -7.814572503169377e-05,
+     -0.00011383135403905595,
+     0.006242233160577836
+    ],
+    "half1": [
+     0.004874943625615086,
+     -0.0006859133037615497,
+     -0.0015627823552077122,
+     0.0050351008468744705
+    ]
+   }
+  }
+ },
+ "replay": {
+  "max_abs": 0.0,
+  "relative_squared": 0.0
+ },
+ "empty_patch_max_abs": 0.0,
+ "factor_reconstruction_max": 1.1096228802331757e-13,
+ "mobius_closure_max_abs": 0.0,
+ "inrun_bridge_max_abs_error_nat": 1.0013580322265625e-05,
+ "doubled_delta_max_abs_nat": 0.0,
+ "forwards": 1142,
+ "expected_forwards": 1142,
+ "pred_a_instrument_and_pooled_reproduction": true,
+ "pred_b_half_stable_alignment": true,
+ "pred_c_half_materiality": true,
+ "strong_null_pooled_only_demotion": false,
+ "raw_tokens_logits_or_hidden_states_included": false,
+ "validation_or_sealed_opened": false,
+ "runtime_s": 43.8080415725708
+}
