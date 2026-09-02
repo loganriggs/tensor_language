@@ -41,7 +41,7 @@ try:
     _lines = open(_rl).read().splitlines()[-6:]
     _last = _lines[-1] if _lines else ''
     if ' running ' in _last:
-        _ts = _last.split(']')[0].strip('[bqrunner ').strip()
+        _ts = _last.split(']', 1)[1].split()[0]
         _h, _m, _s = (int(x) for x in _ts.split(':'))
         _lt = time.localtime(now)
         _started = _h * 3600 + _m * 60 + _s
