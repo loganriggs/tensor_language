@@ -4697,3 +4697,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Validation and pair interactions stay closed. Rung508 is prospectively frozen: group all253 terms into21 disjoint
   terms from six architecture-defined input families and use finite removals from the start on documents500:1000;
   every passer must confirm and jointly compose. No rank, quantization, threshold change, or best-k selection.
+- Rung508 (§2639): A true, B/C/D/E false; lawful finite-removal strong null. All21 exact pairs of six fixed MLP10
+  source families were removed under four calibrated equality-score implementations with exact5,828 forwards and
+  no gradients. Every requested edit is live and the exact algebra/replay/precision controls pass, but0/21 terms
+  repeat across document halves and score implementations; best worst-case repeat cosine is only`.288` versus`.50`.
+  The hand-chosen source families are not stable circuit units. Next change the vocabulary to coupled Left-input,
+  Right-input, and output/downstream atoms whose discovery fit must forecast finite held-out removals; do not lower
+  bars or return to rank, quantization, reconstruction, or gradient selection.

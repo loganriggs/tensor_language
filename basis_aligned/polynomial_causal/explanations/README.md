@@ -12,6 +12,8 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
+- [explanation_2026-09-02_2158.md](explanation_2026-09-02_2158.md) — rung508's exact finite-removal test of all21
+  MLP10 source-family interactions, the lawful zero-group result, and the coupled Left/Right/output successor
 - [explanation_2026-09-02_2139.md](explanation_2026-09-02_2139.md) — rung507's exact 22-source/253-term MLP10
   computation, the BF16 subtraction-cancellation repair, the two-term gradient shortlist, its lawful finite causal
   failure with a percentage graph, and the preregistered finite six-family successor

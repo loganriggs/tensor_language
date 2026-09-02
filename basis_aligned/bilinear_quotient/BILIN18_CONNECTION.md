@@ -67031,3 +67031,33 @@ screen only—not identified circuits. The result directly demonstrates finite c
 than term irrelevance. Honor the frozen route: rung508 groups all253 terms into21 disjoint exact terms from six
 architecture-defined source families and selects using finite removals from the start on unopened family outcomes.
 No ranking, rank reduction, quantization, or threshold relaxation.
+
+## §2639 — RUNG508: THE EXACT SIX-FAMILY SPLIT IS CAUSALLY LIVE BUT DOES NOT DEFINE STABLE MLP10 CIRCUIT UNITS
+
+Rung508 replaced rung507's failed gradient shortlist with finite removals from the start. It partitioned the 253 exact
+MLP10 source-pair terms into all 21 unordered pairs of six fixed source families: embedding, attention before the
+equality circuit, attention in the equality interval, later attention, earlier MLPs, and later MLPs. For every family
+term and each of the four calibrated implementations of the equality score, it subtracted that term's score-induced
+change from the deployed BF16 MLP10 write and recomputed layers 11--17. Thus the measured numbers are actual changes
+in cross-entropy loss, not gradients, reconstruction scores, or rank statistics.
+
+The instrument passes exactly (A true): 5,828 forwards, 0 backwards, 5,456/5,456 requested patches, native replay
+error 0, factor reconstruction error `4.69e-14`, exact 21-term hidden partition error `1.06e-14`, and repaired
+score-change closure `4.80e-16`. Calibration remains healthy: the alternative score implementations recover
+`.896-1.138` of the native all-copy effect, with per-document cosine `.934-.954` and off-target change below
+`.0010` nat. Runtime was 131.72 seconds and peak GPU memory was 5.83 GB.
+
+B is false and the registered strong null fires before confirmation: 0 of 21 family terms pass the no-ranking
+discovery rule. Every removal is live and several effects are comfortably above the magnitude floor, but their
+directions change across document halves or score implementations. Even the best term by worst-case within-source
+repeat, `A_pre×A_pre`, reaches only `.288` versus the registered `.50` minimum. `A_eq×A_eq` is individually large
+and repeats at `.975` for the native score, but reverses direction for other score implementations (worst repeat
+`-.474`), so it is not one stable equality-related computation. C/D/E stay closed; no confirmation or pair outcome
+was opened.
+
+This is a failure of the hand-chosen family boundaries, not evidence that MLP10 has no internal structure. The exact
+253-term algebra remains valid, but neither an architecture-level six-family partition nor a gradient-selected
+two-term shortlist yields downstream-stable causal units. The registered successor changes vocabulary again: couple
+the two bilinear input sides with the output/downstream response and require candidate units to predict finite held-out
+removals. It must group or split computations by downstream use; low rank, quantization, and reconstruction alone
+remain disallowed. Result/bundle/source SHAs `05060565…/45b4a224…/9715eec0…`; 0 fitted or deployed parameters.
