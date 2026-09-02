@@ -55,37 +55,49 @@ transplanted matcher. These trajectories change later use of attention0 but do n
 
 For a selected target token at query position `q`, differentiate its CE with respect to the fitted block's16-number
 attention0 query write. For each latent triplet, contract that gradient with the sum of the triplet's causal-source
-edge contributions into `q`. Average separately over circuit members and matched controls. The response tensor is
+edge contributions into `q`. Average separately over circuit members and matched controls. This exact diagnostic
+response tensor is
 
 `R[half,source,mask,circuit,i,j,k]`,
 
 with shape `2×2×2×32×7×7×33`. Coordinate0 in each latent mode is the fixed affine offset. The
-member-minus-control tensor is the task response used below. This is a first-order, query-local proposal. No mode is
-a causal circuit until later exact removal.
+member-minus-control tensor is stored to audit the complete affine expansion, but it is **not** used to choose a
+projector: assigning a realized response to individual Cartesian triplets is itself basis-dependent.
 
-Run a second deterministic joint-block fit on the two original FIT document halves. Align each refit's three latent
-spaces to the main fit by orthogonal Procrustes maps on `B1`, `B2`, and `BV`; transform its response tensor by those
-maps before comparing it. This comparison removes harmless latent rotations without forcing individual axes to
-match.
+Projectors instead use a gauge-covariant response operator. For each causal edge and each varying latent coordinate
+vector `z`, differentiate the selected CE with respect to `z` through the fitted query write and accumulate
+
+`A_mode = sym(z outer grad_z CE)`.
+
+This gives one6×6,6×6, or32×32 symmetric operator per half, source, mask, and circuit. Its trace is the first-order
+effect of removing the whole varying part of that mode. Under a legal orthogonal coordinate change `Q`, it transforms
+as `A -> Q^T A Q`; therefore its eigenspaces and `trace(P A)` slab response transform with it. This conjugation law,
+unlike individual realized-triplet shares, makes a downstream-chosen projector meaningful up to gauge. This is a
+first-order, query-local proposal. No mode is a causal circuit until later exact removal.
+
+Run the second frozen full-FIT restart and the two frozen original-FIT half models from rung424. Align each refit's
+three varying latent spaces to the main fit by orthogonal Procrustes maps on `B1`, `B2`, and `BV`; conjugate its
+response operators by those maps before comparing them. Also verify directly that the operators obey conjugation
+under a synthetic legal rotation. This comparison removes harmless latent rotations without forcing individual axes
+to match.
 
 ## Downstream-chosen projectors
 
-Fit only the native-source documents0:250 member-minus-control tensor. For each latent mode, restrict that mode to
-its varying coordinates and contract over every augmented coordinate in the other two modes and the32 circuits to
-form a response Gram matrix:
+Fit only the native-source documents0:250 member-minus-control operators. For each latent mode form a positive
+response Gram matrix from its32 circuit operators:
 
-- `G1[i,i'] = sum_(c,j=0..6,k=0..32) R[c,i,j,k] R[c,i',j,k]`, for varying `i,i'=1..6`;
-- `G2[j,j'] = sum_(c,i=0..6,k=0..32) R[c,i,j,k] R[c,i,j',k]`, for varying `j,j'=1..6`; and
-- `GV[k,k'] = sum_(c,i=0..6,j=0..6) R[c,i,j,k] R[c,i,j,k']`, for varying `k,k'=1..32`.
+- `G1 = sum_c A1[c] A1[c]^T`;
+- `G2 = sum_c A2[c] A2[c]^T`; and
+- `GV = sum_c AV[c] AV[c]^T`.
 
 The leading eigenvector of each Gram defines one one-dimensional projector. This is a downstream-response direction,
 not a claim that rank one is sufficient. No other eigenvector, rank, cutoff, or subset is tried.
 
-The three proposed **slabs** retain the leading projector in one mode's varying subspace and every augmented
-coordinate in the other two. For example, the branch1 slab is `P1 R`, not the single Cartesian triplet
-`P1×P2×PV`. Its complement is the full exact affine block minus that slab, so fixed-offset terms remain there. A
-slab can therefore contain many compositions while testing whether one varying input/output direction has a stable
-downstream role.
+The three proposed **slabs** retain the leading projector in one mode's varying subspace and leave the other two
+modes unrestricted. For example, branch1's first-order circuit profile is `trace(P1 A1[c])`; its varying-space
+complement is `trace((I-P1) A1[c])`. This is not the single Cartesian triplet `P1×P2×PV`: a slab can contain many
+compositions while testing whether one input/output direction has a stable downstream role. Fixed affine offsets
+remain unchanged background and are not mixed into either varying-space projector.
 
 ## Controls
 
@@ -93,13 +105,13 @@ downstream role.
    without CE gradients or circuit labels. It has the same per-mode dimension but cannot use downstream computation.
    For B, compare the main downstream projector's refit/half stability with its overlap with this activation-only
    direction; the downstream stability must be larger by`.10`.
-2. **Circuit-label control:** for16 frozen seeds, independently permute the32 circuit coordinates of the second
+2. **Circuit-label control:** for16 frozen seeds, independently permute the32 circuit operators of the second
    document/source view after fitting. This preserves response magnitudes and latent geometry while destroying the
    claim that a slab means the same downstream thing.
 3. **Matched circuit controls:** keep the existing in-slice matched positions as a separately reported response, not
    merely as a subtraction.
-4. **Independent-refit gauge control:** compare after legal Procrustes alignment and also after a deliberately wrong
-   permutation of the three latent refit maps.
+4. **Independent-refit gauge control:** compare after legal Procrustes conjugation and also after a deliberately
+   wrong permutation of the three latent refit maps.
 
 ## Frozen predictions
 
@@ -107,7 +119,8 @@ downstream role.
 
 - all rung479, rung424, rung425, circuit-authority, row, source, and model hashes match;
 - the rebuilt block reproduces rung424/425 metrics and fixed6/6/32 sizes;
-- all1,617 augmented-triplet sums reproduce block edge/query outputs to relative squared error at most`1e-8`;
+- all1,617 augmented-triplet sums reproduce block edge/query outputs to relative squared error at most`1e-8`, and
+  response operators obey a legal-rotation conjugation identity to relative squared error at most`1e-8`;
 - native replay, row250 allocation, support, gradient path, forward/backward counts, and all live controls pass; and
 - odd-root, documents500:1000, FINAL, and SEALED outcomes remain unopened.
 
