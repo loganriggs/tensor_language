@@ -163,7 +163,8 @@ def _coordinates(score1, score2, tokens, all_payload, block):
     parts = _affine_parts(block)
     flat1 = score1.permute(0, 2, 3, 1)
     flat2 = score2.permute(0, 2, 3, 1)
-    payload = all_payload[tokens].float()
+    payload_native = all_payload[tokens].float()
+    payload = payload_native.reshape(*payload_native.shape[:-2], -1)
     coords = []
     for value, (mean, basis, _aug) in zip((flat1, flat2, payload), parts):
         variable = (value.reshape(-1, value.shape[-1]) - mean) @ basis

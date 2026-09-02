@@ -37,8 +37,27 @@ def test_projector_is_rank_one_and_sign_invariant():
     assert abs(float(profile.mean())) <= 1e-12
 
 
+def test_payload_head_output_axes_are_flattened_for_coordinates():
+    generator = torch.Generator().manual_seed(4803)
+    block = {}
+    for suffix, width, rank in (("1", 9, 6), ("2", 9, 6), ("v", 144, 32)):
+        block[f"mean{suffix}"] = torch.randn(1, width, generator=generator)
+        block[f"basis{suffix}"] = torch.linalg.qr(
+            torch.randn(width, rank, generator=generator)).Q
+    score1 = torch.randn(2, 9, 3, 3, generator=generator)
+    score2 = torch.randn(2, 9, 3, 3, generator=generator)
+    tokens = torch.tensor([[0, 1, 2], [2, 1, 0]])
+    payload = torch.randn(3, 9, 16, generator=generator)
+    coordinates, core = rung._coordinates(score1, score2, tokens, payload, block)
+    assert coordinates[0].shape == (2, 3, 3, 7)
+    assert coordinates[1].shape == (2, 3, 3, 7)
+    assert coordinates[2].shape == (2, 3, 33)
+    assert core.shape == (7, 7, 33, 16)
+
+
 if __name__ == "__main__":
     test_affine_basis_reconstructs_projector()
     test_response_operator_conjugates()
     test_projector_is_rank_one_and_sign_invariant()
+    test_payload_head_output_axes_are_flattened_for_coordinates()
     print("rung480 algebra tests passed")
