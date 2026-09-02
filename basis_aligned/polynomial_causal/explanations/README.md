@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-02_0754.md](explanation_2026-09-02_0754.md) — full update since 06:10: the frozen product
+  groups, native products, sparse mixtures, and gauge-aware common-block test all fail to identify shared coordinates
+  across MLP8/9/12; includes a four-panel percentage graph, careful scope limits, and the started downstream-canonical
+  attention0 decomposition
 - [explanation_2026-09-02_0610.md](explanation_2026-09-02_0610.md) — full update since 05:12: the paired downstream
   response predicts individual effects; exact intervention identifies the query position; pair/triple removal terms
   fail sufficiency and change under two causal coordinates; the 62-circuit fingerprint rejects whole-MLP grouping;
@@ -249,4 +253,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_0331.md](explanation_2026-09-02_0331.md) — the first task-conditioned mechanism: a shared, portable equality matcher (rungs 457–460)
 - [explanation_0344.md](explanation_2026-09-02_0344.md) — code context decomposition: causal ordering transfers exactly, while raw MLP9 response amplitude runs in the opposite direction (rung 461)
 - [explanation_0431.md](explanation_2026-09-02_0431.md) — the anatomy of the equality circuit: matcher + three-MLP context correction + broad suppressor (rungs 462–466)
-- [explanation_0753.md](explanation_2026-09-02_0753.md) — the gauge-aware chapter verdict: three clean nulls (native products, sparse mixtures, commutant algebra) prove the equality-MLP trio is functionally composable but representationally individual (rungs 477–479)
+- [explanation_2026-09-02_0753.md](explanation_2026-09-02_0753.md) — concise gauge-aware chapter verdict for rungs
+  477--479; superseded in scope and caution by the full 07:54 update above
