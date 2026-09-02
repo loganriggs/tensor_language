@@ -1,0 +1,515 @@
+{
+  "analysis": {
+    "code_largest_pair_indices": [
+      1,
+      0
+    ],
+    "material_interaction_exists": true,
+    "max_mobius_closure_abs": 0.0,
+    "natural_largest_pair_indices": [
+      2,
+      1,
+      0,
+      0
+    ],
+    "pred_b_coordinate_stable": false,
+    "pred_c_state_mixing": false,
+    "pred_d_register_persists": false,
+    "pred_e_natural_h_half_stable": false,
+    "reports": {
+      "code_validation": {
+        "H": {
+          "interaction_norm_ratio_to_static": 0.3334909941803509,
+          "largest_pair": "m8+m9",
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.30874908638625004,
+              "signed_mean": 0.0025240974209737033
+            },
+            {
+              "norm": 0.4397573404251597,
+              "signed_mean": 0.004653366646380164
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.008082614082925176,
+            0.004198127080962329,
+            0.0074969419356775155
+          ],
+          "pair_context_vectors": [
+            [
+              0.0006057408454080859,
+              0.006276377559740945,
+              0.003473968659641176,
+              0.0036742829125035893
+            ],
+            [
+              -0.00183051630117736,
+              -0.0008286360771127857,
+              -0.003658231330762913,
+              0.0004518703811547973
+            ],
+            [
+              0.00035467870779089873,
+              0.005888650760902922,
+              0.002155669845595229,
+              0.0040933141992850735
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.02665530786110548,
+          "total_interaction_context_norm": 0.00888930511878339,
+          "total_interaction_context_vector": [
+            0.0019648774056234856,
+            0.005585750122324075,
+            0.0001693933055077384,
+            0.00662794868377122
+          ],
+          "triple_context_norm": 0.006847419175257548,
+          "triple_context_vector": [
+            0.0028349741536018614,
+            -0.005750642121207006,
+            -0.0018020138689657536,
+            -0.0015915188091722402
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": 0.9052562137427899,
+            "normalized_l2_error": 0.7387074091214041,
+            "prediction_norm": 0.04101021291672757,
+            "projection_on_target": 1.3665343626206623,
+            "target_norm": 0.02716708125698845
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.902774923405461,
+            "normalized_l2_error": 0.496715968068163,
+            "pearson": 0.9079655895951545,
+            "prediction_norm": 1.0688895619693022,
+            "projection_on_target": 1.03930046715882,
+            "target_norm": 0.928477108332015
+          }
+        },
+        "N": {
+          "interaction_norm_ratio_to_static": 0.44429456248164884,
+          "largest_pair": "m8+m12",
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.3497498360608196,
+              "signed_mean": -0.0018053061406438549
+            },
+            {
+              "norm": 0.36887831238636837,
+              "signed_mean": -0.004090844910630646
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.004235000811212886,
+            0.007475076378025886,
+            0.004385929437917315
+          ],
+          "pair_context_vectors": [
+            [
+              -0.000381846513066973,
+              -0.0021175386172046164,
+              0.0014550830862235006,
+              -0.0033448749645189806
+            ],
+            [
+              -0.004210756523636999,
+              -0.0018104124482315365,
+              0.0009214547065245669,
+              -0.00583263442597606
+            ],
+            [
+              0.003086309265959394,
+              -0.002485654404442204,
+              -0.0013669730652487132,
+              0.0012899530882185155
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.018480716171531405,
+          "total_interaction_context_norm": 0.008210881705778078,
+          "total_interaction_context_vector": [
+            0.0017947854044345708,
+            -0.006349218792586339,
+            0.0006662006092416804,
+            -0.004841582510959019
+          ],
+          "triple_context_norm": 0.004505233026172361,
+          "triple_context_vector": [
+            0.0033010791751791487,
+            6.438667729201883e-05,
+            -0.00034336411825767376,
+            0.0030459737913175063
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": 0.8630791353717272,
+            "normalized_l2_error": 0.7868213277296905,
+            "prediction_norm": 0.04470890080205899,
+            "projection_on_target": 1.2656173343165136,
+            "target_norm": 0.030488930896715453
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.9255577471195519,
+            "normalized_l2_error": 0.5137256161695616,
+            "pearson": 0.9308286139835967,
+            "prediction_norm": 1.3647273881949809,
+            "projection_on_target": 1.1780418637957604,
+            "target_norm": 1.0722318498768468
+          }
+        },
+        "source_comparison": {
+          "both_sources_reduce_norm_at_least_25pct": true,
+          "cosine_improvement": -1.8549483152658135,
+          "static_cosine": 0.9792615931091778,
+          "subtractive_cosine": -0.8756867221566357
+        }
+      },
+      "natural_wave0": {
+        "H": {
+          "interaction_norm_ratio_to_static": 0.9521761541950329,
+          "largest_pair": "m8+m12",
+          "largest_pair_half_stable": false,
+          "largest_pair_halves": [
+            {
+              "norm": 0.29314550143532625,
+              "signed_mean": -0.00013480854497484348
+            },
+            {
+              "norm": 0.37757194464173743,
+              "signed_mean": 0.004751588890788601
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.005206880176180036,
+            0.005958467595729409,
+            0.0032727569863318143
+          ],
+          "pair_context_vectors": [
+            [
+              0.0010922539381575662,
+              -0.003350056816392074,
+              -0.0015546468405137498,
+              -0.0035041083076728023
+            ],
+            [
+              -0.002964187559311625,
+              0.0038839496281528594,
+              0.0032743125417593255,
+              0.0009543274424580083
+            ],
+            [
+              -0.0017164193870781294,
+              0.0021401280940518846,
+              0.0016181905003392295,
+              0.0007524320732848643
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.006704482178616534,
+          "total_interaction_context_norm": 0.006383848056704227,
+          "total_interaction_context_vector": [
+            -0.005600011169092816,
+            0.00021388291117830637,
+            0.00022496734060701478,
+            -0.0030491039196931524
+          ],
+          "triple_context_norm": 0.00462125691446406,
+          "triple_context_vector": [
+            -0.0020116581608606286,
+            -0.002460137994634364,
+            -0.0031128888609777907,
+            -0.001251755127763223
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": -0.6869257324375512,
+            "normalized_l2_error": 1.3598166242743863,
+            "prediction_norm": 0.003357591539269479,
+            "projection_on_target": -0.31764000937541725,
+            "target_norm": 0.007261100488801678
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.8469137384197256,
+            "normalized_l2_error": 0.6622177723548164,
+            "pearson": 0.8519407058575466,
+            "prediction_norm": 0.7011726921871029,
+            "projection_on_target": 1.051547423404596,
+            "target_norm": 0.564722781684301
+          }
+        },
+        "N": {
+          "interaction_norm_ratio_to_static": 1.1010362952033097,
+          "largest_pair": "m9+m12",
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.33389168407011344,
+              "signed_mean": -0.006401130869059497
+            },
+            {
+              "norm": 0.4224206591213311,
+              "signed_mean": -0.008877018179267301
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.013552231036455422,
+            0.006506697550492302,
+            0.014614315479916791
+          ],
+          "pair_context_vectors": [
+            [
+              -0.0019452856954452473,
+              -0.006999343292758271,
+              -0.002194518552432702,
+              -0.011228183798892417
+            ],
+            [
+              -0.0014619548902521993,
+              -0.003168970077747711,
+              -0.0009991998502992885,
+              -0.0053999101120251755
+            ],
+            [
+              -2.5347379093101724e-05,
+              -0.00988306197006973,
+              -0.007835603077649717,
+              -0.007382816871777086
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.016780730354214846,
+          "total_interaction_context_norm": 0.018476193180010436,
+          "total_interaction_context_vector": [
+            0.00015014228458397176,
+            -0.011807677667922293,
+            -0.006801568871478352,
+            -0.0124765612528625
+          ],
+          "triple_context_norm": 0.015222010989232778,
+          "triple_context_vector": [
+            0.0035827302493745203,
+            0.008243697672653417,
+            0.004227752608903354,
+            0.011534349529832177
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": 0.9665910050446769,
+            "normalized_l2_error": 0.3025155172495714,
+            "prediction_norm": 0.021271668780140324,
+            "projection_on_target": 1.0895972203940396,
+            "target_norm": 0.018870279145662354
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.8369896535085282,
+            "normalized_l2_error": 0.6400181655687198,
+            "pearson": 0.8339375063280446,
+            "prediction_norm": 0.7072728669214438,
+            "projection_on_target": 0.9783703870680218,
+            "target_norm": 0.6050674464857907
+          }
+        },
+        "source_comparison": {
+          "both_sources_reduce_norm_at_least_25pct": false,
+          "cosine_improvement": 1.1558060165155637,
+          "static_cosine": -0.8747872455097842,
+          "subtractive_cosine": 0.28101877100577954
+        }
+      },
+      "natural_wave1": {
+        "H": {
+          "interaction_norm_ratio_to_static": 1.2221769846445338,
+          "largest_pair": "m8+m9",
+          "largest_pair_half_stable": false,
+          "largest_pair_halves": [
+            {
+              "norm": 0.28278431496140843,
+              "signed_mean": 0.0027013244573860598
+            },
+            {
+              "norm": 0.32178616355704787,
+              "signed_mean": -0.001140993391951876
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.010182236386230751,
+            0.004426767976843387,
+            0.004565645847839614
+          ],
+          "pair_context_vectors": [
+            [
+              -0.009226175717627391,
+              0.003330801537706862,
+              0.002210821014098959,
+              -0.0016042602695860195
+            ],
+            [
+              -0.003207085421308875,
+              0.0024030776083331673,
+              0.001861392237090816,
+              0.0002670482526809792
+            ],
+            [
+              -0.0002650324947749957,
+              -0.001008182973320348,
+              0.0011969472719404923,
+              -0.004280860206209682
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.010038358048227418,
+          "total_interaction_context_norm": 0.012268650170164774,
+          "total_interaction_context_vector": [
+            -0.00797388693675972,
+            0.005160470027714326,
+            0.006519589124097062,
+            -0.004219171822013677
+          ],
+          "triple_context_norm": 0.005101915420849696,
+          "triple_context_vector": [
+            0.004724406696951542,
+            0.0004347738549946442,
+            0.0012504286009667946,
+            0.0013989004011010467
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": 0.695849599244154,
+            "normalized_l2_error": 1.8675993611729775,
+            "prediction_norm": 0.01280089337001558,
+            "projection_on_target": 1.6838429055034692,
+            "target_norm": 0.005289980729425081
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.774133118796811,
+            "normalized_l2_error": 0.701684839076689,
+            "pearson": 0.7810258953184578,
+            "prediction_norm": 0.46933979214104143,
+            "projection_on_target": 0.8336331621578776,
+            "target_norm": 0.435840959259706
+          }
+        },
+        "N": {
+          "interaction_norm_ratio_to_static": 1.2646993762621155,
+          "largest_pair": "m8+m9",
+          "largest_pair_half_stable": true,
+          "largest_pair_halves": [
+            {
+              "norm": 0.24622472166870354,
+              "signed_mean": 0.006063233902144323
+            },
+            {
+              "norm": 0.24300496219897047,
+              "signed_mean": 0.0026844782011418524
+            }
+          ],
+          "mobius_closure_max_abs": 0.0,
+          "pair_context_norms": [
+            0.008825029871077552,
+            0.0024798763122834146,
+            0.0026563172459121865
+          ],
+          "pair_context_vectors": [
+            [
+              0.00467678923637439,
+              0.004296637788868443,
+              0.004507836680568289,
+              0.00415055500343442
+            ],
+            [
+              0.0008139208866617618,
+              -0.0013265226491081324,
+              -0.00028066931402766687,
+              -0.0019102046257002156
+            ],
+            [
+              -0.0008157272524654102,
+              0.00022195856648252277,
+              0.0013087318972490418,
+              -0.0021514101367251393
+            ]
+          ],
+          "singleton_parent_max_abs_error_nat": 0.0,
+          "static_total_interaction_context_norm": 0.004396689842554225,
+          "total_interaction_context_norm": 0.005560490901496307,
+          "total_interaction_context_vector": [
+            0.004116222763863893,
+            0.0018865124470751362,
+            0.0029266721110010013,
+            0.0013606727621259375
+          ],
+          "triple_context_norm": 0.003231419656807592,
+          "triple_context_vector": [
+            -0.0005587601067068485,
+            -0.0013055612591676964,
+            -0.0026092271527886624,
+            0.0012717325211168726
+          ],
+          "union_context_coordinate_metrics": {
+            "cosine": 0.9552686137888705,
+            "normalized_l2_error": 0.7365503592838316,
+            "prediction_norm": 0.013772850928236803,
+            "projection_on_target": 1.5569335822029593,
+            "target_norm": 0.008450438968322309
+          },
+          "union_coordinate_metrics": {
+            "cosine": 0.8321305293845409,
+            "normalized_l2_error": 0.6504995062811708,
+            "pearson": 0.8274794317788109,
+            "prediction_norm": 0.4373191143527653,
+            "projection_on_target": 0.9753543707996237,
+            "target_norm": 0.3731019176527645
+          }
+        },
+        "source_comparison": {
+          "both_sources_reduce_norm_at_least_25pct": false,
+          "cosine_improvement": -0.21711125051689975,
+          "static_cosine": 0.07423149618349967,
+          "subtractive_cosine": -0.14287975433340008
+        }
+      }
+    },
+    "singleton_parent_max_abs_error_nat": 0.0,
+    "subset_names": [
+      "m8",
+      "m9",
+      "m12",
+      "m8+m9",
+      "m8+m12",
+      "m9+m12",
+      "m8+m9+m12"
+    ],
+    "subtractive_total_interaction_source_cosines": [
+      -0.8756867221566357,
+      0.28101877100577954,
+      -0.14287975433340008
+    ]
+  },
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 7.358423656770381e-14,
+    "forwards": 2520,
+    "patch_calls": 3888,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "retain_coordinate_specific_query_circuit_and_test_downstream_equivalence",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_coordinate_stable": false,
+    "pred_c_state_mixing": false,
+    "pred_d_register_persists": false,
+    "pred_e_natural_h_half_stable": false
+  },
+  "rung": 474,
+  "runtime_s": 55.02613377571106,
+  "status": "complete",
+  "strong_null": false
+}
