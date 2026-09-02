@@ -1,0 +1,104 @@
+{
+  "instrument": {
+    "empty_error": 0.0,
+    "factor_error": 5.085501652043494e-14,
+    "forwards": 3750,
+    "patch_calls": 4500,
+    "replay": {
+      "max_abs": 0.0,
+      "relative_squared": 0.0
+    }
+  },
+  "next_step": "within_mlp_downstream_response_split",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_downstream_pair": false,
+    "pred_c_half_stable": false,
+    "pred_d_behaviorally_selective": false,
+    "pred_e_distinct_third": false
+  },
+  "rung": 475,
+  "runtime_s": 80.92906928062439,
+  "status": "complete",
+  "strong_null": false,
+  "summary": {
+    "max_selective_circuit_count_any_mlp": 10,
+    "opposite_pair_vs_third_count": 0,
+    "pair_comparisons": {
+      "H": {
+        "difficulty_residualized": [
+          {
+            "cosine": 0.572922401660206,
+            "pair": "m8+m9",
+            "pair_index": 0
+          },
+          {
+            "cosine": -0.00716202477241133,
+            "pair": "m8+m12",
+            "pair_index": 1
+          },
+          {
+            "cosine": -0.03332627823024451,
+            "pair": "m9+m12",
+            "pair_index": 2
+          }
+        ],
+        "raw": [
+          {
+            "cosine": 0.5348196062382524,
+            "pair": "m8+m9",
+            "pair_index": 0
+          },
+          {
+            "cosine": 0.05329920462643536,
+            "pair": "m8+m12",
+            "pair_index": 1
+          },
+          {
+            "cosine": 0.01349822541231357,
+            "pair": "m9+m12",
+            "pair_index": 2
+          }
+        ]
+      },
+      "N": {
+        "difficulty_residualized": [
+          {
+            "cosine": 0.6393443474525697,
+            "pair": "m8+m9",
+            "pair_index": 0
+          },
+          {
+            "cosine": 0.6135346167218798,
+            "pair": "m8+m12",
+            "pair_index": 1
+          },
+          {
+            "cosine": 0.4903421457696824,
+            "pair": "m9+m12",
+            "pair_index": 2
+          }
+        ],
+        "raw": [
+          {
+            "cosine": 0.6277594431936706,
+            "pair": "m8+m12",
+            "pair_index": 1
+          },
+          {
+            "cosine": 0.6096913801902442,
+            "pair": "m8+m9",
+            "pair_index": 0
+          },
+          {
+            "cosine": 0.5135752482498457,
+            "pair": "m9+m12",
+            "pair_index": 2
+          }
+        ]
+      }
+    },
+    "proposed_pair": null,
+    "selective_pair_circuit_count": 0
+  }
+}
