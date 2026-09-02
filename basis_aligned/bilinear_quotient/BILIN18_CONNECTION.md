@@ -66944,3 +66944,66 @@ Landed 20:43 (103.8s; pred_a TRUE at the corrected floors — scored positions 9
 **Claim ceiling:** one site (MLP1), two branches (T/I), one corpus, restoration-form intervention — a measured curve, not a universal law; other sites' profiles are unmeasured. **What it licenses (next_step as registered):** extraction PRICING input — any compiled program reproducing this write below full positional granularity forfeits effect according to this curve; a future per-site profile census can now cite a measured methodology with derived floors. Seventh standing-claim candidate (site-scoped): "the MLP1 write's branch effect is majority-propagated: position-local restoration recovers ≤.31 of it at 1/64 density, rising strictly monotonically to ≥.95 at full density."
 
 Instrument ladder note: v1's floor arithmetic errors (§2635) were caught by the registered clauses, repaired by a derived-constants addendum, and the science passed unchanged — the derive-every-constant rule earned its keep on its first outing.
+
+## §2634 — RUNG505: THE FOUR SCORE IMPLEMENTATIONS DRIVE THE SAME NATURAL-TEXT RESPONSE, BUT IT IS NOT THE CODE-DERIVED FIVE-SITE PROGRAM
+
+Rung505 ran the complete 32-subset factorial over the fixed sites `T={MLP8,MLP9,MLP12}` and
+`G={attention14,MLP17}` on natural documents500:1000 under four score sources: native L8H4, the positive L5H5
+replacement, and correctly negated L7H3/L8H3 replacements. It also removed all19 later writes directly and reran
+unnegated L7H3/L8H3 as wrong-sign controls. The instrument is exact and live:17,875 full forwards,52,000 patches,
+2,375 captures,0 backwards; native replay logit error0; factor reconstruction`4.79e-14`; minimum score-edit RMS1.675.
+
+The registered verdict is A/B true, C/D false, E true, strong-null false. All supplied scores remain calibrated:
+all-copy recovery is`.899-1.139`, per-document direction cosine`.906-.954`, and off-target change below`.001` nat;
+wrong-sign controls are anti-aligned. Correct gauge orientation beats wrong orientation by at least1.508 cosine units,
+so the score's sign is a real downstream program variable.
+
+The fixed code program does **not** transfer. In `(near,far,one earlier match,multiple earlier matches)` order,
+natural `v(T)` is all-positive for every source: native
+`[.00478,.00597,.00860,.00332]` nat, L5H5
+`[.00658,.00640,.00957,.00394]`, negated L7H3
+`[.00497,.00518,.00729,.00339]`, and negated L8H3
+`[.00481,.00376,.00589,.00253]`. This contradicts the registered code signs `(-,+,+,-)` in both halves. T norms
+`.00886-.01383` also miss the `.015` floor; Z7 narrowly misses T-to-total cosine and Z8 misses the interaction-norm
+and union-projection clauses. Therefore D cannot identify the complete program across the gauge even though the four
+sources are very similar to one another on natural text.
+
+A hash-pinned CPU comparison opens no new model outcomes. Across all two code sources and four natural sources,
+code-to-natural cosine ranges are T`.149-.375`, five-site union`.099-.596`, G`.885-.919`, and the T-by-G finite
+interaction`.856-.980`. The G and interaction stability are useful descriptive fragments, but they cannot rescue the
+registered complete-program claim. The frozen route is honored: abandon the code-selected five-site group as a
+cross-corpus unit and define the next state from prospective natural-text causal effects.
+
+Rung506 is registered and managed-running. It removes each of all19 later writes under all four calibrated score
+sources, represents a write by its finite CE effect across32 fixed circuit families minus matched controls, and keeps
+every pair that agrees across sources and document repeats. No pair is ranked. Passing pairs must repeat on new
+documents and30 held-out circuit families, then predict a physical two-write removal using an additive, redundant,
+or one-scalar interaction rule. This tests cross-module grouping, held-out prediction, composition, and selective
+manipulation; it adds/saves0 deployed parameters and does not use rank or quantization.
+
+## §2637 — RUNG506: WHOLE-WRITE CAUSAL-STATE ATLAS STOPS LAWFULLY AT ZERO ELIGIBLE SITES
+
+Rung506 defines each of19 later writes by a32-coordinate vector: its finite CE-removal effect on each fixed circuit's
+member tokens minus its effect on matched controls. It recalibrates four score sources, requires every individual
+write's vector to repeat across documents and score sources, and only then compares write pairs. A/B are true;
+C/D/E are false; the registered strong null fires before pair outcomes open. Exact price is5,146 full forwards,
+1,178 captures,4,712 patches,0 backwards,109.79s, peak3.16GB. Replay logit error is0, factor reconstruction
+`5.09e-14`, and source calibration is healthy: recovery`.885-1.124`, document cosine`.923-.954`, off-target
+change≤`.00147` nat.
+
+The zero eligible set is not a dead-effect result. All19 removals are physically live, every circuit-fingerprint RMS
+is at least`.0025` nat, and patch RMS reaches52.3. But0/19 sites pass the `.50` every-source repeat bar and0/19 pass
+the `.70` every-source invariance bar. The best worst-source repeat is only`.084` (MLP17); the best worst-source
+invariance is`.675` (also MLP17). Therefore the current32 circuit member-minus-control coordinates do not define a
+repeatable whole-write state on these documents. No pair was ranked, selected, confirmed, or validated.
+
+The registered after-outcome CPU audit opens no new model outcomes and compares the simpler four-context task
+vectors. Seven MLPs (`8,9,10,14,15,16,17`) pass the same `.50` repeat/`.70` source bars. Their descriptive task-only
+pairs split into early `{8,9,10}` and late `{14,15,16,17}` clusters, with within-cluster minimum source cosines above
+`.91`. These do not rescore rung506; they isolate the failure to the present downstream circuit coordinates at
+whole-write grain.
+
+The frozen successor is rung507: split the user-named, task-stable MLP10 write into its exact22 named normalized-input
+sources and253 unordered bilinear source-pair output terms; use gradients only as a no-ranking screen, physically
+remove candidates on new documents, and measure every confirming two-term finite interaction before circuit
+language. Result/bundle/audit SHAs `f86e5f03…/225f73cb…/96f58a2d…`;0 deployed parameters added or saved.

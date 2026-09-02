@@ -12,6 +12,9 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
+- [explanation_2026-09-02_2106.md](explanation_2026-09-02_2106.md) — rung505's corrected cross-corpus failure and
+  percentage graph; rung506's lawful zero-eligible-site result showing unstable32-circuit coordinates despite seven
+  task-stable MLP writes; and the preregistered exact253-term MLP10 bilinear split with finite mediator interactions
 - [explanation_2026-09-02_2024.md](explanation_2026-09-02_2024.md) — rung504's exact finite two-source strong null,
   recovered singleton copy effects, percentage graph, duplicate-work check against the MLP8/9/12 dossier, and the
   fixed downstream-program sign-gauge successor

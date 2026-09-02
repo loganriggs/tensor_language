@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 505 code-to-natural causal-pattern similarity</title>
+  <desc id="desc">Range of cosine similarities across two code score sources and four natural score sources. The task group ranges from 14.9 to 37.5 percent, the suppressor group from 88.5 to 91.9 percent, the interaction from 85.6 to 98.0 percent, and the complete five-site group from 9.9 to 59.6 percent.</desc>
+  <rect width="900" height="430" rx="18" fill="#fbfbfd"/>
+  <text x="45" y="46" font-family="system-ui, sans-serif" font-size="25" font-weight="700" fill="#172033">Code → natural causal-pattern similarity</text>
+  <text x="45" y="75" font-family="system-ui, sans-serif" font-size="15" fill="#566078">Range over 2 code sources × 4 natural score sources; cosine shown as a percentage</text>
+
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#687087">
+    <text x="230" y="112" text-anchor="middle">0%</text>
+    <text x="350" y="112" text-anchor="middle">20%</text>
+    <text x="470" y="112" text-anchor="middle">40%</text>
+    <text x="590" y="112" text-anchor="middle">60%</text>
+    <text x="710" y="112" text-anchor="middle">80%</text>
+    <text x="830" y="112" text-anchor="middle">100%</text>
+  </g>
+  <g stroke="#dfe3eb" stroke-width="1">
+    <line x1="230" y1="122" x2="230" y2="352"/>
+    <line x1="350" y1="122" x2="350" y2="352"/>
+    <line x1="470" y1="122" x2="470" y2="352"/>
+    <line x1="590" y1="122" x2="590" y2="352"/>
+    <line x1="710" y1="122" x2="710" y2="352"/>
+    <line x1="830" y1="122" x2="830" y2="352"/>
+  </g>
+
+  <g font-family="system-ui, sans-serif" font-size="17" fill="#20283a">
+    <text x="205" y="157" text-anchor="end">MLP8/9/12 task group</text>
+    <text x="205" y="217" text-anchor="end">Attention14 + MLP17</text>
+    <text x="205" y="277" text-anchor="end">Interaction between groups</text>
+    <text x="205" y="337" text-anchor="end">All five sites together</text>
+  </g>
+
+  <g stroke-linecap="round">
+    <line x1="319.4" y1="152" x2="455.2" y2="152" stroke="#d85858" stroke-width="14"/>
+    <circle cx="319.4" cy="152" r="8" fill="#a93333"/>
+    <circle cx="455.2" cy="152" r="8" fill="#a93333"/>
+    <text x="465" y="158" font-family="system-ui, sans-serif" font-size="15" fill="#8f2d2d">14.9–37.5%</text>
+
+    <line x1="760.9" y1="212" x2="781.4" y2="212" stroke="#2f9b73" stroke-width="14"/>
+    <circle cx="760.9" cy="212" r="8" fill="#177653"/>
+    <circle cx="781.4" cy="212" r="8" fill="#177653"/>
+    <text x="790" y="218" font-family="system-ui, sans-serif" font-size="15" fill="#116344">88.5–91.9%</text>
+
+    <line x1="743.4" y1="272" x2="818.0" y2="272" stroke="#2f9b73" stroke-width="14"/>
+    <circle cx="743.4" cy="272" r="8" fill="#177653"/>
+    <circle cx="818.0" cy="272" r="8" fill="#177653"/>
+    <text x="665" y="278" text-anchor="end" font-family="system-ui, sans-serif" font-size="15" fill="#116344">85.6–98.0%</text>
+
+    <line x1="289.1" y1="332" x2="587.5" y2="332" stroke="#d85858" stroke-width="14"/>
+    <circle cx="289.1" cy="332" r="8" fill="#a93333"/>
+    <circle cx="587.5" cy="332" r="8" fill="#a93333"/>
+    <text x="598" y="338" font-family="system-ui, sans-serif" font-size="15" fill="#8f2d2d">9.9–59.6%</text>
+  </g>
+
+  <rect x="45" y="378" width="810" height="1" fill="#dfe3eb"/>
+  <text x="45" y="406" font-family="system-ui, sans-serif" font-size="14" fill="#566078">High similarity for one component does not rescue the registered complete five-site claim.</text>
+</svg>

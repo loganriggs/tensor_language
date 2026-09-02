@@ -1,0 +1,447 @@
+{
+  "analysis": "after_outcome_cpu_clause_audit_no_new_model_outcomes",
+  "counts": {
+    "physically_live_sites": 19,
+    "sites_passing_every_circuit_repeat_bar": 0,
+    "sites_passing_every_circuit_source_bar": 0,
+    "task_stable_sites": 7
+  },
+  "input_sha256": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/natural_action_conditioned_later_write_state_atlas_rung506_bundle.pt": "225f73cb885e0e51d76ed329b60b044359a600a18e130846c99dd4c103959093",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/natural_action_conditioned_later_write_state_atlas_rung506_results.json": "f86e5f0303ab0616ea14e3141fd09886ca54d326e8d83ea6c8c13a62f66db75e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/natural_action_conditioned_later_write_state_atlas_rung506.py": "9a17e28312a0e7214e5fc587123e3267e2650b382f3a40daf12ad1a380b1d004"
+  },
+  "interpretation": "All 19 writes have material circuit-fingerprint RMS, but no single write repeats its 32-circuit member-minus-control direction across the two discovery document halves and no write clears source invariance. Seven MLP writes do have stable four-context task effects, forming descriptive early and late task-similarity clusters. This does not rescore rung506 or license task-only whole-write edges. It localizes the failure to the current 32-circuit observation coordinates at whole-write grain and supports the frozen route: split a task-stable write internally. MLP10 is the user-named bilinear test case.",
+  "new_model_outcomes_opened": false,
+  "next_object": "exact_MLP10_named_input_source_pair_terms_with_finite_downstream_interventions",
+  "registered_result": {
+    "next_step": "split_fixed_writes_into_exact_attention_or_bilinear_terms",
+    "pred_a": true,
+    "pred_b": true,
+    "pred_c": false,
+    "strong_null": true
+  },
+  "site_audit": {
+    "a10": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.003144838471874194,
+        0.005841229804558176
+      ],
+      "minimum_circuit_repeat_cosine": -0.31392494945443555,
+      "minimum_circuit_source_cosine": -0.1688895831927266,
+      "minimum_task_repeat_cosine": -0.4703557548080074,
+      "minimum_task_source_cosine": -0.47239259987879795,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a11": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0036381341973434284,
+        0.005844020341888907
+      ],
+      "minimum_circuit_repeat_cosine": -0.0547515723513559,
+      "minimum_circuit_source_cosine": -0.012244357755354724,
+      "minimum_task_repeat_cosine": -0.9632898886950332,
+      "minimum_task_source_cosine": -0.7238393202803045,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a12": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0033755926226539004,
+        0.004308332464061388
+      ],
+      "minimum_circuit_repeat_cosine": -0.036952740403794475,
+      "minimum_circuit_source_cosine": -0.09667916428115166,
+      "minimum_task_repeat_cosine": 0.5137550087481966,
+      "minimum_task_source_cosine": -0.7739339034304443,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a13": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0035167150538042316,
+        0.004544308319572634
+      ],
+      "minimum_circuit_repeat_cosine": -0.12737883450524629,
+      "minimum_circuit_source_cosine": -0.4160694999296924,
+      "minimum_task_repeat_cosine": -0.18748247127405937,
+      "minimum_task_source_cosine": -0.21274634714603724,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a14": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0038678324215284097,
+        0.004622404101211024
+      ],
+      "minimum_circuit_repeat_cosine": -0.2654971638957501,
+      "minimum_circuit_source_cosine": 0.16882420958374866,
+      "minimum_task_repeat_cosine": -0.7626455965252678,
+      "minimum_task_source_cosine": -0.5001109498490185,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a15": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0025149253236141735,
+        0.0046255827247651165
+      ],
+      "minimum_circuit_repeat_cosine": -0.1574720207360361,
+      "minimum_circuit_source_cosine": -0.2995240576886004,
+      "minimum_task_repeat_cosine": 0.035724699177325694,
+      "minimum_task_source_cosine": -0.9766492117454513,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a16": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.003689325624383556,
+        0.005304049685035512
+      ],
+      "minimum_circuit_repeat_cosine": 0.013810279120648755,
+      "minimum_circuit_source_cosine": 0.3701550558929606,
+      "minimum_task_repeat_cosine": -0.4300393481349923,
+      "minimum_task_source_cosine": 0.5456055970451873,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a17": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0031447926628400368,
+        0.00362102287809133
+      ],
+      "minimum_circuit_repeat_cosine": -0.23834833306155218,
+      "minimum_circuit_source_cosine": -0.2883581465527865,
+      "minimum_task_repeat_cosine": -0.3445910219412802,
+      "minimum_task_source_cosine": -0.3522257473006888,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "a9": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004026728530303935,
+        0.007111173627310485
+      ],
+      "minimum_circuit_repeat_cosine": -0.2013297116896736,
+      "minimum_circuit_source_cosine": 0.029502273912393497,
+      "minimum_task_repeat_cosine": -0.11113858776232749,
+      "minimum_task_source_cosine": -0.9012569675146089,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "m10": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004704487469261367,
+        0.006359439274894057
+      ],
+      "minimum_circuit_repeat_cosine": -0.3189285724900733,
+      "minimum_circuit_source_cosine": 0.4396616263071918,
+      "minimum_task_repeat_cosine": 0.743941296122216,
+      "minimum_task_source_cosine": 0.8343610203215152,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m11": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004910435031286013,
+        0.0061300804474684325
+      ],
+      "minimum_circuit_repeat_cosine": -0.08673375767094947,
+      "minimum_circuit_source_cosine": 0.15100946576026883,
+      "minimum_task_repeat_cosine": 0.4892473727240534,
+      "minimum_task_source_cosine": 0.6128832124350504,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "m12": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004682102189024841,
+        0.0059765432806188085
+      ],
+      "minimum_circuit_repeat_cosine": -0.039955914061356075,
+      "minimum_circuit_source_cosine": 0.43155792087536105,
+      "minimum_task_repeat_cosine": -0.033990296578565546,
+      "minimum_task_source_cosine": 0.8626383803337356,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "m13": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004948168199211644,
+        0.005938680186747772
+      ],
+      "minimum_circuit_repeat_cosine": -0.08211598410639298,
+      "minimum_circuit_source_cosine": 0.32752080170930176,
+      "minimum_task_repeat_cosine": -0.49899126244021824,
+      "minimum_task_source_cosine": 0.3080572139385293,
+      "task_stable_under_same_repeat_source_bars": false
+    },
+    "m14": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.004558917009942146,
+        0.005594812844465587
+      ],
+      "minimum_circuit_repeat_cosine": -0.0059813716613096235,
+      "minimum_circuit_source_cosine": 0.14872915587505142,
+      "minimum_task_repeat_cosine": 0.8271792043059057,
+      "minimum_task_source_cosine": 0.8370883184518303,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m15": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.0040560364142002096,
+        0.006382383778419208
+      ],
+      "minimum_circuit_repeat_cosine": -0.14473643020318042,
+      "minimum_circuit_source_cosine": 0.45728546419434607,
+      "minimum_task_repeat_cosine": 0.9182841779177167,
+      "minimum_task_source_cosine": 0.8931341407232508,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m16": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.005995657341374513,
+        0.00815900133908194
+      ],
+      "minimum_circuit_repeat_cosine": -0.10060489472385555,
+      "minimum_circuit_source_cosine": 0.5536534043310396,
+      "minimum_task_repeat_cosine": 0.70621024111724,
+      "minimum_task_source_cosine": 0.9269477971090645,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m17": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.008235145973242772,
+        0.008874691641272942
+      ],
+      "minimum_circuit_repeat_cosine": 0.08353339900728786,
+      "minimum_circuit_source_cosine": 0.6748224916402779,
+      "minimum_task_repeat_cosine": 0.9772286796039086,
+      "minimum_task_source_cosine": 0.9960181445117621,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m8": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.006156637764669981,
+        0.008377127007867
+      ],
+      "minimum_circuit_repeat_cosine": -0.17788814358768168,
+      "minimum_circuit_source_cosine": 0.40220248738827197,
+      "minimum_task_repeat_cosine": 0.8629529298027044,
+      "minimum_task_source_cosine": 0.9724314774389263,
+      "task_stable_under_same_repeat_source_bars": true
+    },
+    "m9": {
+      "circuit_fingerprint_rms_nat_range": [
+        0.005669377474162352,
+        0.008173885020117884
+      ],
+      "minimum_circuit_repeat_cosine": -0.22985945815484946,
+      "minimum_circuit_source_cosine": 0.38779901999119576,
+      "minimum_task_repeat_cosine": 0.597290458205112,
+      "minimum_task_source_cosine": 0.8388279021870377,
+      "task_stable_under_same_repeat_source_bars": true
+    }
+  },
+  "status": "complete",
+  "task_only_pair_metrics": {
+    "m10+m14": {
+      "minimum_source_cosine": -0.9932338206827287,
+      "source_cosines": [
+        -0.7211048774805484,
+        -0.8999957788579034,
+        -0.9932338206827287,
+        -0.8492199580681683
+      ]
+    },
+    "m10+m15": {
+      "minimum_source_cosine": -0.935553404673326,
+      "source_cosines": [
+        -0.7517499963738594,
+        -0.9211251080837953,
+        -0.935553404673326,
+        -0.9068226311169431
+      ]
+    },
+    "m10+m16": {
+      "minimum_source_cosine": -0.9677741627012388,
+      "source_cosines": [
+        -0.7599371170888788,
+        -0.9437711494354536,
+        -0.9677741627012388,
+        -0.9546276883973297
+      ]
+    },
+    "m10+m17": {
+      "minimum_source_cosine": -0.9835286277241109,
+      "source_cosines": [
+        -0.815894349874781,
+        -0.9653066015607341,
+        -0.9835286277241109,
+        -0.9352532173369615
+      ]
+    },
+    "m14+m15": {
+      "minimum_source_cosine": 0.9515083830663316,
+      "source_cosines": [
+        0.9872653557458835,
+        0.9977656163116738,
+        0.9515083830663316,
+        0.9925021357993361
+      ]
+    },
+    "m14+m16": {
+      "minimum_source_cosine": 0.9424573119247752,
+      "source_cosines": [
+        0.9905076101861972,
+        0.9895323339864207,
+        0.9784179127700622,
+        0.9424573119247752
+      ]
+    },
+    "m14+m17": {
+      "minimum_source_cosine": 0.921327196116225,
+      "source_cosines": [
+        0.9871158808103874,
+        0.921327196116225,
+        0.9735762405145612,
+        0.9724634187721628
+      ]
+    },
+    "m15+m16": {
+      "minimum_source_cosine": 0.9681493813014892,
+      "source_cosines": [
+        0.9995749960039281,
+        0.9969244037700187,
+        0.9942136341147212,
+        0.9681493813014892
+      ]
+    },
+    "m15+m17": {
+      "minimum_source_cosine": 0.9452414505364434,
+      "source_cosines": [
+        0.9913522890655083,
+        0.9452414505364434,
+        0.967623335065529,
+        0.9920054300907807
+      ]
+    },
+    "m16+m17": {
+      "minimum_source_cosine": 0.9597110239699703,
+      "source_cosines": [
+        0.9942942268624513,
+        0.9676310558650781,
+        0.9839939052308607,
+        0.9597110239699703
+      ]
+    },
+    "m8+m10": {
+      "minimum_source_cosine": 0.9557748785454069,
+      "source_cosines": [
+        0.9557748785454069,
+        0.9668548068150116,
+        0.9867511284094045,
+        0.9904724969698016
+      ]
+    },
+    "m8+m14": {
+      "minimum_source_cosine": -0.9785752170128788,
+      "source_cosines": [
+        -0.8921890243926912,
+        -0.9402566781884115,
+        -0.9785752170128788,
+        -0.7952529744990087
+      ]
+    },
+    "m8+m15": {
+      "minimum_source_cosine": -0.9608921628997097,
+      "source_cosines": [
+        -0.9029250519695798,
+        -0.9608921628997097,
+        -0.8727278062272354,
+        -0.8633220328868928
+      ]
+    },
+    "m8+m16": {
+      "minimum_source_cosine": -0.9794625108842889,
+      "source_cosines": [
+        -0.9103392659669634,
+        -0.9794625108842889,
+        -0.9200955040895474,
+        -0.9064870323448423
+      ]
+    },
+    "m8+m17": {
+      "minimum_source_cosine": -0.9986356573195642,
+      "source_cosines": [
+        -0.9470143292171954,
+        -0.9986356573195642,
+        -0.9419950923999942,
+        -0.9084145875173754
+      ]
+    },
+    "m8+m9": {
+      "minimum_source_cosine": 0.9664392714241973,
+      "source_cosines": [
+        0.9749330668469818,
+        0.983919292996722,
+        0.998567549009853,
+        0.9664392714241973
+      ]
+    },
+    "m9+m10": {
+      "minimum_source_cosine": 0.9133332045273873,
+      "source_cosines": [
+        0.9133332045273873,
+        0.9508934643127886,
+        0.9769710568563366,
+        0.9287731233770449
+      ]
+    },
+    "m9+m14": {
+      "minimum_source_cosine": -0.9667417955056015,
+      "source_cosines": [
+        -0.9109162028145193,
+        -0.8647187608331005,
+        -0.9667417955056015,
+        -0.7387316106946575
+      ]
+    },
+    "m9+m15": {
+      "minimum_source_cosine": -0.9476242544217126,
+      "source_cosines": [
+        -0.9476242544217126,
+        -0.8963415412697132,
+        -0.8454409559186814,
+        -0.80816056482243
+      ]
+    },
+    "m9+m16": {
+      "minimum_source_cosine": -0.9486524602949779,
+      "source_cosines": [
+        -0.9486524602949779,
+        -0.927791616954072,
+        -0.8978741406059271,
+        -0.8047622308852891
+      ]
+    },
+    "m9+m17": {
+      "minimum_source_cosine": -0.991903607500054,
+      "source_cosines": [
+        -0.9648271458871858,
+        -0.991903607500054,
+        -0.9240836746367911,
+        -0.8748989505208168
+      ]
+    }
+  },
+  "task_only_pair_screen_descriptive_not_registered_edges": [
+    "m8+m9",
+    "m8+m10",
+    "m9+m10",
+    "m14+m15",
+    "m14+m16",
+    "m14+m17",
+    "m15+m16",
+    "m15+m17",
+    "m16+m17"
+  ],
+  "task_stable_sites": [
+    "m8",
+    "m9",
+    "m10",
+    "m14",
+    "m15",
+    "m16",
+    "m17"
+  ]
+}

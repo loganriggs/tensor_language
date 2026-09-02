@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 506 whole-write observation gate</title>
+  <desc id="desc">All 19 writes were physically live, zero passed circuit fingerprint repeatability, zero passed circuit fingerprint source invariance, and seven passed task-context stability.</desc>
+  <rect width="900" height="390" rx="18" fill="#fbfbfd"/>
+  <text x="45" y="47" font-family="system-ui, sans-serif" font-size="25" font-weight="700" fill="#172033">Why rung 506 stopped before testing write pairs</text>
+  <text x="45" y="76" font-family="system-ui, sans-serif" font-size="15" fill="#566078">Share of the 19 later writes passing each fixed discovery check</text>
+  <g font-family="system-ui, sans-serif" font-size="16" fill="#20283a">
+    <text x="300" y="133" text-anchor="end">Physical removal was live</text>
+    <text x="300" y="193" text-anchor="end">32-circuit pattern repeats</text>
+    <text x="300" y="253" text-anchor="end">32-circuit pattern survives score source</text>
+    <text x="300" y="313" text-anchor="end">Four-context task pattern is stable</text>
+  </g>
+  <g>
+    <rect x="325" y="110" width="500" height="32" rx="7" fill="#e7eaf0"/>
+    <rect x="325" y="110" width="500" height="32" rx="7" fill="#2f9b73"/>
+    <text x="835" y="133" font-family="system-ui, sans-serif" font-size="15" fill="#116344">19/19 · 100%</text>
+
+    <rect x="325" y="170" width="500" height="32" rx="7" fill="#e7eaf0"/>
+    <circle cx="329" cy="186" r="6" fill="#d85858"/>
+    <text x="345" y="193" font-family="system-ui, sans-serif" font-size="15" fill="#8f2d2d">0/19 · 0%</text>
+
+    <rect x="325" y="230" width="500" height="32" rx="7" fill="#e7eaf0"/>
+    <circle cx="329" cy="246" r="6" fill="#d85858"/>
+    <text x="345" y="253" font-family="system-ui, sans-serif" font-size="15" fill="#8f2d2d">0/19 · 0%</text>
+
+    <rect x="325" y="290" width="500" height="32" rx="7" fill="#e7eaf0"/>
+    <rect x="325" y="290" width="184" height="32" rx="7" fill="#4776c5"/>
+    <text x="520" y="313" font-family="system-ui, sans-serif" font-size="15" fill="#315a9b">7/19 · 36.8%</text>
+  </g>
+  <text x="45" y="363" font-family="system-ui, sans-serif" font-size="14" fill="#566078">The failure is the current circuit-coordinate description—not dead interventions or an uncalibrated score.</text>
+</svg>

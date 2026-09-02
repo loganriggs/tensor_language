@@ -4673,3 +4673,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `.0064/.0141` while A7 is `-.203/-.202`. Do not lower bars, try triples, or treat MLP9 as the mediator. The older
   dossier already identifies the code-data program `{MLP8,9,12}`, `{attention14,MLP17}`, and their interaction;
   next change observation by testing that fixed program on natural text across validated sign-gauge score sources.
+- Rung505 (§2634): A/B true, C/D false, E true, not a strong null. The four correctly oriented equality-score
+  implementations remain calibrated and highly source-invariant on natural text, and wrong orientation is causally
+  distinguishable. But the code-selected T group fails cross-corpus semantics, not merely magnitude: all four natural
+  context effects are positive instead of code's `near-/far+/one+/multiple-`, and every T norm misses`.015`. A
+  hash-pinned CPU audit finds code-to-natural cosine T`.149-.375`, whole union`.099-.596`, versus G`.885-.919` and
+  interaction`.856-.980`; the latter are descriptive fragments only. Honor the registered route: abandon the fixed
+  five-site cross-corpus program. Rung506 prospectively defines whole-write relations from finite natural-text effects
+  across the four score actions,32 discovery circuit tags/new documents,30 held-out tags/documents, and exact pair
+  removals with frozen composition rules; no ranking, rank, quantization, or rung505 site selection.
+- Rung506 (§2637): A/B true, C/D/E false; lawful strong null at the eligibility gate. Exact5,146 forwards/1,178
+  captures/4,712 patches/0 backwards; calibration healthy. All19 whole-write interventions are live and circuit-
+  fingerprint RMS is material, but0/19 sites repeat across document halves and0/19 survive the score source in the32
+  circuit member-minus-control coordinates, so no pair/confirmation/validation outcome opens. A receipt-pinned CPU
+  audit finds seven task-stable MLP writes and descriptive early8/9/10 and late14/15/16/17 task clusters, but does not
+  rescore the registered circuit-coordinate null. Honor the zero-edge route: rung507 splits task-stable MLP10 into22
+  named earlier inputs and253 exact bilinear source-pair terms, then requires finite singleton and joint-term effects
+  on new documents; no gradient-only circuit, ranking, rank, or quantization.
