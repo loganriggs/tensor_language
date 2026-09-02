@@ -52,7 +52,9 @@ and recompute
 `W_minus_t = MLP9(RMSNorm(x_minus_t))`
 
 with the deployed BF16 MLP9 weights. The unchanged write `W` is the write captured from the same action trajectory.
-All removal states must be finite and must change the MLP9 input and output by nonzero RMS.
+Every edited BF16 input reaching RMSNorm must differ from the native BF16 input by nonzero RMS. A changed input may
+legitimately produce an identical MLP9 output; that is a scientific zero for the partner effect, not an instrument
+failure.
 
 For a fixed background, define the native score response
 
@@ -105,7 +107,8 @@ sources. More than10 is a diffuse local partner description and fails rather tha
 
 All hashes, rows, masks, source names, intervals, actions, edits, and calls match. Native replays are exact; source
 recurrence reconstruction is within the rung502b raw bound; every singleton removal and, if B opens confirmation, the
-group removal are finite and live. The
+group removal make a finite nonzero change to the BF16 input reaching RMSNorm. Zero MLP9 output change remains an
+allowed scientific null. The
 selection phase costs exactly496 full-model forwards (`62 batches * 8`) and6,696 batch-sized local MLP9 evaluations
 (`62 * 2 backgrounds * 3 action states * 18 sources`). If B passes, confirmation adds exactly504 full-model forwards
 and7,182 local MLP9 evaluations (`63 * 2 * 3 * (18 singleton + 1 group)`), for totals1,000 and13,878. Copy/circuit
