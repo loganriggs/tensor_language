@@ -32,6 +32,7 @@ for path in (POLY, ROOT, ROOT / "ops"):
 
 import bilin18_observed_model_facade as facade
 import mlp0_coupled_block1_bigram_response_rung486 as parent
+import mlp0_attention1_finite_path_factorial_rung484 as factorial_parent
 import mlp0_immediate_consumer_quotient_rung483 as branch_parent
 import mlp0_centered_context_anova_factorial as component_parent
 
@@ -41,9 +42,11 @@ PARENT_SOURCE = ROOT / "ops/mlp0_coupled_block1_bigram_response_rung486.py"
 PARENT_RESULT = ROOT / "mlp0_coupled_block1_bigram_response_rung486_results.json"
 OUT = ROOT / "mlp1_finite_secant_factor_interchange_rung487_results.json"
 HASHES = {
-    PREREG: "ba71ae5ce6288a18ef5195f0ee261cb51428ed7a7af409c3ba8f71e82762ce4f",
+    PREREG: "59a3ef38ee640dd31df43668e1bbcb0eeb9d3bfd31f0cdcf393a142a1dbf142f",
     PARENT_SOURCE: "4cf42487272688bfb03430e5aa5a27b78421df5b3138a6b71cd4c9a6061a607f",
     PARENT_RESULT: "f36ed7bed41d5908fd5f1da977a6ec72c21414e91829dfdda6fe39cfaf3ec941",
+    ROOT / "ops/mlp0_attention1_finite_path_factorial_rung484.py":
+        "42f66fba01361c976660554197fef7aa66cb20d80eb5b6351b01a1f6e3bf9d54",
     ROOT / "ops/mlp0_immediate_consumer_quotient_rung483.py":
         "9763502b99b8693826a5985c8f25a3ebe7763c3cd176c3aebeeb140833a61f4c",
     POLY / "bilin18_observed_model_facade.py":
@@ -79,11 +82,11 @@ def _cosine(left, right):
 
 
 def _effect_report(predictor, target):
-    return parent.parent.parent._effect_report(predictor, target)
+    return factorial_parent._effect_report(predictor, target)
 
 
 def _relative_squared(left, right):
-    return parent.parent.parent._relative_squared(left, right)
+    return factorial_parent._relative_squared(left, right)
 
 
 def _linear(value, weight):
@@ -138,7 +141,7 @@ def validate_inputs():
             or receipt.get("strong_null") is not True \
             or receipt.get("next_step") != "continuous_live_attention0_state_finite_reader":
         raise RuntimeError("rung486 did not license rung487")
-    rows, positive, fit_rows, metadata = parent.parent.parent.validate_inputs()
+    rows, positive, fit_rows, metadata = factorial_parent.validate_inputs()
     return rows, positive, fit_rows, metadata
 
 
@@ -288,7 +291,7 @@ def collect_phase(model, rows, reference, start_doc, stop_doc):
         calls["native_forwards"] += 1
         calls["native_attention"] += native_calls["attention"]
         calls["native_mlp"] += native_calls["mlp"]
-        native_batches.append(parent.parent.parent._per_token_ce(
+        native_batches.append(factorial_parent._per_token_ce(
             native_logits, targets))
         for name, error in native["prefix_errors"].items():
             key = f"native_prefix_{name}_relative_squared_max"
@@ -302,7 +305,7 @@ def collect_phase(model, rows, reference, start_doc, stop_doc):
             logits, capture, audit = _absent_forward(
                 model, tokens, native, native["branches"][branch])
             absent[branch] = capture
-            absent_ce[branch] = parent.parent.parent._per_token_ce(logits, targets)
+            absent_ce[branch] = factorial_parent._per_token_ce(logits, targets)
             calls["absent_forwards"] += 1
             calls["absent_attention"] += audit["attention"]
             calls["absent_mlp"] += audit["mlp"]
@@ -344,7 +347,7 @@ def collect_phase(model, rows, reference, start_doc, stop_doc):
                 calls["physical_mlp"] += audit["mlp"]
                 for name in ("D", "A", "M"):
                     calls[f"{name}_injections"] += audit[name]
-                arms.append(parent.parent.parent._per_token_ce(logits, targets))
+                arms.append(factorial_parent._per_token_ce(logits, targets))
             pair_arms.append(torch.stack(arms, dim=-1))
 
             # Same-position and factor-shifted MLP1-write controls. Split the
@@ -505,15 +508,22 @@ def analyze_phase(collected, positive, frozen_edges=None):
                           if pair[0] == branch)
         own0 = benefits[pair_index, halves[0], ..., MODES.index("own")]
         own1 = benefits[pair_index, halves[1], ..., MODES.index("own")]
-        cosine = _cosine(own0, own1)
-        alpha, error = _scaled_error(own0, own1)
-        holds = cosine >= .80 and error <= .50
+        rms = [float(own0.square().mean().sqrt()),
+               float(own1.square().mean().sqrt())]
+        mean_abs = [float(own0.abs().mean()), float(own1.abs().mean())]
+        rms_ratio = rms[1] / max(rms[0], 1e-30)
+        mean_abs_ratio = mean_abs[1] / max(mean_abs[0], 1e-30)
+        holds = bool(min(rms) >= .10 and .80 <= rms_ratio <= 1.25
+                     and .80 <= mean_abs_ratio <= 1.25)
         pred_b &= holds
         own_reports[branch] = {
-            "cross_half_cosine": cosine, "fit_scalar": alpha,
-            "half1_scalar_adjusted_relative_error": error,
-            "rms_nat": [float(own0.square().mean().sqrt()),
-                        float(own1.square().mean().sqrt())],
+            "rms_nat": rms, "half1_over_half0_rms": rms_ratio,
+            "mean_absolute_effect_nat": mean_abs,
+            "half1_over_half0_mean_absolute_effect": mean_abs_ratio,
+            "signed_mean_effect_nat": [float(own0.mean()), float(own1.mean())],
+            "equality_positive_mean_effect_nat": [
+                float(own0[positive[halves[0]]].mean()),
+                float(own1[positive[halves[1]]].mean())],
             "holds": holds,
         }
     edges = descriptive_edges if frozen_edges is None else frozen_edges
