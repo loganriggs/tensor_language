@@ -40,7 +40,7 @@ written separately and joined only by hash-bound candidate IDs.
    manifest supplies35 teaching candidates across vocabulary, MLP-PCA, and MLP0-context families, plus10 sparse-Q/K
    attention0 candidates in a sealed fourth family. All45 map to hash-pinned rebuild sources; candidate IDs and
    whole-family roles are frozen before new consequence generation.
-2. **Teaching-family consequence generation — active;12/35 complete-candidate labels measured and eligible; family2/3.** On new frozen rows, measure
+2. **Teaching-family consequence generation — active;12/35 complete-candidate labels eligible; family2/3.** On new frozen rows, measure
    one common distant attention16 signed knockout and composition with the physical MLP16 rank2 program for the35
    teaching candidates. Rung448 produced valid local-MLP0 labels, but the frozen bank prices and names the complete
    mixed104+MLP0 candidate; those local interventions therefore do not count as bank labels. Rung449 repaired the
@@ -50,8 +50,14 @@ written separately and joined only by hash-bound candidate IDs.
    outcomes, the13 removal and16 composition pair-directions whose old95% document-bootstrap intervals excluded zero.
    Rung453 independently reproduces every frozen direction in the full role and both96-document waves, with continuous
    old-to-new correlations`.990/.982`; MLP-PCA therefore counts under the separately registered reliability gate without
-   rewriting rung450. Vocabulary23 is the remaining teaching family and is next rather than silently dropped.
-3. **Consequence-specific rule fitting.** Fit removal and composition predictors only on the three teaching families,
+   rewriting rung450. Rung454 measured all23 vocabulary programs, but only removal ordered14/14: its registered
+   candidate-normalized composition ratio ordered5/14 in full,3/14 and6/14 by wave, firing the strong null. Preserve
+   those23 labels and the null, but do not count the family. Rung455's CPU-only audit froze a candidate-independent
+   partner-scale companion after reconstructing every old score: on already-open data its raw/fixed interaction orders
+   vocabulary14/14, MLP0 4/4, and the MLP-PCA main ladder2/2. This is a post-hoc diagnosis, not family salvage.
+   Next preregister an independent192-document vocabulary fixed-scale test, then freeze any protocol-v2 decision and
+   obtain the genuinely new outcome-free third teaching family required by rung454's original routing.
+3. **Consequence-specific rule fitting — blocked on a legal third family and common-label version.** Fit removal and composition predictors only on the three teaching families,
    choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
    uncertainty rule, and hashes before the attention0 label file exists.
 4. **Sealed attention0 confirmation.** Generate the same consequences for the10 sparse-Q/K candidates and controls,
