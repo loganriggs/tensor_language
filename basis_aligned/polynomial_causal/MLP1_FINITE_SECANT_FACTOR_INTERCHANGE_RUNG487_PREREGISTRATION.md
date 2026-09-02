@@ -79,9 +79,11 @@ unless the discovery license holds. Final evaluation data remain unopened.
 
 ### B — stable own finite responses
 
-For T, C, and I, OWN's per-token physical effect must have cross-half cosine at least`.80`, with a half0-fitted
-scalar predicting half1 at relative error at most`.50`. This prevents declaring factor interchange on an unstable
-target.
+For T, C, and I, OWN's physical per-token effect must have RMS at least`.10 nat` in each half. The half1/half0 RMS
+ratio and mean-absolute-effect ratio must each lie in`[.80,1.25]`. Report signed means and equality-positive effects
+without gating on their sign. This checks that the target response remains material and similarly scaled; raw
+per-token vectors from unrelated document halves are not compared coordinate by coordinate. The factor-interchange
+claim itself must still pass its full per-token prediction tests independently in both halves.
 
 ### C-context — a pair shares the live-state factor
 
