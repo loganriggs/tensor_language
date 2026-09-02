@@ -249,3 +249,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_0331.md](explanation_2026-09-02_0331.md) — the first task-conditioned mechanism: a shared, portable equality matcher (rungs 457–460)
 - [explanation_0344.md](explanation_2026-09-02_0344.md) — code context decomposition: causal ordering transfers exactly, while raw MLP9 response amplitude runs in the opposite direction (rung 461)
 - [explanation_0431.md](explanation_2026-09-02_0431.md) — the anatomy of the equality circuit: matcher + three-MLP context correction + broad suppressor (rungs 462–466)
+- [explanation_0753.md](explanation_2026-09-02_0753.md) — the gauge-aware chapter verdict: three clean nulls (native products, sparse mixtures, commutant algebra) prove the equality-MLP trio is functionally composable but representationally individual (rungs 477–479)
