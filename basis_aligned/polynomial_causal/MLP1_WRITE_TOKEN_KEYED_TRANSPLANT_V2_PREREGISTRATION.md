@@ -96,3 +96,21 @@ on any route.
 Bundle: per-token CE (float32) for named arms + masks + donor map; sufficient
 statistics for shifts none (no shift arms in v2 — the off-key sample is the
 position control, same edit budget). Zero deployed parameters.
+
+## Instrument addendum — v2b, 2026-09-02 19:02 UTC (price arithmetic only)
+
+The v2 receipt is preserved as instrument-invalid: the arms section above
+registers FOUR edited arms per branch (OWN_MATCH, DONOR_MATCH, DONOR_MISMATCH,
+COMPOSE) but the price paragraph counted three, registering 1,250 forwards and
+750 edited where the registered design costs 12 per batch: 125 native + 250
+absent + 125 both-absent + 1,000 edited = 1,500 full-model forwards. The
+implementation executed the registered arms faithfully; every other pred_a
+clause passed (supply 1,776/1,764, min 3/doc, identity suite clean). v2b
+corrects ONLY this arithmetic: expected merge forwards 1,000, expected total
+1,500. No bar, arm, floor, mask, seed, donor rule, or scoring clause changes.
+v2b writes a distinct receipt/bundle namespace; the v2 descriptive tables
+cannot pass retroactively. Honest expectation, stated before v2b runs: those
+descriptive tables make the scientific null (pred_b failing) the likely
+outcome — v2b purchases a lawful verdict. v2b also repairs a template defect:
+next_step now reports an instrument-repair route when pred_a is false, rather
+than the scientific routing an A-false receipt does not license.
