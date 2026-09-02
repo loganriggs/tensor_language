@@ -4604,3 +4604,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Guard (§2603): projector code claim half-stable, GUARDED. Frame-comparison: natural composition is orthogonal-component-carried (projector shrinks natural norms 5-20x to sub-material while code stays material) — mirror-test (orthogonal-complement projector rung) is the natural-arc's concrete opener when it wakes.
 
 - Rung 483 (§2604): strong null — tangent readers inadequate for complete branch removal (transfer errors .83-.98); consumers descriptively SPLIT T/I (attention1 .015, MLP1-direct .25, MLP1-total .59). Rung 484 (finite A×B×V path factorial) registered; my pre-audit on board 11:59.
+
+- Rung 484 (§2605): strong null — exact attention1 A×B×V profiles are stable and T/I anti-aligned, but T needs the full interaction-heavy path and I's B+V near-miss is generic rather than equality-specific. Route: rung485 exact direct-MLP1 Left×Right finite path plus frozen token-conditioned effect test; no attention subset/rank tuning.
