@@ -1,0 +1,233 @@
+{
+  "control_95pct": 0.3393794012921029,
+  "control_scores": [
+    -0.05286756430947574,
+    -0.31874716788037494,
+    -0.19780823729813066,
+    -0.05564105224537592,
+    -0.2825273327770738,
+    0.02044860322793817,
+    -0.10892376072650159,
+    -0.4056758548954015,
+    -0.1728628800037242,
+    -0.21885680629648263,
+    -0.015022991166686957,
+    -0.3490855343266785,
+    -0.46687907126559147,
+    0.030447694710324925,
+    0.3393794012921029,
+    -0.03894455363487608
+  ],
+  "leave_one_family": [
+    {
+      "minimum_view_cosine": 0.04148585500420192,
+      "omitted_root": 0
+    },
+    {
+      "minimum_view_cosine": 0.04256026335087412,
+      "omitted_root": 2
+    },
+    {
+      "minimum_view_cosine": 0.06396384470880814,
+      "omitted_root": 4
+    },
+    {
+      "minimum_view_cosine": 0.06563269643369234,
+      "omitted_root": 6
+    },
+    {
+      "minimum_view_cosine": 0.06857183123939134,
+      "omitted_root": 8
+    },
+    {
+      "minimum_view_cosine": 0.07434230710175936,
+      "omitted_root": 18
+    }
+  ],
+  "next_step": "gauge_aware_block_bilinear_response_factors",
+  "predictions": {
+    "pred_a_lawful_deterministic": true,
+    "pred_b_sparse_fit": true,
+    "pred_c_cross_view_transfer": false,
+    "pred_d_beats_parent_and_control": false,
+    "pred_e_task_selective": false
+  },
+  "rung": 478,
+  "runtime_s": 0.12248492240905762,
+  "selected": {
+    "arm": "signed",
+    "left_fit": {
+      "coefficients": [
+        1.0,
+        0.6308310958889032,
+        0.30671765441087834,
+        -0.3144458829198655,
+        0.3476482175424531,
+        -0.23654224554674363
+      ],
+      "fit_cosine": 0.981648735233226,
+      "fit_passes": true,
+      "fit_scaled_relative_l2": 0.19069808760186255,
+      "history": [
+        {
+          "cosine": 0.6863915028953479,
+          "scaled_relative_l2": 0.727232222026132,
+          "step": 1
+        },
+        {
+          "cosine": 0.8690291029304154,
+          "scaled_relative_l2": 0.4947609708333487,
+          "step": 2
+        },
+        {
+          "cosine": 0.9221521741361749,
+          "scaled_relative_l2": 0.38682730996650927,
+          "step": 3
+        },
+        {
+          "cosine": 0.9502880019558536,
+          "scaled_relative_l2": 0.311372306634279,
+          "step": 4
+        },
+        {
+          "cosine": 0.9701432481596411,
+          "scaled_relative_l2": 0.2425326329594871,
+          "step": 5
+        },
+        {
+          "cosine": 0.9816487352332259,
+          "scaled_relative_l2": 0.19069808760186255,
+          "step": 6
+        }
+      ],
+      "indices": [
+        4087,
+        1646,
+        29,
+        4345,
+        2785,
+        3654
+      ],
+      "steps_attempted": 6
+    },
+    "minimum_nonfit_cross_cosine": 0.05895983119941606,
+    "minimum_nonfit_endpoint_target_cosine": -0.14113021653176527,
+    "minimum_nonfit_parent_cosine": -0.21842020419635827,
+    "pair": "m8+m12",
+    "pair_index": 1,
+    "right_fit": {
+      "coefficients": [
+        1.0,
+        0.8506708291723374,
+        -0.8570456313521498,
+        0.5351181254985223,
+        -0.41806016788386,
+        0.33126380305216263
+      ],
+      "fit_cosine": 0.9826588675616911,
+      "fit_passes": true,
+      "fit_scaled_relative_l2": 0.18542262537882157,
+      "history": [
+        {
+          "cosine": 0.6550023053276152,
+          "scaled_relative_l2": 0.7556268788334025,
+          "step": 1
+        },
+        {
+          "cosine": 0.827338321587745,
+          "scaled_relative_l2": 0.5617039270223887,
+          "step": 2
+        },
+        {
+          "cosine": 0.9157077827787422,
+          "scaled_relative_l2": 0.401844816513091,
+          "step": 3
+        },
+        {
+          "cosine": 0.952698264582459,
+          "scaled_relative_l2": 0.30391777944301174,
+          "step": 4
+        },
+        {
+          "cosine": 0.9697118559633542,
+          "scaled_relative_l2": 0.24425174800624694,
+          "step": 5
+        },
+        {
+          "cosine": 0.9826588675616911,
+          "scaled_relative_l2": 0.18542262537882154,
+          "step": 6
+        }
+      ],
+      "indices": [
+        2115,
+        849,
+        2793,
+        1597,
+        3720,
+        3401
+      ],
+      "steps_attempted": 6
+    },
+    "views": [
+      {
+        "cross_mlp_cosine": 0.9826290401832097,
+        "half": 0,
+        "left_scaled_relative_l2": 0.19069808760186255,
+        "left_target_cosine": 0.981648735233226,
+        "right_scaled_relative_l2": 0.18542262537882157,
+        "right_target_cosine": 0.9826588675616911,
+        "source": "N"
+      },
+      {
+        "cross_mlp_cosine": 0.5059639102092487,
+        "half": 0,
+        "left_scaled_relative_l2": 0.7109267848887203,
+        "left_target_cosine": 0.7032660282764888,
+        "right_scaled_relative_l2": 0.5983690935394017,
+        "right_target_cosine": 0.8012205862912127,
+        "source": "H"
+      },
+      {
+        "cross_mlp_cosine": 0.15138334989328994,
+        "half": 1,
+        "left_scaled_relative_l2": 0.9962428218222671,
+        "left_target_cosine": -0.08660392582098395,
+        "right_scaled_relative_l2": 0.9570571608436473,
+        "right_target_cosine": 0.28989927712551644,
+        "source": "N"
+      },
+      {
+        "cross_mlp_cosine": 0.05895983119941606,
+        "half": 1,
+        "left_scaled_relative_l2": 0.9899910413643637,
+        "left_target_cosine": -0.14113021653176527,
+        "right_scaled_relative_l2": 0.9958902995770308,
+        "right_target_cosine": 0.0905677161485922,
+        "source": "H"
+      }
+    ]
+  },
+  "selectivity": {
+    "m12": {
+      "member_control_norm_ratios": [
+        2.939390503306668,
+        2.6530240498656745,
+        3.266887901178281,
+        3.4359722732017777
+      ],
+      "minimum_ratio": 2.6530240498656745
+    },
+    "m8": {
+      "member_control_norm_ratios": [
+        2.1843576549288506,
+        2.9945297618574833,
+        4.260840146902069,
+        3.4246759823139254
+      ],
+      "minimum_ratio": 2.1843576549288506
+    }
+  },
+  "status": "complete",
+  "strong_null": true
+}
