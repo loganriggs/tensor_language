@@ -1,0 +1,383 @@
+{
+  "analysis": {
+    "causal_by_context": {
+      "all_positive": {
+        "ce_base_nat": 0.8299212044236802,
+        "ce_hybrid_nat": 0.7236535764842572,
+        "ce_reference_nat": 0.7143095945578468,
+        "hybrid_effect_nat": 0.10626762793942301,
+        "native_stake_nat": 0.11561160986583341,
+        "recovery": 0.9191778236004668,
+        "tokens": 10848
+      },
+      "far_positive": {
+        "ce_base_nat": 1.326497632027781,
+        "ce_hybrid_nat": 1.1326196155585486,
+        "ce_reference_nat": 1.1036687533003704,
+        "hybrid_effect_nat": 0.19387801646923242,
+        "native_stake_nat": 0.22282887872741064,
+        "recovery": 0.8700758069442418,
+        "tokens": 4356
+      },
+      "multiple_predecessor_positive": {
+        "ce_base_nat": 0.7135642167540215,
+        "ce_hybrid_nat": 0.652450483057433,
+        "ce_reference_nat": 0.6485166177290409,
+        "hybrid_effect_nat": 0.06111373369658846,
+        "native_stake_nat": 0.06504759902498058,
+        "recovery": 0.9395232816067295,
+        "tokens": 8349
+      },
+      "near_positive": {
+        "ce_base_nat": 0.4967285182493944,
+        "ce_hybrid_nat": 0.4492456796562207,
+        "ce_reference_nat": 0.45305751577127357,
+        "hybrid_effect_nat": 0.047482838593173704,
+        "native_stake_nat": 0.043671002478120835,
+        "recovery": 1.087285289980751,
+        "tokens": 6492
+      },
+      "off_target": {
+        "ce_base_nat": 5.0041131799968985,
+        "ce_hybrid_nat": 5.000808942332052,
+        "ce_reference_nat": 4.999715636060404,
+        "hybrid_effect_nat": 0.0033042376648468874,
+        "native_stake_nat": 0.004397543936494941,
+        "recovery": 0.7513825245554062,
+        "tokens": 24884
+      },
+      "one_predecessor_positive": {
+        "ce_base_nat": 1.218662496962288,
+        "ce_hybrid_nat": 0.9615385812944036,
+        "ce_reference_nat": 0.9341197440351177,
+        "hybrid_effect_nat": 0.2571239156678843,
+        "native_stake_nat": 0.28454275292717024,
+        "recovery": 0.9036389541563763,
+        "tokens": 2499
+      }
+    },
+    "causal_by_context_halves": [
+      {
+        "all_positive": {
+          "ce_base_nat": 0.8018715461343935,
+          "ce_hybrid_nat": 0.7015516095258599,
+          "ce_reference_nat": 0.6919612006033644,
+          "hybrid_effect_nat": 0.10031993660853356,
+          "native_stake_nat": 0.10991034553102907,
+          "recovery": 0.9127433466234711,
+          "tokens": 5598
+        },
+        "far_positive": {
+          "ce_base_nat": 1.3120791011561772,
+          "ce_hybrid_nat": 1.1258295120939825,
+          "ce_reference_nat": 1.0966391890224483,
+          "hybrid_effect_nat": 0.1862495890621947,
+          "native_stake_nat": 0.21543991213372893,
+          "recovery": 0.8645082854776923,
+          "tokens": 2194
+        },
+        "multiple_predecessor_positive": {
+          "ce_base_nat": 0.670648933302918,
+          "ce_hybrid_nat": 0.6135377915363839,
+          "ce_reference_nat": 0.6095508528795549,
+          "hybrid_effect_nat": 0.05711114176653409,
+          "native_stake_nat": 0.061098080423363066,
+          "recovery": 0.9347452713865553,
+          "tokens": 4358
+        },
+        "near_positive": {
+          "ce_base_nat": 0.47302449098815563,
+          "ce_hybrid_nat": 0.42808929512090654,
+          "ce_reference_nat": 0.4311317333320747,
+          "hybrid_effect_nat": 0.04493519586724909,
+          "native_stake_nat": 0.041892757656080915,
+          "recovery": 1.0726244434931953,
+          "tokens": 3404
+        },
+        "off_target": {
+          "ce_base_nat": 4.956666650999574,
+          "ce_hybrid_nat": 4.952181338952092,
+          "ce_reference_nat": 4.951705895764863,
+          "hybrid_effect_nat": 0.004485312047481926,
+          "native_stake_nat": 0.004960755234710845,
+          "recovery": 0.9041591119226765,
+          "tokens": 12285
+        },
+        "one_predecessor_positive": {
+          "ce_base_nat": 1.2630555354243693,
+          "ce_hybrid_nat": 1.0108775924275828,
+          "ce_reference_nat": 0.9815936968778495,
+          "hybrid_effect_nat": 0.25217794299678653,
+          "native_stake_nat": 0.28146183854651985,
+          "recovery": 0.8959578474262923,
+          "tokens": 1240
+        }
+      },
+      {
+        "all_positive": {
+          "ce_base_nat": 0.8598301543481426,
+          "ce_hybrid_nat": 0.7472205881096112,
+          "ce_reference_nat": 0.7381393677687406,
+          "hybrid_effect_nat": 0.11260956623853136,
+          "native_stake_nat": 0.12169078657940202,
+          "recovery": 0.9253746269858708,
+          "tokens": 5250
+        },
+        "far_positive": {
+          "ce_base_nat": 1.3411295731620545,
+          "ce_hybrid_nat": 1.1395102200919704,
+          "ce_reference_nat": 1.1108023629330075,
+          "hybrid_effect_nat": 0.20161935307008405,
+          "native_stake_nat": 0.230327210229047,
+          "recovery": 0.8753605484544589,
+          "tokens": 2162
+        },
+        "multiple_predecessor_positive": {
+          "ce_base_nat": 0.7604258567640213,
+          "ce_hybrid_nat": 0.6949414651793904,
+          "ce_reference_nat": 0.6910655536383519,
+          "hybrid_effect_nat": 0.06548439158463093,
+          "native_stake_nat": 0.06936030312566943,
+          "recovery": 0.9441191666360513,
+          "tokens": 3991
+        },
+        "near_positive": {
+          "ce_base_nat": 0.5228582166941019,
+          "ce_hybrid_nat": 0.47256703100279107,
+          "ce_reference_nat": 0.47722699874505364,
+          "hybrid_effect_nat": 0.05029118569131086,
+          "native_stake_nat": 0.045631217949048286,
+          "recovery": 1.1021223616574487,
+          "tokens": 3088
+        },
+        "off_target": {
+          "ce_base_nat": 5.0503772175183,
+          "ce_hybrid_nat": 5.0482246187764375,
+          "ce_reference_nat": 5.046528848182851,
+          "hybrid_effect_nat": 0.00215259874186291,
+          "native_stake_nat": 0.0038483693354489645,
+          "recovery": 0.5593534700618282,
+          "tokens": 12599
+        },
+        "one_predecessor_positive": {
+          "ce_base_nat": 1.1749394090409369,
+          "ce_hybrid_nat": 0.9129441620687148,
+          "ce_reference_nat": 0.8873622368667401,
+          "hybrid_effect_nat": 0.2619952469722221,
+          "native_stake_nat": 0.28757717217419676,
+          "recovery": 0.9110432688082811,
+          "tokens": 1259
+        }
+      }
+    ],
+    "half_ordering": [
+      {
+        "hybrid_effect": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "native_stake": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        }
+      },
+      {
+        "hybrid_effect": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        },
+        "native_stake": {
+          "far_gt_near": true,
+          "one_gt_multiple": true
+        }
+      }
+    ],
+    "half_spearman": [
+      0.9999999999999998,
+      0.9999999999999998
+    ],
+    "native_stake_vs_hybrid_effect_spearman": 0.9999999999999998,
+    "pooled_ordering": {
+      "hybrid_effect": {
+        "far_gt_near": true,
+        "one_gt_multiple": true
+      },
+      "hybrid_response_size": {
+        "far_gt_near": false,
+        "one_gt_multiple": false
+      },
+      "native_stake": {
+        "far_gt_near": true,
+        "one_gt_multiple": true
+      },
+      "reference_response_size": {
+        "far_gt_near": false,
+        "one_gt_multiple": false
+      }
+    },
+    "pred_b_context_order": true,
+    "pred_c_causal_tracking": true,
+    "pred_d_shared_direction": true,
+    "pred_e_amplitude_explanation": false,
+    "response_by_context": {
+      "all_positive": {
+        "cosine": 0.9096026325929292,
+        "hybrid_raw_coordinate_rms": 19.44033752906353,
+        "reference_raw_coordinate_rms": 21.574607947955794,
+        "reference_relative_error": 0.4155668094755912,
+        "tokens": 10848
+      },
+      "far_positive": {
+        "cosine": 0.9231444519350778,
+        "hybrid_raw_coordinate_rms": 10.46476519224109,
+        "reference_raw_coordinate_rms": 14.313225214804019,
+        "reference_relative_error": 0.4297389500764436,
+        "tokens": 4356
+      },
+      "multiple_predecessor_positive": {
+        "cosine": 0.9084777823961773,
+        "hybrid_raw_coordinate_rms": 21.60182076493066,
+        "reference_raw_coordinate_rms": 23.797119790433978,
+        "reference_relative_error": 0.41793378597665004,
+        "tokens": 8349
+      },
+      "near_positive": {
+        "cosine": 0.91124788772356,
+        "hybrid_raw_coordinate_rms": 23.62261649425792,
+        "reference_raw_coordinate_rms": 25.30450243300638,
+        "reference_relative_error": 0.41246086288928724,
+        "tokens": 6492
+      },
+      "off_target": {
+        "cosine": 0.8551036012596911,
+        "hybrid_raw_coordinate_rms": 7.628946347390225,
+        "reference_raw_coordinate_rms": 9.023853475597566,
+        "reference_relative_error": 0.5185475898518785,
+        "tokens": 24884
+      },
+      "one_predecessor_positive": {
+        "cosine": 0.9358279938594479,
+        "hybrid_raw_coordinate_rms": 9.030271454619065,
+        "reference_raw_coordinate_rms": 11.338710185681906,
+        "reference_relative_error": 0.3790291741007285,
+        "tokens": 2499
+      }
+    },
+    "response_by_context_halves": [
+      {
+        "all_positive": {
+          "cosine": 0.9171275174136672,
+          "hybrid_raw_coordinate_rms": 19.85264708832053,
+          "reference_raw_coordinate_rms": 21.423121092721757,
+          "reference_relative_error": 0.398708674328692,
+          "tokens": 5598
+        },
+        "far_positive": {
+          "cosine": 0.9257118655241201,
+          "hybrid_raw_coordinate_rms": 10.487411196390902,
+          "reference_raw_coordinate_rms": 14.155158163714567,
+          "reference_relative_error": 0.4209712184637782,
+          "tokens": 2194
+        },
+        "multiple_predecessor_positive": {
+          "cosine": 0.9166517410814716,
+          "hybrid_raw_coordinate_rms": 21.997610499240686,
+          "reference_raw_coordinate_rms": 23.54395687070833,
+          "reference_relative_error": 0.40007722259346873,
+          "tokens": 4358
+        },
+        "near_positive": {
+          "cosine": 0.9200235898210966,
+          "hybrid_raw_coordinate_rms": 24.026384889810597,
+          "reference_raw_coordinate_rms": 25.012301451877068,
+          "reference_relative_error": 0.3939563913383924,
+          "tokens": 3404
+        },
+        "off_target": {
+          "cosine": 0.8543640535087647,
+          "hybrid_raw_coordinate_rms": 7.6566587355145534,
+          "reference_raw_coordinate_rms": 8.986200350382436,
+          "reference_relative_error": 0.5196801286039573,
+          "tokens": 12285
+        },
+        "one_predecessor_positive": {
+          "cosine": 0.9369047895598985,
+          "hybrid_raw_coordinate_rms": 8.867868107396236,
+          "reference_raw_coordinate_rms": 11.12557852872588,
+          "reference_relative_error": 0.3765144120605371,
+          "tokens": 1240
+        }
+      },
+      {
+        "all_positive": {
+          "cosine": 0.9021593499954433,
+          "hybrid_raw_coordinate_rms": 18.990838939455482,
+          "reference_raw_coordinate_rms": 21.734973128078785,
+          "reference_relative_error": 0.4323376500969927,
+          "tokens": 5250
+        },
+        "far_positive": {
+          "cosine": 0.9207466385138354,
+          "hybrid_raw_coordinate_rms": 10.441733791813189,
+          "reference_raw_coordinate_rms": 14.471866955350766,
+          "reference_relative_error": 0.4380834302862073,
+          "tokens": 2162
+        },
+        "multiple_predecessor_positive": {
+          "cosine": 0.9002883185447984,
+          "hybrid_raw_coordinate_rms": 21.161182047825445,
+          "reference_raw_coordinate_rms": 24.070521794736667,
+          "reference_relative_error": 0.435807876291571,
+          "tokens": 3991
+        },
+        "near_positive": {
+          "cosine": 0.9023329832881797,
+          "hybrid_raw_coordinate_rms": 23.169377958101677,
+          "reference_raw_coordinate_rms": 25.62274391062907,
+          "reference_relative_error": 0.43104392349940995,
+          "tokens": 3088
+        },
+        "off_target": {
+          "cosine": 0.8558740814994126,
+          "hybrid_raw_coordinate_rms": 7.601827345111448,
+          "reference_raw_coordinate_rms": 9.060417510770776,
+          "reference_relative_error": 0.5174589655005096,
+          "tokens": 12599
+        },
+        "one_predecessor_positive": {
+          "cosine": 0.9348420682795509,
+          "hybrid_raw_coordinate_rms": 9.187418246985514,
+          "reference_raw_coordinate_rms": 11.54477997413933,
+          "reference_relative_error": 0.3813148577381485,
+          "tokens": 1259
+        }
+      }
+    ],
+    "strong_science_null": false
+  },
+  "execution_price": {
+    "deployed_parameters_saved": 0,
+    "outer_forwards": 240,
+    "peak_gpu_memory_bytes": 3159521280,
+    "tested_factors": 1,
+    "tested_pairs": 1,
+    "tested_readers": 1
+  },
+  "factor_reconstruction_relative_squared_max": 7.358423656770381e-14,
+  "native_replay": {
+    "max_abs": 0.0,
+    "relative_squared": 0.0
+  },
+  "next_step": "retain_aggregate_code_result_and_reconsider_context_gate",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_context_order": true,
+    "pred_c_causal_tracking": true,
+    "pred_d_shared_direction": true,
+    "pred_e_amplitude_explanation": false
+  },
+  "rung": 461,
+  "runtime_s": 9.316704511642456,
+  "status": "complete",
+  "strong_null": false
+}
