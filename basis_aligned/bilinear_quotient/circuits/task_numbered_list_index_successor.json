@@ -701,6 +701,184 @@
    ],
    "translation_ids": [],
    "next_missing": "preregister exact L8H7/L8H3 final-label/all-label score-versus-value factor localization with all four invariance families"
+  },
+  {
+   "claim_id": "numbered_list_index_successor.v5",
+   "revision": 5,
+   "status": "specified",
+   "supersedes": "numbered_list_index_successor.v4",
+   "causal_variable": {
+    "id": "list_index_state",
+    "domain": "integer labels in numbered lists",
+    "read": "the final visible list label and list structure",
+    "operation": "advance the list index by one",
+    "write": "evidence for the next digit label",
+    "endpoint": "next-list-label numeric-candidate logit margin"
+   },
+   "alternative_explanations": [
+    "general arithmetic progression",
+    "copy the final label",
+    "memorized prompt positions"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "list_two_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "two-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "three-line transfer",
+      "repeated labels",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_three_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "three-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "two-line transfer",
+      "middle break",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "all labels",
+      "list length",
+      "next label"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shifts",
+      "held-out nouns",
+      "middle break"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_middle_index_break",
+     "role": "invariance",
+     "changes": [
+      "an earlier middle label and visible sequence coherence"
+     ],
+     "holds_fixed": [
+      "final visible label",
+      "last-label-plus-one operation",
+      "registered successor"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "surface edit",
+      "state shift",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_repeated_index_control",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "repeated label",
+      "copy rule",
+      "registered answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "step-two conflict",
+      "held-out nouns"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_step_two_conflict",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "step-two visible labels",
+      "last-label successor answer",
+      "list format"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "arithmetic +2 answer",
+      "+1 rows",
+      "copy rows"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "l8h7_l8h3_value_paths",
+     "tensor_path": "L8H7/L8H3 exact value contributions",
+     "shape": [
+      "batch",
+      "position",
+      "projected value"
+     ],
+     "intervention": "transplant exact selected-source value contributions",
+     "ceiling_event_ids": [
+      "numbered_list_label_factor.r573.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "mlp8_14_successor_writes",
+     "tensor_path": "MLP8 through MLP14 product/write terms",
+     "shape": [
+      "batch",
+      "position",
+      "residual width"
+     ],
+     "intervention": "replace exact source-conditioned product terms or complete writes",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "evidence_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.preregistered.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "run the open R573 exact L8H7/L8H3 label-factor FIT gate; only a passing frozen arm may open SELECT"
   }
  ],
  "split_plans": [
@@ -998,6 +1176,71 @@
    "claim_id": "numbered_list_index_successor.v3",
    "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
    "execution_key": "93e2dc221c6d72ad6d40c46737441ac746e070c7ac60ccc3cd3062d55fd2b553"
+  },
+  {
+   "event_id": "numbered_list_label_factor.r573.preregistered.v1",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "list_two_line_state_shift",
+    "list_three_line_state_shift",
+    "list_surface_preserved",
+    "list_middle_index_break",
+    "list_repeated_index_control",
+    "list_step_two_conflict"
+   ],
+   "site_id": "l8h7_l8h3_value_paths",
+   "evaluation_role": "FIT_selects_one_exact_factor_then_conditional_SELECT",
+   "metrics": [
+    {
+     "name": "complete_two_head_ceiling",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 donor-direction rows and bootstrap lower mean effect >0 in every target cell"
+    },
+    {
+     "name": "exact_factor_target_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "mean and median cell recovery >=0.5, >=0.75 positive rows, bootstrap lower mean effect >0"
+    },
+    {
+     "name": "answer_preserving_control_effect",
+     "estimate": null,
+     "ci95": null,
+     "bar": "answer-margin and full-vocabulary effects <=0.25 of frozen FIT target scales; answer preserved >=0.75"
+    },
+    {
+     "name": "split_and_price",
+     "estimate": null,
+     "ci95": null,
+     "bar": "SELECT only after FIT selection; <=278 forwards; zero backwards; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r573_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r567_receipt",
+    "r569_r570_result",
+    "r572_result",
+    "r573_positions",
+    "r573_script",
+    "r573_test"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 573,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMBERED_LIST_FACTOR_LOCALIZATION_RUNG573_PREREGISTRATION.md"
+   ],
+   "claim_id": "numbered_list_index_successor.v5",
+   "design_key": "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83",
+   "execution_key": "37cc40802c54f4adac52de539ea1e38cfb265eae53169b0c2bfe8a90fa107ef7"
   }
  ],
  "translations": [],
@@ -1090,6 +1333,30 @@
    "path": "basis_aligned/bilinear_quotient/numbered_list_conflict_confirmation_rung572_results.json",
    "sha256": "3df046bdcc4fa4387a2dbef084ed732c5f6a05232b7fa64072af3cd4939daea1",
    "kind": "result",
+   "status": "frozen"
+  },
+  "r573_positions": {
+   "path": "basis_aligned/bilinear_quotient/numbered_list_semantic_positions_rung573.json",
+   "sha256": "b4f4f8e58c03deb3a015141656572dcf1fd0fe0c12027c358b441459c245c16b",
+   "kind": "semantic_audit",
+   "status": "frozen"
+  },
+  "r573_prereg": {
+   "path": "basis_aligned/polynomial_causal/NUMBERED_LIST_FACTOR_LOCALIZATION_RUNG573_PREREGISTRATION.md",
+   "sha256": "12e06f11a0865396a85fb3b58c6b2fa23bb90ea28f80d94de88796a0f13d9365",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r573_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numbered_list_factor_localization_rung573.py",
+   "sha256": "5723e42e2a5f72a4ddab7a20b631e18e0b6d28875ff53f3db2d37d1845d6e076",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r573_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_numbered_list_factor_localization_rung573.py",
+   "sha256": "cb7a4c4d768d8ca1046edfce3d3c39e66d7fe0c21c0cd57916d832c567ab18d6",
+   "kind": "test",
    "status": "frozen"
   }
  },

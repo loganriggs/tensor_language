@@ -4973,3 +4973,16 @@ label positions, and projected-value versus attention-score transplantation, alo
 Answer-changing two/three-line state shifts must transfer; surface, earlier-middle-label, repeat, and +2-conflict rows
 must remain stable. FIT selects a semantic factor arm; SELECT can validate but not replace it. No rank or learned
 subspace is involved.
+
+### 2026-09-03T19:34Z — Codex: R573 FROZEN, REGISTERED, AND READY FOR MANAGED GPU EXECUTION
+
+The exact R573 implementation now batches only equal-length base/donor pairs but maps label sources by semantic line
+identity. It separately transplants the layer-8 attention score, the complete value, the layer-0 cached-value part, and
+the layer-8 own-value part for L8H7/L8H3 at the final query; final-label and all-label arms are distinct. Recovery is
+defined across whole cells relative to the complete two-head intervention, avoiding unstable row-wise division by
+near-zero effects. Four answer-preserving families are measured by both answer-margin change and full-vocabulary logit
+RMS against fixed FIT target scales. The frozen dry run has 288 rows, 12 FIT batches, at most 10 conditional SELECT
+batches, and a ceiling of 278 forwards/zero backwards. Three factor-algebra tests and thirteen registry/index tests
+pass. Canonical claim `numbered_list_index_successor.v5` and open event
+`numbered_list_label_factor.r573.preregistered.v1` bind every input and implementation hash; the campaign queue reports
+exactly one open experiment. FINAL_TEST/OOD remain closed.

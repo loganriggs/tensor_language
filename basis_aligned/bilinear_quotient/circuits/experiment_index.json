@@ -7,11 +7,28 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 62,
- "design_count": 50,
- "protocol_count": 49,
- "execution_count": 62,
- "open_preregistrations": [],
+ "event_count": 63,
+ "design_count": 51,
+ "protocol_count": 50,
+ "execution_count": 63,
+ "open_preregistrations": [
+  {
+   "circuit": "task.numbered_list.index_successor",
+   "event_id": "numbered_list_label_factor.r573.preregistered.v1",
+   "claim_id": "numbered_list_index_successor.v5",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83",
+   "protocol_key": "fa49b3eaeba6837683acfbff7bdc5e0bdf50e4eb25668f7ca2a8573686018d3f",
+   "execution_key": "37cc40802c54f4adac52de539ea1e38cfb265eae53169b0c2bfe8a90fa107ef7",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r573_prereg",
+   "result_artifact_id": null
+  }
+ ],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -926,6 +943,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r572_prereg",
    "result_artifact_id": "r572_result"
+  },
+  {
+   "circuit": "task.numbered_list.index_successor",
+   "event_id": "numbered_list_label_factor.r573.preregistered.v1",
+   "claim_id": "numbered_list_index_successor.v5",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83",
+   "protocol_key": "fa49b3eaeba6837683acfbff7bdc5e0bdf50e4eb25668f7ca2a8573686018d3f",
+   "execution_key": "37cc40802c54f4adac52de539ea1e38cfb265eae53169b0c2bfe8a90fa107ef7",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r573_prereg",
+   "result_artifact_id": null
   },
   {
    "circuit": "task.numeric_sequence.continuation",

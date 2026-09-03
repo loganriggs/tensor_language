@@ -47,23 +47,35 @@ The complete two-head ceiling must move the donor-versus-base answer margin in t
 groups in every target family/direction, with a positive 2,000-group-bootstrap lower mean effect. Otherwise the legacy
 site is rejected on R567 and no factor is selected.
 
-For each factor arm and target cell, recovery relative to the complete-head effect is
+For each factor arm and target cell, recovery relative to the complete-head effect is computed across the whole
+cell, rather than by dividing individual rows whose complete-head effect can be arbitrarily close to zero:
 
 $$
-r=\frac{M_{\mathrm{arm}}-M_{\mathrm{base}}}{M_{\mathrm{complete\ heads}}-M_{\mathrm{base}}}.
+r_{\mathrm{mean}}=
+\frac{\operatorname{mean}(M_{\mathrm{arm}}-M_{\mathrm{base}})}
+{\operatorname{mean}(M_{\mathrm{complete\ heads}}-M_{\mathrm{base}})},
+\qquad
+r_{\mathrm{median}}=
+\frac{\operatorname{median}(M_{\mathrm{arm}}-M_{\mathrm{base}})}
+{\operatorname{median}(M_{\mathrm{complete\ heads}}-M_{\mathrm{base}})}.
 $$
 
-Every target cell must have median recovery at least 0.5, at least 75% positive recovery, and a positive bootstrap
-lower mean recovery. On each control family/direction, the arm's full-vocabulary logit RMS and registered-answer margin
-change are divided by the median corresponding complete-head target effect across FIT. Both normalized control effects
-must be at most 0.25. The native correct answer must remain the best registered digit candidate in at least 75% of
-control groups.
+Every target cell must have both recoveries at least 0.5, at least 75% of row effects in the donor direction, and a
+positive 2,000-group-bootstrap lower mean arm effect. The denominator of either recovery must be positive; otherwise
+the arm fails that cell. This keeps every row in the causal test without allowing small denominators to dominate it.
+
+The FIT complete-head target rows define two fixed control scales: (1) the median absolute donor-direction answer-margin
+effect and (2) the median full-vocabulary logit RMS. On each control family/direction, the median absolute answer-margin
+change and median full-vocabulary logit RMS of an arm are divided by those respective FIT scales. Both normalized
+control effects must be at most 0.25. The registered correct answer must remain the best candidate among the single-token
+plain decimal numbers 0 through 100 in at least 75% of control rows. The same FIT scales are reused unchanged on SELECT.
 
 FIT selects the first passing arm in the fixed order: final-label cached value, final-label complete value, all-label
 cached values, final-label joint, all-label joint, final-label score, final-label own-layer value. This ordering is by
 semantic support and exact tensor terms, not hidden dimension or rank. SELECT tests only the chosen arm and the complete
 two-head ceiling. It cannot choose a replacement. A null forbids tuning thresholds or widening to arbitrary subspaces.
 
-The maximum planned price will be computed from the frozen dry-run after the semantic-position audit. No model weight is
-updated. A held activation result is still not a weight-level circuit; it licenses a later exact compilation through
-the layer-0 value matrix, layer-8 scores/output projection, and downstream MLP consumers.
+The frozen dry run contains 12 FIT batches and at most 10 conditional SELECT batches. The maximum price is 278 model
+forwards, zero backwards, and zero weight updates. A held activation result is still not a weight-level circuit; it
+licenses a later exact compilation through the layer-0 value matrix, layer-8 scores/output projection, and downstream
+MLP consumers.
