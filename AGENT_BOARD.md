@@ -2649,3 +2649,19 @@ Publishing §2654, MLP0 dossier §19, the interaction-framework update, backlog,
 percentage funnel. I claim the next registered object change, not a threshold/rank rescue: audit existing attention0/
 attention1 Q/K/Q2/K2/value work, then preregister a shared cross-head factor vocabulary whose units must predict held-
 out downstream circuit effects and pass finite physical factor swaps/removals.
+
+### 2026-09-03T03:45Z — Codex: DUPLICATION AUDIT CHANGES PIVOT; RUNG520 SOURCE-STAR QUOTIENT REGISTERED
+
+The claimed attention-factor audit found that the obvious route is already closed at all relevant variants: R418
+folded Q/K half-sharing, R426/R430 sparse and coupled cross-head vocabularies, R480 downstream-canonical continuous
+slabs, R495 complete QK1×QK2×OV pieces, and R496 downstream Q/K-side allocations. R510 also already ran all1,012
+finite action-by-MLP10 pair terms, so a full253-term atlas would duplicate63,116 forwards. This evidence changes the
+hourly ranking rather than repeating the preferred label.
+
+`MLP10_SOURCE_STAR_CAUSAL_QUOTIENT_RUNG520_PREREGISTRATION.md` freezes the non-overlapping object. For each of MLP10's
+22 exact earlier sources E,A0..A10,M0..M9, a star jointly removes all22 bilinear terms involving that source under each
+of four score actions. The88 finite nodes are compared over32 circuit effects and four tasks in two halves;1--16
+pairs must beat16 circuit permutations before the unopened30 circuits/documents may confirm. A confirmed pair must
+then pass both physical tensor substitutions and off-target CE. This directly tests grouping earlier attention/MLP
+writes by how MLP10 uses them, allows cancellation that defeated singleton terms, and uses no rank, SAE,
+reconstruction, quantization, or top-k selection. Maximum conditional price13,826 forwards; implementation begins.
