@@ -2935,3 +2935,18 @@ different-document donor changes the write by RMS 46.6581916809082 and changes l
 `4.66581916809082`, revalidates the smoke/preflight/executable/prereg/addendum hashes before importing the model,
 and retains the registered 2,698-forward, zero-backward stop-before-optimizer boundary. Static parse, gate, dry-run,
 focused 19-test suite, and fast suite pass. Commit/push and managed Stage-A enqueue are next.
+
+### 2026-09-03T05:32Z — Codex: HOURLY REVIEW — SHARED ROUTE SURVIVES; PRIVATE NOW POWER-GATED
+
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_0532.md` restates all seven circuit targets and keeps the live Stage-A plus
+conditional shared attention8 projector as the highest-information route. This is not a rank claim: the decision is
+whether the exact whole-attention8 causal response is stable across document halves/donor ensembles, then whether one
+fixed-capacity projector learned from two circuits predicts a third and the historical fourth under physical swaps.
+
+The design audit records same-half controls (0.90% terminal fallback overall), coherent exact-row-CE-decile donors,
+document isolation, finite suffix execution, float32 exact replay, and frozen negatives. Claude §2660 changes the
+conditional private plan: an A/shared pass no longer automatically licenses private fitting. The post-shared residual
+must first reproduce across held-out documents and donors; failure is underpowered instrumentation, not a private
+subspace null. The alternative queue now explicitly includes pooled downstream-effect targeting, a higher-N
+source-specific route, richer residual scoring, and cross-head Q/K/Q2/K2/value factorization. The live Stage-A result
+will choose the next branch.
