@@ -2,14 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-49 events; 40 scientific protocols; 49 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+51 events; 42 scientific protocols; 51 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.bracket.pending_opener` | `pending_opener_source_factor_interchange.r560.v2.preregistered.v1` | composition | `pending_opener_state.v26` | `a8d3294fa7a5` |
-| `task.bracket.pending_opener` | `pending_opener_source_factor_audit.r561.preregistered.v1` | null_control | `pending_opener_state.v26` | `e2076e897a7f` |
+| — | — | — | — | — |
 
 ## Repeats requiring review
 
@@ -61,6 +60,8 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.bracket.pending_opener` | `pending_opener_source_factor_interchange.r560.v1.invalid_implementation` | invalid/invalid | composition | `pending_opener_state.v26` | `a8d3294fa7a5` | `8f0f1ac49e89` | `785554008f3d` | supersedes `pending_opener_source_factor_interchange.r560.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_source_factor_interchange.r560.v2.preregistered.v1` | preregistered/inconclusive | composition | `pending_opener_state.v26` | `a8d3294fa7a5` | `8f0f1ac49e89` | `dfe36e1709e3` | supersedes `pending_opener_source_factor_interchange.r560.v1.invalid_implementation` |
 | `task.bracket.pending_opener` | `pending_opener_source_factor_audit.r561.preregistered.v1` | preregistered/inconclusive | null_control | `pending_opener_state.v26` | `e2076e897a7f` | `8b700d8e9a96` | `5dbb5334ca97` | — |
+| `task.bracket.pending_opener` | `pending_opener_source_factor_interchange.r560.v2.complete.null.v1` | complete/null | composition | `pending_opener_state.v27` | `cbeed4440591` | `296131961be6` | `fd74b1c6abbb` | supersedes `pending_opener_source_factor_interchange.r560.v2.preregistered.v1` |
+| `task.bracket.pending_opener` | `pending_opener_source_factor_audit.r561.complete.held.v1` | complete/held | null_control | `pending_opener_state.v27` | `c075bb66f35d` | `cc6fd461cca9` | `5d7f2e382df2` | supersedes `pending_opener_source_factor_audit.r561.preregistered.v1` |
 | `task.increment.state` | `increment_postattn_rank4_das.legacy.v1` | complete/held | das_interchange | `increment_state.v1` | `af4ef28c6d4a` | `6bc87c9422a7` | `c7b2b12e2046` | — |
 | `task.induction.selector_payload` | `induction_terminal_collateral_failure.legacy.v1` | complete/failed | removal | `induction_selector_and_payload.v1` | `978c6755026c` | `415d71f6164c` | `3f1424dfed98` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v2` | `28ca96108955` | `e6cc50c5fbeb` | `b1bddde07ddf` | — |

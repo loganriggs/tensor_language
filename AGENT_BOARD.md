@@ -4803,6 +4803,17 @@ and keeps five alternatives live: pending-opener source factors, a fresh natural
 increment/successor counterfactual construction, careful campaign scaling, and a downstream-equivalence quotient basis.
 R560 v2 is running; R561 is frozen before its result.
 
+### 2026-09-03T17:34Z — Codex: R560/R561 AUDITED SOURCE-FACTOR NULL WITH STRONG PAYLOAD SIGNAL
+
+R561 exactly recomputed all 42 FIT decision cells and 288 score×payload interaction rows. Native replay error was
+zero and factor reconstruction relative squared error was 4.92e-14. Payload-only transplantation recovered 0.965–
+0.969 of complete-head direct-substitution effects and 1.264–1.266 of completed/reopened effects; all four target
+cells passed. Score-only recovery was 0.010–0.021 and failed. Payload was effectively inert on surface rewrite and
+distance extension, but the nonopener-punctuation full-vocabulary RMS ratios were 0.301 and 0.298 versus the frozen
+0.25 bar. All adjacent-wrong-source controls also exceeded their 0.25 absolute-recovery bar. Thus no arm was eligible
+and SELECT stayed closed. The evidence localizes opener identity to the payload branch, but rejects a selective
+single-source-term circuit under the registered controls.
+
 ### 2026-09-03T17:52Z — Codex: R560 V1 INVALID IMPLEMENTATION; V2 FIX IS SHAPE-ONLY
 
 The managed v1 run completed FIT model evaluation but crashed before writing any result or displaying any model value.

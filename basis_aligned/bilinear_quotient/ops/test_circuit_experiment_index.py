@@ -25,10 +25,9 @@ def test_landed_capability_and_interchange_runs_are_closed():
     assert "induction_selector_payload_capability_audit.r555.preregistered.v1" not in open_ids
     assert "pending_opener_target_invariance_das.r556.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_interchange.r560.preregistered.v1" not in open_ids
-    assert open_ids == {
-        "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
-        "pending_opener_source_factor_audit.r561.preregistered.v1",
-    }
+    assert "pending_opener_source_factor_interchange.r560.v2.preregistered.v1" not in open_ids
+    assert "pending_opener_source_factor_audit.r561.preregistered.v1" not in open_ids
+    assert open_ids == set()
 
 
 def test_generated_json_never_invents_events():

@@ -9,16 +9,16 @@
  "summary": {
   "canonical_work_items": 5,
   "legacy_candidates": 70,
-  "open_experiments": 2,
-  "held_events": 14,
-  "blocking_events": 19
+  "open_experiments": 0,
+  "held_events": 15,
+  "blocking_events": 20
  },
  "work_items": [
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_bracket_pending_opener.json",
-   "active_claim_id": "pending_opener_state.v27",
+   "active_claim_id": "pending_opener_state.v28",
    "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "counterfactual_family_count": 5,
@@ -47,13 +47,10 @@
     "pending_opener_target_invariance_das.r556.complete.null.v1",
     "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
     "pending_opener_source_position_audit.r560.complete.held.v1",
-    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
-    "pending_opener_source_factor_audit.r561.preregistered.v1"
+    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
+    "pending_opener_source_factor_audit.r561.complete.held.v1"
    ],
-   "open_event_ids": [
-    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
-    "pending_opener_source_factor_audit.r561.preregistered.v1"
-   ],
+   "open_event_ids": [],
    "held_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -62,7 +59,8 @@
     "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
     "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
     "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
-    "pending_opener_source_position_audit.r560.complete.held.v1"
+    "pending_opener_source_position_audit.r560.complete.held.v1",
+    "pending_opener_source_factor_audit.r561.complete.held.v1"
    ],
    "blocking_event_ids": [
     "pending_opener_cross_family_das.r540.complete.v1",
@@ -74,7 +72,8 @@
     "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
     "pending_opener_downstream_response_atlas.r549.complete.null.v1",
     "pending_opener_downstream_readout_guard.r551.complete.null.v1",
-    "pending_opener_target_invariance_das.r556.complete.null.v1"
+    "pending_opener_target_invariance_das.r556.complete.null.v1",
+    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1"
    ],
    "coverage": {
     "capability": "mixed",
@@ -83,7 +82,7 @@
     "cross_family": "blocked",
     "ood": "missing",
     "selectivity": "mixed",
-    "composition": "planned",
+    "composition": "blocked",
     "compiled_weights": "blocked"
    },
    "acceptance_gaps": [
@@ -93,10 +92,11 @@
     "cross_family",
     "ood",
     "selectivity",
+    "composition",
     "compiled_weights"
    ],
-   "work_state": "experiment_open",
-   "next_missing": "execute the shape-only R560 v2 repair and immediately apply the pre-outcome R561 CPU audit; keep FINAL_TEST/OOD closed"
+   "work_state": "next_experiment_needed",
+   "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
   },
   {
    "tag": "subroutine.induction.equality_score",
