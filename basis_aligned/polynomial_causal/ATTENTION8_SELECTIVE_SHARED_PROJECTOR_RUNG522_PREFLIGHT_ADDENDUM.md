@@ -166,3 +166,140 @@ later-stage outcome early.
 
 The model entrypoint and smoke do not yet exist at this freeze. Their byte hashes and the frozen dependency census
 must be added in a second pre-outcome implementation receipt before the managed smoke is enqueued.
+
+Instrument-sequencing clarification, made before any rung522 CUDA execution: the no-science smoke may be hashed and
+enqueued before the full scientific entrypoint exists, because its purpose is to establish whether the frozen
+physical batch shapes and gradient isolation are feasible before spending implementation time on the complete
+runner. The smoke's byte hash must be in a pre-outcome receipt before the smoke runs. The eventual scientific
+entrypoint's byte hash must likewise be in a later pre-outcome receipt before any scientific rung522 run. Neither
+receipt permits changing the registered scientific statistics, thresholds, fit count, or model-call ceilings.
+
+## Pre-model red-team corrections — 2026-09-03 06:01 UTC
+
+An independent audit found that the first stage order would open TEST before the recovery-only controls and final
+shared projector existed. It also found that the proposed projector-overlap null did not match the real overlap
+statistic. No rung522 model or CUDA outcome exists. The following corrections supersede the affected clauses above
+and in the preregistration; all numerical response gates not mentioned here remain frozen.
+
+### TEST remains closed until every learned object is frozen
+
+All 103 possible frames are trained before TEST opens: the 15 real leave-one-out frames, 15 recovery-only frames,
+20 target-specific oracle frames, 48 label-permutation frames, and five all-three frames. Only FIT labels/responses
+enter gradients. VALIDATION is then used for health checks and provisional gates. If those provisional gates fail,
+the run stops without TEST.
+
+For a leave-one-out fit, the initialization/final health minibatch contains only the two fitted target identities;
+the omitted target cannot enter its objective or health selection. For an all-three fit, only the three fitted
+targets enter health and selection. `r.2.0.1` never enters a shared-projector gradient, health gate, medoid, or seed
+choice. Its independent target-specific oracle does use its mask, but that oracle cannot affect any shared frame.
+Therefore “unseen” for the fourth circuit means unseen by the shared fit, not unseen by every control fit.
+
+Among all-three frames that pass the fixed VALIDATION health gates, choose the Grassmann medoid solely by geometry:
+the frame minimizing the sum of projector Frobenius distances to the other eligible frames, with the lower seed as
+the exact tie-break. VALIDATION performance determines eligibility only; it does not rank healthy frames. The
+fourth-circuit mask is absent from both steps.
+
+After every frame, scheduler fingerprint, and decision is written and hashed, execute one TEST evaluation sweep.
+That sweep computes the final A/B/C statistics for all frozen objects. It also computes the already-fixed mean-
+removal response of the selected final frame without changing or selecting anything. Prediction D is scored only if
+A--C pass. No TEST result can cause another fit, checkpoint choice, threshold change, or alternate frame selection.
+
+### Exact FIT label-permutation null
+
+Represent the four quartet memberships of every FIT token position by one complete 4-bit vector. Also represent
+membership in each circuit's parent slice by a second 4-bit vector. For null seed `p`, group FIT positions by
+
+`(token_class, position_bin_32, native_CE_decile, four-bit parent-slice vector)`.
+
+Within each group, apply one SHA-256-keyed permutation to the complete membership vectors. The same permutation moves
+all four membership bits together, so the global 16-cell overlap lattice and every within-stratum pattern count are
+preserved exactly. Including the parent-slice vector prevents a permuted circuit member from leaving that circuit's
+legal parent population. Recompute exclusive masks and their matched controls from these permuted FIT masks using the
+frozen control ladder. VALIDATION and TEST masks, labels, and controls are never permuted.
+
+Each null must change the 4-bit code at at least 90% of originally nonzero FIT positions; otherwise that seed is
+invalid and the whole null family is unavailable. Seeds are fixed as `52300..52315`. One null fit is trained for each
+of the three leave-one-out folds under each seed, for the already priced 48 fits. Relabeling target names without
+moving complete membership vectors is forbidden because the symmetric max-target objective would be unchanged.
+
+### Matched projector-stability statistic
+
+For each real optimizer seed, compute the three pairwise normalized projector overlaps among its three leave-one-out
+frames and retain their minimum. This gives five real cross-fold stability values. For each label-permutation seed,
+compute the same minimum across that seed's three leave-one-out null frames, giving 16 matched null values. Prediction
+A's geometric clause holds only if at least four of five real values strictly exceed the higher-interpolation 95th
+percentile of the 16 null values.
+
+Cross-seed overlaps within one leave-one-out fold are reported descriptively but cannot support identification,
+because the 48-fit price does not provide five optimizer restarts for every permuted problem. This correction keeps
+the registered 48 null fits and the 41,200-event ceiling unchanged.
+
+### Bounded selectivity and uncertainty
+
+For member RMS `M` and matched-control RMS `C`, retain the concentration `M/C` and the fixed gates `M/C>=4` and
+projector-minus-full-attention8 concentration `>=1`. Add the bounded quantities
+
+`selectivity = (M-C)/(M+C+1e-12)` and `fourfold_margin = M-4C`.
+
+For every required projector cell, resample matched member/control pairs at the row level for 2,000 deterministic
+bootstraps. The higher-interpolation lower 95% bound of `fourfold_margin` must be strictly positive. This prevents a
+large ratio caused by a nearly zero denominator from passing. Prediction B's real-vs-Haar/permuted joint statistic
+is now the bounded
+
+`minimum_heldout_selectivity * minimum_heldout_aligned_recovery`,
+
+not unbounded concentration times recovery.
+
+For the recovery-only comparison, pair frames by leave-one-out fold and optimizer seed. At least four of five seeds
+must improve the minimum cell concentration by at least `0.5`, retain signed cosine within `0.05`, and have a
+strictly positive row-bootstrap lower 95% bound on the bounded-selectivity improvement in every cell. In addition,
+the observed mean of the five paired minimum-cell improvements must strictly exceed the higher-interpolation 95th
+percentile of the exact 32-value seed-wise sign-flip null. A merely positive numerical difference cannot pass.
+
+### Oracle liveness and generic-damage controls
+
+Every target-specific oracle must be healthy and, in every VALIDATION/TEST donor/direction cell for its owner, have
+member RMS at least `.02` nat and aligned recovery at least `.05`. Otherwise the target is instrument-invalid; “50%
+of oracle” cannot become an easy gate through a dead or negative denominator.
+
+The control-matching report separates exact-next-token tiers 0 and 1. If a target/split/donor/direction cell contains
+at least 32 such matched pairs, the projector must also satisfy `M/C>=4` and a positive row-bootstrap lower bound on
+`M-4C` within that subset. If fewer than 32 pairs exist, exact-token specificity is explicitly underpowered and even
+an otherwise positive rung is called **within-census operational extraction**, not semantic identification.
+
+Every final shared frame is also scored on:
+
+1. every non-quartet circuit whose registered best native component is attention8;
+2. all 32 fingerprint circuits; and
+3. every token position outside the quartet union.
+
+For each TEST donor/direction cell, the RMS projected effect over all outside-union positions must be at most 25% of
+the smallest quartet-member RMS. Failure is generic attention8/CE damage and makes C false. These controls are in
+addition to the pre-existing matched controls, not replacements for them. A/B alone are described only as selective
+response fitting; ownership requires C and the second physical action in D.
+
+### Exact C fingerprint statistic and null
+
+For each of the four TEST cells (`D0/D1 x forward/reverse`), define circuit coordinate
+
+`v[j] = RMS_member_j(projected delta CE) - RMS_matched_control_j(projected delta CE)`.
+
+The quartet separation statistic is
+
+`S = min_(j in quartet) v[j] - max_(j not in quartet) v[j]`.
+
+Thus `S>0` means every quartet coordinate exceeds every non-quartet coordinate. No averaging occurs across donor
+ensembles or directions; all four cells must pass. For each cell, create 20,000 CPU nulls by applying one common
+permutation of the saved per-token projected responses within `(token_class, position_bin_32, native_CE_decile)`
+groups, then recompute all 32 coordinates and `S`. A common response permutation preserves the circuit-mask overlap
+lattice, matching strata, and circuit base rates. The observed `S` must be positive and strictly exceed the higher-
+interpolation null 95th percentile in every cell. This is calibration of the historically proposed quartet's
+operational extraction, not a fresh cluster-discovery p-value.
+
+### Price clarification after corrections
+
+The matched stability null still uses exactly 48 fits, so the maximum optimization price remains 20,600 forward and
+20,600 backward events. All VALIDATION health objectives are one fixed balanced minibatch at initialization and the
+final iterate, exactly matching the 206-forward ledger; they are not full-split evaluations. Moving every fit before
+TEST and computing bounded/bootstrap/null statistics from saved per-token responses add no model calls. The maximum
+pre-removal inference count therefore remains 9,422.
