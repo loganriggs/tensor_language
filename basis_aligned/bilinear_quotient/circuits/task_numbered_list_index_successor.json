@@ -1246,6 +1246,207 @@
    ],
    "translation_ids": [],
    "next_missing": "compile the final-label layer-0 cached-value path through L8H7/L8H3 into weights, then test necessity/removal with active unrelated-behavior collateral controls before OOD"
+  },
+  {
+   "claim_id": "numbered_list_index_successor.v8",
+   "revision": 8,
+   "status": "activation_identified",
+   "supersedes": "numbered_list_index_successor.v7",
+   "causal_variable": {
+    "id": "list_index_state",
+    "domain": "integer labels in numbered lists",
+    "read": "the final visible list label and list structure",
+    "operation": "advance the list index by one",
+    "write": "evidence for the next digit label",
+    "endpoint": "next-list-label numeric-candidate logit margin"
+   },
+   "alternative_explanations": [
+    "general arithmetic progression",
+    "copy the final label",
+    "memorized prompt positions"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "list_two_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "two-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "three-line transfer",
+      "repeated labels",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_three_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "three-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "two-line transfer",
+      "middle break",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "all labels",
+      "list length",
+      "next label"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shifts",
+      "held-out nouns",
+      "middle break"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_middle_index_break",
+     "role": "invariance",
+     "changes": [
+      "an earlier middle label and visible sequence coherence"
+     ],
+     "holds_fixed": [
+      "final visible label",
+      "last-label-plus-one operation",
+      "registered successor"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "surface edit",
+      "state shift",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_repeated_index_control",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "repeated label",
+      "copy rule",
+      "registered answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "step-two conflict",
+      "held-out nouns"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_step_two_conflict",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "step-two visible labels",
+      "last-label successor answer",
+      "list format"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "arithmetic +2 answer",
+      "+1 rows",
+      "copy rows"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "l8h7_l8h3_value_paths",
+     "tensor_path": "L8H7/L8H3 exact value contributions",
+     "shape": [
+      "batch",
+      "position",
+      "projected value"
+     ],
+     "intervention": "transplant exact selected-source value contributions",
+     "ceiling_event_ids": [
+      "numbered_list_label_factor.r573.preregistered.v1",
+      "numbered_list_label_factor.r573.v1.invalid_price",
+      "numbered_list_label_factor.r573.v2.preregistered.v1",
+      "numbered_list_label_factor.r573.v2.complete.held.v1"
+     ]
+    },
+    {
+     "site_id": "mlp8_14_successor_writes",
+     "tensor_path": "MLP8 through MLP14 product/write terms",
+     "shape": [
+      "batch",
+      "position",
+      "residual width"
+     ],
+     "intervention": "replace exact source-conditioned product terms or complete writes",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "final_label_l0_value_through_l8h3_h7",
+     "tensor_path": "sum_h p8[h,q,k] WO8[h] (lambda8 WV0[h] z0[k]) for h in {3,7}",
+     "shape": [
+      "batch",
+      "final query",
+      "residual width 1152"
+     ],
+     "intervention": "replace or subtract the exact weight-computed final-source term",
+     "ceiling_event_ids": [
+      "numbered_list_cached_value_weights.r576.preregistered.v1",
+      "numbered_list_cached_value_removal.r576.preregistered.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "evidence_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.preregistered.v1",
+    "numbered_list_label_factor.r573.v1.invalid_price",
+    "numbered_list_label_factor.r573.v2.preregistered.v1",
+    "numbered_list_label_factor.r573.v2.complete.held.v1",
+    "numbered_list_label_factor_audit.r574.complete.held.v1",
+    "numbered_list_cached_value_weights.r576.preregistered.v1",
+    "numbered_list_cached_value_removal.r576.preregistered.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "run R576 exact weight compilation and active removal; adoption remains blocked unless list necessity and nonzero copy collateral controls both hold"
   }
  ],
  "split_plans": [
@@ -1869,6 +2070,112 @@
    "claim_id": "numbered_list_index_successor.v7",
    "design_key": "9174409b37706899db0bf6359ee5e3b83adecc04b6dde5ca14b4624d234a47e7",
    "execution_key": "7237d2e93993a2feffc67174503753793a4b91c35de649313a2dbdd09c8a2486"
+  },
+  {
+   "event_id": "numbered_list_cached_value_weights.r576.preregistered.v1",
+   "test_type": "compiled_equivalence",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "list_two_line_state_shift",
+    "list_three_line_state_shift"
+   ],
+   "site_id": "final_label_l0_value_through_l8h3_h7",
+   "evaluation_role": "FIT_then_conditional_SELECT_exact_activation_to_weight_equivalence",
+   "metrics": [
+    {
+     "name": "compiled_cached_value_and_logits_error",
+     "estimate": null,
+     "ci95": null,
+     "bar": "cached bus, projected term, and activation-versus-weight patch relative squared errors <=1e-10"
+    },
+    {
+     "name": "native_replay_error",
+     "estimate": null,
+     "ci95": null,
+     "bar": "<=1e-12"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r576_prereg",
+   "input_artifact_ids": [
+    "r575_numeric_positions",
+    "r575_numeric_positions_script",
+    "r573_list_factor_result",
+    "r574_list_factor_audit",
+    "r576_script",
+    "r576_test"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 576,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMBERED_LIST_CACHED_VALUE_WEIGHT_REMOVAL_RUNG576_PREREGISTRATION.md"
+   ],
+   "claim_id": "numbered_list_index_successor.v8",
+   "design_key": "953e545b904b1e9333e7165468aa179df8a172ec7e6c597c3528d5f2aec6814c",
+   "execution_key": "6fff9f7d690d224128212bc13e250ceb1a897c4cb2223ff93ad48ecc74cc1ace"
+  },
+  {
+   "event_id": "numbered_list_cached_value_removal.r576.preregistered.v1",
+   "test_type": "removal",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "list_two_line_state_shift",
+    "list_three_line_state_shift",
+    "list_surface_preserved",
+    "list_middle_index_break",
+    "list_repeated_index_control",
+    "list_step_two_conflict"
+   ],
+   "site_id": "final_label_l0_value_through_l8h3_h7",
+   "evaluation_role": "FIT_then_conditional_SELECT_active_necessity_and_copy_collateral",
+   "metrics": [
+    {
+     "name": "list_successor_removal_damage",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 positive margin damage and positive bootstrap lower mean margin/CE damage in every non-copy list cell"
+    },
+    {
+     "name": "active_repeated_list_copy_preservation",
+     "estimate": null,
+     "ci95": null,
+     "bar": "term norm >=0.10 target scale, answer >=0.75, CE <=0.1 nat, margin and logit RMS <=0.25 target scales"
+    },
+    {
+     "name": "split_and_price",
+     "estimate": null,
+     "ci95": null,
+     "bar": "FIT then conditional SELECT; <=210 forwards; zero backwards; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r576_prereg",
+   "input_artifact_ids": [
+    "r575_numeric_positions",
+    "r575_numeric_positions_script",
+    "r573_list_factor_result",
+    "r574_list_factor_audit",
+    "r576_script",
+    "r576_test"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 576,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMBERED_LIST_CACHED_VALUE_WEIGHT_REMOVAL_RUNG576_PREREGISTRATION.md"
+   ],
+   "claim_id": "numbered_list_index_successor.v8",
+   "design_key": "7877e1549f1527cb7fbcb6d277b743310f1f1695f723bea39d0db5dab2d1e141",
+   "execution_key": "82c953a3b19ed56178332f9e7346667236ded99772145ec208080d8cbb3de865"
   }
  ],
  "translations": [],
@@ -2021,6 +2328,48 @@
    "path": "basis_aligned/bilinear_quotient/ops/audit_numbered_list_factor_rung574.py",
    "sha256": "fc5abf51e24d016cab9ca1d690291346f847f7d5ab473ce6cafa4e70955427bc",
    "kind": "implementation",
+   "status": "frozen"
+  },
+  "r575_numeric_positions": {
+   "path": "basis_aligned/bilinear_quotient/numeric_factor_removal_positions_rung575.json",
+   "sha256": "3663ebc48e5dca1ff336cb0627fc43c6db8d7d6e1666b81d7631ab150168dd4b",
+   "kind": "semantic_audit",
+   "status": "frozen"
+  },
+  "r575_numeric_positions_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numeric_factor_removal_positions_rung575.py",
+   "sha256": "e9a5dbe3656a4be2694744b15da53c0cb805a604632dba5c35c33332452aadf5",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r576_prereg": {
+   "path": "basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_WEIGHT_REMOVAL_RUNG576_PREREGISTRATION.md",
+   "sha256": "a776ebc1df29a6f3193d3315e190ec9494c95905596e450461c002378f8f59b6",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r576_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_weight_removal_rung576.py",
+   "sha256": "91db3a2a9210aef915ce2e4f0a62253274e0b5470cbfaa05a95d50a3c0cf985a",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r576_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_numbered_list_cached_value_weight_removal_rung576.py",
+   "sha256": "a341573a82e223e38643c26fddbae0e34ac47117741607eb1b64c03362bf6719",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r573_list_factor_result": {
+   "path": "basis_aligned/bilinear_quotient/numbered_list_factor_localization_rung573_v2_results.json",
+   "sha256": "052930b8b9086e8b7606e3d05929f521f468c04427be8d1182720f1772ee43ec",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r574_list_factor_audit": {
+   "path": "basis_aligned/bilinear_quotient/numbered_list_factor_localization_rung574_audit.json",
+   "sha256": "3d6580ee1a4f1bb77c07e4ee2b404bc23dc70f733db31425bc5da2a11a25a04e",
+   "kind": "audit",
    "status": "frozen"
   }
  },

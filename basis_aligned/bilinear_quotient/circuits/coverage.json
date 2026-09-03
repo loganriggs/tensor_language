@@ -410,8 +410,10 @@
       "numbered_list_label_factor_audit.r574.complete.held.v1"
      ],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "numbered_list_label_factor_audit.r574.complete.held.v1"
+     "planned_event_ids": [
+      "numbered_list_cached_value_removal.r576.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numbered_list_cached_value_removal.r576.preregistered.v1"
     },
     "composition": {
      "status": "held",
@@ -423,17 +425,19 @@
      "latest_relevant_event_id": "numbered_list_label_factor.r573.v2.complete.held.v1"
     },
     "compiled_weights": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "numbered_list_cached_value_weights.r576.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numbered_list_cached_value_weights.r576.preregistered.v1"
     }
    },
    "n_held_categories": 3,
    "n_blocked_categories": 0,
-   "n_missing_categories": 5,
-   "next_missing": "compile the final-label layer-0 cached-value path through L8H7/L8H3 into weights, then test necessity/removal with active unrelated-behavior collateral controls before OOD"
+   "n_missing_categories": 4,
+   "next_missing": "run R576 exact weight compilation and active removal; adoption remains blocked unless list necessity and nonzero copy collateral controls both hold"
   },
   "task.numeric_sequence.continuation": {
    "kind": "behavior_circuit",
@@ -464,11 +468,13 @@
      "latest_relevant_event_id": null
     },
     "cross_family": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
     },
     "ood": {
      "status": "missing",
@@ -503,8 +509,8 @@
    },
    "n_held_categories": 2,
    "n_blocked_categories": 0,
-   "n_missing_categories": 6,
-   "next_missing": "preregister a complete-state site screen that tests digit, word, and cross-format interchange plus copy/+2 selectivity"
+   "n_missing_categories": 5,
+   "next_missing": "evaluate the fixed R576 list-derived cached-value path as a shared candidate while independently preparing a complete-state sequence site localization"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

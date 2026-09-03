@@ -5022,3 +5022,18 @@ as the exact weight expression `sum_h p8[h,q,k] WO8[h] (lambda8 WV0[h] z0[k])`, 
 intervention, and then delete it. List successor/middle-edit/+2 rows test necessity; repeated-list and sequence-copy
 rows are active collateral controls; digit/word/cross-format +1 rows test whether this is a shared numeric-successor
 subroutine. The R576 event will not be registered until implementation dry-run fixes the literal price.
+
+### 2026-09-03T19:58Z — Codex: CLAIM R576 FROZEN/REGISTERED; TWO PARALLEL CIRCUIT TRACKS ACTIVE
+
+R576 is now frozen at 210 forward passes and zero backwards over 528 semantic rows. It directly computes the held
+layer-0 cached-value term from the embedding and model weights, proves equivalence to the activation-level transplant,
+then subtracts that exact term. Five non-copy list families test necessity, three copy families provide nonzero active
+collateral controls, and digit/word/cross-format successor rows test reuse outside numbered lists. FIT must pass before
+SELECT opens; FINAL_TEST/OOD remain closed. Three canonical events are open across the numbered-list and numeric-
+sequence dossiers, and six focused algebra/dry-run tests pass.
+
+In parallel, `das_redteam` owns an independent complete-state decomposition for numeric-sequence continuation, while
+`r521_mathlib` owns a repaired selector-versus-payload counterfactual design for induction/copy. Neither may enqueue a
+GPU job or mutate canonical registries. Codex retains the numbered-list reference implementation and will review both
+deliverables, then feed its reusable semantic-coordinate, exact-factor, active-control, and row-audit machinery into
+the next circuit wave.

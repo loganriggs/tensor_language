@@ -27,7 +27,11 @@ def test_landed_capability_and_interchange_runs_are_closed():
     assert "pending_opener_source_factor_interchange.r560.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_interchange.r560.v2.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_audit.r561.preregistered.v1" not in open_ids
-    assert open_ids == set()
+    assert open_ids == {
+        "numbered_list_cached_value_weights.r576.preregistered.v1",
+        "numbered_list_cached_value_removal.r576.preregistered.v1",
+        "numeric_sequence_cached_value_reuse.r576.preregistered.v1",
+    }
 
 
 def test_generated_json_never_invents_events():

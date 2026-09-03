@@ -2,13 +2,15 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-67 events; 53 scientific protocols; 67 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+70 events; 56 scientific protocols; 70 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_weights.r576.preregistered.v1` | compiled_equivalence | `numbered_list_index_successor.v8` | `ef72716ba69a` |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_removal.r576.preregistered.v1` | removal | `numbered_list_index_successor.v8` | `1b307ae88911` |
+| `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.preregistered.v1` | cross_family_transfer | `numeric_sequence_continuation.v3` | `962e04004104` |
 
 ## Repeats requiring review
 
@@ -82,8 +84,11 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v2.preregistered.v1` | preregistered/inconclusive | composition | `numbered_list_index_successor.v6` | `159545c9eed9` | `f08ff67b960d` | `f9119eb4a5d2` | supersedes `numbered_list_label_factor.r573.v1.invalid_price` |
 | `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v2.complete.held.v1` | complete/held | composition | `numbered_list_index_successor.v6` | `31dec530db14` | `469dfa51b9ca` | `5c9cd9bc7aab` | supersedes `numbered_list_label_factor.r573.v2.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_label_factor_audit.r574.complete.held.v1` | complete/held | null_control | `numbered_list_index_successor.v7` | `072eae42ae42` | `9174409b3770` | `7237d2e93993` | — |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_weights.r576.preregistered.v1` | preregistered/inconclusive | compiled_equivalence | `numbered_list_index_successor.v8` | `ef72716ba69a` | `953e545b904b` | `6fff9f7d690d` | — |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_removal.r576.preregistered.v1` | preregistered/inconclusive | removal | `numbered_list_index_successor.v8` | `1b307ae88911` | `7877e1549f15` | `82c953a3b19e` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.preregistered.v1` | preregistered/inconclusive | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `3c90bed65fab` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.held.v1` | complete/held | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `423303280f5c` | supersedes `numeric_sequence_native_capability.r570.preregistered.v1` |
 | `task.numeric_sequence.continuation` | `numeric_sequence_capability_audit.r571.held.v1` | complete/held | null_control | `numeric_sequence_continuation.v1` | `655c19704a36` | `bc7a7da1850a` | `02bd8ddd9f2d` | — |
+| `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.preregistered.v1` | preregistered/inconclusive | cross_family_transfer | `numeric_sequence_continuation.v3` | `962e04004104` | `9c80f1bfec6c` | `54bf04405781` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |
