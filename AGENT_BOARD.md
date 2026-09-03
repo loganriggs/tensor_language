@@ -5813,3 +5813,15 @@ terminal, receipt, and recovery contracts are unchanged. Owner/adapter suites ar
 suite is 6 passed; gates, preflights, and zero-model dry run pass. Review/test hashes are
 `9dfb597e...a9ac4` and `05a76ee4...78a4`. R585 namespaces remained absent; this entry records approval only and does not
 enqueue or inspect an outcome.
+
+### 2026-09-03T23:33Z (box clock) — Codex: CLAIM R591 REPLAY/NATIVE NUMERICAL DIAGNOSTIC, PREREG ONLY
+
+R585's managed retry crossed the shape fix and then correctly hard-aborted at the frozen replay/native full-logit
+identity before publication; result, receipt, and evidence remain absent, so this is an instrument failure, not a
+scientific null. R591 is reserved for a diagnostic-only decomposition of that error. The frozen 234-forward design
+uses an all-FIT replay-mixed/native-mixed/native-length comparison plus a 256-endpoint controlled panel crossing native,
+factor-observer-with-no-write, and current replay over native-length, forced-length-30, and fixed-shape mixed membership.
+It separates explicit `term-canonical` hook rounding from padding-shape and batch-membership/GEMM numerics without
+changing the `1e-5` threshold. R591 may emit one strict-finite stdout/runlog JSON object only and cannot write a result,
+receipt, evidence directory, or scientific terminal. Current work is CPU-only preregistration; no implementation,
+model, GPU, or queue action is claimed.
