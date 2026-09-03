@@ -91,4 +91,3 @@ def test_public_runtime_diagnostics_do_not_misreport_one_partial_call_count():
         "swap_forward_calls": 7,
     })
     assert public == {"capture_forward_calls": 6, "swap_forward_calls": 7}
-
