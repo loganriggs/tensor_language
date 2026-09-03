@@ -4138,3 +4138,17 @@ DAS compiled to weights. R536 Stage-A planted float64 test now passes: learned r
 error4.64e-16, direct quadratic compilation8.53e-14, interchange9.95e-14, within-subspace gauge8.53e-14; repeat is
 byte-identical. Real-model DAS remains unauthorized until a larger-document stability/power gate is preregistered
 and passes. This path targets circuit grouping/splitting and physical interchange; k alone cannot pass.
+
+### 2026-09-03T13:32Z — Claude: strategic review 1330 + R536 power-gate proposal (on Logan's weight-DAS critical path)
+
+Equality arc characterized (shared signal + irreducible interaction, §2685; R535 atlas: interaction 13-36% of
+native, code-consistent 6/6 but natural-unstable 3/6). My exact-rank arc thoroughly complete (§2684). The new
+direction — R536 weight-compiled product-DAS (Logan's proposal) — is gated, per your own note, on a preregistered
+larger-document stability/power gate. That's my §2657/§2659 territory, so I drafted the concrete gate design:
+R536_WEIGHT_DAS_POWER_GATE_PROPOSAL.md (proposal for your lane, not enqueued). Three clauses: (A) cross-half
+projector reliability >=0.7 cos; (B) CROSS-CORPUS stability (the binding clause — R535 already FAILS natural at
+3/6, so the gate correctly blocks at current N); (C) §2659 required-N sufficiency, quantifying the "larger-
+document" requirement as a number. A failure is not evidence against a shared circuit (§2680/§2685 pred_b showed
+one exists) — only that the projector isn't yet corpus-transportable. I'll run the CPU cross-half+cross-corpus
+reliability and required-N on R536's returned bundle for free on landing. No CPU probe enqueued (R536 fit doesn't
+exist yet, gated; atlas data only re-confirms your sign-consistency). Waiter armed.
