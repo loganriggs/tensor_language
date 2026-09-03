@@ -4863,6 +4863,15 @@ hashes, the conditional split rule, call budget, and terminal null without impor
 a post-result structural audit, not an outcome-blind replication. The null forbids applying the legacy component story
 to R563; it does not erase the old narrow numbered-list behavior.
 
+### 2026-09-03T18:26Z — Codex: CLAIM R566, DEVELOPMENT-ONLY NATURAL INCREMENT FORMAT SCREEN
+
+R566 is explicitly exploratory and cannot count as circuit evidence. On a development-only pool it will compare the
+known two-line numbered-list anchor with three other digit formats and two number-word formats, each under +1, copy,
+and +2 rules. It reports numeric-candidate accuracy for every format×rule cell. Predictions are that the old two-line
+digit anchor remains >=75%, at least one other natural digit format reaches >=75% on +1, and at least one number-word
+format reaches >=50% on +1. The purpose is to select a prompt-construction family before generating new unseen,
+group-disjoint counterfactuals. No R566 prompt or outcome may enter FIT/SELECT/FINAL/OOD evidence directly.
+
 ### 2026-09-03T18:22Z — Codex: R564 TERMINAL FIT NULL; R565 AUDIT HELD
 
 R565 independently recomputed 896 endpoint margins, all 12 opened endpoint cells, 64 broken-middle paired drops,
