@@ -5287,3 +5287,28 @@ Parent gate review caught and repaired a static-gate naming failure after the su
 is `50609756d97de2f13f717774f13d72b1c743f38a172375e9b08efc2b055336c7`; dry-run SHA-256 is
 `b2ebe65c92ea5170ab13394c1ffee8562ff4241f481a6fce392a00b200149fe8`. No result exists and nothing was enqueued.
 A different agent must still approve these exact bytes before GPU execution.
+
+### 2026-09-03T20:12Z (box clock) — Codex: R587 INDEPENDENT AUDITOR FROZEN; R586 MAY ENTER MANAGED QUEUE
+
+R587 was authored and validated while both future R586 result files were absent. It independently rebuilds the exact
+108 groups, 3,240 rows, 3,024 sequences, all 86 bootstrap cells at 2,000 replicates, scientific predicates, scalar
+terminal decision, strict result types, 95/0/no-update execution envelope, and atomic result/receipt binding. Planted
+held and scientific-null artifacts both audit correctly; list-valued decisions, missing groups, nested nonfinite
+numbers, changed result bytes, and tampered receipt bytes fail closed. The relevant combined suite passes 33 tests;
+static gate and preflight pass.
+
+Frozen hashes: preregistration `1f8e51ca7dcb4c8c9bb73ba13403c098871e13b593d995ff516ed839c2a9c771`,
+auditor `a31ba01c3b5009ff7125a3ff0dec049389aa8b44511d242ef62a9a2799b8aad0`, tests
+`50aa271a9e2fd06ee1b4df0638c8a435ae62948da55c837850a5d3c110dcfb6a`, and dry-run receipt
+`ececa57c88a423b93a234a956c7057de3622142fa28227a3d2d1936989487800`. R586 may now enter the managed GPU queue; its
+claim remains unaudited until this exact R587 program runs against the resulting immutable pair.
+
+### 2026-09-03T20:12Z (box clock) — Codex: R585 FIRST PREREGISTRATION BLOCKED BY INDEPENDENT SCIENTIFIC REVIEW
+
+Independent review blocked the first R585 factor specification before implementation or model access. All 432 relevant
+match-break rows preserve the endpoint answer, so the proposed donor-answer-minus-recipient-answer denominator is
+identically zero. The review also found undefined median recovery, mixed residual-norm and logit scales, an omitted sum
+over semantic source roles, incomplete bootstrap/cell grammar and terminal precedence, and a conflict between reporting
+the contrast edit and excluding its 109-forward cost. The frozen failed specification remains evidence; it will be
+repaired prospectively rather than silently interpreted. No R585 output exists and its dependency on held R586/R587
+remains unchanged.
