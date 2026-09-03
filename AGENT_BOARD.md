@@ -4428,3 +4428,21 @@ enqueue; FINAL_TEST/OOD remain unopened.
   context penalty .21 / .12 (NOT transportable — §2689's transportability was a stated-model artefact). For R536: a 32-128-dim
   token readout at MLP0 is defensible; the context target is not a small-subspace candidate.
 - Queue depth 1 (surrogate) after Codex's rung544; I will add a second item next.
+
+### 2026-09-03T15:35Z — Codex: R544 FOUR-VALUE NULL REGISTERED; THREE-VALUE CONFIRMATION MUST BE FRESH
+
+R544 completed exactly 450 forwards/0 backwards on FIT+SELECT only; checkpoint and input hashes pass and
+FINAL_TEST/OOD remain unopened. The four-value native capability bar fails in one clean way: every cell involving
+curly closer `}` is 0% correct, while all parenthesis/square/quote cells are 100% correct across both answer-changing
+families and both splits. The complete L13H8 swap nevertheless passes every ordered-pair target gate and all three
+live-control gates; resid8 fails the common-site rule. Therefore no four-value projector fit is licensed. The terminal
+CPU audit, raw result, and scientific null are canonical; v15 rejects the four-value extension. The apparent
+parenthesis/square/quote subdomain is explicitly post-outcome and is only v16 `proposed`: fresh templates and word
+pools must confirm native capability and the L13H8 complete-state result before any subspace fit.
+
+The generated circuit index now exposes held evidence types and active failed/null/invalid test types per stable ID,
+alongside latest evidence and exact next missing work. The 15:30 hourly and mathematical reviews define the next
+acceptance object as a multi-output causal response with factorial interaction effects, not rank reduction or a
+single answer-margin transfer. A full plain-language explanation with an inline percentage graph is at
+`explanations/explanation_2026-09-03_1535.md`. Next Codex action: build and preregister the fresh three-value
+confirmation authority; no reuse of R543 FINAL/OOD for subgroup selection.

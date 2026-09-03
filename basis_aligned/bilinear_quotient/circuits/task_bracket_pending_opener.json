@@ -2378,6 +2378,359 @@
    ],
    "translation_ids": [],
    "next_missing": "execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited"
+  },
+  {
+   "claim_id": "pending_opener_state.v15",
+   "revision": 15,
+   "status": "rejected",
+   "supersedes": "pending_opener_state.v14",
+   "causal_variable": {
+    "id": "pending_opener_state_four_value_extension",
+    "domain": "parenthesis, square, curly, or quote pending state",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_four_closer_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "replace exactly one opener token among parenthesis, square, curly, and quote"
+     ],
+     "holds_fixed": [
+      "all ordinary words",
+      "sequence length",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": "r543_v2_rows_builder",
+     "control_ids": [
+      "answer-preserving comma/colon edit",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_four_closer_order",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "complete one type and open another, then reverse their roles"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length where tokenization permits",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": "r543_v2_rows_builder",
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_paraphrase",
+     "role": "invariance",
+     "changes": [
+      "surface scaffold and lexical order",
+      "rewrite the content while retaining one pending delimiter type"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r543_v2_rows_builder",
+     "control_ids": [
+      "held-out lexical pool",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_shift",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "insert neutral material after the same opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "content words"
+     ],
+     "builder_artifact_id": "r543_v2_rows_builder",
+     "control_ids": [
+      "short versus long",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r543_v2_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_unique_joint_split_r543_v2"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "four-value extension rejected at native capability; do not fit a four-value projector or open its FINAL_TEST/OOD rows"
+  },
+  {
+   "claim_id": "pending_opener_state.v16",
+   "revision": 16,
+   "status": "proposed",
+   "supersedes": "pending_opener_state.v15",
+   "causal_variable": {
+    "id": "pending_opener_state_three_value_candidate",
+    "domain": "candidate parenthesis, square-bracket, or quote pending state; selected after R544 and not confirmed",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange",
+    "post-outcome exclusion of curly braces; requires entirely fresh confirmation rows"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_four_closer_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "replace exactly one opener token among parenthesis, square, curly, and quote"
+     ],
+     "holds_fixed": [
+      "all ordinary words",
+      "sequence length",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "answer-preserving comma/colon edit",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": null,
+     "status": "proposed"
+    },
+    {
+     "family_id": "completed_then_reopened_four_closer_order",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "complete one type and open another, then reverse their roles"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length where tokenization permits",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": null,
+     "status": "proposed"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_paraphrase",
+     "role": "invariance",
+     "changes": [
+      "surface scaffold and lexical order",
+      "rewrite the content while retaining one pending delimiter type"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "held-out lexical pool",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": null,
+     "status": "proposed"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_shift",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "insert neutral material after the same opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "content words"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "short versus long",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": null,
+     "status": "proposed"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "wrong closer",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": null,
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "build fresh content-addressed parenthesis/square/quote groups with new templates and word pools; preregister native capability and attn13h8 full-state confirmation before any subspace fit"
   }
  ],
  "split_plans": [
@@ -3125,6 +3478,66 @@
    ],
    "design_key": "e1cc622d90c5b607a22874ae5909b7e7bdf2c6a1cccaa35c3882c04d36e9ec4a",
    "execution_key": "71a81a229b4f6411fdd37c99195e0e031fd39e5d01345cacea2b23c3e464f961"
+  },
+  {
+   "event_id": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+   "claim_id": "pending_opener_state.v14",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_four_closer_type_substitution",
+    "completed_then_reopened_four_closer_order",
+    "pending_type_preserved_surface_paraphrase",
+    "pending_type_preserved_distance_shift",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.output.final_position",
+   "split_plan_id": "pending_opener_unique_joint_split_r543_v2",
+   "evaluation_role": "FIT_SELECT_only_terminal_audit",
+   "metrics": [
+    {
+     "name": "four_closer_native_capability",
+     "estimate": false,
+     "ci95": null,
+     "bar": ">=75% native correctness for base and donor in every ordered pair"
+    },
+    {
+     "name": "failed_native_closer_values",
+     "estimate": [
+      "}"
+     ],
+     "ci95": null,
+     "bar": "no value-specific capability failure"
+    },
+    {
+     "name": "attn13h8_complete_state_gate",
+     "estimate": true,
+     "ci95": null,
+     "bar": "both target families and all three live controls pass on FIT and SELECT"
+    }
+   ],
+   "prereg_artifact_id": "r544_site_gate_preregistration",
+   "result_artifact_id": "r544_site_gate_result",
+   "input_artifact_ids": [
+    "r543_v2_rows",
+    "r543_v2_rows_receipt",
+    "r544_site_gate_implementation",
+    "r544_site_gate_test",
+    "r544_site_gate_terminal_audit",
+    "r544_site_gate_terminal_audit_implementation"
+   ],
+   "seed": 544,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_FOUR_CLOSER_SITE_GATE_RUNG544_PREREGISTRATION.md"
+   ],
+   "notes": "The four-value domain fails because every native cell involving the curly closer fails, while all six ordered pairs among parenthesis, square bracket, and quote are perfect on FIT/SELECT. The latter is post-outcome subgroup evidence only. attn13h8 passes every target and control complete-state gate, but no projector fit is licensed and FINAL_TEST/OOD remain unopened.",
+   "design_key": "047088060ce09ebc1ce9db9110a35b0e0bbaaca42e7963b0af934efcacac01c5",
+   "execution_key": "d64384a736a6fd13db1471e8a14ed7b6f9d7b90a84771d4c3b3d7bf4a2e6befd"
   }
  ],
  "translations": [],
@@ -3403,6 +3816,24 @@
    "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_four_closer_site_gate_rung544.py",
    "sha256": "69d7aebb57c302ed1a3c0624e533f849bc825e1668646026eed202306302f89b",
    "kind": "test",
+   "status": "frozen"
+  },
+  "r544_site_gate_result": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_four_closer_site_gate_rung544_results.json",
+   "sha256": "6bdbee48ed4231247e4cb015923c7c176e516e98b94ec1925db6e72cbc093fe2",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r544_site_gate_terminal_audit": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_four_closer_site_gate_rung544_audit.json",
+   "sha256": "f16285f4eda12274ecde25fc747f92325f246567078e5013f81678d7ccc95271",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r544_site_gate_terminal_audit_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_four_closer_site_gate_rung544_audit.py",
+   "sha256": "ca296d0dd5a33711d166fbc7026f639ccdf13a6a65bd7e6381a1a0a8355acf67",
+   "kind": "audit_implementation",
    "status": "frozen"
   }
  },

@@ -1,0 +1,67 @@
+{
+ "rung": 544,
+ "status": "terminal_audit_complete",
+ "result_sha256": "6bdbee48ed4231247e4cb015923c7c176e516e98b94ec1925db6e72cbc093fe2",
+ "exact_budget_and_split_authority": true,
+ "four_value_capability_held": false,
+ "failed_native_value_ids": [
+  92
+ ],
+ "failed_native_values": [
+  "}"
+ ],
+ "failed_ordered_pairs": {
+  "FIT": {
+   "direct_type_substitution": [
+    "1->92",
+    "60->92",
+    "8->92",
+    "92->1",
+    "92->60",
+    "92->8"
+   ],
+   "completed_then_reopened_order": [
+    "1->92",
+    "60->92",
+    "8->92",
+    "92->1",
+    "92->60",
+    "92->8"
+   ]
+  },
+  "SELECT": {
+   "direct_type_substitution": [
+    "1->92",
+    "60->92",
+    "8->92",
+    "92->1",
+    "92->60",
+    "92->8"
+   ],
+   "completed_then_reopened_order": [
+    "1->92",
+    "60->92",
+    "8->92",
+    "92->1",
+    "92->60",
+    "92->8"
+   ]
+  }
+ },
+ "all_non_curly_native_cells_perfect": true,
+ "attn13h8_target_and_control_full_state_gate_held": true,
+ "resid8_full_state_gate_held": false,
+ "posthoc_three_value_diagnostic": {
+  "values": [
+   "\"",
+   ")",
+   "]"
+  ],
+  "n_rows": 144,
+  "base_correct_fraction": 1.0,
+  "donor_correct_fraction": 1.0,
+  "status": "diagnostic_only_selected_after_R544; requires fresh preregistered confirmation"
+ },
+ "decision": "Reject the four-value extension before any projector fit. The model does not natively predict the curly closer on these prompts, although complete attn13h8 swaps causally move every requested closer contrast and all controls are live. Build fresh three-value confirmation rows before treating parenthesis/square/quote as a supported variable domain.",
+ "final_test_or_ood_opened": false
+}

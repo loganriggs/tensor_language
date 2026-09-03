@@ -579,6 +579,26 @@
    "active_negative_event_count": 5,
    "latest_blocker": "terminal_copy_four_head_removal.collateral_failure.v1",
    "latest_active_event": "terminal_copy_four_head_removal.collateral_failure.v1",
+   "active_event_ids": [
+    "equality_score_swap.r459.natural.v1",
+    "equality_score_swap.r460.code.v1",
+    "equality_downstream_gate.r462.null.v1",
+    "equality_source_correction.r464.v1",
+    "equality_action_quotient.r498.null.v1",
+    "equality_mlp9_reader.r500.v1",
+    "equality_factor_branch_sharing.r531.null.v1",
+    "terminal_copy_four_head_removal.collateral_failure.v1"
+   ],
+   "held_test_types": [
+    "composition"
+   ],
+   "active_blocking_test_types": [
+    "composition",
+    "cross_family_transfer",
+    "null_control",
+    "ood",
+    "removal"
+   ],
    "design_keys": [
     "31286feb1e762f691d7c3dd4fb5ff1a36d7e256249dcf84c41ec38beb3810ec7",
     "58636a6faca10fdf1963ed706ef54b4c2130bb8136f20bb0983639eb54863435",
@@ -596,19 +616,42 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "0d749b6dc550dd7856b2f15e0a85f05c978dc92fc1dde60d7acb0d8c69ed23f7",
+   "record_sha256": "b744891d5bc5ce40a3822773feae3d4278dc511f88fcc454e97355c2966ef85f",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v14",
-   "claim_status": "specified",
-   "causal_variable_id": "pending_opener_state",
+   "active_claim_id": "pending_opener_state.v16",
+   "claim_status": "proposed",
+   "causal_variable_id": "pending_opener_state_three_value_candidate",
    "interchange_family_count": 2,
    "invariance_family_count": 3,
-   "negative_event_count": 4,
-   "active_negative_event_count": 3,
-   "latest_blocker": "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
-   "latest_active_event": "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+   "negative_event_count": 5,
+   "active_negative_event_count": 4,
+   "latest_blocker": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+   "latest_active_event": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+   "active_event_ids": [
+    "pending_opener_rank4_das.legacy.v1",
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+   ],
+   "held_test_types": [
+    "capability",
+    "das_interchange",
+    "full_swap_ceiling",
+    "null_control"
+   ],
+   "active_blocking_test_types": [
+    "capability",
+    "cross_family_transfer",
+    "null_control",
+    "seed_stability"
+   ],
    "design_keys": [
+    "047088060ce09ebc1ce9db9110a35b0e0bbaaca42e7963b0af934efcacac01c5",
     "17d53f92c77580f74c973c3f973294da1033f38b965df2bca933ed319c14d10f",
     "1808ee26fcb75b3db7237ffc700545b35ed9754b61e7cd67c856f05a563dd805",
     "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384",
@@ -637,6 +680,13 @@
    "active_negative_event_count": 0,
    "latest_blocker": null,
    "latest_active_event": "increment_postattn_rank4_das.legacy.v1",
+   "active_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "held_test_types": [
+    "das_interchange"
+   ],
+   "active_blocking_test_types": [],
    "design_keys": [
     "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4"
    ]
@@ -659,6 +709,13 @@
    "active_negative_event_count": 1,
    "latest_blocker": "induction_terminal_collateral_failure.legacy.v1",
    "latest_active_event": "induction_terminal_collateral_failure.legacy.v1",
+   "active_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1"
+   ],
+   "held_test_types": [],
+   "active_blocking_test_types": [
+    "removal"
+   ],
    "design_keys": [
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2"
    ]
@@ -681,6 +738,15 @@
    "active_negative_event_count": 2,
    "latest_blocker": "successor_layer8_input_ceiling.legacy.v1",
    "latest_active_event": "successor_layer8_input_ceiling.legacy.v1",
+   "active_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1"
+   ],
+   "held_test_types": [],
+   "active_blocking_test_types": [
+    "cross_family_transfer",
+    "full_swap_ceiling"
+   ],
    "design_keys": [
     "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
     "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002"

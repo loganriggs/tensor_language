@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1535.md](explanation_2026-09-03_1535.md) — robust-circuit update: why R540 found an
+  endpoint-steering direction rather than a selective pending-opener variable; the duplicate-free five-family
+  replacement dataset; R544's exact four-closer capability failure isolated to curly braces despite a live L13H8
+  full-state site; the multi-output/interactions acceptance rule; and the canonical evidence organization for
+  scaling to hundreds of circuits without duplicating work
 - [explanation_2026-09-03_1353.md](explanation_2026-09-03_1353.md) — why weight-DAS requires several meaningful
   counterfactual datasets per circuit; corrects the cross-tree identity error in the62-record audit, distinguishes
   answer-changing interchange from necessity and invariance tests, defines induction/bracket/successor/increment
