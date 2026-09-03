@@ -1,0 +1,135 @@
+{
+ "rung": "early_mlp_radial_tangential_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 96-159; LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_radial_is_functional_mlp1": false,
+  "pred_c_tangential_cheaper_given_radial_mlp1": false,
+  "pred_d_radial_only_insufficient_mlp1": true
+ },
+ "nulls": {
+  "b_null_drop_radial_le_.05": true,
+  "c_null_rad_tan64_ge_.30": false,
+  "d_null_radial_only_le_.10": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "drop_radial_min": 0.3,
+  "rad_tan64_max": 0.15,
+  "radial_only_min": 0.5
+ },
+ "null_bars": {
+  "drop_radial_max": 0.05,
+  "rad_tan64_min": 0.3,
+  "radial_only_max": 0.1
+ },
+ "sites": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "ks": [
+  64,
+  128
+ ],
+ "key_site": 1,
+ "instrument": {
+  "baseline_ce": 3.1124951243400574,
+  "prior_baseline": 3.1124951243400574,
+  "abs_diff": 0.0,
+  "identity_arm_abs": 0.0
+ },
+ "arms_ce_added": {
+  "0": {
+   "DROP_RADIAL": 0.0249442458152771,
+   "RADIAL_ONLY": 1.8807713389396667,
+   "RAD_EXACT_TAN_64": 0.049416422843933105,
+   "RAD_EXACT_TAN_128": 0.028843700885772705
+  },
+  "1": {
+   "DROP_RADIAL": 0.00789681077003479,
+   "RADIAL_ONLY": 1.2384023666381836,
+   "RAD_EXACT_TAN_64": 0.23518142104148865,
+   "RAD_EXACT_TAN_128": 0.06810230016708374
+  },
+  "2": {
+   "DROP_RADIAL": 0.010648071765899658,
+   "RADIAL_ONLY": 0.14597514271736145,
+   "RAD_EXACT_TAN_64": 0.052385151386260986,
+   "RAD_EXACT_TAN_128": 0.027271300554275513
+  },
+  "3": {
+   "DROP_RADIAL": 0.01734060049057007,
+   "RADIAL_ONLY": 0.11025729775428772,
+   "RAD_EXACT_TAN_64": 0.03558722138404846,
+   "RAD_EXACT_TAN_128": 0.022159069776535034
+  }
+ },
+ "prior_plain_pca_ce_added": {
+  "0": {
+   "64": 0.08551231026649475,
+   "128": 0.04031771421432495
+  },
+  "1": {
+   "64": 0.3567197024822235,
+   "128": 0.09070059657096863
+  },
+  "2": {
+   "64": 0.10071563720703125,
+   "128": 0.04103386402130127
+  },
+  "3": {
+   "64": 0.07004287838935852,
+   "128": 0.034951359033584595
+  }
+ },
+ "radial_energy_fraction_fit": {
+  "0": 0.14157384958456423,
+  "1": 0.13557905154720715,
+  "2": 0.17377381089550978,
+  "3": 0.2466504372975328
+ },
+ "tangential_spectrum_fit": {
+  "0": {
+   "eff_rank": 236.65178450040932,
+   "rank_90": 567,
+   "top1": 0.16104722955410655,
+   "psd_min_over_max": 0.00043697791946664254
+  },
+  "1": {
+   "eff_rank": 370.2846900732991,
+   "rank_90": 536,
+   "top1": 0.05445174481864179,
+   "psd_min_over_max": 0.0008393298970140266
+  },
+  "2": {
+   "eff_rank": 531.1838654827806,
+   "rank_90": 648,
+   "top1": 0.02916482774851197,
+   "psd_min_over_max": 0.0028624635386015314
+  },
+  "3": {
+   "eff_rank": 567.7654027435733,
+   "rank_90": 678,
+   "top1": 0.028214648888086717,
+   "psd_min_over_max": 0.003593625840710569
+  }
+ },
+ "n_fit_docs": 96,
+ "n_eval_docs": 64,
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forwards": 1192,
+  "cpu_seconds": 1224.9115316867828
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_MLP_RADIAL_TANGENTIAL_PROBE_PREREGISTRATION.md": "fb1869a056a2c80ccbd7cb2e2c5b1446efe13fb49df3704ef537622e9a0359f3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_isolated_token_program_probe_results.json": "4c07581ffb1ce2115d13277efabfbc91cc0caae40e51f8bca8e1fa4e2aa802b0",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "f52439ec86742f19990becb22c8ebc7b8ce880f01b936033ef786ab27af92dd4"
+}

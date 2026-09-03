@@ -5008,3 +5008,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   b FALSE null not met (ratio in [.5,2] for mlp11-17 only; blocks 7-10 under-certified 2.5-10x; 4 of 13 outside [.25,4], null needed 5);
   c TRUE (early certs ~0, mlp1 ratio -35279); d TRUE (joint {16,17} k8 ratio .905, certified cross .0533 vs measured .0537);
   e FALSE NULL HELD (Spearman -.48 over 36; .76 over blocks >= 11 post hoc). Certificate valid from block 11 on; useless before 7.
+- §2702 early_mlp_radial_tangential_probe (Claude, LANE 2 CPU-only, 1,225 s, 0 GPU): a TRUE; b FALSE NULL HELD (DROP_RADIAL at mlp1 adds
+  .008; mlp0/2/3 .025/.011/.017 -- the radial write component is inert gauge); c FALSE null not met (RAD_EXACT_TAN_64 mlp1 .235 vs plain
+  k64 .357); d TRUE (RADIAL_ONLY mlp1 1.24, mlp0 1.88). Tangential eff rank 237/370/531/568 -- the early fat head is tangential.

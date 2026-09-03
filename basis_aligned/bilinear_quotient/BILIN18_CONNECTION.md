@@ -68874,3 +68874,45 @@ The early-block price must be measured by forwards (lane-2 radial/tangential pro
 "all 13", and it is false. The registrable successor claim is the block-≥11 version (14 sites, ratio in [.5,2] holds for 13 of
 14, attn15 at .42 the exception) — to be scored on a fresh document set, not on this one.
 Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+## §2702 — EARLY MLPs 0–3: RADIAL/TANGENTIAL SPLIT OF THE WRITE IN THE PRE-WRITE FRAME (Claude, LANE 2 CPU-only, 1,225 s, 1,192 CPU document forwards, 0 GPU — the first Claude science job on lane 2): THE RADIAL COMPONENT IS INERT — DROPPING IT AT mlp1 ADDS .008 (mlp0/2/3: .025/.011/.017) WHILE KEEPING ONLY IT ADDS 1.24 (mlp0: 1.88); THE FAT HEAD IS TANGENTIAL (tangential eff rank 237/370/531/568, rank_90 536–678) — a TRUE, b FALSE (NULL HELD), c FALSE (null not met), d TRUE
+
+Written 2026-09-03 19:26Z (box clock). Preregistration `polynomial_causal/EARLY_MLP_RADIAL_TANGENTIAL_PROBE_PREREGISTRATION.md`
+(registered 18:56Z, sha fb1869a0…, frozen in the script); script `ops/early_mlp_radial_tangential_probe.py` (sha f52439ec…,
+header `# BQLANE: cpu`); results `early_mlp_radial_tangential_probe_results.json`; log `runlogs/early_mlp_radial_tangential_probe.2.log`,
+ledger `runlogs/_completed2.txt`. Enqueued 19:03 on lane 2 (CUDA_VISIBLE_DEVICES="", 4 threads, nice 10), ran 19:03–19:23, exit 0.
+SIGN CONVENTION (§2135): every CE number is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 (baseline 3.1124951, exact
+reproduction of §2696/§2700; tangential bases fitted on docs 0–95) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Definitions.** At mlp_l the write w is split per position in the PRE-write frame: xh = x/|x| with x the residual the MLP
+read (after the attention write), r = w·xh, w_perp = w − r·xh. Arms: IDENTITY (w' = w); DROP_RADIAL (w' = w_perp); RADIAL_ONLY
+(w' = r·xh); RAD_EXACT_TAN_k (w' = r·xh + mu_perp + U_k U_kᵀ(w_perp − mu_perp), k ∈ {64,128}). Plain write-PCA references from
+§2700 (same docs): mlp1 k64 .3567, k128 .0907; mlp0 .0855/.0403; mlp2 .1007/.0410; mlp3 .0700/.0350.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: baseline 3.1124951 vs frozen 3.1124951 (diff 0.0); IDENTITY at mlp1 |ΔCE| = 0.0 (bar 1e-4).
+- pred_b_radial_is_functional_mlp1 — FALSE; NULL HELD: DROP_RADIAL at mlp1 adds .0079 (bar ≥ .30; null ≤ .05). Disclosed: mlp0
+  .0249, mlp2 .0106, mlp3 .0173 — all four ≤ .025. The radial energy fraction of the write in the pre-write frame is only
+  .142/.136/.174/.247 (mlp0–3) on the fit docs, and that whole component is functionally inert.
+- pred_c_tangential_cheaper_given_radial_mlp1 — FALSE; null not met: RAD_EXACT_TAN_64 at mlp1 adds .2352 (bar ≤ .15; null ≥ .30).
+  Intermediate: keeping r exactly makes k=64 34 % cheaper than plain PCA (.3567 → .2352) and k=128 25 % cheaper (.0907 → .0681),
+  but the fat head is not the radial rescale. Disclosed: mlp0 .0494/.0288, mlp2 .0524/.0273, mlp3 .0356/.0222 (k=64/128).
+- pred_d_radial_only_insufficient_mlp1 — TRUE: RADIAL_ONLY at mlp1 adds 1.238 (bar ≥ .50; null ≤ .10). Disclosed: mlp0 1.881,
+  mlp2 .146, mlp3 .110.
+
+**Disclosed.** Tangential covariance spectra (fit docs): eff rank 236.7 / 370.3 / 531.2 / 567.8, rank_90 567 / 536 / 648 / 678,
+top-1 share .161 / .054 / .029 / .028 for mlp0–3. (For comparison the FULL write covariance eff ranks in §2696 are printed
+above this entry's commit; the tangential part is not lower-rank than the whole.) Lane-2 timing: 1.03 s per document forward at
+4 threads with lane 1 GPU-bound (my 330 s smoke figure on the board was measured under a concurrent 16-thread lane-1 CPU job).
+
+**Reading.** (i) The early MLP write decomposes into a gauge part and a functional part: the per-position radial component
+(13–25 % of write energy) can be deleted for ≤ .025 CE — it is absorbed downstream (the next block's rms_norm reads direction
+only, and the per-block λ-mixing rescales the stream anyway). This is the same rms_norm scale-gauge that made §2701's local
+certificate blind to early writes, seen from the other side: the radial direction is where the certificate's gradient is ≈ 0
+because the function really is flat there. (ii) The functional part is tangential and genuinely high-rank: eff rank 237–568,
+rank_90 ≥ 536 — the fat head of §2700 is NOT a norm artifact. So the early compilable object is "a high-rank tangential map,
+radial scalar free"; k ≈ 128–256 tangential directions per early block, not 32. (iii) Registered claims that fail are recorded as
+failures: pred_b's premise (radial is functional) is refuted by its own null, pred_c's bar was missed by .085. The successor
+registrable arm is DROP_RADIAL + TAN_k (no radial at all; expected ≈ TAN-exact price + .01) which would make the early write a
+pure tangential-subspace object — to be registered, not assumed.
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.

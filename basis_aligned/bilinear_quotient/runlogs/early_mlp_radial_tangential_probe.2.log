@@ -1,0 +1,67 @@
+{"stage": "bases", "t": 185.8}
+{"stage": "arm", "block": 0, "arm": "DROP_RADIAL", "ce_added": 0.0249442458152771, "t": 245.6}
+{"stage": "arm", "block": 0, "arm": "RADIAL_ONLY", "ce_added": 1.8807713389396667, "t": 293.3}
+{"stage": "arm", "block": 0, "arm": "RAD_EXACT_TAN_64", "ce_added": 0.049416422843933105, "t": 319.7}
+{"stage": "arm", "block": 0, "arm": "RAD_EXACT_TAN_128", "ce_added": 0.028843700885772705, "t": 346.5}
+{"stage": "arm", "block": 1, "arm": "DROP_RADIAL", "ce_added": 0.00789681077003479, "t": 376.7}
+{"stage": "arm", "block": 1, "arm": "RADIAL_ONLY", "ce_added": 1.2384023666381836, "t": 423.7}
+{"stage": "arm", "block": 1, "arm": "RAD_EXACT_TAN_64", "ce_added": 0.23518142104148865, "t": 464.7}
+{"stage": "arm", "block": 1, "arm": "RAD_EXACT_TAN_128", "ce_added": 0.06810230016708374, "t": 494.8}
+{"stage": "arm", "block": 2, "arm": "DROP_RADIAL", "ce_added": 0.010648071765899658, "t": 613.9}
+{"stage": "arm", "block": 2, "arm": "RADIAL_ONLY", "ce_added": 0.14597514271736145, "t": 896.8}
+{"stage": "arm", "block": 2, "arm": "RAD_EXACT_TAN_64", "ce_added": 0.052385151386260986, "t": 926.4}
+{"stage": "arm", "block": 2, "arm": "RAD_EXACT_TAN_128", "ce_added": 0.027271300554275513, "t": 952.9}
+{"stage": "arm", "block": 3, "arm": "DROP_RADIAL", "ce_added": 0.01734060049057007, "t": 979.0}
+{"stage": "arm", "block": 3, "arm": "RADIAL_ONLY", "ce_added": 0.11025729775428772, "t": 1004.9}
+{"stage": "arm", "block": 3, "arm": "RAD_EXACT_TAN_64", "ce_added": 0.03558722138404846, "t": 1199.5}
+{"stage": "arm", "block": 3, "arm": "RAD_EXACT_TAN_128", "ce_added": 0.022159069776535034, "t": 1224.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_radial_is_functional_mlp1": false,
+  "pred_c_tangential_cheaper_given_radial_mlp1": false,
+  "pred_d_radial_only_insufficient_mlp1": true
+ },
+ "nulls": {
+  "b_null_drop_radial_le_.05": true,
+  "c_null_rad_tan64_ge_.30": false,
+  "d_null_radial_only_le_.10": false
+ },
+ "arms": {
+  "0": {
+   "DROP_RADIAL": 0.0249442458152771,
+   "RADIAL_ONLY": 1.8807713389396667,
+   "RAD_EXACT_TAN_64": 0.049416422843933105,
+   "RAD_EXACT_TAN_128": 0.028843700885772705
+  },
+  "1": {
+   "DROP_RADIAL": 0.00789681077003479,
+   "RADIAL_ONLY": 1.2384023666381836,
+   "RAD_EXACT_TAN_64": 0.23518142104148865,
+   "RAD_EXACT_TAN_128": 0.06810230016708374
+  },
+  "2": {
+   "DROP_RADIAL": 0.010648071765899658,
+   "RADIAL_ONLY": 0.14597514271736145,
+   "RAD_EXACT_TAN_64": 0.052385151386260986,
+   "RAD_EXACT_TAN_128": 0.027271300554275513
+  },
+  "3": {
+   "DROP_RADIAL": 0.01734060049057007,
+   "RADIAL_ONLY": 0.11025729775428772,
+   "RAD_EXACT_TAN_64": 0.03558722138404846,
+   "RAD_EXACT_TAN_128": 0.022159069776535034
+  }
+ },
+ "radial_energy_fraction_fit": {
+  "0": 0.14157384958456423,
+  "1": 0.13557905154720715,
+  "2": 0.17377381089550978,
+  "3": 0.2466504372975328
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forwards": 1192,
+  "cpu_seconds": 1224.9115316867828
+ }
+}
