@@ -88,6 +88,29 @@ def test_mobius_recovers_known_interactions():
     assert torch.allclose(R.mobius(table), coefficients.double(), atol=1e-7)
 
 
+def test_phase_effects_keeps_halves_and_member_minus_control():
+    documents, circuits, task_cells = 4, 3, 6
+    collection = {
+        "bounds": (10, 14, 12), "arms": R.ARMS,
+        "task_sums": torch.zeros(len(R.ARMS), documents, task_cells),
+        "task_counts": torch.ones(documents, task_cells),
+        "circuit_sums": torch.zeros(len(R.ARMS), 2, 2, circuits),
+        "circuit_counts": torch.ones(2, 2, circuits),
+    }
+    collection["circuit_sums"][1, :, 0] = 3
+    collection["circuit_sums"][1, :, 1] = 1
+    collection["circuit_sums"][3, :, 0] = 4
+    collection["circuit_sums"][3, :, 1] = 1
+    collection["task_sums"][1] = 2
+    collection["task_sums"][3] = 3
+    effects = R.phase_effects(collection)
+    assert effects["circuit"].shape == (49, 2, 3)
+    assert torch.equal(effects["whole_circuit"], torch.full((2, 3), 2.0))
+    assert torch.equal(effects["circuit"][0], torch.full((2, 3), 3.0))
+    assert torch.equal(effects["whole_task"], torch.full((2, 6), 2.0))
+    assert torch.equal(effects["task"][0], torch.full((2, 6), 3.0))
+
+
 def test_r518_selection_is_hash_pinned_and_mechanical():
     validated = R.validate_inputs()
     assert validated["selected"]["atom"] == R.SELECTED_ATOM

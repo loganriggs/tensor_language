@@ -141,3 +141,12 @@ from the price. Maximum total is38,068 forwards,0 backwards,0 trained values,0 d
 The registered strong null is A true with B false, or confirmation finding no term. The next route after that null is
 not another source refinement: move to a task-defined state transition or an attention Q/K/Q2/K2/value factor
 vocabulary whose units are tested by finite downstream use.
+
+## Pre-outcome whole-drop replay and price correction — 2026-09-03 03:14 UTC
+
+Prediction A requires the sum of all49 terms to reproduce the whole-atom-drop logits, not merely the MLP0 output
+tensor. The collector therefore includes a separately dispatched `TERM_SUM_DROP` arm in addition to NATIVE,
+WHOLE_ATOM_DROP, and49 individual term removals. This makes52 arms and`52*62 = 3,224` forwards per discovery or
+confirmation phase. The corrected maximum is `3,224*2 + 2*(256*62) = 38,192` forwards. The added arm is an exact
+replay check only; it enters no task/circuit selection, candidate, or composition statistic. All terms, rows, target,
+thresholds, controls, and conditional gates above are unchanged.

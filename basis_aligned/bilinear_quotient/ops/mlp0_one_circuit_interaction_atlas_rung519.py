@@ -15,6 +15,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import sys
 from pathlib import Path
 
 import torch
@@ -25,7 +26,7 @@ ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 OPS = ROOT / "basis_aligned/bilinear_quotient/ops"
 PREREG = POLY / "MLP0_ONE_CIRCUIT_INTERACTION_ATLAS_RUNG519_PREREGISTRATION.md"
-PREREG_SHA256 = "ce351753c1a2d5cabb8f6bddf21b103e9c841d7be9003eece49d10246b68603b"
+PREREG_SHA256 = "e6d33968969e247df76e376172f49a009f85ef440733dd468200ea716aff12e3"
 R518_RESULT = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_results.json"
 R518_BUNDLE = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_bundle.pt"
 R518_SOURCE = OPS / "mlp0_head_relation_circuit_quotient_rung518.py"
@@ -53,6 +54,11 @@ N_TERMS = 49
 NUMERICAL_SOURCE = 46
 NORMALIZATION_TERM = 47
 DEPLOYMENT_ROUNDING_TERM = 48
+TERM_NAMES = ()
+ARMS = ("NATIVE", "WHOLE_ATOM_DROP", "TERM_SUM_DROP") \
+    + tuple(f"REMOVE_TERM::{index}" for index in range(N_TERMS))
+BATCH = 4
+D = 1152
 
 
 def sha256(path: Path) -> str:
@@ -77,6 +83,17 @@ def term_names(atom_names: tuple[str, ...]) -> tuple[str, ...]:
         names.append("SELF" if index == selected_source else f"WITH::{partner}")
     names.extend(("NORMALIZATION", "DEPLOYMENT_ROUNDING"))
     return tuple(names)
+
+
+def circuit_mask_hashes(circuit_masks: dict, tags: tuple[str, ...]) -> dict[str, str]:
+    hashes = {}
+    for tag in tags:
+        digest = hashlib.sha256()
+        for key in ("member", "slice_control"):
+            value = circuit_masks[tag][key].to(torch.uint8).contiguous().numpy().tobytes()
+            digest.update(value)
+        hashes[tag] = digest.hexdigest()
+    return hashes
 
 
 def normalized_sources(token_base: torch.Tensor, atoms: torch.Tensor,
@@ -139,6 +156,144 @@ def interaction_terms(mlp, sources: torch.Tensor, normalized_drop: torch.Tensor,
         "deployed_relative_squared": float(
             (terms.sum(0).double() - target.double()).square().sum() / denominator),
     }
+
+
+@torch.no_grad()
+def collect_phase(model, rows, task_masks, circuit_masks, circuit_tags,
+                  bounds, facade, r517, r518, response_parent) -> dict:
+    """Measure native, whole-drop replay, and all 49 finite term removals."""
+    lo, hi, _split = bounds
+    documents = hi - lo
+    task_cells = response_parent.TASK_CELLS
+    task_sums = torch.zeros(len(ARMS), documents, len(task_cells), dtype=torch.float64)
+    task_counts = torch.zeros(documents, len(task_cells), dtype=torch.float64)
+    circuit_sums = torch.zeros(len(ARMS), 2, 2, len(circuit_tags), dtype=torch.float64)
+    circuit_counts = torch.zeros(2, 2, len(circuit_tags), dtype=torch.float64)
+    diagnostics = {
+        "calls": 0, "calls_expected": ((hi - lo) // BATCH) * len(ARMS),
+        "maximum_normalized_source_relative_squared": 0.0,
+        "maximum_fixed_gain_relative_squared": 0.0,
+        "maximum_deployed_relative_squared": 0.0,
+        "maximum_whole_drop_logit_replay_error": 0.0,
+        "minimum_term_edit_rms": float("inf"),
+    }
+    device = next(model.parameters()).device
+    block0 = model.transformer.h[0]
+    for start in range(lo, hi, BATCH):
+        stop = start + BATCH
+        local = start - lo
+        batch_rows = rows[start:stop]
+        tokens = batch_rows[:, :-1].to(device)
+        raw_token = F.rms_norm(model.transformer.wte(tokens), (D,))
+        token_base = (block0.lambdas[0] + block0.lambdas[1]) * raw_token
+        attention_state = F.rms_norm(token_base, (D,))
+        split = r517.attention0_source_writes(block0, attention_state, tokens)
+        decomposition = r518.head_relation_atoms(block0, split)
+        full_state = F.rms_norm(token_base + split["native_write"], (D,))
+        drop_context = r518.atom_context(
+            split["native_write"], decomposition, SELECTED_ATOM, "DROP")
+        drop_state = F.rms_norm(token_base + drop_context, (D,))
+        full_write = block0.mlp(full_state)
+        drop_write = block0.mlp(drop_state)
+        sources = normalized_sources(token_base, decomposition["atoms"], full_state)
+        term_decomposition = interaction_terms(
+            block0.mlp, sources, drop_state, full_write, drop_write)
+        diagnostics["maximum_normalized_source_relative_squared"] = max(
+            diagnostics["maximum_normalized_source_relative_squared"],
+            term_decomposition["normalized_source_relative_squared"])
+        diagnostics["maximum_fixed_gain_relative_squared"] = max(
+            diagnostics["maximum_fixed_gain_relative_squared"],
+            term_decomposition["fixed_gain_relative_squared"])
+        diagnostics["maximum_deployed_relative_squared"] = max(
+            diagnostics["maximum_deployed_relative_squared"],
+            term_decomposition["deployed_relative_squared"])
+        terms = term_decomposition["terms"]
+        term_sum_drop = (full_write.float() - terms.sum(0)).to(full_write.dtype)
+        term_writes = [(full_write.float() - term).to(full_write.dtype) for term in terms]
+        for write in term_writes:
+            diagnostics["minimum_term_edit_rms"] = min(
+                diagnostics["minimum_term_edit_rms"],
+                float((write.float() - full_write.float()).square().mean().sqrt()))
+
+        def attention_dispatch(event):
+            if event.site == 0:
+                return split["native_write"], split["first_value"]
+            return event.block.attn(event.state, event.first_value)
+
+        nll_rows = []
+        native_logits = facade.forward_with_dispatch(
+            model, tokens,
+            lambda event: event.block.attn(event.state, event.first_value),
+            lambda event: event.block.mlp(event.state))
+        diagnostics["calls"] += 1
+        nll_rows.append(response_parent._nll(native_logits, batch_rows).cpu())
+        edited_writes = [drop_write, term_sum_drop] + term_writes
+        whole_logits = None
+        for arm_index, site0_write in enumerate(edited_writes, start=1):
+            def mlp_dispatch(event, site0_write=site0_write):
+                return site0_write if event.site == 0 else event.block.mlp(event.state)
+
+            logits = facade.forward_with_dispatch(
+                model, tokens, attention_dispatch, mlp_dispatch)
+            diagnostics["calls"] += 1
+            if arm_index == 1:
+                whole_logits = logits
+            elif arm_index == 2:
+                diagnostics["maximum_whole_drop_logit_replay_error"] = max(
+                    diagnostics["maximum_whole_drop_logit_replay_error"],
+                    float((logits - whole_logits).abs().max()))
+            nll_rows.append(response_parent._nll(logits, batch_rows).cpu())
+        nll = torch.stack(nll_rows)
+        local_masks = {cell: task_masks[cell][start:stop] for cell in task_cells}
+        task_sums[:, local:local + BATCH] = response_parent._task_sums(nll, local_masks)
+        task_counts[local:local + BATCH] = torch.stack(
+            [local_masks[cell].sum(1).double() for cell in task_cells], -1)
+        matrix, observed = response_parent.state_parent._circuit_mask_matrix(
+            circuit_masks, circuit_tags, start, stop, bounds)
+        circuit_counts += observed
+        circuit_sums += torch.matmul(nll.reshape(len(ARMS), -1).double(), matrix.T).view(
+            len(ARMS), 2, 2, len(circuit_tags))
+    return {
+        "bounds": tuple(bounds), "arms": ARMS,
+        "task_sums": task_sums, "task_counts": task_counts,
+        "circuit_sums": circuit_sums, "circuit_counts": circuit_counts,
+        "diagnostics": diagnostics,
+    }
+
+
+def phase_effects(collection: dict) -> dict:
+    """Return finite member-minus-control effects for whole drop and 49 terms."""
+    if tuple(collection["arms"]) != ARMS:
+        raise ValueError("rung519 arm order changed")
+    circuits = collection["circuit_sums"] / collection["circuit_counts"].clamp_min(1)
+    tasks = []
+    circuit_halves = []
+    whole_circuit = []
+    whole_task = []
+    for half_name in ("half0", "half1"):
+        half = int(half_name == "half1")
+        circuit_change = circuits[:, half, 0] - circuits[:, half, 1]
+        circuit_change = circuit_change - circuit_change[0]
+        circuit_halves.append(circuit_change[3:])
+        whole_circuit.append(circuit_change[1])
+        rel_lo, rel_hi = _half_bounds(tuple(collection["bounds"]), half_name)
+        denominator = collection["task_counts"][rel_lo:rel_hi].sum(0).clamp_min(1)
+        task_mean = collection["task_sums"][:, rel_lo:rel_hi].sum(1) / denominator
+        task_change = task_mean - task_mean[0]
+        tasks.append(task_change[3:])
+        whole_task.append(task_change[1])
+    return {
+        "circuit": torch.stack(circuit_halves, 1),
+        "whole_circuit": torch.stack(whole_circuit),
+        "task": torch.stack(tasks, 1),
+        "whole_task": torch.stack(whole_task),
+    }
+
+
+def _half_bounds(bounds: tuple[int, int, int], half: str) -> tuple[int, int]:
+    lo, hi, split = bounds
+    absolute = (lo, split) if half == "half0" else (split, hi)
+    return absolute[0] - lo, absolute[1] - lo
 
 
 def select_atom_from_r518(bundle: dict) -> dict:
@@ -278,6 +433,51 @@ def validate_inputs() -> dict:
     return {"selected": selected, "term_names": term_names(tuple(result["atom_names"]))}
 
 
+@torch.no_grad()
+def gpu_smoke() -> None:
+    """Exercise one 52-arm batch without retaining task or circuit outcomes."""
+    sys.path[:0] = [str(OPS), str(OPS.parent), str(POLY)]
+    import bilin18_observed_model_facade as facade
+    import mlp0_source_relation_factorial_rung517 as r517
+    import mlp0_head_relation_circuit_quotient_rung518 as r518
+
+    validate_inputs()
+    rows, task_masks, circuit_masks, _scales, discovery_tags, _confirmation_tags, \
+        _metadata, response_parent = r518.validate_inputs()
+    smoke_tags = (TARGET_CIRCUIT, next(tag for tag in discovery_tags
+                                      if tag != TARGET_CIRCUIT))
+    model, checkpoint = facade.load_bilin18(
+        device="cuda", dtype=torch.bfloat16, verify_weights_sha256=True)
+    collection = collect_phase(
+        model, rows, task_masks, circuit_masks, smoke_tags,
+        (500, 504, 502), facade, r517, r518, response_parent)
+    effects = phase_effects(collection)
+    diagnostics = collection["diagnostics"]
+    checks = {
+        "weights": checkpoint.weights_sha256 == facade.WEIGHTS_SHA256,
+        "normalized_source_closure":
+            diagnostics["maximum_normalized_source_relative_squared"] <= 1e-10,
+        "fixed_gain_closure":
+            diagnostics["maximum_fixed_gain_relative_squared"] <= 1e-10,
+        "deployed_closure": diagnostics["maximum_deployed_relative_squared"] <= 1e-8,
+        "whole_drop_logit_replay":
+            diagnostics["maximum_whole_drop_logit_replay_error"] == 0,
+        "all_term_edits_live": diagnostics["minimum_term_edit_rms"] > 0,
+        "call_census": diagnostics["calls"] == diagnostics["calls_expected"] == 52,
+        "response_shapes": effects["circuit"].shape == (49, 2, 2)
+            and effects["task"].shape[-2:] == (2, len(response_parent.TASK_CELLS)),
+        "planted_recovery": planted_suite()["all_eight_exact"],
+    }
+    if not all(checks.values()):
+        raise RuntimeError(f"rung519 managed smoke failed: {checks}; {diagnostics}")
+    print(json.dumps({
+        "status": "gpu_smoke_passed", "rung": 519,
+        "scientific_outcomes_retained": False,
+        "checkpoint": checkpoint.__dict__, "checks": checks,
+        "diagnostics": diagnostics,
+    }, indent=2, sort_keys=True))
+
+
 def dry_run() -> dict:
     validated = validate_inputs()
     planted = planted_suite()
@@ -313,6 +513,9 @@ def scientific_main() -> None:
 def main() -> None:
     if os.environ.get("BQLIB_DRYRUN") == "1" or "--dry-run" in os.sys.argv:
         print(json.dumps(dry_run(), indent=2, sort_keys=True))
+        return
+    if os.environ.get("BQLIB_GPU_SMOKE") == "1" or "--gpu-smoke" in os.sys.argv:
+        gpu_smoke()
         return
     scientific_main()
 
