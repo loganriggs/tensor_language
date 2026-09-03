@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2302.md](explanation_2026-09-03_2302.md) — current high-quality-circuit status: the exact
+  selector-versus-copied-content computation, evidence-derived invalid reasons, the difference between a scientific
+  null and an implementation failure, the restored local-plus-end-to-end structural checks, and the two-agent
+  bootstrap plan before any R585 GPU execution
 - [explanation_2026-09-03_2205.md](explanation_2026-09-03_2205.md) — honest high-quality-circuit status: the audited
   induction behavior, exact score-versus-value intervention, thirteen pre-GPU defects caught by the two-agent loop,
   phase-complete authority-bound evidence, the audited downstream-MLP null, and a block-term cross-head alternative
