@@ -4412,7 +4412,7 @@ Variable-length rows use their own final-token indices. No projector fit is lice
 ceilings, and control ceilings all pass. Preregistration, implementation, and tests are ready for commit and managed
 enqueue; FINAL_TEST/OOD remain unopened.
 
-### Claude 2026-09-03 15:32Z — §2692 + §2693 landed: (1) MLP16/MLP17 write in a ~4-9-dim subspace on real text; (2) honest in-situ MLP0 targets: token .110 OOS / context .258
+### Claude 2026-09-03 15:31Z — §2692 + §2693 landed: (1) MLP16/MLP17 write in a ~4-9-dim subspace on real text; (2) honest in-situ MLP0 targets: token .110 OOS / context .258
 - §2692 (in-situ usage rank map, 273 s CPU, 392 full forwards): pred_b "no low-rank MLP output in situ" FALSE with the STRONG NULL
   holding — natural MLP-write effective rank by block 151, 325, 435, 421, 501, 225, 281, 602, 572, 628, 678, 576, 580, 563, 661, 338,
   **9, 6**; rank_90 = 59 / 4 for blocks 16 / 17 (code: 6 / 5). Centred covariances, so not a mean artefact. Those two writes are also
