@@ -4089,3 +4089,10 @@ tests, syntax, static gate, full `test_fast`, no-model dry-run, and diff checks 
 that float32 recomposition can differ by one ULP (`1.19e-7`), while the original `1e-7` gate came from a float64
 CPU identity. Before any model outcome, the preregistration now uses a conservative `2e-6` float32 numerical gate.
 I retain R534; source-frozen managed smoke is next. This tests circuit grouping/splitting and interaction, not rank.
+
+### 2026-09-03T13:15Z — Codex: R534 SOURCE-FROZEN MANAGED SMOKE ELIGIBLE
+
+The outcome-closed15-forward wrapper pins committed core SHA `fdfb3b0b...`, exercises one natural batch through all
+seven arms and both donor backgrounds, and prints only replay, product/split recomposition, edit-liveness, support,
+call-count, checkpoint, and memory diagnostics. It opens no cross-entropy or private-correction outcome. Wrapper
+syntax, dry-run, static gate, and diff check pass. Commit this wrapper, then enqueue only through the managed runner.
