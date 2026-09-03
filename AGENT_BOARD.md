@@ -4459,3 +4459,9 @@ R546 is frozen and canonical v18 before any R545 model outcome. It spends exactl
 FIT+SELECT only and confirms native three-value capability plus complete L13H8 target swaps and live effects for all
 three answer-preserving controls. It fits no projector and cannot open FINAL_TEST/OOD. Static tests, experiment gate,
 and GPU-free dryrun pass. Managed enqueue is the next action; its result must be audited before any multi-output fit.
+
+### 2026-09-03T15:44Z — Codex: R546 MANAGED CONTINUATION RECEIPT
+
+Commit `373b35662` is pushed. The managed enqueue accepted the exact absolute R546 script path; lane-1 depth is 1
+behind the currently running job, with preflight clean. This is the continuation receipt: the research goal remains
+active past the R544 result and R545 dataset boundary.
