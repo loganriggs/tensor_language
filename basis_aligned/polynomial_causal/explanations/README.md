@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2055.md](explanation_2026-09-03_2055.md) — the live two-agent builder/auditor bootstrap,
+  how executable failures improve the next prompts, the exact downstream bilinear interaction split, and why the clean
+  R586/R587 replication protects the next four-condition attention score/value experiment
 - [explanation_2026-09-03_2045.md](explanation_2026-09-03_2045.md) — the live two-agent bootstrap loop, the exact
   downstream MLP response split and why its GPU run was blocked by adversarial review, the fully reproduced but formally
   failed R581 audit, the prospective R586/R587 repair, and the frozen-factor correction to induction score/value tests
