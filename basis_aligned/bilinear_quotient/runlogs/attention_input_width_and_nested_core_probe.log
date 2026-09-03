@@ -1,0 +1,35 @@
+{"stage": "heads_done", "t": 8.4}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.8}
+{"stage": "cores", "eff_rank": {"attn0": 335.8, "attn1": 211.2, "attn2": 301.8, "attn3": 363.9, "attn4": 370.4, "attn5": 443.1, "attn6": 466.3, "attn7": 501.2, "attn8": 517.9, "attn9": 552.8, "attn10": 548.2, "attn11": 554.7, "attn12": 547.7, "attn13": 551.9, "attn14": 569.7, "attn15": 589.2, "attn16": 548.0, "attn17": 208.7}, "t": 8.8}
+{"stage": "arms", "ATTN7_OWN_768": 0.0075, "ATTN7_OWN_64": 0.1667, "ATTN7_OWN_128": 0.1009, "ATTN7_OWN_256": 0.0527, "ATTN7_OWN_512": 0.0202, "ATTN18_OWN_256": 0.2265, "ATTN18_OWN_128": 0.5935, "LATE14_JOINT_768": 0.1093, "LATE14_NESTED_768_256": 0.1834, "LATE14_NESTED_768_128": 0.2417, "t": 14.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_attention_256": false,
+  "pred_c_attention_128": true,
+  "pred_d_all_attention_256": false,
+  "pred_e_nested_is_free": false
+ },
+ "nulls": {
+  "b_null_ge_.15": false,
+  "c_null_ge_.40": false,
+  "d_null_ge_.40": false,
+  "e_null_ge_.10": false
+ },
+ "ce_added": {
+  "ATTN7_OWN_768": 0.0075328052043914795,
+  "ATTN7_OWN_64": 0.16674399375915527,
+  "ATTN7_OWN_128": 0.10086095333099365,
+  "ATTN7_OWN_256": 0.05266597867012024,
+  "ATTN7_OWN_512": 0.020214945077896118,
+  "ATTN18_OWN_256": 0.22653114795684814,
+  "ATTN18_OWN_128": 0.593474805355072,
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "LATE14_NESTED_768_256": 0.1834350824356079,
+  "LATE14_NESTED_768_128": 0.24173003435134888
+ },
+ "gaps": {
+  "nested_256_minus_joint": 0.07409510016441345,
+  "nested_128_minus_joint": 0.13239005208015442
+ }
+}

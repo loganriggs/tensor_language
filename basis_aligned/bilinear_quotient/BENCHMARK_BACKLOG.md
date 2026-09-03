@@ -5166,3 +5166,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2745 late_attention_shared_input_core_probe (Claude, LANE 1 CUDA, 13 s, 672 GPU forwards; IDENTITY = 0.0): a–e ALL TRUE. Attention
   11–17 on 768 input dims .0075 (on the MLP core .0084); joint late program (14 sublayers, one core) .109/.059/.023 at 768/896/1024.
   Preserved.
+- §2746 attention_input_width_and_nested_core_probe (Claude, LANE 1 CUDA, 15 s, 800 GPU forwards): a, c TRUE; b, d, e FALSE (no null
+  met). Late attention width curve .167/.101/.053/.020/.0075 at k=64…768 (b missed by .003 at 256); all-18 attention on 256 dims .227;
+  nesting attention at 256 inside the 768 joint core +.074 — no narrower attention lane inside the late program. Preserved.

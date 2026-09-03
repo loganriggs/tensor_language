@@ -1,0 +1,102 @@
+{
+ "rung": "attention_input_width_and_nested_core_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_attention_256": false,
+  "pred_c_attention_128": true,
+  "pred_d_all_attention_256": false,
+  "pred_e_nested_is_free": false
+ },
+ "nulls": {
+  "b_null_ge_.15": false,
+  "c_null_ge_.40": false,
+  "d_null_ge_.40": false,
+  "e_null_ge_.10": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol_attn": 0.01,
+  "repro_tol": 0.02,
+  "b_max": 0.05,
+  "c_max": 0.15,
+  "d_max": 0.15,
+  "e_max": 0.03
+ },
+ "null_bars": {
+  "b_min": 0.15,
+  "c_min": 0.4,
+  "d_min": 0.4,
+  "e_min": 0.1
+ },
+ "device": "cuda",
+ "k": 768,
+ "ks_attn": [
+  64,
+  128,
+  256,
+  512
+ ],
+ "ks_nested": [
+  256,
+  128
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "attn7_own_768": 0.0075328052043914795,
+  "prior_attn7_own_768": 0.0075,
+  "late14_joint_768": 0.10933998227119446,
+  "prior_late14_joint_768": 0.109
+ },
+ "ce_added": {
+  "ATTN7_OWN_768": 0.0075328052043914795,
+  "ATTN7_OWN_64": 0.16674399375915527,
+  "ATTN7_OWN_128": 0.10086095333099365,
+  "ATTN7_OWN_256": 0.05266597867012024,
+  "ATTN7_OWN_512": 0.020214945077896118,
+  "ATTN18_OWN_256": 0.22653114795684814,
+  "ATTN18_OWN_128": 0.593474805355072,
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "LATE14_NESTED_768_256": 0.1834350824356079,
+  "LATE14_NESTED_768_128": 0.24173003435134888
+ },
+ "gaps": {
+  "nested_256_minus_joint": 0.07409510016441345,
+  "nested_128_minus_joint": 0.13239005208015442
+ },
+ "attn_input_eff_rank": {
+  "attn0": 335.8322445830092,
+  "attn1": 211.2126310212325,
+  "attn2": 301.7661051524018,
+  "attn3": 363.8822408124129,
+  "attn4": 370.3699644356413,
+  "attn5": 443.09361035313293,
+  "attn6": 466.29704107216537,
+  "attn7": 501.20807921204954,
+  "attn8": 517.8903540737872,
+  "attn9": 552.7941676057835,
+  "attn10": 548.2442069657031,
+  "attn11": 554.7132111774215,
+  "attn12": 547.7482685430621,
+  "attn13": 551.9468604075586,
+  "attn14": 569.7294081676924,
+  "attn15": 589.1669819516051,
+  "attn16": 547.9968521978548,
+  "attn17": 208.72923981470396
+ },
+ "price": {
+  "gpu_doc_forwards": 800,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 14.847949981689453
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION_INPUT_WIDTH_AND_NESTED_CORE_PROBE_PREREGISTRATION.md": "87aeb83a20d11879a2af5eedffda26b78c15925d7ee770c76e3f1c1db3629ff8",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_attention_shared_input_core_probe_results.json": "0711ac84c85961cf8263200e6fbec0e629dda8e85d524651c733f2a6941c0abe",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "5487fb853d1ad78941276b4c0bc7570262998113b4586760d9e460477fc69efd"
+}

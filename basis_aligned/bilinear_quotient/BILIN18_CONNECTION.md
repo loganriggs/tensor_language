@@ -70602,3 +70602,39 @@ c_q2·U, c_k2·U, c_v·U (D×768 each) + c_proj + constant; one U. Everything el
 **Limits.** One split; k = 768 for the own/shared comparisons only; the joint core is the plain covariance average; block-0's v1
 residual is computed from the real embedding (it is not part of the late program's input); no low-k attention curve (attention's own
 width knob is unpriced — likely far below 768 given .0075).
+
+## §2746 — ATTENTION NEEDS ITS INPUT WIDTH TOO, JUST LESS OF IT: late attention (11–17) on its own top-k input PCs costs .167 / .101 / .053 / .020 / .0075 at k = 64 / 128 / 256 / 512 / 768 — pred_b (k=256 ≤ .05) FALSE by .003, pred_c (k=128 ≤ .15) TRUE; ALL 18 attention blocks on 256 input dims cost .227 (pred_d ≤ .15 FALSE; 128 dims .593); nesting the attention on the first 256 columns of the joint late core while the MLPs keep 768 costs +.074 over the joint program (pred_e ≤ .03 FALSE; 128 columns +.132); attention-input effective ranks 211–589, attn17 = 209 (Claude, LANE 1 CUDA, 15 s, 800 GPU document-forwards): a, c TRUE; b, d, e FALSE; no null met. Preserved.
+
+Registered 2026-09-03 22:41Z (polynomial_causal/ATTENTION_INPUT_WIDTH_AND_NESTED_CORE_PROBE_PREREGISTRATION.md); landed 22:42Z. Script
+ops/attention_input_width_and_nested_core_probe.py; results attention_input_width_and_nested_core_probe_results.json (sha 1da37045…).
+Frozen: prereg, §2745 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs
+0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Constructions as §2745: AttnHead(l, k, U) recomputes block l's attention
+from h = x̄_l + UUᵀ(x̂ − x̄_l); MLPs use OwnHead CONST; the joint core U_joint is the top eigenvectors of the average of the fourteen
+late centred input covariances; NESTED_768_k gives the MLPs the first 768 columns of U_joint and the attention blocks the first k.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401 (Δ 7e-9); ATTN7_OWN_768 .00753 (prior .0075; tol .01); LATE14_JOINT_768 .1093 (prior
+  .109; tol .02).
+- pred_b_attention_256 FALSE: ATTN7_OWN_256 = .0527 (bar ≤ .05; null ≥ .15 NOT met). Missed by .003 — inside the .003 CUDA wobble
+  of a single number but scored FALSE as written; not claimed.
+- pred_c_attention_128 TRUE: ATTN7_OWN_128 = .1009 (bar ≤ .15; null ≥ .40 not met).
+- pred_d_all_attention_256 FALSE: ATTN18_OWN_256 = .2265 (bar ≤ .15; null ≥ .40 NOT met). ATTN18_OWN_128 = .593 (descriptive).
+- pred_e_nested_is_free FALSE: NESTED_768_256 − JOINT_768 = .1834 − .1093 = +.074 (bar ≤ .03; null ≥ .10 NOT met). NESTED_768_128
+  = .2417 (+.132).
+
+Descriptive. Attention width curve for the late seven (own PCs, own mean): 64 .167 / 128 .101 / 256 .053 / 512 .020 / 768 .0075 —
+each halving of k roughly doubles the cost, the same shape as the MLP curve (§2740: 128 .465 / 256 .297 / 512 .145 / 768 .065) at
+about one-fifth the level. Nesting the attention at 256 inside the joint program costs +.074, MORE than the attention alone at 256
+(.053): the composition penalty is present here too (the MLPs read the attention's slightly-wrong writes). Attention-input effective
+ranks (rms-normed pre-attention residual, centred): attn0…17 = 336 / 211 / 302 / 364 / 370 / 443 / 466 / 501 / 518 / 553 / 548 /
+555 / 548 / 552 / 570 / 589 / 548 / 209 — rising through the stack, with attn1 and attn17 the two narrow readers (the MLP17 input
+was likewise the narrowest, §2744: 155).
+
+Reading. Attention is not "free" of the input width; it is five times cheaper than the MLPs at every width, and the reason from
+§2745 (rms-normed per-head projections absorb a small projection loss) only holds while the loss IS small — at k = 256 the projection
+drops ~10% of the input variance and the cost is .05, at k = 128 it is .10. The joint late program therefore cannot save its
+attention half by narrowing it: the MLP core width sets the program width for both sublayer kinds, and the honest late program
+remains the §2745 statement — fourteen sublayers on ONE shared k-dim input core, .109 / .059 / .023 at 768 / 896 / 1024, no
+narrower attention lane inside it. b's miss by .003 is a bracket miss, not a phenomenon; d says the EARLY attention blocks (0–10)
+are the ones that resist 256 dims (the seven late ones cost .053 of the .227), which matches §2744's finding that the early stack
+does not share and is where the residual is used most widely. Failures preserved; nothing installs into the §312 frontier.
