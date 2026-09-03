@@ -1,0 +1,117 @@
+{
+  "accepted_lessons": [
+    {
+      "lesson": 19,
+      "name": "evidence_derived_invalid_failure_lists",
+      "requirement": "Derive the complete FIT and SELECT invalid-instrument clause lists from authority-bound retained evidence, sort them canonically, and require literal equality with the published failure classes and flattened failed-clause list."
+    },
+    {
+      "lesson": 20,
+      "name": "unretained_checks_hard_abort",
+      "requirement": "A failed check whose inputs are not retained in the evidence package aborts before result, receipt, or evidence publication and cannot be represented as a scientific-null clause."
+    },
+    {
+      "lesson": 21,
+      "name": "live_structural_check_and_saved_proxy_are_distinct",
+      "requirement": "Run the preregistered full-vocabulary final-logit structural identity live and hard-abort on mismatch; separately save and reconstruct the inserted-tensor identity without treating it as a substitute."
+    }
+  ],
+  "base_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json",
+  "base_contract_sha256": "e8970f9ef2d7eb7b291a5fb288833bc252e62fabf1016a699e981c19a6be560a",
+  "builder_prompt_addendum": "For every ordinary FIT or SELECT invalid terminal, derive the exact canonically ordered failure list from retained authority-bound evidence and compare it literally with the result. Hard-abort every check whose full computational inputs are intentionally unretained. Run the preregistered live full-vocabulary structural identity and the saved inserted-tensor identity as two named checks; the saved local identity never replaces the live downstream check. Add planted complete-package mutations for every rule before model access.",
+  "critic_prompt_addendum": "Attempt to publish invented, omitted, duplicated, reordered, and incorrectly SELECT-prefixed invalid reasons while keeping the evidence package internally hash-consistent. Raise every unretained integrity scalar and add matching text; publication must still fail. Plant equal inserted tensors with unequal final logits, unequal inserted tensors with equal final logits, missing current-split arm logits, and an authorized identity from a different unopened split. Require the live downstream check, saved local reconstruction, and split filtering to remain distinct.",
+  "hard_abort_contract": {
+    "checks": [
+      "incomplete_factor_capture",
+      "live_factorization_at_intervened_state",
+      "native_full_attention_reconstruction",
+      "nonfinite_model_or_evidence_tensor",
+      "observed_hook_write_matches_requested_delta",
+      "preregistered_structural_full_vocabulary_logit_identity",
+      "replay_native_full_vocabulary_logit_identity"
+    ],
+    "failure_behavior": "abort_before_any_final_namespace_publication",
+    "published_clause_policy": "forbidden_even_when_result_text_matches_the_unretained_failure",
+    "reason": "the completed evidence package does not retain enough primitive tensors to independently recompute these checks"
+  },
+  "invalid_failure_contract": {
+    "canonical_order": "ascending_lexicographic_order_of_complete_clause_strings",
+    "duplicate_policy": "forbidden",
+    "exact_equality_required": [
+      "derived_phase_clause_list_equals_failure_classes_phase_key",
+      "sorted_flattened_failure_classes_equals_failed_clauses",
+      "terminal_equals_deterministic_precedence_over_reconstructed_failures"
+    ],
+    "fit": {
+      "failure_class": "invalid_instrument",
+      "prefix_policy": "derive_unprefixed_fit_clauses",
+      "required_complete_fixture": "fit_invalid_complete_hash_consistent_evidence"
+    },
+    "retained_recomputable_sources": [
+      "authority_bound_endpoint_rows",
+      "authority_bound_factor_rows_and_saved_factor_arrays",
+      "authority_bound_directed_arm_rows",
+      "saved_live_removed_and_hook_delta_arrays",
+      "saved_primitive_logits_and_sufficient_statistics",
+      "saved_padding_lengths",
+      "saved_inserted_tensor_structural_identity_checks"
+    ],
+    "select": {
+      "failure_class": "select_invalid_instrument",
+      "prefix_policy": "derive_select_clauses_unprefixed_then_add_select_prefix_once",
+      "required_complete_fixture": "select_invalid_complete_hash_consistent_evidence_with_recomputed_fit_science"
+    }
+  },
+  "outcome_boundary": {
+    "applies_prospectively": true,
+    "changes_frozen_scientific_thresholds": false,
+    "forbidden_actions": [
+      "load_model_or_cuda",
+      "open_scientific_outcomes",
+      "enqueue_gpu_work",
+      "edit_canonical_registry_or_board",
+      "rewrite_v1_or_v2_handoff"
+    ]
+  },
+  "planted_negative_fixture_ids": [
+    "fit_invalid_invented_matching_clause_rejected",
+    "select_invalid_invented_matching_clause_rejected",
+    "invalid_clause_omission_duplication_reordering_or_double_prefix_rejected",
+    "unretained_check_matching_clause_rejected",
+    "equal_inserted_tensors_unequal_full_logits_hard_abort",
+    "unequal_inserted_tensors_equal_full_logits_saved_and_recomputed",
+    "missing_current_split_structural_direction_or_arm_hard_abort",
+    "other_split_structural_identity_ignored_until_that_split_opens"
+  ],
+  "required_test_ids": [
+    "v1_v2_hashes_unchanged",
+    "fit_invalid_list_reconstructed_from_complete_evidence",
+    "select_invalid_list_reconstructed_from_complete_evidence",
+    "canonical_clause_order_and_single_select_prefix",
+    "unretained_failure_cannot_be_published_as_null",
+    "live_full_logit_structural_mismatch_hard_aborts",
+    "saved_inserted_tensor_identity_recomputes",
+    "structural_identity_capture_is_current_split_complete",
+    "planted_negative_fixture_census_complete"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v3_addendum",
+  "structural_identity_contract": {
+    "live_preregistered_check": {
+      "comparison": "maximum_absolute_difference_between_final_full_vocabulary_logit_vectors",
+      "evidence_retained": false,
+      "failure_behavior": "hard_abort_before_publication",
+      "threshold": 1e-05
+    },
+    "no_substitution_rule": "passing_or_reconstructing_the_saved_inserted_tensor_identity_does_not_discharge_the_live_full_logit_check",
+    "saved_auditable_check": {
+      "comparison": "maximum_absolute_difference_between_frozen_inserted_tensors_at_every_registered_site",
+      "evidence_field": "structural_inserted_term_identity_checks",
+      "evidence_retained": true,
+      "failure_behavior": "derive_canonically_ordered_phase_invalid_clause",
+      "threshold": 1e-05
+    },
+    "split_policy": "evaluate_every_registered_identity_in_the_current_open_split_only_and_hard_abort_if_any_required_current_split_direction_or_arm_is_missing"
+  },
+  "v2_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v2_addendum.json",
+  "v2_contract_sha256": "eb8ef7d00324c7f38210f0e8303951d97282fc8dbede9ee10ef8409db414709b"
+}
