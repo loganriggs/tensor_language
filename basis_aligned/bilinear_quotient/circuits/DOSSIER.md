@@ -14,7 +14,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state` | 5 | 4 | run FIT/SELECT-only balanced four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD |
+| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state` | 5 | 4 | execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -74,10 +74,11 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `pending_opener_cross_family_das.r540.complete.v1` | complete | cross_family_transfer | **null** | active | `r540_das_result` |
 | `pending_opener_split_integrity.r542.invalid_statistical_unit.v1` | complete | seed_stability | **invalid** | active | `r542_split_integrity_result` |
 | `pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs` | invalid | null_control | **invalid** | active | `r543_unique_rows_receipt` |
+| `pending_opener_four_closer_site_gate.r544.preregistered.v1` | preregistered | full_swap_ceiling | **inconclusive** | active | `—` |
 
-**Frozen artifacts:** 43. Paths and SHA-256 hashes are in the canonical JSON record.
+**Frozen artifacts:** 46. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** run FIT/SELECT-only balanced four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD
+**Next:** execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited
 
 ### `task.increment.state` — proposed
 

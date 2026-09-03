@@ -5,7 +5,7 @@ Negative/invalid results are counted as evidence, not omitted. Check this view a
 
 | circuit | kind | identity | status | causal variable / legacy story | CF families | active / historical negative events | latest active evidence | exact next missing evidence |
 |---|---|---|---|---|---:|---:|---|---|
-| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | 3 / 4 | pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs | run FIT/SELECT-only balanced four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD |
+| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | 3 / 4 | pending_opener_four_closer_site_gate.r544.preregistered.v1 | execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited |
 | `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | 0 / 0 | increment_postattn_rank4_das.legacy.v1 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | 1 / 1 | induction_terminal_collateral_failure.legacy.v1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | 2 / 2 | successor_layer8_input_ceiling.legacy.v1 | expand families and test shared-plus-private projectors against failed cross-family transfer |

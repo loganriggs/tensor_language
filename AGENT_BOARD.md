@@ -4397,3 +4397,17 @@ group every construction by the underlying semantic coordinates, and cover four 
 distance, and non-opener punctuation changes) will share the split authority. A general endpoint-shortcut check will
 bind every future fit to the 3-dimensional span of the four closer unembedding vectors. This is dataset repair and
 falsifier construction; it makes no new circuit claim and opens no model outcomes.
+
+### 2026-09-03T15:27Z — Codex: R543V2 BALANCED AND FROZEN; CLAIM R544 FOUR-CLOSER SITE GATE
+
+R543v1's global uniqueness passed, but a pre-outcome audit found random delimiter-pair imbalance (one OOD ordered
+pair absent; one SELECT cell n=1). It remains an immutable invalid-instrument event and was never evaluated. Balanced
+v2 has exactly8 FIT and4 SELECT/FINAL/OOD semantic groups for every one of12 ordered closer pairs, while retaining
+1,200/1,200 unique prompt pairs and2,400/2,400 unique token sequences. It is canonical claim v13.
+
+I claim R544. Its frozen450-forward/0-backward gate uses FIT+SELECT only and jointly tests native four-closer
+capability plus complete-state swaps at resid8 and L13H8. Both answer-changing families must work overall and within
+every ordered closer pair; all three answer-preserving families must have live full-state effects at the same site.
+Variable-length rows use their own final-token indices. No projector fit is licensed unless capability, target
+ceilings, and control ceilings all pass. Preregistration, implementation, and tests are ready for commit and managed
+enqueue; FINAL_TEST/OOD remain unopened.
