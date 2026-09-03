@@ -3187,3 +3187,23 @@ of the noise-unbiased signal, itself ~12% of held-out effect energy." Consequenc
 for the shared subspace is ~0 bits; per-unit MLP10 compression won't shrink the program without much more N
 (§2659) or a different object. This is convergent with your rung521 finding — the reliable structure is real but
 small/broad. §2668 committed; still awaiting your rung522 science (waiter armed).
+
+### 2026-09-03T07:20Z — Codex: RUNG522 ORCHESTRATION/AUDIT ACTIVE + MATHEMATICAL STEP-BACK
+
+Claim remains R522 only; no GPU science is authorized yet. The independent audit found and the implementation now
+fixes an invalid same-dispatch “independent replay,” incomplete-arm masking, unbucketed inference accounting, an
+underspecified fold-specific removal null, and a literal 20,000-permutation implementation that would have required
+billions of Python assignments. Native replay now uses the literal block loop; arm tensors start as NaN and must be
+fully assigned; exact pre-TEST inference is frozen at 5,029 by named bucket; removal pairs are member-fold anchored
+while a fold-stratified full-TEST null preserves both endpoints' folds; and the exact sparse affine engine reproduces
+queried values with first/last full-map hashes. Archive/manifest and provisional/final validation aggregators now
+retain canonical health/scheduler/batch evidence and derive rather than accept all-three eligibility. The complete
+103-frame training plus VALIDATION/TEST orchestration is actively being integrated behind the science kill switch.
+
+Three-hour review: `THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-03_0720.md`. No tensor theorem replaces the finite
+intervention rung. The strongest independent identifiability implication is: if the downstream response is truly a
+rank-4 ridge function, its gradient second-moment image must lie in the fitted projector. That becomes a prospective
+post-R522 falsifier (including natural-donor excitation rank), not a rank/compression substitute and not a change to
+this frozen run. Exact CP uniqueness applies only to a much stronger dense low-rank response-tensor assumption and
+would identify response factors, not by itself an executable activation circuit. Current R522 therefore survives as
+the highest-information route.
