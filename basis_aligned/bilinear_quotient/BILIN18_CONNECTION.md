@@ -71279,3 +71279,34 @@ own frame (the block frame includes the following MLP's input directions). (3) T
 object: at 768 sharing costs +.027 per 3-block window (§2753) and the own-frame program is already .197; at 1024 sharing is free.
 The description-size question is the (frames × k) trade-off, not "how many frames at 1024" — registered next. (4) Nothing
 installs into the §312 frontier (§2125); a 1024-of-1152 frame is an 11% width statement, not a compression.
+
+## §2766 — THE .020 CHAIN-WRITE COST IS TWO ATTENTION WRITES: confining each early write alone to the next site's 1024-frame costs attn6 .0094 and attn7 .0070 (66% of the per-site sum), then mlp6 .0025 and mlp5 .0024; the top four carry 86% (pred_c "≥ 60%" TRUE; null ≤ 35% not met), the sixteen per-site costs sum to 1.25× the joint cost (pred_b "in [0.5, 2]" TRUE; null not met), no single write exceeds .010 (pred_d TRUE, attn6 .0094 — 6% under the bar; null ≥ .015 not met), and blocks 0–4's writes are free to the fifth decimal (pred_e block-0 sum −.00002 "≤ .002" TRUE; null not met) (Claude, LANE 1 CUDA, 32 s, 1312 GPU document-forwards): a–e TRUE; no null met. Preserved.
+
+Registered 2026-09-03 23:56Z (polynomial_causal/EARLY_CHAIN_WRITE_COST_MAP_PROBE_PREREGISTRATION.md); landed 23:57Z. Script
+ops/early_chain_write_cost_map_probe.py; results early_chain_write_cost_map_probe_results.json (sha a0c72b4e…). Frozen: prereg,
+§2764 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split) — LOWER IS BETTER; per-site cost c_s = ONE_s − SPLIT8_1024. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024
+0.03739; CHAIN_ONLY_1024 0.05725 (= §2764).
+
+| site | c_s | site | c_s |
+|---|---|---|---|
+| attn0 | −.00000 | mlp0 | −.00001 |
+| attn1 | +.00004 | mlp1 | +.00053 |
+| attn2 | −.00011 | mlp2 | +.00065 |
+| attn3 | −.00001 | mlp3 | +.00028 |
+| attn4 | +.00021 | mlp4 | +.00079 |
+| attn5 | +.00101 | mlp5 | +.00244 |
+| attn6 | **+.00944** | mlp6 | +.00246 |
+| attn7 | **+.00697** | mlp7 | +.00022 |
+
+Sum .0249 (attention .0175, MLP .0074); joint .0199; ratio 1.25 (mildly sub-additive: the two attention remainders overlap in
+effect).
+
+What it says. (1) The early chain is free for blocks 0–4 and cheap for block 5: every write there lands inside the next read's
+1024-frame. The whole .020 is blocks 6–7, and there it is the ATTENTION writes — the last two attention writes before the bus
+begins at block 8 (§2754). This is the same locus as §2761's out-of-frame fractions at 768 (attn6/7 28–37%) and §2759's largest
+per-step rotations, now priced in CE at 1024: attn6 and attn7 write directions that the following MLP does not read but that
+blocks 8–17 do. (2) Together with §2765 (block frames free; the 9-frame program .0501 < .0574): the block-6/7 attention writes are
+the hand-off into the bus, and a frame that includes the following MLP's input (the block frame) or the bus itself captures more
+of them. The natural next constraint — route attn6/attn7's remainder into span(U_8) rather than deleting it — is the test of "the
+hand-off is bus-bound"; registered with the (frames × k) trade-off. (3) Nothing installs into the §312 frontier (§2125).

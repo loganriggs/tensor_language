@@ -1,0 +1,128 @@
+{
+ "rung": "early_chain_write_cost_map_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_per_site_costs_are_additive": true,
+  "pred_c_cost_is_concentrated": true,
+  "pred_d_no_single_write_carries_the_chain": true,
+  "pred_e_block0_writes_are_free": true
+ },
+ "nulls": {
+  "b_null_ratio_ge_4_or_le_.25": false,
+  "c_null_top4_le_.35": false,
+  "d_null_max_ge_.015": false,
+  "e_null_block0_ge_.006": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_lo": 0.5,
+  "b_hi": 2.0,
+  "c_min": 0.6,
+  "d_max": 0.01,
+  "e_max": 0.002
+ },
+ "null_bars": {
+  "b_lo": 0.25,
+  "b_hi": 4.0,
+  "c_max": 0.35,
+  "d_min": 0.015,
+  "e_min": 0.006
+ },
+ "device": "cuda",
+ "split": 8,
+ "k": 1024,
+ "program": "SPLIT8_1024 reads + ONE early site's write confined to the next site's frame (delete); CHAIN_ONLY_1024 = all 16 jointly",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "chain_only_1024": 0.05724939703941345,
+  "prior_chain_only_1024": 0.0572
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "ONE_attn0_1024": 0.037384629249572754,
+  "ONE_mlp0_1024": 0.037373125553131104,
+  "ONE_attn1_1024": 0.03742706775665283,
+  "ONE_mlp1_1024": 0.037920475006103516,
+  "ONE_attn2_1024": 0.037272095680236816,
+  "ONE_mlp2_1024": 0.0380399227142334,
+  "ONE_attn3_1024": 0.03738194704055786,
+  "ONE_mlp3_1024": 0.037666648626327515,
+  "ONE_attn4_1024": 0.03759303689002991,
+  "ONE_mlp4_1024": 0.03817746043205261,
+  "ONE_attn5_1024": 0.038393765687942505,
+  "ONE_mlp5_1024": 0.039829373359680176,
+  "ONE_attn6_1024": 0.04682275652885437,
+  "ONE_mlp6_1024": 0.03984534740447998,
+  "ONE_attn7_1024": 0.04435428977012634,
+  "ONE_mlp7_1024": 0.03761020302772522,
+  "CHAIN_ONLY_1024": 0.05724939703941345
+ },
+ "per_site_cost": {
+  "attn0": -2.3543834686279297e-06,
+  "mlp0": -1.385807991027832e-05,
+  "attn1": 4.0084123611450195e-05,
+  "mlp1": 0.0005334913730621338,
+  "attn2": -0.00011488795280456543,
+  "mlp2": 0.0006529390811920166,
+  "attn3": -5.036592483520508e-06,
+  "mlp3": 0.0002796649932861328,
+  "attn4": 0.0002060532569885254,
+  "mlp4": 0.0007904767990112305,
+  "attn5": 0.001006782054901123,
+  "mlp5": 0.002442389726638794,
+  "attn6": 0.009435772895812988,
+  "mlp6": 0.0024583637714385986,
+  "attn7": 0.006967306137084961,
+  "mlp7": 0.0002232193946838379
+ },
+ "summary": {
+  "joint_chain_minus_split8": 0.01986241340637207,
+  "sum_per_site": 0.0249004065990448,
+  "additivity_ratio": 1.25364456421275,
+  "top4_share": 0.8555616329491011,
+  "top4": [
+   [
+    "attn6",
+    0.009435772895812988
+   ],
+   [
+    "attn7",
+    0.006967306137084961
+   ],
+   [
+    "mlp6",
+    0.0024583637714385986
+   ],
+   [
+    "mlp5",
+    0.002442389726638794
+   ]
+  ],
+  "max_site": [
+   "attn6",
+   0.009435772895812988
+  ],
+  "block0_sum": -1.621246337890625e-05,
+  "attn_sum": 0.017533719539642334,
+  "mlp_sum": 0.007366687059402466
+ },
+ "price": {
+  "gpu_doc_forwards": 1312,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 32.00515961647034
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_CHAIN_WRITE_COST_MAP_PROBE_PREREGISTRATION.md": "bffcf3b1fc7f32cad25ad937d841dc321332375b6fc0c02e187a7b0cf476924b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/chain_bus_program_statement_probe_results.json": "de512d007fede1615714d0160999327768de40ba2da352a04a064a870d6f047c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "c033171585862d24dcf19142d5d47a598ff38f3d00d1e376de4ea804b53c3a7b"
+}

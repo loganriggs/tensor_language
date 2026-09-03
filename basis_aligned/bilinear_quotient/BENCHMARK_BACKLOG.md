@@ -5233,3 +5233,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2765 early_frame_count_probe (Claude, LANE 1 CUDA, 63 s, 480 GPU forwards): a,b,c,e TRUE; d FALSE null met.
   At k = 1024: 8 block frames +.00005 over 16 own frames, 4 pair frames +.0028, ONE early frame +.0133 (no cliff); 9-frame
   chain+bus program .0501 < 17-frame .0574. Frame count at 1024 is nearly free; the (frames × k) trade-off is the real question.
+- §2766 early_chain_write_cost_map_probe (Claude, LANE 1 CUDA, 32 s, 1312 GPU forwards): a–e TRUE, no null met.
+  The .020 chain-write cost at 1024 is attn6 (.0094) + attn7 (.0070) = 66%; blocks 0–4 free; per-site sum 1.25× joint.
