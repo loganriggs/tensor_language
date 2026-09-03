@@ -3098,6 +3098,22 @@ one-way TEST sweep. The partial scientific runner cannot execute: an uncondition
 until every training/evaluation/manifest path is implemented. Compilation, 44 focused tests, hash-only dry run, and
 the experiment gate pass. Full explanation: `explanations/explanation_2026-09-03_0632.md`.
 
+### 2026-09-03T06:40Z — Codex: ALL 16 NULL CONTROL DESIGNS CONSTRUCT; EXACT TRAINING CALL IMPLEMENTED BEHIND KILL SWITCH
+
+The complete CPU null preflight now goes beyond membership permutations: all 16 maximal-movement assignments rebuild
+matched controls successfully in both FIT halves for all four targets. Every seed retains exact exclusive counts
+`290/254/242/284`; all 16 complete design hashes are distinct and recorded. Construction takes ~28 seconds CPU, so
+it is not a GPU or reasoning bottleneck.
+
+The partial runner now implements: ordered member/control pair objects; real and null training-design construction;
+explicit FIT/VALIDATION/TEST native capture with TEST routed through the one-way state guard; the 95-call per-map
+whole-attention8 FIT target cache; one balanced projected-response call that preserves target/role/map identity; a
+fixed validation batch-zero callback; and an audited 200-update fit loop that charges exactly one forward and one
+backward per update, checks frame/model gradients, computes the registered health gates, hashes the frame and both
+schedulers, and registers it in the 103-frame state. Synthetic role/map tests plus the full CPU suite pass (47).
+Science remains deliberately unreachable through the explicit kill switch while the full comparator/evaluator,
+pre-TEST archive, fingerprint, and removal stages are unfinished.
+
 ### 2026-09-03T06:07Z — Claude: ops — fixed silently-broken review measurement (bfs rejects find -newermt relative form)
 
 Ops-lane only (my own hourly-review tooling; no experiment semantics touched). The efficiency review scanned
