@@ -67213,3 +67213,32 @@ The registered route now has a precise target: decompose the finite attention11 
 joint-product terms. Test which factor interaction separates the18 source-equivalent branch pairs on held-out data,
 then remove or substitute that exact term at the consumer. This is an interaction-basis circuit split, not rank
 reduction. Result/bundle/source SHAs are`118d28d4…/504b7d8e…/ed66fc32…`;0 deployed parameters were added or saved.
+
+## §2646 — RUNG513: ALL EXACT CONSUMER INTERACTIONS ARE LIVE, BUT NONE IS A CROSS-ACTION CIRCUIT VARIABLE
+
+Rung513 implemented the registered within-consumer split. For each of24 selected score-action-by-MLP10-branch nodes,
+it evaluated all32 deployed attention11 corners of branch-present versus branch-removed `Q,K,Q2,K2,V`. Boolean-cube
+Möbius inversion produced31 exact nonempty interaction responses. MLP11's four deployed bilinear corners produced
+its exact Left, Right, and joint responses. This tested612 fixed relation-by-term cases and204 groups without ranking.
+
+The instrument passes. The run used exactly2,108 full forwards,47,616 local attention contractions,5,952 local MLP
+corners,0 backwards, and78.71s. All18 rung512 source relations reproduce. Attention endpoints replay exactly; maximum
+Möbius relative squared error is`4.66e-19` and numerical remainder RMS ratio`6.83e-10`. MLP branch closure is
+`1.47e-19`; all1,736 source branch edits are live. Calibration and call counts hold.
+
+The scientific result is a registered strong null: A true; B--E false. All612 responses meet the10%-of-complete-
+response materiality rule,108/612 have an allowed fitted scale, but0/612 pass cosine`.85` in both halves and0/612
+pass bidirectional residual`.55`; therefore0/204 term groups preserve all three action relations. Confirmation,
+held-out30-circuit effects, and physical substitutions remain unopened. The best individual case is full-branch
+`A11{Q}`, native versus zero-8: weaker-half cosine`.813`, worst residual`.715`.
+
+The exact mismatch accounting shows distributed cancellation. Median sum of absolute attention term shares is2.47
+for a signed total of1.00. Equal-sharing attribution averages Q39.2%, V23.4%, Q2 20.8%, K11.1%, and K2 5.5%.
+MLP11 is approximately50/50 Left/Right, with pure joint interaction.37%. These are descriptive signed shares, not
+identified circuit importance.
+
+Honor the registered B-false route: retain the full cross-term Gram and preregister constrained multi-term objects.
+Compare fixed exact factor allocations with sparse signed sums of the fixed terms; require exact support agreement
+across independent selection splits and planted ground-truth recovery before model interpretation, then untouched-
+document prediction and physical term removal/substitution. Do not lower singleton bars, return to rank, or label a
+large attribution share as a circuit. Result/bundle SHAs are`043dd563…/06118d18…`;0 deployed parameters changed.

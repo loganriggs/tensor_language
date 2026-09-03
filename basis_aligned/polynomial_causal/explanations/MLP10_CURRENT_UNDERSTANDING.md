@@ -114,6 +114,19 @@ is multilinear in `Q`, `K`, `Q2`, `K2`, and value, so its finite response can be
 interactions. MLP11 has the analogous exact Left/Right/joint split. Testing those terms against the fixed18 source
 relations can identify a within-consumer split; merely lowering the output cosine threshold cannot.
 
+Rung513 completed that exact split. All31 attention11 terms and all3 MLP11 terms were large enough to test for every
+one of the18 source relations, but0/612 individual relation-by-term tests passed and therefore0/204 branch-by-term
+groups passed all three action relations. The exact corner endpoints replayed the deployed consumers, the attention
+numerical remainder was`6.83e-10` of response RMS, and the MLP identity closed to`1.47e-19` relative squared error.
+
+The mismatch is distributed rather than localized to one interaction. Equal sharing of each higher-order term among
+its factors descriptively assigns39.2% to Q,23.4% to value,20.8% to Q2,11.1% to K, and5.5% to K2. MLP11 divides
+approximately50/50 between its Left and Right sides, with only.37% assigned to the pure joint term. This is not yet a
+circuit decomposition: those are signed attribution shares, and no single term passed held-out relation criteria or
+opened a physical intervention. The registered next object is a prospectively selected sparse signed sum of these
+fixed exact terms, alongside fixed factor allocations, with split-stable support, a planted recovery test, untouched
+documents, and physical removal/substitution. Do not reinterpret the result as evidence for rank reduction.
+
 ## Do-not-repeat list
 
 - Do not interpret the old `r80=512`, top2304 product energy, or top512 output energy as a circuit.
@@ -130,5 +143,5 @@ relations can identify a within-consumer split; merely lowering the output cosin
 - `slice_writers_results.json` and ledger §§1597--1603 — MLP10 to MLP11 question-form circuit.
 - `mlp_mode_concentration_depth_profile_results.json` and ledger §2482 — exact tensor-mode spectra.
 - ledger §§2580--2586 — distributed equality correction and its MLP8/9/12 interaction structure.
-- rung506--511 receipts and ledger §§2637--2644 — whole-write, exact-term, family, dictionary, pairwise-equivalence,
-  and exact Left/Right/joint-branch results.
+- rung506--513 receipts and ledger §§2637--2646 — whole-write, exact-term, family, dictionary, pairwise-equivalence,
+  exact Left/Right/joint-branch, consumer-output, and exact consumer-factor-interaction results.

@@ -4733,3 +4733,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `Q/K/Q2/K2/value` interaction terms and MLP11 into exact Left/Right/joint terms, using the18 fixed source relations
   as the prospective discrimination set and requiring held-out causal term removal/substitution. No rank or relaxed
   similarity threshold.
+- Rung513 (§2646): valid exact-factor strong null. The managed smoke and full run pass endpoint replay, calibration,
+  corner counts, Möbius closure, MLP closure, and edit liveness. All18 frozen MLP10 source relations reproduce and all
+  612 relation-by-term responses are material, but0/612 exact singleton terms pass the direction/residual gates and
+  0/204 branch-by-term groups pass all three source relations. Attention mismatch is distributed most toward Q
+  (39.2%), value(23.4%), and Q2(20.8%); MLP11 is approximately50/50 Left/Right. Next retain the full joint Gram of the
+  34 exact terms and prospectively compare fixed factor allocations with sparse signed multi-term sums, requiring
+  independent support recovery, planted identifiability, fresh documents, and physical term substitution. No rank,
+  threshold relaxation, or attribution-as-circuit claim.

@@ -2164,3 +2164,25 @@ bidirectional substitutions for every confirmed group, with the registered task/
 tests, syntax, static gate, dry run, and general fast suite pass. I adopted Claude's calibration-semantic audit: the
 managed smoke now also requires native recovery in[.9,1.1], in addition to exact corner replay, closure, call counts,
 and live patches. No scientific outcomes have been opened; enqueueing only the managed smoke wrapper next.
+
+### 2026-09-03T00:27Z — Codex: RUNG513 VALID STRONG NULL PUBLISHED; CLAIM RUNG514 CONSTRAINED MULTI-TERM PROGRAMS
+
+The managed smoke passed every endpoint replay, closure, calibration-semantic, call-count, and live-patch check. The
+full run then landed`exit=0` after exactly2,108 forwards,47,616 local attention corners,5,952 local MLP corners,0
+backwards, and78.71s. A true; B--E false. All18 fixed source relations reproduce and all612 term responses are
+material, but0/612 individual relations pass either the two-half cosine or residual gate; consequently0/204 fixed
+branch-by-term groups pass all three action relations. Confirmation,30 held-out circuit families, and physical swaps
+remain unopened. The best individual case is full-branch `A11{Q}`, N--Z8: weaker-half cosine.813 and worst residual
+.715 against.85/.55. Exact mismatch accounting is distributed: equal-share attribution Q39.2%, V23.4%, Q2 20.8%,
+K11.1%, K2 5.5%; MLP11 is approximately50/50 L/R and only.37% pure joint. These are diagnostic shares, not circuits.
+§2646/backlog/MLP10 dossier/interaction explanation and dated explanation0024 with percentage graph are published
+from result/bundle SHAs`043dd563…/06118d18…`.
+
+I claim rung514 under the frozen B-false route. It will retain the full joint Gram among the34 exact term responses
+and compare two preregistered multi-term object classes: fixed factor allocations that exactly sum to the consumer
+response, and sparse signed sums over the fixed Möbius terms. Sparse support must be independently recovered on two
+selection splits and the search must exactly recover planted ground-truth supports before model outcomes count;
+permutation controls set a prospective multiplicity floor. Any candidate then predicts untouched documents and gets
+real term removal plus all six bidirectional substitutions on30 held-out circuits. No rank, variance/reconstruction
+objective, bar relaxation, attribution-as-circuit claim, or native-module boundary assumption. Registration and
+joint-statistics implementation start now.

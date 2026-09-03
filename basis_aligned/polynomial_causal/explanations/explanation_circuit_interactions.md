@@ -369,3 +369,27 @@ treated analogously with its exact Left, Right, and joint-product changes. A suc
 behavior as predicted; an algebraic or activation-only decomposition will not count as a circuit.
 
 See [explanation_2026-09-03_0005.md](explanation_2026-09-03_0005.md) for the result and percentage graph.
+
+## Update: exact single consumer interactions are not the shared variables
+
+Rung513 evaluated all32 present/removed corners of attention11's five factors and used inclusion-exclusion to obtain
+all31 exact nonempty `Q/K/Q2/K2/value` interaction terms. It also split MLP11 into its exact Left-only, Right-only, and
+joint terms. This is the explicit finite mediator decomposition proposed above: it does not approximate attention or
+use a head as the basis.
+
+The run reproduced all18 fixed MLP10 source relations, and every one of the612 relation-by-term responses exceeded
+the materiality floor. Nevertheless,0/612 passed the frozen direction and residual tests, leaving0/204 complete
+branch-by-term groups. The best individual relation was a Q-only response with weaker-half cosine`.813` versus`.85`
+required and worst residual`.715` versus`.55` allowed.
+
+The failure identifies cancellation structure. The median sum of absolute attention mismatch shares is2.47 while
+their signed sum is1.00. Under equal division of higher-order terms, Q carries39.2% of the mismatch, value23.4%, Q2
+20.8%, K11.1%, and K2 5.5%. MLP11 divides nearly equally between Left and Right, with its pure joint term only.37%.
+These percentages are an exact signed accounting convention, not circuit importance or explained loss.
+
+The direction therefore changes from singleton interaction terms to constrained multi-term computations. The next
+instrument must retain cross-terms between all34 exact responses, compare fixed factor-level allocations with sparse
+signed sums, require independent document splits to recover the same signed support, and reject itself unless it
+recovers a planted ground-truth support. A model candidate still needs untouched-document prediction plus real term
+removal and bidirectional substitution before it is called a circuit. Full computation, result, and graph are in
+[explanation_2026-09-03_0024.md](explanation_2026-09-03_0024.md).

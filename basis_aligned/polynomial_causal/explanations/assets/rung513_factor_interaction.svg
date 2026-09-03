@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Rung513 exact factor-interaction results</title>
+  <desc id="desc">All source relations and all materiality checks pass, but no exact singleton interaction passes the directional or residual requirements.</desc>
+  <rect width="900" height="500" fill="#fbfaf7"/>
+  <text x="36" y="42" font-family="sans-serif" font-size="25" font-weight="700" fill="#17212b">Exact attention11 / MLP11 interaction test</text>
+  <text x="36" y="70" font-family="sans-serif" font-size="15" fill="#52606d">Percent passing each fixed gate; discovery documents only</text>
+  <g font-family="sans-serif" font-size="16" fill="#17212b">
+    <text x="36" y="119">Source relations reproduced</text>
+    <text x="36" y="174">Interaction responses material</text>
+    <text x="36" y="229">Scale within allowed range</text>
+    <text x="36" y="284">Direction cosine ≥ 0.85</text>
+    <text x="36" y="339">Relative residual ≤ 0.55</text>
+    <text x="36" y="394">Complete relation test</text>
+  </g>
+  <g fill="#e1e7ec">
+    <rect x="330" y="96" width="480" height="30" rx="4"/>
+    <rect x="330" y="151" width="480" height="30" rx="4"/>
+    <rect x="330" y="206" width="480" height="30" rx="4"/>
+    <rect x="330" y="261" width="480" height="30" rx="4"/>
+    <rect x="330" y="316" width="480" height="30" rx="4"/>
+    <rect x="330" y="371" width="480" height="30" rx="4"/>
+  </g>
+  <rect x="330" y="96" width="480" height="30" rx="4" fill="#2b8a6e"/>
+  <rect x="330" y="151" width="480" height="30" rx="4" fill="#2b8a6e"/>
+  <rect x="330" y="206" width="84.7" height="30" rx="4" fill="#d48a21"/>
+  <rect x="330" y="261" width="2" height="30" rx="1" fill="#b33a3a"/>
+  <rect x="330" y="316" width="2" height="30" rx="1" fill="#b33a3a"/>
+  <rect x="330" y="371" width="2" height="30" rx="1" fill="#b33a3a"/>
+  <g font-family="sans-serif" font-size="15" font-weight="700">
+    <text x="822" y="117" fill="#2b8a6e">100% (18/18)</text>
+    <text x="822" y="172" fill="#2b8a6e">100% (612/612)</text>
+    <text x="422" y="227" fill="#a56511">17.6% (108/612)</text>
+    <text x="342" y="282" fill="#b33a3a">0% (0/612)</text>
+    <text x="342" y="337" fill="#b33a3a">0% (0/612)</text>
+    <text x="342" y="392" fill="#b33a3a">0% (0/612)</text>
+  </g>
+  <line x1="36" y1="430" x2="864" y2="430" stroke="#c8d0d7"/>
+  <text x="36" y="458" font-family="sans-serif" font-size="15" fill="#52606d">Result: 0/204 branch-by-term groups preserve all three source relations.</text>
+  <text x="36" y="482" font-family="sans-serif" font-size="14" fill="#52606d">“Material” means at least 10% of the complete consumer-response RMS at both endpoints and in both document halves.</text>
+</svg>
