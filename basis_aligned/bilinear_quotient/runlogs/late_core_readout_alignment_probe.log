@@ -1,0 +1,27 @@
+{"stage": "fit", "t": 7.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.2}
+{"stage": "overlaps", "ov(CORE_TW_16,LM_128)": 0.1794, "ov(CORE_TW_128,LM_128)": 0.1886, "ov(CORE_TN_16,LM_128)": 0.264, "ov(CORE_TN_128,LM_128)": 0.2298, "ov(EARLY_TN_16,LM_128)": 0.2502, "ov(EARLY_TN_128,LM_128)": 0.1469, "ov(XPCA_16,LM_128)": 0.392, "ov(XPCA_128,LM_128)": 0.4042, "ov(RANDOM_16,LM_128)": 0.1123, "ov(RANDOM_128,LM_128)": 0.1101, "t": 8.8}
+{"stage": "read_energy", "er": {"12": 1.0200779438018799, "13": 1.0264686346054077, "14": 1.0315513610839844, "15": 1.0739214420318604, "16": 1.1204301118850708, "17": 1.178454041481018}, "er_leave_own_out": {"12": 1.0887598991394043, "13": 1.0698357820510864, "14": 1.0648709535598755, "15": 1.094735026359558, "16": 1.123725414276123, "17": 1.1759498119354248}, "t": 9.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_faces_readout": false,
+  "pred_c_late_specific": true,
+  "pred_d_core_is_read": false,
+  "pred_e_more_readout_facing_than_the_stream": false
+ },
+ "nulls": {
+  "b_null_core16_in_lm_le_.25": true,
+  "c_null_late_le_1.1x_early": false,
+  "d_null_er_le_1.1_for_5of6": false,
+  "e_null_core_le_stream_minus_.10": true
+ },
+ "b": 0.17935539815272766,
+ "c": [
+  0.22981639829152473,
+  0.1469141625514538
+ ],
+ "d_n": 0,
+ "d_n_loo": 0,
+ "e_ref": 0.39198441812819224
+}

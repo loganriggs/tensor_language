@@ -5053,3 +5053,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   ≤ .80; null not met), c TRUE (ALL36(512) .239), d TRUE (X_stack(256) .184 ≤ .341), e FALSE (ALL36(768) .064 vs ≤ .05; null not
   met). Curve 2.73/1.81/.87/.24/.064 at k 64..768; stacks sub-additive at k ≤ 128 (−.71/−.03), super-additive above. Next:
   byte-priced curve for MLP Downs (H > 2304 ⇒ rank-768 saves bytes); late-core readout alignment queued.
+- §2713 late_core_readout_alignment_probe (Claude, LANE 1 CUDA, 10 s, 160 GPU forwards): a TRUE, b FALSE (ov(CORE_16,LM_128) .18,
+  chance .11; null ≤ .25 MET), c TRUE (late .230 vs early .147, 1.56×), d FALSE (read-energy ratio 1.02–1.18; null not met), e FALSE
+  (stream top-16 in LM .39 > core .18; null MET). The shared late core IS the final residual stream's top geometry (ov .72/.85;
+  XPCA eff rank 19), not the readout subspace. Next: norm-preserving removal test of the core (norm-control hypothesis).

@@ -69353,3 +69353,42 @@ Downs alone at k ∈ {512, 768}, compared with the attention frontier point.
 
 **Preserved failures.** b (.867 vs ≤ .80) and e (.064 vs ≤ .05): my bars extrapolated from the two stacks assumed near-additivity at
 256/768; the measured cross term (+.18 / +.01) is what breaks them. Neither null met; the curve is the result.
+
+## §2713 — LATE SHARED WRITE CORE vs THE READOUT (Claude, LANE 1 CUDA, 10 s, 160 GPU document-forwards): THE §2710 CORE IS NOT THE READOUT-FACING SUBSPACE — IT IS THE FINAL RESIDUAL STREAM'S OWN TOP GEOMETRY. ov(CORE_16, LM_128) = .18 (chance .11; null ≤ .25 MET) but ov(CORE_16, XPCA_128) = .72 and ov(XPCA_16, CORE_128) = .85; the stream's own top-16 directions face the readout MORE (.39) than the core does; the core is NOT read by late Left/Right (energy ratio 1.02–1.18). a, c TRUE; b, d, e FALSE (b and e nulls met); preserved.
+
+Written 2026-09-03 20:44Z (box clock). Preregistration `polynomial_causal/LATE_CORE_READOUT_ALIGNMENT_PROBE_PREREGISTRATION.md`
+(sha f02761f3…; registered 20:39Z before the script). Script `ops/late_core_readout_alignment_probe.py`; receipt
+`late_core_readout_alignment_probe_results.json` (sha 20ff21d0…); log `runlogs/late_core_readout_alignment_probe.log`. Fit on docs
+96–191; baseline CE on docs 0–63. Numbers are subspace-overlap fractions ov(U_j, V_k) = ‖U_jᵀV_k‖²_F / j (chance k/1152 = .111 at
+k = 128; measured random .110) and read-energy ratios (1.0 = isotropic) — HIGHER = more aligned; the only CE is the instrument.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (diff 7e-9); CORE_TW eff rank 10.0039 = §2710's 10.0039; max orthonormality error 5e-8;
+random-128 in LM_128 .1101 ∈ [.08, .15].
+
+**b FALSE, null MET.** ov(CORE_TW_16, LM_128) = .179 (bar ≥ .60; null ≤ .25). Trace-normalised core: .264. The 128-dim versions:
+.189 (TW) / .230 (TN). The shared late dictionary barely faces lm_head's top-128 right-singular directions — 1.6× chance.
+
+**e FALSE, null MET.** The final residual stream's own top-16 PCA directions sit in LM_128 at .392 — more than the core (.179; the
+null bar was core ≤ stream − .10, met by .21). Meanwhile ov(CORE_TW_16, XPCA_128) = .718 and ov(XPCA_16, CORE_TW_128) = .851: the
+core and the stream's top geometry are nearly the same object. XPCA has effective rank 19 — the final residual stream is
+dominated by ~19 massive directions, and the seven late MLPs share a dictionary because they all write into those same
+directions.
+
+**c TRUE (weak).** ov(CORE_TN_128, LM_128) .230 vs the early-stack control EARLY_TN_128 .147: 1.56× (bar 1.5×). Late-specific in
+the sense that early writes are even less readout-facing; both are within 2× of chance.
+
+**d FALSE, null not met.** Read-energy ratio of Left/Right on CORE_TN_128: blocks 12–17 = 1.02 / 1.03 / 1.03 / 1.07 / 1.12 / 1.18
+(bar ≥ 1.5 for 5 of 6: 0 of 6; null ≤ 1.1 for 5 of 6: 4 of 6, not met). Leave-own-out core: 1.09 / 1.07 / 1.07 / 1.10 / 1.12 /
+1.18 — identical picture. Early-stack core: 0.93–1.10; random: 1.00. The late MLPs' inputs are essentially isotropic with respect
+to the shared write core: the shared write is NOT a shared read. (Caveat: weight-space energy on rms-normed input; a direction the
+stream makes huge is read at its normalised size, so this measures the weights' attention to the direction, not its causal weight.)
+
+**Interpretation.** §2710's positive reusability result is real but its meaning is now fixed: the reusable object is the residual
+stream's dominant subspace (the ~19 massive directions), not a logit-facing "output vocabulary". Late MLPs writing mostly along
+directions the stream already carries at large amplitude — and that lm_head reads weakly — is the signature of NORM CONTROL: the
+final rms_norm divides by |x|, so a write along the dominant directions mainly rescales what the readout sees. This is the same axis
+§2707 isolated (the radial scalar r̄x̂ needed at the fat late sites). Falsifiable follow-up (next rung): remove the late writes'
+component in CORE_16 but restore |x| (norm-preserving removal) vs plain removal — if the core is a norm channel, the norm-preserving
+removal should cost a small fraction of the plain removal.
+
+**Preserved failures.** b, d, e as registered; b and e nulls met — the readout-facing hypothesis for the shared core is rejected.
