@@ -19,6 +19,7 @@ import sys
 from pathlib import Path
 
 import torch
+import torch.nn.functional as F
 
 
 ROOT = Path("/workspace/tensor_language")
@@ -31,6 +32,8 @@ N_ATOMS = N_HEADS * len(GROUPS)
 ATOM_NAMES = tuple(f"H{head}.{group}" for head in range(N_HEADS) for group in GROUPS)
 PLANTED_PAIRS = ((0, 7), (3, 14), (8, 31), (20, 44))
 PLANTED_SEEDS = tuple(range(51800, 51808))
+HEAD_DIM = 128
+D = 1152
 
 
 def sha256(path: Path) -> str:
@@ -51,6 +54,57 @@ def atom_parts(atom: int) -> tuple[int, int]:
     if not 0 <= atom < N_ATOMS:
         raise ValueError("atom index is outside the frozen vocabulary")
     return divmod(atom, len(GROUPS))
+
+
+@torch.no_grad()
+def head_relation_atoms(block, split: dict) -> dict:
+    """Construct the fixed 9x5 source pieces from a rung517 attention split."""
+    pattern = split["pattern"]
+    value = split["value"]
+    masks = split["partition_masks"]
+    native = split["native_write"]
+    if pattern.ndim != 4 or pattern.shape[1] != N_HEADS:
+        raise ValueError("attention pattern is not [batch,9,query,source]")
+    if value.shape[2:] != (N_HEADS, HEAD_DIM):
+        raise ValueError("attention values do not use the frozen 9x128 head shape")
+    if masks.shape[0] != len(GROUPS):
+        raise ValueError("source relation vocabulary changed")
+    projection = block.attn.c_proj.weight
+    if projection.shape != (D, D):
+        raise ValueError("attention0 output projection shape changed")
+    atoms = []
+    for head in range(N_HEADS):
+        weight = projection[:, head * HEAD_DIM:(head + 1) * HEAD_DIM]
+        for group in range(len(GROUPS)):
+            selected = pattern[:, head] * masks[group].to(pattern.dtype)
+            head_output = torch.einsum("bqk,bkd->bqd", selected, value[:, :, head])
+            atoms.append(F.linear(head_output, weight).float())
+    atoms = torch.stack(atoms)
+    semantic_sum = atoms.sum(0)
+    remainder = native.float() - semantic_sum
+    denominator = native.double().square().sum().clamp_min(1e-30)
+    return {
+        "atoms": atoms,
+        "remainder": remainder,
+        "relative_squared_closure": float(
+            (semantic_sum.double() + remainder.double() - native.double())
+            .square().sum() / denominator),
+        "remainder_relative_energy": float(
+            remainder.double().square().sum() / denominator),
+    }
+
+
+def atom_context(native: torch.Tensor, decomposition: dict, atom: int,
+                 background: str) -> torch.Tensor:
+    if not 0 <= atom < N_ATOMS:
+        raise ValueError("atom index is outside the frozen vocabulary")
+    if background == "SINGLE":
+        context = decomposition["remainder"] + decomposition["atoms"][atom]
+    elif background == "DROP":
+        context = native.float() - decomposition["atoms"][atom]
+    else:
+        raise ValueError("background must be SINGLE or DROP")
+    return context.to(native.dtype)
 
 
 def _cosine(left: torch.Tensor, right: torch.Tensor) -> float:
