@@ -26,7 +26,7 @@ ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 OUT = ROOT / "basis_aligned/bilinear_quotient/mlp0_source_relation_factorial_rung517_results.json"
 PREREG = POLY / "MLP0_SOURCE_RELATION_FACTORIAL_RUNG517_PREREGISTRATION.md"
-PREREG_SHA256 = "a4c21ade365ffc4d20f10f0c29fb4112b4b5c1a7a4cb21f07667fbc72a6c7366"
+PREREG_SHA256 = "a0ff4160af15b57c549c3998e24010d7f60f14d34b2de811fd5f5a5824bde56c"
 
 GROUPS = ("SELF", "PREVIOUS", "NEAR", "DISTANT_SAME", "DISTANT_OTHER")
 N_GROUPS = len(GROUPS)
@@ -47,6 +47,17 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(1 << 20), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def registered_structured_rows(census) -> torch.Tensor:
+    """Select the registered documents and the model's 256+target token window."""
+    rows = census.fineweb_rows(80)
+    if rows.ndim != 2 or rows.shape[0] != 80 or rows.shape[1] < 257:
+        raise RuntimeError(f"unexpected structured-row shape: {tuple(rows.shape)}")
+    selected = rows[16:80, :257].contiguous()
+    if selected.shape != (64, 257):
+        raise RuntimeError(f"registered structured rows have shape {tuple(selected.shape)}")
+    return selected
 
 
 def source_group_masks(tokens: torch.Tensor) -> torch.Tensor:
@@ -828,7 +839,7 @@ def scientific_main() -> None:
     receipt = json.loads(ROWS_RECEIPT.read_text())
     prose_fit = rows_parent.load_role(receipt["entries"]["FIT"])
     prose_select = rows_parent.load_role(receipt["entries"]["SELECT"])
-    structured = census.fineweb_rows(80)[16:80]
+    structured = registered_structured_rows(census)
     corpora = {
         "PROSE": {"FIT": prose_fit, "SELECT": prose_select},
         "STRUCTURED": {"FIT": structured[:32], "SELECT": structured[32:]},

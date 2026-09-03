@@ -18,6 +18,19 @@ def test_source_groups_partition_every_causal_edge_once():
     assert torch.equal(masks.to(torch.int8).sum(0), causal.expand(tokens.shape[0], -1, -1))
 
 
+def test_registered_structured_rows_select_documents_and_model_window():
+    class Census:
+        @staticmethod
+        def fineweb_rows(count):
+            assert count == 80
+            return torch.arange(80 * 513).reshape(80, 513)
+
+    selected = R.registered_structured_rows(Census)
+    assert selected.shape == (64, 257)
+    assert torch.equal(selected[0], Census.fineweb_rows(80)[16, :257])
+    assert torch.equal(selected[-1], Census.fineweb_rows(80)[79, :257])
+
+
 def test_subset_context_keeps_numerical_remainder_and_full_is_native():
     split = {
         "native_write": torch.tensor([[[7.0]]]),

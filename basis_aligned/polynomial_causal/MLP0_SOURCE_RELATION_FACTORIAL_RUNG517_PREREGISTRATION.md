@@ -159,3 +159,13 @@ their row coordinates are unrelated and a direct cosine would be meaningless—t
 by the rung514 task-space companion. Before implementing or observing any model outcome, the shared comparison object
 is corrected to the192 absolute-position profiles defined above. No source group, row, arm, threshold, prediction
 direction, or outcome-dependent choice changed.
+
+## First-execution input-shape repair — 2026-09-03 02:09 UTC
+
+The first scientific process exited when the facade rejected the structured batch before its first structured
+forward: `census_lib.fineweb_rows(80)` returns513-token rows, whereas this registered protocol and the observed-model
+facade require256 input tokens plus one next-token target. The prose phase had executed in memory, but no result file
+or scientific value was written or printed; only the shape traceback was inspected. The exact registered structured
+documents remain rows16--79, now explicitly cropped to columns0--256 before hashing and splitting. This is the same
+standard model window used by the prose rows and the registered scoring positions64--255. No document identity,
+group, arm, threshold, direction, control, or prediction changed.
