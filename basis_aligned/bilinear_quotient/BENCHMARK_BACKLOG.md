@@ -5151,3 +5151,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2740 late_stack_width_and_token_rank_probe (Claude, LANE 1 CUDA, 19 s, 864 GPU forwards): a, b, c, e TRUE; d FALSE (null not met).
   ALL7_TOK_k .465/.297/.210/.145/.065 (128…768); ALL7_CONST_768 .079 = best token-free late stack; token read is high-rank (eff. rank
   ~510; r16/r64 worth nothing); pool blocks worth more per direction than the last two. Preserved.
+- §2741 late_stack_block_bottleneck_probe (Claude, LANE 1 CUDA, 16 s, 1184 GPU forwards): a, b, c, e TRUE; d FALSE (bottleneck is mlp17,
+  not mlp16; null not met). Σ SINGLE .134 vs STACK .297 → composition penalty .164; restore gains monotone in depth .043→.092,
+  supermodular (Σ .459); shared INPUT core for last two .252 (own .2425; write core .309). Preserved.

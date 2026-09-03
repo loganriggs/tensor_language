@@ -1,0 +1,48 @@
+{"stage": "heads_done", "t": 7.5}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 7.9}
+{"stage": "shared_input_core", "shared_var_frac": {"16": 0.19540852170476058, "17": 0.46268939522270375}, "own_var_frac": {"16": 0.20827563554894057, "17": 0.46643890197250876}, "t": 7.9}
+{"stage": "arms", "STACK": 0.2973, "SINGLE_11": 0.0133, "SINGLE_12": 0.0162, "SINGLE_13": 0.0148, "SINGLE_14": 0.0169, "SINGLE_15": 0.0177, "SINGLE_16": 0.0202, "SINGLE_17": 0.0346, "STACK_MINUS_11": 0.254, "STACK_MINUS_12": 0.2455, "STACK_MINUS_13": 0.239, "STACK_MINUS_14": 0.2295, "STACK_MINUS_15": 0.2259, "STACK_MINUS_16": 0.2229, "STACK_MINUS_17": 0.2055, "SHARED_IN16_LAST2_CONST": 0.2519, "t": 15.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_composition_penalty_positive": true,
+  "pred_c_one_block_dominates": true,
+  "pred_d_bottleneck_is_mlp16": false,
+  "pred_e_input_shared_core_beats_write_core": true
+ },
+ "nulls": {
+  "b_null_penalty_le_0": false,
+  "c_null_max_gain_le_.04": false,
+  "d_null_argmax_in_11_13": false,
+  "e_null_shared_in16_ge_.30": false
+ },
+ "ce_added": {
+  "STACK": 0.2972751259803772,
+  "SINGLE_11": 0.01328355073928833,
+  "SINGLE_12": 0.01620274782180786,
+  "SINGLE_13": 0.014799803495407104,
+  "SINGLE_14": 0.01688334345817566,
+  "SINGLE_15": 0.017691314220428467,
+  "SINGLE_16": 0.020212024450302124,
+  "SINGLE_17": 0.03460201621055603,
+  "STACK_MINUS_11": 0.25397956371307373,
+  "STACK_MINUS_12": 0.24545592069625854,
+  "STACK_MINUS_13": 0.23900970816612244,
+  "STACK_MINUS_14": 0.22945478558540344,
+  "STACK_MINUS_15": 0.22593766450881958,
+  "STACK_MINUS_16": 0.22292819619178772,
+  "STACK_MINUS_17": 0.20547637343406677,
+  "SHARED_IN16_LAST2_CONST": 0.2518577575683594
+ },
+ "composition_penalty": 0.16360032558441162,
+ "restore_gain": {
+  "11": 0.04329556226730347,
+  "12": 0.05181920528411865,
+  "13": 0.05826541781425476,
+  "14": 0.06782034039497375,
+  "15": 0.07133746147155762,
+  "16": 0.07434692978858948,
+  "17": 0.09179875254631042
+ },
+ "argmax_block": 17
+}

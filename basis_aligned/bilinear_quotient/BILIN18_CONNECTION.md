@@ -70438,3 +70438,37 @@ token read ALL7_TOK_768 = .065; both are ordinary weight programs (Left·U_k, Ri
 **Limits.** Uniform k across blocks except the one allocation arm; one eval split; PCs and means on 96 docs; the token map's rank was
 truncated by plain SVD of the ridge solution (not refit at rank r) — a refit low-rank read could do better than the truncation, which
 bounds (ii) from one side only.
+
+## §2741 — WHERE THE LATE PROGRAM'S .297 LIVES: the seven blocks alone cost only Σ SINGLE = .134 (.013–.035 each); the stack costs .297 — a composition penalty of .164 (55% of the total is compounding, not per-block error); restoring one real block inside the stack gains .043/.052/.058/.068/.071/.074/.092 for mlp11…17 — MONOTONE IN DEPTH, the bottleneck is mlp17 (not mlp16 as registered: d FALSE, null not met), and the gains sum to .459 > .297 (supermodular: each block's error is amplified by every later one); the last two blocks on a SHARED 16-dim core from their pooled centred INPUT covariance (constant filler) cost .252 — within .01 of their own separate 16-PC bases (.2425, §2738) and .057 better than the write-derived shared core (.309): reuse across blocks is nearly free when the shared basis is taken on the INPUT side (Claude, LANE 1 CUDA, 16 s, 1184 GPU document-forwards): a, b, c, e TRUE; d FALSE. Preserved.
+
+Registered 2026-09-03 22:26Z (polynomial_causal/LATE_STACK_BLOCK_BOTTLENECK_PROBE_PREREGISTRATION.md); landed 22:28Z. Script
+ops/late_stack_block_bottleneck_probe.py; results late_stack_block_bottleneck_probe_results.json (sha 17a85795…). Frozen: prereg,
+§2739 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split; fits docs 96–191) — LOWER IS BETTER. k = 256, token filler, own weights, per-block centred input PCA.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); STACK .2973 (§2739/§2740 .297).
+
+**Arms.** SINGLE_l (only block l replaced): .0133/.0162/.0148/.0169/.0177/.0202/.0346 (mlp11…17), Σ = .1337. STACK_MINUS_l (block l
+real, six replaced): .2540/.2455/.2390/.2295/.2259/.2229/.2055. Restore gain STACK − STACK_MINUS_l: .0433/.0518/.0583/.0678/.0713/.0743/.0918.
+SHARED_IN16_LAST2_CONST .2519 (shared core carries 19.5% / 46.3% of mlp16 / mlp17's centred input variance vs 20.8% / 46.6% for each
+block's own top-16).
+
+**Scoring.** b penalty .164 ≥ .04 TRUE (null ≤ 0 not met). c max gain .092 ≥ .08 TRUE (null ≤ .04 not met). d argmax = 17 ≠ 16 FALSE
+(null argmax ∈ {11,12,13} not met). e .252 ≤ .28 TRUE (null ≥ .30 not met).
+
+**Reading.** (i) Alone, every late block is cheap at k = 256 (.013–.035); the program's cost is composition: .164 of .297. §2735
+measured the same thing for two blocks (κ = .102 of π = .180); here it is the seven-block version, and it is supermodular — the
+restore gains sum to .459, 1.5× the stack — so each block's error is amplified by every block after it, and the LAST block's
+(cheap alone, .035) restoration is worth the most (.092) because it is the one that receives the whole accumulated error. (ii) That
+inverts the registered guess: input effective rank (mlp16 544 vs mlp17 155, §2738) does not order the bottleneck; position does.
+The right per-block width allocation is therefore not "wide where the input is high-rank" but "wide late" — mlp17's marginal value
+per direction inside the stack is the largest, which qualifies §2740 (iii) (that allocation arm widened the pool, not the tail; both
+directions remain to be priced together). (iii) Reuse: a shared 16-dim INPUT core for the last two costs .01 over separate bases,
+where the shared WRITE core cost .066 (§2738 d). The write core (§2731) was the right object for compiling the program's OUTPUT
+polynomial; for the INPUT subspace the two blocks read nearly the same 16 directions — the compositional unit for the last two is a
+shared input core plus per-block constants, at no measurable price. (iv) Consequence for the polynomial compile (§2731–§2739): the
+exact 16-dim compile on the shared input core would be .252 with no token term and no filler fit, vs .246 (§2731, write core + token
+filler) — the same program with one basis for both blocks and nothing fitted.
+
+**Limits.** k fixed at 256 and the token filler on for all decomposition arms; one split; the shared input core tested only for the
+last two (pool-wide shared cores are the next question); restore gains are one-block-at-a-time (pairwise interactions not measured).
