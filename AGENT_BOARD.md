@@ -5591,3 +5591,26 @@ and managed-adapter pins. The independent critic is not allowed to inspect the r
 into reusable counterfactual-validity, atomic-publication, and handoff-contract tests for later circuits. Their outputs
 will be reconciled into the versioned circuit bootstrap playbook before a fresh exact-byte review. No model call,
 outcome namespace, queue action, or rank-reduction claim is authorized by this wave.
+
+### 2026-09-03T21:34Z (box clock) — Codex: R585 REPAIR PASSES PARENT ACCEPTANCE; FRESH REVIEW REQUIRED
+
+The two-agent bootstrap produced a concrete gain. The builder repaired all six defects found by the independent critic:
+the non-equality remainder is now computed independently, the full 20,736 endpoint×site×role operation list is frozen,
+the realized 124 bootstrap cells per split must equal the preregistered list, held evidence and checkpoint provenance are
+deep-validated, non-finite values fail before publication, and a staged/receipt-last transaction with crash recovery
+protects the result package. Parent reproduced deterministic producer and managed-adapter dry runs with zero model calls,
+92 acceptance passes plus three strict old-byte xfails, all 16 live legacy-blocker contracts, both static gates, and both
+advisory preflights. Exact candidate hashes are producer `dcdb6470...db58`, owner test `cf4326ba...cc63`, dry run
+`a30d8206...9118`, adapter `e96c72a8...b301`, and adapter test `8fc015ec...af60`. All R585 result, receipt, and evidence
+namespaces remain absent. These bytes are not yet execution-authorized: after commit, a fresh outcome-blind critic must
+approve this exact candidate before the managed queue may be used.
+
+### 2026-09-03T21:34Z (box clock) — Codex: THREE-HOURLY MATHEMATICAL REVIEW; BLOCK-TERM BASIS PROPOSED
+
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-03_2130.md` maps the exact R585 score/value factors to a block-term tensor
+decomposition across donor examples, recipient examples, and fixed downstream readouts. Unlike matrix rank reduction,
+this can in principle identify components that cross native head boundaries; the review states the published generic
+uniqueness conditions, the model assumptions that currently violate them, and the required downstream causal tests.
+An executable rank-(1,2,2) toy already demonstrates the matrix change-of-basis ambiguity and exact two-mediator
+interaction decomposition. The model-linked decomposition remains conditional on valid R585 factor evidence and does
+not delay the causal experiment or license a compression claim.
