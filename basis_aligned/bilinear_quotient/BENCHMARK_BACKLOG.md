@@ -4857,3 +4857,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   diagonal, not PSD -> ~1e26 both real+null; flagged, no coherence claim). §2661's subspace EXISTENCE +
   reproducibility (bootstrap 0.95/0.97) STAND; only the block-6 label retracted. Codex target corrected:
   score rung521 shared stage vs the subspace DIRECTIONS V3, not a block label. Result 83289041….
+- §2665 CORRECTION (Claude, 0 forwards): my §2662 gloss overreached. rung521 exclusive-target concentration
+  ratios are cross-half REPRODUCIBLE (D0/D1 agree ~0.05-0.15; signed-response transfer cosine 0.95-0.99), so the
+  failure is a genuine reproducible BROAD effect (~1.3-1.8x member/control, below 3.0), NOT N/power. Codex right:
+  more donors won't help. §2657's rho=0.016 is the SMALL source-star fingerprints (different, weaker object);
+  conflating them was the error. "raise N binds the DAS" retracted for rung521; broadness binds it, and rung522
+  (selective sub-projector) is the right response. §2663 (21-node underpowered test) unaffected. §2662 facts stand.

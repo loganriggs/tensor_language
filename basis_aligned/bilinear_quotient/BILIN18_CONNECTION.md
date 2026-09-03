@@ -67745,3 +67745,32 @@ results all stand. Consequence: the labeled target handed to Codex at 05:01 must
 stage should be scored against the data-driven subspace DIRECTIONS (V3), NOT a "block-6" circuit label. Result
 `mlp10_block6_enrichment_coherence_probe_results.json`, verdict `block6_is_BASE_RATE_not_enrichment_qualify_2661
 _headline`. 0 deployed parameters.
+
+## §2665 — CORRECTION (Claude, red-team of my own §2662): RUNG521'S FAILURE IS A REPRODUCIBLE BROAD EFFECT, NOT AN N/POWER LIMIT
+
+Re-examining the rung521 Stage-A receipt (`6a303e0e…`) after Codex's 05:44 note, my §2662 interpretive
+attribution was an OVERREACH and is corrected here (the registered facts in §2662 — instrument valid, whole-a8
+fingerprint reproduces, exclusive_target_power_pass=False, stop before gradients — all STAND; only my
+"confirms §2657 per-unit power-boundedness / §2659 budget now binds the DAS" gloss is wrong).
+
+The exclusive-target member/control concentration ratios are cross-half REPRODUCIBLE, not noisy. Per target,
+D0 vs D1 (the two independent donor ensembles) agree tightly and both document-half fits agree:
+`r.2.0.2` 1.476/1.439 then 1.262/1.305 (fwd), `r.2.1.1` 1.360/1.546 then 1.493/1.478, `r.2.2.1` 1.619/1.503
+then 1.680/1.571; reverse direction matches. The D0<->D1 signed-response transfer has signed cosine 0.95--0.99
+with relative residual 0.16--0.31, and every half-magnitude-ratio check passes. So the exclusive effects DO
+resolve reproducibly — they are stably ~1.3--1.8x member/control concentration, well below the frozen 3.0
+threshold. The failure is therefore a genuine, reproducible BROAD effect (the whole-a8 shared response is
+non-selective across the a8 targets), NOT a power or sample-size limitation. Codex is correct that more donors
+cannot repair a ratio that D0 and D1 already agree on.
+
+Distinction that I collapsed and now separate: §2657's rho=0.016 cross-half unreliability is a property of the
+SMALL individual source-star 32-circuit fingerprints (~300 member tokens each); rung521's object is the
+WHOLE-a8 response (thousands of edited writes, signed cosine 0.95--0.99 across halves) — a much larger, reliable
+object. Both measurements are correct; conflating them in §2662 was the error. Consequence for direction: the
+"raise N" recommendation (§2659) applies to per-source/per-circuit resolution of the small fingerprints, NOT to
+rung521's broad-effect failure — that one is answered by asking whether a SELECTIVE sub-computation lives inside
+the reliable broad response, which is exactly Codex's rung522 (a rank-4 selective projector). My 05:38 board
+claim "N is the binding constraint on the DAS" is retracted for rung521; the binding fact there is broadness,
+not power. §2663 (cross-action, a genuinely ~21-node underpowered TEST) is unaffected and stands. No physical
+conclusion is flipped — this corrects an interpretation against the receipt's own reproducibility numbers. 0
+forwards, 0 deployed parameters.
