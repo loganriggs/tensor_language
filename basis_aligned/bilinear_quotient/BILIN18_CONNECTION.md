@@ -70567,3 +70567,38 @@ are lower-rank (mlp1–3: 297–386) — the price cliff of the model is in the 
 
 **Limits.** k = 768 for the cross-depth tests only; one split; means and cores on 96 docs; no attention blocks (next rung); the early
 blocks were not tested at smaller k (their own-basis curve is unpriced).
+
+## §2745 — THE LATE ATTENTION BLOCKS READ THE SAME INPUT CORE AS THE LATE MLPS, AND BARELY NEED IT: attention 11–17 recomputed from their own top-768 input PCs (+ own mean) cost .0075; on the MLPs' shared core .0084 (+.0008, c TRUE); the joint late program — all FOURTEEN late sublayers (7 MLPs + 7 attention blocks) on ONE shared input subspace + 14 constants + own weights — costs .109 / .059 / .023 at k = 768 / 896 / 1024 (d, e TRUE); attention on a projected input is near-free because the score is a product of two rms-normed per-head projections (the projection loses ~1% of variance and the normalisation absorbs it); the joint composition penalty is .017 (Claude, LANE 1 CUDA, 13 s, 672 GPU document-forwards; IDENTITY recompute = 0.0 exactly): a–e ALL TRUE; no null met. Preserved.
+
+Registered 2026-09-03 22:36Z (polynomial_causal/LATE_ATTENTION_SHARED_INPUT_CORE_PROBE_PREREGISTRATION.md); landed 22:38Z. Script
+ops/late_attention_shared_input_core_probe.py; results late_attention_shared_input_core_probe_results.json (sha 0711ac84…). Frozen:
+prereg, §2742 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63
+(FRESH split; fits docs 96–191) — LOWER IS BETTER. Attention block l is recomputed from h = x̄_l + UUᵀ(x̂ − x̄_l) with its own
+c_q/c_k/c_q2/c_k2/c_v/c_proj and the block-0 value residual recomputed exactly from the token embedding; the IDENTITY arm (no
+projection) reproduces the real model to 0.0.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); IDENTITY 0.0; MLP7_SHARED_768 .0840 (§2742 .084).
+
+**Arms (k = 768 unless stated).** ATTN7_OWN .0075; ATTN7_ON_MLP_CORE .0084; ATTN7_SHARED .0084; LATE14_JOINT_768/896/1024
+.1093/.0589/.0230. Attention-input effective ranks attn11…17: 555/548/552/570/589/548/209 (MLP inputs 527–580, mlp17 155). Capture
+ratio at 768 under the joint core: .964–.993 for all fourteen sites; the MLP, attention and joint cores are interchangeable (all
+capture ratios agree to .002).
+
+**Scoring.** b .0075 ≤ .10 TRUE (null ≥ .30 not met). c +.0008 ≤ .03 TRUE (null ≥ .10 not met). d .109 ≤ .25 TRUE (null ≥ .45 not
+met). e .023 ≤ .08 TRUE (null ≥ .20 not met).
+
+**Reading.** (i) One input coordinate system for the entire late stack: fourteen sublayers, one U ∈ ℝ^{1152×k}, fourteen constants,
+own weights. At k = 1024 it is .023 above the real model; at 896, .059; at 768, .109. The joint penalty over the two halves is .017.
+(ii) Attention is almost indifferent to the projection (.0075 for seven blocks at 768) where the MLPs pay .084: attention's input
+enters through per-head rms-normed q/k projections and a value projection, and a 1% variance loss in the input barely moves a
+normalised 128-dim head vector; the bilinear MLP has no such normalisation on its Left/Right products — it is the MLPs, not
+attention, that set the width (§2740's steep curve). This matches the earlier structural finding that attention is the
+compressible half (§2679) from the input side too. (iii) The compositional statement is now complete for the late stack: the
+reusable component across all fourteen late sublayers is the input coordinate system (not an operator); §2742 established it for
+the MLPs, this entry for attention, with the three cores (MLP-pooled, attention-pooled, joint) identical to within .002 in capture.
+(iv) Program price at k = 768: per MLP block Left·U, Right·U (H×768 each) + Down + constant; per attention block c_q·U, c_k·U,
+c_q2·U, c_k2·U, c_v·U (D×768 each) + c_proj + constant; one U. Everything else is the real model's early stack (blocks 0–10 intact).
+
+**Limits.** One split; k = 768 for the own/shared comparisons only; the joint core is the plain covariance average; block-0's v1
+residual is computed from the real embedding (it is not part of the late program's input); no low-k attention curve (attention's own
+width knob is unpriced — likely far below 768 given .0075).

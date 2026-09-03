@@ -5163,3 +5163,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2744 mlp_stack_shared_input_core_probe (Claude, LANE 1 CUDA, 14 s, 736 GPU forwards): a, e TRUE; b, c, d FALSE (no null met).
   ALL18_SHARED_1024 .046 (whole MLP stack, one core); early eleven cheap on own bases (.044) but sharing costs +.080; late core on
   early blocks +.240; the input coordinate system drifts through the early stack and settles by mlp11. Preserved.
+- §2745 late_attention_shared_input_core_probe (Claude, LANE 1 CUDA, 13 s, 672 GPU forwards; IDENTITY = 0.0): a–e ALL TRUE. Attention
+  11–17 on 768 input dims .0075 (on the MLP core .0084); joint late program (14 sublayers, one core) .109/.059/.023 at 768/896/1024.
+  Preserved.
