@@ -70280,3 +70280,47 @@ registered here and is the next rung. Until it lands, "the real blocks hang on q
 
 **Limits.** Five-point Spearman is coarse (only .1 granularity); three random seeds; one eval split; the ablation is applied to both
 blocks together (no per-block split).
+
+## §2737 — q₁ IS A BIAS CARRIER, NOT A CHANNEL — AND SO IS MOST OF THE 16-DIM CORE: pinning x̂·q₁ to its fit-set mean (variation removed, constant kept) costs .050 (zeroing it: 2.003, reproduced; removing only the constant: .407); x̂·q₁ has mean −15.5 vs σ 1.4 in mlp16's input (m²/σ² = 126) and −5.2 vs 1.5 in mlp17's (11.9); pinning ALL 16 core coordinates to their means costs only .176 (zeroing them: 2.09), and pinning the five shared square directions costs .173 = 98% of that — the five carry essentially all of the core's per-token information into the last two blocks, five random core directions .038; in mlp16's input the core's squared mean is 20× its total variance (2.5× in mlp17's) (Claude, LANE 1 CUDA, 18 s, 1,504 GPU document-forwards): a, b, c, e TRUE; d FALSE (null not met). Preserved. Correction recorded below: the arm labelled PROG_SHARED8 in this script is the UNPROJECTED 16-dim program (.252), not the rank-8-projected one (.246) — a script label error, inside the registered instrument tolerance by accident.
+
+Registered 2026-09-03 22:09Z (polynomial_causal/LATE_SQUARE_DIRECTION_MEAN_CONTROL_PROBE_PREREGISTRATION.md); ran and landed 22:11Z.
+Script ops/late_square_direction_mean_control_probe.py; results late_square_direction_mean_control_probe_results.json (sha d6f432f9…).
+Frozen: prereg, §2732 results (a790b0f5…), §2736 results (78f58a79…), checkpoint, fit_natural.pt. Sign convention (§2135): every number
+is CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. All arms patch mlp16 and
+mlp17 together; "pin" = replace the coordinate along q by its fit-set mean for that block.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); REAL_ZERO_q1 2.0031 (§2736 2.003); "PROG_SHARED8" .2519 within .02 of .246 —
+but see the correction: this arm is the un-projected 16-dim polynomial (Prog here applies no Π), so the .006 gap is the (small)
+regularising effect of the rank-8 square-space projection, not reproduction noise.
+
+**Fit-set coordinate statistics (x̂ · q_j, j = 1..8).** mlp16 input: means −15.5 / 1.6 / −3.1 / 8.8 / −4.0 / 8.8 / −1.9 / 2.2; σ 1.4 /
+2.2 / 2.2 / 1.6 / 1.4 / 1.7 / 1.5 / 1.4; m²/σ² 126 / .5 / 1.9 / 30 / 8.5 / 26 / 1.5 / 2.3; core ‖mean‖² / total core variance = 19.9.
+mlp17 input: means −5.2 / 3.0 / .6 / 1.8 / −11.0 / 4.9 / −6.1 / 5.6; σ 1.5 / 5.8 / 5.0 / 2.9 / 3.7 / 4.9 / 4.6 / 5.0; m²/σ² 11.9 / .3 /
+0 / .4 / 8.8 / 1.0 / 1.8 / 1.3; core ratio 2.5.
+
+**Arms.** REAL_MEANONLY_q1 .407; REAL_MEANABL_q1 .050, q₂ .049, q₃ .019, q₄ .035, q₅ .009; top5 pinned .173; core16 pinned .176;
+rand5 pinned .038 / .058 / .031 (median .038). Program (16-dim, unprojected) .252; with c_j pinned: u₁ .386 (+.134), u₂ .348 (+.096),
+u₃ .300 (+.048), u₄ .281 (+.029), u₅ .276 (+.024).
+
+**Scoring.** b .050 ≤ 1.0 TRUE (null ≥ 1.6 not met). c min(126, 11.9) ≥ 2.0 TRUE (null not met). d .050 ≥ .10 FALSE; null (≤ .03) not
+met — q₁'s per-token variation is worth exactly as much as q₂'s (.049), not more than every other direction. e .173 / .038 = 4.5 ≥ 2.0
+TRUE (null not met).
+
+**Reading.** (i) §2736's 2.0 nats was the constant. The last two blocks' bilinear form reads a fixed offset of ≈ −15 (mlp16) / −5
+(mlp17) along q₁ and multiplies the rest of the input by it — A[q₁,·]·m₁ is the blocks' effective LINEAR term, and removing it is what
+was catastrophic. q₁'s per-token content is worth .05, the same as q₂'s. §2736's "critical direction" reading is therefore corrected
+to "critical constant"; the ordering claim (ρ = .70) was about zeroing costs and is moot. Nothing else in §2736 flips (b, c, e were
+statements about zeroing and remain true as stated). (ii) The same holds for the whole core: the 16-dim late core P — top eigvectors
+of the pooled UNCENTRED second moment of the late writes — is 20× mean-dominated at mlp16's input. Its per-token information content
+for the last two blocks is .176; its constant content ≈ 1.9. The exact compile (§2727) handles the constant correctly (it is in c), but
+it spends core dimensions on offsets. (iii) The compositional-reuse result sharpens: the five shared square directions carry 98% of
+the core's per-token information into mlp16/17 (.173 of .176), versus .038 for five random core directions — the five are the core's
+information channels; the other eleven are (mostly) offsets. (iv) Next rung, priced below: recompute the core from the CENTRED pooled
+covariance, carry the mean as a constant in the filler (xbar_perp does this exactly), and re-run the compile — the prediction is that
+16 centred dimensions carry more information and the program improves.
+
+**Correction (script label).** The arm named PROG_SHARED8 here is Prog(A) with no square-space projection Π; the earlier scripts'
+PROG_SHARED8 is Prog(Π A Π), rank 8. The registered instrument bar (within .02 of .246) was met (.252) so pred_a stands as written,
+but the reproduction it certifies is of the 16-dim program, not the rank-8 one. Recorded; nothing depends on it.
+
+**Limits.** Pin values are fit-set means (96 docs); one eval split; both blocks pinned together; three random seeds.

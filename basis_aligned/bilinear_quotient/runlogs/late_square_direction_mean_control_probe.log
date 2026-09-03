@@ -1,0 +1,45 @@
+{"stage": "fit_cov", "t": 7.3}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 9.4}
+{"stage": "stats", "b16": {"mean_q": [-15.492, 1.619, -3.072, 8.746, -3.961], "std_q": [1.382, 2.184, 2.207, 1.609, 1.362]}, "b17": {"mean_q": [-5.237, 2.964, 0.561, 1.842, -10.984], "std_q": [1.518, 5.798, 4.97, 2.935, 3.709]}, "t": 10.1}
+{"stage": "arms", "REAL_ZERO_q1": 2.0031, "REAL_MEANONLY_q1": 0.4065, "REAL_MEANABL_q1": 0.0503, "REAL_MEANABL_q2": 0.0494, "REAL_MEANABL_q3": 0.0194, "REAL_MEANABL_q4": 0.0353, "REAL_MEANABL_q5": 0.0091, "REAL_MEANABL_top5": 0.1729, "REAL_MEANABL_core16": 0.1761, "REAL_MEANABL_rand5_s0": 0.0381, "REAL_MEANABL_rand5_s1": 0.0584, "REAL_MEANABL_rand5_s2": 0.031, "PROG_SHARED8": 0.2519, "PROG_SHARED8_meanpin_u1": 0.3858, "PROG_SHARED8_meanpin_u2": 0.3477, "PROG_SHARED8_meanpin_u3": 0.3004, "PROG_SHARED8_meanpin_u4": 0.2811, "PROG_SHARED8_meanpin_u5": 0.2763, "t": 18.3}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_constant_carries_most": true,
+  "pred_c_q1_is_mean_dominated": true,
+  "pred_d_q1_still_informative": false,
+  "pred_e_five_beat_random_mean_preserved": true
+ },
+ "nulls": {
+  "b_null_meanabl_q1_ge_1.6": false,
+  "c_null_dominance_le_1_either_block": false,
+  "d_null_meanabl_q1_le_.03": false,
+  "e_null_ratio_le_1.2": false
+ },
+ "ce_added": {
+  "REAL_ZERO_q1": 2.0030934810638428,
+  "REAL_MEANONLY_q1": 0.4064972400665283,
+  "REAL_MEANABL_q1": 0.050297707319259644,
+  "REAL_MEANABL_q2": 0.049420326948165894,
+  "REAL_MEANABL_q3": 0.019402682781219482,
+  "REAL_MEANABL_q4": 0.03531467914581299,
+  "REAL_MEANABL_q5": 0.009062349796295166,
+  "REAL_MEANABL_top5": 0.1728716790676117,
+  "REAL_MEANABL_core16": 0.1760781705379486,
+  "REAL_MEANABL_rand5_s0": 0.03813478350639343,
+  "REAL_MEANABL_rand5_s1": 0.05835887789726257,
+  "REAL_MEANABL_rand5_s2": 0.031023085117340088,
+  "PROG_SHARED8": 0.2519269287586212,
+  "PROG_SHARED8_meanpin_u1": 0.38577210903167725,
+  "PROG_SHARED8_meanpin_u2": 0.34765443205833435,
+  "PROG_SHARED8_meanpin_u3": 0.30043894052505493,
+  "PROG_SHARED8_meanpin_u4": 0.28112614154815674,
+  "PROG_SHARED8_meanpin_u5": 0.2763077914714813
+ },
+ "mean_fraction_q1": 0.20293473265692905,
+ "info_fraction_q1": 0.02511001498170047,
+ "mean_dominance_q1": [
+  125.68327219345679,
+  11.903685783584558
+ ]
+}

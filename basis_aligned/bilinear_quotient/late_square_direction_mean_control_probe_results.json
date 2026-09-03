@@ -1,0 +1,155 @@
+{
+ "rung": "late_square_direction_mean_control_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_constant_carries_most": true,
+  "pred_c_q1_is_mean_dominated": true,
+  "pred_d_q1_still_informative": false,
+  "pred_e_five_beat_random_mean_preserved": true
+ },
+ "nulls": {
+  "b_null_meanabl_q1_ge_1.6": false,
+  "c_null_dominance_le_1_either_block": false,
+  "d_null_meanabl_q1_le_.03": false,
+  "e_null_ratio_le_1.2": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "anchor_tol": 0.05,
+  "b_max": 1.0,
+  "c_min": 2.0,
+  "d_min": 0.1,
+  "e_min": 2.0
+ },
+ "null_bars": {
+  "b_min": 1.6,
+  "c_max": 1.0,
+  "d_max": 0.03,
+  "e_max": 1.2
+ },
+ "device": "cuda",
+ "square_space_rank": 8,
+ "token_read_rank": 8,
+ "n_top": 5,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "prog_shared8": 0.2519269287586212,
+  "prior_prog": 0.246,
+  "real_zero_q1": 2.0030934810638428,
+  "prior_zero_q1": 2.003
+ },
+ "ce_added": {
+  "REAL_ZERO_q1": 2.0030934810638428,
+  "REAL_MEANONLY_q1": 0.4064972400665283,
+  "REAL_MEANABL_q1": 0.050297707319259644,
+  "REAL_MEANABL_q2": 0.049420326948165894,
+  "REAL_MEANABL_q3": 0.019402682781219482,
+  "REAL_MEANABL_q4": 0.03531467914581299,
+  "REAL_MEANABL_q5": 0.009062349796295166,
+  "REAL_MEANABL_top5": 0.1728716790676117,
+  "REAL_MEANABL_core16": 0.1760781705379486,
+  "REAL_MEANABL_rand5_s0": 0.03813478350639343,
+  "REAL_MEANABL_rand5_s1": 0.05835887789726257,
+  "REAL_MEANABL_rand5_s2": 0.031023085117340088,
+  "PROG_SHARED8": 0.2519269287586212,
+  "PROG_SHARED8_meanpin_u1": 0.38577210903167725,
+  "PROG_SHARED8_meanpin_u2": 0.34765443205833435,
+  "PROG_SHARED8_meanpin_u3": 0.30043894052505493,
+  "PROG_SHARED8_meanpin_u4": 0.28112614154815674,
+  "PROG_SHARED8_meanpin_u5": 0.2763077914714813
+ },
+ "coord_stats_fit": {
+  "16": {
+   "mean_q": [
+    -15.491559206507674,
+    1.6193120465204347,
+    -3.0723825604919845,
+    8.74561492138354,
+    -3.960754075522644,
+    8.844570384794222,
+    -1.8486594981040014,
+    2.1515210983505555
+   ],
+   "std_q": [
+    1.3818356459799466,
+    2.184302447950353,
+    2.2074868575151556,
+    1.6087624976977155,
+    1.3616995210281153,
+    1.725867409089823,
+    1.493363227257606,
+    1.433137194379298
+   ],
+   "mean_dominance_q": [
+    125.68327219345679,
+    0.5495858574970922,
+    1.93711020608474,
+    29.552677499538525,
+    8.460444602247259,
+    26.262655047223213,
+    1.5324381207355213,
+    2.253801603750404
+   ],
+   "core_mean_sq_over_var": 19.905338912561476
+  },
+  "17": {
+   "mean_q": [
+    -5.23668297546906,
+    2.9638535662364585,
+    0.5606994057862005,
+    1.8419559621014965,
+    -10.983860083288619,
+    4.881223225217064,
+    -6.082828792858275,
+    5.628390010462959
+   ],
+   "std_q": [
+    1.5178035198093565,
+    5.79802858065828,
+    4.969565646334353,
+    2.9354475821101387,
+    3.7086841816565177,
+    4.886019716061951,
+    4.546745041607606,
+    4.9929231537976095
+   ],
+   "mean_dominance_q": [
+    11.903685783584558,
+    0.2613080457863687,
+    0.012729851222721023,
+    0.3937402622872498,
+    8.771427543656165,
+    0.9980376106433216,
+    1.789822578069803,
+    1.2707455671249512
+   ],
+   "core_mean_sq_over_var": 2.5249045972138684
+  }
+ },
+ "mean_fraction_q1": 0.20293473265692905,
+ "info_fraction_q1": 0.02511001498170047,
+ "mean_dominance_q1": [
+  125.68327219345679,
+  11.903685783584558
+ ],
+ "random5_median": 0.03813478350639343,
+ "top5_over_random": 4.533175835091057,
+ "price": {
+  "gpu_doc_forwards": 1504,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 18.270203590393066
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_SQUARE_DIRECTION_MEAN_CONTROL_PROBE_PREREGISTRATION.md": "e27c805c4cd67de9eb6050bcded5f2bd21ed6a5a0111369f96b4b7182d6feb7f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_stack_extracted_program_probe_results.json": "a790b0f5e093e5625c690c19dbda9a4e36ab64a3ba41c4306b8d2de8e00dd68c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_square_directions_ablation_probe_results.json": "78f58a79099a39924498c5f6e4d8e9784e98f8302398ee8d6bf3c06c661a2cc7",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "013caae7db2a746e3b2942bd08b35c6d2d3949af2a22632c213bbd0ae5ad9dce"
+}
