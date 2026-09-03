@@ -1,0 +1,31 @@
+{
+  "all_stage_a_checks_pass": true,
+  "dimensions": {
+    "input": 12,
+    "output": 17,
+    "product": 24,
+    "subspace": 3
+  },
+  "final_loss": 7.957165832837653e-30,
+  "fit_pairs": 768,
+  "heldout_pairs": 384,
+  "heldout_projected_interchange_relative_error": 4.640882831055962e-16,
+  "initial_loss": 80.40100708476764,
+  "maximum_basis_gauge_error": 8.526512829121202e-14,
+  "maximum_interchange_compilation_error": 9.947598300641403e-14,
+  "maximum_weight_compilation_error": 8.526512829121202e-14,
+  "model_loaded": false,
+  "new_model_forwards": 0,
+  "optimizer": {
+    "learning_rate": 0.04,
+    "steps": 1200
+  },
+  "pred_a_exact_weight_compilation": true,
+  "pred_b_exact_interchange_compilation": true,
+  "pred_c_basis_gauge": true,
+  "pred_d_planted_recovery": true,
+  "projector_overlap": 0.9999999999999997,
+  "real_model_das_authorized": false,
+  "rung": 536,
+  "status": "cpu_stage_a_complete"
+}

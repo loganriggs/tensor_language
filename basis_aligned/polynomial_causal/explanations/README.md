@@ -11,6 +11,12 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1318.md](explanation_2026-09-03_1318.md) — full plain-language update: the exact
+  double-query/key attention computation, rung533's invalid full identification but strong shared copy signal and
+  false-match/background differences, and rung534's valid interaction-only result showing that the gauge-invariant
+  target remainder contains relation-specific information but is not an autonomous circuit; derives product-space
+  DAS and its exact quadratic-weight compilation, reports the passing planted recovery test, includes percentage
+  graphs, and explains why the separate cross-block MLP input-rank screen is not circuit interpretation
 - [explanation_2026-09-03_1310.md](explanation_2026-09-03_1310.md) — rung533's audited cross-corpus result: the
   factor mappings retain the useful copy effect and beat every matched key control, but the complete-product positive
   control fails OOD matched-negative specificity, so four-way identification is invalid; derives rung534's exact,

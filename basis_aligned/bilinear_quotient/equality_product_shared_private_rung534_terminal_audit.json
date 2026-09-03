@@ -1,0 +1,178 @@
+{
+ "status": "audit_passed",
+ "rung": 534,
+ "artifact_hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_product_shared_private_rung534_results.json": "8804dca2cbd0203a6ef9517a15ec7a4186ed5e69ec8c284b854967c8e13197a7",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_product_shared_private_rung534_bundle.pt": "77ca551a19004abade5ec5dcc79023a01f3d9c5d97ca693c012ca74f512cef80",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_product_shared_private_rung534.py": "fdfb3b0ba8a7a5639cb75677e26e33e24b346f6bd7f45de20f40a70090ab5e88",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EQUALITY_PRODUCT_SHARED_PRIVATE_RUNG534_PREREGISTRATION.md": "47d738db728c24b8b8d1105e8467905815312fc6d207edad8680a46b8d7de428",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/runlogs/equality_product_shared_private_rung534.log": "e0e58eeb8b578423446dc956bcbd2b00825c5ee7c24cb177319ee380109d75f4"
+ },
+ "recomputed_predictions": {
+  "pred_a_exact_live_instrument": true,
+  "pred_b_shared_signal_premise_reproduces": true,
+  "pred_c_private_correction_autonomous_on_code": false,
+  "pred_d_private_correction_key_specific": false,
+  "pred_e_private_correction_transfers_to_natural": false,
+  "pred_f_private_correction_survives_redundant_donor": false
+ },
+ "recomputed_checks": {
+  "shared_premise_code_absent_halves_passing": 2,
+  "private_autonomy_code_absent_halves_passing": 0,
+  "private_with_controls_code_absent_halves_passing": 0,
+  "private_with_controls_natural_absent_halves_passing": 0,
+  "private_with_controls_donor_present_contexts_passing": 1,
+  "context_detail": {
+   "final_natural/donor_present/half0": {
+    "private_base_cells_passing": 0,
+    "private_control_cells_passing": 4
+   },
+   "final_natural/donor_present/half1": {
+    "private_base_cells_passing": 0,
+    "private_control_cells_passing": 4
+   },
+   "final_natural/donor_absent/half0": {
+    "private_base_cells_passing": 0,
+    "private_control_cells_passing": 4
+   },
+   "final_natural/donor_absent/half1": {
+    "private_base_cells_passing": 0,
+    "private_control_cells_passing": 4
+   },
+   "ood_code/donor_present/half0": {
+    "private_base_cells_passing": 2,
+    "private_control_cells_passing": 4
+   },
+   "ood_code/donor_present/half1": {
+    "private_base_cells_passing": 1,
+    "private_control_cells_passing": 4
+   },
+   "ood_code/donor_absent/half0": {
+    "private_base_cells_passing": 1,
+    "private_control_cells_passing": 4
+   },
+   "ood_code/donor_absent/half1": {
+    "private_base_cells_passing": 1,
+    "private_control_cells_passing": 4
+   }
+  }
+ },
+ "registered_outcome": "interaction_only_correction_strong_null",
+ "strong_null_recomputed": true,
+ "private_vs_marginal_metrics": {
+  "final_natural/donor_present/half0": {
+   "positive": {
+    "cosine": 0.5186385888154253,
+    "relative_error": 1.2610828887584185,
+    "reference_rms": 0.02183085965350836,
+    "candidate_rms": 0.03155938051543645
+   },
+   "matched_negative": {
+    "cosine": 0.15555780466801877,
+    "relative_error": 1.543387163769301,
+    "reference_rms": 0.02738844967576225,
+    "candidate_rms": 0.036739102618124186
+   }
+  },
+  "final_natural/donor_present/half1": {
+   "positive": {
+    "cosine": 0.7177488234950321,
+    "relative_error": 1.082927677517716,
+    "reference_rms": 0.0266643835328009,
+    "candidate_rms": 0.041253630862284375
+   },
+   "matched_negative": {
+    "cosine": 0.31404794109349354,
+    "relative_error": 1.2607339767954997,
+    "reference_rms": 0.033664514263369104,
+    "candidate_rms": 0.038497108122576375
+   }
+  },
+  "final_natural/donor_absent/half0": {
+   "positive": {
+    "cosine": 0.546970775514922,
+    "relative_error": 1.090619907012928,
+    "reference_rms": 0.02707330245931854,
+    "candidate_rms": 0.03373308223078463
+   },
+   "matched_negative": {
+    "cosine": 0.4185637876002211,
+    "relative_error": 1.2201053152935268,
+    "reference_rms": 0.028494933576718652,
+    "candidate_rms": 0.03514380757861567
+   }
+  },
+  "final_natural/donor_absent/half1": {
+   "positive": {
+    "cosine": 0.9144531514808928,
+    "relative_error": 0.9284638550182003,
+    "reference_rms": 0.05679816279260458,
+    "candidate_rms": 0.09940124263341839
+   },
+   "matched_negative": {
+    "cosine": 0.4857863480011606,
+    "relative_error": 1.038741777079525,
+    "reference_rms": 0.03594964217473466,
+    "candidate_rms": 0.03763966264690565
+   }
+  },
+  "ood_code/donor_present/half0": {
+   "positive": {
+    "cosine": 0.927576184177764,
+    "relative_error": 0.4688249254758096,
+    "reference_rms": 0.05996001526177248,
+    "candidate_rms": 0.07259732725748906
+   },
+   "matched_negative": {
+    "cosine": 0.8724243364985436,
+    "relative_error": 0.5041269722860908,
+    "reference_rms": 0.07283796581662255,
+    "candidate_rms": 0.07254581304079488
+   }
+  },
+  "ood_code/donor_present/half1": {
+   "positive": {
+    "cosine": 0.8227737900365322,
+    "relative_error": 0.7236089567679976,
+    "reference_rms": 0.04636345998629217,
+    "candidate_rms": 0.05891036044545821
+   },
+   "matched_negative": {
+    "cosine": 0.9279286228384779,
+    "relative_error": 0.40335715481309375,
+    "reference_rms": 0.08866114444792429,
+    "candidate_rms": 0.09593438892438903
+   }
+  },
+  "ood_code/donor_absent/half0": {
+   "positive": {
+    "cosine": 0.9217899990025006,
+    "relative_error": 0.6652571106860308,
+    "reference_rms": 0.0975907944945424,
+    "candidate_rms": 0.1427171977923186
+   },
+   "matched_negative": {
+    "cosine": 0.8605956806966095,
+    "relative_error": 0.5795898027566989,
+    "reference_rms": 0.08607465580867141,
+    "candidate_rms": 0.09789021498541435
+   }
+  },
+  "ood_code/donor_absent/half1": {
+   "positive": {
+    "cosine": 0.8940647487692889,
+    "relative_error": 0.7776785983796742,
+    "reference_rms": 0.06677824397593131,
+    "candidate_rms": 0.10215612168928935
+   },
+   "matched_negative": {
+    "cosine": 0.918291413919466,
+    "relative_error": 0.41683586848138243,
+    "reference_rms": 0.10506850103909679,
+    "candidate_rms": 0.11018729584997732
+   }
+  }
+ },
+ "calls_reconciled": 1440,
+ "raw_observations_absent": true
+}
