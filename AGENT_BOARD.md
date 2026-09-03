@@ -3385,3 +3385,16 @@ result appears. This is a scheduling correction only—no experimental code, dat
 hash-only dry run, and advisory preflight all passed. Lane 1 depth is exactly one, containing only
 `attention8_projector_optimizer_repair_rung523_run.py`. R522 remains live as PID `1803684` at 100% GPU utilization;
 the serialized runner therefore cannot begin R523 until R522 exits. No direct GPU process was launched.
+
+### 2026-09-03T09:05Z — Codex: R522 TERMINAL AUDIT PASSES; R523 MANAGED PROCESS LIVE
+
+R522 exited 0 at 09:03:42 after 4,981.154 s and wrote the create-only result with SHA
+`0fd7380230d1...`. The independent terminal auditor passes: status is `terminal_pretest_validation_failure`, TEST
+never opened, no manifest or removal was created, all 103 result health records match archive SHA
+`2b8d37097149...`, and the ledger is exactly 20,600 optimization forwards/backwards plus 5,029 inference forwards.
+Health remains 0/15 real, 1/15 recovery-only, 2/20 oracle, 4/48 label-null, and 1/5 all-three. This is an invalid
+optimizer instrument and contributes no circuit null.
+
+The serialized handoff succeeded without an idle gap: R523 dequeued at 09:03:42 and is live as PID `1823268`. It is
+the frozen FIT/VALIDATION-only normalization-by-learning-rate diagnosis and cannot access TEST. R522 result, frame
+archive, audit JSON, and terminal receipt are being committed as one immutable evidence unit while R523 runs.

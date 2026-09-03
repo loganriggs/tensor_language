@@ -1,0 +1,62 @@
+{
+  "exact_call_ledger": {
+    "inference_by_bucket": {
+      "all_three_selection_and_test": 180,
+      "fit_d0_full_attention8": 95,
+      "fit_health": 206,
+      "full_attention8_comparator": 36,
+      "haar": 720,
+      "native_capture": 131,
+      "native_replay": 131,
+      "prediction_a": 2988,
+      "recovery_only": 540,
+      "self_donor": 2
+    },
+    "inference_forwards": 5029,
+    "optimization_backwards": 20600,
+    "optimization_forwards": 20600,
+    "removal_forwards": 0
+  },
+  "failure_counts": {
+    "final_window_not_below_initial_window": 77,
+    "validation_not_better_than_initialization": 65
+  },
+  "family_health": {
+    "all_three": {
+      "healthy": 1,
+      "healthy_percent": 20.0,
+      "total": 5
+    },
+    "label_null": {
+      "healthy": 4,
+      "healthy_percent": 8.333333333333334,
+      "total": 48
+    },
+    "real_leave_one_out": {
+      "healthy": 0,
+      "healthy_percent": 0.0,
+      "total": 15
+    },
+    "recovery_only": {
+      "healthy": 1,
+      "healthy_percent": 6.666666666666667,
+      "total": 15
+    },
+    "target_oracle": {
+      "healthy": 2,
+      "healthy_percent": 10.0,
+      "total": 20
+    }
+  },
+  "frame_archive_content_sha256": "20a9f857ccc8c13733d8ec892b18c3dc79b6cfa60fa7bc520ce4cdca08a5f51f",
+  "frame_archive_file_sha256": "2b8d3709714903890c4ae935a07da7284ac3253b7b2242d055023b33adeca2bb",
+  "frame_count": 103,
+  "healthy_fit_count": 8,
+  "interpretation": "invalid optimizer instrument; no circuit null and no TEST evidence",
+  "passes": true,
+  "pretest_manifest_created": false,
+  "result_file_sha256": "0fd7380230d19ea0cb28140bfdb4c03c7761427fb561a8a8455b5a0daa8977da",
+  "schema": "rung522-terminal-pretest-audit-v1",
+  "status": "terminal_pretest_validation_failure",
+  "test_opened": false
+}
