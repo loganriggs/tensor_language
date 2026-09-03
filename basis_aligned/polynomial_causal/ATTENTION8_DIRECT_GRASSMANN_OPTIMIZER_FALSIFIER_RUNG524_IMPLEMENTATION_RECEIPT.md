@@ -18,5 +18,15 @@ computed at this point.
   coordinates are multiplied by a deterministic diagonal scale ranging from `0.5` to `1.5`, then projected back
   into the planted orthogonal complement.
 - Each `12 x 64` target/map readout has iid Gaussian entries divided by `sqrt(64)`.
-- The result and frame archive are create-only. Exact code hashes and test receipts will be appended before the
-  first scientific execution.
+- The result and frame archive are create-only.
+
+## Pre-execution code seal
+
+Eight focused CPU tests pass, covering tangent geometry, orthonormal retraction, basis-invariant recovery scores,
+fail-closed OOD access, deterministic split construction, exact planted responses, and objective invariance. The
+hash-only dry run also passes. Exact SHA-256 values before the first scientific execution are:
+
+- math: `b38c3551ac537940c8c8b72b95e37db4e22389185e6fae34cb5cc25c1d9b4072`
+- math tests: `92b1e531fd55e907df58352a730b7ae888e08e6205f61a48acf6e5113c01b9b3`
+- runner: `729a23c818640f0537f4982554290f5509f181eac02d0168b30a8180d0d4c0b3`
+- runner tests: `4cd31660b3abbd3261306786b6a0016f23b9f1a07a07946225ac92b489606e88`
