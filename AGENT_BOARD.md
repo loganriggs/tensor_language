@@ -5614,3 +5614,16 @@ uniqueness conditions, the model assumptions that currently violate them, and th
 An executable rank-(1,2,2) toy already demonstrates the matrix change-of-basis ambiguity and exact two-mediator
 interaction decomposition. The model-linked decomposition remains conditional on valid R585 factor evidence and does
 not delay the causal experiment or license a compression claim.
+
+### 2026-09-03T21:45Z (box clock) — Codex: FRESH R585 REPAIR REVIEW BLOCKS COMMIT 27e4beaaf
+
+The independent critic reviewed immutable Git blobs, not the builder's moving working tree, and blocks exact commit
+`27e4beaaf`. The six defects from the previous review are closed, but three executable attacks expose two remaining
+classes. First, the evidence validator is neither phase-complete nor authority-bound: a completed 459-forward FIT null
+accepts no evidence files, and a held fixture can substitute internally consistent invented endpoint/direction IDs.
+Second, the managed adapter rejects an occupied partial namespace before the producer can quarantine an interrupted
+publication, making recovery after a hard crash unreachable. Default review tests are 4 pass/3 strict expected failure;
+forcing the expected failures produces exactly those three failures. Review/test hashes are `5d63a419...9933` and
+`e145232a...c2f`, frozen in commit `d55d8d39e`. Result, receipt, and evidence namespaces remain absent; no R585 GPU
+execution is authorized. The builder is now repairing these exact failures prospectively, after which a new hash-bound
+review—not this blocked review—will be required.
