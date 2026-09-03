@@ -7,11 +7,28 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 51,
- "design_count": 43,
- "protocol_count": 42,
- "execution_count": 51,
- "open_preregistrations": [],
+ "event_count": 52,
+ "design_count": 44,
+ "protocol_count": 43,
+ "execution_count": 52,
+ "open_preregistrations": [
+  {
+   "circuit": "task.increment.state",
+   "event_id": "increment_native_capability.r564.preregistered.v1",
+   "claim_id": "increment_state.v3",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
+   "protocol_key": "4a5fa3ca6b65ae4a72c6e33608851d8038af711bdff46032801aea1f23359031",
+   "execution_key": "831ce8b246c538ca9198586e33a712a2de9cb95c514bb11f9b97af38933483b8",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r564_prereg",
+   "result_artifact_id": null
+  }
+ ],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -702,6 +719,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": null,
    "result_artifact_id": "postattn_result"
+  },
+  {
+   "circuit": "task.increment.state",
+   "event_id": "increment_native_capability.r564.preregistered.v1",
+   "claim_id": "increment_state.v3",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
+   "protocol_key": "4a5fa3ca6b65ae4a72c6e33608851d8038af711bdff46032801aea1f23359031",
+   "execution_key": "831ce8b246c538ca9198586e33a712a2de9cb95c514bb11f9b97af38933483b8",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r564_prereg",
+   "result_artifact_id": null
   },
   {
    "circuit": "task.induction.selector_payload",

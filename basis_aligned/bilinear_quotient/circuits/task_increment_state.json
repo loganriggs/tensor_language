@@ -695,6 +695,63 @@
    "claim_id": "increment_state.v1",
    "design_key": "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4",
    "execution_key": "c7b2b12e2046fcf2dc8e4f1874fdcd39bd3ace8aa5c6ab08302b7b8f5726cd99"
+  },
+  {
+   "event_id": "increment_native_capability.r564.preregistered.v1",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "digit_coherent_shift",
+    "word_coherent_shift",
+    "cross_format_coherent_shift",
+    "incoherent_middle_number_edit",
+    "operation_preserved_surface_edit",
+    "repeated_number_numeric_control",
+    "step_two_numeric_control"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_then_conditional_SELECT",
+   "metrics": [
+    {
+     "name": "numeric_candidate_accuracy_and_margin",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 correct and bootstrap lower mean margin >0 in every endpoint cell"
+    },
+    {
+     "name": "middle_number_necessity",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.65 positive drops and bootstrap lower mean drop >0"
+    },
+    {
+     "name": "split_opening",
+     "estimate": null,
+     "ci95": null,
+     "bar": "SELECT only after all FIT cells pass; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r564_prereg",
+   "input_artifact_ids": [
+    "r563_rows",
+    "r563_receipt",
+    "r563_correction",
+    "r564_script"
+   ],
+   "split_plan_id": "increment_counterfactual_split_r563_v1",
+   "seed": 564,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INCREMENT_NATIVE_CAPABILITY_RUNG564_PREREGISTRATION.md"
+   ],
+   "claim_id": "increment_state.v3",
+   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
+   "execution_key": "831ce8b246c538ca9198586e33a712a2de9cb95c514bb11f9b97af38933483b8"
   }
  ],
  "translations": [],
@@ -787,6 +844,18 @@
    "path": "basis_aligned/polynomial_causal/INCREMENT_COUNTERFACTUAL_AUTHORITY_RUNG563_CORRECTION.md",
    "sha256": "79c065271b9bb2e7b2690ad9220edebc8fc8e32868e6406133600436df40953f",
    "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r564_prereg": {
+   "path": "basis_aligned/polynomial_causal/INCREMENT_NATIVE_CAPABILITY_RUNG564_PREREGISTRATION.md",
+   "sha256": "b469f722b63f9f1ca54cb2e7b28a736d62677d058f8e6f350c9ba54bd9c522b9",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r564_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/increment_native_capability_rung564.py",
+   "sha256": "f9d9ef4f2b299f4381c68bff709a01d0c1f0074f723f4136ea441703bba532d4",
+   "kind": "implementation",
    "status": "frozen"
   }
  },

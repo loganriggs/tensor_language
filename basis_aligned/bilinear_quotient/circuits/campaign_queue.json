@@ -9,11 +9,57 @@
  "summary": {
   "canonical_work_items": 5,
   "legacy_candidates": 70,
-  "open_experiments": 0,
+  "open_experiments": 1,
   "held_events": 15,
   "blocking_events": 20
  },
  "work_items": [
+  {
+   "tag": "task.increment.state",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_increment_state.json",
+   "active_claim_id": "increment_state.v3",
+   "claim_status": "specified",
+   "causal_variable_id": "increment_state",
+   "counterfactual_family_count": 7,
+   "counterfactual_family_status_counts": {
+    "frozen": 7
+   },
+   "split_plan_ids": [
+    "increment_counterfactual_split_r563_v1"
+   ],
+   "active_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1",
+    "increment_native_capability.r564.preregistered.v1"
+   ],
+   "open_event_ids": [
+    "increment_native_capability.r564.preregistered.v1"
+   ],
+   "held_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "planned",
+    "causal_site": "missing",
+    "learned_interchange": "held",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "missing",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "experiment_open",
+   "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
+  },
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
@@ -97,50 +143,6 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
-  },
-  {
-   "tag": "task.increment.state",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_increment_state.json",
-   "active_claim_id": "increment_state.v3",
-   "claim_status": "specified",
-   "causal_variable_id": "increment_state",
-   "counterfactual_family_count": 7,
-   "counterfactual_family_status_counts": {
-    "frozen": 7
-   },
-   "split_plan_ids": [
-    "increment_counterfactual_split_r563_v1"
-   ],
-   "active_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1"
-   ],
-   "open_event_ids": [],
-   "held_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1"
-   ],
-   "blocking_event_ids": [],
-   "coverage": {
-    "capability": "missing",
-    "causal_site": "missing",
-    "learned_interchange": "held",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "missing",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "capability",
-    "causal_site",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "next_experiment_needed",
-   "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
   },
   {
    "tag": "subroutine.induction.equality_score",

@@ -4853,3 +4853,14 @@ model was loaded. Manual examples now differ only through the registered numeric
 natural surface rewrite—there are no experimental labels in model input. The canonical dossier is
 `task.increment.state` claim v3. The next licensed step is a separately preregistered FIT/SELECT native-capability test;
 legacy L8H7/L8H3 and MLP8–14 localization must remain unopened unless that behavior gate holds.
+
+### 2026-09-03T18:08Z — Codex: CLAIM R564, INCREMENT NATIVE CAPABILITY AND RULE-SEPARATION GATE
+
+R564 will open only FIT first. In every digit, number-word, and cross-format +1 family, both endpoints must select the
+registered next value from the union of all eligible digit and number-word answer tokens in at least 75% of groups,
+with a positive group-bootstrap lower mean margin. The same bar applies to both natural surface variants of the +1,
+copy/repeat, and +2 controls. Breaking only the middle of a coherent +1 sequence must reduce the registered-answer
+margin in at least 65% of groups with positive bootstrap support, while the coherent endpoint itself passes the 75%
+capability bar. SELECT opens only if every FIT cell passes and repeats the same frozen inequalities. FINAL_TEST/OOD
+remain unopened. A failure means the dataset does not yet license component localization; it does not license lowering
+bars, dropping number words, or returning to the legacy digit-only examples.

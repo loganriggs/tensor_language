@@ -219,11 +219,13 @@
    "causal_variable_id": "increment_state",
    "categories": {
     "capability": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "increment_native_capability.r564.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "increment_native_capability.r564.preregistered.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -279,7 +281,7 @@
    },
    "n_held_categories": 1,
    "n_blocked_categories": 0,
-   "n_missing_categories": 7,
+   "n_missing_categories": 6,
    "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
   },
   "task.induction.selector_payload": {
