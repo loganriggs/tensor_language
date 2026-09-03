@@ -36,8 +36,13 @@ def _synthetic_raw(rows, *, target_damage: float = 1.0, copy_damage: float = 0.0
             "split": "FIT",
             "representation": row["representation"],
             "source_level": row["source_level"],
+            "source_value": row["source_value"],
             "condition": row["condition"],
             "action": row["action"],
+            **r584.row_coordinates(row),
+            "site": 8,
+            "component": "background_cross",
+            "arm": "mlp8_background_cross",
             "intervention_vector_norm": 1.0,
             "full_vocabulary_logit_rms": 1.0 if row["action"] == "successor" else 0.1,
             "null_donor_row_id": None,
@@ -60,6 +65,13 @@ def _synthetic_raw(rows, *, target_damage: float = 1.0, copy_damage: float = 0.0
                 "margin_damage": damage,
                 "ce_increase": 1.0 if row["action"] == "successor" else 0.0,
             })
+        common.update({
+            "source_deleted": dict(common["native"]),
+            "source_deleted_logit_difference_squared_sum": 0.0,
+            "source_deleted_logit_vocabulary_count": 50_304,
+            "source_deleted_full_vocabulary_logit_rms": 0.0,
+            "source_deleted_evidence_reason": None,
+        })
         raw.append(common)
     return raw
 

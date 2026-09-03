@@ -85,7 +85,9 @@ def _synthetic_raw(rows, *, target_damage=1.0, copy_damage=.05):
         common = {
             "row_id": row["row_id"], "group_id": row["group_id"], "split": "FIT",
             "representation": row["representation"], "source_level": row["source_level"],
-            "condition": row["condition"], "action": row["action"],
+            "source_value": row["source_value"], "condition": row["condition"],
+            "action": row["action"], **r584.row_coordinates(row),
+            "site": 8, "component": "background_cross", "arm": "mlp8_background_cross",
             "intervention_vector_norm": 1.0,
             "full_vocabulary_logit_rms": 1.0 if row["action"] == "successor" else .1,
             "null_donor_row_id": None,
@@ -105,8 +107,41 @@ def _synthetic_raw(rows, *, target_damage=1.0, copy_damage=.05):
                 "margin_damage": damage,
                 "ce_increase": 1.0 if row["action"] == "successor" else 0.0,
             })
+        common.update({
+            "source_deleted": dict(common["native"]),
+            "source_deleted_logit_difference_squared_sum": 0.0,
+            "source_deleted_logit_vocabulary_count": 50_304,
+            "source_deleted_full_vocabulary_logit_rms": 0.0,
+            "source_deleted_evidence_reason": None,
+        })
         raw.append(common)
     return raw
+
+
+def _synthetic_capture(rows):
+    capture = []
+    for row in rows:
+        if row["split"] != "FIT":
+            continue
+        capture.append({
+            "row_id": row["row_id"], "group_id": row["group_id"], "split": "FIT",
+            "representation": row["representation"], "source_level": row["source_level"],
+            "source_value": row["source_value"], "condition": row["condition"],
+            "action": row["action"], **r584.row_coordinates(row),
+            "arm": "source_present_and_deleted_capture", "sites": list(r584.SITES),
+            "native": {}, "source_deleted": {}, "r576_term_norm": 1.0,
+            "source_deleted_logit_difference_squared_sum": 0.0,
+            "source_deleted_logit_vocabulary_count": 50_304,
+            "source_deleted_full_vocabulary_logit_rms": 0.0,
+            "component_norms": {str(site): {component: 1.0 for component in r584.COMPONENTS}
+                                for site in r584.SITES},
+            "bilinear_response_relative_squared_error": 0.0,
+            "bilinear_response_relative_squared_error_by_site": {
+                str(site): 0.0 for site in r584.SITES},
+            "native_replay_relative_squared_error_by_row": {
+                "source_present": 0.0, "source_deleted": 0.0, "maximum": 0.0},
+        })
+    return capture
 
 
 def test_candidate_scoring_implements_action_copy_surface_source_and_conflict_gates(rows):
@@ -134,16 +169,142 @@ def test_select_uses_frozen_fit_scales(rows):
 
 def test_null_gate_requires_active_norm_match_and_lower_action_gap(rows):
     real = _synthetic_raw(rows)
+    real_report = r584.score_candidate(real, cell_prefix="test:null:real", authority_rows=rows)
+    donors = r584.r582.deterministic_null_maps(rows, "FIT")["different_group_same_cell"]
     null = [dict(item, margin_damage=0.0,
                  intervention_vector_norm=1.0,
+                 null_donor_row_id=donors[item["row_id"]],
+                 arm="null:different_group_same_cell",
                  intervened={**item.get("intervened", {}), "margin": 2.0, "ce": 1.0,
                               "answer_best": True})
             for item in real if item["condition"] in {
                 "factorial_copy", "factorial_successor", "surface_copy", "surface_successor"}]
-    report = r584.score_null(real, null, cell_prefix="test:null")
+    report = r584.score_null(
+        real, null, cell_prefix="test:null", real_report=real_report,
+        null_name="different_group_same_cell", authority_rows=rows)
     assert report["passed"] is True
     dead = [dict(item, intervention_vector_norm=.01) for item in null]
-    assert r584.score_null(real, dead, cell_prefix="test:dead_null")["passed"] is False
+    assert r584.score_null(
+        real, dead, cell_prefix="test:dead_null", real_report=real_report,
+        null_name="different_group_same_cell", authority_rows=rows)["passed"] is False
+
+
+def test_planted_scientific_null_uses_json_null_and_named_reason(rows):
+    negative = r584.score_candidate(
+        _synthetic_raw(rows, target_damage=-1.0),
+        cell_prefix="test:planted_negative", authority_rows=rows)
+    cell = negative["stability"]["surface_recovery"]["list:source0"]
+    assert cell["mean_gap_ratio"] is None
+    assert cell["mean_gap_ratio_reason"] == "nonpositive_ordinary_action_gap"
+    json.dumps(negative, allow_nan=False)
+
+    zero_scale = r584.score_candidate(
+        _synthetic_raw(rows, target_damage=0.0, copy_damage=0.0),
+        cell_prefix="test:planted_zero_scale", authority_rows=rows)
+    copy_cell = zero_scale["copies"]["list:source0:factorial"]
+    assert copy_cell["median_absolute_margin_fraction"] is None
+    assert copy_cell["median_absolute_margin_fraction_reason"] == \
+        "nonpositive_successor_margin_scale"
+    json.dumps(zero_scale, allow_nan=False)
+
+
+def test_planted_dead_null_is_finite_typed_and_reuses_real_bounds(rows):
+    real = [dict(item, intervention_vector_norm=0.0) for item in _synthetic_raw(rows)]
+    real_report = r584.score_candidate(
+        real, cell_prefix="test:dead_real", authority_rows=rows)
+    donors = r584.r582.deterministic_null_maps(rows, "FIT")["different_group_same_cell"]
+    null = [dict(item, margin_damage=0.0, intervention_vector_norm=1.0,
+                 null_donor_row_id=donors[item["row_id"]],
+                 arm="null:different_group_same_cell")
+            for item in real if item["condition"] in {
+                "factorial_copy", "factorial_successor", "surface_copy", "surface_successor"}]
+    report = r584.score_null(
+        real, null, cell_prefix="test:dead_real:null", real_report=real_report,
+        null_name="different_group_same_cell", authority_rows=rows)
+    cell = report["representation_cells"]["list:source0:factorial"]
+    assert cell["median_null_norm_over_median_real_norm"] is None
+    assert cell["norm_ratio_reason"] == "nonpositive_real_intervention_norm"
+    assert cell["real_gap_lower95_reused"] == real_report[
+        "action_gaps"]["list:source0:factorial"]["bootstrap95_lower_mean_gap"]
+    assert report["real_bounds_reused_without_redraw"] is True
+    json.dumps(report, allow_nan=False)
+
+
+def test_null_rule_is_conservative_across_representations_not_merely_cellwise(rows, monkeypatch):
+    real = _synthetic_raw(rows)
+    real_report = r584.score_candidate(
+        real, cell_prefix="test:conservative:real", authority_rows=rows)
+    real_report["action_gaps"]["list:source0:factorial"][
+        "bootstrap95_lower_mean_gap"] = 0.3
+    real_report["action_gaps"]["digit:source0:factorial"][
+        "bootstrap95_lower_mean_gap"] = 0.9
+    real_report["action_gaps"]["word:source0:factorial"][
+        "bootstrap95_lower_mean_gap"] = 0.9
+    donors = r584.r582.deterministic_null_maps(rows, "FIT")["different_group_same_cell"]
+    null = [dict(item, margin_damage=0.0,
+                 null_donor_row_id=donors[item["row_id"]],
+                 arm="null:different_group_same_cell")
+            for item in real if item["condition"] in {
+                "factorial_copy", "factorial_successor", "surface_copy", "surface_successor"}]
+
+    original = r584._bootstrap_lower
+    def planted(cells, key, cell_id):
+        if "source0:factorial:null" in cell_id:
+            return {"list": 0.2, "digit": 0.8, "word": 0.8}[
+                next(rep for rep in ("list", "digit", "word") if f":{rep}:" in cell_id)
+            ]
+        return original(cells, key, cell_id)
+    monkeypatch.setattr(r584, "_bootstrap_lower", planted)
+    report = r584.score_null(
+        real, null, cell_prefix="test:conservative:null", real_report=real_report,
+        null_name="different_group_same_cell", authority_rows=rows)
+    comparison = report["source_surface_comparisons"]["source0:factorial"]
+    assert comparison["minimum_real_gap_lower95_across_representations"] == 0.3
+    assert comparison["maximum_null_gap_lower95_across_representations"] == 0.8
+    assert comparison["strict_real_exceeds_null"] is False
+    assert report["passed"] is False
+
+
+def test_null_donor_ids_and_capture_evidence_fail_closed(rows):
+    real = _synthetic_raw(rows)
+    donors = r584.r582.deterministic_null_maps(rows, "FIT")["different_group_same_cell"]
+    null = [dict(item, null_donor_row_id=donors[item["row_id"]],
+                 arm="null:different_group_same_cell")
+            for item in real if item["condition"] in {
+                "factorial_copy", "factorial_successor", "surface_copy", "surface_successor"}]
+    null[0]["null_donor_row_id"] = null[0]["row_id"]
+    with pytest.raises(RuntimeError, match="null donor disagrees"):
+        r584.validate_null_raw(null, rows, "FIT", "different_group_same_cell")
+
+    capture = _synthetic_capture(rows)
+    r584.validate_capture_raw(capture, rows, "FIT")
+    del capture[0]["bilinear_response_relative_squared_error_by_site"]["14"]
+    with pytest.raises(RuntimeError, match="per-site C/Q exactness is incomplete"):
+        r584.validate_capture_raw(capture, rows, "FIT")
+
+
+def test_scientific_result_uses_generic_contract_and_weight_update_field(rows):
+    digest = "a" * 64
+    result = {
+        "rung": 584, "stage": "fixture", "provisional_fit_selection": None,
+        "selected_component": None, "evaluated_splits": ["FIT"],
+        "forbidden_splits_opened": [], "decision": "fixture_null",
+        "next_step": "none", "execution_plan": {
+            "literal_executable_maximum_forwards": 510},
+        "fit_capture_raw": _synthetic_capture(rows), "select_capture_raw": None,
+        "input_sha256": {"fixture": digest}, "model_forwards": 379,
+        "model_backwards": 0, "model_weights_updated": False,
+    }
+    summary = r584.validate_scientific_result(
+        result, rows, expected_forwards=379,
+        expected_provenance={"fixture": digest})
+    assert summary["rows"] == 576
+    assert summary["model_forwards"] == 379
+    tampered = dict(result, model_weights_updated=True)
+    with pytest.raises(r584.result_contract.ContractError, match="expected False"):
+        r584.validate_scientific_result(
+            tampered, rows, expected_forwards=379,
+            expected_provenance={"fixture": digest})
 
 
 def test_interaction_records_use_exact_two_factor_mobius(rows):

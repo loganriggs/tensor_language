@@ -30,17 +30,36 @@
   "mlp14_contrast_self",
   "mlp14_joint_response"
  ],
+ "execution_plan_name": "r584_conditional_fit_then_select_v2",
  "model_loaded": false,
  "model_forwards": 0,
  "model_backwards": 0,
  "model_weights_updated": false,
  "opened_splits": [],
  "FINAL_TEST_or_OOD_opened": false,
+ "implementation_sha256": "50609756d97de2f13f717774f13d72b1c743f38a172375e9b08efc2b055336c7",
+ "test_sha256": "37cc8f73ed128ebdb17b5cfcdb1248bc240291e9a10d38c526ac7d4a76ea3cce",
+ "adversarial_test_sha256": "900883046b648c7c9aa0714fff3d7d0da678b70ab8598623321e4f9d32bb5cd2",
+ "result_contract_sha256": "af8fb9557dcb77e038319b0fffa919927f3925497a0edafe27fc951125dfb272",
  "input_sha256": {
   "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_downstream_use_rows_rung582.json": "84c6a78882a33c266b3875285f63ceaed746dac7810fce16b591f7b57763cf3b",
   "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_downstream_use_rows_rung582_receipt.json": "1511cfd7fcfe729edf4427f9f88f8552c32230e013d01a0661767713fdc29148",
   "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG582_PREREGISTRATION.md": "e7832dc77cabe7a1afba61c759188a0aca73802163cef1abe013ffaff5c987b3",
   "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_downstream_use_rung582.py": "b0d99eeeef834091cf9ddfe77b58682f0e9a7e101e143a18570808dacb57bc1c",
-  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG584_IMPLEMENTATION.md": "d8e62cda2f6721499c5de2b0bc4c09411b201da743b1be3df0c2c976d343bea0"
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG584_IMPLEMENTATION.md": "612005760bccda8f1a9f16b540b0734de3241e5da1c40246f514509733539181",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_weight_removal_rung576_results.json": "a6041c28cefc4f695f6e649210884774ed576bae80c14c031473d6b8c8ff2f73",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_weight_removal_rung579_audit.json": "03c03cf9fafe343584f323440d3eab4ab686a70fce44bc36d0fb2ccec945bf2d",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_WEIGHT_REMOVAL_RUNG576_PREREGISTRATION.md": "a776ebc1df29a6f3193d3315e190ec9494c95905596e450461c002378f8f59b6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_downstream_use_rung584.py": "50609756d97de2f13f717774f13d72b1c743f38a172375e9b08efc2b055336c7",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_numbered_list_cached_value_downstream_use_rung584.py": "37cc8f73ed128ebdb17b5cfcdb1248bc240291e9a10d38c526ac7d4a76ea3cce",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/r584_preoutcome_adversarial_tests.py": "900883046b648c7c9aa0714fff3d7d0da678b70ab8598623321e4f9d32bb5cd2",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/result_contract.py": "af8fb9557dcb77e038319b0fffa919927f3925497a0edafe27fc951125dfb272",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_weight_removal_rung576.py": "91db3a2a9210aef915ce2e4f0a62253274e0b5470cbfaa05a95d50a3c0cf985a",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_factor_localization_rung573.py": "5723e42e2a5f72a4ddab7a20b631e18e0b6d28875ff53f3db2d37d1845d6e076",
+  "null_map:FIT:different_group_same_cell": "f841dce000a7948e1737767cdf75f20299b1196f298d8b4ef9038edeb023e683",
+  "null_map:FIT:same_source_other_action": "203e1eb554c2e807484d3395698644dc5a9759b8ead1274f71025b585a1b214e",
+  "null_map:SELECT:different_group_same_cell": "a75cfb39e3e6158e3654a6cf0e7ae0190e3a5140af3fdb1349b6491b2290a16f",
+  "null_map:SELECT:same_source_other_action": "23b398e2e2e5d2ba4295b9e1db5d8654354ec49d97830f0dce7e50b0d2a599e2"
  }
 }

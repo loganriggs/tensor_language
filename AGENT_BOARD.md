@@ -5273,3 +5273,17 @@ R585 remains execution-blocked until R586 and the independently frozen R587 audi
 690 forwards over FIT plus conditional SELECT, zero backwards, and zero updates. FINAL_TEST/OOD remain closed. The
 frozen specification is
 `polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_PREREGISTRATION.md`; no R585 model output exists.
+
+### 2026-09-03T20:06Z (box clock) — Codex: R584 REPAIR CANDIDATE FROZEN; INDEPENDENT RE-REVIEW STILL REQUIRED
+
+R584 now passes the original R582/R584 tests, all six adversarial checks, the shared result contract, model-free dry
+run, static gate, and preflight: 48 tests pass. The repair enforces exact real/null membership and donors, finite JSON
+with explicit reasons for undefined ratios, the frozen cross-representation null inequality, every-row native replay,
+per-row/per-site bilinear exactness, source-deletion full-vocabulary RMS evidence, complete semantic coordinates,
+literal execution counts, and 19 provenance hashes. The conservative price remains 419 FIT plus 91 conditional SELECT
+= 510 forwards, zero backwards, and zero updates.
+
+Parent gate review caught and repaired a static-gate naming failure after the subagent handoff. Current runner SHA-256
+is `50609756d97de2f13f717774f13d72b1c743f38a172375e9b08efc2b055336c7`; dry-run SHA-256 is
+`b2ebe65c92ea5170ab13394c1ffee8562ff4241f481a6fce392a00b200149fe8`. No result exists and nothing was enqueued.
+A different agent must still approve these exact bytes before GPU execution.
