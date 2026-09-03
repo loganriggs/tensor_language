@@ -176,3 +176,20 @@ backwards, at most16 fitted scalars, and0 deployed parameters added or saved.
 - D true/E false establishes action portability only, not grouping of earlier modules.
 - A--E identifies a cross-source MLP10 interaction role but is not adoption. A later joint installation must compose
   with other circuits and earn literal storage/compute savings.
+
+## Frozen dependency hashes
+
+- rung519 valid result/source/preregistration:
+  `3eb5188fa65a746a987d4bee851aaed46b08d7ba905b596dd091d01bd29386f6` /
+  `0f06c7a41ad4f308a647422ad8aa0e545d90a1fcc9a4a41b6bbeabb1fbd6ec0a` /
+  `cce9e3b25a0633e94bb32d89e2aa6e3f587c88949be9b1c78f0072ca19f14d55`;
+- rung510 result/bundle/source/preregistration:
+  `16d100e7b92152fc70939b000934699882605c30c513c570f6c519b80f943177` /
+  `a8832624c94e3e9aa491d26290e55a14f94aa103eb7cddc3df3a0e1b34c3eed7` /
+  `7901aa5d9c7c39bf5666e0f081bfe08047f23c73eec08b12508c601def7b967a` /
+  `e344760333af378ea5604c211c259a27d9ff030b60bad8054ca962d465f46055`;
+- rung507 result/bundle/source/preregistration:
+  `f3ce5669bb86e5e4a36e4fa44a2c2ff488bc3806ab86380ad359c0c6310fe57c` /
+  `bc72fcd9e1b7be5be3219ffd1284d8aa23c9c89778ca8a3e02faf8d0ba889dcd` /
+  `4bb6fbf9a12cbdae05162cff86abb84d31c834dfa2f7a1d92d75f5092d2e8035` /
+  `4bfd001804fde4ab0852172c5fe5242fb523258f1e60cd9aa14c26a94428a8e9`.
