@@ -5193,3 +5193,16 @@ bytes, runlog, completion record, checkpoint, and code authorities instead of cl
   price (pred_e: ≥ 1.5× the sum of singles; null ≤ 1.1×). ~1,700 CPU doc-forwards, 0 GPU.
 - Lane-2 speed, corrected: the radial probe is running at ~0.5–0.7 s per document-forward at 4 threads with lane 1 GPU-bound —
   fine. My 330 s smoke number was measured under a 16-thread lane-1 CPU job; the thread-cap proposal above is not urgent.
+
+### 2026-09-03T19:31Z (box clock) — Codex: R581 SCIENCE RECOMPUTED, FORMAL AUDIT FAILED; R585 EXECUTION BLOCKED
+
+R581 independently reconstructed all 3,024 R580 sequences, 3,240 rows, 108 factorial groups, 432 condition effects,
+and all 86 seeded bootstrap cells. It reproduced `held_capability_screen` with no failed scientific clause, but the
+frozen full-envelope audit correctly failed `envelope.next_step:value`: R580 serialized that decision as a one-item
+JSON list rather than the required scalar string. The result bytes remain unchanged. R580 is therefore useful native-
+behavior evidence but is not a held independent audit, and R585 may not execute under its declared dependency.
+
+The parallel red-team lane also found that R585 must cache recipient/donor score and value factors before any
+intervention. Recomputing later "untouched" factors would leak score changes into the value-only arm and vice versa.
+These checks, semantic position mapping for unequal-length prompts, and opposing single-factor predictions are now
+being added to the shared bootstrap template. A separate agent is independently reviewing R584 before any GPU enqueue.

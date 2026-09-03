@@ -87,6 +87,25 @@ The parent extracts five reusable objects from every completed track:
 These objects are added to the next prompt. This is the bootstrap step: later agents inherit tested code and concrete
 failure examples, not just prose conclusions.
 
+## First-wave lessons that are mandatory in later prompts
+
+The first two-agent wave added four checks that are now part of the shared template:
+
+1. **Treat output structure as audited data.** Tests must validate field types as well as values. In particular, a
+   scalar decision string must not serialize as a one-item JSON list. A scientifically held result with a malformed
+   frozen envelope remains a failed audit and must be repaired by a prospective rerun, not by editing result bytes.
+2. **Freeze crossed factors before intervening.** When testing score-only versus value-only attention computations
+   across several layers, cache the native recipient and donor factors first. At each later layer, remove the live
+   recipient term and insert the requested frozen combination. Otherwise an earlier intervention can change the
+   supposedly untouched later factor, so the named arms no longer isolate score from value.
+3. **Use semantic positions across unequal prompt lengths.** Source, payload, and query coordinates come from row
+   metadata. Do not require donor and recipient prompts to have equal tensor length, and never use padded absolute
+   indices as semantic coordinates.
+4. **Pair causal transfer with an opposing prediction.** A factor is not identified merely because it transfers an
+   answer. Score-only and value-only arms must make different predictions on selector-only and payload-only edits;
+   active answer-preserving controls must rule out a broad contextual write. Save donor-answer CE and full-vocabulary
+   change so generic damage cannot masquerade as transfer.
+
 ## Subagent prompt template
 
 > Investigate `<circuit id>` as a behavior-level computation. Read its canonical record and all named negative events
