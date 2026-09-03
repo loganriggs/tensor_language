@@ -27,7 +27,7 @@ CODE = ROOT / ".rowcache_terminal_copy_induction_v2/ood_code.pt"
 WEIGHTMAP = ROOT / "all_mlp_operator_family_rank_results.json"
 OUT = ROOT / "mlp_in_situ_usage_rank_map_probe_results.json"
 HASHES = {
-    PREREG: "36b483368f17ae8a3e3f95f1a651a73d84e83a5b85a15b99c148e9f83f2c1603",
+    PREREG: "fb63d0d7253dbff1b1ae6e450e460a95d5c80f1b4c0b91c9fe78f42747e344dd",
     BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
     NAT: "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1",
     CODE: "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
@@ -145,7 +145,7 @@ def main():
     nat = torch.load(NAT, map_location="cpu"); nat = (nat["rows"] if isinstance(nat, dict) else nat).long()
     code = torch.load(CODE, map_location="cpu"); code = (code["rows"] if isinstance(code, dict) else code).long()
     # instrument: manual forward vs the model's own module, CE on 4 natural docs
-    idx = nat[:4, :T]; tgt = nat[:4, 1:T + 1]
+    idx = nat[:4, :T - 1]; tgt = nat[:4, 1:T]
     lg = manual_forward(m, idx)
     ce_manual = float(F.cross_entropy(lg.reshape(-1, V), tgt.reshape(-1)))
     ce_module = float(m(idx.contiguous(), tgt.contiguous()))
@@ -156,7 +156,7 @@ def main():
         def collect(l, aw, xhat, g, mw):
             acc[l]["a"].add(aw); acc[l]["m"].add(mw); acc[l]["g"].add(g)
         for i in range(0, rows.shape[0], DOCS_PER_CHUNK):
-            idx = rows[i:i + DOCS_PER_CHUNK, :T]; tgt = rows[i:i + DOCS_PER_CHUNK, 1:T + 1]
+            idx = rows[i:i + DOCS_PER_CHUNK, :T - 1]; tgt = rows[i:i + DOCS_PER_CHUNK, 1:T]
             lg = manual_forward(m, idx, collect)
             ce_sum += float(F.cross_entropy(lg.reshape(-1, V), tgt.reshape(-1), reduction="sum")); ce_n += tgt.numel()
         blocks = []

@@ -48,3 +48,9 @@ exact map and with R538's MLP-site null (a diffuse high-rank write is a poor sin
 in-situ low-rank block exists and becomes the first candidate for a "smaller than an MLP block" DAS site — recorded
 as new information, not a contradiction of the weight-space map (different objects). c: whether the weight map can be
 used to rank blocks for finer-grain work without forwards.
+
+**Correction (15:06 UTC, post-registration, pre-result).** First run exited 1 before any prediction was evaluated:
+the instrument slice fed 257 input tokens against 256 targets (`nat[:4, :T]` vs `nat[:4, 1:T+1]`, rows have 257
+columns). Fixed to `rows[:, :T-1]` / `rows[:, 1:T]` (256 inputs, 256 targets) in both the instrument and the
+collection loop; smoke-tested on 2 RANDOM-token docs (manual CE 12.7747 == module CE 12.7747). Predictions, bars,
+nulls, and price unchanged; script sha256 now bf1ec4ecd88d5145 (prereg hash frozen in the script updated to this corrected file). No registered data were read by the failed run.
