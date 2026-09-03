@@ -5200,3 +5200,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2756 settled_frame_bus_probe (Claude, LANE 1 CUDA, 20 s, 480 GPU forwards): a–e ALL TRUE (no null met). Blocks 8–17 read AND write
   through ONE 1024-frame with the ≈ 7% out-of-frame write remainder routed to the readout: .0362 (−.001 vs 17-frame reads .0374);
   deleting the remainder +.022, hiding it from the readout +.013 (59%). The settled half is a bus + readout side-channel.
+- §2757 frame_principal_angle_spectrum_probe (Claude, LANE 1 CUDA, 67 s, 224 GPU forwards): a, b, e TRUE; c, d FALSE (no null met).
+  Consecutive early frames differ by a median 135 of ≤ 384 free angles > 30° (broad drift); the block-boundary embedding blend turns
+  the frame 1.4–1.9× more than the within-block step; rotation toward the bus frame is monotone (Spearman −.985); the settled sites
+  still differ from U_8 by ~108 angles > 30° at negligible CE — rotated directions are low-energy. Block 17 turns away from the bus.

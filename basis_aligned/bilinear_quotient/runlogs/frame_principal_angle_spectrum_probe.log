@@ -1,0 +1,29 @@
+{"stage": "heads_done", "t": 9.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 10.2}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:135: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{"stage": "stats", "b_med": 135.0, "c_min": 125, "d_med": 108.0, "e_rho": -0.9853190287972897, "own": 0.057, "t": 67.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_drift_is_broad": true,
+  "pred_c_no_pair_is_nearly_shared": false,
+  "pred_d_settled_sites_are_close_to_U8": false,
+  "pred_e_drift_toward_U8_is_monotone": true
+ },
+ "nulls": {
+  "b_null_le_30": false,
+  "c_null_some_pair_le_80": false,
+  "d_null_ge_150": false,
+  "e_null_ge_-.2": false
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665
+ },
+ "gaps": {
+  "early_consecutive_n_gt_30_median": 135.0,
+  "early_consecutive_n_gt_10_min": 125,
+  "settled_vs_U8_n_gt_30_median": 108.0,
+  "early_vs_U8_n_gt_30_spearman": -0.9853190287972897
+ }
+}

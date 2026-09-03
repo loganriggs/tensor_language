@@ -70977,3 +70977,32 @@ program (as §2748 found at 768: the out-of-core write is readout-bound). (3) Ou
 low write rank (mlp16 1.4%, mlp17 0.9%, attn17 2.8%, attn9 3.1%) and largest for attn14/mlp14 (8.9/8.4%). Nothing installs into the
 §312 frontier; the frontier remains norm-2304 at 2.6735 (§2125). Composition of the width program so far (k = 1024): read frames
 .0337 → 17 frames .0374 → 17 frames + bus .0362.
+
+## §2757 — THE FRAME DRIFT IS BROAD AND MONOTONE, AND IT ROTATES MORE AT BLOCK BOUNDARIES THAN INSIDE BLOCKS: of the ≤ 384 principal angles that two 768-frames in R¹¹⁵² can have non-zero, consecutive early sublayers differ by a median 135 angles > 30° (pred_b "≥ 100" TRUE; null ≤ 30 not met) — but not every early pair is far apart (attn10→mlp10 has only 125 angles > 10°; pred_c "every pair ≥ 200" FALSE; null ≤ 80 not met); the 20 settled sites sit a median 108 angles > 30° from the bus frame U_8 (pred_d "≤ 60" FALSE; null ≥ 150 not met) even though reading them through U_8 costs only .004 at k = 1024 (§2754) — the differing directions are low-energy; the rotation toward U_8 is monotone in depth, Spearman −.985 (pred_e "≤ −.7" TRUE). Structure not registered but plain in the table: the frame turns MORE across a block boundary (mlp_l → attn_{l+1}: 256/289/220/207 angles > 30° at blocks 0–3) than inside a block (attn_l → mlp_l: 185/151/165/134), and the last block turns AWAY from the bus again (attn17/mlp17: 114/117 angles > 30° vs 66–70 at block 14) (Claude, LANE 1 CUDA, 67 s, 224 GPU document-forwards + CPU SVDs): a, b, e TRUE; c, d FALSE; no null met. Preserved.
+
+Registered 2026-09-03 23:17Z (polynomial_causal/FRAME_PRINCIPAL_ANGLE_SPECTRUM_PROBE_PREREGISTRATION.md); landed 23:19Z. Script
+ops/frame_principal_angle_spectrum_probe.py; results frame_principal_angle_spectrum_probe_results.json (sha bc96dec9…; carries the
+full per-pair and per-site tables). Frozen: prereg, §2755 results, checkpoint, fit_natural.pt. Instrument (pred_a TRUE): baseline
+3.0322401; EARLY22_OWN_768 0.05699 (= §2753/§2755). Construction: own top-768 input cores of the 36 sublayers (fit docs 96–191);
+cosines of principal angles = singular values of AᵀB; U_8 = top-768 of the averaged covariance of blocks 8–17.
+
+Consecutive pairs, angles > 10° / > 30° / > 60° (of ≤ 384 free): attn0→mlp0 311/185/78; mlp0→attn1 384/256/110; attn1→mlp1
+299/151/55; mlp1→attn2 384/289/126; attn2→mlp2 305/165/64; mlp2→attn3 379/220/81; attn3→mlp3 282/134/49; mlp3→attn4 374/207/74;
+attn4→mlp4 312/161/60; mlp4→attn5 341/157/50; attn5→mlp5 295/144/51; mlp5→attn6 323/135/41; attn6→mlp6 233/97/31; mlp6→attn7
+310/120/35; attn7→mlp7 202/63/17; mlp7→attn8 292/102/29; attn8→mlp8 209/77/25; mlp8→attn9 267/81/23; attn9→mlp9 166/43/10;
+mlp9→attn10 264/80/21; attn10→mlp10 125/26/6; mlp10→attn11 249/69/17; attn11→mlp11 120/23/5; … attn15→mlp15 54/7/2; mlp15→attn16
+198/45/11; attn16→mlp16 62/9/2; mlp16→attn17 208/49/12; attn17→mlp17 47/6/0.
+Against U_8, angles > 30°: blocks 0–7 329, 327, 330, 328, 330, 327, 326, 323, 321, 315, 310, 300, 290, 280, 263, 250 (all 384
+free angles > 10°); blocks 8–10 228/218, 197/186, 164/154; blocks 11–14 134/128, 108/103, 87/79, 70/66; blocks 15–17 69/69,
+82/85, 114/117.
+
+What it says. (1) Construction-free confirmation of §2755: the early drift is broad — a third of the free angles exceed 30° at
+every early step; it is a rotation of many directions, not a swap of a few. (2) The block-boundary re-mix `x ← λ₀x + λ₁x₀` (the
+per-block blend with the embedding) is where most of the rotation happens: mlp_l→attn_{l+1} steps turn 1.4–1.9× more angles than
+attn_l→mlp_l steps in blocks 0–3, and the within-block steps shrink to single digits (> 60°) from block 7 on. The early "rotating
+frame" is therefore largely the embedding blend rotating the read frame block by block; once λ₁ no longer matters, the frame
+settles. (3) The angle count is a poor predictor of CE price: blocks 8–10 differ from U_8 by 150–230 angles > 30°, yet §2754 prices
+their inclusion in the bus at .002–.004 — the rotated directions carry little input energy (own capture ≥ .91, §2750). pred_d's bar
+(≤ 60) was set from the CE evidence and was wrong about the geometry; recorded as a bracket miss, not evidence of a hidden cost.
+(4) The final block rotates away from the bus (114/117 angles > 30°, up from 66–70 at block 14) — toward the readout frame, the
+natural next question (bus vs unembed row space). Failures preserved: c, d FALSE. Nothing installs into the §312 frontier (§2125).
