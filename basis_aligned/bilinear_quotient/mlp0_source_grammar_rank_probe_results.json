@@ -1,0 +1,93 @@
+{
+ "status": "complete",
+ "rung": "mlp0_source_grammar_rank_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "effective_rank_of_mlp0_source_relation_effect_profiles",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_SOURCE_GRAMMAR_RANK_PROBE_PREREGISTRATION.md": "b2436dba811cb1c7d282ed9d71df4dafff7a324bde8b2b7a303c59619c4b7d7e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_source_relation_factorial_rung517_results.json": "c8405a36cab0e8b50d91e3f525bf5a5106a95d2c42447ce9b83ab29378fd8307"
+ },
+ "reports": {
+  "PROSE": {
+   "FIT": {
+    "effective_rank": 1.1583165082624107,
+    "top1_energy": 0.9702117453913739,
+    "top2_energy": 0.9964971239956154,
+    "singular_values": [
+     8.834432956649486,
+     1.4541276539613759,
+     0.4400990944459255,
+     0.29681022613558816,
+     1.775593397552305e-15
+    ]
+   },
+   "SELECT": {
+    "effective_rank": 1.1719759154191502,
+    "top1_energy": 0.9666092355535737,
+    "top2_energy": 0.9969087706652341,
+    "singular_values": [
+     8.944089823350641,
+     1.5835386378372067,
+     0.3981491572462672,
+     0.3119421545649571,
+     1.6966210694248616e-15
+    ]
+   }
+  },
+  "STRUCTURED": {
+   "FIT": {
+    "effective_rank": 1.2331798316105649,
+    "top1_energy": 0.9556729824269328,
+    "top2_energy": 0.9909369706995189,
+    "singular_values": [
+     8.725506916834842,
+     1.676106950993181,
+     0.7005182025528016,
+     0.48092400732552193,
+     9.116713646542034e-16
+    ]
+   },
+   "SELECT": {
+    "effective_rank": 1.2444277923814646,
+    "top1_energy": 0.9537082414681802,
+    "top2_energy": 0.9895480723590167,
+    "singular_values": [
+     8.409554114066827,
+     1.6302273600773791,
+     0.7293075386351943,
+     0.493107795686091,
+     1.1967991692333219e-15
+    ]
+   }
+  }
+ },
+ "group_loading_stability": {
+  "PROSE_fit_select": 0.9997561034847858,
+  "STRUCTURED_fit_select": 0.999372065172739,
+  "prose_vs_structured_select": 0.9994531454919049
+ },
+ "group_order": [
+  "SELF",
+  "PREVIOUS",
+  "NEAR",
+  "DISTANT_SAME",
+  "DISTANT_OTHER"
+ ],
+ "top_group_loading_prose_select": [
+  -0.2790709567910838,
+  0.3354224705853608,
+  0.31318227251934716,
+  -0.75188699589877,
+  0.3823532095851455
+ ],
+ "pred_a_exact_reproduction_of_517_profiles": true,
+ "pred_b_diffuse_grammar_is_low_rank": true,
+ "pred_c_low_rank_structure_stable_group_space": true,
+ "strong_null": false,
+ "verdict": "diffuse_grammar_is_a_stable_low_rank_context_summary",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.006783485412597656
+}
