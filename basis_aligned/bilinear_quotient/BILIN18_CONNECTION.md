@@ -69587,3 +69587,40 @@ lookup description covers them) or the .19-nat tail. (iii) The 16-dim core is a 
 (§2710); §2713/§2716 showed lm_head reads it isotropically, so "the message lives in 16 directions" is a statement about the
 writers, not about a privileged readout subspace. (iv) Fit-split sensitivity of the rec numbers was not re-measured here; the
 a-arm reproductions at 1e-4 say the pipeline is deterministic, not that a different fit split gives the same .776.
+
+## §2719 — THE TOKEN-LOOKUP DESCRIPTION IS SPECIFIC TO mlp16/mlp17; mlp11–15 ARE INDIVIDUALLY NEAR-DISPENSABLE (MEAN cost .03–.05 each), NOT LOOKUPS (held-out R² .04–.15), AND THE 16-DIM CORE CARRIES ONLY 42% OF THE WHOLE LATE STACK'S VALUE (Claude, LANE 1 CUDA, 28 s, 1216 GPU document-forwards): joint late7 MEAN 1.885; current-token lookup on all seven recovers 34% (CE added 1.238); core-restricted 29%; oracle core 42%. Single-site lookups on mlp11–15 recover −.03…+.07 (median .008). a, e TRUE; b FALSE (.344 vs .35 bar, null not met); c FALSE (null not met); d FALSE, NULL MET. Preserved.
+
+Written 2026-09-03 21:08Z (box clock). Preregistration `polynomial_causal/LATE_STACK_TOKEN_LOOKUP_MAP_PROBE_PREREGISTRATION.md`
+(registered 21:03Z before the script). Script `ops/late_stack_token_lookup_map_probe.py`; receipt
+`late_stack_token_lookup_map_probe_results.json` (sha c0aaa202…); log `runlogs/late_stack_token_lookup_map_probe.log`. FRESH
+split (fits on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE numbers are CE ADDED ABOVE THE REAL MODEL — LOWER IS
+BETTER; rec = 1 − CE(arm)/CE(MEAN of the same site set), higher = better.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (exact); MEAN7 1.8851 (§2716 1.885); all seven held-out R² > 0.
+
+**Joint late7 arms (CE added / rec).** MEAN7 1.885 / — · CUR7 1.238 / .344 · CUR7_M 1.340 / .289 · ORACLE7_M 1.097 / .418.
+Ridge R² fit → held-out: mlp11 .150 → .058; mlp12 .159 → .071; mlp13 .162 → .074; mlp14 .137 → .039; mlp15 .238 → .152; mlp16
+.588 → .543; mlp17 .544 → .479 (the last two reproduce §2717 exactly).
+
+**Single-site arms (CE added MEAN_s / CUR_s / rec).** mlp11 .047 / .049 / −.026 · mlp12 .044 / .044 / −.017 · mlp13 .040 / .038 /
+.045 · mlp14 .033 / .032 / .008 · mlp15 .039 / .036 / .070. Median rec .008.
+
+**Scoring.** b rec(CUR7) .344 ≥ .35 FALSE (null ≤ .15 not met; margin −.006 — the letter is FALSE, the number is "a third").
+c rec(ORACLE7_M) .418 ≥ .60 FALSE (null ≤ .35 not met). d median single-site rec .008 ≥ .35 FALSE; NULL (≤ .15) MET. e
+rec(CUR7_M)/rec(CUR7) = .842 ≥ .80 TRUE (null ≤ .50 not met).
+
+**What it means for the program.** (i) The clean executable statement of §2717/§2718 — "μ + P_M[A ê(t) + B c + Q(c,c)]" — is a
+fact about the LAST TWO blocks only. mlp11–15 are not token lookups (held-out R² .04–.15 against .48–.54), and their writes are not
+carried by the 16-dim core (oracle core on the whole stack recovers 42% against 81% for the last two). (ii) The most useful number
+here is the superadditivity: replacing mlp11–15 ONE AT A TIME by their means costs .03–.05 nat each (sum .20), replacing mlp16+17
+costs .848, but replacing all seven costs 1.885 — .84 nat MORE than the parts. Blocks 11–15 are individually near-dispensable and
+collectively worth ~1 nat: they are redundant with one another and/or with what 16/17 can recover from an intact stream. This is
+the same shape as §2712's super-additive stack cross term above rank 128 and §2708's warning against additive extrapolation — the
+late stack's price is a joint quantity, and per-site ablation maps under-price it by an order of magnitude. (iii) For the
+smaller-program goal the honest split is now: last two blocks ≈ a 16-dim program (§2718, 78% of .848); the five before them ≈ a
+distributed, individually-redundant, non-lookup, non-core contribution worth ~1 nat jointly whose structure is NOT yet described.
+The next rungs on mlp11–15 should therefore be joint (leave-k-out / cumulative) and should not assume the core.
+
+**Limits.** Single-site MEAN costs of .03–.05 sit near the CUDA-atomics wobble floor (.003) but well above it; the rec numbers built
+on them (−.03…+.07) are ratios of small numbers and carry ±.1 uncertainty — d's null is met on the R² evidence as much as on rec.
+mlp16/17 singles were not re-run (in §2716/§2717). No fit-split robustness here either.

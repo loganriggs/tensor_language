@@ -1,0 +1,119 @@
+{
+ "rung": "late_stack_token_lookup_map_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE(arm)/CE(MEAN of the same site set) (HIGHER = better)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_stack_half_lookup": false,
+  "pred_c_core_carries_the_stack": false,
+  "pred_d_lookup_is_generic_across_late_sites": false,
+  "pred_e_core_restriction_is_cheap_for_the_stack": true
+ },
+ "nulls": {
+  "b_null_rec_cur7_le_.15": false,
+  "c_null_rec_oracle7_le_.35": false,
+  "d_null_median_single_rec_le_.15": true,
+  "e_null_rec_cur7M_le_.5_rec_cur7": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.03,
+  "b_min": 0.35,
+  "c_min": 0.6,
+  "d_med_min": 0.35,
+  "e_mult": 0.8
+ },
+ "null_bars": {
+  "b_max": 0.15,
+  "c_max": 0.35,
+  "d_med_max": 0.15,
+  "e_mult": 0.5
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "ridge_lambda_rel": 0.01,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "mean_late7": 1.8850818276405334,
+  "prior_mean_late7": 1.885
+ },
+ "ce_added_joint_late7": {
+  "MEAN7": 1.8850818276405334,
+  "CUR7": 1.2375146746635437,
+  "CUR7_M": 1.3399767875671387,
+  "ORACLE7_M": 1.0966262519359589
+ },
+ "recovery_late7": {
+  "CUR7": 0.34352203892789024,
+  "CUR7_M": 0.28916783986808503,
+  "ORACLE7_M": 0.418260663353509
+ },
+ "single_site_mlp11_15": {
+  "mlp11": {
+   "MEAN": 0.047359585762023926,
+   "CUR": 0.04859644174575806,
+   "rec_CUR": -0.026116275381908416
+  },
+  "mlp12": {
+   "MEAN": 0.04357948899269104,
+   "CUR": 0.0443321168422699,
+   "rec_CUR": -0.0172702311792845
+  },
+  "mlp13": {
+   "MEAN": 0.040258049964904785,
+   "CUR": 0.03842860460281372,
+   "rec_CUR": 0.04544297013108922
+  },
+  "mlp14": {
+   "MEAN": 0.03261783719062805,
+   "CUR": 0.032365262508392334,
+   "rec_CUR": 0.007743452785038962
+  },
+  "mlp15": {
+   "MEAN": 0.038589805364608765,
+   "CUR": 0.03587237000465393,
+   "rec_CUR": 0.07041847799644596
+  }
+ },
+ "median_single_rec_cur": 0.007743452785038962,
+ "ridge_r2": {
+  "cur_fit": {
+   "mlp11": 0.14991454747855598,
+   "mlp12": 0.15904969422045445,
+   "mlp13": 0.16204809677427226,
+   "mlp14": 0.13653259426016076,
+   "mlp15": 0.23849855487299776,
+   "mlp16": 0.5883353407658182,
+   "mlp17": 0.5438340201196284
+  },
+  "cur_heldout": {
+   "mlp11": 0.05760330945853065,
+   "mlp12": 0.07112747245859907,
+   "mlp13": 0.07426023928673176,
+   "mlp14": 0.038507690892348956,
+   "mlp15": 0.15215423359258262,
+   "mlp16": 0.5428316692128419,
+   "mlp17": 0.4792271637208675
+  }
+ },
+ "core_spectrum": {
+  "eff_rank": 10.003904488643483,
+  "rank_90": 12,
+  "top1": 0.407855014244653,
+  "psd_min_over_max": 4.716203060040444e-05
+ },
+ "price": {
+  "gpu_doc_forwards": 1216,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 27.877937078475952
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_STACK_TOKEN_LOOKUP_MAP_PROBE_PREREGISTRATION.md": "c443b0e69631864f3f770c4a06a03b847c7e13e63d0bae3ad281840f43a3af51",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_message_token_lookup_probe_results.json": "84a3d8a9a335c8ca790ff9c03205821f34d9d631ed23bc06ade1400d4a0633bd",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "c14b445e5bb869051430efda61d21de9605808228b7235ae759ca50e7619e899"
+}

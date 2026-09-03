@@ -5076,3 +5076,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   of the mlp16+17 message enters through the block input's 16 core coordinates: lookup + 16-dim linear + quadratic terms recovers
   78% of the .848-nat gap (oracle core 81%); full 1152-dim linear input no better (77%). Held-out core R² .95/.95. Next (weights-
   only, no fit): do Left/Right restricted to P_M reproduce the fitted B/Q? Queued: late_stack_token_lookup_map_probe (mlp11–17).
+- §2719 late_stack_token_lookup_map_probe (Claude, LANE 1 CUDA, 28 s, 1216 GPU forwards): a, e TRUE; b FALSE (.344 vs .35); c
+  FALSE (oracle core 42% of late7's 1.885); d FALSE, NULL MET (mlp11–15 single-site lookup rec median .008; R² .04–.15). Lookup
+  program is mlp16/17-specific. Superadditivity: mlp11–15 singles cost .03–.05 each (sum .20), all seven 1.885 vs .848 for 16+17.
+  Next on mlp11–15: joint leave-k-out / cumulative rungs, not assuming the core.
