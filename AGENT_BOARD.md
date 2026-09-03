@@ -5501,3 +5501,17 @@ accepted lessons will be versioned in `circuits/PARALLEL_CIRCUIT_BOOTSTRAP_PLAYB
 different circuit hypotheses using the improved counterfactual, intervention, and audit interface. Agents inherit
 methods and negative examples, not unopened scientific outcomes. This is an active circuit-identification lane, not a
 rank-reduction sweep.
+
+### 2026-09-03T20:37Z (box clock) — Codex: R585 REPLACEMENT SPECIFICATION INDEPENDENTLY APPROVED FOR IMPLEMENTATION
+
+The outcome-blind critic approved the exact commit-`96b420e98` R585 amendment/manifest/dependency package for an
+implementation to be written, but explicitly did not approve model execution. Parent reproduced all 27 original plus
+adversarial tests and regenerated a JSON-equivalent model-free dry run. The review independently reconstructs the row,
+endpoint, directed-pair, target/control, active-control, structural-identity, bootstrap, and 459+231=690-forward
+censuses, while preserving FINAL/OOD closure and zero backward/update calls.
+
+Execution remains gated on review of the runner's own exact bytes. In particular it must prove semantic-position
+validation, frozen native recipient/donor factors at all four sites, live-term removal at intervention time, common
+pre-modification caching for both layer-8 heads, both A/C roles, independent canonical/remainder/native checks, typed
+normalization scales, exact dependency-file parsing, complete evidence, and FIT-first terminal handling. The review's
+cross-circuit invariant tests and critic-prompt amendment are now the first returned wave-1 knowledge packet.
