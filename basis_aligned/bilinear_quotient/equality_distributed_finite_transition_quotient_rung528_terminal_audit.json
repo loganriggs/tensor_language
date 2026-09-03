@@ -1,0 +1,106 @@
+{
+  "calls_reconciled": true,
+  "hashes": {
+    "basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_bundle.pt": "c17db82832a76daba23f74e57e75abc258093c6820c79c93a62d8d29b6143d38",
+    "basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_gpu_smoke_v2_results.json": "436d98a2c5f66fc8fdedf1143d2cd4d145e73134bd076708085614262cd83374",
+    "basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_results.json": "f931e5fb6f618b002203ce1e870a8ad4442ed3a38a7475809754ab2de91554b6",
+    "basis_aligned/bilinear_quotient/ops/equality_distributed_finite_transition_quotient_rung528_run.py": "69e728bae2b67fcdc30beebbdc0e65981646d6dbfe474743e37d46e22cd89427",
+    "basis_aligned/polynomial_causal/EQUALITY_DISTRIBUTED_FINITE_TRANSITION_QUOTIENT_RUNG528_PREREGISTRATION.md": "8e8bdb6af3f0ede2a86a07fa75f86bcefc58e6d8c9214169d5bc8de4f759ad77"
+  },
+  "material_pair_count": 3,
+  "physical_confirmation_validation_sealed": true,
+  "precontrol_passer_count": 0,
+  "recomputed_pairs": {
+    "P": {
+      "D0_circuit": {
+        "beta": 0.595594568993135,
+        "cosine": 0.8413938142394701,
+        "relative_residual": 0.5404224730334185
+      },
+      "D0_task": {
+        "beta": 0.595594568993135,
+        "cosine": 0.9993995620536076,
+        "relative_residual": 0.3236480975810347
+      },
+      "D1_circuit": {
+        "beta": 0.595594568993135,
+        "cosine": 0.902660613132421,
+        "relative_residual": 0.5741248868145198
+      },
+      "D1_task": {
+        "beta": 0.595594568993135,
+        "cosine": 0.9975308703357265,
+        "relative_residual": 0.3690386655916896
+      },
+      "beta": 0.595594568993135,
+      "material": true,
+      "passes_before_controls": false
+    },
+    "Z7": {
+      "D0_circuit": {
+        "beta": 0.8070768390655048,
+        "cosine": 0.9141292995930321,
+        "relative_residual": 0.4054227714689351
+      },
+      "D0_task": {
+        "beta": 0.8070768390655048,
+        "cosine": 0.9996934295401393,
+        "relative_residual": 0.15250281936798205
+      },
+      "D1_circuit": {
+        "beta": 0.8070768390655048,
+        "cosine": 0.9489639073816201,
+        "relative_residual": 0.39210571481393197
+      },
+      "D1_task": {
+        "beta": 0.8070768390655048,
+        "cosine": 0.9992825911835151,
+        "relative_residual": 0.2262660839080043
+      },
+      "beta": 0.8070768390655048,
+      "material": true,
+      "passes_before_controls": false
+    },
+    "Z8": {
+      "D0_circuit": {
+        "beta": 0.7212548186259912,
+        "cosine": 0.919204285494892,
+        "relative_residual": 0.3937810070684278
+      },
+      "D0_task": {
+        "beta": 0.7212548186259912,
+        "cosine": 0.9989353556402732,
+        "relative_residual": 0.3490223286988199
+      },
+      "D1_circuit": {
+        "beta": 0.7212548186259912,
+        "cosine": 0.9308947767117526,
+        "relative_residual": 0.39925237897644683
+      },
+      "D1_task": {
+        "beta": 0.7212548186259912,
+        "cosine": 0.9951255603667131,
+        "relative_residual": 0.37323097771228914
+      },
+      "beta": 0.7212548186259912,
+      "material": true,
+      "passes_before_controls": false
+    }
+  },
+  "rung": 528,
+  "status": "audit_passed",
+  "wrong_control_shapes": {
+    "circuit": [
+      2,
+      2,
+      4,
+      32
+    ],
+    "task": [
+      2,
+      2,
+      4,
+      4
+    ]
+  }
+}

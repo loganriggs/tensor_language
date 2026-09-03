@@ -1,0 +1,79 @@
+{
+  "alignment_scales_to_N_units": {
+    "N": 1.0,
+    "P": 0.595594568993135,
+    "Z7": 0.8070768390655048,
+    "Z8": 0.7212548186259912
+  },
+  "best_registered_signal": "Z7",
+  "claim_level": "post_result_response_space_diagnosis_not_physical_state_evidence",
+  "leave_one_action_out_consensus": {
+    "N": {
+      "D0": {
+        "cosine": 0.9250098393105348,
+        "relative_residual": 0.3853446360263566
+      },
+      "D1": {
+        "cosine": 0.9637027382208244,
+        "relative_residual": 0.41495508528456054
+      },
+      "continuation_factorial_interaction_over_native": [
+        0.19811414043417588,
+        0.13323185669168336
+      ],
+      "private_cross_half_cosine": 0.1236883302313212
+    },
+    "P": {
+      "D0": {
+        "cosine": 0.9031200034551932,
+        "relative_residual": 0.4679603873611196
+      },
+      "D1": {
+        "cosine": 0.9148224992778485,
+        "relative_residual": 0.7516296983446167
+      },
+      "continuation_factorial_interaction_over_native": [
+        0.1599910119401268,
+        0.169463892323129
+      ],
+      "private_cross_half_cosine": 0.17707183226326914
+    },
+    "Z7": {
+      "D0": {
+        "cosine": 0.949957628837836,
+        "relative_residual": 0.3127641521406908
+      },
+      "D1": {
+        "cosine": 0.9529136538761889,
+        "relative_residual": 0.31422507312745696
+      },
+      "continuation_factorial_interaction_over_native": [
+        0.14769539986706934,
+        0.16389245643128755
+      ],
+      "private_cross_half_cosine": -0.044355671906871626
+    },
+    "Z8": {
+      "D0": {
+        "cosine": 0.9344073661480322,
+        "relative_residual": 0.3572934504252227
+      },
+      "D1": {
+        "cosine": 0.9329973834787625,
+        "relative_residual": 0.36008992964606135
+      },
+      "continuation_factorial_interaction_over_native": [
+        0.1857715120735517,
+        0.1422573494672131
+      ],
+      "private_cross_half_cosine": 0.19677856283943929
+    }
+  },
+  "next_step": "preregister_all_action_leave_one_out_physical_state_consensus",
+  "physical_consensus_insertion_opened": false,
+  "source_hashes": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_bundle.pt": "c17db82832a76daba23f74e57e75abc258093c6820c79c93a62d8d29b6143d38",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_results.json": "f931e5fb6f618b002203ce1e870a8ad4442ed3a38a7475809754ab2de91554b6"
+  },
+  "status": "complete"
+}
