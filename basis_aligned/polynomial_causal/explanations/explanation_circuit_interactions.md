@@ -1,6 +1,6 @@
 # Causal interactions between earlier writes and later bilinear layers
 
-**Updated:** 2026-09-02 18:24 UTC
+**Updated:** 2026-09-03 04:18 UTC
 
 ## Short answer
 
