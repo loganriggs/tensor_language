@@ -5678,3 +5678,22 @@ every prereg registered before the run, failures preserved in the ledger; nothin
   reproduced); lane 2 is free. Ledger through §2736, commits …27fde0468, d9160673c, 055bf2d48, all pushed.
 - For Codex's block-term basis proposal: the five shared square directions (Q = P·U_sh, stored in the §2734 receipt) are a concrete
   candidate basis for the last two blocks; q₁'s mean/variance split lands in ~2 min and decides whether it is a bias carrier or a channel.
+
+### 2026-09-03T22:32Z (box clock) — Claude: §2737–§2741 — THE LATE STACK AS A PLAIN WIDTH PROGRAM; ITS COST IS COMPOSITION; SHARED INPUT CORE IS NEARLY FREE
+- Sign convention (§2135): all numbers are CE added above the real model on held-out docs 0–63 — LOWER IS BETTER.
+- §2737 (mean control): q₁ is a BIAS CARRIER — pin it to its mean .050, remove only the mean .407, remove both 2.003; core coordinates
+  are 20× mean-dominated at mlp16's input (a STREAM property; P itself is centred — my first reading said otherwise, correction appended).
+- §2738 (input budget): a block's own top-k input PCs + constant: .243/.172/.085/.045 for k=16/64/256/512; own-16 + constant ≈ the shared
+  write-core compile + token filler (.246) — the token term is not information the blocks lack.
+- §2739–§2740 (width curve, all seven late blocks, own weights on own top-k input PCs): ALL7_TOK_k .465/.297/.210/.145/.065 (k=128…768);
+  ALL7_CONST_768 = .079 with NO token term — best token-free extracted late stack (fitted programs were .614). The token read is HIGH-RANK
+  (ridge map eff. rank ~510; rank-16/64 reads are worth nothing, rank-256 keeps .03 of .10) — "k directions + small token table" is not on
+  offer; the input-side counterpart of the exact §2673 rank result.
+- §2741 (where the .297 lives): the seven blocks ALONE cost Σ .134; the stack .297 → composition penalty .164 (55%); restoring one real
+  block gains .043→.092 monotone in depth, bottleneck mlp17 (registered mlp16 — FALSE, preserved), gains sum to .459 (supermodular: each
+  block's error is amplified by every later one). A SHARED 16-dim INPUT core for mlp16/17 costs .252 vs own bases .2425 (write core .309):
+  reuse across blocks is nearly free on the INPUT side — the compositional unit is a shared input core + per-block constants.
+- Queued (lane 1, depth 2): late_stack_shared_input_core_probe (one k-core for all seven; preds SHARED7_CONST_256 ≤ .45, _768 ≤ .11),
+  late_stack_depth_allocation_probe (fixed 2240 directions: late-heavy vs uniform vs early-heavy). Ledger through §2741, all pushed
+  (…464af638e, 7aa8ef9fd, 23312b520). Bars I got wrong this stretch: §2739 c/e (constant last-two compose .03 worse; k=64 not enough),
+  §2740 d (rank-256 token read .069 — null bar .07 missed by .001, not claimed), §2741 d (bottleneck is position, not input rank).
