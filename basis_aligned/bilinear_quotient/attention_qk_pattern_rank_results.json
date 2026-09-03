@@ -1,0 +1,121 @@
+{
+  "status": "complete",
+  "analysis": "attention_qk_pattern_per_head_effective_rank",
+  "head_dim_bound": 128,
+  "per_block": [
+    {
+      "block": 0,
+      "qk1_median_eff_rank": 85.61306570966173,
+      "qk1_max": 109.53008725327624,
+      "qk2_median_eff_rank": 90.96502365974735
+    },
+    {
+      "block": 1,
+      "qk1_median_eff_rank": 84.4800918788768,
+      "qk1_max": 97.73570593911289,
+      "qk2_median_eff_rank": 91.15264425470386
+    },
+    {
+      "block": 2,
+      "qk1_median_eff_rank": 83.7045171656772,
+      "qk1_max": 93.19558607925873,
+      "qk2_median_eff_rank": 84.6585878065719
+    },
+    {
+      "block": 3,
+      "qk1_median_eff_rank": 82.00162612474043,
+      "qk1_max": 99.55972891371987,
+      "qk2_median_eff_rank": 88.44701268098807
+    },
+    {
+      "block": 4,
+      "qk1_median_eff_rank": 82.46121115142174,
+      "qk1_max": 97.5273910241506,
+      "qk2_median_eff_rank": 70.88686646560546
+    },
+    {
+      "block": 5,
+      "qk1_median_eff_rank": 75.59577156971564,
+      "qk1_max": 90.29459089349359,
+      "qk2_median_eff_rank": 78.49566288022382
+    },
+    {
+      "block": 6,
+      "qk1_median_eff_rank": 49.96702266081034,
+      "qk1_max": 70.7490096131751,
+      "qk2_median_eff_rank": 65.8858196895249
+    },
+    {
+      "block": 7,
+      "qk1_median_eff_rank": 59.790713678472905,
+      "qk1_max": 86.1139382289386,
+      "qk2_median_eff_rank": 62.142026587097014
+    },
+    {
+      "block": 8,
+      "qk1_median_eff_rank": 67.81449346319053,
+      "qk1_max": 88.8480605913725,
+      "qk2_median_eff_rank": 69.18399252293531
+    },
+    {
+      "block": 9,
+      "qk1_median_eff_rank": 69.38798122203652,
+      "qk1_max": 87.22892783318649,
+      "qk2_median_eff_rank": 51.61873786998313
+    },
+    {
+      "block": 10,
+      "qk1_median_eff_rank": 65.92028290335986,
+      "qk1_max": 69.3751946530404,
+      "qk2_median_eff_rank": 67.77272619699531
+    },
+    {
+      "block": 11,
+      "qk1_median_eff_rank": 74.81202512395383,
+      "qk1_max": 94.08828193957937,
+      "qk2_median_eff_rank": 51.70496372256543
+    },
+    {
+      "block": 12,
+      "qk1_median_eff_rank": 66.27011439350514,
+      "qk1_max": 81.97761620318146,
+      "qk2_median_eff_rank": 72.93367070258915
+    },
+    {
+      "block": 13,
+      "qk1_median_eff_rank": 59.83522546807675,
+      "qk1_max": 82.64096828517037,
+      "qk2_median_eff_rank": 75.72428967972834
+    },
+    {
+      "block": 14,
+      "qk1_median_eff_rank": 63.31762725161216,
+      "qk1_max": 74.58151304426961,
+      "qk2_median_eff_rank": 64.23731673640934
+    },
+    {
+      "block": 15,
+      "qk1_median_eff_rank": 63.452982687101525,
+      "qk1_max": 95.33765771955572,
+      "qk2_median_eff_rank": 50.61957343356281
+    },
+    {
+      "block": 16,
+      "qk1_median_eff_rank": 55.79664910378098,
+      "qk1_max": 90.31902557264628,
+      "qk2_median_eff_rank": 52.49568589535626
+    },
+    {
+      "block": 17,
+      "qk1_median_eff_rank": 80.30483910573889,
+      "qk1_max": 88.7126536746268,
+      "qk2_median_eff_rank": 65.36876745257986
+    }
+  ],
+  "qk1_median_over_blocks": 68.60123734261353,
+  "min": 49.96702266081034,
+  "max": 85.61306570966173,
+  "mlp_operator_rank_reference_2675": "438-749 of 1152 (no bottleneck)",
+  "interpretation": "attention pattern is head-dim(128)-bottlenecked and compressible (frontier \u00a7312); MLP token-context operators are full-1152 high-rank (not compressible, \u00a72673/\u00a72675/\u00a72676)",
+  "runtime_s": 19.06914496421814
+}

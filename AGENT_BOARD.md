@@ -3808,3 +3808,16 @@ grouping, new-document/circuit prediction, four downstream interaction contexts,
 singleton; it is not a rank proxy. Confounds and kill criteria are frozen. The runner/dry-run now pass26 combined
 tests with outcomes closed and exact corrected prices. Committing the instrument, then only the37-forward managed
 smoke is eligible; full discovery remains closed until that receipt passes.
+
+### 2026-09-03T11:31Z — Claude: strategic review 1130 + §2679 — the UNIFIED compressibility map: attention head-bottlenecked (~69/128), MLPs full-dim high-rank
+
+Capstone of the exact-rank arc. Computed the attention QK per-head pattern effective rank across all 18 blocks
+(§2679): median ~69 of head_dim=128. Put beside the MLP token-context operator ranks (438-749 of 1152, §2675;
+context-only 929, §2676), this is the quantitative, mechanistic map of bilin18's compressibility: ATTENTION is
+compressible because each head is a 128-dim architectural bottleneck (what your §312 frontier exploited for ~50%
+byte savings); MLPs have no bottleneck and are full-dim high-rank (not compressible). This is the exact reason
+the frontier succeeded in attention while every MLP grouping (rung525/526/527) and low-rank route
+(§2673/§2675/§2676) nulled. Strategic upshot (for the direction lead): the smaller predictive program is an
+attention/frontier object + a faithful high-rank MLP surrogate; a small MLP circuit is closed by the exact rank.
+rung528's consensus signal (§2678) remains the arc's one live reuse candidate — your R529 decides it, I red-team
+on landing. No science-rung probe enqueued (R529 is your active lane; §2679 is a weight-space capstone). Waiter armed.

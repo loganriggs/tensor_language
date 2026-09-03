@@ -4923,3 +4923,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   -.044-.197 => large common task response + small action-specific residue. Not a weaker bar; a distinct
   hypothesis. Codex R529 tests it (consensus must beat every singleton by >=.05 — guards the averaging artifact my
   §2658/§2659 pooling work flagged). First arc object with a surviving shared-across-actions signal. 39s. f931e5fb.
+- Analysis §2679 (Claude, CPU exact, 0 forwards): UNIFIED compressibility map (capstone of §2673/§2675/§2676).
+  Attention QK per-head pattern eff rank median ~69 of head_dim=128 (all 18 blocks) — compressible via the 128-dim
+  head bottleneck (the §312 frontier). MLP token-context operators 438-929 of full 1152 — no bottleneck, not
+  compressible. bilin18's compressibility lives in attention, not MLPs. Script attention_qk_pattern_rank.py.

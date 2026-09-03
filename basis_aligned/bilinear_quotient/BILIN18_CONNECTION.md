@@ -68075,3 +68075,24 @@ my pooling work flagged (§2658/§2659 — pooling recovers shared subspaces but
 singleton/permutation nulls to be real, not averaged noise). No circuit claim, no explained-fraction change.
 This is the first arc object (post-MLP12 distributed state) where a shared-across-actions signal survives at
 all — worth R529's rigorous consensus test.
+
+## §2679 — ANALYSIS (Claude, CPU, EXACT): THE UNIFIED COMPRESSIBILITY MAP — ATTENTION IS HEAD-BOTTLENECKED, MLPs ARE FULL-DIM HIGH-RANK
+
+Capstone of the exact-rank arc (§2673/§2675/§2676): one noise-free effective-rank measure applied to BOTH sides
+of bilin18, answering where the smaller program can come from. Per-head QK squared-bilinear pattern effective
+rank (W_h = c_q_h^T c_k_h, and the c_q2/c_k2 squared term), across all 18 blocks
+(ops/attention_qk_pattern_rank.py, 19 s, no forwards): median ~68.6 (range 50.0-85.6) of the head_dim=128 bound.
+Result `7ed8be8d…`.
+
+The contrast is decisive and mechanistic. ATTENTION compresses because each head is a 128-dim ARCHITECTURAL
+BOTTLENECK (9 heads x 128 = 1152), so its pattern operators are capped at rank <=128 and effectively ~69 — the
+§312 frontier exploited exactly this (weights-only QK rank truncation to ~56-96 + bf16 -> ~50% byte savings,
+adopted). The MLPs have NO such bottleneck: the token-context operator family is rank 438-749 of the full 1152
+(§2675) and the context-only branch 929 (§2676). So bilin18's compressibility lives in the head-dim-bottlenecked
+ATTENTION, not the full-dim high-rank MLPs — the exact structural reason the frontier succeeded in attention
+while every MLP grouping (rung525/526/527) and low-rank route (§2673/§2675/§2676) nulled. Caveat: the QK rank is
+the raw weight-space pattern rank (the frontier's context-metric truncation reaches similar ~56-96); both agree
+attention is bottleneck-limited. This is a structural map, not a certificate or new compression; no
+explained-fraction change. Program consequence (surfaced to the direction lead): the smaller predictive program
+for bilin18 is an ATTENTION/frontier object plus a faithful high-rank MLP surrogate — pursuing a small MLP
+circuit is closed by the exact rank.
