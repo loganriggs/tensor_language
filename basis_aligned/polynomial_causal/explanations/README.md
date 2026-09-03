@@ -11,6 +11,7 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0130.md](explanation_2026-09-03_0130.md) — the completed equality-score gauge arc: validated Z2 sign gauge, exhaustive six-grain negative below the action, and the fixed-direction / near-rank-1 constructive residue
 - [explanation_2026-09-03_0050.md](explanation_2026-09-03_0050.md) — rung514's planted-identifiable strong null:
   none of113,568 fixed-factor or two/three-term signed consumer programs passes either independent document search;
   defines the joint-Gram computation, explains the vacuous permutation floor, and starts the finite downstream-
