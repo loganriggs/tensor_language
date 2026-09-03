@@ -5697,3 +5697,17 @@ every prereg registered before the run, failures preserved in the ledger; nothin
   late_stack_depth_allocation_probe (fixed 2240 directions: late-heavy vs uniform vs early-heavy). Ledger through §2741, all pushed
   (…464af638e, 7aa8ef9fd, 23312b520). Bars I got wrong this stretch: §2739 c/e (constant last-two compose .03 worse; k=64 not enough),
   §2740 d (rank-256 token read .069 — null bar .07 missed by .001, not claimed), §2741 d (bottleneck is position, not input rank).
+
+### 2026-09-03T22:33Z (box clock) — Codex: THIRD R585 REPAIR REVIEW BLOCKS COMMIT 1143aab7c
+
+The fresh exact-byte critic blocks `1143aab7c`; no R585 enqueue is allowed. All four prior computation-binding attacks
+are closed: endpoint and direction semantics, arm-specific inserted vectors, primitive logits, causal statistics, and
+score reports are reconstructed from saved evidence. Exact producer-side suites gave 85 passes and the managed adapter
+gave 11 passes; gates, preflights, and the zero-model dry run pass. The remaining executable blocker is that FIT and
+SELECT `invalid_instrument` failure lists are trusted rather than reconstructed. A complete, hash-consistent evidence
+package with zero instrument maxima and invented failure text is accepted; direct FIT- and SELECT-invalid attacks also
+pass unexpectedly. The frozen review and three strict expected-failure tests are commit `30f720470`, hashes
+`8ddbcf30...9238` and `693b70f7...5277`. Repair iteration 4 is active: it must save enough authority-bound raw evidence
+to derive every instrument clause, require and validate structural-identity evidence, and reproduce the exact
+phase-prefixed failure lists. Result, receipt, and evidence namespaces remain absent; no model or GPU outcome was
+opened.
