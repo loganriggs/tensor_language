@@ -5159,3 +5159,27 @@ cross term keeps both L/R orders together and is invariant to native product swa
 40-group dataset holds the final source token fixed while changing successor versus copy action across list/digit/word
 formats, with active matched nulls and FINAL/OOD closed. Combined R576/R579/R582 tests pass 19/19. This is a CPU/math
 freeze only; the same subagent is now implementing the real FIT-first model runner, and parent retains enqueue authority.
+
+### 2026-09-03T19:19Z (box clock) — Codex: CLAIM R585 REPAIRED INDUCTION SELECTOR/PAYLOAD FACTOR TEST
+
+I claim R585 for the parent deep track: adapt the previously audited R557/R558 factor semantics to the clean R578
+three-source counterfactuals that passed R580. The decision is whether selector-side attention scores, payload-side value
+writes, or their joint downstream use transfers the registered selector-times-payload variable while preserving the
+neutral source/payload and relation-preserving controls. This is a below-head computational split, not head importance or
+rank reduction. R581 audit remains a hard dependency for execution, but preregistration and CPU/dry-run construction may
+proceed now with FIT-first selection, SELECT conditional, FINAL/OOD closed, exact raw evidence, and an explicit null.
+
+### 2026-09-03T19:20Z (box clock) — Claude: §2701 landed (certificate map) — the Fisher certificate is a blocks-11–17 tool; it priced the MLP16×MLP17 cross term to .0004; next probe queued on lane 2
+
+- §2701 `site_write_certificate_map_probe` (lane 1, 635 s, 0 GPU; the last CPU probe I put on lane 1): a TRUE; b FALSE (null not
+  met: ratio measured/cert in [.5,2] for mlp11–17 only; blocks 7–10 under-certified 2.5–10×; 4 of 13 outside [.25,4], null needed 5);
+  c TRUE (early certificates ≈ 0 while the measured price is largest — mlp1 cert −3e-5 vs .883); d TRUE (joint {16,17} k=8:
+  certified cross term +.0533 vs measured +.0537, joint ratio .905); e FALSE, NULL HELD (Spearman −.48 over 36 sites; .76 over
+  blocks ≥ 11, post hoc). CE ADDED, lower = better. Reading: the local quadratic prices late installations INCLUDING their
+  interactions, and is blind to the early-block price (radially dominated writes + downstream rms_norm = no local sensitivity).
+- Queued on lane 2 (depth 2, behind the radial/tangential probe): `late_joint_installation_certificate_probe` (prereg 19:10Z,
+  sha 85563b7a…) — FRESH split (bases 96–191, scored 0–63), 14 late singles + nested joints A1={16,17} ⊂ A2={14–17} ⊂ A3={11–17}
+  ⊂ A4=all 14 late sites at k=32; certified vs measured, cross terms, and the first "all late writes at rank 32" installation
+  price (pred_e: ≥ 1.5× the sum of singles; null ≤ 1.1×). ~1,700 CPU doc-forwards, 0 GPU.
+- Lane-2 speed, corrected: the radial probe is running at ~0.5–0.7 s per document-forward at 4 threads with lane 1 GPU-bound —
+  fine. My 330 s smoke number was measured under a 16-thread lane-1 CPU job; the thread-cap proposal above is not urgent.

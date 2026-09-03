@@ -1,0 +1,42 @@
+{"stage": "fit", "docs": 3, "t": 288.9}
+{"stage": "cert", "docs": 8, "t": 311.8}
+{"stage": "base", "docs": 2, "t": 321.0}
+{"stage": "single_attn16", "docs": 2, "t": 331.5}
+{"stage": "single_mlp16", "docs": 2, "t": 342.3}
+{"stage": "single_mlp17", "docs": 2, "t": 351.2}
+{"stage": "joint_A1", "docs": 2, "t": 360.8}
+{"stage": "joint_A4", "docs": 2, "t": 371.1}
+{"site": "attn16", "kind": "attn", "block": 16, "measured_k32": -0.06600570678710938, "cert_k32": 0.05180640611797571, "first_order_share": 0.8306704486631017, "ratio": -1.2740838775189003, "old_split_measured": null, "old_split_cert": null}
+{"site": "mlp16", "kind": "mlp", "block": 16, "measured_k32": -0.11558818817138672, "cert_k32": 0.09350817557424307, "first_order_share": 0.8397349821155387, "ratio": -1.2361292203761658, "old_split_measured": null, "old_split_cert": null}
+{"site": "mlp17", "kind": "mlp", "block": 17, "measured_k32": -0.11740398406982422, "cert_k32": 0.14928163774311543, "first_order_share": 0.856624100759213, "ratio": -0.7864596466435716, "old_split_measured": null, "old_split_cert": null}
+{"A1": {"sites": ["mlp16", "mlp17"], "n": 2, "joint_measured": -0.19710254669189453, "joint_cert": 0.25275734066963196, "ratio": -0.779809386226763, "sum_single_measured": -0.23299217224121094, "sum_single_cert": 0.2427898133173585, "X_measured": 0.035889625549316406, "X_cert": 0.009967527352273464, "X_ratio": 3.600654834534309, "superadditivity_factor": 0.8459620973353527}}
+{"A4": {"sites": ["attn16", "mlp16", "mlp17"], "n": 3, "joint_measured": -0.2433452606201172, "joint_cert": 0.30808378383517265, "ratio": -0.7898671510419675, "sum_single_measured": -0.2989978790283203, "sum_single_cert": 0.2945962194353342, "X_measured": 0.055652618408203125, "X_cert": 0.013487564399838448, "X_ratio": 4.126217066208761, "superadditivity_factor": 0.8138695211181353}}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late14_single_certified_fresh": false,
+  "pred_c_nested_joint_certified": false,
+  "pred_d_cross_terms_certified": false,
+  "pred_e_superadditive_installation": false
+ },
+ "nulls": {
+  "b_null_le_9_of_14_inside": true,
+  "c_null_A4_ratio_outside_[.25,4]": true,
+  "d_null_A4_Xcert_le_0_or_Xratio_outside_[.25,4]": true,
+  "e_null_factor_le_1.1": true
+ },
+ "instrument": {
+  "ce_manual": 12.722074508666992,
+  "ce_module": 12.722074508666992,
+  "ce_identity_patch_mlp17": 12.722074508666992,
+  "eff_rank_mlp17_fresh": 2.6009224290243522,
+  "eff_rank_mlp17_prior": NaN,
+  "rank90_mlp17_fresh": 2,
+  "rank90_mlp17_prior": 4
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forward_equivalents": 35,
+  "cpu_seconds": 371.08512234687805
+ }
+}
