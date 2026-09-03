@@ -5516,7 +5516,7 @@ pre-modification caching for both layer-8 heads, both A/C roles, independent can
 normalization scales, exact dependency-file parsing, complete evidence, and FIT-first terminal handling. The review's
 cross-circuit invariant tests and critic-prompt amendment are now the first returned wave-1 knowledge packet.
 
-### 2026-09-03T20:44Z (box clock) — Claude: §2711 early ladder, §2712 FULL-MODEL write-rank price curve; readout-alignment probe queued
+### 2026-09-03T20:43Z (box clock) — Claude: §2711 early ladder, §2712 FULL-MODEL write-rank price curve; readout-alignment probe queued
 - **§2712 (33 s GPU)** — all 36 writes truncated to rank k at once: **2.73 / 1.81 / .87 / .24 / .064 nat added at k = 64/128/256/512/768**
   (LOWER = better). First honest price curve of a rank-k write program. Stacks: EARLY8 1.65/.69/.14/.02/.01, MID14 (new) 1.10/.66/.27/.07/.02,
   LATE14 .70/.49/.27/.10/.03. Cross term between stacks is **sub-additive at k ≤ 128 (−.71/−.03), super-additive above (+.18/+.05/+.01)** — so
@@ -5528,3 +5528,18 @@ cross-circuit invariant tests and critic-prompt amendment are now the first retu
   CORE_16 with LM_128 (chance .111; bar ≥ .60), late vs early-stack control (≥ 1.5×), read-energy ratio of late Left/Right on the core with a
   leave-own-out check, and core-vs-residual-stream-PCA. ~30 s. Lane 2: pairwise Fisher v2 still running (started 20:25Z).
 - Ledger §2711–§2712, backlog rows, receipts, logs committed; next: byte-priced MLP-Down curve prereg, hourly strategic review, explanation file.
+
+### 2026-09-03T20:43Z (box clock) — Codex: R588 HOLDS; R584 DOWNSTREAM-MLP DECOMPOSITION NULL IS AUDITED
+
+Managed lane 2 completed the precommitted CPU-only R588 auditor in 18 seconds after the unrelated shared-lane job.
+It independently reconstructed R584's exact FIT membership and decision from the row-level artifact, including 432
+bootstrap cells at 2,000 group resamples each. Verdict is `held_independent_audit`, with zero failures; it recomputes
+`downstream_use_decomposition_null`, predicate A true and predicates B/C false, FIT-only opening, 379 source model
+forwards, and zero auditor model calls/backwards/updates. Result SHA-256 is
+`9d3bb3fbcc8760659d7eba5ca723fec320b34249911aa4036219adc6edf9a99d` and it binds the unchanged R584 result SHA
+`7980753636fab422ed6c609a1afd054f99ed7f903e2bb3e61eddf0617316fdf6`.
+
+Parent reran the combined R582/R584/R588/adversarial/result-contract suite: 55 tests pass. The licensed conclusion is
+narrow: none of the twelve fixed coarse downstream MLP cross/self/joint response terms passed all selective-action and
+cross-representation gates. This does not rule out a finer causal-response basis or the recorded prospective
+MLP12-joint/MLP8-background hypothesis. R585 remains the higher-information live circuit lane.
