@@ -182,3 +182,18 @@ does not alter any of the47 semantic bilinear terms or NORMALIZATION; it makes t
 term account for deployment **and stored-sum** arithmetic, which is the object the finite interventions actually use.
 The unchanged`1e-8` output/logit relative bars and all scientific B--E rules remain frozen. A third managed no-outcome
 smoke is required before any scientific execution.
+
+## Pre-outcome non-vacuous composition convention — 2026-09-03 03:18 UTC
+
+Prediction C may identify one held-out term, but a one-term subset table contains no composition question. Prediction D
+therefore additionally requires at least two confirmed semantic terms. If exactly one term confirms, its finite
+held-out identification is retained under C, but D/E stay false and no compositional-program claim is made. For two
+or more terms, all subset effects and all Möbius coefficients—including higher-order interactions—are reported even
+when the transferable law is additive. No selection or numerical threshold changes.
+
+## Timestamp erratum — 2026-09-03 03:18 UTC
+
+The two preceding no-outcome repair headings were accidentally labeled with future wall-clock times `03:23` and
+`03:28`. Runner and commit receipts establish their actual times as approximately`03:14` and`03:16` UTC. Their
+order, pre-outcome status, measurements, and content are unchanged. The `03:14` whole-drop price correction was
+already labeled correctly.

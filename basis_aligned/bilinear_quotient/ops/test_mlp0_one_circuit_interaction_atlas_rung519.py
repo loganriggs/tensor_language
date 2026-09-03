@@ -79,6 +79,26 @@ def test_permutations_destroy_planted_target_alignment():
     assert R.permutation_control_counts(effects, whole, 0) == [0] * 16
 
 
+def test_signed_recovery_accepts_matching_negative_effects():
+    effects, whole, _ = R.planted_problem(51902)
+    whole[:, 0] = -1
+    effects[0, :, 0] = -.25
+    metrics = R.term_metrics(effects, whole, 0, 0, 4)
+    assert metrics["recoveries"] == [.25, .25]
+    assert metrics["holds"]
+
+
+def test_confirmation_scores_only_discovery_frozen_terms():
+    discovery, whole, expected = R.planted_problem(51903)
+    candidates = R.discover_terms(discovery, whole, 0)
+    confirmation = discovery.clone()
+    confirmation[9, :, 0] = .9
+    confirmed, checks = R.confirmation_terms(
+        confirmation, whole, 0, candidates)
+    assert [row["term"] for row in confirmed] == expected
+    assert set(checks) == {str(term) for term in expected}
+
+
 def test_mobius_recovers_known_interactions():
     coefficients = torch.tensor([0., .2, -.1, .4, .3, 0., 0., -.25])
     table = torch.zeros(8)
@@ -86,6 +106,50 @@ def test_mobius_recovers_known_interactions():
         table[mask] = sum(coefficients[sub]
                           for sub in range(8) if sub & ~mask == 0)
     assert torch.allclose(R.mobius(table), coefficients.double(), atol=1e-7)
+
+
+def _planted_subset_collection():
+    subsets, documents, circuits, tasks = 4, 4, 5, 3
+    collection = {
+        "bounds": (0, 4, 2), "terms": (0, 5),
+        "task_sums": torch.zeros(subsets, documents, tasks),
+        "task_counts": torch.ones(documents, tasks),
+        "circuit_sums": torch.zeros(subsets, 2, 2, circuits),
+        "circuit_counts": torch.ones(2, 2, circuits),
+    }
+    profile = torch.tensor([0., .3, .2, 1.])
+    circuit_shape = torch.tensor([1., .1, .1, .1, .1])
+    for subset in range(subsets):
+        collection["circuit_sums"][subset, :, 0] = profile[subset] * circuit_shape
+        collection["task_sums"][subset, :, 2] = profile[subset] * .001
+    return collection
+
+
+def test_subset_scoring_recovers_transfer_and_selective_manipulation():
+    discovery = _planted_subset_collection()
+    confirmation = _planted_subset_collection()
+    effects = R.subset_effects(discovery)
+    assert effects["circuit"].shape == (4, 2, 5)
+    score = R.score_composition(
+        discovery, confirmation, torch.ones(2, 5), torch.ones(2, 5),
+        0, 0, 2)
+    assert score["profile_holds"]
+    assert score["recovery_holds"]
+    assert score["selective_holds"]
+    torch.testing.assert_close(
+        torch.tensor(score["confirmation_target_mobius"][3]),
+        torch.tensor([.5, .5]))
+
+
+def test_exact_mask_deduplication_keeps_first_tag():
+    masks = {
+        "a": {"member": torch.tensor([1, 0]), "slice_control": torch.tensor([0, 1])},
+        "b": {"member": torch.tensor([1, 0]), "slice_control": torch.tensor([0, 1])},
+        "c": {"member": torch.tensor([0, 1]), "slice_control": torch.tensor([1, 0])},
+    }
+    tags, identity = R.deduplicate_circuit_tags(masks, ("a", "b", "c"))
+    assert tags == ("a", "c")
+    assert identity["duplicates"] == {"b": "a"}
 
 
 def test_phase_effects_keeps_halves_and_member_minus_control():
