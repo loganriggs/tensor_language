@@ -18,7 +18,7 @@
    "tag": "task.numbered_list.index_successor",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v5",
+   "active_claim_id": "numbered_list_index_successor.v6",
    "claim_status": "specified",
    "causal_variable_id": "list_index_state",
    "counterfactual_family_count": 6,
@@ -32,10 +32,10 @@
     "numbered_list_native_capability.r569.held.v1",
     "numbered_list_capability_audit.r571.held.v1",
     "numbered_list_conflict_confirmation.r572.held.v1",
-    "numbered_list_label_factor.r573.preregistered.v1"
+    "numbered_list_label_factor.r573.v2.preregistered.v1"
    ],
    "open_event_ids": [
-    "numbered_list_label_factor.r573.preregistered.v1"
+    "numbered_list_label_factor.r573.v2.preregistered.v1"
    ],
    "held_event_ids": [
     "numbered_list_native_capability.r569.held.v1",
@@ -61,7 +61,7 @@
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "run the open R573 exact L8H7/L8H3 label-factor FIT gate; only a passing frozen arm may open SELECT"
+   "next_missing": "run the registered R573 v2 price-only repair; do not represent it as an independent blind replication"
   },
   {
    "tag": "task.bracket.pending_opener",

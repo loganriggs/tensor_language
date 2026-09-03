@@ -1,0 +1,16 @@
+{
+ "rung": 573,
+ "stage": "numbered_list_factor_localization_v1_invalid_receipt",
+ "verdict": "invalid",
+ "failure_kind": "implementation_failure",
+ "reason": "the process completed 280 model forwards after preregistering a maximum of 278",
+ "result_json_written": false,
+ "observed_exception": "RuntimeError: forward price exceeded: 280 > 278",
+ "leaked_outcome_information": "conditional SELECT opened, which implies that at least one FIT arm passed",
+ "full_fit_or_select_outcomes_opened_by_agent": false,
+ "runlog_sha256": "0788cc1c9d1304a5935f6c668e03f68777f42b9ea15c70fa12bbff1f2038de88",
+ "model_forwards": 280,
+ "model_backwards": 0,
+ "forbidden_splits_opened": [],
+ "repair": "rerun the unchanged protocol under the explicit R573 v2 280-forward amendment"
+}

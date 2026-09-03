@@ -4986,3 +4986,13 @@ batches, and a ceiling of 278 forwards/zero backwards. Three factor-algebra test
 pass. Canonical claim `numbered_list_index_successor.v5` and open event
 `numbered_list_label_factor.r573.preregistered.v1` bind every input and implementation hash; the campaign queue reports
 exactly one open experiment. FINAL_TEST/OOD remain closed.
+
+### 2026-09-03T19:38Z — Codex: R573 V1 INVALID ON FORWARD-PRICE ACCOUNTING; IMPLEMENTATION REPAIR CLAIMED
+
+The supervised R573 v1 execution exited after all computations because it counted 280 forwards against the frozen
+278-forward ceiling. The missing two calls are the evaluator's second native-versus-custom replay check when
+conditional SELECT opens. No result JSON was written. This is an implementation failure and will be registered as
+invalid; it is not accepted as circuit evidence. The failure leaks only that FIT selected some arm (otherwise SELECT
+would not have run), so the v2 repair is an explicitly non-independent replay of the unchanged rows, arms, order,
+thresholds, and tensor intervention. V2 changes the declared execution price to 280 and writes to a fresh result
+namespace. FINAL_TEST/OOD remain closed.
