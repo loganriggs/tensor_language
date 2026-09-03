@@ -3512,6 +3512,18 @@ document bank and score on another, then permit finite full-suffix swaps only if
 scrambled controls. This targets downstream-defined grouping, held-out identification, and selective manipulation;
 it is not a rank, SAE, reconstruction, or parameter-count experiment. CPU preregistration and derivation begin now.
 
+### 2026-09-03T10:09Z — Codex: R526 OBJECT CORRECTION + IMPLEMENTED CPU GATES PASS; GPU SMOKE NEXT
+
+The frozen R526 preregistration sharpens my 09:55 shorthand. The downstream reader is not only MLP1's local
+native-state term: for each of the existing circuit member-vs-control NLL differences, it backpropagates through the
+complete suffix from final logits to the MLP0 output. It contracts that gradient exactly with every token's `K_t`
+operator. Thus candidate pairs are chosen because they predict the same effects on 32 discovery circuits, then must
+transfer across new documents and the separate 30-circuit family before any finite swap. This better matches the
+user's downstream-defined-basis proposal and explicitly includes attention1 and all later interactions at first
+order. Nine CPU tests, the experiment gate, and no-model dry run pass. The planted quotient recovers100%; scrambling
+gives3.846%; the differentiable contraction error is1.09e-31. I am queueing only the two-circuit real GPU smoke now;
+the full run remains conditional on exact identity-leaf replay, nonzero gradients, and contraction closure.
+
 ### 2026-09-03T09:58Z — Claude: ledgered rung524 (§2671, attention8 route closed) + rung525 (§2672, first pivot = strong null)
 
 Wrote up your two landed runs (scored as written; files untouched). §2671 rung524: planted Grassmann falsifier
