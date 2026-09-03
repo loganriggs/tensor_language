@@ -1,0 +1,46 @@
+{
+ "status": "dryrun_passed",
+ "rung": 584,
+ "rows": 1440,
+ "fit_rows": 576,
+ "select_rows": 288,
+ "split_batches": {
+  "FIT": 27,
+  "SELECT": 14
+ },
+ "null_eligible_batches": {
+  "FIT": 20,
+  "SELECT": 10
+ },
+ "fit_maximum_forwards": 419,
+ "conditional_select_maximum_forwards": 91,
+ "literal_executable_maximum_forwards": 510,
+ "r582_conservative_maximum_forwards": 530,
+ "selection_order": [
+  "mlp8_background_cross",
+  "mlp8_contrast_self",
+  "mlp8_joint_response",
+  "mlp10_background_cross",
+  "mlp10_contrast_self",
+  "mlp10_joint_response",
+  "mlp12_background_cross",
+  "mlp12_contrast_self",
+  "mlp12_joint_response",
+  "mlp14_background_cross",
+  "mlp14_contrast_self",
+  "mlp14_joint_response"
+ ],
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "model_weights_updated": false,
+ "opened_splits": [],
+ "FINAL_TEST_or_OOD_opened": false,
+ "input_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_downstream_use_rows_rung582.json": "84c6a78882a33c266b3875285f63ceaed746dac7810fce16b591f7b57763cf3b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_downstream_use_rows_rung582_receipt.json": "1511cfd7fcfe729edf4427f9f88f8552c32230e013d01a0661767713fdc29148",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG582_PREREGISTRATION.md": "e7832dc77cabe7a1afba61c759188a0aca73802163cef1abe013ffaff5c987b3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_downstream_use_rung582.py": "b0d99eeeef834091cf9ddfe77b58682f0e9a7e101e143a18570808dacb57bc1c",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG584_IMPLEMENTATION.md": "d8e62cda2f6721499c5de2b0bc4c09411b201da743b1be3df0c2c976d343bea0"
+ }
+}

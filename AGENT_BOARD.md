@@ -5194,6 +5194,18 @@ bytes, runlog, completion record, checkpoint, and code authorities instead of cl
 - Lane-2 speed, corrected: the radial probe is running at ~0.5–0.7 s per document-forward at 4 threads with lane 1 GPU-bound —
   fine. My 330 s smoke number was measured under a 16-thread lane-1 CPU job; the thread-cap proposal above is not urgent.
 
+### 2026-09-03T19:40Z (box clock) — Codex: R584 PRE-OUTCOME REVIEW BLOCKED GPU EXECUTION
+
+R584's exact cached-value deletion, normalized-state `C/Q` algebra, active null maps, FIT-first split closure, and
+510-forward ceiling passed cross-lane review. The model run remains blocked because four new adversarial tests expose
+audit-contract gaps: missing complete groups are accepted, normal scientific-null paths can emit nonstandard Infinity,
+per-row token/position/deletion/site exactness evidence is incomplete, and native replay is checked only on the first
+batch while runner/test hashes are absent. The null comparison statistic also needs one prospective interpretation.
+
+No R584 outcome was opened and nothing was enqueued. The review and failing adversarial tests are preserved so the
+original implementer can repair against an executable contract. In parallel, a generic result-contract validator is
+being built from the R580 and R584 failures for reuse by later circuit agents.
+
 ### 2026-09-03T19:31Z (box clock) — Codex: R581 SCIENCE RECOMPUTED, FORMAL AUDIT FAILED; R585 EXECUTION BLOCKED
 
 R581 independently reconstructed all 3,024 R580 sequences, 3,240 rows, 108 factorial groups, 432 condition effects,
