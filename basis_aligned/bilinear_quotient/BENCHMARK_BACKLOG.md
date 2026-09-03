@@ -5154,3 +5154,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2741 late_stack_block_bottleneck_probe (Claude, LANE 1 CUDA, 16 s, 1184 GPU forwards): a, b, c, e TRUE; d FALSE (bottleneck is mlp17,
   not mlp16; null not met). Σ SINGLE .134 vs STACK .297 → composition penalty .164; restore gains monotone in depth .043→.092,
   supermodular (Σ .459); shared INPUT core for last two .252 (own .2425; write core .309). Preserved.
+- §2742 late_stack_shared_input_core_probe (Claude, LANE 1 CUDA, 10 s, 608 GPU forwards): a–e ALL TRUE. One shared input core for
+  mlp11–17 costs ≤ .006 over per-block bases at k ≥ 256 (.397/.192/.084 CONST; .302/.070 TOK); capture ratio .964. The late stack is
+  "one shared input subspace + seven constants + own weights restricted to it". Preserved.

@@ -1,0 +1,37 @@
+{"stage": "heads_done", "t": 6.4}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 6.8}
+{"stage": "shared_core", "cap_ratio": {"11": 0.911, "12": 0.946, "13": 0.97, "14": 0.982, "15": 0.985, "16": 0.978, "17": 0.976}, "mean_ratio": 0.964, "t": 6.8}
+{"stage": "arms", "ALL7_CONST_256": 0.397, "SHARED7_CONST_64": 0.8177, "SHARED7_CONST_256": 0.3972, "SHARED7_CONST_512": 0.1924, "SHARED7_CONST_768": 0.084, "SHARED7_TOK_256": 0.3022, "SHARED7_TOK_768": 0.0698, "t": 10.5}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_shared_const_256": true,
+  "pred_c_shared_const_768": true,
+  "pred_d_shared_tok_256": true,
+  "pred_e_shared_core_captures_variance": true
+ },
+ "nulls": {
+  "b_null_ge_.55": false,
+  "c_null_ge_.20": false,
+  "d_null_ge_.45": false,
+  "e_null_ratio_le_.60": false
+ },
+ "ce_added": {
+  "ALL7_CONST_256": 0.39704298973083496,
+  "SHARED7_CONST_64": 0.8177475035190582,
+  "SHARED7_CONST_256": 0.3971814811229706,
+  "SHARED7_CONST_512": 0.19236591458320618,
+  "SHARED7_CONST_768": 0.08402881026268005,
+  "SHARED7_TOK_256": 0.3022373616695404,
+  "SHARED7_TOK_768": 0.06979992985725403
+ },
+ "shared_minus_per_block": {
+  "CONST_64": 0.020747503519058186,
+  "CONST_256": 0.00018148112297056151,
+  "CONST_512": 0.006365914583206178,
+  "CONST_768": 0.005028810262680053,
+  "TOK_256": 0.005237361669540419,
+  "TOK_768": 0.004799929857254026
+ },
+ "mean_capture_ratio": 0.9640247601440938
+}

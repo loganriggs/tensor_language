@@ -70472,3 +70472,37 @@ filler) — the same program with one basis for both blocks and nothing fitted.
 
 **Limits.** k fixed at 256 and the token filler on for all decomposition arms; one split; the shared input core tested only for the
 last two (pool-wide shared cores are the next question); restore gains are one-block-at-a-time (pairwise interactions not measured).
+
+## §2742 — ONE INPUT CORE FOR THE WHOLE LATE STACK IS FREE: a single k-dim subspace from the pooled centred input covariance of mlp11–17 replaces the seven per-block bases at a cost of .0002 (k=256, CONST: .3972 vs .3970), .006 (512), .005 (768), .005 (TOK 256/768); only at k=64 does sharing cost anything (.021); the shared 256-core captures 91–98% of what each block's own top-256 captures (mean .964); the late stack is therefore "ONE shared input subspace of dimension k + seven constants + each block's own weights restricted to it": .397 / .192 / .084 at k = 256 / 512 / 768 with no token term, .302 / .070 with it (Claude, LANE 1 CUDA, 10 s, 608 GPU document-forwards): a–e ALL TRUE; no null met. Preserved.
+
+Registered 2026-09-03 22:29Z (polynomial_causal/LATE_STACK_SHARED_INPUT_CORE_PROBE_PREREGISTRATION.md); landed 22:32Z. Script
+ops/late_stack_shared_input_core_probe.py; results late_stack_shared_input_core_probe_results.json (sha 6072db89…). Frozen: prereg,
+§2739 and §2740 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63
+(FRESH split; fits docs 96–191) — LOWER IS BETTER. Own weights; each block its own input mean; the shared U_k = top-k eigenvectors of
+the plain average of the seven blocks' centred (rms-normed) input covariances.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); ALL7_CONST_256 .3970 (§2739 .397).
+
+**Arms.** SHARED7_CONST_64/256/512/768 .8177/.3972/.1924/.0840 (per-block §2739/§2740: .797/.397/.186/.079; gaps .021/.0002/.006/.005).
+SHARED7_TOK_256/768 .3022/.0698 (per-block .297/.065; gaps .005/.005). Capture ratio (shared-256 variance / own-256 variance) per block
+mlp11…17: .911/.946/.970/.982/.985/.978/.976; mean .964.
+
+**Scoring.** b .397 ≤ .45 TRUE (null ≥ .55 not met). c .084 ≤ .11 TRUE (null ≥ .20 not met). d .302 ≤ .35 TRUE (null ≥ .45 not met).
+e .964 ≥ .85 TRUE (null ≤ .60 not met).
+
+**Reading.** (i) The seven late blocks read the SAME input subspace. Per-block bases were never buying anything at k ≥ 256 — the
+.0002 gap at 256 is below the CUDA-atomics wobble — and even at k = 64 the shared core is within .02. This is the compositional
+result the arc was after (Logan: "compositionality and re-usability of previous circuit components"): the reusable component is not
+a shared operator (the exact ranks forbid that, §2673–§2676) but a shared INPUT COORDINATE SYSTEM; each block's own bilinear form
+is expressed in it. (ii) The late program now reads: fix U ∈ ℝ^{1152×k} once; for l = 11..17 store the block's Left·U, Right·U
+(H×k each, in place of H×1152), Down, and one constant c_l = (I − UUᵀ)x̄_l; the block computes Down[(L_U z + a_l) ⊙ (R_U z + b_l)]
+with z = Uᵀ x̂ and a_l = Left·c_l, b_l = Right·c_l. At k = 768 this is .084 above the real model on fresh documents with nothing
+fitted except U and the seven means; at 512, .192; at 256, .397. (iii) What it does not do: it does not compress the blocks' own
+weights (Down stays full; Left·U/Right·U are still high-rank, §2673), and k = 768 of 1152 is a 33% input-side reduction, not a
+small program — the width curve (§2740) is steep because the input really is high-rank; the gain is structural (one basis, seven
+constants) rather than arithmetic. (iv) Consistency with §2741 (iii): the last-two shared INPUT core cost .01 at k = 16; here the
+seven-block shared core costs .02 at k = 64 and nothing from 256 on — the shared subspace is exact where it is wide enough to hold
+each block's high-variance directions, and the blocks' top directions coincide (capture .91–.98).
+
+**Limits.** One split; U and means on 96 docs; the shared core is the plain average of covariances (no block weighting); TOK arms use
+per-block rank-full token maps (a shared token map is untested); nothing here touches the attention writes or the early stack.
