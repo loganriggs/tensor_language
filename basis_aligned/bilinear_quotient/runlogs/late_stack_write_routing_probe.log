@@ -1,0 +1,32 @@
+{"stage": "heads_done", "t": 9.8}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 10.2}
+{"stage": "cores", "out_of_core_energy_768": {"mlp11": 0.216, "mlp12": 0.226, "mlp13": 0.236, "mlp14": 0.265, "mlp15": 0.22, "mlp16": 0.043, "mlp17": 0.028, "attn11": 0.119, "attn12": 0.164, "attn13": 0.226, "attn14": 0.273, "attn15": 0.241, "attn16": 0.243, "attn17": 0.087}, "t": 10.3}
+{"stage": "arms", "LATE14_JOINT_768": 0.1093, "DELETE_512": 0.3472, "DELETE_768": 0.1468, "TO_READOUT_512": 0.1202, "TO_READOUT_768": 0.05, "HIDDEN_FROM_READOUT_768": 0.1046, "BUS_768": 0.1054, "t": 13.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_later_sublayers_do_not_need_it": true,
+  "pred_c_readout_needs_it": true,
+  "pred_d_bus_program_equals_read_program": true,
+  "pred_e_narrower_bus": false
+ },
+ "nulls": {
+  "b_null_ge_.12": false,
+  "c_null_le_.03": false,
+  "d_null_ge_.06": false,
+  "e_null_ge_.25": false
+ },
+ "ce_added": {
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "DELETE_512": 0.34719955921173096,
+  "DELETE_768": 0.14680373668670654,
+  "TO_READOUT_512": 0.12017938494682312,
+  "TO_READOUT_768": 0.049957275390625,
+  "HIDDEN_FROM_READOUT_768": 0.1045980453491211,
+  "BUS_768": 0.10540610551834106
+ },
+ "gaps": {
+  "bus_minus_joint": -0.0039338767528533936,
+  "delete_minus_readout_plus_hidden_768": -0.007751584053039551
+ }
+}

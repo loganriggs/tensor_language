@@ -70678,3 +70678,44 @@ their inputs are wide (§2740: token map rank ~230–510; §2744: mlp17 input ef
 narrow writers; (ii) the shared write core coincides with the read core (d) — the late stack's common output directions are the
 ones it also reads, which is what a residual-stream program should look like, but that shared part carries only three quarters of
 the write energy. Failures preserved; nothing installs into the §312 frontier.
+
+## §2748 — THE LATE STACK'S BROAD WRITES ARE FOR THE READOUT, NOT FOR EACH OTHER: routing the part of each late write that lies OUTSIDE the shared 768 read core straight to the final residual (invisible to every later sublayer) costs .0500 (pred_b ≤ .05 TRUE — by .00004, inside the .003 CUDA wobble; see scoring note), hiding it from the readout while leaving it in the stream costs .105 (pred_c ≥ .08 TRUE), and the two channels add up to the deletion cost (.050 + .105 = .155 vs DELETE .147); the BUS program — fourteen late sublayers reading ONE 768-dim core, out-of-core writes sent straight to the logits — costs .105, .004 BELOW the read program alone (pred_d TRUE); a 512-dim bus costs .120 (pred_e ≤ .10 FALSE; deleting instead of routing at 512 costs .347); out-of-core write energy at 768: mlp11–15 .22–.27, mlp16/17 .04/.03, attention .09–.27 (Claude, LANE 1 CUDA, 14 s, 608 GPU document-forwards): a, b, c, d TRUE; e FALSE; no null met. Preserved.
+
+Registered 2026-09-03 22:48Z (polynomial_causal/LATE_STACK_WRITE_ROUTING_PROBE_PREREGISTRATION.md); landed 22:49Z. Script
+ops/late_stack_write_routing_probe.py; results late_stack_write_routing_probe_results.json (sha 84debe80…). Frozen: prereg, §2747
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Construction: P = U_read U_readᵀ on the first k columns of the §2745 joint late input core;
+each late write w at the fourteen sites is split as μ_s + P(w − μ_s) + (I − P)(w − μ_s); DELETE drops the last term; TO_READOUT
+removes it from the stream and adds the sum of all fourteen remainders to the residual just before the final rms-norm (a new
+("final", −1) patch site in forward — identical to §2747's WRITE14_ON_READ_CORE when the buffer is dropped, checked: DELETE_768 =
+.14680 = §2747 .14680); HIDDEN keeps it in the stream and subtracts the same sum before the final norm; BUS composes the §2745
+read program (OwnHead CONST / AttnHead on U_read at 768) with TO_READOUT at the same sites. Reads are the REAL full-width reads in
+DELETE / TO_READOUT / HIDDEN.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401 (Δ 7e-9); LATE14_JOINT_768 .1093 (prior .109); DELETE_768 .1468 (prior .147).
+- pred_b_later_sublayers_do_not_need_it TRUE: TO_READOUT_768 = .04996 (bar ≤ .05; null ≥ .12 not met). Scoring note: the margin is
+  .00004, an order of magnitude inside the ~.003 CUDA-atomics wobble of one CE number. The registered bar is met and is scored TRUE
+  as written; the CLAIM below is stated as "≈ .05", not "under .05", and a reader who prefers to call b a coin-flip loses nothing —
+  the structural conclusion rests on the RATIO to HIDDEN (.050 vs .105) and on d, not on which side of .05 the number falls.
+- pred_c_readout_needs_it TRUE: HIDDEN_FROM_READOUT_768 = .1046 (bar ≥ .08; null ≤ .03 not met).
+- pred_d_bus_program_equals_read_program TRUE: BUS_768 − LATE14_JOINT_768 = .1054 − .1093 = −.0039 (bar |·| ≤ .02; null ≥ .06 not met).
+- pred_e_narrower_bus FALSE: TO_READOUT_512 = .1202 (bar ≤ .10; null ≥ .25 NOT met). DELETE_512 = .347.
+
+Descriptive. Additivity: DELETE_768 − (TO_READOUT_768 + HIDDEN_768) = −.008 — the two destinations of the out-of-core write
+content (later sublayers; the readout) account for the deletion cost independently. Out-of-core energy fraction of each site's
+centred write at k = 768 (512): mlp11 .22 (.39), mlp12 .23 (.41), mlp13 .24 (.42), mlp14 .27 (.46), mlp15 .22 (.38), mlp16 .04
+(.08), mlp17 .03 (.05); attn11 .12 (.23), attn12 .16 (.30), attn13 .23 (.40), attn14 .27 (.48), attn15 .24 (.42), attn16 .24
+(.43), attn17 .09 (.15).
+
+Reading. §2747 left the late stack "one shared read subspace, no shared write subspace". This rung says where the non-shared write
+goes: about a quarter of each late write's energy lies outside the 768-dim core the late stack reads from, and that quarter is
+consumed twice as much by the READOUT (.105 when hidden from it) as by the later sublayers (.050 when hidden from them); the two
+uses are additive, so they are different content, not the same content counted twice. The BUS program is the cleanest statement
+of the late program so far: fourteen sublayers, each with its own weights and constant filler, all READING one 768-dim coordinate
+system; each WRITING its in-core part back onto that bus and its out-of-core part straight to the logits; total cost .105 — no
+worse than letting the out-of-core part circulate (.109; the −.004 is inside wobble). Inter-sublayer communication in blocks 11–17
+is therefore a 768-dim channel to within .05 nat; it is NOT a 512-dim channel (e FALSE at .120, and deletion at 512 is .347 —
+routing recovers two thirds of it, so even at 512 most of the write is readout-bound). Together with §2746 (attention cannot use a
+narrower lane) the late program's width is 768 for reads, writes and the bus alike, with the readout as the one full-width consumer.
+Failures preserved; nothing installs into the §312 frontier.

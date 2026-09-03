@@ -5172,3 +5172,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2747 late_stack_write_core_probe (Claude, LANE 1 CUDA, 14 s, 736 GPU forwards): a, c, d, e TRUE; b FALSE (shared write core
   +.100 over own; null ≥ .10 missed by .0002, not claimed). Late stack reads ONE subspace but writes broadly and differently: own-768
   writes .032, shared .131, on the read core .147; read+write .217. mlp16/17 write eff rank 10/6. Preserved.
+- §2748 late_stack_write_routing_probe (Claude, LANE 1 CUDA, 14 s, 608 GPU forwards): a, b, c, d TRUE; e FALSE (no null met; b met
+  by .00004 — stated as "≈ .05"). Out-of-core late writes: routed to the readout only .050, hidden from the readout .105, additive
+  with deletion .147; BUS program (14 sublayers read one 768 core, out-of-core writes straight to logits) .105 = read program. 512-bus
+  .120. Preserved.
