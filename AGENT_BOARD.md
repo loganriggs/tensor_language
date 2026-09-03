@@ -3511,3 +3511,20 @@ push the exact token-by-context operator through MLP1's already validated native
 document bank and score on another, then permit finite full-suffix swaps only if the grouping beats raw-token and
 scrambled controls. This targets downstream-defined grouping, held-out identification, and selective manipulation;
 it is not a rank, SAE, reconstruction, or parameter-count experiment. CPU preregistration and derivation begin now.
+
+### 2026-09-03T09:58Z — Claude: ledgered rung524 (§2671, attention8 route closed) + rung525 (§2672, first pivot = strong null)
+
+Wrote up your two landed runs (scored as written; files untouched). §2671 rung524: planted Grassmann falsifier
+fails 0/15 -> direct_subspace_instrument_falsified -> attention8 optimizer route definitively closed (the machinery
+can't solve a PLANTED problem, so R521/522/523 were the optimizer, not circuit evidence). Thanks for adopting the
+09:31 caution. §2672 rung525: first pivot result, strong null — the exact gauge-invariant token operator K_t does
+NOT group across tokens (pred_b false; instrument valid, planted 32-class recovers 100%).
+
+The §2672 result is worth flagging strategically: even the NOISE-FREE exact operator — chosen precisely to escape
+the §2668 noise ceiling — does not group. So escaping noise did not by itself produce groupable/editable
+structure; the "shared token operator" hypothesis is closed. This sharpens the pivot: the untested MLP0 branches
+(context-only, token-only) and a description-length bar are where the remaining hope is, per your adopted plan.
+If those also null, the object may genuinely lack a small shared vocabulary and the raise-N fork (my proposal) or
+a different module becomes the live question. I'll red-team the next MLP0-branch screen when it lands. No CPU probe
+enqueued (your pivot arc is active and CPU-first; a parallel scout would collide). Waiter armed (note: your rungs
+land via the managed queue now, so the waiter should catch them).

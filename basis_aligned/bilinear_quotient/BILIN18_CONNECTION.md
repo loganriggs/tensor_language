@@ -67896,3 +67896,43 @@ entirely and the next object is the exact MLP0 token / token-context / context d
 matches my closed MLP10 chapter (§2668: the a8/per-source reliable structure is small, ~12% held-out coverage,
 ~0 bits) and the 08:31 strategic checkpoint: the per-unit attention8 circuit line is at a measured wall, and the
 program is at an object-pivot fork. Both R522 and R523 are instrument-level closures, not circuit evidence.
+
+## §2671 — RUNG524 (Codex): PLANTED GRASSMANN FALSIFIER FAILS — ATTENTION8 OPTIMIZER ROUTE DEFINITIVELY CLOSED
+
+The decisive gate for the attention8 DAS line. A CPU-only direct Grassmann/Stiefel optimizer was asked to recover
+a KNOWN PLANTED shared subspace under held-out loss — the minimal test any working projector optimizer must pass.
+Landed 09:32, unledgered — written up per lane first-duty, scored as written. Registered verdict
+`direct_subspace_instrument_falsified`: 0 of 15 known-answer fits recovered (projector errors 0.511--1.004 against
+the required <=0.10; minimum principal cosines 0.006--0.701 against required >=0.995); 14 of 15 exhausted the
+frozen line-search budget, the one 200-update completion still failed validation and recovery. Independent audit
+reconciles all 15 frame hashes (2,095 accepted updates, 2,109 gradients, 21,044 line-search evals, zero model/GPU
+calls). Runtime 12.9 s. Result `0d25569e…`.
+
+This is an OPTIMIZER falsification, not a circuit null: the projector-fitting machinery cannot solve even a planted
+problem, so rung521/522/523's failures were the optimizer, and no attention8 selective-variable claim (null or
+positive) is licensed from this route. Per the frozen decision, no tuning follows — the attention8 DAS optimizer
+route is CLOSED. Codex adopted my 09:31 strategic caution explicitly: the next object (exact MLP0 decomposition)
+must require editable downstream structure and a description-length improvement over the already-known rung396-405
+branch anatomy, not re-characterisation.
+
+## §2672 — RUNG525 (Codex): EXACT MLP0 TOKEN-BY-CONTEXT OPERATOR QUOTIENT — STRONG NULL, OPERATORS DO NOT GROUP
+
+The first pivot result on the exact (noise-free) MLP0 object. For each of the 50,257 tokens, rung525 defines the
+exact gauge-invariant linear operator `K_t` mapping an attention0 context deviation into the centered MLP0
+interaction write, and tests (two disjoint 256-context random-contraction banks, bank A selects donor groups,
+unopened bank B scores transfer vs raw-token/random/coordinate-deranged controls) whether far-apart token vectors
+share the same operator. Landed 09:52, unledgered. Registered strong null (scored as written): pred_a TRUE (exact
+lawful instrument — the planted 32-class toy recovered 100% of receivers, coordinate-scramble dropped it to 3.85%,
+held-out candidate/raw distance ratio 0.0), but pred_b FALSE (operator grouping does NOT transfer across tokens on
+bank B), with pred_c true (when groups exist they are repeated, not isolated pairs — moot here). Runtime 4.9 s,
+CPU-first. Result `34714559…`.
+
+Significance: even the EXACT, noise-free token-by-context operator — the object chosen precisely to escape the
+§2668 noise ceiling — does NOT group across tokens. So MLP0's token operators are token-specific, not a small
+shared vocabulary, at this operator metric; the screen closes without threshold tuning and licenses no
+natural-context downstream substitution. This partially vindicates the §2671/09:31 caution: the pivot object is
+noise-free but its FIRST grouping screen is null, so escaping the noise ceiling did not by itself produce
+groupable/editable structure. The exact-operator arc remains open (other MLP0 decompositions — the context-only
+and token-only branches, or a different grouping metric — are untested), but the "shared token operator" hypothesis
+is closed. No explained-fraction change. Both R524/R525 are instrument/screen closures, not positive circuit
+evidence.

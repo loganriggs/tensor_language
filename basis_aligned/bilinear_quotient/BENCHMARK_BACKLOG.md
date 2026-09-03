@@ -4891,3 +4891,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   rung522 repeat. 865s. Next: rung524 CPU planted Grassmann/Stiefel falsifier — if it can't recover a planted
   subspace, attention8 route closes -> next object exact MLP0 token/token-context/context decomposition.
   Convergent with §2668 (a8 reliable structure small) and the 08:31 pivot checkpoint.
+- Rung524 (§2671, Codex): planted Grassmann/Stiefel optimizer falsifier. 0/15 known-answer fits recovered
+  (projector err 0.51-1.0 vs <=0.10) -> direct_subspace_instrument_falsified. The projector optimizer can't solve
+  a PLANTED problem, so R521/522/523 failures were the optimizer; attention8 DAS route CLOSED, no tuning. My 09:31
+  MLP0-pivot caution adopted by Codex. 12.9s. Result 0d25569e….
+- Rung525 (§2672, Codex): FIRST pivot result. Exact gauge-invariant MLP0 token operator K_t (context deviation ->
+  interaction write), two-bank transfer screen. Strong null: pred_a true (planted 32-class recovers 100%,
+  scramble 3.85%), pred_b FALSE (operators do NOT group across tokens), pred_c true(moot). Even the NOISE-FREE
+  exact operator doesn't group -> escaping the §2668 noise ceiling didn't by itself yield groupable structure.
+  "Shared token operator" hypothesis closed; other MLP0 branches (context-only/token-only) untested. 4.9s. Result 34714559….
