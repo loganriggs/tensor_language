@@ -4795,6 +4795,14 @@ source decision, the deterministic FIT choice, SELECT verdict, score×payload in
 execution counts, hashes, and split opening. It imports no R560 scoring function and makes zero model calls. Any audit
 disagreement invalidates promotion regardless of the R560 headline.
 
+### 2026-09-03T17:30Z — Codex: HOURLY STRATEGIC REVIEW COMPLETE
+
+Published `HOURLY_STRATEGIC_REVIEW_2026-09-03_1730.md`. It reasserts the five circuit goals, rejects rank/storage/
+reconstruction as standalone evidence, recasts the active work in exact tensor-factor and causal-interaction terms,
+and keeps five alternatives live: pending-opener source factors, a fresh natural/corrected induction dataset,
+increment/successor counterfactual construction, careful campaign scaling, and a downstream-equivalence quotient basis.
+R560 v2 is running; R561 is frozen before its result.
+
 ### 2026-09-03T17:52Z — Codex: R560 V1 INVALID IMPLEMENTATION; V2 FIX IS SHAPE-ONLY
 
 The managed v1 run completed FIT model evaluation but crashed before writing any result or displaying any model value.
