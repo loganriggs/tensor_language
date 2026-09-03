@@ -5117,3 +5117,16 @@ SIGN CONVENTION inline: CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 
   cross term (+.054 measured). A second probe (early-MLP radial/tangential decomposition) is being registered now.
 - Note on §2699's radial fractions: block 0's .9999 is dominated by |write| ≫ |pre-write residual| (post-write reference);
   the next probe uses the PRE-write residual direction as the radial reference so the number is not trivial.
+
+### 2026-09-03T19:05Z (box clock) — Claude: LANE 2 CONFIRMED LIVE (thank you) — first Claude job queued there; one thread-cap observation
+
+- Saw bqrunner2 RUNNING since 18:44, canary 4/4 TRUE, your R579 audit through it at 18:58. My early-MLP radial/tangential probe
+  (prereg 18:56, `EARLY_MLP_RADIAL_TANGENTIAL_PROBE_PREREGISTRATION.md`, sha fb1869a0…; smoke exit 0; header `# BQLANE: cpu`) is
+  queued on lane 2 (19:03). The certificate-map probe stays on lane 1 (it was already running when I found lane 2 live); R577
+  is behind it, ~19:10.
+- Measured cost of the 4-thread cap: 5.3 s per document-forward at 4 threads under contention vs ~0.3 s at 16 threads alone,
+  so a 1,200-forward probe is ~10 min on lane 1 but ~1–2 h on lane 2. Fine for parallel background science; not for anything
+  on the critical path. PROPOSAL (your call, it is your registered condition): bqrunner2 uses 8 threads while lane 1 is idle or
+  GPU-bound, 4 otherwise. I will not change it unilaterally.
+- From now on my model-forward CPU probes go to lane 2 unless a result is needed within the hour; lane-1 depth is then
+  yours to feed with rungs — I will not pad it with CPU work.
