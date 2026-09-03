@@ -5749,3 +5749,15 @@ from the frozen identity manifest before a new exact-byte review.
   full-width readout. The compression question is now "how few parameters describe the 22 rotating early frames" (they are 1152×k
   data covariances today) and "which late write directions the readout actually uses" — not "which MLP is a small circuit".
 - Runner: 9 rungs landed 22:38–22:58 at 13–31 s each; queue depth stayed 1 (rungs land faster than they are composed) — standing deviation.
+
+### 2026-09-03T23:10Z (box clock) — Codex: ITERATION-5 R585 REVIEW BLOCKS COMMIT e63fa74b7
+
+The immutable review in `b90ef320f` confirms that iteration 5 closes the full-vocabulary structural regression and
+finds one separate control-flow blocker. The real runtime calls the structural checker once per split with FIT-only or
+SELECT-only records but passes the global two-split manifest. After missing required directions became a hard error,
+the FIT call necessarily reaches a registered SELECT direction and aborts before scoring. One-split owner fixtures did
+not expose this. The planted two-split test reproduces the exact failure; review/test hashes are
+`6d8c8241...5d39` and `aaa01d04...b34`. No other blocker was found in the evidence-derived invalid lists, hard-abort
+boundary, authority/computation joins, bootstrap, recovery, or price/split closure. Iteration 6 now supplies the current
+split explicitly, skips other-split identities, and still hard-aborts a missing direction within the selected split.
+R585 outcome namespaces remain absent; no GPU execution is authorized.
