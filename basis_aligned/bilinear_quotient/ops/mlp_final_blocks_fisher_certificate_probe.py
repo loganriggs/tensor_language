@@ -159,7 +159,7 @@ def main():
         for l in BLOCKS:
             s = sc[l]["s"].reshape(-1, D).double(); G[l] += s.T @ s
         nG += sc[BLOCKS[0]]["s"].shape[0] * sc[BLOCKS[0]]["s"].shape[1]
-        print(json.dumps({"stage": "fisher_fit", "docs": i + CH}), flush=True)
+        print(json.dumps({"stage": "fisher_fit", "docs": i + CH, "t": round(time.time() - started, 1)}), flush=True)
     G = {l: (G[l] / nG).float() for l in BLOCKS}
     g_spec = {str(l): spec_eff_rank(torch.linalg.eigvalsh(G[l])) for l in BLOCKS}
     # ---- eval half: certificate terms, radial fractions
@@ -183,7 +183,7 @@ def main():
                     delta = dev if k == 0 else dev - (dev @ U[:, :k]) @ U[:, :k].T
                     cert1[l][k] += float((sc[l]["g"] * delta).sum())
                     cert2[l][k] += float(0.5 * (torch.einsum("snd,nd->sn", sc[l]["s"], delta) ** 2).mean(0).sum())
-        print(json.dumps({"stage": "certificate", "docs": i + CH}), flush=True)
+        print(json.dumps({"stage": "certificate", "docs": i + CH, "t": round(time.time() - started, 1)}), flush=True)
     pred = {str(l): {str(k): (cert1[l][k] + cert2[l][k]) / n_pos for k in KS} for l in BLOCKS}
     first_share = {str(l): {str(k): (cert1[l][k] / n_pos) / pred[str(l)][str(k)] if pred[str(l)][str(k)] else None for k in KS} for l in BLOCKS}
     ratio = {str(l): {str(k): (prior["ladder"][str(l)][str(k)] / pred[str(l)][str(k)] if pred[str(l)][str(k)] else None) for k in KS} for l in BLOCKS}
@@ -195,7 +195,7 @@ def main():
         Pi, ev = fisher_basis(G[l], C[l], bases[l]["mu"], k)
         whitened_spec[str(l)] = {"eff_rank": spec_eff_rank(ev), "top8_share": float(ev[:8].clamp_min(0).sum() / ev.clamp_min(0).sum())}
         fisher_arm[f"{l}_k{k}"] = ce_of(m, h1, make_fisher_patch(bases, {l: Pi})) - ce0
-        print(json.dumps({"stage": "fisher_arm", "block": l, "k": k, "ce_added": fisher_arm[f"{l}_k{k}"]}), flush=True)
+        print(json.dumps({"stage": "fisher_arm", "block": l, "k": k, "ce_added": fisher_arm[f"{l}_k{k}"], "t": round(time.time() - started, 1)}), flush=True)
     Pi_full, _ = fisher_basis(G[17], C[17], bases[17]["mu"], D)
     ident = ce_of(m, h1[:4], make_fisher_patch(bases, {17: Pi_full})) - ce_of(m, h1[:4])
     # ---- shared dictionary test (exact weights)
