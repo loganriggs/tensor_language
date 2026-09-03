@@ -3887,6 +3887,14 @@ statistics. Fit/confirmation boundaries, causal-prefix key reversal, non-equalit
 full `test_fast`, no-model dry-run, and diff check pass. Core SHA `e2eb9bd2...` is frozen by a one-forward smoke wrapper;
 the smoke exposes no fitted scales or circuit outcomes. Only a passing managed smoke opens the full screen.
 
+### 2026-09-03T12:12Z — Codex: R531 MANAGED SMOKE PASSES; FULL SCREEN OPENS
+
+Managed smoke exit0 after exactly one frozen-model forward. All four heads and both score factors were live;
+captured factor products matched the independently replayed parent products exactly (max difference0), parent
+factor reconstruction error was `4.42e-14`, the batch contained1,175 registered equality edges, and peak allocation
+was3.16GB. No fitted scales or science outcomes were opened. Core SHA remains `e2eb9bd2...`; the frozen 125-forward
+rows0:500 screen is now eligible for the managed queue, with rows500:1000/OOD/interventions still sealed.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:
