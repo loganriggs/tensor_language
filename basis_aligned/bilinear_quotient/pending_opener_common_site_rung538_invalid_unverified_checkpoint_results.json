@@ -1,0 +1,1177 @@
+{
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "elapsed_seconds": 5.759773015975952,
+  "evaluated_families": [
+    "opener_type_substitution",
+    "closed_then_reopened_type"
+  ],
+  "evaluated_splits": [
+    "FIT",
+    "SELECT"
+  ],
+  "forbidden_splits_opened": [],
+  "implementation_price": {
+    "backwards": 0,
+    "baseline_forwards": 16,
+    "pairs": 128,
+    "patched_forwards": 480,
+    "sites": 15,
+    "total_forwards": 496
+  },
+  "input_sha256": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_capability_rung537_results.json": "9e76d2c7dba8ea1cfeaf640f9d80508bda3c5df1b151af20f407b535c0dbcb0c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_controls_rung537.json": "f2693b9b78a9266619afc45ceb6f70e4f2339aa1980263ca22d3ea4453145494",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_controls_rung537_receipt.json": "1ad594b4fc19abc3dab761f7cd09f3c9df764f7390ada09dc334f4b7268e626c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_multifamily_rows_rung537.json": "c62cdf3929231e06de6883d74f3ab2c86bd524e02474bb2259267d6976e9e7d9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_multifamily_rows_rung537_receipt.json": "d50528aa355ba89ab43edd43491c672a6aed88bd8a805ffda936afbfa4cc4816",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PENDING_OPENER_COMMON_SITE_RUNG538_PREREGISTRATION.md": "5fb04f7e345c7e9ed0fe062e36f97b3ccd6d1f366ecbaaf277b8e1528bd396f8"
+  },
+  "minimum_source_target_activation_rms": 0.8977096676826477,
+  "model_backwards": 0,
+  "model_forwards": 496,
+  "next_step": "fit_shared_and_family_specific_projectors_at_selected_site",
+  "passing_sites_in_frozen_order": [
+    "resid8",
+    "resid9",
+    "resid10",
+    "resid11",
+    "resid12",
+    "resid13",
+    "attn13h8",
+    "resid14"
+  ],
+  "pred_a_exact_instrument": true,
+  "pred_b_common_live_site": true,
+  "pred_c_frozen_causal_order_selection": true,
+  "reports": {
+    "attn13h8": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.9027885638177398,
+            "mean_donorward_movement": 3.0906732281049094,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.0617273136973377,
+            "mean_donorward_movement": 2.19368510444959,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.367626669506232,
+            "mean_donorward_movement": 3.671983540058136,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.980047066882253,
+            "mean_donorward_movement": 4.3875322590271635,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.587225692719221,
+            "mean_donorward_movement": 2.8130961656570435,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 1.627669583261013,
+            "mean_donorward_movement": 1.7735247015953064,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.3487971536815166,
+            "mean_donorward_movement": 3.765997886657715,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 4.215690927952528,
+            "mean_donorward_movement": 4.719481527805328,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "mlp_product10": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.0918898676832517,
+            "mean_donorward_movement": 0.11864456534385681,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.9375
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.08956545268495877,
+            "mean_donorward_movement": 0.11479611198107402,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.8958333333333334
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.017115263392527898,
+            "mean_donorward_movement": 0.01000650723775228,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.5416666666666666
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.04609075846771399,
+            "mean_donorward_movement": -0.017414207259813946,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.5416666666666666
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.10450359359383583,
+            "mean_donorward_movement": 0.15113061666488647,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.09021140113472939,
+            "mean_donorward_movement": 0.13622558116912842,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 0.875
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.07717134281992913,
+            "mean_donorward_movement": -0.003873765468597412,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.5
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.05640281513333321,
+            "mean_donorward_movement": -0.011048495769500732,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.5
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product11": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.17340158422787985,
+            "mean_donorward_movement": -0.13257919251918793,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.20833333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.05911848569909731,
+            "mean_donorward_movement": -0.020621726910273235,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.3333333333333333
+          },
+          "passed": false
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.02498346989353498,
+            "mean_donorward_movement": -0.001986225446065267,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.3541666666666667
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.012831762433052063,
+            "mean_donorward_movement": 0.057075182596842446,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.7083333333333334
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.15592789351940156,
+            "mean_donorward_movement": -0.11370635032653809,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.125
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.11139861643314361,
+            "mean_donorward_movement": -0.04975259304046631,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.5
+          },
+          "passed": false
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.11177002787590026,
+            "mean_donorward_movement": -0.041217029094696045,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.375
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.012521643191576004,
+            "mean_donorward_movement": 0.060404062271118164,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.625
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product12": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.11228420349458854,
+            "mean_donorward_movement": 0.13684833546479544,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.8958333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.13092809543013573,
+            "mean_donorward_movement": 0.1595415472984314,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.009847498188416163,
+            "mean_donorward_movement": 0.03669854005177816,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.5833333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.14775915282468002,
+            "mean_donorward_movement": 0.1740035762389501,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.16897060200572014,
+            "mean_donorward_movement": 0.20383113622665405,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.14004500582814217,
+            "mean_donorward_movement": 0.16215091943740845,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.027266928553581236,
+            "mean_donorward_movement": 0.037966251373291016,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.75
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.11440856009721756,
+            "mean_donorward_movement": 0.16311126947402954,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product13": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.06135928568740686,
+            "mean_donorward_movement": 0.08965855340162913,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.7708333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.005522157003482183,
+            "mean_donorward_movement": 0.015427738428115845,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.5833333333333334
+          },
+          "passed": false
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.06889627650380134,
+            "mean_donorward_movement": -0.03596163789431254,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.4375
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.047922892744342485,
+            "mean_donorward_movement": 0.09182902177174886,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.7083333333333334
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.04645225554704666,
+            "mean_donorward_movement": 0.0954628586769104,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 0.75
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": -0.04408988580107689,
+            "mean_donorward_movement": 0.0034950971603393555,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.625
+          },
+          "passed": false
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.03235698342323303,
+            "mean_donorward_movement": 0.0028479695320129395,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.5
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.13608318641781808,
+            "mean_donorward_movement": 0.16945838928222656,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product14": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.19934341001013914,
+            "mean_donorward_movement": 0.22988025844097137,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.07526489098866782,
+            "mean_donorward_movement": 0.09920753041903178,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.7708333333333334
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.15578183345496655,
+            "mean_donorward_movement": -0.1261884570121765,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.125
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.142743469029665,
+            "mean_donorward_movement": 0.1964577982823054,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.9375
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.19700191989541055,
+            "mean_donorward_movement": 0.24858248233795166,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.02964581474661827,
+            "mean_donorward_movement": 0.07364886999130249,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.625
+          },
+          "passed": false
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.1609561823308468,
+            "mean_donorward_movement": -0.12164872884750366,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.13355094343423843,
+            "mean_donorward_movement": 0.21601659059524536,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 0.875
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product8": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.12084979116916657,
+            "mean_donorward_movement": 0.14431526263554892,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.09839948962132136,
+            "mean_donorward_movement": 0.11440461874008179,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.06942939336101214,
+            "mean_donorward_movement": 0.09405346711476643,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.8333333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.08782761668165524,
+            "mean_donorward_movement": 0.11515572170416515,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.875
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.10013660341501236,
+            "mean_donorward_movement": 0.1343545913696289,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.06395090892910957,
+            "mean_donorward_movement": 0.07746648788452148,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.00682041123509407,
+            "mean_donorward_movement": 0.049951136112213135,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.625
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.0870838224887848,
+            "mean_donorward_movement": 0.11290591955184937,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "mlp_product9": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.15273910885055858,
+            "mean_donorward_movement": 0.18372153242429098,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 0.9583333333333334
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.19429652268687883,
+            "mean_donorward_movement": 0.21526983380317688,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.04998342444499334,
+            "mean_donorward_movement": -0.024340182542800903,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.2916666666666667
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.024789601067701974,
+            "mean_donorward_movement": 0.04539074500401815,
+            "n": 48,
+            "passed": false,
+            "positive_movement_fraction": 0.6458333333333334
+          },
+          "passed": false
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 0.1382017634809017,
+            "mean_donorward_movement": 0.22192275524139404,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 0.875
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.17985404953360556,
+            "mean_donorward_movement": 0.2249642014503479,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": -0.11520390808582306,
+            "mean_donorward_movement": -0.07781839370727539,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.25
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 0.014911337196826935,
+            "mean_donorward_movement": 0.06139284372329712,
+            "n": 16,
+            "passed": false,
+            "positive_movement_fraction": 0.625
+          },
+          "passed": false
+        }
+      },
+      "common_live": false
+    },
+    "resid10": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.4785852221151194,
+            "mean_donorward_movement": 3.6626319686571756,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.2118951161702474,
+            "mean_donorward_movement": 3.377715984980265,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.9191267964740595,
+            "mean_donorward_movement": 3.0713595151901245,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.7638655149688325,
+            "mean_donorward_movement": 2.9346015801032386,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.6527840048074722,
+            "mean_donorward_movement": 3.913113236427307,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.2514210522174833,
+            "mean_donorward_movement": 3.4450411200523376,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.760806927829981,
+            "mean_donorward_movement": 2.991100549697876,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.6683043517172336,
+            "mean_donorward_movement": 3.0610528588294983,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid11": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.9051686570048334,
+            "mean_donorward_movement": 4.132213979959488,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.6784754013021788,
+            "mean_donorward_movement": 3.8732627630233765,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.4694750792036455,
+            "mean_donorward_movement": 3.6650264064470925,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.1286925859749317,
+            "mean_donorward_movement": 3.3441760390996933,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.159761607646942,
+            "mean_donorward_movement": 4.422230839729309,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.7176583826541902,
+            "mean_donorward_movement": 3.919076681137085,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.3971750654280184,
+            "mean_donorward_movement": 3.712514638900757,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.009124770760536,
+            "mean_donorward_movement": 3.468402683734894,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid12": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.213632435103258,
+            "mean_donorward_movement": 4.466244757175446,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.9706050882736843,
+            "mean_donorward_movement": 4.188316474358241,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.7293277133256195,
+            "mean_donorward_movement": 3.9469627737998962,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.5499430814137063,
+            "mean_donorward_movement": 3.8109990109999976,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.521843479573727,
+            "mean_donorward_movement": 4.79643851518631,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 4.043624641746282,
+            "mean_donorward_movement": 4.270557284355164,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.699079217761755,
+            "mean_donorward_movement": 4.081974983215332,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.4329186424613,
+            "mean_donorward_movement": 4.018656373023987,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid13": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.219137936582168,
+            "mean_donorward_movement": 4.47399624188741,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.9999418487151464,
+            "mean_donorward_movement": 4.213608801364899,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 3.9193225332846247,
+            "mean_donorward_movement": 4.182607253392537,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.7075513831029334,
+            "mean_donorward_movement": 3.9928765445947647,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.573811496049165,
+            "mean_donorward_movement": 4.846583664417267,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 4.095382007211446,
+            "mean_donorward_movement": 4.337671458721161,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 4.003550826758146,
+            "mean_donorward_movement": 4.412291944026947,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 3.6328039787709714,
+            "mean_donorward_movement": 4.249195754528046,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid14": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 6.042265410224597,
+            "mean_donorward_movement": 6.394395858049393,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 5.615931856632233,
+            "mean_donorward_movement": 5.916651715834935,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 7.371358811358611,
+            "mean_donorward_movement": 7.90316582719485,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 7.315946274747452,
+            "mean_donorward_movement": 7.920047953724861,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 5.871742188185453,
+            "mean_donorward_movement": 6.2032347321510315,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 5.385516741871834,
+            "mean_donorward_movement": 5.687675774097443,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 7.458690197020769,
+            "mean_donorward_movement": 8.31187891960144,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 7.55029474273324,
+            "mean_donorward_movement": 8.40410578250885,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid8": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.553897023946047,
+            "mean_donorward_movement": 2.6751092076301575,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.4608016262451806,
+            "mean_donorward_movement": 2.5870772898197174,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.1090966341396173,
+            "mean_donorward_movement": 2.2203831374645233,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 1.9162265402575334,
+            "mean_donorward_movement": 2.0049763172864914,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.709688849747181,
+            "mean_donorward_movement": 2.9099302887916565,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.4605336874723434,
+            "mean_donorward_movement": 2.6074588894844055,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 1.816367183625698,
+            "mean_donorward_movement": 1.982417106628418,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 1.9902347274124623,
+            "mean_donorward_movement": 2.156658172607422,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    },
+    "resid9": {
+      "FIT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.7274217148621878,
+            "mean_donorward_movement": 2.859742691119512,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.582965385913849,
+            "mean_donorward_movement": 2.7164302269617715,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.234429469456275,
+            "mean_donorward_movement": 2.3445957601070404,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.1680415851374466,
+            "mean_donorward_movement": 2.2733323723077774,
+            "n": 48,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "SELECT": {
+        "closed_then_reopened_type": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 2.8692088678479193,
+            "mean_donorward_movement": 3.107597589492798,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.5596352346241473,
+            "mean_donorward_movement": 2.728321850299835,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        },
+        "opener_type_substitution": {
+          "base_to_donor": {
+            "bootstrap95_lower_mean": 1.8931384526193142,
+            "mean_donorward_movement": 2.069627523422241,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "donor_to_base": {
+            "bootstrap95_lower_mean": 2.076482926309109,
+            "mean_donorward_movement": 2.3111894726753235,
+            "n": 16,
+            "passed": true,
+            "positive_movement_fraction": 1.0
+          },
+          "passed": true
+        }
+      },
+      "common_live": true
+    }
+  },
+  "rung": 538,
+  "selected_site": "resid8",
+  "stage": "common_site_full_state_interchange",
+  "strong_null": false
+}

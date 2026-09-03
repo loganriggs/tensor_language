@@ -56,11 +56,12 @@ def test_design_reuse_is_explicit_and_execution_keys_are_unique_and_recomputable
         for event in record["evidence_events"]:
             assert registry.design_key(record, event) == event["design_key"]
             assert registry.execution_key(record, event) == event["execution_key"]
-            if event["design_key"] in designs:
-                assert event.get("supersedes_event_id") == designs[event["design_key"]] or (
-                    event.get("replicates_event_id") == designs[event["design_key"]]
+            prior_ids = designs.setdefault(event["design_key"], set())
+            if prior_ids:
+                assert event.get("supersedes_event_id") in prior_ids or (
+                    event.get("replicates_event_id") in prior_ids
                 )
-            designs[event["design_key"]] = event["event_id"]
+            prior_ids.add(event["event_id"])
             executions.append(event["execution_key"])
         assert len(executions) == len(set(executions))
 

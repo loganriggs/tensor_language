@@ -324,15 +324,16 @@ def append_evidence_event(tag: str, event: dict) -> Path:
         event["execution_key"] = execution_key(record, event)
         old_events = record.setdefault("evidence_events", [])
         assert all(item["event_id"] != event["event_id"] for item in old_events)
-        collision = next((item for item in old_events if item["design_key"] == event["design_key"]), None)
-        if collision:
-            supersedes = event.get("supersedes_event_id") == collision["event_id"]
-            replicates = event.get("replicates_event_id") == collision["event_id"]
-            if not (supersedes or replicates):
+        collisions = [item for item in old_events if item["design_key"] == event["design_key"]]
+        if collisions:
+            by_id = {item["event_id"]: item for item in collisions}
+            referenced_id = event.get("supersedes_event_id") or event.get("replicates_event_id")
+            if referenced_id not in by_id:
                 raise ValueError(
-                    f"duplicate design; supersede or replicate {collision['event_id']} explicitly"
+                    "duplicate design; explicitly supersede or replicate one of "
+                    + ", ".join(sorted(by_id))
                 )
-            if replicates and event["execution_key"] == collision["execution_key"]:
+            if event.get("replicates_event_id") and event["execution_key"] == by_id[referenced_id]["execution_key"]:
                 raise ValueError("a replication must change the split, seed, or another execution-bound input")
         old_events.append(event)
         validate_v2(record)
