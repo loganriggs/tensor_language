@@ -1,0 +1,265 @@
+{
+ "status": "complete",
+ "rung": "mlp0_term_subspace_circuit_specificity_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "out_of_sample_selectivity_of_min_norm_term_combinations_not_compression_or_physical_substitution",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_TERM_SUBSPACE_CIRCUIT_SPECIFICITY_PROBE_PREREGISTRATION.md": "37bde55a9fc5c5a2321d3d5f867cc35bb9357df85e10947a289894650da923c4",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_one_circuit_interaction_atlas_rung519_bundle.pt": "54a4ce1c465b6b953b54d2fa4e104c055f5446f39f3ac5167f7aae12b320bd8a",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_one_circuit_interaction_atlas_rung519_results.json": "3eb5188fa65a746a987d4bee851aaed46b08d7ba905b596dd091d01bd29386f6"
+ },
+ "target": {
+  "idx": 8,
+  "tag": "r.2.0.2",
+  "whole_effect_h0": 0.003909140586171755,
+  "whole_effect_h1": 0.004190039411971824,
+  "subspace_S1": 0.09454579570600767,
+  "subspace_argmax_idx": 13,
+  "single_term_best_S1": 3.2943693354700905,
+  "cross_half_term_stability": 0.10593727513452525
+ },
+ "fit_residual_inf": 5.852779534654327e-15,
+ "n_circuits_localize": 0,
+ "per_circuit_selectivity": [
+  {
+   "idx": 0,
+   "tag": "r.0.0",
+   "S1": 0.3674091170959753,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 1,
+   "tag": "r.0.0.0",
+   "S1": 0.7866458489552812,
+   "argmax_idx": 21,
+   "localizes": false
+  },
+  {
+   "idx": 2,
+   "tag": "r.0.0.1",
+   "S1": 0.2968187305577806,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 3,
+   "tag": "r.0.3.0",
+   "S1": 0.9242726178873866,
+   "argmax_idx": 17,
+   "localizes": false
+  },
+  {
+   "idx": 4,
+   "tag": "r.18.2.0",
+   "S1": 1.3489256610827194,
+   "argmax_idx": 3,
+   "localizes": false
+  },
+  {
+   "idx": 5,
+   "tag": "r.2.0",
+   "S1": 0.29511860737599477,
+   "argmax_idx": 24,
+   "localizes": false
+  },
+  {
+   "idx": 6,
+   "tag": "r.2.0.0",
+   "S1": 1.1139277673970656,
+   "argmax_idx": 21,
+   "localizes": false
+  },
+  {
+   "idx": 7,
+   "tag": "r.2.0.1",
+   "S1": 2.0573664834131185,
+   "argmax_idx": 17,
+   "localizes": false
+  },
+  {
+   "idx": 8,
+   "tag": "r.2.0.2",
+   "S1": 0.09454579570600767,
+   "argmax_idx": 13,
+   "localizes": false
+  },
+  {
+   "idx": 9,
+   "tag": "r.2.1",
+   "S1": 0.9358117460401048,
+   "argmax_idx": 25,
+   "localizes": false
+  },
+  {
+   "idx": 10,
+   "tag": "r.2.1.0",
+   "S1": 1.504502620862762,
+   "argmax_idx": 25,
+   "localizes": false
+  },
+  {
+   "idx": 11,
+   "tag": "r.2.1.1",
+   "S1": 0.10361914183166292,
+   "argmax_idx": 13,
+   "localizes": false
+  },
+  {
+   "idx": 12,
+   "tag": "r.2.2",
+   "S1": 0.3931624243142753,
+   "argmax_idx": 15,
+   "localizes": false
+  },
+  {
+   "idx": 13,
+   "tag": "r.2.2.0",
+   "S1": 0.5308520859634792,
+   "argmax_idx": 3,
+   "localizes": false
+  },
+  {
+   "idx": 14,
+   "tag": "r.2.2.1",
+   "S1": 3.0290110654775093,
+   "argmax_idx": 3,
+   "localizes": false
+  },
+  {
+   "idx": 15,
+   "tag": "r.2.2.2",
+   "S1": 0.760880181561076,
+   "argmax_idx": 27,
+   "localizes": false
+  },
+  {
+   "idx": 16,
+   "tag": "r.2.3",
+   "S1": 0.4302178143170726,
+   "argmax_idx": 17,
+   "localizes": false
+  },
+  {
+   "idx": 17,
+   "tag": "r.4.1.0",
+   "S1": 0.08028682408727555,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 18,
+   "tag": "r.4.1.1",
+   "S1": 0.415409978228317,
+   "argmax_idx": 29,
+   "localizes": false
+  },
+  {
+   "idx": 19,
+   "tag": "r.6.0.0",
+   "S1": 1.8095171566367352,
+   "argmax_idx": 24,
+   "localizes": false
+  },
+  {
+   "idx": 20,
+   "tag": "r.6.0.1",
+   "S1": 0.010885751047110216,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 21,
+   "tag": "r.6.0.2",
+   "S1": 3.464473724923113,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 22,
+   "tag": "r.6.0.3",
+   "S1": 0.26299394837176676,
+   "argmax_idx": 23,
+   "localizes": false
+  },
+  {
+   "idx": 23,
+   "tag": "r.6.1.0",
+   "S1": 3.0805091954103934,
+   "argmax_idx": 20,
+   "localizes": false
+  },
+  {
+   "idx": 24,
+   "tag": "r.6.1.1",
+   "S1": 3.6389215343010144,
+   "argmax_idx": 17,
+   "localizes": false
+  },
+  {
+   "idx": 25,
+   "tag": "r.6.2.0",
+   "S1": 2.1820392242800644,
+   "argmax_idx": 22,
+   "localizes": false
+  },
+  {
+   "idx": 26,
+   "tag": "r.6.2.1",
+   "S1": 2.026574600460558,
+   "argmax_idx": 3,
+   "localizes": false
+  },
+  {
+   "idx": 27,
+   "tag": "r.6.2.2",
+   "S1": 2.322537985643865,
+   "argmax_idx": 14,
+   "localizes": false
+  },
+  {
+   "idx": 28,
+   "tag": "r.6.2.3",
+   "S1": 0.6145198265744681,
+   "argmax_idx": 10,
+   "localizes": false
+  },
+  {
+   "idx": 29,
+   "tag": "r.6.3.0",
+   "S1": 0.7469232679282729,
+   "argmax_idx": 21,
+   "localizes": false
+  },
+  {
+   "idx": 30,
+   "tag": "r.6.3.1",
+   "S1": 0.45915065603874466,
+   "argmax_idx": 29,
+   "localizes": false
+  },
+  {
+   "idx": 31,
+   "tag": "r.8.1.0",
+   "S1": 0.14907626207086183,
+   "argmax_idx": 7,
+   "localizes": false
+  }
+ ],
+ "bars": {
+  "select_bar": 2.0,
+  "majority_bar": 17
+ },
+ "pred_a_instrument_exact_reproduction_of_rung519_bundle": true,
+ "pred_b_target_term_subspace_generalizes_as_circuit_specific": false,
+ "pred_c_subspace_localization_is_a_general_reusable_property": false,
+ "strong_null": true,
+ "verdict": "term_subspace_fails_to_localize_target_route_to_activation_DAS",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.007730245590209961
+}

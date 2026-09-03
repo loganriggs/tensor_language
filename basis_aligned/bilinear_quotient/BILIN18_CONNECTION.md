@@ -67443,3 +67443,37 @@ Do not lower bars, search arbitrary combinations post hoc, or substitute descrip
 by changing to shared attention `Q/K/Q2/K2/value-output` factors whose sameness is judged by held-out finite downstream
 circuit effects and physical factor swaps. Valid result/bundle/source/preregistration SHAs are
 `3eb5188f…/54a4ce1c…/0f06c7a4…/cce9e3b2…`;126.96s,3,224 forwards,0 backwards,0 deployed parameters.
+
+## §2655 — PROBE (Claude, CPU): NO TERM SUBSPACE LOCALIZES EITHER — THE PER-TERM SIGNAL IS CROSS-HALF NOISE
+
+Parallel-lane red-team of the §2654 single-term null, and a scout for Logan's finer-grain / DAS direction: if
+no single exact MLP0 interaction term is circuit-specific for `r.2.0.2`, is a low-dim COMBINATION (subspace) of
+the 49 terms? On the frozen R519 discovery bundle (`54a4ce1c…`), fit the minimum-L2-norm term-weight vector
+`w_k = pinv(A0^T) e_k` on document half 0 (exact by construction, residual `5.9e-15`), freeze it, and measure
+out-of-sample selectivity `S1_k = |A1^T w_k|_k / median off` on half 1. Zero GPU forwards, 0 deployed params,
+7.7 ms. Preregistration `MLP0_TERM_SUBSPACE_CIRCUIT_SPECIFICITY_PROBE_PREREGISTRATION.md` (`37bde55a…`).
+
+Registered strong null: A true, B/C false. A (instrument): shapes `(49,2,32)/(2,32)`, target idx 8 = `r.2.0.2`
+with whole effect `0.003909/0.004190` reproduced, half-0 fit exact. B (target localizes out of sample): FALSE —
+`S1_8 = 0.095` against the `>=2.0` bar, and the frozen combination's half-1 argmax is circuit 13, not 8. C
+(general property): FALSE — 0 of 32 circuits localize; across all 32 the out-of-sample selectivity has median
+0.75, and although 8 circuits exceed `S1>=2.0` NONE of those 8 point at their own circuit (every argmax is
+wrong), i.e. the apparent selectivity is misdirected noise.
+
+The mechanism is one number: the target circuit's per-term effect vector correlates `0.106` between the two
+document halves. The per-term causal fingerprints are noise-dominated at this document count, so a half-0 exact
+reconstruction is a half-0-specific noise direction that collapses on half 1. This also explains the §2654
+single-term result from the other side: the best single term reaches `S1=3.29` in half 1 ALONE, which looks
+selective, but does not survive the both-halves requirement — chance selectivity, not a unit.
+
+Consequence for the finer-grain program. Finer-grain IN TERM SPACE — single term or any linear combination — is
+a dead end for a reusable circuit unit: the exact-term response is not a stable object at this N. Two routes
+separate cleanly, and the aggregate is the discriminator: the WHOLE-source effect IS stable (`0.00391/0.00419`),
+so the causal signal exists in aggregate but not per term. Either (i) the per-term instrument is underpowered
+and needs many more documents to beat the `0.106` cross-half noise, or (ii) the signal is genuinely
+un-carvable in term space and the only finer-grain route below the MLP block is DAS on the ACTIVATION subspace
+(which pools the signal across terms rather than reading it per term). This is the decisive, GPU-free reason to
+point Codex's next finer-grain rung at gradient-trained activation-subspace interchange, not more exact-term
+enumeration. Result `mlp0_term_subspace_circuit_specificity_probe_results.json`, verdict
+`term_subspace_fails_to_localize_target_route_to_activation_DAS`; this probe adds no compression and no physical
+substitution (that remains Codex's GPU step).

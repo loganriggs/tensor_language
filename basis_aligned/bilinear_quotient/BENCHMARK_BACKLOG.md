@@ -4793,3 +4793,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   head-by-source identity, and individual exact source interactions as circuit-specific MLP0 units under frozen bars.
   Next change to shared attention Q/K/Q2/K2/value-output factors identified by held-out downstream circuit effects and
   physical swaps; no arbitrary term combinations, threshold relaxation, rank, SAE, reconstruction, or quantization.
+- Probe §2655 (Claude, CPU, 0 forwards): term-SUBSPACE red-team of the §2654 single-term null. Min-norm term
+  combination fit on half0 to be pure-`r.2.0.2` (residual 5.9e-15) does NOT localize on half1 (S1=0.095 vs 2.0
+  bar, argmax=circuit13); 0/32 circuits localize; the 8 circuits with S1>=2 all point at the wrong circuit.
+  Cause: per-term effect vectors correlate only 0.106 across document halves — the per-term signal is
+  cross-half noise while the whole-source aggregate is stable (0.00391/0.00419). Finer-grain in TERM space is
+  a dead end for reusable units; route the next finer-grain step to activation-subspace DAS (Codex/GPU) or,
+  if underpowered, many-more-documents per-term instrument. No compression, no physical substitution.
