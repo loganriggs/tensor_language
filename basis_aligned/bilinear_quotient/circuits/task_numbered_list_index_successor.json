@@ -526,6 +526,181 @@
    ],
    "translation_ids": [],
    "next_missing": "run raw-row R572 confirmation of the list +2 conflict, then preregister exact L8H7/L8H3 value-path ceilings"
+  },
+  {
+   "claim_id": "numbered_list_index_successor.v4",
+   "revision": 4,
+   "status": "specified",
+   "supersedes": "numbered_list_index_successor.v3",
+   "causal_variable": {
+    "id": "list_index_state",
+    "domain": "integer labels in numbered lists",
+    "read": "the final visible list label and list structure",
+    "operation": "advance the list index by one",
+    "write": "evidence for the next digit label",
+    "endpoint": "next-list-label numeric-candidate logit margin"
+   },
+   "alternative_explanations": [
+    "general arithmetic progression",
+    "copy the final label",
+    "memorized prompt positions"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "list_two_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "two-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "three-line transfer",
+      "repeated labels",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_three_line_state_shift",
+     "role": "interchange",
+     "changes": [
+      "three-line list state and next label"
+     ],
+     "holds_fixed": [
+      "list length",
+      "content nouns",
+      "step of one"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "two-line transfer",
+      "middle break",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "all labels",
+      "list length",
+      "next label"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shifts",
+      "held-out nouns",
+      "middle break"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_middle_index_break",
+     "role": "invariance",
+     "changes": [
+      "an earlier middle label and visible sequence coherence"
+     ],
+     "holds_fixed": [
+      "final visible label",
+      "last-label-plus-one operation",
+      "registered successor"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "surface edit",
+      "state shift",
+      "step-two conflict"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_repeated_index_control",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "repeated label",
+      "copy rule",
+      "registered answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "step-two conflict",
+      "held-out nouns"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "list_step_two_conflict",
+     "role": "invariance",
+     "changes": [
+      "content nouns and their order"
+     ],
+     "holds_fixed": [
+      "step-two visible labels",
+      "last-label successor answer",
+      "list format"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "arithmetic +2 answer",
+      "+1 rows",
+      "copy rows"
+     ],
+     "split_plan_id": "numbered_list_successor_split_r567_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "l8h7_l8h3_value_paths",
+     "tensor_path": "L8H7/L8H3 exact value contributions",
+     "shape": [
+      "batch",
+      "position",
+      "projected value"
+     ],
+     "intervention": "transplant exact selected-source value contributions",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_14_successor_writes",
+     "tensor_path": "MLP8 through MLP14 product/write terms",
+     "shape": [
+      "batch",
+      "position",
+      "residual width"
+     ],
+     "intervention": "replace exact source-conditioned product terms or complete writes",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "evidence_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "preregister exact L8H7/L8H3 final-label/all-label score-versus-value factor localization with all four invariance families"
   }
  ],
  "split_plans": [
@@ -767,6 +942,62 @@
    "claim_id": "numbered_list_index_successor.v3",
    "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
    "execution_key": "da8facf895dd6bc2c2e81d17d637e9ed1bfdd4c0f7aa5a57c265942a3287099a"
+  },
+  {
+   "event_id": "numbered_list_conflict_confirmation.r572.held.v1",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "list_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_and_SELECT_raw_confirmation",
+   "metrics": [
+    {
+     "name": "reference_aggregate_match",
+     "estimate": 8.046627044677734e-07,
+     "ci95": null,
+     "bar": "all differences <=1e-6"
+    },
+    {
+     "name": "fit_structural_preference",
+     "estimate": 1.0,
+     "ci95": [
+      1.4634599789977074,
+      null
+     ],
+     "bar": "1.0 positive fraction and bootstrap lower mean >0"
+    },
+    {
+     "name": "select_structural_preference",
+     "estimate": 1.0,
+     "ci95": [
+      1.7064363367855548,
+      null
+     ],
+     "bar": "1.0 positive fraction and bootstrap lower mean >0"
+    }
+   ],
+   "result_artifact_id": "r572_result",
+   "prereg_artifact_id": "r572_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r569_r570_result",
+    "r572_script"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 572,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "numbered_list_conflict_confirmation.r572.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "bilinear_quotient/numbered_list_conflict_confirmation_rung572_results.json"
+   ],
+   "claim_id": "numbered_list_index_successor.v3",
+   "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
+   "execution_key": "93e2dc221c6d72ad6d40c46737441ac746e070c7ac60ccc3cd3062d55fd2b553"
   }
  ],
  "translations": [],
@@ -853,6 +1084,12 @@
    "path": "basis_aligned/bilinear_quotient/ops/numbered_list_conflict_confirmation_rung572.py",
    "sha256": "0965dd222f7021412b442742a86ceee052889a341bd1b54e4ac7bb70af8dbc67",
    "kind": "implementation",
+   "status": "frozen"
+  },
+  "r572_result": {
+   "path": "basis_aligned/bilinear_quotient/numbered_list_conflict_confirmation_rung572_results.json",
+   "sha256": "3df046bdcc4fa4387a2dbef084ed732c5f6a05232b7fa64072af3cd4939daea1",
+   "kind": "result",
    "status": "frozen"
   }
  },

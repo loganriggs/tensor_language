@@ -405,13 +405,12 @@
     "selectivity": {
      "status": "held",
      "held_event_ids": [
-      "numbered_list_capability_audit.r571.held.v1"
+      "numbered_list_capability_audit.r571.held.v1",
+      "numbered_list_conflict_confirmation.r572.held.v1"
      ],
      "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numbered_list_conflict_confirmation.r572.preregistered.v1"
-     ],
-     "latest_relevant_event_id": "numbered_list_conflict_confirmation.r572.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numbered_list_conflict_confirmation.r572.held.v1"
     },
     "composition": {
      "status": "missing",
@@ -431,7 +430,7 @@
    "n_held_categories": 2,
    "n_blocked_categories": 0,
    "n_missing_categories": 6,
-   "next_missing": "run raw-row R572 confirmation of the list +2 conflict, then preregister exact L8H7/L8H3 value-path ceilings"
+   "next_missing": "preregister exact L8H7/L8H3 final-label/all-label score-versus-value factor localization with all four invariance families"
   },
   "task.numeric_sequence.continuation": {
    "kind": "behavior_circuit",

@@ -7,28 +7,11 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 61,
+ "event_count": 62,
  "design_count": 50,
  "protocol_count": 49,
- "execution_count": 61,
- "open_preregistrations": [
-  {
-   "circuit": "task.numbered_list.index_successor",
-   "event_id": "numbered_list_conflict_confirmation.r572.preregistered.v1",
-   "claim_id": "numbered_list_index_successor.v3",
-   "test_type": "null_control",
-   "stage": "preregistered",
-   "verdict": "inconclusive",
-   "failure_kind": null,
-   "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
-   "protocol_key": "87c3dba17698937e0cc8ad0f76975a5d43f0a3e6abc17eb09e58a4140948023a",
-   "execution_key": "da8facf895dd6bc2c2e81d17d637e9ed1bfdd4c0f7aa5a57c265942a3287099a",
-   "supersedes_event_id": null,
-   "replicates_event_id": null,
-   "prereg_artifact_id": "r572_prereg",
-   "result_artifact_id": null
-  }
- ],
+ "execution_count": 62,
+ "open_preregistrations": [],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -927,6 +910,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r572_prereg",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.numbered_list.index_successor",
+   "event_id": "numbered_list_conflict_confirmation.r572.held.v1",
+   "claim_id": "numbered_list_index_successor.v3",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
+   "protocol_key": "87c3dba17698937e0cc8ad0f76975a5d43f0a3e6abc17eb09e58a4140948023a",
+   "execution_key": "93e2dc221c6d72ad6d40c46737441ac746e070c7ac60ccc3cd3062d55fd2b553",
+   "supersedes_event_id": "numbered_list_conflict_confirmation.r572.preregistered.v1",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r572_prereg",
+   "result_artifact_id": "r572_result"
   },
   {
    "circuit": "task.numeric_sequence.continuation",

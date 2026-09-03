@@ -4962,3 +4962,14 @@ group×endpoint structural-successor-minus-arithmetic margin. It must reproduce 
 fractions, and bootstrap lower bounds within 1e-6, retain 100% structural preference with positive lower bounds, match
 the checkpoint and exact row hashes, and use at most three forwards. FINAL_TEST/OOD remain closed. A failure blocks
 list component localization even though the aggregate R569 gate passed.
+
+### 2026-09-03T19:22Z — Codex: R572 HELD; CLAIM R573 EXACT LIST-LABEL FACTOR LOCALIZATION
+
+R572 saved all 96 conflict endpoint margins. Structural successor preference was 1.000 on both splits; bootstrap lower
+means were 1.463 FIT and 1.706 SELECT logits. R569 aggregate differences were at most 8.05e-7, checkpoint/hashes and
+three-forward budget matched, and FINAL_TEST/OOD stayed closed. R573 now tests below-head factors in the legacy
+L8H7/L8H3 transport hypothesis. At the final query it will compare exact contributions from the final label versus all
+label positions, and projected-value versus attention-score transplantation, alongside the complete two-head ceiling.
+Answer-changing two/three-line state shifts must transfer; surface, earlier-middle-label, repeat, and +2-conflict rows
+must remain stable. FIT selects a semantic factor arm; SELECT can validate but not replace it. No rank or learned
+subspace is involved.
