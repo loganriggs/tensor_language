@@ -1,0 +1,252 @@
+{
+  "agent_prompts": {
+    "builder": "Repair only the frozen R585 blockers against the exact pinned authorities. Before any model call, make crash-safe atomic publication, independently contract equality and non-equality terms, bind realized operation and bootstrap censuses to their frozen manifests, and validate complete finite evidence. Preserve the recipient/donor semantic counterfactuals and narrow licensed claim. Run every required CPU test and hand the exact bytes to an independent critic; do not enqueue or inspect outcomes.",
+    "critic": "Stay independent, CPU-only, and outcome-blind. Reconstruct counterfactual changes and held-fixed variables from R578 rather than trusting labels. Inject crashes at every publication boundary, omit one operation and bootstrap cell, mutate donor/recipient factor sources, and require complete evidence/provenance. Separately assess interaction isolation, held-out prediction, sufficiency, selective removal, composition/reuse, and stability; do not infer later claims from an earlier held result."
+  },
+  "authority_sha256": {
+    "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_dependency_lock.json": "908826844336fe7a073ae16a5ef9123434514c21a73f8d3b331b4bab6e9f49b7",
+    "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_dryrun.json": "9b1b8c7c6e66a6b4835fa9ad10219fee16583f34d8a72c41a803cf6be5bfab7d",
+    "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_manifest_dryrun.json": "dc81109bed0ef44c51224988a53d57143751a3f078a889c156a7a8862e52114f",
+    "basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578.json": "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
+    "basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "4911200ae12dd9c27a609879fded8aab1b5704ef1116f25079b5df7a40162ff3",
+    "basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+    "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585.py": "71eab693b578478d39201c267cbea7311972602aec739de19de85acab59ca67e",
+    "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_BUILDER_HANDOFF.md": "b35e957e088d7617f4a79f8843ccd1a0faaf9c19afe47f0765064899ee2c50d0",
+    "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30",
+    "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md": "98ed34711ada83bbe1591887edf17164efd443d4c6a47559f43dec33f60aa5bf"
+  },
+  "claim_ladder": [
+    {
+      "claim": "counterfactual_validity",
+      "required_evidence": [
+        "declared_changed_variables_match_token_sequences",
+        "declared_held_variables_match_token_sequences",
+        "recipient_and_donor_are_distinct_valid_endpoints",
+        "both_physical_directions_are_evaluated",
+        "multiple_lexical_layout_and_length_realizations_per_cell"
+      ]
+    },
+    {
+      "claim": "interaction_isolation",
+      "required_evidence": [
+        "replay_score_payload_joint_same_group",
+        "factorial_interaction_from_primitive_margins",
+        "single_factor_opposing_predictions",
+        "algebraic_no_op_identities",
+        "active_unrelated_controls"
+      ]
+    },
+    {
+      "claim": "held_out_prediction",
+      "required_evidence": [
+        "fit_frozen_thresholds_and_scales",
+        "group_disjoint_select",
+        "select_opened_only_after_fit_passes",
+        "all_realized_select_cells_match_manifest"
+      ]
+    },
+    {
+      "claim": "ood_prediction",
+      "required_evidence": [
+        "separately_preregistered_distribution_shift",
+        "no_threshold_or_basis_refit",
+        "prediction_made_before_ood_opening"
+      ]
+    },
+    {
+      "claim": "sufficiency",
+      "required_evidence": [
+        "donor_directed_interchange_recovers_target_behavior",
+        "native_denominator_is_positive",
+        "full_vocabulary_and_ce_checks_exclude_answer_only_artifacts"
+      ]
+    },
+    {
+      "claim": "selective_removal",
+      "required_evidence": [
+        "separately_preregistered_live_term_removal",
+        "target_behavior_decreases",
+        "unrelated_active_controls_are_preserved",
+        "broad_damage_metrics_pass"
+      ]
+    },
+    {
+      "claim": "composition_and_reuse",
+      "required_evidence": [
+        "same_factor_used_in_multiple_registered_compositions",
+        "cross_context_predictions_are_frozen",
+        "component_reuse_outperforms_independent_memorization_baseline"
+      ]
+    },
+    {
+      "claim": "stable_identification",
+      "required_evidence": [
+        "independent_restarts_or_resamples_agree",
+        "equivalent_gauges_are_quotiented",
+        "held_out_interventions_select_the_same_equivalence_class"
+      ]
+    }
+  ],
+  "counterfactual_contract": {
+    "arms": {
+      "joint": [
+        "donor_score",
+        "donor_payload"
+      ],
+      "payload": [
+        "recipient_score",
+        "donor_payload"
+      ],
+      "replay": [
+        "recipient_score",
+        "recipient_payload"
+      ],
+      "score": [
+        "donor_score",
+        "recipient_payload"
+      ]
+    },
+    "families": {
+      "match_break_payload_preserved": {
+        "changes": [
+          "selected_equality_support"
+        ],
+        "holds_fixed": [
+          "query",
+          "payloads",
+          "answer",
+          "positions"
+        ]
+      },
+      "payload_swap_match_preserved": {
+        "changes": [
+          "target_payload_assignment"
+        ],
+        "holds_fixed": [
+          "selector",
+          "query",
+          "source_identities",
+          "positions"
+        ]
+      },
+      "selector_payload_joint_answer_preserved": {
+        "changes": [
+          "selector",
+          "target_payload_assignment"
+        ],
+        "holds_fixed": [
+          "answer",
+          "source_set",
+          "payload_set",
+          "positions"
+        ]
+      },
+      "two_valid_sources_selector_swap": {
+        "changes": [
+          "selector"
+        ],
+        "holds_fixed": [
+          "source_payload_pairs",
+          "payload_assignment",
+          "positions"
+        ]
+      }
+    },
+    "required_directions": [
+      "base_to_donor",
+      "donor_to_base"
+    ],
+    "roles": [
+      "recipient",
+      "donor"
+    ]
+  },
+  "frozen_target": {
+    "commit": "a4e7c46c6339c75fc7f89c1e35339e15e3b74fd9",
+    "producer_sha256": "4911200ae12dd9c27a609879fded8aab1b5704ef1116f25079b5df7a40162ff3",
+    "review_verdict": "blocked_pre_execution"
+  },
+  "interaction_contract": {
+    "formula": "(joint_correct_margin-score_correct_margin-payload_correct_margin+replay_correct_margin)/4",
+    "join_keys": [
+      "split",
+      "directed_id",
+      "group_id"
+    ],
+    "primitive_outcome": "correct_margin",
+    "required_states": [
+      "replay",
+      "score",
+      "payload",
+      "joint"
+    ]
+  },
+  "next_agent_handoff_required_fields": {
+    "artifact_sha256": "object_string_to_sha256",
+    "authority_sha256": "object_string_to_sha256",
+    "claim_status": "object_claim_to_held_failed_or_not_tested",
+    "counterfactual_census": "object_split_family_variant_to_integer",
+    "counterfactual_validation_failures": "array_string",
+    "crash_injection_results": "object_crash_point_to_no_final_namespace_or_failure",
+    "evaluated_splits": "array_string",
+    "failed_contracts": "array_string",
+    "forbidden_splits_opened": "array_string",
+    "model_backwards": "integer",
+    "model_forwards": "integer",
+    "model_weights_updated": "boolean",
+    "operation_manifest_realized_sha256": "sha256_or_null",
+    "operation_manifest_expected_sha256": "sha256",
+    "outcome_namespaces_opened": "array_string",
+    "realized_bootstrap_cell_sha256": "object_split_to_sha256",
+    "required_test_results": "object_test_id_to_pass_fail_or_xfail",
+    "terminal": "string",
+    "verdict": "approve_exact_bytes_or_block"
+  },
+  "outcome_boundary": {
+    "forbidden_actions": [
+      "open_r585_result_receipt_or_evidence",
+      "load_model",
+      "open_cuda",
+      "enqueue",
+      "edit_board_or_registry",
+      "commit_or_push"
+    ],
+    "must_be_absent_before_work": [
+      "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_results.json",
+      "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_receipt.json",
+      "basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_evidence"
+    ]
+  },
+  "package_artifacts": {
+    "critic_checklist_path": "basis_aligned/polynomial_causal/CIRCUIT_CAUSAL_VALIDITY_NEXT_WAVE_CRITIC_CHECKLIST.md",
+    "critic_checklist_sha256": "466065b4f0f43f6cd5264c3c0258eca1f00ab85a6a49e4c33d1a1b1c68ffd304",
+    "prospective_test_path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_next_wave_adversarial.py",
+    "prospective_test_sha256": "6996a69b3eff6d7a7d0136ac6a45a9f162c8222e3f1a9aabaa8638630a5c7b40"
+  },
+  "publication_contract": {
+    "crash_points": [
+      "during_evidence_array_write",
+      "after_evidence_before_result",
+      "after_result_before_receipt",
+      "during_final_publish"
+    ],
+    "final_namespace_invariant": "after any exception either all validated final artifacts exist and bind each other or no final artifact exists",
+    "recovery_invariant": "a retry after a crashed staging write succeeds without deleting a valid completed outcome",
+    "staging_invariant": "all bytes are written and validated in unique same_filesystem staging paths before atomic publication"
+  },
+  "required_test_ids": [
+    "exact_frozen_authority",
+    "semantic_counterfactual_family_contract",
+    "multiple_valid_counterfactual_realizations",
+    "mutated_held_fixed_variable_rejected",
+    "recipient_donor_factor_source_mapping",
+    "same_group_factorial_interaction",
+    "crash_during_evidence_leaves_no_final_namespace",
+    "crash_after_evidence_before_result_leaves_no_final_namespace",
+    "crash_between_result_and_receipt_leaves_no_final_namespace",
+    "retry_after_crash_is_recoverable",
+    "claim_ladder_does_not_promote_untested_claims",
+    "machine_checkable_handoff_complete"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v1"
+}
