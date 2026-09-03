@@ -3855,6 +3855,19 @@ score1/score2/payload mode, then demand document-half+refit transfer, permutatio
 five-of-six leave-one-root stability. This directly tests an interaction-defined basis; rank1 is a fixed probe, not
 compression. CPU-only analysis begins now; validation circuits and all physical interventions remain sealed.
 
+### 2026-09-03T11:58Z — Codex: R530 TERMINAL NULL; CLAIMS R531 FACTOR-LEVEL EQUALITY SHARING
+
+R530 is complete CPU-only. The native/transplanted attention0 projectors are nearly identical for score1, score2,
+and payload (overlaps `.99997`, `.99996`, `.99916`), while their 32-circuit fingerprints remain unstable
+(`-.013/-.017`, `-.026/-.025`, `-.388/-.366`) and no leave-root circuit is stable. Thus separate source-conditioned
+bases do not explain the earlier fingerprint flip; this route closes without a rank or threshold retry. R531 changes
+the object to the four already causally validated equality-score heads (`L5H5`, `L7H3`, `L8H3`, `L8H4`): expose the
+two literal multiplicative score factors `<q,k>/128` and `<q2,k2>/128`, test direct and swapped cross-head sharing
+under their scalar gauges on held-out documents, and distinguish both-factor sharing, one-factor sharing, and
+product-only portability. CPU algebra and planted tests begin now; validation rows and causal interventions stay
+sealed. This targets cross-head grouping/within-head splitting, held-out prediction, and stable identification—not
+compression.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:
