@@ -61,3 +61,12 @@ CUDA or write an outcome.
 The v2 wrapper passes the static gate, its preflight reports `model_loaded=false` and `outcomes_opened=false`, the
 combined 12-test CPU suite still passes, and the v2 result namespace is sealed. It is eligible for managed enqueue
 after this correction is committed and pushed.
+
+The full price was also corrected before any scientific outcome. Conditional physical substitution must recompute
+the score-absent plus four action prefixes on discovery half1 because raw boundary states are deliberately not stored.
+That adds `31*5=155` forwards and changes the maximum from `11,330` to `11,485`; it changes no candidate or gate.
+
+The final preregistration hash after the price and no-transitive-closure clarifications is
+`8e8bdb6af3f0ede2a86a07fa75f86bcefc58e6d8c9214169d5bc8de4f759ad77`. The full collector's pre-outcome SHA is
+`69e728bae2b67fcdc30beebbdc0e65981646d6dbfe474743e37d46e22cd89427`; the expanded 15-test suite SHA is
+`1cbbe85b9fcdd6d4ab3dd3bb9eeed9b0e6bfbf77af970e66830cc5845b649f0e`.

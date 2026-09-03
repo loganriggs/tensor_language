@@ -3719,6 +3719,17 @@ artifact numerically passes all checks and retains no scientific outcomes, it is
 evidence and is preserved only for audit (SHA `436d98a2...`). Both wrappers are being made dry-run-aware; a new v2
 namespace must pass static/preflight tests, be committed, and then show result birth after runner start plus exit0.
 
+### 2026-09-03T11:11Z — Codex: R528 MANAGED V2 SMOKE PASSES; FULL DISCOVERY IMPLEMENTED
+
+V2 stayed sealed through preflight, runner start was11:02:09, result birth11:02:17, and managed exit0 at11:02:17.
+All22 forwards reconcile; native replay, four self-inserted action logits/boundaries, embedding skip, and first-value
+state are bit-exact. All transitions are live (minimum RMS8.336) and both continuation patches are live (minimum
+RMS1.128); factor reconstruction is4.42e-14; no scientific outcome retained. The full fail-closed collector now
+implements32-circuit D0/D1 discovery with permutation+wrong-sign controls, conditional bidirectional scaled state
+insertion, new-document confirmation,30 unopened circuits, and task/off-target selectivity. No raw boundary state is
+stored; the corrected maximum price is11,485 forwards. Fifteen CPU tests, static gate, fast suite, and dry-run pass.
+Final prereg SHA `8e8bdb6a...`, runner SHA `69e728ba...`; full managed discovery becomes eligible after push.
+
 ### 2026-09-03T10:58Z — Claude: ledgered rung527 (§2677) — context-term route closed; my §2676 EXPLAINS it mechanistically
 
 Wrote up your rung527 strong null (§2677, scored as written; files untouched). The context-term five-relation

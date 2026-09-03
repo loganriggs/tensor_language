@@ -113,5 +113,65 @@ def test_dry_run_freezes_price_and_keeps_outcomes_closed():
     assert report["model_loaded"] is False
     assert report["outcomes_opened"] is False
     assert report["unconditional_discovery_forwards"] == 1984
-    assert report["maximum_conditional_forwards"] == 11330
+    assert report["maximum_conditional_forwards"] == 11485
     assert report["planted_suite_passes"] is True
+
+
+def test_effect_views_preserve_source_half_continuation_order():
+    documents = 4
+    tags = 3
+    task_counts = torch.ones(documents, len(R.CELLS), dtype=torch.float64)
+    circuit_counts = torch.ones(2, 2, tags, dtype=torch.float64)
+    task_sums = torch.zeros(4, 4, documents, len(R.CELLS), dtype=torch.float64)
+    circuit_sums = torch.zeros(4, 4, 2, 2, tags, dtype=torch.float64)
+    for source in range(4):
+        for continuation in range(4):
+            value = 10.0 * source + continuation + 1.0
+            task_sums[source, continuation] = value
+            circuit_sums[source, continuation, :, 0] = value
+    views = R._effect_views(task_sums, circuit_sums, task_counts, circuit_counts)
+    assert views["task_halves"].shape == (4, 2, 4, 4)
+    assert views["circuit_halves"].shape == (4, 2, 4, tags)
+    assert views["circuit_halves"][2, 1, 3, 0] == pytest.approx(24.0)
+    assert views["task_pooled_full"][1, 2, 0] == pytest.approx(13.0)
+
+
+def test_discovery_controls_keep_all_three_planted_positive_relations():
+    generator = torch.Generator().manual_seed(528)
+    circuit = torch.randn(2, 4, 32, generator=generator, dtype=torch.float64) * .01
+    task = torch.randn(2, 4, 4, generator=generator, dtype=torch.float64) * .01
+    unit = {
+        "circuit_halves": torch.stack((circuit, circuit / 1.2, circuit / .8, circuit / 1.5)),
+        "task_halves": torch.stack((task, task / 1.2, task / .8, task / 1.5)),
+    }
+    wrong = {
+        "circuit_halves": torch.stack((-circuit, -.5 * circuit)),
+        "task_halves": torch.stack((-task, -.5 * task)),
+    }
+    candidates, checks = R.discover_candidates(unit, wrong)
+    assert [row["source"] for row in candidates] == ["P", "Z7", "Z8"]
+    assert [row["beta"] for row in candidates] == pytest.approx([1.2, .8, 1.5])
+    assert all(checks[source]["control_margin"] >= .10 for source in R.CANDIDATE_SOURCES)
+
+
+def test_physical_scoring_requires_both_directions():
+    generator = torch.Generator().manual_seed(529)
+    native_circuit = torch.randn(2, 4, 32, generator=generator, dtype=torch.float64) * .01
+    native_task = torch.randn(2, 4, 4, generator=generator, dtype=torch.float64) * .01
+    source_circuit = native_circuit / 1.2
+    source_task = native_task / 1.2
+    discovery = {
+        "circuit_halves": torch.stack((native_circuit, source_circuit)),
+        "task_halves": torch.stack((native_task, source_task)),
+    }
+    physical = {
+        "circuit_pooled": torch.stack((torch.stack((native_circuit[1], source_circuit[1])),)),
+        "task_pooled": torch.stack((torch.stack((native_task[1], source_task[1])),)),
+    }
+    candidate = [{"source": "P", "beta": 1.2}]
+    passing, checks = R.score_physical(discovery, physical, candidate)
+    assert passing == candidate
+    assert checks["P"]["holds"]
+    physical["circuit_pooled"][0, 1].zero_()
+    passing, _checks = R.score_physical(discovery, physical, candidate)
+    assert passing == []

@@ -159,10 +159,10 @@ Only confirmed pairs open documents `500:1000` and the 30 held-out circuit famil
 except the minimum circuit cosine is `.70`, maximum residual `.60`, and every continuation must again remain
 positive in both document halves. No pair may be added on confirmation or validation.
 
-If two or three `N`-centered edges validate, compute the implied scale between every non-native pair. A shared
-four-action state is reported only if direct finite substitutions between those pairs meet the validation bars and
-the product of scales around every available cycle differs from one by at most25%. Otherwise report only the
-validated `N`-centered pairs.
+Rung 528 reports only validated `N`-centered pairs. It does not take their transitive closure or name one shared
+four-action state, because doing so would require additional direct substitutions between every non-native pair.
+If two or three `N`-centered edges validate, that complete pairwise closure and scale-cycle test must be separately
+preregistered before a multi-action quotient is claimed.
 
 ## Selectivity and interpretation
 
@@ -185,8 +185,8 @@ validated continuation behavior.
   half1 and repeats on confirmation without refitting.
 - **D — held-out circuits and documents:** at least one fixed pair passes both validation halves on the 30 unopened
   circuit families.
-- **E — selective distributed state:** at least one D pair meets the task-versus-off-target rule. Any claimed
-  multi-action quotient also satisfies direct pair substitutions and scale-cycle consistency.
+- **E — selective distributed state:** at least one D pair meets the task-versus-off-target rule. No multi-action
+  transitive quotient is claimed by this rung.
 
 `strong_null = not (A and B and C and D and E)`.
 
@@ -212,9 +212,11 @@ batch. Thus the unconditional discovery price is
 
 `62 batches * 32 = 1,984 forwards`.
 
-If `k` pairs pass discovery, bidirectional scaled substitutions on the second discovery half cost
-`31 * 8k = 248k` forwards. Confirmation costs `62 * (22 + 8k)` forwards. If `q` pairs confirm, validation costs
-`125 * (22 + 8q)` forwards. With the maximum `k=q=3`, the ceiling is `11,330` forwards, zero backwards, at most three
+If `k` pairs pass discovery, bidirectional scaled substitutions on the second discovery half require one
+score-absent and four action-prefix replays per batch in addition to the `8k` suffixes, so they cost
+`31 * (5 + 8k)` forwards. (The runner does not retain raw boundary states from discovery.) Confirmation costs
+`62 * (22 + 8k)` forwards. If `q` pairs confirm, validation costs `125 * (22 + 8q)` forwards. With the maximum
+`k=q=3`, the ceiling is `11,485` forwards, zero backwards, at most three
 fitted positive scalars, zero deployed values added or removed, and no compression claim. The runner must reconcile direct,
 boundary-capture, continuation-patch, and substitution call counts separately and report peak GPU memory.
 
