@@ -40,7 +40,8 @@ def test_confirmation_uses_frozen_discovery_scale():
     candidates, _ = R.discover_pairs(effects)
     confirmation = effects.clone()
     confirmation[:, 1] += 0.001 * torch.roll(confirmation[:, 1], 1, -1)
-    passing, checks = R.confirmation_pairs(confirmation, candidates)
+    passing, checks = R.confirmation_pairs(
+        confirmation, candidates, confirmation.mean(1))
     assert {(row["left"], row["right"]) for row in passing} == expected
     assert all(row["holds"] for row in checks.values())
 

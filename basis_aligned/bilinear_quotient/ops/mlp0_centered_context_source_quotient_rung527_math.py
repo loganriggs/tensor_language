@@ -217,8 +217,13 @@ def discover_pairs(effects: torch.Tensor) -> tuple[list[dict], dict]:
     }
 
 
-def confirmation_pairs(effects: torch.Tensor, candidates: list[dict]) -> tuple[list[dict], dict]:
+def confirmation_pairs(effects: torch.Tensor, candidates: list[dict],
+                       pooled: torch.Tensor | None = None) -> tuple[list[dict], dict]:
     effects = torch.as_tensor(effects, dtype=torch.float64)
+    if pooled is not None:
+        pooled = torch.as_tensor(pooled, dtype=torch.float64)
+        if pooled.shape != (N_TERMS, effects.shape[-1]):
+            raise ValueError("pooled effects must have shape [20,circuit]")
     passing = []
     checks = {}
     for candidate in candidates:
@@ -231,6 +236,19 @@ def confirmation_pairs(effects: torch.Tensor, candidates: list[dict]) -> tuple[l
                 row, half, CONFIRMATION_COSINE, CONFIRMATION_RESIDUAL)
                     for half in range(2))
         )
+        if pooled is not None:
+            row["windows"]["pooled"] = _pair_window(
+                pooled[row["left"]], pooled[row["right"]],
+                row["beta_left_from_right"])
+            pooled_window = row["windows"]["pooled"]
+            row["holds"] = bool(
+                row["holds"]
+                and min(pooled_window["left_from_right_cosine"],
+                        pooled_window["right_from_left_cosine"])
+                    >= CONFIRMATION_COSINE
+                and max(pooled_window["left_from_right_relative_residual"],
+                        pooled_window["right_from_left_relative_residual"])
+                    <= CONFIRMATION_RESIDUAL)
         key = f"{row['left_name']} <-> {row['right_name']}"
         checks[key] = row
         if row["holds"]:
