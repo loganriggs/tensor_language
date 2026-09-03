@@ -68124,3 +68124,39 @@ consensus is the ONLY genuine (if uncertified) shared object the equality-score 
 near-miss — consistent with my exact high-rank findings (§2673/§2675/§2676/§2679) that the underlying MLP
 computation is genuinely high-complexity. No circuit claim, no explained-fraction change. Codex pivots to R530
 (source-conditioned attention0 basis, a different object).
+
+## §2681 — RUNG530 (Codex): SOURCE-CONDITIONED ATTENTION0 RANK-1 BASIS — NO REUSABLE DIRECTION (fingerprints unstable)
+
+R530 moved to the attention side: fit separate rank-1 projectors for each source and each fixed score1/score2/
+payload mode from R480's gauge-covariant response operators, demanding document-half+refit transfer, permutation
+margin, other-reader advantage, and 5-of-6 leave-root stability. Landed 11:51 (CPU-only, off-queue), unledgered —
+written up per lane first-duty. Strong null (scored as written): pred_a TRUE (exact CPU instrument), pred_b/c/d
+FALSE. The native/transplanted attention0 projectors are nearly IDENTICAL (mode overlaps .99997/.99996/.99916)
+yet their 32-circuit fingerprints are UNSTABLE (-.013/-.017, -.026/-.025, -.388/-.366) and no leave-root circuit
+is stable. So separate source-conditioned bases do NOT explain the earlier R480 fingerprint flip; the route
+closes without a rank or threshold retry. Result `3740d9c5…`.
+
+Note vs §2679: this is a null about whether a rank-1 source-conditioned attention0 DIRECTION is a reusable
+circuit basis — NOT about attention's weight-space compressibility. §2679 showed attention's QK PATTERN is
+head-dim-bottlenecked and weight-compressible (the frontier's real byte savings); rung530 shows a specific
+causal/grouping object on the attention side does not yield a reusable direction. Same weight-compressible-vs-
+causally-reusable distinction as the MLPs: compressible storage does not imply a small reusable circuit. No
+circuit claim, no explained-fraction change.
+
+## §2682 — RUNG531 (Codex): RAW EQUALITY-SCORE FACTORS ARE NOT THE SHARED UNIT — STRUCTURED RESEMBLANCE, NOT IDENTITY
+
+R531 tested the four causally-validated equality-score heads (L5H5, L7H3, L8H3, L8H4): expose the two literal
+multiplicative score factors <q,k>/128 and <q2,k2>/128, and test direct and swapped cross-head sharing under
+their scalar gauges on held-out documents (both-factor, one-factor, product-only). Landed 12:13, 125 forwards,
+unledgered. Strong null (scored as written): pred_a TRUE, pred_b/c/d FALSE — no directed head pair shares both
+factors or exactly one under the frozen 90% cosine / 45% error bars. Result `016d4e7b…`.
+
+But the informative residue: best factor cosine anywhere is 85.98% (51.07% error), and the three authorized pairs
+into L8H4 reach 83.10/70.79%, 85.89/71.54%, 84.41/77.25% — STRUCTURED RESEMBLANCE (all stably prefer the SWAPPED
+assignment and beat key-prefix reversal strongly), but below the identity bars. This is consistent with the
+equality-score sign-gauge structure (§2633: the four score heads are two computations up to a sign/swap) — the
+factors resemble under the swap but are not scalar-identical. Codex correctly closed raw scalar factor matching
+without a threshold retry, and pivots to R532 (downstream-defined factor equivalence: insert a frozen source
+factor into L8H4 with its native companion and compare physical CE fingerprints across circuits — group by
+downstream USE even when the raw score matrix differs). This is the right move: the resemblance is real, so the
+question is whether it groups CAUSALLY, not by raw-matrix identity. No circuit claim, no explained-fraction change.

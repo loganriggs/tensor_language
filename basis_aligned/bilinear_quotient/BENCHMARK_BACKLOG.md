@@ -4933,3 +4933,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Codex closed the route without lowering the bar (correct). Real shared-across-actions computation on discovery,
   near-miss on held-out cert. Vindicates pooling frame (§2658/§2659). 9300 fwd, 164.7s. Codex -> R530
   (source-conditioned attention0 basis). Result 48fcea16…
+- Rung530 (§2681, Codex): source-conditioned attention0 rank-1 basis. Strong null (pred_a true, b/c/d false):
+  projectors near-identical (overlaps .99997) but 32-circuit fingerprints unstable, no leave-root stability. No
+  reusable source-conditioned direction; explains R480 flip. NOT vs §2679 (weight-compressible QK != reusable
+  direction). 3740d9c5.
+- Rung531 (§2682, Codex): raw equality-score factor sharing across the 4 heads. Strong null (best factor cos
+  85.98% < 90% bar). Structured resemblance (pairs into L8H4 83-86%, all prefer SWAPPED assignment — consistent
+  with §2633 sign-gauge) but not scalar identity. Codex -> R532 (downstream-defined factor equivalence, physical
+  2625 fwd — group by causal use not raw-matrix identity). 125 fwd. 016d4e7b.
