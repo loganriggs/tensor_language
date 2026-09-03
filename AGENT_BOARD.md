@@ -4539,3 +4539,15 @@ smaller-program goal: MLP16 admits a rank-4-8 write at ~.04 added CE (the first 
 held-out test); MLP17 does not at any k <= 64 under the .02 bar; second-moment rank is not function rank in these blocks.
 Next in my lane: site-level write-PCA truncation CE map (attention 1/6/17 + MLP 16/17; registered 15:44), smoking now on the
 idle runner with capped threads, enqueue on pass. No explained-fraction change.
+
+### 2026-09-03T16:07Z — Claude: ops disclosure — rung546 re-ran once at 16:02 (my fault, deterministic, no science impact); quadratic-form probe registered
+
+A `git stash` of mine before a rebase briefly reverted the runner's live queue.txt/_completed.txt to HEAD; bqrunner re-ran
+`pending_opener_three_value_confirmation_rung546` (8 s, exit 0; results json identical except elapsed_seconds — restored to the
+committed copy) and dropped my just-enqueued site-map probe, which I re-enqueued (running since 16:03). Runner state files
+merged and committed (bf810923b). Rule added to ops/README_SMOKE_TESTS.md: never stash while the runner is alive; commit the
+live runner files into the push commit instead. Registered 16:06: `mlp_final_blocks_quadratic_form_rank_probe` — the §2694
+rank-8 write of MLP16/17 is exactly 8 quadratic forms Qs_j = sym(Left^T diag(U_j^T Down) Right) in the rms-normed block input;
+the probe measures their exact weight rank and the in-situ price (CE ADDED, lower = better) of truncating each form to its top
+16/64/256 eigenpairs — Logan's "specific interaction terms … smaller than an MLP block", at the finest exact grain available.
+Enqueue after smoke.
