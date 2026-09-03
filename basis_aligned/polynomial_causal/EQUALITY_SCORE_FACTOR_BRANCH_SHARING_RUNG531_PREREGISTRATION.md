@@ -4,7 +4,7 @@
 
 **Owner:** Codex
 
-**Status:** CPU screen in progress; no model outcomes inspected
+**Status:** managed screen implementation in progress; no model outcomes inspected
 
 ## Question
 
@@ -26,10 +26,13 @@ within-head splitting. It is not a rank-reduction or storage experiment.
 
 - Heads: `L5H5`, `L7H3`, `L8H3`, `L8H4` in that order.
 - Directed source-to-target pairs: all 12 ordered pairs of distinct heads.
-- Data: the already-frozen natural equality corpus used by rungs 498--501, split before fitting into discovery and
-  confirmation documents. Validation/OOD rows remain sealed during this screen.
-- Edges: genuine equality-fetch edges selected by the frozen induction mask. Non-equality causal edges and a
-  within-document key-position permutation are controls.
+- Data: rows `0:500` of the already-frozen 1,000-row natural equality census used by rungs 498--501. Scalar fitting
+  and assignment choice use rows `0:250`; confirmation half 0 is `250:375` and half 1 is `375:500`. Rows
+  `500:1000`, all OOD rows, and all intervention outcomes remain sealed during this screen.
+- Edges: genuine equality-fetch edges selected by the frozen induction mask, with query positions `0:63` excluded
+  to match the calibrated equality task. All non-equality causal edges at queries `64:255` are a descriptive
+  control. The permutation control reverses the source factor's key positions independently inside each causal
+  query prefix (`j -> query-j`) before selecting the unchanged target equality edges.
 - For every pair, test both assignments: direct (`first -> first`, `second -> second`) and swapped
   (`first -> second`, `second -> first`). Choose the assignment using discovery only: minimize the sum of the two
   branch relative squared errors after scalar fitting, breaking an exact tie in favor of direct.
@@ -53,10 +56,12 @@ No vector basis is learned. The only fitted quantities are two scalars and the d
 
 ## Predictions
 
-### A — instrument and known product relation
+### A — instrument and known product authority
 
-All factor identities, reconstruction checks, split identities, and control permutations are exact, and the known
-source-to-target product relation is recovered on confirmation edges. This must pass before interpreting factors.
+All factor identities, split identities, forward counts, and control permutations are exact; the deployed checkpoint
+hash matches; and the frozen positive parents still establish the score-product relation for `L5H5 -> L8H4`,
+`L7H3 -> L8H4`, and `L8H3 -> L8H4`. This must pass before interpreting factors. Product agreement measured in this
+screen is reported under B--D rather than being smuggled into the instrument gate.
 
 ### B — both multiplicative factors are shared
 
@@ -78,12 +83,16 @@ other factor has cosine below `0.70` or relative error above `0.65` on at least 
 its permutation control by `0.15` on both halves. If C passes while B fails, the heads reuse one input relation but
 compose it with different companion relations.
 
-### D — factor sharing explains the known product portability
+### D — factor gauges agree with the known product portability
 
-For every pair counted by B or C, the branch-derived product must predict the held-out target product better than a
-single fitted scalar times the source product by at least `0.05` relative error, or isolate one shared branch under C
-while the whole product remains causally portable according to the frozen parent result. Otherwise the factor fit is
-only a descriptive reparameterization of the already-known product.
+For every pair counted by B, `alpha*beta` must differ from the independently fitted discovery product scale by at
+most 10%, and its confirmation product relative error may exceed the independently fitted scalar-product baseline
+by at most `0.05`. For C, the same requirement applies when the pair is one of the three frozen product-portable
+pairs above. Otherwise the branch fit is inconsistent with the already-known product computation.
+
+The branch-derived predictor cannot be required to beat the scalar-product baseline: algebraically it is itself
+`(alpha*beta) * (source_first*source_second)`, while the baseline fits the optimal scalar to that identical source
+product. This correction was made before model execution; the earlier impossible wording is retained in git history.
 
 ### Strong null
 
@@ -97,3 +106,9 @@ This CPU rung is a **screen**. B or C cannot establish causal identification by 
 managed-GPU successor fixed before its outcomes: physically replace only the selected target factor with the scaled
 source factor, retain the target's other factor and value/output path, and measure the already-calibrated equality
 circuit plus unrelated-circuit and key-permutation controls on sealed rows. A null closes this factor-alignment route.
+
+## Literal price
+
+The screen uses exactly 125 frozen-model forwards: one batch of four rows for each of rows `0:500`. It performs no
+backward pass, optimization, activation edit, or validation/OOD forward. It retains aggregate dot products and gate
+reports, not tokens, logits, residual states, or per-edge factor arrays.

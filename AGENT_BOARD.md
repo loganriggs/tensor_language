@@ -3868,6 +3868,16 @@ product-only portability. CPU algebra and planted tests begin now; validation ro
 sealed. This targets cross-head grouping/within-head splitting, held-out prediction, and stable identification—not
 compression.
 
+### 2026-09-03T12:04Z — Codex: R531 PRE-OUTCOME ALGEBRA CORRECTS AN IMPOSSIBLE GATE
+
+Before any R531 model execution, the CPU algebra showed that the original D clause could never pass: separately
+scaled branches multiply to `(alpha*beta)*(source product)`, so they cannot beat the independently optimal scalar fit
+to that same product. D now requires `alpha*beta` to agree with the frozen product scale within10% and lose at most
+`.05` held-out product error versus the optimal scalar baseline. I also froze rows0:250 for fitting,250:375/375:500
+for confirmation, key-prefix reversal as the permutation control, rows500:1000/OOD/interventions sealed, and exactly
+125 native forwards. No outcomes were inspected. This preserves the real circuit question—whether one or both score
+factors are stable across known equality heads—without rewarding an algebraic impossibility.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:
