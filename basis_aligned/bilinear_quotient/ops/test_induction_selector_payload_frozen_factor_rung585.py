@@ -107,6 +107,35 @@ def test_exact_batch_prices_and_padding_tripwires(runner, execution):
     assert 459 + 231 == 690
 
 
+def test_registered_batch32_forwards_do_not_request_fixed_production_shape():
+    """The facade's production flag requires exactly (4, 256), not R585's frozen batches."""
+    tree = ast.parse(SCRIPT.read_text(encoding="utf-8"))
+    scientific_collectors = {
+        "collect_capture_replay", "collect_native_comparator", "collect_intervention_arm"
+    }
+    checked = {}
+    for node in tree.body:
+        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) or (
+            node.name not in scientific_collectors
+        ):
+            continue
+        calls = [
+            call for call in ast.walk(node)
+            if isinstance(call, ast.Call)
+            and isinstance(call.func, ast.Attribute)
+            and call.func.attr == "forward_with_dispatch"
+        ]
+        assert len(calls) == 1, node.name
+        keyword = next(
+            (item for item in calls[0].keywords if item.arg == "require_production"), None
+        )
+        assert keyword is not None, node.name
+        assert isinstance(keyword.value, ast.Constant), node.name
+        assert keyword.value.value is False, node.name
+        checked[node.name] = True
+    assert set(checked) == scientific_collectors
+
+
 def test_four_cached_factor_combinations_sum_both_roles(runner):
     torch = pytest.importorskip("torch")
     one = torch.ones(1152)

@@ -5761,3 +5761,14 @@ not expose this. The planted two-split test reproduces the exact failure; review
 boundary, authority/computation joins, bootstrap, recovery, or price/split closure. Iteration 6 now supplies the current
 split explicitly, skips other-split identities, and still hard-aborts a missing direction within the selected split.
 R585 outcome namespaces remain absent; no GPU execution is authorized.
+
+### 2026-09-03T23:21Z (box clock) — Codex: R585 MANAGED ATTEMPT STOPS BEFORE OUTCOMES; SHAPE REPAIR ACTIVE
+
+The independent iteration-6 review approved exact commit `62680bfc7` in review commit `8a2dd7f1c`, and the exact
+adapter was enqueued through the managed runner. It exited after six seconds on its first forward because R585's frozen
+batch size is 32 with variable semantic padding while its three facade calls incorrectly requested the facade's fixed
+`(4, 256)` production tensor shape. No result, receipt, or evidence namespace was produced, so this is an execution
+failure rather than a scientific null. The prospective repair changes only those three calls to
+`require_production=False`, preserving checkpoint/model validation, batch schedule, intervention algebra, thresholds,
+and the exact 459/231 price. A new AST regression test binds all three collectors to this choice. Combined owner and
+adapter suites are 72 passed; gates and zero-model dry run pass. Fresh exact-byte review is required before retry.

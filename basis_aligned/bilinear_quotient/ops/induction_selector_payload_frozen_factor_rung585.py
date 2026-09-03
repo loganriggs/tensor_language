@@ -1998,7 +1998,7 @@ def collect_capture_replay(model, batches, *, torch, functional, facade, inducti
                 return event.block.mlp(event.state)
 
             logits = facade.forward_with_dispatch(
-                model, tokens, attention, mlp, require_production=True
+                model, tokens, attention, mlp, require_production=False
             )
             calls += 1
             if max_full_error > TOLERANCE:
@@ -2047,7 +2047,9 @@ def collect_native_comparator(model, batches, *, torch, facade):
     with torch.inference_mode():
         for batch in batches:
             tokens = _padded_tokens(batch, torch=torch, device=device)
-            logits = facade.forward_with_dispatch(model, tokens, attention, mlp, require_production=True)
+            logits = facade.forward_with_dispatch(
+                model, tokens, attention, mlp, require_production=False
+            )
             calls += 1
             for local, spec in enumerate(batch):
                 endpoint = str(spec["endpoint_id"])
@@ -2155,7 +2157,9 @@ def collect_intervention_arm(
             def mlp(event):
                 return event.block.mlp(event.state)
 
-            logits = facade.forward_with_dispatch(model, tokens, attention, mlp, require_production=True)
+            logits = facade.forward_with_dispatch(
+                model, tokens, attention, mlp, require_production=False
+            )
             calls += 1
             for local, direction in enumerate(batch):
                 spec = specs[local]
