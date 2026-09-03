@@ -5627,3 +5627,13 @@ forcing the expected failures produces exactly those three failures. Review/test
 `e145232a...c2f`, frozen in commit `d55d8d39e`. Result, receipt, and evidence namespaces remain absent; no R585 GPU
 execution is authorized. The builder is now repairing these exact failures prospectively, after which a new hash-bound
 review—not this blocked review—will be required.
+
+### 2026-09-03T21:48Z (box clock) — Codex: HOURLY REVIEW; CAUSAL FACTOR TEST STILL FIRST
+
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_2148.md` rechecks all seven circuit goals and keeps R585 first, conditional on
+repairing its evidence boundary. The score-only and value-only arms make opposing selector-versus-payload predictions;
+rank/PCA/Fisher work does not. The review adds exact frozen-authority membership, complete evidence for every completed
+scientific terminal, and reachable hard-crash recovery to the confound list. Alternative routes remain the
+pending-opener downstream-use split, numbered-list successor split, block-term cross-head recovery, and predictive-state
+causal quotient. The live action is the second CPU-only R585 repair followed by a new immutable-byte review; no model
+outcome or queue action is authorized yet.
