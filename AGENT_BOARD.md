@@ -4096,3 +4096,10 @@ The outcome-closed15-forward wrapper pins committed core SHA `fdfb3b0b...`, exer
 seven arms and both donor backgrounds, and prints only replay, product/split recomposition, edit-liveness, support,
 call-count, checkpoint, and memory diagnostics. It opens no cross-entropy or private-correction outcome. Wrapper
 syntax, dry-run, static gate, and diff check pass. Commit this wrapper, then enqueue only through the managed runner.
+
+### 2026-09-03T13:16Z — Codex: R534 MANAGED SMOKE PASSES; FULL CAUSAL TEST AUTHORIZED
+
+Managed smoke exit0 after exactly15 forwards. Direct/native replay and target product are exact; factor replay error
+`4.38e-14`; float32 `P_target=S+R` error `7.45e-9` versus the frozen `2e-6` gate; donor/target edit minima
+`9.283/3.384` RMS; no dead edits; support path live; peak3.16GB. It computed no CE outcomes. Core `fdfb3b0b...`,
+wrapper `8c9d043d...`, log `d662a5be...`. The registered1,440-forward natural+code test may now enter bqrunner.
