@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1930.md](explanation_2026-09-03_1930.md) — splits broad increment into two canonical
+  behaviors, reports the independently held numbered-list and digit/word sequence gates with a percentage graph,
+  confirms the list +2 conflict at row level, and defines the exact below-head L8H7/L8H3 factor localization now underway
 - [explanation_2026-09-03_1815.md](explanation_2026-09-03_1815.md) — audited induction and pending-opener results,
   the exact score-versus-value finding, the 1,120-pair natural increment/successor counterfactual authority, its
   native capability gate, and the canonical organization used to prevent duplicate circuit work
