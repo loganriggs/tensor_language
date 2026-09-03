@@ -1,0 +1,96 @@
+{
+ "rung": "late_last_two_input_information_budget_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); pin = coordinates replaced by fit-set means; keep = complement pinned",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_top256_own_pcs_suffice": true,
+  "pred_c_sixteen_own_pcs_do_not": false,
+  "pred_d_own_pcs_beat_the_core_as_a_16_dim_channel": true,
+  "pred_e_top16_variation_is_not_critical": true
+ },
+ "nulls": {
+  "b_null_keep256_ge_.30": false,
+  "c_null_keep16_le_.25": true,
+  "d_null_core_better_by_.05": false,
+  "e_null_pin16_ge_.45": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "anchor_tol": 0.02,
+  "b_max": 0.15,
+  "c_min": 0.4,
+  "d_min": 0.05,
+  "e_max": 0.25
+ },
+ "null_bars": {
+  "b_min": 0.3,
+  "c_max": 0.25,
+  "d_max": -0.05,
+  "e_min": 0.45
+ },
+ "device": "cuda",
+ "ks": [
+  16,
+  64,
+  256,
+  512
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pin_core16": 0.1760781705379486,
+  "prior_pin_core16": 0.176
+ },
+ "ce_added": {
+  "PIN_CORE16": 0.1760781705379486,
+  "KEEP_CORE16": 0.3089213967323303,
+  "PIN_OWN_16": 0.2248067557811737,
+  "KEEP_OWN_16": 0.24250510334968567,
+  "PIN_OWN_64": 0.34287333488464355,
+  "KEEP_OWN_64": 0.17182007431983948,
+  "PIN_OWN_256": 0.46184852719306946,
+  "KEEP_OWN_256": 0.08544257283210754,
+  "PIN_OWN_512": 0.5472831130027771,
+  "KEEP_OWN_512": 0.044706761837005615
+ },
+ "keep_core16_minus_keep_own16": 0.06641629338264465,
+ "own_input_pca_fit": {
+  "16": {
+   "eff_rank": 544.1763156804182,
+   "rank_90": 730,
+   "var_frac_top_k": {
+    "16": 0.20827563485646053,
+    "64": 0.38438268142331733,
+    "256": 0.6499101048794915,
+    "512": 0.8131964905129074
+   },
+   "core_var_frac": 0.08777399569724753
+  },
+  "17": {
+   "eff_rank": 155.05197056864424,
+   "rank_90": 600,
+   "var_frac_top_k": {
+    "16": 0.46643890510168456,
+    "64": 0.5924101673396304,
+    "256": 0.7666250801713974,
+    "512": 0.8742415570136756
+   },
+   "core_var_frac": 0.38613064829592814
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 896,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 12.479281663894653
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_LAST_TWO_INPUT_INFORMATION_BUDGET_PROBE_PREREGISTRATION.md": "86a7673ca7c68a62fed3de520015679d41130333e4cd7e0aa77e4286a371095d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_stack_extracted_program_probe_results.json": "a790b0f5e093e5625c690c19dbda9a4e36ab64a3ba41c4306b8d2de8e00dd68c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_square_direction_mean_control_probe_results.json": "d6f432f93238bf6457e0dfcc77987fe6b6902f137cc196ca8de66d98069ff2c3",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "e304b26e365a5394d6e866fa34143a7943777eafef834973a84cbf8df47a3b9e"
+}

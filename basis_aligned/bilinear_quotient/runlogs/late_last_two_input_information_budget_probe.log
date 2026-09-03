@@ -1,0 +1,31 @@
+{"stage": "fit_cov", "t": 6.4}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 7.0}
+{"stage": "own_pcs", "b16": {"eff_rank": 544.2, "var_top": [0.208, 0.384, 0.65, 0.813], "core_var_frac": 0.0878}, "b17": {"eff_rank": 155.1, "var_top": [0.466, 0.592, 0.767, 0.874], "core_var_frac": 0.3861}, "t": 7.9}
+{"stage": "arms", "PIN_CORE16": 0.1761, "KEEP_CORE16": 0.3089, "PIN_OWN_16": 0.2248, "KEEP_OWN_16": 0.2425, "PIN_OWN_64": 0.3429, "KEEP_OWN_64": 0.1718, "PIN_OWN_256": 0.4618, "KEEP_OWN_256": 0.0854, "PIN_OWN_512": 0.5473, "KEEP_OWN_512": 0.0447, "t": 12.5}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_top256_own_pcs_suffice": true,
+  "pred_c_sixteen_own_pcs_do_not": false,
+  "pred_d_own_pcs_beat_the_core_as_a_16_dim_channel": true,
+  "pred_e_top16_variation_is_not_critical": true
+ },
+ "nulls": {
+  "b_null_keep256_ge_.30": false,
+  "c_null_keep16_le_.25": true,
+  "d_null_core_better_by_.05": false,
+  "e_null_pin16_ge_.45": false
+ },
+ "ce_added": {
+  "PIN_CORE16": 0.1760781705379486,
+  "KEEP_CORE16": 0.3089213967323303,
+  "PIN_OWN_16": 0.2248067557811737,
+  "KEEP_OWN_16": 0.24250510334968567,
+  "PIN_OWN_64": 0.34287333488464355,
+  "KEEP_OWN_64": 0.17182007431983948,
+  "PIN_OWN_256": 0.46184852719306946,
+  "KEEP_OWN_256": 0.08544257283210754,
+  "PIN_OWN_512": 0.5472831130027771,
+  "KEEP_OWN_512": 0.044706761837005615
+ }
+}

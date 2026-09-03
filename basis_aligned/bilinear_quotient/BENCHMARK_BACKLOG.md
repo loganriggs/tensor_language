@@ -5142,3 +5142,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   q₁ pinned to its mean costs .050 (zeroed 2.003): a bias carrier (m/σ = 11 in mlp16's input). Pinning all 16 core coords .176; the five
   shared directions .173 (98%); random-5 .038. Core is 20× mean-dominated at mlp16. Script label correction (PROG_SHARED8 = unprojected
   16-dim program, .252) recorded. Preserved.
+- §2738 late_last_two_input_information_budget_probe (Claude, LANE 1 CUDA, 12 s, 896 GPU forwards): a, b, d, e TRUE; c FALSE + NULL
+  MET. Mean-preserving budget: keep own top-k PCs' variation + constant filler → .243/.172/.085/.045 (k=16/64/256/512); own-16 +
+  constant equals core-16 + token filler; core is the worse 16-dim channel by .066. Preserved.

@@ -70332,3 +70332,40 @@ not of how P was built: the residual stream's constant component lies largely in
 centred — and the next rung is instead the mean-preserving INFORMATION BUDGET of mlp16/17's input: with the core's per-token variation
 worth .176 to the real blocks while the exact-core program costs .246, the program's error is larger than everything the core's
 variation carries, so the non-core input must carry more per-token information for these blocks than the core does. Priced next.
+
+## §2738 — THE INPUT INFORMATION BUDGET OF mlp16/17 (mean-preserving): keeping only the per-token variation along each block's own top-k input PCs (everything else pinned to its fit-set mean — a CONSTANT filler, no token term) costs .243 / .172 / .085 / .045 for k = 16 / 64 / 256 / 512; pinning those same PCs costs .225 / .343 / .462 / .547; the shared 16-dim core as a channel is worse than the block's own 16 PCs by .066 (KEEP_CORE16 .309 vs .243) though pinning it costs .176 vs .225; own-16-PCs + constant filler (.243) equals the exact core program with a TOKEN filler (§2729 .233, §2732 .246) — the token term bought the core program only what 16 better-chosen input directions buy for free (Claude, LANE 1 CUDA, 12 s, 896 GPU document-forwards): a, b, d, e TRUE; c FALSE with NULL MET. Preserved.
+
+Registered 2026-09-03 22:14Z (polynomial_causal/LATE_LAST_TWO_INPUT_INFORMATION_BUDGET_PROBE_PREREGISTRATION.md); ran and landed
+22:15Z. Script ops/late_last_two_input_information_budget_probe.py; results late_last_two_input_information_budget_probe_results.json
+(sha 46d36157…). Frozen: prereg, §2732 results (a790b0f5…), §2737 results (d6f432f9…), checkpoint, fit_natural.pt. Sign convention
+(§2135): every number is CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER.
+Both blocks patched together; each block uses its own centred input PCA and its own means (fit set); pin = coordinates replaced by
+means; keep = complement pinned.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); PIN_CORE16 .1761 (§2737 .176).
+
+**Own-input PCA (fit set).** mlp16 input: eff. rank 544, rank-90 730, variance in top 16/64/256/512 PCs .21/.38/.65/.81, core share .088.
+mlp17 input: eff. rank 155, rank-90 600, top-k shares .47/.59/.77/.87, core share .386.
+
+**Arms.** KEEP_OWN_k .2425 / .1718 / .0854 / .0447 (k = 16/64/256/512); PIN_OWN_k .2248 / .3429 / .4618 / .5473; KEEP_CORE16 .3089;
+PIN_CORE16 .1761. Complement sums PIN_k + KEEP_k = .47 / .51 / .55 / .59 (mildly super-additive with k).
+
+**Scoring.** b KEEP_OWN_256 .085 ≤ .15 TRUE (null ≥ .30 not met). c KEEP_OWN_16 .243 ≥ .40 FALSE; NULL MET (≤ .25). d .309 − .243 = .066 ≥ .05
+TRUE (null ≤ −.05 not met). e PIN_OWN_16 .225 ≤ .25 TRUE (null ≥ .45 not met).
+
+**Reading.** (i) The per-token information the last two blocks use is spread over hundreds of input directions with a slowly
+decaying budget (.24 → .17 → .085 → .045 for 16 → 512 kept), but the FIRST 16 own PCs already bring the cost to .24 with nothing
+but a constant for the other 1136 dimensions. My bar for c (≥ .40) assumed the §2729 MEAN-filler arms' badness carried over; it did
+not, because those arms restricted to the shared CORE, and the core is the wrong 16 directions for the blocks' own reading (d: worse
+by .066 as a channel, even though its variation is worth less when pinned — the two orderings differ because the core is 20×
+mean-dominated, §2737). (ii) Own-16 + constant (.243) ≈ core-16 + token filler (.233/.246): the exact-core program's token term
+(rank-8 read of the current token's embedding into the non-core input) was compensating for a poor choice of input directions, not
+adding information the input lacks. The cheapest known faithful description of mlp16/17's INPUT is therefore "16 block-specific
+directions of per-token variation plus a fixed 1152-vector" — no token lookup needed at these blocks (the lookup content, §2718,
+already sits in the stream). (iii) For the late-stack program this suggests replacing the core+TOK last-two blocks by own-16 (or
+own-64, .172) + constant; how that composes with the pool (κ .102 is carried by directions beyond the top-256 PCs, §2735) is the
+open question, priced in the next rung.
+
+**Limits.** Means and PCs fitted on 96 docs; one eval split; both blocks patched together (per-block budgets not separated); the
+pin/keep arms recompute the real block on a modified input, so they measure information available TO the real weights, not what a
+compiled polynomial would extract from it.
