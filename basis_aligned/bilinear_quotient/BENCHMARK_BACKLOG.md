@@ -4927,3 +4927,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Attention QK per-head pattern eff rank median ~69 of head_dim=128 (all 18 blocks) — compressible via the 128-dim
   head bottleneck (the §312 frontier). MLP token-context operators 438-929 of full 1152 — no bottleneck, not
   compressible. bilin18's compressibility lives in attention, not MLPs. Script attention_qk_pattern_rank.py.
+- Rung529 (§2680, Codex): shared/private consensus test of rung528's signal. Strong null but ARC'S CLOSEST-TO-
+  POSITIVE: pred_a/b TRUE (consensus beats every singleton on DISCOVERY — Z7 cos .945 vs best singleton P .385;
+  FIRST pred_b=true in the grouping arc), pred_c FALSE (held-out margin .079 < frozen .10; half0 .072 fails).
+  Codex closed the route without lowering the bar (correct). Real shared-across-actions computation on discovery,
+  near-miss on held-out cert. Vindicates pooling frame (§2658/§2659). 9300 fwd, 164.7s. Codex -> R530
+  (source-conditioned attention0 basis). Result 48fcea16…

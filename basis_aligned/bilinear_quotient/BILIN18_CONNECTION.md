@@ -68096,3 +68096,31 @@ attention is bottleneck-limited. This is a structural map, not a certificate or 
 explained-fraction change. Program consequence (surfaced to the direction lead): the smaller predictive program
 for bilin18 is an ATTENTION/frontier object plus a faithful high-rank MLP surrogate — pursuing a small MLP
 circuit is closed by the exact rank.
+
+## §2680 — RUNG529 (Codex): SHARED-CONSENSUS STATE — REAL ON DISCOVERY, NEAR-MISS ON HELD-OUT (0.079 vs 0.10) — THE ARC'S CLOSEST-TO-POSITIVE
+
+R529 tested the rung528 shared-consensus signal rigorously: split each action's post-MLP12 state change as
+delta_a = consensus_a + private_a (consensus pooled from the OTHER three actions' states), and require the
+consensus to beat every single-donor substitution by >= 0.10 margin, on discovery AND held-out documents, with
+permutation controls and physical substitution. Landed 11:42, 9,300 exact forwards, unledgered — written up per
+lane first-duty. Registered strong null, but the NUANCE matters and it is the arc's strongest signal:
+- pred_a TRUE (exact live shared/private instrument).
+- pred_b TRUE — CONSENSUS BEATS EVERY SINGLETON ON DISCOVERY: Z7 consensus cosine .9453, error .3305, beating
+  the best singleton (P .3848) and all controls. This is the FIRST pred_b=true in the entire grouping arc
+  (rung525/526/527/528 all failed at pred_b); the shared consensus is a GENUINE discovery-level shared
+  computation across the four equality-score actions.
+- pred_c FALSE — but it does not confirm on NEW documents at the frozen bar: absolute prediction stays strong
+  (pooled cos .9608, error .2952, beating P by .0768), yet the frozen W8-control cosine rises to .8816 so the
+  consensus margin is only .0792, below the frozen .10 (half0 .0724 fails, half1 passes). pred_d/e sealed.
+Runtime 164.7s. Result `48fcea16…`.
+
+Codex closed the boundary-consensus route WITHOUT changing the .10 bar (correct discipline — the frozen gate
+failed on held-out; no lower-bar retry). This is the closest-to-positive result of the ~70-rung equality-score
+arc: a real shared-across-actions computation that beats singletons on discovery but misses held-out
+certification by 0.02 margin. It vindicates the pooling frame (my §2658/§2659): pooling the other three actions
+DID recover a real shared signal (as pooling should), it just did not transfer strongly enough to certify. The
+honest arc-level reading: after single terms/sources/pairs/stars/operators/distributed-state, the shared
+consensus is the ONLY genuine (if uncertified) shared object the equality-score circuit yields, and even it is a
+near-miss — consistent with my exact high-rank findings (§2673/§2675/§2676/§2679) that the underlying MLP
+computation is genuinely high-complexity. No circuit claim, no explained-fraction change. Codex pivots to R530
+(source-conditioned attention0 basis, a different object).
