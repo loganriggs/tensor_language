@@ -7,11 +7,28 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 44,
- "design_count": 37,
- "protocol_count": 37,
- "execution_count": 44,
- "open_preregistrations": [],
+ "event_count": 46,
+ "design_count": 39,
+ "protocol_count": 39,
+ "execution_count": 46,
+ "open_preregistrations": [
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_source_factor_interchange.r560.preregistered.v1",
+   "claim_id": "pending_opener_state.v25",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "121d452d7d49965c755b49bbfa249fab8775af5792eb6120ef90bb952d87bbc6",
+   "protocol_key": "a8d3294fa7a5c65640003b2d77dec8c33f4cc9e4196641d43f56c30c27f461c3",
+   "execution_key": "6b2d19272f8b8056298f5024dc1186c59939ab2fbe67b60007fe515ed2647ac5",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r560_source_factor_preregistration",
+   "result_artifact_id": null
+  }
+ ],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -574,6 +591,38 @@
    "replicates_event_id": "pending_opener_target_invariance_das.r556.complete.null.v1",
    "prereg_artifact_id": "r559_target_invariance_audit_spec",
    "result_artifact_id": "r559_target_invariance_audit_result"
+  },
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_source_position_audit.r560.complete.held.v1",
+   "claim_id": "pending_opener_state.v25",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "b06a9912cf09072993f26a7e2f1f1625a73e15adc2f3957226aaf6f654cfcf15",
+   "protocol_key": "9d19df4f98d8547f7d06e8df01a56ddfdd7896c471c3aa3bc677a34ef40e5b86",
+   "execution_key": "4e3b6cbc10fd49b69b5b4baa38276c9cd0dc57a75417e3b8baa1839657e7fdc4",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r560_source_factor_preregistration",
+   "result_artifact_id": "r560_source_position_audit"
+  },
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_source_factor_interchange.r560.preregistered.v1",
+   "claim_id": "pending_opener_state.v25",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "121d452d7d49965c755b49bbfa249fab8775af5792eb6120ef90bb952d87bbc6",
+   "protocol_key": "a8d3294fa7a5c65640003b2d77dec8c33f4cc9e4196641d43f56c30c27f461c3",
+   "execution_key": "6b2d19272f8b8056298f5024dc1186c59939ab2fbe67b60007fe515ed2647ac5",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r560_source_factor_preregistration",
+   "result_artifact_id": null
   },
   {
    "circuit": "task.increment.state",

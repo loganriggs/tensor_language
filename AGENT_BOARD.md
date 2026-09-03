@@ -4765,3 +4765,24 @@ every seed at every dimension failed at least one answer-preserving control (in 
 failed for those dimensions). Dimension 16 also failed the random-subspace bar. No dimension is eligible. This rejects
 a single selective linear subspace at L13H8 under these counterfactuals; it does not reject nonlinear or upstream
 factorized representations, and no larger-dimension sweep is licensed.
+
+### 2026-09-03T17:35Z — Codex: CLAIM R560, PENDING-OPENER SCORE × PAYLOAD SOURCE FACTORS
+
+R560 replaces the failed linear-subspace view with the exact bilinear computation of L13H8. For every R545 prompt,
+the registered pending opener gives a semantic source position. At the final query, the head contribution from that
+position is `bilinear attention score × projected value vector`. R560 will transplant only the source score, only the
+projected source value, or both, in both causal directions across both answer-changing families and all three
+answer-preserving families. The distance-extension family remains valid even with unequal prompt lengths because the
+intervention maps the semantic pending-opener position rather than raw position indices. FIT selects among the three
+factor interventions using target recovery, all invariance controls, and an adjacent-wrong-source control; SELECT is
+opened once for the chosen intervention. The score×payload interaction term is reported explicitly. No hidden-dimension
+or rank sweep is permitted.
+
+### 2026-09-03T17:40Z — Codex: R560 SOURCE AUDIT CAUGHT DONOR-LABEL DEFECT
+
+Before model execution, the CPU source audit found that all 108 FIT/SELECT `completed_then_reopened` rows repeat the
+base pending-variable label in `proposed_variable_donor`, even though the donor prompt and donor closer identify a
+different pending opener. The token sequences and answer IDs are consistent; the donor metadata field is not. R560's
+source rule is therefore corrected outcome-blind to map each endpoint's registered correct closer to its opener
+(`)`→`(`, `]`→`[`, quote→opening quote) and then take that opener's final occurrence. The audit will preserve the 108
+metadata mismatches explicitly. No model outcome has been opened.

@@ -9,8 +9,8 @@
  "summary": {
   "canonical_work_items": 5,
   "legacy_candidates": 70,
-  "open_experiments": 0,
-  "held_events": 13,
+  "open_experiments": 1,
+  "held_events": 14,
   "blocking_events": 19
  },
  "work_items": [
@@ -18,7 +18,7 @@
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_bracket_pending_opener.json",
-   "active_claim_id": "pending_opener_state.v25",
+   "active_claim_id": "pending_opener_state.v26",
    "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "counterfactual_family_count": 5,
@@ -45,9 +45,13 @@
     "pending_opener_downstream_response_atlas.r549.complete.null.v1",
     "pending_opener_downstream_readout_guard.r551.complete.null.v1",
     "pending_opener_target_invariance_das.r556.complete.null.v1",
-    "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+    "pending_opener_source_position_audit.r560.complete.held.v1",
+    "pending_opener_source_factor_interchange.r560.preregistered.v1"
    ],
-   "open_event_ids": [],
+   "open_event_ids": [
+    "pending_opener_source_factor_interchange.r560.preregistered.v1"
+   ],
    "held_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -55,7 +59,8 @@
     "pending_opener_control_ceilings.r539.complete.v1",
     "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
     "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
-    "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+    "pending_opener_source_position_audit.r560.complete.held.v1"
    ],
    "blocking_event_ids": [
     "pending_opener_cross_family_das.r540.complete.v1",
@@ -76,7 +81,7 @@
     "cross_family": "blocked",
     "ood": "missing",
     "selectivity": "mixed",
-    "composition": "missing",
+    "composition": "planned",
     "compiled_weights": "blocked"
    },
    "acceptance_gaps": [
@@ -86,11 +91,10 @@
     "cross_family",
     "ood",
     "selectivity",
-    "composition",
     "compiled_weights"
    ],
-   "work_state": "next_experiment_needed",
-   "next_missing": "test a preregistered nonlinear or upstream factorized representation on the same R545 families; do not extend the L13H8 linear-subspace dimension sweep"
+   "work_state": "experiment_open",
+   "next_missing": "execute and independently audit the frozen R560 semantic-source score/payload factor interchange; keep FINAL_TEST/OOD closed and do not return to a linear-dimension sweep"
   },
   {
    "tag": "subroutine.induction.equality_score",

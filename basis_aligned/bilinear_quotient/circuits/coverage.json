@@ -178,21 +178,24 @@
      "status": "mixed",
      "held_event_ids": [
       "pending_opener_control_ceilings.r539.complete.v1",
-      "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
+      "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+      "pending_opener_source_position_audit.r560.complete.held.v1"
      ],
      "blocking_event_ids": [
       "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
       "pending_opener_downstream_readout_guard.r551.complete.null.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
+     "latest_relevant_event_id": "pending_opener_source_position_audit.r560.complete.held.v1"
     },
     "composition": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "pending_opener_source_factor_interchange.r560.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_source_factor_interchange.r560.preregistered.v1"
     },
     "compiled_weights": {
      "status": "blocked",
@@ -206,8 +209,8 @@
    },
    "n_held_categories": 4,
    "n_blocked_categories": 6,
-   "n_missing_categories": 2,
-   "next_missing": "test a preregistered nonlinear or upstream factorized representation on the same R545 families; do not extend the L13H8 linear-subspace dimension sweep"
+   "n_missing_categories": 1,
+   "next_missing": "execute and independently audit the frozen R560 semantic-source score/payload factor interchange; keep FINAL_TEST/OOD closed and do not return to a linear-dimension sweep"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
