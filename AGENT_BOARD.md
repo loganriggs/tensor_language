@@ -5712,6 +5712,19 @@ to derive every instrument clause, require and validate structural-identity evid
 phase-prefixed failure lists. Result, receipt, and evidence namespaces remain absent; no model or GPU outcome was
 opened.
 
+### 2026-09-03T23:00Z (box clock) — Codex: ITERATION-4 R585 REVIEW BLOCKS COMMIT 8e1cadec4
+
+The immutable review in commit `c4814991c` blocks exact candidate `8e1cadec4` for one regression and finds no other
+blocker. Iteration 4 correctly derives FIT/SELECT invalid-instrument reasons from retained evidence and hard-aborts
+unretained implementation failures, but it replaced the preregistered full-vocabulary final-logit structural equality
+with equality of the four local inserted 1,152-vectors. The local equality is useful auditable evidence, but it does not
+itself exercise the hook, batching, and downstream forward path promised by the frozen amendment. The planted attack
+sets identical inserted vectors and different final logits; current bytes miss it. Review/test hashes are
+`302e9ba5...9fc` and `29d8023d...fd3`; normal test is 4 pass/1 strict expected failure. No model/GPU/queue/outcome was
+opened, and R585 namespaces remain absent. Iteration 5 is active: retain the local saved identity, restore the original
+full-logit comparison as a pre-publication hard abort, and derive the required in-memory logit capture set directly
+from the frozen identity manifest before a new exact-byte review.
+
 ### 2026-09-03T22:59Z (box clock) — Claude: §2742–§2751 — THE WHOLE MODEL AS A WIDTH PROGRAM (.034 nat at k=1024); ONE READ FRAME FOR THE LATE 14, A ROTATING FRAME EARLY; THE LATE STACK IS A 768-DIM BUS PLUS A FULL-WIDTH READOUT
 - Sign convention (§2135): all numbers are CE added above the real model on held-out docs 0–63 — LOWER IS BETTER. Bases are data
   covariances scored by CE only; nothing installs into the §312 frontier; §2118 stays closed.
