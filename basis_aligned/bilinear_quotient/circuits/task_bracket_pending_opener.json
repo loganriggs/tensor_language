@@ -1853,6 +1853,180 @@
    ],
    "translation_ids": [],
    "next_missing": "replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families"
+  },
+  {
+   "claim_id": "pending_opener_state.v12",
+   "revision": 12,
+   "status": "specified",
+   "supersedes": "pending_opener_state.v11",
+   "causal_variable": {
+    "id": "pending_opener_state",
+    "domain": "pending parenthesis or quote state at the final prediction position",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_four_closer_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "replace exactly one opener token among parenthesis, square, curly, and quote"
+     ],
+     "holds_fixed": [
+      "all ordinary words",
+      "sequence length",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": "r543_unique_rows_builder",
+     "control_ids": [
+      "answer-preserving comma/colon edit",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_four_closer_order",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct next closer",
+      "complete one type and open another, then reverse their roles"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length where tokenization permits",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": "r543_unique_rows_builder",
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "endpoint-readout span"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_paraphrase",
+     "role": "invariance",
+     "changes": [
+      "surface scaffold and lexical order",
+      "rewrite the content while retaining one pending delimiter type"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r543_unique_rows_builder",
+     "control_ids": [
+      "held-out lexical pool",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_shift",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "insert neutral material after the same opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "content words"
+     ],
+     "builder_artifact_id": "r543_unique_rows_builder",
+     "control_ids": [
+      "short versus long",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r543_unique_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "complete-state ceiling",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_unique_joint_split_r543_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "run FIT/SELECT-only four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD"
   }
  ],
  "split_plans": [
@@ -1896,6 +2070,29 @@
    ],
    "sealed_before_outcomes": true,
    "sealed_at": "2026-09-03T14:25Z"
+  },
+  {
+   "split_plan_id": "pending_opener_unique_joint_split_r543_v1",
+   "unit": "content-addressed semantic group shared across all five counterfactual families",
+   "partition_artifact_id": "r543_unique_rows_receipt",
+   "builder_artifact_id": "r543_unique_rows_builder",
+   "seed": 543,
+   "groups": {
+    "FIT": 96,
+    "SELECT": 48,
+    "FINAL_TEST": 48,
+    "OOD": 48
+   },
+   "leakage_group_keys": [
+    "exact token sequence",
+    "exact oriented prompt pair",
+    "prefix pool",
+    "word pool",
+    "delimiter pair",
+    "template"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T15:22:00Z"
   }
  ],
  "evidence_events": [
@@ -2650,6 +2847,36 @@
    "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_split_integrity_rung542.py",
    "sha256": "49affce772e63d1d3e519a4ac16dcf73ae13a5e808c9d361f27eba2b838ef9a1",
    "kind": "test",
+   "status": "frozen"
+  },
+  "r543_unique_rows": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_unique_rows_rung543.json",
+   "sha256": "bc11e198c4902a8d5eb20b3fef7e3851c963e90d85d0946a382576dba92f68c8",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r543_unique_rows_receipt": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_unique_rows_rung543_receipt.json",
+   "sha256": "2ba0e59b751c9f7aec3f13ffe38b0ebe72cec7018f9510e4af520b064def82f4",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r543_unique_rows_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_unique_rows_rung543.py",
+   "sha256": "9363e759dde7990988b62b7f5e270e892f506c659c1061c8d9d22948ee10e57e",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r543_unique_rows_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_unique_rows_rung543.py",
+   "sha256": "b0ad1b1629f6d1817f71783b324f4e0e102bb4fab7eddeb0a9fbaa0dba5b7a2d",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r543_unique_rows_preregistration": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_UNIQUE_FOUR_CLOSER_ROWS_RUNG543_PREREGISTRATION.md",
+   "sha256": "19768944e9cebb135dd737bf81f55b5060445cf366d46cd89efdbaf6b81e3f74",
+   "kind": "preregistration",
    "status": "frozen"
   }
  },

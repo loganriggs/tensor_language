@@ -14,7 +14,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | site_live | `pending_opener_state` | 5 | 3 | replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families |
+| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state` | 5 | 3 | run FIT/SELECT-only four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -47,17 +47,17 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 **Next:** materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace
 
-### `task.bracket.pending_opener` — site_live
+### `task.bracket.pending_opener` — specified
 
 **Read:** opener, closer, ordering, and recency evidence in the preceding context. **Operation:** maintain which opener type remains pending after completed earlier spans. **Write:** signed evidence for the matching closer token. **Endpoint:** symmetric donor-closer versus base-closer final-logit margin.
 
 | family | role | status |
 |---|---|---|
-| `opener_type_substitution` | interchange | frozen |
-| `closed_then_reopened_type` | interchange | frozen |
-| `pending_state_preserved_surface_edit` | invariance | frozen |
-| `later_matching_closer_reset` | necessity | proposed |
-| `nonopener_punctuation_substitution` | invariance | frozen |
+| `direct_four_closer_type_substitution` | interchange | frozen |
+| `completed_then_reopened_four_closer_order` | interchange | frozen |
+| `pending_type_preserved_surface_paraphrase` | invariance | frozen |
+| `pending_type_preserved_distance_shift` | invariance | frozen |
+| `pending_type_preserved_nonopener_punctuation` | invariance | frozen |
 
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
@@ -74,9 +74,9 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `pending_opener_cross_family_das.r540.complete.v1` | complete | cross_family_transfer | **null** | active | `r540_das_result` |
 | `pending_opener_split_integrity.r542.invalid_statistical_unit.v1` | complete | seed_stability | **invalid** | active | `r542_split_integrity_result` |
 
-**Frozen artifacts:** 33. Paths and SHA-256 hashes are in the canonical JSON record.
+**Frozen artifacts:** 38. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families
+**Next:** run FIT/SELECT-only four-closer capability and complete-state site ceilings; then compare ordinary and endpoint-readout-deflated contrastive DAS without opening FINAL_TEST/OOD
 
 ### `task.increment.state` — proposed
 

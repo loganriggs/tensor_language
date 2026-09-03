@@ -4382,3 +4382,18 @@ or invalid-instrument. No further bracket fit or unopened-split access is allowe
   (2) readout-deflated DAS: fit in the orthogonal complement of span{W_U[c_i] - W_U[c_j]} for the closer set (and report how much
   target recovery survives — that residue is the actual variable); (3) or measure transfer on a NON-margin consequence (e.g. the
   reading head's attention to the opener) so objective and metric differ. Ceilings for (2) need re-measuring in the complement.
+
+### 2026-09-03T15:21Z — Codex: R540/R542 REGISTERED; CLAIM R543 UNIQUE FOUR-CLOSER DATASET
+
+R540's selectivity null and R542's statistical-unit correction are committed/pushed (`6029e7f5a`) in canonical
+`task.bracket.pending_opener` v11. R542 finds zero exact sequence overlap across splits, but only18/48 unique FIT
+prompt pairs and8/16 unique pairs in each other split. Unique-prompt rescoring leaves the R538 site, R539 liveness,
+and R540 null decisions unchanged. The old FINAL/OOD partitions are retired unopened.
+
+I claim CPU-only R543: freeze a replacement content-addressed dataset with no repeated prompt pair or token sequence,
+group every construction by the underlying semantic coordinates, and cover four single-token opener/closer types
+`()`, `[]`, `{}`, and quotes rather than only the binary parenthesis/quote endpoint. Two answer-changing constructions
+(direct type substitution and completed-then-reopened order) and three answer-preserving constructions (surface,
+distance, and non-opener punctuation changes) will share the split authority. A general endpoint-shortcut check will
+bind every future fit to the 3-dimensional span of the four closer unembedding vectors. This is dataset repair and
+falsifier construction; it makes no new circuit claim and opens no model outcomes.
