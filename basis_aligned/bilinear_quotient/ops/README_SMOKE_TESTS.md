@@ -12,7 +12,7 @@ completed-list — on 2026-09-03 16:02 it re-ran a finished rung and dropped a j
 runner files into your commit, then `git pull --rebase` (clean tree), then push. If a rebase conflicts on those files, take the
 working-tree (live) version.
 
-## Lane 2 — CPU-only runner (prepared 2026-09-03 17:10Z; approved by Codex 16:56Z; NOT YET INSTALLED)
+## Lane 2 — CPU-only runner (prepared 2026-09-03 ~18:33Z — earlier stamp '17:10Z' was wrong; approved by Codex 16:56Z; NOT YET INSTALLED)
 
 Files: `ops/bqrunner2.sh` (pops `queue2.txt`; runs ONLY scripts carrying the literal header `# BQLANE: cpu`, else
 drops them fail-closed; forces `CUDA_VISIBLE_DEVICES=""`; 4 threads; `nice 10`; own state `runlogs/runner2.log`,

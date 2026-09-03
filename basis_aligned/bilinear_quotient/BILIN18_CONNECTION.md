@@ -68680,3 +68680,96 @@ What the null is made of (audit, from the reported per-candidate SELECT metrics 
   the FIT rule's own thresholds. A fresh-rows replication with FIT-only selection under the tightened rule is the
   cheapest way to turn this into a certified downstream reader or a clean null; Codex's call.
 Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68). Failure preserved as scored.
+
+## §2698 — MLP16/17 RANK-8 WRITE AS EIGHT EXACT QUADRATIC FORMS, TRUNCATED PER FORM (Claude, CPU, 1742 s, 1,064 full CPU document forwards, 0 GPU): THE FORMS ARE HIGH-RANK IN MLP16 (mean energy eff rank 375; per-form truncation to r=64 costs .083 vs .036 exact, r=256 still .063) BUT MLP17's TOP THREE FORMS ARE COMPACT (eff rank 42 / 51 / 69) AND r=16 TERMS PER FORM ALREADY REPRODUCE ITS EXACT RANK-8 PRICE WITHIN .007 — a TRUE, b FALSE (mean eff rank 163 in MLP17 < 200; null ≤ 64 NOT met), c FALSE, d FALSE (no nulls met), e TRUE
+
+Written 2026-09-03 18:39Z. Preregistration `polynomial_causal/MLP_FINAL_BLOCKS_QUADRATIC_FORM_RANK_PROBE_PREREGISTRATION.md`
+(hash frozen in the script); script `ops/mlp_final_blocks_quadratic_form_rank_probe.py` (sha 0cab37eb…); results
+`mlp_final_blocks_quadratic_form_rank_probe_results.json`. Landed 17:04Z, exit 0. SIGN CONVENTION (§2135): every CE number is
+CE ADDED ABOVE THE REAL MODEL on held-out natural docs 96–191 (baseline 3.08238) — LOWER IS BETTER. Nothing here installs into
+the §312 frontier (norm-2304 at +2.6735 stands).
+
+**Object.** For block l ∈ {16,17} with §2694's rank-8 write basis U (fitted on docs 0–95), the projected write coefficient
+c_j(x) = u_jᵀ Down(Left xhat ⊙ Right xhat) is EXACTLY a quadratic form xhatᵀ Qs_j xhat, Qs_j = sym(Leftᵀ diag(u_jᵀ Down) Right).
+Each form is eigendecomposed and truncated to its top-r |λ| terms: c_{r,j}(x) = Σ_{i≤r} λ_ji (v_ji·xhat)². The surrogate
+mw' = mu + U(c_r(x) − Uᵀmu) is scored in situ. r = 1152 is exact (must reproduce §2694's k=8 numbers).
+
+**Scored exactly as registered.**
+- pred_a_instrument TRUE: manual forward == module CE on 4 eval docs (abs diff 0.0); exact forms at k=8 reproduce §2694's
+  frozen k=8 prices .03554 (MLP16) / .08326 (MLP17) to 8e-8 (bar .002).
+- pred_b_forms_high_rank FALSE (bar: mean λ²-energy eff rank ≥ 200 in BOTH blocks): MLP16 375.0 ✓, MLP17 162.9 ✗.
+  Null (≤ 64 in either block) NOT met. Per form (energy eff rank / top-1 |λ| share / positive-mass fraction):
+  MLP16 292 .012 .51 | 289 .013 .49 | 373 .009 .49 | 350 .009 .46 | 357 .011 .51 | 352 .012 .50 | 490 .007 .52 | 497 .006 .51;
+  MLP17 41.6 .035 .46 | 51.3 .031 .48 | 68.7 .031 .50 | 117.5 .023 .40 | 94.3 .027 .58 | 222 .014 .50 | 381 .010 .50 | 327 .012 .51.
+  Every form is INDEFINITE with positive mass ≈ ½ (differences of squares, not squared features).
+- pred_c_mlp16_r64_cheap FALSE: MLP16 (k=8, r=64) adds .0835 (bar ≤ .06; null ≥ .15 NOT met).
+- pred_d_mlp16_r256_near_exact FALSE: MLP16 (k=8, r=256) adds .0633 (bar ≤ .045; null ≥ .10 NOT met).
+- pred_e_mlp17_r64 TRUE: MLP17 (k=8, r=64) adds .0884 (bar ≤ .12; null ≥ .25 NOT met).
+
+**Ladders (CE ADDED, lower = better).** MLP16: r16 .1209 / r64 .0835 / r256 .0633 / r1152 (exact) .0355.
+MLP17: r16 .0904 / r64 .0884 / r256 .0860 / r1152 (exact) .0833. Excess of r=64 over exact: MLP16 .048, MLP17 .0051.
+Disclosed coefficient RMS on eval per form (which forms carry variance): MLP16 11485 / 10308 / 3916 / 3012 / 1768 / 1360 /
+1084 / 1029; MLP17 27259 / 21283 / 15128 / 10945 / 6591 / 4263 / 3370 / 2507 — variance and compactness co-vary in MLP17
+(the three highest-variance forms are the three most compact ones).
+
+**Reading.** (i) In MLP17 the rank-8 write is, to within .007 nat, a program of 8 × 16 = 128 rank-1 interaction terms
+(v·xhat)² — the "specific interaction terms" Logan asked for exist at this grain for MLP17, and the block's whole rank-8 price
+(.083) is the OUTPUT truncation, not the interaction truncation. (ii) In MLP16 the same construction fails: even r=256 per form
+(2,048 terms) costs .063 vs .036 exact; the forms have eff rank 290–500 with top-1 shares ≤ 1.3%. This is the §2673–§2676
+high-rank picture surviving at the level of the causally-selected output directions: MLP16's rank-8 output directions are
+computed from hundreds of input directions each. (iii) pred_b's failure is NOT its null: the block-mean 163 is pulled down by
+three compact forms; the other five are 94–381. The registered "forms are a small tensor program" reading applies to MLP17's
+top three forms only. (iv) Indefinite forms with ½ positive mass mean no form is a squared-feature detector; every c_j is a
+difference of two sums of squares — relevant for any "feature" narrative built on these blocks.
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Follow-up (registered separately, §2699): does a
+loss-aware metric change the output-truncation price, and can the price be certified analytically.
+
+## §2699 — MLP16/17 WRITE TRUNCATION: RMSNORM SCALE-GAUGE, PULLED-BACK FISHER CERTIFICATE, FISHER-WHITENED BASIS, SHARED DICTIONARY (Claude, CPU, 500 s, 1,352 CPU document-forward-equivalents, 0 GPU): THE SECOND-ORDER CERTIFICATE PRICES EVERY MLP17 TRUNCATION k=4…64 WITHIN 11–21 % (ratios .79–.89; a TRUE, c TRUE, null far from met); HALF OF MLP17's WRITE ENERGY IS RADIAL TO THE FINAL RESIDUAL AND HENCE GAUGE (.5005 vs bar ≥ .5 — passes by .0005; b TRUE, margin-limited); THE FISHER-WHITENED RANK-8 BASIS IS EXACTLY AS EXPENSIVE AS PCA (.0835 vs .0833; d FALSE, NULL HELD — the §2118/§2125 metric-basis closure GENERALISES to the final-block MLP write); NO SHARED SQUARE-FEATURE DICTIONARY (diag fraction .057 / .100; e TRUE)
+
+Written 2026-09-03 18:40Z. Preregistration `polynomial_causal/MLP_FINAL_BLOCKS_FISHER_CERTIFICATE_PROBE_PREREGISTRATION.md`
+(registered 16:31Z, hash frozen in the script); script `ops/mlp_final_blocks_fisher_certificate_probe.py` (sha bf05c981…, the
+one-line double-cast fix noted on the board before enqueue changed no formula); results
+`mlp_final_blocks_fisher_certificate_probe_results.json`. Enqueued 17:03Z, landed 17:13Z, exit 0, 499.6 s alone on the box.
+SIGN CONVENTION (§2135): every CE number is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–191 (baseline 3.08238, 24,576
+eval positions) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Scored exactly as registered.**
+- pred_a_instrument TRUE: baseline 3.0823805 == §2694's frozen natural_h1 (abs diff 0.0); Fisher arm at k = D is the identity
+  (|ΔCE| = 0.0 on 4 eval docs).
+- pred_b_radial_gauge TRUE: mean ρ (MLP17 write vs x_18 = x + w + Down_bias entering the final rms-norm) = .5005 ≥ .5. Null
+  (≤ .2) NOT met. FLAG: the margin is .0005 — smaller than any reproduction tolerance this ledger uses; treat as "≈ .50",
+  a knife-edge pass, and do not build on "> ½" as a fact. Disclosed radial fraction by block (write vs its own post-write
+  residual): 0 .9999 · 1 .822 · 2 .736 · 3 .785 · 4 .654 · 5 .690 · 6 .662 · 7 .316 · 8 .195 · 9 .425 · 10 .120 · 11 .496 ·
+  12 .354 · 13 .281 · 14 .030 · 15 .016 · 16 .148 · 17 .500. Top variance direction u₁ vs xhat_18: MLP16 .151, MLP17 .437.
+- pred_c_certificate_mlp17 TRUE: ratio measured/pred for k ∈ {4,8,16,32,64} = .891 / .859 / .832 / .789 / .792, all inside
+  [.5, 2]; null (any outside [.25, 4]) NOT met. Disclosed k = 0/1/2: .800 / .839 / .862. MLP16 (disclosed): k0 .997, k1 1.536,
+  k2 1.183, k4 .917, k8 .880, k16 .868, k32 .835, k64 .819. Certificate values (nat) MLP17 k0…64: .442 .285 .183 .116 .097
+  .081 .070 .054 vs measured .354 .239 .158 .104 .083 .067 .055 .043; MLP16 .163 .104 .069 .042 .040 .037 .034 .030 vs
+  measured .163 .160 .081 .039 .036 .032 .028 .024. First-order share of the certificate 1–11 % (MLP17: 3–11 %, rising with
+  k): the price is CURVATURE, not gradient — the discarded tail is nearly loss-orthogonal to first order.
+- pred_d_fisher_basis_mlp17_k8 FALSE with NULL HELD: Fisher arm k=8 adds .0835 (bar ≤ .05; null ≥ .075 MET) vs the PCA arm
+  .0833. Disclosed: MLP16 k=8 Fisher .0349 vs PCA .0355; MLP17 k=32 Fisher .0460 vs PCA .0553 (a .009 gain that appears only
+  at k=32, not scored). Fisher-metric eff rank of G: 532 (MLP16) / 518 (MLP17) of 1152. Whitened covariance M spectrum:
+  eff rank 13.5 (MLP17, top-8 share .826) / 10.6 (MLP16, top-8 share .824) — under the loss metric too, ~17 % of the write's
+  weighted variance sits outside ANY 8-dimensional subspace.
+- pred_e_no_shared_dictionary TRUE: mean diag fraction of the eight Qs_j in the eigenbasis of Σ Qs_j² = .057 (MLP16) / .100
+  (MLP17) ≤ .2; null (≥ .5) NOT met. Per form MLP17 .130 .031 .208 .146 .213 .034 .017 .024 (random ≈ .002).
+
+**Reading.** (i) The certificate WORKS at this grain: one score-trick pass (true-token gradient + 4 sampled-token scores per
+position, RNG pinned) prices every rank-k truncation of MLP17's write to within ~20 %, systematically OVER-predicting (ratios
+< 1: the second-order term over-counts because the tanh-30 logit cap and higher orders are not modelled). This is a computable,
+forward-free price for subspace surrogates of the last two MLP writes — usable to rank candidate edits before spending forwards,
+with the disclosed .8–.9 calibration. MLP16's k=1 ratio 1.54 shows the certificate is loose when |δ| is largest relative to the
+curvature scale; the registered range [4, 64] is where it is trustworthy. (ii) The metric-basis closure generalises: §2118/§2125
+found no metric basis buys anything on the attention frontier; here the LOSS-OPTIMAL (Fisher-whitened, G-orthogonal oblique)
+rank-8 projector for MLP17's write costs the same .083 as plain variance PCA. The fat tail of MLP17's write is not a wrong-basis
+artefact; it is genuinely ≥ 8-dimensional under the right metric too (whitened eff rank 13.5). CLOSED at k=8: metric-constructed
+bases for the final-block MLP write. The k=32 Fisher gain (.046 vs .055) is disclosed-only and small; not a lead. (iii) The
+radial finding reframes §2696's "variance rank ≠ causal price": early blocks' writes are 65–100 % radial to their own residual
+(they set the residual's norm/direction while it is small), late blocks 14/15 are almost purely tangential, and MLP17 is half
+radial — half of its write energy is annihilated by the final rms-norm and can never reach the logits. So variance-PCA on
+MLP17 spends part of its top-k budget on gauge directions; yet the Fisher basis, which cannot see gauge, does no better at k=8,
+which means the gauge and the causal tail are both small relative to what 8 directions must carry. (iv) With §2698: MLP17's
+rank-8 write has compact interaction terms (three forms of eff rank 42–69) but no shared dictionary — the forms are 8 distinct
+low-rank quadratics, composable only as a sum, not as a common feature basis.
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.

@@ -4993,3 +4993,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2697 red-team audit of Codex R549 (GPU 12.5 s): strong null as scored; mlp15_write missed the SELECT control-cosine
   bar by .011 (.361 vs .35) with 1.0/1.0 accuracy; attn14h1/attn15h3/attn16h1 would have passed all SELECT bars but
   FIT-only selection (correctly) forbids promotion; FIT (.40) vs SELECT (.35) control-bar asymmetry noted for next rung.
+- §2698 MLP16/17 rank-8 write as eight exact quadratic forms, per-form truncation (CPU 1742 s, 0 GPU): a TRUE; b FALSE
+  (MLP17 mean form eff rank 163 < 200, null <=64 NOT met); c FALSE (MLP16 r64 .0835 > .06); d FALSE (MLP16 r256 .0633 > .045);
+  e TRUE (MLP17 r64 .0884 <= .12). MLP17 top three forms eff rank 42/51/69, r16 within .007 of exact; MLP16 forms 290-500.
+  CE ADDED above the real model, lower = better.
+- §2699 MLP16/17 Fisher certificate / radial gauge / Fisher basis / shared dictionary (CPU 500 s, 0 GPU): a TRUE; b TRUE
+  (radial .5005 >= .5, margin .0005 -- knife-edge); c TRUE (certificate ratios .79-.89 for k=4..64); d FALSE, NULL HELD
+  (Fisher-whitened k=8 .0835 vs PCA .0833 -- metric-basis closure generalises to the final MLP write); e TRUE (diag .057/.100).

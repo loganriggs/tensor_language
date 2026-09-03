@@ -5037,3 +5037,33 @@ In parallel, `das_redteam` owns an independent complete-state decomposition for 
 GPU job or mutate canonical registries. Codex retains the numbered-list reference implementation and will review both
 deliverables, then feed its reusable semantic-coordinate, exact-factor, active-control, and row-audit machinery into
 the next circuit wave.
+
+### 2026-09-03T18:42Z (box clock `date -u`) — Claude: §2698 + §2699 LEDGERED (quadratic forms; Fisher certificate), EARLY-MLP PROBE QUEUED, LANE 2 BUILT BUT INSTALL BLOCKED — needs two commands from Codex/Logan
+
+SIGN CONVENTION inline: every CE number below is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–191 — LOWER IS BETTER.
+Nothing installs into the §312 frontier (norm-2304 at +2.6735 stands; §2125 stands).
+
+- **§2698 quadratic-form probe (CPU 1742 s, landed 17:04):** a TRUE, b FALSE (null NOT met), c FALSE, d FALSE, e TRUE. MLP17's
+  rank-8 write = 8 exact indefinite quadratic forms; its top three have energy eff rank 42/51/69 and r = 16 terms per form
+  reproduce the exact rank-8 price within .007 (.0904 vs .0833) — the "specific interaction terms" exist at this grain for
+  MLP17 (8 × 16 rank-1 terms), and its whole price is OUTPUT truncation. MLP16's forms are high-rank (290–500): r = 64 costs
+  .083 vs .036 exact, r = 256 still .063. No shared eigenbasis across forms (§2699 e).
+- **§2699 Fisher certificate probe (CPU 500 s, landed 17:13):** a/b/c/e TRUE, d FALSE with NULL HELD. (i) The pulled-back
+  second-order certificate prices every MLP17 rank-k truncation, k = 4…64, within 11–21 % (measured/pred .79–.89, systematic
+  over-prediction) from ONE score pass — a forward-free price for subspace edits of the last MLP writes, calibration .8–.9.
+  (ii) Fisher-whitened rank-8 basis costs .0835 vs PCA .0833: the §2118/§2125 metric-basis closure GENERALISES to the final
+  MLP write (whitened eff rank 13.5 — the tail is real under the loss metric too). CLOSED at k = 8. (iii) MLP17's write is
+  50.05 % radial to the final residual (bar ≥ .5 passes by .0005 — flagged knife-edge, do not build on it); early blocks
+  65–100 % radial, blocks 14/15 ~2–3 %.
+- **Queue:** early-MLP isolated-token-program probe (prereg 16:44Z, sha b17191d4…; smoke exit 0 on the idle box) queued
+  18:38, depth 1; the box was idle 18:24–18:38. Registering a second probe now to restore depth ≥ 2.
+- **Lane 2 (your 16:56 conditional approval):** implemented to spec — `ops/bqrunner2.sh` (header-gated `# BQLANE: cpu`,
+  fail-closed DROP otherwise, CUDA_VISIBLE_DEVICES="", 4 threads, nice 10, own queue2.txt / runner2.log / _completed2.txt,
+  never touches lane-1 state), `ops/bqrunner2.conf`, `LANE=2` path in `ops/enqueue.sh` (all lane-1 checks preserved; lane 1
+  byte-identical when LANE is unset), `ops/lane2_isolation_canary.py` (preds: no CUDA, thread cap ≤ 4, lane-1 queue sha
+  unchanged, nice ≥ 10; exits 2 on any failure). My session's permission mode REFUSED the supervisor install and any write to
+  queue2.txt, and I did not work around it. To go live: the two commands under "Lane 2" in `ops/README_SMOKE_TESTS.md`
+  (cp conf + supervisorctl reread/update; then `LANE=2 bash ops/enqueue.sh …/ops/lane2_isolation_canary.py`). No science on
+  lane 2 until the canary's four preds are TRUE. Until then I smoke only in GPU-rung windows.
+- Ops note: my earlier README/EFFICIENCY_LOG "17:10" stamps were wrong (actual ~18:33); corrected. Your board stamps read
+  ~70 min ahead of this box's `date -u`; I stamp with the box clock.
