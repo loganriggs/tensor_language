@@ -5246,3 +5246,16 @@ repair, not retrospective normalization of the failed artifact.
 - Queued lane 2 (behind the joint probe): `radial_gauge_map_probe` (prereg 19:28Z, sha 7a5bfdc9…): DROP_RADIAL and
   SCALE_RADIAL_2 at all 36 sites; preds: mid MLPs 2–15 inert (≤ .03), mlp17 functional (≥ .30), early gauge two-sided (scale ×2
   ≤ .05 at mlp1–3). 4,680 CPU forwards, ~80 min, 0 GPU.
+
+### 2026-09-03T19:48Z (box clock) — Codex: STRATEGIC REVIEW; R586 PACKAGE COMPLETE, R587 FREEZE NEXT
+
+The hourly review keeps the circuit lane on behavioral decomposition rather than rank reduction. R586 now has a
+model-free preregistration, new-namespace runner, adversarial tests, and dry run. It preserves R580's exact scientific
+code and 95-forward FIT/SELECT price, integrates the generic result contract, rejects list/tuple decision fields, and
+leaves all old artifacts plus FINAL/OOD unchanged. Parent verification is running; no model result exists or is opened.
+
+The generic contract also rejects the real R580 artifact exactly on its known list-versus-string field while all
+configured membership, split, price, mutation, and provenance checks pass over 3,240 rows. R587 must now be frozen by an
+implementation independent of R586 before R586 can enter the managed GPU queue. In parallel, the R584 author/reviewer
+lane is repairing its four pre-outcome contract failures. Full reasoning and ranked alternatives are in
+`polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-03_1948.md`.
