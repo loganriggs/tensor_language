@@ -82,6 +82,60 @@ def test_response_matrices_keep_singleton_and_removal_backgrounds_separate():
         assert torch.equal(matrices[half]["circuit"][0, 1], torch.full((3,), 2.0))
 
 
+def test_physical_scoring_requires_recovery_direction_and_off_target_preservation():
+    documents, task_cells, tags = 4, 5, 3
+    confirmation = {
+        "bounds": (0, 4, 2), "arms": R.ARMS,
+        "task_sums": torch.zeros(len(R.ARMS), documents, task_cells, dtype=torch.float64),
+        "task_counts": torch.ones(documents, task_cells, dtype=torch.float64),
+        "circuit_sums": torch.zeros(len(R.ARMS), 2, 2, tags, dtype=torch.float64),
+        "circuit_counts": torch.ones(2, 2, tags, dtype=torch.float64),
+    }
+    confirmation["task_sums"][1] = 2
+    for target in (0, 1):
+        drop = 2 + R.N_ATOMS + target
+        confirmation["task_sums"][drop] = 4
+        confirmation["circuit_sums"][drop, :, 0] = 2
+    substitutions = {
+        "bounds": (0, 4, 2),
+        "directions": [
+            {"pair": 0, "target": 0, "donor": 1, "scale": 1.0, "name": "a<-b"},
+            {"pair": 0, "target": 1, "donor": 0, "scale": 1.0, "name": "b<-a"},
+        ],
+        "task_sums": torch.full((2, documents, task_cells), 2.4, dtype=torch.float64),
+        "task_counts": torch.ones(documents, task_cells, dtype=torch.float64),
+        "circuit_sums": torch.zeros(2, 2, 2, tags, dtype=torch.float64),
+        "circuit_counts": torch.ones(2, 2, tags, dtype=torch.float64),
+    }
+    substitutions["task_sums"][:, :, 4] = 2.001
+    substitutions["circuit_sums"][:, :, 0] = .4
+    passing, checks = R.score_substitutions(substitutions, confirmation, (0, 1, 2, 3), 4)
+    assert len(passing) == 1
+    assert all(row["holds"] for row in checks.values())
+
+
+def test_native_boundary_evidence_merges_heads_and_splits_one_head():
+    discovery = {
+        half: {
+            "circuit": torch.zeros(R.N_ATOMS, 2, 32, dtype=torch.float64),
+            "task": torch.full((R.N_ATOMS, 2, 4), .001, dtype=torch.float64),
+        }
+        for half in ("half0", "half1")
+    }
+    for half in discovery.values():
+        half["circuit"][0, :, 0] = .01
+        half["circuit"][5, :, 0] = .01
+        half["circuit"][1, :, 1] = .01
+    candidates = [{"left": 0, "right": 5, "left_name": R.ATOM_NAMES[0],
+                   "right_name": R.ATOM_NAMES[5]}]
+    evidence = R.native_boundary_evidence(
+        discovery, candidates, [{"pair": 0, "directions": ["x", "y"]}])
+    assert evidence
+    assert evidence[0]["crosses_heads"]
+    assert any(row["same_head_split_atom"] == R.ATOM_NAMES[1]
+               for row in evidence[0]["split_witnesses"])
+
+
 def test_exact_proportional_pair_passes_both_backgrounds():
     responses, _expected = R.planted_problem(51800)
     left, right = R.PLANTED_PAIRS[0]
@@ -100,6 +154,15 @@ def test_all_eight_planted_relations_recover_without_false_pairs():
     result = R.planted_suite()
     assert len(result["cases"]) == 8
     assert result["all_eight_exact"]
+
+
+def test_circuit_permutations_destroy_planted_relations_and_confirmation_keeps_them():
+    responses, _expected = R.planted_problem(51800)
+    candidates = R.discover_pairs(responses)
+    assert R.permutation_control_counts(responses) == [0] * 16
+    confirmed, checks = R.confirmation_pairs(responses, candidates)
+    assert len(confirmed) == 4
+    assert all(row["holds"] for row in checks.values())
 
 
 def test_random_unrelated_pair_fails():

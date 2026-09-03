@@ -16,6 +16,7 @@ import hashlib
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 import torch
@@ -25,11 +26,13 @@ import torch.nn.functional as F
 ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 PREREG = POLY / "MLP0_HEAD_RELATION_CIRCUIT_QUOTIENT_RUNG518_PREREGISTRATION.md"
-PREREG_SHA256 = "c217946ff4f71913012a5379a34219049d8d7b53def86d46f414ed295d544b23"
+PREREG_SHA256 = "ac04a5a86c15776b21e45f8037630f2796e681e9d89f60d84f550707bb4214e3"
 R517_RESULT = ROOT / "basis_aligned/bilinear_quotient/mlp0_source_relation_factorial_rung517_results.json"
 R517_SOURCE = ROOT / "basis_aligned/bilinear_quotient/ops/mlp0_source_relation_factorial_rung517.py"
 R517_PREREG = POLY / "MLP0_SOURCE_RELATION_FACTORIAL_RUNG517_PREREGISTRATION.md"
 R510_SOURCE = ROOT / "basis_aligned/bilinear_quotient/ops/mlp10_observable_predictive_state_quotient_rung510.py"
+OUT = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_results.json"
+BUNDLE = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_bundle.pt"
 HASHES = {
     R517_RESULT: "c8405a36cab0e8b50d91e3f525bf5a5106a95d2c42447ce9b83ab29378fd8307",
     R517_SOURCE: "5d9acfa5798e9d391e6507d5d7136ec498e4f1b42893a372c47c07c7be6bae97",
@@ -42,6 +45,7 @@ N_ATOMS = N_HEADS * len(GROUPS)
 ATOM_NAMES = tuple(f"H{head}.{group}" for head in range(N_HEADS) for group in GROUPS)
 PLANTED_PAIRS = ((0, 7), (3, 14), (8, 31), (20, 44))
 PLANTED_SEEDS = tuple(range(51800, 51808))
+CONTROL_SEEDS = tuple(range(518100, 518116))
 HEAD_DIM = 128
 D = 1152
 BATCH = 4
@@ -340,11 +344,8 @@ def _relative_residual(actual: torch.Tensor, predicted: torch.Tensor) -> float:
     return float((actual - predicted).norm() / actual.norm().clamp_min(1e-30))
 
 
-def pair_metrics(responses: dict, left: int, right: int) -> dict:
-    """Fit half0 circuit scale and score both backgrounds without pooling them away."""
-    fit_left = responses["half0"]["circuit"][left].reshape(-1).double()
-    fit_right = responses["half0"]["circuit"][right].reshape(-1).double()
-    beta = float((fit_left @ fit_right) / fit_right.square().sum().clamp_min(1e-30))
+def _score_pair(responses: dict, left: int, right: int, beta: float,
+                circuit_cosine: float, circuit_residual: float) -> dict:
     safe_beta = beta if abs(beta) > 1e-30 else 1.0
     row = {"beta_left_from_right": beta, "halves": {}}
     material = True
@@ -369,9 +370,10 @@ def pair_metrics(responses: dict, left: int, right: int) -> dict:
                 if kind == "circuit":
                     material &= min(float(lvec.square().mean().sqrt()),
                                     float(rvec.square().mean().sqrt())) >= .0005
-                    holds &= (signed_cosine >= .85
+                    holds &= (signed_cosine >= circuit_cosine
                               and max(entry[kind]["left_from_right_relative_residual"],
-                                      entry[kind]["right_from_left_relative_residual"]) <= .50)
+                                      entry[kind]["right_from_left_relative_residual"])
+                              <= circuit_residual)
                 else:
                     material &= min(float(lvec.norm()), float(rvec.norm())) >= .00025
                     holds &= (signed_cosine >= .70
@@ -381,6 +383,14 @@ def pair_metrics(responses: dict, left: int, right: int) -> dict:
     row["material"] = bool(material)
     row["holds"] = bool(material and holds)
     return row
+
+
+def pair_metrics(responses: dict, left: int, right: int) -> dict:
+    """Fit half0 circuit scale and score both backgrounds without pooling them away."""
+    fit_left = responses["half0"]["circuit"][left].reshape(-1).double()
+    fit_right = responses["half0"]["circuit"][right].reshape(-1).double()
+    beta = float((fit_left @ fit_right) / fit_right.square().sum().clamp_min(1e-30))
+    return _score_pair(responses, left, right, beta, .85, .50)
 
 
 def discover_pairs(responses: dict) -> list[dict]:
@@ -395,6 +405,230 @@ def discover_pairs(responses: dict) -> list[dict]:
                     **metrics,
                 })
     return candidates
+
+
+def permutation_control_counts(responses: dict) -> list[int]:
+    counts = []
+    dimensions = responses["half0"]["circuit"].shape[-1]
+    for seed in CONTROL_SEEDS:
+        generator = torch.Generator().manual_seed(seed)
+        keys = torch.rand(N_ATOMS, dimensions, generator=generator)
+        order = keys.argsort(-1)[:, None].expand(-1, 2, -1)
+        control = {
+            half: {
+                "task": responses[half]["task"],
+                "circuit": torch.gather(responses[half]["circuit"], -1, order),
+            }
+            for half in ("half0", "half1")
+        }
+        counts.append(len(discover_pairs(control)))
+    return counts
+
+
+def confirmation_pairs(responses: dict, candidates: list[dict]) -> tuple[list[dict], dict]:
+    passing, checks = [], {}
+    for candidate in candidates:
+        metrics = _score_pair(
+            responses, candidate["left"], candidate["right"],
+            candidate["beta_left_from_right"], .75, .55)
+        key = f"{candidate['left_name']} <-> {candidate['right_name']}"
+        checks[key] = metrics
+        if metrics["holds"]:
+            passing.append(candidate)
+    return passing, checks
+
+
+@torch.no_grad()
+def collect_substitutions(model, rows, task_masks, circuit_masks, circuit_tags, bounds,
+                          candidates, facade, r517, response_parent) -> dict:
+    directions = []
+    for pair_index, candidate in enumerate(candidates):
+        beta = candidate["beta_left_from_right"]
+        directions.extend((
+            {"pair": pair_index, "target": candidate["left"],
+             "donor": candidate["right"], "scale": beta,
+             "name": f"{candidate['left_name']} <- {beta:.9g}*{candidate['right_name']}"},
+            {"pair": pair_index, "target": candidate["right"],
+             "donor": candidate["left"], "scale": 1 / beta,
+             "name": f"{candidate['right_name']} <- {1 / beta:.9g}*{candidate['left_name']}"},
+        ))
+    lo, hi, _split = bounds
+    documents = hi - lo
+    task_cells = response_parent.TASK_CELLS
+    task_sums = torch.zeros(len(directions), documents, len(task_cells), dtype=torch.float64)
+    task_counts = torch.zeros(documents, len(task_cells), dtype=torch.float64)
+    circuit_sums = torch.zeros(len(directions), 2, 2, len(circuit_tags), dtype=torch.float64)
+    circuit_counts = torch.zeros(2, 2, len(circuit_tags), dtype=torch.float64)
+    minimum_context_edit = float("inf")
+    minimum_mlp0_edit = float("inf")
+    calls = 0
+    device = next(model.parameters()).device
+    block0 = model.transformer.h[0]
+    for start in range(lo, hi, BATCH):
+        stop = start + BATCH
+        local = start - lo
+        batch_rows = rows[start:stop]
+        tokens = batch_rows[:, :-1].to(device)
+        raw_token = F.rms_norm(model.transformer.wte(tokens), (D,))
+        token_base = (block0.lambdas[0] + block0.lambdas[1]) * raw_token
+        state = F.rms_norm(token_base, (D,))
+        split = r517.attention0_source_writes(block0, state, tokens)
+        decomposition = head_relation_atoms(block0, split)
+        full_write = block0.mlp(F.rms_norm(token_base + split["native_write"], (D,)))
+        nll_rows = []
+        for direction in directions:
+            target = decomposition["atoms"][direction["target"]]
+            donor = decomposition["atoms"][direction["donor"]]
+            context = (split["native_write"].float() - target
+                       + direction["scale"] * donor).to(split["native_write"].dtype)
+            site0_write = block0.mlp(F.rms_norm(token_base + context, (D,)))
+            minimum_context_edit = min(
+                minimum_context_edit,
+                float((context.float() - split["native_write"].float())
+                      .square().mean().sqrt()))
+            minimum_mlp0_edit = min(
+                minimum_mlp0_edit,
+                float((site0_write.float() - full_write.float()).square().mean().sqrt()))
+
+            def attention_dispatch(event):
+                if event.site == 0:
+                    return split["native_write"], split["first_value"]
+                return event.block.attn(event.state, event.first_value)
+
+            def mlp_dispatch(event, site0_write=site0_write):
+                return site0_write if event.site == 0 else event.block.mlp(event.state)
+
+            logits = facade.forward_with_dispatch(
+                model, tokens, attention_dispatch, mlp_dispatch)
+            nll_rows.append(response_parent._nll(logits, batch_rows).cpu())
+            calls += 1
+        nll = torch.stack(nll_rows)
+        local_masks = {cell: task_masks[cell][start:stop] for cell in task_cells}
+        task_sums[:, local:local + BATCH] = response_parent._task_sums(nll, local_masks)
+        task_counts[local:local + BATCH] = torch.stack(
+            [local_masks[cell].sum(1).double() for cell in task_cells], -1)
+        matrix, observed = response_parent.state_parent._circuit_mask_matrix(
+            circuit_masks, circuit_tags, start, stop, bounds)
+        circuit_counts += observed
+        circuit_sums += torch.matmul(nll.reshape(len(directions), -1).double(), matrix.T).view(
+            len(directions), 2, 2, len(circuit_tags))
+    return {
+        "bounds": tuple(bounds), "directions": directions,
+        "task_sums": task_sums, "task_counts": task_counts,
+        "circuit_sums": circuit_sums, "circuit_counts": circuit_counts,
+        "diagnostics": {
+            "calls": calls,
+            "calls_expected": ((hi - lo) // BATCH) * len(directions),
+            "minimum_context_edit_rms": minimum_context_edit,
+            "minimum_mlp0_edit_rms": minimum_mlp0_edit,
+        },
+    }
+
+
+def score_substitutions(substitutions: dict, confirmation: dict,
+                        task_indices: tuple[int, ...],
+                        off_target_index: int) -> tuple[list[dict], dict]:
+    passing_pairs = []
+    checks = {}
+    direction_pass = []
+    for direction_index, direction in enumerate(substitutions["directions"]):
+        target = direction["target"]
+        row = {"name": direction["name"], "halves": {}}
+        holds = True
+        for half in ("half0", "half1"):
+            lo, hi = _half_bounds(tuple(confirmation["bounds"]), half)
+            half_index = int(half == "half1")
+            task_den = confirmation["task_counts"][lo:hi].sum(0).clamp_min(1)
+            full_task = confirmation["task_sums"][1, lo:hi].sum(0) / task_den
+            drop_index = 2 + N_ATOMS + target
+            drop_task = confirmation["task_sums"][drop_index, lo:hi].sum(0) / task_den
+            sub_task = substitutions["task_sums"][direction_index, lo:hi].sum(0) / task_den
+            circuit_den = confirmation["circuit_counts"][half_index].clamp_min(1)
+            full_circuit = confirmation["circuit_sums"][1, half_index] / circuit_den
+            drop_circuit = confirmation["circuit_sums"][drop_index, half_index] / circuit_den
+            sub_circuit = substitutions["circuit_sums"][direction_index, half_index] / circuit_den
+            target_task = (drop_task - full_task)[list(task_indices)]
+            recovered_task = (drop_task - sub_task)[list(task_indices)]
+            target_circuit_raw = drop_circuit - full_circuit
+            recovered_circuit_raw = drop_circuit - sub_circuit
+            target_circuit = target_circuit_raw[0] - target_circuit_raw[1]
+            recovered_circuit = recovered_circuit_raw[0] - recovered_circuit_raw[1]
+            target_vector = torch.cat((target_task, target_circuit)).double()
+            recovered_vector = torch.cat((recovered_task, recovered_circuit)).double()
+            projection = float(
+                (recovered_vector @ target_vector)
+                / target_vector.square().sum().clamp_min(1e-30))
+            cosine = _cosine(recovered_vector, target_vector)
+            off_target_damage = float(sub_task[off_target_index] - full_task[off_target_index])
+            half_holds = bool(
+                projection >= .70 and cosine >= .80 and abs(off_target_damage) <= .002)
+            row["halves"][half] = {
+                "recovery_projection": projection, "cosine": cosine,
+                "off_target_delta_ce_nat": off_target_damage, "holds": half_holds,
+            }
+            holds &= half_holds
+        row["holds"] = bool(holds)
+        checks[direction["name"]] = row
+        direction_pass.append(bool(holds))
+    for pair_index in range(len(substitutions["directions"]) // 2):
+        if direction_pass[2 * pair_index] and direction_pass[2 * pair_index + 1]:
+            passing_pairs.append({"pair": pair_index, "directions": [
+                substitutions["directions"][2 * pair_index]["name"],
+                substitutions["directions"][2 * pair_index + 1]["name"],
+            ]})
+    return passing_pairs, checks
+
+
+def native_boundary_evidence(discovery: dict, candidates: list[dict],
+                             physical_pairs: list[dict]) -> list[dict]:
+    evidence = []
+    for physical in physical_pairs:
+        candidate = candidates[physical["pair"]]
+        left, right = candidate["left"], candidate["right"]
+        left_head, _ = atom_parts(left)
+        right_head, _ = atom_parts(right)
+        if left_head == right_head:
+            continue
+        witnesses = []
+        for component_atom in (left, right):
+            head, _group = atom_parts(component_atom)
+            for other in range(head * len(GROUPS), (head + 1) * len(GROUPS)):
+                if other == component_atom:
+                    continue
+                material = all(
+                    float(discovery[half]["circuit"][atom, background]
+                          .double().square().mean().sqrt()) >= .0005
+                    for half in ("half0", "half1")
+                    for background in range(2)
+                    for atom in (component_atom, other))
+                task_material = all(
+                    float(discovery[half]["task"][atom, background].double().norm()) >= .00025
+                    for half in ("half0", "half1")
+                    for background in range(2)
+                    for atom in (component_atom, other))
+                if not material or not task_material:
+                    continue
+                half_checks = []
+                for half in ("half0", "half1"):
+                    background_checks = []
+                    for background in range(2):
+                        component = discovery[half]["circuit"][component_atom, background]
+                        alternative = discovery[half]["circuit"][other, background]
+                        background_checks.append(bool(
+                            abs(_cosine(component.double(), alternative.double())) <= .50
+                            and int(component.abs().argmax()) != int(alternative.abs().argmax())))
+                    half_checks.append(any(background_checks))
+                if all(half_checks):
+                    witnesses.append({
+                        "component_atom": ATOM_NAMES[component_atom],
+                        "same_head_split_atom": ATOM_NAMES[other],
+                    })
+        if witnesses:
+            evidence.append({
+                "pair": f"{candidate['left_name']} <-> {candidate['right_name']}",
+                "crosses_heads": True, "split_witnesses": witnesses,
+            })
+    return evidence
 
 
 def planted_problem(seed: int) -> tuple[dict, set[tuple[int, int]]]:
@@ -439,22 +673,152 @@ def dry_run() -> dict:
         "model_loaded": False, "model_outcomes_opened": False,
         "heads": N_HEADS, "relations": list(GROUPS), "atoms": N_ATOMS,
         "unordered_pairs": N_ATOMS * (N_ATOMS - 1) // 2,
-        "registered_predictions": {
-            'pred_a_exact_live_45_piece_instrument': None,
-            'pred_b_small_circuit_defined_relation': None,
-            'pred_c_heldout_circuit_prediction': None,
-            'pred_d_bidirectional_physical_interchange': None,
-            'pred_e_native_boundary_changing_unit': None,
-        },
         "planted_recovery": planted,
         "preregistration_sha256": sha256(PREREG),
     }
 
 
 def scientific_main() -> None:
-    raise RuntimeError(
-        "rung518 scientific path is fail-closed until exact atom construction, "
-        "62-circuit collection, controls, confirmation, and physical replacement are implemented")
+    if OUT.exists() or BUNDLE.exists():
+        raise RuntimeError("rung518 output namespace already exists")
+    started = time.time()
+    sys.path.insert(0, str(ROOT / "basis_aligned/bilinear_quotient/ops"))
+    sys.path.insert(0, str(POLY))
+    import bilin18_observed_model_facade as facade
+    import mlp0_source_relation_factorial_rung517 as r517
+
+    rows, task_masks, circuit_masks, _scales, discovery_tags, confirmation_tags, \
+        metadata, response_parent = validate_inputs()
+    task_indices = tuple(response_parent.TASK_CELLS.index(cell)
+                         for cell in response_parent.GRAD_CELLS[:4])
+    off_target_index = response_parent.TASK_CELLS.index("off_target")
+    torch.cuda.reset_peak_memory_stats()
+    model, checkpoint = facade.load_bilin18(
+        device="cuda", dtype=torch.bfloat16, verify_weights_sha256=True)
+    collections = {}
+    collections["discovery"] = collect_phase(
+        model, rows, task_masks, circuit_masks, discovery_tags, DISCOVERY,
+        facade, r517, response_parent)
+    discovery_responses = response_matrices(collections["discovery"], task_indices)
+    candidates = discover_pairs(discovery_responses)
+    control_counts = permutation_control_counts(discovery_responses)
+    control_q95 = float(torch.quantile(
+        torch.tensor(control_counts, dtype=torch.float64), .95, interpolation="higher"))
+    diagnostic = collections["discovery"]["diagnostics"]
+    planted = planted_suite()
+    pred_a = bool(
+        planted["all_eight_exact"]
+        and diagnostic["maximum_atom_closure"] <= 1e-8
+        and diagnostic["maximum_native_replay_error"] == 0
+        and diagnostic["minimum_single_edit_rms"] > 0
+        and diagnostic["minimum_drop_edit_rms"] > 0
+        and diagnostic["calls"] == diagnostic["calls_expected"] == 5766
+        and bool((collections["discovery"]["task_counts"] > 0).all())
+        and bool((collections["discovery"]["circuit_counts"] > 0).all()))
+    pred_b = bool(pred_a and 1 <= len(candidates) <= 16 and len(candidates) > control_q95)
+
+    confirmation_checks = {}
+    confirmed = []
+    if pred_b:
+        collections["confirmation"] = collect_phase(
+            model, rows, task_masks, circuit_masks, confirmation_tags, CONFIRMATION,
+            facade, r517, response_parent)
+        confirmation_responses = response_matrices(
+            collections["confirmation"], task_indices)
+        confirmed, confirmation_checks = confirmation_pairs(
+            confirmation_responses, candidates)
+    pred_c = bool(confirmed)
+
+    substitution_checks = {}
+    physical_pairs = []
+    if pred_c:
+        collections["substitutions"] = collect_substitutions(
+            model, rows, task_masks, circuit_masks, confirmation_tags,
+            CONFIRMATION, confirmed, facade, r517, response_parent)
+        physical_pairs, substitution_checks = score_substitutions(
+            collections["substitutions"], collections["confirmation"],
+            task_indices, off_target_index)
+    pred_d = bool(physical_pairs)
+    boundary_evidence = native_boundary_evidence(
+        discovery_responses, confirmed, physical_pairs) if pred_d else []
+    pred_e = bool(boundary_evidence)
+    strong_null = not (pred_a and pred_b and pred_c and pred_d and pred_e)
+    if not pred_a:
+        next_step = "repair_exact_or_response_instrument_only"
+    elif not pred_b:
+        next_step = "leave_head_relation_basis_for_one_circuit_exact_interaction_atlas"
+    elif not pred_c:
+        next_step = "retain_in_sample_screen_only_and_leave_head_relation_basis"
+    elif not pred_d:
+        next_step = "retain_predictive_relation_without_circuit_equivalence_claim"
+    elif not pred_e:
+        next_step = "retain_physical_pair_without_native_boundary_improvement_claim"
+    else:
+        next_step = "build_and_compose_executable_cross_head_component"
+
+    torch.save({
+        "collections": collections,
+        "discovery_responses": discovery_responses,
+        "task_indices": task_indices,
+        "discovery_tags": discovery_tags,
+        "confirmation_tags": confirmation_tags,
+    }, BUNDLE)
+    result = {
+        "status": "complete", "rung": 518,
+        "claim_level": "operational_head_relation_quotient_not_compression_or_adoption",
+        "checkpoint": checkpoint.__dict__,
+        "source_hashes": {
+            "preregistration": sha256(PREREG),
+            "source": sha256(Path(sys.argv[0]).resolve()),
+            "bundle": sha256(BUNDLE),
+            **{path.name: digest for path, digest in HASHES.items()},
+        },
+        "row_sha256": hashlib.sha256(rows.contiguous().numpy().tobytes()).hexdigest(),
+        "metadata": metadata,
+        "atom_names": list(ATOM_NAMES), "atoms": N_ATOMS,
+        "unordered_pairs_tested": N_ATOMS * (N_ATOMS - 1) // 2,
+        "discovery_candidates": candidates,
+        "discovery_candidate_count": len(candidates),
+        "permutation_control_counts": control_counts,
+        "permutation_control_q95_higher": control_q95,
+        "confirmation_checks": confirmation_checks,
+        "confirmed_pair_names": [
+            f"{row['left_name']} <-> {row['right_name']}" for row in confirmed],
+        "physical_substitution_checks": substitution_checks,
+        "physical_pairs": physical_pairs,
+        "native_boundary_evidence": boundary_evidence,
+        'pred_a_exact_live_45_piece_instrument': pred_a,
+        'pred_b_small_circuit_defined_relation': pred_b,
+        'pred_c_heldout_circuit_prediction': pred_c,
+        'pred_d_bidirectional_physical_interchange': pred_d,
+        'pred_e_native_boundary_changing_unit': pred_e,
+        "strong_null": strong_null, "next_step": next_step,
+        "diagnostics": {
+            key: collection["diagnostics"] for key, collection in collections.items()},
+        "execution_price": {
+            "full_model_forwards": sum(
+                collection["diagnostics"]["calls"] for collection in collections.values()),
+            "backwards": 0, "deployed_parameters_added": 0,
+            "deployed_parameters_saved": 0,
+        },
+        "claim_limits": [
+            "fixed_45_atom_vocabulary_not_a_complete_semantic_basis",
+            "no_rank_sae_reconstruction_or_compression_claim",
+            "confirmation_and_substitution_are_gate_conditional",
+            "full_pass_would_be_identification_not_adoption",
+        ],
+        "runtime_s": time.time() - started,
+    }
+    OUT.write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps({
+        "status": "complete", "rung": 518,
+        "pred_a": pred_a, "pred_b": pred_b, "pred_c": pred_c,
+        "pred_d": pred_d, "pred_e": pred_e, "strong_null": strong_null,
+        "discovery_candidates": len(candidates), "control_q95": control_q95,
+        "confirmed": len(confirmed), "physical_pairs": len(physical_pairs),
+        "boundary_components": len(boundary_evidence),
+        "next_step": next_step, "runtime_s": result["runtime_s"],
+    }, indent=2, sort_keys=True))
 
 
 def main() -> None:

@@ -129,3 +129,19 @@ The92 intervention arms do not themselves prove that the dispatched FULL arm rep
 Prediction A requires one additional native replay per batch, so the exact discovery ceiling is93 forwards per batch,
 or5,766 across62 batches. This corrects only the reported maximum execution price before model loading; all scientific
 objects, rows, thresholds, directions, controls, and outcome gates above are unchanged.
+
+## Pre-outcome permutation convention — 2026-09-03 02:38 UTC
+
+For each seed and atom, one independent permutation of the32 circuit coordinates is applied unchanged to both
+operating points and both document halves; task coordinates are not permuted. This preserves cross-half and
+singleton/removal structure while breaking which named circuit receives each atom's effect. The control boundary is
+`torch.quantile(counts, .95, interpolation="higher")`. This fixes an implementation convention before model outcome;
+the registered control family and scientific thresholds are unchanged.
+
+## Pre-outcome physical-scoring convention — 2026-09-03 02:41 UTC
+
+The70% recovery and.80 cosine clauses in D are required separately in both confirmation document halves. In each
+half, the target is the concatenated four-task plus30-circuit vector `DROP_target - FULL`; the recovered effect is
+`DROP_target - SUBSTITUTE`. Recovery is the signed projection of recovered onto target divided by target squared
+norm. Off-target damage is `CE_SUBSTITUTE - CE_FULL`, also bounded separately in both halves. This fixes the precise
+finite scoring formula before model outcome without changing any threshold or intervention.
