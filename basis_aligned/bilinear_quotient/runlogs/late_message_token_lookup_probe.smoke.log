@@ -1,0 +1,66 @@
+{"stage": "fit_cov", "t": 4.7}
+{"stage": "ridge", "r2": {"cur_fit": {"mlp16": 0.9694103772649273, "mlp17": 0.9654321575423819}, "prev_fit": {"mlp16": 0.9295732309769725, "mlp17": 0.9294392850615772}, "cur_heldout": {"mlp16": -0.3988854495859413, "mlp17": -0.6071379523006863}, "prev_heldout": {"mlp16": -2.5333282725781583, "mlp17": -2.504879140388215}}, "t": 5.1}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 5.1}
+{"stage": "arms", "MEAN": 0.73, "MEAN_17": 0.1352, "CUR": 0.0796, "CUR_M": 0.0204, "PREV": 1.3102, "ORACLE_M": -0.2761, "CUR_17": -0.0555, "t": 5.3}
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_current_token_lookup": true,
+  "pred_c_lookup_value_lives_in_the_core": true,
+  "pred_d_previous_token_weak": true,
+  "pred_e_core_ceiling": true
+ },
+ "nulls": {
+  "b_null_rec_cur_le_.20": false,
+  "c_null_rec_curM_le_.4_rec_cur": false,
+  "d_null_rec_prev_ge_rec_cur": false,
+  "e_null_rec_oracle_le_.40": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": 3.0322401,
+  "mean_last2": 0.7300281524658203,
+  "prior_mean_last2": 0.848,
+  "mean_17": 0.13519287109375,
+  "prior_mean_17": 0.365
+ },
+ "ce_added": {
+  "MEAN": 0.7300281524658203,
+  "MEAN_17": 0.13519287109375,
+  "CUR": 0.07963371276855469,
+  "CUR_M": 0.020361900329589844,
+  "PREV": 1.3102226257324219,
+  "ORACLE_M": -0.2760810852050781,
+  "CUR_17": -0.05548667907714844
+ },
+ "recovery": {
+  "CUR": 0.8909169290258527,
+  "CUR_M": 0.9721080615030895,
+  "PREV": -0.7947562998863473,
+  "ORACLE_M": 1.3781786829351135,
+  "CUR_17": 1.410426072234763
+ },
+ "ridge_r2": {
+  "cur_fit": {
+   "mlp16": 0.9694103772649273,
+   "mlp17": 0.9654321575423819
+  },
+  "prev_fit": {
+   "mlp16": 0.9295732309769725,
+   "mlp17": 0.9294392850615772
+  },
+  "cur_heldout": {
+   "mlp16": -0.3988854495859413,
+   "mlp17": -0.6071379523006863
+  },
+  "prev_heldout": {
+   "mlp16": -2.5333282725781583,
+   "mlp17": -2.504879140388215
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 52,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 5.310248613357544
+ }
+}
