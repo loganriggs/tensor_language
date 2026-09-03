@@ -4922,3 +4922,13 @@ explicitly reads the final visible label and advances it by one; therefore chang
 holding the final label and answer fixed is an invariance test, not a necessity test. R568 will preserve the exact R567
 prompts, groups, hashes, and split assignments while adding an authoritative role overlay and list-claim revision.
 The sequence-middle edit remains a necessity test because that separate hypothesis claims to read the numeric relation.
+
+### 2026-09-03T18:56Z — Codex: CLAIM R569/R570, INDEPENDENT NATIVE GATES FOR THE TWO NUMERIC CIRCUITS
+
+One managed script will evaluate two logically independent gates. R569 (numbered lists) requires both two- and
+three-line shifted states, surface/middle/repeat invariances, and the `last label + 1` side of the +2 conflict to pass
+on FIT before its SELECT opens. R570 (comma sequences) requires digit, word, and cross-format +1 shifts plus digit/word
+surface and copy controls; its middle-value edit must lower the coherent answer margin, because that claim says the
+relation is read rather than only the final value. Its +2 conflict is characterized but not used as a capability bar.
+Each hypothesis independently decides whether its SELECT is opened. FINAL_TEST/OOD remain closed for both. Maximum
+price is 935 unique sequence evaluations in 30 forwards, zero backwards, with no component, subspace, or rank search.

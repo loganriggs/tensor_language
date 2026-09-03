@@ -366,11 +366,13 @@
    "causal_variable_id": "list_index_state",
    "categories": {
     "capability": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "numbered_list_native_capability.r569.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numbered_list_native_capability.r569.preregistered.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -424,7 +426,7 @@
    },
    "n_held_categories": 0,
    "n_blocked_categories": 0,
-   "n_missing_categories": 8,
+   "n_missing_categories": 7,
    "next_missing": "run the R569 FIT/SELECT native gate with list_middle_index_break scored as invariance under the R568 overlay"
   },
   "task.numeric_sequence.continuation": {
@@ -433,11 +435,13 @@
    "causal_variable_id": "numeric_sequence_state_and_rule",
    "categories": {
     "capability": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "numeric_sequence_native_capability.r570.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numeric_sequence_native_capability.r570.preregistered.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -491,7 +495,7 @@
    },
    "n_held_categories": 0,
    "n_blocked_categories": 0,
-   "n_missing_categories": 8,
+   "n_missing_categories": 7,
    "next_missing": "run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately"
   },
   "task.successor.pointer": {

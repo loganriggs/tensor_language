@@ -269,7 +269,66 @@
    "sealed_at": "2026-09-03T18:40:00Z"
   }
  ],
- "evidence_events": [],
+ "evidence_events": [
+  {
+   "event_id": "numeric_sequence_native_capability.r570.preregistered.v1",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_cross_format_shift",
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved",
+    "sequence_middle_value_break",
+    "sequence_digit_copy_control",
+    "sequence_word_copy_control",
+    "sequence_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_then_hypothesis_conditional_SELECT",
+   "metrics": [
+    {
+     "name": "state_and_invariance_candidate_margin",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 correct and bootstrap lower mean margin >0 in every endpoint cell"
+    },
+    {
+     "name": "middle_value_necessity",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.65 positive drops and bootstrap lower mean drop >0"
+    },
+    {
+     "name": "split_opening",
+     "estimate": null,
+     "ci95": null,
+     "bar": "sequence SELECT opens only after complete sequence FIT pass; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r570_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r567_receipt",
+    "r569_r570_script"
+   ],
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+   "seed": 570,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMERIC_SEQUENCE_NATIVE_CAPABILITY_RUNG570_PREREGISTRATION.md"
+   ],
+   "claim_id": "numeric_sequence_continuation.v1",
+   "design_key": "b1d85e6a21e697206b97e36655ea6cffa83986fab4c0e16a6568c036988e7903",
+   "execution_key": "3c90bed65fab2a0527fc81372ae5e97e4c43ab9a0d90672b00bb20545d39936b"
+  }
+ ],
  "translations": [],
  "artifacts": {
   "r567_rows": {
@@ -306,6 +365,18 @@
    "path": "basis_aligned/bilinear_quotient/increment_format_exploration_rung566_results.json",
    "sha256": "79fc2e460e44fcc5fbe39cb9b395b406517975e024816280ea07943f3dcf234b",
    "kind": "exploratory_result",
+   "status": "frozen"
+  },
+  "r570_prereg": {
+   "path": "basis_aligned/polynomial_causal/NUMERIC_SEQUENCE_NATIVE_CAPABILITY_RUNG570_PREREGISTRATION.md",
+   "sha256": "272689a72c8d89dcc4a7e2e59aa8e65384f7e1764d01a33b891454c0145bbc0a",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r569_r570_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numeric_two_hypothesis_capability_rung569_570.py",
+   "sha256": "371ceb096eba6db81c30918e6de9d07c93ec1d7747e0730fa9dcfbd71a6ea82e",
+   "kind": "implementation",
    "status": "frozen"
   }
  },

@@ -378,7 +378,64 @@
    "sealed_at": "2026-09-03T18:40:00Z"
   }
  ],
- "evidence_events": [],
+ "evidence_events": [
+  {
+   "event_id": "numbered_list_native_capability.r569.preregistered.v1",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "list_two_line_state_shift",
+    "list_three_line_state_shift",
+    "list_surface_preserved",
+    "list_middle_index_break",
+    "list_repeated_index_control",
+    "list_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_then_hypothesis_conditional_SELECT",
+   "metrics": [
+    {
+     "name": "state_and_invariance_candidate_margin",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 correct and bootstrap lower mean margin >0 in every endpoint cell"
+    },
+    {
+     "name": "step_two_structural_conflict",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 favor final-label+1 and bootstrap lower mean margin >0"
+    },
+    {
+     "name": "split_opening",
+     "estimate": null,
+     "ci95": null,
+     "bar": "list SELECT opens only after complete list FIT pass; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r569_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r567_receipt",
+    "r568_role_overlay",
+    "r569_r570_script"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 569,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMBERED_LIST_NATIVE_CAPABILITY_RUNG569_PREREGISTRATION.md"
+   ],
+   "claim_id": "numbered_list_index_successor.v2",
+   "design_key": "74a96f4ebc128980505c1884977c59a691be88e3fe403c81d21340b1708080f8",
+   "execution_key": "15d1b6f2a19ab15d688c00723a3fef59a1e1e386e466a12f818ab0b0d6620cff"
+  }
+ ],
  "translations": [],
  "artifacts": {
   "r567_rows": {
@@ -421,6 +478,18 @@
    "path": "basis_aligned/bilinear_quotient/increment_rung568_semantic_role_overlay.json",
    "sha256": "90c03d026b4daaae4794b02399967cbd3f9daf8b5412a24e13e594b4ba659765",
    "kind": "semantic_correction",
+   "status": "frozen"
+  },
+  "r569_prereg": {
+   "path": "basis_aligned/polynomial_causal/NUMBERED_LIST_NATIVE_CAPABILITY_RUNG569_PREREGISTRATION.md",
+   "sha256": "8b93c3b3ddcf83e587907de7dcdf4160a1cbfe1e40e4e08663650659f441a892",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r569_r570_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numeric_two_hypothesis_capability_rung569_570.py",
+   "sha256": "371ceb096eba6db81c30918e6de9d07c93ec1d7747e0730fa9dcfbd71a6ea82e",
+   "kind": "implementation",
    "status": "frozen"
   }
  },

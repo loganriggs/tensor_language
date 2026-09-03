@@ -8,8 +8,8 @@ This is a navigation view, not a certificate. `mixed` means positive and negativ
 | `task.bracket.pending_opener` | specified | mixed | mixed | mixed | blocked | — | mixed | blocked | blocked | build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep |
 | `task.increment.state` | rejected | blocked | — | held | — | — | held | — | — | broad increment identity split after R566; do not run more experiments under this tag. Use task.numbered_list.index_successor and task.numeric_sequence.continuation |
 | `task.induction.selector_payload` | specified | blocked | — | — | — | — | mixed | — | — | replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552 |
-| `task.numbered_list.index_successor` | specified | — | — | — | — | — | — | — | — | run the R569 FIT/SELECT native gate with list_middle_index_break scored as invariance under the R568 overlay |
-| `task.numeric_sequence.continuation` | specified | — | — | — | — | — | — | — | — | run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately |
+| `task.numbered_list.index_successor` | specified | planned | — | — | — | — | — | — | — | run the R569 FIT/SELECT native gate with list_middle_index_break scored as invariance under the R568 overlay |
+| `task.numeric_sequence.continuation` | specified | planned | — | — | — | — | — | — | — | run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately |
 | `task.successor.pointer` | proposed | — | blocked | — | blocked | — | — | — | — | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
 ## Meaning of the columns
