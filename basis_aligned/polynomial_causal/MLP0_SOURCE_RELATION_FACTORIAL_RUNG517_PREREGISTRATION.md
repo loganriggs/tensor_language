@@ -124,6 +124,11 @@ cosine exceeds every one of eight source-position permutation controls by`.15`, 
 1.5 times its total effect RMS at the other consumer. This is only a route to a later physical transfer test, not a
 circuit claim.
 
+To bound conditional compute without post-outcome search, E evaluates exactly one group per corpus: the group with
+the largest positive FIT endpoint-average benefit among those satisfying the FIT half of the mechanical promotion
+rule. Its identity is frozen before SELECT or any permutation-control outcome is read. If no FIT group qualifies, E
+is false for that corpus. The overall E predicate is true when either corpus's frozen group passes every clause.
+
 ## Controls and interpretation rules
 
 - Eight fixed source-position permutations preserve each query's group sizes while destroying relation identity.

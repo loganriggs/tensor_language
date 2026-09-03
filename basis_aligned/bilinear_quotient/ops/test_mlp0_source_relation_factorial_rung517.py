@@ -52,16 +52,31 @@ def test_shapley_efficiency():
     assert torch.allclose(shapley.sum(0), values[-1] - values[0], atol=1e-12, rtol=0)
 
 
+def test_random_control_preserves_each_query_count():
+    tokens = torch.tensor([[1, 2, 1, 4, 5, 6, 7, 8, 1]])
+    original = R.source_group_masks(tokens)[R.GROUPS.index("NEAR")]
+    first = R.random_same_count_mask(tokens, original, 517100, 0)
+    second = R.random_same_count_mask(tokens, original, 517100, 0)
+    assert torch.equal(first, second)
+    assert torch.equal(first.sum(-1), original.sum(-1))
+
+
+def test_proportional_profile_metrics():
+    right = torch.tensor([1.0, -2.0, 3.0])
+    metrics = R.proportional_metrics(2 * right, right)
+    assert abs(metrics["beta_left_from_right"] - 2) < 1e-12
+    assert abs(metrics["cosine"] - 1) < 1e-12
+    assert metrics["relative_residual"] < 1e-12
+
+
 def test_all_eight_planted_problems_recover():
     result = R.planted_suite()
     assert len(result["cases"]) == 8
     assert result["all_eight_exact"]
 
 
-def test_scientific_path_fails_closed():
-    try:
-        R.main()
-    except RuntimeError as error:
-        assert "fail-closed" in str(error)
-    else:
-        raise AssertionError("scientific path unexpectedly opened")
+def test_dry_run_opens_no_model_or_outcome():
+    result = R.dry_run()
+    assert result["model_loaded"] is False
+    assert result["outcomes_opened"] is False
+    assert result["partition_exact"] is True
