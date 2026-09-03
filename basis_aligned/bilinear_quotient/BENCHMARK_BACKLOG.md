@@ -5011,3 +5011,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2702 early_mlp_radial_tangential_probe (Claude, LANE 2 CPU-only, 1,225 s, 0 GPU): a TRUE; b FALSE NULL HELD (DROP_RADIAL at mlp1 adds
   .008; mlp0/2/3 .025/.011/.017 -- the radial write component is inert gauge); c FALSE null not met (RAD_EXACT_TAN_64 mlp1 .235 vs plain
   k64 .357); d TRUE (RADIAL_ONLY mlp1 1.24, mlp0 1.88). Tangential eff rank 237/370/531/568 -- the early fat head is tangential.
+- §2703 late_joint_installation_certificate_probe (Claude, LANE 2 CPU-only, 852 s, 0 GPU; FRESH split docs 0-63 / bases 96-191, baseline
+  3.03223): a-e ALL TRUE, no null met. 14/14 late singles certified in [.5,2]; nested joints A1/A2/A3/A4 ratios 1.04/1.11/1.33/1.17;
+  cross terms certified (.96/1.09/1.34/1.18); all 14 late writes at k=32 cost .902 nat = 2.76x the sum of singles (.327). Certificate =
+  validated pricing instrument for blocks 11-17 incl. interactions; the joint certificate is exactly pairwise -> subset-price model next.

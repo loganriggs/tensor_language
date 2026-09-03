@@ -68917,3 +68917,51 @@ failures: pred_b's premise (radial is functional) is refuted by its own null, pr
 registrable arm is DROP_RADIAL + TAN_k (no radial at all; expected ≈ TAN-exact price + .01) which would make the early write a
 pure tangential-subspace object — to be registered, not assumed.
 Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+## §2703 — LATE JOINT INSTALLATION PRICED BY THE FISHER CERTIFICATE ON A FRESH SPLIT (Claude, LANE 2 CPU-only, 852 s, 1,704 CPU document-forward equivalents, 0 GPU): ALL FIVE PREDICTIONS TRUE — 14/14 late singles certified within [.5, 2] on the fresh split; nested joints A1 ⊂ A2 ⊂ A3 ⊂ A4 (2/4/7/14 sites at k=32) certified at ratio 1.04 / 1.11 / 1.33 / 1.17; the cross terms are certified (X_meas/X_cert .96 / 1.09 / 1.34 / 1.18); INSTALLING ALL 14 LATE WRITES AT RANK 32 COSTS .902 nat = 2.76× THE SUM OF THE SINGLE-SITE MAP (.327)
+
+Written 2026-09-03 19:40Z (box clock). Preregistration `polynomial_causal/LATE_JOINT_INSTALLATION_CERTIFICATE_PROBE_PREREGISTRATION.md`
+(registered 19:10Z, sha 85563b7a…, frozen in the script; pred_a(iii) reworded at 19:10 before the script existed — see the file);
+script `ops/late_joint_installation_certificate_probe.py` (header `# BQLANE: cpu`); results
+`late_joint_installation_certificate_probe_results.json`; log `runlogs/late_joint_installation_certificate_probe.2.log`. Enqueued
+19:18 on lane 2, ran 19:24–19:38, exit 0. SIGN CONVENTION (§2135): every "measured" number is CE ADDED ABOVE THE REAL MODEL on
+held-out docs 0–63 (FRESH split: bases fitted on docs 96–191; baseline 3.0322321 — a new baseline, not comparable in absolute
+terms to the 3.1125 of docs 96–159) — LOWER IS BETTER; a certificate is the analytic second-order prediction of the same
+quantity; ratio = measured/certificate. Nothing installs into the §312 frontier.
+
+**Arms.** LATE14 = attn_l, mlp_l for l = 11…17. Single_s: only site s truncated to its top-32 write-PCA directions. Nested joints
+at k=32: A1 = {mlp16, mlp17}, A2 = {mlp14…17}, A3 = {mlp11…17}, A4 = LATE14. Certificates from ONE score pass (true-token gradient
++ S=4 sampled-score gradients, seed 0, all 14 writes as leaves); joint certificates sum the δ's inside the square. Cross terms
+X = joint − Σ singles, measured and certified.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: manual vs module CE 3.0473983 vs 3.0473986 (diff 2.4e-7); identity patch at mlp17 diff 2.4e-7;
+  fresh-fit mlp17 write eff rank 6.30 vs §2696's 6.14 (bar ±3), rank_90 5 vs 4 (bar ±2).
+- pred_b_late14_single_certified_fresh — TRUE; null not met: 14 of 14 ratios in [.5, 2] (bar ≥ 13; null ≤ 9). Ratios: attn11 1.70,
+  mlp11 1.76, attn12 .97, mlp12 1.94, attn13 .54, mlp13 1.47, attn14 .70, mlp14 1.32, attn15 1.55, mlp15 1.18, attn16 .82,
+  mlp16 1.05, attn17 .86, mlp17 1.08. Fresh-split measured singles track the old split within .008 at every site (e.g. mlp17
+  .0643 vs .0567; mlp12 .0349 vs .0278).
+- pred_c_nested_joint_certified — TRUE; null not met: joint ratios A1 1.036, A2 1.107, A3 1.331, A4 1.170 (all in [.5, 2]).
+  joint_meas / joint_cert: A1 .1316/.1270; A2 .2774/.2507; A3 .6185/.4646; A4 .9017/.7710.
+- pred_d_cross_terms_certified — TRUE; null not met: A3 X_meas +.3696 vs X_cert +.2748 (ratio 1.34); A4 X_meas +.5748 vs X_cert
+  +.4872 (ratio 1.18); both positive. A1 .0375/.0391 (.96); A2 .1313/.1210 (1.09).
+- pred_e_superadditive_installation — TRUE; null not met: joint_meas(A4) = .9017 = 2.76 × Σ singles (.3268) (bar ≥ 1.5; null ≤ 1.1).
+  Superadditivity factors A1 1.40, A2 1.90, A3 2.48, A4 2.76.
+
+**Disclosed.** First-order shares of the singles are −.68…+.10 — the price is curvature throughout. The certificate is slightly
+conservative for the larger sets (A3 under-certifies by 25 %, A4 by 15 %), and the under-certification comes from the CROSS
+terms (X ratio 1.34, 1.18), not the singles; the pattern A1 < A2 < A4 < A3 in ratio (A3 = MLPs only) suggests that the
+MLP–MLP pairs are the ones with third-order content, while adding the seven attention sites (A4) dilutes it. Cost: 852 s on
+lane 2 at 4 threads (0.5 s per doc-forward-equivalent).
+
+**Reading.** (i) The Fisher certificate is now a validated pricing instrument for blocks 11–17 on an independent document split
+and an independent basis fit — singles, joints and interactions. Since the second-order joint certificate is EXACTLY pairwise
+(MATHEMATICAL_REVIEW_2026-09-03_1930.md, Analysis 2), the price of any of the 2^14 late installations is predicted by 14
+single certificates + 91 pairwise Fisher cross terms from one score pass; that quadratic subset-price model is the next
+registration (Move A). (ii) The number that matters for the smaller program: truncating every late write to 32 dimensions costs
+.90 nat, nearly three times the sum of the site map — the late blocks' tails are strongly Fisher-correlated (they carry
+overlapping content), so per-site maps like §2696 systematically understate installation cost, and any late compression must
+be priced JOINTLY. The certificate does that analytically at 85 % accuracy; the quadratic knapsack over (sites, ranks) is now a
+computable design problem, to be verified by one forward per candidate. (iii) No conclusion elsewhere flips; §2694's "prices do
+not add" is quantified (2.76× at 14 sites) and mechanised (pairwise Fisher terms).
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
