@@ -102,7 +102,7 @@
    "tag": "task.numbered_list.index_successor",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v1",
+   "active_claim_id": "numbered_list_index_successor.v2",
    "claim_status": "specified",
    "causal_variable_id": "list_index_state",
    "counterfactual_family_count": 6,
@@ -137,7 +137,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "run a preregistered FIT/SELECT native gate on all six R567 list families before retesting the legacy L8H7/L8H3 and MLP8-14 hypothesis"
+   "next_missing": "run the R569 FIT/SELECT native gate with list_middle_index_break scored as invariance under the R568 overlay"
   },
   {
    "tag": "task.numeric_sequence.continuation",

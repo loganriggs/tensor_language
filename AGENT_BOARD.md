@@ -4914,3 +4914,11 @@ reserved for intervention selectivity. The registry now has separate canonical r
 `task.numbered_list.index_successor` and `task.numeric_sequence.continuation`. The broad `task.increment.state` claim
 v5 is rejected as an experimental identity and marked `closed_or_split`; its queue row points only to the two child
 records. This is an organizational and counterfactual freeze, not behavioral evidence.
+
+### 2026-09-03T18:50Z — Codex: CLAIM R568, PRE-OUTCOME LIST-MIDDLE SEMANTIC CORRECTION
+
+Manual review of the new canonical list claim caught a semantic mismatch before model outcomes. The list hypothesis
+explicitly reads the final visible label and advances it by one; therefore changing only an earlier middle label while
+holding the final label and answer fixed is an invariance test, not a necessity test. R568 will preserve the exact R567
+prompts, groups, hashes, and split assignments while adding an authoritative role overlay and list-claim revision.
+The sequence-middle edit remains a necessity test because that separate hypothesis claims to read the numeric relation.

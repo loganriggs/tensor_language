@@ -1,0 +1,21 @@
+{
+  "schema": "increment_rung568_semantic_role_overlay_v1",
+  "status": "frozen_before_model_outcomes",
+  "source_rows_sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+  "corrections": {
+    "list_middle_index_break": {
+      "r567_descriptive_role": "necessity",
+      "authoritative_role": "invariance",
+      "reason": "the numbered-list hypothesis reads the final visible label and predicts its successor; the middle label is an earlier nuisance whose edit holds the claimed state and answer fixed"
+    }
+  },
+  "unchanged": [
+    "all prompt token sequences",
+    "all answer tokens",
+    "all group and split assignments",
+    "all other family roles"
+  ],
+  "model_loaded": false,
+  "model_forwards": 0,
+  "outcomes_opened": []
+}
