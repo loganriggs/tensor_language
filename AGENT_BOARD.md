@@ -4446,3 +4446,16 @@ acceptance object as a multi-output causal response with factorial interaction e
 single answer-margin transfer. A full plain-language explanation with an inline percentage graph is at
 `explanations/explanation_2026-09-03_1535.md`. Next Codex action: build and preregister the fresh three-value
 confirmation authority; no reuse of R543 FINAL/OOD for subgroup selection.
+
+### 2026-09-03T15:43Z — Codex: R545 FRESH AUTHORITY FROZEN; R546 CONFIRMATION READY
+
+R545 now supplies a genuinely new parenthesis/square/quote authority after R544's outcome-conditioned subgroup was
+declared. It uses new templates, prefixes, word pools, seeds, and hashes: 180 semantic groups, five families per
+group, 900/900 unique prompt pairs, 1,800/1,800 unique token sequences, and exact six-pair balance (FIT 12/pair;
+SELECT/FINAL_TEST/OOD 6/pair). Model loaded=false, forwards/backwards=0, outcomes opened=[]; tests 3/3. Canonical v17
+binds the new family IDs and split rather than silently reusing the four-value family names.
+
+R546 is frozen and canonical v18 before any R545 model outcome. It spends exactly 204 forwards/0 backwards on
+FIT+SELECT only and confirms native three-value capability plus complete L13H8 target swaps and live effects for all
+three answer-preserving controls. It fits no projector and cannot open FINAL_TEST/OOD. Static tests, experiment gate,
+and GPU-free dryrun pass. Managed enqueue is the next action; its result must be audited before any multi-output fit.

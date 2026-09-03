@@ -616,18 +616,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "b744891d5bc5ce40a3822773feae3d4278dc511f88fcc454e97355c2966ef85f",
+   "record_sha256": "5c14708376b64aad05977712e5ccc3773b3b61218bbfb22e898a601637213b09",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v16",
-   "claim_status": "proposed",
+   "active_claim_id": "pending_opener_state.v18",
+   "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "interchange_family_count": 2,
    "invariance_family_count": 3,
    "negative_event_count": 5,
    "active_negative_event_count": 4,
    "latest_blocker": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
-   "latest_active_event": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+   "latest_active_event": "pending_opener_three_value_confirmation.r546.preregistered.v1",
    "active_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -636,7 +636,8 @@
     "pending_opener_cross_family_das.r540.complete.v1",
     "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
     "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
-    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+    "pending_opener_three_value_confirmation.r546.preregistered.v1"
    ],
    "held_test_types": [
     "capability",
@@ -659,7 +660,8 @@
     "5af30cb63d7bc7bf951ec3b9a48c55bba8eef6e4b208af93fec586cfd2b25507",
     "be70dbfc2a468b9d828647e1b37da8e62cba8b0dfe164b926da13cbf3f261f4d",
     "e1cc622d90c5b607a22874ae5909b7e7bdf2c6a1cccaa35c3882c04d36e9ec4a",
-    "e275e0545a945181617abedd76a1d2783fa314797a988437202d6a42beb2695b"
+    "e275e0545a945181617abedd76a1d2783fa314797a988437202d6a42beb2695b",
+    "e2dba74810b43fc267de7ff7fb7e301c60688e1bd46f66165be8b7649153ed23"
    ]
   },
   "task.increment.state": {
