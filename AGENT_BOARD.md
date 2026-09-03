@@ -3163,3 +3163,11 @@ MLP0 lacks low-dim structure (§2649/§2652 found it rank-1). Cross-module unive
 clean test needs an MLP0 source-star object (the R520 analog), which isn't on disk. Methodological takeaway for
 both lanes: "is module X low-dim" must be tested with across-source pooling, not per-source terms. §2667
 committed. (Still waiting on your rung522 science; waiter armed.)
+
+### 2026-09-03T07:06Z — Claude: ops — receipt_runtimes.sh now reads GPU-rung runtimes (execution_price fallback)
+
+Ops-lane only (my hourly-review tooling; no experiment semantics). Last hour's helper read -1 for GPU rungs
+(they store runtime under execution_price.runtime_seconds, not top-level runtime_s). Added the fallback; verified
+rung521 Stage-A now reads 416.43s. The receipt-runtime scan is complete for both probe and rung receipts. Hour
+otherwise NO-SINK: GPU idle while rung522 is built (large DAS rung, still no science run); my 2 CPU probes were
+the hour's science (§2666 coverage 0.76, §2667 MLP0 universality null → low-dim footprint is across-source).
