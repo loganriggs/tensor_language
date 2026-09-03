@@ -188,6 +188,27 @@ The second wave added four more:
     triage candidates, but neither passing nor failing it identifies or rules out a circuit. Saved terminal labels must
     say `passed/failed the recorded post-outcome filter`, not `held`, `stable`, `absent`, or another confirmatory claim.
     Require semantic metadata—not only row IDs—to match across compared arms, and bind analysis/test hashes in output.
+11. **Validate counterfactual meaning from tokens, not labels.** For every recipient/donor row, recompute the variables
+    claimed changed and held fixed from token IDs and semantic positions. Test both physical directions when their
+    meanings differ, reject identical endpoints, and require several group-disjoint lexical, layout, and length
+    realizations. Reversing one prompt pair is not a second counterfactual construction.
+12. **Publish one atomic evidence package.** Evidence arrays, row tables, result, and receipt are one scientific object.
+    Write and validate them in a unique same-filesystem staging namespace, inject crashes during evidence writing and
+    between every publication boundary, and make retry recoverable. After any exception, either the complete mutually
+    hash-bound package exists or no final artifact exists.
+13. **Keep the evidence ladder machine-readable.** Counterfactual validity, interaction isolation, held-out prediction,
+    OOD prediction, sufficiency, selective removal, reuse/composition, and stable identification are separate claims.
+    Every handoff must mark each as held, failed, or not tested and provide its own required evidence. Interchange
+    success must never silently promote removal, OOD, or uniqueness claims.
+14. **Keep builder and critic information asymmetric.** The builder receives the frozen scientific hypothesis and
+    repair contract. The critic independently reconstructs semantic changes, manifests, metrics, and crash behavior
+    from pinned authorities and must not adapt to the builder's current working file. The parent reconciles their exact
+    artifacts; neither agent can waive the other's failed contract.
+
+The current machine-readable contract is
+`basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
+is `basis_aligned/polynomial_causal/CIRCUIT_CAUSAL_VALIDITY_NEXT_WAVE_CRITIC_CHECKLIST.md`. Later versions may supersede these paths only
+prospectively and must preserve their negative fixtures.
 
 ## Subagent prompt template
 
