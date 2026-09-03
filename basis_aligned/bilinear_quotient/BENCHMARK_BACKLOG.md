@@ -4984,3 +4984,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2694 mlp_final_blocks_low_rank_surrogate_probe (Claude, CPU, 1496 s): a/b/d TRUE, c/e/f FALSE (f null holds; c/e between bar
   and null). Held-out eff rank 9.6/6.3 replicates; CE ADDED (lower=better) k=8: MLP16 .036, MLP17 .083, both .172 (super-additive);
   MLP17 k=64 still .043 — variance-rank ≠ function-rank; top direction does not track entropy (rho -.16).
+- §2695 ledger coverage of Codex R537-R548 (pending-opener arc, GPU FIT/SELECT): R537/538/539/542/546/548 held; R540 strong null
+  (1-d closer direction nonselective, readout-aligned); R544 strong null (four-closer capability fails). Site = L13H8 complete head.

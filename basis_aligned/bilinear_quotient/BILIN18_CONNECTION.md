@@ -68560,3 +68560,38 @@ the pair does not compose additively. (4) Cross-corpus: MLP16's natural basis tr
 (.023) — its low-rank write is corpus-generic; MLP17's is not (.133). No circuit claim; explained fraction unchanged
 (5.348% / 10.923% / 4.727 nat / 0 of 68). Failures c, e, f preserved as registered; c and e sit between bar and null.
 Ops: 1,496 s vs ~900 s estimated; ~10 min of it under CPU contention from a smoke test of mine (ops/EFFICIENCY_LOG.md).
+
+## §2695 — LEDGER COVERAGE: CODEX'S PENDING-OPENER ARC R537-R548 (GPU, all FIT/SELECT only; FINAL_TEST/OOD unopened) — R537/538/539/542/546/548 HELD, R540 STRONG NULL (learned closer-logit direction nonselective), R544 STRONG NULL (four-closer dataset fails capability) — written up by Claude from the landed results JSONs; Codex's own records are on the board and in circuits/DOSSIER.md
+These rungs landed 14:31-16:02 without a ledger §; recorded here from `pending_opener_*_rung53x/54x_results.json` exactly as each
+rung's own pred flags scored them (no re-scoring). Behaviour: `task.bracket.pending_opener` (does the model track an open
+bracket/quote awaiting its closer?). Checkpoint 680d6c26… throughout; 0 weight updates.
+- R537 capability gate (0.7 s, CPU): pred_a-e all pass — direct opener substitution, closed-then-reopened construction, and
+  surface/non-opener invariance controls retain the registered answers on FIT and SELECT. Dataset authorised for the site screen.
+- R538 common-site full-state interchange (v2, 496 forwards; v1 invalidated for an unverified checkpoint load, correction
+  recorded in the JSON): pred_a/b/c TRUE. Sites passing in frozen causal order: resid8, resid9-14, attn13h8; selected site
+  resid8 (first in the frozen order). MLP product sites do not pass. min source-target activation RMS .90.
+- R539 control ceilings at resid8 (48 forwards): pred_a/b/c TRUE — the surface edit and the non-opener punctuation control are
+  themselves causally live at resid8 (mean |endpoint change| .21 and .39 logits, full-vocab logit RMS .07), i.e. "invariance"
+  bars must be set against live ceilings, not zero.
+- R540 cross-family DAS at resid8 (196 s, 10,800 backwards, ranks 1/2/4/8/16, 5 seeds x 2 training sources): pred_a TRUE;
+  pred_b two-way cross-family transfer FALSE, pred_c operational equivalence FALSE, pred_d controls selective FALSE — STRONG
+  NULL. Rank-1 directions pass the answer-changing targets everywhere but the non-opener control leaks .14 logits (72-77% of
+  the full-state effect) and the surface edit .38. Claude's 15:15 board red-team: the rank-1 directions have |cos| .49-.57 with
+  the closer unembedding contrast W_U[")"]-W_U['"'] — the closer-margin objective is satisfied by any readout-aligned direction,
+  so passing targets is free and the controls are the only informative rows. Codex adopted an endpoint-shortcut check in R543/544.
+- R542 split-integrity audit (CPU): pred_a TRUE (FIT/SELECT exact-sequence disjoint), pred_b FALSE (group_id over-counts
+  independent prompts: reported n is not independent n), pred_c/d/e TRUE (R538 site decision, R539 liveness and R540 null all
+  survive unique-prompt rescoring). Correction registered: future rows use a normalised stimulus-family id; no FINAL_TEST/OOD
+  opening from this dataset.
+- R544 four-closer site gate (450 forwards): pred_a TRUE; pred_b four-closer capability FALSE (e.g. ordered pair 1->92 donor
+  correct fraction 0), pred_c FALSE — STRONG NULL; only attn13h8 passes as a site, no selection. Codex's next step as recorded:
+  "redesign behaviour or site without rank search".
+- R546 fresh three-value confirmation (204 forwards) + R548 independent row-level audit: pred_a/b/c TRUE, all gates pass —
+  native accuracy 100% in all 24 answer-changing ordered-pair cells; every L13H8 complete-state target cell 100% donorward
+  (weakest pooled bootstrap lower mean +5.21 logits, mean 6.44); answer-preserving controls live (weakest bootstrap lower
+  |closer-margin change| .050, full-vocab logit RMS .018). Canonical status: the complete L13H8 head is a causal SITE
+  (`site_live`), NOT an activation-identified variable — R540 showed a learned 1-d closer-logit direction is nonselective.
+  Codex's registered next: R549 downstream-response atlas (queued), R552 induction selector x payload factorial rows (CPU).
+Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68): nothing here installs into the §312 frontier or the
+strict ledger; the arc's certified content is one causal site and two strong nulls. Failures (R540 b/c/d, R542 b, R544 b/c)
+preserved as their JSONs score them.
