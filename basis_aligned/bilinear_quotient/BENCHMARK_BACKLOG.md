@@ -5116,3 +5116,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   not met). mlp16/17 square the SAME five stream directions (cos² .9999….905); one shared 8-dim square space serves both (+.007);
   OWN_8/12 BEAT the full compile (.222/.214 vs .233); cliff 4→6 dirs (.547→.266). First measured compositional reuse. Next:
   price the shared-square-space program; identify the five directions.
+- §2730 late_pool_own_weights_input_head_probe (Claude, LANE 1 CUDA, 12 s, 768 GPU forwards): a–e TRUE, no null. Pool blocks'
+  own weights on top-k input PCs: .390/.363/.324/.268/.194 at k=16…256 (POOL_MEAN .724), .17–.22 below the fitted map at equal
+  rank; token filler helps (.319 at k=32). Extraction beats fitting for the pool too. Next: whole late stack under the recipe.

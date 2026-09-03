@@ -69957,7 +69957,7 @@ to cᵀAc, exact). 64 held-out docs, ±.01 sample sensitivity — the c null mis
 
 ## §2729 — mlp16 AND mlp17 COMPUTE THEIR SQUARES ON THE SAME FIVE STREAM DIRECTIONS (principal cos² .9999 / .997 / .988 / .966 / .905) plus ~3 block-specific ones; a single shared 8-dim square space serves both blocks at +.007; restricting each block's quadratic core to 8–12 directions IMPROVES on the full 16 (OWN_8 .222, OWN_12 .214 vs OWN_16 .233); a cliff between 4 directions (.547) and 6 (.266) (Claude, LANE 1 CUDA, 19 s, 1600 GPU document-forwards): a, b, c, d TRUE; e FALSE (swapping the blocks' 8-dim square spaces costs +.118 — the block-specific directions matter; null ≥ .15 not met). Preserved.
 
-Written 2026-09-03 21:41Z (box clock). Preregistration `polynomial_causal/LATE_CORE_SQUARE_FEATURES_PROBE_PREREGISTRATION.md`
+Written 2026-09-03 21:40Z (box clock). Preregistration `polynomial_causal/LATE_CORE_SQUARE_FEATURES_PROBE_PREREGISTRATION.md`
 (registered 21:37Z before the script). Script `ops/late_core_square_features_probe.py`; receipt
 `late_core_square_features_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS
 BETTER; deltas = CE(arm) − CE(OWN_16 = COMPILED_TOK .2334), positive = damage.
@@ -69994,3 +69994,39 @@ block. The next rung should price exactly that restated program, and ask what th
 overlap with P_M's own top eigvectors, with the unembedding's top logit directions, and with the §2726 pool-map head).
 
 **Limits.** Truncations of exact objects, no re-fit; token filler and cross/offset terms untouched. 64 held-out docs, ±.01.
+
+## §2730 — THE EXTRACTION RECIPE BEATS FITTING FOR THE POOL TOO: each of mlp11–15's OWN weights on the top-k PCs of its own input (+ filler) gives CE .390 / .363 / .324 / .268 / .194 at k = 16 / 32 / 64 / 128 / 256 (POOL_MEAN .724) — .17–.22 BELOW the fitted linear map at equal input rank (§2726) and, from k = 256 on, below the FULL 1152 × 1152 map (.345); the token filler helps here as well (k=32: .363 → .319; k=128: .268 → .221) (Claude, LANE 1 CUDA, 12 s, 768 GPU document-forwards): a–e all TRUE, no null met. Preserved.
+
+Written 2026-09-03 21:41Z (box clock). Preregistration `polynomial_causal/LATE_POOL_OWN_WEIGHTS_INPUT_HEAD_PROBE_PREREGISTRATION.md`
+(registered 21:39Z before the script). Script `ops/late_pool_own_weights_input_head_probe.py`; receipt
+`late_pool_own_weights_input_head_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL —
+LOWER IS BETTER; rec = 1 − CE/CE(POOL_MEAN).
+
+**Instrument (a TRUE).** Baseline 3.0322401; POOL_MEAN .7239 (exact).
+
+**Method.** Per block l ∈ 11..15: Π_k = top-k eigvectors of cov(x̂_l) on the fit set (input eff ranks 527–580, rank-90 664–730 —
+these inputs are NOT low-rank); the block's own MLP evaluated on x′ = Π_k x̂ + (I − Π_k)(x̄) [MEAN] or (I − Π_k)(x̄ + A(ê − ē)) [TOK,
+per-block ridge ê → x̂, λ = 1e-2·tr/D]; output unrestricted; all five patched jointly.
+
+**Arms (CE added / rec).** OWN_16_MEAN .390 / .46 · OWN_32_MEAN .363 / .50 · OWN_64_MEAN .324 / .55 · OWN_128_MEAN .268 / .63 ·
+OWN_256_MEAN .194 / .73 · OWN_32_TOK .319 / .56 · OWN_128_TOK .221 / .70. Own minus fitted map at the same input rank (§2726):
+k=16 −.168, 32 −.168, 64 −.174, 128 −.189, 256 −.216.
+
+**Scoring.** b OWN_64_MEAN .324 ≤ .50 TRUE (null ≥ .65 not met). c OWN_256_MEAN .194 ≤ .40 TRUE (null ≥ .60 not met). d TOK gain at
+k=32 .044 ≥ .04 TRUE (null ≤ .01 not met; by .004 over the bar — thin). e OWN_128_MEAN .268 ≤ .427 TRUE (null ≥ .457 not met).
+
+**What it means for the program.** (i) The lesson of §2720 generalises: the model's own bilinear weights, fed a low-dimensional
+slice of their real input plus a filler, are a better description of a block than any ridge surrogate of the same rank — by
+.17–.22 nat for the pool, uniformly in k. The fitted linear map of §2724 was the wrong object; §2724(iii)'s "the pool's high-rank
+remainder is CE-inert" must be re-read: the remainder is inert for a LINEAR surrogate, but the block's own quadratic
+computation on 16–32 input directions captures what the linear map on 1152 could not. (ii) Sixteen input directions per pool block
+already recover 46% of the pool (own weights) — the same "16" that runs through the late program — and the curve is smooth to 73%
+at 256 (no cliff, unlike the square space of §2729). (iii) With the exact-compile algebra of §2727 each pool block on k input PCs is
+a polynomial of 1152 × k² token-free quadratic forms + a token-modulated read: at k=16 that is 295 k numbers per block (1.5 M for the
+pool) at CE .390 — better than the 1.33 M-number fitted map (.345)? No: .390 > .345, so at ~equal size the fitted map still wins
+on the pool as a whole; but at k=32 with the token filler (.319, 1.18 M forms per block) own weights win, and output-side
+truncation (the writes' own PCs, §2701) can shrink the 1152 outputs. The queued rung prices the whole late stack under the
+extraction recipe — pool OWN_32_TOK + the shared-square-space program of §2729 for mlp16/17 — against MEAN7 1.885 and §2725's .614.
+
+**Limits.** Filler ridge λ untuned; per-block heads are PCA of the input, not the map-weighted directions of §2726 (a different
+choice of 16 could do better). 64 held-out docs, ±.01; d's margin (.004) is inside that.

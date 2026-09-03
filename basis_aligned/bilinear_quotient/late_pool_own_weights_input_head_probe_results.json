@@ -1,0 +1,132 @@
+{
+ "rung": "late_pool_own_weights_input_head_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE/CE(POOL_MEAN); vs_map = CE(OWN_k_MEAN) - CE(fitted map rank k, \u00a72726)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_own_weights_on_64_input_pcs_recover_a_third": true,
+  "pred_c_256_pcs_recover_most": true,
+  "pred_d_token_filler_helps_the_pool_too": true,
+  "pred_e_own_weights_beat_the_fitted_map_at_rank_128": true
+ },
+ "nulls": {
+  "b_null_own64_ge_.65": false,
+  "c_null_own256_ge_.60": false,
+  "d_null_tok_gain_le_.01": false,
+  "e_null_own128_ge_map128": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol_pool": 0.03,
+  "b_max": 0.5,
+  "c_max": 0.4,
+  "d_min": 0.04,
+  "e_max": 0.427
+ },
+ "null_bars": {
+  "b_min": 0.65,
+  "c_min": 0.6,
+  "d_max": 0.01,
+  "e_min": 0.457
+ },
+ "device": "cuda",
+ "ks": [
+  16,
+  32,
+  64,
+  128,
+  256
+ ],
+ "k_tok": [
+  32,
+  128
+ ],
+ "ridge_lambda_rel": 0.01,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pool_mean": 0.7238981127738953,
+  "prior_pool_mean": 0.724
+ },
+ "ce_added": {
+  "POOL_MEAN": 0.7238981127738953,
+  "OWN_16_MEAN": 0.39003756642341614,
+  "OWN_32_MEAN": 0.3629820644855499,
+  "OWN_64_MEAN": 0.32391855120658875,
+  "OWN_128_MEAN": 0.2682564854621887,
+  "OWN_256_MEAN": 0.1935286521911621,
+  "OWN_32_TOK": 0.31897976994514465,
+  "OWN_128_TOK": 0.22053125500679016
+ },
+ "recovery_of_pool_mean": {
+  "POOL_MEAN": 0.0,
+  "OWN_16_MEAN": 0.46119825491900157,
+  "OWN_32_MEAN": 0.4985729924137474,
+  "OWN_64_MEAN": 0.5525357153296482,
+  "OWN_128_MEAN": 0.6294278424980826,
+  "OWN_256_MEAN": 0.7326576091632808,
+  "OWN_32_TOK": 0.5593581965245766,
+  "OWN_128_TOK": 0.6953559470382655
+ },
+ "own_minus_fitted_map_same_rank": {
+  "16": -0.1679624335765839,
+  "32": -0.1680179355144501,
+  "64": -0.17408144879341125,
+  "128": -0.1887435145378113,
+  "256": -0.21647134780883787
+ },
+ "fitted_map_prior": {
+  "16": 0.558,
+  "32": 0.531,
+  "64": 0.498,
+  "128": 0.457,
+  "256": 0.41,
+  "512": 0.366,
+  "1152": 0.345
+ },
+ "input_spectra": {
+  "mlp11": {
+   "eff_rank": 527.0601554414229,
+   "rank_90": 664,
+   "top1": 0.025802360366809596,
+   "psd_min_over_max": 0.0041672066038142275
+  },
+  "mlp12": {
+   "eff_rank": 537.4891438331971,
+   "rank_90": 676,
+   "top1": 0.026205418377581148,
+   "psd_min_over_max": 0.0042476516042312664
+  },
+  "mlp13": {
+   "eff_rank": 558.1870866526342,
+   "rank_90": 696,
+   "top1": 0.026879074119366683,
+   "psd_min_over_max": 0.004348906367686265
+  },
+  "mlp14": {
+   "eff_rank": 579.7634004249074,
+   "rank_90": 720,
+   "top1": 0.026584941911726175,
+   "psd_min_over_max": 0.004883588633007218
+  },
+  "mlp15": {
+   "eff_rank": 576.8179641108163,
+   "rank_90": 730,
+   "top1": 0.02616414056958378,
+   "psd_min_over_max": 0.0045100434355218625
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 768,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 12.052966117858887
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_POOL_OWN_WEIGHTS_INPUT_HEAD_PROBE_PREREGISTRATION.md": "fcb287e3ff8e41055dfe09aa5bfb30dfb8bfef181a1060059d0b306f1f3eae61",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_pool_map_rank_curve_probe_results.json": "4bc326a10c87c261609bcb1c4482c23302cf737340144b8bbe8c048588206010",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "29571786299919e75d6274f7c8926e74616038bbbde38a0481bfa329fa199d2a"
+}

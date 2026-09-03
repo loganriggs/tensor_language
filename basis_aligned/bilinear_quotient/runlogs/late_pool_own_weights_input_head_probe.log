@@ -1,0 +1,43 @@
+{"stage": "fit_cov", "t": 6.2}
+{"stage": "heads_done", "t": 7.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.1}
+{"stage": "own_mean", "k": 16, "ce": 0.39, "t": 9.1}
+{"stage": "own_mean", "k": 32, "ce": 0.363, "t": 9.6}
+{"stage": "own_mean", "k": 64, "ce": 0.3239, "t": 10.1}
+{"stage": "own_mean", "k": 128, "ce": 0.2683, "t": 10.6}
+{"stage": "own_mean", "k": 256, "ce": 0.1935, "t": 11.0}
+{"stage": "own_tok", "k": 32, "ce": 0.319, "t": 11.6}
+{"stage": "own_tok", "k": 128, "ce": 0.2205, "t": 12.1}
+{"stage": "arms", "POOL_MEAN": 0.7239, "OWN_16_MEAN": 0.39, "OWN_32_MEAN": 0.363, "OWN_64_MEAN": 0.3239, "OWN_128_MEAN": 0.2683, "OWN_256_MEAN": 0.1935, "OWN_32_TOK": 0.319, "OWN_128_TOK": 0.2205, "t": 12.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_own_weights_on_64_input_pcs_recover_a_third": true,
+  "pred_c_256_pcs_recover_most": true,
+  "pred_d_token_filler_helps_the_pool_too": true,
+  "pred_e_own_weights_beat_the_fitted_map_at_rank_128": true
+ },
+ "nulls": {
+  "b_null_own64_ge_.65": false,
+  "c_null_own256_ge_.60": false,
+  "d_null_tok_gain_le_.01": false,
+  "e_null_own128_ge_map128": false
+ },
+ "ce_added": {
+  "POOL_MEAN": 0.7238981127738953,
+  "OWN_16_MEAN": 0.39003756642341614,
+  "OWN_32_MEAN": 0.3629820644855499,
+  "OWN_64_MEAN": 0.32391855120658875,
+  "OWN_128_MEAN": 0.2682564854621887,
+  "OWN_256_MEAN": 0.1935286521911621,
+  "OWN_32_TOK": 0.31897976994514465,
+  "OWN_128_TOK": 0.22053125500679016
+ },
+ "vs_map": {
+  "16": -0.1679624335765839,
+  "32": -0.1680179355144501,
+  "64": -0.17408144879341125,
+  "128": -0.1887435145378113,
+  "256": -0.21647134780883787
+ }
+}
