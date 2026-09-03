@@ -293,6 +293,27 @@ def append_claim_revision(
     return path
 
 
+def append_artifacts(tag: str, artifacts: dict[str, dict]) -> Path:
+    """Append frozen artifact authorities without rewriting claims or events.
+
+    Result files exist before their completion event can bind them, so outcome
+    registration needs a small atomic step that does not manufacture a new
+    causal claim merely to add a hash.  Existing identical entries are
+    idempotent; a changed artifact under the same id is always refused.
+    """
+    path = circuit_path(tag)
+    with _lock("registry"):
+        record = json.loads(path.read_text())
+        for artifact_id, value in artifacts.items():
+            if artifact_id in record["artifacts"] and record["artifacts"][artifact_id] != value:
+                raise ValueError(f"artifact id collision: {artifact_id}")
+            record["artifacts"][artifact_id] = value
+        validate_v2(record)
+        _atomic_json(path, record)
+    rebuild_registry_v2()
+    return path
+
+
 def append_evidence_event(tag: str, event: dict) -> Path:
     """Append one immutable event, rejecting duplicate designs unless superseded."""
     path = circuit_path(tag)

@@ -5,7 +5,7 @@ Negative/invalid results are counted as evidence, not omitted. Check this view a
 
 | circuit | kind | identity | status | causal variable / legacy story | CF families | negative events | exact next missing evidence |
 |---|---|---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | 0 | run preregistered FIT/SELECT capability gates; only then open the common-site ceiling ladder |
+| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | 0 | execute the hash-frozen 15-site full-state interchange screen on FIT/SELECT; FINAL_TEST, OOD, controls, and every DAS rank remain unopened |
 | `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |

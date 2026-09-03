@@ -49,16 +49,19 @@ def test_registry_contains_only_tagged_records_not_aggregate_json():
     assert "REPERTOIRE" not in compact
 
 
-def test_design_and_execution_keys_are_unique_and_recomputable():
+def test_design_reuse_is_explicit_and_execution_keys_are_unique_and_recomputable():
     for record in task_records().values():
-        designs = []
+        designs = {}
         executions = []
         for event in record["evidence_events"]:
             assert registry.design_key(record, event) == event["design_key"]
             assert registry.execution_key(record, event) == event["execution_key"]
-            designs.append(event["design_key"])
+            if event["design_key"] in designs:
+                assert event.get("supersedes_event_id") == designs[event["design_key"]] or (
+                    event.get("replicates_event_id") == designs[event["design_key"]]
+                )
+            designs[event["design_key"]] = event["event_id"]
             executions.append(event["execution_key"])
-        assert len(designs) == len(set(designs))
         assert len(executions) == len(set(executions))
 
 
@@ -76,3 +79,22 @@ def test_bad_tree_alias_cannot_be_attached_to_behavior_identity():
     record["identity"]["instance"] = None
     with pytest.raises(AssertionError):
         registry.validate_v2(record)
+
+
+def test_append_artifacts_is_idempotent_and_refuses_hash_drift(tmp_path, monkeypatch):
+    record = copy.deepcopy(task_records()["task.increment.state"])
+    record["tag"] = "task.test.append_artifact"
+    record["artifacts"]["new_result"] = {
+        "path": "result.json", "sha256": "a" * 64,
+        "kind": "result", "status": "frozen",
+    }
+    path = tmp_path / "task_test_append_artifact.json"
+    path.write_text(json.dumps(record))
+    monkeypatch.setattr(registry, "CIRCUITS", tmp_path)
+    monkeypatch.setattr(registry, "REGISTRY", tmp_path / "registry.json")
+    value = record["artifacts"]["new_result"]
+    registry.append_artifacts(record["tag"], {"new_result": value})
+    assert json.loads(path.read_text())["artifacts"]["new_result"] == value
+    changed = dict(value, sha256="b" * 64)
+    with pytest.raises(ValueError, match="artifact id collision"):
+        registry.append_artifacts(record["tag"], {"new_result": changed})
