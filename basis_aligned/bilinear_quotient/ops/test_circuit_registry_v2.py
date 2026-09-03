@@ -111,7 +111,9 @@ def test_registry_distinguishes_active_from_historical_invalid_events():
     # legacy-invalid claims, the independently audited R549/R551 downstream
     # target nulls, and R556's selective-linear-subspace null are active negative
     # evidence and must remain visible.
-    assert bracket["negative_event_count"] == 11
+    # R560 v1 adds one historical implementation failure; v2 supersedes it, so
+    # the active scientific-negative count stays unchanged.
+    assert bracket["negative_event_count"] == 12
     assert bracket["active_negative_event_count"] == 10
     assert bracket["latest_blocker"] == "pending_opener_target_invariance_das.r556.complete.null.v1"
     record = task_records()["task.bracket.pending_opener"]

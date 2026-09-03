@@ -4596,6 +4596,203 @@
    ],
    "translation_ids": [],
    "next_missing": "execute and independently audit the frozen R560 semantic-source score/payload factor interchange; keep FINAL_TEST/OOD closed and do not return to a linear-dimension sweep"
+  },
+  {
+   "claim_id": "pending_opener_state.v27",
+   "revision": 27,
+   "status": "specified",
+   "supersedes": "pending_opener_state.v26",
+   "causal_variable": {
+    "id": "pending_opener_state_three_value_candidate",
+    "domain": "candidate parenthesis, square-bracket, or quote pending state; selected after R544 and not confirmed",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange",
+    "post-outcome exclusion of curly braces; requires entirely fresh confirmation rows"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_three_value_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct closer",
+      "one opener token among parenthesis, square, and quote"
+     ],
+     "holds_fixed": [
+      "ordinary words",
+      "sequence length",
+      "opener position",
+      "body order"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "three answer-preserving families",
+      "endpoint-gradient overlap"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_three_value_order",
+     "role": "interchange",
+     "changes": [
+      "which of two delimiter types remains pending",
+      "correct closer"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length",
+      "final lexical suffix",
+      "one completed span"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "direct construction",
+      "same-variable surface rewrite",
+      "wrong closer"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording",
+      "ordinary-word order"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "held-out lexical pool",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_extension",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "neutral intervening clause"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "core content words"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "short versus long",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_three_value_fresh_split_r545_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+    "pending_opener_three_value_confirmation.r546.preregistered.v1",
+    "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
+    "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+    "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
+    "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
+    "pending_opener_downstream_response_atlas.r549.preregistered.v1",
+    "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+    "pending_opener_downstream_response_atlas.r549.complete.null.v1",
+    "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+    "pending_opener_target_invariance_das.r556.preregistered.v1",
+    "pending_opener_target_invariance_das.r556.complete.null.v1",
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+    "pending_opener_source_position_audit.r560.complete.held.v1",
+    "pending_opener_source_factor_interchange.r560.preregistered.v1",
+    "pending_opener_source_factor_interchange.r560.v1.invalid_implementation",
+    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+    "pending_opener_source_factor_audit.r561.preregistered.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "execute the shape-only R560 v2 repair and immediately apply the pre-outcome R561 CPU audit; keep FINAL_TEST/OOD closed"
   }
  ],
  "split_plans": [
@@ -6307,6 +6504,191 @@
    "notes": "Exact score, projected-value, and joint source terms; no hidden-dimension search.",
    "design_key": "121d452d7d49965c755b49bbfa249fab8775af5792eb6120ef90bb952d87bbc6",
    "execution_key": "6b2d19272f8b8056298f5024dc1186c59939ab2fbe67b60007fe515ed2647ac5"
+  },
+  {
+   "event_id": "pending_opener_source_factor_interchange.r560.v1.invalid_implementation",
+   "claim_id": "pending_opener_state.v26",
+   "test_type": "composition",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "implementation_failure",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_source_score_times_projected_value.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "FIT_factor_choice_then_single_SELECT_validation",
+   "metrics": [
+    {
+     "name": "target_factor_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction median>=0.50, bootstrap lower mean>0, positive fraction>=0.75"
+    },
+    {
+     "name": "answer_preserving_closer_change",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction mean absolute<=0.10 and <=0.25 complete-head effect"
+    },
+    {
+     "name": "answer_preserving_full_vocab_change",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction mean RMS <=0.25 complete-head RMS"
+    },
+    {
+     "name": "adjacent_wrong_source_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every target family/direction mean absolute<=0.25"
+    },
+    {
+     "name": "score_payload_interaction",
+     "estimate": null,
+     "ci95": null,
+     "bar": "reported; not used to weaken selection bars"
+    }
+   ],
+   "prereg_artifact_id": "r560_source_factor_preregistration",
+   "result_artifact_id": "r560_v1_failed_runlog",
+   "input_artifact_ids": [
+    "r560_source_factor_implementation",
+    "r560_source_position_audit"
+   ],
+   "seed": 560,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "pending_opener_source_factor_interchange.r560.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_SOURCE_FACTOR_INTERCHANGE_RUNG560_PREREGISTRATION.md",
+    "PENDING_OPENER_SOURCE_FACTOR_RUNG560_V2_CORRECTION.md"
+   ],
+   "notes": "FIT model evaluation completed, but no result was written and no model value was displayed; split envelope KeyError.",
+   "design_key": "8f0f1ac49e89434a4995babd92eef00c7c752d1602b5bab89addb37f3b0dc474",
+   "execution_key": "785554008f3dbca04d33771e692685199841938a375aadd77d14e7e189b5beb3"
+  },
+  {
+   "event_id": "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+   "claim_id": "pending_opener_state.v26",
+   "test_type": "composition",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_source_score_times_projected_value.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "FIT_factor_choice_then_single_SELECT_validation",
+   "metrics": [
+    {
+     "name": "target_factor_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction median>=0.50, bootstrap lower mean>0, positive fraction>=0.75"
+    },
+    {
+     "name": "answer_preserving_closer_change",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction mean absolute<=0.10 and <=0.25 complete-head effect"
+    },
+    {
+     "name": "answer_preserving_full_vocab_change",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every family/direction mean RMS <=0.25 complete-head RMS"
+    },
+    {
+     "name": "adjacent_wrong_source_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "every target family/direction mean absolute<=0.25"
+    },
+    {
+     "name": "score_payload_interaction",
+     "estimate": null,
+     "ci95": null,
+     "bar": "reported; not used to weaken selection bars"
+    }
+   ],
+   "prereg_artifact_id": "r560_source_factor_preregistration",
+   "result_artifact_id": null,
+   "input_artifact_ids": [
+    "r560_source_position_audit",
+    "r560_v2_correction",
+    "r560_v2_implementation",
+    "r560_v2_test"
+   ],
+   "seed": 560,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "pending_opener_source_factor_interchange.r560.v1.invalid_implementation",
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_SOURCE_FACTOR_INTERCHANGE_RUNG560_PREREGISTRATION.md",
+    "PENDING_OPENER_SOURCE_FACTOR_RUNG560_V2_CORRECTION.md"
+   ],
+   "notes": "Shape-only wrapper selects raw[split]; scientific protocol is unchanged from v1.",
+   "design_key": "8f0f1ac49e89434a4995babd92eef00c7c752d1602b5bab89addb37f3b0dc474",
+   "execution_key": "dfe36e1709e39c64d19e7aa0b17bfd3dbb6a3e820ed91fcc37458bb57920359b"
+  },
+  {
+   "event_id": "pending_opener_source_factor_audit.r561.preregistered.v1",
+   "claim_id": "pending_opener_state.v26",
+   "test_type": "null_control",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "r560_saved_source_factor_statistics",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "pre_outcome_CPU_terminal_audit",
+   "metrics": [
+    {
+     "name": "all_target_control_and_wrong_source_cells_recomputed",
+     "estimate": null,
+     "ci95": null,
+     "bar": "exact agreement"
+    },
+    {
+     "name": "FIT_choice_SELECT_and_interactions_recomputed",
+     "estimate": null,
+     "ci95": null,
+     "bar": "exact agreement"
+    }
+   ],
+   "prereg_artifact_id": "r561_source_factor_audit_preregistration",
+   "result_artifact_id": null,
+   "input_artifact_ids": [
+    "r560_v2_implementation",
+    "r561_source_factor_audit_implementation",
+    "r561_source_factor_audit_test"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_SOURCE_FACTOR_AUDIT_RUNG561_PREREGISTRATION.md"
+   ],
+   "notes": "Frozen before the v2 result; imports no R560 scorer and makes zero model calls.",
+   "design_key": "8b700d8e9a967a73354d873ee3dac7215cddfb65da2c72763988f0300103d00c",
+   "execution_key": "5dbb5334ca97dfac8a2468cf8d9f5c8e2c316e3f7945ef69d072b48e38689822"
   }
  ],
  "translations": [],
@@ -6908,6 +7290,48 @@
   "r560_source_factor_test": {
    "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_source_factor_interchange_rung560.py",
    "sha256": "8ea7033a34893c6bbfb1dba5bec13402c157f46d247eebce6ef06be944f5ce9e",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r560_v1_failed_runlog": {
+   "path": "basis_aligned/bilinear_quotient/runlogs/pending_opener_source_factor_interchange_rung560.log",
+   "sha256": "5de23560aef72c1a16a80911e288edc558cf44c36d76802977624e090fa87b6a",
+   "kind": "runlog",
+   "status": "frozen"
+  },
+  "r560_v2_correction": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_SOURCE_FACTOR_RUNG560_V2_CORRECTION.md",
+   "sha256": "c19b98114ef5828a57e94ef99b962036b897e1bfc877d52df6168e45b51ad72d",
+   "kind": "correction",
+   "status": "frozen"
+  },
+  "r560_v2_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_source_factor_interchange_rung560_v2.py",
+   "sha256": "9a4bbb523f5f182e1e99f65b0b433cf7f770e70bb7eb530b9625b2e6cc33484b",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r560_v2_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_source_factor_interchange_rung560_v2.py",
+   "sha256": "bb1ceca43e00c777c2a2f327a8edebb04139d5d5ee3e4c56ac7961a574aeb27f",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r561_source_factor_audit_preregistration": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_SOURCE_FACTOR_AUDIT_RUNG561_PREREGISTRATION.md",
+   "sha256": "8620fc2245d656b26f4f59e2ab4f2b08d795746e0f3579109df51516174a086f",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r561_source_factor_audit_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_source_factor_audit_rung561.py",
+   "sha256": "240f7e1cb0f7ed0e690ec7d49a661520d945d3172a4eab4cb35f382c90b0b5d2",
+   "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "r561_source_factor_audit_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_source_factor_audit_rung561.py",
+   "sha256": "3b8c2f78fdb940132050f7759727c6cbd64d7e84077ba2c2ba895c9ae933203f",
    "kind": "test",
    "status": "frozen"
   }

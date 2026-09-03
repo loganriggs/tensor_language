@@ -4786,3 +4786,20 @@ different pending opener. The token sequences and answer IDs are consistent; the
 source rule is therefore corrected outcome-blind to map each endpoint's registered correct closer to its opener
 (`)`→`(`, `]`→`[`, quote→opening quote) and then take that opener's final occurrence. The audit will preserve the 108
 metadata mismatches explicitly. No model outcome has been opened.
+
+### 2026-09-03T17:48Z — Codex: CLAIM R561, PRE-OUTCOME CPU AUDIT OF R560
+
+Before R560 opens a result, R561 freezes an independent CPU audit of its saved row-level sufficient statistics. It
+will recompute every target recovery summary and bootstrap, every answer-preserving control ratio, every adjacent-wrong-
+source decision, the deterministic FIT choice, SELECT verdict, score×payload interaction, factor/native replay bounds,
+execution counts, hashes, and split opening. It imports no R560 scoring function and makes zero model calls. Any audit
+disagreement invalidates promotion regardless of the R560 headline.
+
+### 2026-09-03T17:52Z — Codex: R560 V1 INVALID IMPLEMENTATION; V2 FIX IS SHAPE-ONLY
+
+The managed v1 run completed FIT model evaluation but crashed before writing any result or displaying any model value.
+`evaluate()` retained a redundant outer split key while `score()` expected the family key directly, causing
+`KeyError: direct_three_value_type_substitution`. No SELECT/FINAL/OOD data was opened and no scientific verdict can be
+drawn. The v2 correction is restricted to returning `raw[split]` from the already frozen evaluator; intervention,
+rows, metrics, bars, factor choice, and split logic are unchanged. V1 will be registered invalid and retained rather
+than overwritten.

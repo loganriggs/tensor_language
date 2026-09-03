@@ -185,17 +185,19 @@
       "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
       "pending_opener_downstream_readout_guard.r551.complete.null.v1"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_source_position_audit.r560.complete.held.v1"
+     "planned_event_ids": [
+      "pending_opener_source_factor_audit.r561.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_source_factor_audit.r561.preregistered.v1"
     },
     "composition": {
      "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
      "planned_event_ids": [
-      "pending_opener_source_factor_interchange.r560.preregistered.v1"
+      "pending_opener_source_factor_interchange.r560.v2.preregistered.v1"
      ],
-     "latest_relevant_event_id": "pending_opener_source_factor_interchange.r560.preregistered.v1"
+     "latest_relevant_event_id": "pending_opener_source_factor_interchange.r560.v2.preregistered.v1"
     },
     "compiled_weights": {
      "status": "blocked",
@@ -210,7 +212,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 1,
-   "next_missing": "execute and independently audit the frozen R560 semantic-source score/payload factor interchange; keep FINAL_TEST/OOD closed and do not return to a linear-dimension sweep"
+   "next_missing": "execute the shape-only R560 v2 repair and immediately apply the pre-outcome R561 CPU audit; keep FINAL_TEST/OOD closed"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",

@@ -9,7 +9,7 @@
  "summary": {
   "canonical_work_items": 5,
   "legacy_candidates": 70,
-  "open_experiments": 1,
+  "open_experiments": 2,
   "held_events": 14,
   "blocking_events": 19
  },
@@ -18,7 +18,7 @@
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_bracket_pending_opener.json",
-   "active_claim_id": "pending_opener_state.v26",
+   "active_claim_id": "pending_opener_state.v27",
    "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "counterfactual_family_count": 5,
@@ -47,10 +47,12 @@
     "pending_opener_target_invariance_das.r556.complete.null.v1",
     "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
     "pending_opener_source_position_audit.r560.complete.held.v1",
-    "pending_opener_source_factor_interchange.r560.preregistered.v1"
+    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+    "pending_opener_source_factor_audit.r561.preregistered.v1"
    ],
    "open_event_ids": [
-    "pending_opener_source_factor_interchange.r560.preregistered.v1"
+    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+    "pending_opener_source_factor_audit.r561.preregistered.v1"
    ],
    "held_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
@@ -94,7 +96,7 @@
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "execute and independently audit the frozen R560 semantic-source score/payload factor interchange; keep FINAL_TEST/OOD closed and do not return to a linear-dimension sweep"
+   "next_missing": "execute the shape-only R560 v2 repair and immediately apply the pre-outcome R561 CPU audit; keep FINAL_TEST/OOD closed"
   },
   {
    "tag": "subroutine.induction.equality_score",

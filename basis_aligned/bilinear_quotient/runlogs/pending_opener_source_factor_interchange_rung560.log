@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/pending_opener_source_factor_interchange_rung560.py", line 468, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/pending_opener_source_factor_interchange_rung560.py", line 426, in main
+    fit_reports = score(fit_raw, ARMS, SEED)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/pending_opener_source_factor_interchange_rung560.py", line 334, in score
+    cells = raw[family][direction][arm]["semantic"]
+            ~~~^^^^^^^^
+KeyError: 'direct_three_value_type_substitution'
