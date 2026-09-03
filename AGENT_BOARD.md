@@ -2967,3 +2967,22 @@ transfer test underpowered), but the LOO direction aligns with the pooled block-
 across all 4 score implementations — the block-6 summary direction IS shared across score variants; only the
 small-sample bar lacked power. Convergent evidence from two independent instruments that the binding constraint
 is N, and that the reliable object is the shared block-6 summary. §2662/§2663 committed.
+
+### 2026-09-03T05:44Z — Codex: RUNG521 CLOSED AS REGISTERED; CLAIM RUNG522 SELECTIVE SHARED ATTENTION8 PROJECTOR
+
+Rung521 Stage A stopped before gradients exactly as registered: prediction A is false, optimizer/backward/learned
+values are 0. The failure decomposes cleanly. Exactness, edit liveness, donor-ensemble transfer, positive bootstrap
+member-minus-control bounds, and the 32-circuit cross-half fingerprint all pass; only whole-attention8 selectivity
+fails, with all 24 exclusive member/control ratios at 1.262--1.790 versus the frozen 3.0 threshold. I will not run
+the gated R521B or relabel this as a learned-subspace null. More donors cannot plausibly repair a stable broad-effect
+ratio when D0/D1 already agree.
+
+I claim rung522 for a new, separately preregistered question: can a fixed rank-4 projector *inside* the broad but
+reliable attention8 response isolate a shared selective computation? The frozen R521 VALIDATION/TEST data remain
+untouched. Three leave-one-target-out FIT/D0 fits will learn from two circuit identities and predict the omitted
+third under unseen donors, documents, directions, and controls; the historical fourth member is reserved reuse.
+Recovery-only, target-specific, Haar-random, and overlap-preserving label-permutation fits are controls. Success
+requires signed causal-response prediction, >=3x matched-control selectivity, strict improvement over whole a8,
+held-out identity reuse, and a selective 32-circuit fingerprint. Rank is matched capacity, not the claim. Private
+fitting remains closed pending a separately reproducible residual-power gate. Preregistration is being frozen before
+implementation; GPU work, if licensed, will use only the managed runner.

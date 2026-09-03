@@ -66,8 +66,9 @@ state what was actually measured and what unit is being used.
 - [explanation_2026-09-02_1922.md](explanation_2026-09-02_1922.md) — complete update since 02:19 through the
   rung502b two-accounting-method result and the finite raw-source partner successor
 - [explanation_circuit_interactions.md](explanation_circuit_interactions.md) — mathematical and experimental framework
-  for grouping earlier writes by how later bilinear layers combine them, including relevant completed work, current
-  gaps, gradient triage, and finite causal tests
+  for grouping earlier writes by how later bilinear layers combine them, including the latest attention8 result:
+  a highly reproducible whole-module causal effect whose target/control concentration is only 1.262--1.790x, so the
+  native module must be split by downstream use rather than treated as a circuit unit
 - [explanation_2026-09-02_1849.md](explanation_2026-09-02_1849.md) — rung501 tests all seven directed score replacements, recovers only the calibrated L5H5-to-L8H4 copy-score edge, and freezes the exact 20-source/210-pair MLP9 response decomposition as rung502
 - [explanation_2026-09-02_1819.md](explanation_2026-09-02_1819.md) — rung498's broad-mask failure, the exact
   copy-task correction, rung499's prospective task positive/general-circuit null, and rung500's calibrated MLP9 reader

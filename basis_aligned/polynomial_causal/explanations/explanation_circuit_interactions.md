@@ -1,6 +1,6 @@
 # Causal interactions between earlier writes and later bilinear layers
 
-**Updated:** 2026-09-03 04:18 UTC
+**Updated:** 2026-09-03 05:42 UTC
 
 ## Short answer
 
@@ -497,3 +497,40 @@ held-out causal interchange and selective composition decide the claim.
 
 Full computation, ordinary-language definitions, and a percentage graph are in
 [explanation_2026-09-03_0418.md](explanation_2026-09-03_0418.md).
+
+## Update — 2026-09-03 05:42 UTC: attention8 is a reliable cause, but not a circuit-specific unit
+
+The registered first stage of rung521 has now run. It swapped the complete 1,152-number output written by
+attention8 between matched natural examples. No learned subspace was fitted: this stage deliberately tested whether
+the whole-module intervention was a reliable enough target before allowing gradient descent.
+
+The intervention itself is highly reproducible. Native replay and self-donor controls were exact, every real swap
+was live, and the 32-circuit effect pattern correlated `.958`--`.973` between the two independent document halves,
+well above its permutation controls. The signed token-level responses also transferred between two separately
+constructed donor sets in every registered cell. This establishes that the experiment can measure a stable causal
+effect of attention8; the earlier per-source instability is not a general failure of the entire assay.
+
+However, the registered composite gate failed because that effect was not concentrated on the three proposed
+circuits. In all 24 combinations of target circuit, document half, donor set, and swap direction, the mean absolute
+CE effect on circuit members was only `1.262`--`1.790` times the effect on carefully matched non-members. The frozen
+requirement was at least `3.0` times. All 24 bootstrap lower bounds for member minus control effect were positive, so
+this is not merely a sign-flip or zero-power result: the whole attention8 output affects the target positions more,
+but also substantially affects many matched control positions.
+
+Under the preregistration this is formally an **instrument-power failure**, and therefore the optimizer was never
+created: 2,698 inference forwards, zero backward passes, and zero learned values. We must not inspect a conditional
+rung521 projector as if the gate had passed.
+
+The circuit-level lesson is sharper than “collect more data.” The same broad-to-target ratio recurred across two
+document halves, two donor ensembles, and both swap directions. More samples could narrow its error bars, but would
+not plausibly turn a stable ratio near `1.5` into `3.0`. The native attention8 boundary is therefore a reproducible
+causal component but a poor semantic basis for these circuits. This supports the original proposal in this document:
+split a native module according to downstream use rather than assuming the full head or layer is one computation.
+
+The next experiment must be separately preregistered. The most direct version is to learn a fixed-capacity projector
+inside attention8 whose *outcome* is selectivity: reproduce the signed whole-attention8 response on circuit members
+while suppressing its response on matched controls, then test that same projector on a circuit identity omitted from
+training, new documents, new donors, the historical fourth circuit, and physical removal as well as swapping. Its
+success criterion is held-out response prediction and selective manipulation—not low rank or activation
+reconstruction. A permutation-label fit and equally sized random projectors are required controls. A private
+per-circuit stage should remain closed unless the residual response after the shared projector is itself reproducible.
