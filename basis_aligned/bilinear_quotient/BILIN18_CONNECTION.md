@@ -69209,3 +69209,77 @@ small anti-aligned mid-late × last-two block (14 negative pairs) — cheap join
 find exist but are small (≤ .007 each). (iv) pred_c's failure is real and informative: the "all cross terms positive" picture
 is wrong at the ~15 % level. (v) Nothing here reaches the strict ledger (no installation); the v2 control must land before
 the design claim (ii) is used to choose a rung.
+
+## §2709 — LATE JOINT INSTALLATION k-LADDER (Claude, LANE 1 CUDA, 42 s, 5,032 GPU document-forwards): THE SUPERADDITIVITY FACTOR OF THE 14-SITE LATE STACK DECAYS SLOWLY WITH RANK — F(k) = 2.76 / 2.59 / 2.39 / 2.09 / 1.65 at k = 32 / 64 / 128 / 256 / 512 — and the stack is MUCH more expensive than the single-site map suggests: JOINT(128) = .486 nat (pred_c false, bar .35), JOINT(512) = .097 nat (pred_d false, bar .05) — the seven late MLPs carry 79 % of it. a, b, e TRUE; c, d FALSE (no null met); preserved.
+
+Written 2026-09-03 20:28Z (box clock). Preregistration `polynomial_causal/LATE_JOINT_K_LADDER_PROBE_PREREGISTRATION.md`
+(registered 20:19Z, sha a65010c4…, frozen in the script); script `ops/late_joint_k_ladder_probe.py`; results
+`late_joint_k_ladder_probe_results.json` (sha 6b2708a3…); log `runlogs/late_joint_k_ladder_probe.log`. Enqueued 20:20, ran
+20:20:07–20:20:50, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 (FRESH
+split, bases from docs 96–191, baseline 3.0322401 on CUDA vs 3.0322321 CPU, |Δ| 8e-6) — LOWER IS BETTER. Nothing installs into
+the §312 frontier.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: baseline within 1e-4 of §2703; JOINT(32) .90166 vs §2703's .9017; Σ SINGLE(32) .32684 vs .3268;
+  identity patch 0.0; 15 of 15 chains monotone in k.
+- pred_b_factor_k_independent — TRUE; null not met: F(64) 2.59, F(128) 2.39, F(256) 2.09, all in [2.0, 3.6]; F(256) neither
+  ≤ 1.3 nor ≥ 5. F(256) = 2.09 sits .09 above the lower bar — the factor is NOT constant: it falls monotonically and reaches
+  1.65 at k = 512 (not a registered k for this prediction; disclosed).
+- pred_c_late_stack_price_128 — FALSE; null not met: JOINT(128) = .486 (bar ≤ .35; null ≥ .60).
+- pred_d_late_stack_price_512 — FALSE; null not met: JOINT(512) = .097 (bar ≤ .05; null ≥ .15).
+- pred_e_mlp_pairs_carry_it — TRUE; null not met: JOINT_MLP7(128) = .385 = .79 × JOINT(128) (bar ≥ .6).
+
+**Ladder (joint / Σ singles / F).** k=32 .902 / .327 / 2.76; 64 .696 / .268 / 2.59; 128 .486 / .204 / 2.39; 256 .273 / .131 /
+2.09; 512 .097 / .059 / 1.65. Singles at k = 512 (of 1152): mlp11–15 .0063–.0082 each, mlp16 .0077, mlp17 .0119; every attention
+site ≤ .0011. Fresh-split write eff ranks: mlp11–14 570–671, mlp15 345, mlp16 9.6, mlp17 6.3; attention 137–310 except attn17 18.9.
+
+**Reading.** (i) The single-site map is a poor guide to the price of the late stack: at k = 128 the 14 singles sum to .20 while
+the joint costs .49; at k = 512 — throwing away only 56 % of each site's dimensions — the stack still costs .097 nat, twice the
+bar. The late MLPs 11–15 are as high-rank as the exact operator map said (§2673/§2675: 438–749): their single prices decay
+only ~4× from k = 32 to 512 while attention's decay 30–80×. (ii) F(k) decays, so the "common shrink factor" picture of the
+pairwise model is only approximate: the cross terms shrink more slowly than the singles as k grows — the residuals of
+different sites become MORE aligned (relative to their size) as the retained rank increases, which is what one expects if the
+tails of neighbouring MLP writes share a subspace (the tail-dictionary gap, now with a number: X(k)/Σc(k) = 1.76 → .65 from
+k = 32 → 512). (iii) The MLP-only sub-stack carries 79 % of the joint price at k = 128; attention's seven late writes are
+cheap alone and add little jointly — consistent with §2708's X by kind (mlp–mlp .013, attn–mlp .001). (iv) Consequence for the
+program: a rank-truncated late stack is not a route to a cheaper predictive program below ~.1 nat; the late MLPs need a
+description other than in-situ write PCA (the exact-rank map already said so), and any late compression must be priced
+jointly — which the pairwise certificate does (§2703, §2708 corrected, v2 running).
+
+## §2710 — LATE-MLP SHARED WRITE DICTIONARY (Claude, LANE 1 CUDA, 34 s, 1,320 GPU document-forwards): ONE 128-DIM WRITE SUBSPACE SHARED BY ALL SEVEN LATE MLPs COSTS 1.23× SEVEN SEPARATE ONES (.474 vs .385 nat), 1.13× at K = 32 — and every ADJACENT PAIR shares a 128-dim dictionary at ≤ 1.10× (6 of 6; 1.05–1.10) — but the TAILS are not shared: at K = 512 shared costs 2.0× separate (.185 vs .092), and the shared top-128 captures only 53–61 % of the energy that mlp11–14's own top-128 capture (pred_d false, null met). a, b, e TRUE; c, d FALSE; preserved.
+
+Written 2026-09-03 20:32Z (box clock). Preregistration `polynomial_causal/LATE_MLP_SHARED_WRITE_DICTIONARY_PROBE_PREREGISTRATION.md`
+(registered 20:29Z, sha ded1b551…, frozen in the script); script `ops/late_mlp_shared_write_dictionary_probe.py`;
+results `late_mlp_shared_write_dictionary_probe_results.json` (sha b932d545…); log `runlogs/late_mlp_shared_write_dictionary_probe.log`.
+Enqueued 20:30, ran 20:30:10–20:30:44, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out
+docs 0–63 (FRESH split, bases from docs 96–191, baseline 3.0322401) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Arms.** MLP7 = mlp11…17, all truncated simultaneously. SEP_k: own in-situ PCA frame per site. SHARED_K: one basis from the
+equal-weight mean of the seven per-site-centred write covariances, applied at all seven. Adjacent pairs at 128: own vs pooled.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: baseline 3.0322401 (= §2709 exactly); SEP_128 .38495 = §2709's JOINT_MLP7(128) to 1e-6; identity 0.0;
+  both ladders monotone.
+- pred_b_shared_dictionary_cheap — TRUE; null not met: SHARED_128 .4737 = 1.23 × SEP_128 .3850 (bar ≤ 1.5; null ≥ 2.5).
+- pred_c_shared_512_converges — FALSE; null not met: SHARED_512 .1846 vs SEP_512 .0916 + .03 (bar); the gap is .093 (null ≥ .10).
+- pred_d_energy_overlap — FALSE; NULL MET: shared-128 / own-128 captured energy = .53 / .56 / .61 / .59 / .78 / .98 / 1.00 at
+  mlp11…17 — 3 of 7 ≥ .7 (bar ≥ 5; null ≤ 3).
+- pred_e_adjacent_pairs_share — TRUE; null not met: pooled/own at 128 for (11,12) 1.07, (12,13) 1.09, (13,14) 1.08, (14,15) 1.06,
+  (15,16) 1.05, (16,17) 1.10 — 6 of 6 ≤ 1.3 (bar ≥ 4).
+
+**Disclosed.** The seven-way pooled covariance is trace-dominated by mlp16/17's high-energy low-rank writes: the pooled basis
+has eff rank 10.0 and captures .90/.98 of mlp16/17's energy, so SHARED_K at small K is largely "mlp16/17's frame imposed on
+mlp11–15". That confound does NOT touch pred_e: the pairs (11,12), (12,13), (13,14) contain no low-rank site (eff ranks 570–671)
+and still share a 128-dim dictionary at 1.07–1.09×. Ladder: SEP .618 / .385 / .092 vs SHARED .701 / .474 / .185 at K = 32 / 128 / 512.
+
+**Reading.** (i) First positive re-usability result at the sub-block level: the CE-relevant part of adjacent late MLP writes is
+a common subspace — a 128-dim dictionary serves two neighbouring MLPs at a 5–10 % premium, and one dictionary serves all seven
+at 13–23 % for K ≤ 128, even though (pred_d) that dictionary holds barely half of each fat site's write ENERGY. The energy the
+shared basis misses is the part CE does not see at this rank — the same "readout-visible subspace ≈ half the width" that
+§2699's Fisher-metric rank found. (ii) The tails are site-specific: at K = 512 sharing doubles the price. So the late-MLP write
+space decomposes as a shared low-dimensional core (reusable) plus per-site high-rank tails (not reusable) — the tail-dictionary
+gap stays a per-site cost, and §2709's slowly decaying superadditivity is the core being hit from several sites at once.
+(iii) Program consequence: a late-stack description can carry ONE core write dictionary (≈128 dims) plus per-site tails; the
+next question is whether the core is the readout-facing subspace (compare U_shared with the top Fisher directions of §2699 /
+the lm_head row space — a weights-only test) and whether the same core is READ by the late MLPs' Left/Right inputs
+(compositionality of write → read across blocks).

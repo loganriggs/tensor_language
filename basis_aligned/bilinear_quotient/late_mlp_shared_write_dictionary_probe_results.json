@@ -1,0 +1,174 @@
+{
+ "rung": "late_mlp_shared_write_dictionary_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split, bases from docs 96-191); LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_shared_dictionary_cheap": true,
+  "pred_c_shared_512_converges": false,
+  "pred_d_energy_overlap": false,
+  "pred_e_adjacent_pairs_share": true
+ },
+ "nulls": {
+  "b_null_shared128_ge_2.5x": false,
+  "c_null_shared512_ge_sep+.10": false,
+  "d_null_le_3_of_7": true,
+  "e_null_le_1_of_6": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.01,
+  "b_mult": 1.5,
+  "c_slack": 0.03,
+  "d_frac": 0.7,
+  "d_n_min": 5,
+  "e_mult": 1.3,
+  "e_n_min": 4
+ },
+ "null_bars": {
+  "b_mult": 2.5,
+  "c_slack": 0.1,
+  "d_n_max": 3,
+  "e_n_max": 1
+ },
+ "device": "cuda",
+ "ks": [
+  32,
+  128,
+  512
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "identity_abs_diff": 0.0,
+  "sep_128": 0.38495302200317383,
+  "prior_sep_128": 0.38495
+ },
+ "baseline_ce_eval": 3.032240092754364,
+ "sep_ce_added": {
+  "32": 0.618474692106247,
+  "128": 0.38495302200317383,
+  "512": 0.09155020117759705
+ },
+ "shared_ce_added": {
+  "32": 0.7014335095882416,
+  "128": 0.4737124443054199,
+  "512": 0.18458905816078186
+ },
+ "shared_over_sep": {
+  "32": 1.1341345386332207,
+  "128": 1.2305720886158267,
+  "512": 2.016260541063148
+ },
+ "pair_sep_128": {
+  "mlp11+mlp12": 0.06566059589385986,
+  "mlp12+mlp13": 0.05980885028839111,
+  "mlp13+mlp14": 0.05303499102592468,
+  "mlp14+mlp15": 0.049400895833969116,
+  "mlp15+mlp16": 0.053332775831222534,
+  "mlp16+mlp17": 0.07669249176979065
+ },
+ "pair_shared_128": {
+  "mlp11+mlp12": 0.07054939866065979,
+  "mlp12+mlp13": 0.06495755910873413,
+  "mlp13+mlp14": 0.057095348834991455,
+  "mlp14+mlp15": 0.05257245898246765,
+  "mlp15+mlp16": 0.05614635348320007,
+  "mlp16+mlp17": 0.08464217185974121
+ },
+ "energy_captured_128": {
+  "mlp11": {
+   "own_128": 0.44378294640308547,
+   "shared_128": 0.23535026689867408
+  },
+  "mlp12": {
+   "own_128": 0.4407662191011108,
+   "shared_128": 0.24852850544225147
+  },
+  "mlp13": {
+   "own_128": 0.4383095745671748,
+   "shared_128": 0.2667208501760954
+  },
+  "mlp14": {
+   "own_128": 0.4036094047181318,
+   "shared_128": 0.23722512325071837
+  },
+  "mlp15": {
+   "own_128": 0.5290329703227606,
+   "shared_128": 0.4119825427742163
+  },
+  "mlp16": {
+   "own_128": 0.9175656293443628,
+   "shared_128": 0.9019664191425514
+  },
+  "mlp17": {
+   "own_128": 0.9769140063717164,
+   "shared_128": 0.9748442347562163
+  }
+ },
+ "d_n_of_7": 3,
+ "e_n_of_6": 6,
+ "shared_spectrum_fit": {
+  "eff_rank": 10.003904488643483,
+  "rank_90": 12,
+  "top1": 0.407855014244653,
+  "psd_min_over_max": 4.716203060040444e-05
+ },
+ "write_spectrum_fit": {
+  "mlp11": {
+   "eff_rank": 576.9151740738306,
+   "rank_90": 699,
+   "top1": 0.07111866529238918,
+   "psd_min_over_max": 0.0009174064438672114
+  },
+  "mlp12": {
+   "eff_rank": 585.041040006996,
+   "rank_90": 705,
+   "top1": 0.06608288654858588,
+   "psd_min_over_max": 0.0008822197893176895
+  },
+  "mlp13": {
+   "eff_rank": 569.9428949714979,
+   "rank_90": 714,
+   "top1": 0.07270125038066905,
+   "psd_min_over_max": 0.0007835365724591365
+  },
+  "mlp14": {
+   "eff_rank": 670.7846907797814,
+   "rank_90": 735,
+   "top1": 0.034149149163711257,
+   "psd_min_over_max": 0.0017016504894326013
+  },
+  "mlp15": {
+   "eff_rank": 344.8460938443066,
+   "rank_90": 672,
+   "top1": 0.10651577263006953,
+   "psd_min_over_max": 0.0003537316563549609
+  },
+  "mlp16": {
+   "eff_rank": 9.644880672699012,
+   "rank_90": 64,
+   "top1": 0.42290106516682413,
+   "psd_min_over_max": 1.7738468378261674e-05
+  },
+  "mlp17": {
+   "eff_rank": 6.301607339404007,
+   "rank_90": 5,
+   "top1": 0.43378418303544225,
+   "psd_min_over_max": 6.553303215738225e-06
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 1320,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 33.521687030792236
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_MLP_SHARED_WRITE_DICTIONARY_PROBE_PREREGISTRATION.md": "ded1b551dc36da18c3f59a60b57103b8e454b10e3995f82157bb8782d7d55d82",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_joint_k_ladder_probe_results.json": "6b2708a34e0eaf1cf226217995b37c6a8c6398da99dc0e0688d8c960a716b2fe",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "03bba2a56124f152748bbceb8a92534d6077a91200d60bb0e156ee40b99c6e77"
+}

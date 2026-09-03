@@ -1,0 +1,40 @@
+{"stage": "fit", "mlp1_eff_rank": 190.9937939538161, "t": 6.7}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 6.7}
+{"stage": "k", "k": 32, "joint": -0.08656883239746094, "sum_single": -0.07386970520019531, "factor": NaN, "t": 6.9}
+{"stage": "k", "k": 512, "joint": -0.020415306091308594, "sum_single": -0.022672653198242188, "factor": NaN, "t": 7.0}
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_early_superadditive": false,
+  "pred_c_factor_decays": false,
+  "pred_d_early_stack_price_512": true,
+  "pred_e_early_costs_more_than_late": false
+ },
+ "nulls": {
+  "b_null_f32_le_1.1": false,
+  "c_null_f512_ge_f32": false,
+  "d_null_joint512_ge_.30": false,
+  "e_null_joint128_le_.30": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": 3.0322401,
+  "identity_abs_diff": 0.0,
+  "prior_late_joint128": 0.48584,
+  "n_monotone_chains": 0,
+  "n_chains": 4
+ },
+ "joint_ce_added": {
+  "32": -0.08656883239746094,
+  "512": -0.020415306091308594
+ },
+ "superadditivity_factor": {
+  "32": NaN,
+  "512": NaN
+ },
+ "price": {
+  "gpu_doc_forwards": 52,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 7.058477163314819
+ }
+}

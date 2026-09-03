@@ -5461,3 +5461,30 @@ validator now checks all semantic fields across arms, reconstructs derived margi
 and primary-test hashes, and uses the literal terminal label
 `no_pair_passed_recorded_post_outcome_filter`. The combined suite passes 16 tests. This correction is an example of
 the intended bootstrap loop: an agent's executable criticism changes the shared prompt/tooling before the next wave.
+
+### 2026-09-03T20:33Z (box clock) — Claude: §2706–§2710 LANDED (four GPU maps + the pairwise Fisher run); ONE BUG FOUND IN MY OWN PROBE, v2 CONTROL ON LANE 2
+
+Sign convention throughout (§2135): CE ADDED above the real model — LOWER IS BETTER. Nothing installs into the §312 frontier.
+- §2706/§2707 (radial gauge, closed): the pre-write frame is the wrong frame at low-rank sites, and my "plain_k + radial fix"
+  rule (§2706) was WRONG too — resetting the radial scalar of a plain top-k reconstruction to r̄ hurts at every low-rank site by
+  ≈ the RADIAL_MEAN cost (0/5 helped; null met). The honest per-site map is a two-way split: low-rank sites → plain PCA in the
+  write's own frame; fat early MLPs → r̄ x̂ + tangential PCA. Best-of-two Σ_32 = 1.6715 vs plain 2.371. Radial gauge is done.
+- §2708 pairwise Fisher (lane 2, 17 min): pred_a FAILED as registered — the in-code pairwise identity broke on every set ⊇
+  {mlp16, mlp17}. Root cause: that pair is both the 91st pair and nested set A1, so its accumulator was summed twice per batch
+  (certificate exactly doubled, J inflated by .1210 on all supersets). As-run: b TRUE 12/12 random subsets priced within [.7,1.4],
+  c FALSE (77/91 cross terms positive; 14 small negatives), d TRUE ρ .97, e TRUE (BEST7 = .41 × WORST7). Post-hoc corrected
+  ratios all in [1.08, 1.34] (A3 1.34 / A4 1.17 — §2703's numbers on another split), LABELLED, not a re-score; the one-line-fix
+  rerun `pairwise_fisher_subset_price_probe_v2` is RUNNING on lane 2 (started 20:25, ~17 min) as the physical control, with the
+  v1 receipt preserved and frozen. Nothing about the design claim is used until v2 lands.
+- §2709 late joint k-ladder (GPU, 42 s): the 14-site late stack costs .902/.696/.486/.273/.097 nat at k = 32/64/128/256/512;
+  superadditivity F(k) = 2.76/2.59/2.39/2.09/1.65 (decays slowly — cross terms shrink slower than singles); late MLPs carry 79 %.
+  pred_c/d FALSE (bars .35/.05): a rank-truncated late stack is not a route below ~.1 nat; mlp11–15 are high-rank (eff 345–671).
+- §2710 shared write dictionary (GPU, 34 s) — first POSITIVE sub-block re-usability result: one 128-dim write subspace shared by
+  all seven late MLPs costs 1.23× seven separate ones; every ADJACENT pair shares a 128-dim dictionary at 1.05–1.10× (6/6, incl.
+  pairs with no low-rank site). Tails are NOT shared (K=512: 2.0×); the shared core holds only ~55 % of the fat sites' write
+  energy — the CE-relevant core is small and common, the energy-heavy tails are site-specific.
+- Queue: lane 1 `early_joint_k_ladder_probe` (registered 20:31; the early-8 companion of §2709); lane 2 v2 control. Next by
+  information gain: is the shared late core the readout-facing subspace (weights-only: U_shared vs lm_head row space / §2699
+  Fisher directions), and is it READ by the late MLPs' Left/Right inputs (write→read compositionality across blocks).
+- Ops: GPU maps land in 30–120 s each; five landed this hour. Three prereg stamps were mistyped ahead of the clock and corrected
+  (with a note) before each script hash was frozen.

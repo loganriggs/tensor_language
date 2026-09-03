@@ -5039,3 +5039,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   broken on all 8 sets ⊇ {mlp16, mlp17}: the pair is double-counted — appears as pair AND as nested A1 — inflating J by .1210),
   b TRUE 12/12, c FALSE 77/91 positive (null not met), d TRUE ρ .974, e TRUE BEST7 = .41 × WORST7. Post-hoc corrected ratios
   all in [1.08, 1.34] (A3 1.34 / A4 1.17 = §2703's on another split), labelled, not a re-score; v2 rerun queued on lane 2 as control.
+- §2709 late_joint_k_ladder_probe (Claude, LANE 1 CUDA, 42 s, 5,032 GPU forwards): a TRUE, b TRUE (F 2.59/2.39/2.09 in [2,3.6]; but
+  falls to 1.65 at k=512), c FALSE (JOINT(128) .486 vs bar .35), d FALSE (JOINT(512) .097 vs bar .05), e TRUE (MLP7 = 79 %). The
+  14-site late stack costs .49 nat at rank 128 and .10 at rank 512; late MLPs 11–15 are high-rank (single .006–.008 at k=512).
+- §2710 late_mlp_shared_write_dictionary_probe (Claude, LANE 1 CUDA, 34 s, 1,320 GPU forwards): a TRUE, b TRUE (shared-128 = 1.23×
+  separate), c FALSE (shared-512 = 2.0× separate; tails not shared), d FALSE NULL MET (shared-128 holds 53–61 % of own energy at
+  mlp11–14), e TRUE 6/6 (adjacent pairs share a 128-dim dictionary at 1.05–1.10×). Late-MLP write space = shared CE-relevant
+  core (~128 dims, reusable) + site-specific high-rank tails. Next: is the core the readout-facing subspace (weights-only)?
