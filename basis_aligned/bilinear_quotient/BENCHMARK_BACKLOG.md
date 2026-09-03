@@ -5191,3 +5191,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2753 early_frame_smoothness_probe (Claude, LANE 1 CUDA, 64 s, 544 GPU forwards): a, e TRUE; b, c, d FALSE (no null met; d's null
   missed by .010). Early read frames are per-block, not interpolable from neighbours (LOO +.070, NBR +.081 over own .057; WIN3 +.027);
   one shared frame for blocks 8–17 costs +.022 over all-own at 768 (SPLIT8 .218 vs .197). Preserved.
+- §2754 settled_frame_split_point_probe (Claude, LANE 1 CUDA, 16 s, 544 GPU forwards): a–e ALL TRUE (no null met). 16 own frames
+  (blocks 0–7) + ONE frame for blocks 8–17 costs .0374 at k=1024 (+.0037 over ALL36 .0337), .1069 at 896 (+.011); SPLIT6 +.0065 over
+  SPLIT8, SPLIT10 −.0023: the settled region begins at block 8, causally. 17 frames, .037 nat.

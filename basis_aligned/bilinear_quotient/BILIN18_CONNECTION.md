@@ -70885,3 +70885,37 @@ own frames) — the §2750 "settled from block 8" reading holds causally, and th
 can drop from 36 frames to 16 own + 1 shared at a .02 price at k = 768. (4) The null of pred_d was missed by .010: the LOO result
 sits between "frame recoverable" and "frame unrecoverable" — recorded as a bracket miss, not as evidence either way. Failures
 preserved: b, c, d FALSE. Nothing installs into the §312 frontier; the frontier remains norm-2304 at 2.6735 (§2125).
+
+§2753 correction (wording only, recorded separately): the reference arm ALL36_768 (0.197) is §2751's program — 22 own early frames
+PLUS one shared frame for the 14 late sites — not "36 own frames"; SPLIT8 therefore replaces the 6 own frames of blocks 8–10 and the
+late-14 frame by ONE frame for blocks 8–17 (17 frames total instead of 23), at +.022. Numbers and verdicts unchanged.
+
+## §2754 — THE SETTLED REGION BEGINS AT BLOCK 8, AND ONE FRAME FOR BLOCKS 8–17 IS NEARLY FREE AT PROGRAM WIDTH: at k = 1024 the "16 own frames for blocks 0–7 + ONE frame for blocks 8–17" program costs 0.0374 vs §2751's ALL36 0.0337 (+.0037; pred_b "≤ .010" TRUE; null ≥ .03 not met), at k = 896 0.1069 vs 0.0960 (+.0109; pred_c "≤ .015" TRUE); splitting earlier costs (SPLIT6 0.0439, +.0065 over SPLIT8; pred_d "≥ .003" TRUE), splitting later buys almost nothing (SPLIT10 0.0350, −.0023; pred_e "≥ −.003" TRUE) (Claude, LANE 1 CUDA, 16 s, 544 GPU document-forwards): a–e ALL TRUE; no null met.
+
+Registered 2026-09-03 23:09Z (polynomial_causal/SETTLED_FRAME_SPLIT_POINT_PROBE_PREREGISTRATION.md); landed 23:10Z. Script
+ops/settled_frame_split_point_probe.py; results settled_frame_split_point_probe_results.json (sha e4779f4b…). Frozen: prereg, §2751
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits
+docs 96–191) — LOWER IS BETTER; "+" = extra damage over the named reference. Construction: §2753's cores and heads; SPLITp_k gives
+blocks 0..p−1 their own top-k input cores and blocks p..17 the single top-k core of their 2(18−p) sites' averaged covariance.
+
+Instrument (pred_a TRUE): baseline 3.0322401; ALL36_1024 0.03372 vs prior .0337; ALL36_896 0.09601 vs prior .096 (both within 1e-4 —
+the fit is deterministic given the RNG-free covariance pass).
+
+| arm | CE added | gap |
+|---|---|---|
+| ALL36_1024 (22 own + late-14 frame) | 0.0337 | — |
+| SPLIT6_1024 (12 own + one frame 6–17) | 0.0439 | +.0065 over SPLIT8 (d TRUE) |
+| SPLIT8_1024 (16 own + one frame 8–17) | 0.0374 | +.0037 over ALL36 (b TRUE) |
+| SPLIT10_1024 (20 own + one frame 10–17) | 0.0350 | −.0023 vs SPLIT8 (e TRUE) |
+| ALL36_896 | 0.0960 | — |
+| SPLIT8_896 | 0.1069 | +.0109 over ALL36 (c TRUE) |
+
+What it says. (1) The whole-model width program can be written with 17 frames instead of 23 at k = 1024 for +.004 nat: blocks 0–7
+each read their own 1024-frame (16 frames; §2753 says these cannot be interpolated from neighbours) and blocks 8–17 — twenty
+sublayers, both kinds — read ONE shared 1024-frame. Total program: .0374 nat added above the real model. (2) The split point is
+causal, not just a capture-matrix reading (§2750): moving it earlier to block 6 costs .0065 (blocks 6–7 still rotate), moving it
+later to block 10 buys .0023 (blocks 8–9 are already ≈ settled). "Settled from block 8" holds within .002–.007 at k = 1024. (3) The
+price of the single frame shrinks with width (+.022 at 768 → +.011 at 896 → +.004 at 1024), consistent with the shared frame
+missing the same ≈ 3% of energy per site and the per-site cost falling as k grows. Nothing installs into the §312 frontier; the
+frontier remains norm-2304 at 2.6735 (§2125). Next (enqueued 23:11Z, early_frame_drift_rank_probe): whether the 16 early frames
+are one frame plus low-rank drift patches (m = 32/64/128 swapped directions per step).

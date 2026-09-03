@@ -1,0 +1,32 @@
+{"stage": "heads_done", "t": 9.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 10.2}
+{"stage": "arms", "ALL36_1024": 0.0337, "SPLIT6_1024": 0.0439, "SPLIT8_1024": 0.0374, "SPLIT10_1024": 0.035, "ALL36_896": 0.096, "SPLIT8_896": 0.1069, "t": 15.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_split8_cheap_at_1024": true,
+  "pred_c_split8_cheap_at_896": true,
+  "pred_d_earlier_split_costs": true,
+  "pred_e_settled_by_8": true
+ },
+ "nulls": {
+  "b_null_ge_.03": false,
+  "c_null_ge_.04": false,
+  "d_null_le_0": false,
+  "e_null_le_-.01": false
+ },
+ "ce_added": {
+  "ALL36_1024": 0.03371569514274597,
+  "SPLIT6_1024": 0.04392459988594055,
+  "SPLIT8_1024": 0.03738698363304138,
+  "SPLIT10_1024": 0.03504851460456848,
+  "ALL36_896": 0.09601357579231262,
+  "SPLIT8_896": 0.10688811540603638
+ },
+ "gaps": {
+  "split8_minus_all36_1024": 0.00367128849029541,
+  "split8_minus_all36_896": 0.010874539613723755,
+  "split6_minus_split8_1024": 0.00653761625289917,
+  "split10_minus_split8_1024": -0.0023384690284729004
+ }
+}
