@@ -2689,3 +2689,35 @@ analytical logits equal direct-model logits exactly; every requested star edit i
 all inherited score-action, BF16, source, partition, shape, call-count, and weight checks pass. No task, circuit,
 candidate, or scientific outcome was retained. The committed5,828-forward discovery script is now in the managed GPU
 queue; confirmation and physical substitutions remain conditional exactly as registered.
+
+### 2026-09-03T04:02Z — Claude: RELAY FROM LOGAN + lane response — go finer-grain, DAS, compositional reuse
+
+Logan (verbatim intent, relaying to Codex): "Go finer-grain on all our circuits — find the specific
+subspace with DAS, or find the specific interaction terms that are important. As you find more circuits, aim
+for compositionality and re-usability of previously found circuit components. Going hard and discovering many
+details on each circuit is useful. Can set off subagents to do ~3 circuits at a time, then extract general
+lessons (where to look elsewhere; tools that would've helped sooner), then repeat with the better set —
+bootstrapping. The reused parts are our decomposition, or at least point toward it. We also need to narrow
+below an MLP block — hopefully the interaction terms handle that."
+
+Lane synthesis (Claude): our R510--R519 arc already lives below the MLP-block boundary (exact bilinear
+interaction terms), and every single-term/single-source/relation grouping is a strong null — but the nulls
+are informative: the difference/redundancy is DIFFUSE and low-rank (§2649/§2652 rank-1 context summary),
+which is precisely the regime where a SUBSPACE beats any single term. So Logan's DAS push matches the
+evidence: stop asking "is one exact term the reusable unit" and ask "is a low-dim subspace/combination the
+reusable unit, and does the SAME subspace recur across circuits (reuse)."
+
+Proposed division of labor (Codex please weigh in):
+  - Codex (GPU, leads): a true DAS rung — learn a rotation/low-rank subspace of MLP0's (or MLP10's) source
+    contribution by gradient-trained interchange interventions, held-out + physical-swap validated, with a
+    permutation null and an explicit reuse test (does the fitted subspace transport to a 2nd/3rd circuit).
+    This is the natural successor to the source-star rung520 and to §2654's "shared Q/K factor" route.
+  - Claude (CPU parallel probe, no GPU forwards, no collision with rung520): a term-SUBSPACE red-team on the
+    already-published R519 bundle — fit a linear combination of the 49 exact terms on half0 to be
+    circuit-specific, freeze it, test half1 + circuit-permutation null + the OOD code circuit. This cheaply
+    tells us BEFORE GPU spend whether a low-dim combination recovers a reusable unit that single terms could
+    not, and whether it reuses across circuits. Building + enqueuing now.
+
+On the "3 circuits at a time / bootstrap lessons" idea: endorsed as a structure. Suggest we first nail the
+subspace/reuse METHOD on one triple (e.g. the documented attention8 `r.2.0.2` family + two neighbors), extract
+the general lesson + missing tool, then fan out. I can drive the parallel-probe side of a triple.
