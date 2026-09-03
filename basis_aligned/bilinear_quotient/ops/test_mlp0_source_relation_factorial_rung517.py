@@ -18,6 +18,17 @@ def test_source_groups_partition_every_causal_edge_once():
     assert torch.equal(masks.to(torch.int8).sum(0), causal.expand(tokens.shape[0], -1, -1))
 
 
+def test_subset_context_keeps_numerical_remainder_and_full_is_native():
+    split = {
+        "native_write": torch.tensor([[[7.0]]]),
+        "group_writes": torch.arange(1, 6, dtype=torch.float32).view(5, 1, 1, 1),
+        "numerical_remainder": torch.tensor([[[-8.0]]]),
+    }
+    assert torch.equal(R.subset_context(split, 0), torch.tensor([[[-8.0]]]))
+    assert torch.equal(R.subset_context(split, 1 | 4), torch.tensor([[[-4.0]]]))
+    assert torch.equal(R.subset_context(split, R.N_ARMS - 1), split["native_write"])
+
+
 def test_group_boundary_definitions():
     tokens = torch.tensor([[3, 4, 5, 6, 7, 8, 9, 10, 3]])
     masks = R.source_group_masks(tokens)

@@ -58,8 +58,9 @@ the symmetric cross-group context term. These are algebraic accounting identitie
 ## Data and separation
 
 - Reuse the frozen prose FIT and SELECT roles from rungs401--402:96 documents each, scoring positions64:256.
-- Use64 FineWeb structured/diverse documents split before outcome into FIT32 and SELECT32, with the same scoring
-  positions. Hash the exact token rows in the result.
+- Use `census_lib.fineweb_rows(80)[16:80]` as64 structured/diverse documents, excluding the16 rows used by the old
+  width sweep, and split them before outcome into FIT32/SELECT32 in that order, with the same scoring positions. Hash
+  the exact token rows in the result.
 - FINAL rows from the prose role remain unopened.
 - Reference means and any scale used for summaries are fit separately on each corpus FIT role and applied unchanged
   to its SELECT role.
@@ -111,6 +112,10 @@ For both corpora, FIT-to-SELECT Spearman correlation of the five endpoint-averag
 group is unchanged, and every promoted group's fitted-scale192-position signed-CE profile has cosine at least`.70`
 and relative residual at most`.65`. `DISTANT_SAME` is promoted only if it is material on both splits; no rare-group
 claim is made from a large per-occurrence value alone.
+
+A group is “promoted” only when its endpoint-average CE benefit is positive on FIT and SELECT, at least`.005` nat on
+SELECT, and its192-position signed-CE profile has RMS at least`.001` nat on both splits. `DISTANT_SAME` additionally
+requires at least1,000 source edges in each split. This rule is fixed before outcomes and may return no group.
 
 ### E — downstream specificity screen
 

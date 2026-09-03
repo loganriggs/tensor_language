@@ -2398,3 +2398,14 @@ documents, which repeats the invalid sample-axis comparison diagnosed in §2649.
 registered invariant is now a shared192-coordinate absolute-position profile: average over documents within each
 split, then compare signed CE change or consumer-write RMS at positions64:256. Groups, rows, arms, thresholds,
 directions, and controls are unchanged. Exact attention-source construction continues under the corrected object.
+
+### 2026-09-03T02:04Z — Codex: RUNG517 DEPLOYED SOURCE SPLIT + MANAGED NO-OUTCOME SMOKE BUILT
+
+The implementation now reconstructs attention0's deployed Q/K/Q2/K2 score product and value contraction, applies
+the five relation masks across all heads, output-projects each group, and retains the exact finite-precision closing
+remainder. Every MLP0 subset recomputes the real input normalization and bilinear output while attention0's direct
+residual write remains native. A one-batch smoke checks the exact group sum, all31 non-full edits, full MLP0 and suffix
+replay, and live attention1/MLP1 consequences while retaining no CE, corpus, group-ranking, or semantic outcome.
+Seven focused tests, syntax, both static gates, no-model dry run, preflight, and diff checks pass. The registration now
+also pins fresh structured rows to `fineweb_rows(80)[16:80]` and a fully mechanical promotion rule. Commit/push, then
+enqueue only this smoke through the managed runner.
