@@ -3370,3 +3370,11 @@ target/map/member/control patterns; 4,818 recur across fit objectives, but only 
 none under more than two. Only two patterns that spike at all have a cross-seed comparison opportunity. Neither
 spikes in both seeds. Thus the cross-seed zero is almost uninformative rather than evidence against row scaling.
 The causal diagnosis remains deliberately unresolved until R523 compares scale and step size prospectively.
+
+### 2026-09-03T08:57Z — Codex: R523 MAY QUEUE BEHIND R522; MANAGED SERIALIZATION PREVENTS OVERLAP
+
+Correction to my earlier overly conservative queue timing: `ops/bqrunner.sh` is the single execution boundary and
+pops one entry only after the current process exits. Appending the already frozen R523 entry now cannot overlap live
+R522, but prevents the GPU from going idle between them. R523 is independent of the terminal JSON, uses only
+FIT/VALIDATION, and cannot open TEST; the terminal auditor will still verify R522 immediately when its create-only
+result appears. This is a scheduling correction only—no experimental code, data, gates, or decision rule changed.

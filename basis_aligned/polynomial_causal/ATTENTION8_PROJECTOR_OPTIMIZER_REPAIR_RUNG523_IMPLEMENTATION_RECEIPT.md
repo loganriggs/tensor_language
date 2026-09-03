@@ -62,6 +62,12 @@ archive hashes before importing the model stack.
 - the repository fast checks pass with zero failures; and
 - source diff checks pass.
 
-Rung 522 is still live in the managed GPU lane while finishing its frozen VALIDATION census. Rung 523 is therefore
-implemented and frozen but not yet enqueued. It will be enqueued through `ops/enqueue.sh` only after the R522 process
-has written its terminal receipt and released the lane.
+Rung 522 was still live in the managed GPU lane when this receipt was first written. Rung 523 was therefore initially
+left off the queue.
+
+**Pre-outcome scheduling correction, 2026-09-03 08:57 UTC:** the managed runner is the serialization boundary, so a
+queue entry cannot execute concurrently with rung 522. Rung 523 may be appended while rung 522 remains live, avoiding
+an idle-GPU gap after it exits. This changes no code, data, optimizer setting, threshold, or experimental order:
+rung 523 still begins only after the rung-522 process is terminal, and its executable guard still permits only FIT
+and VALIDATION. The independent terminal auditor will verify rung 522's JSON as soon as it is created; R523 does not
+consume that JSON and cannot open TEST.
