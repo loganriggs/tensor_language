@@ -1,0 +1,44 @@
+{
+ "status": "complete",
+ "rung": "mlp0_low_dim_footprint_universality_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "universality_of_low_dim_reliable_footprint_indicative_cross_module_not_apples_to_apples",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_LOW_DIM_FOOTPRINT_UNIVERSALITY_PROBE_PREREGISTRATION.md": "a46e06b0adbbd4db49098346aa526691e9d130a035567682eaf18bebf53b627f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_one_circuit_interaction_atlas_rung519_bundle.pt": "54a4ce1c465b6b953b54d2fa4e104c055f5446f39f3ac5167f7aae12b320bd8a"
+ },
+ "module": "MLP0_R519_49_terms_of_one_source",
+ "lambda1": 0.0025098221936115527,
+ "lambda1_null_q95": 0.0030990594939211773,
+ "n_eigs_above_null": 0,
+ "total_reliable_variance": 0.01415957286973513,
+ "coverage_fraction_top3": 0.4490803197082177,
+ "coverage_bootstrap_ci95": [
+  0.4471540605060289,
+  0.5034450194170624,
+  0.5671650399683157
+ ],
+ "coverage_pure_noise_baseline_q95": 0.49524125054531315,
+ "mlp10_reference_2666": {
+  "coverage": 0.764,
+  "noise_floor": 0.583,
+  "note": "indicative only; different decomposition (22 source-stars vs 49 terms)"
+ },
+ "bars": {
+  "k": 3,
+  "f_bar": 0.5,
+  "n_resample": 400
+ },
+ "pred_a_instrument_reproduces_r519_whole_effect": true,
+ "pred_b_mlp0_has_a_reliable_shared_direction": false,
+ "pred_c_mlp0_reliable_footprint_is_low_dim_majority_coverage": false,
+ "strong_null": true,
+ "verdict": "mlp0_pooled_terms_no_reliable_shared_direction_law_does_not_extend_here",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.055840492248535156
+}

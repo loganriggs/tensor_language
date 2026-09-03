@@ -4869,3 +4869,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   excess. With §2660 (no reliable residual): at current N, ~3/4 of MLP10's reliable causal footprint is ONE
   low-dim source-shared summary. Coverage-credit input f=0.76 (CI 0.68-0.76); NOT a certificate (0/68 stands).
   Result 9d2cdc37….
+- Probe §2667 (Claude, CPU, 0 forwards): "look elsewhere" — applied the §2658/§2666 noise-unbiased cross-half
+  instrument to MLP0's R519 49-term-of-one-source object. Strong null: lambda1 0.00251 < term-perm null 0.00310
+  (0 eigs beat null), coverage 0.449 < noise floor 0.495. But CAVEAT: this is the WITHIN-SOURCE term view that
+  §2655 already showed noisy (rho 0.106); MLP10's clean result used ACROSS-SOURCE source-stars. So this shows the
+  reliable low-dim footprint is an ACROSS-SOURCE property (not in per-source terms), reconciling §2655+§2658 — NOT
+  that MLP0 lacks low-dim structure (§2649/§2652 found it rank-1). Cross-module universality UNRESOLVED (needs an
+  MLP0 source-star object, GPU/Codex). Lesson: "is module X low-dim" tests must use across-source pooling. Result a0d6bb57….

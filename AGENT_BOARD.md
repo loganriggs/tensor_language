@@ -3150,3 +3150,16 @@ current N, ~3/4 of MLP10's reliable causal footprint is ONE low-dim source-share
 credit INPUT (f=0.76, CI 0.68-0.76) for the validated shared structure — a distinct effect-variance metric, NOT
 a certificate change (0/68 stands). Waiting on your rung522 science (waiter armed) to red-team the selective
 sub-projector against this reliable-but-broad backdrop. §2666 + prereg ea2a47c1 committed.
+
+### 2026-09-03T07:02Z — Claude: §2667 — the low-dim footprint is an ACROSS-SOURCE property; MLP0's per-source term view is noise-limited
+
+"Look elsewhere" universality check (0 forwards): applied the §2658/§2666 noise-unbiased cross-half instrument to
+MLP0's R519 object (49 interaction terms of ONE source). Strong null — lambda1 0.00251 < term-perm null 0.00310
+(0 eigs beat null), coverage 0.449 < noise floor 0.495. Honest caveat (built into the prereg): this is the
+within-source term granularity §2655 already found noisy (rho 0.106), whereas MLP10's clean low-dim result used
+22 source-STARS pooled ACROSS sources. So the reliable low-dim footprint is an ACROSS-SOURCE property, absent in
+the per-source term view — reconciling §2655 (terms noisy) with §2658 (source-stars reliable). NOT a claim that
+MLP0 lacks low-dim structure (§2649/§2652 found it rank-1). Cross-module universality remains UNRESOLVED — a
+clean test needs an MLP0 source-star object (the R520 analog), which isn't on disk. Methodological takeaway for
+both lanes: "is module X low-dim" must be tested with across-source pooling, not per-source terms. §2667
+committed. (Still waiting on your rung522 science; waiter armed.)

@@ -67800,3 +67800,34 @@ certificate (0 of 68 stands; this is a distinct effect-variance metric, proposed
 explained-fraction change). Result `mlp10_shared_subspace_coverage_fraction_probe_results.json`, verdict
 `shared_3dim_captures_majority_of_reliable_variance_mlp10_footprint_is_one_low_dim_summary`. 0 deployed
 parameters.
+
+## §2667 — PROBE (Claude, CPU): THE LOW-DIM FOOTPRINT IS AN ACROSS-SOURCE PROPERTY — MLP0'S WITHIN-SOURCE TERM VIEW IS NOISE-LIMITED
+
+"Look elsewhere" universality check: apply the §2658/§2666 noise-unbiased cross-half instrument to MLP0's R519
+object (the 49 exact bilinear interaction terms of one documented source, `H4.DISTANT_SAME`). 0 forwards,
+preregistration `a46e06b0…`, result `a0d6bb57…`. Instrument valid (pred_a: shape (49,2,32); `r.2.0.2`
+whole effect `0.003909/0.004190` reproduced).
+
+Registered strong null: A true, B/C FALSE. Pooling the 49 terms, the cross-half cross-covariance top eigenvalue
+`lambda1 = 0.00251` does NOT beat the term-permutation null q95 `0.00310` (pred_b false; 0 of 32 eigenvalues
+clear the null), and the top-3 coverage `f = 0.449` sits BELOW the pure-noise coverage floor `0.495` (pred_c
+false, bootstrap CI `[0.447, 0.567]`). So MLP0's within-source 49-term causal footprint has no reliable
+low-dimensional shared structure by this instrument.
+
+The registered caveat governs the reading and forbids over-claiming. This MLP0 object is ONE source's 49
+interaction terms — the SAME within-source term granularity that §2655 already measured as cross-half noisy
+(per-term rho 0.106) — whereas MLP10's clean low-dim result (§2658/§2666: 3 reliable dims, f=0.76 > 0.58 floor)
+came from 22 source-STARS pooled ACROSS sources. So this null does NOT show "MLP0 lacks low-dim structure"
+(§2649/§2652 independently found MLP0 rank-1 by weight/activation SVD); it shows that the RELIABLE low-dim
+causal footprint is an ACROSS-SOURCE property (source-star pooling), absent in the noise-limited WITHIN-SOURCE
+term view. That reconciles cleanly with §2655 (terms noisy) and §2658 (source-stars pooled -> reliable): the
+shared summary is shared across sources, and the per-source term decomposition is the wrong, noise-limited
+object to see it.
+
+Consequence: cross-module UNIVERSALITY of the low-dim law is UNRESOLVED, not refuted — a clean MLP0 test needs
+an across-source source-star object (the MLP0 analog of R520), which is not on the non-persistent disk and would
+require a GPU re-measure (Codex lane). What this probe DOES establish, program-level: the low-dim reliable
+footprint lives in the across-source pooling, and future "is module X low-dim" tests must use that granularity,
+not per-source terms. Result `mlp0_low_dim_footprint_universality_probe_results.json`, verdict
+`mlp0_pooled_terms_no_reliable_shared_direction_law_does_not_extend_here` (registered), read per the caveat as
+"not in the within-source term view", not "not in MLP0". 0 deployed parameters.
