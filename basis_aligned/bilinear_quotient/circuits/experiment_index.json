@@ -7,11 +7,27 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 38,
- "design_count": 31,
- "protocol_count": 31,
- "execution_count": 38,
+ "event_count": 39,
+ "design_count": 32,
+ "protocol_count": 32,
+ "execution_count": 39,
  "open_preregistrations": [
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_target_invariance_das.r556.preregistered.v1",
+   "claim_id": "pending_opener_state.v23",
+   "test_type": "das_interchange",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "79e4c5f2243a20e753e0034b855d6467b44bc91b006ff393d0483006f170abbf",
+   "protocol_key": "6eaf421abedb4b3c4b45e05bb8e3a0b16f67091715f1d7585b91f10ad2eea676",
+   "execution_key": "790d8868ed873a3e64135c2810f6ac075c2ec8375ae5cf2a5a9d6a81db2ff5e4",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r556_target_invariance_das_preregistration",
+   "result_artifact_id": null
+  },
   {
    "circuit": "task.induction.selector_payload",
    "event_id": "induction_selector_payload_capability.r554.preregistered.v1",
@@ -559,6 +575,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r551_downstream_readout_guard_preregistration",
    "result_artifact_id": "r551_downstream_readout_guard_result"
+  },
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_target_invariance_das.r556.preregistered.v1",
+   "claim_id": "pending_opener_state.v23",
+   "test_type": "das_interchange",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "79e4c5f2243a20e753e0034b855d6467b44bc91b006ff393d0483006f170abbf",
+   "protocol_key": "6eaf421abedb4b3c4b45e05bb8e3a0b16f67091715f1d7585b91f10ad2eea676",
+   "execution_key": "790d8868ed873a3e64135c2810f6ac075c2ec8375ae5cf2a5a9d6a81db2ff5e4",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r556_target_invariance_das_preregistration",
+   "result_artifact_id": null
   },
   {
    "circuit": "task.increment.state",

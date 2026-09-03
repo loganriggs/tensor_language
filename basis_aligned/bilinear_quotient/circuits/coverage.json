@@ -118,7 +118,7 @@
   },
   "task.bracket.pending_opener": {
    "kind": "behavior_circuit",
-   "claim_status": "site_live",
+   "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "categories": {
     "capability": {
@@ -153,8 +153,10 @@
      "blocking_event_ids": [
       "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
+     "planned_event_ids": [
+      "pending_opener_target_invariance_das.r556.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_target_invariance_das.r556.preregistered.v1"
     },
     "cross_family": {
      "status": "blocked",
@@ -205,7 +207,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 2,
-   "next_missing": "preregister an L13H8 endpoint-plus-invariance interchange that rewards both answer-changing families and directly penalizes all three live answer-preserving families; do not use R549 as an independent downstream target and keep FINAL_TEST/OOD closed"
+   "next_missing": "execute and independently audit the frozen R556 FIT-trained target-plus-invariance interchange; keep FINAL_TEST/OOD closed and do not extend capacity after a null"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",

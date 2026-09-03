@@ -2,12 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-38 events; 31 scientific protocols; 38 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+39 events; 32 scientific protocols; 39 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
+| `task.bracket.pending_opener` | `pending_opener_target_invariance_das.r556.preregistered.v1` | das_interchange | `pending_opener_state.v23` | `6eaf421abedb` |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | capability | `induction_selector_and_payload.v2` | `28ca96108955` |
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` |
 
@@ -53,6 +54,7 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.preregistered.v1` | preregistered/inconclusive | null_control | `pending_opener_state.v21` | `c9bbba52f07a` | `c921a2705ff8` | `88779d3fe0ab` | — |
 | `task.bracket.pending_opener` | `pending_opener_downstream_response_atlas.r549.complete.null.v1` | complete/null | cross_family_transfer | `pending_opener_state.v20` | `a74b9ea95392` | `700f72fc09dc` | `c3753b112511` | supersedes `pending_opener_downstream_response_atlas.r549.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.complete.null.v1` | complete/null | null_control | `pending_opener_state.v21` | `c9bbba52f07a` | `c921a2705ff8` | `36248f849fa7` | supersedes `pending_opener_downstream_readout_guard.r551.preregistered.v1` |
+| `task.bracket.pending_opener` | `pending_opener_target_invariance_das.r556.preregistered.v1` | preregistered/inconclusive | das_interchange | `pending_opener_state.v23` | `6eaf421abedb` | `79e4c5f2243a` | `790d8868ed87` | — |
 | `task.increment.state` | `increment_postattn_rank4_das.legacy.v1` | complete/held | das_interchange | `increment_state.v1` | `af4ef28c6d4a` | `6bc87c9422a7` | `c7b2b12e2046` | — |
 | `task.induction.selector_payload` | `induction_terminal_collateral_failure.legacy.v1` | complete/failed | removal | `induction_selector_and_payload.v1` | `978c6755026c` | `415d71f6164c` | `3f1424dfed98` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v2` | `28ca96108955` | `e6cc50c5fbeb` | `b1bddde07ddf` | — |

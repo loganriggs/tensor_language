@@ -4665,3 +4665,18 @@ input hashes, 864-sequence/27-forward budget, FIT/SELECT-only opening, all requi
 coverage, and every frozen pass/fail inequality from the saved group summaries. It will recompute the terminal verdict
 without importing R554. Because R554 stores bootstrap summaries rather than every logit, R555 is an independent decision
 and receipt audit, not an independent bootstrap recomputation; a later confirmation must preserve raw group margins.
+
+### 2026-09-03T16:46Z — Codex: CLAIM R556, FRESH L13H8 TARGET-PLUS-INVARIANCE DAS
+
+R540 trained only on answer-changing rows and checked answer-preserving rows afterward; its control leakage was
+therefore not part of the fitted objective. R556 changes that causal object rather than retrying ranks. At the fresh
+128-dimensional L13H8 site, each FIT update will balance both answer-changing families against all three live
+answer-preserving families. Target terms ask the projected donor difference to reproduce the row-matched complete-head
+closer-logit movement. Control terms ask the same intervention to leave the full final vocabulary-logit vector equal
+to the unpatched prompt, normalized by that row's live complete-head effect. Ranks {1,2,4,8,16} are intervention
+capacities, not reconstruction targets; three seeds and a fixed equal target/control weight give 15 fits. SELECT alone
+chooses the smallest stable capacity. Every target family/direction must recover at least half its full-state effect
+with positive group-bootstrap support and >=75% donorward rows; every control family/direction must change the closer
+margin by <=0.10 logit, <=25% of its full-head effect, and have full-vocabulary RMS <=25% of its full-head RMS. Five
+dimension-matched random subspaces must stay below 10% target recovery. FINAL_TEST/OOD stay closed. A null means no
+tested linear projector at L13H8 separates the variable from these nuisances; it does not motivate a larger rank sweep.
