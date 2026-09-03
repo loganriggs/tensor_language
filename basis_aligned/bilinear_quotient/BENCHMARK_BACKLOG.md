@@ -5185,3 +5185,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2751 whole_model_width_program_probe (Claude, LANE 1 CUDA, 21 s, 608 GPU forwards): a–e ALL TRUE. Whole-model width program
   (22 own early cores + 1 shared late core) .197/.096/.034 at 768/896/1024; composition +.002 at 1024; BUS form holds (−.005/−.001).
   Preserved.
+- §2752 late_readout_channel_rank_probe (Claude, LANE 1 CUDA, 14 s, 704 GPU forwards): a, c TRUE; b, d, e FALSE (no null met). The
+  readout side-channel (out-of-core late writes) has eff rank 218 of 384 (rank_90 294); truncation to 32/64/128/256 dims +.066/.054/
+  .036/.011 — broad, not a compact object. Preserved.

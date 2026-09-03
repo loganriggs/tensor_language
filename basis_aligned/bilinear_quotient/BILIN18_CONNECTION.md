@@ -70821,3 +70821,32 @@ interaction. What this does NOT buy: any weight compression (the read frames are
 sublayers keep all their weights). What it does buy is a faithful, manipulable coordinate description: 36 read frames of which 14
 coincide, a bus, and a readout — the object the smaller-program search should be phrased in. Failures: none in this rung;
 preserved as scored.
+
+## §2752 — THE READOUT SIDE-CHANNEL IS WIDE, NOT NARROW: the routed out-of-core late write sum (384-dim complement of the 768 read core) has effective rank 218 and needs 294 dims for 90% of its variance (pred_e "≤ 150" FALSE; null ≥ 300 not met); truncating it to 32 / 64 / 128 / 256 dims costs +.066 / +.054 / +.036 / +.011 over the full channel (.050) — pred_b (128 ≤ +.03) FALSE by .006, pred_c (64 ≤ +.06) TRUE; inside the BUS program a 128-dim side-channel costs +.036 (pred_d ≤ .03 FALSE); the channel's mean carries 0.05% of its energy (Claude, LANE 1 CUDA, 14 s, 704 GPU document-forwards): a, c TRUE; b, d, e FALSE; no null met. Preserved.
+
+Registered 2026-09-03 23:00Z (polynomial_causal/LATE_READOUT_CHANNEL_RANK_PROBE_PREREGISTRATION.md); landed 23:02Z. Script
+ops/late_readout_channel_rank_probe.py; results late_readout_channel_rank_probe_results.json (sha efcaaa08…). Frozen: prereg,
+§2751 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split; fits docs 96–191) — LOWER IS BETTER. Construction: §2748's TO_READOUT routing; the side-channel basis Q_r is the top-r PCs
+of the fit-set covariance of the routed sum (one extra fit pass), applied as q₀ + Q_r Q_rᵀ(acc − q₀) before the sum joins the final
+residual.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401; TO_READOUT_768 .04996 (prior .050); BUS_768 .1054 (prior .105).
+- pred_b_side_channel_128 FALSE: R128 − full = .0860 − .0500 = +.036 (bar ≤ .03; null ≥ .10 not met).
+- pred_c_side_channel_64 TRUE: R64 − full = +.0545 (bar ≤ .06; null ≥ .15 not met).
+- pred_d_bus_with_128_side_channel FALSE: BUS_R128 − BUS = .1417 − .1054 = +.036 (bar ≤ .03; null ≥ .10 not met).
+- pred_e_side_channel_is_low_rank FALSE: eff rank 218.2 of 384 (bar ≤ 150; null ≥ 300 not met); rank_90 = 294.
+
+Descriptive. Side-channel truncation curve (cost over the full channel): 32 +.066, 64 +.054, 128 +.036, 256 +.011; deleting the
+channel entirely is +.097 (§2748 DELETE .147 − .050). So 32 dims recover a third of the channel's value, 128 dims two thirds,
+256 dims nine tenths — the same slowly-saturating shape as every other width curve in this arc. The channel is nearly mean-free
+(mean energy fraction 5e-4): it is variance, not a bias.
+
+Reading. The picture "768-dim bus plus a narrow side-channel to the logits" is FALSE in the narrow half: what the late stack sends
+past the bus to the readout is itself a broad, ~220-effective-dimensional signal spread over most of the 384-dim complement. Put
+together with §2751 (the whole-model program at 1024 costs .034 and at 768 .197) this says the late stack's use of the residual's
+last third is genuinely distributed — the readout consumes directions the late sublayers never read, and those directions are
+many. The late program's honest width is therefore "768 for the bus, ~1024–1152 for the readout", and the cheapest complete late
+description remains the §2745/§2751 one at k = 1024 (.023 late-only). What this rules out: a compact side-channel object worth
+compiling separately. Failures preserved; nothing installs into the §312 frontier.

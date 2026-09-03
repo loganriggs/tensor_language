@@ -1,0 +1,36 @@
+{"stage": "heads_done", "t": 8.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 9.1}
+{"stage": "cores", "out_of_core_energy_768": {"mlp11": 0.216, "mlp12": 0.226, "mlp13": 0.236, "mlp14": 0.265, "mlp15": 0.22, "mlp16": 0.043, "mlp17": 0.028, "attn11": 0.119, "attn12": 0.164, "attn13": 0.226, "attn14": 0.273, "attn15": 0.241, "attn16": 0.243, "attn17": 0.087}, "t": 9.2}
+{"stage": "side_channel", "eff_rank": 218.2, "rank_90": 294, "mean_energy_frac": 0.0005, "t": 10.0}
+{"stage": "arms", "TO_READOUT_768": 0.05, "BUS_768": 0.1054, "TO_READOUT_768_R32": 0.1164, "TO_READOUT_768_R64": 0.1045, "TO_READOUT_768_R128": 0.086, "TO_READOUT_768_R256": 0.0608, "BUS_768_R128": 0.1417, "t": 13.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_side_channel_128": false,
+  "pred_c_side_channel_64": true,
+  "pred_d_bus_with_128_side_channel": false,
+  "pred_e_side_channel_is_low_rank": false
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.15": false,
+  "d_null_ge_.10": false,
+  "e_null_ge_300": false
+ },
+ "ce_added": {
+  "TO_READOUT_768": 0.049957275390625,
+  "BUS_768": 0.10540610551834106,
+  "TO_READOUT_768_R32": 0.11640700697898865,
+  "TO_READOUT_768_R64": 0.10445481538772583,
+  "TO_READOUT_768_R128": 0.08595010638237,
+  "TO_READOUT_768_R256": 0.06083688139915466,
+  "BUS_768_R128": 0.14170947670936584
+ },
+ "gaps": {
+  "R32_minus_full": 0.06644973158836365,
+  "R64_minus_full": 0.05449753999710083,
+  "R128_minus_full": 0.035992830991744995,
+  "R256_minus_full": 0.010879606008529663,
+  "bus_R128_minus_bus": 0.03630337119102478
+ }
+}

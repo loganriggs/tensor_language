@@ -1,0 +1,83 @@
+{
+ "rung": "late_readout_channel_rank_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_side_channel_128": false,
+  "pred_c_side_channel_64": true,
+  "pred_d_bus_with_128_side_channel": false,
+  "pred_e_side_channel_is_low_rank": false
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.15": false,
+  "d_null_ge_.10": false,
+  "e_null_ge_300": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.03,
+  "c_max": 0.06,
+  "d_max": 0.03,
+  "e_max": 150.0
+ },
+ "null_bars": {
+  "b_min": 0.1,
+  "c_min": 0.15,
+  "d_min": 0.1,
+  "e_min": 300.0
+ },
+ "device": "cuda",
+ "k": 768,
+ "rs": [
+  32,
+  64,
+  128,
+  256
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "to_readout_768": 0.049957275390625,
+  "prior_to_readout_768": 0.05,
+  "bus_768": 0.10540610551834106,
+  "prior_bus_768": 0.105
+ },
+ "ce_added": {
+  "TO_READOUT_768": 0.049957275390625,
+  "BUS_768": 0.10540610551834106,
+  "TO_READOUT_768_R32": 0.11640700697898865,
+  "TO_READOUT_768_R64": 0.10445481538772583,
+  "TO_READOUT_768_R128": 0.08595010638237,
+  "TO_READOUT_768_R256": 0.06083688139915466,
+  "BUS_768_R128": 0.14170947670936584
+ },
+ "gaps": {
+  "R32_minus_full": 0.06644973158836365,
+  "R64_minus_full": 0.05449753999710083,
+  "R128_minus_full": 0.035992830991744995,
+  "R256_minus_full": 0.010879606008529663,
+  "bus_R128_minus_bus": 0.03630337119102478
+ },
+ "side_channel": {
+  "eff_rank": 218.20531636891775,
+  "rank_90": 294,
+  "mean_energy_frac": 0.0005105066976610826,
+  "max_dim": 384
+ },
+ "price": {
+  "gpu_doc_forwards": 704,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 13.65222454071045
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_READOUT_CHANNEL_RANK_PROBE_PREREGISTRATION.md": "d9618fa92ffdb3056789aca6cd0b551085322c69dd961c4ba68a9f15ed0828c5",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_width_program_probe_results.json": "a3df6484be4f8973f7711b1f887be39e2d8ab0adceda5af51aadc2efdb98cafc",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "13d01e5b8759ba94c5d4066608376f162b353bb6eec848ae08970b1c7b401572"
+}
