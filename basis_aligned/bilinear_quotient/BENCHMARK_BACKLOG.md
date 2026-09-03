@@ -4973,3 +4973,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2690 mlp0_hybrid_target_in_situ_separability_probe (Claude, CPU exact block-0 pass, 101 s): a TRUE, b FALSE (rho median
   .95, not <= .5 — preserved), c/d TRUE (token res .066, context .144 in situ; eff ranks 42 / 259). Supersedes the rho=1
   stated-model rows as R536's operative ladder reference.
+- §2691 mlp0_hybrid_target_in_situ_cross_corpus_probe (Claude, CPU, 142 s): a TRUE, b/c FALSE — split-half floors
+  (.08-.10 token, .20 context) show the 4608-dim sample Wiener map overfits at 12-25k samples; §2690's any-rank residuals
+  corrected to in-sample lower bounds (token OOS in [.066,.144], context in [.144,.304]). Cross-fitted probe queued.

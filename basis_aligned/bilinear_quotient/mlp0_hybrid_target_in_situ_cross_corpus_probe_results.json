@@ -1,0 +1,118 @@
+{
+ "status": "complete",
+ "rung": "mlp0_hybrid_target_in_situ_cross_corpus_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "exact_block0_in_situ_linear_regime_cross_corpus_no_circuit_claim",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_HYBRID_TARGET_IN_SITU_CROSS_CORPUS_PROBE_PREREGISTRATION.md": "a25ba0dbf5866d7fc850b98519018077d4d400ffe778d8f380a1d6a091d1ecbc",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_hybrid_target_in_situ_separability_probe.py": "71cf276ea113b0cfe4dd4f8c49b278dee378432ae5a1f02bd5a88c13d6174e39",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9"
+ },
+ "frozen_in_situ_results_hash": "bacf00a8c574e7c20286d0cf5fece9d438f5b73fc15973052c61a51dc4aa385b",
+ "reproduction_error_vs_frozen": 8.275032922777648e-09,
+ "results": {
+  "token": {
+   "own_residual": {
+    "nat": 0.06573812273491936,
+    "code": 0.035944604384218565,
+    "nat_h0": 0.04773407990114617,
+    "nat_h1": 0.04847215459633516,
+    "code_h0": 0.023119697168851462,
+    "code_h1": 0.023193922640299767
+   },
+   "transfer_penalty": {
+    "nat_to_code": 0.2190719851208923,
+    "code_to_nat": 0.17138219136162813,
+    "nat_h0_to_h1": 0.0956733790481738,
+    "nat_h1_to_h0": 0.09595634239749651,
+    "code_h0_to_h1": 0.07863660039817973,
+    "code_h1_to_h0": 0.07797507986729041
+   },
+   "within_corpus_floor": {
+    "natural": 0.09595634239749651,
+    "code": 0.07863660039817973
+   },
+   "penalty_relative_to_destination_own": {
+    "nat_to_code": 6.09471126122828,
+    "code_to_nat": 2.6070441964505906
+   },
+   "response_distance": {
+    "nat_code": 0.4614959413535382,
+    "nat_h0_h1": 0.38969968025546897,
+    "code_h0_h1": 0.4121240444761262
+   },
+   "n": {
+    "nat": 24576,
+    "code": 24576,
+    "nat_h0": 12288,
+    "nat_h1": 12288,
+    "code_h0": 12288,
+    "code_h1": 12288
+   }
+  },
+  "context": {
+   "own_residual": {
+    "nat": 0.144296523990686,
+    "code": 0.11551060606034802,
+    "nat_h0": 0.10772382472081149,
+    "nat_h1": 0.10869214173259925,
+    "code_h0": 0.08073889506600031,
+    "code_h1": 0.08132011896953809
+   },
+   "transfer_penalty": {
+    "nat_to_code": 0.4005749710866854,
+    "code_to_nat": 0.27493156767877863,
+    "nat_h0_to_h1": 0.1957647259812161,
+    "nat_h1_to_h0": 0.19398168830561197,
+    "code_h0_to_h1": 0.20281651667649483,
+    "code_h1_to_h0": 0.19736986181699046
+   },
+   "within_corpus_floor": {
+    "natural": 0.1957647259812161,
+    "code": 0.20281651667649483
+   },
+   "penalty_relative_to_destination_own": {
+    "nat_to_code": 3.4678631231266044,
+    "code_to_nat": 1.9053235661901657
+   },
+   "response_distance": {
+    "nat_code": 0.604779382089251,
+    "nat_h0_h1": 0.5364410490251053,
+    "code_h0_h1": 0.5844444195740152
+   },
+   "n": {
+    "nat": 24576,
+    "code": 24576,
+    "nat_h0": 12288,
+    "nat_h1": 12288,
+    "code_h0": 12288,
+    "code_h1": 12288
+   }
+  }
+ },
+ "bars": {
+  "rel_pen_min_token": 0.5,
+  "floor_multiple": 3.0,
+  "rel_pen_max_context": 0.1,
+  "repro_tol": 1e-06,
+  "nulls": {
+   "token_rel_pen": 0.1,
+   "context_rel_pen": 0.5
+  }
+ },
+ "pred_a_instrument": true,
+ "pred_b_token_target_separator_corpus_specific_in_situ": false,
+ "pred_c_context_target_separator_transportable_in_situ": false,
+ "strong_null": true,
+ "verdict": "contrast_does_not_replicate_in_situ",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "block0_attention_passes_docs": 384,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 142.45358443260193
+}

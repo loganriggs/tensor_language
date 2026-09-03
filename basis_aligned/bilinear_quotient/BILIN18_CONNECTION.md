@@ -68411,3 +68411,42 @@ the real context is far from isotropic (its interaction with the token branch co
 directions instead of ~785), and the real token distribution collapses the token branch onto ~42. The isotropic
 scans were worst cases, as §2688 already suspected for the token side. No circuit claim; no explained-fraction
 change. The in-situ cross-corpus replication of §2688/§2689 is queued behind rung539.
+
+## §2691
+**MLP0 hybrid-target IN-SITU cross-corpus transfer (Claude CPU lane; 142 s; 0 full forwards). Preregistered 14:58
+(`MLP0_HYBRID_TARGET_IN_SITU_CROSS_CORPUS_PROBE_PREREGISTRATION.md`), landed 14:58 (`mlp0_hybrid_target_in_situ_cross_corpus_probe_results.json`,
+f16a4e3a). Scored as written: a TRUE (pooled-halves reproduce §2690's own residuals to 8e-9), b FALSE, c FALSE.
+Verdict as coded: `contrast_does_not_replicate_in_situ`. The correct reading is narrower and carries a CORRECTION
+to §2690: the sample-based general Wiener instrument at N = 12-25k samples for a 4608-dim map is dominated by
+finite-sample overfitting, and the §2688/§2689 contrast is UNRESOLVED in situ, not refuted.**
+
+Numbers (LOWER residual = more faithful). TOKEN target: own residuals nat .066 / code .036; but the HALF-corpus own
+residuals are lower still (.048 / .023) and the within-corpus split-half transfer penalties are .096 (natural) and
+.079 (code) — i.e. a map fitted on 96 documents loses more on the other 96 documents of the SAME corpus than its
+entire in-sample residual. Cross-corpus penalties .219 (nat->code) and .171 (code->nat): 6.1x / 2.6x the destination's
+own residual (that half of pred_b passed) but only 2.3x / 2.2x the split-half floor (bar 3x) — FALSE. CONTEXT target:
+own .144 / .116; split-half penalties .196 / .203; cross-corpus .401 / .275 — 2.0x / 1.4x the floor; relative to own
+3.5x / 1.9x, nowhere near the <= .1x transportability bar — FALSE; but with a floor of .2 the test had no power to
+show transportability either. Response distances: nat-code .46 (token) / .60 (context) vs split-half .39-.41 /
+.54-.58 — barely above noise.
+
+Diagnosis (instrument, not physics). The general Wiener map P = C_to C_oo^{-1} has 4608^2 = 21M free entries; the
+half-arms fit it from 12,288 samples (2.7 per dimension) and the whole-corpus arms from 24,576 (5.3 per dimension).
+The in-sample residual is therefore optimistic and the split-half penalty is mostly estimation error, not corpus
+structure. §2686-§2689 did not have this problem because their covariances were CLOSED-FORM under the stated model.
+
+CORRECTION to §2690 (recorded here, §2690 left as written): its "any-rank" own residuals (.066 token, .144 context)
+are in-sample lower bounds. A conservative out-of-sample estimate from this probe's half-fits is own_h1 +
+pen(h0->h1): token natural .0485 + .0957 = .144, context .1087 + .1958 = .304 (these are fitted on half the data, so
+the full-data out-of-sample value lies between the in-sample figure and this bound: token in [.066, .144], context in
+[.144, .304]). §2690's pred_c/pred_d (<= .15) therefore stand only as in-sample results; out of sample the token target
+is at or just inside the bar and the context target is likely OUTSIDE it. The low-k ladder entries (k <= 128) have far
+fewer free parameters and are the trustworthy part of §2690; the effective-rank numbers (42 / 259) are
+covariance spectra of the TARGETS themselves, not of a fitted map, and are unaffected. §2690's headline for R536 is
+revised accordingly: a rank-32/128 TOKEN projector carrying ~76%/86% in sample is plausible but the true figure is
+lower; the CONTEXT target's "hundreds of dimensions" warning is, if anything, strengthened.
+
+What fixes the instrument: cross-fitting (fit on one document half, evaluate on the other, both directions) with a
+ridge chosen by nested validation on the training half, reported as the honest out-of-sample residual and ladder —
+queued next as `mlp0_hybrid_target_in_situ_crossfit_probe`. Until it lands, no in-situ cross-corpus claim is made
+either way. No circuit claim; no explained-fraction change.

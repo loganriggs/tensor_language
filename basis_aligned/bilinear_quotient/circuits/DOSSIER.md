@@ -13,7 +13,7 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 
 | circuit | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | site_live | `pending_opener_state` | 5 | 1 | execute the frozen resid8 full-state ceilings for both answer-preserving families; no DAS optimization until their causal informativeness is known |
+| `task.bracket.pending_opener` | site_live | `pending_opener_state` | 5 | 1 | freeze multi-seed shared-versus-family-specific DAS at resid8, using two-way cross-family transfer and the live R539 controls; do not require coordinate overlap |
 | `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -39,11 +39,12 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `pending_opener_capability.r537.complete.v1` | complete | capability | **held** | active | `r537_capability_result` |
 | `pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1` | invalid | full_swap_ceiling | **invalid** | superseded by `pending_opener_common_site_ceiling.r538.complete.v2` | `r538_site_invalid_unverified_checkpoint_result` |
 | `pending_opener_common_site_ceiling.r538.complete.v2` | complete | full_swap_ceiling | **held** | active | `r538_site_result_v2` |
-| `pending_opener_control_ceilings.r539.preregistered.v1` | preregistered | null_control | **inconclusive** | active | `—` |
+| `pending_opener_control_ceilings.r539.preregistered.v1` | preregistered | null_control | **inconclusive** | superseded by `pending_opener_control_ceilings.r539.complete.v1` | `—` |
+| `pending_opener_control_ceilings.r539.complete.v1` | complete | null_control | **held** | active | `r539_control_result` |
 
-**Frozen artifacts:** 23. Paths and SHA-256 hashes are in the canonical JSON record.
+**Frozen artifacts:** 26. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** execute the frozen resid8 full-state ceilings for both answer-preserving families; no DAS optimization until their causal informativeness is known
+**Next:** freeze multi-seed shared-versus-family-specific DAS at resid8, using two-way cross-family transfer and the live R539 controls; do not require coordinate overlap
 
 ### `task.increment.state` — proposed
 
