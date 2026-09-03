@@ -57,6 +57,8 @@ def analyze_spikes(
     pattern_spikes: Counter = Counter()
     pattern_fits: dict[tuple[object, ...], set[str]] = defaultdict(set)
     pattern_spike_fits: dict[tuple[object, ...], set[str]] = defaultdict(set)
+    pattern_seeds: dict[tuple[object, ...], set[int]] = defaultdict(set)
+    pattern_spike_seeds: dict[tuple[object, ...], set[int]] = defaultdict(set)
     first_spike_updates = []
 
     for record in records.values():
@@ -92,12 +94,14 @@ def analyze_spikes(
             family_visits[record.spec.family] += 1
             pattern_visits[pattern] += 1
             pattern_fits[pattern].add(record.spec.frame_id)
+            pattern_seeds[pattern].add(record.spec.seed)
             if float(loss) > threshold:
                 map_spikes[donor_map] += 1
                 target_spikes[str(target)] += 1
                 family_spikes[record.spec.family] += 1
                 pattern_spikes[pattern] += 1
                 pattern_spike_fits[pattern].add(record.spec.frame_id)
+                pattern_spike_seeds[pattern].add(record.spec.seed)
                 if first is None:
                     first = update
         if first is not None:
@@ -119,6 +123,8 @@ def analyze_spikes(
             "spike_percent": 100.0 * spike_count / visits,
             "fits_with_pattern": len(pattern_fits[pattern]),
             "fits_with_a_spike": len(pattern_spike_fits[pattern]),
+            "seeds_with_pattern": len(pattern_seeds[pattern]),
+            "seeds_with_a_spike": len(pattern_spike_seeds[pattern]),
         })
     repeated.sort(
         key=lambda value: (-value["spike_percent"], -value["spikes"], value["target"],
@@ -157,6 +163,14 @@ def analyze_spikes(
         "patterns_spiking_in_every_fit_that_saw_them": sum(
             value["fits_with_a_spike"] == value["fits_with_pattern"]
             and value["fits_with_pattern"] >= 2
+            for value in repeated
+        ),
+        "patterns_spiking_in_multiple_seeds": sum(
+            value["seeds_with_a_spike"] >= 2 for value in repeated
+        ),
+        "patterns_spiking_in_every_seed_that_saw_them": sum(
+            value["seeds_with_a_spike"] == value["seeds_with_pattern"]
+            and value["seeds_with_pattern"] >= 2
             for value in repeated
         ),
         "interpretation": (
@@ -207,6 +221,7 @@ def main() -> dict[str, object]:
             "repeated_patterns_with_100_percent_spike_rate"
         ],
         "patterns_spiking_in_multiple_fits": result["patterns_spiking_in_multiple_fits"],
+        "patterns_spiking_in_multiple_seeds": result["patterns_spiking_in_multiple_seeds"],
     }, indent=2, sort_keys=True), flush=True)
     return result
 

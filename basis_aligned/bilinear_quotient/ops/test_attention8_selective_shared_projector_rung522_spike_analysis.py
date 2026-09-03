@@ -30,7 +30,7 @@ def test_spikes_are_joined_to_exact_maximizing_target_row_and_map():
     history[3] = 101.0
     history[7] = 250.0
     record = SimpleNamespace(
-        spec=SimpleNamespace(family="real_leave_one_out", frame_id="frame"),
+        spec=SimpleNamespace(family="real_leave_one_out", frame_id="frame", seed=1),
         fit_record_payload={
             "loss_history": history,
             "maximizing_targets": ["target-a"] * 200,
@@ -65,6 +65,10 @@ def test_spikes_are_joined_to_exact_maximizing_target_row_and_map():
         "spike_percent": 4.0,
         "fits_with_pattern": 1,
         "fits_with_a_spike": 1,
+        "seeds_with_pattern": 1,
+        "seeds_with_a_spike": 1,
     }]
     assert result["patterns_spiking_in_multiple_fits"] == 0
     assert result["patterns_spiking_in_every_fit_that_saw_them"] == 0
+    assert result["patterns_spiking_in_multiple_seeds"] == 0
+    assert result["patterns_spiking_in_every_seed_that_saw_them"] == 0
