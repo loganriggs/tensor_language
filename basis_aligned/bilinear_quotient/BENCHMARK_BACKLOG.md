@@ -5091,3 +5091,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2722 core_input_provenance_probe (Claude, LANE 1 CUDA, 28 s, 2464 GPU forwards): a TRUE; b, c FALSE; d, e FALSE with NULLS MET.
   Core-variation of ALL 32 upstream writes worth .347 nat; no single site > .017; sum of singles .098 (3.5× superadditive);
   energy does not rank causal supply (ρ .07); MLPs supply more than attentions (.146 vs .104). No supplier circuit to extract.
+- §2723 late_pool_routing_probe (Claude, LANE 1 CUDA, 12 s, 800 GPU forwards): a–e ALL TRUE. Pool value 93% non-core (removing
+  only its core variation costs .052 of .724; core-only .477); §2720's 16-dim program needs the pool MORE (Δ .994) than the real
+  blocks (.724); Δ with 16/17 gone 1.037. Late stack = two parallel channels (16-dim mlp16/17 + non-core pool), not a chain.
+  §2721(iii) withdrawn. Queued: late_pool_surrogate_probe.

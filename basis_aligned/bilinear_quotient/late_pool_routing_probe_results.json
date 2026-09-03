@@ -1,0 +1,75 @@
+{
+ "rung": "late_pool_routing_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_pool_value_is_mostly_non_core": true,
+  "pred_c_pool_core_alone_is_not_enough": true,
+  "pred_d_the_16_dim_program_still_needs_the_pool": true,
+  "pred_e_pool_matters_more_when_16_17_are_gone": true
+ },
+ "nulls": {
+  "b_null_noncore_only_ge_.55": false,
+  "c_null_core_only_le_.15": false,
+  "d_null_dprog_le_.20": false,
+  "e_null_dgone_le_pool": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.3,
+  "c_min": 0.4,
+  "d_min": 0.5,
+  "e_mult": 1.2
+ },
+ "null_bars": {
+  "b_min": 0.55,
+  "c_max": 0.15,
+  "d_max": 0.2,
+  "e_mult": 1.0
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pool_mean": 0.7238981127738953,
+  "prior_pool_mean": 0.724,
+  "mean_16_17": 0.8479736745357513,
+  "prior_mean_16_17": 0.848,
+  "prog": 0.3089214265346527,
+  "prior_prog": 0.309
+ },
+ "ce_added": {
+  "POOL_MEAN": 0.7238981127738953,
+  "POOL_CORE_ONLY": 0.4769928753376007,
+  "POOL_NONCORE_ONLY": 0.05167856812477112,
+  "W16_17_MEANFILL": 0.3089214265346527,
+  "POOL_MEAN+W16_17_MEANFILL": 1.302522361278534,
+  "MEAN_16_17": 0.8479736745357513,
+  "POOL_MEAN+MEAN_16_17": 1.8850818276405334
+ },
+ "delta_pool_to_program": 0.9936009347438812,
+ "delta_pool_when_16_17_gone": 1.037108153104782,
+ "core_spectrum": {
+  "eff_rank": 10.003904488643483,
+  "rank_90": 12,
+  "top1": 0.407855014244653,
+  "psd_min_over_max": 4.716203060040444e-05
+ },
+ "price": {
+  "gpu_doc_forwards": 800,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 12.451016902923584
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_POOL_ROUTING_PROBE_PREREGISTRATION.md": "b99cb86abb206565a6f36673335be623ff06df45b759a82ca26b8122f136ae94",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_subset_lattice_probe_results.json": "884a0bba4acbb92638b6b9112ef5f287784dbe1f1dcc08958bc1d97f4ff610b0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_weights_on_core_input_probe_results.json": "577724584361261327348db32b41dda18aaff8eed6877089a995b9055fa0e55c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "b167187a8ba651e0215fb03ab8293a390ba172a901543a65fc22fb609626a425"
+}

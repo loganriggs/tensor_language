@@ -69741,3 +69741,33 @@ a small circuit, in the same way §2673/§2675 closed low-rank MLP operator voca
 
 **Limits.** Single-site costs of .001–.017 sit at 1–5× the CUDA wobble (.003); the ranking below attn1 is not resolved (and is
 not used by any pred). Energy attribution was the write's raw core trace (unnormalised) — a rank statistic, so scale is immaterial.
+
+## §2723 — THE POOL'S VALUE IS NOT ROUTED THROUGH THE CORE: removing ONLY the core variation of mlp11–15's writes costs .052 nat (of .724); keeping ONLY their core variation costs .477; the §2720 16-dim program for mlp16/17 needs the pool MORE than the real blocks do (Δ .994 vs .724) and so does the model with 16/17 mean-ablated (Δ 1.037) (Claude, LANE 1 CUDA, 12 s, 800 GPU document-forwards): a–e ALL TRUE, no null met. §2721(iii)'s speculation that the pool "prepares what mlp16/17 read" is REFUTED by this rung.
+
+Written 2026-09-03 21:19Z (box clock). Preregistration `polynomial_causal/LATE_POOL_ROUTING_PROBE_PREREGISTRATION.md` (registered
+21:16Z before the script). Script `ops/late_pool_routing_probe.py`; receipt `late_pool_routing_probe_results.json` (sha e5f55a2b…).
+FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.
+
+**Instrument (a TRUE).** Baseline 3.0322401; POOL_MEAN .7239 (§2721 .7239); MEAN(16,17) .8480; W16_17_MEANFILL .3089 (§2720 .3089).
+
+**Arms (CE added).** POOL_MEAN .724 · POOL_CORE_ONLY .477 · POOL_NONCORE_ONLY .052 · W16_17_MEANFILL .309 · POOL_MEAN +
+W16_17_MEANFILL 1.303 (Δ_prog .994) · MEAN(16,17) .848 · POOL_MEAN + MEAN(16,17) 1.885 (Δ_gone 1.037).
+
+**Scoring.** b .052 ≤ .30 TRUE (null ≥ .55 not met). c .477 ≥ .40 TRUE (null ≤ .15 not met). d Δ_prog .994 ≥ .50 TRUE (null ≤ .20
+not met). e Δ_gone/POOL_MEAN = 1.43 ≥ 1.2 TRUE (null ≤ 1.0 not met).
+
+**What it means for the program.** (i) 93% of the pool's value (.672 of .724) is carried by directions OUTSIDE the 16-dim core; the
+pool's core component alone recovers 34%. (ii) The extracted 16-dim program for mlp16/17 (§2720) reads ONLY the core input, so the
+pool cannot reach it through the core except via the offset — yet Δ_prog = .994 > .724: the pool's non-core writes go to the
+READOUT (directly or via attn16/17), and their value RISES when mlp16/17's compensation is removed. The late stack is therefore
+two parallel channels into the final stream — a 16-dim channel written by mlp16/17 (97% of their value inside the core, §2717/
+§2718) and a high-dimensional non-core channel written diffusely by the mlp11–15 pool — with a .31-nat interaction (§2721),
+NOT a chain where the pool prepares the last two blocks' input. §2721(iii) is withdrawn on this evidence; §2722 already showed
+the core input to be supplied diffusely by all 32 upstream writes, not by the pool. (iii) Compression consequence: the pool
+cannot be folded into the 16-dim program; it needs its own surrogate in the non-core directions (the queued
+late_pool_surrogate_probe asks whether one linear map of each block's own input, or a single one-shot map, suffices), and any
+16-dim final program must be evaluated WITH the pool intact (Δ_prog .99) — the .309 price of §2720's program was measured with
+the pool present and would be 1.30 without it.
+
+**Limits.** "Non-core" here is the complement of ONE 16-dim covariance construct of the late MLP writes; the pool's own top
+directions were not characterised (its writes' PCA was in §2712's rank ladder only in aggregate).
