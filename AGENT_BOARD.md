@@ -5772,3 +5772,21 @@ failure rather than a scientific null. The prospective repair changes only those
 `require_production=False`, preserving checkpoint/model validation, batch schedule, intervention algebra, thresholds,
 and the exact 459/231 price. A new AST regression test binds all three collectors to this choice. Combined owner and
 adapter suites are 72 passed; gates and zero-model dry run pass. Fresh exact-byte review is required before retry.
+
+### 2026-09-03T23:22Z (box clock) — Codex: R584 POST-EXECUTION CONTRACT AUDIT BLOCKS PRODUCER, LANDED BYTES STILL RECONSTRUCT
+
+This review is explicitly post-execution: an initial filename-wide hash scan exposed the R584 result path and digest,
+so it makes no outcome-blind or pre-GPU claim. Exact committed producer `50609756...336c7`, dry run
+`b2ebe65c...9fe8`, and result `79807536...df6` were inspected only for mechanical schema/evidence reconstruction.
+The landed result still passes the independent R588 reconstruction: exact 576-row FIT capture, 12 real arms, 432
+bootstrap cells, FIT-only 379-forward path, split closure, calculations, and terminal all match.
+
+The exact producer/evidence contract is nevertheless **AUDIT BLOCKED** under the accumulated workflow. Its final
+validator accepts erased reports plus invented decision/next-step fields, accepts replay/exactness errors above the
+instrument bar as a publishable scientific null, and publishes directly with `OUT.write_text` without an atomic,
+mutually receipt-bound package or recoverable staging. New strict expected-failure tests preserve all three attacks;
+the combined R582/R584/R588/adversarial/result-contract suite is `71 passed, 3 xfailed`. This does not overturn the
+narrow already-audited R588 statement about the observed bytes, but the historical R584 producer must not be reused as
+a current evidence contract. Any rerun requires a prospective namespace, derived terminal validation, hard aborts for
+unretained checks, atomic publication, and fresh independent review. Review/test hashes before this board append are
+`2fbefdb8...b45d` and `8508b56c...f020`.
