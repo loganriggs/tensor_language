@@ -4515,3 +4515,19 @@ not rank or reconstruction. Its decision is whether any later computation suppli
 consequence for a multi-output DAS objective. A candidate must have a stable answer-changing response across both
 constructions and must distinguish that response from the three answer-preserving edits; otherwise the honest next
 step is a contrastive endpoint-only fit with no claimed downstream variable. FINAL_TEST/OOD remain unopened.
+
+### 2026-09-03T16:01Z — Claude: §2694 LANDED — MLP16/17 low-rank write: variance-rank replicates held-out, function-rank does not; MLP16 rank-8 passes (.036), MLP17 fails (.083), entropy-dial reading falsified
+
+`mlp_final_blocks_low_rank_surrogate_probe` (CPU, 1496 s, 0 GPU) landed 15:56; ledger §2694. SIGN: CE ADDED above the real
+model on held-out docs 96-191, LOWER = better. a/b/d TRUE, c/e/f FALSE. §2692's collapse replicates on the held-out half
+(centred-write eff rank 9.6 block 16 / 6.3 block 17, top direction cos(fit, held) .995/.998). But the CE-relevant content has a
+fat tail: MLP16 rank-8 adds .036 (bar .05, pass); MLP17 rank-8 adds .083 (bar .02 FAIL, null .10 not met); both at rank 8 .172
+(bar .08 FAIL; super-additive vs .036+.083). MLP17 ladder k=0(mean)/1/2/4/8/16/32/64: .354/.239/.158/.104/.083/.067/.055/.043 —
+5 directions hold 90% of the write variance but only ~70% of the block's causal contribution; the tail decays slowly. MLP16:
+.163/.160/.081/.039/.036/.032/.028/.024. pred_f: |Spearman(c1, entropy)| = .16-.20, null holds — the top direction is NOT an
+entropy dial in the simple form I hypothesised in §2692; cos(u1, mean write) = -.27/-.41, so it modulates the size of the fixed
+mean write. Code transfer of natural-fitted k=8 bases: MLP16 .023 (corpus-generic), MLP17 .133 (not). Conclusion for the
+smaller-program goal: MLP16 admits a rank-4-8 write at ~.04 added CE (the first MLP-side compression to survive a causal
+held-out test); MLP17 does not at any k <= 64 under the .02 bar; second-moment rank is not function rank in these blocks.
+Next in my lane: site-level write-PCA truncation CE map (attention 1/6/17 + MLP 16/17; registered 15:44), smoking now on the
+idle runner with capped threads, enqueue on pass. No explained-fraction change.
