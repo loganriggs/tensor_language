@@ -51,7 +51,9 @@ R528_AUDIT = BQ / "equality_distributed_finite_transition_quotient_rung528_termi
 R528_DIAGNOSIS = BQ / "rung528_leave_one_action_out_consensus_diagnosis_results.json"
 OUT = BQ / "equality_shared_private_transition_consensus_rung529_results.json"
 BUNDLE = BQ / "equality_shared_private_transition_consensus_rung529_bundle.pt"
-SMOKE_OUT = BQ / "equality_shared_private_transition_consensus_rung529_gpu_smoke_results.json"
+SMOKE_INVALID_OUT = BQ / "equality_shared_private_transition_consensus_rung529_gpu_smoke_results.json"
+SMOKE_V2_OUT = BQ / "equality_shared_private_transition_consensus_rung529_gpu_smoke_v2_results.json"
+SMOKE_OUT = SMOKE_V2_OUT
 
 FROZEN_SHA256 = {
     PREREG: "638a140610d800a9745157fbb1498bbb36d152d3a612ad54a82b9b3ac47c20ea",
@@ -277,20 +279,26 @@ def collect_phase(
             _update_diagnostics(diagnostics, diag, audit)
             wrong_deltas[action] = state["native_boundary"].float() - absent_state["native_boundary"].float()
 
-        decomposition = qm.leave_one_out_decomposition(deltas)
-        single_states = qm.single_donor_states(deltas)
+        # Construct the exact split in FP64.  FP32 subtraction followed by
+        # addition can miss the original delta by one ulp before the sole model
+        # boundary cast; FP64 makes the registered identity survive that cast.
+        algebra_deltas = {action: delta.double() for action, delta in deltas.items()}
+        algebra_wrong_deltas = {action: delta.double() for action, delta in wrong_deltas.items()}
+        decomposition = qm.leave_one_out_decomposition(algebra_deltas)
+        single_states = qm.single_donor_states(algebra_deltas)
         wrong_states = qm.wrong_sign_consensus_states(
-            deltas, {name: wrong_deltas[name] for name in ("W7", "W8")}) if len(required_wrong) == 2 else None
+            algebra_deltas,
+            {name: algebra_wrong_deltas[name] for name in ("W7", "W8")}) if len(required_wrong) == 2 else None
         if wrong_states is None:
             # The math helper validates both frozen wrong states.  Conditional
             # phases may need only one, so construct only the registered terms.
-            aligned = qm.aligned_states(deltas)
             wrong_states = {target: {} for target in qm.ACTIONS}
             for target, control in wrong_pairs:
                 source = "Z7" if control == "W7" else "Z8"
                 donors = tuple(action for action in qm.ACTIONS if action != target)
                 terms = [
-                    qm.BETAS[action] * (wrong_deltas[control] if action == source else deltas[action])
+                    qm.BETAS[action] * (
+                        algebra_wrong_deltas[control] if action == source else algebra_deltas[action])
                     for action in donors
                 ]
                 wrong_states[target][control] = torch.stack(terms).mean(0) / qm.BETAS[target]
@@ -566,9 +574,11 @@ def gpu_smoke(output_path: Path = SMOKE_OUT) -> dict[str, Any]:
     for action in ("W7", "W8"):
         _logits, state, _diag, _audit = r528.boundary_forward(model, tokens, action=action, scales=scales)
         wrong_deltas[action] = state["native_boundary"].float() - absent_state["native_boundary"].float()
-    decomposition = qm.leave_one_out_decomposition(deltas)
-    singles = qm.single_donor_states(deltas)
-    wrong = qm.wrong_sign_consensus_states(deltas, wrong_deltas)
+    algebra_deltas = {action: delta.double() for action, delta in deltas.items()}
+    algebra_wrong_deltas = {action: delta.double() for action, delta in wrong_deltas.items()}
+    decomposition = qm.leave_one_out_decomposition(algebra_deltas)
+    singles = qm.single_donor_states(algebra_deltas)
+    wrong = qm.wrong_sign_consensus_states(algebra_deltas, algebra_wrong_deltas)
     all_edits = (
         [decomposition[target][kind] for target in qm.ACTIONS for kind in ("consensus", "private")]
         + [singles[target][donor] for target in qm.ACTIONS for donor in qm.ACTIONS if donor != target]

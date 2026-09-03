@@ -48,6 +48,21 @@ def test_dry_run_closes_outcomes_and_freezes_corrected_price():
     assert report["planted_suite_passes"] is True
 
 
+def test_fp64_split_rounds_back_to_exact_fp32_target():
+    generator = torch.Generator().manual_seed(529_64)
+    absent = torch.randn(4, 7, 16, generator=generator, dtype=torch.float32) * 10
+    deltas = {
+        action: torch.randn(4, 7, 16, generator=generator, dtype=torch.float32) * 10
+        for action in R.qm.ACTIONS
+    }
+    algebra = {action: value.double() for action, value in deltas.items()}
+    split = R.qm.leave_one_out_decomposition(algebra)
+    for action in R.qm.ACTIONS:
+        reconstructed = R.r528.scaled_boundary(absent, split[action]["reconstruction"], 1.0)
+        target = R.r528.scaled_boundary(absent, deltas[action], 1.0)
+        assert torch.equal(reconstructed, target)
+
+
 def test_repeat_scoring_requires_improvement_over_frozen_single():
     generator = torch.Generator().manual_seed(529)
     target = torch.randn(1, 2, 4, 8, generator=generator, dtype=torch.float64) * .01

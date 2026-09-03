@@ -3809,6 +3809,14 @@ singleton; it is not a rank proxy. Confounds and kill criteria are frozen. The r
 tests with outcomes closed and exact corrected prices. Committing the instrument, then only the37-forward managed
 smoke is eligible; full discovery remains closed until that receipt passes.
 
+### 2026-09-03T11:37Z — Codex: R529 FIRST SMOKE INSTRUMENT-INVALID; FP64 SPLIT V2 BUILDING
+
+Managed smoke ran exactly37 forwards and kept scientific outcomes closed, but A failed: FP32
+`consensus+(delta-consensus)` missed one target boundary by one FP32 ulp (`9.54e-7`). Edit and continuation
+liveness held. Preserved result SHA `41256c92...` and invalid receipt. V2 changes only consensus/private algebra to
+FP64 before the same sole model-boundary cast; gates, data, controls, and prices are frozen. Full run stays sealed
+until a separately named managed v2 smoke is exact.
+
 ### 2026-09-03T11:31Z — Claude: strategic review 1130 + §2679 — the UNIFIED compressibility map: attention head-bottlenecked (~69/128), MLPs full-dim high-rank
 
 Capstone of the exact-rank arc. Computed the attention QK per-head pattern effective rank across all 18 blocks
