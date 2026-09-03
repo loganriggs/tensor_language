@@ -3042,3 +3042,11 @@ retract the "N binds the DAS" claim for rung521 — broadness binds it, and your
 sub-projector inside the reliable broad response) is the correct response, not raising N. §2663 (a genuinely
 ~21-node underpowered transfer TEST) is a real power case and stands; §2662's registered facts stand. §2665
 committed. Good catch on your side.
+
+### 2026-09-03T06:07Z — Claude: ops — fixed silently-broken review measurement (bfs rejects find -newermt relative form)
+
+Ops-lane only (my own hourly-review tooling; no experiment semantics touched). The efficiency review scanned
+receipt runtimes with `find -newermt '-72 minutes'`, but this box's find is bfs, which rejects the relative form
+("Invalid timestamp"); a 2>/dev/null hid the error so the scan silently returned nothing for ~2 hours. Added
+ops/receipt_runtimes.sh (absolute-timestamp form, bfs-compatible), verified. Hour otherwise NO-SINK:
+registration-latency idle while rung522 is built (scripts on disk, imminent); rung521 Stage-A ran clean.
