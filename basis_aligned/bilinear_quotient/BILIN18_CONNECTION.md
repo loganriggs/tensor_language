@@ -70208,3 +70208,40 @@ directions; a program library for this model would store them once.
 
 **Limits.** Producer shares are linear covariance attributions on a λ-mixed stream (sums ≠ 1); 96 fit docs; LM_128 is the top-128
 right-singular subspace of lm_head (as §2713). Random-5 uses 3 seeds.
+
+## §2735 — THE COMPOSITION PENALTY DECOMPOSED: the real mlp16/17 compensate κ = .102 of the pool's damage (POOL .319 → POOL+CLEAN-WRITES .421), and the compiled program's penalty π = .180 = κ (.102, lost compensation) + .078 (its own error amplified on the perturbed stream); widening the last two blocks' input (own weights on top-k input PCs + token filler, output unrestricted) drives the penalty down monotonically but slowly — π₁₆ .300, π₃₂ .253, π₆₄ .213, π₁₂₈ .166, π₂₅₆ .115 (≈ .045 per doubling; the compensation floor is carried by input directions BEYOND the top-256 PCs); OWN_64 alone .146 beats the core program .246 and POOL(k=32)+OWN_256 = .508 is the NEW BEST extracted late-stack program (fitted stack §2725 .614; 73% of MEAN7 recovered) (Claude, LANE 1 CUDA, 19 s, 1,504 GPU document-forwards): a, b, d, e TRUE; c FALSE with NULL MET. Preserved.
+
+Registered 2026-09-03 21:59Z (polynomial_causal/LATE_LAST_TWO_ERROR_CORRECTION_PROBE_PREREGISTRATION.md); ran 22:03Z, landed
+22:03Z. Script ops/late_last_two_error_correction_probe.py; results late_last_two_error_correction_probe_results.json (sha
+5e690bcb…). Frozen: prereg, §2733 results (7b60cea1…), checkpoint, fit_natural.pt. Sign convention (§2135): every number is CE
+ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. π(X,Y) = CE(X+Y) − CE(X) − CE(Y);
+κ = CE(POOL+CLEAN16_17) − CE(POOL).
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); POOL .3190 (§2732 .319), PROG .2457 (.246), POOL+PROG .7445 (.745),
+CLEAN16_17 alone 0.0000 exactly (clean writes on a clean stream are the model). MEAN7 1.885.
+
+**Arms.** POOL+CLEAN16_17 .421 → κ = .102 (b: ≥ .10 TRUE — at the bar; null ≤ .03 not met). OWN_k alone (mlp16/17 own weights on the
+top-k PCs of their own input + token filler; output unrestricted): k=16 .204, 32 .175, 64 .146, 128 .114, 256 .074 (recovery of
+MEAN7 .89 / .91 / .92 / .94 / .96). POOL+OWN_k: .823 / .747 / .678 / .598 / .508. Penalties π_k = .300 / .253 / .213 / .166 / .115;
+π_prog .180.
+
+**Scoring.** b κ .102 ≥ .10 TRUE (null not met). c π₁₂₈ .166 ≤ .09 FALSE; NULL MET (≥ .15). d OWN_64 .146 ≤ .20 TRUE (null ≥ .26 not
+met). e POOL+OWN_256 .508 ≤ .55 TRUE (null ≥ .65 not met).
+
+**Reading.** (i) The penalty has two parts, and the arms separate them exactly: π = [CE(POOL+CLEAN) − CE(POOL)] + [CE(POOL+PROG) −
+CE(POOL+CLEAN) − CE(PROG)] = .102 + .078 = .180. The first is compensation the real blocks perform and the program cannot (§2733's
+"lost error-correction"); the second is the program's own error growing when its input is the pool's output rather than the model's.
+For the own-weight heads the second term shrinks with k (k=16 .198 → k=256 .013) while the first is a floor: at k=256 the head still
+sees none of the pool's error outside the top-256 input PCs, so it cannot correct it. The pool's damaging error therefore lives mostly
+in the tail of mlp16/17's input spectrum — the same non-core, low-variance directions that §2733 (guard/coreerr) and §2721/§2723
+pointed at. (ii) My bar for c was wrong by construction: I priced the penalty as if it were amplification alone; the compensation
+term does not fall until the input covers the error's directions, and 256 PCs (22% of width) do not. Extrapolating .045/doubling puts
+π near .02 only at full width. Recorded as a bracket error; nothing retracted. (iii) OWN_64 .146 < PROG .246: two blocks with their own
+weights on 64 input PCs each (plus the token filler) beat the exact 16-dim core polynomial — the core is the shared square SPACE
+(§2734), not a sufficient INPUT for the blocks. (iv) New best extracted late stack: POOL_OWN32_TOK + OWN_256 = .508 vs the fitted
+stack's .614 (§2725) — extraction from weights now beats fitting as a whole, not only per piece (§2732). Price of the two last blocks:
+Left·U and Right·U are 256-input maps; Down unchanged.
+
+**Limits.** Own-weight heads use the block's own input PCA (not the pooled core), fitted on 96 docs; token fillers are fitted on the
+clean stream (no co-adaptation, per §2733's −.019 result). κ is a whole-pair number (mlp16 and mlp17 clean together); the per-block
+split is not measured. One eval split (docs 0–63).

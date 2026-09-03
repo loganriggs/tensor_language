@@ -5132,3 +5132,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2734 late_square_directions_identity_probe (Claude, LANE 1 CUDA, 25 s, 736 GPU forwards): a, c, d, e TRUE; b FALSE + NULL MET.
   The five shared square directions are not the core's top PCs (chance-level), not readout-facing as a set (q₁ excepted, 7×),
   produced by mlp15 + mlp0; pool error 2.5× concentrated on them; 5 random core dirs cost 1.76 vs .273 shared. Preserved.
+- §2735 late_last_two_error_correction_probe (Claude, LANE 1 CUDA, 19 s, 1,504 GPU forwards): a, b, d, e TRUE; c FALSE + NULL MET.
+  π = κ .102 (lost compensation) + .078 (amplification); π_k falls .300 → .115 over k=16..256 (floor = error beyond top-256 input PCs);
+  OWN_64 .146 < PROG .246; POOL+OWN_256 .508 = new best extracted late stack (fitted .614). Preserved.

@@ -1,0 +1,115 @@
+{
+ "rung": "late_last_two_error_correction_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); pi(X,Y) = CE(X+Y) - CE(X) - CE(Y); kappa = CE(POOL+CLEAN16_17) - CE(POOL)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_real_blocks_compensate": true,
+  "pred_c_penalty_falls_with_input_width": false,
+  "pred_d_wide_own_weights_beat_the_core_program_alone": true,
+  "pred_e_extracted_stack_with_wide_last_blocks_beats_the_fitted_stack": true
+ },
+ "nulls": {
+  "b_null_kappa_le_.03": false,
+  "c_null_pi128_ge_.15": true,
+  "d_null_own64_ge_.26": false,
+  "e_null_pool_own256_ge_.65": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "clean_tol": 0.002,
+  "b_min": 0.1,
+  "c_max": 0.09,
+  "d_max": 0.2,
+  "e_max": 0.55
+ },
+ "null_bars": {
+  "b_max": 0.03,
+  "c_min": 0.15,
+  "d_min": 0.26,
+  "e_min": 0.65
+ },
+ "device": "cuda",
+ "k_in_pool": 32,
+ "ks_last_two": [
+  16,
+  32,
+  64,
+  128,
+  256
+ ],
+ "square_space_rank": 8,
+ "token_read_rank": 8,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pool": 0.31897974014282227,
+  "prog": 0.24573180079460144,
+  "pool_prog": 0.7445334792137146,
+  "clean_alone": 0.0,
+  "priors": {
+   "pool": 0.319,
+   "prog": 0.246,
+   "pool_prog": 0.745
+  }
+ },
+ "ce_added": {
+  "MEAN7": 1.8850818276405334,
+  "POOL": 0.31897974014282227,
+  "CLEAN16_17": 0.0,
+  "POOL+CLEAN16_17": 0.4206054210662842,
+  "PROG": 0.24573180079460144,
+  "POOL+PROG": 0.7445334792137146,
+  "OWN_16": 0.20437857508659363,
+  "POOL+OWN_16": 0.823125422000885,
+  "OWN_32": 0.17479294538497925,
+  "POOL+OWN_32": 0.746817409992218,
+  "OWN_64": 0.1456422507762909,
+  "POOL+OWN_64": 0.6777829825878143,
+  "OWN_128": 0.1137266755104065,
+  "POOL+OWN_128": 0.5984342396259308,
+  "OWN_256": 0.07418906688690186,
+  "POOL+OWN_256": 0.5079847276210785
+ },
+ "recovery_of_mean7": {
+  "MEAN7": 0.0,
+  "POOL": 0.8307873242075259,
+  "CLEAN16_17": 1.0,
+  "POOL+CLEAN16_17": 0.7768768363797046,
+  "PROG": 0.8696439607069089,
+  "POOL+PROG": 0.6050391721479744,
+  "OWN_16": 0.8915810591933803,
+  "POOL+OWN_16": 0.5633476436239632,
+  "OWN_32": 0.9072756721633887,
+  "POOL+OWN_32": 0.6038275903773506,
+  "OWN_64": 0.922739560351826,
+  "POOL+OWN_64": 0.6404490390551572,
+  "OWN_128": 0.9396701650597562,
+  "POOL+OWN_128": 0.6825420356553105,
+  "OWN_256": 0.9606441132692045,
+  "POOL+OWN_256": 0.7305237787704428
+ },
+ "compensation_kappa": 0.10162568092346191,
+ "penalties": {
+  "pi_prog": 0.1798219382762909,
+  "pi_16": 0.2997671067714691,
+  "pi_32": 0.2530447244644165,
+  "pi_64": 0.21316099166870117,
+  "pi_128": 0.16572782397270203,
+  "pi_256": 0.11481592059135437
+ },
+ "price": {
+  "gpu_doc_forwards": 1504,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 18.990580558776855
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_LAST_TWO_ERROR_CORRECTION_PROBE_PREREGISTRATION.md": "5542e8df0cf22a1b3e94868cf565cc853b0f281b986107705267256e4fbb5f39",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_stack_composition_penalty_anatomy_probe_results.json": "7b60cea19e4c4d4c58cb4161eff76edee30b93a379f9ec9f183d11d8fa10cd6d",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "ce10d046e62cc1a0518992eed50508c74718f6c4c64c13a5bf630c9ffe84ce01"
+}

@@ -1,0 +1,46 @@
+{"stage": "fit_cov", "t": 6.6}
+{"stage": "heads_done", "t": 9.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 10.1}
+{"stage": "arms", "MEAN7": 1.8851, "POOL": 0.319, "CLEAN16_17": 0.0, "POOL+CLEAN16_17": 0.4206, "PROG": 0.2457, "POOL+PROG": 0.7445, "OWN_16": 0.2044, "POOL+OWN_16": 0.8231, "OWN_32": 0.1748, "POOL+OWN_32": 0.7468, "OWN_64": 0.1456, "POOL+OWN_64": 0.6778, "OWN_128": 0.1137, "POOL+OWN_128": 0.5984, "OWN_256": 0.0742, "POOL+OWN_256": 0.508, "t": 19.0}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_real_blocks_compensate": true,
+  "pred_c_penalty_falls_with_input_width": false,
+  "pred_d_wide_own_weights_beat_the_core_program_alone": true,
+  "pred_e_extracted_stack_with_wide_last_blocks_beats_the_fitted_stack": true
+ },
+ "nulls": {
+  "b_null_kappa_le_.03": false,
+  "c_null_pi128_ge_.15": true,
+  "d_null_own64_ge_.26": false,
+  "e_null_pool_own256_ge_.65": false
+ },
+ "ce_added": {
+  "MEAN7": 1.8850818276405334,
+  "POOL": 0.31897974014282227,
+  "CLEAN16_17": 0.0,
+  "POOL+CLEAN16_17": 0.4206054210662842,
+  "PROG": 0.24573180079460144,
+  "POOL+PROG": 0.7445334792137146,
+  "OWN_16": 0.20437857508659363,
+  "POOL+OWN_16": 0.823125422000885,
+  "OWN_32": 0.17479294538497925,
+  "POOL+OWN_32": 0.746817409992218,
+  "OWN_64": 0.1456422507762909,
+  "POOL+OWN_64": 0.6777829825878143,
+  "OWN_128": 0.1137266755104065,
+  "POOL+OWN_128": 0.5984342396259308,
+  "OWN_256": 0.07418906688690186,
+  "POOL+OWN_256": 0.5079847276210785
+ },
+ "kappa": 0.10162568092346191,
+ "penalties": {
+  "pi_prog": 0.1798219382762909,
+  "pi_16": 0.2997671067714691,
+  "pi_32": 0.2530447244644165,
+  "pi_64": 0.21316099166870117,
+  "pi_128": 0.16572782397270203,
+  "pi_256": 0.11481592059135437
+ }
+}
