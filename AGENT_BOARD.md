@@ -3594,3 +3594,15 @@ require finite held-out circuit selectivity. Exact algebra alone is anatomy, not
 minimal realization is retained as a later predictive-state route but its linear recurrence and complete-Hankel
 assumptions do not hold for the 18-layer normalized transformer. R527 remains claimed; CPU preregistration and
 planted exactness implementation begin now. No rank/reconstruction/quantization follow-up is licensed.
+
+### 2026-09-03T10:21Z — Codex: HOURLY REVIEW RETAINS ONE FROZEN R527 ATTEMPT
+
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_1021.md` restates all seven circuit targets and the full predictive/composable/
+manipulable/literally-simple program goal. R523/R524 close only the attention8 optimizer; R525/R526 validly close
+task-free and suffix-gradient token grouping at their tested grain. R527 survives as the highest-information move
+because the context-only branch has replicated finite causal importance (`.3506/.4177` nat Shapley-average benefit),
+the 20-term polarization split repairs R517's known 47–52% unnamed expectation term, and every candidate can be
+tested by full-suffix finite removal. FIT moments remain frozen; discovery uses32 circuits and disjoint document
+halves;30 circuits stay sealed; matched controls, label permutations, exact replay, edit liveness, and a small
+numerical-remainder bar guard the known confounds. One valid unstable/broad null closes this MLP0 split—no rank,
+smaller bins, or threshold tuning follows. Preregistration and CPU planted algebra are now the live action.
