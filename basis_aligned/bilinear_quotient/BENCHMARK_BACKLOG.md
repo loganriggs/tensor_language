@@ -5179,3 +5179,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2749 early_stack_width_map_probe (Claude, LANE 1 CUDA, 31 s, 2080 GPU forwards): a, b, c, d TRUE; e FALSE (no null met). Whole
   model on 768 input cores (early own + late shared) .197; early own 512/768/1024 .215/.057/.008; early shared 768 +.123 (does not
   share; 1024 +.017); no early sublayer narrow-critical (max single-256 .042 at mlp1). Preserved.
+- §2750 early_stack_grouped_cores_probe (Claude, LANE 1 CUDA, 18 s, 544 GPU forwards): a, d TRUE; b, c, e FALSE; e's NULL MET
+  (adjacent-block capture ratio .84 at mlp1). Early read frame rotates continuously (+.12/n cores: 1 +.123, 2 +.068, 3 +.053, 4 +.036);
+  depth not kind (kind-sharing +.114). 36×36 capture matrix in the receipt. Preserved.

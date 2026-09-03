@@ -1,0 +1,35 @@
+{"stage": "heads_done", "t": 9.8}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 10.2}
+{"stage": "capture", "adjacent_ratio": {"attn0": 0.933, "mlp0": 0.846, "attn1": 0.884, "mlp1": 0.84, "attn2": 0.845, "mlp2": 0.853, "attn3": 0.869, "mlp3": 0.88, "attn4": 0.886, "mlp4": 0.883, "attn5": 0.902, "mlp5": 0.894, "attn6": 0.911, "mlp6": 0.941, "attn7": 0.948, "mlp7": 0.955, "attn8": 0.959, "mlp8": 0.963, "attn9": 0.97, "mlp9": 0.969, "attn10": 0.969, "mlp10": 0.977}, "rmin": 0.8403, "rmin_site": "mlp1", "t": 13.4}
+{"stage": "arms", "EARLY22_OWN_768": 0.057, "EARLY22_SHARED_768": 0.1796, "G2_768": 0.1249, "G3_768": 0.1095, "G4_768": 0.0929, "KIND2_768": 0.1707, "t": 18.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_three_depth_groups_nearly_free": false,
+  "pred_c_two_depth_groups": false,
+  "pred_d_depth_not_kind": true,
+  "pred_e_adjacent_blocks_read_alike": false
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.12": false,
+  "d_null_kind2_le_g2": false,
+  "e_null_lt_.85": true
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EARLY22_SHARED_768": 0.17957553267478943,
+  "G2_768": 0.12489047646522522,
+  "G3_768": 0.10949292778968811,
+  "G4_768": 0.09294381737709045,
+  "KIND2_768": 0.17065471410751343
+ },
+ "gaps": {
+  "G2_minus_own": 0.06790265440940857,
+  "G3_minus_own": 0.05250510573387146,
+  "G4_minus_own": 0.035955995321273804,
+  "kind2_minus_own": 0.11366689205169678,
+  "kind2_minus_g2": 0.04576423764228821,
+  "shared_minus_own": 0.12258771061897278
+ }
+}

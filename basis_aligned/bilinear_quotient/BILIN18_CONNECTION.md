@@ -70753,3 +70753,39 @@ climb 336→550 over the same range and then plateau), so the "one bus" descript
 (iii) The complete 36-sublayer width program — 22 own 768-cores + 1 shared late 768-core, 36 constants, own weights, full-width
 writes — reproduces bilin18 to within .197 nat; at 1024 the early half is .008, so the model-wide cost at 1024 would be dominated
 by the late half's .023 (§2745), i.e. ≈ .03–.05 if composition holds. Failures preserved; nothing installs into the §312 frontier.
+
+## §2750 — THE EARLY STACK'S READ SUBSPACE DRIFTS CONTINUOUSLY — NO FEW-CORE DECOMPOSITION, AND IT IS DEPTH, NOT KIND: giving the early 22 sublayers 2 / 3 / 4 depth-group cores instead of one costs +.068 / +.053 / +.036 over own cores (pred_b G3 ≤ .04 FALSE; pred_c G2 ≤ .06 FALSE; one core +.123 for scale — the gain is gradual, with no breakpoint); two cores BY KIND (all early attention on one, all early MLPs on another) cost +.114, worse than two cores by depth by .046 (pred_d TRUE); the adjacent-block same-kind capture ratio rises monotonically with depth from .84 at blocks 0–2 to .98 at block 10 (pred_e "≥ .95 everywhere" FALSE; NULL ≥ "< .85 somewhere" MET at mlp1 .840) (Claude, LANE 1 CUDA, 18 s, 544 GPU document-forwards): a, d TRUE; b, c, e FALSE; e's null met. Preserved.
+
+Registered 2026-09-03 22:54Z (polynomial_causal/EARLY_STACK_GROUPED_CORES_PROBE_PREREGISTRATION.md); landed 22:55Z. Script
+ops/early_stack_grouped_cores_probe.py; results early_stack_grouped_cores_probe_results.json (sha 37b88f9a…; carries the full
+36 × 36 capture matrix). Frozen: prereg, §2749 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the
+real model on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Constructions as §2749; a group core is the
+top-768 of the plain average of the member sites' centred input covariances; cap(i, j) = tr(U_jᵀ C_i U_j) / tr C_i with U_j the
+768-core of site j.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401; EARLY22_OWN_768 .05699 (prior .057); EARLY22_SHARED_768 .17958 (prior .180).
+- pred_b_three_depth_groups_nearly_free FALSE: G3_768 − OWN = .1095 − .0570 = +.0525 (bar ≤ .04; null ≥ .10 not met).
+- pred_c_two_depth_groups FALSE: G2_768 − OWN = .1249 − .0570 = +.0679 (bar ≤ .06; null ≥ .12 not met).
+- pred_d_depth_not_kind TRUE: KIND2_768 − G2_768 = .1707 − .1249 = +.0458 (bar ≥ .02; null "≤ 0" not met).
+- pred_e_adjacent_blocks_read_alike FALSE — NULL MET: min adjacent same-kind ratio = .840 at mlp1 (bar ≥ .95; null < .85 MET).
+
+Descriptive. Group ladder at 768 (cost over own cores): 1 core +.123, 2 +.068, 3 +.053, 4 +.036, 22 (own) 0 — roughly +.12 / n
+with no knee. Adjacent same-kind capture ratio by block (attn / mlp): 0 .93/.85, 1 .88/.84, 2 .85/.85, 3 .87/.88, 4 .89/.88, 5
+.90/.89, 6 .91/.94, 7 .95/.96, 8 .96/.96, 9 .97/.97, 10 .97/.98 — a monotone climb; the late blocks (§2742/§2745) sit at .96–.99
+under one shared core. Own-768 capture of each site's input variance falls slowly with depth: .95–.96 (blocks 0–2) → .91–.93
+(blocks 9–16), .93/.94 at attn17/mlp17. Capture-matrix rows (ratio to own): under mlp3's core the neighbours capture .98 (mlp2)
+/ .92 (attn4) and decay to .80 by block 10; under mlp8's core blocks 6–13 are all ≥ .90; under mlp11's core blocks 8–16 are ≥
+.90 and block 17 .85; under mlp16's core blocks 12–17 are ≥ .93 but block 0 is .82. The residual's read subspace is a slowly
+rotating frame whose rotation rate falls with depth.
+
+Reading. Two facts and one boundary. (i) The early stack has no clean few-core structure: the read frame rotates block by block
+in the first half (adjacent ratios .84–.90 through block 5), so any grouping pays a continuous price (+.12 / n), and the honest
+early program is the §2749 one — 22 own 768-cores. (ii) The rotation is a function of DEPTH, not of sublayer kind: an attention
+block and the MLP that follows it read almost the same frame (the same-block attn/mlp capture pairs are the highest off-diagonals),
+while two attention blocks six apart do not; kind-sharing is nearly as bad as one core. This is what a residual-stream program
+should look like if the stream's content is re-expressed as it fills (effective rank 336 → 550 over blocks 0–10, §2749) and then
+settles once it is full (blocks 11–17 share at ≤ .006). (iii) The boundary between "rotating" and "settled" is not sharp: the
+adjacent ratio crosses .95 at block 7 and the late core captures blocks 8–10 at .90–.98, so a program with two late cores — one
+for blocks 8–17 and own cores for 0–7 — is the natural next compression; not run here. e's null is met and recorded: the early
+frame is NOT the same frame block to block at the .85 level in blocks 0–2. Failures preserved; nothing installs into the §312 frontier.
