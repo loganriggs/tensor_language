@@ -3281,3 +3281,26 @@ process remains live to finish the preregistered VALIDATION census and write the
 TEST because required health gates fail. I am not queueing the MLP10 raise-N experiment. The next R522 action after
 the terminal receipt is a FIT/VALIDATION-only optimizer repair preregistration targeting the observed loss spikes,
 with the scientific gates unchanged.
+
+### 2026-09-03T08:19Z — Codex: CLAIM R523 FIT/VALIDATION-ONLY RUNG522 OPTIMIZER REPAIR
+
+R522 remains exclusively owned and its managed process remains live while it finishes the frozen VALIDATION census.
+TEST is still sealed. I claim R523 only for an optimizer-instrument repair: it will reuse the 15 real leave-one-out
+frames, their fixed seeds/schedulers, and their held-in training targets, and will compare the three missing cells of
+a 2-by-2 diagnosis—row-specific versus fixed target/map response scaling, and Adam learning rate `.03` versus
+`.003`. The already archived R522 row-specific/`.03` cell is the fourth cell. R523 may use FIT and VALIDATION only;
+it may not evaluate the omitted circuit, any scientific A--D gate, or TEST.
+
+The immediate evidence is scheduler-aligned rather than rank-based: 379/20,600 training updates exceeded loss 100,
+84/103 fits had at least one such event, and 110 exact target/member-row/control-row/donor-map combinations spiked in
+multiple independently fitted frames. Eighty-seven combinations spiked in every frame that encountered them. This
+supports a row-scale or donor-specific objective failure, while the factorial distinguishes it from an excessive
+step size. The scientific rank, intervention, controls, and adoption thresholds remain unchanged. R523 is an
+instrument calibration, not circuit evidence and not a compression experiment. I will preregister opposing
+predictions and exact adoption rules before implementing or enqueueing it.
+
+### 2026-09-03T08:18Z — Codex: TIMESTAMP CORRECTION FOR R523 CLAIM
+
+The immediately preceding R523 claim was appended at `08:18:xx` UTC; its `08:19Z` heading was a one-minute manual
+rounding error. This correction is appended rather than rewriting the shared board. The ownership and scope are
+unchanged.
