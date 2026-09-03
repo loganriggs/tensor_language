@@ -68595,3 +68595,56 @@ bracket/quote awaiting its closer?). Checkpoint 680d6c26… throughout; 0 weight
 Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68): nothing here installs into the §312 frontier or the
 strict ledger; the arc's certified content is one causal site and two strong nulls. Failures (R540 b/c/d, R542 b, R544 b/c)
 preserved as their JSONs score them.
+
+## §2696 — SITE-WRITE PCA TRUNCATION CE MAP, ALL 36 WRITES (Claude, CPU, 1907 s, 2,848 full CPU document forwards, 0 GPU): VARIANCE RANK DOES NOT ORDER THE CAUSAL PRICE (Spearman .23, neither bar nor null met); THE PRICE OF RANK-32 LIVES IN THE EARLY MLPS (mlp1 .883, mlp2 .220, mlp0 .165, mlp3 .130 = 59% of the 36-site total), THE HIGHEST-RANK MID/LATE MLPS (eff rank 559-679) ARE ALL CHEAP (.024-.044, null HOLDS), THE LOW-RANK ATTENTION WRITES ARE NOT FREE (attn1 .033 / attn6 .029 miss the .02 bar) — a TRUE, b/c/d FALSE (d's null holds)
+
+Prereg SITE_WRITE_PCA_TRUNCATION_CE_MAP_PROBE_PREREGISTRATION.md (Registered 15:44Z, sha d37d2c33…);
+script ops/site_write_pca_truncation_ce_map_probe.py (sha f0a3d7f9…), results site_write_pca_truncation_ce_map_probe_results.json.
+Landed 16:35Z (enqueued 16:03Z). Sign convention: CE ADDED above the real model on held-out docs 96-159 (64 docs), LOWER
+IS BETTER; held-out baseline 3.11250. Instrument: per site s (18 attention writes, 18 MLP writes), PCA of the write fitted
+on docs 0-95, write' = mu + U_32 U_32ᵀ(write − mu) installed at ONE site at a time, everything else native. One
+truncation per site, k = 32 only (the registered map); nothing is installed jointly.
+
+Scored exactly as registered:
+- pred_a_instrument TRUE: manual forward == module CE to 0.0 (bar 1e-4); the instrument CE 3.29242 on the 4-doc subset
+  reproduces §2694's 3.2924 (same subset — see the §2694 correction below).
+- pred_b_low_usage_attention_sites_cheap FALSE (bar: attn1, attn6, attn17 each ≤ .02 at k = 32): attn17 .0028 passes, attn1
+  .0329 and attn6 .0293 do not. Null (any ≥ .10) NOT met either — the low-variance-rank attention writes are cheap-ish but not
+  free at rank 32.
+- pred_c_usage_rank_orders_truncation_cost FALSE (bar: Spearman(FIT eff rank, CE added at k = 32) ≥ .6 across 36 sites):
+  measured ρ = .230. Null (ρ ≤ .2) NOT met either — inconclusive by the registered bars, but the direction of the
+  registered hypothesis (high rank ⇒ expensive) is WRONG inside the MLP family (ρ = −.43, disclosed, exploratory).
+- pred_d_high_usage_sites_expensive FALSE (bar: some site with eff rank ≥ 500 adds ≥ .30): the eight such sites (mlp7-14)
+  add .024-.044. Null (every such site ≤ .10) HOLDS — a registered null scored as such.
+
+The map (k = 32, CE added, LOWER is better; eff rank on the FIT half in parentheses):
+  mlp1 .883 (326)   mlp2 .220 (437)   mlp0 .165 (149)   mlp3 .130 (414)   mlp4 .069 (167)   attn0 .066 (171)
+  mlp17 .057 (6.1)  mlp5 .050 (217)   mlp6 .049 (282)   attn4 .048 (272)  attn5 .047 (110)  mlp7 .044 (604)
+  mlp9 .037 (629)   mlp10 .035 (679)  mlp8 .034 (576)   attn2 .034 (231)  mlp11 .034 (573)  attn1 .033 (22)
+  attn8 .030 (334)  attn6 .029 (30)   mlp13 .029 (559)  mlp16 .028 (9.4)  mlp12 .028 (574)  attn3 .026 (258)
+  attn7 .026 (71)   mlp15 .025 (337)  mlp14 .024 (658)  attn14 .019 (300) attn9 .018 (74)   attn11 .016 (142)
+  attn13 .013 (228) attn16 .009 (219) attn10 .007 (73)  attn12 .004 (130) attn15 .003 (185) attn17 .003 (20)
+Sum of the 36 single-site prices 2.371 (attention .429, MLP 1.942); mlp0-3 alone 1.398 (59%). Exploratory (disclosed,
+not registered): Spearman(block index, price) = −.81 within MLPs and −.88 within attention — DEPTH orders the price, rank
+does not; Spearman(mean write energy, price) = .16/.06. mlp16/mlp17 k = 32 (.028/.057) reproduce §2694's ladder (.028/.055)
+within .002 on the differently-sized eval half (§2694 used docs 96-191).
+
+Reading (strict): the variance spectrum of a write says almost nothing about how much of it the rest of the network
+reads. The eight highest-variance-rank writes (mid/late MLPs 7-14, eff rank 559-679, r90 669-731) each lose < .045 nat at
+rank 32 — the network downstream of them USES a low-dimensional slice of what they emit — while the four early MLPs
+(0-3, eff rank 149-437) carry 59% of the total single-site price, mlp1 alone .883. This is the §2694 variance-rank ≠
+function-rank result generalized across all 36 sites and in BOTH directions: high variance rank with low function rank
+(mlp7-14) and moderate variance rank with high function rank (mlp1). Consequence for the finer-grain program: (i) the
+late blocks (7-17) are the right place for subspace/interaction-term work (the §2694 ladders, the quadratic-form probe
+running now, the Fisher certificate probe registered 16:31) because their causally-read content IS low-dimensional;
+(ii) the early MLPs 0-3 are NOT approachable by write-PCA truncation at any rank near 32 — mlp1's write is causally dense
+in a way its own spectrum (r90 = 501) under-states — consistent with §2673/§2675 (token-context operators of the early
+blocks are exact-high-rank) and with the §312 frontier's price cliff sitting on the early/attn5 side. Not certified:
+joint installation (§2694: MLP16+17 at k = 8 was super-additive, .172 vs .036 + .083), any rank other than 32, any
+transfer to code. Nothing here installs into the §312 frontier or the strict ledger; explained fraction unchanged
+(5.348% / 10.923% / 4.727 nat / 0 of 68). Failures b/c/d preserved as scored.
+
+CORRECTION to §2694 (Claude, recorded separately as required): §2694 states "Baseline held-out CE 3.2924". That number
+is the CE of the 4-document INSTRUMENT subset used for pred_a, not the held-out baseline; the held-out baseline on docs
+96-191 is natural_h1 = 3.08238 (results JSON key baseline_ce_eval). All CE-added numbers in §2694 were computed against
+3.08238 and are unaffected; only the labelled baseline sentence was wrong. No conclusion flips.

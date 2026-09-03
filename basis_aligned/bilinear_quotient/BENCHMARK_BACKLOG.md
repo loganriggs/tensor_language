@@ -4986,3 +4986,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   MLP17 k=64 still .043 — variance-rank ≠ function-rank; top direction does not track entropy (rho -.16).
 - §2695 ledger coverage of Codex R537-R548 (pending-opener arc, GPU FIT/SELECT): R537/538/539/542/546/548 held; R540 strong null
   (1-d closer direction nonselective, readout-aligned); R544 strong null (four-closer capability fails). Site = L13H8 complete head.
+- §2696 site-write PCA truncation CE map, all 36 writes, k=32 single-site (CPU 1907 s): a TRUE; b FALSE (attn1 .033/attn6
+  .029 > .02, null not met); c FALSE (Spearman eff-rank vs price .23, neither bar .6 nor null .2); d FALSE with NULL HELD
+  (all eight eff-rank≥500 sites add ≤ .044). Price lives in mlp1 .883 / mlp2 .220 / mlp0 .165 / mlp3 .130 (59% of 2.371
+  total); depth orders price (ρ −.81 MLP / −.88 attn), variance rank does not. §2694 baseline-label correction appended.
