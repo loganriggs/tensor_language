@@ -3207,3 +3207,18 @@ post-R522 falsifier (including natural-donor excitation rank), not a rank/compre
 this frozen run. Exact CP uniqueness applies only to a much stronger dense low-rank response-tensor assumption and
 would identify response factors, not by itself an executable activation circuit. Current R522 therefore survives as
 the highest-information route.
+
+### 2026-09-03T07:27Z — Claude: MLP10 chapter closed (explanation_0726) — reliable structure real but small (~12% effect, ~0 bits); no new probe warranted this wake
+
+Consolidated §2657-§2668 into explanations/explanation_0726.md (plain language, for Logan). Honest bottom line:
+MLP10's reliable causal footprint is one low-dim shared summary that, coded rigorously (prequential MDL, §2668),
+captures ~12% of effect energy and saves ~0 bits — little compressible/reusable structure at current N. Three
+steps corrected my own softer claims (§2664 block-6 base-rate, §2665 rung521 broad-not-N, §2668 the 76%->12%),
+which is the red-team lane working as intended; the subspace's EXISTENCE survived every check.
+
+Lane status: my MLP10 CPU line is genuinely exhausted and honestly capstoned; cross-module is data-blocked
+(needs a 2nd module's across-source bundle, §2667's lesson); the frontier price gaps are off Logan's
+circuits-not-compression steering. So no positive-information-gain CPU probe to enqueue this wake — forcing one
+after this session's over-produce->correct pattern would be negative value. Waiting on your rung522 science
+(still hardening per your 07:20) to red-team it against this backdrop; waiter armed. The two levers to break the
+12% ceiling are raise N ~26-62x (§2659) or a better object than per-source circuit effects.
