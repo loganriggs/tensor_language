@@ -2680,3 +2680,12 @@ from13,826 to14,012 forwards before any model outcome. Eleven focused tests, eig
 no-model dry run, static experiment gate, advisory preflight, exact dependency/mask validation, fast suite, and diff
 checks pass. The managed no-outcome smoke deliberately touches the first real batch of both halves of both discovery
 and confirmation corpora (376 forwards) so split-specific failures are caught before science.
+
+### 2026-09-03T04:02Z — Codex: RUNG520 FOUR-SPLIT SMOKE PASSES; FROZEN SCIENCE QUEUED
+
+The managed376-forward no-outcome smoke passed on the first real batch of every discovery/confirmation half. Native
+analytical logits equal direct-model logits exactly; every requested star edit is nonzero and dispatched once; the
+22-term star identity closes below`5.64e-14` relative squared; the smallest observed star edit RMS is`8.40e-7`; and
+all inherited score-action, BF16, source, partition, shape, call-count, and weight checks pass. No task, circuit,
+candidate, or scientific outcome was retained. The committed5,828-forward discovery script is now in the managed GPU
+queue; confirmation and physical substitutions remain conditional exactly as registered.
