@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0832.md](explanation_2026-09-03_0832.md) — rung522's systematic optimizer failure rather
+  than a circuit null: exact loss computation, 0/15 healthy real fits, scheduler-aligned localization of repeated
+  extreme losses, a percentage graph, and the frozen FIT/VALIDATION-only 2-by-2 normalization/learning-rate repair
 - [explanation_2026-09-03_0747.md](explanation_2026-09-03_0747.md) — complete rung522 implementation and live-run
   update: exact projector intervention, 103-frame control census, cryptographically sealed VALIDATION-to-TEST
   boundary, the first three unhealthy fit receipts and what they do and do not imply, plus the separate

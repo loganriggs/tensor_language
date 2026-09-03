@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="500" viewBox="0 0 1240 500" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 522 optimizer health and extreme-loss rates</title>
+  <desc id="desc">Two horizontal bar charts. No real leave-one-out fit was healthy. Extreme losses occurred in every fit family.</desc>
+  <rect width="1240" height="500" fill="#fbfbfd"/>
+  <style>
+    text { font-family: Inter, ui-sans-serif, system-ui, sans-serif; fill: #182230; }
+    .title { font-size: 24px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #536171; }
+    .label { font-size: 15px; }
+    .value { font-size: 14px; font-weight: 650; }
+    .axis { font-size: 12px; fill: #667485; }
+    .grid { stroke: #dce2e8; stroke-width: 1; }
+    .health { fill: #d45555; }
+    .spike { fill: #e19838; }
+  </style>
+  <text x="40" y="38" class="title">Rung 522 failed as an optimizer instrument</text>
+  <text x="40" y="64" class="subtitle">Percentages are calculated from the immutable 103-fit, 20,600-update archive. They are not circuit results.</text>
+
+  <text x="40" y="105" class="title" font-size="18">Healthy fits (%)</text>
+  <text x="40" y="127" class="subtitle">The preregistered scientific run required every real fit to be healthy.</text>
+  <line x1="180" y1="148" x2="180" y2="405" class="grid"/>
+  <line x1="380" y1="148" x2="380" y2="405" class="grid"/>
+  <line x1="580" y1="148" x2="580" y2="405" class="grid"/>
+  <text x="180" y="428" class="axis" text-anchor="middle">0%</text>
+  <text x="380" y="428" class="axis" text-anchor="middle">50%</text>
+  <text x="580" y="428" class="axis" text-anchor="middle">100%</text>
+  <text x="166" y="175" class="label" text-anchor="end">Real leave-one-out</text>
+  <rect x="180" y="158" width="0" height="24" class="health"/>
+  <text x="188" y="175" class="value">0.0% (0/15)</text>
+  <text x="166" y="225" class="label" text-anchor="end">Recovery-only</text>
+  <rect x="180" y="208" width="26.7" height="24" class="health"/>
+  <text x="214" y="225" class="value">6.7% (1/15)</text>
+  <text x="166" y="275" class="label" text-anchor="end">Single-target</text>
+  <rect x="180" y="258" width="40" height="24" class="health"/>
+  <text x="227" y="275" class="value">10.0% (2/20)</text>
+  <text x="166" y="325" class="label" text-anchor="end">Randomized labels</text>
+  <rect x="180" y="308" width="33.3" height="24" class="health"/>
+  <text x="220" y="325" class="value">8.3% (4/48)</text>
+  <text x="166" y="375" class="label" text-anchor="end">All three targets</text>
+  <rect x="180" y="358" width="80" height="24" class="health"/>
+  <text x="267" y="375" class="value">20.0% (1/5)</text>
+
+  <text x="650" y="105" class="title" font-size="18">Updates with normalized loss &gt; 100 (%)</text>
+  <text x="650" y="127" class="subtitle">A zero projector has a natural member-loss baseline near 1.</text>
+  <line x1="760" y1="148" x2="760" y2="405" class="grid"/>
+  <line x1="960" y1="148" x2="960" y2="405" class="grid"/>
+  <line x1="1160" y1="148" x2="1160" y2="405" class="grid"/>
+  <text x="760" y="428" class="axis" text-anchor="middle">0%</text>
+  <text x="960" y="428" class="axis" text-anchor="middle">1.5%</text>
+  <text x="1160" y="428" class="axis" text-anchor="middle">3.0%</text>
+  <text x="746" y="175" class="label" text-anchor="end">Real leave-one-out</text>
+  <rect x="760" y="158" width="284.4" height="24" class="spike"/>
+  <text x="1052" y="175" class="value">2.13%</text>
+  <text x="746" y="225" class="label" text-anchor="end">Recovery-only</text>
+  <rect x="760" y="208" width="57.8" height="24" class="spike"/>
+  <text x="825" y="225" class="value">0.43%</text>
+  <text x="746" y="275" class="label" text-anchor="end">Single-target</text>
+  <rect x="760" y="258" width="30" height="24" class="spike"/>
+  <text x="797" y="275" class="value">0.23%</text>
+  <text x="746" y="325" class="label" text-anchor="end">Randomized labels</text>
+  <rect x="760" y="308" width="368.1" height="24" class="spike"/>
+  <text x="1136" y="325" class="value">2.76%</text>
+  <text x="746" y="375" class="label" text-anchor="end">All three targets</text>
+  <rect x="760" y="358" width="373.3" height="24" class="spike"/>
+  <text x="1140" y="375" class="value">2.80%</text>
+
+  <text x="40" y="470" class="subtitle">Overall: 8/103 healthy fits (7.77%); 379/20,600 updates above 100 (1.84%); maximum loss 270,121,856.</text>
+</svg>
