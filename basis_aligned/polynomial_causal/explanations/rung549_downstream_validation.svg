@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">R549 downstream response validation</title>
+  <desc id="desc">Four horizontal percentage bars show two perfect transfer accuracies, substantial response size, and a narrowly failed answer-preserving separation result.</desc>
+  <rect width="900" height="390" fill="#ffffff"/>
+  <text x="25" y="34" font-family="sans-serif" font-size="22" font-weight="700" fill="#17212b">FIT-selected MLP15 response on SELECT</text>
+  <text x="25" y="59" font-family="sans-serif" font-size="14" fill="#465563">Percent; dashed line is the frozen acceptance threshold</text>
+  <g font-family="sans-serif" font-size="14" fill="#17212b">
+    <text x="25" y="105">Direct templates classify reordered examples</text>
+    <rect x="360" y="86" width="480" height="24" rx="4" fill="#e8edf2"/>
+    <rect x="360" y="86" width="480" height="24" rx="4" fill="#2f9e6f"/>
+    <line x1="600" y1="80" x2="600" y2="116" stroke="#17212b" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="850" y="104" font-weight="700">100%</text>
+
+    <text x="25" y="165">Reordered templates classify direct examples</text>
+    <rect x="360" y="146" width="480" height="24" rx="4" fill="#e8edf2"/>
+    <rect x="360" y="146" width="480" height="24" rx="4" fill="#2f9e6f"/>
+    <line x1="600" y1="140" x2="600" y2="176" stroke="#17212b" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="850" y="164" font-weight="700">100%</text>
+
+    <text x="25" y="225">Patched response / natural response</text>
+    <rect x="360" y="206" width="480" height="24" rx="4" fill="#e8edf2"/>
+    <rect x="360" y="206" width="231" height="24" rx="4" fill="#2f9e6f"/>
+    <line x1="384" y1="200" x2="384" y2="236" stroke="#17212b" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="850" y="224" font-weight="700">48.2%</text>
+
+    <text x="25" y="285">Alignment with answer-preserving changes</text>
+    <rect x="360" y="266" width="480" height="24" rx="4" fill="#e8edf2"/>
+    <rect x="360" y="266" width="173" height="24" rx="4" fill="#d84a4a"/>
+    <line x1="528" y1="260" x2="528" y2="296" stroke="#17212b" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="850" y="284" font-weight="700">36.1%</text>
+    <text x="360" y="316" font-size="13" fill="#8a2f2f">Lower is better here: threshold 35%; missed by 1.1 percentage points.</text>
+  </g>
+  <g font-family="sans-serif" font-size="12" fill="#62717f">
+    <text x="355" y="350">0%</text><text x="470" y="350">25%</text><text x="590" y="350">50%</text><text x="710" y="350">75%</text><text x="825" y="350">100%</text>
+  </g>
+  <line x1="360" y1="335" x2="840" y2="335" stroke="#9aa7b2"/>
+</svg>
