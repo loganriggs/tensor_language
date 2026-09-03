@@ -5396,3 +5396,55 @@ both source roles. The strongest joint layer-8 candidate passed 10/12 target cel
 copy-selectivity cells and only 3/6 source-sign-stability cells. Exact result SHA-256 is
 `7980753636fab422ed6c609a1afd054f99ed7f903e2bb3e61eddf0617316fdf6`. R588 remains outcome-blind and must independently
 audit the result before this null is registered as held.
+
+### 2026-09-03T20:19Z (box clock) — Codex: CLAIM R589 CPU-ONLY DOWNSTREAM-RESPONSE GROUPING SCREEN
+
+R589 is a parent-owned post-outcome discovery analysis of the immutable R584 FIT rows. It asks whether the twelve
+fixed `C`, `Q`, and `C+Q` removal arms contain reproducible cross-MLP functional groups when represented by their
+signed causal response across matched successor, copy, relation-break, and conflict rows. This directly targets
+grouping parts of different MLPs by downstream use; it does not search rank, native units, or a cheaper parameterization.
+
+Because R584 outcomes are already known, R589 is explicitly a screen, not identification. It will use only saved
+row-level evidence, report leave-one-representation-out and source-role stability, and emit candidate groupings plus
+opposing predictions for a fresh prospective confirmation. It may not open SELECT/FINAL/OOD, load the model, modify
+R584/R588, or promote a circuit. The analysis and its planted tests will be committed before any follow-up GPU design.
+
+### 2026-09-03T20:18Z (box clock) — Codex: R587 HELD INDEPENDENT AUDIT; R586 CAPABILITY IS NOW AUDITED
+
+The exact pre-outcome R587 auditor ran through managed lane 2 after the unrelated pairwise job finished. It independently
+reconstructed 3,024 unique sequences, 3,240 rows, 108 factorial groups, 432 condition effects, and all 86 SHA-defined
+bootstrap cells at 2,000 group resamples each. The scientific verdict is again `held_capability_screen`, with no failed
+clauses; the strict result contract, exact result/receipt byte binding, 95-forward source envelope, FIT/SELECT opening,
+and zero backwards/updates all held. The R587 audit itself used zero model forwards.
+
+The exact audit SHA-256 is `72f0261fe32aa3d048c442ea1c08af932af6a368894610833e79aaaabf98bfe9`;
+it binds R586 result `14e7414b...f6b8` and receipt `afd7533b...9384`. R586 is no longer provisional. This closes the
+upstream scientific dependency for the replacement R585 score/value-factor experiment without changing R580/R581's
+preserved malformed-envelope failure.
+
+### 2026-09-03T20:22Z (box clock) — Codex: R585 MODEL-FREE MANIFEST COMPLETE; DEPENDENCY LOCK FROZEN
+
+The first subagent lane completed the replacement R585 authority/manifest package. Parent rerun passes all 24 R578+R585
+tests, compilation, and deterministic dry-run replay. It fixes canonical family serialization, enumerates the literal
+FIT/SELECT rows, endpoints, directions, 20 target cells, 32 control cells, 24 coverage keys, 88 activity-eligible
+control-arm cells, 32 structural identities, 124 bootstrap cells, and exact 459+231=690 forward ceiling. No model or
+outcome was loaded.
+
+Now that R587 held, a separate dependency lock binds the exact R578 rows, replacement amendment, R586 result/receipt,
+and R587 audit. The model-free validator returns `dependency_held`; lock SHA-256 is
+`908826844336fe7a073ae16a5ef9123434514c21a73f8d3b331b4bab6e9f49b7`. R585 still has no model-hook implementation
+and is not queued; implementation plus independent review remain required before any GPU call.
+
+### 2026-09-03T20:23Z (box clock) — Codex: R589 CROSS-MLP FUNCTIONAL GROUPING SCREEN FINDS NO STABLE LEAD
+
+R589 compared all 54 pairs of removal arms from different MLP sites using their signed causal response over the same
+576 FIT rows. The strongest pair was MLP12's joint response with MLP8's background-cross response: overall correlation
+78%, and 63% at its weakest representation-by-source cell. It did not survive the deliberately stricter leave-out
+checks (minimum 73% with one representation removed and 64% with one source role removed), so zero pairs meet the
+post-outcome discovery filter. Six planted/integrity tests pass; SELECT/FINAL/OOD remain closed and there were zero
+model calls.
+
+This screen cannot rule out a distributed circuit, but it says a simple "these two coarse MLP response terms are the
+same computation" grouping is not stable enough to spend a fresh split on. The next circuit lane therefore stays with
+the finer attention score/value factorization in R585 rather than turning R584's coarse algebra into another broad
+grouping sweep. An independent adversarial review of R589 is active.

@@ -289,7 +289,12 @@ Each cell ID is the pipe-joined string
 <split>|<family>|<variant>|<recipient_condition>|<direction>|<arm>|<metric>
 ```
 
-using the literal manifest labels above, directions `base_to_donor` or `donor_to_base`, arms `score`, `payload`, or `joint`, and metric in:
+Here `<family>` is the exact canonical R578 `family_id` (for example,
+`two_valid_sources_selector_swap`, never the display label “selector swap”),
+`<variant>` is the exact R578 `family_variant`, and `<recipient_condition>`
+is one of `s0p0`, `s0p1`, `s1p0`, or `s1p1` derived from the recipient
+endpoint. Directions are `base_to_donor` or `donor_to_base`, arms are
+`score`, `payload`, or `joint`, and metric is one of:
 
 ```text
 denominator_mean, numerator_mean, donor_ce_mean,

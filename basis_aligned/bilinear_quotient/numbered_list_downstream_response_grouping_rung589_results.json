@@ -1,0 +1,1431 @@
+{
+  "all_pair_reports": [
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.7516224604794747,
+        "digit:source1": 0.8231272257897867,
+        "list:source0": 0.6324105817154996,
+        "list:source1": 0.94231742291776,
+        "word:source0": 0.670538899067627,
+        "word:source1": 0.8833027964607233
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.8174681948540745,
+        "list": 0.7316789706853724,
+        "word": 0.7810889165078767
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8648355879238658,
+        "source1": 0.644019071986059
+      },
+      "minimum_cell_correlation": 0.6324105817154996,
+      "minimum_leave_one_representation_out_correlation": 0.7316789706853724,
+      "minimum_leave_one_source_out_correlation": 0.644019071986059,
+      "overall_correlation": 0.7781318504363974
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.6511503422016862,
+        "digit:source1": 0.6092659460625734,
+        "list:source0": 0.6599293590433573,
+        "list:source1": 0.9411664548484567,
+        "word:source0": 0.6655809009934577,
+        "word:source1": 0.8223922965231584
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7990014360510121,
+        "list": 0.5841041103873502,
+        "word": 0.6936481703914016
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8015382288378969,
+        "source1": 0.5763171073812217
+      },
+      "minimum_cell_correlation": 0.6092659460625734,
+      "minimum_leave_one_representation_out_correlation": 0.5841041103873502,
+      "minimum_leave_one_source_out_correlation": 0.5763171073812217,
+      "overall_correlation": 0.6868578387782328
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp12_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.5776590094148933,
+        "digit:source1": 0.8667013188134548,
+        "list:source0": 0.7114803869901487,
+        "list:source1": 0.9561101354248328,
+        "word:source0": 0.8027281293807615,
+        "word:source1": 0.945614884765581
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.8474671896409456,
+        "list": 0.680102791847799,
+        "word": 0.7465853815361492
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8868534712653767,
+        "source1": 0.5857449645046512
+      },
+      "minimum_cell_correlation": 0.5776590094148933,
+      "minimum_leave_one_representation_out_correlation": 0.680102791847799,
+      "minimum_leave_one_source_out_correlation": 0.5857449645046512,
+      "overall_correlation": 0.7549208099380859
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp12_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.504130105685222,
+        "digit:source1": 0.7032391581025542,
+        "list:source0": 0.7068117522506173,
+        "list:source1": 0.9324728457327738,
+        "word:source0": 0.6986661051088211,
+        "word:source1": 0.9316598842299186
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7363665400857443,
+        "list": 0.5933785012388519,
+        "word": 0.6501221778542913
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.811730537276496,
+        "source1": 0.5025458008352344
+      },
+      "minimum_cell_correlation": 0.504130105685222,
+      "minimum_leave_one_representation_out_correlation": 0.5933785012388519,
+      "minimum_leave_one_source_out_correlation": 0.5025458008352344,
+      "overall_correlation": 0.6492832451099557
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp12_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.4602502047700535,
+        "digit:source1": 0.6003482171099911,
+        "list:source0": 0.7329568909448352,
+        "list:source1": 0.947892002226916,
+        "word:source0": 0.7740281038594691,
+        "word:source1": 0.9019631391207311
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.831669913403415,
+        "list": 0.4968395083757191,
+        "word": 0.62788926531259
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8217695940107516,
+        "source1": 0.4687227086420032
+      },
+      "minimum_cell_correlation": 0.4602502047700535,
+      "minimum_leave_one_representation_out_correlation": 0.4968395083757191,
+      "minimum_leave_one_source_out_correlation": 0.4687227086420032,
+      "overall_correlation": 0.636197133991579
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp12_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.3742911768399471,
+        "digit:source1": 0.41114480001105896,
+        "list:source0": 0.7295835815759698,
+        "list:source1": 0.9272722485152547,
+        "word:source0": 0.6712953962469183,
+        "word:source1": 0.8817911728683184
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7259523545241162,
+        "list": 0.4141278010819293,
+        "word": 0.5302697132137597
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7380237678580083,
+        "source1": 0.38461731242001523
+      },
+      "minimum_cell_correlation": 0.3742911768399471,
+      "minimum_leave_one_representation_out_correlation": 0.4141278010819293,
+      "minimum_leave_one_source_out_correlation": 0.38461731242001523,
+      "overall_correlation": 0.5333521924752894
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.9373737099843253,
+        "digit:source1": 0.8891646288218745,
+        "list:source0": 0.9663210424993748,
+        "list:source1": 0.9810303696843141,
+        "word:source0": 0.348984414216083,
+        "word:source1": 0.9166339276959569
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.8541068194310043,
+        "list": 0.7666765788644613,
+        "word": 0.911060244916927
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.9281695927456847,
+        "source1": 0.7285916412775891
+      },
+      "minimum_cell_correlation": 0.348984414216083,
+      "minimum_leave_one_representation_out_correlation": 0.7666765788644613,
+      "minimum_leave_one_source_out_correlation": 0.7285916412775891,
+      "overall_correlation": 0.8442402746572235
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp12_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.8120194499597528,
+        "digit:source1": 0.9099176271311882,
+        "list:source0": 0.2893951012937869,
+        "list:source1": 0.9381855835654911,
+        "word:source0": 0.689146391863571,
+        "word:source1": 0.6802486284439733
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.6965282409870173,
+        "list": 0.7065686553365614,
+        "word": 0.818400715951828
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8092994817931801,
+        "source1": 0.7161612178897736
+      },
+      "minimum_cell_correlation": 0.2893951012937869,
+      "minimum_leave_one_representation_out_correlation": 0.6965282409870173,
+      "minimum_leave_one_source_out_correlation": 0.7161612178897736,
+      "overall_correlation": 0.7437509185625608
+    },
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.49555092830910324,
+        "digit:source1": 0.7812183979581896,
+        "list:source0": 0.4797321720728827,
+        "list:source1": 0.9794920139514989,
+        "word:source0": 0.2847865190810408,
+        "word:source1": 0.9196043123254931
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7523803780460294,
+        "list": 0.5471837509749712,
+        "word": 0.7051164307494753
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8746913235301677,
+        "source1": 0.3794127714024721
+      },
+      "minimum_cell_correlation": 0.2847865190810408,
+      "minimum_leave_one_representation_out_correlation": 0.5471837509749712,
+      "minimum_leave_one_source_out_correlation": 0.3794127714024721,
+      "overall_correlation": 0.6731523413536551
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp12_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.8775260758925942,
+        "digit:source1": 0.8302005767560662,
+        "list:source0": 0.28301839376373233,
+        "list:source1": 0.9087725675007597,
+        "word:source0": 0.6290049663547618,
+        "word:source1": 0.678208866683387
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.6017477732096735,
+        "list": 0.6686629479580888,
+        "word": 0.7547601233376207
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7663674903735991,
+        "source1": 0.7030491940237601
+      },
+      "minimum_cell_correlation": 0.28301839376373233,
+      "minimum_leave_one_representation_out_correlation": 0.6017477732096735,
+      "minimum_leave_one_source_out_correlation": 0.7030491940237601,
+      "overall_correlation": 0.6753273263090394
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.36554671791674587,
+        "digit:source1": 0.47910377634458146,
+        "list:source0": 0.5109127495321028,
+        "list:source1": 0.971606192317287,
+        "word:source0": 0.2691908462055807,
+        "word:source1": 0.7435689908322062
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.6885918880607557,
+        "list": 0.3454403280835821,
+        "word": 0.5794345972442297
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7656971214517367,
+        "source1": 0.3092152332574005
+      },
+      "minimum_cell_correlation": 0.2691908462055807,
+      "minimum_leave_one_representation_out_correlation": 0.3454403280835821,
+      "minimum_leave_one_source_out_correlation": 0.3092152332574005,
+      "overall_correlation": 0.534634965653751
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.9133096737037486,
+        "digit:source1": 0.8693314984815506,
+        "list:source0": 0.967814058449765,
+        "list:source1": 0.9786308382998997,
+        "word:source0": 0.22150777872415167,
+        "word:source1": 0.854687268360665
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7493107733343845,
+        "list": 0.6665564548590518,
+        "word": 0.8762522508261218
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8930614726533976,
+        "source1": 0.6333460158303825
+      },
+      "minimum_cell_correlation": 0.22150777872415167,
+      "minimum_leave_one_representation_out_correlation": 0.6665564548590518,
+      "minimum_leave_one_source_out_correlation": 0.6333460158303825,
+      "overall_correlation": 0.7563243291727091
+    },
+    {
+      "arm_a": "mlp14_contrast_self",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.32019546509763963,
+        "digit:source1": 0.7119066070843902,
+        "list:source0": 0.20846431518277353,
+        "list:source1": 0.8223745512351551,
+        "word:source0": 0.20144688211782347,
+        "word:source1": 0.757267108645959
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.44081504307115615,
+        "list": 0.5115317118524796,
+        "word": 0.5297967954625972
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.5781375480444845,
+        "source1": 0.20083596737691756
+      },
+      "minimum_cell_correlation": 0.20144688211782347,
+      "minimum_leave_one_representation_out_correlation": 0.44081504307115615,
+      "minimum_leave_one_source_out_correlation": 0.20083596737691756,
+      "overall_correlation": 0.46070009396762857
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.7444007054106448,
+        "digit:source1": 0.8003071709966387,
+        "list:source0": 0.1936358861772587,
+        "list:source1": 0.9086964880786571,
+        "word:source0": 0.33514779495208114,
+        "word:source1": 0.667579842670323
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.6655723155663352,
+        "list": 0.6181168906384626,
+        "word": 0.7524650797501
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7899938949857159,
+        "source1": 0.4628602396291928
+      },
+      "minimum_cell_correlation": 0.1936358861772587,
+      "minimum_leave_one_representation_out_correlation": 0.6181168906384626,
+      "minimum_leave_one_source_out_correlation": 0.4628602396291928,
+      "overall_correlation": 0.680677271793673
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.17114182096140368,
+        "digit:source1": 0.7535867040020521,
+        "list:source0": 0.20900527978436687,
+        "list:source1": 0.8241751834390186,
+        "word:source0": 0.9248066965738388,
+        "word:source1": 0.6526744388210003
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5874804003849625,
+        "list": 0.5802728626862317,
+        "word": 0.42589988008115215
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.5616765383192739,
+        "source1": 0.46020792164764085
+      },
+      "minimum_cell_correlation": 0.17114182096140368,
+      "minimum_leave_one_representation_out_correlation": 0.42589988008115215,
+      "minimum_leave_one_source_out_correlation": 0.46020792164764085,
+      "overall_correlation": 0.5244084741855782
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.1308709341881668,
+        "digit:source1": 0.8509143199484682,
+        "list:source0": 0.22892075952405,
+        "list:source1": 0.8078722165917599,
+        "word:source0": 0.9577015585834584,
+        "word:source1": 0.5809601603361364
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.6152539417184466,
+        "list": 0.5652366144920088,
+        "word": 0.412656511519001
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.5744026103352116,
+        "source1": 0.532750023993682
+      },
+      "minimum_cell_correlation": 0.1308709341881668,
+      "minimum_leave_one_representation_out_correlation": 0.412656511519001,
+      "minimum_leave_one_source_out_correlation": 0.532750023993682,
+      "overall_correlation": 0.5364025526995845
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.8850681434119501,
+        "digit:source1": 0.893718375982019,
+        "list:source0": 0.05302985059319031,
+        "list:source1": 0.9605085582374515,
+        "word:source0": 0.09986946121269225,
+        "word:source1": 0.8308699895083044
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7085595476640736,
+        "list": 0.7002903199740772,
+        "word": 0.8186148989454063
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.8843638064442358,
+        "source1": 0.3710886167714922
+      },
+      "minimum_cell_correlation": 0.05302985059319031,
+      "minimum_leave_one_representation_out_correlation": 0.7002903199740772,
+      "minimum_leave_one_source_out_correlation": 0.3710886167714922,
+      "overall_correlation": 0.7387904480429364
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.7602662799351376,
+        "digit:source1": 0.08160516461064497,
+        "list:source0": -0.1071791724780343,
+        "list:source1": 0.9047547637586052,
+        "word:source0": 0.5765323758550006,
+        "word:source1": 0.5017002358031792
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.3753967951709519,
+        "list": 0.39134423581650446,
+        "word": 0.47613519943809557
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.3155738486352047,
+        "source1": 0.4367027159783327
+      },
+      "minimum_cell_correlation": -0.1071791724780343,
+      "minimum_leave_one_representation_out_correlation": 0.3753967951709519,
+      "minimum_leave_one_source_out_correlation": 0.3155738486352047,
+      "overall_correlation": 0.3760704013896126
+    },
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.7373705214251428,
+        "digit:source1": 0.4422991164086602,
+        "list:source0": -0.11001251020060414,
+        "list:source1": 0.9080296464547303,
+        "word:source0": 0.6072939521824712,
+        "word:source1": 0.773222576274584
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.4610924510648076,
+        "list": 0.5379303732682591,
+        "word": 0.5113777629011503
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.4639329913133578,
+        "source1": 0.428877776240167
+      },
+      "minimum_cell_correlation": -0.11001251020060414,
+      "minimum_leave_one_representation_out_correlation": 0.4610924510648076,
+      "minimum_leave_one_source_out_correlation": 0.428877776240167,
+      "overall_correlation": 0.4646928487749068
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": -0.0039121340125901835,
+        "digit:source1": 0.7583865242913266,
+        "list:source0": -0.11734623484947548,
+        "list:source1": 0.8837534334052563,
+        "word:source0": 0.5653104638050077,
+        "word:source1": 0.8755694688467062
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5763281007855314,
+        "list": 0.6055936366146006,
+        "word": 0.4604660994332155
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.6543356847702246,
+        "source1": 0.13069111656066337
+      },
+      "minimum_cell_correlation": -0.11734623484947548,
+      "minimum_leave_one_representation_out_correlation": 0.4604660994332155,
+      "minimum_leave_one_source_out_correlation": 0.13069111656066337,
+      "overall_correlation": 0.5349407378793453
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.679831339183585,
+        "digit:source1": 0.14151878633462928,
+        "list:source0": 0.4833987091685204,
+        "list:source1": 0.5989601079983242,
+        "word:source0": 0.008897925440124667,
+        "word:source1": -0.11978164188966337
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.08709317832117407,
+        "list": 0.19285985511140802,
+        "word": 0.49227945546850216
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.11455731073965572,
+        "source1": 0.33433998252960745
+      },
+      "minimum_cell_correlation": -0.11978164188966337,
+      "minimum_leave_one_representation_out_correlation": 0.08709317832117407,
+      "minimum_leave_one_source_out_correlation": 0.11455731073965572,
+      "overall_correlation": 0.23472004140139824
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.9416565957192715,
+        "digit:source1": 0.9301560827154233,
+        "list:source0": 0.9198920976208932,
+        "list:source1": 0.9785125887394468,
+        "word:source0": -0.16790133001197302,
+        "word:source1": 0.9008573798568305
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7065034018393638,
+        "list": 0.6035633618905092,
+        "word": 0.9065785981601197
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.9235259132621746,
+        "source1": 0.4677899822105766
+      },
+      "minimum_cell_correlation": -0.16790133001197302,
+      "minimum_leave_one_representation_out_correlation": 0.6035633618905092,
+      "minimum_leave_one_source_out_correlation": 0.4677899822105766,
+      "overall_correlation": 0.737542027613357
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.5947929978790325,
+        "digit:source1": 0.8009448024459379,
+        "list:source0": -0.12053778796462386,
+        "list:source1": 0.9486229753810572,
+        "word:source0": -0.19244645080415945,
+        "word:source1": 0.9729323618128721
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.7280187264137962,
+        "list": 0.694257681820558,
+        "word": 0.727380893590897
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.9065756934752359,
+        "source1": 0.19233060422455284
+      },
+      "minimum_cell_correlation": -0.19244645080415945,
+      "minimum_leave_one_representation_out_correlation": 0.694257681820558,
+      "minimum_leave_one_source_out_correlation": 0.19233060422455284,
+      "overall_correlation": 0.707316654004153
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.8895543758048587,
+        "digit:source1": 0.15406650072014502,
+        "list:source0": 0.595199792352823,
+        "list:source1": -0.24540748359032571,
+        "word:source0": 0.6835391922645009,
+        "word:source1": 0.7996895118975338
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5553277639783609,
+        "list": 0.6352390771306209,
+        "word": 0.5089739956133869
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.4573225943129588,
+        "source1": 0.732469874909119
+      },
+      "minimum_cell_correlation": -0.24540748359032571,
+      "minimum_leave_one_representation_out_correlation": 0.5089739956133869,
+      "minimum_leave_one_source_out_correlation": 0.4573225943129588,
+      "overall_correlation": 0.5661488502232429
+    },
+    {
+      "arm_a": "mlp14_joint_response",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.785182688502722,
+        "digit:source1": 0.28646904915892185,
+        "list:source0": 0.702723235626856,
+        "list:source1": -0.2697077318814564,
+        "word:source0": 0.5700197121565296,
+        "word:source1": 0.8549346433128635
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.4828166472954257,
+        "list": 0.6161785529950846,
+        "word": 0.38581802636969903
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.38386876338389897,
+        "source1": 0.6774463426205443
+      },
+      "minimum_cell_correlation": -0.2697077318814564,
+      "minimum_leave_one_representation_out_correlation": 0.38581802636969903,
+      "minimum_leave_one_source_out_correlation": 0.38386876338389897,
+      "overall_correlation": 0.4891948859586835
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.9549868209100442,
+        "digit:source1": 0.938531074960388,
+        "list:source0": 0.9205874062958327,
+        "list:source1": 0.9655989295577585,
+        "word:source0": -0.29906650310543736,
+        "word:source1": 0.8582918784889878
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5687324835736677,
+        "list": 0.4933769050924068,
+        "word": 0.8805157751004358
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.9008667479423267,
+        "source1": 0.34926126350820286
+      },
+      "minimum_cell_correlation": -0.29906650310543736,
+      "minimum_leave_one_representation_out_correlation": 0.4933769050924068,
+      "minimum_leave_one_source_out_correlation": 0.34926126350820286,
+      "overall_correlation": 0.6335731678493743
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.8612616787674047,
+        "digit:source1": 0.09809654439453562,
+        "list:source0": 0.6070499331602235,
+        "list:source1": -0.3005833614226425,
+        "word:source0": 0.7159623269535877,
+        "word:source1": 0.8420005984394006
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5319163687576614,
+        "list": 0.664918195555901,
+        "word": 0.424071113430305
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.4113006893313159,
+        "source1": 0.7515541635382946
+      },
+      "minimum_cell_correlation": -0.3005833614226425,
+      "minimum_leave_one_representation_out_correlation": 0.424071113430305,
+      "minimum_leave_one_source_out_correlation": 0.4113006893313159,
+      "overall_correlation": 0.5412781924823185
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.6024333208584024,
+        "digit:source1": 0.31091983439036286,
+        "list:source0": 0.5177523079899681,
+        "list:source1": 0.48826346971945694,
+        "word:source0": 0.5407793651582168,
+        "word:source1": -0.30255789749013784
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.14364692033554782,
+        "list": 0.2208950491084715,
+        "word": 0.48626768627436395
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.0013315811713640545,
+        "source1": 0.5327720581887333
+      },
+      "minimum_cell_correlation": -0.30255789749013784,
+      "minimum_leave_one_representation_out_correlation": 0.14364692033554782,
+      "minimum_leave_one_source_out_correlation": 0.0013315811713640545,
+      "overall_correlation": 0.24018576055483754
+    },
+    {
+      "arm_a": "mlp14_contrast_self",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.05284717564447468,
+        "digit:source1": 0.81712280586925,
+        "list:source0": 0.2785362718619972,
+        "list:source1": 0.8847284176951944,
+        "word:source0": -0.31131294150497657,
+        "word:source1": 0.8359493310948976
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.386066685812354,
+        "list": 0.42942187720358066,
+        "word": 0.5325779717880925
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.6789429512454008,
+        "source1": -0.1416792685435596
+      },
+      "minimum_cell_correlation": -0.31131294150497657,
+      "minimum_leave_one_representation_out_correlation": 0.386066685812354,
+      "minimum_leave_one_source_out_correlation": -0.1416792685435596,
+      "overall_correlation": 0.4147174810559359
+    },
+    {
+      "arm_a": "mlp14_joint_response",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.8155424121273331,
+        "digit:source1": 0.09242061327099652,
+        "list:source0": 0.8266937265912442,
+        "list:source1": -0.3764183399347109,
+        "word:source0": 0.10952606983073294,
+        "word:source1": 0.9239674902806556
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.46597173148800114,
+        "list": 0.5431130612786259,
+        "word": 0.33772131731433913
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.41956331275410813,
+        "source1": 0.5165653459411531
+      },
+      "minimum_cell_correlation": -0.3764183399347109,
+      "minimum_leave_one_representation_out_correlation": 0.33772131731433913,
+      "minimum_leave_one_source_out_correlation": 0.41956331275410813,
+      "overall_correlation": 0.45402238652060234
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.2802736014777869,
+        "digit:source1": 0.3845724195656257,
+        "list:source0": 0.09075942778346804,
+        "list:source1": -0.42120905815605225,
+        "word:source0": 0.6407683235014939,
+        "word:source1": 0.7133438762691339
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.2780785247042641,
+        "list": 0.3785541061384207,
+        "word": 0.09111716327921336
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.2301968746695231,
+        "source1": 0.29795344076696895
+      },
+      "minimum_cell_correlation": -0.42120905815605225,
+      "minimum_leave_one_representation_out_correlation": 0.09111716327921336,
+      "minimum_leave_one_source_out_correlation": 0.2301968746695231,
+      "overall_correlation": 0.2531282164072766
+    },
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.40407550269367587,
+        "digit:source1": 0.1686398937713109,
+        "list:source0": 0.06448662342602851,
+        "list:source1": -0.43870378007991984,
+        "word:source0": 0.6072787082121581,
+        "word:source1": 0.9253687210032963
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.31985401334688746,
+        "list": 0.5212282092063952,
+        "word": 0.10793799180493449
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.27839740736751933,
+        "source1": 0.38370888020457006
+      },
+      "minimum_cell_correlation": -0.43870378007991984,
+      "minimum_leave_one_representation_out_correlation": 0.10793799180493449,
+      "minimum_leave_one_source_out_correlation": 0.27839740736751933,
+      "overall_correlation": 0.3168877249426491
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp14_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.812269192775023,
+        "digit:source1": -0.21076678429963155,
+        "list:source0": -0.23140279901611352,
+        "list:source1": -0.46745527649379426,
+        "word:source0": 0.25002774760177193,
+        "word:source1": 0.890185907566588
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.3475062910604724,
+        "list": 0.5410168750695865,
+        "word": 0.06749888512128713
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.3074812108394913,
+        "source1": 0.4718851020836854
+      },
+      "minimum_cell_correlation": -0.46745527649379426,
+      "minimum_leave_one_representation_out_correlation": 0.06749888512128713,
+      "minimum_leave_one_source_out_correlation": 0.3074812108394913,
+      "overall_correlation": 0.34005859398654986
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.8550612175421952,
+        "digit:source1": -0.22015614821765625,
+        "list:source0": 0.583307322137314,
+        "list:source1": -0.52156421244412,
+        "word:source0": 0.18625277429646808,
+        "word:source1": 0.8827686770898955
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.40090912390352945,
+        "list": 0.4909649654490263,
+        "word": 0.34638688128594336
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.27904432877115337,
+        "source1": 0.5706142966924413
+      },
+      "minimum_cell_correlation": -0.52156421244412,
+      "minimum_leave_one_representation_out_correlation": 0.34638688128594336,
+      "minimum_leave_one_source_out_correlation": 0.27904432877115337,
+      "overall_correlation": 0.41779938988263265
+    },
+    {
+      "arm_a": "mlp14_background_cross",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.6879493983970074,
+        "digit:source1": -0.03929835605578233,
+        "list:source0": 0.6977450841928963,
+        "list:source1": -0.5441313658990972,
+        "word:source0": 0.6444418174968074,
+        "word:source1": 0.8489495702753848
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.4156634962991172,
+        "list": 0.5060131471108404,
+        "word": 0.19111703373516578
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.18033927397430322,
+        "source1": 0.662542777744948
+      },
+      "minimum_cell_correlation": -0.5441313658990972,
+      "minimum_leave_one_representation_out_correlation": 0.19111703373516578,
+      "minimum_leave_one_source_out_correlation": 0.18033927397430322,
+      "overall_correlation": 0.36820688509706256
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.1933633586798853,
+        "digit:source1": 0.7388490291201212,
+        "list:source0": 0.7083541524331418,
+        "list:source1": 0.8334303399114535,
+        "word:source0": -0.5643013070608195,
+        "word:source1": 0.6464930877414997
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.37511154349223746,
+        "list": 0.22992412119446923,
+        "word": 0.5951311276153981
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.6751370186766411,
+        "source1": -0.02625711563085891
+      },
+      "minimum_cell_correlation": -0.5643013070608195,
+      "minimum_leave_one_representation_out_correlation": 0.22992412119446923,
+      "minimum_leave_one_source_out_correlation": -0.02625711563085891,
+      "overall_correlation": 0.3806720986701043
+    },
+    {
+      "arm_a": "mlp10_background_cross",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.8123357846053504,
+        "digit:source1": -0.2308316193480229,
+        "list:source0": 0.5986952848883594,
+        "list:source1": -0.5657389634010797,
+        "word:source0": 0.2601978775255107,
+        "word:source1": 0.9006866889055859
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.3875782799655494,
+        "list": 0.5217911304277426,
+        "word": 0.26124784169156456
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.22438266201213447,
+        "source1": 0.6247566505545559
+      },
+      "minimum_cell_correlation": -0.5657389634010797,
+      "minimum_leave_one_representation_out_correlation": 0.26124784169156456,
+      "minimum_leave_one_source_out_correlation": 0.22438266201213447,
+      "overall_correlation": 0.3943184911588029
+    },
+    {
+      "arm_a": "mlp14_joint_response",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.2917224642388265,
+        "digit:source1": -0.2725256136743687,
+        "list:source0": 0.8836755656527091,
+        "list:source1": -0.5707205113643806,
+        "word:source0": -0.306123702686045,
+        "word:source1": 0.8765812686771685
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.38885283796627534,
+        "list": 0.3728351338831211,
+        "word": 0.09931432318944966
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.43380381497539006,
+        "source1": 0.11986139782123158
+      },
+      "minimum_cell_correlation": -0.5707205113643806,
+      "minimum_leave_one_representation_out_correlation": 0.09931432318944966,
+      "minimum_leave_one_source_out_correlation": 0.11986139782123158,
+      "overall_correlation": 0.3216020578088028
+    },
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": -0.5864493676135811,
+        "digit:source1": 0.3950879813264456,
+        "list:source0": 0.16800354422472152,
+        "list:source1": 0.9297176641552,
+        "word:source0": -0.12725911891775993,
+        "word:source1": 0.7725342477462008
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.5216566331901549,
+        "list": 0.04828070966973941,
+        "word": 0.27014829236768184
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7033681669369936,
+        "source1": -0.304054299972509
+      },
+      "minimum_cell_correlation": -0.5864493676135811,
+      "minimum_leave_one_representation_out_correlation": 0.04828070966973941,
+      "minimum_leave_one_source_out_correlation": -0.304054299972509,
+      "overall_correlation": 0.28123290664401235
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp14_contrast_self",
+      "cell_correlations": {
+        "digit:source0": -0.2086496614237848,
+        "digit:source1": 0.3518135914194012,
+        "list:source0": 0.34523029306536424,
+        "list:source1": -0.6147123713236482,
+        "word:source0": 0.9256924224224022,
+        "word:source1": -0.5328271856787221
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.16791583080738845,
+        "list": 0.15476543490481082,
+        "word": -0.08224465340275351
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.19034783382830514,
+        "source1": 0.5649364644960366
+      },
+      "minimum_cell_correlation": -0.6147123713236482,
+      "minimum_leave_one_representation_out_correlation": -0.08224465340275351,
+      "minimum_leave_one_source_out_correlation": -0.19034783382830514,
+      "overall_correlation": 0.11555225044080804
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp8_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.33814580165300684,
+        "digit:source1": 0.05067826125956482,
+        "list:source0": 0.7991513772472773,
+        "list:source1": -0.6326082457547777,
+        "word:source0": -0.04564289338765451,
+        "word:source1": -0.23924646645026007
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.12555474249553517,
+        "list": 0.05410058655066775,
+        "word": -0.05449322714634028
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.2722555658235766,
+        "source1": 0.23919905744143724
+      },
+      "minimum_cell_correlation": -0.6326082457547777,
+      "minimum_leave_one_representation_out_correlation": -0.12555474249553517,
+      "minimum_leave_one_source_out_correlation": -0.2722555658235766,
+      "overall_correlation": -0.03108364031222434
+    },
+    {
+      "arm_a": "mlp14_background_cross",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.8037882630938935,
+        "digit:source1": -0.2609227431476415,
+        "list:source0": 0.8137340467848037,
+        "list:source1": -0.6445787796905219,
+        "word:source0": 0.4109817300322446,
+        "word:source1": 0.9039539026994283
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.4274607870849982,
+        "list": 0.46021910048653614,
+        "word": 0.14390844615138812
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.16660562103872673,
+        "source1": 0.6386145188864184
+      },
+      "minimum_cell_correlation": -0.6445787796905219,
+      "minimum_leave_one_representation_out_correlation": 0.14390844615138812,
+      "minimum_leave_one_source_out_correlation": 0.16660562103872673,
+      "overall_correlation": 0.34959604208669104
+    },
+    {
+      "arm_a": "mlp10_joint_response",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.309134674392769,
+        "digit:source1": 0.8203699204711892,
+        "list:source0": 0.7152918827976043,
+        "list:source1": 0.8083646412743959,
+        "word:source0": -0.6593768427906072,
+        "word:source1": 0.6350386716318381
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.25232654680048333,
+        "list": 0.1786786576030882,
+        "word": 0.6095238288354455
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.6757817119631419,
+        "source1": -0.0895030797159694
+      },
+      "minimum_cell_correlation": -0.6593768427906072,
+      "minimum_leave_one_representation_out_correlation": 0.1786786576030882,
+      "minimum_leave_one_source_out_correlation": -0.0895030797159694,
+      "overall_correlation": 0.31336995194373574
+    },
+    {
+      "arm_a": "mlp14_contrast_self",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": -0.6465776533767666,
+        "digit:source1": 0.89946810531809,
+        "list:source0": 0.4062236011873551,
+        "list:source1": 0.9193328120238071,
+        "word:source0": -0.6625116073193943,
+        "word:source1": 0.8917105962759933
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.3875195124784591,
+        "list": 0.31229024078622175,
+        "word": 0.3118035269229442
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.7918423487383914,
+        "source1": -0.5691907887438507
+      },
+      "minimum_cell_correlation": -0.6625116073193943,
+      "minimum_leave_one_representation_out_correlation": 0.3118035269229442,
+      "minimum_leave_one_source_out_correlation": -0.5691907887438507,
+      "overall_correlation": 0.3366487392926699
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.040138928621125364,
+        "digit:source1": 0.3097191087564696,
+        "list:source0": 0.1165350448956547,
+        "list:source1": -0.6840990592846284,
+        "word:source0": 0.4428858594835935,
+        "word:source1": 0.7990416880133795
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.16247298120038453,
+        "list": 0.2588356882417254,
+        "word": -0.07383293691667286
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.1248085939757894,
+        "source1": 0.13576846527737838
+      },
+      "minimum_cell_correlation": -0.6840990592846284,
+      "minimum_leave_one_representation_out_correlation": -0.07383293691667286,
+      "minimum_leave_one_source_out_correlation": 0.1248085939757894,
+      "overall_correlation": 0.11275397427911951
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp8_joint_response",
+      "cell_correlations": {
+        "digit:source0": 0.566168410171951,
+        "digit:source1": 0.0682564693923263,
+        "list:source0": 0.7887237414644499,
+        "list:source1": -0.68947434564827,
+        "word:source0": -0.5292740490186909,
+        "word:source1": -0.21772710423149383
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.3270726568398285,
+        "list": -0.10462383915583764,
+        "word": -0.027408371125166475
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.2759289552505627,
+        "source1": -0.023513575801002003
+      },
+      "minimum_cell_correlation": -0.68947434564827,
+      "minimum_leave_one_representation_out_correlation": -0.3270726568398285,
+      "minimum_leave_one_source_out_correlation": -0.2759289552505627,
+      "overall_correlation": -0.15131871032195784
+    },
+    {
+      "arm_a": "mlp12_joint_response",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.17272959212913452,
+        "digit:source1": -0.03692777093517958,
+        "list:source0": 0.09010026600497885,
+        "list:source1": -0.6973027987110068,
+        "word:source0": 0.37038253996403864,
+        "word:source1": 0.9543470183558577
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.16992414274989412,
+        "list": 0.3603197285010299,
+        "word": -0.06879385239097312
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.10339258822505863,
+        "source1": 0.23424099125376402
+      },
+      "minimum_cell_correlation": -0.6973027987110068,
+      "minimum_leave_one_representation_out_correlation": -0.06879385239097312,
+      "minimum_leave_one_source_out_correlation": 0.10339258822505863,
+      "overall_correlation": 0.1463357023268123
+    },
+    {
+      "arm_a": "mlp12_background_cross",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": -0.6983382169940893,
+        "digit:source1": -0.01687458721538528,
+        "list:source0": 0.18586971384571535,
+        "list:source1": 0.9068838895799963,
+        "word:source0": -0.13593262622455146,
+        "word:source1": 0.4083572152406402
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.3705532529926046,
+        "list": -0.2082230181763382,
+        "word": 0.08215165604258969
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.5149542968298745,
+        "source1": -0.38194316353976393
+      },
+      "minimum_cell_correlation": -0.6983382169940893,
+      "minimum_leave_one_representation_out_correlation": -0.2082230181763382,
+      "minimum_leave_one_source_out_correlation": -0.38194316353976393,
+      "overall_correlation": 0.06878448653025901
+    },
+    {
+      "arm_a": "mlp12_contrast_self",
+      "arm_b": "mlp14_background_cross",
+      "cell_correlations": {
+        "digit:source0": 0.823612631092791,
+        "digit:source1": -0.5117281902133309,
+        "list:source0": -0.21579552768051896,
+        "list:source1": -0.7059161717097586,
+        "word:source0": -0.10299385171771451,
+        "word:source1": 0.830379713679024
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.14067431757499507,
+        "list": 0.35258208871962926,
+        "word": -0.08778798662609888
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.03222947693023739,
+        "source1": 0.46432421981590966
+      },
+      "minimum_cell_correlation": -0.7059161717097586,
+      "minimum_leave_one_representation_out_correlation": -0.08778798662609888,
+      "minimum_leave_one_source_out_correlation": 0.03222947693023739,
+      "overall_correlation": 0.14139183011653403
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp12_background_cross",
+      "cell_correlations": {
+        "digit:source0": -0.29659667444717874,
+        "digit:source1": -0.452220499483961,
+        "list:source0": 0.46049719326849725,
+        "list:source1": -0.709244600752285,
+        "word:source0": 0.43902756055698133,
+        "word:source1": 0.05390513244806121
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.13046449962671344,
+        "list": -0.04752523147760858,
+        "word": -0.3739307414406214
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.41513971405808153,
+        "source1": 0.018426677572231424
+      },
+      "minimum_cell_correlation": -0.709244600752285,
+      "minimum_leave_one_representation_out_correlation": -0.3739307414406214,
+      "minimum_leave_one_source_out_correlation": -0.41513971405808153,
+      "overall_correlation": -0.1801773549934767
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp12_joint_response",
+      "cell_correlations": {
+        "digit:source0": -0.16446677490817077,
+        "digit:source1": -0.3901186535563628,
+        "list:source0": 0.4295463662873837,
+        "list:source1": -0.7314675183080747,
+        "word:source0": 0.4603822044005162,
+        "word:source1": -0.05369643050671845
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.17191696677094645,
+        "list": 0.022487806340412815,
+        "word": -0.35569067499863277
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.43421999685304835,
+        "source1": 0.12267486805597873
+      },
+      "minimum_cell_correlation": -0.7314675183080747,
+      "minimum_leave_one_representation_out_correlation": -0.35569067499863277,
+      "minimum_leave_one_source_out_correlation": -0.43421999685304835,
+      "overall_correlation": -0.15894577742085075
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp12_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.7855835315741279,
+        "digit:source1": -0.19085361000215867,
+        "list:source0": 0.07500136444918057,
+        "list:source1": -0.7533233305090808,
+        "word:source0": 0.47329915101267633,
+        "word:source1": -0.18851726276283104
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.21801592820591484,
+        "list": 0.1848473694336143,
+        "word": -0.20480225657606427
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.3816004114412041,
+        "source1": 0.540950628395548
+      },
+      "minimum_cell_correlation": -0.7533233305090808,
+      "minimum_leave_one_representation_out_correlation": -0.21801592820591484,
+      "minimum_leave_one_source_out_correlation": -0.3816004114412041,
+      "overall_correlation": -0.047351009650881855
+    },
+    {
+      "arm_a": "mlp10_contrast_self",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.7918215545539081,
+        "digit:source1": 0.28094415483261825,
+        "list:source0": 0.6957541954978113,
+        "list:source1": -0.6702775869718406,
+        "word:source0": -0.7854921388304308,
+        "word:source1": -0.23658349721311078
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": -0.43516893828040465,
+        "list": -0.11427728378150873,
+        "word": 0.1556584175469985
+      },
+      "leave_one_source_out_correlations": {
+        "source0": -0.20713728069969958,
+        "source1": -0.17487698026060514
+      },
+      "minimum_cell_correlation": -0.7854921388304308,
+      "minimum_leave_one_representation_out_correlation": -0.43516893828040465,
+      "minimum_leave_one_source_out_correlation": -0.20713728069969958,
+      "overall_correlation": -0.15590288026493881
+    },
+    {
+      "arm_a": "mlp14_background_cross",
+      "arm_b": "mlp8_contrast_self",
+      "cell_correlations": {
+        "digit:source0": 0.501969546451558,
+        "digit:source1": -0.6265432281628268,
+        "list:source0": 0.8501482481068585,
+        "list:source1": -0.7937759851486859,
+        "word:source0": 0.11047134650155253,
+        "word:source1": 0.7975630697782791
+      },
+      "discovery_lead": false,
+      "leave_one_representation_out_correlations": {
+        "digit": 0.32309867281239796,
+        "list": 0.3127558051666936,
+        "word": -0.008560612074082102
+      },
+      "leave_one_source_out_correlations": {
+        "source0": 0.12284410161619767,
+        "source1": 0.39157265511151906
+      },
+      "minimum_cell_correlation": -0.7937759851486859,
+      "minimum_leave_one_representation_out_correlation": -0.008560612074082102,
+      "minimum_leave_one_source_out_correlation": 0.12284410161619767,
+      "overall_correlation": 0.22983216932370604
+    }
+  ],
+  "cross_site_pair_count": 54,
+  "decision": "no_stable_cross_mlp_grouping_lead",
+  "discovery_filter": {
+    "confirmatory_status": "post_outcome_filter_not_a_registered_gate",
+    "minimum_leave_one_representation_out_correlation": 0.75,
+    "minimum_leave_one_source_out_correlation": 0.75,
+    "minimum_representation_by_source_cell_correlation": 0.6
+  },
+  "discovery_leads": [],
+  "evidence_level": "screen_only",
+  "licensed_interpretation": "A lead means two cross-site removals have similar saved FIT response profiles. It does not establish shared computation, additivity, or an executable grouped circuit.",
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_weights_updated": false,
+  "opened_splits": [
+    "FIT"
+  ],
+  "rows_per_arm": 576,
+  "rung": 589,
+  "signed_response_definition": "native_minus_intervened_registered_margin; step_two uses arithmetic_minus_structural, all other conditions use answer margin",
+  "source_result_sha256": "7980753636fab422ed6c609a1afd054f99ed7f903e2bb3e61eddf0617316fdf6",
+  "source_rung": 584,
+  "stage": "post_outcome_downstream_response_grouping_screen"
+}
