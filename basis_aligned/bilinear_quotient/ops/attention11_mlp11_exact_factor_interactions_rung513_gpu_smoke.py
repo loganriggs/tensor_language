@@ -15,9 +15,9 @@ import attention11_mlp11_exact_factor_interactions_rung513 as rung513
 
 
 CHECKS = {
-    "pred_a_factor_corners_and_branch_removals_are_live": True,
-    "pred_b_all_ten_consumer_term_patches_are_live": True,
-    "pred_c_no_scientific_outcome_is_retained": True,
+    'pred_a_factor_corners_and_branch_removals_are_live': True,
+    'pred_b_all_ten_consumer_term_patches_are_live': True,
+    'pred_c_no_scientific_outcome_is_retained': True,
 }
 
 
