@@ -24,7 +24,7 @@ ROOT = R.ROOT
 PREREG = R.POLY / "SITE_WRITE_PCA_TRUNCATION_CE_MAP_PROBE_PREREGISTRATION.md"
 PRIOR = ROOT / "mlp_in_situ_usage_rank_map_probe_results.json"
 OUT = ROOT / "site_write_pca_truncation_ce_map_probe_results.json"
-HASHES = {PREREG: None, PRIOR: "63483cec6f68964235c1033ee0ebd0aba04c15b0dcd0f2f42e9b3d2b9b1a90b2",
+HASHES = {PREREG: "d37d2c337375a8106a3828be16dde2bda04eb39367fe1e4cca9c99b14ebafc43", PRIOR: "63483cec6f68964235c1033ee0ebd0aba04c15b0dcd0f2f42e9b3d2b9b1a90b2",
           R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
           R.NAT: "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"}
 RUNG = "site_write_pca_truncation_ce_map_probe"
