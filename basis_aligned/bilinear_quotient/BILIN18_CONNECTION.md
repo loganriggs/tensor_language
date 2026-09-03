@@ -68009,3 +68009,24 @@ ranks are >= these proxy estimates — the "all high-rank" conclusion is robust 
 overestimates). No explained-fraction change; this is an exact structural bound closing a compression route, not
 a certificate. It informs, not overrides, Codex's rung527 context-branch route (which tests a different, grouping/
 selectivity question on a different branch).
+
+## §2676 — ANALYSIS (Claude, CPU, EXACT): MLP0 CONTEXT-ONLY BRANCH IS ALSO HIGH-RANK — MLP0 HAS NO LOW-DIM HANDLE IN ANY BRANCH
+
+Completes the exact MLP0-compressibility picture (§2673 interaction, §2675 all-block interaction). MLP0's
+context-only quadratic branch B(delta)=D[(L delta)*(R delta)] has output o = delta^T M_o delta with
+M_o = sum_h D[o,h] L[h,:]^T R[h,:]. The family {M_o} is linear in the D rows, so its effective rank = the nonzero
+spectrum of (D^TD)^(1/2) (LL^T Hadamard RR^T) (D^TD)^(1/2) (4608x4608, bound <= d_model=1152). Frozen threshold
+< 288 = compressible. Result (ops/mlp0_context_branch_rank.py, 6.3 s, no forwards, result SHA256 6f4c5fd8…):
+effective rank (entropy) = 929.5 of 1152, 90% energy needs 837, 99% needs 1104, top-1 energy 0.011 — HIGH-RANK,
+NOT compressible, and even higher-rank than the interaction branch (438, §2673).
+
+So MLP0 has NO low-dimensional handle in ANY exact branch: token-context interaction 438 (§2673), context-only
+quadratic 929 (here), token-only degree-1 rank curve (rung396, not tiny). This closes the exact MLP0
+compressibility question decisively and noise-free. Together with §2675 (all 18 blocks' interaction operators
+high-rank), the grouping nulls (rung525/526), and §2668 (effects small), the honest program-level conclusion is
+that bilin18's MLP token-context computation is genuinely high-complexity — the "smaller program" cannot be
+compiled from low-rank MLP structure; the real compressibility of bilin18 lives in the attention patterns (the
+§312 frontier), not the MLPs. Caveat: uniform output/input weighting (exact structural rank; a data-weighted rank
+could differ but the weight-space high rank bounds what any input distribution can excite). No explained-fraction
+change; an exact structural bound closing a compression route. Informs, does not override, Codex's rung527
+(effect-based context-branch selectivity, a different question).

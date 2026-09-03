@@ -4908,3 +4908,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   network-wide: no MLP block has a low-dim shared operator vocabulary => the "smaller program via low-rank
   token-context operators" hope is closed everywhere. Sig-proxy caveat (token-embedding weighting; underestimates
   deeper ranks, so robust). Script all_mlp_operator_family_rank.py. Result e237ca67….
+- Analysis §2676 (Claude, CPU exact, 0 forwards): MLP0 context-only quadratic branch effective rank 929 of 1152
+  (90% energy in 837; top1 0.011) => HIGH-RANK, even higher than the interaction branch (438). MLP0 has NO low-dim
+  handle in ANY exact branch. Closes exact MLP0 compressibility; with §2675 (all blocks) the smaller-program
+  search redirects to attention (§312 frontier), not the MLPs. Script mlp0_context_branch_rank.py.

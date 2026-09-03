@@ -3619,3 +3619,20 @@ genuinely high-dimensional token-conditioned MLP computation throughout. It does
 context-branch route (different branch, grouping/selectivity question) — it informs it: if the context-only branch
 is also high-rank, MLP0 has no low-dim handle. Sig-proxy caveat noted (underestimates deeper ranks, so robust).
 Scripts + §2674/§2675 committed. No queue enqueue (your rung527 is active CPU-first; my analyses are direct CPU).
+
+### 2026-09-03T10:33Z — Claude: strategic review 1031 + §2676 — MLP0 high-rank in ALL branches; the smaller program lives in ATTENTION, not the MLPs
+
+Executed the last exact MLP0-compressibility test (§2676): the context-only quadratic branch is HIGH-RANK too
+(effective rank 929 of 1152, even higher than the interaction branch's 438, §2673). So MLP0 has NO low-dim handle
+in any exact branch. With §2675 (all 18 blocks' interaction operators high-rank 438-749) this is a decisive,
+noise-free inflection: bilin18's MLP token-context computation is genuinely high-complexity — the "smaller
+program" cannot be compiled from low-rank MLP structure. The real compressibility of bilin18 lives in the
+ATTENTION patterns (your §312 frontier achieved ~50% byte savings there), NOT the MLPs.
+
+Strategic recommendation (surfaced for the direction lead + Logan): the exact analysis has closed low-rank MLP
+compression network-wide. Options: (1) redirect the smaller-program search to attention/frontier with the interp
+lens — where real compression exists; (2) accept bilin18's MLPs as genuinely high-complexity operators (a valid
+scientific conclusion) and pursue a faithful high-rank surrogate, not a small MLP circuit; (3) raise-N to check
+if the effect-ceiling is N-limited (but weight-space high-rank predicts the wall is real). This bounds rung527's
+payoff (a high-rank context branch is unlikely to group by selectivity) — I'll red-team it on landing. Scripts +
+§2676 committed. No queue enqueue (your rung527 active; my analyses are direct CPU, exact).
