@@ -145,3 +145,22 @@ half, the target is the concatenated four-task plus30-circuit vector `DROP_targe
 `DROP_target - SUBSTITUTE`. Recovery is the signed projection of recovered onto target divided by target squared
 norm. Off-target damage is `CE_SUBSTITUTE - CE_FULL`, also bounded separately in both halves. This fixes the precise
 finite scoring formula before model outcome without changing any threshold or intervention.
+
+## Post-run instrument correction — 2026-09-03 02:49 UTC
+
+The first full process completed all5,766 registered discovery forwards, but Prediction A was false because the
+implementation required every individual document to contain every task category. That is stricter than the frozen
+"task supports match" requirement and inconsistent with the response computation, which pools task counts over each
+registered124-document half before dividing the accumulated losses. Sparse categories legitimately have zero support
+in some individual documents. Both discovery halves nevertheless have positive pooled support for every task category:
+`[1615,416,1199,718,897,22193]` and `[1971,469,1502,850,1121,21837]` for all-positive, near, far,
+one-predecessor, multiple-predecessor, and off-target respectively.
+
+The invalid result and bundle are preserved under filenames containing
+`invalid_per_document_support`, with SHA-256 hashes `b742a85d99c63c9dff42cd9c9d9e4bc3b72e263a31da43f10793b50af0a20292`
+and `fe9851946cdc8248cf9ea151d768589f886a1e41576c56748148ff6d24565329`. Its printed zero candidate count is
+non-evidence because A failed. The correction changes only the support validity check to require every task category
+to have positive **pooled** support separately in both registered document halves, and reports those pooled counts in
+the final diagnostics. The45 atoms,990 pairs, documents, task and circuit definitions, thresholds, permutation
+controls, conditional confirmation, and physical substitutions remain unchanged. A focused test must prove that
+per-document zeros are allowed while a category missing from either whole half still fails before any rerun.

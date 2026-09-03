@@ -82,6 +82,20 @@ def test_response_matrices_keep_singleton_and_removal_backgrounds_separate():
         assert torch.equal(matrices[half]["circuit"][0, 1], torch.full((3,), 2.0))
 
 
+def test_support_gate_uses_pooled_half_support_not_every_document():
+    counts = torch.tensor([
+        [2, 0, 0],
+        [0, 3, 1],
+        [0, 4, 0],
+        [5, 0, 6],
+    ], dtype=torch.float64)
+    assert R.half_support_totals(counts, (10, 14, 12)) == {
+        "half0": [2, 3, 1], "half1": [5, 4, 6]}
+    assert R.half_supports_positive(counts, (10, 14, 12))
+    counts[3, 2] = 0
+    assert not R.half_supports_positive(counts, (10, 14, 12))
+
+
 def test_physical_scoring_requires_recovery_direction_and_off_target_preservation():
     documents, task_cells, tags = 4, 5, 3
     confirmation = {

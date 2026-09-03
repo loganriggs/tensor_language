@@ -26,7 +26,7 @@ import torch.nn.functional as F
 ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 PREREG = POLY / "MLP0_HEAD_RELATION_CIRCUIT_QUOTIENT_RUNG518_PREREGISTRATION.md"
-PREREG_SHA256 = "ac04a5a86c15776b21e45f8037630f2796e681e9d89f60d84f550707bb4214e3"
+PREREG_SHA256 = "54ee23d84dcb515917b563690aef1c6c8e0a53909cabda59088825404ad7e382"
 R517_RESULT = ROOT / "basis_aligned/bilinear_quotient/mlp0_source_relation_factorial_rung517_results.json"
 R517_SOURCE = ROOT / "basis_aligned/bilinear_quotient/ops/mlp0_source_relation_factorial_rung517.py"
 R517_PREREG = POLY / "MLP0_SOURCE_RELATION_FACTORIAL_RUNG517_PREREGISTRATION.md"
@@ -131,6 +131,25 @@ def _half_bounds(bounds: tuple[int, int, int], half: str) -> tuple[int, int]:
     lo, hi, split = bounds
     absolute = (lo, split) if half == "half0" else (split, hi)
     return absolute[0] - lo, absolute[1] - lo
+
+
+def half_supports_positive(counts: torch.Tensor,
+                           bounds: tuple[int, int, int]) -> bool:
+    """Require every coordinate to have pooled support in each registered half."""
+    if counts.ndim != 2 or counts.shape[0] != bounds[1] - bounds[0]:
+        raise ValueError("support table does not match the registered document bounds")
+    return all(bool((counts[slice(*_half_bounds(bounds, half))].sum(0) > 0).all())
+               for half in ("half0", "half1"))
+
+
+def half_support_totals(counts: torch.Tensor,
+                        bounds: tuple[int, int, int]) -> dict[str, list[int]]:
+    """Report the pooled coordinate supports used by the validity gate."""
+    return {
+        half: [int(value) for value in
+               counts[slice(*_half_bounds(bounds, half))].sum(0).tolist()]
+        for half in ("half0", "half1")
+    }
 
 
 def response_matrices(collection: dict, task_indices: tuple[int, ...]) -> dict:
@@ -705,6 +724,8 @@ def scientific_main() -> None:
     control_q95 = float(torch.quantile(
         torch.tensor(control_counts, dtype=torch.float64), .95, interpolation="higher"))
     diagnostic = collections["discovery"]["diagnostics"]
+    task_support_totals = half_support_totals(
+        collections["discovery"]["task_counts"], DISCOVERY)
     planted = planted_suite()
     pred_a = bool(
         planted["all_eight_exact"]
@@ -713,7 +734,8 @@ def scientific_main() -> None:
         and diagnostic["minimum_single_edit_rms"] > 0
         and diagnostic["minimum_drop_edit_rms"] > 0
         and diagnostic["calls"] == diagnostic["calls_expected"] == 5766
-        and bool((collections["discovery"]["task_counts"] > 0).all())
+        and half_supports_positive(
+            collections["discovery"]["task_counts"], DISCOVERY)
         and bool((collections["discovery"]["circuit_counts"] > 0).all()))
     pred_b = bool(pred_a and 1 <= len(candidates) <= 16 and len(candidates) > control_q95)
 
@@ -794,7 +816,9 @@ def scientific_main() -> None:
         'pred_e_native_boundary_changing_unit': pred_e,
         "strong_null": strong_null, "next_step": next_step,
         "diagnostics": {
-            key: collection["diagnostics"] for key, collection in collections.items()},
+            **{key: collection["diagnostics"] for key, collection in collections.items()},
+            "discovery_task_support_by_half": task_support_totals,
+        },
         "execution_price": {
             "full_model_forwards": sum(
                 collection["diagnostics"]["calls"] for collection in collections.values()),
