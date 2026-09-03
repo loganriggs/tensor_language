@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0906.md](explanation_2026-09-03_0906.md) — rung522's audited terminal invalid-optimizer
+  result, exact unopened-TEST and call-ledger proof, the corrected low-power cross-seed spike analysis, and the live
+  FIT/VALIDATION-only normalization-by-learning-rate repair
 - [explanation_2026-09-03_0832.md](explanation_2026-09-03_0832.md) — rung522's systematic optimizer failure rather
   than a circuit null: exact loss computation, 0/15 healthy real fits, scheduler-aligned localization of repeated
   extreme losses, a percentage graph, and the frozen FIT/VALIDATION-only 2-by-2 normalization/learning-rate repair
