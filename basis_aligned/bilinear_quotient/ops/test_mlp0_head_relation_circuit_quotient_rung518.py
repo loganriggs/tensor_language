@@ -52,6 +52,36 @@ def test_head_relation_atoms_close_and_contexts_use_one_piece():
         split["native_write"] - decomposition["atoms"][0])
 
 
+def test_response_matrices_keep_singleton_and_removal_backgrounds_separate():
+    documents, task_cells, tags = 4, 5, 3
+    task_sums = torch.zeros(len(R.ARMS), documents, task_cells, dtype=torch.float64)
+    task_counts = torch.ones(documents, task_cells, dtype=torch.float64)
+    task_sums[0] = 10
+    task_sums[1] = 2
+    task_sums[2] = 6
+    task_sums[2 + R.N_ATOMS] = 5
+    circuit_sums = torch.zeros(len(R.ARMS), 2, 2, tags, dtype=torch.float64)
+    circuit_counts = torch.ones(2, 2, tags, dtype=torch.float64)
+    circuit_sums[0, :, 0] = 10
+    circuit_sums[0, :, 1] = 2
+    circuit_sums[1, :, 0] = 2
+    circuit_sums[2, :, 0] = 7
+    circuit_sums[2, :, 1] = 1
+    circuit_sums[2 + R.N_ATOMS, :, 0] = 5
+    circuit_sums[2 + R.N_ATOMS, :, 1] = 1
+    collection = {
+        "bounds": (0, 4, 2), "arms": R.ARMS,
+        "task_sums": task_sums, "task_counts": task_counts,
+        "circuit_sums": circuit_sums, "circuit_counts": circuit_counts,
+    }
+    matrices = R.response_matrices(collection, (0, 1, 2, 3))
+    for half in ("half0", "half1"):
+        assert torch.equal(matrices[half]["task"][0, 0], torch.full((4,), 4.0))
+        assert torch.equal(matrices[half]["task"][0, 1], torch.full((4,), 3.0))
+        assert torch.equal(matrices[half]["circuit"][0, 0], torch.full((3,), 2.0))
+        assert torch.equal(matrices[half]["circuit"][0, 1], torch.full((3,), 2.0))
+
+
 def test_exact_proportional_pair_passes_both_backgrounds():
     responses, _expected = R.planted_problem(51800)
     left, right = R.PLANTED_PAIRS[0]

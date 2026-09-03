@@ -122,3 +122,10 @@ both merges across heads and splits a native head.
 Maximum discovery work is92 model forwards per four-document batch (`EMPTY`, `FULL`, and45 SINGLE/DROP pairs), or
 5,704 forwards. Confirmation and physical substitution open only for at most16 frozen candidates and are bounded by
 4,216 additional forwards. No backward pass or training is used.
+
+## Pre-outcome execution-price correction — 2026-09-03 02:31 UTC
+
+The92 intervention arms do not themselves prove that the dispatched FULL arm reproduces an ordinary native forward.
+Prediction A requires one additional native replay per batch, so the exact discovery ceiling is93 forwards per batch,
+or5,766 across62 batches. This corrects only the reported maximum execution price before model loading; all scientific
+objects, rows, thresholds, directions, controls, and outcome gates above are unchanged.
