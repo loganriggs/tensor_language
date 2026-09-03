@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+  <title id="title">Two-agent circuit bootstrap loop</title>
+  <desc id="desc">The parent deep investigation and two agent lanes feed reviewed lessons into the next prompts. Independent review gates model execution.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#52606d"/>
+    </marker>
+    <style>
+      .box{rx:14;stroke-width:2}.t{font:600 18px system-ui,sans-serif;fill:#102a43}.s{font:15px system-ui,sans-serif;fill:#334e68}.a{stroke:#52606d;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="420" fill="#f7fafc"/>
+  <rect class="box" x="360" y="25" width="280" height="82" fill="#d9eafd" stroke="#247ba0"/>
+  <text class="t" x="500" y="56" text-anchor="middle">Parent deep investigation</text>
+  <text class="s" x="500" y="82" text-anchor="middle">owns claims, integration, GPU queue</text>
+
+  <rect class="box" x="65" y="155" width="355" height="105" fill="#e8f5e9" stroke="#3a8f5c"/>
+  <text class="t" x="242" y="187" text-anchor="middle">Agent lane A: build</text>
+  <text class="s" x="242" y="214" text-anchor="middle">counterfactuals, computation, tests</text>
+  <text class="s" x="242" y="238" text-anchor="middle">returns a five-part knowledge packet</text>
+
+  <rect class="box" x="580" y="155" width="355" height="105" fill="#fff3cd" stroke="#b58105"/>
+  <text class="t" x="758" y="187" text-anchor="middle">Agent lane B: challenge</text>
+  <text class="s" x="758" y="214" text-anchor="middle">adversarial tests, confounds, audit</text>
+  <text class="s" x="758" y="238" text-anchor="middle">can block execution before GPU use</text>
+
+  <rect class="box" x="270" y="315" width="460" height="78" fill="#f3e8ff" stroke="#7b4bb7"/>
+  <text class="t" x="500" y="346" text-anchor="middle">Update shared tools and next prompts</text>
+  <text class="s" x="500" y="372" text-anchor="middle">later agents inherit tested checks and known failures</text>
+
+  <path class="a" d="M430 107 C365 125 310 132 270 155"/>
+  <path class="a" d="M570 107 C635 125 690 132 730 155"/>
+  <path class="a" d="M242 260 C270 292 330 305 400 315"/>
+  <path class="a" d="M758 260 C730 292 670 305 600 315"/>
+  <path class="a" d="M500 315 C500 275 500 130 500 108"/>
+</svg>

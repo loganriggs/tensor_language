@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2045.md](explanation_2026-09-03_2045.md) — the live two-agent bootstrap loop, the exact
+  downstream MLP response split and why its GPU run was blocked by adversarial review, the fully reproduced but formally
+  failed R581 audit, the prospective R586/R587 repair, and the frozen-factor correction to induction score/value tests
 - [explanation_2026-09-03_2015.md](explanation_2026-09-03_2015.md) — the two-agent circuit-bootstrap workflow and
   current first-wave evidence: exact-but-over-broad R576 removal, R577 complete-state site null, repaired R578 induction
   counterfactuals, held R580 native selector-times-payload behavior, independent audits, and the concrete lessons passed
