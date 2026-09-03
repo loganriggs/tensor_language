@@ -145,3 +145,17 @@ documents, and physical removal/substitution. Do not reinterpret the result as e
 - ledger §§2580--2586 — distributed equality correction and its MLP8/9/12 interaction structure.
 - rung506--513 receipts and ledger §§2637--2646 — whole-write, exact-term, family, dictionary, pairwise-equivalence,
   exact Left/Right/joint-branch, consumer-output, and exact consumer-factor-interaction results.
+
+## Rung514 update: small exact-term sums do not recover a shared variable
+
+Rung514 exhaustively tested113,568 fixed factor allocations or signed two/three-term programs. The instrument uniquely
+recovered all eight planted programs, but no real program passed either independent document search. This closes
+small fixed signed sums without weakening the descriptive result that the score-implementation mismatch has a stable
+`Q/Q2/value`-heavy direction.
+
+The next step changes what defines sameness. Rather than compare consumer-write vectors directly, remove every exact
+attention11/MLP11 term and run the real downstream suffix. Compare terms by their finite effects on the equality task
+and circuit battery, allowing different exact term names under different score implementations. Use32 circuits to
+propose a relation,30 unseen circuits to test it, and bidirectional physical substitution to establish
+interchangeability. This can group different outputs that later computation treats alike and is not a wider signed-
+sum, rank, or reconstruction search.

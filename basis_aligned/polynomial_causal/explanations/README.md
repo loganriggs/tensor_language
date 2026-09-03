@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0050.md](explanation_2026-09-03_0050.md) — rung514's planted-identifiable strong null:
+  none of113,568 fixed-factor or two/three-term signed consumer programs passes either independent document search;
+  defines the joint-Gram computation, explains the vacuous permutation floor, and starts the finite downstream-
+  outcome quotient across exact attention11/MLP11 terms
 - [explanation_2026-09-03_0024.md](explanation_2026-09-03_0024.md) — rung513's exact internal-consumer strong null:
   all612 attention11/MLP11 interaction responses are material but0 pass the fixed cross-action relation; explains the
   32-corner computation, distributed Q/value/Q2 mismatch, cancellation, and the multi-term causal successor

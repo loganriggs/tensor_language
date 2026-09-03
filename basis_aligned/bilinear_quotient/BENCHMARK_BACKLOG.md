@@ -4741,3 +4741,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   34 exact terms and prospectively compare fixed factor allocations with sparse signed multi-term sums, requiring
   independent support recovery, planted identifiability, fresh documents, and physical term substitution. No rank,
   threshold relaxation, or attribution-as-circuit claim.
+- Rung514 (§2648): valid planted-identifiable strong null. Complete joint Grams support48 fixed factor-by-branch
+  programs and113,520 exhaustive signed two/three-term programs; all8/8 planted supports and signs recover uniquely,
+  all18 source relations reproduce, and the managed execution uses2,108 forwards with exact algebra/calls. But
+  0/113,568 real programs pass either independent document search, so confirmation and physical substitution remain
+  closed. The best fixed Q allocation misses the joint gate by`.1859`; the fixed `Q+Q2+V` addendum also fails. All
+  permutation controls are absolutely ineligible, making their floor vacuous rather than favorable; the null rests on
+  the unchanged absolute gates. Next use the actual nonlinear suffix to compare finite causal effects of exact
+  attention11/MLP11 terms, allowing different term identities across actions, with32 discovery and30 held-out circuit
+  families plus bidirectional substitution. No support widening, rank, SAE, reconstruction, or quantization.

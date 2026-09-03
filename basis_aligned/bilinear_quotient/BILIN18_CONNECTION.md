@@ -67256,3 +67256,32 @@ Registered 00:20 pre-outcome (sha 164bc70d…), landed 00:30 (0.02s CPU, zero fo
 **§2647 MAGNITUDE ADDENDUM (2026-09-03 00:35, receipt mismatch_magnitude_law_probe_results.json, CPU zero-forward): the magnitude does NOT cleanly complete a rank-1 model — the fixed direction of §2647 stands, but the magnitude keeps residual branch×implementation structure.** Fitting the 6 branch-subset × 3 action-pair mismatch-norm grid to rank-1: raw relative residual .040/.027 (PASSES the ≤.05 bar) but centered-log top-singular energy .871/.896 (FAILS the ≥.90 bar) at attn11/MLP11 — approximately separable (<4% raw error) but with a real ~11-13% branch-by-implementation interaction. Scored as written: STRONG NULL (pred_b false). Scientific content: the mismatch MAGNITUDE is dominated by which branch-subset is removed, only weakly by which implementation-pair — consistent with §2647 (direction fixed; magnitude a mostly-branch-scale property) but NOT reducible to one clean scalar-per-pair × one direction. SELF-CRITIQUE (disclosed): pred_c (pair-scale site-consistency, cosine .99999) is UNINFORMATIVE as designed — the recovered per-pair scale vectors are near-uniform (a11 N-Z7/N-Z8/P-Z7 ≈ 1075/1076/1077), and cosine between two near-constant positive vectors is ~1 regardless of structure; the clause should have compared centered/normalized pair-deviations, and it is retired as non-diagnostic rather than counted as evidence. Net: §2647's fixed-direction claim is unchanged and strong; the magnitude is approximately-but-not-exactly separable, so "source-dependence = one scalar field × one fixed direction" is a GOOD APPROXIMATION (≤4% raw) rather than an exact law.
 
 **Claim ceiling:** descriptive covariance of an attribution convention; it does NOT identify a circuit, license a physical grouping (§§2637/2642/2646 nulls stand), or add coverage credit. It is a structural characterization that a future physical test could target — e.g., does removing the {Q,Q2,V} attention11 subspace equalize the implementations? — registered separately if pursued. Complements Codex's rung514 (sparse-signed-sum search): 514 asks whether the mismatch has SPARSE support; this shows it has STABLE support. Eighth-standing-claim candidate (descriptive-tier): "the four equality-score implementations differ only in magnitude along a fixed gauge-covariant factor subspace at both MLP10 consumers."
+
+## §2648 — RUNG514: NO FIXED FACTOR ALLOCATION OR TWO/THREE-TERM SIGNED PROGRAM IS A SHARED CONSUMER VARIABLE
+
+Rung514 retained the complete cross-term Gram matrices for rung513's31 exact attention11 and3 exact MLP11
+interaction responses. It prospectively tested48 fixed factor-by-branch objects and113,520 exhaustive signed sums of
+two or three terms. A support had to pass two independent fit/test document searches with the same terms and signs,
+all three fixed source relations, absolute materiality/scale/cosine/residual gates, and a family-wide permutation
+margin. No rank, variance, reconstruction, continuous within-program coefficient, or best-k selection entered.
+
+The instrument passes. All eight planted two/three-term problems recover their exact support and signs uniquely; all18
+source relations reproduce; joint-Gram symmetry, exact response partitions, corner replays, live edits, calibration,
+and call counts hold. The managed run used2,108 full forwards,47,616 attention corners,5,952 MLP corners,0 backwards,
+and133.86s. Result/bundle/source SHAs are `864f7834…/6e4d1037…/4248ce6e…`.
+
+The model result is a registered strong null: A true; B--E false. Zero of113,568 programs passes search A, zero
+passes search B, zero is split-stable, and zero is accepted. The best screen is fixed attention11 Shapley(Q) for the
+`L+R` branch subset, but its minimum gate margin is`-.1859`; best sparse is `Q+K+QK` for full branch at`-.2460`.
+The pre-outcome `Q+Q2+V` object also fails (`-.2597`). Confirmation,30 held-out circuits, and physical interventions
+remain unopened.
+
+All16 coordinate-permutation banks also have no absolutely eligible program, so their family-wide score is recorded
+as negative infinity. This makes the multiplicity floor vacuous rather than favorable; the scientific null rests on
+the unchanged absolute gates, which every real program fails. Do not reinterpret the control as a large margin.
+
+Honor the registered B-false route by changing the observation, not widening support. Rung515 should remove each
+exact consumer term and use the actual nonlinear suffix to measure its task and circuit effects. Allow different term
+identities across score implementations, use32 circuits for discovery and the other30 as held-out outcomes, and
+require bidirectional physical substitution before grouping. This is an operational downstream quotient below native
+head/MLP boundaries, not another activation, rank, SAE, or compression sweep.

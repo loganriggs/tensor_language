@@ -393,3 +393,25 @@ signed sums, require independent document splits to recover the same signed supp
 recovers a planted ground-truth support. A model candidate still needs untouched-document prediction plus real term
 removal and bidirectional substitution before it is called a circuit. Full computation, result, and graph are in
 [explanation_2026-09-03_0024.md](explanation_2026-09-03_0024.md).
+
+## Update — 2026-09-03 00:50 UTC: small multi-term programs also fail
+
+Rung514 retained every pairwise dot product among the exact consumer interaction responses and exhaustively tested
+113,568 prospectively defined programs: fixed factor allocations and every signed sum of two or three terms. The
+search recovered all eight planted ground-truth supports and signs exactly, but zero real program passed either of
+two independent document searches. The best fixed Q allocation missed the joint cosine/residual boundary by`.1859`,
+and the separately motivated `Q+Q2+V` allocation also failed. This is therefore a valid strong null for small linear
+programs in the exact term vocabulary, not an optimization failure or a reason to relax the support size.
+
+This result sharpens the causal-interaction plan. Rungs513--514 asked whether the *write vectors* themselves exposed
+a shared variable. The next test asks whether the actual nonlinear layers after the write treat different exact terms
+as the same. For each attention11 or MLP11 term, physically remove it, recompute the suffix, and record its finite CE
+effects on the equality task and circuit masks. Search for proportional effect pairs while allowing term `i` under
+one score implementation to match a different term `j` under another. Use32 circuit families and two document halves
+for discovery, then the other30 circuit families and untouched documents for prediction. Finally substitute the two
+actual term tensors in both directions.
+
+This is the missing “different outputs, same downstream use” test. It can merge pieces across native term or head
+boundaries only when downstream computation cannot distinguish them, while the reverse outcome splits pieces that a
+write-space decomposition made look similar. Full computation and graph:
+[explanation_2026-09-03_0050.md](explanation_2026-09-03_0050.md).
