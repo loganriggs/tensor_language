@@ -1,0 +1,68 @@
+{"stage": "fit", "t": 5.4}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 5.5}
+{"stage": "arms", "stack": "late", "k": 16, "PLAIN": 14.7527, "NORMFIX": 13.2223, "KEEPDIR": -0.2403, "t": 5.9}
+{"stage": "arms", "stack": "late", "k": 128, "PLAIN": 16.7924, "NORMFIX": 16.5041, "KEEPDIR": -0.2364, "t": 6.0}
+{"stage": "arms", "stack": "early", "k": 16, "PLAIN": 2.7421, "NORMFIX": 2.5318, "KEEPDIR": 0.0556, "t": 6.1}
+{"stage": "arms", "stack": "early", "k": 128, "PLAIN": 3.8565, "NORMFIX": 3.9788, "KEEPDIR": 0.0514, "t": 6.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_norm_channel": false,
+  "pred_c_direction_alone_is_not_the_message": false,
+  "pred_d_holds_at_128": false,
+  "pred_e_early_control": false
+ },
+ "nulls": {
+  "b_null_normfix_ge_.8_plain": true,
+  "c_null_keepdir_le_.3_plain": true,
+  "d_null_normfix128_ge_.9_plain": true,
+  "e_null_early_ratio_le_late": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": 3.0322401,
+  "identity_abs_diff": 0.0,
+  "core_tw_eff_rank": 2.937586049044012,
+  "prior_core_tw_eff_rank": 10.004,
+  "early_core_eff_rank": 371.6790786007441,
+  "late_plain_16": 14.75269889831543
+ },
+ "ce_added": {
+  "late": {
+   "16": {
+    "PLAIN": 14.75269889831543,
+    "NORMFIX": 13.222341537475586,
+    "KEEPDIR": -0.2403087615966797
+   },
+   "128": {
+    "PLAIN": 16.79243278503418,
+    "NORMFIX": 16.504125595092773,
+    "KEEPDIR": -0.23643875122070312
+   }
+  },
+  "early": {
+   "16": {
+    "PLAIN": 2.7421064376831055,
+    "NORMFIX": 2.5318336486816406,
+    "KEEPDIR": 0.05555534362792969
+   },
+   "128": {
+    "PLAIN": 3.856504440307617,
+    "NORMFIX": 3.978780746459961,
+    "KEEPDIR": 0.05141448974609375
+   }
+  }
+ },
+ "ratios": {
+  "late_normfix_over_plain_16": 0.896265939446877,
+  "late_keepdir_over_plain_16": -0.01628913890624582,
+  "late_normfix_over_plain_128": 0.9828311243741673,
+  "early_normfix_over_plain_16": 0.9233170579698098,
+  "early_keepdir_over_plain_16": 0.02026009744350777
+ },
+ "price": {
+  "gpu_doc_forwards": 64,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 6.194429874420166
+ }
+}
