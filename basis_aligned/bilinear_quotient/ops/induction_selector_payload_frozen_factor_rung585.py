@@ -39,6 +39,10 @@ DRYRUN = ROOT / "induction_selector_payload_frozen_factor_rung585_dryrun.json"
 EVIDENCE_DIR = ROOT / "induction_selector_payload_frozen_factor_rung585_evidence"
 STAGE_PREFIX = ".induction_selector_payload_frozen_factor_rung585_stage-"
 RECOVERY_PREFIX = ".induction_selector_payload_frozen_factor_rung585_recovered-"
+STAGE_MARKER_NAME = "r585-stage-marker.json"
+STAGE_MARKER_BYTES = (
+    b'{"rung":585,"schema":"induction_selector_payload_frozen_factor_rung585_stage_v1"}'
+)
 
 ROWS = ROOT / "induction_selector_payload_three_source_rows_rung578.json"
 AMENDMENT = POLY / "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md"
@@ -114,6 +118,8 @@ EVIDENCE_DESCRIPTOR_FIELDS = {
 }
 EXPECTED_OPERATION_COUNTS = {"FIT": 13_824, "SELECT": 6_912}
 EXPECTED_OPERATION_SHA256 = "82169667d6f658b993f882b7b9951e07ae93149e5d5138fce548f6205e88cc5e"
+EXPECTED_ENDPOINT_COUNTS = {"FIT": 1_728, "SELECT": 864}
+EXPECTED_DIRECTION_COUNTS = {"FIT": 3_744, "SELECT": 1_872}
 HELD_ARRAY_SHAPES = {
     "native_e.npy": [2_592, 4, 2],
     "native_u.npy": [2_592, 4, 2, 1_152],
@@ -319,10 +325,98 @@ def _strict_jsonl(path: Path) -> list[dict[str, object]]:
     return rows
 
 
-def _validate_held_evidence(
+def phase_evidence_contract(evaluated_splits: Sequence[str]) -> dict[str, object]:
+    """Return the exact evidence census for the phase that actually ran."""
+    evaluated = list(evaluated_splits)
+    if evaluated not in (["FIT"], ["FIT", "SELECT"]):
+        raise ValueError("invalid evidence phase")
+    endpoint_count = sum(EXPECTED_ENDPOINT_COUNTS[split] for split in evaluated)
+    direction_count = sum(EXPECTED_DIRECTION_COUNTS[split] for split in evaluated)
+    directed_count = 3 * direction_count
+    array_shapes = {
+        name: [endpoint_count, *shape[1:]]
+        for name, shape in HELD_ARRAY_SHAPES.items()
+        if name not in ("live_removed.npy", "hook_delta.npy")
+    }
+    array_shapes.update({
+        name: [directed_count, *HELD_ARRAY_SHAPES[name][1:]]
+        for name in ("live_removed.npy", "hook_delta.npy")
+    })
+    return {
+        "evaluated_splits": evaluated,
+        "endpoint_count": endpoint_count,
+        "direction_count": direction_count,
+        "directed_arm_record_count": directed_count,
+        "factor_exactness_count": 4 * endpoint_count,
+        "array_shapes": array_shapes,
+        "jsonl_counts": {
+            "endpoint_measurements.jsonl": endpoint_count,
+            "directed_arm_measurements.jsonl": directed_count,
+            "factor_exactness.jsonl": 4 * endpoint_count,
+        },
+    }
+
+
+def expected_evidence_identities(
+    evaluated_splits: Sequence[str], execution: Mapping[str, object] | None = None,
+) -> dict[str, list[object]]:
+    """Derive exact evidence row identities from the frozen execution authority."""
+    evaluated = list(evaluated_splits)
+    phase_evidence_contract(evaluated)
+    execution = build_execution_authority() if execution is None else execution
+    endpoints = sorted(
+        (row for row in execution["endpoints"] if row["split"] in evaluated),
+        key=lambda row: (row["split"], row["endpoint_id"]),
+    )
+    directions = sorted(
+        (row for row in execution["directions"] if row["split"] in evaluated),
+        key=lambda row: (row["split"], row["directed_id"]),
+    )
+    direction_split = {str(row["directed_id"]): str(row["split"]) for row in directions}
+    directed = sorted(
+        [[str(row["directed_id"]), arm] for row in directions for arm in ARMS],
+        key=lambda pair: (
+            direction_split[pair[0]], pair[0], pair[1],
+        ),
+    )
+    endpoint_split = {str(row["endpoint_id"]): str(row["split"]) for row in endpoints}
+    factors = sorted(
+        [[str(row["endpoint_id"]), site] for row in endpoints for site in TERM_NAMES],
+        key=lambda pair: (
+            endpoint_split[pair[0]], pair[0], pair[1],
+        ),
+    )
+    return {
+        "endpoints": [str(row["endpoint_id"]) for row in endpoints],
+        "directed_arms": directed,
+        "factors": factors,
+    }
+
+
+def validate_evidence_membership(
+    evaluated_splits: Sequence[str], endpoint_order: Sequence[object],
+    directed_order: Sequence[object], factor_order: Sequence[object],
+    execution: Mapping[str, object] | None = None,
+) -> None:
+    expected = expected_evidence_identities(evaluated_splits, execution)
+    if list(endpoint_order) != expected["endpoints"]:
+        raise ValueError("endpoint evidence membership differs from frozen authority")
+    if list(directed_order) != expected["directed_arms"]:
+        raise ValueError("directed-arm evidence membership differs from frozen authority")
+    if list(factor_order) != expected["factors"]:
+        raise ValueError("factor evidence membership differs from frozen authority")
+
+
+def _validate_complete_evidence(
     result: Mapping[str, object],
     artifact_path_resolver,
 ) -> None:
+    evaluated = list(result["evaluated_splits"])
+    contract = phase_evidence_contract(evaluated)
+    endpoint_count = int(contract["endpoint_count"])
+    directed_count = int(contract["directed_arm_record_count"])
+    expected_array_shapes = contract["array_shapes"]
+    expected_jsonl_counts = contract["jsonl_counts"]
     raw = result["raw_evidence"]
     required_raw = {
         "schema", "endpoint_count", "directed_arm_record_count",
@@ -330,17 +424,25 @@ def _validate_held_evidence(
         "realized_endpoint_site_role_operations", "instrument_maxima",
     }
     if type(raw) is not dict or not required_raw <= set(raw):
-        raise ValueError("held result lacks complete raw evidence")
-    if raw["schema"] != EVIDENCE_SCHEMA or raw["endpoint_count"] != 2_592 or (
-        raw["directed_arm_record_count"] != 16_848
+        raise ValueError("completed result lacks complete raw evidence")
+    if raw["schema"] != EVIDENCE_SCHEMA or raw["endpoint_count"] != endpoint_count or (
+        raw["directed_arm_record_count"] != directed_count
     ):
-        raise ValueError("held evidence census changed")
-    if raw["endpoint_site_role_operation_counts"] != EXPECTED_OPERATION_COUNTS or (
-        raw["endpoint_site_role_operation_sha256"] != EXPECTED_OPERATION_SHA256
+        raise ValueError("completed evidence census changed")
+    phase_operation_counts = {
+        split: EXPECTED_OPERATION_COUNTS[split] for split in evaluated
+    }
+    phase_operations = [
+        row for row in build_endpoint_site_role_operations(
+            build_execution_authority()["endpoints"]
+        ) if row["split"] in evaluated
+    ]
+    if raw["endpoint_site_role_operation_counts"] != phase_operation_counts or (
+        raw["endpoint_site_role_operation_sha256"] != content_sha256(phase_operations)
     ):
-        raise ValueError("held operation authority changed")
+        raise ValueError("completed operation authority changed")
     realized_operations = raw["realized_endpoint_site_role_operations"]
-    if set(realized_operations) != set(SPLITS) or any(
+    if set(realized_operations) != set(evaluated) or any(
         realized_operations[split] != {
             "count": EXPECTED_OPERATION_COUNTS[split],
             "sha256": content_sha256([
@@ -349,9 +451,9 @@ def _validate_held_evidence(
                 ) if row["split"] == split
             ]),
         }
-        for split in SPLITS
+        for split in evaluated
     ):
-        raise ValueError("held realized operation census changed")
+        raise ValueError("completed realized operation census changed")
     maxima = raw["instrument_maxima"]
     required_maxima = {
         "native_attention_reconstruction_max_abs",
@@ -361,49 +463,61 @@ def _validate_held_evidence(
         "padding_tripwire_active_lengths",
     }
     if type(maxima) is not dict or set(maxima) != required_maxima:
-        raise ValueError("held instrument maxima are incomplete")
-    if any(float(maxima[key]) > TOLERANCE for key in required_maxima if key != "padding_tripwire_active_lengths"):
-        raise ValueError("held instrument maximum exceeds tolerance")
-    if sorted(maxima["padding_tripwire_active_lengths"]) != [19, 20, 21, 22, 27, 28, 29]:
-        raise ValueError("held padding tripwire census changed")
+        raise ValueError("completed instrument maxima are incomplete")
+    numeric_maxima = [
+        float(maxima[key]) for key in required_maxima
+        if key != "padding_tripwire_active_lengths"
+    ]
+    if any(not math.isfinite(value) or value < 0 for value in numeric_maxima):
+        raise ValueError("completed instrument maxima are not finite nonnegative values")
+    expected_padding = [19, 20, 21, 22, 27, 28, 29]
+    padding = maxima["padding_tripwire_active_lengths"]
+    if type(padding) is not list or any(type(value) is not int for value in padding) or (
+        len(padding) != len(set(padding)) or not set(padding) <= set(expected_padding)
+    ):
+        raise ValueError("completed padding tripwire evidence is malformed")
+    if result["instrument_passes"] and any(value > TOLERANCE for value in numeric_maxima):
+        raise ValueError("completed instrument maximum exceeds tolerance")
+    if result["instrument_passes"] and sorted(padding) != expected_padding:
+        raise ValueError("completed padding tripwire census changed")
 
     descriptors = result["evidence_files"]
-    expected_names = set(HELD_ARRAY_SHAPES) | set(HELD_JSONL_COUNTS)
+    expected_names = set(expected_array_shapes) | set(expected_jsonl_counts)
     if len(descriptors) != len(expected_names):
-        raise ValueError("held evidence descriptor census changed")
+        raise ValueError("completed evidence descriptor census changed")
     by_name = {}
     logical_root = EVIDENCE_DIR.relative_to(ROOT.parent.parent)
     for descriptor in descriptors:
         logical = Path(descriptor["path"])
         if logical.parent != logical_root or logical.name in by_name:
-            raise ValueError("held evidence path is noncanonical or duplicated")
+            raise ValueError("completed evidence path is noncanonical or duplicated")
         by_name[logical.name] = descriptor
     if set(by_name) != expected_names:
-        raise ValueError("held evidence file set changed")
+        raise ValueError("completed evidence file set changed")
 
     actual_paths = {
         name: artifact_path_resolver(ROOT.parent.parent / descriptor["path"])
         for name, descriptor in by_name.items()
     }
     arrays = {}
-    for name, expected_shape in HELD_ARRAY_SHAPES.items():
+    for name, expected_shape in expected_array_shapes.items():
         descriptor = by_name[name]
         if descriptor["shape"] != expected_shape or descriptor["dtype"] != "<f4":
-            raise ValueError(f"held array schema changed: {name}")
+            raise ValueError(f"completed array schema changed: {name}")
         array = np.load(actual_paths[name], mmap_mode="r", allow_pickle=False)
         if list(array.shape) != expected_shape or array.dtype.str != "<f4":
-            raise ValueError(f"held array bytes disagree with descriptor: {name}")
+            raise ValueError(f"completed array bytes disagree with descriptor: {name}")
         _finite_array(array, name)
         arrays[name] = array
 
     json_rows = {}
-    for name, expected_count in HELD_JSONL_COUNTS.items():
+    for name, expected_count in expected_jsonl_counts.items():
         descriptor = by_name[name]
         if descriptor["shape"] != [expected_count] or descriptor["dtype"] != "jsonl":
-            raise ValueError(f"held JSONL schema changed: {name}")
+            raise ValueError(f"completed JSONL schema changed: {name}")
         rows = _strict_jsonl(actual_paths[name])
         if len(rows) != expected_count:
-            raise ValueError(f"held JSONL row census changed: {name}")
+            raise ValueError(f"completed JSONL row census changed: {name}")
         json_rows[name] = rows
 
     endpoints = json_rows["endpoint_measurements.jsonl"]
@@ -424,17 +538,23 @@ def _validate_held_evidence(
         len({tuple(row) for row in factor_order}) != len(factor_order)
     ):
         raise ValueError("factor exactness order or membership changed")
-    if any(
+    factor_error_exceeds = any(
         float(row[key]) > TOLERANCE
         for row in factor_rows
         for key in ("equality_factor_max_abs", "equality_plus_independent_remainder_max_abs")
-    ):
+    )
+    if result["instrument_passes"] and factor_error_exceeds:
         raise ValueError("factor exactness evidence exceeds tolerance")
+
+    validate_evidence_membership(
+        evaluated, endpoint_order, directed_order, factor_order,
+        build_execution_authority(),
+    )
 
     endpoint_hash = content_sha256(endpoint_order)
     directed_hash = content_sha256(directed_order)
     factor_hash = content_sha256(factor_order)
-    for name in HELD_ARRAY_SHAPES:
+    for name in expected_array_shapes:
         expected_hash = directed_hash if name in ("live_removed.npy", "hook_delta.npy") else endpoint_hash
         if by_name[name]["row_order_sha256"] != expected_hash:
             raise ValueError(f"array row order binding changed: {name}")
@@ -443,14 +563,16 @@ def _validate_held_evidence(
     ) or by_name["factor_exactness.jsonl"]["row_order_sha256"] != factor_hash:
         raise ValueError("JSONL row order binding changed")
 
-    for start in range(0, 2_592, 64):
-        stop = min(start + 64, 2_592)
+    for start in range(0, endpoint_count, 64):
+        stop = min(start + 64, endpoint_count)
         equality = np.sum(
             arrays["native_e.npy"][start:stop, :, :, None]
             * arrays["native_u.npy"][start:stop],
             axis=2,
         )
-        if float(np.max(np.abs(equality - arrays["canonical_term.npy"][start:stop]))) > 5e-5:
+        if result["instrument_passes"] and float(np.max(np.abs(
+            equality - arrays["canonical_term.npy"][start:stop]
+        ))) > 5e-5:
             raise ValueError("saved equality factors do not reconstruct canonical term")
         reconstructed = (
             arrays["canonical_term.npy"][start:stop]
@@ -460,7 +582,10 @@ def _validate_held_evidence(
             raise ValueError("saved independent remainder does not reconstruct head output")
 
 
-def validate_result(result: Mapping[str, object], *, artifact_path_resolver=None) -> None:
+def validate_result(
+    result: Mapping[str, object], *, artifact_path_resolver=None,
+    allow_model_free_fixture: bool = False,
+) -> None:
     _validate_fields(result, RESULT_FIELD_TYPES)
     if result["schema"] != RESULT_SCHEMA or result["rung"] != 585:
         raise ValueError("wrong result identity")
@@ -473,9 +598,7 @@ def validate_result(result: Mapping[str, object], *, artifact_path_resolver=None
     if result["forbidden_splits_opened"] != []:
         raise ValueError("forbidden split opened")
     expected_price = 459 if result["evaluated_splits"] == ["FIT"] else 690
-    if not 0 <= result["model_forwards"] <= expected_price:
-        raise ValueError("model-forward envelope exceeded")
-    if "invalid_instrument" not in result["terminal"] and result["model_forwards"] != expected_price:
+    if result["model_forwards"] != expected_price:
         raise ValueError("completed scientific phase did not use exact frozen price")
     if result["model_backwards"] != 0 or result["model_weights_updated"] is not False:
         raise ValueError("mutation envelope violated")
@@ -489,6 +612,11 @@ def validate_result(result: Mapping[str, object], *, artifact_path_resolver=None
         raise ValueError("result does not bind owner test")
     if result["source_sha256"] != {str(path): digest for path, digest in AUTHORITY_HASHES.items()}:
         raise ValueError("result source provenance mismatch")
+    fixture_mode = type(result["raw_evidence"]) is dict and (
+        result["raw_evidence"].get("fixture") is True
+    )
+    if fixture_mode and not allow_model_free_fixture:
+        raise ValueError("model-free fixture is not a scientific result")
     resolver = artifact_path_resolver or (lambda path: path)
     for descriptor in result["evidence_files"]:
         if type(descriptor) is not dict:
@@ -528,18 +656,26 @@ def validate_result(result: Mapping[str, object], *, artifact_path_resolver=None
         raise ValueError("held result disagrees with failed clauses")
     if held and result["evaluated_splits"] != ["FIT", "SELECT"]:
         raise ValueError("held result did not open SELECT")
-    if held:
-        _validate_held_evidence(result, resolver)
+    if not fixture_mode:
+        _validate_complete_evidence(result, resolver)
         execution = build_execution_authority()
-        for split in SPLITS:
+        if result["terminal"] == "invalid_instrument":
+            scored_splits = []
+        elif result["terminal"] == "select_invalid_instrument":
+            scored_splits = ["FIT"]
+        else:
+            scored_splits = list(result["evaluated_splits"])
+        if set(result["split_scores"]) != set(scored_splits):
+            raise ValueError("completed split-score phase census changed")
+        for split in scored_splits:
             report = result["split_scores"].get(split)
             if type(report) is not dict:
-                raise ValueError(f"held split score missing: {split}")
+                raise ValueError(f"completed split score missing: {split}")
             realized = validate_realized_bootstraps(
                 report, split, execution["manifests"]
             )
             if report.get("bootstrap_realization") != realized:
-                raise ValueError(f"held bootstrap realization metadata changed: {split}")
+                raise ValueError(f"completed bootstrap realization metadata changed: {split}")
 
 
 def validate_receipt(
@@ -746,8 +882,6 @@ def make_result_fixture(terminal: str) -> dict[str, object]:
             if held else "preserve_terminal_and_do_not_search_sites_or_thresholds"
         ),
     }
-    if not held:
-        validate_result(result)
     return result
 
 
@@ -1955,11 +2089,112 @@ def _merge_failure_classes(*mappings):
     return output
 
 
+def _strict_json_file(path: Path) -> dict[str, object]:
+    try:
+        value = json.loads(
+            path.read_text(),
+            parse_constant=lambda token: (_ for _ in ()).throw(
+                ValueError(f"non-standard JSON constant {token}")
+            ),
+        )
+    except (OSError, UnicodeError, TypeError, ValueError) as parse_error:
+        raise RuntimeError(f"unrecognized R585 JSON artifact: {path}") from parse_error
+    if type(value) is not dict:
+        raise RuntimeError(f"unrecognized R585 JSON artifact: {path}")
+    return value
+
+
+def _recognize_stale_stage(path: Path) -> None:
+    if not path.is_dir() or path.is_symlink():
+        raise RuntimeError(f"unsafe unrecognized R585 stage path: {path}")
+    marker = path / STAGE_MARKER_NAME
+    if not marker.is_file() or marker.is_symlink() or marker.read_bytes() != STAGE_MARKER_BYTES:
+        raise RuntimeError(f"unsafe unrecognized R585 stage marker: {path}")
+    allowed = {STAGE_MARKER_NAME, "evidence", "result.json", "receipt.json"}
+    children = list(path.iterdir())
+    if any(child.name not in allowed or child.is_symlink() for child in children):
+        raise RuntimeError(f"unsafe unrecognized bytes in R585 stage: {path}")
+    if (path / "result.json").exists():
+        _recognize_partial_result(path / "result.json")
+    if (path / "receipt.json").exists():
+        _recognize_partial_receipt(path / "receipt.json")
+    if (path / "evidence").exists():
+        _recognize_partial_evidence(path / "evidence", allow_incomplete=True)
+
+
+def _recognize_partial_result(path: Path) -> None:
+    if not path.is_file() or path.is_symlink():
+        raise RuntimeError(f"unsafe unrecognized R585 result path: {path}")
+    value = _strict_json_file(path)
+    if value.get("schema") != RESULT_SCHEMA or value.get("rung") != 585 or (
+        value.get("checkpoint_weights_sha256") != CHECKPOINT_SHA256
+    ) or value.get("source_sha256") != {
+        str(authority): digest for authority, digest in AUTHORITY_HASHES.items()
+    } or value.get("implementation_sha256") != sha256(SCRIPT) or (
+        value.get("test_sha256") != sha256(TEST)
+    ) or value.get("dependency_lock_sha256") != AUTHORITY_HASHES[DEPENDENCY_LOCK]:
+        raise RuntimeError(f"unsafe unrecognized R585 result bytes: {path}")
+
+
+def _recognize_partial_receipt(path: Path) -> None:
+    if not path.is_file() or path.is_symlink():
+        raise RuntimeError(f"unsafe unrecognized R585 receipt path: {path}")
+    value = _strict_json_file(path)
+    if value.get("schema") != RECEIPT_SCHEMA or value.get("result_path") != str(
+        OUT.relative_to(ROOT.parent.parent)
+    ) or value.get("checkpoint_weights_sha256") != CHECKPOINT_SHA256 or (
+        value.get("implementation_sha256") != sha256(SCRIPT)
+    ) or value.get("test_sha256") != sha256(TEST) or value.get("source_sha256") != {
+        str(authority): digest for authority, digest in AUTHORITY_HASHES.items()
+    } or value.get("dependency_lock_sha256") != AUTHORITY_HASHES[DEPENDENCY_LOCK]:
+        raise RuntimeError(f"unsafe unrecognized R585 receipt bytes: {path}")
+
+
+def _recognize_partial_evidence(path: Path, *, allow_incomplete: bool) -> None:
+    if not path.is_dir() or path.is_symlink():
+        raise RuntimeError(f"unsafe unrecognized R585 evidence path: {path}")
+    expected_names = set(HELD_ARRAY_SHAPES) | set(HELD_JSONL_COUNTS)
+    children = list(path.iterdir())
+    names = {child.name for child in children}
+    if any(child.is_symlink() or not child.is_file() for child in children) or (
+        not names <= expected_names
+    ) or (not allow_incomplete and names != expected_names):
+        raise RuntimeError(f"unsafe unrecognized bytes in R585 evidence: {path}")
+    if allow_incomplete and not names:
+        return
+    possible_contracts = [
+        phase_evidence_contract(["FIT"]),
+        phase_evidence_contract(["FIT", "SELECT"]),
+    ]
+    for child in children:
+        try:
+            if child.suffix == ".npy":
+                array = np.load(child, mmap_mode="r", allow_pickle=False)
+                if array.dtype.str != "<f4":
+                    raise ValueError("wrong dtype")
+                possible_contracts = [
+                    contract for contract in possible_contracts
+                    if contract["array_shapes"].get(child.name) == list(array.shape)
+                ]
+            else:
+                count = len(_strict_jsonl(child))
+                possible_contracts = [
+                    contract for contract in possible_contracts
+                    if contract["jsonl_counts"].get(child.name) == count
+                ]
+        except (OSError, TypeError, ValueError) as evidence_error:
+            raise RuntimeError(
+                f"unsafe unrecognized R585 evidence bytes: {child}"
+            ) from evidence_error
+        if not possible_contracts:
+            raise RuntimeError(f"unsafe unrecognized R585 evidence census: {path}")
+
+
 def recover_stale_publication(
     *, root: Path = ROOT, out: Path = OUT, receipt: Path = RECEIPT,
     evidence: Path = EVIDENCE_DIR,
 ) -> None:
-    """Quarantine interrupted final/staging paths without deleting evidence."""
+    """Quarantine only recognizable interrupted R585 publication artifacts."""
     finals = {"result": out, "receipt": receipt, "evidence": evidence}
     occupied = {name: path for name, path in finals.items() if path.exists()}
     stale = sorted(root.glob(STAGE_PREFIX + "*"))
@@ -1967,6 +2202,16 @@ def recover_stale_publication(
         raise RuntimeError("R585 complete output namespace already exists")
     if not occupied and not stale:
         return
+    if not stale:
+        raise RuntimeError("R585 occupied namespace has no recognized stale stage; refusing recovery")
+    for path in stale:
+        _recognize_stale_stage(path)
+    if "result" in occupied:
+        _recognize_partial_result(occupied["result"])
+    if "receipt" in occupied:
+        _recognize_partial_receipt(occupied["receipt"])
+    if "evidence" in occupied:
+        _recognize_partial_evidence(occupied["evidence"], allow_incomplete=False)
     recovery = Path(tempfile.mkdtemp(prefix=RECOVERY_PREFIX, dir=root))
     for name, path in occupied.items():
         os.replace(path, recovery / f"partial-{name}-{path.name}")
@@ -1981,6 +2226,8 @@ def create_stage_root(root: Path = ROOT) -> Path:
     stage = Path(tempfile.mkdtemp(prefix=STAGE_PREFIX, dir=root))
     if stage.stat().st_dev != root.stat().st_dev:
         raise RuntimeError("R585 stage is not on the output filesystem")
+    _write_bytes_fsync(stage / STAGE_MARKER_NAME, STAGE_MARKER_BYTES)
+    _fsync_directory(stage)
     return stage
 
 
@@ -2039,6 +2286,10 @@ def publish_staged_package(
         _fsync_directory(stage_root)
         _fsync_directory(out.parent)
         raise
+    marker = stage_root / STAGE_MARKER_NAME
+    if not marker.is_file() or marker.read_bytes() != STAGE_MARKER_BYTES:
+        raise RuntimeError("R585 stage marker changed before cleanup")
+    marker.unlink()
     stage_root.rmdir()
     _fsync_directory(out.parent)
 
@@ -2145,41 +2396,40 @@ def run_science() -> dict[str, object]:
         current_failures = {name: [] for name in fit_failures}
         current_failures["invalid_instrument"].extend(instrument)
         split_records, split_vectors = [], []
-        if not instrument:
-            batches = direction_batches(execution, split)
-            split_directions = [row for row in execution["directions"] if row["split"] == split]
-            frozen_insertions, freeze_failures = build_frozen_insertion_cache(
-                split_directions, all_factors, torch=torch
+        batches = direction_batches(execution, split)
+        split_directions = [row for row in execution["directions"] if row["split"] == split]
+        frozen_insertions, freeze_failures = build_frozen_insertion_cache(
+            split_directions, all_factors, torch=torch
+        )
+        current_failures["invalid_instrument"].extend(freeze_failures)
+        for arm in ARMS:
+            records, vectors, arm_calls = collect_intervention_arm(
+                model, batches, arm, endpoint_specs, frozen_insertions, all_replay, all_native,
+                torch=torch, functional=functional, facade=facade, induction=induction,
             )
-            current_failures["invalid_instrument"].extend(freeze_failures)
-            for arm in ARMS:
-                records, vectors, arm_calls = collect_intervention_arm(
-                    model, batches, arm, endpoint_specs, frozen_insertions, all_replay, all_native,
-                    torch=torch, functional=functional, facade=facade, induction=induction,
-                )
-                split_records.extend(records)
-                split_vectors.extend(vectors)
-                calls += arm_calls
-            current_failures["invalid_instrument"].extend(
-                validate_primitive_logit_identities(split_records)
+            split_records.extend(records)
+            split_vectors.extend(vectors)
+            calls += arm_calls
+        current_failures["invalid_instrument"].extend(
+            validate_primitive_logit_identities(split_records)
+        )
+        structural, evidence = structural_identity_failures(
+            split_records, split_vectors, execution["manifests"], all_replay
+        )
+        current_failures["invalid_instrument"].extend(structural)
+        structural_evidence.extend(evidence)
+        for vector_row in split_vectors:
+            vector_row.pop("full_logits", None)
+        if not current_failures["invalid_instrument"]:
+            if split == "FIT":
+                fit_scales = compute_fit_scales(split_records, execution["manifests"])
+            assert fit_scales is not None
+            report, scientific = score_split(
+                split_records, split, execution["manifests"], fit_scales
             )
-            structural, evidence = structural_identity_failures(
-                split_records, split_vectors, execution["manifests"], all_replay
-            )
-            current_failures["invalid_instrument"].extend(structural)
-            structural_evidence.extend(evidence)
-            for vector_row in split_vectors:
-                vector_row.pop("full_logits", None)
-            if not current_failures["invalid_instrument"]:
-                if split == "FIT":
-                    fit_scales = compute_fit_scales(split_records, execution["manifests"])
-                assert fit_scales is not None
-                report, scientific = score_split(
-                    split_records, split, execution["manifests"], fit_scales
-                )
-                split_scores[split] = report
-                for key, values in scientific.items():
-                    current_failures[key].extend(values)
+            split_scores[split] = report
+            for key, values in scientific.items():
+                current_failures[key].extend(values)
         all_records.extend(split_records)
         all_vectors.extend(split_vectors)
         if split == "FIT":
@@ -2192,8 +2442,7 @@ def run_science() -> dict[str, object]:
     expected_calls = EXPECTED_PHASE_PRICE["FIT"] + (
         EXPECTED_PHASE_PRICE["SELECT"] if evaluated == ["FIT", "SELECT"] else 0
     )
-    if not failure_classes.get("invalid_instrument") and not failure_classes.get("select_invalid_instrument") \
-            and calls != expected_calls:
+    if calls != expected_calls:
         raise RuntimeError(f"scientific forward price changed: {calls} != {expected_calls}")
     require_finite_json(all_records, "all_records")
     require_finite_json(structural_evidence, "structural_evidence")
@@ -2226,10 +2475,13 @@ def run_science() -> dict[str, object]:
             "schema": EVIDENCE_SCHEMA,
             "endpoint_count": len(all_replay),
             "directed_arm_record_count": len(all_records),
-            "endpoint_site_role_operation_counts": EXPECTED_OPERATION_COUNTS,
-            "endpoint_site_role_operation_sha256": execution[
-                "endpoint_site_role_operation_sha256"
-            ],
+            "endpoint_site_role_operation_counts": {
+                split: EXPECTED_OPERATION_COUNTS[split] for split in evaluated
+            },
+            "endpoint_site_role_operation_sha256": content_sha256([
+                row for row in execution["endpoint_site_role_operations"]
+                if row["split"] in evaluated
+            ]),
             "realized_endpoint_site_role_operations": realized_operation_evidence,
             "instrument_maxima": instrument_maxima,
             "structural_identity_checks": structural_evidence,
@@ -2293,13 +2545,15 @@ def run_dryrun() -> dict[str, object]:
     invalid = make_result_fixture("invalid_instrument")
     for fixture in (held, null, invalid):
         validate_receipt(make_receipt_fixture(fixture), fixture)
-    try:
-        validate_result(held)
-    except ValueError as held_fixture_error:
-        if "raw evidence" not in str(held_fixture_error):
-            raise
-    else:
-        raise RuntimeError("held fixture without evidence was accepted")
+    for fixture in (held, null, invalid):
+        try:
+            validate_result(fixture)
+        except ValueError as fixture_error:
+            if "model-free fixture" not in str(fixture_error):
+                raise
+        else:
+            raise RuntimeError("model-free fixture without evidence was accepted")
+        validate_result(fixture, allow_model_free_fixture=True)
     manifest = load_manifest()
     held_lock, held_hashes = manifest.build_planted_dependency_fixture(True)
     null_lock, null_hashes = manifest.build_planted_dependency_fixture(False)

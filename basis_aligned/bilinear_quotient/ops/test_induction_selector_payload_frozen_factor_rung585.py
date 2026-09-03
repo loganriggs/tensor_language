@@ -185,7 +185,7 @@ def test_terminal_precedence_and_fit_first_gate(runner):
 def test_strict_held_null_and_instrument_result_receipts(runner, terminal):
     result = runner.make_result_fixture(terminal)
     receipt = runner.make_receipt_fixture(result)
-    runner.validate_result(result)
+    runner.validate_result(result, allow_model_free_fixture=True)
     runner.validate_receipt(receipt, result)
     json.dumps(result, allow_nan=False)
     json.dumps(receipt, allow_nan=False)
@@ -193,7 +193,18 @@ def test_strict_held_null_and_instrument_result_receipts(runner, terminal):
 
 def test_held_fixture_without_complete_evidence_is_rejected(runner):
     result = runner.make_result_fixture("held_operational_selector_payload_factorization")
-    with pytest.raises(ValueError, match="raw evidence"):
+    with pytest.raises(ValueError, match="model-free fixture"):
+        runner.validate_result(result)
+
+
+@pytest.mark.parametrize(
+    "terminal",
+    ["factor_capacity_null", "invalid_instrument", "select_factor_capacity_null"],
+)
+def test_completed_terminal_cannot_use_fixture_only_or_empty_evidence(runner, terminal):
+    result = runner.make_result_fixture(terminal)
+    assert result["evidence_files"] == []
+    with pytest.raises(ValueError, match="model-free fixture"):
         runner.validate_result(result)
 
 
@@ -211,7 +222,7 @@ def test_result_schema_fails_closed(runner, mutation):
     elif mutation == "terminal":
         result["terminal"] = "held_operational_selector_payload_factorization"
     with pytest.raises((ValueError, TypeError)):
-        runner.validate_result(result)
+        runner.validate_result(result, allow_model_free_fixture=True)
 
 
 def test_bootstrap_trace_is_sha_defined_and_big_endian(runner):
@@ -253,6 +264,30 @@ def test_independent_remainder_and_realized_operation_omission_fail_closed(runne
     }
     with pytest.raises(RuntimeError, match="operation census"):
         runner.validate_realized_operations(expected, realized[:-1], "FIT")
+
+
+def test_phase_evidence_census_and_frozen_membership(runner, execution):
+    fit = runner.phase_evidence_contract(["FIT"])
+    assert fit["endpoint_count"] == 1_728
+    assert fit["direction_count"] == 3_744
+    assert fit["directed_arm_record_count"] == 11_232
+    assert fit["factor_exactness_count"] == 6_912
+    full = runner.phase_evidence_contract(["FIT", "SELECT"])
+    assert full["endpoint_count"] == 2_592
+    assert full["directed_arm_record_count"] == 16_848
+    assert full["factor_exactness_count"] == 10_368
+    identities = runner.expected_evidence_identities(["FIT"], execution)
+    runner.validate_evidence_membership(
+        ["FIT"], identities["endpoints"], identities["directed_arms"],
+        identities["factors"], execution,
+    )
+    invented = copy.deepcopy(identities)
+    invented["endpoints"][0] = "invented-self-consistent-endpoint"
+    with pytest.raises(ValueError, match="frozen authority"):
+        runner.validate_evidence_membership(
+            ["FIT"], invented["endpoints"], invented["directed_arms"],
+            invented["factors"], execution,
+        )
 
 
 def test_realized_bootstrap_omission_and_provenance_fail_closed(runner, execution, planted):
@@ -302,9 +337,9 @@ def test_stale_partial_publication_is_quarantined_not_deleted(runner, tmp_path):
     out = tmp_path / "result.json"
     receipt = tmp_path / "receipt.json"
     evidence = tmp_path / "evidence"
-    out.write_text("partial scientific bytes\n")
     stage = runner.create_stage_root(tmp_path)
-    (stage / "evidence").mkdir()
+    result = runner.make_result_fixture("factor_capacity_null")
+    out.write_text(json.dumps(result, sort_keys=True, allow_nan=False))
     with pytest.raises(RuntimeError, match="recovered incomplete"):
         runner.recover_stale_publication(
             root=tmp_path, out=out, receipt=receipt, evidence=evidence
@@ -312,8 +347,35 @@ def test_stale_partial_publication_is_quarantined_not_deleted(runner, tmp_path):
     assert not out.exists() and not receipt.exists() and not evidence.exists()
     recovered = list(tmp_path.glob(runner.RECOVERY_PREFIX + "*"))
     assert len(recovered) == 1
-    assert any(path.read_text() == "partial scientific bytes\n"
+    assert any(path.name.startswith("partial-result-")
                for path in recovered[0].iterdir() if path.is_file())
+
+
+def test_stale_recovery_refuses_arbitrary_or_complete_namespaces(runner, tmp_path):
+    out = tmp_path / "result.json"
+    receipt = tmp_path / "receipt.json"
+    evidence = tmp_path / "evidence"
+    out.write_text("arbitrary scientific-looking bytes\n")
+    stage = runner.create_stage_root(tmp_path)
+    with pytest.raises(RuntimeError, match="unrecognized"):
+        runner.recover_stale_publication(
+            root=tmp_path, out=out, receipt=receipt, evidence=evidence
+        )
+    assert out.read_text() == "arbitrary scientific-looking bytes\n"
+    assert stage.exists()
+    assert not list(tmp_path.glob(runner.RECOVERY_PREFIX + "*"))
+
+    out.unlink()
+    stage.rename(tmp_path / "not-a-stage-anymore")
+    out.write_text("result")
+    receipt.write_text("receipt")
+    evidence.mkdir()
+    with pytest.raises(RuntimeError, match="complete output namespace"):
+        runner.recover_stale_publication(
+            root=tmp_path, out=out, receipt=receipt, evidence=evidence
+        )
+    assert out.read_text() == "result" and receipt.read_text() == "receipt"
+    assert evidence.is_dir()
 
 
 @pytest.mark.parametrize("label", ["staged-result-write", "staged-receipt-write"])
@@ -364,7 +426,7 @@ def test_nonfinite_result_is_rejected_before_any_staged_or_final_write(runner, t
     stage = runner.create_stage_root(tmp_path)
     with pytest.raises(ValueError, match="nonfinite"):
         runner._finish_result(result, stage)
-    assert list(stage.iterdir()) == []
+    assert [path.name for path in stage.iterdir()] == [runner.STAGE_MARKER_NAME]
     assert not runner.OUT.exists() and not runner.RECEIPT.exists() and not runner.EVIDENCE_DIR.exists()
 
 
@@ -394,7 +456,10 @@ def test_nonfinite_staged_array_cannot_validate_even_for_null_terminal(runner, t
         "row_order_sha256": runner.content_sha256(["planted"]),
     }]
     with pytest.raises(ValueError, match="nonfinite evidence array"):
-        runner.validate_result(result, artifact_path_resolver=lambda _: evidence)
+        runner.validate_result(
+            result, artifact_path_resolver=lambda _: evidence,
+            allow_model_free_fixture=True,
+        )
 
 
 def test_complete_staged_package_publishes_receipt_last(runner, tmp_path):

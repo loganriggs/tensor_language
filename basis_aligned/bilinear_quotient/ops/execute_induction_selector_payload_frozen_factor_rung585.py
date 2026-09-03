@@ -53,9 +53,9 @@ RECEIPT = ROOT / "induction_selector_payload_frozen_factor_rung585_receipt.json"
 EVIDENCE = ROOT / "induction_selector_payload_frozen_factor_rung585_evidence"
 
 FROZEN_HASHES = {
-    PRODUCER: "dcdb6470e481dcbc58e86997f4a4d0e3203607ae29a0b74b0e58f59abf62db58",
-    PRODUCER_TEST: "cf4326ba6500814767e4b5ee17952753cbda39d6368e91c45a47a1ddce10cc63",
-    PRODUCER_DRYRUN: "a30d8206b11beb691e2b9dd2ce33a3a3c2df6752388643f13f0fc81442c69118",
+    PRODUCER: "8a4f20d06dd04cd81d6bb8c94377ee987b66bea4201395e61bbe23a1b5dd9a8c",
+    PRODUCER_TEST: "57e52e8da53f3a6e7b194efb64f56d1ff9fb442c2c39547a6f1fed4263a10653",
+    PRODUCER_DRYRUN: "6fb41eb862c00f27673cfe694cf8670eae23f1d60a6a5dd85a35a5309b7e90f5",
     DEPENDENCY_LOCK: "908826844336fe7a073ae16a5ef9123434514c21a73f8d3b331b4bab6e9f49b7",
     MANIFEST: "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
     AMENDMENT: "98ed34711ada83bbe1591887edf17164efd443d4c6a47559f43dec33f60aa5bf",
@@ -140,9 +140,20 @@ def scientific_command() -> tuple[str, list[str]]:
     return sys.executable, argv
 
 
-def preflight() -> dict[str, object]:
+def recover_publication_preflight(recovery_function: Callable[[], None] | None = None) -> None:
+    """Reach the hash-pinned producer's conservative stale-package recovery."""
+    if recovery_function is None:
+        recovery_function = load_frozen_producer().recover_stale_publication
+    recovery_function()
+
+
+def preflight(
+    *, recovery_function: Callable[[], None] | None = None,
+    namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES,
+) -> dict[str, object]:
     observed = verify_frozen_bytes()
-    require_unused_namespaces()
+    recover_publication_preflight(recovery_function)
+    require_unused_namespaces(namespace_paths)
     return {
         "schema": "execute_induction_selector_payload_frozen_factor_rung585_plan_v1",
         "repair_base_commit": REPAIR_BASE_COMMIT,
@@ -161,8 +172,12 @@ def dispatch(
     *,
     dry_validator: Callable[[], dict[str, object]] = run_model_free_validation,
     exec_function: Callable[[str, list[str]], object] = os.execv,
+    recovery_function: Callable[[], None] | None = None,
+    namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES,
 ) -> dict[str, object]:
-    execution_plan = preflight()
+    execution_plan = preflight(
+        recovery_function=recovery_function, namespace_paths=namespace_paths
+    )
     mode = environment.get("BQLIB_DRYRUN")
     if mode == "1":
         dryrun = dry_validator()
