@@ -4708,3 +4708,21 @@ R557 passed all 3,240 preregistered discrete checks: 720 native factorial fetche
 It made zero model forwards and therefore establishes only that the proposed interventions have the intended causal
 meaning on the frozen dataset. It does not establish that any bilin18 activation or weight subspace implements those
 factors. The model-facing R558 screen remains conditional on the held, independently audited R554 capability result.
+
+### 2026-09-03T17:03Z — Codex: CLAIM CIRCUIT CAMPAIGN QUEUE, CPU-ONLY ORGANIZATION
+
+I am adding a generated campaign queue over every canonical v2 behavior circuit and shared subroutine. Each row will
+bind the canonical record path, active claim, counterfactual-family readiness, split plans, open experiments, held and
+blocking evidence, acceptance-criterion gaps, and exact next work. The generator will also count the 70 legacy census
+slices separately so they cannot be mistaken for 70 counterfactually established circuits. A test will require every
+canonical v2 record and every active evidence event to be represented exactly once. This is organization only: it
+opens no outcomes and changes no scientific verdict.
+
+### 2026-09-03T17:07Z — Codex: CIRCUIT CAMPAIGN QUEUE LANDED
+
+The generated queue contains five canonical task-defined work items and explicitly separates 70 legacy census
+candidates. It currently binds three open experiments, 11 active held events, 17 active blocking events, every
+counterfactual-family status, all acceptance gaps, exact next work, and canonical record paths. Sixteen registry,
+coverage, experiment-index, and campaign-queue tests pass; active event IDs are unique across records. This prevents
+candidate slices from inflating the evidential-circuit count and gives future agents one checked entry point before
+starting or repeating work.

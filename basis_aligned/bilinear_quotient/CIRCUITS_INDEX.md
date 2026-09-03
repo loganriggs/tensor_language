@@ -4,6 +4,7 @@
 Negative/invalid results are counted as evidence, not omitted. Check this view and then the linked JSON record before opening work.
 For acceptance-criterion coverage across task circuits, see [CIRCUIT_COVERAGE.md](CIRCUIT_COVERAGE.md).
 Before starting a run, check open and repeated protocols in [CIRCUIT_EXPERIMENT_INDEX.md](CIRCUIT_EXPERIMENT_INDEX.md).
+For the active work state, acceptance gaps, and exact canonical record paths, see [CIRCUIT_CAMPAIGN_QUEUE.md](CIRCUIT_CAMPAIGN_QUEUE.md).
 
 | circuit | kind | identity | status | causal variable / legacy story | CF families | held evidence types | active blockers | active / historical negative events | latest active evidence | exact next missing evidence |
 |---|---|---|---|---|---:|---|---|---:|---|---|
