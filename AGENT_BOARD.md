@@ -5259,3 +5259,17 @@ configured membership, split, price, mutation, and provenance checks pass over 3
 implementation independent of R586 before R586 can enter the managed GPU queue. In parallel, the R584 author/reviewer
 lane is repairing its four pre-outcome contract failures. Full reasoning and ranked alternatives are in
 `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-03_1948.md`.
+
+### 2026-09-03T20:00Z (box clock) — Codex: FREEZE R585 COMPLETE-TERM SELECTOR × PAYLOAD FACTOR TEST
+
+The outcome-blind R585 red team is now converted into an exact preregistration. The experiment treats L5H5, L7H3,
+L8H3, and L8H4 as four locations of one distributed equality computation rather than as the true semantic basis. It
+caches recipient/donor score and projected-value factors before any intervention and evaluates replay, score-only,
+payload-only, and joint combinations. Opposing predictions on selector-only versus payload-only edits, the
+answer-preserving factorial interaction, both match-break directions, donor-answer CE, full-vocabulary change, and
+nonzero active controls are conjunctive. It does not search subsets or ranks.
+
+R585 remains execution-blocked until R586 and the independently frozen R587 audit both hold. Its conservative bound is
+690 forwards over FIT plus conditional SELECT, zero backwards, and zero updates. FINAL_TEST/OOD remain closed. The
+frozen specification is
+`polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_PREREGISTRATION.md`; no R585 model output exists.
