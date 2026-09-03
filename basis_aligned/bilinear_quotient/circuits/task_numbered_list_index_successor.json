@@ -717,6 +717,56 @@
    "claim_id": "numbered_list_index_successor.v2",
    "design_key": "7014c3e469525d67c7c8bf39cba177335147d8136027e28503934fb5e56a1610",
    "execution_key": "f0e462ef047a42213f435d3bca4618b01ff5680171b2d49ebfdf602e0823a410"
+  },
+  {
+   "event_id": "numbered_list_conflict_confirmation.r572.preregistered.v1",
+   "test_type": "null_control",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "list_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_and_SELECT_raw_confirmation",
+   "metrics": [
+    {
+     "name": "reference_aggregate_match",
+     "estimate": null,
+     "ci95": null,
+     "bar": "all differences <=1e-6"
+    },
+    {
+     "name": "fit_structural_preference",
+     "estimate": null,
+     "ci95": null,
+     "bar": "1.0 positive fraction and bootstrap lower mean >0"
+    },
+    {
+     "name": "select_structural_preference",
+     "estimate": null,
+     "ci95": null,
+     "bar": "1.0 positive fraction and bootstrap lower mean >0"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "r572_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r569_r570_result",
+    "r572_script"
+   ],
+   "split_plan_id": "numbered_list_successor_split_r567_v1",
+   "seed": 572,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMBERED_LIST_CONFLICT_CONFIRMATION_RUNG572_PREREGISTRATION.md"
+   ],
+   "claim_id": "numbered_list_index_successor.v3",
+   "design_key": "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
+   "execution_key": "da8facf895dd6bc2c2e81d17d637e9ed1bfdd4c0f7aa5a57c265942a3287099a"
   }
  ],
  "translations": [],
@@ -790,6 +840,18 @@
   "r571_audit_script": {
    "path": "basis_aligned/bilinear_quotient/ops/audit_numeric_two_hypothesis_capability_rung571.py",
    "sha256": "d09db25abf9dd50913c6c697359bbe70c436e2355b57a78f09b389ae061221d9",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r572_prereg": {
+   "path": "basis_aligned/polynomial_causal/NUMBERED_LIST_CONFLICT_CONFIRMATION_RUNG572_PREREGISTRATION.md",
+   "sha256": "0cc937cbf532539ed3af8d902476674988a1b16f5e5b7332730bd090bf936b0c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r572_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/numbered_list_conflict_confirmation_rung572.py",
+   "sha256": "0965dd222f7021412b442742a86ceee052889a341bd1b54e4ac7bb70af8dbc67",
    "kind": "implementation",
    "status": "frozen"
   }

@@ -4954,3 +4954,11 @@ The +2 sequence conflict remained mixed and was not a gate (arithmetic preferenc
 recomputed 1,344 endpoint statistics, 50 decision cells, the sequence necessity pairs, hashes, calls, and conditional
 split openings. It cannot independently rebootstrap the list conflict because R569 saved only its aggregate; a raw-row
 confirmation remains mandatory before list localization.
+
+### 2026-09-03T19:16Z — Codex: CLAIM R572, RAW-ROW LIST +2 CONFLICT CONFIRMATION
+
+R572 will independently reevaluate only the R567 list-step-two conflict at both opened splits and save every
+group×endpoint structural-successor-minus-arithmetic margin. It must reproduce R569's FIT and SELECT means, positive
+fractions, and bootstrap lower bounds within 1e-6, retain 100% structural preference with positive lower bounds, match
+the checkpoint and exact row hashes, and use at most three forwards. FINAL_TEST/OOD remain closed. A failure blocks
+list component localization even though the aggregate R569 gate passed.
