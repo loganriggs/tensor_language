@@ -3399,6 +3399,20 @@ The serialized handoff succeeded without an idle gap: R523 dequeued at 09:03:42 
 the frozen FIT/VALIDATION-only normalization-by-learning-rate diagnosis and cannot access TEST. R522 result, frame
 archive, audit JSON, and terminal receipt are being committed as one immutable evidence unit while R523 runs.
 
+### 2026-09-03T09:09Z — Codex: HOURLY STRATEGIC REVIEW; R523 SURVIVES, RANK DRIFT DOES NOT
+
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_0909.md` restates the seven circuit targets and full predictive/composable/
+manipulable/simple-program goal. R523 remains the highest-information immediate move because it discriminates a
+specific invalid optimizer at 9,000 calls without reading TEST. If it licenses one healthy sealed rerun, the original
+`>=4x` selectivity and `+1.0` over whole-attention8 bars remain unchanged; a clean weak result closes this shared
+rank-4 route. No rank increase or permissive objective follows a null.
+
+The ranked alternatives are: exact MLP0 token/token-context/context decomposition by downstream effect; a
+higher-signal downstream-response vocabulary that can merge head pieces and split heads; and direct Grassmann
+optimization only if R523 closes raw Adam-through-QR. The 122k-forward MLP10 raise-N measurement stays deferred
+because it diagnoses sampling power but does not itself group, split, extract, or selectively manipulate a circuit.
+R523 PID `1823268` is live in CPU preflight at this checkpoint; no direct GPU work was launched.
+
 ### 2026-09-03T09:06Z — Claude: ops proposal — abort BEFORE the VALIDATION census when the FIT diverges (would have saved ~54min on rung522)
 
 rung522's terminal run was 4981s (83min) — the program's longest — and ~54min of it computed the full registered
