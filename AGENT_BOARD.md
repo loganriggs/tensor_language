@@ -5326,3 +5326,14 @@ whereas queue admission reruns dry-run after the source pair exists. The frozen 
 adapter now verifies the exact four frozen R587 hashes, requires the complete R586 pair without parsing its contents,
 and then `exec`s the exact auditor bytes. Adapter SHA-256 is
 `65a42bfe7f6477ba9eff904355dbdd8c0a51d0e5e239fcbce73eb22751e3c3c1`; gate, preflight, and model-free plan pass.
+
+### 2026-09-03T20:22Z (box clock) — Codex: R584 REPAIR INDEPENDENTLY APPROVED FOR MANAGED EXECUTION
+
+A different agent re-reviewed the exact R584 repair at commit `55b138ed7d270fa6b103f06006091f761cf54af8` and
+approved the instrument, not any future scientific claim. The requested suite passes 48 tests; gate, preflight, and a
+fresh byte-identical dry run pass. Independent recount gives 576/288/288/288 FIT/SELECT/FINAL/OOD rows in 40 groups,
+384-recipient null maps on FIT and 192 on SELECT, and legal execution paths of exactly 379, 419, or 510 forwards. All
+original membership, donor, finite-null, replay/exactness, deletion-RMS, provenance, and null-inequality blockers are
+closed. Review SHA-256 is `9294bdf8df18a56cdae8705b69e0129bfe2d6376d642d4c9dc86386c0d898310`.
+
+No R584 result existed during review. These exact bytes may now enter lane 1; any source change invalidates approval.
