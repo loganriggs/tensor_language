@@ -67989,7 +67989,7 @@ Extends §2673 (MLP0 high-rank) to every block via the same exact operator-Gram 
 (ops/all_mlp_operator_family_rank.py, 20 s, no forwards). Frozen threshold: effective rank < 288 = compressible.
 Result: EVERY one of the 18 MLP blocks is HIGH-RANK. Effective rank (entropy) ranges 438.3 (MLP0, the LOWEST) to
 748.6 (MLP7); 90%-energy rank 611--754; top-1 energy 0.013--0.080 (no dominant direction in any block). 0 of 18
-blocks fall below the compressible threshold. Verdict .
+blocks fall below the compressible threshold. Verdict: all-18-MLP-blocks-high-rank, no compressible block.
 Result `e237ca67…`.
 
 This is a decisive, exact, program-level negative: bilin18's token-context interaction operator — the map from a
