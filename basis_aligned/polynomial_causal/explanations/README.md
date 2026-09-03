@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_circuit_interactions.md](explanation_circuit_interactions.md) — exact source-pair interactions in
+  later bilinear MLPs, how they relate to multiple-mediator activation-patching effects, what relevant causal work
+  has already been completed, and the missing 62-circuit interaction atlas
 - [explanation_2026-09-03_0906.md](explanation_2026-09-03_0906.md) — rung522's audited terminal invalid-optimizer
   result, exact unopened-TEST and call-ledger proof, the corrected low-power cross-seed spike analysis, and the live
   FIT/VALIDATION-only normalization-by-learning-rate repair
