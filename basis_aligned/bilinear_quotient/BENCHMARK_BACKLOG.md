@@ -5004,3 +5004,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   k=256 adds .020 <= .05 -- fat-head effect, not density); c FALSE NULL HELD (mlp1 table adds 1.64 >= .883); d FALSE NULL HELD
   (R2 -3.84). Ladders: mlp1 .883/.357/.091/.020/.004; mlp0/2/3 <= .016 at k=256. CE ADDED, lower = better. Corrects the
   READING of §2696 (numbers stand).
+- §2701 site_write_certificate_map_probe (Claude, CPU lane 1, 635 s, 0 GPU): a TRUE (baseline exact; cert17_k32 .07049 vs .07017);
+  b FALSE null not met (ratio in [.5,2] for mlp11-17 only; blocks 7-10 under-certified 2.5-10x; 4 of 13 outside [.25,4], null needed 5);
+  c TRUE (early certs ~0, mlp1 ratio -35279); d TRUE (joint {16,17} k8 ratio .905, certified cross .0533 vs measured .0537);
+  e FALSE NULL HELD (Spearman -.48 over 36; .76 over blocks >= 11 post hoc). Certificate valid from block 11 on; useless before 7.

@@ -1,0 +1,138 @@
+{"stage": "bases", "t": 52.0}
+{"stage": "cert_A", "docs": 8, "t": 115.6}
+{"stage": "cert_A", "docs": 16, "t": 140.0}
+{"stage": "cert_A", "docs": 24, "t": 179.5}
+{"stage": "cert_A", "docs": 32, "t": 218.4}
+{"stage": "cert_A", "docs": 40, "t": 256.9}
+{"stage": "cert_A", "docs": 48, "t": 295.3}
+{"stage": "cert_A", "docs": 56, "t": 336.6}
+{"stage": "cert_A", "docs": 64, "t": 373.3}
+{"stage": "cert_B", "docs": 8, "t": 413.2}
+{"stage": "cert_B", "docs": 16, "t": 454.5}
+{"stage": "cert_B", "docs": 24, "t": 469.2}
+{"stage": "cert_B", "docs": 32, "t": 484.5}
+{"stage": "cert_B", "docs": 40, "t": 503.8}
+{"stage": "cert_B", "docs": 48, "t": 523.6}
+{"stage": "cert_B", "docs": 56, "t": 544.1}
+{"stage": "cert_B", "docs": 64, "t": 562.2}
+{"stage": "cert_B", "docs": 72, "t": 580.8}
+{"stage": "cert_B", "docs": 80, "t": 598.4}
+{"stage": "cert_B", "docs": 88, "t": 617.1}
+{"stage": "cert_B", "docs": 96, "t": 635.1}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:133: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_sites_certified": false,
+  "pred_c_early_breakdown": true,
+  "pred_d_joint_mlp16_17_k8": true,
+  "pred_e_ordering": false
+ },
+ "nulls": {
+  "b_null_ge_5_late_outside_[.25,4]": false,
+  "c_null_all_early_inside_[.5,2]": false,
+  "d_null_cross_le_0": false,
+  "e_null_spearman_le_.4": true
+ },
+ "rho": -0.48133848133848134,
+ "late": [
+  [
+   "attn7",
+   10.237
+  ],
+  [
+   "mlp7",
+   9.515
+  ],
+  [
+   "attn8",
+   4.679
+  ],
+  [
+   "mlp8",
+   4.701
+  ],
+  [
+   "mlp9",
+   3.004
+  ],
+  [
+   "mlp10",
+   2.508
+  ],
+  [
+   "mlp11",
+   1.593
+  ],
+  [
+   "mlp12",
+   1.133
+  ],
+  [
+   "mlp13",
+   1.197
+  ],
+  [
+   "mlp14",
+   1.065
+  ],
+  [
+   "mlp15",
+   0.917
+  ],
+  [
+   "mlp16",
+   0.798
+  ],
+  [
+   "mlp17",
+   0.799
+  ]
+ ],
+ "early": {
+  "mlp0": 10177658.023472551,
+  "mlp1": -35278.916404999516,
+  "mlp2": 3521.1342172271966,
+  "mlp3": 650.5711195174906
+ },
+ "stage_B": {
+  "single_cert": {
+   "16_8": 0.040529775472047426,
+   "16_32": 0.034069177811034024,
+   "17_8": 0.09664372883465451,
+   "17_32": 0.07048522539359207
+  },
+  "single_first_order": {
+   "16_8": 0.0015952919687454898,
+   "16_32": 0.0026721894973888993,
+   "17_8": 0.005314295810724919,
+   "17_32": 0.0070373333486107486
+  },
+  "joint_cert": {
+   "8": 0.19052093751573315,
+   "32": 0.143199409202983
+  },
+  "cross_term": {
+   "8": 0.05334743320903122,
+   "32": 0.03864500599835689
+  },
+  "measured_both": {
+   "8": 0.17248064279556274,
+   "32": 0.12332709630330418
+  },
+  "measured_cross": {
+   "8": 0.05368828773498491,
+   "32": 0.03983195622762015
+  },
+  "ratio_joint": {
+   "8": 0.9053106973154557,
+   "32": 0.8612262926901457
+  }
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forward_equivalents": 1920,
+  "cpu_seconds": 635.1979939937592
+ }
+}

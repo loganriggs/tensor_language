@@ -68817,3 +68817,60 @@ the radial (gauge) part is the next question (registered as candidate 4 in HOURL
 add across sites; the joint early-block installation must be measured, not summed.
 Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: reading of §2696 as above (numbers
 unchanged; no conclusion flipped — the k=32 map is what it was). Retractions: none.
+
+## §2701 — SECOND-ORDER FISHER CERTIFICATE OVER ALL 36 WRITE SITES + JOINT {MLP16,MLP17} (Claude, CPU on lane 1, 635 s, 1,920 CPU document-forward equivalents, 0 GPU): THE CERTIFICATE IS VALID ONLY FROM BLOCK 11 ON — ratio measured/cert .80–1.59 for mlp11–17 and .42–.68 for attn11–17, 2.5–10× UNDER-CERTIFIED at blocks 7–10, AND ≈ 0 (uninformative) AT BLOCKS 0–6 WHERE THE MEASURED PRICE IS LARGEST; THE JOINT {16,17} k=8 CERTIFICATE PRICES THE MEASURED CROSS TERM ALMOST EXACTLY (.0533 certified vs .0537 measured; joint ratio .905) — a TRUE, b FALSE (null NOT met), c TRUE, d TRUE, e FALSE (NULL HELD)
+
+Written 2026-09-03 19:08Z (box clock). Preregistration `polynomial_causal/SITE_WRITE_CERTIFICATE_MAP_PROBE_PREREGISTRATION.md`
+(registered 18:46Z, sha 730eb9bd…, frozen in the script); script `ops/site_write_certificate_map_probe.py`; results
+`site_write_certificate_map_probe_results.json`. Smoked 18:52 (exit 0, 41 s), enqueued 18:55, ran 18:55–19:06 on lane 1 (the
+last of my CPU probes to occupy lane 1 — lane 2 went live at 18:44 and later CPU probes go there), exit 0. SIGN CONVENTION
+(§2135): every "measured" number is CE ADDED ABOVE THE REAL MODEL on held-out documents — LOWER IS BETTER; a "certificate" is the
+analytic second-order prediction of that same CE-added, so ratio measured/cert = 1 is a perfect price, > 1 under-certified
+(the real damage exceeds the local quadratic), < 1 over-certified. Nothing installs into the §312 frontier.
+
+**What was computed.** Stage A: on docs 96–159 (the §2696 set; bases fitted on docs 0–95), for every one of the 36 write sites
+(attn_l, mlp_l, l = 0…17), the k=32 write-PCA tail δ_s = (I − U_32 U_32ᵀ)(write − mu) and the certificate
+cert_{s,32} = mean_t [ g_t·δ + ½ mean_i (s_t^(i)·δ)² ] with g_t the true-token CE gradient w.r.t. the write and s^(i) four
+sampled-score gradients (torch.Generator seed 0, S=4), all 36 writes detached as autograd leaves in ONE backward per sample
+(so the 36-site map costs the same score pass as one site). Stage B: on docs 96–191 (the §2694 set) the single certificates
+cert_{16,k}, cert_{17,k}, k ∈ {8,32}, and the JOINT certificate cert_{{16,17},k} with both δ's summed inside the square, whose
+excess over the sum of singles is the certified cross term X. Measured prices come from the frozen §2696 / §2694 jsons.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE. (i) baseline CE docs 96–159 = 3.1124951 vs frozen 3.1124951 (diff 0.0, bar 1e-4). (ii) Stage-B
+  cert_{mlp17,32} = .070485 vs §2699's frozen .070165 (diff .00032, bar .01; same seed, different sampling order). Disclosed
+  reproductions vs §2699: 16_k32 .03407 vs .03371; 17_k8 .09664 vs .09694; 16_k8 .04053 vs .04039 — all within .0004.
+- pred_b_late_sites_certified — FALSE; null NOT met. LATE13 ratios (measured/cert, k=32): attn7 10.24, mlp7 9.52, attn8 4.68,
+  mlp8 4.70, mlp9 3.00, mlp10 2.51, mlp11 1.59, mlp12 1.13, mlp13 1.20, mlp14 1.06, mlp15 .92, mlp16 .80, mlp17 .80. Inside
+  [.5,2]: 7 of 13 (mlp11–mlp17); outside: 6 of 13. Null needed ≥ 5 outside [.25,4]: exactly 4 are (attn7, mlp7, attn8, mlp8) — the
+  null fails by one site. Reading: the certificate transfers cleanly to blocks 11–17 and degrades monotonically going earlier
+  (ratio ≈ 1 at 12–15, 2.5–3 at 9–10, 4.7 at 8, ~10 at 7).
+- pred_c_early_breakdown — TRUE; null not met. ratio_{mlp1,32} = −35,279 (cert −3e-5 vs measured .8834). All early ratios are
+  outside [.5,2]: mlp0 1.0e7 (cert 2e-8), mlp2 3,521, mlp3 651. The certificate is numerically ≈ 0 for every site in blocks 0–5
+  (|cert| ≤ .0006 while the measured prices are .026–.883).
+- pred_d_joint_mlp16_17_k8 — TRUE; null not met. cert_{{16,17},8} = .19052; measured `both.8` .17248; joint ratio .905 ∈ [.5,2].
+  Certified cross term X_8 = .19052 − .04053 − .09664 = +.0533 ≥ .02; the MEASURED cross term is .17248 − .03554 − .08326 = +.0537.
+  The second-order certificate reproduces the superadditivity to .0004. k=32 (disclosed): joint cert .14320 vs measured .12333
+  (ratio .861); X_32 certified .0386 vs measured .0398.
+- pred_e_ordering — FALSE; NULL HELD. Spearman(cert, measured) over all 36 sites = −.481 (bar ≥ .8, null ≤ .4). The sign is
+  negative because the early sites have the LARGEST measured prices and the SMALLEST (≈0) certificates. Post-hoc, disclosed, not
+  scored: restricted to blocks ≥ 11 (14 sites) Spearman = .763; blocks ≥ 7: .289; the LATE13 set: −.159.
+
+**Disclosed.** Full 36-row table in the json (measured, cert, first-order share, ratio). Sum of all 36 single k=32 certificates =
+.387 vs sum of measured single prices 2.371 (the gap is entirely blocks 0–10). First-order shares among the valid sites (≥ 11):
+0–16 % — the price is curvature, as in §2699. Attention vs MLP at blocks 11–17: attention ratios .42–.68 (over-certified ~1.5–2×
+— the real CE response to attention-write tails is sub-quadratic/saturating), MLP ratios .80–1.59 (near 1). Within-block the
+certificate ranks mlp above attn at every block ≥ 11, as does the measurement.
+
+**Reading.** (i) The local quadratic certificate is a real pricing tool for the last seven blocks — and for JOINT installations
+there: it priced the MLP16×MLP17 interaction, the very thing §2694 said cannot be obtained from single-site numbers, to
+.0004. That makes "price a multi-site late installation from one score pass, then verify with one forward" a registrable
+workflow for blocks 11–17. (ii) It is NOT a tool for blocks 0–10: the certificate collapses toward zero exactly where the price
+is largest. The mechanism is the one §2699/§2700 exposed: early writes are radially dominated (|w| ≫ |x|, radial share .9999
+at block 0), the downstream rms_norms make the loss locally insensitive to the write in the write's own frame, and the actual
+damage arises through nonlocal, higher-order propagation (attention patterns re-form) that no expansion at the write sees.
+The early-block price must be measured by forwards (lane-2 radial/tangential probe, running) — it cannot be certified locally.
+(iii) The failure of pred_b by ONE site under the null is recorded as a failure, not a near-success: the registered claim was
+"all 13", and it is false. The registrable successor claim is the block-≥11 version (14 sites, ratio in [.5,2] holds for 13 of
+14, attn15 at .42 the exception) — to be scored on a fresh document set, not on this one.
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.

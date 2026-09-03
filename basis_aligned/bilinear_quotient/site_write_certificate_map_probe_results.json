@@ -1,0 +1,459 @@
+{
+ "rung": "site_write_certificate_map_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model; Stage A docs 96-159 (baseline 3.11250), Stage B docs 96-191 (baseline 3.08238); LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_sites_certified": false,
+  "pred_c_early_breakdown": true,
+  "pred_d_joint_mlp16_17_k8": true,
+  "pred_e_ordering": false
+ },
+ "nulls": {
+  "b_null_ge_5_late_outside_[.25,4]": false,
+  "c_null_all_early_inside_[.5,2]": false,
+  "d_null_cross_le_0": false,
+  "e_null_spearman_le_.4": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "cert17_k32_tol": 0.01,
+  "ratio_lo": 0.5,
+  "ratio_hi": 2.0,
+  "cross_min": 0.02,
+  "spearman_min": 0.8
+ },
+ "null_bars": {
+  "late_n_outside": 5,
+  "ratio_lo": 0.25,
+  "ratio_hi": 4.0,
+  "cross_max": 0.0,
+  "spearman_max": 0.4
+ },
+ "k_map": 32,
+ "n_samples": 4,
+ "instrument": {
+  "baseline_ce_A": 3.1124951243400574,
+  "prior_baseline_A": 3.1124951243400574,
+  "abs_diff": 0.0,
+  "cert17_k32_B": 0.07048522539359207,
+  "prior_cert17_k32": 0.07016513240523636,
+  "cert_abs_diff": 0.00032009298835571076,
+  "disclosed_vs_2699": {
+   "16_k32": {
+    "here": 0.034069177811034024,
+    "prior": 0.03371028283921381
+   },
+   "17_k8": {
+    "here": 0.09664372883465451,
+    "prior": 0.09693656297167763
+   },
+   "16_k8": {
+    "here": 0.040529775472047426,
+    "prior": 0.04038825799458815
+   }
+  }
+ },
+ "n_positions": {
+  "A": 16384,
+  "B": 24576
+ },
+ "sites": [
+  {
+   "site": "attn0",
+   "kind": "attn",
+   "block": 0,
+   "measured_k32": 0.06576526165008545,
+   "cert_k32": -1.8269677985467258e-08,
+   "first_order_share": 1.0003379225080042,
+   "ratio": -3599694.6252910905
+  },
+  {
+   "site": "mlp0",
+   "kind": "mlp",
+   "block": 0,
+   "measured_k32": 0.1652737855911255,
+   "cert_k32": 1.6238881794805593e-08,
+   "first_order_share": -2.616820309597984,
+   "ratio": 10177658.023472551
+  },
+  {
+   "site": "attn1",
+   "kind": "attn",
+   "block": 1,
+   "measured_k32": 0.03285399079322815,
+   "cert_k32": -3.181985567479728e-06,
+   "first_order_share": 1.0153092044992675,
+   "ratio": -10324.996797282756
+  },
+  {
+   "site": "mlp1",
+   "kind": "mlp",
+   "block": 1,
+   "measured_k32": 0.8833657205104828,
+   "cert_k32": -2.5039479965016653e-05,
+   "first_order_share": 1.2631164475012997,
+   "ratio": -35278.916404999516
+  },
+  {
+   "site": "attn2",
+   "kind": "attn",
+   "block": 2,
+   "measured_k32": 0.033883899450302124,
+   "cert_k32": -7.508487271934428e-07,
+   "first_order_share": 4.469469899490657,
+   "ratio": -45127.46472509175
+  },
+  {
+   "site": "mlp2",
+   "kind": "mlp",
+   "block": 2,
+   "measured_k32": 0.22036638855934143,
+   "cert_k32": 6.258392181734962e-05,
+   "first_order_share": 0.5818107539112534,
+   "ratio": 3521.1342172271966
+  },
+  {
+   "site": "attn3",
+   "kind": "attn",
+   "block": 3,
+   "measured_k32": 0.02587670087814331,
+   "cert_k32": 3.28173586012781e-05,
+   "first_order_share": 0.6583197113795817,
+   "ratio": 788.506509391512
+  },
+  {
+   "site": "mlp3",
+   "kind": "mlp",
+   "block": 3,
+   "measured_k32": 0.13001692295074463,
+   "cert_k32": 0.0001998504376388155,
+   "first_order_share": 0.31864251170531,
+   "ratio": 650.5711195174906
+  },
+  {
+   "site": "attn4",
+   "kind": "attn",
+   "block": 4,
+   "measured_k32": 0.04804027080535889,
+   "cert_k32": 4.4958426769881044e-05,
+   "first_order_share": -1.3950053277903465,
+   "ratio": 1068.5487517446331
+  },
+  {
+   "site": "mlp4",
+   "kind": "mlp",
+   "block": 4,
+   "measured_k32": 0.06888818740844727,
+   "cert_k32": 0.0006093310912547167,
+   "first_order_share": 0.43900166847118444,
+   "ratio": 113.05542815252497
+  },
+  {
+   "site": "attn5",
+   "kind": "attn",
+   "block": 5,
+   "measured_k32": 0.046613872051239014,
+   "cert_k32": 0.000550840147298004,
+   "first_order_share": 0.25354664574492586,
+   "ratio": 84.62322922519472
+  },
+  {
+   "site": "mlp5",
+   "kind": "mlp",
+   "block": 5,
+   "measured_k32": 0.049871981143951416,
+   "cert_k32": 0.0006294730592344422,
+   "first_order_share": -0.3719479902000042,
+   "ratio": 79.22814235227976
+  },
+  {
+   "site": "attn6",
+   "kind": "attn",
+   "block": 6,
+   "measured_k32": 0.02934601902961731,
+   "cert_k32": 0.0018779070269374643,
+   "first_order_share": 0.41735496691112867,
+   "ratio": 15.626981851958615
+  },
+  {
+   "site": "mlp6",
+   "kind": "mlp",
+   "block": 6,
+   "measured_k32": 0.04896402359008789,
+   "cert_k32": 0.002599479899799917,
+   "first_order_share": 0.20203970670378274,
+   "ratio": 18.836084708274402
+  },
+  {
+   "site": "attn7",
+   "kind": "attn",
+   "block": 7,
+   "measured_k32": 0.025834739208221436,
+   "cert_k32": 0.002523718238080619,
+   "first_order_share": 0.2835818006467264,
+   "ratio": 10.236776363699661
+  },
+  {
+   "site": "mlp7",
+   "kind": "mlp",
+   "block": 7,
+   "measured_k32": 0.044334352016448975,
+   "cert_k32": 0.0046593957231380045,
+   "first_order_share": 0.12826916974079827,
+   "ratio": 9.515043291191143
+  },
+  {
+   "site": "attn8",
+   "kind": "attn",
+   "block": 8,
+   "measured_k32": 0.03000563383102417,
+   "cert_k32": 0.006412295188056305,
+   "first_order_share": -0.2265749221087405,
+   "ratio": 4.67939060056271
+  },
+  {
+   "site": "mlp8",
+   "kind": "mlp",
+   "block": 8,
+   "measured_k32": 0.03441941738128662,
+   "cert_k32": 0.007322102348553017,
+   "first_order_share": 0.05233067844154672,
+   "ratio": 4.700756113862371
+  },
+  {
+   "site": "attn9",
+   "kind": "attn",
+   "block": 9,
+   "measured_k32": 0.01797884702682495,
+   "cert_k32": 0.004951446298946394,
+   "first_order_share": -0.014288866857014042,
+   "ratio": 3.6310293884537588
+  },
+  {
+   "site": "mlp9",
+   "kind": "mlp",
+   "block": 9,
+   "measured_k32": 0.037220507860183716,
+   "cert_k32": 0.012390503397909924,
+   "first_order_share": 0.04466925046036032,
+   "ratio": 3.0039544532518514
+  },
+  {
+   "site": "attn10",
+   "kind": "attn",
+   "block": 10,
+   "measured_k32": 0.007107824087142944,
+   "cert_k32": 0.004304691254219506,
+   "first_order_share": -0.0122110092302759,
+   "ratio": 1.6511809250374871
+  },
+  {
+   "site": "mlp10",
+   "kind": "mlp",
+   "block": 10,
+   "measured_k32": 0.03462487459182739,
+   "cert_k32": 0.013807558214466553,
+   "first_order_share": -0.06022122608802972,
+   "ratio": 2.507675437902552
+  },
+  {
+   "site": "attn11",
+   "kind": "attn",
+   "block": 11,
+   "measured_k32": 0.01608860492706299,
+   "cert_k32": 0.010984904940414708,
+   "first_order_share": 0.1278840947527473,
+   "ratio": 1.4646103006200073
+  },
+  {
+   "site": "mlp11",
+   "kind": "mlp",
+   "block": 11,
+   "measured_k32": 0.03365328907966614,
+   "cert_k32": 0.02112460494390689,
+   "first_order_share": 0.0002577152773205559,
+   "ratio": 1.5930848964526072
+  },
+  {
+   "site": "attn12",
+   "kind": "attn",
+   "block": 12,
+   "measured_k32": 0.0037173330783843994,
+   "cert_k32": 0.006285296414716868,
+   "first_order_share": 0.1598337011698603,
+   "ratio": 0.5914332170047469
+  },
+  {
+   "site": "mlp12",
+   "kind": "mlp",
+   "block": 12,
+   "measured_k32": 0.027773290872573853,
+   "cert_k32": 0.024509078051778488,
+   "first_order_share": 0.06752066866346364,
+   "ratio": 1.133183827392418
+  },
+  {
+   "site": "attn13",
+   "kind": "attn",
+   "block": 13,
+   "measured_k32": 0.012574255466461182,
+   "cert_k32": 0.02402247430291027,
+   "first_order_share": -0.003291451993102468,
+   "ratio": 0.5234371492256249
+  },
+  {
+   "site": "mlp13",
+   "kind": "mlp",
+   "block": 13,
+   "measured_k32": 0.029141932725906372,
+   "cert_k32": 0.024336980954103637,
+   "first_order_share": 0.02974331076217223,
+   "ratio": 1.1974341756220397
+  },
+  {
+   "site": "attn14",
+   "kind": "attn",
+   "block": 14,
+   "measured_k32": 0.01886773109436035,
+   "cert_k32": 0.031009244761662558,
+   "first_order_share": -0.04908530294282829,
+   "ratio": 0.6084550345994547
+  },
+  {
+   "site": "mlp14",
+   "kind": "mlp",
+   "block": 14,
+   "measured_k32": 0.02421349287033081,
+   "cert_k32": 0.0227437163121067,
+   "first_order_share": 0.06751130489462742,
+   "ratio": 1.0646234123770588
+  },
+  {
+   "site": "attn15",
+   "kind": "attn",
+   "block": 15,
+   "measured_k32": 0.0029696226119995117,
+   "cert_k32": 0.007090839855663944,
+   "first_order_share": 0.13381637760113163,
+   "ratio": 0.41879702157248255
+  },
+  {
+   "site": "mlp15",
+   "kind": "mlp",
+   "block": 15,
+   "measured_k32": 0.025116801261901855,
+   "cert_k32": 0.027388621907448396,
+   "first_order_share": 0.05937075821077237,
+   "ratio": 0.917052393025707
+  },
+  {
+   "site": "attn16",
+   "kind": "attn",
+   "block": 16,
+   "measured_k32": 0.008755862712860107,
+   "cert_k32": 0.012858580666943453,
+   "first_order_share": -0.006873962039538421,
+   "ratio": 0.6809353955658171
+  },
+  {
+   "site": "mlp16",
+   "kind": "mlp",
+   "block": 16,
+   "measured_k32": 0.028136640787124634,
+   "cert_k32": 0.035260270757135004,
+   "first_order_share": 0.07590679456126519,
+   "ratio": 0.7979700717820244
+  },
+  {
+   "site": "attn17",
+   "kind": "attn",
+   "block": 17,
+   "measured_k32": 0.0028312504291534424,
+   "cert_k32": 0.005503392778337002,
+   "first_order_share": 0.14154500515550014,
+   "ratio": 0.5144554537880869
+  },
+  {
+   "site": "mlp17",
+   "kind": "mlp",
+   "block": 17,
+   "measured_k32": 0.056668102741241455,
+   "cert_k32": 0.0709328452940099,
+   "first_order_share": 0.09252242724533855,
+   "ratio": 0.7988979224836895
+  }
+ ],
+ "late13": [
+  "attn7",
+  "mlp7",
+  "attn8",
+  "mlp8",
+  "mlp9",
+  "mlp10",
+  "mlp11",
+  "mlp12",
+  "mlp13",
+  "mlp14",
+  "mlp15",
+  "mlp16",
+  "mlp17"
+ ],
+ "early_ratios": {
+  "mlp0": 10177658.023472551,
+  "mlp1": -35278.916404999516,
+  "mlp2": 3521.1342172271966,
+  "mlp3": 650.5711195174906
+ },
+ "spearman_cert_vs_measured_k32": -0.48133848133848134,
+ "sum_single_cert_k32_all_sites": 0.3870008296288041,
+ "stage_B": {
+  "single_cert": {
+   "16_8": 0.040529775472047426,
+   "16_32": 0.034069177811034024,
+   "17_8": 0.09664372883465451,
+   "17_32": 0.07048522539359207
+  },
+  "single_first_order": {
+   "16_8": 0.0015952919687454898,
+   "16_32": 0.0026721894973888993,
+   "17_8": 0.005314295810724919,
+   "17_32": 0.0070373333486107486
+  },
+  "joint_cert": {
+   "8": 0.19052093751573315,
+   "32": 0.143199409202983
+  },
+  "cross_term": {
+   "8": 0.05334743320903122,
+   "32": 0.03864500599835689
+  },
+  "measured_both": {
+   "8": 0.17248064279556274,
+   "32": 0.12332709630330418
+  },
+  "measured_cross": {
+   "8": 0.05368828773498491,
+   "32": 0.03983195622762015
+  },
+  "ratio_joint": {
+   "8": 0.9053106973154557,
+   "32": 0.8612262926901457
+  }
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forward_equivalents": 1920,
+  "cpu_seconds": 635.1979939937592
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/SITE_WRITE_CERTIFICATE_MAP_PROBE_PREREGISTRATION.md": "730eb9bdaa4f453081f1c22e3a6a338c68e093bd0dfa64b159a3acc58eb06ceb",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/site_write_pca_truncation_ce_map_probe_results.json": "48bd52ec9201ac97cddcd102cef61885baaaa8a8362b232850159f6f646d0e00",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_final_blocks_low_rank_surrogate_probe_results.json": "8a88b71455c8087ca5de84cfa83e71df35080236932b4ccbd466ce0bc089326e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_final_blocks_fisher_certificate_probe_results.json": "1ef013515e16ba491534f7c3b4496bfc6546529d1e816f18840f092cc4307022",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "7676b5660fdc31c59c54c3f74edd3ddc5e11c3a6735cd54728fbd410a816b289"
+}
