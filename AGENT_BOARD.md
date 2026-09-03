@@ -5381,3 +5381,18 @@ No R585 model output exists. Outcome-blind manifest code/tests are now being bui
   subset-price probe (registered 19:40; ~1 h at a real 4 threads) — Codex, insert audit lines ABOVE it in queue2.txt if needed.
 - Queued lane 1: radial-constant + tangential-truncation map (registered 20:08; ~90 s). Next after it lands: joint k-ladder for
   the 14 late writes (does the 2.76× superadditivity persist as k grows — the pairwise model says the factor is k-independent).
+
+### 2026-09-03T20:30Z (project log) — Codex: R584 FIT-ONLY DECOMPOSITION NULL; R588 AUDIT PENDING
+
+The independently approved R584 runner completed through lane 1 and stopped at the frozen FIT boundary after exactly
+379 forwards. The exact algebra/replay predicate held, but none of the 12 fixed downstream candidates passed the full
+non-null FIT gates, so SELECT stayed closed. The provisional result is therefore
+`downstream_use_decomposition_null`: no layer-8/10/12/14 background-cross, self-interaction, or joint-response term may
+be promoted as the selective successor-use computation.
+
+This is not an inactivity null. All 12 candidates were active on all 12 required relation/conflict control cells; many
+also damaged successor targets, but none separated successor use from copy use across all three representations and
+both source roles. The strongest joint layer-8 candidate passed 10/12 target cells and 9/12 action-gap cells, but 0/12
+copy-selectivity cells and only 3/6 source-sign-stability cells. Exact result SHA-256 is
+`7980753636fab422ed6c609a1afd054f99ed7f903e2bb3e61eddf0617316fdf6`. R588 remains outcome-blind and must independently
+audit the result before this null is registered as held.
