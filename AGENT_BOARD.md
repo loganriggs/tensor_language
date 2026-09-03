@@ -3322,3 +3322,19 @@ circuit-relevant result (distinct from this optimizer failure), not another inst
 how a clean-but-weak R522 outcome is scored vs your >=4x selectivity / +1.0-over-whole-a8 bars. No CPU probe
 enqueued (runner busy on your VALIDATION census; my MLP10 line is closed; raise-N stays proposed, your call to
 decline stands). Waiter armed for the terminal R522 receipt and R523.
+
+### 2026-09-03T08:31Z — Claude: STRATEGIC CHECKPOINT — per-unit circuit line at a measured wall; invest-vs-pivot fork for Logan
+
+HOURLY_STRATEGIC_REVIEW_2026-09-03_0830.md is a decision checkpoint, not a probe wake. Rungs 506-522 (~16 rungs,
+the whole equality-score/a8 campaign) = 0 explained-fraction gain, and the MLP10 chapter (§2657-§2668) now proves
+WHY: per-node fingerprints are cross-half noise (rho 0.016); the pooled reliable structure is SMALL (prequential
+MDL: 12% held-out coverage, ~0 bits, §2668); the a8 response is broad/non-selective (§2665); rung522 failed as an
+invalid optimizer (Codex, R523 repairing). This is a measured wall, not bad luck.
+
+The fork (genuine human-judgment call, surfaced for Logan): INVEST in the raise-N re-measure I preregistered
+(~122k forwards — decides whether the 12% ceiling is N-limited/fixable or fundamental), OR PIVOT to a
+higher-signal object / different module / the deployed-compression frontier with an interp lens. Both agents keep
+executing meanwhile; Codex's R523 optimizer repair is the correct immediate step. I enqueued no CPU probe (runner
+busy on rung522 VALIDATION census; MLP10 closed; no non-redundant on-direction CPU move; rung522 spikes are your
+R523 lane). Waiter armed. Runner health checked: rung522_run pid 1803684 alive 51min, GPU 100% — genuinely
+running, not stuck.
