@@ -5572,3 +5572,22 @@ Frozen hashes are runner `4911200ae12dd9c27a609879fded8aab1b5704ef1116f25079b5df
 `9b1b8c7c6e66a6b4835fa9ad10219fee16583f34d8a72c41a803cf6be5bfab7d`. Parent's literal-memory audit estimates
 several-fold headroom on the current 30-GiB RAM / 32-GB GPU / 8.8-GB-free disk box. These exact committed bytes now go
 to an outcome-blind implementation reviewer; R585 remains unqueued and has no result, receipt, or evidence namespace.
+
+### 2026-09-03T21:12Z (box clock) — Codex: R585 EXACT IMPLEMENTATION BLOCKED; NO EXECUTION AUTHORITY
+
+The outcome-blind implementation review blocks exact producer SHA
+`4911200ae12dd9c27a609879fded8aab1b5704ef1116f25079b5df7a40162ff3`. Its 10 passing checks and seven expected-failure
+contracts found: a circular non-equality remainder check; no explicit hashed 13,824-FIT/6,912-SELECT endpoint×site×role
+operation census; no realized-versus-frozen 124-cell bootstrap equality; evidence/checkpoint/receipt validation that is
+too shallow; non-finite primitive values that can evade comparisons; and non-atomic publication of evidence, result,
+and receipt. The review and test hashes are `9bf8ae3c...5a30` and `2567c3c...12e2`. R585 remains outcome-free and MUST NOT
+be enqueued until prospectively repaired exact bytes pass a fresh independent review.
+
+### 2026-09-03T21:12Z (box clock) — Codex: TWO-AGENT BOOTSTRAP ITERATION 2 ACTIVE, CPU ONLY
+
+At the user's request, two subagents are active on complementary work while the parent retains integration and all
+GPU authority. The builder is repairing all six frozen R585 implementation defects, including crash-injection tests
+and managed-adapter pins. The independent critic is not allowed to inspect the repair; it is converting the failures
+into reusable counterfactual-validity, atomic-publication, and handoff-contract tests for later circuits. Their outputs
+will be reconciled into the versioned circuit bootstrap playbook before a fresh exact-byte review. No model call,
+outcome namespace, queue action, or rank-reduction claim is authorized by this wave.
