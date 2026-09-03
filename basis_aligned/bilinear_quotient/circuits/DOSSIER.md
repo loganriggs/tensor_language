@@ -1,22 +1,51 @@
 # Circuit dossier — bilin18
 
-Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 4 task-defined behavior circuits**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
+Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 5 task-defined behavior circuits/shared subroutines**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
 
 `concentration` = mean|dCE| on the circuit's members / mean|dCE| off its slice, when the named component is ablated. **mean** replaces the component output with its grid mean; **interchange** replaces it with its output at a random other position (seed 20260830).
 
 Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned subspace, where run), and each circuit's own file (story, examples, certification). Nothing here is recomputed.
 
 
-## Behavior circuits and counterfactual identification
+## Behavior circuits, shared subroutines, and counterfactual identification
 
-These version-2 records are task-defined behaviors, not assumed aliases of census leaves. Their events include failed/null/invalid evidence so the same causal question is not silently repeated.
+These version-2 records are task-defined behaviors or cross-module subroutines, not assumed aliases of census leaves. Their events include failed/null/invalid evidence so the same causal question is not silently repeated.
 
-| circuit | status | declared variable | families | negative events | next missing evidence |
-|---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | site_live | `pending_opener_state` | 5 | 1 | run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity |
-| `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
-| `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
-| `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+| circuit | kind | status | declared variable | families | negative events | next missing evidence |
+|---|---|---|---|---:|---:|---|
+| `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
+| `task.bracket.pending_opener` | behavior_circuit | site_live | `pending_opener_state` | 5 | 1 | run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity |
+| `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
+| `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
+| `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+
+### `subroutine.induction.equality_score` — site_live
+
+**Read:** whether the current token matches a token at each earlier position. **Operation:** construct an attention score pattern over matching earlier positions independently of the copied payload. **Write:** a score pattern that can be combined with L8H4's value/output payload and read by MLP9. **Endpoint:** signed causal recovery of L8H4's copy-related effect and donor-answer logit movement.
+
+| family | role | status |
+|---|---|---|
+| `cross_head_score_swap` | interchange | validated |
+| `text_match_pattern_edit_payload_fixed` | interchange | proposed |
+| `matched_natural_whole_state_swap` | interchange | proposed |
+| `payload_swap_match_preserved` | invariance | proposed |
+| `match_break_answer_fixed` | necessity | frozen |
+
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `equality_score_swap.r459.natural.v1` | complete | composition | **held** | active | `r459_result` |
+| `equality_score_swap.r460.code.v1` | complete | ood | **failed** | active | `r460_result` |
+| `equality_downstream_gate.r462.null.v1` | complete | composition | **null** | active | `r462_result` |
+| `equality_source_correction.r464.v1` | complete | composition | **held** | active | `r464_result` |
+| `equality_action_quotient.r498.null.v1` | complete | cross_family_transfer | **null** | active | `r498_result` |
+| `equality_mlp9_reader.r500.v1` | complete | composition | **held** | active | `r500_result` |
+| `equality_factor_branch_sharing.r531.null.v1` | complete | null_control | **null** | active | `r531_result` |
+| `terminal_copy_four_head_removal.collateral_failure.v1` | complete | removal | **failed** | active | `terminal_copy_negative_receipt` |
+
+**Frozen artifacts:** 21. Paths and SHA-256 hashes are in the canonical JSON record.
+
+**Next:** materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace
 
 ### `task.bracket.pending_opener` — site_live
 

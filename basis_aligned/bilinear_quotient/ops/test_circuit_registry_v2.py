@@ -18,6 +18,7 @@ TASK_TAGS = {
     "task.bracket.pending_opener",
     "task.successor.pointer",
     "task.increment.state",
+    "subroutine.induction.equality_score",
 }
 
 

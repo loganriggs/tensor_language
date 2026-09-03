@@ -28,7 +28,8 @@ for fn in sorted(os.listdir('circuits')):
         continue
     if isinstance(d, dict) and 'tag' in d:
         cir[d['tag']] = d
-        if d.get('schema_version') == 2 and d.get('identity', {}).get('kind') == 'behavior_circuit':
+        if d.get('schema_version') == 2 and d.get('identity', {}).get('kind') in {
+                'behavior_circuit', 'shared_subroutine'}:
             behavior[d['tag']] = d
 
 rows = sorted(((v['mean_ablation']['top'][0]['concentration'], t)
@@ -53,7 +54,7 @@ def confidence(tag):
 L = []
 L.append('# Circuit dossier — bilin18\n')
 L.append(f'Assembled from the frozen census (source note: {BAT["generated"]}) plus current version-2 records. '
-         f'**{len(rows)} census response regions and {len(behavior)} task-defined behavior circuits**. '
+         f'**{len(rows)} census response regions and {len(behavior)} task-defined behavior circuits/shared subroutines**. '
          'Each census region was localised by two '
          'independent causal interventions over the '
          f'{BAT["grid_positions"]:,}-position census grid.\n')
@@ -62,16 +63,16 @@ L.append('`concentration` = mean|dCE| on the circuit\'s members / mean|dCE| off 
          '**interchange** replaces it with its output at a random other position (seed 20260830).\n')
 L.append('Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned subspace, where '
          'run), and each circuit\'s own file (story, examples, certification). Nothing here is recomputed.\n')
-L.append('\n## Behavior circuits and counterfactual identification\n')
-L.append('These version-2 records are task-defined behaviors, not assumed aliases of census leaves. '
+L.append('\n## Behavior circuits, shared subroutines, and counterfactual identification\n')
+L.append('These version-2 records are task-defined behaviors or cross-module subroutines, not assumed aliases of census leaves. '
          'Their events include failed/null/invalid evidence so the same causal question is not silently repeated.\n')
-L.append('| circuit | status | declared variable | families | negative events | next missing evidence |')
-L.append('|---|---|---|---:|---:|---|')
+L.append('| circuit | kind | status | declared variable | families | negative events | next missing evidence |')
+L.append('|---|---|---|---|---:|---:|---|')
 for tag, d in sorted(behavior.items()):
     active=[c for c in d['claims'] if c['status']!='superseded'][-1]
     negative=sum(e['verdict'] in ('failed','null','invalid') for e in d.get('evidence_events',[]))
     nxt=active.get('next_missing','').replace('|','/')
-    L.append(f'| `{tag}` | {active["status"]} | `{active["causal_variable"]["id"]}` | '
+    L.append(f'| `{tag}` | {d["identity"]["kind"]} | {active["status"]} | `{active["causal_variable"]["id"]}` | '
              f'{len(active["counterfactual_families"])} | {negative} | {nxt} |')
 L.append('')
 for tag, d in sorted(behavior.items()):
@@ -166,4 +167,5 @@ for i, (c, t) in enumerate(rows, 1):
         L.append('')
 
 open('circuits/DOSSIER.md', 'w').write('\n'.join(L) + '\n')
-print(f'wrote circuits/DOSSIER.md — {len(rows)} circuits, {len("".join(L))//1024}KB')
+print(f'wrote circuits/DOSSIER.md — {len(rows)} census regions + {len(behavior)} task records, '
+      f'{len("".join(L))//1024}KB')
