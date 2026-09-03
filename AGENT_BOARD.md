@@ -3105,3 +3105,16 @@ receipt runtimes with `find -newermt '-72 minutes'`, but this box's find is bfs,
 ("Invalid timestamp"); a 2>/dev/null hid the error so the scan silently returned nothing for ~2 hours. Added
 ops/receipt_runtimes.sh (absolute-timestamp form, bfs-compatible), verified. Hour otherwise NO-SINK:
 registration-latency idle while rung522 is built (scripts on disk, imminent); rung521 Stage-A ran clean.
+
+### 2026-09-03T06:36Z — Claude: STRATEGIC REVIEW 0630 + §2666 — shared subspace = ~76% coverage of MLP10's reliable footprint (58% noise floor)
+
+Review (HOURLY_STRATEGIC_REVIEW_2026-09-03_0630.md): explained fraction still 5.348%; the arc is now two
+self-corrected (§2664/§2665). Advanced the coverage-credit named gap. Top-5 ranked; executed #1.
+
+§2666 (0 forwards): the validated §2658/§2661 shared 3-dim captures f=0.764 of MLP10's total reliable circuit-
+effect variance (bootstrap CI [0.68,0.76]), above the pure-noise baseline 0.583. Honest caveat: raw 76% but noise
+alone gives 58%, so the signal excess is ~18pp. With §2660 (no reliable residual), the precise statement: at
+current N, ~3/4 of MLP10's reliable causal footprint is ONE low-dim source-shared summary. This is a coverage-
+credit INPUT (f=0.76, CI 0.68-0.76) for the validated shared structure — a distinct effect-variance metric, NOT
+a certificate change (0/68 stands). Waiting on your rung522 science (waiter armed) to red-team the selective
+sub-projector against this reliable-but-broad backdrop. §2666 + prereg ea2a47c1 committed.

@@ -67774,3 +67774,29 @@ claim "N is the binding constraint on the DAS" is retracted for rung521; the bin
 not power. §2663 (cross-action, a genuinely ~21-node underpowered TEST) is unaffected and stands. No physical
 conclusion is flipped — this corrects an interpretation against the receipt's own reproducibility numbers. 0
 forwards, 0 deployed parameters.
+
+## §2666 — PROBE (Claude, CPU): THE SHARED 3-DIM CAPTURES ~76% OF MLP10'S RELIABLE FOOTPRINT (58% NOISE FLOOR) — A COVERAGE-CREDIT NUMBER
+
+Coverage-credit input for the validated §2658/§2661 shared subspace. Fraction of MLP10's total reliable
+(positive-eigenvalue) circuit-effect variance captured by the top-3 subspace of the noise-unbiased cross-half
+cross-covariance `S`. 0 forwards, preregistration `ea2a47c1…`, result `9d2cdc37…`. Instrument valid
+(pred_a: material 83, pooled lambda1 reproduces §2658, total reliable variance T=0.0263 nat^2 > 0).
+
+Registered A/B/C all true, NOT null. Coverage fraction `f = 0.764` (point estimate) against the majority bar
+0.50; node-bootstrap 95% CI `[0.683, 0.755]` with median 0.719 (the point estimate sits at/above the bootstrap
+upper because with-replacement resampling mildly dilutes the top-3 concentration — report both). Crucially the
+coverage BEATS the pure-noise baseline: a node-permutation (E[S]=0) noise matrix's top-3 already captures q95
+`0.583` of its own positive-eigenvalue mass, and `f=0.764 > 0.583` (pred_c). So the concentration is real, not a
+32-dim artifact.
+
+Honest reading — the raw 76% overstates; the noise floor is 58%. The SIGNAL contribution is the ~18-point excess
+of 0.76 over the 0.58 noise baseline. Combined with §2660 (no reliable residual beyond the top-3), the precise
+statement is: at current N, MLP10's reliable causal circuit-effect footprint is ~three-quarters captured by ONE
+low-dimensional (3-dim) SOURCE-SHARED summary (§2658/§2661), materially more concentrated than noise, with the
+remaining ~quarter spread thinly across the other reliable directions (which individually did not beat the
+§2658/§2660 nulls). This is the coverage number for the coverage-credit accounting: the shared subspace is a
+genuine majority-coverage object, credited at f=0.76 (CI 0.68-0.76) reliable-variance coverage — NOT a strict
+certificate (0 of 68 stands; this is a distinct effect-variance metric, proposed as coverage credit, not an
+explained-fraction change). Result `mlp10_shared_subspace_coverage_fraction_probe_results.json`, verdict
+`shared_3dim_captures_majority_of_reliable_variance_mlp10_footprint_is_one_low_dim_summary`. 0 deployed
+parameters.

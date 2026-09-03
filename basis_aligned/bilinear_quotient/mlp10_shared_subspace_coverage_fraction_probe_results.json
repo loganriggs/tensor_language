@@ -1,0 +1,40 @@
+{
+ "status": "complete",
+ "rung": "mlp10_shared_subspace_coverage_fraction_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "effect_variance_coverage_of_the_shared_subspace_coverage_credit_input_not_certificate_or_compression",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_SHARED_SUBSPACE_COVERAGE_FRACTION_PROBE_PREREGISTRATION.md": "ea2a47c1442b1c3da2af48fc7f8c525b28898ec5993be8ca3caa507aa7421d4a",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_shared_subspace_cross_half_covariance_probe_results.json": "1e8ade7c9acea5cbc83c1de511aa0b5bad323fea4b681a05dc450bdc6431120b"
+ },
+ "n_material_nodes": 83,
+ "lambda1": 0.009330938687130093,
+ "total_reliable_variance": 0.026274301201857912,
+ "coverage_fraction_top3": 0.7640695520068127,
+ "coverage_bootstrap_ci95": [
+  0.6833481536965342,
+  0.7190195896447928,
+  0.7547506146606233
+ ],
+ "coverage_pure_noise_baseline_q95": 0.5832184162154747,
+ "bars": {
+  "material_target": 83,
+  "k": 3,
+  "f_bar": 0.5,
+  "f_lo_bar": 0.4,
+  "n_resample": 400
+ },
+ "pred_a_instrument_reproduces_shared_subspace": true,
+ "pred_b_shared_subspace_captures_majority_of_reliable_variance": true,
+ "pred_c_coverage_beats_pure_noise_baseline": true,
+ "strong_null": false,
+ "verdict": "shared_3dim_captures_majority_of_reliable_variance_mlp10_footprint_is_one_low_dim_summary",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.05283379554748535
+}

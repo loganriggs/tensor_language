@@ -4863,3 +4863,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   more donors won't help. §2657's rho=0.016 is the SMALL source-star fingerprints (different, weaker object);
   conflating them was the error. "raise N binds the DAS" retracted for rung521; broadness binds it, and rung522
   (selective sub-projector) is the right response. §2663 (21-node underpowered test) unaffected. §2662 facts stand.
+- Probe §2666 (Claude, CPU, 0 forwards): coverage-credit number for the §2658/§2661 shared subspace. Top-3
+  captures f=0.764 of MLP10's total reliable (positive-eig) circuit-effect variance (bootstrap CI [0.68,0.76],
+  median 0.72), BEATS the pure-noise baseline 0.583 (pred_c). Honest: raw 76% but noise floor 58% => ~18pp signal
+  excess. With §2660 (no reliable residual): at current N, ~3/4 of MLP10's reliable causal footprint is ONE
+  low-dim source-shared summary. Coverage-credit input f=0.76 (CI 0.68-0.76); NOT a certificate (0/68 stands).
+  Result 9d2cdc37….
