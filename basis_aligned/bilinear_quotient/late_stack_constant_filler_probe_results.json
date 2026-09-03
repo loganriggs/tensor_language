@@ -1,0 +1,91 @@
+{
+ "rung": "late_stack_constant_filler_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); pi(X,Y) = CE(X+Y) - CE(X) - CE(Y)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_pool_needs_no_token_filler": true,
+  "pred_c_constant_last_two_compose_as_well": false,
+  "pred_d_all_constant_stack_at_256": true,
+  "pred_e_all_constant_stack_at_64": false
+ },
+ "nulls": {
+  "b_null_pool_const_ge_.55": false,
+  "c_null_ge_.80": false,
+  "d_null_all7_const256_ge_.70": false,
+  "e_null_all7_const64_ge_.90": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.4,
+  "c_max": 0.7,
+  "d_max": 0.55,
+  "e_max": 0.75
+ },
+ "null_bars": {
+  "b_min": 0.55,
+  "c_min": 0.8,
+  "d_min": 0.7,
+  "e_min": 0.9
+ },
+ "device": "cuda",
+ "k_pool": 32,
+ "ks_last_two": [
+  16,
+  64,
+  256
+ ],
+ "ks_all7": [
+  32,
+  64,
+  128,
+  256
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pool32_tok": 0.31897974014282227,
+  "prior_pool32_tok": 0.319,
+  "last2_const_64": 0.1718200147151947,
+  "prior_last2_const_64": 0.172
+ },
+ "ce_added": {
+  "POOL32_TOK": 0.31897974014282227,
+  "POOL32_CONST": 0.3629821240901947,
+  "LAST2_CONST_16": 0.24250507354736328,
+  "POOL32_TOK+LAST2_CONST_16": 0.8700863718986511,
+  "LAST2_CONST_64": 0.1718200147151947,
+  "POOL32_TOK+LAST2_CONST_64": 0.7284671068191528,
+  "LAST2_CONST_256": 0.08544251322746277,
+  "POOL32_TOK+LAST2_CONST_256": 0.5399769842624664,
+  "ALL7_CONST_32": 0.9379168152809143,
+  "ALL7_CONST_64": 0.7967485189437866,
+  "ALL7_CONST_128": 0.6118024587631226,
+  "ALL7_CONST_256": 0.39704298973083496,
+  "ALL7_TOK_256": 0.2972751259803772
+ },
+ "penalties": {
+  "pi_pool32tok_last2const_16": 0.3086015582084656,
+  "pi_pool32tok_last2const_64": 0.23766735196113586,
+  "pi_pool32tok_last2const_256": 0.1355547308921814
+ },
+ "token_filler_value": {
+  "pool32": 0.044002383947372437,
+  "all7_256": 0.09976786375045776
+ },
+ "price": {
+  "gpu_doc_forwards": 992,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 13.583222150802612
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_STACK_CONSTANT_FILLER_PROBE_PREREGISTRATION.md": "96d6edc4b60e0b685d28586cce4b7fee7041b2549472f0eb383b4ca90d03fb10",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_last_two_error_correction_probe_results.json": "5e690bcb6cc4e9789f8356846c99b946120677d17905e6c55096f684bfb2554a",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_last_two_input_information_budget_probe_results.json": "46d361577956500f5d0f7e7b3c9979087d0fec530f2b15432a0db6d0c912ea09",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "463559fcd5fc892778d5102aeacdc1050352f8744f841561dc885def33f7e357"
+}

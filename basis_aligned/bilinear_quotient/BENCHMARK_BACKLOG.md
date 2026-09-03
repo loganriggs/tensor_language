@@ -5145,3 +5145,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2738 late_last_two_input_information_budget_probe (Claude, LANE 1 CUDA, 12 s, 896 GPU forwards): a, b, d, e TRUE; c FALSE + NULL
   MET. Mean-preserving budget: keep own top-k PCs' variation + constant filler → .243/.172/.085/.045 (k=16/64/256/512); own-16 +
   constant equals core-16 + token filler; core is the worse 16-dim channel by .066. Preserved.
+- §2739 late_stack_constant_filler_probe (Claude, LANE 1 CUDA, 14 s, 992 GPU forwards): a, b, d TRUE; c, e FALSE (nulls not met).
+  ALL7_TOK_256 .297 / ALL7_CONST_256 .397 = new best extracted late stack (prev .508; fitted .614). Token filler worth .044 (pool k=32),
+  .100 (ALL7 k=256); it helps composition, not the blocks alone. Preserved.

@@ -70369,3 +70369,36 @@ open question, priced in the next rung.
 **Limits.** Means and PCs fitted on 96 docs; one eval split; both blocks patched together (per-block budgets not separated); the
 pin/keep arms recompute the real block on a modified input, so they measure information available TO the real weights, not what a
 compiled polynomial would extract from it.
+
+## §2739 — ALL SEVEN LATE BLOCKS AS "OWN WEIGHTS ON 256 INPUT DIRECTIONS + FILLER": ALL7_TOK_256 = .297 and ALL7_CONST_256 = .397 — both beat every previous late-stack program (extracted .508 §2735; fitted .614 §2725; 84% / 79% of MEAN7 1.885 recovered); the token filler is worth .044 to the pool at k=32 (.363 vs .319) and .100 to the seven-block stack at k=256; with a constant filler the last two blocks compose WORSE (π .309/.238/.136 for k=16/64/256 vs .300/.213/.115 with the token filler), so the token term is not information the blocks lack alone (§2738) but helps them absorb the pool's error; the constant stack needs k=256 (k=32/64/128: .938/.797/.612) (Claude, LANE 1 CUDA, 14 s, 992 GPU document-forwards): a, b, d TRUE; c, e FALSE (nulls not met). Preserved.
+
+Registered 2026-09-03 22:18Z (polynomial_causal/LATE_STACK_CONSTANT_FILLER_PROBE_PREREGISTRATION.md); ran and landed 22:19Z. Script
+ops/late_stack_constant_filler_probe.py; results late_stack_constant_filler_probe_results.json (sha 3b402bb3…). Frozen: prereg, §2735
+results (5e690bcb…), §2738 results (46d36157…), checkpoint, fit_natural.pt. Sign convention (§2135): every number is CE ADDED above the
+real model on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Own weights everywhere, output unrestricted; each
+block's own centred input PCA and means (fit set); TOK = §2730 ridge read of the current token's embedding into the non-PC input.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); POOL32_TOK .3190 (§2732 .319); LAST2_CONST_64 .1718 (§2738 .172).
+
+**Arms.** POOL32_CONST .363. LAST2_CONST_16/64/256 .2425/.1718/.0854 (= §2738). POOL32_TOK+LAST2_CONST_k .870/.729/.540 (k=16/64/256;
+§2735 with TOK last-two: .823/.678/.508). ALL7_CONST_k .938/.797/.612/.397 (k=32/64/128/256). ALL7_TOK_256 .297.
+
+**Scoring.** b .363 ≤ .40 TRUE (null ≥ .55 not met). c .729 ≤ .70 FALSE (null ≥ .80 not met). d .397 ≤ .55 TRUE (null ≥ .70 not met).
+e .797 ≤ .75 FALSE (null ≥ .90 not met).
+
+**Reading.** (i) The best late-stack program so far is the plainest: every block keeps its own Left/Right/Down and reads only its own
+top-256 input PCs (Left·U₂₅₆, Right·U₂₅₆ — a 4.5× smaller input map per block) plus a filler; .297 with the token read, .397 with a
+constant. This is a 7-block program with no shared core, no fitted map and no polynomial extraction beyond the choice of 256
+directions; its price is the 256 directions and one 1152-vector per block (+ a rank-full 1152×1152 token map per block for TOK — the
+next rung prices a low-rank one). (ii) The token filler's role is now precise: alone, the last two blocks do not need it (§2738: own-16
++ constant = core + TOK); in COMPOSITION it lowers π by .01–.03 per k and is worth .10 to the seven-block stack — it supplies a
+token-conditioned estimate of the non-PC input, which is exactly where the pool's error lands (§2735's κ floor), so the downstream
+block's input is closer to the clean stream there. (iii) c and e failed on width, not kind: the constant stack reaches .397 at k=256
+and .612 at 128 — the pool blocks' non-PC input (their inputs have effective rank 500+, §2692/§2738) carries more token-specific
+content than the last two blocks' does (b: .044 at k=32; ALL7 gap .10 at k=256). (iv) Remark: §2738's KEEP_OWN_16 (.2425) is
+ALREADY an exact 16-dim polynomial program per block (own weights on a 16-dim subspace with a constant filler is a degree-2
+polynomial in the 16 coordinates plus the filler's linear term), so "exact compile on the block's own 16 PCs, no token term" = .2425
+needs no further run; the shared-core compile (.246) bought reuse across the two blocks at the price of .066 (§2738 d).
+
+**Limits.** k is the same for all seven blocks in the ALL7 arms (no per-block allocation); one eval split; PCs and fillers on 96 docs;
+the token map is rank-full (D×D) here.
