@@ -70030,3 +70030,93 @@ extraction recipe — pool OWN_32_TOK + the shared-square-space program of §272
 
 **Limits.** Filler ridge λ untuned; per-block heads are PCA of the input, not the map-weighted directions of §2726 (a different
 choice of 16 could do better). 64 held-out docs, ±.01; d's margin (.004) is inside that.
+
+## §2731 — PAIRWISE FISHER v2 (THE PHYSICAL CONTROL FOR §2708): THE DE-DUPLICATION FIX RESTORES THE IDENTITY (≤ 1e-7 on all 15 direct sets) AND REPRODUCES EVERY POST-HOC CORRECTED RATIO OF §2708 TO THREE DECIMALS (A1 1.134, A2 1.195, A3 1.336, A4 1.171, R6 1.178, R9 1.267, R11 1.297, R12 1.173); BEST7 is UNCHANGED and still .41 × WORST7 (Claude, LANE 2 CPU-only, 956 s, 1,352 CPU document-forward equivalents, 0 GPU): a, b, d, e TRUE; c FALSE (77 of 91 pairs positive, as v1; null not met). One sentence of §2708's correction is itself corrected below: the bug-free sets R7/R8/R10 sit at .85/.86/.83, so the corrected range is [.82, 1.34], not [1.08, 1.34].
+
+Written 2026-09-03 21:48Z (box clock). Addendum `polynomial_causal/PAIRWISE_FISHER_SUBSET_PRICE_PROBE_V2_ADDENDUM.md` (registered
+20:25Z, sha 1cc4377e…, after the v1 receipt was read and before v2 ran); preregistration unchanged (36a777cb…, frozen). Script
+`ops/pairwise_fisher_subset_price_probe_v2.py` (sha 72392d72…, `# BQLANE: cpu`; ONE change vs v1: `joint_sets =
+list(dict.fromkeys(...))`); receipt `pairwise_fisher_subset_price_probe_v2_results.json` (sha 8e79fe78…); log
+`runlogs/pairwise_fisher_subset_price_probe_v2.2.log`. Ran 20:25–20:40 on lane 2 at 4 threads, exit 0. SIGN CONVENTION (§2135):
+every measured number is CE ADDED ABOVE THE REAL MODEL on held-out docs 64–95 (bases from docs 96–191; baseline 3.0775206, the
+lane-2 split — not comparable in absolute terms to 3.0322) — LOWER IS BETTER; J(A) = Σ c_s + Σ X_st; ratio = measured / J.
+Nothing installs into the §312 frontier.
+
+**Scoring, exactly as registered (same bars as §2708).**
+- pred_a_instrument — TRUE. (i) manual vs module CE 2.8547950 vs 2.8547950 ✓; (ii) direct joint certificate vs J(A) within 1e-6
+  relative on ALL 15 sets that have one (max 1.0e-7; A1 exactly 0) ✓ — the eight v1 violations (.135–.371) are gone; (iii) c_s
+  stable within [.5, 2] of §2703 at 13 of 14 (attn15 2.13, as v1; bar ≥ 12) ✓.
+- pred_b_pairwise_model_prices_random_subsets — TRUE; null not met: 12 of 12 random sets in [.7, 1.4]. Ratios n=3 1.098 / 1.197 /
+  1.338 / 1.084; n=5 1.205 / 1.178 / .849 / .862; n=8 1.267 / .825 / 1.297 / 1.173.
+- pred_c_cross_terms_positive — FALSE; null not met: 77 of 91 pairs positive (bar ≥ 80), 14 negative (null ≥ 30) — identical to v1
+  (the bug touched one pair whose sign is positive either way, as the addendum said).
+- pred_d_ordering — TRUE; null not met: Spearman(J, measured) over the 16 sets .974 (bar ≥ .9).
+- pred_e_design_gain — TRUE; null not met: BEST7 re-chosen from the corrected J is the SAME set (mlp11 attn12 mlp14 attn15 mlp15
+  attn16 mlp16), measured .2673; WORST7 (= A3, mlp11–17) .6469; ratio .413 (bar ≤ .5; null ≥ .8).
+
+**Addendum stakes, settled.** (1) pred_a is TRUE → the §2708 root-cause diagnosis stands (not retracted). (2) The eight post-hoc
+corrected ratios of §2708 are reproduced EXACTLY to the printed precision (RNG pinned, same batch order): R6 1.18→1.178, R9
+1.27→1.267, R11 1.30→1.297, R12 1.17→1.173, A1 1.13→1.134, A2 1.19→1.195, A3 1.34→1.336, A4 1.17→1.171; the measured column is
+identical to v1 (e.g. A4 .9093, A3 .6469). The correction is confirmed by an independent run, so §2708's design claim (ii) may now be
+used to choose rungs. (3) BEST7 did not change. (4) c stayed FALSE as expected.
+
+**Correction to §2708's correction (recorded separately, does not flip any conclusion).** §2708 wrote "All 16 sets then sit in
+[1.08, 1.34]". That was wrong arithmetic on my part: the bug only touched sets containing both mlp16 and mlp17, so the seven
+16&17-free sets keep their v1 ratios, three of which are below 1 (R7 .849, R8 .862, R10 .825). The corrected range is [.82, 1.34]
+— the certificate is within ±35% of the measurement on every generic subset, conservative on 12 of 16 and anti-conservative on
+the three 16&17-free n=5/n=8 sets (and R1 at 1.10). The corrected mean X by kind is confirmed: attn–attn .0068, attn–mlp .0011,
+mlp–mlp .0132.
+
+**Reading.** The pairwise second-order certificate is now a validated instrument for the late stack: it prices generic subsets of
+3–8 sites to within a factor [.82, 1.34], orders 16 installations at ρ = .97, and picks a 7-of-14 design that measures 2.4× cheaper
+than the all-MLP design — from one score pass with no installation. Its systematic drift is upward with set size when mlp16/17
+are inside (A3 1.34, A4 1.17: the third-order terms of the last two blocks are what the pairwise model misses — consistent with
+§2721's .31 between-group term and with the composition penalty measured in §2732 below). Lane 2 is free.
+
+## §2732 — THE EXTRACTED LATE STACK DOES NOT COMPOSE: pool OWN_32_TOK (.319) + the shared-square-space program for mlp16/17 (.246, a NEW BEST for the two-block program) cost .745 TOGETHER — composition penalty π = .180 (vs .066 for the fitted stack of §2725) — so the extracted stack (.745) is WORSE than the fitted one (.614) even though each extracted piece beats its fitted counterpart; output-side truncation of the pool writes to their top-256 PCs costs .030 (Claude, LANE 1 CUDA, 14 s, 800 GPU document-forwards): a, b TRUE; c FALSE with NULL MET (.745 ≥ .65); d FALSE by .0002 (null not met); e FALSE (null not met). Preserved.
+
+Written 2026-09-03 21:48Z (box clock). Preregistration `polynomial_causal/LATE_STACK_EXTRACTED_PROGRAM_PROBE_PREREGISTRATION.md`
+(registered 21:43Z before the script). Script `ops/late_stack_extracted_program_probe.py` (sha ca941453…); receipt
+`late_stack_extracted_program_probe_results.json` (sha a790b0f5…); log `runlogs/late_stack_extracted_program_probe.log`. FRESH
+split (heads/fillers docs 96–191, eval docs 0–63). SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER;
+rec7 = 1 − CE/CE(MEAN7).
+
+**Instrument (a TRUE).** Baseline 3.0322401 (1e-8); MEAN7 1.8851 (prior 1.885); POOL_OWN32_TOK .3190 (prior .319, 1e-5).
+
+**Arms (CE added / rec7).** MEAN7 1.885 / 0 · POOL_OWN32_TOK .319 / .83 · POOL_OWN32_TOK_OUT256 .349 / .81 · POOL_OWN32_TOK_OUT64
+.383 / .80 · PROG16_17 .246 / .87 · COMBINED .745 / .61 · COMBINED_OUT256 .827 / .56. π = .745 − .319 − .246 = .180.
+
+**Scoring.** b PROG16_17 .246 ≤ .26 TRUE (null ≥ .30 not met) — the shared 8-dim square space + rank-8 token read + no offset beats
+§2728's MINIMAL (.271), as bracketed; it sits above §2727's full 16-dim compile (.233) — the rank-8 read and dropped offset cost
+~.013 net of the square-space gain. c COMBINED .745 ≤ .55 FALSE; NULL MET (≥ .65). d OUT256 − OWN32_TOK = .0302 ≤ .03
+FALSE by .0002 (null ≥ .10 not met; inside the ±.01 doc-sample tolerance — recorded as FALSE as written). e π = .180 ≤ .10 FALSE
+(null ≥ .25 not met).
+
+**What happened, and why it is informative.** (i) The extracted pool beats the fitted map in isolation (.319 vs .345) and the
+mlp16/17 program is within .03 of the own-weights arm (.246 vs W16_17_TOKFILL .214, at ~12 k numbers per block instead of 15.9 M),
+but the two extracted pieces interact THREE TIMES more strongly than the fitted pieces did (π .180 vs .066). The reason is structural: the pool
+blocks under OWN_32 write their errors INTO the late core (P_M is the pooled covariance of mlp11–17's own writes, so the pool's
+write error lives mostly in the 16 core directions), and the mlp16/17 program is an exact quadratic in exactly those 16 coordinates
+with no perpendicular part to buffer it. The fitted linear map of §2725, being a ridge fit, SHRINKS its output toward the mean
+along the high-variance write directions — it under-perturbs the core and the downstream program tolerates it. So: extraction
+gives better pieces but a more brittle interface; the pieces' errors are not independent and the ridge map's bias was
+accidentally protective. (ii) The §2721 quadratic degradation (between-group term .31 for the pool × 16/17) is the same
+phenomenon seen from ablation, and §2731's upward drift of the pairwise certificate on 16&17-containing sets is the same seen from
+the Fisher side. Three instruments now agree: the pool → mlp16/17 interface carries a large third-order/composition term. (iii)
+Output truncation of the pool writes is not free at 256 (.030; at 64 .064) — the pool's writes are not low-rank on the output side
+either (consistent with §2701's per-site k=32 costs for mlp11–15).
+
+**What it means for the program.** The late stack's honest extracted price today is .745 of 1.885 (60% recovered), NOT the .565
+that the pieces promise; the fitted stack's .614 (67%) remains the best whole-late-stack number. The composition penalty is now
+the single largest known gap in the late program (.18 nat — larger than any piece's own error), and it is a property of the
+INTERFACE, not of either piece. Candidate fixes, each a separate falsifiable rung: (A) CO-ADAPTATION — fit the mlp16/17 program's
+filler and token read on the OWN_32-perturbed stream rather than the real one (cheap; if π drops below .07 the interface is a
+fitting artefact); (B) DIAGNOSE — π per pool block (each of the five truncated alone + PROG) and π with PROG replaced by the full
+16-dim compile (§2727; isolates the square-space/read truncation's share of π); (C) protect the core — project the pool's write
+error out of the 16 core directions (write the pool's OWN_32 output but with its core component replaced by the real one; the
+converse of §2714), which bounds how much of π is core-borne. (B) is the most informative (it says where the .18 lives) and costs
+~30 s; queued next.
+
+**Limits.** 64 held-out docs (±.01): d's .0002 miss is noise-level and is scored FALSE only because the bar says so. The program's
+filler and read were fitted on real streams (the addressed co-adaptation question). PROG16_17's .246 vs §2729's OWN/SHARED_8 .222
+(which kept the offset and the full-rank read): the rank-8 read + no offset costs ~.024 here, consistent with §2728 (.012 + .014).

@@ -5119,3 +5119,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2730 late_pool_own_weights_input_head_probe (Claude, LANE 1 CUDA, 12 s, 768 GPU forwards): a–e TRUE, no null. Pool blocks'
   own weights on top-k input PCs: .390/.363/.324/.268/.194 at k=16…256 (POOL_MEAN .724), .17–.22 below the fitted map at equal
   rank; token filler helps (.319 at k=32). Extraction beats fitting for the pool too. Next: whole late stack under the recipe.
+- §2731 pairwise_fisher_subset_price_probe_v2 (Claude, LANE 2 CPU, 956 s, 0 GPU): a, b, d, e TRUE; c FALSE (77/91), no null. The
+  de-dup fix restores the identity (≤ 1e-7) and reproduces all eight §2708 corrected ratios exactly; BEST7 unchanged (.413 × WORST7).
+  Correction: corrected range is [.82, 1.34] (R7/R8/R10 below 1), not [1.08, 1.34]. Certificate validated; lane 2 free.
+- §2732 late_stack_extracted_program_probe (Claude, LANE 1 CUDA, 14 s, 800 GPU forwards): a, b TRUE; c FALSE + NULL MET; d FALSE
+  by .0002; e FALSE. Extracted pieces (.319 + .246) compose to .745 (π = .180 vs .066 fitted) — worse than the fitted stack .614.
+  Interface, not pieces: pool write error lands in the core the mlp16/17 program squares. Next: π anatomy (per block; full compile).

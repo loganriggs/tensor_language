@@ -1,0 +1,96 @@
+{"stage": "fit", "docs": 96, "t": 88.9}
+{"stage": "cert", "docs": 8, "t": 106.6}
+{"stage": "cert", "docs": 16, "t": 124.3}
+{"stage": "cert", "docs": 24, "t": 141.9}
+{"stage": "cert", "docs": 32, "t": 159.6}
+{"stage": "base", "docs": 32, "t": 182.3}
+{"stage": "single_attn11", "docs": 32, "t": 204.9}
+{"stage": "single_mlp11", "docs": 32, "t": 227.5}
+{"stage": "single_attn12", "docs": 32, "t": 250.1}
+{"stage": "single_mlp12", "docs": 32, "t": 273.1}
+{"stage": "single_attn13", "docs": 32, "t": 298.9}
+{"stage": "single_mlp13", "docs": 32, "t": 338.7}
+{"stage": "single_attn14", "docs": 32, "t": 362.0}
+{"stage": "single_mlp14", "docs": 32, "t": 387.6}
+{"stage": "single_attn15", "docs": 32, "t": 411.6}
+{"stage": "single_mlp15", "docs": 32, "t": 437.3}
+{"stage": "single_attn16", "docs": 32, "t": 460.1}
+{"stage": "single_mlp16", "docs": 32, "t": 482.8}
+{"stage": "single_attn17", "docs": 32, "t": 505.4}
+{"stage": "single_mlp17", "docs": 32, "t": 528.0}
+{"stage": "set_R1_n3", "docs": 32, "t": 550.7}
+{"R1_n3": {"sites": ["attn12", "mlp14", "attn16"], "n": 3, "measured": 0.04435831308364868, "J": 0.04041655425680801, "direct_joint_cert": 0.040416553034447134, "identity_rel_err": 3.02440646329199e-08, "ratio": 1.097528324700681, "sum_single_measured": 0.04450172185897827, "X_measured": -0.00014340877532958984, "X_model": 0.0036520343710435554}}
+{"stage": "set_R2_n3", "docs": 32, "t": 573.4}
+{"R2_n3": {"sites": ["attn12", "mlp13", "mlp17"], "n": 3, "measured": 0.11488741636276245, "J": 0.09596428713120986, "direct_joint_cert": 0.0959642808593344, "identity_rel_err": 6.535634923073743e-08, "ratio": 1.1971892856941606, "sum_single_measured": 0.09912389516830444, "X_measured": 0.015763521194458008, "X_model": 0.00594425929011777}}
+{"stage": "set_R3_n3", "docs": 32, "t": 596.0}
+{"R3_n3": {"sites": ["mlp11", "mlp14", "attn17"], "n": 3, "measured": 0.08934164047241211, "J": 0.06675054751394782, "direct_joint_cert": 0.06675054697552696, "identity_rel_err": 8.066164001682055e-09, "ratio": 1.3384405641578263, "sum_single_measured": 0.07240676879882812, "X_measured": 0.016934871673583984, "X_model": 0.016395177284721285}}
+{"stage": "set_R4_n3", "docs": 32, "t": 618.8}
+{"R4_n3": {"sites": ["mlp12", "attn13", "mlp14"], "n": 3, "measured": 0.09162455797195435, "J": 0.0845616516598966, "direct_joint_cert": 0.08456165311508812, "identity_rel_err": 1.720864593195748e-08, "ratio": 1.0835237507004294, "sum_single_measured": 0.07143783569335938, "X_measured": 0.02018672227859497, "X_model": 0.01967405149480328}}
+{"stage": "set_R5_n5", "docs": 32, "t": 641.8}
+{"R5_n5": {"sites": ["attn12", "mlp12", "mlp13", "attn15", "mlp16"], "n": 5, "measured": 0.1651126742362976, "J": 0.13707513952977024, "direct_joint_cert": 0.137075153645128, "identity_rel_err": 1.0297533031837802e-07, "ratio": 1.2045413544914767, "sum_single_measured": 0.10440760850906372, "X_measured": 0.06070506572723389, "X_model": 0.04229937527270522}}
+{"stage": "set_R6_n5", "docs": 32, "t": 664.5}
+{"R6_n5": {"sites": ["attn11", "mlp15", "mlp16", "attn17", "mlp17"], "n": 5, "measured": 0.24222517013549805, "J": 0.20561005563649815, "direct_joint_cert": 0.20561004895716906, "identity_rel_err": 3.2485420370825126e-08, "ratio": 1.1780803686164671, "sum_single_measured": 0.1475962996482849, "X_measured": 0.09462887048721313, "X_model": 0.07957065192749724}}
+{"stage": "set_R7_n5", "docs": 32, "t": 687.3}
+{"R7_n5": {"sites": ["attn11", "mlp12", "mlp13", "attn14", "attn15"], "n": 5, "measured": 0.13902008533477783, "J": 0.1637768482323736, "direct_joint_cert": 0.16377685824409127, "identity_rel_err": 6.113023779106641e-08, "ratio": 0.848838445941579, "sum_single_measured": 0.09635573625564575, "X_measured": 0.04266434907913208, "X_model": 0.05225739516026806}}
+{"stage": "set_R8_n5", "docs": 32, "t": 710.0}
+{"R8_n5": {"sites": ["mlp13", "attn14", "attn15", "attn17", "mlp17"], "n": 5, "measured": 0.14906460046768188, "J": 0.1729778321168851, "direct_joint_cert": 0.1729778263688786, "identity_rel_err": 3.322972917894384e-08, "ratio": 0.8617555130819046, "sum_single_measured": 0.11896979808807373, "X_measured": 0.030094802379608154, "X_model": 0.03885734012874309}}
+{"stage": "set_R9_n8", "docs": 32, "t": 732.8}
+{"R9_n8": {"sites": ["attn11", "mlp11", "attn12", "mlp12", "attn14", "mlp16", "attn17", "mlp17"], "n": 8, "measured": 0.37555044889450073, "J": 0.2965244717488531, "direct_joint_cert": 0.29652445763349533, "identity_rel_err": 4.760267403316078e-08, "ratio": 1.2665074375803294, "sum_single_measured": 0.2114715576171875, "X_measured": 0.16407889127731323, "X_model": 0.10234449135896284}}
+{"stage": "set_R10_n8", "docs": 32, "t": 759.1}
+{"R10_n8": {"sites": ["attn12", "attn13", "mlp13", "attn14", "mlp14", "attn15", "mlp16", "attn17"], "n": 8, "measured": 0.23000138998031616, "J": 0.27879553409002256, "direct_joint_cert": 0.27879552789090667, "identity_rel_err": 2.2235348595227484e-08, "ratio": 0.8249823324144394, "sum_single_measured": 0.1353222131729126, "X_measured": 0.09467917680740356, "X_model": 0.13109406517469324}}
+{"stage": "set_R11_n8", "docs": 32, "t": 782.5}
+{"R11_n8": {"sites": ["mlp11", "attn12", "mlp13", "mlp15", "attn16", "mlp16", "attn17", "mlp17"], "n": 8, "measured": 0.4388884902000427, "J": 0.33837087266147137, "direct_joint_cert": 0.3383708556066267, "identity_rel_err": 5.040281544773727e-08, "ratio": 1.2970634462356216, "sum_single_measured": 0.2150459885597229, "X_measured": 0.22384250164031982, "X_model": 0.15767855511512607}}
+{"stage": "set_R12_n8", "docs": 32, "t": 818.3}
+{"R12_n8": {"sites": ["attn11", "attn12", "mlp12", "attn13", "attn15", "attn16", "mlp16", "mlp17"], "n": 8, "measured": 0.3043673038482666, "J": 0.2594779526843922, "direct_joint_cert": 0.25947796524269506, "identity_rel_err": 4.839834256498658e-08, "ratio": 1.1729987102930248, "sum_single_measured": 0.17812228202819824, "X_measured": 0.12624502182006836, "X_model": 0.0954324635094963}}
+{"stage": "set_A1", "docs": 32, "t": 840.9}
+{"A1": {"sites": ["mlp16", "mlp17"], "n": 2, "measured": 0.13726717233657837, "J": 0.12101473088841885, "direct_joint_cert": 0.12101473088841885, "identity_rel_err": 0.0, "ratio": 1.1343013476858863, "sum_single_measured": 0.09956866502761841, "X_measured": 0.03769850730895996, "X_model": 0.03715962544083595}}
+{"stage": "set_A2", "docs": 32, "t": 863.6}
+{"A2": {"sites": ["mlp14", "mlp15", "mlp16", "mlp17"], "n": 4, "measured": 0.2956277132034302, "J": 0.2474063342087902, "direct_joint_cert": 0.24740633010515012, "identity_rel_err": 1.6586641193011346e-08, "ratio": 1.1949076168516573, "sum_single_measured": 0.15691757202148438, "X_measured": 0.1387101411819458, "X_model": 0.11937798412691336}}
+{"stage": "set_A3", "docs": 32, "t": 886.3}
+{"A3": {"sites": ["mlp11", "mlp12", "mlp13", "mlp14", "mlp15", "mlp16", "mlp17"], "n": 7, "measured": 0.6468724012374878, "J": 0.48416962030751165, "direct_joint_cert": 0.4841696296061855, "identity_rel_err": 1.9205405380495646e-08, "ratio": 1.3360450018046122, "sum_single_measured": 0.25525617599487305, "X_measured": 0.39161622524261475, "X_model": 0.2773873914848082}}
+{"stage": "set_A4", "docs": 32, "t": 909.0}
+{"A4": {"sites": ["attn11", "mlp11", "attn12", "mlp12", "attn13", "mlp13", "attn14", "mlp14", "attn15", "mlp15", "attn16", "mlp16", "attn17", "mlp17"], "n": 14, "measured": 0.9092596769332886, "J": 0.776179337168287, "direct_joint_cert": 0.7761793429963291, "identity_rel_err": 7.508628186654908e-09, "ratio": 1.1714556590111183, "sum_single_measured": 0.3238237500190735, "X_measured": 0.5854359269142151, "X_model": 0.47428663644677727}}
+{"stage": "set_BEST7", "docs": 32, "t": 931.8}
+{"BEST7": {"sites": ["mlp11", "attn12", "mlp14", "attn15", "mlp15", "attn16", "mlp16"], "n": 7, "measured": 0.26730889081954956, "J": 0.20512144593521953, "direct_joint_cert": NaN, "identity_rel_err": NaN, "ratio": 1.3031737837104063, "sum_single_measured": 0.1517544388771057, "X_measured": 0.11555445194244385, "X_model": 0.08703122752194759}}
+{"stage": "set_WORST7", "docs": 32, "t": 956.1}
+{"WORST7": {"sites": ["mlp11", "mlp12", "mlp13", "mlp14", "mlp15", "mlp16", "mlp17"], "n": 7, "measured": 0.6468724012374878, "J": 0.48416962030751165, "direct_joint_cert": 0.4841696296061855, "identity_rel_err": 1.9205405380495646e-08, "ratio": 1.3360450018046122, "sum_single_measured": 0.25525617599487305, "X_measured": 0.39161622524261475, "X_model": 0.2773873914848082}}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:135: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_pairwise_model_prices_random_subsets": true,
+  "pred_c_cross_terms_positive": false,
+  "pred_d_ordering": true,
+  "pred_e_design_gain": true
+ },
+ "nulls": {
+  "b_null_le_6_of_12": false,
+  "c_null_ge_30_negative_pairs": false,
+  "d_null_spearman_le_.5": false,
+  "e_null_best_ge_.8_worst": false
+ },
+ "n_b": 12,
+ "rho": 0.9735294117647059,
+ "e_ratio": 0.4132327956922865,
+ "designs": {
+  "BEST7": [
+   "mlp11",
+   "attn12",
+   "mlp14",
+   "attn15",
+   "mlp15",
+   "attn16",
+   "mlp16"
+  ],
+  "WORST7": [
+   "mlp11",
+   "mlp12",
+   "mlp13",
+   "mlp14",
+   "mlp15",
+   "mlp16",
+   "mlp17"
+  ]
+ }
+}

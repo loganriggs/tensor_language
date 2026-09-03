@@ -1,0 +1,64 @@
+{"stage": "fisher_fit", "docs": 8, "t": 50.5}
+{"stage": "fisher_fit", "docs": 16, "t": 58.7}
+{"stage": "fisher_fit", "docs": 24, "t": 67.0}
+{"stage": "fisher_fit", "docs": 32, "t": 75.3}
+{"stage": "fisher_fit", "docs": 40, "t": 83.6}
+{"stage": "fisher_fit", "docs": 48, "t": 92.1}
+{"stage": "fisher_fit", "docs": 56, "t": 100.3}
+{"stage": "fisher_fit", "docs": 64, "t": 108.6}
+{"stage": "fisher_fit", "docs": 72, "t": 116.8}
+{"stage": "fisher_fit", "docs": 80, "t": 125.3}
+{"stage": "fisher_fit", "docs": 88, "t": 133.7}
+{"stage": "fisher_fit", "docs": 96, "t": 141.9}
+{"stage": "certificate", "docs": 8, "t": 157.9}
+{"stage": "certificate", "docs": 16, "t": 173.9}
+{"stage": "certificate", "docs": 24, "t": 189.9}
+{"stage": "certificate", "docs": 32, "t": 206.6}
+{"stage": "certificate", "docs": 40, "t": 222.7}
+{"stage": "certificate", "docs": 48, "t": 238.8}
+{"stage": "certificate", "docs": 56, "t": 254.6}
+{"stage": "certificate", "docs": 64, "t": 270.4}
+{"stage": "certificate", "docs": 72, "t": 286.1}
+{"stage": "certificate", "docs": 80, "t": 305.1}
+{"stage": "certificate", "docs": 88, "t": 321.1}
+{"stage": "certificate", "docs": 96, "t": 337.2}
+{"stage": "fisher_arm", "block": 17, "k": 8, "ce_added": 0.0835240880648298, "t": 415.4}
+{"stage": "fisher_arm", "block": 16, "k": 8, "ce_added": 0.03489514191945409, "t": 453.5}
+{"stage": "fisher_arm", "block": 17, "k": 32, "ce_added": 0.046002288659413804, "t": 494.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_radial_gauge": true,
+  "pred_c_certificate_mlp17": true,
+  "pred_d_fisher_basis_mlp17_k8": false,
+  "pred_e_no_shared_dictionary": true
+ },
+ "nulls": {
+  "b_null_radial_le_.2": false,
+  "c_null_any_ratio_outside_[.25,4]": false,
+  "d_null_fisher17_k8_ge_.075": true,
+  "e_null_diag_ge_.5_either": false
+ },
+ "ratio17": {
+  "4": 0.8909821872242268,
+  "8": 0.858867141483927,
+  "16": 0.8318501420653786,
+  "32": 0.7887444157349361,
+  "64": 0.7922607708452392
+ },
+ "radial17": 0.5004914949337641,
+ "fisher_arm": {
+  "17_k8": 0.0835240880648298,
+  "16_k8": 0.03489514191945409,
+  "17_k32": 0.046002288659413804
+ },
+ "diag": {
+  "16": 0.05675408791285008,
+  "17": 0.10029808385297656
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forward_equivalents": 1352,
+  "cpu_seconds": 499.6317846775055
+ }
+}
