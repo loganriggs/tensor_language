@@ -70245,3 +70245,38 @@ Left·U and Right·U are 256-input maps; Down unchanged.
 **Limits.** Own-weight heads use the block's own input PCA (not the pooled core), fitted on 96 docs; token fillers are fitted on the
 clean stream (no co-adaptation, per §2733's −.019 result). κ is a whole-pair number (mlp16 and mlp17 clean together); the per-block
 split is not measured. One eval split (docs 0–63).
+
+## §2736 — THE REAL mlp16/17 HANG ON ONE DIRECTION: zeroing q₁ alone from the two real blocks' input costs 2.00 nats — more than mean-ablating both blocks outright (.848) and as much as removing the whole 16-dim core (2.09); q₂…q₅ cost .02–.09 each; the compiled program agrees (rank-7 program without u₁ 1.27 vs .25–.49 for the others); five random core directions removed from the real input cost .12/.55/.56 (median .55); removing the five (2.55) is WORSE than removing all sixteen (2.09) — strong q₁ × core cross terms; real-vs-program importance order ρ = 0.70 exactly at the bar on five points (receipt boolean false by float rounding — NOT claimed) (Claude, LANE 1 CUDA, 18 s, 1,760 GPU document-forwards): a, b, c, e TRUE; d FALSE as scored (at bar, null not met). Preserved. CAVEAT: the registered ablation zeroes the MEAN along q_j as well as its variation — whether q₁'s 2.0 nats is a constant offset the blocks' bilinear form relies on (a linear-term carrier) or genuine per-token information is NOT decided here; a mean-preserving control is the next rung.
+
+Registered 2026-09-03 22:04Z (polynomial_causal/LATE_SQUARE_DIRECTIONS_ABLATION_PROBE_PREREGISTRATION.md); ran and landed 22:06Z.
+Script ops/late_square_directions_ablation_probe.py; results late_square_directions_ablation_probe_results.json (sha 78f58a79…).
+Frozen: prereg, §2732 results (a790b0f5…), §2734 results (20aa3693…), checkpoint, fit_natural.pt. Sign convention (§2135): every
+number is CE ADDED above the real model on held-out docs 0–63 (FRESH split) — LOWER IS BETTER. All arms patch mlp16 and mlp17 together.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); PROG_SHARED8 .2457 (§2732 .246); PROG_SHARED5 .2728 (§2734 .273).
+
+**Arms.** Real block, x̂ ← x̂ − (x̂·q)q on the MLP input only: REAL_ABL_q₁ 2.003, q₂ .050, q₃ .020, q₄ .073, q₅ .093; top5 2.553;
+core16 2.086; rand5 seeds .553 / .119 / .565 (median .553). Program drop-one: PROG_SHARED8_minus_u₁ 1.513 (+1.268 over .246), u₂ .346
+(+.101), u₃ .319 (+.073), u₄ .486 (+.241), u₅ .331 (+.086); PROG_SHARED5_minus_u₁ 1.766 (+1.493), u₂ .330, u₃ .306, u₄ .539
+(+.266), u₅ .293 (+.020). Real order q₁ ≫ q₅ > q₄ > q₂ > q₃; program-8 order u₁ ≫ u₄ > u₂ > u₅ > u₃ (Σd² = 6 → ρ = 1 − 36/120 = 0.70);
+program-5 order ρ = .40.
+
+**Scoring.** b top5 2.553 ≥ .30 TRUE (null ≤ .10 not met). c 2.553 / .553 = 4.6 ≥ 2.0 TRUE (null ≤ 1.2 not met). d ρ = 0.70 vs bar ≥ .7:
+the receipt's boolean is false (float 0.6999…98); the exact rank statistic equals the bar. Scored FALSE as the instrument wrote it; I
+do not claim d. Null (≤ .3) not met either way. e 2.553 / 2.086 = 1.22 ≥ .5 TRUE (null ≤ .25 not met) — trivially, since removing five
+costs more than removing sixteen.
+
+**Reading.** (i) The five shared square directions are, for the real blocks as for the program, ONE critical direction plus four
+minor ones: q₁ carries essentially the entire dependence (2.0 of the real cost; 1.27 of the program's). q₁ is the direction §2734
+singled out as 7× logit gain and 25% of the pool's core error, produced by mlp0 + mlp11–13. (ii) Program and model agree on what
+matters most (q₁), and agree weakly on the rest — compositional reuse holds for the direction that matters. (iii) top5 > core16 and
+the wide spread of random-5 costs (.12 vs .55: a random 5-dim subspace of the core has expected q₁-overlap 5/16 and the cost tracks
+it) say the blocks' output is governed by cross terms q₁ × (other core directions): with q₁ gone the remaining core terms are
+unbalanced and harmful; remove them too and the damage drops. That is the signature of a bilinear form with one dominant row.
+(iv) THE CAVEAT THAT GOVERNS THE READING: x̂ ← x̂ − (x̂·q₁)q₁ removes the mean of x̂·q₁ along with its variation. If x̂·q₁ has a large
+constant component, the 2.0 nats is the loss of a constant the bilinear form uses as its effective LINEAR term (A[q₁,·]·m₁), not the
+loss of per-token information. The mean-preserving ablation (replace x̂·q_j by its fit-set mean) separates the two; it was not
+registered here and is the next rung. Until it lands, "the real blocks hang on q₁" is established; "q₁ carries information" is not.
+
+**Limits.** Five-point Spearman is coarse (only .1 granularity); three random seeds; one eval split; the ablation is applied to both
+blocks together (no per-block split).

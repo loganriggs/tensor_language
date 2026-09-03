@@ -1,0 +1,47 @@
+{"stage": "fit_cov", "t": 6.4}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.5}
+{"stage": "arms", "REAL_ABL_q1": 2.0031, "REAL_ABL_q2": 0.0501, "REAL_ABL_q3": 0.0197, "REAL_ABL_q4": 0.0725, "REAL_ABL_q5": 0.0926, "REAL_ABL_top5": 2.553, "REAL_ABL_core16": 2.0862, "REAL_ABL_rand5_s0": 0.5532, "REAL_ABL_rand5_s1": 0.1189, "REAL_ABL_rand5_s2": 0.5645, "PROG_SHARED8": 0.2457, "PROG_SHARED5": 0.2728, "PROG_SHARED8_minus_u1": 1.5132, "PROG_SHARED5_minus_u1": 1.7655, "PROG_SHARED8_minus_u2": 0.3463, "PROG_SHARED5_minus_u2": 0.3302, "PROG_SHARED8_minus_u3": 0.3185, "PROG_SHARED5_minus_u3": 0.3064, "PROG_SHARED8_minus_u4": 0.4862, "PROG_SHARED5_minus_u4": 0.5389, "PROG_SHARED8_minus_u5": 0.3314, "PROG_SHARED5_minus_u5": 0.2931, "t": 18.4}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:135: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_real_blocks_need_the_five": true,
+  "pred_c_five_beat_random_in_the_real_blocks": true,
+  "pred_d_same_order": false,
+  "pred_e_five_carry_half_the_core": true
+ },
+ "nulls": {
+  "b_null_top5_le_.10": false,
+  "c_null_ratio_le_1.2": false,
+  "d_null_rho_le_.3": false,
+  "e_null_ratio_le_.25": false
+ },
+ "ce_added": {
+  "REAL_ABL_q1": 2.0030934810638428,
+  "REAL_ABL_q2": 0.050081878900527954,
+  "REAL_ABL_q3": 0.01974642276763916,
+  "REAL_ABL_q4": 0.07245892286300659,
+  "REAL_ABL_q5": 0.09264132380485535,
+  "REAL_ABL_top5": 2.55303293466568,
+  "REAL_ABL_core16": 2.0862420201301575,
+  "REAL_ABL_rand5_s0": 0.5532107353210449,
+  "REAL_ABL_rand5_s1": 0.11886990070343018,
+  "REAL_ABL_rand5_s2": 0.5645017921924591,
+  "PROG_SHARED8": 0.24573180079460144,
+  "PROG_SHARED5": 0.2728349268436432,
+  "PROG_SHARED8_minus_u1": 1.513235330581665,
+  "PROG_SHARED5_minus_u1": 1.7655146718025208,
+  "PROG_SHARED8_minus_u2": 0.34632939100265503,
+  "PROG_SHARED5_minus_u2": 0.3302353620529175,
+  "PROG_SHARED8_minus_u3": 0.31854063272476196,
+  "PROG_SHARED5_minus_u3": 0.3064076006412506,
+  "PROG_SHARED8_minus_u4": 0.4862433969974518,
+  "PROG_SHARED5_minus_u4": 0.5389393866062164,
+  "PROG_SHARED8_minus_u5": 0.3314018249511719,
+  "PROG_SHARED5_minus_u5": 0.29305049777030945
+ },
+ "rho": 0.6999999999999998,
+ "top5_over_random": 4.6149374400409595,
+ "top5_over_core16": 1.2237472498547413
+}

@@ -5135,3 +5135,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2735 late_last_two_error_correction_probe (Claude, LANE 1 CUDA, 19 s, 1,504 GPU forwards): a, b, d, e TRUE; c FALSE + NULL MET.
   π = κ .102 (lost compensation) + .078 (amplification); π_k falls .300 → .115 over k=16..256 (floor = error beyond top-256 input PCs);
   OWN_64 .146 < PROG .246; POOL+OWN_256 .508 = new best extracted late stack (fitted .614). Preserved.
+- §2736 late_square_directions_ablation_probe (Claude, LANE 1 CUDA, 18 s, 1,760 GPU forwards): a, b, c, e TRUE; d FALSE as scored
+  (ρ = 0.70 exactly at the bar; float false; not claimed). Zeroing q₁ from the real mlp16/17 input costs 2.00 (core16 2.09; top5
+  2.55); program agrees (u₁ 1.27). Caveat: ablation removes the mean too — mean-preserving control next. Preserved.
