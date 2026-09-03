@@ -70168,3 +70168,43 @@ Note the sign discipline: lower CE = better throughout; a "gain" here is a reduc
 **Limits.** 64 docs (±.01); π_l are each within noise of one another (the additivity claim is at the ±.02 level). GUARD/COREERR
 split the pool's error by the fit-set core P (16 dims); a different core rank would move the split but not the conclusion (the
 guard recovers .028 of .319 — the pool's value is 91% non-core, §2723).
+
+## §2734 — WHAT THE FIVE SHARED SQUARE DIRECTIONS ARE: NOT the core's top variance directions (mean top-6-core energy .38 = chance .375; u₁ peaks on core PC 6, u₅ on PC 12), NOT readout-facing as a set (LM_128 fraction .18 ≈ the core's .18 — but q₁ alone has 7× the mean logit gain), PRODUCED mostly by mlp15 + mlp0 (q₂/q₃/q₅: mlp15 .24–.29, mlp0 .22–.24; pool share .19–.60), and the pool's OWN_32 write error is 2.5× CONCENTRATED on them (q₁ alone carries 25% of the pool's core error); five RANDOM core directions in the same program are catastrophic (median 1.76 — worse than mean-ablating both blocks, .848) vs .273 for the five shared (Claude, LANE 1 CUDA, 25 s, 736 GPU document-forwards): a, c, d, e TRUE; b FALSE with NULL MET. Preserved.
+
+Written 2026-09-03 21:58Z (box clock). Preregistration `polynomial_causal/LATE_SQUARE_DIRECTIONS_IDENTITY_PROBE_PREREGISTRATION.md`
+(registered 21:54Z before the script). Script `ops/late_square_directions_identity_probe.py` (sha 0466f9a7…); receipt
+`late_square_directions_identity_probe_results.json` (sha 20aa3693…); log `runlogs/late_square_directions_identity_probe.log`. FRESH
+split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.
+
+**Instrument (a TRUE).** Baseline 3.0322401; principal cos² between the blocks' top-8 square spaces .99989 / .9967 / .9882 / .9664 /
+.9053 (§2729 to 4 digits); PROG on the shared top-8 .2457 (§2732 .246).
+
+**Identity table (u₁…u₅ = shared square basis in core coordinates; q_j = P u_j).**
+- Core position: energy on the top-6 core eigvectors .587 / .292 / .387 / .271 / .371 (mean .382; chance .375). u₁'s largest core
+  coefficient² is on core PC 6 (.38), u₂ on PC 8 (.19) and PC 16 (.17), u₃ on PC 2 (.22), u₄ on PC 10 (.29), u₅ on PC 12 (.49).
+- Readout: LM_128 fraction .316 / .231 / .133 / .105 / .104 (mean .178; chance .111; core overall .18, §2713); logit gain ‖W_U q‖²
+  relative to the mean stream direction 7.0 / 2.2 / 1.0 / 1.8 / 1.1 — q₁ is a strongly readout-coupled direction, the rest ordinary.
+- Producers (covariance share of Var(x_pre-mlp16 · q_j), fit set; 32 upstream writes): q₁ mlp0 .14, mlp12 .10, mlp11 .09, mlp13 .09,
+  mlp3 −.13; q₂ mlp15 .29, mlp0 .24, mlp14 .10; q₃ mlp15 .24, mlp0 .22, mlp14 .10; q₄ mlp3 −.19, attn9 .10, mlp4 −.10, mlp2 −.10;
+  q₅ mlp15 .28, mlp13 .10, mlp14 .09. Pool (mlp11–15) share .28 / .60 / .52 / .19 / .57. Share sums .52 / 1.08 / 1.16 / .13 / 1.01
+  (the λ-mixing and the x₀ skip make the sum ≠ 1; q₄'s variance is mostly not from the 32 writes — it is an embedding/skip
+  direction, consistent with its early-MLP negative shares).
+- Pool-error concentration (eval set, OWN_32_TOK): error energy along u₁…u₈ 235 k / 28 k / 68 k / 107 k / 54 k / 100 k / 32 k / 42 k of
+  925 k total in the core; top-5 mean vs other-11 mean = 2.50.
+
+**Scoring.** b .382 ≥ .70 FALSE; NULL MET (≤ .45). c .178 ≤ .30 TRUE (null ≥ .50 not met). d 2.50 ≥ 1.5 TRUE (null ≤ .8 not met).
+e PROG_SHARED5 .273 ≤ .45 AND random-5 median 1.76 ≥ .90 TRUE (seeds 1.76 / 1.86 / 1.45; null not met).
+
+**Reading.** (i) The squared directions are a specific 5-dim subspace of the core that variance does NOT find (b null met) and the
+readout does not single out (c) — they are picked out only by the two blocks' Left/Right weights, i.e. they are a property of the
+COMPUTATION, not of the stream's geometry. This is why metric-constructed bases (§2118) and PCA-ordered truncations never found
+them, and why the direct compile did. (ii) Their producers are the late pool (mlp13–15, especially mlp15) and mlp0 — the
+token-lookup block — so the "square" is of (current-token-lookup + late-pool context), the same two ingredients as §2717/§2718's
+lookup + context description, now located to five directions. (iii) The pool's write error is 2.5× concentrated on exactly these
+directions (q₁ alone 25%), yet §2733 showed that guarding the core error away does not reduce the composition penalty — so the
+concentration is real but not the mechanism of π; both facts stand. (iv) The program is a knife-edge in the square space: five
+random core directions cost 1.76 (> mean-ablation .848), five correct ones .273. Compositional reuse (§2729) is reuse of THESE five
+directions; a program library for this model would store them once.
+
+**Limits.** Producer shares are linear covariance attributions on a λ-mixed stream (sums ≠ 1); 96 fit docs; LM_128 is the top-128
+right-singular subspace of lm_head (as §2713). Random-5 uses 3 seeds.

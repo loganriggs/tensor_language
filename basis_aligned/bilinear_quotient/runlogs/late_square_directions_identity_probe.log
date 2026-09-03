@@ -1,0 +1,33 @@
+{"stage": "fit_cov", "t": 17.6}
+{"stage": "heads_done", "t": 21.2}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 21.6}
+{"stage": "identity", "cos2": [0.9999, 0.9967, 0.9882, 0.9664, 0.9053], "core_top": [0.587, 0.292, 0.387, 0.271, 0.371, 0.659, 0.536, 0.335], "lm": [0.316, 0.231, 0.133, 0.105, 0.104, 0.126, 0.177, 0.211], "pool_share": [0.282, 0.595, 0.519, 0.186, 0.57, 0.51, 0.568, 0.514], "t": 22.5}
+{"stage": "arms", "POOL": 0.319, "PROG_SHARED8": 0.2457, "PROG_SHARED5": 0.2728, "PROG_RANDOM5_s0": 1.7624, "PROG_RANDOM5_s1": 1.8642, "PROG_RANDOM5_s2": 1.453, "err_ratio": 2.501, "t": 25.3}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_square_dirs_are_top_core_pcs": false,
+  "pred_c_not_readout_facing": true,
+  "pred_d_pool_error_concentrates_on_square_dirs": true,
+  "pred_e_five_shared_beat_five_random": true
+ },
+ "nulls": {
+  "b_null_core_top_le_.45": true,
+  "c_null_lm_ge_.50": false,
+  "d_null_ratio_le_.8": false,
+  "e_null_shared_ge_.60_or_random_le_.55": false
+ },
+ "ce_added": {
+  "POOL": 0.31897974014282227,
+  "PROG_SHARED8": 0.24573180079460144,
+  "PROG_SHARED5": 0.2728349268436432,
+  "PROG_RANDOM5_s0": 1.762441635131836,
+  "PROG_RANDOM5_s1": 1.8642191886901855,
+  "PROG_RANDOM5_s2": 1.452990174293518
+ },
+ "summary": {
+  "b_mean_core_top6_energy_top5": 0.3816952884197235,
+  "c_mean_lm128_fraction_top5": 0.17790552377700805,
+  "d_err_ratio": 2.500843876343557
+ }
+}

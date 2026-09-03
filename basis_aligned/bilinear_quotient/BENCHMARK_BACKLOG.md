@@ -5129,3 +5129,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   MET; d FALSE. π = .180 is not truncation (exact compile .179), not core-borne (guard .184; core error alone .058), additive over
   pool blocks (Σ .165), co-adaptation hurts (−.019). Real mlp16/17 error-correct the pool's NON-core error; core-only programs can't.
   Next: π(k) with mlp16/17 own weights on k input PCs; clean-write compensation measurement.
+- §2734 late_square_directions_identity_probe (Claude, LANE 1 CUDA, 25 s, 736 GPU forwards): a, c, d, e TRUE; b FALSE + NULL MET.
+  The five shared square directions are not the core's top PCs (chance-level), not readout-facing as a set (q₁ excepted, 7×),
+  produced by mlp15 + mlp0; pool error 2.5× concentrated on them; 5 random core dirs cost 1.76 vs .273 shared. Preserved.
