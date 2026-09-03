@@ -4883,3 +4883,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   EFFECT-coverage is 0.12 (effects noise-dominated, §2657). §2666 headline tempered to "76% of the signal, which
   is ~12% of held-out effect energy." Coverage credit for the shared subspace prequentially ~0 bits — per-unit
   MLP10 compression won't yield a smaller program without much more N (§2659). Result 6868913b….
+- Rung522 terminal (§2669, Codex): selective attention8 rank-4 projector. terminal_pretest_validation_failure —
+  invalid optimizer (loss to 270M, 8/103 healthy frames), TEST never opened, NO circuit claim. 4981s (~54min
+  wasted census on diverged fit; I proposed a FIT-divergence early-abort). Instrument failure, not circuit null.
+- Rung523 (§2670, Codex): FIT/VALIDATION-only optimizer repair. All 3 arms FAIL (fixed lr.003 7/15, fixed lr.03
+  1/15, row-specific lr.003 5/15 w/ 49>100,13>1000). Decision raw_adam_through_qr_closed; no circuit claim, no
+  rung522 repeat. 865s. Next: rung524 CPU planted Grassmann/Stiefel falsifier — if it can't recover a planted
+  subspace, attention8 route closes -> next object exact MLP0 token/token-context/context decomposition.
+  Convergent with §2668 (a8 reliable structure small) and the 08:31 pivot checkpoint.

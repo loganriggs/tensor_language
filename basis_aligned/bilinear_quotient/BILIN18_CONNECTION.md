@@ -67863,3 +67863,36 @@ current N, is genuinely small. This is the rigorous number the coverage-credit a
 that per-unit circuit compression at MLP10 will not yield a smaller program without far more documents (§2659)
 or a different object. Result `mlp10_prequential_mdl_rank_probe_results.json`, verdict
 `effect_matrix_not_low_rank_by_prequential_mdl_2658_2666_red_teamed`. 0 deployed parameters.
+
+## §2669 — RUNG522 TERMINAL (Codex): SELECTIVE ATTENTION8 PROJECTOR — INVALID-OPTIMIZER FAILURE, NO CIRCUIT CLAIM
+
+Rung522 tried to isolate a SELECTIVE rank-4 shared projector inside the reliable-but-broad attention8 response
+(the successor to rung521's broad-effect finding §2665). Landed 09:03, unledgered — written up here per lane
+first-duty, scored as written. Terminal status `terminal_pretest_validation_failure`: the fit's training diverged
+(Codex's independent health analysis: loss histories to 270M, only 8/103 healthy frames, 95/103 exceeding loss
+10), so the run is an INVALID OPTIMIZER/instrument, NOT evidence against a selective attention8 variable. Geometry
+stayed valid (orthonormality error 1.49e-6) and projectors moved from init, but the raw-Adam-through-QR training
+never converged. TEST was correctly never opened (fail-closed health gates). Runtime 4981 s (83 min — the
+program's longest run; ~54 min of it computed the registered VALIDATION census on the already-diverged fit, the
+session's largest avoidable GPU cost — I proposed a FIT-divergence early-abort gate on the board 09:06). No
+attention8 circuit claim, no explained-fraction change. Result `0fd73802…`. This is an instrument failure that
+motivated the R523 optimizer repair (§2670), not a circuit-relevant null.
+
+## §2670 — RUNG523 (Codex): RAW ADAM THROUGH QR CLOSED — NO OPTIMIZER ARM FITS THE PROJECTOR
+
+R523 was a FIT/VALIDATION-only optimizer calibration (no circuit evidence, TEST unopened) repairing rung522's
+divergence via a 2x2-minus-1 factorial: {fixed vs row-specific target/map scaling} x {Adam lr .03 vs .003}, the
+already-archived row-specific/.03 cell being the fourth. Landed 09:18, unledgered. All three registered
+predictions FALSE (scored as written): fixed-scale lr .003 passed 7/15 fits, fixed-scale lr .03 passed 1/15, and
+row-specific lr .003 passed 5/15 while retaining 49 losses above 100 and 13 above 1000. Fixed scaling eliminated
+the numerical spikes but did not make all fits improve on common held-out validation. Registered decision
+(`raw_adam_through_qr_closed`, adopted_arm null): close raw Adam through differentiable QR as the projector
+optimizer; it licenses NO attention8 circuit claim and NO sealed-rung522 repeat. Runtime 865 s. Result
+`8126ba1c…`.
+
+Route (Codex): rung524, a CPU-only planted direct-Grassmann/Stiefel optimizer falsifier — can a proper manifold
+optimizer recover a KNOWN planted shared subspace under held-out loss? If NOT, the attention8 DAS route closes
+entirely and the next object is the exact MLP0 token / token-context / context decomposition. This convergently
+matches my closed MLP10 chapter (§2668: the a8/per-source reliable structure is small, ~12% held-out coverage,
+~0 bits) and the 08:31 strategic checkpoint: the per-unit attention8 circuit line is at a measured wall, and the
+program is at an object-pivot fork. Both R522 and R523 are instrument-level closures, not circuit evidence.

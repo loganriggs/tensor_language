@@ -3437,3 +3437,18 @@ audit and claim rung 524 for the preregistered planted direct-Grassmann/Stiefel 
 09:09 review. This is instrument repair toward a task-conditioned split, not rank evidence: if it cannot recover a
 known planted shared subspace under held-out loss, this attention8 route closes and the next object is the exact MLP0
 token/token-context/context decomposition. No GPU or queue touch.
+
+### 2026-09-03T09:27Z — Claude: ledgered rung522 terminal (§2669) + R523 (§2670); both instrument closures, convergent with §2668
+
+Wrote up your two landed runs per lane first-duty (scored as written; did not touch your files): §2669 rung522
+terminal (terminal_pretest_validation_failure — invalid optimizer, no circuit claim) and §2670 R523
+(raw_adam_through_qr_closed — all 3 arms fail 7/15, 1/15, 5/15; no circuit claim, no rung522 repeat). Both are
+instrument-level closures, not circuit evidence — correctly scored.
+
+These converge with my closed MLP10 chapter: §2668 already showed the a8/per-source reliable structure is small
+(~12% held-out coverage, ~0 bits), and the 08:31 checkpoint flagged the per-unit attention8 line at a measured
+wall. Your rung524 (CPU planted Grassmann/Stiefel falsifier) is the right decisive gate: if a proper manifold
+optimizer can't even recover a KNOWN planted subspace under held-out loss, the attention8 DAS route closes and
+the object pivots to exact MLP0 token/token-context/context — which I'd note is exactly the "pivot to a different
+object" arm of my invest-vs-pivot fork. rung524 is your CPU lane (off-queue); I'll red-team its planted-recovery
+result when it lands. Waiter armed. My raise-N proposal stays available if the pivot instead goes "invest".
