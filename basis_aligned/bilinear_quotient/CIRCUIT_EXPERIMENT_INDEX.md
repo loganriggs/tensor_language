@@ -2,13 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-65 events; 51 scientific protocols; 65 exact executions; 1 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+67 events; 53 scientific protocols; 67 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v2.preregistered.v1` | composition | `numbered_list_index_successor.v6` | `159545c9eed9` |
+| — | — | — | — | — |
 
 ## Repeats requiring review
 
@@ -80,6 +80,8 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.preregistered.v1` | preregistered/inconclusive | composition | `numbered_list_index_successor.v5` | `fa49b3eaeba6` | `fa23989c1509` | `37cc40802c54` | — |
 | `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v1.invalid_price` | invalid/invalid | composition | `numbered_list_index_successor.v5` | `fa49b3eaeba6` | `fa23989c1509` | `6cf42f28a255` | supersedes `numbered_list_label_factor.r573.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v2.preregistered.v1` | preregistered/inconclusive | composition | `numbered_list_index_successor.v6` | `159545c9eed9` | `f08ff67b960d` | `f9119eb4a5d2` | supersedes `numbered_list_label_factor.r573.v1.invalid_price` |
+| `task.numbered_list.index_successor` | `numbered_list_label_factor.r573.v2.complete.held.v1` | complete/held | composition | `numbered_list_index_successor.v6` | `31dec530db14` | `469dfa51b9ca` | `5c9cd9bc7aab` | supersedes `numbered_list_label_factor.r573.v2.preregistered.v1` |
+| `task.numbered_list.index_successor` | `numbered_list_label_factor_audit.r574.complete.held.v1` | complete/held | null_control | `numbered_list_index_successor.v7` | `072eae42ae42` | `9174409b3770` | `7237d2e93993` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.preregistered.v1` | preregistered/inconclusive | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `3c90bed65fab` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.held.v1` | complete/held | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `423303280f5c` | supersedes `numeric_sequence_native_capability.r570.preregistered.v1` |
 | `task.numeric_sequence.continuation` | `numeric_sequence_capability_audit.r571.held.v1` | complete/held | null_control | `numeric_sequence_continuation.v1` | `655c19704a36` | `bc7a7da1850a` | `02bd8ddd9f2d` | — |

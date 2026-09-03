@@ -7,28 +7,11 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 65,
- "design_count": 52,
- "protocol_count": 51,
- "execution_count": 65,
- "open_preregistrations": [
-  {
-   "circuit": "task.numbered_list.index_successor",
-   "event_id": "numbered_list_label_factor.r573.v2.preregistered.v1",
-   "claim_id": "numbered_list_index_successor.v6",
-   "test_type": "composition",
-   "stage": "preregistered",
-   "verdict": "inconclusive",
-   "failure_kind": null,
-   "design_key": "f08ff67b960da25d4b9136118965b4012e8e352bb3eceb04e7ede9ae11a45598",
-   "protocol_key": "159545c9eed943ab8dbe84dde02beba51356fa61970cccd049d43cbf5ded76e7",
-   "execution_key": "f9119eb4a5d247ebfcecb19762612dc63a5499c83d07698e55f96e17459d25fb",
-   "supersedes_event_id": "numbered_list_label_factor.r573.v1.invalid_price",
-   "replicates_event_id": null,
-   "prereg_artifact_id": "r573_v2_amendment",
-   "result_artifact_id": null
-  }
- ],
+ "event_count": 67,
+ "design_count": 54,
+ "protocol_count": 53,
+ "execution_count": 67,
+ "open_preregistrations": [],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -991,6 +974,38 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r573_v2_amendment",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.numbered_list.index_successor",
+   "event_id": "numbered_list_label_factor.r573.v2.complete.held.v1",
+   "claim_id": "numbered_list_index_successor.v6",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "469dfa51b9caba3337cd715e1b7885eed01684bb06ea9a204c2ce48cf2f15871",
+   "protocol_key": "31dec530db14c9d5d3a4fe3f01429510a0d7444e76fae988e9594455c5a28dfe",
+   "execution_key": "5c9cd9bc7aab1ef9538b9af9a80a301f4dcd13894b90167e02f8b809e9d2fbab",
+   "supersedes_event_id": "numbered_list_label_factor.r573.v2.preregistered.v1",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r573_v2_amendment",
+   "result_artifact_id": "r573_v2_result"
+  },
+  {
+   "circuit": "task.numbered_list.index_successor",
+   "event_id": "numbered_list_label_factor_audit.r574.complete.held.v1",
+   "claim_id": "numbered_list_index_successor.v7",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "9174409b37706899db0bf6359ee5e3b83adecc04b6dde5ca14b4624d234a47e7",
+   "protocol_key": "072eae42ae42b103dfc87a642b780c1b5a3127ed82559a0eec0962a8085b94aa",
+   "execution_key": "7237d2e93993a2feffc67174503753793a4b91c35de649313a2dbdd09c8a2486",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "r574_audit"
   },
   {
    "circuit": "task.numeric_sequence.continuation",

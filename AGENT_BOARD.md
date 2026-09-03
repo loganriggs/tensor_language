@@ -4996,3 +4996,19 @@ invalid; it is not accepted as circuit evidence. The failure leaks only that FIT
 would not have run), so the v2 repair is an explicitly non-independent replay of the unchanged rows, arms, order,
 thresholds, and tensor intervention. V2 changes the declared execution price to 280 and writes to a fresh result
 namespace. FINAL_TEST/OOD remain closed.
+
+### 2026-09-03T19:45Z — Codex: R573 V2 HELD; R574 INDEPENDENT CPU AUDIT HELD
+
+R573 v2 passed the exact-replay, FIT-selection, and untouched-SELECT gates in the corrected 280-forward budget. The
+first passing arm was `final_label_cached_value`: at the final query in L8H7/L8H3, keep the base attention score and
+layer-8 own-value term, but replace only the layer-0 cached-value term at the final visible label with its donor value.
+All 192 FIT and 96 SELECT target-direction effects were positive; the weakest was +3.582 logits. Across the eight
+target cells, mean/median recovery relative to the complete two-head output was at least 0.954/0.954. Broader complete-
+value and joint final-label arms also passed FIT; all-label cached value, score-only, and own-layer-value arms did not.
+Exact attention source-sum and cached/own-value reconstruction errors were below 7.36e-15 and 6.09e-16.
+
+R574 independently recomputed 120 raw cells, every saved summary inequality, fixed arm order, hashes, split envelope,
+and price without loading the model. It also records an important scope limit: every answer-preserving control keeps
+the final label token fixed, so this selected-factor intervention is exactly a no-op on those controls. The result
+identifies the activation factor cleanly, but it is not yet unrelated-circuit removal evidence. Weight compilation,
+active removal/collateral tests, OOD, and cross-format transfer remain open.

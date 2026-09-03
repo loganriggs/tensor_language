@@ -362,7 +362,7 @@
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",
-   "claim_status": "specified",
+   "claim_status": "activation_identified",
    "causal_variable_id": "list_index_state",
    "categories": {
     "capability": {
@@ -406,20 +406,21 @@
      "status": "held",
      "held_event_ids": [
       "numbered_list_capability_audit.r571.held.v1",
-      "numbered_list_conflict_confirmation.r572.held.v1"
+      "numbered_list_conflict_confirmation.r572.held.v1",
+      "numbered_list_label_factor_audit.r574.complete.held.v1"
      ],
      "blocking_event_ids": [],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "numbered_list_conflict_confirmation.r572.held.v1"
+     "latest_relevant_event_id": "numbered_list_label_factor_audit.r574.complete.held.v1"
     },
     "composition": {
-     "status": "planned",
-     "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numbered_list_label_factor.r573.v2.preregistered.v1"
+     "status": "held",
+     "held_event_ids": [
+      "numbered_list_label_factor.r573.v2.complete.held.v1"
      ],
-     "latest_relevant_event_id": "numbered_list_label_factor.r573.v2.preregistered.v1"
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numbered_list_label_factor.r573.v2.complete.held.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -429,10 +430,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 2,
+   "n_held_categories": 3,
    "n_blocked_categories": 0,
    "n_missing_categories": 5,
-   "next_missing": "run the registered R573 v2 price-only repair; do not represent it as an independent blind replication"
+   "next_missing": "compile the final-label layer-0 cached-value path through L8H7/L8H3 into weights, then test necessity/removal with active unrelated-behavior collateral controls before OOD"
   },
   "task.numeric_sequence.continuation": {
    "kind": "behavior_circuit",

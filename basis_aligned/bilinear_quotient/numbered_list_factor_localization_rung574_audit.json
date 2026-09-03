@@ -1,0 +1,38 @@
+{
+ "rung": 574,
+ "stage": "numbered_list_factor_post_result_cpu_audit",
+ "source_result_sha256": "052930b8b9086e8b7606e3d05929f521f468c04427be8d1182720f1772ee43ec",
+ "all_checks_pass": true,
+ "checks": {
+  "checkpoint_exact": true,
+  "price_exact": true,
+  "split_envelope_exact": true,
+  "instrument_exact": true,
+  "every_raw_cell_has_exact_rows": true,
+  "all_saved_decisions_recomputed": true,
+  "fit_order_recomputed": true,
+  "selected_select_recomputed": true,
+  "terminal_predicates_consistent": true,
+  "selected_target_all_positive": true,
+  "selected_control_terms_are_exact_noops": true,
+  "final_label_change_separates_targets_from_controls": true
+ },
+ "selected_arm": "final_label_cached_value",
+ "eligible_fit_arms": [
+  "final_label_cached_value",
+  "final_label_value",
+  "final_label_joint"
+ ],
+ "audited_row_cells": 120,
+ "audited_summary_equalities": 608,
+ "selected_target_effect_count": 192,
+ "selected_target_minimum_effect": 3.5816450119018555,
+ "selected_control_row_count": 384,
+ "interpretation": "For these list-state swaps, nearly all of the causal effect of L8H7/L8H3 is carried by the layer-0 cached value at the final visible label; the score and layer-8 own-value parts are not sufficient.",
+ "declared_limit": "Every registered answer-preserving control keeps the final label token fixed, so the selected cached-value transplant is exactly a no-op on those controls. This cleanly establishes dependence on final-label identity but is not a collateral-damage removal test on unrelated circuits. Weight compilation, removal, OOD, and cross-format transfer remain open.",
+ "model_loaded": false,
+ "model_forwards": 0,
+ "outcomes_opened": [
+  "saved_R573_v2_result"
+ ]
+}

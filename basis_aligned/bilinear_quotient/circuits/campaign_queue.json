@@ -9,60 +9,11 @@
  "summary": {
   "canonical_work_items": 7,
   "legacy_candidates": 70,
-  "open_experiments": 1,
-  "held_events": 21,
+  "open_experiments": 0,
+  "held_events": 23,
   "blocking_events": 21
  },
  "work_items": [
-  {
-   "tag": "task.numbered_list.index_successor",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v6",
-   "claim_status": "specified",
-   "causal_variable_id": "list_index_state",
-   "counterfactual_family_count": 6,
-   "counterfactual_family_status_counts": {
-    "validated": 6
-   },
-   "split_plan_ids": [
-    "numbered_list_successor_split_r567_v1"
-   ],
-   "active_event_ids": [
-    "numbered_list_native_capability.r569.held.v1",
-    "numbered_list_capability_audit.r571.held.v1",
-    "numbered_list_conflict_confirmation.r572.held.v1",
-    "numbered_list_label_factor.r573.v2.preregistered.v1"
-   ],
-   "open_event_ids": [
-    "numbered_list_label_factor.r573.v2.preregistered.v1"
-   ],
-   "held_event_ids": [
-    "numbered_list_native_capability.r569.held.v1",
-    "numbered_list_capability_audit.r571.held.v1",
-    "numbered_list_conflict_confirmation.r572.held.v1"
-   ],
-   "blocking_event_ids": [],
-   "coverage": {
-    "capability": "held",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "held",
-    "composition": "planned",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "run the registered R573 v2 price-only repair; do not represent it as an independent blind replication"
-  },
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
@@ -146,6 +97,56 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+  },
+  {
+   "tag": "task.numbered_list.index_successor",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numbered_list_index_successor.json",
+   "active_claim_id": "numbered_list_index_successor.v7",
+   "claim_status": "activation_identified",
+   "causal_variable_id": "list_index_state",
+   "counterfactual_family_count": 6,
+   "counterfactual_family_status_counts": {
+    "validated": 6
+   },
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "active_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.v2.complete.held.v1",
+    "numbered_list_label_factor_audit.r574.complete.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.v2.complete.held.v1",
+    "numbered_list_label_factor_audit.r574.complete.held.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "held",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "compile the final-label layer-0 cached-value path through L8H7/L8H3 into weights, then test necessity/removal with active unrelated-behavior collateral controls before OOD"
   },
   {
    "tag": "task.numeric_sequence.continuation",

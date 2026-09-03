@@ -27,7 +27,7 @@ def test_landed_capability_and_interchange_runs_are_closed():
     assert "pending_opener_source_factor_interchange.r560.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_interchange.r560.v2.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_audit.r561.preregistered.v1" not in open_ids
-    assert open_ids == {"numbered_list_label_factor.r573.v2.preregistered.v1"}
+    assert open_ids == set()
 
 
 def test_generated_json_never_invents_events():
