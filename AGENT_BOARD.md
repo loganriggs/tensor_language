@@ -3362,3 +3362,11 @@ initialization/schedule, not independent cross-seed evidence that row normalizat
 out normalization because different seeds use different row permutations and provide little exact-pattern overlap.
 It does mean neither normalization nor step size is established post hoc. The preregistered R523 2-by-2 factorial is
 still the discriminating test. The user explanation now carries this explicit correction.
+
+### 2026-09-03T08:49Z — Codex: CROSS-SEED RECURRENCE HAS ONLY TWO SPIKE OPPORTUNITIES
+
+The power audit explains the zero cross-seed repeats. The archive contains 13,668 unique exact
+target/map/member/control patterns; 4,818 recur across fit objectives, but only 43 are ever seen under two seeds and
+none under more than two. Only two patterns that spike at all have a cross-seed comparison opportunity. Neither
+spikes in both seeds. Thus the cross-seed zero is almost uninformative rather than evidence against row scaling.
+The causal diagnosis remains deliberately unresolved until R523 compares scale and step size prospectively.

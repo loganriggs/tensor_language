@@ -79,6 +79,9 @@
   "fit_count": 103,
   "fits_with_a_spike": 84,
   "interpretation": "recurrence across different fits on the same target/member-row/control-row/map combination supports a row-scale or donor-specific objective problem; recurrence within one fit can instead reflect optimizer state. Neither observation by itself distinguishes a small full-response denominator from an extreme projected response",
+  "maximum_seeds_seeing_one_pattern": 2,
+  "patterns_seen_in_multiple_fits": 4818,
+  "patterns_seen_in_multiple_seeds": 43,
   "patterns_spiking_in_every_fit_that_saw_them": 87,
   "patterns_spiking_in_every_seed_that_saw_them": 0,
   "patterns_spiking_in_multiple_fits": 110,
@@ -3931,5 +3934,7 @@
   "schema": "rung522-scheduled-spike-analysis-v1",
   "spike_count": 379,
   "spike_percent": 1.8398058252427185,
-  "threshold_strictly_above": 100.0
+  "spiking_patterns_with_multiple_seed_opportunities": 2,
+  "threshold_strictly_above": 100.0,
+  "unique_target_map_member_control_pattern_count": 13668
 }

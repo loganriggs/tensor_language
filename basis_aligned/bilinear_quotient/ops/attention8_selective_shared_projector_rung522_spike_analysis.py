@@ -141,6 +141,17 @@ def analyze_spikes(
         "spike_count": total_spikes,
         "spike_percent": 100.0 * total_spikes / total_events,
         "fits_with_a_spike": len(first_spike_updates),
+        "unique_target_map_member_control_pattern_count": len(pattern_visits),
+        "patterns_seen_in_multiple_fits": sum(
+            len(value) >= 2 for value in pattern_fits.values()
+        ),
+        "patterns_seen_in_multiple_seeds": sum(
+            len(value) >= 2 for value in pattern_seeds.values()
+        ),
+        "maximum_seeds_seeing_one_pattern": max(map(len, pattern_seeds.values())),
+        "spiking_patterns_with_multiple_seed_opportunities": sum(
+            len(pattern_seeds[pattern]) >= 2 for pattern in pattern_spikes
+        ),
         "first_spike_update_median": (
             None if not first_spike_updates else statistics.median(first_spike_updates)
         ),
@@ -222,6 +233,10 @@ def main() -> dict[str, object]:
         ],
         "patterns_spiking_in_multiple_fits": result["patterns_spiking_in_multiple_fits"],
         "patterns_spiking_in_multiple_seeds": result["patterns_spiking_in_multiple_seeds"],
+        "patterns_seen_in_multiple_seeds": result["patterns_seen_in_multiple_seeds"],
+        "spiking_patterns_with_multiple_seed_opportunities": result[
+            "spiking_patterns_with_multiple_seed_opportunities"
+        ],
     }, indent=2, sort_keys=True), flush=True)
     return result
 

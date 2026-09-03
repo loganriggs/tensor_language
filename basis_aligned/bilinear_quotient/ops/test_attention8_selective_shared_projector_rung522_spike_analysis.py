@@ -72,3 +72,6 @@ def test_spikes_are_joined_to_exact_maximizing_target_row_and_map():
     assert result["patterns_spiking_in_every_fit_that_saw_them"] == 0
     assert result["patterns_spiking_in_multiple_seeds"] == 0
     assert result["patterns_spiking_in_every_seed_that_saw_them"] == 0
+    assert result["unique_target_map_member_control_pattern_count"] == 4
+    assert result["patterns_seen_in_multiple_seeds"] == 0
+    assert result["spiking_patterns_with_multiple_seed_opportunities"] == 0
