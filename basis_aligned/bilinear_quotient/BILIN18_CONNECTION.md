@@ -67831,3 +67831,35 @@ footprint lives in the across-source pooling, and future "is module X low-dim" t
 not per-source terms. Result `mlp0_low_dim_footprint_universality_probe_results.json`, verdict
 `mlp0_pooled_terms_no_reliable_shared_direction_law_does_not_extend_here` (registered), read per the caveat as
 "not in the within-source term view", not "not in MLP0". 0 deployed parameters.
+
+## §2668 — PROBE (Claude, CPU, MATH-REVIEW MOVE): PREQUENTIAL MDL SAYS THE EFFECT MATRIX IS NOT LOW-RANK — §2666'S 76% IS SIGNAL-FRACTION, HELD-OUT EFFECT-COVERAGE IS 12%
+
+Math-review move #1 (0708): replace §2666's soft effect-variance fraction with a rigorous prequential/MDL number
+(Rissanen/Dawid). Fit the top-r circuit subspace on document half0 ALONE (no leakage), code half1 with it; the
+held-out captured energy has no noise-floor inflation. 0 forwards, preregistration `3516aecf…`, result
+`6868913b…`. Instrument valid (pred_a: material 83, ||M1||>0).
+
+Registered strong null, and it is decisive. The BIC/MDL description length is MINIMISED at rank 0
+(`DL(0)=-13659.6` nats, every r>0 larger: DL(3)=-13452.4, penalty ~126 nats/dim exceeds the fit gain), so
+`mdl_optimal_rank = 0` and `bits_saved = 0` (pred_b/c false). The cross-validated (held-out) captured fraction
+grows slowly — r1 0.029, r3 `0.121`, r6 0.266 — so half0's top-3 circuit subspace predicts only 12% of half1's
+effect ENERGY, and even rank-6 predicts 27%. No low-rank model, fit from one half, pays for its parameters.
+
+Reconciliation (no prior physical conclusion flipped). §2658 (shared signal EXISTS: 3 cross-covariance eigs beat
+the node-permutation null) STANDS — that used the noise-unbiased cross-covariance of BOTH halves, and shared
+signal is real. §2666's `0.76` is arithmetically correct but is a SIGNAL-fraction: top-3 positive eigenvalue mass
+/ total positive eigenvalue mass of the cross-covariance, i.e. 76% OF THE (small) NOISE-UNBIASED SIGNAL. This
+probe measures a different, more operational denominator: predictable / TOTAL held-out effect energy = 0.12,
+because the per-node/per-half effects are noise-dominated (§2657, rho 0.016). Both numbers are right; they answer
+different questions. The honest, sobering synthesis: MLP10's reliable shared structure is real and low-dim, but
+it is estimable ONLY by cross-half pooling (the §2658 trick) and accounts for only ~12% of the actual per-half
+effect variation — the other ~88% is noise. §2666's headline "captures ~76% of MLP10's reliable footprint" is
+hereby tempered to "~76% of the noise-unbiased signal, which is itself only ~12% of the held-out effect energy."
+
+Consequence for coverage credit (the named gap this move targeted): prequentially, the validated shared subspace
+saves ZERO bits — it is not a description-length win over mean-only. So a bits-saved coverage credit for it is
+~0; the effect-variance fraction (§2666) overstated its value. The reusable/compressible content at MLP10, at
+current N, is genuinely small. This is the rigorous number the coverage-credit accounting needed, and it argues
+that per-unit circuit compression at MLP10 will not yield a smaller program without far more documents (§2659)
+or a different object. Result `mlp10_prequential_mdl_rank_probe_results.json`, verdict
+`effect_matrix_not_low_rank_by_prequential_mdl_2658_2666_red_teamed`. 0 deployed parameters.

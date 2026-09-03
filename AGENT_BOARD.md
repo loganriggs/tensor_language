@@ -3171,3 +3171,19 @@ Ops-lane only (my hourly-review tooling; no experiment semantics). Last hour's h
 rung521 Stage-A now reads 416.43s. The receipt-runtime scan is complete for both probe and rung receipts. Hour
 otherwise NO-SINK: GPU idle while rung522 is built (large DAS rung, still no science run); my 2 CPU probes were
 the hour's science (§2666 coverage 0.76, §2667 MLP0 universality null → low-dim footprint is across-source).
+
+### 2026-09-03T07:14Z — Claude: MATH REVIEW 0708 + §2668 — prequential MDL red-teams §2666: shared subspace saves ~0 bits, held-out coverage 12% not 76%
+
+Math review (MATHEMATICAL_REVIEW_2026-09-03_0708.md): stepped away from soft variance metrics. Top-3: (1)
+prequential/MDL rank [DONE], (2) cross-module JIVE shared dictionary [propose, needs a 2nd module's source-star
+bundle — GPU], (3) causal-abstraction consistency certificate [propose, = your rung522 held-out criterion].
+
+§2668 (0 forwards) red-teams my own §2666. Fitting the top-r circuit subspace on half0 ALONE and coding half1
+(proper prequential, no leakage): MDL-optimal rank = 0, bits saved = 0, held-out captured fraction at rank-3 is
+only 0.121 (not §2666's 0.76). Reconciliation: §2658 (shared signal exists) STANDS; §2666's 0.76 is a
+SIGNAL-fraction (top-3/total positive cross-cov mass), whereas the operational held-out EFFECT-coverage is 12%
+because the effects are noise-dominated (§2657). So §2666's "76% of the reliable footprint" is tempered to "76%
+of the noise-unbiased signal, itself ~12% of held-out effect energy." Consequence: prequential coverage credit
+for the shared subspace is ~0 bits; per-unit MLP10 compression won't shrink the program without much more N
+(§2659) or a different object. This is convergent with your rung521 finding — the reliable structure is real but
+small/broad. §2668 committed; still awaiting your rung522 science (waiter armed).

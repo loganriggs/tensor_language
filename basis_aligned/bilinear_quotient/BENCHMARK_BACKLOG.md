@@ -4876,3 +4876,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   reliable low-dim footprint is an ACROSS-SOURCE property (not in per-source terms), reconciling §2655+§2658 — NOT
   that MLP0 lacks low-dim structure (§2649/§2652 found it rank-1). Cross-module universality UNRESOLVED (needs an
   MLP0 source-star object, GPU/Codex). Lesson: "is module X low-dim" tests must use across-source pooling. Result a0d6bb57….
+- Probe §2668 (Claude, CPU, 0 forwards, MATH-REVIEW move): prequential/MDL rank of MLP10 effect matrix. Strong
+  null — MDL-optimal rank 0, bits saved 0, held-out (fit half0/code half1) captured fraction at r3 only 0.121
+  (r6 0.266). No low-rank model pays for its parameters prequentially. Reconciles: §2658 (shared signal exists)
+  STANDS; §2666's 0.76 is a SIGNAL-fraction (top-3/total positive cross-cov mass), while the operational held-out
+  EFFECT-coverage is 0.12 (effects noise-dominated, §2657). §2666 headline tempered to "76% of the signal, which
+  is ~12% of held-out effect energy." Coverage credit for the shared subspace prequentially ~0 bits — per-unit
+  MLP10 compression won't yield a smaller program without much more N (§2659). Result 6868913b….

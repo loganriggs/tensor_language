@@ -1,0 +1,127 @@
+{
+ "status": "complete",
+ "rung": "mlp10_prequential_mdl_rank_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "prequential_mdl_effective_rank_and_bits_saved_coverage_credit_not_certificate",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_PREQUENTIAL_MDL_RANK_PROBE_PREREGISTRATION.md": "3516aecf0e87425493265fc847c47040fc983551dff4be092acfc55e63fa066f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_shared_subspace_coverage_fraction_probe_results.json": "9d2cdc37719e3554fc2b375c5f6e27b50d0fb24ca074a0315a35ddc4b4d5172f"
+ },
+ "n_material_nodes": 83,
+ "mdl_optimal_rank": 0,
+ "bits_saved_vs_mean_only": 0.0,
+ "cv_captured_fraction_at_r3": 0.12098639218236462,
+ "cv_captured_fraction_at_rstar": 0.0,
+ "coverage_2666_soft_reference": 0.764,
+ "dl_curve": [
+  {
+   "r": 0,
+   "rss_heldout": 0.09060512666561699,
+   "cv_captured_fraction": 0.0,
+   "cv_captured_fraction_half1": 0.0,
+   "DL_nats": -13659.570277930077
+  },
+  {
+   "r": 1,
+   "rss_heldout": 0.08793963386540277,
+   "cv_captured_fraction": 0.029418785650522472,
+   "cv_captured_fraction_half1": 0.02876881818953725,
+   "DL_nats": -13573.071395212373
+  },
+  {
+   "r": 2,
+   "rss_heldout": 0.0841200333182701,
+   "cv_captured_fraction": 0.07157534662779585,
+   "cv_captured_fraction_half1": 0.07571951895720319,
+   "DL_nats": -13505.88914431844
+  },
+  {
+   "r": 3,
+   "rss_heldout": 0.07964313927711783,
+   "cv_captured_fraction": 0.12098639218236462,
+   "cv_captured_fraction_half1": 0.11434184500819056,
+   "DL_nats": -13452.362713146797
+  },
+  {
+   "r": 4,
+   "rss_heldout": 0.07270796977472982,
+   "cv_captured_fraction": 0.1975291857042215,
+   "cv_captured_fraction_half1": 0.20876520247032238,
+   "DL_nats": -13447.196786512744
+  },
+  {
+   "r": 5,
+   "rss_heldout": 0.06969529469735032,
+   "cv_captured_fraction": 0.2307797884929349,
+   "cv_captured_fraction_half1": 0.24750389163677144,
+   "DL_nats": -13377.242127274487
+  },
+  {
+   "r": 6,
+   "rss_heldout": 0.06651429213750683,
+   "cv_captured_fraction": 0.2658882053884065,
+   "cv_captured_fraction_half1": 0.2733041890333029,
+   "DL_nats": -13313.12770280264
+  },
+  {
+   "r": 7,
+   "rss_heldout": 0.06363687265556828,
+   "cv_captured_fraction": 0.2976460052815386,
+   "cv_captured_fraction_half1": 0.3071830793865016,
+   "DL_nats": -13245.703662250857
+  },
+  {
+   "r": 8,
+   "rss_heldout": 0.06147129107277902,
+   "cv_captured_fraction": 0.32154731928534164,
+   "cv_captured_fraction_half1": 0.330160942885386,
+   "DL_nats": -13165.529525895612
+  },
+  {
+   "r": 9,
+   "rss_heldout": 0.057567894981368384,
+   "cv_captured_fraction": 0.36462872356190457,
+   "cv_captured_fraction_half1": 0.35975451428949135,
+   "DL_nats": -13126.500034529257
+  },
+  {
+   "r": 10,
+   "rss_heldout": 0.054346302741845404,
+   "cv_captured_fraction": 0.40018512481734825,
+   "cv_captured_fraction_half1": 0.3880882378911127,
+   "DL_nats": -13076.824270749294
+  },
+  {
+   "r": 11,
+   "rss_heldout": 0.05086779418707203,
+   "cv_captured_fraction": 0.43857708653945915,
+   "cv_captured_fraction_half1": 0.43412319722660153,
+   "DL_nats": -13038.51371583373
+  },
+  {
+   "r": 12,
+   "rss_heldout": 0.04733386483966257,
+   "cv_captured_fraction": 0.4775807221775573,
+   "cv_captured_fraction_half1": 0.47002872738352675,
+   "DL_nats": -13007.981801344964
+  }
+ ],
+ "bars": {
+  "material_target": 83,
+  "r_max": 12,
+  "r_star_bar": 6
+ },
+ "pred_a_instrument_reproduces_effect_matrix": true,
+ "pred_b_mdl_optimal_rank_is_low": false,
+ "pred_c_low_rank_saves_bits_and_majority_heldout_coverage": false,
+ "strong_null": true,
+ "verdict": "effect_matrix_not_low_rank_by_prequential_mdl_2658_2666_red_teamed",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.008077383041381836
+}
