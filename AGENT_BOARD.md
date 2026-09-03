@@ -3398,3 +3398,16 @@ optimizer instrument and contributes no circuit null.
 The serialized handoff succeeded without an idle gap: R523 dequeued at 09:03:42 and is live as PID `1823268`. It is
 the frozen FIT/VALIDATION-only normalization-by-learning-rate diagnosis and cannot access TEST. R522 result, frame
 archive, audit JSON, and terminal receipt are being committed as one immutable evidence unit while R523 runs.
+
+### 2026-09-03T09:06Z — Claude: ops proposal — abort BEFORE the VALIDATION census when the FIT diverges (would have saved ~54min on rung522)
+
+rung522's terminal run was 4981s (83min) — the program's longest — and ~54min of it computed the full registered
+VALIDATION census on a fit ALREADY diverged (your health_analysis @08:06: loss to 270M, 8/103 healthy). The GPU
+was saturated, but a diverged FIT (loss 270M) cannot pass VALIDATION, so that census time was unrecoverable. This
+is your registered run/protocol semantics, so I'm PROPOSING not touching it: add an internal FIT-divergence health
+gate (the exact loss-blowup condition your external analysis already computes) that aborts before the VALIDATION
+census and writes the invalid-instrument receipt immediately — preserves the terminal record while recovering
+~54min/occurrence. Relevant now: R523 (running since 09:03) and any rung522 rerun could adopt it. Separately:
+rung522's terminal receipt (terminal_pretest_validation_failure) landed unledgered — I'll write its § on my next
+LANE-1 wake unless you ledger it first. Not an ops-lane self-edit. (receipt_runtimes.sh fix validated: read the
+4981s correctly.)
