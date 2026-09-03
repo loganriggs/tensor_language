@@ -1,0 +1,834 @@
+{
+  "claim_level": "circuit_labelled_source_conditioned_interaction_basis_screen_not_causal_or_compression",
+  "execution_price": {
+    "deployed_values_added": 0,
+    "deployed_values_removed": 0,
+    "fitted_model_values": 0,
+    "largest_eigendecomposition_dimension": 32,
+    "model_backwards": 0,
+    "model_forwards": 0
+  },
+  "instrument": {
+    "all_finite": true,
+    "discovery_tags": 32,
+    "maximum_symmetry_error": 0.0,
+    "minimum_control_support": 439,
+    "minimum_member_support": 39,
+    "operator_shapes": [
+      [
+        [
+          2,
+          2,
+          2,
+          32,
+          6,
+          6
+        ],
+        [
+          2,
+          2,
+          2,
+          32,
+          6,
+          6
+        ],
+        [
+          2,
+          2,
+          2,
+          32,
+          32,
+          32
+        ]
+      ],
+      [
+        [
+          2,
+          2,
+          2,
+          32,
+          6,
+          6
+        ],
+        [
+          2,
+          2,
+          2,
+          32,
+          6,
+          6
+        ],
+        [
+          2,
+          2,
+          2,
+          32,
+          32,
+          32
+        ]
+      ]
+    ],
+    "roots": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      18
+    ],
+    "validation_responses_opened": false
+  },
+  "leave_one_root_winners": [
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0007331276888749155,
+          "minimum_own_source_cosine": -0.018789290023235795,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.9999724527224426
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0006578554279993293,
+          "minimum_own_source_cosine": -0.02715425008772317,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9999668069583254
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.00033846087636896227,
+          "minimum_own_source_cosine": -0.4353861888155168,
+          "mode": "payload",
+          "source_projector_overlap": 0.9996795865389215
+        }
+      ],
+      "omitted_root": 0,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -0.0007331276888749155,
+        "minimum_own_source_cosine": -0.018789290023235795,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.9999724527224426
+      }
+    },
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0010752827268191451,
+          "minimum_own_source_cosine": -0.011201467044832797,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.9999498409756519
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0008249525474217471,
+          "minimum_own_source_cosine": -0.02677581360705045,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9999547203173311
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.009850175928889038,
+          "minimum_own_source_cosine": -0.37204745703024256,
+          "mode": "payload",
+          "source_projector_overlap": 0.9997262975077692
+        }
+      ],
+      "omitted_root": 2,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -0.0010752827268191451,
+        "minimum_own_source_cosine": -0.011201467044832797,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.9999498409756519
+      }
+    },
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0009516615004341485,
+          "minimum_own_source_cosine": -0.018235011731649067,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.9999636725999019
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0012389000721343413,
+          "minimum_own_source_cosine": -0.024445908918706554,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9999096579497851
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.02315327492454028,
+          "minimum_own_source_cosine": -0.3228137835664495,
+          "mode": "payload",
+          "source_projector_overlap": 0.9988628346715526
+        }
+      ],
+      "omitted_root": 4,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -0.0009516615004341485,
+        "minimum_own_source_cosine": -0.018235011731649067,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.9999636725999019
+      }
+    },
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -2.6564735441582388e-05,
+          "minimum_own_source_cosine": -0.019867763086968138,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.9999757335552848
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0012253236245254526,
+          "minimum_own_source_cosine": -0.025790910005494903,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9998586590952936
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.18753408418110862,
+          "minimum_own_source_cosine": -0.12340630252445531,
+          "mode": "payload",
+          "source_projector_overlap": 0.971603813386331
+        }
+      ],
+      "omitted_root": 6,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -2.6564735441582388e-05,
+        "minimum_own_source_cosine": -0.019867763086968138,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.9999757335552848
+      }
+    },
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0007591136420923156,
+          "minimum_own_source_cosine": -0.016621178072718155,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.999975538411761
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0008309543825235424,
+          "minimum_own_source_cosine": -0.025741572925313056,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9999676297101765
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.015751108758412458,
+          "minimum_own_source_cosine": -0.36810991718030717,
+          "mode": "payload",
+          "source_projector_overlap": 0.999062950366167
+        }
+      ],
+      "omitted_root": 8,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -0.0007591136420923156,
+        "minimum_own_source_cosine": -0.016621178072718155,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.999975538411761
+      }
+    },
+    {
+      "candidates": [
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0007672468057265402,
+          "minimum_own_source_cosine": -0.01676536512594917,
+          "mode": "score_branch_1",
+          "source_projector_overlap": 0.999974996740493
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.0008919175367199418,
+          "minimum_own_source_cosine": -0.02614199438292675,
+          "mode": "score_branch_2",
+          "source_projector_overlap": 0.9999575439011404
+        },
+        {
+          "distinct": false,
+          "minimum_own_source_advantage": -0.012525075863884794,
+          "minimum_own_source_cosine": -0.3853796163342283,
+          "mode": "payload",
+          "source_projector_overlap": 0.9992212530614213
+        }
+      ],
+      "omitted_root": 18,
+      "winner": {
+        "distinct": false,
+        "minimum_own_source_advantage": -0.0007672468057265402,
+        "minimum_own_source_cosine": -0.01676536512594917,
+        "mode": "score_branch_1",
+        "source_projector_overlap": 0.999974996740493
+      }
+    }
+  ],
+  "mode_distinctions": {
+    "payload": {
+      "both_source_pairs_hold": false,
+      "holds": false,
+      "other_source_basis_cosines": [
+        -0.37579404269118166,
+        -0.37896385063495064
+      ],
+      "own_source_advantages": [
+        -0.012417235903981583,
+        0.013437026613509595
+      ],
+      "own_source_cosines": [
+        -0.38821127859516324,
+        -0.36552682402144104
+      ],
+      "source_projector_overlap": 0.9991627946338428,
+      "strength": null
+    },
+    "score_branch_1": {
+      "both_source_pairs_hold": false,
+      "holds": false,
+      "other_source_basis_cosines": [
+        -0.013626766975625659,
+        -0.01601934236544499
+      ],
+      "own_source_advantages": [
+        0.0007774014968375195,
+        -0.0007760857277845333
+      ],
+      "own_source_cosines": [
+        -0.012849365478788139,
+        -0.016795428093229522
+      ],
+      "source_projector_overlap": 0.9999738682280537,
+      "strength": null
+    },
+    "score_branch_2": {
+      "both_source_pairs_hold": false,
+      "holds": false,
+      "other_source_basis_cosines": [
+        -0.02703546906768329,
+        -0.024269226849207255
+      ],
+      "own_source_advantages": [
+        0.0009339669987298849,
+        -0.0009108018407845975
+      ],
+      "own_source_cosines": [
+        -0.026101502068953404,
+        -0.025180028689991852
+      ],
+      "source_projector_overlap": 0.999956921525537,
+      "strength": null
+    }
+  },
+  "next_step": "close_rank1_source_conditioned_basis_without_rank_or_threshold_retry",
+  "passing_modes": [],
+  "pred_a_exact_cpu_instrument": true,
+  "pred_b_reproducible_source_conditioned_direction": false,
+  "pred_c_distinct_usable_downstream_bases": false,
+  "pred_d_not_one_root_artifact": false,
+  "rung": 530,
+  "same_winning_mode_count": 0,
+  "source_conditioned_pairs": [
+    {
+      "cross_half_fingerprint_cosine": -0.012849365478788139,
+      "fit_fingerprint_rms": 0.027587185429810587,
+      "half_projector_overlap": 0.9941273408111062,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.014678481089548235,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.9996620531690696
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.007256704851107306,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.9972556530083632
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.014080278589715596,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9991779043710118
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.016547278901819708,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.9983529949980516
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.012621627252336117,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9997683977902909
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.012840840792544302,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.999999589904184
+        }
+      ],
+      "mode": "score_branch_1",
+      "permutation_cosines": [
+        -0.2799452287534044,
+        -0.0636279509424937,
+        -0.16739079243289326,
+        0.015048869631424149,
+        -0.3386872389671315,
+        -0.2340188799075038,
+        0.0851862027894262,
+        -0.08813824671399145,
+        0.43776216324326017,
+        -0.06738199070168467,
+        0.2538287697810369,
+        0.13697300308962762,
+        0.030919516598940013,
+        0.08909407439728906,
+        0.1992622960752218,
+        0.05517774067872086
+      ],
+      "permutation_margin": -0.3126614836253808,
+      "permutation_q95": 0.2998121181465927,
+      "refit_projector_overlap": 0.9515259744291209,
+      "source": "N",
+      "spectrum": [
+        0.00035587554917473506,
+        0.0008368077197413956,
+        0.0011207319555099785,
+        0.0030030359092727056,
+        0.005228712797551644,
+        0.0299056864585566
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.023249424660099115
+    },
+    {
+      "cross_half_fingerprint_cosine": -0.016795428093229522,
+      "fit_fingerprint_rms": 0.027370416604905943,
+      "half_projector_overlap": 0.9937839453717079,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.018789290023235795,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.999648263368943
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.011201467044832797,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.9975081730105863
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.018235011731649067,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9991393800069601
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.019867763086968138,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.9985554455825597
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.016621178072718155,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9997646988805567
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.01676536512594917,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.9999993711090996
+        }
+      ],
+      "mode": "score_branch_1",
+      "permutation_cosines": [
+        0.2539184512086711,
+        0.13482144973713067,
+        0.01983435219312448,
+        0.07685349420100096,
+        0.2212743229792166,
+        0.04917036299702313,
+        0.11166755247674895,
+        0.09269065796986811,
+        -0.11814042663968594,
+        0.18217712610600104,
+        0.12321273203132872,
+        -0.09729114713666746,
+        -0.30580959562716725,
+        -0.2073108606268682,
+        0.027807516356003224,
+        -0.09481867876720249
+      ],
+      "permutation_margin": -0.24623078312980973,
+      "permutation_q95": 0.22943535503658022,
+      "refit_projector_overlap": 0.9494089541712978,
+      "source": "H",
+      "spectrum": [
+        0.00034481845315769186,
+        0.0007948430481683322,
+        0.0011155647260086602,
+        0.0028911936437702778,
+        0.005145867401104462,
+        0.02946573035114227
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.023107975411798574
+    },
+    {
+      "cross_half_fingerprint_cosine": -0.026101502068953404,
+      "fit_fingerprint_rms": 0.026208295198346943,
+      "half_projector_overlap": 0.9799276921794438,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.02715425008772317,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.9998029598522316
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.02677581360705045,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.9981123596035528
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.024445908918706554,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9981830352788638
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.025790910005494903,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.9989535872389809
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.025741572925313056,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9998736553345311
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.02614199438292675,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.9999995273882542
+        }
+      ],
+      "mode": "score_branch_2",
+      "permutation_cosines": [
+        0.0023340972385748923,
+        0.28601693311753246,
+        0.14099287474666325,
+        0.10833350848993045,
+        -0.3478741266108061,
+        0.01478082314331979,
+        -0.0314233640999001,
+        0.23520342709817174,
+        -0.14524624288123075,
+        -0.037877671770663354,
+        0.06563834151814811,
+        -0.029248026989401734,
+        -0.01363003534510856,
+        -0.10103163170124772,
+        0.0009888909490634538,
+        -0.17998618718075585
+      ],
+      "permutation_margin": -0.2740083056719653,
+      "permutation_q95": 0.24790680360301193,
+      "refit_projector_overlap": 0.9997680264081346,
+      "source": "N",
+      "spectrum": [
+        0.0003959593562818414,
+        0.0005170138864983174,
+        0.0008786380063824124,
+        0.0027116659139672294,
+        0.00544080000724385,
+        0.02686681835181942
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.021207327475650375
+    },
+    {
+      "cross_half_fingerprint_cosine": -0.025180028689991852,
+      "fit_fingerprint_rms": 0.02584560671346251,
+      "half_projector_overlap": 0.977776190685475,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.02610804605327693,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.9998098920994702
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.0252293258379974,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.9983157103232048
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.02391918784578933,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9979515241413639
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.025642697791531277,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.9993609325357204
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.024759482885839207,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9998567982252076
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.025201371577698993,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.9999997089919974
+        }
+      ],
+      "mode": "score_branch_2",
+      "permutation_cosines": [
+        0.06189382561350981,
+        -0.02767150489973448,
+        0.005548109722764963,
+        -0.0918562773158984,
+        -0.016972979813830672,
+        -0.1592582582172149,
+        0.03827567682549711,
+        -0.11725067791855749,
+        -0.013595230853404089,
+        0.008487152493727548,
+        0.013835043190418067,
+        0.03757158289750536,
+        0.0891237888053549,
+        -0.10011981810927979,
+        -0.04582496839826942,
+        0.08652144470917965
+      ],
+      "permutation_margin": -0.11235205942321531,
+      "permutation_q95": 0.08717203073322347,
+      "refit_projector_overlap": 0.9997556199268199,
+      "source": "H",
+      "spectrum": [
+        0.00039109845234414363,
+        0.0005021951660645655,
+        0.0008485807267315262,
+        0.002617995468794689,
+        0.005227257420752316,
+        0.02620271032407183
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.020991804544967466
+    },
+    {
+      "cross_half_fingerprint_cosine": -0.38821127859516324,
+      "fit_fingerprint_rms": 0.009305773442169974,
+      "half_projector_overlap": 0.1991880628307066,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.4353861888155168,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.9550776882424005
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.37204745703024256,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.995630384054055
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.3228137835664495,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9889165394075954
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.12340630252445531,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.8922167581409073
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.36810991718030717,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9973111927434491
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.3853796163342283,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.9998831309416089
+        }
+      ],
+      "mode": "payload",
+      "permutation_cosines": [
+        -0.02222211611655106,
+        -0.15239764193874275,
+        0.3548592180437089,
+        0.029888133525958968,
+        0.04289534441246414,
+        -0.12412517753249368,
+        0.099819842942029,
+        -0.11824379749517822,
+        -0.062110043583193275,
+        0.16534713860702716,
+        0.08953300482043551,
+        -0.05216349634453522,
+        -0.18738884303181758,
+        -0.02815814114970074,
+        -0.04673210888419835,
+        -0.04010972589393557
+      ],
+      "permutation_margin": -0.6009364370613608,
+      "permutation_q95": 0.2127251584661976,
+      "refit_projector_overlap": 0.9934615921652583,
+      "source": "N",
+      "spectrum": [
+        0.0003396635224842995,
+        0.0003763632999183693,
+        0.0004433576353139121,
+        0.0004755481124518377,
+        0.0005224310356333158,
+        0.0005765461711030564,
+        0.0006234619671685147,
+        0.0007460153181470527,
+        0.0007676606250051741,
+        0.0008057044639428187,
+        0.0009754270003271392,
+        0.0010086081372124136,
+        0.001073099414515665,
+        0.001197802407184158,
+        0.001452185416823602,
+        0.0016081420702958793,
+        0.0016608006692363868,
+        0.0017362689971396695,
+        0.0019108165054264466,
+        0.0021796038518944894,
+        0.0023068764628097925,
+        0.002962715399349523,
+        0.0031699410682537992,
+        0.0033812783314401,
+        0.0039040932008512024,
+        0.004637664472388447,
+        0.005064613853829054,
+        0.00567687023074354,
+        0.006230273247729516,
+        0.0077399432512331515,
+        0.01098095622309985,
+        0.013761382048638096
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.005286882886480474
+    },
+    {
+      "cross_half_fingerprint_cosine": -0.36552682402144104,
+      "fit_fingerprint_rms": 0.009014758303243458,
+      "half_projector_overlap": 0.22351357546966089,
+      "holds": false,
+      "leave_one_root": [
+        {
+          "cross_half_fingerprint_cosine": -0.4298718046319204,
+          "omitted_root": 0,
+          "projector_overlap_with_full": 0.9488066754060498
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.3511518927434416,
+          "omitted_root": 2,
+          "projector_overlap_with_full": 0.9969216202693509
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.2821611921875409,
+          "omitted_root": 4,
+          "projector_overlap_with_full": 0.9879451610751644
+        },
+        {
+          "cross_half_fingerprint_cosine": 0.1459699382217654,
+          "omitted_root": 6,
+          "projector_overlap_with_full": 0.8039946226762922
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.33855435778306847,
+          "omitted_root": 8,
+          "projector_overlap_with_full": 0.9971353357374048
+        },
+        {
+          "cross_half_fingerprint_cosine": -0.3621074797521202,
+          "omitted_root": 18,
+          "projector_overlap_with_full": 0.9998946889975329
+        }
+      ],
+      "mode": "payload",
+      "permutation_cosines": [
+        0.07321455810056374,
+        -0.033653173521532936,
+        -0.1985973891294955,
+        -0.0246245538884813,
+        -0.050261262899614835,
+        -0.04402082510453552,
+        0.15151545335029787,
+        -0.23147364750958188,
+        -0.047006424358190746,
+        0.022224404211811717,
+        0.12590637611645134,
+        -0.16980029462491447,
+        0.14409337381223966,
+        -0.002617555747065039,
+        -0.10506986282938013,
+        -0.30299941304620165
+      ],
+      "permutation_margin": -0.5114757177181952,
+      "permutation_q95": 0.1459488936967542,
+      "refit_projector_overlap": 0.9933709409059077,
+      "source": "H",
+      "spectrum": [
+        0.00033181349806430305,
+        0.00037039792977768633,
+        0.0004399670557858283,
+        0.00046433400434826996,
+        0.000508631824439762,
+        0.0005610986896431395,
+        0.0006086231498149464,
+        0.0007335045382734113,
+        0.000770981569221102,
+        0.0008000969213164575,
+        0.0009499589580325632,
+        0.000986434884694664,
+        0.0010654818864798167,
+        0.001190140550505997,
+        0.0014315588791692867,
+        0.0015870239708139695,
+        0.0016454002148612971,
+        0.0017166387223820218,
+        0.0018895900842508164,
+        0.0021654344122608252,
+        0.002268843288084172,
+        0.002972091610666488,
+        0.00306751008362587,
+        0.0033290020302708875,
+        0.0038376693554753754,
+        0.004613367810859432,
+        0.005099963477157115,
+        0.005699640430497684,
+        0.006230072459487578,
+        0.007634426323864112,
+        0.010836465018926045,
+        0.013569568280453501
+      ],
+      "stable_leave_one_root_count": 0,
+      "test_fingerprint_rms": 0.005196124896933155
+    }
+  ],
+  "source_hashes": {
+    "basis_aligned/bilinear_quotient/attention0_downstream_canonical_block_rung480_bundle.pt": "2401831045e5b269806a84d6308a941acc61a31ff4868ab9bc39904b0bea6967",
+    "basis_aligned/bilinear_quotient/attention0_downstream_canonical_block_rung480_results.json": "e906cd94eb2d7a97ce6e3df59f9b9a6e270d81e027dc1251585a1d0374fbd9f8",
+    "basis_aligned/bilinear_quotient/ops/attention0_downstream_canonical_block_rung480.py": "616aa6e103011598fac8ea710b023f7c1cbaf59d96115d17cf04ec14f508b577",
+    "basis_aligned/polynomial_causal/ATTENTION0_SOURCE_CONDITIONED_DOWNSTREAM_BASIS_RUNG530_PREREGISTRATION.md": "4ccb1ac1674999962b0215443ab43ac542be351b24bb33fbad86abf49dc734e1"
+  },
+  "status": "complete",
+  "strong_null": true,
+  "winning_mode": null
+}

@@ -1,0 +1,660 @@
+{
+  "audit_passes": true,
+  "call_counts": {
+    "confirmation": 1612,
+    "discovery": 7688
+  },
+  "hashes": {
+    "basis_aligned/bilinear_quotient/equality_shared_private_transition_consensus_rung529_bundle.pt": "4fd6bc3c153adfebd8ab7656cbd51778f28595f28b8a9c807b19a7ec58b26bed",
+    "basis_aligned/bilinear_quotient/equality_shared_private_transition_consensus_rung529_gpu_smoke_v2_results.json": "03a039a0ea4735f196d9f84457803f88ac95eea46b19ae89de8b8eef5223d213",
+    "basis_aligned/bilinear_quotient/equality_shared_private_transition_consensus_rung529_results.json": "48fcea16042edff7de071de1a12fc99903c4b7f76aa81b7947665fbe175ed446",
+    "basis_aligned/bilinear_quotient/ops/equality_shared_private_transition_consensus_rung529_full.py": "9dfcc568538e540ae04c55e8e841211f11d5e75078b38b8e268e94f5edce6886",
+    "basis_aligned/bilinear_quotient/ops/equality_shared_private_transition_consensus_rung529_math.py": "77503f27c2838af78a806f69c5d99b276e232eadca2ab4fed8c889b855e15014",
+    "basis_aligned/bilinear_quotient/ops/equality_shared_private_transition_consensus_rung529_run.py": "8d3c00b73efaca5427d32d3fec0cd8629ffe3cddb70389a9d4c878cb38730f85",
+    "basis_aligned/polynomial_causal/EQUALITY_SHARED_PRIVATE_TRANSITION_CONSENSUS_RUNG529_PREREGISTRATION.md": "638a140610d800a9745157fbb1498bbb36d152d3a612ad54a82b9b3ac47c20ea"
+  },
+  "recomputed_candidates": [
+    {
+      "single_donor": "P",
+      "target": "Z7",
+      "wrong_control": "W8"
+    }
+  ],
+  "recomputed_confirmation": {
+    "Z7": {
+      "holds": false,
+      "windows": {
+        "half0": {
+          "circuit": {
+            "cosine": 0.9703089185130592,
+            "relative_residual": 0.2649228721197301
+          },
+          "clauses": {
+            "absolute_circuit": true,
+            "beats_frozen_single_by_003": true,
+            "beats_frozen_wrong_by_010_cosine": false,
+            "every_continuation_positive": true,
+            "task": true
+          },
+          "continuations": [
+            {
+              "cosine": 0.9588842265300036,
+              "relative_residual": 0.3114305763171979
+            },
+            {
+              "cosine": 0.9705905666039549,
+              "relative_residual": 0.25206009437548355
+            },
+            {
+              "cosine": 0.9729519957822099,
+              "relative_residual": 0.2476831754466068
+            },
+            {
+              "cosine": 0.9783846891339113,
+              "relative_residual": 0.24780399571781453
+            }
+          ],
+          "holds": false,
+          "single": {
+            "cosine": 0.9562533069521945,
+            "relative_residual": 0.29963055980272346
+          },
+          "task": {
+            "cosine": 0.9978296808701775,
+            "relative_residual": 0.07191362629961817
+          },
+          "wrong": {
+            "cosine": 0.8979158496337141,
+            "relative_residual": 0.7188903968695762
+          }
+        },
+        "half1": {
+          "circuit": {
+            "cosine": 0.9115266130137034,
+            "relative_residual": 0.4341999042923415
+          },
+          "clauses": {
+            "absolute_circuit": true,
+            "beats_frozen_single_by_003": true,
+            "beats_frozen_wrong_by_010_cosine": true,
+            "every_continuation_positive": true,
+            "task": true
+          },
+          "continuations": [
+            {
+              "cosine": 0.9160454027387083,
+              "relative_residual": 0.4169652191355824
+            },
+            {
+              "cosine": 0.9128949914943382,
+              "relative_residual": 0.4258862524578695
+            },
+            {
+              "cosine": 0.900795810386168,
+              "relative_residual": 0.46045272747310917
+            },
+            {
+              "cosine": 0.9171235664170738,
+              "relative_residual": 0.43304998433442604
+            }
+          ],
+          "holds": true,
+          "single": {
+            "cosine": 0.8281245659212803,
+            "relative_residual": 0.5658938575206871
+          },
+          "task": {
+            "cosine": 0.9999038428832508,
+            "relative_residual": 0.014042362214125746
+          },
+          "wrong": {
+            "cosine": 0.7701531527522145,
+            "relative_residual": 0.712795378576726
+          }
+        },
+        "pooled": {
+          "circuit": {
+            "cosine": 0.960814847316003,
+            "relative_residual": 0.29522851343917683
+          },
+          "clauses": {
+            "absolute_circuit": true,
+            "beats_frozen_single_by_003": true,
+            "beats_frozen_wrong_by_010_cosine": false,
+            "every_continuation_positive": true,
+            "task": true
+          },
+          "continuations": [
+            {
+              "cosine": 0.9619303235148139,
+              "relative_residual": 0.28898950068300605
+            },
+            {
+              "cosine": 0.961954070245219,
+              "relative_residual": 0.285838775341399
+            },
+            {
+              "cosine": 0.9558048898379284,
+              "relative_residual": 0.30883601747054645
+            },
+            {
+              "cosine": 0.9641829105961176,
+              "relative_residual": 0.2965059914913401
+            }
+          ],
+          "holds": false,
+          "single": {
+            "cosine": 0.9355933932935828,
+            "relative_residual": 0.37200520085854566
+          },
+          "task": {
+            "cosine": 0.9995684201756249,
+            "relative_residual": 0.03151862834605736
+          },
+          "wrong": {
+            "cosine": 0.8816083272423786,
+            "relative_residual": 0.7020098780231957
+          }
+        }
+      }
+    }
+  },
+  "recomputed_confirmation_passers": [],
+  "recomputed_discovery": {
+    "N": {
+      "best_single": "Z7",
+      "circuit": [
+        {
+          "cosine": 0.9189478536645006,
+          "relative_residual": 0.3945691791797228
+        },
+        {
+          "cosine": 0.956085647567892,
+          "relative_residual": 0.41013710676916965
+        }
+      ],
+      "continuations": [
+        [
+          {
+            "cosine": 0.9379616928452481,
+            "relative_residual": 0.34703991642313714
+          },
+          {
+            "cosine": 0.9216115024902278,
+            "relative_residual": 0.39016808230734273
+          },
+          {
+            "cosine": 0.9075324515908858,
+            "relative_residual": 0.42027270959149693
+          },
+          {
+            "cosine": 0.909846709374734,
+            "relative_residual": 0.4150782082090084
+          }
+        ],
+        [
+          {
+            "cosine": 0.9448786767991274,
+            "relative_residual": 0.4235770860187901
+          },
+          {
+            "cosine": 0.9618772214284034,
+            "relative_residual": 0.39255018870485814
+          },
+          {
+            "cosine": 0.96375761891216,
+            "relative_residual": 0.40549799431779954
+          },
+          {
+            "cosine": 0.9529092484336281,
+            "relative_residual": 0.4170770791033861
+          }
+        ]
+      ],
+      "gates": {
+        "circuit_d0": false,
+        "circuit_d1": true,
+        "continuations": true,
+        "d0_beats_every_single_by_005": false,
+        "d0_control_margin": false,
+        "d1_within_002_of_best_single": false,
+        "live": true,
+        "task_both": true
+      },
+      "holds": false,
+      "permutation_q95": 0.21308385436327124,
+      "singles": {
+        "P": [
+          {
+            "cosine": 0.8687178737814177,
+            "relative_residual": 0.49583712403299013
+          },
+          {
+            "cosine": 0.8777818532225127,
+            "relative_residual": 0.572233281525665
+          }
+        ],
+        "Z7": [
+          {
+            "cosine": 0.918175746102756,
+            "relative_residual": 0.39689752365794495
+          },
+          {
+            "cosine": 0.9403865194389147,
+            "relative_residual": 0.41749731147573127
+          }
+        ],
+        "Z8": [
+          {
+            "cosine": 0.9107726531893939,
+            "relative_residual": 0.42366657155164106
+          },
+          {
+            "cosine": 0.9385505002559954,
+            "relative_residual": 0.38182052108916514
+          }
+        ]
+      },
+      "strongest_wrong": "W7",
+      "task": [
+        {
+          "cosine": 0.9992989114370742,
+          "relative_residual": 0.22060337220427761
+        },
+        {
+          "cosine": 0.9981596573327387,
+          "relative_residual": 0.2678091374779632
+        }
+      ],
+      "wrongs": {
+        "W7": [
+          {
+            "cosine": 0.8194496059160545,
+            "relative_residual": 0.7086898056449606
+          },
+          {
+            "cosine": 0.7584318375775835,
+            "relative_residual": 0.8244402734684715
+          }
+        ],
+        "W8": [
+          {
+            "cosine": 0.5349733704063994,
+            "relative_residual": 0.8691153553414126
+          },
+          {
+            "cosine": 0.6421273923464768,
+            "relative_residual": 0.8555373817816627
+          }
+        ]
+      }
+    },
+    "P": {
+      "best_single": "Z7",
+      "circuit": [
+        {
+          "cosine": 0.9115982565162498,
+          "relative_residual": 0.42667385548513315
+        },
+        {
+          "cosine": 0.9102941514263398,
+          "relative_residual": 0.6941042565107307
+        }
+      ],
+      "continuations": [
+        [
+          {
+            "cosine": 0.8895763054560796,
+            "relative_residual": 0.47620006951324617
+          },
+          {
+            "cosine": 0.9180086168858193,
+            "relative_residual": 0.416561949508725
+          },
+          {
+            "cosine": 0.9099304899987375,
+            "relative_residual": 0.43012621394321343
+          },
+          {
+            "cosine": 0.9267595941257843,
+            "relative_residual": 0.385664458125029
+          }
+        ],
+        [
+          {
+            "cosine": 0.9251157311206034,
+            "relative_residual": 0.662599629028079
+          },
+          {
+            "cosine": 0.907865158129765,
+            "relative_residual": 0.7179935932818088
+          },
+          {
+            "cosine": 0.899654238088207,
+            "relative_residual": 0.7358266344277795
+          },
+          {
+            "cosine": 0.9115875023396407,
+            "relative_residual": 0.6591938977142616
+          }
+        ]
+      ],
+      "gates": {
+        "circuit_d0": false,
+        "circuit_d1": false,
+        "continuations": true,
+        "d0_beats_every_single_by_005": false,
+        "d0_control_margin": true,
+        "d1_within_002_of_best_single": false,
+        "live": true,
+        "task_both": true
+      },
+      "holds": false,
+      "permutation_q95": 0.22530201026884555,
+      "singles": {
+        "N": [
+          {
+            "cosine": 0.8484717845273686,
+            "relative_residual": 0.5614710017369731
+          },
+          {
+            "cosine": 0.8957630022724137,
+            "relative_residual": 0.9521755949451307
+          }
+        ],
+        "Z7": [
+          {
+            "cosine": 0.9166797996006157,
+            "relative_residual": 0.418283907662925
+          },
+          {
+            "cosine": 0.8996902500707407,
+            "relative_residual": 0.6182962525881178
+          }
+        ],
+        "Z8": [
+          {
+            "cosine": 0.8862817841205533,
+            "relative_residual": 0.4939112403941852
+          },
+          {
+            "cosine": 0.8767276794258599,
+            "relative_residual": 0.7410720842499328
+          }
+        ]
+      },
+      "strongest_wrong": "W7",
+      "task": [
+        {
+          "cosine": 0.9996945756076863,
+          "relative_residual": 0.13815624871824098
+        },
+        {
+          "cosine": 0.9992993633646786,
+          "relative_residual": 0.18369267902064346
+        }
+      ],
+      "wrongs": {
+        "W7": [
+          {
+            "cosine": 0.7061374995775643,
+            "relative_residual": 0.7370999928807586
+          },
+          {
+            "cosine": 0.8461690311404652,
+            "relative_residual": 0.549352787811475
+          }
+        ],
+        "W8": [
+          {
+            "cosine": 0.6068984060234708,
+            "relative_residual": 0.8155431767124944
+          },
+          {
+            "cosine": 0.8496876709621368,
+            "relative_residual": 0.5539480990581843
+          }
+        ]
+      }
+    },
+    "Z7": {
+      "best_single": "P",
+      "circuit": [
+        {
+          "cosine": 0.9452572776109203,
+          "relative_residual": 0.33046933764149833
+        },
+        {
+          "cosine": 0.9461433730039766,
+          "relative_residual": 0.34035163504530586
+        }
+      ],
+      "continuations": [
+        [
+          {
+            "cosine": 0.9428749247778762,
+            "relative_residual": 0.3392805677860649
+          },
+          {
+            "cosine": 0.9427758407662125,
+            "relative_residual": 0.33371605433882146
+          },
+          {
+            "cosine": 0.9450875087098428,
+            "relative_residual": 0.3402854501189022
+          },
+          {
+            "cosine": 0.9516153730063318,
+            "relative_residual": 0.30869328538588725
+          }
+        ],
+        [
+          {
+            "cosine": 0.9501815947884326,
+            "relative_residual": 0.3303868127389614
+          },
+          {
+            "cosine": 0.9518450824664524,
+            "relative_residual": 0.326565793466516
+          },
+          {
+            "cosine": 0.9378184989843706,
+            "relative_residual": 0.3593571568288669
+          },
+          {
+            "cosine": 0.9474455002619517,
+            "relative_residual": 0.337679975839543
+          }
+        ]
+      ],
+      "gates": {
+        "circuit_d0": true,
+        "circuit_d1": true,
+        "continuations": true,
+        "d0_beats_every_single_by_005": true,
+        "d0_control_margin": true,
+        "d1_within_002_of_best_single": true,
+        "live": true,
+        "task_both": true
+      },
+      "holds": true,
+      "permutation_q95": 0.27638759983841277,
+      "singles": {
+        "N": [
+          {
+            "cosine": 0.9085871953264407,
+            "relative_residual": 0.43759106752177235
+          },
+          {
+            "cosine": 0.9505749218037806,
+            "relative_residual": 0.48999542477018254
+          }
+        ],
+        "P": [
+          {
+            "cosine": 0.9238587674788582,
+            "relative_residual": 0.3847944364505646
+          },
+          {
+            "cosine": 0.8953676427998761,
+            "relative_residual": 0.45956754784750337
+          }
+        ],
+        "Z8": [
+          {
+            "cosine": 0.9042450636003911,
+            "relative_residual": 0.4499201502185179
+          },
+          {
+            "cosine": 0.8989095365288505,
+            "relative_residual": 0.4841410509680489
+          }
+        ]
+      },
+      "strongest_wrong": "W8",
+      "task": [
+        {
+          "cosine": 0.9997884352387649,
+          "relative_residual": 0.06150830446997443
+        },
+        {
+          "cosine": 0.9996483800744227,
+          "relative_residual": 0.026871863940204854
+        }
+      ],
+      "wrongs": {
+        "W8": [
+          {
+            "cosine": 0.6901480798317021,
+            "relative_residual": 0.7818044521024018
+          },
+          {
+            "cosine": 0.840725299779133,
+            "relative_residual": 0.6696855501579503
+          }
+        ]
+      }
+    },
+    "Z8": {
+      "best_single": "N",
+      "circuit": [
+        {
+          "cosine": 0.9347450555877118,
+          "relative_residual": 0.35553185894691824
+        },
+        {
+          "cosine": 0.9403261532317241,
+          "relative_residual": 0.3402750478933713
+        }
+      ],
+      "continuations": [
+        [
+          {
+            "cosine": 0.9457205103957508,
+            "relative_residual": 0.3289358623500593
+          },
+          {
+            "cosine": 0.9409043827393958,
+            "relative_residual": 0.34051834056014346
+          },
+          {
+            "cosine": 0.9255220159333376,
+            "relative_residual": 0.37887871674816254
+          },
+          {
+            "cosine": 0.9320819529990386,
+            "relative_residual": 0.36259117004473673
+          }
+        ],
+        [
+          {
+            "cosine": 0.9504966456971548,
+            "relative_residual": 0.3118001740280153
+          },
+          {
+            "cosine": 0.9471955379039529,
+            "relative_residual": 0.3225494849266807
+          },
+          {
+            "cosine": 0.9388204882159132,
+            "relative_residual": 0.3464816108445447
+          },
+          {
+            "cosine": 0.9300267481240232,
+            "relative_residual": 0.3675728172604433
+          }
+        ]
+      ],
+      "gates": {
+        "circuit_d0": false,
+        "circuit_d1": true,
+        "continuations": true,
+        "d0_beats_every_single_by_005": true,
+        "d0_control_margin": true,
+        "d1_within_002_of_best_single": true,
+        "live": true,
+        "task_both": true
+      },
+      "holds": false,
+      "permutation_q95": 0.21005257432775265,
+      "singles": {
+        "N": [
+          {
+            "cosine": 0.9112987330925013,
+            "relative_residual": 0.4169797683314614
+          },
+          {
+            "cosine": 0.9224949878735524,
+            "relative_residual": 0.4924702547988951
+          }
+        ],
+        "P": [
+          {
+            "cosine": 0.88395430194142,
+            "relative_residual": 0.4712964576076828
+          },
+          {
+            "cosine": 0.8916986227455183,
+            "relative_residual": 0.48099144699228474
+          }
+        ],
+        "Z7": [
+          {
+            "cosine": 0.9074801623711303,
+            "relative_residual": 0.42934719258660536
+          },
+          {
+            "cosine": 0.904625642457544,
+            "relative_residual": 0.42645270568537097
+          }
+        ]
+      },
+      "strongest_wrong": "W7",
+      "task": [
+        {
+          "cosine": 0.9988635344162932,
+          "relative_residual": 0.28448493550199294
+        },
+        {
+          "cosine": 0.9972489815260105,
+          "relative_residual": 0.27121538869709305
+        }
+      ],
+      "wrongs": {
+        "W7": [
+          {
+            "cosine": 0.8302989049320854,
+            "relative_residual": 0.6833954859130671
+          },
+          {
+            "cosine": 0.8328395518141043,
+            "relative_residual": 0.6996531100808722
+          }
+        ]
+      }
+    }
+  },
+  "rung": 529,
+  "status": "audit_passed",
+  "validation_and_selectivity_sealed": true
+}

@@ -11,6 +11,13 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1228.md](explanation_2026-09-03_1228.md) — rung531's audited factor-level strong null,
+  the exact two-score computation and pre-outcome algebra correction, an inline percentage graph, and rung532's
+  downstream-62-circuit factor-by-companion causal test
+- [explanation_2026-09-03_1152.md](explanation_2026-09-03_1152.md) — rung528's complete-state null, rung529's
+  physically predictive Z7 consensus and its binding wrong-sign confirmation failure, the exact computation and
+  pre-outcome instrument corrections, rung530's source-conditioned attention0 basis null, and the new
+  causally-validated four-head equality-score factor direction with an inline percentage graph
 - [explanation_2026-09-03_1048.md](explanation_2026-09-03_1048.md) — full update since 09:06: closes the attention8
   optimizer instrument, explains the weight-defined and circuit-conditioned MLP0 token-grouping nulls, gives the
   exact 20-term context decomposition and finite-circuit strong null, separates high rank from interpretability, and

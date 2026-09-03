@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Held-out score-factor similarity for three equality-head pairs</title>
+  <desc id="desc">Horizontal bars show the worse cosine across two held-out document halves. No factor reaches the registered 90 percent threshold.</desc>
+  <rect width="900" height="430" fill="#ffffff"/>
+  <text x="28" y="34" font-family="sans-serif" font-size="22" font-weight="700" fill="#172033">Rung 531: factor similarity on new documents</text>
+  <text x="28" y="58" font-family="sans-serif" font-size="14" fill="#536077">Worse cosine across the two confirmation halves; higher is better</text>
+  <line x1="260" y1="82" x2="810" y2="82" stroke="#c8cfda"/>
+  <line x1="260" y1="82" x2="260" y2="375" stroke="#c8cfda"/>
+  <line x1="535" y1="82" x2="535" y2="375" stroke="#e3e7ed"/>
+  <line x1="755" y1="82" x2="755" y2="375" stroke="#d34a4a" stroke-width="2" stroke-dasharray="6 5"/>
+  <line x1="810" y1="82" x2="810" y2="375" stroke="#e3e7ed"/>
+  <text x="252" y="398" font-family="sans-serif" font-size="13" fill="#536077">0%</text>
+  <text x="522" y="398" font-family="sans-serif" font-size="13" fill="#536077">50%</text>
+  <text x="742" y="398" font-family="sans-serif" font-size="13" fill="#b13232">90%</text>
+  <text x="796" y="398" font-family="sans-serif" font-size="13" fill="#536077">100%</text>
+
+  <text x="28" y="126" font-family="sans-serif" font-size="16" fill="#172033">L5H5 → L8H4</text>
+  <rect x="260" y="101" width="457.1" height="20" rx="3" fill="#3977c9"/>
+  <rect x="260" y="128" width="389.3" height="20" rx="3" fill="#8d63c7"/>
+  <text x="725" y="117" font-family="sans-serif" font-size="13" fill="#172033">83.1%</text>
+  <text x="657" y="144" font-family="sans-serif" font-size="13" fill="#172033">70.8%</text>
+
+  <text x="28" y="216" font-family="sans-serif" font-size="16" fill="#172033">L7H3 → L8H4</text>
+  <rect x="260" y="191" width="472.4" height="20" rx="3" fill="#3977c9"/>
+  <rect x="260" y="218" width="393.4" height="20" rx="3" fill="#8d63c7"/>
+  <text x="740" y="207" font-family="sans-serif" font-size="13" fill="#172033">85.9%</text>
+  <text x="661" y="234" font-family="sans-serif" font-size="13" fill="#172033">71.5%</text>
+
+  <text x="28" y="306" font-family="sans-serif" font-size="16" fill="#172033">L8H3 → L8H4</text>
+  <rect x="260" y="281" width="464.3" height="20" rx="3" fill="#3977c9"/>
+  <rect x="260" y="308" width="424.9" height="20" rx="3" fill="#8d63c7"/>
+  <text x="732" y="297" font-family="sans-serif" font-size="13" fill="#172033">84.4%</text>
+  <text x="693" y="324" font-family="sans-serif" font-size="13" fill="#172033">77.3%</text>
+
+  <rect x="260" y="344" width="18" height="14" rx="2" fill="#3977c9"/>
+  <text x="286" y="356" font-family="sans-serif" font-size="13" fill="#536077">better-matching factor</text>
+  <rect x="452" y="344" width="18" height="14" rx="2" fill="#8d63c7"/>
+  <text x="478" y="356" font-family="sans-serif" font-size="13" fill="#536077">other factor</text>
+  <text x="768" y="74" font-family="sans-serif" font-size="12" fill="#b13232">required</text>
+</svg>

@@ -3895,6 +3895,27 @@ factor reconstruction error was `4.42e-14`, the batch contained1,175 registered 
 was3.16GB. No fitted scales or science outcomes were opened. Core SHA remains `e2eb9bd2...`; the frozen 125-forward
 rows0:500 screen is now eligible for the managed queue, with rows500:1000/OOD/interventions still sealed.
 
+### 2026-09-03T12:18Z — Codex: R531 AUDITED STRONG NULL; RAW FACTORS ARE NOT THE SHARED UNIT
+
+Managed full exit0 after exactly125 forwards; independent bundle audit passes. A true, B/C/D false, strong null.
+No directed head pair shares both score factors or exactly one under the frozen90% cosine/45% error bars. Best
+factor cosine anywhere is85.98% with51.07% error. The three authorized pairs into L8H4 reach83.10/70.79%,
+85.89/71.54%, and84.41/77.25%; all stably prefer the swapped assignment and beat key-prefix reversal strongly, so
+there is structured resemblance but not factor identity. Close scalar one-to-one matching—no threshold/rank retry.
+The next object is interaction-determined: insert a frozen source factor into L8H4 while retaining L8H4's native
+companion, then compare the physical effect across the32 discovery and30 held-out circuit families. This can group a
+factor by downstream use even when its raw score matrix differs.
+
+### 2026-09-03T12:25Z — Codex claims R532: DOWNSTREAM-DEFINED FACTOR EQUIVALENCE
+
+R532 takes the result-conditioned object change rather than retrying R531. It freezes the same-layer
+`L8H3->L8H4` swapped assignment (the only authorized pair with branch-product scale consistency,2.84%), physically
+composes either donor factor with the target's other native factor, and compares its signed CE-effect fingerprint
+across all32 discovery and30 held-out circuit families on unseen rows500:1000. Product-level donor, causal-prefix
+permutation, wrong direct assignment, slice-control, copy-task, and donor-present/absent interaction backgrounds are
+frozen. A 2x2 factorial also measures whether the two factor replacements compose. Exact price is2,625 forwards,
+zero backwards/fitted vectors; OOD remains sealed. Implementation and a21-forward outcome-closed smoke begin now.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:

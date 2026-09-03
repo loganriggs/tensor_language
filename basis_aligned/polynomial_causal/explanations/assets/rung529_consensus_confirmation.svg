@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="520" viewBox="0 0 1080 520" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 529 Z7 confirmation: prediction remains strong but wrong-sign separation fails</title>
+  <desc id="desc">Two grouped bar charts. Consensus circuit cosine exceeds 91 percent in every window but misses the required ten percentage point margin above the wrong-sign control in half zero and pooled data. Consensus relative error beats the frozen single donor by at least three percentage points in every window.</desc>
+  <rect width="1080" height="520" fill="#fbfbfd"/>
+  <style>
+    text{font-family:Inter,Arial,sans-serif;fill:#20232a}.title{font-size:22px;font-weight:700}.sub{font-size:14px;fill:#555}.axis{stroke:#777;stroke-width:1}.grid{stroke:#ddd;stroke-width:1}.lab{font-size:14px}.small{font-size:12px}.cons{fill:#3b82f6}.control{fill:#ef4444}.single{fill:#9ca3af}.threshold{fill:#f59e0b}.pass{fill:#15803d;font-weight:700}.fail{fill:#b91c1c;font-weight:700}
+  </style>
+  <text x="540" y="34" text-anchor="middle" class="title">Z7 consensus on new documents</text>
+  <text x="270" y="64" text-anchor="middle" class="sub">Circuit cosine: must exceed wrong-sign control by 10 points</text>
+  <text x="810" y="64" text-anchor="middle" class="sub">Relative error: must beat frozen single donor by 3 points</text>
+
+  <line x1="70" y1="420" x2="500" y2="420" class="axis"/><line x1="70" y1="90" x2="70" y2="420" class="axis"/>
+  <line x1="70" y1="337.5" x2="500" y2="337.5" class="grid"/><line x1="70" y1="255" x2="500" y2="255" class="grid"/><line x1="70" y1="172.5" x2="500" y2="172.5" class="grid"/><line x1="70" y1="90" x2="500" y2="90" class="grid"/>
+  <text x="58" y="425" text-anchor="end" class="small">0%</text><text x="58" y="342" text-anchor="end" class="small">25%</text><text x="58" y="260" text-anchor="end" class="small">50%</text><text x="58" y="178" text-anchor="end" class="small">75%</text><text x="58" y="95" text-anchor="end" class="small">100%</text>
+  <!-- cosine bars: scale 3.3 px per percentage point -->
+  <rect x="116" y="99.8" width="31" height="320.2" class="cons"/><rect x="151" y="123.7" width="31" height="296.3" class="control"/><rect x="186" y="90.7" width="14" height="329.3" class="threshold"/>
+  <rect x="246" y="119.2" width="31" height="300.8" class="cons"/><rect x="281" y="165.8" width="31" height="254.2" class="control"/><rect x="316" y="132.8" width="14" height="287.2" class="threshold"/>
+  <rect x="376" y="102.9" width="31" height="317.1" class="cons"/><rect x="411" y="129.1" width="31" height="290.9" class="control"/><rect x="446" y="96.1" width="14" height="323.9" class="threshold"/>
+  <text x="158" y="444" text-anchor="middle" class="lab">Half 0</text><text x="288" y="444" text-anchor="middle" class="lab">Half 1</text><text x="418" y="444" text-anchor="middle" class="lab">Pooled</text>
+  <text x="132" y="92" text-anchor="middle" class="small">97.0</text><text x="166" y="116" text-anchor="middle" class="small">89.8</text><text x="253" y="112" text-anchor="middle" class="small">91.2</text><text x="296" y="158" text-anchor="middle" class="small">77.0</text><text x="392" y="95" text-anchor="middle" class="small">96.1</text><text x="426" y="122" text-anchor="middle" class="small">88.2</text>
+  <text x="158" y="477" text-anchor="middle" class="fail">FAIL: +7.2</text><text x="288" y="477" text-anchor="middle" class="pass">PASS: +14.1</text><text x="418" y="477" text-anchor="middle" class="fail">FAIL: +7.9</text>
+
+  <line x1="610" y1="420" x2="1035" y2="420" class="axis"/><line x1="610" y1="90" x2="610" y2="420" class="axis"/>
+  <line x1="610" y1="337.5" x2="1035" y2="337.5" class="grid"/><line x1="610" y1="255" x2="1035" y2="255" class="grid"/><line x1="610" y1="172.5" x2="1035" y2="172.5" class="grid"/><line x1="610" y1="90" x2="1035" y2="90" class="grid"/>
+  <text x="598" y="425" text-anchor="end" class="small">0%</text><text x="598" y="342" text-anchor="end" class="small">15%</text><text x="598" y="260" text-anchor="end" class="small">30%</text><text x="598" y="178" text-anchor="end" class="small">45%</text><text x="598" y="95" text-anchor="end" class="small">60%</text>
+  <!-- error bars: 5.5 px per percentage point -->
+  <rect x="656" y="274.3" width="31" height="145.7" class="cons"/><rect x="691" y="255.2" width="31" height="164.8" class="single"/><rect x="726" y="271.5" width="14" height="148.5" class="threshold"/>
+  <rect x="786" y="181.2" width="31" height="238.8" class="cons"/><rect x="821" y="108.7" width="31" height="311.3" class="single"/><rect x="856" y="125.2" width="14" height="294.8" class="threshold"/>
+  <rect x="916" y="257.6" width="31" height="162.4" class="cons"/><rect x="951" y="215.4" width="31" height="204.6" class="single"/><rect x="986" y="231.9" width="14" height="188.1" class="threshold"/>
+  <text x="698" y="444" text-anchor="middle" class="lab">Half 0</text><text x="828" y="444" text-anchor="middle" class="lab">Half 1</text><text x="958" y="444" text-anchor="middle" class="lab">Pooled</text>
+  <text x="672" y="267" text-anchor="middle" class="small">26.5</text><text x="706" y="248" text-anchor="middle" class="small">30.0</text><text x="802" y="174" text-anchor="middle" class="small">43.4</text><text x="836" y="102" text-anchor="middle" class="small">56.6</text><text x="932" y="250" text-anchor="middle" class="small">29.5</text><text x="966" y="208" text-anchor="middle" class="small">37.2</text>
+  <text x="698" y="477" text-anchor="middle" class="pass">PASS: 3.5 better</text><text x="828" y="477" text-anchor="middle" class="pass">PASS: 13.2 better</text><text x="958" y="477" text-anchor="middle" class="pass">PASS: 7.7 better</text>
+
+  <rect x="330" y="493" width="14" height="14" class="cons"/><text x="350" y="505" class="small">consensus</text><rect x="435" y="493" width="14" height="14" class="control"/><text x="455" y="505" class="small">wrong-sign control</text><rect x="600" y="493" width="14" height="14" class="single"/><text x="620" y="505" class="small">single donor</text><rect x="715" y="493" width="14" height="14" class="threshold"/><text x="735" y="505" class="small">required boundary</text>
+</svg>

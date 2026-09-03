@@ -1,0 +1,26 @@
+{
+ "status": "audit_passed",
+ "rung": 531,
+ "artifact_hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_score_factor_branch_sharing_rung531_results.json": "016d4e7babaf2fa562ee254e76ea8c354a7448ddb9fb70cf4be6c835c77354ab",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/equality_score_factor_branch_sharing_rung531_bundle.pt": "62f3a224eee35b067a79297f967410c2eb342df13e868f9bc31f2ad4de534442",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_score_factor_branch_sharing_rung531.py": "e2eb9bd2674247c1fa1c0e25a50d4e747b899a2883899f3074bf809bc676f71e",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EQUALITY_SCORE_FACTOR_BRANCH_SHARING_RUNG531_PREREGISTRATION.md": "5bc02afcaffc04aa62baf48f8f8dcbbb727deec86e7722287177055730b785b3"
+ },
+ "recomputed_predictions": {
+  "pred_a_exact_authorized_instrument": true,
+  "pred_b_both_score_factors_shared": false,
+  "pred_c_exactly_one_score_factor_shared": false,
+  "pred_d_factor_gauges_match_product": false,
+  "strong_null": true
+ },
+ "both_factor_candidates": [],
+ "one_factor_candidates": [],
+ "gauge_consistent_candidates": [],
+ "calls_reconciled": 125,
+ "sealed_rows_reconfirmed": [
+  500,
+  1000
+ ],
+ "raw_observations_absent": true
+}
