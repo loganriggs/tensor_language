@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "per_rho": {
+    "0.25": {
+      "residual_fraction_product_metric": 0.024990439008209873,
+      "residual_fraction_output_metric": 0.02369683859500295,
+      "residual_fraction_output_metric_rank_ladder": {
+        "3": 0.9345719951073054,
+        "8": 0.9074587323904736,
+        "32": 0.8402778533021074,
+        "128": 0.6747739247220913,
+        "512": 0.28426233152985725,
+        "1152": 0.02369683859500295,
+        "4608": 0.02369683859500295
+      },
+      "target_energy_output_metric": 42383442.56369689,
+      "nuisance_energy_output_metric": 1030842.0369584702
+    },
+    "0.5": {
+      "residual_fraction_product_metric": 0.09269491114960662,
+      "residual_fraction_output_metric": 0.08802865847822,
+      "residual_fraction_output_metric_rank_ladder": {
+        "3": 0.9361857297824591,
+        "8": 0.9103125966631447,
+        "32": 0.8471306512237677,
+        "128": 0.6927775476001681,
+        "512": 0.3297164564249325,
+        "1152": 0.08802865847822,
+        "4608": 0.08802865847822
+      },
+      "target_energy_output_metric": 169533770.25478756,
+      "nuisance_energy_output_metric": 16493472.591335524
+    },
+    "1.0": {
+      "residual_fraction_product_metric": 0.28779113474456214,
+      "residual_fraction_output_metric": 0.2746853135956135,
+      "residual_fraction_output_metric_rank_ladder": {
+        "3": 0.9415847641927728,
+        "8": 0.9195065138333055,
+        "32": 0.8681478859969779,
+        "128": 0.7461605359637429,
+        "512": 0.4622644864834629,
+        "1152": 0.2746853135956135,
+        "4608": 0.2746853135956135
+      },
+      "target_energy_output_metric": 678135081.0191503,
+      "nuisance_energy_output_metric": 263895561.46136838
+    },
+    "2.0": {
+      "residual_fraction_product_metric": 0.611866126541935,
+      "residual_fraction_output_metric": 0.5911509669163464,
+      "residual_fraction_output_metric_rank_ladder": {
+        "3": 0.9549963327559471,
+        "8": 0.9404573730953342,
+        "32": 0.9102368645864104,
+        "128": 0.8430520462601757,
+        "512": 0.6904511817110106,
+        "1152": 0.5911509669163464,
+        "4608": 0.5911509669163464
+      },
+      "target_energy_output_metric": 2712540324.076601,
+      "nuisance_energy_output_metric": 4222328983.381894
+    }
+  },
+  "pure_target_output_effective_rank": 784.7828355948578,
+  "pred_a_instrument_closed_form_matches_monte_carlo": true,
+  "pred_b_no_exact_linear_separator_at_rho1": true,
+  "pred_c_rank32_read_insufficient_at_rho1": true,
+  "strong_null": false,
+  "verdict": "context_target_not_linearly_separable_and_not_low_dim",
+  "runtime_s": 30.04764986038208
+}

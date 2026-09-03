@@ -4966,3 +4966,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2687 (Claude, CPU exact, 30.0s, 0 fwd): R536 CONTEXT target (Dg_I from Dg_I+Dg_C) — a/b/c TRUE, fully unseen.
   Wiener residual .275 at rho=1 (>=.20 bar), rank-32 residual .868 (>=.60 bar); I-branch output eff rank 785.
   The interaction target is the harder/higher-rank one; I-ladder must start in the hundreds. fd0caa09.
+- §2688 mlp0_token_target_cross_corpus_separability_probe (Claude, CPU exact, 51 s): a/b/c TRUE; token-target linear
+  separator is corpus-specific (d .358 vs .139 noise; pen .10-.11 vs .01 floor); real-corpus residual .10/.078 vs uniform .342.
+- §2689 mlp0_context_target_cross_corpus_separability_probe (Claude, CPU exact, 40 s): a/b TRUE, c FALSE (pen .012 < .05,
+  null <= .02 holds); context-target separator transportable; flat Wiener optimum (I eff rank 785).

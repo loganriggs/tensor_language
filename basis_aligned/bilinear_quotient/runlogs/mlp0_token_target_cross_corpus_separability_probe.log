@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "own_residual_output_metric": {
+    "uniform": 0.34226466309872217,
+    "natural": 0.09989800775648441,
+    "code": 0.07772686778156226,
+    "natural_h0": 0.09656976705976057,
+    "natural_h1": 0.09748200231392797,
+    "code_h0": 0.07547808794777688,
+    "code_h1": 0.07514212843643951
+  },
+  "response_distance": {
+    "nat_code": 0.3576733421333717,
+    "nat_h0_h1": 0.13855930682125928,
+    "code_h0_h1": 0.12479658809914942,
+    "uniform_nat": 0.3745279415285068,
+    "uniform_code": 0.4621370579086461
+  },
+  "transfer_penalty": {
+    "nat_to_code": 0.11324106467451397,
+    "code_to_nat": 0.09975251882836114,
+    "nat_h0_to_h1": 0.012232900625476203,
+    "nat_h1_to_h0": 0.012302669295377641,
+    "code_h0_to_h1": 0.010318753043516857,
+    "code_h1_to_h0": 0.010327618283443335,
+    "uniform_to_nat": 0.10166787617846149,
+    "uniform_to_code": 0.16798008127345576
+  },
+  "pred_a_instrument_uniform_map_reproduces_frozen_result": true,
+  "pred_b_cross_corpus_map_disagreement_exceeds_split_half_noise": true,
+  "pred_c_cross_corpus_transfer_penalty_is_material": true,
+  "strong_null": false,
+  "verdict": "linear_separator_is_corpus_specific_clause_B_structurally_binding",
+  "runtime_s": 51.31381154060364
+}

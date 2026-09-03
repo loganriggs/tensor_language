@@ -1,0 +1,55 @@
+{
+  "calls": 1440,
+  "checks": {
+    "context_detail": {
+      "final_natural/donor_absent/half0": {
+        "private_base_cells_passing": 0,
+        "private_control_cells_passing": 4
+      },
+      "final_natural/donor_absent/half1": {
+        "private_base_cells_passing": 0,
+        "private_control_cells_passing": 4
+      },
+      "final_natural/donor_present/half0": {
+        "private_base_cells_passing": 0,
+        "private_control_cells_passing": 4
+      },
+      "final_natural/donor_present/half1": {
+        "private_base_cells_passing": 0,
+        "private_control_cells_passing": 4
+      },
+      "ood_code/donor_absent/half0": {
+        "private_base_cells_passing": 1,
+        "private_control_cells_passing": 4
+      },
+      "ood_code/donor_absent/half1": {
+        "private_base_cells_passing": 1,
+        "private_control_cells_passing": 4
+      },
+      "ood_code/donor_present/half0": {
+        "private_base_cells_passing": 2,
+        "private_control_cells_passing": 4
+      },
+      "ood_code/donor_present/half1": {
+        "private_base_cells_passing": 1,
+        "private_control_cells_passing": 4
+      }
+    },
+    "private_autonomy_code_absent_halves_passing": 0,
+    "private_with_controls_code_absent_halves_passing": 0,
+    "private_with_controls_donor_present_contexts_passing": 1,
+    "private_with_controls_natural_absent_halves_passing": 0,
+    "shared_premise_code_absent_halves_passing": 2
+  },
+  "elapsed_seconds": 34.58060669898987,
+  "interaction_only_correction_strong_null": true,
+  "invalid": false,
+  "pred_a_exact_live_instrument": true,
+  "pred_b_shared_signal_premise_reproduces": true,
+  "pred_c_private_correction_autonomous_on_code": false,
+  "pred_d_private_correction_key_specific": false,
+  "pred_e_private_correction_transfers_to_natural": false,
+  "pred_f_private_correction_survives_redundant_donor": false,
+  "rung": 534,
+  "status": "completed"
+}

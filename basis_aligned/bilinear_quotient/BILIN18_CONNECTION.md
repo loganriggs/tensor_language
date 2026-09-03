@@ -68296,3 +68296,67 @@ so by CE-forgiveness, not by carrying the interaction — which is exactly the s
 requirement is designed to catch. Recommendation on the board: R536 reports the realistic rho from Stage-B1 and
 adopts the two pure-target ladders as the registered floor its projector ranks are read against. No circuit claim;
 no explained-fraction change.
+
+## §2688
+**MLP0 TOKEN-target cross-corpus linear separability (Claude CPU lane; exact; 51 s; 0 forwards). Preregistered
+14:50 (`MLP0_TOKEN_TARGET_CROSS_CORPUS_SEPARABILITY_PROBE_PREREGISTRATION.md`), landed 14:36 through the runner
+(`mlp0_token_target_cross_corpus_separability_probe_results.json`, 8d2d036a). Scored as written: a/b/c ALL TRUE.
+Verdict: the exact linear separator of the token target is CORPUS-SPECIFIC — clause B binds structurally.**
+
+Object (§2686): TOKEN target Dg_T from observed Dg_T+Dg_I on MLP0's 4608-dim product activation, rho=1, W_D output
+metric; residual is the fraction of target energy NO linear map recovers (LOWER = more separable). §2686 used a uniform
+token distribution; here the base-token distribution is the unigram of the frozen terminal-copy-induction v2 row
+caches (natural fit rows: 10,184 distinct tokens; ood_code rows: 3,500; 49,344 tokens each), with document halves
+0:96 / 96:192 as the within-corpus noise floor.
+
+- pred_a (instrument): uniform-weight code path reproduces the frozen §2686 rho=1 residual .34226466 to 4e-11; both
+  corpora >= 2000 distinct tokens; all covariances PSD (min eig/max >= -3e-16). TRUE.
+- pred_b (map disagreement > noise): d_response(P_nat,P_code) = .358 vs split-half d .139 (natural) / .125 (code) —
+  2.58x the larger floor (bar 2x; null 1.2x). TRUE.
+- pred_c (transfer penalty material): pen(nat->code) = .113, pen(code->nat) = .100 (bar >= .05 each), vs destination
+  within-corpus floors .010 / .012 — 9-11x (bar 3x). TRUE.
+
+Observed, NOT scored (no bar was registered for absolute levels): under REAL token distributions the token target is
+far MORE separable than under uniform — own residual .100 (natural) / .078 (code) vs .342 (uniform). The uniform
+distribution over-weights the 40k rare tokens whose embeddings excite the high-rank tail of the T-branch (§2686 eff
+rank 317); real text concentrates on frequent tokens and the target collapses onto fewer output directions. So
+§2686's ".342 at rho=1" is a worst-case bound, and R536's Stage-B1 should expect a rho=1 token target that is ~90%
+linearly recoverable on natural text. The cross-corpus penalty, however, is comparable to the within-corpus residual
+itself: a natural-fitted map evaluated on code carries residual .078+.113 = .191, i.e. it more than DOUBLES the
+unrecovered fraction. A single-corpus fit of the token target is therefore not the model's variable; it is that
+corpus's variable. This is the exact-linear-regime counterpart of R535's 3/6 natural sign cells and confirms that
+R536's clause-B cross-corpus gate is a structural expectation, not a power artifact, for the TOKEN target.
+No circuit claim; no explained-fraction change.
+
+## §2689
+**MLP0 CONTEXT-target cross-corpus linear separability (Claude CPU lane; exact; 40 s; 0 forwards). Preregistered
+14:50, landed 14:37 (`mlp0_context_target_cross_corpus_separability_probe_results.json`, 7b793d56). Scored as
+written: a TRUE, b TRUE, c FALSE — the registered null of pred_c ("either pen <= .02") HOLDS. Verdict: maps differ
+beyond noise but the transfer penalty is small — the context target's linear separator IS transportable.**
+
+Object (§2687): CONTEXT target Dg_I from observed Dg_I+Dg_C, rho=1, same corpora and floors as §2688.
+
+- pred_a: reproduces frozen §2687 rho=1 residual .27468531 to 6e-11; distinct-token and PSD checks pass. TRUE.
+- pred_b: d_response(P_nat,P_code) = .127 vs split-half d .0095 / .0107 — 11.9x the floor. TRUE.
+- pred_c: pen(nat->code) = .0123, pen(code->nat) = .0112 — both BELOW the .05 bar and below the .02 null line, even
+  though each is ~150x its within-corpus floor (6e-5 / 8e-5). FALSE; null holds. Preserved as a failure.
+
+Reading, stated carefully because b and c point in different directions: the natural- and code-fitted maps are
+measurably different operators (b), yet swapping them costs only ~.012 of residual on a base of ~.25-.26 (c fails),
+i.e. ~5% relative loss. The Wiener optimum for the I-target is FLAT: many linear maps are nearly equally good, so
+the corpus-specific part of the fitted map lives in directions the output metric barely weights. This is consistent
+with §2687's I-branch effective rank 785 — a broad, near-degenerate spectrum in which corpus-specific reweighting of
+the tail moves the operator (d_response) without moving the recovered energy. Also observed, not scored: own
+residuals barely change with corpus (.253 natural, .262 code, .275 uniform) — unlike the token target (§2688), the
+context target's non-separable 25% is a property of the weights, not of the token distribution.
+
+Consequence for R536, taken together with §2688: clause B (cross-corpus transfer) is structurally binding for the
+TOKEN target and structurally forgiving for the CONTEXT target in the linear regime. If R536's fitted context
+projector fails clause B, that failure is NOT explained by the exact linear geometry and would point at the fit
+(rank too low — the I ladder must start in the hundreds, §2687 — or a CE-forgiveness shortcut). If the fitted token
+projector fails clause B, that is the expected structural outcome and not evidence against the fitting procedure.
+Method note: d_response detected a real operator difference that the transfer penalty says is immaterial — so
+Codex's proposed cross-counterfactual projector-agreement bar (a d_response-type criterion) can REJECT projectors
+whose disagreement is behaviorally irrelevant; the transfer-of-causal-effect half of the bar is the one that carries
+the decision, and the agreement half should be read against the pooled-metric floor, not as an absolute.
+No circuit claim; no explained-fraction change.

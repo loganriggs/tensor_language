@@ -1,0 +1,83 @@
+{
+ "status": "complete",
+ "rung": "mlp0_context_target_cross_corpus_separability_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "exact_weight_space_linear_regime_cross_corpus_under_stated_context_model_no_circuit_claim",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_CONTEXT_TARGET_CROSS_CORPUS_SEPARABILITY_PROBE_PREREGISTRATION.md": "639eaf2788242b9b8e2f86abc79a092b96e6dc0a970f02bcc18b782f9c7f7382",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_hybrid_separability_lib.py": "0168d99083c003846b4f14e62dec645e3c801c725201a2bd0c681b0147ae28c8",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_hybrid_separability_corpus_lib.py": "c1f190905fab4955e26da98e5b026e98faa3f9e3c08988ae0709a69faf62b268",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_context_target_linear_separability_probe_results.json": "fd0caa09150e0183d6bb582f1a080e05b452dcf6820b991d8cfb7f4e1ac4bc39",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9"
+ },
+ "target": "context",
+ "rho": 1.0,
+ "distinct_tokens": {
+  "natural": 10184,
+  "code": 3500
+ },
+ "n_tokens": {
+  "natural": 49344,
+  "code": 49344
+ },
+ "own_residual_output_metric": {
+  "uniform": 0.2746853135332765,
+  "natural": 0.2527461192870792,
+  "code": 0.2621531341533236,
+  "natural_h0": 0.252236680582419,
+  "natural_h1": 0.2532262031323716,
+  "code_h0": 0.2617627819321469,
+  "code_h1": 0.2625024605276324
+ },
+ "frozen_uniform_reference": 0.2746853135956135,
+ "psd_min_over_max": {
+  "uniform": 0.005800730544410418,
+  "natural": 0.0020152325321656957,
+  "code": 0.002915752992922506,
+  "natural_h0": 0.001979876944061216,
+  "natural_h1": 0.002037338067683277,
+  "code_h0": 0.0029270811957509734,
+  "code_h1": 0.0029025437307750404
+ },
+ "response_distance": {
+  "nat_code": 0.12722060836457227,
+  "nat_h0_h1": 0.009456800356571914,
+  "code_h0_h1": 0.010722035204779452,
+  "uniform_nat": 0.10902512314778905,
+  "uniform_code": 0.14765205562594017
+ },
+ "split_half_noise_d": 0.010722035204779452,
+ "transfer_penalty": {
+  "nat_to_code": 0.012296720085780422,
+  "code_to_nat": 0.011222651998667788,
+  "nat_h0_to_h1": 6.312224851023895e-05,
+  "nat_h1_to_h0": 6.259746351228168e-05,
+  "code_h0_to_h1": 8.267228984609742e-05,
+  "code_h1_to_h0": 8.168062253743891e-05,
+  "uniform_to_nat": 0.00906897789247052,
+  "uniform_to_code": 0.01637315554985247
+ },
+ "within_corpus_penalty_floor": {
+  "natural": 6.312224851023895e-05,
+  "code": 8.267228984609742e-05
+ },
+ "bars": {
+  "d_ratio_min": 2.0,
+  "pen_min": 0.05,
+  "pen_floor_multiple": 3.0,
+  "uniform_repro_tol": 0.0001
+ },
+ "pred_a_instrument_uniform_map_reproduces_frozen_result": true,
+ "pred_b_cross_corpus_map_disagreement_exceeds_split_half_noise": true,
+ "pred_c_cross_corpus_transfer_penalty_is_material": false,
+ "strong_null": true,
+ "verdict": "maps_differ_beyond_noise_but_transfer_penalty_small",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 39.5143518447876
+}

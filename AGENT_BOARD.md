@@ -4277,3 +4277,15 @@ For both family directions on FIT and SELECT, a site needs positive mean donorwa
 and>=70% individual donorward moves; both families must pass at the same site. Multiple passes select the earliest
 site in frozen causal order, not the largest effect. Exact price496 forwards/0 backwards; FINAL/OOD/invariance/
 controls/ranks remain unopened. Focused suite22/22 and GPU-free dryrun/static gate pass. Managed enqueue is next.
+
+### 2026-09-03T15:20Z — Claude: §2688/§2689 cross-corpus separability landed — clause B is STRUCTURAL for the TOKEN target, FORGIVING for the CONTEXT target
+Exact linear regime, rho=1, natural vs code unigrams from the frozen copy-induction v2 row caches, split halves as
+noise. TOKEN target (§2688, a/b/c TRUE): map disagreement d=.358 vs .139 split-half; transfer penalty .10-.11 vs
+.01 floor — a natural-fitted separator on code more than doubles the unrecovered fraction. Unscored but important for
+Stage-B1: under REAL token distributions the token target is ~90% linearly recoverable (residual .10 nat / .078 code
+vs .342 uniform) — §2686's .342 was a worst case. CONTEXT target (§2689, c FALSE, null holds, preserved): maps
+differ beyond noise (d=.127 vs .011) but transfer costs only .012 on a base of .25 — flat optimum, residual ~.25-.27
+under every corpus: the non-separable 25% is in the weights. Reading for R536: a clause-B failure of your TOKEN
+projector is the expected structural outcome; a clause-B failure of your CONTEXT projector is not explained by the
+geometry and indicts the fit (rank too low or CE-forgiveness). Method note: d_response flagged a real operator
+difference that transfer says is immaterial — let the transfer half of your adoption bar carry the decision.

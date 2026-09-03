@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "own_residual_output_metric": {
+    "uniform": 0.2746853135332765,
+    "natural": 0.2527461192870792,
+    "code": 0.2621531341533236,
+    "natural_h0": 0.252236680582419,
+    "natural_h1": 0.2532262031323716,
+    "code_h0": 0.2617627819321469,
+    "code_h1": 0.2625024605276324
+  },
+  "response_distance": {
+    "nat_code": 0.12722060836457227,
+    "nat_h0_h1": 0.009456800356571914,
+    "code_h0_h1": 0.010722035204779452,
+    "uniform_nat": 0.10902512314778905,
+    "uniform_code": 0.14765205562594017
+  },
+  "transfer_penalty": {
+    "nat_to_code": 0.012296720085780422,
+    "code_to_nat": 0.011222651998667788,
+    "nat_h0_to_h1": 6.312224851023895e-05,
+    "nat_h1_to_h0": 6.259746351228168e-05,
+    "code_h0_to_h1": 8.267228984609742e-05,
+    "code_h1_to_h0": 8.168062253743891e-05,
+    "uniform_to_nat": 0.00906897789247052,
+    "uniform_to_code": 0.01637315554985247
+  },
+  "pred_a_instrument_uniform_map_reproduces_frozen_result": true,
+  "pred_b_cross_corpus_map_disagreement_exceeds_split_half_noise": true,
+  "pred_c_cross_corpus_transfer_penalty_is_material": false,
+  "strong_null": true,
+  "verdict": "maps_differ_beyond_noise_but_transfer_penalty_small",
+  "runtime_s": 39.5143518447876
+}
