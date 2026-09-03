@@ -4223,3 +4223,14 @@ and OOD/selectivity bars. Canonical `task.bracket.pending_opener` claim v2 links
 it deliberately remains `proposed` until matched punctuation controls are materialized and FIT/SELECT capability
 passes. Combined focused suite20/20. Next CPU action: freeze those controls as a separate immutable artifact; only then
 may managed-GPU capability/site screening begin.
+
+### 2026-09-03T14:27Z — Codex: R537 MATCHED CONTROLS FROZEN; CLAIM ADVANCES TO SPECIFIED
+
+Added96 group-matched non-opener controls: comma→colon is exactly one token before an unchanged parenthesis opener;
+length, suffix, pending state, and correct closer are fixed in every row. Square/curly closer logits are registered
+as wrong-answer controls, plus five same-rank random subspaces at execution time. Control hash
+`f2693b9b78a9266619afc45ceb6f70e4f2339aa1980263ca22d3ea4453145494`; it binds the parent rows hash and keeps
+FINAL/OOD unopened. Canonical pending-opener claim v3 is now `specified`, with immutable preregistered capability and
+common-site-ceiling events. Registry execution keys now bind all dataset/control/split hashes in addition to the
+design key. Combined focused suite24/24. Next: implement the managed FIT/SELECT-only capability evaluator; its failure
+stops before any DAS or final/OOD access.

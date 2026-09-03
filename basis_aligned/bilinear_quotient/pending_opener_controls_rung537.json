@@ -1,0 +1,5793 @@
+{
+  "controls": {
+    "nonopener_punctuation_substitution": "comma-to-colon single-token edit before an unchanged pending parenthesis",
+    "random_subspace": "same rank and intervention norm, five frozen seeds at model-execution time",
+    "wrong_closer_logits": "square/curly closer logits measured beside the correct parenthesis/quote endpoints"
+  },
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "row_count": 96,
+  "rows": [
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "base_text": "The editor noted, ( the lantern was near the window and the letter",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "donor_text": "The editor noted: ( the lantern was near the window and the letter",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-000",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-000-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "base_text": "A teacher noted, ( the forest was near the planet and the bridge",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "donor_text": "A teacher noted: ( the forest was near the planet and the bridge",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-001",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-001-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "base_text": "My neighbor noted, ( the camera was near the meadow and the singer",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "donor_text": "My neighbor noted: ( the camera was near the meadow and the singer",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-002",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-002-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "base_text": "The guide noted, ( the castle was near the lantern and the window",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "donor_text": "The guide noted: ( the castle was near the lantern and the window",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-003",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-003-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "base_text": "Our friend noted, ( the garden was near the forest and the planet",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "donor_text": "Our friend noted: ( the garden was near the forest and the planet",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-004",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-004-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "base_text": "A reporter noted, ( the market was near the camera and the meadow",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "donor_text": "A reporter noted: ( the market was near the camera and the meadow",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-005",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-005-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "base_text": "The editor noted, ( the pencil was near the castle and the lantern",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "donor_text": "The editor noted: ( the pencil was near the castle and the lantern",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-006",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-006-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "base_text": "A teacher noted, ( the valley was near the garden and the forest",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "donor_text": "A teacher noted: ( the valley was near the garden and the forest",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-007",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-007-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "base_text": "My neighbor noted, ( the basket was near the market and the camera",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "donor_text": "My neighbor noted: ( the basket was near the market and the camera",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-008",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-008-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "base_text": "The guide noted, ( the harbor was near the pencil and the castle",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "donor_text": "The guide noted: ( the harbor was near the pencil and the castle",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-009",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-009-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "base_text": "Our friend noted, ( the ticket was near the valley and the garden",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "donor_text": "Our friend noted: ( the ticket was near the valley and the garden",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-010",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-010-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "base_text": "A reporter noted, ( the river was near the basket and the market",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "donor_text": "A reporter noted: ( the river was near the basket and the market",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-011",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-011-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        3850,
+        373,
+        1474,
+        262,
+        25451,
+        290,
+        262,
+        21613
+      ],
+      "base_text": "The editor noted, ( the letter was near the harbor and the pencil",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        3850,
+        373,
+        1474,
+        262,
+        25451,
+        290,
+        262,
+        21613
+      ],
+      "donor_text": "The editor noted: ( the letter was near the harbor and the pencil",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-012",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-012-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        7696,
+        373,
+        1474,
+        262,
+        7846,
+        290,
+        262,
+        19272
+      ],
+      "base_text": "A teacher noted, ( the bridge was near the ticket and the valley",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        7696,
+        373,
+        1474,
+        262,
+        7846,
+        290,
+        262,
+        19272
+      ],
+      "donor_text": "A teacher noted: ( the bridge was near the ticket and the valley",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-013",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-013-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        14015,
+        373,
+        1474,
+        262,
+        7850,
+        290,
+        262,
+        7988
+      ],
+      "base_text": "My neighbor noted, ( the singer was near the river and the basket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        14015,
+        373,
+        1474,
+        262,
+        7850,
+        290,
+        262,
+        7988
+      ],
+      "donor_text": "My neighbor noted: ( the singer was near the river and the basket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-014",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-014-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        4324,
+        373,
+        1474,
+        262,
+        3850,
+        290,
+        262,
+        25451
+      ],
+      "base_text": "The guide noted, ( the window was near the letter and the harbor",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        4324,
+        373,
+        1474,
+        262,
+        3850,
+        290,
+        262,
+        25451
+      ],
+      "donor_text": "The guide noted: ( the window was near the letter and the harbor",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-015",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-015-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        5440,
+        373,
+        1474,
+        262,
+        7696,
+        290,
+        262,
+        7846
+      ],
+      "base_text": "Our friend noted, ( the planet was near the bridge and the ticket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        5440,
+        373,
+        1474,
+        262,
+        7696,
+        290,
+        262,
+        7846
+      ],
+      "donor_text": "Our friend noted: ( the planet was near the bridge and the ticket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-016",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-016-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        502,
+        4584,
+        373,
+        1474,
+        262,
+        14015,
+        290,
+        262,
+        7850
+      ],
+      "base_text": "A reporter noted, ( the meadow was near the singer and the river",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        502,
+        4584,
+        373,
+        1474,
+        262,
+        14015,
+        290,
+        262,
+        7850
+      ],
+      "donor_text": "A reporter noted: ( the meadow was near the singer and the river",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-017",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-017-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "base_text": "The editor noted, ( the lantern was near the window and the letter",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "donor_text": "The editor noted: ( the lantern was near the window and the letter",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-018",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-018-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "base_text": "A teacher noted, ( the forest was near the planet and the bridge",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "donor_text": "A teacher noted: ( the forest was near the planet and the bridge",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-019",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-019-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "base_text": "My neighbor noted, ( the camera was near the meadow and the singer",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "donor_text": "My neighbor noted: ( the camera was near the meadow and the singer",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-020",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-020-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "base_text": "The guide noted, ( the castle was near the lantern and the window",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "donor_text": "The guide noted: ( the castle was near the lantern and the window",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-021",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-021-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "base_text": "Our friend noted, ( the garden was near the forest and the planet",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "donor_text": "Our friend noted: ( the garden was near the forest and the planet",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-022",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-022-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "base_text": "A reporter noted, ( the market was near the camera and the meadow",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "donor_text": "A reporter noted: ( the market was near the camera and the meadow",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-023",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-023-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "base_text": "The editor noted, ( the pencil was near the castle and the lantern",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "donor_text": "The editor noted: ( the pencil was near the castle and the lantern",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-024",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-024-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "base_text": "A teacher noted, ( the valley was near the garden and the forest",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "donor_text": "A teacher noted: ( the valley was near the garden and the forest",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-025",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-025-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "base_text": "My neighbor noted, ( the basket was near the market and the camera",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "donor_text": "My neighbor noted: ( the basket was near the market and the camera",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-026",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-026-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "base_text": "The guide noted, ( the harbor was near the pencil and the castle",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "donor_text": "The guide noted: ( the harbor was near the pencil and the castle",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-027",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-027-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "base_text": "Our friend noted, ( the ticket was near the valley and the garden",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "donor_text": "Our friend noted: ( the ticket was near the valley and the garden",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-028",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-028-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "base_text": "A reporter noted, ( the river was near the basket and the market",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "donor_text": "A reporter noted: ( the river was near the basket and the market",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-029",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-029-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        3850,
+        373,
+        1474,
+        262,
+        25451,
+        290,
+        262,
+        21613
+      ],
+      "base_text": "The editor noted, ( the letter was near the harbor and the pencil",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        3850,
+        373,
+        1474,
+        262,
+        25451,
+        290,
+        262,
+        21613
+      ],
+      "donor_text": "The editor noted: ( the letter was near the harbor and the pencil",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-030",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-030-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        7696,
+        373,
+        1474,
+        262,
+        7846,
+        290,
+        262,
+        19272
+      ],
+      "base_text": "A teacher noted, ( the bridge was near the ticket and the valley",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        7696,
+        373,
+        1474,
+        262,
+        7846,
+        290,
+        262,
+        19272
+      ],
+      "donor_text": "A teacher noted: ( the bridge was near the ticket and the valley",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-031",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-031-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        14015,
+        373,
+        1474,
+        262,
+        7850,
+        290,
+        262,
+        7988
+      ],
+      "base_text": "My neighbor noted, ( the singer was near the river and the basket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        14015,
+        373,
+        1474,
+        262,
+        7850,
+        290,
+        262,
+        7988
+      ],
+      "donor_text": "My neighbor noted: ( the singer was near the river and the basket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-032",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-032-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        4324,
+        373,
+        1474,
+        262,
+        3850,
+        290,
+        262,
+        25451
+      ],
+      "base_text": "The guide noted, ( the window was near the letter and the harbor",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        4324,
+        373,
+        1474,
+        262,
+        3850,
+        290,
+        262,
+        25451
+      ],
+      "donor_text": "The guide noted: ( the window was near the letter and the harbor",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-033",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-033-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        5440,
+        373,
+        1474,
+        262,
+        7696,
+        290,
+        262,
+        7846
+      ],
+      "base_text": "Our friend noted, ( the planet was near the bridge and the ticket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        5440,
+        373,
+        1474,
+        262,
+        7696,
+        290,
+        262,
+        7846
+      ],
+      "donor_text": "Our friend noted: ( the planet was near the bridge and the ticket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-034",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-034-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        502,
+        4584,
+        373,
+        1474,
+        262,
+        14015,
+        290,
+        262,
+        7850
+      ],
+      "base_text": "A reporter noted, ( the meadow was near the singer and the river",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        502,
+        4584,
+        373,
+        1474,
+        262,
+        14015,
+        290,
+        262,
+        7850
+      ],
+      "donor_text": "A reporter noted: ( the meadow was near the singer and the river",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-035",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-035-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "base_text": "The editor noted, ( the lantern was near the window and the letter",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        41207,
+        373,
+        1474,
+        262,
+        4324,
+        290,
+        262,
+        3850
+      ],
+      "donor_text": "The editor noted: ( the lantern was near the window and the letter",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-036",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-036-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "base_text": "A teacher noted, ( the forest was near the planet and the bridge",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        8222,
+        373,
+        1474,
+        262,
+        5440,
+        290,
+        262,
+        7696
+      ],
+      "donor_text": "A teacher noted: ( the forest was near the planet and the bridge",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-037",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-037-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "base_text": "My neighbor noted, ( the camera was near the meadow and the singer",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        4676,
+        373,
+        1474,
+        262,
+        502,
+        4584,
+        290,
+        262,
+        14015
+      ],
+      "donor_text": "My neighbor noted: ( the camera was near the meadow and the singer",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-038",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-038-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "base_text": "The guide noted, ( the castle was near the lantern and the window",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        16669,
+        373,
+        1474,
+        262,
+        41207,
+        290,
+        262,
+        4324
+      ],
+      "donor_text": "The guide noted: ( the castle was near the lantern and the window",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-039",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-039-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "base_text": "Our friend noted, ( the garden was near the forest and the planet",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        11376,
+        373,
+        1474,
+        262,
+        8222,
+        290,
+        262,
+        5440
+      ],
+      "donor_text": "Our friend noted: ( the garden was near the forest and the planet",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-040",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-040-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "base_text": "A reporter noted, ( the market was near the camera and the meadow",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        1910,
+        373,
+        1474,
+        262,
+        4676,
+        290,
+        262,
+        502,
+        4584
+      ],
+      "donor_text": "A reporter noted: ( the market was near the camera and the meadow",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-041",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-041-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5464,
+        4367,
+        11,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "base_text": "The editor noted, ( the pencil was near the castle and the lantern",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5464,
+        4367,
+        25,
+        357,
+        262,
+        21613,
+        373,
+        1474,
+        262,
+        16669,
+        290,
+        262,
+        41207
+      ],
+      "donor_text": "The editor noted: ( the pencil was near the castle and the lantern",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-042",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-042-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        4701,
+        4367,
+        11,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "base_text": "A teacher noted, ( the valley was near the garden and the forest",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        4701,
+        4367,
+        25,
+        357,
+        262,
+        19272,
+        373,
+        1474,
+        262,
+        11376,
+        290,
+        262,
+        8222
+      ],
+      "donor_text": "A teacher noted: ( the valley was near the garden and the forest",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-043",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-043-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3666,
+        4780,
+        4367,
+        11,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "base_text": "My neighbor noted, ( the basket was near the market and the camera",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3666,
+        4780,
+        4367,
+        25,
+        357,
+        262,
+        7988,
+        373,
+        1474,
+        262,
+        1910,
+        290,
+        262,
+        4676
+      ],
+      "donor_text": "My neighbor noted: ( the basket was near the market and the camera",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-044",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-044-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        5698,
+        4367,
+        11,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "base_text": "The guide noted, ( the harbor was near the pencil and the castle",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        5698,
+        4367,
+        25,
+        357,
+        262,
+        25451,
+        373,
+        1474,
+        262,
+        21613,
+        290,
+        262,
+        16669
+      ],
+      "donor_text": "The guide noted: ( the harbor was near the pencil and the castle",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-045",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-045-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        5122,
+        1545,
+        4367,
+        11,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "base_text": "Our friend noted, ( the ticket was near the valley and the garden",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        5122,
+        1545,
+        4367,
+        25,
+        357,
+        262,
+        7846,
+        373,
+        1474,
+        262,
+        19272,
+        290,
+        262,
+        11376
+      ],
+      "donor_text": "Our friend noted: ( the ticket was near the valley and the garden",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-046",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-046-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        9095,
+        4367,
+        11,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "base_text": "A reporter noted, ( the river was near the basket and the market",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        9095,
+        4367,
+        25,
+        357,
+        262,
+        7850,
+        373,
+        1474,
+        262,
+        7988,
+        290,
+        262,
+        1910
+      ],
+      "donor_text": "A reporter noted: ( the river was near the basket and the market",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "fit-047",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "fit-047-nonopener-punctuation",
+      "split": "FIT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        46132,
+        4367,
+        11,
+        357,
+        262,
+        18021,
+        373,
+        1474,
+        262,
+        3989,
+        290,
+        262,
+        13275
+      ],
+      "base_text": "The curator noted, ( the anchor was near the journal and the tunnel",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        46132,
+        4367,
+        25,
+        357,
+        262,
+        18021,
+        373,
+        1474,
+        262,
+        3989,
+        290,
+        262,
+        13275
+      ],
+      "donor_text": "The curator noted: ( the anchor was near the journal and the tunnel",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-048",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-048-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        21493,
+        4367,
+        11,
+        357,
+        262,
+        9592,
+        373,
+        1474,
+        262,
+        18021,
+        290,
+        262,
+        3989
+      ],
+      "base_text": "One visitor noted, ( the kitchen was near the anchor and the journal",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        21493,
+        4367,
+        25,
+        357,
+        262,
+        9592,
+        373,
+        1474,
+        262,
+        18021,
+        290,
+        262,
+        3989
+      ],
+      "donor_text": "One visitor noted: ( the kitchen was near the anchor and the journal",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-049",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-049-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        10654,
+        4367,
+        11,
+        357,
+        262,
+        7022,
+        373,
+        1474,
+        262,
+        9592,
+        290,
+        262,
+        18021
+      ],
+      "base_text": "The captain noted, ( the island was near the kitchen and the anchor",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        10654,
+        4367,
+        25,
+        357,
+        262,
+        7022,
+        373,
+        1474,
+        262,
+        9592,
+        290,
+        262,
+        18021
+      ],
+      "donor_text": "The captain noted: ( the island was near the kitchen and the anchor",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-050",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-050-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        3710,
+        4367,
+        11,
+        357,
+        262,
+        18447,
+        373,
+        1474,
+        262,
+        7022,
+        290,
+        262,
+        9592
+      ],
+      "base_text": "A student noted, ( the blanket was near the island and the kitchen",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        3710,
+        4367,
+        25,
+        357,
+        262,
+        18447,
+        373,
+        1474,
+        262,
+        7022,
+        290,
+        262,
+        9592
+      ],
+      "donor_text": "A student noted: ( the blanket was near the island and the kitchen",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-051",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-051-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        46132,
+        4367,
+        11,
+        357,
+        262,
+        38283,
+        373,
+        1474,
+        262,
+        18447,
+        290,
+        262,
+        7022
+      ],
+      "base_text": "The curator noted, ( the violin was near the blanket and the island",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        46132,
+        4367,
+        25,
+        357,
+        262,
+        38283,
+        373,
+        1474,
+        262,
+        18447,
+        290,
+        262,
+        7022
+      ],
+      "donor_text": "The curator noted: ( the violin was near the blanket and the island",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-052",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-052-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        21493,
+        4367,
+        11,
+        357,
+        262,
+        13257,
+        373,
+        1474,
+        262,
+        38283,
+        290,
+        262,
+        18447
+      ],
+      "base_text": "One visitor noted, ( the museum was near the violin and the blanket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        21493,
+        4367,
+        25,
+        357,
+        262,
+        13257,
+        373,
+        1474,
+        262,
+        38283,
+        290,
+        262,
+        18447
+      ],
+      "donor_text": "One visitor noted: ( the museum was near the violin and the blanket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-053",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-053-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        10654,
+        4367,
+        11,
+        357,
+        262,
+        13275,
+        373,
+        1474,
+        262,
+        13257,
+        290,
+        262,
+        38283
+      ],
+      "base_text": "The captain noted, ( the tunnel was near the museum and the violin",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        10654,
+        4367,
+        25,
+        357,
+        262,
+        13275,
+        373,
+        1474,
+        262,
+        13257,
+        290,
+        262,
+        38283
+      ],
+      "donor_text": "The captain noted: ( the tunnel was near the museum and the violin",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-054",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-054-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        3710,
+        4367,
+        11,
+        357,
+        262,
+        3989,
+        373,
+        1474,
+        262,
+        13275,
+        290,
+        262,
+        13257
+      ],
+      "base_text": "A student noted, ( the journal was near the tunnel and the museum",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        3710,
+        4367,
+        25,
+        357,
+        262,
+        3989,
+        373,
+        1474,
+        262,
+        13275,
+        290,
+        262,
+        13257
+      ],
+      "donor_text": "A student noted: ( the journal was near the tunnel and the museum",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-055",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-055-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        46132,
+        4367,
+        11,
+        357,
+        262,
+        18021,
+        373,
+        1474,
+        262,
+        3989,
+        290,
+        262,
+        13275
+      ],
+      "base_text": "The curator noted, ( the anchor was near the journal and the tunnel",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        46132,
+        4367,
+        25,
+        357,
+        262,
+        18021,
+        373,
+        1474,
+        262,
+        3989,
+        290,
+        262,
+        13275
+      ],
+      "donor_text": "The curator noted: ( the anchor was near the journal and the tunnel",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-056",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-056-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        21493,
+        4367,
+        11,
+        357,
+        262,
+        9592,
+        373,
+        1474,
+        262,
+        18021,
+        290,
+        262,
+        3989
+      ],
+      "base_text": "One visitor noted, ( the kitchen was near the anchor and the journal",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        21493,
+        4367,
+        25,
+        357,
+        262,
+        9592,
+        373,
+        1474,
+        262,
+        18021,
+        290,
+        262,
+        3989
+      ],
+      "donor_text": "One visitor noted: ( the kitchen was near the anchor and the journal",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-057",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-057-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        10654,
+        4367,
+        11,
+        357,
+        262,
+        7022,
+        373,
+        1474,
+        262,
+        9592,
+        290,
+        262,
+        18021
+      ],
+      "base_text": "The captain noted, ( the island was near the kitchen and the anchor",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        10654,
+        4367,
+        25,
+        357,
+        262,
+        7022,
+        373,
+        1474,
+        262,
+        9592,
+        290,
+        262,
+        18021
+      ],
+      "donor_text": "The captain noted: ( the island was near the kitchen and the anchor",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-058",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-058-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        3710,
+        4367,
+        11,
+        357,
+        262,
+        18447,
+        373,
+        1474,
+        262,
+        7022,
+        290,
+        262,
+        9592
+      ],
+      "base_text": "A student noted, ( the blanket was near the island and the kitchen",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        3710,
+        4367,
+        25,
+        357,
+        262,
+        18447,
+        373,
+        1474,
+        262,
+        7022,
+        290,
+        262,
+        9592
+      ],
+      "donor_text": "A student noted: ( the blanket was near the island and the kitchen",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-059",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-059-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        46132,
+        4367,
+        11,
+        357,
+        262,
+        38283,
+        373,
+        1474,
+        262,
+        18447,
+        290,
+        262,
+        7022
+      ],
+      "base_text": "The curator noted, ( the violin was near the blanket and the island",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        46132,
+        4367,
+        25,
+        357,
+        262,
+        38283,
+        373,
+        1474,
+        262,
+        18447,
+        290,
+        262,
+        7022
+      ],
+      "donor_text": "The curator noted: ( the violin was near the blanket and the island",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-060",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-060-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        21493,
+        4367,
+        11,
+        357,
+        262,
+        13257,
+        373,
+        1474,
+        262,
+        38283,
+        290,
+        262,
+        18447
+      ],
+      "base_text": "One visitor noted, ( the museum was near the violin and the blanket",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        21493,
+        4367,
+        25,
+        357,
+        262,
+        13257,
+        373,
+        1474,
+        262,
+        38283,
+        290,
+        262,
+        18447
+      ],
+      "donor_text": "One visitor noted: ( the museum was near the violin and the blanket",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-061",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-061-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        10654,
+        4367,
+        11,
+        357,
+        262,
+        13275,
+        373,
+        1474,
+        262,
+        13257,
+        290,
+        262,
+        38283
+      ],
+      "base_text": "The captain noted, ( the tunnel was near the museum and the violin",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        10654,
+        4367,
+        25,
+        357,
+        262,
+        13275,
+        373,
+        1474,
+        262,
+        13257,
+        290,
+        262,
+        38283
+      ],
+      "donor_text": "The captain noted: ( the tunnel was near the museum and the violin",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-062",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-062-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        3710,
+        4367,
+        11,
+        357,
+        262,
+        3989,
+        373,
+        1474,
+        262,
+        13275,
+        290,
+        262,
+        13257
+      ],
+      "base_text": "A student noted, ( the journal was near the tunnel and the museum",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        3710,
+        4367,
+        25,
+        357,
+        262,
+        3989,
+        373,
+        1474,
+        262,
+        13275,
+        290,
+        262,
+        13257
+      ],
+      "donor_text": "A student noted: ( the journal was near the tunnel and the museum",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "select-063",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "select-063-nonopener-punctuation",
+      "split": "SELECT",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        7068,
+        4367,
+        11,
+        357,
+        262,
+        393,
+        30215,
+        373,
+        1474,
+        262,
+        20922,
+        290,
+        262,
+        15604
+      ],
+      "base_text": "The architect noted, ( the orchard was near the notebook and the gallery",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        7068,
+        4367,
+        25,
+        357,
+        262,
+        393,
+        30215,
+        373,
+        1474,
+        262,
+        20922,
+        290,
+        262,
+        15604
+      ],
+      "donor_text": "The architect noted: ( the orchard was near the notebook and the gallery",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-064",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-064-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        4973,
+        4367,
+        11,
+        357,
+        262,
+        7404,
+        373,
+        1474,
+        262,
+        393,
+        30215,
+        290,
+        262,
+        20922
+      ],
+      "base_text": "One witness noted, ( the village was near the orchard and the notebook",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        4973,
+        4367,
+        25,
+        357,
+        262,
+        7404,
+        373,
+        1474,
+        262,
+        393,
+        30215,
+        290,
+        262,
+        20922
+      ],
+      "donor_text": "One witness noted: ( the village was near the orchard and the notebook",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-065",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-065-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        11,
+        357,
+        262,
+        13766,
+        373,
+        1474,
+        262,
+        7404,
+        290,
+        262,
+        393,
+        30215
+      ],
+      "base_text": "The librarian noted, ( the theater was near the village and the orchard",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        25,
+        357,
+        262,
+        13766,
+        373,
+        1474,
+        262,
+        7404,
+        290,
+        262,
+        393,
+        30215
+      ],
+      "donor_text": "The librarian noted: ( the theater was near the village and the orchard",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-066",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-066-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        21623,
+        4367,
+        11,
+        357,
+        262,
+        5301,
+        373,
+        1474,
+        262,
+        13766,
+        290,
+        262,
+        7404
+      ],
+      "base_text": "A musician noted, ( the package was near the theater and the village",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        21623,
+        4367,
+        25,
+        357,
+        262,
+        5301,
+        373,
+        1474,
+        262,
+        13766,
+        290,
+        262,
+        7404
+      ],
+      "donor_text": "A musician noted: ( the package was near the theater and the village",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-067",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-067-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        7068,
+        4367,
+        11,
+        357,
+        262,
+        29420,
+        373,
+        1474,
+        262,
+        5301,
+        290,
+        262,
+        13766
+      ],
+      "base_text": "The architect noted, ( the fountain was near the package and the theater",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        7068,
+        4367,
+        25,
+        357,
+        262,
+        29420,
+        373,
+        1474,
+        262,
+        5301,
+        290,
+        262,
+        13766
+      ],
+      "donor_text": "The architect noted: ( the fountain was near the package and the theater",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-068",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-068-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        4973,
+        4367,
+        11,
+        357,
+        262,
+        31855,
+        373,
+        1474,
+        262,
+        29420,
+        290,
+        262,
+        5301
+      ],
+      "base_text": "One witness noted, ( the compass was near the fountain and the package",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        4973,
+        4367,
+        25,
+        357,
+        262,
+        31855,
+        373,
+        1474,
+        262,
+        29420,
+        290,
+        262,
+        5301
+      ],
+      "donor_text": "One witness noted: ( the compass was near the fountain and the package",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-069",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-069-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        11,
+        357,
+        262,
+        15604,
+        373,
+        1474,
+        262,
+        31855,
+        290,
+        262,
+        29420
+      ],
+      "base_text": "The librarian noted, ( the gallery was near the compass and the fountain",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        25,
+        357,
+        262,
+        15604,
+        373,
+        1474,
+        262,
+        31855,
+        290,
+        262,
+        29420
+      ],
+      "donor_text": "The librarian noted: ( the gallery was near the compass and the fountain",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-070",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-070-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        21623,
+        4367,
+        11,
+        357,
+        262,
+        20922,
+        373,
+        1474,
+        262,
+        15604,
+        290,
+        262,
+        31855
+      ],
+      "base_text": "A musician noted, ( the notebook was near the gallery and the compass",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        21623,
+        4367,
+        25,
+        357,
+        262,
+        20922,
+        373,
+        1474,
+        262,
+        15604,
+        290,
+        262,
+        31855
+      ],
+      "donor_text": "A musician noted: ( the notebook was near the gallery and the compass",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-071",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-071-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        7068,
+        4367,
+        11,
+        357,
+        262,
+        393,
+        30215,
+        373,
+        1474,
+        262,
+        20922,
+        290,
+        262,
+        15604
+      ],
+      "base_text": "The architect noted, ( the orchard was near the notebook and the gallery",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        7068,
+        4367,
+        25,
+        357,
+        262,
+        393,
+        30215,
+        373,
+        1474,
+        262,
+        20922,
+        290,
+        262,
+        15604
+      ],
+      "donor_text": "The architect noted: ( the orchard was near the notebook and the gallery",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-072",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-072-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        4973,
+        4367,
+        11,
+        357,
+        262,
+        7404,
+        373,
+        1474,
+        262,
+        393,
+        30215,
+        290,
+        262,
+        20922
+      ],
+      "base_text": "One witness noted, ( the village was near the orchard and the notebook",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        4973,
+        4367,
+        25,
+        357,
+        262,
+        7404,
+        373,
+        1474,
+        262,
+        393,
+        30215,
+        290,
+        262,
+        20922
+      ],
+      "donor_text": "One witness noted: ( the village was near the orchard and the notebook",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-073",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-073-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        11,
+        357,
+        262,
+        13766,
+        373,
+        1474,
+        262,
+        7404,
+        290,
+        262,
+        393,
+        30215
+      ],
+      "base_text": "The librarian noted, ( the theater was near the village and the orchard",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        25,
+        357,
+        262,
+        13766,
+        373,
+        1474,
+        262,
+        7404,
+        290,
+        262,
+        393,
+        30215
+      ],
+      "donor_text": "The librarian noted: ( the theater was near the village and the orchard",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-074",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-074-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        21623,
+        4367,
+        11,
+        357,
+        262,
+        5301,
+        373,
+        1474,
+        262,
+        13766,
+        290,
+        262,
+        7404
+      ],
+      "base_text": "A musician noted, ( the package was near the theater and the village",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        21623,
+        4367,
+        25,
+        357,
+        262,
+        5301,
+        373,
+        1474,
+        262,
+        13766,
+        290,
+        262,
+        7404
+      ],
+      "donor_text": "A musician noted: ( the package was near the theater and the village",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-075",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-075-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        7068,
+        4367,
+        11,
+        357,
+        262,
+        29420,
+        373,
+        1474,
+        262,
+        5301,
+        290,
+        262,
+        13766
+      ],
+      "base_text": "The architect noted, ( the fountain was near the package and the theater",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        7068,
+        4367,
+        25,
+        357,
+        262,
+        29420,
+        373,
+        1474,
+        262,
+        5301,
+        290,
+        262,
+        13766
+      ],
+      "donor_text": "The architect noted: ( the fountain was near the package and the theater",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-076",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-076-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        3198,
+        4973,
+        4367,
+        11,
+        357,
+        262,
+        31855,
+        373,
+        1474,
+        262,
+        29420,
+        290,
+        262,
+        5301
+      ],
+      "base_text": "One witness noted, ( the compass was near the fountain and the package",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        3198,
+        4973,
+        4367,
+        25,
+        357,
+        262,
+        31855,
+        373,
+        1474,
+        262,
+        29420,
+        290,
+        262,
+        5301
+      ],
+      "donor_text": "One witness noted: ( the compass was near the fountain and the package",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-077",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-077-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        11,
+        357,
+        262,
+        15604,
+        373,
+        1474,
+        262,
+        31855,
+        290,
+        262,
+        29420
+      ],
+      "base_text": "The librarian noted, ( the gallery was near the compass and the fountain",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        300,
+        35808,
+        4367,
+        25,
+        357,
+        262,
+        15604,
+        373,
+        1474,
+        262,
+        31855,
+        290,
+        262,
+        29420
+      ],
+      "donor_text": "The librarian noted: ( the gallery was near the compass and the fountain",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-078",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-078-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        21623,
+        4367,
+        11,
+        357,
+        262,
+        20922,
+        373,
+        1474,
+        262,
+        15604,
+        290,
+        262,
+        31855
+      ],
+      "base_text": "A musician noted, ( the notebook was near the gallery and the compass",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        21623,
+        4367,
+        25,
+        357,
+        262,
+        20922,
+        373,
+        1474,
+        262,
+        15604,
+        290,
+        262,
+        31855
+      ],
+      "donor_text": "A musician noted: ( the notebook was near the gallery and the compass",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "final_test-079",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "final_test-079-nonopener-punctuation",
+      "split": "FINAL_TEST",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        11,
+        357,
+        262,
+        10958,
+        373,
+        1474,
+        262,
+        15004,
+        290,
+        262,
+        15879
+      ],
+      "base_text": "During the audit the analyst noted, ( the spectrum was near the voltage and the vector",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        25,
+        357,
+        262,
+        10958,
+        373,
+        1474,
+        262,
+        15004,
+        290,
+        262,
+        15879
+      ],
+      "donor_text": "During the audit the analyst noted: ( the spectrum was near the voltage and the vector",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-080",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-080-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        11,
+        357,
+        262,
+        9720,
+        373,
+        1474,
+        262,
+        10958,
+        290,
+        262,
+        15004
+      ],
+      "base_text": "In appendix B the author noted, ( the kernel was near the spectrum and the voltage",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        25,
+        357,
+        262,
+        9720,
+        373,
+        1474,
+        262,
+        10958,
+        290,
+        262,
+        15004
+      ],
+      "donor_text": "In appendix B the author noted: ( the kernel was near the spectrum and the voltage",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-081",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-081-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        11,
+        357,
+        262,
+        17593,
+        373,
+        1474,
+        262,
+        9720,
+        290,
+        262,
+        10958
+      ],
+      "base_text": "The laboratory note noted, ( the matrix was near the kernel and the spectrum",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        25,
+        357,
+        262,
+        17593,
+        373,
+        1474,
+        262,
+        9720,
+        290,
+        262,
+        10958
+      ],
+      "donor_text": "The laboratory note noted: ( the matrix was near the kernel and the spectrum",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-082",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-082-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        11,
+        357,
+        262,
+        10349,
+        373,
+        1474,
+        262,
+        17593,
+        290,
+        262,
+        9720
+      ],
+      "base_text": "A field report noted, ( the circuit was near the matrix and the kernel",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        25,
+        357,
+        262,
+        10349,
+        373,
+        1474,
+        262,
+        17593,
+        290,
+        262,
+        9720
+      ],
+      "donor_text": "A field report noted: ( the circuit was near the matrix and the kernel",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-083",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-083-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        11,
+        357,
+        262,
+        31624,
+        3008,
+        373,
+        1474,
+        262,
+        10349,
+        290,
+        262,
+        17593
+      ],
+      "base_text": "During the audit the analyst noted, ( the isotope was near the circuit and the matrix",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        25,
+        357,
+        262,
+        31624,
+        3008,
+        373,
+        1474,
+        262,
+        10349,
+        290,
+        262,
+        17593
+      ],
+      "donor_text": "During the audit the analyst noted: ( the isotope was near the circuit and the matrix",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-084",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-084-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        11,
+        357,
+        262,
+        27679,
+        373,
+        1474,
+        262,
+        31624,
+        3008,
+        290,
+        262,
+        10349
+      ],
+      "base_text": "In appendix B the author noted, ( the enzyme was near the isotope and the circuit",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        25,
+        357,
+        262,
+        27679,
+        373,
+        1474,
+        262,
+        31624,
+        3008,
+        290,
+        262,
+        10349
+      ],
+      "donor_text": "In appendix B the author noted: ( the enzyme was near the isotope and the circuit",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-085",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-085-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        11,
+        357,
+        262,
+        15879,
+        373,
+        1474,
+        262,
+        27679,
+        290,
+        262,
+        31624,
+        3008
+      ],
+      "base_text": "The laboratory note noted, ( the vector was near the enzyme and the isotope",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        25,
+        357,
+        262,
+        15879,
+        373,
+        1474,
+        262,
+        27679,
+        290,
+        262,
+        31624,
+        3008
+      ],
+      "donor_text": "The laboratory note noted: ( the vector was near the enzyme and the isotope",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-086",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-086-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        11,
+        357,
+        262,
+        15004,
+        373,
+        1474,
+        262,
+        15879,
+        290,
+        262,
+        27679
+      ],
+      "base_text": "A field report noted, ( the voltage was near the vector and the enzyme",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        25,
+        357,
+        262,
+        15004,
+        373,
+        1474,
+        262,
+        15879,
+        290,
+        262,
+        27679
+      ],
+      "donor_text": "A field report noted: ( the voltage was near the vector and the enzyme",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-087",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-087-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        11,
+        357,
+        262,
+        10958,
+        373,
+        1474,
+        262,
+        15004,
+        290,
+        262,
+        15879
+      ],
+      "base_text": "During the audit the analyst noted, ( the spectrum was near the voltage and the vector",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        25,
+        357,
+        262,
+        10958,
+        373,
+        1474,
+        262,
+        15004,
+        290,
+        262,
+        15879
+      ],
+      "donor_text": "During the audit the analyst noted: ( the spectrum was near the voltage and the vector",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-088",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-088-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        11,
+        357,
+        262,
+        9720,
+        373,
+        1474,
+        262,
+        10958,
+        290,
+        262,
+        15004
+      ],
+      "base_text": "In appendix B the author noted, ( the kernel was near the spectrum and the voltage",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        25,
+        357,
+        262,
+        9720,
+        373,
+        1474,
+        262,
+        10958,
+        290,
+        262,
+        15004
+      ],
+      "donor_text": "In appendix B the author noted: ( the kernel was near the spectrum and the voltage",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-089",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-089-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        11,
+        357,
+        262,
+        17593,
+        373,
+        1474,
+        262,
+        9720,
+        290,
+        262,
+        10958
+      ],
+      "base_text": "The laboratory note noted, ( the matrix was near the kernel and the spectrum",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        25,
+        357,
+        262,
+        17593,
+        373,
+        1474,
+        262,
+        9720,
+        290,
+        262,
+        10958
+      ],
+      "donor_text": "The laboratory note noted: ( the matrix was near the kernel and the spectrum",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-090",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-090-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        11,
+        357,
+        262,
+        10349,
+        373,
+        1474,
+        262,
+        17593,
+        290,
+        262,
+        9720
+      ],
+      "base_text": "A field report noted, ( the circuit was near the matrix and the kernel",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        25,
+        357,
+        262,
+        10349,
+        373,
+        1474,
+        262,
+        17593,
+        290,
+        262,
+        9720
+      ],
+      "donor_text": "A field report noted: ( the circuit was near the matrix and the kernel",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-091",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-091-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        11,
+        357,
+        262,
+        31624,
+        3008,
+        373,
+        1474,
+        262,
+        10349,
+        290,
+        262,
+        17593
+      ],
+      "base_text": "During the audit the analyst noted, ( the isotope was near the circuit and the matrix",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        7191,
+        262,
+        14984,
+        262,
+        12499,
+        4367,
+        25,
+        357,
+        262,
+        31624,
+        3008,
+        373,
+        1474,
+        262,
+        10349,
+        290,
+        262,
+        17593
+      ],
+      "donor_text": "During the audit the analyst noted: ( the isotope was near the circuit and the matrix",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-092",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-092-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        11,
+        357,
+        262,
+        27679,
+        373,
+        1474,
+        262,
+        31624,
+        3008,
+        290,
+        262,
+        10349
+      ],
+      "base_text": "In appendix B the author noted, ( the enzyme was near the isotope and the circuit",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        818,
+        43600,
+        347,
+        262,
+        1772,
+        4367,
+        25,
+        357,
+        262,
+        27679,
+        373,
+        1474,
+        262,
+        31624,
+        3008,
+        290,
+        262,
+        10349
+      ],
+      "donor_text": "In appendix B the author noted: ( the enzyme was near the isotope and the circuit",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-093",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-093-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        11,
+        357,
+        262,
+        15879,
+        373,
+        1474,
+        262,
+        27679,
+        290,
+        262,
+        31624,
+        3008
+      ],
+      "base_text": "The laboratory note noted, ( the vector was near the enzyme and the isotope",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        464,
+        14010,
+        3465,
+        4367,
+        25,
+        357,
+        262,
+        15879,
+        373,
+        1474,
+        262,
+        27679,
+        290,
+        262,
+        31624,
+        3008
+      ],
+      "donor_text": "The laboratory note noted: ( the vector was near the enzyme and the isotope",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-094",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-094-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    },
+    {
+      "answer": ")",
+      "answer_id": 8,
+      "base_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        11,
+        357,
+        262,
+        15004,
+        373,
+        1474,
+        262,
+        15879,
+        290,
+        262,
+        27679
+      ],
+      "base_text": "A field report noted, ( the voltage was near the vector and the enzyme",
+      "construction_checks": {
+        "edit_is_before_opener": true,
+        "equal_token_length": true,
+        "opener_and_suffix_identical": true,
+        "single_token_difference": true
+      },
+      "donor_ids": [
+        32,
+        2214,
+        989,
+        4367,
+        25,
+        357,
+        262,
+        15004,
+        373,
+        1474,
+        262,
+        15879,
+        290,
+        262,
+        27679
+      ],
+      "donor_text": "A field report noted: ( the voltage was near the vector and the enzyme",
+      "family_id": "nonopener_punctuation_substitution",
+      "group_id": "ood-095",
+      "proposed_variable_base": "pending_paren",
+      "proposed_variable_donor": "pending_paren",
+      "role": "invariance",
+      "row_id": "ood-095-nonopener-punctuation",
+      "split": "OOD",
+      "wrong_closer_ids": [
+        60,
+        92
+      ],
+      "wrong_closer_tokens": [
+        "]",
+        "}"
+      ]
+    }
+  ],
+  "schema": "pending_opener_controls_rung537_v1",
+  "source_rows_path": "bilinear_quotient/pending_opener_multifamily_rows_rung537.json",
+  "source_rows_sha256": "c62cdf3929231e06de6883d74f3ab2c86bd524e02474bb2259267d6976e9e7d9",
+  "status": "controls_frozen_outcomes_unopened"
+}

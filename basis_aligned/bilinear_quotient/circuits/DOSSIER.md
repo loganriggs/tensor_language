@@ -13,12 +13,12 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 
 | circuit | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | proposed | `pending_opener_state` | 4 | 0 | materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed |
+| `task.bracket.pending_opener` | specified | `pending_opener_state` | 5 | 0 | run preregistered FIT/SELECT capability gates; only then open the common-site ceiling ladder |
 | `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
-### `task.bracket.pending_opener` — proposed
+### `task.bracket.pending_opener` — specified
 
 **Read:** opener, closer, ordering, and recency evidence in the preceding context. **Operation:** maintain which opener type remains pending after completed earlier spans. **Write:** signed evidence for the matching closer token. **Endpoint:** symmetric donor-closer versus base-closer final-logit margin.
 
@@ -28,11 +28,14 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `closed_then_reopened_type` | interchange | frozen |
 | `pending_state_preserved_surface_edit` | invariance | frozen |
 | `later_matching_closer_reset` | necessity | proposed |
+| `nonopener_punctuation_substitution` | invariance | frozen |
 
 **Existing evidence events:**
 - `pending_opener_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
+- `pending_opener_capability.r537.preregistered.v1`: capability — **inconclusive** (no failure)
+- `pending_opener_common_site_ceiling.r537.preregistered.v1`: full_swap_ceiling — **inconclusive** (no failure)
 
-**Next:** materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed
+**Next:** run preregistered FIT/SELECT capability gates; only then open the common-site ceiling ladder
 
 ### `task.increment.state` — proposed
 

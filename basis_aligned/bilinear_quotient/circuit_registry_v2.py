@@ -132,6 +132,7 @@ def validate_v2(record: dict) -> None:
         for key in ("prereg_artifact_id", "result_artifact_id"):
             if event.get(key):
                 assert event[key] in artifact_ids
+        assert set(event.get("input_artifact_ids", [])) <= artifact_ids
         assert event["design_key"] == design_key(record, event)
         assert event["execution_key"] == execution_key(record, event)
     for claim in record["claims"]:
@@ -185,6 +186,13 @@ def execution_key(record: dict, event: dict) -> str:
         artifact_id = event.get(key)
         if artifact_id:
             bound[artifact_id] = artifacts[artifact_id].get("sha256")
+    for artifact_id in event.get("input_artifact_ids", []):
+        bound[artifact_id] = artifacts[artifact_id].get("sha256")
+    if split:
+        for key in ("partition_artifact_id", "builder_artifact_id"):
+            artifact_id = split.get(key)
+            if artifact_id:
+                bound[artifact_id] = artifacts[artifact_id].get("sha256")
     return _canonical_hash({
         "design_key": event["design_key"],
         "split": split,
