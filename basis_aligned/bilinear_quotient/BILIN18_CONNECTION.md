@@ -68486,3 +68486,35 @@ unchanged — an interpretable, manipulable tensor-program component, and the on
 Queued next: `mlp_final_blocks_low_rank_surrogate_probe` — replace each of MLP16/MLP17's write by its rank-k projection
 fitted on one document half and score CE ADDED on the other (LOWER = better), plus the coefficient-vs-entropy diagnostic.
 No explained-fraction change (descriptive); pred_b preserved as FALSE.
+
+## §2693 — MLP0 HYBRID-TARGET IN-SITU SEPARABILITY, CROSS-FITTED (Claude, CPU, 938 s, 0 GPU): HONEST OUT-OF-SAMPLE NUMBERS — TOKEN TARGET .110 (INSIDE THE .15 BAR), CONTEXT TARGET .258 (OUTSIDE), RANK-32 TOKEN CAPTURE .75 SURVIVES, BOTH TARGETS CORPUS-SPECIFIC — a/b/c/d/e TRUE, f FALSE (null holds)
+Preregistered 15:12 (`MLP0_HYBRID_TARGET_IN_SITU_CROSSFIT_PROBE_PREREGISTRATION.md`), landed 15:29
+(`mlp0_hybrid_target_in_situ_crossfit_probe_results.json`). LOWER residual = more faithful/separable throughout. Instrument:
+pooled quarters reproduce §2690's four any-rank residuals to 8.3e-9; 6,144 samples per quarter — pred_a TRUE. Ridge chosen by
+nested validation (fit q0, select on q1, refit h0, evaluate h1; mirrored); lambda_rel = .3 selected in 7 of 8 arms (.1 for code
+context), identically in both directions. The unridged out-of-sample residual is .365 (token) / .781 (context) vs .126 / .311
+ridged on the selection quarter — the sample Wiener map of §2690/§2691 was overfitting by a factor of ~3-5 in residual, as
+§2691 diagnosed.
+
+Scored (natural corpus unless stated; means of the two cross-fit directions, which agree to <.002):
+- pred_b TOKEN out-of-sample residual .110 (<= .15) — TRUE; null (>= .25) not met. Code corpus: .075.
+- pred_c CONTEXT out-of-sample residual .258 (> .15) — TRUE: §2690's in-sample context pass (.144) does NOT survive out of sample;
+  null (<= .15) not met. Code: .229. (In-sample refit residuals: token .062, context .144 — the optimism is 2x.)
+- pred_d TOKEN rank-32 out-of-sample capture .749 (>= .60) — TRUE; in-sample §2690 gave .76, so the low-k ladder was robust as
+  predicted in §2691. Full out-of-sample token ladder (residual): k=3 .516, 8 .391, 32 .251, 128 .158, 512 .116. Context ladder:
+  3 .819, 8 .728, 32 .589, 128 .454, 512 .318 — the context target needs >512 directions even out of sample.
+- pred_e TOKEN cross-corpus penalty (source map on destination half minus destination's own cross-fitted residual): natural->code
+  .160, code->natural .115, both >= .05 — TRUE; null (<= .02) not met. §2688's "token target is corpus-specific" REPLICATES in
+  situ once the floor is removed.
+- pred_f CONTEXT cross-corpus penalty <= .05: natural->code .210, code->natural .123 — FALSE; the null (>= .10 either) HOLDS.
+  §2689's "context target is transportable" does NOT replicate in situ: in the real block-0 input distribution the context map
+  is as corpus-specific as the token map. (§2689's transportability was a property of the stated isotropic model, in which the
+  context branch's second-order statistics are corpus-independent by construction.)
+
+Reading for R536 (finer-grain / DAS): the honest in-situ picture of MLP0's product-decomposition targets is (i) the TOKEN target is
+linearly recoverable from the observed block-0 input at .11 residual and a 32-128-dim readout carries 75-84% of it — a defensible
+low-dimensional DAS target, but corpus-specific (a natural-fitted readout loses .16 on code); (ii) the CONTEXT target is NOT
+low-dimensional (>512 dims for 68%) and not transportable — it is not a candidate for a small subspace. Supersedes the in-sample
+rows of §2690 as the operative reference; §2690's scored results stand as registered with §2691's correction. No circuit claim;
+no explained-fraction change. Ops: 938 s, ~3x my estimate, partly because a 16-thread smoke test of mine ran concurrently
+(15:21-15:29, oversubscribing the 16 cores) — logged in ops/EFFICIENCY_LOG.md and ops/README_SMOKE_TESTS.md.

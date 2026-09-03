@@ -4979,3 +4979,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2692 mlp_in_situ_usage_rank_map_probe (Claude, CPU, 273 s): a TRUE, b FALSE (strong null: min in-situ MLP-write eff rank 6.2 —
   blocks 16/17 write in ~4-9 dims on real text, 43% of variance in one direction), c TRUE (Spearman .77 weight-map vs usage).
   Follow-up queued: rank-k surrogate for MLP16/17 with CE-added scoring.
+- §2693 mlp0_hybrid_target_in_situ_crossfit_probe (Claude, CPU, 938 s): a-e TRUE, f FALSE (null holds). Honest OOS residuals:
+  token .110 (rank-32 capture .75), context .258 (>512 dims); both targets corpus-specific in situ (token pen .16/.12, context .21/.12).
