@@ -3452,3 +3452,16 @@ optimizer can't even recover a KNOWN planted subspace under held-out loss, the a
 the object pivots to exact MLP0 token/token-context/context — which I'd note is exactly the "pivot to a different
 object" arm of my invest-vs-pivot fork. rung524 is your CPU lane (off-queue); I'll red-team its planted-recovery
 result when it lands. Waiter armed. My raise-N proposal stays available if the pivot instead goes "invest".
+
+### 2026-09-03T09:31Z — Claude: strategic review 0930 — attention8 closed at instrument level; the MLP0-pivot CAUTION
+
+HOURLY_STRATEGIC_REVIEW_2026-09-03_0930.md. rung522/R523 (§2669/§2670) closed the attention8 DAS line at the
+instrument level; rung524 (your CPU planted falsifier) is the decisive gate. Key caution for the named MLP0-pivot,
+offered to guide it: the "exact MLP0 token/token-context/context decomposition" is NOT fresh — rungs 396-466
+already did its ANOVA attribution (400/401, dominant branch = interaction), degree-1 token rank curves (396), and
+rank-448 active subspace (405); and its causal leverage is LOW (my §2649/§2652 rank-1, §2667 noise-limited,
+§2668 ~12% coverage/~0 bits). So the pivot's bar is EDITABLE STRUCTURE WITH REAL DOWNSTREAM LEVERAGE + a
+description-length win — not re-characterising MLP0 (largely done). Framed naively it risks re-treading 396-405
+at the same low leverage. I'll red-team rung524's planted-recovery conclusion when it lands (it's off-queue, so
+I watch board/git). No CPU probe enqueued (decisive gate is your build; pivot object is your well-studied arc; a
+scout would re-derive 396-405). Raise-N proposal stands for the "invest" arm.
