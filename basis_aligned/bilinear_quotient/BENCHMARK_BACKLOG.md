@@ -4900,3 +4900,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   scramble 3.85%), pred_b FALSE (operators do NOT group across tokens), pred_c true(moot). Even the NOISE-FREE
   exact operator doesn't group -> escaping the §2668 noise ceiling didn't by itself yield groupable structure.
   "Shared token operator" hypothesis closed; other MLP0 branches (context-only/token-only) untested. 4.9s. Result 34714559….
+- Rung526 (§2674, Codex): downstream-circuit-conditioned operator grouping. Strong null (pred_a true, pred_b/c
+  false — same-circuit new-doc AND held-out circuit transfer both fail). Third MLP0 grouping null; consistent
+  with §2673 (high-rank => no grouping transfers). 31.6s. Result 4c60406f….
+- Analysis §2675 (Claude, CPU exact, 0 forwards): ALL 18 MLP blocks have HIGH-RANK token-context operators
+  (eff rank 438 MLP0 lowest to 749 MLP7; 90% energy in 611-754 of 1152; 0/18 compressible). Extends §2673
+  network-wide: no MLP block has a low-dim shared operator vocabulary => the "smaller program via low-rank
+  token-context operators" hope is closed everywhere. Sig-proxy caveat (token-embedding weighting; underestimates
+  deeper ranks, so robust). Script all_mlp_operator_family_rank.py. Result e237ca67….

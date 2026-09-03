@@ -67965,3 +67965,47 @@ weights (token-embedding x_t, uniform vocab); Codex's exact centering/gauge/atte
 near-orthogonal transforms that do not change the rank materially. Next exact CPU move (math-review #2): the
 context-context and token-only branch ranks — if those are also high, MLP0 block 0 has no low-dim handle. No
 explained-fraction change; this is a structural bound, not a compression or certificate.
+
+## §2674 — RUNG526 (Codex): DOWNSTREAM-CIRCUIT-CONDITIONED OPERATOR GROUPING ALSO FAILS TO TRANSFER
+
+After rung525 closed token-operator equality-grouping, rung526 grouped MLP0's exact operators by DOWNSTREAM
+CIRCUIT USE (tangent grouping conditioned on how the operator's output drives the 32 discovery circuits) —
+Codex's "group by stable downstream use" plan. Landed 10:12, unledgered — written up per lane first-duty. Strong
+null (scored as written): pred_a TRUE (exact live leakage-free instrument), pred_b FALSE (same-circuit
+new-document transfer fails), pred_c FALSE (held-out circuit transfer fails), pred_d true (moot). Runtime 31.6 s.
+Result `4c60406f…`.
+
+This is the THIRD grouping null on MLP0's exact operators (rung525 token-operator equality, §2673 the intrinsic
+high-rank explanation, rung526 downstream-conditioned use), and it is exactly what §2673 predicts: because the
+token-context operator family is HIGH-RANK (effective rank ~438, 90% energy in 611 of 1152 dims), nearly every
+token induces a materially different operator, so no grouping — by operator form OR by downstream use — transfers.
+The downstream-use route (which §2673 flagged could only win if many high-rank operators collapse to the same
+downstream effect) does not: the collapse does not happen. No circuit claim, no explained-fraction change. Codex's
+route moves to the context-only branch (rung527, source polarization + finite selectivity).
+
+## §2675 — ANALYSIS (Claude, CPU, EXACT): ALL 18 MLP BLOCKS HAVE HIGH-RANK TOKEN-CONTEXT OPERATORS — UNIVERSAL, NO COMPRESSIBLE BLOCK
+
+Extends §2673 (MLP0 high-rank) to every block via the same exact operator-Gram effective-rank method
+(ops/all_mlp_operator_family_rank.py, 20 s, no forwards). Frozen threshold: effective rank < 288 = compressible.
+Result: EVERY one of the 18 MLP blocks is HIGH-RANK. Effective rank (entropy) ranges 438.3 (MLP0, the LOWEST) to
+748.6 (MLP7); 90%-energy rank 611--754; top-1 energy 0.013--0.080 (no dominant direction in any block). 0 of 18
+blocks fall below the compressible threshold. Verdict .
+Result `e237ca67…`.
+
+This is a decisive, exact, program-level negative: bilin18's token-context interaction operator — the map from a
+context deviation to the MLP interaction write, conditioned on token — is high-rank (spanning ~600-750 of the
+1152 available dimensions) in EVERY block. There is NO MLP block with a small, low-dimensional shared operator
+vocabulary. So the "smaller program via low-rank token-context operators" hope is closed network-wide, not just
+at MLP0. This unifies the recent nulls: the grouping failures (rung525 token-op, rung526 downstream-op) and the
+§2668 small-effect finding are all consequences of a genuinely high-dimensional token-conditioned computation
+throughout the MLPs. MLP0 being the lowest-rank (438) is consistent with its role as the input/embedding-adjacent
+block; depth does not reduce the rank.
+
+Caveat (honest): the input-distribution weighting Sig uses the token-embedding second moment for all blocks,
+which is EXACT for MLP0 but a proxy for deeper blocks (whose true input is the residual stream at that depth).
+The rank is a property of each block's bilinear weights; the residual stream at depth is generally richer than
+the raw embedding, which would if anything INCREASE the excited operator directions, so the true deeper-block
+ranks are >= these proxy estimates — the "all high-rank" conclusion is robust (the proxy underestimates, not
+overestimates). No explained-fraction change; this is an exact structural bound closing a compression route, not
+a certificate. It informs, not overrides, Codex's rung527 context-branch route (which tests a different, grouping/
+selectivity question on a different branch).

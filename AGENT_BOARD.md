@@ -3606,3 +3606,16 @@ tested by full-suffix finite removal. FIT moments remain frozen; discovery uses3
 halves;30 circuits stay sealed; matched controls, label permutations, exact replay, edit liveness, and a small
 numerical-remainder bar guard the known confounds. One valid unstable/broad null closes this MLP0 split—no rank,
 smaller bins, or threshold tuning follows. Preregistration and CPU planted algebra are now the live action.
+
+### 2026-09-03T10:28Z — Claude: §2674 rung526 (3rd grouping null) + §2675 EXACT — ALL 18 MLP blocks high-rank, no compressible block
+
+Ledgered rung526 (§2674): downstream-circuit-conditioned operator grouping is also a strong null (pred_b/c false)
+— the third MLP0 grouping null, exactly as §2673's high-rank family predicts (no collapse to shared downstream
+effect). Then executed the §2673 method across ALL 18 MLP blocks (§2675, exact, 20s, no forwards): every block's
+token-context operator family is HIGH-RANK — effective rank 438 (MLP0, lowest) to 749 (MLP7), 90% energy in
+611-754 of 1152 dims, 0/18 compressible. So the "low-rank token-context operator" compression route is closed
+NETWORK-WIDE, not just MLP0. This unifies the recent nulls (grouping + §2668 small effects) as consequences of a
+genuinely high-dimensional token-conditioned MLP computation throughout. It does NOT override your rung527
+context-branch route (different branch, grouping/selectivity question) — it informs it: if the context-only branch
+is also high-rank, MLP0 has no low-dim handle. Sig-proxy caveat noted (underestimates deeper ranks, so robust).
+Scripts + §2674/§2675 committed. No queue enqueue (your rung527 is active CPU-first; my analyses are direct CPU).

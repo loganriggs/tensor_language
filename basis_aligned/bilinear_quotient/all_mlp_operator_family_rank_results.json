@@ -1,0 +1,139 @@
+{
+  "status": "complete",
+  "analysis": "all_mlp_operator_family_effective_rank",
+  "d_model": 1152,
+  "frozen_threshold_compressible_below": 288,
+  "per_block": [
+    {
+      "block": 0,
+      "eff_rank_entropy": 438.2841005775733,
+      "rank_90pct": 611,
+      "top1_energy": 0.06049743130243308,
+      "compressible": false
+    },
+    {
+      "block": 1,
+      "eff_rank_entropy": 690.0724984023149,
+      "rank_90pct": 752,
+      "top1_energy": 0.014749215422586896,
+      "compressible": false
+    },
+    {
+      "block": 2,
+      "eff_rank_entropy": 683.011293641529,
+      "rank_90pct": 734,
+      "top1_energy": 0.013490755882515415,
+      "compressible": false
+    },
+    {
+      "block": 3,
+      "eff_rank_entropy": 675.076375460837,
+      "rank_90pct": 723,
+      "top1_energy": 0.014578485432538422,
+      "compressible": false
+    },
+    {
+      "block": 4,
+      "eff_rank_entropy": 708.1838806541955,
+      "rank_90pct": 736,
+      "top1_energy": 0.01368416854625567,
+      "compressible": false
+    },
+    {
+      "block": 5,
+      "eff_rank_entropy": 689.2169174827148,
+      "rank_90pct": 732,
+      "top1_energy": 0.025605329574868427,
+      "compressible": false
+    },
+    {
+      "block": 6,
+      "eff_rank_entropy": 731.6536965852034,
+      "rank_90pct": 742,
+      "top1_energy": 0.014920413850270476,
+      "compressible": false
+    },
+    {
+      "block": 7,
+      "eff_rank_entropy": 748.5720116411475,
+      "rank_90pct": 752,
+      "top1_energy": 0.013633284451407953,
+      "compressible": false
+    },
+    {
+      "block": 8,
+      "eff_rank_entropy": 740.4904570071022,
+      "rank_90pct": 749,
+      "top1_energy": 0.013507214124754361,
+      "compressible": false
+    },
+    {
+      "block": 9,
+      "eff_rank_entropy": 732.754528356394,
+      "rank_90pct": 750,
+      "top1_energy": 0.014781840120721064,
+      "compressible": false
+    },
+    {
+      "block": 10,
+      "eff_rank_entropy": 741.4996565323694,
+      "rank_90pct": 754,
+      "top1_energy": 0.013033407548209489,
+      "compressible": false
+    },
+    {
+      "block": 11,
+      "eff_rank_entropy": 726.4082107169459,
+      "rank_90pct": 749,
+      "top1_energy": 0.013996852578149742,
+      "compressible": false
+    },
+    {
+      "block": 12,
+      "eff_rank_entropy": 725.7451296882356,
+      "rank_90pct": 747,
+      "top1_energy": 0.013600216232127265,
+      "compressible": false
+    },
+    {
+      "block": 13,
+      "eff_rank_entropy": 731.7100119723275,
+      "rank_90pct": 748,
+      "top1_energy": 0.013074828753329394,
+      "compressible": false
+    },
+    {
+      "block": 14,
+      "eff_rank_entropy": 725.692230509602,
+      "rank_90pct": 744,
+      "top1_energy": 0.01336897092026116,
+      "compressible": false
+    },
+    {
+      "block": 15,
+      "eff_rank_entropy": 713.0897863811942,
+      "rank_90pct": 739,
+      "top1_energy": 0.016086996299806873,
+      "compressible": false
+    },
+    {
+      "block": 16,
+      "eff_rank_entropy": 675.0813047112077,
+      "rank_90pct": 730,
+      "top1_energy": 0.027030842624885296,
+      "compressible": false
+    },
+    {
+      "block": 17,
+      "eff_rank_entropy": 522.1655555124302,
+      "rank_90pct": 702,
+      "top1_energy": 0.08037991763810605,
+      "compressible": false
+    }
+  ],
+  "min_eff_rank": 438.2841005775733,
+  "max_eff_rank": 748.5720116411475,
+  "n_compressible_blocks": 0,
+  "verdict": "all_18_mlp_blocks_high_rank_token_context_operators",
+  "runtime_s": 20.044973373413086
+}
