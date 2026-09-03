@@ -118,7 +118,7 @@
   },
   "task.bracket.pending_opener": {
    "kind": "behavior_circuit",
-   "claim_status": "site_live",
+   "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "categories": {
     "capability": {
@@ -162,8 +162,10 @@
      "blocking_event_ids": [
       "pending_opener_cross_family_das.r540.complete.v1"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_cross_family_das.r540.complete.v1"
+     "planned_event_ids": [
+      "pending_opener_downstream_response_atlas.r549.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_downstream_response_atlas.r549.preregistered.v1"
     },
     "ood": {
      "status": "missing",
@@ -203,7 +205,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 2,
-   "next_missing": "freeze a FIT/SELECT-only downstream-response atlas for the two answer-changing and three answer-preserving families, then preregister a multi-output selective interchange at L13H8; FINAL_TEST/OOD remain unopened"
+   "next_missing": "execute and independently audit the frozen 204-forward R549 FIT-selection/SELECT-validation downstream-response atlas; FINAL_TEST/OOD remain unopened"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
