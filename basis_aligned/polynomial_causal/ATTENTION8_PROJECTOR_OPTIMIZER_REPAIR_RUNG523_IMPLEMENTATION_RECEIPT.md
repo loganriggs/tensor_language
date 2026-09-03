@@ -4,6 +4,9 @@
 **Pre-outcome implementation commit:** `c6f4587ea`  
 **Rung-523 model outcome available:** no
 
+**Pre-outcome test extension:** 2026-09-03 08:35 UTC. A complete synthetic 200-update execution test was added after
+the first receipt commit; the scientific runner bytes did not change. The test and check counts below include it.
+
 ## Implemented computation
 
 The runner implements the three prospective cells frozen in the rung-523 preregistration:
@@ -39,7 +42,7 @@ The runner refuses a changed bucket or total and uses create-only JSON and tenso
 ## Frozen bytes
 
 - runner: `06ac12a85e0feafad9c4eead98a06d279461f393c330310f64b3a31c71bf7426`
-- runner tests: `e749649bd61f139ae36e84782dfd43652cd3fa12e2e4d5031b0cc06076e11daa`
+- runner tests: `f5421735cc9ce6a2ed233fc2fc067e1bab8e1e21e70955b752296ac1a9d6a69b`
 - pure repair math: `0d16b27cdf107efcf40f425bdc1e81350b07d3367db83eeded61a49d676e39e1`
 - pure math tests: `097e33c52e80e8854035d9b89b5c27c2e1d50894c6d6bb4c4755be86aa0eec68`
 - preregistration: `930a751ff6b7f6c69ae6765b569aa31172b5b5aea334ed1f639d17111861e035`
@@ -50,7 +53,8 @@ archive hashes before importing the model stack.
 
 ## Checks passed before queueing
 
-- seven focused CPU tests pass;
+- eight focused CPU tests pass, including a complete synthetic 200-update fit through the prospective candidate
+  path with exact forward/backward/health-call accounting;
 - Python compilation passes;
 - the import-free dry run reports the exact 9,000/9,000 optimization calls, 515 inference calls, and inaccessible
   TEST split;
