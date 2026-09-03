@@ -1,0 +1,84 @@
+{
+ "rung": "late_stack_combined_program_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec7 = 1 - CE/CE(MEAN7)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_combined_program_recovers_half_the_stack": true,
+  "pred_c_composition_penalty_bounded": true,
+  "pred_d_sequence_helps_in_combination": false,
+  "pred_e_cheapest_program_still_beats_mean_by_a_third": true
+ },
+ "nulls": {
+  "b_null_seq_tok_ge_1.40": false,
+  "c_null_pi_ge_.80": false,
+  "d_null_seq_no_better_than_oneshot": false,
+  "e_null_cheapest_ge_1.60": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "repro_tol7": 0.03,
+  "b_max": 0.95,
+  "c_max": 0.4,
+  "d_gain": 0.05,
+  "e_max": 1.25
+ },
+ "null_bars": {
+  "b_min": 1.4,
+  "c_min": 0.8,
+  "d_gain": 0.0,
+  "e_min": 1.6
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "ridge_lambda_rel": 0.01,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "mean7": 1.8850818276405334,
+  "prior_mean7": 1.885,
+  "oneshot": 0.34459954500198364,
+  "prior_oneshot": 0.345,
+  "tokfill": 0.21428030729293823,
+  "prior_tokfill": 0.214,
+  "seq": 0.277538001537323,
+  "prior_seq": 0.278
+ },
+ "ce_added": {
+  "MEAN7": 1.8850818276405334,
+  "ONESHOT_LIN": 0.34459954500198364,
+  "SEQ_LIN": 0.277538001537323,
+  "W16_17_TOKFILL": 0.21428030729293823,
+  "COMBINED_ONESHOT": 0.7729136049747467,
+  "COMBINED_ONESHOT_TOK": 0.6247319579124451,
+  "COMBINED_SEQ_TOK": 0.613548755645752
+ },
+ "composition_penalty": 0.0658521056175232,
+ "recovery_of_mean7": {
+  "COMBINED_ONESHOT": 0.5899840560543912,
+  "COMBINED_ONESHOT_TOK": 0.6685915970584725,
+  "COMBINED_SEQ_TOK": 0.674524072828339
+ },
+ "program_size_numbers": {
+  "oneshot_map": 1327104,
+  "seq_maps": 6635520,
+  "core_basis": 18432,
+  "mlp16_17_core_reads_and_down": 10930176,
+  "note": "mlp16/17 own weights are used as-is here; the core-restricted read is a 16+1 column object per Left/Right but Down is full"
+ },
+ "price": {
+  "gpu_doc_forwards": 992,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 18.843217849731445
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_STACK_COMBINED_PROGRAM_PROBE_PREREGISTRATION.md": "a638e0d8a894118fdb9b91f1aac4fbcf25231058ceb83e8f55084027682c48d0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_pool_surrogate_probe_results.json": "c3e1b9f387927cba3b360872b8d2014b1b5d6a33486e981c6e77ef5656de29f8",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_weights_on_core_input_probe_results.json": "577724584361261327348db32b41dda18aaff8eed6877089a995b9055fa0e55c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "7da9d5f458ccec13bc6eeb697041b7f22c98d87111c65e60d78b9c3dff396521"
+}

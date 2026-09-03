@@ -1,0 +1,34 @@
+{"stage": "fit_cov", "t": 8.7}
+{"stage": "fits_done", "t": 15.2}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.7}
+{"stage": "arms", "MEAN7": 1.8851, "ONESHOT_LIN": 0.3446, "SEQ_LIN": 0.2775, "W16_17_TOKFILL": 0.2143, "COMBINED_ONESHOT": 0.7729, "COMBINED_ONESHOT_TOK": 0.6247, "COMBINED_SEQ_TOK": 0.6135, "t": 18.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_combined_program_recovers_half_the_stack": true,
+  "pred_c_composition_penalty_bounded": true,
+  "pred_d_sequence_helps_in_combination": false,
+  "pred_e_cheapest_program_still_beats_mean_by_a_third": true
+ },
+ "nulls": {
+  "b_null_seq_tok_ge_1.40": false,
+  "c_null_pi_ge_.80": false,
+  "d_null_seq_no_better_than_oneshot": false,
+  "e_null_cheapest_ge_1.60": false
+ },
+ "ce_added": {
+  "MEAN7": 1.8850818276405334,
+  "ONESHOT_LIN": 0.34459954500198364,
+  "SEQ_LIN": 0.277538001537323,
+  "W16_17_TOKFILL": 0.21428030729293823,
+  "COMBINED_ONESHOT": 0.7729136049747467,
+  "COMBINED_ONESHOT_TOK": 0.6247319579124451,
+  "COMBINED_SEQ_TOK": 0.613548755645752
+ },
+ "pi": 0.0658521056175232,
+ "rec7": {
+  "COMBINED_ONESHOT": 0.5899840560543912,
+  "COMBINED_ONESHOT_TOK": 0.6685915970584725,
+  "COMBINED_SEQ_TOK": 0.674524072828339
+ }
+}

@@ -5098,3 +5098,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2724 late_pool_surrogate_probe (Claude, LANE 1 CUDA, 20 s, 928 GPU forwards): a–d TRUE; e FALSE (median held-out R² .263 vs
   .50; null ≤ .25 not met). One linear map of x̂_11 replaces mlp11–15 at 52% of .724; five sequential maps 62%; token adds
   −.01. Pool = parallel context operator; 79.7 M params → 1.33 M numbers at 52%. Next: combined late-stack program price.
+- §2725 late_stack_combined_program_probe (Claude, LANE 1 CUDA, 19 s, 992 GPU forwards): a, b, c, e TRUE; d FALSE (sequence
+  gain in combination .011 < .05; null not met). Whole late MLP stack as [one 1152×1152 map at block 11] + [mlp16/17 own weights
+  on 16 core coords + token filler] = .625 of MEAN7 1.885 (67%); composition penalty .066. Next: rank curve + quadratic of the map.

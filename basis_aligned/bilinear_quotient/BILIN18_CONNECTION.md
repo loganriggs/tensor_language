@@ -69804,3 +69804,39 @@ whole late stack under this description against MEAN(all 7) 1.885.
 
 **Limits.** ONESHOT writes the sum at block 11, so attn12–attn15 read a stream containing the future pool writes early; the
 slight advantage this could give is bounded by SEQ_LIN − ONESHOT = .067. Ridge λ was not tuned (1e-2·tr/nf throughout the arc).
+
+## §2725 — THE WHOLE LATE MLP STACK AS ONE PROGRAM: [one 1152 × 1152 context map at block 11] + [mlp16/17 own weights on 16 core coordinates + token filler] costs .625 of MEAN(all 7)'s 1.885 — 67% of the seven blocks' value from 1.3 M fitted numbers plus two blocks' native weights read through a 16-dim window; composition penalty only .066 (Claude, LANE 1 CUDA, 19 s, 992 GPU document-forwards): a, b, c, e TRUE; d FALSE (sequence gain in combination .011 < .05; null "no gain" not met). Preserved.
+
+Written 2026-09-03 21:26Z (box clock). Preregistration `polynomial_causal/LATE_STACK_COMBINED_PROGRAM_PROBE_PREREGISTRATION.md`
+(registered 21:21Z before the script). Script `ops/late_stack_combined_program_probe.py`; receipt
+`late_stack_combined_program_probe_results.json`. FRESH split (fits on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE
+ADDED ABOVE THE REAL MODEL — LOWER IS BETTER; rec7 = 1 − CE(arm)/CE(MEAN7), higher = better.
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN7 1.8851 (§2719 1.885); ONESHOT_LIN .3446 (§2724 .345); W16_17_TOKFILL .2143
+(§2720 .214); SEQ_LIN .2775 (§2724 .278). All four parts reproduce within .001.
+
+**Arms (CE added / rec7).** MEAN7 1.885 / — · COMBINED_ONESHOT (one-shot map for mlp11–15 + mlp16/17 own weights on P_M x̂ + MEAN
+filler; no fitted object inside 16/17) .773 / .590 · COMBINED_ONESHOT_TOK (token filler) .625 / .669 · COMBINED_SEQ_TOK (five
+sequential maps + token filler) .614 / .675. Composition penalty π = CE(COMBINED_ONESHOT_TOK) − CE(ONESHOT) − CE(TOKFILL) = .625 −
+.345 − .214 = **.066**.
+
+**Scoring.** b CE(COMBINED_SEQ_TOK) .614 ≤ .95 TRUE (null ≥ 1.40 not met). c π .066 ≤ .40 TRUE (null ≥ .80 not met). d
+CE(SEQ_TOK) .614 ≤ CE(ONESHOT_TOK) − .05 = .575 FALSE — the sequence buys .011 here vs .067 when the pool is replaced alone
+(§2724); null (≥ .625, no gain) not met. e COMBINED_ONESHOT .773 ≤ 1.25 TRUE (null ≥ 1.60 not met).
+
+**What it means for the program.** (i) The late seven MLP blocks — 111.6 M parameters, 1.885 nat of CE — are replaced at .625 nat by
+a program whose only FITTED content is one 1152 × 1152 matrix (1.33 M numbers) applied once at block 11; mlp16/17 are the model's
+own weights, read through the 16-dim core basis (18 k numbers) plus a token filler (the §2720 ridge ê → x̂_⊥, 1.33 M numbers, or
+zero fitted numbers in the MEAN-filler variant at .773). (ii) The composition penalty is SMALL (.066): the two channels described
+separately compose almost additively. This sharpens §2723 — there the 16-dim program lost .994 when the pool was REMOVED; here,
+with the pool replaced by its linear map, the program loses only .066 more than the sum of parts. So what mlp16/17's core program
+needs from the pool is precisely the part the linear context map supplies — the non-core, linearly-predictable stream content —
+and not the pool's high-rank remainder. (iii) The sequence is nearly worthless once 16/17 are in the program (d FALSE): a single
+matrix at block 11 is the right description of the pool for downstream purposes. (iv) The residual .625 decomposes as ≈ .345 (pool
+map's own shortfall) + .214 (16/17 program's shortfall) + .066 (composition); the pool map is now the larger gap, and the queued
+rank-curve rung asks how much of its 1.33 M numbers it actually uses and whether a quadratic term in the top input directions
+closes any of the .345.
+
+**Limits.** Descriptive price on 64 held-out docs; nothing installs into §312 and the attention stack is untouched. The 16/17
+"program" still uses the full Down (1152 × 4608) and full Left/Right rows; its 16-dim READ is what is restricted, so the
+parameter count of that half is not yet reduced — the §2717 ridge (COREIN_M, 1304 features) is the fitted alternative at .776 rec.
