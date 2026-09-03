@@ -1180,6 +1180,32 @@ At total prices10,436,800/11,036,864/11,930,240, Tucker96/160/226 damages are
 producers are closed as replacements unless a new grammar changes the computation rather than refactoring these
 same forms.
 
+## 17. Cross-head source relations are stable but not sparse circuits (2026-09-03)
+
+Rung517 decomposed attention0 by query-to-source relation rather than by head. For every query, all source positions
+across all nine heads were assigned exactly once to SELF, PREVIOUS, NEAR (lags2--7), DISTANT_SAME, or DISTANT_OTHER.
+The32 possible subsets were passed through native MLP0 while attention0's direct residual write remained unchanged.
+This is an exact causal test of what context MLP0 uses, not an attention-head ablation.
+
+On held-out prose, the full-versus-empty context benefit is1.9004 nats. Shapley allocation assigns12.9% to SELF,
+30.0% to PREVIOUS,26.4% to NEAR,3.6% to DISTANT_SAME, and27.0% to DISTANT_OTHER. Structured text is nearly identical
+at12.8/30.8/26.2/3.4/26.8% of1.7467 nats. The ordering and absolute-position profiles are stable across document
+splits, but the registered sparse hypotheses fail: SELF+PREVIOUS is only42.0% of the prose endpoint total, and
+structured text does not shift ten percentage points away from that local pair.
+
+The main mechanistic lesson is redundancy. PREVIOUS, NEAR, and DISTANT_OTHER alone recover78.5%,79.1%, and81.9% of
+the prose full-context benefit when added to the empty boundary. Removing the same groups from full context loses
+only5.64%,.80%, and.67%. Several source sets can therefore support much of the same MLP0 benefit in the presence or
+absence of the others. Their effects must not be described as independent additive circuits.
+
+The token-by-context vector identity splits cleanly across source groups. The context-only quadratic identity needs a
+large47--52% closing term because its parent definition subtracts the fit-set average quadratic context response; this
+is a centering term plus the measured arithmetic remainder, not evidence that half the computation is floating-point
+noise. Immediate attention1/MLP1 response profiles are repeatable, but PREVIOUS does not beat matched random source
+sets by the registered relation-specific margin. Thus source relation is useful stable anatomy, but not yet a
+selectively manipulable or executable semantic decomposition. The next object should condition grouping and splitting
+on the existing circuit tasks rather than refine the distance bins or optimize rank.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`

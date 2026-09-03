@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0217.md](explanation_2026-09-03_0217.md) — rung517's exact cross-head source-relation
+  factorial: all five attention-source relations have stable MLP0 effects, but the effect is diffuse and redundant
+  rather than a sparse self/previous-token or structured-near-window grammar; includes two percentage bar charts
 - [explanation_2026-09-03_0139.md](explanation_2026-09-03_0139.md) — rungs515--516: 96.9% of exact consumer terms
   are active, but0/17,460 cross-implementation pairs have stable finite downstream effects; the task split happens
   before named circuit coordinates can explain it, with a percentage funnel and the MLP0 pivot

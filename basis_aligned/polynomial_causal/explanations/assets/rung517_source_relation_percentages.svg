@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="760" viewBox="0 0 980 760" role="img" aria-labelledby="title desc">
+  <title id="title">MLP0 source-relation contribution and redundancy percentages</title>
+  <desc id="desc">The upper panel shows nearly identical Shapley contribution shares for prose and structured text. The lower panel shows that several groups recover most of the complete context benefit when used alone but cause little damage when removed from the full context.</desc>
+  <style>
+    .title{font:700 24px sans-serif;fill:#172b4d}.sub{font:15px sans-serif;fill:#52606d}.panel{font:700 18px sans-serif;fill:#172b4d}.label{font:15px sans-serif;fill:#172b4d}.value{font:700 14px sans-serif;fill:#172b4d}.axis{font:13px sans-serif;fill:#52606d}.note{font:14px sans-serif;fill:#52606d}.grid{stroke:#dfe3e8;stroke-width:1}.prose{fill:#2684ff}.structured{fill:#ffab00}.single{fill:#36b37e}.removal{fill:#de350b}
+  </style>
+  <text x="28" y="38" class="title">MLP0 context is stable across corpora, but highly redundant</text>
+  <text x="28" y="64" class="sub">All bars are percentages; native heads are summed before grouping by source relation.</text>
+
+  <text x="28" y="102" class="panel">Shapley share of the complete MLP0 context benefit</text>
+  <rect x="585" y="84" width="18" height="12" class="prose"/><text x="610" y="95" class="axis">prose</text>
+  <rect x="675" y="84" width="18" height="12" class="structured"/><text x="700" y="95" class="axis">structured</text>
+  <line x1="210" y1="120" x2="210" y2="348" class="grid"/><line x1="430" y1="120" x2="430" y2="348" class="grid"/><line x1="650" y1="120" x2="650" y2="348" class="grid"/><line x1="870" y1="120" x2="870" y2="348" class="grid"/>
+  <text x="210" y="365" text-anchor="middle" class="axis">0%</text><text x="430" y="365" text-anchor="middle" class="axis">10%</text><text x="650" y="365" text-anchor="middle" class="axis">20%</text><text x="870" y="365" text-anchor="middle" class="axis">30%</text>
+
+  <text x="28" y="143" class="label">self</text><rect x="210" y="124" width="284" height="15" rx="3" class="prose"/><rect x="210" y="143" width="282" height="15" rx="3" class="structured"/><text x="502" y="137" class="value">12.9%</text><text x="500" y="156" class="value">12.8%</text>
+  <text x="28" y="190" class="label">previous</text><rect x="210" y="171" width="660" height="15" rx="3" class="prose"/><rect x="210" y="190" width="678" height="15" rx="3" class="structured"/><text x="878" y="184" class="value">30.0%</text><text x="896" y="203" class="value">30.8%</text>
+  <text x="28" y="237" class="label">near (lags 2–7)</text><rect x="210" y="218" width="581" height="15" rx="3" class="prose"/><rect x="210" y="237" width="576" height="15" rx="3" class="structured"/><text x="799" y="231" class="value">26.4%</text><text x="794" y="250" class="value">26.2%</text>
+  <text x="28" y="284" class="label">distant same token</text><rect x="210" y="265" width="79" height="15" rx="3" class="prose"/><rect x="210" y="284" width="75" height="15" rx="3" class="structured"/><text x="297" y="278" class="value">3.6%</text><text x="293" y="297" class="value">3.4%</text>
+  <text x="28" y="331" class="label">all other distant</text><rect x="210" y="312" width="594" height="15" rx="3" class="prose"/><rect x="210" y="331" width="590" height="15" rx="3" class="structured"/><text x="812" y="325" class="value">27.0%</text><text x="808" y="344" class="value">26.8%</text>
+
+  <text x="28" y="416" class="panel">Prose: sufficient alone versus necessary when all sources are present</text>
+  <text x="28" y="440" class="sub">Denominator: the 1.9004-nat benefit of complete MLP0 context. Singleton bars can overlap.</text>
+  <rect x="630" y="405" width="18" height="12" class="single"/><text x="655" y="416" class="axis">recovered alone</text>
+  <rect x="790" y="405" width="18" height="12" class="removal"/><text x="815" y="416" class="axis">lost if removed</text>
+  <line x1="210" y1="464" x2="210" y2="692" class="grid"/><line x1="375" y1="464" x2="375" y2="692" class="grid"/><line x1="540" y1="464" x2="540" y2="692" class="grid"/><line x1="705" y1="464" x2="705" y2="692" class="grid"/><line x1="870" y1="464" x2="870" y2="692" class="grid"/>
+  <text x="210" y="711" text-anchor="middle" class="axis">0%</text><text x="375" y="711" text-anchor="middle" class="axis">20%</text><text x="540" y="711" text-anchor="middle" class="axis">40%</text><text x="705" y="711" text-anchor="middle" class="axis">60%</text><text x="870" y="711" text-anchor="middle" class="axis">80%</text>
+
+  <text x="28" y="487" class="label">self</text><rect x="210" y="468" width="347" height="15" rx="3" class="single"/><rect x="210" y="487" width="2" height="15" rx="1" class="removal"/><text x="565" y="481" class="value">42.1%</text><text x="220" y="500" class="value">0.25%</text>
+  <text x="28" y="534" class="label">previous</text><rect x="210" y="515" width="648" height="15" rx="3" class="single"/><rect x="210" y="534" width="47" height="15" rx="3" class="removal"/><text x="866" y="528" class="value">78.5%</text><text x="265" y="547" class="value">5.64%</text>
+  <text x="28" y="581" class="label">near (lags 2–7)</text><rect x="210" y="562" width="653" height="15" rx="3" class="single"/><rect x="210" y="581" width="7" height="15" rx="2" class="removal"/><text x="871" y="575" class="value">79.1%</text><text x="225" y="594" class="value">0.80%</text>
+  <text x="28" y="628" class="label">distant same token</text><rect x="210" y="609" width="99" height="15" rx="3" class="single"/><rect x="210" y="628" width="1" height="15" class="removal"/><text x="317" y="622" class="value">12.0%</text><text x="220" y="641" class="value">−0.01%</text>
+  <text x="28" y="675" class="label">all other distant</text><rect x="210" y="656" width="676" height="15" rx="3" class="single"/><rect x="210" y="675" width="6" height="15" rx="2" class="removal"/><text x="894" y="669" class="value">81.9%</text><text x="224" y="688" class="value">0.67%</text>
+  <text x="28" y="744" class="note">Large green and tiny red bars mean source groups substitute for one another; they are not independent additive circuits.</text>
+</svg>

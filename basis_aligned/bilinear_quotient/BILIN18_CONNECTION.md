@@ -67332,3 +67332,52 @@ The localization is still informative: cross-document instability in the finite 
 to prevent exact-term grouping before circuit identity enters. Leave the MLP10 consumer descent rather than widen
 supports or change rank. Result/source/preregistration SHAs are `b8e8ad26…/d094d1af…/580cd5c3…`; runtime3.9s,
 0 forwards,0 backwards,0 deployed parameters.
+
+## §2652 — RUNG517: MLP0 USES A STABLE BUT DIFFUSE AND REDUNDANT ATTENTION-SOURCE GRAMMAR
+
+Rung517 stopped treating attention heads as semantic units. At every query it split attention0's exact write, summed
+across all nine heads, into five exhaustive source relations: the query position itself, the immediately previous
+position, lags2--7, distant earlier occurrences of the current token, and all other distant positions. All32 subsets
+were passed through the native MLP0 normalization and bilinear map while attention0's direct residual write remained
+native. This isolates how MLP0 uses context rather than removing attention0 from every downstream path.
+
+The first scientific process is preserved as instrument-invalid: the structured rows had513 tokens but were not
+cropped to the model's256-input-plus-target window, so the facade rejected their shape before the first structured
+forward. No result or number was emitted. The append-only repair kept documents16--79 and selected their first257
+tokens; every group, arm, threshold, direction, and control remained frozen.
+
+The corrected run is valid and a registered strong null: A/D true; B/C/E false. It used4,224 full forwards,0
+backwards,224.72s, and no added or saved deployed parameters. The group writes plus retained arithmetic remainder
+reconstruct attention0 exactly; native MLP0 and full-suffix replay errors are0; all31 non-full edits are live; all8
+planted factorial tables recover; Möbius closure is0; and the independently computed context mean closes at relative
+squared error below`6.5e-15`.
+
+On prose SELECT, the full-context versus empty-context MLP0 benefit is1.9004 nats. Its exact Shapley allocation is
+SELF12.9%, PREVIOUS30.0%, NEAR26.4%, DISTANT_SAME3.6%, and DISTANT_OTHER27.0%. Structured SELECT is nearly the same:
+12.8%,30.8%,26.2%,3.4%,26.8% of1.7467 nats. Hence B fails because SELF+PREVIOUS supplies only42.0% of the registered
+positive endpoint total, not70%. C fails because structured SELF+PREVIOUS is42.6%—slightly higher, not10 percentage
+points lower—and adding NEAR reaches69.0%, narrowly below70%. This is evidence against the proposed sparse grammar,
+not against context use.
+
+D passes strongly. FIT-to-SELECT endpoint ordering has Spearman1.00 on prose and.90 on structured text; PREVIOUS is
+top in every split. Every group's shared absolute-position CE profile passes the registered cosine and proportional-
+residual bars. But singleton versus leave-one-out effects expose substantial substitutability: on prose, PREVIOUS,
+NEAR, and DISTANT_OTHER alone recover78.5%,79.1%, and81.9% of the full context benefit from the empty boundary, while
+removing them from full context loses only5.64%,.80%, and.67%. These groups therefore cannot be interpreted as
+independent additive circuits.
+
+E fails. PREVIOUS produces highly repeatable attention1/MLP1 position profiles and MLP1 receives about1.9 times the
+RMS effect of attention1, but the profile-cosine advantage over matched same-count random source positions is only
+.061--.087 versus the frozen.15 requirement. Absolute response magnitude is not enough to identify a relation-specific
+consumer path when random source sets reproduce much of the position-profile shape.
+
+The exact token-by-context `I` split closes with a negligible named-term remainder, but the context-only quadratic
+`C` split leaves47--52% of parent vector energy in its required closing term. That closing term is not merely floating-
+point noise: it includes the fit-set mean quadratic context effect subtracted to center `C`, plus the arithmetic
+remainder. Thus the current source groups give clean accounting for token-by-context interaction but not a sparse
+context-only mechanism.
+
+The supported result is a stable descriptive source grammar, not an executable circuit or compression. Honor the
+registered route: retain it as diagnostic anatomy, do not expand PREVIOUS alone, and change the next object to the
+existing circuit-conditioned measurements that can decide whether source pieces should be merged or split by their
+downstream uses. Result/source/preregistration SHAs are`c8405a36…/5d9acfa5…/a0ff4160…`.

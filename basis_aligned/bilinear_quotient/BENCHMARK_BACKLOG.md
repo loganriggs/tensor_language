@@ -4769,3 +4769,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the unchanged absolute gates. Next use the actual nonlinear suffix to compare finite causal effects of exact
   attention11/MLP11 terms, allowing different term identities across actions, with32 discovery and30 held-out circuit
   families plus bidirectional substitution. No support widening, rank, SAE, reconstruction, or quantization.
+- Rung517 (§2652): valid cross-head MLP0 source-relation strong null after preserving a structured-window shape
+  failure and repairing only the input crop. Exact32-arm factorial and replay gates pass. All five relations are
+  positive and FIT/SELECT-stable (Spearman1.00 prose/.90 structured), but SELF+PREVIOUS is only42.0% of prose positive
+  endpoint effect, structured does not widen away from it, and PREVIOUS's immediate-consumer profile does not beat
+  matched random source positions by the frozen.15 margin. Large singleton but tiny leave-one-out effects show
+  redundancy. Retain this as diagnostic anatomy; next use the existing circuit tasks to define merging/splitting,
+  not rank, another proximity binning, or a PREVIOUS-only expansion.
