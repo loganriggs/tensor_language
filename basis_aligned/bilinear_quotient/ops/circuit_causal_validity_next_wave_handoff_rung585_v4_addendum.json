@@ -1,0 +1,29 @@
+{
+  "accepted_lessons": [
+    {
+      "lesson": 22,
+      "name": "model_call_shape_contract_matches_registered_schedule",
+      "requirement": "Enumerate every executed model-forward call site and prove before enqueue that its explicit validation mode accepts every registered logical batch size and padded sequence length; preserve separate checkpoint and model-structure validation."
+    }
+  ],
+  "builder_prompt_addendum": "List every scientific model-forward call site. For each, bind the explicit interface-validation mode to the preregistered logical batch and padding schedule. Add a planted batch-32/variable-length versus fixed-(4,256) mismatch that preflight rejects without loading the model.",
+  "critic_prompt_addendum": "Search for forward paths omitted by the builder's call-site census, implicit default validation flags, and dry runs that check row arithmetic without exercising the model-call shape contract. Require the fixed-(4,256) negative fixture to fail before enqueue.",
+  "failure_boundary": {
+    "allowed_repair": "relax_only_the_forward_tensor_shape_check_when_checkpoint_and_model_structure_are_validated_separately",
+    "forbidden_terminal": "scientific_null",
+    "required_terminal": "preexecution_implementation_failure"
+  },
+  "planted_negative_fixture_ids": [
+    "registered_batch32_rejected_by_fixed_4x256_interface_before_enqueue",
+    "hidden_scientific_forward_call_with_implicit_or_incompatible_validation_rejected"
+  ],
+  "required_test_ids": [
+    "every_scientific_forward_call_site_enumerated",
+    "validation_mode_explicit_at_every_scientific_forward_call",
+    "registered_batch_and_padding_shapes_accepted",
+    "checkpoint_and_model_structure_validation_remain_enforced"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v4_addendum",
+  "v3_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v3_addendum.json",
+  "v3_contract_sha256": "bf04cda987fc281f146c1e6f054620934f1d994a5d6d3135d7456be6fe9feb8c"
+}

@@ -236,6 +236,12 @@ The second wave added four more:
     are too large to retain. Make a mismatch a pre-publication hard failure. A saved equality of their inserted tensors
     can independently explain why the identity should hold and can be rechecked during audit, but it must not silently
     substitute for the registered downstream test.
+22. **Prove that the registered batch schedule reaches the real model-call interface.** A model-free dry run can verify
+    row counts while never exercising a facade's shape contract. Before enqueue, compare every executed logical batch
+    size and padded sequence length with the exact validation mode passed to the model interface. If a fixed production
+    shape differs from the preregistered schedule, preflight must fail. Relaxing only that shape check is allowed when
+    checkpoint and model-structure validation remain separately enforced, but the choice must be explicit at every
+    scientific forward call and protected by a planted regression test.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
@@ -264,6 +270,9 @@ of the base contract for every later wave; it does not alter the frozen R585 sci
 > generated fixture that asserts the exact cell census plus a hash of the ordered cell IDs.
 > State whether every threshold was prospective or chosen after seeing outcomes. For a post-outcome screen, use a
 > literal non-confirmatory terminal label and name the fresh, group-disjoint intervention that would test the lead.
+> Enumerate every real model-forward call site and prove that its validation mode accepts the registered batch size and
+> padding lengths. Include a negative fixture in which a batch-32 schedule is sent to a fixed `(4, 256)` interface; it
+> must fail before enqueue, not after loading the model.
 
 ## Scaling beyond two subagents
 
