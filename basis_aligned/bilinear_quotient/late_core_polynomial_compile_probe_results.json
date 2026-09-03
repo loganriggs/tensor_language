@@ -1,0 +1,97 @@
+{
+ "rung": "late_core_polynomial_compile_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE/CE(MEAN_16_17); deltas = CE(ablation) - CE(COMPILED_TOK)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_quadratic_term_matters": true,
+  "pred_c_linear_term_matters": true,
+  "pred_d_token_enters_through_the_offset": false,
+  "pred_e_quadratic_forms_are_simple": true
+ },
+ "nulls": {
+  "b_null_quad_le_.03": false,
+  "c_null_cross_le_.03": false,
+  "d_null_cross_token_ge_.10": false,
+  "e_null_rank4_ge_.10": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "exact_tol": 0.003,
+  "repro_tol": 0.02,
+  "b_min": 0.15,
+  "c_min": 0.15,
+  "d_max": 0.04,
+  "e_max": 0.03
+ },
+ "null_bars": {
+  "b_max": 0.03,
+  "c_max": 0.03,
+  "d_min": 0.1,
+  "e_min": 0.1
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "quad_rank": 4,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "w_tokfill_m": 0.2333545684814453,
+  "prior_w_tokfill_m": 0.233,
+  "exactness_abs_diff": {
+   "tok": 0.0,
+   "mean": 8.940696716308594e-08
+  }
+ },
+ "ce_added": {
+  "MEAN_16_17": 0.8479736745357513,
+  "W_TOKFILL_M": 0.2333545684814453,
+  "W_MEANFILL_M": 0.33026257157325745,
+  "COMPILED_TOK": 0.2333545684814453,
+  "COMPILED_MEAN": 0.3302624821662903,
+  "NO_QUAD": 1.8472232222557068,
+  "NO_CROSS": 0.4695297181606293,
+  "NO_OFFSET": 0.24717307090759277,
+  "CROSS_TOKFREE": 0.30618786811828613,
+  "QUAD_RANK4": 0.23939189314842224
+ },
+ "recovery_of_mean_16_17": {
+  "MEAN_16_17": 0.0,
+  "W_TOKFILL_M": 0.7248091827742149,
+  "W_MEANFILL_M": 0.6105273294550452,
+  "COMPILED_TOK": 0.7248091827742149,
+  "COMPILED_MEAN": 0.6105274348910626,
+  "NO_QUAD": -1.178396898072366,
+  "NO_CROSS": 0.44629210521460183,
+  "NO_OFFSET": 0.7085132730766494,
+  "CROSS_TOKFREE": 0.6389181913154109,
+  "QUAD_RANK4": 0.717689475113146
+ },
+ "ablation_deltas": {
+  "NO_QUAD": 1.6138686537742615,
+  "NO_CROSS": 0.23617514967918396,
+  "NO_OFFSET": 0.013818502426147461,
+  "CROSS_TOKFREE": 0.07283329963684082,
+  "QUAD_RANK4": 0.006037324666976929
+ },
+ "program_numbers": {
+  "quadratic_forms": 8192,
+  "core_basis": 18432,
+  "per_token_linear_read_table": 25755648,
+  "per_token_offset_table": 1609728,
+  "note": "b(t), d(t) are affine/quadratic in e_t through A_fill and the block weights; as tables: 16x16 and 16 numbers per token per block"
+ },
+ "price": {
+  "gpu_doc_forwards": 896,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 12.9110848903656
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_CORE_POLYNOMIAL_COMPILE_PROBE_PREREGISTRATION.md": "a2e9b133e64d339652a4440c3d621fa43ddaed9932e21a2453f05fbe00861119",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_weights_on_core_input_probe_results.json": "577724584361261327348db32b41dda18aaff8eed6877089a995b9055fa0e55c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "fa7a3109783e85afdf54d65d9273eaf20b8f51a5f93fcd7d9c98c736160f2b3d"
+}

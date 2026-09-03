@@ -5104,3 +5104,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2726 late_pool_map_rank_curve_probe (Claude, LANE 1 CUDA, 13 s, 928 GPU forwards): a, e TRUE; b, c, d FALSE, no null met.
   Input-weighted rank curve of the pool's one-shot map: k=16 → 44% of full map's value, 128 → 70%, 512 → 94%; eff rank 371;
   quadratic top-32 +.017 only. Heavy head + long tail, ~.10 per doubling. Next: what the top-3 map directions are.
+- §2727 late_core_polynomial_compile_probe (Claude, LANE 1 CUDA, 13 s, 896 GPU forwards): a, b, c, e TRUE; d FALSE (token enters
+  through the read, not the offset; null not met). mlp16/17 core program compiled EXACTLY (|Δ| 0.0) into 16 quadratic forms of 16
+  coords + per-token 16×16 read + per-token offset; drop quad +1.61, drop cross +.236, drop offset +.014, rank-4 forms +.006.
+  Next: sym-rank of forms, rank of the token read matrix B, MINIMAL program price (queued).

@@ -1,0 +1,38 @@
+{"stage": "fit_cov", "t": 6.4}
+{"stage": "fits_done", "t": 7.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.4}
+{"stage": "arms", "MEAN_16_17": 0.848, "W_TOKFILL_M": 0.2334, "W_MEANFILL_M": 0.3303, "COMPILED_TOK": 0.2334, "COMPILED_MEAN": 0.3303, "NO_QUAD": 1.8472, "NO_CROSS": 0.4695, "NO_OFFSET": 0.2472, "CROSS_TOKFREE": 0.3062, "QUAD_RANK4": 0.2394, "t": 12.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_quadratic_term_matters": true,
+  "pred_c_linear_term_matters": true,
+  "pred_d_token_enters_through_the_offset": false,
+  "pred_e_quadratic_forms_are_simple": true
+ },
+ "nulls": {
+  "b_null_quad_le_.03": false,
+  "c_null_cross_le_.03": false,
+  "d_null_cross_token_ge_.10": false,
+  "e_null_rank4_ge_.10": false
+ },
+ "ce_added": {
+  "MEAN_16_17": 0.8479736745357513,
+  "W_TOKFILL_M": 0.2333545684814453,
+  "W_MEANFILL_M": 0.33026257157325745,
+  "COMPILED_TOK": 0.2333545684814453,
+  "COMPILED_MEAN": 0.3302624821662903,
+  "NO_QUAD": 1.8472232222557068,
+  "NO_CROSS": 0.4695297181606293,
+  "NO_OFFSET": 0.24717307090759277,
+  "CROSS_TOKFREE": 0.30618786811828613,
+  "QUAD_RANK4": 0.23939189314842224
+ },
+ "deltas": {
+  "NO_QUAD": 1.6138686537742615,
+  "NO_CROSS": 0.23617514967918396,
+  "NO_OFFSET": 0.013818502426147461,
+  "CROSS_TOKFREE": 0.07283329963684082,
+  "QUAD_RANK4": 0.006037324666976929
+ }
+}

@@ -69877,3 +69877,45 @@ attention-write cores, and with the token embedding) — cheap and decisive.
 
 **Limits.** Truncation is of the ridge solution, not a re-fit at rank k (a rank-constrained re-fit can only do better; the curve is a
 lower bound on rank-k value). λ untuned. 64 held-out docs; ±.01 sample sensitivity.
+
+## §2727 — mlp16/17's CORE PROGRAM COMPILED EXACTLY INTO A 16-DIMENSIONAL POLYNOMIAL WITH NO HIDDEN WIDTH: y_k = cᵀA_k c + b_k(t)ᵀc + d_k(t) reproduces W_TOKFILL_M to 0.0 nat; the 16 token-free quadratic forms carry the block (drop them: +1.61), the token-modulated LINEAR READ b(t) carries the token (drop the cross term: +.236; make it token-free: +.073), the pure token offset d(t) is nearly worthless (+.014), and each quadratic form is rank-4 to within .006 (Claude, LANE 1 CUDA, 13 s, 896 GPU document-forwards): a, b, c, e TRUE; d FALSE (the token enters through the read, not the offset; null ≥ .10 not met). Preserved.
+
+Written 2026-09-03 21:34Z (box clock). Preregistration `polynomial_causal/LATE_CORE_POLYNOMIAL_COMPILE_PROBE_PREREGISTRATION.md`
+(registered 21:28Z before the script). Script `ops/late_core_polynomial_compile_probe.py`; receipt
+`late_core_polynomial_compile_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS
+BETTER; rec = 1 − CE/CE(MEAN_16_17); deltas = CE(ablation) − CE(COMPILED_TOK), positive = damage.
+
+**Algebra (exact, no approximation).** §2720's arm W_TOKFILL_M evaluates the block's own weights on x′ = P c + f(t), c = Pᵀx̂ the 16
+core coordinates, f(t) = x̄_⊥ + (ê_t − ē)A_fill the token filler, output restricted to the core. With L_c = Left·P, R_c = Right·P
+(4608 × 16), D_c = PᵀDown (16 × 4608), ℓ(t) = Left f(t), r(t) = Right f(t), the 16 core outputs are exactly
+  y_k = cᵀA_k c + b_k(t)ᵀc + d_k(t),  A_k = L_cᵀ diag(D_c[k]) R_c (16 × 16, token-free),
+  b_k(t) = L_cᵀ diag(D_c[k]) r(t) + R_cᵀ diag(D_c[k]) ℓ(t),  d_k(t) = Σ_h D_c[k,h] ℓ_h(t) r_h(t).
+The hidden width 4608 disappears: the program is 16 quadratic forms (2 × 4096 numbers for both blocks), a per-token 16 × 16 read
+matrix, and a per-token 16-vector. Built explicitly (einsum over A_k), it reproduces the ordinary weight evaluation to
+|Δ CE| = 0.0 (token filler) and 9e-8 (mean filler).
+
+**Instrument (a TRUE).** Baseline 3.0322401; W_TOKFILL_M .2334 (§2720 .2334, exact); exactness as above.
+
+**Arms (CE added / rec of MEAN_16_17 .848).** COMPILED_TOK .233 / .725 · COMPILED_MEAN (= W_MEANFILL_M) .330 / .611 · NO_QUAD
+1.847 / −1.18 · NO_CROSS .470 / .446 · NO_OFFSET .247 / .709 · CROSS_TOKFREE .306 / .639 · QUAD_RANK4 .239 / .718.
+Deltas vs COMPILED_TOK: NO_QUAD +1.614 · NO_CROSS +.236 · NO_OFFSET +.014 · CROSS_TOKFREE +.073 · QUAD_RANK4 +.006.
+
+**Scoring.** b +1.614 ≥ .15 TRUE (null ≤ .03 not met). c +.236 ≥ .15 TRUE (null not met). d CROSS_TOKFREE +.073 ≤ .04 FALSE (null
+≥ .10 not met) — and NO_OFFSET is only +.014, so the token's contribution (.097 = COMPILED_MEAN − COMPILED_TOK) is carried by the
+token-MODULATED READ b(t), not by the token offset d(t); I predicted the opposite. e +.006 ≤ .03 TRUE (null not met).
+
+**What it means for the program.** (i) This is the first piece of bilin18 written down as an explicit small polynomial program that
+is EXACTLY the model's own computation on a restricted input, not a fitted surrogate: two late blocks (31.9 M parameters) → 16 + 16
+quadratic forms over 16 stream coordinates plus a token-conditioned 16 × 16 read, at 72.5% of their CE value (the loss to 100% is
+entirely the 16-dim input restriction + filler of §2720, not the compile). (ii) The block IS its quadratic forms: without cᵀA_k c
+the write is worse than absent (1.85 vs .85 for mean ablation) — the cross and offset terms are corrections around the quadratic
+core, not alternatives to it. (iii) The token does not add a vector; it changes how the block reads its 16 coordinates. This
+re-reads §2716's "offset" finding: the token-predictable part of the write that the CUR_M ridge captured is E[b(t)ᵀc | t] + d(t),
+which LOOKS like an offset in a lookup table but is mechanistically a read modulation. The offset proper is worth .014. (iv) Each
+16 × 16 form is rank-4 to within .006 → the queued structure rung asks how few SQUARES per output (sym-rank) and how few TOKEN
+directions (rank of the 256 × 1152 read-modulation matrix B) suffice, and prices a MINIMAL program (2 squares/output + rank-8 read,
+no offset; ≈ 12 k numbers per block).
+
+**Limits.** Exactness is with respect to W_TOKFILL_M, i.e. the block on P c + f(t) with core-restricted output — the .233 nat
+shortfall against the real block is inherited from §2720 and is the 16-dim input restriction's price. Everything else in the model
+is real; nothing installs into §312.
