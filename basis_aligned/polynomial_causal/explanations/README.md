@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1950.md](explanation_2026-09-03_1950.md) — identifies the exact final-label layer-0
+  cached-value contribution routed by L8H7/L8H3, reports 95.4%–110.7% held-out recovery, explains the no-op control
+  limitation and v1 price correction, and defines the weight-compilation plus active-removal test now being built
 - [explanation_2026-09-03_1930.md](explanation_2026-09-03_1930.md) — splits broad increment into two canonical
   behaviors, reports the independently held numbered-list and digit/word sequence gates with a percentage graph,
   confirms the list +2 conflict at row level, and defines the exact below-head L8H7/L8H3 factor localization now underway

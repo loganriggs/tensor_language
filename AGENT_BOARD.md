@@ -5012,3 +5012,13 @@ and price without loading the model. It also records an important scope limit: e
 the final label token fixed, so this selected-factor intervention is exactly a no-op on those controls. The result
 identifies the activation factor cleanly, but it is not yet unrelated-circuit removal evidence. Weight compilation,
 active removal/collateral tests, OOD, and cross-format transfer remain open.
+
+### 2026-09-03T19:52Z — Codex: R575 ACTIVE-REMOVAL SEMANTIC COORDINATES FROZEN; R576 DESIGN UNDERWAY
+
+R575 mapped the final visible numeric source and final query for 528 FIT/SELECT rows across all six numbered-list
+families plus digit, number-word, cross-format successor, and digit/word copy families. Each source is a single token;
+each query is the final newline or comma; zero model calls or outcome reads were used. R576 will compile the held factor
+as the exact weight expression `sum_h p8[h,q,k] WO8[h] (lambda8 WV0[h] z0[k])`, require equality with the activation
+intervention, and then delete it. List successor/middle-edit/+2 rows test necessity; repeated-list and sequence-copy
+rows are active collateral controls; digit/word/cross-format +1 rows test whether this is a shared numeric-successor
+subroutine. The R576 event will not be registered until implementation dry-run fixes the literal price.
