@@ -1,0 +1,62 @@
+{
+ "status": "complete",
+ "rung": "task_space_sufficient_dimension_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "task_space_effective_rank_of_score_implementations",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/TASK_SPACE_SUFFICIENT_DIMENSION_PROBE_PREREGISTRATION.md": "467f3f424c979186e759b9fc07d9a3efeb3492b0902ff16e435b880253b73d96",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention11_mlp11_exact_factor_interactions_rung513_results.json": "043dd563baa5ffe5bda57c7774dc76e4727add3b4351699cb997ecfd563179d5"
+ },
+ "rung513_bundle_sha256": "06118d18594c4b167a3f3d46a2aa282969f6b061835f83a3b3d62b5ca72b8d8a",
+ "per_half": {
+  "half0": {
+   "raw_singular_values": [
+    26.374054150345476,
+    4.067632092821856,
+    2.268159882352189,
+    2.027119138255865
+   ],
+   "raw_top1_energy": 0.9642365604659834,
+   "raw_effective_rank": 1.2048924377114472,
+   "centered_singular_values": [
+    4.085537599895761,
+    2.6185663875497753,
+    2.205970627367894,
+    8.886235931156744e-16
+   ],
+   "centered_top1_energy": 0.5874266003940486,
+   "centered_effective_rank": 2.6059025780795584
+  },
+  "half1": {
+   "raw_singular_values": [
+    32.28904712322955,
+    3.9042286958765087,
+    3.38083479731171,
+    1.9647784214193147
+   ],
+   "raw_top1_energy": 0.9715469707787597,
+   "raw_effective_rank": 1.1701078614570513,
+   "centered_singular_values": [
+    3.9061125204921976,
+    3.4452383211300446,
+    2.392588471894769,
+    1.0241839653912039e-15
+   ],
+   "centered_top1_energy": 0.46443988953731363,
+   "centered_effective_rank": 2.7967887131351596
+  }
+ },
+ "half0_half1_top_direction_cosine": 0.17523213754780426,
+ "pooled_raw_top1_energy": 0.9684840486488469,
+ "pooled_raw_effective_rank": 1.1858971783446495,
+ "pred_a_exact_reproduction_of_513_task_effects": true,
+ "pred_b_copy_task_near_rank1_both_halves": true,
+ "pred_c_shared_score_direction_stable": false,
+ "strong_null": true,
+ "verdict": "copy_task_task_space_rank_not_established",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.00514984130859375
+}
