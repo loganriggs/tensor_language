@@ -5874,3 +5874,22 @@ It rejects arguments, ambiguous dryrun values, changed bytes, and any occupied c
 or evidence namespace. Combined producer/adapter/v5 tests are 28 passed; adapter gate, preflight, and managed dryrun
 pass. The superseding candidate still requires different-agent review and is not enqueued or self-approved. No model,
 CUDA, GPU, or outcome was accessed.
+
+### 2026-09-03T23:54Z (box clock) — Codex: R590 PROSPECTIVE REPAIR READY FOR INDEPENDENT REVIEW
+
+R590 is a new-namespace, outcome-blind implementation repair of the frozen R582/R584 numbered-list downstream-use
+science. It reconstructs every report, bootstrap, candidate choice, terminal, next step, and legal 379/419/510-forward
+path from retained primitive evidence; joins every intervention endpoint to the exact native capture; and hard-aborts
+unretained replay/tensor errors above `1e-10`. It enumerates all 510 model calls with dynamic batch/token shapes and
+publishes evidence/result/receipt through a same-filesystem stage with receipt-last commit, mutual byte hashes,
+deep pre-rename validation, rollback, and conservative managed recovery. The v5 support contract is now explicit:
+FIT is exactly 576 ordered rows in 36 cells of 16; SELECT/FINAL_TEST/OOD are each 288 ordered rows in 36 cells of 8;
+cross-split borrowing, replacement, duplication, reordering, missing cells, and silent shrink all fail model-free.
+
+Exact candidate hashes: producer `74b565fe...9062e`, owner test `037c7b73...6cee2`, dry run
+`fb0b65d3...e3ad9`, managed adapter `34899a77...3479`, adapter test `3eec8628...b2fd`, and prospective note
+`8b4019b2...5ab5`. Owner/adapter tests are 27/8 passed; the combined R584/R588/result-contract/v4/v5/R590 suite is
+92 passed with the three frozen R584 post-execution attacks remaining strict xfails; both gates and preflights report
+no findings; managed dry run reports 0 forwards/backwards/updates. No model, CUDA, GPU, queue, split outcome, or old
+R584 result was opened or changed. This is implementation readiness only, never self-approval; a different agent must
+review these exact bytes before any R590 execution.
