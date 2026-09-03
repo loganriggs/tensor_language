@@ -68,7 +68,11 @@ the symmetric cross-group context term. These are algebraic accounting identitie
 
 For every corpus, split, subset, and document, retain the per-position change in cross-entropy loss relative to the
 full subset. Also retain MLP0 output changes and immediate attention1/MLP1 output changes so that a stable source
-role is not inferred from average loss alone.
+role is not inferred from average loss alone. Split comparisons never align different documents by row number.
+Instead, within each split average over documents first and retain vectors indexed by the same192 absolute token
+positions (`64:256`). For CE this is the signed mean loss change at each position. For a consumer write this is the
+root-mean-square change over documents and its1,152 coordinates at each position. These192 coordinates have the same
+meaning in FIT and SELECT and can be compared legitimately.
 
 For each group report:
 
@@ -76,7 +80,7 @@ For each group report:
 - singleton sufficiency: improvement from empty to that group alone;
 - leave-one-out necessity: damage from full to full-minus-that-group;
 - its share of the sum of positive endpoint-average benefits;
-- cosine and fitted-scale residual between FIT and SELECT per-document effect vectors;
+- cosine and fitted-scale residual between FIT and SELECT192-position effect profiles;
 - its shares of exact `I`, within-group `C`, and cross-group `C` vector energy.
 
 ## Frozen predictions
@@ -104,15 +108,16 @@ about8--16 recent tokens rather than assuming that law transfers to the MLP0-onl
 ### D — split-stable source roles
 
 For both corpora, FIT-to-SELECT Spearman correlation of the five endpoint-average benefits is at least`.70`, the top
-group is unchanged, and every promoted group's fitted-scale per-document effect has cosine at least`.70` and relative
-residual at most`.65`. `DISTANT_SAME` is promoted only if it is material on both splits; no rare-group claim is made
-from a large per-occurrence value alone.
+group is unchanged, and every promoted group's fitted-scale192-position signed-CE profile has cosine at least`.70`
+and relative residual at most`.65`. `DISTANT_SAME` is promoted only if it is material on both splits; no rare-group
+claim is made from a large per-occurrence value alone.
 
 ### E — downstream specificity screen
 
-At least one promoted group has an immediate attention1-versus-MLP1 effect profile that is more stable across splits
-than a source-position permutation control by cosine margin`.15`, and one consumer receives at least1.5 times its
-effect RMS at the other consumer. This is only a route to a later physical transfer test, not a circuit claim.
+At least one promoted group has an immediate attention1 or MLP1 192-position RMS-effect profile whose FIT-to-SELECT
+cosine exceeds every one of eight source-position permutation controls by`.15`, and one consumer receives at least
+1.5 times its total effect RMS at the other consumer. This is only a route to a later physical transfer test, not a
+circuit claim.
 
 ## Controls and interpretation rules
 
@@ -136,3 +141,11 @@ effect RMS at the other consumer. This is only a route to a later physical trans
 
 Maximum planned work is32 subset arms times the frozen batches for both corpora, plus native and immediate-consumer
 replays. No model training and no backward pass. Zero deployed parameters are added or saved.
+
+## Pre-outcome stability-coordinate correction — 2026-09-03 01:54 UTC
+
+The first registration said “per-document effect vectors” in D/E. FIT and SELECT contain different documents, so
+their row coordinates are unrelated and a direct cosine would be meaningless—the exact error class already exposed
+by the rung514 task-space companion. Before implementing or observing any model outcome, the shared comparison object
+is corrected to the192 absolute-position profiles defined above. No source group, row, arm, threshold, prediction
+direction, or outcome-dependent choice changed.

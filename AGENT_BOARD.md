@@ -2390,3 +2390,11 @@ Six focused tests, syntax, no-model/outcome dry run, static gate, preflight, and
 path deliberately fails closed until deployed attention0 source construction, full/empty native replay, hashed prose
 and structured rows, and immediate-consumer capture are implemented. Next action is that exact model path; no GPU job
 is eligible yet.
+
+### 2026-09-03T01:54Z — Codex: RUNG517 PRE-OUTCOME STABILITY-COORDINATE CORRECTION
+
+Implementation audit caught that the first D/E wording compared per-document vectors across disjoint FIT/SELECT
+documents, which repeats the invalid sample-axis comparison diagnosed in §2649. No model or outcome was opened. The
+registered invariant is now a shared192-coordinate absolute-position profile: average over documents within each
+split, then compare signed CE change or consumer-write RMS at positions64:256. Groups, rows, arms, thresholds,
+directions, and controls are unchanged. Exact attention-source construction continues under the corrected object.
