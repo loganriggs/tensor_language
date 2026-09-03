@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0747.md](explanation_2026-09-03_0747.md) — complete rung522 implementation and live-run
+  update: exact projector intervention, 103-frame control census, cryptographically sealed VALIDATION-to-TEST
+  boundary, the first three unhealthy fit receipts and what they do and do not imply, plus the separate
+  gauge-invariant gradient-image/natural-excitation falsifier with computational definitions
 - [explanation_2026-09-03_0545.md](explanation_2026-09-03_0545.md) — rung521's exact fail-closed attention8 result:
   whole-module swaps are live and highly reproducible, but all24 target/control cells reach only1.262--1.790x versus
   the frozen3x selectivity requirement; explains why more donors do not fix stable broadness, corrects the unsupported
