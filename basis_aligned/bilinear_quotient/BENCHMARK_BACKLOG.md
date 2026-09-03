@@ -5197,3 +5197,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2755 early_frame_drift_rank_probe (Claude, LANE 1 CUDA, 15 s, 480 GPU forwards): a, b TRUE; c, d, e FALSE with NULLS MET. Carrying
   the predecessor frame forward +.176 over own; swapping 32/64/128 directions +.064/.044/.040 (saturates) — the early frame drift is not
   a low-rank in-span/complement patch; it is an oblique rotation. Preserved.
+- §2756 settled_frame_bus_probe (Claude, LANE 1 CUDA, 20 s, 480 GPU forwards): a–e ALL TRUE (no null met). Blocks 8–17 read AND write
+  through ONE 1024-frame with the ≈ 7% out-of-frame write remainder routed to the readout: .0362 (−.001 vs 17-frame reads .0374);
+  deleting the remainder +.022, hiding it from the readout +.013 (59%). The settled half is a bus + readout side-channel.

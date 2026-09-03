@@ -1,0 +1,30 @@
+{"stage": "heads_done", "t": 14.6}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.1}
+{"stage": "arms", "ALL36_1024": 0.0337, "SPLIT8_1024": 0.0374, "SPLIT8_BUS_1024": 0.0362, "SPLIT8_DEL_1024": 0.0598, "SPLIT8_HID_1024": 0.0507, "t": 20.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_bus_is_free": true,
+  "pred_c_remainder_matters": true,
+  "pred_d_readout_is_the_main_consumer": true,
+  "pred_e_out_of_frame_energy_small": true
+ },
+ "nulls": {
+  "b_null_ge_.02": false,
+  "c_null_le_.003": false,
+  "d_null_ratio_le_.2": false,
+  "e_null_ge_.25": false
+ },
+ "ce_added": {
+  "ALL36_1024": 0.03371569514274597,
+  "SPLIT8_1024": 0.03738698363304138,
+  "SPLIT8_BUS_1024": 0.03622886538505554,
+  "SPLIT8_DEL_1024": 0.05984371900558472,
+  "SPLIT8_HID_1024": 0.05068373680114746
+ },
+ "gaps": {
+  "bus_minus_split8": -0.0011581182479858398,
+  "del_minus_split8": 0.022456735372543335,
+  "hid_minus_split8": 0.013296753168106079
+ }
+}

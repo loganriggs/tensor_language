@@ -1,0 +1,93 @@
+{
+ "rung": "settled_frame_bus_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_bus_is_free": true,
+  "pred_c_remainder_matters": true,
+  "pred_d_readout_is_the_main_consumer": true,
+  "pred_e_out_of_frame_energy_small": true
+ },
+ "nulls": {
+  "b_null_ge_.02": false,
+  "c_null_le_.003": false,
+  "d_null_ratio_le_.2": false,
+  "e_null_ge_.25": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_max": 0.005,
+  "c_min": 0.01,
+  "d_min": 0.5,
+  "d_denom_min": 0.003,
+  "e_max": 0.1
+ },
+ "null_bars": {
+  "b_min": 0.02,
+  "c_max": 0.003,
+  "d_max": 0.2,
+  "e_min": 0.25
+ },
+ "device": "cuda",
+ "k": 1024,
+ "split": 8,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "all36_1024": 0.03371569514274597,
+  "prior_all36_1024": 0.0337,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374
+ },
+ "ce_added": {
+  "ALL36_1024": 0.03371569514274597,
+  "SPLIT8_1024": 0.03738698363304138,
+  "SPLIT8_BUS_1024": 0.03622886538505554,
+  "SPLIT8_DEL_1024": 0.05984371900558472,
+  "SPLIT8_HID_1024": 0.05068373680114746
+ },
+ "gaps": {
+  "bus_minus_split8": -0.0011581182479858398,
+  "del_minus_split8": 0.022456735372543335,
+  "hid_minus_split8": 0.013296753168106079
+ },
+ "hid_over_del_ratio": 0.5921053504670727,
+ "out_of_frame_write_energy_1024": {
+  "attn8": 0.07475697994232178,
+  "mlp8": 0.0658637285232544,
+  "attn9": 0.03119736909866333,
+  "mlp9": 0.06610220670700073,
+  "attn10": 0.039549052715301514,
+  "mlp10": 0.06975668668746948,
+  "attn11": 0.0361594557762146,
+  "mlp11": 0.06716024875640869,
+  "attn12": 0.05158203840255737,
+  "mlp12": 0.07063782215118408,
+  "attn13": 0.07412904500961304,
+  "mlp13": 0.07440507411956787,
+  "attn14": 0.08897769451141357,
+  "mlp14": 0.08405256271362305,
+  "attn15": 0.07937765121459961,
+  "mlp15": 0.07051056623458862,
+  "attn16": 0.07948273420333862,
+  "mlp16": 0.014127552509307861,
+  "attn17": 0.028276503086090088,
+  "mlp17": 0.008838057518005371
+ },
+ "out_of_frame_write_energy_median": 0.06716024875640869,
+ "price": {
+  "gpu_doc_forwards": 480,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 20.235087394714355
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/SETTLED_FRAME_BUS_PROBE_PREREGISTRATION.md": "2ed216c14aaa3849a21c6cc9ea1e67009919b674c0900de84d96bacc57e9c10f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/settled_frame_split_point_probe_results.json": "e4779f4bb162798609f15e3e7a793f99277d82edee5c7c4a2677b4bf79a5f75d",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "bb64c1f43d64368a35362d46dc648d350179a4f9e56924d175c9ca5816f40ec1"
+}

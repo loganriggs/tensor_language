@@ -70948,3 +70948,32 @@ directions partly out of the predecessor's span, not a replacement of a few. (3)
 parametrisation of the early frames; it does not measure the drift's dimension directly. The direct, construction-free quantity is the
 principal-angle spectrum between consecutive frames (rank of P_s − P_p) — registered next. Failures preserved: c, d, e FALSE, nulls
 met. Nothing installs into the §312 frontier (§2125).
+
+## §2756 — THE SETTLED HALF OF THE MODEL IS ONE 1024-DIM BUS PLUS A READOUT SIDE-CHANNEL: on §2754's 17-frame read program (.0374 at k = 1024), confining every WRITE of blocks 8–17 to the same shared 1024-frame and routing the remainder to the readout costs NOTHING — SPLIT8_BUS_1024 0.0362 (−.0012 vs .0374; pred_b "≤ .005" TRUE; null ≥ .02 not met); deleting the remainder instead costs +.0225 (pred_c "≥ .010" TRUE), hiding it from the readout alone +.0133 = 59% of the delete cost (pred_d "ratio ≥ .5" TRUE; null ≤ .2 not met); the out-of-frame write energy of the 20 sites is median 6.7% (pred_e "≤ .10" TRUE; mlp16/17 1.4%/0.9%, mlp11–15 6.7–8.4%) (Claude, LANE 1 CUDA, 20 s, 480 GPU document-forwards): a–e ALL TRUE; no null met.
+
+Registered 2026-09-03 23:15Z (polynomial_causal/SETTLED_FRAME_BUS_PROBE_PREREGISTRATION.md); landed 23:16Z. Script
+ops/settled_frame_bus_probe.py; results settled_frame_bus_probe_results.json (sha 6c637a47…). Frozen: prereg, §2754 results,
+checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs
+96–191) — LOWER IS BETTER; "+" = extra damage over SPLIT8_1024. Construction: §2754's SPLIT8 read program (blocks 0–7 own 1024-cores,
+blocks 8–17 the single core U_8) with §2748's Route on all 20 writes of blocks 8–17 using U_8[:, :1024]: readout = remainder summed
+into a buffer added before the final rms-norm; delete = remainder dropped; hidden = remainder kept in the stream but subtracted before
+the final norm. Instrument (pred_a TRUE): baseline 3.0322401; ALL36_1024 0.03372 (= §2754); SPLIT8_1024 0.03739 (= §2754, to 1e-5).
+
+| arm | CE added | gap over SPLIT8_1024 |
+|---|---|---|
+| ALL36_1024 | 0.0337 | — |
+| SPLIT8_1024 (17 read frames) | 0.0374 | — |
+| SPLIT8_BUS_1024 (reads + writes on U_8, remainder → readout) | 0.0362 | −.0012 (b TRUE) |
+| SPLIT8_DEL_1024 (remainder deleted) | 0.0598 | +.0225 (c TRUE) |
+| SPLIT8_HID_1024 (remainder in stream, removed before readout) | 0.0507 | +.0133; ratio .59 (d TRUE) |
+
+What it says. (1) Program statement, at k = 1024: blocks 0–7 read the residual through 16 own 1024-frames; blocks 8–17 (20
+sublayers, both kinds) read AND write through ONE shared 1024-frame; the ≈ 7% of each late write that falls outside that frame never
+needs to be re-read by any later block — it can be summed into a side-channel that joins the stream only at the unembed. Total price
+of that description: 0.036 nat added above the real model, with the frontier untouched. (2) The remainder is not noise: deleting it
+costs .022, and 59% of that cost is its contribution to the readout (hidden arm) with the remaining 41% due to later blocks reading
+it — yet routing it to the readout costs nothing, so the later blocks' reading of it is fully compensated within the 1024-frame
+program (as §2748 found at 768: the out-of-core write is readout-bound). (3) Out-of-frame energy is smallest exactly where §2747 found
+low write rank (mlp16 1.4%, mlp17 0.9%, attn17 2.8%, attn9 3.1%) and largest for attn14/mlp14 (8.9/8.4%). Nothing installs into the
+§312 frontier; the frontier remains norm-2304 at 2.6735 (§2125). Composition of the width program so far (k = 1024): read frames
+.0337 → 17 frames .0374 → 17 frames + bus .0362.
