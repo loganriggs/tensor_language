@@ -99,3 +99,17 @@ def test_append_artifacts_is_idempotent_and_refuses_hash_drift(tmp_path, monkeyp
     changed = dict(value, sha256="b" * 64)
     with pytest.raises(ValueError, match="artifact id collision"):
         registry.append_artifacts(record["tag"], {"new_result": changed})
+
+
+def test_registry_distinguishes_active_from_historical_invalid_events():
+    compact = json.loads(registry.REGISTRY.read_text())["circuits"]
+    bracket = compact["task.bracket.pending_opener"]
+    assert bracket["negative_event_count"] == 1
+    assert bracket["active_negative_event_count"] == 0
+    assert bracket["latest_blocker"] is None
+    record = task_records()["task.bracket.pending_opener"]
+    superseded = {event.get("supersedes_event_id") for event in record["evidence_events"]}
+    active_ids = {event["event_id"] for event in record["evidence_events"]
+                  if event["event_id"] not in superseded}
+    assert bracket["latest_active_event"] in active_ids
+    assert "invalid_unverified_checkpoint" not in bracket["latest_active_event"]

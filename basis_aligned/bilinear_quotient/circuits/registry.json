@@ -567,20 +567,23 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "f0546c9625ffc50da312f4462a32cf997de6982a4a79a8cd58258f5f2060a519",
+   "record_sha256": "236119d09587b3ff3c202e5e6cffbde7ba15969063e464734e953b8a431ef9fc",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v6",
-   "claim_status": "specified",
+   "active_claim_id": "pending_opener_state.v8",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state",
    "interchange_family_count": 2,
    "invariance_family_count": 2,
    "negative_event_count": 1,
-   "latest_blocker": "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+   "active_negative_event_count": 0,
+   "latest_blocker": null,
+   "latest_active_event": "pending_opener_control_ceilings.r539.preregistered.v1",
    "design_keys": [
     "17d53f92c77580f74c973c3f973294da1033f38b965df2bca933ed319c14d10f",
     "1808ee26fcb75b3db7237ffc700545b35ed9754b61e7cd67c856f05a563dd805",
-    "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384"
+    "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384",
+    "be70dbfc2a468b9d828647e1b37da8e62cba8b0dfe164b926da13cbf3f261f4d"
    ]
   },
   "task.increment.state": {
@@ -598,7 +601,9 @@
    "interchange_family_count": 2,
    "invariance_family_count": 1,
    "negative_event_count": 0,
+   "active_negative_event_count": 0,
    "latest_blocker": null,
+   "latest_active_event": "increment_postattn_rank4_das.legacy.v1",
    "design_keys": [
     "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4"
    ]
@@ -618,7 +623,9 @@
    "interchange_family_count": 3,
    "invariance_family_count": 1,
    "negative_event_count": 1,
+   "active_negative_event_count": 1,
    "latest_blocker": "induction_terminal_collateral_failure.legacy.v1",
+   "latest_active_event": "induction_terminal_collateral_failure.legacy.v1",
    "design_keys": [
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2"
    ]
@@ -638,7 +645,9 @@
    "interchange_family_count": 3,
    "invariance_family_count": 1,
    "negative_event_count": 2,
+   "active_negative_event_count": 2,
    "latest_blocker": "successor_layer8_input_ceiling.legacy.v1",
+   "latest_active_event": "successor_layer8_input_ceiling.legacy.v1",
    "design_keys": [
     "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
     "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002"

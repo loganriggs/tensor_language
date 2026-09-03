@@ -40,6 +40,8 @@ def legacy_row(tag, registry_row, document):
         "variable": (story.get("blind_name") or "")[:60],
         "families": "—",
         "negative": "—",
+        "active_negative": "—",
+        "latest_event": "—",
         "next": "see circuit record",
         "agents": ",".join(sorted(agents))[:40],
     }
@@ -57,6 +59,8 @@ def v2_row(tag, registry_row, document):
         "variable": registry_row["causal_variable_id"],
         "families": str(family_count),
         "negative": str(registry_row["negative_event_count"]),
+        "active_negative": str(registry_row.get("active_negative_event_count", registry_row["negative_event_count"])),
+        "latest_event": registry_row.get("latest_active_event") or "—",
         "next": claim.get("next_missing", ""),
         "agents": "",
     }
@@ -79,15 +83,16 @@ def main():
         f"{len(rows)} canonical records: {n_behavior} behavior circuits and {len(rows)-n_behavior} legacy census records.",
         "Negative/invalid results are counted as evidence, not omitted. Check this view and then the linked JSON record before opening work.",
         "",
-        "| circuit | kind | identity | status | causal variable / legacy story | CF families | negative events | exact next missing evidence |",
-        "|---|---|---|---|---|---:|---:|---|",
+        "| circuit | kind | identity | status | causal variable / legacy story | CF families | active / historical negative events | latest active evidence | exact next missing evidence |",
+        "|---|---|---|---|---|---:|---:|---|---|",
     ]
     for row in rows:
         next_step = row["next"].replace("|", "/")
         variable = row["variable"].replace("|", "/")
         lines.append(
             f"| `{row['tag']}` | {row['kind']} | {row['instance']} | {row['status']} | "
-            f"{variable} | {row['families']} | {row['negative']} | {next_step} |"
+            f"{variable} | {row['families']} | {row['active_negative']} / {row['negative']} | "
+            f"{row['latest_event']} | {next_step} |"
         )
     OUT.write_text("\n".join(lines) + "\n")
     print(f"wrote {OUT.name}: {len(rows)} records, {n_behavior} behavior circuits")

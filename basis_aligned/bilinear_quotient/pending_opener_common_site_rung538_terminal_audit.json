@@ -1,0 +1,32 @@
+{
+  "all_checks_pass": true,
+  "audit": "terminal_cpu_recomputation",
+  "checks": {
+    "all_selected_site_directions_positive": true,
+    "calls_exact": true,
+    "checkpoint_bytes_verified": true,
+    "corrected_run_reproduces_scientific_matrix": true,
+    "forbidden_splits_closed": true,
+    "passing_order_recomputed_exact": true,
+    "raw_cell_counts_exact": true,
+    "result_hash_exact": true,
+    "row_level_recomputation_exact": true,
+    "selected_site_is_frozen_first_pass": true
+  },
+  "interpretation": "Residual block-8 entry is the earliest tested site with a complete-state causal ceiling for both counterfactual constructions. This is a site ceiling, not a DAS or dimensionality claim.",
+  "minimum_selected_site_bootstrap_lower": 1.816367183625698,
+  "minimum_selected_site_positive_fraction": 1.0,
+  "next_step": "measure invariance and non-opener full-swap controls at resid8 before projector fitting",
+  "passing_sites_in_frozen_order": [
+    "resid8",
+    "resid9",
+    "resid10",
+    "resid11",
+    "resid12",
+    "resid13",
+    "attn13h8",
+    "resid14"
+  ],
+  "rung": 538,
+  "selected_site": "resid8"
+}

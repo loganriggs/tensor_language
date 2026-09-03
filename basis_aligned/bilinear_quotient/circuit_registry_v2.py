@@ -228,6 +228,11 @@ def rebuild_registry_v2() -> dict:
                 active = [claim for claim in document["claims"] if claim["status"] != "superseded"]
                 claim = active[-1] if active else document["claims"][-1]
                 events = document.get("evidence_events", [])
+                superseded_event_ids = {
+                    event.get("supersedes_event_id") for event in events
+                    if event.get("supersedes_event_id")
+                }
+                active_events = [event for event in events if event["event_id"] not in superseded_event_ids]
                 row.update({
                     "kind": document["identity"]["kind"],
                     "identity_instance": document["identity"]["instance"],
@@ -237,7 +242,12 @@ def rebuild_registry_v2() -> dict:
                     "interchange_family_count": sum(f["role"] == "interchange" for f in claim["counterfactual_families"]),
                     "invariance_family_count": sum(f["role"] == "invariance" for f in claim["counterfactual_families"]),
                     "negative_event_count": sum(e["verdict"] in {"failed", "null", "invalid"} for e in events),
-                    "latest_blocker": next((e["event_id"] for e in reversed(events) if e["verdict"] in {"failed", "null", "invalid"}), None),
+                    "active_negative_event_count": sum(
+                        e["verdict"] in {"failed", "null", "invalid"} for e in active_events),
+                    "latest_blocker": next((
+                        e["event_id"] for e in reversed(active_events)
+                        if e["verdict"] in {"failed", "null", "invalid"}), None),
+                    "latest_active_event": active_events[-1]["event_id"] if active_events else None,
                     "design_keys": sorted({event["design_key"] for event in events}),
                 })
             rows[tag] = row

@@ -86,10 +86,19 @@ for tag, d in sorted(behavior.items()):
         L.append(f'| `{family["family_id"]}` | {family["role"]} | {family["status"]} |')
     events=d.get('evidence_events',[])
     if events:
-        L.append('\n**Existing evidence events:**')
+        superseded_by={event.get('supersedes_event_id'):event['event_id'] for event in events
+                       if event.get('supersedes_event_id')}
+        L.append('\n**Append-only evidence ledger:**')
+        L.append('| event | stage | test | verdict | lifecycle | result artifact |')
+        L.append('|---|---|---|---|---|---|')
         for event in events:
-            L.append(f'- `{event["event_id"]}`: {event["test_type"]} — **{event["verdict"]}** '
-                     f'({event.get("failure_kind") or "no failure"})')
+            lifecycle=(f'superseded by `{superseded_by[event["event_id"]]}`'
+                       if event['event_id'] in superseded_by else 'active')
+            artifact=event.get('result_artifact_id') or '—'
+            L.append(f'| `{event["event_id"]}` | {event["stage"]} | {event["test_type"]} | '
+                     f'**{event["verdict"]}** | {lifecycle} | `{artifact}` |')
+        L.append(f'\n**Frozen artifacts:** {len(d.get("artifacts", {}))}. '
+                 'Paths and SHA-256 hashes are in the canonical JSON record.')
     L.append(f'\n**Next:** {active.get("next_missing", "not recorded")}\n')
 L.append('\n## Summary table\n')
 L.append('| # | circuit | best (mean) | conc | best (interchange) | conc | agree | members |')

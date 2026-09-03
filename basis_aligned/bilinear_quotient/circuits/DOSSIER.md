@@ -13,12 +13,12 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 
 | circuit | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | specified | `pending_opener_state` | 5 | 0 | run preregistered FIT/SELECT capability gates; only then open the common-site ceiling ladder |
+| `task.bracket.pending_opener` | site_live | `pending_opener_state` | 5 | 1 | execute the frozen resid8 full-state ceilings for both answer-preserving families; no DAS optimization until their causal informativeness is known |
 | `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
-### `task.bracket.pending_opener` — specified
+### `task.bracket.pending_opener` — site_live
 
 **Read:** opener, closer, ordering, and recency evidence in the preceding context. **Operation:** maintain which opener type remains pending after completed earlier spans. **Write:** signed evidence for the matching closer token. **Endpoint:** symmetric donor-closer versus base-closer final-logit margin.
 
@@ -30,12 +30,20 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `later_matching_closer_reset` | necessity | proposed |
 | `nonopener_punctuation_substitution` | invariance | frozen |
 
-**Existing evidence events:**
-- `pending_opener_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
-- `pending_opener_capability.r537.preregistered.v1`: capability — **inconclusive** (no failure)
-- `pending_opener_common_site_ceiling.r537.preregistered.v1`: full_swap_ceiling — **inconclusive** (no failure)
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `pending_opener_rank4_das.legacy.v1` | complete | das_interchange | **held** | active | `das_result` |
+| `pending_opener_capability.r537.preregistered.v1` | preregistered | capability | **inconclusive** | superseded by `pending_opener_capability.r537.complete.v1` | `—` |
+| `pending_opener_common_site_ceiling.r537.preregistered.v1` | preregistered | full_swap_ceiling | **inconclusive** | superseded by `pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1` | `—` |
+| `pending_opener_capability.r537.complete.v1` | complete | capability | **held** | active | `r537_capability_result` |
+| `pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1` | invalid | full_swap_ceiling | **invalid** | superseded by `pending_opener_common_site_ceiling.r538.complete.v2` | `r538_site_invalid_unverified_checkpoint_result` |
+| `pending_opener_common_site_ceiling.r538.complete.v2` | complete | full_swap_ceiling | **held** | active | `r538_site_result_v2` |
+| `pending_opener_control_ceilings.r539.preregistered.v1` | preregistered | null_control | **inconclusive** | active | `—` |
 
-**Next:** run preregistered FIT/SELECT capability gates; only then open the common-site ceiling ladder
+**Frozen artifacts:** 23. Paths and SHA-256 hashes are in the canonical JSON record.
+
+**Next:** execute the frozen resid8 full-state ceilings for both answer-preserving families; no DAS optimization until their causal informativeness is known
 
 ### `task.increment.state` — proposed
 
@@ -48,8 +56,12 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `incoherent_one_number_edit` | necessity | proposed |
 | `operation_preserved_surface_edit` | invariance | proposed |
 
-**Existing evidence events:**
-- `increment_postattn_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `increment_postattn_rank4_das.legacy.v1` | complete | das_interchange | **held** | active | `postattn_result` |
+
+**Frozen artifacts:** 5. Paths and SHA-256 hashes are in the canonical JSON record.
 
 **Next:** freeze cross-format rows; require number-word transfer and nonincrement numeric controls
 
@@ -65,8 +77,12 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `match_break_payload_preserved` | necessity | proposed |
 | `copy_relation_preserved_nuisance_change` | invariance | proposed |
 
-**Existing evidence events:**
-- `induction_terminal_collateral_failure.legacy.v1`: removal — **failed** (scientific_null)
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `induction_terminal_collateral_failure.legacy.v1` | complete | removal | **failed** | active | `campaign_report` |
+
+**Frozen artifacts:** 5. Paths and SHA-256 hashes are in the canonical JSON record.
 
 **Next:** freeze two-valid-source and payload-swap rows; measure selector and value site ceilings
 
@@ -81,9 +97,13 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 | `internal_pointer_imposition` | interchange | proposed |
 | `prefix_change_final_pointer_preserved` | invariance | proposed |
 
-**Existing evidence events:**
-- `successor_cross_family_transfer.legacy.v1`: cross_family_transfer — **failed** (scientific_null)
-- `successor_layer8_input_ceiling.legacy.v1`: full_swap_ceiling — **null** (scientific_null)
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `successor_cross_family_transfer.legacy.v1` | complete | cross_family_transfer | **failed** | active | `task_report` |
+| `successor_layer8_input_ceiling.legacy.v1` | complete | full_swap_ceiling | **null** | active | `task_report` |
+
+**Frozen artifacts:** 5. Paths and SHA-256 hashes are in the canonical JSON record.
 
 **Next:** expand families and test shared-plus-private projectors against failed cross-family transfer
 
