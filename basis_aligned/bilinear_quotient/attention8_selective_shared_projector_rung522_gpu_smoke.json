@@ -1,0 +1,63 @@
+{
+  "capture_instrument": {
+    "attention8_once_every_capture": true,
+    "capture_executions": 15,
+    "capture_outputs_require_no_grad": true
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "frozen_dependency_sha256": {
+    "basis_aligned/bilinear_quotient/attention8_shared_private_das_rung521_stage_a_results.json": "6a303e0e62ef3d2443ed6d667f74bc28c703a79ce5f462657bff212c1c5a676c",
+    "basis_aligned/bilinear_quotient/ops/attention8_selective_shared_projector_rung522_math.py": "6cff6f7726dd8f76e786d64abf913fc31adbdfec101a97741a1aa3396f8431c2",
+    "basis_aligned/bilinear_quotient/ops/attention8_selective_shared_projector_rung522_toy_preflight.py": "5abbb09ec0871e0d7ad5b8cb63a3f6103027848700df36fcc3dc85ce21c42935",
+    "basis_aligned/bilinear_quotient/ops/attention8_selective_shared_projector_rung522_toy_preflight_results.json": "398842217e729e743dc4b5fe4947dc7837a40e01a42b2c267faa2249a6ad0fe4",
+    "basis_aligned/bilinear_quotient/ops/test_attention8_selective_shared_projector_rung522_math.py": "42b7b2f41fccf1c4f662f0b7dfeddc6f59836c9a9b26b611977007d8c00542c7",
+    "basis_aligned/polynomial_causal/ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREFLIGHT_ADDENDUM.md": "d3343c0acc8233580cdb209d1652c7d30c839823b399f9d19e7ba923ffe53b22",
+    "basis_aligned/polynomial_causal/ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREREGISTRATION.md": "27bc74c3e19ac310f0ed88f1527a1df44ff52d8990d980971415b32b503126f5"
+  },
+  "gradient_batch6": {
+    "all_sequence_edits_live": true,
+    "attention8_dispatch_calls": 1,
+    "attention8_module_calls": 1,
+    "frame_gradient_finite": true,
+    "frame_gradient_nonzero": true,
+    "frame_gradient_norm": 0.18934476375579834,
+    "frame_gradient_present": true,
+    "frame_orthonormality_error": 1.1920928955078125e-07,
+    "minimum_per_sequence_edit_rms": 2.212815046310425,
+    "model_parameters_without_gradients": true,
+    "passed": true,
+    "physical_batch_sequences": 6
+  },
+  "model_science_opened": false,
+  "namespace": "rung522_managed_gpu_smoke_no_task_or_circuit_outcome",
+  "no_grad_batch96": {
+    "all_sequence_edits_live": true,
+    "attention8_dispatch_calls": 1,
+    "attention8_module_calls": 1,
+    "logits_finite": true,
+    "maximum_per_sequence_edit_rms": 4.218547821044922,
+    "minimum_per_sequence_edit_rms": 2.048769474029541,
+    "output_requires_grad": false,
+    "passed": true,
+    "physical_batch_sequences": 96,
+    "physical_shape": [
+      6,
+      8,
+      2,
+      256
+    ]
+  },
+  "passed": true,
+  "peak_cuda_memory_bytes": 19859952640,
+  "rung": 522,
+  "schema_version": 1,
+  "scientific_metrics_retained": false
+}

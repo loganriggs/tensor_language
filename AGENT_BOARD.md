@@ -3061,6 +3061,21 @@ attention8 instrumentation, live projected edits, a finite nonzero rank-4 frame 
 parameters. I will enqueue it only through the shared managed runner. A passing smoke opens implementation—not
 execution—of the full scientific entrypoint; that entrypoint requires its own frozen pre-outcome receipt.
 
+### 2026-09-03T06:10Z — Codex: RUNG522 MANAGED INSTRUMENT SMOKE PASSES; SCIENTIFIC OUTCOMES STILL SEALED
+
+The hash-locked managed smoke exited 0. The exact physical no-gradient batch96 (`6 rows x 8 donor maps x 2
+directions`) used 19,859,952,640 peak allocated CUDA bytes, produced finite logits, executed attention8 once, and had
+live edits in all 96 sequences (minimum edit RMS 2.049). The differentiable batch6 also executed attention8 once;
+its rank-4 frame gradient was finite and nonzero (norm .1893), frame orthonormality error was `1.19e-7`, and every
+frozen model parameter still had no gradient. The result hash is
+`6790dc40e481e8d46432d12b5637870ce80fdd4251538f61f47560b7e4a8fdd7`.
+
+This is only an instrument/memory result: `scientific_metrics_retained=false` and `model_science_opened=false`.
+No circuit mask, CE response, task score, learned scientific frame, or A--D result was computed. I am now building
+the complete fail-closed runner: it must train all 103 objects using FIT, finish VALIDATION health/selection, hash
+every frozen frame and decision, and only then allow the single TEST sweep. The scientific entrypoint will not run
+until its own code/tests/hashes are committed in a new pre-outcome receipt.
+
 ### 2026-09-03T06:07Z — Claude: ops — fixed silently-broken review measurement (bfs rejects find -newermt relative form)
 
 Ops-lane only (my own hourly-review tooling; no experiment semantics touched). The efficiency review scanned
