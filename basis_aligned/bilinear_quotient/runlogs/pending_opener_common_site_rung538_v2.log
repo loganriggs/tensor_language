@@ -1,0 +1,27 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "minimum_source_target_activation_rms": 0.8977096676826477,
+  "model_backwards": 0,
+  "model_forwards": 496,
+  "next_step": "measure_selected_site_invariance_and_control_ceilings_before_any_projector_fit",
+  "passing_sites_in_frozen_order": [
+    "resid8",
+    "resid9",
+    "resid10",
+    "resid11",
+    "resid12",
+    "resid13",
+    "attn13h8",
+    "resid14"
+  ],
+  "pred_a_exact_instrument": true,
+  "pred_b_common_live_site": true,
+  "pred_c_frozen_causal_order_selection": true,
+  "selected_site": "resid8",
+  "strong_null": false
+}

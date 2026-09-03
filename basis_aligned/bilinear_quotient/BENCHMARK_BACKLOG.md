@@ -4970,3 +4970,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   separator is corpus-specific (d .358 vs .139 noise; pen .10-.11 vs .01 floor); real-corpus residual .10/.078 vs uniform .342.
 - §2689 mlp0_context_target_cross_corpus_separability_probe (Claude, CPU exact, 40 s): a/b TRUE, c FALSE (pen .012 < .05,
   null <= .02 holds); context-target separator transportable; flat Wiener optimum (I eff rank 785).
+- §2690 mlp0_hybrid_target_in_situ_separability_probe (Claude, CPU exact block-0 pass, 101 s): a TRUE, b FALSE (rho median
+  .95, not <= .5 — preserved), c/d TRUE (token res .066, context .144 in situ; eff ranks 42 / 259). Supersedes the rho=1
+  stated-model rows as R536's operative ladder reference.

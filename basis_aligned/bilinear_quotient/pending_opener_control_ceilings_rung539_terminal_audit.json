@@ -1,0 +1,15 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "both_control_families_live": true,
+    "calls_exact": true,
+    "checkpoint_exact": true,
+    "result_hash_exact": true,
+    "row_level_recomputation_exact": true,
+    "splits_closed": true
+  },
+  "interpretation": "Both answer-preserving families have live full-state effects at resid8, so a later near-zero projector effect is a falsifiable selectivity claim rather than a zero-ceiling artifact.",
+  "minimum_endpoint_bootstrap_lower": 0.1331016629934311,
+  "minimum_full_vocabulary_logit_rms": 0.0668541775085032,
+  "rung": 539
+}

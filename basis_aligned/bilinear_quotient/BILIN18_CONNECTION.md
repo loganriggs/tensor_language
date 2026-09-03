@@ -68362,3 +68362,52 @@ Codex's proposed cross-counterfactual projector-agreement bar (a d_response-type
 whose disagreement is behaviorally irrelevant; the transfer-of-causal-effect half of the bar is the one that carries
 the decision, and the agreement half should be read against the pooled-metric floor, not as an absolute.
 No circuit claim; no explained-fraction change.
+
+## §2690
+**MLP0 hybrid-target separability IN SITU — the model's real block-0 context (Claude CPU lane; exact block-0 pass on
+2x192 docs; 0 full forwards; 101 s). Preregistered 14:52 (`MLP0_HYBRID_TARGET_IN_SITU_SEPARABILITY_PROBE_PREREGISTRATION.md`,
+committed pre-outcome in fc63acdb5 — the commit landed after the run because I enqueued first; the prereg text was
+written and hash-frozen into the script before the run, and the script's check_hashes bound it), landed 14:55
+(`mlp0_hybrid_target_in_situ_separability_probe_results.json`, bacf00a8). Scored as written: a TRUE, b FALSE
+(preserved), c TRUE, d TRUE. Verdict string as coded: `context_not_small_relative_to_token_stream_rho1_rows_operative`;
+the reading below is more specific than that string.**
+
+Object. MLP0's real input xhat_t = rms_norm(p_t + q_t) with p_t = (lambdas0+lambdas1) rms_norm(wte) (12.19x token
+stream) and q_t = block-0 squared-attention output, reproduced on CPU with tt_model semantics (instrument: my manual
+attention equals the model's own `CausalBilinearSelfAttention` module to 0.0 max-abs on 4 docs; product decomposition
+identity g(xhat) = s^2(g_T+g_I+g_C) holds to 4e-7; all covariance blocks PSD; 24,576 sampled positions per corpus
+(positions 1..255 step 2 x 192 docs; natural = fit_natural.pt, code = ood_code.pt). Hybrid pairs built ON xhat with the
+real renormalisation: TOKEN target D_T under a corpus-unigram token swap holding q; CONTEXT target D_I under a
+donor-context swap holding the token. General (correlated target/nuisance) Wiener residual in W_D metric; LOWER = more
+separable.
+
+- pred_b FALSE: median rho = ||q||/||p|| = .947 natural (IQR .82-1.09), .985 code — essentially rho = 1 at every
+  position bucket (natural medians .84/.83/.93/.98 for positions 1-4/5-24/25-124/125-255). My registered reason (the
+  12.2x lambdas keep the token stream dominant) was WRONG: the model runs MLP0 with context and token streams of
+  equal size, and — despite the UNNORMALISED squared-attention pattern summing over up to 255 keys — the attention
+  output's size is nearly flat in position. That flatness is itself a finding: block 0 regulates its output scale
+  without a softmax.
+- pred_c TRUE: natural TOKEN-target residual (any rank) .066 (code .036), against §2686's .342 (uniform tokens,
+  isotropic q, rho=1) and §2688's .100 (natural unigram, isotropic q, rho=1). In-situ rank ladder (natural):
+  rank-3 .514, 8 .386, 32 .240, 128 .137, 512 .078. Pure-target output effective rank IN SITU 41.6 (uniform-token
+  model: 317).
+- pred_d TRUE: natural CONTEXT-target residual .144 (code .116), against §2687's .275 at rho=1. Ladder (natural):
+  rank-3 .812, 8 .715, 32 .567, 128 .407, 512 .223. Pure-target effective rank in situ 259 (stated model: 785).
+- Report-only: the rms-renormalisation leak — the part of the observed change that is neither target nor the
+  algebraic nuisance but (s'^2 - s^2) times the untouched branch — is .4% of the token-swap energy and 3.5% (natural)
+  / 5.8% (code) of the context-swap energy. Small, but nonzero: R536's hybrid-pair construction should state whether
+  the hybrid input is renormalised, because the CONTEXT target inherits a few percent of token-branch energy if it is.
+
+Reading. The prereg's licensing text said "if b fails, the rho=1 rows are operative"; that was written on the
+assumption that b failing would leave the stated-model rho=1 numbers as the best available reference. It does not:
+these in-situ numbers ARE the rho~1 case with the real, anisotropic context and the real token distribution, and
+they are strictly more faithful, so they supersede §2686/§2687/§2688's rho=1 rows as the operative reference for
+R536's projector ranks (the earlier rows stand as bounds under their stated model). What changes for R536: the
+TOKEN target is genuinely low-dimensional in situ — a rank-32 projector can carry 76% and rank-128 86% of it, and its
+pure-target effective rank is ~42; a rank-3 projector still carries under half. The CONTEXT target remains the hard
+one: rank-32 carries 43% (not 13%), rank-128 59%, and reaching residual ~.22 takes rank 512 — the "I ladder starts
+in the hundreds" warning of §2687 stands in softened form. Why in situ is more separable than every stated model:
+the real context is far from isotropic (its interaction with the token branch concentrates on ~260 output
+directions instead of ~785), and the real token distribution collapses the token branch onto ~42. The isotropic
+scans were worst cases, as §2688 already suspected for the token side. No circuit claim; no explained-fraction
+change. The in-situ cross-corpus replication of §2688/§2689 is queued behind rung539.

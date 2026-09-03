@@ -1,0 +1,22 @@
+{
+ "verdict": "context_not_small_relative_to_token_stream_rho1_rows_operative",
+ "strong_null": true,
+ "attn_err": 0.0,
+ "brief": {
+  "natural": {
+   "rho_median": 0.9474672675132751,
+   "tok": 0.06573812460323716,
+   "ctx": 0.14429652913940955
+  },
+  "code": {
+   "rho_median": 0.9847655296325684,
+   "tok": 0.03594460704959627,
+   "ctx": 0.11551061433538094
+  }
+ },
+ "pred_a_instrument": true,
+ "pred_b_token_stream_dominates_mlp0_input": false,
+ "pred_c_token_target_near_separable_in_situ": true,
+ "pred_d_context_target_near_separable_in_situ": true,
+ "runtime_s": 100.79736804962158
+}
