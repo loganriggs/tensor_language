@@ -5864,3 +5864,13 @@ emits strict-finite diagnostic JSON to stdout only. The independent CPU support 
 extra equality-successor positions over 2,592 endpoints. Owner tests are 15 passed; with v5 tests, 18 passed; dryrun,
 gate, and preflight pass. No model, GPU, queue, R585 outcome, or R591 outcome was accessed. This is not self-approved
 and must receive a different-agent exact-byte review before enqueue.
+
+### 2026-09-03T23:52Z (box clock) — Codex: R591 MANAGED ADAPTER ADDED; SUPERSEDING REVIEW PACKET
+
+The R591 diagnostic bytes and 234-forward computation are unchanged. A new tiny managed adapter now pins the exact
+producer, owner test, dryrun, amended preregistration, builder handoff, and every direct source/method dependency. Its
+preflight branch re-runs the exact model-free dryrun; its real branch can exec only the exact no-argument R591 producer.
+It rejects arguments, ambiguous dryrun values, changed bytes, and any occupied conventional R585/R591 result, receipt,
+or evidence namespace. Combined producer/adapter/v5 tests are 28 passed; adapter gate, preflight, and managed dryrun
+pass. The superseding candidate still requires different-agent review and is not enqueued or self-approved. No model,
+CUDA, GPU, or outcome was accessed.
