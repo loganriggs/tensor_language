@@ -1,0 +1,114 @@
+{
+ "rung": "late_message_core_input_map_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE(arm)/CE(MEAN) (HIGHER = better)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_input_carries_the_context_part": true,
+  "pred_c_full_linear_input_adds_little": true,
+  "pred_d_close_to_the_oracle": true,
+  "pred_e_core_write_well_explained": true
+ },
+ "nulls": {
+  "b_null_gain_le_.03": false,
+  "c_null_fullin_ge_corein_plus_.15": false,
+  "d_null_corein_le_.7_oracle": false,
+  "e_null_r2_le_.40_both": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_gain": 0.15,
+  "c_slack": 0.05,
+  "d_mult": 0.9,
+  "e_r2_min": 0.7
+ },
+ "null_bars": {
+  "b_gain": 0.03,
+  "c_slack": 0.15,
+  "d_mult": 0.7,
+  "e_r2_max": 0.4
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "ridge_lambda_rel": 0.01,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "mean_last2": 0.8479736745357513,
+  "prior_mean_last2": 0.848,
+  "cur_m": 0.4270790219306946,
+  "prior_cur_m": 0.427,
+  "oracle_m": 0.15767517685890198,
+  "prior_oracle_m": 0.158
+ },
+ "ce_added": {
+  "MEAN": 0.8479736745357513,
+  "CUR_M": 0.4270790219306946,
+  "COREIN_M": 0.19008836150169373,
+  "FULLIN_M": 0.1917857825756073,
+  "ORACLE_M": 0.15767517685890198
+ },
+ "recovery": {
+  "CUR_M": 0.4963534426177655,
+  "COREIN_M": 0.7758322372380684,
+  "FULLIN_M": 0.7738304993010471,
+  "ORACLE_M": 0.8140565189771651
+ },
+ "ridge_r2": {
+  "CUR": {
+   "fit": {
+    "mlp16": 0.5883353407658182,
+    "mlp17": 0.5438340201196284
+   },
+   "core_heldout": {
+    "mlp16": 0.6200924982657738,
+    "mlp17": 0.49756595354568955
+   }
+  },
+  "COREIN": {
+   "fit": {
+    "mlp16": 0.8435965779639354,
+    "mlp17": 0.9182398029253794
+   },
+   "core_heldout": {
+    "mlp16": 0.946846478288438,
+    "mlp17": 0.9497945637756607
+   }
+  },
+  "FULLIN": {
+   "fit": {
+    "mlp16": 0.9066865519213592,
+    "mlp17": 0.9446691139368861
+   },
+   "core_heldout": {
+    "mlp16": 0.980452261735585,
+    "mlp17": 0.952288777049545
+   }
+  }
+ },
+ "n_features": {
+  "CUR": 1152,
+  "COREIN": 1304,
+  "FULLIN": 2304
+ },
+ "core_spectrum": {
+  "eff_rank": 10.003904488643483,
+  "rank_90": 12,
+  "top1": 0.407855014244653,
+  "psd_min_over_max": 4.716203060040444e-05
+ },
+ "price": {
+  "gpu_doc_forwards": 1536,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 17.49282956123352
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_MESSAGE_CORE_INPUT_MAP_PROBE_PREREGISTRATION.md": "933e90eba5f0fbb6227df2558661d584693420acfe5a4f12a85ef4b5f74e9ff6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_message_token_lookup_probe_results.json": "84a3d8a9a335c8ca790ff9c03205821f34d9d631ed23bc06ade1400d4a0633bd",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "a84aa42f718a1528f700298387eb62c60764b3c32481d19121a741fa8fbabeb5"
+}

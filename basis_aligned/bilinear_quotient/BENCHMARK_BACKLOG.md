@@ -5072,3 +5072,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2717 late_message_token_lookup_probe (Claude, LANE 1 CUDA, 12 s, 928 GPU forwards): a–e ALL TRUE (b .509 vs .50 bar, margin
   .009). mlp16+17 message (.848 over means): current-token ridge lookup recovers 51%, same inside the 16-dim core (50%), previous
   token 8%, oracle core component 81%. Next: is the context part a 16 → 16 map on the core input?
+- §2718 late_message_core_input_map_probe (Claude, LANE 1 CUDA, 17 s, 1536 GPU forwards): a–e ALL TRUE, no null met. Context part
+  of the mlp16+17 message enters through the block input's 16 core coordinates: lookup + 16-dim linear + quadratic terms recovers
+  78% of the .848-nat gap (oracle core 81%); full 1152-dim linear input no better (77%). Held-out core R² .95/.95. Next (weights-
+  only, no fit): do Left/Right restricted to P_M reproduce the fitted B/Q? Queued: late_stack_token_lookup_map_probe (mlp11–17).

@@ -69539,3 +69539,51 @@ talking to itself across the two blocks) or needs the full 1152-dim input.
 surrogate-sufficiency result for two sites, not a grouping/selectivity result: it says what the late message is made of, not
 which behaviours it serves. Reproduction tolerance for the rec numbers ≈ .01 (deterministic given the split; a different fit
 split is the real robustness test — not run).
+
+## §2718 — THE CONTEXT PART OF THE LATE MESSAGE IS A 16 → 16 BILINEAR MAP ON THE CORE: mlp16+mlp17 ≈ μ + P_M[A·ê(t) + B·c + Q(c,c)] (Claude, LANE 1 CUDA, 17 s, 1536 GPU document-forwards): adding the block input's 16 core coordinates c and their 136 quadratic monomials to §2717's current-token lookup lifts recovery of the .848-nat mean-ablation gap from 50% to 78% (CE added .190) — 95% of the oracle core component's 81% (.158) — and a FULL 1152-dim linear-input arm does no better (77%, .192). Held-out R² of the core-projected write .95 / .95 (mlp16 / mlp17). a–e ALL TRUE; no null met.
+
+Written 2026-09-03 21:05Z (box clock). Preregistration `polynomial_causal/LATE_MESSAGE_CORE_INPUT_MAP_PROBE_PREREGISTRATION.md`
+(registered 20:59Z before the script). Script `ops/late_message_core_input_map_probe.py`; receipt
+`late_message_core_input_map_probe_results.json` (sha 0993eb5d…); log `runlogs/late_message_core_input_map_probe.log`. FRESH split
+(ridge and covariances on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE numbers are CE ADDED ABOVE THE REAL MODEL —
+LOWER IS BETTER; rec = 1 − CE(arm)/CE(MEAN(mlp16+17)), higher = better. All surrogate arms write μ + P_M ŷ (output restricted to
+the §2710 16-dim shared late core; eff rank of the pooled core spectrum 10.0, rank-90 12).
+
+**Instrument (a TRUE).** Baseline 3.0322401 (prior exact); MEAN .8480 (§2717 .8480); CUR_M .4271 (§2717 .4271); ORACLE_M .1577
+(§2717 .1577) — all four reproductions inside 1e-4 of §2717 (registered tolerance .02; same RNG-free FRESH split, so only
+CUDA-atomics wobble is expected).
+
+**Features (ê = rms_norm(wte(t_cur)); x̂ = the block's own rms-normed MLP input, i.e. the PRE-WRITE residual — at patch time this
+is the patched stream, so mlp17's surrogate reads mlp16's surrogate output, as a compiled program would).** CUR: ê (1152). COREIN:
+ê ⊕ c ⊕ {c_i c_j}_{i≤j}, c = U_Mᵀ x̂ (1152 + 16 + 136 = 1304). FULLIN: ê ⊕ x̂ (2304, the linear-in-full-input ceiling). Ridge
+λ = 1e-2·tr(Gc)/n_features, centred, per site.
+
+**Arms (mlp16 + mlp17 replaced together; CE added / recovery).** MEAN .848 / — · CUR_M .427 / .496 · COREIN_M .190 / .776 ·
+FULLIN_M .192 / .774 · ORACLE_M .158 / .814. Ridge R² (fit-set → held-out, on the CORE-PROJECTED write): CUR .588/.544 → .620/.498;
+COREIN .844/.918 → .947/.950; FULLIN .907/.945 → .980/.952 (mlp16/mlp17).
+
+**Scoring.** b rec(COREIN_M) − rec(CUR_M) = .280 ≥ .15 TRUE (null ≤ .03 not met). c rec(FULLIN_M) − rec(COREIN_M) = −.002 ≤ .05
+TRUE (null ≥ .15 not met). d rec(COREIN_M)/rec(ORACLE_M) = .953 ≥ .90 TRUE (null ≤ .70 not met). e held-out core R² .947 / .950
+≥ .70 TRUE (null ≤ .40 not met).
+
+**What it means for the program.** §2717 left ~30% of the two last MLPs' value as "context-dependent, inside the 16 directions".
+This rung says WHERE that context enters: through the same 16 directions of the block's INPUT, and through a map no richer than
+quadratic in those 16 coordinates. The two last MLPs (31.9 M parameters) are, to 95% of the oracle-core ceiling and to within a
+.19-nat tail, the program
+    write_l(t, x) = μ_l + P_M [ A_l ê(t) + B_l c + Q_l(c, c) ],   c = U_Mᵀ rms_norm(x) ∈ R^16,
+i.e. a 50304-row × 16-column token table (per block, after folding P_M A_l), a 16 × 16 linear map and a 16 × 136 quadratic map —
+about 1.6 M numbers per block if the table is stored densely, and the table is itself LINEAR in the embedding (A_l is 1152 × 16
+after folding), so the whole thing is 2 × (1152 + 16 + 136) × 16 ≈ 42 k numbers plus the shared 1152 × 16 basis. The fact
+that FULLIN (linear in the full 1152-dim input) does NOT beat COREIN says the remaining .19-nat tail is not a missed linear
+direction of the input; it is either higher-order in c, a non-core input direction acting nonlinearly, or the genuinely
+high-rank remainder the exact-rank map (§2673/§2675) says every MLP carries. This is a bilinear model, and the quadratic
+monomials in c are exactly what a bilinear block computes when both its Left and Right reads are restricted to the core — so
+the surrogate is the block's own algebra restricted to 16 dimensions, not an arbitrary regression family.
+
+**Limits.** (i) Descriptive/sufficiency: the surrogate is fitted, not extracted from Left/Right/Down; the next question is
+whether the block's own Left/Right weights, restricted to P_M, reproduce B_l and Q_l (a weights-only check with no fitting).
+(ii) Nothing here touches the earlier five late MLPs (mlp11–15; the queued late_stack_token_lookup_map_probe asks whether the
+lookup description covers them) or the .19-nat tail. (iii) The 16-dim core is a covariance construct of the late MLP writes
+(§2710); §2713/§2716 showed lm_head reads it isotropically, so "the message lives in 16 directions" is a statement about the
+writers, not about a privileged readout subspace. (iv) Fit-split sensitivity of the rec numbers was not re-measured here; the
+a-arm reproductions at 1e-4 say the pipeline is deterministic, not that a different fit split gives the same .776.

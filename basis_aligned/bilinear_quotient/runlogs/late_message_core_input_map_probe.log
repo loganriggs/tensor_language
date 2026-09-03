@@ -1,0 +1,64 @@
+{"stage": "fit_cov", "t": 6.6}
+{"stage": "ridge", "r2": {"CUR": {"fit": {"mlp16": 0.5883353407658182, "mlp17": 0.5438340201196284}, "core_heldout": {"mlp16": 0.6200924982657738, "mlp17": 0.49756595354568955}}, "COREIN": {"fit": {"mlp16": 0.8435965779639354, "mlp17": 0.9182398029253794}, "core_heldout": {"mlp16": 0.946846478288438, "mlp17": 0.9497945637756607}}, "FULLIN": {"fit": {"mlp16": 0.9066865519213592, "mlp17": 0.9446691139368861}, "core_heldout": {"mlp16": 0.980452261735585, "mlp17": 0.952288777049545}}}, "t": 14.8}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.3}
+{"stage": "arms", "MEAN": 0.848, "CUR_M": 0.4271, "COREIN_M": 0.1901, "FULLIN_M": 0.1918, "ORACLE_M": 0.1577, "t": 17.5}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_input_carries_the_context_part": true,
+  "pred_c_full_linear_input_adds_little": true,
+  "pred_d_close_to_the_oracle": true,
+  "pred_e_core_write_well_explained": true
+ },
+ "nulls": {
+  "b_null_gain_le_.03": false,
+  "c_null_fullin_ge_corein_plus_.15": false,
+  "d_null_corein_le_.7_oracle": false,
+  "e_null_r2_le_.40_both": false
+ },
+ "ce_added": {
+  "MEAN": 0.8479736745357513,
+  "CUR_M": 0.4270790219306946,
+  "COREIN_M": 0.19008836150169373,
+  "FULLIN_M": 0.1917857825756073,
+  "ORACLE_M": 0.15767517685890198
+ },
+ "recovery": {
+  "CUR_M": 0.4963534426177655,
+  "COREIN_M": 0.7758322372380684,
+  "FULLIN_M": 0.7738304993010471,
+  "ORACLE_M": 0.8140565189771651
+ },
+ "ridge_r2": {
+  "CUR": {
+   "fit": {
+    "mlp16": 0.5883353407658182,
+    "mlp17": 0.5438340201196284
+   },
+   "core_heldout": {
+    "mlp16": 0.6200924982657738,
+    "mlp17": 0.49756595354568955
+   }
+  },
+  "COREIN": {
+   "fit": {
+    "mlp16": 0.8435965779639354,
+    "mlp17": 0.9182398029253794
+   },
+   "core_heldout": {
+    "mlp16": 0.946846478288438,
+    "mlp17": 0.9497945637756607
+   }
+  },
+  "FULLIN": {
+   "fit": {
+    "mlp16": 0.9066865519213592,
+    "mlp17": 0.9446691139368861
+   },
+   "core_heldout": {
+    "mlp16": 0.980452261735585,
+    "mlp17": 0.952288777049545
+   }
+  }
+ }
+}
