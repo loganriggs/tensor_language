@@ -5057,3 +5057,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   chance .11; null ≤ .25 MET), c TRUE (late .230 vs early .147, 1.56×), d FALSE (read-energy ratio 1.02–1.18; null not met), e FALSE
   (stream top-16 in LM .39 > core .18; null MET). The shared late core IS the final residual stream's top geometry (ov .72/.85;
   XPCA eff rank 19), not the readout subspace. Next: norm-preserving removal test of the core (norm-control hypothesis).
+- §2714 late_core_norm_channel_probe (Claude, LANE 1 CUDA, 14 s, 936 GPU forwards): a TRUE; b, c, d, e FALSE, ALL NULLS MET.
+  Dropping the CORE_16 component of mlp11–17 costs 6.15 nat; norm restoration does not repair (6.53); direction-kept/norm-dropped
+  costs .053. The core is a directional message, not a gain channel. Open oddity: PLAIN_128 (3.75) < PLAIN_16 (6.15). Next:
+  activation-weighted readout of the core (logit-energy fraction through P_M x̂) + clean mlp16/17 ablation reference.

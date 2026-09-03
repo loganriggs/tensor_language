@@ -69392,3 +69392,38 @@ component in CORE_16 but restore |x| (norm-preserving removal) vs plain removal 
 removal should cost a small fraction of the plain removal.
 
 **Preserved failures.** b, d, e as registered; b and e nulls met — the readout-facing hypothesis for the shared core is rejected.
+
+## §2714 — THE LATE CORE IS NOT A GAIN CHANNEL — ITS DIRECTION IS THE MESSAGE (Claude, LANE 1 CUDA, 14 s, 936 GPU document-forwards): removing the CORE_16 component of the seven late MLP writes costs 6.15 nat; restoring each token's residual norm afterwards does NOT repair it (6.53, ratio 1.06); keeping the direction but discarding the norm effect costs only .053 (ratio .009). Same at k = 128 (3.75 / 4.08 / .071) and in the early control (6.66 / 6.76 / .034). a TRUE; b, c, d, e FALSE with ALL FOUR NULLS MET — the norm-control hypothesis of §2713 is rejected; preserved.
+
+Written 2026-09-03 20:50Z (box clock). Preregistration `polynomial_causal/LATE_CORE_NORM_CHANNEL_PROBE_PREREGISTRATION.md`
+(registered 20:46Z before the script). Script `ops/late_core_norm_channel_probe.py`; receipt `late_core_norm_channel_probe_results.json`
+(sha 60e663ce…); log `runlogs/late_core_norm_channel_probe.log`. FRESH split (core from docs 96–191, CE on docs 0–63). SIGN
+CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (diff 7e-9); identity patch 0.0; CORE_TW eff rank 10.0039 (= §2710/§2713); PLAIN_16
+(late) 6.15 ≥ .10 — plenty to repair.
+
+**Arms (late stack, mlp11–17, per token; w′ = w − P_k w, x_o = x + w, x_n = x + w′).** k = 16: PLAIN (residual x_n) 6.150;
+NORMFIX (x_n·|x_o|/|x_n|) 6.529; KEEPDIR (x_o·|x_n|/|x_o|) .053. k = 128: 3.754 / 4.085 / .071. Early control (mlp0–6, own
+pooled core, eff rank 321): k = 16: 6.657 / 6.761 / .034; k = 128: 7.842 / 8.140 / .074.
+
+**Scoring.** b (NORMFIX ≤ .30 PLAIN): 1.06 — FALSE, null (≥ .80) MET. c (KEEPDIR ≥ .70 PLAIN): .009 — FALSE, null (≤ .30) MET.
+d (NORMFIX_128 ≤ .50 PLAIN_128): 1.09 — FALSE, null (≥ .90) MET. e (early ratio ≥ 2× late): 1.016 vs 1.062, 0.96× — FALSE, null
+(≤ 1.0×) MET.
+
+**What it means.** (1) The late MLPs' writes along the stream's dominant 16 directions are not a gain knob: their effect on |x| is
+worth .05 nat; their DIRECTION content is worth 6.1 nat — the largest single ablation cost measured in this arc (CE 9.18, above
+the unigram floor; the model is broken without it). (2) Restoring the norm even hurts (+.38): the norm was carrying nothing the
+readers wanted. (3) Therefore §2713's weak overlap of the core with lm_head's top-128 right-singular subspace (.18) does NOT mean
+the readout ignores the core — lm_head's singular spectrum is flat (eff rank 755) and "top-128 of 1152" is the wrong
+operationalisation of readout-facing. The right one is activation-weighted: how much of the (vocab-centred) logit energy comes
+through P_M x̂, and lm_head's read-energy ratio on M — next rung. (4) Note the sizes: PLAIN_128 (3.75) < PLAIN_16 (6.15) because at
+k = 128 the write's dropped component is larger but §2710 showed SHARED_128 keeps .47 — no contradiction: PLAIN here DROPS the
+core and keeps the tail, the opposite of §2710's arms; dropping the top-16 core costs 6.15 while dropping the top-128 costs 3.75
+only because P_128 also removes the tail's damaging interaction with … (unexplained; recorded as an open oddity — dropping MORE
+of the write costs LESS; a candidate mechanism is that the k = 16 remainder carries an unbalanced tail the readers misread,
+whereas the k = 128 remainder is closer to zero, i.e. closer to a clean ablation of mlp16/17). The clean ablation (write → μ or
+0) of mlp16/17 is a needed reference point; it is added to the next rung.
+
+**Preserved failures.** All four scientific predictions false with nulls met. The hypothesis that the shared late core is a norm
+channel is dead; the core is a low-rank directional message that the readout must be reading strongly.
