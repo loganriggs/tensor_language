@@ -25,6 +25,55 @@ Use one parent track and initially two subagent tracks.
 
 The parent reviews every deliverable before execution. A subagent result is a proposal, not canonical evidence.
 
+## Iterative two-agent waves
+
+Use two agents until the dataset, intervention, and audit interfaces have survived a complete build-and-review cycle.
+The first wave may put both agents on the same circuit with deliberately different information:
+
+- **Builder:** sees the frozen hypothesis and dependencies, implements the counterfactual rows, exact intervention,
+  result schema, tests, and deterministic dry run.
+- **Independent critic:** sees the frozen hypothesis and dependencies but not the builder's live implementation. It
+  tries to invalidate the causal meaning, denominator, split boundary, intervention algebra, provenance, and terminal
+  decision using its own fixtures and tests.
+
+The parent then reconciles both packages before any model run. A criticism becomes useful shared infrastructure only
+when it is converted into at least one of: an invariant enforced by code, a planted failing fixture, a prompt clause
+with an explicit failure example, or a change to the frozen experiment. Prose advice alone is not considered a
+bootstrap improvement.
+
+After this first interface-hardening wave, give the two agents **different circuits**. Each receives the accepted
+helpers, tests, prompt clauses, and failure examples from all earlier waves. The parent keeps one circuit as a deep
+reference investigation and compares all three tracks under the same evidence ladder:
+
+1. native behavior on held-out examples;
+2. a full-state causal ceiling at a plausible site;
+3. factor-level transfer with opposing predictions;
+4. active, selective removal on target and unrelated examples;
+5. reuse or composition with another circuit;
+6. untouched out-of-distribution confirmation; and
+7. independent audit of row membership, computations, and decisions.
+
+Do not let later agents inherit scientific outcomes for unopened splits. They inherit **methods and negative design
+examples**, not answers. Keep discovery, selection, and out-of-distribution groups disjoint, and use a new critic or a
+fresh outcome-blind audit when promoting a claim.
+
+### Wave handoff contract
+
+Every agent returns one machine-checkable packet containing:
+
+- the exact behavioral claim and at least two meaningful counterfactual constructions;
+- all plausible interpretations of those counterfactuals and matched active controls;
+- the smallest tensor term being exchanged or removed, written as an equation and checked by reconstruction;
+- row-level outputs plus exact split, family, semantic-position, and provenance identifiers;
+- held, failed, and ambiguous bars without deleting nulls;
+- reusable helpers and invariant tests, separated from circuit-specific code;
+- a short list of newly discovered failure modes and the exact prompt/test change each caused; and
+- the next discriminating experiment, including the observation that would kill the hypothesis.
+
+The parent keeps a versioned prompt/tool manifest for each wave. A new wave starts only after that manifest records
+which lessons were accepted, rejected, or remain untested. This gives later agents strictly better instruments while
+preserving outcome blindness.
+
 ## Circuit investigation stages
 
 Each circuit advances through the same stages, while failed stages remain recorded:

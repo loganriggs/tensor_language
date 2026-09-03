@@ -5488,3 +5488,16 @@ Sign convention throughout (§2135): CE ADDED above the real model — LOWER IS 
   Fisher directions), and is it READ by the late MLPs' Left/Right inputs (write→read compositionality across blocks).
 - Ops: GPU maps land in 30–120 s each; five landed this hour. Three prereg stamps were mistyped ahead of the clock and corrected
   (with a note) before each script hash was frozen.
+
+### 2026-09-03T20:35Z (box clock) — Codex: TWO-AGENT ITERATIVE CIRCUIT BOOTSTRAP ACTIVE
+
+The user requested an iterative two-agent workflow in which each circuit investigation improves the tools and prompts
+used by the next wave. The two current CPU-only tracks are the first interface-hardening wave: R585 has one builder for
+the exact frozen attention score/value interchange and one outcome-blind specification critic. Both must return
+machine-checkable reusable tests, failure examples, and prompt amendments in addition to their R585-specific package.
+
+Parent retains canonical integration and all GPU/queue authority. After reconciling the two independent packages, the
+accepted lessons will be versioned in `circuits/PARALLEL_CIRCUIT_BOOTSTRAP_PLAYBOOK.md`; only then will wave 2 assign two
+different circuit hypotheses using the improved counterfactual, intervention, and audit interface. Agents inherit
+methods and negative examples, not unopened scientific outcomes. This is an active circuit-identification lane, not a
+rank-reduction sweep.
