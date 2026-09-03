@@ -3,11 +3,15 @@
 # --- dedup guard (added 2026-09-01 after two symmetric double-enqueue races) ---
 BASE=$(basename "${1%.py}")
 QDIR=$(dirname "$0")/..
+# LANE=2 -> the CPU-ONLY lane (ops/bqrunner2.sh; approved by Codex 2026-09-03T16:56Z). Same parse / fast-test /
+# gate / dry-run / dedup checks as lane 1, plus: the script MUST carry `# BQLANE: cpu`, and it lands in queue2.txt.
+LANE="${LANE:-1}"
+case "$LANE" in 1) QFILE=queue.txt; LSUF="";; 2) QFILE=queue2.txt; LSUF=".2";; *) echo "REFUSED: LANE must be 1 or 2" >&2; exit 1;; esac
 if [ "${FORCE:-0}" != "1" ]; then
-  if grep -q "/$BASE\.py$" "$QDIR/queue.txt" 2>/dev/null; then
-    echo "DEDUP: $BASE already queued (FORCE=1 to override)"; exit 3
+  if grep -q "/$BASE\.py$" "$QDIR/$QFILE" 2>/dev/null; then
+    echo "DEDUP: $BASE already queued on lane $LANE (FORCE=1 to override)"; exit 3
   fi
-  if [ -f "$QDIR/runlogs/$BASE.log" ] && find "$QDIR/runlogs/$BASE.log" -newermt '-10 minutes' | grep -q .; then
+  if [ -f "$QDIR/runlogs/$BASE$LSUF.log" ] && find "$QDIR/runlogs/$BASE$LSUF.log" -newermt '-10 minutes' | grep -q .; then
     echo "DEDUP: $BASE ran/running within 10 min (FORCE=1 to override)"; exit 3
   fi
 fi
@@ -48,11 +52,19 @@ python3 "$D/ops/gate.py" "$f" >/dev/null 2>&1 || {
 BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$f" >/tmp/bq_dryrun.out 2>&1 || {
   echo "REFUSED: plan pre-flight FAILED (no GPU work was done):" >&2
   tail -6 /tmp/bq_dryrun.out >&2; exit 1; }
-echo "$f" >> "$D/queue.txt"
-n=$(grep -cve '^[[:space:]]*$' "$D/queue.txt" 2>/dev/null); n=${n:-0}
-if bash "$D/ops/gpu_free.sh" >/dev/null 2>&1; then g="GPU free"; else g="GPU busy"; fi
-echo "QUEUED $f"
-echo "  lane 1 depth now $n   ($g -- the runner serializes; depth >= 2 keeps it fed)"
+if [ "$LANE" = "2" ]; then
+  grep -q '^# BQLANE: cpu' "$f" || { echo "REFUSED: LANE=2 needs the literal header '# BQLANE: cpu' in $f (lane 2 is CPU-only, fail-closed)" >&2; exit 1; }
+  echo "$f" >> "$D/queue2.txt"
+  n=$(grep -cve '^[[:space:]]*$' "$D/queue2.txt" 2>/dev/null); n=${n:-0}
+  echo "QUEUED (lane 2, CPU-only) $f"
+  echo "  lane 2 depth now $n   (CUDA_VISIBLE_DEVICES='', 4 threads, nice 10; log runlogs/<name>.2.log, ledger runlogs/_completed2.txt)"
+else
+  echo "$f" >> "$D/queue.txt"
+  n=$(grep -cve '^[[:space:]]*$' "$D/queue.txt" 2>/dev/null); n=${n:-0}
+  if bash "$D/ops/gpu_free.sh" >/dev/null 2>&1; then g="GPU free"; else g="GPU busy"; fi
+  echo "QUEUED $f"
+  echo "  lane 1 depth now $n   ($g -- the runner serializes; depth >= 2 keeps it fed)"
+fi
 
 # Advisory lint (never blocking): show instrument-clause warnings at enqueue time.
 /venv/main/bin/python "$(dirname "$0")/preflight.py" "$1" 2>/dev/null || true
