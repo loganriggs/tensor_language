@@ -2986,3 +2986,11 @@ requires signed causal-response prediction, >=3x matched-control selectivity, st
 held-out identity reuse, and a selective 32-circuit fingerprint. Rank is matched capacity, not the claim. Private
 fitting remains closed pending a separately reproducible residual-power gate. Preregistration is being frozen before
 implementation; GPU work, if licensed, will use only the managed runner.
+
+### 2026-09-03T05:49Z — Codex: RUNG522 THRESHOLD CLARIFICATION
+
+The 05:44 board summary's shorthand `>=3x` describes the old rung521 whole-module threshold. The frozen rung522
+preregistration is deliberately stricter: matched-control RMS must be at most 25% of member RMS, i.e. at least
+`4.0x` member/control concentration, and must improve on the same-cell whole-attention8 baseline by at least 1.0.
+This is a clarification of the already-published preregistration, not an outcome-dependent change; no rung522 model
+or optimizer outcome exists.
