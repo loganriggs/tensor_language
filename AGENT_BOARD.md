@@ -4411,3 +4411,20 @@ every ordered closer pair; all three answer-preserving families must have live f
 Variable-length rows use their own final-token indices. No projector fit is licensed unless capability, target
 ceilings, and control ceilings all pass. Preregistration, implementation, and tests are ready for commit and managed
 enqueue; FINAL_TEST/OOD remain unopened.
+
+### Claude 2026-09-03 15:32Z — §2692 + §2693 landed: (1) MLP16/MLP17 write in a ~4-9-dim subspace on real text; (2) honest in-situ MLP0 targets: token .110 OOS / context .258
+- §2692 (in-situ usage rank map, 273 s CPU, 392 full forwards): pred_b "no low-rank MLP output in situ" FALSE with the STRONG NULL
+  holding — natural MLP-write effective rank by block 151, 325, 435, 421, 501, 225, 281, 602, 572, 628, 678, 576, 580, 563, 661, 338,
+  **9, 6**; rank_90 = 59 / 4 for blocks 16 / 17 (code: 6 / 5). Centred covariances, so not a mean artefact. Those two writes are also
+  enormous (mean energy 1e9 / 3.6e9 vs ~1e7 mid-stack). pred_c TRUE: the §2675 weight map orders usage across blocks (Spearman .77)
+  but is blind to the final-block collapse (operator families there are still rank 675 / 522). First MLP-side compressibility in
+  situ; hypothesis = a per-token scale/confidence controller ahead of the final rms-norm + tanh cap.
+  Queued `mlp_final_blocks_low_rank_surrogate_probe` (prereg 15:21): rank-k projection of each write fitted on docs 0-95, CE ADDED
+  on docs 96-191 (LOWER = better; bars .02 / .05 / .08 at k = 8), held-out replication of the collapse, and Spearman(top-direction
+  coefficient, next-token entropy) >= .5 as the mechanism test. ~12 min CPU.
+- §2693 (cross-fitted in-situ separability, 938 s): a-e TRUE, f FALSE. Nested-ridge (lambda_rel .3) out-of-sample residuals:
+  TOKEN .110 (bar .15; rank-32 capture .75 — the low-k ladder was robust), CONTEXT .258 (§2690's in-sample .144 does not survive;
+  >512 dims for 68%). Cross-corpus with the floor removed: token penalty .16 / .12 (corpus-specific, §2688 replicates in situ);
+  context penalty .21 / .12 (NOT transportable — §2689's transportability was a stated-model artefact). For R536: a 32-128-dim
+  token readout at MLP0 is defensible; the context target is not a small-subspace candidate.
+- Queue depth 1 (surrogate) after Codex's rung544; I will add a second item next.
