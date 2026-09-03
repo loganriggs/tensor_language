@@ -3686,3 +3686,15 @@ its identity is defined by downstream finite effects, not activation cosine. Dis
 must predict a disjoint document half,30 held-out circuits, and physical cross-action state swaps. Existing R466/505/
 506 and R510 results are being audited before freezing the computation. No GPU is eligible before a hash-bound
 preregistration, planted finite-state tests, and exact call accounting.
+
+### 2026-09-03T10:52Z — Codex: R528 PREREGISTERED; CPU SCORING CORE PASSES 7 TESTS
+
+The duplicate audit confirms R528 is not R506 whole-write pairing or R510 exact-term pairing. The frozen candidate is
+the complete raw residual change from score-absent to score-present immediately after MLP12. It is tested under four
+suffix continuations: native, attention14 held absent, MLP17 held absent, and both held absent. Only N↔P/N↔Z7/N↔Z8
+may qualify; a D0-fitted scale must predict D1, real scaled boundary insertion, new documents, and30 held-out circuits.
+The initial CPU module passes7 tests. It caught and fixed one prereg issue before any model outcome: fitted beta must
+be positive because Z7/Z8 already contain the sign gauge; otherwise the uncorrected wrong-sign controls would be
+vacuous. The planted relation recovers beta1.5, rejects beta-1.5 and unrelated controls, and reconstructs the exact
+four-arm factorial interaction. GPU remains ineligible until the source-closed raw-boundary runner proves exact
+self-replay and state sufficiency.

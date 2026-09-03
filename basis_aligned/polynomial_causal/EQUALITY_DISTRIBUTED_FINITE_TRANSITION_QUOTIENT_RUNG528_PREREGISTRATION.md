@@ -1,6 +1,6 @@
 # Rung 528: do four equality-score implementations create the same distributed state transition?
 
-**Registered:** 2026-09-03 10:55 UTC
+**Registered:** 2026-09-03 10:52 UTC
 
 **Status:** prospective CPU-first design; no rung-528 model outcome has been computed
 
@@ -17,7 +17,7 @@ For each implementation, rung 528 takes the complete residual-stream change betw
 runs immediately after MLP12. It asks whether those changes are interchangeable when the actual layers13--17 suffix
 runs, including when attention14, MLP17, or both are independently held to their score-absent writes.
 
-“Same state” therefore means that a signed scale learned on one document half predicts finite downstream effects on
+“Same state” therefore means that a positive scale learned on one document half predicts finite downstream effects on
 the other half, survives new documents and the 30 circuit families excluded from selection, and works when the
 scaled residual change is physically inserted into the model. Activation cosine, rank, reconstruction error, SAE
 loss, and parameter count are not selection metrics.
@@ -117,7 +117,8 @@ using the concatenated four-continuation by 32-circuit vector. A pair is a disco
 
 1. every action/continuation circuit RMS is at least `.0005` nat and every concatenated task norm is at least
    `.00025` nat;
-2. `0.25 <= abs(beta) <= 4`;
+2. `0.25 <= beta <= 4`; the correct sign gauge is already built into `Z7/Z8`, so allowing another sign flip here
+   would make the wrong-sign controls vacuous;
 3. on half0, the concatenated circuit cosine is at least `.90` and the scaled relative residual at most `.35`;
 4. without refitting on half1, circuit cosine is at least `.80` and residual at most `.50`;
 5. on every individual continuation, circuit cosine is at least `.65` on half0 and `.55` on half1, with the scale
@@ -214,7 +215,7 @@ batch. Thus the unconditional discovery price is
 If `k` pairs pass discovery, bidirectional scaled substitutions on the second discovery half cost
 `31 * 8k = 248k` forwards. Confirmation costs `62 * (22 + 8k)` forwards. If `q` pairs confirm, validation costs
 `125 * (22 + 8q)` forwards. With the maximum `k=q=3`, the ceiling is `11,330` forwards, zero backwards, at most three
-fitted scalars, zero deployed values added or removed, and no compression claim. The runner must reconcile direct,
+fitted positive scalars, zero deployed values added or removed, and no compression claim. The runner must reconcile direct,
 boundary-capture, continuation-patch, and substitution call counts separately and report peak GPU memory.
 
 ## Frozen dependency hashes
