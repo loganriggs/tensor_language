@@ -1676,6 +1676,183 @@
    ],
    "translation_ids": [],
    "next_missing": "run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity"
+  },
+  {
+   "claim_id": "pending_opener_state.v11",
+   "revision": 11,
+   "status": "site_live",
+   "supersedes": "pending_opener_state.v10",
+   "causal_variable": {
+    "id": "pending_opener_state",
+    "domain": "pending parenthesis or quote state at the final prediction position",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "opener_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "one opener token: parenthesis versus quote",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "all lexical tokens",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "non-opener punctuation substitution",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "closed_then_reopened_type",
+     "role": "interchange",
+     "changes": [
+      "order of completed and newly opened punctuation structures",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "lexical token multiset",
+      "prefix",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_state_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "wording",
+      "lexical identities",
+      "opener-to-final distance"
+     ],
+     "holds_fixed": [
+      "pending parenthesis state",
+      "correct closer",
+      "task role"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "held-out prefixes",
+      "held-out lexical pool",
+      "distance strata"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "later_matching_closer_reset",
+     "role": "necessity",
+     "changes": [
+      "whether the earlier opener remains unclosed"
+     ],
+     "holds_fixed": [
+      "original opener",
+      "scored closer token",
+      "matched suffix"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "nonmatching closer",
+      "punctuation insertion",
+      "distance-matched filler"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "nonopener_punctuation_substitution",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending parenthesis",
+      "correct closer",
+      "token length",
+      "all tokens after the edited punctuation"
+     ],
+     "builder_artifact_id": "r537_controls_builder",
+     "control_ids": [
+      "wrong square closer",
+      "wrong curly closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": [
+      "pending_opener_common_site_ceiling.r538.complete.v2"
+     ]
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_joint_split_r537_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families"
   }
  ],
  "split_plans": [
@@ -2151,6 +2328,128 @@
    ],
    "design_key": "55e3d3f48e89332318dcdd7e1e9870caf91cdbb66f8430b8911d27b949e021dc",
    "execution_key": "a8c6e17677856460e8dadf318c91d4f238870aa11ad8424caba41d323ec73b69"
+  },
+  {
+   "event_id": "pending_opener_cross_family_das.r540.complete.v1",
+   "claim_id": "pending_opener_state.v9",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "opener_type_substitution",
+    "closed_then_reopened_type",
+    "pending_state_preserved_surface_edit",
+    "nonopener_punctuation_substitution"
+   ],
+   "site_id": "residual.block8.entry.final_position",
+   "split_plan_id": "pending_opener_joint_split_r537_v1",
+   "evaluation_role": "FIT_optimize_SELECT_choose_unique_prompt_rescore",
+   "metrics": [
+    {
+     "name": "two_way_cross_family_normalized_recovery",
+     "estimate": 0.5054534077644348,
+     "ci95": [
+      0.4574496692977846,
+      null
+     ],
+     "bar": "median>=0.50, bootstrap lower>0, positive fraction>=0.75 in every target cell"
+    },
+    {
+     "name": "answer_preserving_control_leakage",
+     "estimate": {
+      "cells_passing": 3,
+      "cells_total": 180,
+      "maximum_mean_absolute_logit": 0.6258732676506042,
+      "maximum_fraction_of_full": 1.877509891930068
+     },
+     "ci95": null,
+     "bar": "mean absolute<=0.10 logit and <=0.25 of full-state effect in every control cell"
+    },
+    {
+     "name": "operational_response_equivalence",
+     "estimate": null,
+     "ci95": null,
+     "bar": "response cosine>=0.90 and RMS difference<=0.15 across training sources"
+    }
+   ],
+   "prereg_artifact_id": "r540_das_preregistration",
+   "result_artifact_id": "r540_das_result",
+   "input_artifact_ids": [
+    "r537_rows",
+    "r537_controls",
+    "r538_site_result_v2",
+    "r539_control_result",
+    "r540_das_implementation",
+    "r540_das_bundle",
+    "r542_split_integrity_result"
+   ],
+   "seed": 540,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "pending_opener_cross_family_das.r540.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_CROSS_FAMILY_DAS_RUNG540_PREREGISTRATION.md"
+   ],
+   "notes": "All 180 deduplicated SELECT target cells passed, but only 3/180 answer-preserving control cells passed. No rank was eligible. Exact prompt deduplication in R542 leaves this decision unchanged; FINAL_TEST and OOD were not opened.",
+   "design_key": "55e3d3f48e89332318dcdd7e1e9870caf91cdbb66f8430b8911d27b949e021dc",
+   "execution_key": "98b70a0551786416e56d7665ba396a68f6a7863596ee3fe25103aec22e67ae52"
+  },
+  {
+   "event_id": "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+   "claim_id": "pending_opener_state.v10",
+   "test_type": "seed_stability",
+   "stage": "complete",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [
+    "opener_type_substitution",
+    "closed_then_reopened_type",
+    "pending_state_preserved_surface_edit",
+    "nonopener_punctuation_substitution"
+   ],
+   "site_id": "residual.block8.entry.final_position",
+   "split_plan_id": "pending_opener_joint_split_r537_v1",
+   "evaluation_role": "post_result_exact_stimulus_audit",
+   "metrics": [
+    {
+     "name": "exact_cross_split_prompt_overlap",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "0"
+    },
+    {
+     "name": "minimum_unique_prompt_fraction",
+     "estimate": 0.375,
+     "ci95": null,
+     "bar": "1.0 for nominal independent rows"
+    },
+    {
+     "name": "deduplicated_decisions_preserved",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "R538, R539, and R540 decisions all unchanged"
+    }
+   ],
+   "prereg_artifact_id": null,
+   "result_artifact_id": "r542_split_integrity_result",
+   "input_artifact_ids": [
+    "r537_rows",
+    "r537_controls",
+    "r538_site_result_v2",
+    "r539_control_result",
+    "r540_das_result",
+    "r542_split_integrity_implementation",
+    "r542_split_integrity_test"
+   ],
+   "seed": 542,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "No exact token sequence crosses FIT/SELECT/FINAL/OOD, but deterministic cycles repeat identical prompt pairs within each split. Report unique-prompt n, not group_id n. The saved R538--R540 decisions survive deduplication, but unopened splits are retired and future rows require content-addressed groups.",
+   "design_key": "e275e0545a945181617abedd76a1d2783fa314797a988437202d6a42beb2695b",
+   "execution_key": "402adb9701ffd75143cd9811cf36fe93f3f3680155fc809fd9a723e1fffd3450"
   }
  ],
  "translations": [],
@@ -2321,6 +2620,36 @@
    "path": "basis_aligned/bilinear_quotient/ops/pending_opener_cross_family_das_rung540.py",
    "sha256": "b95bcdfd51643e63ca223186babe9b3bc84e72fdfccb8968f97bd2d406f4686c",
    "kind": "implementation",
+   "status": "frozen"
+  },
+  "r540_das_result": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_cross_family_das_rung540_results.json",
+   "sha256": "995804c8bae3de36e67dea708e23bd2ba2c5493406cbd22837623f9ac4480146",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r540_das_bundle": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_cross_family_das_rung540_bundle.pt",
+   "sha256": "49fb732e4920b37063aefdb6e43a5635eb2309d01c8963c20cae8c2afa41c99d",
+   "kind": "sufficient_statistics",
+   "status": "frozen"
+  },
+  "r542_split_integrity_result": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_split_integrity_rung542_results.json",
+   "sha256": "20ba3caadbf0009842dbc1470a782f03d29614cbbbaa0402af7f32b6f7d47287",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r542_split_integrity_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_split_integrity_rung542.py",
+   "sha256": "82ee5ba74bc68d295d4f148517fa40e8919eb0cc7c75deabd554ac058219a0d7",
+   "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "r542_split_integrity_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_split_integrity_rung542.py",
+   "sha256": "49affce772e63d1d3e519a4ac16dcf73ae13a5e808c9d361f27eba2b838ef9a1",
+   "kind": "test",
    "status": "frozen"
   }
  },

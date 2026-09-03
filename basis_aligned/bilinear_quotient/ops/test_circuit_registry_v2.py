@@ -105,9 +105,12 @@ def test_append_artifacts_is_idempotent_and_refuses_hash_drift(tmp_path, monkeyp
 def test_registry_distinguishes_active_from_historical_invalid_events():
     compact = json.loads(registry.REGISTRY.read_text())["circuits"]
     bracket = compact["task.bracket.pending_opener"]
-    assert bracket["negative_event_count"] == 1
-    assert bracket["active_negative_event_count"] == 0
-    assert bracket["latest_blocker"] is None
+    # The original unverified-checkpoint event is historical because R538v2
+    # supersedes it.  R540's selectivity null and R542's statistical-unit
+    # correction are active negative evidence and must remain visible.
+    assert bracket["negative_event_count"] == 3
+    assert bracket["active_negative_event_count"] == 2
+    assert bracket["latest_blocker"] == "pending_opener_split_integrity.r542.invalid_statistical_unit.v1"
     record = task_records()["task.bracket.pending_opener"]
     superseded = {event.get("supersedes_event_id") for event in record["evidence_events"]}
     active_ids = {event["event_id"] for event in record["evidence_events"]

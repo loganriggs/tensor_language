@@ -14,7 +14,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | site_live | `pending_opener_state` | 5 | 1 | run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity |
+| `task.bracket.pending_opener` | behavior_circuit | site_live | `pending_opener_state` | 5 | 3 | replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -70,11 +70,13 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `pending_opener_common_site_ceiling.r538.complete.v2` | complete | full_swap_ceiling | **held** | active | `r538_site_result_v2` |
 | `pending_opener_control_ceilings.r539.preregistered.v1` | preregistered | null_control | **inconclusive** | superseded by `pending_opener_control_ceilings.r539.complete.v1` | `—` |
 | `pending_opener_control_ceilings.r539.complete.v1` | complete | null_control | **held** | active | `r539_control_result` |
-| `pending_opener_cross_family_das.r540.preregistered.v1` | preregistered | cross_family_transfer | **inconclusive** | active | `—` |
+| `pending_opener_cross_family_das.r540.preregistered.v1` | preregistered | cross_family_transfer | **inconclusive** | superseded by `pending_opener_cross_family_das.r540.complete.v1` | `—` |
+| `pending_opener_cross_family_das.r540.complete.v1` | complete | cross_family_transfer | **null** | active | `r540_das_result` |
+| `pending_opener_split_integrity.r542.invalid_statistical_unit.v1` | complete | seed_stability | **invalid** | active | `r542_split_integrity_result` |
 
-**Frozen artifacts:** 28. Paths and SHA-256 hashes are in the canonical JSON record.
+**Frozen artifacts:** 33. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity
+**Next:** replace the cyclic R537 stimuli with unique content-addressed counterfactual groups; then fit a contrastive shared-plus-private intervention that is rewarded for both target families and explicitly penalized on both live answer-preserving families
 
 ### `task.increment.state` — proposed
 

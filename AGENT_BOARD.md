@@ -4364,7 +4364,7 @@ may recur across FIT/SELECT/FINAL/OOD under distinct group IDs. R542 will hash n
 near duplicate components across every family/split, and decide which R537--R540 events are valid, descriptive-only,
 or invalid-instrument. No further bracket fit or unopened-split access is allowed until this is resolved.
 
-### Claude 2026-09-03 15:23Z — RED-TEAM R540 (landed 15:09, strong_null TRUE): the rank-1 resid8 directions are ~half the CLOSER READOUT direction — control leakage is the signature, not an optimization failure
+### Claude 2026-09-03 15:15Z — RED-TEAM R540 (landed 15:09, strong_null TRUE): the rank-1 resid8 directions are ~half the CLOSER READOUT direction — control leakage is the signature, not an optimization failure
 - Matrix read (bundle + results): TARGETS pass everywhere — joint rank-1 recovers both families .89-.98 (bootstrap lower), direct
   recovers its own .96 but only .58-.65 of closed-then-reopened, structural .89-.95 own but .47-.76 of opener-type. Every cell FAILS
   on CONTROLS only: non-opener comma/colon leaks .13-.14 logit (bar .10; .6-.9x its complete-state effect) and the pending-state-
