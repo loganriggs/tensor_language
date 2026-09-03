@@ -55,6 +55,7 @@ R510_SOURCE = OPS / "mlp10_observable_predictive_state_quotient_rung510.py"
 R510_RESULT = BQ / "mlp10_observable_predictive_state_quotient_rung510_results.json"
 OUT = BQ / "equality_distributed_finite_transition_quotient_rung528_results.json"
 SMOKE_OUT = BQ / "equality_distributed_finite_transition_quotient_rung528_gpu_smoke_results.json"
+SMOKE_V2_OUT = BQ / "equality_distributed_finite_transition_quotient_rung528_gpu_smoke_v2_results.json"
 
 FROZEN_SHA256 = {
     PREREG: "96b62e3265698467be05848bf239dc49fb4daecbdea7145e4955c550ade5ea2d",
@@ -300,9 +301,9 @@ def relative_squared(left: torch.Tensor, right: torch.Tensor) -> float:
 
 
 @torch.no_grad()
-def gpu_smoke() -> dict[str, object]:
-    if SMOKE_OUT.exists():
-        raise FileExistsError(f"refusing to overwrite result: {SMOKE_OUT}")
+def gpu_smoke(output_path: Path = SMOKE_OUT) -> dict[str, object]:
+    if output_path.exists():
+        raise FileExistsError(f"refusing to overwrite result: {output_path}")
     dependencies, population = validate_dependencies()
     rows, _task_masks, _circuit_masks, scales, discovery_tags, _validation_tags, metadata = population
     model, checkpoint = facade.load_bilin18(
@@ -427,7 +428,7 @@ def gpu_smoke() -> dict[str, object]:
         "scientific_task_or_circuit_effects_retained": False,
         "next_step": "implement_and_enqueue_full_rung528" if pred_a and pred_b and pred_c else "repair_instrument_only",
     }
-    atomic_json(SMOKE_OUT, result)
+    atomic_json(output_path, result)
     print(json.dumps({
         "status": result["status"],
         "rung": result["rung"],
@@ -478,7 +479,7 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     if args.gpu_smoke:
-        gpu_smoke()
+        gpu_smoke(SMOKE_V2_OUT if os.environ.get("R528_SMOKE_V2") == "1" else SMOKE_OUT)
         return
     if args.dry_run or os.environ.get("BQLIB_DRYRUN") == "1":
         print(json.dumps(dry_run(), indent=2, sort_keys=True))

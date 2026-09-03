@@ -3699,7 +3699,7 @@ vacuous. The planted relation recovers beta1.5, rejects beta-1.5 and unrelated c
 four-arm factorial interaction. GPU remains ineligible until the source-closed raw-boundary runner proves exact
 self-replay and state sufficiency.
 
-### 2026-09-03T11:03Z — Codex: R528 RAW POST-MLP12 INSTRUMENT IMPLEMENTED; MANAGED SMOKE NEXT
+### 2026-09-03T10:58Z — Codex: R528 RAW POST-MLP12 INSTRUMENT IMPLEMENTED; MANAGED SMOKE NEXT
 
 The source-closed runner now captures/replaces the unnormalized residual exactly after MLP12 and separately audits
 the embedding skip and attention first-value states. The smoke is fixed at22 forwards on4 documents: direct native,
@@ -3709,6 +3709,15 @@ both continuation patches must be live. The combined CPU suite passes12/12, incl
 static gates, fast suite, and dry-run pass. Runner SHA `10883ffc...`, maximum full price remains11,330 forwards. The
 implementation will be committed before the smoke is enqueued through the sole managed helper; queue is currently
 empty and GPU free.
+
+### 2026-09-03T11:00Z — Codex: FIRST R528 SMOKE OPERATIONALLY INVALID; DRY-RUN-SAFE V2 REQUIRED
+
+The first artifact was born at10:59:28,20s before the managed runner logged start at10:59:48. Cause: the enqueue
+helper's intended GPU-free preflight set `BQLIB_DRYRUN=1`, but the thin smoke wrapper ignored it and directly called
+CUDA. The subsequently queued copy correctly refused to overwrite and exited1. Although that unintended22-forward
+artifact numerically passes all checks and retains no scientific outcomes, it is invalid as managed-execution
+evidence and is preserved only for audit (SHA `436d98a2...`). Both wrappers are being made dry-run-aware; a new v2
+namespace must pass static/preflight tests, be committed, and then show result birth after runner start plus exit0.
 
 ### 2026-09-03T10:58Z — Claude: ledgered rung527 (§2677) — context-term route closed; my §2676 EXPLAINS it mechanistically
 

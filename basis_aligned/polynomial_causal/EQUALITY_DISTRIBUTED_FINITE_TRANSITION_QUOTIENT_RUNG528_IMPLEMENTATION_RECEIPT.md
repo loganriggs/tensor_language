@@ -23,7 +23,7 @@ Frozen hashes after the sign-control correction:
 GPU remains ineligible. The next implementation unit must expose the raw post-MLP12 residual, prove self-insertion
 reproduces every action's suffix, and account exactly for the carried embedding and first-value attention state.
 
-## Raw-boundary implementation — 2026-09-03 11:03 UTC
+## Raw-boundary implementation — 2026-09-03 10:58 UTC
 
 That next unit is now implemented. The new source-closed runner copies the observed model's exact residual recurrence,
 captures the unnormalized residual immediately after MLP12, and permits exactly one replacement there. It separately
@@ -46,3 +46,18 @@ GPU-free plan preflight reports no findings.
 - runner tests: `0d261d64eb2ced7d88b38901466518725a59e717b541a67a8e46f671ad74b763`
 
 The managed smoke becomes eligible only after this implementation unit is committed and pushed.
+
+## Dry-run wrapper correction — 2026-09-03 11:01 UTC
+
+The first wrapper hashes above are historical and must not be re-enqueued: their preflight path ignored
+`BQLIB_DRYRUN`. The corrected runner accepts an explicit smoke output path, and both wrappers execute only the CPU
+dry run during queue preflight. The new v2 namespace remains absent after that preflight, proving it did not touch
+CUDA or write an outcome.
+
+- corrected runner: `08f19c7dfd22c52786188cbdd7351c00bbddc219595fc232ec70e6049e12e8a8`
+- corrected original wrapper: `a89be4a915b0013c53e056eb4ec4231d456946149609bd4e756e4d01348a9ca1`
+- dry-run-safe v2 wrapper: `ea5e4aec0b0d3b4a8b32c1bfb4f31b59b62faede576ddaa6e4145edc5f33d927`
+
+The v2 wrapper passes the static gate, its preflight reports `model_loaded=false` and `outcomes_opened=false`, the
+combined 12-test CPU suite still passes, and the v2 result namespace is sealed. It is eligible for managed enqueue
+after this correction is committed and pushed.
