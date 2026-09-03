@@ -71248,3 +71248,34 @@ bus. (3) At k = 768 the same program costs .28: the early frames are the price c
 resist every compression) — the early network genuinely uses ≈ 1024 of 1152 dimensions per site, in a different frame at each
 site. (4) Next: how many early frames are really needed at 1024 (per-block, per-pair, one) — the size of the description — and
 the per-site map of the .020 chain-write cost. Nothing installs into the §312 frontier (§2125).
+
+## §2765 — AT k = 1024 THE EARLY FRAMES CAN BE SHARED ALMOST FOR FREE: one frame per block costs +.00005 over sixteen own frames (pred_b "≤ .010" TRUE; null ≥ .030 not met), one frame per pair of blocks +.0028 (pred_c "≤ .030" TRUE; null ≥ .080 not met), ONE early frame for all sixteen sites +.0133 — the predicted cliff (≥ .050) did NOT appear (pred_d FALSE; null ≤ .015 MET) — and the nine-frame program (8 block frames + bus, chain writes into the next block's frame, bus writes with readout remainder) costs .0501, LESS than §2764's seventeen-frame program (.0574) (pred_e "≤ .080" TRUE; null ≥ .150 not met) (Claude, LANE 1 CUDA, 63 s, 480 GPU document-forwards): a,b,c,e TRUE; d FALSE with its null met. Preserved.
+
+Registered 2026-09-03 23:53Z (polynomial_causal/EARLY_FRAME_COUNT_PROBE_PREREGISTRATION.md); landed 23:56Z. Script
+ops/early_frame_count_probe.py; results early_frame_count_probe_results.json (sha f177a210…). Frozen: prereg, §2764 results,
+checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs
+96–191) — LOWER IS BETTER. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739. Shared frames = top-1024
+eigenvectors of the plain average of the member sites' input covariances; late reads through U_8 in every arm.
+
+| arm (k = 1024) | early frames | CE added | over SPLIT8 |
+|---|---|---|---|
+| SPLIT8_1024 | 16 own | 0.0374 | — |
+| BLOCK8_1024 | 8 (per block) | 0.0374 | +.00005 (b TRUE) |
+| PAIR4_1024 | 4 (per pair) | 0.0402 | +.0028 (c TRUE) |
+| EARLY1_1024 | 1 | 0.0507 | +.0133 (d FALSE, null met) |
+| BLOCK8_CHAIN_BUS_1024 | 8 + bus, chain + bus writes | 0.0501 | (§2764's 17-frame program: .0574) |
+
+Principal angles > 30° (of 128 free at k = 1024): block frame vs own frames 11–81 per site; pair frame vs block frames 37–109;
+ONE early frame vs each block frame 120–128 — i.e. the single early frame differs from every block frame in essentially ALL of
+its free directions, yet costs only +.013. The angle count does not predict CE at this width.
+
+What it says. (1) The pred_d miss is the finding: at k = 1024 the early program does not need sixteen frames, or eight, or four
+— one early frame plus the bus (TWO 1024-dimensional subspaces) reads the whole model at .0507, and the per-block choice is
+exactly free. The drift measured in §2751/§2759 (300+ of 384 free angles at 768) is real but lives in directions whose exclusion
+costs little at 1024: what a 1024-frame drops is 128 low-variance directions, and which 128 barely matters. (2) This corrects the
+reading of §2764: "17 frames" was not the minimal description; 9 frames with chain writes is cheaper (.0501 vs .0574) — the block
+frame is fitted on both the attention and MLP inputs, so mlp_l's write lands more fully inside F_{l+1} than inside attn_{l+1}'s
+own frame (the block frame includes the following MLP's input directions). (3) The frame program is therefore a k-dependent
+object: at 768 sharing costs +.027 per 3-block window (§2753) and the own-frame program is already .197; at 1024 sharing is free.
+The description-size question is the (frames × k) trade-off, not "how many frames at 1024" — registered next. (4) Nothing
+installs into the §312 frontier (§2125); a 1024-of-1152 frame is an 11% width statement, not a compression.

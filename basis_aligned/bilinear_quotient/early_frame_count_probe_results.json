@@ -1,0 +1,131 @@
+{
+ "rung": "early_frame_count_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_block_frames_nearly_free_at_1024": true,
+  "pred_c_pair_frames_under_p03_at_1024": true,
+  "pred_d_one_early_frame_is_the_cliff": false,
+  "pred_e_nine_frame_program_under_p08_at_1024": true
+ },
+ "nulls": {
+  "b_null_ge_.03": false,
+  "c_null_ge_.08": false,
+  "d_null_le_.015": true,
+  "e_null_ge_.15": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_max": 0.01,
+  "c_max": 0.03,
+  "d_min": 0.05,
+  "e_max": 0.08
+ },
+ "null_bars": {
+  "b_min": 0.03,
+  "c_min": 0.08,
+  "d_max": 0.015,
+  "e_min": 0.15
+ },
+ "device": "cuda",
+ "split": 8,
+ "k": 1024,
+ "program": "early frames shared per block (8) / per pair (4) / one (1) vs own (16); BLOCK8_CHAIN_BUS: 8 block frames + bus, chain writes into the next block frame (delete), bus writes with readout remainder",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "BLOCK8_1024": 0.03743740916252136,
+  "PAIR4_1024": 0.04023519158363342,
+  "EARLY1_1024": 0.0507197380065918,
+  "BLOCK8_CHAIN_BUS_1024": 0.05008205771446228
+ },
+ "gaps": {
+  "BLOCK8_1024_minus_split8_1024": 5.042552947998047e-05,
+  "PAIR4_1024_minus_split8_1024": 0.002848207950592041,
+  "EARLY1_1024_minus_split8_1024": 0.013332754373550415
+ },
+ "n30_angles_over_30deg": {
+  "block_vs_own": [
+   [
+    81,
+    18
+   ],
+   [
+    43,
+    43
+   ],
+   [
+    77,
+    16
+   ],
+   [
+    64,
+    13
+   ],
+   [
+    73,
+    20
+   ],
+   [
+    24,
+    69
+   ],
+   [
+    35,
+    16
+   ],
+   [
+    27,
+    11
+   ]
+  ],
+  "pair_vs_block": [
+   [
+    51,
+    109
+   ],
+   [
+    94,
+    61
+   ],
+   [
+    46,
+    63
+   ],
+   [
+    47,
+    37
+   ]
+  ],
+  "early1_vs_block": [
+   128,
+   128,
+   128,
+   120,
+   120,
+   127,
+   128,
+   128
+  ]
+ },
+ "price": {
+  "gpu_doc_forwards": 480,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 63.21319627761841
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_FRAME_COUNT_PROBE_PREREGISTRATION.md": "9570ac2191941389f058b2a9fe614ba146f541e7bd06ce7b2ee9cef810544aed",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/chain_bus_program_statement_probe_results.json": "de512d007fede1615714d0160999327768de40ba2da352a04a064a870d6f047c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "9eae77eaf48e9a5b03a01a1998d85aa87e05a890dff01b864096352d9caf6811"
+}

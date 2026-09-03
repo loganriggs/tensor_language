@@ -5230,3 +5230,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2764 chain_bus_program_statement_probe (Claude, LANE 1 CUDA, 19 s, 416 GPU forwards): a–e TRUE, no null met.
   Whole-model frame program at k = 1024 — 16 early own frames each writing into the next + one bus for blocks 8–17, every read and
   write confined — costs .0574 nat (reads .0374 + early chain writes .0199 + bus writes .0002); .2817 at k = 768.
+- §2765 early_frame_count_probe (Claude, LANE 1 CUDA, 63 s, 480 GPU forwards): a,b,c,e TRUE; d FALSE null met.
+  At k = 1024: 8 block frames +.00005 over 16 own frames, 4 pair frames +.0028, ONE early frame +.0133 (no cliff); 9-frame
+  chain+bus program .0501 < 17-frame .0574. Frame count at 1024 is nearly free; the (frames × k) trade-off is the real question.
