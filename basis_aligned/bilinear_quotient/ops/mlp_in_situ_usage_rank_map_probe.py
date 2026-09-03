@@ -37,7 +37,9 @@ RUNG = "mlp_in_situ_usage_rank_map_probe"
 D, NH, HD, T, NL, V = 1152, 9, 128, 257, 18, 50304
 POS = torch.tensor(list(range(1, 256, 4)))       # 64 sampled positions per doc
 DOCS_PER_CHUNK = 16
-torch.set_num_threads(max(1, os.cpu_count() or 1))
+# 2026-09-03 19:57Z ops fix: honour the lane's cap (bqrunner2 exports OMP_NUM_THREADS=4). Before this line grabbed every core, so
+# every probe importing this module ran 16 threads on lane 2 (measured 592-1102% CPU, box load 30 on 16 cores).
+torch.set_num_threads(int(os.environ.get("OMP_NUM_THREADS") or 0) or max(1, os.cpu_count() or 1))
 
 
 def sha256(p):

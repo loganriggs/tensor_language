@@ -1,0 +1,49 @@
+{"stage": "baseline", "ce": 12.680143356323242, "t": 5.9}
+{"stage": "arm", "site": "attn0", "arm": "DROP_RADIAL", "ce_added": -0.0001583099365234375, "t": 5.9}
+{"stage": "arm", "site": "attn0", "arm": "SCALE_RADIAL_2", "ce_added": 0.00015926361083984375, "t": 6.0}
+{"stage": "arm", "site": "mlp1", "arm": "DROP_RADIAL", "ce_added": -0.022745132446289062, "t": 6.0}
+{"stage": "arm", "site": "mlp1", "arm": "SCALE_RADIAL_2", "ce_added": 0.013641357421875, "t": 6.1}
+{"stage": "arm", "site": "mlp17", "arm": "DROP_RADIAL", "ce_added": -0.04470348358154297, "t": 6.1}
+{"stage": "arm", "site": "mlp17", "arm": "SCALE_RADIAL_2", "ce_added": 0.13316631317138672, "t": 6.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_mid_mlp_radial_inert": false,
+  "pred_c_final_mlp_radial_functional": false,
+  "pred_d_early_radial_soft_both_ways": false
+ },
+ "nulls": {
+  "b_null_ge_3_mid_mlp_drop_ge_.10": false,
+  "c_null_mlp17_drop_le_.05": true,
+  "d_null_any_early_scale_ge_.20": false
+ },
+ "instrument": {
+  "baseline_ce": 12.680143356323242,
+  "prior_baseline": NaN,
+  "identity_abs_diff": {
+   "mlp17": 0.0,
+   "attn0": 0.0
+  },
+  "drop_radial_mlp1": -0.022745132446289062,
+  "prior_drop_radial_mlp1": NaN
+ },
+ "arms_ce_added": {
+  "attn0": {
+   "DROP_RADIAL": -0.0001583099365234375,
+   "SCALE_RADIAL_2": 0.00015926361083984375
+  },
+  "mlp1": {
+   "DROP_RADIAL": -0.022745132446289062,
+   "SCALE_RADIAL_2": 0.013641357421875
+  },
+  "mlp17": {
+   "DROP_RADIAL": -0.04470348358154297,
+   "SCALE_RADIAL_2": 0.13316631317138672
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 40,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 6.152885913848877
+ }
+}

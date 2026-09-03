@@ -1,0 +1,49 @@
+{"stage": "fit", "docs": 3, "t": 315.3}
+{"stage": "cert", "docs": 8, "t": 328.7}
+{"stage": "base", "docs": 2, "t": 339.9}
+{"stage": "single_attn16", "docs": 2, "t": 350.6}
+{"stage": "single_mlp16", "docs": 2, "t": 362.8}
+{"stage": "single_attn17", "docs": 2, "t": 373.2}
+{"stage": "single_mlp17", "docs": 2, "t": 385.8}
+{"stage": "set_R1_n2", "docs": 2, "t": 396.3}
+{"R1_n2": {"sites": ["mlp16", "mlp17"], "n": 2, "measured": -0.19710254669189453, "J": 0.7398902177810669, "direct_joint_cert": 0.7398902177810669, "identity_rel_err": 0.0, "ratio": -0.2663943135820956, "sum_single_measured": -0.23299217224121094, "X_measured": 0.035889625549316406, "X_model": 0.5030221669003367}}
+{"stage": "set_R2_n3", "docs": 2, "t": 404.8}
+{"R2_n3": {"sites": ["attn16", "attn17", "mlp17"], "n": 3, "measured": -0.16962337493896484, "J": 0.21242315834388137, "direct_joint_cert": 0.2124231681227684, "identity_rel_err": 4.603493851471678e-08, "ratio": -0.7985163965238193, "sum_single_measured": -0.1967449188232422, "X_measured": 0.027121543884277344, "X_model": 0.0032587219029664993}}
+{"stage": "set_A1", "docs": 2, "t": 413.0}
+{"A1": {"sites": ["mlp16", "mlp17"], "n": 2, "measured": -0.19710254669189453, "J": 0.7398902177810669, "direct_joint_cert": 0.7398902177810669, "identity_rel_err": 0.0, "ratio": -0.2663943135820956, "sum_single_measured": -0.23299217224121094, "X_measured": 0.035889625549316406, "X_model": 0.5030221669003367}}
+{"stage": "set_A4", "docs": 2, "t": 425.7}
+{"A4": {"sites": ["attn16", "mlp16", "attn17", "mlp17"], "n": 4, "measured": -0.24349403381347656, "J": 0.8053504358977079, "direct_joint_cert": 0.31209029257297516, "identity_rel_err": 0.612478892837384, "ratio": -0.302345442381314, "sum_single_measured": -0.3123331069946289, "X_measured": 0.06883907318115234, "X_model": 0.5085995863191783}}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:133: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_pairwise_model_prices_random_subsets": false,
+  "pred_c_cross_terms_positive": true,
+  "pred_d_ordering": false,
+  "pred_e_design_gain": false
+ },
+ "nulls": {
+  "b_null_le_6_of_12": true,
+  "c_null_ge_30_negative_pairs": false,
+  "d_null_spearman_le_.5": true,
+  "e_null_best_ge_.8_worst": false
+ },
+ "instrument": {
+  "ce_manual": 12.722074508666992,
+  "ce_module": 12.722074508666992,
+  "n_sites_cert_stable_vs_2703": 0,
+  "pairwise_identity_ok": false
+ },
+ "X_by_kind_mean": {
+  "aa": 0.0016022059135138988,
+  "am": 0.0009938033763319254,
+  "mm": 0.5030221669003367
+ },
+ "spearman_J_vs_measured_16": -0.7999999999999998,
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forward_equivalents": 41,
+  "cpu_seconds": 425.7222216129303
+ }
+}

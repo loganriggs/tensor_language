@@ -1,0 +1,243 @@
+{
+ "rung": "radial_gauge_map_probe_gpu",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 96-159; LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_mid_mlp_radial_inert": false,
+  "pred_c_final_mlp_radial_functional": false,
+  "pred_d_early_radial_soft_both_ways": true
+ },
+ "nulls": {
+  "b_null_ge_3_mid_mlp_drop_ge_.10": false,
+  "c_null_mlp17_drop_le_.05": true,
+  "d_null_any_early_scale_ge_.20": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "xdev_tol": 0.015,
+  "repro_tol": 0.003,
+  "mid_drop_max": 0.03,
+  "final_drop_min": 0.3,
+  "early_scale_max": 0.05
+ },
+ "null_bars": {
+  "mid_n_bad": 3,
+  "mid_drop_bad": 0.1,
+  "final_drop_max": 0.05,
+  "early_scale_min": 0.2
+ },
+ "device": "cuda",
+ "same_device_baseline_abs_diff_le_1e-4": true,
+ "instrument": {
+  "baseline_ce": 3.1125031411647797,
+  "prior_baseline": 3.1124951243400574,
+  "identity_abs_diff": {
+   "mlp17": 0.0,
+   "attn0": 0.0
+  },
+  "drop_radial_mlp1": 0.007896602153778076,
+  "prior_drop_radial_mlp1": 0.00789681077003479
+ },
+ "baseline_ce_eval": 3.1125031411647797,
+ "n_eval_docs": 64,
+ "arms_ce_added": {
+  "attn0": {
+   "DROP_RADIAL": 0.0007551908493041992,
+   "SCALE_RADIAL_2": 0.0008293688297271729
+  },
+  "mlp0": {
+   "DROP_RADIAL": 0.02494385838508606,
+   "SCALE_RADIAL_2": 0.015952378511428833
+  },
+  "attn1": {
+   "DROP_RADIAL": 5.281867176294327,
+   "SCALE_RADIAL_2": 0.0473666787147522
+  },
+  "mlp1": {
+   "DROP_RADIAL": 0.007896602153778076,
+   "SCALE_RADIAL_2": 0.005133450031280518
+  },
+  "attn2": {
+   "DROP_RADIAL": 0.003298848867416382,
+   "SCALE_RADIAL_2": 0.0016126632690429688
+  },
+  "mlp2": {
+   "DROP_RADIAL": 0.010647803544998169,
+   "SCALE_RADIAL_2": 0.005293071269989014
+  },
+  "attn3": {
+   "DROP_RADIAL": 0.0015221834182739258,
+   "SCALE_RADIAL_2": 0.0007269382476806641
+  },
+  "mlp3": {
+   "DROP_RADIAL": 0.017340421676635742,
+   "SCALE_RADIAL_2": 0.008806675672531128
+  },
+  "attn4": {
+   "DROP_RADIAL": 0.005518317222595215,
+   "SCALE_RADIAL_2": 0.0037896335124969482
+  },
+  "mlp4": {
+   "DROP_RADIAL": 0.052121132612228394,
+   "SCALE_RADIAL_2": 0.014149338006973267
+  },
+  "attn5": {
+   "DROP_RADIAL": 3.2929495871067047,
+   "SCALE_RADIAL_2": 0.1911935806274414
+  },
+  "mlp5": {
+   "DROP_RADIAL": 0.013156384229660034,
+   "SCALE_RADIAL_2": 0.0038595199584960938
+  },
+  "attn6": {
+   "DROP_RADIAL": 0.14127963781356812,
+   "SCALE_RADIAL_2": 0.02736574411392212
+  },
+  "mlp6": {
+   "DROP_RADIAL": 0.0072820186614990234,
+   "SCALE_RADIAL_2": 0.004484266042709351
+  },
+  "attn7": {
+   "DROP_RADIAL": 0.01352846622467041,
+   "SCALE_RADIAL_2": 0.00679740309715271
+  },
+  "mlp7": {
+   "DROP_RADIAL": 0.0012712180614471436,
+   "SCALE_RADIAL_2": 0.0006236732006072998
+  },
+  "attn8": {
+   "DROP_RADIAL": 0.0009182989597320557,
+   "SCALE_RADIAL_2": -6.243586540222168e-05
+  },
+  "mlp8": {
+   "DROP_RADIAL": 0.0008463561534881592,
+   "SCALE_RADIAL_2": 0.00016385316848754883
+  },
+  "attn9": {
+   "DROP_RADIAL": 0.010785937309265137,
+   "SCALE_RADIAL_2": 0.004301488399505615
+  },
+  "mlp9": {
+   "DROP_RADIAL": 0.002894103527069092,
+   "SCALE_RADIAL_2": 0.0012181997299194336
+  },
+  "attn10": {
+   "DROP_RADIAL": 0.0031102895736694336,
+   "SCALE_RADIAL_2": 0.0017765462398529053
+  },
+  "mlp10": {
+   "DROP_RADIAL": 0.0006107687950134277,
+   "SCALE_RADIAL_2": 5.8710575103759766e-06
+  },
+  "attn11": {
+   "DROP_RADIAL": 0.0028511881828308105,
+   "SCALE_RADIAL_2": 0.000860065221786499
+  },
+  "mlp11": {
+   "DROP_RADIAL": 0.004855751991271973,
+   "SCALE_RADIAL_2": 0.003143012523651123
+  },
+  "attn12": {
+   "DROP_RADIAL": 0.0005571544170379639,
+   "SCALE_RADIAL_2": 0.0003860294818878174
+  },
+  "mlp12": {
+   "DROP_RADIAL": 0.002780437469482422,
+   "SCALE_RADIAL_2": 0.0016338229179382324
+  },
+  "attn13": {
+   "DROP_RADIAL": 0.0001327991485595703,
+   "SCALE_RADIAL_2": 0.0002827644348144531
+  },
+  "mlp13": {
+   "DROP_RADIAL": 0.0017373263835906982,
+   "SCALE_RADIAL_2": 0.0016012787818908691
+  },
+  "attn14": {
+   "DROP_RADIAL": 5.3256750106811523e-05,
+   "SCALE_RADIAL_2": 0.00014507770538330078
+  },
+  "mlp14": {
+   "DROP_RADIAL": 4.124641418457031e-05,
+   "SCALE_RADIAL_2": 0.0002403855323791504
+  },
+  "attn15": {
+   "DROP_RADIAL": 1.665949821472168e-05,
+   "SCALE_RADIAL_2": 2.1785497665405273e-05
+  },
+  "mlp15": {
+   "DROP_RADIAL": 0.0010953545570373535,
+   "SCALE_RADIAL_2": 0.0016408562660217285
+  },
+  "attn16": {
+   "DROP_RADIAL": 8.690357208251953e-05,
+   "SCALE_RADIAL_2": -1.0311603546142578e-05
+  },
+  "mlp16": {
+   "DROP_RADIAL": 0.010352164506912231,
+   "SCALE_RADIAL_2": 0.013997375965118408
+  },
+  "attn17": {
+   "DROP_RADIAL": 0.003856152296066284,
+   "SCALE_RADIAL_2": 0.0036548972129821777
+  },
+  "mlp17": {
+   "DROP_RADIAL": 0.04647254943847656,
+   "SCALE_RADIAL_2": 0.03751656413078308
+  }
+ },
+ "radial_energy_fraction_eval": {
+  "attn0": 0.013623902583466735,
+  "mlp0": 0.1410142594711658,
+  "attn1": 0.2765568519203708,
+  "mlp1": 0.13257499968381872,
+  "attn2": 0.10707238204230954,
+  "mlp2": 0.1728565102255686,
+  "attn3": 0.06792910818976527,
+  "mlp3": 0.24811897094391908,
+  "attn4": 0.14295911851861667,
+  "mlp4": 0.2876363408985442,
+  "attn5": 0.28266420695623423,
+  "mlp5": 0.6121623624908512,
+  "attn6": 0.8452110593458358,
+  "mlp6": 0.6045645848382989,
+  "attn7": 0.8088127945143372,
+  "mlp7": 0.2103021403351831,
+  "attn8": 0.16764856258815225,
+  "mlp8": 0.09838351382223623,
+  "attn9": 0.6543493140367522,
+  "mlp9": 0.29933342410190333,
+  "attn10": 0.5780086627377047,
+  "mlp10": 0.05259062778456618,
+  "attn11": 0.39224923270508755,
+  "mlp11": 0.3841764654395884,
+  "attn12": 0.282889413758826,
+  "mlp12": 0.27164733629746685,
+  "attn13": 0.07609114500681594,
+  "mlp13": 0.19735180332311014,
+  "attn14": 0.02972074083872807,
+  "mlp14": 0.015501734240982072,
+  "attn15": 0.017664136422611183,
+  "mlp15": 0.03887845622373767,
+  "attn16": 0.017340199477471004,
+  "mlp16": 0.05390049885502856,
+  "attn17": 0.25852662726586156,
+  "mlp17": 0.0360478334064628
+ },
+ "price": {
+  "gpu_doc_forwards": 4684,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 41.341652393341064
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/RADIAL_GAUGE_MAP_PROBE_PREREGISTRATION.md": "7a5bfdc9a17d504c109d47d30c5925e6a118169191b92b7c438e0ba2fd3eaae9",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/RADIAL_GAUGE_MAP_PROBE_PREREGISTRATION_GPU_ADDENDUM.md": "59ddb7dbf600041772956737f6e628adba21889d5c116257e3849e30fbda6c31",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_radial_tangential_probe_results.json": "237b90fe1b020cfbe1f8b1cea11f0b10e62a24b7cc1d669022ef5a704eb67e6c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/site_write_pca_truncation_ce_map_probe_results.json": "48bd52ec9201ac97cddcd102cef61885baaaa8a8362b232850159f6f646d0e00",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "cf74becf32cfd6845b60432596a0b8dd03c8f0252993926140cb6f32dddc70b9"
+}
