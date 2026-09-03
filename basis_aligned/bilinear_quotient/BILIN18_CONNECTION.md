@@ -71219,3 +71219,32 @@ carried vector dominates every block's input from block 2 to block 14, and reads
 of the stream IS the frame of the carried vector plus the accumulated in-frame writes; this is the mechanical reason the bus
 frame is stable (§2758) and the early frames follow the large early writes (§2761). Failures preserved: b, c (nulls met — the
 hypothesis was mine and was wrong). Nothing installs into the §312 frontier (§2125).
+
+## §2764 — THE WHOLE MODEL AS ONE FRAME PROGRAM COSTS .057 NAT AT k = 1024: every read and every write of all 36 sites confined to 17 frames — blocks 0–7 read through their own 1024-frame and write INTO the next site's frame (remainder deleted; mlp_7 into the bus), blocks 8–17 read and write through the bus frame with the remainder routed to the readout — adds .0574 above the real model; the early chain writes cost +.0199 on top of the read program (pred_b "≤ .030" TRUE; null ≥ .080 not met; at 768 the same two halves cost .032 + .030, §2761), the whole program is .0574 (pred_c "≤ .080" TRUE; null ≥ .150 not met), .2817 at k = 768 (pred_d "≤ .350" TRUE; null ≥ .60 not met), and confining the late writes to the bus on top of the chain costs +.00015 (pred_e "≤ .005" TRUE; null ≥ .020 not met) (Claude, LANE 1 CUDA, 19 s, 416 GPU document-forwards): a–e TRUE; no null met. Preserved.
+
+Registered 2026-09-03 23:47Z (polynomial_causal/CHAIN_BUS_PROGRAM_STATEMENT_PROBE_PREREGISTRATION.md); landed 23:49Z. Script
+ops/chain_bus_program_statement_probe.py; results chain_bus_program_statement_probe_results.json (sha de512d00…). Frozen: prereg,
+§2761 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split; fits docs 96–191) — LOWER IS BETTER. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739 (= §2754/§2756/§2758).
+Program: frames = 16 own early input cores (top-1024 eigenvectors of each early site's centred rms-normed input covariance) + U_8
+(top-1024 of the plain average of blocks 8–17's input covariances). Reads: site s reads x̄_s + U_sU_sᵀ(x̂ − x̄_s). Writes: attn_l's
+centred write projected onto span(U_mlp_l), mlp_l's onto span(U_attn_{l+1}) (l ≤ 6) or span(U_8) (l = 7), remainder dropped;
+blocks 8–17's writes projected onto span(U_8) with the remainder summed and added to the residual before the final norm.
+
+| arm | CE added | gap |
+|---|---|---|
+| SPLIT8_1024 (reads only: own 0–7, bus 8–17) | 0.0374 | — |
+| CHAIN_ONLY_1024 (+ early chain writes) | 0.0572 | +.0199 (b TRUE) |
+| CHAIN_BUS_1024 (+ bus writes with readout remainder) | 0.0574 | +.00015 over CHAIN_ONLY (e TRUE); c TRUE |
+| CHAIN_BUS_768 (the same program at k = 768) | 0.2817 | d TRUE |
+
+What it says. (1) This is the first complete, parameter-free structural statement of bilin18 in this arc: the network's activity
+lives in a CHAIN of 17 subspaces of dimension 1024 — 16 early frames that each write into the next, then one bus for the last ten
+blocks — and confining every read and every write to that chain costs .057 nat (baseline 3.0322; the §312 frontier's separate
+weight-compression question is untouched, §2125). The write frames introduce no new parameters: they are the next reads' frames.
+(2) The cost is dominated by the early chain (.020 of the .020 write cost; the bus writes are free), and the early reads (.034 of
+the .037 read cost — ALL36_1024 vs the late frame's ≈ .004, §2754). Blocks 0–7 are where the width is used; blocks 8–17 run on the
+bus. (3) At k = 768 the same program costs .28: the early frames are the price cliff, consistent with §2751/§2753 (early frames
+resist every compression) — the early network genuinely uses ≈ 1024 of 1152 dimensions per site, in a different frame at each
+site. (4) Next: how many early frames are really needed at 1024 (per-block, per-pair, one) — the size of the description — and
+the per-site map of the .020 chain-write cost. Nothing installs into the §312 frontier (§2125).

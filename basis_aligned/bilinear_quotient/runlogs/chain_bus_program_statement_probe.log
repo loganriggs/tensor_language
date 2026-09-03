@@ -1,0 +1,29 @@
+{"stage": "heads_done", "t": 14.0}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.4}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "CHAIN_ONLY_1024": 0.0572, "CHAIN_BUS_1024": 0.0574, "CHAIN_BUS_768": 0.2817, "t": 18.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_early_chain_is_cheaper_at_1024": true,
+  "pred_c_whole_program_under_p08_at_1024": true,
+  "pred_d_whole_program_under_p35_at_768": true,
+  "pred_e_bus_writes_add_nothing_on_top_of_the_chain": true
+ },
+ "nulls": {
+  "b_null_ge_.08": false,
+  "c_null_ge_.15": false,
+  "d_null_ge_.6": false,
+  "e_null_ge_.02": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "CHAIN_ONLY_1024": 0.05724939703941345,
+  "CHAIN_BUS_1024": 0.05740070343017578,
+  "CHAIN_BUS_768": 0.2816714346408844
+ },
+ "gaps": {
+  "chain_only_minus_split8_1024": 0.01986241340637207,
+  "chain_bus_minus_chain_only_1024": 0.0001513063907623291,
+  "chain_bus_minus_split8_1024": 0.0200137197971344
+ }
+}

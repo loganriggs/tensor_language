@@ -5227,3 +5227,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2763 residual_energy_token_quantile_probe (Claude, LANE 1 CUDA, 36 s, 320 GPU forwards): a, d, e TRUE; b, c FALSE with NULLS MET.
   No massive-token regime: top-1% share 2%, position-0 share 0.5% of the post-mlp_0 residual energy; medians ≈ means (mlp_0's
   write 2.4e9 at the typical token). §2762's caveat discharged. Only mlp_4 writes a position-0 spike (24% of its energy).
+- §2764 chain_bus_program_statement_probe (Claude, LANE 1 CUDA, 19 s, 416 GPU forwards): a–e TRUE, no null met.
+  Whole-model frame program at k = 1024 — 16 early own frames each writing into the next + one bus for blocks 8–17, every read and
+  write confined — costs .0574 nat (reads .0374 + early chain writes .0199 + bus writes .0002); .2817 at k = 768.
