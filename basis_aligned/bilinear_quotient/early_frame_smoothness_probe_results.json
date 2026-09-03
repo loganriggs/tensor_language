@@ -1,0 +1,70 @@
+{
+ "rung": "early_frame_smoothness_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_sliding_window_is_free": false,
+  "pred_c_frame_predictable_from_neighbours": false,
+  "pred_d_leave_one_out": false,
+  "pred_e_settled_from_block_8": true
+ },
+ "nulls": {
+  "b_null_ge_.06": false,
+  "c_null_ge_.10": false,
+  "d_null_ge_.08": false,
+  "e_null_ge_.10": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.02,
+  "c_max": 0.04,
+  "d_max": 0.03,
+  "e_max": 0.03
+ },
+ "null_bars": {
+  "b_min": 0.06,
+  "c_min": 0.1,
+  "d_min": 0.08,
+  "e_min": 0.1
+ },
+ "device": "cuda",
+ "k": 768,
+ "split": 8,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "early22_own_768": 0.05698782205581665,
+  "prior_early22_own_768": 0.057,
+  "all36_768": 0.1965300738811493,
+  "prior_all36_768": 0.197
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "ALL36_768": 0.1965300738811493,
+  "EARLY22_WIN3_768": 0.08405071496963501,
+  "EARLY22_LOO_768": 0.1267165243625641,
+  "EARLY22_NBR_768": 0.13820388913154602,
+  "ALL36_SPLIT8_768": 0.21833711862564087
+ },
+ "gaps": {
+  "WIN3_minus_own": 0.02706289291381836,
+  "LOO_minus_own": 0.06972870230674744,
+  "NBR_minus_own": 0.08121606707572937,
+  "split8_minus_all36": 0.021807044744491577
+ },
+ "price": {
+  "gpu_doc_forwards": 544,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 63.929116010665894
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_FRAME_SMOOTHNESS_PROBE_PREREGISTRATION.md": "102b06cc804fcd2b7604ce6f8f68373cf09249965400e1cff639e3445bcbb9a6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_width_program_probe_results.json": "a3df6484be4f8973f7711b1f887be39e2d8ab0adceda5af51aadc2efdb98cafc",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "0ba09a64574b2c4cf6e00d4a116596bc2c4582538a63a9e611ac8bf1405c5b43"
+}

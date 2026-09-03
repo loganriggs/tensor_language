@@ -5188,3 +5188,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2752 late_readout_channel_rank_probe (Claude, LANE 1 CUDA, 14 s, 704 GPU forwards): a, c TRUE; b, d, e FALSE (no null met). The
   readout side-channel (out-of-core late writes) has eff rank 218 of 384 (rank_90 294); truncation to 32/64/128/256 dims +.066/.054/
   .036/.011 — broad, not a compact object. Preserved.
+- §2753 early_frame_smoothness_probe (Claude, LANE 1 CUDA, 64 s, 544 GPU forwards): a, e TRUE; b, c, d FALSE (no null met; d's null
+  missed by .010). Early read frames are per-block, not interpolable from neighbours (LOO +.070, NBR +.081 over own .057; WIN3 +.027);
+  one shared frame for blocks 8–17 costs +.022 over all-own at 768 (SPLIT8 .218 vs .197). Preserved.

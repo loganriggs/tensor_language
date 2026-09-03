@@ -70850,3 +70850,38 @@ last third is genuinely distributed — the readout consumes directions the late
 many. The late program's honest width is therefore "768 for the bus, ~1024–1152 for the readout", and the cheapest complete late
 description remains the §2745/§2751 one at k = 1024 (.023 late-only). What this rules out: a compact side-channel object worth
 compiling separately. Failures preserved; nothing installs into the §312 frontier.
+
+## §2753 — THE EARLY READ FRAMES ARE SITE-SPECIFIC, NOT SMOOTH: at k = 768, replacing each of the 22 early sites' own read core (0.057) by a core fitted on the 3-block window around it costs +.027 (pred_b "≤ .02" FALSE by .007; null ≥ .06 not met), by its neighbours only (site left out) +.070 (pred_d "≤ .03" FALSE; null ≥ .08 missed by .010), by the two flanking blocks +.081 (pred_c "≤ .04" FALSE; null ≥ .10 not met); but treating blocks 8–17 as ONE settled frame while blocks 0–7 keep their own costs only +.022 over all-own (0.218 vs 0.197; pred_e "≤ .03" TRUE) (Claude, LANE 1 CUDA, 64 s, 544 GPU document-forwards): a, e TRUE; b, c, d FALSE; no null met. Preserved.
+
+Registered 2026-09-03 23:02Z (polynomial_causal/EARLY_FRAME_SMOOTHNESS_PROBE_PREREGISTRATION.md); landed 23:04Z. Script
+ops/early_frame_smoothness_probe.py; results early_frame_smoothness_probe_results.json (sha 222af24d…). Frozen: prereg, §2751
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits
+docs 96–191) — LOWER IS BETTER; every "+" below is extra damage relative to the named arm. Construction (§2749/§2750 vocabulary):
+every core is the top-768 eigenvectors of the plain average of the named sites' centred rms-normed input covariances; OwnHead /
+AttnHead as in §2749 (block 0 skips the value self-mixing). WIN3(kd, l) averages the 6 sites of blocks l−1, l, l+1; LOO the same
+minus the site itself; NBR the 4 sites of blocks l−1 and l+1 only; SPLIT8 gives blocks 0–7 their own cores and blocks 8–17 the
+single core of their 20 sites' average (the "settled" region of §2750's capture matrix).
+
+Instrument (pred_a TRUE): baseline 3.0322401 (= §2751); EARLY22_OWN_768 0.05699 vs prior .057; ALL36_768 0.19653 vs prior .197
+(repro_tol .02; both within 1e-3).
+
+| arm | CE added | gap to the registered reference |
+|---|---|---|
+| EARLY22_OWN_768 | 0.0570 | — |
+| EARLY22_WIN3_768 | 0.0841 | +.0271 over own (b: ≤ .02 FALSE; null ≥ .06 no) |
+| EARLY22_LOO_768 | 0.1267 | +.0697 over own (d: ≤ .03 FALSE; null ≥ .08 no, by .010) |
+| EARLY22_NBR_768 | 0.1382 | +.0812 over own (c: ≤ .04 FALSE; null ≥ .10 no) |
+| ALL36_768 | 0.1965 | — |
+| ALL36_SPLIT8_768 | 0.2183 | +.0218 over ALL36 (e: ≤ .03 TRUE; null ≥ .10 no) |
+
+Scored as registered. What it says. (1) The early frame is NOT a smooth function of depth: a site's own 768-core cannot be
+recovered from its neighbours — leaving the site out of its own window costs +.070 and using only the flanks +.081, more than the
+whole early program costs with own cores (.057). The "rotation" of §2749/§2750 is therefore per-block, not a slow drift one could
+interpolate; the neighbour cores capture the site's covariance well (§2750: adjacent same-kind capture .84–.98) but the ≈ .1 of
+energy they miss is exactly the energy the site reads. (2) Contaminating the site's own covariance with its neighbours (WIN3) is
+cheap (+.027, though over the .02 bar): the site's own directions dominate the 3-block average, so the damage is from dilution of
+the top-768 boundary, not from a wrong frame. (3) pred_e TRUE: from block 8 on, one shared frame is nearly free (+.022 against 20
+own frames) — the §2750 "settled from block 8" reading holds causally, and the parameter count of the whole-model width program
+can drop from 36 frames to 16 own + 1 shared at a .02 price at k = 768. (4) The null of pred_d was missed by .010: the LOO result
+sits between "frame recoverable" and "frame unrecoverable" — recorded as a bracket miss, not as evidence either way. Failures
+preserved: b, c, d FALSE. Nothing installs into the §312 frontier; the frontier remains norm-2304 at 2.6735 (§2125).
