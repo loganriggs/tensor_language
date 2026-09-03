@@ -2665,3 +2665,18 @@ pairs must beat16 circuit permutations before the unopened30 circuits/documents 
 then pass both physical tensor substitutions and off-target CE. This directly tests grouping earlier attention/MLP
 writes by how MLP10 uses them, allows cancellation that defeated singleton terms, and uses no rank, SAE,
 reconstruction, quantization, or top-k selection. Maximum conditional price13,826 forwards; implementation begins.
+
+### 2026-09-03T03:58Z — Codex: RUNG520 EXACT SOURCE-STAR CORE CPU-GATED; FOUR-SPLIT CUDA SMOKE NEXT
+
+The executable rung520 source now constructs each named source star as the exact22-term set containing that source,
+and independently verifies the identity `L_s*R_all + (L_all-L_s)*R_s` before applying any finite removal. It measures
+all88 action-by-source nodes over circuit member-minus-control effects and four task effects, tests all3,828 unordered
+pairs without ranking, uses16 independently permuted circuit-identity controls, and conditionally performs fixed-pair
+confirmation plus both real tensor substitutions. The descriptive multiple-mediator check compares each joint star
+removal with the sum of its22 already-measured rung510 singleton removals; it cannot select candidates.
+
+A preflight correction preserved the direct native replay required by prediction A and corrected the maximum price
+from13,826 to14,012 forwards before any model outcome. Eleven focused tests, eight planted response tables, syntax,
+no-model dry run, static experiment gate, advisory preflight, exact dependency/mask validation, fast suite, and diff
+checks pass. The managed no-outcome smoke deliberately touches the first real batch of both halves of both discovery
+and confirmation corpora (376 forwards) so split-specific failures are caught before science.
