@@ -1,0 +1,117 @@
+{
+ "status": "complete",
+ "rung": "mismatch_covariance_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "descriptive_gauge_covariance_of_published_mismatch_shares",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MISMATCH_COVARIANCE_PROBE_PREREGISTRATION.md": "164bc70dbed5098829e3efa47d9de24323d11c35a5e892014265eb2bc70f714b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention11_mlp11_exact_factor_interactions_rung513_results.json": "043dd563baa5ffe5bda57c7774dc76e4727add3b4351699cb997ecfd563179d5"
+ },
+ "keys": [
+  "L::N-Z7",
+  "L::N-Z8",
+  "L::P-Z7",
+  "R::N-Z7",
+  "R::N-Z8",
+  "R::P-Z7",
+  "L+R::N-Z7",
+  "L+R::N-Z8",
+  "L+R::P-Z7",
+  "L+LR::N-Z7",
+  "L+LR::N-Z8",
+  "L+LR::P-Z7",
+  "R+LR::N-Z7",
+  "R+LR::N-Z8",
+  "R+LR::P-Z7",
+  "L+R+LR::N-Z7",
+  "L+R+LR::N-Z8",
+  "L+R+LR::P-Z7"
+ ],
+ "sites": {
+  "a11": {
+   "terms": [
+    "A11{Q}",
+    "A11{K}",
+    "A11{Q,K}",
+    "A11{Q2}",
+    "A11{Q,Q2}",
+    "A11{K,Q2}",
+    "A11{Q,K,Q2}",
+    "A11{K2}",
+    "A11{Q,K2}",
+    "A11{K,K2}",
+    "A11{Q,K,K2}",
+    "A11{Q2,K2}",
+    "A11{Q,Q2,K2}",
+    "A11{K,Q2,K2}",
+    "A11{Q,K,Q2,K2}",
+    "A11{V}",
+    "A11{Q,V}",
+    "A11{K,V}",
+    "A11{Q,K,V}",
+    "A11{Q2,V}",
+    "A11{Q,Q2,V}",
+    "A11{K,Q2,V}",
+    "A11{Q,K,Q2,V}",
+    "A11{K2,V}",
+    "A11{Q,K2,V}",
+    "A11{K,K2,V}",
+    "A11{Q,K,K2,V}",
+    "A11{Q2,K2,V}",
+    "A11{Q,Q2,K2,V}",
+    "A11{K,Q2,K2,V}",
+    "A11{Q,K,Q2,K2,V}"
+   ],
+   "mean_pairwise_cosine": 0.9931847850532232,
+   "perm_mean_pairwise_cosine_q95": 0.09528244259645188,
+   "covariant": true,
+   "top3_global": [
+    "A11{Q}",
+    "A11{Q2}",
+    "A11{V}"
+   ],
+   "keys_sharing_2of_top3": 18,
+   "stable_subspace": true,
+   "mean_fingerprint_top": {
+    "A11{Q}": 0.6754727433366443,
+    "A11{V}": 0.4206473224106807,
+    "A11{Q2}": 0.3779211486148845,
+    "A11{K}": 0.22586212029458408,
+    "A11{Q,K,Q2,K2,V}": 0.13210740262199053,
+    "A11{K2}": 0.1319904083439384
+   }
+  },
+  "m11": {
+   "terms": [
+    "M11{L}",
+    "M11{R}",
+    "M11{L,R}"
+   ],
+   "mean_pairwise_cosine": 0.9999948074298788,
+   "perm_mean_pairwise_cosine_q95": 0.6989980576050022,
+   "covariant": true,
+   "top3_global": [
+    "M11{L}",
+    "M11{R}",
+    "M11{L,R}"
+   ],
+   "keys_sharing_2of_top3": 18,
+   "stable_subspace": true,
+   "mean_fingerprint_top": {
+    "M11{R}": 0.7071371558188325,
+    "M11{L}": 0.7070571557268389,
+    "M11{L,R}": 0.005217412761623027
+   }
+  }
+ },
+ "pred_a_exact_reproduction_of_513_shares": true,
+ "pred_b_mismatch_shape_is_gauge_covariant": true,
+ "pred_c_stable_dominant_factor_subspace": true,
+ "strong_null": false,
+ "verdict": "mismatch_shape_is_gauge_covariant_low_dim_factor_subspace",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.020706892013549805
+}
