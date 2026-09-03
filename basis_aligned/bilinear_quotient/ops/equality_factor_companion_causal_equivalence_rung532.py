@@ -275,7 +275,7 @@ def _accumulate_counts(collection, circuit_masks, task_masks, tags_by_set, start
         selector = rows[None, :, None]
         for name in TAG_SET_NAMES:
             selected = batch_masks[name] & selector
-            collection["circuit_counts"][name][half] += selected.sum((1, 2)).cpu()
+            collection["circuit_counts"][name][half] += selected.sum((2, 3)).cpu()
         for cell_index, cell in enumerate(TASK_CELLS):
             selected = task_masks[cell][start:stop].to(device) & rows[:, None]
             collection["task_counts"][half, cell_index] += int(selected.sum())
@@ -319,9 +319,9 @@ def collect(model, rows, circuit_masks, tags_by_set, *, smoke=False):
         direct_logits, _direct_diagnostics, _direct_audit = run_forward(
             model, tokens, background="donor_present", arm="native", direct=True)
         diagnostics["direct_native_calls"] += 1
-        if not smoke:
-            batch_masks, half_rows = _accumulate_counts(
-                collection, circuit_masks, task_masks, tags_by_set, start, stop, device)
+        batch_masks, half_rows = _accumulate_counts(
+            collection, circuit_masks, task_masks, tags_by_set, start, stop, device)
+        diagnostics["support_accumulator_exercised"] = True
         present_native_logits = None
         for background_index, background in enumerate(BACKGROUNDS):
             for arm_index, arm in enumerate(ARMS):
@@ -558,6 +558,7 @@ def main():
     if smoke:
         instrument_pass = bool(
             diagnostics["calls_exact"]
+            and diagnostics.get("support_accumulator_exercised") is True
             and diagnostics["native_replay_logit_max_abs"] == 0.0
             and diagnostics["factor_reconstruction_max"] <= 1e-10
             and diagnostics["branch_product_max_abs"] == 0.0

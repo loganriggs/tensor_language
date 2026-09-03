@@ -3941,6 +3941,24 @@ are7.890/2.147 RMS, all intended edits live, peak3.16GB, and no science outcome 
 `2207288b...` and v2 wrapper/log hashes are receipted. The2,625-forward rows500:1000 circuit-interaction run is now
 eligible through bqrunner; all OOD rows remain sealed.
 
+### 2026-09-03T12:33Z — Codex: R532 FULL LAUNCH FAILS BEFORE OUTCOMES; V3 ADDS SUPPORT-PATH SMOKE
+
+The first full launch exited1 after one direct-native forward and before any analytical arm or CE/circuit outcome.
+Cause: circuit masks have axes `[mask_type,tag,batch,token]`, but count accumulation summed `(tag,batch)`, yielding
+`2x256` for a `2x32` destination. The v2 smoke skipped counts, so it could not catch this. Preserved as instrument
+failure. The fix sums `(batch,token)`, adds an exact axis/shape test, and makes outcome-closed smoke execute real
+support accumulation. A separately frozen v3 smoke must pass before any full relaunch; science/OOD remain sealed.
+
+### 2026-09-03T12:34Z — Codex: HOURLY REVIEW KEEPS R532, WITH OVERLAPPING-TAG CAVEAT
+
+The12:34 review restates all7 circuit targets and the predictive/composable/manipulable/literally-cheaper goal.
+R532 remains highest-information because physical factor-by-companion swaps can group/split heads by downstream use,
+test new documents and32+30 circuit families, expose donor-background dependence, and measure the finite2x2
+interaction—no rank proxy. Confounds are frozen and audited. Important limit: the62 circuit masks overlap, so their
+CE-effect vector is an operational fingerprint, not62 independent latent coordinates. If literal factors null, the
+ranked alternatives are a downstream-constrained shared feature vocabulary, an exact factor-by-companion response
+tensor, a predictive-state causal quotient, and a finite-action minimal realization. V3 smoke is the next action.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:

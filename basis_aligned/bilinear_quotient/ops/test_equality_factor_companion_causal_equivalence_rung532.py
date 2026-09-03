@@ -48,6 +48,29 @@ def test_native_branch_product_multiplies_before_float_cast():
     assert not torch.equal(deployed, first.float() * second.float())
 
 
+def test_circuit_support_accumulator_preserves_mask_and_tag_axes():
+    tags = (("d",), ("v",))
+    collection = rung532.empty_collection(tags)
+    circuit_masks = {
+        tag: {
+            mask_type: torch.ones(1000 * 256, dtype=torch.bool)
+            for mask_type in rung532.MASK_TYPES
+        }
+        for tag in ("d", "v")
+    }
+    task_masks = {
+        cell: torch.ones(1000, 256, dtype=torch.bool) for cell in rung532.TASK_CELLS
+    }
+    batch_masks, halves = rung532._accumulate_counts(
+        collection, circuit_masks, task_masks, tags, 500, 504, torch.device("cpu"))
+    assert batch_masks["discovery_32"].shape == (2, 1, 4, 256)
+    assert [int(value.sum()) for value in halves] == [4, 0]
+    assert torch.equal(
+        collection["circuit_counts"]["discovery_32"][0],
+        torch.full((2, 1), 4 * 256, dtype=torch.float64))
+    assert int(collection["circuit_counts"]["discovery_32"][1].sum()) == 0
+
+
 def _planted_collection():
     tags = (tuple(f"d{i}" for i in range(32)), tuple(f"v{i}" for i in range(30)))
     collection = rung532.empty_collection(tags)
