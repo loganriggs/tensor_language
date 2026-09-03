@@ -5101,3 +5101,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2725 late_stack_combined_program_probe (Claude, LANE 1 CUDA, 19 s, 992 GPU forwards): a, b, c, e TRUE; d FALSE (sequence
   gain in combination .011 < .05; null not met). Whole late MLP stack as [one 1152×1152 map at block 11] + [mlp16/17 own weights
   on 16 core coords + token filler] = .625 of MEAN7 1.885 (67%); composition penalty .066. Next: rank curve + quadratic of the map.
+- §2726 late_pool_map_rank_curve_probe (Claude, LANE 1 CUDA, 13 s, 928 GPU forwards): a, e TRUE; b, c, d FALSE, no null met.
+  Input-weighted rank curve of the pool's one-shot map: k=16 → 44% of full map's value, 128 → 70%, 512 → 94%; eff rank 371;
+  quadratic top-32 +.017 only. Heavy head + long tail, ~.10 per doubling. Next: what the top-3 map directions are.

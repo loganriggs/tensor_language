@@ -1,0 +1,143 @@
+{
+ "rung": "late_pool_map_rank_curve_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE/CE(POOL_MEAN)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_rank_128_keeps_most": false,
+  "pred_c_rank_16_is_not_the_map": false,
+  "pred_d_quadratic_helps_modestly": false,
+  "pred_e_map_is_broad": true
+ },
+ "nulls": {
+  "b_null_rank128_le_half": false,
+  "c_null_rank16_ge_.60": false,
+  "d_null_quad_no_gain": false,
+  "e_null_eff_rank_le_40": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "repro_tol_pool": 0.03,
+  "b_frac": 0.8,
+  "c_frac": 0.3,
+  "d_gain": 0.03,
+  "e_eff": 100.0
+ },
+ "null_bars": {
+  "b_frac": 0.5,
+  "c_frac": 0.6,
+  "d_gain": 0.005,
+  "e_eff": 40.0
+ },
+ "device": "cuda",
+ "ridge_lambda_rel": 0.01,
+ "ks": [
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1152
+ ],
+ "k_quad_pcs": 32,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "pool_mean": 0.7238981127738953,
+  "prior_pool_mean": 0.724,
+  "full": 0.3445996046066284,
+  "prior_oneshot": 0.345
+ },
+ "ce_added": {
+  "POOL_MEAN": 0.7238981127738953,
+  "LIN_k16": 0.5578445494174957,
+  "LIN_k32": 0.5307708978652954,
+  "LIN_k64": 0.4975053668022156,
+  "LIN_k128": 0.4569150507450104,
+  "LIN_k256": 0.40953782200813293,
+  "LIN_k512": 0.36611127853393555,
+  "LIN_k1152": 0.3445996046066284,
+  "QUAD32": 0.3278062045574188
+ },
+ "recovery_of_pool_mean": {
+  "POOL_MEAN": 0.0,
+  "LIN_k16": 0.22938803186003787,
+  "LIN_k32": 0.26678784141121503,
+  "LIN_k64": 0.31274117445087457,
+  "LIN_k128": 0.3688130377986981,
+  "LIN_k256": 0.4342604093291105,
+  "LIN_k512": 0.4942502652327152,
+  "LIN_k1152": 0.5239667039797052,
+  "QUAD32": 0.5471652726081814
+ },
+ "recovery_fraction_of_full": {
+  "POOL_MEAN": 0.0,
+  "LIN_k16": 0.4377912377213242,
+  "LIN_k32": 0.5091694555872934,
+  "LIN_k64": 0.5968722288563357,
+  "LIN_k128": 0.7038864015545983,
+  "LIN_k256": 0.8287939024192855,
+  "LIN_k512": 0.9432856352869685,
+  "LIN_k1152": 1.0,
+  "QUAD32": 1.044274890851413
+ },
+ "weighted_map_spectrum": {
+  "eff_rank": 370.9501393222659,
+  "rank_90": 262,
+  "top_singular": [
+   3739.2963879759527,
+   3376.2462644777543,
+   2430.6072221347354,
+   1632.0400021776234,
+   1546.8195436280278,
+   1377.3507668900202,
+   1150.6069511733444,
+   1070.6299258421448,
+   1028.365204272394,
+   948.0013154873917,
+   917.2141717080956,
+   891.6783393445958,
+   835.8587811733272,
+   818.8813617881434,
+   793.5416045333275,
+   785.3941383079779
+  ],
+  "sum_sq": 88870997.27199781
+ },
+ "input_cov_spectrum": {
+  "eff_rank": 231.4166743859373,
+  "top16": [
+   4.9788637073797934,
+   3.960558559156518,
+   3.6946275437642213,
+   2.945961877283725,
+   2.631943668083598,
+   2.3108053607371635,
+   2.2576963790035984,
+   2.0708061865676957,
+   1.9339804987622202,
+   1.8239982529546372,
+   1.7702614426906533,
+   1.601650193740007,
+   1.5465827055330288,
+   1.4790153479348207,
+   1.4149321666350514,
+   1.3096279631802767
+  ]
+ },
+ "price": {
+  "gpu_doc_forwards": 928,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 13.459119081497192
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_POOL_MAP_RANK_CURVE_PROBE_PREREGISTRATION.md": "3a1a746ccc3aaddcd13f3231c68ee667cfc5e5e7e494ad0ae528b49317eeb661",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_pool_surrogate_probe_results.json": "c3e1b9f387927cba3b360872b8d2014b1b5d6a33486e981c6e77ef5656de29f8",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "49eb6ed42e8bb31c47c9d888d35cf57d3219874ce33dfd2cb4b4f4af25d5fd73"
+}

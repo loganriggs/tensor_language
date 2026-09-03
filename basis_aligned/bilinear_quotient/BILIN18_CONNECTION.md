@@ -69840,3 +69840,40 @@ closes any of the .345.
 **Limits.** Descriptive price on 64 held-out docs; nothing installs into §312 and the attention stack is untouched. The 16/17
 "program" still uses the full Down (1152 × 4608) and full Left/Right rows; its 16-dim READ is what is restricted, so the
 parameter count of that half is not yet reduced — the §2717 ridge (COREIN_M, 1304 features) is the fitted alternative at .776 rec.
+
+## §2726 — THE POOL'S CONTEXT MAP IS HEAVY-HEADED WITH A LONG TAIL: 16 input-weighted directions carry 44% of the map's value, each doubling of rank adds ~.10 of it (128 → 70%, 512 → 94%); the map's effective rank is 371; a quadratic term in the top-32 input PCs buys only .017 (Claude, LANE 1 CUDA, 13 s, 928 GPU document-forwards): a, e TRUE; b, c, d FALSE, no null met — the rank curve sits between both of my brackets on every axis. Preserved.
+
+Written 2026-09-03 21:31Z (box clock). Preregistration `polynomial_causal/LATE_POOL_MAP_RANK_CURVE_PROBE_PREREGISTRATION.md`
+(registered 21:25Z before the script). Script `ops/late_pool_map_rank_curve_probe.py`; receipt
+`late_pool_map_rank_curve_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS
+BETTER; rec = 1 − CE/CE(POOL_MEAN); "fraction of full" = rec_k / rec_full.
+
+**Instrument (a TRUE).** Baseline 3.0322401; POOL_MEAN .7239 (§2723/§2724 exact); full map .3446 (§2724 .345).
+
+**Method.** A = the §2724 one-shot ridge map x̂₁₁ → Σ writes(mlp11–15). Truncation is input-covariance-weighted: M = G^{1/2}A = USVᵀ,
+A_k = G^{−1/2}U_kS_kV_kᵀ, so rank k keeps the k directions that matter most for the map's output under the actual stream
+distribution. QUAD32 = x̂₁₁ ⊕ 528 monomials of the top-32 input PCs, one-shot ridge, same λ rule.
+
+**Rank curve (CE added / fraction of full map's recovery).** k=16 .558 / .44 · 32 .531 / .51 · 64 .498 / .60 · 128 .457 / .70 ·
+256 .410 / .83 · 512 .366 / .94 · 1152 .345 / 1.00 · QUAD32 .328 / 1.04. Weighted-map spectrum: eff rank 371, rank-90 262; top
+singular values 3739, 3376, 2431, 1632, 1547, … (a knee after 3). Input covariance of x̂₁₁: eff rank 231.
+
+**Scoring.** b rec_128/rec_full .70 ≥ .80 FALSE (null ≤ .50 not met). c rec_16/rec_full .44 ≤ .30 FALSE (null ≥ .60 not met).
+d CE(QUAD32) .328 ≤ .345 − .03 = .315 FALSE (null ≥ .340 not met; gain .017). e eff rank 371 ≥ 100 TRUE (null ≤ 40 not met).
+Three of five FALSE with no null met: my brackets were too narrow on both sides — the map is neither "16 directions" nor "needs
+hundreds"; it is ~.10 of value per doubling of rank from 16 to 512.
+
+**What it means for the program.** (i) The pool's context map has a HEAD: 16 stream directions (chosen by input-weighted SVD of the
+map, not by the late-write core P_M) already give 44% of what the full map gives, i.e. rec .229 of POOL_MEAN .724 — 32% of the pool's
+entire value from a 1152 × 16 read and a 16 × 1152 write (37 k numbers) — and a long TAIL: the remaining 56% needs ~500 more
+directions at a steady ~.10 per doubling. This is the same shape as the write-side truncation of §2692/§2701 and the operator ranks
+of §2673 seen from the CE side: no cliff, no cheap cut-off, a smooth budget curve. (ii) Bilinearity in the top input directions is
+not where the pool's missing 48% lives (QUAD32 +.017 over linear) — consistent with §2724(iii): the linear map already captures the
+CE-relevant part of the pool, and the pool's high-rank bilinear remainder is mostly CE-inert at this depth. (iii) Concretely for the
+late-stack program of §2725: the pool half can be budgeted — 16 directions → CE .558 for the pool, 128 → .457, 512 → .366 — and the
+program designer picks a point on this curve rather than a rank. (iv) The head's top 3 singular directions are separated from the
+rest (3739/3376/2431 then a slow decay): the next rung may ask what those three directions ARE (their overlap with P_M, with the
+attention-write cores, and with the token embedding) — cheap and decisive.
+
+**Limits.** Truncation is of the ridge solution, not a re-fit at rank k (a rank-constrained re-fit can only do better; the curve is a
+lower bound on rank-k value). λ untuned. 64 held-out docs; ±.01 sample sensitivity.
