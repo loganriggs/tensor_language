@@ -67415,3 +67415,31 @@ Rung519 changes the object by expanding one stable `H4.DISTANT_SAME` effect into
 partners for the documented `r.2.0.2` attention8-family circuit, with new-document finite removal and unrelated-
 circuit controls. Valid result/bundle/source/preregistration SHAs are `52e4d367…/fe985194…/6294a208…/54ee23d8…`;
 117.89s,5,766 forwards,0 backwards,0 deployed parameters.
+
+## §2654 — RUNG519: EXACT MLP0 SOURCE INTERACTIONS ARE NOT SPECIFIC TO ONE DOCUMENTED CIRCUIT
+
+Rung519 changed the object after the45-piece R518 null. It selected the documented `r.2.0.2` attention8-family
+circuit independently, used R518 discovery only to choose its stable `H4.DISTANT_SAME` source, and expanded that
+source's MLP0 contribution into47 exact bilinear partner terms plus separately named normalization and deployment-
+arithmetic closures. Every term was removed at the MLP0 output and the real nonlinear layers1--17 suffix was run.
+
+The first3,224-forward receipt is preserved as instrument-invalid. Full-data float32 fixed-gain closure was
+`1.38385e-8`, slightly outside the frozen`1e-8` gate, despite valid supports, identities, liveness, deployed closure,
+and exact final-logit replay. Its zero-candidate output is non-evidence. The A-only repair accumulated the same
+bilinear algebra in float64 before the unchanged BF16 interventions. The valid run passes A: normalized/fixed/deployed
+relative squared errors are`6.82e-15/8.29e-12/1.01e-34`; whole-source final logits replay exactly; all49 edits are
+live; all32 discovery and62 total circuit masks are distinct; calls and pooled supports match.
+
+The valid science is the registered strong null: B--E false. Of46 eligible semantic terms,9 recover at least15% of
+the whole-source target effect in both halves and3 are stable within2x, but0 rank top4 among32 circuits in both halves
+and0 exceed2x the median circuit magnitude in both halves. The real candidate count0 does not exceed the16-control
+q95 of1. The strongest stable near miss, interaction with `H2.DISTANT_SAME`, recovers1.80/1.95 times the target effect
+but ranks12/11 and reaches only1.73/1.44 times the circuit median. It is large but not selective. Confirmation, all-
+subset composition, and physical selective-removal claims remain closed.
+
+This joins R517--R519 into one constraint: MLP0 attention sources are causally important and redundant, but source
+relation, head-by-source identity, and exact single source-interaction identity do not define reusable circuit units.
+Do not lower bars, search arbitrary combinations post hoc, or substitute descriptive rank. Honor the frozen null route
+by changing to shared attention `Q/K/Q2/K2/value-output` factors whose sameness is judged by held-out finite downstream
+circuit effects and physical factor swaps. Valid result/bundle/source/preregistration SHAs are
+`3eb5188f…/54a4ce1c…/0f06c7a4…/cce9e3b2…`;126.96s,3,224 forwards,0 backwards,0 deployed parameters.

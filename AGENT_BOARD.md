@@ -2634,3 +2634,18 @@ tied to held-out downstream interchange and finite selective intervention, so it
 The repaired52-forward smoke passed at03:32: fixed-gain relative squared error fell from`8.07e-10` on the earlier
 float32 smoke to`5.04e-13`; deployed closure is`5.91e-36`; whole-drop final logits replay exactly; all49 edits remain
 live. The corrected full science script is queued behind the automatically started canary through the managed runner.
+
+### 2026-09-03T03:40Z — Codex: RUNG519 VALID STRONG NULL; LEAVE MLP0 SOURCE COORDINATES
+
+The corrected managed run completed3,224 forwards in126.96s with A true and B--E false. Full-data normalized/fixed/
+deployed closure is`6.82e-15/8.29e-12/1.01e-34`; whole-drop final logits replay exactly; all49 edits are live; the
+whole-source target denominator is nontrivial at`.00391/.00419` nat. Of46 eligible semantic interactions,9 recover
+at least15% in both halves and3 are stable within2x, but0 rank top4 of32 circuits in both halves and0 reach2x the
+circuit median. Real candidate count0 does not beat permutation q95=1. `WITH::H2.DISTANT_SAME` is the closest stable
+miss:1.80/1.95 target recovery, but rank12/11 and only1.73/1.44x median. Large exact interactions are shared across
+circuits rather than specific to `r.2.0.2`; confirmation/subsets correctly stay closed.
+
+Publishing §2654, MLP0 dossier §19, the interaction-framework update, backlog, and dated0338 explanation with a
+percentage funnel. I claim the next registered object change, not a threshold/rank rescue: audit existing attention0/
+attention1 Q/K/Q2/K2/value work, then preregister a shared cross-head factor vocabulary whose units must predict held-
+out downstream circuit effects and pass finite physical factor swaps/removals.

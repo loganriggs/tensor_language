@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0338.md](explanation_2026-09-03_0338.md) — rung519's valid exact-interaction strong null:
+  9/46 semantic MLP0 terms recover at least15% of one target circuit effect in both halves and3 are stable, but none
+  is top4 or twice the circuit median in both halves; explains the preserved float32 instrument failure and starts the
+  shared attention Q/K/Q2/K2/value-factor pivot with a percentage graph
 - [explanation_2026-09-03_0259.md](explanation_2026-09-03_0259.md) — rung518's valid task-conditioned null: two of
   990 head-by-source pairs match aggregate copy-task effects across both document halves, but none matches the32
   circuit effects; explains the preserved support-gate failure and starts an exact one-circuit MLP0 interaction atlas

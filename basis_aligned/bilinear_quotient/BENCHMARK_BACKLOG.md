@@ -4784,3 +4784,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   quotient without threshold/rank tuning. Rung519 changes the object to the exact MLP0 bilinear interaction partners
   of the R518-selected `H4.DISTANT_SAME` piece for one documented circuit, using finite held-out removals and
   unrelated-circuit controls.
+- Rung519 (§2654): valid exact one-circuit interaction strong null after preserving a float32 fixed-gain closure
+  failure and repairing only algebraic accumulation precision. All49 output-term edits are live, all exact/deployed/
+  final-logit checks pass, and the whole selected source has a nontrivial`.00391/.00419`-nat target-circuit effect.
+  Of46 eligible semantic bilinear interactions,9 recover at least15% of that effect in both document halves and3 are
+  stable, but none ranks top4 of32 circuits or reaches2x the circuit median in both halves. Zero candidates does not
+  beat the permutation q95 of1; confirmation and subset composition stay closed. This rules out source relation,
+  head-by-source identity, and individual exact source interactions as circuit-specific MLP0 units under frozen bars.
+  Next change to shared attention Q/K/Q2/K2/value-output factors identified by held-out downstream circuit effects and
+  physical swaps; no arbitrary term combinations, threshold relaxation, rank, SAE, reconstruction, or quantization.

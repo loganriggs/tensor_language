@@ -1223,6 +1223,30 @@ bilinear partners with the token, itself, the other44 attention pieces, and the 
 normalization correction. Finite held-out removals will test whether one documented circuit uses a small selective
 subset of those interactions.
 
+## 19. Exact interaction partners are real but not specific to one downstream circuit (2026-09-03)
+
+Rung519 selected `H4.DISTANT_SAME` from R518 discovery for the independently documented `r.2.0.2` circuit, then
+expanded its MLP0 output contribution exactly. With47 normalized input sources and bilinear map
+`B(u,v)=Down[(Left u)*(Right v)]`, deleting source`i` produces its self term plus every symmetric interaction
+`B(i,s)+B(s,i)`. Two separately named nonsemantic terms close recomputed normalization and deployed arithmetic.
+
+The first full receipt is preserved as instrument-invalid: float32 fixed-gain closure was`1.38385e-8` against the
+frozen`1e-8` bar. Accumulating the unchanged algebra in float64 reduced the valid full-run error to`8.29e-12`; deployed
+closure is`1.01e-34`, the summed terms reproduce the whole-source final logits exactly, all49 edits are live, and both
+pooled support halves plus all32/62 distinct circuit masks pass.
+
+The valid result is a registered strong null. Of46 eligible semantic interactions,9 recover at least15% of the target
+effect in both halves and3 are also stable within2x, but none ranks top4 among32 circuit effects in both halves and
+none is at least2x the circuit median in both halves. The closest stable term, interaction with
+`H2.DISTANT_SAME`, recovers1.80/1.95 times the whole-source target effect but ranks12/11 and reaches only1.73/1.44
+times the circuit median. It is large but shared across many circuits. Zero terms pass versus a permutation-control
+q95 of1, so confirmation and all-subset removals stay closed.
+
+Together §§17--19 show that broad source relation, head-by-source identity, and single exact source-interaction terms
+all fail as circuit-specific MLP0 coordinates. This does not rule out arbitrary interaction combinations; it rules out
+searching them without a new prospective vocabulary. Leave MLP0 source refinement and define the next units from
+shared attention Q/K/Q2/K2/value computations and their finite downstream use.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`

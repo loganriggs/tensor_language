@@ -30,6 +30,30 @@ experiments already measure this kind of interaction for small, chosen component
 an additional advantage: inside a bilinear layer, the source-pair expansion is exact and cheap enough to use as a
 map for deciding which expensive causal interventions to run.
 
+## Update — exact MLP0 interaction test completed on 2026-09-03
+
+Rung519 is now a direct instance of the proposed analysis at MLP0. It chose one known downstream circuit,
+`r.2.0.2`, and one stable attention0 source piece, `H4.DISTANT_SAME`. It then used the exact bilinear identity
+
+`B(z_i,z_i) + sum_(s != i) [B(z_i,z_s) + B(z_s,z_i)]`
+
+to enumerate the selected source's self-interaction and its interactions with the current token, every other
+head-by-source write, and the retained numerical source. Each output term was removed separately and layers1--17 were
+run normally. This is a finite causal test of source interactions, not activation attribution or rank reduction.
+
+The valid result is negative at the registered single-term gate. Nine of46 eligible semantic terms recover at least
+15% of the whole-source target effect in both document halves and3 have stable recovery, but none makes the target
+circuit one of its top4 effects in both halves and none makes the target at least2x the median circuit effect in both
+halves. Large terms affect many known circuits. With zero valid terms, the held-out and all-subset stages correctly
+remain closed.
+
+This is useful evidence about basis choice. Enumerating exact interactions solves the multiple-mediator accounting
+problem for the chosen source, but the native source coordinates still do not isolate a reusable circuit variable.
+The next interaction analysis should change coordinates to shared attention computations—Q, K, Q2, K2, and
+value/output factors across heads—and define sameness by which downstream circuit computations distinguish them.
+The complete numerical explanation and funnel graph are in
+[`explanation_2026-09-03_0338.md`](explanation_2026-09-03_0338.md).
+
 ## 1. The exact computation for MLP10
 
 Let `r` be the residual vector immediately before MLP10's RMS normalization. The model's residual recurrence lets us
