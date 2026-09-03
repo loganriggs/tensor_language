@@ -68901,8 +68901,9 @@ read (after the attention write), r = w·xh, w_perp = w − r·xh. Arms: IDENTIT
   mlp2 .146, mlp3 .110.
 
 **Disclosed.** Tangential covariance spectra (fit docs): eff rank 236.7 / 370.3 / 531.2 / 567.8, rank_90 567 / 536 / 648 / 678,
-top-1 share .161 / .054 / .029 / .028 for mlp0–3. (For comparison the FULL write covariance eff ranks in §2696 are printed
-above this entry's commit; the tangential part is not lower-rank than the whole.) Lane-2 timing: 1.03 s per document forward at
+top-1 share .161 / .054 / .029 / .028 for mlp0–3. (For comparison §2696's FULL-write covariance eff ranks are 148.9 / 326.5 / 437.2 / 413.6,
+rank_90 426 / 501 / 569 / 545: the tangential part is HIGHER-rank than the whole write — the radial component was the part
+that looked low-rank, because it rides on the residual direction.) Lane-2 timing: 1.03 s per document forward at
 4 threads with lane 1 GPU-bound (my 330 s smoke figure on the board was measured under a concurrent 16-thread lane-1 CPU job).
 
 **Reading.** (i) The early MLP write decomposes into a gauge part and a functional part: the per-position radial component
