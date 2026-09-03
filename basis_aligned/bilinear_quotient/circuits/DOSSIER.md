@@ -1,10 +1,88 @@
 # Circuit dossier — bilin18
 
-Assembled 2026-08-30 by Claude, circuit task (Logan). **62 curated circuits**, each localised by two independent causal interventions over the 256,000-position census grid.
+Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 4 task-defined behavior circuits**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
 
 `concentration` = mean|dCE| on the circuit's members / mean|dCE| off its slice, when the named component is ablated. **mean** replaces the component output with its grid mean; **interchange** replaces it with its output at a random other position (seed 20260830).
 
 Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned subspace, where run), and each circuit's own file (story, examples, certification). Nothing here is recomputed.
+
+
+## Behavior circuits and counterfactual identification
+
+These version-2 records are task-defined behaviors, not assumed aliases of census leaves. Their events include failed/null/invalid evidence so the same causal question is not silently repeated.
+
+| circuit | status | declared variable | families | negative events | next missing evidence |
+|---|---|---|---:|---:|---|
+| `task.bracket.pending_opener` | proposed | `pending_opener_state` | 4 | 0 | freeze opener-type and closer-reset families; require leave-one-family-out transfer |
+| `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
+| `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
+| `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+
+### `task.bracket.pending_opener` — proposed
+
+**Read:** recent opener/closer evidence in context. **Operation:** maintain a recency-weighted pending-opener state. **Write:** closer-type evidence at the final prediction position. **Endpoint:** signed required-closer minus alternative-closer logit margin.
+
+| family | role | status |
+|---|---|---|
+| `opener_presence_edit` | interchange | proposed |
+| `opener_type_substitution` | interchange | proposed |
+| `later_matching_closer_reset` | necessity | proposed |
+| `pending_state_preserved_distance_edit` | invariance | proposed |
+
+**Existing evidence events:**
+- `pending_opener_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
+
+**Next:** freeze opener-type and closer-reset families; require leave-one-family-out transfer
+
+### `task.increment.state` — proposed
+
+**Read:** recent numeric state and list relation. **Operation:** apply an increment relation to the numeric state. **Write:** evidence for the next numeric token. **Endpoint:** signed shifted-next-number minus base-next-number logit margin.
+
+| family | role | status |
+|---|---|---|
+| `coherent_constant_shift` | interchange | proposed |
+| `cross_format_operation_swap` | interchange | proposed |
+| `incoherent_one_number_edit` | necessity | proposed |
+| `operation_preserved_surface_edit` | invariance | proposed |
+
+**Existing evidence events:**
+- `increment_postattn_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
+
+**Next:** freeze cross-format rows; require number-word transfer and nonincrement numeric controls
+
+### `task.induction.selector_payload` — proposed
+
+**Read:** token equality and source position. **Operation:** select a matching earlier source, then transport its following payload. **Write:** selector-dependent payload contribution to the target-token logits. **Endpoint:** signed donor-answer minus base-answer logit margin at the query continuation.
+
+| family | role | status |
+|---|---|---|
+| `two_valid_sources_selector_swap` | interchange | proposed |
+| `payload_swap_match_preserved` | interchange | proposed |
+| `natural_pair_interchange` | interchange | proposed |
+| `match_break_payload_preserved` | necessity | proposed |
+| `copy_relation_preserved_nuisance_change` | invariance | proposed |
+
+**Existing evidence events:**
+- `induction_terminal_collateral_failure.legacy.v1`: removal — **failed** (scientific_null)
+
+**Next:** freeze two-valid-source and payload-swap rows; measure selector and value site ceilings
+
+### `task.successor.pointer` — proposed
+
+**Read:** the final sequence element and coherence/family context. **Operation:** use an identity pointer to retrieve the next element. **Write:** evidence for the successor token. **Endpoint:** signed donor-successor minus base-successor logit margin.
+
+| family | role | status |
+|---|---|---|
+| `same_family_last_element_swap` | interchange | proposed |
+| `coherent_whole_sequence_shift` | interchange | proposed |
+| `internal_pointer_imposition` | interchange | proposed |
+| `prefix_change_final_pointer_preserved` | invariance | proposed |
+
+**Existing evidence events:**
+- `successor_cross_family_transfer.legacy.v1`: cross_family_transfer — **failed** (scientific_null)
+- `successor_layer8_input_ceiling.legacy.v1`: full_swap_ceiling — **null** (scientific_null)
+
+**Next:** expand families and test shared-plus-private projectors against failed cross-family transfer
 
 
 ## Summary table

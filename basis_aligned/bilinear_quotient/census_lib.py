@@ -557,6 +557,12 @@ def leaf_program(tag,f=None,seed=3):
 # ---------- circuit registry ----------
 import fcntl
 from contextlib import contextmanager
+from circuit_registry_v2 import (
+    append_evidence_event,
+    rebuild_registry_v2,
+    validate_v2 as validate_circuit_v2,
+    write_behavior_circuit,
+)
 @contextmanager
 def _lock(name):
     os.makedirs(CIRC,exist_ok=True)
@@ -568,21 +574,8 @@ def _lock(name):
 def circuit_path(tag): return CIRC+tag.replace('.','_')+'.json'
 
 def rebuild_registry():
-    """Idempotent: scan circuits/*.json, rewrite registry.json."""
-    with _lock('registry'):
-        reg={'circuits':{}}
-        for fn in sorted(os.listdir(CIRC)):
-            if not fn.endswith('.json') or fn=='registry.json': continue
-            try: doc=json.load(open(CIRC+fn))
-            except Exception: continue
-            tag=doc.get('tag')
-            if not tag: continue
-            reg['circuits'][tag]={'file':fn,
-                'n_members':doc.get('members',{}).get('n'),
-                'headline':doc.get('story',{}).get('blind_name',''),
-                'cert':len(doc.get('certification',[]))}
-        json.dump(reg,open(CIRC+'registry.json','w'),indent=1)
-    return reg
+    """Idempotent generated view over v1 census and v2 behavior records."""
+    return rebuild_registry_v2()
 def write_circuit(tag,updates):
     """Merge updates into circuits/<tag>.json + registry row.
     Concurrency-safe: per-tag work is fine in parallel; the registry

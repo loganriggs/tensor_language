@@ -1,424 +1,646 @@
 {
+ "schema": "generated_circuit_registry_v2",
  "circuits": {
   "ind_band": {
    "file": "ind_band.json",
+   "schema_version": 1,
    "n_members": "match positions (has prior occurrence)",
    "headline": "induction band: top-4 coincidence reads",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "75fe21ebcc48bf55cbc0ab74eca5d54cb2647c9b3577385b01c1b4879c4d18bc"
   },
   "r.0.0": {
    "file": "r_0_0.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "d2f35f63f9406cd21c679d8ce9677b914749d63ddd727ef73b14cf40ac641d87"
   },
   "r.0.0.0": {
    "file": "r_0_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "c092612b34af0a7150a035ba0d1e1c834b40e5c1f7de0e11b2039e085e4062c9"
   },
   "r.0.0.1": {
    "file": "r_0_0_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "deb3c92e6993b3b62eeb2f3979c3ca3bdae8c1a28ce534a390512cd74db3bf19"
   },
   "r.0.0.3": {
    "file": "r_0_0_3.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "de28a49943bddc54e9e74bc613d3b21624ddcec5084404ad8ad4522f329fb4ba"
   },
   "r.0.3.0": {
    "file": "r_0_3_0.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "Members are rare/proper-noun-like continuation tokens (numbers, name-fragments); machinery helps predict these but wrongly pushes against ordinary common-word completions elsewhere.",
-   "cert": 6
+   "cert": 6,
+   "record_sha256": "37ade3bd7db4f591ce20b09e04718136f8bfb96a24b754e87f808dbacfe75bfb"
   },
   "r.11.1.1": {
    "file": "r_11_1_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "no surface program; punctuation-target push is the only surviving behavioral claim",
-   "cert": 5
+   "cert": 5,
+   "record_sha256": "ee3ba47ab59b7fae946808f91e095f6d38c98dcd17d1c01c9c9736c68f0c8244"
   },
   "r.11.1.2": {
    "file": "r_11_1_2.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "punctuation-target CE reduction (weak, single mechanism not found)",
-   "cert": 8
+   "cert": 8,
+   "record_sha256": "2c6b7d3ebf242acedb94790a63d8ee7806e2d985a215016270b227ac48e9abb2"
   },
   "r.11.3.1": {
    "file": "r_11_3_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "templated-completion vs list/numeric-break selector",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "3b57ea293b430550576fa8095b90390f4a5e46d7b7781fda42422cc56f407db5"
   },
   "r.13.2.1": {
    "file": "r_13_2_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "punctuation-target CE reducer (two-signed, ~50/50 elsewhere)",
-   "cert": 21
+   "cert": 21,
+   "record_sha256": "d0350c1c28e9e21679fb452ea0549d4ad88ab654a32615d30c0cb6be1f52b0f9"
   },
   "r.18.2.0": {
    "file": "r_18_2_0.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "no behavioral claim survives base-rate testing except a narrow punctuation-target effect",
-   "cert": 7
+   "cert": 7,
+   "record_sha256": "5a2f419102e1c3f86e5f7ef180db95964c385d60208358725c367e36dd61912d"
   },
   "r.1.0": {
    "file": "r_1_0.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "b031d2d140778e9e0d80c5085583a9f0cb4c9c9923a92f504d62f9cd274898da"
   },
   "r.1.0.0": {
    "file": "r_1_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "bbc72ec996bc34d4557ae0d00652f47ed56f9f4eebc6d36b557fa061e45da9df"
   },
   "r.1.0.1": {
    "file": "r_1_0_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "6d1953cb4434fb4e91e71e806fb1c52d0e17cf6f7d9af819030fc7d4e282f318"
   },
   "r.1.0.2": {
    "file": "r_1_0_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "8cefe365e6a1140c08971efc63dcf76ba966a5aea534cde8192b3ba62a9fbfaf"
   },
   "r.1.0.3": {
    "file": "r_1_0_3.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "cd7b89816d69aeb0466e9d0af7f9c553aa7244b72fcc95e79ad7bb47b54d51f6"
   },
   "r.1.1": {
    "file": "r_1_1.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "bd2044cdc8d125acc3b84e8cc4c73f5f382ff09b11fb1d895b564419bdba10cc"
   },
   "r.1.1.0": {
    "file": "r_1_1_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "272cf92ca073fe9b8112434d95b54b1e4fe02c857b27d8215f8dac4ae3aceaf5"
   },
   "r.1.1.1": {
    "file": "r_1_1_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "4d3b80acb93a6300985461a233113898b150eed95b4d421217881754b37d96e2"
   },
   "r.1.1.2": {
    "file": "r_1_1_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "c478f82cd4faa1ab2ea1155f039a6415a1127060c65d877b246128dbca2a2dc1"
   },
   "r.1.2": {
    "file": "r_1_2.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "53987eabb48e5e57eef4a34975d29d1d77f9c91b690e4a362911790aefe09b7d"
   },
   "r.1.2.0": {
    "file": "r_1_2_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "Members are hard-to-predict tokens in venue/address listings; machinery hurts prediction of common words (off, d) but helps rarer proper-noun/genre completions (house, Banqueting, Queen).",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "a8e53746cdae3f72889707f22db679d22024bc4d2763ccc2c921038f6c48fab4"
   },
   "r.1.2.1": {
    "file": "r_1_2_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "984ac91d4c618c01fc38bd0c9b869b0232b76697c4d7cb799073aa0f6a38ad0f"
   },
   "r.1.3": {
    "file": "r_1_3.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "175fcde3a1a6c42f01364325f641e6c0b8dc0e16a60d92ca846600af3e7b599c"
   },
   "r.1.3.0": {
    "file": "r_1_3_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "ee685eb0c1132d1fd22b238a98ecf1ea287decd577b22fd173b0dea2f7677a06"
   },
   "r.1.3.1": {
    "file": "r_1_3_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "Members split near-evenly: pushes CE down for clean word/name completions (cooperate, Koch, shall); pushes CE up for garbled/sub-word fragments (mojibake, angers, ication).",
-   "cert": 6
+   "cert": 6,
+   "record_sha256": "71492f49c612a0142a41518b6de58f9d56539746290658d136efbc8f1d9ededa"
   },
   "r.23.2.1": {
    "file": "r_23_2_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "generic-vs-proper-noun completion push",
-   "cert": 5
+   "cert": 5,
+   "record_sha256": "67fdcbda404ac1f8643ed6b8b74f9e00af5550457006885d26b1d2c9cb727166"
   },
   "r.23.2.3": {
    "file": "r_23_2_3.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "no behavioral claim survives base-rate testing",
-   "cert": 6
+   "cert": 6,
+   "record_sha256": "ef933fdd115fdd5dc4745e73232328920a2793b9d3e7fefcce96075fc09fb1c1"
   },
   "r.2.0": {
    "file": "r_2_0.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "8f26bf66497b3937ad1f4c81e9aa24b9300dad291161c1c93627191d66924875"
   },
   "r.2.0.0": {
    "file": "r_2_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "28b0f366336a793df4b8b2976f19361aa4541cc544cd313df9c4fda790eae927"
   },
   "r.2.0.1": {
    "file": "r_2_0_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "r.2.0 double-QK bundle (a6/a8); input writer composition NOT enriched (ENRICHED_STABLE=False both); no surviving behavioral story",
-   "cert": 7
+   "cert": 7,
+   "record_sha256": "49a95720f0ea641824dda62b332c9f1eadcf4433a6b70584a38fc7db09761a39"
   },
   "r.2.0.2": {
    "file": "r_2_0_2.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "input-enrichment for a0 (layer-0 attn) into the a8/a6 double-QK bundle; no surviving behavioral story",
-   "cert": 8
+   "cert": 8,
+   "record_sha256": "3efe761d85a172f9d7da9c9e220305a76c672a39126c2e6df93a517fc42cef2a"
   },
   "r.2.1": {
    "file": "r_2_1.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "8a33b9ba3343417e3c279cf2b091258f805b6c57020ccd343897c543bb61ee81"
   },
   "r.2.1.0": {
    "file": "r_2_1_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "bc1950b7b167df99c94dbdda3c2cf2011ebd957017546c6085dfaa975d0cd87a"
   },
   "r.2.1.1": {
    "file": "r_2_1_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "abc0f57066db7fa5edcce83d5d74116d819c6d9a191c5cfc3f28c262f2691d27"
   },
   "r.2.2": {
    "file": "r_2_2.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "efbb7e8902bcc18ca5dad6e98c0ae3bd8913f89cec258f1edc9ff53401a9b01a"
   },
   "r.2.2.0": {
    "file": "r_2_2_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "5986634b86a1d6e87f2299fe728d9b8115ec8acf47ec1e977f77e48850eb78a1"
   },
   "r.2.2.1": {
    "file": "r_2_2_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "9cc05b1f93561c93e94f8be2a0042b294ec6bd5ebaea84b026c5cacd711176a9"
   },
   "r.2.2.2": {
    "file": "r_2_2_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "909c14ed4e4ef7fd3666921fe3882e69ad66290b59c52e6ced9a640f631f2c02"
   },
   "r.2.3": {
    "file": "r_2_3.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "69407e5a35df78739f1ae474552f564d10a075220690e80349705abc8af15463"
   },
   "r.3.0": {
    "file": "r_3_0.json",
+   "schema_version": 1,
    "n_members": 1222,
    "headline": "",
-   "cert": 3
+   "cert": 3,
+   "record_sha256": "2f558f238d8c91ba376baa001096e0326c0ec0e12bf2b51e19a3062f5c27cfae"
   },
   "r.3.0.0": {
    "file": "r_3_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "3cd0e5fc5099887a2026f2dcaff424ddca2dbc0953ea176fddf03830a926b2c7"
   },
   "r.3.0.1": {
    "file": "r_3_0_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "260ffbcc009aae7a1986cc2ae4bb94f45d72dae35fb8d19784034b8ebdb989ee"
   },
   "r.3.0.2": {
    "file": "r_3_0_2.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "attn-input-writer decomp: a14 dominant writer into a15/16/17",
-   "cert": 9
+   "cert": 9,
+   "record_sha256": "0b2f82f372db66a20d680041d59113edd819f4f3c76a408d9f52de3d544aa54c"
   },
   "r.3.1.0": {
    "file": "r_3_1_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "99c7022112a90563fa4ad5eb4310885597a67b18a0600683652f0598f1b2e768"
   },
   "r.3.1.1": {
    "file": "r_3_1_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "bfffdda958e482b498ae9971a8ad904e9f36728caefccea37ecc60f38b51d7b4"
   },
   "r.4.1.0": {
    "file": "r_4_1_0.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "Two-signed circuit: hurts predictable words (said, tying, opener) but helps concrete nouns (restaurants); wrong for short function/number words it also suppresses.",
-   "cert": 6
+   "cert": 6,
+   "record_sha256": "3cac92ede11717415c4c8c8f1f05a806153a801d2b8965be472a3abb7897d08d"
   },
   "r.4.1.1": {
    "file": "r_4_1_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "No strong single-writer mechanism found (a12/m1 top ratios 1.06/1.01 vs thresholds 1.31/1.30); no behavioral claim survives base-rate testing (12 class/direction pairs).",
-   "cert": 7
+   "cert": 7,
+   "record_sha256": "add6fef973b7fbf91420307fc6eb92f59ccc920991d543d289bdd6e9e9d92449"
   },
   "r.5.0.1": {
    "file": "r_5_0_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "c296585222c4ebf5cfa9ec2e9e22421093870f43e0f1265fd86b38aa23afdf90"
   },
   "r.5.3.1": {
    "file": "r_5_3_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "no behavioral claim survives base-rate testing",
-   "cert": 10
+   "cert": 10,
+   "record_sha256": "c8ea54369c4c9ee690ec1a83b1d93546d889187dc9658b3301d920a32f27e67b"
   },
   "r.6.0.0": {
    "file": "r_6_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 2
+   "cert": 2,
+   "record_sha256": "4542f22e732faa58e2b14c1acbb092058012fada98b711ddd70aa7c502bd0244"
   },
   "r.6.0.1": {
    "file": "r_6_0_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "4cb5f3e136b5b0b03be3b2dae1afc568b69e8baddabb378f4c724bd7090bc77e"
   },
   "r.6.0.2": {
    "file": "r_6_0_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "f7287bd33319339b3762b43a66d04505474099a0b5626841da85edf95227705a"
   },
   "r.6.0.3": {
    "file": "r_6_0_3.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "2376b9ea1ee37f6e109f18595de93107cc2218719cb2fcef489edd863a1005f6"
   },
   "r.6.1.0": {
    "file": "r_6_1_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "0ab128e079a467612cd3735d05ed949958bbd54529cfbb8069495589c774ee2f"
   },
   "r.6.1.1": {
    "file": "r_6_1_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "Domain/URL-listing separator token; helps complete website suffixes and prices after 'www.x;' but wrongly raises loss on other post-';' continuations like newlines.",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "933926375e7bcde58d6763f38d9b96d0bca33ebd377c68db02a11643746b670a"
   },
   "r.6.2.0": {
    "file": "r_6_2_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "b7c39e0608007b5be64cdaaa837c22a8e21d55c28e00bc267d0bfe528cbed14a"
   },
   "r.6.2.1": {
    "file": "r_6_2_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "03a81e37028607f833af6fd2bed67e44deb387618a744550f4a50b71807c3beb"
   },
   "r.6.2.2": {
    "file": "r_6_2_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "73cee153e52e2cd5b06ab80ae592a585a4f784e7209a22c8786c53f195b38809"
   },
   "r.6.2.3": {
    "file": "r_6_2_3.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "f73e2ef1883adf5358f8d242423ce5205ac359e79e18485e3aa859a8bc951f81"
   },
   "r.6.3.0": {
    "file": "r_6_3_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "Hard-to-predict delimiters (newlines, semicolons) in travel-guide listings/headings; circuit usually pushes the wrong token, raising loss on the majority, helping only a minority.",
-   "cert": 4
+   "cert": 4,
+   "record_sha256": "bb6246d3efca7fe12a1f0a0f40d277196ca39efdf9744d7b828d4ccfefaef959"
   },
   "r.6.3.1": {
    "file": "r_6_3_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "396d5436437f443d97866c34ad64f1b28b4789c10e6acc575b57c6268694796d"
   },
   "r.7.1.1": {
    "file": "r_7_1_1.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": "no STRONG single-writer mechanism into a7; weak capitalized-target CE reduction",
-   "cert": 9
+   "cert": 9,
+   "record_sha256": "c72561db6184dd5f8a8496b5de115dd00a4200c2e472cbb0f22be5121b83b81c"
   },
   "r.8.1.0": {
    "file": "r_8_1_0.json",
+   "schema_version": 1,
    "n_members": 864,
    "headline": null,
-   "cert": 5
+   "cert": 5,
+   "record_sha256": "8544bba864e3a9e07c25618035a120beb229bb37e6ec081a3be4772295627029"
   },
   "r.9.0.0": {
    "file": "r_9_0_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "11c1755e2e7abc8902b1627e26ab300e44041059754df6ebcfe1b96e60b23210"
   },
   "r.9.0.1": {
    "file": "r_9_0_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "26148a7918082e4c813074ad091c4adc76af8fac71f889231dd68ea64dffaf3d"
   },
   "r.9.0.2": {
    "file": "r_9_0_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "11c3d7c4080ca7de0db9ccfdbe221bcb3487caf586bcee2a5dff347636cd7476"
   },
   "r.9.1.0": {
    "file": "r_9_1_0.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "6186fc1a57d085bdcb6c760402028e3746e81143f2ac512c856693b7374eed8c"
   },
   "r.9.1.1": {
    "file": "r_9_1_1.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "1c70fc19ab0f7a204b4e02fcd4a640170ac03e9f80262f88f0edb73f34147e07"
   },
   "r.9.1.2": {
    "file": "r_9_1_2.json",
+   "schema_version": 1,
    "n_members": 184,
    "headline": "",
-   "cert": 1
+   "cert": 1,
+   "record_sha256": "010c87a5e19b4886995be145d719c58b9e9ad0742e5a4f90a713ef840f15febb"
+  },
+  "task.bracket.pending_opener": {
+   "file": "task_bracket_pending_opener.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "aeebe004c8bf0314d8604344a3f27497c96fa16cf6de374b0fd8136334044985",
+   "kind": "behavior_circuit",
+   "identity_instance": null,
+   "active_claim_id": "pending_opener_state.v1",
+   "claim_status": "proposed",
+   "causal_variable_id": "pending_opener_state",
+   "interchange_family_count": 2,
+   "invariance_family_count": 1,
+   "negative_event_count": 0,
+   "latest_blocker": null,
+   "design_keys": [
+    "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384"
+   ]
+  },
+  "task.increment.state": {
+   "file": "task_increment_state.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "1eb090a0e9898c47982980ca163638a67c91286f3c9a1789b8d94c711a74cb21",
+   "kind": "behavior_circuit",
+   "identity_instance": null,
+   "active_claim_id": "increment_state.v1",
+   "claim_status": "proposed",
+   "causal_variable_id": "increment_state",
+   "interchange_family_count": 2,
+   "invariance_family_count": 1,
+   "negative_event_count": 0,
+   "latest_blocker": null,
+   "design_keys": [
+    "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4"
+   ]
+  },
+  "task.induction.selector_payload": {
+   "file": "task_induction_selector_payload.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "c6aceba1395af17b3225014fe20960165b4105c5216c4c3c3ef169e9e688d212",
+   "kind": "behavior_circuit",
+   "identity_instance": null,
+   "active_claim_id": "induction_selector_and_payload.v1",
+   "claim_status": "proposed",
+   "causal_variable_id": "induction_selector_payload",
+   "interchange_family_count": 3,
+   "invariance_family_count": 1,
+   "negative_event_count": 1,
+   "latest_blocker": "induction_terminal_collateral_failure.legacy.v1",
+   "design_keys": [
+    "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2"
+   ]
+  },
+  "task.successor.pointer": {
+   "file": "task_successor_pointer.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "ab50ccb80357412d8192a77c131bae63f59a1d1d79b792f3991d5db8caf470c9",
+   "kind": "behavior_circuit",
+   "identity_instance": null,
+   "active_claim_id": "successor_pointer_state.v1",
+   "claim_status": "proposed",
+   "causal_variable_id": "successor_pointer_state",
+   "interchange_family_count": 3,
+   "invariance_family_count": 1,
+   "negative_event_count": 2,
+   "latest_blocker": "successor_layer8_input_ceiling.legacy.v1",
+   "design_keys": [
+    "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
+    "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002"
+   ]
   }
  }
 }

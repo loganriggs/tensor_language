@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1353.md](explanation_2026-09-03_1353.md) — why weight-DAS requires several meaningful
+  counterfactual datasets per circuit; corrects the cross-tree identity error in the62-record audit, distinguishes
+  answer-changing interchange from necessity and invariance tests, defines induction/bracket/successor/increment
+  pilots and their17-family contract, and specifies the canonical evidence organization needed to avoid duplicate work
 - [explanation_2026-09-03_1318.md](explanation_2026-09-03_1318.md) — full plain-language update: the exact
   double-query/key attention computation, rung533's invalid full identification but strong shared copy signal and
   false-match/background differences, and rung534's valid interaction-only result showing that the gauge-invariant

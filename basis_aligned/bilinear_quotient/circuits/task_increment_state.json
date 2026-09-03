@@ -1,0 +1,265 @@
+{
+ "schema_version": 2,
+ "tag": "task.increment.state",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "contract_snapshot",
+  "aliases": [
+   "increment_state"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "increment_state.v1",
+   "revision": 1,
+   "status": "proposed",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "increment_state",
+    "domain": "numeric values represented as digits, words, or list elements",
+    "read": "recent numeric state and list relation",
+    "operation": "apply an increment relation to the numeric state",
+    "write": "evidence for the next numeric token",
+    "endpoint": "signed shifted-next-number minus base-next-number logit margin"
+   },
+   "alternative_explanations": [
+    "generic digit identity",
+    "numeric value without increment",
+    "list-format continuation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "coherent_constant_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state consumed by increment",
+      "shift all relevant list numbers by the same amount so the next number changes coherently"
+     ],
+     "holds_fixed": [
+      "list structure",
+      "step size",
+      "template",
+      "positions"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "noun-only edit",
+      "punctuation-only edit",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "cross_format_operation_swap",
+     "role": "interchange",
+     "changes": [
+      "format-independent increment state",
+      "express the same increment relation with digits, number words, or a different list format"
+     ],
+     "holds_fixed": [
+      "increment operation",
+      "semantic values",
+      "answer relation"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "nonincrement digit prediction",
+      "format-matched constant sequence",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "incoherent_one_number_edit",
+     "role": "necessity",
+     "changes": [
+      "support for the increment relation",
+      "edit one prior number without making a coherent sequence, leaving the original expected answer fixed"
+     ],
+     "holds_fixed": [
+      "final numeric state",
+      "answer candidates",
+      "template"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "noun edit",
+      "separator edit",
+      "generic digit continuation"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "operation_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "surface nuisance",
+      "change nouns, punctuation, and list wording while preserving numeric state and increment rule"
+     ],
+     "holds_fixed": [
+      "numbers",
+      "increment relation",
+      "correct answer"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "held-out nouns",
+      "held-out punctuation",
+      "different list lengths"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "l8h7_l8h3_paths",
+     "tensor_path": "L8H7/L8H3 paths",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-14_products",
+     "tensor_path": "MLP8-14 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "freeze cross-format rows; require number-word transfer and nonincrement numeric controls"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "joint_split_v1",
+   "unit": "document/template/entity as appropriate; shared across all families",
+   "partition_artifact_id": null,
+   "builder_artifact_id": null,
+   "seed": null,
+   "groups": {
+    "FIT": 0,
+    "SELECT": 0,
+    "FINAL_TEST": 0,
+    "OOD": 0
+   },
+   "leakage_group_keys": [
+    "numeric identity",
+    "digit versus word format",
+    "template",
+    "list length"
+   ],
+   "sealed_before_outcomes": false,
+   "sealed_at": null
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "increment_postattn_rank4_das.legacy.v1",
+   "test_type": "das_interchange",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "coherent_constant_shift"
+   ],
+   "site_id": "post_attention8",
+   "evaluation_role": "legacy_heldout",
+   "metrics": [
+    {
+     "name": "heldout_flip_rate",
+     "estimate": 0.8,
+     "ci95": null,
+     "bar": "legacy instrument; not CF3 promotion"
+    },
+    {
+     "name": "heldout_recovery",
+     "estimate": 0.939,
+     "ci95": null,
+     "bar": "legacy instrument; not CF3 promotion"
+    }
+   ],
+   "result_artifact_id": "postattn_result",
+   "prereg_artifact_id": null,
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "qk_mdl/algo_tasks/increment/report.md"
+   ],
+   "claim_id": "increment_state.v1",
+   "design_key": "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4",
+   "execution_key": "c7b2b12e2046fcf2dc8e4f1874fdcd39bd3ace8aa5c6ab08302b7b8f5726cd99"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "contract_snapshot": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_contract_rung536.json",
+   "sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "readiness_audit": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_readiness_rung536.json",
+   "sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "task_report": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/increment/report.md",
+   "sha256": "b9545f6fc71b892d1aed315f8b092baefb125a1151e262382806c1bf22dce184",
+   "kind": "report",
+   "status": "frozen"
+  },
+  "das_result": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/increment/s3_das.json",
+   "sha256": "c78faafea4b3a85fb32eb810f3f7b5dafb3ccfb0b580719eea2448669461b8cd",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "postattn_result": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/increment/s3b_das_postattn.json",
+   "sha256": "1284c39d8e829c114a15be2e14aa37cc312ad7477b9cab727b0daf402aa6fe61",
+   "kind": "result",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "rung": 536,
+  "contract_sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+  "readiness_sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024"
+ }
+}

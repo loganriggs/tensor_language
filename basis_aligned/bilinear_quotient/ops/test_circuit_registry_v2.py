@@ -1,0 +1,78 @@
+import copy
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+import pytest
+
+
+BQ = Path(__file__).resolve().parents[1]
+REPO = BQ.parents[1]
+sys.path.insert(0, str(BQ))
+import circuit_registry_v2 as registry  # noqa: E402
+
+
+TASK_TAGS = {
+    "task.induction.selector_payload",
+    "task.bracket.pending_opener",
+    "task.successor.pointer",
+    "task.increment.state",
+}
+
+
+def task_records():
+    compact = json.loads(registry.REGISTRY.read_text())["circuits"]
+    return {
+        tag: json.loads((registry.CIRCUITS / compact[tag]["file"]).read_text())
+        for tag in TASK_TAGS
+    }
+
+
+def test_all_task_records_validate_and_bind_existing_artifacts():
+    for record in task_records().values():
+        registry.validate_v2(record)
+        for artifact in record["artifacts"].values():
+            path = REPO / artifact["path"]
+            assert path.is_file(), artifact["path"]
+            assert artifact["status"] == "frozen"
+            assert hashlib.sha256(path.read_bytes()).hexdigest() == artifact["sha256"]
+
+
+def test_registry_contains_only_tagged_records_not_aggregate_json():
+    compact = json.loads(registry.REGISTRY.read_text())["circuits"]
+    assert TASK_TAGS <= set(compact)
+    for row in compact.values():
+        document = json.loads((registry.CIRCUITS / row["file"]).read_text())
+        assert document.get("tag")
+    assert "BATTERY" not in compact
+    assert "REPERTOIRE" not in compact
+
+
+def test_design_and_execution_keys_are_unique_and_recomputable():
+    for record in task_records().values():
+        designs = []
+        executions = []
+        for event in record["evidence_events"]:
+            assert registry.design_key(record, event) == event["design_key"]
+            assert registry.execution_key(record, event) == event["execution_key"]
+            designs.append(event["design_key"])
+            executions.append(event["execution_key"])
+        assert len(designs) == len(set(designs))
+        assert len(executions) == len(set(executions))
+
+
+def test_changed_event_contract_invalidates_design_key():
+    record = task_records()["task.bracket.pending_opener"]
+    broken = copy.deepcopy(record)
+    broken["claims"][0]["counterfactual_families"][0]["holds_fixed"].append("new confound")
+    with pytest.raises(AssertionError):
+        registry.validate_v2(broken)
+
+
+def test_bad_tree_alias_cannot_be_attached_to_behavior_identity():
+    record = copy.deepcopy(task_records()["task.increment.state"])
+    record["identity"]["kind"] = "census_slice"
+    record["identity"]["instance"] = None
+    with pytest.raises(AssertionError):
+        registry.validate_v2(record)

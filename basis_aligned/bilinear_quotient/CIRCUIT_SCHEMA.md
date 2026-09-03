@@ -72,3 +72,77 @@ work certified. `census_lib.surface_features()` loads it; shifted copies
 ```
 Append-only; name collisions are an error, not an overwrite. `kind: expr`
 entries are evaluated with `torch, F, flat, tok2d, roll, L0, d1` in scope.
+
+# Circuit evidence schema (v2)
+
+Version 2 adds behavior circuits and append-only causal evidence without changing any
+version-1 census record. The authoritative object remains one tagged JSON file in
+`circuits/`; `registry.json`, `CIRCUITS_INDEX.md`, `DOSSIER.md`, campaign reports, and
+`REPERTOIRE.json` are generated views or historical snapshots.
+
+Behavior records use namespaced tags such as `task.bracket.pending_opener`. They do not
+claim a census-tree identity. A relation to a census slice is evidence that must name an
+identity/member-map artifact; matching tag text is never sufficient.
+
+Required top-level fields are:
+
+```json
+{
+  "schema_version": 2,
+  "tag": "task.bracket.pending_opener",
+  "identity": {
+    "kind": "census_slice|behavior_circuit|shared_subroutine",
+    "instance": null,
+    "identity_artifact_id": "task_definition",
+    "aliases": []
+  },
+  "claims": [],
+  "split_plans": [],
+  "evidence_events": [],
+  "translations": [],
+  "artifacts": {}
+}
+```
+
+Each claim contains a stable `claim_id`, increasing `revision`, a `status`, the declared
+causal variable, counterfactual families, candidate sites, and artifact/event IDs.
+Allowed statuses are `proposed`, `specified`, `site_live`, `activation_identified`,
+`weights_translated`, `adopted`, `rejected`, and `superseded`. Revisions are append-only;
+do not mutate an old claim after evidence has used it.
+
+The causal variable explicitly states its value domain, what information is read, the
+operation/composition, the quantity written, and the behavioral endpoint. A
+counterfactual family records:
+
+- role: `interchange`, `necessity`, or `invariance`;
+- the facts it changes and holds fixed;
+- builder, controls, and split-plan IDs; and
+- status: `proposed`, `frozen`, `validated`, or `failed`.
+
+An interchange changes the declared variable and correct answer. A necessity test
+changes/removes the variable while keeping the original answer fixed. An invariance test
+changes nuisance information while preserving both. These roles are not interchangeable.
+
+Every evidence event is immutable and includes a controlled enum verdict. Its
+`test_type` is one of capability, full-swap ceiling, DAS interchange, cross-family
+transfer, removal, invariance, composition, OOD, seed stability, compiled equivalence,
+or null/control. Its `stage` is `preregistered`, `complete`, or `invalid`; its verdict is
+`held`, `failed`, `null`, `inconclusive`, or `invalid`; and failures distinguish
+`scientific_null`, `insufficient_power`, `invalid_instrument`, and
+`implementation_failure`. Historical free-form certifications remain verbatim in v1;
+do not rewrite them into fake precision.
+
+`design_key` hashes the claim/variable, family change-and-hold contract, controls, site,
+test type, and metric/bar. `execution_key` additionally binds the split, seed,
+checkpoint, preregistration, and result hashes. Renaming an experiment therefore cannot
+silently repeat it. A deliberate successor names `supersedes_event_id`; a replication
+names `replicates_event_id` and must have a distinct execution key.
+
+Artifacts use repository-relative paths and SHA-256 hashes. `frozen` requires a hash;
+unavailable historical inputs are `legacy_unhashed`, never guessed. Split plans group the
+underlying document/template/entity across all families so one unit cannot appear in FIT
+for one family and FINAL_TEST for another.
+
+Write v2 behavior records with `census_lib.write_behavior_circuit()` and append results
+with `census_lib.append_evidence_event()`. Both are implemented in the lightweight
+`circuit_registry_v2.py`, so registry maintenance itself never loads the model or GPU.

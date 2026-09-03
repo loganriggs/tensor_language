@@ -1,11 +1,12 @@
-# CIRCUIT REGISTRY — the one status board for circuit work
+# CIRCUIT REGISTRY — ownership and priority board
 
-**Purpose: no duplicated work, no empty candidate pool.** Every circuit thread lives here
-with its pipeline stage and §refs. CHECK THIS FILE (plus `modules/specialist-heads.md`
-for mechanism detail) BEFORE starting any circuit thread; UPDATE IT in the same commit as
-the ledger writeup that moves a circuit's stage. The older record systems it supersedes
-as an index (they remain as data): CIRCUITS_INDEX.md (70 swarm-era leaf records),
-CIRCUITS_SCOREBOARD.md (147 certified ownership clusters), circuits/*.json.
+**Purpose: no duplicated ownership and no empty candidate pool.** Use this file to claim
+work and set priority. Evidence status is canonical in the versioned `circuits/*.json`
+records and rendered in generated `CIRCUITS_INDEX.md`/`circuits/DOSSIER.md`; do not update
+an evidence claim here without appending its machine-readable event there. Check those
+views, this board, and `modules/specialist-heads.md` before opening a thread. Older
+aggregate systems remain as historical data: CIRCUITS_SCOREBOARD.md (147 certified
+ownership clusters) and circuits/REPERTOIRE.json.
 
 Dedup discipline (§1092): before opening a thread, grep the ledger with MULTIPLE
 vocabularies (old arcs predate the § era: "sink", "cost map", dotted head names), check

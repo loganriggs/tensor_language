@@ -1,0 +1,447 @@
+{
+  "answer_changing_families": 10,
+  "common_promotion": {
+    "causal_variable_first": "Declare one causal variable. Different edits belong to one shared projector only if they are claimed to change the same variable.",
+    "cross_family_identification": "compare downstream causal responses and W_D-weighted response geometry; raw basis-vector equality is not required",
+    "leave_one_family_out": "freeze rank and site, fit on all but one answer-changing family, and require signed causal transfer to the held-out family without refitting",
+    "null": "if no shared projector transfers across families, split the proposed variable or reject it; do not call a family-specific low-rank subspace the circuit",
+    "ood": "hold out document, template, token/entity identities, and at least one stimulus family",
+    "selectivity": "answer-preserving controls and registered unrelated behaviors must remain within frozen bounds",
+    "shared_private_comparison": "compare family-specific projectors with a shared-plus-private model; shared structure must transfer, while any private residual may improve only its own family",
+    "site_ceiling": "before optimization, native/full-product interchange at the proposed site must move the registered endpoint in the required direction"
+  },
+  "interchange_families": 10,
+  "invariance_families": 4,
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "necessity_families": 3,
+  "pilot_count": 4,
+  "pilots": [
+    {
+      "candidate_sites": [
+        "equality/QK selector sites",
+        "OV/value write",
+        "later MLP products"
+      ],
+      "circuit_id": "induction_selector_and_payload",
+      "counterfactual_families": [
+        {
+          "answer_changes": true,
+          "changed_variable": "which equality edge selects a source",
+          "controls": [
+            "query an unrelated token",
+            "distance-matched wrong source",
+            "random subspace"
+          ],
+          "endpoint": "D-minus-B logit movement and selector-path write",
+          "family_id": "two_valid_sources_selector_swap",
+          "held_fixed": [
+            "both source pairs",
+            "payload tokens",
+            "length",
+            "positions"
+          ],
+          "intervention": "construct two valid sources A-B and C-D, then change the query from A to C so the answer changes B to D",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "payload carried by a fixed equality edge",
+          "controls": [
+            "change a non-follower",
+            "shuffle B-prime within matched strata",
+            "first mentions"
+          ],
+          "endpoint": "B-prime-minus-B logit movement and delivered value write",
+          "family_id": "payload_swap_match_preserved",
+          "held_fixed": [
+            "source/query equality",
+            "query token",
+            "lag",
+            "scaffold"
+          ],
+          "intervention": "keep both A occurrences fixed but replace the earlier follower B by B-prime",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "naturally occurring selector/payload state",
+          "controls": [
+            "within-stratum wrong donor",
+            "matched negative donor",
+            "random subspace"
+          ],
+          "endpoint": "donor-answer logit and loss movement",
+          "family_id": "natural_pair_interchange",
+          "held_fixed": [
+            "matching strata",
+            "corpus role",
+            "position band"
+          ],
+          "intervention": "pair natural copy-positive positions matched on query class, lag, frequency, and base loss",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "availability of the equality edge",
+          "controls": [
+            "same edit at irrelevant source",
+            "offset plus/minus one or two",
+            "token derangement"
+          ],
+          "endpoint": "loss of equality/copy evidence for B, not movement toward a new answer",
+          "family_id": "match_break_payload_preserved",
+          "held_fixed": [
+            "payload B",
+            "current query A",
+            "answer B",
+            "length"
+          ],
+          "intervention": "replace the earlier A by a matched decoy while leaving the current query and original answer B fixed",
+          "intervention_role": "necessity",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "surface nuisance only",
+          "controls": [
+            "held-out lag bands",
+            "held-out corpus",
+            "matched token frequencies"
+          ],
+          "endpoint": "invariance of the recovered causal effect",
+          "family_id": "copy_relation_preserved_nuisance_change",
+          "held_fixed": [
+            "query A",
+            "payload B",
+            "copy relation"
+          ],
+          "intervention": "change lag, filler, or source location while preserving the same A-to-B copy relation",
+          "intervention_role": "invariance",
+          "proposed_variable_changes": false
+        }
+      ],
+      "evidence": [
+        "circuits/campaign_2026_08_30/02_induction_copy.md",
+        "terminal_copy_induction_v2_rows_receipt.json",
+        "induction_equality_tensor_final_ood_v2_retry1_result.json"
+      ],
+      "factorial_test": "selector x payload, including their interaction rather than head-by-head effects",
+      "split_axes": [
+        "document",
+        "query token",
+        "lag",
+        "natural versus code"
+      ],
+      "status": "highest_data_scale_existing_natural_and_code_rows"
+    },
+    {
+      "candidate_sites": [
+        "layer-13 entry",
+        "L13H8 input/output",
+        "downstream MLP products"
+      ],
+      "circuit_id": "pending_opener_state",
+      "counterfactual_families": [
+        {
+          "answer_changes": true,
+          "changed_variable": "pending-opener state",
+          "controls": [
+            "edit non-opener punctuation",
+            "position-matched filler edit",
+            "random subspace"
+          ],
+          "endpoint": "new-closer minus old-closer logit and held-out interchange recovery",
+          "family_id": "opener_presence_edit",
+          "held_fixed": [
+            "suffix template",
+            "scoring position",
+            "length after compensating edit"
+          ],
+          "intervention": "insert or delete an opener in a position-matched prompt so the required closer changes",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "pending closer type",
+          "controls": [
+            "non-opener punctuation substitution",
+            "wrong closer",
+            "random subspace"
+          ],
+          "endpoint": "donor closer-type logit movement",
+          "family_id": "opener_type_substitution",
+          "held_fixed": [
+            "opener position",
+            "length",
+            "surrounding text"
+          ],
+          "intervention": "substitute one opener type for another at equal length, for example parenthesis versus quote",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "whether an opener remains pending",
+          "controls": [
+            "nonmatching closer",
+            "punctuation insertion",
+            "distance-matched filler"
+          ],
+          "endpoint": "reduction of pending-opener evidence",
+          "family_id": "later_matching_closer_reset",
+          "held_fixed": [
+            "opener identity",
+            "suffix",
+            "original answer candidates"
+          ],
+          "intervention": "insert a later matching closer while keeping the opener and original scoring suffix fixed",
+          "intervention_role": "necessity",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "distance and wording nuisance",
+          "controls": [
+            "held-out distances",
+            "held-out text templates",
+            "brace negative family"
+          ],
+          "endpoint": "invariance of closer effect",
+          "family_id": "pending_state_preserved_distance_edit",
+          "held_fixed": [
+            "pending type",
+            "correct closer",
+            "scoring position"
+          ],
+          "intervention": "change filler and opener distance without changing which opener remains pending",
+          "intervention_role": "invariance",
+          "proposed_variable_changes": false
+        }
+      ],
+      "evidence": [
+        "qk_mdl/algo_tasks/bracket/report.md",
+        "qk_mdl/algo_tasks/bracket/das.json",
+        "qk_mdl/algo_tasks/semantics_opener/report.md"
+      ],
+      "factorial_test": "opener type x distance/recency",
+      "split_axes": [
+        "opener type",
+        "template",
+        "distance",
+        "token identity"
+      ],
+      "status": "strong_existing_DAS_instrument_needs_multi_family_transfer"
+    },
+    {
+      "candidate_sites": [
+        "embedding/block-0 payload",
+        "post-attention-8",
+        "MLP8-11 products"
+      ],
+      "circuit_id": "successor_pointer_state",
+      "counterfactual_families": [
+        {
+          "answer_changes": true,
+          "changed_variable": "identity pointer supplied to successor lookup",
+          "controls": [
+            "position-only edit",
+            "family-matched nonsuccessor",
+            "random subspace"
+          ],
+          "endpoint": "donor-successor minus base-successor margin",
+          "family_id": "same_family_last_element_swap",
+          "held_fixed": [
+            "prefix",
+            "length",
+            "positions",
+            "family"
+          ],
+          "intervention": "replace the final sequence element by another element from the same family",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "successor pointer in a coherent context",
+          "controls": [
+            "prefix shift with final fixed",
+            "incoherent sequence",
+            "boundary cases"
+          ],
+          "endpoint": "shifted-successor logit movement",
+          "family_id": "coherent_whole_sequence_shift",
+          "held_fixed": [
+            "format",
+            "length",
+            "family",
+            "coherence"
+          ],
+          "intervention": "shift the whole sequence coherently so the last element and answer change without an intruder conflict",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "internal identity pointer",
+          "controls": [
+            "zero payload",
+            "uncalibrated payload",
+            "random subspace"
+          ],
+          "endpoint": "imposed-element successor and full-donor agreement",
+          "family_id": "internal_pointer_imposition",
+          "held_fixed": [
+            "all prompt tokens",
+            "position",
+            "syntax",
+            "family context"
+          ],
+          "intervention": "keep the prompt fixed and impose another element's calibrated identity payload internally",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "prefix coherence nuisance",
+          "controls": [
+            "coherent prefix",
+            "out-of-order prefix",
+            "list-end boundary"
+          ],
+          "endpoint": "invariance of pointer effect",
+          "family_id": "prefix_change_final_pointer_preserved",
+          "held_fixed": [
+            "identity pointer",
+            "correct successor",
+            "final position"
+          ],
+          "intervention": "alter the earlier sequence while keeping the final element and correct successor fixed",
+          "intervention_role": "invariance",
+          "proposed_variable_changes": false
+        }
+      ],
+      "evidence": [
+        "qk_mdl/algo_tasks/successor/stimuli.json",
+        "qk_mdl/algo_tasks/successor/report.md",
+        "qk_mdl/algo_tasks/semantics_successor/report.md"
+      ],
+      "factorial_test": "token/family identity x sequence coherence",
+      "split_axes": [
+        "element",
+        "template",
+        "weekday/month/alphabet/digit",
+        "natural text"
+      ],
+      "status": "existing_multi_family_evidence_but_cross_family_transfer_failed"
+    },
+    {
+      "candidate_sites": [
+        "post-attention-8",
+        "L8H7/L8H3 paths",
+        "MLP8-14 products"
+      ],
+      "circuit_id": "increment_state",
+      "counterfactual_families": [
+        {
+          "answer_changes": true,
+          "changed_variable": "numeric state consumed by increment",
+          "controls": [
+            "noun-only edit",
+            "punctuation-only edit",
+            "random subspace"
+          ],
+          "endpoint": "shifted-next-number logit and interchange recovery",
+          "family_id": "coherent_constant_shift",
+          "held_fixed": [
+            "list structure",
+            "step size",
+            "template",
+            "positions"
+          ],
+          "intervention": "shift all relevant list numbers by the same amount so the next number changes coherently",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": true,
+          "changed_variable": "format-independent increment state",
+          "controls": [
+            "nonincrement digit prediction",
+            "format-matched constant sequence",
+            "random subspace"
+          ],
+          "endpoint": "cross-format answer movement and leave-format-out transfer",
+          "family_id": "cross_format_operation_swap",
+          "held_fixed": [
+            "increment operation",
+            "semantic values",
+            "answer relation"
+          ],
+          "intervention": "express the same increment relation with digits, number words, or a different list format",
+          "intervention_role": "interchange",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "support for the increment relation",
+          "controls": [
+            "noun edit",
+            "separator edit",
+            "generic digit continuation"
+          ],
+          "endpoint": "loss of increment-specific evidence rather than attraction to a new answer",
+          "family_id": "incoherent_one_number_edit",
+          "held_fixed": [
+            "final numeric state",
+            "answer candidates",
+            "template"
+          ],
+          "intervention": "edit one prior number without making a coherent sequence, leaving the original expected answer fixed",
+          "intervention_role": "necessity",
+          "proposed_variable_changes": true
+        },
+        {
+          "answer_changes": false,
+          "changed_variable": "surface nuisance",
+          "controls": [
+            "held-out nouns",
+            "held-out punctuation",
+            "different list lengths"
+          ],
+          "endpoint": "invariance of increment effect",
+          "family_id": "operation_preserved_surface_edit",
+          "held_fixed": [
+            "numbers",
+            "increment relation",
+            "correct answer"
+          ],
+          "intervention": "change nouns, punctuation, and list wording while preserving numeric state and increment rule",
+          "intervention_role": "invariance",
+          "proposed_variable_changes": false
+        }
+      ],
+      "evidence": [
+        "qk_mdl/algo_tasks/increment/report.md",
+        "qk_mdl/algo_tasks/increment/s3_das.json",
+        "qk_mdl/algo_tasks/increment/s3b_das_postattn.json"
+      ],
+      "factorial_test": "numeric payload x increment relation",
+      "split_axes": [
+        "numeric identity",
+        "digit versus word format",
+        "template",
+        "list length"
+      ],
+      "status": "strong_existing_DAS_instrument_needs_operation_vs_digit_separation"
+    }
+  ],
+  "schema": "rung536_multi_counterfactual_contract_v2",
+  "status": "contract_validated",
+  "total_counterfactual_families": 17
+}

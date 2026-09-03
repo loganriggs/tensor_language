@@ -4165,3 +4165,46 @@ gives exactly `deltaT+deltaI`, changing context at fixed token gives `deltaI+del
 close at 2.44e-16--2.98e-16. The real torch core and4 focused tests are implemented; combined focused suite9/9.
 Real DAS remains unauthorized pending the outcome-closed data/support/gradient-stability gate. This is a causal
 separation and weight-compilation route, not a rank claim; native-unit selection is only a matched control.
+
+### 2026-09-03T13:49Z — Codex -> Claude: REQUEST INDEPENDENT MULTI-COUNTERFACTUAL AUDIT FOR R536
+
+Logan correctly points out that one circuit dataset may admit several causally valid DAS counterfactuals, and a
+subspace that survives only one can encode that intervention's artifacts. Please independently audit the existing
+62-circuit/task evidence and nominate2--4 pilot circuits with at least two genuinely different intervention families
+(for example match-breaking vs payload-changing vs natural-pair swapping), their required matched controls, and any
+existing row builders we can reuse. Keep this a red-team/design report only; do not touch R536 code, queue, or GPU.
+The adoption bar I propose is cross-counterfactual projector agreement plus cross-family transfer of causal effects,
+not low rank. I am concurrently building the deterministic 62-circuit readiness inventory and shared dataset contract.
+
+### 2026-09-03T14:10Z — Codex: R536 READINESS AUDIT CORRECTED; FOUR MULTI-FAMILY PILOTS FROZEN
+
+Independent red-team caught two pre-execution errors. First,44/62 registry cards (including the sole computational
+story and all5 surface stories) belong to `212row-v1`, while BATTERY masks come from `diverse-1000row-v1`; tags are
+tree-local and need explicit remapping. Of the18 tree-matched cards, all are descriptive programs with no validated
+computation. Second, induction match-breaking with payload/answer fixed is a necessity test, not an answer-changing
+interchange. Machine audit now proves every one of1,891 BATTERY mask pairs overlaps and24 are exact containments,
+so these are response regions requiring behavior-family/hierarchy organization, not62 exclusive variable states.
+
+The corrected v2 contract has4 pilots/17 families: induction selector×payload, pending-opener, successor pointer,
+increment state;10 answer-changing interchanges,3 necessity tests,4 invariance tests. It requires site ceilings,
+leave-one-family-out causal transfer, shared+private comparison, interaction tests, and unrelated-behavior stability
+before exact quadratic compilation. Focused core+contract suite10/10; deterministic audit hash
+`0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024`. Next CPU action: extend the existing canonical
+`circuits/REPERTOIRE.json`/dossier machinery with counterfactual evidence status so all successes and failures are
+indexed before new rows or GPU fits. Claude's independent response remains requested; no GPU work is authorized yet.
+
+### 2026-09-03T14:18Z — Codex: CANONICAL CIRCUIT EVIDENCE V2 LIVE; CORRECTS REPERTOIRE PLAN
+
+Repository audit showed `REPERTOIRE.json` is a legacy aggregate with no deterministic builder; I removed my draft
+extension rather than create a drifting second source. Canonical evidence is now one tagged v2 JSON record under
+`circuits/`, with `registry.json`, `CIRCUITS_INDEX.md`, and `circuits/DOSSIER.md` generated views. Four task-defined
+records are registered without falsely aliasing census leaves: induction selector/payload, pending opener, successor
+pointer, increment. Each stores the read/operation/write/endpoint,17 counterfactual families, alternative hypotheses,
+candidate sites, joint leakage-aware split plan, artifact hashes, exact next missing evidence, and immutable legacy
+held/failed/null events. Negative evidence already visible: induction collateral failure1; successor cross-family
+failure+wrong-site zero ceiling2. Design hashes bind causal question/families/controls/site/bar; execution hashes also
+bind split/seed/checkpoint/artifacts; duplicate designs require explicit supersession or replication. The index builder
+now enumerates registry records, fixing its prior ability to misclassify28 aggregate JSON files as circuits. Generated
+index shows74 canonical records=4 behavior+70 legacy; focused schema/contract/math suite15/15 and all generated views
+are byte-stable on rerun. No GPU used. Next: freeze the first joint multi-family row authority and register it before
+site-ceiling execution.

@@ -18,6 +18,7 @@ ST = torch.load('census_state_diverse.pt', map_location='cpu', weights_only=Fals
 NMEM = {l['tag']: (len(l['member']), len(l['slice'])) for l in ST['leaves']}
 
 cir = {}
+behavior = {}
 for fn in sorted(os.listdir('circuits')):
     if not fn.endswith('.json') or fn.split('.')[0].isupper():
         continue
@@ -27,6 +28,8 @@ for fn in sorted(os.listdir('circuits')):
         continue
     if isinstance(d, dict) and 'tag' in d:
         cir[d['tag']] = d
+        if d.get('schema_version') == 2 and d.get('identity', {}).get('kind') == 'behavior_circuit':
+            behavior[d['tag']] = d
 
 rows = sorted(((v['mean_ablation']['top'][0]['concentration'], t)
                for t, v in BAT['by_tag'].items() if v['mean_ablation']['top']), reverse=True)
@@ -49,7 +52,9 @@ def confidence(tag):
     return 'neither', 'the named component is not stable across rows and the two interventions disagree'
 L = []
 L.append('# Circuit dossier — bilin18\n')
-L.append(f'Assembled {BAT["generated"]}. **{len(rows)} curated circuits**, each localised by two '
+L.append(f'Assembled from the frozen census (source note: {BAT["generated"]}) plus current version-2 records. '
+         f'**{len(rows)} census response regions and {len(behavior)} task-defined behavior circuits**. '
+         'Each census region was localised by two '
          'independent causal interventions over the '
          f'{BAT["grid_positions"]:,}-position census grid.\n')
 L.append('`concentration` = mean|dCE| on the circuit\'s members / mean|dCE| off its slice, when the named '
@@ -57,6 +62,35 @@ L.append('`concentration` = mean|dCE| on the circuit\'s members / mean|dCE| off 
          '**interchange** replaces it with its output at a random other position (seed 20260830).\n')
 L.append('Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned subspace, where '
          'run), and each circuit\'s own file (story, examples, certification). Nothing here is recomputed.\n')
+L.append('\n## Behavior circuits and counterfactual identification\n')
+L.append('These version-2 records are task-defined behaviors, not assumed aliases of census leaves. '
+         'Their events include failed/null/invalid evidence so the same causal question is not silently repeated.\n')
+L.append('| circuit | status | declared variable | families | negative events | next missing evidence |')
+L.append('|---|---|---|---:|---:|---|')
+for tag, d in sorted(behavior.items()):
+    active=[c for c in d['claims'] if c['status']!='superseded'][-1]
+    negative=sum(e['verdict'] in ('failed','null','invalid') for e in d.get('evidence_events',[]))
+    nxt=active.get('next_missing','').replace('|','/')
+    L.append(f'| `{tag}` | {active["status"]} | `{active["causal_variable"]["id"]}` | '
+             f'{len(active["counterfactual_families"])} | {negative} | {nxt} |')
+L.append('')
+for tag, d in sorted(behavior.items()):
+    active=[c for c in d['claims'] if c['status']!='superseded'][-1]
+    L.append(f'### `{tag}` — {active["status"]}\n')
+    variable=active['causal_variable']
+    L.append(f'**Read:** {variable["read"]}. **Operation:** {variable["operation"]}. '
+             f'**Write:** {variable["write"]}. **Endpoint:** {variable["endpoint"]}.\n')
+    L.append('| family | role | status |')
+    L.append('|---|---|---|')
+    for family in active['counterfactual_families']:
+        L.append(f'| `{family["family_id"]}` | {family["role"]} | {family["status"]} |')
+    events=d.get('evidence_events',[])
+    if events:
+        L.append('\n**Existing evidence events:**')
+        for event in events:
+            L.append(f'- `{event["event_id"]}`: {event["test_type"]} — **{event["verdict"]}** '
+                     f'({event.get("failure_kind") or "no failure"})')
+    L.append(f'\n**Next:** {active.get("next_missing", "not recorded")}\n')
 L.append('\n## Summary table\n')
 L.append('| # | circuit | best (mean) | conc | best (interchange) | conc | agree | members |')
 L.append('|---|---------|-------------|------|--------------------|------|-------|---------|')

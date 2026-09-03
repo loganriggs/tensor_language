@@ -63,3 +63,40 @@ A campaign entry must state:
 
 Component ownership is not exclusive.  Shared parameters and causal CE effects may
 support more than one behavior, but are counted only once in a whole-model ledger.
+
+## Counterfactual-identification axis
+
+This axis is separate from both the mechanistic tier and the terminal-evidence axis.
+A census mask, causal ablation, or low-rank fit does not by itself define a causal
+variable.
+
+- **CF0 — response region only.** The record identifies affected positions or a
+  downstream response pattern, but no portable causal variable.
+- **CF1 — declared variable.** The behavior, answer, alternative explanations, and
+  candidate intervention sites are explicit; the native/full-state site ceiling has
+  not yet passed.
+- **CF2 — one valid family.** One sealed counterfactual family passes endpoint,
+  matching, site-ceiling, and nuisance-control gates. This licenses causal evidence
+  for that construction, not circuit identification.
+- **CF3 — cross-family identification.** At least two independently constructed,
+  answer-changing families express the same declared variable. A frozen site/rank
+  learned without one family predicts its signed causal effect, while answer-preserving
+  controls remain stable.
+- **CF4 — compositional circuit.** CF3 plus the relevant variable-by-context or
+  selector-by-payload factorial is explained; shared and family-specific effects are
+  separated; unrelated registered behaviors remain stable under extraction/removal.
+- **CF5 — weight-realized circuit.** CF4 is translated into a gauge-invariant weight
+  object and physically rerun on every counterfactual family, OOD split, interaction
+  cell, and unrelated-behavior control.
+
+Interventions have one of three roles: `interchange` changes both the declared variable
+and correct answer; `necessity` removes/changes the variable while the original answer
+remains fixed; `invariance` changes nuisance information while the variable and answer
+remain fixed. Necessity evidence cannot substitute for an answer-changing interchange.
+
+The canonical organization is one versioned JSON record per circuit in `circuits/`,
+written through `census_lib.write_circuit()` and indexed by the generated
+`circuits/registry.json`. Aggregate files such as `REPERTOIRE.json`, Markdown dossiers,
+and campaign reports are derived views or rung snapshots. Update the authoritative
+record and its artifact hashes in the same commit as any CF-axis promotion or negative
+result.

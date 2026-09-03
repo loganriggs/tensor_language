@@ -1,0 +1,296 @@
+{
+ "schema_version": 2,
+ "tag": "task.successor.pointer",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "contract_snapshot",
+  "aliases": [
+   "successor_pointer_state"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "successor_pointer_state.v1",
+   "revision": 1,
+   "status": "proposed",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final sequence element and coherence/family context",
+    "operation": "use an identity pointer to retrieve the next element",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "expand families and test shared-plus-private projectors against failed cross-family transfer"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "joint_split_v1",
+   "unit": "document/template/entity as appropriate; shared across all families",
+   "partition_artifact_id": null,
+   "builder_artifact_id": null,
+   "seed": null,
+   "groups": {
+    "FIT": 0,
+    "SELECT": 0,
+    "FINAL_TEST": 0,
+    "OOD": 0
+   },
+   "leakage_group_keys": [
+    "element",
+    "template",
+    "weekday/month/alphabet/digit",
+    "natural text"
+   ],
+   "sealed_before_outcomes": false,
+   "sealed_at": null
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "successor_cross_family_transfer.legacy.v1",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "same_family_last_element_swap",
+    "coherent_whole_sequence_shift"
+   ],
+   "site_id": "post_attention8",
+   "evaluation_role": "legacy_heldout",
+   "metrics": [
+    {
+     "name": "cross_family_transfer",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "positive transfer without refitting"
+    }
+   ],
+   "result_artifact_id": "task_report",
+   "prereg_artifact_id": null,
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "qk_mdl/algo_tasks/successor/report.md"
+   ],
+   "claim_id": "successor_pointer_state.v1",
+   "design_key": "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
+   "execution_key": "2188c85828bc8a4554f6b40eaf0e1143a55d614102822ec8baf79140b3d010c4"
+  },
+  {
+   "event_id": "successor_layer8_input_ceiling.legacy.v1",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "same_family_last_element_swap"
+   ],
+   "site_id": "layer8.input",
+   "evaluation_role": "legacy_heldout",
+   "metrics": [
+    {
+     "name": "full_swap_payload_ceiling",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": ">0"
+    }
+   ],
+   "result_artifact_id": "task_report",
+   "prereg_artifact_id": null,
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "qk_mdl/algo_tasks/successor/report.md"
+   ],
+   "claim_id": "successor_pointer_state.v1",
+   "design_key": "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002",
+   "execution_key": "208ac9ce91fbcf66e024669898b93b813cb594685bf6ea40036f2cf6843f538f"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "contract_snapshot": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_contract_rung536.json",
+   "sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "readiness_audit": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_readiness_rung536.json",
+   "sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "stimuli": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/successor/stimuli.json",
+   "sha256": "a82abf025ac3351200f286fb7d4fb04ed85d00c464fc100778bb4dd52293e430",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "task_report": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/successor/report.md",
+   "sha256": "c4f41dba221ffee4d82dec58f63d9c110c6d575034dff21e4f6fba9857f7a0bf",
+   "kind": "report",
+   "status": "frozen"
+  },
+  "semantics_report": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/report.md",
+   "sha256": "fc4fe57cb344f85936f243c6d3f2b0b77fbe96f1920e76746f9ca93312a3d971",
+   "kind": "report",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "rung": 536,
+  "contract_sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+  "readiness_sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024"
+ }
+}

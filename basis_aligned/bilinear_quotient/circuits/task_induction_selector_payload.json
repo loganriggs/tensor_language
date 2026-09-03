@@ -1,0 +1,282 @@
+{
+ "schema_version": 2,
+ "tag": "task.induction.selector_payload",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "contract_snapshot",
+  "aliases": [
+   "induction_selector_and_payload"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "induction_selector_and_payload.v1",
+   "revision": 1,
+   "status": "proposed",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "which equality edge selects a source",
+      "construct two valid sources A-B and C-D, then change the query from A to C so the answer changes B to D"
+     ],
+     "holds_fixed": [
+      "both source pairs",
+      "payload tokens",
+      "length",
+      "positions"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "query an unrelated token",
+      "distance-matched wrong source",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "payload carried by a fixed equality edge",
+      "keep both A occurrences fixed but replace the earlier follower B by B-prime"
+     ],
+     "holds_fixed": [
+      "source/query equality",
+      "query token",
+      "lag",
+      "scaffold"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "change a non-follower",
+      "shuffle B-prime within matched strata",
+      "first mentions"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "availability of the equality edge",
+      "replace the earlier A by a matched decoy while leaving the current query and original answer B fixed"
+     ],
+     "holds_fixed": [
+      "payload B",
+      "current query A",
+      "answer B",
+      "length"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "same edit at irrelevant source",
+      "offset plus/minus one or two",
+      "token derangement"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "surface nuisance only",
+      "change lag, filler, or source location while preserving the same A-to-B copy relation"
+     ],
+     "holds_fixed": [
+      "query A",
+      "payload B",
+      "copy relation"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "held-out lag bands",
+      "held-out corpus",
+      "matched token frequencies"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "freeze two-valid-source and payload-swap rows; measure selector and value site ceilings"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "joint_split_v1",
+   "unit": "document/template/entity as appropriate; shared across all families",
+   "partition_artifact_id": null,
+   "builder_artifact_id": null,
+   "seed": null,
+   "groups": {
+    "FIT": 0,
+    "SELECT": 0,
+    "FINAL_TEST": 0,
+    "OOD": 0
+   },
+   "leakage_group_keys": [
+    "document",
+    "query token",
+    "lag",
+    "natural versus code"
+   ],
+   "sealed_before_outcomes": false,
+   "sealed_at": null
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "induction_terminal_collateral_failure.legacy.v1",
+   "test_type": "removal",
+   "stage": "complete",
+   "verdict": "failed",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "natural_pair_interchange"
+   ],
+   "site_id": "terminal_copy_service",
+   "evaluation_role": "legacy_final",
+   "metrics": [
+    {
+     "name": "unrelated_behavior_preservation",
+     "estimate": null,
+     "ci95": null,
+     "bar": "terminal collateral certificate"
+    }
+   ],
+   "result_artifact_id": "campaign_report",
+   "prereg_artifact_id": null,
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "campaign_2026_08_30/02_induction_copy.md"
+   ],
+   "claim_id": "induction_selector_and_payload.v1",
+   "design_key": "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
+   "execution_key": "3f1424dfed98d76c566c311c74673c6c13eb9518a0431f9e06afe8843e147ff3"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "contract_snapshot": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_contract_rung536.json",
+   "sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "readiness_audit": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_readiness_rung536.json",
+   "sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "campaign_report": {
+   "path": "basis_aligned/bilinear_quotient/circuits/campaign_2026_08_30/02_induction_copy.md",
+   "sha256": "09e3cec87ca6ad1d5ee073d770906f6bb8806faf552812abad780fb276c21c43",
+   "kind": "report",
+   "status": "frozen"
+  },
+  "rows_receipt": {
+   "path": "basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json",
+   "sha256": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "ood_result": {
+   "path": "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood_v2_retry1_result.json",
+   "sha256": "de2fdbffb695995ef5d31f875da34e002e9bb48669971c017b6b0cb45c1ddc78",
+   "kind": "result",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "rung": 536,
+  "contract_sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+  "readiness_sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024"
+ }
+}

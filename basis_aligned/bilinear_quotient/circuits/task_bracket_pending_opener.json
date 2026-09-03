@@ -1,0 +1,258 @@
+{
+ "schema_version": 2,
+ "tag": "task.bracket.pending_opener",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "contract_snapshot",
+  "aliases": [
+   "pending_opener_state"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "pending_opener_state.v1",
+   "revision": 1,
+   "status": "proposed",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "pending_opener_state",
+    "domain": "no pending opener or one pending parenthesis/quote-like opener type",
+    "read": "recent opener/closer evidence in context",
+    "operation": "maintain a recency-weighted pending-opener state",
+    "write": "closer-type evidence at the final prediction position",
+    "endpoint": "signed required-closer minus alternative-closer logit margin"
+   },
+   "alternative_explanations": [
+    "punctuation identity",
+    "position shift",
+    "recency steering"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "opener_presence_edit",
+     "role": "interchange",
+     "changes": [
+      "pending-opener state",
+      "insert or delete an opener in a position-matched prompt so the required closer changes"
+     ],
+     "holds_fixed": [
+      "suffix template",
+      "scoring position",
+      "length after compensating edit"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "edit non-opener punctuation",
+      "position-matched filler edit",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "opener_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending closer type",
+      "substitute one opener type for another at equal length, for example parenthesis versus quote"
+     ],
+     "holds_fixed": [
+      "opener position",
+      "length",
+      "surrounding text"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "non-opener punctuation substitution",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "later_matching_closer_reset",
+     "role": "necessity",
+     "changes": [
+      "whether an opener remains pending",
+      "insert a later matching closer while keeping the opener and original scoring suffix fixed"
+     ],
+     "holds_fixed": [
+      "opener identity",
+      "suffix",
+      "original answer candidates"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "nonmatching closer",
+      "punctuation insertion",
+      "distance-matched filler"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "pending_state_preserved_distance_edit",
+     "role": "invariance",
+     "changes": [
+      "distance and wording nuisance",
+      "change filler and opener distance without changing which opener remains pending"
+     ],
+     "holds_fixed": [
+      "pending type",
+      "correct closer",
+      "scoring position"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "held-out distances",
+      "held-out text templates",
+      "brace negative family"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "layer-13_entry",
+     "tensor_path": "layer-13 entry",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "l13h8_input_output",
+     "tensor_path": "L13H8 input/output",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "downstream_mlp_products",
+     "tensor_path": "downstream MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_rank4_das.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "freeze opener-type and closer-reset families; require leave-one-family-out transfer"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "joint_split_v1",
+   "unit": "document/template/entity as appropriate; shared across all families",
+   "partition_artifact_id": null,
+   "builder_artifact_id": null,
+   "seed": null,
+   "groups": {
+    "FIT": 0,
+    "SELECT": 0,
+    "FINAL_TEST": 0,
+    "OOD": 0
+   },
+   "leakage_group_keys": [
+    "opener type",
+    "template",
+    "distance",
+    "token identity"
+   ],
+   "sealed_before_outcomes": false,
+   "sealed_at": null
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "pending_opener_rank4_das.legacy.v1",
+   "test_type": "das_interchange",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "opener_presence_edit"
+   ],
+   "site_id": "layer13.entry",
+   "evaluation_role": "legacy_heldout",
+   "metrics": [
+    {
+     "name": "heldout_interchange_recovery",
+     "estimate": 0.872,
+     "ci95": null,
+     "bar": "legacy instrument; not CF3 promotion"
+    }
+   ],
+   "result_artifact_id": "das_result",
+   "prereg_artifact_id": null,
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "qk_mdl/algo_tasks/bracket/report.md"
+   ],
+   "claim_id": "pending_opener_state.v1",
+   "design_key": "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384",
+   "execution_key": "da8dbdadd90eff2425df025a6f1f52a42496c501a96b8aeb2c534b8c76db6623"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "contract_snapshot": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_contract_rung536.json",
+   "sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "readiness_audit": {
+   "path": "basis_aligned/bilinear_quotient/circuit_counterfactual_readiness_rung536.json",
+   "sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "task_report": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/bracket/report.md",
+   "sha256": "e4ead141bf3c11cd1687d7649ea3f7a3e8990effb6856ce844f0da363a7b38d9",
+   "kind": "report",
+   "status": "frozen"
+  },
+  "das_result": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/bracket/das.json",
+   "sha256": "13ebd5e92c5ccce4e71743f7ce600a384fc8dda195d8cb823554ffa2a70622e4",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "semantics_report": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_opener/report.md",
+   "sha256": "ec464315a712482c626bfba03fb1497ec3ebcc575450b1ada83214fe31974b74",
+   "kind": "report",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "rung": 536,
+  "contract_sha256": "79c5ab39488516e50f83b87e8ef7db3c5f5be156abd08f42bf6bd585fc50156c",
+  "readiness_sha256": "0ef56b03a6c7907f9fbe3b930dd282136e43bf274acf4ec2f6f735c552739024"
+ }
+}
