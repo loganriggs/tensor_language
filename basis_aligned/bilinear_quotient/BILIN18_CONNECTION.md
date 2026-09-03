@@ -69506,3 +69506,36 @@ message is a function of the CURRENT token (then it is a 16-dim linear lookup on
 per site, a real small program component), of the previous token, or genuinely of the context.
 
 **Preserved failures.** b (q .34), c (ER 1.05, null met), e (mlp17 .36).
+
+## §2717 — THE LATE MLP MESSAGE IS HALF A CURRENT-TOKEN LOOKUP, ENTIRELY INSIDE THE 16-DIM CORE (Claude, LANE 1 CUDA, 12 s, 928 GPU document-forwards): a ridge lookup μ + A·ê(t_cur) in place of mlp16+mlp17 recovers 51% of their .848-nat mean-ablation gap (CE added .416); restricting the lookup to the 16-dim late core loses nothing (.427, 97% of the full lookup's recovery); the previous token recovers 8%; the oracle 16-dim core component recovers 81% (.158). a–e ALL TRUE (b at .509 against a .50 bar — a margin of .009; reported as such); no null met.
+
+Written 2026-09-03 20:57Z (box clock). Preregistration `polynomial_causal/LATE_MESSAGE_TOKEN_LOOKUP_PROBE_PREREGISTRATION.md`
+(registered 20:56Z before the script). Script `ops/late_message_token_lookup_probe.py`; receipt
+`late_message_token_lookup_probe_results.json` (sha 84a3d8a9…); log `runlogs/late_message_token_lookup_probe.log`. FRESH split
+(ridge and covariances on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE numbers are CE ADDED ABOVE THE REAL MODEL —
+LOWER IS BETTER; rec = 1 − CE(arm)/CE(MEAN), higher = better.
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN(mlp16+17) .8480 (§2716 .8480); MEAN(mlp17) .3649 (§2716 .3649); ridge held-out
+R² of the write: current token .543 (mlp16) / .479 (mlp17) (fit-set .588 / .544 — little overfit at 24.6k tokens × 1152
+features, λ = 1e-2·tr/1152); previous token .089 / .087.
+
+**Arms (mlp16 + mlp17 replaced together).** MEAN .848 · CUR (μ + A ê(t)) .416, rec .509 · CUR_M (μ + P_M A ê(t)) .427, rec .496 ·
+PREV .777, rec .084 · ORACLE_M (μ + P_M(w − μ)) .158, rec .814 · CUR on mlp17 alone .195 vs MEAN_17 .365, rec .465.
+
+**Scoring.** b rec(CUR) .509 ≥ .50 TRUE (null ≤ .20 not met; margin .009 — a re-run with a different fit split could flip the
+letter, not the picture: 47–51% is the number). c rec(CUR_M)/rec(CUR) = .975 ≥ .80 TRUE (null ≤ .40 not met). d rec(PREV)/rec(CUR)
+= .165 ≤ .50 TRUE (null ≥ 1.0 not met). e rec(ORACLE_M) .814 ≥ .70 TRUE (null ≤ .40 not met).
+
+**What it means for the program.** The two last MLPs (2 × 3 × 1152 × 4608 = 31.9 M parameters) contribute .848 nat over
+their constant means, and that contribution decomposes as: (i) ~50% a LINEAR LOOKUP on the current token's normalised embedding,
+which needs only 16 output dimensions — an A_M of size 1152 × 16 per site (18 k parameters, or a 50 k × 16 table); (ii) ~30% a
+context-dependent part that ALSO lives in the same 16 core directions (oracle .814 − lookup .496); (iii) ~19% outside the core
+(the tail). Nothing of it is a previous-token function. So the executable-extraction statement (Codex's target 4) for
+mlp16+17 reads: "output = μ + P_M[A ê(t) + g(context)] + small tail", with A measured and g a 16-dimensional unknown — the next
+rung asks whether g is a function of the block's INPUT restricted to the same 16 directions (a 16 → 16 map, the message
+talking to itself across the two blocks) or needs the full 1152-dim input.
+
+**Caveats.** The lookup is fitted by least squares on the write, not by CE; a CE-fitted table would recover more. It is a
+surrogate-sufficiency result for two sites, not a grouping/selectivity result: it says what the late message is made of, not
+which behaviours it serves. Reproduction tolerance for the rec numbers ≈ .01 (deterministic given the split; a different fit
+split is the real robustness test — not run).

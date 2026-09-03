@@ -1,0 +1,96 @@
+{
+ "rung": "late_message_token_lookup_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); rec = 1 - CE(arm)/CE(MEAN) (HIGHER = better)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_current_token_lookup": true,
+  "pred_c_lookup_value_lives_in_the_core": true,
+  "pred_d_previous_token_weak": true,
+  "pred_e_core_ceiling": true
+ },
+ "nulls": {
+  "b_null_rec_cur_le_.20": false,
+  "c_null_rec_curM_le_.4_rec_cur": false,
+  "d_null_rec_prev_ge_rec_cur": false,
+  "e_null_rec_oracle_le_.40": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_min": 0.5,
+  "c_mult": 0.8,
+  "d_mult": 0.5,
+  "e_min": 0.7
+ },
+ "null_bars": {
+  "b_max": 0.2,
+  "c_mult": 0.4,
+  "d_mult": 1.0,
+  "e_max": 0.4
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "ridge_lambda_rel": 0.01,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "mean_last2": 0.8479736745357513,
+  "prior_mean_last2": 0.848,
+  "mean_17": 0.36486679315567017,
+  "prior_mean_17": 0.365
+ },
+ "ce_added": {
+  "MEAN": 0.8479736745357513,
+  "MEAN_17": 0.36486679315567017,
+  "CUR": 0.4160691797733307,
+  "CUR_M": 0.4270789325237274,
+  "PREV": 0.7768635749816895,
+  "ORACLE_M": 0.15767517685890198,
+  "CUR_17": 0.1952701210975647
+ },
+ "recovery": {
+  "CUR": 0.5093371501171657,
+  "CUR_M": 0.49635354805378296,
+  "PREV": 0.08385885280341188,
+  "ORACLE_M": 0.8140565189771651,
+  "CUR_17": 0.4648180520657772
+ },
+ "ridge_r2": {
+  "cur_fit": {
+   "mlp16": 0.5883353407658182,
+   "mlp17": 0.5438340201196284
+  },
+  "prev_fit": {
+   "mlp16": 0.19777316837795278,
+   "mlp17": 0.19885527591372257
+  },
+  "cur_heldout": {
+   "mlp16": 0.5428316692128419,
+   "mlp17": 0.4792271637208675
+  },
+  "prev_heldout": {
+   "mlp16": 0.08931839553522414,
+   "mlp17": 0.0869756205976363
+  }
+ },
+ "core_spectrum": {
+  "eff_rank": 10.003904488643483,
+  "rank_90": 12,
+  "top1": 0.407855014244653,
+  "psd_min_over_max": 4.716203060040444e-05
+ },
+ "price": {
+  "gpu_doc_forwards": 928,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 12.42302393913269
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_MESSAGE_TOKEN_LOOKUP_PROBE_PREREGISTRATION.md": "6062fc7a601d9e20a231d3ccaf15a9100239159a0f1f233fd91698ba6356c2a0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_core_logit_energy_probe_results.json": "e14e9d8f84f6d42cf97fe79d02f1dddc3e8b5419af62d95c182bd679af24c7e2",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "b52cf72642686e1305700b7ad56052fd8e626308dc62ec698b7d46e32ee5259c"
+}

@@ -1,0 +1,53 @@
+{"stage": "fit_cov", "t": 6.4}
+{"stage": "ridge", "r2": {"cur_fit": {"mlp16": 0.5883353407658182, "mlp17": 0.5438340201196284}, "prev_fit": {"mlp16": 0.19777316837795278, "mlp17": 0.19885527591372257}, "cur_heldout": {"mlp16": 0.5428316692128419, "mlp17": 0.4792271637208675}, "prev_heldout": {"mlp16": 0.08931839553522414, "mlp17": 0.0869756205976363}}, "t": 8.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 9.4}
+{"stage": "arms", "MEAN": 0.848, "MEAN_17": 0.3649, "CUR": 0.4161, "CUR_M": 0.4271, "PREV": 0.7769, "ORACLE_M": 0.1577, "CUR_17": 0.1953, "t": 12.4}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_current_token_lookup": true,
+  "pred_c_lookup_value_lives_in_the_core": true,
+  "pred_d_previous_token_weak": true,
+  "pred_e_core_ceiling": true
+ },
+ "nulls": {
+  "b_null_rec_cur_le_.20": false,
+  "c_null_rec_curM_le_.4_rec_cur": false,
+  "d_null_rec_prev_ge_rec_cur": false,
+  "e_null_rec_oracle_le_.40": false
+ },
+ "ce_added": {
+  "MEAN": 0.8479736745357513,
+  "MEAN_17": 0.36486679315567017,
+  "CUR": 0.4160691797733307,
+  "CUR_M": 0.4270789325237274,
+  "PREV": 0.7768635749816895,
+  "ORACLE_M": 0.15767517685890198,
+  "CUR_17": 0.1952701210975647
+ },
+ "recovery": {
+  "CUR": 0.5093371501171657,
+  "CUR_M": 0.49635354805378296,
+  "PREV": 0.08385885280341188,
+  "ORACLE_M": 0.8140565189771651,
+  "CUR_17": 0.4648180520657772
+ },
+ "ridge_r2": {
+  "cur_fit": {
+   "mlp16": 0.5883353407658182,
+   "mlp17": 0.5438340201196284
+  },
+  "prev_fit": {
+   "mlp16": 0.19777316837795278,
+   "mlp17": 0.19885527591372257
+  },
+  "cur_heldout": {
+   "mlp16": 0.5428316692128419,
+   "mlp17": 0.4792271637208675
+  },
+  "prev_heldout": {
+   "mlp16": 0.08931839553522414,
+   "mlp17": 0.0869756205976363
+  }
+ }
+}

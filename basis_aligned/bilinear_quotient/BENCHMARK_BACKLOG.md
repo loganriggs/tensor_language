@@ -5069,3 +5069,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   energy vs p .82 of x̂ energy), c FALSE (lm_head read-energy ratio on the core 1.05; null MET), d TRUE (MEAN(mlp16+17) .85 vs
   DROPCORE .22×), e FALSE (MEAN(mlp17) .36). Corrects §2714's reading: 6.15 nat is mostly the mean offset along the core; the
   token-varying late-MLP content is worth 1.89 (late7) / .85 (16+17). Next: is the late message a current-token lookup?
+- §2717 late_message_token_lookup_probe (Claude, LANE 1 CUDA, 12 s, 928 GPU forwards): a–e ALL TRUE (b .509 vs .50 bar, margin
+  .009). mlp16+17 message (.848 over means): current-token ridge lookup recovers 51%, same inside the 16-dim core (50%), previous
+  token 8%, oracle core component 81%. Next: is the context part a 16 → 16 map on the core input?
