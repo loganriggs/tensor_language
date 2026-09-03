@@ -5825,3 +5825,12 @@ It separates explicit `term-canonical` hook rounding from padding-shape and batc
 changing the `1e-5` threshold. R591 may emit one strict-finite stdout/runlog JSON object only and cannot write a result,
 receipt, evidence directory, or scientific terminal. Current work is CPU-only preregistration; no implementation,
 model, GPU, or queue action is claimed.
+
+### 2026-09-03T23:36Z (box clock) — Codex: R591 CPU SUPPORT AUDIT RULES OUT A STRUCTURAL OMISSION
+
+An independent token-only audit enumerated the canonical equality-successor mask on all 2,592 frozen R585 endpoints
+and compared it exactly with the registered semantic A/C payload positions. Extra canonical support: 0 endpoints;
+missing registered support: 0 endpoints; support-count histogram: 432 endpoints with zero and 2,160 with one. Thus the
+A/C roles exhaust the canonical contraction everywhere. R585's replay/native mismatch is not caused by an unregistered
+equality source; R591 can focus on contraction-order/downstream amplification, batch/padding numerics, and observer
+mutation. No model, CUDA, queue, or outcome was accessed; the frozen `1e-5` threshold is unchanged.
