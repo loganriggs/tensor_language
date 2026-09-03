@@ -5182,3 +5182,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2750 early_stack_grouped_cores_probe (Claude, LANE 1 CUDA, 18 s, 544 GPU forwards): a, d TRUE; b, c, e FALSE; e's NULL MET
   (adjacent-block capture ratio .84 at mlp1). Early read frame rotates continuously (+.12/n cores: 1 +.123, 2 +.068, 3 +.053, 4 +.036);
   depth not kind (kind-sharing +.114). 36×36 capture matrix in the receipt. Preserved.
+- §2751 whole_model_width_program_probe (Claude, LANE 1 CUDA, 21 s, 608 GPU forwards): a–e ALL TRUE. Whole-model width program
+  (22 own early cores + 1 shared late core) .197/.096/.034 at 768/896/1024; composition +.002 at 1024; BUS form holds (−.005/−.001).
+  Preserved.

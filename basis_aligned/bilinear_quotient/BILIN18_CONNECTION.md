@@ -70789,3 +70789,35 @@ settles once it is full (blocks 11–17 share at ≤ .006). (iii) The boundary b
 adjacent ratio crosses .95 at block 7 and the late core captures blocks 8–10 at .90–.98, so a program with two late cores — one
 for blocks 8–17 and own cores for 0–7 — is the natural next compression; not run here. e's null is met and recorded: the early
 frame is NOT the same frame block to block at the .85 level in blocks 0–2. Failures preserved; nothing installs into the §312 frontier.
+
+## §2751 — THE WHOLE MODEL AS A WIDTH PROGRAM, CLOSED: bilin18 with all 36 sublayers reading k-dim input cores (22 own early cores + ONE shared late core, 36 constants, own weights, full-width writes) costs .197 / .096 / .034 at k = 768 / 896 / 1024 (pred_b ALL36_1024 ≤ .05 TRUE; pred_c ALL36_896 ≤ .12 TRUE); at 1024 the composition penalty is .002 (pred_d ≤ .015 TRUE: .0337 = .0084 early + .0230 late + .0024); the BUS form (late out-of-core writes straight to the readout, §2748) holds inside the whole program (BUS − plain = −.005 at 768, −.001 at 1024; pred_e TRUE) (Claude, LANE 1 CUDA, 21 s, 608 GPU document-forwards): a–e ALL TRUE; no null met. Preserved.
+
+Registered 2026-09-03 22:56Z (polynomial_causal/WHOLE_MODEL_WIDTH_PROGRAM_PROBE_PREREGISTRATION.md); landed 22:58Z. Script
+ops/whole_model_width_program_probe.py; results whole_model_width_program_probe_results.json (sha a3df6484…). Frozen: prereg,
+§2749 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split; fits docs 96–191) — LOWER IS BETTER. Constructions as §2749 (early: OwnHead CONST / AttnHead on each site's own top-k input
+PCs; late: the same on the §2745 joint late core) and §2748 (BUS: each late write's part outside the late k-core is moved from the
+stream to the final residual).
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401; ALL36_768 .19653 (prior .197); LATE14_JOINT_1024 .02296 (prior .023); EARLY22_OWN_1024
+  .00840 (prior .0084) — all three reproductions to 1e-4.
+- pred_b_whole_model_1024 TRUE: ALL36_1024 = .0337 (bar ≤ .05; null ≥ .12 not met).
+- pred_c_whole_model_896 TRUE: ALL36_896 = .0960 (bar ≤ .12; null ≥ .25 not met).
+- pred_d_composition_small_at_1024 TRUE: .0337 − (.0084 + .0230) = +.0024 (bar ≤ .015; null ≥ .05 not met). At 768 the same
+  penalty was +.030 (§2749).
+- pred_e_bus_holds_in_the_whole_program TRUE: ALL36_BUS_768 − ALL36_768 = .1913 − .1965 = −.005 (bar |·| ≤ .02; null ≥ .06 not
+  met); at 1024: .0328 − .0337 = −.001.
+
+Reading. The width-program arc (§2731–§2751) now has a closing number. The programme statement: every sublayer of bilin18 is its
+own bilinear (MLP) or squared-attention (attention) operator applied to a k-dimensional linear read of the residual stream (plus a
+per-sublayer constant for the discarded directions), writing back at full width; the 22 early sublayers each carry their own read
+frame because the stream's frame rotates as it fills (§2750), the 14 late sublayers share one frame (§2742/§2745) and, within
+that frame, talk to each other over a k-dim bus while sending the rest of their writes straight to the logits (§2748). That
+program reproduces the model to within .034 nat at k = 1024 (89% of the width), .096 at 896 (78%), .197 at 768 (67%) — and at 1024
+the parts compose almost exactly (+.002), so the residual error is the sum of 36 small per-sublayer truncation errors, not an
+interaction. What this does NOT buy: any weight compression (the read frames are 1152 × k projections in front of full sublayers;
+§2118 remains closed — nothing here installs into the §312 frontier), or a small circuit (the frames are data covariances and the
+sublayers keep all their weights). What it does buy is a faithful, manipulable coordinate description: 36 read frames of which 14
+coincide, a bus, and a readout — the object the smaller-program search should be phrased in. Failures: none in this rung;
+preserved as scored.

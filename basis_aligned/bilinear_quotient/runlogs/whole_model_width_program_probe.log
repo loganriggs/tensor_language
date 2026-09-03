@@ -1,0 +1,32 @@
+{"stage": "heads_done", "t": 14.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.5}
+{"stage": "arms", "EARLY22_OWN_1024": 0.0084, "LATE14_JOINT_1024": 0.023, "ALL36_768": 0.1965, "ALL36_896": 0.096, "ALL36_1024": 0.0337, "ALL36_BUS_768": 0.1913, "ALL36_BUS_1024": 0.0328, "t": 20.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_whole_model_1024": true,
+  "pred_c_whole_model_896": true,
+  "pred_d_composition_small_at_1024": true,
+  "pred_e_bus_holds_in_the_whole_program": true
+ },
+ "nulls": {
+  "b_null_ge_.12": false,
+  "c_null_ge_.25": false,
+  "d_null_ge_.05": false,
+  "e_null_ge_.06": false
+ },
+ "ce_added": {
+  "EARLY22_OWN_1024": 0.008403539657592773,
+  "LATE14_JOINT_1024": 0.022958904504776,
+  "ALL36_768": 0.1965300738811493,
+  "ALL36_896": 0.09601357579231262,
+  "ALL36_1024": 0.03371569514274597,
+  "ALL36_BUS_768": 0.19132986664772034,
+  "ALL36_BUS_1024": 0.032838404178619385
+ },
+ "gaps": {
+  "composition_1024": 0.0023532509803771973,
+  "bus_minus_plain_768": -0.005200207233428955,
+  "bus_minus_plain_1024": -0.0008772909641265869
+ }
+}
