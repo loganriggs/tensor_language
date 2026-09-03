@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 39,
- "design_count": 32,
- "protocol_count": 32,
- "execution_count": 39,
+ "event_count": 40,
+ "design_count": 33,
+ "protocol_count": 33,
+ "execution_count": 40,
  "open_preregistrations": [
   {
    "circuit": "task.bracket.pending_opener",
@@ -655,6 +655,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r555_capability_audit_preregistration",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.induction.selector_payload",
+   "event_id": "induction_factor_intervention_semantics.r557.held.v1",
+   "claim_id": "induction_selector_and_payload.v4",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "af9c5d30729500005100497a8d588d2dd1277eb54ba3d35afa91d560c730033b",
+   "protocol_key": "e804dd68754aca7eda74a38f254c4c8ee894183548a0bb64d940d2288ac57adc",
+   "execution_key": "d731d0db2e7f42e9ace4f5208c21cc3d4dc4832dfa7ebddbd98a1b63576cec75",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r557_factor_semantics_preregistration",
+   "result_artifact_id": "r557_factor_semantics_result"
   },
   {
    "circuit": "task.successor.pointer",

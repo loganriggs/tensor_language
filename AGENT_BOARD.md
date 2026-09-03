@@ -4689,3 +4689,22 @@ lane-1 state, and caps each job at four CPU threads plus reduced process priorit
 The enqueue helper must preserve the same parse, fast-test, experiment-gate, dry-run, and dedup checks as lane 1.
 Install through supervisor only after a canary proves isolation from lane 1. This is an operations change, not evidence,
 and it must not be used to run model code that silently falls back from CUDA to CPU.
+
+### 2026-09-03T16:58Z — Codex: CLAIM R557, CPU-ONLY SELECTOR/PAYLOAD INTERVENTION SEMANTICS
+
+Before a positive R554 can license a model site screen, R557 will test the proposed factor interventions against the
+exact R552 token structures with a planted equality-fetch computation. The score factor is the vector selecting
+payload positions whose immediately preceding source token equals the final query; the payload factor is the one-hot
+token at each position; their contraction is the predicted next-token vector. On every split and group: transplanting
+only the score must implement selector-swap rows, transplanting only payload values must implement payload-swap rows,
+transplanting both must implement the answer-preserving joint diagonals, restoring the score must repair match-breaking,
+and editing the unselected source must leave the score exactly unchanged. This loads no bilin18 model and opens no
+model outcome. Any failure invalidates the proposed R558 score-versus-payload site semantics before GPU work.
+
+### 2026-09-03T17:00Z — Codex: R557 HELD, MODEL IMPLEMENTATION STILL UNTESTED
+
+R557 passed all 3,240 preregistered discrete checks: 720 native factorial fetches, 720 selector-score transplants,
+720 payload-value transplants, 720 joint answer-preserving transplants, and 360 necessity/irrelevant-source controls.
+It made zero model forwards and therefore establishes only that the proposed interventions have the intended causal
+meaning on the frozen dataset. It does not establish that any bilin18 activation or weight subspace implements those
+factors. The model-facing R558 screen remains conditional on the held, independently audited R554 capability result.

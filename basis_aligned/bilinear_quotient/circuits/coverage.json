@@ -321,15 +321,17 @@
      "latest_relevant_event_id": null
     },
     "selectivity": {
-     "status": "blocked",
-     "held_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "induction_factor_intervention_semantics.r557.held.v1"
+     ],
      "blocking_event_ids": [
       "induction_terminal_collateral_failure.legacy.v1"
      ],
      "planned_event_ids": [
       "induction_selector_payload_capability_audit.r555.preregistered.v1"
      ],
-     "latest_relevant_event_id": "induction_selector_payload_capability_audit.r555.preregistered.v1"
+     "latest_relevant_event_id": "induction_factor_intervention_semantics.r557.held.v1"
     },
     "composition": {
      "status": "missing",
@@ -346,10 +348,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 0,
+   "n_held_categories": 1,
    "n_blocked_categories": 1,
    "n_missing_categories": 6,
-   "next_missing": "execute R554 and immediately apply the pre-outcome R555 receipt/decision audit; only after an audited held capability result preregister separate selector and payload complete-state ceilings"
+   "next_missing": "execute and audit R554; if native factorial capability holds, preregister a model-facing selector-score versus payload-value interchange screen below the attention-head boundary"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

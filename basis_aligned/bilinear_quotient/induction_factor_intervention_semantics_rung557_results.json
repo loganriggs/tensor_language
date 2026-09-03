@@ -1,0 +1,38 @@
+{
+ "rung": 557,
+ "stage": "induction_factor_intervention_semantics",
+ "pred_a_factorial_fetch_exact": true,
+ "pred_b_selector_score_transplant_exact": true,
+ "pred_c_payload_value_transplant_exact": true,
+ "pred_d_joint_transplant_exact": true,
+ "pred_e_match_break_score_restore_exact": true,
+ "pred_f_irrelevant_source_score_invariant": true,
+ "all_checks_pass": true,
+ "group_count": 180,
+ "row_count": 1800,
+ "factorial_condition_checks": 720,
+ "direction_checks": {
+  "two_valid_sources_selector_swap": 720,
+  "payload_swap_match_preserved": 720,
+  "selector_payload_joint_answer_preserved": 720,
+  "match_break_payload_preserved": 180,
+  "irrelevant_source_edit": 180
+ },
+ "family_row_counts": {
+  "two_valid_sources_selector_swap": 360,
+  "payload_swap_match_preserved": 360,
+  "selector_payload_joint_answer_preserved": 360,
+  "match_break_payload_preserved": 180,
+  "irrelevant_source_edit": 180,
+  "copy_relation_preserved_nuisance_change": 360
+ },
+ "input_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_factorial_rows_rung552.json": "6a0a6d2c8a3891ae5d6f787527b35e71c17518548b3b1836042afe730b13c460",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_FACTOR_INTERVENTION_SEMANTICS_RUNG557_PREREGISTRATION.md": "7292716ea21401830ce4fd523da01d5e2923cc16ac6d8db48c0abf1dc1207042"
+ },
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "outcomes_opened": [],
+ "decision": "The discrete score-versus-payload intervention is semantically valid for a separately preregistered bilin18 factor-site screen, conditional on R554 native capability."
+}

@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-39 events; 32 scientific protocols; 39 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+40 events; 33 scientific protocols; 40 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -59,5 +59,6 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.induction.selector_payload` | `induction_terminal_collateral_failure.legacy.v1` | complete/failed | removal | `induction_selector_and_payload.v1` | `978c6755026c` | `415d71f6164c` | `3f1424dfed98` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v2` | `28ca96108955` | `e6cc50c5fbeb` | `b1bddde07ddf` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | preregistered/inconclusive | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` | `df1debf204fe` | `70e175c4d09d` | — |
+| `task.induction.selector_payload` | `induction_factor_intervention_semantics.r557.held.v1` | complete/held | null_control | `induction_selector_and_payload.v4` | `e804dd68754a` | `af9c5d307295` | `d731d0db2e7f` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

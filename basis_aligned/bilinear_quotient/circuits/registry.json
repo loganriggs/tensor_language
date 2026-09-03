@@ -717,10 +717,10 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "6199fcb09c293a16691624ecb5a7f8372bba79b0fdb96ca4e0fb7ad6f3cf661d",
+   "record_sha256": "468d5693ee640b08b5e074dc3b036d7461d8bdf70eaf5dca8a5f884672a5c159",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "induction_selector_and_payload.v4",
+   "active_claim_id": "induction_selector_and_payload.v5",
    "claim_status": "specified",
    "causal_variable_id": "induction_selector_payload",
    "interchange_family_count": 3,
@@ -728,18 +728,22 @@
    "negative_event_count": 1,
    "active_negative_event_count": 1,
    "latest_blocker": "induction_terminal_collateral_failure.legacy.v1",
-   "latest_active_event": "induction_selector_payload_capability_audit.r555.preregistered.v1",
+   "latest_active_event": "induction_factor_intervention_semantics.r557.held.v1",
    "active_event_ids": [
     "induction_terminal_collateral_failure.legacy.v1",
     "induction_selector_payload_capability.r554.preregistered.v1",
-    "induction_selector_payload_capability_audit.r555.preregistered.v1"
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1"
    ],
-   "held_test_types": [],
+   "held_test_types": [
+    "null_control"
+   ],
    "active_blocking_test_types": [
     "removal"
    ],
    "design_keys": [
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
+    "af9c5d30729500005100497a8d588d2dd1277eb54ba3d35afa91d560c730033b",
     "df1debf204fe76e337a0b23708dbbd430bae0715186582a5346b719d05bcaa13",
     "e6cc50c5fbeb8b6ec75fa02827baf54e3304f8373629d617533e6b52ad0722ff"
    ]
