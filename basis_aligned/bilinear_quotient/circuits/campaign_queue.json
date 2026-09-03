@@ -9,99 +9,11 @@
  "summary": {
   "canonical_work_items": 7,
   "legacy_candidates": 70,
-  "open_experiments": 2,
-  "held_events": 16,
+  "open_experiments": 0,
+  "held_events": 20,
   "blocking_events": 21
  },
  "work_items": [
-  {
-   "tag": "task.numbered_list.index_successor",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v2",
-   "claim_status": "specified",
-   "causal_variable_id": "list_index_state",
-   "counterfactual_family_count": 6,
-   "counterfactual_family_status_counts": {
-    "frozen": 6
-   },
-   "split_plan_ids": [
-    "numbered_list_successor_split_r567_v1"
-   ],
-   "active_event_ids": [
-    "numbered_list_native_capability.r569.preregistered.v1"
-   ],
-   "open_event_ids": [
-    "numbered_list_native_capability.r569.preregistered.v1"
-   ],
-   "held_event_ids": [],
-   "blocking_event_ids": [],
-   "coverage": {
-    "capability": "planned",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "missing",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "run the R569 FIT/SELECT native gate with list_middle_index_break scored as invariance under the R568 overlay"
-  },
-  {
-   "tag": "task.numeric_sequence.continuation",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_numeric_sequence_continuation.json",
-   "active_claim_id": "numeric_sequence_continuation.v1",
-   "claim_status": "specified",
-   "causal_variable_id": "numeric_sequence_state_and_rule",
-   "counterfactual_family_count": 9,
-   "counterfactual_family_status_counts": {
-    "frozen": 9
-   },
-   "split_plan_ids": [
-    "numeric_sequence_continuation_split_r567_v1"
-   ],
-   "active_event_ids": [
-    "numeric_sequence_native_capability.r570.preregistered.v1"
-   ],
-   "open_event_ids": [
-    "numeric_sequence_native_capability.r570.preregistered.v1"
-   ],
-   "held_event_ids": [],
-   "blocking_event_ids": [],
-   "coverage": {
-    "capability": "planned",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "missing",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately"
-  },
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
@@ -185,6 +97,97 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+  },
+  {
+   "tag": "task.numbered_list.index_successor",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numbered_list_index_successor.json",
+   "active_claim_id": "numbered_list_index_successor.v3",
+   "claim_status": "specified",
+   "causal_variable_id": "list_index_state",
+   "counterfactual_family_count": 6,
+   "counterfactual_family_status_counts": {
+    "validated": 6
+   },
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "active_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "run raw-row R572 confirmation of the list +2 conflict, then preregister exact L8H7/L8H3 value-path ceilings"
+  },
+  {
+   "tag": "task.numeric_sequence.continuation",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numeric_sequence_continuation.json",
+   "active_claim_id": "numeric_sequence_continuation.v2",
+   "claim_status": "specified",
+   "causal_variable_id": "numeric_sequence_state_and_rule",
+   "counterfactual_family_count": 9,
+   "counterfactual_family_status_counts": {
+    "frozen": 1,
+    "validated": 8
+   },
+   "split_plan_ids": [
+    "numeric_sequence_continuation_split_r567_v1"
+   ],
+   "active_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "preregister a complete-state site screen that tests digit, word, and cross-format interchange plus copy/+2 selectivity"
   },
   {
    "tag": "subroutine.induction.equality_score",

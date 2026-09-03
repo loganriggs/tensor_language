@@ -2,14 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-56 events; 46 scientific protocols; 56 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+60 events; 48 scientific protocols; 60 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.preregistered.v1` | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` |
-| `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.preregistered.v1` | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` |
+| — | — | — | — | — |
 
 ## Repeats requiring review
 
@@ -74,6 +73,10 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.complete.null.v1` | complete/null | capability | `induction_selector_and_payload.v5` | `c610ca94e1ae` | `6eddaff09aca` | `4a166dd7027c` | supersedes `induction_selector_payload_capability.r554.preregistered.v1` |
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v5` | `db35f5b293e1` | `32bfcbe7436b` | `57b14eb68d7a` | supersedes `induction_selector_payload_capability_audit.r555.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.preregistered.v1` | preregistered/inconclusive | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `15d1b6f2a19a` | — |
+| `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.held.v1` | complete/held | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `5a3f5d3ad968` | supersedes `numbered_list_native_capability.r569.preregistered.v1` |
+| `task.numbered_list.index_successor` | `numbered_list_capability_audit.r571.held.v1` | complete/held | null_control | `numbered_list_index_successor.v2` | `ad9777b34532` | `7014c3e46952` | `f0e462ef047a` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.preregistered.v1` | preregistered/inconclusive | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `3c90bed65fab` | — |
+| `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.held.v1` | complete/held | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `423303280f5c` | supersedes `numeric_sequence_native_capability.r570.preregistered.v1` |
+| `task.numeric_sequence.continuation` | `numeric_sequence_capability_audit.r571.held.v1` | complete/held | null_control | `numeric_sequence_continuation.v1` | `655c19704a36` | `bc7a7da1850a` | `02bd8ddd9f2d` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

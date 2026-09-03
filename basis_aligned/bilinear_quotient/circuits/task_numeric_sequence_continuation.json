@@ -243,6 +243,242 @@
    "evidence_event_ids": [],
    "translation_ids": [],
    "next_missing": "run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately"
+  },
+  {
+   "claim_id": "numeric_sequence_continuation.v2",
+   "revision": 2,
+   "status": "specified",
+   "supersedes": "numeric_sequence_continuation.v1",
+   "causal_variable": {
+    "id": "numeric_sequence_state_and_rule",
+    "domain": "comma-separated digit or number-word sequences",
+    "read": "observed numeric values and their relation",
+    "operation": "predict the next value under +1 or copy",
+    "write": "evidence for the next digit or number-word token",
+    "endpoint": "representation-matched numeric-candidate logit margin"
+   },
+   "alternative_explanations": [
+    "last-value successor without reading the relation",
+    "format-specific memorization",
+    "generic numeric-token prior"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "sequence_digit_state_shift",
+     "role": "interchange",
+     "changes": [
+      "digit sequence state and next value"
+     ],
+     "holds_fixed": [
+      "digit representation",
+      "+1 relation",
+      "prompt form"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "word transfer",
+      "copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_state_shift",
+     "role": "interchange",
+     "changes": [
+      "number-word sequence state and next value"
+     ],
+     "holds_fixed": [
+      "word representation",
+      "+1 relation",
+      "prompt form"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "digit transfer",
+      "copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_cross_format_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state",
+      "digit versus word representation",
+      "next token"
+     ],
+     "holds_fixed": [
+      "+1 relation",
+      "semantic group",
+      "content word"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "within-format shifts",
+      "surface edits",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_digit_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "digit values",
+      "+1 relation",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shift",
+      "middle break",
+      "word surface"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "number-word values",
+      "+1 relation",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shift",
+      "middle break",
+      "digit surface"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_middle_value_break",
+     "role": "necessity",
+     "changes": [
+      "middle value and evidence for the +1 relation"
+     ],
+     "holds_fixed": [
+      "first value",
+      "final value",
+      "registered answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "surface edit",
+      "copy",
+      "last-value successor alternative"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_digit_copy_control",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "repeated digit",
+      "copy rule",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "word copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_copy_control",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "repeated number word",
+      "copy rule",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "digit copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_step_two_conflict",
+     "role": "invariance",
+     "changes": [
+      "surface wording only"
+     ],
+     "holds_fixed": [
+      "step-two values",
+      "arithmetic and last-successor candidates",
+      "digit representation"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "copy rows",
+      "native full-vocabulary baseline"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "cross_format_state_interface",
+     "tensor_path": "unlocalized digit/word state interface",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature"
+     ],
+     "intervention": "complete-state interchange before fitting any subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "successor_output_terms",
+     "tensor_path": "downstream MLP product/write terms",
+     "shape": [
+      "batch",
+      "position",
+      "residual width"
+     ],
+     "intervention": "test downstream-equivalent exact product terms across digit and word inputs",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "numeric_sequence_continuation_split_r567_v1"
+   ],
+   "evidence_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "preregister a complete-state site screen that tests digit, word, and cross-format interchange plus copy/+2 selectivity"
   }
  ],
  "split_plans": [
@@ -327,6 +563,121 @@
    "claim_id": "numeric_sequence_continuation.v1",
    "design_key": "b1d85e6a21e697206b97e36655ea6cffa83986fab4c0e16a6568c036988e7903",
    "execution_key": "3c90bed65fab2a0527fc81372ae5e97e4c43ab9a0d90672b00bb20545d39936b"
+  },
+  {
+   "event_id": "numeric_sequence_native_capability.r570.held.v1",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_cross_format_shift",
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved",
+    "sequence_middle_value_break",
+    "sequence_digit_copy_control",
+    "sequence_word_copy_control",
+    "sequence_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_then_hypothesis_conditional_SELECT",
+   "metrics": [
+    {
+     "name": "state_and_invariance_candidate_margin",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 correct and bootstrap lower mean margin >0 in every endpoint cell"
+    },
+    {
+     "name": "middle_value_necessity",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.65 positive drops and bootstrap lower mean drop >0"
+    },
+    {
+     "name": "split_opening",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "sequence SELECT opens only after complete sequence FIT pass; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": "r569_r570_result",
+   "prereg_artifact_id": "r570_prereg",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r567_receipt",
+    "r569_r570_script"
+   ],
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+   "seed": 570,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "numeric_sequence_native_capability.r570.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "bilinear_quotient/numeric_two_hypothesis_capability_rung569_570_results.json"
+   ],
+   "claim_id": "numeric_sequence_continuation.v1",
+   "design_key": "b1d85e6a21e697206b97e36655ea6cffa83986fab4c0e16a6568c036988e7903",
+   "execution_key": "423303280f5c07490265d5ce72f328e3e7f66021061b9424101981c56d3c05e3"
+  },
+  {
+   "event_id": "numeric_sequence_capability_audit.r571.held.v1",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_cross_format_shift",
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved",
+    "sequence_middle_value_break",
+    "sequence_digit_copy_control",
+    "sequence_word_copy_control",
+    "sequence_step_two_conflict"
+   ],
+   "site_id": null,
+   "evaluation_role": "post_result_structural_audit",
+   "metrics": [
+    {
+     "name": "saved_statistics_recomputed",
+     "estimate": 1344,
+     "ci95": null,
+     "bar": "exactly 1344 across both hypotheses"
+    },
+    {
+     "name": "decision_cells_recomputed",
+     "estimate": 50,
+     "ci95": null,
+     "bar": "exactly 50 across both hypotheses"
+    },
+    {
+     "name": "terminal_decisions_reproduced",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "true"
+    }
+   ],
+   "result_artifact_id": "r571_audit",
+   "prereg_artifact_id": null,
+   "input_artifact_ids": [
+    "r569_r570_result",
+    "r571_audit_script"
+   ],
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+   "seed": 571,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "bilinear_quotient/numeric_two_hypothesis_capability_rung571_audit.json"
+   ],
+   "claim_id": "numeric_sequence_continuation.v1",
+   "design_key": "bc7a7da1850ac7c55210c36aaddfc4ba4c3765d8efb368675f3993b04866c125",
+   "execution_key": "02bd8ddd9f2d9ff6d57e0138f7b502db2432efd5df5c6f71f61dff95a9733c46"
   }
  ],
  "translations": [],
@@ -376,6 +727,24 @@
   "r569_r570_script": {
    "path": "basis_aligned/bilinear_quotient/ops/numeric_two_hypothesis_capability_rung569_570.py",
    "sha256": "371ceb096eba6db81c30918e6de9d07c93ec1d7747e0730fa9dcfbd71a6ea82e",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r569_r570_result": {
+   "path": "basis_aligned/bilinear_quotient/numeric_two_hypothesis_capability_rung569_570_results.json",
+   "sha256": "7cc56f22def334673e0035fad7c6a7d1fc58ab8edd3a99744bebd9fb4e6af7e7",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r571_audit": {
+   "path": "basis_aligned/bilinear_quotient/numeric_two_hypothesis_capability_rung571_audit.json",
+   "sha256": "c5453ddaa4aa46806cbfcb9a9b0941fe8ddbb21c61e5e22d00c1d1cea6dd74bb",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r571_audit_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/audit_numeric_two_hypothesis_capability_rung571.py",
+   "sha256": "d09db25abf9dd50913c6c697359bbe70c436e2355b57a78f09b389ae061221d9",
    "kind": "implementation",
    "status": "frozen"
   }

@@ -4932,3 +4932,25 @@ surface and copy controls; its middle-value edit must lower the coherent answer 
 relation is read rather than only the final value. Its +2 conflict is characterized but not used as a capability bar.
 Each hypothesis independently decides whether its SELECT is opened. FINAL_TEST/OOD remain closed for both. Maximum
 price is 935 unique sequence evaluations in 30 forwards, zero backwards, with no component, subspace, or rank search.
+
+### 2026-09-03T19:03Z — Codex: CLAIM R571, OUTCOME-UNREAD BUT POST-RESULT CPU AUDIT OF R569/R570
+
+The managed result file landed while R571 was being written. I had not read it, but the audit was not durably frozen
+before the result existed and therefore receives no outcome-blind status. R571 independently recomputes every endpoint-cell mean,
+accuracy, bootstrap lower bound, sequence-middle paired drop, input hash, call budget, and hypothesis-specific
+FIT-to-SELECT opening decision. It imports no R569/R570 scoring code and loads no model. The run stores the list +2
+conflict only as an aggregate rather than row-level margins; R571 can verify its threshold logic but cannot independently
+rebootstrap it. If the list gate otherwise passes, a raw-row confirmation of that conflict is mandatory before any
+component localization. This is a post-result structural audit even though its design preceded my reading the result.
+
+### 2026-09-03T19:10Z — Codex: R569/R570 BOTH HELD; R571 STRUCTURAL AUDIT HELD WITH ONE DECLARED LIMIT
+
+Both hypotheses independently opened SELECT and passed every frozen gate in 30 total forwards. For numbered lists,
+all two/three-line shifted, surface, middle-edit, and repeat endpoint cells passed; the structural `last label + 1`
+answer beat arithmetic +2 on 64/64 FIT and 32/32 SELECT conflict endpoints. For comma sequences, digit, word,
+cross-format, surface, and copy cells were 1.000 accurate throughout. Editing only the middle value reduced the
+registered +1 margin in 32/32 FIT and 16/16 SELECT groups, with bootstrap lower mean drops 1.197 and 1.011 logits.
+The +2 sequence conflict remained mixed and was not a gate (arithmetic preference 0.469 FIT, 0.188 SELECT). R571
+recomputed 1,344 endpoint statistics, 50 decision cells, the sequence necessity pairs, hashes, calls, and conditional
+split openings. It cannot independently rebootstrap the list conflict because R569 saved only its aggregate; a raw-row
+confirmation remains mandatory before list localization.
