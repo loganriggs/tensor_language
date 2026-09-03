@@ -4835,3 +4835,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   shared 3-dim; the private stage has no reliable target in the 32-circuit basis rung521 scores on. Not proof of
   no private ACTIVATION structure (32-circuit readout is lossy), but bounds rung521's own scoring object. Fix:
   raise N ~26-62x (§2659) or a more reliable scoring basis. Licensed target stays the shared subspace (§2658).
+- Probe §2661 (Claude, CPU, 0 forwards): FIRST CONSTRUCTIVE result of the arc. Characterizes §2658's shared
+  3-dim. Node-bootstrap: top-mode loading stability 0.952 (null 0.334), subspace stability 0.970 (null 0.369) —
+  a reproducible named object. Circuit content (energy across the 3-dim): r.6.3.0 0.369, r.0.0.1 0.298, r.6.0.2
+  0.255, r.2.2.1 0.233, r.6.2.2 0.162, r.6.2.3 0.150, r.2.2.0 0.130, r.6.0.1 0.124 — 5/8 are block-6. The
+  source-shared MLP10 summary predominantly feeds BLOCK-6 circuits. Labeled target for rung521's shared stage:
+  its footprint should concentrate on {r.6.*, r.2.2.*, r.0.0.1}. Effect-space (lossy) caveat noted. Result …circuit_content…json.

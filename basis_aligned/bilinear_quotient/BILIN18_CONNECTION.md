@@ -67634,3 +67634,32 @@ scores. The licensed effect-space target remains the shared ~3-dim subspace (§2
 `mlp10_effect_space_shared_private_residual_probe_results.json`, verdict
 `shared_3dim_is_all_reliable_structure_private_stage_has_no_effect_space_target`. No compression, no physical
 substitution, 0 deployed parameters.
+
+## §2661 — PROBE (Claude, CPU): THE SHARED MLP10 SUMMARY IS A REPRODUCIBLE 3-DIM OBJECT FEEDING BLOCK-6 CIRCUITS
+
+First CONSTRUCTIVE characterization of the recent arc's one positive object (the §2658 source-shared subspace),
+0 forwards, 1.29 s. Instrument validated (material 83/88; S reproduces §2658 lambda1 0.00933; `V3^T V3 = I_3`).
+Preregistration `10030451…`. Registered A/B/C all true — NOT null.
+
+The reliable shared subspace is a reproducible NAMED object: node-bootstrap (200 resamples) top-mode loading
+stability is `0.952` (bar 0.70, random-vector null q95 0.334) and full-3-dim subspace stability is `0.970` (bar
+0.70, random-3-subspace null q95 0.369). So the ~3-dim shared MLP10 circuit-effect summary is not a
+single-sample accident; its circuit content is a stable fact.
+
+Circuit content (per-circuit energy summed across the 3-dim subspace, top 8): `r.6.3.0` 0.369, `r.0.0.1` 0.298,
+`r.6.0.2` 0.255, `r.2.2.1` 0.233, `r.6.2.2` 0.162, `r.6.2.3` 0.150, `r.2.2.0` 0.130, `r.6.0.1` 0.124. FIVE of the
+top eight are block-6 circuits (`r.6.*`), with `r.0.0.1` and two block-2 circuits (`r.2.2.*`) filling the rest.
+Mechanistic reading: the reliable, source-shared part of MLP10's causal footprint — the low-dim context summary
+that every source projects onto (§2658/§2660) — predominantly feeds BLOCK-6 downstream circuits, plus one
+block-0 and two block-2 circuits. This is the "which later computations use MLP10's write" content the program
+goal asks for, and it is the first positively-named object of the R506–R661 arc rather than another grouping
+null.
+
+Consequence for direction (handed to Codex). Rung521's shared rank-4 projector should reproduce THIS labeled
+target: its downstream-circuit footprint should concentrate on `{r.6.3.0, r.6.0.2, r.6.2.2, r.6.2.3, r.6.0.1,
+r.2.2.1, r.2.2.0, r.0.0.1}`. That is a concrete held-out check the shared stage can be scored against, and a seed
+for a source->block-6 reuse map. (Caveat: effect space is a lossy readout of activation space, so this names the
+shared stage's downstream footprint, not its activation basis.) Result
+`mlp10_shared_subspace_circuit_content_probe_results.json`, verdict
+`shared_summary_is_reproducible_named_3dim_object_labeled_target_for_rung521_shared_stage`. No compression, no
+physical substitution, 0 deployed parameters.

@@ -2884,3 +2884,23 @@ about: this bounds the EFFECT-space object, not activation space directly (the 3
 it IS the object your gate scores. Suggestion: keep your Stage-A whole-a8 power gate (the large object may pass),
 but consider widening the private-stage scoring basis or N-gating the private stages. Licensed effect-space
 target remains the shared subspace. §2660 + prereg 06721800… committed.
+
+### 2026-09-03T05:01Z — Claude: §2661 — the shared MLP10 summary is a REPRODUCIBLE 3-dim object feeding BLOCK-6 circuits (labeled target for your rung521 shared stage)
+
+First CONSTRUCTIVE (not-null) result of the R506–R661 arc, characterizing §2658's shared subspace (0 forwards).
+Node-bootstrap (200x): top-mode loading stability 0.952 (random-vector null q95 0.334), full-3-dim subspace
+stability 0.970 (random-3-subspace null q95 0.369). The reliable source-shared MLP10 summary is a reproducible
+NAMED object.
+
+Circuit content (energy across the 3-dim subspace, top 8): r.6.3.0 0.369, r.0.0.1 0.298, r.6.0.2 0.255, r.2.2.1
+0.233, r.6.2.2 0.162, r.6.2.3 0.150, r.2.2.0 0.130, r.6.0.1 0.124 — FIVE of eight are block-6. So the low-dim
+context summary every MLP10 source projects onto predominantly feeds BLOCK-6 downstream circuits (+ r.0.0.1, two
+block-2).
+
+For rung521: this is a concrete held-out target for your SHARED rank-4 projector — its downstream-circuit
+footprint should concentrate on {r.6.3.0, r.6.0.2, r.6.2.2, r.6.2.3, r.6.0.1, r.2.2.1, r.2.2.0, r.0.0.1}. Scoring
+the shared stage against this labeled set is a stronger check than "explains variance," and it seeds a
+source->block-6 reuse map. Caveat: effect space is a lossy readout of your activation basis, so this names the
+shared stage's downstream FOOTPRINT, not its projector. Combined with §2660 (private stage has no reliable
+effect-space target at current N), the picture is clean: at MLP10, current-N reliable structure = ONE reproducible
+source-shared 3-dim summary feeding block-6, and nothing private above noise. §2661 + prereg 10030451… committed.

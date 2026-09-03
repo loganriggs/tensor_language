@@ -1,0 +1,159 @@
+{
+ "status": "complete",
+ "rung": "mlp10_shared_subspace_circuit_content_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "circuit_content_and_reproducibility_of_the_shared_subspace_not_grouping_or_compression",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_SHARED_SUBSPACE_CIRCUIT_CONTENT_PROBE_PREREGISTRATION.md": "100304512ad179edcdb26117c1bf1bea9a08e62bb5828e907e083192cf5e8081",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_shared_subspace_cross_half_covariance_probe_results.json": "1e8ade7c9acea5cbc83c1de511aa0b5bad323fea4b681a05dc450bdc6431120b"
+ },
+ "n_material_nodes": 83,
+ "lambda1_shared": 0.009330938687130095,
+ "top_mode_loading_stability": 0.951657426281015,
+ "loading_null_q95": 0.33375716566383196,
+ "subspace_stability": 0.9704935172998,
+ "subspace_null_q95": 0.36894078482670123,
+ "modes": {
+  "mode1": {
+   "eigenvalue": 0.009330938687130093,
+   "top_circuits": [
+    [
+     "r.6.3.0",
+     -0.5663319263911863
+    ],
+    [
+     "r.2.2.1",
+     -0.4287421663832942
+    ],
+    [
+     "r.6.2.2",
+     -0.3424224575747692
+    ],
+    [
+     "r.6.3.1",
+     -0.24319756696512135
+    ],
+    [
+     "r.18.2.0",
+     -0.22709395455245884
+    ],
+    [
+     "r.6.0.3",
+     0.21839033330387456
+    ]
+   ]
+  },
+  "mode2": {
+   "eigenvalue": 0.0058042890120536305,
+   "top_circuits": [
+    [
+     "r.0.0.1",
+     0.5129402252653978
+    ],
+    [
+     "r.6.0.2",
+     -0.3997402604140073
+    ],
+    [
+     "r.2.2.0",
+     0.31005496640944297
+    ],
+    [
+     "r.8.1.0",
+     0.29943101611464223
+    ],
+    [
+     "r.18.2.0",
+     -0.2515998491856987
+    ],
+    [
+     "r.2.2.2",
+     -0.2363239195663764
+    ]
+   ]
+  },
+  "mode3": {
+   "eigenvalue": 0.004940165849411913,
+   "top_circuits": [
+    [
+     "r.6.2.3",
+     0.37330461148291755
+    ],
+    [
+     "r.6.0.2",
+     0.3077868430396196
+    ],
+    [
+     "r.6.0.1",
+     -0.3050184170662818
+    ],
+    [
+     "r.2.0.1",
+     -0.2855773344226948
+    ],
+    [
+     "r.2.1.0",
+     -0.2708046932654924
+    ],
+    [
+     "r.2.0.0",
+     -0.24971096529361844
+    ]
+   ]
+  }
+ },
+ "subspace_energy_top_circuits": [
+  [
+   "r.6.3.0",
+   0.36917707077960593
+  ],
+  [
+   "r.0.0.1",
+   0.2977495416187791
+  ],
+  [
+   "r.6.0.2",
+   0.25453166002003874
+  ],
+  [
+   "r.2.2.1",
+   0.23300270617518926
+  ],
+  [
+   "r.6.2.2",
+   0.1620952961313689
+  ],
+  [
+   "r.6.2.3",
+   0.1504751384205329
+  ],
+  [
+   "r.2.2.0",
+   0.12964375536800193
+  ],
+  [
+   "r.6.0.1",
+   0.12415890583513821
+  ]
+ ],
+ "bars": {
+  "material_target": 83,
+  "k": 3,
+  "stab_bar": 0.7,
+  "n_boot": 200,
+  "n_null": 200
+ },
+ "pred_a_instrument_reproduces_shared_subspace": true,
+ "pred_b_top_mode_names_reproducible_circuit_combination": true,
+ "pred_c_full_3dim_subspace_reproducible_as_basis": true,
+ "strong_null": false,
+ "verdict": "shared_summary_is_reproducible_named_3dim_object_labeled_target_for_rung521_shared_stage",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 1.2892420291900635
+}
