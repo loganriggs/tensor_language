@@ -34,13 +34,13 @@ def test_exact_commit_and_execution_authorities_are_pinned(adapter):
     assert adapter.REPAIR_BASE_COMMIT == "a4e7c46c6339c75fc7f89c1e35339e15e3b74fd9"
     assert adapter.REPAIR_BASE_COMMIT_SHORT == "a4e7c46c6"
     assert adapter.FROZEN_HASHES[adapter.PRODUCER] == (
-        "33b5cbbc26e5ba62bb60a5bf62d69a1ef7ea51d1bf64e51fd3b95049e55f4327"
+        "3963ac0e666874c4d5f35d7be79d1834d0b88b003643acd9950d504dca29e2a1"
     )
     assert adapter.FROZEN_HASHES[adapter.PRODUCER_TEST] == (
-        "1a3419e3aa19abc2b03424d02ff5c474296472811e780dd10bbde4cc34f410d7"
+        "237946ac4fa7ef5a65a5c6269ad7cfd064195aef993e469df2b06b9b78600024"
     )
     assert adapter.FROZEN_HASHES[adapter.PRODUCER_DRYRUN] == (
-        "ac02054a22452911150e173792f28902351fdf1b04d04b87007a570837cf026d"
+        "c56f0feee2060966fa3fd4210dac0bdc7c945c779eb8c3c5f3068aa6c3fd6a5c"
     )
     assert adapter.FROZEN_HASHES[adapter.IMPLEMENTATION_REVIEW] == (
         "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30"
@@ -62,6 +62,12 @@ def test_exact_commit_and_execution_authorities_are_pinned(adapter):
     )
     assert adapter.FROZEN_HASHES[adapter.ITERATION4_IMPLEMENTATION_ADVERSARIAL_TEST] == (
         "29d8023ddbc56c70df7097394717d70fe7a2b6289fae0bce197f0d0e8f9eafd3"
+    )
+    assert adapter.FROZEN_HASHES[adapter.ITERATION5_IMPLEMENTATION_REVIEW] == (
+        "6d8c82416e1c7c8eb831633feeb3905bb92a818ba0f1f71332f571c2ba945d39"
+    )
+    assert adapter.FROZEN_HASHES[adapter.ITERATION5_IMPLEMENTATION_ADVERSARIAL_TEST] == (
+        "aaa01d044a0609aaee17371d7945d93e61e80241674c9bbc4e706880f83dab34"
     )
     assert adapter.verify_frozen_bytes() == {
         str(path): digest for path, digest in adapter.FROZEN_HASHES.items()

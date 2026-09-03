@@ -138,7 +138,7 @@ def test_structural_full_logit_mismatch_hard_aborts_when_insertions_match(runner
     torch = pytest.importorskip("torch")
     cell_id = "FIT|mini|v|s0p0|base_to_donor"
     manifests = {
-        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "target_cells": [{"cell_id": cell_id, "split": "FIT", "directed_ids": ["d"]}],
         "control_cells": [],
         "structural_identities": [{
             "cell_id": cell_id, "left_arm": "joint", "right_arm": "score",
@@ -155,7 +155,7 @@ def test_structural_full_logit_mismatch_hard_aborts_when_insertions_match(runner
     }
     with pytest.raises(RuntimeError, match="full-vocabulary identity"):
         runner.structural_identity_failures(
-            records, vectors, manifests, {}, frozen_insertions=frozen,
+            records, vectors, manifests, {}, split="FIT", frozen_insertions=frozen,
         )
 
 
@@ -185,7 +185,7 @@ def test_structural_identity_missing_required_full_logits_hard_aborts(runner):
     torch = pytest.importorskip("torch")
     cell_id = "FIT|mini|v|s0p0|base_to_donor"
     manifests = {
-        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "target_cells": [{"cell_id": cell_id, "split": "FIT", "directed_ids": ["d"]}],
         "control_cells": [],
         "structural_identities": [{
             "cell_id": cell_id, "left_arm": "joint", "right_arm": "score",
@@ -199,7 +199,7 @@ def test_structural_identity_missing_required_full_logits_hard_aborts(runner):
     }
     with pytest.raises(RuntimeError, match="full-logit evidence missing"):
         runner.structural_identity_failures(
-            records, vectors, manifests, {}, frozen_insertions=frozen,
+            records, vectors, manifests, {}, split="FIT", frozen_insertions=frozen,
         )
 
 
@@ -207,7 +207,7 @@ def test_structural_replay_arm_uses_captured_replay_full_logits(runner):
     torch = pytest.importorskip("torch")
     cell_id = "FIT|mini|v|s0p0|base_to_donor"
     manifests = {
-        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "target_cells": [{"cell_id": cell_id, "split": "FIT", "directed_ids": ["d"]}],
         "control_cells": [],
         "structural_identities": [{
             "cell_id": cell_id, "left_arm": "payload", "right_arm": "replay",
@@ -224,11 +224,53 @@ def test_structural_replay_arm_uses_captured_replay_full_logits(runner):
     with pytest.raises(RuntimeError, match="full-vocabulary identity"):
         runner.structural_identity_failures(
             records, vectors, manifests, {"x": {"full_logits": torch.ones(3)}},
-            frozen_insertions=frozen,
+            split="FIT", frozen_insertions=frozen,
         )
     with pytest.raises(RuntimeError, match="full-logit evidence missing"):
         runner.structural_identity_failures(
-            records, vectors, manifests, {}, frozen_insertions=frozen,
+            records, vectors, manifests, {}, split="FIT", frozen_insertions=frozen,
+        )
+
+
+def test_structural_check_filters_other_split_but_requires_current_split_direction(runner):
+    torch = pytest.importorskip("torch")
+    fit_cell = "FIT|mini|v|s0p0|base_to_donor"
+    select_cell = "SELECT|mini|v|s0p0|base_to_donor"
+    identities = [
+        {"cell_id": fit_cell, "left_arm": "joint", "right_arm": "score"},
+        {"cell_id": select_cell, "left_arm": "joint", "right_arm": "score"},
+    ]
+    manifests = {
+        "target_cells": [
+            {"cell_id": fit_cell, "split": "FIT", "directed_ids": ["fit-d"]},
+            {"cell_id": select_cell, "split": "SELECT", "directed_ids": ["select-d"]},
+        ],
+        "control_cells": [],
+        "structural_identities": identities,
+    }
+    records = [{
+        "directed_id": "fit-d", "arm": "score", "recipient_endpoint_id": "x",
+    }]
+    vectors = [
+        {"directed_id": "fit-d", "arm": arm, "full_logits": torch.zeros(3)}
+        for arm in ("joint", "score")
+    ]
+    frozen = {
+        ("fit-d", arm, site): torch.zeros(3)
+        for arm in ("joint", "score") for site in runner.TERM_NAMES
+    }
+    expected = ([], [{
+        "directed_id": "fit-d", "cell_id": fit_cell,
+        "left_arm": "joint", "right_arm": "score", "max_abs": 0.0,
+    }])
+    for order in (identities, list(reversed(identities))):
+        manifests["structural_identities"] = order
+        assert runner.structural_identity_failures(
+            records, vectors, manifests, {}, split="FIT", frozen_insertions=frozen,
+        ) == expected
+    with pytest.raises(RuntimeError, match="direction missing"):
+        runner.structural_identity_failures(
+            [], [], manifests, {}, split="FIT", frozen_insertions=frozen,
         )
 
 
@@ -263,7 +305,7 @@ def test_structural_inserted_mismatch_is_saved_and_independently_recomputed(runn
         for arm in ("joint", "score")
     ]
     failures, evidence = runner.structural_identity_failures(
-        records, vectors, manifests, {}, frozen_insertions=frozen,
+        records, vectors, manifests, {}, split="FIT", frozen_insertions=frozen,
     )
     assert failures == ["structural_identity:d:joint=score:1.0"]
     assert evidence == [{"directed_id": "d", **identity, "max_abs": 1.0}]

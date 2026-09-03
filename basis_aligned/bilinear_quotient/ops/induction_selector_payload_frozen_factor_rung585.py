@@ -79,6 +79,12 @@ ITERATION4_IMPLEMENTATION_REVIEW = POLY / (
 ITERATION4_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
     "test_induction_selector_payload_frozen_factor_rung585_iteration4_review_adversarial.py"
 )
+ITERATION5_IMPLEMENTATION_REVIEW = POLY / (
+    "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_ITERATION5_FINAL_PREEXECUTION_REVIEW.md"
+)
+ITERATION5_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
+    "test_induction_selector_payload_frozen_factor_rung585_iteration5_review_adversarial.py"
+)
 
 AUTHORITY_HASHES = {
     ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
@@ -107,6 +113,10 @@ AUTHORITY_HASHES = {
         "302e9ba506931e8513c5f069a332cc1445342ab282344269ee00b866a9e6a9fc",
     ITERATION4_IMPLEMENTATION_ADVERSARIAL_TEST:
         "29d8023ddbc56c70df7097394717d70fe7a2b6289fae0bce197f0d0e8f9eafd3",
+    ITERATION5_IMPLEMENTATION_REVIEW:
+        "6d8c82416e1c7c8eb831633feeb3905bb92a818ba0f1f71332f571c2ba945d39",
+    ITERATION5_IMPLEMENTATION_ADVERSARIAL_TEST:
+        "aaa01d044a0609aaee17371d7945d93e61e80241674c9bbc4e706880f83dab34",
 }
 
 SPLITS = ("FIT", "SELECT")
@@ -2463,7 +2473,7 @@ def score_split(records, split, manifests, fit_scales, *, replicates=BOOTSTRAPS)
 
 
 def structural_identity_failures(
-    records, vector_rows, manifests, replay, *, frozen_insertions=None,
+    records, vector_rows, manifests, replay, *, split, frozen_insertions=None,
 ):
     if frozen_insertions is None:
         raise RuntimeError("structural identity check requires frozen inserted terms")
@@ -2475,6 +2485,8 @@ def structural_identity_failures(
             cell for cell in (*manifests["target_cells"], *manifests["control_cells"])
             if cell["cell_id"] == identity["cell_id"]
         )
+        if cell["split"] != split:
+            continue
         for directed_id in cell["directed_ids"]:
             if (directed_id, "score") not in record_by_key:
                 raise RuntimeError(
@@ -3153,7 +3165,7 @@ def run_science() -> dict[str, object]:
         )
         structural, evidence = structural_identity_failures(
             split_records, split_vectors, execution["manifests"], all_replay,
-            frozen_insertions=frozen_insertions,
+            split=split, frozen_insertions=frozen_insertions,
         )
         current_failures["invalid_instrument"].extend(structural)
         current_failures["invalid_instrument"] = sorted(
