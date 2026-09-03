@@ -1,0 +1,30 @@
+{"stage": "heads_done", "t": 14.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.1}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "SPLIT8_L7FRAME_1024": 0.0392, "SPLIT8_L4FRAME_1024": 0.0439, "FINAL_ON_BUS_1024": 0.0386, "FINAL_OWN_1024": 0.032, "t": 19.0}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_bus_is_the_late_frame": true,
+  "pred_c_last4_frame_still_serves": true,
+  "pred_d_unembed_reads_through_the_bus": false,
+  "pred_e_bus_is_nearly_the_readout_frame": true
+ },
+ "nulls": {
+  "b_null_ge_.02": false,
+  "c_null_ge_.04": false,
+  "d_null_ge_.08": false,
+  "e_null_ge_.05": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "SPLIT8_L7FRAME_1024": 0.03915652632713318,
+  "SPLIT8_L4FRAME_1024": 0.04385578632354736,
+  "FINAL_ON_BUS_1024": 0.03857243061065674,
+  "FINAL_OWN_1024": 0.03201323747634888
+ },
+ "gaps": {
+  "l7_minus_u8": 0.0017695426940917969,
+  "l4_minus_u8": 0.0064688026905059814,
+  "final_on_bus_minus_final_own": 0.006559193134307861
+ }
+}

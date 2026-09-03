@@ -5204,3 +5204,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Consecutive early frames differ by a median 135 of ≤ 384 free angles > 30° (broad drift); the block-boundary embedding blend turns
   the frame 1.4–1.9× more than the within-block step; rotation toward the bus frame is monotone (Spearman −.985); the settled sites
   still differ from U_8 by ~108 angles > 30° at negligible CE — rotated directions are low-energy. Block 17 turns away from the bus.
+- §2758 bus_frame_identity_and_readout_probe (Claude, LANE 1 CUDA, 20 s, 480 GPU forwards): a, b, c, e TRUE; d FALSE (no null met).
+  The bus IS the late frame (late-7 frame serves blocks 8–17 for +.002; last-4 +.007); the unembed reads the full width: final input
+  projected onto the bus .039, onto its own top-1024 .032 (eff rank 25 — the low-energy tail carries ≈ .03 nat). Bus captures 90% of
+  the unembed Gram vs 87% for the final input's own frame.

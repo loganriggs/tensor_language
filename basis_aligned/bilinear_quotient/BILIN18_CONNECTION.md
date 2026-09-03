@@ -71006,3 +71006,36 @@ their inclusion in the bus at .002–.004 — the rotated directions carry littl
 (≤ 60) was set from the CE evidence and was wrong about the geometry; recorded as a bracket miss, not evidence of a hidden cost.
 (4) The final block rotates away from the bus (114/117 angles > 30°, up from 66–70 at block 14) — toward the readout frame, the
 natural next question (bus vs unembed row space). Failures preserved: c, d FALSE. Nothing installs into the §312 frontier (§2125).
+
+## §2758 — THE BUS IS THE LATE FRAME, BUT THE UNEMBED READS THE FULL WIDTH: serving blocks 8–17 with the late-7 frame (blocks 11–17) instead of their own averaged frame costs +.0018 (pred_b "≤ .005" TRUE; the two 1024-frames differ by 12 of ≤ 128 free angles > 30°), with the last-4 frame +.0065 (pred_c "≤ .015" TRUE); but projecting the FINAL rms-normed residual onto the bus before the lm_head costs .0386 (pred_d "≤ .030" FALSE by .009; null ≥ .08 not met) and onto its OWN top-1024 frame still .0320 — 128 dims cut from the readout's input cost as much as the entire 17-frame program, although the final input has effective rank 25 and the bus captures 98.8% of its energy (pred_e "bus − own ≤ .015" TRUE, +.0066); the bus captures 90.2% of the unembed's Gram energy, the final input's own frame only 86.7% (Claude, LANE 1 CUDA, 20 s, 480 GPU document-forwards): a, b, c, e TRUE; d FALSE; no null met. Preserved.
+
+Registered 2026-09-03 23:22Z (polynomial_causal/BUS_FRAME_IDENTITY_AND_READOUT_PROBE_PREREGISTRATION.md); landed 23:24Z. Script
+ops/bus_frame_identity_and_readout_probe.py; results bus_frame_identity_and_readout_probe_results.json (sha c89e65af…). Frozen:
+prereg, §2756 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63
+(FRESH split; fits docs 96–191) — LOWER IS BETTER. Construction: §2754's SPLIT8 read program at k = 1024 with the shared frame for
+blocks 8–17 taken as U_8 (blocks 8–17), U_L7 (blocks 11–17) or U_L4 (blocks 14–17); FINAL read patch x̂ ← x̄_f + UUᵀ(x̂ − x̄_f) on the
+rms-normed final residual (then re-normalised by the model's final norm), U = U_8 or the final input's own top-1024 U_f.
+Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739 (= §2754/§2756).
+
+| arm | CE added | gap |
+|---|---|---|
+| SPLIT8_1024 (shared frame U_8) | 0.0374 | — |
+| SPLIT8_L7FRAME_1024 (frame of blocks 11–17) | 0.0392 | +.0018 (b TRUE) |
+| SPLIT8_L4FRAME_1024 (frame of blocks 14–17) | 0.0439 | +.0065 (c TRUE) |
+| FINAL_ON_BUS_1024 (unembed input projected onto U_8) | 0.0386 | d: ≤ .030 FALSE |
+| FINAL_OWN_1024 (unembed input projected onto its own frame) | 0.0320 | e: bus − own = +.0066 TRUE |
+
+Captures at 1024: U_8 / U_L7 / U_L4 / U_f of the final input covariance .988 / .988 / .989 / .993; of the unembed Gram W_UᵀW_U
+.902 / .902 / .898 / .867. Final input eff rank 25.2. U_8 vs U_L7: 67 / 12 angles > 10° / > 30° of ≤ 128 free.
+
+What it says. (1) The bus frame is not an artefact of averaging blocks 8–17: the late-7 frame serves blocks 8–10 equally (+.002),
+and even the last-4 frame is within .007. The bus is "the late frame" (§2745 widened to 1024), and it is stable from block 11 on.
+(2) The unembed does NOT read through the bus — nor through any 1024-frame: the final input is spectrally tiny (eff rank 25, 99.3%
+of its energy in its own top-1024) yet removing its last 128 own directions costs .032 nat, as much as the whole 17-frame program.
+This is the §2748/§2752/§2756 readout side-channel seen from the unembed's side: the readout uses the full width, and the low-energy
+tail of the final residual carries ≈ .03 nat of readable information. pred_d's bar (.030) was set expecting the bus to nearly
+suffice; it missed by .009 — recorded as a bracket miss; the null (≥ .08) is not met, so "the unembed mostly reads inside the bus"
+survives in the weak form (90% of its Gram energy, .039 nat outside). (3) The bus captures MORE of the unembed's Gram (.902) than the
+final input's own frame does (.867): the late frame is aligned with what the unembed reads rather than with what the residual
+mostly contains — the frame is chosen by the readout's needs, not by input energy. Failure preserved: d FALSE. Nothing installs into
+the §312 frontier (§2125).
