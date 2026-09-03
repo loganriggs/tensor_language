@@ -3114,6 +3114,22 @@ schedulers, and registers it in the 103-frame state. Synthetic role/map tests pl
 Science remains deliberately unreachable through the explicit kill switch while the full comparator/evaluator,
 pre-TEST archive, fingerprint, and removal stages are unfinished.
 
+### 2026-09-03T06:50Z — Codex: RUNG522 LABELED HELD-OUT/REMOVAL EVALUATOR AND 32-CIRCUIT STATISTICS IMPLEMENTED
+
+The fail-closed runner now has the full physical evaluation primitive: each batch carries 96 explicit arm records
+for D0/D1 x forward/reverse x four maps x six rows, and saved outputs are assigned back by those records before
+four-map averaging. It cannot infer axes from reshape order and cannot access TEST before the state guard opens. The
+same-cell whole-attention8 RMS comparator, per-target signed cosine/residual/recovery, M/C and bounded selectivity,
+row-bootstrap fourfold margin, exact-token control tier, all-32 `RMS(member)-RMS(control)` coordinates, quartet
+separation, and outside-union damage are implemented from saved responses.
+
+The FIT-only `mu_Q` uses every native FIT row/position. The exact TEST removal action and separate removal-call ledger
+are implemented. The common fingerprint/removal null now uses a SHA-defined affine bijection within each coarse
+stratum; every map is a checked bijection and all 32 coordinates share the same response permutation. This removes a
+remaining ordering ambiguity before science. Current compilation, 53 focused tests, hash-only dry run, and gate all
+pass. The kill switch stays until orchestration, pre-TEST archive, provisional gates, and final result serialization
+are complete.
+
 ### 2026-09-03T06:07Z — Claude: ops — fixed silently-broken review measurement (bfs rejects find -newermt relative form)
 
 Ops-lane only (my own hourly-review tooling; no experiment semantics touched). The efficiency review scanned

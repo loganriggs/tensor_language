@@ -1296,6 +1296,82 @@ def outside_union_damage(
     }
 
 
+def fingerprint_null_distribution(
+    response: torch.Tensor,
+    pairs_by_target: Mapping[str, TargetPairs],
+    data: dict,
+    descriptors: Mapping[str, torch.Tensor],
+    split: str,
+    *,
+    cell_id: str,
+    replicates: int = 20_000,
+) -> dict[str, object]:
+    """Common-response coarse-stratum null for the 32-circuit max statistic."""
+    if not isinstance(replicates, int) or not 1 <= replicates <= 20_000:
+        raise ValueError("fingerprint null replicates must lie in 1..20000")
+    rows = data["row_masks"][split].nonzero().flatten()
+    if tuple(response.shape) != (rows.numel(), TOKENS) or response.device.type != "cpu":
+        raise ValueError("fingerprint-null response does not match its CPU split")
+    global_positions = (
+        rows[:, None] * TOKENS + torch.arange(TOKENS, dtype=torch.int64)[None, :]
+    ).reshape(-1)
+    row_to_local = torch.full((1000,), -1, dtype=torch.int64)
+    row_to_local[rows] = torch.arange(rows.numel())
+    local_pairs = {
+        target: (
+            _split_local_indices(pairs.members, row_to_local),
+            _split_local_indices(pairs.controls, row_to_local),
+        )
+        for target, pairs in pairs_by_target.items()
+    }
+    flat = response.reshape(-1).double()
+    samples = torch.empty(replicates, dtype=torch.float64)
+    permutation_hashes = []
+    for replicate in range(replicates):
+        permutation = protocol.stratified_affine_permutation(
+            global_positions,
+            token_classes=descriptors["token_class"][global_positions],
+            position_bins=descriptors["position_bin"][global_positions],
+            ce_deciles=descriptors["ce_decile"][global_positions],
+            cell_id=cell_id,
+            replicate=replicate,
+        )
+        donor_indices = torch.tensor(permutation.donor_indices, dtype=torch.int64)
+        shuffled = flat[donor_indices]
+        coordinates = {}
+        for target in stage_a.FINGERPRINT_TAGS:
+            member_indices, control_indices = local_pairs[target]
+            coordinates[target] = float(
+                shuffled[member_indices].square().mean().sqrt()
+                - shuffled[control_indices].square().mean().sqrt()
+            )
+        samples[replicate] = min(coordinates[target] for target in QUARTET_TAGS) - max(
+            coordinates[target]
+            for target in stage_a.FINGERPRINT_TAGS
+            if target not in QUARTET_TAGS
+        )
+        permutation_hashes.append(permutation.sha256)
+    observed_coordinates = fingerprint_coordinates(response, pairs_by_target, row_to_local)
+    observed = quartet_separation(observed_coordinates)["separation"]
+    q95 = protocol.higher_quantile(samples, 0.95)
+    digest = hashlib.sha256()
+    digest.update(samples.contiguous().numpy().tobytes())
+    for value in permutation_hashes:
+        digest.update(value.encode())
+    return {
+        "cell_id": cell_id,
+        "replicates": replicates,
+        "observed_separation": observed,
+        "null_q95_higher": q95,
+        "observed_positive": observed > 0,
+        "observed_strictly_above_q95": observed > q95,
+        "passes": bool(observed > 0 and observed > q95),
+        "null_samples_sha256": digest.hexdigest(),
+        "first_permutation_sha256": permutation_hashes[0],
+        "last_permutation_sha256": permutation_hashes[-1],
+    }
+
+
 def main(argv: list[str] | None = None) -> dict[str, object]:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)

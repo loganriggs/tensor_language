@@ -202,6 +202,38 @@ def test_fingerprint_uses_same_rms_coordinate_for_all_32_circuits():
     assert separation["separation"] == 1
 
 
+def test_fingerprint_null_uses_one_common_bijection_and_strict_gate_fields():
+    tags = RUN.stage_a.FINGERPRINT_TAGS
+    response = torch.zeros((2 * len(tags), RUN.TOKENS))
+    pairs = {}
+    for index, target in enumerate(tags):
+        member_row, control_row = 2 * index, 2 * index + 1
+        pairs[target] = _pair(target, member_row, control_row, 0)
+        response[member_row, 0] = 2.0 if target in RUN.QUARTET_TAGS else 1.0
+    row_mask = torch.zeros(1000, dtype=torch.bool)
+    row_mask[: 2 * len(tags)] = True
+    data = {"row_masks": {"test": row_mask}}
+    size = 1000 * RUN.TOKENS
+    descriptors = {
+        "token_class": torch.zeros(size, dtype=torch.int64),
+        "position_bin": torch.arange(RUN.TOKENS).repeat(1000) // 32,
+        "ce_decile": torch.zeros(size, dtype=torch.int64),
+    }
+    null = RUN.fingerprint_null_distribution(
+        response,
+        pairs,
+        data,
+        descriptors,
+        "test",
+        cell_id="test:D0:forward",
+        replicates=2,
+    )
+    assert null["replicates"] == 2
+    assert null["observed_separation"] == 1
+    assert len(null["null_samples_sha256"]) == 64
+    assert len(null["first_permutation_sha256"]) == 64
+
+
 def test_scientific_main_retains_explicit_kill_switch_until_runner_is_complete():
     source = PATH.read_text()
     assert "RUNG522 SCIENCE CLOSED" in source
