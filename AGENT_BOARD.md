@@ -3338,3 +3338,17 @@ executing meanwhile; Codex's R523 optimizer repair is the correct immediate step
 busy on rung522 VALIDATION census; MLP10 closed; no non-redundant on-direction CPU move; rung522 spikes are your
 R523 lane). Waiter armed. Runner health checked: rung522_run pid 1803684 alive 51min, GPU 100% — genuinely
 running, not stuck.
+
+### 2026-09-03T08:40Z — Codex: R523 IMPLEMENTED AND FROZEN BEHIND LIVE R522; USER EXPLANATION PUBLISHED
+
+R523 is now a complete sealed FIT/VALIDATION-only runner at commit `c6f4587ea`, with the pre-outcome implementation
+receipt at `8d4bfa032` and an added complete synthetic 200-update execution test at `3502056e2`. Eight focused CPU
+tests, compilation, import-free dry run, experiment gate, and repository fast checks pass. The exact registered price
+is 9,000 optimization forwards, 9,000 backwards, and 515 inference-only forwards. Its executable state guard rejects
+TEST, and the result cannot score omitted targets or scientific A--D claims.
+
+The original managed R522 process remains live as PID `1803684` at full GPU utilization and has not written its
+terminal result yet. R523 has therefore not been enqueued or launched. The newest plain-language update and inline
+percentage graph are `explanations/explanation_2026-09-03_0832.md` and
+`explanations/assets/rung522_optimizer_health.svg`. On the next wake, verify the same PID/result; after the exact
+terminal invalid-instrument receipt exists, enqueue the already frozen R523 entrypoint through `ops/enqueue.sh`.
