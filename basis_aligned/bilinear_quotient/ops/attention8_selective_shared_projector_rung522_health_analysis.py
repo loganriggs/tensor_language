@@ -84,6 +84,18 @@ def _summarize_group(
         _finite_number(record.health_record_payload, "orthonormality_error")
         for record in records
     ]
+    histories = []
+    for record in records:
+        raw_history = record.fit_record_payload.get("loss_history")
+        if not isinstance(raw_history, list) or len(raw_history) != 200:
+            raise ValueError("fit record has no exact 200-update loss history")
+        histories.append([float(value) for value in raw_history])
+    maxima = [max(history) for history in histories]
+    medians = [statistics.median(history) for history in histories]
+    best_window_starts = []
+    for history in histories:
+        windows = [sum(history[start:start + 20]) / 20 for start in range(181)]
+        best_window_starts.append(min(range(len(windows)), key=windows.__getitem__))
     return {
         "frame_count": len(records),
         "healthy_count": healthy,
@@ -105,6 +117,22 @@ def _summarize_group(
         ),
         "median_projector_distance_from_initialization": statistics.median(distance),
         "maximum_orthonormality_error": max(orthonormality),
+        "median_frame_maximum_loss": statistics.median(maxima),
+        "maximum_loss": max(maxima),
+        "median_frame_maximum_to_median_loss_ratio": statistics.median(
+            maximum / max(median, 1e-30)
+            for maximum, median in zip(maxima, medians, strict=True)
+        ),
+        "frames_with_loss_above_10": sum(maximum > 10 for maximum in maxima),
+        "frames_with_loss_above_100": sum(maximum > 100 for maximum in maxima),
+        "frames_with_loss_above_1000": sum(maximum > 1000 for maximum in maxima),
+        "median_best_20_update_start": statistics.median(best_window_starts),
+        "best_20_update_start_minimum": min(best_window_starts),
+        "best_20_update_start_maximum": max(best_window_starts),
+        "frames_with_first_window_mean_above_twice_first_window_median": sum(
+            (sum(history[:20]) / 20) > 2 * max(statistics.median(history[:20]), 1e-30)
+            for history in histories
+        ),
     }
 
 

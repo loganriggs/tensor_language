@@ -1,0 +1,357 @@
+{
+  "archive_content_sha256": "20a9f857ccc8c13733d8ec892b18c3dc79b6cfa60fa7bc520ce4cdca08a5f51f",
+  "archive_file_sha256": "2b8d3709714903890c4ae935a07da7284ac3253b7b2242d055023b33adeca2bb",
+  "by_family": {
+    "all_three": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 3,
+        "validation_not_better_than_initialization": 4
+      },
+      "frame_count": 5,
+      "healthy_count": 1,
+      "healthy_percent": 20.0,
+      "maximum_orthonormality_error": 1.1920928955078125e-06,
+      "median_final_training_window": 8.259601736068726,
+      "median_final_validation_objective": 1.1720503568649292,
+      "median_initial_training_window": 72.22573201358318,
+      "median_initial_validation_objective": 1.0300356149673462,
+      "median_projector_distance_from_initialization": 2.8097422122955322,
+      "median_training_window_change_final_minus_initial": 3.1574104130268097,
+      "median_validation_change_final_minus_initial": 0.142958402633667
+    },
+    "label_null": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 36,
+        "validation_not_better_than_initialization": 31
+      },
+      "frame_count": 48,
+      "healthy_count": 4,
+      "healthy_percent": 8.333333333333334,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 14.431525109708309,
+      "median_final_validation_objective": 1.1083961129188538,
+      "median_initial_training_window": 4.796084679663181,
+      "median_initial_validation_objective": 1.0334736108779907,
+      "median_projector_distance_from_initialization": 2.8135056495666504,
+      "median_training_window_change_final_minus_initial": 5.33111569583416,
+      "median_validation_change_final_minus_initial": 0.05322819948196411
+    },
+    "real_leave_one_out": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 11,
+        "validation_not_better_than_initialization": 10
+      },
+      "frame_count": 15,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.4901161193847656e-06,
+      "median_final_training_window": 11.230666321516036,
+      "median_final_validation_objective": 1.0540121793746948,
+      "median_initial_training_window": 3.0647035986185074,
+      "median_initial_validation_objective": 1.0266505479812622,
+      "median_projector_distance_from_initialization": 2.808375597000122,
+      "median_training_window_change_final_minus_initial": 8.495165905356407,
+      "median_validation_change_final_minus_initial": 0.03215599060058594
+    },
+    "recovery_only": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 12,
+        "validation_not_better_than_initialization": 6
+      },
+      "frame_count": 15,
+      "healthy_count": 1,
+      "healthy_percent": 6.666666666666667,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 2.4823717415332793,
+      "median_final_validation_objective": 1.0209842920303345,
+      "median_initial_training_window": 1.1911198258399964,
+      "median_initial_validation_objective": 1.0157746076583862,
+      "median_projector_distance_from_initialization": 2.809697389602661,
+      "median_training_window_change_final_minus_initial": 1.3217476993799209,
+      "median_validation_change_final_minus_initial": -0.010117888450622559
+    },
+    "target_oracle": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 15,
+        "validation_not_better_than_initialization": 14
+      },
+      "frame_count": 20,
+      "healthy_count": 2,
+      "healthy_percent": 10.0,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 1.6596113987267018,
+      "median_final_validation_objective": 1.0332959294319153,
+      "median_initial_training_window": 1.0999439373612403,
+      "median_initial_validation_objective": 0.9990421533584595,
+      "median_projector_distance_from_initialization": 2.8105010986328125,
+      "median_training_window_change_final_minus_initial": 0.41542035304009906,
+      "median_validation_change_final_minus_initial": 0.03868553042411804
+    }
+  },
+  "by_family_and_target": {
+    "all_three:all_three_fitted_targets": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 3,
+        "validation_not_better_than_initialization": 4
+      },
+      "frame_count": 5,
+      "healthy_count": 1,
+      "healthy_percent": 20.0,
+      "maximum_orthonormality_error": 1.1920928955078125e-06,
+      "median_final_training_window": 8.259601736068726,
+      "median_final_validation_objective": 1.1720503568649292,
+      "median_initial_training_window": 72.22573201358318,
+      "median_initial_validation_objective": 1.0300356149673462,
+      "median_projector_distance_from_initialization": 2.8097422122955322,
+      "median_training_window_change_final_minus_initial": 3.1574104130268097,
+      "median_validation_change_final_minus_initial": 0.142958402633667
+    },
+    "label_null:r.2.0.2": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 13,
+        "validation_not_better_than_initialization": 10
+      },
+      "frame_count": 16,
+      "healthy_count": 1,
+      "healthy_percent": 6.25,
+      "maximum_orthonormality_error": 9.5367431640625e-07,
+      "median_final_training_window": 30.963070361316205,
+      "median_final_validation_objective": 1.1014233827590942,
+      "median_initial_training_window": 5.608871448040008,
+      "median_initial_validation_objective": 1.030380666255951,
+      "median_projector_distance_from_initialization": 2.8138747215270996,
+      "median_training_window_change_final_minus_initial": 16.118766076862812,
+      "median_validation_change_final_minus_initial": 0.07420217990875244
+    },
+    "label_null:r.2.1.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 9,
+        "validation_not_better_than_initialization": 12
+      },
+      "frame_count": 16,
+      "healthy_count": 2,
+      "healthy_percent": 12.5,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 8.196000604331493,
+      "median_final_validation_objective": 1.147110641002655,
+      "median_initial_training_window": 7.145138502120972,
+      "median_initial_validation_objective": 1.035188913345337,
+      "median_projector_distance_from_initialization": 2.814972758293152,
+      "median_training_window_change_final_minus_initial": 0.9836106151342383,
+      "median_validation_change_final_minus_initial": 0.09487903118133545
+    },
+    "label_null:r.2.2.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 14,
+        "validation_not_better_than_initialization": 9
+      },
+      "frame_count": 16,
+      "healthy_count": 1,
+      "healthy_percent": 6.25,
+      "maximum_orthonormality_error": 9.5367431640625e-07,
+      "median_final_training_window": 26.597824454307556,
+      "median_final_validation_objective": 1.0988693833351135,
+      "median_initial_training_window": 3.6582875922322273,
+      "median_initial_validation_objective": 1.0371030569076538,
+      "median_projector_distance_from_initialization": 2.811758279800415,
+      "median_training_window_change_final_minus_initial": 15.136778526008127,
+      "median_validation_change_final_minus_initial": 0.044997453689575195
+    },
+    "real_leave_one_out:r.2.0.2": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 3,
+        "validation_not_better_than_initialization": 3
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 5.912006425857544,
+      "median_final_validation_objective": 1.0541585683822632,
+      "median_initial_training_window": 41.325936508178714,
+      "median_initial_validation_objective": 1.0266505479812622,
+      "median_projector_distance_from_initialization": 2.8084754943847656,
+      "median_training_window_change_final_minus_initial": 0.8053921580314629,
+      "median_validation_change_final_minus_initial": 0.03215599060058594
+    },
+    "real_leave_one_out:r.2.1.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 4,
+        "validation_not_better_than_initialization": 4
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.4901161193847656e-06,
+      "median_final_training_window": 11.559869503974914,
+      "median_final_validation_objective": 1.0540121793746948,
+      "median_initial_training_window": 1.4238325357437134,
+      "median_initial_validation_objective": 1.0004957914352417,
+      "median_projector_distance_from_initialization": 2.8070321083068848,
+      "median_training_window_change_final_minus_initial": 8.495165905356407,
+      "median_validation_change_final_minus_initial": 0.08538234233856201
+    },
+    "real_leave_one_out:r.2.2.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 4,
+        "validation_not_better_than_initialization": 3
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.0728836059570312e-06,
+      "median_final_training_window": 11.392291122674942,
+      "median_final_validation_objective": 1.0440120697021484,
+      "median_initial_training_window": 2.5349347323179243,
+      "median_initial_validation_objective": 1.0300153493881226,
+      "median_projector_distance_from_initialization": 2.816693067550659,
+      "median_training_window_change_final_minus_initial": 9.061080381274223,
+      "median_validation_change_final_minus_initial": 0.006738424301147461
+    },
+    "recovery_only:r.2.0.2": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 3,
+        "validation_not_better_than_initialization": 3
+      },
+      "frame_count": 5,
+      "healthy_count": 1,
+      "healthy_percent": 20.0,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 2.929240992665291,
+      "median_final_validation_objective": 1.0664277076721191,
+      "median_initial_training_window": 1.252476415038109,
+      "median_initial_validation_objective": 1.0157746076583862,
+      "median_projector_distance_from_initialization": 2.811004161834717,
+      "median_training_window_change_final_minus_initial": 1.743219691514969,
+      "median_validation_change_final_minus_initial": 0.013291716575622559
+    },
+    "recovery_only:r.2.1.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 4,
+        "validation_not_better_than_initialization": 1
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.2516975402832031e-06,
+      "median_final_training_window": 1.152136242389679,
+      "median_final_validation_objective": 1.0105394124984741,
+      "median_initial_training_window": 1.0888719111680984,
+      "median_initial_validation_objective": 0.9977971315383911,
+      "median_projector_distance_from_initialization": 2.8129632472991943,
+      "median_training_window_change_final_minus_initial": 0.05994844734668736,
+      "median_validation_change_final_minus_initial": -0.010117888450622559
+    },
+    "recovery_only:r.2.2.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 5,
+        "validation_not_better_than_initialization": 2
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.0728836059570312e-06,
+      "median_final_training_window": 4.587255269289017,
+      "median_final_validation_objective": 1.017020344734192,
+      "median_initial_training_window": 1.2525232076644897,
+      "median_initial_validation_objective": 1.0157746076583862,
+      "median_projector_distance_from_initialization": 2.8082261085510254,
+      "median_training_window_change_final_minus_initial": 3.4406029134988785,
+      "median_validation_change_final_minus_initial": -0.07470548152923584
+    },
+    "target_oracle:r.2.0.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 2,
+        "validation_not_better_than_initialization": 2
+      },
+      "frame_count": 5,
+      "healthy_count": 2,
+      "healthy_percent": 40.0,
+      "maximum_orthonormality_error": 1.3113021850585938e-06,
+      "median_final_training_window": 1.0211947202682494,
+      "median_final_validation_objective": 0.9783052802085876,
+      "median_initial_training_window": 1.030154401063919,
+      "median_initial_validation_objective": 0.9924891591072083,
+      "median_projector_distance_from_initialization": 2.8103983402252197,
+      "median_training_window_change_final_minus_initial": -0.008959680795669556,
+      "median_validation_change_final_minus_initial": -0.033666908740997314
+    },
+    "target_oracle:r.2.0.2": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 5,
+        "validation_not_better_than_initialization": 4
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 1.0728836059570312e-06,
+      "median_final_training_window": 2.8343412548303606,
+      "median_final_validation_objective": 1.0829143524169922,
+      "median_initial_training_window": 1.0211776912212371,
+      "median_initial_validation_objective": 0.9962428212165833,
+      "median_projector_distance_from_initialization": 2.810638427734375,
+      "median_training_window_change_final_minus_initial": 1.6668737173080446,
+      "median_validation_change_final_minus_initial": 0.038508057594299316
+    },
+    "target_oracle:r.2.1.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 4,
+        "validation_not_better_than_initialization": 5
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 8.344650268554688e-07,
+      "median_final_training_window": 2.4034590397030113,
+      "median_final_validation_objective": 1.0863419771194458,
+      "median_initial_training_window": 1.315226709842682,
+      "median_initial_validation_objective": 1.015436053276062,
+      "median_projector_distance_from_initialization": 2.811509847640991,
+      "median_training_window_change_final_minus_initial": 0.1898434940725564,
+      "median_validation_change_final_minus_initial": 0.05313432216644287
+    },
+    "target_oracle:r.2.2.1": {
+      "failure_reason_counts": {
+        "final_window_not_below_initial_window": 4,
+        "validation_not_better_than_initialization": 3
+      },
+      "frame_count": 5,
+      "healthy_count": 0,
+      "healthy_percent": 0.0,
+      "maximum_orthonormality_error": 8.344650268554688e-07,
+      "median_final_training_window": 1.67693849503994,
+      "median_final_validation_objective": 1.019102931022644,
+      "median_initial_training_window": 1.1235607892274857,
+      "median_initial_validation_objective": 1.0002329349517822,
+      "median_projector_distance_from_initialization": 2.809633255004883,
+      "median_training_window_change_final_minus_initial": 0.6190009355545045,
+      "median_validation_change_final_minus_initial": 0.018869996070861816
+    }
+  },
+  "interpretation_rule": {
+    "final_window_not_below_initial_window": "the rotating FIT objective did not improve from its first to last 20 updates",
+    "nonfinite_loss": "at least one optimization loss was not finite",
+    "orthonormality": "the stored columns ceased to define a valid orthonormal frame",
+    "projector_did_not_move": "the learned projector stayed too close to initialization",
+    "validation_not_better_than_initialization": "the fixed VALIDATION objective did not improve over the seeded initial frame"
+  },
+  "overall": {
+    "failure_reason_counts": {
+      "final_window_not_below_initial_window": 77,
+      "validation_not_better_than_initialization": 65
+    },
+    "frame_count": 103,
+    "healthy_count": 8,
+    "healthy_percent": 7.766990291262136,
+    "maximum_orthonormality_error": 1.4901161193847656e-06,
+    "median_final_training_window": 7.106332490593195,
+    "median_final_validation_objective": 1.0506362915039062,
+    "median_initial_training_window": 2.4980298668146133,
+    "median_initial_validation_objective": 1.0266505479812622,
+    "median_projector_distance_from_initialization": 2.811049699783325,
+    "median_training_window_change_final_minus_initial": 2.3317527830600735,
+    "median_validation_change_final_minus_initial": 0.038508057594299316
+  },
+  "schema": "rung522-health-analysis-v1",
+  "scientific_scope": "optimizer-health diagnosis only; an unhealthy frame is an invalid instrument, not evidence that the circuit hypothesis is false"
+}

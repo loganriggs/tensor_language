@@ -41,6 +41,9 @@ def _record(spec, *, healthy: bool, failures: tuple[str, ...], shift: float):
             "projector_distance_from_initialization": 0.5,
             "orthonormality_error": 1e-7,
         },
+        fit_record_payload={
+            "loss_history": [2.0 + shift * index / 199 for index in range(200)]
+        },
     )
 
 
@@ -72,6 +75,8 @@ def test_summary_separates_families_targets_and_failure_mechanisms():
         "target_oracle:r.2.0.1"
     ]["frame_count"] == 5
     assert result["scientific_scope"].startswith("optimizer-health diagnosis only")
+    assert result["overall"]["maximum_loss"] > 2
+    assert result["overall"]["median_best_20_update_start"] in (0, 161, 180)
 
 
 def test_lower_objective_change_is_reported_as_improvement():
@@ -82,3 +87,18 @@ def test_lower_objective_change_is_reported_as_improvement():
     ])
     assert summary["median_validation_change_final_minus_initial"] == pytest.approx(-0.375)
     assert summary["median_training_window_change_final_minus_initial"] == pytest.approx(-0.375)
+
+
+def test_spikes_and_best_window_location_are_reported_from_exact_histories():
+    spec = next(iter(GUARD.EXPECTED_FRAME_SPECS.values()))
+    record = _record(spec, healthy=False, failures=(
+        "final_window_not_below_initial_window",
+    ), shift=0.1)
+    record.fit_record_payload["loss_history"][5] = 1001.0
+    summary = ANALYSIS._summarize_group([record])
+    assert summary["frames_with_loss_above_10"] == 1
+    assert summary["frames_with_loss_above_100"] == 1
+    assert summary["frames_with_loss_above_1000"] == 1
+    assert summary[
+        "frames_with_first_window_mean_above_twice_first_window_median"
+    ] == 1
