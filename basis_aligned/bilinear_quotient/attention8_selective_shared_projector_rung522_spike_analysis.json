@@ -1,0 +1,3481 @@
+{
+  "archive_content_sha256": "20a9f857ccc8c13733d8ec892b18c3dc79b6cfa60fa7bc520ce4cdca08a5f51f",
+  "archive_file_sha256": "2b8d3709714903890c4ae935a07da7284ac3253b7b2242d055023b33adeca2bb",
+  "by_donor_map": {
+    "0": {
+      "spike_percent": 1.7475728155339805,
+      "spikes": 90,
+      "visits": 5150
+    },
+    "1": {
+      "spike_percent": 2.0776699029126213,
+      "spikes": 107,
+      "visits": 5150
+    },
+    "2": {
+      "spike_percent": 1.2621359223300972,
+      "spikes": 65,
+      "visits": 5150
+    },
+    "3": {
+      "spike_percent": 2.2718446601941746,
+      "spikes": 117,
+      "visits": 5150
+    }
+  },
+  "by_fit_family": {
+    "all_three": {
+      "spike_percent": 2.8,
+      "spikes": 28,
+      "visits": 1000
+    },
+    "label_null": {
+      "spike_percent": 2.7604166666666665,
+      "spikes": 265,
+      "visits": 9600
+    },
+    "real_leave_one_out": {
+      "spike_percent": 2.1333333333333333,
+      "spikes": 64,
+      "visits": 3000
+    },
+    "recovery_only": {
+      "spike_percent": 0.43333333333333335,
+      "spikes": 13,
+      "visits": 3000
+    },
+    "target_oracle": {
+      "spike_percent": 0.225,
+      "spikes": 9,
+      "visits": 4000
+    }
+  },
+  "by_maximizing_target": {
+    "r.2.0.1": {
+      "spike_percent": 0.0,
+      "spikes": 0,
+      "visits": 1000
+    },
+    "r.2.0.2": {
+      "spike_percent": 1.0763710917478215,
+      "spikes": 63,
+      "visits": 5853
+    },
+    "r.2.1.1": {
+      "spike_percent": 2.204209328782708,
+      "spikes": 155,
+      "visits": 7032
+    },
+    "r.2.2.1": {
+      "spike_percent": 2.3976172747580047,
+      "spikes": 161,
+      "visits": 6715
+    }
+  },
+  "event_count": 20600,
+  "first_spike_update_maximum": 196,
+  "first_spike_update_median": 40.5,
+  "first_spike_update_minimum": 1,
+  "fit_count": 103,
+  "fits_with_a_spike": 84,
+  "interpretation": "recurrence across different fits on the same target/member-row/control-row/map combination supports a row-scale or donor-specific objective problem; recurrence within one fit can instead reflect optimizer state. Neither observation by itself distinguishes a small full-response denominator from an extreme projected response",
+  "patterns_spiking_in_every_fit_that_saw_them": 87,
+  "patterns_spiking_in_multiple_fits": 110,
+  "repeated_patterns_with_100_percent_spike_rate": 87,
+  "repeated_target_map_member_row_patterns": [
+    {
+      "control_rows": [
+        72
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 5,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        739
+      ],
+      "spike_percent": 100.0,
+      "spikes": 5,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        996
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 5,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        357
+      ],
+      "spike_percent": 100.0,
+      "spikes": 5,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        504
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        437
+      ],
+      "spike_percent": 100.0,
+      "spikes": 3,
+      "target": "r.2.0.2",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        775
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        87
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        303
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        229
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        265
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        413
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        454
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        421
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        822
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        782
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        943
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        949
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        424
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        521
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        512
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        827
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        541
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        888
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        179
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        817
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        265
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        817
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        292
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        376
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        656
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        967
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        431
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        94
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        720
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        309
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        980
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        309
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        109
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        728
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        114
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        103
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        32
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        169
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        758
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        177
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        394
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        361
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        437
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        791
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        577
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        301
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        843
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        936
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        863
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        641
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        865
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        120
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        14
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        279
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        120
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        138
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        282
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        698
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        364
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        844
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        521
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        990
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        521
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        786
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        748
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        534
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        65
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        72
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        143
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        491
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        143
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        670
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        143
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        876
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        143
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        541
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        155
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        343
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        197
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        970
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        197
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        189
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        207
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        325
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        353
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        757
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        466
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        575
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        498
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        425
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        754
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        591
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        754
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        624
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        754
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        465
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        0
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        340
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        179
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        379
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        179
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        844
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        179
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        226
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        184
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        167
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        272
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        862
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        388
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        670
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        653
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        827
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        785
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        815
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        907
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        277
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        66
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        409
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        252
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        569
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        430
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        711
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        479
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        431
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        554
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        307
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        899
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        284
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        197
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        566
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        285
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        215
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        320
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        587
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        320
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        950
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        320
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        766
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        376
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        940
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        376
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        477
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        484
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        618
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        580
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        447
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        752
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        309
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        218
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        460
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        264
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        506
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        347
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        151
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        373
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        496
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        373
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        576
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        563
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        569
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        795
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        771
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        478
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        996
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        872
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        996
+      ],
+      "spike_percent": 100.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        153
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        505
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        258
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        505
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        152
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        357
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        157
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        907
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        567
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        907
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        502
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 4,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        697
+      ],
+      "spike_percent": 80.0,
+      "spikes": 4,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        180
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        419
+      ],
+      "spike_percent": 75.0,
+      "spikes": 3,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        728
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        154
+      ],
+      "spike_percent": 75.0,
+      "spikes": 3,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        769
+      ],
+      "spike_percent": 75.0,
+      "spikes": 3,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        424
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        469
+      ],
+      "spike_percent": 60.0,
+      "spikes": 3,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        51
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        169
+      ],
+      "spike_percent": 60.0,
+      "spikes": 3,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        768
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        419
+      ],
+      "spike_percent": 60.0,
+      "spikes": 3,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        566
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 3,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        907
+      ],
+      "spike_percent": 60.0,
+      "spikes": 3,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        157
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        267
+      ],
+      "spike_percent": 50.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        924
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        859
+      ],
+      "spike_percent": 50.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        821
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        995
+      ],
+      "spike_percent": 50.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        188
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        859
+      ],
+      "spike_percent": 50.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        447
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        833
+      ],
+      "spike_percent": 50.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        119
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        88
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        276
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        130
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        919
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        166
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        151
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        169
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        420
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        423
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        173
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        949
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        444
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        119
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        98
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        229
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        907
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        505
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        657
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        220
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        954
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        460
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        580
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        480
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        770
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        483
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        718
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        505
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        468
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        619
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        315
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        833
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        762
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        33
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        598
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        231
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        534
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        573
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        827
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        573
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        666
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        682
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        868
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        893
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        333
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        103
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        927
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        103
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        165
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        169
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        46
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        408
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        193
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        505
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        943
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        567
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        440
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        775
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        254
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        899
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        193
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        948
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        410
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        120
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        489
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        361
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        849
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        456
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        466
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        115
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        488
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        306
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        521
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        847
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        521
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        909
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        937
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        718
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        33
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        566
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        207
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        948
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        207
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        152
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        208
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        749
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        347
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        442
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        353
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        479
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        406
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        545
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        456
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        284
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        719
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        719
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        766
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        750
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        233
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        759
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        277
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        795
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        398
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        795
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        937
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        800
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        720
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        883
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        934
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        883
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        87
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        447
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        105
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        858
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        105
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        444
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        179
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        734
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        179
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        849
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        441
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        832
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        454
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        468
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        496
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        908
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        526
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        431
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        618
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        366
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        822
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        49
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        834
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        52
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        72
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        665
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        94
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        146
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        193
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        55
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        364
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        630
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        430
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        32
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        496
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        656
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        656
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        590
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        948
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        425
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        193
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        307
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        263
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        549
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        630
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        468
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        713
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        700
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        733
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        366
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        105
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        550
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        170
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        45
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        299
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        280
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        373
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        260
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        506
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        49
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        619
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        114
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        935
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        533
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        959
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        73
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        996
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        152
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 2,
+      "member_rows": [
+        996
+      ],
+      "spike_percent": 50.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 2
+    },
+    {
+      "control_rows": [
+        72
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        469
+      ],
+      "spike_percent": 40.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        969
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        437
+      ],
+      "spike_percent": 40.0,
+      "spikes": 2,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        548
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        795
+      ],
+      "spike_percent": 40.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        6
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        980
+      ],
+      "spike_percent": 40.0,
+      "spikes": 2,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        549
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 2,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        154
+      ],
+      "spike_percent": 40.0,
+      "spikes": 2,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        49
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        225
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        776
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        530
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        307
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        309
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        408
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        501
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        489
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        656
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        718
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 3,
+      "member_rows": [
+        656
+      ],
+      "spike_percent": 33.333333333333336,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 3
+    },
+    {
+      "control_rows": [
+        440
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        200
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        263
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        48
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        780
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        859
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        763
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        355
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        825
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        832
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        787
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        580
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        477
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        869
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        55
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        530
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        630
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 4,
+      "member_rows": [
+        484
+      ],
+      "spike_percent": 25.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 4
+    },
+    {
+      "control_rows": [
+        712
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        431
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        267
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        211
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        444
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        469
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.0.2",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        12
+      ],
+      "donor_map_index": 0,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        788
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        409
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        277
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        414
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        980
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        626
+      ],
+      "donor_map_index": 2,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        620
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        781
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        479
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        728
+      ],
+      "donor_map_index": 3,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 5,
+      "member_rows": [
+        769
+      ],
+      "spike_percent": 20.0,
+      "spikes": 1,
+      "target": "r.2.2.1",
+      "visits": 5
+    },
+    {
+      "control_rows": [
+        188
+      ],
+      "donor_map_index": 1,
+      "fits_with_a_spike": 1,
+      "fits_with_pattern": 9,
+      "member_rows": [
+        641
+      ],
+      "spike_percent": 11.11111111111111,
+      "spikes": 1,
+      "target": "r.2.1.1",
+      "visits": 9
+    }
+  ],
+  "schema": "rung522-scheduled-spike-analysis-v1",
+  "spike_count": 379,
+  "spike_percent": 1.8398058252427185,
+  "threshold_strictly_above": 100.0
+}
