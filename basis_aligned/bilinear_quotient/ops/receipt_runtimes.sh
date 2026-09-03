@@ -10,7 +10,7 @@ MIN="${1:-75}"
 BQ="$(cd "$(dirname "$0")/.." && pwd)"
 since="$(date -u -d "${MIN} minutes ago" '+%Y-%m-%d %H:%M:%S')"
 find "$BQ" -maxdepth 1 -name "*_results.json" -newermt "$since" 2>/dev/null | while read -r f; do
-  rt=$(python3 -c "import json,sys;d=json.load(open(sys.argv[1]));r=d.get('runtime_s') or (d.get('execution_price') or {}).get('runtime_seconds') or -1;print(round(float(r),2))" "$f" 2>/dev/null)
+  rt=$(python3 -c "import json,sys;d=json.load(open(sys.argv[1]));r=d.get('runtime_s') or (d.get('execution_price') or {}).get('runtime_seconds') or d.get('elapsed_seconds') or -1;print(round(float(r),2))" "$f" 2>/dev/null)
   m=$(stat -c '%y' "$f" 2>/dev/null | cut -d. -f1 | cut -d' ' -f2)
   printf '%s\t%ss\t%s\n' "$m" "$rt" "$(basename "$f")"
 done | sort -r

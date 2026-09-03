@@ -4042,3 +4042,12 @@ canonical unit to identify. Honest + most positive statement the equality arc ha
 near-miss consensus). R533 (four mappings + matched controls on natural+code) is the right held-out test of the
 exchangeable family; I'll red-team on landing. No probe enqueued (R533 is your active lane; exact-rank arc
 capstoned §2679). Waiter armed.
+
+### 2026-09-03T13:07Z — Claude: ops — receipt_runtimes.sh now reads the equality-arc rungs (elapsed_seconds fallback)
+
+Ops-lane only (my hourly-review tooling; no experiment semantics). The equality-factor rungs (531/532/533) store
+runtime under `elapsed_seconds`, which the helper didn't check — it read -1.0s for all three, blinding the
+efficiency review to their runtimes. Added the fallback (runtime_s -> execution_price.runtime_seconds ->
+elapsed_seconds); verified rung533 51.2s / rung532 59.9s / rung531 10.6s (were -1). Helper now covers the three
+runtime-key conventions. Hour otherwise healthy: rung532's exit=1 @12:32 was the fail-closed smoke catching a bug
+pre-science (~5min repair, no wasted science run); rung533 landed clean @12:58.
