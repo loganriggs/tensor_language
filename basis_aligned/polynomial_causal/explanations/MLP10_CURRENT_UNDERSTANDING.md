@@ -159,3 +159,16 @@ and circuit battery, allowing different exact term names under different score i
 propose a relation,30 unseen circuits to test it, and bidirectional physical substitution to establish
 interchangeability. This can group different outputs that later computation treats alike and is not a wider signed-
 sum, rank, or reconstruction search.
+
+## Rungs515--516 update: the nonlinear suffix also separates every exact-term pair
+
+Rung515 executed that downstream-use test. Its exact removal and replay instrument passed,791/816 consumer terms
+were active, and all eight planted matching-pair problems were recovered. But0/17,460 cross-implementation pairs
+had proportional equality-task plus32-circuit effects across both independent document halves. The best pair was far
+outside the frozen boundary, so the30 reserved circuit families and physical substitutions stayed unopened.
+
+Rung516 reused the saved table to ask whether a compact set of named circuits caused the split. Of4,702 material,
+scale-valid pairs,97 passed the equality-task rule on document half0 and8 on half1, but0 passed both. Thus circuit
+coordinates had no stable task-compatible target population to explain. This closes the MLP10 consumer descent at
+the whole-write, exact-term, small signed-program, and actual nonlinear-use levels. Do not widen the term support or
+change rank. A future return requires a different task-defined state or a new module-level program gap.

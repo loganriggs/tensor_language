@@ -4445,6 +4445,25 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Do not call attention0 MLP0-interaction paths duplicate services and do not tune. Dossier audit closes another
   global token partition; advance the still-open gauge-invariant cross-head QK shared-half test, then attention1.
 
+### Rung 515 — finite downstream exact-term quotient — COMPLETE / STRONG NULL
+
+- Remove all816 exact attention11/MLP11 terms at their native locations and compare actual suffix equality-task plus
+ 32-circuit effects for17,460 cross-action same-site pairs. All8 planted pairs and every exact/live/replay gate pass;
+ 791 nodes are material;52,452 forwards,0 backwards.
+- A true; B--E false. Zero real pairs pass both document halves; best quality margin`-1.154576`. All16 permutation
+  controls also return zero, so the multiplicity floor is vacuous. Confirmation and physical substitution unopened.
+- Close one-to-one consumer-term equivalence across equality implementations, including nonlinear downstream use.
+  Do not widen supports, tune ranks, or weaken bars; leave the MLP10 consumer descent.
+
+### Rung 516 — circuit separation cover on rung515's zero route — COMPLETE / STRONG NULL
+
+- Zero-forward exact replay of all17,460 rows; all8 planted witness sets recover and top20 names/margins reproduce.
+  Of16,621 material pairs,4,702 have allowed scale;97 pass task gates in half0,8 in half1,0 in both.
+- A true; B--D false. With no task-compatible pair, named circuits have no stable target population to separate and
+  top-eight Jaccard1.0 is vacuous default ordering. The30 held-out circuit families remain unopened.
+- The task effect already explains the split across documents. No circuit witness, state-count, or executable
+  grouping claim; pivot to a different task-defined state or module gap rather than more consumer-term descent.
+
 ### Rung 440 — historical learned-simplicity archive feasibility — COMPLETE / ARM SCHEMA REQUIRED
 
 - Frozen CPU-only audit of top-level terminal receipts from rungs300–436. Structural features and registered

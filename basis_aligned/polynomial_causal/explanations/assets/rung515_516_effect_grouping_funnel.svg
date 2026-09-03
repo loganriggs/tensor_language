@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500" role="img" aria-labelledby="title desc">
+  <title id="title">Rungs 515 and 516 downstream-effect grouping funnel</title>
+  <desc id="desc">Most exact attention11 and MLP11 terms are causally active, but none of 17,460 cross-implementation pairs passes both document halves. A diagnostic shows that candidate pairs disappear at the task-effect test before circuit fingerprints can separate them.</desc>
+  <style>
+    .title{font:700 24px sans-serif;fill:#172b4d}.sub{font:15px sans-serif;fill:#52606d}.label{font:15px sans-serif;fill:#172b4d}.value{font:700 15px sans-serif;fill:#172b4d}.axis{font:13px sans-serif;fill:#52606d}.note{font:14px sans-serif;fill:#52606d}.grid{stroke:#dfe3e8;stroke-width:1}.bar1{fill:#2684ff}.bar2{fill:#36b37e}.bar3{fill:#ffab00}.bar4{fill:#de350b}
+  </style>
+  <text x="28" y="38" class="title">Active terms do not become reusable downstream variables</text>
+  <text x="28" y="64" class="sub">Percentages use the complete registered denominator shown under each panel.</text>
+
+  <text x="28" y="104" class="label">Exact term nodes that are measurably active</text>
+  <rect x="28" y="120" width="820" height="42" rx="5" fill="#eef1f5"/>
+  <rect x="28" y="120" width="795" height="42" rx="5" class="bar1"/>
+  <text x="842" y="147" class="value" text-anchor="end">96.9% (791 / 816)</text>
+  <text x="28" y="184" class="note">A term is active only if removing it changes both the task and circuit measurements enough to test.</text>
+
+  <text x="28" y="228" class="label">Cross-implementation pairs passing the full downstream-effect rule</text>
+  <rect x="28" y="244" width="820" height="42" rx="5" fill="#eef1f5"/>
+  <rect x="28" y="244" width="2" height="42" rx="1" class="bar4"/>
+  <text x="842" y="271" class="value" text-anchor="end">0.0% (0 / 17,460)</text>
+  <text x="28" y="308" class="note">The rule required agreement on two independent document halves, not just similar stored vectors.</text>
+
+  <text x="28" y="354" class="label">Where the follow-up diagnostic stopped</text>
+  <line x1="28" y1="420" x2="848" y2="420" class="grid"/>
+  <rect x="28" y="382" width="781" height="38" rx="4" class="bar2"/>
+  <text x="38" y="407" class="value">material pairs: 95.2% (16,621 / 17,460)</text>
+  <rect x="28" y="426" width="221" height="38" rx="4" class="bar3"/>
+  <text x="38" y="451" class="value">allowed scale: 26.9% (4,702 / 17,460)</text>
+  <rect x="28" y="470" width="5" height="8" class="bar4"/>
+  <text x="38" y="480" class="note">task-compatible in both halves: 0.0% (0 / 4,702); circuit attribution therefore had no target population</text>
+</svg>

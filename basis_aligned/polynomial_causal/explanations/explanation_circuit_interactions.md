@@ -415,3 +415,25 @@ This is the missing “different outputs, same downstream use” test. It can me
 boundaries only when downstream computation cannot distinguish them, while the reverse outcome splits pieces that a
 write-space decomposition made look similar. Full computation and graph:
 [explanation_2026-09-03_0050.md](explanation_2026-09-03_0050.md).
+
+## Update — 2026-09-03 01:39 UTC: the nonlinear suffix does not merge the exact terms
+
+Rung515 changed the definition of sameness from stored-vector similarity to actual downstream use. It removed each
+of816 exact attention11 or MLP11 terms at its native location, ran the real layers12--17 suffix, and compared the
+resulting equality-task and32-circuit effect vectors. All exactness, liveness, calibration, and eight planted-pair
+recovery checks passed;791/816 terms were measurably active. Nevertheless,0/17,460 allowed cross-implementation
+pairs passed both independent document halves. The best pair missed the fixed combined boundary by1.155, so no fresh
+documents,30 held-out circuits, or term substitutions opened.
+
+Rung516 then asked whether named circuit measurements were what separated otherwise task-compatible pairs. It reused
+the saved finite effects and exactly replayed all17,460 comparisons without another model run. Of16,621 material
+pairs,4,702 also had an allowed scale;97 passed the equality-task rules in half0 and8 in half1, but0 passed both.
+There was therefore no stable task-compatible population for the circuit coordinates to split. The apparent1.0
+overlap between two selected circuit lists is empty-target behavior and carries no evidence.
+
+The causal conclusion is not that interactions do not matter. The terms are active, but their finite task effects
+vary across documents before a stable cross-implementation equivalence appears. This closes the present
+MLP10-to-consumer grain descent. The next interaction basis must change objects—for example, an exact MLP0
+source-relation decomposition across heads—rather than widen sparse supports or reduce rank. Full definitions,
+computation, limits, and a percentage graph are in
+[explanation_2026-09-03_0139.md](explanation_2026-09-03_0139.md).

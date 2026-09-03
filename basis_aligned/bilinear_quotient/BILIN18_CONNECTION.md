@@ -67295,3 +67295,40 @@ Registered 01:08 pre-outcome (per-half prospective bars; pooled value disclosed 
 **The real finding (pred_b-scored + correct descriptive stability):** the copy task the program must reproduce needs effectively ONE score template — the four gauge-related implementations produce ~97%-collinear copy-task effects with a stable, near-equal implementation loading. This is the TASK-space complement to §2647 (write-space fixed direction) and §2633 (validated action gauge): the write-space non-groupability (506–514) does NOT prevent task-space rank-1 collapse, because the non-groupable mismatch is confined to the ~3% of task-effect energy off the shared direction. It is the task-space empirical basis for the coverage-credit dictionary claim (one template covers 97% of the copy task).
 
 **SELF-CRITIQUE (recurring, now internalized):** this is the THIRD mis-designed stability/consistency clause in my parallel probes (§2647 magnitude pair-scale near-uniform cosine; this document-vs-implementation vector). The pattern: my cross-half/cross-site "consistency" bars keep comparing an object that is either near-uniform or sample-indexed, so the cosine is trivially high or trivially low regardless of the science. Standing correction for my future clauses: a stability bar must compare the LOW-dimensional STRUCTURAL object that should be invariant (implementation loading, factor direction), never a document/sample-indexed loading or a near-uniform vector, and must be sanity-checked against a trivial-object null before registration. pred_c is retired as mis-designed; a clean re-registration would pass at .9997 but is not worth the churn — the descriptive result is unambiguous and pred_b already carries the scored science.
+
+## §2650 — RUNG515: ACTUAL NONLINEAR DOWNSTREAM USE SEPARATES ALL17,460 EXACT-TERM PAIRS
+
+Rung515 removed every one of816 exact attention11/MLP11 consumer terms at its native site and recorded the real
+layers12--17 equality-task and32-circuit effects. Its instrument is valid: all8 planted matching pairs recover
+uniquely; all18 inherited source relations reproduce;791 nodes are material;50,592 term patches and1,488 branch
+patches replay exactly; calibration, precision, corner, and Möbius checks hold. The managed run used52,452 full
+forwards,0 backwards,1,090.324s, and5,725,364,224 peak GPU bytes.
+
+The result is a registered strong null: A true; B--E false. Zero of17,460 same-site cross-action pairs passes both
+document halves, and all16 action-coordinate permutation controls also return zero. The control floor is therefore
+vacuous rather than favorable. The best pair, `R+LR @ N::A11{Q,K2,V} <-> Z7::A11{K,K2}`, has quality margin
+`-1.154576`, far from the fixed boundary. Confirmation documents,30 held-out circuits, and bidirectional physical
+substitutions remain unopened.
+
+This extends the sub-action null from write space to the actual nonlinear suffix. Exact terms are active, but none is
+a one-to-one reusable downstream variable across the four equality-score implementations. It does not weaken the
+coarse action-level gauge or the aggregate task-space collapse. Result/bundle/source SHAs are
+`0e33c6e3…/294a1489…/495a5d12…`;0 deployed parameters changed. Honor the frozen route: leave this consumer descent.
+
+## §2651 — RUNG516: TASK EFFECTS SPLIT THE PAIRS BEFORE NAMED CIRCUITS CAN EXPLAIN THE NULL
+
+The conditional CPU diagnostic exactly replayed rung515's17,460 rows and top20 names/margins, recovered all8 planted
+eight-circuit witness sets, and used0 model forwards. Of16,621 materially active pairs,4,702 also have an allowed
+scale. Ninety-seven pass the task gates on document half0 and8 on half1, but0 pass both; hence
+`task_compatible_pairs=0`. A true; B--D false; registered strong null.
+
+Because the target population is empty, circuit-rejection coverage is undefined as scientific evidence. The saved
+1.0 top-eight overlap is only the deterministic default order returned by both greedy searches and is explicitly
+vacuous. The same32 circuit identities were available across the two document halves; the other30 circuit families
+stayed unopened. We therefore cannot attribute rung515's registered zero to named circuit coordinates, claim a
+minimal state count, or identify a stable witness set.
+
+The localization is still informative: cross-document instability in the finite equality-task effect is sufficient
+to prevent exact-term grouping before circuit identity enters. Leave the MLP10 consumer descent rather than widen
+supports or change rank. Result/source/preregistration SHAs are `b8e8ad26…/d094d1af…/580cd5c3…`; runtime3.9s,
+0 forwards,0 backwards,0 deployed parameters.
