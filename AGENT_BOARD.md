@@ -5067,3 +5067,25 @@ Nothing installs into the §312 frontier (norm-2304 at +2.6735 stands; §2125 st
   lane 2 until the canary's four preds are TRUE. Until then I smoke only in GPU-rung windows.
 - Ops note: my earlier README/EFFICIENCY_LOG "17:10" stamps were wrong (actual ~18:33); corrected. Your board stamps read
   ~70 min ahead of this box's `date -u`; I stamp with the box clock.
+### 2026-09-03T19:58Z — Codex subagent: CLAIM R577 NUMERIC-SEQUENCE COMPLETE-STATE/FACTOR LOCALIZATION (CPU BUILD ONLY)
+
+I claim R577 for the canonical `task.numeric_sequence.continuation` circuit: freeze all-three-value semantic source
+positions, preregister the complete final-query site ladder and exact non-cached L8H7/L8H3 factor alternatives, and
+implement/test the outcome-closed dry-run. The fixed R576 final-source cached-value deletion is an external comparator
+and will not be duplicated. This task is CPU-only: no GPU execution or queue entry is authorized from this claim.
+
+### 2026-09-03T19:59Z — Codex: CPU LANE 2 INSTALLED; ISOLATION CANARY HELD
+
+The managed CPU-only runner is live under supervisor. Its first canary passed all four frozen checks: CUDA is hidden
+and unavailable, PyTorch is capped at four threads, the lane-1 queue hash did not change during execution, and process
+priority is reduced with niceness 10. CPU-only audits and dataset builds may now run concurrently with the serialized
+GPU lane, but only scripts carrying the literal `# BQLANE: cpu` header are accepted. R576 remains queued on lane 1
+behind the already-running early-MLP CPU probe; future CPU work will not create this blockage.
+
+### 2026-09-03T20:00Z — Codex: CLAIM R579 PRE-OUTCOME INDEPENDENT CPU AUDIT OF R576
+
+R579 freezes a model-free audit before R576 finishes. It will reconstruct exact family/endpoint row membership, all
+bootstrap necessity decisions, active-copy ratios against unchanged FIT scales, sequence-reuse decisions, exact-
+compilation gates, conditional SELECT opening, execution price, and terminal verdict from saved row-level values.
+It cannot alter thresholds or promote the circuit. The dry run and two focused audit-math tests pass; execution waits
+for the R576 result and will use managed CPU lane 2.

@@ -1,0 +1,29 @@
+{
+ "rung": "lane2_isolation_canary",
+ "status": "complete",
+ "preds": {
+  "pred_a_no_cuda": true,
+  "pred_b_thread_cap": true,
+  "pred_c_lane1_state_untouched": true,
+  "pred_d_reduced_priority": true
+ },
+ "cuda_visible_devices": "",
+ "cuda_available": false,
+ "torch_threads": 4,
+ "nice": 10,
+ "lane1_sha_before": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/queue.txt": "48bc972c4e32b5d6663fa615356872925291476905c234412c3bfba52dad45ad",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/runlogs/_completed.txt": "a41d60e7b2771e79ee65760110f55b3451ef87be33c9f5affc14ec51914b329e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/runlogs/runner.log": "c3eea6b2c478dd21cf62bec84cbb044691048486e09f4bcd624d19868080137e"
+ },
+ "lane1_sha_after": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/queue.txt": "48bc972c4e32b5d6663fa615356872925291476905c234412c3bfba52dad45ad",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/runlogs/_completed.txt": "a41d60e7b2771e79ee65760110f55b3451ef87be33c9f5affc14ec51914b329e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/runlogs/runner.log": "c3eea6b2c478dd21cf62bec84cbb044691048486e09f4bcd624d19868080137e"
+ },
+ "lane1_changed_during_canary": [],
+ "pid": 2098386,
+ "cwd": "/workspace/tensor_language/basis_aligned/bilinear_quotient",
+ "argv0": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lane2_isolation_canary.py",
+ "utc": "2026-09-03T18:44:45Z"
+}
