@@ -1,0 +1,950 @@
+{
+ "rung": 549,
+ "stage": "pending_opener_downstream_response_atlas",
+ "pred_a_exact_instrument": true,
+ "pred_b_fit_selects_candidate": true,
+ "pred_c_selected_candidate_validates": false,
+ "strong_null": true,
+ "candidate_order": [
+  "mlp13_write",
+  "attn14h0_output",
+  "attn14h1_output",
+  "attn14h2_output",
+  "attn14h3_output",
+  "attn14h4_output",
+  "attn14h5_output",
+  "attn14h6_output",
+  "attn14h7_output",
+  "attn14h8_output",
+  "mlp14_write",
+  "attn15h0_output",
+  "attn15h1_output",
+  "attn15h2_output",
+  "attn15h3_output",
+  "attn15h4_output",
+  "attn15h5_output",
+  "attn15h6_output",
+  "attn15h7_output",
+  "attn15h8_output",
+  "mlp15_write",
+  "attn16h0_output",
+  "attn16h1_output",
+  "attn16h2_output",
+  "attn16h3_output",
+  "attn16h4_output",
+  "attn16h5_output",
+  "attn16h6_output",
+  "attn16h7_output",
+  "attn16h8_output",
+  "mlp16_write",
+  "attn17h0_output",
+  "attn17h1_output",
+  "attn17h2_output",
+  "attn17h3_output",
+  "attn17h4_output",
+  "attn17h5_output",
+  "attn17h6_output",
+  "attn17h7_output",
+  "attn17h8_output",
+  "mlp17_write"
+ ],
+ "fit_eligible_candidates": [
+  "attn14h1_output",
+  "attn15h3_output",
+  "mlp15_write",
+  "attn16h1_output"
+ ],
+ "selected_candidate": "mlp15_write",
+ "metrics": {
+  "mlp13_write": {
+   "dimension": 1152,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 1.0,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "median_antipodal_transition_cosine": 0.8099624514579773,
+    "control_median_max_absolute_template_cosine": 0.42628222703933716,
+    "eligible": false,
+    "selection_score": 0.5737177729606628
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.9722222089767456,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "control_median_max_absolute_template_cosine": 0.47385329008102417,
+    "median_patch_to_natural_response_norm_ratio": 0.549288272857666
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.09262682497501373,
+    "used_for_selection": false
+   }
+  },
+  "attn14h0_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4861111044883728,
+    "order_templates_classify_direct_accuracy": 0.6388888955116272,
+    "median_antipodal_transition_cosine": 0.9238913059234619,
+    "control_median_max_absolute_template_cosine": 0.3306998610496521,
+    "eligible": false,
+    "selection_score": 0.1554112434387207
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.3333333432674408,
+    "order_templates_classify_direct_accuracy": 0.3055555522441864,
+    "control_median_max_absolute_template_cosine": 0.16682344675064087,
+    "median_patch_to_natural_response_norm_ratio": 0.3400099575519562
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.1472216546535492,
+    "used_for_selection": false
+   }
+  },
+  "attn14h1_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9027777910232544,
+    "order_templates_classify_direct_accuracy": 0.9652777910232544,
+    "median_antipodal_transition_cosine": 0.8291690349578857,
+    "control_median_max_absolute_template_cosine": 0.38764122128486633,
+    "eligible": true,
+    "selection_score": 0.5151365697383881
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.9861111044883728,
+    "order_templates_classify_direct_accuracy": 0.875,
+    "control_median_max_absolute_template_cosine": 0.2853087782859802,
+    "median_patch_to_natural_response_norm_ratio": 0.40113288164138794
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.18208737671375275,
+    "used_for_selection": false
+   }
+  },
+  "attn14h2_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4236111044883728,
+    "order_templates_classify_direct_accuracy": 0.5416666865348816,
+    "median_antipodal_transition_cosine": 0.7183141708374023,
+    "control_median_max_absolute_template_cosine": 0.5277095437049866,
+    "eligible": false,
+    "selection_score": -0.10409843921661377
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4583333432674408,
+    "order_templates_classify_direct_accuracy": 0.5416666865348816,
+    "control_median_max_absolute_template_cosine": 0.4517332911491394,
+    "median_patch_to_natural_response_norm_ratio": 0.18068373203277588
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.10700973868370056,
+    "used_for_selection": false
+   }
+  },
+  "attn14h3_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.3125,
+    "order_templates_classify_direct_accuracy": 0.2916666567325592,
+    "median_antipodal_transition_cosine": 0.9279437065124512,
+    "control_median_max_absolute_template_cosine": 0.21241474151611328,
+    "eligible": false,
+    "selection_score": 0.07925191521644592
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.1527777761220932,
+    "order_templates_classify_direct_accuracy": 0.1388888955116272,
+    "control_median_max_absolute_template_cosine": 0.1792704164981842,
+    "median_patch_to_natural_response_norm_ratio": 0.4401351809501648
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.15023916959762573,
+    "used_for_selection": false
+   }
+  },
+  "attn14h4_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.0069444444961845875,
+    "order_templates_classify_direct_accuracy": 0.02777777798473835,
+    "median_antipodal_transition_cosine": 0.8710660338401794,
+    "control_median_max_absolute_template_cosine": 0.3163966238498688,
+    "eligible": false,
+    "selection_score": -0.3094521793536842
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.1666666716337204,
+    "order_templates_classify_direct_accuracy": 0.0,
+    "control_median_max_absolute_template_cosine": 0.2135162502527237,
+    "median_patch_to_natural_response_norm_ratio": 0.4162157475948334
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.02515207603573799,
+    "used_for_selection": false
+   }
+  },
+  "attn14h5_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.3819444477558136,
+    "order_templates_classify_direct_accuracy": 0.4722222089767456,
+    "median_antipodal_transition_cosine": 0.6886489391326904,
+    "control_median_max_absolute_template_cosine": 0.5659619569778442,
+    "eligible": false,
+    "selection_score": -0.18401750922203064
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4027777910232544,
+    "order_templates_classify_direct_accuracy": 0.4444444477558136,
+    "control_median_max_absolute_template_cosine": 0.6007084846496582,
+    "median_patch_to_natural_response_norm_ratio": 0.25593698024749756
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.10992501676082611,
+    "used_for_selection": false
+   }
+  },
+  "attn14h6_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.2638888955116272,
+    "order_templates_classify_direct_accuracy": 0.375,
+    "median_antipodal_transition_cosine": 0.6049631834030151,
+    "control_median_max_absolute_template_cosine": 0.3026992976665497,
+    "eligible": false,
+    "selection_score": -0.038810402154922485
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.2361111044883728,
+    "order_templates_classify_direct_accuracy": 0.3472222089767456,
+    "control_median_max_absolute_template_cosine": 0.29732388257980347,
+    "median_patch_to_natural_response_norm_ratio": 0.19576306641101837
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.29668986797332764,
+    "used_for_selection": false
+   }
+  },
+  "attn14h7_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.7777777910232544,
+    "order_templates_classify_direct_accuracy": 0.5,
+    "median_antipodal_transition_cosine": 0.7130672335624695,
+    "control_median_max_absolute_template_cosine": 0.6426743268966675,
+    "eligible": false,
+    "selection_score": -0.14267432689666748
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.6805555820465088,
+    "order_templates_classify_direct_accuracy": 0.5,
+    "control_median_max_absolute_template_cosine": 0.6328117847442627,
+    "median_patch_to_natural_response_norm_ratio": 0.24657991528511047
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.21278297901153564,
+    "used_for_selection": false
+   }
+  },
+  "attn14h8_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5416666865348816,
+    "order_templates_classify_direct_accuracy": 0.2638888955116272,
+    "median_antipodal_transition_cosine": 0.6526381373405457,
+    "control_median_max_absolute_template_cosine": 0.6227681636810303,
+    "eligible": false,
+    "selection_score": -0.3588792681694031
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5,
+    "order_templates_classify_direct_accuracy": 0.2916666567325592,
+    "control_median_max_absolute_template_cosine": 0.6790975332260132,
+    "median_patch_to_natural_response_norm_ratio": 0.32999956607818604
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.4262145161628723,
+    "used_for_selection": false
+   }
+  },
+  "mlp14_write": {
+   "dimension": 1152,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9930555820465088,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "median_antipodal_transition_cosine": 0.9409421682357788,
+    "control_median_max_absolute_template_cosine": 0.5407823324203491,
+    "eligible": false,
+    "selection_score": 0.45227324962615967
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 1.0,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "control_median_max_absolute_template_cosine": 0.5127875804901123,
+    "median_patch_to_natural_response_norm_ratio": 0.4960246682167053
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.17905429005622864,
+    "used_for_selection": false
+   }
+  },
+  "attn15h0_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.0694444477558136,
+    "order_templates_classify_direct_accuracy": 0.0555555559694767,
+    "median_antipodal_transition_cosine": 0.8252520561218262,
+    "control_median_max_absolute_template_cosine": 0.37757980823516846,
+    "eligible": false,
+    "selection_score": -0.32202425226569176
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.0,
+    "order_templates_classify_direct_accuracy": 0.0555555559694767,
+    "control_median_max_absolute_template_cosine": 0.31014466285705566,
+    "median_patch_to_natural_response_norm_ratio": 0.2475665956735611
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.17311614751815796,
+    "used_for_selection": false
+   }
+  },
+  "attn15h1_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.7152777910232544,
+    "order_templates_classify_direct_accuracy": 0.5069444179534912,
+    "median_antipodal_transition_cosine": 0.699120819568634,
+    "control_median_max_absolute_template_cosine": 0.871924102306366,
+    "eligible": false,
+    "selection_score": -0.36497968435287476
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.7083333134651184,
+    "order_templates_classify_direct_accuracy": 0.5,
+    "control_median_max_absolute_template_cosine": 0.8692134618759155,
+    "median_patch_to_natural_response_norm_ratio": 0.6743646860122681
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.41365551948547363,
+    "used_for_selection": false
+   }
+  },
+  "attn15h2_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4791666567325592,
+    "order_templates_classify_direct_accuracy": 0.4513888955116272,
+    "median_antipodal_transition_cosine": 0.7545210719108582,
+    "control_median_max_absolute_template_cosine": 0.5446752905845642,
+    "eligible": false,
+    "selection_score": -0.09328639507293701
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4583333432674408,
+    "order_templates_classify_direct_accuracy": 0.4305555522441864,
+    "control_median_max_absolute_template_cosine": 0.4465145468711853,
+    "median_patch_to_natural_response_norm_ratio": 0.20623277127742767
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.11575581133365631,
+    "used_for_selection": false
+   }
+  },
+  "attn15h3_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5277777910232544,
+    "order_templates_classify_direct_accuracy": 0.6736111044883728,
+    "median_antipodal_transition_cosine": 0.8130748867988586,
+    "control_median_max_absolute_template_cosine": 0.3161769211292267,
+    "eligible": true,
+    "selection_score": 0.2116008698940277
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5,
+    "order_templates_classify_direct_accuracy": 0.6666666865348816,
+    "control_median_max_absolute_template_cosine": 0.314191997051239,
+    "median_patch_to_natural_response_norm_ratio": 0.23351484537124634
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.16797058284282684,
+    "used_for_selection": false
+   }
+  },
+  "attn15h4_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.3194444477558136,
+    "order_templates_classify_direct_accuracy": 0.2430555522441864,
+    "median_antipodal_transition_cosine": 0.8061065077781677,
+    "control_median_max_absolute_template_cosine": 0.26851022243499756,
+    "eligible": false,
+    "selection_score": -0.025454670190811157
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.1666666716337204,
+    "order_templates_classify_direct_accuracy": 0.3194444477558136,
+    "control_median_max_absolute_template_cosine": 0.16650131344795227,
+    "median_patch_to_natural_response_norm_ratio": 0.16411368548870087
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.12816116213798523,
+    "used_for_selection": false
+   }
+  },
+  "attn15h5_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4027777910232544,
+    "order_templates_classify_direct_accuracy": 0.4305555522441864,
+    "median_antipodal_transition_cosine": 0.8018269538879395,
+    "control_median_max_absolute_template_cosine": 0.7458093762397766,
+    "eligible": false,
+    "selection_score": -0.3430315852165222
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.375,
+    "order_templates_classify_direct_accuracy": 0.2916666567325592,
+    "control_median_max_absolute_template_cosine": 0.7178477644920349,
+    "median_patch_to_natural_response_norm_ratio": 0.22388949990272522
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.1452455222606659,
+    "used_for_selection": false
+   }
+  },
+  "attn15h6_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5694444179534912,
+    "order_templates_classify_direct_accuracy": 0.6875,
+    "median_antipodal_transition_cosine": 0.8553431034088135,
+    "control_median_max_absolute_template_cosine": 0.6621353626251221,
+    "eligible": false,
+    "selection_score": -0.09269094467163086
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5833333134651184,
+    "order_templates_classify_direct_accuracy": 0.7083333134651184,
+    "control_median_max_absolute_template_cosine": 0.6560060381889343,
+    "median_patch_to_natural_response_norm_ratio": 0.44619497656822205
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.39688777923583984,
+    "used_for_selection": false
+   }
+  },
+  "attn15h7_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.6041666865348816,
+    "order_templates_classify_direct_accuracy": 0.5069444179534912,
+    "median_antipodal_transition_cosine": 0.9143515229225159,
+    "control_median_max_absolute_template_cosine": 0.5845659971237183,
+    "eligible": false,
+    "selection_score": -0.07762157917022705
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5972222089767456,
+    "order_templates_classify_direct_accuracy": 0.375,
+    "control_median_max_absolute_template_cosine": 0.5350269079208374,
+    "median_patch_to_natural_response_norm_ratio": 0.2141871303319931
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.09232908487319946,
+    "used_for_selection": false
+   }
+  },
+  "attn15h8_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5555555820465088,
+    "order_templates_classify_direct_accuracy": 0.6388888955116272,
+    "median_antipodal_transition_cosine": 0.9426009654998779,
+    "control_median_max_absolute_template_cosine": 0.6580350399017334,
+    "eligible": false,
+    "selection_score": -0.10247945785522461
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4444444477558136,
+    "order_templates_classify_direct_accuracy": 0.5694444179534912,
+    "control_median_max_absolute_template_cosine": 0.6634560227394104,
+    "median_patch_to_natural_response_norm_ratio": 0.33132946491241455
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.12326952815055847,
+    "used_for_selection": false
+   }
+  },
+  "mlp15_write": {
+   "dimension": 1152,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 1.0,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "median_antipodal_transition_cosine": 0.8133219480514526,
+    "control_median_max_absolute_template_cosine": 0.3344869613647461,
+    "eligible": true,
+    "selection_score": 0.6655130386352539
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 1.0,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "control_median_max_absolute_template_cosine": 0.3609514832496643,
+    "median_patch_to_natural_response_norm_ratio": 0.48197534680366516
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.050561126321554184,
+    "used_for_selection": false
+   }
+  },
+  "attn16h0_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4166666567325592,
+    "order_templates_classify_direct_accuracy": 0.4236111044883728,
+    "median_antipodal_transition_cosine": 0.9003612399101257,
+    "control_median_max_absolute_template_cosine": 0.4660402536392212,
+    "eligible": false,
+    "selection_score": -0.04937359690666199
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.3333333432674408,
+    "order_templates_classify_direct_accuracy": 0.4027777910232544,
+    "control_median_max_absolute_template_cosine": 0.29704272747039795,
+    "median_patch_to_natural_response_norm_ratio": 0.21971042454242706
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.20065447688102722,
+    "used_for_selection": false
+   }
+  },
+  "attn16h1_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.6597222089767456,
+    "order_templates_classify_direct_accuracy": 0.6805555820465088,
+    "median_antipodal_transition_cosine": 0.7980476021766663,
+    "control_median_max_absolute_template_cosine": 0.39440277218818665,
+    "eligible": true,
+    "selection_score": 0.26531943678855896
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5972222089767456,
+    "order_templates_classify_direct_accuracy": 0.5833333134651184,
+    "control_median_max_absolute_template_cosine": 0.26561135053634644,
+    "median_patch_to_natural_response_norm_ratio": 0.29383379220962524
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.04139099642634392,
+    "used_for_selection": false
+   }
+  },
+  "attn16h2_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.6458333134651184,
+    "order_templates_classify_direct_accuracy": 0.5486111044883728,
+    "median_antipodal_transition_cosine": 0.6163668632507324,
+    "control_median_max_absolute_template_cosine": 0.5761641263961792,
+    "eligible": false,
+    "selection_score": -0.027553021907806396
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5555555820465088,
+    "order_templates_classify_direct_accuracy": 0.5972222089767456,
+    "control_median_max_absolute_template_cosine": 0.5867999792098999,
+    "median_patch_to_natural_response_norm_ratio": 0.3296235203742981
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.23033402860164642,
+    "used_for_selection": false
+   }
+  },
+  "attn16h3_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.2569444477558136,
+    "order_templates_classify_direct_accuracy": 0.3194444477558136,
+    "median_antipodal_transition_cosine": 0.7484275698661804,
+    "control_median_max_absolute_template_cosine": 0.4702102541923523,
+    "eligible": false,
+    "selection_score": -0.2132658064365387
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.3194444477558136,
+    "order_templates_classify_direct_accuracy": 0.25,
+    "control_median_max_absolute_template_cosine": 0.39416342973709106,
+    "median_patch_to_natural_response_norm_ratio": 0.20300419628620148
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.11004194617271423,
+    "used_for_selection": false
+   }
+  },
+  "attn16h4_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5763888955116272,
+    "order_templates_classify_direct_accuracy": 0.6319444179534912,
+    "median_antipodal_transition_cosine": 0.951665461063385,
+    "control_median_max_absolute_template_cosine": 0.4281925559043884,
+    "eligible": false,
+    "selection_score": 0.14819633960723877
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.375,
+    "order_templates_classify_direct_accuracy": 0.4583333432674408,
+    "control_median_max_absolute_template_cosine": 0.27499234676361084,
+    "median_patch_to_natural_response_norm_ratio": 0.17793576419353485
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.0669151097536087,
+    "used_for_selection": false
+   }
+  },
+  "attn16h5_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5833333134651184,
+    "order_templates_classify_direct_accuracy": 0.5277777910232544,
+    "median_antipodal_transition_cosine": 0.9427216053009033,
+    "control_median_max_absolute_template_cosine": 0.631322979927063,
+    "eligible": false,
+    "selection_score": -0.1035451889038086
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5,
+    "order_templates_classify_direct_accuracy": 0.5,
+    "control_median_max_absolute_template_cosine": 0.6114585399627686,
+    "median_patch_to_natural_response_norm_ratio": 0.45358720421791077
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.3864648938179016,
+    "used_for_selection": false
+   }
+  },
+  "attn16h6_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.3680555522441864,
+    "order_templates_classify_direct_accuracy": 0.5208333134651184,
+    "median_antipodal_transition_cosine": 0.7261260747909546,
+    "control_median_max_absolute_template_cosine": 0.33843767642974854,
+    "eligible": false,
+    "selection_score": 0.029617875814437866
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.3611111044883728,
+    "order_templates_classify_direct_accuracy": 0.4722222089767456,
+    "control_median_max_absolute_template_cosine": 0.3057185709476471,
+    "median_patch_to_natural_response_norm_ratio": 0.27673596143722534
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.13498587906360626,
+    "used_for_selection": false
+   }
+  },
+  "attn16h7_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5833333134651184,
+    "order_templates_classify_direct_accuracy": 0.8194444179534912,
+    "median_antipodal_transition_cosine": 0.961711049079895,
+    "control_median_max_absolute_template_cosine": 0.5752092599868774,
+    "eligible": false,
+    "selection_score": 0.008124053478240967
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5,
+    "order_templates_classify_direct_accuracy": 0.6666666865348816,
+    "control_median_max_absolute_template_cosine": 0.5318328142166138,
+    "median_patch_to_natural_response_norm_ratio": 0.3594683110713959
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.028211649507284164,
+    "used_for_selection": false
+   }
+  },
+  "attn16h8_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5763888955116272,
+    "order_templates_classify_direct_accuracy": 0.6666666865348816,
+    "median_antipodal_transition_cosine": 0.47414612770080566,
+    "control_median_max_absolute_template_cosine": 0.5780781507492065,
+    "eligible": false,
+    "selection_score": -0.0016892552375793457
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4861111044883728,
+    "order_templates_classify_direct_accuracy": 0.7361111044883728,
+    "control_median_max_absolute_template_cosine": 0.5391149520874023,
+    "median_patch_to_natural_response_norm_ratio": 0.38873088359832764
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.3255274295806885,
+    "used_for_selection": false
+   }
+  },
+  "mlp16_write": {
+   "dimension": 1152,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9791666865348816,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "median_antipodal_transition_cosine": 0.8258687257766724,
+    "control_median_max_absolute_template_cosine": 0.4608851671218872,
+    "eligible": false,
+    "selection_score": 0.5182815194129944
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.9861111044883728,
+    "order_templates_classify_direct_accuracy": 1.0,
+    "control_median_max_absolute_template_cosine": 0.4723694622516632,
+    "median_patch_to_natural_response_norm_ratio": 0.4162848889827728
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.04668831825256348,
+    "used_for_selection": false
+   }
+  },
+  "attn17h0_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.7777777910232544,
+    "order_templates_classify_direct_accuracy": 0.7430555820465088,
+    "median_antipodal_transition_cosine": 0.908957839012146,
+    "control_median_max_absolute_template_cosine": 0.6496158242225647,
+    "eligible": false,
+    "selection_score": 0.09343975782394409
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.8888888955116272,
+    "order_templates_classify_direct_accuracy": 0.6805555820465088,
+    "control_median_max_absolute_template_cosine": 0.5645556449890137,
+    "median_patch_to_natural_response_norm_ratio": 0.15580177307128906
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.11219291388988495,
+    "used_for_selection": false
+   }
+  },
+  "attn17h1_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9236111044883728,
+    "order_templates_classify_direct_accuracy": 0.6666666865348816,
+    "median_antipodal_transition_cosine": 0.9597516059875488,
+    "control_median_max_absolute_template_cosine": 0.8584709167480469,
+    "eligible": false,
+    "selection_score": -0.19180423021316528
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.8888888955116272,
+    "order_templates_classify_direct_accuracy": 0.5972222089767456,
+    "control_median_max_absolute_template_cosine": 0.8255681991577148,
+    "median_patch_to_natural_response_norm_ratio": 0.22775980830192566
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.10740271955728531,
+    "used_for_selection": false
+   }
+  },
+  "attn17h2_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4305555522441864,
+    "order_templates_classify_direct_accuracy": 0.5208333134651184,
+    "median_antipodal_transition_cosine": 0.5540910959243774,
+    "control_median_max_absolute_template_cosine": 0.866865336894989,
+    "eligible": false,
+    "selection_score": -0.4363097846508026
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4305555522441864,
+    "order_templates_classify_direct_accuracy": 0.4861111044883728,
+    "control_median_max_absolute_template_cosine": 0.8372534513473511,
+    "median_patch_to_natural_response_norm_ratio": 0.5414075255393982
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.5451039671897888,
+    "used_for_selection": false
+   }
+  },
+  "attn17h3_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4236111044883728,
+    "order_templates_classify_direct_accuracy": 0.6111111044883728,
+    "median_antipodal_transition_cosine": 0.29844599962234497,
+    "control_median_max_absolute_template_cosine": 0.5642447471618652,
+    "eligible": false,
+    "selection_score": -0.14063364267349243
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.3472222089767456,
+    "order_templates_classify_direct_accuracy": 0.5972222089767456,
+    "control_median_max_absolute_template_cosine": 0.5765715837478638,
+    "median_patch_to_natural_response_norm_ratio": 0.15330584347248077
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.12742437422275543,
+    "used_for_selection": false
+   }
+  },
+  "attn17h4_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.4652777910232544,
+    "order_templates_classify_direct_accuracy": 0.5138888955116272,
+    "median_antipodal_transition_cosine": 0.9446582794189453,
+    "control_median_max_absolute_template_cosine": 0.8558419346809387,
+    "eligible": false,
+    "selection_score": -0.3905641436576843
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4444444477558136,
+    "order_templates_classify_direct_accuracy": 0.4027777910232544,
+    "control_median_max_absolute_template_cosine": 0.8620072603225708,
+    "median_patch_to_natural_response_norm_ratio": 0.598721981048584
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.07694906741380692,
+    "used_for_selection": false
+   }
+  },
+  "attn17h5_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.6805555820465088,
+    "order_templates_classify_direct_accuracy": 0.8819444179534912,
+    "median_antipodal_transition_cosine": 0.8898094892501831,
+    "control_median_max_absolute_template_cosine": 0.6326112747192383,
+    "eligible": false,
+    "selection_score": 0.04794430732727051
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.5555555820465088,
+    "order_templates_classify_direct_accuracy": 0.8611111044883728,
+    "control_median_max_absolute_template_cosine": 0.6272732615470886,
+    "median_patch_to_natural_response_norm_ratio": 0.31561869382858276
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.11789944022893906,
+    "used_for_selection": false
+   }
+  },
+  "attn17h6_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.5,
+    "order_templates_classify_direct_accuracy": 0.4166666567325592,
+    "median_antipodal_transition_cosine": 0.8692508935928345,
+    "control_median_max_absolute_template_cosine": 0.9759984016418457,
+    "eligible": false,
+    "selection_score": -0.5593317449092865
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.4583333432674408,
+    "order_templates_classify_direct_accuracy": 0.4166666567325592,
+    "control_median_max_absolute_template_cosine": 0.9775068759918213,
+    "median_patch_to_natural_response_norm_ratio": 0.44162967801094055
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.11154487729072571,
+    "used_for_selection": false
+   }
+  },
+  "attn17h7_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9513888955116272,
+    "order_templates_classify_direct_accuracy": 0.9027777910232544,
+    "median_antipodal_transition_cosine": 0.8010563850402832,
+    "control_median_max_absolute_template_cosine": 0.47711479663848877,
+    "eligible": false,
+    "selection_score": 0.4256629943847656
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.9722222089767456,
+    "order_templates_classify_direct_accuracy": 0.7222222089767456,
+    "control_median_max_absolute_template_cosine": 0.46442490816116333,
+    "median_patch_to_natural_response_norm_ratio": 0.13619190454483032
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.25205427408218384,
+    "used_for_selection": false
+   }
+  },
+  "attn17h8_output": {
+   "dimension": 128,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.9236111044883728,
+    "order_templates_classify_direct_accuracy": 0.9791666865348816,
+    "median_antipodal_transition_cosine": 0.8776837587356567,
+    "control_median_max_absolute_template_cosine": 0.6243902444839478,
+    "eligible": false,
+    "selection_score": 0.29922086000442505
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 1.0,
+    "order_templates_classify_direct_accuracy": 0.9305555820465088,
+    "control_median_max_absolute_template_cosine": 0.5695867538452148,
+    "median_patch_to_natural_response_norm_ratio": 0.16724132001399994
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.2180599570274353,
+    "used_for_selection": false
+   }
+  },
+  "mlp17_write": {
+   "dimension": 1152,
+   "fit": {
+    "direct_templates_classify_order_accuracy": 0.875,
+    "order_templates_classify_direct_accuracy": 0.8333333134651184,
+    "median_antipodal_transition_cosine": 0.8126627802848816,
+    "control_median_max_absolute_template_cosine": 0.5931071043014526,
+    "eligible": false,
+    "selection_score": 0.24022620916366577
+   },
+   "select": {
+    "direct_templates_classify_order_accuracy": 0.8888888955116272,
+    "order_templates_classify_direct_accuracy": 0.8333333134651184,
+    "control_median_max_absolute_template_cosine": 0.6521787643432617,
+    "median_patch_to_natural_response_norm_ratio": 0.3397117555141449
+   },
+   "readout_alignment_diagnostic": {
+    "median_template_max_absolute_cosine_with_closer_contrasts": 0.07109775394201279,
+    "used_for_selection": false
+   }
+  }
+ },
+ "bars": {
+  "fit_cross_family_accuracy_min": 0.5,
+  "fit_antipodal_cosine_min": 0.3,
+  "fit_control_template_cosine_max": 0.4,
+  "select_cross_family_accuracy_min": 0.5,
+  "select_control_template_cosine_max": 0.35,
+  "select_response_norm_ratio_min": 0.05
+ },
+ "model_forwards": 204,
+ "model_backwards": 0,
+ "model_weights_updated": false,
+ "minimum_l13h8_source_target_rms": 0.7102721929550171,
+ "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "input_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_three_value_fresh_rows_rung545.json": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_three_value_fresh_rows_rung545_receipt.json": "a6b3e7468f510277b247cb78148b619625ecdde07f9ba264e5358f7bb5138609",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_three_value_confirmation_rung546_results.json": "209b9bfcc20bff13bb37d822137003d6878506e66b0d9321ba0a0f7e9d8f2c5c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_three_value_confirmation_rung548_audit.json": "25acb35355f457163c1ed1183aeb55aea0c08a224992d688250ba5e272564875",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/PENDING_OPENER_DOWNSTREAM_RESPONSE_ATLAS_RUNG549_PREREGISTRATION.md": "90aab91025476e364608efc3f012e467c5284f3ba677003ed2daf1b6daf6bdeb"
+ },
+ "bundle_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_downstream_response_atlas_rung549_vectors.pt",
+ "bundle_sha256": "bc501503c283ddeb1b4f6a8ddf115112a84ddc2da8dfca01283254d80916437d",
+ "evaluated_splits": [
+  "FIT",
+  "SELECT"
+ ],
+ "forbidden_splits_opened": [],
+ "elapsed_seconds": 12.45232892036438,
+ "next_step": "retain_endpoint_plus_invariance_objective_without_claiming_a_downstream_reader"
+}

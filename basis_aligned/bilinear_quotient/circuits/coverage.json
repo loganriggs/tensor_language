@@ -118,7 +118,7 @@
   },
   "task.bracket.pending_opener": {
    "kind": "behavior_circuit",
-   "claim_status": "specified",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "categories": {
     "capability": {
@@ -160,12 +160,11 @@
      "status": "blocked",
      "held_event_ids": [],
      "blocking_event_ids": [
-      "pending_opener_cross_family_das.r540.complete.v1"
+      "pending_opener_cross_family_das.r540.complete.v1",
+      "pending_opener_downstream_response_atlas.r549.complete.null.v1"
      ],
-     "planned_event_ids": [
-      "pending_opener_downstream_response_atlas.r549.preregistered.v1"
-     ],
-     "latest_relevant_event_id": "pending_opener_downstream_response_atlas.r549.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_downstream_response_atlas.r549.complete.null.v1"
     },
     "ood": {
      "status": "missing",
@@ -180,12 +179,11 @@
       "pending_opener_control_ceilings.r539.complete.v1"
      ],
      "blocking_event_ids": [
-      "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs"
+      "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+      "pending_opener_downstream_readout_guard.r551.complete.null.v1"
      ],
-     "planned_event_ids": [
-      "pending_opener_downstream_readout_guard.r551.preregistered.v1"
-     ],
-     "latest_relevant_event_id": "pending_opener_downstream_readout_guard.r551.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_downstream_readout_guard.r551.complete.null.v1"
     },
     "composition": {
      "status": "missing",
@@ -207,7 +205,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 2,
-   "next_missing": "execute R549, independently audit it with R550, and apply the frozen R551 readout-span guard before using any later response as a multi-output DAS target; FINAL_TEST/OOD remain unopened"
+   "next_missing": "preregister an L13H8 endpoint-plus-invariance interchange that rewards both answer-changing families and directly penalizes all three live answer-preserving families; do not use R549 as an independent downstream target and keep FINAL_TEST/OOD closed"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
@@ -284,11 +282,13 @@
    "causal_variable_id": "induction_selector_payload",
    "categories": {
     "capability": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "induction_selector_payload_capability.r554.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "induction_selector_payload_capability.r554.preregistered.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -324,8 +324,10 @@
      "blocking_event_ids": [
       "induction_terminal_collateral_failure.legacy.v1"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "induction_terminal_collateral_failure.legacy.v1"
+     "planned_event_ids": [
+      "induction_selector_payload_capability_audit.r555.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "induction_selector_payload_capability_audit.r555.preregistered.v1"
     },
     "composition": {
      "status": "missing",
@@ -344,8 +346,8 @@
    },
    "n_held_categories": 0,
    "n_blocked_categories": 1,
-   "n_missing_categories": 7,
-   "next_missing": "preregister and run a FIT/SELECT-only native-capability screen on the frozen 2x2 factorial rows; only if capability holds, measure separate selector and payload/write complete-state ceilings; FINAL_TEST/OOD remain unopened"
+   "n_missing_categories": 6,
+   "next_missing": "execute R554 and immediately apply the pre-outcome R555 receipt/decision audit; only after an audited held capability result preregister separate selector and payload complete-state ceilings"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

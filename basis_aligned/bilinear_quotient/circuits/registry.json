@@ -616,18 +616,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "c8bb96ff558a4ac27a86b26e00ae42146c19128b25b6af5dd0dfe988fa798f6c",
+   "record_sha256": "8daab0110b7a062f0e16ce889f30e084794be42fdc6b61c98ff052686cfbf8f6",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v22",
-   "claim_status": "specified",
+   "active_claim_id": "pending_opener_state.v23",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "interchange_family_count": 2,
    "invariance_family_count": 3,
-   "negative_event_count": 8,
-   "active_negative_event_count": 7,
-   "latest_blocker": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
-   "latest_active_event": "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+   "negative_event_count": 10,
+   "active_negative_event_count": 9,
+   "latest_blocker": "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+   "latest_active_event": "pending_opener_downstream_readout_guard.r551.complete.null.v1",
    "active_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -642,8 +642,8 @@
     "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
     "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
     "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
-    "pending_opener_downstream_response_atlas.r549.preregistered.v1",
-    "pending_opener_downstream_readout_guard.r551.preregistered.v1"
+    "pending_opener_downstream_response_atlas.r549.complete.null.v1",
+    "pending_opener_downstream_readout_guard.r551.complete.null.v1"
    ],
    "held_test_types": [
     "capability",
@@ -715,10 +715,10 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "f1f69457ca2368d9f751bd6a9653b3e2730ceb36661575fd362a2ae836e305f2",
+   "record_sha256": "6199fcb09c293a16691624ecb5a7f8372bba79b0fdb96ca4e0fb7ad6f3cf661d",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "induction_selector_and_payload.v2",
+   "active_claim_id": "induction_selector_and_payload.v4",
    "claim_status": "specified",
    "causal_variable_id": "induction_selector_payload",
    "interchange_family_count": 3,
@@ -726,16 +726,20 @@
    "negative_event_count": 1,
    "active_negative_event_count": 1,
    "latest_blocker": "induction_terminal_collateral_failure.legacy.v1",
-   "latest_active_event": "induction_terminal_collateral_failure.legacy.v1",
+   "latest_active_event": "induction_selector_payload_capability_audit.r555.preregistered.v1",
    "active_event_ids": [
-    "induction_terminal_collateral_failure.legacy.v1"
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1"
    ],
    "held_test_types": [],
    "active_blocking_test_types": [
     "removal"
    ],
    "design_keys": [
-    "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2"
+    "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
+    "df1debf204fe76e337a0b23708dbbd430bae0715186582a5346b719d05bcaa13",
+    "e6cc50c5fbeb8b6ec75fa02827baf54e3304f8373629d617533e6b52ad0722ff"
    ]
   },
   "task.successor.pointer": {

@@ -1,0 +1,43 @@
+{
+ "rung": 551,
+ "stage": "pending_opener_downstream_readout_independence_guard",
+ "selected_candidate": "mlp15_write",
+ "r549_candidate_validates": false,
+ "transition_labels": [
+  "1->60",
+  "1->8",
+  "60->1",
+  "60->8",
+  "8->1",
+  "8->60"
+ ],
+ "readout_span_fraction_by_transition": {
+  "1->60": 0.040160566568374634,
+  "1->8": 0.07907119393348694,
+  "60->1": 0.02263367362320423,
+  "60->8": 0.05289808288216591,
+  "8->1": 0.06896969676017761,
+  "8->60": 0.07336372882127762
+ },
+ "median_readout_span_fraction": 0.06093388982117176,
+ "maximum_readout_span_fraction": 0.07907119393348694,
+ "recomputed_median_max_pairwise_readout_cosine": 0.050561126321554184,
+ "bar_median_readout_span_fraction_max": 0.5,
+ "pred_a_result_and_bundle_bound": true,
+ "pred_b_r549_pairwise_readout_diagnostic_reproduced": true,
+ "pred_c_distinct_downstream_target": false,
+ "strong_null": true,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "model_weights_updated": false,
+ "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "input_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_downstream_response_atlas_rung549_results.json": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/pending_opener_downstream_response_atlas_rung549_vectors.pt": "bc501503c283ddeb1b4f6a8ddf115112a84ddc2da8dfca01283254d80916437d"
+ },
+ "evaluated_splits": [
+  "FIT"
+ ],
+ "forbidden_splits_opened": [],
+ "decision": "Do not use the R549 response as an independent second target; no candidate validated or its response is too concentrated in the direct closer-readout span."
+}

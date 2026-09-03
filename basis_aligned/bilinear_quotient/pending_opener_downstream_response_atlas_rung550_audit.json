@@ -1,0 +1,86 @@
+{
+ "rung": 550,
+ "audited_rung": 549,
+ "status": "terminal_audit_complete",
+ "result_sha256": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+ "bundle_sha256": "bc501503c283ddeb1b4f6a8ddf115112a84ddc2da8dfca01283254d80916437d",
+ "rows_sha256": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9",
+ "complete_row_identity_and_tensor_shape_check": true,
+ "independent_fit_and_select_recomputation": true,
+ "selection_depends_only_on_fit": true,
+ "fit_eligible_candidates": [
+  "attn14h1_output",
+  "attn15h3_output",
+  "mlp15_write",
+  "attn16h1_output"
+ ],
+ "selected_candidate": "mlp15_write",
+ "selected_candidate_validates": false,
+ "selected_metrics": {
+  "dimension": 1152,
+  "fit": {
+   "direct_templates_classify_order_accuracy": 1.0,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "median_antipodal_transition_cosine": 0.8133219480514526,
+   "control_median_max_absolute_template_cosine": 0.3344869613647461,
+   "eligible": true,
+   "selection_score": 0.6655130386352539
+  },
+  "select": {
+   "direct_templates_classify_order_accuracy": 1.0,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "control_median_max_absolute_template_cosine": 0.3609514832496643,
+   "median_patch_to_natural_response_norm_ratio": 0.48197534680366516
+  }
+ },
+ "top_five_fit_candidates": [
+  {
+   "candidate": "mlp15_write",
+   "direct_templates_classify_order_accuracy": 1.0,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "median_antipodal_transition_cosine": 0.8133219480514526,
+   "control_median_max_absolute_template_cosine": 0.3344869613647461,
+   "eligible": true,
+   "selection_score": 0.6655130386352539
+  },
+  {
+   "candidate": "mlp13_write",
+   "direct_templates_classify_order_accuracy": 1.0,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "median_antipodal_transition_cosine": 0.8099624514579773,
+   "control_median_max_absolute_template_cosine": 0.42628222703933716,
+   "eligible": false,
+   "selection_score": 0.5737177729606628
+  },
+  {
+   "candidate": "mlp16_write",
+   "direct_templates_classify_order_accuracy": 0.9791666865348816,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "median_antipodal_transition_cosine": 0.8258687257766724,
+   "control_median_max_absolute_template_cosine": 0.4608851671218872,
+   "eligible": false,
+   "selection_score": 0.5182815194129944
+  },
+  {
+   "candidate": "attn14h1_output",
+   "direct_templates_classify_order_accuracy": 0.9027777910232544,
+   "order_templates_classify_direct_accuracy": 0.9652777910232544,
+   "median_antipodal_transition_cosine": 0.8291690349578857,
+   "control_median_max_absolute_template_cosine": 0.38764122128486633,
+   "eligible": true,
+   "selection_score": 0.5151365697383881
+  },
+  {
+   "candidate": "mlp14_write",
+   "direct_templates_classify_order_accuracy": 0.9930555820465088,
+   "order_templates_classify_direct_accuracy": 1.0,
+   "median_antipodal_transition_cosine": 0.9409421682357788,
+   "control_median_max_absolute_template_cosine": 0.5407823324203491,
+   "eligible": false,
+   "selection_score": 0.45227324962615967
+  }
+ ],
+ "readout_alignment_is_diagnostic_only": true,
+ "decision": "No later-module response passed the frozen FIT-selection and SELECT-validation rule; do not claim an independent downstream reader from this atlas.",
+ "final_test_or_ood_opened": false
+}

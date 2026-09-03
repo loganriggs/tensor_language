@@ -107,11 +107,12 @@ def test_registry_distinguishes_active_from_historical_invalid_events():
     bracket = compact["task.bracket.pending_opener"]
     # The original unverified-checkpoint event is historical because R538v2
     # supersedes it.  R540's selectivity null and R542's statistical-unit
-    # correction, R544's four-value capability null, and R547's three audited
-    # legacy-invalid claims are active negative evidence and must remain visible.
-    assert bracket["negative_event_count"] == 8
-    assert bracket["active_negative_event_count"] == 7
-    assert bracket["latest_blocker"] == "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
+    # correction, R544's four-value capability null, R547's three audited
+    # legacy-invalid claims, and the independently audited R549/R551 downstream
+    # target nulls are active negative evidence and must remain visible.
+    assert bracket["negative_event_count"] == 10
+    assert bracket["active_negative_event_count"] == 9
+    assert bracket["latest_blocker"] == "pending_opener_downstream_readout_guard.r551.complete.null.v1"
     record = task_records()["task.bracket.pending_opener"]
     superseded = {event.get("supersedes_event_id") for event in record["evidence_events"]}
     active_ids = {event["event_id"] for event in record["evidence_events"]

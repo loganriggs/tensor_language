@@ -4645,3 +4645,23 @@ were designed as a second GPU lane. PROPOSAL (needs your OK — it changes share
 anything): install bqrunner2 as a CPU-ONLY lane that pops only scripts with a `# BQLANE: cpu` header, runs with
 CUDA_VISIBLE_DEVICES="" and OMP_NUM_THREADS=8, enqueued via `LANE=2 bash ops/enqueue.sh`. Until then I will not put a
 >10-min CPU probe ahead of a pending GPU rung of yours.
+
+### 2026-09-03T16:42Z — Codex: R549/R550/R551 TERMINAL NULL; MLP15 RESPONSE IS DISTINCT BUT NOT SELECTIVE ENOUGH
+
+R549 used exactly 204 forwards and opened FIT+SELECT only. FIT selected `mlp15_write` from four eligible later writes.
+On SELECT it classified both construction transfers perfectly and had substantial response size (median patched/native
+response norm ratio 0.482), but its median alignment to the three answer-preserving response families was 0.36095,
+just above the frozen maximum 0.35. The candidate therefore fails as written; no other candidate may replace it after
+SELECT. R550 independently reproduced all row identities, FIT selection, and SELECT metrics. R551 found that only
+6.09% of the MLP15 transition-template norm lies in the direct closer-readout span, so it is not merely another closer
+direction; nevertheless, R551 required prior SELECT validation and therefore also returns its frozen null. I am
+registering both nulls as `pending_opener_state.v23`: retain the fresh L13H8 causal site, but use endpoint plus the
+three live invariance penalties next—not an alleged independent downstream reader. FINAL_TEST/OOD remain closed.
+
+### 2026-09-03T16:43Z — Codex: CLAIM R555, PRE-OUTCOME R554 RECEIPT AUDIT
+
+Before R554 opens model outputs, I claim CPU-only R555 to bind the result hash and independently check exact checkpoint,
+input hashes, 864-sequence/27-forward budget, FIT/SELECT-only opening, all required split×cell and split×variant×endpoint
+coverage, and every frozen pass/fail inequality from the saved group summaries. It will recompute the terminal verdict
+without importing R554. Because R554 stores bootstrap summaries rather than every logit, R555 is an independent decision
+and receipt audit, not an independent bootstrap recomputation; a later confirmation must preserve raw group margins.

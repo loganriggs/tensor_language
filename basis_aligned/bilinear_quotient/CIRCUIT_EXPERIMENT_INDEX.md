@@ -2,14 +2,14 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-34 events; 29 scientific protocols; 34 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+38 events; 31 scientific protocols; 38 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.bracket.pending_opener` | `pending_opener_downstream_response_atlas.r549.preregistered.v1` | cross_family_transfer | `pending_opener_state.v20` | `a74b9ea95392` |
-| `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.preregistered.v1` | null_control | `pending_opener_state.v21` | `c9bbba52f07a` |
+| `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | capability | `induction_selector_and_payload.v2` | `28ca96108955` |
+| `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` |
 
 ## Repeats requiring review
 
@@ -51,7 +51,11 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.bracket.pending_opener` | `pending_opener_three_value_confirmation.r546.l13h8_site.held.v1` | complete/held | full_swap_ceiling | `pending_opener_state.v19` | `f5dbcd32ded9` | `d90a50599b41` | `6677bca36624` | supersedes `pending_opener_three_value_confirmation.r546.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_downstream_response_atlas.r549.preregistered.v1` | preregistered/inconclusive | cross_family_transfer | `pending_opener_state.v20` | `a74b9ea95392` | `700f72fc09dc` | `a16de5ceb843` | — |
 | `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.preregistered.v1` | preregistered/inconclusive | null_control | `pending_opener_state.v21` | `c9bbba52f07a` | `c921a2705ff8` | `88779d3fe0ab` | — |
+| `task.bracket.pending_opener` | `pending_opener_downstream_response_atlas.r549.complete.null.v1` | complete/null | cross_family_transfer | `pending_opener_state.v20` | `a74b9ea95392` | `700f72fc09dc` | `c3753b112511` | supersedes `pending_opener_downstream_response_atlas.r549.preregistered.v1` |
+| `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.complete.null.v1` | complete/null | null_control | `pending_opener_state.v21` | `c9bbba52f07a` | `c921a2705ff8` | `36248f849fa7` | supersedes `pending_opener_downstream_readout_guard.r551.preregistered.v1` |
 | `task.increment.state` | `increment_postattn_rank4_das.legacy.v1` | complete/held | das_interchange | `increment_state.v1` | `af4ef28c6d4a` | `6bc87c9422a7` | `c7b2b12e2046` | — |
 | `task.induction.selector_payload` | `induction_terminal_collateral_failure.legacy.v1` | complete/failed | removal | `induction_selector_and_payload.v1` | `978c6755026c` | `415d71f6164c` | `3f1424dfed98` | — |
+| `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v2` | `28ca96108955` | `e6cc50c5fbeb` | `b1bddde07ddf` | — |
+| `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | preregistered/inconclusive | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` | `df1debf204fe` | `70e175c4d09d` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

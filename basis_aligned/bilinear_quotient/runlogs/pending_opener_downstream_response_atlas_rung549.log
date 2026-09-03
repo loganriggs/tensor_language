@@ -1,0 +1,36 @@
+{
+  "pred_a_exact_instrument": true,
+  "pred_b_fit_selects_candidate": true,
+  "pred_c_selected_candidate_validates": false,
+  "strong_null": true,
+  "fit_eligible_candidates": [
+    "attn14h1_output",
+    "attn15h3_output",
+    "mlp15_write",
+    "attn16h1_output"
+  ],
+  "selected_candidate": "mlp15_write",
+  "selected_metrics": {
+    "dimension": 1152,
+    "fit": {
+      "direct_templates_classify_order_accuracy": 1.0,
+      "order_templates_classify_direct_accuracy": 1.0,
+      "median_antipodal_transition_cosine": 0.8133219480514526,
+      "control_median_max_absolute_template_cosine": 0.3344869613647461,
+      "eligible": true,
+      "selection_score": 0.6655130386352539
+    },
+    "select": {
+      "direct_templates_classify_order_accuracy": 1.0,
+      "order_templates_classify_direct_accuracy": 1.0,
+      "control_median_max_absolute_template_cosine": 0.3609514832496643,
+      "median_patch_to_natural_response_norm_ratio": 0.48197534680366516
+    },
+    "readout_alignment_diagnostic": {
+      "median_template_max_absolute_cosine_with_closer_contrasts": 0.050561126321554184,
+      "used_for_selection": false
+    }
+  },
+  "model_forwards": 204,
+  "next_step": "retain_endpoint_plus_invariance_objective_without_claiming_a_downstream_reader"
+}
