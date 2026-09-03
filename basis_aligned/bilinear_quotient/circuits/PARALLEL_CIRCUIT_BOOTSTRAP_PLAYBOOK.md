@@ -242,6 +242,11 @@ The second wave added four more:
     shape differs from the preregistered schedule, preflight must fail. Relaxing only that shape check is allowed when
     checkpoint and model-structure validation remain separately enforced, but the choice must be explicit at every
     scientific forward call and protected by a planted regression test.
+23. **Build every stratified panel from the opened split's actual support.** A level can exist in the full authority but
+    be absent from FIT. Before freezing a panel, independently enumerate the split-by-family-by-stratifier census and
+    require enough distinct authorized rows for every requested cell. Never silently draw a missing FIT cell from
+    SELECT, sample with replacement, or reduce the panel. Plant a fixture in which globally valid length or condition
+    levels occur only in an unopened split and require model-free rejection.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
@@ -273,6 +278,9 @@ of the base contract for every later wave; it does not alter the frozen R585 sci
 > Enumerate every real model-forward call site and prove that its validation mode accepts the registered batch size and
 > padding lengths. Include a negative fixture in which a batch-32 schedule is sent to a fixed `(4, 256)` interface; it
 > must fail before enqueue, not after loading the model.
+> Before selecting any balanced panel, emit and hash its phase-specific support census. Prove that every requested cell
+> has the registered number of distinct rows inside the opened phase; globally available but SELECT-only cells must not
+> satisfy a FIT request.
 
 ## Scaling beyond two subagents
 

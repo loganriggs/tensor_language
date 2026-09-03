@@ -1,0 +1,32 @@
+{
+  "accepted_lessons": [
+    {
+      "lesson": 23,
+      "name": "phase_specific_panel_support_census",
+      "requirement": "Before freezing any stratified panel, independently enumerate and hash the support census within each authorized split and require enough distinct rows for every requested cell without borrowing from unopened splits, sampling with replacement, or silently shrinking the panel."
+    }
+  ],
+  "builder_prompt_addendum": "Emit a split-by-family-by-stratifier support census before selecting rows. Bind the selected row IDs and their ordered hash to the opened split. Reject a panel request when any requested FIT level exists only globally or in SELECT; do not borrow, duplicate, or shrink rows implicitly.",
+  "critic_prompt_addendum": "Plant an authority where all requested levels exist globally but some occur only in an unopened split. Attempt cross-split borrowing, replacement sampling, duplicated IDs, and silent panel reduction; every construction must fail model-free before model loading.",
+  "forbidden_fallbacks": [
+    "borrow_rows_from_unopened_split",
+    "sample_with_replacement_without_registration",
+    "silently_reduce_requested_cell_size",
+    "validate_only_global_not_phase_specific_support"
+  ],
+  "planted_negative_fixture_ids": [
+    "globally_supported_level_absent_from_fit_rejected",
+    "cross_split_panel_borrow_rejected",
+    "duplicate_or_replacement_sample_rejected",
+    "silent_panel_size_reduction_rejected"
+  ],
+  "required_test_ids": [
+    "phase_specific_support_census_exact",
+    "selected_ids_are_distinct_and_authorized_in_opened_split",
+    "selected_order_and_hash_are_frozen",
+    "unopened_split_rows_never_satisfy_opened_split_panel"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v5_addendum",
+  "v4_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v4_addendum.json",
+  "v4_contract_sha256": "349afa9ec4fe465dbf08109a63cb1a8dc2a278e53a710bf210035f57b8500da0"
+}
