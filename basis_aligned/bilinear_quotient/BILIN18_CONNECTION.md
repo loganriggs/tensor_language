@@ -69283,3 +69283,35 @@ gap stays a per-site cost, and §2709's slowly decaying superadditivity is the c
 next question is whether the core is the readout-facing subspace (compare U_shared with the top Fisher directions of §2699 /
 the lm_head row space — a weights-only test) and whether the same core is READ by the late MLPs' Left/Right inputs
 (compositionality of write → read across blocks).
+
+## §2711 — EARLY JOINT INSTALLATION k-LADDER (Claude, LANE 1 CUDA, 32 s, 3,112 GPU document-forwards): THE EARLY STACK (attn0–mlp3) IS THE EXPENSIVE HALF AT LOW RANK AND THE CHEAP HALF AT HIGH RANK — JOINT = 2.39 / 1.65 / .69 / .135 / .021 nat at k = 32 / 64 / 128 / 256 / 512 (late stack §2709: .90 / .70 / .49 / .27 / .097); F(k) is NON-monotone, 1.68 / 2.60 / 3.30 / 2.12 / 1.46. a, b, d, e TRUE; c FALSE (no null met); preserved.
+
+Written 2026-09-03 20:33Z (box clock). Preregistration `polynomial_causal/EARLY_JOINT_K_LADDER_PROBE_PREREGISTRATION.md`
+(registered 20:31Z, frozen in the script — sha in the receipt's `hashes`); script `ops/early_joint_k_ladder_probe.py`; results
+`early_joint_k_ladder_probe_results.json` (sha 1e0c96c5…); log `runlogs/early_joint_k_ladder_probe.log`. Enqueued 20:31, ran
+20:31:45–20:32:17, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 (FRESH
+split, bases from docs 96–191, baseline 3.0322401) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: baseline 3.0322401; identity 0.0; 9 of 9 chains monotone.
+- pred_b_early_superadditive — TRUE; null not met: F(32) = 1.68 (bar ≥ 1.5; null ≤ 1.1).
+- pred_c_factor_decays — FALSE; null not met: F(512) = 1.46 > .8 × F(32) = 1.34; F(512) < F(32) so the null (≥) is not met either.
+  F rises to 3.30 at k = 128 before falling.
+- pred_d_early_stack_price_512 — TRUE; null not met: JOINT(512) = .021 (bar ≤ .10).
+- pred_e_early_costs_more_than_late — TRUE; null not met: JOINT(128) = .692 ≥ .486.
+
+**Ladder (joint / Σ singles / F).** 32: 2.393 / 1.427 / 1.68; 64: 1.647 / .633 / 2.60; 128: .692 / .210 / 3.30; 256: .135 / .064 /
+2.12; 512: .021 / .014 / 1.46. mlp0–3 jointly at 128: .493 (71 % of the early joint). Singles at 512: every early site ≤ .0041.
+Fresh-split eff ranks: mlp0 150, mlp1 320, mlp2 432, mlp3 415, attn1 21, other attention 173–257.
+
+**Reading.** (i) The two halves of the model have opposite rank profiles. Early writes are expensive to truncate hard (k ≤ 128:
+2.39 → .69 nat, more than the late stack) but their price collapses by k = 256 (.135) and is gone by 512 (.021); late writes are
+cheaper at low rank but keep .27 at 256 and .10 at 512 (§2709). The single-site map already said mlp0–3 dominate the rank-32
+price (§2696); what it could not say is that this early price is a bounded-rank phenomenon (eff ranks 150–430, and the joint
+follows the singles down), whereas the late MLPs' price is a long tail (eff 345–671, single .006–.008 even at 512). (ii) The
+non-monotone F(k) — peaking at 3.3 at k = 128 — says the early cross terms are concentrated at intermediate rank: the
+directions each early site loses between k = 64 and 256 are the ones the other early sites depend on (mlp1's own price falls
+.34 → .08 → .02 across 64/128/256 while the joint falls 1.65 → .69 → .14). (iii) For the program: a rank-256 description of all
+eight early writes costs .135 nat jointly — the early "dense" price is not intrinsic; a rank-512 late description still costs
+.10 and is the harder problem. The whole-model joint ladder (all 36 sites at one k) is the next number: the first honest price
+curve of a rank-k write program for bilin18.

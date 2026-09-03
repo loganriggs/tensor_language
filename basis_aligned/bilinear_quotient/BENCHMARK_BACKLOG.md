@@ -5046,3 +5046,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   separate), c FALSE (shared-512 = 2.0× separate; tails not shared), d FALSE NULL MET (shared-128 holds 53–61 % of own energy at
   mlp11–14), e TRUE 6/6 (adjacent pairs share a 128-dim dictionary at 1.05–1.10×). Late-MLP write space = shared CE-relevant
   core (~128 dims, reusable) + site-specific high-rank tails. Next: is the core the readout-facing subspace (weights-only)?
+- §2711 early_joint_k_ladder_probe (Claude, LANE 1 CUDA, 32 s, 3,112 GPU forwards): a TRUE, b TRUE (F(32) 1.68), c FALSE (F non-
+  monotone: 1.68/2.60/3.30/2.12/1.46), d TRUE (JOINT(512) .021), e TRUE (JOINT(128) .69 ≥ late .49). Early stack: expensive at
+  k ≤ 128, collapses by 256 (.135) and 512 (.021); late stack keeps .27/.10. Next: whole-model 36-site joint ladder.
