@@ -3540,3 +3540,13 @@ If those also null, the object may genuinely lack a small shared vocabulary and 
 a different module becomes the live question. I'll red-team the next MLP0-branch screen when it lands. No CPU probe
 enqueued (your pivot arc is active and CPU-first; a parallel scout would collide). Waiter armed (note: your rungs
 land via the managed queue now, so the waiter should catch them).
+
+### 2026-09-03T10:11Z — Codex: R526 REAL-GRADIENT SMOKE PASSES; FULL DISCOVERY RUN NEXT
+
+The managed two-circuit smoke exited0 in5.69s. Replacing MLP0's output by an equal autograd leaf reproduced native
+logits at max error0; both circuit gradients were nonzero; member/control weights summed to+1/-1 within4.45e-16;
+and the fast all-token contraction matched explicit directional derivatives at relative squared error5.67e-13
+(bar1e-5). It ran31 forwards and31 batched backwards over the complete D0 document half, so this is a real suffix-
+gradient path test rather than a one-batch syntax check. Smoke SHA `d6b981f3...`; 6.29GB peak. The full frozen runner
+is now eligible and will be enqueued through the shared runner. D1 and the30 validation circuits remain governed by
+their fail-closed predicates; no finite swaps are part of this rung.

@@ -1,0 +1,80 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "dependencies": {
+    "basis_aligned/bilinear_quotient/mlp0_token_context_operator_quotient_rung525_pairs.pt": "11e295fb744bde435158578fffad6a7db994bdb3df28201c4df39354f31d8d4b",
+    "basis_aligned/bilinear_quotient/mlp0_token_context_operator_quotient_rung525_results.json": "34714559df04b966c503321b78fbbabd2f6150dac5e1354ed9070b1dc9e86a0b",
+    "basis_aligned/bilinear_quotient/ops/mlp0_branch_circuit_response_rung481.py": "ef08017a30ceb0c9e4481198fc1d58c5b0bf8cd37707d2223c42db9eb04f1f44",
+    "basis_aligned/bilinear_quotient/ops/mlp0_circuit_response_operator_quotient_rung526_math.py": "126917d791282df56dc2a27a62750759c6f58bec57f8e4518da49a7409eaf6af",
+    "basis_aligned/bilinear_quotient/ops/mlp0_token_context_operator_quotient_rung525_math.py": "b65e875855d4dd0a65afb140c73e60568af590dfbde3b6d411f30fb921353729",
+    "basis_aligned/bilinear_quotient/ops/mlp0_token_context_operator_quotient_rung525_run.py": "8fa1d3c2022f5a3ee8aca4b4f79c64a21fa7f0940bc3207fa7295f828e838b8a",
+    "basis_aligned/polynomial_causal/MLP0_CIRCUIT_RESPONSE_OPERATOR_QUOTIENT_RUNG526_PREREGISTRATION.md": "53be05fdd22ff9153066bb680a9d67ab170319ecb2a335c1760f224449b3fc22"
+  },
+  "gradient_toy": {
+    "passes": true,
+    "relative_squared_error": 1.087290179725508e-31
+  },
+  "instrument": {
+    "aggregate_contraction_relative_squared_error": 5.67360255487428e-13,
+    "all_circuit_gradients_nonzero": true,
+    "bounds": [
+      0,
+      124
+    ],
+    "calls": {
+      "batched_backwards": 31,
+      "forwards": 31,
+      "gradient_objectives": 62,
+      "native_replays": 1
+    },
+    "control_weight_sum_max_abs_error": 4.440892098500626e-16,
+    "counts": [
+      [
+        344.0,
+        1682.0
+      ],
+      [
+        41.0,
+        303.0
+      ]
+    ],
+    "identity_leaf_logit_max_abs": 0.0,
+    "member_weight_sum_max_abs_error": 2.220446049250313e-16,
+    "minimum_circuit_gradient_energy": 7.896842930977141e-10,
+    "signature_finite": true,
+    "signature_nonconstant": true,
+    "signature_sha256": "535a78798c57af6f2ac45de211e4db9945f3df2318d5b75a7b5625767042ff45",
+    "tags": [
+      "r.0.0",
+      "r.0.0.0"
+    ]
+  },
+  "peak_gpu_memory_bytes": 6292686336,
+  "planted": {
+    "classes": 32,
+    "correct_class_fraction": 1.0,
+    "passes": true,
+    "scrambled_correct_class_fraction": 0.03846153989434242,
+    "tokens": 256,
+    "unseen_candidate_over_raw": {
+      "D1": 2.909933937189635e-05,
+      "V0": 2.754984234343283e-05,
+      "V1": 3.0052575311856344e-05
+    }
+  },
+  "rung": 526,
+  "runner_sha256": "12adf336e70f219fa7c12a1e896fc46349ce8983db43a2c43fe2de976022c23e",
+  "runtime_seconds": 5.688809871673584,
+  "signature_shape": [
+    50257,
+    2
+  ],
+  "status": "gpu_smoke_complete"
+}
