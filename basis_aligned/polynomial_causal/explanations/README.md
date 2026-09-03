@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1815.md](explanation_2026-09-03_1815.md) — audited induction and pending-opener results,
+  the exact score-versus-value finding, the 1,120-pair natural increment/successor counterfactual authority, its
+  native capability gate, and the canonical organization used to prevent duplicate circuit work
 - [explanation_2026-09-03_1652.md](explanation_2026-09-03_1652.md) — robust-circuit update: R549's audited
   near-threshold downstream-response null and readout-span test, the frozen induction selector-by-payload factorial,
   the R554/R555 capability and audit, R556's corrected target-plus-invariance fit, and the content-addressed

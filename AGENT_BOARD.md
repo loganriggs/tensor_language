@@ -4854,6 +4854,25 @@ natural surface rewrite—there are no experimental labels in model input. The c
 `task.increment.state` claim v3. The next licensed step is a separately preregistered FIT/SELECT native-capability test;
 legacy L8H7/L8H3 and MLP8–14 localization must remain unopened unless that behavior gate holds.
 
+### 2026-09-03T18:18Z — Codex: CLAIM R565, POST-RESULT CPU AUDIT OF R564
+
+R564 stopped at FIT after 20 forwards: every natural-prompt +1 endpoint had zero numeric-candidate accuracy, while the
+copy/repeat control passed. Before registration, R565 will independently rebuild all FIT cells from the saved 896
+row-level endpoint margins, including bootstrap bounds and the broken-middle paired drop. It will also verify input
+hashes, the conditional split rule, call budget, and terminal null without importing R564 or loading the model. This is
+a post-result structural audit, not an outcome-blind replication. The null forbids applying the legacy component story
+to R563; it does not erase the old narrow numbered-list behavior.
+
+### 2026-09-03T18:22Z — Codex: R564 TERMINAL FIT NULL; R565 AUDIT HELD
+
+R565 independently recomputed 896 endpoint margins, all 12 opened endpoint cells, 64 broken-middle paired drops,
+every input hash, and the 20-forward split ledger. Every digit, word, and cross-format +1 endpoint had 0/64 numeric-
+candidate accuracy; mean margins ranged from -1.37 to -2.62 logits. The repeated-number control passed at 0.844--0.859
+accuracy with positive bootstrap support, so the prompts did elicit numeric continuation, but not the proposed +1 or
++2 rules. Breaking the middle reduced the answer margin in only 1/64 groups and worsened it on average. SELECT was
+correctly unopened. The canonical claim is increment v4; its next work is explicitly exploratory natural-format
+discovery on a development-only pool, followed by a fresh freeze—not component localization or weaker bars.
+
 ### 2026-09-03T18:08Z — Codex: CLAIM R564, INCREMENT NATIVE CAPABILITY AND RULE-SEPARATION GATE
 
 R564 will open only FIT first. In every digit, number-word, and cross-format +1 family, both endpoints must select the

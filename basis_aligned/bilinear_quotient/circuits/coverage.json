@@ -215,17 +215,17 @@
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
-   "claim_status": "specified",
+   "claim_status": "proposed",
    "causal_variable_id": "increment_state",
    "categories": {
     "capability": {
-     "status": "planned",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "increment_native_capability.r564.preregistered.v1"
+     "blocking_event_ids": [
+      "increment_native_capability.r564.result.v1"
      ],
-     "latest_relevant_event_id": "increment_native_capability.r564.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "increment_native_capability.r564.result.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -258,11 +258,13 @@
      "latest_relevant_event_id": null
     },
     "selectivity": {
-     "status": "missing",
-     "held_event_ids": [],
+     "status": "held",
+     "held_event_ids": [
+      "increment_native_capability_audit.r565.held.v1"
+     ],
      "blocking_event_ids": [],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "increment_native_capability_audit.r565.held.v1"
     },
     "composition": {
      "status": "missing",
@@ -279,10 +281,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 1,
-   "n_blocked_categories": 0,
-   "n_missing_categories": 6,
-   "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
+   "n_held_categories": 2,
+   "n_blocked_categories": 1,
+   "n_missing_categories": 5,
+   "next_missing": "use an explicitly exploratory development pool to identify natural prompt forms that elicit +1, number-word +1, copy, and +2; then freeze new group-disjoint rows before any component localization. Do not apply the legacy L8H7/L8H3/MLP8-14 story to R563"
   },
   "task.induction.selector_payload": {
    "kind": "behavior_circuit",

@@ -7,28 +7,11 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 52,
- "design_count": 44,
- "protocol_count": 43,
- "execution_count": 52,
- "open_preregistrations": [
-  {
-   "circuit": "task.increment.state",
-   "event_id": "increment_native_capability.r564.preregistered.v1",
-   "claim_id": "increment_state.v3",
-   "test_type": "capability",
-   "stage": "preregistered",
-   "verdict": "inconclusive",
-   "failure_kind": null,
-   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
-   "protocol_key": "4a5fa3ca6b65ae4a72c6e33608851d8038af711bdff46032801aea1f23359031",
-   "execution_key": "831ce8b246c538ca9198586e33a712a2de9cb95c514bb11f9b97af38933483b8",
-   "supersedes_event_id": null,
-   "replicates_event_id": null,
-   "prereg_artifact_id": "r564_prereg",
-   "result_artifact_id": null
-  }
- ],
+ "event_count": 54,
+ "design_count": 45,
+ "protocol_count": 44,
+ "execution_count": 54,
+ "open_preregistrations": [],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [],
  "events": [
@@ -735,6 +718,38 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r564_prereg",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.increment.state",
+   "event_id": "increment_native_capability.r564.result.v1",
+   "claim_id": "increment_state.v3",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
+   "protocol_key": "4a5fa3ca6b65ae4a72c6e33608851d8038af711bdff46032801aea1f23359031",
+   "execution_key": "11413d3a7d6d1fe17b787be9e9ef18d02699b826b7e99cee18c64a049cf5a14d",
+   "supersedes_event_id": "increment_native_capability.r564.preregistered.v1",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r564_prereg",
+   "result_artifact_id": "r564_result"
+  },
+  {
+   "circuit": "task.increment.state",
+   "event_id": "increment_native_capability_audit.r565.held.v1",
+   "claim_id": "increment_state.v3",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "d89cba22d71ffb4bbd72d8c2cc26758b4a27583707927804012010189edd9b4c",
+   "protocol_key": "3175caee66c1360953424d0e25aafc2086939893d974089a8d07ce4c5442e0a0",
+   "execution_key": "2f44f749108498b919f47e35319cb93626e63b04a923f3ab5d90aa96ea624bd1",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "r565_audit"
   },
   {
    "circuit": "task.induction.selector_payload",

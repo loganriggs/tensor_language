@@ -701,29 +701,34 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "4a9b3c924e081dc5097e07a551d67c26ff4f02a7984326642f9788d70687c9f5",
+   "record_sha256": "56badc61f6621a9377c8e397d4590018fcef5f26f4e97c1ecb978f970f425b11",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "increment_state.v3",
-   "claim_status": "specified",
+   "active_claim_id": "increment_state.v4",
+   "claim_status": "proposed",
    "causal_variable_id": "increment_state",
    "interchange_family_count": 3,
    "invariance_family_count": 3,
-   "negative_event_count": 0,
-   "active_negative_event_count": 0,
-   "latest_blocker": null,
-   "latest_active_event": "increment_native_capability.r564.preregistered.v1",
+   "negative_event_count": 1,
+   "active_negative_event_count": 1,
+   "latest_blocker": "increment_native_capability.r564.result.v1",
+   "latest_active_event": "increment_native_capability_audit.r565.held.v1",
    "active_event_ids": [
     "increment_postattn_rank4_das.legacy.v1",
-    "increment_native_capability.r564.preregistered.v1"
+    "increment_native_capability.r564.result.v1",
+    "increment_native_capability_audit.r565.held.v1"
    ],
    "held_test_types": [
-    "das_interchange"
+    "das_interchange",
+    "null_control"
    ],
-   "active_blocking_test_types": [],
+   "active_blocking_test_types": [
+    "capability"
+   ],
    "design_keys": [
     "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
-    "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4"
+    "6bc87c9422a7b4977e52f66c88146894c49561eb9c73ada89070dfbfb86a74b4",
+    "d89cba22d71ffb4bbd72d8c2cc26758b4a27583707927804012010189edd9b4c"
    ]
   },
   "task.induction.selector_payload": {

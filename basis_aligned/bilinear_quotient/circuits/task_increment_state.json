@@ -586,6 +586,222 @@
    ],
    "translation_ids": [],
    "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
+  },
+  {
+   "claim_id": "increment_state.v4",
+   "revision": 4,
+   "status": "proposed",
+   "supersedes": "increment_state.v3",
+   "causal_variable": {
+    "id": "increment_state",
+    "domain": "numeric values represented as digits, words, or list elements",
+    "read": "recent numeric state and list relation",
+    "operation": "apply an increment relation to the numeric state",
+    "write": "evidence for the next numeric token",
+    "endpoint": "signed shifted-next-number minus base-next-number logit margin"
+   },
+   "alternative_explanations": [
+    "generic digit identity",
+    "numeric value without increment",
+    "list-format continuation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "digit_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a digit-written +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "repeated-number control",
+      "step-two control",
+      "surface rewrite"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "word_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a number-word +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "digit transfer",
+      "repeated-number control",
+      "step-two control"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "cross_format_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state",
+      "digit versus number-word representation",
+      "correct next token"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "semantic group",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "within-format shifts",
+      "surface rewrite",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "incoherent_middle_number_edit",
+     "role": "necessity",
+     "changes": [
+      "only the middle number and therefore evidence for a coherent +1 relation"
+     ],
+     "holds_fixed": [
+      "first number",
+      "final observed number",
+      "registered expected answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "surface rewrite",
+      "coherent shift",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "operation_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "all numeric values",
+      "+1 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "coherent state shift",
+      "middle-number break",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "repeated_number_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "repeated numeric state",
+      "copy/repeat rule",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "+1 target rows",
+      "step-two rows",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "step_two_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "numeric state",
+      "+2 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "+1 target rows",
+      "repeated-number rows",
+      "held-out number pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "failed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "l8h7_l8h3_paths",
+     "tensor_path": "L8H7/L8H3 paths",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-14_products",
+     "tensor_path": "MLP8-14 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "increment_counterfactual_split_r563_v1"
+   ],
+   "evidence_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1",
+    "increment_native_capability.r564.result.v1",
+    "increment_native_capability_audit.r565.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "use an explicitly exploratory development pool to identify natural prompt forms that elicit +1, number-word +1, copy, and +2; then freeze new group-disjoint rows before any component localization. Do not apply the legacy L8H7/L8H3/MLP8-14 story to R563"
   }
  ],
  "split_plans": [
@@ -752,6 +968,120 @@
    "claim_id": "increment_state.v3",
    "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
    "execution_key": "831ce8b246c538ca9198586e33a712a2de9cb95c514bb11f9b97af38933483b8"
+  },
+  {
+   "event_id": "increment_native_capability.r564.result.v1",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "digit_coherent_shift",
+    "word_coherent_shift",
+    "cross_format_coherent_shift",
+    "incoherent_middle_number_edit",
+    "operation_preserved_surface_edit",
+    "repeated_number_numeric_control",
+    "step_two_numeric_control"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT_only_stopped_by_frozen_gate",
+   "metrics": [
+    {
+     "name": "numeric_candidate_accuracy_and_margin",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": ">=0.75 correct and bootstrap lower mean margin >0 in every endpoint cell"
+    },
+    {
+     "name": "middle_number_necessity",
+     "estimate": 0.015625,
+     "ci95": null,
+     "bar": ">=0.65 positive drops and bootstrap lower mean drop >0"
+    },
+    {
+     "name": "split_opening",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "SELECT only after all FIT cells pass; FINAL_TEST/OOD closed"
+    }
+   ],
+   "result_artifact_id": "r564_result",
+   "prereg_artifact_id": "r564_prereg",
+   "input_artifact_ids": [
+    "r563_rows",
+    "r563_receipt",
+    "r563_correction",
+    "r564_script"
+   ],
+   "split_plan_id": "increment_counterfactual_split_r563_v1",
+   "seed": 564,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "increment_native_capability.r564.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INCREMENT_NATIVE_CAPABILITY_RUNG564_PREREGISTRATION.md"
+   ],
+   "claim_id": "increment_state.v3",
+   "design_key": "5457e2c7894d688699453400d811cbc4ba84c3e4167b9f3654cfa87a5feed10e",
+   "execution_key": "11413d3a7d6d1fe17b787be9e9ef18d02699b826b7e99cee18c64a049cf5a14d"
+  },
+  {
+   "event_id": "increment_native_capability_audit.r565.held.v1",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "digit_coherent_shift",
+    "word_coherent_shift",
+    "cross_format_coherent_shift",
+    "incoherent_middle_number_edit",
+    "operation_preserved_surface_edit",
+    "repeated_number_numeric_control",
+    "step_two_numeric_control"
+   ],
+   "site_id": null,
+   "evaluation_role": "post_result_structural_audit",
+   "metrics": [
+    {
+     "name": "row_statistics_recomputed",
+     "estimate": 896,
+     "ci95": null,
+     "bar": "exactly 896"
+    },
+    {
+     "name": "endpoint_cells_recomputed",
+     "estimate": 12,
+     "ci95": null,
+     "bar": "exactly 12"
+    },
+    {
+     "name": "terminal_null_reproduced",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "true"
+    }
+   ],
+   "result_artifact_id": "r565_audit",
+   "prereg_artifact_id": null,
+   "input_artifact_ids": [
+    "r563_rows",
+    "r564_result",
+    "r565_script",
+    "r565_test"
+   ],
+   "split_plan_id": "increment_counterfactual_split_r563_v1",
+   "seed": 565,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/explanations/explanation_2026-09-03_1815.md"
+   ],
+   "claim_id": "increment_state.v3",
+   "design_key": "d89cba22d71ffb4bbd72d8c2cc26758b4a27583707927804012010189edd9b4c",
+   "execution_key": "2f44f749108498b919f47e35319cb93626e63b04a923f3ab5d90aa96ea624bd1"
   }
  ],
  "translations": [],
@@ -856,6 +1186,30 @@
    "path": "basis_aligned/bilinear_quotient/ops/increment_native_capability_rung564.py",
    "sha256": "f9d9ef4f2b299f4381c68bff709a01d0c1f0074f723f4136ea441703bba532d4",
    "kind": "implementation",
+   "status": "frozen"
+  },
+  "r564_result": {
+   "path": "basis_aligned/bilinear_quotient/increment_native_capability_rung564_results.json",
+   "sha256": "96802be9e9aef713d528eba19860a2e93314fb883d9cbb5e868d0fd0d1e2ca59",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r565_audit": {
+   "path": "basis_aligned/bilinear_quotient/increment_native_capability_rung565_audit.json",
+   "sha256": "c7e84f112086311c2ebd17755babf480ceb7ab27b0128459f6dee28c96a893ed",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r565_script": {
+   "path": "basis_aligned/bilinear_quotient/ops/audit_increment_native_capability_rung565.py",
+   "sha256": "ece4536d019a9a26587cbc997511d60626cf446d807b6b22df2bf4b147a17d68",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r565_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_audit_increment_native_capability_rung565.py",
+   "sha256": "1ef892b546a940dc1956cee0c4070ddd87b89ef48a2832eed7c8cbd64d5b9959",
+   "kind": "test",
    "status": "frozen"
   }
  },
