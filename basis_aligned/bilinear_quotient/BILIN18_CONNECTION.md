@@ -69624,3 +69624,45 @@ The next rungs on mlp11–15 should therefore be joint (leave-k-out / cumulative
 **Limits.** Single-site MEAN costs of .03–.05 sit near the CUDA-atomics wobble floor (.003) but well above it; the rec numbers built
 on them (−.03…+.07) are ratios of small numbers and carry ±.1 uncertainty — d's null is met on the R² evidence as much as on rec.
 mlp16/17 singles were not re-run (in §2716/§2717). No fit-split robustness here either.
+
+## §2720 — EXTRACTION, NOT REGRESSION: mlp16/mlp17's OWN WEIGHTS, FED ONLY THE 16 CORE COORDINATES OF THEIR INPUT (other 1136 directions = fit-set mean), RECOVER 64% OF THEIR VALUE; WITH A TOKEN-PREDICTED FILLER 75% (fitted §2718 program 78%, oracle core 81%); a random-position filler 42% (Claude, LANE 1 CUDA, 11 s, 736 GPU document-forwards): a, b, d, e TRUE; c FALSE (token filler adds .11 recovery over the mean filler against a .15 bar; null ≤ .03 not met). Preserved.
+
+Written 2026-09-03 21:09Z (box clock). Preregistration `polynomial_causal/LATE_MLP_WEIGHTS_ON_CORE_INPUT_PROBE_PREREGISTRATION.md`
+(registered 21:06Z before the script). Script `ops/late_mlp_weights_on_core_input_probe.py`; receipt
+`late_mlp_weights_on_core_input_probe_results.json` (sha 57772458…); log `runlogs/late_mlp_weights_on_core_input_probe.log`.
+FRESH split (fillers fitted on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE numbers are CE ADDED ABOVE THE REAL
+MODEL — LOWER IS BETTER; rec = 1 − CE(arm)/CE(MEAN(mlp16+17)), higher = better. NO block weight is fitted in any arm: the arms
+apply the block's own Down[(Left x̂′) ⊙ (Right x̂′)] to a restricted input x̂′ = P_M x̂ + filler, where x̂ is the block's real
+(patched-stream) rms-normed input, P_M the §2710 16-dim CORE_TN, and the filler occupies the 1136 non-core directions.
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN .8480; ORACLE_M .1577 (both within 1e-4 of §2717/§2718).
+
+**Arms (CE added / rec).** MEAN .848 / — · W_MEANFILL (filler = fit-set mean of x̂_⊥) .309 / .636 · W_TOKFILL (filler = ridge
+ê(t) → x̂_⊥) .214 / .747 · W_TOKFILL_M (same, write's non-core component replaced by the mean's) .233 / .725 · W_RANDFILL (filler =
+x̂_⊥ of a random other position of the same chunk) .493 / .419 · ORACLE_M .158 / .814.
+
+**Scoring.** b rec(W_TOKFILL) .747 ≥ .60 TRUE (null ≤ .30 not met). c rec(W_TOKFILL) − rec(W_MEANFILL) = .112 ≥ .15 FALSE (null
+≤ .03 not met). d rec(W_TOKFILL_M)/rec(W_TOKFILL) = .970 ≥ .90 TRUE (null ≤ .60 not met). e rec(W_RANDFILL) = .419 ≤ .747 − .15
+TRUE (null ≥ .717 not met).
+
+**What it means for the program.** §2718's fitted program could have been a regression artefact; this rung removes the fit. The
+last two MLPs' own 31.9 M weights, given ONLY the 16 core coordinates of their input and a constant elsewhere, reproduce 64% of
+their value; given the token's typical non-core input as well, 75% — within .03 of the fitted §2718 program (.776) and .07 of the
+oracle core component (.814). Three consequences. (i) The 16 → 16 map of §2718 is the block's own bilinear algebra restricted
+to the core: B_l and Q_l are Down[(Left U_M ·) ⊙ (Right U_M ·)] projected back, plus the cross terms with the constant filler —
+they can be written down from the weights (1152 × 16 reads of Left/Right into the core, i.e. 2 × 4608 × 16 numbers per block
+before Down). (ii) c FALSE is itself the informative number: the token filler is worth only .11 of recovery, so most of what the
+blocks compute from their input is computed from the 16 core coordinates, not from the token's other 1136 directions; the
+"lookup" half of §2717 is mostly a lookup because the core input coordinates are themselves largely a function of the current
+token (the 16-dim c carries the token), not because the blocks read the token elsewhere. (iii) e says the non-core input is not
+ignorable noise: a realistic wrong filler drops recovery to 42%, below the mean filler (64%) — the blocks are sensitive to the
+non-core directions but need only their TYPICAL value, which is the signature of an offset-dominated (§2715 block-5 massive
+offset; §2716) rather than content-carrying non-core input. Together with §2719 (this structure does not extend to mlp11–15),
+the extracted late program is: two blocks, each reading 16 stream directions + a constant, computing a bilinear 16 → 1152 write
+whose value is 97% inside the same 16 directions.
+
+**Limits.** The filler mean and the token filler are fitted on docs 96–191 (a 1152 × 1152 ridge for the token filler — a fit of
+the INPUT, not of the block). The rms_norm inside the block is applied to the real stream before restriction, so x̂′ is not
+exactly unit-rms; the arms are therefore a lower bound on what an exactly re-normalised 16-dim program achieves. Not tested:
+whether Left/Right's core reads are low-rank within the 4608 hidden units (the exact-rank map §2673/§2675 says the FULL token-
+context operator is high-rank; the core-restricted one is a different, 16-column object and can be small).

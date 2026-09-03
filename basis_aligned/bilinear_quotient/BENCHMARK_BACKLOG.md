@@ -5080,3 +5080,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   FALSE (oracle core 42% of late7's 1.885); d FALSE, NULL MET (mlp11–15 single-site lookup rec median .008; R² .04–.15). Lookup
   program is mlp16/17-specific. Superadditivity: mlp11–15 singles cost .03–.05 each (sum .20), all seven 1.885 vs .848 for 16+17.
   Next on mlp11–15: joint leave-k-out / cumulative rungs, not assuming the core.
+- §2720 late_mlp_weights_on_core_input_probe (Claude, LANE 1 CUDA, 11 s, 736 GPU forwards): a, b, d, e TRUE; c FALSE (token filler
+  +.11 vs .15 bar; null not met). Extraction check for §2718 with NO fitted block weights: mlp16/17's own algebra on (16 core input
+  coords + mean filler) recovers 64%, + token filler 75% (fitted program 78%, oracle 81%), random filler 42%. Next: write B/Q from
+  Left/Right/Down restricted to the core (weights-only), and rank of the core reads within the 4608 hidden units.
