@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 532: percentage of eight downstream contexts meeting the basic transfer bars</title>
+  <desc id="desc">The product control and all four source-factor to target-slot mappings pass all eight contexts. The two available key-permuted controls pass none. Matched key controls were absent for two mappings.</desc>
+  <rect width="900" height="430" fill="#ffffff"/>
+  <text x="35" y="36" font-family="sans-serif" font-size="22" font-weight="700" fill="#17202a">Rung 532: basic downstream transfer</text>
+  <text x="35" y="62" font-family="sans-serif" font-size="14" fill="#46515c">Share of 8 circuit/background/half contexts passing cosine, error, task-recovery, and control-slice bars</text>
+  <line x1="330" y1="86" x2="830" y2="86" stroke="#aab2ba"/>
+  <line x1="330" y1="86" x2="330" y2="390" stroke="#aab2ba"/>
+  <line x1="580" y1="86" x2="580" y2="390" stroke="#e1e5e8"/>
+  <line x1="830" y1="86" x2="830" y2="390" stroke="#e1e5e8"/>
+  <text x="326" y="78" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#5b6570">0%</text>
+  <text x="580" y="78" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#5b6570">50%</text>
+  <text x="830" y="78" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#5b6570">100%</text>
+  <g font-family="sans-serif" font-size="14" fill="#26323d">
+    <text x="315" y="116" text-anchor="end">Complete donor product</text>
+    <text x="315" y="156" text-anchor="end">source second → target first</text>
+    <text x="315" y="196" text-anchor="end">source first → target first</text>
+    <text x="315" y="236" text-anchor="end">source first → target second</text>
+    <text x="315" y="276" text-anchor="end">source second → target second</text>
+    <text x="315" y="316" text-anchor="end">key control for second → first</text>
+    <text x="315" y="356" text-anchor="end">key control for first → second</text>
+  </g>
+  <g fill="#2f7d66">
+    <rect x="330" y="98" width="500" height="24" rx="3"/><rect x="330" y="138" width="500" height="24" rx="3"/>
+    <rect x="330" y="178" width="500" height="24" rx="3"/><rect x="330" y="218" width="500" height="24" rx="3"/>
+    <rect x="330" y="258" width="500" height="24" rx="3"/>
+  </g>
+  <g fill="#b4473d"><rect x="330" y="298" width="4" height="24"/><rect x="330" y="338" width="4" height="24"/></g>
+  <g font-family="sans-serif" font-size="14" font-weight="700">
+    <text x="840" y="116" fill="#2f7d66">100%</text><text x="840" y="156" fill="#2f7d66">100%</text>
+    <text x="840" y="196" fill="#2f7d66">100%*</text><text x="840" y="236" fill="#2f7d66">100%</text>
+    <text x="840" y="276" fill="#2f7d66">100%*</text><text x="342" y="316" fill="#b4473d">0%</text>
+    <text x="342" y="356" fill="#b4473d">0%</text>
+  </g>
+  <text x="35" y="406" font-family="sans-serif" font-size="13" fill="#5b6570">* Rung 532 had no matched key-permuted control for these two mappings; rung 533 adds them.</text>
+</svg>

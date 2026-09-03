@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1248.md](explanation_2026-09-03_1248.md) — rung532's audited result: all four observed
+  source-factor→target-slot mappings reproduce the downstream effect in 8/8 contexts, yet unique branch identity
+  fails because both mappings into each slot work; explains the complete-product/composition evidence and freezes
+  rung533's matched-control test of a branch-exchangeable equality family on natural text and code
 - [explanation_2026-09-03_1230.md](explanation_2026-09-03_1230.md) — the exact-rank compressibility map (§2673/§2675/§2676/§2679): MLP token-context operators are high-rank in every block (438-929 of 1152), attention is head-dim-bottlenecked (~69/128) and compressible — so bilin18's smaller program lives in attention (the frontier), not the high-rank MLPs; compressibility vs circuit-reusability are different axes
 - [explanation_2026-09-03_1228.md](explanation_2026-09-03_1228.md) — rung531's audited factor-level strong null,
   the exact two-score computation and pre-outcome algebra correction, an inline percentage graph, and rung532's

@@ -1,0 +1,92 @@
+{
+ "status": "cpu_contract_passed",
+ "rung": 533,
+ "parent_decision_table": {
+  "source_first_to_target_first": {
+   "parent_arm": "direct_first",
+   "frozen_scale": -1.268044102615207,
+   "base_contexts_passing": 8,
+   "minimum_effect_cosine": 0.9543315021803996,
+   "maximum_relative_error": 0.3180628387632457,
+   "matched_key_control_present_in_parent": false,
+   "matched_key_control_arm": null,
+   "beats_matched_control_by_0p15_contexts": null
+  },
+  "source_second_to_target_first": {
+   "parent_arm": "swapped_first",
+   "frozen_scale": 1.227983240318439,
+   "base_contexts_passing": 8,
+   "minimum_effect_cosine": 0.9565900791442141,
+   "maximum_relative_error": 0.31225682003469823,
+   "matched_key_control_present_in_parent": true,
+   "matched_key_control_arm": "permuted_first",
+   "beats_matched_control_by_0p15_contexts": 8
+  },
+  "source_first_to_target_second": {
+   "parent_arm": "swapped_second",
+   "frozen_scale": -0.8533769036200292,
+   "base_contexts_passing": 8,
+   "minimum_effect_cosine": 0.8787571554534688,
+   "maximum_relative_error": 0.47812896148341794,
+   "matched_key_control_present_in_parent": true,
+   "matched_key_control_arm": "permuted_second",
+   "beats_matched_control_by_0p15_contexts": 8
+  },
+  "source_second_to_target_second": {
+   "parent_arm": "direct_second",
+   "frozen_scale": 0.6995515454196305,
+   "base_contexts_passing": 8,
+   "minimum_effect_cosine": 0.9231901611769857,
+   "maximum_relative_error": 0.3889462990649775,
+   "matched_key_control_present_in_parent": false,
+   "matched_key_control_arm": null,
+   "beats_matched_control_by_0p15_contexts": null
+  }
+ },
+ "symbolic_contract": {
+  "source_first_to_target_first": {
+   "shape": [
+    2,
+    7,
+    7
+   ],
+   "matched_control_uses_same_scale": true,
+   "matched_control_differs": true
+  },
+  "source_second_to_target_first": {
+   "shape": [
+    2,
+    7,
+    7
+   ],
+   "matched_control_uses_same_scale": true,
+   "matched_control_differs": true
+  },
+  "source_first_to_target_second": {
+   "shape": [
+    2,
+    7,
+    7
+   ],
+   "matched_control_uses_same_scale": true,
+   "matched_control_differs": true
+  },
+  "source_second_to_target_second": {
+   "shape": [
+    2,
+    7,
+    7
+   ],
+   "matched_control_uses_same_scale": true,
+   "matched_control_differs": true
+  }
+ },
+ "all_four_parent_mappings_meet_base_bars": true,
+ "missing_parent_matched_controls": [
+  "source_first_to_target_first",
+  "source_second_to_target_second"
+ ],
+ "next_gpu_test": "four mappings each paired with its own key-permuted control",
+ "scientific_outcomes_opened": false,
+ "model_loaded": false
+}

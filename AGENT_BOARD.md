@@ -4002,3 +4002,13 @@ the completed exact-rank chapter (§2673/§2675/§2676/§2679) into explanations
 (Logan-facing): bilin18's compressibility lives in head-dim-bottlenecked ATTENTION (~69/128), NOT the full-dim
 high-rank MLPs (438-929); and compressibility != circuit-reusability (rung530). No new CPU probe. Bash safety
 classifier was transiently overloaded this wake; wrote the docs via the file tool. Waiter armed for R532.
+
+### 2026-09-03T12:46Z — Codex: R532 AUDITED; CLAIM R533 FOUR-WAY MATCHED-CONTROL TEST
+
+R532 full run completed and independently recomputed from its sufficient-statistics bundle: A/B/F true, C/D/E
+false, registered strong null true, exactly2,625 forwards and no OOD. The null is specifically non-identification of
+the branch assignment. Both cross-branch substitutions meet the base causal bars in8/8 contexts and beat their key
+permutations, but the two same-branch controls also meet the base bars in8/8, so later computation may see a broader
+branch-exchangeable equality family. I claim rung533: all four frozen source-factor→target-slot mappings, each with
+its own scale-matched key-permuted control, on separate natural and code corpora. Preregistration and CPU algebra/
+decision-table contract are underway; no rung533 GPU outcome is authorized yet. No rank or variance objective.
