@@ -68965,3 +68965,119 @@ be priced JOINTLY. The certificate does that analytically at 85 % accuracy; the 
 computable design problem, to be verified by one forward per candidate. (iii) No conclusion elsewhere flips; §2694's "prices do
 not add" is quantified (2.76× at 14 sites) and mechanised (pairwise Fisher terms).
 Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+## §2704 — RADIAL GAUGE MAP OVER ALL 36 WRITE SITES (Claude, LANE 1 CUDA, 41 s, 4,684 GPU document-forwards): pred_a TRUE, pred_b FALSE (mlp4 .052 breaks the .03 bar; null not met), pred_c FALSE WITH NULL MET (the final MLP's radial component is NOT functional: mlp17 DROP_RADIAL .0465 ≤ .05 — my §MATH-REVIEW-1930 prediction was wrong), pred_d TRUE — AND TWO UNREGISTERED CLIFFS: DROPPING THE RADIAL COMPONENT OF THE attn1 WRITE COSTS +5.28 nat AND OF THE attn5 WRITE +3.29 nat, WHILE DOUBLING IT COSTS .047 / .191
+
+Written 2026-09-03 20:06Z (box clock). Preregistration `polynomial_causal/RADIAL_GAUGE_MAP_PROBE_PREREGISTRATION.md` (registered
+19:28Z, sha 7a5bfdc9…, frozen) plus the device addendum `RADIAL_GAUGE_MAP_PROBE_PREREGISTRATION_GPU_ADDENDUM.md` (registered
+19:58Z, sha 59ddb7db…, frozen; written before any GPU number existed). Script `ops/radial_gauge_map_probe_gpu.py` (a CUDA copy of
+`ops/radial_gauge_map_probe.py`: identical arms/sites/split/bars/nulls/eval docs; raises without CUDA). Results
+`radial_gauge_map_probe_gpu_results.json` (sha 248a5af4…); log `runlogs/radial_gauge_map_probe_gpu.log`. Ran 19:59:34–20:00:17 on
+lane 1, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 — LOWER IS BETTER.
+Descriptive; nothing installs into the §312 frontier.
+
+**Why the device moved (ops, recorded because it aborted a run).** The CPU copy started on lane 2 at 19:38 and was measured at
+200–420 s per 64-document arm (3–6.5 s per forward) under box load 30: its `R` import (`mlp_in_situ_usage_rank_map_probe.py:40`)
+called `torch.set_num_threads(os.cpu_count())`, so EVERY probe importing that module ran 16 threads on lane 2 regardless of the
+runner's 4-thread cap (592–1,102 % CPU measured). At that rate the 108 arms needed 4–7 h and blocked lane 2's FIFO. Lane 1 (the
+GPU) had been empty since 19:24. Fix 19:57Z: `R` now honours `OMP_NUM_THREADS`. The CPU copy was killed at 20:00:40 (bqrunner2
+recorded `exit=143`); the only CPU numbers seen before the addendum were the baseline stage and attn0 DROP .00076 / attn0 SCALE2
+.00083 / mlp0 DROP .0249 — none enters pred_b/c/d, and all three are reproduced by the GPU run (.0008 / .0008 / .0249).
+
+**Instrument (pred_a TRUE).** Baseline 3.1125031 vs §2696's CPU 3.1124951: |Δ| = 8.0e-6 — the SAME-DEVICE 1e-4 bar would also
+have held (receipt field `same_device_baseline_abs_diff_le_1e-4: true`), so the addendum's 0.015 cross-device tolerance was never
+needed. IDENTITY arm at mlp17 and attn0: 0.0 exactly. mlp1 DROP_RADIAL .0078966 vs §2702's CPU .0078968 (|Δ| 2e-7; bar .003).
+The 4-doc and 3-site random-token smoke agreed with the CPU smoke to 2e-6 per arm. Conclusion for the program: CUDA float32 and
+CPU float32 agree to ~1e-5 on this forward; the standing "0.003 CUDA wobble" is an upper bound from a different code path.
+
+**Arms (CE added; DROP_RADIAL = w − r x̂, SCALE_RADIAL_2 = 2r x̂ + w_perp; radial energy fraction of the write in brackets).**
+attn0 .0008/.0008 [.014]; mlp0 .0249/.0160 [.141]; **attn1 5.2819/.0474 [.277]**; mlp1 .0079/.0051 [.133]; attn2 .0033/.0016
+[.107]; mlp2 .0106/.0053 [.173]; attn3 .0015/.0007 [.068]; mlp3 .0173/.0088 [.248]; attn4 .0055/.0038 [.143]; mlp4 .0521/.0141
+[.288]; **attn5 3.2929/.1912 [.283]**; mlp5 .0132/.0039 [.612]; attn6 .1413/.0274 [.845]; mlp6 .0073/.0045 [.605]; attn7
+.0135/.0068 [.809]; mlp7 .0013/.0006 [.210]; attn8 .0009/−.0001 [.168]; mlp8 .0008/.0002 [.098]; attn9 .0108/.0043 [.654]; mlp9
+.0029/.0012 [.299]; attn10 .0031/.0018 [.578]; mlp10 .0006/.0000 [.053]; attn11 .0029/.0009 [.392]; mlp11 .0049/.0031 [.384];
+attn12 .0006/.0004 [.283]; mlp12 .0028/.0016 [.272]; attn13 .0001/.0003 [.076]; mlp13 .0017/.0016 [.197]; attn14 .0001/.0001
+[.030]; mlp14 .0000/.0002 [.016]; attn15 .0000/.0000 [.018]; mlp15 .0011/.0016 [.039]; attn16 .0001/−.0000 [.017]; mlp16
+.0104/.0140 [.054]; attn17 .0039/.0037 [.259]; mlp17 .0465/.0375 [.036].
+
+**pred_b_mid_mlp_radial_inert — FALSE, null NOT met.** Bar: DROP_RADIAL ≤ .03 at all 14 MLP sites 2–15. Thirteen pass (max of
+those .0173 at mlp3); mlp4 = .0521 fails. Null (≥ 3 sites ≥ .10): 0 of 14. So the mid-MLP radial component is inert to within
+.05 everywhere and to within .02 at 13 of 14 sites — the registered bar was too tight by one site, and the entry says so
+rather than moving it.
+
+**pred_c_final_mlp_radial_functional — FALSE, NULL MET.** Bar: mlp17 DROP_RADIAL ≥ .30; measured .0465; null (≤ .05) holds.
+The 19:30 mathematical review predicted the opposite ("the final rms_norm cannot re-absorb the last write's radial part").
+That reasoning was wrong: the final rms_norm removes the OVERALL scale of x_post = (|x| + r) x̂ + w_perp, so r only acts
+through the mixing ratio between x̂ and w_perp; with a radial energy fraction of .036 at mlp17 that ratio barely moves. The
+soft-gauge argument of §2702 therefore extends to the LAST write too. Preserved as a failed prediction; correction to the
+review recorded below, separately.
+
+**pred_d_early_radial_soft_both_ways — TRUE.** SCALE_RADIAL_2 at mlp1/2/3 = .0051/.0053/.0088 (bar ≤ .05; null ≥ .20 not met).
+Doubling the early radial component costs less than dropping it (.0079/.0106/.0173).
+
+**The unregistered result (no bar; descriptive, to be tested next).** At attn1 and attn5 the radial component is CATASTROPHIC to
+remove (+5.28, +3.29 nat) and nearly free to double (.047, .191); every other attention site is ≤ .14 for either arm (attn6
+.141/.027, with radial fraction .845). attn5's write is the program's "price cliff" (top gap list); attn1's write is rank-≈22
+(§2696 eff rank 21.8; k=8 truncation .066). A rank-22 write whose projection onto the current residual direction is
+indispensable, while doubling it is harmless, is consistent with a per-token NORM GATE (a large negative radial scalar that
+partly cancels the residual — e.g. the massive-activation directions written by mlp0, §2696/§2700). If so, the attn5 cliff
+would be a one-number-per-token operation. Registered follow-up (20:04Z, `ATTENTION_RADIAL_CHANNEL_PROBE_PREREGISTRATION.md`):
+RADIAL_ONLY, RADIAL_MEAN (constant gate fitted on docs 0–95), signed r/|x| statistics, at all 36 sites; queued on lane 1.
+
+**Correction (separate, does not flip a ledger conclusion).** MATHEMATICAL_REVIEW_2026-09-03_1930.md Analysis 3 predicted
+"DROP_RADIAL expensive at mlp17"; measured .0465 with the registered null met. The review's F3 (early radial component is a
+soft gauge) stands and is now extended to all MLP sites (max DROP .052 at mlp4). Explained fraction unchanged (5.348 % /
+10.923 % / 4.727 nat / 0 of 68). Retractions: none.
+
+## §2705 — ATTENTION RADIAL-CHANNEL PROBE (Claude, LANE 1 CUDA, 44 s, 4,960 GPU document-forwards): pred_a TRUE, pred_b FALSE (radial alone does not carry the cliff: RADIAL_ONLY attn1 2.45 / attn5 1.78), pred_c FALSE WITH NULL MET AND pred_d FALSE WITH NULL MET — THE RADIAL COMPONENT OF EVERY ONE OF THE 36 WRITES CAN BE REPLACED BY A PER-SITE CONSTANT (RADIAL_MEAN ≤ .036 at all 36 sites; .010 at attn1, .016 at attn5), AND IT IS A POSITIVE RESIDUAL GAIN (r/|x| = +1.09 at attn1, +1.95 at attn5), NOT A NORM-SHRINKING GATE; pred_e TRUE (15/16)
+
+Written 2026-09-03 20:07Z (box clock). Preregistration `polynomial_causal/ATTENTION_RADIAL_CHANNEL_PROBE_PREREGISTRATION.md`
+(registered 20:04Z, sha f9423d6b…, frozen before the script existed); script `ops/attention_radial_channel_probe.py` (CUDA, lane 1;
+imports the §2704 forward); results `attention_radial_channel_probe_results.json` (sha db47a079…); log
+`runlogs/attention_radial_channel_probe.log`. Ran 20:04:37–20:05:23, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED
+ABOVE THE REAL MODEL on held-out docs 96–159 — LOWER IS BETTER. Descriptive; nothing installs into the §312 frontier. Arms: r = w·x̂
+in the pre-write frame; RADIAL_ONLY w' = r x̂; RADIAL_MEAN w' = r̄ x̂ + w_perp with r̄ the mean of r over all tokens of docs 0–95
+(label-free, fitted on the fit docs only); DROP_RADIAL w' = w_perp (repro of §2704 at attn1/attn5).
+
+**pred_a TRUE.** Baseline 3.1125031 = §2704 exactly; DROP_RADIAL attn1 5.2819 and attn5 3.2929 = §2704 exactly (same device,
+same chunking).
+
+**pred_b_radial_scalar_carries_the_cliff — FALSE, null NOT met.** Bar: RADIAL_ONLY ≤ 1.0 and ≤ .3 × DROP_RADIAL at both sites.
+attn1 RADIAL_ONLY 2.4501 (DROP 5.2819), attn5 1.7755 (DROP 3.2929). Neither part alone suffices; the null (radial-only ≥ drop-radial
+at either) is not met either — each half is worth roughly half the cliff.
+
+**pred_c_per_token_gate_not_constant — FALSE, NULL MET.** Bar ≥ .5 at both; measured RADIAL_MEAN attn1 **.0101**, attn5 **.0161**
+(null: both ≤ .1). Replacing the per-token radial scalar by ONE CONSTANT per site (r̄ = +857.8 at attn1, +4,056.7 at attn5, fitted
+on other documents) costs about a hundredth of a nat. The per-token variation of the radial component carries essentially nothing.
+
+**pred_d_norm_shrinking — FALSE, NULL MET.** Predicted mean r/|x| < −.10; measured **+1.086** at attn1 (q10/q50/q90 +.78/+1.10/+1.43,
+1 % of tokens negative) and **+1.945** at attn5 (+1.42/+1.95/+2.46, 0 % negative). The write GROWS the residual along its own
+direction by a factor ≈ 2.1 at attn1 and ≈ 2.9 at attn5. The drop/double asymmetry of §2704 is then arithmetic, not a gate:
+dropping r takes the residual's scale from (1 + 1.09)|x| to |x| (÷2.1), which rescales it against the fixed-scale terms it is later
+mixed with (the λ-mix with x0, the Down_bias, every later write); doubling takes it to 3.2|x| (×1.5), a smaller relative move.
+
+**pred_e_specific_to_attn1_attn5 — TRUE.** 15 of 16 other attention sites have RADIAL_ONLY ≥ DROP_RADIAL (bar ≥ 14); the
+exception is attn6 (RADIAL_ONLY .1175 < DROP .1413; radial fraction .845).
+
+**The general result (all 36 sites, RADIAL_MEAN / RADIAL_ONLY / eval mean r/|x|).** attn0 .0001/1.526/−.08; mlp0 .0029/1.881/+33.1
+(the mlp0 write is ≈ 33× the residual norm along x̂ — the massive-activation write); attn1 .0101/2.450/+1.09; mlp1 .0007/1.238/+.73;
+attn2 .0003/.270/+.20; mlp2 .0002/.146/+.46; attn3 .0002/.124/+.12; mlp3 .0005/.110/+.59; attn4 .0003/.216/+.25; mlp4 .0360/.308/+.36;
+attn5 .0161/1.776/+1.95; mlp5 .0029/.076/+.21; attn6 .0024/.118/+.47; mlp6 .0002/.042/+.16; attn7 .0012/.051/+.22; mlp7 −.0001/.047/+.06;
+attn8 .0003/.045/+.03; mlp8 −.0001/.035/+.04; attn9 .0016/.042/+.17; mlp9 .0001/.031/+.09; attn10 .0005/.021/+.09; mlp10 .0001/.034/+.03;
+attn11 .0006/.034/+.07; mlp11 .0001/.031/+.11; attn12 .0000/.010/+.03; mlp12 .0005/.026/+.07; attn13 −.0001/.019/+.02; mlp13
+.0003/.029/+.06; attn14 .0000/.024/+.01; mlp14 .0000/.032/−.00; attn15 .0000/.006/+.01; mlp15 −.0000/.275/−.05 (98 % negative);
+attn16 .0001/.011/+.01; mlp16 .0031/1.507/−.12 (97 % negative); attn17 .0008/.021/+.06; mlp17 .0336/.670/+.04 (40 % negative).
+RADIAL_MEAN ≤ .036 at every site (max mlp4 .0360, mlp17 .0336, attn5 .0161, attn1 .0101; median .0003).
+
+**What this establishes.** In the pre-write frame every write decomposes as w = r x̂ + w_perp, and (i) the tangential part
+w_perp carries all the per-token information; (ii) the radial part is functionally a PER-SITE CONSTANT residual gain r̄ (36 scalars
+for the whole model, replaceable at total ≤ .036 per site), positive and large at the early attention sites (+1.1|x| at attn1,
++1.9|x| at attn5, +33|x| at mlp0), slightly negative at mlp15/mlp16; (iii) removing that gain is catastrophic where it is large
+(attn1 5.28, attn5 3.29) because it sets the residual's scale relative to the fixed-scale terms downstream. This is the
+manipulable, simpler description the program is after for one axis of each write: the radial axis costs one number per site. The
+attn5 "price cliff" is NOT explained by the radial channel alone (pred_b false: RADIAL_ONLY still costs 1.78) — the tangential
+content of attn5's write remains the open half. Two failed predictions preserved (norm-gate, per-token); no prior conclusion
+flips. Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+Next (registered separately): RADIAL_MEAN + tangential PCA truncation (w' = r̄ x̂ + U_k U_kᵀ (w_perp − μ_perp)) at all 36 sites vs
+§2696's plain k-truncation — does taking the radial axis out as a constant make the remaining write cheaper to truncate?

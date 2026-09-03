@@ -1,0 +1,59 @@
+{"stage": "fit_stats", "attn1": {"rbar": 968.2611083984375, "mean_r_over_x": 1.4036799669265747, "frac_r_negative": 0.0, "rx_q10": 1.065550446510315, "rx_q50": 1.3893606662750244, "rx_q90": 1.7915104627609253}, "attn5": {"rbar": 5570.04443359375, "mean_r_over_x": 2.822451114654541, "frac_r_negative": 0.0, "rx_q10": 2.266596794128418, "rx_q50": 2.844026565551758, "rx_q90": 3.3878061771392822}, "t": 4.4}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 4.5}
+{"stage": "arm", "site": "attn1", "arm": "RADIAL_ONLY", "ce_added": -0.5997018814086914, "t": 4.5}
+{"stage": "arm", "site": "attn1", "arm": "RADIAL_MEAN", "ce_added": -0.044592857360839844, "t": 4.6}
+{"stage": "arm", "site": "attn1", "arm": "DROP_RADIAL", "ce_added": 1.7314205169677734, "t": 4.6}
+{"stage": "arm", "site": "attn5", "arm": "RADIAL_ONLY", "ce_added": -0.45526695251464844, "t": 4.6}
+{"stage": "arm", "site": "attn5", "arm": "RADIAL_MEAN", "ce_added": -0.007538795471191406, "t": 4.7}
+{"stage": "arm", "site": "attn5", "arm": "DROP_RADIAL", "ce_added": 0.3174629211425781, "t": 4.7}
+{"stage": "arm", "site": "mlp17", "arm": "RADIAL_ONLY", "ce_added": 3.972047805786133, "t": 4.8}
+{"stage": "arm", "site": "mlp17", "arm": "RADIAL_MEAN", "ce_added": 0.18550872802734375, "t": 4.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_radial_scalar_carries_the_cliff": true,
+  "pred_c_per_token_gate_not_constant": false,
+  "pred_d_norm_shrinking": false,
+  "pred_e_specific_to_attn1_attn5": false
+ },
+ "nulls": {
+  "b_null_radial_only_ge_drop_radial_at_either": false,
+  "c_null_both_radial_mean_le_.1": true,
+  "d_null_mean_rx_positive_at_either": true,
+  "e_null_spec_le_10_of_16": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": NaN,
+  "drop_radial_repro": {
+   "attn1": 1.7314205169677734,
+   "attn5": 0.3174629211425781
+  },
+  "prior_drop_radial": {
+   "attn1": NaN,
+   "attn5": NaN
+  }
+ },
+ "arms_ce_added": {
+  "attn1": {
+   "RADIAL_ONLY": -0.5997018814086914,
+   "RADIAL_MEAN": -0.044592857360839844,
+   "DROP_RADIAL": 1.7314205169677734
+  },
+  "attn5": {
+   "RADIAL_ONLY": -0.45526695251464844,
+   "RADIAL_MEAN": -0.007538795471191406,
+   "DROP_RADIAL": 0.3174629211425781
+  },
+  "mlp17": {
+   "RADIAL_ONLY": 3.972047805786133,
+   "RADIAL_MEAN": 0.18550872802734375
+  }
+ },
+ "specificity_n_of_16": 0,
+ "price": {
+  "gpu_doc_forwards": 44,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 4.792427062988281
+ }
+}

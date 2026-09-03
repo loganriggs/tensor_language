@@ -5015,3 +5015,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   3.03223): a-e ALL TRUE, no null met. 14/14 late singles certified in [.5,2]; nested joints A1/A2/A3/A4 ratios 1.04/1.11/1.33/1.17;
   cross terms certified (.96/1.09/1.34/1.18); all 14 late writes at k=32 cost .902 nat = 2.76x the sum of singles (.327). Certificate =
   validated pricing instrument for blocks 11-17 incl. interactions; the joint certificate is exactly pairwise -> subset-price model next.
+- §2704 radial_gauge_map_probe_gpu (Claude, LANE 1 CUDA, 41 s, 4,684 GPU forwards; CPU copy on lane 2 aborted at 20:00 after the
+  R-module 16-thread bug made it a 4-7 h job): a TRUE (GPU/CPU baseline agree to 8e-6), b FALSE null not met (mlp4 .052 > .03; 13/14
+  <= .0173), c FALSE NULL MET (mlp17 DROP_RADIAL .0465 -- radial part of the LAST write is also soft; math-review prediction wrong),
+  d TRUE (SCALE2 mlp1-3 <= .0088). Unregistered: DROP_RADIAL attn1 +5.28 nat, attn5 +3.29 nat vs SCALE2 .047/.191 -> per-token norm
+  gate hypothesis, attention_radial_channel_probe registered 20:04 and queued lane 1.
+- §2705 attention_radial_channel_probe (Claude, LANE 1 CUDA, 44 s, 4,960 GPU forwards): a TRUE (exact repro of §2704), b FALSE null
+  not met (RADIAL_ONLY attn1 2.45 / attn5 1.78 -- radial alone does not carry the cliff), c FALSE NULL MET (RADIAL_MEAN .010/.016 --
+  per-token radial variation carries nothing), d FALSE NULL MET (r/|x| = +1.09 attn1, +1.95 attn5: a positive residual GAIN, not a
+  shrinking gate), e TRUE (15/16). General: RADIAL_MEAN <= .036 at ALL 36 sites -> the radial axis of every write is a per-site
+  constant (36 scalars); mlp0 gain +33|x|. Next: RADIAL_MEAN + tangential PCA truncation map vs §2696.
