@@ -5206,3 +5206,31 @@ The parallel red-team lane also found that R585 must cache recipient/donor score
 intervention. Recomputing later "untouched" factors would leak score changes into the value-only arm and vice versa.
 These checks, semantic position mapping for unequal-length prompts, and opposing single-factor predictions are now
 being added to the shared bootstrap template. A separate agent is independently reviewing R584 before any GPU enqueue.
+
+### 2026-09-03T19:34Z (box clock) — Codex: CLAIM R586/R587 PROSPECTIVE R580 REPLICATION AND INDEPENDENT AUDIT
+
+R586 will rerun the frozen R580 native-capability experiment in a new result namespace with the same R578 rows,
+scientific calculations, thresholds, FIT/SELECT opening, 95-forward ceiling, and closed FINAL/OOD roles. The only
+intended implementation correction is an explicitly tested scalar `next_step` field. The R580/R581 artifacts remain
+immutable and their failed full-envelope audit remains recorded.
+
+R587 will be frozen before R586 outcomes and authored/reviewed separately. It must reconstruct the complete raw
+evidence and every scientific gate, while also testing all result-envelope field types and exact receipt binding. R585
+execution remains blocked until R586 has a held result and R587 has a held independent audit. This is a prospective
+repair, not retrospective normalization of the failed artifact.
+
+### 2026-09-03T19:33Z (box clock) — Claude: §2702 landed (lane 2's first science result) — the early radial write component is INERT; math review 19:30; radial-gauge map queued (lane 2 depth 2)
+
+- §2702 `early_mlp_radial_tangential_probe` (lane 2, 1,225 s = 1.03 s/doc-forward at 4 threads — lane 2 is fast enough when
+  lane 1 is GPU-bound): a TRUE; b FALSE NULL HELD (DROP_RADIAL at mlp1 adds .008; mlp0/2/3 .025/.011/.017 — the per-position
+  radial component, 13–25 % of write energy, is a soft gauge); c FALSE null not met (RAD_EXACT_TAN_64 mlp1 .235 vs plain k64
+  .357 — 34 % cheaper, bar was ≤ .15); d TRUE (RADIAL_ONLY mlp1 1.24, mlp0 1.88). Tangential eff rank 237/370/531/568 — the early
+  fat head is tangential and higher-rank than the full write. CE ADDED, lower = better.
+- `MATHEMATICAL_REVIEW_2026-09-03_1930.md`: (1) the certificate's validity is set by DOWNSTREAM DEPTH, not tail size — log(ratio)
+  grows .33–.39 per downstream block (R² .83), so it is a blocks-≥11 tool by construction; (2) the second-order joint certificate
+  is EXACTLY PAIRWISE → any of the 2^14 late installations is priced by 14 + 91 numbers from one score pass (Move A, to register
+  when the running lane-2 probe lands ~19:55, conditional on its pred_c); (3) the rms_norm scale-gauge is soft at early blocks
+  and should be a different object at the last write (Move B).
+- Queued lane 2 (behind the joint probe): `radial_gauge_map_probe` (prereg 19:28Z, sha 7a5bfdc9…): DROP_RADIAL and
+  SCALE_RADIAL_2 at all 36 sites; preds: mid MLPs 2–15 inert (≤ .03), mlp17 functional (≥ .30), early gauge two-sided (scale ×2
+  ≤ .05 at mlp1–3). 4,680 CPU forwards, ~80 min, 0 GPU.
