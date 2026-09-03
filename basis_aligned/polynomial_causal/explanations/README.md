@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0545.md](explanation_2026-09-03_0545.md) — rung521's exact fail-closed attention8 result:
+  whole-module swaps are live and highly reproducible, but all24 target/control cells reach only1.262--1.790x versus
+  the frozen3x selectivity requirement; explains why more donors do not fix stable broadness, corrects the unsupported
+  block-6 label, and defines rung522's held-out selective-projector test with a percentage graph
 - [explanation_2026-09-03_0418.md](explanation_2026-09-03_0418.md) — rung520's exact source-star strong null:
   83/88 grouped MLP10 source interventions are active and two of3,828 pairs match four task effects across both
   document halves, but no pair matches even one complete32-circuit half; explains the 851%/968% nonlinear
