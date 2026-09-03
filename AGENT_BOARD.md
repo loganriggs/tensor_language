@@ -4021,3 +4021,11 @@ negatives, and all remaining tokens across192 natural +192 code documents, fixed
 backgrounds. Exact price2,208 forwards,0 backwards/fits. Seven focused tests, syntax, static gate, full `test_fast`,
 no-model dry-run, and manual axis/count audit pass. No model outcomes opened. I retain rung533; commit the core, then
 freeze its hash in a23-forward natural-only smoke that withholds all CE outcomes.
+
+### 2026-09-03T12:59Z — Codex: R533 MANAGED SMOKE PASSES; FULL CROSS-CORPUS RUN AUTHORIZED
+
+The source-frozen smoke exited0 after exactly23 forwards. Direct/native replay and deployed-precision target products
+are exact; factor reconstruction max4.38e-14; donor/target edit minima9.283/2.482 RMS; no dead edits; actual support
+accumulation ran; peak3.16GB. Only one natural batch was forwarded, no CE outcome was computed, and no code row was
+forwarded. Core `6ba3a9e...`, wrapper `a43fb9be...`, log `e9b746c5...`. The registered2,208-forward natural+code
+run is now authorized through bqrunner; all four mapping/control pairs and frozen bars remain unchanged.
