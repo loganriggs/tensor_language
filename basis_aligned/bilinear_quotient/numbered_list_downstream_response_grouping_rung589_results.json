@@ -1406,7 +1406,7 @@
     }
   ],
   "cross_site_pair_count": 54,
-  "decision": "no_stable_cross_mlp_grouping_lead",
+  "decision": "no_pair_passed_recorded_post_outcome_filter",
   "discovery_filter": {
     "confirmatory_status": "post_outcome_filter_not_a_registered_gate",
     "minimum_leave_one_representation_out_correlation": 0.75,
@@ -1415,13 +1415,15 @@
   },
   "discovery_leads": [],
   "evidence_level": "screen_only",
-  "licensed_interpretation": "A lead means two cross-site removals have similar saved FIT response profiles. It does not establish shared computation, additivity, or an executable grouped circuit.",
+  "implementation_sha256": "c6c3dd3ed5c2a25889873ce07f4dd3fa3047e7789d8479f2f164e4edded81eb7",
+  "licensed_interpretation": "This records whether a pair passed thresholds chosen after R584 FIT outcomes were visible. Passing or failing is triage, not evidence for or against stable shared computation. Correlation does not establish additivity or an executable grouped circuit.",
   "model_backwards": 0,
   "model_forwards": 0,
   "model_weights_updated": false,
   "opened_splits": [
     "FIT"
   ],
+  "primary_test_sha256": "18457957eaff7233fa6da2741434d771d3ed984d04f3e78f0ccd37b57813fcaf",
   "rows_per_arm": 576,
   "rung": 589,
   "signed_response_definition": "native_minus_intervened_registered_margin; step_two uses arithmetic_minus_structural, all other conditions use answer margin",

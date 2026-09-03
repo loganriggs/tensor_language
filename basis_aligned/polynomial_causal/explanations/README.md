@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2130.md](explanation_2026-09-03_2130.md) — how the two-agent builder–critic bootstrap is
+  working in practice; the audited R586/R587 induction capability, R584's active but nonselective downstream-MLP null,
+  the R589 cross-MLP functional-grouping screen, and the exact score/value computation being prepared for R585
 - [explanation_2026-09-03_2055.md](explanation_2026-09-03_2055.md) — the live two-agent builder/auditor bootstrap,
   how executable failures improve the next prompts, the exact downstream bilinear interaction split, and why the clean
   R586/R587 replication protects the next four-condition attention score/value experiment

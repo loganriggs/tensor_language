@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">R584 and R589 circuit-bootstrap results</title>
+  <desc id="desc">Two horizontal bar charts. The first shows pass percentages for the strongest R584 candidate. The second shows correlations for the strongest R589 cross-MLP pair against discovery thresholds.</desc>
+  <rect width="960" height="560" fill="#fbfaf7"/>
+  <style>
+    .title{font:700 24px system-ui,sans-serif;fill:#20242b}.sub{font:500 15px system-ui,sans-serif;fill:#4c5664}
+    .lab{font:500 15px system-ui,sans-serif;fill:#20242b}.val{font:700 14px system-ui,sans-serif;fill:#20242b}
+    .axis{stroke:#ccd1d8;stroke-width:1}.grid{stroke:#e6e8eb;stroke-width:1}.bar{fill:#4c78a8}.fail{fill:#d95f59}
+    .near{fill:#e6a141}.pass{fill:#4d9c72}.threshold{stroke:#1f2937;stroke-width:2;stroke-dasharray:5 4}
+    .note{font:400 13px system-ui,sans-serif;fill:#59636f}.tick{font:400 12px system-ui,sans-serif;fill:#68717d}
+  </style>
+  <text x="28" y="36" class="title">What the first two-agent bootstrap learned</text>
+  <text x="28" y="62" class="sub">Percentages summarize frozen FIT evidence; they are not parameter-rank or reconstruction scores.</text>
+
+  <text x="28" y="102" class="sub">R584 strongest candidate: MLP8 joint response</text>
+  <line x1="250" y1="116" x2="890" y2="116" class="axis"/>
+  <g>
+    <line x1="250" y1="116" x2="250" y2="315" class="grid"/><text x="244" y="332" class="tick">0%</text>
+    <line x1="410" y1="116" x2="410" y2="315" class="grid"/><text x="400" y="332" class="tick">25%</text>
+    <line x1="570" y1="116" x2="570" y2="315" class="grid"/><text x="560" y="332" class="tick">50%</text>
+    <line x1="730" y1="116" x2="730" y2="315" class="grid"/><text x="720" y="332" class="tick">75%</text>
+    <line x1="890" y1="116" x2="890" y2="315" class="grid"/><text x="876" y="332" class="tick">100%</text>
+  </g>
+  <text x="28" y="145" class="lab">Successor target cells</text><rect x="250" y="129" width="533" height="24" rx="4" class="near"/><text x="792" y="146" class="val">83% (10/12)</text>
+  <text x="28" y="185" class="lab">Copy-selectivity cells</text><rect x="250" y="169" width="2" height="24" rx="1" class="fail"/><text x="262" y="186" class="val">0% (0/12)</text>
+  <text x="28" y="225" class="lab">Successor-vs-copy gaps</text><rect x="250" y="209" width="480" height="24" rx="4" class="near"/><text x="739" y="226" class="val">75% (9/12)</text>
+  <text x="28" y="265" class="lab">Source-role stability</text><rect x="250" y="249" width="320" height="24" rx="4" class="near"/><text x="579" y="266" class="val">50% (3/6)</text>
+  <text x="28" y="305" class="lab">Active control cells</text><rect x="250" y="289" width="640" height="24" rx="4" class="pass"/><text x="800" y="306" class="val">100% (12/12)</text>
+  <text x="28" y="356" class="note">Interpretation: the intervention was active and often mattered, but it did not isolate successor behavior from copying.</text>
+
+  <text x="28" y="399" class="sub">R589 strongest cross-MLP response match: MLP12 joint ↔ MLP8 background-cross</text>
+  <line x1="250" y1="412" x2="890" y2="412" class="axis"/>
+  <line x1="730" y1="412" x2="730" y2="533" class="threshold"/>
+  <text x="28" y="442" class="lab">All FIT rows</text><rect x="250" y="426" width="499" height="22" rx="4" class="bar"/><text x="758" y="442" class="val">78%</text>
+  <text x="28" y="476" class="lab">Weakest rep × source cell</text><rect x="250" y="460" width="403" height="22" rx="4" class="near"/><text x="662" y="476" class="val">63%</text>
+  <text x="28" y="510" class="lab">Weakest leave-out check</text><rect x="250" y="494" width="410" height="22" rx="4" class="fail"/><text x="669" y="510" class="val">64%</text>
+  <text x="736" y="529" class="tick">75% leave-out filter</text>
+  <text x="28" y="548" class="note">No pair passed every discovery filter, so no coarse cross-MLP grouping is promoted.</text>
+</svg>

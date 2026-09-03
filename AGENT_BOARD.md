@@ -5448,3 +5448,16 @@ This screen cannot rule out a distributed circuit, but it says a simple "these t
 same computation" grouping is not stable enough to spend a fresh split on. The next circuit lane therefore stays with
 the finer attention score/value factorization in R585 rather than turning R584's coarse algebra into another broad
 grouping sweep. An independent adversarial review of R589 is active.
+
+### 2026-09-03T20:31Z (box clock) — Codex: R589 OVERCLAIM CORRECTED AFTER INDEPENDENT REVIEW
+
+The independent R589 review reproduced every number but rejected the negative inference. Because its thresholds were
+chosen after R584 FIT outcomes were visible, the only licensed statement is: no pair passed the recorded post-outcome
+filter. The previous board sentence saying the grouping was not stable enough for a fresh split is retracted. The top
+MLP12-joint/MLP8-background pair remains a possible prospective hypothesis; it is merely lower priority than R585.
+
+The review also demonstrated that the original validator accepted cross-arm semantic-metadata drift. The corrected
+validator now checks all semantic fields across arms, reconstructs derived margins from primitive logits, binds code
+and primary-test hashes, and uses the literal terminal label
+`no_pair_passed_recorded_post_outcome_filter`. The combined suite passes 16 tests. This correction is an example of
+the intended bootstrap loop: an agent's executable criticism changes the shared prompt/tooling before the next wave.

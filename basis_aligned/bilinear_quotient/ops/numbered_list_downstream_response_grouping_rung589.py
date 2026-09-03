@@ -35,6 +35,23 @@ EXPECTED_CONDITIONS = {
 }
 EXPECTED_SITES = (8, 10, 12, 14)
 EXPECTED_COMPONENTS = ("background_cross", "contrast_self", "joint_response")
+SEMANTIC_FIELDS = (
+    "group_id",
+    "split",
+    "representation",
+    "source_level",
+    "source_value",
+    "condition",
+    "action",
+    "token_ids",
+    "query_position",
+    "source_position",
+    "source_id",
+    "answer_id",
+    "structural_answer_id",
+    "arithmetic_answer_id",
+)
+PRIMARY_TEST = Path(__file__).with_name("test_numbered_list_downstream_response_grouping_rung589.py")
 
 
 def sha256(path: Path) -> str:
@@ -57,7 +74,20 @@ def signed_response(row: dict[str, Any]) -> float:
     registered answer margin.
     """
 
-    key = "arithmetic_minus_structural" if row["condition"] == "step_two" else "margin"
+    if row["condition"] == "step_two":
+        key = "arithmetic_minus_structural"
+        for state_name in ("native", "intervened"):
+            state = row[state_name]
+            primitive = float(state["arithmetic_logit"]) - float(state["structural_logit"])
+            if not math.isclose(float(state[key]), primitive, rel_tol=0.0, abs_tol=2e-7):
+                raise ValueError(f"derived conflict margin mismatch for {row['row_id']}")
+    else:
+        key = "margin"
+        for state_name in ("native", "intervened"):
+            state = row[state_name]
+            primitive = float(state["answer_logit"]) - float(state["max_other_candidate_logit"])
+            if not math.isclose(float(state[key]), primitive, rel_tol=0.0, abs_tol=2e-7):
+                raise ValueError(f"derived answer margin mismatch for {row['row_id']}")
     value = float(row["native"][key]) - float(row["intervened"][key])
     if not math.isfinite(value):
         raise ValueError(f"non-finite response for {row['row_id']}")
@@ -86,6 +116,7 @@ def validate_and_index(raw: dict[str, list[dict[str, Any]]]) -> tuple[list[str],
 
     indexed: dict[str, dict[str, dict[str, Any]]] = {}
     authority_ids: set[str] | None = None
+    authority_metadata: dict[str, dict[str, Any]] | None = None
     for arm in expected_arms:
         rows = raw[arm]
         by_id = {str(row["row_id"]): row for row in rows}
@@ -94,8 +125,17 @@ def validate_and_index(raw: dict[str, list[dict[str, Any]]]) -> tuple[list[str],
         row_ids = set(by_id)
         if authority_ids is None:
             authority_ids = row_ids
+            authority_metadata = {
+                row_id: {field: by_id[row_id][field] for field in SEMANTIC_FIELDS}
+                for row_id in row_ids
+            }
         elif row_ids != authority_ids:
             raise ValueError(f"row membership differs in {arm}")
+        elif any(
+            {field: by_id[row_id][field] for field in SEMANTIC_FIELDS} != authority_metadata[row_id]
+            for row_id in row_ids
+        ):
+            raise ValueError(f"semantic row metadata differs in {arm}")
         for row in rows:
             if row["split"] != "FIT":
                 raise ValueError("R589 may open FIT only")
@@ -108,7 +148,7 @@ def validate_and_index(raw: dict[str, list[dict[str, Any]]]) -> tuple[list[str],
             signed_response(row)
         indexed[arm] = by_id
 
-    assert authority_ids is not None
+    assert authority_ids is not None and authority_metadata is not None
     ordered_ids = sorted(authority_ids)
     if len(ordered_ids) != 576:
         raise ValueError(f"expected 576 FIT rows per arm, got {len(ordered_ids)}")
@@ -226,10 +266,17 @@ def analyze(document: dict[str, Any], input_sha: str) -> dict[str, Any]:
         },
         "discovery_leads": leads,
         "all_pair_reports": reports,
-        "decision": "freeze_fresh_joint_intervention_for_best_lead" if leads else "no_stable_cross_mlp_grouping_lead",
+        "implementation_sha256": sha256(Path(__file__).resolve()),
+        "primary_test_sha256": sha256(PRIMARY_TEST),
+        "decision": (
+            "recorded_post_outcome_filter_has_candidate_pairs"
+            if leads
+            else "no_pair_passed_recorded_post_outcome_filter"
+        ),
         "licensed_interpretation": (
-            "A lead means two cross-site removals have similar saved FIT response profiles. "
-            "It does not establish shared computation, additivity, or an executable grouped circuit."
+            "This records whether a pair passed thresholds chosen after R584 FIT outcomes were visible. "
+            "Passing or failing is triage, not evidence for or against stable shared computation. "
+            "Correlation does not establish additivity or an executable grouped circuit."
         ),
     }
 

@@ -22,18 +22,42 @@ def row(row_id: str, arm: str, site: int, component: str, index: int) -> dict:
     source_level = (index // 96) % 2
     condition = sorted(R589.EXPECTED_CONDITIONS)[index % 6]
     value = float(index % 17) + 0.1 * (index // 17)
-    key = "arithmetic_minus_structural" if condition == "step_two" else "margin"
+    state_key_values = (
+        {
+            "arithmetic_minus_structural": value,
+            "arithmetic_logit": value,
+            "structural_logit": 0.0,
+        },
+        {
+            "arithmetic_minus_structural": 0.0,
+            "arithmetic_logit": 0.0,
+            "structural_logit": 0.0,
+        },
+    ) if condition == "step_two" else (
+        {"margin": value, "answer_logit": value, "max_other_candidate_logit": 0.0},
+        {"margin": 0.0, "answer_logit": 0.0, "max_other_candidate_logit": 0.0},
+    )
     return {
         "row_id": row_id,
+        "group_id": f"group-{index // 6:03d}",
         "split": "FIT",
         "representation": representation,
         "source_level": source_level,
+        "source_value": 10 + source_level,
         "condition": condition,
+        "action": "step_two" if condition == "step_two" else ("copy" if "copy" in condition else "successor"),
+        "token_ids": [index % 101, (index + 1) % 101],
+        "query_position": 1,
+        "source_position": 0,
+        "source_id": index % 101,
+        "answer_id": None if condition == "step_two" else (index + 2) % 101,
+        "structural_answer_id": (index + 2) % 101 if condition == "step_two" else None,
+        "arithmetic_answer_id": (index + 3) % 101 if condition == "step_two" else None,
         "site": site,
         "component": component,
         "arm": arm,
-        "native": {key: value},
-        "intervened": {key: 0.0},
+        "native": state_key_values[0],
+        "intervened": state_key_values[1],
     }
 
 
@@ -62,6 +86,10 @@ def test_source_role_flip_is_rejected_by_cell_stability() -> None:
         if item["source_level"] == 1:
             key = "arithmetic_minus_structural" if item["condition"] == "step_two" else "margin"
             item["native"][key] *= -1.0
+            if item["condition"] == "step_two":
+                item["native"]["arithmetic_logit"] *= -1.0
+            else:
+                item["native"]["answer_logit"] *= -1.0
     result = R589.analyze(document, "synthetic")
     target = next(
         report
@@ -91,8 +119,8 @@ def test_step_two_uses_conflict_preference() -> None:
     item = {
         "row_id": "x",
         "condition": "step_two",
-        "native": {"arithmetic_minus_structural": 2.0, "margin": 999.0},
-        "intervened": {"arithmetic_minus_structural": 0.5, "margin": -999.0},
+        "native": {"arithmetic_minus_structural": 2.0, "arithmetic_logit": 4.0, "structural_logit": 2.0},
+        "intervened": {"arithmetic_minus_structural": 0.5, "arithmetic_logit": 1.5, "structural_logit": 1.0},
     }
     assert R589.signed_response(item) == pytest.approx(1.5)
 
@@ -101,8 +129,8 @@ def test_nonfinite_response_fails_closed() -> None:
     item = {
         "row_id": "x",
         "condition": "factorial_copy",
-        "native": {"margin": float("inf")},
-        "intervened": {"margin": 0.0},
+        "native": {"margin": float("inf"), "answer_logit": float("inf"), "max_other_candidate_logit": 0.0},
+        "intervened": {"margin": 0.0, "answer_logit": 0.0, "max_other_candidate_logit": 0.0},
     }
     with pytest.raises(ValueError, match="non-finite"):
         R589.signed_response(item)

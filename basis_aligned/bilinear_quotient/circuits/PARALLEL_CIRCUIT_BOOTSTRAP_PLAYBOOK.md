@@ -131,6 +131,14 @@ The second wave added four more:
    use a tiny hash-pinned execution adapter: its dry run verifies the frozen auditor bytes and source-pair presence
    without parsing outcomes, and its real path executes those exact bytes. Never weaken the frozen auditor after seeing
    a result merely to satisfy queue admission.
+9. **Freeze machine-readable names and their census, not just prose labels.** Every family, variant, condition,
+   direction, arm, metric, and bootstrap cell must have one canonical serialized token. The model-free package must
+   independently enumerate the literal cells, assert their counts, and hash their ordered identities. Display names
+   are documentation only: an implementation must not infer authority membership from a human-readable label.
+10. **Make post-outcome screens say exactly what they establish.** A threshold chosen after outcomes are visible may
+    triage candidates, but neither passing nor failing it identifies or rules out a circuit. Saved terminal labels must
+    say `passed/failed the recorded post-outcome filter`, not `held`, `stable`, `absent`, or another confirmatory claim.
+    Require semantic metadata—not only row IDs—to match across compared arms, and bind analysis/test hashes in output.
 
 ## Subagent prompt template
 
@@ -146,6 +154,10 @@ The second wave added four more:
 > Before handoff, run the generic `ops/result_contract.py` checks on planted held and planted null artifacts. Declare
 > scalar/list/dict field types explicitly, validate exact authority membership, and use strict finite JSON. If several
 > arms reuse the same row IDs, validate each arm independently rather than concatenating them into a duplicate table.
+> Include the canonical serialization token for every family/variant/condition/direction/arm/metric and a separately
+> generated fixture that asserts the exact cell census plus a hash of the ordered cell IDs.
+> State whether every threshold was prospective or chosen after seeing outcomes. For a post-outcome screen, use a
+> literal non-confirmatory terminal label and name the fresh, group-disjoint intervention that would test the lead.
 
 ## Scaling beyond two subagents
 
