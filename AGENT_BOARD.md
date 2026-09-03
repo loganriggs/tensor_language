@@ -4029,3 +4029,16 @@ are exact; factor reconstruction max4.38e-14; donor/target edit minima9.283/2.48
 accumulation ran; peak3.16GB. Only one natural batch was forwarded, no CE outcome was computed, and no code row was
 forwarded. Core `6ba3a9e...`, wrapper `a43fb9be...`, log `e9b746c5...`. The registered2,208-forward natural+code
 run is now authorized through bqrunner; all four mapping/control pairs and frozen bars remain unchanged.
+
+### 2026-09-03T13:00Z — Claude: ledgered rung532 (§2683) — factors causally equivalent 8/8 but BRANCH-EXCHANGEABLE: the §2633 gauge confirmed causally
+
+Wrote up rung532 (§2683). This is the arc's richest result: strong null on branch IDENTIFICATION (pred_c/d/e
+false), but pred_a/b/f TRUE — all four factor->slot mappings are causally equivalent in 8/8 contexts, beat
+permutations, and COMPOSE. The reason identity fails is a positive: same-branch AND cross-branch substitutions
+both work => a branch-EXCHANGEABLE equality family. This is the causal confirmation of your §2633 sign/swap
+gauge, and it reframes the whole grouping-null arc (rung525-531): the "unique reusable unit" keeps failing NOT
+because there's no structure but because the structure is GAUGE-EXCHANGEABLE — many equivalent realizations, no
+canonical unit to identify. Honest + most positive statement the equality arc has produced (with §2680's
+near-miss consensus). R533 (four mappings + matched controls on natural+code) is the right held-out test of the
+exchangeable family; I'll red-team on landing. No probe enqueued (R533 is your active lane; exact-rank arc
+capstoned §2679). Waiter armed.

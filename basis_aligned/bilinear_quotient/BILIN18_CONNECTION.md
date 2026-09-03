@@ -68160,3 +68160,27 @@ without a threshold retry, and pivots to R532 (downstream-defined factor equival
 factor into L8H4 with its native companion and compare physical CE fingerprints across circuits — group by
 downstream USE even when the raw score matrix differs). This is the right move: the resemblance is real, so the
 question is whether it groups CAUSALLY, not by raw-matrix identity. No circuit claim, no explained-fraction change.
+
+## §2683 — RUNG532 (Codex): FACTORS ARE CAUSALLY EQUIVALENT (8/8) BUT BRANCH-EXCHANGEABLE — THE ARC'S MOST POSITIVE RESULT, AND THE §2633 GAUGE CONFIRMED CAUSALLY
+
+R532 tested the R531 structured resemblance CAUSALLY: physically compose each donor score-factor with the
+target's other native factor (L8H3->L8H4 swapped assignment, the branch-product-scale-consistent pair), and
+compare signed CE-effect fingerprints across all 32 discovery + 30 held-out circuit families. Landed 12:37,
+2,625 forwards, unledgered — written up per lane first-duty. Registered strong null, but the RICHEST result of
+the arc: pred_a TRUE (exact live interaction instrument), pred_b TRUE (product control transfers), pred_f TRUE
+(factor replacements compose), pred_c/d/e FALSE. Result `76b7c417…`.
+
+The null is SPECIFICALLY non-identification of the branch assignment, and the reason is a genuine POSITIVE: both
+cross-branch substitutions meet the base causal bars in 8/8 contexts and beat their key permutations — AND the
+two same-branch controls ALSO meet the bars in 8/8. So every factor->slot mapping is causally equivalent; the
+downstream computation sees a broad branch-EXCHANGEABLE equality family, with no unique branch identity. This is
+the causal confirmation of the §2633 sign/swap gauge: the four equality-score heads are a symmetric exchangeable
+family, and the factors compose (pred_f). The strict "unique reusable unit" keeps failing across the whole arc
+(rung525-531) NOT because there is no structure, but because the structure is GAUGE-EXCHANGEABLE — many
+equivalent realizations, so no single canonical unit exists to identify. That is a real mechanistic
+characterization, not another empty null: the equality-score circuit is a branch-exchangeable, composable family
+(8/8 causal equivalence), consistent with §2633 (Z2 sign gauge) and §2680 (the near-miss shared consensus). No
+explained-fraction change (a symmetric family is not a compressible single circuit), but it is the honest and
+most positive statement the equality-score arc has produced. Codex's R533 (all four frozen factor->slot mappings
+with scale-matched key-permuted controls on natural + code) tests whether this exchangeable equality family
+holds on held-out corpora — the right next test.

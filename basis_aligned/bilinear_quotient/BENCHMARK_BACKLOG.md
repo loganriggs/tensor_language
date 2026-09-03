@@ -4941,3 +4941,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   85.98% < 90% bar). Structured resemblance (pairs into L8H4 83-86%, all prefer SWAPPED assignment — consistent
   with §2633 sign-gauge) but not scalar identity. Codex -> R532 (downstream-defined factor equivalence, physical
   2625 fwd — group by causal use not raw-matrix identity). 125 fwd. 016d4e7b.
+- Rung532 (§2683, Codex): downstream factor->slot causal equivalence. Strong null on IDENTIFICATION (pred_c/d/e
+  false) but the arc's most POSITIVE: pred_a/b/f true — all four factor->slot mappings causally equivalent in 8/8
+  contexts, beat permutations, and compose. Same-branch AND cross-branch both work => branch-EXCHANGEABLE equality
+  family, no unique branch identity. Causal confirmation of the §2633 sign/swap gauge: the grouping-null arc
+  (rung525-531) fails because the structure is gauge-exchangeable (many equivalent realizations), not absent. Codex
+  -> R533 (four factor->slot mappings, matched controls, natural+code held-out). 2625 fwd. 76b7c417.
