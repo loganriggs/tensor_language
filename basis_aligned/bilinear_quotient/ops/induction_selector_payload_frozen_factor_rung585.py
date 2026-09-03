@@ -73,6 +73,12 @@ FINAL_IMPLEMENTATION_REVIEW = POLY / (
 FINAL_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
     "test_induction_selector_payload_frozen_factor_rung585_final_review_adversarial.py"
 )
+ITERATION4_IMPLEMENTATION_REVIEW = POLY / (
+    "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_ITERATION4_PREEXECUTION_REVIEW.md"
+)
+ITERATION4_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
+    "test_induction_selector_payload_frozen_factor_rung585_iteration4_review_adversarial.py"
+)
 
 AUTHORITY_HASHES = {
     ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
@@ -97,6 +103,10 @@ AUTHORITY_HASHES = {
         "8ddbcf3037b890a3fd1ae6933a526a29c1bd767a22d7fa3af8044d7d660d9238",
     FINAL_IMPLEMENTATION_ADVERSARIAL_TEST:
         "693b70f70b72334affd2c8da7e5e02e8b5a41125b29e1df7f943a1856a345277",
+    ITERATION4_IMPLEMENTATION_REVIEW:
+        "302e9ba506931e8513c5f069a332cc1445342ab282344269ee00b866a9e6a9fc",
+    ITERATION4_IMPLEMENTATION_ADVERSARIAL_TEST:
+        "29d8023ddbc56c70df7097394717d70fe7a2b6289fae0bce197f0d0e8f9eafd3",
 }
 
 SPLITS = ("FIT", "SELECT")
@@ -960,7 +970,8 @@ def validate_and_derive_instrument_failures(
             raise ValueError("phase-specific padding tripwire evidence changed")
 
     structural = validate_structural_identity_checks(
-        raw.get("structural_identity_checks"), execution, result["evaluated_splits"],
+        raw.get("structural_inserted_term_identity_checks"),
+        execution, result["evaluated_splits"],
         arrays=arrays, endpoint_order=endpoint_order,
     )
     derived = {}
@@ -1021,7 +1032,7 @@ def _validate_complete_evidence(
         "schema", "endpoint_count", "directed_arm_record_count",
         "endpoint_site_role_operation_counts", "endpoint_site_role_operation_sha256",
         "realized_endpoint_site_role_operations", "instrument_maxima",
-        "instrument_maxima_by_split", "structural_identity_checks",
+        "instrument_maxima_by_split", "structural_inserted_term_identity_checks",
     }
     if type(raw) is not dict or not required_raw <= set(raw):
         raise ValueError("completed result lacks complete raw evidence")
@@ -2066,9 +2077,24 @@ def capture_instrument_failures(replay, native, replay_padding, native_padding, 
     }
 
 
+def required_structural_full_logit_pairs(manifests) -> set[tuple[str, str]]:
+    cells = {
+        cell["cell_id"]: cell
+        for cell in (*manifests["target_cells"], *manifests["control_cells"])
+    }
+    required = set()
+    for identity in manifests["structural_identities"]:
+        cell = cells[identity["cell_id"]]
+        for directed_id in cell["directed_ids"]:
+            for arm in (identity["left_arm"], identity["right_arm"]):
+                if arm != "replay":
+                    required.add((directed_id, arm))
+    return required
+
+
 def collect_intervention_arm(
     model, batches, arm, endpoint_specs, frozen_insertions, replay, native,
-    *, torch, functional, facade, induction,
+    *, torch, functional, facade, induction, required_full_logit_pairs,
 ):
     device = next(model.parameters()).device
     records = []
@@ -2202,18 +2228,7 @@ def collect_intervention_arm(
                     "live": [per_row[local]["live"][term] for term in TERM_NAMES],
                     "delta": [per_row[local]["delta"][term] for term in TERM_NAMES],
                     **({"full_logits": measurement["full_logits"]} if (
-                        direction["family"] == "two_valid_sources_selector_swap"
-                        or direction["control_kind"] == "lag"
-                        or (
-                            direction["family"] == "match_break_payload_preserved"
-                            and direction["direction"] == "base_to_donor"
-                            and arm in ("score", "joint")
-                        )
-                        or (
-                            direction["family"] == "match_break_payload_preserved"
-                            and direction["direction"] == "donor_to_base"
-                            and arm == "payload"
-                        )
+                        (direction["directed_id"], arm) in required_full_logit_pairs
                     ) else {}),
                 })
     return records, vector_rows, calls
@@ -2450,6 +2465,8 @@ def score_split(records, split, manifests, fit_scales, *, replicates=BOOTSTRAPS)
 def structural_identity_failures(
     records, vector_rows, manifests, replay, *, frozen_insertions=None,
 ):
+    if frozen_insertions is None:
+        raise RuntimeError("structural identity check requires frozen inserted terms")
     record_by_key = {(row["directed_id"], row["arm"]): row for row in records}
     by_key = {(row["directed_id"], row["arm"]): row for row in vector_rows}
     failures, evidence = [], []
@@ -2460,19 +2477,36 @@ def structural_identity_failures(
         )
         for directed_id in cell["directed_ids"]:
             if (directed_id, "score") not in record_by_key:
-                continue
+                raise RuntimeError(
+                    f"structural identity direction missing before publication: {directed_id}"
+                )
             left = identity["left_arm"]
             right = identity["right_arm"]
-            if frozen_insertions is None:
-                recipient = record_by_key[(directed_id, "score")]["recipient_endpoint_id"]
-                left_value = by_key[(directed_id, left)]["full_logits"] if left != "replay" else replay[recipient]["full_logits"]
-                right_value = by_key[(directed_id, right)]["full_logits"] if right != "replay" else replay[recipient]["full_logits"]
-                error = float((left_value - right_value).abs().max())
-            else:
-                error = max(float((
-                    frozen_insertions[(directed_id, left, site)]
-                    - frozen_insertions[(directed_id, right, site)]
-                ).abs().max()) for site in TERM_NAMES)
+            recipient = record_by_key[(directed_id, "score")]["recipient_endpoint_id"]
+
+            def final_logits(arm):
+                if arm == "replay":
+                    value = replay.get(recipient, {}).get("full_logits")
+                else:
+                    value = by_key.get((directed_id, arm), {}).get("full_logits")
+                if value is None:
+                    raise RuntimeError(
+                        f"structural full-logit evidence missing: {directed_id}:{arm}"
+                    )
+                return value
+
+            full_logit_error = float((
+                final_logits(left) - final_logits(right)
+            ).abs().max())
+            if full_logit_error > TOLERANCE:
+                raise RuntimeError(
+                    "structural full-vocabulary identity failed before publishable evidence: "
+                    f"{directed_id}:{left}={right}:{full_logit_error}"
+                )
+            error = max(float((
+                frozen_insertions[(directed_id, left, site)]
+                - frozen_insertions[(directed_id, right, site)]
+            ).abs().max()) for site in TERM_NAMES)
             evidence.append({"directed_id": directed_id, **identity, "max_abs": error})
             if error > TOLERANCE:
                 failures.append(f"structural_identity:{directed_id}:{left}={right}:{error}")
@@ -3037,6 +3071,9 @@ def run_science() -> dict[str, object]:
         "padding_tripwire_active_lengths": [],
     }
     instrument_maxima_by_split = {}
+    structural_full_logit_pairs = required_structural_full_logit_pairs(
+        execution["manifests"]
+    )
 
     for split in SPLITS:
         if split == "SELECT" and any(fit_failures.values()):
@@ -3106,6 +3143,7 @@ def run_science() -> dict[str, object]:
             records, vectors, arm_calls = collect_intervention_arm(
                 model, batches, arm, endpoint_specs, frozen_insertions, all_replay, all_native,
                 torch=torch, functional=functional, facade=facade, induction=induction,
+                required_full_logit_pairs=structural_full_logit_pairs,
             )
             split_records.extend(records)
             split_vectors.extend(vectors)
@@ -3191,7 +3229,7 @@ def run_science() -> dict[str, object]:
             "realized_endpoint_site_role_operations": realized_operation_evidence,
             "instrument_maxima": instrument_maxima,
             "instrument_maxima_by_split": instrument_maxima_by_split,
-            "structural_identity_checks": structural_evidence,
+            "structural_inserted_term_identity_checks": structural_evidence,
             "endpoint_manifest_sha256": execution["endpoint_manifest_sha256"],
             "direction_manifest_sha256": execution["direction_manifest_sha256"],
             "target_cell_ids_sha256": execution["target_cell_ids_sha256"],
@@ -3316,6 +3354,7 @@ def run_dryrun() -> dict[str, object]:
             "directed_semantics_equal_frozen_authority": True,
             "inserted_term_reconstructed_from_saved_factors": True,
             "structural_identity_recomputed_from_saved_inserted_terms": True,
+            "structural_full_vocabulary_identity_hard_abort": True,
             "published_instrument_failures_reconstructed_from_saved_evidence": True,
             "unreconstructible_implementation_failures_hard_abort": True,
             "primitive_and_sufficient_statistics_recomputed": True,

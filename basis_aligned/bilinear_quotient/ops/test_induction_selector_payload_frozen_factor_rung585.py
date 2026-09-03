@@ -134,6 +134,154 @@ def test_four_cached_factor_combinations_sum_both_roles(runner):
     assert torch.equal(frozen[("d", "joint", "L8H4")], expected["joint"] * one)
 
 
+def test_structural_full_logit_mismatch_hard_aborts_when_insertions_match(runner):
+    torch = pytest.importorskip("torch")
+    cell_id = "FIT|mini|v|s0p0|base_to_donor"
+    manifests = {
+        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "control_cells": [],
+        "structural_identities": [{
+            "cell_id": cell_id, "left_arm": "joint", "right_arm": "score",
+        }],
+    }
+    records = [{"directed_id": "d", "arm": "score", "recipient_endpoint_id": "x"}]
+    vectors = [
+        {"directed_id": "d", "arm": "joint", "full_logits": torch.ones(3)},
+        {"directed_id": "d", "arm": "score", "full_logits": torch.zeros(3)},
+    ]
+    frozen = {
+        ("d", arm, site): torch.zeros(3)
+        for arm in ("joint", "score") for site in runner.TERM_NAMES
+    }
+    with pytest.raises(RuntimeError, match="full-vocabulary identity"):
+        runner.structural_identity_failures(
+            records, vectors, manifests, {}, frozen_insertions=frozen,
+        )
+
+
+def test_every_registered_structural_arm_is_selected_for_full_logit_capture(
+    runner, execution,
+):
+    observed = runner.required_structural_full_logit_pairs(execution["manifests"])
+    cells = {
+        cell["cell_id"]: cell
+        for cell in (
+            *execution["manifests"]["target_cells"],
+            *execution["manifests"]["control_cells"],
+        )
+    }
+    expected = {
+        (directed_id, arm)
+        for identity in execution["manifests"]["structural_identities"]
+        for directed_id in cells[identity["cell_id"]]["directed_ids"]
+        for arm in (identity["left_arm"], identity["right_arm"])
+        if arm != "replay"
+    }
+    assert observed == expected
+    assert observed
+
+
+def test_structural_identity_missing_required_full_logits_hard_aborts(runner):
+    torch = pytest.importorskip("torch")
+    cell_id = "FIT|mini|v|s0p0|base_to_donor"
+    manifests = {
+        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "control_cells": [],
+        "structural_identities": [{
+            "cell_id": cell_id, "left_arm": "joint", "right_arm": "score",
+        }],
+    }
+    records = [{"directed_id": "d", "arm": "score", "recipient_endpoint_id": "x"}]
+    vectors = [{"directed_id": "d", "arm": "score", "full_logits": torch.zeros(3)}]
+    frozen = {
+        ("d", arm, site): torch.zeros(3)
+        for arm in ("joint", "score") for site in runner.TERM_NAMES
+    }
+    with pytest.raises(RuntimeError, match="full-logit evidence missing"):
+        runner.structural_identity_failures(
+            records, vectors, manifests, {}, frozen_insertions=frozen,
+        )
+
+
+def test_structural_replay_arm_uses_captured_replay_full_logits(runner):
+    torch = pytest.importorskip("torch")
+    cell_id = "FIT|mini|v|s0p0|base_to_donor"
+    manifests = {
+        "target_cells": [{"cell_id": cell_id, "directed_ids": ["d"]}],
+        "control_cells": [],
+        "structural_identities": [{
+            "cell_id": cell_id, "left_arm": "payload", "right_arm": "replay",
+        }],
+    }
+    records = [{"directed_id": "d", "arm": "score", "recipient_endpoint_id": "x"}]
+    vectors = [
+        {"directed_id": "d", "arm": "payload", "full_logits": torch.zeros(3)}
+    ]
+    frozen = {
+        ("d", arm, site): torch.zeros(3)
+        for arm in ("payload", "replay") for site in runner.TERM_NAMES
+    }
+    with pytest.raises(RuntimeError, match="full-vocabulary identity"):
+        runner.structural_identity_failures(
+            records, vectors, manifests, {"x": {"full_logits": torch.ones(3)}},
+            frozen_insertions=frozen,
+        )
+    with pytest.raises(RuntimeError, match="full-logit evidence missing"):
+        runner.structural_identity_failures(
+            records, vectors, manifests, {}, frozen_insertions=frozen,
+        )
+
+
+def test_structural_inserted_mismatch_is_saved_and_independently_recomputed(runner):
+    torch = pytest.importorskip("torch")
+    cell_id = "FIT|mini|v|s0p0|base_to_donor"
+    identity = {"cell_id": cell_id, "left_arm": "joint", "right_arm": "score"}
+    cell = {"cell_id": cell_id, "split": "FIT", "directed_ids": ["d"]}
+    manifests = {
+        "target_cells": [cell], "control_cells": [],
+        "structural_identities": [identity],
+    }
+    direction = {
+        "directed_id": "d", "split": "FIT", "recipient_endpoint_id": "x",
+        "donor_endpoint_id": "y",
+    }
+    e = np.zeros((2, 4, 2), dtype="<f4")
+    u = np.zeros((2, 4, 2, 3), dtype="<f4")
+    e[1, :, 0] = 1.0
+    u[1, :, 0] = 1.0
+    frozen = {}
+    for site_index, site in enumerate(runner.TERM_NAMES):
+        frozen[("d", "score", site)] = torch.from_numpy(
+            runner._saved_inserted_term(e, u, 0, 1, "score")[site_index]
+        )
+        frozen[("d", "joint", site)] = torch.from_numpy(
+            runner._saved_inserted_term(e, u, 0, 1, "joint")[site_index]
+        )
+    records = [{"directed_id": "d", "arm": "score", "recipient_endpoint_id": "x"}]
+    vectors = [
+        {"directed_id": "d", "arm": arm, "full_logits": torch.zeros(3)}
+        for arm in ("joint", "score")
+    ]
+    failures, evidence = runner.structural_identity_failures(
+        records, vectors, manifests, {}, frozen_insertions=frozen,
+    )
+    assert failures == ["structural_identity:d:joint=score:1.0"]
+    assert evidence == [{"directed_id": "d", **identity, "max_abs": 1.0}]
+    execution = {"directions": [direction], "manifests": manifests}
+    assert runner.validate_structural_identity_checks(
+        evidence, execution, ["FIT"], arrays={"native_e.npy": e, "native_u.npy": u},
+        endpoint_order=["x", "y"],
+    ) == evidence
+    changed = copy.deepcopy(evidence)
+    changed[0]["max_abs"] = 0.0
+    with pytest.raises(ValueError, match="structural identity maximum"):
+        runner.validate_structural_identity_checks(
+            changed, execution, ["FIT"],
+            arrays={"native_e.npy": e, "native_u.npy": u},
+            endpoint_order=["x", "y"],
+        )
+
+
 def test_recovery_is_ratio_of_cell_summaries_not_rowwise_ratios(runner):
     rows = [
         {"group_id": "a", "n": 1.0, "d": 1.0},
@@ -448,7 +596,7 @@ def _write_mini_complete_evidence(
             "replay_native_logit_max_abs": 0.0,
             "padding_tripwire_active_lengths": [],
         }},
-        "structural_identity_checks": [],
+        "structural_inserted_term_identity_checks": [],
         "fit_scales": {},
     }
     result["evidence_files"] = descriptors
@@ -737,7 +885,7 @@ def _write_mini_select_invalid_evidence(runner, tmp_path, monkeypatch):
                 "padding_tripwire_active_lengths": [],
             },
         },
-        "structural_identity_checks": [], "fit_scales": scales,
+        "structural_inserted_term_identity_checks": [], "fit_scales": scales,
     }
     result["evidence_files"] = descriptors
     return result, lambda logical: tmp_path / logical.name
@@ -1131,6 +1279,9 @@ def test_deterministic_dryrun_is_model_free_and_split_closed(runner):
     assert dryrun["evidence_contract"]["inserted_term_reconstructed_from_saved_factors"] is True
     assert dryrun["evidence_contract"][
         "structural_identity_recomputed_from_saved_inserted_terms"
+    ] is True
+    assert dryrun["evidence_contract"][
+        "structural_full_vocabulary_identity_hard_abort"
     ] is True
     assert dryrun["evidence_contract"][
         "published_instrument_failures_reconstructed_from_saved_evidence"
