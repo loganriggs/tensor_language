@@ -1,0 +1,83 @@
+{
+  "arm_summaries": {
+    "fixed_target_map_lr_0.003": {
+      "fit_count": 15,
+      "losses_above_100": 0,
+      "losses_above_1000": 0,
+      "maximum_training_loss": 31.995742797851562,
+      "median_final_over_initial_validation": 0.981838198157236,
+      "median_maximum_training_loss": 28.879236221313477,
+      "passing_fits": 7,
+      "per_fit_failure_counts": {
+        "common_validation_not_better_than_initialization": 5,
+        "final_window_not_below_initial_window": 7
+      },
+      "training_window_improved_count": 8,
+      "validation_improved_count": 10
+    },
+    "fixed_target_map_lr_0.03": {
+      "fit_count": 15,
+      "losses_above_100": 0,
+      "losses_above_1000": 0,
+      "maximum_training_loss": 40.980323791503906,
+      "median_final_over_initial_validation": 0.9999568035299736,
+      "median_maximum_training_loss": 29.325056076049805,
+      "passing_fits": 1,
+      "per_fit_failure_counts": {
+        "common_validation_not_better_than_initialization": 7,
+        "final_window_not_below_initial_window": 10
+      },
+      "training_window_improved_count": 5,
+      "validation_improved_count": 8
+    },
+    "row_specific_lr_0.003": {
+      "fit_count": 15,
+      "losses_above_100": 49,
+      "losses_above_1000": 13,
+      "maximum_training_loss": 63785.24609375,
+      "median_final_over_initial_validation": 0.9814293461706001,
+      "median_maximum_training_loss": 1175.5950927734375,
+      "passing_fits": 5,
+      "per_fit_failure_counts": {
+        "common_validation_not_better_than_initialization": 5,
+        "final_window_not_below_initial_window": 9
+      },
+      "training_window_improved_count": 6,
+      "validation_improved_count": 10
+    }
+  },
+  "decision": {
+    "adopted_arm": null,
+    "candidate_passes": {
+      "fixed_target_map_lr_0.003": false,
+      "fixed_target_map_lr_0.03": false,
+      "row_specific_lr_0.003": false
+    },
+    "diagnosis": "raw_adam_through_qr_closed",
+    "is_circuit_evidence": false,
+    "licenses_sealed_rung522_repeat": false
+  },
+  "exact_call_ledger": {
+    "inference_by_bucket": {
+      "fit_d0_full_attention8": 95,
+      "fit_health": 120,
+      "full_attention8_comparator": 36,
+      "native_capture": 131,
+      "native_replay": 131,
+      "self_donor": 2
+    },
+    "inference_forwards": 515,
+    "optimization_backwards": 9000,
+    "optimization_forwards": 9000,
+    "removal_forwards": 0
+  },
+  "frame_artifact_file_sha256": "c50f530d3e98e98538e1fc95133feb9b712b3e973775cad4b801e974d2a5a569",
+  "frame_count": 45,
+  "interpretation": "fixed normalization removes catastrophic spikes but no arm is healthy in all 15 fits; raw Adam through differentiable QR is closed, with no circuit null",
+  "omitted_targets_evaluated": false,
+  "passes": true,
+  "result_file_sha256": "8126ba1ca090f334f57e873f3bb7afe3d02603e9f410935b0dfc48239bb12fe3",
+  "schema": "rung523-terminal-optimizer-audit-v1",
+  "status": "raw_adam_through_qr_closed",
+  "test_opened": false
+}
