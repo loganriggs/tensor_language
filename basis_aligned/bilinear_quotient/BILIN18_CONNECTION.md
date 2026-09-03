@@ -71039,3 +71039,79 @@ survives in the weak form (90% of its Gram energy, .039 nat outside). (3) The bu
 final input's own frame does (.867): the late frame is aligned with what the unembed reads rather than with what the residual
 mostly contains — the frame is chosen by the readout's needs, not by input energy. Failure preserved: d FALSE. Nothing installs into
 the §312 frontier (§2125).
+
+## §2759 — THE BLEND DOES NOT ROTATE THE FRAME; THE MLP WRITE DOES: decomposing each early block boundary mlp_l → attn_{l+1} through the pre-blend residual's 768-frame, the write step (mlp_l's input frame → the residual after mlp_l's write) carries the WHOLE rotation (327/290/220/207/158/136/121/105 angles > 30° at l = 0..7, equal to §2757's boundary totals 256/289/220/207/157/135/120/102 within the count noise, except l = 0) and the blend step x ← λ₀x + λ₁x₀ carries NONE from block 2 on (0/0/0/6/13/15/5 angles at l = 1..7; 133 at l = 0, where block 1's λ₀ = .0127 nearly restarts the residual from 8·x₀): median blend/write .038 (pred_b "≥ 1.5" FALSE; NULL ≤ 1.0 MET), median blend/total .038 (pred_c "≥ .6" FALSE; NULL ≤ .3 MET); causally, attn_1..attn_10 reading through the pre-blend frame costs +.0010 over own (pred_d "≥ .020" FALSE; NULL ≤ .005 MET) while reading through mlp_{l−1}'s input frame costs +.0218 (pred_e ".0010 ≤ .6 × .0218" TRUE; null not met) — so §2757's "the frame turns more at block boundaries" is not the blend: it is that MLP WRITES rotate the read frame more than attention writes do (Claude, LANE 1 CUDA, 54 s, 352 GPU document-forwards + CPU SVDs): a, e TRUE; b, c, d FALSE with NULLS MET. Preserved.
+
+Registered 2026-09-03 23:26Z (polynomial_causal/BLOCK_BOUNDARY_BLEND_ROTATION_PROBE_PREREGISTRATION.md); landed 23:32Z. Script
+ops/block_boundary_blend_rotation_probe.py; results block_boundary_blend_rotation_probe_results.json (sha 403dbd6f…). Frozen:
+prereg, §2757 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63
+(FRESH split; fits docs 96–191) — LOWER IS BETTER. Construction: §2753's own top-768 input cores plus, from the same pass, the
+top-768 core U_pre(l) of the rms-normed residual after block l's MLP write and before block l+1's blend (l = 0..16); principal
+angles as in §2757 (≤ 384 of 768 free), n30 = count > 30°. Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699
+(= §2753's .057).
+
+| l (mlp_l → attn_{l+1}) | write = n30(U_mlp_l, U_pre(l)) | blend = n30(U_pre(l), U_attn_{l+1}) | total (§2757) | λ₀, λ₁ of block l+1 |
+|---|---|---|---|---|
+| 0 | 327 | 133 | 256 | .0127, 8.0 |
+| 1 | 290 | 0 | 289 | 1.977, 8.0 |
+| 2 | 220 | 0 | 220 | .574, 8.0 |
+| 3 | 207 | 0 | 207 | .463, 8.0 |
+| 4 | 158 | 6 | 157 | .064, 5.06 |
+| 5 | 136 | 13 | 135 | .490, 5.88 |
+| 6 | 121 | 15 | 120 | .813, 8.0 |
+| 7 | 105 | 5 | 102 | 1.406, 8.0 |
+| 8–16 | 82/81/69/67/56/53/48/44/50 | 2/2/0/1/1/1/0/1/0 | 81/80/69/66/56/53/47/45/49 | λ₀ .88–1.23, λ₁ 8.0 |
+
+| arm (k = 768, 22 early sites) | CE added | gap vs own |
+|---|---|---|
+| EARLY22_OWN_768 | 0.0570 | — |
+| EARLY_ATTN_PREBLEND_768 (attn_1..10 read through U_pre(l−1)) | 0.0579 | +.0010 (d FALSE, null met) |
+| EARLY_ATTN_PREV_768 (attn_1..10 read through mlp_{l−1}'s input frame) | 0.0787 | +.0218 (e TRUE) |
+
+What it says. (1) The per-block embedding blend is geometrically inert for the read frame from block 2 on: the frame of the
+rms-normed residual before and after x ← λ₀x + λ₁x₀ is the same 768-frame to within 0–15 of 384 free angles, and attention
+reading through the pre-blend frame is free (+.001). With λ₁ = 8 (15 of 17 blocks; 5.06/5.88 at blocks 5/6) and λ₀ as small as
+.064 (block 5) this means the residual's energy already dwarfs 8·x₀ by block 2 — an inference from the geometry, not a measured
+norm. (2) The one exception is block 1 (λ₀ = .0127): its blend genuinely rotates the frame back toward the embedding (133 angles)
+because it nearly discards block 0's output — see §2760 for the embedding-frame side of the same fact. (3) Therefore the reading of
+§2757's unregistered observation must change: the boundary excess (256/289/220/207 vs 185/151/165/134 inside blocks 0–3) is NOT a
+blend effect; it is that the MLP write of block l rotates the read frame MORE than the attention write of block l does. Early
+MLP writes are the frame-drivers; attention writes turn it less. This is recorded as a correction of §2757's interpretation only
+(no registered pred of §2757 changes; this probe is the physical control). (4) The bars b, c, d were set from that wrong reading
+and all three fell to their nulls — the strongest falsification in this arc; kept as written. Next question raised: the early
+frame drift is the MLP writes' out-of-frame energy — is the part of each early MLP write that lies OUTSIDE its own input frame
+exactly the part the NEXT read frame adopts (an early "chain of frames", the analogue of the late bus §2756)? Nothing installs
+into the §312 frontier (§2125).
+
+## §2760 — THE EMBEDDING FRAME IS GONE AFTER MLP0, THE WEIGHTS-ONLY VOCABULARY FRAME SERVES BLOCKS 0–2 BETTER THAN THE DATA FRAME, AND THE BLEND'S ONLY PULL IS TINY: attn_0 reads the embedding frame by construction (its input is x₀; own top-768 captures 95.2% of x₀'s covariance — the embedding itself is high-rank), but mlp_0's input frame is already 185 of 384 free angles away and every site from attn_2 on sits 308–342 angles away; making the 6 sites of blocks 0–2 read through the embedding frame costs +.142 over own (pred_d "≤ .030" FALSE; NULL ≥ .080 MET) and all 22 early sites +1.131 (pred_e "≥ .060" TRUE; null ≤ .020 not met); the frame of the UNWEIGHTED covariance of rms-normed wte rows (weights only, no data) captures 87.5% of x₀'s covariance (below the .93 bar → pred_b FALSE; null ≤ .80 not met) yet serves blocks 0–2 for .029 LESS damage than the data frame (.170 vs .199 — the CE half of pred_b passed strongly); across the 8 early boundaries the blend moves the frame toward the embedding at 6 of 8 (pred_c "≥ 6" TRUE; null ≤ 3 not met) but by only 2–11 angles each (§2759: the blend is inert) (Claude, LANE 1 CUDA, 37 s, 416 GPU document-forwards + one 1152² eigh): a, c, e TRUE; b, d FALSE, d's NULL MET. Preserved.
+
+Registered 2026-09-03 23:33Z (polynomial_causal/EMBEDDING_FRAME_ORIGIN_PROBE_PREREGISTRATION.md); landed 23:35Z. Script
+ops/embedding_frame_origin_probe.py; results embedding_frame_origin_probe_results.json (sha c76a82c1…). Frozen: prereg, §2757
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Construction: U_emb = attn_0's own top-768 input core (= the data embedding frame); U_w =
+top-768 eigenframe of the centred, equal-weight covariance of rms_norm(wte.weight) over all 50 304 rows; U_emb vs U_w differ by 181
+of 384 free angles > 30°. Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699.
+
+| arm (k = 768) | CE added | gap vs own |
+|---|---|---|
+| EARLY22_OWN_768 | 0.0570 | — |
+| EMB_BLOCKS012_768 (blocks 0–2 through the data embedding frame) | 0.1986 | +.1416 (d FALSE, null met) |
+| EMBW_BLOCKS012_768 (blocks 0–2 through the weights-only vocabulary frame) | 0.1697 | +.1127; −.0289 vs EMB (b's CE half TRUE) |
+| EARLY22_EMB_768 (all 22 early sites through the embedding frame) | 1.1878 | +1.1308 (e TRUE) |
+
+d_emb(s) = n30(U_emb, U_s): attn0 0, mlp0 185, attn1 234, mlp1 274, attn2 308, mlp2 319, attn3 317, mlp3 326, attn4 322, mlp4 334,
+attn5 327, mlp5 342, attn6 332, mlp6 336, attn7 325, mlp7 331, attn8 327, mlp8 330, attn9 325, mlp9 331, attn10 325, mlp10 328.
+Blend pulls (d_emb(attn_{l+1}) < d_emb(mlp_l)) at l = 2..7, not at l = 0, 1.
+
+What it says. (1) The token-embedding frame is not a reusable component of the early program: it serves exactly one site
+(attn_0) and is abandoned by mlp_0 — consistent with §2759's write(0) = 327: mlp_0's write dominates the residual and installs a
+new frame. Block 0's MLP is where the "extended embedding" is built, and its frame, not wte's, is what blocks 1+ read. (2) The
+weights-only vocabulary frame U_w — computable from wte alone, no forward pass — is a BETTER shared frame for blocks 0–2 than the
+data frame U_emb (.170 vs .199) despite capturing less of x₀'s energy (87.5% vs 95.2%). Frequency-weighting the embedding
+covariance tilts the frame toward common tokens' directions, which are not what blocks 1–2 need to read; the equal-weight
+vocabulary geometry is closer to the post-mlp_0 frame. Bracket miss on pred_b's capture half (.875 vs .93) recorded; the compound
+bar was mis-set by pairing an energy criterion with a CE criterion that turned out to disagree — the CE criterion is the one that
+matters and it passed. (3) The blend's pull toward the embedding is real in sign (6 of 8) but negligible in size (2–11 of 384
+angles), which is the same fact as §2759's inert blend; pred_c is scored TRUE as registered but the effect is not program-relevant.
+(4) Neither §2759 nor this probe finds a cheap frame for blocks 0–2: the early program still needs its 16 own frames (§2753). The
+next lever is the write side (early frame chain, §2759 (4)). Failures preserved: b, d FALSE. Nothing installs into the §312 frontier.

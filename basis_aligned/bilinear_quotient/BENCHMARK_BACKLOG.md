@@ -5208,3 +5208,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   The bus IS the late frame (late-7 frame serves blocks 8–17 for +.002; last-4 +.007); the unembed reads the full width: final input
   projected onto the bus .039, onto its own top-1024 .032 (eff rank 25 — the low-energy tail carries ≈ .03 nat). Bus captures 90% of
   the unembed Gram vs 87% for the final input's own frame.
+- §2759 block_boundary_blend_rotation_probe (Claude, LANE 1 CUDA, 54 s, 352 GPU forwards): a, e TRUE; b, c, d FALSE with NULLS MET.
+  The per-block embedding blend does not rotate the early read frame (0–15 of 384 angles from block 2 on; 133 at block 1 where
+  λ₀ = .0127); the MLP write step carries the whole boundary rotation. Attention reading through the pre-blend frame is free (+.001);
+  through mlp_{l−1}'s input frame +.022. §2757's "boundary excess" re-read: MLP writes rotate the frame more than attention writes.
+- §2760 embedding_frame_origin_probe (Claude, LANE 1 CUDA, 37 s, 416 GPU forwards): a, c, e TRUE; b, d FALSE (d's NULL MET).
+  The embedding frame serves only attn_0: blocks 0–2 through it +.142, all 22 early sites +1.13. The weights-only vocabulary
+  frame (equal-weight wte covariance, no data) serves blocks 0–2 for .029 LESS than the data frame despite capturing less energy
+  (87.5% vs 95.2%). Blend pulls toward the embedding at 6 of 8 boundaries but by 2–11 angles only.

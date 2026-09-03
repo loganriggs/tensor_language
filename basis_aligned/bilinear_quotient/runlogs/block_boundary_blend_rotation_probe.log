@@ -1,0 +1,29 @@
+{"stage": "heads_done", "t": 10.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 11.4}
+{"stage": "arms", "b_med": 0.037974681705236435, "c_med": 0.03821656107902527, "EARLY22_OWN_768": 0.057, "EARLY_ATTN_PREBLEND_768": 0.0579, "EARLY_ATTN_PREV_768": 0.0787, "t": 54.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_blend_step_dominates": false,
+  "pred_c_blend_accounts_for_most": false,
+  "pred_d_preblend_frame_costs": false,
+  "pred_e_write_step_is_the_smaller_cost": true
+ },
+ "nulls": {
+  "b_null_le_1": true,
+  "c_null_le_.3": true,
+  "d_null_le_.005": true,
+  "e_null_ge_.9prev": false
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EARLY_ATTN_PREBLEND_768": 0.05794438719749451,
+  "EARLY_ATTN_PREV_768": 0.07874637842178345
+ },
+ "gaps": {
+  "preblend_minus_own": 0.0009565651416778564,
+  "prev_minus_own": 0.021758556365966797,
+  "blend_over_write_median": 0.037974681705236435,
+  "blend_over_total_median": 0.03821656107902527
+ }
+}

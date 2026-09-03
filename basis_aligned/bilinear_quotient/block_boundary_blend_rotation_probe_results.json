@@ -1,0 +1,186 @@
+{
+ "rung": "block_boundary_blend_rotation_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_blend_step_dominates": false,
+  "pred_c_blend_accounts_for_most": false,
+  "pred_d_preblend_frame_costs": false,
+  "pred_e_write_step_is_the_smaller_cost": true
+ },
+ "nulls": {
+  "b_null_le_1": true,
+  "c_null_le_.3": true,
+  "d_null_le_.005": true,
+  "e_null_ge_.9prev": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_min": 1.5,
+  "c_min": 0.6,
+  "d_min": 0.02,
+  "e_max": 0.6
+ },
+ "null_bars": {
+  "b_max": 1.0,
+  "c_max": 0.3,
+  "d_max": 0.005,
+  "e_min": 0.9
+ },
+ "device": "cuda",
+ "k": 768,
+ "n_boundary_blocks": 8,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "early22_own_768": 0.05698782205581665,
+  "prior_early22_own_768": 0.057
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EARLY_ATTN_PREBLEND_768": 0.05794438719749451,
+  "EARLY_ATTN_PREV_768": 0.07874637842178345
+ },
+ "gaps": {
+  "preblend_minus_own": 0.0009565651416778564,
+  "prev_minus_own": 0.021758556365966797,
+  "blend_over_write_median": 0.037974681705236435,
+  "blend_over_total_median": 0.03821656107902527
+ },
+ "steps_n_gt_30": {
+  "0": {
+   "write": 327,
+   "blend": 133,
+   "total": 256,
+   "lam0": 0.0126953125,
+   "lam1": 8.0
+  },
+  "1": {
+   "write": 290,
+   "blend": 0,
+   "total": 289,
+   "lam0": 1.9765625,
+   "lam1": 8.0
+  },
+  "2": {
+   "write": 220,
+   "blend": 0,
+   "total": 220,
+   "lam0": 0.57421875,
+   "lam1": 8.0
+  },
+  "3": {
+   "write": 207,
+   "blend": 0,
+   "total": 207,
+   "lam0": 0.462890625,
+   "lam1": 8.0
+  },
+  "4": {
+   "write": 158,
+   "blend": 6,
+   "total": 157,
+   "lam0": 0.064453125,
+   "lam1": 5.0625
+  },
+  "5": {
+   "write": 136,
+   "blend": 13,
+   "total": 135,
+   "lam0": 0.490234375,
+   "lam1": 5.875
+  },
+  "6": {
+   "write": 121,
+   "blend": 15,
+   "total": 120,
+   "lam0": 0.8125,
+   "lam1": 8.0
+  },
+  "7": {
+   "write": 105,
+   "blend": 5,
+   "total": 102,
+   "lam0": 1.40625,
+   "lam1": 8.0
+  },
+  "8": {
+   "write": 82,
+   "blend": 2,
+   "total": 81,
+   "lam0": 0.90234375,
+   "lam1": 8.0
+  },
+  "9": {
+   "write": 81,
+   "blend": 2,
+   "total": 80,
+   "lam0": 0.87890625,
+   "lam1": 8.0
+  },
+  "10": {
+   "write": 69,
+   "blend": 0,
+   "total": 69,
+   "lam0": 1.234375,
+   "lam1": 8.0
+  },
+  "11": {
+   "write": 67,
+   "blend": 1,
+   "total": 66,
+   "lam0": 1.0390625,
+   "lam1": 8.0
+  },
+  "12": {
+   "write": 56,
+   "blend": 1,
+   "total": 56,
+   "lam0": 0.95703125,
+   "lam1": 8.0
+  },
+  "13": {
+   "write": 53,
+   "blend": 1,
+   "total": 53,
+   "lam0": 1.0546875,
+   "lam1": 8.0
+  },
+  "14": {
+   "write": 48,
+   "blend": 0,
+   "total": 47,
+   "lam0": 1.1875,
+   "lam1": 8.0
+  },
+  "15": {
+   "write": 44,
+   "blend": 1,
+   "total": 45,
+   "lam0": 1.1875,
+   "lam1": 8.0
+  },
+  "16": {
+   "write": 50,
+   "blend": 0,
+   "total": 49,
+   "lam0": 1.0234375,
+   "lam1": 8.0
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 352,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 54.063541889190674
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/BLOCK_BOUNDARY_BLEND_ROTATION_PROBE_PREREGISTRATION.md": "759dc1527b1f255cdaf6858bbc684d15a731756ad2db79489a13fa89514efdca",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frame_principal_angle_spectrum_probe_results.json": "bc96dec9306508d8718d984f520a7e54d09612361a91ba70a263582a41f69729",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "21d9b272abdc940d23f982126a840eb7573ee6c57310dcb04261b93794b6eff2"
+}

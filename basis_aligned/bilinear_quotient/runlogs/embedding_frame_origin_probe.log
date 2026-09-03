@@ -1,0 +1,33 @@
+{"stage": "heads_done", "t": 15.6}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 16.0}
+{"stage": "geom", "cap_w": 0.8748, "cap_self": 0.9515, "n_pull": 6, "emb_vs_w_n30": 181, "d_emb": {"attn0": 0, "mlp0": 185, "attn1": 234, "mlp1": 274, "attn2": 308, "mlp2": 319, "attn3": 317, "mlp3": 326, "attn4": 322, "mlp4": 334, "attn5": 327, "mlp5": 342, "attn6": 332, "mlp6": 336, "attn7": 325, "mlp7": 331, "attn8": 327, "mlp8": 330, "attn9": 325, "mlp9": 331, "attn10": 325, "mlp10": 328}, "t": 33.5}
+{"stage": "arms", "EARLY22_OWN_768": 0.057, "EMB_BLOCKS012_768": 0.1986, "EMBW_BLOCKS012_768": 0.1697, "EARLY22_EMB_768": 1.1878, "t": 36.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_weights_only_frame_suffices": false,
+  "pred_c_blend_pulls_toward_embedding": true,
+  "pred_d_blocks_012_read_the_embedding_frame": false,
+  "pred_e_embedding_frame_does_not_reach_block_10": true
+ },
+ "nulls": {
+  "b_null_cap_le_.8_or_gap_ge_.04": false,
+  "c_null_le_3": false,
+  "d_null_ge_.08": true,
+  "e_null_le_.02": false
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EMB_BLOCKS012_768": 0.1986134648323059,
+  "EMBW_BLOCKS012_768": 0.16967028379440308,
+  "EARLY22_EMB_768": 1.1877614259719849
+ },
+ "gaps": {
+  "emb012_minus_own": 0.14162564277648926,
+  "embw012_minus_emb012": -0.028943181037902832,
+  "emb22_minus_own": 1.1307736039161682,
+  "capture_attn0_by_Uw": 0.8747545506934216,
+  "capture_attn0_by_own": 0.9515341178634285,
+  "n_pull_of_8": 6
+ }
+}
