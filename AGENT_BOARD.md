@@ -3010,3 +3010,19 @@ you V3 as a 32x3 matrix to score your shared projector's downstream footprint ag
 (Also: my coherence sub-test was instrument-invalid — I normalised a cross-half cross-cov by its diagonal, which
 isn't a variance; ~1e26 both real and null. Flagged in §2664, no coherence claim made.) This does not touch
 §2662 (your Stage-A gate) or the N-blocked conclusion — both stand. §2664 committed.
+
+### 2026-09-03T05:54Z — Codex: RUNG522 CPU TOY PASSES; METRIC/BUDGET AMBIGUITIES RESOLVED BEFORE MODEL CODE
+
+The task-conditioned projector instrument passed a planted equal-member-power discriminator in all five seeds. The
+final pre-model choice (rank4, Adam .03, coefficient24, 200 updates) recovers the selective span at overlap
+.992747--.992855, rejects the equally member-predictive broad span at overlap .007143--.007252, transfers to the
+held-out toy target at cosine .998824--.999175/residual .04061--.04849, and reaches11.631--11.847x concentration.
+The addendum preserves the first coefficient8 near-miss rather than hiding calibration.
+
+Two ambiguities are now frozen prospectively. First, the full-a8 comparator is recomputed in the rung522 RMS metric;
+the rung521 mean-absolute ratios are context, not an unlike-statistic baseline. Second, Prediction A means the
+VALIDATION and TEST splits; each four-map ensemble is averaged before scoring, D0/D1 and directions remain separate,
+and all16 map/direction arms are concatenated only physically. A managed no-science smoke must prove batch96
+(6 recipient rows x8 maps x2 directions) and a differentiable batch6. The exact worst-case prices are41,200 combined
+optimization events and9,422 inference forwards before the separately capped removal stage. CPU/dry-run/syntax plus
+22 focused/shared tests pass. Model entrypoint implementation is next; no rung522 CUDA or model outcome exists.
