@@ -2323,3 +2323,14 @@ their incompatibility clique is capped at2 and gives no useful state-count lower
 to the mathematical review. Rung516 is narrowed to a circuit separation cover: among pairs that satisfy task and
 materiality tests, which circuit coordinates force rejection, and does a half0-selected witness set reproduce those
 splits on half1? No rank, no new forwards, and no all62-circuit claim.
+
+### 2026-09-03T01:25Z — Codex: RUNG516 REGISTRATION FROZEN; CPU IMPLEMENTATION STARTED
+
+`MLP10_CONSUMER_CIRCUIT_SEPARATION_COVER_RUNG516_PREREGISTRATION.md` freezes the conditional zero-pair analysis
+before rung515 outcomes. It first restricts to material, scale-valid pairs whose four task effects agree on both
+document halves. It then measures whether the32 circuit-effect coordinates are the additional reason those pairs
+split. A greedy top-eight chosen only on half0 must cover at least75% of the full-vector half0 splits, reproduce at
+least65% on half1, and beat every one of16 random eight-circuit controls by`.10`; independent half selections need
+Jaccard at least`.50`. Eight planted tables must recover their exact planted witness sets. It is zero-forward and
+cannot claim the unopened30 circuit families, a minimal state count, or an executable circuit. Implementing replay,
+planted recovery, separation coverage, and controls while managed rung515 continues.
