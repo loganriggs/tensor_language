@@ -69393,7 +69393,7 @@ removal should cost a small fraction of the plain removal.
 
 **Preserved failures.** b, d, e as registered; b and e nulls met — the readout-facing hypothesis for the shared core is rejected.
 
-## §2714 — THE LATE CORE IS NOT A GAIN CHANNEL — ITS DIRECTION IS THE MESSAGE (Claude, LANE 1 CUDA, 14 s, 936 GPU document-forwards): removing the CORE_16 component of the seven late MLP writes costs 6.15 nat; restoring each token's residual norm afterwards does NOT repair it (6.53, ratio 1.06); keeping the direction but discarding the norm effect costs only .053 (ratio .009). Same at k = 128 (3.75 / 4.08 / .071) and in the early control (6.66 / 6.76 / .034). a TRUE; b, c, d, e FALSE with ALL FOUR NULLS MET — the norm-control hypothesis of §2713 is rejected; preserved.
+## §2714 — THE LATE CORE IS NOT A GAIN CHANNEL — ITS DIRECTION IS THE MESSAGE [interpretation corrected in §2716: the 6.15 nat is mostly the writes' mean OFFSET along the core; token-varying content = 1.89 nat] (Claude, LANE 1 CUDA, 14 s, 936 GPU document-forwards): removing the CORE_16 component of the seven late MLP writes costs 6.15 nat; restoring each token's residual norm afterwards does NOT repair it (6.53, ratio 1.06); keeping the direction but discarding the norm effect costs only .053 (ratio .009). Same at k = 128 (3.75 / 4.08 / .071) and in the early control (6.66 / 6.76 / .034). a TRUE; b, c, d, e FALSE with ALL FOUR NULLS MET — the norm-control hypothesis of §2713 is rejected; preserved.
 
 Written 2026-09-03 20:49Z (box clock). Preregistration `polynomial_causal/LATE_CORE_NORM_CHANNEL_PROBE_PREREGISTRATION.md`
 (registered 20:46Z before the script). Script `ops/late_core_norm_channel_probe.py`; receipt `late_core_norm_channel_probe_results.json`
@@ -69430,7 +69430,7 @@ channel is dead; the core is a low-rank directional message that the readout mus
 
 ## §2715 — MASSIVE-SUBSPACE PROVENANCE MAP (Claude, LANE 1 CUDA, 28 s, 160 GPU document-forwards): THE LATE CORE IS NOT ESTABLISHED EARLY — it is CREATED by blocks 16–17. ov(CORE_16, stream-PCA_l,128) = .17–.19 for blocks 0–4 (chance .11), climbs monotonically to .61 (block 16) and .72 (block 17); the stream's CENTRED energy in the core is .03–.16 through block 15, then .37 (16) and .77 (17); the stream's effective rank collapses 391 → 163 → 19 over the last two blocks. A token-independent massive OFFSET aligned with the core appears at block 5 (uncentred energy .26 → .82). Writers: mlp17 .96, mlp16 .86, attn17 .57, attn6 .46, attn7 .31, attn1 .27, attn5 .24; no early site ≥ .5; middle median .09. a, e TRUE; b FALSE (null MET), c, d FALSE (nulls not met); preserved.
 
-Written 2026-09-03 20:54Z (box clock). Preregistration `polynomial_causal/MASSIVE_SUBSPACE_PROVENANCE_MAP_PROBE_PREREGISTRATION.md`
+Written 2026-09-03 20:53Z (box clock). Preregistration `polynomial_causal/MASSIVE_SUBSPACE_PROVENANCE_MAP_PROBE_PREREGISTRATION.md`
 (registered 20:48Z before the script). Script `ops/massive_subspace_provenance_map_probe.py`; receipt
 `massive_subspace_provenance_map_probe_results.json` (sha 99c06593…); log `runlogs/massive_subspace_provenance_map_probe.log`.
 Docs 96–191 for every covariance; baseline CE (instrument) on docs 0–63. Numbers are fractions — HIGHER = more in the core.
@@ -69468,3 +69468,41 @@ program structure: what does the rank-19 final message ENCODE — is its core co
 is a 16-dim lookup table and a genuine small program component), of the previous token, or of the context?
 
 **Preserved failures.** b (null met — the early-establishment story is dead), c (step not ramp), d (no early writer ≥ .5).
+
+## §2716 — HOW THE READOUT READS THE LATE CORE + CLEAN-ABLATION REFERENCES (Claude, LANE 1 CUDA, 12 s, 608 GPU document-forwards): the core holds 82% of the normalised final stream's energy but only 34% of the vocab-centred logit energy; lm_head reads it ISOTROPICALLY (read-energy ratio 1.05; null MET). Replacing mlp16+mlp17 by their MEAN writes costs .85 nat, all seven late MLPs 1.89 — against 3.78 / 6.15 for dropping only their CORE_16 component: §2714's 6.15 is dominated by removing the token-independent OFFSET the late writes carry in the core directions, not by token-specific direction content. a, d TRUE; b, c, e FALSE (c null met); preserved. Correction to §2714's interpretation recorded here with §2716's MEAN arms as the independent control.
+
+Written 2026-09-03 20:54Z (box clock). Preregistration `polynomial_causal/LATE_CORE_LOGIT_ENERGY_PROBE_PREREGISTRATION.md`
+(registered 20:51Z before the script). Script `ops/late_core_logit_energy_probe.py`; receipt `late_core_logit_energy_probe_results.json`
+(sha e14e9d8f…); log `runlogs/late_core_logit_energy_probe.log`. FRESH split. SIGN CONVENTION (§2135): CE numbers are CE ADDED
+ABOVE THE REAL MODEL — LOWER IS BETTER; q/p are energy fractions and ER read-energy ratios (higher = more read).
+
+**Instrument (a TRUE).** Baseline 3.0322401; CORE_TW eff rank 10.0039; DROPCORE16(mlp11–17) 6.1496 = §2714's 6.1496 (exact);
+ER_lm(random16) .995; q(random16) .024.
+
+**Readout (b FALSE, c FALSE null MET).** With W_c = lm_head minus its per-column vocabulary mean and x̂ = rms_norm(x_final) on
+docs 0–63: activation fraction p(M_16) = .818, logit-energy fraction q(M_16) = .336 (bar ≥ .50; null ≤ .20 not met). X_16 (the
+stream's own top-16): p .837, q .486. Early core E_16: p .026, q .075. Weight read-energy ratio on W_c: M 1.046 (null ≤ 1.1 MET),
+X 1.308, E 1.46, R .995; on the raw W (with the vocabulary-mean column, which softmax ignores): M 1.72, X 1.60, E 2.66. So the
+readout reads the core at isotropic weight; the core's logit share (34%) comes from activation amplitude alone, and lm_head is in
+fact tilted AWAY from the core relative to the stream's energy (82% of x̂, 34% of centred logits).
+
+**Clean ablations (d TRUE, e FALSE).** Write → fit-set mean: MEAN(mlp16) .141, MEAN(mlp17) .365 (bar ≥ 1.0 — FALSE; null ≤ .30
+not met), MEAN(mlp16+17) .848, MEAN(mlp11–17) 1.885. Drop-core-keep-tail: DROPCORE16(mlp16+17) 3.785, DROPCORE16(mlp11–17)
+6.150. d: .848 / 3.785 = .224 ≤ .80 — TRUE (null ≥ 1.0 not met).
+
+**Correction to §2714 (recorded separately; control = the MEAN arms above).** §2714 read the 6.15 nat as "the core's direction
+content is the message". The MEAN arms show that removing the whole write while KEEPING its mean costs 1.89 (late7) / .85
+(last2); the extra 4.3 / 2.9 nat in DROPCORE is the removal of the writes' MEAN component along the core directions — the
+token-independent offset §2715 saw installed at block 5 and reinforced by the late writes (the core's top direction carries 41%
+of the pooled trace; the fit-set means of mlp16/17 lie largely in it). §2714's arms all removed that offset, which is why NORMFIX
+could not repair (the offset is a direction, not a norm) and KEEPDIR cost nothing (it kept the offset). §2714's registered
+scoring stands (the norm-channel hypothesis is still dead); its sentence "the DIRECTION content is worth 6.1 nat" is corrected to:
+the offset is worth ~4 nat, the token-varying content of the seven late MLP writes is worth 1.89 nat (mlp16+17: .85; mlp17 alone:
+.36; mlp16 alone: .14 — superadditive, .85 > .14 + .36).
+
+**Program-structure reading.** The last two MLPs are cheaper than their reputation: the model loses .85 nat without their
+token-varying output. What they do write is low-rank (eff rank 10–20) and token-varying — the next rung asks whether that
+message is a function of the CURRENT token (then it is a 16-dim linear lookup on the token embedding: A·wte(t), 1152×16 numbers
+per site, a real small program component), of the previous token, or genuinely of the context.
+
+**Preserved failures.** b (q .34), c (ER 1.05, null met), e (mlp17 .36).

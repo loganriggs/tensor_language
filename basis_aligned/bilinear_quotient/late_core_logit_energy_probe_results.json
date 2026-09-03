@@ -1,0 +1,100 @@
+{
+ "rung": "late_core_logit_energy_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE numbers are CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); q/p are energy fractions and ER read-energy ratios (HIGHER = more read)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_carries_logit_energy": false,
+  "pred_c_lm_reads_core_above_isotropic": false,
+  "pred_d_dropping_only_the_core_is_worse_than_mean_ablation": true,
+  "pred_e_last_mlp_is_essential": false
+ },
+ "nulls": {
+  "b_null_q_le_.20": false,
+  "c_null_er_le_1.1": true,
+  "d_null_mean_ge_dropcore": false,
+  "e_null_mlp17_le_.30": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "eff_tol": 0.5,
+  "repro_tol": 0.02,
+  "er_rnd_lo": 0.9,
+  "er_rnd_hi": 1.1,
+  "q_rnd_max": 0.03,
+  "b_min": 0.5,
+  "c_min": 1.5,
+  "d_ratio": 0.8,
+  "e_min": 1.0
+ },
+ "null_bars": {
+  "b_max": 0.2,
+  "c_max": 1.1,
+  "d_ratio": 1.0,
+  "e_max": 0.3
+ },
+ "device": "cuda",
+ "k_core": 16,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "core_tw_eff_rank": 10.003904488643483,
+  "prior_core_tw_eff_rank": 10.004,
+  "dropcore16_late7": 6.149558961391449,
+  "prior_plain16": 6.1496,
+  "er_random": 0.9948365092277527,
+  "q_random": 0.024387059661465624
+ },
+ "logit_energy": {
+  "M": {
+   "q": 0.3355538964945532,
+   "p": 0.8178701731893752
+  },
+  "X": {
+   "q": 0.4856704248331251,
+   "p": 0.8364594909879897
+  },
+  "E": {
+   "q": 0.07542973231679315,
+   "p": 0.025513949907488294
+  },
+  "R": {
+   "q": 0.024387059661465624,
+   "p": 0.012599585991766717
+  }
+ },
+ "er_lm_centred": {
+  "M": 1.0457534790039062,
+  "X": 1.3075295686721802,
+  "E": 1.4596524238586426,
+  "R": 0.9948365092277527
+ },
+ "er_lm_raw": {
+  "M": 1.7174196243286133,
+  "X": 1.5963959693908691,
+  "E": 2.660637378692627,
+  "R": 0.9688656330108643
+ },
+ "ce_added": {
+  "DROPCORE16_late7": 6.149558961391449,
+  "DROPCORE16_last2": 3.78465873003006,
+  "MEAN_mlp16": 0.14090877771377563,
+  "MEAN_mlp17": 0.36486679315567017,
+  "MEAN_last2": 0.8479736745357513,
+  "MEAN_late7": 1.8850818276405334
+ },
+ "d_ratio_mean_over_dropcore_last2": 0.22405551861449244,
+ "price": {
+  "gpu_doc_forwards": 608,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 11.869164943695068
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_CORE_LOGIT_ENERGY_PROBE_PREREGISTRATION.md": "f3fd361e13c17d103f1064323726d959c781dd1a16235559e36327f467812d9a",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_core_norm_channel_probe_results.json": "60e663ce6e9d1a6acb1f11d2c66c5b8c551376002c621c69fdab12c962ecb4a0",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "4910206e957612f4017fdf11e665ff77aca755ce86981491805621f5e6f92094"
+}

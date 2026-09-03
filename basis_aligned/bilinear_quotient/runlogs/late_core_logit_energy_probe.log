@@ -1,0 +1,56 @@
+{"stage": "fit", "t": 7.8}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.2}
+{"stage": "logit_energy", "le": {"M": {"q": 0.3356, "p": 0.8179}, "X": {"q": 0.4857, "p": 0.8365}, "E": {"q": 0.0754, "p": 0.0255}, "R": {"q": 0.0244, "p": 0.0126}}, "er": {"M": 1.046, "X": 1.308, "E": 1.46, "R": 0.995}, "t": 9.2}
+{"stage": "arm", "arm": "DROPCORE16_late7", "ce_added": 6.1496, "t": 9.7}
+{"stage": "arm", "arm": "DROPCORE16_last2", "ce_added": 3.7847, "t": 10.1}
+{"stage": "arm", "arm": "MEAN_mlp16", "ce_added": 0.1409, "t": 10.6}
+{"stage": "arm", "arm": "MEAN_mlp17", "ce_added": 0.3649, "t": 11.0}
+{"stage": "arm", "arm": "MEAN_last2", "ce_added": 0.848, "t": 11.4}
+{"stage": "arm", "arm": "MEAN_late7", "ce_added": 1.8851, "t": 11.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_carries_logit_energy": false,
+  "pred_c_lm_reads_core_above_isotropic": false,
+  "pred_d_dropping_only_the_core_is_worse_than_mean_ablation": true,
+  "pred_e_last_mlp_is_essential": false
+ },
+ "nulls": {
+  "b_null_q_le_.20": false,
+  "c_null_er_le_1.1": true,
+  "d_null_mean_ge_dropcore": false,
+  "e_null_mlp17_le_.30": false
+ },
+ "logit_energy": {
+  "M": {
+   "q": 0.3355538964945532,
+   "p": 0.8178701731893752
+  },
+  "X": {
+   "q": 0.4856704248331251,
+   "p": 0.8364594909879897
+  },
+  "E": {
+   "q": 0.07542973231679315,
+   "p": 0.025513949907488294
+  },
+  "R": {
+   "q": 0.024387059661465624,
+   "p": 0.012599585991766717
+  }
+ },
+ "er": {
+  "M": 1.0457534790039062,
+  "X": 1.3075295686721802,
+  "E": 1.4596524238586426,
+  "R": 0.9948365092277527
+ },
+ "ce_added": {
+  "DROPCORE16_late7": 6.149558961391449,
+  "DROPCORE16_last2": 3.78465873003006,
+  "MEAN_mlp16": 0.14090877771377563,
+  "MEAN_mlp17": 0.36486679315567017,
+  "MEAN_last2": 0.8479736745357513,
+  "MEAN_late7": 1.8850818276405334
+ }
+}

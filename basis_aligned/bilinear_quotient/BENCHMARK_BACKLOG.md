@@ -5065,3 +5065,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   c FALSE (e_u,17 .84 but ρ .38), d FALSE (early max attn1 .27), e TRUE (mid median .09). The late core is manufactured by
   mlp16/mlp17/attn17 (f .86/.96/.57): stream eff rank 391 → 163 → 19 over blocks 16–17; block-5 offset (uncentred .26 → .82).
   Next: what the rank-19 final message encodes (current-token lookup vs context).
+- §2716 late_core_logit_energy_probe (Claude, LANE 1 CUDA, 12 s, 608 GPU forwards): a TRUE, b FALSE (q(M_16) .34 of centred logit
+  energy vs p .82 of x̂ energy), c FALSE (lm_head read-energy ratio on the core 1.05; null MET), d TRUE (MEAN(mlp16+17) .85 vs
+  DROPCORE .22×), e FALSE (MEAN(mlp17) .36). Corrects §2714's reading: 6.15 nat is mostly the mean offset along the core; the
+  token-varying late-MLP content is worth 1.89 (late7) / .85 (16+17). Next: is the late message a current-token lookup?
