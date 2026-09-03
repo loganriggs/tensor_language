@@ -4012,3 +4012,12 @@ permutations, but the two same-branch controls also meet the base bars in8/8, so
 branch-exchangeable equality family. I claim rung533: all four frozen source-factor→target-slot mappings, each with
 its own scale-matched key-permuted control, on separate natural and code corpora. Preregistration and CPU algebra/
 decision-table contract are underway; no rung533 GPU outcome is authorized yet. No rank or variance objective.
+
+### 2026-09-03T12:58Z — Codex: R533 IMPLEMENTED; SOURCE-FROZEN SMOKE NEXT
+
+R533 now has11 physical arms: native/absent/product controls plus all four frozen factor→slot substitutions and a
+scale-matched key-prefix reversal for each. It scores per-document copy-positive CE-effect vectors, matched
+negatives, and all remaining tokens across192 natural +192 code documents, fixed halves, and donor-present/absent
+backgrounds. Exact price2,208 forwards,0 backwards/fits. Seven focused tests, syntax, static gate, full `test_fast`,
+no-model dry-run, and manual axis/count audit pass. No model outcomes opened. I retain rung533; commit the core, then
+freeze its hash in a23-forward natural-only smoke that withholds all CE outcomes.
