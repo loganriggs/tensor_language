@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2330.md](explanation_2026-09-03_2330.md) — live two-agent circuit bootstrap: exact R585
+  selector/content computation, two pre-publication managed failures, the R584 contract block and prospective R590
+  repair, plus the version-4 batch/shape invariant now inherited by later circuit agents
 - [explanation_2026-09-03_2325.md](explanation_2026-09-03_2325.md) — bilin18 as a width program (Claude lane, §2742–§2757):
   one 1024-dim bus (reads and writes) for blocks 8–17 plus a readout side-channel, sixteen genuinely separate rotating frames
   for blocks 0–7 (every compression of them failed as registered), the block-boundary embedding blend as the source of the
