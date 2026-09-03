@@ -1,0 +1,58 @@
+{"stage": "fit", "attn1_rbar": 968.2611083984375, "attn1_eff_rank": 11.909373739728029, "t": 17.7}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 17.8}
+{"stage": "site", "site": "attn1", "arms": {"PLAIN_8": 0.003910064697265625, "PLAINFIX_8": -0.07515907287597656, "PLAIN_32": -0.0014142990112304688, "PLAINFIX_32": -0.0656728744506836, "PLAIN_128": -0.006157875061035156, "PLAINFIX_128": -0.05496501922607422}, "t": 18.0}
+{"stage": "site", "site": "mlp4", "arms": {"PLAIN_8": -0.03593158721923828, "PLAINFIX_8": 0.024356842041015625, "PLAIN_32": -0.018983840942382812, "PLAINFIX_32": 0.032901763916015625, "PLAIN_128": -0.015046119689941406, "PLAINFIX_128": 0.03039264678955078}, "t": 18.2}
+{"stage": "site", "site": "mlp17", "arms": {"PLAIN_8": -0.15999221801757812, "PLAINFIX_8": 0.07387351989746094, "PLAIN_32": -0.11653614044189453, "PLAINFIX_32": 0.10873794555664062, "PLAIN_128": -0.08079338073730469, "PLAINFIX_128": 0.1307697296142578}, "t": 18.5}
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_fix_helps_where_the_frame_failed": false,
+  "pred_c_fix_never_hurts": false,
+  "pred_d_attn1_compact_corrected": true,
+  "pred_e_best_of_three_total": false
+ },
+ "nulls": {
+  "b_null_le_2_of_5": false,
+  "c_null_le_25_of_36": false,
+  "d_null_attn1_fix8_ge_.06": false,
+  "e_null_best3_ge_1.65": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": NaN,
+  "n_plain32_repro_within_.01": 0,
+  "n_monotone_plain": 1,
+  "n_monotone_plainfix": 0
+ },
+ "arms_ce_added": {
+  "attn1": {
+   "PLAIN_8": 0.003910064697265625,
+   "PLAINFIX_8": -0.07515907287597656,
+   "PLAIN_32": -0.0014142990112304688,
+   "PLAINFIX_32": -0.0656728744506836,
+   "PLAIN_128": -0.006157875061035156,
+   "PLAINFIX_128": -0.05496501922607422
+  },
+  "mlp4": {
+   "PLAIN_8": -0.03593158721923828,
+   "PLAINFIX_8": 0.024356842041015625,
+   "PLAIN_32": -0.018983840942382812,
+   "PLAINFIX_32": 0.032901763916015625,
+   "PLAIN_128": -0.015046119689941406,
+   "PLAINFIX_128": 0.03039264678955078
+  },
+  "mlp17": {
+   "PLAIN_8": -0.15999221801757812,
+   "PLAINFIX_8": 0.07387351989746094,
+   "PLAIN_32": -0.11653614044189453,
+   "PLAINFIX_32": 0.10873794555664062,
+   "PLAIN_128": -0.08079338073730469,
+   "PLAINFIX_128": 0.1307697296142578
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 80,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 18.475399255752563
+ }
+}
