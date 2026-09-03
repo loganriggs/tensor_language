@@ -69710,3 +69710,34 @@ which a SINGLE fitted replacement for all five (one surrogate for the pool, not 
 **Limits.** Mean-ablation is one ablation family; the lattice under zero-ablation or under resampling could differ in level but the
 convexity (a uniform positive pairwise term) is a comparison within one family. n=5 joint = .724 has only the one subset; the
 pairwise-model residuals at n = 4–5 (+.06/+.11) are above the .003 wobble and real.
+
+## §2722 — THE 16 CORE INPUT COORDINATES OF mlp16/17 ARE SUPPLIED DIFFUSELY: mean-replacing the core component of ALL 32 upstream writes costs .347 nat, no single site more than .017 (attn1), the top three carry 35% of the single-site total, write energy in the core does NOT rank the suppliers (Spearman .07), and the 16 MLPs supply MORE than the 16 attentions (.146 vs .104) (Claude, LANE 1 CUDA, 28 s, 2464 GPU document-forwards): a TRUE; b, c FALSE (nulls not met); d, e FALSE with NULLS MET. Preserved.
+
+Written 2026-09-03 21:15Z (box clock). Preregistration `polynomial_causal/CORE_INPUT_PROVENANCE_PROBE_PREREGISTRATION.md`
+(registered 21:11Z before the script). Script `ops/core_input_provenance_probe.py`; receipt `core_input_provenance_probe_results.json`
+(sha 15feb58a…). FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER. Arm: w_s → w_s − P_M(w_s − μ_s)
+(the write keeps its 1136 non-core directions and its core MEAN; only its core VARIATION is removed).
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN(16,17) .8480.
+
+**Singles (CE added).** attn1 .017 · attn9 .007 · attn7 .005 · attn6 .005 · mlp15 .005 · attn10 .004 · mlp11 .004 · attn5 .003 ·
+mlp12 .003 · attn11 .003 · mlp13 .003 · then ≤ .002 (16 sites at ≤ .002, 6 at ≤ .0005). Sum of positives .098. Groups: ALL32 .347 ·
+ATTN(0–15) .104 · MLP(0–15) .146 (their sum .250 < .347: the two kinds interact superadditively too).
+
+**Scoring.** b ALL32 .347 ≥ .50 FALSE (null ≤ .15 not met). c top-3/total .353 ≥ .60 FALSE (null ≤ .30 not met). d Spearman .066
+≥ .60 FALSE; NULL (≤ .20) MET. e ATTN/MLP = .71 ≥ 1.5 FALSE; NULL (≤ .8) MET.
+
+**What it means for the program.** (i) The token-varying part of the 16 core input coordinates that the last two MLPs compute on is
+worth .35 nat and is written by everybody a little: the 32 single-site costs sum to .098 against .347 jointly (3.5× superadditive
+— the same pool signature as §2721), and no site is a supplier. §2715's energy-based provenance (attn6/attn7/attn1/attn5 by
+core ENERGY) does not predict causal supply (ρ = .07): the large-energy core writers are mostly writing the token-independent
+OFFSET, which this arm keeps. (ii) The .35 nat of core-input variation is less than half of mlp16/17's .848: the rest of what the
+last two blocks deliver rides on the core OFFSET (kept in every arm here) and on the token (ê is in the stream through the
+embedding skip, x0, which no write-ablation touches). This is consistent with §2720 (mean filler 64%, token filler +11 points).
+(iii) For the smaller-program picture: there is no short upstream circuit to extract that "feeds the late core"; the core input
+is a diffuse sum. A compiled late program therefore reads 16 coordinates of the FULL stream (which any faithful early surrogate
+must reproduce), not the output of a few named heads. That closes the "find the core's supplier heads" direction as a source of
+a small circuit, in the same way §2673/§2675 closed low-rank MLP operator vocabularies.
+
+**Limits.** Single-site costs of .001–.017 sit at 1–5× the CUDA wobble (.003); the ranking below attn1 is not resolved (and is
+not used by any pred). Energy attribution was the write's raw core trace (unnormalised) — a rank statistic, so scale is immaterial.

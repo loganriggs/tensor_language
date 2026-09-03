@@ -1,0 +1,71 @@
+{"stage": "fit_cov", "t": 11.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 12.3}
+{"stage": "ref_mean_16_17", "ce_added": 0.8479736745357513, "t": 12.7}
+{"stage": "single", "site": "attn0", "ce_added": 0.0011, "core_energy": 3745.127, "t": 13.2}
+{"stage": "single", "site": "mlp0", "ce_added": 0.0008, "core_energy": 58966160.0, "t": 13.6}
+{"stage": "single", "site": "attn1", "ce_added": 0.0171, "core_energy": 113528.438, "t": 14.0}
+{"stage": "single", "site": "mlp1", "ce_added": 0.001, "core_energy": 486272.344, "t": 14.5}
+{"stage": "single", "site": "attn2", "ce_added": 0.0001, "core_energy": 889372.75, "t": 14.9}
+{"stage": "single", "site": "mlp2", "ce_added": 0.0004, "core_energy": 7507698.0, "t": 15.4}
+{"stage": "single", "site": "attn3", "ce_added": 0.0003, "core_energy": 997382.125, "t": 15.8}
+{"stage": "single", "site": "mlp3", "ce_added": 0.0013, "core_energy": 11671506.0, "t": 16.3}
+{"stage": "single", "site": "attn4", "ce_added": 0.001, "core_energy": 3114571.0, "t": 16.7}
+{"stage": "single", "site": "mlp4", "ce_added": 0.0025, "core_energy": 12828344.0, "t": 17.1}
+{"stage": "single", "site": "attn5", "ce_added": 0.003, "core_energy": 373234.625, "t": 17.6}
+{"stage": "single", "site": "mlp5", "ce_added": 0.0025, "core_energy": 557643.0, "t": 18.0}
+{"stage": "single", "site": "attn6", "ce_added": 0.005, "core_energy": 350422.688, "t": 18.4}
+{"stage": "single", "site": "mlp6", "ce_added": 0.0023, "core_energy": 252337.562, "t": 18.9}
+{"stage": "single", "site": "attn7", "ce_added": 0.0051, "core_energy": 235535.891, "t": 19.3}
+{"stage": "single", "site": "mlp7", "ce_added": 0.0015, "core_energy": 66398.305, "t": 19.8}
+{"stage": "single", "site": "attn8", "ce_added": 0.0011, "core_energy": 110656.344, "t": 20.2}
+{"stage": "single", "site": "mlp8", "ce_added": 0.0015, "core_energy": 176045.219, "t": 20.6}
+{"stage": "single", "site": "attn9", "ce_added": 0.0066, "core_energy": 946105.562, "t": 21.1}
+{"stage": "single", "site": "mlp9", "ce_added": 0.0023, "core_energy": 286567.062, "t": 21.5}
+{"stage": "single", "site": "attn10", "ce_added": 0.0039, "core_energy": 495778.344, "t": 22.0}
+{"stage": "single", "site": "mlp10", "ce_added": 0.0014, "core_energy": 183140.906, "t": 22.4}
+{"stage": "single", "site": "attn11", "ce_added": 0.0028, "core_energy": 719830.75, "t": 22.8}
+{"stage": "single", "site": "mlp11", "ce_added": 0.0035, "core_energy": 1111530.75, "t": 23.3}
+{"stage": "single", "site": "attn12", "ce_added": 0.0005, "core_energy": 342366.219, "t": 23.7}
+{"stage": "single", "site": "mlp12", "ce_added": 0.0029, "core_energy": 1450837.625, "t": 24.2}
+{"stage": "single", "site": "attn13", "ce_added": 0.0003, "core_energy": 190210.547, "t": 24.6}
+{"stage": "single", "site": "mlp13", "ce_added": 0.0028, "core_energy": 2045572.0, "t": 25.1}
+{"stage": "single", "site": "attn14", "ce_added": 0.0004, "core_energy": 199129.938, "t": 25.5}
+{"stage": "single", "site": "mlp14", "ce_added": 0.0015, "core_energy": 1719316.75, "t": 25.9}
+{"stage": "single", "site": "attn15", "ce_added": 0.0001, "core_energy": 225963.562, "t": 26.4}
+{"stage": "single", "site": "mlp15", "ce_added": 0.0048, "core_energy": 9126702.0, "t": 26.8}
+{"stage": "groups", "ALL32": 0.3469, "ATTN16": 0.104, "MLP16": 0.1462, "t": 28.2}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:135: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_core_input_is_load_bearing": false,
+  "pred_c_few_suppliers": false,
+  "pred_d_energy_names_the_suppliers": false,
+  "pred_e_attention_supplies_more_than_mlp": false
+ },
+ "nulls": {
+  "b_null_all32_le_.15": false,
+  "c_null_top3_le_.30": false,
+  "d_null_rho_le_.20": true,
+  "e_null_attn_le_.8_mlp": true
+ },
+ "groups": {
+  "ALL32": 0.34690621495246887,
+  "ATTN16": 0.10402190685272217,
+  "MLP16": 0.14617976546287537
+ },
+ "ranking": [
+  "attn1",
+  "attn9",
+  "attn7",
+  "attn6",
+  "mlp15",
+  "attn10",
+  "mlp11",
+  "attn5",
+  "mlp12",
+  "attn11"
+ ],
+ "rho": 0.06561583577712608
+}

@@ -5088,3 +5088,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   null met (framing error of the prereg's A-vs-B dichotomy). Late MLP pool: n of mlp11–15 removed (16/17 intact) costs
   .04/.12/.27/.49/.72; all 10 pairwise interactions +.035…+.059 (uniform); between-group .31; marginals without 16/17 .07→.23
   monotone in depth. Next: one surrogate for the pool; core_input_provenance (queued).
+- §2722 core_input_provenance_probe (Claude, LANE 1 CUDA, 28 s, 2464 GPU forwards): a TRUE; b, c FALSE; d, e FALSE with NULLS MET.
+  Core-variation of ALL 32 upstream writes worth .347 nat; no single site > .017; sum of singles .098 (3.5× superadditive);
+  energy does not rank causal supply (ρ .07); MLPs supply more than attentions (.146 vs .104). No supplier circuit to extract.
