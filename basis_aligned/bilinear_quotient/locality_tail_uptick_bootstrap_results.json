@@ -1,0 +1,67 @@
+{
+ "status": "complete",
+ "rung": "locality_tail_uptick_bootstrap",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "bootstrap_resolution_of_published_locality_statistics",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LOCALITY_TAIL_UPTICK_BOOTSTRAP_PREREGISTRATION.md": "05277c96b29df589367f07f0f29eb92cce0bcc63398bc732b05cc383363dd851",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_write_locality_density_envelope_ext_results.json": "3cc9db75571137b46c292b4dae62d5e9c3ba88bd4ff261c722343267a040e4ea",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_write_locality_density_envelope_ext_per_token.pt": "fee1ff68d9699fd07f80fb63ebcc4721c22864cd2535d7dd018b79fb2587cf97"
+ },
+ "bootstrap_resamples": 10000,
+ "seed": 20260906,
+ "cells": {
+  "T_half0": {
+   "f_d128": 0.2174530389489969,
+   "f_d64": 0.2154580408921383,
+   "delta_point": 0.001994998056858599,
+   "boot_mean": 0.0057579692047877015,
+   "boot_q025": -0.05095857074816465,
+   "boot_median": 0.0033821017935126013,
+   "boot_q975": 0.07540680047474586,
+   "p_positive": 0.5411
+  },
+  "T_half1": {
+   "f_d128": 0.35779360034409124,
+   "f_d64": 0.30717135625995423,
+   "delta_point": 0.050622244084137014,
+   "boot_mean": 0.04879675891945436,
+   "boot_q025": -0.07800309725578392,
+   "boot_median": 0.0439387757083458,
+   "boot_q975": 0.19987560352450148,
+   "p_positive": 0.7413
+  },
+  "I_half0": {
+   "f_d128": 0.24668754370322687,
+   "f_d64": 0.22059875842679888,
+   "delta_point": 0.026088785276427995,
+   "boot_mean": 0.025381827061011844,
+   "boot_q025": -0.04898074962085318,
+   "boot_median": 0.025262845210889076,
+   "boot_q975": 0.0994914621800404,
+   "p_positive": 0.7511
+  },
+  "I_half1": {
+   "f_d128": 0.31900379141123325,
+   "f_d64": 0.2982195345197656,
+   "delta_point": 0.02078425689146768,
+   "boot_mean": 0.03267248997711605,
+   "boot_q025": -0.041578410131251894,
+   "boot_median": 0.026473909911340104,
+   "boot_q975": 0.1288817603626315,
+   "p_positive": 0.7414
+  }
+ },
+ "point_estimates_reproduce_2640": true,
+ "pred_a_exact_deterministic_bootstrap_instrument": true,
+ "pred_b_tail_uptick_has_definite_sign": false,
+ "pred_c_bootstrap_self_consistent": true,
+ "uptick_verdict": "within_sampling_noise_tail_is_flat",
+ "strong_null": true,
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "next_step": "certificate_hull_stands_tail_flat_within_noise",
+ "runtime_s": 9.785869598388672
+}
