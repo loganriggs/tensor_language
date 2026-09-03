@@ -70638,3 +70638,43 @@ remains the §2745 statement — fourteen sublayers on ONE shared k-dim input co
 narrower attention lane inside it. b's miss by .003 is a bracket miss, not a phenomenon; d says the EARLY attention blocks (0–10)
 are the ones that resist 256 dims (the seven late ones cost .053 of the .227), which matches §2744's finding that the early stack
 does not share and is where the residual is used most widely. Failures preserved; nothing installs into the §312 frontier.
+
+## §2747 — THE LATE STACK READS FROM ONE SUBSPACE BUT DOES NOT WRITE INTO ONE: projecting each of the fourteen late writes onto its OWN top-768 centred write PCs costs .032, onto ONE shared 768-dim write core .131 (+.100 — pred_b "shared write core is free, ≤ .03" FALSE; null ≥ .10 missed by .0002, not claimed); the shared write core is essentially the READ core (writes on the §2745 joint input core .147, +.015, pred_d TRUE) — but both are mediocre; reads AND writes together on 768-dim cores cost .217 (pred_e ≤ .30 TRUE; subadditive: .217 < .109 + .131); write curves own 256/512/768 = .273/.097/.032, shared .534/.284/.131; write effective ranks: mlp11–15 577/585/570/671/345, mlp16 = 10, mlp17 = 6, attention 137–310, attn17 = 19 (Claude, LANE 1 CUDA, 14 s, 736 GPU document-forwards): a, c, d, e TRUE; b FALSE; no null met. Preserved.
+
+Registered 2026-09-03 22:42Z (polynomial_causal/LATE_STACK_WRITE_CORE_PROBE_PREREGISTRATION.md); landed 22:45Z. Script
+ops/late_stack_write_core_probe.py; results late_stack_write_core_probe_results.json (sha 4bf02804…). Frozen: prereg, §2745 results,
+checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs
+96–191) — LOWER IS BETTER. Write projection: site s's write w → μ_s + UUᵀ(w − μ_s) with μ_s the site's fit-set write mean and U
+the top-k eigenvectors of the site's own centred write covariance (OWN) or of the plain average of the fourteen late write
+covariances (SHARED); WRITE14_ON_READ_CORE uses the §2745 joint INPUT core; READ_WRITE composes the §2745 read program (OwnHead
+CONST / AttnHead on U_read, k = 768) with the shared write projection at every one of the fourteen sites.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401 (Δ 7e-9); LATE14_JOINT_768 .1093 (prior .109; tol .02).
+- pred_b_shared_write_core_is_free FALSE: WRITE14_SHARED_768 − WRITE14_OWN_768 = .1314 − .0315 = +.0998 (bar ≤ .03; null ≥ .10
+  NOT met — by .0002; recorded as "null not met" exactly as scored, and the reading below treats it as the null outcome in substance).
+- pred_c_write_768 TRUE: WRITE14_SHARED_768 = .131 (bar ≤ .15; null ≥ .40 not met).
+- pred_d_write_subspace_is_the_read_subspace TRUE: WRITE14_ON_READ_CORE_768 − WRITE14_SHARED_768 = .147 − .131 = +.015 (bar ≤ .05;
+  null ≥ .20 not met).
+- pred_e_read_and_write_together TRUE: READ_WRITE_768 = .217 (bar ≤ .30; null ≥ .50 not met). Interaction: .217 − (.109 + .131) =
+  −.024 (sub-additive).
+
+Descriptive. Own write curve (14 sites) 256/512/768 = .273 / .097 / .032; shared 256/512/768 = .534 / .284 / .131 — the shared
+core is worth about one halving of k less than own. Capture of each site's write variance by its own top-768 / the shared write
+core / the read core: mlp11–15 .92 / .76–.83 / .74–.78; mlp16 .988 / .975 / .957; mlp17 .997 / .994 / .972; attention .995–.999 /
+.82–.97 / .73–.91. Write effective ranks (centred, fit docs): mlp11 577, mlp12 585, mlp13 570, mlp14 671, mlp15 345, mlp16 9.6,
+mlp17 6.3; attn11 148, attn12 137, attn13 219, attn14 310, attn15 198, attn16 220, attn17 18.9.
+
+Reading. The asymmetry is the finding. On the READ side one 768-core serves all fourteen late sublayers at a gap of ≤ .006 to own
+cores (§2742/§2745, capture .96–.99); on the WRITE side the same construction costs +.100 over own cores and own-768 itself already
+costs .032 because mlp11–14 write at effective rank 570–670 — wider than they read (§2744 input eff ranks 527–580). So the late
+stack is a set of sublayers that read a COMMON coordinate system and write BROADLY and DIFFERENTLY into it: the residual's late
+content is not confined to the subspace the late stack reads from (only ~76% of each MLP's write variance lies in the shared core,
+and the read core captures the writes no better, d). The picture "the late stack lives in one k-dim subspace" is therefore half
+true — one shared READ subspace, no shared WRITE subspace — and the late program's honest form is: fourteen sublayers, one shared
+input core, own read weights, FULL-width writes. Two side facts worth keeping: (i) mlp16 and mlp17 write at effective rank 10 and 6
+(a §2692-style usage fact, now measured on the FRESH fits and centred), so their outputs are a handful of directions even though
+their inputs are wide (§2740: token map rank ~230–510; §2744: mlp17 input eff rank 155) — the last two MLPs are wide readers,
+narrow writers; (ii) the shared write core coincides with the read core (d) — the late stack's common output directions are the
+ones it also reads, which is what a residual-stream program should look like, but that shared part carries only three quarters of
+the write energy. Failures preserved; nothing installs into the §312 frontier.

@@ -5169,3 +5169,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2746 attention_input_width_and_nested_core_probe (Claude, LANE 1 CUDA, 15 s, 800 GPU forwards): a, c TRUE; b, d, e FALSE (no null
   met). Late attention width curve .167/.101/.053/.020/.0075 at k=64…768 (b missed by .003 at 256); all-18 attention on 256 dims .227;
   nesting attention at 256 inside the 768 joint core +.074 — no narrower attention lane inside the late program. Preserved.
+- §2747 late_stack_write_core_probe (Claude, LANE 1 CUDA, 14 s, 736 GPU forwards): a, c, d, e TRUE; b FALSE (shared write core
+  +.100 over own; null ≥ .10 missed by .0002, not claimed). Late stack reads ONE subspace but writes broadly and differently: own-768
+  writes .032, shared .131, on the read core .147; read+write .217. mlp16/17 write eff rank 10/6. Preserved.

@@ -1,0 +1,35 @@
+{"stage": "heads_done", "t": 9.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 9.5}
+{"stage": "cores", "write_eff_rank": {"mlp11": 576.9, "mlp12": 585.0, "mlp13": 569.9, "mlp14": 670.8, "mlp15": 344.8, "mlp16": 9.6, "mlp17": 6.3, "attn11": 147.6, "attn12": 136.8, "attn13": 218.5, "attn14": 309.6, "attn15": 198.1, "attn16": 220.0, "attn17": 18.9}, "wcap_read_over_own": {"mlp11": 0.849, "mlp12": 0.84, "mlp13": 0.831, "mlp14": 0.806, "mlp15": 0.838, "mlp16": 0.968, "mlp17": 0.975, "attn11": 0.884, "attn12": 0.839, "attn13": 0.778, "attn14": 0.73, "attn15": 0.761, "attn16": 0.759, "attn17": 0.914}, "t": 9.7}
+{"stage": "arms", "LATE14_JOINT_768": 0.1093, "WRITE14_OWN_256": 0.2732, "WRITE14_OWN_512": 0.0972, "WRITE14_OWN_768": 0.0315, "WRITE14_SHARED_256": 0.5344, "WRITE14_SHARED_512": 0.2838, "WRITE14_SHARED_768": 0.1314, "WRITE14_ON_READ_CORE_768": 0.1468, "READ_WRITE_768": 0.217, "t": 14.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_shared_write_core_is_free": false,
+  "pred_c_write_768": true,
+  "pred_d_write_subspace_is_the_read_subspace": true,
+  "pred_e_read_and_write_together": true
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.40": false,
+  "d_null_ge_.20": false,
+  "e_null_ge_.50": false
+ },
+ "ce_added": {
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "WRITE14_OWN_256": 0.2731831967830658,
+  "WRITE14_OWN_512": 0.09721213579177856,
+  "WRITE14_OWN_768": 0.031526535749435425,
+  "WRITE14_SHARED_256": 0.53438401222229,
+  "WRITE14_SHARED_512": 0.28378963470458984,
+  "WRITE14_SHARED_768": 0.13137391209602356,
+  "WRITE14_ON_READ_CORE_768": 0.14680373668670654,
+  "READ_WRITE_768": 0.21701431274414062
+ },
+ "gaps": {
+  "shared_minus_own_768": 0.09984737634658813,
+  "on_read_core_minus_shared_768": 0.015429824590682983,
+  "read_write_minus_read_plus_write": -0.023699581623077393
+ }
+}

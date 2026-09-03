@@ -1,0 +1,162 @@
+{
+ "rung": "late_stack_write_core_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_shared_write_core_is_free": false,
+  "pred_c_write_768": true,
+  "pred_d_write_subspace_is_the_read_subspace": true,
+  "pred_e_read_and_write_together": true
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.40": false,
+  "d_null_ge_.20": false,
+  "e_null_ge_.50": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.03,
+  "c_max": 0.15,
+  "d_max": 0.05,
+  "e_max": 0.3
+ },
+ "null_bars": {
+  "b_min": 0.1,
+  "c_min": 0.4,
+  "d_min": 0.2,
+  "e_min": 0.5
+ },
+ "device": "cuda",
+ "k": 768,
+ "ks_write": [
+  256,
+  512,
+  768
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "late14_joint_768": 0.10933998227119446,
+  "prior_late14_joint_768": 0.109
+ },
+ "ce_added": {
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "WRITE14_OWN_256": 0.2731831967830658,
+  "WRITE14_OWN_512": 0.09721213579177856,
+  "WRITE14_OWN_768": 0.031526535749435425,
+  "WRITE14_SHARED_256": 0.53438401222229,
+  "WRITE14_SHARED_512": 0.28378963470458984,
+  "WRITE14_SHARED_768": 0.13137391209602356,
+  "WRITE14_ON_READ_CORE_768": 0.14680373668670654,
+  "READ_WRITE_768": 0.21701431274414062
+ },
+ "gaps": {
+  "shared_minus_own_768": 0.09984737634658813,
+  "on_read_core_minus_shared_768": 0.015429824590682983,
+  "read_write_minus_read_plus_write": -0.023699581623077393
+ },
+ "write_eff_rank": {
+  "mlp11": 576.9151740738306,
+  "mlp12": 585.041040006996,
+  "mlp13": 569.9428949714979,
+  "mlp14": 670.7846907797814,
+  "mlp15": 344.8460938443066,
+  "mlp16": 9.644880672699012,
+  "mlp17": 6.301607339404007,
+  "attn11": 147.63189258424552,
+  "attn12": 136.75181538318165,
+  "attn13": 218.5224435879473,
+  "attn14": 309.5634261138816,
+  "attn15": 198.13900525782253,
+  "attn16": 220.0147944665747,
+  "attn17": 18.93298466396207
+ },
+ "write_capture_768": {
+  "mlp11": {
+   "own": 0.9238459696176441,
+   "shared_write": 0.7572821509063288,
+   "read_core": 0.7838874111941176
+  },
+  "mlp12": {
+   "own": 0.9219730463526331,
+   "shared_write": 0.7679986702859823,
+   "read_core": 0.7743257644425644
+  },
+  "mlp13": {
+   "own": 0.9191826949076597,
+   "shared_write": 0.7747355018326872,
+   "read_core": 0.7639179378795454
+  },
+  "mlp14": {
+   "own": 0.9123502595165525,
+   "shared_write": 0.7690574407972598,
+   "read_core": 0.735329334075479
+  },
+  "mlp15": {
+   "own": 0.9307034052040469,
+   "shared_write": 0.8343046327037327,
+   "read_core": 0.7803414072519499
+  },
+  "mlp16": {
+   "own": 0.9880115308311213,
+   "shared_write": 0.9750786061118653,
+   "read_core": 0.956508862483455
+  },
+  "mlp17": {
+   "own": 0.9968873050695863,
+   "shared_write": 0.9943762255487991,
+   "read_core": 0.97183037966615
+  },
+  "attn11": {
+   "own": 0.9966788260803563,
+   "shared_write": 0.8425561117717947,
+   "read_core": 0.8807141405762785
+  },
+  "attn12": {
+   "own": 0.9973007756143402,
+   "shared_write": 0.8371673990330979,
+   "read_core": 0.8363282803336471
+  },
+  "attn13": {
+   "own": 0.9948498371566359,
+   "shared_write": 0.8329955739546572,
+   "read_core": 0.7744281523397305
+  },
+  "attn14": {
+   "own": 0.9958458840390123,
+   "shared_write": 0.8179727938958631,
+   "read_core": 0.7266414016590994
+  },
+  "attn15": {
+   "own": 0.99738212833189,
+   "shared_write": 0.8280255159605971,
+   "read_core": 0.759378773383414
+  },
+  "attn16": {
+   "own": 0.9980833075830982,
+   "shared_write": 0.8710314565519793,
+   "read_core": 0.7570668449302349
+  },
+  "attn17": {
+   "own": 0.9990661030625158,
+   "shared_write": 0.9655989977524038,
+   "read_core": 0.9133901094915351
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 736,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 14.112785816192627
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_STACK_WRITE_CORE_PROBE_PREREGISTRATION.md": "754a5dbe7967c1f933cf77e561ecc36e85292043ddb8ffb659c23ed47840a8da",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_attention_shared_input_core_probe_results.json": "0711ac84c85961cf8263200e6fbec0e629dda8e85d524651c733f2a6941c0abe",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "f6c671929a7ac301eb6376914d72c34a1012b3377f0fac58131a73ca2e0b59ce"
+}
