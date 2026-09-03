@@ -13,26 +13,26 @@ These version-2 records are task-defined behaviors, not assumed aliases of censu
 
 | circuit | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | proposed | `pending_opener_state` | 4 | 0 | freeze opener-type and closer-reset families; require leave-one-family-out transfer |
+| `task.bracket.pending_opener` | proposed | `pending_opener_state` | 4 | 0 | materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed |
 | `task.increment.state` | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
 ### `task.bracket.pending_opener` — proposed
 
-**Read:** recent opener/closer evidence in context. **Operation:** maintain a recency-weighted pending-opener state. **Write:** closer-type evidence at the final prediction position. **Endpoint:** signed required-closer minus alternative-closer logit margin.
+**Read:** opener, closer, ordering, and recency evidence in the preceding context. **Operation:** maintain which opener type remains pending after completed earlier spans. **Write:** signed evidence for the matching closer token. **Endpoint:** symmetric donor-closer versus base-closer final-logit margin.
 
 | family | role | status |
 |---|---|---|
-| `opener_presence_edit` | interchange | proposed |
-| `opener_type_substitution` | interchange | proposed |
+| `opener_type_substitution` | interchange | frozen |
+| `closed_then_reopened_type` | interchange | frozen |
+| `pending_state_preserved_surface_edit` | invariance | frozen |
 | `later_matching_closer_reset` | necessity | proposed |
-| `pending_state_preserved_distance_edit` | invariance | proposed |
 
 **Existing evidence events:**
 - `pending_opener_rank4_das.legacy.v1`: das_interchange — **held** (no failure)
 
-**Next:** freeze opener-type and closer-reset families; require leave-one-family-out transfer
+**Next:** materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed
 
 ### `task.increment.state` — proposed
 

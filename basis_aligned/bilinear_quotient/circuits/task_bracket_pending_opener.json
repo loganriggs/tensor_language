@@ -157,6 +157,152 @@
    ],
    "translation_ids": [],
    "next_missing": "freeze opener-type and closer-reset families; require leave-one-family-out transfer"
+  },
+  {
+   "claim_id": "pending_opener_state.v2",
+   "revision": 2,
+   "status": "proposed",
+   "supersedes": "pending_opener_state.v1",
+   "causal_variable": {
+    "id": "pending_opener_state",
+    "domain": "pending parenthesis or quote state at the final prediction position",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "opener_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "one opener token: parenthesis versus quote",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "all lexical tokens",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "non-opener punctuation substitution",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "closed_then_reopened_type",
+     "role": "interchange",
+     "changes": [
+      "order of completed and newly opened punctuation structures",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "lexical token multiset",
+      "prefix",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_state_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "wording",
+      "lexical identities",
+      "opener-to-final distance"
+     ],
+     "holds_fixed": [
+      "pending parenthesis state",
+      "correct closer",
+      "task role"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "held-out prefixes",
+      "held-out lexical pool",
+      "distance strata"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "later_matching_closer_reset",
+     "role": "necessity",
+     "changes": [
+      "whether the earlier opener remains unclosed"
+     ],
+     "holds_fixed": [
+      "original opener",
+      "scored closer token",
+      "matched suffix"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "nonmatching closer",
+      "punctuation insertion",
+      "distance-matched filler"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.layer8_to14.final_position",
+     "tensor_path": "final-position residual entering each layer 8 through 14",
+     "shape": [
+      "batch",
+      "1152"
+     ],
+     "intervention": "complete donor-state interchange before any projector fit",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_joint_split_r537_v1"
+   ],
+   "evidence_event_ids": [],
+   "translation_ids": [],
+   "next_missing": "materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed"
   }
  ],
  "split_plans": [
@@ -180,6 +326,26 @@
    ],
    "sealed_before_outcomes": false,
    "sealed_at": null
+  },
+  {
+   "split_plan_id": "pending_opener_joint_split_r537_v1",
+   "unit": "group_id shared across every counterfactual family",
+   "partition_artifact_id": "r537_rows_receipt",
+   "builder_artifact_id": "r537_rows_builder",
+   "seed": null,
+   "groups": {
+    "FIT": 48,
+    "SELECT": 16,
+    "FINAL_TEST": 16,
+    "OOD": 16
+   },
+   "leakage_group_keys": [
+    "group_id",
+    "lexical pool",
+    "prefix family"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T14:25Z"
   }
  ],
  "evidence_events": [
@@ -247,6 +413,30 @@
    "path": "basis_aligned/qk_mdl/algo_tasks/semantics_opener/report.md",
    "sha256": "ec464315a712482c626bfba03fb1497ec3ebcc575450b1ada83214fe31974b74",
    "kind": "report",
+   "status": "frozen"
+  },
+  "r537_rows": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_multifamily_rows_rung537.json",
+   "sha256": "c62cdf3929231e06de6883d74f3ab2c86bd524e02474bb2259267d6976e9e7d9",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r537_rows_receipt": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_multifamily_rows_rung537_receipt.json",
+   "sha256": "d50528aa355ba89ab43edd43491c672a6aed88bd8a805ffda936afbfa4cc4816",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r537_rows_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_multifamily_rows_rung537.py",
+   "sha256": "2de03d2741e01f1ef58ccd12f38f82ca060129a4bfc9f9382e6d00a8424649a5",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r537_preregistration": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_MULTI_COUNTERFACTUAL_RUNG537_PREREGISTRATION.md",
+   "sha256": "5a64b1f523f5e70973cb64ad6b5840fc15e252dc679591107d5f7ab3634f8b2c",
+   "kind": "preregistration",
    "status": "frozen"
   }
  },

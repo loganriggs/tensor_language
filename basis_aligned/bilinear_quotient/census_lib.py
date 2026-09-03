@@ -558,6 +558,7 @@ def leaf_program(tag,f=None,seed=3):
 import fcntl
 from contextlib import contextmanager
 from circuit_registry_v2 import (
+    append_claim_revision,
     append_evidence_event,
     rebuild_registry_v2,
     validate_v2 as validate_circuit_v2,

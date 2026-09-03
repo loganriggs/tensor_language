@@ -5,7 +5,7 @@ Negative/invalid results are counted as evidence, not omitted. Check this view a
 
 | circuit | kind | identity | status | causal variable / legacy story | CF families | negative events | exact next missing evidence |
 |---|---|---|---|---|---:|---:|---|
-| `task.bracket.pending_opener` | behavior_circuit | task-defined | proposed | pending_opener_state | 4 | 0 | freeze opener-type and closer-reset families; require leave-one-family-out transfer |
+| `task.bracket.pending_opener` | behavior_circuit | task-defined | proposed | pending_opener_state | 4 | 0 | materialize non-opener/wrong-closer controls, then run FIT/SELECT capability gates with FINAL_TEST and OOD sealed |
 | `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |

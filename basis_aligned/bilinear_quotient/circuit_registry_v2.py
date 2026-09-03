@@ -252,6 +252,39 @@ def write_behavior_circuit(record: dict) -> Path:
     return path
 
 
+def append_claim_revision(
+    tag: str,
+    claim: dict,
+    *,
+    artifacts: dict[str, dict] | None = None,
+    split_plans: list[dict] | None = None,
+) -> Path:
+    """Append a claim revision and its pre-outcome authorities without mutating history."""
+    path = circuit_path(tag)
+    with _lock("registry"):
+        record = json.loads(path.read_text())
+        old_claims = record["claims"]
+        assert all(item["claim_id"] != claim["claim_id"] for item in old_claims)
+        assert claim["supersedes"] in {item["claim_id"] for item in old_claims}
+        assert claim["revision"] > max(item["revision"] for item in old_claims)
+        for artifact_id, value in (artifacts or {}).items():
+            if artifact_id in record["artifacts"] and record["artifacts"][artifact_id] != value:
+                raise ValueError(f"artifact id collision: {artifact_id}")
+            record["artifacts"][artifact_id] = value
+        existing_splits = {item["split_plan_id"]: item for item in record.get("split_plans", [])}
+        for split in split_plans or []:
+            split_id = split["split_plan_id"]
+            if split_id in existing_splits and existing_splits[split_id] != split:
+                raise ValueError(f"split-plan id collision: {split_id}")
+            if split_id not in existing_splits:
+                record.setdefault("split_plans", []).append(split)
+        old_claims.append(claim)
+        validate_v2(record)
+        _atomic_json(path, record)
+    rebuild_registry_v2()
+    return path
+
+
 def append_evidence_event(tag: str, event: dict) -> Path:
     """Append one immutable event, rejecting duplicate designs unless superseded."""
     path = circuit_path(tag)

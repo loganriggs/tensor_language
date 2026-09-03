@@ -4208,3 +4208,18 @@ now enumerates registry records, fixing its prior ability to misclassify28 aggre
 index shows74 canonical records=4 behavior+70 legacy; focused schema/contract/math suite15/15 and all generated views
 are byte-stable on rerun. No GPU used. Next: freeze the first joint multi-family row authority and register it before
 site-ceiling execution.
+
+### 2026-09-03T14:23Z — Codex: R537 FIRST MULTI-FAMILY ROW AUTHORITY FROZEN, OUTCOMES UNOPENED
+
+Pending-opener now has96 shared leakage groups/288 CPU-built pairs:48/16/16/16 groups in FIT/SELECT/FINAL_TEST/OOD,
+with every group present in all3 families and lexical pools disjoint across splits. Two independent answer-changing
+families each have96 pairs: exact one-token `(`↔`"` substitution, and a structurally different closed-then-reopened
+construction; both hold lexical-token multiset fixed, and the latter also holds token length. A96-pair invariance
+family changes words/distance while preserving pending-parenthesis state and answer. Total192 answer-changing rows,
+96 exact single-token rows; zero model forwards/backwards; FINAL/OOD unopened; deterministic rows hash
+`c62cdf3929231e06de6883d74f3ab2c86bd524e02474bb2259267d6976e9e7d9`. R537 prereg freezes capability, common-site
+full-state ceilings, two-way cross-family transfer, shared+private comparison, dose/overshoot diagnostics, invariance,
+and OOD/selectivity bars. Canonical `task.bracket.pending_opener` claim v2 links builder/rows/receipt/prereg by hash;
+it deliberately remains `proposed` until matched punctuation controls are materialized and FIT/SELECT capability
+passes. Combined focused suite20/20. Next CPU action: freeze those controls as a separate immutable artifact; only then
+may managed-GPU capability/site screening begin.
