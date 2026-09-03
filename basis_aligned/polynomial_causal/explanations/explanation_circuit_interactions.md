@@ -461,3 +461,39 @@ MLP10-to-consumer grain descent. The next interaction basis must change objects�
 source-relation decomposition across heads—rather than widen sparse supports or reduce rank. Full definitions,
 computation, limits, and a percentage graph are in
 [explanation_2026-09-03_0139.md](explanation_2026-09-03_0139.md).
+
+## Update — 2026-09-03 04:18 UTC: joint source interactions are strongly non-additive but still not reusable units
+
+Rung520 grouped all22 MLP10 bilinear terms containing each of its22 exact earlier sources into a **source star**.
+Under four fixed upstream score implementations this produced88 finite interventions. All3,828 unordered pairs were
+compared using four copy-task effects and32 circuit member-minus-control effects in two document halves. The scale
+was fitted only in half0; both halves had to pass before untouched documents, the other30 circuits, or physical
+substitution could open.
+
+The exact instrument passed and83/88 interventions were measurable. Two pairs passed the task rule in both halves,
+but zero passed the circuit rule even in half0, and zero beat the16 circuit-label permutations. Thus a coarse task
+effect can make different source stars look equivalent while known circuits prove that downstream computation treats
+them differently. No grouping or reuse claim survives.
+
+The direct multiple-mediator check is even more important for interaction analysis. Predicting a joint star removal
+by adding its22 separately measured singleton-removal effects had median relative error8.51 for task effects and9.68
+for circuit effects. The nonlinear suffix creates large cancellation and reinforcement, so summed single-component
+patches are not a valid estimate of the grouped causal effect. Future decompositions must physically execute shared,
+private, and joint interventions rather than infer composition by addition.
+
+Together with the rung519 term-combination result—per-term circuit signatures correlate only.106 across document
+halves—the object must change, but a post-result power probe adds a prerequisite. Across the83 measurable rung520
+nodes, a node's own32-circuit fingerprint has median cross-half correlation only.016, below a200-permutation q95 of
+.077. Thus the grouping nulls stand as frozen assay results but are power-bounded: they cannot distinguish absent
+structure from structure below the sampling noise.
+
+The planned attention8 test therefore starts with two frozen whole-output donor maps as a power gate. Its circuit
+pattern and exclusive-member effects must reproduce across document-disjoint halves before any subspace is fit. If
+that gate passes, the test uses three distinct
+documented circuits, one jointly learned shared span, and one private span per circuit. Shared-only, private-only,
+joint, and full attention8 donor swaps will measure reuse and composition on document-disjoint data. Orthogonal spans,
+multiple seeds, and circuit-label permutations address gauge and post-selection. Dimension is a matched capacity;
+held-out causal interchange and selective composition decide the claim.
+
+Full computation, ordinary-language definitions, and a percentage graph are in
+[explanation_2026-09-03_0418.md](explanation_2026-09-03_0418.md).

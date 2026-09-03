@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0418.md](explanation_2026-09-03_0418.md) — rung520's exact source-star strong null:
+  83/88 grouped MLP10 source interventions are active and two of3,828 pairs match four task effects across both
+  document halves, but no pair matches even one complete32-circuit half; explains the 851%/968% nonlinear
+  multiple-mediator error, the post-result 0.016 cross-half fingerprint power warning, and the power-gated
+  shared/private attention8 DAS successor with a percentage graph
 - [explanation_2026-09-03_0338.md](explanation_2026-09-03_0338.md) — rung519's valid exact-interaction strong null:
   9/46 semantic MLP0 terms recover at least15% of one target circuit effect in both halves and3 are stable, but none
   is top4 or twice the circuit median in both halves; explains the preserved float32 instrument failure and starts the

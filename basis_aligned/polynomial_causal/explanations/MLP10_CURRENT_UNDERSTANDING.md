@@ -172,3 +172,25 @@ scale-valid pairs,97 passed the equality-task rule on document half0 and8 on hal
 coordinates had no stable task-compatible target population to explain. This closes the MLP10 consumer descent at
 the whole-write, exact-term, small signed-program, and actual nonlinear-use levels. Do not widen the term support or
 change rank. A future return requires a different task-defined state or a new module-level program gap.
+
+## Rung520 update: exact source stars are active but not circuit-equivalent
+
+Rung520 grouped every MLP10 interaction containing one of its22 exact earlier sources into a source star. This is the
+exact joint contribution `Left(s)*Right(z) + Left(z-s)*Right(s)`, not a low-rank approximation. Across four fixed
+upstream score implementations,83/88 source-star interventions were measurable. Of3,828 unordered pairs, two matched
+all four task effects across both document halves, but zero matched the32-circuit pattern even in the first half.
+Therefore no candidate opened confirmation or physical substitution.
+
+The actual joint-star effect also differs radically from the sum of the22 singleton-removal effects: median relative
+error is8.51 for task effects and9.68 for circuit effects. This directly demonstrates nonlinear multiple-mediator
+interaction through the suffix. Do not predict grouped removals by adding individual patching effects.
+
+An immediate stability probe qualifies the scope: the83 measurable source stars'32-circuit fingerprints have median
+cross-half correlation only.016 and do not beat a200-permutation q95 of.077. Thus these exact tests failed to
+identify reusable MLP10 units at the tested sample size, but do not prove they are absent; the circuit-direction assay
+itself is below its self-replication floor.
+
+This leaves exact individual terms, six fixed source families, Left/Right/joint branches, small signed programs,
+consumer-local terms, and source stars unidentified as reusable MLP10 circuit units at the tested scale. A return to MLP10 should
+start from a task-defined learned causal subspace or a new downstream operational interface, use document-disjoint
+data, and physically test joint composition. Do not retry these groupings with more rank or relaxed thresholds.
