@@ -1,6 +1,6 @@
 # MLP10: current understanding and duplicate-work map
 
-**Updated:** 2026-09-02 23:40 UTC
+**Updated:** 2026-09-03 00:05 UTC
 
 This dossier consolidates the existing MLP10 results that were previously scattered across the main ledger. It is
 the required duplicate-work check for new MLP10 experiments. Numerical screens are kept separate from causal circuit
@@ -103,6 +103,16 @@ the exact branch effects first become equal or distinguishable inside attention1
 MLP11 question-mark quadratic form included as a fixed semantic readout. Any proposed equivalence must predict new
 documents and survive a direct intervention at that consumer. This is a consumer-local circuit test, not a rank or
 compression test.
+
+Rung512 has now run that test. Eighteen of42 same-subset action pairs are proportional when their full MLP10 branch
+writes are compared at copy-task positions. None remains proportional after attention11, after MLP11, or in the fixed
+MLP11 question-mark form. All responses were material and the instrument was exact. The downstream layers therefore
+separate apparent source similarities rather than merging different MLP10 branches into a shared variable.
+
+The next non-duplicate question is which exact interaction inside the consumer causes that separation. Attention11
+is multilinear in `Q`, `K`, `Q2`, `K2`, and value, so its finite response can be expanded into31 exact nonempty factor
+interactions. MLP11 has the analogous exact Left/Right/joint split. Testing those terms against the fixed18 source
+relations can identify a within-consumer split; merely lowering the output cosine threshold cannot.
 
 ## Do-not-repeat list
 

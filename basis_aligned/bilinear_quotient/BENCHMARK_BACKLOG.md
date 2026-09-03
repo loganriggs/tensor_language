@@ -4725,3 +4725,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   localize the exact branches at actual downstream computations, starting from attention11/MLP11 and explicitly the
   archived question-mark quadratic form; require held-out prediction and a physical consumer-level intervention.
   Do not return to rank, term dictionaries, family regrouping, or threshold relaxation.
+- Rung512 (§2645): valid strong null after a preserved no-outcome precision repair. Exact2,108 forwards and1,736
+  branch patches; all126 fixed relation-by-consumer tests are material. Eighteen of42 same-subset action pairs are
+  proportional at the MLP10 branch-write source, but0/42 survive at attention11 output,0/42 at MLP11 output, and0/42
+  in the fixed question-mark quadratic form. Thus the first consumers separate the apparent source equivalences; no
+  confirmation or substitution opened. Next decompose the finite attention11 change into exact
+  `Q/K/Q2/K2/value` interaction terms and MLP11 into exact Left/Right/joint terms, using the18 fixed source relations
+  as the prospective discrimination set and requiring held-out causal term removal/substitution. No rank or relaxed
+  similarity threshold.

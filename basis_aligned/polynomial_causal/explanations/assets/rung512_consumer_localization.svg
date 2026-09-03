@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-labelledby="title desc">
+  <title id="title">Rung512 source and downstream relation pass rates</title>
+  <desc id="desc">Eighteen of 42 MLP10 source relations pass, while none pass after attention11, MLP11, or in the question form.</desc>
+  <rect width="900" height="470" fill="#ffffff"/>
+  <style>.label{font:16px sans-serif;fill:#202124}.value{font:bold 16px sans-serif;fill:#202124}.note{font:14px sans-serif;fill:#5f6368}.axis{stroke:#dadce0;stroke-width:1}</style>
+  <text x="24" y="34" class="value">Rung512: same-branch cross-action relations that pass</text>
+  <line x1="320" y1="62" x2="850" y2="62" class="axis"/>
+  <line x1="320" y1="62" x2="320" y2="380" class="axis"/>
+  <line x1="452.5" y1="62" x2="452.5" y2="380" class="axis"/>
+  <line x1="585" y1="62" x2="585" y2="380" class="axis"/>
+  <line x1="717.5" y1="62" x2="717.5" y2="380" class="axis"/>
+  <line x1="850" y1="62" x2="850" y2="380" class="axis"/>
+  <text x="314" y="56" class="note">0%</text><text x="441" y="56" class="note">25%</text><text x="573" y="56" class="note">50%</text><text x="705" y="56" class="note">75%</text><text x="830" y="56" class="note">100%</text>
+  <text x="24" y="112" class="label">MLP10 branch write</text>
+  <rect x="320" y="88" width="227" height="36" rx="4" fill="#1a73e8"/>
+  <text x="557" y="112" class="value">42.9% (18/42)</text>
+  <text x="24" y="182" class="label">Attention11 output</text>
+  <rect x="320" y="158" width="2" height="36" fill="#c5221f"/>
+  <text x="332" y="182" class="value">0% (0/42)</text>
+  <text x="24" y="252" class="label">MLP11 output</text>
+  <rect x="320" y="228" width="2" height="36" fill="#c5221f"/>
+  <text x="332" y="252" class="value">0% (0/42)</text>
+  <text x="24" y="322" class="label">MLP11 question form</text>
+  <rect x="320" y="298" width="2" height="36" fill="#c5221f"/>
+  <text x="332" y="322" class="value">0% (0/42)</text>
+  <text x="24" y="405" class="note">All 126 relation-by-consumer tests were material in both document halves.</text>
+  <text x="24" y="429" class="note">The source bar is an activation-level screen, not a circuit claim: no consumer preserved it and no substitution opened.</text>
+  <text x="24" y="453" class="note">Next: identify the exact attention11 or MLP11 factor interaction that breaks these 18 source relations.</text>
+</svg>

@@ -67174,3 +67174,42 @@ consumer-specific role. Honor the frozen route: localize each exact branch at th
 explicitly including the already-certified MLP11 question-mark quadratic form, and require any proposed local
 equivalence to predict new documents and a physical intervention. Result/bundle SHAs are
 `39a6afc5…/16a70cb7…`;0 deployed parameters were added or saved.
+
+## §2645 — RUNG512: EIGHTEEN MLP10 BRANCH RELATIONS EXIST AT THE SOURCE, BUT ATTENTION11 AND MLP11 SEPARATE ALL OF THEM
+
+Rung512 kept all seven exact rung511 branch subsets fixed and changed only the observation. For each of the42
+same-subset action pairs, it compared the full MLP10 branch write, attention11's complete output write, MLP11's
+complete output write, and the archived two-direction MLP11 question-mark quadratic scalar. The scalar basis was
+rebuilt from the checkpoint's original float32 weights and matched the published eigenvalues
+`+144.86406/-73.84644` within`4.06e-5`. Every consumer relation was tested on every copy-task response coordinate;
+the question form additionally had40/57 actual question-token examples in the two discovery halves.
+
+The first managed no-outcome smoke is preserved as an instrument failure. It correctly exposed that constructing the
+archived form from the bfloat16 execution copy shifted the eigenvalues to`144.828/-73.832`, and that a patch check was
+comparing an unrounded request against the installed bfloat16 write. A prospective addendum rebuilt the fixed form
+from the checkpoint's stored float32 tensors and compared the patch after the same dtype conversion. The repaired
+smoke passed every branch, capture, question-basis, and bidirectional consumer-patch check. No science threshold or
+outcome changed.
+
+The full run is valid: A true; B--E false; registered strong null. It used exactly2,108 forwards,0 backwards,
+1,736/1,736 MLP10 branch patches,1,984/1,984 consumer-capture forwards, and54.10s. Native replay is exact, the deployed
+three-branch closure remains`1.35e-20`, all four score calibrations pass, and every one of126 fixed
+`(relation,consumer)` tests is material in both document halves.
+
+Zero of42 relations passes at attention11 output, zero passes at MLP11 output, and zero passes in the question form.
+The failure is directional/residual, not inactivity or an ill-scaled detector:40/42 attention11,36/42 MLP11, and
+39/42 question-form fits have an allowed beta, but no site has even one pair above cosine`.85` with both directional
+residuals below`.55` in both halves. The best attention11 pair (`N` versus `Z8`, full `L+R+LR`) has cosine
+`.815/.822` and worst directional residual`.710/.635`; the best MLP11 pair has`.803/.825` and`.741/.637`; the best
+question-form pair has`.763/.756` and`.849/.770`. The actual-question-token responses are less stable still.
+
+The new structural fact is upstream of those nulls. Under exactly the same source-write rule,18/42 MLP10 branch
+relations pass. They include `N` with `Z7` or`Z8`, and `P` with`Z7`, for most branch subsets. Attention11 destroys all
+18 equivalences rather than creating a new one. These source similarities remain activation-level screens, not
+circuits, because no downstream consumer preserves them and no physical substitution opened.
+
+The registered route now has a precise target: decompose the finite attention11 response into its exact multilinear
+`Q`, `K`, `Q2`, `K2`, and value interaction terms, and decompose the MLP11 response into its exact Left, Right, and
+joint-product terms. Test which factor interaction separates the18 source-equivalent branch pairs on held-out data,
+then remove or substitute that exact term at the consumer. This is an interaction-basis circuit split, not rank
+reduction. Result/bundle/source SHAs are`118d28d4…/504b7d8e…/ed66fc32…`;0 deployed parameters were added or saved.

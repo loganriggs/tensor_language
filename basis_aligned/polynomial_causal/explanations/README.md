@@ -12,6 +12,9 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [overview.md](overview.md) — THE OVERVIEW OF EVERYTHING: the full program compendium (moved here 2026-09-02 from /workspace/tensor_language/PROGRAM_COMPENDIUM.md at the user's request) — timeline of all 16 eras since 06-01, era chapters, the graveyard and dropped-threads registries, what stands, the retraction log, method families, and the module map with the § namespace appendix
+- [explanation_2026-09-03_0005.md](explanation_2026-09-03_0005.md) — rung512's valid first-consumer null:18/42
+  MLP10 source relations but0/42 after attention11, MLP11, or the question form; percentage graph, precision repair,
+  and the exact `Q/K/Q2/K2/value` interaction-basis successor
 - [explanation_2026-09-02_2340.md](explanation_2026-09-02_2340.md) — corrected rung511 result: all exact MLP10
   Left/Right/joint branches are live but0/42 cross-action relations pass the global circuit rule; preserves the invalid
   first calibration receipt, graphs the result, and motivates the consumer-level attention11/MLP11 successor

@@ -353,3 +353,19 @@ though the aggregate32-circuit vector does not. A positive local match must pred
 direct intervention at that consumer before it counts as grouping; an activation cosine alone remains a screen.
 
 See [explanation_2026-09-02_2340.md](explanation_2026-09-02_2340.md) for the complete numerical receipt and graph.
+
+## Update: the first consumers separate the source-level similarities
+
+Rung512 found18/42 proportional relations among the exact MLP10 branch writes themselves, but0/42 after attention11,
+0/42 after MLP11, and0/42 in the fixed MLP11 question-mark form. Every tested response was large enough to measure.
+This is the opposite of downstream collapse: attention11 is the first point that distinguishes branch changes which
+look similar in the residual stream.
+
+That makes the interaction-basis proposal concrete. Attention11 computes a multilinear contraction of five factors:
+`Q`, `K`, `Q2`, `K2`, and value. Between a branch-present and branch-removed run, its exact change is the sum of the31
+nonempty choices of changed versus baseline factors. We can ask which of those fixed terms breaks each of the18
+source equivalences, confirm the answer on new documents, and physically remove or substitute that term. MLP11 can be
+treated analogously with its exact Left, Right, and joint-product changes. A successful term must change held-out
+behavior as predicted; an algebraic or activation-only decomposition will not count as a circuit.
+
+See [explanation_2026-09-03_0005.md](explanation_2026-09-03_0005.md) for the result and percentage graph.
