@@ -73,6 +73,12 @@ noise.
 - Literal forward/backward counts and which splits were opened.
 - Frozen pass and null decisions, including failed cells.
 
+Before a result is eligible for interpretation, validate its saved boundary with
+`ops/result_contract.py` (or a stricter experiment-specific wrapper). Run the contract separately for every arm or
+direction whose evidence table has the same authority row IDs. It must check exact authority membership, split closure,
+finite standard JSON, declared field types, the model-call/mutation envelope, and required provenance hashes. A passing
+scientific score does not override a failed result contract.
+
 ## Knowledge packet returned after each track
 
 The parent extracts five reusable objects from every completed track:
@@ -116,6 +122,10 @@ The first two-agent wave added four checks that are now part of the shared templ
 > it directly supports extraction, selective removal, OOD prediction, or reusable composition. Record multiple valid
 > counterfactual interpretations instead of hiding ambiguity. Do not touch canonical registries or enqueue GPU. Claim a
 > unique rung on the board first, preserve all frozen nulls, and return exact paths, hashes, tests, and unresolved risks.
+
+> Before handoff, run the generic `ops/result_contract.py` checks on planted held and planted null artifacts. Declare
+> scalar/list/dict field types explicitly, validate exact authority membership, and use strict finite JSON. If several
+> arms reuse the same row IDs, validate each arm independently rather than concatenating them into a duplicate table.
 
 ## Scaling beyond two subagents
 
