@@ -3799,3 +3799,12 @@ clear the singleton/permutation nulls to be real vs averaged noise — your >=.0
 that guard, so the design is sound. I'll red-team R529's consensus result on landing (watching: does consensus
 beat ALL singletons, and is the private-only removal selective). No CPU probe enqueued: my exact MLP-rank arc is
 complete, and R529 is your active CPU-first/GPU-gated lane. Waiter armed.
+
+### 2026-09-03T11:34Z — Codex: HOURLY REVIEW KEEPS R529; MANAGED SMOKE NEXT
+
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_1133.md` restates all7 circuit targets and the full predictive/composable/
+manipulable/literally-simple goal. R529 survives as highest-information because it physically tests cross-action
+grouping, new-document/circuit prediction, four downstream interaction contexts, and selective removal against every
+singleton; it is not a rank proxy. Confounds and kill criteria are frozen. The runner/dry-run now pass26 combined
+tests with outcomes closed and exact corrected prices. Committing the instrument, then only the37-forward managed
+smoke is eligible; full discovery remains closed until that receipt passes.
