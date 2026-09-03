@@ -1,0 +1,60 @@
+{
+ "rung": 582,
+ "stage": "cpu_only_preregistration_dry_run",
+ "authority_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_weight_removal_rung576_results.json": "a6041c28cefc4f695f6e649210884774ed576bae80c14c031473d6b8c8ff2f73",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/numbered_list_cached_value_weight_removal_rung579_audit.json": "03c03cf9fafe343584f323440d3eab4ab686a70fce44bc36d0fb2ccec945bf2d",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_WEIGHT_REMOVAL_RUNG576_PREREGISTRATION.md": "a776ebc1df29a6f3193d3315e190ec9494c95905596e450461c002378f8f59b6"
+ },
+ "validation": {
+  "rows": 1440,
+  "groups": 40,
+  "split_rows": {
+   "FIT": 576,
+   "SELECT": 288,
+   "FINAL_TEST": 288,
+   "OOD": 288
+  },
+  "group_disjoint": true,
+  "source_matched_action_cells": true
+ },
+ "sites": [
+  8,
+  10,
+  12,
+  14
+ ],
+ "component_arms": [
+  "background_cross",
+  "contrast_self",
+  "joint_response"
+ ],
+ "null_arms": [
+  "different_group_same_cell",
+  "same_source_other_action"
+ ],
+ "fit_batches": 27,
+ "select_batches": 14,
+ "null_donor_counts": {
+  "FIT": {
+   "different_group_same_cell": 384,
+   "same_source_other_action": 384
+  },
+  "SELECT": {
+   "different_group_same_cell": 192,
+   "same_source_other_action": 192
+  }
+ },
+ "fit_arm_forwards_per_batch": 16,
+ "select_arm_forwards_per_batch": 7,
+ "maximum_model_forwards_if_eventually_executed": 530,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "model_loaded": false,
+ "model_weights_updated": false,
+ "opened_splits": [],
+ "FINAL_TEST_or_OOD_opened": false,
+ "rows_sha256": "84c6a78882a33c266b3875285f63ceaed746dac7810fce16b591f7b57763cf3b",
+ "receipt_sha256": "1511cfd7fcfe729edf4427f9f88f8552c32230e013d01a0661767713fdc29148",
+ "preregistration_sha256": "e7832dc77cabe7a1afba61c759188a0aca73802163cef1abe013ffaff5c987b3"
+}

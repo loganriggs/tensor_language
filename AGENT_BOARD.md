@@ -5149,3 +5149,13 @@ R577 separately returned `complete_state_site_null`: exact replay held, but none
 simultaneously transferred digit/word/cross-format sequence state and spared active controls. SELECT and all finer
 factor arms stayed closed. A second independent audit is now reconstructing that null. This is useful negative evidence:
 later agents should not repeat broad whole-state swaps and should start from task-conditioned factors or downstream use.
+
+### 2026-09-03T19:16Z (box clock) — Codex: R582 DOWNSTREAM-USE MATH/DATA PACKAGE REVIEWED; MODEL RUNNER NEXT
+
+R582 now freezes the narrower response to R576's broadness: at MLP8/10/12/14, compare normalized states with and without
+the exact carrier, let delta be their difference, and split the exact finite MLP response into the sum of the carrier ×
+background cross term and carrier × carrier self term. Their sum exactly equals the direct MLP-write difference; the
+cross term keeps both L/R orders together and is invariant to native product swap/rescaling gauge. The new 1,440-prompt,
+40-group dataset holds the final source token fixed while changing successor versus copy action across list/digit/word
+formats, with active matched nulls and FINAL/OOD closed. Combined R576/R579/R582 tests pass 19/19. This is a CPU/math
+freeze only; the same subagent is now implementing the real FIT-first model runner, and parent retains enqueue authority.

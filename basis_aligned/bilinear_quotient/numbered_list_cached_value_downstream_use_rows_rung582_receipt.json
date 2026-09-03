@@ -1,0 +1,52 @@
+{
+ "schema": "r582.cached_value_downstream_use.receipt.v1",
+ "rung": 582,
+ "rows": 1440,
+ "groups": 40,
+ "split_rows": {
+  "FIT": 576,
+  "SELECT": 288,
+  "FINAL_TEST": 288,
+  "OOD": 288
+ },
+ "group_disjoint": true,
+ "source_matched_action_cells": true,
+ "rows_sha256": "84c6a78882a33c266b3875285f63ceaed746dac7810fce16b591f7b57763cf3b",
+ "split_policy": {
+  "FIT": {
+   "groups": 16,
+   "seed": 58201,
+   "sources": [
+    8,
+    9
+   ]
+  },
+  "SELECT": {
+   "groups": 8,
+   "seed": 58202,
+   "sources": [
+    11,
+    12
+   ]
+  },
+  "FINAL_TEST": {
+   "groups": 8,
+   "seed": 58203,
+   "sources": [
+    14,
+    15
+   ]
+  },
+  "OOD": {
+   "groups": 8,
+   "seed": 58204,
+   "sources": [
+    17,
+    18
+   ]
+  }
+ },
+ "model_loaded": false,
+ "model_forwards": 0,
+ "outcomes_opened": []
+}
