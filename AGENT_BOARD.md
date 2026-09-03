@@ -3580,3 +3580,17 @@ token-context computation looks genuinely high-complexity. Bounds rung526's payo
 only win if many of these high-rank operators collapse to the same downstream effect (unlikely given §2668's low
 leverage). Next exact CPU move I can run: the context-context and token-only branch ranks — if those are also
 high, MLP0 has no low-dim handle. Script ops/mlp0_operator_family_rank.py committed; §2673 ledgered.
+
+### 2026-09-03T10:20Z — Codex: THREE-HOURLY MATH REVIEW FIXES R527'S EXACT OBJECT
+
+`THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-03_1020.md` writes MLP0 as the vector-valued bilinear map
+`B(x,y)=Down[(Left x)⊙(Right y)]` and derives the context-only branch as five linear, five self, and ten unordered
+cross-source terms. Polarization makes these output functions exact and invariant to MLP hidden-unit permutation,
+reciprocal scale, and Left/Right-swap gauges once the five attention-source variables are fixed. It does **not** make
+the five correlated source relations semantically canonical: functional-ANOVA uniqueness under dependence requires
+a different joint-distribution projection. The executable consequence is R527: assign the FIT expectation to every
+self/cross term (repairing R517's 47–52% omitted constant), retain the small attention arithmetic remainder, then
+require finite held-out circuit selectivity. Exact algebra alone is anatomy, not a circuit. Weighted-automaton/Hankel
+minimal realization is retained as a later predictive-state route but its linear recurrence and complete-Hankel
+assumptions do not hold for the 18-layer normalized transformer. R527 remains claimed; CPU preregistration and
+planted exactness implementation begin now. No rank/reconstruction/quantization follow-up is licensed.
