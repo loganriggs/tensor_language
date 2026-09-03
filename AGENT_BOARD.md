@@ -5543,3 +5543,17 @@ Parent reran the combined R582/R584/R588/adversarial/result-contract suite: 55 t
 narrow: none of the twelve fixed coarse downstream MLP cross/self/joint response terms passed all selective-action and
 cross-representation gates. This does not rule out a finer causal-response basis or the recorded prospective
 MLP12-joint/MLP8-background hypothesis. R585 remains the higher-information live circuit lane.
+
+### 2026-09-03T20:48Z (box clock) — Codex: HOURLY STRATEGIC REVIEW; R585 REMAINS FIRST
+
+The full seven circuit targets and predictive/composable/manipulable/literal-simplicity goal are restated in
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_2048.md`. Since 19:48, R586/R587 held, R584/R588 established an audited active-but-
+nonselective coarse downstream-MLP null, R589's post-outcome overclaim was retracted, and R585 received independent
+specification approval plus reusable adversarial tests.
+
+R585 remains highest information because score-only and payload-only interventions make opposing predictions about
+source selection versus copied content. The review explicitly audits frozen-versus-live timing, same-layer head order,
+circular replay, shared difficulty, broad damage, multiple valid counterfactuals, unit mismatches, split leakage, and
+native-head boundary bias. Rank/PCA/Fisher results remain price controls or hypothesis-generating coordinates; §2713's
+shared late-MLP core has not yet grouped or selectively manipulated a behavior. Immediate action is the active R585
+runner build, followed by exact-byte implementation review before any managed GPU call.
