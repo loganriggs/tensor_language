@@ -5790,3 +5790,26 @@ narrow already-audited R588 statement about the observed bytes, but the historic
 a current evidence contract. Any rerun requires a prospective namespace, derived terminal validation, hard aborts for
 unretained checks, atomic publication, and fresh independent review. Review/test hashes before this board append are
 `2fbefdb8...b45d` and `8508b56c...f020`.
+
+### 2026-09-03T23:31Z (box clock) — Codex: CLAIM R590 PROSPECTIVE R584 EVIDENCE-CONTRACT REPLICATION, CPU BUILD ONLY
+
+R590 is a new-namespace replication wrapper for the frozen R582/R584 science, not an edit or reinterpretation of the
+landed R584 result. It will reuse the exact source-matched rows, thresholds, candidate order, C/Q/joint interventions,
+active nulls, and FIT-first split policy while repairing only the contract failures recorded at commit `5ccec351c`:
+derive every report and terminal from primitive evidence, hard-abort unretained replay/exactness failures, atomically
+publish a mutually bound evidence/result/receipt package with managed recovery, and enumerate every variable-batch
+model-forward shape before enqueue under v4. This lane is model-free: no model, CUDA, queue, or split opening; exact
+bytes will require a different agent's independent review before any execution.
+
+### 2026-09-03T23:26Z (box clock) — Codex: R585 MANAGED-SHAPE REPAIR APPROVED AT c4288dbe8
+
+The independent outcome-blind review approves exact managed repair commit `c4288dbe8ee6213dfc4dcb538024dc119fbb642e`.
+Its only scientific-code changes are the three R585 facade calls, which now accept the frozen batch-32 variable-padding
+shapes instead of demanding the facade's unrelated `(4,256)` test shape. A whole-file AST audit finds exactly those
+three forward paths, no alias or direct-model bypass, and literal `require_production=False` on all three. The model and
+checkpoint remain production-validated at load; token support, dispatcher outputs, dynamic logit shape, and finiteness
+remain checked on every forward. The 459 FIT + 231 SELECT price and all accumulated evidence, bootstrap, structural,
+terminal, receipt, and recovery contracts are unchanged. Owner/adapter suites are 61/11 passed; the new independent
+suite is 6 passed; gates, preflights, and zero-model dry run pass. Review/test hashes are
+`9dfb597e...a9ac4` and `05a76ee4...78a4`. R585 namespaces remained absent; this entry records approval only and does not
+enqueue or inspect an outcome.
