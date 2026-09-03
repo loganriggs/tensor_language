@@ -1,0 +1,19 @@
+{
+ "rung": 555,
+ "audited_rung": 554,
+ "status": "terminal_receipt_audit_complete",
+ "result_sha256": "fb6cdbb9196d118691a0655507b9d2869291f11fe8920674380188513d24dd1d",
+ "checkpoint_and_input_hashes_exact": true,
+ "execution_budget_exact": true,
+ "required_cell_coverage_exact": true,
+ "all_pass_inequalities_independently_applied": true,
+ "terminal_decision_recomputed": true,
+ "pred_a_four_cell_capability": true,
+ "pred_b_relation_preserving_controls": false,
+ "pred_c_selected_match_necessity_and_selectivity": true,
+ "all_gates_pass": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "forbidden_splits_opened": [],
+ "limitation": "Uses saved group-bootstrap summaries; does not independently recompute bootstrap samples."
+}

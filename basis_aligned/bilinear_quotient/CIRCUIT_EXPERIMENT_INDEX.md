@@ -2,15 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-40 events; 33 scientific protocols; 40 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+44 events; 37 scientific protocols; 44 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.bracket.pending_opener` | `pending_opener_target_invariance_das.r556.preregistered.v1` | das_interchange | `pending_opener_state.v23` | `6eaf421abedb` |
-| `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | capability | `induction_selector_and_payload.v2` | `28ca96108955` |
-| `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` |
+| — | — | — | — | — |
 
 ## Repeats requiring review
 
@@ -55,10 +53,14 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.bracket.pending_opener` | `pending_opener_downstream_response_atlas.r549.complete.null.v1` | complete/null | cross_family_transfer | `pending_opener_state.v20` | `a74b9ea95392` | `700f72fc09dc` | `c3753b112511` | supersedes `pending_opener_downstream_response_atlas.r549.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_downstream_readout_guard.r551.complete.null.v1` | complete/null | null_control | `pending_opener_state.v21` | `c9bbba52f07a` | `c921a2705ff8` | `36248f849fa7` | supersedes `pending_opener_downstream_readout_guard.r551.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_target_invariance_das.r556.preregistered.v1` | preregistered/inconclusive | das_interchange | `pending_opener_state.v23` | `6eaf421abedb` | `79e4c5f2243a` | `790d8868ed87` | — |
+| `task.bracket.pending_opener` | `pending_opener_target_invariance_das.r556.complete.null.v1` | complete/null | das_interchange | `pending_opener_state.v24` | `fcb5daa20845` | `39e862013e81` | `efc08f21a0f3` | supersedes `pending_opener_target_invariance_das.r556.preregistered.v1` |
+| `task.bracket.pending_opener` | `pending_opener_target_invariance_das_audit.r559.complete.held.v1` | complete/held | null_control | `pending_opener_state.v24` | `b4badad099ad` | `ae51a75e1b5b` | `da3b2559af10` | replicates `pending_opener_target_invariance_das.r556.complete.null.v1` |
 | `task.increment.state` | `increment_postattn_rank4_das.legacy.v1` | complete/held | das_interchange | `increment_state.v1` | `af4ef28c6d4a` | `6bc87c9422a7` | `c7b2b12e2046` | — |
 | `task.induction.selector_payload` | `induction_terminal_collateral_failure.legacy.v1` | complete/failed | removal | `induction_selector_and_payload.v1` | `978c6755026c` | `415d71f6164c` | `3f1424dfed98` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v2` | `28ca96108955` | `e6cc50c5fbeb` | `b1bddde07ddf` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.preregistered.v1` | preregistered/inconclusive | null_control | `induction_selector_and_payload.v3` | `82bccbc0e247` | `df1debf204fe` | `70e175c4d09d` | — |
 | `task.induction.selector_payload` | `induction_factor_intervention_semantics.r557.held.v1` | complete/held | null_control | `induction_selector_and_payload.v4` | `e804dd68754a` | `af9c5d307295` | `d731d0db2e7f` | — |
+| `task.induction.selector_payload` | `induction_selector_payload_capability.r554.complete.null.v1` | complete/null | capability | `induction_selector_and_payload.v5` | `c610ca94e1ae` | `6eddaff09aca` | `4a166dd7027c` | supersedes `induction_selector_payload_capability.r554.preregistered.v1` |
+| `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v5` | `db35f5b293e1` | `32bfcbe7436b` | `57b14eb68d7a` | supersedes `induction_selector_payload_capability_audit.r555.preregistered.v1` |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

@@ -4210,6 +4210,198 @@
    ],
    "translation_ids": [],
    "next_missing": "execute and independently audit the frozen R556 FIT-trained target-plus-invariance interchange; keep FINAL_TEST/OOD closed and do not extend capacity after a null"
+  },
+  {
+   "claim_id": "pending_opener_state.v25",
+   "revision": 25,
+   "status": "specified",
+   "supersedes": "pending_opener_state.v24",
+   "causal_variable": {
+    "id": "pending_opener_state_three_value_candidate",
+    "domain": "candidate parenthesis, square-bracket, or quote pending state; selected after R544 and not confirmed",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange",
+    "post-outcome exclusion of curly braces; requires entirely fresh confirmation rows"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_three_value_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct closer",
+      "one opener token among parenthesis, square, and quote"
+     ],
+     "holds_fixed": [
+      "ordinary words",
+      "sequence length",
+      "opener position",
+      "body order"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "three answer-preserving families",
+      "endpoint-gradient overlap"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_three_value_order",
+     "role": "interchange",
+     "changes": [
+      "which of two delimiter types remains pending",
+      "correct closer"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length",
+      "final lexical suffix",
+      "one completed span"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "direct construction",
+      "same-variable surface rewrite",
+      "wrong closer"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording",
+      "ordinary-word order"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "held-out lexical pool",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_extension",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "neutral intervening clause"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "core content words"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "short versus long",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_three_value_fresh_split_r545_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+    "pending_opener_three_value_confirmation.r546.preregistered.v1",
+    "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
+    "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+    "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
+    "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
+    "pending_opener_downstream_response_atlas.r549.preregistered.v1",
+    "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+    "pending_opener_downstream_response_atlas.r549.complete.null.v1",
+    "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+    "pending_opener_target_invariance_das.r556.preregistered.v1",
+    "pending_opener_target_invariance_das.r556.complete.null.v1",
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "test a preregistered nonlinear or upstream factorized representation on the same R545 families; do not extend the L13H8 linear-subspace dimension sweep"
   }
  ],
  "split_plans": [
@@ -5674,6 +5866,127 @@
    "notes": "Unlike R540, all three answer-preserving families enter the FIT objective through normalized full-vocabulary invariance loss. Capacity is selected by causal SELECT bars, not reconstruction.",
    "design_key": "79e4c5f2243a20e753e0034b855d6467b44bc91b006ff393d0483006f170abbf",
    "execution_key": "790d8868ed873a3e64135c2810f6ac075c2ec8375ae5cf2a5a9d6a81db2ff5e4"
+  },
+  {
+   "event_id": "pending_opener_target_invariance_das.r556.complete.null.v1",
+   "claim_id": "pending_opener_state.v24",
+   "test_type": "das_interchange",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.output.final_position",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "FIT_joint_target_invariance_optimization_SELECT_capacity_selection",
+   "metrics": [
+    {
+     "name": "fits_passing_all_target_cells_at_dimensions_2_to_16",
+     "estimate": 12,
+     "ci95": null,
+     "bar": "reported; not sufficient without controls"
+    },
+    {
+     "name": "fits_passing_all_target_and_control_cells",
+     "estimate": 0,
+     "ci95": null,
+     "bar": ">=2/3 seeds at one dimension"
+    },
+    {
+     "name": "dimensions_passing_random_subspace_bar",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "5/5"
+    },
+    {
+     "name": "selected_dimension",
+     "estimate": null,
+     "ci95": null,
+     "bar": "smallest stable selective dimension"
+    }
+   ],
+   "prereg_artifact_id": "r556_target_invariance_das_preregistration",
+   "result_artifact_id": "r556_target_invariance_das_result",
+   "input_artifact_ids": [
+    "r545_three_value_rows",
+    "r545_three_value_rows_receipt",
+    "r546_three_value_confirmation_result",
+    "r548_three_value_confirmation_audit",
+    "r556_target_invariance_das_implementation",
+    "r556_target_invariance_das_test",
+    "r556_target_invariance_das_projectors"
+   ],
+   "seed": 556,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "pending_opener_target_invariance_das.r556.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_TARGET_INVARIANCE_DAS_RUNG556_PREREGISTRATION.md"
+   ],
+   "notes": "Target recovery was strong from dimension 2 upward, but every learned projector failed registered answer-preserving controls. This is a selectivity null, not a claim that the head lacks causal effect.",
+   "design_key": "39e862013e819d6d7c9a9b20e73f768ecc2866eb4c0e4ae2b027f26d07b08ccd",
+   "execution_key": "efc08f21a0f318683c0bac0e3a78bf6b22094e249891357b461f16bf0096e794"
+  },
+  {
+   "event_id": "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+   "claim_id": "pending_opener_state.v24",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "r556_saved_row_statistics",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "post_result_CPU_structural_audit",
+   "metrics": [
+    {
+     "name": "target_cells_recomputed",
+     "estimate": 60,
+     "ci95": null,
+     "bar": "60/60"
+    },
+    {
+     "name": "control_cells_recomputed",
+     "estimate": 90,
+     "ci95": null,
+     "bar": "90/90"
+    },
+    {
+     "name": "terminal_null_recomputed",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "exact"
+    }
+   ],
+   "prereg_artifact_id": "r559_target_invariance_audit_spec",
+   "result_artifact_id": "r559_target_invariance_audit_result",
+   "input_artifact_ids": [
+    "r556_target_invariance_das_result",
+    "r556_target_invariance_das_projectors",
+    "r559_target_invariance_audit_implementation",
+    "r559_target_invariance_audit_test"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": "pending_opener_target_invariance_das.r556.complete.null.v1",
+   "sections": [
+    "PENDING_OPENER_TARGET_INVARIANCE_DAS_AUDIT_RUNG559.md"
+   ],
+   "notes": "R556 did not save row-level complete-head denominators, so the audit reapplies rather than independently reconstructs the two saved normalized control ratios.",
+   "design_key": "ae51a75e1b5b834675fd2bd1a0648620bc280c6b45f0936a4eedbaa72846bfe5",
+   "execution_key": "da3b2559af10e77108c4b25b4536dd60774064a4b2892f293db61a676a15d760"
   }
  ],
  "translations": [],
@@ -6204,6 +6517,42 @@
    "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_target_invariance_das_rung556.py",
    "sha256": "cc7987f7e9832cb97c14df85249dff1cb276bf28aacc7ceafda36699f4790a5b",
    "kind": "test",
+   "status": "frozen"
+  },
+  "r556_target_invariance_das_result": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_target_invariance_das_rung556_results.json",
+   "sha256": "d091844838515753c4b131dd7e79722f1814de2e30de1950c5100e7233a84bdd",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r556_target_invariance_das_projectors": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_target_invariance_das_rung556_projectors.pt",
+   "sha256": "94d3ef675f2089ea02d08fad321da8e98db058c94f808da8a0a898b7e8ff3a4a",
+   "kind": "bundle",
+   "status": "frozen"
+  },
+  "r559_target_invariance_audit_spec": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_TARGET_INVARIANCE_DAS_AUDIT_RUNG559.md",
+   "sha256": "dac14e1ad6ad655248a25a5b9d2a399d7266999a1cdbb26c352ed79f38476f68",
+   "kind": "audit_spec",
+   "status": "frozen"
+  },
+  "r559_target_invariance_audit_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_target_invariance_das_audit_rung559.py",
+   "sha256": "45f51c1ef082dde29445b8259309c84026084fa085e6e2f495328e8c275c3a1a",
+   "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "r559_target_invariance_audit_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_pending_opener_target_invariance_das_audit_rung559.py",
+   "sha256": "5f40a85b1fe75e78fbad7ed25b2bcb5beba911123ff362f8e907af5b81a05444",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r559_target_invariance_audit_result": {
+   "path": "basis_aligned/bilinear_quotient/pending_opener_target_invariance_das_rung559_audit.json",
+   "sha256": "dbcb80a8fd439002ac5a0b720c64fba7c8d0c54e1d29bccee555d2545e2728f6",
+   "kind": "audit",
    "status": "frozen"
   }
  },

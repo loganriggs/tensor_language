@@ -1043,6 +1043,225 @@
    ],
    "translation_ids": [],
    "next_missing": "execute and audit R554; if native factorial capability holds, preregister a model-facing selector-score versus payload-value interchange screen below the attention-head boundary"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v6",
+   "revision": 6,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v5",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query changes from source A to source C",
+      "the correct payload changes from B to D"
+     ],
+     "holds_fixed": [
+      "both source-to-payload pairs",
+      "payload assignment",
+      "length",
+      "source positions"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "joint answer-preserving diagonal",
+      "irrelevant-source edit",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the followers of fixed sources A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "source/query equality",
+      "query token",
+      "source positions",
+      "prompt length"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "joint answer-preserving diagonal",
+      "filler/lag change",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "both the queried source and the payload assignment"
+     ],
+     "holds_fixed": [
+      "correct answer token",
+      "two-source relation",
+      "source positions",
+      "payload-token set"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "both single-factor edges",
+      "full-state response",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the earlier selected source is replaced by a decoy, removing only its query match"
+     ],
+     "holds_fixed": [
+      "selected follower token",
+      "final query",
+      "original answer token",
+      "sequence length"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "irrelevant-source edit",
+      "offset-matched source",
+      "token derangement"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected source token is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "selected equality edge",
+      "selected follower",
+      "query",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "match-breaking edit",
+      "same edit at selected source",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler tokens or source-to-query lag"
+     ],
+     "holds_fixed": [
+      "query",
+      "payload assignment",
+      "selected source-to-payload relation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "held-out lag patterns",
+      "held-out code/trace layouts",
+      "matched token banks"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_factorial_split_r552_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552"
   }
  ],
  "split_plans": [
@@ -1318,6 +1537,120 @@
    "notes": "This validates the meaning of separate selector-score and payload-value interventions on all frozen rows. It is not evidence that any model site implements those factors.",
    "design_key": "af9c5d30729500005100497a8d588d2dd1277eb54ba3d35afa91d560c730033b",
    "execution_key": "d731d0db2e7f42e9ace4f5208c21cc3d4dc4832dfa7ebddbd98a1b63576cec75"
+  },
+  {
+   "event_id": "induction_selector_payload_capability.r554.complete.null.v1",
+   "claim_id": "induction_selector_and_payload.v5",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_final_token_logits",
+   "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+   "evaluation_role": "FIT_and_SELECT_native_factorial_capability_before_site_selection",
+   "metrics": [
+    {
+     "name": "four_factorial_cell_capability",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "all 8 FIT/SELECT x SxP cells pass"
+    },
+    {
+     "name": "selected_match_necessity_and_selectivity",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "both split decisions pass"
+    },
+    {
+     "name": "failed_SELECT_s1p0_irrelevant_donor_correct_fraction",
+     "estimate": 0.6666666666666666,
+     "ci95": null,
+     "bar": ">=0.75"
+    },
+    {
+     "name": "failed_SELECT_s1p0_irrelevant_donor_lower_mean_margin",
+     "estimate": -0.0057976292239294795,
+     "ci95": null,
+     "bar": ">0"
+    }
+   ],
+   "prereg_artifact_id": "r554_capability_preregistration",
+   "result_artifact_id": "r554_capability_result",
+   "input_artifact_ids": [
+    "r552_factorial_rows",
+    "r552_factorial_rows_receipt",
+    "r553_factorial_rows_audit",
+    "r554_capability_implementation",
+    "r554_capability_test"
+   ],
+   "seed": 554,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "induction_selector_payload_capability.r554.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "INDUCTION_SELECTOR_PAYLOAD_CAPABILITY_RUNG554_PREREGISTRATION.md"
+   ],
+   "notes": "One of the preregistered SELECT invariance cells failed; no model site search is licensed.",
+   "design_key": "6eddaff09aca9329ee82c87abd93aedcf390e5284df9b33d433cd0ff2df02c12",
+   "execution_key": "4a166dd7027c9aa31b635e9eee43842cd0afa27525f987a14f9df6e8d460b748"
+  },
+  {
+   "event_id": "induction_selector_payload_capability_audit.r555.complete.held.v1",
+   "claim_id": "induction_selector_and_payload.v5",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "r554_saved_capability_summaries",
+   "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+   "evaluation_role": "CPU_receipt_and_terminal_decision_audit",
+   "metrics": [
+    {
+     "name": "receipt_and_cell_coverage_exact",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "exact"
+    },
+    {
+     "name": "terminal_null_recomputed",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "exact"
+    }
+   ],
+   "prereg_artifact_id": "r555_capability_audit_preregistration",
+   "result_artifact_id": "r555_capability_audit_result",
+   "input_artifact_ids": [
+    "r554_capability_result",
+    "r555_capability_audit_implementation",
+    "r555_capability_audit_test"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "induction_selector_payload_capability_audit.r555.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "INDUCTION_SELECTOR_PAYLOAD_CAPABILITY_AUDIT_RUNG555_PREREGISTRATION.md"
+   ],
+   "notes": "Uses saved group-bootstrap summaries; does not independently recompute bootstrap samples.",
+   "design_key": "32bfcbe7436be5c0c62460e321609caa5771cdc8117af6d8d5e1f58fc6eb687a",
+   "execution_key": "57b14eb68d7a83a88314a37a23b5595421ee9bdae7801134d77a85e589dcef11"
   }
  ],
  "translations": [],
@@ -1458,6 +1791,18 @@
    "path": "basis_aligned/bilinear_quotient/induction_factor_intervention_semantics_rung557_results.json",
    "sha256": "28157bf2eb40538ea2cb9431665f6fbfe27f2dad9f5221a33228b36f629fe7cb",
    "kind": "result",
+   "status": "frozen"
+  },
+  "r554_capability_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_capability_rung554_results.json",
+   "sha256": "fb6cdbb9196d118691a0655507b9d2869291f11fe8920674380188513d24dd1d",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r555_capability_audit_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_capability_rung555_audit.json",
+   "sha256": "eca37ee15edfd381945d2ff64a1c97badf06a40af0cd08208d641b03103c217f",
+   "kind": "audit",
    "status": "frozen"
   }
  },

@@ -1,0 +1,48 @@
+{
+ "rung": 559,
+ "audited_rung": 556,
+ "status": "terminal_structural_audit_complete",
+ "result_sha256": "d091844838515753c4b131dd7e79722f1814de2e30de1950c5100e7233a84bdd",
+ "bundle_sha256": "94d3ef675f2089ea02d08fad321da8e98db058c94f808da8a0a898b7e8ff3a4a",
+ "target_cells_recomputed": 60,
+ "control_cells_recomputed": 90,
+ "stable_by_rank": {
+  "1": {
+   "passing_seeds": 0,
+   "seed_stable": false,
+   "random_control_passed": true,
+   "eligible": false
+  },
+  "2": {
+   "passing_seeds": 0,
+   "seed_stable": false,
+   "random_control_passed": true,
+   "eligible": false
+  },
+  "4": {
+   "passing_seeds": 0,
+   "seed_stable": false,
+   "random_control_passed": true,
+   "eligible": false
+  },
+  "8": {
+   "passing_seeds": 0,
+   "seed_stable": false,
+   "random_control_passed": true,
+   "eligible": false
+  },
+  "16": {
+   "passing_seeds": 0,
+   "seed_stable": false,
+   "random_control_passed": false,
+   "eligible": false
+  }
+ },
+ "selected_rank": null,
+ "strong_null_recomputed": true,
+ "execution_budget_exact": true,
+ "split_opening_exact": true,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "limitation": "R556 did not save row-level complete-head denominators, so the audit reapplies rather than independently reconstructs the two saved normalized control ratios."
+}

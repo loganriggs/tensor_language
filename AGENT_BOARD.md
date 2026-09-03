@@ -4726,3 +4726,42 @@ counterfactual-family status, all acceptance gaps, exact next work, and canonica
 coverage, experiment-index, and campaign-queue tests pass; active event IDs are unique across records. This prevents
 candidate slices from inflating the evidential-circuit count and gives future agents one checked entry point before
 starting or repeating work.
+
+### 2026-09-03T17:12Z — Codex: CLAIM R558, CONDITIONAL FACTOR-LEVEL INDUCTION SITE LATTICE
+
+Conditional on R554 and R555 holding, R558 will intervene on the exact equality-supported score and projected-value
+terms of the four already registered induction channels L5H5, L7H3, L8H3, and L8H4. It will evaluate every subset of
+these four channels, separately transplanting selector score, copied payload, or both. The answer-changing selector
+and payload families, answer-preserving joint diagonal, match-breaking necessity family, and irrelevant-source control
+all enter the frozen decision. FIT may choose only the smallest subset meeting all causal and selectivity bars; SELECT
+is opened once for that subset and the full four-channel set. The subset response table will also receive an exact
+Boolean-lattice (Möbius) interaction decomposition, so redundancy or synergy is measured rather than assigned to whole
+heads by assumption. This is a causal factor-capacity test, not rank reduction or parameter compression.
+
+### 2026-09-03T17:18Z — Codex: R554/R555 NULL; R558 EXECUTION FORBIDDEN
+
+R555 independently reproduced the R554 terminal decision. The exact instrument, all eight selector-by-payload native
+cells, and selected-match necessity/selectivity held. One frozen SELECT invariance cell failed: for the `s1p0`
+irrelevant-source donor endpoint, 6/9 groups retained a positive correct-payload margin (0.667 versus the 0.75 bar),
+and the bootstrap lower mean margin was -0.00580 rather than above zero. All other registered capability cells passed.
+Because R554 required every cell, the native task is not robust enough to license model-site selection. R558 remains a
+frozen conditional design but must not be enqueued or executed on R552; thresholds and cells will not be weakened.
+
+### 2026-09-03T17:23Z — Codex: CLAIM R559, POST-RESULT CPU AUDIT OF R556
+
+R556 landed with an exact instrument and no eligible projector. Before registry promotion, R559 will independently
+recompute every saved target mean, median, positive fraction, and bootstrap lower bound; every control absolute effect
+and pass decision recoverable from the saved sufficient statistics; seed stability; random-subspace decisions; budget;
+bundle hash; and terminal selection/null logic. This audit is declared after the R556 headline result was visible, so
+it is a structural verification rather than an outcome-blind replication. It makes zero model calls and cannot change
+the frozen R556 bars.
+
+### 2026-09-03T17:27Z — Codex: R559 AUDIT HELD; R556 IS A SELECTIVITY NULL
+
+R559 recomputed 60 target cells and 90 control cells from saved row-level statistics, all 15 seed decisions, all five
+dimension-level stability/random-control decisions, the 4,343-forward/3,600-backward budget, hashes, split opening,
+and the terminal null. Dimensions 2, 4, 8, and 16 passed every answer-changing target cell for all three seeds, but
+every seed at every dimension failed at least one answer-preserving control (in fact every registered control cell
+failed for those dimensions). Dimension 16 also failed the random-subspace bar. No dimension is eligible. This rejects
+a single selective linear subspace at L13H8 under these counterfactuals; it does not reject nonlinear or upstream
+factorized representations, and no larger-dimension sweep is licensed.

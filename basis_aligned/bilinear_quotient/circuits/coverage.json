@@ -151,12 +151,11 @@
       "pending_opener_rank4_das.legacy.v1"
      ],
      "blocking_event_ids": [
-      "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
+      "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+      "pending_opener_target_invariance_das.r556.complete.null.v1"
      ],
-     "planned_event_ids": [
-      "pending_opener_target_invariance_das.r556.preregistered.v1"
-     ],
-     "latest_relevant_event_id": "pending_opener_target_invariance_das.r556.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_target_invariance_das.r556.complete.null.v1"
     },
     "cross_family": {
      "status": "blocked",
@@ -178,14 +177,15 @@
     "selectivity": {
      "status": "mixed",
      "held_event_ids": [
-      "pending_opener_control_ceilings.r539.complete.v1"
+      "pending_opener_control_ceilings.r539.complete.v1",
+      "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
      ],
      "blocking_event_ids": [
       "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
       "pending_opener_downstream_readout_guard.r551.complete.null.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_downstream_readout_guard.r551.complete.null.v1"
+     "latest_relevant_event_id": "pending_opener_target_invariance_das_audit.r559.complete.held.v1"
     },
     "composition": {
      "status": "missing",
@@ -207,7 +207,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 2,
-   "next_missing": "execute and independently audit the frozen R556 FIT-trained target-plus-invariance interchange; keep FINAL_TEST/OOD closed and do not extend capacity after a null"
+   "next_missing": "test a preregistered nonlinear or upstream factorized representation on the same R545 families; do not extend the L13H8 linear-subspace dimension sweep"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
@@ -284,13 +284,13 @@
    "causal_variable_id": "induction_selector_payload",
    "categories": {
     "capability": {
-     "status": "planned",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "induction_selector_payload_capability.r554.preregistered.v1"
+     "blocking_event_ids": [
+      "induction_selector_payload_capability.r554.complete.null.v1"
      ],
-     "latest_relevant_event_id": "induction_selector_payload_capability.r554.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "induction_selector_payload_capability.r554.complete.null.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -323,15 +323,14 @@
     "selectivity": {
      "status": "mixed",
      "held_event_ids": [
-      "induction_factor_intervention_semantics.r557.held.v1"
+      "induction_factor_intervention_semantics.r557.held.v1",
+      "induction_selector_payload_capability_audit.r555.complete.held.v1"
      ],
      "blocking_event_ids": [
       "induction_terminal_collateral_failure.legacy.v1"
      ],
-     "planned_event_ids": [
-      "induction_selector_payload_capability_audit.r555.preregistered.v1"
-     ],
-     "latest_relevant_event_id": "induction_factor_intervention_semantics.r557.held.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "induction_selector_payload_capability_audit.r555.complete.held.v1"
     },
     "composition": {
      "status": "missing",
@@ -349,9 +348,9 @@
     }
    },
    "n_held_categories": 1,
-   "n_blocked_categories": 1,
+   "n_blocked_categories": 2,
    "n_missing_categories": 6,
-   "next_missing": "execute and audit R554; if native factorial capability holds, preregister a model-facing selector-score versus payload-value interchange screen below the attention-head boundary"
+   "next_missing": "replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

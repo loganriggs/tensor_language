@@ -5,9 +5,9 @@ This is a navigation view, not a certificate. `mixed` means positive and negativ
 | circuit | claim | capability | causal site | learned interchange | cross-family | OOD | selectivity | composition | compiled weights | exact next work |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `subroutine.induction.equality_score` | site_live | — | — | — | blocked | blocked | blocked | mixed | — | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | specified | mixed | mixed | mixed | blocked | — | mixed | — | blocked | execute and independently audit the frozen R556 FIT-trained target-plus-invariance interchange; keep FINAL_TEST/OOD closed and do not extend capacity after a null |
+| `task.bracket.pending_opener` | specified | mixed | mixed | mixed | blocked | — | mixed | — | blocked | test a preregistered nonlinear or upstream factorized representation on the same R545 families; do not extend the L13H8 linear-subspace dimension sweep |
 | `task.increment.state` | proposed | — | — | held | — | — | — | — | — | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
-| `task.induction.selector_payload` | specified | planned | — | — | — | — | mixed | — | — | execute and audit R554; if native factorial capability holds, preregister a model-facing selector-score versus payload-value interchange screen below the attention-head boundary |
+| `task.induction.selector_payload` | specified | blocked | — | — | — | — | mixed | — | — | replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552 |
 | `task.successor.pointer` | proposed | — | blocked | — | blocked | — | — | — | — | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
 ## Meaning of the columns
