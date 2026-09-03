@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2015.md](explanation_2026-09-03_2015.md) — the two-agent circuit-bootstrap workflow and
+  current first-wave evidence: exact-but-over-broad R576 removal, R577 complete-state site null, repaired R578 induction
+  counterfactuals, held R580 native selector-times-payload behavior, independent audits, and the concrete lessons passed
+  into the next agents rather than rank-reduction goals
 - [explanation_2026-09-03_1950.md](explanation_2026-09-03_1950.md) — identifies the exact final-label layer-0
   cached-value contribution routed by L8H7/L8H3, reports 95.4%–110.7% held-out recovery, explains the no-op control
   limitation and v1 price correction, and defines the weight-compilation plus active-removal test now being built

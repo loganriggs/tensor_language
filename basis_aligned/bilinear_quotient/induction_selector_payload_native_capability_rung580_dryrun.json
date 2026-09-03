@@ -1,0 +1,45 @@
+{
+ "schema": "induction_selector_payload_native_capability_rung580_dryrun_v1",
+ "status": "dryrun_passed",
+ "implementation_sha256": "62d11395d845d663257433936773780dd4bb9ddbcb9286400c420dadd3a73249",
+ "test_sha256": "9f166a61409c12d6a4a58e16640af654378151f99c05597f9c63dbb2dec64550",
+ "preregistration_sha256": "8f80926d0a90360a66ebce605732d32ff3e283a3428eb7245f4813a521d12580",
+ "input_sha256": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578.json": "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578_receipt.json": "9e4e63ebd98503d6aa5daa27617a20fea595829c5a372f27b1ce4371d7c05b45",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_THREE_SOURCE_ROWS_RUNG578_PREREGISTRATION.md": "276d801bbf5795e6421488dd4971b3a2d2dcb56e4fc7c4bc7ecdd2f61a73e9ce",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_three_source_rows_rung578.py": "d47bb3d46bd2c6061132c13b356e58ba9dfe2a56a2629f8b49a03f280d290bbd",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_three_source_rows_rung578.py": "9d795df358dfef9c5d17a539307f8e781f2a4debeb4909078858a242b3dfc512",
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md": "8f80926d0a90360a66ebce605732d32ff3e283a3428eb7245f4813a521d12580"
+ },
+ "groups": 108,
+ "rows": 3240,
+ "unique_sequences": 3024,
+ "batch_size": 32,
+ "literal_expected_forwards": 95,
+ "literal_expected_backwards": 0,
+ "passing_fixture_verdict": "held_capability_screen",
+ "null_fixture_verdict": "scientific_null",
+ "null_fixture_failed_clauses": [
+  "factorial:SELECT:s0p0",
+  "control:SELECT:neutral_source:s0p0:base",
+  "control:SELECT:neutral_payload:s0p0:base",
+  "control:SELECT:filler:s0p0:base",
+  "control:SELECT:lag:s0p0:base",
+  "selected_vs_neutral:SELECT"
+ ],
+ "raw_sequence_measurement_count": 3024,
+ "raw_row_measurement_count": 3240,
+ "raw_group_factorial_count": 108,
+ "raw_group_condition_effect_count": 432,
+ "bootstrap_namespace": "a8-r580-group-bootstrap-v1",
+ "bootstrap_replicates": 2000,
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "evaluated_splits": [
+  "FIT",
+  "SELECT"
+ ],
+ "forbidden_splits_opened": []
+}

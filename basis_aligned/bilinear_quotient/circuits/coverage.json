@@ -297,8 +297,10 @@
      "blocking_event_ids": [
       "induction_selector_payload_capability.r554.complete.null.v1"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "induction_selector_payload_capability.r554.complete.null.v1"
+     "planned_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "induction_selector_payload_native_capability.r580.preregistered.v1"
     },
     "causal_site": {
      "status": "missing",
@@ -358,11 +360,11 @@
    "n_held_categories": 1,
    "n_blocked_categories": 2,
    "n_missing_categories": 6,
-   "next_missing": "replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552"
+   "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",
-   "claim_status": "activation_identified",
+   "claim_status": "weights_translated",
    "causal_variable_id": "list_index_state",
    "categories": {
     "capability": {
@@ -403,17 +405,18 @@
      "latest_relevant_event_id": null
     },
     "selectivity": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
       "numbered_list_capability_audit.r571.held.v1",
       "numbered_list_conflict_confirmation.r572.held.v1",
-      "numbered_list_label_factor_audit.r574.complete.held.v1"
+      "numbered_list_label_factor_audit.r574.complete.held.v1",
+      "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
      ],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numbered_list_cached_value_removal.r576.preregistered.v1"
+     "blocking_event_ids": [
+      "numbered_list_cached_value_removal.r576.complete.null.v1"
      ],
-     "latest_relevant_event_id": "numbered_list_cached_value_removal.r576.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
     },
     "composition": {
      "status": "held",
@@ -425,19 +428,19 @@
      "latest_relevant_event_id": "numbered_list_label_factor.r573.v2.complete.held.v1"
     },
     "compiled_weights": {
-     "status": "planned",
-     "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numbered_list_cached_value_weights.r576.preregistered.v1"
+     "status": "held",
+     "held_event_ids": [
+      "numbered_list_cached_value_weights.r576.complete.held.v1"
      ],
-     "latest_relevant_event_id": "numbered_list_cached_value_weights.r576.preregistered.v1"
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numbered_list_cached_value_weights.r576.complete.held.v1"
     }
    },
-   "n_held_categories": 3,
-   "n_blocked_categories": 0,
+   "n_held_categories": 4,
+   "n_blocked_categories": 1,
    "n_missing_categories": 4,
-   "next_missing": "run R576 exact weight compilation and active removal; adoption remains blocked unless list necessity and nonzero copy collateral controls both hold"
+   "next_missing": "the final-label cached-value term is exact and necessary but not selectively removable: split its downstream-read or source/action contributions using active repeated-list and word-copy controls; do not weaken the frozen collateral thresholds or repeat whole-term deletion"
   },
   "task.numeric_sequence.continuation": {
    "kind": "behavior_circuit",
@@ -468,13 +471,13 @@
      "latest_relevant_event_id": null
     },
     "cross_family": {
-     "status": "planned",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+     "blocking_event_ids": [
+      "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
      ],
-     "latest_relevant_event_id": "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
     },
     "ood": {
      "status": "missing",
@@ -493,11 +496,13 @@
      "latest_relevant_event_id": "numeric_sequence_capability_audit.r571.held.v1"
     },
     "composition": {
-     "status": "missing",
+     "status": "planned",
      "held_event_ids": [],
      "blocking_event_ids": [],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "planned_event_ids": [
+      "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -508,9 +513,9 @@
     }
    },
    "n_held_categories": 2,
-   "n_blocked_categories": 0,
-   "n_missing_categories": 5,
-   "next_missing": "evaluate the fixed R576 list-derived cached-value path as a shared candidate while independently preparing a complete-state sequence site localization"
+   "n_blocked_categories": 1,
+   "n_missing_categories": 4,
+   "next_missing": "run R577 to distinguish complete relation state and first/middle score/cached/own-value factors; R576 showed strong +1 dependence on the final cached-value term but failed selective reuse because number-word copy logits changed too broadly"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

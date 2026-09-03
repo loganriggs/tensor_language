@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title desc">
+  <title id="title">R580 native induction behavior minimum pass rates</title>
+  <desc id="desc">Grouped horizontal bars compare FIT and SELECT minimum accuracy across factorial cells, minimum accuracy across relation-preserving control cells, and the fraction of selected-source removals that reduce the correct-answer margin.</desc>
+  <rect width="900" height="450" fill="#ffffff"/>
+  <text x="34" y="38" font-family="sans-serif" font-size="24" font-weight="700" fill="#172033">R580: weakest observed rate still cleared each frozen bar</text>
+  <text x="34" y="65" font-family="sans-serif" font-size="15" fill="#526079">Percent of groups/rows; bootstrap lower bounds were separately required to be positive</text>
+  <line x1="325" y1="92" x2="325" y2="382" stroke="#d7dce5"/>
+  <line x1="458" y1="92" x2="458" y2="382" stroke="#e7eaf0"/>
+  <line x1="592" y1="92" x2="592" y2="382" stroke="#e7eaf0"/>
+  <line x1="725" y1="92" x2="725" y2="382" stroke="#e7eaf0"/>
+  <line x1="858" y1="92" x2="858" y2="382" stroke="#d7dce5"/>
+  <text x="318" y="407" font-family="sans-serif" font-size="13" fill="#526079">0%</text>
+  <text x="446" y="407" font-family="sans-serif" font-size="13" fill="#526079">25%</text>
+  <text x="580" y="407" font-family="sans-serif" font-size="13" fill="#526079">50%</text>
+  <text x="713" y="407" font-family="sans-serif" font-size="13" fill="#526079">75%</text>
+  <text x="844" y="407" font-family="sans-serif" font-size="13" fill="#526079">100%</text>
+
+  <text x="34" y="132" font-family="sans-serif" font-size="17" fill="#172033">Weakest selector × payload cell</text>
+  <rect x="325" y="102" width="415" height="22" rx="4" fill="#3777c8"/>
+  <rect x="325" y="130" width="430" height="22" rx="4" fill="#e28d2d"/>
+  <text x="748" y="119" font-family="sans-serif" font-size="14" fill="#172033">77.8%</text>
+  <text x="763" y="147" font-family="sans-serif" font-size="14" fill="#172033">80.6%</text>
+
+  <text x="34" y="232" font-family="sans-serif" font-size="17" fill="#172033">Weakest answer-preserving control cell</text>
+  <rect x="325" y="202" width="407" height="22" rx="4" fill="#3777c8"/>
+  <rect x="325" y="230" width="430" height="22" rx="4" fill="#e28d2d"/>
+  <text x="740" y="219" font-family="sans-serif" font-size="14" fill="#172033">76.4%</text>
+  <text x="763" y="247" font-family="sans-serif" font-size="14" fill="#172033">80.6%</text>
+
+  <text x="34" y="332" font-family="sans-serif" font-size="17" fill="#172033">Selected-source removal hurts answer</text>
+  <rect x="325" y="302" width="522" height="22" rx="4" fill="#3777c8"/>
+  <rect x="325" y="330" width="526" height="22" rx="4" fill="#e28d2d"/>
+  <text x="795" y="319" font-family="sans-serif" font-size="14" fill="#ffffff">97.9%</text>
+  <text x="799" y="347" font-family="sans-serif" font-size="14" fill="#ffffff">98.6%</text>
+
+  <rect x="34" y="418" width="16" height="16" rx="3" fill="#3777c8"/>
+  <text x="58" y="431" font-family="sans-serif" font-size="14" fill="#172033">FIT</text>
+  <rect x="106" y="418" width="16" height="16" rx="3" fill="#e28d2d"/>
+  <text x="130" y="431" font-family="sans-serif" font-size="14" fill="#172033">held-out SELECT</text>
+</svg>

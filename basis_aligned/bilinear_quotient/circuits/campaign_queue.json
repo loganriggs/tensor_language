@@ -9,70 +9,73 @@
  "summary": {
   "canonical_work_items": 7,
   "legacy_candidates": 70,
-  "open_experiments": 3,
-  "held_events": 23,
-  "blocking_events": 21
+  "open_experiments": 2,
+  "held_events": 25,
+  "blocking_events": 23
  },
  "work_items": [
   {
-   "tag": "task.numbered_list.index_successor",
+   "tag": "task.induction.selector_payload",
    "kind": "behavior_circuit",
-   "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v8",
-   "claim_status": "activation_identified",
-   "causal_variable_id": "list_index_state",
-   "counterfactual_family_count": 6,
+   "record_path": "circuits/task_induction_selector_payload.json",
+   "active_claim_id": "induction_selector_and_payload.v9",
+   "claim_status": "specified",
+   "causal_variable_id": "induction_selector_payload",
+   "counterfactual_family_count": 9,
    "counterfactual_family_status_counts": {
-    "validated": 6
+    "frozen": 8,
+    "proposed": 1
    },
    "split_plan_ids": [
-    "numbered_list_successor_split_r567_v1"
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
    ],
    "active_event_ids": [
-    "numbered_list_native_capability.r569.held.v1",
-    "numbered_list_capability_audit.r571.held.v1",
-    "numbered_list_conflict_confirmation.r572.held.v1",
-    "numbered_list_label_factor.r573.v2.complete.held.v1",
-    "numbered_list_label_factor_audit.r574.complete.held.v1",
-    "numbered_list_cached_value_weights.r576.preregistered.v1",
-    "numbered_list_cached_value_removal.r576.preregistered.v1"
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2"
    ],
    "open_event_ids": [
-    "numbered_list_cached_value_weights.r576.preregistered.v1",
-    "numbered_list_cached_value_removal.r576.preregistered.v1"
+    "induction_selector_payload_native_capability.r580.preregistered.v2"
    ],
    "held_event_ids": [
-    "numbered_list_native_capability.r569.held.v1",
-    "numbered_list_capability_audit.r571.held.v1",
-    "numbered_list_conflict_confirmation.r572.held.v1",
-    "numbered_list_label_factor.r573.v2.complete.held.v1",
-    "numbered_list_label_factor_audit.r574.complete.held.v1"
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1"
    ],
-   "blocking_event_ids": [],
+   "blocking_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1"
+   ],
    "coverage": {
-    "capability": "held",
+    "capability": "blocked",
     "causal_site": "missing",
     "learned_interchange": "missing",
     "cross_family": "missing",
     "ood": "missing",
-    "selectivity": "held",
-    "composition": "held",
-    "compiled_weights": "planned"
+    "selectivity": "mixed",
+    "composition": "missing",
+    "compiled_weights": "missing"
    },
    "acceptance_gaps": [
+    "capability",
     "causal_site",
     "learned_interchange",
     "cross_family",
-    "ood"
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "run R576 exact weight compilation and active removal; adoption remains blocked unless list necessity and nonzero copy collateral controls both hold"
+   "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
   },
   {
    "tag": "task.numeric_sequence.continuation",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_numeric_sequence_continuation.json",
-   "active_claim_id": "numeric_sequence_continuation.v3",
+   "active_claim_id": "numeric_sequence_continuation.v5",
    "claim_status": "specified",
    "causal_variable_id": "numeric_sequence_state_and_rule",
    "counterfactual_family_count": 9,
@@ -86,35 +89,38 @@
    "active_event_ids": [
     "numeric_sequence_native_capability.r570.held.v1",
     "numeric_sequence_capability_audit.r571.held.v1",
-    "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+    "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+    "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
    ],
    "open_event_ids": [
-    "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+    "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
    ],
    "held_event_ids": [
     "numeric_sequence_native_capability.r570.held.v1",
     "numeric_sequence_capability_audit.r571.held.v1"
    ],
-   "blocking_event_ids": [],
+   "blocking_event_ids": [
+    "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
+   ],
    "coverage": {
     "capability": "held",
     "causal_site": "missing",
     "learned_interchange": "missing",
-    "cross_family": "planned",
+    "cross_family": "blocked",
     "ood": "missing",
     "selectivity": "held",
-    "composition": "missing",
+    "composition": "planned",
     "compiled_weights": "missing"
    },
    "acceptance_gaps": [
     "causal_site",
     "learned_interchange",
+    "cross_family",
     "ood",
-    "composition",
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "evaluate the fixed R576 list-derived cached-value path as a shared candidate while independently preparing a complete-state sequence site localization"
+   "next_missing": "run R577 to distinguish complete relation state and first/middle score/cached/own-value factors; R576 showed strong +1 dependence on the final cached-value term but failed selective reuse because number-word copy logits changed too broadly"
   },
   {
    "tag": "task.bracket.pending_opener",
@@ -201,6 +207,63 @@
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
   },
   {
+   "tag": "task.numbered_list.index_successor",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numbered_list_index_successor.json",
+   "active_claim_id": "numbered_list_index_successor.v9",
+   "claim_status": "weights_translated",
+   "causal_variable_id": "list_index_state",
+   "counterfactual_family_count": 6,
+   "counterfactual_family_status_counts": {
+    "validated": 6
+   },
+   "split_plan_ids": [
+    "numbered_list_successor_split_r567_v1"
+   ],
+   "active_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.v2.complete.held.v1",
+    "numbered_list_label_factor_audit.r574.complete.held.v1",
+    "numbered_list_cached_value_weights.r576.complete.held.v1",
+    "numbered_list_cached_value_removal.r576.complete.null.v1",
+    "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "numbered_list_native_capability.r569.held.v1",
+    "numbered_list_capability_audit.r571.held.v1",
+    "numbered_list_conflict_confirmation.r572.held.v1",
+    "numbered_list_label_factor.r573.v2.complete.held.v1",
+    "numbered_list_label_factor_audit.r574.complete.held.v1",
+    "numbered_list_cached_value_weights.r576.complete.held.v1",
+    "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
+   ],
+   "blocking_event_ids": [
+    "numbered_list_cached_value_removal.r576.complete.null.v1"
+   ],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "mixed",
+    "composition": "held",
+    "compiled_weights": "held"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "selectivity"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "the final-label cached-value term is exact and necessary but not selectively removable: split its downstream-read or source/action contributions using active repeated-list and word-copy controls; do not weaken the frozen collateral thresholds or repeat whole-term deletion"
+  },
+  {
    "tag": "subroutine.induction.equality_score",
    "kind": "shared_subroutine",
    "record_path": "circuits/subroutine_induction_equality_score.json",
@@ -262,60 +325,6 @@
    ],
    "work_state": "dataset_or_family_definition_needed",
    "next_missing": "materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace"
-  },
-  {
-   "tag": "task.induction.selector_payload",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_induction_selector_payload.json",
-   "active_claim_id": "induction_selector_and_payload.v6",
-   "claim_status": "specified",
-   "causal_variable_id": "induction_selector_payload",
-   "counterfactual_family_count": 7,
-   "counterfactual_family_status_counts": {
-    "frozen": 6,
-    "proposed": 1
-   },
-   "split_plan_ids": [
-    "induction_selector_payload_factorial_split_r552_v1",
-    "joint_split_v1"
-   ],
-   "active_event_ids": [
-    "induction_terminal_collateral_failure.legacy.v1",
-    "induction_factor_intervention_semantics.r557.held.v1",
-    "induction_selector_payload_capability.r554.complete.null.v1",
-    "induction_selector_payload_capability_audit.r555.complete.held.v1"
-   ],
-   "open_event_ids": [],
-   "held_event_ids": [
-    "induction_factor_intervention_semantics.r557.held.v1",
-    "induction_selector_payload_capability_audit.r555.complete.held.v1"
-   ],
-   "blocking_event_ids": [
-    "induction_terminal_collateral_failure.legacy.v1",
-    "induction_selector_payload_capability.r554.complete.null.v1"
-   ],
-   "coverage": {
-    "capability": "blocked",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "mixed",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "capability",
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "dataset_or_family_definition_needed",
-   "next_missing": "replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552"
   },
   {
    "tag": "task.successor.pointer",

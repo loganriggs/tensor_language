@@ -1,0 +1,28 @@
+{
+ "schema": "induction_selector_payload_native_capability_audit_rung581_dryrun_v1",
+ "status": "dryrun_passed",
+ "authority_groups": 108,
+ "authority_rows": 3240,
+ "authority_sequences": 3024,
+ "fixture_bootstrap_replicates": 41,
+ "bootstrap_cells_per_fixture": 86,
+ "held_fixture_audit_verdict": "held_independent_audit",
+ "held_fixture_scientific_verdict": "held_capability_screen",
+ "null_fixture_audit_verdict": "held_independent_audit",
+ "null_fixture_scientific_verdict": "scientific_null",
+ "null_fixture_failed_clauses": [
+  "factorial:SELECT:s0p0",
+  "control:SELECT:neutral_source:s0p0:base",
+  "control:SELECT:neutral_payload:s0p0:base",
+  "control:SELECT:filler:s0p0:base",
+  "control:SELECT:lag:s0p0:base",
+  "selected_vs_neutral:SELECT"
+ ],
+ "future_result_opened": false,
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "script_sha256": "812c28bd1987d0978cbf0c2b0d09f0669b159b515b8a4b3f8db5dd1a73663841",
+ "test_sha256": "70782c35c4aac7089d363360de3f0365dfa19bdd9947c90ddc73ad3f096f1e93",
+ "preregistration_sha256": "d2989383791cb179fecfa930742812cf8036a85bb9d2f3cfdd6555bb00640887"
+}

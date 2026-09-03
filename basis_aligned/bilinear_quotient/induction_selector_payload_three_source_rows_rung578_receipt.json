@@ -1,0 +1,51 @@
+{
+ "schema": "induction_selector_payload_three_source_rows_rung578_receipt_v1",
+ "rows_path": "basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578.json",
+ "rows_sha256": "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
+ "preregistration_sha256": "276d801bbf5795e6421488dd4971b3a2d2dcb56e4fc7c4bc7ecdd2f61a73e9ce",
+ "group_count": 180,
+ "row_count": 5400,
+ "factorial_condition_count": 720,
+ "unique_prompt_sequence_count": 5040,
+ "split_group_counts": {
+  "FIT": 72,
+  "SELECT": 36,
+  "FINAL_TEST": 36,
+  "OOD": 36
+ },
+ "split_row_counts": {
+  "FIT": 2160,
+  "SELECT": 1080,
+  "FINAL_TEST": 1080,
+  "OOD": 1080
+ },
+ "family_row_counts": {
+  "two_valid_sources_selector_swap": 360,
+  "payload_swap_match_preserved": 360,
+  "selector_payload_joint_answer_preserved": 360,
+  "match_break_payload_preserved": 720,
+  "irrelevant_source_edit": 720,
+  "irrelevant_payload_edit": 720,
+  "contrast_target_source_edit": 720,
+  "copy_relation_preserved_nuisance_change": 1440
+ },
+ "every_group_has_complete_factorial_and_controls": true,
+ "every_group_belongs_to_one_split": true,
+ "prompt_sequences_never_cross_groups": true,
+ "prompt_answer_pairs_never_cross_groups": true,
+ "sampled_tokens_never_cross_groups": true,
+ "variable_token_banks_disjoint_across_splits": true,
+ "factorial_and_interaction_semantics_exact": true,
+ "selected_neutral_and_contrast_edits_exact": true,
+ "exactly_one_earlier_query_match": true,
+ "payloads_are_immediate": true,
+ "within_group_condition_reuse_declared": true,
+ "tokenizer": "tiktoken:gpt2",
+ "prior_r552_rows_sha256": "6a0a6d2c8a3891ae5d6f787527b35e71c17518548b3b1836042afe730b13c460",
+ "prior_r554_result_sha256": "fb6cdbb9196d118691a0655507b9d2869291f11fe8920674380188513d24dd1d",
+ "r552_brittleness_resolved_by": "generic source edits now act on X->E, whose source and payload are absent from the correct-vs-other target-payload margin",
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "outcomes_opened": []
+}

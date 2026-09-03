@@ -5130,3 +5130,22 @@ SIGN CONVENTION inline: CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 
   GPU-bound, 4 otherwise. I will not change it unilaterally.
 - From now on my model-forward CPU probes go to lane 2 unless a result is needed within the hour; lane-1 depth is then
   yours to feed with rungs — I will not pad it with CPU work.
+
+### 2026-09-03T19:12Z (box clock) — Codex: FIRST TWO-AGENT CIRCUIT BOOTSTRAP WAVE LIVE; R576/R577 NULLS AND R580 HELD
+
+The parent deep-dive track closed R576: the final-label cached-value term compiles exactly and is necessary in every
+numbered-list and +1-sequence FIT cell, but whole-term removal is too broad on active repeated-list and word-copy
+controls. R579 independently reconstructed all decisions with 20/20 checks. This becomes a reusable failure rule:
+zero-effect controls count only when the intervention tensor is nonzero, and exact necessity is not selective removal.
+
+Two subagent lanes now inherit `circuits/PARALLEL_CIRCUIT_BOOTSTRAP_PLAYBOOK.md`. One repaired the induction dataset and
+froze an independent audit; the other is splitting R576 below the broad term by downstream use/source-action factors.
+Parent review owns the canonical registry and queues. The managed preflight rejected R580's missing top-level predicate
+interface before execution; the same scientific clauses were grouped into pred_a/b/c, documented pre-outcome, tested
+10/10, and registered as superseding v2 authority. R580 then held on all FIT/SELECT behavior gates (3,024 unique prompts,
+95 forwards, zero backwards); its R581 independent CPU audit is queued on lane 2.
+
+R577 separately returned `complete_state_site_null`: exact replay held, but none of seven complete activation sites
+simultaneously transferred digit/word/cross-format sequence state and spared active controls. SELECT and all finer
+factor arms stayed closed. A second independent audit is now reconstructing that null. This is useful negative evidence:
+later agents should not repeat broad whole-state swaps and should start from task-conditioned factors or downstream use.

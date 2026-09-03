@@ -28,9 +28,8 @@ def test_landed_capability_and_interchange_runs_are_closed():
     assert "pending_opener_source_factor_interchange.r560.v2.preregistered.v1" not in open_ids
     assert "pending_opener_source_factor_audit.r561.preregistered.v1" not in open_ids
     assert open_ids == {
-        "numbered_list_cached_value_weights.r576.preregistered.v1",
-        "numbered_list_cached_value_removal.r576.preregistered.v1",
-        "numeric_sequence_cached_value_reuse.r576.preregistered.v1",
+        "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+        "induction_selector_payload_native_capability.r580.preregistered.v2",
     }
 
 

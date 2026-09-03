@@ -1,0 +1,53 @@
+{
+ "rung": 579,
+ "stage": "cached_value_weight_removal_independent_cpu_audit",
+ "source_result_sha256": "a6041c28cefc4f695f6e649210884774ed576bae80c14c031473d6b8c8ff2f73",
+ "audit_preregistration_sha256": "cc6e437aa345c7a6007aedb1e36d0c63e1458de9fed05f58d38ea4bb47f0bd5b",
+ "all_checks_pass": true,
+ "checks": {
+  "result_inputs_exact": true,
+  "semantic_rows_exact": true,
+  "forbidden_splits_closed": true,
+  "weight_identity_exact": true,
+  "forward_ceiling_exact": true,
+  "no_training": true,
+  "fit_rows_exact": true,
+  "fit_summary_equalities": true,
+  "fit_report_flags_exact": true,
+  "fit_scales_exact": true,
+  "conditional_split_rule_exact": true,
+  "fit_equivalence_decision_exact": true,
+  "select_outputs_absent": true,
+  "forward_price_exact": true,
+  "pred_a_exact": true,
+  "pred_b_exact": true,
+  "pred_c_exact": true,
+  "pred_d_exact": true,
+  "terminal_gate_exact": true,
+  "decision_exact": true
+ },
+ "recomputed": {
+  "fit": {
+   "rows_exact": true,
+   "summary_equalities": true,
+   "list_pass": true,
+   "copy_pass": false,
+   "sequence_pass": true,
+   "scales": {
+    "margin_damage": 2.242237091064453,
+    "logit_rms": 0.665093332529068,
+    "term_norm": 3417.22265625
+   },
+   "report_flags_exact": true
+  },
+  "select": null
+ },
+ "copy_control_rows": 192,
+ "copy_control_nonzero_term_fraction": 1.0,
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "outcomes_opened": [
+  "saved_R576_result"
+ ]
+}

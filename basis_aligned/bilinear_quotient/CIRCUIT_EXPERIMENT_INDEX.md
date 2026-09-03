@@ -2,15 +2,14 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-70 events; 56 scientific protocols; 70 exact executions; 3 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+77 events; 59 scientific protocols; 77 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.numbered_list.index_successor` | `numbered_list_cached_value_weights.r576.preregistered.v1` | compiled_equivalence | `numbered_list_index_successor.v8` | `ef72716ba69a` |
-| `task.numbered_list.index_successor` | `numbered_list_cached_value_removal.r576.preregistered.v1` | removal | `numbered_list_index_successor.v8` | `1b307ae88911` |
-| `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.preregistered.v1` | cross_family_transfer | `numeric_sequence_continuation.v3` | `962e04004104` |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v2` | capability | `induction_selector_and_payload.v9` | `ea5cdb21781d` |
+| `task.numeric_sequence.continuation` | `numeric_sequence_complete_state_factor_localization.r577.preregistered.v1` | composition | `numeric_sequence_continuation.v4` | `c715a4fc3867` |
 
 ## Repeats requiring review
 
@@ -74,6 +73,8 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.induction.selector_payload` | `induction_factor_intervention_semantics.r557.held.v1` | complete/held | null_control | `induction_selector_and_payload.v4` | `e804dd68754a` | `af9c5d307295` | `d731d0db2e7f` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_capability.r554.complete.null.v1` | complete/null | capability | `induction_selector_and_payload.v5` | `c610ca94e1ae` | `6eddaff09aca` | `4a166dd7027c` | supersedes `induction_selector_payload_capability.r554.preregistered.v1` |
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v5` | `db35f5b293e1` | `32bfcbe7436b` | `57b14eb68d7a` | supersedes `induction_selector_payload_capability_audit.r555.preregistered.v1` |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v8` | `ea5cdb21781d` | `7937f22df3bf` | `4ad1235d01ee` | — |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v2` | preregistered/inconclusive | capability | `induction_selector_and_payload.v9` | `ea5cdb21781d` | `e923cdc98d4a` | `c87ba139df18` | supersedes `induction_selector_payload_native_capability.r580.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.preregistered.v1` | preregistered/inconclusive | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `15d1b6f2a19a` | — |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.held.v1` | complete/held | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `5a3f5d3ad968` | supersedes `numbered_list_native_capability.r569.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_capability_audit.r571.held.v1` | complete/held | null_control | `numbered_list_index_successor.v2` | `ad9777b34532` | `7014c3e46952` | `f0e462ef047a` | — |
@@ -86,9 +87,14 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.numbered_list.index_successor` | `numbered_list_label_factor_audit.r574.complete.held.v1` | complete/held | null_control | `numbered_list_index_successor.v7` | `072eae42ae42` | `9174409b3770` | `7237d2e93993` | — |
 | `task.numbered_list.index_successor` | `numbered_list_cached_value_weights.r576.preregistered.v1` | preregistered/inconclusive | compiled_equivalence | `numbered_list_index_successor.v8` | `ef72716ba69a` | `953e545b904b` | `6fff9f7d690d` | — |
 | `task.numbered_list.index_successor` | `numbered_list_cached_value_removal.r576.preregistered.v1` | preregistered/inconclusive | removal | `numbered_list_index_successor.v8` | `1b307ae88911` | `7877e1549f15` | `82c953a3b19e` | — |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_weights.r576.complete.held.v1` | complete/held | compiled_equivalence | `numbered_list_index_successor.v9` | `ef72716ba69a` | `c943ab3906ab` | `8e23a6b961dc` | supersedes `numbered_list_cached_value_weights.r576.preregistered.v1` |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_removal.r576.complete.null.v1` | complete/null | removal | `numbered_list_index_successor.v9` | `1b307ae88911` | `8705f953819b` | `6fb8721f53ea` | supersedes `numbered_list_cached_value_removal.r576.preregistered.v1` |
+| `task.numbered_list.index_successor` | `numbered_list_cached_value_removal_audit.r579.complete.held.v1` | complete/held | null_control | `numbered_list_index_successor.v9` | `ecb8a0dcc0b9` | `49bf0e3c7435` | `1be3cf407075` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.preregistered.v1` | preregistered/inconclusive | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `3c90bed65fab` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_native_capability.r570.held.v1` | complete/held | capability | `numeric_sequence_continuation.v1` | `ffca93f328fd` | `b1d85e6a21e6` | `423303280f5c` | supersedes `numeric_sequence_native_capability.r570.preregistered.v1` |
 | `task.numeric_sequence.continuation` | `numeric_sequence_capability_audit.r571.held.v1` | complete/held | null_control | `numeric_sequence_continuation.v1` | `655c19704a36` | `bc7a7da1850a` | `02bd8ddd9f2d` | — |
 | `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.preregistered.v1` | preregistered/inconclusive | cross_family_transfer | `numeric_sequence_continuation.v3` | `962e04004104` | `9c80f1bfec6c` | `54bf04405781` | — |
+| `task.numeric_sequence.continuation` | `numeric_sequence_complete_state_factor_localization.r577.preregistered.v1` | preregistered/inconclusive | composition | `numeric_sequence_continuation.v4` | `c715a4fc3867` | `ad52860c409c` | `fc89ef59cae2` | — |
+| `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.complete.null.v1` | complete/null | cross_family_transfer | `numeric_sequence_continuation.v5` | `962e04004104` | `ef7cae5cf8cf` | `d976e32a380c` | supersedes `numeric_sequence_cached_value_reuse.r576.preregistered.v1` |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

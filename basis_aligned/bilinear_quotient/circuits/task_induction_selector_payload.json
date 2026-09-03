@@ -1262,6 +1262,792 @@
    ],
    "translation_ids": [],
    "next_missing": "replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v7",
+   "revision": 7,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v6",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "implement and preregister the R580 FIT/SELECT native-capability screen on the frozen three-source rows, saving row-level group measurements for an independent audit; do not reopen R552 or run factor-level model-site searches before capability holds"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v8",
+   "revision": 8,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v7",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v9",
+   "revision": 9,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v8",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2"
+   ],
+   "translation_ids": [],
+   "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
   }
  ],
  "split_plans": [
@@ -1308,6 +2094,30 @@
    ],
    "sealed_before_outcomes": true,
    "sealed_at": "2026-09-03T16:21:00Z"
+  },
+  {
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "unit": "one complete three-pair selector-by-payload group with all factorial cells and controls",
+   "partition_artifact_id": "r578_three_source_receipt",
+   "builder_artifact_id": "r578_three_source_builder",
+   "seed": 578,
+   "groups": {
+    "FIT": 72,
+    "SELECT": 36,
+    "FINAL_TEST": 36,
+    "OOD": 36
+   },
+   "leakage_group_keys": [
+    "semantic group",
+    "sampled token block",
+    "exact token sequence",
+    "exact prompt-answer pair",
+    "all four selector-by-payload conditions",
+    "all derived controls",
+    "prefix and layout family"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T18:40:00Z"
   }
  ],
  "evidence_events": [
@@ -1651,6 +2461,156 @@
    "notes": "Uses saved group-bootstrap summaries; does not independently recompute bootstrap samples.",
    "design_key": "32bfcbe7436be5c0c62460e321609caa5771cdc8117af6d8d5e1f58fc6eb687a",
    "execution_key": "57b14eb68d7a83a88314a37a23b5595421ee9bdae7801134d77a85e589dcef11"
+  },
+  {
+   "event_id": "induction_selector_payload_native_capability.r580.preregistered.v1",
+   "claim_id": "induction_selector_and_payload.v8",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_three_source_final_token_logits",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_and_SELECT_native_selector_by_payload_capability_before_any_site_search",
+   "metrics": [
+    {
+     "name": "four_factorial_cells",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 correct and positive group-bootstrap lower mean B/D margin in every cell and split"
+    },
+    {
+     "name": "selector_payload_interaction",
+     "estimate": null,
+     "ci95": null,
+     "bar": "positive group-bootstrap lower mean signed interaction in FIT and SELECT"
+    },
+    {
+     "name": "relation_preserving_controls",
+     "estimate": null,
+     "ci95": null,
+     "bar": "all 64 split/control/condition/endpoint cells satisfy accuracy and positive lower margin"
+    },
+    {
+     "name": "selected_match_necessity_and_neutral_gap",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.70 positive selected-match drops and positive lower means for drop and paired neutral gap"
+    },
+    {
+     "name": "execution_envelope",
+     "estimate": null,
+     "ci95": null,
+     "bar": "3,024 unique prompts exactly once in 95 forwards; zero backwards; FINAL_TEST/OOD closed"
+    }
+   ],
+   "prereg_artifact_id": "r580_capability_preregistration",
+   "result_artifact_id": null,
+   "input_artifact_ids": [
+    "r578_three_source_preregistration",
+    "r578_three_source_rows",
+    "r578_three_source_receipt",
+    "r578_three_source_builder",
+    "r578_three_source_test",
+    "r580_capability_implementation",
+    "r580_capability_test",
+    "r580_capability_dryrun"
+   ],
+   "seed": 580,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md"
+   ],
+   "notes": "Contrast-source edits are reported but not gated; scientific failures save raw evidence and return a null. Pre-outcome artifact hashes were refreshed after managed preflight required top-level pred_a/b/c fields; the five frozen scientific clauses did not change.",
+   "design_key": "7937f22df3bf85532fa659eaf48875e87e3b8372afdf0592ed28e372473c71e5",
+   "execution_key": "4ad1235d01ee64af896c90c9d0534134dbcb5aeb106b7d2f0987f8cc6f527c12"
+  },
+  {
+   "event_id": "induction_selector_payload_native_capability.r580.preregistered.v2",
+   "claim_id": "induction_selector_and_payload.v9",
+   "test_type": "capability",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_three_source_final_token_logits",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_and_SELECT_native_selector_by_payload_capability_before_any_site_search",
+   "metrics": [
+    {
+     "name": "four_factorial_cells",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 correct and positive group-bootstrap lower mean B/D margin in every cell and split"
+    },
+    {
+     "name": "selector_payload_interaction",
+     "estimate": null,
+     "ci95": null,
+     "bar": "positive group-bootstrap lower mean signed interaction in FIT and SELECT"
+    },
+    {
+     "name": "relation_preserving_controls",
+     "estimate": null,
+     "ci95": null,
+     "bar": "all 64 split/control/condition/endpoint cells satisfy accuracy and positive lower margin"
+    },
+    {
+     "name": "selected_match_necessity_and_neutral_gap",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.70 positive selected-match drops and positive lower means for drop and paired neutral gap"
+    },
+    {
+     "name": "execution_envelope",
+     "estimate": null,
+     "ci95": null,
+     "bar": "3,024 unique prompts exactly once in 95 forwards; zero backwards; FINAL_TEST/OOD closed"
+    }
+   ],
+   "prereg_artifact_id": "r580_capability_preregistration_v2",
+   "result_artifact_id": null,
+   "input_artifact_ids": [
+    "r578_three_source_preregistration",
+    "r578_three_source_rows",
+    "r578_three_source_receipt",
+    "r578_three_source_builder",
+    "r578_three_source_test",
+    "r580_capability_implementation_v2",
+    "r580_capability_test_v2",
+    "r580_capability_dryrun_v2"
+   ],
+   "seed": 580,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "induction_selector_payload_native_capability.r580.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md"
+   ],
+   "notes": "Supersedes the preflight-rejected v1 authority before any model outcome. The only scientific-text clarification groups the same five frozen clauses into the runner-required top-level pred_a/b/c fields. Contrast-source edits are reported but not gated; scientific failures save raw evidence and return a null.",
+   "design_key": "e923cdc98d4a5ce6d45eb6f926f088754ebb555ac4f5008dde364667c01105e9",
+   "execution_key": "c87ba139df182d88e06320876ac6857674cd810f5c33183186e049040fb9c8e4"
   }
  ],
  "translations": [],
@@ -1803,6 +2763,84 @@
    "path": "basis_aligned/bilinear_quotient/induction_selector_payload_capability_rung555_audit.json",
    "sha256": "eca37ee15edfd381945d2ff64a1c97badf06a40af0cd08208d641b03103c217f",
    "kind": "audit",
+   "status": "frozen"
+  },
+  "r578_three_source_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_THREE_SOURCE_ROWS_RUNG578_PREREGISTRATION.md",
+   "sha256": "276d801bbf5795e6421488dd4971b3a2d2dcb56e4fc7c4bc7ecdd2f61a73e9ce",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r578_three_source_rows": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578.json",
+   "sha256": "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r578_three_source_receipt": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_three_source_rows_rung578_receipt.json",
+   "sha256": "9e4e63ebd98503d6aa5daa27617a20fea595829c5a372f27b1ce4371d7c05b45",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r578_three_source_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/induction_selector_payload_three_source_rows_rung578.py",
+   "sha256": "d47bb3d46bd2c6061132c13b356e58ba9dfe2a56a2629f8b49a03f280d290bbd",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r578_three_source_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_three_source_rows_rung578.py",
+   "sha256": "9d795df358dfef9c5d17a539307f8e781f2a4debeb4909078858a242b3dfc512",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r580_capability_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md",
+   "sha256": "8f80926d0a90360a66ebce605732d32ff3e283a3428eb7245f4813a521d12580",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r580_capability_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/induction_selector_payload_native_capability_rung580.py",
+   "sha256": "62d11395d845d663257433936773780dd4bb9ddbcb9286400c420dadd3a73249",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r580_capability_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_native_capability_rung580.py",
+   "sha256": "9f166a61409c12d6a4a58e16640af654378151f99c05597f9c63dbb2dec64550",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r580_capability_dryrun": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung580_dryrun.json",
+   "sha256": "3d21b62972aa0794598860228554068035af10fd743e8958bfc7a05d56d68588",
+   "kind": "dryrun_receipt",
+   "status": "frozen"
+  },
+  "r580_capability_preregistration_v2": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md",
+   "sha256": "8f80926d0a90360a66ebce605732d32ff3e283a3428eb7245f4813a521d12580",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r580_capability_implementation_v2": {
+   "path": "basis_aligned/bilinear_quotient/ops/induction_selector_payload_native_capability_rung580.py",
+   "sha256": "62d11395d845d663257433936773780dd4bb9ddbcb9286400c420dadd3a73249",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r580_capability_test_v2": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_native_capability_rung580.py",
+   "sha256": "9f166a61409c12d6a4a58e16640af654378151f99c05597f9c63dbb2dec64550",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r580_capability_dryrun_v2": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung580_dryrun.json",
+   "sha256": "3d21b62972aa0794598860228554068035af10fd743e8958bfc7a05d56d68588",
+   "kind": "dryrun_receipt",
    "status": "frozen"
   }
  },
