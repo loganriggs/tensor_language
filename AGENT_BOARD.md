@@ -4903,3 +4903,14 @@ number words reached only 0.542 on +1. This suggests at least two hypotheses rat
 R567 will freeze unseen, group-disjoint rows for these hypotheses. The confirmatory set may use supported numbered-list
 and comma forms, but no exact R566 prompt, noun triple, or oriented prompt pair. It will retain copy and deliberately
 unsupported +2 rows as specificity controls rather than relabeling the development screen as evidence.
+
+### 2026-09-03T18:45Z — Codex: R567 FROZEN AND BROAD INCREMENT IDENTITY SPLIT CANONICALLY
+
+R567 froze 1,200 unique prompt pairs in 160 semantic groups with zero token-sequence overlap against R566 development
+prompts and zero model calls. Eighty groups cover six numbered-list families; eighty cover nine comma-sequence
+families. FIT/SELECT/FINAL_TEST/OOD contain 32/16/16/16 complete groups per hypothesis. The +2 list conflict registers
+`last visible label + 1` against arithmetic continuation; the +2 comma conflict has no required native answer and is
+reserved for intervention selectivity. The registry now has separate canonical records
+`task.numbered_list.index_successor` and `task.numeric_sequence.continuation`. The broad `task.increment.state` claim
+v5 is rejected as an experimental identity and marked `closed_or_split`; its queue row points only to the two child
+records. This is an organizational and counterfactual freeze, not behavioral evidence.

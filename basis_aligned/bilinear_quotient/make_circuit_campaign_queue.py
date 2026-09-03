@@ -51,7 +51,9 @@ def build() -> dict:
         blocking_events = [event["event_id"] for event in events if event["verdict"] in BLOCKING]
         coverage = {name: category_cell(events, types) for name, types in CATEGORIES.items()}
         gaps = [name for name, cell in coverage.items() if cell["status"] in {"missing", "blocked", "mixed"}]
-        if open_events:
+        if claim["status"] == "rejected":
+            work_state = "closed_or_split"
+        elif open_events:
             work_state = "experiment_open"
         elif claim["status"] in {"validated", "compiled"} and not gaps:
             work_state = "acceptance_complete"
@@ -83,6 +85,7 @@ def build() -> dict:
         "next_experiment_needed": 1,
         "dataset_or_family_definition_needed": 2,
         "acceptance_complete": 3,
+        "closed_or_split": 4,
     }
     work.sort(key=lambda item: (order[item["work_state"]], item["tag"]))
     return {

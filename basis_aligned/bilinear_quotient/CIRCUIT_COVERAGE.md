@@ -6,8 +6,10 @@ This is a navigation view, not a certificate. `mixed` means positive and negativ
 |---|---|---|---|---|---|---|---|---|---|---|
 | `subroutine.induction.equality_score` | site_live | — | — | — | blocked | blocked | blocked | mixed | — | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
 | `task.bracket.pending_opener` | specified | mixed | mixed | mixed | blocked | — | mixed | blocked | blocked | build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep |
-| `task.increment.state` | proposed | blocked | — | held | — | — | held | — | — | use an explicitly exploratory development pool to identify natural prompt forms that elicit +1, number-word +1, copy, and +2; then freeze new group-disjoint rows before any component localization. Do not apply the legacy L8H7/L8H3/MLP8-14 story to R563 |
+| `task.increment.state` | rejected | blocked | — | held | — | — | held | — | — | broad increment identity split after R566; do not run more experiments under this tag. Use task.numbered_list.index_successor and task.numeric_sequence.continuation |
 | `task.induction.selector_payload` | specified | blocked | — | — | — | — | mixed | — | — | replace the brittle synthetic irrelevant-source construction or move to a natural-copy dataset, then freeze fresh FIT/SELECT capability bars before any factor-level model-site search; do not run R558 on R552 |
+| `task.numbered_list.index_successor` | specified | — | — | — | — | — | — | — | — | run a preregistered FIT/SELECT native gate on all six R567 list families before retesting the legacy L8H7/L8H3 and MLP8-14 hypothesis |
+| `task.numeric_sequence.continuation` | specified | — | — | — | — | — | — | — | — | run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately |
 | `task.successor.pointer` | proposed | — | blocked | — | blocked | — | — | — | — | expand families and test shared-plus-private projectors against failed cross-family transfer |
 
 ## Meaning of the columns

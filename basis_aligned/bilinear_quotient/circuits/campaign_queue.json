@@ -7,7 +7,7 @@
   "acceptance_gap": "missing, blocked, or mixed evidence in one program acceptance category"
  },
  "summary": {
-  "canonical_work_items": 5,
+  "canonical_work_items": 7,
   "legacy_candidates": 70,
   "open_experiments": 0,
   "held_events": 16,
@@ -99,53 +99,86 @@
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
   },
   {
-   "tag": "task.increment.state",
+   "tag": "task.numbered_list.index_successor",
    "kind": "behavior_circuit",
-   "record_path": "circuits/task_increment_state.json",
-   "active_claim_id": "increment_state.v4",
-   "claim_status": "proposed",
-   "causal_variable_id": "increment_state",
-   "counterfactual_family_count": 7,
+   "record_path": "circuits/task_numbered_list_index_successor.json",
+   "active_claim_id": "numbered_list_index_successor.v1",
+   "claim_status": "specified",
+   "causal_variable_id": "list_index_state",
+   "counterfactual_family_count": 6,
    "counterfactual_family_status_counts": {
-    "failed": 6,
-    "validated": 1
+    "frozen": 6
    },
    "split_plan_ids": [
-    "increment_counterfactual_split_r563_v1"
+    "numbered_list_successor_split_r567_v1"
    ],
-   "active_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1",
-    "increment_native_capability.r564.result.v1",
-    "increment_native_capability_audit.r565.held.v1"
-   ],
+   "active_event_ids": [],
    "open_event_ids": [],
-   "held_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1",
-    "increment_native_capability_audit.r565.held.v1"
-   ],
-   "blocking_event_ids": [
-    "increment_native_capability.r564.result.v1"
-   ],
+   "held_event_ids": [],
+   "blocking_event_ids": [],
    "coverage": {
-    "capability": "blocked",
+    "capability": "missing",
     "causal_site": "missing",
-    "learned_interchange": "held",
+    "learned_interchange": "missing",
     "cross_family": "missing",
     "ood": "missing",
-    "selectivity": "held",
+    "selectivity": "missing",
     "composition": "missing",
     "compiled_weights": "missing"
    },
    "acceptance_gaps": [
     "capability",
     "causal_site",
+    "learned_interchange",
     "cross_family",
     "ood",
+    "selectivity",
     "composition",
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "use an explicitly exploratory development pool to identify natural prompt forms that elicit +1, number-word +1, copy, and +2; then freeze new group-disjoint rows before any component localization. Do not apply the legacy L8H7/L8H3/MLP8-14 story to R563"
+   "next_missing": "run a preregistered FIT/SELECT native gate on all six R567 list families before retesting the legacy L8H7/L8H3 and MLP8-14 hypothesis"
+  },
+  {
+   "tag": "task.numeric_sequence.continuation",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numeric_sequence_continuation.json",
+   "active_claim_id": "numeric_sequence_continuation.v1",
+   "claim_status": "specified",
+   "causal_variable_id": "numeric_sequence_state_and_rule",
+   "counterfactual_family_count": 9,
+   "counterfactual_family_status_counts": {
+    "frozen": 9
+   },
+   "split_plan_ids": [
+    "numeric_sequence_continuation_split_r567_v1"
+   ],
+   "active_event_ids": [],
+   "open_event_ids": [],
+   "held_event_ids": [],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "missing",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "missing",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "capability",
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "run a preregistered FIT/SELECT native gate that scores digit, word, cross-format, middle-break, copy, and +2-conflict cells separately"
   },
   {
    "tag": "subroutine.induction.equality_score",
@@ -310,6 +343,55 @@
    ],
    "work_state": "dataset_or_family_definition_needed",
    "next_missing": "expand families and test shared-plus-private projectors against failed cross-family transfer"
+  },
+  {
+   "tag": "task.increment.state",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_increment_state.json",
+   "active_claim_id": "increment_state.v5",
+   "claim_status": "rejected",
+   "causal_variable_id": "increment_state",
+   "counterfactual_family_count": 7,
+   "counterfactual_family_status_counts": {
+    "failed": 6,
+    "validated": 1
+   },
+   "split_plan_ids": [
+    "increment_counterfactual_split_r563_v1"
+   ],
+   "active_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1",
+    "increment_native_capability.r564.result.v1",
+    "increment_native_capability_audit.r565.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1",
+    "increment_native_capability_audit.r565.held.v1"
+   ],
+   "blocking_event_ids": [
+    "increment_native_capability.r564.result.v1"
+   ],
+   "coverage": {
+    "capability": "blocked",
+    "causal_site": "missing",
+    "learned_interchange": "held",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "capability",
+    "causal_site",
+    "cross_family",
+    "ood",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "closed_or_split",
+   "next_missing": "broad increment identity split after R566; do not run more experiments under this tag. Use task.numbered_list.index_successor and task.numeric_sequence.continuation"
   }
  ],
  "legacy_candidates": [
