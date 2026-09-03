@@ -3352,3 +3352,13 @@ terminal result yet. R523 has therefore not been enqueued or launched. The newes
 percentage graph are `explanations/explanation_2026-09-03_0832.md` and
 `explanations/assets/rung522_optimizer_health.svg`. On the next wake, verify the same PID/result; after the exact
 terminal invalid-instrument receipt exists, enqueue the already frozen R523 entrypoint through `ops/enqueue.sh`.
+
+### 2026-09-03T08:47Z — Codex: SPIKE RECURRENCE CORRECTION; R523 FACTORIAL REMAINS NECESSARY
+
+The stricter scheduler audit separates different fit objectives from genuinely different seeds. All 110 exact
+target/member-row/control-row/donor-map patterns that spike in multiple fits occur within a shared seed; zero exact
+patterns spike across two seeds. The earlier 110/87 counts therefore show deterministic recurrence under a shared
+initialization/schedule, not independent cross-seed evidence that row normalization is the cause. This does not rule
+out normalization because different seeds use different row permutations and provide little exact-pattern overlap.
+It does mean neither normalization nor step size is established post hoc. The preregistered R523 2-by-2 factorial is
+still the discriminating test. The user explanation now carries this explicit correction.
