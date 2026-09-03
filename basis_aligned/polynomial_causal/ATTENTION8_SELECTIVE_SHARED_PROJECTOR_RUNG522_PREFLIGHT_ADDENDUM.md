@@ -303,3 +303,142 @@ The matched stability null still uses exactly 48 fits, so the maximum optimizati
 final iterate, exactly matching the 206-forward ledger; they are not full-split evaluations. Moving every fit before
 TEST and computing bounded/bootstrap/null statistics from saved per-token responses add no model calls. The maximum
 pre-removal inference count therefore remains 9,422.
+
+## Final implementation definitions — 2026-09-03 06:17 UTC
+
+A second independent code audit found details that had not yet been specific enough to implement without choices.
+No rung522 scientific model call, fit, VALIDATION outcome, or TEST outcome exists. These definitions close those
+choices prospectively and supersede any less-specific wording above.
+
+### Fixed health batch and exact no-op
+
+Each fit gets a separate VALIDATION balanced-row scheduler with the same fitted target list and integer fit seed as
+its FIT scheduler. The health call always uses that scheduler's batch zero, VALIDATION donor ensemble D0 map zero,
+and the forward direction. It never uses the omitted target; a null fit is evaluated against the original,
+unpermuted VALIDATION masks for its two named fitted targets. The validation callback ignores the optimizer's
+sentinel step `-1` and always returns this one fixed batch. Both schedulers and their selected row IDs are written to
+the pre-TEST manifest.
+
+The exact self-donor check uses the six numerically lowest row IDs in each split (or every row if a split had fewer
+than six). Native attention8 writes from that same execution are reinserted without arithmetic. Both the write
+difference and logits must be bitwise equal, so the tolerance is exactly zero. FIT and VALIDATION checks occur
+before fitting; the TEST check is part of the sealed TEST sweep.
+
+For the target-specific oracle, the two member roles and two control roles use independent SHA-256 orderings keyed
+by their distinct role names. They are not a fixed rotation of one another. Coinciding row choices are allowed,
+because independent deterministic permutations can coincide; both copies still contribute separately to the one
+concatenated target response.
+
+### Paired row bootstrap
+
+The ordered member/control arrays from the frozen matcher define token pairs. Bootstrap clusters are the member
+recipient rows: sampling one member row carries every member token in that row and each token's aligned matched
+control, even when that control lies in another row. Each required cell uses exactly 2,000 replicates. For replicate
+`b` and draw `k`, the sampled cluster index is the first eight SHA-256 bytes of
+
+`a8-r522-row-bootstrap-v1:<full cell ID>:<b>:<k>`
+
+read as an unsigned little-endian integer, modulo the number of member-row clusters. Thus there is no library RNG or
+unrecorded seed. RMS values are recomputed from all carried token pairs, with repeated clusters repeated in both
+member and control sums. The lower bound is the higher-interpolation 5th percentile.
+
+For the paired task-conditioned versus recovery-only comparison, use the difference in each frame's **minimum
+held-out concentration** across the required split/donor/direction cells. Apply the `>=0.5` gate and the exact 32
+sign choices separately inside each omitted-target fold over its five matched optimizer seeds. The sign-flip null is
+the mean of the five signed differences; the observed unsigned mean must strictly exceed its higher-interpolation
+95th percentile. Separately, every individual cell uses paired row clusters and must have a strictly positive lower
+95% bound for the task-conditioned minus recovery-only bounded-selectivity difference. All three omitted-target
+folds must pass.
+
+### Prediction B aggregation
+
+For one frame, define the joint statistic as
+
+`minimum held-out bounded selectivity * minimum held-out aligned recovery`,
+
+where each minimum ranges over the required VALIDATION and TEST donor/direction cells for that omitted target. For
+each omitted-target fold, at least four of the five task-conditioned seeds must strictly exceed both (a) the maximum
+of the 20 Haar values evaluated on that same omitted target and (b) the higher-interpolation 95th percentile of the
+16 matched label-null values for that fold. Every one of the three folds must satisfy this rule. Negative recovery
+is retained rather than clipped.
+
+### Fingerprint masks and deterministic null
+
+All 32 fingerprint coordinates use rung521's `fingerprint` member/control arrays, including for the quartet; they do
+not substitute the quartet-exclusive arrays used by Prediction A. A coordinate is therefore comparable across all
+32 circuits. For null replicate `b=0..19999`, positions inside each
+`(token_class, position_bin_32, native_CE_decile)` group are ordered by the first eight SHA-256 bytes of
+
+`a8-r522-fingerprint-null-v1:<TEST cell ID>:<b>:<global position>`.
+
+The saved response values are reassigned in that order by one common permutation before all 32 coordinates are
+recomputed. The masks, pair ordering, and circuit base rates stay fixed. This is explicitly a coarse-stratum
+randomization: it does not preserve exact token identity, so passing it supports the registered within-census
+operational extraction but cannot by itself establish a semantic variable.
+
+### Exact removal action and Prediction D
+
+For the validation-selected all-three frame `Q`, `mu_Q` is the four-number mean of `yQ` over **all** native FIT
+attention8 writes at all 568 rows and 256 predicted-token positions. It is computed and hashed before TEST opens.
+No circuit mask and no amplitude fit enters this mean.
+
+Removal is executed once over the TEST rows as
+
+`y_removed = y - (yQ - mu_Q)Q^T`.
+
+It has no donor or direction. Its saved per-token response is `CE_removed - CE_native`. Score TEST fold 8 and TEST
+fold 9 separately, using the 32 rung521 fingerprint member/control pairs restricted to that fold. For each circuit
+let
+
+`u[j] = RMS_member_j(removal delta CE) - RMS_control_j(removal delta CE)`.
+
+In each TEST fold, D requires: every quartet `u[j]` is positive; `min_quartet u > max_nonquartet u`; and every
+quartet member RMS is at least twice the median non-quartet member RMS. It also requires the sign of
+`mean_member(delta CE)-mean_control(delta CE)` to match the selected projector-swap sign in each corresponding TEST
+fold, D0/D1 ensemble, and forward/reverse cell. Zero has no sign and fails.
+
+Finally, apply the same 20,000 common coarse-stratum response permutations and SHA rule above, with cell IDs
+`removal:fold8` and `removal:fold9`, to the removal response. In each fold the observed
+`min_quartet u-max_nonquartet u` must be positive and strictly exceed the higher-interpolation null 95th percentile.
+The negative set is exactly the other 28 circuits in the frozen 32-circuit battery. D uses no VALIDATION response,
+no donor-specific removal, and no fitted scale. Its TEST forwards are charged only to the separate 2,000-forward
+removal ceiling.
+
+### TEST execution boundary and arm order
+
+Native TEST capture, independent replay, and the TEST self-donor check are deferred until after the canonical
+pre-TEST manifest has been atomically written and hashed. Before that point, no model call may contain a TEST row.
+The manifest contains all 103 frame hashes and health states, FIT and VALIDATION scheduler hashes, null-design
+hashes, all VALIDATION outputs and provisional decisions, the five all-three eligibility states, the geometry-only
+medoid and lower-seed tie-break, all 20 Haar hashes, the call ledger, and the FIT-only `mu_Q`. Opening TEST is a
+one-way state change; afterward fitting, optimizer updates, threshold changes, and selection are forbidden.
+
+The physical evaluator labels every arm explicitly as `(ensemble, map, direction, recipient row)` before
+concatenation and reconstructs saved outputs from those labels. It may not infer mathematical axes from tensor
+reshape order. The registered output cells remain D0/D1 crossed with forward/reverse after averaging four maps.
+
+## Label-null feasibility correction — 2026-09-03 06:28 UTC
+
+The first execution of the exact FIT label-permutation constructor was CPU-only and occurred before any scientific
+model call. It exposed an algebraic impossibility in the earlier 90% movement check. There are 1,442 FIT positions
+with a nonzero quartet membership code. Under the already-frozen
+`(token class, position bin, CE decile, parent-slice code)` strata and exact within-stratum code counts, at least 253
+of those positions are forced to retain their code. For example, a stratum containing only three copies of code 8
+cannot move any of them while preserving that stratum's code multiset. The exact maximum movement is therefore
+1,189/1,442 = 0.8245492372. The 16 first SHA-order permutations moved only 857--893 positions
+(0.594313--0.619279), and all correctly failed the impossible 90% check.
+
+The movement rule is replaced prospectively by a constraint-relative rule with no fitted percentage: in every
+stratum, solve the minimum-cost one-to-one assignment from donor codes to recipient positions, with primary cost 1
+exactly when an originally nonzero recipient retains the same complete 4-bit code and 0 otherwise. SHA-256 values
+keyed by null seed, stratum, recipient position, and donor position provide the secondary tie-breaking cost; the
+primary penalty is larger than the greatest possible sum of all secondary costs, so tie breaking cannot sacrifice a
+possible move. Every null seed must attain the computed global minimum number of unchanged nonzero positions—253
+for the frozen FIT data—and hence the global maximum 1,189 moved positions. The observed movement and the
+independently computed theoretical maximum are both written and hashed. Any seed that misses this maximum, changes
+a within-stratum code count, moves a bit outside its parent slice, or is not a bijection invalidates the full null
+family.
+
+This correction strengthens the randomization relative to the failed 59--62% SHA-order versions while preserving
+every original conditioning variable and overlap-lattice count. It does not use model activations, responses,
+VALIDATION, TEST, or an outcome-chosen threshold.

@@ -74,10 +74,18 @@ def test_single_target_oracle_has_two_member_and_two_control_roles():
         ("control", 1),
     ]
     assert {role.target for role in roles} == {TARGETS[0]}
-    for update in range(40):
-        batch_roles = scheduler.batch(update).roles
-        assert batch_roles[0].row_index != batch_roles[1].row_index
-        assert batch_roles[2].row_index != batch_roles[3].row_index
+    assert scheduler.role_permutation(f"{TARGETS[0]}:member:0") == SCHED._permutation(
+        tuple(MEMBERS[TARGETS[0]]), 52201, f"{TARGETS[0]}:member:0"
+    )
+    assert scheduler.role_permutation(f"{TARGETS[0]}:member:1") == SCHED._permutation(
+        tuple(MEMBERS[TARGETS[0]]), 52201, f"{TARGETS[0]}:member:1"
+    )
+    assert scheduler.role_permutation(f"{TARGETS[0]}:control:0") == SCHED._permutation(
+        tuple(CONTROLS[TARGETS[0]]), 52201, f"{TARGETS[0]}:control:0"
+    )
+    assert scheduler.role_permutation(f"{TARGETS[0]}:control:1") == SCHED._permutation(
+        tuple(CONTROLS[TARGETS[0]]), 52201, f"{TARGETS[0]}:control:1"
+    )
     _assert_exhaustion_before_cycle(scheduler)
 
 

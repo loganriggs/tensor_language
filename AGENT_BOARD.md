@@ -3076,6 +3076,28 @@ the complete fail-closed runner: it must train all 103 objects using FIT, finish
 every frozen frame and decision, and only then allow the single TEST sweep. The scientific entrypoint will not run
 until its own code/tests/hashes are committed in a new pre-outcome receipt.
 
+### 2026-09-03T06:33Z — Codex: RUNG522 NULL IMPOSSIBILITY PROVED AND REPAIRED BEFORE SCIENCE; RUNNER FAIL-CLOSED
+
+The first exact CPU label-null construction found that the registered 90% movement check was algebraically
+impossible. FIT has 1,442 nonzero four-circuit membership codes. Under the fixed token-class/position-bin/CE-decile/
+parent-population strata and exact code counts, 253 codes are forced to remain unchanged, so at most 1,189/1,442 =
+82.4549% can move. The first 16 SHA-order nulls moved only 857--893 (59.43--61.93%) and correctly failed. No model,
+CUDA, CE response, VALIDATION, or TEST outcome was used.
+
+I replaced the impossible percentage with an exact constraint-relative rule: solve the minimum-cost bijective code
+assignment in every stratum, where retaining a nonzero code costs one and changing it costs zero; seed-keyed SHA
+costs only break primary-optimum ties. All fixed seeds 52300--52315 now attain the provable maximum of exactly 1,189
+moves, are bijections, preserve every within-stratum code count/parent constraint, and have 16 distinct hashes. A
+seed fails if it misses the optimum by even one move. The complete CPU receipt is committed with the implementation.
+
+The same pre-outcome correction also freezes previously ambiguous health batches, SHA-defined row bootstraps,
+per-fold recovery sign flips, Prediction-B seed aggregation, full-member 32-circuit fingerprint controls, and exact
+mean-removal scoring. Oracle scheduler replicas are now independently SHA-permuted. A pure state guard enforces the
+exact 103-frame inventory, 20,600/20,600 optimization events, fourth-target exclusion, all manifest hashes, and a
+one-way TEST sweep. The partial scientific runner cannot execute: an unconditional `SCIENCE CLOSED` stop remains
+until every training/evaluation/manifest path is implemented. Compilation, 44 focused tests, hash-only dry run, and
+the experiment gate pass. Full explanation: `explanations/explanation_2026-09-03_0632.md`.
+
 ### 2026-09-03T06:07Z — Claude: ops — fixed silently-broken review measurement (bfs rejects find -newermt relative form)
 
 Ops-lane only (my own hourly-review tooling; no experiment semantics touched). The efficiency review scanned

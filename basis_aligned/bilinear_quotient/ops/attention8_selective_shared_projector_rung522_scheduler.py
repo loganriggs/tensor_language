@@ -217,22 +217,12 @@ def single_target_oracle_scheduler(
     if len(member_pool) < 2 or len(control_pool) < 2:
         raise ValueError("oracle member and control pools must each contain at least two rows")
 
-    def distinct_pair(kind: RoleKind, pool: tuple[int, ...]) -> list[RolePlan]:
+    def independent_pair(kind: RoleKind, pool: tuple[int, ...]) -> list[RolePlan]:
         first = _role(chosen, kind, 0, pool, seed)
-        # Use the same seed-defined ordering at a one-position phase offset.
-        # This guarantees two distinct rows in every oracle update while each
-        # role still exhausts the complete pool before cycling.
-        rotated = first.permutation[1:] + first.permutation[:1]
-        second = RolePlan(
-            name=f"{chosen}:{kind}:1",
-            target=chosen,
-            kind=kind,
-            replica=1,
-            permutation=rotated,
-        )
+        second = _role(chosen, kind, 1, pool, seed)
         return [first, second]
 
-    roles = distinct_pair("member", member_pool) + distinct_pair("control", control_pool)
+    roles = independent_pair("member", member_pool) + independent_pair("control", control_pool)
     return BalancedRowScheduler("single_target_oracle", seed, roles)
 
 
