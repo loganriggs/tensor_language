@@ -1,0 +1,120 @@
+{
+ "rung": 548,
+ "audited_rung": 546,
+ "status": "terminal_audit_complete",
+ "result_sha256": "209b9bfcc20bff13bb37d822137003d6878506e66b0d9321ba0a0f7e9d8f2c5c",
+ "rows_sha256": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9",
+ "receipt_sha256": "a6b3e7468f510277b247cb78148b619625ecdde07f9ba264e5358f7bb5138609",
+ "exact_budget_and_split_authority": true,
+ "complete_row_identity_and_cell_counts": true,
+ "independent_summary_recomputation_exact": true,
+ "native_three_value_capability_held": true,
+ "l13h8_complete_state_target_and_control_gate_held": true,
+ "all_gates_held": true,
+ "capability_by_ordered_pair": {
+  "FIT/direct_three_value_type_substitution/1->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/direct_three_value_type_substitution/1->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/direct_three_value_type_substitution/8->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/direct_three_value_type_substitution/8->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/direct_three_value_type_substitution/60->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/direct_three_value_type_substitution/60->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/1->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/1->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/8->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/8->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/60->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "FIT/completed_then_reopened_three_value_order/60->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/1->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/1->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/8->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/8->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/60->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/direct_three_value_type_substitution/60->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/1->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/1->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/8->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/8->60": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/60->1": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  },
+  "SELECT/completed_then_reopened_three_value_order/60->8": {
+   "base_correct_fraction": 1.0,
+   "donor_correct_fraction": 1.0
+  }
+ },
+ "site_gate_minima": {
+  "target_bootstrap_lower_mean": 5.214168487985929,
+  "target_positive_fraction": 1.0,
+  "control_bootstrap_lower_abs_change": 0.050072153409322105,
+  "control_full_vocabulary_logit_rms": 0.0178303808077342
+ },
+ "decision": "The fresh capability and complete-state confirmation held; a learned multi-output interchange may be preregistered, but FINAL_TEST/OOD remain unopened.",
+ "final_test_or_ood_opened": false
+}

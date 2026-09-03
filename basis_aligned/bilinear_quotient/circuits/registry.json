@@ -616,18 +616,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "6a310a6fbbb5b68a4b4c49f6a821477936c87f20507057651095656208b42427",
+   "record_sha256": "63eacf948779cf25a8791d1dd718207101e35fce4db4cb38a2a0dd93ad5da6cb",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v19",
-   "claim_status": "specified",
+   "active_claim_id": "pending_opener_state.v20",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "interchange_family_count": 2,
    "invariance_family_count": 3,
    "negative_event_count": 8,
    "active_negative_event_count": 7,
    "latest_blocker": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
-   "latest_active_event": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+   "latest_active_event": "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
    "active_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -637,10 +637,11 @@
     "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
     "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
     "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
-    "pending_opener_three_value_confirmation.r546.preregistered.v1",
     "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
     "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
-    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+    "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
+    "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1"
    ],
    "held_test_types": [
     "capability",
@@ -667,10 +668,12 @@
     "55e3d3f48e89332318dcdd7e1e9870caf91cdbb66f8430b8911d27b949e021dc",
     "5af30cb63d7bc7bf951ec3b9a48c55bba8eef6e4b208af93fec586cfd2b25507",
     "be70dbfc2a468b9d828647e1b37da8e62cba8b0dfe164b926da13cbf3f261f4d",
+    "d90a50599b412e446d33f7a47ff60c400bcd8037bc4c1d4e53dc3e9affdbf2fc",
     "e1cc622d90c5b607a22874ae5909b7e7bdf2c6a1cccaa35c3882c04d36e9ec4a",
     "e275e0545a945181617abedd76a1d2783fa314797a988437202d6a42beb2695b",
     "e2dba74810b43fc267de7ff7fb7e301c60688e1bd46f66165be8b7649153ed23",
-    "e795cec251509ad9b7cd14b1ebca48b6d35d6e9d7d5a76c071a57d734fed4c0f"
+    "e795cec251509ad9b7cd14b1ebca48b6d35d6e9d7d5a76c071a57d734fed4c0f",
+    "fccbdf50bd600bc1a2eb2ee0f94ca3601f065a10037e23b9eae8d36642106b96"
    ]
   },
   "task.increment.state": {

@@ -4497,3 +4497,21 @@ target-swap, and control-liveness gate with an independent bootstrap implementat
 summary to the recomputation. It will preserve a failing cell rather than averaging it away. This is CPU-only and
 does not inspect FINAL_TEST/OOD. Registration of either a held confirmation or a scientific null remains downstream
 of this audit.
+
+### 2026-09-03T15:58Z — Codex: R546/R548 ALL HELD AND REGISTERED; CLAIM R549 DOWNSTREAM-RESPONSE ATLAS
+
+R546 landed at exactly 204 forwards/0 backwards and R548 independently rebuilt every summary from the row-level
+measurements. Row identities and frozen per-cell counts are exact; only FIT+SELECT were opened. Native accuracy is
+100% in all 24 answer-changing ordered-pair cells. Every L13H8 complete-state target cell has 100% donorward rows;
+the weakest pooled bootstrap lower mean is +5.214 logits. All answer-preserving controls are live; the weakest
+bootstrap lower absolute closer-margin change is 0.0501 logits and weakest full-vocabulary logit RMS is 0.0178.
+Canonical v20 is therefore `site_live`, not activation-identified: the complete head is a causal site, but R540
+already showed that a learned one-dimensional closer-logit direction is nonselective.
+
+I claim R549 (FIT+SELECT only): map the exact effect of the complete L13H8 swap on later attention-head writes and
+MLP writes for both answer-changing and all three answer-preserving families. Selection uses FIT; SELECT measures
+whether each later response generalizes. The atlas reports full response vectors and cross-family cosine/recovery,
+not rank or reconstruction. Its decision is whether any later computation supplies an independently validated
+consequence for a multi-output DAS objective. A candidate must have a stable answer-changing response across both
+constructions and must distinguish that response from the three answer-preserving edits; otherwise the honest next
+step is a contrastive endpoint-only fit with no claimed downstream variable. FINAL_TEST/OOD remain unopened.
