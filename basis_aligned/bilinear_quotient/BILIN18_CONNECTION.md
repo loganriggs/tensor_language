@@ -69771,3 +69771,36 @@ the pool present and would be 1.30 without it.
 
 **Limits.** "Non-core" here is the complement of ONE 16-dim covariance construct of the late MLP writes; the pool's own top
 directions were not characterised (its writes' PCA was in §2712's rank ladder only in aggregate).
+
+## §2724 — ONE LINEAR MAP OF THE BLOCK-11 STREAM REPLACES THE WHOLE mlp11–15 POOL AT 52% OF ITS VALUE; per-block linear maps in sequence 62%; the token adds nothing (−.01); yet the writes themselves are only 18–34% linearly predictable (Claude, LANE 1 CUDA, 20 s, 928 GPU document-forwards): a, b, c, d TRUE; e FALSE (median held-out R² .263 vs .50 bar; null ≤ .25 not met). Preserved.
+
+Written 2026-09-03 21:20Z (box clock). Preregistration `polynomial_causal/LATE_POOL_SURROGATE_PROBE_PREREGISTRATION.md` (registered
+21:17Z before the script). Script `ops/late_pool_surrogate_probe.py`; receipt `late_pool_surrogate_probe_results.json` (sha
+c3e1b9f3…). FRESH split (ridge on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER
+IS BETTER; rec = 1 − CE(arm)/CE(POOL_MEAN), higher = better.
+
+**Instrument (a TRUE).** Baseline 3.0322401; POOL_MEAN .7239 (§2721/§2723 exact).
+
+**Arms (CE added / rec).** POOL_MEAN .724 / — · SEQ_LIN (w_l → μ_l + A_l(x̂_l − x̄_l), five 1152 × 1152 maps in sequence) .278 / .617 ·
+SEQ_LIN_TOK (x̂_l ⊕ ê) .285 / .606 · ONESHOT_LIN (one 1152 × 1152 map of x̂_11 writing the SUM of the five at block 11; mlp12–15
+write 0) .345 / .524. Ridge R² fit → held-out (full write): mlp11 .41 → .27; mlp12 .41 → .26; mlp13 .41 → .25; mlp14 .36 → .18;
+mlp15 .48 → .34; one-shot sum fit .51. Adding the token raises fit R² by .04 and LOWERS held-out R² by .02 (pure overfit).
+
+**Scoring.** b rec(SEQ_LIN) .617 ≥ .50 TRUE (null ≤ .20 not met). c rec(ONESHOT)/rec(SEQ) = .85 ≥ .80 TRUE (null ≤ .50 not met).
+d rec(SEQ_LIN_TOK) − rec(SEQ_LIN) = −.010 ≤ .05 TRUE (null ≥ .15 not met). e median held-out R² .263 ≥ .50 FALSE (null ≤ .25 not
+met; the letter is FALSE by a wide margin, the null missed by .013).
+
+**What it means for the program.** (i) The pool is a CONTEXT operator, not a token operator: linear in the stream it reads, and the
+current token contributes nothing beyond what the stream already carries (opposite of mlp16/17, §2717). (ii) The chain is nearly
+irrelevant: a single linear map applied once at block 11 recovers 85% of what five sequential maps recover — the pool is
+parallel, consistent with the uniform pairwise redundancy of §2721. The five blocks' 79.7 M parameters collapse to one 1152 × 1152
+matrix (1.33 M numbers) at 52% of their value, or five such matrices at 62%. (iii) The tension between e (writes only ~26%
+linearly predictable) and b (62% of CE value recovered) is the by-now familiar shape (§2717: R² .5 → rec .5 there; here R² .26 →
+rec .62): the CE-relevant part of a late write is far more linear than the write as a whole. The 74% of write variance the linear
+map misses is worth only 38% of the CE — a direct statement that the pool's high-rank remainder (§2673/§2675: exact rank
+438–749) is mostly CE-irrelevant at this depth. (iv) Compression target now concrete: late stack ≈ [one 1152 × 1152 context map at
+block 11] + [two 16-dim bilinear programs at 16/17, own weights on core input] — the queued combined-program rung prices the
+whole late stack under this description against MEAN(all 7) 1.885.
+
+**Limits.** ONESHOT writes the sum at block 11, so attn12–attn15 read a stream containing the future pool writes early; the
+slight advantage this could give is bounded by SEQ_LIN − ONESHOT = .067. Ridge λ was not tuned (1e-2·tr/nf throughout the arc).

@@ -5095,3 +5095,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   only its core variation costs .052 of .724; core-only .477); §2720's 16-dim program needs the pool MORE (Δ .994) than the real
   blocks (.724); Δ with 16/17 gone 1.037. Late stack = two parallel channels (16-dim mlp16/17 + non-core pool), not a chain.
   §2721(iii) withdrawn. Queued: late_pool_surrogate_probe.
+- §2724 late_pool_surrogate_probe (Claude, LANE 1 CUDA, 20 s, 928 GPU forwards): a–d TRUE; e FALSE (median held-out R² .263 vs
+  .50; null ≤ .25 not met). One linear map of x̂_11 replaces mlp11–15 at 52% of .724; five sequential maps 62%; token adds
+  −.01. Pool = parallel context operator; 79.7 M params → 1.33 M numbers at 52%. Next: combined late-stack program price.
