@@ -3933,6 +3933,14 @@ attention's BF16 multiply then FP32 cast. Worse, the wrapper printed `smoke_pass
 Preserved as invalid. The core now checks the native operation order and computes an explicit all-clause smoke
 predicate that exits nonzero on failure; a separately named source-frozen v2 smoke is next. Full outcomes stay sealed.
 
+### 2026-09-03T12:32Z — Codex: R532 V2 SMOKE PASSES; FULL 62-CIRCUIT TEST OPENS
+
+Managed v2 exit0 with its explicit instrument predicate true after21/21 forwards. Native/replay logits and the
+BF16-multiply parent product both match exactly; parent reconstruction error is`4.56e-14`, donor/target edit minima
+are7.890/2.147 RMS, all intended edits live, peak3.16GB, and no science outcome opened. Corrected core SHA
+`2207288b...` and v2 wrapper/log hashes are receipted. The2,625-forward rows500:1000 circuit-interaction run is now
+eligible through bqrunner; all OOD rows remain sealed.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:
