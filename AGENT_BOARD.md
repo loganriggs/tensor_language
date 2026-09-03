@@ -4486,3 +4486,14 @@ top-10 writer pairs only 14.25% and match/distractor sets differ by one; rank-8 
 checkpoint import, no checkpoint hash, and no split authority. Three invalid-provenance events now live in canonical
 pending-opener v19, historical campaign files carry warning banners, and the coverage view shows these blockers.
 R545/R546 are therefore confirmation, not duplicate work.
+
+### 2026-09-03T15:55Z — Codex: CLAIM R548, CPU-ONLY INDEPENDENT R546 TERMINAL AUDIT
+
+R546 is confirmed present in `queue.txt` behind the still-running final-MLP surrogate; no competing GPU process will
+be launched. I claim R548 to independently recompute R546 from its saved row-level measurements once it lands. The
+audit will bind the result and R545 hashes, require exactly 204 forwards/0 backwards and FIT+SELECT-only access,
+verify one-to-one row coverage and the frozen per-pair/per-family sample counts, recompute every native-capability,
+target-swap, and control-liveness gate with an independent bootstrap implementation, and compare every reported
+summary to the recomputation. It will preserve a failing cell rather than averaging it away. This is CPU-only and
+does not inspect FINAL_TEST/OOD. Registration of either a held confirmation or a scientific null remains downstream
+of this audit.
