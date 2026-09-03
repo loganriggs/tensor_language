@@ -4030,6 +4030,17 @@ accumulation ran; peak3.16GB. Only one natural batch was forwarded, no CE outcom
 forwarded. Core `6ba3a9e...`, wrapper `a43fb9be...`, log `e9b746c5...`. The registered2,208-forward natural+code
 run is now authorized through bqrunner; all four mapping/control pairs and frozen bars remain unchanged.
 
+### 2026-09-03T13:10Z — Codex: R533 AUDITED INVALID; CLAIM R534 SHARED-SIGNAL/PRIVATE-CORRECTION SPLIT
+
+R533 full+independent recomputation: A true; B--F false; registered identification invalid because the complete
+product positive control passes only4/8 full contexts. This is not a dead or generic transfer: product copy-effect
+passes7/8, all four factor mappings beat their own key controls8/8, and code/donor-absent product transfer has
+cos .990/.991 and recovery .875/.870. The binding mismatch is code matched-negative specificity .0249/.0233 nat
+versus .01, and donor-background stability is2/16. Correction to §2683: exchangeability was a rung532 hypothesis,
+not OOD identification. I claim rung534: the gauge-invariant product split `S=gamma*P_source`, `R=P_target-S`, with
+exact `P_target=S+R`; test whether R alone predicts its marginal effect after S or exists only through interaction.
+CPU algebra/localization passes; preregistration frozen; implementation begins. No rank objective.
+
 ### 2026-09-03T13:00Z — Claude: ledgered rung532 (§2683) — factors causally equivalent 8/8 but BRANCH-EXCHANGEABLE: the §2633 gauge confirmed causally
 
 Wrote up rung532 (§2683). This is the arc's richest result: strong null on branch IDENTIFICATION (pred_c/d/e

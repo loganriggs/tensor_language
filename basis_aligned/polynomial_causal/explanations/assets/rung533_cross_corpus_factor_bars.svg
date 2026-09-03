@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Rung 533 transfer and specificity pass rates</title>
+  <desc id="desc">Across eight natural and code contexts, copy-effect-only pass rates are high, but full pass rates are lower because of specificity failures. Every factor mapping beats its key-permuted control.</desc>
+  <rect width="960" height="500" fill="#fff"/>
+  <text x="36" y="38" font-family="sans-serif" font-size="23" font-weight="700" fill="#17202a">Rung 533: useful copy effect versus full specificity</text>
+  <text x="36" y="65" font-family="sans-serif" font-size="14" fill="#53606b">Percentage of 8 corpus × half × donor-background contexts</text>
+  <g font-family="sans-serif" font-size="13" fill="#34424d">
+    <rect x="530" y="28" width="18" height="12" fill="#3b82a0"/><text x="556" y="39">copy-effect bars</text>
+    <rect x="680" y="28" width="18" height="12" fill="#ce6a3b"/><text x="706" y="39">all registered bars</text>
+    <rect x="530" y="51" width="18" height="12" fill="#4e946f"/><text x="556" y="62">beats matched key control</text>
+  </g>
+  <line x1="315" y1="94" x2="865" y2="94" stroke="#aab2ba"/>
+  <line x1="315" y1="94" x2="315" y2="432" stroke="#aab2ba"/>
+  <line x1="590" y1="94" x2="590" y2="432" stroke="#e2e6e9"/>
+  <line x1="865" y1="94" x2="865" y2="432" stroke="#e2e6e9"/>
+  <g font-family="sans-serif" font-size="12" fill="#5b6570">
+    <text x="315" y="86" text-anchor="middle">0%</text><text x="590" y="86" text-anchor="middle">50%</text><text x="865" y="86" text-anchor="middle">100%</text>
+  </g>
+  <g font-family="sans-serif" font-size="14" fill="#26323d" text-anchor="end">
+    <text x="300" y="135">complete source product</text>
+    <text x="300" y="205">source first → target first</text>
+    <text x="300" y="275">source second → target first</text>
+    <text x="300" y="345">source first → target second</text>
+    <text x="300" y="415">source second → target second</text>
+  </g>
+  <g>
+    <rect x="315" y="111" width="481.25" height="15" fill="#3b82a0"/><rect x="315" y="130" width="275" height="15" fill="#ce6a3b"/>
+    <rect x="315" y="181" width="550" height="15" fill="#3b82a0"/><rect x="315" y="200" width="343.75" height="15" fill="#ce6a3b"/><rect x="315" y="219" width="550" height="15" fill="#4e946f"/>
+    <rect x="315" y="251" width="481.25" height="15" fill="#3b82a0"/><rect x="315" y="270" width="412.5" height="15" fill="#ce6a3b"/><rect x="315" y="289" width="550" height="15" fill="#4e946f"/>
+    <rect x="315" y="321" width="481.25" height="15" fill="#3b82a0"/><rect x="315" y="340" width="343.75" height="15" fill="#ce6a3b"/><rect x="315" y="359" width="550" height="15" fill="#4e946f"/>
+    <rect x="315" y="391" width="481.25" height="15" fill="#3b82a0"/><rect x="315" y="410" width="412.5" height="15" fill="#ce6a3b"/><rect x="315" y="429" width="550" height="15" fill="#4e946f"/>
+  </g>
+  <g font-family="sans-serif" font-size="12" font-weight="700">
+    <text x="803" y="124" fill="#3b82a0">87.5%</text><text x="597" y="143" fill="#ce6a3b">50%</text>
+    <text x="872" y="194" fill="#3b82a0">100%</text><text x="665" y="213" fill="#ce6a3b">62.5%</text><text x="872" y="232" fill="#4e946f">100%</text>
+    <text x="803" y="264" fill="#3b82a0">87.5%</text><text x="734" y="283" fill="#ce6a3b">75%</text><text x="872" y="302" fill="#4e946f">100%</text>
+    <text x="803" y="334" fill="#3b82a0">87.5%</text><text x="665" y="353" fill="#ce6a3b">62.5%</text><text x="872" y="372" fill="#4e946f">100%</text>
+    <text x="803" y="404" fill="#3b82a0">87.5%</text><text x="734" y="423" fill="#ce6a3b">75%</text><text x="872" y="442" fill="#4e946f">100%</text>
+  </g>
+  <text x="36" y="476" font-family="sans-serif" font-size="13" fill="#5b6570">The product control has no key-control bar. Full failures are mostly matched-negative specificity on code.</text>
+</svg>

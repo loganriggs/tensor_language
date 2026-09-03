@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1310.md](explanation_2026-09-03_1310.md) — rung533's audited cross-corpus result: the
+  factor mappings retain the useful copy effect and beat every matched key control, but the complete-product positive
+  control fails OOD matched-negative specificity, so four-way identification is invalid; derives rung534's exact,
+  gauge-invariant split into a cross-head shared equality signal plus target-specific context/noise correction
 - [explanation_2026-09-03_1248.md](explanation_2026-09-03_1248.md) — rung532's audited result: all four observed
   source-factor→target-slot mappings reproduce the downstream effect in 8/8 contexts, yet unique branch identity
   fails because both mappings into each slot work; explains the complete-product/composition evidence and freezes

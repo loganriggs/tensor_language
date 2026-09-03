@@ -1,0 +1,280 @@
+{
+ "status": "cpu_screen_passed",
+ "rung": 534,
+ "exact_algebra": {
+  "definition": "native_product = shared_source_product + target_specific_residual",
+  "maximum_recomposition_error": 3.625572064791527e-16,
+  "shared_is_gauge_invariant_complete_product": true,
+  "private_is_fixed_by_parent_least_squares_product_scale": true
+ },
+ "parent_registered_outcome": {
+  "pred_a_valid_physical_instrument": true,
+  "pred_b_product_level_positive_control": false,
+  "pred_e_branch_exchangeable_downstream_family": false,
+  "pred_f_donor_background_stability": false
+ },
+ "contexts": {
+  "final_natural/donor_present/half0": {
+   "shared_positive_effect": {
+    "cosine": 0.8191786161043291,
+    "relative_norm": 0.6930378714332186,
+    "relative_error": 0.5872460152130268
+   },
+   "private_positive_marginal": {
+    "cosine": 0.7361109047536655,
+    "relative_norm": 0.5872460152130268,
+    "relative_error": 0.6930378714332186
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.016493033348806585,
+     "shared_minus_absent_ce": -0.007715993947548072,
+     "private_marginal_shared_to_native_ce": -0.008777039401258513
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": 0.009907417264239715,
+     "shared_minus_absent_ce": 0.005732344084108831,
+     "private_marginal_shared_to_native_ce": 0.004175073180130884
+    },
+    "off_target": {
+     "native_minus_absent_ce": 0.0021565642287932896,
+     "shared_minus_absent_ce": 0.0018805839212876485,
+     "private_marginal_shared_to_native_ce": 0.00027598030750564106
+    }
+   },
+   "positive_documents": 65
+  },
+  "final_natural/donor_present/half1": {
+   "shared_positive_effect": {
+    "cosine": 0.963301469743125,
+    "relative_norm": 0.8916034863835565,
+    "relative_error": 0.27783246608084533
+   },
+   "private_positive_marginal": {
+    "cosine": 0.5079213856078383,
+    "relative_norm": 0.27783246608084533,
+    "relative_error": 0.8916034863835565
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.02371028983452561,
+     "shared_minus_absent_ce": -0.020832004576429086,
+     "private_marginal_shared_to_native_ce": -0.0028782852580965246
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": 0.008679071973948016,
+     "shared_minus_absent_ce": 0.008579212552779936,
+     "private_marginal_shared_to_native_ce": 9.985942116808033e-05
+    },
+    "off_target": {
+     "native_minus_absent_ce": 0.0009374889972240119,
+     "shared_minus_absent_ce": 0.0007346617496666319,
+     "private_marginal_shared_to_native_ce": 0.00020282724755738002
+    }
+   },
+   "positive_documents": 56
+  },
+  "final_natural/donor_absent/half0": {
+   "shared_positive_effect": {
+    "cosine": 0.9553991107299837,
+    "relative_norm": 0.9291390280136755,
+    "relative_error": 0.2964829356988755
+   },
+   "private_positive_marginal": {
+    "cosine": 0.3787786255775358,
+    "relative_norm": 0.2964829356988755,
+    "relative_error": 0.9291390280136755
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.04400519864492003,
+     "shared_minus_absent_ce": -0.037746882356040956,
+     "private_marginal_shared_to_native_ce": -0.006258316288879073
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": 0.009455702344901784,
+     "shared_minus_absent_ce": 0.0068556423665988575,
+     "private_marginal_shared_to_native_ce": 0.0026000599783029266
+    },
+    "off_target": {
+     "native_minus_absent_ce": 0.0005708849126668802,
+     "shared_minus_absent_ce": 0.00033841196884942804,
+     "private_marginal_shared_to_native_ce": 0.0002324729438174522
+    }
+   },
+   "positive_documents": 65
+  },
+  "final_natural/donor_absent/half1": {
+   "shared_positive_effect": {
+    "cosine": 0.9753258740298024,
+    "relative_norm": 0.989495722689749,
+    "relative_error": 0.22122437492068492
+   },
+   "private_positive_marginal": {
+    "cosine": 0.15784526199424967,
+    "relative_norm": 0.22122437492068492,
+    "relative_error": 0.989495722689749
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.09273557573866731,
+     "shared_minus_absent_ce": -0.08880063437421393,
+     "private_marginal_shared_to_native_ce": -0.0039349413644533815
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": -0.0013007629796737419,
+     "shared_minus_absent_ce": -0.00692313059149674,
+     "private_marginal_shared_to_native_ce": 0.005622367611822998
+    },
+    "off_target": {
+     "native_minus_absent_ce": 7.716709819538536e-05,
+     "shared_minus_absent_ce": -0.00022068962876042875,
+     "private_marginal_shared_to_native_ce": 0.0002978567269558141
+    }
+   },
+   "positive_documents": 56
+  },
+  "ood_code/donor_present/half0": {
+   "shared_positive_effect": {
+    "cosine": 0.9811084136948903,
+    "relative_norm": 0.7725437693355723,
+    "relative_error": 0.2844740611265375
+   },
+   "private_positive_marginal": {
+    "cosine": 0.850871278030648,
+    "relative_norm": 0.2844740611265375,
+    "relative_error": 0.7725437693355723
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.11868074199460299,
+     "shared_minus_absent_ce": -0.09977712108034575,
+     "private_marginal_shared_to_native_ce": -0.018903620914257235
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": 0.013867718247333904,
+     "shared_minus_absent_ce": 0.025099788044320448,
+     "private_marginal_shared_to_native_ce": -0.011232069796986544
+    },
+    "off_target": {
+     "native_minus_absent_ce": 0.0002567951093759291,
+     "shared_minus_absent_ce": 0.002209304845805171,
+     "private_marginal_shared_to_native_ce": -0.001952509736429242
+    }
+   },
+   "positive_documents": 93
+  },
+  "ood_code/donor_present/half1": {
+   "shared_positive_effect": {
+    "cosine": 0.9822532759182979,
+    "relative_norm": 0.8421880817448485,
+    "relative_error": 0.23408707902534567
+   },
+   "private_positive_marginal": {
+    "cosine": 0.7380074051334983,
+    "relative_norm": 0.23408707902534567,
+    "relative_error": 0.8421880817448485
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.12937644665973336,
+     "shared_minus_absent_ce": -0.11228164924998141,
+     "private_marginal_shared_to_native_ce": -0.01709479740975195
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": 0.014791232703084134,
+     "shared_minus_absent_ce": 0.023483732055495032,
+     "private_marginal_shared_to_native_ce": -0.008692499352410898
+    },
+    "off_target": {
+     "native_minus_absent_ce": 0.0023095147546801087,
+     "shared_minus_absent_ce": 0.0035892391583471905,
+     "private_marginal_shared_to_native_ce": -0.0012797244036670818
+    }
+   },
+   "positive_documents": 94
+  },
+  "ood_code/donor_absent/half0": {
+   "shared_positive_effect": {
+    "cosine": 0.9897854476890757,
+    "relative_norm": 0.8243017022865282,
+    "relative_error": 0.21842535918567527
+   },
+   "private_positive_marginal": {
+    "cosine": 0.8429340405247983,
+    "relative_norm": 0.21842535918567527,
+    "relative_error": 0.8243017022865282
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.31532406756229037,
+     "shared_minus_absent_ce": -0.2758696291568816,
+     "private_marginal_shared_to_native_ce": -0.03945443840540874
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": -0.06459723645057824,
+     "shared_minus_absent_ce": -0.039674823062124,
+     "private_marginal_shared_to_native_ce": -0.024922413388454245
+    },
+    "off_target": {
+     "native_minus_absent_ce": -0.031178342676041026,
+     "shared_minus_absent_ce": -0.022874559058008614,
+     "private_marginal_shared_to_native_ce": -0.008303783618032412
+    }
+   },
+   "positive_documents": 93
+  },
+  "ood_code/donor_absent/half1": {
+   "shared_positive_effect": {
+    "cosine": 0.9914655742772014,
+    "relative_norm": 0.8761187603014297,
+    "relative_error": 0.17407154424988763
+   },
+   "private_positive_marginal": {
+    "cosine": 0.7546231105650579,
+    "relative_norm": 0.17407154424988763,
+    "relative_error": 0.8761187603014297
+   },
+   "cells": {
+    "positive": {
+     "native_minus_absent_ce": -0.30824724213875365,
+     "shared_minus_absent_ce": -0.2681606834566539,
+     "private_marginal_shared_to_native_ce": -0.04008655868209976
+    },
+    "matched_negative": {
+     "native_minus_absent_ce": -0.04056820400877115,
+     "shared_minus_absent_ce": -0.01722449310264551,
+     "private_marginal_shared_to_native_ce": -0.023343710906125636
+    },
+    "off_target": {
+     "native_minus_absent_ce": -0.02547829477894137,
+     "shared_minus_absent_ce": -0.01795157905693845,
+     "private_marginal_shared_to_native_ce": -0.007526715722002919
+    }
+   },
+   "positive_documents": 94
+  }
+ },
+ "code_donor_absent_summary": {
+  "shared_positive_cosines": [
+   0.9897854476890757,
+   0.9914655742772014
+  ],
+  "shared_positive_relative_errors": [
+   0.21842535918567527,
+   0.17407154424988763
+  ],
+  "shared_positive_recovery_from_parent": [
+   0.8748765398390823,
+   0.8699532284410341
+  ],
+  "shared_matched_negative_ce_mismatch": [
+   0.024922413388454245,
+   0.023343710906125636
+  ]
+ },
+ "decision": "test_target_product_as_shared_equality_signal_plus_private_context_correction; measure whether the private residual acts autonomously or only in composition",
+ "distinction_from_rung464": "rung464 swapped the 19 later-layer correction writes; rung534 splits the layer8 gauge-invariant score product itself before the target value/output path",
+ "model_loaded": false,
+ "new_scientific_outcomes_opened": false
+}
