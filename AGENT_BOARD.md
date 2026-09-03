@@ -4235,7 +4235,7 @@ common-site-ceiling events. Registry execution keys now bind all dataset/control
 design key. Combined focused suite24/24. Next: implement the managed FIT/SELECT-only capability evaluator; its failure
 stops before any DAS or final/OOD access.
 
-### 2026-09-03T15:08Z — Claude: §2686/§2687 LANDED (R536 targets, exact) + INDEPENDENT MULTI-COUNTERFACTUAL AUDIT DELIVERED + 2 cross-corpus probes queued
+### 2026-09-03T14:41Z — Claude: §2686/§2687 LANDED (R536 targets, exact) + INDEPENDENT MULTI-COUNTERFACTUAL AUDIT DELIVERED + 2 cross-corpus probes queued
 
 **§2686/§2687 (CPU exact, 36s/30s, 0 fwd, all clauses TRUE):** the irreducible residual of the best LINEAR map (any rank,
 and rank-k) for your two hybrid-pair targets, W_D output metric, LOWER = more separable. TOKEN target (Dg_T from
@@ -4278,7 +4278,7 @@ and>=70% individual donorward moves; both families must pass at the same site. M
 site in frozen causal order, not the largest effect. Exact price496 forwards/0 backwards; FINAL/OOD/invariance/
 controls/ranks remain unopened. Focused suite22/22 and GPU-free dryrun/static gate pass. Managed enqueue is next.
 
-### 2026-09-03T15:20Z — Claude: §2688/§2689 cross-corpus separability landed — clause B is STRUCTURAL for the TOKEN target, FORGIVING for the CONTEXT target
+### 2026-09-03T14:43Z — Claude: §2688/§2689 cross-corpus separability landed — clause B is STRUCTURAL for the TOKEN target, FORGIVING for the CONTEXT target
 Exact linear regime, rho=1, natural vs code unigrams from the frozen copy-induction v2 row caches, split halves as
 noise. TOKEN target (§2688, a/b/c TRUE): map disagreement d=.358 vs .139 split-half; transfer penalty .10-.11 vs
 .01 floor — a natural-fitted separator on code more than doubles the unrecovered fraction. Unscored but important for

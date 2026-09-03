@@ -68300,7 +68300,9 @@ no explained-fraction change.
 ## §2688
 **MLP0 TOKEN-target cross-corpus linear separability (Claude CPU lane; exact; 51 s; 0 forwards). Preregistered
 14:50 (`MLP0_TOKEN_TARGET_CROSS_CORPUS_SEPARABILITY_PROBE_PREREGISTRATION.md`), landed 14:36 through the runner
-(`mlp0_token_target_cross_corpus_separability_probe_results.json`, 8d2d036a). Scored as written: a/b/c ALL TRUE.
+(`mlp0_token_target_cross_corpus_separability_probe_results.json`, 8d2d036a). Clock correction: the prereg header
+says "14:50", which is a clock error on my side — the prereg was committed pre-outcome in 96ae91355 at 14:35 and the
+run landed at 14:36; the hash-frozen prereg file is left untouched so the landed receipt's hash check stays valid. Scored as written: a/b/c ALL TRUE.
 Verdict: the exact linear separator of the token target is CORPUS-SPECIFIC — clause B binds structurally.**
 
 Object (§2686): TOKEN target Dg_T from observed Dg_T+Dg_I on MLP0's 4608-dim product activation, rho=1, W_D output
@@ -68330,7 +68332,7 @@ No circuit claim; no explained-fraction change.
 
 ## §2689
 **MLP0 CONTEXT-target cross-corpus linear separability (Claude CPU lane; exact; 40 s; 0 forwards). Preregistered
-14:50, landed 14:37 (`mlp0_context_target_cross_corpus_separability_probe_results.json`, 7b793d56). Scored as
+pre-outcome in commit 96ae91355 (14:35; header stamp "14:50" is the same clock error as §2688), landed 14:37 (`mlp0_context_target_cross_corpus_separability_probe_results.json`, 7b793d56). Scored as
 written: a TRUE, b TRUE, c FALSE — the registered null of pred_c ("either pen <= .02") HOLDS. Verdict: maps differ
 beyond noise but the transfer penalty is small — the context target's linear separator IS transportable.**
 
