@@ -71149,3 +71149,41 @@ blocks 6–7. §2759's "MLP writes rotate the frame more" is about rotation, not
 site's frame (chain) for blocks 0–7, the bus for 8–17. Additively that is ≈ .057 + .032 + .030 ≈ .12 at k = 768 and unknown at
 1024, where the late bus costs .036 in total (§2756). Failures preserved: d (null met), e. Nothing installs into the §312
 frontier (§2125).
+
+## §2762 — THE EARLY RESIDUAL IS BUILT BY MLP0 AT ENORMOUS SCALE, ATTENUATED TWICE (λ₀ = .0127 AT BLOCK 1, .064 AT BLOCK 5), AND EVEN SO THE EMBEDDING TERM NEVER DOMINATES A BLEND: mean squared norm per token (‖x₀‖² = 1152): mlp_0's write 2.51 × 10⁹ (15 000 × attn_0's 1.65 × 10⁵; 5.7 × the next-largest early write, mlp_3's 4.41 × 10⁸; pred_e "≥ 3 ×" TRUE; null ≤ 1.2 not met); at block 1's blend the carried term .0127² × 2.53 × 10⁹ = 4.1 × 10⁵ still exceeds the embedding term 8² × 1152 = 7.4 × 10⁴ — r(1) = .18 (pred_b "≥ 1" FALSE; NULL ≤ .25 MET: block 1 does NOT restart from the embedding; §2759 (2) and §2760's "nearly restarts" wording are corrected below); from block 2 on the embedding term is 10⁻³–10⁻² of the carried term (median r = .0007; pred_c "≤ .25" TRUE; null ≥ 1 not met — the §2759 inference is now measured); MLP writes carry more energy than attention writes in blocks 0–4 (ratios 15 220 / 6.1 / 6.0 / 9.2 / 3.1) but LESS in blocks 5–7 (.11 / .38 / .48); median 3.09 (pred_d "≥ 2" TRUE; null ≤ 1 not met) (Claude, LANE 1 CUDA, 24 s, 320 GPU document-forwards): a, c, d, e TRUE; b FALSE with NULL MET. Preserved. CAVEAT registered in the entry: these are MEANS over tokens and may be carried by a few massive-norm tokens; a per-token-quantile follow-up is queued before any of this is used as a program fact.
+
+Registered 2026-09-03 23:41Z (polynomial_causal/EARLY_RESIDUAL_ENERGY_BUDGET_PROBE_PREREGISTRATION.md); landed 23:43Z. Script
+ops/early_residual_energy_budget_probe.py; results early_residual_energy_budget_probe_results.json (sha fd2f9981…). Frozen: prereg,
+§2759 results, checkpoint, fit_natural.pt. Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699. Energies are
+mean ‖·‖² per token over fit docs 96–191 (24 576 tokens); post(l) = attn_l's input (after the blend), pre(l) = after mlp_l's write.
+
+| block l | λ₀, λ₁ | E‖post(l)‖² | E‖aw_l‖² | E‖mw_l‖² | E‖pre(l)‖² |
+|---|---|---|---|---|---|
+| 0 | 6.09, 6.09 | 1.71e5 | 1.65e5 | 2.51e9 | 2.53e9 |
+| 1 | .0127, 8 | 6.12e5 | 2.90e6 | 1.78e7 | 2.86e7 |
+| 2 | 1.98, 8 | 1.14e8 | 4.18e7 | 2.49e8 | 6.27e8 |
+| 3 | .574, 8 | 2.10e8 | 4.80e7 | 4.41e8 | 1.11e9 |
+| 4 | .463, 8 | 2.40e8 | 1.06e8 | 3.26e8 | 1.13e9 |
+| 5 | .064, 5.06 | 4.90e6 | 6.05e7 | 6.57e6 | 1.23e8 |
+| 6 | .490, 5.88 | 3.00e7 | 7.93e6 | 3.00e6 | 8.90e7 |
+| 7 | .813, 8 | 5.96e7 | 3.67e6 | 1.76e6 | 1.02e8 |
+| 8–14 | λ₀ .88–1.41, λ₁ 8 | 2.0e8 → 1.24e9 | 1.7e6–9.6e6 | 4.6e6–2.4e7 | 2.4e8 → 1.3e9 |
+| 15 / 16 / 17 | 1.19 / 1.19 / 1.02, 8 | 1.84e9 / 2.58e9 / 3.10e9 | 5.0e6 / 9.1e6 / 4.35e7 | 1.32e8 / 9.54e8 / 3.56e9 | 1.82e9 / 2.95e9 / — |
+
+What it says, with the caveat. (1) Block 0's MLP writes at 10⁴ × the embedding's scale (rms ≈ 50 000 per token against 34) and
+block 1 multiplies that by .0127 — throwing away 99.98% of its energy — yet what survives is still 5 × the re-injected embedding.
+CORRECTION to §2759 (2) and §2760: block 1 does not "nearly restart the residual from 8·x₀"; the frame rotation of 133 angles at
+that blend is the embedding term rising from ≈ 0 to ≈ 15% of the input energy, not a restart. This corrects an unregistered
+inference, no scored pred (§2759 b–e, §2760 b–e were scored on their own measurements). (2) From block 2 on the blend adds < 1% of
+the residual's energy: the geometric inertness of §2759 is explained by scale. (3) A second attenuation at block 5 (λ₀ = .064)
+shrinks the residual 240 ×, after which the network re-grows it mainly MULTIPLICATIVELY (λ₀ ≈ 1.2 at blocks 8, 11, 15, 16) while
+the writes of blocks 5–14 are each only ≈ 1–5% of the residual's energy — i.e. small relative perturbations of a carried vector —
+until mlp_15/16/17 write 1.3e8 / 9.5e8 / 3.6e9 (mlp_17 alone exceeds the whole residual it is added to). This is the energetic
+face of the bus (§2756): between block 5 and block 14 the stream is one large carried vector plus small in-frame writes. (4) MLP
+writes dominate the energy only in blocks 0–4; in blocks 5–7 attention writes are 2–9 × larger. §2759's rotation ordering (MLP >
+attention) and this energy ordering agree in blocks 0–4 and disagree in 5–7 — rotation is about out-of-frame energy, not total
+energy (§2761). CAVEAT: every entry is a mean over tokens; the well-known massive-activation regime (a few tokens or position 0
+carrying 10³ × the typical norm) could produce exactly such means. The read frames of §2742–§2761 are of rms-NORMED inputs and are
+immune; the write statistics of §2756/§2761 and this table are not. A per-token-quantile rung (median / p99 / position-0 share)
+is registered next; until it lands, treat the ratios here as mean-energy facts, not typical-token facts. Failure preserved: b
+(null met). Nothing installs into the §312 frontier (§2125).

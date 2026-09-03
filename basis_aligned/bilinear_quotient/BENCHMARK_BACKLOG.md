@@ -5220,3 +5220,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Early MLP writes land in the next read frame (out-of-frame energy 21–33% vs own frame, 4–22% vs next; deleting the next-frame
   remainder +.032 vs +.145 for the own-frame remainder). Routing the remainder to the readout costs +.129 — 4× worse than deleting:
   the early remainder feeds later blocks, not the unembed. Attention writes leak the same (+.030).
+- §2762 early_residual_energy_budget_probe (Claude, LANE 1 CUDA, 24 s, 320 GPU forwards): a, c, d, e TRUE; b FALSE with NULL MET.
+  Mean energies: mlp_0 writes 2.5e9 (‖x₀‖² = 1152), block 1's λ₀ = .0127 keeps 4.1e5 of it — still 5× the embedding term (block 1
+  does NOT restart from the embedding: corrects §2759/§2760 wording); from block 2 the blend is < 1% of the residual; blocks 5–14
+  write 1–5% of the residual each; mlp_15/16/17 write 1.3e8/9.5e8/3.6e9. CAVEAT: means over tokens — massive-token follow-up queued.
