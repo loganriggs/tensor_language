@@ -1258,6 +1258,275 @@
    ],
    "translation_ids": [],
    "next_missing": "run R577 to distinguish complete relation state and first/middle score/cached/own-value factors; R576 showed strong +1 dependence on the final cached-value term but failed selective reuse because number-word copy logits changed too broadly"
+  },
+  {
+   "claim_id": "numeric_sequence_continuation.v6",
+   "revision": 6,
+   "status": "specified",
+   "supersedes": "numeric_sequence_continuation.v5",
+   "causal_variable": {
+    "id": "numeric_sequence_state_and_rule",
+    "domain": "comma-separated digit or number-word sequences",
+    "read": "observed numeric values and their relation",
+    "operation": "predict the next value under +1 or copy",
+    "write": "evidence for the next digit or number-word token",
+    "endpoint": "representation-matched numeric-candidate logit margin"
+   },
+   "alternative_explanations": [
+    "last-value successor without reading the relation",
+    "format-specific memorization",
+    "generic numeric-token prior"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "sequence_digit_state_shift",
+     "role": "interchange",
+     "changes": [
+      "digit sequence state and next value"
+     ],
+     "holds_fixed": [
+      "digit representation",
+      "+1 relation",
+      "prompt form"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "word transfer",
+      "copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_state_shift",
+     "role": "interchange",
+     "changes": [
+      "number-word sequence state and next value"
+     ],
+     "holds_fixed": [
+      "word representation",
+      "+1 relation",
+      "prompt form"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "digit transfer",
+      "copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_cross_format_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state",
+      "digit versus word representation",
+      "next token"
+     ],
+     "holds_fixed": [
+      "+1 relation",
+      "semantic group",
+      "content word"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "within-format shifts",
+      "surface edits",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_digit_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "digit values",
+      "+1 relation",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shift",
+      "middle break",
+      "word surface"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_surface_preserved",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "number-word values",
+      "+1 relation",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "state shift",
+      "middle break",
+      "digit surface"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_middle_value_break",
+     "role": "necessity",
+     "changes": [
+      "middle value and evidence for the +1 relation"
+     ],
+     "holds_fixed": [
+      "first value",
+      "final value",
+      "registered answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "surface edit",
+      "copy",
+      "last-value successor alternative"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_digit_copy_control",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "repeated digit",
+      "copy rule",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "word copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_word_copy_control",
+     "role": "invariance",
+     "changes": [
+      "content word and prompt wording"
+     ],
+     "holds_fixed": [
+      "repeated number word",
+      "copy rule",
+      "answer"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "digit copy",
+      "+2 conflict"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "sequence_step_two_conflict",
+     "role": "invariance",
+     "changes": [
+      "surface wording only"
+     ],
+     "holds_fixed": [
+      "step-two values",
+      "arithmetic and last-successor candidates",
+      "digit representation"
+     ],
+     "builder_artifact_id": "r567_builder",
+     "control_ids": [
+      "+1 rows",
+      "copy rows",
+      "native full-vocabulary baseline"
+     ],
+     "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "cross_format_state_interface",
+     "tensor_path": "unlocalized digit/word state interface",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature"
+     ],
+     "intervention": "complete-state interchange before fitting any subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "successor_output_terms",
+     "tensor_path": "downstream MLP product/write terms",
+     "shape": [
+      "batch",
+      "position",
+      "residual width"
+     ],
+     "intervention": "test downstream-equivalent exact product terms across digit and word inputs",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "final_label_l0_value_through_l8h3_h7",
+     "tensor_path": "sum_h p8[h,q,k] WO8[h] (lambda8 WV0[h] z0[k]) for h in {3,7}",
+     "shape": [
+      "batch",
+      "final query",
+      "residual width 1152"
+     ],
+     "intervention": "replace or subtract the exact weight-computed final-source term",
+     "ceiling_event_ids": [
+      "numeric_sequence_cached_value_reuse.r576.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "numeric_final_query_site_and_factor_ladder_r577",
+     "tensor_path": "final-query L8H7/H3 or all-head output; post-attention/MLP residual boundaries through MLP14; exact L8H7/H3 score, cached-value, own-value, and joint semantic-source terms",
+     "shape": [
+      "batch",
+      "final query",
+      "site-specific 1152 residual or head-factor tensor"
+     ],
+     "intervention": "semantic base/donor interchange at the complete final-query boundary or exact first/middle/final attention source terms",
+     "ceiling_event_ids": [
+      "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+      "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+      "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "numeric_sequence_continuation_split_r567_v1"
+   ],
+   "evidence_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1",
+    "numeric_sequence_cached_value_reuse.r576.preregistered.v1",
+    "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+    "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
+    "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+    "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "R577 proves that complete final-query head/state swaps are broad rather than selective: split the transported numeric carrier by source/action or downstream bilinear use, with active surface/copy controls; do not repeat larger residual swaps or open R577's factor stage"
   }
  ],
  "split_plans": [
@@ -1640,6 +1909,141 @@
    "design_key": "ef7cae5cf8cfee0dd16d3f48799e81b0306f5ba2bfc8d460c92add0b543ca21f",
    "execution_key": "d976e32a380ca7b40c090ad2673b52d5b365a72c200392c8288186ef5ba1a6b3",
    "notes": "All six FIT digit/word/cross-format +1 necessity cells passed, but number-word copy full-vocabulary RMS exceeded the frozen selectivity bound; SELECT stayed closed."
+  },
+  {
+   "event_id": "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+   "claim_id": "numeric_sequence_continuation.v6",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_cross_format_shift",
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved",
+    "sequence_middle_value_break",
+    "sequence_digit_copy_control",
+    "sequence_word_copy_control",
+    "sequence_step_two_conflict"
+   ],
+   "site_id": "numeric_final_query_site_and_factor_ladder_r577",
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+   "evaluation_role": "FIT_selection_then_conditional_SELECT_complete_state_and_exact_semantic_factor_localization",
+   "metrics": [
+    {
+     "name": "exact_replay_and_attention_factor_algebra",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "native replay, source sum, and cached/own split errors <=1e-10"
+    },
+    {
+     "name": "complete_state_sites_eligible",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "at least one site passes every FIT target, relation, and active-control gate"
+    },
+    {
+     "name": "a8_h73_target_and_relation_cells",
+     "estimate": 8,
+     "ci95": null,
+     "bar": "8/8 target/relation direction cells pass; reported but cannot rescue 7/10 controls"
+    },
+    {
+     "name": "execution_envelope",
+     "estimate": 205,
+     "ci95": null,
+     "bar": "<=652 forwards, zero backwards, FIT only, FINAL_TEST/OOD closed"
+    }
+   ],
+   "prereg_artifact_id": "r577_factor_preregistration",
+   "result_artifact_id": "r577_factor_result",
+   "input_artifact_ids": [
+    "r567_rows",
+    "r567_receipt",
+    "r569_r570_result",
+    "r571_audit",
+    "r575_numeric_positions",
+    "r577_semantic_positions",
+    "r577_semantic_positions_builder",
+    "r577_semantic_positions_test",
+    "r577_factor_implementation",
+    "r577_factor_test",
+    "r577_factor_result",
+    "r577_factor_runlog"
+   ],
+   "seed": 577,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMERIC_SEQUENCE_COMPLETE_STATE_FACTOR_LOCALIZATION_RUNG577_PREREGISTRATION.md"
+   ],
+   "notes": "Exact replay/algebra held, but none of seven complete final-query sites passed target, relation, and active-control gates together. SELECT and the finer factor stage stayed closed; 205 forwards, zero backwards.",
+   "design_key": "50e458fabc170c0aacf745e35b83e3bf232fc581a673257de7b57c8c10179950",
+   "execution_key": "6b431f2b85a7f5e995d730017ff8133ec5dcc8a1c18a04b722f963d582dacabb"
+  },
+  {
+   "event_id": "numeric_sequence_factor_localization_audit.r583.complete.held.v1",
+   "claim_id": "numeric_sequence_continuation.v6",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_cross_format_shift",
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved",
+    "sequence_middle_value_break",
+    "sequence_digit_copy_control",
+    "sequence_word_copy_control",
+    "sequence_step_two_conflict"
+   ],
+   "site_id": "numeric_final_query_site_and_factor_ladder_r577",
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1",
+   "evaluation_role": "independent_model_free_raw_row_bootstrap_liveness_and_terminal_null_audit",
+   "metrics": [
+    {
+     "name": "seeded_bootstrap_cells_recomputed",
+     "estimate": 56,
+     "ci95": null,
+     "bar": "all 56 saved 2,000-draw bootstrap cells match"
+    },
+    {
+     "name": "active_control_interventions",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "every saved control intervention is strictly nonzero and each median liveness gate passes"
+    },
+    {
+     "name": "terminal_decision_recomputed",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "complete_state_site_null, no eligible site, SELECT/factor stage closed, 205 forwards"
+    }
+   ],
+   "prereg_artifact_id": "r583_audit_preregistration",
+   "result_artifact_id": "r583_audit_result",
+   "input_artifact_ids": [
+    "r577_factor_result",
+    "r577_factor_runlog",
+    "r583_audit_implementation",
+    "r583_audit_test",
+    "r583_audit_dryrun"
+   ],
+   "seed": 583,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/NUMERIC_SEQUENCE_FACTOR_LOCALIZATION_AUDIT_RUNG583_PREREGISTRATION.md"
+   ],
+   "notes": "Audit held with zero model calls. No contemporaneous R577 result receipt exists; the audit instead binds exact result bytes, runlog, append-only completion record, checkpoint, and code authorities.",
+   "design_key": "7cdf666dad7b7e7cc4db785113fd841139a0579c4f00700505417566c52a39ac",
+   "execution_key": "c02194302cfbdd58b0738908ee93a36a9e6e4aef8909f3b71b75122bf56aceb3"
   }
  ],
  "translations": [],
@@ -1815,6 +2219,48 @@
   "r579_audit": {
    "path": "basis_aligned/bilinear_quotient/numbered_list_cached_value_weight_removal_rung579_audit.json",
    "sha256": "03c03cf9fafe343584f323440d3eab4ab686a70fce44bc36d0fb2ccec945bf2d",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r577_factor_result": {
+   "path": "basis_aligned/bilinear_quotient/numeric_sequence_complete_state_factor_localization_rung577_results.json",
+   "sha256": "c2f6b9fc87175caff0d58e2a8692c8fc071b6c808491aa90a12694493c1fd4d8",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r577_factor_runlog": {
+   "path": "basis_aligned/bilinear_quotient/runlogs/numeric_sequence_complete_state_factor_localization_rung577.log",
+   "sha256": "e40a71ec808e213c096ae38e03a578a9f8353dea7fdde03bcd2b5563962533fe",
+   "kind": "runlog",
+   "status": "frozen"
+  },
+  "r583_audit_preregistration": {
+   "path": "basis_aligned/polynomial_causal/NUMERIC_SEQUENCE_FACTOR_LOCALIZATION_AUDIT_RUNG583_PREREGISTRATION.md",
+   "sha256": "6267e209878122a8ed770cdcb295aaa48d5aa1c2817d41f3e186da086c127210",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r583_audit_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/audit_numeric_sequence_factor_localization_rung583.py",
+   "sha256": "74239f93a01fc2807e4dbff470e7e2853ea4afa22ddae0d61d705b8c5d1cf611",
+   "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "r583_audit_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_audit_numeric_sequence_factor_localization_rung583.py",
+   "sha256": "601eae0d62595b140df41b90540607927c40deebaba8e03ab624a1677ae75bd4",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r583_audit_dryrun": {
+   "path": "basis_aligned/bilinear_quotient/numeric_sequence_factor_localization_audit_rung583_dryrun.json",
+   "sha256": "9a19a52d76469ea4d95cb39b11c63ef9e0e48dd7b20bb074717fdb51f5001fae",
+   "kind": "dryrun_receipt",
+   "status": "frozen"
+  },
+  "r583_audit_result": {
+   "path": "basis_aligned/bilinear_quotient/numeric_sequence_factor_localization_audit_rung583.json",
+   "sha256": "3682ba0cc65363268246569f6e4fea8a4cff9051c74bdbc0cbde2c524ef9c4fd",
    "kind": "audit",
    "status": "frozen"
   }

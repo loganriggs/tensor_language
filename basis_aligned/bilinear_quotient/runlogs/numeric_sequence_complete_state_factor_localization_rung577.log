@@ -1,0 +1,43 @@
+{
+  "pred_a_exact_replay_and_semantic_factor_algebra": true,
+  "pred_b_complete_state_site_holds_fit_and_select": false,
+  "pred_c_a8_h73_shared_sequence_carrier": false,
+  "pred_d_semantic_factor_holds_fit_and_select": false,
+  "site_choice": {
+    "fixed_order": [
+      "a8_h73_complete",
+      "a8_all_heads_complete",
+      "post_attention8_state",
+      "post_mlp8_state",
+      "post_mlp10_state",
+      "post_mlp12_state",
+      "post_mlp14_state"
+    ],
+    "eligible_arms": [],
+    "selected_arm": null
+  },
+  "factor_choice": null,
+  "execution_price": {
+    "declared": {
+      "FIT": {
+        "rows": 288,
+        "unique_endpoint_capture_chunks": 15,
+        "oriented_intervention_chunks": 27
+      },
+      "SELECT": {
+        "rows": 144,
+        "unique_endpoint_capture_chunks": 11,
+        "oriented_intervention_chunks": 15
+      },
+      "maximum_forwards_if_all_conditionals_open": 652
+    },
+    "observed_forwards": 205,
+    "model_backwards": 0,
+    "fitted_vectors": 0,
+    "weights_updated": false
+  },
+  "evaluated_splits": [
+    "FIT"
+  ],
+  "decision": "complete_state_site_null"
+}

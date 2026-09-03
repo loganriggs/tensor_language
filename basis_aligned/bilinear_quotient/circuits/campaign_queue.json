@@ -9,9 +9,9 @@
  "summary": {
   "canonical_work_items": 7,
   "legacy_candidates": 70,
-  "open_experiments": 2,
-  "held_events": 25,
-  "blocking_events": 23
+  "open_experiments": 1,
+  "held_events": 26,
+  "blocking_events": 24
  },
  "work_items": [
   {
@@ -70,57 +70,6 @@
    ],
    "work_state": "experiment_open",
    "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
-  },
-  {
-   "tag": "task.numeric_sequence.continuation",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_numeric_sequence_continuation.json",
-   "active_claim_id": "numeric_sequence_continuation.v5",
-   "claim_status": "specified",
-   "causal_variable_id": "numeric_sequence_state_and_rule",
-   "counterfactual_family_count": 9,
-   "counterfactual_family_status_counts": {
-    "frozen": 1,
-    "validated": 8
-   },
-   "split_plan_ids": [
-    "numeric_sequence_continuation_split_r567_v1"
-   ],
-   "active_event_ids": [
-    "numeric_sequence_native_capability.r570.held.v1",
-    "numeric_sequence_capability_audit.r571.held.v1",
-    "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
-    "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
-   ],
-   "open_event_ids": [
-    "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
-   ],
-   "held_event_ids": [
-    "numeric_sequence_native_capability.r570.held.v1",
-    "numeric_sequence_capability_audit.r571.held.v1"
-   ],
-   "blocking_event_ids": [
-    "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
-   ],
-   "coverage": {
-    "capability": "held",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "blocked",
-    "ood": "missing",
-    "selectivity": "held",
-    "composition": "planned",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "run R577 to distinguish complete relation state and first/middle score/cached/own-value factors; R576 showed strong +1 dependence on the final cached-value term but failed selective reuse because number-word copy logits changed too broadly"
   },
   {
    "tag": "task.bracket.pending_opener",
@@ -262,6 +211,59 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "the final-label cached-value term is exact and necessary but not selectively removable: split its downstream-read or source/action contributions using active repeated-list and word-copy controls; do not weaken the frozen collateral thresholds or repeat whole-term deletion"
+  },
+  {
+   "tag": "task.numeric_sequence.continuation",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_numeric_sequence_continuation.json",
+   "active_claim_id": "numeric_sequence_continuation.v6",
+   "claim_status": "specified",
+   "causal_variable_id": "numeric_sequence_state_and_rule",
+   "counterfactual_family_count": 9,
+   "counterfactual_family_status_counts": {
+    "frozen": 1,
+    "validated": 8
+   },
+   "split_plan_ids": [
+    "numeric_sequence_continuation_split_r567_v1"
+   ],
+   "active_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1",
+    "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
+    "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+    "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "numeric_sequence_native_capability.r570.held.v1",
+    "numeric_sequence_capability_audit.r571.held.v1",
+    "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+   ],
+   "blocking_event_ids": [
+    "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
+    "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1"
+   ],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "blocked",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "blocked",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "R577 proves that complete final-query head/state swaps are broad rather than selective: split the transported numeric carrier by source/action or downstream bilinear use, with active surface/copy controls; do not repeat larger residual swaps or open R577's factor stage"
   },
   {
    "tag": "subroutine.induction.equality_score",

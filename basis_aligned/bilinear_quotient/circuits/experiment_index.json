@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 77,
- "design_count": 64,
- "protocol_count": 59,
- "execution_count": 77,
+ "event_count": 79,
+ "design_count": 66,
+ "protocol_count": 61,
+ "execution_count": 79,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -26,22 +26,6 @@
    "supersedes_event_id": "induction_selector_payload_native_capability.r580.preregistered.v1",
    "replicates_event_id": null,
    "prereg_artifact_id": "r580_capability_preregistration_v2",
-   "result_artifact_id": null
-  },
-  {
-   "circuit": "task.numeric_sequence.continuation",
-   "event_id": "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
-   "claim_id": "numeric_sequence_continuation.v4",
-   "test_type": "composition",
-   "stage": "preregistered",
-   "verdict": "inconclusive",
-   "failure_kind": null,
-   "design_key": "ad52860c409c15b613c9df6e1389cba527a8095a6e9dc3b0c27e7ccbfb348466",
-   "protocol_key": "c715a4fc3867e8b86843766e0549e8ac81b9e96d7d4b15391b2488fe9341ce31",
-   "execution_key": "fc89ef59cae2b6e8f63b9d8747bbb8f8d0355dd85c8730e1ae5d67050af5cfac",
-   "supersedes_event_id": null,
-   "replicates_event_id": null,
-   "prereg_artifact_id": "r577_factor_preregistration",
    "result_artifact_id": null
   }
  ],
@@ -1247,6 +1231,38 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r576_prereg",
    "result_artifact_id": "r576_result"
+  },
+  {
+   "circuit": "task.numeric_sequence.continuation",
+   "event_id": "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+   "claim_id": "numeric_sequence_continuation.v6",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "design_key": "50e458fabc170c0aacf745e35b83e3bf232fc581a673257de7b57c8c10179950",
+   "protocol_key": "2e83da305192afa6a5ffdb8791a4b0329b8a899d5bb6d7f63384433b8edd77c7",
+   "execution_key": "6b431f2b85a7f5e995d730017ff8133ec5dcc8a1c18a04b722f963d582dacabb",
+   "supersedes_event_id": "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r577_factor_preregistration",
+   "result_artifact_id": "r577_factor_result"
+  },
+  {
+   "circuit": "task.numeric_sequence.continuation",
+   "event_id": "numeric_sequence_factor_localization_audit.r583.complete.held.v1",
+   "claim_id": "numeric_sequence_continuation.v6",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "7cdf666dad7b7e7cc4db785113fd841139a0579c4f00700505417566c52a39ac",
+   "protocol_key": "757247446ce8116fca4bc5691f25dabcba0e2fdcba072218e07b4d55f03b8955",
+   "execution_key": "c02194302cfbdd58b0738908ee93a36a9e6e4aef8909f3b71b75122bf56aceb3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r583_audit_preregistration",
+   "result_artifact_id": "r583_audit_result"
   },
   {
    "circuit": "task.successor.pointer",

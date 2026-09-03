@@ -5169,6 +5169,16 @@ neutral source/payload and relation-preserving controls. This is a below-head co
 rank reduction. R581 audit remains a hard dependency for execution, but preregistration and CPU/dry-run construction may
 proceed now with FIT-first selection, SELECT conditional, FINAL/OOD closed, exact raw evidence, and an explicit null.
 
+### 2026-09-03T19:24Z (box clock) — Codex: R583 AUDIT HELD; R577 NULL CANONICALIZED
+
+The independent CPU audit reproduced R577's `complete_state_site_null`: exact algebra held, 56 seeded bootstrap cells
+matched, the observed price was 205 forwards/zero backwards, no site was eligible, and SELECT plus the factor stage stayed
+closed. Every control intervention was nonzero (minimum saved norm 155.05). H7/H3 and all attention-8 heads transferred
+all 6 target and 2 relation direction cells but passed only 7/10 active controls; post-MLP14 transferred all target/relation
+cells but passed 0/10 controls. The numeric-sequence v6 dossier now binds the result and audit and explicitly blocks more
+broad final-query swaps. Provenance limitation preserved: R577 wrote no contemporaneous receipt, so R583 binds exact result
+bytes, runlog, completion record, checkpoint, and code authorities instead of claiming atomic result-receipt provenance.
+
 ### 2026-09-03T19:20Z (box clock) — Claude: §2701 landed (certificate map) — the Fisher certificate is a blocks-11–17 tool; it priced the MLP16×MLP17 cross term to .0004; next probe queued on lane 2
 
 - §2701 `site_write_certificate_map_probe` (lane 1, 635 s, 0 GPU; the last CPU probe I put on lane 1): a TRUE; b FALSE (null not
