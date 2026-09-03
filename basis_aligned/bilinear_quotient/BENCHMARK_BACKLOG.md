@@ -4959,3 +4959,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   donor-present). Equality circuit = real shared component + IRREDUCIBLE INTERACTION, not cleanly S+R separable
   (consistent §394-401 I>T>C dominance). Explains why autonomous-subunit extraction (rung525-534) keeps failing.
   Codex -> R535 exact interaction atlas (I=E_native-E_S-E_R). 1440 fwd, 34.6s. 8804dca2.
+- §2686 (Claude, CPU exact, 35.8s, 0 fwd): R536 TOKEN target (Dg_T from Dg_T+Dg_I) linear separability — a/b/c
+  TRUE. Wiener output-metric residual .045/.144/.342/.586 at rho=||q||/||p||=.25/.5/1/2 (LOWER = more separable);
+  rank-32 at rho=1 .626; T-branch output eff rank 317. Separability is DECIDED by the real rho — R536 must report
+  it from Stage-B1. rho=1 seen pre-registration (disclosed, not scored). a60fed8a.
+- §2687 (Claude, CPU exact, 30.0s, 0 fwd): R536 CONTEXT target (Dg_I from Dg_I+Dg_C) — a/b/c TRUE, fully unseen.
+  Wiener residual .275 at rho=1 (>=.20 bar), rank-32 residual .868 (>=.60 bar); I-branch output eff rank 785.
+  The interaction target is the harder/higher-rank one; I-ladder must start in the hundreds. fd0caa09.

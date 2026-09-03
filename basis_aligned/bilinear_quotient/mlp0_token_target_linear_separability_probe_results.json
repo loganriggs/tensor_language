@@ -1,0 +1,115 @@
+{
+ "status": "complete",
+ "rung": "mlp0_token_target_linear_separability_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "exact_weight_space_linear_lower_bound_under_stated_isotropic_context_model_no_circuit_claim",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_TOKEN_TARGET_LINEAR_SEPARABILITY_PROBE_PREREGISTRATION.md": "2110805ffe8245a7dbaa58ac2d97a2ac81a494cadf1664bb64c13a2140d173b9",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_hybrid_separability_lib.py": "0168d99083c003846b4f14e62dec645e3c801c725201a2bd0c681b0147ae28c8"
+ },
+ "target": "token: observed Dg_T+Dg_I -> target Dg_T (R536 hybrid addendum)",
+ "input_model": "p=unit-rms wte rows uniform over 50257; q zero-mean isotropic E[qq^T]=rho^2 I",
+ "per_rho": {
+  "0.25": {
+   "residual_fraction_product_metric": 0.06803305412306059,
+   "residual_fraction_output_metric": 0.04510647034751126,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.832884539800701,
+    "8": 0.7296565883464311,
+    "32": 0.5701524893762414,
+    "128": 0.4060099062497383,
+    "512": 0.16619959110336407,
+    "1152": 0.04510647034751126,
+    "4608": 0.04510647034751126
+   },
+   "target_energy_output_metric": 826644117.6151721,
+   "nuisance_energy_output_metric": 41028007.41939049
+  },
+  "0.5": {
+   "residual_fraction_product_metric": 0.21139073794066007,
+   "residual_fraction_output_metric": 0.1442485791636167,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.8360400575584199,
+    "8": 0.736651571779254,
+    "32": 0.5852645317679318,
+    "128": 0.4383115125564826,
+    "512": 0.23919167763772273,
+    "1152": 0.1442485791636167,
+    "4608": 0.1442485791636167
+   },
+   "target_energy_output_metric": 826644117.6151721,
+   "nuisance_energy_output_metric": 164112029.67756197
+  },
+  "1.0": {
+   "residual_fraction_product_metric": 0.4691736870815,
+   "residual_fraction_output_metric": 0.3422646631237812,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.8447452366277963,
+    "8": 0.7557558839304737,
+    "32": 0.625694739811759,
+    "128": 0.5172459012088639,
+    "512": 0.39439995614665785,
+    "1152": 0.3422646631237812,
+    "4608": 0.3422646631237812
+   },
+   "target_energy_output_metric": 826644117.6151721,
+   "nuisance_energy_output_metric": 656448118.7102479
+  },
+  "2.0": {
+   "residual_fraction_product_metric": 0.7240130849545658,
+   "residual_fraction_output_metric": 0.5858145109609386,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.8671439438163864,
+    "8": 0.8006196979903258,
+    "32": 0.7114678429710628,
+    "128": 0.6550906564018053,
+    "512": 0.6047530597986849,
+    "1152": 0.5858145109609386,
+    "4608": 0.5858145109609386
+   },
+   "target_energy_output_metric": 826644117.6151721,
+   "nuisance_energy_output_metric": 2625792474.8409915
+  }
+ },
+ "pure_target_rank_ladder_rho0": {
+  "3": 0.8315627743515944,
+  "8": 0.7267803941002648,
+  "32": 0.5639723290874645,
+  "128": 0.39241158299048706,
+  "512": 0.13387859731586493,
+  "1152": -2.220446049250313e-16,
+  "4608": -2.220446049250313e-16
+ },
+ "pure_target_output_effective_rank": 317.2815913518074,
+ "mc_check_rho1": {
+  "mc_E_sq_target": 70368684.33228281,
+  "mc_E_sq_nuisance": 84869960.56577368,
+  "mc_cross_normalized": 0.001257338722745589,
+  "closed_form_2trS_T": 70048744.90981236,
+  "closed_form_2trS_I": 84938097.44568433,
+  "rel_dev_target": 0.004567382654498298,
+  "rel_dev_nuisance": 0.0008021945623896132
+ },
+ "S_T_eig_min_max": [
+  820.0981496241574,
+  882890.4134460695
+ ],
+ "disclosure": "rho=1 numbers were observed during library smoke-testing before registration; reported not scored",
+ "bars": {
+  "rho2_residual_min": 0.5,
+  "rho025_residual_max": 0.15,
+  "mc_rel_tol": 0.05
+ },
+ "pred_a_instrument_closed_form_matches_monte_carlo": true,
+ "pred_b_residual_monotone_and_large_at_rho2": true,
+ "pred_c_near_separable_at_small_context": true,
+ "strong_null": false,
+ "verdict": "token_target_separability_is_a_strong_function_of_context_scale",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 35.82748079299927
+}

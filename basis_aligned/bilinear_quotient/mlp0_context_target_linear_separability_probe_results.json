@@ -1,0 +1,114 @@
+{
+ "status": "complete",
+ "rung": "mlp0_context_target_linear_separability_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "exact_weight_space_linear_lower_bound_under_stated_isotropic_gaussian_context_model_no_circuit_claim",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_CONTEXT_TARGET_LINEAR_SEPARABILITY_PROBE_PREREGISTRATION.md": "ac3ceb2f3470c1b0cdda3bfe8086ab2f21a405ec9f0b7ff114dc5f39dc634846",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_hybrid_separability_lib.py": "0168d99083c003846b4f14e62dec645e3c801c725201a2bd0c681b0147ae28c8"
+ },
+ "target": "context: observed Dg_I+Dg_C -> target Dg_I (R536 hybrid addendum)",
+ "input_model": "p_b=unit-rms wte rows uniform (uncentered 2nd moment); q_b,q_d iid Gaussian E[qq^T]=rho^2 I",
+ "per_rho": {
+  "0.25": {
+   "residual_fraction_product_metric": 0.024990439008209873,
+   "residual_fraction_output_metric": 0.02369683859500295,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.9345719951073054,
+    "8": 0.9074587323904736,
+    "32": 0.8402778533021074,
+    "128": 0.6747739247220913,
+    "512": 0.28426233152985725,
+    "1152": 0.02369683859500295,
+    "4608": 0.02369683859500295
+   },
+   "target_energy_output_metric": 42383442.56369689,
+   "nuisance_energy_output_metric": 1030842.0369584702
+  },
+  "0.5": {
+   "residual_fraction_product_metric": 0.09269491114960662,
+   "residual_fraction_output_metric": 0.08802865847822,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.9361857297824591,
+    "8": 0.9103125966631447,
+    "32": 0.8471306512237677,
+    "128": 0.6927775476001681,
+    "512": 0.3297164564249325,
+    "1152": 0.08802865847822,
+    "4608": 0.08802865847822
+   },
+   "target_energy_output_metric": 169533770.25478756,
+   "nuisance_energy_output_metric": 16493472.591335524
+  },
+  "1.0": {
+   "residual_fraction_product_metric": 0.28779113474456214,
+   "residual_fraction_output_metric": 0.2746853135956135,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.9415847641927728,
+    "8": 0.9195065138333055,
+    "32": 0.8681478859969779,
+    "128": 0.7461605359637429,
+    "512": 0.4622644864834629,
+    "1152": 0.2746853135956135,
+    "4608": 0.2746853135956135
+   },
+   "target_energy_output_metric": 678135081.0191503,
+   "nuisance_energy_output_metric": 263895561.46136838
+  },
+  "2.0": {
+   "residual_fraction_product_metric": 0.611866126541935,
+   "residual_fraction_output_metric": 0.5911509669163464,
+   "residual_fraction_output_metric_rank_ladder": {
+    "3": 0.9549963327559471,
+    "8": 0.9404573730953342,
+    "32": 0.9102368645864104,
+    "128": 0.8430520462601757,
+    "512": 0.6904511817110106,
+    "1152": 0.5911509669163464,
+    "4608": 0.5911509669163464
+   },
+   "target_energy_output_metric": 2712540324.076601,
+   "nuisance_energy_output_metric": 4222328983.381894
+  }
+ },
+ "pure_target_rank_ladder_rho0": {
+  "3": 0.9340029568289151,
+  "8": 0.9064398454035851,
+  "32": 0.8377938103660332,
+  "128": 0.6681830675320429,
+  "512": 0.26754335874007895,
+  "1152": -1.1102230246251565e-15,
+  "4608": -1.1102230246251565e-15
+ },
+ "pure_target_output_effective_rank": 784.7828355948578,
+ "mc_check_rho1": {
+  "mc_E_sq_target": 86695085.68062042,
+  "mc_E_sq_nuisance": 35593815.25018887,
+  "mc_cross_normalized": -0.00035506269641348277,
+  "closed_form_trCovDgI": 86883227.00538465,
+  "closed_form_trCovDgC": 35675012.32192084,
+  "rel_dev_target": 0.002165450470118624,
+  "rel_dev_nuisance": 0.0022760208461674036
+ },
+ "S_I_eig_min_max": [
+  1768.0680265345582,
+  304800.92343511357
+ ],
+ "bars": {
+  "rho1_residual_min": 0.2,
+  "rho1_rank32_residual_min": 0.6,
+  "mc_rel_tol": 0.05
+ },
+ "pred_a_instrument_closed_form_matches_monte_carlo": true,
+ "pred_b_no_exact_linear_separator_at_rho1": true,
+ "pred_c_rank32_read_insufficient_at_rho1": true,
+ "strong_null": false,
+ "verdict": "context_target_not_linearly_separable_and_not_low_dim",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 30.04764986038208
+}

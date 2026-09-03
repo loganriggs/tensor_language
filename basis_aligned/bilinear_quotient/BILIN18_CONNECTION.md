@@ -68237,3 +68237,62 @@ but its private/token-specific content lives in the interaction, not as a separa
 attempt to extract an autonomous reusable sub-unit (rung525-534) has failed. No circuit claim, no
 explained-fraction change. R535 (the interaction atlas) is the right next object — characterize the interaction
 that everything reduces to, rather than seek an autonomous part that is not there.
+
+## §2686 — MLP0 TOKEN-TARGET LINEAR SEPARABILITY PROBE (Claude, CPU, EXACT): R536's TOKEN TARGET IS SEPARABLE ONLY WHEN CONTEXT IS SMALL — a/b/c ALL TRUE; rho=1 NUMBERS DISCLOSED-NOT-SCORED
+
+Object: R536's hybrid-pair addendum (13:42) registers the portable MLP0 TOKEN target — observed product-space
+difference Dg_T + Dg_I (donor token, base context), target Dg_T — and the null "there may be no fixed low-dim
+projector that performs this separation". This probe computes the null's structural content exactly from the
+weights: the irreducible residual of the best LINEAR map (Wiener, any rank) and of the best rank-k map (reduced-
+rank regression) in the W_D output metric, under a stated input model (unit-rms token rows uniform over 50257;
+context q zero-mean isotropic E[qq^T]=rho^2 I, independent; Dg_T and Dg_I are then exactly uncorrelated). Lower
+residual = more separable (1 = nothing recovered; 0 = exact). A LOWER bound on R536's orthogonal-projector DAS in
+product/output space. ops/mlp0_token_target_linear_separability_probe.py, 35.8 s, 0 forwards. Result a60fed8a.
+Prereg MLP0_TOKEN_TARGET_LINEAR_SEPARABILITY_PROBE_PREREGISTRATION.md.
+
+PROCESS DISCLOSURE (recorded as registered): the rho=1 case was SEEN once during library smoke-testing (14:05)
+before registration; those numbers are reported, not scored; the scored clauses concern only the unseen rho-scan
+shape. My drafted-unregistered rank-32 bar (>=.75) would have FAILED (.626) — preserved here.
+
+pred_a TRUE (instrument): MC (4000 pairs, seed 1) matches closed form to 0.46%/0.08% (target/nuisance trace),
+normalized cross .0013 (<=.05), S_T PSD. pred_b TRUE: output-metric Wiener residual strictly increasing in rho —
+.045 / .144 / .342 / .586 at rho = .25/.5/1/2 (bar: monotone and rho=2 >= .50). pred_c TRUE: rho=.25 residual
+.045 <= .15. Rank ladder at rho=1 (k=3/8/32/128/512): .845/.756/.626/.517/.394 vs the pure-target floor
+.832/.727/.564/.392/.134 (T-branch output effective rank 317). Target/nuisance output energy ratio 20 / 5.0 /
+1.26 / 0.31 across the rho scan.
+
+Reading: the token-only change is NOT linearly separable from the token-by-context change it drags along —
+at equal token/context norms (rho=1) no linear map of any rank recovers the last 34% of the T target, and the
+DAS-relevant low ranks recover little (rank 3: 15%; rank 32: 37%). But the whole curve is a steep function of
+context scale: at rho=.25 a full-rank linear map is 95% faithful. So R536's "no fixed projector" null is neither
+forced nor excluded structurally — it is DECIDED BY THE REAL RATIO ||q||/||p|| in MLP0's normalized input, which
+is not known on CPU and which Stage-B1 can read for free from its own forward. Two consequences for R536: (i)
+the realistic rho must be reported BEFORE the dimension ladder is interpretable; (ii) even at rho=.25 the
+rank-k ladder is bounded by the T branch's own rank (317 effective; rank 32 leaves 57%) — a rank-3 real-model
+projector cannot carry the token computation, whatever the DAS loss. No circuit claim; no explained-fraction
+change; an exact structural bound on the registered target.
+
+## §2687 — MLP0 CONTEXT-TARGET LINEAR SEPARABILITY PROBE (Claude, CPU, EXACT): THE I-TARGET IS THE HARDER ONE — NOT SEPARABLE AND HIGH-RANK (785) — a/b/c ALL TRUE, FULLY UNSEEN
+
+Object: R536's second portable target — observed Dg_I + Dg_C (donor context, base token), target Dg_I (the
+token-by-context cross term). Same instrument as §2686 with base token uncentered 2nd moment M_p and Gaussian
+isotropic contexts (Isserlis 4th moments for Cov(g_C)); Dg_I (odd in q) is exactly uncorrelated with Dg_C (even).
+None of these numbers had been seen. ops/mlp0_context_target_linear_separability_probe.py, 30.0 s, 0 forwards.
+Result fd0caa09. Prereg MLP0_CONTEXT_TARGET_LINEAR_SEPARABILITY_PROBE_PREREGISTRATION.md.
+
+pred_a TRUE: MC within 0.22%/0.23%, cross -.0004, S_I PSD. pred_b TRUE: rho=1 output-metric Wiener residual
+.275 >= .20 (no linear map of any rank recovers more than 72% of the I target; null <= .10). pred_c TRUE:
+rho=1 rank-32 residual .868 >= .60 (a 32-dim linear read recovers only 13%; null <= .40). Scan: Wiener residual
+.024 / .088 / .275 / .591 at rho = .25/.5/1/2; ladder at rho=1 (k=3/8/32/128/512): .942/.920/.868/.746/.462 vs
+pure-target floor .934/.906/.838/.668/.268; I-branch output effective rank 785 (vs 317 for T, §2686).
+
+Reading: the token-by-context term — the interaction that §2685/§394-401 identify as the irreducible causal core
+— is the HIGHER-RANK of the two R536 targets (785 effective) and the harder to isolate: even in the near-
+separable small-context regime a rank-128 read leaves two-thirds of it, and at rho=1 nothing below rank ~512
+recovers half. This is the exact-weight counterpart of §2673 (token-context operator family rank 438-749): the
+interaction is not a few directions of the product space, it is most of it. For R536: the I-target dimension
+ladder must start in the hundreds, not at 3; a low-k I projector that passes a downstream CE test will have done
+so by CE-forgiveness, not by carrying the interaction — which is exactly the shortcut Logan's multi-counterfactual
+requirement is designed to catch. Recommendation on the board: R536 reports the realistic rho from Stage-B1 and
+adopts the two pure-target ladders as the registered floor its projector ranks are read against. No circuit claim;
+no explained-fraction change.
