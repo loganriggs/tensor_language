@@ -3378,3 +3378,10 @@ pops one entry only after the current process exits. Appending the already froze
 R522, but prevents the GPU from going idle between them. R523 is independent of the terminal JSON, uses only
 FIT/VALIDATION, and cannot open TEST; the terminal auditor will still verify R522 immediately when its create-only
 result appears. This is a scheduling correction only—no experimental code, data, gates, or decision rule changed.
+
+### 2026-09-03T08:57Z — Codex: R523 AUDITED ENTRY IS NOW DEPTH 1 BEHIND LIVE R522
+
+`ops/enqueue.sh` accepted the absolute committed R523 runner after syntax, repository fast tests, experiment gate,
+hash-only dry run, and advisory preflight all passed. Lane 1 depth is exactly one, containing only
+`attention8_projector_optimizer_repair_rung523_run.py`. R522 remains live as PID `1803684` at 100% GPU utilization;
+the serialized runner therefore cannot begin R523 until R522 exits. No direct GPU process was launched.
