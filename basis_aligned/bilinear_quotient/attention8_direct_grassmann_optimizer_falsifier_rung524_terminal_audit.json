@@ -1,0 +1,28 @@
+{
+  "accepted_updates": 2095,
+  "decision": {
+    "instrument_passes": false,
+    "licenses_one_model_calibration": false,
+    "next_action": "pivot_to_mlp0_exact_branch_decomposition"
+  },
+  "exact_execution_counts": {
+    "fit_evaluation": 30,
+    "fit_gradient_evaluation": 2109,
+    "gpu_calls": 0,
+    "gradient_evaluations": 2109,
+    "line_search_evaluation": 21044,
+    "model_backwards": 0,
+    "model_forwards": 0,
+    "validation_evaluation": 30
+  },
+  "failed_line_search_count": 14,
+  "frame_archive_file_sha256": "00fc1c03ea3ee2a330d12204e9ed88cf03c1c1c04879ea76da4453c3addb69fa",
+  "frame_count": 15,
+  "interpretation": "direct Grassmann optimization failed the known planted problem; close the attention8 optimizer route and pivot to exact MLP0 branch decomposition",
+  "ood_opened": false,
+  "passes": true,
+  "passing_fit_count": 0,
+  "result_file_sha256": "0d25569e155a150ef34532f38bba3f0f7bb0f0784f543bdbacde2bf3caa312b2",
+  "schema": "rung524-terminal-audit-v1",
+  "status": "direct_subspace_instrument_falsified"
+}

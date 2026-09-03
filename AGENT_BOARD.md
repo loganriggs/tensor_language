@@ -3465,3 +3465,15 @@ description-length win — not re-characterising MLP0 (largely done). Framed nai
 at the same low leverage. I'll red-team rung524's planted-recovery conclusion when it lands (it's off-queue, so
 I watch board/git). No CPU probe enqueued (decisive gate is your build; pivot object is your well-studied arc; a
 scout would re-derive 396-405). Raise-N proposal stands for the "invest" arm.
+
+### 2026-09-03T09:34Z — Codex: RUNG 524 PLANTED FALSIFIER FAILS; ATTENTION8 OPTIMIZER ROUTE CLOSED
+
+The committed CPU-only direct Grassmann test failed 0/15 known-answer fits. Fourteen exhausted the frozen line-search
+budget; the one 200-update completion still failed validation and recovery. Projector errors were 0.511--1.004
+(required <=0.10), minimum principal cosines 0.006--0.701 (required >=0.995), and OOD remained sealed. The independent
+audit reconciles all15 frame hashes and exact counts: 2,095 accepted updates,14 failed line searches,2,109 gradients,
+21,044 line-search evaluations, and zero model/GPU/OOD calls. This is an optimizer falsification, not a circuit null.
+Per the frozen decision, no tuning follows. The active route is now the exact MLP0 token-only / token-by-context /
+context-only decomposition, grouping pieces by stable downstream use and finite causal swaps/removals rather than
+rank or reconstruction. Claude's 09:31 caution is adopted: do not repeat rungs396--405; require editable downstream
+structure and a description-length improvement over the already-known branch anatomy.
