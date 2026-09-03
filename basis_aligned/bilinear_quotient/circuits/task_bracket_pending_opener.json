@@ -1501,6 +1501,181 @@
    ],
    "translation_ids": [],
    "next_missing": "freeze multi-seed shared-versus-family-specific DAS at resid8, using two-way cross-family transfer and the live R539 controls; do not require coordinate overlap"
+  },
+  {
+   "claim_id": "pending_opener_state.v10",
+   "revision": 10,
+   "status": "site_live",
+   "supersedes": "pending_opener_state.v9",
+   "causal_variable": {
+    "id": "pending_opener_state",
+    "domain": "pending parenthesis or quote state at the final prediction position",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "opener_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "one opener token: parenthesis versus quote",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "all lexical tokens",
+      "opener position",
+      "body text"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "non-opener punctuation substitution",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "closed_then_reopened_type",
+     "role": "interchange",
+     "changes": [
+      "order of completed and newly opened punctuation structures",
+      "correct next closer"
+     ],
+     "holds_fixed": [
+      "token length",
+      "lexical token multiset",
+      "prefix",
+      "final lexical suffix"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "same-order paraphrase",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_state_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "wording",
+      "lexical identities",
+      "opener-to-final distance"
+     ],
+     "holds_fixed": [
+      "pending parenthesis state",
+      "correct closer",
+      "task role"
+     ],
+     "builder_artifact_id": "r537_rows_builder",
+     "control_ids": [
+      "held-out prefixes",
+      "held-out lexical pool",
+      "distance strata"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "later_matching_closer_reset",
+     "role": "necessity",
+     "changes": [
+      "whether the earlier opener remains unclosed"
+     ],
+     "holds_fixed": [
+      "original opener",
+      "scored closer token",
+      "matched suffix"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "nonmatching closer",
+      "punctuation insertion",
+      "distance-matched filler"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "nonopener_punctuation_substitution",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending parenthesis",
+      "correct closer",
+      "token length",
+      "all tokens after the edited punctuation"
+     ],
+     "builder_artifact_id": "r537_controls_builder",
+     "control_ids": [
+      "wrong square closer",
+      "wrong curly closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_joint_split_r537_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": [
+      "pending_opener_common_site_ceiling.r538.complete.v2"
+     ]
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_joint_split_r537_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity"
   }
  ],
  "split_plans": [
@@ -1921,6 +2096,61 @@
    ],
    "design_key": "be70dbfc2a468b9d828647e1b37da8e62cba8b0dfe164b926da13cbf3f261f4d",
    "execution_key": "a1abe82ca28b74cb943b66311b4cb8c746f1f8a2266a74e1234396bda50c7e36"
+  },
+  {
+   "event_id": "pending_opener_cross_family_das.r540.preregistered.v1",
+   "claim_id": "pending_opener_state.v9",
+   "test_type": "cross_family_transfer",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "opener_type_substitution",
+    "closed_then_reopened_type",
+    "pending_state_preserved_surface_edit",
+    "nonopener_punctuation_substitution"
+   ],
+   "site_id": "residual.block8.entry.final_position",
+   "split_plan_id": "pending_opener_joint_split_r537_v1",
+   "evaluation_role": "FIT_optimize_SELECT_choose",
+   "metrics": [
+    {
+     "name": "two_way_cross_family_normalized_recovery",
+     "estimate": null,
+     "ci95": null,
+     "bar": "median>=0.50, bootstrap lower>0, positive fraction>=0.75 in every target cell"
+    },
+    {
+     "name": "answer_preserving_control_leakage",
+     "estimate": null,
+     "ci95": null,
+     "bar": "mean absolute<=0.10 logit and <=0.25 of full-state effect in every control cell"
+    },
+    {
+     "name": "operational_response_equivalence",
+     "estimate": null,
+     "ci95": null,
+     "bar": "response cosine>=0.90 and RMS difference<=0.15 across training sources"
+    }
+   ],
+   "prereg_artifact_id": "r540_das_preregistration",
+   "result_artifact_id": null,
+   "input_artifact_ids": [
+    "r537_rows",
+    "r537_controls",
+    "r538_site_result_v2",
+    "r539_control_result",
+    "r540_das_implementation"
+   ],
+   "seed": 540,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "PENDING_OPENER_CROSS_FAMILY_DAS_RUNG540_PREREGISTRATION.md"
+   ],
+   "design_key": "55e3d3f48e89332318dcdd7e1e9870caf91cdbb66f8430b8911d27b949e021dc",
+   "execution_key": "a8c6e17677856460e8dadf318c91d4f238870aa11ad8424caba41d323ec73b69"
   }
  ],
  "translations": [],
@@ -2079,6 +2309,18 @@
    "path": "basis_aligned/bilinear_quotient/ops/pending_opener_control_ceilings_rung539_terminal_audit.py",
    "sha256": "a39f9e18add6e86b2f748c62f9fee367eb8511f4737d326706539f52256e07a5",
    "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "r540_das_preregistration": {
+   "path": "basis_aligned/polynomial_causal/PENDING_OPENER_CROSS_FAMILY_DAS_RUNG540_PREREGISTRATION.md",
+   "sha256": "c1541e8a9dba7e73daef20c16223b37a0ee845c18551d428bee63a74430a9b2e",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r540_das_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/pending_opener_cross_family_das_rung540.py",
+   "sha256": "b95bcdfd51643e63ca223186babe9b3bc84e72fdfccb8968f97bd2d406f4686c",
+   "kind": "implementation",
    "status": "frozen"
   }
  },

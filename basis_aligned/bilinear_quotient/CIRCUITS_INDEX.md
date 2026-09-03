@@ -5,7 +5,7 @@ Negative/invalid results are counted as evidence, not omitted. Check this view a
 
 | circuit | kind | identity | status | causal variable / legacy story | CF families | active / historical negative events | latest active evidence | exact next missing evidence |
 |---|---|---|---|---|---:|---:|---|---|
-| `task.bracket.pending_opener` | behavior_circuit | task-defined | site_live | pending_opener_state | 5 | 0 / 1 | pending_opener_control_ceilings.r539.complete.v1 | freeze multi-seed shared-versus-family-specific DAS at resid8, using two-way cross-family transfer and the live R539 controls; do not require coordinate overlap |
+| `task.bracket.pending_opener` | behavior_circuit | task-defined | site_live | pending_opener_state | 5 | 0 / 1 | pending_opener_cross_family_das.r540.preregistered.v1 | run the frozen 45-fit multi-seed cross-family DAS on FIT/SELECT; functional response equivalence, not subspace overlap, decides shared identity |
 | `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | 0 / 0 | increment_postattn_rank4_das.legacy.v1 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | 1 / 1 | induction_terminal_collateral_failure.legacy.v1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | 2 / 2 | successor_layer8_input_ceiling.legacy.v1 | expand families and test shared-plus-private projectors against failed cross-family transfer |
