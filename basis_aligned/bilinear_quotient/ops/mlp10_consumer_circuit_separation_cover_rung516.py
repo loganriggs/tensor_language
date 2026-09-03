@@ -42,8 +42,8 @@ OUT = ROOT / "mlp10_consumer_circuit_separation_cover_rung516_results.json"
 
 PREREG_SHA256 = "580cd5c3ca072e34dcf34e19aadb05b754bff89cdfe6968631d1235d8bb47b9b"
 # Filled only after rung515 is terminal; analysis cannot run while either value is pending.
-R515_RESULT_SHA256 = "PENDING_RUNG515_RESULT"
-R515_BUNDLE_SHA256 = "PENDING_RUNG515_BUNDLE"
+R515_RESULT_SHA256 = "0e33c6e39bd329a90dbc5cf178b335801f7b9ba69bad35a39a40d93d58f95599"
+R515_BUNDLE_SHA256 = "294a1489db2c90466b6a90261981805f96be885ef8904213418ebada44b6b6b7"
 
 CONTROL_SEEDS = tuple(range(51600, 51616))
 PLANTED_SEEDS = tuple(range(51680, 51688))
@@ -425,6 +425,7 @@ def main() -> None:
             str(PREREG): sha256(PREREG), str(R515_RESULT): sha256(R515_RESULT),
             str(R515_BUNDLE): sha256(R515_BUNDLE),
         },
+        "source_code_sha256": sha256(Path(__file__)),
         "route": {
             "rung515_pred_a": r515_result[
                 "pred_a_exact_live_identifiable_finite_downstream_instrument"],

@@ -52,10 +52,8 @@ def test_cover_sizes_and_seeds_are_frozen():
     assert R.PLANTED_SEEDS == tuple(range(51680, 51688))
 
 
-def test_pending_hashes_fail_closed():
-    try:
-        R.validate_route()
-    except RuntimeError as error:
-        assert "hashes have not been installed" in str(error)
-    else:
-        raise AssertionError("pending rung515 hashes did not fail closed")
+def test_terminal_zero_pair_route_is_hash_pinned():
+    result, bundle = R.validate_route()
+    assert result["pred_a_exact_live_identifiable_finite_downstream_instrument"] is True
+    assert result["analysis"]["discovery_summary"]["candidate_count"] == 0
+    assert set(bundle["collections"]) == {"discovery"}
