@@ -1,0 +1,24 @@
+{
+  "next_step": "register_validation_and_reverse_directions",
+  "predictions": {
+    "pred_a_exact_live_sign_gauge_instrument": true,
+    "pred_b_L7H3_score_is_L8H4_computation_up_to_sign": true,
+    "pred_c_gauge_extends_to_L8H3": true
+  },
+  "rung": "equality_score_sign_gauge_quotient",
+  "runtime_s": 59.13852143287659,
+  "status": "complete",
+  "strong_null": false,
+  "verdicts": {
+    "L7H3->L8H4": {
+      "holds": true,
+      "negated_edge_both_halves": true,
+      "positive_control_anti_aligned": true
+    },
+    "L8H3->L8H4": {
+      "holds": true,
+      "negated_edge_both_halves": true,
+      "positive_control_anti_aligned": true
+    }
+  }
+}

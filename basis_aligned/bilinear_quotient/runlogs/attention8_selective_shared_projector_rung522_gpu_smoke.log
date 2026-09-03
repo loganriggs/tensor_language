@@ -1,0 +1,37 @@
+{
+  "gradient_batch6": {
+    "all_sequence_edits_live": true,
+    "attention8_dispatch_calls": 1,
+    "attention8_module_calls": 1,
+    "frame_gradient_finite": true,
+    "frame_gradient_nonzero": true,
+    "frame_gradient_norm": 0.18934476375579834,
+    "frame_gradient_present": true,
+    "frame_orthonormality_error": 1.1920928955078125e-07,
+    "minimum_per_sequence_edit_rms": 2.212815046310425,
+    "model_parameters_without_gradients": true,
+    "passed": true,
+    "physical_batch_sequences": 6
+  },
+  "no_grad_batch96": {
+    "all_sequence_edits_live": true,
+    "attention8_dispatch_calls": 1,
+    "attention8_module_calls": 1,
+    "logits_finite": true,
+    "maximum_per_sequence_edit_rms": 4.218547821044922,
+    "minimum_per_sequence_edit_rms": 2.048769474029541,
+    "output_requires_grad": false,
+    "passed": true,
+    "physical_batch_sequences": 96,
+    "physical_shape": [
+      6,
+      8,
+      2,
+      256
+    ]
+  },
+  "output": "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention8_selective_shared_projector_rung522_gpu_smoke.json",
+  "passed": true,
+  "peak_cuda_memory_bytes": 19859952640,
+  "scientific_metrics_retained": false
+}

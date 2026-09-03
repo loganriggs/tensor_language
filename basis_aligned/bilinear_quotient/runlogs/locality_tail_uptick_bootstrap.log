@@ -1,0 +1,52 @@
+{
+  "next_step": "certificate_hull_stands_tail_flat_within_noise",
+  "pred_a_exact_deterministic_bootstrap_instrument": true,
+  "pred_b_tail_uptick_has_definite_sign": false,
+  "pred_c_bootstrap_self_consistent": true,
+  "runtime_s": 9.785869598388672,
+  "status": "complete",
+  "strong_null": true,
+  "uptick_verdict": "within_sampling_noise_tail_is_flat"
+}
+{
+  "T_half0": {
+    "f_d128": 0.21745,
+    "f_d64": 0.21546,
+    "delta_point": 0.00199,
+    "boot_mean": 0.00576,
+    "boot_q025": -0.05096,
+    "boot_median": 0.00338,
+    "boot_q975": 0.07541,
+    "p_positive": 0.5411
+  },
+  "T_half1": {
+    "f_d128": 0.35779,
+    "f_d64": 0.30717,
+    "delta_point": 0.05062,
+    "boot_mean": 0.0488,
+    "boot_q025": -0.078,
+    "boot_median": 0.04394,
+    "boot_q975": 0.19988,
+    "p_positive": 0.7413
+  },
+  "I_half0": {
+    "f_d128": 0.24669,
+    "f_d64": 0.2206,
+    "delta_point": 0.02609,
+    "boot_mean": 0.02538,
+    "boot_q025": -0.04898,
+    "boot_median": 0.02526,
+    "boot_q975": 0.09949,
+    "p_positive": 0.7511
+  },
+  "I_half1": {
+    "f_d128": 0.319,
+    "f_d64": 0.29822,
+    "delta_point": 0.02078,
+    "boot_mean": 0.03267,
+    "boot_q025": -0.04158,
+    "boot_median": 0.02647,
+    "boot_q975": 0.12888,
+    "p_positive": 0.7414
+  }
+}

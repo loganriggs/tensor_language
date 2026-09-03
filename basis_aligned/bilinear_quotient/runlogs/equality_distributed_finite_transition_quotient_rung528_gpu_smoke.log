@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_distributed_finite_transition_quotient_rung528_gpu_smoke.py", line 22, in <module>
+    gpu_smoke()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_distributed_finite_transition_quotient_rung528_run.py", line 305, in gpu_smoke
+    raise FileExistsError(f"refusing to overwrite result: {SMOKE_OUT}")
+FileExistsError: refusing to overwrite result: /workspace/tensor_language/basis_aligned/bilinear_quotient/equality_distributed_finite_transition_quotient_rung528_gpu_smoke_results.json

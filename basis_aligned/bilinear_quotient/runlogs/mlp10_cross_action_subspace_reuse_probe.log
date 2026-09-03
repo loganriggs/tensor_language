@@ -1,0 +1,70 @@
+{
+  "min_cos_v1_pooled": 0.8277731685331315,
+  "per_action_material": [
+    21,
+    20,
+    21,
+    21
+  ],
+  "per_held_out_action": [
+    {
+      "b_pass": false,
+      "c_pass": false,
+      "cap_null_q95": 0.0034683139178282463,
+      "captured_fraction": 0.3866561812331812,
+      "captured_trace": 0.0030408810205423704,
+      "cos_v1_pooled": 0.9532776242998809,
+      "held_out_action": 0,
+      "n_test": 21,
+      "n_train": 62,
+      "t1": -5.334460620577165e-05,
+      "t1_null_q95": 0.0002652520957470804
+    },
+    {
+      "b_pass": false,
+      "c_pass": false,
+      "cap_null_q95": 0.0038651483931043734,
+      "captured_fraction": 0.35775997126340153,
+      "captured_trace": 0.0035231783331996585,
+      "cos_v1_pooled": 0.8423155042744622,
+      "held_out_action": 1,
+      "n_test": 20,
+      "n_train": 63,
+      "t1": 0.0005219579656340082,
+      "t1_null_q95": 0.0006128813967059624
+    },
+    {
+      "b_pass": false,
+      "c_pass": false,
+      "cap_null_q95": 0.0039053305006330062,
+      "captured_fraction": 0.40996001755620715,
+      "captured_trace": 0.0038093717943320283,
+      "cos_v1_pooled": 0.8277731685331315,
+      "held_out_action": 2,
+      "n_test": 21,
+      "n_train": 62,
+      "t1": 0.0008419963187613965,
+      "t1_null_q95": 0.0009059987068732184
+    },
+    {
+      "b_pass": false,
+      "c_pass": false,
+      "cap_null_q95": 0.0033336605288670188,
+      "captured_fraction": 0.355543858350356,
+      "captured_trace": 0.003142929461185107,
+      "cos_v1_pooled": 0.9635673569859722,
+      "held_out_action": 3,
+      "n_test": 21,
+      "n_train": 62,
+      "t1": 0.00035532948818534516,
+      "t1_null_q95": 0.0003591187705511927
+    }
+  ],
+  "pred_a_instrument_reproduces_shared_subspace_and_per_action_counts": true,
+  "pred_b_block6_direction_transfers_to_every_action": false,
+  "pred_c_shared_subspace_explains_majority_of_each_held_out_action": false,
+  "runtime_s": 0.03586411476135254,
+  "status": "complete",
+  "strong_null": true,
+  "verdict": "shared_summary_does_not_transfer_to_every_score_implementation_partial_reuse"
+}

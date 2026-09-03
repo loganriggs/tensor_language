@@ -1,0 +1,51 @@
+{
+  "output": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_token_context_operator_quotient_rung525_results.json",
+  "physical_successor_licensed": false,
+  "predictions": {
+    "A": true,
+    "B": false,
+    "C": true
+  },
+  "score": {
+    "bank_a_to_bank_b_distance_spearman": 0.6732814937301003,
+    "candidate_over_deranged": 0.7289864593489319,
+    "candidate_over_random": 0.5862420400520387,
+    "candidate_over_raw": 1.235346871679548,
+    "donor_count": 40205,
+    "exceptional_vs_far_random_fraction": 0.9646836519241333,
+    "groups": {
+      "distinct_donors": 8244,
+      "largest_group": 10,
+      "receivers_in_repeated_groups": 3252,
+      "repeated_donors": 1444
+    },
+    "half_search_bank_b_medians": [
+      1.2953128814697266,
+      1.2931218147277832
+    ],
+    "half_search_median_relative_difference": 0.0016944008808672088,
+    "maximum_candidate_raw_cosine": 0.49997925758361816,
+    "maximum_deranged_candidate_raw_cosine": 0.4991194009780884,
+    "median_bank_b_candidate_distance": 1.1640708446502686,
+    "median_bank_b_deranged_control_distance": 1.596834659576416,
+    "median_bank_b_random_control_distance": 1.9856488704681396,
+    "median_bank_b_raw_control_distance": 0.9423028230667114,
+    "median_raw_control_cosine": 0.49866044521331787,
+    "minimum_random_raw_cosine_margin": 0.03404593467712402,
+    "physical_successor_licensed": false,
+    "prediction_b_operator_transfer": false,
+    "prediction_c_repeated_groups": true,
+    "receiver_count": 10052,
+    "strong_null": true
+  },
+  "status": "complete",
+  "strong_null": true,
+  "toy": {
+    "bank_b_candidate_over_raw": 0.0,
+    "classes": 32,
+    "correct_class_fraction": 1.0,
+    "deranged_correct_class_fraction": 0.03846153989434242,
+    "passes": true,
+    "tokens": 256
+  }
+}

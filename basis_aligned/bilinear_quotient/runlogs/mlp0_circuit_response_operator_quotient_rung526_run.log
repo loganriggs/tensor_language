@@ -1,0 +1,15 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_circuit_response_operator_quotient_rung526_run.py:353: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  replay_error = float((logits.float() - native_logits.float()).abs().max())
+{
+  "output": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_circuit_response_operator_quotient_rung526_results.json",
+  "physical_successor_licensed": false,
+  "predictions": {
+    "A": true,
+    "B": false,
+    "C": false,
+    "D": true
+  },
+  "strong_null": true,
+  "validation_circuits_opened": false
+}

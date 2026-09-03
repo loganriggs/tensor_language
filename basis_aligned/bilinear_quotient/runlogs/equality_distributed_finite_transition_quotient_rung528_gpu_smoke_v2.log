@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "check_a_exact_boundary_self_replay": true,
+    "check_b_score_transitions_are_live": true,
+    "check_c_continuation_patches_are_live": true
+  },
+  "diagnostics": {
+    "analytical_forwards": 21,
+    "boundary_captures": 22,
+    "boundary_overrides": 16,
+    "calls_exact": true,
+    "continuation_write_captures": 2,
+    "continuation_write_patches": 16,
+    "direct_forwards": 1,
+    "factor_reconstruction_max": 4.4179630098347173e-14,
+    "full_model_forwards": 22,
+    "maximum_effective_boundary_abs": 0.0,
+    "maximum_embedding_skip_abs": 0.0,
+    "maximum_first_value_abs": 0.0,
+    "maximum_self_insertion_logit_abs": 0.0,
+    "maximum_self_insertion_logit_relative_squared": 0.0,
+    "minimum_continuation_patch_rms": 1.1280533075332642,
+    "minimum_score_edit_rms": 3.4744956493377686,
+    "minimum_transition_rms": 8.335760116577148,
+    "native_replay_boundary_max_abs": 0.0,
+    "native_replay_logit_max_abs": 0.0,
+    "peak_gpu_memory_bytes": 6330523136
+  },
+  "rung": "528_gpu_smoke",
+  "scientific_outcomes_retained": false,
+  "status": "complete",
+  "strong_null": false
+}

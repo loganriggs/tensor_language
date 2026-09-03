@@ -1,0 +1,51 @@
+{
+  "analysis": {
+    "own_reference_live": true,
+    "pred_b_cross_document_write_portability": false,
+    "pred_b_flags": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "pred_c_branch_specific_transplant": false,
+    "pred_c_flags": [
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "instrument": {
+    "S_prefix_replay_relative_squared_max": 0.0,
+    "adjustment_rms_min": 65.02003629764545,
+    "analytical_branch_identity_relative_squared": 2.8881964661606664e-13,
+    "calls_exact": true,
+    "deployed_branch_identity_relative_squared": 5.476871497113248e-06,
+    "documents": 500,
+    "donor_minus_own_adjustment_rms_min": 86.87538093626476,
+    "edited_write_max_abs_error": 0.0,
+    "expected_calls": {
+      "absent_forwards": 250,
+      "merge_edited_site": 4750,
+      "merge_forwards": 4750,
+      "native_forwards": 125
+    },
+    "mlp0_state_max_abs": 0.0,
+    "native_prefix_A_relative_squared_max": 0.0,
+    "native_prefix_D_relative_squared_max": 0.0,
+    "native_prefix_M_relative_squared_max": 0.0,
+    "prefix_z_relative_squared_max": 0.0,
+    "state_source_relative_squared_max": 7.180517754316956e-28
+  },
+  "next_step": "chokepoint_is_a_site_not_an_interface_close_interface_language",
+  "predictions": {
+    "pred_a_exact_lawful_live_transplant_instrument": true,
+    "pred_b_cross_document_write_portability": false,
+    "pred_c_branch_specific_transplant": false
+  },
+  "rung": "mlp1_write_interface_portability",
+  "runtime_s": 368.5401191711426,
+  "status": "complete",
+  "strong_null": true
+}

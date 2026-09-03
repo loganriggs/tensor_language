@@ -1,0 +1,76 @@
+{
+  "direction_reports": {
+    "L7H3->L8H4": {
+      "discovery_re_measured": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          0,
+          1
+        ]
+      },
+      "validation": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          2,
+          3
+        ]
+      }
+    },
+    "L8H3->L8H4": {
+      "discovery_re_measured": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          0,
+          1
+        ]
+      },
+      "validation": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          2,
+          3
+        ]
+      }
+    },
+    "L8H4->L8H3": {
+      "discovery": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          0,
+          1
+        ]
+      },
+      "validation": {
+        "control_all": true,
+        "edge_all": true,
+        "holds": true,
+        "quarters": [
+          2,
+          3
+        ]
+      }
+    }
+  },
+  "next_step": "sixth_standing_claim_language_licensed",
+  "predictions": {
+    "pred_a_exact_live_validation_instrument": true,
+    "pred_b_forward_gauge_validates_500_1000": true,
+    "pred_c_reverse_L8H4_to_L8H3_edge_on_discovery": true,
+    "pred_d_reverse_validates_500_1000": true,
+    "pred_e_mutual_sign_gauge_licensed": true
+  },
+  "rung": "equality_score_sign_gauge_validation_and_reverse",
+  "runtime_s": 158.36362266540527,
+  "status": "complete",
+  "strong_null": false
+}

@@ -1,0 +1,35 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp10_exact_source_pair_causal_split_rung507.py:499: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  diagnostics["native_replay_logit_max_abs"], float(difference.abs().max()))
+{
+  "confirmed_terms": [],
+  "discovery_candidates": [
+    "A7xA8",
+    "A8xA8"
+  ],
+  "execution_price": {
+    "backwards": 1240,
+    "candidate_count_k": 2,
+    "confirmed_count_q": 0,
+    "confirming_term_pair_count": 0,
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "fitted_scalars": 0,
+    "fitted_vectors": 0,
+    "full_forwards": 1178,
+    "maximum_conditional_forwards": 28297,
+    "peak_gpu_memory_bytes": 5638465536
+  },
+  "next_step": "replace_gradient_screen_with_registered_input_source_family_factorial",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "pred_e": false,
+  "predictable_pairs": [],
+  "rung": 507,
+  "same_output_pairs": [],
+  "status": "complete",
+  "strong_null": true,
+  "validated_terms": []
+}

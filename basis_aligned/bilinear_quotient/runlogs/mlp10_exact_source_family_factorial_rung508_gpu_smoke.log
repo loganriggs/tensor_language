@@ -1,0 +1,80 @@
+{
+  "backwards": 0,
+  "checks": {
+    "joint": true,
+    "one_joint_per_source": true,
+    "singletons": true,
+    "singletons_all_21_plus_full": true,
+    "weights": true
+  },
+  "full_forwards": 103,
+  "pair_diagnostics": {
+    "backwards": 0,
+    "calls": {
+      "analytical": 9,
+      "direct": 0
+    },
+    "calls_exact": true,
+    "calls_expected": {
+      "analytical": 9,
+      "direct": 0
+    },
+    "deployed_mlp10_relative_squared": 1.1172793881166027e-05,
+    "factor_reconstruction_max": 4.5604750658460663e-14,
+    "family_partition_relative_squared": 1.0403733227413824e-14,
+    "family_score_delta_closure_relative_squared": 0.0,
+    "family_score_delta_preclosure_relative_squared": 8.783938214352078e-10,
+    "float32_mlp10_closure": 1.6631032699389384e-21,
+    "minimum_nonzero_score_edit_rms": 3.876068592071533,
+    "minimum_nonzero_term_edit_rms": 1.3633058071136475,
+    "native_replay_logit_max_abs": 0.0,
+    "native_replay_relative_squared": 0.0,
+    "normalized_closure_relative_squared": 0.0,
+    "normalized_numerical_rms_ratio": 0.005734930746257305,
+    "patches": 4,
+    "patches_exact": true,
+    "patches_expected": 4,
+    "raw_source_relative_squared": 2.95762584450051e-05,
+    "score_delta_deployed_closure_relative_squared": 1.670089030032472e-16,
+    "score_delta_float32_closure": 2.7451654059797535e-16,
+    "score_delta_predeployment_relative_squared": 0.013973449493471703,
+    "term_patches": 0,
+    "zero_term_edits": 0
+  },
+  "rung": 508,
+  "scientific_outcomes_retained": false,
+  "singleton_diagnostics": {
+    "backwards": 0,
+    "calls": {
+      "analytical": 93,
+      "direct": 1
+    },
+    "calls_exact": true,
+    "calls_expected": {
+      "analytical": 93,
+      "direct": 1
+    },
+    "deployed_mlp10_relative_squared": 1.1172793881166027e-05,
+    "factor_reconstruction_max": 4.5604750658460663e-14,
+    "family_partition_relative_squared": 1.0403733227413824e-14,
+    "family_score_delta_closure_relative_squared": 0.0,
+    "family_score_delta_preclosure_relative_squared": 8.783938214352078e-10,
+    "float32_mlp10_closure": 1.6631032699389384e-21,
+    "minimum_nonzero_score_edit_rms": 3.876068592071533,
+    "minimum_nonzero_term_edit_rms": 8.802004595054314e-05,
+    "native_replay_logit_max_abs": 0.0,
+    "native_replay_relative_squared": 0.0,
+    "normalized_closure_relative_squared": 0.0,
+    "normalized_numerical_rms_ratio": 0.005734930746257305,
+    "patches": 88,
+    "patches_exact": true,
+    "patches_expected": 88,
+    "raw_source_relative_squared": 2.95762584450051e-05,
+    "score_delta_deployed_closure_relative_squared": 1.670089030032472e-16,
+    "score_delta_float32_closure": 2.7451654059797535e-16,
+    "score_delta_predeployment_relative_squared": 0.013973449493471703,
+    "term_patches": 0,
+    "zero_term_edits": 0
+  },
+  "status": "smoke_passed"
+}

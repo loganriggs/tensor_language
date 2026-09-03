@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "single_donor": "P",
+      "target": "Z7",
+      "wrong_control": "W8"
+    }
+  ],
+  "confirmed": [],
+  "execution_price": {
+    "calls_exact": true,
+    "deployed_values_added": 0,
+    "deployed_values_removed": 0,
+    "expected_full_model_forwards": 9300,
+    "fitted_values": 0,
+    "full_model_forwards": 9300,
+    "maximum_registered_full_model_forwards": 23396,
+    "model_backwards": 0,
+    "peak_gpu_memory_bytes": 4063894528
+  },
+  "next_step": "close_consensus_as_discovery_specific",
+  "predictions": {
+    "pred_a_exact_live_shared_private_instrument": true,
+    "pred_b_consensus_beats_every_singleton": true,
+    "pred_c_new_document_physical_consensus": false,
+    "pred_d_heldout_circuits_and_documents": false,
+    "pred_e_sufficient_selectively_removable_shared_state": false
+  },
+  "rung": 529,
+  "runtime_s": 164.69480776786804,
+  "selective": [],
+  "status": "complete",
+  "strong_null": true,
+  "validated": []
+}

@@ -1,0 +1,90 @@
+{
+  "backwards": 0,
+  "checks": {
+    "all_twenty_eight_branch_patches": true,
+    "all_twenty_eight_physical_branch_patches": true,
+    "both_consumer_substitutions": true,
+    "consumer_collection": true,
+    "physical": true,
+    "question_basis": true,
+    "weights": true
+  },
+  "collection_diagnostics": {
+    "absent_corner_replay_max_abs": 0.0,
+    "assignment_partition_relative_squared": 0.0,
+    "backwards": 0,
+    "calls": {
+      "analytical": 33,
+      "direct": 1
+    },
+    "calls_exact": true,
+    "calls_expected": {
+      "analytical": 33,
+      "direct": 1
+    },
+    "consumer_forward_captures": 32,
+    "consumer_forward_captures_exact": true,
+    "consumer_forward_captures_expected": 32,
+    "current_corner_replay_max_abs": 0.0,
+    "deployed_branch_sum_relative_squared": 0.0,
+    "deployed_mlp10_relative_squared": 1.1172793881166027e-05,
+    "exact_term_partition_relative_squared": 0.0,
+    "factor_reconstruction_max": 4.5604750658460663e-14,
+    "float32_ideal_branch_relative_squared": [
+      0.021489258855581284,
+      0.021450087428092957,
+      2.5740294456481934
+    ],
+    "float32_ideal_sum_relative_squared": 0.013973450288176537,
+    "float32_mlp10_closure": 1.6631032699389384e-21,
+    "four_corner_replays": 4,
+    "four_corner_replays_exact": true,
+    "four_corner_replays_expected": 4,
+    "hooks": 5,
+    "hooks_exact": true,
+    "hooks_expected": 5,
+    "minimum_nonzero_score_edit_rms": 3.876068592071533,
+    "minimum_nonzero_term_edit_rms": 0.3034456670284271,
+    "native_replay_logit_max_abs": 0.0,
+    "native_replay_relative_squared": 0.0,
+    "normalized_closure_relative_squared": 0.0,
+    "normalized_numerical_rms_ratio": 0.005734930746257305,
+    "patches": 28,
+    "patches_exact": true,
+    "patches_expected": 28,
+    "question_support": {
+      "half0": 2,
+      "half1": 0
+    },
+    "raw_source_relative_squared": 2.95762584450051e-05,
+    "score_delta_deployed_closure_relative_squared": 1.670089030032472e-16,
+    "score_delta_float32_closure": 2.7451654059797535e-16,
+    "score_delta_predeployment_relative_squared": 0.013973449493471703,
+    "subset_patches": 28,
+    "subset_patches_exact": true,
+    "subset_patches_expected": 28,
+    "term_patches": 0,
+    "zero_term_edits": 0
+  },
+  "full_forwards": 69,
+  "physical_diagnostics": {
+    "branch_patches": 28,
+    "branch_patches_expected": 28,
+    "calls": 35,
+    "calls_exact": true,
+    "calls_expected": 35,
+    "consumer_patches": 2,
+    "consumer_patches_expected": 2,
+    "maximum_patch_capture_error": 0.0,
+    "minimum_patch_rms": 0.3034456670284271,
+    "patches_exact": true,
+    "zero_patch_edits": 0
+  },
+  "question_eigenvalues": [
+    144.8640594482422,
+    -73.846435546875
+  ],
+  "rung": 512,
+  "scientific_outcomes_retained": false,
+  "status": "smoke_passed"
+}

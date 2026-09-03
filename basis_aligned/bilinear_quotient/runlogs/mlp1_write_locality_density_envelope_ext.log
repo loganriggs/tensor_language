@@ -1,0 +1,31 @@
+{
+  "analysis": {
+    "pred_b_flags": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "pred_b_six_point_strict_monotone_with_span": false,
+    "pred_c_determinism_anchor_and_interleaving": false,
+    "pred_c_flags": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "scored_counts_ok": true
+  },
+  "next_step": [
+    "determinism_alarm_repair_only"
+  ],
+  "predictions": {
+    "pred_a_exact_lawful_live_envelope_instrument": true,
+    "pred_b_six_point_strict_monotone_with_span": false,
+    "pred_c_determinism_anchor_and_interleaving": false
+  },
+  "rung": "mlp1_write_locality_density_envelope_extension",
+  "runtime_s": 138.7373013496399,
+  "status": "complete",
+  "strong_null": true
+}

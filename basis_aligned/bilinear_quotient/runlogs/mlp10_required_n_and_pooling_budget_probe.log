@@ -1,0 +1,54 @@
+{
+  "m_star_min_nodes_for_detectability": 16,
+  "n_material_nodes": 83,
+  "pooling_curve": [
+    {
+      "detectable": false,
+      "m": 8,
+      "mean_lambda1": 0.0014378709309014381,
+      "mean_null_q95": 0.0014504646783919533,
+      "ratio": 0.9913174393846824
+    },
+    {
+      "detectable": true,
+      "m": 16,
+      "mean_lambda1": 0.002309483832035904,
+      "mean_null_q95": 0.002036623555736944,
+      "ratio": 1.133976785022614
+    },
+    {
+      "detectable": true,
+      "m": 32,
+      "mean_lambda1": 0.0040455949035217795,
+      "mean_null_q95": 0.0027610532975456356,
+      "ratio": 1.4652360775208515
+    },
+    {
+      "detectable": true,
+      "m": 64,
+      "mean_lambda1": 0.007360909540929228,
+      "mean_null_q95": 0.0038231217008046848,
+      "ratio": 1.9253662627009533
+    },
+    {
+      "detectable": true,
+      "m": 83,
+      "mean_lambda1": 0.009330938687130096,
+      "mean_null_q95": 0.004321530433432389,
+      "ratio": 2.1591745866102743
+    }
+  ],
+  "pred_a_instrument_reproduces_rho0_and_material": true,
+  "pred_b_single_node_order_of_magnitude_underpowered": true,
+  "pred_c_pooling_is_the_cheaper_lever_and_explains_2658": true,
+  "rho0_median": 0.015803370857288487,
+  "runtime_s": 0.7122540473937988,
+  "spearman_brown_document_multipliers": {
+    "rho_star_0.3": 26.690416820304108,
+    "rho_star_0.5": 62.27763924737625,
+    "rho_star_0.8": 249.11055698950508
+  },
+  "status": "complete",
+  "strong_null": false,
+  "verdict": "two_levers_delivered_raise_docs_k05x_or_pool_at_least_mstar_nodes"
+}

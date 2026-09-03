@@ -1,0 +1,24 @@
+{
+  "coverage_bootstrap_ci95": [
+    0.4471540605060289,
+    0.5034450194170624,
+    0.5671650399683157
+  ],
+  "coverage_fraction_top3": 0.4490803197082177,
+  "coverage_pure_noise_baseline_q95": 0.49524125054531315,
+  "lambda1": 0.0025098221936115527,
+  "lambda1_null_q95": 0.0030990594939211773,
+  "mlp10_reference_2666": {
+    "coverage": 0.764,
+    "noise_floor": 0.583,
+    "note": "indicative only; different decomposition (22 source-stars vs 49 terms)"
+  },
+  "n_eigs_above_null": 0,
+  "pred_a_instrument_reproduces_r519_whole_effect": true,
+  "pred_b_mlp0_has_a_reliable_shared_direction": false,
+  "pred_c_mlp0_reliable_footprint_is_low_dim_majority_coverage": false,
+  "runtime_s": 0.055840492248535156,
+  "status": "complete",
+  "strong_null": true,
+  "verdict": "mlp0_pooled_terms_no_reliable_shared_direction_law_does_not_extend_here"
+}

@@ -1,0 +1,50 @@
+{
+  "analysis": {
+    "matched_counts_ok": false,
+    "own_reference_live": true,
+    "pred_b_flags": [
+      false,
+      true,
+      false,
+      true
+    ],
+    "pred_b_token_keyed_restoration": false,
+    "pred_c_flags": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "pred_c_off_key_toxicity_reproduced": true
+  },
+  "instrument": {
+    "S_prefix_replay_relative_squared_max": 0.0,
+    "analytical_branch_identity_relative_squared": 2.8881964661606664e-13,
+    "calls_exact": true,
+    "deployed_branch_identity_relative_squared": 5.476871497113248e-06,
+    "documents": 500,
+    "edit_rms_min": 0.0,
+    "edited_write_max_abs_error": 0.0,
+    "expected_calls": {
+      "absent_forwards": 250,
+      "merge_forwards": 750,
+      "native_forwards": 125
+    },
+    "mlp0_state_max_abs": 0.0,
+    "native_prefix_A_relative_squared_max": 0.0,
+    "native_prefix_D_relative_squared_max": 0.0,
+    "native_prefix_M_relative_squared_max": 0.0,
+    "prefix_z_relative_squared_max": 0.0,
+    "state_source_relative_squared_max": 7.180517754316956e-28
+  },
+  "next_step": "write_is_context_bound_below_token_grain_route_to_content_decomposition",
+  "predictions": {
+    "pred_a_exact_lawful_live_masked_instrument": false,
+    "pred_b_token_keyed_restoration": false,
+    "pred_c_off_key_toxicity_reproduced": true
+  },
+  "rung": "mlp1_write_token_keyed_transplant",
+  "runtime_s": 86.41481685638428,
+  "status": "complete",
+  "strong_null": true
+}

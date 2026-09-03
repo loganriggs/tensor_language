@@ -1,0 +1,42 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_circuit_response_operator_quotient_rung526_run.py:353: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  replay_error = float((logits.float() - native_logits.float()).abs().max())
+{
+  "output": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_circuit_response_operator_quotient_rung526_gpu_smoke_results.json",
+  "status": "gpu_smoke_complete",
+  "instrument": {
+    "bounds": [
+      0,
+      124
+    ],
+    "tags": [
+      "r.0.0",
+      "r.0.0.0"
+    ],
+    "counts": [
+      [
+        344.0,
+        1682.0
+      ],
+      [
+        41.0,
+        303.0
+      ]
+    ],
+    "identity_leaf_logit_max_abs": 0.0,
+    "all_circuit_gradients_nonzero": true,
+    "minimum_circuit_gradient_energy": 7.896842930977141e-10,
+    "member_weight_sum_max_abs_error": 2.220446049250313e-16,
+    "control_weight_sum_max_abs_error": 4.440892098500626e-16,
+    "aggregate_contraction_relative_squared_error": 5.67360255487428e-13,
+    "signature_finite": true,
+    "signature_nonconstant": true,
+    "signature_sha256": "535a78798c57af6f2ac45de211e4db9945f3df2318d5b75a7b5625767042ff45",
+    "calls": {
+      "forwards": 31,
+      "native_replays": 1,
+      "batched_backwards": 31,
+      "gradient_objectives": 62
+    }
+  }
+}

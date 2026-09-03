@@ -1,0 +1,27 @@
+{
+  "execution_price": {
+    "backwards": 7366,
+    "deployed_parameters_added": 0,
+    "deployed_parameters_saved": 0,
+    "model_forwards": 875,
+    "peak_gpu_memory_bytes": 5940499968
+  },
+  "next_step": "repair_source_pair_instrument_only",
+  "predictions": {
+    "pred_a_exact_live_source_pair_instrument": false,
+    "pred_b_known_mlp9_parent_response_retained": false,
+    "pred_c_compact_stable_source_pair_group": false,
+    "pred_d_downstream_circuit_use_confirms_group": false,
+    "pred_e_source_pair_candidate_for_finite_intervention": false
+  },
+  "rung": 502,
+  "runtime_s": 114.61873888969421,
+  "selected_pairs": [
+    "ExA8",
+    "A7xA8",
+    "A8xA8",
+    "A8xM6"
+  ],
+  "status": "complete",
+  "strong_null": true
+}

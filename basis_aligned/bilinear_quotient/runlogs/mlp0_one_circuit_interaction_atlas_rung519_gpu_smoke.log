@@ -1,0 +1,35 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "checks": {
+    "all_term_edits_live": true,
+    "call_census": true,
+    "deployed_closure": true,
+    "fixed_gain_closure": true,
+    "normalized_source_closure": true,
+    "planted_recovery": true,
+    "response_shapes": true,
+    "weights": true,
+    "whole_drop_logit_replay": true
+  },
+  "diagnostics": {
+    "calls": 52,
+    "calls_expected": 52,
+    "maximum_deployed_relative_squared": 5.9088955939661496e-36,
+    "maximum_fixed_gain_relative_squared": 5.036468774667191e-13,
+    "maximum_normalized_source_relative_squared": 6.773052005038847e-15,
+    "maximum_whole_drop_logit_relative_squared": 0.0,
+    "maximum_whole_drop_logit_replay_error": 0.0,
+    "minimum_term_edit_rms": 0.016795426607131958
+  },
+  "rung": 519,
+  "scientific_outcomes_retained": false,
+  "status": "gpu_smoke_passed"
+}
