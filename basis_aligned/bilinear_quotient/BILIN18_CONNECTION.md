@@ -68450,3 +68450,39 @@ What fixes the instrument: cross-fitting (fit on one document half, evaluate on 
 ridge chosen by nested validation on the training half, reported as the honest out-of-sample residual and ladder —
 queued next as `mlp0_hybrid_target_in_situ_crossfit_probe`. Until it lands, no in-situ cross-corpus claim is made
 either way. No circuit claim; no explained-fraction change.
+
+## §2692 — MLP IN-SITU USAGE RANK MAP (Claude, CPU, 273 s, 392 full CPU forwards, 0 GPU): THE LAST TWO MLPs WRITE IN A ~4-9-DIM SUBSPACE ON REAL TEXT — pred_b FALSE (strong null HOLDS), pred_c TRUE
+Preregistered 15:00 (`MLP_IN_SITU_USAGE_RANK_MAP_PROBE_PREREGISTRATION.md`, with a post-registration/pre-result instrument
+correction at 15:06: the first run fed 257 inputs vs 256 targets and exited before any prediction; predictions unchanged).
+Landed 15:14 (`mlp_in_situ_usage_rank_map_probe_results.json`, 63483cec; script ed9afcf6). Instrument: manual full forward
+in tt_model semantics vs the module, CE 3.0473983 vs 3.0473986 (2.4e-7; bar 1e-4) — pred_a TRUE. 12,288 samples per
+corpus (192 docs x 64 positions), centred covariances of each block's attention write, MLP write and 4608-dim product state.
+
+**pred_b_no_low_rank_mlp_output_in_situ (min over 18 blocks of the natural MLP-write effective rank >= 100; null <= 50):
+FALSE, and the STRONG NULL HOLDS: min = 6.2 (block 17); block 16 = 9.4.** Natural MLP-write effective rank by block:
+151, 325, 435, 421, 501, 225, 281, 602, 572, 628, 678, 576, 580, 563, 661, 338, **9, 6**. rank_90 (dims for 90% of variance):
+421 ... 724 for blocks 0-15, then **59 and 4**. Code corpus: 119, 28, 176, 158, 133, 73, 72, 231, 131, 227, 263, 209, 170, 181,
+255, 113, **6, 5**. The top single direction carries 43% (block 16) / 44% (block 17) of the centred variance on natural text
+(62% / 57% on code). These are not mean-dominated artefacts: the covariance is centred. The writes are also enormous: mean
+MLP-write energy 9.7e8 (block 16) and 3.6e9 (block 17) vs ~1e7 for mid blocks and 2.5e9 for block 0 (block 0's is the
+lambdas x12.19 token stream, §2690); the attention/MLP write-energy ratio in blocks 16-17 is .01.
+The whole final block is low-dimensional in situ: block-17 product state eff rank 25 (rank_90 403; blocks 0-15: 1370-2804),
+block-17 attention write eff rank 20.
+
+**pred_c_weight_map_predicts_in_situ_usage (Spearman between §2675's weight-map effective ranks and the natural in-situ
+MLP-write ranks >= .5; null <= 0): TRUE, rho = .77.** The weight map (438, 690, ..., 726, 675, 522) orders usage well
+across blocks 0-15 but is blind to the collapse in 16-17: the operator FAMILIES there are still high-rank (675, 522) — the
+natural INPUT distribution simply excites a handful of output directions. Verdict as coded:
+`in_situ_low_rank_block_exists_weight_map_orders_usage`.
+
+Reading. (1) This is the first in-situ crack in "MLPs are high-rank everywhere" (§2673-§2684, explanation_1230): the exact
+weight-map ranks are upper envelopes; the usage ranks of blocks 0-15 are 25-90% of them (so those MLPs really are used
+high-dimensionally), but blocks 16 and 17 behave in situ like a rank-<=8 write. (2) Mechanism hypothesis (NOT tested here):
+a huge, low-dimensional final write followed by the final rms-norm and the 30*tanh soft-cap is a per-token SCALE/CONFIDENCE
+controller — writing along a fixed direction dilutes every other direction after normalisation, i.e. it sets the effective
+logit temperature; the ~4 varying directions would then be the model's entropy control plus a few output-shaping directions.
+(3) If (2) holds, MLP16/17 admit an exact-in-spirit smaller program: a rank-k down-projection (k ~ 8) with the product state
+unchanged — an interpretable, manipulable tensor-program component, and the only MLP-side compressibility found so far.
+Queued next: `mlp_final_blocks_low_rank_surrogate_probe` — replace each of MLP16/MLP17's write by its rank-k projection
+fitted on one document half and score CE ADDED on the other (LOWER = better), plus the coefficient-vs-entropy diagnostic.
+No explained-fraction change (descriptive); pred_b preserved as FALSE.

@@ -4976,3 +4976,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2691 mlp0_hybrid_target_in_situ_cross_corpus_probe (Claude, CPU, 142 s): a TRUE, b/c FALSE — split-half floors
   (.08-.10 token, .20 context) show the 4608-dim sample Wiener map overfits at 12-25k samples; §2690's any-rank residuals
   corrected to in-sample lower bounds (token OOS in [.066,.144], context in [.144,.304]). Cross-fitted probe queued.
+- §2692 mlp_in_situ_usage_rank_map_probe (Claude, CPU, 273 s): a TRUE, b FALSE (strong null: min in-situ MLP-write eff rank 6.2 —
+  blocks 16/17 write in ~4-9 dims on real text, 43% of variance in one direction), c TRUE (Spearman .77 weight-map vs usage).
+  Follow-up queued: rank-k surrogate for MLP16/17 with CE-added scoring.

@@ -1,0 +1,35 @@
+{
+ "verdict": "in_situ_low_rank_block_exists_weight_map_orders_usage",
+ "strong_null": true,
+ "instrument": {
+  "ce_manual_4docs": 3.047398328781128,
+  "ce_module_4docs": 3.047398567199707,
+  "abs_diff": 2.384185791015625e-07
+ },
+ "min_eff_rank": 6.215061825185931,
+ "spearman": 0.7708978328173374,
+ "nat_mlp_write_eff": [
+  151,
+  325,
+  435,
+  421,
+  501,
+  225,
+  281,
+  602,
+  572,
+  628,
+  678,
+  576,
+  580,
+  563,
+  661,
+  338,
+  9,
+  6
+ ],
+ "pred_a_instrument": true,
+ "pred_b_no_low_rank_mlp_output_in_situ": false,
+ "pred_c_weight_map_predicts_in_situ_usage": true,
+ "runtime_s": 272.7084791660309
+}
