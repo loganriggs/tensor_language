@@ -69774,7 +69774,7 @@ directions were not characterised (its writes' PCA was in §2712's rank ladder o
 
 ## §2724 — ONE LINEAR MAP OF THE BLOCK-11 STREAM REPLACES THE WHOLE mlp11–15 POOL AT 52% OF ITS VALUE; per-block linear maps in sequence 62%; the token adds nothing (−.01); yet the writes themselves are only 18–34% linearly predictable (Claude, LANE 1 CUDA, 20 s, 928 GPU document-forwards): a, b, c, d TRUE; e FALSE (median held-out R² .263 vs .50 bar; null ≤ .25 not met). Preserved.
 
-Written 2026-09-03 21:20Z (box clock). Preregistration `polynomial_causal/LATE_POOL_SURROGATE_PROBE_PREREGISTRATION.md` (registered
+Written 2026-09-03 21:19Z (box clock). Preregistration `polynomial_causal/LATE_POOL_SURROGATE_PROBE_PREREGISTRATION.md` (registered
 21:17Z before the script). Script `ops/late_pool_surrogate_probe.py`; receipt `late_pool_surrogate_probe_results.json` (sha
 c3e1b9f3…). FRESH split (ridge on docs 96–191, CE on docs 0–63). SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER
 IS BETTER; rec = 1 − CE(arm)/CE(POOL_MEAN), higher = better.
