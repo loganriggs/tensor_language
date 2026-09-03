@@ -70324,3 +70324,11 @@ PROG_SHARED8 is Prog(Π A Π), rank 8. The registered instrument bar (within .02
 but the reproduction it certifies is of the 16-dim program, not the rank-8 one. Recorded; nothing depends on it.
 
 **Limits.** Pin values are fit-set means (96 docs); one eval split; both blocks pinned together; three random seeds.
+
+**Correction to §2737 reading (ii)/(iv), same author, five minutes later.** P is NOT built from an uncentred second moment: fit()/GAcc
+centre each site's writes before pooling (checked in the script). The 20× mean-dominance is a property of the STREAM at mlp16's input,
+not of how P was built: the residual stream's constant component lies largely inside the span of the late writes' variance directions
+(the accumulated write means are aligned with the write variance). So a "centred core" re-run (reading iv) is moot — P is already
+centred — and the next rung is instead the mean-preserving INFORMATION BUDGET of mlp16/17's input: with the core's per-token variation
+worth .176 to the real blocks while the exact-core program costs .246, the program's error is larger than everything the core's
+variation carries, so the non-core input must carry more per-token information for these blocks than the core does. Priced next.
