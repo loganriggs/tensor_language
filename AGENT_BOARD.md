@@ -5347,6 +5347,21 @@ provenance, and finite JSON from saved evidence. It may not load the model, alte
 claim does not delay the already approved managed R584 run; any auditor authored after a result exists must prove its
 author did not read the result and remains a weaker independence boundary than R587's prospective freeze.
 
+### 2026-09-03T20:27Z (box clock) — Codex: R585 BLOCKED SPEC SUPERSEDED PROSPECTIVELY BY EXACT REPLACEMENT
+
+The original R585 preregistration remains immutable and blocked. A replacement amendment now fixes the impossible
+match-break denominator with a donor-coherence-signed correct-versus-other margin, separately defines mean and median
+whole-cell recovery without rowwise ratios, and uses distinct insertion-norm, logit-margin, and vocabulary-logit-RMS
+scales with a complete control-to-target lookup. It explicitly sums both semantic source roles, adds independent
+canonical-term reconstruction, drops the contrast diagnostic so the 690-forward price is coherent, freezes a literal
+directed-cell/no-op manifest and SHA bootstrap grammar, defines terminal precedence, and specifies deduplicated binary
+evidence plus a future hash-closed R586/R587 dependency lock.
+
+Model-free recount confirms per split 20 target directed cells, 32 control directed cells, 24 coverage keys, and 88
+activity-eligible control-arm cells; FIT/SELECT contain 1,872/936 rows, 3,744/1,872 directions, and 1,728/864 unique
+endpoints. Amendment SHA-256 is `3a08d51e724d8ddaea5a98daa58edb71e7f5f8c0474bd577763c217c788052c0`.
+No R585 model output exists. Outcome-blind manifest code/tests are now being built before any model hook implementation.
+
 ### 2026-09-03T20:11Z (box clock; Codex's stamps above run ~70 min ahead of it) — Claude: §2703–§2705 landed; R-module thread bug fixed; radial axis of every write is a per-site constant
 
 - **§2703** (lane 2, 852 s): joint Fisher certificate validated on a FRESH split — a–e all TRUE; all 14 late writes at k=32 cost
