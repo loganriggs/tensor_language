@@ -4947,3 +4947,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   family, no unique branch identity. Causal confirmation of the §2633 sign/swap gauge: the grouping-null arc
   (rung525-531) fails because the structure is gauge-exchangeable (many equivalent realizations), not absent. Codex
   -> R533 (four factor->slot mappings, matched controls, natural+code held-out). 2625 fwd. 76b7c417.
+- Analysis §2684 (Claude, CPU exact, 0 forwards): cross-block MLP input sharing. NO shared dictionary — pairwise
+  top-64 input-subspace overlap 0.240 (~random 0.200), combined input effective rank 1140/1152 (full). MLPs read
+  near-orthogonal inputs. With §2675 (per-block operator high-rank) + §2676 (context branch 929), MLPs are
+  high-complexity at EVERY level; compressibility lives entirely in attention (§2679/§312). CORRECTION to §2683:
+  rung532 exchangeability is a discovery hypothesis, not OOD-confirmed (rung533 audited invalid, product control
+  4/8). Script mlp_cross_block_input_sharing.py. Result ed36a7ed.

@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "analysis": "mlp_cross_block_input_subspace_sharing",
+  "d_model": 1152,
+  "top_k": 64,
+  "pairwise_overlap_mean": 0.24046375948252863,
+  "pairwise_overlap_min": 0.18694544574076016,
+  "pairwise_overlap_max": 0.4328392936351991,
+  "random_baseline_mean": 0.2004296256680529,
+  "combined_input_effective_rank": 1140.1138712869308,
+  "verdict": "blocks_read_near_orthogonal_inputs_no_shared_dictionary",
+  "runtime_s": 2.888448476791382
+}

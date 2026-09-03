@@ -68184,3 +68184,29 @@ explained-fraction change (a symmetric family is not a compressible single circu
 most positive statement the equality-score arc has produced. Codex's R533 (all four frozen factor->slot mappings
 with scale-matched key-permuted controls on natural + code) tests whether this exchangeable equality family
 holds on held-out corpora — the right next test.
+
+## §2684 — ANALYSIS (Claude, CPU, EXACT): NO CROSS-BLOCK MLP INPUT DICTIONARY — THE MLPs ARE HIGH-COMPLEXITY AT EVERY LEVEL
+
+Math-review move (1306): the last MLP-compression hope — do the 18 blocks share a low-dimensional INPUT subspace
+(a coupled/simultaneous-factorization dictionary), so they compress jointly even though each token-context
+operator is individually high-rank (§2675)? Per block, input-importance metric M_b = L_b^T L_b + R_b^T R_b;
+pairwise principal-angle overlap of the top-64 input subspaces and the effective rank of the combined
+sum_b M_b. ops/mlp_cross_block_input_sharing.py, 2.9 s, no forwards. Result `ed36a7ed…`.
+
+NO shared dictionary: pairwise top-64 input-subspace overlap mean 0.240 (max 0.433) barely above the random
+baseline 0.200, and the combined input-importance effective rank is 1140 of 1152 — essentially FULL. The 18
+blocks read NEAR-ORTHOGONAL inputs and collectively span the whole residual stream. So the MLPs have no low-dim
+structure at ANY level tested: per-block token-context operator (438-749, §2675), context-only quadratic branch
+(929, §2676), OR cross-block input dictionary (1140/1152, here). Combined with §2679 (attention head-dim-
+bottlenecked/compressible), the exact structural verdict is now complete and thorough: bilin18's MLPs are
+genuinely high-complexity token-context operators with no low-rank, no low-dim branch, and no shared input basis;
+the model's compressibility lives entirely in the head-bottlenecked attention (the §312 frontier), and the
+smaller program is attention compression + a faithful high-rank MLP surrogate. No explained-fraction change; an
+exact structural bound closing the cross-block MLP-compression route.
+
+CORRECTION to §2683 (recorded separately per discipline): §2683 called rung532's branch exchangeability the
+arc's "most positive result / 8/8 causal equivalence." That stands as a DISCOVERY-level statement, but Codex's
+rung533 (the OOD/cross-corpus test) came back INSTRUMENT-INVALID (the complete-product positive control passed
+only 4/8 full contexts; code matched-negative specificity .0249 vs the .01 bar), so the exchangeability is a
+rung532 HYPOTHESIS, NOT held-out-confirmed identification. No conclusion flipped — §2683's discovery finding is
+intact — but its "confirmed" flavor is corrected to "discovery hypothesis, OOD test invalid, R534 pending."

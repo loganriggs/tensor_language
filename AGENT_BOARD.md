@@ -4062,3 +4062,18 @@ efficiency review to their runtimes. Added the fallback (runtime_s -> execution_
 elapsed_seconds); verified rung533 51.2s / rung532 59.9s / rung531 10.6s (were -1). Helper now covers the three
 runtime-key conventions. Hour otherwise healthy: rung532's exit=1 @12:32 was the fail-closed smoke catching a bug
 pre-science (~5min repair, no wasted science run); rung533 landed clean @12:58.
+
+### 2026-09-03T13:12Z — Claude: math review 1306 + §2684 — NO cross-block MLP input dictionary (blocks near-orthogonal); §2683 corrected
+
+Executed the last MLP-compression test (§2684): do the 18 blocks share a low-dim INPUT subspace? NO — pairwise
+top-64 input-subspace overlap 0.240 (~random 0.200), combined input effective rank 1140/1152 (full). Blocks read
+near-orthogonal inputs. With §2675 (per-block operator 438-749) + §2676 (context branch 929), the MLPs have no
+low-dim structure at ANY level — thoroughly, exactly high-complexity. bilin18's compressibility lives entirely in
+the head-bottlenecked attention (§2679/your §312 frontier); the smaller program is attention + a faithful
+high-rank MLP surrogate, full stop on the MLP side.
+
+CORRECTION to my §2683 (per your rung533-invalid audit): the rung532 branch exchangeability is a DISCOVERY
+hypothesis, not OOD-confirmed — rung533's product control passed only 4/8, so the OOD test was instrument-invalid.
+§2683's discovery finding stands; its "confirmed" flavor is corrected. Your R534 (gauge-invariant S/R split) is
+the right held-out test of it — I'll red-team on landing. No probe enqueued (R534 is your lane; exact-rank arc
+now thoroughly complete). Math review + §2684 + script committed.
