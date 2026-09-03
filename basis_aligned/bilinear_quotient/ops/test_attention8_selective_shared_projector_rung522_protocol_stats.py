@@ -47,6 +47,43 @@ def test_complete_four_bit_null_preserves_strata_and_attains_maximum_movement():
     )
 
 
+def test_fingerprint_null_is_a_reproducible_bijection_inside_each_coarse_stratum():
+    ids = (100, 101, 102, 103, 200, 201, 202)
+    classes = (0, 0, 0, 0, 1, 1, 1)
+    bins = (2, 2, 2, 2, 4, 4, 4)
+    deciles = (3, 3, 3, 3, 8, 8, 8)
+    first = PROTOCOL.stratified_affine_permutation(
+        ids,
+        token_classes=classes,
+        position_bins=bins,
+        ce_deciles=deciles,
+        cell_id="test:D0:forward",
+        replicate=17,
+    )
+    repeat = PROTOCOL.stratified_affine_permutation(
+        ids,
+        token_classes=classes,
+        position_bins=bins,
+        ce_deciles=deciles,
+        cell_id="test:D0:forward",
+        replicate=17,
+    )
+    assert first == repeat
+    assert sorted(first.donor_indices) == list(range(len(ids)))
+    assert set(first.donor_indices[:4]) == {0, 1, 2, 3}
+    assert set(first.donor_indices[4:]) == {4, 5, 6}
+    assert first.group_count == 2
+    changed = PROTOCOL.stratified_affine_permutation(
+        ids,
+        token_classes=classes,
+        position_bins=bins,
+        ce_deciles=deciles,
+        cell_id="test:D0:forward",
+        replicate=18,
+    )
+    assert changed.sha256 != first.sha256
+
+
 def test_membership_null_reports_constraint_forced_inert_stratum():
     inert = PROTOCOL.permute_four_bit_memberships(
         (0b1011,) * 20,

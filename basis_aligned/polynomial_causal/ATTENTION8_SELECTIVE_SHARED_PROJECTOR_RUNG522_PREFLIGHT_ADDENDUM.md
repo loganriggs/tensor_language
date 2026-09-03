@@ -367,14 +367,20 @@ is retained rather than clipped.
 All 32 fingerprint coordinates use rung521's `fingerprint` member/control arrays, including for the quartet; they do
 not substitute the quartet-exclusive arrays used by Prediction A. A coordinate is therefore comparable across all
 32 circuits. For null replicate `b=0..19999`, positions inside each
-`(token_class, position_bin_32, native_CE_decile)` group are ordered by the first eight SHA-256 bytes of
+`(token_class, position_bin_32, native_CE_decile)` group are ordered by global position and permuted by one
+SHA-defined affine bijection. For a group of size `n>1`, hash
 
-`a8-r522-fingerprint-null-v1:<TEST cell ID>:<b>:<global position>`.
+`a8-r522-fingerprint-null-v1:<TEST cell ID>:<b>:<group tuple>`.
 
-The saved response values are reassigned in that order by one common permutation before all 32 coordinates are
-recomputed. The masks, pair ordering, and circuit base rates stay fixed. This is explicitly a coarse-stratum
-randomization: it does not preserve exact token identity, so passing it supports the registered within-census
-operational extraction but cannot by itself establish a semantic variable.
+The first eight bytes choose offset `c modulo n`; the next eight choose an initial multiplier in `1..n-1`, which is
+incremented cyclically until it is coprime to `n`. Recipient rank `i` receives the saved response at donor rank
+`(a*i+c) modulo n`. A size-one group is the identity. This makes every replicate a directly checked bijection with
+constant-time address calculation rather than relying on a library shuffle or an underspecified SHA ordering.
+
+One common permutation is applied before all 32 coordinates are recomputed. The masks, pair ordering, and circuit
+base rates stay fixed. This is explicitly a coarse-stratum randomization: it does not preserve exact token identity,
+so passing it supports the registered within-census operational extraction but cannot by itself establish a
+semantic variable.
 
 ### Exact removal action and Prediction D
 

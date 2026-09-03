@@ -21,6 +21,7 @@ import torch
 
 PERMUTATION_NAMESPACE = "a8-r522-four-bit-label-null-v1"
 BOOTSTRAP_NAMESPACE = "a8-r522-row-bootstrap-v1"
+FINGERPRINT_NULL_NAMESPACE = "a8-r522-fingerprint-null-v1"
 REGISTERED_BOOTSTRAPS = 2_000
 REGISTERED_REAL_SEEDS = tuple(range(52_200, 52_205))
 REGISTERED_NULL_SEEDS = tuple(range(52_300, 52_316))
@@ -60,6 +61,81 @@ def higher_quantile(values: Sequence[float] | torch.Tensor, probability: float) 
         raise ValueError("probability must lie in [0, 1]")
     index = math.ceil(probability * (samples.numel() - 1))
     return float(samples[index])
+
+
+@dataclass(frozen=True)
+class AffinePermutationResult:
+    donor_indices: tuple[int, ...]
+    cell_id: str
+    replicate: int
+    group_count: int
+    sha256: str
+
+
+def stratified_affine_permutation(
+    position_ids: Sequence[int] | torch.Tensor,
+    *,
+    token_classes: Sequence[int] | torch.Tensor,
+    position_bins: Sequence[int] | torch.Tensor,
+    ce_deciles: Sequence[int] | torch.Tensor,
+    cell_id: str,
+    replicate: int,
+) -> AffinePermutationResult:
+    """Return the registered common coarse-stratum response permutation."""
+    ids = _integers(position_ids, "position_ids")
+    classes = _integers(token_classes, "token_classes")
+    bins = _integers(position_bins, "position_bins")
+    deciles = _integers(ce_deciles, "ce_deciles")
+    if not ids or any(len(value) != len(ids) for value in (classes, bins, deciles)):
+        raise ValueError("affine permutation arrays must have one equal positive length")
+    if len(set(ids)) != len(ids):
+        raise ValueError("position_ids must be unique")
+    if not isinstance(cell_id, str) or not cell_id:
+        raise ValueError("cell_id must be a nonempty string")
+    replicate = operator.index(replicate)
+    if replicate < 0 or replicate >= 20_000:
+        raise ValueError("fingerprint-null replicate must lie in 0..19999")
+    groups: dict[tuple[int, int, int], list[int]] = {}
+    for index, group in enumerate(zip(classes, bins, deciles, strict=True)):
+        groups.setdefault(group, []).append(index)
+    donors = [-1] * len(ids)
+    for group in sorted(groups):
+        members = sorted(groups[group], key=lambda index: (ids[index], index))
+        count = len(members)
+        if count == 1:
+            donors[members[0]] = members[0]
+            continue
+        payload = ":".join(
+            (
+                FINGERPRINT_NULL_NAMESPACE,
+                cell_id,
+                str(replicate),
+                *(str(value) for value in group),
+            )
+        ).encode()
+        digest = hashlib.sha256(payload).digest()
+        offset = int.from_bytes(digest[:8], "little", signed=False) % count
+        multiplier = 1 + int.from_bytes(digest[8:16], "little", signed=False) % (count - 1)
+        while math.gcd(multiplier, count) != 1:
+            multiplier = 1 if multiplier == count - 1 else multiplier + 1
+        for recipient_rank, recipient in enumerate(members):
+            donor_rank = (multiplier * recipient_rank + offset) % count
+            donors[recipient] = members[donor_rank]
+    if any(index < 0 for index in donors) or len(set(donors)) != len(donors):
+        raise RuntimeError("stratified affine map is not a complete bijection")
+    encoded = json.dumps(
+        {
+            "namespace": FINGERPRINT_NULL_NAMESPACE,
+            "cell_id": cell_id,
+            "replicate": replicate,
+            "donor_indices": donors,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode()
+    return AffinePermutationResult(
+        tuple(donors), cell_id, replicate, len(groups), hashlib.sha256(encoded).hexdigest()
+    )
 
 
 @dataclass(frozen=True)
@@ -614,11 +690,13 @@ def exact_five_pair_sign_flip_null(
 
 
 __all__ = [
+    "AffinePermutationResult",
     "BOOTSTRAP_NAMESPACE",
     "BoundedJointSummary",
     "InsufficientPermutationMovement",
     "MembershipPermutationResult",
     "PERMUTATION_NAMESPACE",
+    "FINGERPRINT_NULL_NAMESPACE",
     "REGISTERED_BOOTSTRAPS",
     "REGISTERED_NULL_SEEDS",
     "REGISTERED_REAL_SEEDS",
@@ -637,5 +715,6 @@ __all__ = [
     "permute_four_bit_memberships",
     "selectivity_from_effects",
     "selectivity_from_rms",
+    "stratified_affine_permutation",
     "summarize_matched_three_fold_stability",
 ]

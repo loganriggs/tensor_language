@@ -62,7 +62,7 @@ FROZEN_HASHES = {
     POLY / "ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREREGISTRATION.md":
         "27bc74c3e19ac310f0ed88f1527a1df44ff52d8990d980971415b32b503126f5",
     POLY / "ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREFLIGHT_ADDENDUM.md":
-        "7333c3f8ae07c5469c6e2159583db73b8f779be29d6b2de4f8f1f51c0a4e4679",
+        "66ad6f209e02082bd7e7fef03c1a67ff5015935fde4a7d75994d5a0694dce40f",
     OPS / "attention8_selective_shared_projector_rung522_math.py":
         "6cff6f7726dd8f76e786d64abf913fc31adbdfec101a97741a1aa3396f8431c2",
     OPS / "attention8_selective_shared_projector_rung522_scheduler.py":
@@ -433,6 +433,51 @@ def build_label_null_designs(
     return results
 
 
+@dataclass(frozen=True)
+class SwapArm:
+    ensemble: str
+    map_index: int
+    direction: str
+    recipient_row: int
+
+    @property
+    def cell(self) -> str:
+        return f"{self.ensemble}:{self.direction}"
+
+
+def _swap_arm_plan(recipient_rows: Sequence[int]) -> tuple[SwapArm, ...]:
+    arms = []
+    for ensemble, offset in (("D0", 0), ("D1", 4)):
+        for direction in ("forward", "reverse"):
+            for local_map in range(4):
+                for row in recipient_rows:
+                    arms.append(SwapArm(ensemble, offset + local_map, direction, int(row)))
+    expected = 16 * len(recipient_rows)
+    if len(arms) != expected or len(set(arms)) != expected:
+        raise RuntimeError("swap arm plan is incomplete or duplicated")
+    return tuple(arms)
+
+
+@dataclass(frozen=True)
+class SwapEvaluation:
+    split: str
+    kind: str
+    map_responses: Mapping[str, torch.Tensor]
+    cell_responses: Mapping[str, torch.Tensor]
+    forward_calls: int
+    minimum_edit_rms: float
+    response_sha256: str
+
+
+@dataclass(frozen=True)
+class RemovalEvaluation:
+    split: str
+    response: torch.Tensor
+    forward_calls: int
+    minimum_edit_rms: float
+    response_sha256: str
+
+
 def _donor_rows(donor_map: torch.Tensor, selected_rows: torch.Tensor) -> torch.Tensor:
     donor = donor_map[selected_rows * TOKENS]
     if bool((donor < 0).any()) or bool((donor % TOKENS != 0).any()):
@@ -632,6 +677,159 @@ class Rung522Instrument:
         local = self.row_to_local[split][rows]
         delta = _per_token_ce(logits, targets) - self.native_ce[split][local].to(self.device)
         return delta, rms
+
+    @torch.no_grad()
+    def evaluate_swap(
+        self,
+        split: str,
+        *,
+        frame: torch.Tensor | None,
+    ) -> SwapEvaluation:
+        """Evaluate all D0/D1 x forward/reverse cells with explicit arm IDs."""
+        self.state.authorize_split_access(split.upper())
+        if split not in self.captures:
+            raise RuntimeError(f"{split} native state has not been captured")
+        rows = self.split_rows[split]
+        donor_design = self.design["donors"][split]
+        maps = tuple(donor_design["maps"])
+        inverse_maps = tuple(donor_design["inverse_maps"])
+        if len(maps) != 8 or len(inverse_maps) != 8:
+            raise RuntimeError("evaluation requires eight forward and inverse donor maps")
+        map_responses = {
+            f"{ensemble}:{direction}": torch.empty(
+                (4, rows.numel(), TOKENS), dtype=torch.float32
+            )
+            for ensemble in ("D0", "D1")
+            for direction in ("forward", "reverse")
+        }
+        frame_device = None if frame is None else frame.to(self.device, dtype=torch.float32)
+        calls = 0
+        minimum_edit_rms = math.inf
+        for start in range(0, rows.numel(), EVALUATION_ROWS):
+            chosen = rows[start : start + EVALUATION_ROWS]
+            arms = _swap_arm_plan(chosen.tolist())
+            token_blocks = []
+            target_blocks = []
+            donor_blocks = []
+            for arm in arms:
+                row_tensor = torch.tensor([arm.recipient_row], dtype=torch.int64)
+                token_blocks.append(self.data["rows"][row_tensor, :TOKENS])
+                target_blocks.append(self.data["rows"][row_tensor, 1 : TOKENS + 1])
+                donor_map = (
+                    maps[arm.map_index]
+                    if arm.direction == "forward"
+                    else inverse_maps[arm.map_index]
+                )
+                donor_blocks.append(self.donor_writes(split, row_tensor, donor_map))
+            tokens = torch.cat(token_blocks).to(self.device)
+            targets = torch.cat(target_blocks).to(self.device)
+            donors = torch.cat(donor_blocks).to(self.device)
+
+            def edit(write: torch.Tensor) -> torch.Tensor:
+                if frame_device is None:
+                    return donors
+                return core.daslib.projection_interchange(
+                    write, donors, frame_device, validate=False
+                )
+
+            logits, _, diagnostics = _execute(self.model, tokens, edit=edit)
+            self.ledger.charge("inference_forward")
+            self.state.record_inference_events(1)
+            calls += 1
+            rms = diagnostics["per_sequence_edit_rms"]
+            if rms is None or bool((rms <= 0).any()):
+                raise RuntimeError("evaluation contains a dead donor arm")
+            minimum_edit_rms = min(minimum_edit_rms, float(rms.min()))
+            ce = _per_token_ce(logits, targets).cpu()
+            for physical_index, arm in enumerate(arms):
+                local_map = arm.map_index % 4
+                local_row = self.row_to_local[split][arm.recipient_row]
+                if int(local_row) < 0:
+                    raise RuntimeError("evaluation arm references a row outside its split")
+                delta = ce[physical_index] - self.native_ce[split][local_row]
+                map_responses[arm.cell][local_map, local_row] = delta
+            del logits, tokens, targets, donors, ce
+        expected_calls = math.ceil(rows.numel() / EVALUATION_ROWS)
+        if calls != expected_calls:
+            raise RuntimeError("evaluation forward-call count changed")
+        cells = {name: values.mean(0) for name, values in map_responses.items()}
+        digest = hashlib.sha256()
+        for name in sorted(map_responses):
+            digest.update(name.encode())
+            digest.update(map_responses[name].contiguous().numpy().tobytes())
+        return SwapEvaluation(
+            split=split,
+            kind="whole_attention8" if frame is None else "rank4_projector",
+            map_responses=map_responses,
+            cell_responses=cells,
+            forward_calls=calls,
+            minimum_edit_rms=minimum_edit_rms,
+            response_sha256=digest.hexdigest(),
+        )
+
+    def fit_projection_mean(self, frame: torch.Tensor) -> torch.Tensor:
+        """Mean of yQ over every native FIT row and predicted-token position."""
+        if "fit" not in self.captures:
+            raise RuntimeError("FIT native state must be captured before computing mu_Q")
+        frame_cpu = frame.detach().cpu().float()
+        if tuple(frame_cpu.shape) != (D, RANK):
+            raise ValueError("removal frame shape changed")
+        mean = (self.captures["fit"] @ frame_cpu).double().mean((0, 1)).float()
+        if tuple(mean.shape) != (RANK,) or not bool(torch.isfinite(mean).all()):
+            raise RuntimeError("FIT projection mean is absent or non-finite")
+        return mean.contiguous()
+
+    @torch.no_grad()
+    def evaluate_removal(
+        self,
+        frame: torch.Tensor,
+        fit_projection_mean: torch.Tensor,
+    ) -> RemovalEvaluation:
+        """Execute the frozen mean-centered action on TEST exactly once."""
+        self.state.authorize_split_access("TEST")
+        if "test" not in self.captures:
+            raise RuntimeError("TEST native state must be captured inside the open sweep")
+        frame_device = frame.to(self.device, dtype=torch.float32)
+        mean_device = fit_projection_mean.to(self.device, dtype=torch.float32)
+        if tuple(frame_device.shape) != (D, RANK) or tuple(mean_device.shape) != (RANK,):
+            raise ValueError("removal frame or FIT mean shape changed")
+        rows = self.split_rows["test"]
+        response = torch.empty((rows.numel(), TOKENS), dtype=torch.float32)
+        calls = 0
+        minimum_edit_rms = math.inf
+        for start in range(0, rows.numel(), EVALUATION_ROWS):
+            chosen = rows[start : start + EVALUATION_ROWS]
+            tokens = self.data["rows"][chosen, :TOKENS].to(self.device)
+            targets = self.data["rows"][chosen, 1 : TOKENS + 1].to(self.device)
+
+            def edit(write: torch.Tensor) -> torch.Tensor:
+                coordinates = write @ frame_device
+                return write - (coordinates - mean_device) @ frame_device.mT
+
+            logits, _, diagnostics = _execute(self.model, tokens, edit=edit)
+            self.ledger.charge("removal_forward")
+            self.state.record_inference_events(1, removal=True)
+            calls += 1
+            rms = diagnostics["per_sequence_edit_rms"]
+            if rms is None or bool((rms <= 0).any()):
+                raise RuntimeError("mean-centered removal contains a dead sequence")
+            minimum_edit_rms = min(minimum_edit_rms, float(rms.min()))
+            local = self.row_to_local["test"][chosen]
+            stop = start + chosen.numel()
+            response[start:stop] = (
+                _per_token_ce(logits, targets).cpu() - self.native_ce["test"][local]
+            )
+            del logits, tokens, targets
+        expected = math.ceil(rows.numel() / EVALUATION_ROWS)
+        if calls != expected:
+            raise RuntimeError("removal forward-call count changed")
+        return RemovalEvaluation(
+            split="test",
+            response=response,
+            forward_calls=calls,
+            minimum_edit_rms=minimum_edit_rms,
+            response_sha256=stage_a._tensor_sha256(response),
+        )
 
 
 def _make_balanced_scheduler(
@@ -894,6 +1092,208 @@ def fit_one_registered_frame(
     )
     del initial, raw, optimizer
     return final, record
+
+
+def _split_local_indices(
+    global_indices: torch.Tensor,
+    row_to_local: torch.Tensor,
+) -> torch.Tensor:
+    local_rows = row_to_local[global_indices // TOKENS]
+    if bool((local_rows < 0).any()):
+        raise RuntimeError("metric pair contains a position outside its data split")
+    return local_rows * TOKENS + global_indices % TOKENS
+
+
+def _pair_effects(
+    response: torch.Tensor,
+    pairs: TargetPairs,
+    row_to_local: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    if response.device.type != "cpu" or response.ndim != 2 or response.shape[1] != TOKENS:
+        raise ValueError("saved response must be a CPU [rows, tokens] tensor")
+    flat = response.reshape(-1)
+    members = _split_local_indices(pairs.members, row_to_local)
+    controls = _split_local_indices(pairs.controls, row_to_local)
+    return flat[members].double(), flat[controls].double()
+
+
+def _row_pair_squares(
+    member_effects: torch.Tensor,
+    control_effects: torch.Tensor,
+    pairs: TargetPairs,
+) -> protocol.RowPairSquares:
+    if member_effects.shape != control_effects.shape or member_effects.numel() != pairs.members.numel():
+        raise ValueError("effect vectors no longer align with the frozen matched pairs")
+    member_rows = pairs.members // TOKENS
+    unique_rows = member_rows.unique(sorted=True)
+    member_ss = []
+    member_counts = []
+    control_ss = []
+    control_counts = []
+    for row in unique_rows.tolist():
+        selected = member_rows == row
+        member_ss.append(float(member_effects[selected].square().sum()))
+        member_counts.append(int(selected.sum()))
+        control_ss.append(float(control_effects[selected].square().sum()))
+        control_counts.append(int(selected.sum()))
+    return protocol.RowPairSquares.from_sequences(
+        member_ss,
+        member_counts,
+        control_ss,
+        control_counts,
+        pair_ids=unique_rows.tolist(),
+    )
+
+
+def score_response_cell(
+    projected: torch.Tensor,
+    full_attention8: torch.Tensor,
+    pairs: TargetPairs,
+    row_to_local: torch.Tensor,
+    *,
+    cell_id: str,
+) -> dict[str, object]:
+    """Compute the frozen A-cell metrics from saved per-token responses."""
+    projected_member, projected_control = _pair_effects(projected, pairs, row_to_local)
+    full_member, full_control = _pair_effects(full_attention8, pairs, row_to_local)
+    signed = core.signed_response_metrics(projected_member, full_member)
+    selectivity = protocol.selectivity_from_effects(projected_member, projected_control)
+    full_selectivity = protocol.selectivity_from_effects(full_member, full_control)
+    rows = _row_pair_squares(projected_member, projected_control, pairs)
+    bootstrap = protocol.deterministic_row_bootstrap(rows, cell_id=cell_id)
+    exact = pairs.tiers <= 1
+    exact_token = None
+    if int(exact.sum()) >= 32:
+        exact_members = projected_member[exact]
+        exact_controls = projected_control[exact]
+        exact_pairs = TargetPairs(
+            pairs.target,
+            pairs.members[exact],
+            pairs.controls[exact],
+            pairs.tiers[exact],
+        )
+        exact_rows = _row_pair_squares(exact_members, exact_controls, exact_pairs)
+        exact_bootstrap = protocol.deterministic_row_bootstrap(
+            exact_rows, cell_id=f"{cell_id}:exact-token-tier0-or1"
+        )
+        exact_summary = protocol.selectivity_from_effects(exact_members, exact_controls)
+        exact_token = {
+            "pair_count": int(exact.sum()),
+            "member_rms": exact_summary.member_rms,
+            "control_rms": exact_summary.control_rms,
+            "concentration": exact_summary.concentration,
+            "fourfold_margin_lower95": exact_bootstrap.fourfold_margin_lower95_higher,
+            "passes": bool(
+                exact_summary.concentration >= 4
+                and exact_bootstrap.fourfold_margin_lower95_higher > 0
+            ),
+        }
+    result = {
+        **signed,
+        "member_rms": selectivity.member_rms,
+        "control_rms": selectivity.control_rms,
+        "concentration": selectivity.concentration,
+        "bounded_selectivity": selectivity.bounded_selectivity,
+        "fourfold_margin": selectivity.fourfold_margin,
+        "fourfold_margin_lower95": bootstrap.fourfold_margin_lower95_higher,
+        "full_attention8_concentration": full_selectivity.concentration,
+        "concentration_improvement_over_full_attention8": (
+            selectivity.concentration - full_selectivity.concentration
+        ),
+        "pair_count": int(pairs.members.numel()),
+        "member_row_clusters": len(rows),
+        "bootstrap_sha256": bootstrap.sha256,
+        "exact_token_tier0_or1": exact_token,
+    }
+    result["base_gates_pass"] = bool(
+        result["signed_cosine"] >= 0.75
+        and result["relative_residual"] <= 0.55
+        and result["aligned_recovery"] > 0
+        and result["member_rms"] >= 0.02
+        and result["concentration"] >= 4
+        and result["concentration_improvement_over_full_attention8"] >= 1
+        and result["fourfold_margin_lower95"] > 0
+        and (exact_token is None or exact_token["passes"])
+    )
+    return result
+
+
+def fingerprint_pairs(design: dict, cell: str) -> dict[str, TargetPairs]:
+    matches = design["cells"][cell]["fingerprint"]
+    if tuple(matches) != tuple(stage_a.FINGERPRINT_TAGS):
+        # Dict construction order is frozen in rung521, but compare sets too so
+        # an informative failure survives a benign serialization reordering.
+        if set(matches) != set(stage_a.FINGERPRINT_TAGS):
+            raise RuntimeError("32-circuit fingerprint census changed")
+    return {
+        target: _pairs_from_match(target, matches[target])
+        for target in stage_a.FINGERPRINT_TAGS
+    }
+
+
+def fingerprint_coordinates(
+    response: torch.Tensor,
+    pairs_by_target: Mapping[str, TargetPairs],
+    row_to_local: torch.Tensor,
+) -> dict[str, dict[str, float]]:
+    """Compute the common 32-circuit RMS-member-minus-control coordinates."""
+    if set(pairs_by_target) != set(stage_a.FINGERPRINT_TAGS):
+        raise ValueError("fingerprint scoring requires exactly the frozen 32 circuits")
+    result = {}
+    for target in stage_a.FINGERPRINT_TAGS:
+        member, control = _pair_effects(response, pairs_by_target[target], row_to_local)
+        member_rms = float(member.square().mean().sqrt())
+        control_rms = float(control.square().mean().sqrt())
+        result[target] = {
+            "member_rms": member_rms,
+            "control_rms": control_rms,
+            "coordinate": member_rms - control_rms,
+            "signed_mean_member_minus_control": float(member.mean() - control.mean()),
+        }
+    return result
+
+
+def quartet_separation(coordinates: Mapping[str, Mapping[str, float]]) -> dict[str, float]:
+    if set(coordinates) != set(stage_a.FINGERPRINT_TAGS):
+        raise ValueError("quartet separation requires the frozen 32 coordinates")
+    quartet_min = min(float(coordinates[target]["coordinate"]) for target in QUARTET_TAGS)
+    nonquartet_max = max(
+        float(coordinates[target]["coordinate"])
+        for target in stage_a.FINGERPRINT_TAGS
+        if target not in QUARTET_TAGS
+    )
+    return {
+        "minimum_quartet_coordinate": quartet_min,
+        "maximum_nonquartet_coordinate": nonquartet_max,
+        "separation": quartet_min - nonquartet_max,
+    }
+
+
+def outside_union_damage(
+    response: torch.Tensor,
+    data: dict,
+    split: str,
+    exclusive_pairs: Mapping[str, TargetPairs],
+    row_to_local: torch.Tensor,
+) -> dict[str, float | bool]:
+    rows = data["row_masks"][split].nonzero().flatten()
+    global_positions = (
+        rows[:, None] * TOKENS + torch.arange(TOKENS, dtype=torch.int64)[None, :]
+    ).reshape(-1)
+    outside = ~data["quartet_union"][global_positions]
+    outside_rms = float(response.reshape(-1)[outside].double().square().mean().sqrt())
+    quartet_member_rms = []
+    for target in QUARTET_TAGS:
+        member, _ = _pair_effects(response, exclusive_pairs[target], row_to_local)
+        quartet_member_rms.append(float(member.square().mean().sqrt()))
+    smallest = min(quartet_member_rms)
+    ratio = outside_rms / max(smallest, 1e-30)
+    return {
+        "outside_union_rms": outside_rms,
+        "smallest_quartet_member_rms": smallest,
+        "outside_to_smallest_quartet_ratio": ratio,
+        "passes_at_most_25_percent": ratio <= 0.25,
+    }
 
 
 def main(argv: list[str] | None = None) -> dict[str, object]:
