@@ -89,6 +89,8 @@ def main():
         f"and {len(rows)-n_behavior-n_subroutine} legacy census records.",
         "Negative/invalid results are counted as evidence, not omitted. Check this view and then the linked JSON record before opening work.",
         "For acceptance-criterion coverage across task circuits, see [CIRCUIT_COVERAGE.md](CIRCUIT_COVERAGE.md).",
+        "Before starting a run, check open and repeated protocols in "
+        "[CIRCUIT_EXPERIMENT_INDEX.md](CIRCUIT_EXPERIMENT_INDEX.md).",
         "",
         "| circuit | kind | identity | status | causal variable / legacy story | CF families | held evidence types | active blockers | active / historical negative events | latest active evidence | exact next missing evidence |",
         "|---|---|---|---|---|---:|---|---|---:|---|---|",

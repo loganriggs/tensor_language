@@ -138,6 +138,13 @@ checkpoint, preregistration, and result hashes. Renaming an experiment therefore
 silently repeat it. A deliberate successor names `supersedes_event_id`; a replication
 names `replicates_event_id` and must have a distinct execution key.
 
+`make_circuit_experiment_index.py` turns these hashes into the generated
+`CIRCUIT_EXPERIMENT_INDEX.md` and `circuits/experiment_index.json` views. Check that view
+before claiming new work: it lists the currently open preregistrations, exact execution-key
+duplicates, and repeated scientific protocols that lack an explicit supersession or
+replication link. Its `protocol_key` deliberately ignores claim revision and execution
+details, so changing a filename, seed, or split cannot disguise a repeated question.
+
 Artifacts use repository-relative paths and SHA-256 hashes. `frozen` requires a hash;
 unavailable historical inputs are `legacy_unhashed`, never guessed. Split plans group the
 underlying document/template/entity across all families so one unit cannot appear in FIT
