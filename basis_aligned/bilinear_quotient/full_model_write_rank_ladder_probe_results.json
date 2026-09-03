@@ -1,0 +1,327 @@
+{
+ "rung": "full_model_write_rank_ladder_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split, bases from docs 96-191); LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_all36_256": false,
+  "pred_c_all36_512": true,
+  "pred_d_stack_cross_term": true,
+  "pred_e_768_near_free": false
+ },
+ "nulls": {
+  "b_null_all36_256_ge_1.5": false,
+  "c_null_all36_512_ge_.50": false,
+  "d_null_x_stack_ge_sum": false,
+  "e_null_all36_768_ge_.15": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.01,
+  "b_max": 0.8,
+  "c_max": 0.25,
+  "d_mult": 0.5,
+  "e_max": 0.05
+ },
+ "null_bars": {
+  "b_min": 1.5,
+  "c_min": 0.5,
+  "d_mult": 1.0,
+  "e_min": 0.15
+ },
+ "device": "cuda",
+ "ks": [
+  64,
+  128,
+  256,
+  512,
+  768
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "identity_abs_diff": 0.0,
+  "early8_128": 0.6919083595275879,
+  "prior_early8_128": 0.69191,
+  "late14_128": 0.48584386706352234,
+  "prior_late14_128": 0.48584,
+  "all_monotone": true
+ },
+ "baseline_ce_eval": 3.032240092754364,
+ "all36_ce_added": {
+  "64": 2.7310661673545837,
+  "128": 1.8118473887443542,
+  "256": 0.866707980632782,
+  "512": 0.2387392222881317,
+  "768": 0.0638359785079956
+ },
+ "stack_ce_added": {
+  "EARLY8": {
+   "64": 1.6465884447097778,
+   "128": 0.6919083595275879,
+   "256": 0.13545456528663635,
+   "512": 0.021118849515914917,
+   "768": 0.005857408046722412
+  },
+  "MID14": {
+   "64": 1.1007193326950073,
+   "128": 0.6616037786006927,
+   "256": 0.27424556016921997,
+   "512": 0.06729254126548767,
+   "768": 0.016703784465789795
+  },
+  "LATE14": {
+   "64": 0.6956936120986938,
+   "128": 0.48584386706352234,
+   "256": 0.2731831669807434,
+   "512": 0.09721201658248901,
+   "768": 0.03152656555175781
+  }
+ },
+ "stack_sum_ce_added": {
+  "64": 3.443001389503479,
+  "128": 1.839356005191803,
+  "256": 0.6828832924365997,
+  "512": 0.1856234073638916,
+  "768": 0.05408775806427002
+ },
+ "x_stack_ce_added": {
+  "64": -0.7119352221488953,
+  "128": -0.02750861644744873,
+  "256": 0.18382468819618225,
+  "512": 0.05311581492424011,
+  "768": 0.009748220443725586
+ },
+ "write_spectrum_fit": {
+  "attn0": {
+   "eff_rank": 172.84970332893968,
+   "rank_90": 198,
+   "top1": 0.053248385112717816,
+   "psd_min_over_max": 1.517826635841366e-10
+  },
+  "mlp0": {
+   "eff_rank": 149.58460015689545,
+   "rank_90": 425,
+   "top1": 0.20003203740685743,
+   "psd_min_over_max": 0.0001652023952335299
+  },
+  "attn1": {
+   "eff_rank": 21.243208015095348,
+   "rank_90": 111,
+   "top1": 0.5360584645301699,
+   "psd_min_over_max": 3.294368339919115e-11
+  },
+  "mlp1": {
+   "eff_rank": 319.8672804100158,
+   "rank_90": 501,
+   "top1": 0.0619248413808561,
+   "psd_min_over_max": 0.0006138790740249082
+  },
+  "attn2": {
+   "eff_rank": 230.19878253583948,
+   "rank_90": 275,
+   "top1": 0.04643393486330001,
+   "psd_min_over_max": 1.0722165608068067e-10
+  },
+  "mlp2": {
+   "eff_rank": 431.86142221820694,
+   "rank_90": 568,
+   "top1": 0.041152645530697106,
+   "psd_min_over_max": 0.001233903327427128
+  },
+  "attn3": {
+   "eff_rank": 257.38499232900745,
+   "rank_90": 297,
+   "top1": 0.04309652173542776,
+   "psd_min_over_max": 1.6847306199871753e-09
+  },
+  "mlp3": {
+   "eff_rank": 415.39677317768724,
+   "rank_90": 546,
+   "top1": 0.04075693004225973,
+   "psd_min_over_max": 0.0011182511880485813
+  },
+  "attn4": {
+   "eff_rank": 271.782378142751,
+   "rank_90": 301,
+   "top1": 0.04676642349863585,
+   "psd_min_over_max": 7.455418024380584e-10
+  },
+  "mlp4": {
+   "eff_rank": 167.55278045344775,
+   "rank_90": 510,
+   "top1": 0.27399560734440453,
+   "psd_min_over_max": 0.0001506605177781977
+  },
+  "attn5": {
+   "eff_rank": 104.12322118368871,
+   "rank_90": 233,
+   "top1": 0.2689830048410028,
+   "psd_min_over_max": 4.2029086562276433e-11
+  },
+  "mlp5": {
+   "eff_rank": 209.13598357385726,
+   "rank_90": 533,
+   "top1": 0.21032735934832714,
+   "psd_min_over_max": 0.00022438904340740714
+  },
+  "attn6": {
+   "eff_rank": 30.657204691581928,
+   "rank_90": 161,
+   "top1": 0.511343513129351,
+   "psd_min_over_max": 4.724620004670076e-11
+  },
+  "mlp6": {
+   "eff_rank": 284.7847243338627,
+   "rank_90": 597,
+   "top1": 0.19207399265440145,
+   "psd_min_over_max": 0.0002629751975073558
+  },
+  "attn7": {
+   "eff_rank": 68.5917882282533,
+   "rank_90": 196,
+   "top1": 0.3487118095756793,
+   "psd_min_over_max": 2.050437644850585e-10
+  },
+  "mlp7": {
+   "eff_rank": 606.8662942045055,
+   "rank_90": 669,
+   "top1": 0.038994091002625866,
+   "psd_min_over_max": 0.0014779503674972763
+  },
+  "attn8": {
+   "eff_rank": 337.14300167761337,
+   "rank_90": 365,
+   "top1": 0.07998818535527426,
+   "psd_min_over_max": 8.68666823566739e-12
+  },
+  "mlp8": {
+   "eff_rank": 581.6432415828336,
+   "rank_90": 677,
+   "top1": 0.04006394861844104,
+   "psd_min_over_max": 0.0017767514334629023
+  },
+  "attn9": {
+   "eff_rank": 73.15866163624413,
+   "rank_90": 176,
+   "top1": 0.3089428534359561,
+   "psd_min_over_max": 1.3063346583893195e-10
+  },
+  "mlp9": {
+   "eff_rank": 632.6816154573908,
+   "rank_90": 693,
+   "top1": 0.0391668881174724,
+   "psd_min_over_max": 0.0018295970288203078
+  },
+  "attn10": {
+   "eff_rank": 74.35151727670673,
+   "rank_90": 200,
+   "top1": 0.3080006584263842,
+   "psd_min_over_max": 6.378864618425593e-11
+  },
+  "mlp10": {
+   "eff_rank": 682.99341484494,
+   "rank_90": 715,
+   "top1": 0.020819119261870085,
+   "psd_min_over_max": 0.0037895672681715047
+  },
+  "attn11": {
+   "eff_rank": 147.63189258424552,
+   "rank_90": 229,
+   "top1": 0.15258262944296358,
+   "psd_min_over_max": 1.6734933703876258e-10
+  },
+  "mlp11": {
+   "eff_rank": 576.9151740738306,
+   "rank_90": 699,
+   "top1": 0.07111866529238918,
+   "psd_min_over_max": 0.0009174064438672114
+  },
+  "attn12": {
+   "eff_rank": 136.75181538318165,
+   "rank_90": 208,
+   "top1": 0.1364339517811796,
+   "psd_min_over_max": 9.809482454952149e-11
+  },
+  "mlp12": {
+   "eff_rank": 585.041040006996,
+   "rank_90": 705,
+   "top1": 0.06608288654858588,
+   "psd_min_over_max": 0.0008822197893176895
+  },
+  "attn13": {
+   "eff_rank": 218.5224435879473,
+   "rank_90": 290,
+   "top1": 0.050218773943840056,
+   "psd_min_over_max": 2.6344576306144817e-10
+  },
+  "mlp13": {
+   "eff_rank": 569.9428949714979,
+   "rank_90": 714,
+   "top1": 0.07270125038066905,
+   "psd_min_over_max": 0.0007835365724591365
+  },
+  "attn14": {
+   "eff_rank": 309.5634261138816,
+   "rank_90": 319,
+   "top1": 0.026283741096386072,
+   "psd_min_over_max": 1.3454286675485231e-09
+  },
+  "mlp14": {
+   "eff_rank": 670.7846907797814,
+   "rank_90": 735,
+   "top1": 0.034149149163711257,
+   "psd_min_over_max": 0.0017016504894326013
+  },
+  "attn15": {
+   "eff_rank": 198.13900525782253,
+   "rank_90": 231,
+   "top1": 0.04602663403933401,
+   "psd_min_over_max": 4.633557771567076e-09
+  },
+  "mlp15": {
+   "eff_rank": 344.8460938443066,
+   "rank_90": 672,
+   "top1": 0.10651577263006953,
+   "psd_min_over_max": 0.0003537316563549609
+  },
+  "attn16": {
+   "eff_rank": 220.0147944665747,
+   "rank_90": 246,
+   "top1": 0.032959428572834425,
+   "psd_min_over_max": 2.2908509919657151e-10
+  },
+  "mlp16": {
+   "eff_rank": 9.644880672699012,
+   "rank_90": 64,
+   "top1": 0.42290106516682413,
+   "psd_min_over_max": 1.7738468378261674e-05
+  },
+  "attn17": {
+   "eff_rank": 18.93298466396207,
+   "rank_90": 67,
+   "top1": 0.4841728264053826,
+   "psd_min_over_max": 2.1931700413854666e-11
+  },
+  "mlp17": {
+   "eff_rank": 6.301607339404007,
+   "rank_90": 5,
+   "top1": 0.43378418303544225,
+   "psd_min_over_max": 6.553303215738225e-06
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 1448,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 32.86109185218811
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/FULL_MODEL_WRITE_RANK_LADDER_PROBE_PREREGISTRATION.md": "cda51b398a12beee40cf412458438c15d8422aab9f2febb8f1ab86d5a194e9a9",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_joint_k_ladder_probe_results.json": "6b2708a34e0eaf1cf226217995b37c6a8c6398da99dc0e0688d8c960a716b2fe",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_joint_k_ladder_probe_results.json": "1e0c96c50d63366a43a500716718752656ab8e1d8e93d09989757ed4d04235e7",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "07c0489f0fd5b580828f8b2dea96be4bc2158c969f08337f12881e36755aad25"
+}

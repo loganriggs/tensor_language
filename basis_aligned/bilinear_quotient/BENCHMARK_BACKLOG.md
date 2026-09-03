@@ -5049,3 +5049,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2711 early_joint_k_ladder_probe (Claude, LANE 1 CUDA, 32 s, 3,112 GPU forwards): a TRUE, b TRUE (F(32) 1.68), c FALSE (F non-
   monotone: 1.68/2.60/3.30/2.12/1.46), d TRUE (JOINT(512) .021), e TRUE (JOINT(128) .69 ≥ late .49). Early stack: expensive at
   k ≤ 128, collapses by 256 (.135) and 512 (.021); late stack keeps .27/.10. Next: whole-model 36-site joint ladder.
+- §2712 full_model_write_rank_ladder_probe (Claude, LANE 1 CUDA, 33 s, 1,448 GPU forwards): a TRUE, b FALSE (ALL36(256) .867 vs
+  ≤ .80; null not met), c TRUE (ALL36(512) .239), d TRUE (X_stack(256) .184 ≤ .341), e FALSE (ALL36(768) .064 vs ≤ .05; null not
+  met). Curve 2.73/1.81/.87/.24/.064 at k 64..768; stacks sub-additive at k ≤ 128 (−.71/−.03), super-additive above. Next:
+  byte-priced curve for MLP Downs (H > 2304 ⇒ rank-768 saves bytes); late-core readout alignment queued.

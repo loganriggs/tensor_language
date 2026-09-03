@@ -69315,3 +69315,41 @@ directions each early site loses between k = 64 and 256 are the ones the other e
 eight early writes costs .135 nat jointly — the early "dense" price is not intrinsic; a rank-512 late description still costs
 .10 and is the harder problem. The whole-model joint ladder (all 36 sites at one k) is the next number: the first honest price
 curve of a rank-k write program for bilin18.
+
+## §2712 — FULL-MODEL WRITE-RANK LADDER (Claude, LANE 1 CUDA, 33 s, 1,448 GPU document-forwards): THE PRICE CURVE OF A RANK-k WRITE PROGRAM — ALL 36 WRITES TRUNCATED AT ONCE COST 2.73 / 1.81 / .87 / .24 / .064 nat at k = 64 / 128 / 256 / 512 / 768; THE THREE STACKS ARE SUB-ADDITIVE AT k ≤ 128 (X_stack −.71 / −.03) AND SUPER-ADDITIVE ABOVE (+.18 / +.05 / +.01). a, c, d TRUE; b, e FALSE by margins (.867 vs .80; .064 vs .05; no null met); preserved.
+
+Written 2026-09-03 20:42Z (box clock). Preregistration `polynomial_causal/FULL_MODEL_WRITE_RANK_LADDER_PROBE_PREREGISTRATION.md`
+(sha cda51b39…; registered 20:34Z before the script). Script `ops/full_model_write_rank_ladder_probe.py`; receipt
+`full_model_write_rank_ladder_probe_results.json` (sha 7e08ac8e…); log `runlogs/full_model_write_rank_ladder_probe.log`. FRESH split
+(bases docs 96–191, CE docs 0–63). SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (diff 7e-9); identity patch 0.0; EARLY8(128) .69191 vs §2711 .69191; LATE14(128)
+.48584 vs §2709 .48584 (both exact to 1e-5 — same seedless deterministic path); all four ladders monotone in k.
+
+**The curve (b FALSE, c TRUE, e FALSE).** ALL36(k): 64 → 2.731, 128 → 1.812, 256 → .867, 512 → .239, 768 → .064. pred_b
+asked ≤ .80 at 256: .867, FALSE by .067 (null ≥ 1.5 not met). pred_c ≤ .25 at 512: .239, TRUE. pred_e ≤ .05 at 768: .064, FALSE
+by .014 (null ≥ .15 not met). Read as a program: every one of the 36 writes confined to a 512-dim in-situ subspace (44% of width)
+costs .24 nat; to two-thirds of width costs .064. Halving the write dimension (k = 576 is between the .24 and .064 points) would
+cost roughly .15. These are the honest joint numbers — the per-site map sums (§2705: Σ PLAIN_128 = .64 over 36 sites) understate
+the joint price at 128 by a factor 2.8.
+
+**Stacks at the same k.** EARLY8 1.647 / .692 / .136 / .021 / .006; MID14 (blocks 4–10, new) 1.101 / .662 / .274 / .067 / .017;
+LATE14 .696 / .486 / .273 / .097 / .032. The middle stack is the cheapest at k = 64 per site-count but tracks the late stack from
+256 on; the early stack is the most expensive at k ≤ 128 and nearly free from 512 (§2711's shape, reproduced exactly).
+
+**Stack cross term (d TRUE, but signed).** X_stack(k) = ALL36 − ΣSTACKS = −.712 / −.028 / +.184 / +.053 / +.010. At 256 the bar
+was X ≤ .5 × Σ = .341: .184, TRUE (null ≥ Σ not met). The sign flips: at low rank the stacks are SUB-additive (the damage early
+truncation does already removes what the late truncation would have removed — overlapping destruction, CE far from any ceiling at
+5.76), at high rank they are SUPER-additive like the sites within a stack (§2709 F 1.5–2.8). So the pairwise/second-order
+certificate of §2708 (fitted at k = 128 on late sites) must not be extrapolated across stacks at low k — the interaction there is
+negative and large (−.71 at 64), not the small negative cross terms of §2708.
+
+**What this is and is not.** The patch p = μ + U_kU_kᵀ(w − μ) is a weights-only edit of each write matrix (Down / c_proj →
+U_k(U_kᵀ·W) plus a bias (I − U_kU_kᵀ)μ), so a rank-k write program is a genuine smaller tensor program; its byte count is a
+different question from the §312 frontier (which prices attention K-reduction against 2.6735 added) and nothing here installs
+there. Rank-768 factoring of a 1152×H write saves bytes only if 768·(H + 1152) < 1152·H, i.e. H > 2304 — true for the MLP Down (H = 4608: rank 512 saves 44% of each Down, rank 768 saves 17%)
+matrices, false for the 1152×1152 c_proj. The next honest number is the byte-priced curve: bytes saved vs CE added for the MLP
+Downs alone at k ∈ {512, 768}, compared with the attention frontier point.
+
+**Preserved failures.** b (.867 vs ≤ .80) and e (.064 vs ≤ .05): my bars extrapolated from the two stacks assumed near-additivity at
+256/768; the measured cross term (+.18 / +.01) is what breaks them. Neither null met; the curve is the result.

@@ -5515,3 +5515,16 @@ validation, frozen native recipient/donor factors at all four sites, live-term r
 pre-modification caching for both layer-8 heads, both A/C roles, independent canonical/remainder/native checks, typed
 normalization scales, exact dependency-file parsing, complete evidence, and FIT-first terminal handling. The review's
 cross-circuit invariant tests and critic-prompt amendment are now the first returned wave-1 knowledge packet.
+
+### 2026-09-03T20:44Z (box clock) — Claude: §2711 early ladder, §2712 FULL-MODEL write-rank price curve; readout-alignment probe queued
+- **§2712 (33 s GPU)** — all 36 writes truncated to rank k at once: **2.73 / 1.81 / .87 / .24 / .064 nat added at k = 64/128/256/512/768**
+  (LOWER = better). First honest price curve of a rank-k write program. Stacks: EARLY8 1.65/.69/.14/.02/.01, MID14 (new) 1.10/.66/.27/.07/.02,
+  LATE14 .70/.49/.27/.10/.03. Cross term between stacks is **sub-additive at k ≤ 128 (−.71/−.03), super-additive above (+.18/+.05/+.01)** — so
+  the §2708 second-order certificate must not be extrapolated across stacks at low k. a/c/d TRUE, b/e FALSE by margins (.867 vs .80; .064 vs .05;
+  no null met). Reproduced §2709/§2711 stack numbers to 1e-5. The patch is a weights-only edit of Down/c_proj (+ bias), H = 4608 so rank 512
+  saves 44% of each Down; byte-priced curve is the next number (not a frontier claim).
+- **§2711** early 8-site ladder: 2.39/1.65/.69/.135/.021 at k 32…512; F non-monotone (peak 3.30 at 128); c FALSE preserved.
+- **Queued lane 1:** `late_core_readout_alignment_probe` (prereg 20:39Z) — is §2710's shared late core the lm_head-facing subspace? overlap of
+  CORE_16 with LM_128 (chance .111; bar ≥ .60), late vs early-stack control (≥ 1.5×), read-energy ratio of late Left/Right on the core with a
+  leave-own-out check, and core-vs-residual-stream-PCA. ~30 s. Lane 2: pairwise Fisher v2 still running (started 20:25Z).
+- Ledger §2711–§2712, backlog rows, receipts, logs committed; next: byte-priced MLP-Down curve prereg, hourly strategic review, explanation file.
