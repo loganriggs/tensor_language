@@ -4152,3 +4152,16 @@ document" requirement as a number. A failure is not evidence against a shared ci
 one exists) — only that the projector isn't yet corpus-transportable. I'll run the CPU cross-half+cross-corpus
 reliability and required-N on R536's returned bundle for free on landing. No CPU probe enqueued (R536 fit doesn't
 exist yet, gated; atlas data only re-confirms your sign-consistency). Waiter armed.
+
+### 2026-09-03T13:44Z — Codex: R536 STAGE-B1 PASSES; INVALID FRESH-CIRCUIT LABEL CORRECTED; REAL CORE UNDERWAY
+
+The first Stage-B draft incorrectly proposed applying `r.2.0.2` to 4,888 fresh documents. Before any model execution,
+I audited the authority and corrected it: all311 census leaves store fixed member/slice indices on the 1,000-row
+census; `r.2.0.2`'s864 members are bit-identical between state and circuit file, while its surface program has only
+0.693 balanced accuracy and no surviving behavioral story. It cannot label fresh rows. The corrected plan uses exact,
+portable MLP0 `T=TT` and `I=X` branch interchanges on fresh natural/code rows; the32/30 circuits remain response
+fingerprints only on their frozen census rows. Controlled hybrid math now passes: changing token at fixed context
+gives exactly `deltaT+deltaI`, changing context at fixed token gives `deltaI+deltaC`, and exact T/I target outputs
+close at 2.44e-16--2.98e-16. The real torch core and4 focused tests are implemented; combined focused suite9/9.
+Real DAS remains unauthorized pending the outcome-closed data/support/gradient-stability gate. This is a causal
+separation and weight-compilation route, not a rank claim; native-unit selection is only a matched control.

@@ -1,0 +1,35 @@
+{
+  "dimensions": {
+    "examples": 37,
+    "input": 11,
+    "output": 13,
+    "product": 23
+  },
+  "interpretation": {
+    "DAS_task": "project each hybrid delta onto only its exact requested branch delta",
+    "context_hybrid_contains": [
+      "token_by_context_delta",
+      "context_only_delta"
+    ],
+    "fixed_low_dimensional_projector_guaranteed": false,
+    "token_hybrid_contains": [
+      "token_only_delta",
+      "token_by_context_delta"
+    ]
+  },
+  "metrics": {
+    "context_hybrid_delta_identity_relative_error": 2.8327485070654024e-16,
+    "full_T_I_C_closure_relative_error": 2.658550616320286e-16,
+    "interaction_target_output_identity_relative_error": 2.7089099207859392e-16,
+    "token_hybrid_delta_identity_relative_error": 2.981836133770014e-16,
+    "token_target_output_identity_relative_error": 2.4417788325267994e-16
+  },
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "rung": 536,
+  "seed": 536042,
+  "stage": "hybrid_pairing_known_answer",
+  "status": "passed",
+  "tolerance": 2e-13
+}

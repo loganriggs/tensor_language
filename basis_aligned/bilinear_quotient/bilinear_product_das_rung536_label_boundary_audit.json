@@ -1,0 +1,48 @@
+{
+  "census": {
+    "all_leaves_store_member_index_tensors": true,
+    "all_leaves_store_slice_index_tensors": true,
+    "leaf_count": 311,
+    "row_shape": [
+      1000,
+      513
+    ],
+    "scored_position_count": 256000
+  },
+  "decision": {
+    "fresh_document_targets": [
+      "exact_MLP0_token_only_T",
+      "exact_MLP0_token_by_context_I"
+    ],
+    "fresh_document_use_of_frozen_member_indices": "forbidden",
+    "frozen_census_use": "32 discovery and 30 held-out circuit response fingerprints only",
+    "real_model_DAS_authorized": false
+  },
+  "input_sha256": {
+    "bilinear_quotient/census_state_diverse.pt": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b",
+    "bilinear_quotient/circuits/r_2_0_2.json": "3efe761d85a172f9d7da9c9e220305a76c672a39126c2e6df93a517fc42cef2a"
+  },
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "rung": 536,
+  "stage": "B1_label_boundary_audit",
+  "status": "passed",
+  "target": {
+    "blind_name": "input-enrichment for a0 (layer-0 attn) into the a8/a6 double-QK bundle; no surviving behavioral story",
+    "mechanism_level": "none",
+    "member_count": 864,
+    "state_and_circuit_file_members_bit_equal": true,
+    "surface_program": [
+      [
+        "NOT class_other",
+        "NOT prev1_class_other"
+      ]
+    ],
+    "surface_program_balanced_accuracy": 0.693,
+    "surface_program_null": 0.436,
+    "tag": "r.2.0.2",
+    "tree_instance": "diverse-1000row-v1",
+    "tree_n_rows": 1000
+  }
+}

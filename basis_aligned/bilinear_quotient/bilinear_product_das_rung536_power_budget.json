@@ -1,0 +1,29 @@
+{
+  "assumption_warning": "Planning estimate only: assumes independent sampling noise and unchanged signal; the observed reliability came from a frozen-census circuit fingerprint and cannot label fresh rows; empirical split-half reliability of each exact portable T/I target must still be measured before DAS fitting.",
+  "budgets": {
+    "0.5": {
+      "documents_per_half_rounded_to_batch": 1048,
+      "estimated_document_multiplier": 8.439548060209614,
+      "total_documents_for_two_halves": 2096
+    },
+    "0.7": {
+      "documents_per_half_rounded_to_batch": 2444,
+      "estimated_document_multiplier": 19.692278807155763,
+      "total_documents_for_two_halves": 4888
+    },
+    "0.8": {
+      "documents_per_half_rounded_to_batch": 4188,
+      "estimated_document_multiplier": 33.75819224083847,
+      "total_documents_for_two_halves": 8376
+    }
+  },
+  "method": "Spearman-Brown reliability extrapolation",
+  "model_loaded": false,
+  "new_model_forwards": 0,
+  "observed_split_half_reliability": 0.10593727513452525,
+  "old_documents_per_half": 124,
+  "recommended_minimum_target_reliability": 0.7,
+  "recommended_total_documents": 4888,
+  "rung": 536,
+  "status": "planning_estimate_complete"
+}
