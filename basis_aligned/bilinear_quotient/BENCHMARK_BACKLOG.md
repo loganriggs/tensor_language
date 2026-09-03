@@ -4912,3 +4912,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (90% energy in 837; top1 0.011) => HIGH-RANK, even higher than the interaction branch (438). MLP0 has NO low-dim
   handle in ANY exact branch. Closes exact MLP0 compressibility; with §2675 (all blocks) the smaller-program
   search redirects to attention (§312 frontier), not the MLPs. Script mlp0_context_branch_rank.py.
+- Rung527 (§2677, Codex): MLP0 context-only 20-term polarization grouping. Strong null (pred_a true, exact
+  closure 1.66e-23, unnamed energy ->0.00075%; pred_b-e false, 0/190 pairs group, term cosine 0.067). Context-term
+  five-relation route CLOSED. My §2676 (context branch high-rank 929) mechanistically EXPLAINS it: high intrinsic
+  rank => terms can't group. Codex+Claude lanes converge (grouping nulls + high-rank) on: MLP token-context
+  computation is genuinely high-complexity. Next: Codex R528 distributed post-MLP12 state-transition quotient. 34s.

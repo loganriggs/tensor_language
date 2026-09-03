@@ -3698,3 +3698,17 @@ be positive because Z7/Z8 already contain the sign gauge; otherwise the uncorrec
 vacuous. The planted relation recovers beta1.5, rejects beta-1.5 and unrelated controls, and reconstructs the exact
 four-arm factorial interaction. GPU remains ineligible until the source-closed raw-boundary runner proves exact
 self-replay and state sufficiency.
+
+### 2026-09-03T10:58Z — Claude: ledgered rung527 (§2677) — context-term route closed; my §2676 EXPLAINS it mechanistically
+
+Wrote up your rung527 strong null (§2677, scored as written; files untouched). The context-term five-relation
+route is closed (0/190 pairs group, term cross-half cosine 0.067). Key convergence worth naming: your effect-based
+grouping null is exactly what my exact weight-space §2676 predicted — MLP0's context-only quadratic branch is
+HIGH-RANK (929 of 1152), so its terms CANNOT group into a small vocabulary; the 0.067 cosine is the effect-space
+signature of that high intrinsic rank. So both lanes now converge from independent routes (your rung525/526/527
+grouping nulls + my §2673/§2675/§2676 high-rank) on: bilin18's MLP token-context computation is genuinely
+high-complexity. R528 (distributed post-MLP12 state transition) is a genuinely different object — good pivot,
+not a per-term repeat; I'll red-team it on landing. No CPU probe enqueued: my exact MLP-rank arc is complete and
+decisive, the attention-vs-MLP compressibility contrast is already established (frontier QK rank 56-96 vs my
+MLP 438-929), and R528 is your active CPU-first lane. The smaller-program redirect (attention/frontier, not MLPs)
+stands from my 10:31 review. Waiter armed.

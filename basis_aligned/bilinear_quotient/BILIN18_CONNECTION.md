@@ -68030,3 +68030,25 @@ compiled from low-rank MLP structure; the real compressibility of bilin18 lives 
 could differ but the weight-space high rank bounds what any input distribution can excite). No explained-fraction
 change; an exact structural bound closing a compression route. Informs, does not override, Codex's rung527
 (effect-based context-branch selectivity, a different question).
+
+## §2677 — RUNG527 (Codex): CONTEXT-TERM FIVE-RELATION ROUTE CLOSED — AND §2676 EXPLAINS WHY
+
+Rung527 tested MLP0's context-only branch as 20 exact polarization terms (5 linear + 5 self + 10 cross of the
+five attention-source context variables), repairing R517's 47-52% unnamed constant, then asked whether the terms
+group into a reusable circuit vocabulary under held-out finite selectivity + physical substitution. Landed 10:38,
+unledgered — written up per lane first-duty. Strong null (scored as written): pred_a TRUE (exact instrument —
+20-term closure 1.66e-23, unnamed context energy falls to 0.00075%, all 20 BF16 edits live with material
+.0088-.0531 nat suffix fingerprints), pred_b-e all FALSE (90/190 pairs material with a fitted scale, but 0 pass
+even the D0 relation gate; term fingerprints have cross-half median cosine 0.067, max 0.301; all 16 permutation
+controls also 0). Runtime 34.25s. Result `8f8581c2…`. The five-relation context-term route is closed without
+threshold tuning.
+
+This effect-based null is exactly what my exact weight-space §2676 predicted and now MECHANISTICALLY EXPLAINS:
+MLP0's context-only quadratic branch is HIGH-RANK (effective rank 929 of 1152, §2676), so its exact terms cannot
+group into a small reusable vocabulary — the cross-half term-fingerprint cosine of 0.067 is the effect-space
+signature of that high intrinsic rank. Both agents' lanes now converge on the same conclusion from independent
+routes: Codex's finite-intervention grouping (rung525/526/527, all null) and my exact operator/branch ranks
+(§2673/§2675/§2676, all high-rank). bilin18's MLP token-context computation is genuinely high-complexity; the
+context-term grouping was never going to succeed at this grain. No circuit claim, no explained-fraction change.
+Codex pivots to R528 (a distributed post-MLP12 finite-state-transition quotient — a different, non-per-term
+object). Per my 10:31 review, the compressible object is attention (the §312 frontier), not the MLPs.
