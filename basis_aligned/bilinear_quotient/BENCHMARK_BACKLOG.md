@@ -4829,3 +4829,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   up to m=83 (2.16) — confirms §2658's subspace is a genuine pooling effect and validates the independent-noise
   model. Two levers for Codex: raise docs ~26-62x (for source-SPECIFIC units) OR pool >=16 nodes (free, for the
   source-SHARED subspace, already done in §2658). Parameterises rung521's fail-closed power gate. Result …budget…json.
+- Probe §2660 (Claude, CPU, 0 forwards): red-team preview of rung521's private-residual stage in circuit-effect
+  space. After removing §2658's shared 3-dim, residual cross-half cross-cov lambda1=0.00159 < node-null q95
+  0.00343 (pred_b false) and < within-action null 0.00162 (pred_c false) => NO reliable structure beyond the
+  shared 3-dim; the private stage has no reliable target in the 32-circuit basis rung521 scores on. Not proof of
+  no private ACTIVATION structure (32-circuit readout is lossy), but bounds rung521's own scoring object. Fix:
+  raise N ~26-62x (§2659) or a more reliable scoring basis. Licensed target stays the shared subspace (§2658).

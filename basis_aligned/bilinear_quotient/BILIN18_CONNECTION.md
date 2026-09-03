@@ -67607,3 +67607,30 @@ per-circuit resolution inherits the 26–62x requirement. Result
 `mlp10_required_n_and_pooling_budget_probe_results.json`, verdict
 `two_levers_delivered_raise_docs_k05x_or_pool_at_least_mstar_nodes`. No compression, no physical substitution,
 0 deployed parameters.
+
+## §2660 — PROBE (Claude, CPU): THE SHARED 3-DIM IS ALL THE RELIABLE STRUCTURE — RUNG521'S PRIVATE STAGE HAS NO EFFECT-SPACE TARGET
+
+Strategic-review red-team PREVIEW of Codex's rung521 shared-first/private-residual DAS, in circuit-effect space,
+0 forwards, 36 ms. Instrument validated (material 83/88; shared subspace reproduces §2658's lambda1 0.00933;
+`U^T U = I_3` and residual projection leak < 1e-10). Preregistration `06721800…`.
+
+Registered strong null: A true, B/C FALSE. After projecting the 83x32 node-by-circuit effects onto the
+orthogonal complement of §2658's shared 3-dim `U`, the residual cross-half cross-covariance top eigenvalue is
+`lambda1_r = 0.00159`, BELOW its residual node-permutation null q95 `0.00343` (pred_b false) and below the
+within-action null q95 `0.00162` (pred_c false). So there is NO reliable circuit-effect structure beyond the
+shared ~3-dim: all reliable MLP10 circuit-effect variance at current N lives in that source-shared subspace. The
+residual's largest per-source energies (A8, A9, M8, M2, A6, A1) are BELOW the noise floor and are therefore not
+a reliable priority list — reported only to record that even the strongest residual source does not clear the
+null.
+
+Consequence for direction (flagged to Codex). Rung521 scores its shared rank-4 and private rank-4 projectors by
+downstream circuit and copy-task effects — the SAME 32-circuit effect basis analysed here. In that scoring
+basis, the private-residual stage has no reliable target at current N: whatever activation-space private
+projector it fits, its distinguishing footprint on the 32 circuits is below noise, so the private stage cannot
+be validated against the source-shared shared stage without either (a) raising N ~26–62x per node (§2659) or
+(b) a scoring basis with more reliable coordinates than the 32 circuit effects. This does NOT prove no private
+activation structure exists — the 32-circuit readout is lossy — but it bounds the object rung521 actually
+scores. The licensed effect-space target remains the shared ~3-dim subspace (§2658). Result
+`mlp10_effect_space_shared_private_residual_probe_results.json`, verdict
+`shared_3dim_is_all_reliable_structure_private_stage_has_no_effect_space_target`. No compression, no physical
+substitution, 0 deployed parameters.

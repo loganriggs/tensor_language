@@ -1,0 +1,85 @@
+{
+ "status": "complete",
+ "rung": "mlp10_effect_space_shared_private_residual_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "effect_space_residual_reliability_preview_of_rung521_private_stage_not_grouping_or_compression",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_EFFECT_SPACE_SHARED_PRIVATE_RESIDUAL_PROBE_PREREGISTRATION.md": "06721800c2ef300451a5b3d27f9f5b7341aafcf7484f6f4441cecf808d3c3854",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_shared_subspace_cross_half_covariance_probe_results.json": "1e8ade7c9acea5cbc83c1de511aa0b5bad323fea4b681a05dc450bdc6431120b"
+ },
+ "n_material_nodes": 83,
+ "k_shared": 3,
+ "lambda1_shared": 0.009330938687130095,
+ "projection_leak_inf": 3.903127820947816e-17,
+ "lambda1_residual": 0.0015890196244878348,
+ "residual_node_null_q95": 0.003433639832486385,
+ "residual_within_action_null_q95": 0.0016154548751075553,
+ "residual_top_mode_per_source_rms": {
+  "E": 0.0045631561028056785,
+  "A0": 0.0,
+  "A1": 0.006194629459346758,
+  "A2": 0.0034106942799153367,
+  "A3": 0.005963364667038244,
+  "A4": 0.0057410508055185635,
+  "A5": 0.0038411755425090057,
+  "A6": 0.0062056734105640065,
+  "A7": 0.0027260917700209168,
+  "A8": 0.008442668285591792,
+  "A9": 0.007061274183416419,
+  "A10": 0.0029239061975300847,
+  "M0": 0.0034632065318831525,
+  "M1": 0.0031654459004244744,
+  "M2": 0.006259780557388354,
+  "M3": 0.005905678122770529,
+  "M4": 0.0033317027778306373,
+  "M5": 0.0036516489072455287,
+  "M6": 0.0018634322991445914,
+  "M7": 0.0027158361610316348,
+  "M8": 0.006353558162076223,
+  "M9": 0.005734413497376381
+ },
+ "residual_top_sources": [
+  [
+   "A8",
+   0.008442668285591792
+  ],
+  [
+   "A9",
+   0.007061274183416419
+  ],
+  [
+   "M8",
+   0.006353558162076223
+  ],
+  [
+   "M2",
+   0.006259780557388354
+  ],
+  [
+   "A6",
+   0.0062056734105640065
+  ],
+  [
+   "A1",
+   0.006194629459346758
+  ]
+ ],
+ "bars": {
+  "material_target": 83,
+  "k_shared": 3,
+  "n_perm": 200
+ },
+ "pred_a_instrument_reproduces_shared_subspace": true,
+ "pred_b_reliable_residual_structure_beyond_shared": false,
+ "pred_c_residual_structure_is_source_specific_private": false,
+ "strong_null": true,
+ "verdict": "shared_3dim_is_all_reliable_structure_private_stage_has_no_effect_space_target",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.03640317916870117
+}
