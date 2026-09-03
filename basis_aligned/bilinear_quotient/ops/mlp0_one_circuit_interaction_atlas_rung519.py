@@ -26,7 +26,7 @@ ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 OPS = ROOT / "basis_aligned/bilinear_quotient/ops"
 PREREG = POLY / "MLP0_ONE_CIRCUIT_INTERACTION_ATLAS_RUNG519_PREREGISTRATION.md"
-PREREG_SHA256 = "d6209f8c0c017a5bd331c09a2bcdb037f39d139b622b8bb17fb3c26b0a126f49"
+PREREG_SHA256 = "43846c9daa27a4bf8a59fb1e61fdeecc207ce7881f51551ea7942f10118d67d5"
 R518_RESULT = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_results.json"
 R518_BUNDLE = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_bundle.pt"
 R518_SOURCE = OPS / "mlp0_head_relation_circuit_quotient_rung518.py"
@@ -137,11 +137,11 @@ def interaction_terms(mlp, sources: torch.Tensor, normalized_drop: torch.Tensor,
     fixed_drop = _float_mlp(mlp, z_fixed_drop)
     renormalized_drop = _float_mlp(mlp, normalized_drop)
     outputs.append(fixed_drop - renormalized_drop)
-    outputs.append(
-        (deployed_full.float() - deployed_drop.float())
-        - (fixed_full - renormalized_drop))
-    terms = torch.stack(outputs)
     target = deployed_full.float() - deployed_drop.float()
+    stored_prefix = torch.stack(outputs).sum(0)
+    outputs.append(target - stored_prefix)
+    terms = torch.stack(outputs)
+    stored_rebuild = terms[:-1].sum(0) + terms[-1]
     denominator = target.double().square().sum().clamp_min(1e-30)
     fixed_target = fixed_full - fixed_drop
     return {
@@ -154,7 +154,7 @@ def interaction_terms(mlp, sources: torch.Tensor, normalized_drop: torch.Tensor,
             (terms[:N_BILINEAR_TERMS].sum(0).double() - fixed_target.double())
             .square().sum() / fixed_target.double().square().sum().clamp_min(1e-30)),
         "deployed_relative_squared": float(
-            (terms.sum(0).double() - target.double()).square().sum() / denominator),
+            (stored_rebuild.double() - target.double()).square().sum() / denominator),
     }
 
 
@@ -209,7 +209,8 @@ def collect_phase(model, rows, task_masks, circuit_masks, circuit_tags,
             diagnostics["maximum_deployed_relative_squared"],
             term_decomposition["deployed_relative_squared"])
         terms = term_decomposition["terms"]
-        term_sum_drop = (full_write.float() - terms.sum(0)).to(full_write.dtype)
+        stored_term_sum = terms[:-1].sum(0) + terms[-1]
+        term_sum_drop = (full_write.float() - stored_term_sum).to(full_write.dtype)
         term_writes = [(full_write.float() - term).to(full_write.dtype) for term in terms]
         for write in term_writes:
             diagnostics["minimum_term_edit_rms"] = min(

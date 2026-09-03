@@ -164,3 +164,21 @@ The repair uses the same relative-squared`1e-8` boundary for normalized-source, 
 closure, and replaces exact final-logit equality with relative squared logit error at most`1e-8`; maximum absolute
 output and logit errors remain reported. This is a precision-instrument correction before model outcomes. It changes
 no term tensor, intervention, data, target, candidate threshold, permutation, prediction B--E, or execution price.
+
+## Pre-outcome stored-sum closure correction — 2026-09-03 03:28 UTC
+
+The second managed no-outcome smoke passed all three corrected output closures but still failed the suffix replay:
+whole-drop final-logit relative squared error was`9.34e-6` (maximum absolute`.28125`). The cause is now localized.
+`DEPLOYMENT_ROUNDING` corrected the difference between the direct float32 MLP formula and deployed BF16 outputs, but
+did not include the new rounding incurred when the47 semantic terms and NORMALIZATION term were stored and summed
+separately.
+
+The last term is therefore defined operationally as
+
+`DEPLOYMENT_ROUNDING = (deployed_full - deployed_drop) - stored_sum(first_48_terms)`.
+
+The complete reconstruction uses that same two-stage sum: `stored_sum(first_48_terms) + DEPLOYMENT_ROUNDING`. This
+does not alter any of the47 semantic bilinear terms or NORMALIZATION; it makes the explicitly nonsemantic closing
+term account for deployment **and stored-sum** arithmetic, which is the object the finite interventions actually use.
+The unchanged`1e-8` output/logit relative bars and all scientific B--E rules remain frozen. A third managed no-outcome
+smoke is required before any scientific execution.
