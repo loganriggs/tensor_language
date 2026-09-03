@@ -1,0 +1,412 @@
+{
+ "schema": "circuit_evidence_coverage_v1",
+ "status_definitions": {
+  "held": "at least one active held event and no active failed/null/invalid event in this category",
+  "mixed": "active held and active failed/null/invalid events coexist; read the record before acting",
+  "blocked": "at least one active failed/null/invalid event and no active held event",
+  "planned": "a preregistered inconclusive event exists but no completed held/blocking evidence",
+  "missing": "no active event in this category"
+ },
+ "categories": {
+  "capability": [
+   "capability"
+  ],
+  "causal_site": [
+   "full_swap_ceiling"
+  ],
+  "learned_interchange": [
+   "das_interchange"
+  ],
+  "cross_family": [
+   "cross_family_transfer"
+  ],
+  "ood": [
+   "ood"
+  ],
+  "selectivity": [
+   "invariance",
+   "null_control",
+   "removal"
+  ],
+  "composition": [
+   "composition"
+  ],
+  "compiled_weights": [
+   "compiled_equivalence"
+  ]
+ },
+ "records": {
+  "subroutine.induction.equality_score": {
+   "kind": "shared_subroutine",
+   "claim_status": "site_live",
+   "causal_variable_id": "cross_head_equality_score",
+   "categories": {
+    "capability": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "causal_site": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "learned_interchange": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "cross_family": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "equality_action_quotient.r498.null.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "equality_action_quotient.r498.null.v1"
+    },
+    "ood": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "equality_score_swap.r460.code.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "equality_score_swap.r460.code.v1"
+    },
+    "selectivity": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "equality_factor_branch_sharing.r531.null.v1",
+      "terminal_copy_four_head_removal.collateral_failure.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "terminal_copy_four_head_removal.collateral_failure.v1"
+    },
+    "composition": {
+     "status": "mixed",
+     "held_event_ids": [
+      "equality_score_swap.r459.natural.v1",
+      "equality_source_correction.r464.v1",
+      "equality_mlp9_reader.r500.v1"
+     ],
+     "blocking_event_ids": [
+      "equality_downstream_gate.r462.null.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "equality_mlp9_reader.r500.v1"
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 1,
+   "n_blocked_categories": 4,
+   "n_missing_categories": 4,
+   "next_missing": "materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace"
+  },
+  "task.bracket.pending_opener": {
+   "kind": "behavior_circuit",
+   "claim_status": "specified",
+   "causal_variable_id": "pending_opener_state_three_value_candidate",
+   "categories": {
+    "capability": {
+     "status": "mixed",
+     "held_event_ids": [
+      "pending_opener_capability.r537.complete.v1"
+     ],
+     "blocking_event_ids": [
+      "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
+    },
+    "causal_site": {
+     "status": "held",
+     "held_event_ids": [
+      "pending_opener_common_site_ceiling.r538.complete.v2"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [
+      "pending_opener_three_value_confirmation.r546.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_three_value_confirmation.r546.preregistered.v1"
+    },
+    "learned_interchange": {
+     "status": "held",
+     "held_event_ids": [
+      "pending_opener_rank4_das.legacy.v1"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_rank4_das.legacy.v1"
+    },
+    "cross_family": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "pending_opener_cross_family_das.r540.complete.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_cross_family_das.r540.complete.v1"
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "mixed",
+     "held_event_ids": [
+      "pending_opener_control_ceilings.r539.complete.v1"
+     ],
+     "blocking_event_ids": [
+      "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs"
+    },
+    "composition": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 4,
+   "n_blocked_categories": 3,
+   "n_missing_categories": 3,
+   "next_missing": "execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict"
+  },
+  "task.increment.state": {
+   "kind": "behavior_circuit",
+   "claim_status": "proposed",
+   "causal_variable_id": "increment_state",
+   "categories": {
+    "capability": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "causal_site": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "learned_interchange": {
+     "status": "held",
+     "held_event_ids": [
+      "increment_postattn_rank4_das.legacy.v1"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "increment_postattn_rank4_das.legacy.v1"
+    },
+    "cross_family": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "composition": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 1,
+   "n_blocked_categories": 0,
+   "n_missing_categories": 7,
+   "next_missing": "freeze cross-format rows; require number-word transfer and nonincrement numeric controls"
+  },
+  "task.induction.selector_payload": {
+   "kind": "behavior_circuit",
+   "claim_status": "proposed",
+   "causal_variable_id": "induction_selector_payload",
+   "categories": {
+    "capability": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "causal_site": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "learned_interchange": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "cross_family": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "induction_terminal_collateral_failure.legacy.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "induction_terminal_collateral_failure.legacy.v1"
+    },
+    "composition": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 0,
+   "n_blocked_categories": 1,
+   "n_missing_categories": 7,
+   "next_missing": "freeze two-valid-source and payload-swap rows; measure selector and value site ceilings"
+  },
+  "task.successor.pointer": {
+   "kind": "behavior_circuit",
+   "claim_status": "proposed",
+   "causal_variable_id": "successor_pointer_state",
+   "categories": {
+    "capability": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "causal_site": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "successor_layer8_input_ceiling.legacy.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "successor_layer8_input_ceiling.legacy.v1"
+    },
+    "learned_interchange": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "cross_family": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "successor_cross_family_transfer.legacy.v1"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "successor_cross_family_transfer.legacy.v1"
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "composition": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 0,
+   "n_blocked_categories": 2,
+   "n_missing_categories": 6,
+   "next_missing": "expand families and test shared-plus-private projectors against failed cross-family transfer"
+  }
+ }
+}

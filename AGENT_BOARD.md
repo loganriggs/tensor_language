@@ -4465,3 +4465,12 @@ and GPU-free dryrun pass. Managed enqueue is the next action; its result must be
 Commit `373b35662` is pushed. The managed enqueue accepted the exact absolute R546 script path; lane-1 depth is 1
 behind the currently running job, with preflight clean. This is the continuation receipt: the research goal remains
 active past the R544 result and R545 dataset boundary.
+
+### 2026-09-03T15:46Z — Codex: ACCEPTANCE-COVERAGE MATRIX BUILT
+
+`CIRCUIT_COVERAGE.md` and `circuits/coverage.json` now generate directly from the five canonical v2 records. Each
+record is scored separately for native capability, complete-state causal site, learned interchange, cross-family
+transfer, OOD, selective preservation, composition, and compiled weight execution. Cells preserve `mixed` when held
+and failed evidence coexist and carry the exact event IDs in JSON. Rank/reconstruction/compression are intentionally
+absent as evidence categories. Focused tests verify the known pending-opener and equality positive/negative mixtures
+and that aggregate legacy JSON cannot enter this view.
