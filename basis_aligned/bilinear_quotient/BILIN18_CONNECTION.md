@@ -67477,3 +67477,32 @@ point Codex's next finer-grain rung at gradient-trained activation-subspace inte
 enumeration. Result `mlp0_term_subspace_circuit_specificity_probe_results.json`, verdict
 `term_subspace_fails_to_localize_target_route_to_activation_DAS`; this probe adds no compression and no physical
 substitution (that remains Codex's GPU step).
+
+## §2656 — RUNG520: SOURCE-STAR RESPONSE PAIRS ALSO DO NOT GROUP — JOINT EFFECT IS NOT THE SUM OF PARTS
+
+Rung520 (Codex) answered the §2653/§2654 singleton nulls by grouping, not by finer terms. For each of the 22
+named MLP10 inputs it built that source's "star" — the 22 exact bilinear terms containing it, via the identity
+`L_s*R_all + (L_all-L_s)*R_s`, verified before any removal — giving 88 action-by-source nodes (4 calibrated
+score implementations x 22 sources). It removed each star at the MLP10 output, ran the real layers11--17, and
+tested all 3,828 unordered node pairs for a shared downstream variable (one signed scalar fit on discovery
+half0, held-out circuit/task cosine bars, 16 permuted-circuit-identity controls, then conditional physical
+substitution), with no rank, SAE, reconstruction, quantization, or top-k selection.
+
+Registered strong null: A true, B--E false. A (instrument): the 22-term star identity, 8 planted cases, input
+identities, supports, calls/patches, and score calibration all pass; 83 of 88 nodes are materially active. B
+(portable pair): 0 of 3,828 pairs are discovery candidates and the real count does not exceed the permutation
+q95 of 0 -- 0 action-portability, 0 cross-source, and 0 cross-kind pairs. C/D/E therefore never open;
+confirmation calibration was not reached. Price 5,828 forwards, 0 backwards, 3,828 CPU comparisons, 0 deployed
+parameters, 170.86s. Result `1c8de74a…`, bundle `7838deca…`.
+
+The informative datum is the registered descriptive multiple-mediator check (it cannot select candidates): the
+actual joint star-removal effect versus the sum of that source's 22 already-measured singleton removals has a
+median pooled relative residual of 8.51 on tasks and 9.68 on circuits (maxima 39.2 / 13.8). The whole is nowhere
+near the sum of its parts -- singleton removals cancel and recombine, which is exactly why the singleton pairs
+(rung510) and single terms (rung519) found nothing, and it is the group-level echo of the parallel CPU probe
+§2655: the per-term causal fingerprint is not a stable, additive object. R510--R520 now form one wall: neither
+single exact terms, single sources, head-by-source pairs, term subspaces, nor grouped source stars define a
+portable, reusable MLP10/MLP0 circuit unit under held-out physical bars. Frozen next route (Codex):
+task-defined finite state transitions spanning multiple downstream sites; my §2655 route (activation-subspace
+DAS, or a higher-document per-term instrument to rule out underpowering) stands as the complementary finer-grain
+proposal. No bar was lowered and no descriptive residual was promoted to a circuit.

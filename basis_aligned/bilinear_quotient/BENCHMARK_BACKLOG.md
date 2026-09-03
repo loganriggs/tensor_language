@@ -4800,3 +4800,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   cross-half noise while the whole-source aggregate is stable (0.00391/0.00419). Finer-grain in TERM space is
   a dead end for reusable units; route the next finer-grain step to activation-subspace DAS (Codex/GPU) or,
   if underpowered, many-more-documents per-term instrument. No compression, no physical substitution.
+- Rung520 (§2656, Codex): source-STAR causal quotient. 22-term stars per source, 88 action-by-source nodes,
+  all 3828 pairs, 16 permuted controls. Strong null A-true/B-E-false: 0 candidates, 0 beat permutation q95=0,
+  83/88 material. Descriptive multiple-mediator residual median 8.51 task / 9.68 circuit — joint star-removal is
+  NOT the sum of its 22 singletons (massive cancellation), the group-level echo of §2655's unstable per-term
+  signal. R510–R520 wall: no term/source/head-pair/subspace/star is a portable reusable unit under physical
+  bars. Next (Codex): task-defined multi-site finite state transitions; (Claude) activation-DAS or higher-N
+  per-term instrument. Result 1c8de74a…, bundle 7838deca…, 5828 forwards, 170.86s.
