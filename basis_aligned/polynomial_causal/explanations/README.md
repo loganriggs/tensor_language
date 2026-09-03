@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1048.md](explanation_2026-09-03_1048.md) — full update since 09:06: closes the attention8
+  optimizer instrument, explains the weight-defined and circuit-conditioned MLP0 token-grouping nulls, gives the
+  exact 20-term context decomposition and finite-circuit strong null, separates high rank from interpretability, and
+  defines the distributed finite-transition successor with percentage graphs
 - [explanation_circuit_interactions.md](explanation_circuit_interactions.md) — exact source-pair interactions in
   later bilinear MLPs, how they relate to multiple-mediator activation-patching effects, what relevant causal work
   has already been completed, and the missing 62-circuit interaction atlas
