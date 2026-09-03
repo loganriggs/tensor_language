@@ -103,7 +103,8 @@ failed grouping. Any extraction or substitution claim still requires a separatel
 ## Price and next routes
 
 Maximum price: zero model forwards, zero backwards, zero deployed parameters, one pass over the stored response
-tensors, `6 * 32` greedy coordinate evaluations plus96 control prefixes, and eight planted tests.
+tensors, `2 * sum_(j=1)^32 j = 1,056` accumulated-set evaluations for the two greedy orders,96 control prefixes,
+and eight planted tests.
 
 - Full pass: use the named witnesses to define the observations for a task-defined downstream state-transition test.
 - pred_b true but compactness/stability false: leave this exact-term vocabulary; the known circuits distinguish it in
