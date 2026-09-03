@@ -1,0 +1,36 @@
+{
+  "all_answer_endpoints_single_token": true,
+  "all_groups_belong_to_one_split": true,
+  "all_groups_have_all_families": true,
+  "balanced_target_orientations": true,
+  "endpoint_reuse_within_semantic_groups_allowed": true,
+  "family_counts": {
+    "cross_format_coherent_shift": 160,
+    "digit_coherent_shift": 160,
+    "incoherent_middle_number_edit": 160,
+    "operation_preserved_surface_edit": 160,
+    "repeated_number_numeric_control": 160,
+    "step_two_numeric_control": 160,
+    "word_coherent_shift": 160
+  },
+  "family_revealing_prompt_labels": false,
+  "group_count": 160,
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "outcomes_opened": [],
+  "preregistration_sha256": "79c065271b9bb2e7b2690ad9220edebc8fc8e32868e6406133600436df40953f",
+  "row_count": 1120,
+  "rows_path": "bilinear_quotient/increment_counterfactual_authority_rung563.json",
+  "rows_sha256": "3886eb039a34a67ee0548b3f62c21e35560aa93dba33fe2ebfdf485788e37298",
+  "schema": "increment_counterfactual_authority_rung563_receipt_v1",
+  "split_counts": {
+    "FINAL_TEST": 224,
+    "FIT": 448,
+    "OOD": 224,
+    "SELECT": 224
+  },
+  "token_sequence_count": 2240,
+  "unique_prompt_pair_count": 1120,
+  "unique_token_sequence_count": 1600
+}

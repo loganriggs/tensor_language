@@ -99,6 +99,50 @@
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
   },
   {
+   "tag": "task.increment.state",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_increment_state.json",
+   "active_claim_id": "increment_state.v3",
+   "claim_status": "specified",
+   "causal_variable_id": "increment_state",
+   "counterfactual_family_count": 7,
+   "counterfactual_family_status_counts": {
+    "frozen": 7
+   },
+   "split_plan_ids": [
+    "increment_counterfactual_split_r563_v1"
+   ],
+   "active_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "missing",
+    "causal_site": "missing",
+    "learned_interchange": "held",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "missing",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "capability",
+    "causal_site",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
+  },
+  {
    "tag": "subroutine.induction.equality_score",
    "kind": "shared_subroutine",
    "record_path": "circuits/subroutine_induction_equality_score.json",
@@ -160,50 +204,6 @@
    ],
    "work_state": "dataset_or_family_definition_needed",
    "next_missing": "materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace"
-  },
-  {
-   "tag": "task.increment.state",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_increment_state.json",
-   "active_claim_id": "increment_state.v1",
-   "claim_status": "proposed",
-   "causal_variable_id": "increment_state",
-   "counterfactual_family_count": 4,
-   "counterfactual_family_status_counts": {
-    "proposed": 4
-   },
-   "split_plan_ids": [
-    "joint_split_v1"
-   ],
-   "active_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1"
-   ],
-   "open_event_ids": [],
-   "held_event_ids": [
-    "increment_postattn_rank4_das.legacy.v1"
-   ],
-   "blocking_event_ids": [],
-   "coverage": {
-    "capability": "missing",
-    "causal_site": "missing",
-    "learned_interchange": "held",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "missing",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "capability",
-    "causal_site",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "dataset_or_family_definition_needed",
-   "next_missing": "freeze cross-format rows; require number-word transfer and nonincrement numeric controls"
   },
   {
    "tag": "task.induction.selector_payload",

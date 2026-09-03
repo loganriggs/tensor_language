@@ -4822,3 +4822,34 @@ The managed v1 run completed FIT model evaluation but crashed before writing any
 drawn. The v2 correction is restricted to returning `raw[split]` from the already frozen evaluator; intervention,
 rows, metrics, bars, factor choice, and split logic are unchanged. V1 will be registered invalid and retained rather
 than overwritten.
+
+### 2026-09-03T17:55Z — Codex: CLAIM R562, FRESH INCREMENT/SUCCESSOR COUNTERFACTUAL AUTHORITY
+
+R562 will replace the legacy 40-pair digit-only increment dataset with an outcome-free, content-addressed authority.
+Each semantic group will generate: coherent +1 shifts in digit form; coherent +1 shifts in number-word form;
+cross-format +1 transfers; a one-number break of an otherwise coherent three-item sequence while retaining the
+registered expected answer; surface changes that preserve the +1 relation; and coherent numeric controls with a
+different rule (constant/copy and step-two sequences). FIT, SELECT, FINAL_TEST, and OOD use disjoint lexical,
+template, and numeric-range pools, with every derived family kept in its group's split. The builder must prove exact
+token round trips, single-token answer endpoints, global prompt-pair uniqueness, family completeness, and zero model
+calls. This dataset does not validate the behavior or the old L8H7/L8H3/MLP8–14 hypothesis; those require separate
+preregistered native-capability and causal tests after R562 is frozen.
+
+### 2026-09-03T17:58Z — Codex: R562 V1 CONSTRUCTION REJECTED BEFORE MODEL OUTCOMES; CLAIM R563 NATURAL-PROMPT REPAIR
+
+The R562 CPU audit passed its mechanical checks, but manual prompt inspection found family-revealing bracketed labels
+such as `[digits]`, `[coherent]`, and `[step two]`. They were added only to guarantee text uniqueness, but they give
+the model an artificial cue about the experimental condition and therefore weaken the counterfactual. No model was
+loaded and no outcome was opened. R562 v1 remains hashed as a rejected construction draft. R563 preserves the same
+160 group assignments, seven semantic families, split pools, operations, and answer endpoints, but removes every
+family label. Exact prompt-pair uniqueness, rather than artificial uniqueness of each individual endpoint sequence,
+is the required identity check; deliberate endpoint reuse inside a semantic group is allowed and recorded.
+### 2026-09-03T18:03Z — Codex: R563 NATURAL COUNTERFACTUAL AUTHORITY FROZEN
+
+R563 passes all construction tests with 160 group-disjoint semantic groups and 1,120 unique oriented prompt pairs.
+Every group contains all seven target, necessity, and nonincrement-control families; all answer endpoints are single
+GPT-2 tokens; target orientations are balanced; FIT/SELECT/FINAL_TEST/OOD contain 64/32/32/32 complete groups; and no
+model was loaded. Manual examples now differ only through the registered numeric state, digit/word representation, or
+natural surface rewrite—there are no experimental labels in model input. The canonical dossier is
+`task.increment.state` claim v3. The next licensed step is a separately preregistered FIT/SELECT native-capability test;
+legacy L8H7/L8H3 and MLP8–14 localization must remain unopened unless that behavior gate holds.

@@ -158,6 +158,434 @@
    ],
    "translation_ids": [],
    "next_missing": "freeze cross-format rows; require number-word transfer and nonincrement numeric controls"
+  },
+  {
+   "claim_id": "increment_state.v2",
+   "revision": 2,
+   "status": "specified",
+   "supersedes": "increment_state.v1",
+   "causal_variable": {
+    "id": "increment_state",
+    "domain": "numeric values represented as digits, words, or list elements",
+    "read": "recent numeric state and list relation",
+    "operation": "apply an increment relation to the numeric state",
+    "write": "evidence for the next numeric token",
+    "endpoint": "signed shifted-next-number minus base-next-number logit margin"
+   },
+   "alternative_explanations": [
+    "generic digit identity",
+    "numeric value without increment",
+    "list-format continuation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "digit_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a digit-written +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "repeated-number control",
+      "step-two control",
+      "surface rewrite"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "word_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a number-word +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "digit transfer",
+      "repeated-number control",
+      "step-two control"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "cross_format_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state",
+      "digit versus number-word representation",
+      "correct next token"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "semantic group",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "within-format shifts",
+      "surface rewrite",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "incoherent_middle_number_edit",
+     "role": "necessity",
+     "changes": [
+      "only the middle number and therefore evidence for a coherent +1 relation"
+     ],
+     "holds_fixed": [
+      "first number",
+      "final observed number",
+      "registered expected answer"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "surface rewrite",
+      "coherent shift",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "operation_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "all numeric values",
+      "+1 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "coherent state shift",
+      "middle-number break",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "repeated_number_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "repeated numeric state",
+      "copy/repeat rule",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "+1 target rows",
+      "step-two rows",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "step_two_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "numeric state",
+      "+2 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r562_builder",
+     "control_ids": [
+      "+1 target rows",
+      "repeated-number rows",
+      "held-out number pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r562_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "l8h7_l8h3_paths",
+     "tensor_path": "L8H7/L8H3 paths",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-14_products",
+     "tensor_path": "MLP8-14 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "increment_counterfactual_split_r562_v1"
+   ],
+   "evidence_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "preregister FIT/SELECT native capability on all seven R562 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
+  },
+  {
+   "claim_id": "increment_state.v3",
+   "revision": 3,
+   "status": "specified",
+   "supersedes": "increment_state.v2",
+   "causal_variable": {
+    "id": "increment_state",
+    "domain": "numeric values represented as digits, words, or list elements",
+    "read": "recent numeric state and list relation",
+    "operation": "apply an increment relation to the numeric state",
+    "write": "evidence for the next numeric token",
+    "endpoint": "signed shifted-next-number minus base-next-number logit margin"
+   },
+   "alternative_explanations": [
+    "generic digit identity",
+    "numeric value without increment",
+    "list-format continuation"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "digit_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a digit-written +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "repeated-number control",
+      "step-two control",
+      "surface rewrite"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "word_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state and correct next value",
+      "coherent shift of a number-word +1 sequence"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "prompt format",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "digit transfer",
+      "repeated-number control",
+      "step-two control"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "cross_format_coherent_shift",
+     "role": "interchange",
+     "changes": [
+      "numeric state",
+      "digit versus number-word representation",
+      "correct next token"
+     ],
+     "holds_fixed": [
+      "+1 operation",
+      "semantic group",
+      "word triplet"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "within-format shifts",
+      "surface rewrite",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "incoherent_middle_number_edit",
+     "role": "necessity",
+     "changes": [
+      "only the middle number and therefore evidence for a coherent +1 relation"
+     ],
+     "holds_fixed": [
+      "first number",
+      "final observed number",
+      "registered expected answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "surface rewrite",
+      "coherent shift",
+      "nonincrement numeric controls"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "operation_preserved_surface_edit",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "all numeric values",
+      "+1 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "coherent state shift",
+      "middle-number break",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "repeated_number_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "repeated numeric state",
+      "copy/repeat rule",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "+1 target rows",
+      "step-two rows",
+      "held-out lexical pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "step_two_numeric_control",
+     "role": "invariance",
+     "changes": [
+      "word order",
+      "separators",
+      "surface template"
+     ],
+     "holds_fixed": [
+      "numeric state",
+      "+2 operation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r563_builder",
+     "control_ids": [
+      "+1 target rows",
+      "repeated-number rows",
+      "held-out number pools"
+     ],
+     "split_plan_id": "increment_counterfactual_split_r563_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "l8h7_l8h3_paths",
+     "tensor_path": "L8H7/L8H3 paths",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-14_products",
+     "tensor_path": "MLP8-14 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "increment_counterfactual_split_r563_v1"
+   ],
+   "evidence_event_ids": [
+    "increment_postattn_rank4_das.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "preregister FIT/SELECT native capability on all seven natural-prompt R563 families; require digit and number-word success, cross-format transfer, middle-edit sensitivity, and stability on both nonincrement controls before reopening L8H7/L8H3 or MLP8-14 localization"
   }
  ],
  "split_plans": [
@@ -181,6 +609,51 @@
    ],
    "sealed_before_outcomes": false,
    "sealed_at": null
+  },
+  {
+   "split_plan_id": "increment_counterfactual_split_r562_v1",
+   "unit": "content-addressed semantic group shared across seven target, necessity, and control families",
+   "partition_artifact_id": "r562_receipt",
+   "builder_artifact_id": "r562_builder",
+   "seed": 562,
+   "groups": {
+    "FIT": 64,
+    "SELECT": 32,
+    "FINAL_TEST": 32,
+    "OOD": 32
+   },
+   "leakage_group_keys": [
+    "semantic group",
+    "oriented start values",
+    "lexical pool",
+    "prompt lead",
+    "surface style",
+    "all seven derived families"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T17:55:00Z"
+  },
+  {
+   "split_plan_id": "increment_counterfactual_split_r563_v1",
+   "unit": "content-addressed semantic group shared across seven natural-prompt families",
+   "partition_artifact_id": "r563_receipt",
+   "builder_artifact_id": "r563_builder",
+   "seed": 563,
+   "groups": {
+    "FIT": 64,
+    "SELECT": 32,
+    "FINAL_TEST": 32,
+    "OOD": 32
+   },
+   "leakage_group_keys": [
+    "semantic group",
+    "oriented start values",
+    "lexical pool",
+    "prompt lead",
+    "all derived rows"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T17:58:00Z"
   }
  ],
  "evidence_events": [
@@ -254,6 +727,66 @@
    "path": "basis_aligned/qk_mdl/algo_tasks/increment/s3b_das_postattn.json",
    "sha256": "1284c39d8e829c114a15be2e14aa37cc312ad7477b9cab727b0daf402aa6fe61",
    "kind": "result",
+   "status": "frozen"
+  },
+  "r562_rows": {
+   "path": "basis_aligned/bilinear_quotient/increment_counterfactual_authority_rung562.json",
+   "sha256": "834fa6da367ad57b06ee9062c3cedd687275d898038f48f1b41e4bb2031eb94f",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r562_receipt": {
+   "path": "basis_aligned/bilinear_quotient/increment_counterfactual_authority_rung562_receipt.json",
+   "sha256": "26a1c0592d717c648546f1a63994b30323828998e5ce6c847b792569dfdddc8e",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r562_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/increment_counterfactual_authority_rung562.py",
+   "sha256": "4ed76d068928594c10ca2fa6afcdcf9d8a1a56a1f7f387c0ed99937e335a3191",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r562_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_increment_counterfactual_authority_rung562.py",
+   "sha256": "2e66502d8dfae2c1798001bcd4e89e72bc9b7121104a3c48431a39cdea59ae77",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r562_prereg": {
+   "path": "basis_aligned/polynomial_causal/INCREMENT_COUNTERFACTUAL_AUTHORITY_RUNG562_PREREGISTRATION.md",
+   "sha256": "eb11f445cddbb344e9e5aa0f5e79515049d184c94e379cdcbd9b521143f652e9",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r563_rows": {
+   "path": "basis_aligned/bilinear_quotient/increment_counterfactual_authority_rung563.json",
+   "sha256": "3886eb039a34a67ee0548b3f62c21e35560aa93dba33fe2ebfdf485788e37298",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r563_receipt": {
+   "path": "basis_aligned/bilinear_quotient/increment_counterfactual_authority_rung563_receipt.json",
+   "sha256": "a692e3b38adea081f63c608e9072be79975623bbf48ad86ef67763b8334af3e4",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r563_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/increment_counterfactual_authority_rung563.py",
+   "sha256": "52b2d5bc359575acd4bcfe5858820348a13f6cdc56508d66c10da2b22136af52",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r563_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_increment_counterfactual_authority_rung563.py",
+   "sha256": "7786752993309aa68c660e4e6ad7a1a070dadbef09e59c44b226365affc43b37",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r563_correction": {
+   "path": "basis_aligned/polynomial_causal/INCREMENT_COUNTERFACTUAL_AUTHORITY_RUNG563_CORRECTION.md",
+   "sha256": "79c065271b9bb2e7b2690ad9220edebc8fc8e32868e6406133600436df40953f",
+   "kind": "preregistration",
    "status": "frozen"
   }
  },
