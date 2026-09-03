@@ -3,80 +3,80 @@
 75 canonical records: 4 behavior circuits, 1 shared subroutine, and 70 legacy census records.
 Negative/invalid results are counted as evidence, not omitted. Check this view and then the linked JSON record before opening work.
 
-| circuit | kind | identity | status | causal variable / legacy story | CF families | active / historical negative events | latest active evidence | exact next missing evidence |
-|---|---|---|---|---|---:|---:|---|---|
-| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | 3 / 4 | pending_opener_four_closer_site_gate.r544.preregistered.v1 | execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited |
-| `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | 0 / 0 | increment_postattn_rank4_das.legacy.v1 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
-| `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | 1 / 1 | induction_terminal_collateral_failure.legacy.v1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
-| `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | 2 / 2 | successor_layer8_input_ceiling.legacy.v1 | expand families and test shared-plus-private projectors against failed cross-family transfer |
-| `subroutine.induction.equality_score` | shared_subroutine | task-defined | site_live | cross_head_equality_score | 5 | 5 / 5 | terminal_copy_four_head_removal.collateral_failure.v1 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `ind_band` | census_slice | 212row-v1 | legacy | induction band: top-4 coincidence reads | — | — / — | — | see circuit record |
-| `r.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.0.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.0.0.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.0.0.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.0.3.0` | census_slice | diverse-1000row-v1 | CONFIRM | Members are rare/proper-noun-like continuation tokens (numbe | — | — / — | — | see circuit record |
-| `r.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.0.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.0.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.0.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.1.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.1.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.2.0` | census_slice | 212row-v1 | legacy | Members are hard-to-predict tokens in venue/address listings | — | — / — | — | see circuit record |
-| `r.1.2.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.3.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.1.3.1` | census_slice | diverse-1000row-v1 | WEAKEN | Members split near-evenly: pushes CE down for clean word/nam | — | — / — | — | see circuit record |
-| `r.11.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | no surface program; punctuation-target push is the only surv | — | — / — | — | see circuit record |
-| `r.11.1.2` | census_slice | diverse-1000row-v1 | CONFIRM | punctuation-target CE reduction (weak, single mechanism not  | — | — / — | — | see circuit record |
-| `r.11.3.1` | census_slice | diverse-1000row-v1 | CONFIRM | templated-completion vs list/numeric-break selector | — | — / — | — | see circuit record |
-| `r.13.2.1` | census_slice | diverse-1000row-v1 | CONFIRM | punctuation-target CE reducer (two-signed, ~50/50 elsewhere) | — | — / — | — | see circuit record |
-| `r.18.2.0` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing except a narr | — | — / — | — | see circuit record |
-| `r.2.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.0.1` | census_slice | diverse-1000row-v1 | WEAKEN | r.2.0 double-QK bundle (a6/a8); input writer composition NOT | — | — / — | — | see circuit record |
-| `r.2.0.2` | census_slice | diverse-1000row-v1 | WEAKEN | input-enrichment for a0 (layer-0 attn) into the a8/a6 double | — | — / — | — | see circuit record |
-| `r.2.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.1.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.2.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.2.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.2.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.2.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.23.2.1` | census_slice | diverse-1000row-v1 | WEAKEN | generic-vs-proper-noun completion push | — | — / — | — | see circuit record |
-| `r.23.2.3` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing | — | — / — | — | see circuit record |
-| `r.3.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.3.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.3.0.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.3.0.2` | census_slice | diverse-1000row-v1 | WEAKEN | attn-input-writer decomp: a14 dominant writer into a15/16/17 | — | — / — | — | see circuit record |
-| `r.3.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.3.1.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.4.1.0` | census_slice | diverse-1000row-v1 | WEAKEN | Two-signed circuit: hurts predictable words (said, tying, op | — | — / — | — | see circuit record |
-| `r.4.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | No strong single-writer mechanism found (a12/m1 top ratios 1 | — | — / — | — | see circuit record |
-| `r.5.0.1` | census_slice | diverse-1000row-v1 | CONFIRM |  | — | — / — | — | see circuit record |
-| `r.5.3.1` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing | — | — / — | — | see circuit record |
-| `r.6.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.0.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.0.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.0.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.1.1` | census_slice | 212row-v1 | legacy | Domain/URL-listing separator token; helps complete website s | — | — / — | — | see circuit record |
-| `r.6.2.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.2.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.2.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.2.3` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.6.3.0` | census_slice | 212row-v1 | legacy | Hard-to-predict delimiters (newlines, semicolons) in travel- | — | — / — | — | see circuit record |
-| `r.6.3.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.7.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | no STRONG single-writer mechanism into a7; weak capitalized- | — | — / — | — | see circuit record |
-| `r.8.1.0` | census_slice | diverse-1000row-v1 | CONFIRM |  | — | — / — | — | see circuit record |
-| `r.9.0.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.9.0.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.9.0.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.9.1.0` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.9.1.1` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
-| `r.9.1.2` | census_slice | 212row-v1 | legacy |  | — | — / — | — | see circuit record |
+| circuit | kind | identity | status | causal variable / legacy story | CF families | held evidence types | active blockers | active / historical negative events | latest active evidence | exact next missing evidence |
+|---|---|---|---|---|---:|---|---|---:|---|---|
+| `task.bracket.pending_opener` | behavior_circuit | task-defined | specified | pending_opener_state | 5 | — | — | 3 / 4 | pending_opener_four_closer_site_gate.r544.preregistered.v1 | execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited |
+| `task.increment.state` | behavior_circuit | task-defined | proposed | increment_state | 4 | — | — | 0 / 0 | increment_postattn_rank4_das.legacy.v1 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
+| `task.induction.selector_payload` | behavior_circuit | task-defined | proposed | induction_selector_payload | 5 | — | — | 1 / 1 | induction_terminal_collateral_failure.legacy.v1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
+| `task.successor.pointer` | behavior_circuit | task-defined | proposed | successor_pointer_state | 4 | — | — | 2 / 2 | successor_layer8_input_ceiling.legacy.v1 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+| `subroutine.induction.equality_score` | shared_subroutine | task-defined | site_live | cross_head_equality_score | 5 | — | — | 5 / 5 | terminal_copy_four_head_removal.collateral_failure.v1 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
+| `ind_band` | census_slice | 212row-v1 | legacy | induction band: top-4 coincidence reads | — | — | — | — / — | — | see circuit record |
+| `r.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.0.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.0.0.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.0.0.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.0.3.0` | census_slice | diverse-1000row-v1 | CONFIRM | Members are rare/proper-noun-like continuation tokens (numbe | — | — | — | — / — | — | see circuit record |
+| `r.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.0.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.0.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.0.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.1.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.1.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.2.0` | census_slice | 212row-v1 | legacy | Members are hard-to-predict tokens in venue/address listings | — | — | — | — / — | — | see circuit record |
+| `r.1.2.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.3.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.1.3.1` | census_slice | diverse-1000row-v1 | WEAKEN | Members split near-evenly: pushes CE down for clean word/nam | — | — | — | — / — | — | see circuit record |
+| `r.11.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | no surface program; punctuation-target push is the only surv | — | — | — | — / — | — | see circuit record |
+| `r.11.1.2` | census_slice | diverse-1000row-v1 | CONFIRM | punctuation-target CE reduction (weak, single mechanism not  | — | — | — | — / — | — | see circuit record |
+| `r.11.3.1` | census_slice | diverse-1000row-v1 | CONFIRM | templated-completion vs list/numeric-break selector | — | — | — | — / — | — | see circuit record |
+| `r.13.2.1` | census_slice | diverse-1000row-v1 | CONFIRM | punctuation-target CE reducer (two-signed, ~50/50 elsewhere) | — | — | — | — / — | — | see circuit record |
+| `r.18.2.0` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing except a narr | — | — | — | — / — | — | see circuit record |
+| `r.2.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.0.1` | census_slice | diverse-1000row-v1 | WEAKEN | r.2.0 double-QK bundle (a6/a8); input writer composition NOT | — | — | — | — / — | — | see circuit record |
+| `r.2.0.2` | census_slice | diverse-1000row-v1 | WEAKEN | input-enrichment for a0 (layer-0 attn) into the a8/a6 double | — | — | — | — / — | — | see circuit record |
+| `r.2.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.1.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.2.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.2.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.2.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.2.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.23.2.1` | census_slice | diverse-1000row-v1 | WEAKEN | generic-vs-proper-noun completion push | — | — | — | — / — | — | see circuit record |
+| `r.23.2.3` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing | — | — | — | — / — | — | see circuit record |
+| `r.3.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.3.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.3.0.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.3.0.2` | census_slice | diverse-1000row-v1 | WEAKEN | attn-input-writer decomp: a14 dominant writer into a15/16/17 | — | — | — | — / — | — | see circuit record |
+| `r.3.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.3.1.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.4.1.0` | census_slice | diverse-1000row-v1 | WEAKEN | Two-signed circuit: hurts predictable words (said, tying, op | — | — | — | — / — | — | see circuit record |
+| `r.4.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | No strong single-writer mechanism found (a12/m1 top ratios 1 | — | — | — | — / — | — | see circuit record |
+| `r.5.0.1` | census_slice | diverse-1000row-v1 | CONFIRM |  | — | — | — | — / — | — | see circuit record |
+| `r.5.3.1` | census_slice | diverse-1000row-v1 | WEAKEN | no behavioral claim survives base-rate testing | — | — | — | — / — | — | see circuit record |
+| `r.6.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.0.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.0.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.0.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.1.1` | census_slice | 212row-v1 | legacy | Domain/URL-listing separator token; helps complete website s | — | — | — | — / — | — | see circuit record |
+| `r.6.2.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.2.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.2.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.2.3` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.6.3.0` | census_slice | 212row-v1 | legacy | Hard-to-predict delimiters (newlines, semicolons) in travel- | — | — | — | — / — | — | see circuit record |
+| `r.6.3.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.7.1.1` | census_slice | diverse-1000row-v1 | WEAKEN | no STRONG single-writer mechanism into a7; weak capitalized- | — | — | — | — / — | — | see circuit record |
+| `r.8.1.0` | census_slice | diverse-1000row-v1 | CONFIRM |  | — | — | — | — / — | — | see circuit record |
+| `r.9.0.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.9.0.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.9.0.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.9.1.0` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.9.1.1` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |
+| `r.9.1.2` | census_slice | 212row-v1 | legacy |  | — | — | — | — / — | — | see circuit record |

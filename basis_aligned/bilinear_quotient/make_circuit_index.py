@@ -97,8 +97,8 @@ def main():
         variable = row["variable"].replace("|", "/")
         lines.append(
             f"| `{row['tag']}` | {row['kind']} | {row['instance']} | {row['status']} | "
-            f"{variable} | {row['families']} | {row['active_negative']} / {row['negative']} | "
-            f"{row.get('held_types', '—')} | {row.get('blocking_types', '—')} | "
+            f"{variable} | {row['families']} | {row.get('held_types', '—')} | "
+            f"{row.get('blocking_types', '—')} | {row['active_negative']} / {row['negative']} | "
             f"{row['latest_event']} | {next_step} |"
         )
     OUT.write_text("\n".join(lines) + "\n")
