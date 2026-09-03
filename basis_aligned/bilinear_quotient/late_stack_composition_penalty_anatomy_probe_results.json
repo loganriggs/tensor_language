@@ -1,0 +1,126 @@
+{
+ "rung": "late_stack_composition_penalty_anatomy_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); pi(X,Y) = CE(X+Y) - CE(X) - CE(Y)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_penalty_is_interface_not_truncation": true,
+  "pred_c_guarding_the_core_removes_it": false,
+  "pred_d_core_error_alone_carries_it": false,
+  "pred_e_coadaptation_does_not_repair_it": true
+ },
+ "nulls": {
+  "b_null_pi_full_le_.06": false,
+  "c_null_pi_guard_ge_.14": true,
+  "d_null_pi_coreerr_le_.04": false,
+  "e_null_coadapt_gain_ge_.08": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol7": 0.03,
+  "repro_tol": 0.02,
+  "repro_tol_full": 0.03,
+  "b_min": 0.12,
+  "c_max": 0.06,
+  "d_min": 0.1,
+  "e_max": 0.03
+ },
+ "null_bars": {
+  "b_max": 0.06,
+  "c_min": 0.14,
+  "d_max": 0.04,
+  "e_min": 0.08
+ },
+ "device": "cuda",
+ "k_in_pool": 32,
+ "square_space_rank": 8,
+ "token_read_rank": 8,
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "mean7": 1.8850818276405334,
+  "pool": 0.31897974014282227,
+  "prog": 0.24573180079460144,
+  "combined": 0.7445334792137146,
+  "full": 0.23335453867912292,
+  "priors": {
+   "mean7": 1.885,
+   "pool": 0.319,
+   "prog": 0.246,
+   "combined": 0.745,
+   "full": 0.233
+  }
+ },
+ "ce_added": {
+  "MEAN7": 1.8850818276405334,
+  "POOL": 0.31897974014282227,
+  "PROG": 0.24573180079460144,
+  "FULL": 0.23335453867912292,
+  "COMBINED": 0.7445334792137146,
+  "COMBINED_FULL": 0.7311091423034668,
+  "POOL_GUARD": 0.2912557125091553,
+  "POOL_GUARD+PROG": 0.7213780879974365,
+  "POOL_COREERR": 0.025154024362564087,
+  "POOL_COREERR+PROG": 0.32860738039016724,
+  "POOL_11": 0.029169321060180664,
+  "POOL_11+PROG": 0.2990568280220032,
+  "POOL_12": 0.029309332370758057,
+  "POOL_12+PROG": 0.3056623041629791,
+  "POOL_13": 0.026489585638046265,
+  "POOL_13+PROG": 0.3085755705833435,
+  "POOL_14": 0.028063148260116577,
+  "POOL_14+PROG": 0.30489662289619446,
+  "POOL_15": 0.029417335987091064,
+  "POOL_15+PROG": 0.3183322548866272,
+  "COMBINED_COADAPT": 0.7633651196956635
+ },
+ "recovery_of_mean7": {
+  "MEAN7": 0.0,
+  "POOL": 0.8307873242075259,
+  "PROG": 0.8696439607069089,
+  "FULL": 0.8762098624805048,
+  "COMBINED": 0.6050391721479744,
+  "COMBINED_FULL": 0.6121605271541124,
+  "POOL_GUARD": 0.8454943927427776,
+  "POOL_GUARD+PROG": 0.6173226660933064,
+  "POOL_COREERR": 0.986656269243204,
+  "POOL_COREERR+PROG": 0.8256800444564949,
+  "POOL_11": 0.9845262308338676,
+  "POOL_11+PROG": 0.841356049569308,
+  "POOL_12": 0.9844519575007292,
+  "POOL_12+PROG": 0.8378519703064763,
+  "POOL_13": 0.9859477794281206,
+  "POOL_13+PROG": 0.8363065379662735,
+  "POOL_14": 0.9851130344324406,
+  "POOL_14+PROG": 0.8382581496327833,
+  "POOL_15": 0.9843946636396621,
+  "POOL_15+PROG": 0.831130802801771,
+  "COMBINED_COADAPT": 0.5950493456026091
+ },
+ "penalties": {
+  "pi": 0.1798219382762909,
+  "pi_full": 0.1787748634815216,
+  "pi_guard": 0.1843905746936798,
+  "pi_coreerr": 0.05772155523300171,
+  "pi_11": 0.02415570616722107,
+  "pi_12": 0.03062117099761963,
+  "pi_13": 0.0363541841506958,
+  "pi_14": 0.03110167384147644,
+  "pi_15": 0.04318311810493469,
+  "sum_pi_l": 0.16541585326194763,
+  "coadapt_gain": -0.018831640481948853
+ },
+ "price": {
+  "gpu_doc_forwards": 1792,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 20.729339361190796
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_STACK_COMPOSITION_PENALTY_ANATOMY_PROBE_PREREGISTRATION.md": "b84fba3dc96682a125a9a9db6a61da4c2d6e69187271629787190501e781783f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_stack_extracted_program_probe_results.json": "a790b0f5e093e5625c690c19dbda9a4e36ab64a3ba41c4306b8d2de8e00dd68c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "7accdd1eb70a63ef3fa0d66638d230c1bd63e4fa63304cf642a528fa6101611a"
+}

@@ -5125,3 +5125,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2732 late_stack_extracted_program_probe (Claude, LANE 1 CUDA, 14 s, 800 GPU forwards): a, b TRUE; c FALSE + NULL MET; d FALSE
   by .0002; e FALSE. Extracted pieces (.319 + .246) compose to .745 (π = .180 vs .066 fitted) — worse than the fitted stack .614.
   Interface, not pieces: pool write error lands in the core the mlp16/17 program squares. Next: π anatomy (per block; full compile).
+- §2733 late_stack_composition_penalty_anatomy_probe (Claude, LANE 1 CUDA, 21 s, 1792 GPU forwards): a, b, e TRUE; c FALSE + NULL
+  MET; d FALSE. π = .180 is not truncation (exact compile .179), not core-borne (guard .184; core error alone .058), additive over
+  pool blocks (Σ .165), co-adaptation hurts (−.019). Real mlp16/17 error-correct the pool's NON-core error; core-only programs can't.
+  Next: π(k) with mlp16/17 own weights on k input PCs; clean-write compensation measurement.

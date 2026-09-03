@@ -70120,3 +70120,51 @@ converse of §2714), which bounds how much of π is core-borne. (B) is the most 
 **Limits.** 64 held-out docs (±.01): d's .0002 miss is noise-level and is scored FALSE only because the bar says so. The program's
 filler and read were fitted on real streams (the addressed co-adaptation question). PROG16_17's .246 vs §2729's OWN/SHARED_8 .222
 (which kept the offset and the full-rank read): the rank-8 read + no offset costs ~.024 here, consistent with §2728 (.012 + .014).
+
+## §2733 — ANATOMY OF THE COMPOSITION PENALTY: IT IS NOT THE PROGRAM'S TRUNCATION (π with the EXACT 16-dim compile .179 = π with the pruned program .180), NOT CORE-BORNE (guarding the pool's write error out of the 16 core directions leaves π = .184; core error alone gives only .058), NEARLY ADDITIVE OVER POOL BLOCKS (π_l .024/.031/.036/.031/.043, Σ .165 vs .180), and CO-ADAPTING THE FILLER MAKES IT WORSE (−.019) — the .18 is what mlp16/17's REAL computation does with the pool's error in the 1136 NON-core input directions, which any core-only program discards (Claude, LANE 1 CUDA, 21 s, 1792 GPU document-forwards): a, b, e TRUE; c FALSE with NULL MET; d FALSE (null not met). My §2732 hypothesis (i) — "the pool's write error lands in the core the program squares" — is REFUTED by its own registered control. Preserved.
+
+Written 2026-09-03 21:57Z (box clock). Preregistration `polynomial_causal/LATE_STACK_COMPOSITION_PENALTY_ANATOMY_PROBE_PREREGISTRATION.md`
+(registered 21:50Z before the script). Script `ops/late_stack_composition_penalty_anatomy_probe.py` (sha 7accdd1e…); receipt
+`late_stack_composition_penalty_anatomy_probe_results.json` (sha 7b60cea1…); log `runlogs/late_stack_composition_penalty_anatomy_probe.log`.
+FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER; π(X, Y) = CE(X+Y) − CE(X) − CE(Y).
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN7 1.8851; POOL .3190 (prior .319); PROG .2457 (.246); COMBINED .7445 (.745); FULL
+.2334 (§2727 COMPILED_TOK .2334 — the own-weights-on-core arm reproduces the exact compile to 1e-4, as §2727's |Δ| = 0 requires).
+
+**Arms (CE added).** POOL .319 · PROG .246 · FULL .233 · COMBINED .745 · COMBINED_FULL .731 · POOL_GUARD .291 · POOL_GUARD+PROG .721 ·
+POOL_COREERR .025 · POOL_COREERR+PROG .329 · POOL_l alone .029 / .029 / .026 / .028 / .029 (l = 11…15) · POOL_l+PROG .299 / .306 / .309 /
+.305 / .318 · COMBINED_COADAPT .763.
+**Penalties.** π .180 · π_full .179 · π_guard .184 · π_coreerr .058 · π_l .024 / .031 / .036 / .031 / .043, Σπ_l .165 · co-adapt gain −.019.
+
+**Scoring.** b π_full .179 ≥ .12 TRUE (null ≤ .06 not met). c π_guard .184 ≤ .06 FALSE; NULL MET (≥ .14). d π_coreerr .058 ≥ .10
+FALSE (null ≤ .04 not met). e co-adapt gain −.019 ≤ .03 TRUE (null ≥ .08 not met).
+
+**What the controls say.** (i) Truncation is innocent: the exact 16-dim compile (FULL, every square direction, full-rank read,
+offset) composes with the pool exactly as badly as the 12 k-number pruned program (.179 vs .180). Whatever the interface is, it is
+already lost at the 16-dim core boundary of §2720, not in §2728/§2729's pruning. (ii) The core is innocent: GUARD gives the pool
+blocks their real core component (POOL_GUARD .291 — the guard itself recovers only .028 of the pool's .319, the §2723 number
+again) and π does not move (.184); conversely the pool's core error ALONE costs .025 and composes at .058. So ≥ 2/3 of π is carried
+by the pool's error in the NON-core 1136 input directions of mlp16/17. (iii) The penalty is spread evenly across the five pool
+blocks and sums (Σπ_l .165 ≈ .180): each block's small perpendicular error (cost .026–.029 alone) costs .024–.043 MORE once
+mlp16/17 are a core-only program — i.e. each block's error is roughly DOUBLED. (iv) Refitting the filler on the perturbed stream
+hurts (.763): the filler is a token-conditional mean and cannot represent a context-dependent correction.
+
+**Reading (the one consistent with §2721, §2723, §2731).** The real mlp16/17 read all 1152 input directions and their response to a
+pool block's perpendicular error partly CANCELS it — the late stack is error-correcting/redundant (§2721: every pair of pool
+ablations superadds by +.04; between-group term with 16/17 .31; §2731: the pairwise certificate under-prices every set that contains
+mlp16&17). A program that reads only the 16 core coordinates cannot see the error, so cannot correct it, and the pool's damage
+passes to the readout at roughly twice its real cost. This is not a fitting artefact, not a truncation artefact and not a
+core-coordinate artefact — all three registered controls fail to move π. It is a statement about what the 1136 discarded input
+directions of mlp16/17 DO: they carry the stack's redundancy. §2723's paradox ("the program needs the pool more than the real
+blocks do") is the same fact.
+
+**What it means for the program.** A whole-late-stack program built from core-only last blocks pays the full pool error twice;
+the honest options are (A) give mlp16/17 more input directions — their OWN weights on the top-k PCs of their own input (§2730's
+recipe applied to the last two) and measure π(k): if the correction is carried by a few hundred directions, π should fall from
+.18 to near .07 (the fitted stack's) by k ≈ 128–256; (B) measure the correction directly — pool perturbed but mlp16/17 writing their
+CLEAN (unperturbed-stream) outputs: the cost above POOL alone is the compensation the real blocks provide. Both in the next rung.
+Note the sign discipline: lower CE = better throughout; a "gain" here is a reduction in CE added.
+
+**Limits.** 64 docs (±.01); π_l are each within noise of one another (the additivity claim is at the ±.02 level). GUARD/COREERR
+split the pool's error by the fit-set core P (16 dims); a different core rank would move the split but not the conclusion (the
+guard recovers .028 of .319 — the pool's value is 91% non-core, §2723).
