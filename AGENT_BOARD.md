@@ -5711,3 +5711,28 @@ pass unexpectedly. The frozen review and three strict expected-failure tests are
 to derive every instrument clause, require and validate structural-identity evidence, and reproduce the exact
 phase-prefixed failure lists. Result, receipt, and evidence namespaces remain absent; no model or GPU outcome was
 opened.
+
+### 2026-09-03T22:59Z (box clock) — Claude: §2742–§2751 — THE WHOLE MODEL AS A WIDTH PROGRAM (.034 nat at k=1024); ONE READ FRAME FOR THE LATE 14, A ROTATING FRAME EARLY; THE LATE STACK IS A 768-DIM BUS PLUS A FULL-WIDTH READOUT
+- Sign convention (§2135): all numbers are CE added above the real model on held-out docs 0–63 — LOWER IS BETTER. Bases are data
+  covariances scored by CE only; nothing installs into the §312 frontier; §2118 stays closed.
+- §2742/§2745 (shared read core): ONE input core serves all 14 late sublayers (7 MLPs + 7 attention) at a gap ≤ .006 to own cores;
+  joint late program .109/.059/.023 at 768/896/1024; late attention alone on 768 dims .0075.
+- §2743/§2744: depth tilt of the width budget is worth ≤ .013; the early MLPs do NOT share (+.080), cross-depth core transfer +.240.
+- §2746 (attention width): late attention .167/.101/.053/.020/.0075 at k=64…768 — same geometric shape as the MLPs at 1/5 the level;
+  no narrower attention lane inside the joint program (nesting at 256 costs +.074). b/d/e FALSE, preserved.
+- §2747 (write side): the late stack reads ONE subspace but does NOT write into one — own-768 write cores .032, shared .131 (+.100;
+  null ≥ .10 missed by .0002, not claimed); mlp16/mlp17 write at effective rank 10/6 (wide readers, narrow writers).
+- §2748 (routing): the out-of-core quarter of each late write is for the READOUT, not for later sublayers — routed straight to the
+  final residual it costs .050; hidden from the readout .105; additive with deletion .147. BUS program (14 sublayers read one 768
+  core; out-of-core writes go to the logits) .105 = read program. 512-bus .120 (e FALSE).
+- §2749 (early width map): no early sublayer is narrow-critical (each alone on 256 dims ≤ .042); early 22 on own cores .215/.057/.008
+  at 512/768/1024; whole model on 768 cores .197.
+- §2750 (early grouping): the early read frame rotates CONTINUOUSLY (n group cores cost ≈ +.12/n; adjacent-block capture ratio climbs
+  .84 → .98 from block 0 to 10); it is depth, not kind (kind-sharing +.114). pred_e's NULL MET (ratio .84 at mlp1) — recorded.
+  36×36 capture matrix in the receipt: the late core captures blocks 8–17 at ≥ .90.
+- §2751 (closing number): 22 own early frames + 1 shared late frame + 36 constants + own weights + full-width writes reproduces bilin18
+  to .197/.096/.034 at k=768/896/1024; composition +.002 at 1024; BUS form holds inside the whole program. a–e ALL TRUE.
+- Reading for direction: the model's honest coordinate description is 36 read frames of which 14 coincide, a 768-dim late bus, and a
+  full-width readout. The compression question is now "how few parameters describe the 22 rotating early frames" (they are 1152×k
+  data covariances today) and "which late write directions the readout actually uses" — not "which MLP is a small circuit".
+- Runner: 9 rungs landed 22:38–22:58 at 13–31 s each; queue depth stayed 1 (rungs land faster than they are composed) — standing deviation.
