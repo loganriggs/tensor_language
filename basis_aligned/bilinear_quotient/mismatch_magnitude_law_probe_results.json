@@ -1,0 +1,123 @@
+{
+ "status": "complete",
+ "rung": "mismatch_magnitude_law_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "descriptive_rank1_magnitude_law_of_published_mismatch_norms",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MISMATCH_MAGNITUDE_LAW_PROBE_PREREGISTRATION.md": "5aae4c0d8ce52103bce45d1056fbf2d7943e0c8e10825398b8d15d548145bc68",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/attention11_mlp11_exact_factor_interactions_rung513_results.json": "043dd563baa5ffe5bda57c7774dc76e4727add3b4351699cb997ecfd563179d5"
+ },
+ "sites": {
+  "a11": {
+   "norm_grid": [
+    [
+     967.2168805807721,
+     927.1584653076859,
+     1018.9954505491017
+    ],
+    [
+     971.0883647856181,
+     930.4374248305324,
+     1018.9294287716203
+    ],
+    [
+     1184.445273738178,
+     1157.0292933407152,
+     1291.7605323828047
+    ],
+    [
+     1008.2618629022988,
+     978.8594280439687,
+     1066.5726803111047
+    ],
+    [
+     1019.3362871173089,
+     976.5706587677196,
+     1063.8585656965731
+    ],
+    [
+     1228.5231877219333,
+     1199.4786517678954,
+     1335.7039349656739
+    ]
+   ],
+   "log_top_singular_energy_fraction": 0.8710500243268843,
+   "raw_rank1_relative_residual": 0.0397398978486068,
+   "rank1_separable": false,
+   "per_branch_scale": {
+    "L": 0.9039013558991231,
+    "R": 0.9060327144658731,
+    "L+R": 1.1267331701127092,
+    "L+LR": 0.9473887215040074,
+    "R+LR": 0.9489518007597808,
+    "L+R+LR": 1.1669922372585066
+   },
+   "per_pair_scale": {
+    "N-Z7": 1074.8168112789676,
+    "N-Z8": 1075.7244245343531,
+    "P-Z7": 1077.1521702417838
+   }
+  },
+  "m11": {
+   "norm_grid": [
+    [
+     2399.6751988672727,
+     2301.7707008260777,
+     2458.68769781798
+    ],
+    [
+     2401.8575861058653,
+     2303.354250459342,
+     2471.003943089994
+    ],
+    [
+     2850.6428822592407,
+     2757.741919778308,
+     2961.4704108547567
+    ],
+    [
+     2448.250640910378,
+     2357.139404462496,
+     2507.189046405691
+    ],
+    [
+     2451.681032044205,
+     2355.957978004869,
+     2518.9467402639116
+    ],
+    [
+     2858.110814046942,
+     2776.005182448774,
+     2965.7475235657494
+    ]
+   ],
+   "log_top_singular_energy_fraction": 0.8960085765184784,
+   "raw_rank1_relative_residual": 0.027389897799982785,
+   "rank1_separable": false,
+   "per_branch_scale": {
+    "L": 0.930989759253564,
+    "R": 0.9330698690117204,
+    "L+R": 1.114240345377576,
+    "L+LR": 0.9508500341311348,
+    "R+LR": 0.9526378708781634,
+    "L+R+LR": 1.1182121213478415
+   },
+   "per_pair_scale": {
+    "N-Z7": 2562.213604080915,
+    "N-Z8": 2563.144167399912,
+    "P-Z7": 2563.382555981423
+   }
+  }
+ },
+ "pair_scale_site_cosine": 0.9999997392659968,
+ "pred_a_exact_reproduction_of_513_norms": true,
+ "pred_b_magnitude_is_rank1_separable": false,
+ "pred_c_pair_scaling_is_site_consistent": true,
+ "strong_null": true,
+ "verdict": "magnitude_has_branch_by_implementation_interaction",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.01103973388671875
+}
