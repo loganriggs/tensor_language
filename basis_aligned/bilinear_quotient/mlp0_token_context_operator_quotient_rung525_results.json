@@ -1,0 +1,121 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "claim_level": "exact_weight_function_operator_grouping_screen_not_circuit_evidence",
+  "dependency_sha256": {
+    "basis_aligned/bilinear_quotient/mlp0_centered_context_anova_exact_residual_results.json": "6650b97c9f5b53714d29f999eff6653bdbc9273c9238e4c10ce607d8d5728277",
+    "basis_aligned/bilinear_quotient/mlp1_sparse_c512_continue_factorial_v1_rows_receipt.json": "ce4a6f8eeb20840711bb20677ff8310f1a39db55b50106face1157cd2feeef7f",
+    "basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py": "1495ec13abf80bbd3d0bf33db8c0457e1bc5eab7421bcb1b96a780278d808322",
+    "basis_aligned/bilinear_quotient/ops/mlp0_token_context_operator_quotient_rung525_math.py": "b65e875855d4dd0a65afb140c73e60568af590dfbde3b6d411f30fb921353729",
+    "basis_aligned/polynomial_causal/MLP0_TOKEN_CONTEXT_OPERATOR_QUOTIENT_RUNG525_PREREGISTRATION.md": "fdc1575846a97e43c4834e4caa0d2081fea5e5b2ab5d73f5c36b180a3de5f683"
+  },
+  "descriptive_code_length": {
+    "full_cached_token_factor_bits": 14821392384,
+    "native_mlp0_comparison_is_not_claimed": true,
+    "occupied_representatives": 8244,
+    "ratio_to_full_cached_factor_table": 0.16404634551236505,
+    "receiver_assignment_bits": 140728,
+    "representative_factor_bits": 2431254528,
+    "total_bits": 2431395256
+  },
+  "execution_price": {
+    "attention0_capture_batches": 72,
+    "circuit_evaluations": 0,
+    "deployed_values_added": 0,
+    "deployed_values_saved": 0,
+    "downstream_model_forwards": 0,
+    "peak_gpu_memory_bytes": 3842050560,
+    "runtime_seconds": 4.9147725105285645
+  },
+  "instrument": {
+    "FINAL_or_sealed_opened": false,
+    "explicit_scalar_identity_relative_squared_error": 7.293703014433893e-13,
+    "maximum_candidate_raw_cosine": 0.49997925758361816,
+    "minimum_random_raw_cosine_margin": 0.03404593467712402,
+    "no_downstream_model_or_circuit_calls": true
+  },
+  "next_action": "context_only_or_downstream_conditioned_operator_metric",
+  "operator_definition": "K_t da = gain_mean*Down[(Left de_t)*(Right da)+(Left da)*(Right de_t)]",
+  "pair_artifact": {
+    "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_token_context_operator_quotient_rung525_pairs.pt",
+    "sha256": "11e295fb744bde435158578fffad6a7db994bdb3df28201c4df39354f31d8d4b"
+  },
+  "physical_downstream_successor_licensed": false,
+  "population": {
+    "donors": 40205,
+    "real_tokens": 50257,
+    "receivers": 10052,
+    "split": "token_id_mod5"
+  },
+  "pred_a_exact_lawful_instrument": true,
+  "pred_b_operator_grouping_transfers": false,
+  "pred_c_repeated_groups_not_isolated_pairs": true,
+  "probe_banks": {
+    "FIT_documents": 96,
+    "SELECT_documents": 96,
+    "all_operator_sketches_nonconstant": true,
+    "gain_mean": 0.003969388082623482,
+    "half_probes": 128,
+    "probes_per_bank": 256,
+    "role_hashes": {
+      "FIT_rows": "09039af42aed782dba893633f7dacb12e5aba6b569bdff1e632c2647f0b0bd58",
+      "SELECT_rows": "c9d82707588267a4db80a6c346a959df154103567d24bf72f96d6173ba9daac8",
+      "bank_A_local_positions": "2c989f6f945aba7225c4b22517cab01fe7d232cded7b65ebc9049c0305b08cd4",
+      "bank_B_local_positions": "611e51b3b86cde3dc00941113d4d539ff57ea9592f24fbeddbd12615e99d1b02"
+    },
+    "roles_differ": true,
+    "sketch_A_sha256": "fe2a469879930756b63cc0a8aee1b116bb89f35675e00715c529641a6dae8106",
+    "sketch_B_sha256": "c7712ea020727bca71c55efccf995a0002edf938d54582b0059acbbfb83d594c"
+  },
+  "rung": 525,
+  "runner_sha256": "8fa1d3c2022f5a3ee8aca4b4f79c64a21fa7f0940bc3207fa7295f828e838b8a",
+  "score": {
+    "bank_a_to_bank_b_distance_spearman": 0.6732814937301003,
+    "candidate_over_deranged": 0.7289864593489319,
+    "candidate_over_random": 0.5862420400520387,
+    "candidate_over_raw": 1.235346871679548,
+    "donor_count": 40205,
+    "exceptional_vs_far_random_fraction": 0.9646836519241333,
+    "groups": {
+      "distinct_donors": 8244,
+      "largest_group": 10,
+      "receivers_in_repeated_groups": 3252,
+      "repeated_donors": 1444
+    },
+    "half_search_bank_b_medians": [
+      1.2953128814697266,
+      1.2931218147277832
+    ],
+    "half_search_median_relative_difference": 0.0016944008808672088,
+    "maximum_candidate_raw_cosine": 0.49997925758361816,
+    "maximum_deranged_candidate_raw_cosine": 0.4991194009780884,
+    "median_bank_b_candidate_distance": 1.1640708446502686,
+    "median_bank_b_deranged_control_distance": 1.596834659576416,
+    "median_bank_b_random_control_distance": 1.9856488704681396,
+    "median_bank_b_raw_control_distance": 0.9423028230667114,
+    "median_raw_control_cosine": 0.49866044521331787,
+    "minimum_random_raw_cosine_margin": 0.03404593467712402,
+    "physical_successor_licensed": false,
+    "prediction_b_operator_transfer": false,
+    "prediction_c_repeated_groups": true,
+    "receiver_count": 10052,
+    "strong_null": true
+  },
+  "status": "complete",
+  "strong_null": true,
+  "toy": {
+    "bank_b_candidate_over_raw": 0.0,
+    "classes": 32,
+    "correct_class_fraction": 1.0,
+    "deranged_correct_class_fraction": 0.03846153989434242,
+    "passes": true,
+    "tokens": 256
+  }
+}

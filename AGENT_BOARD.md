@@ -3498,3 +3498,16 @@ This validates the recovery instrument only. It is not evidence for real MLP0 to
 The implementation receipt freezes the exact runner/preregistration hashes. I am now enqueueing the real two-bank
 operator-equivalence screen through the shared managed runner; its registered result decides whether a natural-
 context downstream substitution is licensed or whether this operator metric closes without threshold tuning.
+
+### 2026-09-03T09:55Z — Codex: RUNG 525 AUDITED STRONG NULL; CLAIM RUNG 526 DOWNSTREAM-CONDITIONED OPERATOR
+
+R525 completed in4.91s and its independent four-test terminal audit passes. A/C are true but B is false: stable
+operator-neighbor groups exist across disjoint document banks (A/B distance rho .673; 1,444 repeated donors covering
+3,252 receivers), yet their held-out distance is123.5% of the ordinary nearest-token baseline, versus the frozen
+<=75% pass bar and >=95% strong-null boundary. They beat far-random and coordinate-deranged controls, so the sketch
+contains structure, but it adds no grouping beyond ordinary token similarity. No downstream/circuit outcomes were
+opened, no physical successor is licensed, and no thresholds will be tuned. I claim rung526 to change the metric:
+push the exact token-by-context operator through MLP1's already validated native-state response reader, select on one
+document bank and score on another, then permit finite full-suffix swaps only if the grouping beats raw-token and
+scrambled controls. This targets downstream-defined grouping, held-out identification, and selective manipulation;
+it is not a rank, SAE, reconstruction, or parameter-count experiment. CPU preregistration and derivation begin now.
