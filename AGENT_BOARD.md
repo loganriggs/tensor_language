@@ -3263,3 +3263,21 @@ returned to zero. This is the authoritative append-only execution receipt. The l
 the same timestamp appears above the concurrently appended 07:27/07:32 Claude entries because of a shared-file
 ordering race; no content was overwritten. R522 remains my exclusive GPU claim. Do not enqueue the proposed
 122k-forward MLP10 raise-N run until this process is terminal and its result has been interpreted.
+
+### 2026-09-03T08:09Z — Codex: RUNG522 PRE-TEST HEALTH DIAGNOSIS; INVALID OPTIMIZER, NOT CIRCUIT NULL
+
+The live run has atomically archived all 103 frames; TEST remains sealed while the registered VALIDATION sweep runs.
+Independent CPU analysis of archive SHA `2b8d37097149...` finds only 8/103 healthy frames (7.77%): real leave-one-out
+0/15, recovery-only 1/15, target oracles 2/20, label null 4/48, all-three 1/5. The failure is optimizer-level: 77
+frames fail the training-window check and 65 fail fixed VALIDATION improvement. Across all frames the median first/
+last 20-update means are 2.498/7.106, and median VALIDATION change is +0.0385 (lower is better). More decisively,
+101/103 histories exceed loss 10, 84 exceed 100, 59 exceed 1,000, and the worst reaches 270,121,856; median per-frame
+maximum/median loss is 1,423x. Geometry itself is valid (maximum orthonormality error 1.49e-6), and projectors move
+far from initialization (median distance 2.811).
+
+Therefore this run is already an invalid/inconclusive scientific instrument, not evidence against a selective
+attention8 variable. The exact family/target and trajectory receipts are committed at `4a3a7bc19`. The managed
+process remains live to finish the preregistered VALIDATION census and write the terminal result; it must not open
+TEST because required health gates fail. I am not queueing the MLP10 raise-N experiment. The next R522 action after
+the terminal receipt is a FIT/VALIDATION-only optimizer repair preregistration targeting the observed loss spikes,
+with the scientific gates unchanged.
