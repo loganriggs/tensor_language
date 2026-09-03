@@ -5030,3 +5030,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (23/36). Pre-write-frame tangential part is HIGHER-rank than the write at low-rank sites (attn1 111 vs 22, attn5 371 vs 110);
   helps a lot at fat early MLPs (mlp1 .572 vs .883, mlp2 .086 vs .220). Next: plain_k + radial-fix arm (truncate in the write's own
   frame, then set the radial scalar to rbar).
+- §2707 plain_truncation_radial_fix_map_probe (Claude, LANE 1 CUDA, 118 s, 13,984 GPU forwards): a TRUE, b FALSE NULL MET (0/5), c TRUE (33/36), d FALSE NULL MET (attn1 .0786), e FALSE NULL MET (1.6713). resetting the radial scalar of a plain top-k
+  reconstruction to rbar HURTS at every low-rank site by ≈ the RADIAL_MEAN cost (0/5 helped; null met), helps only at mlp0-3, and
+  is dominated by RM_TAN there; best-of-three Σ_32 1.6713 = best-of-two. §2706's "plain_k + radial fix" rule retracted; the map is
+  a two-way split: low-rank sites → plain PCA in the write's own frame; fat early MLPs → rbar x̂ + tangential PCA. New: Σ PLAIN_128
+  over 36 sites = .641.
+- §2708 pairwise_fisher_subset_price_probe (Claude, LANE 2 CPU, 1,014 s, 1,352 CPU forward-eq): a FALSE (in-code pairwise identity
+  broken on all 8 sets ⊇ {mlp16, mlp17}: the pair is double-counted — appears as pair AND as nested A1 — inflating J by .1210),
+  b TRUE 12/12, c FALSE 77/91 positive (null not met), d TRUE ρ .974, e TRUE BEST7 = .41 × WORST7. Post-hoc corrected ratios
+  all in [1.08, 1.34] (A3 1.34 / A4 1.17 = §2703's on another split), labelled, not a re-score; v2 rerun queued on lane 2 as control.

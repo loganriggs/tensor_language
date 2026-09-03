@@ -1,0 +1,43 @@
+{"stage": "fit", "mlp17_eff_rank": 2.462892194841695, "t": 4.1}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 4.1}
+{"stage": "k", "k": 32, "joint": -0.26049041748046875, "sum_single": -0.31186962127685547, "factor": NaN, "t": 4.2}
+{"stage": "k", "k": 512, "joint": -0.08009910583496094, "sum_single": -0.08481693267822266, "factor": NaN, "t": 4.4}
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_factor_k_independent": false,
+  "pred_c_late_stack_price_128": false,
+  "pred_d_late_stack_price_512": true,
+  "pred_e_mlp_pairs_carry_it": false
+ },
+ "nulls": {
+  "b_null_f256_le_1.3_or_ge_5": false,
+  "c_null_joint128_ge_.60": false,
+  "d_null_joint512_ge_.15": false,
+  "e_null_mlp7_frac_le_.3": false
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": 3.0322321,
+  "identity_abs_diff": 0.0,
+  "joint32": -0.26049041748046875,
+  "prior_joint32": 0.9017,
+  "sum_single32": -0.31186962127685547,
+  "prior_sum_single32": 0.3268,
+  "n_monotone_chains": 0,
+  "n_chains": 4
+ },
+ "joint_ce_added": {
+  "32": -0.26049041748046875,
+  "512": -0.08009910583496094
+ },
+ "superadditivity_factor": {
+  "32": NaN,
+  "512": NaN
+ },
+ "price": {
+  "gpu_doc_forwards": 52,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 4.390935659408569
+ }
+}

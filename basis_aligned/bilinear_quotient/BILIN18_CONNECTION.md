@@ -69120,3 +69120,92 @@ radial scalar of the reconstruction to r̄ (a "plain_k + radial fix" arm), rathe
 
 Three failed predictions preserved (b, c, d) plus e by one site; the instrument is exact; no prior conclusion flips. Explained
 fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+## §2707 — PLAIN TRUNCATION + RADIAL FIX MAP (Claude, LANE 1 CUDA, 118 s, 13,984 GPU document-forwards): THE §2706 RULE IS WRONG AT THE SITES IT WAS WRITTEN FOR — resetting the radial scalar of a plain top-k reconstruction to r̄ HURTS at every low-rank site (0 of 5 helped; null met) by ≈ the §2705 RADIAL_MEAN cost, helps only at the fat early MLPs (mlp0 k=8 .365→.171, mlp1 3.68→2.42), and is dominated by RM_TAN there — best-of-three Σ = 1.6713, identical to best-of-two (1.6715). 3 of 5 predictions false, preserved.
+
+Written 2026-09-03 20:23Z (box clock). Preregistration `polynomial_causal/PLAIN_TRUNCATION_RADIAL_FIX_MAP_PROBE_PREREGISTRATION.md`
+(registered 20:14Z, sha e768f58e…, frozen in the script); script `ops/plain_truncation_radial_fix_map_probe.py`; results
+`plain_truncation_radial_fix_map_probe_results.json` (sha 664c91f9…); log `runlogs/plain_truncation_radial_fix_map_probe.log`.
+Enqueued 20:17, ran 20:17:27–20:19:26, exit 0. SIGN CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out
+docs 96–159 (baseline 3.1125031) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Arms.** Plain in-situ write PCA (μ, U) per site from docs 0–95, r̄ = mean radial scalar. PLAIN_k = μ + U_k U_kᵀ(w − μ) (§2696's
+construction, now at k ∈ {8, 32, 128} for all 36 sites); PLAINFIX_k = P_k(w) + (r̄ − P_k(w)·x̂) x̂.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — TRUE: baseline 3.1125031 = §2696's to 1e-9; PLAIN_32 reproduces §2696 within .01 at 36 of 36 (identical
+  to 4 decimals at every site — the float64 GPU refit is the same basis); both arms monotone in k at 36 of 36.
+- pred_b_fix_helps_where_the_frame_failed — FALSE; NULL MET: PLAINFIX_8 < PLAIN_8 at 0 of the 5 sites (bar 5; null ≤ 2). attn1
+  .0657→.0786, attn5 .0842→.1045, attn6 .0442→.0474, mlp16 .0359→.0380, mlp17 .0861→.1184.
+- pred_c_fix_never_hurts — TRUE; null not met: PLAINFIX_32 ≤ PLAIN_32 + .005 at 33 of 36 (bar 33). The three that hurt more:
+  attn1 +.0118, attn5 +.0199, mlp17 +.0320.
+- pred_d_attn1_compact_corrected — FALSE; NULL MET: attn1 PLAINFIX_8 = .0786 (bar ≤ .03; null ≥ .06). attn1's compact description
+  is plain PCA: k=8 .0657, k=32 .0329, k=128 .0081.
+- pred_e_best_of_three_total — FALSE; NULL MET: Σ min(PLAIN_32, PLAINFIX_32, RM_TAN_32) = 1.6713 (bar ≤ 1.60; null ≥ 1.65) vs
+  best-of-two 1.6715: PLAINFIX is the per-site minimum nowhere by more than .0002.
+
+**Disclosed.** Σ PLAINFIX_32 = 2.188 < Σ PLAIN_32 2.371 (the gain is all mlp0–3), but Σ PLAINFIX_128 = .729 > Σ PLAIN_128 .641 —
+at k=128 the fix hurts overall. Per-site the fix's damage at low-rank sites equals the §2705 RADIAL_MEAN cost to ~.002 (attn1
+k=128: +.0107 vs RADIAL_MEAN .0101; attn5 k=128 +.0175). Σ PLAIN_128 over all 36 = .641 (new number; §2706's Σ RM_TAN_128 was .954).
+
+**Reading.** (i) The radial constant is not a free simplification to stack on a truncation. At a low-rank site the write's own
+top-k directions already carry the radial part exactly (the radial axis of a rank-22 write lies inside its span), so replacing
+it by r̄ adds the RADIAL_MEAN cost on top; the arm is strictly intermediate between PLAIN and RM_TAN and never the best.
+(ii) Where it helps — mlp0–3, r̄ = 6k–18k, i.e. the sites whose write is dominated by a huge constant radial gain — it helps
+because the plain top-k basis wastes directions on the radial variance; there RM_TAN (radial out BEFORE fitting) is better
+still. (iii) So the honest per-site rule is a two-way split, not a composition: low-rank sites → plain PCA in the write's own
+frame (attn1 k=32 .033, attn5 .047, attn6 .029, mlp16 .028, mlp17 .057 — the radial scalar is included in the span, not
+separately parametrised); fat early MLPs → r̄ x̂ + tangential PCA (mlp0 .071, mlp1 .572, mlp2 .086, mlp3 .055). My §2706
+"plain_k + radial fix" rule is retracted as a prediction; the map that replaces it is the two-way split above with
+best-of-two Σ_32 = 1.6715 (already recorded in §2706). (iv) What remains open for the late attention cliff is unchanged:
+attn5's .047 at k=32 is tangential and in-frame; the pairwise/joint machinery (§2703, §2708) is the right tool for pricing
+several of these together, not a new single-site gauge.
+
+## §2708 — PAIRWISE FISHER SUBSET-PRICE MODEL FOR THE 14 LATE WRITES (Claude, LANE 2 CPU-only, 1,014 s, 1,352 CPU document-forward equivalents, 0 GPU): INSTRUMENT FAILED AS REGISTERED (pred_a false — the in-code pairwise identity broke at relative error .13–.37 on every set containing both mlp16 and mlp17); ROOT CAUSE FOUND IN THE SCRIPT (the pair (mlp16, mlp17) appears twice in the certificate's set list — once as a pair, once as nested set A1 — and its accumulator is summed twice per batch, doubling that one pair certificate and inflating J(A) by exactly .1210 for every superset); AS-RUN scores b TRUE (12/12), c FALSE (77 of 91 pairs positive; null not met), d TRUE (Spearman .97), e TRUE (BEST7 = .41 × WORST7). Failure preserved; post-hoc arithmetic correction recorded below, labelled; the fixed rerun (v2) is queued on lane 2 as the physical control.
+
+Written 2026-09-03 20:24Z (box clock). Preregistration `polynomial_causal/PAIRWISE_FISHER_SUBSET_PRICE_PROBE_PREREGISTRATION.md`
+(registered 19:53Z, sha 36a777cb…, frozen in the script); script `ops/pairwise_fisher_subset_price_probe.py` (`# BQLANE: cpu`);
+results `pairwise_fisher_subset_price_probe_results.json` (sha 2d0dc207…); log `runlogs/pairwise_fisher_subset_price_probe.2.log`.
+Enqueued 20:00, ran 20:00:55–20:17:50 on lane 2 at 4 threads, exit 0. SIGN CONVENTION (§2135): every "measured" number is CE
+ADDED ABOVE THE REAL MODEL on held-out docs 64–95 (bases from docs 96–191; baseline 3.0775206 — a third baseline, not comparable
+in absolute terms to 3.1125 / 3.0322) — LOWER IS BETTER; J(A) = Σ_s c_s + Σ_{s<t} X_st is the pairwise second-order price;
+ratio = measured / J. Nothing installs into the §312 frontier.
+
+**Scoring, exactly as registered.**
+- pred_a_instrument — FALSE. (i) manual vs module CE 2.8547950 vs 2.8547950 (0 diff) ✓; (ii) direct joint certificate vs J(A)
+  within 1e-6 relative — VIOLATED on 8 of the 15 sets that have a direct certificate: R6 .371, R9 .290, R11 .263, R12 .318,
+  A2 .328, A3 .200, A4 .135, WORST7 (= A3) .200; the seven 16&17-free sets agree to ≤ 1e-7 ✓; (iii) c_s stable within [.5, 2]
+  of §2703's docs-0–63 certificate at 13 of 14 sites (attn15 2.13; bar ≥ 12) ✓.
+- pred_b_pairwise_model_prices_random_subsets — TRUE; null not met: 12 of 12 random sets have measured/J ∈ [.7, 1.4] (bar ≥ 10;
+  null ≤ 6). As-run ratios: n=3 sets 1.10 / 1.20 / 1.34 / 1.08; n=5 1.20 / .74 / .85 / .86; n=8 .90 / .82 / .96 / .80.
+- pred_c_cross_terms_positive — FALSE; null not met: 77 of 91 pairs have X_st > 0 (bar ≥ 80); 14 negative (null ≥ 30). The 14
+  negative pairs are all small (|X| ≤ .0068) and all involve one of attn11 / mlp11 / attn12 / mlp12 / attn13 / mlp14 / mlp15
+  with mlp15 / mlp16 / mlp17 / attn14 / attn16: mid-late × last-two anti-alignment.
+- pred_d_ordering — TRUE; null not met: Spearman(J, measured) over the 16 sets = .974 (bar ≥ .9).
+- pred_e_design_gain — TRUE; null not met: BEST7 (chosen from J before measurement: mlp11 attn12 mlp14 attn15 mlp15 attn16 mlp16)
+  measured .2673; WORST7 (mlp11–mlp17, = A3) measured .6469; ratio .413 (bar ≤ .5; null ≥ .8).
+
+**Root cause of the pred_a failure (code, verified from the receipt alone).** `joint_sets = pairs + list(named.values())` and
+the accumulator `cj = {(tuple(A), k): 0.0 for A in joint_sets}` key by tuple; A1 = (mlp16, mlp17) is also the 91st pair, so the
+`for A in joint_sets` loop hits that key twice per batch and its certificate is exactly doubled: A1's "direct" .2420 = 2 × .1210.
+Every superset's J(A) uses X(16,17) = .2420 − c16 − c17 = .1582 instead of .1210 − .0839 = .0372, i.e. J is inflated by .1210 —
+and J_used − direct = .1210 on all eight failing sets (R6 .3266 vs .2056, A2 .3684 vs .2474, A3 .6052 vs .4842, A4 .8972 vs
+.7762). Removing the double count makes the identity hold at ≤ 1e-7 on every set. This is a bookkeeping bug in the probe, not a
+failure of the pairwise identity (MATHEMATICAL_REVIEW_2026-09-03_1930.md, Analysis 2), and the registered check caught it.
+
+**Post-hoc arithmetic correction (labelled; NOT a re-score; the v2 rerun is the control).** With X(16,17) = .0372 (measured
+X for A1 = .0377 — ratio 1.02): ratios R6 1.18, R9 1.27, R11 1.30, R12 1.17, A1 1.13, A2 1.19, A3 1.34, A4 1.17 (§2703 measured
+A3 1.331 / A4 1.170 on docs 0–63 — the same numbers to two decimals on an independent split). All 16 sets then sit in [1.08,
+1.34]; pred_b stays 12/12; Spearman unchanged (.974 — the affected sets move together); pred_c unchanged (77/91); the BEST7
+design was chosen with the inflated penalty on 16&17 supersets, so BEST7 might differ under the fix — WORST7 (A3) is
+unaffected. The corrected mean X by pair kind: attn–attn .0068, attn–mlp .0011, mlp–mlp .0132 (as-run .0190).
+
+**Reading.** (i) The pairwise second-order model prices GENERIC subsets of the late stack, not just nested ones: twelve random
+sets of sizes 3/5/8 all within [.7, 1.4] as run, and within [1.08, 1.34] once the bookkeeping is fixed — the certificate is
+mildly conservative (measured/J ≈ 1.1–1.3), never wild. (ii) It ORDERS installations (ρ = .97) and separates designs of equal
+size by 2.4× (.267 vs .647 for 7 of 14 late sites) from one score pass — that is a usable design instrument for "which late
+writes to compress together". (iii) The interaction structure is MLP–MLP dominated (mean X .013 vs attn–mlp .001) with a
+small anti-aligned mid-late × last-two block (14 negative pairs) — cheap joint installations that no single-site map would
+find exist but are small (≤ .007 each). (iv) pred_c's failure is real and informative: the "all cross terms positive" picture
+is wrong at the ~15 % level. (v) Nothing here reaches the strict ledger (no installation); the v2 control must land before
+the design claim (ii) is used to choose a rung.
