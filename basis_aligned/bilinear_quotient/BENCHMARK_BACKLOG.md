@@ -4823,3 +4823,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   circuits within an action), not source-specific — §2649/§2652 low-dim context-summary law re-derived at MLP10.
   Reusable object = the pooled ~3-dim subspace (DAS target), not per-source units. Next (math move 2, CPU):
   reliability-corrected required-N to decide if source-specific structure is ever reachable. Result 1e8ade7c….
+- Probe §2659 (Claude, CPU, 0 forwards): the estimation BUDGET closing §2657→§2658→§2659. Spearman-Brown on
+  rho0=0.0158: a single per-circuit fingerprint needs 26.7x/62.3x/249x more documents for reliability
+  0.3/0.5/0.8. Node-subsample pooling curve monotone: m=8 not detectable (ratio 0.99), m*=16 crosses (1.13),
+  up to m=83 (2.16) — confirms §2658's subspace is a genuine pooling effect and validates the independent-noise
+  model. Two levers for Codex: raise docs ~26-62x (for source-SPECIFIC units) OR pool >=16 nodes (free, for the
+  source-SHARED subspace, already done in §2658). Parameterises rung521's fail-closed power gate. Result …budget…json.

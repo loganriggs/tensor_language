@@ -1,0 +1,87 @@
+{
+ "status": "complete",
+ "rung": "mlp10_required_n_and_pooling_budget_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "estimation_budget_document_multiplier_and_node_pooling_not_grouping_or_compression",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_REQUIRED_N_AND_POOLING_BUDGET_PROBE_PREREGISTRATION.md": "00d3742aff03bf12288eabd665c4bd1840af8b29adc10a5ec97679956926d9dd",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_cross_half_stability_probe_results.json": "1bdb425e4da3f85e8da31e701b56dbf51191654f10c3a52c5f58108992532b0d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_shared_subspace_cross_half_covariance_probe_results.json": "1e8ade7c9acea5cbc83c1de511aa0b5bad323fea4b681a05dc450bdc6431120b"
+ },
+ "n_material_nodes": 83,
+ "rho0_median": 0.015803370857288487,
+ "rho0_quartiles": [
+  -0.12357103905990985,
+  0.015803370857288487,
+  0.14343332553848065
+ ],
+ "spearman_brown_document_multipliers": {
+  "rho_star_0.3": 26.690416820304108,
+  "rho_star_0.5": 62.27763924737625,
+  "rho_star_0.8": 249.11055698950508
+ },
+ "pooling_curve": [
+  {
+   "m": 8,
+   "mean_lambda1": 0.0014378709309014381,
+   "mean_null_q95": 0.0014504646783919533,
+   "ratio": 0.9913174393846824,
+   "detectable": false
+  },
+  {
+   "m": 16,
+   "mean_lambda1": 0.002309483832035904,
+   "mean_null_q95": 0.002036623555736944,
+   "ratio": 1.133976785022614,
+   "detectable": true
+  },
+  {
+   "m": 32,
+   "mean_lambda1": 0.0040455949035217795,
+   "mean_null_q95": 0.0027610532975456356,
+   "ratio": 1.4652360775208515,
+   "detectable": true
+  },
+  {
+   "m": 64,
+   "mean_lambda1": 0.007360909540929228,
+   "mean_null_q95": 0.0038231217008046848,
+   "ratio": 1.9253662627009533,
+   "detectable": true
+  },
+  {
+   "m": 83,
+   "mean_lambda1": 0.009330938687130096,
+   "mean_null_q95": 0.004321530433432389,
+   "ratio": 2.1591745866102743,
+   "detectable": true
+  }
+ ],
+ "m_star_min_nodes_for_detectability": 16,
+ "pooled_rho_prediction_at_83": 0.5713198564485829,
+ "bars": {
+  "material_target": 83,
+  "rho0_ref": 0.016,
+  "sb_mult_floor_at_half": 10.0,
+  "subset_sizes": [
+   8,
+   16,
+   32,
+   64,
+   83
+  ]
+ },
+ "pred_a_instrument_reproduces_rho0_and_material": true,
+ "pred_b_single_node_order_of_magnitude_underpowered": true,
+ "pred_c_pooling_is_the_cheaper_lever_and_explains_2658": true,
+ "strong_null": false,
+ "verdict": "two_levers_delivered_raise_docs_k05x_or_pool_at_least_mstar_nodes",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.7122540473937988
+}

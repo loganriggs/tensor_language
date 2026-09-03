@@ -67576,3 +67576,34 @@ within-action null as the PRIMARY bar and, per §2657, more documents to lift pe
 `mlp10_shared_subspace_cross_half_covariance_probe_results.json` (`1e8ade7c…`), verdict
 `reusable_multidim_shared_circuit_effect_subspace_exists_now_seed_gpu_DAS_reuse_rung` (registered), bounded by
 the within-action diagnostic to source-shared. No compression, no physical substitution, 0 deployed parameters.
+
+## §2659 — PROBE (Claude, CPU): THE BUDGET — SINGLE NODE NEEDS ~26–62x DOCS, OR POOL >=16 NODES (FREE)
+
+Math-review move #2, closing the estimation trilogy §2657→§2658→§2659. §2657's per-node cross-half correlation
+IS a split-half reliability rho0; two classical results convert it to an actionable budget. Instrument
+validated (reproduces rho0_median 0.0158 vs §2657's 0.016, material 83/88). Preregistration `00d3742a…`, 0
+forwards, 0.71 s. Registered A/B/C all true, NOT null.
+
+Lever 1 — raise documents (Spearman–Brown, `k = rho*(1-rho0)/(rho0(1-rho*))`). To make a SINGLE per-circuit
+fingerprint reliable requires multiplying its ~300-member-token-per-half document count by 26.7x (to
+reliability 0.3), 62.3x (0.5), or 249x (0.8). A single fingerprint is an order of magnitude underpowered — this
+is why R510–R520's per-node grouping tests were attenuation-capped.
+
+Lever 2 — pool nodes (free, and §2658 already used it). The node-subsample curve is cleanly monotone: at m=8
+the top cross-half cross-covariance eigenvalue is NOT detectable (mean lambda1 0.001438 vs mean node-null q95
+0.001450, ratio 0.99), at m=16 it crosses (ratio 1.13), and it rises through m=32 (1.47), m=64 (1.93) to m=83
+(2.16). The minimum pool for detectability is m*=16. This confirms §2658's reliable ~3-dim subspace is a genuine
+pooling effect (not an artifact) and validates the independent-half-noise model end to end — the pooling
+prediction rho_pool(83)=0.57 is consistent with the observed detectability, so the §2657/§2658 conclusions and
+these budget numbers are trustworthy.
+
+Consequence for direction (handed to Codex). Source-SHARED structure (the pooled ~3-dim subspace, §2658) is
+cheaply testable NOW — pool >=16 nodes — and is the licensed DAS/reuse target. Source-SPECIFIC structure (per-
+node units, the object R510–R520 chased) is NOT reachable without ~26–62x more documents per node; testing it at
+current N is attenuation-capped and will null regardless of truth. This directly parameterises rung521's fail-
+closed power gate: its much larger whole-a8 interchange object (concentration 7.14/5.12/5.07) is far above the
+source-star scale and may well clear a cross-half reproduction gate at current N, but any descent to per-source/
+per-circuit resolution inherits the 26–62x requirement. Result
+`mlp10_required_n_and_pooling_budget_probe_results.json`, verdict
+`two_levers_delivered_raise_docs_k05x_or_pool_at_least_mstar_nodes`. No compression, no physical substitution,
+0 deployed parameters.
