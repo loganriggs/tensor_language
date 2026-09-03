@@ -112,6 +112,26 @@ The first two-agent wave added four checks that are now part of the shared templ
    active answer-preserving controls must rule out a broad contextual write. Save donor-answer CE and full-vocabulary
    change so generic damage cannot masquerade as transfer.
 
+The second wave added four more:
+
+5. **Evaluate every denominator from row metadata before model access.** A formula written for answer-changing rows may
+   become identically zero on an answer-preserving match break or diagonal. The model-free suite must enumerate every
+   cell, substitute the frozen answer identities and direction signs, and reject an impossible or ambiguous
+   denominator as a specification error rather than a scientific null.
+6. **Do not mix units when normalizing selectivity.** Use residual-stream intervention norms only to establish that a
+   control intervention is active. Normalize a logit-margin change by a frozen logit-margin target scale and a
+   full-vocabulary logit RMS by a frozen vocabulary-logit RMS target scale. The prompt must include the complete
+   control-to-target scale lookup before outcomes are opened.
+7. **Write the literal factor sum and an independent reconstruction.** If a factor has semantic-role and site indices,
+   every intervention formula must retain both. Replaying a tensor obtained from the same hook is circular; also
+   reconstruct the isolated term from the canonical hash-pinned attention computation and prove that it plus the
+   remainder equals the native head output.
+8. **Separate pre-outcome freezing from post-outcome execution admission.** An auditor may require the future result
+   namespace to be absent in its original dry run. If the managed queue later reruns dry-run after that result exists,
+   use a tiny hash-pinned execution adapter: its dry run verifies the frozen auditor bytes and source-pair presence
+   without parsing outcomes, and its real path executes those exact bytes. Never weaken the frozen auditor after seeing
+   a result merely to satisfy queue admission.
+
 ## Subagent prompt template
 
 > Investigate `<circuit id>` as a behavior-level computation. Read its canonical record and all named negative events
