@@ -5061,3 +5061,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Dropping the CORE_16 component of mlp11–17 costs 6.15 nat; norm restoration does not repair (6.53); direction-kept/norm-dropped
   costs .053. The core is a directional message, not a gain channel. Open oddity: PLAIN_128 (3.75) < PLAIN_16 (6.15). Next:
   activation-weighted readout of the core (logit-energy fraction through P_M x̂) + clean mlp16/17 ablation reference.
+- §2715 massive_subspace_provenance_map_probe (Claude, LANE 1 CUDA, 28 s, 160 GPU forwards): a TRUE, b FALSE (ov_3 .19; null MET),
+  c FALSE (e_u,17 .84 but ρ .38), d FALSE (early max attn1 .27), e TRUE (mid median .09). The late core is manufactured by
+  mlp16/mlp17/attn17 (f .86/.96/.57): stream eff rank 391 → 163 → 19 over blocks 16–17; block-5 offset (uncentred .26 → .82).
+  Next: what the rank-19 final message encodes (current-token lookup vs context).

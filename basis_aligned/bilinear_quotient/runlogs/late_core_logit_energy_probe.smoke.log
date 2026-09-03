@@ -1,0 +1,71 @@
+{"stage": "fit", "t": 5.8}
+{"stage": "baseline", "ce": 12.793668746948242, "t": 5.9}
+{"stage": "logit_energy", "le": {"M": {"q": 0.6105, "p": 0.9339}, "X": {"q": 0.6558, "p": 0.9469}, "E": {"q": 0.0851, "p": 0.0174}, "R": {"q": 0.0437, "p": 0.0127}}, "er": {"M": 1.121, "X": 1.008, "E": 1.294, "R": 0.995}, "t": 6.2}
+{"stage": "arm", "arm": "DROPCORE16_late7", "ce_added": 14.7527, "t": 6.2}
+{"stage": "arm", "arm": "DROPCORE16_last2", "ce_added": 12.7714, "t": 6.2}
+{"stage": "arm", "arm": "MEAN_mlp16", "ce_added": -0.397, "t": 6.3}
+{"stage": "arm", "arm": "MEAN_mlp17", "ce_added": 0.1352, "t": 6.3}
+{"stage": "arm", "arm": "MEAN_last2", "ce_added": 0.73, "t": 6.3}
+{"stage": "arm", "arm": "MEAN_late7", "ce_added": 0.1719, "t": 6.4}
+{
+ "preds": {
+  "pred_a_instrument": false,
+  "pred_b_core_carries_logit_energy": true,
+  "pred_c_lm_reads_core_above_isotropic": false,
+  "pred_d_dropping_only_the_core_is_worse_than_mean_ablation": true,
+  "pred_e_last_mlp_is_essential": false
+ },
+ "nulls": {
+  "b_null_q_le_.20": false,
+  "c_null_er_le_1.1": false,
+  "d_null_mean_ge_dropcore": false,
+  "e_null_mlp17_le_.30": true
+ },
+ "instrument": {
+  "baseline_ce": 12.793668746948242,
+  "prior_baseline": 3.0322401,
+  "core_tw_eff_rank": 2.937586049044012,
+  "prior_core_tw_eff_rank": 10.004,
+  "dropcore16_late7": 14.75269889831543,
+  "prior_plain16": 6.1496,
+  "er_random": 0.9948365092277527,
+  "q_random": 0.043660568892574796
+ },
+ "logit_energy": {
+  "M": {
+   "q": 0.6105452220984595,
+   "p": 0.933876461452908
+  },
+  "X": {
+   "q": 0.6557597380400907,
+   "p": 0.946897930569119
+  },
+  "E": {
+   "q": 0.08509786120147371,
+   "p": 0.017444358931647405
+  },
+  "R": {
+   "q": 0.043660568892574796,
+   "p": 0.012729029688570235
+  }
+ },
+ "er_lm_centred": {
+  "M": 1.120990514755249,
+  "X": 1.0078988075256348,
+  "E": 1.293814778327942,
+  "R": 0.9948365092277527
+ },
+ "ce_added": {
+  "DROPCORE16_late7": 14.75269889831543,
+  "DROPCORE16_last2": 12.771360397338867,
+  "MEAN_mlp16": -0.39704036712646484,
+  "MEAN_mlp17": 0.13519287109375,
+  "MEAN_last2": 0.7300281524658203,
+  "MEAN_late7": 0.17189598083496094
+ },
+ "price": {
+  "gpu_doc_forwards": 36,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 6.353859901428223
+ }
+}

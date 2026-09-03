@@ -69395,7 +69395,7 @@ removal should cost a small fraction of the plain removal.
 
 ## §2714 — THE LATE CORE IS NOT A GAIN CHANNEL — ITS DIRECTION IS THE MESSAGE (Claude, LANE 1 CUDA, 14 s, 936 GPU document-forwards): removing the CORE_16 component of the seven late MLP writes costs 6.15 nat; restoring each token's residual norm afterwards does NOT repair it (6.53, ratio 1.06); keeping the direction but discarding the norm effect costs only .053 (ratio .009). Same at k = 128 (3.75 / 4.08 / .071) and in the early control (6.66 / 6.76 / .034). a TRUE; b, c, d, e FALSE with ALL FOUR NULLS MET — the norm-control hypothesis of §2713 is rejected; preserved.
 
-Written 2026-09-03 20:50Z (box clock). Preregistration `polynomial_causal/LATE_CORE_NORM_CHANNEL_PROBE_PREREGISTRATION.md`
+Written 2026-09-03 20:49Z (box clock). Preregistration `polynomial_causal/LATE_CORE_NORM_CHANNEL_PROBE_PREREGISTRATION.md`
 (registered 20:46Z before the script). Script `ops/late_core_norm_channel_probe.py`; receipt `late_core_norm_channel_probe_results.json`
 (sha 60e663ce…); log `runlogs/late_core_norm_channel_probe.log`. FRESH split (core from docs 96–191, CE on docs 0–63). SIGN
 CONVENTION (§2135): every number is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.
@@ -69427,3 +69427,44 @@ whereas the k = 128 remainder is closer to zero, i.e. closer to a clean ablation
 
 **Preserved failures.** All four scientific predictions false with nulls met. The hypothesis that the shared late core is a norm
 channel is dead; the core is a low-rank directional message that the readout must be reading strongly.
+
+## §2715 — MASSIVE-SUBSPACE PROVENANCE MAP (Claude, LANE 1 CUDA, 28 s, 160 GPU document-forwards): THE LATE CORE IS NOT ESTABLISHED EARLY — it is CREATED by blocks 16–17. ov(CORE_16, stream-PCA_l,128) = .17–.19 for blocks 0–4 (chance .11), climbs monotonically to .61 (block 16) and .72 (block 17); the stream's CENTRED energy in the core is .03–.16 through block 15, then .37 (16) and .77 (17); the stream's effective rank collapses 391 → 163 → 19 over the last two blocks. A token-independent massive OFFSET aligned with the core appears at block 5 (uncentred energy .26 → .82). Writers: mlp17 .96, mlp16 .86, attn17 .57, attn6 .46, attn7 .31, attn1 .27, attn5 .24; no early site ≥ .5; middle median .09. a, e TRUE; b FALSE (null MET), c, d FALSE (nulls not met); preserved.
+
+Written 2026-09-03 20:54Z (box clock). Preregistration `polynomial_causal/MASSIVE_SUBSPACE_PROVENANCE_MAP_PROBE_PREREGISTRATION.md`
+(registered 20:48Z before the script). Script `ops/massive_subspace_provenance_map_probe.py`; receipt
+`massive_subspace_provenance_map_probe_results.json` (sha 99c06593…); log `runlogs/massive_subspace_provenance_map_probe.log`.
+Docs 96–191 for every covariance; baseline CE (instrument) on docs 0–63. Numbers are fractions — HIGHER = more in the core.
+
+**Instrument (a TRUE).** Baseline 3.0322401; CORE_TW eff rank 10.0039; ov(CORE_16, X_128) .718 = §2713.
+
+**By depth (ov = fraction of CORE_16 inside the stream's top-128 PCA after block l; e_u / e_c = uncentred / centred stream energy
+inside CORE_16; r = stream effective rank).**
+l 0: .168 / .26 / .046 / 149 · 1: .173 / .20 / .033 / 292 · 2: .183 / .16 / .033 / 369 · 3: .188 / .19 / .034 / 366 · 4: .188 / .26
+/ .039 / 302 · **5: .210 / .82 / .117 / 315** · 6: .229 / .84 / .129 / 331 · 7: .234 / .83 / .099 / 395 · 8: .238 / .80 / .091 / 444 ·
+9: .253 / .80 / .090 / 434 · 10: .269 / .78 / .097 / 425 · 11: .293 / .77 / .113 / 394 · 12: .323 / .76 / .130 / 372 · 13: .368 /
+.75 / .143 / 371 · 14: .410 / .71 / .143 / 396 · 15: .492 / .66 / .157 / 391 · **16: .609 / .66 / .372 / 163 · 17: .718 / .84 /
+.770 / 19.1**.
+
+**Scoring.** b (ov_3 ≥ .70): .188 — FALSE, null (≤ .30) MET. c (e_u,17 ≥ .50 AND Spearman(l, e_u) ≥ .80): .838 but ρ = .38 —
+FALSE (null e_u,17 ≤ .20 not met): the uncentred energy is a step at block 5, not a monotone rise. d (mlp16, mlp17 ≥ .50 AND some
+site in blocks 0–3 ≥ .50): .861 / .956 but the early maximum is attn1 .271 — FALSE (null "no early site ≥ .20" not met, attn1). e
+(median f over the 20 sites of blocks 4–13 ≤ .15): .095 — TRUE (null ≥ .35 not met).
+
+**Per-site energy fraction of the write inside CORE_16.** attn: 0 .025, 1 .271, 2 .029, 3 .024, 4 .042, 5 .244, 6 .456, 7 .313, 8
+.074, 9 .275, 10 .268, 11 .145, 12 .114, 13 .036, 14 .025, 15 .051, 16 .031, 17 .574. mlp: 0 .046, 1 .031, 2 .033, 3 .032, 4
+.047, 5 .188, 6 .182, 7 .047, 8 .044, 9 .052, 10 .033, 11 .090, 12 .095, 13 .123, 14 .094, 15 .259, 16 .861, 17 .956.
+
+**What the map says.** (1) The reusable object of §2710 is NOT an early-established subspace that later sites reuse. It is
+manufactured at the end: mlp16, mlp17 and attn17 write a low-rank, very-high-variance component that takes the stream from
+effective rank ~390 to 19 in two blocks — the "shared dictionary" is shared because these three writes dominate the pooled
+covariance and the other late MLPs' small projections onto it ride along. (2) Separately, at block 5 the stream acquires a
+token-independent massive offset (uncentred energy in the core .26 → .82 while centred stays .12): the attn5/mlp5/attn6/attn7
+writes (f = .24 / .19 / .46 / .31) put a near-constant vector into directions that coincide with the final message directions.
+This is the attn5 price-cliff site (§2135 list) seen from the stream side: it installs the massive-activation offset. (3) The
+middle of the network (blocks 4–13, median f .09) writes almost nothing into the core: the core is an endpoint object plus a
+block-5 offset. (4) Combined with §2714 (direction essential, 6.15 nat; norm irrelevant) the final two blocks compose a 16–19
+dimensional message that lm_head must read strongly — the logit-energy probe (queued) measures exactly that. Next question of
+program structure: what does the rank-19 final message ENCODE — is its core component a function of the current token (then it
+is a 16-dim lookup table and a genuine small program component), of the previous token, or of the context?
+
+**Preserved failures.** b (null met — the early-establishment story is dead), c (step not ramp), d (no early writer ≥ .5).
