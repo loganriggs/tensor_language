@@ -4776,3 +4776,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   matched random source positions by the frozen.15 margin. Large singleton but tiny leave-one-out effects show
   redundancy. Retain this as diagnostic anatomy; next use the existing circuit tasks to define merging/splitting,
   not rank, another proximity binning, or a PREVIOUS-only expansion.
+- Rung518 (§2653): valid task-conditioned head-by-source strong null after preserving an invalid per-document-support
+  gate receipt and repairing only that gate to the registered pooled-half support rule. All45 pieces close exactly,
+  all90 singleton/removal edits are live, and all990 pairs are material;572 have an allowed scale and two match all
+  four copy-task effects in both document halves, but0 match the32 circuit effects even in one complete half. The
+  average low-dimensional response therefore does not license downstream interchangeability. Leave this45-piece
+  quotient without threshold/rank tuning. Rung519 changes the object to the exact MLP0 bilinear interaction partners
+  of the R518-selected `H4.DISTANT_SAME` piece for one documented circuit, using finite held-out removals and
+  unrelated-circuit controls.

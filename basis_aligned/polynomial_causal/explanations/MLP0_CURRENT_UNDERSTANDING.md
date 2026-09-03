@@ -1206,6 +1206,23 @@ sets by the registered relation-specific margin. Thus source relation is useful 
 selectively manipulable or executable semantic decomposition. The next object should condition grouping and splitting
 on the existing circuit tasks rather than refine the distance bins or optimize rank.
 
+## 18. Head-by-source pieces are still too coarse for circuit grouping (2026-09-03)
+
+Rung518 crossed all nine attention0 heads with the five source relations above, producing45 exact context pieces.
+Each piece was added to empty MLP0 context and removed from full context. Pairwise sameness required one fitted signed
+scale to predict both interventions on four copy tasks and32 known circuit effects in two document halves.
+
+After preserving and narrowly repairing an invalid per-document support check, the exact/live instrument passed. All
+990 pairs were measurable,572 had an allowed scale, and two pairs matched the task effects in both halves. Zero pair
+matched the circuit effects in even one complete half. In particular, apparent task matches involving distant-same
+and near-source pieces were separated by which known circuits responded to them.
+
+This rejects the45-piece vocabulary as a pairwise reusable circuit quotient. It does not reject interaction-level
+structure inside a piece. The next exact object expands one stable `H4.DISTANT_SAME` piece through MLP0 into its
+bilinear partners with the token, itself, the other44 attention pieces, and the retained remainder, plus the explicit
+normalization correction. Finite held-out removals will test whether one documented circuit uses a small selective
+subset of those interactions.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`

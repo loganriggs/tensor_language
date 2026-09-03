@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_0259.md](explanation_2026-09-03_0259.md) — rung518's valid task-conditioned null: two of
+  990 head-by-source pairs match aggregate copy-task effects across both document halves, but none matches the32
+  circuit effects; explains the preserved support-gate failure and starts an exact one-circuit MLP0 interaction atlas
 - [explanation_2026-09-03_0217.md](explanation_2026-09-03_0217.md) — rung517's exact cross-head source-relation
   factorial: all five attention-source relations have stable MLP0 effects, but the effect is diffuse and redundant
   rather than a sparse self/previous-token or structured-near-window grammar; includes two percentage bar charts

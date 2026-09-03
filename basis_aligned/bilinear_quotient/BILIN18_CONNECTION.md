@@ -67384,3 +67384,34 @@ downstream uses. Result/source/preregistration SHAs are`c8405a36…/5d9acfa5…/
 
 **§2652 RANK COMPANION (2026-09-03 02:33, Claude, receipt mlp0_source_grammar_rank_probe_results.json, CPU zero-forward): the diffuse-but-redundant source grammar is a STABLE RANK-1 CONTEXT SUMMARY — which mechanistically EXPLAINS the redundancy.** SVD of §2652's own published 5×192 group CE-effect profiles: effective rank 1.172 (prose) / 1.244 (structured), top-1 energy .967/.954, top-2 .997/.990 — the five source relations' causal effects are essentially ONE dimension. So MLP0 reads a single low-dimensional context summary that every relation projects onto; that is WHY the grammar is diffuse (shares spread across relations that all supply the same summary) AND redundant (§2652: singleton benefits 0.8–1.56 but removals 0.005–0.11 — removing one relation barely hurts because the others reconstruct the same rank-1 summary). The structure is corpus-invariant and split-stable: the 5-dim group-space loading has cosine 1.0/0.999/0.999 across FIT→SELECT (each corpus) and prose-vs-structured (dominant coordinate DISTANT_SAME −.75, with recency and distant-other loading positively). pred_a/b/c all true. METHOD NOTE: this is the FIRST of my probe stability clauses correctly designed after the §2649 mis-design lesson — pred_c compares the low-dim STRUCTURAL group-loading (random-5-vector null |cos|~.45, so the .90 bar is non-trivial) rather than a sample-indexed vector, and it passed at .999 — the internalized fix works. Claim ceiling: descriptive rank of an effect-profile matrix; it does not license a physical rank-1 replacement (that would be a separate registered intervention removing all but the top direction and testing copy CE), but it is the mechanistic account §2652's redundancy was missing.
 
+## §2653 — RUNG518: NONE OF990 HEAD-BY-SOURCE PAIRS IS THE SAME DOWNSTREAM CIRCUIT UNIT
+
+Rung518 crossed attention0's nine heads with rung517's five source relations to form45 exact pieces. For every piece,
+it separately measured adding it to empty MLP0 context and removing it from full MLP0 context, then asked whether one
+signed scale predicts both effects over four copy tasks and32 circuit member-minus-control coordinates in two
+document halves. This tests downstream interchangeability rather than activation similarity or low rank.
+
+The first full receipt is preserved as instrument-invalid. It completed5,766 discovery forwards, but A was false
+because code required every individual document to contain every task category rather than requiring positive pooled
+support in each registered half. Its zero candidate count is non-evidence. The narrow repair changed no atom, pair,
+row, threshold, control, or conditional science rule; eleven focused tests prove per-document zeros are allowed while
+a whole-half missing category fails. The valid collector supports are `[1750,396,1354,814,936,22058]` and
+`[1876,488,1388,807,1069,21932]`. The earlier repair note's different positive totals came from parent metadata, not
+the R518 collector; that bookkeeping discrepancy does not change the gate.
+
+The corrected managed run is valid and a registered strong null: A true, B--E false. All45 pieces close exactly;
+native logits replay exactly; all90 edits are live; all8 planted problems recover;5,766 calls and pooled supports
+match. All990 pairs are material and572 have an allowed scale. Nineteen pass the four-task rule in half0, nine in
+half1, and two in both, but zero passes the32-circuit rule in either complete half. Therefore no confirmation,
+held-out30-circuit prediction, physical substitution, or native-boundary claim opens. All16 circuit-coordinate
+permutations also return zero, a vacuous control floor.
+
+The two task-stable pairs are `H0.DISTANT_SAME <-> H3.NEAR` and
+`H1.DISTANT_SAME <-> H6.NEAR`; their task cosines are`.80--.995` and`.913--.998`, respectively, but their circuit
+effects fail sharply, especially in the removal background. Aggregate copy behavior therefore groups pieces that
+known downstream circuits distinguish. The45 pieces are too coarse as reusable circuit units even though their
+average position profiles are descriptively low-dimensional. Honor the frozen route: no threshold/rank rescue.
+Rung519 changes the object by expanding one stable `H4.DISTANT_SAME` effect into its exact MLP0 bilinear interaction
+partners for the documented `r.2.0.2` attention8-family circuit, with new-document finite removal and unrelated-
+circuit controls. Valid result/bundle/source/preregistration SHAs are `52e4d367…/fe985194…/6294a208…/54ee23d8…`;
+117.89s,5,766 forwards,0 backwards,0 deployed parameters.
