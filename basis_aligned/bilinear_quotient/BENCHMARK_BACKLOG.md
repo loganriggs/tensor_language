@@ -5224,3 +5224,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Mean energies: mlp_0 writes 2.5e9 (‖x₀‖² = 1152), block 1's λ₀ = .0127 keeps 4.1e5 of it — still 5× the embedding term (block 1
   does NOT restart from the embedding: corrects §2759/§2760 wording); from block 2 the blend is < 1% of the residual; blocks 5–14
   write 1–5% of the residual each; mlp_15/16/17 write 1.3e8/9.5e8/3.6e9. CAVEAT: means over tokens — massive-token follow-up queued.
+- §2763 residual_energy_token_quantile_probe (Claude, LANE 1 CUDA, 36 s, 320 GPU forwards): a, d, e TRUE; b, c FALSE with NULLS MET.
+  No massive-token regime: top-1% share 2%, position-0 share 0.5% of the post-mlp_0 residual energy; medians ≈ means (mlp_0's
+  write 2.4e9 at the typical token). §2762's caveat discharged. Only mlp_4 writes a position-0 spike (24% of its energy).

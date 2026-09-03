@@ -71187,3 +71187,35 @@ carrying 10³ × the typical norm) could produce exactly such means. The read fr
 immune; the write statistics of §2756/§2761 and this table are not. A per-token-quantile rung (median / p99 / position-0 share)
 is registered next; until it lands, treat the ratios here as mean-energy facts, not typical-token facts. Failure preserved: b
 (null met). Nothing installs into the §312 frontier (§2125).
+
+## §2763 — NO MASSIVE-TOKEN REGIME: §2762's ENERGIES ARE TYPICAL-TOKEN FACTS: the top 1% of tokens carry 2.0% of the residual energy after mlp_0 (pred_b "≥ 50%" FALSE; NULL ≤ 5% MET) and position-0 tokens 0.5% (pred_c "≥ 30%" FALSE; NULL ≤ 2% MET); the median token's mlp_0 write is 2.37 × 10⁹ (≈ the mean 2.51 × 10⁹; pred_d "≥ 100 × 1152" TRUE by a factor 2 × 10⁴; null not met) and the typical-token blend ratio is r̃(1) = .19, median r̃(2..7) = .0007 (pred_e "≤ .25" TRUE; null ≥ 1 not met) — the same numbers as the means; the residual stream simply runs at rms ≈ 5 × 10⁴ per token at EVERY token from mlp_0 on, and the only position-0 spike in the whole table is mlp_4's write (position-0 share 24%, max 2.8 × 10¹⁰ against a median 2.4 × 10⁸) (Claude, LANE 1 CUDA, 36 s, 320 GPU document-forwards): a, d, e TRUE; b, c FALSE with NULLS MET. Preserved.
+
+Registered 2026-09-03 23:45Z (polynomial_causal/RESIDUAL_ENERGY_TOKEN_QUANTILE_PROBE_PREREGISTRATION.md); landed 23:46Z. Script
+ops/residual_energy_token_quantile_probe.py; results residual_energy_token_quantile_probe_results.json (sha 2499f993…; carries
+median / p99 / max / top-1% share / position-0 share for post, pre, attn, mlp at every block). Frozen: prereg, §2762 results,
+checkpoint, fit_natural.pt. Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699. 24 576 tokens (96 docs × 256).
+
+| quantity | median | p99 | max | top-1% share | position-0 share |
+|---|---|---|---|---|---|
+| ‖post(0)‖² (attn_0 input = 12.19² × 1152) | 1.71e5 | 1.71e5 | 1.71e5 | .010 | .004 |
+| ‖mw_0‖² | 2.37e9 | 4.50e9 | 6.47e9 | .020 | .005 |
+| ‖pre(0)‖² | 2.40e9 | 4.53e9 | 6.49e9 | .020 | .005 |
+| ‖post(1)‖² (after λ₀ = .0127) | 5.84e5 | 1.01e6 | 1.39e6 | .018 | .005 |
+| ‖pre(4)‖² | 1.00e9 | 1.75e9 | 3.63e10 | .101 | .090 |
+| ‖mw_4‖² | 2.35e8 | 5.56e8 | 2.82e10 | .252 | .238 |
+| ‖post(5)‖² (after λ₀ = .064) | 4.38e6 | 7.49e6 | 1.51e8 | .097 | .086 |
+| ‖pre(8)‖² … ‖pre(10)‖² | 2.3e8 … 3.3e8 | 4.3e8 … 5.3e8 | ≤ 1.2e9 | .017–.021 | .003–.004 |
+| ‖aw_8‖² | 9.2e5 | 1.36e7 | 6.65e7 | .116 | .000 |
+
+What it says. (1) The caveat of §2762 is discharged: the mean energies are the typical token's energies (medians within 10% of the
+means; top-1% shares 2–5% where uniform would give ≈ 1–2%). bilin18 has no attention-sink / massive-activation token at the
+residual level; its residual is uniformly enormous. So the frame program's write statistics (§2756, §2761) are not hostage to a
+few tokens, and the two attenuations (λ₀ = .0127 at block 1, .064 at block 5) act on every token alike. (2) The one localized
+feature: mlp_4 writes a position-0 spike (a quarter of its energy on 0.4% of the tokens, max 100 × its median), which is what
+post(5) inherits (position-0 share 9%) — a first-position marker written at block 4 and attenuated at block 5. attn_8's write is
+also heavy-tailed (top 1% carry 12%) without a position-0 component. Neither is a program fact yet; both are recorded for the
+per-site vocabulary. (3) For the program: since the residual runs at rms ≈ 5 × 10⁴ and mid writes at rms ≈ 2 × 10³ (§2762), the
+carried vector dominates every block's input from block 2 to block 14, and reads are of its rms-normed direction — the "frame"
+of the stream IS the frame of the carried vector plus the accumulated in-frame writes; this is the mechanical reason the bus
+frame is stable (§2758) and the early frames follow the large early writes (§2761). Failures preserved: b, c (nulls met — the
+hypothesis was mine and was wrong). Nothing installs into the §312 frontier (§2125).
