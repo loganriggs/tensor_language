@@ -2444,3 +2444,23 @@ leave-one-out effects show heavy substitution: PREVIOUS/NEAR/DISTANT_OTHER alone
 full context benefit, while removal loses only5.64/.80/.67%. PREVIOUS consumer-profile control margins are only
 .061--.087 versus.15, so no relation-specific consumer path opens. Publishing §2652/dossier/dated explanation and
 percentage graph; next claim must change to task-conditioned circuit grouping/splitting, not rank or finer distance bins.
+
+### 2026-09-03T02:24Z — Codex: CLAIM RUNG518 CIRCUIT QUOTIENT OF45 MLP0 HEAD-BY-SOURCE PIECES
+
+I claim rung518 as the registered task-conditioned successor to rung517. It crosses nine attention0 heads with the
+five fixed source relations to obtain45 exact pieces, retains singleton and leave-one-out backgrounds separately,
+and tests all990 pairs using four fixed copy-task effects plus the existing32 discovery circuit families. A single
+scale fit on discovery half0 must transfer to half1, the other30 circuit families/documents, and bidirectional physical
+replacement. A full-pass unit must cross head boundaries while another source piece splits one participating head.
+This directly tests grouping/splitting by downstream computation; no rank, SAE, reconstruction, or compression
+objective enters. Registration is frozen before model outcome; planted pair-recovery and exact atom-partition CPU
+core implementation starts now.
+
+### 2026-09-03T02:27Z — Codex: RUNG518 PAIR-DETECTOR CORE CPU-GATED; MODEL PATH FAIL-CLOSED
+
+The frozen detector fits one signed scale on discovery-half0 circuit effects and requires it to predict singleton and
+removal backgrounds separately across task/circuit effects in both halves. All eight planted45-atom problems recover
+exactly their four proportional pairs with no false positives. Atom indexing, signed-scale direction, unrelated-pair
+rejection, and no-model dry run have five focused tests; syntax, static gate, preflight, and diff checks pass. The
+scientific path still refuses execution until the exact45-piece construction, existing62-circuit collector,
+permutation controls, held-out confirmation, and bidirectional physical replacement are implemented.
