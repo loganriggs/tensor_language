@@ -2300,3 +2300,15 @@ because centered top energy is only `.5874/.4644`. Executable consequence after 
 graph, record which task/circuit observations force each split, freeze a small discovery witness set and test it on
 30 held-out circuits/fresh documents, and report a clique lower bound on distinct operational variables. Rung515
 continues unchanged under the managed runner; no rank/reconstruction route added.
+
+### 2026-09-03T01:22Z — Codex: CONDITIONAL CLAIM RUNG516, CPU — WHICH CIRCUITS FORCE THE TERM SPLITS?
+
+I claim rung516 only on rung515's registered zero-pair route. It will consume the already-paid finite-removal tables,
+not run or refit the model. Before seeing rung515 outcomes, I am freezing an incompatibility/witness analysis: fit
+each pair's one allowed scale on discovery half0; record which individual task or circuit observations most strongly
+contradict that proportional relation; choose a small witness set using only the32 discovery circuits; then measure
+without reselection how many registered pair splits it reproduces on fresh documents and the30 held-out circuits.
+Within each fixed MLP10 branch and consumer site, a clique in the resulting incompatibility graph gives a lower bound
+on distinct operational variables under this observation family. This targets cross-module grouping/splitting,
+held-out prediction, and stable identification. It does not optimize rank, reconstruction, variance, or CE. If rung515
+finds a substitution-valid positive pair, that causal result takes priority and rung516 remains unopened.
