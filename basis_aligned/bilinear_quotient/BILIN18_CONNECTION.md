@@ -69954,3 +69954,43 @@ budgeted rank-k version] + [mlp16/17: this 24 k-number polynomial]; the pool hal
 
 **Limits.** Truncations are of the exact objects, not re-fits; the sym-rank truncation ignores the antisymmetric part (irrelevant
 to cᵀAc, exact). 64 held-out docs, ±.01 sample sensitivity — the c null miss of .003 is inside that; the letter stands as scored.
+
+## §2729 — mlp16 AND mlp17 COMPUTE THEIR SQUARES ON THE SAME FIVE STREAM DIRECTIONS (principal cos² .9999 / .997 / .988 / .966 / .905) plus ~3 block-specific ones; a single shared 8-dim square space serves both blocks at +.007; restricting each block's quadratic core to 8–12 directions IMPROVES on the full 16 (OWN_8 .222, OWN_12 .214 vs OWN_16 .233); a cliff between 4 directions (.547) and 6 (.266) (Claude, LANE 1 CUDA, 19 s, 1600 GPU document-forwards): a, b, c, d TRUE; e FALSE (swapping the blocks' 8-dim square spaces costs +.118 — the block-specific directions matter; null ≥ .15 not met). Preserved.
+
+Written 2026-09-03 21:41Z (box clock). Preregistration `polynomial_causal/LATE_CORE_SQUARE_FEATURES_PROBE_PREREGISTRATION.md`
+(registered 21:37Z before the script). Script `ops/late_core_square_features_probe.py`; receipt
+`late_core_square_features_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS
+BETTER; deltas = CE(arm) − CE(OWN_16 = COMPILED_TOK .2334), positive = damage.
+
+**Instrument (a TRUE).** Baseline 3.0322401; OWN_16 .23335 = COMPILED_TOK .23335 (Π₁₆ = identity, exact).
+
+**Method.** S_l = Σ_k Σ_j |λ_kj| q_kj q_kjᵀ over the eigenpairs of sym(A_k) — the importance-weighted directions in which block l
+squares its 16 core coordinates; Π_r = its top-r eigvectors; OWN_r sets A_k → Π_r A_k Π_r (cross and offset terms exact). SHARED_r
+uses Π_r of S₁₆ + S₁₇ in both blocks; SWAP_r uses each block's Π_r inside the OTHER block. S-spectra: mlp16 388, 241, 168, 145,
+136, 99, 78, 68, … (eff rank 8.7); mlp17 1331, 478, 368, 310, 259, 150, 140, 121, … (eff rank 5.9).
+
+**Arms (CE added).** OWN_2 .612 · OWN_4 .547 · OWN_6 .266 · OWN_8 .222 · OWN_10 .216 · OWN_12 .214 · OWN_16 .233. SHARED_r − OWN_r:
+r=2 −.222, 4 −.271 (the shared space is BETTER than each block's own at tiny r — the shared top directions are the ones that matter),
+6 −.001, 8 +.007, 10 +.007, 12 +.010. SWAP_r − OWN_r: 2 −.039, 4 +.014, 6 +.058, 8 +.118, 10 +.106, 12 +.128. Overlap of the two
+top-8 spaces: cos² .9999, .997, .988, .966, .905, .651, .358, .017 (mean .735); 77% of S₁₆'s and 83% of S₁₇'s energy lies in the
+shared 8-space.
+
+**Scoring.** b OWN_8 − OWN_16 = −.012 ≤ .05 TRUE (null ≥ .15 not met). c OWN_4 − OWN_16 = +.314 ≥ .08 TRUE (null ≤ .03 not met).
+d SHARED_8 − OWN_8 = +.007 ≤ .02 TRUE (null ≥ .08 not met). e SWAP_8 − OWN_8 = +.118 ≤ .05 FALSE (null ≥ .15 not met).
+
+**What it means for the program.** (i) Compositional reuse, measured: the two late blocks square the SAME five directions of the
+stream (five principal angles below 18°), and one 8-dim square space is enough for both — the late program's quadratic core is a
+shared "square layer" of ~8 features, not two independent ones. That is the first positive re-usability result of the circuit
+arc (Logan's direction), and it is exact algebra on the model's own weights, not a fit. (ii) The blocks are not interchangeable
+(e FALSE): beyond the five shared directions each has ~3 of its own that carry ~.12 nat; SWAP at r ≤ 4 is free precisely because
+the top-4 are common. (iii) The cliff between 4 and 6 square directions (.547 → .266) says the program has a 5–6-dimensional
+quadratic core, not a smooth budget curve like the pool map (§2726) — a genuine discrete structure. (iv) Pruning HELPS: dropping the
+weakest 4–8 square directions lowers CE by .012–.020 below the exact compile. Under the 16-dim input restriction the weak
+directions multiply coordinates the filler cannot supply faithfully; removing them is regularisation for free. This also explains
+§2728's non-monotone QUAD_SYMRANK_3 > SYMRANK_2. (v) Program update: MINIMAL of §2728 (2 squares/output on 16 dims) can be restated
+as 16 outputs = quadratic forms on ONE shared 8-dim square space (8 × 8 sym = 36 numbers each, 2 × 16 × 36 = 1152 numbers for both
+blocks' entire quadratic cores) + rank-8 token read; and the whole late-16/17 program is likely ≤ .25 nat at ≈ 10 k numbers per
+block. The next rung should price exactly that restated program, and ask what the five shared square directions ARE (their
+overlap with P_M's own top eigvectors, with the unembedding's top logit directions, and with the §2726 pool-map head).
+
+**Limits.** Truncations of exact objects, no re-fit; token filler and cross/offset terms untouched. 64 held-out docs, ±.01.

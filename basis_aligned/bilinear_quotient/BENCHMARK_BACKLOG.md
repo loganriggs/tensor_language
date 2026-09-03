@@ -5112,3 +5112,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   read costs .033 < .10; null ≤ .03 missed by .003). MINIMAL program (2 squares/output + rank-8 token read, no offset) = 11.8 k
   numbers per block at CE .271 (68% of mlp16/17). B is ~rank 1–4. Next: distinct squared features + mlp16/17 sharing; pool
   blocks' own weights on an input head.
+- §2729 late_core_square_features_probe (Claude, LANE 1 CUDA, 19 s, 1600 GPU forwards): a–d TRUE; e FALSE (swap +.118; null
+  not met). mlp16/17 square the SAME five stream directions (cos² .9999….905); one shared 8-dim square space serves both (+.007);
+  OWN_8/12 BEAT the full compile (.222/.214 vs .233); cliff 4→6 dirs (.547→.266). First measured compositional reuse. Next:
+  price the shared-square-space program; identify the five directions.
