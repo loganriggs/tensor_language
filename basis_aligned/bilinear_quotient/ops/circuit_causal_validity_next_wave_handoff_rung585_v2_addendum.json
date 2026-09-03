@@ -1,0 +1,42 @@
+{
+  "base_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json",
+  "base_contract_sha256": "e8970f9ef2d7eb7b291a5fb288833bc252e62fabf1016a699e981c19a6be560a",
+  "builder_prompt_addendum": "For every terminal emitted after model execution, save and validate the complete evidence for exactly the phases opened. Independently generate the authorized endpoint, direction-by-arm, and endpoint-by-site identities and require literal equality; internal hashes are not authority. Recompute endpoint token and semantic-coordinate joins, direction recipient/donor joins, arm-specific inserted and removed tensors from saved factors, hook_delta = inserted - live_removed, and primitive logit identities. Exercise recognizable partial-publication recovery through the real managed adapter before its unused-namespace guard, while refusing complete or arbitrary occupied paths untouched.",
+  "critic_prompt_addendum": "Test at least one FIT-only scientific null and one FIT-plus-SELECT held fixture. Delete all null evidence; substitute self-consistent invented row IDs; alter tokens or semantic coordinates under a valid endpoint ID; attach wrong endpoints to a valid direction ID; mutate live_removed or hook_delta away from the arm-specific saved-factor reconstruction; contradict a saved margin with its primitive logits; leave a marker-bound hard-crash partial package; present a complete prior package; and present arbitrary bytes. Every semantic or computational mismatch must fail validation, recognizable partial bytes must be quarantined through the managed entry point, and complete or arbitrary bytes must remain untouched.",
+  "evidence_phase_contract": {
+    "FIT": {
+      "directed_arm_rows": 11232,
+      "directed_pairs": 3744,
+      "endpoint_rows": 1728,
+      "factor_rows": 6912
+    },
+    "FIT_SELECT": {
+      "directed_arm_rows": 16848,
+      "directed_pairs": 5616,
+      "endpoint_rows": 2592,
+      "factor_rows": 10368
+    }
+  },
+  "new_invariants": {
+    "authority_membership": "saved identities equal an independently generated frozen authority list, not merely their own row-order hash",
+    "computation_binding": "tokens, semantic coordinates, direction endpoints, inserted and removed vectors, hook deltas, margins, cross-entropy, and vocabulary statistics are recomputed from frozen authorities or saved primitives",
+    "completed_terminal_evidence": "every scientific hold, null, or ordinary instrument-invalid terminal has exact phase-complete primitive evidence",
+    "managed_recovery": "the queue entry point invokes conservative recovery before unused-namespace rejection",
+    "recovery_safety": "only marker-bound recognizable experiment bytes may move; complete or arbitrary occupied paths remain untouched"
+  },
+  "required_test_ids": [
+    "fit_only_null_requires_complete_evidence",
+    "fit_select_hold_requires_complete_evidence",
+    "self_consistent_invented_endpoint_ids_rejected",
+    "self_consistent_invented_direction_arm_ids_rejected",
+    "self_consistent_invented_factor_ids_rejected",
+    "authorized_endpoint_id_with_altered_tokens_rejected",
+    "authorized_direction_id_with_wrong_endpoints_rejected",
+    "arm_vector_inconsistent_with_saved_factors_rejected",
+    "primitive_logit_identity_mismatch_rejected",
+    "managed_hard_crash_partial_reaches_quarantine",
+    "managed_complete_result_refused_untouched",
+    "managed_arbitrary_bytes_refused_untouched"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v2_addendum"
+}

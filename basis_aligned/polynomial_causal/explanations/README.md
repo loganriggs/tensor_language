@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_2205.md](explanation_2026-09-03_2205.md) — honest high-quality-circuit status: the audited
+  induction behavior, exact score-versus-value intervention, thirteen pre-GPU defects caught by the two-agent loop,
+  phase-complete authority-bound evidence, the audited downstream-MLP null, and a block-term cross-head alternative
 - [explanation_2026-09-03_2130.md](explanation_2026-09-03_2130.md) — how the two-agent builder–critic bootstrap is
   working in practice; the audited R586/R587 induction capability, R584's active but nonselective downstream-MLP null,
   the R589 cross-MLP functional-grouping screen, and the exact score/value computation being prepared for R585

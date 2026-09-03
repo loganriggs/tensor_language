@@ -204,11 +204,32 @@ The second wave added four more:
     repair contract. The critic independently reconstructs semantic changes, manifests, metrics, and crash behavior
     from pinned authorities and must not adapt to the builder's current working file. The parent reconciles their exact
     artifacts; neither agent can waive the other's failed contract.
+15. **Audit scientific nulls as deeply as positive results.** Every terminal produced after model execution must carry
+    the complete evidence for the phases it opened. A FIT-only null has a smaller exact row and array census than a
+    FIT+SELECT hold, but it may not replace those rows with summaries or fixture data. A missing-evidence null is not a
+    conservative result; it is an unauditable result.
+16. **Bind evidence membership to the frozen authority, not to itself.** Internal row-order hashes only show that files
+    agree with their own declared order. Independently derive the exact authorized endpoint IDs, directed
+    intervention-by-arm IDs, and endpoint-by-site factor IDs, then require literal equality for the opened phases. A
+    self-consistent invented dataset must fail.
+17. **Exercise crash recovery through the real managed entry point.** Staging and quarantine helpers are insufficient
+    if an earlier unused-path guard makes them unreachable. Test a hard-crash partial package through the same adapter
+    the queue invokes. Recovery may move only marker-bound, recognizable experiment bytes; it must leave a complete
+    prior outcome or arbitrary occupied path untouched and fail closed.
+18. **Recompute the meaning of saved evidence.** Authorized IDs, shapes, and hashes do not prove that the payload under
+    those IDs is correct. Join endpoint tokens and semantic coordinates to the frozen row; join each direction to its
+    exact recipient and donor; reconstruct every arm's inserted tensor from saved factors and require
+    `hook_delta = inserted - live_removed`; and recompute margin, cross-entropy, and vocabulary-change identities from
+    primitive logits. Include a complete, internally hash-consistent negative fixture for each mismatch.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
 is `basis_aligned/polynomial_causal/CIRCUIT_CAUSAL_VALIDITY_NEXT_WAVE_CRITIC_CHECKLIST.md`. Later versions may supersede these paths only
 prospectively and must preserve their negative fixtures.
+
+The prospective phase-evidence and managed-recovery additions are machine-readable in
+`basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v2_addendum.json`. Apply it on top
+of the base contract for every later wave; it does not alter the frozen R585 scientific thresholds.
 
 ## Subagent prompt template
 

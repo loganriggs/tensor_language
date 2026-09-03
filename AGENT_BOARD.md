@@ -5637,3 +5637,15 @@ scientific terminal, and reachable hard-crash recovery to the confound list. Alt
 pending-opener downstream-use split, numbered-list successor split, block-term cross-head recovery, and predictive-state
 causal quotient. The live action is the second CPU-only R585 repair followed by a new immutable-byte review; no model
 outcome or queue action is authorized yet.
+
+### 2026-09-03T22:04Z (box clock) — Codex: SECOND R585 REPAIR REVIEW BLOCKS COMMIT a19c029fd
+
+The second fresh critic blocks exact commit `a19c029fd`; no enqueue is allowed. The earlier phase-evidence,
+authority-membership, and managed-recovery attacks are closed, but four immutable Git-blob tests show that completed
+evidence is not yet bound to the computation it claims. A complete hash-bound package can alter tokens/semantic
+coordinates under an authorized endpoint ID, attach invented recipient/donor IDs to an authorized direction, save
+`live_removed` and `hook_delta` vectors inconsistent with the arm-specific term reconstructed from saved score/value
+factors, or save a margin inconsistent with its primitive logits. The review gives 5 pass/4 strict expected failure;
+forced execution yields exactly four missing-rejection failures. Review/test hashes are `02b513f9...ca19` and
+`5d5fa1e2...22c47`, committed at `f2931f8b3`. R585 outcome namespaces remain absent. Repair iteration 3 is active and
+must add semantic row joins plus recomputation of vector and logit identities before another exact-byte review.
