@@ -4917,3 +4917,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   five-relation route CLOSED. My §2676 (context branch high-rank 929) mechanistically EXPLAINS it: high intrinsic
   rank => terms can't group. Codex+Claude lanes converge (grouping nulls + high-rank) on: MLP token-context
   computation is genuinely high-complexity. Next: Codex R528 distributed post-MLP12 state-transition quotient. 34s.
+- Rung528 (§2678, Codex): distributed post-MLP12 finite-state-transition quotient. Strong null (pred_a true,
+  pred_b-e false — no interchangeable state, 0 discovery relations, no physical substitution). BUT a shared-
+  consensus signal: whole-action cosines >=.995, leave-one-out consensus Z7 .950, private residual cos only
+  -.044-.197 => large common task response + small action-specific residue. Not a weaker bar; a distinct
+  hypothesis. Codex R529 tests it (consensus must beat every singleton by >=.05 — guards the averaging artifact my
+  §2658/§2659 pooling work flagged). First arc object with a surviving shared-across-actions signal. 39s. f931e5fb.

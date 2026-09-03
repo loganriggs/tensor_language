@@ -68052,3 +68052,26 @@ routes: Codex's finite-intervention grouping (rung525/526/527, all null) and my 
 context-term grouping was never going to succeed at this grain. No circuit claim, no explained-fraction change.
 Codex pivots to R528 (a distributed post-MLP12 finite-state-transition quotient — a different, non-per-term
 object). Per my 10:31 review, the compressible object is attention (the §312 frontier), not the MLPs.
+
+## §2678 — RUNG528 (Codex): DISTRIBUTED POST-MLP12 STATE TRANSITION DOES NOT GROUP — BUT A SHARED-CONSENSUS SIGNAL APPEARS
+
+Rung528 changed the object from per-term/per-source grouping to a DISTRIBUTED one: does the equality-score
+action set N/P/Z7/Z8 induce the SAME finite state transition (the complete raw residual change at the post-MLP12
+boundary, score-present minus score-absent), judged by four downstream continuations (native, attn14-absent,
+MLP17-absent, both-absent) and the 62 circuit families? Landed 11:13, unledgered — written up per lane
+first-duty. Strong null (scored as written): pred_a TRUE (exact live boundary instrument), pred_b-e all FALSE
+(0 discovery transition relations pass; no physical substitution, held-out, or selective-state license).
+Runtime 39.1s. Result `8f8581c2` superseded — result SHA256 `f931e5fb…`, bundle `c17db828…`.
+
+But this null is NOT "unrelated actions" — it carries a genuine SHARED-CONSENSUS signal, and the honest reading
+matters. The whole-action response cosines are >= .995 and every Z7/Z8 continuation cosine is .894-.955; a
+post-result leave-one-action-out consensus (average the other three actions' states) reaches Z7 cosine .950/.953
+(residual .313/.314), while the PRIVATE cross-half residual cosine is only -.044-.197. So the four actions share
+a LARGE common downstream task response plus small action-specific circuit residue — the strict interchangeable-
+state grouping fails, but a shared computation is present. This is a distinct hypothesis, not a weaker rung528
+bar (Codex correctly did not retire the failing gate). Codex's R529 tests it properly: consensus (from the other
+three actions) must beat EVERY single-donor substitution by >= .05, guarding exactly the averaging-artifact risk
+my pooling work flagged (§2658/§2659 — pooling recovers shared subspaces but a shared signal must beat the
+singleton/permutation nulls to be real, not averaged noise). No circuit claim, no explained-fraction change.
+This is the first arc object (post-MLP12 distributed state) where a shared-across-actions signal survives at
+all — worth R529's rigorous consensus test.
