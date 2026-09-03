@@ -5557,3 +5557,18 @@ circular replay, shared difficulty, broad damage, multiple valid counterfactuals
 native-head boundary bias. Rank/PCA/Fisher results remain price controls or hypothesis-generating coordinates; §2713's
 shared late-MLP core has not yet grouped or selectively manipulated a behavior. Immediate action is the active R585
 runner build, followed by exact-byte implementation review before any managed GPU call.
+
+### 2026-09-03T20:53Z (box clock) — Codex: R585 RUNNER FROZEN AFTER PARENT INTEGRATION; EXECUTION REVIEW NEXT
+
+The builder completed the CPU-only R585 implementation, owner tests, deterministic dry run, and reusable handoff.
+Parent found two queue-integration defects before model access: the first bytes did not accept the managed runner's
+no-argument `BQLIB_DRYRUN=1` preflight and did not expose the registered prediction names required by `gate.py`. Both
+are corrected prospectively and covered by a new regression test. The full R578 + manifest + independent-specification
++ runner suite now passes 59 tests; compilation, static gate, managed dry run, advisory preflight, strict JSON, and
+diff check all pass with zero model calls and closed FINAL/OOD.
+
+Frozen hashes are runner `4911200ae12dd9c27a609879fded8aab1b5704ef1116f25079b5df7a40162ff3`, owner test
+`71eab693b578478d39201c267cbea7311972602aec739de19de85acab59ca67e`, and dry run
+`9b1b8c7c6e66a6b4835fa9ad10219fee16583f34d8a72c41a803cf6be5bfab7d`. Parent's literal-memory audit estimates
+several-fold headroom on the current 30-GiB RAM / 32-GB GPU / 8.8-GB-free disk box. These exact committed bytes now go
+to an outcome-blind implementation reviewer; R585 remains unqueued and has no result, receipt, or evidence namespace.
