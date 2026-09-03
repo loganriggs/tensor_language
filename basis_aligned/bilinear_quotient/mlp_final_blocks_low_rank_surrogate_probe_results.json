@@ -1,0 +1,136 @@
+{
+ "rung": "mlp_final_blocks_low_rank_surrogate_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs; LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_low_rank_replicates_held_out": true,
+  "pred_c_mlp17_rank8_cheap": false,
+  "pred_d_mlp16_rank8_cheap": true,
+  "pred_e_both_rank8_cheap": false,
+  "pred_f_top_direction_tracks_entropy": false
+ },
+ "nulls": {
+  "b_null_eff_either_ge_50": false,
+  "c_null_mlp17_k8_ge_.10": false,
+  "d_null_mlp16_k8_ge_.20": false,
+  "e_null_both_k8_ge_.30": false,
+  "f_null_abs_spearman_le_.2": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "eff17_max": 15.0,
+  "eff16_max": 25.0,
+  "mlp17_k8_max": 0.02,
+  "mlp16_k8_max": 0.05,
+  "both_k8_max": 0.08,
+  "spearman_min": 0.5
+ },
+ "null_bars": {
+  "eff_either_min": 50.0,
+  "mlp17_k8_min": 0.1,
+  "mlp16_k8_min": 0.2,
+  "both_k8_min": 0.3,
+  "spearman_max": 0.2
+ },
+ "instrument": {
+  "ce_manual": 3.2924201488494873,
+  "ce_module": 3.2924201488494873,
+  "abs_diff": 0.0
+ },
+ "baseline_ce": {
+  "natural_h1": 3.0823805133501687,
+  "code_h1": 4.062672773996989,
+  "n_fit_docs": 96,
+  "n_eval_docs": 96
+ },
+ "spectra": {
+  "16": {
+   "fit_half": {
+    "eff_rank": 9.436110019219967,
+    "rank_90": 56,
+    "top1": 0.42513313090363386,
+    "psd_min_over_max": 1.7050225080622473e-05
+   },
+   "held_half": {
+    "eff_rank": 9.644881382235459,
+    "rank_90": 64,
+    "top1": 0.42290107720748654,
+    "psd_min_over_max": 1.7738483182955098e-05
+   },
+   "cos_u1_mean": -0.2696703374385834,
+   "cos_u1_fit_vs_held": 0.9948104619979858,
+   "mean_norm": 25669.634765625,
+   "mean_energy_fit": 967670960.0
+  },
+  "17": {
+   "fit_half": {
+    "eff_rank": 6.139072808722468,
+    "rank_90": 4,
+    "top1": 0.4354906802304435,
+    "psd_min_over_max": 6.054537402857924e-06
+   },
+   "held_half": {
+    "eff_rank": 6.301607707869244,
+    "rank_90": 5,
+    "top1": 0.4337842254913355,
+    "psd_min_over_max": 6.553269708914074e-06
+   },
+   "cos_u1_mean": -0.4117988049983978,
+   "cos_u1_fit_vs_held": 0.9979545474052429,
+   "mean_norm": 43354.7734375,
+   "mean_energy_fit": 3618655701.3333335
+  }
+ },
+ "ce_added_ladder": {
+  "16": {
+   "0": 0.1625728408495588,
+   "1": 0.1602460344632468,
+   "2": 0.08132513364156102,
+   "4": 0.03853197892506932,
+   "8": 0.03553672631581639,
+   "16": 0.031718095143636216,
+   "32": 0.02815278371175145,
+   "64": 0.02446677287419652
+  },
+  "17": {
+   "0": 0.3538546760876975,
+   "1": 0.23948657512664795,
+   "2": 0.15798141558965062,
+   "4": 0.10371629397074411,
+   "8": 0.08325562874476145,
+   "16": 0.06735807657241821,
+   "32": 0.05534235636393259,
+   "64": 0.04302807648976659
+  },
+  "both": {
+   "8": 0.17248064279556274,
+   "32": 0.12332709630330418
+  }
+ },
+ "code_transfer_rank8_ce_added": {
+  "16": 0.022631168365478516,
+  "17": 0.13303707043329815
+ },
+ "entropy": {
+  "spearman_c1_vs_entropy": -0.15511925518512726,
+  "spearman_abs_c1_vs_entropy": 0.199405238032341,
+  "mean_entropy_h1": 3.07987380027771,
+  "c1_mean": 208.57603454589844,
+  "c1_std": 27259.021484375
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_full_forwards_docs": 2592,
+  "cpu_seconds": 1496.4500443935394
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP_FINAL_BLOCKS_LOW_RANK_SURROGATE_PROBE_PREREGISTRATION.md": "b86719fbeec9ea942bf5ec8b386b12d9a867d96bc7c0c0dcce9d682b484ec786",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_in_situ_usage_rank_map_probe_results.json": "63483cec6f68964235c1033ee0ebd0aba04c15b0dcd0f2f42e9b3d2b9b1a90b2",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9"
+ },
+ "script_sha256": "dabdafde98d69c257dd8e5a2292a4b4703cde478c125c84fc490c6e9016d57ea"
+}

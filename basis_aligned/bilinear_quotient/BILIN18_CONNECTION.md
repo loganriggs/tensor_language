@@ -68518,3 +68518,45 @@ low-dimensional (>512 dims for 68%) and not transportable — it is not a candid
 rows of §2690 as the operative reference; §2690's scored results stand as registered with §2691's correction. No circuit claim;
 no explained-fraction change. Ops: 938 s, ~3x my estimate, partly because a 16-thread smoke test of mine ran concurrently
 (15:21-15:29, oversubscribing the 16 cores) — logged in ops/EFFICIENCY_LOG.md and ops/README_SMOKE_TESTS.md.
+
+## §2694 — MLP16/17 LOW-RANK WRITE SURROGATE, CAUSAL PRICE (Claude, CPU, 1496 s, 2,592 full CPU document forwards, 0 GPU): §2692's COLLAPSE REPLICATES HELD-OUT (eff rank 9.6 / 6.3) BUT THE CE-RELEVANT CONTENT HAS A FAT TAIL — MLP16 RANK-8 ADDS .036 (PASS), MLP17 RANK-8 ADDS .083 (FAIL, null not met), BOTH .172 (FAIL, null not met), TOP DIRECTION DOES NOT TRACK ENTROPY (null HOLDS) — a/b/d TRUE, c/e/f FALSE
+Preregistered 15:21 (`MLP_FINAL_BLOCKS_LOW_RANK_SURROGATE_PROBE_PREREGISTRATION.md`), landed 15:56
+(`mlp_final_blocks_low_rank_surrogate_probe_results.json`, sha 8a88b714…). SIGN CONVENTION (§2135): every number below is CE ADDED
+ABOVE THE REAL MODEL on the held-out half (natural docs 96-191, all positions), LOWER = better. Bases (mean + top-k PCA of the
+centred MLP write, 64 positions/doc) fitted on docs 0-95 only; surrogate write' = mu + U_k U_k^T (write - mu), product state and
+everything upstream untouched. Baseline held-out CE 3.2924; instrument manual == module to 0.0 — pred_a TRUE.
+
+Scored exactly as registered:
+- pred_b (held-out-half centred-write eff rank <= 15 for block 17 AND <= 25 for block 16; null either >= 50): TRUE — 6.30 (block
+  17) and 9.64 (block 16); fit-half 6.14 / 9.44; top direction cos(fit, held) .998 / .995; rank_90 5 / 64; top1 share .43 / .42.
+  §2692's collapse is not a fit-half accident. Null not met.
+- pred_c (MLP17 rank-8 adds <= .02; null >= .10): FALSE — adds .083. Null NOT met (.083 < .10): inconclusive middle, preserved.
+- pred_d (MLP16 rank-8 adds <= .05; null >= .20): TRUE — adds .036. Null not met.
+- pred_e (both at rank 8 add <= .08; null >= .30): FALSE — adds .172. Null NOT met. Note .172 > .036 + .083 = .119: the two
+  truncations are SUPER-additive by .053 (MLP16's write is MLP17's input; truncating both compounds).
+- pred_f (|Spearman(c1, next-token entropy)| >= .5; null <= .2): FALSE — rho = -.155 (signed), .199 (|c1|); the NULL HOLDS. The
+  top write direction's coefficient does NOT track the model's output entropy. c1 has mean 209, sd 27,259 (a huge, sign-varying
+  coordinate), and cos(u1, mean write) = -.27 / -.41 (16 / 17): the dominant varying direction is partly anti-parallel to the
+  mean write, i.e. it modulates the size of the fixed mean write, but that modulation is not an entropy dial in the simple form
+  §2692(2) hypothesised.
+
+Disclosed ladder (CE ADDED, LOWER = better), k = 0 (mean replacement) / 1 / 2 / 4 / 8 / 16 / 32 / 64:
+- MLP16: .163 / .160 / .081 / .039 / .036 / .032 / .028 / .024
+- MLP17: .354 / .239 / .158 / .104 / .083 / .067 / .055 / .043
+- both: k=8 .172, k=32 .123.
+Code corpus (docs 96-191 of ood_code, natural-fitted bases, k=8): MLP16 .023 (CHEAPER than on natural), MLP17 .133 (dearer).
+
+Reading. (1) The variance spectrum and the CE-relevance spectrum disagree in the last two blocks: 90% of MLP17's write VARIANCE
+sits in 5 directions, but those 5 recover only ~70% of the block's mean-replacement cost (.354 -> ~.10), and the remaining .10
+decays slowly (k=64 still .043) — the low-variance tail carries ~30% of MLP17's causal contribution. So "rank-<=8 write" (§2692) is
+true of the second moments and false of the function: an honest MLP17 surrogate at <.02 added CE needs well over 64 directions.
+MLP16 is closer to genuinely low-rank in function (k=4 already .039; k=64 .024; residual tail ~15% of its .163 mean-replacement
+cost). (2) Mechanism: the top directions are the gross write (scale) and the tail is the content; the scale part is what §2692's
+eff-rank saw. The "entropy dial" reading is falsified in its simplest form (pred_f null holds); what the big direction does is
+still open (candidates: per-token norm compensation before the final rms-norm — testable by regressing c1 on ||x|| entering the
+final norm, not on entropy). (3) For the smaller-program goal: MLP16 admits a rank-4-to-8 write at ~.04 added CE (a real, if
+modest, MLP-side compression — the first that survives a causal held-out test); MLP17 does not at any k <= 64 under the .02 bar;
+the pair does not compose additively. (4) Cross-corpus: MLP16's natural basis transfers to code at lower cost than on natural
+(.023) — its low-rank write is corpus-generic; MLP17's is not (.133). No circuit claim; explained fraction unchanged
+(5.348% / 10.923% / 4.727 nat / 0 of 68). Failures c, e, f preserved as registered; c and e sit between bar and null.
+Ops: 1,496 s vs ~900 s estimated; ~10 min of it under CPU contention from a smoke test of mine (ops/EFFICIENCY_LOG.md).

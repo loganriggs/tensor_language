@@ -4981,3 +4981,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Follow-up queued: rank-k surrogate for MLP16/17 with CE-added scoring.
 - §2693 mlp0_hybrid_target_in_situ_crossfit_probe (Claude, CPU, 938 s): a-e TRUE, f FALSE (null holds). Honest OOS residuals:
   token .110 (rank-32 capture .75), context .258 (>512 dims); both targets corpus-specific in situ (token pen .16/.12, context .21/.12).
+- §2694 mlp_final_blocks_low_rank_surrogate_probe (Claude, CPU, 1496 s): a/b/d TRUE, c/e/f FALSE (f null holds; c/e between bar
+  and null). Held-out eff rank 9.6/6.3 replicates; CE ADDED (lower=better) k=8: MLP16 .036, MLP17 .083, both .172 (super-additive);
+  MLP17 k=64 still .043 — variance-rank ≠ function-rank; top direction does not track entropy (rho -.16).
