@@ -70,6 +70,30 @@ def _inputs():
         }
         for seed in range(52_300, 52_316)
     }
+    reserved_oracles = {
+        seed: {
+            "healthy": True,
+            "cells": {
+                cell: _cell(member=0.50, control=0.05, recovery=0.80)
+                for cell in CELLS
+            },
+        }
+        for seed in SEEDS
+    }
+    label_null_fit_health = {
+        seed: {fold: True for fold in FOLDS}
+        for seed in range(52_300, 52_316)
+    }
+    all_three = {
+        seed: {
+            "healthy": True,
+            "targets": {
+                fold: {"cells": {cell: _cell() for cell in CELLS}}
+                for fold in FOLDS
+            },
+        }
+        for seed in SEEDS
+    }
     return {
         "real": real,
         "recovery_only": recovery,
@@ -78,6 +102,9 @@ def _inputs():
         "label_null_joint": {fold: [0.20] * 16 for fold in FOLDS},
         "real_frames": real_frames,
         "label_null_frames": null_frames,
+        "label_null_fit_health": label_null_fit_health,
+        "reserved_oracles": reserved_oracles,
+        "all_three": all_three,
     }
 
 
@@ -91,6 +118,13 @@ def test_all_corrected_validation_a_and_b_clauses_pass_on_planted_metrics():
     assert all(fold.passing_seed_count == 5 for fold in result.prediction_a_folds)
     assert result.prediction_b_clauses_pass_without_a
     assert result.prediction_b_passes
+    assert result.pretest_passes
+    assert result.label_null_fit_health_passes
+    assert len(result.label_null_fit_health) == 48
+    assert len(result.oracle_fit_liveness) == 20
+    assert result.eligible_all_three_frame_ids == tuple(
+        f"all_three:{seed}" for seed in SEEDS
+    )
     for fold in result.prediction_b_folds:
         assert fold.recovery_comparison.passing_seed_count == 5
         assert fold.recovery_comparison.sign_flip.strictly_exceeds_q95
@@ -228,10 +262,174 @@ def test_joint_b_is_bounded_and_requires_four_real_seeds_strictly_above_both_con
     assert all(not seed.strictly_beats_both for seed in joint.seeds)  # equality is not enough
 
 
+def test_all_48_label_null_health_results_are_required_and_returned_as_evidence():
+    inputs = _inputs()
+    bad_seed = 52_307
+    bad_fold = FOLDS[1]
+    inputs["label_null_fit_health"][bad_seed][bad_fold] = False
+    result = GATES.evaluate_provisional_validation_gates(**inputs)
+    failed = [fit for fit in result.label_null_fit_health if not fit.healthy]
+    assert len(result.label_null_fit_health) == 48
+    assert failed == [
+        GATES.LabelNullFitHealth(
+            f"label_null:{bad_seed}:{bad_fold}", bad_seed, bad_fold, False
+        )
+    ]
+    assert result.prediction_a_passes and result.prediction_b_passes
+    assert not result.label_null_fit_health_passes
+    assert not result.pretest_passes
+
+
+def test_all_20_oracles_include_reserved_target_and_must_be_live_in_every_cell():
+    inputs = _inputs()
+    seed = SEEDS[2]
+    inputs["reserved_oracles"][seed]["cells"][CELLS[3]]["member_rms"] = 0.019
+    result = GATES.evaluate_provisional_validation_gates(**inputs)
+    reserved = [
+        fit
+        for fit in result.oracle_fit_liveness
+        if fit.target == GATES.RESERVED_TARGET
+    ]
+    assert len(result.oracle_fit_liveness) == 20
+    assert len(reserved) == 5
+    failed = next(fit for fit in reserved if fit.seed == seed)
+    assert failed.frame_id == f"target_oracle:{GATES.RESERVED_TARGET}:{seed}"
+    assert failed.cells[3].failures == ("member_rms_below_0.02",)
+    assert result.fitted_target_oracle_liveness_passes
+    assert not result.oracle_liveness_passes
+    assert not result.prediction_a_passes
+    assert not result.pretest_passes
+
+
+def test_all_three_eligibility_is_derived_per_target_with_same_seed_oracle():
+    inputs = _inputs()
+    seed = SEEDS[0]
+    target = FOLDS[2]
+    cell = CELLS[1]
+    inputs["all_three"][seed]["targets"][target]["cells"][cell][
+        "aligned_recovery"
+    ] = 0.39
+    result = GATES.evaluate_provisional_validation_gates(**inputs)
+    expected = tuple(f"all_three:{other}" for other in SEEDS[1:])
+    assert result.eligible_all_three_frame_ids == expected
+    failed = result.all_three_frames[0]
+    assert failed.frame_id == f"all_three:{seed}"
+    assert failed.failures == (f"target_validation_gate_failed:{target}",)
+    target_gate = next(item for item in failed.targets if item.target == target)
+    assert "recovery_below_half_same_seed_oracle" in target_gate.cells[1].failures
+    assert result.all_three_eligibility_nonempty
+    assert result.pretest_passes
+
+
+def test_no_eligible_all_three_frame_is_terminal_and_health_is_part_of_predicate():
+    inputs = _inputs()
+    for index, seed in enumerate(SEEDS):
+        if index == 0:
+            inputs["all_three"][seed]["healthy"] = False
+        else:
+            inputs["all_three"][seed]["targets"][FOLDS[0]]["cells"][CELLS[0]][
+                "fourfold_margin_lower95"
+            ] = 0.0
+    result = GATES.evaluate_provisional_validation_gates(**inputs)
+    assert result.eligible_all_three_frame_ids == ()
+    assert not result.all_three_eligibility_nonempty
+    assert not result.pretest_passes
+    assert result.all_three_frames[0].failures == ("optimizer_unhealthy",)
+    assert "fourfold_margin_bootstrap_lower_not_positive" in (
+        result.all_three_frames[1].targets[0].cells[0].failures
+    )
+
+
+def test_all_three_rejects_caller_eligibility_and_reserved_target_membership():
+    inputs = _inputs()
+    inputs["all_three"][SEEDS[0]]["eligible"] = True
+    with pytest.raises(ValueError, match="eligibility is derived"):
+        GATES.evaluate_provisional_validation_gates(**inputs)
+
+    inputs = _inputs()
+    targets = inputs["all_three"][SEEDS[0]]["targets"]
+    targets[GATES.RESERVED_TARGET] = targets.pop(FOLDS[0])
+    with pytest.raises(ValueError, match="reserved r.2.0.1"):
+        GATES.evaluate_provisional_validation_gates(**inputs)
+
+
+def _combined_family(family):
+    return {
+        fold: {
+            seed: {
+                "healthy": record["healthy"],
+                "cells": {
+                    f"{split}:{cell}": dict(record["cells"][cell])
+                    for split in ("validation", "test")
+                    for cell in CELLS
+                },
+            }
+            for seed, record in by_seed.items()
+        }
+        for fold, by_seed in family.items()
+    }
+
+
+def _combined_inputs():
+    inputs = _inputs()
+    return {
+        "real": _combined_family(inputs["real"]),
+        "recovery_only": _combined_family(inputs["recovery_only"]),
+        "oracles": _combined_family(inputs["oracles"]),
+        "reserved_oracles": {
+            seed: {
+                "healthy": record["healthy"],
+                "cells": {
+                    f"{split}:{cell}": dict(record["cells"][cell])
+                    for split in ("validation", "test")
+                    for cell in CELLS
+                },
+            }
+            for seed, record in inputs["reserved_oracles"].items()
+        },
+        "haar_joint": inputs["haar_joint"],
+        "label_null_joint": inputs["label_null_joint"],
+        "real_frames": inputs["real_frames"],
+        "label_null_frames": inputs["label_null_frames"],
+    }
+
+
+def test_final_eight_cell_aggregator_uses_same_strict_every_cell_a_logic():
+    inputs = _combined_inputs()
+    baseline = GATES.evaluate_final_validation_test_gates(**inputs)
+    assert baseline.cells == GATES.COMBINED_CELLS
+    assert baseline.prediction_a_passes and baseline.prediction_b_passes
+    failed_cell = f"test:{CELLS[0]}"
+    for seed in SEEDS[:2]:
+        inputs["real"][FOLDS[1]][seed]["cells"][failed_cell][
+            "fourfold_margin_lower95"
+        ] = 0.0
+    result = GATES.evaluate_final_validation_test_gates(**inputs)
+    assert result.prediction_a_folds[1].passing_seed_count == 3
+    assert not result.prediction_a_passes
+    assert "fourfold_margin_bootstrap_lower_not_positive" in (
+        result.prediction_a_folds[1].seeds[0].cells[4].failures
+    )
+
+
+def test_final_eight_cell_recovery_minimum_and_cosine_cover_test_cells():
+    inputs = _combined_inputs()
+    failed_cell = f"test:{CELLS[2]}"
+    for seed in SEEDS[:2]:
+        inputs["recovery_only"][FOLDS[0]][seed]["cells"][failed_cell][
+            "signed_cosine"
+        ] = 0.951
+    result = GATES.evaluate_final_validation_test_gates(**inputs)
+    recovery = result.prediction_b_folds[0].recovery_comparison
+    assert recovery.passing_seed_count == 3
+    assert not recovery.passes
+    assert not result.prediction_b_passes
+
+
 def test_validation_aggregator_fails_closed_on_missing_cells_seeds_and_controls():
     inputs = _inputs()
     del inputs["real"][FOLDS[0]][SEEDS[0]]["cells"][CELLS[0]]
-    with pytest.raises(ValueError, match="exactly the four"):
+    with pytest.raises(ValueError, match="exactly the 4"):
         GATES.evaluate_provisional_validation_gates(**inputs)
     inputs = _inputs()
     inputs["haar_joint"][FOLDS[0]] = [0.1] * 19
