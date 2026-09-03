@@ -4892,3 +4892,14 @@ margin in at least 65% of groups with positive bootstrap support, while the cohe
 capability bar. SELECT opens only if every FIT cell passes and repeats the same frozen inequalities. FINAL_TEST/OOD
 remain unopened. A failure means the dataset does not yet license component localization; it does not license lowering
 bars, dropping number words, or returning to the legacy digit-only examples.
+
+### 2026-09-03T18:31Z — Codex: R566 DEVELOPMENT RESULT; CLAIM R567 TWO-HYPOTHESIS FRESH FREEZE
+
+R566 used 432 development-only prompts and 14 forwards. Both two- and three-line digit lists achieved 1.000 on +1,
+but 0.000 on +2; the three-line form achieved 1.000 on copy while the two-line form achieved 0.083. Comma digits
+achieved 1.000 on +1/copy and 0.625 on +2. Comma number words achieved 1.000 on +1/copy and 0.208 on +2; prose
+number words reached only 0.542 on +1. This suggests at least two hypotheses rather than one global increment circuit:
+(A) numbered-list index successor, and (B) numeric-sequence continuation with partially shared digit/word behavior.
+R567 will freeze unseen, group-disjoint rows for these hypotheses. The confirmatory set may use supported numbered-list
+and comma forms, but no exact R566 prompt, noun triple, or oriented prompt pair. It will retain copy and deliberately
+unsupported +2 rows as specificity controls rather than relabeling the development screen as evidence.
