@@ -1,0 +1,33 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "dependency_sha256": {
+    "basis_aligned/bilinear_quotient/census_state_diverse.pt": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b",
+    "basis_aligned/bilinear_quotient/circuit_das.py": "b2e6670a223a01c7115487eb886e91fd0aa1ca9d746d60f5fa5a57c43ebeffe7",
+    "basis_aligned/bilinear_quotient/circuits/A8_GROUPING.json": "08fd57c286e4908323afe2568c53d0193e8e002c4603976340582b32ac98a755",
+    "basis_aligned/bilinear_quotient/circuits/A8_GROUPING_LEARNED.json": "3def72ab041683c3923fa487799af9a34b44d6cd3d8abf3bf96e1e1f709bf45f",
+    "basis_aligned/bilinear_quotient/circuits/BATTERY.json": "86d7ac72eeb95f9ec80a3e92ef65e28c0df66a36b9291d2d1d2d01f7bb6c5030",
+    "basis_aligned/bilinear_quotient/circuits/DAS.json": "91bd4cb80f8077cd62af4b5a402c06845af447796c63c873a7ab677a3a4310de",
+    "basis_aligned/bilinear_quotient/curated_rows.pt": "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd",
+    "basis_aligned/polynomial_causal/ATTENTION8_SHARED_PRIVATE_DAS_RUNG521_PREREGISTRATION.md": "e40ca9654485d8fcc04dd09e0b86628fa633e98d97c0b444c6661f56f73461de"
+  },
+  "direct_attention8_calls": 1,
+  "namespace": "rung521_gpu_smoke_no_task_or_circuit_outcome",
+  "native_attention8_calls": 1,
+  "native_replay_logits_exact": true,
+  "native_replay_max_logit_error": 0.0,
+  "real_donor_edit_rms": 46.6581916809082,
+  "real_donor_logits_changed": true,
+  "scientific_metrics_retained": false,
+  "self_donor_logits_exact": true,
+  "self_donor_max_logit_error": 0.0,
+  "self_donor_write_exact": true,
+  "suggested_frozen_floor": 4.66581916809082
+}

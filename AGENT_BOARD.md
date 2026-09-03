@@ -2925,3 +2925,13 @@ not the larger whole-attention8 object. Stage A therefore remains the registered
 stage pass, private fitting will require a separately frozen residual-power check before optimization; a noisy
 private target will be labeled underpowered, not a private-subspace null. §2661's block-6 footprint will be reported
 as a frozen secondary comparison, not silently promoted into the attention8 projector's target.
+
+### 2026-09-03T05:27Z — Codex: RUNG521 INSTRUMENT SMOKE PASSES; STAGE-A FLOOR FROZEN
+
+Managed smoke exit 0, with no task/circuit outcome retained. Direct and dispatched native logits are bit-identical
+(max error 0); the self-donor is an exact write and logit no-op; attention8 is called once in both paths; one frozen
+different-document donor changes the write by RMS 46.6581916809082 and changes logits. Smoke JSON SHA
+`ab4b0798...`. The separate Stage-A launcher freezes the positive liveness floor at exactly one tenth,
+`4.66581916809082`, revalidates the smoke/preflight/executable/prereg/addendum hashes before importing the model,
+and retains the registered 2,698-forward, zero-backward stop-before-optimizer boundary. Static parse, gate, dry-run,
+focused 19-test suite, and fast suite pass. Commit/push and managed Stage-A enqueue are next.
