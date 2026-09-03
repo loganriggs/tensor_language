@@ -1,0 +1,133 @@
+{
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "dispatchers": [
+    "N",
+    "F",
+    "R"
+  ],
+  "equality_support_audit": {
+    "canonical_support_count_histogram": {
+      "0": 432,
+      "1": 2160
+    },
+    "endpoint_count": 2592,
+    "extra_position_count": 0,
+    "missing_position_count": 0,
+    "ordered_census_sha256": "e2de29dcf3cb37187060ab72775533086612bbb349777d48bd9f8feb8911e9fa"
+  },
+  "forward_call_shape_contract": {
+    "all_batch_sizes": [
+      32
+    ],
+    "all_padding_lengths": [
+      19,
+      20,
+      27,
+      28,
+      30
+    ],
+    "call_count": 234,
+    "facade_require_production": false,
+    "ordered_manifest_sha256": "1e838190752e72eed6f35119c3e99bfb7620e787ae73c7a052046160d600ad3f",
+    "production_model_validated_separately": true,
+    "shape_histogram": {
+      "32x19": 36,
+      "32x20": 23,
+      "32x27": 28,
+      "32x28": 99,
+      "32x30": 48
+    },
+    "token_dtype": "torch.int64",
+    "token_maximum_exclusive": 50257,
+    "token_minimum": 0
+  },
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_weights_updated": false,
+  "operation_census": {
+    "dispatcher_forward_counts": {
+      "F": 24,
+      "N": 132,
+      "R": 78
+    },
+    "endpoint_forwards": 7488,
+    "evaluated_splits": [
+      "FIT"
+    ],
+    "factor_endpoint_site_operations": 13056,
+    "factor_endpoint_site_role_operations": 26112,
+    "factor_operations_by_site": {
+      "L5H5": 3264,
+      "L7H3": 3264,
+      "L8H3": 3264,
+      "L8H4": 3264
+    },
+    "forbidden_splits_opened": [],
+    "model_backwards": 0,
+    "model_forwards": 234,
+    "model_weights_updated": false
+  },
+  "output_boundary": {
+    "calls_scoring": false,
+    "calls_selection": false,
+    "publishes_scientific_terminal": false,
+    "stdout_json_only": true,
+    "writes_evidence": false,
+    "writes_receipt": false,
+    "writes_result": false
+  },
+  "panel": {
+    "endpoint_count": 256,
+    "length_counts": {
+      "19": 64,
+      "20": 64,
+      "27": 64,
+      "28": 64
+    },
+    "ordered_membership_sha256": "6b56a6740dbea7d0765d6a8668361ff43b06562152f091f6969ca8591522ebe4"
+  },
+  "panel_schedules": [
+    "L_native",
+    "L_30",
+    "M_30"
+  ],
+  "r585_commit": "c4288dbe8ee6213dfc4dcb538024dc119fbb642e",
+  "registered_interpretation_order": [
+    "observer_failure",
+    "hook_dominated",
+    "padding_dominated",
+    "membership_gemm_dominated",
+    "mixed",
+    "missing_factor"
+  ],
+  "registered_tolerance": 1e-05,
+  "rung": 591,
+  "schema": "induction_replay_native_numerics_rung591_dryrun_v1",
+  "scientific_status": "diagnostic_only_no_scientific_terminal",
+  "source_sha256": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v5_addendum.json": "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_dependency_lock.json": "908826844336fe7a073ae16a5ef9123434514c21a73f8d3b331b4bab6e9f49b7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_frozen_factor_rung585_dryrun.json": "580a570426ce48c9e43f5fce82c976dece6c71e8a11c1b057054c17cf958dcf8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "fd772c3b9d6df4271ecbfc90c00c893db5a65ea06601f0c8f6e7a9e34c9a531b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585.py": "fcaba664269de12a41a5adb8ff089fc9963eeec91577ef94993ff032c02fc885",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_REPLAY_NATIVE_NUMERICS_RUNG591_PREREGISTRATION.md": "e72cb386d65c68f55b767c8141c3c4d774b3c8ad9387ac7f8ad43bebef118593",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/circuit_induction_tensor.py": "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a"
+  },
+  "split_length_histograms": {
+    "FIT": {
+      "19": 960,
+      "20": 480,
+      "27": 192,
+      "28": 96
+    },
+    "SELECT": {
+      "21": 480,
+      "22": 240,
+      "29": 96,
+      "30": 48
+    }
+  },
+  "status": "model_free_dryrun"
+}

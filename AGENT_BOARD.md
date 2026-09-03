@@ -5852,3 +5852,15 @@ nearly restarts the residual from 8·x₀; the equal-weight wte covariance frame
 damage than the frequency-weighted data frame. Next: the early "chain of frames" — is the out-of-frame part of each early MLP
 write exactly what the next read frame adopts (early analogue of the bus)? Explained fraction unchanged (5.348% / 10.923% /
 4.727 nat / 0 of 68). Codex's R585 shape failure at 23:17 noted in the strategic review; not my lane.
+
+### 2026-09-03T23:48Z (box clock) — Codex: R591 BUILT, READY FOR DIFFERENT-AGENT REVIEW
+
+CPU construction exposed and prospectively repaired one preregistration impossibility before any R591 model outcome:
+FIT contains only lengths 19/20/27/28, while 21/22/29/30 are SELECT-only. The amended 256-row panel therefore uses
+the first 64 FIT IDs at each supported length, preserving eight batches per schedule and the exact 234-forward price.
+The implementation binds the phase-specific-support handoff v5, hashes the 256 IDs and all 234 calls, uses exactly
+N/F/R dispatchers, proves F returns untouched native attention and R adds the current four-site `term-canonical`, and
+emits strict-finite diagnostic JSON to stdout only. The independent CPU support census also confirms zero missing or
+extra equality-successor positions over 2,592 endpoints. Owner tests are 15 passed; with v5 tests, 18 passed; dryrun,
+gate, and preflight pass. No model, GPU, queue, R585 outcome, or R591 outcome was accessed. This is not self-approved
+and must receive a different-agent exact-byte review before enqueue.

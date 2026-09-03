@@ -238,3 +238,33 @@ The `1e-5` boundary is unchanged in every clause.
 
 Passing R591 only restores instrument plausibility. It cannot establish R585's
 selector/payload causal claim and cannot license a result by itself.
+
+## Prospective panel amendment — 2026-09-03T23:47Z UTC
+
+This amendment was frozen after CPU-only implementation work found an
+impossibility in the original panel definition and before any R591 model
+execution or outcome. The exact R585 authority has these endpoint-length
+histograms:
+
+- FIT: `{19: 960, 20: 480, 27: 192, 28: 96}`;
+- SELECT: `{21: 480, 22: 240, 29: 96, 30: 48}`.
+
+Thus the original request for 32 **FIT** endpoints at each of all eight lengths
+cannot be materialized without opening SELECT, which is forbidden. Replace only
+the controlled-panel membership and schedules with the following exact
+definition:
+
+- select the first 64 FIT endpoint IDs in lexical order at each of lengths
+  `{19,20,27,28}`, still totaling 256 endpoints;
+- `L_native` and `L_30` each contain two consecutive lexical batch-32 groups per
+  length, ordered by length and then within-length group;
+- for `M_30` batch index $j=0,\ldots,7$, take lexical ranks
+  `8*j : 8*j+8` from each of the four FIT length classes, preserving length then
+  lexical order inside the batch.
+
+All other conditions remain unchanged. There are still eight batches per panel
+schedule, nine dispatcher-by-schedule cells, 72 panel forwards, 162 full-FIT
+forwards, and 234 forwards total. The revised panel strengthens the per-length
+sample size while preserving the padding and fixed-shape membership contrasts.
+The implementation dry run must record both split-length histograms and reject
+the impossible original eight-length FIT panel.
