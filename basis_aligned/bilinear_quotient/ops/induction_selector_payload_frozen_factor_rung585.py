@@ -67,6 +67,12 @@ SECOND_IMPLEMENTATION_REVIEW = POLY / (
 SECOND_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
     "test_induction_selector_payload_frozen_factor_rung585_second_repair_review_adversarial.py"
 )
+FINAL_IMPLEMENTATION_REVIEW = POLY / (
+    "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_FINAL_PREEXECUTION_REVIEW.md"
+)
+FINAL_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
+    "test_induction_selector_payload_frozen_factor_rung585_final_review_adversarial.py"
+)
 
 AUTHORITY_HASHES = {
     ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
@@ -87,6 +93,10 @@ AUTHORITY_HASHES = {
         "02b513f9eca7d2582d462de95ca7423cb8150962d9a4bc3e5e40deb36762ca19",
     SECOND_IMPLEMENTATION_ADVERSARIAL_TEST:
         "5d5fa1e2628f3dcee41e330c4e6dba5f0a7d6cc0248e1694cedbf39bd7422c47",
+    FINAL_IMPLEMENTATION_REVIEW:
+        "8ddbcf3037b890a3fd1ae6933a526a29c1bd767a22d7fa3af8044d7d660d9238",
+    FINAL_IMPLEMENTATION_ADVERSARIAL_TEST:
+        "693b70f70b72334affd2c8da7e5e02e8b5a41125b29e1df7f943a1856a345277",
 }
 
 SPLITS = ("FIT", "SELECT")
@@ -531,12 +541,7 @@ def _validate_saved_factor_interventions(
         recipient = endpoint_index[str(row["recipient_endpoint_id"])]
         donor = endpoint_index[str(row["donor_endpoint_id"])]
         arm = str(row["arm"])
-        score_index = donor if arm in ("score", "joint") else recipient
-        payload_index = donor if arm in ("payload", "joint") else recipient
-        inserted = (
-            e[score_index, :, 0, None] * u[payload_index, :, 0]
-            + e[score_index, :, 1, None] * u[payload_index, :, 1]
-        ).astype("<f4")
+        inserted = _saved_inserted_term(e, u, recipient, donor, arm)
         observed_live = live[row_index]
         observed_delta = delta[row_index]
         expected_delta = (inserted - observed_live).astype("<f4")
@@ -551,6 +556,15 @@ def _validate_saved_factor_interventions(
         _require_numeric_close(
             row.get("insertion_activity"), float(np.median(norms)), "insertion activity"
         )
+
+
+def _saved_inserted_term(e, u, recipient: int, donor: int, arm: str) -> np.ndarray:
+    score_index = donor if arm in ("score", "joint") else recipient
+    payload_index = donor if arm in ("payload", "joint") else recipient
+    return (
+        e[score_index, :, 0, None] * u[payload_index, :, 0]
+        + e[score_index, :, 1, None] * u[payload_index, :, 1]
+    ).astype("<f4")
 
 
 def _validate_measurement(measurement: object, endpoint: Mapping[str, object], label: str) -> None:
@@ -579,8 +593,8 @@ def _validate_measurement(measurement: object, endpoint: Mapping[str, object], l
 
 
 def _validate_saved_primitive_logit_identities(
-    directed_rows: Sequence[Mapping[str, object]],
-) -> None:
+    directed_rows: Sequence[Mapping[str, object]], *, allow_scientific_failure: bool = False,
+) -> list[str]:
     primitive_required = {
         "answer_logit", "other_logit", "correct_margin", "log_normalizer",
         "correct_ce", "vocab_squared_difference_sum", "vocab_size", "vocab_rms",
@@ -593,9 +607,18 @@ def _validate_saved_primitive_logit_identities(
         type(row[field]) not in (int, float) for row in directed_rows for field in numeric
     ) or any(type(row["vocab_size"]) is not int for row in directed_rows):
         raise TypeError("saved primitive logit fields have invalid scalar types")
+    if any(
+        float(row[field]) > TOLERANCE
+        for row in directed_rows
+        for field in ("live_factor_max_error", "hook_delta_sum_max_error")
+    ):
+        raise ValueError(
+            "unreconstructible live-factor or hook-write failure cannot be published as a scientific null"
+        )
     primitive_failures = validate_primitive_logit_identities(directed_rows)
-    if primitive_failures:
+    if primitive_failures and not allow_scientific_failure:
         raise ValueError(f"saved primitive logit identities failed: {primitive_failures[0]}")
+    return primitive_failures
 
 
 def _saved_logit(measurement: Mapping[str, object], token: int, label: str) -> float:
@@ -613,7 +636,8 @@ def _validate_saved_sufficient_statistics(
     endpoint_fields = {
         "split", "endpoint_id", "token_ids", "length", "final_position",
         "source_positions", "payload_positions", "condition", "answer_id",
-        "other_answer_id", "replay", "native",
+        "other_answer_id", "replay_padding_length", "native_padding_length",
+        "replay_native_logit_max_abs", "replay", "native",
     }
     endpoint_measurements = {}
     for row in endpoint_rows:
@@ -713,13 +737,251 @@ def scored_splits_for_terminal(
     return list(evaluated_splits)
 
 
+def validate_structural_identity_checks(
+    checks: object, execution: Mapping[str, object], evaluated_splits: Sequence[str],
+    *, arrays: Mapping[str, np.ndarray] | None = None,
+    endpoint_order: Sequence[str] | None = None,
+) -> list[dict[str, object]]:
+    if type(checks) is not list:
+        raise ValueError("structural identity checks are missing")
+    cells = {
+        row["cell_id"]: row
+        for row in (
+            *execution["manifests"]["target_cells"],
+            *execution["manifests"]["control_cells"],
+        )
+    }
+    expected = []
+    for split in evaluated_splits:
+        for identity in execution["manifests"]["structural_identities"]:
+            cell = cells[identity["cell_id"]]
+            if cell["split"] != split:
+                continue
+            for directed_id in cell["directed_ids"]:
+                expected.append({
+                    "directed_id": directed_id,
+                    "cell_id": identity["cell_id"],
+                    "left_arm": identity["left_arm"],
+                    "right_arm": identity["right_arm"],
+                })
+    if len(checks) != len(expected):
+        raise ValueError("structural identity check census changed")
+    direction_by_id = {
+        str(row["directed_id"]): row for row in execution["directions"]
+    }
+    endpoint_index = None if endpoint_order is None else {
+        identifier: index for index, identifier in enumerate(endpoint_order)
+    }
+    for observed, authority in zip(checks, expected):
+        if type(observed) is not dict or set(observed) != {*authority, "max_abs"} or any(
+            observed[key] != value for key, value in authority.items()
+        ) or type(observed["max_abs"]) not in (int, float) or (
+            not math.isfinite(float(observed["max_abs"]))
+        ) or float(observed["max_abs"]) < 0:
+            raise ValueError("structural identity check membership or value changed")
+        if arrays is not None:
+            if endpoint_index is None:
+                raise ValueError("structural identity reconstruction lacks endpoint order")
+            direction = direction_by_id[str(authority["directed_id"])]
+            recipient = endpoint_index[str(direction["recipient_endpoint_id"])]
+            donor = endpoint_index[str(direction["donor_endpoint_id"])]
+            left = _saved_inserted_term(
+                arrays["native_e.npy"], arrays["native_u.npy"], recipient, donor,
+                str(authority["left_arm"]),
+            )
+            right = _saved_inserted_term(
+                arrays["native_e.npy"], arrays["native_u.npy"], recipient, donor,
+                str(authority["right_arm"]),
+            )
+            _require_numeric_close(
+                observed["max_abs"], float(np.max(np.abs(left - right))),
+                "structural identity maximum",
+            )
+    return [dict(row) for row in checks]
+
+
+def derive_saved_instrument_failures(
+    split: str, endpoint_rows: Sequence[Mapping[str, object]],
+    directed_rows: Sequence[Mapping[str, object]], factor_rows: Sequence[Mapping[str, object]],
+    arrays: Mapping[str, np.ndarray], structural_checks: Sequence[Mapping[str, object]],
+    split_maxima: Mapping[str, object], execution: Mapping[str, object],
+) -> list[str]:
+    failures = []
+    native_error = float(split_maxima["native_attention_reconstruction_max_abs"])
+    if native_error > TOLERANCE:
+        raise ValueError(
+            "unreconstructible native-attention failure cannot be published as a scientific null"
+        )
+    split_factors = [row for row in factor_rows if row["split"] == split]
+    for row in split_factors:
+        if float(row["equality_factor_max_abs"]) > TOLERANCE:
+            failures.append(f"canonical_factor:{row['endpoint_id']}:{row['site']}")
+        if float(row["equality_plus_independent_remainder_max_abs"]) > TOLERANCE:
+            failures.append(f"head_reconstruction:{row['endpoint_id']}:{row['site']}")
+    split_endpoints = [row for row in endpoint_rows if row["split"] == split]
+    for row in split_endpoints:
+        error = float(row["replay_native_logit_max_abs"])
+        if error > TOLERANCE:
+            raise ValueError(
+                "unreconstructible replay/native full-logit failure cannot be published as a scientific null"
+            )
+    lengths = sorted({int(row["length"]) for row in split_endpoints})
+    maximum = max(lengths)
+    for length in lengths:
+        rows = [row for row in split_endpoints if int(row["length"]) == length]
+        if length < maximum and not any(
+            int(row["replay_padding_length"]) > length
+            and int(row["native_padding_length"]) == length
+            for row in rows
+        ):
+            failures.append(f"padding_tripwire_dead:length{length}")
+
+    endpoint_index = {
+        str(row["endpoint_id"]): index for index, row in enumerate(endpoint_rows)
+    }
+    e, u, canonical = (
+        arrays["native_e.npy"], arrays["native_u.npy"], arrays["canonical_term.npy"]
+    )
+    for direction in execution["directions"]:
+        if direction["split"] != split:
+            continue
+        recipient = endpoint_index[str(direction["recipient_endpoint_id"])]
+        for site_index, site in enumerate(TERM_NAMES):
+            replay_term = (
+                e[recipient, site_index, 0] * u[recipient, site_index, 0]
+                + e[recipient, site_index, 1] * u[recipient, site_index, 1]
+            )
+            error = float(np.max(np.abs(replay_term - canonical[recipient, site_index])))
+            if error > TOLERANCE:
+                failures.append(
+                    f"frozen_replay_canonical:{direction['directed_id']}:{site}:{error}"
+                )
+    failures.extend(validate_primitive_logit_identities([
+        row for row in directed_rows if row["split"] == split
+    ]))
+    for row in structural_checks:
+        if row["cell_id"].startswith(split + "|") and float(row["max_abs"]) > TOLERANCE:
+            failures.append(
+                f"structural_identity:{row['directed_id']}:{row['left_arm']}="
+                f"{row['right_arm']}:{float(row['max_abs'])}"
+            )
+    return sorted(failures)
+
+
+def validate_and_derive_instrument_failures(
+    result: Mapping[str, object], endpoint_rows: Sequence[Mapping[str, object]],
+    directed_rows: Sequence[Mapping[str, object]], factor_rows: Sequence[Mapping[str, object]],
+    arrays: Mapping[str, np.ndarray], execution: Mapping[str, object],
+    endpoint_order: Sequence[str],
+) -> dict[str, list[str]]:
+    raw = result["raw_evidence"]
+    per_split = raw.get("instrument_maxima_by_split")
+    if type(per_split) is not dict or set(per_split) != set(result["evaluated_splits"]):
+        raise ValueError("phase-specific instrument maxima are missing")
+    expected_maximum_fields = {
+        "native_attention_reconstruction_max_abs", "equality_factor_max_abs",
+        "equality_plus_independent_remainder_max_abs", "replay_native_logit_max_abs",
+        "padding_tripwire_active_lengths",
+    }
+    for split in result["evaluated_splits"]:
+        summary = per_split[split]
+        if type(summary) is not dict or set(summary) != expected_maximum_fields:
+            raise ValueError("phase-specific instrument maximum schema changed")
+        numeric = expected_maximum_fields - {"padding_tripwire_active_lengths"}
+        if any(type(summary[key]) not in (int, float) or not math.isfinite(float(summary[key]))
+               or float(summary[key]) < 0 for key in numeric):
+            raise ValueError("phase-specific instrument maximum is invalid")
+        if float(summary["native_attention_reconstruction_max_abs"]) > TOLERANCE:
+            raise ValueError(
+                "unreconstructible native-attention failure cannot be published as a scientific null"
+            )
+        split_endpoints = [row for row in endpoint_rows if row["split"] == split]
+        split_factors = [row for row in factor_rows if row["split"] == split]
+        _require_numeric_close(
+            summary["equality_factor_max_abs"],
+            max(float(row["equality_factor_max_abs"]) for row in split_factors),
+            f"{split} equality factor maximum",
+        )
+        _require_numeric_close(
+            summary["equality_plus_independent_remainder_max_abs"],
+            max(float(row["equality_plus_independent_remainder_max_abs"]) for row in split_factors),
+            f"{split} independent remainder maximum",
+        )
+        _require_numeric_close(
+            summary["replay_native_logit_max_abs"],
+            max(float(row["replay_native_logit_max_abs"]) for row in split_endpoints),
+            f"{split} replay/native maximum",
+        )
+        capture_batches = make_batch_schedule(
+            [row for row in execution["endpoints"] if row["split"] == split],
+            endpoint_field="endpoint_id", mixed=True,
+        )
+        comparator_batches = make_batch_schedule(
+            [row for row in execution["endpoints"] if row["split"] == split],
+            endpoint_field="endpoint_id", mixed=False,
+        )
+        capture_padding = {
+            row["endpoint_id"]: max(int(item["length"]) for item in batch)
+            for batch in capture_batches for row in batch
+        }
+        native_padding = {
+            row["endpoint_id"]: max(int(item["length"]) for item in batch)
+            for batch in comparator_batches for row in batch
+        }
+        for row in split_endpoints:
+            identifier = row["endpoint_id"]
+            if type(row["replay_padding_length"]) is not int or (
+                row["replay_padding_length"] != capture_padding[identifier]
+            ) or type(row["native_padding_length"]) is not int or (
+                row["native_padding_length"] != native_padding[identifier]
+            ) or type(row["replay_native_logit_max_abs"]) not in (int, float) or (
+                not math.isfinite(float(row["replay_native_logit_max_abs"]))
+            ) or float(row["replay_native_logit_max_abs"]) < 0:
+                raise ValueError("endpoint replay/native or padding evidence changed")
+            if float(row["replay_native_logit_max_abs"]) > TOLERANCE:
+                raise ValueError(
+                    "unreconstructible replay/native full-logit failure cannot be published as a scientific null"
+                )
+            observed_lower_bound = max(
+                abs(float(row["replay"][key]) - float(row["native"][key]))
+                for key in ("answer_logit", "other_logit")
+            )
+            if observed_lower_bound > float(row["replay_native_logit_max_abs"]) + TOLERANCE:
+                raise ValueError("endpoint replay/native maximum is below saved token-logit difference")
+        lengths = sorted({int(row["length"]) for row in split_endpoints})
+        expected_active = [
+            length for length in lengths if length < max(lengths) and any(
+                int(row["replay_padding_length"]) > length
+                and int(row["native_padding_length"]) == length
+                for row in split_endpoints if int(row["length"]) == length
+            )
+        ]
+        if summary["padding_tripwire_active_lengths"] != expected_active:
+            raise ValueError("phase-specific padding tripwire evidence changed")
+
+    structural = validate_structural_identity_checks(
+        raw.get("structural_identity_checks"), execution, result["evaluated_splits"],
+        arrays=arrays, endpoint_order=endpoint_order,
+    )
+    derived = {}
+    for split in result["evaluated_splits"]:
+        label = "invalid_instrument" if split == "FIT" else "select_invalid_instrument"
+        derived[label] = derive_saved_instrument_failures(
+            split, endpoint_rows, directed_rows, factor_rows, arrays, structural,
+            per_split[split], execution,
+        )
+    return derived
+
+
 def _validate_saved_score_reports(
     result: Mapping[str, object], directed_rows: Sequence[Mapping[str, object]],
-    execution: Mapping[str, object],
+    execution: Mapping[str, object], *, derived_instrument_failures=None,
 ) -> None:
     scored = scored_splits_for_terminal(
         str(result["terminal"]), result["evaluated_splits"]
     )
+    if "invalid_instrument" in str(result["terminal"]) and derived_instrument_failures is None:
+        raise ValueError("invalid instrument failure list was not reconstructed from evidence")
     if not scored:
         if result["raw_evidence"].get("fit_scales") != {}:
             raise ValueError("unscored invalid instrument unexpectedly saved FIT scales")
@@ -759,6 +1021,7 @@ def _validate_complete_evidence(
         "schema", "endpoint_count", "directed_arm_record_count",
         "endpoint_site_role_operation_counts", "endpoint_site_role_operation_sha256",
         "realized_endpoint_site_role_operations", "instrument_maxima",
+        "instrument_maxima_by_split", "structural_identity_checks",
     }
     if type(raw) is not dict or not required_raw <= set(raw):
         raise ValueError("completed result lacks complete raw evidence")
@@ -807,16 +1070,11 @@ def _validate_complete_evidence(
     ]
     if any(not math.isfinite(value) or value < 0 for value in numeric_maxima):
         raise ValueError("completed instrument maxima are not finite nonnegative values")
-    expected_padding = [19, 20, 21, 22, 27, 28, 29]
     padding = maxima["padding_tripwire_active_lengths"]
     if type(padding) is not list or any(type(value) is not int for value in padding) or (
-        len(padding) != len(set(padding)) or not set(padding) <= set(expected_padding)
+        len(padding) != len(set(padding)) or padding != sorted(padding)
     ):
         raise ValueError("completed padding tripwire evidence is malformed")
-    if result["instrument_passes"] and any(value > TOLERANCE for value in numeric_maxima):
-        raise ValueError("completed instrument maximum exceeds tolerance")
-    if result["instrument_passes"] and sorted(padding) != expected_padding:
-        raise ValueError("completed padding tripwire census changed")
 
     descriptors = result["evidence_files"]
     expected_names = set(expected_array_shapes) | set(expected_jsonl_counts)
@@ -904,12 +1162,45 @@ def _validate_complete_evidence(
     direction_authority = _validate_direction_semantics(directed, execution)
     _validate_factor_row_semantics(factor_rows, endpoint_authority)
     _validate_factor_exactness_rows(factor_rows, arrays, endpoint_order)
-    _validate_saved_primitive_logit_identities(directed)
+    _validate_saved_primitive_logit_identities(
+        directed, allow_scientific_failure=True,
+    )
     _validate_saved_factor_interventions(directed, arrays, endpoint_order)
     _validate_saved_sufficient_statistics(
         endpoints, directed, direction_authority
     )
-    _validate_saved_score_reports(result, directed, execution)
+    derived_instrument_failures = validate_and_derive_instrument_failures(
+        result, endpoints, directed, factor_rows, arrays, execution, endpoint_order,
+    )
+    for label, clauses in derived_instrument_failures.items():
+        if result["failure_classes"].get(label) != clauses:
+            observed = result["failure_classes"].get(label, [])
+            detail = "primitive logit " if any(
+                str(clause).startswith("primitive_")
+                for clause in (*observed, *clauses)
+            ) else ""
+            raise ValueError(
+                f"saved {label} {detail}clauses disagree with retained instrument evidence"
+            )
+    per_split = raw["instrument_maxima_by_split"]
+    for key in (
+        "native_attention_reconstruction_max_abs", "equality_factor_max_abs",
+        "equality_plus_independent_remainder_max_abs", "replay_native_logit_max_abs",
+    ):
+        _require_numeric_close(
+            maxima[key], max(float(per_split[split][key]) for split in evaluated),
+            f"aggregate {key}",
+        )
+    expected_padding = sorted({
+        length for split in evaluated
+        for length in per_split[split]["padding_tripwire_active_lengths"]
+    })
+    if padding != expected_padding:
+        raise ValueError("aggregate padding tripwire evidence changed")
+    _validate_saved_score_reports(
+        result, directed, execution,
+        derived_instrument_failures=derived_instrument_failures,
+    )
 
     endpoint_hash = content_sha256(endpoint_order)
     directed_hash = content_sha256(directed_order)
@@ -938,7 +1229,9 @@ def _validate_complete_evidence(
             arrays["canonical_term.npy"][start:stop]
             + arrays["non_equality_remainder.npy"][start:stop]
         )
-        if float(np.max(np.abs(reconstructed - arrays["native_head_output.npy"][start:stop]))) > 5e-5:
+        if result["instrument_passes"] and float(np.max(np.abs(
+            reconstructed - arrays["native_head_output.npy"][start:stop]
+        ))) > 5e-5:
             raise ValueError("saved independent remainder does not reconstruct head output")
 
 
@@ -1688,14 +1981,18 @@ def collect_capture_replay(model, batches, *, torch, functional, facade, inducti
             )
             calls += 1
             if max_full_error > TOLERANCE:
-                failures.append(f"native_attention_reconstruction:{max_full_error}")
+                raise RuntimeError(
+                    "native full-attention reconstruction failed before publishable evidence"
+                )
             exactness["native_attention_reconstruction_max_abs"] = max(
                 exactness["native_attention_reconstruction_max_abs"], max_full_error
             )
             for local, spec in enumerate(batch):
                 endpoint = str(spec["endpoint_id"])
                 if set(batch_terms[local]) != set(TERM_NAMES):
-                    failures.append(f"factor_capture_incomplete:{endpoint}")
+                    raise RuntimeError(
+                        f"factor capture incomplete before publishable evidence: {endpoint}"
+                    )
                 for term_name, term in batch_terms[local].items():
                     for role in ROLES:
                         realized_operations.append({
@@ -1741,9 +2038,11 @@ def collect_native_comparator(model, batches, *, torch, facade):
 def capture_instrument_failures(replay, native, replay_padding, native_padding, endpoint_specs):
     failures = []
     maximum_logit_error = 0.0
+    per_endpoint_logit_error = {}
     for endpoint, replay_row in replay.items():
         native_row = native[endpoint]
         error = float((replay_row["full_logits"] - native_row["full_logits"]).abs().max())
+        per_endpoint_logit_error[endpoint] = error
         maximum_logit_error = max(maximum_logit_error, error)
         if error > TOLERANCE:
             failures.append(f"replay_native_logits:{endpoint}:{error}")
@@ -1762,6 +2061,7 @@ def capture_instrument_failures(replay, native, replay_padding, native_padding, 
             active_lengths.append(length)
     return failures, {
         "replay_native_logit_max_abs": maximum_logit_error,
+        "replay_native_logit_max_abs_by_endpoint": per_endpoint_logit_error,
         "padding_tripwire_active_lengths": active_lengths,
     }
 
@@ -1860,6 +2160,12 @@ def collect_intervention_arm(
                 delta_norms = [
                     float(per_row[local]["delta"][term].float().norm()) for term in TERM_NAMES
                 ]
+                live_factor_error = max(per_row[local]["factor_errors"], default=0.0)
+                hook_error = max(per_row[local]["hook_errors"], default=0.0)
+                if live_factor_error > TOLERANCE or hook_error > TOLERANCE:
+                    raise RuntimeError(
+                        "live factorization or hook-write integrity failed before publishable evidence"
+                    )
                 record = {
                     **{key: direction[key] for key in (
                         "split", "directed_id", "row_id", "group_id", "family", "variant",
@@ -1880,8 +2186,8 @@ def collect_intervention_arm(
                     "q": float(q_value),
                     "insertion_activity": float(np.median(np.asarray(delta_norms, dtype=np.float64))),
                     "per_site_delta_norms": delta_norms,
-                    "live_factor_max_error": max(per_row[local]["factor_errors"], default=0.0),
-                    "hook_delta_sum_max_error": max(per_row[local]["hook_errors"], default=0.0),
+                    "live_factor_max_error": live_factor_error,
+                    "hook_delta_sum_max_error": hook_error,
                     "vocab_squared_difference_sum": squared,
                     "vocab_size": int(measurement["full_logits"].numel()),
                     "vocab_rms": math.sqrt(squared / int(measurement["full_logits"].numel())),
@@ -2141,7 +2447,9 @@ def score_split(records, split, manifests, fit_scales, *, replicates=BOOTSTRAPS)
     return reports, failures
 
 
-def structural_identity_failures(records, vector_rows, manifests, replay):
+def structural_identity_failures(
+    records, vector_rows, manifests, replay, *, frozen_insertions=None,
+):
     record_by_key = {(row["directed_id"], row["arm"]): row for row in records}
     by_key = {(row["directed_id"], row["arm"]): row for row in vector_rows}
     failures, evidence = [], []
@@ -2155,10 +2463,16 @@ def structural_identity_failures(records, vector_rows, manifests, replay):
                 continue
             left = identity["left_arm"]
             right = identity["right_arm"]
-            recipient = record_by_key[(directed_id, "score")]["recipient_endpoint_id"]
-            left_logits = by_key[(directed_id, left)]["full_logits"] if left != "replay" else replay[recipient]["full_logits"]
-            right_logits = by_key[(directed_id, right)]["full_logits"] if right != "replay" else replay[recipient]["full_logits"]
-            error = float((left_logits - right_logits).abs().max())
+            if frozen_insertions is None:
+                recipient = record_by_key[(directed_id, "score")]["recipient_endpoint_id"]
+                left_value = by_key[(directed_id, left)]["full_logits"] if left != "replay" else replay[recipient]["full_logits"]
+                right_value = by_key[(directed_id, right)]["full_logits"] if right != "replay" else replay[recipient]["full_logits"]
+                error = float((left_value - right_value).abs().max())
+            else:
+                error = max(float((
+                    frozen_insertions[(directed_id, left, site)]
+                    - frozen_insertions[(directed_id, right, site)]
+                ).abs().max()) for site in TERM_NAMES)
             evidence.append({"directed_id": directed_id, **identity, "max_abs": error})
             if error > TOLERANCE:
                 failures.append(f"structural_identity:{directed_id}:{left}={right}:{error}")
@@ -2265,6 +2579,9 @@ def _fsync_directory(path: Path) -> None:
 def write_evidence(
     execution, factors, records, vector_rows, replay, native, *,
     evidence_dir: Path, logical_evidence_dir: Path = EVIDENCE_DIR,
+    replay_padding: Mapping[str, int] | None = None,
+    native_padding: Mapping[str, int] | None = None,
+    replay_native_errors: Mapping[str, float] | None = None,
     crash_injector=None,
 ):
     """Write a complete evidence tree into a non-final staging directory."""
@@ -2276,6 +2593,9 @@ def write_evidence(
         )],
         key=lambda row: (row["split"], row["endpoint_id"]),
     )
+    replay_padding = {} if replay_padding is None else replay_padding
+    native_padding = {} if native_padding is None else native_padding
+    replay_native_errors = {} if replay_native_errors is None else replay_native_errors
     endpoint_index = {row["endpoint_id"]: index for index, row in enumerate(endpoints)}
     e = np.empty((len(endpoints), 4, 2), dtype="<f4")
     u = np.empty((len(endpoints), 4, 2, 1152), dtype="<f4")
@@ -2346,6 +2666,9 @@ def write_evidence(
             identifier = endpoint["endpoint_id"]
             payload = {
                 **endpoint,
+                "replay_padding_length": int(replay_padding[identifier]),
+                "native_padding_length": int(native_padding[identifier]),
+                "replay_native_logit_max_abs": float(replay_native_errors[identifier]),
                 "replay": {key: value for key, value in replay[identifier].items() if key != "full_logits"},
                 "native": {key: value for key, value in native[identifier].items() if key != "full_logits"},
             }
@@ -2692,6 +3015,7 @@ def run_science() -> dict[str, object]:
         raise RuntimeError("checkpoint hash changed")
     endpoint_specs = {(row["split"], row["endpoint_id"]): row for row in execution["endpoints"]}
     all_factors, all_replay, all_native = {}, {}, {}
+    all_replay_padding, all_native_padding, all_replay_native_errors = {}, {}, {}
     all_records, all_vectors = [], []
     calls = 0
     split_scores = {}
@@ -2712,6 +3036,7 @@ def run_science() -> dict[str, object]:
         "replay_native_logit_max_abs": 0.0,
         "padding_tripwire_active_lengths": [],
     }
+    instrument_maxima_by_split = {}
 
     for split in SPLITS:
         if split == "SELECT" and any(fit_failures.values()):
@@ -2736,7 +3061,20 @@ def run_science() -> dict[str, object]:
         comparator_failures, comparator_exactness = capture_instrument_failures(
             replay, native, replay_padding, native_padding, split_endpoints
         )
+        if float(comparator_exactness["replay_native_logit_max_abs"]) > TOLERANCE:
+            raise RuntimeError(
+                "replay/native full-logit comparison failed before publishable evidence"
+            )
         instrument += comparator_failures
+        instrument_maxima_by_split[split] = {
+            **{key: float(value) for key, value in capture_exactness.items()},
+            "replay_native_logit_max_abs": float(
+                comparator_exactness["replay_native_logit_max_abs"]
+            ),
+            "padding_tripwire_active_lengths": list(
+                comparator_exactness["padding_tripwire_active_lengths"]
+            ),
+        }
         for key, value in capture_exactness.items():
             instrument_maxima[key] = max(float(instrument_maxima[key]), float(value))
         instrument_maxima["replay_native_logit_max_abs"] = max(
@@ -2750,6 +3088,11 @@ def run_science() -> dict[str, object]:
         all_factors.update(factors)
         all_replay.update(replay)
         all_native.update(native)
+        all_replay_padding.update(replay_padding)
+        all_native_padding.update(native_padding)
+        all_replay_native_errors.update(
+            comparator_exactness["replay_native_logit_max_abs_by_endpoint"]
+        )
         current_failures = {name: [] for name in fit_failures}
         current_failures["invalid_instrument"].extend(instrument)
         split_records, split_vectors = [], []
@@ -2771,9 +3114,13 @@ def run_science() -> dict[str, object]:
             validate_primitive_logit_identities(split_records)
         )
         structural, evidence = structural_identity_failures(
-            split_records, split_vectors, execution["manifests"], all_replay
+            split_records, split_vectors, execution["manifests"], all_replay,
+            frozen_insertions=frozen_insertions,
         )
         current_failures["invalid_instrument"].extend(structural)
+        current_failures["invalid_instrument"] = sorted(
+            current_failures["invalid_instrument"]
+        )
         structural_evidence.extend(evidence)
         for vector_row in split_vectors:
             vector_row.pop("full_logits", None)
@@ -2813,6 +3160,8 @@ def run_science() -> dict[str, object]:
     evidence_files = write_evidence(
         execution, all_factors, all_records, all_vectors, all_replay, all_native,
         evidence_dir=stage_root / "evidence",
+        replay_padding=all_replay_padding, native_padding=all_native_padding,
+        replay_native_errors=all_replay_native_errors,
     )
     failed = [clause for key in sorted(failure_classes) for clause in failure_classes[key]]
     result = {
@@ -2841,6 +3190,7 @@ def run_science() -> dict[str, object]:
             ]),
             "realized_endpoint_site_role_operations": realized_operation_evidence,
             "instrument_maxima": instrument_maxima,
+            "instrument_maxima_by_split": instrument_maxima_by_split,
             "structural_identity_checks": structural_evidence,
             "endpoint_manifest_sha256": execution["endpoint_manifest_sha256"],
             "direction_manifest_sha256": execution["direction_manifest_sha256"],
@@ -2965,6 +3315,9 @@ def run_dryrun() -> dict[str, object]:
             "endpoint_semantics_equal_frozen_authority": True,
             "directed_semantics_equal_frozen_authority": True,
             "inserted_term_reconstructed_from_saved_factors": True,
+            "structural_identity_recomputed_from_saved_inserted_terms": True,
+            "published_instrument_failures_reconstructed_from_saved_evidence": True,
+            "unreconstructible_implementation_failures_hard_abort": True,
             "primitive_and_sufficient_statistics_recomputed": True,
             "scored_reports_recomputed_from_directed_rows": True,
             "finite_before_final_write": True,

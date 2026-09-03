@@ -113,10 +113,13 @@
       "factor_exactness.jsonl": 10368
     },
     "primitive_and_sufficient_statistics_recomputed": true,
-    "scored_reports_recomputed_from_directed_rows": true
+    "published_instrument_failures_reconstructed_from_saved_evidence": true,
+    "scored_reports_recomputed_from_directed_rows": true,
+    "structural_identity_recomputed_from_saved_inserted_terms": true,
+    "unreconstructible_implementation_failures_hard_abort": true
   },
   "fixture_bootstrap_replicates": 16,
-  "implementation_sha256": "a3987dc053ba9b18a92a950c526acb1127f2cec9ee97d1142158ca4ef6483ddd",
+  "implementation_sha256": "29650364b386269267dc663154c81e8413edfe2abae2ce9b7b93524760692cb4",
   "manifest_hashes": {
     "bootstrap_cell_ids_sha256": "16e07d0400c37a4270adad09d1e28e04dc079138b61e7bb903d7abebb2ab027e",
     "control_cell_ids_sha256": "b1777d714ee7a5b9ed134923c1fdbb85850d1e51ee5dc5292184616af9ba5c38",
@@ -169,8 +172,10 @@
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_term_score_payload_rung459.py": "9f9e66f689452cbcb14d741792b66eb9ff526dff5472a5938c58a2a4c82620d8",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_term_subset_factorial_stage1.py": "3caa753cd856ec87899936fe71137ce28e893f86433558f40a815afff61824af",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_final_review_adversarial.py": "693b70f70b72334affd2c8da7e5e02e8b5a41125b29e1df7f943a1856a345277",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_implementation_adversarial.py": "2567c3c5633575c2f4f8369328071025037b7c6f6c8a359f7870859b787a12e2",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_second_repair_review_adversarial.py": "5d5fa1e2628f3dcee41e330c4e6dba5f0a7d6cc0248e1694cedbf39bd7422c47",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_FINAL_PREEXECUTION_REVIEW.md": "8ddbcf3037b890a3fd1ae6933a526a29c1bd767a22d7fa3af8044d7d660d9238",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md": "98ed34711ada83bbe1591887edf17164efd443d4c6a47559f43dec33f60aa5bf",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_SECOND_REPAIR_PREEXECUTION_REVIEW.md": "02b513f9eca7d2582d462de95ca7423cb8150962d9a4bc3e5e40deb36762ca19",
@@ -178,7 +183,7 @@
     "/workspace/tensor_language/basis_aligned/polynomial_causal/circuit_induction_tensor.py": "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a"
   },
   "status": "deterministic_cpu_dryrun_passed",
-  "test_sha256": "5365d3d473f3385d3b052f7ff09af78f8e2209a0d3e6a75eca264beaf082c11f",
+  "test_sha256": "2842f58c54c953885c3b78263ab8bbfd1ddef3b46062fd71fd39d2ea133b289b",
   "upstream_dependency_records_parsed": [
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_results.json",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_receipt.json",

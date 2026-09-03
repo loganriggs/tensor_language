@@ -309,7 +309,12 @@ def _write_mini_complete_evidence(
         "recipient_answer_id": 3, "donor_answer_id": 3,
         "recipient_other_answer_id": 4, "donor_other_answer_id": 4,
     }
-    execution = {"endpoints": [endpoint], "directions": [direction], "manifests": {}}
+    execution = {
+        "endpoints": [endpoint], "directions": [direction],
+        "manifests": {
+            "target_cells": [], "control_cells": [], "structural_identities": [],
+        },
+    }
     operations = sorted([
         {"split": "FIT", "endpoint_id": "endpoint-0", "site": site, "role": role}
         for site in runner.TERM_NAMES for role in runner.ROLES
@@ -336,9 +341,12 @@ def _write_mini_complete_evidence(
 
     e = np.ones((1, 4, 2), dtype="<f4")
     u = np.ones((1, 4, 2, 3), dtype="<f4")
-    canonical = np.sum(e[:, :, :, None] * u, axis=2)
+    factor_term = np.sum(e[:, :, :, None] * u, axis=2)
+    canonical = factor_term.copy()
+    if terminal == "invalid_instrument":
+        canonical += np.float32(1e-3)
     remainder = np.ones_like(canonical)
-    live = np.repeat(canonical, 3, axis=0)
+    live = np.repeat(factor_term, 3, axis=0)
     delta = np.zeros_like(live)
     if mutation == "vectors":
         live[:] = 0
@@ -353,7 +361,11 @@ def _write_mini_complete_evidence(
         "other_logit": 1.0, "correct_margin": 1.0, "log_normalizer": 3.0,
         "correct_ce": 1.0,
     }
-    endpoint_rows = [{**endpoint, "replay": measurement, "native": measurement}]
+    endpoint_rows = [{
+        **endpoint, "replay_padding_length": 5, "native_padding_length": 5,
+        "replay_native_logit_max_abs": 0.0,
+        "replay": measurement, "native": measurement,
+    }]
     if mutation == "endpoint":
         endpoint_rows[0]["token_ids"] = [99, 98, 97]
     directed_rows = []
@@ -378,9 +390,10 @@ def _write_mini_complete_evidence(
         if mutation == "primitive":
             row["correct_margin"] = -999.0
         directed_rows.append(row)
+    factor_error = float(np.max(np.abs(factor_term - canonical)))
     factor_rows = [{
         "split": "FIT", "endpoint_id": "endpoint-0", "site": site,
-        "equality_factor_max_abs": 0.0,
+        "equality_factor_max_abs": factor_error,
         "equality_plus_independent_remainder_max_abs": 0.0,
     } for site in sorted(runner.TERM_NAMES)]
     endpoint_order = ["endpoint-0"]
@@ -423,24 +436,352 @@ def _write_mini_complete_evidence(
         },
         "instrument_maxima": {
             "native_attention_reconstruction_max_abs": 0.0,
-            "equality_factor_max_abs": 0.0,
+            "equality_factor_max_abs": factor_error,
             "equality_plus_independent_remainder_max_abs": 0.0,
             "replay_native_logit_max_abs": 0.0,
-            "padding_tripwire_active_lengths": (
-                [] if terminal == "invalid_instrument" else [19, 20, 21, 22, 27, 28, 29]
-            ),
+            "padding_tripwire_active_lengths": [],
         },
+        "instrument_maxima_by_split": {"FIT": {
+            "native_attention_reconstruction_max_abs": 0.0,
+            "equality_factor_max_abs": factor_error,
+            "equality_plus_independent_remainder_max_abs": 0.0,
+            "replay_native_logit_max_abs": 0.0,
+            "padding_tripwire_active_lengths": [],
+        }},
+        "structural_identity_checks": [],
         "fit_scales": {},
     }
     result["evidence_files"] = descriptors
     if terminal == "invalid_instrument":
         result["split_scores"] = {}
+        clauses = [
+            f"canonical_factor:endpoint-0:{site}"
+            for site in sorted(runner.TERM_NAMES)
+        ]
+        clauses.extend(
+            f"frozen_replay_canonical:direction-0:{site}:{factor_error}"
+            for site in runner.TERM_NAMES
+        )
+        result["failure_classes"]["invalid_instrument"] = clauses
+        result["failed_clauses"] = clauses
     return result, lambda logical: tmp_path / logical.name
 
 
 def test_miniature_complete_evidence_joins_authority_and_computation(runner, tmp_path, monkeypatch):
     result, resolver = _write_mini_complete_evidence(runner, tmp_path, monkeypatch)
     runner.validate_result(result, artifact_path_resolver=resolver)
+
+
+def test_complete_fit_invalid_failure_list_is_derived_not_trusted(
+    runner, tmp_path, monkeypatch,
+):
+    result, resolver = _write_mini_complete_evidence(runner, tmp_path, monkeypatch)
+    runner.validate_result(result, artifact_path_resolver=resolver)
+    changed = copy.deepcopy(result)
+    changed["failure_classes"]["invalid_instrument"] = ["invented:fit_failure"]
+    changed["failed_clauses"] = ["invented:fit_failure"]
+    with pytest.raises(ValueError, match="retained instrument evidence"):
+        runner.validate_result(changed, artifact_path_resolver=resolver)
+
+
+def test_complete_package_cannot_publish_native_attention_failure_clause(
+    runner, tmp_path, monkeypatch,
+):
+    result, resolver = _write_mini_complete_evidence(runner, tmp_path, monkeypatch)
+    error = 1.0
+    result["raw_evidence"]["instrument_maxima"][
+        "native_attention_reconstruction_max_abs"
+    ] = error
+    result["raw_evidence"]["instrument_maxima_by_split"]["FIT"][
+        "native_attention_reconstruction_max_abs"
+    ] = error
+    clauses = sorted([
+        *result["failure_classes"]["invalid_instrument"],
+        f"native_attention_reconstruction:{error}",
+    ])
+    result["failure_classes"]["invalid_instrument"] = clauses
+    result["failed_clauses"] = clauses
+    with pytest.raises(ValueError, match="cannot be published"):
+        runner.validate_result(result, artifact_path_resolver=resolver)
+
+
+def test_complete_package_cannot_publish_replay_native_full_logit_failure_clause(
+    runner, tmp_path, monkeypatch,
+):
+    result, resolver = _write_mini_complete_evidence(runner, tmp_path, monkeypatch)
+    error = 1.0
+    endpoint_path = tmp_path / "endpoint_measurements.jsonl"
+    endpoint_rows = runner._strict_jsonl(endpoint_path)
+    endpoint_rows[0]["replay_native_logit_max_abs"] = error
+    endpoint_path.write_text("".join(
+        json.dumps(row, sort_keys=True, allow_nan=False) + "\n"
+        for row in endpoint_rows
+    ))
+    descriptor = next(
+        row for row in result["evidence_files"]
+        if Path(row["path"]).name == endpoint_path.name
+    )
+    descriptor["sha256"] = runner.sha256(endpoint_path)
+    descriptor["bytes"] = endpoint_path.stat().st_size
+    result["raw_evidence"]["instrument_maxima"][
+        "replay_native_logit_max_abs"
+    ] = error
+    result["raw_evidence"]["instrument_maxima_by_split"]["FIT"][
+        "replay_native_logit_max_abs"
+    ] = error
+    clauses = sorted([
+        *result["failure_classes"]["invalid_instrument"],
+        f"replay_native_logits:endpoint-0:{error}",
+    ])
+    result["failure_classes"]["invalid_instrument"] = clauses
+    result["failed_clauses"] = clauses
+    with pytest.raises(ValueError, match="cannot be published"):
+        runner.validate_result(result, artifact_path_resolver=resolver)
+
+
+def _write_mini_select_invalid_evidence(runner, tmp_path, monkeypatch):
+    """Two-split complete fixture: FIT is healthy; SELECT has an exact factor error."""
+    base, _ = _write_mini_complete_evidence(
+        runner, tmp_path, monkeypatch, terminal="factor_capacity_null"
+    )
+    fit_endpoint = runner._strict_jsonl(tmp_path / "endpoint_measurements.jsonl")[0]
+    fit_direction_rows = runner._strict_jsonl(tmp_path / "directed_arm_measurements.jsonl")
+    fit_factor_rows = runner._strict_jsonl(tmp_path / "factor_exactness.jsonl")
+    select_endpoint = copy.deepcopy(fit_endpoint)
+    select_endpoint.update({"split": "SELECT", "endpoint_id": "endpoint-1"})
+    endpoints = [fit_endpoint, select_endpoint]
+    select_direction_rows = []
+    for row in fit_direction_rows:
+        cloned = copy.deepcopy(row)
+        cloned.update({
+            "split": "SELECT", "directed_id": "direction-1", "row_id": "row-1",
+            "group_id": "group-1", "recipient_endpoint_id": "endpoint-1",
+            "donor_endpoint_id": "endpoint-1",
+        })
+        select_direction_rows.append(cloned)
+    directed = sorted(
+        [*fit_direction_rows, *select_direction_rows],
+        key=lambda row: (row["split"], row["directed_id"], row["arm"]),
+    )
+
+    e = np.concatenate([np.load(tmp_path / "native_e.npy")] * 2, axis=0)
+    u = np.concatenate([np.load(tmp_path / "native_u.npy")] * 2, axis=0)
+    factor_term = np.sum(e[:, :, :, None] * u, axis=2).astype("<f4")
+    canonical = factor_term.copy()
+    canonical[1] += np.float32(1e-3)
+    factor_error = float(np.max(np.abs(canonical[1] - factor_term[1])))
+    remainder = np.ones_like(canonical)
+    live = np.repeat(factor_term, len(runner.ARMS), axis=0)
+    arrays = {
+        "native_e.npy": e, "native_u.npy": u, "canonical_term.npy": canonical,
+        "native_head_output.npy": canonical + remainder,
+        "non_equality_remainder.npy": remainder,
+        "live_removed.npy": live, "hook_delta.npy": np.zeros_like(live),
+    }
+    factors = []
+    for row in fit_factor_rows:
+        factors.append(row)
+        cloned = copy.deepcopy(row)
+        cloned.update({
+            "split": "SELECT", "endpoint_id": "endpoint-1",
+            "equality_factor_max_abs": factor_error,
+        })
+        factors.append(cloned)
+    factors.sort(key=lambda row: (row["split"], row["endpoint_id"], row["site"]))
+
+    endpoint_authority = [{key: row[key] for key in (
+        "split", "endpoint_id", "token_ids", "length", "final_position",
+        "source_positions", "payload_positions", "condition", "answer_id",
+        "other_answer_id",
+    )} for row in endpoints]
+    direction_authority = []
+    for identifier, split, endpoint_id in (
+        ("direction-0", "FIT", "endpoint-0"),
+        ("direction-1", "SELECT", "endpoint-1"),
+    ):
+        authority = {
+            "split": split, "directed_id": identifier,
+            "row_id": "row-0" if split == "FIT" else "row-1",
+            "group_id": "group-0" if split == "FIT" else "group-1",
+            "family": "mini-family", "variant": "mini-variant",
+            "direction": "base_to_donor", "recipient_condition": "s0p0",
+            "recipient_is_coherent": True, "donor_is_coherent": True,
+            "donor_coherence_sign": 1, "answer_changes": False,
+            "control_kind": None, "recipient_endpoint_id": endpoint_id,
+            "donor_endpoint_id": endpoint_id, "recipient_answer_id": 3,
+            "donor_answer_id": 3, "recipient_other_answer_id": 4,
+            "donor_other_answer_id": 4,
+        }
+        direction_authority.append(authority)
+    execution = {
+        "endpoints": endpoint_authority, "directions": direction_authority,
+        "manifests": {
+            "target_cells": [], "control_cells": [], "structural_identities": [],
+        },
+    }
+    operations = sorted([
+        {"split": row["split"], "endpoint_id": row["endpoint_id"],
+         "site": site, "role": role}
+        for row in endpoint_authority for site in runner.TERM_NAMES for role in runner.ROLES
+    ], key=lambda row: (row["split"], row["endpoint_id"], row["site"], row["role"]))
+    contract = {
+        "evaluated_splits": ["FIT", "SELECT"], "endpoint_count": 2,
+        "direction_count": 2, "directed_arm_record_count": 6,
+        "factor_exactness_count": 8,
+        "array_shapes": {name: list(array.shape) for name, array in arrays.items()},
+        "jsonl_counts": {
+            "endpoint_measurements.jsonl": 2,
+            "directed_arm_measurements.jsonl": 6,
+            "factor_exactness.jsonl": 8,
+        },
+    }
+    monkeypatch.setattr(runner, "phase_evidence_contract", lambda _: contract)
+    monkeypatch.setattr(runner, "build_execution_authority", lambda: execution)
+    monkeypatch.setattr(runner, "build_endpoint_site_role_operations", lambda _: operations)
+    monkeypatch.setattr(runner, "EXPECTED_OPERATION_COUNTS", {"FIT": 8, "SELECT": 8})
+
+    endpoint_order = ["endpoint-0", "endpoint-1"]
+    directed_order = [[row["directed_id"], row["arm"]] for row in directed]
+    factor_order = [[row["endpoint_id"], row["site"]] for row in factors]
+    descriptors = []
+    for name, array in arrays.items():
+        path = tmp_path / name
+        np.save(path, array, allow_pickle=False)
+        order = directed_order if name in ("live_removed.npy", "hook_delta.npy") else endpoint_order
+        descriptors.append({
+            "path": str((runner.EVIDENCE_DIR / name).relative_to(runner.ROOT.parent.parent)),
+            "sha256": runner.sha256(path), "bytes": path.stat().st_size,
+            "dtype": "<f4", "shape": list(array.shape),
+            "row_order_sha256": runner.content_sha256(order),
+        })
+    for name, rows, order in (
+        ("endpoint_measurements.jsonl", endpoints, endpoint_order),
+        ("directed_arm_measurements.jsonl", directed, directed_order),
+        ("factor_exactness.jsonl", factors, factor_order),
+    ):
+        path = tmp_path / name
+        path.write_text("".join(
+            json.dumps(row, sort_keys=True, allow_nan=False) + "\n" for row in rows
+        ))
+        descriptors.append({
+            "path": str((runner.EVIDENCE_DIR / name).relative_to(runner.ROOT.parent.parent)),
+            "sha256": runner.sha256(path), "bytes": path.stat().st_size,
+            "dtype": "jsonl", "shape": [len(rows)],
+            "row_order_sha256": runner.content_sha256(order),
+        })
+
+    empty_report = {
+        "primitive_projection": runner.content_sha256(fit_direction_rows),
+        "bootstrap_realization": {"count": 0, "cell_ids_sha256": runner.content_sha256([])},
+    }
+    empty_science = {
+        "invalid_instrument": [], "native_denominator_or_scale_null": [],
+        "factor_capacity_null": [], "factorization_not_identified": [],
+        "insufficient_active_controls": [], "broad_contextual_equality_write": [],
+    }
+    scales = {"mini": {"valid": True}}
+    monkeypatch.setattr(runner, "compute_fit_scales", lambda rows, manifests: scales)
+    monkeypatch.setattr(
+        runner, "score_split",
+        lambda rows, split, manifests, fit_scales, replicates: (empty_report, empty_science),
+    )
+    monkeypatch.setattr(
+        runner, "validate_realized_bootstraps",
+        lambda report, split, manifests: report["bootstrap_realization"],
+    )
+    result = runner.make_result_fixture("select_invalid_instrument")
+    clauses = [
+        f"canonical_factor:endpoint-1:{site}" for site in sorted(runner.TERM_NAMES)
+    ]
+    clauses.extend(
+        f"frozen_replay_canonical:direction-1:{site}:{factor_error}"
+        for site in runner.TERM_NAMES
+    )
+    result["failure_classes"] = {
+        name: [] for name in runner.TERMINALS
+        if name != "held_operational_selector_payload_factorization"
+    }
+    result["failure_classes"]["select_invalid_instrument"] = clauses
+    result["failed_clauses"] = clauses
+    result["split_scores"] = {"FIT": empty_report}
+    result["raw_evidence"] = {
+        "schema": runner.EVIDENCE_SCHEMA, "endpoint_count": 2,
+        "directed_arm_record_count": 6,
+        "endpoint_site_role_operation_counts": {"FIT": 8, "SELECT": 8},
+        "endpoint_site_role_operation_sha256": runner.content_sha256(operations),
+        "realized_endpoint_site_role_operations": {
+            split: {"count": 8, "sha256": runner.content_sha256([
+                row for row in operations if row["split"] == split
+            ])} for split in ("FIT", "SELECT")
+        },
+        "instrument_maxima": {
+            "native_attention_reconstruction_max_abs": 0.0,
+            "equality_factor_max_abs": factor_error,
+            "equality_plus_independent_remainder_max_abs": 0.0,
+            "replay_native_logit_max_abs": 0.0,
+            "padding_tripwire_active_lengths": [],
+        },
+        "instrument_maxima_by_split": {
+            "FIT": {
+                "native_attention_reconstruction_max_abs": 0.0,
+                "equality_factor_max_abs": 0.0,
+                "equality_plus_independent_remainder_max_abs": 0.0,
+                "replay_native_logit_max_abs": 0.0,
+                "padding_tripwire_active_lengths": [],
+            },
+            "SELECT": {
+                "native_attention_reconstruction_max_abs": 0.0,
+                "equality_factor_max_abs": factor_error,
+                "equality_plus_independent_remainder_max_abs": 0.0,
+                "replay_native_logit_max_abs": 0.0,
+                "padding_tripwire_active_lengths": [],
+            },
+        },
+        "structural_identity_checks": [], "fit_scales": scales,
+    }
+    result["evidence_files"] = descriptors
+    return result, lambda logical: tmp_path / logical.name
+
+
+def test_complete_select_invalid_failure_list_is_derived_not_trusted(
+    runner, tmp_path, monkeypatch,
+):
+    result, resolver = _write_mini_select_invalid_evidence(
+        runner, tmp_path, monkeypatch
+    )
+    runner.validate_result(result, artifact_path_resolver=resolver)
+    changed = copy.deepcopy(result)
+    changed["failure_classes"]["select_invalid_instrument"] = [
+        "invented:select_failure"
+    ]
+    changed["failed_clauses"] = ["invented:select_failure"]
+    with pytest.raises(ValueError, match="retained instrument evidence"):
+        runner.validate_result(changed, artifact_path_resolver=resolver)
+
+
+@pytest.mark.parametrize(
+    ("field", "clause"),
+    [
+        ("live_factor_max_error", "live_factor:direction-0:score"),
+        ("hook_delta_sum_max_error", "hook_delta:direction-0:score"),
+    ],
+)
+def test_unreconstructible_intervention_errors_hard_fail_even_with_matching_clause(
+    runner, field, clause,
+):
+    row = {
+        "directed_id": "direction-0", "arm": "score", "answer_logit": 2.0,
+        "other_logit": 1.0, "correct_margin": 1.0, "log_normalizer": 3.0,
+        "correct_ce": 1.0, "vocab_squared_difference_sum": 3.0,
+        "vocab_size": 3, "vocab_rms": 1.0, "live_factor_max_error": 0.0,
+        "hook_delta_sum_max_error": 0.0,
+    }
+    row[field] = 1.0
+    assert clause in runner.validate_primitive_logit_identities([row])
+    with pytest.raises(ValueError, match="cannot be published"):
+        runner._validate_saved_primitive_logit_identities(
+            [row], allow_scientific_failure=True
+        )
 
 
 @pytest.mark.parametrize(
@@ -788,6 +1129,15 @@ def test_deterministic_dryrun_is_model_free_and_split_closed(runner):
     assert dryrun["evidence_contract"]["endpoint_semantics_equal_frozen_authority"] is True
     assert dryrun["evidence_contract"]["directed_semantics_equal_frozen_authority"] is True
     assert dryrun["evidence_contract"]["inserted_term_reconstructed_from_saved_factors"] is True
+    assert dryrun["evidence_contract"][
+        "structural_identity_recomputed_from_saved_inserted_terms"
+    ] is True
+    assert dryrun["evidence_contract"][
+        "published_instrument_failures_reconstructed_from_saved_evidence"
+    ] is True
+    assert dryrun["evidence_contract"][
+        "unreconstructible_implementation_failures_hard_abort"
+    ] is True
     assert dryrun["evidence_contract"]["primitive_and_sufficient_statistics_recomputed"] is True
     assert dryrun["evidence_contract"]["scored_reports_recomputed_from_directed_rows"] is True
     assert dryrun["evidence_contract"]["finite_before_final_write"] is True
