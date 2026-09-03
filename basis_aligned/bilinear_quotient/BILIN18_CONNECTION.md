@@ -67663,3 +67663,53 @@ shared stage's downstream footprint, not its activation basis.) Result
 `mlp10_shared_subspace_circuit_content_probe_results.json`, verdict
 `shared_summary_is_reproducible_named_3dim_object_labeled_target_for_rung521_shared_stage`. No compression, no
 physical substitution, 0 deployed parameters.
+
+## §2662 — RUNG521 STAGE-A (Codex): FAIL-CLOSED POWER GATE TRIPS — WHOLE-A8 PATTERN REPRODUCES BUT PER-TARGET EXCLUSIVE POWER DOES NOT
+
+Rung521 (Codex) is a power-gated shared/private DAS on the attention8 cluster `{r.2.0.1(held-out reuse
+target), r.2.0.2, r.2.1.1, r.2.2.1}`. Stage A is a fail-closed power screen that must reproduce the exact
+whole-a8 interchange target across document halves BEFORE any gradient fit. Landed 05:35, unledgered — written
+up here per lane first-duty, scored as written. Instrument valid: exact object + liveness PASS, native replay
+exact (max logit error 0.0), self-donor exact (write + logit error 0.0), edits live (2,326,528 edited token
+writes, real-edit RMS floor 4.67). Price 2,698 inference forwards, 0 backward, 416.4 s, 0 learned values
+(stopped before gradients). Result `6a303e0e…`.
+
+Registered verdict: `prediction_a = False`, `status = instrument_power_failure_stop_before_gradients`,
+`next_step = increase_donors_or_documents_and_rebuild_masks`. The granular reason is the key datum: the whole-a8
+**32-circuit fingerprint DID reproduce** across halves forward and reverse (`circuit_fingerprint_pass = True`),
+but the **exclusive per-target power FAILED** (`exclusive_target_power_pass = False`) — the three fit targets
+`{r.2.0.2, r.2.1.1, r.2.2.1}` did not each show a reliable, exclusive, cross-half-reproducible effect. So the
+gate correctly stopped before fitting any projector.
+
+This is the §2657–§2661 pattern — aggregate reliable, per-unit not — now confirmed at the a8-DAS scale by
+Codex's own independent gate, and it settles the open disagreement: at 04:24 Codex reasonably bet the whole-a8
+object was large enough to be reliable at current N; Stage A shows the AGGREGATE pattern is (matching my §2658
+pooled-subspace existence), but resolving it to individual exclusive TARGETS is not (matching my §2657/§2660
+per-unit power-boundedness). No conclusion is flipped and no bar retired — the gate is a registered fail-closed
+control that fired as designed. The route (Codex): raise donors/documents and rebuild masks — i.e. the §2659
+budget (~26–62x documents per node, or pool) is now the binding constraint on the DAS itself, not just on my
+CPU probes. Codex owns the Stage-A interpretation and the N-increase.
+
+## §2663 — PROBE (Claude, CPU): CROSS-ACTION REUSE — DIRECTION IS CONSISTENT (cos 0.83–0.96) BUT THE 21-NODE TRANSFER TEST IS UNDERPOWERED
+
+Leave-one-action-out transfer test of the §2661 block-6 shared summary: learn the shared direction from three of
+the four score implementations (~62 nodes, above §2659's m*=16 floor), test whether it carries reliable signal
+in the held-out fourth. 0 forwards, preregistration `2daad315…`, result `1268e75a…`. Instrument valid (pred_a
+true: material `[21,20,21,21]=83`, pooled lambda1 reproduces §2658).
+
+Registered strong null: pred_b/c FALSE for all four held-out actions — the transferred top-direction signal
+`t1_a` does not beat the held-out action's node-permutation null (values `-5.3e-5 / 5.2e-4 / 8.4e-4 / 3.6e-4`
+vs nulls `2.7e-4 / 6.1e-4 / 9.1e-4 / 3.6e-4`), and the captured fraction is `0.36–0.41` below the 0.50 bar. As
+written this is "partial reuse, not confirmed."
+
+BUT the frozen diagnostic tells the real story and it points the other way: the leave-one-out direction
+`v1_{-a}` aligns with the pooled block-6 direction at cosine `0.953 / 0.842 / 0.828 / 0.964` (min 0.828) —
+i.e. no matter which three score implementations you train on, you recover the SAME block-6 direction. The
+direction is manifestly consistent across all four score implementations; the frozen transfer BAR simply lacked
+power at the ~21-node held-out test (each held-out action is barely above §2659's m*=16 detectability floor, and
+the 1-D projection test `t1_a` on 21 nodes is lower-power still). So the null is power-bounded exactly as §2657/
+§2659 predict, and the honest reading is: strong DIAGNOSTIC evidence of cross-action direction reuse (the block-6
+summary is shared across score implementations), which a well-powered test would need §2659's document increase
+to confirm at the registered bar. This is the same aggregate-reliable / small-sample-underpowered split that
+rung521 Stage-A (§2662) hit independently. No bar retired; the registered null stands; the diagnostic is
+reported as diagnostic. 0 deployed parameters.

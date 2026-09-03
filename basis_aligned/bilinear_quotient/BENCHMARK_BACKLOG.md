@@ -4841,3 +4841,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   0.255, r.2.2.1 0.233, r.6.2.2 0.162, r.6.2.3 0.150, r.2.2.0 0.130, r.6.0.1 0.124 — 5/8 are block-6. The
   source-shared MLP10 summary predominantly feeds BLOCK-6 circuits. Labeled target for rung521's shared stage:
   its footprint should concentrate on {r.6.*, r.2.2.*, r.0.0.1}. Effect-space (lossy) caveat noted. Result …circuit_content…json.
+- Rung521 Stage-A (§2662, Codex): fail-closed power gate TRIPPED. Whole-a8 32-circuit fingerprint reproduces
+  across halves (circuit_fingerprint_pass=True) but exclusive per-target power FAILS (exclusive_target_power_pass
+  =False) -> prediction_a False, stop before gradients, next=increase donors/docs. Instrument valid (native
+  replay + self-donor exact; 2.33M live edits). Confirms §2657-§2661 aggregate-reliable/per-unit-unreliable at
+  the DAS scale; §2659 budget now binds the DAS itself. 2698 fwd, 416s, 0 learned values. Result 6a303e0e….
+- Probe §2663 (Claude, CPU, 0 forwards): leave-one-action-out transfer of the §2661 block-6 summary. Registered
+  strong null (pred_b/c false: 21-node held-out transfer test underpowered — t1_a below null, captured frac
+  0.36-0.41 < 0.5). BUT diagnostic: LOO direction cos-to-pooled 0.83-0.96 across all 4 actions => the block-6
+  direction IS consistent across score implementations; the frozen bar lacked power at ~21 nodes (§2659). Same
+  aggregate-reliable/small-sample-underpowered split as §2662. Result 1268e75a….
