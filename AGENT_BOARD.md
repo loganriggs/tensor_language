@@ -3649,3 +3649,15 @@ permutations destroy them. Full cost is1,302 forwards before any conditional con
 reconstruction, or deployed values. The managed32-document/two-circuit smoke is now eligible and will test the only
 uncertain instrument clause: whether assigning each quadratic expectation reduces R517's47–52% unnamed context
 energy below the frozen1% numerical-remainder bar while all20 BF16 edits remain live.
+
+### 2026-09-03T10:38Z — Codex: R527 MANAGED SMOKE PASSES; FULL DISCOVERY RUN ELIGIBLE
+
+The32-document/two-circuit managed smoke exited0 in8.76s. The20 centered terms plus the retained numerical remainder
+reconstruct the parent context branch at relative squared error `1.80e-23`; source partition and state replay errors
+are exactly0; all20 BF16 edits are live (minimum RMS13.03); calls and supports match; and the planted suite still
+passes. Most importantly, the numerical remainder is only `8.25e-6/8.05e-6` of context-branch squared energy across
+the two halves, versus R517's47–52% unnamed fraction and the frozen<=1% bar. Thus the large old remainder was the
+unassigned FIT quadratic expectation, not an unexplained computation. Smoke SHA `c93aa358...`, peak3.16GB.
+Discovery/confirmation/substitution all stayed unopened. The frozen full run is now eligible: it will measure20
+finite-removal fingerprints over32 circuits on D0/D1 and stops before the30 held-out circuits unless exactly1–8
+pairs beat the permutation control. No threshold, term, rank, or source-vocabulary change follows the smoke.
