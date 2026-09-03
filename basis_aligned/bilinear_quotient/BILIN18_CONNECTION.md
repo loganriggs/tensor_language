@@ -69081,3 +69081,42 @@ flips. Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). 
 
 Next (registered separately): RADIAL_MEAN + tangential PCA truncation (w' = r̄ x̂ + U_k U_kᵀ (w_perp − μ_perp)) at all 36 sites vs
 §2696's plain k-truncation — does taking the radial axis out as a constant make the remaining write cheaper to truncate?
+
+## §2706 — RADIAL-CONSTANT + TANGENTIAL-TRUNCATION MAP (Claude, LANE 1 CUDA, 73 s, 7,200 GPU document-forwards): pred_a TRUE, pred_b FALSE (20/36, null not met), pred_c FALSE WITH NULL MET (attn1 RM_TAN_8 = .229 vs plain k=8 .066), pred_d FALSE (Σ RM_TAN_32 = 2.116 vs 2.371 plain; bar 1.897; null not met), pred_e FALSE BY ONE SITE (23/36 ≤ .02 at k=128; bar 24) — THE PRE-WRITE FRAME SPLITS THE WRITE THE WRONG WAY AT LOW-RANK SITES: THE TANGENTIAL PART IS HIGHER-RANK THAN THE WRITE (attn1 eff rank 111 vs 22, attn5 371 vs 110, attn6 476 vs 30), WHILE AT THE FAT EARLY MLPs IT HELPS A LOT (mlp1 .572 vs .883, mlp2 .086 vs .220, mlp3 .055 vs .130, mlp0 .071 vs .165)
+
+Written 2026-09-03 20:14Z (box clock). Preregistration `polynomial_causal/RADIAL_CONSTANT_TANGENTIAL_TRUNCATION_MAP_PROBE_PREREGISTRATION.md`
+(registered 20:08Z, sha 47d36738…, frozen before the script existed); script `ops/radial_constant_tangential_truncation_map_probe.py`
+(CUDA, lane 1); results `radial_constant_tangential_truncation_map_probe_results.json` (sha 828d86b3…); log
+`runlogs/radial_constant_tangential_truncation_map_probe.log`. Ran 20:10:20–20:11:33, exit 0. SIGN CONVENTION (§2135): every number
+is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 — LOWER IS BETTER. Descriptive; nothing installs into the §312 frontier.
+Arm RM_TAN_k: w' = r̄ x̂ + μ + U_k U_kᵀ (w_perp − μ), r̄/μ/U fitted on docs 0–95 (tangential covariance in the pre-write frame).
+
+**pred_a TRUE.** Baseline = §2705 exactly; RM_TAN_FULL attn1 .01013 vs RADIAL_MEAN .01012, mlp4 .03596 vs .03600 (bar 1e-3);
+monotone k128 ≤ k32 ≤ k8 at 36/36.
+
+**pred_b — FALSE, null NOT met.** RM_TAN_32 < PLAIN_32 (§2696) at 20 of 36 (bar 28; null ≤ 18). A coin flip overall, but
+strongly structured (below).
+
+**pred_c_attn1_compact — FALSE, NULL MET.** attn1 RM_TAN_8 = .2290, RM_TAN_32 .1209, RM_TAN_128 .0569, versus plain k=8 .0657
+and plain k=32 .0329. The prediction "attn1 = constant gain + rank-8 tangential" is wrong by a factor 3.5 at k=8.
+
+**pred_d — FALSE, null NOT met.** Σ_36 RM_TAN_32 = 2.1155 vs plain 2.3712 (bar ≤ 1.897; null ≥ 2.253). Σ RM_TAN_128 = .954,
+Σ RM_TAN_8 = 4.923. Per-site best of the two decompositions at k=32 would sum to 1.6715 (descriptive, not registered).
+
+**pred_e — FALSE by one site, null not met.** RM_TAN_128 ≤ .02 at 23 of 36 (bar 24; null ≤ 14).
+
+**Why (the structural reading, from the fitted spectra).** The pre-write frame writes w = r x̂ + w_perp with x̂ the token-varying
+residual direction. For a write that is itself low-rank (attn1 eff rank 22, attn5 110, attn6 30, attn7 71, mlp16 9, mlp17 6) the
+tangential remainder w_perp = w − (w·x̂) x̂ contains the full-dimensional token-varying vector −(w·x̂) x̂, so it is HIGHER-rank than
+the write: tangential eff rank 111 (attn1), 371 (attn5), 476 (attn6), 400 (attn7), 319 (attn9), 276 (attn10), 14 (mlp16), 8
+(mlp17). Truncating w_perp then has to rebuild −r x̂ from k directions and cannot; RM_TAN_32 is WORSE than plain k=32 by .088
+(attn1), .209 (attn5), .025 (attn6), .042 (mlp16), .063 (mlp17). Conversely at the fat early MLPs the write is genuinely
+high-rank and a large fraction of its energy is radial (§2704: .141/.133/.173/.248 at mlp0–3, .288 at mlp4): taking the radial
+axis out as a constant removes exactly the part the PCA was spending rank on, and RM_TAN_32 beats plain by .311 (mlp1), .135
+(mlp2), .095 (mlp0), .075 (mlp3), .009–.016 (mlp4–6), with mlp1 at k=128 down to .0675 (plain k=128 was .0907 in §2700).
+Rule extracted: the "36 scalars" description of the radial axis (§2705) is right, but the compact TANGENTIAL description must be
+built in the write's OWN low-rank frame, not in the pre-write frame — i.e. truncate w first (plain PCA) and then correct the
+radial scalar of the reconstruction to r̄ (a "plain_k + radial fix" arm), rather than subtracting r x̂ before fitting.
+
+Three failed predictions preserved (b, c, d) plus e by one site; the instrument is exact; no prior conclusion flips. Explained
+fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.

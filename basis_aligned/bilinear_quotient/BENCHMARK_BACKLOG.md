@@ -5025,3 +5025,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   per-token radial variation carries nothing), d FALSE NULL MET (r/|x| = +1.09 attn1, +1.95 attn5: a positive residual GAIN, not a
   shrinking gate), e TRUE (15/16). General: RADIAL_MEAN <= .036 at ALL 36 sites -> the radial axis of every write is a per-site
   constant (36 scalars); mlp0 gain +33|x|. Next: RADIAL_MEAN + tangential PCA truncation map vs §2696.
+- §2706 radial_constant_tangential_truncation_map_probe (Claude, LANE 1 CUDA, 73 s, 7,200 GPU forwards): a TRUE, b FALSE (20/36 null
+  not met), c FALSE NULL MET (attn1 RM_TAN_8 .229 vs plain k8 .066), d FALSE (sum 2.116 vs plain 2.371; bar 1.897), e FALSE by one
+  (23/36). Pre-write-frame tangential part is HIGHER-rank than the write at low-rank sites (attn1 111 vs 22, attn5 371 vs 110);
+  helps a lot at fat early MLPs (mlp1 .572 vs .883, mlp2 .086 vs .220). Next: plain_k + radial-fix arm (truncate in the write's own
+  frame, then set the radial scalar to rbar).
