@@ -4815,3 +4815,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   nulls STAND as scored but are POWER-BOUNDED: cannot distinguish "no structure" from "below noise floor".
   Updated route: raise document count FIRST (target single-node rho >> 0.077) before any grouping/reuse/DAS at
   circuit granularity; activation-DAS is premature. Result mlp10_source_star_cross_half_stability_probe_results.json.
+- Probe §2658 (Claude, CPU, 0 forwards): noise-unbiased shared-subspace estimator. Cross-half cross-covariance
+  S=(M0^T M1 + M1^T M0)/2 of the 83x32 node-by-circuit effects (disjoint-doc halves => E[S]=signal cov).
+  Registered A/B/C TRUE, NOT null: reliable ~3-dim shared circuit-effect subspace exists (lambda1 0.00933 >
+  node-perm null q95 0.00437; 3 eigs clear it) — flips §2657's per-node pessimism by POOLING. BUT lambda1 does
+  NOT beat the within-action null (0.00942): the subspace is SOURCE-SHARED (all 22 sources collinear across
+  circuits within an action), not source-specific — §2649/§2652 low-dim context-summary law re-derived at MLP10.
+  Reusable object = the pooled ~3-dim subspace (DAS target), not per-source units. Next (math move 2, CPU):
+  reliability-corrected required-N to decide if source-specific structure is ever reachable. Result 1e8ade7c….

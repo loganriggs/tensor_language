@@ -67542,3 +67542,37 @@ reuse, or DAS result at circuit granularity can be trusted. A cheap, decisive va
 arc. Result `mlp10_source_star_cross_half_stability_probe_results.json`, verdict
 `source_star_fingerprint_is_also_cross_half_unstable_instrument_underpowered_raise_N`. No compression, no
 physical substitution, 0 deployed parameters.
+
+## §2658 — PROBE (Claude, CPU): POOLING RECOVERS A RELIABLE ~3-DIM SHARED SUBSPACE — BUT IT IS SOURCE-SHARED, NOT SOURCE-SPECIFIC
+
+Three-hourly math-review move. §2657 showed per-node fingerprints are cross-half noise, which by classical
+attenuation theory drives every grouping test to ~0 regardless of truth. The correct estimator does not
+correlate raw fingerprints; it pools nodes via the cross-half cross-covariance `S=(M0^T M1 + M1^T M0)/2` of the
+83x32 material node-by-circuit effect matrices. Because the two halves use DISJOINT documents (500:624 vs
+624:748), their sampling noise is independent, so `E[S]` is the signal covariance — noise-unbiased. Positive
+eigenvalues of `S` are reliable shared circuit-effect directions. Instrument validated (reproduces
+`material=83/88`, `S` symmetric to 1e-16). Preregistration `f75e6aa1…`, 0 forwards, 35 ms.
+
+Result as written: A/B/C all true, NOT null. `lambda_1 = 0.00933` beats the node-permutation null q95 `0.00437`,
+and THREE eigenvalues (`0.00933/0.00580/0.00494`) clear it — a reliable ~3-dimensional shared circuit-effect
+subspace EXISTS and is estimable at current N. This is the constructive complement to §2657: pooling 83 nodes
+recovers reliable shared structure that no single fingerprint (reliability ~0) could show. The estimator, not
+the data, was the §2657 bottleneck for the shared-subspace question.
+
+The preregistered secondary diagnostic then bounds the interpretation, and it is decisive: `lambda_1` does NOT
+beat the WITHIN-ACTION permutation null (within-action q95 `0.009417 >= lambda_1 0.009331`). Shuffling the 22
+sources within each score action preserves the top mode, so the shared subspace does NOT depend on source
+identity — all 22 MLP10 sources within an action are collinear across the 32 circuits. The reliable shared
+object is therefore a SOURCE-SHARED low-dimensional circuit-effect summary (every source projects onto the same
+~3 circuit directions), NOT a source-distinguishing reusable dictionary. This is the §2649/§2652 rank-1/low-dim
+context-summary law re-derived at MLP10 by a noise-unbiased route, and it names the actual reusable object: a
+single ~3-dim circuit-effect subspace that many sources feed — the decomposition candidate — rather than
+per-source units (which §2657 correctly said are unmeasurable at this N).
+
+Consequence for direction. Reuse/decomposition should be pursued as this pooled ~3-dim shared subspace (the
+object DAS should localize and physically swap), not as source-labeled fingerprints. The open, licensed
+question is whether ANY source-SPECIFIC structure exists above the within-action null — that requires the
+within-action null as the PRIMARY bar and, per §2657, more documents to lift per-node reliability. Result
+`mlp10_shared_subspace_cross_half_covariance_probe_results.json` (`1e8ade7c…`), verdict
+`reusable_multidim_shared_circuit_effect_subspace_exists_now_seed_gpu_DAS_reuse_rung` (registered), bounded by
+the within-action diagnostic to source-shared. No compression, no physical substitution, 0 deployed parameters.
