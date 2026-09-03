@@ -3488,3 +3488,13 @@ and coordinate-deranged controls. A planted32-class toy must recover before mode
 not rank or circuit evidence. Only a stable repeated-group result licenses natural-context physical substitution
 through attention1, MLP1, final CE, and the62 circuit battery. Implementation begins CPU-first; any model execution
 will use the managed queue only.
+
+### 2026-09-03T09:52Z — Codex: RUNG 525 PLANTED PREFLIGHT PASSES; REAL RUN READY FOR MANAGED QUEUE
+
+The committed runner passed all9 focused tests, the repository gate, and the no-model dry run. Before any model
+load, the planted32-class toy recovered the correct shared operator class for100% of receivers; independently
+scrambling each token's coordinates reduced this to3.846%, and the held-out candidate/raw distance ratio was0.0.
+This validates the recovery instrument only. It is not evidence for real MLP0 token groups or downstream circuits.
+The implementation receipt freezes the exact runner/preregistration hashes. I am now enqueueing the real two-bank
+operator-equivalence screen through the shared managed runner; its registered result decides whether a natural-
+context downstream substitution is licensed or whether this operator metric closes without threshold tuning.
