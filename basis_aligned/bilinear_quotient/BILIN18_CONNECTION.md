@@ -70402,3 +70402,39 @@ needs no further run; the shared-core compile (.246) bought reuse across the two
 
 **Limits.** k is the same for all seven blocks in the ALL7 arms (no per-block allocation); one eval split; PCs and fillers on 96 docs;
 the token map is rank-full (D×D) here.
+
+## §2740 — THE LATE PROGRAM'S WIDTH CURVE: ALL7_TOK_k = .465/.297/.210/.145/.065 (k = 128/256/384/512/768) and ALL7_CONST_512/768 = .186/.079 — the seven blocks on 768 of 1152 input directions each, with only a CONSTANT filler, sit .079 above the real model (96% of MEAN7 1.885); the token read is genuinely HIGH-RANK (eff. rank 505–527 for mlp11–16, 229 for mlp17): rank 16/64 reads are worth nothing (.396/.394 ≈ CONST .397) and a rank-256 read recovers only .03 of the .10 filler value; pool blocks are worth more per direction than the last two (POOL512+LAST2_256 .193 < uniform-384 .210 at a 14% larger budget) (Claude, LANE 1 CUDA, 19 s, 864 GPU document-forwards): a, b, c, e TRUE; d FALSE (null not met). Preserved.
+
+Registered 2026-09-03 22:22Z (polynomial_causal/LATE_STACK_WIDTH_AND_TOKEN_RANK_PROBE_PREREGISTRATION.md); landed 22:26Z. Script
+ops/late_stack_width_and_token_rank_probe.py; results late_stack_width_and_token_rank_probe_results.json (sha 7b5cd1fa…). Frozen:
+prereg, §2739 results (3b402bb3…), checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out
+docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Own weights everywhere; per-block centred input PCA; TOK = §2730 ridge
+read of the current token's embedding into the non-PC input (rank-full D×D unless stated).
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); ALL7_TOK_256 .2973 (§2739 .297).
+
+**Arms.** ALL7_TOK_k .4653/.2973/.2101/.1454/.0651 (k = 128/256/384/512/768); successive ratios .64/.71/.69/.45. ALL7_CONST_512 .1859,
+ALL7_CONST_768 .0787 (token filler value .041 at 512, .014 at 768; §2739: .100 at 256). ALL7_TOK256_r16/r64/r256 .3957/.3935/.3662
+(costs above the rank-full read .098/.096/.069). POOL512+LAST2_256_TOK .1930. Token-map (ridge A_l) effective rank / rank-90:
+507/526, 510/524, 521/527, 527/527, 521/524, 505/517 (mlp11–16), 229/449 (mlp17).
+
+**Scoring.** b .145 ≤ .20 TRUE (null ≥ .28 not met). c .065 ≤ .12 TRUE (null ≥ .20 not met). d r256 cost .069 ≤ .03 FALSE (null ≥ .07
+not met — .069, one thousandth under the null bar; the null is NOT claimed, but the reading is that a 256-dim read keeps almost none
+of the token value). e r64 cost .096 ≥ .05 TRUE (null ≤ .02 not met).
+
+**Reading.** (i) The width curve is smooth and steep: each +128 directions removes ~30% of what remains up to 512, and 512→768 removes
+55% — there is no knee before 768 and no floor above .065. A late program of the form "own weights on k directions + constant" needs
+k ≈ 768 of 1152 to sit under .08; at 512 it is .186 and at 256 .397. This is the input-side counterpart of §2673–§2676's exact
+rank result (the MLPs are high-rank in every branch): the late blocks READ a high-rank input, and no filler of low rank substitutes
+for the directions themselves. (ii) The token filler is a high-rank object too: A_l's effective rank is ~510 for six of the seven
+blocks (mlp17: 229), and a rank-16/64 read is worth exactly nothing (equal to the constant within .004). So "k directions + a small
+token table" is NOT available; the token term is only cheap in the sense of being a lookup (D×D per block, or a V×D table). Its value
+also shrinks with k (.100 → .041 → .014 at 256/512/768) — the token content lives inside the PCs once k is wide. (iii) Allocation:
+the five pool blocks buy more per direction than the last two — 5×512 + 2×256 (.193) beats 7×384 (.210) with 14% more directions,
+and is within .05 of 7×512 (.145) with 14% fewer; §2738's finding that mlp17's input is narrow (eff. rank 155) is where the saving
+comes from. (iv) Together with §2739: the best token-free extracted late stack is now ALL7_CONST_768 = .079, and the best with the
+token read ALL7_TOK_768 = .065; both are ordinary weight programs (Left·U_k, Right·U_k, one constant per block) with no fitted map.
+
+**Limits.** Uniform k across blocks except the one allocation arm; one eval split; PCs and means on 96 docs; the token map's rank was
+truncated by plain SVD of the ridge solution (not refit at rank r) — a refit low-rank read could do better than the truncation, which
+bounds (ii) from one side only.

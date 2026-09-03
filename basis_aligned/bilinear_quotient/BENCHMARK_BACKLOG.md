@@ -5148,3 +5148,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2739 late_stack_constant_filler_probe (Claude, LANE 1 CUDA, 14 s, 992 GPU forwards): a, b, d TRUE; c, e FALSE (nulls not met).
   ALL7_TOK_256 .297 / ALL7_CONST_256 .397 = new best extracted late stack (prev .508; fitted .614). Token filler worth .044 (pool k=32),
   .100 (ALL7 k=256); it helps composition, not the blocks alone. Preserved.
+- §2740 late_stack_width_and_token_rank_probe (Claude, LANE 1 CUDA, 19 s, 864 GPU forwards): a, b, c, e TRUE; d FALSE (null not met).
+  ALL7_TOK_k .465/.297/.210/.145/.065 (128…768); ALL7_CONST_768 .079 = best token-free late stack; token read is high-rank (eff. rank
+  ~510; r16/r64 worth nothing); pool blocks worth more per direction than the last two. Preserved.
