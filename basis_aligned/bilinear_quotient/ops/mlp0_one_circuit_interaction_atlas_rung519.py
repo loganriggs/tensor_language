@@ -27,7 +27,7 @@ ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 OPS = ROOT / "basis_aligned/bilinear_quotient/ops"
 PREREG = POLY / "MLP0_ONE_CIRCUIT_INTERACTION_ATLAS_RUNG519_PREREGISTRATION.md"
-PREREG_SHA256 = "b42962efb7af97fc75462293902f26c7bad4d7aee52cd4017082303bbdc048a4"
+PREREG_SHA256 = "cce9e3b25a0633e94bb32d89e2aa6e3f587c88949be9b1c78f0072ca19f14d55"
 SOURCE = OPS / "mlp0_one_circuit_interaction_atlas_rung519.py"
 OUT = ROOT / "basis_aligned/bilinear_quotient/mlp0_one_circuit_interaction_atlas_rung519_results.json"
 BUNDLE = ROOT / "basis_aligned/bilinear_quotient/mlp0_one_circuit_interaction_atlas_rung519_bundle.pt"
@@ -75,6 +75,10 @@ def sha256(path: Path) -> str:
 
 def _linear(value: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
     return F.linear(value.float(), weight.float())
+
+
+def _linear64(value: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+    return F.linear(value.double(), weight.double())
 
 
 def term_names(atom_names: tuple[str, ...]) -> tuple[str, ...]:
@@ -137,6 +141,11 @@ def _float_mlp(mlp, state: torch.Tensor) -> torch.Tensor:
     return _linear(hidden, mlp.Down.weight) + mlp.Down_bias.float()
 
 
+def _double_mlp(mlp, state: torch.Tensor) -> torch.Tensor:
+    hidden = _linear64(state, mlp.Left.weight) * _linear64(state, mlp.Right.weight)
+    return _linear64(hidden, mlp.Down.weight) + mlp.Down_bias.double()
+
+
 def interaction_terms(mlp, sources: torch.Tensor, normalized_drop: torch.Tensor,
                       deployed_full: torch.Tensor,
                       deployed_drop: torch.Tensor) -> dict:
@@ -146,19 +155,19 @@ def interaction_terms(mlp, sources: torch.Tensor, normalized_drop: torch.Tensor,
     selected = 1 + SELECTED_ATOM
     z_full = sources.sum(0)
     z_fixed_drop = z_full - sources[selected]
-    left = _linear(sources, mlp.Left.weight)
-    right = _linear(sources, mlp.Right.weight)
+    left = _linear64(sources, mlp.Left.weight)
+    right = _linear64(sources, mlp.Right.weight)
     outputs = []
     for partner in range(N_NORMALIZED_SOURCES):
         hidden = left[selected] * right[partner]
         if partner != selected:
             hidden = hidden + left[partner] * right[selected]
-        outputs.append(_linear(hidden, mlp.Down.weight))
-    fixed_full = _float_mlp(mlp, z_full)
-    fixed_drop = _float_mlp(mlp, z_fixed_drop)
-    renormalized_drop = _float_mlp(mlp, normalized_drop)
+        outputs.append(_linear64(hidden, mlp.Down.weight))
+    fixed_full = _double_mlp(mlp, z_full)
+    fixed_drop = _double_mlp(mlp, z_fixed_drop)
+    renormalized_drop = _double_mlp(mlp, normalized_drop)
     outputs.append(fixed_drop - renormalized_drop)
-    target = deployed_full.float() - deployed_drop.float()
+    target = deployed_full.double() - deployed_drop.double()
     stored_prefix = torch.stack(outputs).sum(0)
     outputs.append(target - stored_prefix)
     terms = torch.stack(outputs)

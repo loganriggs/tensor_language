@@ -197,3 +197,19 @@ The two preceding no-outcome repair headings were accidentally labeled with futu
 `03:28`. Runner and commit receipts establish their actual times as approximately`03:14` and`03:16` UTC. Their
 order, pre-outcome status, measurements, and content are unchanged. The `03:14` whole-drop price correction was
 already labeled correctly.
+
+## Invalid full-run receipt and precision repair — 2026-09-03 03:30 UTC
+
+The first full3,224-forward discovery process completed, but Prediction A failed before any scientific result could be
+interpreted. All supports, calls, circuit-mask identities, edit-liveness, deployed closure, and final-logit replay
+passed. The fixed-gain algebraic identity reached`1.38385e-8` relative squared error, just outside the frozen`1e-8`
+instrument bar; the one-batch smoke had been`8.07305e-10`. The emitted zero-candidate count is therefore explicitly
+invalid evidence. Its result and bundle are preserved under `invalid_float32_fixed_gain` with SHA-256
+`5502ef5ee19a884a370ee47c8542378cfe24f0df1303f2d929163e6f72e7aabc` and
+`3017b24e59e050b9e5fcd9854b4e8c7d1f209be3bedcdc6a451d9f0b8c7fc993`.
+
+The narrow repair changes only how the already-defined bilinear identity is evaluated: the47 exact bilinear terms and
+the fixed-gain/normalization calculations use float64 accumulation instead of float32, before the same terms are cast
+through the same BF16 deployed intervention. This preserves the mathematical terms, rows, target, selection rules,
+controls, thresholds, and conditional B--E path; it removes avoidable roundoff from an exactness check. Focused tests,
+the static gates, and a fresh managed no-outcome smoke must pass before the full process is rerun.
