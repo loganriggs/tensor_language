@@ -233,6 +233,13 @@ def rebuild_registry_v2() -> dict:
                     if event.get("supersedes_event_id")
                 }
                 active_events = [event for event in events if event["event_id"] not in superseded_event_ids]
+                held_test_types = sorted({
+                    event["test_type"] for event in active_events if event["verdict"] == "held"
+                })
+                blocking_test_types = sorted({
+                    event["test_type"] for event in active_events
+                    if event["verdict"] in {"failed", "null", "invalid"}
+                })
                 row.update({
                     "kind": document["identity"]["kind"],
                     "identity_instance": document["identity"]["instance"],
@@ -248,6 +255,9 @@ def rebuild_registry_v2() -> dict:
                         e["event_id"] for e in reversed(active_events)
                         if e["verdict"] in {"failed", "null", "invalid"}), None),
                     "latest_active_event": active_events[-1]["event_id"] if active_events else None,
+                    "active_event_ids": [event["event_id"] for event in active_events],
+                    "held_test_types": held_test_types,
+                    "active_blocking_test_types": blocking_test_types,
                     "design_keys": sorted({event["design_key"] for event in events}),
                 })
             rows[tag] = row

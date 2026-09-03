@@ -61,6 +61,8 @@ def v2_row(tag, registry_row, document):
         "negative": str(registry_row["negative_event_count"]),
         "active_negative": str(registry_row.get("active_negative_event_count", registry_row["negative_event_count"])),
         "latest_event": registry_row.get("latest_active_event") or "—",
+        "held_types": ", ".join(registry_row.get("held_test_types", [])) or "—",
+        "blocking_types": ", ".join(registry_row.get("active_blocking_test_types", [])) or "—",
         "next": claim.get("next_missing", ""),
         "agents": "",
     }
@@ -87,8 +89,8 @@ def main():
         f"and {len(rows)-n_behavior-n_subroutine} legacy census records.",
         "Negative/invalid results are counted as evidence, not omitted. Check this view and then the linked JSON record before opening work.",
         "",
-        "| circuit | kind | identity | status | causal variable / legacy story | CF families | active / historical negative events | latest active evidence | exact next missing evidence |",
-        "|---|---|---|---|---|---:|---:|---|---|",
+        "| circuit | kind | identity | status | causal variable / legacy story | CF families | held evidence types | active blockers | active / historical negative events | latest active evidence | exact next missing evidence |",
+        "|---|---|---|---|---|---:|---|---|---:|---|---|",
     ]
     for row in rows:
         next_step = row["next"].replace("|", "/")
@@ -96,6 +98,7 @@ def main():
         lines.append(
             f"| `{row['tag']}` | {row['kind']} | {row['instance']} | {row['status']} | "
             f"{variable} | {row['families']} | {row['active_negative']} / {row['negative']} | "
+            f"{row.get('held_types', '—')} | {row.get('blocking_types', '—')} | "
             f"{row['latest_event']} | {next_step} |"
         )
     OUT.write_text("\n".join(lines) + "\n")
