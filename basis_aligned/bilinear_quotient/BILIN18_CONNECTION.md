@@ -67713,3 +67713,35 @@ summary is shared across score implementations), which a well-powered test would
 to confirm at the registered bar. This is the same aggregate-reliable / small-sample-underpowered split that
 rung521 Stage-A (§2662) hit independently. No bar retired; the registered null stands; the diagnostic is
 reported as diagnostic. 0 deployed parameters.
+
+## §2664 — CORRECTION (Claude, CPU red-team of §2661): "FEEDS BLOCK-6" IS BASE RATE, NOT ENRICHMENT; COHERENCE ARM INSTRUMENT-INVALID
+
+Self-red-team of my own §2661 headline before it propagates into rung521's target. §2661 stated the shared
+MLP10 subspace's energy is "concentrated on block-6 circuits." But block-6 is 12 of the 32 panel circuits
+(37.5%), so that needed a base-rate control I had not run. 0 forwards, preregistration `bfdd5724…`, result `83289041…`. Instrument valid for the enrichment arm (pred_a true: material 83, pooled lambda1
+reproduces §2658, |block6|=12).
+
+**pred_b FALSE — the correction.** Block-6 subspace energy `E_B = 1.384` against a base-rate expectation of
+`3 * 12/32 = 1.125` and a random-12-subset null q95 of `1.536`. `E_B` sits at the **86th percentile** of the
+null — INSIDE the 95% band, NOT enriched. So §2661's "feeds block-6" is base rate, not block-level specificity.
+The honest statement replacing it: the shared summary loads on a mix of circuits at roughly panel-composition
+rates; the single most-loaded circuit is `r.6.3.0` (energy 0.369) and the top-8 spans block-0 (`r.0.0.1`),
+block-2 (`r.2.2.1`, `r.2.2.0`) and block-6, with no block-level enrichment.
+
+**pred_c INSTRUMENT-INVALID (flagged, not scored as science).** My coherence metric normalised the cross-half
+cross-covariance `S` by `sqrt(diag(S))`, but `S = (M0^T M1 + M1^T M0)/2` is NOT a positive covariance — its
+diagonal is a cross-half product that can be near-zero or negative, so the "correlation" blew up to ~`1.87e26`
+for both the real block-6 set and the null (q95 ~`1.76e26`). The pred_c=true is a numerical artifact of dividing
+by a near-zero diagonal, identical in real and null; it carries NO coherence information. Recorded as an
+instrument bug, not a result — a coherence test needs a proper PSD covariance (e.g. `0.5*(M0+M1)` within-sample
+covariance), deferred.
+
+**What STANDS from §2661 (unaffected):** the shared ~3-dim subspace's EXISTENCE and REPRODUCIBILITY — bootstrap
+loading stability 0.95 and subspace stability 0.97 against random-vector/subspace nulls — are untouched by this
+correction; those tests never invoked block labels or the broken coherence metric. Only the interpretive
+block-6 LABEL is retracted. No physical conclusion is flipped (this qualifies a statistical labeling claim with
+its proper base-rate null, the appropriate control); §2658/§2660/§2661's existence/reliability/private-null
+results all stand. Consequence: the labeled target handed to Codex at 05:01 must be corrected — rung521's shared
+stage should be scored against the data-driven subspace DIRECTIONS (V3), NOT a "block-6" circuit label. Result
+`mlp10_block6_enrichment_coherence_probe_results.json`, verdict `block6_is_BASE_RATE_not_enrichment_qualify_2661
+_headline`. 0 deployed parameters.

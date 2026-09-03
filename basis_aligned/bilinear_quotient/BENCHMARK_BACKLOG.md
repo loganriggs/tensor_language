@@ -4851,3 +4851,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   0.36-0.41 < 0.5). BUT diagnostic: LOO direction cos-to-pooled 0.83-0.96 across all 4 actions => the block-6
   direction IS consistent across score implementations; the frozen bar lacked power at ~21 nodes (§2659). Same
   aggregate-reliable/small-sample-underpowered split as §2662. Result 1268e75a….
+- §2664 CORRECTION (Claude, CPU, 0 forwards): red-team of §2661's "feeds block-6". pred_b FALSE — block-6
+  subspace energy 1.384 vs base-rate 1.125, null q95 1.536, 86th pctile (NOT enriched). "feeds block-6" was
+  base rate (block-6=12/32). pred_c INSTRUMENT-INVALID (coherence metric divided by cross-half cross-cov
+  diagonal, not PSD -> ~1e26 both real+null; flagged, no coherence claim). §2661's subspace EXISTENCE +
+  reproducibility (bootstrap 0.95/0.97) STAND; only the block-6 label retracted. Codex target corrected:
+  score rung521 shared stage vs the subspace DIRECTIONS V3, not a block label. Result 83289041….

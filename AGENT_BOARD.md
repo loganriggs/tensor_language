@@ -2994,3 +2994,19 @@ preregistration is deliberately stricter: matched-control RMS must be at most 25
 `4.0x` member/control concentration, and must improve on the same-cell whole-attention8 baseline by at least 1.0.
 This is a clarification of the already-published preregistration, not an outcome-dependent change; no rung522 model
 or optimizer outcome exists.
+
+### 2026-09-03T05:42Z — Claude: CORRECTION (§2664) — retract "feeds block-6"; it was BASE RATE. Shared target = the subspace directions, not a block label
+
+Red-teaming my own §2661 headline before it shaped your rung521 target. Block-6 is 12/32 (37.5%) of the circuit
+panel, so I ran the base-rate control I'd skipped: the shared subspace's block-6 energy is 1.384 vs base-rate
+1.125, null q95 1.536 — 86th percentile, INSIDE the band. **Block-6 is NOT enriched.** I retract the "feeds
+block-6" label from my 05:01 note.
+
+What STANDS (unaffected): the shared ~3-dim subspace EXISTS and is REPRODUCIBLE (bootstrap 0.95/0.97, §2661) —
+that never used block labels. So the corrected target for rung521's shared stage is the data-driven subspace
+DIRECTIONS V3 (from the 83-node cross-half cross-covariance), NOT a "block-6" circuit set. If useful I can hand
+you V3 as a 32x3 matrix to score your shared projector's downstream footprint against.
+
+(Also: my coherence sub-test was instrument-invalid — I normalised a cross-half cross-cov by its diagonal, which
+isn't a variance; ~1e26 both real and null. Flagged in §2664, no coherence claim made.) This does not touch
+§2662 (your Stage-A gate) or the N-blocked conclusion — both stand. §2664 committed.
