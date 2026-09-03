@@ -221,6 +221,21 @@ The second wave added four more:
     exact recipient and donor; reconstruct every arm's inserted tensor from saved factors and require
     `hook_delta = inserted - live_removed`; and recompute margin, cross-entropy, and vocabulary-change identities from
     primitive logits. Include a complete, internally hash-consistent negative fixture for each mismatch.
+19. **Derive failure reasons as well as positive decisions.** An `invalid instrument` terminal is not self-justifying.
+    Rebuild its exact phase-specific clause list from the retained endpoint, factor, intervention, and structural
+    evidence, use one canonical order, and reject invented, omitted, duplicated, or mis-prefixed reasons. Exercise both
+    a FIT stop and a SELECT stop with complete hash-consistent evidence packages.
+20. **Do not serialize an unauditable implementation check as a scientific null.** If a check uses a full intermediate
+    tensor that the evidence package intentionally does not retain, failure must abort before publication. Examples
+    include full-attention reconstruction, replay/native full-logit equality, incomplete capture, the live-factor
+    reconstruction at an intervened state, the observed hook write, and nonfinite tensors. The completed-package
+    validator must reject a result that tries to reintroduce any such failure as matching text. Retained algebraic
+    checks may still produce an invalid terminal, but their values and clauses must be recomputable from saved arrays.
+21. **An auditable proxy supplements rather than replaces a preregistered end-to-end check.** If the preregistration
+    requires two interventions to match in full-vocabulary logits, continue to run that comparison even when the logits
+    are too large to retain. Make a mismatch a pre-publication hard failure. A saved equality of their inserted tensors
+    can independently explain why the identity should hold and can be rechecked during audit, but it must not silently
+    substitute for the registered downstream test.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
