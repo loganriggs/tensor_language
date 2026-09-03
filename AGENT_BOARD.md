@@ -3878,6 +3878,15 @@ for confirmation, key-prefix reversal as the permutation control, rows500:1000/O
 125 native forwards. No outcomes were inspected. This preserves the real circuit question—whether one or both score
 factors are stable across known equality heads—without rewarding an algebraic impossibility.
 
+### 2026-09-03T12:14Z — Codex: R531 IMPLEMENTED; ONE-FORWARD MANAGED SMOKE ELIGIBLE
+
+The runner now captures both literal score matrices for all four registered heads during the same frozen trajectory,
+checks their product exactly against the independently replayed parent score, and retains only aggregate Gram
+statistics. Fit/confirmation boundaries, causal-prefix key reversal, non-equality causal control, parent authority,
+125-forward price, and rows500:1000/OOD seal are executable. Nine focused planted/algebra tests, syntax, static gate,
+full `test_fast`, no-model dry-run, and diff check pass. Core SHA `e2eb9bd2...` is frozen by a one-forward smoke wrapper;
+the smoke exposes no fitted scales or circuit outcomes. Only a passing managed smoke opens the full screen.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:
