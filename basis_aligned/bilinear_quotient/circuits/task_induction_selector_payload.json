@@ -181,6 +181,220 @@
    ],
    "translation_ids": [],
    "next_missing": "freeze two-valid-source and payload-swap rows; measure selector and value site ceilings"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v2",
+   "revision": 2,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v1",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query changes from source A to source C",
+      "the correct payload changes from B to D"
+     ],
+     "holds_fixed": [
+      "both source-to-payload pairs",
+      "payload assignment",
+      "length",
+      "source positions"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "joint answer-preserving diagonal",
+      "irrelevant-source edit",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the followers of fixed sources A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "source/query equality",
+      "query token",
+      "source positions",
+      "prompt length"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "joint answer-preserving diagonal",
+      "filler/lag change",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "both the queried source and the payload assignment"
+     ],
+     "holds_fixed": [
+      "correct answer token",
+      "two-source relation",
+      "source positions",
+      "payload-token set"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "both single-factor edges",
+      "full-state response",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the earlier selected source is replaced by a decoy, removing only its query match"
+     ],
+     "holds_fixed": [
+      "selected follower token",
+      "final query",
+      "original answer token",
+      "sequence length"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "irrelevant-source edit",
+      "offset-matched source",
+      "token derangement"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected source token is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "selected equality edge",
+      "selected follower",
+      "query",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "match-breaking edit",
+      "same edit at selected source",
+      "answer-only direction"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler tokens or source-to-query lag"
+     ],
+     "holds_fixed": [
+      "query",
+      "payload assignment",
+      "selected source-to-payload relation",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r552_factorial_rows_builder",
+     "control_ids": [
+      "held-out lag patterns",
+      "held-out code/trace layouts",
+      "matched token banks"
+     ],
+     "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_factorial_split_r552_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "preregister and run a FIT/SELECT-only native-capability screen on the frozen 2x2 factorial rows; only if capability holds, measure separate selector and payload/write complete-state ceilings; FINAL_TEST/OOD remain unopened"
   }
  ],
  "split_plans": [
@@ -204,6 +418,29 @@
    ],
    "sealed_before_outcomes": false,
    "sealed_at": null
+  },
+  {
+   "split_plan_id": "induction_selector_payload_factorial_split_r552_v1",
+   "unit": "one two-source selector-by-payload factorial group, shared across every derived edge and control",
+   "partition_artifact_id": "r552_factorial_rows_receipt",
+   "builder_artifact_id": "r552_factorial_rows_builder",
+   "seed": 552,
+   "groups": {
+    "FIT": 72,
+    "SELECT": 36,
+    "FINAL_TEST": 36,
+    "OOD": 36
+   },
+   "leakage_group_keys": [
+    "semantic group",
+    "exact token sequence",
+    "exact prompt-answer pair",
+    "variable token bank",
+    "prefix and layout template",
+    "all four factorial conditions and their derived controls"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-03T16:21:00Z"
   }
  ],
  "evidence_events": [
@@ -271,6 +508,54 @@
    "path": "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood_v2_retry1_result.json",
    "sha256": "de2fdbffb695995ef5d31f875da34e002e9bb48669971c017b6b0cb45c1ddc78",
    "kind": "result",
+   "status": "frozen"
+  },
+  "r552_factorial_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FACTORIAL_ROWS_RUNG552_PREREGISTRATION.md",
+   "sha256": "87bc6bfec876b40b9bfa8e9995174479f3a63a8b6fdb6ff5ed77a19585680682",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r552_factorial_rows": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_factorial_rows_rung552.json",
+   "sha256": "6a0a6d2c8a3891ae5d6f787527b35e71c17518548b3b1836042afe730b13c460",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "r552_factorial_rows_receipt": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_factorial_rows_rung552_receipt.json",
+   "sha256": "0d42bcaaf7f86390803033ce13bc22d7690700130cd80df74170d6b2d652081a",
+   "kind": "split",
+   "status": "frozen"
+  },
+  "r552_factorial_rows_builder": {
+   "path": "basis_aligned/bilinear_quotient/ops/induction_selector_payload_factorial_rows_rung552.py",
+   "sha256": "56b63506452869a062ecb19a7ca61a65225b923f35bfb5a2c47bf429c73f9acd",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "r552_factorial_rows_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_factorial_rows_rung552.py",
+   "sha256": "be198beec1deb448f8cc67bd1c7d9bce2946da1588b0deebeac5bf80abd9f405",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "r553_factorial_rows_audit": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_factorial_rows_rung553_audit.json",
+   "sha256": "9fc0376fade6fb204686e164f293f8991caf7bc45c67eedd064f330dffd5d1ea",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r553_factorial_rows_audit_implementation": {
+   "path": "basis_aligned/bilinear_quotient/ops/induction_selector_payload_factorial_rows_rung553_audit.py",
+   "sha256": "3ec7ceb5cc385c3acbc30437bd5797a0054b436f6329ad94a815f4e5694016aa",
+   "kind": "implementation",
+   "status": "frozen"
+  },
+  "r553_factorial_rows_audit_test": {
+   "path": "basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_factorial_rows_rung553_audit.py",
+   "sha256": "bc36e39c236f50533bc3b07384732996b11d26fb871b57154c0b3db299772a4f",
+   "kind": "test",
    "status": "frozen"
   }
  },

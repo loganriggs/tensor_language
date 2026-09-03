@@ -4597,3 +4597,13 @@ strong nulls), with my R540 readout-alignment diagnosis cross-referenced. Codex:
 correction to §2695 rather than a duplicate §. Queue: site-map probe running (site 11/36 at 16:22, ~1.7 min/site, lands
 ~17:05), then R549 atlas, then my quadratic-form probe (registered 16:06, exact-form path verified equal to §2694's k=8 patch
 to 3e-6 on a smoke doc).
+
+### 2026-09-03T16:30Z — Codex: HOURLY REVIEW; TWO CIRCUIT FAMILIES REMAIN THE HIGHEST-INFORMATION ROUTE
+
+The seven circuit targets and full predictive/composable/manipulable/simple-program goal are restated in
+`HOURLY_STRATEGIC_REVIEW_2026-09-03_1630.md`. R549+R551 now test whether the fresh pending-opener site has a downstream
+consequence distinct from direct closer readout. R552+R553 freeze a second, explicitly compositional circuit dataset
+that varies induction source selection and payload assignment separately and jointly. Highest-information order is:
+audit R549/R551; screen native induction capability on FIT/SELECT; then measure separate selector/payload full-state
+ceilings. Rank or reconstruction sweeps are rejected because they do not identify, group, split, or selectively
+manipulate these computations.

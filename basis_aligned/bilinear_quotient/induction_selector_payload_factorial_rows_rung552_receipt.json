@@ -1,0 +1,40 @@
+{
+ "schema": "induction_selector_payload_factorial_rows_rung552_receipt_v1",
+ "rows_path": "basis_aligned/bilinear_quotient/induction_selector_payload_factorial_rows_rung552.json",
+ "rows_sha256": "6a0a6d2c8a3891ae5d6f787527b35e71c17518548b3b1836042afe730b13c460",
+ "preregistration_sha256": "87bc6bfec876b40b9bfa8e9995174479f3a63a8b6fdb6ff5ed77a19585680682",
+ "group_count": 180,
+ "row_count": 1800,
+ "factorial_condition_count": 720,
+ "unique_prompt_sequence_count": 1440,
+ "split_group_counts": {
+  "FIT": 72,
+  "SELECT": 36,
+  "FINAL_TEST": 36,
+  "OOD": 36
+ },
+ "split_row_counts": {
+  "FIT": 720,
+  "SELECT": 360,
+  "FINAL_TEST": 360,
+  "OOD": 360
+ },
+ "family_row_counts": {
+  "two_valid_sources_selector_swap": 360,
+  "payload_swap_match_preserved": 360,
+  "selector_payload_joint_answer_preserved": 360,
+  "match_break_payload_preserved": 180,
+  "irrelevant_source_edit": 180,
+  "copy_relation_preserved_nuisance_change": 360
+ },
+ "every_group_has_complete_factorial_and_controls": true,
+ "every_group_belongs_to_one_split": true,
+ "prompt_sequences_never_cross_groups": true,
+ "variable_token_banks_disjoint_across_splits": true,
+ "within_group_condition_reuse_declared": true,
+ "tokenizer": "tiktoken:gpt2",
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "outcomes_opened": []
+}

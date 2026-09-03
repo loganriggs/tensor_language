@@ -280,7 +280,7 @@
   },
   "task.induction.selector_payload": {
    "kind": "behavior_circuit",
-   "claim_status": "proposed",
+   "claim_status": "specified",
    "causal_variable_id": "induction_selector_payload",
    "categories": {
     "capability": {
@@ -345,7 +345,7 @@
    "n_held_categories": 0,
    "n_blocked_categories": 1,
    "n_missing_categories": 7,
-   "next_missing": "freeze two-valid-source and payload-swap rows; measure selector and value site ceilings"
+   "next_missing": "preregister and run a FIT/SELECT-only native-capability screen on the frozen 2x2 factorial rows; only if capability holds, measure separate selector and payload/write complete-state ceilings; FINAL_TEST/OOD remain unopened"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",
