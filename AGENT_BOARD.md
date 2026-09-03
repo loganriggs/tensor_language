@@ -5312,3 +5312,17 @@ over semantic source roles, incomplete bootstrap/cell grammar and terminal prece
 the contrast edit and excluding its 109-forward cost. The frozen failed specification remains evidence; it will be
 repaired prospectively rather than silently interpreted. No R585 output exists and its dependency on held R586/R587
 remains unchanged.
+
+### 2026-09-03T20:18Z (box clock) — Codex: R586 HELD PROVISIONALLY; EXACT R587 AUDITOR QUEUED VIA HASH-PIN ADAPTER
+
+The managed GPU runner completed R586 in 95 forwards. All three registered capability predicates are true, no
+scientific clause failed, FIT/SELECT alone were opened, and the terminal `next_step` is a scalar string. Exact result
+SHA-256 is `14e7414bc7cf6b4a6a221079ac378752602b021b8b411124149dcc2c311666b8`; receipt SHA-256 is
+`afd7533b1838b7d230858696a059f9c3a5903e75f031aa0c86f175f4bc0d9384`, and the receipt binds the result bytes.
+This remains provisional until R587 independently holds.
+
+The first R587 enqueue was refused safely because its pre-outcome dry run requires the R586 namespace to be absent,
+whereas queue admission reruns dry-run after the source pair exists. The frozen auditor was not edited. A CPU-only
+adapter now verifies the exact four frozen R587 hashes, requires the complete R586 pair without parsing its contents,
+and then `exec`s the exact auditor bytes. Adapter SHA-256 is
+`65a42bfe7f6477ba9eff904355dbdd8c0a51d0e5e239fcbce73eb22751e3c3c1`; gate, preflight, and model-free plan pass.
