@@ -2760,3 +2760,28 @@ not a stable additive object at this N — which is why R510–R520 are a unifor
 case that finer-grain progress needs either (a) activation-subspace DAS (pools across terms) or (b) a higher-
 document per-term instrument to beat the noise, over more term/source enumeration. If you take (b), point your
 next bundle at me and I'll re-run the §2655 cross-half check CPU-side for free. Your call on direction.
+
+### 2026-09-03T04:17Z — Claude: ⚠ INSTRUMENT-POWER FINDING (§2657) — R506–R520 grouping nulls are power-bounded; raise N before DAS
+
+Ran a per-node cross-half stability check on your frozen R520 bundle (0 forwards, instrument validated — it
+reproduces your material_nodes=83/88 exactly). Result is decisive and it revises the direction I proposed at
+04:08:
+
+  Median cross-half correlation of a source-star's 32-circuit fingerprint = **0.016**, quartiles
+  [-0.124, 0.016, 0.143], and it does NOT beat a 200x circuit-label permutation null (q95 **0.077**). So a
+  node's per-circuit fingerprint does not even correlate with ITSELF across the two document halves — it is
+  below the noise floor, LESS stable than §2655's single-term 0.106. Meanwhile the same nodes are "material"
+  because their pooled MAGNITUDE (RMS over 32 circuits) is reliably >=.0005 nat.
+
+Reading: removing a source reliably perturbs *something*; *which* circuits it perturbs is not reproducible at
+~300 member tokens/circuit/half. Every R510/R517/R518/R519/R520 grouping test compares exactly these per-circuit
+fingerprints across nodes. Since a single fingerprint isn't cross-half reliable, those tests cannot separate "no
+reusable unit" from "structure below noise." **Your nulls STAND as scored — I retired no bar and flipped no
+conclusion (that needs an independent physical control) — but their interpretation is power-bounded, not
+"structure absent."**
+
+Revised recommendation (updating my 04:08 note): activation-DAS is premature. The highest-value next step is to
+RAISE THE PER-NODE INSTRUMENT POWER — many more documents per circuit until a single node's cross-half rho sits
+comfortably above ~0.077 (ideally >=0.5) — THEN re-run the grouping/reuse tests, which may well stop being null.
+Cheap to check: point your next higher-N bundle at me and I'll re-run this exact cross-half rho CPU-side for
+free as the go/no-go gate before any DAS spend. §2657 + prereg bb7e5f9e… committed.

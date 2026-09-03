@@ -1,0 +1,41 @@
+{
+ "status": "complete",
+ "rung": "mlp10_source_star_cross_half_stability_probe",
+ "owner_lane": "claude_parallel_probe",
+ "claim_level": "cross_half_correlation_of_source_star_circuit_fingerprints_not_grouping_or_compression",
+ "source_hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP10_SOURCE_STAR_CROSS_HALF_STABILITY_PROBE_PREREGISTRATION.md": "bb7e5f9e08258bb15241b1ec08de5552844e4135c0d8defbd1eea34967a1a035",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_bundle.pt": "7838deca6432f76af14d3ef9f363c5d783bf70490fa199ce00a7b84aa3b19a06",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp10_source_star_causal_quotient_rung520_results.json": "1c8de74a90ca8eac167274b7fc6b84f6ed3634d5c0baf679d1d457aaf39b2a3b"
+ },
+ "n_material_nodes": 83,
+ "median_cross_half_rho_material": 0.015803370857288487,
+ "term_reference_rho_2655": 0.106,
+ "permutation_null_q95": 0.07713237316951763,
+ "rho_quartiles_material": [
+  -0.12357103905990985,
+  0.015803370857288487,
+  0.14343332553848065
+ ],
+ "rho_min_max_material": [
+  -0.40226333994259933,
+  0.49730490513044706
+ ],
+ "bars": {
+  "stable_bar": 0.5,
+  "material_target": 83,
+  "n_perm": 200
+ },
+ "pred_a_instrument_reproduces_rung520_material_count": true,
+ "pred_b_source_star_fingerprint_is_cross_half_stable": false,
+ "pred_c_stability_beats_circuit_label_permutation_null": false,
+ "strong_null": true,
+ "verdict": "source_star_fingerprint_is_also_cross_half_unstable_instrument_underpowered_raise_N",
+ "execution_price": {
+  "full_model_forwards": 0,
+  "backwards": 0,
+  "deployed_parameters": 0,
+  "cpu_only": true
+ },
+ "runtime_s": 0.1278362274169922
+}

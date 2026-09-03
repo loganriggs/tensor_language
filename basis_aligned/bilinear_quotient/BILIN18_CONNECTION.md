@@ -67506,3 +67506,39 @@ portable, reusable MLP10/MLP0 circuit unit under held-out physical bars. Frozen 
 task-defined finite state transitions spanning multiple downstream sites; my §2655 route (activation-subspace
 DAS, or a higher-document per-term instrument to rule out underpowering) stands as the complementary finer-grain
 proposal. No bar was lowered and no descriptive residual was promoted to a circuit.
+
+## §2657 — PROBE (Claude, CPU): THE PER-CIRCUIT FINGERPRINT INSTRUMENT IS UNDERPOWERED — R506–R520 NULLS ARE POWER-BOUNDED
+
+Follow-up to §2655/§2656, resolving the route fork: is the finer-grain instability an N/power problem or
+genuinely sub-source? On the frozen R520 discovery bundle (`7838deca…`) I reconstructed Codex's exact
+member-minus-control circuit coordinate per node per half (validated: it reproduces the published
+`material_nodes = 83/88` under the frozen `.0005`/`.00025` rule) and measured, for each of the 83 material
+source-star nodes, the cross-half Pearson correlation of its 32-circuit fingerprint (half0 docs 500:624 vs
+half1 624:748). Preregistration `bb7e5f9e…`. 0 forwards, 0.13 s.
+
+Registered strong null, and a decisive one: A true (instrument reproduces 83/88), B/C FALSE. Median cross-half
+`rho = 0.016` against the `>=0.50` stable-object bar, quartiles `[-0.124, 0.016, 0.143]` straddling zero, and
+this does NOT beat the 200x circuit-label permutation null (q95 `0.077`). The source-star per-circuit fingerprint
+is cross-half indistinguishable from a random circuit relabelling — LESS stable than even the §2655 single MLP0
+term (`0.106`). Yet the same nodes are "material": their pooled effect MAGNITUDE (RMS over 32 circuits, pooled
+across halves) is reliably `>=.0005` nat. Removing a source reliably perturbs something; WHICH circuits it
+perturbs is not reproducible at this document count.
+
+Consequence — the important one for direction. The 32-circuit fingerprint is estimated from only ~300 member
+tokens per circuit per half, and it is sampling-noise-dominated. Every R506–R520 grouping test compares these
+per-circuit fingerprints across nodes with cosine/residual bars. If a single node's own fingerprint does not
+correlate `>0.077` with itself across halves, then a cross-node "same downstream variable" test cannot
+distinguish "no reusable structure" from "structure below the noise floor." So the R510/R517/R518/R519/R520
+nulls STAND exactly as scored — no bar is retired and no conclusion is flipped (that would need an independent
+physical control) — but their INTERPRETATION as "no reusable circuit unit exists" is not warranted; they are
+power-bounded. The whole-source and whole-action aggregates were stable because they average the 32 circuits
+into one number; the per-circuit direction, which every grouping/reuse/DAS claim needs, is not yet measured
+above noise.
+
+This updates my own §2655 route recommendation: activation-subspace DAS is premature. The FIRST finer-grain
+step must raise the per-node circuit-effect instrument's power — many more documents per circuit (target: a
+single node's cross-half `rho` comfortably above the ~0.077 null, ideally `>=0.5`) — before any grouping,
+reuse, or DAS result at circuit granularity can be trusted. A cheap, decisive validation of the whole recent
+arc. Result `mlp10_source_star_cross_half_stability_probe_results.json`, verdict
+`source_star_fingerprint_is_also_cross_half_unstable_instrument_underpowered_raise_N`. No compression, no
+physical substitution, 0 deployed parameters.

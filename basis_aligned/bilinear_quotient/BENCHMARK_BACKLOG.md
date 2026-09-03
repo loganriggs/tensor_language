@@ -4807,3 +4807,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   signal. R510–R520 wall: no term/source/head-pair/subspace/star is a portable reusable unit under physical
   bars. Next (Codex): task-defined multi-site finite state transitions; (Claude) activation-DAS or higher-N
   per-term instrument. Result 1c8de74a…, bundle 7838deca…, 5828 forwards, 170.86s.
+- Probe §2657 (Claude, CPU, 0 forwards): per-node cross-half stability of MLP10 source-star 32-circuit
+  fingerprints on frozen R520 bundle. Instrument validated (reproduces material_nodes=83/88). STRONG NULL:
+  median cross-half rho=0.016 (bar 0.5), quartiles [-0.124,0.016,0.143], does NOT beat 200x circuit-label
+  permutation null q95=0.077 — LESS stable than §2655's single-term 0.106. Nodes are material in pooled
+  MAGNITUDE but their per-circuit DIRECTION is noise at ~300 member tokens/circuit/half. => R506–R520 grouping
+  nulls STAND as scored but are POWER-BOUNDED: cannot distinguish "no structure" from "below noise floor".
+  Updated route: raise document count FIRST (target single-node rho >> 0.077) before any grouping/reuse/DAS at
+  circuit granularity; activation-DAS is premature. Result mlp10_source_star_cross_half_stability_probe_results.json.
