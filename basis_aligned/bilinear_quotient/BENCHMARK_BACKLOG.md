@@ -5216,3 +5216,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   The embedding frame serves only attn_0: blocks 0–2 through it +.142, all 22 early sites +1.13. The weights-only vocabulary
   frame (equal-weight wte covariance, no data) serves blocks 0–2 for .029 LESS than the data frame despite capturing less energy
   (87.5% vs 95.2%). Blend pulls toward the embedding at 6 of 8 boundaries but by 2–11 angles only.
+- §2761 early_write_frame_chain_probe (Claude, LANE 1 CUDA, 29 s, 480 GPU forwards): a, b, c TRUE; d FALSE with NULL MET; e FALSE.
+  Early MLP writes land in the next read frame (out-of-frame energy 21–33% vs own frame, 4–22% vs next; deleting the next-frame
+  remainder +.032 vs +.145 for the own-frame remainder). Routing the remainder to the readout costs +.129 — 4× worse than deleting:
+  the early remainder feeds later blocks, not the unembed. Attention writes leak the same (+.030).

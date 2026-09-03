@@ -71115,3 +71115,37 @@ matters and it passed. (3) The blend's pull toward the embedding is real in sign
 angles), which is the same fact as §2759's inert blend; pred_c is scored TRUE as registered but the effect is not program-relevant.
 (4) Neither §2759 nor this probe finds a cheap frame for blocks 0–2: the early program still needs its 16 own frames (§2753). The
 next lever is the write side (early frame chain, §2759 (4)). Failures preserved: b, d FALSE. Nothing installs into the §312 frontier.
+
+## §2761 — EARLY MLP WRITES LAND IN THE NEXT READ FRAME, THE REMAINDER IS NOT READOUT-BOUND, AND ATTENTION WRITES ARE NO BETTER BEHAVED: for l = 0..7 the MLP write has 21–33% of its energy outside mlp_l's OWN input 768-frame but only 4–22% outside attn_{l+1}'s frame (own/next median 2.78, all 8 greater; pred_b "≥ 1.5" TRUE; null ≤ 1.1 not met); deleting the part of mlp_0..7's writes outside their own frame costs +.145 over the own-read program, outside the NEXT frame only +.032 (ratio .22; pred_c "≤ .5" TRUE; null ≥ .9 not met); but ROUTING that next-frame remainder to the readout (added before the final norm, as the late bus does in §2756) costs +.129 — four times worse than deleting it (pred_d "≤ .040" FALSE; NULL ≥ .120 MET): the early remainder is consumed by later blocks, not by the unembed; deleting attn_0..7's writes outside mlp_l's frame costs +.030, essentially equal to the MLP figure (ratio .93; pred_e "≤ .5" FALSE; null ≥ 1.0 not met) although attention's out-of-frame energy median is lower (.061 vs .077) and rises to 37% / 28% at blocks 6 / 7 (Claude, LANE 1 CUDA, 29 s, 480 GPU document-forwards): a, b, c TRUE; d FALSE with NULL MET; e FALSE. Preserved.
+
+Registered 2026-09-03 23:39Z (polynomial_causal/EARLY_WRITE_FRAME_CHAIN_PROBE_PREREGISTRATION.md); landed 23:40Z. Script
+ops/early_write_frame_chain_probe.py; results early_write_frame_chain_probe_results.json (sha 33630d04…). Frozen: prereg, §2759
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Construction: §2753's own 768 read frames for the 22 early sites in every arm; §2756's write
+routing (centred write split into span(U) and remainder; 'delete' drops the remainder, 'readout' adds it before the final norm)
+applied to the writes of blocks 0–7 only. Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699.
+
+| arm (k = 768) | CE added | gap vs own |
+|---|---|---|
+| EARLY22_OWN_768 | 0.0570 | — |
+| MLPW_OWNFRAME_DEL_768 (mlp_0..7 writes kept inside their own input frame) | 0.2019 | +.1449 |
+| MLPW_NEXTFRAME_DEL_768 (kept inside attn_{l+1}'s frame) | 0.0892 | +.0322 (c: .22 × TRUE) |
+| MLPW_NEXTFRAME_RO_768 (remainder routed to the readout) | 0.1863 | +.1293 (d FALSE, null met) |
+| ATTNW_NEXTFRAME_DEL_768 (attn_0..7 writes kept inside mlp_l's frame) | 0.0868 | +.0298 (e: .93 × FALSE) |
+
+Out-of-frame write energy, l = 0..7 — mlp vs own frame: .206 .207 .257 .249 .250 .278 .330 .280; mlp vs next frame: .050 .042
+.077 .076 .090 .181 .217 .172; attn vs next frame: .028 .029 .058 .084 .061 .162 .373 .282.
+
+What it says. (1) The early frame drift has a simple write-side description: each MLP write puts a fifth to a third of its energy
+outside the frame it read from, and the next site's read frame absorbs most of that (only 4–9% left outside at blocks 0–4). The
+read frames follow the writes — "chain of frames" holds as geometry and as CE for the in-frame part (.032 for eight MLP writes'
+remainders). (2) The remainder is not a readout side-channel. §2756's routing worked for blocks 8–17 because the late residual is
+already in the readout's frame; the early remainder, added raw before the final norm, is out of place and costs 4× more than
+deleting it. So the early program is NOT "chain + side-channel": the ≈ .03 outside the next frame is read by LATER blocks whose
+frames have drifted onto it — the frame chain is leaky forward, which is the same fact as §2757's broad drift. (3) Attention writes
+are not the tidy ones: their out-of-frame CE is the same as the MLPs' (.030 vs .032) and their out-of-frame energy is larger at
+blocks 6–7. §2759's "MLP writes rotate the frame more" is about rotation, not about leaving the frame — both write kinds leak
+≈ equally in CE. (4) The natural program statement is now testable: every site reads through its frame and writes into the next
+site's frame (chain) for blocks 0–7, the bus for 8–17. Additively that is ≈ .057 + .032 + .030 ≈ .12 at k = 768 and unknown at
+1024, where the late bus costs .036 in total (§2756). Failures preserved: d (null met), e. Nothing installs into the §312
+frontier (§2125).

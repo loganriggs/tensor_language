@@ -1,0 +1,35 @@
+{"stage": "heads_done", "t": 24.3}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 24.7}
+{"stage": "geom", "oe_own": [0.206, 0.2066, 0.2573, 0.2489, 0.2498, 0.2784, 0.3296, 0.2797], "oe_next": [0.0502, 0.0416, 0.0774, 0.0758, 0.0898, 0.181, 0.2172, 0.1719], "oe_attn_next": [0.0281, 0.0293, 0.0582, 0.0842, 0.0615, 0.1621, 0.373, 0.2824], "ratio_med": 2.783, "t": 24.8}
+{"stage": "arms", "EARLY22_OWN_768": 0.057, "MLPW_OWNFRAME_DEL_768": 0.2019, "MLPW_NEXTFRAME_DEL_768": 0.0892, "MLPW_NEXTFRAME_RO_768": 0.1863, "ATTNW_NEXTFRAME_DEL_768": 0.0868, "t": 29.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_next_frame_adopts_the_write": true,
+  "pred_c_next_frame_is_the_writes_home": true,
+  "pred_d_early_chain_with_readout_is_cheap": false,
+  "pred_e_attention_writes_sit_inside_the_next_frame": false
+ },
+ "nulls": {
+  "b_null_ratio_le_1.1": false,
+  "c_null_ge_.9": false,
+  "d_null_ge_.12": true,
+  "e_null_ge_1": false
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "MLPW_OWNFRAME_DEL_768": 0.2019064724445343,
+  "MLPW_NEXTFRAME_DEL_768": 0.08916768431663513,
+  "MLPW_NEXTFRAME_RO_768": 0.1862979531288147,
+  "ATTNW_NEXTFRAME_DEL_768": 0.08681502938270569
+ },
+ "gaps": {
+  "mlpw_ownframe_del_minus_own": 0.14491865038871765,
+  "mlpw_nextframe_del_minus_own": 0.03217986226081848,
+  "mlpw_nextframe_ro_minus_own": 0.12931013107299805,
+  "attnw_nextframe_del_minus_own": 0.029827207326889038,
+  "oe_own_over_next_median": 2.782576322555542,
+  "oe_next_median_mlp": 0.07735637575387955,
+  "oe_next_median_attn": 0.061496552079916
+ }
+}
