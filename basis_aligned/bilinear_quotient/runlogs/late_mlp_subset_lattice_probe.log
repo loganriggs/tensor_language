@@ -1,0 +1,31 @@
+{"stage": "fit_cov", "t": 6.6}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 7.1}
+{"stage": "lattice", "size": 0, "n": 2, "t": 7.5}
+{"stage": "lattice", "size": 1, "n": 12, "t": 12.0}
+{"stage": "lattice", "size": 2, "n": 32, "t": 20.8}
+{"stage": "lattice", "size": 3, "n": 52, "t": 29.5}
+{"stage": "lattice", "size": 4, "n": 62, "t": 33.9}
+{"stage": "lattice", "size": 5, "n": 64, "t": 34.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_between_group_interaction_dominates": false,
+  "pred_c_five_jointly_cheap_with_16_17_intact": false,
+  "pred_d_marginals_grow_without_16_17": false,
+  "pred_e_pairwise_interactions_small": false
+ },
+ "nulls": {
+  "b_null_between_le_.15": false,
+  "c_null_five_ge_.80": false,
+  "d_null_marg_le_1.5x": false,
+  "e_null_pair_ge_.05": false
+ },
+ "five": 0.7238981127738953,
+ "within5": 0.5214933454990387,
+ "between": 0.31321004033088684,
+ "medians": {
+  "single": 0.040258049964904785,
+  "marg": 0.10649380087852478,
+  "pair": 0.040814101696014404
+ }
+}

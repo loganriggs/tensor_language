@@ -69666,3 +69666,47 @@ the INPUT, not of the block). The rms_norm inside the block is applied to the re
 exactly unit-rms; the arms are therefore a lower bound on what an exactly re-normalised 16-dim program achieves. Not tested:
 whether Left/Right's core reads are low-rank within the 4608 hidden units (the exact-rank map §2673/§2675 says the FULL token-
 context operator is high-rank; the core-restricted one is a different, 16-column object and can be small).
+
+## §2721 — THE LATE MLP STACK DEGRADES QUADRATICALLY, NOT ADDITIVELY: mean-ablating n of mlp11–15 (16/17 intact) costs .04 / .12 / .27 / .49 / .72 nat for n = 1…5, every one of the 10 pairwise interactions is +.035…+.059 (uniform; median .041 ≈ the single cost), and the between-group term with mlp16/17 is .31 (Claude, LANE 1 CUDA, 35 s, 4256 GPU document-forwards, full 2^5 × 2 lattice): a TRUE; b, c, d, e ALL FALSE with NO null met — the registered dichotomy (redundancy within the five vs interaction with 16/17) was the wrong frame; the data are a homogeneous mutually-redundant pool. Preserved.
+
+Written 2026-09-03 21:14Z (box clock). Preregistration `polynomial_causal/LATE_MLP_SUBSET_LATTICE_PROBE_PREREGISTRATION.md`
+(registered 21:10Z before the script). Script `ops/late_mlp_subset_lattice_probe.py`; receipt
+`late_mlp_subset_lattice_probe_results.json` (sha 884a0bba…; all 64 lattice values inside). FRESH split (means from docs 96–191,
+CE on docs 0–63). SIGN CONVENTION (§2135): CE numbers are CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER; an interaction is
+CE(joint) − Σ parts, positive = superadditive.
+
+**Instrument (a TRUE).** Baseline 3.0322401; MEAN(16,17) .8480; MEAN(all 7) 1.8851; singles .0474/.0436/.0403/.0326/.0386 — every
+prior reproduced to 1e-4.
+
+**Lattice, 16/17 intact (CE added by |S|; range over subsets).** n=1: .033–.047 · n=2: .111–.150 · n=3: .246–.318 · n=4: .465–.511 ·
+n=5: .724. Increments per added block .04 → .08 → .15 → .22 → .23. A pairwise model cost(S) = a|S| + b·C(|S|,2) with a = .040,
+b = .041 (the medians) gives .04/.12/.24/.41/.61 — right to 20%, with a small positive third-order remainder at n ≥ 4.
+Pairwise interactions: 11-12 .059, 11-13 .051, 12-13 .049, 13-15 .042, 14-15 .041, 13-14 .040, 11-15 .038, 11-14 .037, 12-15
+.037, 12-14 .035 — the adjacent early pairs (11-12, 11-13, 12-13) are the largest, but the spread is 1.7×, not orders of magnitude.
+
+**Lattice with 16/17 mean-ablated.** MEAN(16,17) .848; + one of 11…15: .921/.943/.954/.976/1.075 (marginals .073/.095/.106/.128/
+.228 — monotone in depth, mlp15 worth 3× mlp11 once 16/17 are gone); + all five 1.885. within5 (16/17 intact) = .724 − .202 = .521;
+between = 1.885 − .724 − .848 = .313.
+
+**Scoring.** b between .313 ≥ .50 FALSE and .313 < 2 × .521 (null ≤ .15 not met). c MEAN(11..15) .724 ≤ .40 FALSE (null ≥ .80 not
+met). d median marginal .106 / median single .040 = 2.6 ≥ 3 FALSE (null ≤ 1.5 not met). e median pair .041 ≤ .02 FALSE (null
+≥ .05 not met). Four FALSE letters, four unmet nulls: every quantity landed BETWEEN the bar and the null — the registered frame
+("A: redundancy among the five, or B: interaction with 16/17") had the answer as "both, in a specific smooth form", which
+neither bar expressed. Recorded as a framing error of the preregistration, not of the measurement.
+
+**What it means for the program.** (i) The late MLP stack is a POOL: each of mlp11–15 is worth .04 nat alone and every pair
+interacts by another .04, uniformly — the blocks are mutually substitutable to first order, and the value of the pool is a
+smooth convex function of how many are present, ≈ .03·n² for n removed. This is the signature of distributed, overlapping
+computation (many blocks each pushing the same directions a little; any one is dispensable, the sum is not), not of a chain
+of distinct circuits. (ii) It sharpens §2719: a per-site ablation map prices these blocks at .20 nat total when their joint
+value is .72 (16/17 intact) or 1.04 (16/17 gone). Any "smaller program" that drops several late blocks must be priced JOINTLY;
+§2708's second-order certificate would need the full pairwise matrix (which this lattice now supplies for 11–15) and still
+under-predicts by ~.1 at n = 5. (iii) Combined with §2718/§2720 (mlp16/17 ≈ a 16-dim program): the late stack is a 16-dim
+final program fed by a homogeneous pool of five blocks whose joint contribution grows monotonically with depth once the final
+program is removed (mlp15's marginal .228 vs mlp11's .073) — the pool's job is plausibly to prepare what mlp16/17 read, which
+the queued core_input_provenance_probe tests directly. (iv) Pool + uniform pairwise interaction is exactly the structure under
+which a SINGLE fitted replacement for all five (one surrogate for the pool, not five) is the right compression target.
+
+**Limits.** Mean-ablation is one ablation family; the lattice under zero-ablation or under resampling could differ in level but the
+convexity (a uniform positive pairwise term) is a comparison within one family. n=5 joint = .724 has only the one subset; the
+pairwise-model residuals at n = 4–5 (+.06/+.11) are above the .003 wobble and real.

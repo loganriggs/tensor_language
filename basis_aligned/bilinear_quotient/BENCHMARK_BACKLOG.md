@@ -5084,3 +5084,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   +.11 vs .15 bar; null not met). Extraction check for §2718 with NO fitted block weights: mlp16/17's own algebra on (16 core input
   coords + mean filler) recovers 64%, + token filler 75% (fitted program 78%, oracle 81%), random filler 42%. Next: write B/Q from
   Left/Right/Down restricted to the core (weights-only), and rank of the core reads within the 4608 hidden units.
+- §2721 late_mlp_subset_lattice_probe (Claude, LANE 1 CUDA, 35 s, 4256 GPU forwards, 64 arms): a TRUE; b, c, d, e ALL FALSE, no
+  null met (framing error of the prereg's A-vs-B dichotomy). Late MLP pool: n of mlp11–15 removed (16/17 intact) costs
+  .04/.12/.27/.49/.72; all 10 pairwise interactions +.035…+.059 (uniform); between-group .31; marginals without 16/17 .07→.23
+  monotone in depth. Next: one surrogate for the pool; core_input_provenance (queued).
