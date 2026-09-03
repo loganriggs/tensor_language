@@ -20,6 +20,7 @@ import math
 import os
 from pathlib import Path
 import sys
+import tempfile
 import time
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -36,6 +37,8 @@ OUT = ROOT / "induction_selector_payload_frozen_factor_rung585_results.json"
 RECEIPT = ROOT / "induction_selector_payload_frozen_factor_rung585_receipt.json"
 DRYRUN = ROOT / "induction_selector_payload_frozen_factor_rung585_dryrun.json"
 EVIDENCE_DIR = ROOT / "induction_selector_payload_frozen_factor_rung585_evidence"
+STAGE_PREFIX = ".induction_selector_payload_frozen_factor_rung585_stage-"
+RECOVERY_PREFIX = ".induction_selector_payload_frozen_factor_rung585_recovered-"
 
 ROWS = ROOT / "induction_selector_payload_three_source_rows_rung578.json"
 AMENDMENT = POLY / "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md"
@@ -48,6 +51,12 @@ FACADE = POLY / "bilin18_observed_model_facade.py"
 R586_RESULT = ROOT / "induction_selector_payload_native_capability_rung586_results.json"
 R586_RECEIPT = ROOT / "induction_selector_payload_native_capability_rung586_receipt.json"
 R587_AUDIT = ROOT / "induction_selector_payload_native_capability_audit_rung587.json"
+IMPLEMENTATION_REVIEW = POLY / (
+    "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_IMPLEMENTATION_PREEXECUTION_REVIEW.md"
+)
+IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
+    "test_induction_selector_payload_frozen_factor_rung585_implementation_adversarial.py"
+)
 
 AUTHORITY_HASHES = {
     ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
@@ -61,6 +70,9 @@ AUTHORITY_HASHES = {
     R586_RESULT: "14e7414bc7cf6b4a6a221079ac378752602b021b8b411124149dcc2c311666b8",
     R586_RECEIPT: "afd7533b1838b7d230858696a059f9c3a5903e75f031aa0c86f175f4bc0d9384",
     R587_AUDIT: "72f0261fe32aa3d048c442ea1c08af932af6a368894610833e79aaaabf98bfe9",
+    IMPLEMENTATION_REVIEW: "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30",
+    IMPLEMENTATION_ADVERSARIAL_TEST:
+        "2567c3c5633575c2f4f8369328071025037b7c6f6c8a359f7870859b787a12e2",
 }
 
 SPLITS = ("FIT", "SELECT")
@@ -77,10 +89,10 @@ EXPECTED_PHASE_PRICE = {"FIT": 459, "SELECT": 231}
 EXPECTED_TOTAL_PRICE = 690
 CHECKPOINT_SHA256 = "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
 
-RESULT_SCHEMA = "induction_selector_payload_frozen_factor_rung585_result_v1"
-RECEIPT_SCHEMA = "induction_selector_payload_frozen_factor_rung585_receipt_v1"
-DRYRUN_SCHEMA = "induction_selector_payload_frozen_factor_rung585_dryrun_v1"
-EVIDENCE_SCHEMA = "induction_selector_payload_frozen_factor_rung585_evidence_v1"
+RESULT_SCHEMA = "induction_selector_payload_frozen_factor_rung585_result_v2"
+RECEIPT_SCHEMA = "induction_selector_payload_frozen_factor_rung585_receipt_v2"
+DRYRUN_SCHEMA = "induction_selector_payload_frozen_factor_rung585_dryrun_v2"
+EVIDENCE_SCHEMA = "induction_selector_payload_frozen_factor_rung585_evidence_v2"
 PROSPECTIVE_STATUS = "prospective_thresholds_frozen_before_r585_outcomes"
 
 # These names make the preregistered scientific questions visible to the
@@ -99,6 +111,22 @@ REGISTERED_PREDICATES = {
 EVIDENCE_DESCRIPTOR_FIELDS = {
     "path": str, "sha256": str, "bytes": int, "dtype": str,
     "shape": list, "row_order_sha256": str,
+}
+EXPECTED_OPERATION_COUNTS = {"FIT": 13_824, "SELECT": 6_912}
+EXPECTED_OPERATION_SHA256 = "82169667d6f658b993f882b7b9951e07ae93149e5d5138fce548f6205e88cc5e"
+HELD_ARRAY_SHAPES = {
+    "native_e.npy": [2_592, 4, 2],
+    "native_u.npy": [2_592, 4, 2, 1_152],
+    "canonical_term.npy": [2_592, 4, 1_152],
+    "native_head_output.npy": [2_592, 4, 1_152],
+    "non_equality_remainder.npy": [2_592, 4, 1_152],
+    "live_removed.npy": [16_848, 4, 1_152],
+    "hook_delta.npy": [16_848, 4, 1_152],
+}
+HELD_JSONL_COUNTS = {
+    "endpoint_measurements.jsonl": 2_592,
+    "directed_arm_measurements.jsonl": 16_848,
+    "factor_exactness.jsonl": 10_368,
 }
 
 RESULT_FIELD_TYPES = {
@@ -264,7 +292,175 @@ def _validate_fields(document: Mapping[str, object], fields: Mapping[str, type])
     require_finite_json(dict(document))
 
 
-def validate_result(result: Mapping[str, object]) -> None:
+def _finite_array(array: np.ndarray, label: str) -> None:
+    flat = array.reshape(-1)
+    for start in range(0, flat.size, 1_000_000):
+        if not bool(np.isfinite(flat[start:start + 1_000_000]).all()):
+            raise ValueError(f"nonfinite evidence array: {label}")
+
+
+def _strict_jsonl(path: Path) -> list[dict[str, object]]:
+    rows = []
+    with path.open() as handle:
+        for line_number, line in enumerate(handle, 1):
+            try:
+                row = json.loads(
+                    line,
+                    parse_constant=lambda value: (_ for _ in ()).throw(
+                        ValueError(f"non-standard JSON constant {value}")
+                    ),
+                )
+            except (TypeError, ValueError) as jsonl_error:
+                raise ValueError(f"invalid JSONL at {path}:{line_number}") from jsonl_error
+            if type(row) is not dict:
+                raise TypeError(f"JSONL row must be an object at {path}:{line_number}")
+            require_finite_json(row, f"{path}:{line_number}")
+            rows.append(row)
+    return rows
+
+
+def _validate_held_evidence(
+    result: Mapping[str, object],
+    artifact_path_resolver,
+) -> None:
+    raw = result["raw_evidence"]
+    required_raw = {
+        "schema", "endpoint_count", "directed_arm_record_count",
+        "endpoint_site_role_operation_counts", "endpoint_site_role_operation_sha256",
+        "realized_endpoint_site_role_operations", "instrument_maxima",
+    }
+    if type(raw) is not dict or not required_raw <= set(raw):
+        raise ValueError("held result lacks complete raw evidence")
+    if raw["schema"] != EVIDENCE_SCHEMA or raw["endpoint_count"] != 2_592 or (
+        raw["directed_arm_record_count"] != 16_848
+    ):
+        raise ValueError("held evidence census changed")
+    if raw["endpoint_site_role_operation_counts"] != EXPECTED_OPERATION_COUNTS or (
+        raw["endpoint_site_role_operation_sha256"] != EXPECTED_OPERATION_SHA256
+    ):
+        raise ValueError("held operation authority changed")
+    realized_operations = raw["realized_endpoint_site_role_operations"]
+    if set(realized_operations) != set(SPLITS) or any(
+        realized_operations[split] != {
+            "count": EXPECTED_OPERATION_COUNTS[split],
+            "sha256": content_sha256([
+                row for row in build_endpoint_site_role_operations(
+                    build_execution_authority()["endpoints"]
+                ) if row["split"] == split
+            ]),
+        }
+        for split in SPLITS
+    ):
+        raise ValueError("held realized operation census changed")
+    maxima = raw["instrument_maxima"]
+    required_maxima = {
+        "native_attention_reconstruction_max_abs",
+        "equality_factor_max_abs",
+        "equality_plus_independent_remainder_max_abs",
+        "replay_native_logit_max_abs",
+        "padding_tripwire_active_lengths",
+    }
+    if type(maxima) is not dict or set(maxima) != required_maxima:
+        raise ValueError("held instrument maxima are incomplete")
+    if any(float(maxima[key]) > TOLERANCE for key in required_maxima if key != "padding_tripwire_active_lengths"):
+        raise ValueError("held instrument maximum exceeds tolerance")
+    if sorted(maxima["padding_tripwire_active_lengths"]) != [19, 20, 21, 22, 27, 28, 29]:
+        raise ValueError("held padding tripwire census changed")
+
+    descriptors = result["evidence_files"]
+    expected_names = set(HELD_ARRAY_SHAPES) | set(HELD_JSONL_COUNTS)
+    if len(descriptors) != len(expected_names):
+        raise ValueError("held evidence descriptor census changed")
+    by_name = {}
+    logical_root = EVIDENCE_DIR.relative_to(ROOT.parent.parent)
+    for descriptor in descriptors:
+        logical = Path(descriptor["path"])
+        if logical.parent != logical_root or logical.name in by_name:
+            raise ValueError("held evidence path is noncanonical or duplicated")
+        by_name[logical.name] = descriptor
+    if set(by_name) != expected_names:
+        raise ValueError("held evidence file set changed")
+
+    actual_paths = {
+        name: artifact_path_resolver(ROOT.parent.parent / descriptor["path"])
+        for name, descriptor in by_name.items()
+    }
+    arrays = {}
+    for name, expected_shape in HELD_ARRAY_SHAPES.items():
+        descriptor = by_name[name]
+        if descriptor["shape"] != expected_shape or descriptor["dtype"] != "<f4":
+            raise ValueError(f"held array schema changed: {name}")
+        array = np.load(actual_paths[name], mmap_mode="r", allow_pickle=False)
+        if list(array.shape) != expected_shape or array.dtype.str != "<f4":
+            raise ValueError(f"held array bytes disagree with descriptor: {name}")
+        _finite_array(array, name)
+        arrays[name] = array
+
+    json_rows = {}
+    for name, expected_count in HELD_JSONL_COUNTS.items():
+        descriptor = by_name[name]
+        if descriptor["shape"] != [expected_count] or descriptor["dtype"] != "jsonl":
+            raise ValueError(f"held JSONL schema changed: {name}")
+        rows = _strict_jsonl(actual_paths[name])
+        if len(rows) != expected_count:
+            raise ValueError(f"held JSONL row census changed: {name}")
+        json_rows[name] = rows
+
+    endpoints = json_rows["endpoint_measurements.jsonl"]
+    endpoint_order = [str(row["endpoint_id"]) for row in endpoints]
+    if endpoints != sorted(endpoints, key=lambda row: (row["split"], row["endpoint_id"])) or (
+        len(endpoint_order) != len(set(endpoint_order))
+    ):
+        raise ValueError("endpoint evidence order or membership changed")
+    directed = json_rows["directed_arm_measurements.jsonl"]
+    directed_order = [[row["directed_id"], row["arm"]] for row in directed]
+    if directed != sorted(directed, key=lambda row: (row["split"], row["directed_id"], row["arm"])) or (
+        len({tuple(row) for row in directed_order}) != len(directed_order)
+    ):
+        raise ValueError("directed evidence order or membership changed")
+    factor_rows = json_rows["factor_exactness.jsonl"]
+    factor_order = [[row["endpoint_id"], row["site"]] for row in factor_rows]
+    if factor_rows != sorted(factor_rows, key=lambda row: (row["split"], row["endpoint_id"], row["site"])) or (
+        len({tuple(row) for row in factor_order}) != len(factor_order)
+    ):
+        raise ValueError("factor exactness order or membership changed")
+    if any(
+        float(row[key]) > TOLERANCE
+        for row in factor_rows
+        for key in ("equality_factor_max_abs", "equality_plus_independent_remainder_max_abs")
+    ):
+        raise ValueError("factor exactness evidence exceeds tolerance")
+
+    endpoint_hash = content_sha256(endpoint_order)
+    directed_hash = content_sha256(directed_order)
+    factor_hash = content_sha256(factor_order)
+    for name in HELD_ARRAY_SHAPES:
+        expected_hash = directed_hash if name in ("live_removed.npy", "hook_delta.npy") else endpoint_hash
+        if by_name[name]["row_order_sha256"] != expected_hash:
+            raise ValueError(f"array row order binding changed: {name}")
+    if by_name["endpoint_measurements.jsonl"]["row_order_sha256"] != endpoint_hash or (
+        by_name["directed_arm_measurements.jsonl"]["row_order_sha256"] != directed_hash
+    ) or by_name["factor_exactness.jsonl"]["row_order_sha256"] != factor_hash:
+        raise ValueError("JSONL row order binding changed")
+
+    for start in range(0, 2_592, 64):
+        stop = min(start + 64, 2_592)
+        equality = np.sum(
+            arrays["native_e.npy"][start:stop, :, :, None]
+            * arrays["native_u.npy"][start:stop],
+            axis=2,
+        )
+        if float(np.max(np.abs(equality - arrays["canonical_term.npy"][start:stop]))) > 5e-5:
+            raise ValueError("saved equality factors do not reconstruct canonical term")
+        reconstructed = (
+            arrays["canonical_term.npy"][start:stop]
+            + arrays["non_equality_remainder.npy"][start:stop]
+        )
+        if float(np.max(np.abs(reconstructed - arrays["native_head_output.npy"][start:stop]))) > 5e-5:
+            raise ValueError("saved independent remainder does not reconstruct head output")
+
+
+def validate_result(result: Mapping[str, object], *, artifact_path_resolver=None) -> None:
     _validate_fields(result, RESULT_FIELD_TYPES)
     if result["schema"] != RESULT_SCHEMA or result["rung"] != 585:
         raise ValueError("wrong result identity")
@@ -283,6 +479,8 @@ def validate_result(result: Mapping[str, object]) -> None:
         raise ValueError("completed scientific phase did not use exact frozen price")
     if result["model_backwards"] != 0 or result["model_weights_updated"] is not False:
         raise ValueError("mutation envelope violated")
+    if result["checkpoint_weights_sha256"] != CHECKPOINT_SHA256:
+        raise ValueError("checkpoint hash mismatch")
     if result["dependency_lock_sha256"] != AUTHORITY_HASHES[DEPENDENCY_LOCK]:
         raise ValueError("wrong dependency lock")
     if result["implementation_sha256"] != sha256(SCRIPT):
@@ -291,15 +489,25 @@ def validate_result(result: Mapping[str, object]) -> None:
         raise ValueError("result does not bind owner test")
     if result["source_sha256"] != {str(path): digest for path, digest in AUTHORITY_HASHES.items()}:
         raise ValueError("result source provenance mismatch")
+    resolver = artifact_path_resolver or (lambda path: path)
     for descriptor in result["evidence_files"]:
         if type(descriptor) is not dict:
             raise TypeError("evidence descriptor must be a dict")
         _validate_fields(descriptor, EVIDENCE_DESCRIPTOR_FIELDS)
-        path = ROOT.parent.parent / descriptor["path"]
+        logical_path = ROOT.parent.parent / descriptor["path"]
+        path = resolver(logical_path)
         if not path.is_file() or sha256(path) != descriptor["sha256"] or (
             path.stat().st_size != descriptor["bytes"]
         ):
             raise ValueError(f"evidence file binding failed: {path}")
+        if descriptor["dtype"] == "jsonl":
+            if descriptor["shape"] != [len(_strict_jsonl(path))]:
+                raise ValueError(f"JSONL descriptor shape changed: {path}")
+        else:
+            array = np.load(path, mmap_mode="r", allow_pickle=False)
+            if list(array.shape) != descriptor["shape"] or array.dtype.str != descriptor["dtype"]:
+                raise ValueError(f"array descriptor disagrees with bytes: {path}")
+            _finite_array(array, str(path))
     expected_terminal = terminal_from_failures(result["evaluated_splits"], result["failure_classes"])
     if result["terminal"] != expected_terminal:
         raise ValueError("terminal disagrees with deterministic precedence")
@@ -320,12 +528,28 @@ def validate_result(result: Mapping[str, object]) -> None:
         raise ValueError("held result disagrees with failed clauses")
     if held and result["evaluated_splits"] != ["FIT", "SELECT"]:
         raise ValueError("held result did not open SELECT")
+    if held:
+        _validate_held_evidence(result, resolver)
+        execution = build_execution_authority()
+        for split in SPLITS:
+            report = result["split_scores"].get(split)
+            if type(report) is not dict:
+                raise ValueError(f"held split score missing: {split}")
+            realized = validate_realized_bootstraps(
+                report, split, execution["manifests"]
+            )
+            if report.get("bootstrap_realization") != realized:
+                raise ValueError(f"held bootstrap realization metadata changed: {split}")
 
 
-def validate_receipt(receipt: Mapping[str, object], result: Mapping[str, object]) -> None:
+def validate_receipt(
+    receipt: Mapping[str, object], result: Mapping[str, object], *, result_file: Path | None = None
+) -> None:
     _validate_fields(receipt, RECEIPT_FIELD_TYPES)
     if receipt["schema"] != RECEIPT_SCHEMA:
         raise ValueError("wrong receipt schema")
+    if receipt["result_path"] != str(OUT.relative_to(ROOT.parent.parent)):
+        raise ValueError("wrong canonical result_path")
     bindings = {
         "implementation_sha256": result["implementation_sha256"],
         "test_sha256": result["test_sha256"],
@@ -346,6 +570,14 @@ def validate_receipt(receipt: Mapping[str, object], result: Mapping[str, object]
             raise ValueError(f"receipt/result mismatch: {field}")
     if receipt["result_sha256"] != content_sha256(result):
         raise ValueError("receipt result digest mismatch")
+    if result_file is not None:
+        encoded = result_file.read_bytes()
+        if hashlib.sha256(encoded).hexdigest() != receipt["result_sha256"]:
+            raise ValueError("receipt does not bind exact result bytes")
+        if json.loads(encoded, parse_constant=lambda value: (_ for _ in ()).throw(
+            ValueError(f"non-standard JSON constant {value}")
+        )) != result:
+            raise ValueError("staged result bytes disagree with validated result")
 
 
 def terminal_from_failures(
@@ -446,6 +678,36 @@ def donor_ce_summary(
     return bootstrap_mean(values, cell_id + "|donor_ce_mean", replicates=replicates)
 
 
+def realized_bootstrap_ids(value: object) -> list[str]:
+    """Recover bootstrap identities from the actual nested score objects."""
+    output = []
+    if type(value) is dict:
+        if {
+            "cell_id", "group_ids", "replicates", "draw_sha256", "statistic_sha256"
+        } <= set(value):
+            output.append(str(value["cell_id"]))
+        for child in value.values():
+            output.extend(realized_bootstrap_ids(child))
+    elif type(value) is list:
+        for child in value:
+            output.extend(realized_bootstrap_ids(child))
+    return output
+
+
+def validate_realized_bootstraps(
+    reports: Mapping[str, object], split: str, manifests: Mapping[str, object]
+) -> dict[str, object]:
+    expected_rows = load_manifest().expected_bootstrap_cells(manifests)
+    expected = [row["cell_id"] for row in expected_rows if row["cell_id"].startswith(split + "|")]
+    realized = sorted(realized_bootstrap_ids(dict(reports)))
+    if realized != expected or len(realized) != len(set(realized)):
+        raise RuntimeError(f"{split} realized bootstrap census mismatch")
+    return {
+        "count": len(realized),
+        "cell_ids_sha256": content_sha256(realized),
+    }
+
+
 def make_result_fixture(terminal: str) -> dict[str, object]:
     if terminal not in TERMINALS:
         raise ValueError("unknown planted terminal")
@@ -484,7 +746,8 @@ def make_result_fixture(terminal: str) -> dict[str, object]:
             if held else "preserve_terminal_and_do_not_search_sites_or_thresholds"
         ),
     }
-    validate_result(result)
+    if not held:
+        validate_result(result)
     return result
 
 
@@ -509,6 +772,50 @@ def make_receipt_fixture(result: Mapping[str, object]) -> dict[str, object]:
     }
     validate_receipt(receipt, result)
     return receipt
+
+
+def build_endpoint_site_role_operations(
+    endpoints: Sequence[Mapping[str, object]],
+) -> list[dict[str, str]]:
+    """Materialize the exact ordered native-factor operation authority."""
+    operations = [
+        {
+            "split": str(endpoint["split"]),
+            "endpoint_id": str(endpoint["endpoint_id"]),
+            "site": site,
+            "role": role,
+        }
+        for endpoint in endpoints
+        for site in TERM_NAMES
+        for role in ROLES
+    ]
+    operations.sort(key=lambda row: (
+        row["split"], row["endpoint_id"], row["site"], row["role"]
+    ))
+    counts = {
+        split: sum(row["split"] == split for row in operations) for split in SPLITS
+    }
+    if counts != EXPECTED_OPERATION_COUNTS or content_sha256(operations) != EXPECTED_OPERATION_SHA256:
+        raise RuntimeError("endpoint-site-role operation authority changed")
+    return operations
+
+
+def validate_realized_operations(
+    expected: Sequence[Mapping[str, object]],
+    realized: Sequence[Mapping[str, object]],
+    split: str,
+) -> dict[str, object]:
+    expected_split = [dict(row) for row in expected if row["split"] == split]
+    realized_sorted = sorted(
+        [dict(row) for row in realized],
+        key=lambda row: (row["split"], row["endpoint_id"], row["site"], row["role"]),
+    )
+    if realized_sorted != expected_split:
+        raise RuntimeError(f"{split} endpoint-site-role operation census mismatch")
+    return {
+        "count": len(realized_sorted),
+        "sha256": content_sha256(realized_sorted),
+    }
 
 
 def build_execution_authority() -> dict[str, object]:
@@ -584,16 +891,19 @@ def build_execution_authority() -> dict[str, object]:
             directions.append(item)
     endpoint_list = sorted(endpoint_specs.values(), key=lambda row: (row["split"], row["endpoint_id"]))
     directions.sort(key=lambda row: (row["split"], row["directed_id"]))
+    operations = build_endpoint_site_role_operations(endpoint_list)
     # Canonical serialization and census hashes are model-free authorities for
     # every later batch and evidence record.
     return {
         "endpoints": endpoint_list,
         "directions": directions,
+        "endpoint_site_role_operations": operations,
         "manifests": manifests,
         "control_scale_lookup": manifest.build_control_scale_lookup(manifests),
         "bootstrap_cells": manifest.expected_bootstrap_cells(manifests),
         "endpoint_manifest_sha256": content_sha256(endpoint_list),
         "direction_manifest_sha256": content_sha256(directions),
+        "endpoint_site_role_operation_sha256": content_sha256(operations),
         "target_cell_ids_sha256": content_sha256(
             [row["cell_id"] for row in manifests["target_cells"]]
         ),
@@ -715,6 +1025,12 @@ def factorize_attention_event(event, endpoint_specs, *, torch, functional, induc
     heads = torch.einsum("bhqk,bkhd->bhqd", pattern, value)
     flattened = heads.transpose(1, 2).contiguous().view(batch, length, width)
     reconstructed_write = _linear(functional, flattened, attention.c_proj.weight)
+    for label, tensor in (
+        ("native_write", native_write), ("value", value), ("pattern", pattern),
+        ("heads", heads), ("reconstructed_write", reconstructed_write),
+    ):
+        if not bool(torch.isfinite(tensor).all()):
+            raise RuntimeError(f"nonfinite attention factor tensor: {label}")
     full_error = float((reconstructed_write.float() - native_write.float()).abs().max().cpu())
     terms: list[dict[str, object]] = []
     for local, spec in enumerate(endpoint_specs):
@@ -736,10 +1052,13 @@ def factorize_attention_event(event, endpoint_specs, *, torch, functional, induc
             canonical_head = induction.contract_induction_fetch(
                 pattern[:, head].float(), value[:, :, head].float(), event.tokens
             )[local, query]
+            non_equality_head = induction.contract_without_induction_fetch(
+                pattern[:, head].float(), value[:, :, head].float(), event.tokens
+            )[local, query]
             canonical_term = functional.linear(canonical_head, weight.float())
+            remainder = functional.linear(non_equality_head, weight.float())
             head_output = functional.linear(heads[local, head, query].float(), weight.float())
             factor_error = float((factor_term - canonical_term).abs().max().cpu())
-            remainder = head_output - canonical_term
             reconstruction_error = float((canonical_term + remainder - head_output).abs().max().cpu())
             row_terms[f"L{site}H{head}"] = {
                 "e": tuple(float(edge.detach().cpu()) for edge in role_e),
@@ -811,6 +1130,8 @@ def _native_dispatchers():
 
 def _logit_measurement(logits, spec, *, torch) -> dict[str, object]:
     vector = logits[int(spec["final_position"])].float().detach().cpu().contiguous()
+    if not bool(torch.isfinite(vector).all()):
+        raise RuntimeError("nonfinite model logits")
     answer = int(spec["answer_id"])
     other = int(spec["other_answer_id"])
     log_normalizer = float(torch.logsumexp(vector, dim=-1))
@@ -834,6 +1155,12 @@ def collect_capture_replay(model, batches, *, torch, functional, facade, inducti
     measurements = {}
     padding = {}
     failures = []
+    realized_operations = []
+    exactness = {
+        "native_attention_reconstruction_max_abs": 0.0,
+        "equality_factor_max_abs": 0.0,
+        "equality_plus_independent_remainder_max_abs": 0.0,
+    }
     calls = 0
     with torch.inference_mode():
         for batch in batches:
@@ -871,19 +1198,36 @@ def collect_capture_replay(model, batches, *, torch, functional, facade, inducti
             calls += 1
             if max_full_error > TOLERANCE:
                 failures.append(f"native_attention_reconstruction:{max_full_error}")
+            exactness["native_attention_reconstruction_max_abs"] = max(
+                exactness["native_attention_reconstruction_max_abs"], max_full_error
+            )
             for local, spec in enumerate(batch):
                 endpoint = str(spec["endpoint_id"])
                 if set(batch_terms[local]) != set(TERM_NAMES):
                     failures.append(f"factor_capture_incomplete:{endpoint}")
                 for term_name, term in batch_terms[local].items():
+                    for role in ROLES:
+                        realized_operations.append({
+                            "split": str(spec["split"]),
+                            "endpoint_id": endpoint,
+                            "site": term_name,
+                            "role": role,
+                        })
                     if term["factor_error"] > TOLERANCE:
                         failures.append(f"canonical_factor:{endpoint}:{term_name}")
                     if term["reconstruction_error"] > TOLERANCE:
                         failures.append(f"head_reconstruction:{endpoint}:{term_name}")
+                    exactness["equality_factor_max_abs"] = max(
+                        exactness["equality_factor_max_abs"], float(term["factor_error"])
+                    )
+                    exactness["equality_plus_independent_remainder_max_abs"] = max(
+                        exactness["equality_plus_independent_remainder_max_abs"],
+                        float(term["reconstruction_error"]),
+                    )
                     factors[(endpoint, term_name)] = term
                 measurements[endpoint] = _logit_measurement(logits[local], spec, torch=torch)
                 padding[endpoint] = int(tokens.shape[1])
-    return factors, measurements, padding, calls, failures
+    return factors, measurements, padding, calls, failures, realized_operations, exactness
 
 
 def collect_native_comparator(model, batches, *, torch, facade):
@@ -905,13 +1249,16 @@ def collect_native_comparator(model, batches, *, torch, facade):
 
 def capture_instrument_failures(replay, native, replay_padding, native_padding, endpoint_specs):
     failures = []
+    maximum_logit_error = 0.0
     for endpoint, replay_row in replay.items():
         native_row = native[endpoint]
         error = float((replay_row["full_logits"] - native_row["full_logits"]).abs().max())
+        maximum_logit_error = max(maximum_logit_error, error)
         if error > TOLERANCE:
             failures.append(f"replay_native_logits:{endpoint}:{error}")
     lengths = sorted({int(row["length"]) for row in endpoint_specs})
     maximum = max(lengths)
+    active_lengths = []
     for length in lengths:
         rows = [row for row in endpoint_specs if int(row["length"]) == length]
         if length < maximum and not any(
@@ -920,7 +1267,12 @@ def capture_instrument_failures(replay, native, replay_padding, native_padding, 
             for row in rows
         ):
             failures.append(f"padding_tripwire_dead:length{length}")
-    return failures
+        elif length < maximum:
+            active_lengths.append(length)
+    return failures, {
+        "replay_native_logit_max_abs": maximum_logit_error,
+        "padding_tripwire_active_lengths": active_lengths,
+    }
 
 
 def collect_intervention_arm(
@@ -960,6 +1312,8 @@ def collect_intervention_arm(
                         ].to(device=device, dtype=torch.float32)
                         live_removed = live["canonical"].to(device=device, dtype=torch.float32)
                         delta = inserted - live_removed
+                        if not bool(torch.isfinite(delta).all()):
+                            raise RuntimeError("nonfinite intervention delta")
                         total_delta += delta.to(write.dtype)
                         per_row[local]["live"][term_name] = live_removed.detach().cpu().contiguous()
                         per_row[local]["delta"][term_name] = delta.detach().cpu().contiguous()
@@ -1290,6 +1644,9 @@ def score_split(records, split, manifests, fit_scales, *, replicates=BOOTSTRAPS)
                 reports["coverage"][key] = {"active_families": kinds, "passes": len(kinds) >= 2}
                 if len(kinds) < 2:
                     failures["insufficient_active_controls"].append(key)
+    reports["bootstrap_realization"] = validate_realized_bootstraps(
+        reports, split, manifests
+    )
     return reports, failures
 
 
@@ -1388,9 +1745,16 @@ def planted_intervention_records(execution, *, null=False):
     return rows
 
 
-def _array_descriptor(path: Path, array: np.ndarray, row_order: Sequence[object]) -> dict[str, object]:
+def _array_descriptor(
+    path: Path,
+    array: np.ndarray,
+    row_order: Sequence[object],
+    *,
+    logical_path: Path | None = None,
+) -> dict[str, object]:
+    logical_path = path if logical_path is None else logical_path
     return {
-        "path": str(path.relative_to(ROOT.parent.parent)),
+        "path": str(logical_path.relative_to(ROOT.parent.parent)),
         "sha256": sha256(path),
         "bytes": path.stat().st_size,
         "dtype": array.dtype.str,
@@ -1399,11 +1763,22 @@ def _array_descriptor(path: Path, array: np.ndarray, row_order: Sequence[object]
     }
 
 
-def write_evidence(execution, factors, records, vector_rows, replay, native):
-    if EVIDENCE_DIR.exists():
-        raise RuntimeError("R585 evidence namespace already exists")
-    EVIDENCE_DIR.mkdir(parents=False)
-    descriptors = []
+def _fsync_directory(path: Path) -> None:
+    descriptor = os.open(path, os.O_RDONLY)
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def write_evidence(
+    execution, factors, records, vector_rows, replay, native, *,
+    evidence_dir: Path, logical_evidence_dir: Path = EVIDENCE_DIR,
+    crash_injector=None,
+):
+    """Write a complete evidence tree into a non-final staging directory."""
+    if evidence_dir.exists():
+        raise RuntimeError(f"R585 evidence staging namespace already exists: {evidence_dir}")
     endpoints = sorted(
         [row for row in execution["endpoints"] if all(
             (row["endpoint_id"], name) in factors for name in TERM_NAMES
@@ -1416,6 +1791,7 @@ def write_evidence(execution, factors, records, vector_rows, replay, native):
     term = np.empty((len(endpoints), 4, 1152), dtype="<f4")
     head = np.empty_like(term)
     remainder = np.empty_like(term)
+    factor_exactness = []
     for endpoint in endpoints:
         i = endpoint_index[endpoint["endpoint_id"]]
         for j, name in enumerate(TERM_NAMES):
@@ -1425,25 +1801,55 @@ def write_evidence(execution, factors, records, vector_rows, replay, native):
             term[i, j] = factor["canonical"].numpy().astype("<f4")
             head[i, j] = factor["head_output"].numpy().astype("<f4")
             remainder[i, j] = factor["remainder"].numpy().astype("<f4")
-    for name, array in (("native_e", e), ("native_u", u), ("canonical_term", term),
-                        ("native_head_output", head), ("non_equality_remainder", remainder)):
+            factor_exactness.append({
+                "split": endpoint["split"],
+                "endpoint_id": endpoint["endpoint_id"],
+                "site": name,
+                "equality_factor_max_abs": float(factor["factor_error"]),
+                "equality_plus_independent_remainder_max_abs": float(
+                    factor["reconstruction_error"]
+                ),
+            })
+    arrays = [("native_e", e), ("native_u", u), ("canonical_term", term),
+              ("native_head_output", head), ("non_equality_remainder", remainder)]
+    record_split = {
+        (row["directed_id"], row["arm"]): row["split"] for row in records
+    }
+    ordered_vectors = sorted(
+        vector_rows,
+        key=lambda row: (
+            record_split[(row["directed_id"], row["arm"])],
+            row["directed_id"], row["arm"],
+        ),
+    )
+    if vector_rows:
+        live = np.stack([[value.numpy() for value in row["live"]] for row in ordered_vectors]).astype("<f4")
+        delta = np.stack([[value.numpy() for value in row["delta"]] for row in ordered_vectors]).astype("<f4")
+        arrays.extend((("live_removed", live), ("hook_delta", delta)))
+    for name, array in arrays:
+        _finite_array(array, name)
+    require_finite_json(factor_exactness, "factor_exactness")
+    require_finite_json(list(records), "directed_records")
+    evidence_dir.mkdir(parents=False)
+    descriptors = []
+    for name, array in arrays:
         path = EVIDENCE_DIR / f"{name}.npy"
-        np.save(path, array, allow_pickle=False)
+        staged_path = evidence_dir / path.name
+        np.save(staged_path, array, allow_pickle=False)
+        with staged_path.open("rb") as handle:
+            os.fsync(handle.fileno())
+        if crash_injector is not None:
+            crash_injector(f"evidence-write:{staged_path.name}")
+        row_order = (
+            [[row["directed_id"], row["arm"]] for row in ordered_vectors]
+            if name in ("live_removed", "hook_delta")
+            else [row["endpoint_id"] for row in endpoints]
+        )
         descriptors.append(_array_descriptor(
-            path, array, [row["endpoint_id"] for row in endpoints]
+            staged_path, array, row_order, logical_path=logical_evidence_dir / path.name
         ))
 
-    if vector_rows:
-        live = np.stack([[value.numpy() for value in row["live"]] for row in vector_rows]).astype("<f4")
-        delta = np.stack([[value.numpy() for value in row["delta"]] for row in vector_rows]).astype("<f4")
-        for name, array in (("live_removed", live), ("hook_delta", delta)):
-            path = EVIDENCE_DIR / f"{name}.npy"
-            np.save(path, array, allow_pickle=False)
-            descriptors.append(_array_descriptor(
-                path, array, [[row["directed_id"], row["arm"]] for row in vector_rows]
-            ))
-
-    endpoint_path = EVIDENCE_DIR / "endpoint_measurements.jsonl"
+    endpoint_path = evidence_dir / "endpoint_measurements.jsonl"
     with endpoint_path.open("w") as handle:
         for endpoint in endpoints:
             identifier = endpoint["endpoint_id"]
@@ -1453,29 +1859,71 @@ def write_evidence(execution, factors, records, vector_rows, replay, native):
                 "native": {key: value for key, value in native[identifier].items() if key != "full_logits"},
             }
             handle.write(json.dumps(payload, sort_keys=True, allow_nan=False) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    if crash_injector is not None:
+        crash_injector(f"evidence-write:{endpoint_path.name}")
     descriptors.append({
-        "path": str(endpoint_path.relative_to(ROOT.parent.parent)), "sha256": sha256(endpoint_path),
+        "path": str((logical_evidence_dir / endpoint_path.name).relative_to(ROOT.parent.parent)),
+        "sha256": sha256(endpoint_path),
         "bytes": endpoint_path.stat().st_size, "dtype": "jsonl", "shape": [len(endpoints)],
         "row_order_sha256": content_sha256([row["endpoint_id"] for row in endpoints]),
     })
-    record_path = EVIDENCE_DIR / "directed_arm_measurements.jsonl"
+    record_path = evidence_dir / "directed_arm_measurements.jsonl"
     ordered_records = sorted(records, key=lambda row: (row["split"], row["directed_id"], row["arm"]))
     with record_path.open("w") as handle:
         for record in ordered_records:
             handle.write(json.dumps(record, sort_keys=True, allow_nan=False) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    if crash_injector is not None:
+        crash_injector(f"evidence-write:{record_path.name}")
     descriptors.append({
-        "path": str(record_path.relative_to(ROOT.parent.parent)), "sha256": sha256(record_path),
+        "path": str((logical_evidence_dir / record_path.name).relative_to(ROOT.parent.parent)),
+        "sha256": sha256(record_path),
         "bytes": record_path.stat().st_size, "dtype": "jsonl", "shape": [len(records)],
         "row_order_sha256": content_sha256([
             [row["directed_id"], row["arm"]] for row in ordered_records
         ]),
     })
+    factor_exactness.sort(key=lambda row: (row["split"], row["endpoint_id"], row["site"]))
+    factor_path = evidence_dir / "factor_exactness.jsonl"
+    with factor_path.open("w") as handle:
+        for row in factor_exactness:
+            handle.write(json.dumps(row, sort_keys=True, allow_nan=False) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    if crash_injector is not None:
+        crash_injector(f"evidence-write:{factor_path.name}")
+    descriptors.append({
+        "path": str((logical_evidence_dir / factor_path.name).relative_to(ROOT.parent.parent)),
+        "sha256": sha256(factor_path), "bytes": factor_path.stat().st_size,
+        "dtype": "jsonl", "shape": [len(factor_exactness)],
+        "row_order_sha256": content_sha256([
+            [row["endpoint_id"], row["site"]] for row in factor_exactness
+        ]),
+    })
+    _fsync_directory(evidence_dir)
     return descriptors
 
 
 def validate_primitive_logit_identities(records):
     failures = []
     for row in records:
+        primitive_fields = (
+            "answer_logit", "other_logit", "correct_margin", "log_normalizer",
+            "correct_ce", "vocab_squared_difference_sum", "vocab_rms",
+            "live_factor_max_error", "hook_delta_sum_max_error",
+        )
+        nonfinite = [
+            field for field in primitive_fields
+            if not math.isfinite(float(row.get(field, 0.0)))
+        ]
+        if nonfinite or int(row.get("vocab_size", 0)) <= 0:
+            failures.append(
+                f"nonfinite_primitive:{row['directed_id']}:{row['arm']}:{','.join(nonfinite)}"
+            )
+            continue
         margin = float(row["answer_logit"]) - float(row["other_logit"])
         ce = float(row["log_normalizer"]) - float(row["answer_logit"])
         rms = math.sqrt(float(row["vocab_squared_difference_sum"]) / int(row["vocab_size"]))
@@ -1507,24 +1955,126 @@ def _merge_failure_classes(*mappings):
     return output
 
 
-def _finish_result(result):
-    validate_result(result)
-    if OUT.exists() or RECEIPT.exists():
-        raise RuntimeError("R585 result namespace already exists")
-    encoded = json.dumps(result, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
-    OUT.write_bytes(encoded)
+def recover_stale_publication(
+    *, root: Path = ROOT, out: Path = OUT, receipt: Path = RECEIPT,
+    evidence: Path = EVIDENCE_DIR,
+) -> None:
+    """Quarantine interrupted final/staging paths without deleting evidence."""
+    finals = {"result": out, "receipt": receipt, "evidence": evidence}
+    occupied = {name: path for name, path in finals.items() if path.exists()}
+    stale = sorted(root.glob(STAGE_PREFIX + "*"))
+    if len(occupied) == len(finals):
+        raise RuntimeError("R585 complete output namespace already exists")
+    if not occupied and not stale:
+        return
+    recovery = Path(tempfile.mkdtemp(prefix=RECOVERY_PREFIX, dir=root))
+    for name, path in occupied.items():
+        os.replace(path, recovery / f"partial-{name}-{path.name}")
+    for index, path in enumerate(stale):
+        os.replace(path, recovery / f"stage-{index}-{path.name}")
+    _fsync_directory(recovery)
+    _fsync_directory(root)
+    raise RuntimeError(f"recovered incomplete R585 publication into {recovery}; rerun preflight")
+
+
+def create_stage_root(root: Path = ROOT) -> Path:
+    stage = Path(tempfile.mkdtemp(prefix=STAGE_PREFIX, dir=root))
+    if stage.stat().st_dev != root.stat().st_dev:
+        raise RuntimeError("R585 stage is not on the output filesystem")
+    return stage
+
+
+def _write_bytes_fsync(
+    path: Path, payload: bytes, *, label: str | None = None, crash_injector=None
+) -> None:
+    with path.open("wb") as handle:
+        handle.write(payload)
+        handle.flush()
+        os.fsync(handle.fileno())
+    if crash_injector is not None:
+        crash_injector(label or path.name)
+
+
+def _staging_resolver(stage_root: Path):
+    stage_evidence = stage_root / "evidence"
+
+    def resolve(logical: Path) -> Path:
+        if logical.parent == EVIDENCE_DIR:
+            return stage_evidence / logical.name
+        return logical
+
+    return resolve
+
+
+def publish_staged_package(
+    stage_root: Path,
+    *,
+    out: Path = OUT,
+    receipt: Path = RECEIPT,
+    evidence: Path = EVIDENCE_DIR,
+    crash_injector=None,
+) -> None:
+    """Publish three individually atomic paths, with receipt last as commit marker."""
+    moves = [
+        ("evidence", stage_root / "evidence", evidence),
+        ("result", stage_root / "result.json", out),
+        ("receipt", stage_root / "receipt.json", receipt),
+    ]
+    if any(destination.exists() for _, _, destination in moves):
+        raise RuntimeError("R585 final namespace became occupied before publication")
+    if any(not source.exists() for _, source, _ in moves):
+        raise RuntimeError("R585 staged package is incomplete")
+    published = []
+    try:
+        for label, source, destination in moves:
+            os.replace(source, destination)
+            published.append((label, source, destination))
+            _fsync_directory(destination.parent)
+            if crash_injector is not None:
+                crash_injector(label)
+    except BaseException:
+        for _, source, destination in reversed(published):
+            if destination.exists() and not source.exists():
+                os.replace(destination, source)
+        _fsync_directory(stage_root)
+        _fsync_directory(out.parent)
+        raise
+    stage_root.rmdir()
+    _fsync_directory(out.parent)
+
+
+def _finish_result(result, stage_root: Path, *, crash_injector=None):
+    require_finite_json(result)
+    encoded = json.dumps(
+        result, sort_keys=True, separators=(",", ":"), allow_nan=False
+    ).encode()
+    staged_result = stage_root / "result.json"
+    _write_bytes_fsync(
+        staged_result, encoded,
+        label="staged-result-write", crash_injector=crash_injector,
+    )
     receipt = make_receipt_fixture(result)
     if receipt["result_sha256"] != hashlib.sha256(encoded).hexdigest():
         raise RuntimeError("canonical result encoding changed")
-    RECEIPT.write_text(json.dumps(receipt, indent=2, sort_keys=True, allow_nan=False) + "\n")
+    staged_receipt = stage_root / "receipt.json"
+    receipt_bytes = (
+        json.dumps(receipt, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    ).encode()
+    _write_bytes_fsync(
+        staged_receipt, receipt_bytes,
+        label="staged-receipt-write", crash_injector=crash_injector,
+    )
+    validate_result(result, artifact_path_resolver=_staging_resolver(stage_root))
+    validate_receipt(receipt, result, result_file=staged_result)
+    _fsync_directory(stage_root)
+    publish_staged_package(stage_root, crash_injector=crash_injector)
     return receipt
 
 
 def run_science() -> dict[str, object]:
     """Execute the exact frozen FIT-first experiment when explicitly requested."""
     started = time.time()
-    if OUT.exists() or RECEIPT.exists() or EVIDENCE_DIR.exists():
-        raise RuntimeError("R585 output namespace already exists")
+    recover_stale_publication()
     execution = build_execution_authority()
     torch, functional, facade, induction = _load_runtime_modules()
     model, checkpoint = facade.load_bilin18(
@@ -1546,6 +2096,14 @@ def run_science() -> dict[str, object]:
     select_failures = {}
     evaluated = []
     structural_evidence = []
+    realized_operation_evidence = {}
+    instrument_maxima = {
+        "native_attention_reconstruction_max_abs": 0.0,
+        "equality_factor_max_abs": 0.0,
+        "equality_plus_independent_remainder_max_abs": 0.0,
+        "replay_native_logit_max_abs": 0.0,
+        "padding_tripwire_active_lengths": [],
+    }
 
     for split in SPLITS:
         if split == "SELECT" and any(fit_failures.values()):
@@ -1553,17 +2111,34 @@ def run_science() -> dict[str, object]:
         evaluated.append(split)
         schedules = endpoint_schedules(execution, split)
         split_endpoints = [row for row in execution["endpoints"] if row["split"] == split]
-        factors, replay, replay_padding, capture_calls, instrument = collect_capture_replay(
+        (
+            factors, replay, replay_padding, capture_calls, instrument,
+            realized_operations, capture_exactness,
+        ) = collect_capture_replay(
             model, schedules["capture"], torch=torch, functional=functional,
             facade=facade, induction=induction,
+        )
+        realized_operation_evidence[split] = validate_realized_operations(
+            execution["endpoint_site_role_operations"], realized_operations, split
         )
         native, native_padding, comparator_calls = collect_native_comparator(
             model, schedules["comparator"], torch=torch, facade=facade
         )
         calls += capture_calls + comparator_calls
-        instrument += capture_instrument_failures(
+        comparator_failures, comparator_exactness = capture_instrument_failures(
             replay, native, replay_padding, native_padding, split_endpoints
         )
+        instrument += comparator_failures
+        for key, value in capture_exactness.items():
+            instrument_maxima[key] = max(float(instrument_maxima[key]), float(value))
+        instrument_maxima["replay_native_logit_max_abs"] = max(
+            float(instrument_maxima["replay_native_logit_max_abs"]),
+            float(comparator_exactness["replay_native_logit_max_abs"]),
+        )
+        instrument_maxima["padding_tripwire_active_lengths"] = sorted(set(
+            instrument_maxima["padding_tripwire_active_lengths"]
+            + comparator_exactness["padding_tripwire_active_lengths"]
+        ))
         all_factors.update(factors)
         all_replay.update(replay)
         all_native.update(native)
@@ -1620,8 +2195,18 @@ def run_science() -> dict[str, object]:
     if not failure_classes.get("invalid_instrument") and not failure_classes.get("select_invalid_instrument") \
             and calls != expected_calls:
         raise RuntimeError(f"scientific forward price changed: {calls} != {expected_calls}")
+    require_finite_json(all_records, "all_records")
+    require_finite_json(structural_evidence, "structural_evidence")
+    require_finite_json(instrument_maxima, "instrument_maxima")
+    if any(
+        clause.startswith("nonfinite_")
+        for values in failure_classes.values() for clause in values
+    ):
+        raise RuntimeError("nonfinite scientific evidence rejected before publication")
+    stage_root = create_stage_root()
     evidence_files = write_evidence(
-        execution, all_factors, all_records, all_vectors, all_replay, all_native
+        execution, all_factors, all_records, all_vectors, all_replay, all_native,
+        evidence_dir=stage_root / "evidence",
     )
     failed = [clause for key in sorted(failure_classes) for clause in failure_classes[key]]
     result = {
@@ -1641,6 +2226,12 @@ def run_science() -> dict[str, object]:
             "schema": EVIDENCE_SCHEMA,
             "endpoint_count": len(all_replay),
             "directed_arm_record_count": len(all_records),
+            "endpoint_site_role_operation_counts": EXPECTED_OPERATION_COUNTS,
+            "endpoint_site_role_operation_sha256": execution[
+                "endpoint_site_role_operation_sha256"
+            ],
+            "realized_endpoint_site_role_operations": realized_operation_evidence,
+            "instrument_maxima": instrument_maxima,
             "structural_identity_checks": structural_evidence,
             "endpoint_manifest_sha256": execution["endpoint_manifest_sha256"],
             "direction_manifest_sha256": execution["direction_manifest_sha256"],
@@ -1670,7 +2261,7 @@ def run_science() -> dict[str, object]:
             else "preserve_terminal_and_do_not_search_sites_or_thresholds"
         ),
     }
-    _finish_result(result)
+    _finish_result(result, stage_root)
     return result
 
 
@@ -1702,6 +2293,13 @@ def run_dryrun() -> dict[str, object]:
     invalid = make_result_fixture("invalid_instrument")
     for fixture in (held, null, invalid):
         validate_receipt(make_receipt_fixture(fixture), fixture)
+    try:
+        validate_result(held)
+    except ValueError as held_fixture_error:
+        if "raw evidence" not in str(held_fixture_error):
+            raise
+    else:
+        raise RuntimeError("held fixture without evidence was accepted")
     manifest = load_manifest()
     held_lock, held_hashes = manifest.build_planted_dependency_fixture(True)
     null_lock, null_hashes = manifest.build_planted_dependency_fixture(False)
@@ -1728,6 +2326,12 @@ def run_dryrun() -> dict[str, object]:
         "census": {
             "endpoints": {split: sum(row["split"] == split for row in execution["endpoints"]) for split in SPLITS},
             "directions": {split: sum(row["split"] == split for row in execution["directions"]) for split in SPLITS},
+            "endpoint_site_role_operations": {
+                split: sum(
+                    row["split"] == split
+                    for row in execution["endpoint_site_role_operations"]
+                ) for split in SPLITS
+            },
             "target_cells_per_split": 20,
             "control_cells_per_split": 32,
             "coverage_keys_per_split": 24,
@@ -1736,11 +2340,27 @@ def run_dryrun() -> dict[str, object]:
         },
         "manifest_hashes": {key: execution[key] for key in (
             "endpoint_manifest_sha256", "direction_manifest_sha256", "target_cell_ids_sha256",
+            "endpoint_site_role_operation_sha256",
             "control_cell_ids_sha256", "coverage_key_sha256", "structural_identity_sha256",
             "bootstrap_cell_ids_sha256",
             "control_scale_lookup_sha256",
         )},
         "price": {"FIT": 459, "SELECT": 231, "maximum": 690, "backwards": 0, "updates": 0},
+        "evidence_contract": {
+            "array_shapes": HELD_ARRAY_SHAPES,
+            "jsonl_counts": HELD_JSONL_COUNTS,
+            "checkpoint_weights_sha256": CHECKPOINT_SHA256,
+            "independent_remainder": "contract_without_induction_fetch",
+            "finite_before_final_write": True,
+        },
+        "publication_contract": {
+            "stage_prefix": STAGE_PREFIX,
+            "recovery_prefix": RECOVERY_PREFIX,
+            "same_filesystem": True,
+            "atomic_renames": ["evidence", "result", "receipt"],
+            "receipt_is_commit_marker": True,
+            "incomplete_paths_quarantined_without_deletion": True,
+        },
         "dependency_checks": dependency_checks,
         "planted_terminals": {
             "held": held["terminal"], "scientific_null": null["terminal"],

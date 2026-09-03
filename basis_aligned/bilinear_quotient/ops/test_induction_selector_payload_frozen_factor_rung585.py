@@ -77,6 +77,14 @@ def test_exact_semantic_authority_and_canonical_census(execution):
     assert len(execution["bootstrap_cells"]) == 248
     assert len(execution["control_scale_lookup"]) == 192
     assert len(execution["control_scale_lookup_sha256"]) == 64
+    assert len(execution["endpoint_site_role_operations"]) == 20_736
+    assert execution["endpoint_site_role_operation_sha256"] == (
+        "82169667d6f658b993f882b7b9951e07ae93149e5d5138fce548f6205e88cc5e"
+    )
+    assert {
+        split: sum(row["split"] == split for row in execution["endpoint_site_role_operations"])
+        for split in ("FIT", "SELECT")
+    } == {"FIT": 13_824, "SELECT": 6_912}
 
 
 def test_semantic_roles_survive_physical_pair_permutations(execution):
@@ -173,11 +181,7 @@ def test_terminal_precedence_and_fit_first_gate(runner):
         runner.terminal_from_failures(["FIT"], {})
 
 
-@pytest.mark.parametrize("terminal", [
-    "held_operational_selector_payload_factorization",
-    "factor_capacity_null",
-    "invalid_instrument",
-])
+@pytest.mark.parametrize("terminal", ["factor_capacity_null", "invalid_instrument"])
 def test_strict_held_null_and_instrument_result_receipts(runner, terminal):
     result = runner.make_result_fixture(terminal)
     receipt = runner.make_receipt_fixture(result)
@@ -185,6 +189,12 @@ def test_strict_held_null_and_instrument_result_receipts(runner, terminal):
     runner.validate_receipt(receipt, result)
     json.dumps(result, allow_nan=False)
     json.dumps(receipt, allow_nan=False)
+
+
+def test_held_fixture_without_complete_evidence_is_rejected(runner):
+    result = runner.make_result_fixture("held_operational_selector_payload_factorization")
+    with pytest.raises(ValueError, match="raw evidence"):
+        runner.validate_result(result)
 
 
 @pytest.mark.parametrize("mutation", ["tuple_next", "nan", "opened_ood", "price", "terminal"])
@@ -224,6 +234,188 @@ def test_primitive_logit_and_vocab_identities(runner):
     broken = copy.deepcopy(row)
     broken["correct_margin"] = 99.0
     assert runner.validate_primitive_logit_identities([broken]) == ["primitive_margin:x:score"]
+    broken = copy.deepcopy(row)
+    broken["answer_logit"] = float("nan")
+    assert runner.validate_primitive_logit_identities([broken])[0].startswith(
+        "nonfinite_primitive:"
+    )
+
+
+def test_independent_remainder_and_realized_operation_omission_fail_closed(runner, execution):
+    source = SCRIPT.read_text()
+    assert "contract_without_induction_fetch" in source
+    assert "remainder = head_output - canonical_term" not in source
+    expected = execution["endpoint_site_role_operations"]
+    realized = [row for row in expected if row["split"] == "FIT"]
+    assert runner.validate_realized_operations(expected, realized, "FIT") == {
+        "count": 13_824,
+        "sha256": runner.content_sha256(realized),
+    }
+    with pytest.raises(RuntimeError, match="operation census"):
+        runner.validate_realized_operations(expected, realized[:-1], "FIT")
+
+
+def test_realized_bootstrap_omission_and_provenance_fail_closed(runner, execution, planted):
+    scales = runner.compute_fit_scales(planted, execution["manifests"])
+    incomplete = copy.deepcopy(execution["manifests"])
+    cell = next(row for row in incomplete["target_cells"] if row["split"] == "FIT")
+    incomplete["target_cells"].remove(cell)
+    with pytest.raises(RuntimeError, match="bootstrap.*census|census.*bootstrap"):
+        runner.score_split(planted, "FIT", incomplete, scales, replicates=2)
+    result = runner.make_result_fixture("factor_capacity_null")
+    result["checkpoint_weights_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="checkpoint"):
+        runner.validate_result(result)
+    result = runner.make_result_fixture("factor_capacity_null")
+    receipt = runner.make_receipt_fixture(result)
+    receipt["result_path"] = "basis_aligned/bilinear_quotient/not-r585.json"
+    with pytest.raises(ValueError, match="result_path"):
+        runner.validate_receipt(receipt, result)
+
+
+@pytest.mark.parametrize("crash_after", ["evidence", "result", "receipt"])
+def test_staged_publication_rolls_back_every_injected_crash(runner, tmp_path, crash_after):
+    stage = runner.create_stage_root(tmp_path)
+    (stage / "evidence").mkdir()
+    (stage / "evidence" / "proof").write_text("complete\n")
+    (stage / "result.json").write_text("{}")
+    (stage / "receipt.json").write_text("{}")
+    out = tmp_path / "result.json"
+    receipt = tmp_path / "receipt.json"
+    evidence = tmp_path / "evidence"
+
+    def crash(label):
+        if label == crash_after:
+            raise RuntimeError(f"crash-after-{label}")
+
+    with pytest.raises(RuntimeError, match="crash-after"):
+        runner.publish_staged_package(
+            stage, out=out, receipt=receipt, evidence=evidence, crash_injector=crash
+        )
+    assert not out.exists() and not receipt.exists() and not evidence.exists()
+    assert (stage / "result.json").is_file()
+    assert (stage / "receipt.json").is_file()
+    assert (stage / "evidence" / "proof").is_file()
+
+
+def test_stale_partial_publication_is_quarantined_not_deleted(runner, tmp_path):
+    out = tmp_path / "result.json"
+    receipt = tmp_path / "receipt.json"
+    evidence = tmp_path / "evidence"
+    out.write_text("partial scientific bytes\n")
+    stage = runner.create_stage_root(tmp_path)
+    (stage / "evidence").mkdir()
+    with pytest.raises(RuntimeError, match="recovered incomplete"):
+        runner.recover_stale_publication(
+            root=tmp_path, out=out, receipt=receipt, evidence=evidence
+        )
+    assert not out.exists() and not receipt.exists() and not evidence.exists()
+    recovered = list(tmp_path.glob(runner.RECOVERY_PREFIX + "*"))
+    assert len(recovered) == 1
+    assert any(path.read_text() == "partial scientific bytes\n"
+               for path in recovered[0].iterdir() if path.is_file())
+
+
+@pytest.mark.parametrize("label", ["staged-result-write", "staged-receipt-write"])
+def test_staged_file_write_crash_is_injected_after_fsync(runner, tmp_path, label):
+    path = tmp_path / (label + ".json")
+
+    def crash(observed):
+        assert observed == label
+        raise RuntimeError("planted-write-crash")
+
+    with pytest.raises(RuntimeError, match="planted-write-crash"):
+        runner._write_bytes_fsync(
+            path, b"{}", label=label, crash_injector=crash
+        )
+    assert path.read_bytes() == b"{}"
+
+
+def test_evidence_write_crash_never_touches_final_namespace(runner, tmp_path):
+    torch = pytest.importorskip("torch")
+    endpoint = {"split": "FIT", "endpoint_id": "planted-endpoint"}
+    one = torch.ones(1152)
+    factors = {}
+    for name in runner.TERM_NAMES:
+        factors[(endpoint["endpoint_id"], name)] = {
+            "e": (1.0, 2.0), "u": (one, one),
+            "canonical": 3 * one, "head_output": 4 * one,
+            "remainder": one, "factor_error": 0.0,
+            "reconstruction_error": 0.0,
+        }
+    stage_evidence = tmp_path / "stage-evidence"
+
+    def crash(label):
+        if label == "evidence-write:native_e.npy":
+            raise RuntimeError("planted-evidence-crash")
+
+    with pytest.raises(RuntimeError, match="planted-evidence-crash"):
+        runner.write_evidence(
+            {"endpoints": [endpoint]}, factors, [], [], {}, {},
+            evidence_dir=stage_evidence, crash_injector=crash,
+        )
+    assert (stage_evidence / "native_e.npy").is_file()
+    assert not runner.EVIDENCE_DIR.exists()
+
+
+def test_nonfinite_result_is_rejected_before_any_staged_or_final_write(runner, tmp_path):
+    result = runner.make_result_fixture("factor_capacity_null")
+    result["elapsed_seconds"] = float("nan")
+    stage = runner.create_stage_root(tmp_path)
+    with pytest.raises(ValueError, match="nonfinite"):
+        runner._finish_result(result, stage)
+    assert list(stage.iterdir()) == []
+    assert not runner.OUT.exists() and not runner.RECEIPT.exists() and not runner.EVIDENCE_DIR.exists()
+
+
+def test_receipt_binds_canonical_path_and_exact_result_bytes(runner, tmp_path):
+    result = runner.make_result_fixture("factor_capacity_null")
+    receipt = runner.make_receipt_fixture(result)
+    exact = tmp_path / "result.json"
+    exact.write_bytes(json.dumps(
+        result, sort_keys=True, separators=(",", ":"), allow_nan=False
+    ).encode())
+    runner.validate_receipt(receipt, result, result_file=exact)
+    exact.write_text(json.dumps(result, indent=2, sort_keys=True))
+    with pytest.raises(ValueError, match="exact result bytes"):
+        runner.validate_receipt(receipt, result, result_file=exact)
+
+
+def test_nonfinite_staged_array_cannot_validate_even_for_null_terminal(runner, tmp_path):
+    evidence = tmp_path / "poison.npy"
+    np.save(evidence, np.asarray([float("nan")], dtype="<f4"), allow_pickle=False)
+    result = runner.make_result_fixture("factor_capacity_null")
+    result["evidence_files"] = [{
+        "path": "basis_aligned/bilinear_quotient/poison.npy",
+        "sha256": runner.sha256(evidence),
+        "bytes": evidence.stat().st_size,
+        "dtype": "<f4",
+        "shape": [1],
+        "row_order_sha256": runner.content_sha256(["planted"]),
+    }]
+    with pytest.raises(ValueError, match="nonfinite evidence array"):
+        runner.validate_result(result, artifact_path_resolver=lambda _: evidence)
+
+
+def test_complete_staged_package_publishes_receipt_last(runner, tmp_path):
+    stage = runner.create_stage_root(tmp_path)
+    (stage / "evidence").mkdir()
+    (stage / "evidence" / "proof").write_text("complete\n")
+    (stage / "result.json").write_text("result\n")
+    (stage / "receipt.json").write_text("receipt\n")
+    out = tmp_path / "final-result.json"
+    receipt = tmp_path / "final-receipt.json"
+    evidence = tmp_path / "final-evidence"
+    order = []
+    runner.publish_staged_package(
+        stage, out=out, receipt=receipt, evidence=evidence,
+        crash_injector=order.append,
+    )
+    assert order == ["evidence", "result", "receipt"]
+    assert out.read_text() == "result\n"
+    assert receipt.read_text() == "receipt\n"
+    assert (evidence / "proof").read_text() == "complete\n"
+    assert not stage.exists()
 
 
 def test_scientific_execution_is_explicit_opt_in_and_model_import_is_lazy(runner):
@@ -265,6 +457,14 @@ def test_deterministic_dryrun_is_model_free_and_split_closed(runner):
     assert dryrun["price"] == {
         "FIT": 459, "SELECT": 231, "maximum": 690, "backwards": 0, "updates": 0
     }
+    assert dryrun["evidence_contract"]["independent_remainder"] == (
+        "contract_without_induction_fetch"
+    )
+    assert dryrun["evidence_contract"]["finite_before_final_write"] is True
+    assert dryrun["publication_contract"]["atomic_renames"] == [
+        "evidence", "result", "receipt",
+    ]
+    assert dryrun["publication_contract"]["receipt_is_commit_marker"] is True
     assert dryrun["planted_terminals"] == {
         "held": "held_operational_selector_payload_factorization",
         "scientific_null": "factor_capacity_null",
