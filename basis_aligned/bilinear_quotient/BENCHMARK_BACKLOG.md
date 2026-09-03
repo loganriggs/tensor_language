@@ -5000,3 +5000,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2699 MLP16/17 Fisher certificate / radial gauge / Fisher basis / shared dictionary (CPU 500 s, 0 GPU): a TRUE; b TRUE
   (radial .5005 >= .5, margin .0005 -- knife-edge); c TRUE (certificate ratios .79-.89 for k=4..64); d FALSE, NULL HELD
   (Fisher-whitened k=8 .0835 vs PCA .0833 -- metric-basis closure generalises to the final MLP write); e TRUE (diag .057/.100).
+- §2700 early MLPs 0-3 subspace ladder k=32..512 + isolated-token table (CPU 850 s, 0 GPU): a TRUE; b FALSE NULL HELD (mlp1
+  k=256 adds .020 <= .05 -- fat-head effect, not density); c FALSE NULL HELD (mlp1 table adds 1.64 >= .883); d FALSE NULL HELD
+  (R2 -3.84). Ladders: mlp1 .883/.357/.091/.020/.004; mlp0/2/3 <= .016 at k=256. CE ADDED, lower = better. Corrects the
+  READING of §2696 (numbers stand).

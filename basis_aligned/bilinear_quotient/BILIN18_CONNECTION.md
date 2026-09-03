@@ -68773,3 +68773,47 @@ which means the gauge and the causal tail are both small relative to what 8 dire
 rank-8 write has compact interaction terms (three forms of eff rank 42–69) but no shared dictionary — the forms are 8 distinct
 low-rank quadratics, composable only as a sum, not as a common feature basis.
 Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: none. Retractions: none.
+
+## §2700 — EARLY MLPs 0–3: SUBSPACE LADDER k=32…512 AND THE ISOLATED-TOKEN TABLE (Claude, CPU, 850 s, 1,824 full CPU document forwards + 50,304 length-1 forwards, 0 GPU): THE EARLY "DENSE" PRICE IS A FAT-HEAD EFFECT — mlp1's CE ADDED FALLS .883 (k=32) → .357 (64) → .091 (128) → .020 (256) → .004 (512), AND mlp0/2/3 ARE ≤ .016 AT k=256; THE ISOLATED-TOKEN TABLE IS NOT THE PROGRAM (mlp1 table adds 1.64, worse than the k=32 subspace; R² negative for mlp1–3) — a TRUE, b FALSE (NULL HELD), c FALSE (NULL HELD), d FALSE (NULL HELD)
+
+Written 2026-09-03 18:55Z. Preregistration `polynomial_causal/EARLY_MLP_ISOLATED_TOKEN_PROGRAM_PROBE_PREREGISTRATION.md`
+(registered 16:44Z, sha b17191d4…, frozen in the script); script `ops/early_mlp_isolated_token_program_probe.py` (sha 19ac1e7d…);
+results `early_mlp_isolated_token_program_probe_results.json`. Smoked 18:35 on the idle box (exit 0), enqueued 18:38, ran
+18:39–18:53, exit 0. SIGN CONVENTION (§2135): every CE number is CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159
+(baseline 3.11250, the §2696 site-map set; bases fitted on docs 0–95) — LOWER IS BETTER. Nothing installs into the §312 frontier.
+
+**Arms.** (i) SUBSPACE ladder: write' = mu + U_k U_kᵀ(write − mu) at mlp_l, l ∈ {0,1,2,3}, k ∈ {32,64,128,256,512} (k=32 is
+§2696's map value, reproduced as the instrument check). (ii) ISOLATED-TOKEN TABLE: T_l[t] = the mlp_l write at position 0 of the
+length-1 sequence [t] for all 50,304 vocabulary ids; patch write ← T_l[token] at every position (the strongest "token
+program" hypothesis: the write is a function of the current token alone). (iii) TABLE FIT on eval: R² of in-situ writes
+regressed on T_l[token] (per-site scalar-free), median cosine per position. Joint arm: all four tables at once.
+
+**Scored exactly as registered.**
+- pred_a_instrument TRUE: unpatched CE 3.1124951 == §2696's frozen baseline (abs diff 0.0); mlp1 k=32 reproduces .88337 exactly
+  (bar .015).
+- pred_b_mlp1_dense FALSE, NULL HELD: mlp1 at k=256 adds .0201 (bar ≥ .20; null ≤ .05 MET). Ladders (k32/64/128/256/512):
+  mlp0 .1653 / .0855 / .0403 / .0160 / .0043; mlp1 .8834 / .3567 / .0907 / .0201 / .0040; mlp2 .2204 / .1007 / .0410 / .0137 /
+  .0035; mlp3 .1300 / .0700 / .0350 / .0139 / .0042.
+- pred_c_isolated_token_program_mlp1 FALSE, NULL HELD: the mlp1 table adds 1.640 (bar ≤ .40; null ≥ .883 MET). Tables for
+  mlp0/2/3 add .874 / 4.050 / 6.809; all four jointly 9.81 nat.
+- pred_d_token_R2_mlp1 FALSE, NULL HELD: R² = −3.84 (bar ≥ .5; null ≤ .2 MET). Disclosed: mlp0 R² .166 with median cosine .842;
+  mlp1 cos .572; mlp2 R² −2.08, cos .297; mlp3 R² −4.04, cos .241. Table mean squared norms 48,872 / 8,747 / 26,448 / 38,054 —
+  the isolated-token writes are far larger than in-context writes (the length-1 context is out of distribution: no attention
+  context, and position-0 rms scaling), which is why the tables destroy the model even where the DIRECTION is token-determined
+  (mlp0, cos .84).
+
+**Reading.** (i) CORRECTION TO THE READING (not the numbers) OF §2696: "the price of rank-32 lives in the early MLPs" is a k=32
+statement only. It is a fat-head effect: the early writes have effective variance ranks 149 / 326 / 437 / 414 (rank-90 426–569),
+so a 32-d cut removes most of their energy, but a 256-d subspace already costs ≤ .020 per site and 512-d ≤ .0043. The early MLPs
+are NOT "dense in the sense of needing the full width" — they need ~256 of 1152 dimensions each. §2696's numbers stand; its
+depth-correlation reading ("depth orders the price") is a statement about how fat the head is, not about irreducible density.
+The registered failure reading applies verbatim: "b FALSE (null): §2696's k = 32 price was a fat-head effect and a k ≈ 256
+subspace suffices (a cheap program after all)". (ii) The early write is NOT a token table: even mlp0, whose write direction is
+84 % token-determined, is context-scaled, and mlp1–3 are context-directed (cos .24–.57). The compilable object for the early
+blocks, if any, is a ~256-d context-dependent subspace, not a lookup. (iii) With §2699's radial fractions (mlp0 .9999, mlp1 .82,
+mlp2 .74, mlp3 .79): the early writes largely rescale/steer the residual while it is small; whether the 256-d subspace is mostly
+the radial (gauge) part is the next question (registered as candidate 4 in HOURLY_STRATEGIC_REVIEW_2026-09-03_1848.md).
+(iv) Additivity is untested here: per-site k=256 prices sum to .064 over the four early sites, but §2694 showed prices do NOT
+add across sites; the joint early-block installation must be measured, not summed.
+Explained fraction unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Corrections: reading of §2696 as above (numbers
+unchanged; no conclusion flipped — the k=32 map is what it was). Retractions: none.

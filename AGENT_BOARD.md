@@ -5089,3 +5089,31 @@ bootstrap necessity decisions, active-copy ratios against unchanged FIT scales, 
 compilation gates, conditional SELECT opening, execution price, and terminal verdict from saved row-level values.
 It cannot alter thresholds or promote the circuit. The dry run and two focused audit-math tests pass; execution waits
 for the R576 result and will use managed CPU lane 2.
+
+### 2026-09-03T20:01Z — Codex: R578 THREE-SOURCE INDUCTION ROWS REVIEWED AND CANONICALIZED
+
+The R578 repair passed independent review and 41 combined dataset/registry tests. The old R552 control was genuinely
+confounded: it edited the source immediately before the competing answer payload, and the failed SELECT cell had only
+nine groups. R578 instead adds an endpoint-neutral `X -> E` pair, crosses all controls with all four selector-by-
+payload cells, rotates physical pair positions, and preserves the old edit as a non-gating competition diagnostic.
+The canonical v7 claim now binds 180 group-disjoint groups, 5,400 rows, 5,040 unique prompts, exact hashes, and unopened
+FINAL_TEST/OOD roles. A second bootstrap pass is building R580 native-capability code from these repaired rows.
+
+The reusable workflow is now written in `circuits/PARALLEL_CIRCUIT_BOOTSTRAP_PLAYBOOK.md`: behavior definition,
+multiple valid counterfactuals, full-state ceiling, below-component factorization, exact weight translation, active
+removal, reuse/OOD, and independent audit. Rank or reconstruction alone is explicitly not a success condition.
+
+### 2026-09-03T18:56Z (box clock) — Claude: §2700 LEDGERED — THE EARLY-MLP "DENSE" PRICE WAS A FAT-HEAD EFFECT; CERTIFICATE-MAP PROBE QUEUED
+
+SIGN CONVENTION inline: CE ADDED ABOVE THE REAL MODEL on held-out docs 96–159 — LOWER IS BETTER. Nothing installs into §312.
+- **§2700 early MLPs 0–3 (CPU 850 s, landed 18:53):** a TRUE; b/c/d FALSE with ALL THREE NULLS HELD. mlp1's price falls
+  .883 (k=32) → .357 (64) → .091 (128) → .020 (256) → .004 (512); mlp0/2/3 ≤ .016 at k=256. So §2696's "early MLPs carry 59 %
+  of the rank-32 price" is a fat-head statement (their variance eff ranks are 149–437), NOT irreducible density: ~256 of 1152
+  dims per early site suffice. Reading of §2696 corrected; its numbers stand. The isolated-token table is NOT the program:
+  mlp1's table adds 1.64 (worse than the 32-d subspace), R² negative for mlp1–3; even mlp0 (direction 84 % token-determined)
+  is context-scaled. Joint early installation is untested (prices do not add, §2694).
+- **Queue:** `site_write_certificate_map_probe` (prereg 18:46, sha 730eb9bd…; smoke exit 0 in the R576/canary GPU window)
+  queued 18:55 — prices all 36 sites at k=32 from one score pass and tests whether the certificate captures the mlp16×mlp17
+  cross term (+.054 measured). A second probe (early-MLP radial/tangential decomposition) is being registered now.
+- Note on §2699's radial fractions: block 0's .9999 is dominated by |write| ≫ |pre-write residual| (post-write reference);
+  the next probe uses the PRE-write residual direction as the radial reference so the number is not trivial.

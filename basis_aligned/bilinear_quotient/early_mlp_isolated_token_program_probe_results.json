@@ -1,0 +1,128 @@
+{
+ "rung": "early_mlp_isolated_token_program_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 96-159; LOWER IS BETTER",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_mlp1_dense": false,
+  "pred_c_isolated_token_program_mlp1": false,
+  "pred_d_token_R2_mlp1": false
+ },
+ "nulls": {
+  "b_null_k256_le_.05": true,
+  "c_null_table_ge_k32_price": true,
+  "d_null_r2_le_.2": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "k32_repro_tol": 0.015,
+  "k32_prior": null,
+  "dense_k256_min": 0.2,
+  "table_max": 0.4,
+  "r2_min": 0.5
+ },
+ "null_bars": {
+  "dense_k256_max": 0.05,
+  "table_min": null,
+  "r2_max": 0.2
+ },
+ "sites": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "ks": [
+  32,
+  64,
+  128,
+  256,
+  512
+ ],
+ "baseline_ce_eval": 3.1124951243400574,
+ "prior_baseline_ce_eval": 3.1124951243400574,
+ "prior_k32_mlp": {
+  "0": 0.1652737855911255,
+  "1": 0.8833657205104828,
+  "2": 0.22036638855934143,
+  "3": 0.13001692295074463
+ },
+ "ladder_ce_added": {
+  "0": {
+   "32": 0.1652737855911255,
+   "64": 0.08551231026649475,
+   "128": 0.04031771421432495,
+   "256": 0.015993773937225342,
+   "512": 0.004278093576431274
+  },
+  "1": {
+   "32": 0.8833657205104828,
+   "64": 0.3567197024822235,
+   "128": 0.09070059657096863,
+   "256": 0.02007991075515747,
+   "512": 0.004023492336273193
+  },
+  "2": {
+   "32": 0.22036638855934143,
+   "64": 0.10071563720703125,
+   "128": 0.04103386402130127,
+   "256": 0.01374092698097229,
+   "512": 0.0035348832607269287
+  },
+  "3": {
+   "32": 0.13001692295074463,
+   "64": 0.07004287838935852,
+   "128": 0.034951359033584595,
+   "256": 0.013854742050170898,
+   "512": 0.004164367914199829
+  }
+ },
+ "isolated_token_table_ce_added": {
+  "0": 0.8742592036724091,
+  "1": 1.6401675939559937,
+  "2": 4.049835026264191,
+  "3": 6.808574974536896
+ },
+ "joint_early_tables_ce_added": 9.806903421878815,
+ "table_fit_eval": {
+  "0": {
+   "r2": 0.16556352881813352,
+   "median_cos": 0.8420058488845825
+  },
+  "1": {
+   "r2": -3.839766053641191,
+   "median_cos": 0.5715777277946472
+  },
+  "2": {
+   "r2": -2.083310826705419,
+   "median_cos": 0.29700231552124023
+  },
+  "3": {
+   "r2": -4.041867398850301,
+   "median_cos": 0.24090874195098877
+  }
+ },
+ "table_mean_norm": {
+  "0": 48872.09765625,
+  "1": 8746.927734375,
+  "2": 26448.498046875,
+  "3": 38053.71484375
+ },
+ "n_fit_docs": 96,
+ "n_eval_docs": 64,
+ "price": {
+  "gpu_forwards": 0,
+  "cpu_doc_forwards": 1824,
+  "table_length1_forwards": 50304,
+  "table_seconds": 77.43700504302979,
+  "cpu_seconds": 850.4537844657898
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_MLP_ISOLATED_TOKEN_PROGRAM_PROBE_PREREGISTRATION.md": "b17191d40391892a0141db2a37167abe00461e1b2af5e527e09c4d37f526eabb",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/site_write_pca_truncation_ce_map_probe_results.json": "48bd52ec9201ac97cddcd102cef61885baaaa8a8362b232850159f6f646d0e00",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "19ac1e7d3dc16cff3eeee5e0cf1790f8d571982ea877947a1adfa27957d1cdc7"
+}
