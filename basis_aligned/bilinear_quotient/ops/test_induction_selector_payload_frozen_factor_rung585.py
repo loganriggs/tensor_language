@@ -290,6 +290,266 @@ def test_phase_evidence_census_and_frozen_membership(runner, execution):
         )
 
 
+def _write_mini_complete_evidence(
+    runner, tmp_path, monkeypatch, *, mutation=None, terminal="invalid_instrument",
+):
+    endpoint = {
+        "split": "FIT", "endpoint_id": "endpoint-0", "token_ids": [1, 2, 3, 4, 5],
+        "length": 5, "final_position": 4, "source_positions": [0, 2],
+        "payload_positions": [1, 3], "condition": "s0p0", "answer_id": 3,
+        "other_answer_id": 4,
+    }
+    direction = {
+        "split": "FIT", "directed_id": "direction-0", "row_id": "row-0",
+        "group_id": "group-0", "family": "mini-family", "variant": "mini-variant",
+        "direction": "base_to_donor", "recipient_condition": "s0p0",
+        "recipient_is_coherent": True, "donor_is_coherent": True,
+        "donor_coherence_sign": 1, "answer_changes": False, "control_kind": None,
+        "recipient_endpoint_id": "endpoint-0", "donor_endpoint_id": "endpoint-0",
+        "recipient_answer_id": 3, "donor_answer_id": 3,
+        "recipient_other_answer_id": 4, "donor_other_answer_id": 4,
+    }
+    execution = {"endpoints": [endpoint], "directions": [direction], "manifests": {}}
+    operations = sorted([
+        {"split": "FIT", "endpoint_id": "endpoint-0", "site": site, "role": role}
+        for site in runner.TERM_NAMES for role in runner.ROLES
+    ], key=lambda row: (row["split"], row["endpoint_id"], row["site"], row["role"]))
+    contract = {
+        "evaluated_splits": ["FIT"], "endpoint_count": 1, "direction_count": 1,
+        "directed_arm_record_count": 3, "factor_exactness_count": 4,
+        "array_shapes": {
+            "native_e.npy": [1, 4, 2], "native_u.npy": [1, 4, 2, 3],
+            "canonical_term.npy": [1, 4, 3], "native_head_output.npy": [1, 4, 3],
+            "non_equality_remainder.npy": [1, 4, 3],
+            "live_removed.npy": [3, 4, 3], "hook_delta.npy": [3, 4, 3],
+        },
+        "jsonl_counts": {
+            "endpoint_measurements.jsonl": 1,
+            "directed_arm_measurements.jsonl": 3,
+            "factor_exactness.jsonl": 4,
+        },
+    }
+    monkeypatch.setattr(runner, "phase_evidence_contract", lambda _: contract)
+    monkeypatch.setattr(runner, "build_execution_authority", lambda: execution)
+    monkeypatch.setattr(runner, "build_endpoint_site_role_operations", lambda _: operations)
+    monkeypatch.setattr(runner, "EXPECTED_OPERATION_COUNTS", {"FIT": 8})
+
+    e = np.ones((1, 4, 2), dtype="<f4")
+    u = np.ones((1, 4, 2, 3), dtype="<f4")
+    canonical = np.sum(e[:, :, :, None] * u, axis=2)
+    remainder = np.ones_like(canonical)
+    live = np.repeat(canonical, 3, axis=0)
+    delta = np.zeros_like(live)
+    if mutation == "vectors":
+        live[:] = 0
+    arrays = {
+        "native_e.npy": e, "native_u.npy": u, "canonical_term.npy": canonical,
+        "native_head_output.npy": canonical + remainder,
+        "non_equality_remainder.npy": remainder,
+        "live_removed.npy": live, "hook_delta.npy": delta,
+    }
+    measurement = {
+        "answer_id": 3, "other_answer_id": 4, "answer_logit": 2.0,
+        "other_logit": 1.0, "correct_margin": 1.0, "log_normalizer": 3.0,
+        "correct_ce": 1.0,
+    }
+    endpoint_rows = [{**endpoint, "replay": measurement, "native": measurement}]
+    if mutation == "endpoint":
+        endpoint_rows[0]["token_ids"] = [99, 98, 97]
+    directed_rows = []
+    for arm in sorted(runner.ARMS):
+        row = {
+            **{key: direction[key] for key in (
+                "split", "directed_id", "row_id", "group_id", "family", "variant",
+                "recipient_condition", "direction", "control_kind", "answer_changes",
+                "recipient_endpoint_id", "donor_endpoint_id", "recipient_answer_id",
+                "donor_answer_id",
+            )},
+            "other_answer_id": 4, "arm": arm, "replay_correct_margin": 1.0,
+            "replay_correct_ce": 1.0, "correct_margin": 1.0, "correct_ce": 1.0,
+            "n": 0.0, "d": 0.0, "q": 0.0, "insertion_activity": 0.0,
+            "per_site_delta_norms": [0.0] * 4, "live_factor_max_error": 0.0,
+            "hook_delta_sum_max_error": 0.0, "vocab_squared_difference_sum": 3.0,
+            "vocab_size": 3, "vocab_rms": 1.0, "answer_logit": 2.0,
+            "other_logit": 1.0, "log_normalizer": 3.0,
+        }
+        if mutation == "direction":
+            row["donor_endpoint_id"] = "invented-donor"
+        if mutation == "primitive":
+            row["correct_margin"] = -999.0
+        directed_rows.append(row)
+    factor_rows = [{
+        "split": "FIT", "endpoint_id": "endpoint-0", "site": site,
+        "equality_factor_max_abs": 0.0,
+        "equality_plus_independent_remainder_max_abs": 0.0,
+    } for site in sorted(runner.TERM_NAMES)]
+    endpoint_order = ["endpoint-0"]
+    directed_order = [["direction-0", arm] for arm in sorted(runner.ARMS)]
+    factor_order = [["endpoint-0", site] for site in sorted(runner.TERM_NAMES)]
+    descriptors = []
+    for name, array in arrays.items():
+        path = tmp_path / name
+        np.save(path, array, allow_pickle=False)
+        order = directed_order if name in ("live_removed.npy", "hook_delta.npy") else endpoint_order
+        descriptors.append({
+            "path": str((runner.EVIDENCE_DIR / name).relative_to(runner.ROOT.parent.parent)),
+            "sha256": runner.sha256(path), "bytes": path.stat().st_size,
+            "dtype": "<f4", "shape": list(array.shape),
+            "row_order_sha256": runner.content_sha256(order),
+        })
+    for name, rows, order in (
+        ("endpoint_measurements.jsonl", endpoint_rows, endpoint_order),
+        ("directed_arm_measurements.jsonl", directed_rows, directed_order),
+        ("factor_exactness.jsonl", factor_rows, factor_order),
+    ):
+        path = tmp_path / name
+        path.write_text("".join(
+            json.dumps(row, sort_keys=True, allow_nan=False) + "\n" for row in rows
+        ))
+        descriptors.append({
+            "path": str((runner.EVIDENCE_DIR / name).relative_to(runner.ROOT.parent.parent)),
+            "sha256": runner.sha256(path), "bytes": path.stat().st_size,
+            "dtype": "jsonl", "shape": [len(rows)],
+            "row_order_sha256": runner.content_sha256(order),
+        })
+    result = runner.make_result_fixture(terminal)
+    result["raw_evidence"] = {
+        "schema": runner.EVIDENCE_SCHEMA, "endpoint_count": 1,
+        "directed_arm_record_count": 3,
+        "endpoint_site_role_operation_counts": {"FIT": 8},
+        "endpoint_site_role_operation_sha256": runner.content_sha256(operations),
+        "realized_endpoint_site_role_operations": {
+            "FIT": {"count": 8, "sha256": runner.content_sha256(operations)}
+        },
+        "instrument_maxima": {
+            "native_attention_reconstruction_max_abs": 0.0,
+            "equality_factor_max_abs": 0.0,
+            "equality_plus_independent_remainder_max_abs": 0.0,
+            "replay_native_logit_max_abs": 0.0,
+            "padding_tripwire_active_lengths": (
+                [] if terminal == "invalid_instrument" else [19, 20, 21, 22, 27, 28, 29]
+            ),
+        },
+        "fit_scales": {},
+    }
+    result["evidence_files"] = descriptors
+    if terminal == "invalid_instrument":
+        result["split_scores"] = {}
+    return result, lambda logical: tmp_path / logical.name
+
+
+def test_miniature_complete_evidence_joins_authority_and_computation(runner, tmp_path, monkeypatch):
+    result, resolver = _write_mini_complete_evidence(runner, tmp_path, monkeypatch)
+    runner.validate_result(result, artifact_path_resolver=resolver)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        ("endpoint", "endpoint semantic"),
+        ("direction", "recipient/donor"),
+        ("vectors", "live plus hook_delta"),
+        ("primitive", "primitive logit"),
+    ],
+)
+def test_miniature_complete_evidence_rejects_semantic_join_attacks(
+    runner, tmp_path, monkeypatch, mutation, message,
+):
+    result, resolver = _write_mini_complete_evidence(
+        runner, tmp_path, monkeypatch, mutation=mutation
+    )
+    with pytest.raises(ValueError, match=message):
+        runner.validate_result(result, artifact_path_resolver=resolver)
+
+
+def test_saved_score_report_is_recomputed_from_directed_primitives(runner, monkeypatch):
+    rows = [{"split": "FIT", "n": 1.0}]
+    scales = {"frozen": {"insertion": 1.0}}
+
+    monkeypatch.setattr(runner, "compute_fit_scales", lambda records, manifests: scales)
+    monkeypatch.setattr(
+        runner, "score_split",
+        lambda records, split, manifests, fit_scales, replicates: (
+            {"primitive_projection": runner.content_sha256(records)},
+            {
+                "invalid_instrument": [], "native_denominator_or_scale_null": [],
+                "factor_capacity_null": ["planted:factor_capacity_null"],
+                "factorization_not_identified": [],
+                "insufficient_active_controls": [], "broad_contextual_equality_write": [],
+            },
+        ),
+    )
+    result = runner.make_result_fixture("factor_capacity_null")
+    result["raw_evidence"] = {"fit_scales": scales}
+    result["split_scores"] = {
+        "FIT": {"primitive_projection": runner.content_sha256(rows)}
+    }
+    runner._validate_saved_score_reports(result, rows, {"manifests": {}})
+    result["split_scores"]["FIT"]["primitive_projection"] = "swapped-summary"
+    with pytest.raises(ValueError, match="score report disagrees"):
+        runner._validate_saved_score_reports(result, rows, {"manifests": {}})
+
+
+def test_real_score_report_rebuild_rejects_summary_swap(
+    runner, execution, planted, monkeypatch,
+):
+    monkeypatch.setattr(runner, "BOOTSTRAPS", 16)
+    fit_rows = [row for row in planted if row["split"] == "FIT"]
+    scales = runner.compute_fit_scales(fit_rows, execution["manifests"])
+    report, failures = runner.score_split(
+        fit_rows, "FIT", execution["manifests"], scales, replicates=16
+    )
+    result = runner.make_result_fixture("factor_capacity_null")
+    result["raw_evidence"] = {"fit_scales": scales}
+    result["split_scores"] = {"FIT": report}
+    for label, clauses in failures.items():
+        result["failure_classes"][label] = clauses
+    runner._validate_saved_score_reports(result, fit_rows, execution)
+    changed = copy.deepcopy(result)
+    first_cell = next(iter(changed["split_scores"]["FIT"]["targets"]))
+    changed["split_scores"]["FIT"]["targets"][first_cell]["passes"] ^= True
+    with pytest.raises(ValueError, match="score report disagrees"):
+        runner._validate_saved_score_reports(changed, fit_rows, execution)
+
+
+def test_complete_scored_result_rejects_report_swap_with_fixed_jsonl(
+    runner, tmp_path, monkeypatch,
+):
+    result, resolver = _write_mini_complete_evidence(
+        runner, tmp_path, monkeypatch, terminal="factor_capacity_null"
+    )
+    scales = {"mini": {"valid": True}}
+    failures = {
+        "invalid_instrument": [], "native_denominator_or_scale_null": [],
+        "factor_capacity_null": ["planted:factor_capacity_null"],
+        "factorization_not_identified": [], "insufficient_active_controls": [],
+        "broad_contextual_equality_write": [],
+    }
+
+    def recompute(records, split, manifests, fit_scales, replicates):
+        return {
+            "primitive_projection": runner.content_sha256(records),
+            "bootstrap_realization": {"count": 1, "cell_ids_sha256": "mini"},
+        }, failures
+
+    monkeypatch.setattr(runner, "compute_fit_scales", lambda records, manifests: scales)
+    monkeypatch.setattr(runner, "score_split", recompute)
+    monkeypatch.setattr(
+        runner, "validate_realized_bootstraps",
+        lambda report, split, manifests: report["bootstrap_realization"],
+    )
+    directed = json.loads((tmp_path / "directed_arm_measurements.jsonl").read_text().splitlines()[0])
+    all_directed = runner._strict_jsonl(tmp_path / "directed_arm_measurements.jsonl")
+    assert directed in all_directed
+    report, _ = recompute(all_directed, "FIT", {}, scales, runner.BOOTSTRAPS)
+    result["raw_evidence"]["fit_scales"] = scales
+    result["split_scores"] = {"FIT": report}
+    runner.validate_result(result, artifact_path_resolver=resolver)
+    result["split_scores"]["FIT"]["primitive_projection"] = "swapped-report"
+    with pytest.raises(ValueError, match="score report disagrees"):
+        runner.validate_result(result, artifact_path_resolver=resolver)
+
+
 def test_realized_bootstrap_omission_and_provenance_fail_closed(runner, execution, planted):
     scales = runner.compute_fit_scales(planted, execution["manifests"])
     incomplete = copy.deepcopy(execution["manifests"])
@@ -525,6 +785,11 @@ def test_deterministic_dryrun_is_model_free_and_split_closed(runner):
     assert dryrun["evidence_contract"]["independent_remainder"] == (
         "contract_without_induction_fetch"
     )
+    assert dryrun["evidence_contract"]["endpoint_semantics_equal_frozen_authority"] is True
+    assert dryrun["evidence_contract"]["directed_semantics_equal_frozen_authority"] is True
+    assert dryrun["evidence_contract"]["inserted_term_reconstructed_from_saved_factors"] is True
+    assert dryrun["evidence_contract"]["primitive_and_sufficient_statistics_recomputed"] is True
+    assert dryrun["evidence_contract"]["scored_reports_recomputed_from_directed_rows"] is True
     assert dryrun["evidence_contract"]["finite_before_final_write"] is True
     assert dryrun["publication_contract"]["atomic_renames"] == [
         "evidence", "result", "receipt",

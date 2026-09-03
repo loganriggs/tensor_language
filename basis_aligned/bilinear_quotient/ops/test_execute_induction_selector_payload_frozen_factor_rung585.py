@@ -34,16 +34,22 @@ def test_exact_commit_and_execution_authorities_are_pinned(adapter):
     assert adapter.REPAIR_BASE_COMMIT == "a4e7c46c6339c75fc7f89c1e35339e15e3b74fd9"
     assert adapter.REPAIR_BASE_COMMIT_SHORT == "a4e7c46c6"
     assert adapter.FROZEN_HASHES[adapter.PRODUCER] == (
-        "8a4f20d06dd04cd81d6bb8c94377ee987b66bea4201395e61bbe23a1b5dd9a8c"
+        "a3987dc053ba9b18a92a950c526acb1127f2cec9ee97d1142158ca4ef6483ddd"
     )
     assert adapter.FROZEN_HASHES[adapter.PRODUCER_TEST] == (
-        "57e52e8da53f3a6e7b194efb64f56d1ff9fb442c2c39547a6f1fed4263a10653"
+        "5365d3d473f3385d3b052f7ff09af78f8e2209a0d3e6a75eca264beaf082c11f"
     )
     assert adapter.FROZEN_HASHES[adapter.PRODUCER_DRYRUN] == (
-        "6fb41eb862c00f27673cfe694cf8670eae23f1d60a6a5dd85a35a5309b7e90f5"
+        "de33550e530c35c1236095e2354d3724c7ff70de16242424f17d5ed7a81433a6"
     )
     assert adapter.FROZEN_HASHES[adapter.IMPLEMENTATION_REVIEW] == (
         "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30"
+    )
+    assert adapter.FROZEN_HASHES[adapter.SECOND_IMPLEMENTATION_REVIEW] == (
+        "02b513f9eca7d2582d462de95ca7423cb8150962d9a4bc3e5e40deb36762ca19"
+    )
+    assert adapter.FROZEN_HASHES[adapter.SECOND_IMPLEMENTATION_ADVERSARIAL_TEST] == (
+        "5d5fa1e2628f3dcee41e330c4e6dba5f0a7d6cc0248e1694cedbf39bd7422c47"
     )
     assert adapter.verify_frozen_bytes() == {
         str(path): digest for path, digest in adapter.FROZEN_HASHES.items()

@@ -61,6 +61,12 @@ IMPLEMENTATION_REVIEW = POLY / (
 IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
     "test_induction_selector_payload_frozen_factor_rung585_implementation_adversarial.py"
 )
+SECOND_IMPLEMENTATION_REVIEW = POLY / (
+    "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_SECOND_REPAIR_PREEXECUTION_REVIEW.md"
+)
+SECOND_IMPLEMENTATION_ADVERSARIAL_TEST = OPS / (
+    "test_induction_selector_payload_frozen_factor_rung585_second_repair_review_adversarial.py"
+)
 
 AUTHORITY_HASHES = {
     ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
@@ -77,6 +83,10 @@ AUTHORITY_HASHES = {
     IMPLEMENTATION_REVIEW: "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30",
     IMPLEMENTATION_ADVERSARIAL_TEST:
         "2567c3c5633575c2f4f8369328071025037b7c6f6c8a359f7870859b787a12e2",
+    SECOND_IMPLEMENTATION_REVIEW:
+        "02b513f9eca7d2582d462de95ca7423cb8150962d9a4bc3e5e40deb36762ca19",
+    SECOND_IMPLEMENTATION_ADVERSARIAL_TEST:
+        "5d5fa1e2628f3dcee41e330c4e6dba5f0a7d6cc0248e1694cedbf39bd7422c47",
 }
 
 SPLITS = ("FIT", "SELECT")
@@ -407,6 +417,333 @@ def validate_evidence_membership(
         raise ValueError("factor evidence membership differs from frozen authority")
 
 
+def _require_numeric_close(observed: object, expected: float, label: str) -> None:
+    if type(observed) not in (int, float) or not math.isfinite(float(observed)) or (
+        not math.isclose(float(observed), float(expected), rel_tol=TOLERANCE, abs_tol=TOLERANCE)
+    ):
+        raise ValueError(f"saved {label} disagrees with reconstructed computation")
+
+
+def _validate_endpoint_semantics(
+    endpoint_rows: Sequence[Mapping[str, object]], execution: Mapping[str, object],
+) -> dict[str, Mapping[str, object]]:
+    authority = {str(row["endpoint_id"]): row for row in execution["endpoints"]}
+    semantic_fields = (
+        "split", "endpoint_id", "token_ids", "length", "final_position",
+        "source_positions", "payload_positions", "condition", "answer_id",
+        "other_answer_id",
+    )
+    for row in endpoint_rows:
+        expected = authority.get(str(row.get("endpoint_id")))
+        if expected is None or any(row.get(field) != expected[field] for field in semantic_fields):
+            raise ValueError("endpoint semantic coordinates disagree with frozen authority")
+    return authority
+
+
+def _validate_direction_semantics(
+    directed_rows: Sequence[Mapping[str, object]], execution: Mapping[str, object],
+) -> dict[str, Mapping[str, object]]:
+    authority = {str(row["directed_id"]): row for row in execution["directions"]}
+    direct_fields = (
+        "split", "directed_id", "recipient_endpoint_id", "donor_endpoint_id",
+        "row_id", "group_id", "family", "variant", "recipient_condition",
+        "direction", "control_kind", "answer_changes", "recipient_answer_id",
+        "donor_answer_id",
+    )
+    seen: dict[str, set[str]] = {}
+    for row in directed_rows:
+        identifier = str(row.get("directed_id"))
+        expected = authority.get(identifier)
+        applicable = () if expected is None else tuple(
+            field for field in direct_fields if field in expected
+        )
+        other_mismatch = bool(
+            expected is not None and "recipient_other_answer_id" in expected
+            and row.get("other_answer_id") != expected["recipient_other_answer_id"]
+        )
+        if expected is None or any(row.get(field) != expected[field] for field in applicable) or (
+            other_mismatch
+        ):
+            raise ValueError(
+                "saved recipient/donor or direction metadata disagrees with frozen direction authority"
+            )
+        arm = row.get("arm")
+        if arm not in ARMS:
+            raise ValueError("saved direction has an unknown arm")
+        seen.setdefault(identifier, set()).add(str(arm))
+    if any(arms != set(ARMS) for arms in seen.values()):
+        raise ValueError("saved direction does not contain exactly the three frozen arms")
+    return authority
+
+
+def _validate_factor_row_semantics(
+    factor_rows: Sequence[Mapping[str, object]], endpoint_authority: Mapping[str, Mapping[str, object]],
+) -> None:
+    fields = {
+        "split", "endpoint_id", "site", "equality_factor_max_abs",
+        "equality_plus_independent_remainder_max_abs",
+    }
+    for row in factor_rows:
+        endpoint = endpoint_authority.get(str(row.get("endpoint_id")))
+        if set(row) != fields or endpoint is None or row.get("split") != endpoint["split"] or (
+            row.get("site") not in TERM_NAMES
+        ):
+            raise ValueError("saved factor row semantics disagree with frozen endpoint/site authority")
+
+
+def _validate_factor_exactness_rows(
+    factor_rows: Sequence[Mapping[str, object]], arrays: Mapping[str, np.ndarray],
+    endpoint_order: Sequence[str],
+) -> None:
+    endpoint_index = {identifier: index for index, identifier in enumerate(endpoint_order)}
+    site_index = {site: index for index, site in enumerate(TERM_NAMES)}
+    e, u = arrays["native_e.npy"], arrays["native_u.npy"]
+    canonical = arrays["canonical_term.npy"]
+    head = arrays["native_head_output.npy"]
+    remainder = arrays["non_equality_remainder.npy"]
+    for row in factor_rows:
+        i = endpoint_index[str(row["endpoint_id"])]
+        j = site_index[str(row["site"])]
+        factor_term = e[i, j, 0] * u[i, j, 0] + e[i, j, 1] * u[i, j, 1]
+        factor_error = float(np.max(np.abs(factor_term - canonical[i, j])))
+        reconstruction_error = float(np.max(np.abs(
+            canonical[i, j] + remainder[i, j] - head[i, j]
+        )))
+        _require_numeric_close(
+            row.get("equality_factor_max_abs"), factor_error, "factor exactness maximum"
+        )
+        _require_numeric_close(
+            row.get("equality_plus_independent_remainder_max_abs"),
+            reconstruction_error, "independent remainder exactness maximum",
+        )
+
+
+def _validate_saved_factor_interventions(
+    directed_rows: Sequence[Mapping[str, object]], arrays: Mapping[str, np.ndarray],
+    endpoint_order: Sequence[str],
+) -> None:
+    endpoint_index = {identifier: index for index, identifier in enumerate(endpoint_order)}
+    e = arrays["native_e.npy"]
+    u = arrays["native_u.npy"]
+    live = arrays["live_removed.npy"]
+    delta = arrays["hook_delta.npy"]
+    for row_index, row in enumerate(directed_rows):
+        recipient = endpoint_index[str(row["recipient_endpoint_id"])]
+        donor = endpoint_index[str(row["donor_endpoint_id"])]
+        arm = str(row["arm"])
+        score_index = donor if arm in ("score", "joint") else recipient
+        payload_index = donor if arm in ("payload", "joint") else recipient
+        inserted = (
+            e[score_index, :, 0, None] * u[payload_index, :, 0]
+            + e[score_index, :, 1, None] * u[payload_index, :, 1]
+        ).astype("<f4")
+        observed_live = live[row_index]
+        observed_delta = delta[row_index]
+        expected_delta = (inserted - observed_live).astype("<f4")
+        if float(np.max(np.abs(observed_delta - expected_delta))) > 5e-5:
+            raise ValueError("saved live plus hook_delta disagrees with reconstructed inserted term")
+        norms = np.linalg.norm(delta[row_index], axis=1)
+        saved_norms = row.get("per_site_delta_norms")
+        if type(saved_norms) is not list or len(saved_norms) != len(TERM_NAMES):
+            raise ValueError("saved per-site delta norm schema changed")
+        for site, (observed, expected) in enumerate(zip(saved_norms, norms)):
+            _require_numeric_close(observed, float(expected), f"site-{site} delta norm")
+        _require_numeric_close(
+            row.get("insertion_activity"), float(np.median(norms)), "insertion activity"
+        )
+
+
+def _validate_measurement(measurement: object, endpoint: Mapping[str, object], label: str) -> None:
+    required = {
+        "answer_id", "other_answer_id", "answer_logit", "other_logit",
+        "correct_margin", "log_normalizer", "correct_ce",
+    }
+    if type(measurement) is not dict or set(measurement) != required or (
+        measurement["answer_id"] != endpoint["answer_id"]
+    ) or measurement["other_answer_id"] != endpoint["other_answer_id"]:
+        raise ValueError(f"saved endpoint {label} measurement schema or token IDs changed")
+    if any(type(measurement[field]) not in (int, float) for field in (
+        "answer_logit", "other_logit", "correct_margin", "log_normalizer", "correct_ce"
+    )):
+        raise TypeError(f"saved endpoint {label} measurement must contain numeric scalars")
+    _require_numeric_close(
+        measurement["correct_margin"],
+        float(measurement["answer_logit"]) - float(measurement["other_logit"]),
+        f"endpoint {label} margin",
+    )
+    _require_numeric_close(
+        measurement["correct_ce"],
+        float(measurement["log_normalizer"]) - float(measurement["answer_logit"]),
+        f"endpoint {label} CE",
+    )
+
+
+def _validate_saved_primitive_logit_identities(
+    directed_rows: Sequence[Mapping[str, object]],
+) -> None:
+    primitive_required = {
+        "answer_logit", "other_logit", "correct_margin", "log_normalizer",
+        "correct_ce", "vocab_squared_difference_sum", "vocab_size", "vocab_rms",
+        "live_factor_max_error", "hook_delta_sum_max_error",
+    }
+    if any(not primitive_required <= set(row) for row in directed_rows):
+        raise ValueError("saved primitive logit row is incomplete")
+    numeric = primitive_required - {"vocab_size"}
+    if any(
+        type(row[field]) not in (int, float) for row in directed_rows for field in numeric
+    ) or any(type(row["vocab_size"]) is not int for row in directed_rows):
+        raise TypeError("saved primitive logit fields have invalid scalar types")
+    primitive_failures = validate_primitive_logit_identities(directed_rows)
+    if primitive_failures:
+        raise ValueError(f"saved primitive logit identities failed: {primitive_failures[0]}")
+
+
+def _saved_logit(measurement: Mapping[str, object], token: int, label: str) -> float:
+    if token == measurement["answer_id"]:
+        return float(measurement["answer_logit"])
+    if token == measurement["other_answer_id"]:
+        return float(measurement["other_logit"])
+    raise ValueError(f"saved {label} lacks a required authority-bound token logit")
+
+
+def _validate_saved_sufficient_statistics(
+    endpoint_rows: Sequence[Mapping[str, object]], directed_rows: Sequence[Mapping[str, object]],
+    direction_authority: Mapping[str, Mapping[str, object]],
+) -> None:
+    endpoint_fields = {
+        "split", "endpoint_id", "token_ids", "length", "final_position",
+        "source_positions", "payload_positions", "condition", "answer_id",
+        "other_answer_id", "replay", "native",
+    }
+    endpoint_measurements = {}
+    for row in endpoint_rows:
+        if set(row) != endpoint_fields:
+            raise ValueError("saved endpoint evidence schema changed")
+        endpoint = {key: row[key] for key in (
+            "answer_id", "other_answer_id", "endpoint_id"
+        )}
+        _validate_measurement(row.get("replay"), endpoint, "replay")
+        _validate_measurement(row.get("native"), endpoint, "native")
+        endpoint_measurements[str(row["endpoint_id"])] = {
+            "replay": row["replay"], "native": row["native"]
+        }
+
+    directed_fields = {
+        "split", "directed_id", "row_id", "group_id", "family", "variant",
+        "recipient_condition", "direction", "control_kind", "answer_changes", "arm",
+        "recipient_endpoint_id", "donor_endpoint_id", "recipient_answer_id",
+        "donor_answer_id", "other_answer_id", "replay_correct_margin",
+        "correct_margin", "replay_correct_ce", "correct_ce", "n", "d", "q",
+        "insertion_activity", "per_site_delta_norms", "live_factor_max_error",
+        "hook_delta_sum_max_error", "vocab_squared_difference_sum", "vocab_size",
+        "vocab_rms", "answer_logit", "other_logit", "log_normalizer",
+    }
+    for row in directed_rows:
+        if set(row) != directed_fields:
+            raise ValueError("saved directed primitive evidence schema changed")
+        direction = direction_authority[str(row["directed_id"])]
+        recipient = endpoint_measurements[str(direction["recipient_endpoint_id"])]
+        donor = endpoint_measurements[str(direction["donor_endpoint_id"])]
+        replay = recipient["replay"]
+        recipient_native = recipient["native"]
+        donor_native = donor["native"]
+        donor_answer = int(direction["donor_answer_id"])
+        recipient_answer = int(direction["recipient_answer_id"])
+        other = int(direction["recipient_other_answer_id"])
+        _require_numeric_close(row["replay_correct_margin"], replay["correct_margin"], "replay margin")
+        _require_numeric_close(row["replay_correct_ce"], replay["correct_ce"], "replay CE")
+
+        def ce(state, token, label):
+            return float(state["log_normalizer"]) - _saved_logit(state, token, label)
+
+        measurement = {
+            "answer_id": recipient_answer,
+            "other_answer_id": other,
+            "answer_logit": row["answer_logit"],
+            "other_logit": row["other_logit"],
+            "log_normalizer": row["log_normalizer"],
+        }
+        if direction["answer_changes"]:
+            m_i = _saved_logit(measurement, donor_answer, "intervention") - _saved_logit(
+                measurement, recipient_answer, "intervention"
+            )
+            m_r = _saved_logit(replay, donor_answer, "replay") - _saved_logit(
+                replay, recipient_answer, "replay"
+            )
+            m_d = _saved_logit(donor_native, donor_answer, "donor native") - _saved_logit(
+                donor_native, recipient_answer, "donor native"
+            )
+            m_x = _saved_logit(recipient_native, donor_answer, "recipient native") - _saved_logit(
+                recipient_native, recipient_answer, "recipient native"
+            )
+            expected_n, expected_d = m_i - m_r, m_d - m_x
+            expected_q = ce(replay, donor_answer, "replay") - ce(
+                measurement, donor_answer, "intervention"
+            )
+        else:
+            sign = int(direction["donor_coherence_sign"] or 1)
+            c_i = _saved_logit(measurement, recipient_answer, "intervention") - _saved_logit(
+                measurement, other, "intervention"
+            )
+            c_r = _saved_logit(replay, recipient_answer, "replay") - _saved_logit(
+                replay, other, "replay"
+            )
+            c_d = _saved_logit(donor_native, recipient_answer, "donor native") - _saved_logit(
+                donor_native, other, "donor native"
+            )
+            c_x = _saved_logit(recipient_native, recipient_answer, "recipient native") - _saved_logit(
+                recipient_native, other, "recipient native"
+            )
+            expected_n, expected_d = sign * (c_i - c_r), sign * (c_d - c_x)
+            expected_q = sign * (
+                ce(replay, recipient_answer, "replay")
+                - ce(measurement, recipient_answer, "intervention")
+            )
+        for field, expected in (("n", expected_n), ("d", expected_d), ("q", expected_q)):
+            _require_numeric_close(row.get(field), expected, field)
+
+
+def scored_splits_for_terminal(
+    terminal: str, evaluated_splits: Sequence[str]
+) -> list[str]:
+    if terminal == "invalid_instrument":
+        return []
+    if terminal == "select_invalid_instrument":
+        return ["FIT"]
+    return list(evaluated_splits)
+
+
+def _validate_saved_score_reports(
+    result: Mapping[str, object], directed_rows: Sequence[Mapping[str, object]],
+    execution: Mapping[str, object],
+) -> None:
+    scored = scored_splits_for_terminal(
+        str(result["terminal"]), result["evaluated_splits"]
+    )
+    if not scored:
+        if result["raw_evidence"].get("fit_scales") != {}:
+            raise ValueError("unscored invalid instrument unexpectedly saved FIT scales")
+        return
+    fit_rows = [row for row in directed_rows if row["split"] == "FIT"]
+    fit_scales = compute_fit_scales(fit_rows, execution["manifests"])
+    if result["raw_evidence"].get("fit_scales") != fit_scales:
+        raise ValueError("saved FIT scales disagree with primitive directed evidence")
+    for split in scored:
+        rows = [row for row in directed_rows if row["split"] == split]
+        report, failures = score_split(
+            rows, split, execution["manifests"], fit_scales,
+            replicates=BOOTSTRAPS,
+        )
+        if result["split_scores"].get(split) != report:
+            raise ValueError(f"saved {split} score report disagrees with primitive evidence")
+        prefix = "" if split == "FIT" else "select_"
+        for label, clauses in failures.items():
+            if result["failure_classes"].get(prefix + label) != clauses:
+                raise ValueError(
+                    f"saved {split} failure clauses disagree with primitive evidence"
+                )
+
+
 def _validate_complete_evidence(
     result: Mapping[str, object],
     artifact_path_resolver,
@@ -545,11 +882,34 @@ def _validate_complete_evidence(
     )
     if result["instrument_passes"] and factor_error_exceeds:
         raise ValueError("factor exactness evidence exceeds tolerance")
-
-    validate_evidence_membership(
-        evaluated, endpoint_order, directed_order, factor_order,
-        build_execution_authority(),
+    _require_numeric_close(
+        maxima["equality_factor_max_abs"],
+        max(float(row["equality_factor_max_abs"]) for row in factor_rows),
+        "aggregate equality factor maximum",
     )
+    _require_numeric_close(
+        maxima["equality_plus_independent_remainder_max_abs"],
+        max(
+            float(row["equality_plus_independent_remainder_max_abs"])
+            for row in factor_rows
+        ),
+        "aggregate independent remainder maximum",
+    )
+
+    execution = build_execution_authority()
+    validate_evidence_membership(
+        evaluated, endpoint_order, directed_order, factor_order, execution,
+    )
+    endpoint_authority = _validate_endpoint_semantics(endpoints, execution)
+    direction_authority = _validate_direction_semantics(directed, execution)
+    _validate_factor_row_semantics(factor_rows, endpoint_authority)
+    _validate_factor_exactness_rows(factor_rows, arrays, endpoint_order)
+    _validate_saved_primitive_logit_identities(directed)
+    _validate_saved_factor_interventions(directed, arrays, endpoint_order)
+    _validate_saved_sufficient_statistics(
+        endpoints, directed, direction_authority
+    )
+    _validate_saved_score_reports(result, directed, execution)
 
     endpoint_hash = content_sha256(endpoint_order)
     directed_hash = content_sha256(directed_order)
@@ -659,12 +1019,9 @@ def validate_result(
     if not fixture_mode:
         _validate_complete_evidence(result, resolver)
         execution = build_execution_authority()
-        if result["terminal"] == "invalid_instrument":
-            scored_splits = []
-        elif result["terminal"] == "select_invalid_instrument":
-            scored_splits = ["FIT"]
-        else:
-            scored_splits = list(result["evaluated_splits"])
+        scored_splits = scored_splits_for_terminal(
+            str(result["terminal"]), result["evaluated_splits"]
+        )
         if set(result["split_scores"]) != set(scored_splits):
             raise ValueError("completed split-score phase census changed")
         for split in scored_splits:
@@ -2605,6 +2962,11 @@ def run_dryrun() -> dict[str, object]:
             "jsonl_counts": HELD_JSONL_COUNTS,
             "checkpoint_weights_sha256": CHECKPOINT_SHA256,
             "independent_remainder": "contract_without_induction_fetch",
+            "endpoint_semantics_equal_frozen_authority": True,
+            "directed_semantics_equal_frozen_authority": True,
+            "inserted_term_reconstructed_from_saved_factors": True,
+            "primitive_and_sufficient_statistics_recomputed": True,
+            "scored_reports_recomputed_from_directed_rows": True,
             "finite_before_final_write": True,
         },
         "publication_contract": {

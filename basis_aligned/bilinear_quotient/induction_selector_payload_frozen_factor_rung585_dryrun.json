@@ -102,16 +102,21 @@
       ]
     },
     "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "directed_semantics_equal_frozen_authority": true,
+    "endpoint_semantics_equal_frozen_authority": true,
     "finite_before_final_write": true,
     "independent_remainder": "contract_without_induction_fetch",
+    "inserted_term_reconstructed_from_saved_factors": true,
     "jsonl_counts": {
       "directed_arm_measurements.jsonl": 16848,
       "endpoint_measurements.jsonl": 2592,
       "factor_exactness.jsonl": 10368
-    }
+    },
+    "primitive_and_sufficient_statistics_recomputed": true,
+    "scored_reports_recomputed_from_directed_rows": true
   },
   "fixture_bootstrap_replicates": 16,
-  "implementation_sha256": "8a4f20d06dd04cd81d6bb8c94377ee987b66bea4201395e61bbe23a1b5dd9a8c",
+  "implementation_sha256": "a3987dc053ba9b18a92a950c526acb1127f2cec9ee97d1142158ca4ef6483ddd",
   "manifest_hashes": {
     "bootstrap_cell_ids_sha256": "16e07d0400c37a4270adad09d1e28e04dc079138b61e7bb903d7abebb2ab027e",
     "control_cell_ids_sha256": "b1777d714ee7a5b9ed134923c1fdbb85850d1e51ee5dc5292184616af9ba5c38",
@@ -165,13 +170,15 @@
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/equality_term_subset_factorial_stage1.py": "3caa753cd856ec87899936fe71137ce28e893f86433558f40a815afff61824af",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_implementation_adversarial.py": "2567c3c5633575c2f4f8369328071025037b7c6f6c8a359f7870859b787a12e2",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_selector_payload_frozen_factor_rung585_second_repair_review_adversarial.py": "5d5fa1e2628f3dcee41e330c4e6dba5f0a7d6cc0248e1694cedbf39bd7422c47",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9bf8ae3c89d7c504bfdd42694771ef44bb87883429060d16335f0a1266d75a30",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md": "98ed34711ada83bbe1591887edf17164efd443d4c6a47559f43dec33f60aa5bf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_SECOND_REPAIR_PREEXECUTION_REVIEW.md": "02b513f9eca7d2582d462de95ca7423cb8150962d9a4bc3e5e40deb36762ca19",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/circuit_induction_tensor.py": "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a"
   },
   "status": "deterministic_cpu_dryrun_passed",
-  "test_sha256": "57e52e8da53f3a6e7b194efb64f56d1ff9fb442c2c39547a6f1fed4263a10653",
+  "test_sha256": "5365d3d473f3385d3b052f7ff09af78f8e2209a0d3e6a75eca264beaf082c11f",
   "upstream_dependency_records_parsed": [
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_results.json",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_receipt.json",
