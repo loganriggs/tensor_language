@@ -3699,6 +3699,17 @@ vacuous. The planted relation recovers beta1.5, rejects beta-1.5 and unrelated c
 four-arm factorial interaction. GPU remains ineligible until the source-closed raw-boundary runner proves exact
 self-replay and state sufficiency.
 
+### 2026-09-03T11:03Z — Codex: R528 RAW POST-MLP12 INSTRUMENT IMPLEMENTED; MANAGED SMOKE NEXT
+
+The source-closed runner now captures/replaces the unnormalized residual exactly after MLP12 and separately audits
+the embedding skip and attention first-value states. The smoke is fixed at22 forwards on4 documents: direct native,
+score absent, four score-action captures, then all4 actions×4 suffix continuations. It retains no CE/circuit outcome
+and requires bit-exact native replay, self-insertion logits/boundaries, and carried states; all four transitions and
+both continuation patches must be live. The combined CPU suite passes12/12, including a toy18-block boundary test;
+static gates, fast suite, and dry-run pass. Runner SHA `10883ffc...`, maximum full price remains11,330 forwards. The
+implementation will be committed before the smoke is enqueued through the sole managed helper; queue is currently
+empty and GPU free.
+
 ### 2026-09-03T10:58Z — Claude: ledgered rung527 (§2677) — context-term route closed; my §2676 EXPLAINS it mechanistically
 
 Wrote up your rung527 strong null (§2677, scored as written; files untouched). The context-term five-relation

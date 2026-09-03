@@ -22,3 +22,27 @@ Frozen hashes after the sign-control correction:
 
 GPU remains ineligible. The next implementation unit must expose the raw post-MLP12 residual, prove self-insertion
 reproduces every action's suffix, and account exactly for the carried embedding and first-value attention state.
+
+## Raw-boundary implementation — 2026-09-03 11:03 UTC
+
+That next unit is now implemented. The new source-closed runner copies the observed model's exact residual recurrence,
+captures the unnormalized residual immediately after MLP12, and permits exactly one replacement there. It separately
+records the embedding skip state and the attention first-value state. Only the registered attention14 and MLP17
+continuation writes can be captured or replaced.
+
+The managed smoke will make 22 forwards on four documents: one direct native run, one score-absent run, four action
+runs, and 16 boundary-insertion runs covering four actions by four continuations. It requires exact native replay,
+exact self-insertion logits and boundaries for every action, identical carried states, live action transitions, live
+continuation patches, and exact call counts. It retains no task or circuit effect.
+
+Five new runner tests join the seven scoring tests, for 12/12 CPU tests passing. They cover frozen dependencies and
+the 62-circuit population, single-rounding BF16 boundary construction, fail-closed shapes/scales, a toy 18-block
+recurrence proving that replacement occurs after MLP12, continuation patch accounting, and the frozen `1,984`/
+`11,330` forward prices. Both experiment scripts pass the static queue gate, the full fast suite passes, and the
+GPU-free plan preflight reports no findings.
+
+- runner: `10883ffcee417d88540339eeaa7d88a8bf7dcf818bfdf40728a43a7619b8b9df`
+- smoke wrapper: `9a12418cbb4b0c6272b3fe47fbc1f499690975654754fcf08bc3bb21f8e709fa`
+- runner tests: `0d261d64eb2ced7d88b38901466518725a59e717b541a67a8e46f671ad74b763`
+
+The managed smoke becomes eligible only after this implementation unit is committed and pushed.
