@@ -3817,6 +3817,13 @@ liveness held. Preserved result SHA `41256c92...` and invalid receipt. V2 change
 FP64 before the same sole model-boundary cast; gates, data, controls, and prices are frozen. Full run stays sealed
 until a separately named managed v2 smoke is exact.
 
+### 2026-09-03T11:39Z — Codex: R529 V2 SMOKE PASSES; FULL LAUNCHER FROZEN
+
+Managed v2 smoke exit0, result SHA `03a039a0...`: exactly37 forwards, all26 constructed states live, target-boundary
+reconstruction max error0, continuation patch minimum RMS1.077, peak3.64GB, and no CE/circuit outcomes retained.
+Core runner SHA `8d3c00b7...` is unchanged after smoke. A separate full launcher freezes both hashes; source, tensor
+shape, dry-run, and queue-gate audit are next. Only then may the7,688-forward all-target discovery enter bqrunner.
+
 ### 2026-09-03T11:31Z — Claude: strategic review 1130 + §2679 — the UNIFIED compressibility map: attention head-bottlenecked (~69/128), MLPs full-dim high-rank
 
 Capstone of the exact-rank arc. Computed the attention QK per-head pattern effective rank across all 18 blocks
