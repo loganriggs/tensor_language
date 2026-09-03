@@ -1,0 +1,145 @@
+{
+ "rung": "early_stack_width_map_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_early_stack_768": true,
+  "pred_c_whole_model_768": true,
+  "pred_d_no_early_sublayer_is_narrow_critical": true,
+  "pred_e_early_sharing_cost": false
+ },
+ "nulls": {
+  "b_null_ge_.20": false,
+  "c_null_ge_.45": false,
+  "d_null_ge_.30": false,
+  "e_null_ge_.20": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.02,
+  "b_max": 0.08,
+  "c_max": 0.25,
+  "d_max": 0.1,
+  "e_max": 0.1
+ },
+ "null_bars": {
+  "b_min": 0.2,
+  "c_min": 0.45,
+  "d_min": 0.3,
+  "e_min": 0.2
+ },
+ "device": "cuda",
+ "k": 768,
+ "k_single": 256,
+ "ks_own": [
+  512,
+  768,
+  1024
+ ],
+ "ks_shared": [
+  768,
+  1024
+ ],
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "late14_joint_768": 0.10933998227119446,
+  "prior_late14_joint_768": 0.109,
+  "early11_own_768": 0.04348483681678772,
+  "prior_early11_own_768": 0.0435
+ },
+ "ce_added": {
+  "EARLY11_OWN_768": 0.04348483681678772,
+  "LATE14_JOINT_768": 0.10933998227119446,
+  "EARLY22_OWN_512": 0.2151051163673401,
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EARLY22_OWN_1024": 0.008403539657592773,
+  "EARLY22_SHARED_768": 0.17957553267478943,
+  "EARLY22_SHARED_1024": 0.025055348873138428,
+  "ALL36_768": 0.1965300738811493
+ },
+ "single_256": {
+  "attn0": 0.005555212497711182,
+  "mlp0": 0.020858794450759888,
+  "attn1": 0.0039126574993133545,
+  "mlp1": 0.04216879606246948,
+  "attn2": 0.002289801836013794,
+  "mlp2": 0.02195751667022705,
+  "attn3": 0.003893226385116577,
+  "mlp3": 0.025041133165359497,
+  "attn4": 0.005625873804092407,
+  "mlp4": 0.019722193479537964,
+  "attn5": 0.0163421630859375,
+  "mlp5": 0.01457148790359497,
+  "attn6": 0.006775885820388794,
+  "mlp6": 0.020988494157791138,
+  "attn7": 0.005119919776916504,
+  "mlp7": 0.01936054229736328,
+  "attn8": 0.010210752487182617,
+  "mlp8": 0.017692118883132935,
+  "attn9": 0.008148670196533203,
+  "mlp9": 0.014603465795516968,
+  "attn10": 0.004003047943115234,
+  "mlp10": 0.01792466640472412
+ },
+ "gaps": {
+  "early_shared_minus_own_768": 0.12258771061897278,
+  "early_shared_minus_own_1024": 0.016651809215545654,
+  "all36_minus_parts": 0.030202269554138184,
+  "sum_single_256": 0.30676642060279846,
+  "max_single_256": 0.04216879606246948,
+  "max_single_site": "mlp1"
+ },
+ "input_eff_rank": {
+  "attn0": 335.8322445830092,
+  "attn1": 211.2126310212325,
+  "attn2": 301.7661051524018,
+  "attn3": 363.8822408124129,
+  "attn4": 370.3699644356413,
+  "attn5": 443.09361035313293,
+  "attn6": 466.29704107216537,
+  "attn7": 501.20807921204954,
+  "attn8": 517.8903540737872,
+  "attn9": 552.7941676057835,
+  "attn10": 548.2442069657031,
+  "attn11": 554.7132111774215,
+  "attn12": 547.7482685430621,
+  "attn13": 551.9468604075586,
+  "attn14": 569.7294081676924,
+  "attn15": 589.1669819516051,
+  "attn16": 547.9968521978548,
+  "attn17": 208.72923981470396,
+  "mlp0": 384.57943980297944,
+  "mlp1": 297.2261172102434,
+  "mlp2": 346.78758804229466,
+  "mlp3": 386.2071411105069,
+  "mlp4": 422.2458399447018,
+  "mlp5": 447.0584644321606,
+  "mlp6": 487.64741443927636,
+  "mlp7": 483.856047978714,
+  "mlp8": 558.8050518121395,
+  "mlp9": 524.7112977801196,
+  "mlp10": 536.6970185231361,
+  "mlp11": 527.0601554414229,
+  "mlp12": 537.4891438331962,
+  "mlp13": 558.1870866526338,
+  "mlp14": 579.7634004249069,
+  "mlp15": 576.8179641108169,
+  "mlp16": 544.1763156804182,
+  "mlp17": 155.05197056864424
+ },
+ "price": {
+  "gpu_doc_forwards": 2080,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 30.644687175750732
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/EARLY_STACK_WIDTH_MAP_PROBE_PREREGISTRATION.md": "ce9da60efdd3df9201856fcf324a70693f21e90fe0df8787c64935cbc235ed97",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_stack_write_core_probe_results.json": "4bf02804d5b271fa636d1be512ddc43553880d14d9e60a5c6dc98ef4783d1028",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "1922bca2e09a0ae83af25252fdda8e9949b511e30549584fa6d34794a4b31f8b"
+}

@@ -70719,3 +70719,37 @@ is therefore a 768-dim channel to within .05 nat; it is NOT a 512-dim channel (e
 routing recovers two thirds of it, so even at 512 most of the write is readout-bound). Together with §2746 (attention cannot use a
 narrower lane) the late program's width is 768 for reads, writes and the bus alike, with the readout as the one full-width consumer.
 Failures preserved; nothing installs into the §312 frontier.
+
+## §2749 — THE WHOLE MODEL AS A WIDTH PROGRAM: all 36 sublayers on 768-dim input cores (early 22 on OWN cores, late 14 on ONE shared core) cost .197 (pred_c ≤ .25 TRUE); the early stack alone on own cores .215 / .057 / .0084 at 512 / 768 / 1024 (pred_b ≤ .08 TRUE); no early sublayer is narrow-critical — each of the 22 alone on its own 256-core costs ≤ .042 (mlp1 the largest; attention 0–10 alone .002–.016; Σ .307; pred_d TRUE); but the early stack does NOT share: one core for all 22 costs .180 at 768 (+.123 over own, pred_e ≤ .10 FALSE) and .025 at 1024 (+.017); composition penalty early+late .030 (Claude, LANE 1 CUDA, 31 s, 2080 GPU document-forwards): a, b, c, d TRUE; e FALSE; no null met. Preserved.
+
+Registered 2026-09-03 22:50Z (polynomial_causal/EARLY_STACK_WIDTH_MAP_PROBE_PREREGISTRATION.md); landed 22:52Z. Script
+ops/early_stack_width_map_probe.py; results early_stack_width_map_probe_results.json (sha 745f1307…). Frozen: prereg, §2747
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Constructions as §2745 (OwnHead CONST for MLPs; AttnHead for attention, block 0 without the
+self-mixing of its own value residual, which in the real model is the identity); own cores = each site's top-k centred input PCs;
+the early shared core = top-k of the average of the 22 early centred input covariances; the late core = §2745's joint core.
+
+Scored as registered (bars in parentheses):
+- pred_a_instrument TRUE: baseline 3.0322401 (Δ 7e-9); EARLY11_OWN_768 .04348 (prior .0435); LATE14_JOINT_768 .1093 (prior .109).
+- pred_b_early_stack_768 TRUE: EARLY22_OWN_768 = .0570 (bar ≤ .08; null ≥ .20 not met).
+- pred_c_whole_model_768 TRUE: ALL36_768 = .1965 (bar ≤ .25; null ≥ .45 not met).
+- pred_d_no_early_sublayer_is_narrow_critical TRUE: max SINGLE_256 = .0422 at mlp1 (bar ≤ .10; null ≥ .30 not met).
+- pred_e_early_sharing_cost FALSE: EARLY22_SHARED_768 − EARLY22_OWN_768 = .1796 − .0570 = +.123 (bar ≤ .10; null ≥ .20 NOT met).
+
+Descriptive. Single-site costs on own 256-cores (attn / mlp by block): 0 .006/.021, 1 .004/.042, 2 .002/.022, 3 .004/.025, 4
+.006/.020, 5 .016/.015, 6 .007/.021, 7 .005/.019, 8 .010/.018, 9 .008/.015, 10 .004/.018 — Σ .307 against the stack's .215 at 512
+and .057 at 768 (the 256 stack was not run). Early own curve 512/768/1024 = .215/.057/.0084; early shared 768/1024 = .180/.025.
+Composition: ALL36_768 − (EARLY22_OWN_768 + LATE14_JOINT_768) = .1965 − (.0570 + .1093) = +.030. Input effective ranks (centred,
+rms-normed): attention 0…17 = 336/211/302/364/370/443/466/501/518/553/548/555/548/552/570/589/548/209; MLP 0…17 = 385/297/347/
+386/422/447/488/484/559/525/537/527/537/558/580/577/544/155.
+
+Reading. This closes the width map for the whole model. (i) Every sublayer, early or late, is a wide reader whose cost falls
+roughly geometrically with k (per-sublayer 256-cores cost ≤ .04 each; the stack at 768 costs .06 early, .11 late); nothing early
+is a narrow bottleneck — the early cost is spread thinly across all 22 sublayers (mlp1 the largest single item at .042, the
+attention blocks almost free alone). (ii) The early and late halves differ in ONE structural respect: the late fourteen read one
+common coordinate system (§2742/§2745, sharing ≤ .006), the early 22 do not (+.123 at 768; still +.017 at 1024, where own cores
+are already near-exact) — the residual's read subspace rotates through blocks 0–10 and settles by block 11 (the effective ranks
+climb 336→550 over the same range and then plateau), so the "one bus" description (§2748) is a property of the late stack only.
+(iii) The complete 36-sublayer width program — 22 own 768-cores + 1 shared late 768-core, 36 constants, own weights, full-width
+writes — reproduces bilin18 to within .197 nat; at 1024 the early half is .008, so the model-wide cost at 1024 would be dominated
+by the late half's .023 (§2745), i.e. ≈ .03–.05 if composition holds. Failures preserved; nothing installs into the §312 frontier.

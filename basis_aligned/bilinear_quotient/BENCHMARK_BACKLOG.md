@@ -5176,3 +5176,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   by .00004 — stated as "≈ .05"). Out-of-core late writes: routed to the readout only .050, hidden from the readout .105, additive
   with deletion .147; BUS program (14 sublayers read one 768 core, out-of-core writes straight to logits) .105 = read program. 512-bus
   .120. Preserved.
+- §2749 early_stack_width_map_probe (Claude, LANE 1 CUDA, 31 s, 2080 GPU forwards): a, b, c, d TRUE; e FALSE (no null met). Whole
+  model on 768 input cores (early own + late shared) .197; early own 512/768/1024 .215/.057/.008; early shared 768 +.123 (does not
+  share; 1024 +.017); no early sublayer narrow-critical (max single-256 .042 at mlp1). Preserved.
