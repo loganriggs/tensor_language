@@ -1,0 +1,87 @@
+{
+ "rung": 547,
+ "status": "legacy_evidence_audited_no_model_access",
+ "files_sha256": {
+  "bracket_match_implementation": "3a600b0849a8538fc667dbff4979113caff8234296a2517ce19f7af226bd7675",
+  "bracket_match_result": "c25aa4788d201c4b4a20098e405f26500593d32180f59212064bed9e50323e97",
+  "bracket_pointer_implementation": "253962c289657fef86c18ce71f371dbc1fb1b735e147b56a3dfb06ab6f0e7d22",
+  "bracket_pointer_result": "667b99ab4fba09658fba1d48c8dc95a31a64098f3d7c5f2ffd4bb3114e5baa7f",
+  "bracket_query_rank_implementation": "ede3afc889400a0eec6e238fc627a32394133b421073b63d525a77ec7e82d23d",
+  "bracket_query_rank_result": "283ec3c26f5a0c891246b1630fffc507ac251f04953ab2fc87863e69e2de29ce",
+  "quote_head_implementation": "f916593c65635c3c609650a48395f00451e8b17275e4a820027af7a6f81774e6",
+  "quote_head_result": "582f55cb589688ca13aeb7fd8bb82b1fd85065a576838603e55636dab3360952",
+  "quote_state_causal_implementation": "d7c42b9a770e19fd046e5f49ce9a9c275c6f92b091251331ff48b2bc280bff7b",
+  "quote_state_causal_result": "62f7b41dc0cea48fd4410621dcffceaababbf31b8656dc3138d15a04cf534877"
+ },
+ "provenance_limits": {
+  "bracket_match_implementation": {
+   "uses_mutable_fineweb_rows": true,
+   "hardcodes_live_checkpoint_import": true,
+   "writes_result_without_checkpoint_hash": true,
+   "no_fit_select_final_ood_authority": true
+  },
+  "bracket_pointer_implementation": {
+   "uses_mutable_fineweb_rows": true,
+   "hardcodes_live_checkpoint_import": true,
+   "writes_result_without_checkpoint_hash": true,
+   "no_fit_select_final_ood_authority": true
+  },
+  "bracket_query_rank_implementation": {
+   "uses_mutable_fineweb_rows": true,
+   "hardcodes_live_checkpoint_import": true,
+   "writes_result_without_checkpoint_hash": true,
+   "no_fit_select_final_ood_authority": true
+  },
+  "quote_head_implementation": {
+   "uses_mutable_fineweb_rows": true,
+   "hardcodes_live_checkpoint_import": true,
+   "writes_result_without_checkpoint_hash": true,
+   "no_fit_select_final_ood_authority": true
+  },
+  "quote_state_causal_implementation": {
+   "uses_mutable_fineweb_rows": true,
+   "hardcodes_live_checkpoint_import": true,
+   "writes_result_without_checkpoint_hash": true,
+   "no_fit_select_final_ood_authority": true
+  }
+ },
+ "bracket_match": {
+  "descriptive_effect_nat": 0.689,
+  "whole_head_deletion_nat": 0.8254,
+  "global_deletion_nat": 0.00376,
+  "n_targets": 84,
+  "n_nested_control": 1,
+  "interpretation": "strong matched-edge localization on one unsealed draw; nesting generalization untested (n=1)"
+ },
+ "bracket_pointer_pairs": {
+  "exact_relative_score_error": 4.6744031578782597e-07,
+  "top10_match_mass_fraction": 0.1425,
+  "top10_pair_set_difference": 1,
+  "sparsity_prediction_held": false,
+  "match_specific_pair_identity_held": false,
+  "interpretation": "exact dense algebra replay, but the proposed sparse writer-pair pointer failed"
+ },
+ "bracket_query_rank": {
+  "rank8_fraction_of_full_effect": 0.494962362478286,
+  "smallest_rank_reaching_80_percent": 64,
+  "rank8_prediction_held": false,
+  "interpretation": "query effect is selective but not an eight-dimensional explanation; rank 64 was needed for 80%"
+ },
+ "quote_head": {
+  "l13h8_target_deletion_nat": 0.524,
+  "l13h8_elsewhere_deletion_nat": 0.003,
+  "n_targets": 1058,
+  "interpretation": "strong unsealed head-ownership evidence; no independent counterfactual or OOD split"
+ },
+ "quote_parity_direction": {
+  "baseline_probability_gap": 0.00497,
+  "fraction_gap_lost_after_rank1_removal": 0.0049,
+  "causal_prediction_held": false,
+  "interpretation": "the decoded rank-one quote-parity direction was not a causal carrier"
+ },
+ "correction": "The 2026-08-30 campaign's bracket Tier-4 label overstates the surviving evidence. L13H8 and its matched score edge are strong hypotheses, and the 625-term score expansion is numerically exact, but sparse writer-pair identity failed, rank eight failed, nesting had n=1, and the rows/checkpoint were not sealed. R545/R546 are therefore confirmation rather than duplication.",
+ "model_loaded": false,
+ "model_forwards": 0,
+ "model_backwards": 0,
+ "outcomes_opened": []
+}

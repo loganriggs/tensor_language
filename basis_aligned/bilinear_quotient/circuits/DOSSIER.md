@@ -14,7 +14,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state` | 5 | 4 | execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited |
+| `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
@@ -53,10 +53,10 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | family | role | status |
 |---|---|---|
-| `direct_four_closer_type_substitution` | interchange | frozen |
-| `completed_then_reopened_four_closer_order` | interchange | frozen |
-| `pending_type_preserved_surface_paraphrase` | invariance | frozen |
-| `pending_type_preserved_distance_shift` | invariance | frozen |
+| `direct_three_value_type_substitution` | interchange | frozen |
+| `completed_then_reopened_three_value_order` | interchange | frozen |
+| `pending_type_preserved_surface_rewrite` | invariance | frozen |
+| `pending_type_preserved_distance_extension` | invariance | frozen |
 | `pending_type_preserved_nonopener_punctuation` | invariance | frozen |
 
 **Append-only evidence ledger:**
@@ -74,11 +74,16 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 | `pending_opener_cross_family_das.r540.complete.v1` | complete | cross_family_transfer | **null** | active | `r540_das_result` |
 | `pending_opener_split_integrity.r542.invalid_statistical_unit.v1` | complete | seed_stability | **invalid** | active | `r542_split_integrity_result` |
 | `pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs` | invalid | null_control | **invalid** | active | `r543_unique_rows_receipt` |
-| `pending_opener_four_closer_site_gate.r544.preregistered.v1` | preregistered | full_swap_ceiling | **inconclusive** | active | `—` |
+| `pending_opener_four_closer_site_gate.r544.preregistered.v1` | preregistered | full_swap_ceiling | **inconclusive** | superseded by `pending_opener_four_closer_site_gate.r544.native_curly_null.v1` | `—` |
+| `pending_opener_four_closer_site_gate.r544.native_curly_null.v1` | complete | capability | **null** | active | `r544_site_gate_result` |
+| `pending_opener_three_value_confirmation.r546.preregistered.v1` | preregistered | full_swap_ceiling | **inconclusive** | active | `—` |
+| `legacy_bracket_match.r547.invalid_unsealed_rows.v1` | invalid | full_swap_ceiling | **invalid** | active | `r547_legacy_audit` |
+| `legacy_bracket_pointer.r547.invalid_dense_decomposition.v1` | invalid | compiled_equivalence | **invalid** | active | `r547_legacy_audit` |
+| `legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1` | invalid | das_interchange | **invalid** | active | `r547_legacy_audit` |
 
-**Frozen artifacts:** 46. Paths and SHA-256 hashes are in the canonical JSON record.
+**Frozen artifacts:** 69. Paths and SHA-256 hashes are in the canonical JSON record.
 
-**Next:** execute the frozen 450-forward FIT/SELECT four-closer capability and full-state gate; no subspace fit and no FINAL_TEST/OOD access before its result is audited
+**Next:** execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict
 
 ### `task.increment.state` — proposed
 

@@ -616,18 +616,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "5c14708376b64aad05977712e5ccc3773b3b61218bbfb22e898a601637213b09",
+   "record_sha256": "6a310a6fbbb5b68a4b4c49f6a821477936c87f20507057651095656208b42427",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "pending_opener_state.v18",
+   "active_claim_id": "pending_opener_state.v19",
    "claim_status": "specified",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "interchange_family_count": 2,
    "invariance_family_count": 3,
-   "negative_event_count": 5,
-   "active_negative_event_count": 4,
-   "latest_blocker": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
-   "latest_active_event": "pending_opener_three_value_confirmation.r546.preregistered.v1",
+   "negative_event_count": 8,
+   "active_negative_event_count": 7,
+   "latest_blocker": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+   "latest_active_event": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
    "active_event_ids": [
     "pending_opener_rank4_das.legacy.v1",
     "pending_opener_capability.r537.complete.v1",
@@ -637,7 +637,10 @@
     "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
     "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
     "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
-    "pending_opener_three_value_confirmation.r546.preregistered.v1"
+    "pending_opener_three_value_confirmation.r546.preregistered.v1",
+    "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
+    "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
    ],
    "held_test_types": [
     "capability",
@@ -647,7 +650,10 @@
    ],
    "active_blocking_test_types": [
     "capability",
+    "compiled_equivalence",
     "cross_family_transfer",
+    "das_interchange",
+    "full_swap_ceiling",
     "null_control",
     "seed_stability"
    ],
@@ -655,13 +661,16 @@
     "047088060ce09ebc1ce9db9110a35b0e0bbaaca42e7963b0af934efcacac01c5",
     "17d53f92c77580f74c973c3f973294da1033f38b965df2bca933ed319c14d10f",
     "1808ee26fcb75b3db7237ffc700545b35ed9754b61e7cd67c856f05a563dd805",
+    "374cc6b8bc93f08a743ff526d1932db7a53a4adf67340b0bae760897024c3c60",
+    "517fffa3343d6de8f4f6122d197c23373b4f66804fdcce7ff46c94c9ff7bdc83",
     "52a415d5304c325daff577906794af52a89e4523cf72ebdf908b71c60a106384",
     "55e3d3f48e89332318dcdd7e1e9870caf91cdbb66f8430b8911d27b949e021dc",
     "5af30cb63d7bc7bf951ec3b9a48c55bba8eef6e4b208af93fec586cfd2b25507",
     "be70dbfc2a468b9d828647e1b37da8e62cba8b0dfe164b926da13cbf3f261f4d",
     "e1cc622d90c5b607a22874ae5909b7e7bdf2c6a1cccaa35c3882c04d36e9ec4a",
     "e275e0545a945181617abedd76a1d2783fa314797a988437202d6a42beb2695b",
-    "e2dba74810b43fc267de7ff7fb7e301c60688e1bd46f66165be8b7649153ed23"
+    "e2dba74810b43fc267de7ff7fb7e301c60688e1bd46f66165be8b7649153ed23",
+    "e795cec251509ad9b7cd14b1ebca48b6d35d6e9d7d5a76c071a57d734fed4c0f"
    ]
   },
   "task.increment.state": {

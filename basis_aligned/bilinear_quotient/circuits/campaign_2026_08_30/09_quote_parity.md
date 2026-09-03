@@ -1,5 +1,9 @@
 # Quote parity and closure
 
+> Historical discovery snapshot. Rung 547 preserves the strong descriptive L13H8 deletion result but marks its
+> row/checkpoint provenance unsealed; the decoded rank-one parity direction removed only 0.49% of the behavioral gap.
+> See the canonical `task.bracket.pending_opener` record before treating head ownership as a causal state variable.
+
 ## CURRENT tier: 2
 
 Close-quote prediction has a surgical owner and matched-opener destination, but the

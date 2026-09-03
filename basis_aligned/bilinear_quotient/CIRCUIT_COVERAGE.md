@@ -5,7 +5,7 @@ This is a navigation view, not a certificate. `mixed` means positive and negativ
 | circuit | claim | capability | causal site | learned interchange | cross-family | OOD | selectivity | composition | compiled weights | exact next work |
 |---|---|---|---|---|---|---|---|---|---|---|
 | `subroutine.induction.equality_score` | site_live | — | — | — | blocked | blocked | blocked | mixed | — | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
-| `task.bracket.pending_opener` | specified | mixed | held | held | blocked | — | mixed | — | — | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
+| `task.bracket.pending_opener` | specified | mixed | mixed | mixed | blocked | — | mixed | — | blocked | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | proposed | — | — | held | — | — | — | — | — | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | proposed | — | — | — | — | — | blocked | — | — | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | proposed | — | blocked | — | blocked | — | — | — | — | expand families and test shared-plus-private projectors against failed cross-family transfer |

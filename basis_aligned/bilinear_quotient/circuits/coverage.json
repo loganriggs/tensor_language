@@ -133,24 +133,28 @@
      "latest_relevant_event_id": "pending_opener_four_closer_site_gate.r544.native_curly_null.v1"
     },
     "causal_site": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
       "pending_opener_common_site_ceiling.r538.complete.v2"
      ],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "legacy_bracket_match.r547.invalid_unsealed_rows.v1"
+     ],
      "planned_event_ids": [
       "pending_opener_three_value_confirmation.r546.preregistered.v1"
      ],
-     "latest_relevant_event_id": "pending_opener_three_value_confirmation.r546.preregistered.v1"
+     "latest_relevant_event_id": "legacy_bracket_match.r547.invalid_unsealed_rows.v1"
     },
     "learned_interchange": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
       "pending_opener_rank4_das.legacy.v1"
      ],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_rank4_das.legacy.v1"
+     "latest_relevant_event_id": "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1"
     },
     "cross_family": {
      "status": "blocked",
@@ -187,16 +191,18 @@
      "latest_relevant_event_id": null
     },
     "compiled_weights": {
-     "status": "missing",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1"
     }
    },
    "n_held_categories": 4,
-   "n_blocked_categories": 3,
-   "n_missing_categories": 3,
+   "n_blocked_categories": 6,
+   "n_missing_categories": 2,
    "next_missing": "execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict"
   },
   "task.increment.state": {

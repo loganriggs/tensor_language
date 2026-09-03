@@ -1,5 +1,10 @@
 # Matched bracket closure
 
+> Historical discovery snapshot. The `CURRENT tier: 4` label below is not a current certificate. Rung 547 found
+> that the exact 625-term replay held, but both sparse writer-pair predictions failed, rank 8 failed, the nesting
+> control had only one example, and the rows/checkpoint were not sealed. See the canonical
+> `task.bracket.pending_opener` record and `legacy_bracket_quote_evidence_audit_rung547.json` before reusing it.
+
 ## CURRENT tier: 4
 
 L13H8 is causally surgical and has exact writer-pair score algebra.  That algebra is

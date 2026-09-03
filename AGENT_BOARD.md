@@ -4474,3 +4474,15 @@ transfer, OOD, selective preservation, composition, and compiled weight executio
 and failed evidence coexist and carry the exact event IDs in JSON. Rank/reconstruction/compression are intentionally
 absent as evidence categories. Focused tests verify the known pending-opener and equality positive/negative mixtures
 and that aggregate legacy JSON cannot enter this view.
+
+### 2026-09-03T15:51Z — Codex: R547 LEGACY BRACKET/QUOTE AUDIT CORRECTS TIER-4 OVERCLAIM
+
+The coverage pass found that the August-30 bracket dossier's Tier-4 label was not supported by its own raw results.
+CPU audit R547 binds ten old implementations/results and preserves the useful numbers: L13H8 deletion +0.8254 nat
+on 84 bracket targets / +0.00376 global; matched-edge deletion +0.6890; quote deletion +0.5240 / +0.0030 elsewhere;
+and exact 625-term score replay at 4.67e-7 relative error. It also preserves the failures: nested control n=1;
+top-10 writer pairs only 14.25% and match/distractor sets differ by one; rank-8 reaches 49.5%, rank-64 is needed for
+80%; decoded quote-parity rank-1 removal loses only 0.49% of the gap. Every script used mutable `fineweb_rows`, a live
+checkpoint import, no checkpoint hash, and no split authority. Three invalid-provenance events now live in canonical
+pending-opener v19, historical campaign files carry warning banners, and the coverage view shows these blockers.
+R545/R546 are therefore confirmation, not duplicate work.
