@@ -1,0 +1,37 @@
+{"stage": "heads_done", "t": 7.6}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 8.0}
+{"stage": "cores", "eff_rank": {"0": 384.6, "1": 297.2, "2": 346.8, "3": 386.2, "4": 422.2, "5": 447.1, "6": 487.6, "7": 483.9, "8": 558.8, "9": 524.7, "10": 536.7, "11": 527.1, "12": 537.5, "13": 558.2, "14": 579.8, "15": 576.8, "16": 544.2, "17": 155.1}, "ratio_all": {"0": 0.938, "1": 0.896, "2": 0.932, "3": 0.943, "4": 0.936, "5": 0.905, "6": 0.907, "7": 0.92, "8": 0.922, "9": 0.933, "10": 0.939, "11": 0.946, "12": 0.949, "13": 0.952, "14": 0.953, "15": 0.952, "16": 0.951, "17": 0.963}, "t": 8.2}
+{"stage": "arms", "LATE7_OWN_768": 0.0787, "EARLY11_OWN_768": 0.0435, "EARLY11_SHARED_768": 0.1236, "EARLY11_ON_LATE_CORE_768": 0.2835, "LATE7_ON_EARLY_CORE_768": 0.1746, "ALL18_OWN_768": 0.1415, "ALL18_SHARED_768": 0.2568, "ALL18_SHARED_896": 0.1274, "ALL18_SHARED_1024": 0.0458, "t": 13.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_early_blocks_share_a_core": false,
+  "pred_c_cores_transfer_across_depth": false,
+  "pred_d_one_core_for_all_18": false,
+  "pred_e_whole_mlp_stack_on_1024": true
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.30": false,
+  "d_null_ge_.15": false,
+  "e_null_ge_.25": false
+ },
+ "ce_added": {
+  "LATE7_OWN_768": 0.07873892784118652,
+  "EARLY11_OWN_768": 0.04348483681678772,
+  "EARLY11_SHARED_768": 0.12362220883369446,
+  "EARLY11_ON_LATE_CORE_768": 0.2834548354148865,
+  "LATE7_ON_EARLY_CORE_768": 0.17464163899421692,
+  "ALL18_OWN_768": 0.1415058970451355,
+  "ALL18_SHARED_768": 0.25678008794784546,
+  "ALL18_SHARED_896": 0.12742823362350464,
+  "ALL18_SHARED_1024": 0.04582101106643677
+ },
+ "gaps": {
+  "early_shared_minus_own": 0.08013737201690674,
+  "early_on_late_minus_own": 0.23996999859809875,
+  "late_on_early_minus_own": 0.0959027111530304,
+  "all18_shared_minus_own": 0.11527419090270996,
+  "all18_own_minus_early_plus_late": 0.019282132387161255
+ }
+}

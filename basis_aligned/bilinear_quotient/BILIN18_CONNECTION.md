@@ -70533,3 +70533,37 @@ input core (free) and uniform width (within .01 of the best tilt); the only rema
 
 **Limits.** Four allocations at one budget; one split; the tilts are linear in depth (no per-block search); TOK arms use per-block
 token maps.
+
+## §2744 — THE WHOLE MLP STACK ON ONE INPUT CORE: all 18 MLPs on a single 1024-dim input subspace + 18 constants + own weights cost .046 above the real model (e TRUE); but the sharing that was free for the late seven is NOT free for the early eleven — EARLY11_SHARED_768 .124 vs own bases .044 (+.080; b FALSE, null ≥ .10 not met), the late core does not serve the early blocks (+.240; c FALSE, null ≥ .30 not met; the early core serves the late blocks better, +.096), and one 768-core for all 18 costs +.115 over per-block bases (d FALSE, null ≥ .15 not met) — the early blocks are individually CHEAP (eleven blocks at 768: .044, vs seven late blocks .079) but read less-aligned subspaces (capture ratio .91–.95 under the early core vs .97–.99 for the late blocks under theirs); the residual stream's input coordinate system drifts with depth and settles by mlp11; composition across the two halves is small (ALL18_OWN .1415 = .0435 + .0787 + .019) (Claude, LANE 1 CUDA, 14 s, 736 GPU document-forwards): a, e TRUE; b, c, d FALSE (no null met). Preserved.
+
+Registered 2026-09-03 22:34Z (polynomial_causal/MLP_STACK_SHARED_INPUT_CORE_PROBE_PREREGISTRATION.md); landed 22:37Z. Script
+ops/mlp_stack_shared_input_core_probe.py; results mlp_stack_shared_input_core_probe_results.json (sha a623912c…). Frozen: prereg,
+§2740 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Own weights; each block's own input mean (constant filler); cores = top-k eigenvectors of the
+plain average of the named blocks' centred rms-normed input covariances.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); LATE7_OWN_768 .0787 (§2740 .079).
+
+**Arms (k = 768 unless stated).** EARLY11_OWN .0435; EARLY11_SHARED .1236; EARLY11_ON_LATE_CORE .2835; LATE7_ON_EARLY_CORE .1746;
+ALL18_OWN .1415; ALL18_SHARED_768/896/1024 .2568/.1274/.0458. Input effective ranks mlp0…17: 385/297/347/386/422/447/488/484/559/
+525/537/527/537/558/580/577/544/155. Capture ratio at 768 (core / own): under the EARLY core .91–.96 for mlp0–10, falling to .78 at
+mlp17; under the LATE core .79–.86 for mlp0–6 rising to .97–.99 for mlp11–17; under the ALL core .90–.96 everywhere.
+
+**Scoring.** b +.080 ≤ .03 FALSE (null ≥ .10 not met). c max(+.240, +.096) = .240 ≤ .10 FALSE (null ≥ .30 not met). d +.115 ≤ .05 FALSE
+(null ≥ .15 not met). e .046 ≤ .10 TRUE (null ≥ .25 not met).
+
+**Reading.** (i) Two regimes. The late seven read one subspace (§2742: free sharing; capture .97–.99). The early eleven each read a
+subspace that overlaps the others' at ~.91–.95 of their variance — enough that they are cheap on their own bases, not enough for a
+768-core to be free (+.080 across eleven blocks ≈ .007 each, amplified by composition). The residual stream's principal directions
+rotate through the early blocks and stop rotating around mlp8–11, which is also where the input effective rank saturates (~530–580).
+(ii) The asymmetry of transfer (late core on early blocks +.240; early core on late blocks +.096) says the late subspace is a
+sub-part of what the early blocks use, not the other way round: the early blocks read directions the late blocks have stopped
+reading, while the late blocks' directions are mostly still present early. (iii) The single-core whole-MLP-stack program exists at
+k = 1024: 18 MLPs, one 1024-dim input coordinate system, 18 constants, own weights — .046. That is a real "one coordinate system for
+every MLP" statement, but at 1024 of 1152 it is a description, not a compression; the compression-grade version (768) is only
+available block-wise for the early stack and shared for the late stack: EARLY11_OWN_768 + LATE7_SHARED_768 ≈ .0435 + .084 + ~.02
+composition ≈ .15 (not run as one arm; §2742 + this entry). (iv) Early blocks are cheap per block at fixed k because their inputs
+are lower-rank (mlp1–3: 297–386) — the price cliff of the model is in the late stack, consistent with §2740's steep width curve.
+
+**Limits.** k = 768 for the cross-depth tests only; one split; means and cores on 96 docs; no attention blocks (next rung); the early
+blocks were not tested at smaller k (their own-basis curve is unpriced).

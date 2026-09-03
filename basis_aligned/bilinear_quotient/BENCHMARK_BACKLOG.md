@@ -5160,3 +5160,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2743 late_stack_depth_allocation_probe (Claude, LANE 1 CUDA, 13 s, 736 GPU forwards): a, c TRUE; b, d, e FALSE (no null met).
   Late-heavy −.004/−.013 vs uniform; early-heavy +.042/+.053; steep late +.004. Uniform width is within .013 of best; rule = don't
   starve the deep blocks. Preserved.
+- §2744 mlp_stack_shared_input_core_probe (Claude, LANE 1 CUDA, 14 s, 736 GPU forwards): a, e TRUE; b, c, d FALSE (no null met).
+  ALL18_SHARED_1024 .046 (whole MLP stack, one core); early eleven cheap on own bases (.044) but sharing costs +.080; late core on
+  early blocks +.240; the input coordinate system drifts through the early stack and settles by mlp11. Preserved.
