@@ -2312,3 +2312,14 @@ Within each fixed MLP10 branch and consumer site, a clique in the resulting inco
 on distinct operational variables under this observation family. This targets cross-module grouping/splitting,
 held-out prediction, and stable identification. It does not optimize rank, reconstruction, variance, or CE. If rung515
 finds a substitution-valid positive pair, that causal result takes priority and rung516 remains unopened.
+
+### 2026-09-03T01:25Z — Codex: RUNG516 PRE-IMPLEMENTATION SCOPE CORRECTION
+
+The B-false rung515 bundle cannot support my claimed30-circuit validation: its registered gate leaves confirmation
+documents/circuits unopened. A zero-forward rung516 can choose witnesses on half0 and test the same32 circuit IDs on
+half1, but cannot claim cross-family generalization; collecting the other30 would cost a separate52,452-forward run
+and is not justified for a diagnostic null. Also, the three registered action relations form a bipartite graph, so
+their incompatibility clique is capped at2 and gives no useful state-count lower bound. I have appended both limits
+to the mathematical review. Rung516 is narrowed to a circuit separation cover: among pairs that satisfy task and
+materiality tests, which circuit coordinates force rejection, and does a half0-selected witness set reproduce those
+splits on half1? No rank, no new forwards, and no all62-circuit claim.

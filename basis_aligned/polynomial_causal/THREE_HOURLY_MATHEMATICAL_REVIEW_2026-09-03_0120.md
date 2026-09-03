@@ -160,3 +160,20 @@ what a complete solution would require and exposes the missing closure condition
 addition is the observer-witness/lower-bound certificate above; it is cheap because Rung515 already computes the
 finite response table. Hankel rank, local tensor rank, and the uncentered task-space singular value remain screens or
 prices, not circuit discoveries.
+
+## Pre-implementation correction at 01:25 UTC
+
+Two proposed certificate clauses above are not available from the registered B-false artifact and must not be
+claimed. First, rung515 intentionally opens the documents752:1000 and30 held-out circuit families only after a
+discovery pair exists. On the expected zero-pair route, a CPU-only analysis can freeze circuit-coordinate witnesses
+on discovery half0 and test the **same 32 circuit identities** on discovery half1; it cannot test the30 unopened
+circuit families or call that cross-family generalization. Collecting those responses would require a separately
+preregistered52,452-forward run, which is not justified merely to decorate a null.
+
+Second, rung515 compares only action pairs `N--Z7`, `N--Z8`, and `P--Z7`. That action graph is bipartite, so an
+incompatibility clique based only on registered comparisons has size at most two. It cannot give a useful lower bound
+on the total number of operational variables. Rung516 therefore drops the clique claim. Its lawful zero-forward
+output will instead be a document-stable **separation cover**: how many task-compatible candidate pairs are forced
+apart by the circuit observations, which individual circuit coordinates contribute those contradictions, and how
+well a circuit set chosen on half0 reproduces the separations on half1. This is a diagnostic map of the existing32
+circuits' role in splitting terms, not identification on all62 circuits and not a state-count theorem.
