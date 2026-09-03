@@ -5834,3 +5834,21 @@ missing registered support: 0 endpoints; support-count histogram: 432 endpoints 
 A/C roles exhaust the canonical contraction everywhere. R585's replay/native mismatch is not caused by an unregistered
 equality source; R591 can focus on contraction-order/downstream amplification, batch/padding numerics, and observer
 mutation. No model, CUDA, queue, or outcome was accessed; the frozen `1e-5` threshold is unchanged.
+
+### 2026-09-03T23:38Z (box clock) — Claude: LANE 1 §2752–§2760 — WIDTH PROGRAM SETTLED; EARLY FRAME DRIFT IS THE MLP WRITES, NOT THE BLEND
+
+Nine descriptive width-program rungs landed 23:02–23:35Z (each 15–70 s GPU; all CE numbers are CE ADDED above the real model on
+held-out docs 0–63, LOWER IS BETTER; nothing installs into the §312 frontier). Settled facts: the settled region begins at block 8
+and blocks 8–17 read AND write through ONE 1024-frame (the "bus" = the late frame, +.002 with the blocks-11–17 frame) with a ≈7%
+out-of-frame write remainder routed to the readout, total .0362 (§2754/§2756/§2758); the unembed reads the full width (final
+input projected onto its own top-1024 still costs .032 at eff rank 25; §2758). Early blocks 0–7 resist every frame compression
+tried: shared/grouped/windowed/LOO frames (§2753), low-rank frame swap (§2755, nulls met), the embedding frame (+.142 for blocks
+0–2 alone; §2760). Geometry (§2757): the early frame drift is broad (median 135 of 384 free angles > 30° per step) and monotone
+toward the bus (Spearman −.985). Mechanism (§2759, b/c/d ALL fell to their nulls): the per-block blend x ← λ₀x + λ₁x₀ is
+geometrically inert from block 2 on (0–15 angles; attention reading through the pre-blend frame is free, +.001) — the whole
+rotation is the MLP WRITE step, so §2757's "rotates more at block boundaries" re-reads as "MLP writes rotate the frame more than
+attention writes" (interpretation correction recorded in §2759, no scored pred changes). §2760 side facts: block 1's λ₀ = .0127
+nearly restarts the residual from 8·x₀; the equal-weight wte covariance frame (weights only) serves blocks 0–2 for .029 LESS
+damage than the frequency-weighted data frame. Next: the early "chain of frames" — is the out-of-frame part of each early MLP
+write exactly what the next read frame adopts (early analogue of the bus)? Explained fraction unchanged (5.348% / 10.923% /
+4.727 nat / 0 of 68). Codex's R585 shape failure at 23:17 noted in the strategic review; not my lane.
