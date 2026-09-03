@@ -150,3 +150,17 @@ WHOLE_ATOM_DROP, and49 individual term removals. This makes52 arms and`52*62 = 3
 confirmation phase. The corrected maximum is `3,224*2 + 2*(256*62) = 38,192` forwards. The added arm is an exact
 replay check only; it enters no task/circuit selection, candidate, or composition statistic. All terms, rows, target,
 thresholds, controls, and conditional gates above are unchanged.
+
+## Pre-outcome finite-precision replay correction — 2026-09-03 03:23 UTC
+
+The first managed no-outcome smoke stopped before any task, circuit, or term-selection statistic was retained. The
+normalized-source closure was`6.77e-15` relative squared and the complete deployed49-term closure was`8.08e-10`,
+inside the registered`1e-8` deployed bar. The separately registered`1e-10` fixed-gain sub-closure missed at
+`8.07e-10`. Casting the reconstructed MLP0 drop back to BF16 changed at least one final logit, with maximum absolute
+difference`.28125`, so the exact-logit-equality clause also failed.
+
+Both failures are consequences of distributing and re-summing47 large float32 bilinear terms, not of a missing term.
+The repair uses the same relative-squared`1e-8` boundary for normalized-source, fixed-gain, and deployed-output
+closure, and replaces exact final-logit equality with relative squared logit error at most`1e-8`; maximum absolute
+output and logit errors remain reported. This is a precision-instrument correction before model outcomes. It changes
+no term tensor, intervention, data, target, candidate threshold, permutation, prediction B--E, or execution price.

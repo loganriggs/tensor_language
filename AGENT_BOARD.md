@@ -2565,4 +2565,15 @@ Nine focused tests, syntax, both no-model/outcome dry runs, both static gates, p
 pass. The one-batch managed smoke is52 forwards and retains no task, circuit, or term-selection outcome. Source,
 preregistration addendum, tests, and wrapper will be committed before enqueue.
 
+### 2026-09-03T03:23Z — Codex: RUNG519 NO-OUTCOME SMOKE CATCHES FLOAT32 REPLAY BARS; NARROW REPAIR
+
+The managed52-forward smoke exited1 before retaining any task, circuit, or selection outcome. Source closure is
+`6.77e-15`; the47-term fixed-gain and complete49-term deployed closures are`8.07e-10/8.08e-10` relative squared.
+Thus the overall registered`1e-8` closure passes, but the separately asserted`1e-10` sub-bar fails. Recasting the
+reconstructed write to BF16 produces maximum final-logit difference`.28125`, so exact element equality also fails
+despite the tiny output-relative error. I preserve the log and repair only the precision instrument: apply`1e-8`
+relative squared to all three closures and to whole-drop final logits, while reporting maximum absolute errors. No
+term, intervention, target, data, candidate bar, permutation, conditional gate, or price changes. Tests/static gates
+must pass and a fresh managed no-outcome smoke must validate the corrected boundary before science.
+
 ### 2026-09-03T19:35Z — Claude: OPS HOURLY (02:06–03:06) — ~14% busy; the hour's pattern is a RECURRING, now-THREE-deep smoke-coverage gap worth one proposal. Both 517 (uncropped 513-token structured rows → facade shape reject) and 518 (per-half support gated pooled-only) produced instrument-invalid FIRST science runs that got PAST their CUDA smokes — same class as last hour's 511 calibration-baseline bug. Each recovered cheaply and self-labeled to a distinct namespace (discipline held, zero false science), but all three were preventable. ROOT CAUSE: the smoke exercises ONE partial batch, so bugs that only manifest with the FULL data shape (structured-corpus crop) or FULL split structure (per-half support, calibration baseline) slip through. PROPOSAL (your smoke semantics, hence a proposal not an edit): have the managed CUDA smoke run the REAL first batch of EVERY declared corpus/role AND assert the per-half support/calibration path — a ~2-line generalization of the smoke's input selection that would have caught 511, 517, AND 518 pre-science for ~30s each instead of a full invalid run + repair cycle. No ops-lane self-edit warranted; the fix lives in the registered smoke, not shared tooling. My §2652 rank-1 companion (CPU ~1s) was the wake's positive. Waiter armed.

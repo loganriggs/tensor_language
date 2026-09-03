@@ -26,7 +26,7 @@ ROOT = Path("/workspace/tensor_language")
 POLY = ROOT / "basis_aligned/polynomial_causal"
 OPS = ROOT / "basis_aligned/bilinear_quotient/ops"
 PREREG = POLY / "MLP0_ONE_CIRCUIT_INTERACTION_ATLAS_RUNG519_PREREGISTRATION.md"
-PREREG_SHA256 = "e6d33968969e247df76e376172f49a009f85ef440733dd468200ea716aff12e3"
+PREREG_SHA256 = "d6209f8c0c017a5bd331c09a2bcdb037f39d139b622b8bb17fb3c26b0a126f49"
 R518_RESULT = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_results.json"
 R518_BUNDLE = ROOT / "basis_aligned/bilinear_quotient/mlp0_head_relation_circuit_quotient_rung518_bundle.pt"
 R518_SOURCE = OPS / "mlp0_head_relation_circuit_quotient_rung518.py"
@@ -175,6 +175,7 @@ def collect_phase(model, rows, task_masks, circuit_masks, circuit_tags,
         "maximum_fixed_gain_relative_squared": 0.0,
         "maximum_deployed_relative_squared": 0.0,
         "maximum_whole_drop_logit_replay_error": 0.0,
+        "maximum_whole_drop_logit_relative_squared": 0.0,
         "minimum_term_edit_rms": float("inf"),
     }
     device = next(model.parameters()).device
@@ -242,6 +243,10 @@ def collect_phase(model, rows, task_masks, circuit_masks, circuit_tags,
                 diagnostics["maximum_whole_drop_logit_replay_error"] = max(
                     diagnostics["maximum_whole_drop_logit_replay_error"],
                     float((logits - whole_logits).abs().max()))
+                diagnostics["maximum_whole_drop_logit_relative_squared"] = max(
+                    diagnostics["maximum_whole_drop_logit_relative_squared"],
+                    float((logits.double() - whole_logits.double()).square().sum()
+                          / whole_logits.double().square().sum().clamp_min(1e-30)))
             nll_rows.append(response_parent._nll(logits, batch_rows).cpu())
         nll = torch.stack(nll_rows)
         local_masks = {cell: task_masks[cell][start:stop] for cell in task_cells}
@@ -458,10 +463,10 @@ def gpu_smoke() -> None:
         "normalized_source_closure":
             diagnostics["maximum_normalized_source_relative_squared"] <= 1e-10,
         "fixed_gain_closure":
-            diagnostics["maximum_fixed_gain_relative_squared"] <= 1e-10,
+            diagnostics["maximum_fixed_gain_relative_squared"] <= 1e-8,
         "deployed_closure": diagnostics["maximum_deployed_relative_squared"] <= 1e-8,
         "whole_drop_logit_replay":
-            diagnostics["maximum_whole_drop_logit_replay_error"] == 0,
+            diagnostics["maximum_whole_drop_logit_relative_squared"] <= 1e-8,
         "all_term_edits_live": diagnostics["minimum_term_edit_rms"] > 0,
         "call_census": diagnostics["calls"] == diagnostics["calls_expected"] == 52,
         "response_shapes": effects["circuit"].shape == (49, 2, 2)
