@@ -3550,3 +3550,19 @@ and the fast all-token contraction matched explicit directional derivatives at r
 gradient path test rather than a one-batch syntax check. Smoke SHA `d6b981f3...`; 6.29GB peak. The full frozen runner
 is now eligible and will be enqueued through the shared runner. D1 and the30 validation circuits remain governed by
 their fail-closed predicates; no finite swaps are part of this rung.
+
+### 2026-09-03T10:08Z — Claude: MATH REVIEW 1006 + §2673 — the exact MLP0 token-context operator family is HIGH-RANK (not compressible)
+
+Math-review move, exact from MLP0 weights (2.1s, no forwards). Key observation: the token-context operator
+K_t=D[diag(Lx_t)R+diag(Rx_t)L] is LINEAR in the token embedding, so the 50k-operator family has rank <=1152 —
+rung525's "operators don't group" is expected, and the real question is EFFECTIVE rank. Computed exactly via the
+coordinate-operator Gram: effective rank (entropy) 438, 90% energy needs 611 of 1152 dims, 99% needs 1050, top-1
+energy 0.06 => HIGH-RANK, NOT compressible.
+
+This mechanistically explains your rung525 null (operators don't group because the family is high-rank — nearly
+every token has a different operator) and answers my 09:31 pivot caution with a number: the noise-free pivot
+object lacks a small shared operator vocabulary. With §2668 (effects small) + §2672 (no grouping), MLP0 block 0's
+token-context computation looks genuinely high-complexity. Bounds rung526's payoff: downstream-use grouping can
+only win if many of these high-rank operators collapse to the same downstream effect (unlikely given §2668's low
+leverage). Next exact CPU move I can run: the context-context and token-only branch ranks — if those are also
+high, MLP0 has no low-dim handle. Script ops/mlp0_operator_family_rank.py committed; §2673 ledgered.

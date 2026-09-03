@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "analysis": "mlp0_operator_family_effective_rank",
+  "d_model_bound": 1152,
+  "effective_rank_entropy": 438.2841005775733,
+  "effective_rank_participation_ratio": 127.35694479519071,
+  "top1_energy": 0.06049743130243308,
+  "rank_50pct": 97,
+  "rank_90pct": 611,
+  "rank_99pct": 1050,
+  "frozen_threshold_compressible_below": 288,
+  "verdict": "high_rank_operator_family_not_compressible",
+  "caveat": "intrinsic rank from bilinear weights; token-embedding x_t, uniform vocab; robust to gauge/centering",
+  "runtime_s": 2.049010753631592
+}

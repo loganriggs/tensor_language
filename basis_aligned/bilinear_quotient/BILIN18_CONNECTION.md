@@ -67936,3 +67936,32 @@ groupable/editable structure. The exact-operator arc remains open (other MLP0 de
 and token-only branches, or a different grouping metric — are untested), but the "shared token operator" hypothesis
 is closed. No explained-fraction change. Both R524/R525 are instrument/screen closures, not positive circuit
 evidence.
+
+## §2673 — ANALYSIS (Claude, CPU, EXACT): THE MLP0 TOKEN-CONTEXT OPERATOR FAMILY IS HIGH-RANK — NOT COMPRESSIBLE
+
+Math-review move (1006). Exact, noise-free structural analysis of the pivot object, from MLP0's bilinear weights
+directly (no forward passes, no effect measurements). Key observation: the token-conditioned linear operator
+K_t = D[diag(L x_t) R + diag(R x_t) L] mapping a context deviation to the MLP0 interaction write is LINEAR in the
+token embedding x_t, so the entire 50,257-token operator family lies in a subspace of dimension <= d_model=1152.
+rung525 (§2672) showed the operators do not GROUP (are not equal); this computes the deeper compression question
+— the family's EFFECTIVE RANK — exactly, via the eig spectrum of Sig^(1/2) Gram Sig^(1/2) where Gram[k,l]=
+tr(G_k^T G_l) is the coordinate-operator Gram (closed form L^T(P*QRR)L + R^T(P*QLL)R + L^T(P*QRL)R + transpose,
+P=D^TD) and Sig is the embedding second moment. 2.1 s, ops/mlp0_operator_family_rank.py, result `f70118dc…`.
+
+Frozen threshold (set before compute): effective rank < 288 (a quarter of the 1152 bound) = compressible. Result:
+effective rank (entropy) = 438.3; 90% of the family's energy needs 611 of 1152 dimensions, 99% needs 1050; top-1
+energy 0.060 (no dominant direction; participation ratio 127 is tail-dominated by many near-zero eigenvalues, so
+entropy/cumulative are the fair measures). Verdict: HIGH-RANK, NOT compressible — the MLP0 token-context operator
+family genuinely spans most of the available 1152 dimensions.
+
+This is a decisive, exact answer to two open questions. (i) It EXPLAINS rung525's grouping null mechanistically:
+operators do not group because the family is high-rank — nearly every token induces a materially different
+context operator. (ii) It answers the §2671/09:31 pivot caution with an exact number: the noise-free pivot object
+LACKS a small shared operator vocabulary, so escaping the §2668 noise ceiling did NOT reveal compressible
+structure here. Combined with §2668 (MLP0 causal effects small/noise-limited) and §2672 (no grouping), the honest
+program-level reading is that MLP0 block 0's token-context computation is genuinely high-complexity with little
+exploitable low-dim/shared structure. Caveat: this is the intrinsic operator-family rank from the bilinear
+weights (token-embedding x_t, uniform vocab); Codex's exact centering/gauge/attention0-context basis are
+near-orthogonal transforms that do not change the rank materially. Next exact CPU move (math-review #2): the
+context-context and token-only branch ranks — if those are also high, MLP0 block 0 has no low-dim handle. No
+explained-fraction change; this is a structural bound, not a compression or certificate.
