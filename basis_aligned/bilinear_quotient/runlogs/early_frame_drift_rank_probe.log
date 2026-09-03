@@ -1,0 +1,31 @@
+{"stage": "heads_done", "t": 10.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 11.1}
+{"stage": "arms", "EARLY22_OWN_768": 0.057, "EARLY22_PREV_768": 0.233, "EARLY22_PATCH32_768": 0.1214, "EARLY22_PATCH64_768": 0.1006, "EARLY22_PATCH128_768": 0.0975, "t": 15.5}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_carry_over_costs": true,
+  "pred_c_drift_is_low_rank_64": false,
+  "pred_d_drift_is_low_rank_128": false,
+  "pred_e_drift_32": false
+ },
+ "nulls": {
+  "b_null_le_.01": false,
+  "c_null_ge_.04": true,
+  "d_null_ge_.02": true,
+  "e_null_ge_.05": true
+ },
+ "ce_added": {
+  "EARLY22_OWN_768": 0.05698782205581665,
+  "EARLY22_PREV_768": 0.23298582434654236,
+  "EARLY22_PATCH32_768": 0.12141284346580505,
+  "EARLY22_PATCH64_768": 0.10060468316078186,
+  "EARLY22_PATCH128_768": 0.09746313095092773
+ },
+ "gaps": {
+  "PREV_minus_own": 0.1759980022907257,
+  "PATCH32_minus_own": 0.0644250214099884,
+  "PATCH64_minus_own": 0.04361686110496521,
+  "PATCH128_minus_own": 0.040475308895111084
+ }
+}

@@ -5194,3 +5194,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2754 settled_frame_split_point_probe (Claude, LANE 1 CUDA, 16 s, 544 GPU forwards): a–e ALL TRUE (no null met). 16 own frames
   (blocks 0–7) + ONE frame for blocks 8–17 costs .0374 at k=1024 (+.0037 over ALL36 .0337), .1069 at 896 (+.011); SPLIT6 +.0065 over
   SPLIT8, SPLIT10 −.0023: the settled region begins at block 8, causally. 17 frames, .037 nat.
+- §2755 early_frame_drift_rank_probe (Claude, LANE 1 CUDA, 15 s, 480 GPU forwards): a, b TRUE; c, d, e FALSE with NULLS MET. Carrying
+  the predecessor frame forward +.176 over own; swapping 32/64/128 directions +.064/.044/.040 (saturates) — the early frame drift is not
+  a low-rank in-span/complement patch; it is an oblique rotation. Preserved.

@@ -70919,3 +70919,32 @@ price of the single frame shrinks with width (+.022 at 768 → +.011 at 896 → 
 missing the same ≈ 3% of energy per site and the per-site cost falling as k grows. Nothing installs into the §312 frontier; the
 frontier remains norm-2304 at 2.6735 (§2125). Next (enqueued 23:11Z, early_frame_drift_rank_probe): whether the 16 early frames
 are one frame plus low-rank drift patches (m = 32/64/128 swapped directions per step).
+
+## §2755 — THE EARLY FRAME DRIFT IS NOT A LOW-RANK PATCH — THREE NULLS MET: carrying each early sublayer's predecessor frame forward unchanged costs +.176 over own (0.233 vs 0.057; pred_b "≥ .03" TRUE), and swapping the predecessor frame's m lowest-energy directions for the site's top-m complement directions recovers little and SATURATES: m = 32 / 64 / 128 → +.064 / +.044 / +.040 over own (pred_e "≤ .02" FALSE, null ≥ .05 MET; pred_c "≤ .01" FALSE, null ≥ .04 MET; pred_d "≤ .005" FALSE, null ≥ .02 MET) (Claude, LANE 1 CUDA, 15 s, 480 GPU document-forwards): a, b TRUE; c, d, e FALSE with their nulls met. Preserved.
+
+Registered 2026-09-03 23:11Z (polynomial_causal/EARLY_FRAME_DRIFT_RANK_PROBE_PREREGISTRATION.md); landed 23:12Z. Script
+ops/early_frame_drift_rank_probe.py; results early_frame_drift_rank_probe_results.json (sha 9f482315…). Frozen: prereg, §2753
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits
+docs 96–191) — LOWER IS BETTER; "+" = extra damage over EARLY22_OWN_768. Construction: sequence attn0, mlp0, …, attn10, mlp10; attn0
+keeps its own core in every arm; for site s with predecessor own core U_p (1152×768) and own centred input covariance C_s, PATCH_m
+keeps the 768−m columns of U_p with the highest energy u_jᵀC_s u_j and appends the top-m eigenvectors of C_s restricted to span(U_p)^⊥
+(orthonormality verified: max |UᵀU − I| ≤ 1.5e-6). Instrument (pred_a TRUE): baseline 3.0322401; EARLY22_OWN_768 0.05699 (= §2753).
+
+| arm | CE added | gap over own |
+|---|---|---|
+| EARLY22_OWN_768 | 0.0570 | — |
+| EARLY22_PREV_768 (m = 0) | 0.2330 | +.1760 (b TRUE; null ≤ .01 no) |
+| EARLY22_PATCH32_768 | 0.1214 | +.0644 (e FALSE; NULL ≥ .05 MET) |
+| EARLY22_PATCH64_768 | 0.1006 | +.0436 (c FALSE; NULL ≥ .04 MET) |
+| EARLY22_PATCH128_768 | 0.0975 | +.0405 (d FALSE; NULL ≥ .02 MET) |
+
+What it says. (1) Registered outcome: the change of read frame from one early sublayer to the next is NOT a ≤ 128-direction swap
+between the predecessor's span and its complement — the three nulls are met. Together with §2753 (leave-one-out +.070) the 16 early
+frames of the §2754 program are genuinely 16 separate objects at this level of description. (2) The saturation is informative: from
+m = 64 to m = 128 the gap moves only .044 → .040, so the missing ≈ .04 is not in the top complement directions at all. The
+construction is block-diagonal (kept columns of U_p, eigenvectors of the complement); a direction of the site's own core that lies
+OBLIQUELY across span(U_p) and its complement is representable by neither block. The drift is therefore a rotation that tilts many
+directions partly out of the predecessor's span, not a replacement of a few. (3) Scope: this rejects one specific low-parameter
+parametrisation of the early frames; it does not measure the drift's dimension directly. The direct, construction-free quantity is the
+principal-angle spectrum between consecutive frames (rank of P_s − P_p) — registered next. Failures preserved: c, d, e FALSE, nulls
+met. Nothing installs into the §312 frontier (§2125).
