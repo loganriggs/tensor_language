@@ -69919,3 +69919,38 @@ no offset; ≈ 12 k numbers per block).
 **Limits.** Exactness is with respect to W_TOKFILL_M, i.e. the block on P c + f(t) with core-restricted output — the .233 nat
 shortfall against the real block is inherited from §2720 and is the 16-dim input restriction's price. Everything else in the model
 is real; nothing installs into §312.
+
+## §2728 — A MINIMAL 16-DIM PROGRAM FOR mlp16/17: two squared features per output + a rank-8 token-modulated read, no offset — 11.8 k numbers per block (vs 15.9 M parameters) at CE .271, i.e. 68% of the two blocks' value; the token read-modulation matrix B (256 × 1152) is essentially rank-1–4 (rank 1 costs .046, rank 4 .012, rank 16 .001); sym-rank-2 forms cost .020 (Claude, LANE 1 CUDA, 35 s, 1312 GPU document-forwards): a, b, d, e TRUE; c FALSE (rank-2 read costs only .033 < .10 — the token read is LOWER rank than I bracketed; null ≤ .03 missed by .003). Preserved.
+
+Written 2026-09-03 21:35Z (box clock). Preregistration `polynomial_causal/LATE_CORE_PROGRAM_STRUCTURE_PROBE_PREREGISTRATION.md`
+(registered 21:33Z before the script). Script `ops/late_core_program_structure_probe.py`; receipt
+`late_core_program_structure_probe_results.json`. FRESH split. SIGN CONVENTION (§2135): CE ADDED ABOVE THE REAL MODEL — LOWER IS
+BETTER; deltas = CE(arm) − CE(COMPILED_TOK .2334), positive = damage.
+
+**Instrument (a TRUE).** Baseline 3.0322401; COMPILED_TOK .2334 (§2727 exact); rebuilding the cross term from the explicit
+256 × 1152 matrix B (b(t) = b₀ + B(ê_t − ē), derived from A_fill and the block weights) reproduces the weight evaluation to 0.0.
+
+**Arms (CE added; delta).** CROSS_RANK_r (B truncated by ê-covariance-weighted SVD): r=1 .280 (+.046) · 2 .266 (+.033) · 4 .246
+(+.012) · 8 .237 (+.004) · 16 .235 (+.001) · 32 .234 · 64 .234. QUAD_SYMRANK_r (sym(A_k) kept to r largest-|λ| eigenpairs = r
+squared linear features per output): r=1 .523 (+.290) · 2 .253 (+.020) · 3 .263 (+.030; non-monotone — the third eigenpair of the
+truncated form interacts with the untruncated cross/offset terms). MINIMAL (sym-rank 2 + read rank 8 + no offset) .271 (+.038;
+rec .68). Weighted singular values of B: mlp16 443, 303, 173, 126, …; mlp17 1323, 822, 488, 431, … — one dominant token
+direction per block with a fast decay.
+
+**Scoring.** b CROSS_RANK_16 +.001 ≤ .03 TRUE (null ≥ .10 not met). c CROSS_RANK_2 +.033 ≥ .10 FALSE (null ≤ .03 not met, by
+.003). d QUAD_SYMRANK_2 +.020 ≤ .03 TRUE (null not met). e MINIMAL .271 ≤ .30 TRUE (null ≥ .45 not met).
+
+**What it means for the program.** (i) The two late blocks' CE contribution is 68% reproduced by an explicit program of 11.8 k
+numbers per block — 16 outputs, each the signed sum of TWO squares of linear features of the 16 stream coordinates, plus a read
+whose token dependence is a rank-8 (really rank-2–4) modulation — sharing one 1152 × 16 core basis. Relative to the blocks' 15.9 M
+parameters this is a 1350× reduction at 68% of value; relative to the 16-dim input restriction itself (COMPILED_TOK .233, the
+ceiling of this description) it loses .038. (ii) The token's role in these blocks is ONE direction of the token embedding per block
+(rank-1 read modulation recovers .097 − .046 = half of the token's whole contribution; rank 4 recovers 87%). What that direction
+is (frequency? position-in-word? a part-of-speech axis?) is a cheap next question. (iii) "Two squares per output" is the
+bilinear-MLP analogue of a 2-feature hidden layer: y_k = λ₁(q₁ᵀc)² + λ₂(q₂ᵀc)² + …; across 16 outputs that is at most 32 squared
+features in a 16-dim space — the next rung asks how many DISTINCT squared features the two blocks use and whether mlp16 and mlp17
+share them (compositionality of the late program). (iv) Together with §2725/§2726: late stack ≈ [pool: one 1152 × 1152 map, or a
+budgeted rank-k version] + [mlp16/17: this 24 k-number polynomial]; the pool half is now by far the larger object.
+
+**Limits.** Truncations are of the exact objects, not re-fits; the sym-rank truncation ignores the antisymmetric part (irrelevant
+to cᵀAc, exact). 64 held-out docs, ±.01 sample sensitivity — the c null miss of .003 is inside that; the letter stands as scored.

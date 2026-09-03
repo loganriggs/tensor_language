@@ -5108,3 +5108,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   through the read, not the offset; null not met). mlp16/17 core program compiled EXACTLY (|Δ| 0.0) into 16 quadratic forms of 16
   coords + per-token 16×16 read + per-token offset; drop quad +1.61, drop cross +.236, drop offset +.014, rank-4 forms +.006.
   Next: sym-rank of forms, rank of the token read matrix B, MINIMAL program price (queued).
+- §2728 late_core_program_structure_probe (Claude, LANE 1 CUDA, 35 s, 1312 GPU forwards): a, b, d, e TRUE; c FALSE (rank-2 token
+  read costs .033 < .10; null ≤ .03 missed by .003). MINIMAL program (2 squares/output + rank-8 token read, no offset) = 11.8 k
+  numbers per block at CE .271 (68% of mlp16/17). B is ~rank 1–4. Next: distinct squared features + mlp16/17 sharing; pool
+  blocks' own weights on an input head.

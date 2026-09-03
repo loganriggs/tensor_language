@@ -1,0 +1,59 @@
+{"stage": "fit_cov", "t": 23.4}
+{"stage": "fits_done", "t": 28.3}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 28.8}
+{"stage": "cross", "r": 1, "ce": 0.2795, "t": 30.7}
+{"stage": "cross", "r": 2, "ce": 0.2662, "t": 31.1}
+{"stage": "cross", "r": 4, "ce": 0.2455, "t": 31.6}
+{"stage": "cross", "r": 8, "ce": 0.2371, "t": 32.1}
+{"stage": "cross", "r": 16, "ce": 0.2346, "t": 32.5}
+{"stage": "cross", "r": 32, "ce": 0.2342, "t": 33.0}
+{"stage": "cross", "r": 64, "ce": 0.2337, "t": 33.5}
+{"stage": "sym", "r": 1, "ce": 0.5231, "t": 33.9}
+{"stage": "sym", "r": 2, "ce": 0.2531, "t": 34.4}
+{"stage": "sym", "r": 3, "ce": 0.2634, "t": 34.9}
+{"stage": "arms", "MEAN_16_17": 0.848, "COMPILED_TOK": 0.2334, "CROSS_LINEAR_FULL": 0.2334, "CROSS_RANK_1": 0.2795, "CROSS_RANK_2": 0.2662, "CROSS_RANK_4": 0.2455, "CROSS_RANK_8": 0.2371, "CROSS_RANK_16": 0.2346, "CROSS_RANK_32": 0.2342, "CROSS_RANK_64": 0.2337, "QUAD_SYMRANK_1": 0.5231, "QUAD_SYMRANK_2": 0.2531, "QUAD_SYMRANK_3": 0.2634, "MINIMAL": 0.2711, "t": 35.4}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_token_read_is_low_rank": true,
+  "pred_c_but_not_one_dimensional": false,
+  "pred_d_two_squares_per_output_suffice": true,
+  "pred_e_minimal_program_keeps_two_thirds": true
+ },
+ "nulls": {
+  "b_null_rank16_ge_.10": false,
+  "c_null_rank2_le_.03": false,
+  "d_null_sym2_ge_.10": false,
+  "e_null_minimal_ge_.45": false
+ },
+ "ce_added": {
+  "MEAN_16_17": 0.8479736745357513,
+  "COMPILED_TOK": 0.2333545684814453,
+  "CROSS_LINEAR_FULL": 0.2333545684814453,
+  "CROSS_RANK_1": 0.2795102298259735,
+  "CROSS_RANK_2": 0.2661912143230438,
+  "CROSS_RANK_4": 0.24553963541984558,
+  "CROSS_RANK_8": 0.23714205622673035,
+  "CROSS_RANK_16": 0.23460721969604492,
+  "CROSS_RANK_32": 0.2341611385345459,
+  "CROSS_RANK_64": 0.23366323113441467,
+  "QUAD_SYMRANK_1": 0.5230821073055267,
+  "QUAD_SYMRANK_2": 0.25309571623802185,
+  "QUAD_SYMRANK_3": 0.2634417414665222,
+  "MINIMAL": 0.27106186747550964
+ },
+ "deltas": {
+  "CROSS_LINEAR_FULL": 0.0,
+  "CROSS_RANK_1": 0.0461556613445282,
+  "CROSS_RANK_2": 0.03283664584159851,
+  "CROSS_RANK_4": 0.012185066938400269,
+  "CROSS_RANK_8": 0.003787487745285034,
+  "CROSS_RANK_16": 0.0012526512145996094,
+  "CROSS_RANK_32": 0.0008065700531005859,
+  "CROSS_RANK_64": 0.00030866265296936035,
+  "QUAD_SYMRANK_1": 0.2897275388240814,
+  "QUAD_SYMRANK_2": 0.019741147756576538,
+  "QUAD_SYMRANK_3": 0.030087172985076904,
+  "MINIMAL": 0.03770729899406433
+ }
+}
