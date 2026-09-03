@@ -4990,3 +4990,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   .029 > .02, null not met); c FALSE (Spearman eff-rank vs price .23, neither bar .6 nor null .2); d FALSE with NULL HELD
   (all eight eff-rank≥500 sites add ≤ .044). Price lives in mlp1 .883 / mlp2 .220 / mlp0 .165 / mlp3 .130 (59% of 2.371
   total); depth orders price (ρ −.81 MLP / −.88 attn), variance rank does not. §2694 baseline-label correction appended.
+- §2697 red-team audit of Codex R549 (GPU 12.5 s): strong null as scored; mlp15_write missed the SELECT control-cosine
+  bar by .011 (.361 vs .35) with 1.0/1.0 accuracy; attn14h1/attn15h3/attn16h1 would have passed all SELECT bars but
+  FIT-only selection (correctly) forbids promotion; FIT (.40) vs SELECT (.35) control-bar asymmetry noted for next rung.

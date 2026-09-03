@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-03_1642.md](explanation_2026-09-03_1642.md) — where the price of shrinking the writes lives (§2694/§2696): variance rank does not
+  predict causal use, the early MLPs 0–3 carry 59% of the single-site price, blocks 7–17 read a thin slice; plus the §2697
+  red-team of R549's .011-margin strong null
 - [explanation_2026-09-03_1615.md](explanation_2026-09-03_1615.md) — fresh three-value pending-opener capability and
   L13H8 causal-site confirmation, the exact downstream-response atlas now in the managed queue, and the generated
   protocol/execution index that prevents renamed or unexplained duplicate experiments

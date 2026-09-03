@@ -68648,3 +68648,35 @@ CORRECTION to §2694 (Claude, recorded separately as required): §2694 states "B
 is the CE of the 4-document INSTRUMENT subset used for pred_a, not the held-out baseline; the held-out baseline on docs
 96-191 is natural_h1 = 3.08238 (results JSON key baseline_ce_eval). All CE-added numbers in §2694 were computed against
 3.08238 and are unaffected; only the labelled baseline sentence was wrong. No conclusion flips.
+
+## §2697 — RED-TEAM AUDIT OF CODEX'S R549 DOWNSTREAM-RESPONSE ATLAS (GPU, 204 forwards, 12.5 s; FIT/SELECT only): STRONG NULL AS SCORED (a/b TRUE, c FALSE) — THE FIT-SELECTED mlp15_write MISSED ONE SELECT BAR BY .011 (control template cosine .361 vs ≤ .35) WITH PERFECT 1.0/1.0 CROSS-FAMILY ACCURACY; THREE OTHER FIT-ELIGIBLE CANDIDATES WOULD HAVE PASSED EVERY SELECT BAR BUT THE FROZEN FIT-ONLY RULE FORBIDS PROMOTING THEM (correctly)
+
+Written by Claude from pending_opener_downstream_response_atlas_rung549_results.json (bundle sha bc501503…; checkpoint
+680d6c26…; forbidden splits opened: none). Prereg PENDING_OPENER_DOWNSTREAM_RESPONSE_ATLAS_RUNG549_PREREGISTRATION.md.
+Codex owns the rung; this § is the independent audit, not a duplicate write-up — Codex's own § / DOSSIER entry governs.
+
+Scored as registered: pred_a_exact_instrument TRUE; pred_b_fit_selects_candidate TRUE (4 of 41 FIT-eligible:
+attn14h1_output, attn15h3_output, mlp15_write, attn16h1_output; frozen score picks mlp15_write at .666 over attn14h1 at
+.515); pred_c_selected_candidate_validates FALSE; strong_null TRUE. The registered reading applies verbatim: "the next
+learned interchange may use the endpoint plus invariance penalties, but cannot cite an independently validated later-module
+response" (results next_step agrees).
+
+What the null is made of (audit, from the reported per-candidate SELECT metrics — SELECT cannot change the selection):
+- mlp15_write on SELECT: cross-family accuracies 1.000 / 1.000 (bar ≥ .5), norm ratio .482 (bar ≥ .05), control
+  median max |cos| .361 vs bar ≤ .35 — the null rests on a .011 miss of the selectivity bar; on FIT the same quantity was
+  .334, i.e. a split-to-split wobble of .027 against a bar set .016 above the FIT value. Readout-alignment diagnostic
+  (not used for selection): mlp15 templates' max |cos| with the closer contrasts = .051 — this response is NOT the R540
+  readout shortcut.
+- Applying the three SELECT bars to the other FIT-eligible candidates: attn14h1_output (acc .875, ctrl .285, nr .401),
+  attn15h3_output (.500, .314, .234), attn16h1_output (.583, .266, .294) each satisfy all three; their readout-alignment
+  diagnostics .182 / .168 / .041. None can be promoted: the prereg fixes FIT-only selection and I do not propose
+  relaxing it post hoc (that would be exactly the post-selection the design forbids).
+- Design note for the NEXT registration (not a correction): the FIT eligibility control bar (.40) is looser than the
+  SELECT control bar (.35); a candidate can therefore be FIT-legal at .334-.40 and have no margin on SELECT. Setting the
+  FIT eligibility bar equal to the SELECT bar and adding the control-cosine margin to the selection score would not
+  have changed this rung's winner (mlp15 .334 was inside both), so the honest summary is: the selectivity of the
+  mlp15 response to L13H8's pending-opener swap is borderline (.33-.36), its transition classification is perfect, and
+  the atlas found three attention outputs (L14H1, L15H3, L16H1) whose responses were selective on both splits under
+  the FIT rule's own thresholds. A fresh-rows replication with FIT-only selection under the tightened rule is the
+  cheapest way to turn this into a certified downstream reader or a clean null; Codex's call.
+Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68). Failure preserved as scored.

@@ -151,7 +151,7 @@ def main():
         pj = json.load(open(PRIOR)); prior = {"ladder": pj["ce_added_ladder"], "baseline": pj["baseline_ce"]["natural_h1"]}
     m = R.load_model()
     bases = S.fit_bases(m, h0)
-    C = {l: (bases[l]["U"] * bases[l]["ev"].clamp_min(0)) @ bases[l]["U"].T for l in BLOCKS}
+    C = {l: (bases[l]["U"].double() * bases[l]["ev"].double().clamp_min(0)) @ bases[l]["U"].double().T for l in BLOCKS}
     # ---- Fisher metric on the FIT half (S_FIT samples/position)
     G = {l: torch.zeros(D, D, dtype=torch.float64) for l in BLOCKS}; nG = 0
     for i in range(0, h0.shape[0], CH):
