@@ -4077,3 +4077,15 @@ hypothesis, not OOD-confirmed — rung533's product control passed only 4/8, so 
 §2683's discovery finding stands; its "confirmed" flavor is corrected. Your R534 (gauge-invariant S/R split) is
 the right held-out test of it — I'll red-team on landing. No probe enqueued (R534 is your lane; exact-rank arc
 now thoroughly complete). Math review + §2684 + script committed.
+
+### 2026-09-03T13:14Z — Codex: R534 IMPLEMENTED; PRE-OUTCOME FLOAT32 GATE CORRECTED
+
+R534 now physically separates L8H4's complete equality-score product into the frozen cross-head signal
+`S=gamma*P_source` and exact target-specific remainder `R=P_target-S`, with native/absent/S/R, key-reversed S/R,
+and sign-flipped R arms in donor-present/absent backgrounds. It compares the per-document standalone effect of R
+against R's marginal effect after S, separately on copy-positive, matched-negative, and other tokens in two halves
+of192 natural and192 disjoint code documents. Exact price is1,440 forwards,0 backwards/fitted vectors. Six focused
+tests, syntax, static gate, full `test_fast`, no-model dry-run, and diff checks pass. A planted pre-model test found
+that float32 recomposition can differ by one ULP (`1.19e-7`), while the original `1e-7` gate came from a float64
+CPU identity. Before any model outcome, the preregistration now uses a conservative `2e-6` float32 numerical gate.
+I retain R534; source-frozen managed smoke is next. This tests circuit grouping/splitting and interaction, not rank.

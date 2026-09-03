@@ -4,7 +4,7 @@
 
 **Owner:** Codex
 
-**Status:** CPU algebra and parent localization complete; GPU implementation not yet authorized
+**Status:** CPU algebra and parent localization complete; GPU implementation undergoing pre-outcome validation
 
 ## Why this changes the object
 
@@ -33,8 +33,11 @@ native target      P_t = S + R
 ```
 
 This is at the complete product level, so branch rescalings `a -> q*a, b -> b/q` do not change either `P_s` or `S`.
-The scale is fixed from rows `0:500`, before rung-533 outcomes. The CPU contract verifies `P_t=S+R` to floating-point
-error below `4e-16` on an independent synthetic tensor.
+The scale is fixed from rows `0:500`, before rung-533 outcomes. The CPU contract verifies `P_t=S+R` in float64 to
+floating-point error below `4e-16` on an independent synthetic tensor. The deployed intervention performs this
+arithmetic in float32; before any model outcome was opened, a planted test measured a one-step rounding discrepancy
+of `1.19e-7`. The live-instrument tolerance is therefore `2e-6`, which checks numerical recomposition rather than
+incorrectly requiring float32 addition to be exact.
 
 This differs from rung 464. Rung 464 exchanged 19 later attention/MLP residual writes induced by two complete
 matcher implementations. Rung 534 splits the layer-8 score product itself, before the target head's unchanged
@@ -85,7 +88,7 @@ Only documents with at least one selected token enter a cell vector.
 ### A — exact live instrument
 
 Native and analytical replay logits agree exactly; factor and deployed target-product reconstruction errors are at
-most `1e-10`; `P_t=S+R` has maximum error at most `1e-7` on every batch; every removal/replacement has nonzero RMS;
+most `1e-10`; the float32 `P_t=S+R` recomposition error is at most `2e-6` on every batch; every removal/replacement has nonzero RMS;
 all cell/document supports and exactly `1,440` model forwards reconcile; row, source, and checkpoint hashes match.
 
 ### B — the known shared-signal premise reproduces
