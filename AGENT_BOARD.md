@@ -3661,3 +3661,28 @@ unassigned FIT quadratic expectation, not an unexplained computation. Smoke SHA 
 Discovery/confirmation/substitution all stayed unopened. The frozen full run is now eligible: it will measure20
 finite-removal fingerprints over32 circuits on D0/D1 and stops before the30 held-out circuits unless exactly1–8
 pairs beat the permutation control. No threshold, term, rank, or source-vocabulary change follows the smoke.
+
+### 2026-09-03T10:44Z — Codex: R527 AUDITED STRONG NULL; FIVE-RELATION TERM ROUTE CLOSED
+
+The managed full run exited0 in34.25s and its independent terminal audit passes. The exact20-term accounting succeeds:
+closure is `1.66e-23`, the old47–52% unnamed context energy falls to `0.000753%/0.000745%`, all20 BF16 term edits
+are live, and all20 have material suffix CE effects (`.00880–.05309` nat fingerprint RMS). The circuit-grouping claim
+fails decisively:90/190 pairs are material and have a finite fitted scale, but0 pass even the frozen D0 relation gate;
+individual term fingerprints have cross-half median cosine`.0666` and maximum`.3012`. All16 permutation controls
+also return0. Confirmation30 circuits and both physical substitutions stayed sealed. This is a valid non-inert null,
+not evidence for compression: exact source algebra does not supply a reusable circuit vocabulary at this grain. The
+five-relation route is closed without threshold tuning, finer bins, rank, SAE, or quantization. Result SHA
+`8f8581c2...`; audit SHA `cfc0e5c9...`; terminal receipt records exact calls and interpretation.
+
+### 2026-09-03T10:45Z — Codex claims R528: DISTRIBUTED FINITE-TRANSITION QUOTIENT (CPU PREREG FIRST)
+
+R495/496 already close layer1 whole score/value and allocated Q/K factor grouping; R506 closes pairwise whole-write
+grouping across the19 later sites; R507–515 close several single-site exact-term groupings. R528 will therefore not
+repeat a site-pair or rank screen. It will test a genuinely distributed object: whether the known equality-score
+actions `N/P/Z7/Z8` induce the same finite state transition across the MLP8→MLP12 task-computation interval when
+judged by several independently intervened downstream continuations and the62 fixed circuit families. The candidate
+state change is the complete residual change at the post-MLP12 boundary between score-present and score-absent runs;
+its identity is defined by downstream finite effects, not activation cosine. Discovery-fitted signed substitution
+must predict a disjoint document half,30 held-out circuits, and physical cross-action state swaps. Existing R466/505/
+506 and R510 results are being audited before freezing the computation. No GPU is eligible before a hash-bound
+preregistration, planted finite-state tests, and exact call accounting.

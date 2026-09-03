@@ -1,0 +1,128 @@
+{
+  "best_descriptive_pairs": [
+    {
+      "D0_cosine": 0.5496967629699279,
+      "D0_relative_residual": 0.8353642731050824,
+      "D1_cosine": 0.6828578445065264,
+      "D1_relative_residual": 0.7309162837353897,
+      "beta": 1.3483738272475851,
+      "left": "CROSS::SELF::NEAR",
+      "right": "CROSS::SELF::DISTANT_SAME"
+    },
+    {
+      "D0_cosine": 0.585896388241368,
+      "D0_relative_residual": 0.8103859711555478,
+      "D1_cosine": 0.5403964443378114,
+      "D1_relative_residual": 0.8417818645552714,
+      "beta": 0.7789372351202479,
+      "left": "CROSS::PREVIOUS::DISTANT_OTHER",
+      "right": "CROSS::NEAR::DISTANT_OTHER"
+    },
+    {
+      "D0_cosine": 0.5028527759838627,
+      "D0_relative_residual": 0.8643720759518572,
+      "D1_cosine": 0.6011820900481234,
+      "D1_relative_residual": 0.8199771409739854,
+      "beta": 0.7386674788638354,
+      "left": "SELF::SELF",
+      "right": "SELF::NEAR"
+    },
+    {
+      "D0_cosine": 0.4616274552628564,
+      "D0_relative_residual": 0.8870738935103092,
+      "D1_cosine": 0.5033570402152008,
+      "D1_relative_residual": 0.8852904294764028,
+      "beta": 0.36315761369674343,
+      "left": "LINEAR::DISTANT_SAME",
+      "right": "CROSS::DISTANT_SAME::DISTANT_OTHER"
+    },
+    {
+      "D0_cosine": 0.584474671406973,
+      "D0_relative_residual": 0.8114119536238733,
+      "D1_cosine": 0.45390986087733615,
+      "D1_relative_residual": 0.8910676951114801,
+      "beta": 0.8448397738704709,
+      "left": "CROSS::SELF::NEAR",
+      "right": "CROSS::NEAR::DISTANT_OTHER"
+    },
+    {
+      "D0_cosine": 0.48695568895693153,
+      "D0_relative_residual": 0.8734266752237879,
+      "D1_cosine": 0.42530807157086664,
+      "D1_relative_residual": 0.9151537853787046,
+      "beta": 0.9267714549497743,
+      "left": "SELF::DISTANT_OTHER",
+      "right": "CROSS::NEAR::DISTANT_OTHER"
+    },
+    {
+      "D0_cosine": 0.40416194088169055,
+      "D0_relative_residual": 0.9146874469143791,
+      "D1_cosine": 0.5573472823600438,
+      "D1_relative_residual": 0.8303316637298659,
+      "beta": 0.5572642637446465,
+      "left": "LINEAR::SELF",
+      "right": "CROSS::PREVIOUS::DISTANT_SAME"
+    },
+    {
+      "D0_cosine": 0.4240199390329446,
+      "D0_relative_residual": 0.9056528536379146,
+      "D1_cosine": 0.4576468915556215,
+      "D1_relative_residual": 0.9434386772641986,
+      "beta": 0.7185366840338542,
+      "left": "CROSS::PREVIOUS::DISTANT_OTHER",
+      "right": "CROSS::DISTANT_SAME::DISTANT_OTHER"
+    }
+  ],
+  "calls_reconciled": true,
+  "candidate_count_recomputed": 0,
+  "confirmation_and_substitution_sealed": true,
+  "hashes": {
+    "basis_aligned/bilinear_quotient/mlp0_centered_context_source_quotient_rung527_gpu_smoke_results.json": "c93aa35817e787248b456bb1db12b093ba0e582604d85316ec13ecae16e7c4c8",
+    "basis_aligned/bilinear_quotient/mlp0_centered_context_source_quotient_rung527_results.json": "8f8581c2fc0a29ffd45f6383eab9af58d9a239c5715e9467a16843e33f5ee682",
+    "basis_aligned/bilinear_quotient/ops/mlp0_centered_context_source_quotient_rung527_math.py": "b70524d35eaba7e8aea37e3cfd3a4e042a251b03c09059685cb8b8875cf8e833",
+    "basis_aligned/bilinear_quotient/ops/mlp0_centered_context_source_quotient_rung527_run.py": "15bad0e96087f59239096e3aef41c93af284a5da60573d61caa34f36b83f7e61"
+  },
+  "incremental_pair_gates": {
+    "material_and_scale": 90,
+    "passes_D0": 0,
+    "passes_D1": 0,
+    "passes_both": 0
+  },
+  "material_term_count": 20,
+  "permutation_counts_recomputed": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "predictions_recomputed": {
+    "pred_a_exact_live_instrument": true,
+    "pred_b_small_discovery_equivalence_relation": false,
+    "pred_c_heldout_circuits_and_documents": false,
+    "pred_d_bidirectional_physical_substitution": false,
+    "pred_e_nontrivial_context_term_grouping": false
+  },
+  "rung": 527,
+  "status": "audit_passed",
+  "term_cross_half_cosine": {
+    "maximum": 0.30115661558818607,
+    "median": 0.06656057224032526,
+    "minimum": -0.36954791561858397
+  },
+  "term_rms_range": [
+    0.008795675211122692,
+    0.053088389553019484
+  ]
+}
