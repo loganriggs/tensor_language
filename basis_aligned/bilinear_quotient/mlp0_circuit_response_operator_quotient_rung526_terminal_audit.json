@@ -1,0 +1,29 @@
+{
+  "artifact_sha256": "c4d66f8900b581fcf8338eee799b75a86204404ed7ca0ba12d5244f357c9ca96",
+  "candidate_over_random": 0.8433082699775696,
+  "candidate_over_raw": 1.8620779514312744,
+  "candidate_over_scrambled": 0.8786157965660095,
+  "d0_d1_spearman": 0.00996898771386913,
+  "exact_execution_counts": {
+    "batched_backwards": 496,
+    "forwards": 62,
+    "gradient_objectives": 1984,
+    "native_replays": 2
+  },
+  "finite_intervention_forwards": 0,
+  "interpretation": "circuit-conditioned tangent neighbors are document-specific and much worse than raw-token neighbors on held-out documents; close token grouping under this metric",
+  "passes": true,
+  "physical_successor_licensed": false,
+  "predictions": {
+    "A": true,
+    "B": false,
+    "C": false,
+    "D": true
+  },
+  "receiver_count": 10052,
+  "result_sha256": "4c60406f67359eab77de991983a6ff9bc756e0a6cd7902201dc0f1b0d0b721ea",
+  "result_status": "complete",
+  "schema": "rung526-terminal-audit-v1",
+  "strong_null": true,
+  "validation_circuits_opened": false
+}
