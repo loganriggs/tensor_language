@@ -167,6 +167,13 @@ def replacement_pattern(arm: str, source_first, source_second, target_first, tar
     raise ValueError(f"unknown arm: {arm}")
 
 
+def native_branch_product(first: torch.Tensor, second: torch.Tensor):
+    """Match deployed attention's multiply-before-FP32-cast order exactly."""
+    if first.dtype != second.dtype:
+        raise ValueError("native score factors must have the same dtype")
+    return (first * second).float()
+
+
 @torch.no_grad()
 def run_forward(model, tokens, *, background: str, arm: str, direct: bool = False):
     if background not in BACKGROUNDS or arm not in ARMS:
@@ -191,14 +198,18 @@ def run_forward(model, tokens, *, background: str, arm: str, direct: bool = Fals
             first, second = factor_screen._score_branches(event.state, event.block.attn)
             source = factors[SOURCE_INDEX]
             target = factors[TARGET_INDEX]
-            source_first, source_second = first[:, SOURCE_HEAD].float(), second[:, SOURCE_HEAD].float()
-            target_first, target_second = first[:, TARGET_HEAD].float(), second[:, TARGET_HEAD].float()
+            source_first_native, source_second_native = first[:, SOURCE_HEAD], second[:, SOURCE_HEAD]
+            target_first_native, target_second_native = first[:, TARGET_HEAD], second[:, TARGET_HEAD]
             causal = torch.tril(torch.ones(
-                target_first.shape[-2:], dtype=torch.bool, device=target_first.device))
-            native_product = (target_first * target_second).masked_fill(~causal, 0.0)
+                target_first_native.shape[-2:], dtype=torch.bool,
+                device=target_first_native.device))
+            native_product = native_branch_product(
+                target_first_native, target_second_native).masked_fill(~causal, 0.0)
             diagnostics["branch_product_max_abs"] = max(
                 diagnostics["branch_product_max_abs"],
                 float((native_product - target["p"]).abs().max()))
+            source_first, source_second = source_first_native.float(), source_second_native.float()
+            target_first, target_second = target_first_native.float(), target_second_native.float()
             if background == "donor_absent":
                 write = write - source["native_term"]
                 diagnostics["donor_edit_rms"] = float(
@@ -545,8 +556,18 @@ def main():
     collection, diagnostics = collect(
         model, rows, circuit_masks, tags_by_set, smoke=smoke)
     if smoke:
+        instrument_pass = bool(
+            diagnostics["calls_exact"]
+            and diagnostics["native_replay_logit_max_abs"] == 0.0
+            and diagnostics["factor_reconstruction_max"] <= 1e-10
+            and diagnostics["branch_product_max_abs"] == 0.0
+            and diagnostics["minimum_donor_edit_rms"] > 0
+            and diagnostics["minimum_target_edit_rms"] > 0
+            and diagnostics["zero_intended_edits"] == 0
+            and checkpoint.weights_sha256 == facade.WEIGHTS_SHA256)
         print(json.dumps({
-            "status": "smoke_passed", "rung": RUNG,
+            "status": "smoke_passed" if instrument_pass else "smoke_instrument_invalid",
+            "instrument_pass": instrument_pass, "rung": RUNG,
             "scientific_outcomes_opened": False,
             "calls": diagnostics["direct_native_calls"] + diagnostics["analytical_calls"],
             "native_replay_logit_max_abs": diagnostics["native_replay_logit_max_abs"],
@@ -558,6 +579,8 @@ def main():
             "checkpoint_weights_sha256": checkpoint.weights_sha256,
             "peak_memory_bytes": int(torch.cuda.max_memory_allocated()),
         }, indent=2, sort_keys=True))
+        if not instrument_pass:
+            raise RuntimeError("rung532 smoke instrument did not pass")
         return
     reports, contexts = analyze(collection)
     predictions, checks = score(

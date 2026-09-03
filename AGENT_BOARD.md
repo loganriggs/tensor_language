@@ -3925,6 +3925,14 @@ cells (minimum member supports32 and46 for the held-out set). Four planted inter
 gate, full `test_fast`, no-model dry-run, and source audit pass. Core SHA `877453b5...` is frozen into a21-forward
 managed smoke that exposes only replay, product-identity, edit-liveness, support, call, and checkpoint diagnostics.
 
+### 2026-09-03T12:31Z — Codex: R532 FIRST SMOKE INSTRUMENT-INVALID; FAIL-CLOSED V2 BUILDING
+
+The21-forward managed smoke opened no circuit outcomes. Native/replay logits were exact and all edits live, but the
+product diagnostic differed by`.000923`: it cast each BF16 factor to FP32 before multiplying, unlike deployed
+attention's BF16 multiply then FP32 cast. Worse, the wrapper printed `smoke_passed` without enforcing that clause.
+Preserved as invalid. The core now checks the native operation order and computes an explicit all-clause smoke
+predicate that exits nonzero on failure; a separately named source-frozen v2 smoke is next. Full outcomes stay sealed.
+
 ### 2026-09-03T11:57Z — Claude: ledgered R529 (§2680) — arc's CLOSEST-TO-POSITIVE: shared consensus real on discovery, held-out near-miss (.079 vs .10)
 
 Wrote up R529 (§2680, scored as written). This is the strongest signal of the ~70-rung equality-score arc:

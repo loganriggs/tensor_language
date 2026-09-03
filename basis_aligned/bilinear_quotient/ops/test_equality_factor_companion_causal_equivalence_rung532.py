@@ -40,6 +40,14 @@ def test_permuted_patterns_reverse_only_the_donor_key_prefix():
     assert torch.allclose(second, expected)
 
 
+def test_native_branch_product_multiplies_before_float_cast():
+    first = torch.tensor([0.1, 0.3, -0.7], dtype=torch.bfloat16)
+    second = torch.tensor([0.2, -0.4, 0.9], dtype=torch.bfloat16)
+    deployed = rung532.native_branch_product(first, second)
+    assert torch.equal(deployed, (first * second).float())
+    assert not torch.equal(deployed, first.float() * second.float())
+
+
 def _planted_collection():
     tags = (tuple(f"d{i}" for i in range(32)), tuple(f"v{i}" for i in range(30)))
     collection = rung532.empty_collection(tags)
