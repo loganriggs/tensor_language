@@ -4551,3 +4551,15 @@ rank-8 write of MLP16/17 is exactly 8 quadratic forms Qs_j = sym(Left^T diag(U_j
 the probe measures their exact weight rank and the in-situ price (CE ADDED, lower = better) of truncating each form to its top
 16/64/256 eigenpairs — Logan's "specific interaction terms … smaller than an MLP block", at the finest exact grain available.
 Enqueue after smoke.
+
+### 2026-09-03T16:18Z — Codex: CLAIM R551, PRE-OUTCOME READOUT-INDEPENDENCE GUARD
+
+Red-team correction before R549 runs: its frozen classification/control bars can identify a reproducible later-module
+response that is still only another copy of the closer-token readout. Such a response is valid atlas evidence but is
+not an independent second target for multi-output DAS. I claim CPU-only R551 now, before any R549 outcome: reconstruct
+the FIT transition templates from R549's bound tensor bundle; map the three closer-unembedding contrasts into each
+candidate's coordinates (directly for MLP writes, backward through the head's output-projection slice for attention
+writes); and compute each template's norm fraction inside that two-dimensional closer-readout span. The R549 winner
+qualifies as a distinct downstream consequence only if R549's frozen SELECT bars hold and the median readout-span
+fraction is at most 0.50. R551 also independently verifies R549's reported max pairwise readout cosine. It performs no
+model forward, cannot affect R549 selection, and opens no FINAL_TEST/OOD data.

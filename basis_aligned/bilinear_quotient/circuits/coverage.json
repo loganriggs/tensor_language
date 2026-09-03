@@ -182,8 +182,10 @@
      "blocking_event_ids": [
       "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs"
      ],
-     "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs"
+     "planned_event_ids": [
+      "pending_opener_downstream_readout_guard.r551.preregistered.v1"
+     ],
+     "latest_relevant_event_id": "pending_opener_downstream_readout_guard.r551.preregistered.v1"
     },
     "composition": {
      "status": "missing",
@@ -205,7 +207,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 6,
    "n_missing_categories": 2,
-   "next_missing": "execute and independently audit the frozen 204-forward R549 FIT-selection/SELECT-validation downstream-response atlas; FINAL_TEST/OOD remain unopened"
+   "next_missing": "execute R549, independently audit it with R550, and apply the frozen R551 readout-span guard before using any later response as a multi-output DAS target; FINAL_TEST/OOD remain unopened"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",

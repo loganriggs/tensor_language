@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 33,
- "design_count": 28,
- "protocol_count": 28,
- "execution_count": 33,
+ "event_count": 34,
+ "design_count": 29,
+ "protocol_count": 29,
+ "execution_count": 34,
  "open_preregistrations": [
   {
    "circuit": "task.bracket.pending_opener",
@@ -26,6 +26,22 @@
    "supersedes_event_id": null,
    "replicates_event_id": null,
    "prereg_artifact_id": "r549_downstream_response_atlas_preregistration",
+   "result_artifact_id": null
+  },
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+   "claim_id": "pending_opener_state.v21",
+   "test_type": "null_control",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "c921a2705ff8aa416c83294247ac9cf9da1f68065ff95a0efb744806a99fc079",
+   "protocol_key": "c9bbba52f07af76db023b0f93b963de42ef7cd776d2f21af3078b5b6ba47bff6",
+   "execution_key": "88779d3fe0ab584476f51311e82eee4fc624a34201502163efba6632cb8b4374",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r551_downstream_readout_guard_preregistration",
    "result_artifact_id": null
   }
  ],
@@ -494,6 +510,22 @@
    "supersedes_event_id": null,
    "replicates_event_id": null,
    "prereg_artifact_id": "r549_downstream_response_atlas_preregistration",
+   "result_artifact_id": null
+  },
+  {
+   "circuit": "task.bracket.pending_opener",
+   "event_id": "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+   "claim_id": "pending_opener_state.v21",
+   "test_type": "null_control",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "c921a2705ff8aa416c83294247ac9cf9da1f68065ff95a0efb744806a99fc079",
+   "protocol_key": "c9bbba52f07af76db023b0f93b963de42ef7cd776d2f21af3078b5b6ba47bff6",
+   "execution_key": "88779d3fe0ab584476f51311e82eee4fc624a34201502163efba6632cb8b4374",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "r551_downstream_readout_guard_preregistration",
    "result_artifact_id": null
   },
   {
