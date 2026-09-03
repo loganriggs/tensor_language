@@ -4953,3 +4953,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   high-complexity at EVERY level; compressibility lives entirely in attention (§2679/§312). CORRECTION to §2683:
   rung532 exchangeability is a discovery hypothesis, not OOD-confirmed (rung533 audited invalid, product control
   4/8). Script mlp_cross_block_input_sharing.py. Result ed36a7ed.
+- Rung534 (§2685, Codex): gauge-invariant shared/private split of the equality score. Strong null (pred_a/b true,
+  c-f false): SHARED signal S is real (pred_b, consistent §2680), but private residue R is relation-specific
+  (beats controls 8/8) yet NOT autonomous (fails copy-positive rel-error .665/.778 despite cos .92; 1/4
+  donor-present). Equality circuit = real shared component + IRREDUCIBLE INTERACTION, not cleanly S+R separable
+  (consistent §394-401 I>T>C dominance). Explains why autonomous-subunit extraction (rung525-534) keeps failing.
+  Codex -> R535 exact interaction atlas (I=E_native-E_S-E_R). 1440 fwd, 34.6s. 8804dca2.

@@ -68210,3 +68210,30 @@ rung533 (the OOD/cross-corpus test) came back INSTRUMENT-INVALID (the complete-p
 only 4/8 full contexts; code matched-negative specificity .0249 vs the .01 bar), so the exchangeability is a
 rung532 HYPOTHESIS, NOT held-out-confirmed identification. No conclusion flipped — §2683's discovery finding is
 intact — but its "confirmed" flavor is corrected to "discovery hypothesis, OOD test invalid, R534 pending."
+
+## §2685 — RUNG534 (Codex): SHARED SIGNAL IS REAL, PRIVATE RESIDUE IS NOT AUTONOMOUS — THE EQUALITY CIRCUIT IS SHARED + IRREDUCIBLE INTERACTION
+
+R534 tested the gauge-invariant shared/private split of the equality-score computation: S = gamma*P_source
+(shared, pooled), R = P_target - S (private residue), with exact P_target = S + R, asking whether R predicts its
+own marginal effect autonomously or exists only through interaction with S. Landed 13:18, 1,440 forwards, 34.6s,
+unledgered — written up per lane first-duty. Registered strong null (scored as written): pred_a TRUE (exact live
+instrument), pred_b TRUE (the SHARED-signal premise reproduces — S is a real component, consistent with §2680's
+Z7 consensus), pred_c-f FALSE. Result `8804dca2…`.
+
+The private residue R is RELATION-SPECIFIC but NOT AUTONOMOUS: in code/source-absent it predicts the
+matched-negative marginal in 2/2 halves and beats key-reversed + sign controls 8/8 (so it is not noise or a
+generic direction), yet it FAILS the copy-positive relative-error bar (.665/.778 > .60) despite high cosine
+(.922/.894), and only 1/4 complete donor-present contexts passes. So R does not stand alone — it is meaningful
+only through its INTERACTION with S. Codex correctly declines to adopt R alone and pivots to R535 (expose the
+exact factorial interaction I = E_native - E_S - E_R already in the frozen bundle, and atlas its size/sign by
+corpus/token-group/half/donor-background).
+
+Synthesis: the equality-score computation decomposes into a REAL shared component (S, §2680 consensus + §2685
+pred_b) PLUS an IRREDUCIBLE INTERACTION (R meaningful only with S). It is NOT cleanly S+R separable into
+autonomous editable parts. This is consistent with the long-standing interaction-dominance of these bilinear
+circuits (§394-401: the interaction term I is the largest causal role, I>T>C) and with §2649/§2652 (the
+interaction is the irreducible core). The honest arc reading: the equality-score circuit has a real shared signal
+but its private/token-specific content lives in the interaction, not as a separable unit — which is why every
+attempt to extract an autonomous reusable sub-unit (rung525-534) has failed. No circuit claim, no
+explained-fraction change. R535 (the interaction atlas) is the right next object — characterize the interaction
+that everything reduces to, rather than seek an autonomous part that is not there.
