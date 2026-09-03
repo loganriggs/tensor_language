@@ -415,9 +415,14 @@ removal ceiling.
 Native TEST capture, independent replay, and the TEST self-donor check are deferred until after the canonical
 pre-TEST manifest has been atomically written and hashed. Before that point, no model call may contain a TEST row.
 The manifest contains all 103 frame hashes and health states, FIT and VALIDATION scheduler hashes, null-design
-hashes, all VALIDATION outputs and provisional decisions, the five all-three eligibility states, the geometry-only
+hashes, the five all-three eligibility states, the geometry-only
 medoid and lower-seed tie-break, all 20 Haar hashes, the call ledger, and the FIT-only `mu_Q`. Opening TEST is a
 one-way state change; afterward fitting, optimizer updates, threshold changes, and selection are forbidden.
+Every scalar VALIDATION output and response hash used by the provisional decision is first written to a separate
+create-only JSON evidence file. The manifest stores that file's byte hash and canonical-content hash, and refuses
+to open TEST unless the evidence file's embedded provisional decision and exact call ledger equal the independently
+supplied manifest decision and ledger. This binds the decision to its complete inspectable inputs without copying
+the same large nested evidence object into the manifest itself.
 
 The physical evaluator labels every arm explicitly as `(ensemble, map, direction, recipient row)` before
 concatenation and reconstructs saved outputs from those labels. It may not infer mathematical axes from tensor
@@ -448,3 +453,74 @@ family.
 This correction strengthens the randomization relative to the failed 59--62% SHA-order versions while preserving
 every original conditioning variable and overlap-lattice count. It does not use model activations, responses,
 VALIDATION, TEST, or an outcome-chosen threshold.
+
+## Final pre-science execution clarifications — 2026-09-03 06:59 UTC
+
+An independent audit of the still-sealed scientific runner found four choices that must be explicit before any
+rung522 scientific model call. The following definitions are prospective. They use no fitted frame, model response,
+VALIDATION value, or TEST value.
+
+### What must pass on VALIDATION before TEST can open
+
+The provisional VALIDATION decision applies the already-registered A and B rules to the four VALIDATION cells only
+(`D0/D1` crossed with forward/reverse). It requires all of the following:
+
+1. for each omitted-target fold, at least four of five real seeds pass every A response, selectivity, paired-row
+   bootstrap, whole-attention8 comparison, and powered exact-token condition in all four cells;
+2. every target-specific oracle fit is healthy and live for its owner in all four cells;
+3. at least four of five matched real-seed three-fold projector-overlap values strictly exceed the 16-null higher
+   95th percentile;
+4. in each fold, at least four of five task-conditioned seeds pass every paired recovery-only comparison, and the
+   five-seed mean concentration improvement strictly exceeds its exact sign-flip 95th percentile; and
+5. in each fold, at least four of five task-conditioned joint statistics strictly beat both the 20-Haar maximum and
+   the 16-label-null higher 95th percentile.
+
+All three folds must pass. This provisional decision only controls whether the already-frozen TEST sweep may occur;
+the scientific A/B claims are recomputed over both VALIDATION and TEST afterward. A failed provisional decision is
+written as a terminal pre-TEST result and cannot be repaired by changing a seed, threshold, fit, or control.
+
+The oracle denominator is paired by optimizer seed: real seed `s` is compared with the target-specific oracle for
+the omitted target at the same seed `s`. No best-oracle or across-seed choice is allowed. Every one of the 48 label-
+null fits must also pass its optimizer health checks, or its null comparison is unavailable and TEST stays closed.
+All 20 target-specific oracle fits, including the five reserved-`r.2.0.1` oracles, must be healthy and must satisfy
+the `.02`-nat member-RMS and `.05` aligned-recovery liveness bars in all four VALIDATION cells for their own target.
+
+The all-three medoid eligibility set is not caller-chosen. An all-three seed is eligible exactly when its optimizer
+health checks pass and, for each of the three fitted targets in all four VALIDATION cells, it passes the A-style
+signed-cosine, residual, positive and half-same-seed-oracle recovery, member-RMS, concentration, improvement over the
+whole-attention8 comparator, row-bootstrap, and powered exact-token gates. This predicate uses no `r.2.0.1` mask or
+fingerprint. Full-split VALIDATION performance therefore determines eligibility but never ranks eligible frames;
+the geometry-only medoid and lower-seed tie-break remain the only ranking rule. No eligible all-three frame means a
+terminal pre-TEST failure.
+
+### Independent replay and complete arm reconstruction
+
+The native capture uses the observed-model dispatch path, while the independent replay uses the literal
+embedding/block/output loop from rung521. Both paths must execute attention8 exactly once and produce bitwise-equal
+logits. Repeating the dispatch path twice is not an independent replay. Every saved evaluation tensor is initialized
+to nonfinite sentinels; after explicit `(ensemble, map, direction, recipient row)` assignment, every element must be
+finite before map averaging. This makes a missing or duplicated physical arm fail closed.
+
+### Fold-specific removal pairs
+
+For `removal:fold8` and `removal:fold9`, a frozen TEST matched pair belongs to the fold of its **member recipient
+row**. Its aligned matched control is carried with it even if that control row lies in the other TEST fold. This is
+the same member-row clustering convention used by the paired bootstrap and avoids rematching after TEST opens.
+For either fold statistic, the common response permutation covers the complete TEST population and uses groups
+ordered as `(document fold ID, token class, position bin, native CE decile)`. The SHA payload is
+`a8-r522-fingerprint-null-v1:<cell ID>:<replicate>:<fold>:<class>:<position bin>:<CE decile>`. Thus a member or control response is
+permuted only within its own document fold, including when the two endpoints of one frozen pair lie in different
+folds. The separate cell IDs `removal:fold8` and `removal:fold9` still give independent deterministic null maps; each
+statistic then reads only the pairs anchored by member rows in its named fold. The reported pair counts, cross-fold
+pair counts, and pair-array hashes make this restriction auditable.
+
+### Equivalent computation of the 20,000 response-permutation nulls
+
+The common affine permutation remains exactly the one already specified. An implementation may compute donor
+addresses only for response positions actually queried by the 32 frozen member/control arrays, rather than
+materializing all 55,296 permuted TEST values on every replicate. For a queried recipient, the group ordering,
+multiplier, offset, and donor-rank formula are identical to the full permutation, so every queried value and every
+null statistic are bit-for-bit the same. The receipt hashes the complete 20,000-value statistic vector, the
+algorithm/namespace definition, and the complete donor maps for the first and last replicate. It need not construct
+or hash the unused entries of the other 19,998 full maps. A small CPU equivalence test against the literal full-map
+implementation is required before science.

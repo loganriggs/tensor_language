@@ -34,13 +34,14 @@ Price: at most 103*200 = 20,600 projected forwards and 20,600 backwards;
 from __future__ import annotations
 
 import argparse
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 import hashlib
 import json
 import math
 import os
 from pathlib import Path
 import sys
+import time
 from typing import Callable, Iterable, Mapping, Sequence
 
 
@@ -62,11 +63,21 @@ FROZEN_HASHES = {
     POLY / "ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREREGISTRATION.md":
         "27bc74c3e19ac310f0ed88f1527a1df44ff52d8990d980971415b32b503126f5",
     POLY / "ATTENTION8_SELECTIVE_SHARED_PROJECTOR_RUNG522_PREFLIGHT_ADDENDUM.md":
-        "66ad6f209e02082bd7e7fef03c1a67ff5015935fde4a7d75994d5a0694dce40f",
+        "4f75c97dcdce1e652030cb933301c10540aa750d9a78cf5049c15aae48546ca6",
     OPS / "attention8_selective_shared_projector_rung522_math.py":
         "6cff6f7726dd8f76e786d64abf913fc31adbdfec101a97741a1aa3396f8431c2",
     OPS / "attention8_selective_shared_projector_rung522_scheduler.py":
         "d840318d5b675ce762f6c9a0d451c11550c6520b97ffbb762672ec703af5540f",
+    OPS / "attention8_selective_shared_projector_rung522_protocol.py":
+        "e05d409806aab33d3b0c13eb87ebd188be82762d53849505c7fc10f4df5e3c47",
+    OPS / "attention8_selective_shared_projector_rung522_state_guard.py":
+        "028a21352506236ae99c4181925494ed144993fd2186cb14d61fb8a16fe00d9c",
+    OPS / "attention8_selective_shared_projector_rung522_archive.py":
+        "02680d4912d48d4199b6aaa607d1c77120822217e8e56b40a61d80bddb33dec9",
+    OPS / "attention8_selective_shared_projector_rung522_validation_gates.py":
+        "54894c5c56883aa6062f21e485379f91d55139ad779d08ec54ab5432cd1c8452",
+    OPS / "attention8_selective_shared_projector_rung522_sparse_fingerprint_null.py":
+        "8315bc2ebfb367a97519ed71d448368267481d64620f098dd5226bee71da9acd",
     OPS / "attention8_shared_private_das_rung521.py":
         "d5ca962c16cd8f454adac79916a9cf3272b91debac0d27ebba2ce77804fb9ebd",
     OPS / "das_shared_private_lib.py":
@@ -109,6 +120,14 @@ def _sha256_file(path: Path) -> str:
         for block in iter(lambda: source.read(8 << 20), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def _sha256_json(value: object) -> str:
+    return hashlib.sha256(
+        json.dumps(
+            value, sort_keys=True, separators=(",", ":"), allow_nan=False
+        ).encode("utf-8")
+    ).hexdigest()
 
 
 def _validate_frozen_hashes() -> dict[str, str]:
@@ -154,6 +173,9 @@ import attention8_selective_shared_projector_rung522_math as core  # noqa: E402
 import attention8_selective_shared_projector_rung522_protocol as protocol  # noqa: E402
 import attention8_selective_shared_projector_rung522_scheduler as scheduler  # noqa: E402
 import attention8_selective_shared_projector_rung522_state_guard as state_guard  # noqa: E402
+import attention8_selective_shared_projector_rung522_archive as archive  # noqa: E402
+import attention8_selective_shared_projector_rung522_validation_gates as validation_gates  # noqa: E402
+import attention8_selective_shared_projector_rung522_sparse_fingerprint_null as sparse_null  # noqa: E402
 import bilin18_observed_model_facade as facade  # noqa: E402
 
 
@@ -163,8 +185,9 @@ class CallLedger:
     optimization_backwards: int = 0
     inference_forwards: int = 0
     removal_forwards: int = 0
+    inference_by_bucket: dict[str, int] = field(default_factory=dict)
 
-    def charge(self, kind: str, count: int = 1) -> None:
+    def charge(self, kind: str, count: int = 1, *, bucket: str | None = None) -> None:
         if count < 0:
             raise ValueError("cannot charge a negative model-call count")
         if kind == "optimization_forward":
@@ -176,7 +199,10 @@ class CallLedger:
             if self.optimization_backwards > OPTIMIZATION_BACKWARD_CEILING:
                 raise RuntimeError("rung522 optimization-backward ceiling exceeded")
         elif kind == "inference_forward":
+            if bucket not in state_guard.INFERENCE_LEDGER:
+                raise RuntimeError(f"unregistered inference bucket {bucket!r}")
             self.inference_forwards += count
+            self.inference_by_bucket[bucket] = self.inference_by_bucket.get(bucket, 0) + count
             if self.inference_forwards > INFERENCE_FORWARD_CEILING:
                 raise RuntimeError("rung522 inference-forward ceiling exceeded")
         elif kind == "removal_forward":
@@ -185,6 +211,59 @@ class CallLedger:
                 raise RuntimeError("rung522 removal-forward ceiling exceeded")
         else:
             raise ValueError(f"unknown ledger kind {kind!r}")
+
+    def snapshot(self) -> dict[str, object]:
+        return {
+            "optimization_forwards": self.optimization_forwards,
+            "optimization_backwards": self.optimization_backwards,
+            "inference_forwards": self.inference_forwards,
+            "removal_forwards": self.removal_forwards,
+            "inference_by_bucket": dict(sorted(self.inference_by_bucket.items())),
+        }
+
+    def assert_pretest_registered_price(self) -> None:
+        expected = {
+            "native_capture": 131,
+            "native_replay": 131,
+            "self_donor": 2,
+            "fit_d0_full_attention8": 95,
+            "fit_health": 206,
+            "full_attention8_comparator": 36,
+            "prediction_a": 2_988,
+            "recovery_only": 540,
+            "haar": 720,
+            "all_three_selection_and_test": 180,
+        }
+        if self.optimization_forwards != OPTIMIZATION_FORWARD_CEILING or (
+            self.optimization_backwards != OPTIMIZATION_BACKWARD_CEILING
+        ):
+            raise RuntimeError("pre-TEST fit ledger is not exactly 20,600/20,600")
+        if self.inference_by_bucket != expected:
+            raise RuntimeError(
+                f"pre-TEST inference bucket ledger changed: {self.inference_by_bucket} != {expected}"
+            )
+        if self.inference_forwards != sum(expected.values()) or self.removal_forwards != 0:
+            raise RuntimeError("pre-TEST inference/removal totals changed")
+
+    def assert_final_registered_price(self, *, expected_removal_forwards: int = 36) -> None:
+        if self.optimization_forwards != OPTIMIZATION_FORWARD_CEILING:
+            raise RuntimeError("final optimization-forward count is not exactly 20,600")
+        if self.optimization_backwards != OPTIMIZATION_BACKWARD_CEILING:
+            raise RuntimeError("final optimization-backward count is not exactly 20,600")
+        expected = dict(state_guard.INFERENCE_LEDGER)
+        if self.inference_by_bucket != expected:
+            raise RuntimeError(
+                f"final inference bucket ledger changed: {self.inference_by_bucket} != {expected}"
+            )
+        if self.inference_forwards != INFERENCE_FORWARD_CEILING:
+            raise RuntimeError("final inference count is not exactly 9,422")
+        if expected_removal_forwards not in (0, 36):
+            raise ValueError("registered removal count must be zero or the complete 36-call sweep")
+        if self.removal_forwards != expected_removal_forwards:
+            raise RuntimeError(
+                "final removal count differs from the registered conditional sweep: "
+                f"{self.removal_forwards} != {expected_removal_forwards}"
+            )
 
 
 def _atomic_json(path: Path, value: Mapping[str, object], *, refuse_overwrite: bool = True) -> None:
@@ -526,13 +605,20 @@ class Rung522Instrument:
             tokens = batch[:, :TOKENS].to(self.device)
             targets = batch[:, 1 : TOKENS + 1].to(self.device)
             logits, captured, _ = _execute(self.model, tokens, capture=True)
-            self.ledger.charge("inference_forward")
+            self.ledger.charge("inference_forward", bucket="native_capture")
             self.state.record_inference_events(1)
             if captured is None:
                 raise RuntimeError("attention8 native capture is absent")
-            replay, _, _ = _execute(self.model, tokens)
-            self.ledger.charge("inference_forward")
+            # This intentionally bypasses the dispatch facade used above.  A
+            # second call through the same path would only test repeatability;
+            # the literal block loop can catch a shared dispatch error.
+            replay, replay_attention8_calls = stage_a._direct_logits(self.model, tokens)
+            self.ledger.charge("inference_forward", bucket="native_replay")
             self.state.record_inference_events(1)
+            if replay_attention8_calls != 1:
+                raise RuntimeError(
+                    "independent native replay did not execute attention8 exactly once"
+                )
             replay_exact &= bool(torch.equal(logits, replay))
             if start == 0:
                 native_write = captured.to(self.device)
@@ -541,7 +627,7 @@ class Rung522Instrument:
                     tokens,
                     edit=lambda _write, value=native_write: value,
                 )
-                self.ledger.charge("inference_forward")
+                self.ledger.charge("inference_forward", bucket="self_donor")
                 self.state.record_inference_events(1)
                 rms = self_diag["per_sequence_edit_rms"]
                 self_donor_exact = bool(
@@ -619,7 +705,7 @@ class Rung522Instrument:
             logits, _, diagnostics = _execute(
                 self.model, tokens, edit=lambda _write, value=donor: value
             )
-            self.ledger.charge("inference_forward")
+            self.ledger.charge("inference_forward", bucket="fit_d0_full_attention8")
             self.state.record_inference_events(1)
             calls += 1
             rms = diagnostics["per_sequence_edit_rms"]
@@ -657,6 +743,7 @@ class Rung522Instrument:
         frame: torch.Tensor,
         *,
         optimization: bool,
+        inference_bucket: str | None = None,
     ) -> tuple[torch.Tensor, torch.Tensor]:
         tokens = self.data["rows"][rows, :TOKENS].to(self.device)
         targets = self.data["rows"][rows, 1 : TOKENS + 1].to(self.device)
@@ -666,7 +753,12 @@ class Rung522Instrument:
             return core.daslib.projection_interchange(write, donor, frame, validate=False)
 
         logits, _, diagnostics = _execute(self.model, tokens, edit=edit)
-        self.ledger.charge("optimization_forward" if optimization else "inference_forward")
+        if optimization:
+            if inference_bucket is not None:
+                raise RuntimeError("optimization calls cannot enter an inference bucket")
+            self.ledger.charge("optimization_forward")
+        else:
+            self.ledger.charge("inference_forward", bucket=inference_bucket)
         if optimization:
             self.state.record_optimization_events(1, 0)
         else:
@@ -684,6 +776,7 @@ class Rung522Instrument:
         split: str,
         *,
         frame: torch.Tensor | None,
+        inference_bucket: str,
     ) -> SwapEvaluation:
         """Evaluate all D0/D1 x forward/reverse cells with explicit arm IDs."""
         self.state.authorize_split_access(split.upper())
@@ -696,8 +789,8 @@ class Rung522Instrument:
         if len(maps) != 8 or len(inverse_maps) != 8:
             raise RuntimeError("evaluation requires eight forward and inverse donor maps")
         map_responses = {
-            f"{ensemble}:{direction}": torch.empty(
-                (4, rows.numel(), TOKENS), dtype=torch.float32
+            f"{ensemble}:{direction}": torch.full(
+                (4, rows.numel(), TOKENS), float("nan"), dtype=torch.float32
             )
             for ensemble in ("D0", "D1")
             for direction in ("forward", "reverse")
@@ -733,7 +826,7 @@ class Rung522Instrument:
                 )
 
             logits, _, diagnostics = _execute(self.model, tokens, edit=edit)
-            self.ledger.charge("inference_forward")
+            self.ledger.charge("inference_forward", bucket=inference_bucket)
             self.state.record_inference_events(1)
             calls += 1
             rms = diagnostics["per_sequence_edit_rms"]
@@ -752,6 +845,12 @@ class Rung522Instrument:
         expected_calls = math.ceil(rows.numel() / EVALUATION_ROWS)
         if calls != expected_calls:
             raise RuntimeError("evaluation forward-call count changed")
+        incomplete = [
+            name for name, values in map_responses.items()
+            if not bool(torch.isfinite(values).all())
+        ]
+        if incomplete:
+            raise RuntimeError(f"evaluation left unfilled/nonfinite arm cells: {incomplete}")
         cells = {name: values.mean(0) for name, values in map_responses.items()}
         digest = hashlib.sha256()
         for name in sorted(map_responses):
@@ -914,6 +1013,7 @@ class ProjectedResponseCallback:
             donor_map,
             frame,
             optimization=self.optimization,
+            inference_bucket=None if self.optimization else "fit_health",
         )
         responses: dict[str, core.TargetResponse] = {}
         for target in self.spec.training_targets:
@@ -965,6 +1065,68 @@ class FittedFrameRecord:
     orthonormality_error: float
     projector_distance_from_initialization: float
     maximizing_target_counts: Mapping[str, int]
+    loss_history_sha256: str
+    fit_selected_batches_sha256: str
+    validation_health_batch_sha256: str
+    fit_record_sha256: str
+    health_record_sha256: str
+    fit_scheduler_payload: Mapping[str, object]
+    validation_scheduler_payload: Mapping[str, object]
+    fit_record_payload: Mapping[str, object]
+    health_record_payload: Mapping[str, object]
+
+
+def _scheduler_payload(
+    balanced: scheduler.BalancedRowScheduler,
+) -> dict[str, object]:
+    """Materialize the exact scheduler object whose bytes define its fingerprint."""
+    payload: dict[str, object] = {
+        "namespace": scheduler.SCHEDULER_NAMESPACE,
+        "mode": balanced.mode,
+        "seed": balanced.seed,
+        "donor_map_rule": "update_mod_4",
+        "roles": [
+            {
+                "name": role.name,
+                "target": role.target,
+                "kind": role.kind,
+                "replica": role.replica,
+                "permutation": list(role.permutation),
+            }
+            for role in balanced.roles
+        ],
+    }
+    if _sha256_json(payload) != balanced.fingerprint:
+        raise RuntimeError("materialized scheduler differs from its frozen fingerprint")
+    return payload
+
+
+def _batch_zero_rows(payload: Mapping[str, object]) -> dict[str, int]:
+    roles = payload.get("roles")
+    if not isinstance(roles, list):
+        raise RuntimeError("scheduler payload has no role list")
+    result: dict[str, int] = {}
+    for role in roles:
+        if not isinstance(role, Mapping):
+            raise RuntimeError("scheduler role payload is malformed")
+        permutation = role.get("permutation")
+        if not isinstance(permutation, list) or not permutation:
+            raise RuntimeError("scheduler role has no permutation")
+        result[str(role["name"])] = int(permutation[0])
+    return result
+
+
+def _scheduled_batches_sha256(
+    balanced: scheduler.BalancedRowScheduler, updates: Sequence[int]
+) -> str:
+    return _sha256_json([
+        {
+            "update": batch.update,
+            "donor_map_index": batch.donor_map_index,
+            "roles": [asdict(role) for role in batch.roles],
+        }
+        for batch in (balanced.batch(update) for update in updates)
+    ])
 
 
 def fit_one_registered_frame(
@@ -1046,8 +1208,12 @@ def fit_one_registered_frame(
             epsilon=config.loss_epsilon,
         )
         final_validation = float(final_health.maximum)
-    orthonormality = float(core.daslib.orthonormality_error(final))
-    distance = float(core.daslib.projector_frobenius_distance(initial.cpu(), final))
+    orthonormality = float(
+        (final.mT @ final - torch.eye(RANK, dtype=torch.float32)).abs().amax()
+    )
+    initial_cpu = initial.detach().cpu().float()
+    overlap = (initial_cpu.mT @ final).square().sum()
+    distance = float((2 * RANK - 2 * overlap).clamp_min(0).sqrt())
     window = config.health_window
     initial_window = sum(history[:window]) / window
     final_window = sum(history[-window:]) / window
@@ -1065,9 +1231,49 @@ def fit_one_registered_frame(
     counts = {
         target: maximizing.count(target) for target in sorted(set(maximizing))
     }
+    loss_history_sha256 = _sha256_json(history)
+    fit_selected_batches_sha256 = _scheduled_batches_sha256(
+        training_callback.balanced, range(UPDATES)
+    )
+    validation_health_batch_sha256 = _scheduled_batches_sha256(
+        health_callback.balanced, (0,)
+    )
+    fit_scheduler_payload = _scheduler_payload(training_callback.balanced)
+    validation_scheduler_payload = _scheduler_payload(health_callback.balanced)
+    spec_payload = asdict(spec)
+    fit_record_payload = {
+        "frame_id": spec.frame_id,
+        "spec": spec_payload,
+        "frame_sha256": archive.tensor_sha256(final),
+        "fit_scheduler_sha256": training_callback.balanced.fingerprint,
+        "fit_batch_zero_selected_row_ids": _batch_zero_rows(fit_scheduler_payload),
+        "coefficient": coefficient,
+        "optimizer": asdict(config),
+        "loss_history": history,
+        "maximizing_targets": maximizing,
+    }
+    health_record_payload = {
+        "frame_id": spec.frame_id,
+        "spec": spec_payload,
+        "frame_sha256": archive.tensor_sha256(final),
+        "validation_scheduler_sha256": health_callback.balanced.fingerprint,
+        "validation_batch_zero_selected_row_ids": _batch_zero_rows(
+            validation_scheduler_payload
+        ),
+        "healthy": not failures,
+        "failures": failures,
+        "initial_validation_objective": initial_validation,
+        "final_validation_objective": final_validation,
+        "initial_window_mean": initial_window,
+        "final_window_mean": final_window,
+        "orthonormality_error": orthonormality,
+        "projector_distance_from_initialization": distance,
+    }
+    fit_record_sha256 = _sha256_json(fit_record_payload)
+    health_record_sha256 = _sha256_json(health_record_payload)
     record = FittedFrameRecord(
         frame_id=spec.frame_id,
-        frame_sha256=stage_a._tensor_sha256(final),
+        frame_sha256=archive.tensor_sha256(final),
         fit_scheduler_sha256=training_callback.balanced.fingerprint,
         validation_scheduler_sha256=health_callback.balanced.fingerprint,
         healthy=not failures,
@@ -1079,6 +1285,15 @@ def fit_one_registered_frame(
         orthonormality_error=orthonormality,
         projector_distance_from_initialization=distance,
         maximizing_target_counts=counts,
+        loss_history_sha256=loss_history_sha256,
+        fit_selected_batches_sha256=fit_selected_batches_sha256,
+        validation_health_batch_sha256=validation_health_batch_sha256,
+        fit_record_sha256=fit_record_sha256,
+        health_record_sha256=health_record_sha256,
+        fit_scheduler_payload=fit_scheduler_payload,
+        validation_scheduler_payload=validation_scheduler_payload,
+        fit_record_payload=fit_record_payload,
+        health_record_payload=health_record_payload,
     )
     combined_scheduler_hash = hashlib.sha256(
         (record.fit_scheduler_sha256 + record.validation_scheduler_sha256).encode()
@@ -1092,6 +1307,95 @@ def fit_one_registered_frame(
     )
     del initial, raw, optimizer
     return final, record
+
+
+def _exclusive_pairs_for_cell(design: dict, cell: str) -> dict[str, TargetPairs]:
+    matches = design["cells"][cell]["exclusive"]
+    if set(matches) != set(QUARTET_TAGS):
+        raise RuntimeError(f"{cell} exclusive-pair census changed")
+    return {
+        target: _pairs_from_match(target, matches[target]) for target in QUARTET_TAGS
+    }
+
+
+def _training_pairs_for_spec(
+    spec: state_guard.FrameSpec,
+    real_fit_pairs: Mapping[str, TargetPairs],
+    null_designs: Mapping[int, LabelNullDesign],
+) -> Mapping[str, TargetPairs]:
+    if spec.family == "label_null":
+        return null_designs[spec.seed].pairs
+    return real_fit_pairs
+
+
+def train_all_registered_frames(
+    instrument: Rung522Instrument,
+    validation_full: SwapEvaluation,
+    null_designs: Mapping[int, LabelNullDesign],
+) -> tuple[dict[str, torch.Tensor], dict[str, FittedFrameRecord]]:
+    """Fit the exact registered 103-frame census before TEST can open."""
+    if instrument.full_fit_d0 is None:
+        raise RuntimeError("whole-attention8 FIT targets must be cached before fitting")
+    real_fit_pairs = {
+        target: _combined_fit_pairs(instrument.design, target) for target in QUARTET_TAGS
+    }
+    validation_pairs = _exclusive_pairs_for_cell(instrument.design, "validation")
+    validation_full_map0 = validation_full.map_responses["D0:forward"][:1]
+    frames: dict[str, torch.Tensor] = {}
+    records: dict[str, FittedFrameRecord] = {}
+    specs = tuple(state_guard.EXPECTED_FRAME_SPECS.values())
+    if len(specs) != EXPECTED_TOTAL_FRAMES:
+        raise RuntimeError("registered frame specification census changed")
+    for index, spec in enumerate(specs):
+        fit_pairs = _training_pairs_for_spec(spec, real_fit_pairs, null_designs)
+        fit_scheduler = _make_balanced_scheduler(
+            spec, fit_pairs, instrument.data["row_masks"]["fit"]
+        )
+        health_scheduler = _make_balanced_scheduler(
+            spec, validation_pairs, instrument.data["row_masks"]["validation"]
+        )
+        training_callback = ProjectedResponseCallback(
+            instrument,
+            spec,
+            split="fit",
+            pairs=fit_pairs,
+            balanced=fit_scheduler,
+            full_by_map=instrument.full_fit_d0,
+            optimization=True,
+        )
+        health_callback = ProjectedResponseCallback(
+            instrument,
+            spec,
+            split="validation",
+            pairs=validation_pairs,
+            balanced=health_scheduler,
+            full_by_map=validation_full_map0,
+            optimization=False,
+            fixed_health_batch=True,
+        )
+        frame, record = fit_one_registered_frame(
+            instrument,
+            spec,
+            instrument.state,
+            training_callback,
+            health_callback,
+        )
+        if record.frame_id in frames:
+            raise RuntimeError("duplicate fitted frame ID")
+        frames[record.frame_id] = frame
+        records[record.frame_id] = record
+        print(
+            f"RUNG522 FRAME {index + 1:03d}/103 {record.frame_id} "
+            f"healthy={record.healthy} frame={record.frame_sha256[:12]}",
+            flush=True,
+        )
+        if instrument.device.type == "cuda" and (index + 1) % 10 == 0:
+            torch.cuda.empty_cache()
+    if set(frames) != set(state_guard.EXPECTED_FRAME_SPECS) or set(records) != set(frames):
+        raise RuntimeError("fitted frame census differs from the registered 103 objects")
+    if instrument.state.frame_count != EXPECTED_TOTAL_FRAMES:
+        raise RuntimeError("protocol state did not freeze all 103 frames")
+    return frames, records
 
 
 def _split_local_indices(
@@ -1152,6 +1456,8 @@ def score_response_cell(
     row_to_local: torch.Tensor,
     *,
     cell_id: str,
+    selectivity_comparison: torch.Tensor | None = None,
+    run_bootstrap: bool = True,
 ) -> dict[str, object]:
     """Compute the frozen A-cell metrics from saved per-token responses."""
     projected_member, projected_control = _pair_effects(projected, pairs, row_to_local)
@@ -1160,10 +1466,25 @@ def score_response_cell(
     selectivity = protocol.selectivity_from_effects(projected_member, projected_control)
     full_selectivity = protocol.selectivity_from_effects(full_member, full_control)
     rows = _row_pair_squares(projected_member, projected_control, pairs)
-    bootstrap = protocol.deterministic_row_bootstrap(rows, cell_id=cell_id)
+    comparison_rows = None
+    if selectivity_comparison is not None and not run_bootstrap:
+        raise ValueError("a selectivity comparison requires the paired bootstrap")
+    if selectivity_comparison is not None:
+        comparison_member, comparison_control = _pair_effects(
+            selectivity_comparison, pairs, row_to_local
+        )
+        comparison_rows = _row_pair_squares(
+            comparison_member, comparison_control, pairs
+        )
+    bootstrap = (
+        protocol.deterministic_row_bootstrap(
+            rows, cell_id=cell_id, comparison=comparison_rows
+        )
+        if run_bootstrap else None
+    )
     exact = pairs.tiers <= 1
     exact_token = None
-    if int(exact.sum()) >= 32:
+    if run_bootstrap and int(exact.sum()) >= 32:
         exact_members = projected_member[exact]
         exact_controls = projected_control[exact]
         exact_pairs = TargetPairs(
@@ -1195,17 +1516,23 @@ def score_response_cell(
         "concentration": selectivity.concentration,
         "bounded_selectivity": selectivity.bounded_selectivity,
         "fourfold_margin": selectivity.fourfold_margin,
-        "fourfold_margin_lower95": bootstrap.fourfold_margin_lower95_higher,
+        "fourfold_margin_lower95": (
+            None if bootstrap is None else bootstrap.fourfold_margin_lower95_higher
+        ),
+        "bounded_selectivity_improvement_lower95": (
+            None if bootstrap is None
+            else bootstrap.bounded_selectivity_improvement_lower95_higher
+        ),
         "full_attention8_concentration": full_selectivity.concentration,
         "concentration_improvement_over_full_attention8": (
             selectivity.concentration - full_selectivity.concentration
         ),
         "pair_count": int(pairs.members.numel()),
         "member_row_clusters": len(rows),
-        "bootstrap_sha256": bootstrap.sha256,
+        "bootstrap_sha256": None if bootstrap is None else bootstrap.sha256,
         "exact_token_tier0_or1": exact_token,
     }
-    result["base_gates_pass"] = bool(
+    result["base_gates_pass"] = bool(run_bootstrap and
         result["signed_cosine"] >= 0.75
         and result["relative_residual"] <= 0.55
         and result["aligned_recovery"] > 0
@@ -1216,6 +1543,453 @@ def score_response_cell(
         and (exact_token is None or exact_token["passes"])
     )
     return result
+
+
+@dataclass(frozen=True)
+class CompactSwapEvaluation:
+    split: str
+    kind: str
+    cell_responses: Mapping[str, torch.Tensor]
+    forward_calls: int
+    minimum_edit_rms: float
+    response_sha256: str
+
+
+def _compact_swap(value: SwapEvaluation) -> CompactSwapEvaluation:
+    return CompactSwapEvaluation(
+        split=value.split,
+        kind=value.kind,
+        cell_responses={
+            name: tensor.detach().cpu().contiguous()
+            for name, tensor in value.cell_responses.items()
+        },
+        forward_calls=value.forward_calls,
+        minimum_edit_rms=value.minimum_edit_rms,
+        response_sha256=value.response_sha256,
+    )
+
+
+def _score_target_cells(
+    evaluation: CompactSwapEvaluation,
+    full_attention8: CompactSwapEvaluation,
+    pairs: TargetPairs,
+    row_to_local: torch.Tensor,
+    *,
+    frame_id: str,
+    comparison: CompactSwapEvaluation | None = None,
+    run_bootstrap: bool,
+) -> dict[str, dict[str, object]]:
+    if set(evaluation.cell_responses) != set(validation_gates.VALIDATION_CELLS):
+        raise RuntimeError("swap evaluation cell census changed")
+    if set(full_attention8.cell_responses) != set(evaluation.cell_responses):
+        raise RuntimeError("whole-attention8 comparator cells changed")
+    if comparison is not None and set(comparison.cell_responses) != set(
+        evaluation.cell_responses
+    ):
+        raise RuntimeError("paired selectivity-control cells changed")
+    return {
+        cell: score_response_cell(
+            response,
+            full_attention8.cell_responses[cell],
+            pairs,
+            row_to_local,
+            cell_id=f"{evaluation.split}:{frame_id}:{pairs.target}:{cell}",
+            selectivity_comparison=(
+                None if comparison is None else comparison.cell_responses[cell]
+            ),
+            run_bootstrap=run_bootstrap,
+        )
+        for cell, response in evaluation.cell_responses.items()
+    }
+
+
+def _joint_statistic_from_cells(cells: Mapping[str, Mapping[str, object]]) -> float:
+    selectivities = [float(cell["bounded_selectivity"]) for cell in cells.values()]
+    recoveries = [float(cell["aligned_recovery"]) for cell in cells.values()]
+    return protocol.bounded_joint_statistic(selectivities, recoveries).product
+
+
+def evaluate_validation_suite(
+    instrument: Rung522Instrument,
+    frames: Mapping[str, torch.Tensor],
+    records: Mapping[str, FittedFrameRecord],
+    validation_full: SwapEvaluation,
+) -> dict[str, object]:
+    """Run and score the complete frozen pre-TEST VALIDATION suite."""
+    full = _compact_swap(validation_full)
+    evaluations: dict[str, CompactSwapEvaluation] = {}
+    a_families = {"real_leave_one_out", "target_oracle", "label_null"}
+    for spec in state_guard.EXPECTED_FRAME_SPECS.values():
+        if spec.family in a_families:
+            evaluations[spec.frame_id] = _compact_swap(instrument.evaluate_swap(
+                "validation", frame=frames[spec.frame_id], inference_bucket="prediction_a"
+            ))
+    for spec in state_guard.EXPECTED_FRAME_SPECS.values():
+        if spec.family == "recovery_only":
+            evaluations[spec.frame_id] = _compact_swap(instrument.evaluate_swap(
+                "validation", frame=frames[spec.frame_id], inference_bucket="recovery_only"
+            ))
+    haar_frames = {
+        seed: core.deterministic_haar_frame(
+            D, RANK, seed, dtype=torch.float32, device=torch.device("cpu")
+        )
+        for seed in HAAR_SEEDS
+    }
+    haar_evaluations = {
+        seed: _compact_swap(instrument.evaluate_swap(
+            "validation", frame=frame, inference_bucket="haar"
+        ))
+        for seed, frame in haar_frames.items()
+    }
+    for spec in state_guard.EXPECTED_FRAME_SPECS.values():
+        if spec.family == "all_three":
+            evaluations[spec.frame_id] = _compact_swap(instrument.evaluate_swap(
+                "validation",
+                frame=frames[spec.frame_id],
+                inference_bucket="all_three_selection_and_test",
+            ))
+
+    pairs = _exclusive_pairs_for_cell(instrument.design, "validation")
+    row_to_local = instrument.row_to_local["validation"]
+    real: dict[str, dict[int, dict[str, object]]] = {target: {} for target in FITTED_TAGS}
+    recovery: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    oracles: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    label_null: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    haar: dict[str, dict[int, dict[str, object]]] = {target: {} for target in FITTED_TAGS}
+    haar_joint: dict[str, list[float]] = {target: [] for target in FITTED_TAGS}
+    label_null_joint: dict[str, list[float]] = {target: [] for target in FITTED_TAGS}
+
+    for omitted in FITTED_TAGS:
+        for seed in REAL_SEEDS:
+            real_id = f"real_leave_one_out:{omitted}:{seed}"
+            recovery_id = f"recovery_only:{omitted}:{seed}"
+            oracle_id = f"target_oracle:{omitted}:{seed}"
+            recovery_cells = _score_target_cells(
+                evaluations[recovery_id], full, pairs[omitted], row_to_local,
+                frame_id=recovery_id, run_bootstrap=False,
+            )
+            real_cells = _score_target_cells(
+                evaluations[real_id], full, pairs[omitted], row_to_local,
+                frame_id=real_id, comparison=evaluations[recovery_id], run_bootstrap=True,
+            )
+            oracle_cells = _score_target_cells(
+                evaluations[oracle_id], full, pairs[omitted], row_to_local,
+                frame_id=oracle_id, run_bootstrap=False,
+            )
+            real[omitted][seed] = {
+                "healthy": records[real_id].healthy,
+                "cells": real_cells,
+                "response_sha256": evaluations[real_id].response_sha256,
+            }
+            recovery[omitted][seed] = {
+                "healthy": records[recovery_id].healthy,
+                "cells": recovery_cells,
+                "response_sha256": evaluations[recovery_id].response_sha256,
+            }
+            oracles[omitted][seed] = {
+                "healthy": records[oracle_id].healthy,
+                "cells": oracle_cells,
+                "response_sha256": evaluations[oracle_id].response_sha256,
+            }
+        for null_seed in NULL_SEEDS:
+            frame_id = f"label_null:{null_seed}:{omitted}"
+            cells = _score_target_cells(
+                evaluations[frame_id], full, pairs[omitted], row_to_local,
+                frame_id=frame_id, run_bootstrap=False,
+            )
+            label_null[omitted][null_seed] = {
+                "healthy": records[frame_id].healthy,
+                "cells": cells,
+                "response_sha256": evaluations[frame_id].response_sha256,
+            }
+            label_null_joint[omitted].append(_joint_statistic_from_cells(cells))
+        for seed in HAAR_SEEDS:
+            frame_id = f"haar:{seed}"
+            cells = _score_target_cells(
+                haar_evaluations[seed], full, pairs[omitted], row_to_local,
+                frame_id=frame_id, run_bootstrap=False,
+            )
+            haar[omitted][seed] = {"healthy": True, "cells": cells}
+            haar_joint[omitted].append(_joint_statistic_from_cells(cells))
+
+    reserved_oracles = {}
+    for seed in REAL_SEEDS:
+        frame_id = f"target_oracle:{REUSE_TAG}:{seed}"
+        reserved_oracles[seed] = {
+            "healthy": records[frame_id].healthy,
+            "cells": _score_target_cells(
+                evaluations[frame_id], full, pairs[REUSE_TAG], row_to_local,
+                frame_id=frame_id, run_bootstrap=False,
+            ),
+            "response_sha256": evaluations[frame_id].response_sha256,
+        }
+
+    all_three = {}
+    for seed in REAL_SEEDS:
+        frame_id = f"all_three:{seed}"
+        all_three[seed] = {
+            "frame_id": frame_id,
+            "healthy": records[frame_id].healthy,
+            "targets": {
+                target: {
+                    "cells": _score_target_cells(
+                        evaluations[frame_id], full, pairs[target], row_to_local,
+                        frame_id=f"{frame_id}:{target}", run_bootstrap=True,
+                    )
+                }
+                for target in FITTED_TAGS
+            },
+            "response_sha256": evaluations[frame_id].response_sha256,
+        }
+
+    return {
+        "real": real,
+        "recovery_only": recovery,
+        "oracles": oracles,
+        "reserved_oracles": reserved_oracles,
+        "label_null": label_null,
+        "label_null_fit_health": {
+            seed: {
+                omitted: records[f"label_null:{seed}:{omitted}"].healthy
+                for omitted in FITTED_TAGS
+            }
+            for seed in NULL_SEEDS
+        },
+        "haar": haar,
+        "haar_joint": haar_joint,
+        "label_null_joint": label_null_joint,
+        "all_three": all_three,
+        "real_frames": {
+            seed: {
+                omitted: frames[f"real_leave_one_out:{omitted}:{seed}"]
+                for omitted in FITTED_TAGS
+            }
+            for seed in REAL_SEEDS
+        },
+        "label_null_frames": {
+            seed: {
+                omitted: frames[f"label_null:{seed}:{omitted}"]
+                for omitted in FITTED_TAGS
+            }
+            for seed in NULL_SEEDS
+        },
+        "haar_hashes": {
+            seed: archive.tensor_sha256(frame) for seed, frame in haar_frames.items()
+        },
+        "full_attention8_response_sha256": validation_full.response_sha256,
+    }
+
+
+def evaluate_test_suite(
+    instrument: Rung522Instrument,
+    frames: Mapping[str, torch.Tensor],
+    records: Mapping[str, FittedFrameRecord],
+    selected_all_three_frame_id: str,
+) -> dict[str, object]:
+    """Execute the one-way TEST model sweep; no selection occurs here."""
+    if not instrument.state.test_open:
+        raise RuntimeError("TEST suite requires an already-open one-way protocol state")
+    test_full_raw = instrument.evaluate_swap(
+        "test", frame=None, inference_bucket="full_attention8_comparator"
+    )
+    full = _compact_swap(test_full_raw)
+    evaluations: dict[str, CompactSwapEvaluation] = {}
+    a_families = {"real_leave_one_out", "target_oracle", "label_null"}
+    for spec in state_guard.EXPECTED_FRAME_SPECS.values():
+        if spec.family in a_families:
+            evaluations[spec.frame_id] = _compact_swap(instrument.evaluate_swap(
+                "test", frame=frames[spec.frame_id], inference_bucket="prediction_a"
+            ))
+    for spec in state_guard.EXPECTED_FRAME_SPECS.values():
+        if spec.family == "recovery_only":
+            evaluations[spec.frame_id] = _compact_swap(instrument.evaluate_swap(
+                "test", frame=frames[spec.frame_id], inference_bucket="recovery_only"
+            ))
+    haar_frames = {
+        seed: core.deterministic_haar_frame(
+            D, RANK, seed, dtype=torch.float32, device=torch.device("cpu")
+        )
+        for seed in HAAR_SEEDS
+    }
+    haar_evaluations = {
+        seed: _compact_swap(instrument.evaluate_swap(
+            "test", frame=frame, inference_bucket="haar"
+        ))
+        for seed, frame in haar_frames.items()
+    }
+    selected = _compact_swap(instrument.evaluate_swap(
+        "test",
+        frame=frames[selected_all_three_frame_id],
+        inference_bucket="all_three_selection_and_test",
+    ))
+
+    pairs = _exclusive_pairs_for_cell(instrument.design, "test")
+    row_to_local = instrument.row_to_local["test"]
+    real: dict[str, dict[int, dict[str, object]]] = {target: {} for target in FITTED_TAGS}
+    recovery: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    oracles: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    label_null: dict[str, dict[int, dict[str, object]]] = {
+        target: {} for target in FITTED_TAGS
+    }
+    haar: dict[str, dict[int, dict[str, object]]] = {target: {} for target in FITTED_TAGS}
+    haar_joint: dict[str, list[float]] = {target: [] for target in FITTED_TAGS}
+    label_null_joint: dict[str, list[float]] = {target: [] for target in FITTED_TAGS}
+    for omitted in FITTED_TAGS:
+        for seed in REAL_SEEDS:
+            real_id = f"real_leave_one_out:{omitted}:{seed}"
+            recovery_id = f"recovery_only:{omitted}:{seed}"
+            oracle_id = f"target_oracle:{omitted}:{seed}"
+            recovery_cells = _score_target_cells(
+                evaluations[recovery_id], full, pairs[omitted], row_to_local,
+                frame_id=recovery_id, run_bootstrap=False,
+            )
+            real_cells = _score_target_cells(
+                evaluations[real_id], full, pairs[omitted], row_to_local,
+                frame_id=real_id, comparison=evaluations[recovery_id], run_bootstrap=True,
+            )
+            oracle_cells = _score_target_cells(
+                evaluations[oracle_id], full, pairs[omitted], row_to_local,
+                frame_id=oracle_id, run_bootstrap=False,
+            )
+            real[omitted][seed] = {
+                "healthy": records[real_id].healthy, "cells": real_cells,
+                "response_sha256": evaluations[real_id].response_sha256,
+            }
+            recovery[omitted][seed] = {
+                "healthy": records[recovery_id].healthy, "cells": recovery_cells,
+                "response_sha256": evaluations[recovery_id].response_sha256,
+            }
+            oracles[omitted][seed] = {
+                "healthy": records[oracle_id].healthy, "cells": oracle_cells,
+                "response_sha256": evaluations[oracle_id].response_sha256,
+            }
+        for null_seed in NULL_SEEDS:
+            frame_id = f"label_null:{null_seed}:{omitted}"
+            cells = _score_target_cells(
+                evaluations[frame_id], full, pairs[omitted], row_to_local,
+                frame_id=frame_id, run_bootstrap=False,
+            )
+            label_null[omitted][null_seed] = {
+                "healthy": records[frame_id].healthy, "cells": cells,
+                "response_sha256": evaluations[frame_id].response_sha256,
+            }
+            label_null_joint[omitted].append(_joint_statistic_from_cells(cells))
+        for seed in HAAR_SEEDS:
+            cells = _score_target_cells(
+                haar_evaluations[seed], full, pairs[omitted], row_to_local,
+                frame_id=f"haar:{seed}", run_bootstrap=False,
+            )
+            haar[omitted][seed] = {"healthy": True, "cells": cells}
+            haar_joint[omitted].append(_joint_statistic_from_cells(cells))
+
+    reserved_oracles = {}
+    for seed in REAL_SEEDS:
+        frame_id = f"target_oracle:{REUSE_TAG}:{seed}"
+        reserved_oracles[seed] = {
+            "healthy": records[frame_id].healthy,
+            "cells": _score_target_cells(
+                evaluations[frame_id], full, pairs[REUSE_TAG], row_to_local,
+                frame_id=frame_id, run_bootstrap=False,
+            ),
+            "response_sha256": evaluations[frame_id].response_sha256,
+        }
+    selected_reuse_cells = _score_target_cells(
+        selected, full, pairs[REUSE_TAG], row_to_local,
+        frame_id=f"{selected_all_three_frame_id}:reserved-reuse", run_bootstrap=True,
+    )
+    return {
+        "real": real,
+        "recovery_only": recovery,
+        "oracles": oracles,
+        "reserved_oracles": reserved_oracles,
+        "label_null": label_null,
+        "haar": haar,
+        "haar_joint": haar_joint,
+        "label_null_joint": label_null_joint,
+        "selected_all_three": {
+            "frame_id": selected_all_three_frame_id,
+            "healthy": records[selected_all_three_frame_id].healthy,
+            "reuse_cells": selected_reuse_cells,
+            "evaluation": selected,
+        },
+        "full_attention8_response_sha256": test_full_raw.response_sha256,
+    }
+
+
+def _prefixed_cells(
+    validation_cells: Mapping[str, Mapping[str, object]],
+    test_cells: Mapping[str, Mapping[str, object]],
+) -> dict[str, Mapping[str, object]]:
+    if set(validation_cells) != set(validation_gates.VALIDATION_CELLS) or set(
+        test_cells
+    ) != set(validation_gates.VALIDATION_CELLS):
+        raise RuntimeError("cannot combine incomplete VALIDATION/TEST cells")
+    return {
+        **{f"validation:{name}": value for name, value in validation_cells.items()},
+        **{f"test:{name}": value for name, value in test_cells.items()},
+    }
+
+
+def combined_final_ab_inputs(
+    validation: Mapping[str, object], test: Mapping[str, object]
+) -> dict[str, object]:
+    """Join saved half metrics into the exact eight-cell final A/B input."""
+    combined: dict[str, object] = {}
+    for family in ("real", "recovery_only", "oracles"):
+        by_fold = {}
+        for fold in FITTED_TAGS:
+            by_seed = {}
+            for seed in REAL_SEEDS:
+                left = validation[family][fold][seed]
+                right = test[family][fold][seed]
+                if left["healthy"] is not right["healthy"]:
+                    raise RuntimeError(f"{family}/{fold}/{seed} health changed across halves")
+                by_seed[seed] = {
+                    "healthy": left["healthy"],
+                    "cells": _prefixed_cells(left["cells"], right["cells"]),
+                }
+            by_fold[fold] = by_seed
+        combined[family] = by_fold
+    reserved = {}
+    for seed in REAL_SEEDS:
+        left = validation["reserved_oracles"][seed]
+        right = test["reserved_oracles"][seed]
+        reserved[seed] = {
+            "healthy": left["healthy"],
+            "cells": _prefixed_cells(left["cells"], right["cells"]),
+        }
+    combined["reserved_oracles"] = reserved
+
+    haar_joint = {fold: [] for fold in FITTED_TAGS}
+    label_null_joint = {fold: [] for fold in FITTED_TAGS}
+    for fold in FITTED_TAGS:
+        for seed in HAAR_SEEDS:
+            cells = _prefixed_cells(
+                validation["haar"][fold][seed]["cells"],
+                test["haar"][fold][seed]["cells"],
+            )
+            haar_joint[fold].append(_joint_statistic_from_cells(cells))
+        for seed in NULL_SEEDS:
+            cells = _prefixed_cells(
+                validation["label_null"][fold][seed]["cells"],
+                test["label_null"][fold][seed]["cells"],
+            )
+            label_null_joint[fold].append(_joint_statistic_from_cells(cells))
+    combined["haar_joint"] = haar_joint
+    combined["label_null_joint"] = label_null_joint
+    combined["real_frames"] = validation["real_frames"]
+    combined["label_null_frames"] = validation["label_null_frames"]
+    return combined
 
 
 def fingerprint_pairs(design: dict, cell: str) -> dict[str, TargetPairs]:
@@ -1296,6 +2070,83 @@ def outside_union_damage(
     }
 
 
+def _pairs_member_anchored_in_fold(
+    pairs: Mapping[str, TargetPairs],
+    folds: torch.Tensor,
+    fold: int,
+) -> dict[str, TargetPairs]:
+    result = {}
+    for target, value in pairs.items():
+        selected = folds[value.members // TOKENS] == fold
+        if not bool(selected.any()):
+            raise RuntimeError(f"{target} has no member-anchored pairs in fold {fold}")
+        result[target] = TargetPairs(
+            target,
+            value.members[selected].contiguous(),
+            value.controls[selected].contiguous(),
+            value.tiers[selected].contiguous(),
+        )
+    return result
+
+
+def score_removal_fold_without_null(
+    removal: RemovalEvaluation,
+    selected_swap: CompactSwapEvaluation,
+    pairs: Mapping[str, TargetPairs],
+    row_to_local: torch.Tensor,
+    *,
+    fold: int,
+) -> dict[str, object]:
+    """Score the deterministic D clauses before the common-response null."""
+    coordinates = fingerprint_coordinates(removal.response, pairs, row_to_local)
+    separation = quartet_separation(coordinates)
+    nonquartet_member = torch.tensor([
+        float(coordinates[target]["member_rms"])
+        for target in stage_a.FINGERPRINT_TAGS
+        if target not in QUARTET_TAGS
+    ], dtype=torch.float64)
+    median_nonquartet = float(nonquartet_member.median())
+    magnitude_ratios = {
+        target: float(coordinates[target]["member_rms"]) / max(median_nonquartet, 1e-30)
+        for target in QUARTET_TAGS
+    }
+    sign_checks = {}
+    for target in QUARTET_TAGS:
+        removal_sign = float(coordinates[target]["signed_mean_member_minus_control"])
+        target_checks = {}
+        for cell, response in selected_swap.cell_responses.items():
+            member, control = _pair_effects(response, pairs[target], row_to_local)
+            swap_sign = float(member.mean() - control.mean())
+            same_nonzero_sign = removal_sign != 0 and swap_sign != 0 and (
+                math.copysign(1.0, removal_sign) == math.copysign(1.0, swap_sign)
+            )
+            target_checks[cell] = {
+                "removal_signed_mean_member_minus_control": removal_sign,
+                "swap_signed_mean_member_minus_control": swap_sign,
+                "same_nonzero_sign": same_nonzero_sign,
+            }
+        sign_checks[target] = target_checks
+    deterministic_pass = bool(
+        all(float(coordinates[target]["coordinate"]) > 0 for target in QUARTET_TAGS)
+        and separation["separation"] > 0
+        and all(value >= 2 for value in magnitude_ratios.values())
+        and all(
+            cell["same_nonzero_sign"]
+            for target in sign_checks.values()
+            for cell in target.values()
+        )
+    )
+    return {
+        "fold": fold,
+        "coordinates": coordinates,
+        "quartet_separation": separation,
+        "median_nonquartet_member_rms": median_nonquartet,
+        "quartet_to_median_nonquartet_member_rms": magnitude_ratios,
+        "sign_checks": sign_checks,
+        "deterministic_clauses_pass": deterministic_pass,
+    }
+
+
 def fingerprint_null_distribution(
     response: torch.Tensor,
     pairs_by_target: Mapping[str, TargetPairs],
@@ -1305,6 +2156,7 @@ def fingerprint_null_distribution(
     *,
     cell_id: str,
     replicates: int = 20_000,
+    fold_ids: torch.Tensor | None = None,
 ) -> dict[str, object]:
     """Common-response coarse-stratum null for the 32-circuit max statistic."""
     if not isinstance(replicates, int) or not 1 <= replicates <= 20_000:
@@ -1318,46 +2170,32 @@ def fingerprint_null_distribution(
     row_to_local = torch.full((1000,), -1, dtype=torch.int64)
     row_to_local[rows] = torch.arange(rows.numel())
     local_pairs = {
-        target: (
+        target: sparse_null.IndexPairs.from_sequences(
             _split_local_indices(pairs.members, row_to_local),
             _split_local_indices(pairs.controls, row_to_local),
         )
         for target, pairs in pairs_by_target.items()
     }
-    flat = response.reshape(-1).double()
-    samples = torch.empty(replicates, dtype=torch.float64)
-    permutation_hashes = []
-    for replicate in range(replicates):
-        permutation = protocol.stratified_affine_permutation(
-            global_positions,
-            token_classes=descriptors["token_class"][global_positions],
-            position_bins=descriptors["position_bin"][global_positions],
-            ce_deciles=descriptors["ce_decile"][global_positions],
-            cell_id=cell_id,
-            replicate=replicate,
-        )
-        donor_indices = torch.tensor(permutation.donor_indices, dtype=torch.int64)
-        shuffled = flat[donor_indices]
-        coordinates = {}
-        for target in stage_a.FINGERPRINT_TAGS:
-            member_indices, control_indices = local_pairs[target]
-            coordinates[target] = float(
-                shuffled[member_indices].square().mean().sqrt()
-                - shuffled[control_indices].square().mean().sqrt()
-            )
-        samples[replicate] = min(coordinates[target] for target in QUARTET_TAGS) - max(
-            coordinates[target]
-            for target in stage_a.FINGERPRINT_TAGS
-            if target not in QUARTET_TAGS
-        )
-        permutation_hashes.append(permutation.sha256)
+    local_folds = None
+    if fold_ids is not None:
+        if fold_ids.device.type != "cpu" or tuple(fold_ids.shape) != (1000,):
+            raise ValueError("fold_ids must be the frozen 1000-row CPU fold vector")
+        local_folds = fold_ids[global_positions // TOKENS]
+    null = sparse_null.evaluate_sparse_affine_fingerprint_null(
+        response,
+        global_positions,
+        token_classes=descriptors["token_class"][global_positions],
+        position_bins=descriptors["position_bin"][global_positions],
+        ce_deciles=descriptors["ce_decile"][global_positions],
+        fold_ids=local_folds,
+        circuit_pairs=local_pairs,
+        quartet_tags=QUARTET_TAGS,
+        cell_id=cell_id,
+        replicates=replicates,
+    )
     observed_coordinates = fingerprint_coordinates(response, pairs_by_target, row_to_local)
     observed = quartet_separation(observed_coordinates)["separation"]
-    q95 = protocol.higher_quantile(samples, 0.95)
-    digest = hashlib.sha256()
-    digest.update(samples.contiguous().numpy().tobytes())
-    for value in permutation_hashes:
-        digest.update(value.encode())
+    q95 = null.null_q95_higher
     return {
         "cell_id": cell_id,
         "replicates": replicates,
@@ -1366,9 +2204,239 @@ def fingerprint_null_distribution(
         "observed_positive": observed > 0,
         "observed_strictly_above_q95": observed > q95,
         "passes": bool(observed > 0 and observed > q95),
-        "null_samples_sha256": digest.hexdigest(),
-        "first_permutation_sha256": permutation_hashes[0],
-        "last_permutation_sha256": permutation_hashes[-1],
+        "queried_position_count": null.queried_position_count,
+        "full_position_count": null.full_position_count,
+        "maximum_materialized_sparse_map_elements": (
+            null.maximum_materialized_sparse_map_elements
+        ),
+        "algorithm_definition_sha256": null.algorithm_definition_sha256,
+        "null_samples_sha256": null.statistic_vector_sha256,
+        "algorithm_and_samples_sha256": null.algorithm_and_statistic_sha256,
+        "first_permutation_sha256": null.first_full_map_sha256,
+        "last_permutation_sha256": null.last_full_map_sha256,
+    }
+
+
+def score_prediction_c(
+    test_suite: Mapping[str, object],
+    instrument: Rung522Instrument,
+    descriptors: Mapping[str, torch.Tensor],
+    selected_seed: int,
+) -> dict[str, object]:
+    selected_info = test_suite["selected_all_three"]
+    if not isinstance(selected_info, Mapping):
+        raise RuntimeError("selected all-three TEST record is malformed")
+    selected = selected_info["evaluation"]
+    if not isinstance(selected, CompactSwapEvaluation):
+        raise RuntimeError("selected all-three TEST evaluation is absent")
+    reuse_cells = selected_info["reuse_cells"]
+    reserved_oracles = test_suite["reserved_oracles"]
+    if not isinstance(reuse_cells, Mapping) or not isinstance(reserved_oracles, Mapping):
+        raise RuntimeError("reserved reuse/oracle TEST metrics are malformed")
+    oracle_cells = reserved_oracles[selected_seed]["cells"]
+    reuse_cell_gates = {}
+    for cell in validation_gates.VALIDATION_CELLS:
+        metric = reuse_cells[cell]
+        oracle = oracle_cells[cell]
+        oracle_live = bool(
+            float(oracle["member_rms"]) >= 0.02
+            and float(oracle["aligned_recovery"]) >= 0.05
+        )
+        half_oracle = float(metric["aligned_recovery"]) >= 0.5 * float(
+            oracle["aligned_recovery"]
+        )
+        reuse_cell_gates[cell] = {
+            "metrics": metric,
+            "same_seed_oracle_member_rms": oracle["member_rms"],
+            "same_seed_oracle_aligned_recovery": oracle["aligned_recovery"],
+            "oracle_live": oracle_live,
+            "at_least_half_oracle_recovery": half_oracle,
+            "passes": bool(metric["base_gates_pass"] and oracle_live and half_oracle),
+        }
+
+    fingerprint = fingerprint_pairs(instrument.design, "test")
+    exclusive = _exclusive_pairs_for_cell(instrument.design, "test")
+    row_to_local = instrument.row_to_local["test"]
+    cell_results = {}
+    for cell, response in selected.cell_responses.items():
+        coordinates = fingerprint_coordinates(response, fingerprint, row_to_local)
+        separation = quartet_separation(coordinates)
+        null = fingerprint_null_distribution(
+            response,
+            fingerprint,
+            instrument.data,
+            descriptors,
+            "test",
+            cell_id=f"test:selected-all-three:{selected_seed}:{cell}",
+        )
+        damage = outside_union_damage(
+            response, instrument.data, "test", exclusive, row_to_local
+        )
+        cell_results[cell] = {
+            "coordinates": coordinates,
+            "quartet_separation": separation,
+            "fingerprint_null": null,
+            "outside_union_damage": damage,
+            "passes": bool(null["passes"] and damage["passes_at_most_25_percent"]),
+        }
+    return {
+        "selected_seed": selected_seed,
+        "reuse_cell_gates": reuse_cell_gates,
+        "fingerprint_cells": cell_results,
+        "passes": bool(
+            all(value["passes"] for value in reuse_cell_gates.values())
+            and all(value["passes"] for value in cell_results.values())
+        ),
+    }
+
+
+def score_prediction_d(
+    removal: RemovalEvaluation,
+    test_suite: Mapping[str, object],
+    instrument: Rung522Instrument,
+    descriptors: Mapping[str, torch.Tensor],
+) -> dict[str, object]:
+    selected_info = test_suite["selected_all_three"]
+    selected = selected_info["evaluation"]
+    if not isinstance(selected, CompactSwapEvaluation):
+        raise RuntimeError("selected swap evaluation is absent for removal scoring")
+    all_pairs = fingerprint_pairs(instrument.design, "test")
+    results = {}
+    for fold in (8, 9):
+        pairs = _pairs_member_anchored_in_fold(all_pairs, instrument.data["folds"], fold)
+        deterministic = score_removal_fold_without_null(
+            removal,
+            selected,
+            pairs,
+            instrument.row_to_local["test"],
+            fold=fold,
+        )
+        null = fingerprint_null_distribution(
+            removal.response,
+            pairs,
+            instrument.data,
+            descriptors,
+            "test",
+            cell_id=f"removal:fold{fold}",
+            fold_ids=instrument.data["folds"],
+        )
+        pair_counts = {
+            target: {
+                "count": int(value.members.numel()),
+                "members_sha256": stage_a._tensor_sha256(value.members),
+                "controls_sha256": stage_a._tensor_sha256(value.controls),
+                "cross_fold_pair_count": int((
+                    instrument.data["folds"][value.members // TOKENS]
+                    != instrument.data["folds"][value.controls // TOKENS]
+                ).sum()),
+            }
+            for target, value in pairs.items()
+        }
+        results[f"fold{fold}"] = {
+            **deterministic,
+            "fingerprint_null": null,
+            "pair_census": pair_counts,
+            "passes": bool(deterministic["deterministic_clauses_pass"] and null["passes"]),
+        }
+    return {
+        "folds": results,
+        "passes": all(value["passes"] for value in results.values()),
+    }
+
+
+FINGERPRINT_DEFINITION = {
+    "namespace": "rung522-32-circuit-fingerprint-v1",
+    "circuits": list(stage_a.FINGERPRINT_TAGS),
+    "quartet": list(QUARTET_TAGS),
+    "coordinate": "rms_member_delta_ce_minus_rms_matched_control_delta_ce",
+    "separation": "minimum_quartet_coordinate_minus_maximum_nonquartet_coordinate",
+    "null": "common_affine_response_permutation_within_frozen_coarse_strata",
+    "replicates": 20_000,
+}
+
+TEST_SWEEP_PLAN = {
+    "namespace": "rung522-one-way-test-sweep-v1",
+    "order": [
+        "native_test_capture_independent_replay_and_self_donor",
+        "whole_attention8_comparator",
+        "83_prediction_a_frames",
+        "15_recovery_only_frames",
+        "20_haar_frames",
+        "one_validation_selected_all_three_frame",
+        "score_final_a_b_and_prediction_c_from_saved_outputs",
+        "conditional_complete_mean_centered_removal_if_a_b_c_pass",
+        "close_test_forever",
+    ],
+    "post_test_fitting_allowed": False,
+    "selection_after_test_allowed": False,
+    "test_rows_per_model_call": EVALUATION_ROWS,
+}
+
+
+def _frame_artifacts(
+    frames: Mapping[str, torch.Tensor],
+    records: Mapping[str, FittedFrameRecord],
+) -> tuple[archive.FrameArtifact, ...]:
+    if set(frames) != set(state_guard.EXPECTED_FRAME_SPECS) or set(records) != set(frames):
+        raise RuntimeError("cannot archive an incomplete frame/record census")
+    artifacts = []
+    for frame_id in sorted(frames):
+        record = records[frame_id]
+        spec = state_guard.EXPECTED_FRAME_SPECS[frame_id]
+        if record.frame_id != frame_id:
+            raise RuntimeError("frame record identifier differs from its archive key")
+        artifacts.append(archive.FrameArtifact(
+            spec=spec,
+            frame=frames[frame_id],
+            tensor_sha256=record.frame_sha256,
+            fit_scheduler_payload=record.fit_scheduler_payload,
+            validation_scheduler_payload=record.validation_scheduler_payload,
+            fit_record_payload=record.fit_record_payload,
+            health_record_payload=record.health_record_payload,
+        ))
+    return tuple(artifacts)
+
+
+def _public_suite(value: Mapping[str, object]) -> dict[str, object]:
+    """Drop only duplicate tensor objects; retain every scalar decision input/hash."""
+    result = {
+        key: item for key, item in value.items()
+        if key not in {"real_frames", "label_null_frames"}
+    }
+    selected = result.get("selected_all_three")
+    if isinstance(selected, Mapping):
+        result["selected_all_three"] = {
+            key: item for key, item in selected.items() if key != "evaluation"
+        }
+    return result
+
+
+def _archive_ledger(ledger: CallLedger) -> archive.CallLedgerSnapshot:
+    return archive.CallLedgerSnapshot(
+        optimization_forward_events=ledger.optimization_forwards,
+        optimization_backward_events=ledger.optimization_backwards,
+        inference_forward_events=ledger.inference_forwards,
+        inference_by_bucket=dict(ledger.inference_by_bucket),
+        removal_inference_forward_events=ledger.removal_forwards,
+    )
+
+
+def _null_design_receipts(
+    null_designs: Mapping[int, LabelNullDesign],
+) -> dict[int, dict[str, object]]:
+    return {
+        seed: {
+            "permutation_sha256": design.permutation_sha256,
+            "identity_sha256": design.identity_sha256,
+            "moved_nonzero_count": design.moved_nonzero_count,
+            "maximum_possible_moved_nonzero_count": (
+                design.maximum_possible_moved_nonzero_count
+            ),
+            "pair_identities": {
+                target: design.pairs[target].identity() for target in QUARTET_TAGS
+            },
+        }
+        for seed, design in sorted(null_designs.items())
     }
 
 
@@ -1379,13 +2447,245 @@ def main(argv: list[str] | None = None) -> dict[str, object]:
     args = parser.parse_args(argv)
     if os.environ.get("BQLIB_NO_MODEL") == "1":
         raise RuntimeError("BQLIB_NO_MODEL forbids rung522 scientific execution")
-    # The implementation is intentionally fail-closed until the training,
-    # pretest-freeze, evaluation, and scoring stages below are complete and
-    # independently tested.  This explicit stop prevents a partial runner from
-    # reaching the model merely because it parses and passes the static gate.
-    raise RuntimeError(
-        "RUNG522 SCIENCE CLOSED: full 103-frame training and TEST-seal stages are under implementation"
+    if args.output.exists():
+        raise FileExistsError(f"refusing to overwrite scientific result: {args.output}")
+    if args.work_directory.exists():
+        raise FileExistsError(
+            f"refusing to reuse scientific work directory: {args.work_directory}"
+        )
+    args.work_directory.mkdir(parents=True, exist_ok=False)
+    started = time.time()
+
+    data, design, preflight = stage_a.preflight()
+    descriptors = design["descriptors"]
+    null_designs = build_label_null_designs(data, descriptors)
+    null_receipts = _null_design_receipts(null_designs)
+    model, checkpoint = facade.load_bilin18(device="cuda", dtype=torch.float32)
+    ledger = CallLedger()
+    protocol_state = state_guard.ProtocolState()
+    instrument = Rung522Instrument(model, data, design, ledger, protocol_state)
+
+    capture_pretest = instrument.capture_pretest_splits()
+    fit_full = instrument.precompute_full_fit_d0()
+    validation_full = instrument.evaluate_swap(
+        "validation", frame=None, inference_bucket="full_attention8_comparator"
     )
+    frames, records = train_all_registered_frames(
+        instrument, validation_full, null_designs
+    )
+
+    frame_archive_path = args.work_directory / "frames_pretest.pt"
+    loaded_archive = archive.write_frame_archive(
+        frame_archive_path, _frame_artifacts(frames, records)
+    )
+    validation_suite = evaluate_validation_suite(
+        instrument, frames, records, validation_full
+    )
+    provisional = validation_gates.evaluate_provisional_validation_gates(
+        real=validation_suite["real"],
+        recovery_only=validation_suite["recovery_only"],
+        oracles=validation_suite["oracles"],
+        haar_joint=validation_suite["haar_joint"],
+        label_null_joint=validation_suite["label_null_joint"],
+        real_frames=validation_suite["real_frames"],
+        label_null_frames=validation_suite["label_null_frames"],
+        label_null_fit_health=validation_suite["label_null_fit_health"],
+        reserved_oracles=validation_suite["reserved_oracles"],
+        all_three=validation_suite["all_three"],
+    )
+    ledger.assert_pretest_registered_price()
+    public_validation = _public_suite(validation_suite)
+    common_result: dict[str, object] = {
+        "schema_version": 1,
+        "rung": 522,
+        "claim_level": (
+            "held-out task-conditioned attention8 subspace extraction and selective manipulation"
+        ),
+        "registered_predictions": REGISTERED_PREDICTIONS,
+        "checkpoint": checkpoint.__dict__,
+        "dependency_sha256": _PREIMPORT_HASHES,
+        "stage_a_preflight": preflight,
+        "capture_pretest": capture_pretest,
+        "fit_full_attention8": fit_full,
+        "label_null_designs": null_receipts,
+        "frame_archive": {
+            "path": str(loaded_archive.path.resolve()),
+            "file_sha256": loaded_archive.file_sha256,
+            "content_sha256": loaded_archive.content_sha256,
+            "frame_count": len(loaded_archive.frames),
+        },
+        "frame_health": {
+            frame_id: {
+                "healthy": record.healthy,
+                "failures": list(record.health_failures),
+                "frame_sha256": record.frame_sha256,
+                "fit_record_sha256": record.fit_record_sha256,
+                "health_record_sha256": record.health_record_sha256,
+            }
+            for frame_id, record in sorted(records.items())
+        },
+        "validation_outputs": public_validation,
+        "provisional_validation_decision": asdict(provisional),
+        "pretest_call_ledger": ledger.snapshot(),
+    }
+
+    if not provisional.pretest_passes:
+        result = {
+            **common_result,
+            "status": "terminal_pretest_validation_failure",
+            "test_opened": False,
+            "test_closed": False,
+            "pretest_manifest_created": False,
+            "predictions": {
+                "a": provisional.prediction_a_passes,
+                "b": provisional.prediction_b_passes,
+                "c": None,
+                "d": None,
+            },
+            "execution_price": {
+                **ledger.snapshot(),
+                "runtime_seconds": time.time() - started,
+            },
+        }
+        _atomic_json(args.output, result)
+        print(json.dumps({
+            "status": result["status"],
+            "output": str(args.output),
+            "test_opened": False,
+            "prediction_a": provisional.prediction_a_passes,
+            "prediction_b": provisional.prediction_b_passes,
+        }, indent=2), flush=True)
+        del model
+        torch.cuda.empty_cache()
+        return result
+
+    eligible = provisional.eligible_all_three_frame_ids
+    preliminary_selected, _ = archive.geometry_only_grassmann_medoid(
+        loaded_archive, eligible
+    )
+    fit_mu_q = instrument.fit_projection_mean(frames[preliminary_selected])
+    archived_pretest_ledger = _archive_ledger(ledger)
+    validation_evidence_path = args.work_directory / "validation_evidence.json"
+    _atomic_json(validation_evidence_path, {
+        "schema": archive.VALIDATION_EVIDENCE_SCHEMA,
+        "validation_outputs": public_validation,
+        "provisional_validation_decision": asdict(provisional),
+        "call_ledger": asdict(archived_pretest_ledger),
+    })
+    pretest_manifest_path = args.work_directory / "pretest_manifest.json"
+    manifest = archive.write_pretest_manifest(
+        pretest_manifest_path,
+        archive_path=frame_archive_path,
+        null_hashes={seed: value.identity_sha256 for seed, value in null_designs.items()},
+        validation_decisions=provisional,
+        validation_provisional_gates_passed=provisional.pretest_passes,
+        validation_evidence_path=validation_evidence_path,
+        haar_hashes=validation_suite["haar_hashes"],
+        eligible_all_three_frame_ids=eligible,
+        fit_mu_q=fit_mu_q,
+        fit_mu_q_source_split="FIT",
+        call_ledger=archived_pretest_ledger,
+        fingerprint_definition_sha256=_sha256_json(FINGERPRINT_DEFINITION),
+        test_sweep_plan_sha256=_sha256_json(TEST_SWEEP_PLAN),
+    )
+    if manifest.selected_all_three_frame_id != preliminary_selected:
+        raise RuntimeError("manifest medoid differs from the precomputed geometry-only medoid")
+
+    instrument.state = manifest.protocol_state
+    instrument.state.open_test_once()
+    capture_test = instrument.capture_test_after_open()
+    test_suite = evaluate_test_suite(
+        instrument, frames, records, manifest.selected_all_three_frame_id
+    )
+    combined = combined_final_ab_inputs(validation_suite, test_suite)
+    final_ab = validation_gates.evaluate_final_validation_test_gates(
+        real=combined["real"],
+        recovery_only=combined["recovery_only"],
+        oracles=combined["oracles"],
+        reserved_oracles=combined["reserved_oracles"],
+        haar_joint=combined["haar_joint"],
+        label_null_joint=combined["label_null_joint"],
+        real_frames=combined["real_frames"],
+        label_null_frames=combined["label_null_frames"],
+    )
+    prediction_c = score_prediction_c(
+        test_suite, instrument, descriptors, manifest.selected_all_three_seed
+    )
+    removal = None
+    prediction_d = None
+    abc_pass = bool(
+        final_ab.prediction_a_passes
+        and final_ab.prediction_b_passes
+        and prediction_c["passes"]
+    )
+    if abc_pass:
+        removal = instrument.evaluate_removal(
+            frames[manifest.selected_all_three_frame_id], fit_mu_q
+        )
+        prediction_d = score_prediction_d(
+            removal, test_suite, instrument, descriptors
+        )
+    instrument.state.close_test()
+    ledger.assert_final_registered_price(
+        expected_removal_forwards=36 if removal is not None else 0
+    )
+
+    if not final_ab.prediction_a_passes or not final_ab.prediction_b_passes:
+        status = "terminal_test_a_or_b_failure"
+    elif not prediction_c["passes"]:
+        status = "terminal_prediction_c_failure"
+    elif prediction_d is not None and prediction_d["passes"]:
+        status = "adoption_evidence_a_through_d_passed"
+    else:
+        status = "terminal_prediction_d_failure"
+    result = {
+        **common_result,
+        "status": status,
+        "test_opened": True,
+        "test_closed": True,
+        "pretest_manifest_created": True,
+        "pretest_manifest": {
+            "path": str(manifest.path.resolve()),
+            "file_sha256": manifest.file_sha256,
+            "selected_all_three_frame_id": manifest.selected_all_three_frame_id,
+            "selected_all_three_seed": manifest.selected_all_three_seed,
+        },
+        "capture_test": capture_test,
+        "test_outputs": _public_suite(test_suite),
+        "final_validation_test_decision": asdict(final_ab),
+        "prediction_c": prediction_c,
+        "prediction_d": prediction_d,
+        "removal": None if removal is None else {
+            "forward_calls": removal.forward_calls,
+            "minimum_edit_rms": removal.minimum_edit_rms,
+            "response_sha256": removal.response_sha256,
+        },
+        "predictions": {
+            "a": final_ab.prediction_a_passes,
+            "b": final_ab.prediction_b_passes,
+            "c": bool(prediction_c["passes"]),
+            "d": None if prediction_d is None else bool(prediction_d["passes"]),
+        },
+        "execution_price": {
+            **ledger.snapshot(),
+            "runtime_seconds": time.time() - started,
+        },
+    }
+    _atomic_json(args.output, result)
+    print(json.dumps({
+        "status": status,
+        "output": str(args.output),
+        "selected_frame": manifest.selected_all_three_frame_id,
+        "prediction_a": result["predictions"]["a"],
+        "prediction_b": result["predictions"]["b"],
+        "prediction_c": result["predictions"]["c"],
+        "prediction_d": result["predictions"]["d"],
+        "inference_forwards": ledger.inference_forwards,
+        "removal_forwards": ledger.removal_forwards,
+    }, indent=2), flush=True)
+    del model
+    torch.cuda.empty_cache()
+    return result
 
 
 if __name__ == "__main__":

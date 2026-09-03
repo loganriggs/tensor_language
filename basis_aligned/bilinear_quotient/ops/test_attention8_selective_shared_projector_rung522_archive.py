@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass, is_dataclass, replace
 import hashlib
 import importlib.util
 import json
@@ -196,6 +196,21 @@ def _write_manifest(tmp_path: Path, archive_path: Path, **changes):
         "test_sweep_plan_sha256": _hash("test-sweep-plan"),
     }
     values.update(changes)
+    if "validation_evidence_path" not in values:
+        evidence_path = tmp_path / "validation_evidence.json"
+        decision = values["validation_decisions"]
+        if is_dataclass(decision) and not isinstance(decision, type):
+            decision = asdict(decision)
+        ledger = values["call_ledger"]
+        evidence = {
+            "schema": ARCHIVE.VALIDATION_EVIDENCE_SCHEMA,
+            "validation_outputs": {"retained": "all scalar validation outputs"},
+            "provisional_validation_decision": decision,
+            "call_ledger": asdict(ledger),
+        }
+        if not evidence_path.exists():
+            evidence_path.write_text(json.dumps(evidence, indent=2, sort_keys=True) + "\n")
+        values["validation_evidence_path"] = evidence_path
     return ARCHIVE.write_pretest_manifest(**values)
 
 
@@ -370,6 +385,9 @@ def test_manifest_binds_every_pretest_artifact_and_returns_guard_freeze(tmp_path
     assert payload["call_ledger"]["inference_forward_events"] == 5_029
     assert payload["call_ledger"]["inference_by_bucket"] == (
         ARCHIVE.PRETEST_INFERENCE_BY_BUCKET
+    )
+    assert payload["validation_evidence"]["file_sha256"] == ARCHIVE._sha256_file(
+        tmp_path / "validation_evidence.json"
     )
     receipt.protocol_state.open_test_once()
     receipt.protocol_state.authorize_split_access("TEST")

@@ -24,6 +24,7 @@ import attention8_selective_shared_projector_rung522_state_guard as state_guard
 
 ARCHIVE_SCHEMA = "rung522-frame-archive-v1"
 MANIFEST_SCHEMA = "rung522-pretest-manifest-v1"
+VALIDATION_EVIDENCE_SCHEMA = "rung522-validation-evidence-v1"
 HAAR_SEEDS = tuple(range(52400, 52420))
 SCHEDULER_NAMESPACE = "a8-r522-balanced-rows-v1"
 PRETEST_INFERENCE_BY_BUCKET = {
@@ -724,6 +725,7 @@ def write_pretest_manifest(
     null_hashes: Mapping[int | str, str],
     validation_decisions: object,
     validation_provisional_gates_passed: bool,
+    validation_evidence_path: Path | str,
     haar_hashes: Mapping[int | str, str],
     eligible_all_three_frame_ids: Sequence[str],
     fit_mu_q: torch.Tensor,
@@ -756,6 +758,24 @@ def write_pretest_manifest(
         raise ArchiveViolation("separate pass flag disagrees with validation decision")
     if not decisions["pretest_passes"]:
         raise ArchiveViolation("VALIDATION decision has pretest_passes=False")
+    evidence_path = Path(validation_evidence_path)
+    if not evidence_path.is_file():
+        raise ArchiveViolation("create-only VALIDATION evidence file is absent")
+    try:
+        evidence_bytes = evidence_path.read_bytes()
+        raw_evidence = json.loads(evidence_bytes.decode("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ArchiveViolation("VALIDATION evidence is not readable canonical JSON") from error
+    evidence_file_sha256 = hashlib.sha256(evidence_bytes).hexdigest()
+    evidence = _canonical_json_copy(raw_evidence, "VALIDATION evidence")
+    if not isinstance(evidence, dict) or set(evidence) != {
+        "schema", "validation_outputs", "provisional_validation_decision", "call_ledger"
+    }:
+        raise ArchiveViolation("VALIDATION evidence schema changed")
+    if evidence["schema"] != VALIDATION_EVIDENCE_SCHEMA:
+        raise ArchiveViolation("VALIDATION evidence namespace changed")
+    if evidence["provisional_validation_decision"] != decisions:
+        raise ArchiveViolation("VALIDATION evidence decision differs from the manifest decision")
     nulls = _normalize_seed_hashes(
         null_hashes, state_guard.PERMUTATION_SEEDS, "label-null hashes"
     )
@@ -764,6 +784,8 @@ def write_pretest_manifest(
     _require_hash(fingerprint_definition_sha256, "fingerprint_definition_sha256")
     _require_hash(test_sweep_plan_sha256, "test_sweep_plan_sha256")
     _validate_call_ledger(call_ledger)
+    if evidence["call_ledger"] != asdict(call_ledger):
+        raise ArchiveViolation("VALIDATION evidence ledger differs from the manifest ledger")
     if fit_mu_q_source_split != "FIT":
         raise ArchiveViolation("mu_Q must be computed from FIT only")
     if not isinstance(fit_mu_q, torch.Tensor) or fit_mu_q.device.type != "cpu" or (
@@ -853,6 +875,11 @@ def write_pretest_manifest(
         "label_null_sha256": nulls,
         "validation_decisions": decisions,
         "validation_decisions_sha256": validation_hash,
+        "validation_evidence": {
+            "path": str(evidence_path.resolve()),
+            "file_sha256": evidence_file_sha256,
+            "canonical_content_sha256": _sha256_json(evidence),
+        },
         "haar_sha256": haars,
         "medoid_selection": medoid,
         "fit_mu_q": {
@@ -887,6 +914,7 @@ __all__ = [
     "EXPECTED_OPTIMIZER", "FrameArtifact", "HAAR_SEEDS", "LoadedFrameArchive",
     "MANIFEST_SCHEMA", "ManifestReceipt", "PRETEST_INFERENCE_BY_BUCKET",
     "PRETEST_INFERENCE_TOTAL", "SCHEDULER_NAMESPACE",
+    "VALIDATION_EVIDENCE_SCHEMA",
     "geometry_only_grassmann_medoid", "load_frame_archive", "tensor_sha256",
     "write_frame_archive", "write_pretest_manifest",
 ]
