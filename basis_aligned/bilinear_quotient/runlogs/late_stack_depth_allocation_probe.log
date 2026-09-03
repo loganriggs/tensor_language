@@ -1,0 +1,41 @@
+{"stage": "heads_done", "t": 7.2}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 7.7}
+{"stage": "arms", "ALL7_TOK_256": 0.2973, "UNIFORM_TOK": 0.2496, "LATE_HEAVY_TOK": 0.2457, "EARLY_HEAVY_TOK": 0.2912, "LATE_STEEP_TOK": 0.2535, "UNIFORM_CONST": 0.3296, "LATE_HEAVY_CONST": 0.3168, "EARLY_HEAVY_CONST": 0.3827, "LATE_STEEP_CONST": 0.3197, "t": 12.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_heavy_beats_uniform_tok": false,
+  "pred_c_early_heavy_loses_tok": true,
+  "pred_d_same_order_const": false,
+  "pred_e_steeper_is_better_tok": false
+ },
+ "nulls": {
+  "b_null_late_heavy_ge_uniform": false,
+  "c_null_early_heavy_le_uniform": false,
+  "d_null_either_reversed": false,
+  "e_null_steep_worse_by_.02": false
+ },
+ "ce_added": {
+  "ALL7_TOK_256": 0.2972751259803772,
+  "UNIFORM_TOK": 0.24962595105171204,
+  "LATE_HEAVY_TOK": 0.2456619143486023,
+  "EARLY_HEAVY_TOK": 0.29117637872695923,
+  "LATE_STEEP_TOK": 0.2534808814525604,
+  "UNIFORM_CONST": 0.3295901417732239,
+  "LATE_HEAVY_CONST": 0.3167867660522461,
+  "EARLY_HEAVY_CONST": 0.38265129923820496,
+  "LATE_STEEP_CONST": 0.31965363025665283
+ },
+ "delta_vs_uniform_tok": {
+  "UNIFORM": 0.0,
+  "LATE_HEAVY": -0.003964036703109741,
+  "EARLY_HEAVY": 0.04155042767524719,
+  "LATE_STEEP": 0.0038549304008483887
+ },
+ "delta_vs_uniform_const": {
+  "UNIFORM": 0.0,
+  "LATE_HEAVY": -0.012803375720977783,
+  "EARLY_HEAVY": 0.05306115746498108,
+  "LATE_STEEP": -0.009936511516571045
+ }
+}

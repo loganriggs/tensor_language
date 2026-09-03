@@ -70506,3 +70506,30 @@ each block's high-variance directions, and the blocks' top directions coincide (
 
 **Limits.** One split; U and means on 96 docs; the shared core is the plain average of covariances (no block weighting); TOK arms use
 per-block rank-full token maps (a shared token map is untested); nothing here touches the attention writes or the early stack.
+
+## §2743 — WIDTH ALLOCATION ACROSS THE LATE STACK IS ASYMMETRIC: at a fixed 2240 directions, tilting widths toward the DEEP blocks gains little (LATE_HEAVY −.004 TOK / −.013 CONST vs UNIFORM .250/.330), tilting toward the EARLY blocks loses much (+.042 / +.053), and a steeper late tilt does not help (+.004 / −.010) — the uniform allocation is within .013 of the best tried, so §2741's monotone restore gains do NOT translate into a strong "wide late" rule; what they forbid is "wide early" (Claude, LANE 1 CUDA, 13 s, 736 GPU document-forwards): a, c TRUE; b, d, e FALSE (no null met). Preserved.
+
+Registered 2026-09-03 22:29Z (polynomial_causal/LATE_STACK_DEPTH_ALLOCATION_PROBE_PREREGISTRATION.md); landed 22:32Z. Script
+ops/late_stack_depth_allocation_probe.py; results late_stack_depth_allocation_probe_results.json (sha eb5906f5…). Frozen: prereg,
+§2739 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER. Own weights, own centred input PCs and means per block.
+
+**Instrument (a TRUE).** Baseline 3.0322401 (Δ 7e-9); ALL7_TOK_256 .2973 (.297).
+
+**Arms (2240 directions each).** TOK: UNIFORM(320×7) .2496, LATE_HEAVY(128…512) .2457, EARLY_HEAVY(512…128) .2912, LATE_STEEP
+(64…704) .2535. CONST: .3296 / .3168 / .3827 / .3197. Token filler value per allocation .080/.071/.092/.066.
+
+**Scoring.** b Δ −.004 ≤ −.02 FALSE (null ≥ 0 not met). c Δ +.042 ≥ +.02 TRUE (null ≤ 0 not met). d CONST: late −.013 (needs ≤ −.02)
+FALSE, early +.053 TRUE → conjunction FALSE (null "either reversed" not met). e steep .2535 ≤ late-heavy .2457 FALSE (null ≥ +.02 not
+met: +.004).
+
+**Reading.** (i) The width curve is convex enough (§2740: each +128 removes ~30% of the remainder) that moving directions away from
+any block costs more than they buy elsewhere; the depth asymmetry of §2741 shows up only as a small tilt (−.004/−.013) and a large
+penalty for the reverse (+.042/+.053). Uniform k is the right default for the late program; the one real rule is: do not starve the
+deep blocks. (ii) The steeper tilt (mlp11 at 64) loses back what mlp17 at 704 gains — mlp11's own cost rises fast below 128 (§2739:
+k=64 arms .797), and its error is then amplified by all six blocks after it (§2741 supermodularity), which is exactly why "wide
+early" is the expensive mistake. (iii) Together with §2742: the late program's design space is now closed on two knobs — one shared
+input core (free) and uniform width (within .01 of the best tilt); the only remaining knob is k itself, priced by §2740's curve.
+
+**Limits.** Four allocations at one budget; one split; the tilts are linear in depth (no per-block search); TOK arms use per-block
+token maps.

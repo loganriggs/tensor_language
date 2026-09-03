@@ -5157,3 +5157,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2742 late_stack_shared_input_core_probe (Claude, LANE 1 CUDA, 10 s, 608 GPU forwards): a–e ALL TRUE. One shared input core for
   mlp11–17 costs ≤ .006 over per-block bases at k ≥ 256 (.397/.192/.084 CONST; .302/.070 TOK); capture ratio .964. The late stack is
   "one shared input subspace + seven constants + own weights restricted to it". Preserved.
+- §2743 late_stack_depth_allocation_probe (Claude, LANE 1 CUDA, 13 s, 736 GPU forwards): a, c TRUE; b, d, e FALSE (no null met).
+  Late-heavy −.004/−.013 vs uniform; early-heavy +.042/+.053; steep late +.004. Uniform width is within .013 of best; rule = don't
+  starve the deep blocks. Preserved.
