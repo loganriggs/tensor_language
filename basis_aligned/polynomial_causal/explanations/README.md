@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0353.md](explanation_2026-09-04_0353.md) — full circuit-focused update since 03:14: why the
+  smooth 768 split is closed, the corrected attention5 reader-liveness/clamp/injection design and exact bilinear
+  translation, the audited numbered-list result (90% downstream use but no two-reader concentration or selectivity),
+  the reusable 20-behavior battery/approved compiler strategy, counterfactual errors caught in its first task draft,
+  and the final pre-execution state of the repaired R593 induction factor test
 - [explanation_2026-09-04_0314.md](explanation_2026-09-04_0314.md) — full update since 02:39: why 768 is a chosen
   resolution rather than an eigengap, the compositional late-MLP gate approximation, R592's two invalid instrument
   checks, the unchanged-threshold R593 repair, Claude's compiler red-team cycle, and why circuit-defined attention-5
