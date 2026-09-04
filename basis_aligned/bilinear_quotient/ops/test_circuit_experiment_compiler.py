@@ -645,3 +645,59 @@ def test_nested_dynamic_environment_projectors_are_rejected() -> None:
                 spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
                 primitives=evidence, evaluators={}, projector=projector,
             )
+
+
+def test_reflective_bound_and_kwdefault_projectors_are_rejected() -> None:
+    calls = [{"call_id": "FIT:0", "split": "FIT"}]
+    evidence = [{"call_id": "FIT:0"}]
+
+    class Holder:
+        def __init__(self):
+            self.environment = dict(os.environ)
+
+        def project(self, rows):
+            return {"score": float(len(self.environment))}
+
+        __call__ = project
+
+    def keyword_default(rows, *, environment=dict(os.environ)):
+        return {"score": float(len(environment))}
+
+    projectors = (
+        lambda rows: {"score": float(len((lambda: 0).__globals__["os"].environ))},
+        Holder().project,
+        Holder(),
+        keyword_default,
+    )
+    for projector in projectors:
+        with pytest.raises(package.PackageError, match="pure"):
+            package.decide_experiment(
+                spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+                primitives=evidence, evaluators={}, projector=projector,
+            )
+
+
+def test_predicate_evaluators_obey_same_purity_boundary() -> None:
+    predicate = compiler.PredicateSpec(
+        "fit_live", "FIT", 0, "live", (), "hard_abort", "instrument"
+    )
+    spec = replace(_decision_spec(), predicates=(predicate,))
+    compiled = {"predicate_order": ["fit_live"],
+                "call_manifest": [{"call_id": "FIT:0", "split": "FIT"}]}
+    captured = dict(os.environ)
+
+    class EnvironmentEvaluator:
+        def __call__(self, rows):
+            return bool(captured)
+
+    evaluators = (
+        lambda rows: bool(os.environ),
+        lambda rows: bool(captured),
+        EnvironmentEvaluator(),
+    )
+    for evaluator in evaluators:
+        with pytest.raises(package.PackageError, match="pure"):
+            package.decide_experiment(
+                spec=spec, compiled=compiled, primitives=[{"call_id": "FIT:0"}],
+                evaluators={"live": evaluator}, projector=lambda rows: {"score": 1.},
+            )

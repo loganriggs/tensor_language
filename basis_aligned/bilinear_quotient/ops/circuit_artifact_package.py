@@ -278,14 +278,19 @@ def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> N
     seen = set() if seen is None else seen
     if id(function) in seen:
         return
-    seen.add(id(function)); code = getattr(function, "__code__", None)
-    if code is None:
+    seen.add(id(function))
+    if type(function) is not types.FunctionType or function.__dict__:
         raise PackageError("scientific projector is not a pure Python function")
+    code = function.__code__
     codes = [code]
     for nested in codes:
         codes.extend(value for value in nested.co_consts if isinstance(value, types.CodeType))
     names = {name for nested in codes for name in nested.co_names}
-    if names & {"__import__", "open", "globals", "vars", "eval", "exec", "compile", "__builtins__"}:
+    constants = {value for nested in codes for value in nested.co_consts if isinstance(value, str)}
+    blocked = {"__import__", "open", "globals", "locals", "vars", "getattr", "eval", "exec", "compile",
+               "__globals__", "__self__", "__func__", "__builtins__", "__subclasses__",
+               "__dict__", "__getattribute__", "__annotations__"}
+    if (names | constants) & blocked:
         raise PackageError("scientific projector is not pure: dynamic environment access")
     for name in names:
         if name not in function.__globals__:
@@ -295,11 +300,10 @@ def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> N
             raise PackageError("scientific projector is not pure: global/environment state")
         _assert_pure_callable(value, seen)
     for cell in function.__closure__ or ():
-        if not callable(cell.cell_contents):
-            raise PackageError("scientific projector is not pure: captured environment/global state")
         _assert_pure_callable(cell.cell_contents, seen)
-    if any(not callable(value) for value in function.__defaults__ or ()):
-        raise PackageError("scientific projector is not pure: captured default state")
+    defaults = (function.__defaults__ or ()) + tuple((function.__kwdefaults__ or {}).values())
+    for value in defaults:
+        _assert_pure_callable(value, seen)
 def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
                       evaluators, projector: Callable) -> dict[str, object]:
     """Evaluate registered instruments before permitting scientific projection."""
@@ -320,9 +324,11 @@ def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
         if not phase_primitives:
             raise PackageError("predicate phase has no evidence; vacuous pass forbidden")
         try:
-            outcome = evaluators[predicate.evaluator_role](phase_primitives)
+            evaluator = evaluators[predicate.evaluator_role]
         except (KeyError, TypeError) as error:
             raise PackageError("registered predicate evaluator is unavailable") from error
+        _assert_pure_callable(evaluator)
+        outcome = evaluator(phase_primitives)
         if not isinstance(outcome, bool):
             raise PackageError("predicate evaluator must return a boolean")
         results[predicate.predicate_id] = outcome
