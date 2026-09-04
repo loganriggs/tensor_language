@@ -73185,3 +73185,54 @@ Price: 16 GPU document-forwards, 5.5 GPU-seconds, 0 backwards, **1,153 declared 
 campaign**.
 Results: circuit_battery_attn5_direction_identity_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with no null met.
 Preserved.
+
+## §2836 — MY "CONSTANT-LIKE" SCREEN IS WRONG: 27 of 36 components pass it (cos ≥ .90 and gain CV ≤ .50) but their MEDIAN recovery from a constant replacement is −.008 — the geometry that describes attention 5 does not predict which writes a constant can actually replace, and mlp1 passes the screen while its constant costs 7.33 nats against a 1.18-nat deletion (a, c, e TRUE; b FALSE with its null MET, d FALSE)
+
+§2835 reduced attention 5 to a constant vector recovering 94.3% of its 2.211-nat value, and the obvious next question was how much of
+bilin18 is like that. I defined "constant-like" before the run as `|cos(top singular direction, mean write)| ≥ .90` AND `gain CV ≤ .50`,
+and measured, for all 36 components, the CE cost of replacing each write with its own mean vector fitted on 24 documents and scored on
+24 disjoint ones. Sign convention: d_ce = CE_arm − CE_NATIVE in nats, POSITIVE = the arm HURTS. **Not §312 L2; nothing installs;
+diagnostics only; metric-constructed bases/spans stay CLOSED (§2118 lineage).**
+
+**pred_a TRUE (null "≤ 1" not met) — and it is true so overwhelmingly that it undermines the screen.** **27 of 36** components are
+constant-like: every MLP but mlp4, and attn1 through attn10 with gaps. Attention 5 is emphatically not alone by this test.
+
+**pred_c TRUE (null "rank ≥ 12" not met) — attention 5 has the steadiest gain in the model, rank 1 of 36 at CV .081**, ahead of mlp15,
+mlp0, mlp14, attn6, mlp3, attn2, attn4. So the *extremity* of §2835 replicates even though the *category* dissolves.
+
+**pred_b FALSE, its null MET — and this is the result.** The median recovery `1 − d_ce(CONST)/d_ce(ZERO)` over the 27 constant-like
+components is **−.0079** (bar ≥ .80, null ≤ .40 met): a constant replacement recovers, at the median, nothing at all. The individual
+numbers show why the median is the right statistic here and what it hides:
+
+| component | cos | gain CV | delete (nats) | constant (nats) | recovered |
+|---|---|---|---|---|---|
+| attn5 | 1.0000 | .081 | 2.211 | **.128** | **.942** |
+| attn1 | .9999 | .293 | 2.426 | .206 | .915 |
+| mlp16 | .9979 | .306 | .911 | .172 | .811 |
+| mlp0 | .9999 | .155 | 2.611 | .691 | .735 |
+| attn2 | .9994 | .265 | .349 | .149 | .573 |
+| mlp17 | .9921 | .448 | .589 | .332 | .437 |
+| attn4 | .9993 | .278 | .291 | .199 | .316 |
+| **mlp1** | **.9937** | **.405** | **1.176** | **7.332** | **−5.235** |
+
+**mlp1 is the counterexample that kills the screen.** It passes both criteria comfortably — its top direction is .9937 aligned with its
+mean write and its gain varies by 41% — and yet replacing it with that mean costs **7.33 nats**, more than five times what DELETING it
+costs (1.18). A component can be geometrically constant and functionally not: writing the average vector everywhere is far worse for
+mlp1 than writing nothing, because the positions where its true write is small are actively harmed by receiving the average. Summed over
+the 27, deletion costs 11.78 nats and constant replacement 11.50 — indistinguishable in aggregate, with mlp1's disaster offsetting
+attn5's and attn1's successes.
+
+**pred_d FALSE — constant-like components are not particularly early**, .556 of them at layer ≤ 8 against a bar of ≥ .60. With the
+screen itself discredited this number carries little weight and is recorded rather than interpreted.
+
+**What survives, and what I am withdrawing.** §2835's measurement of attention 5 stands — it is unaffected by this rung, and attn5 is
+now known to have the steadiest gain of any component in the model. What I am withdrawing is the generalisation §2835 invited: **the two
+geometric statistics that describe attention 5's write do not identify which writes a constant can replace.** Three components
+(attn5 .942, attn1 .915, mlp16 .811) are genuinely constant-replaceable, one is catastrophically not, and the rest are in between —
+and no combination of cos and CV separates them, because both statistics describe the write's SHAPE while what matters is whether the
+positions where the write is small can tolerate receiving the average. The right screen is the CE measurement itself, which is cheap
+(this rung cost 26 GPU-seconds for all 36), so the honest recommendation is to measure rather than to predict.
+
+Price: 328 GPU document-forwards, 26.1 GPU-seconds, 0 backwards, 41,472 declared fitted parameters (one mean vector per component).
+Results: circuit_battery_constant_write_census_results.json. (Claude, LANE 1 CUDA.) a, c, e TRUE; b FALSE with its null met; d FALSE.
+Preserved.

@@ -1,0 +1,97 @@
+[const] attn0    cos=0.9867 cv= 0.565 zero=+1.4825 const=+0.2333 rec=+0.843 
+[const] mlp0     cos=0.9999 cv= 0.155 zero=+2.6114 const=+0.6907 rec=+0.735 CONSTANT-LIKE
+[const] attn1    cos=0.9999 cv= 0.293 zero=+2.4256 const=+0.2060 rec=+0.915 CONSTANT-LIKE
+[const] mlp1     cos=0.9937 cv= 0.405 zero=+1.1760 const=+7.3322 rec=-5.235 CONSTANT-LIKE
+[const] attn2    cos=0.9994 cv= 0.265 zero=+0.3492 const=+0.1492 rec=+0.573 CONSTANT-LIKE
+[const] mlp2     cos=0.9929 cv= 0.366 zero=+0.1504 const=+0.7569 rec=-4.034 CONSTANT-LIKE
+[const] attn3    cos=0.9964 cv= 0.377 zero=+0.1409 const=+0.1064 rec=+0.244 CONSTANT-LIKE
+[const] mlp3     cos=0.9979 cv= 0.250 zero=+0.1295 const=+0.6031 rec=-3.656 CONSTANT-LIKE
+[const] attn4    cos=0.9993 cv= 0.278 zero=+0.2907 const=+0.1987 rec=+0.316 CONSTANT-LIKE
+[const] mlp4     cos=0.8575 cv= 1.271 zero=+0.4329 const=+0.1117 rec=+0.742 
+[const] attn5    cos=1.0000 cv= 0.081 zero=+2.2109 const=+0.1285 rec=+0.942 CONSTANT-LIKE
+[const] mlp5     cos=0.9989 cv= 0.365 zero=+0.0888 const=+0.0983 rec=-0.107 CONSTANT-LIKE
+[const] attn6    cos=1.0000 cv= 0.233 zero=+0.1042 const=+0.0608 rec=+0.417 CONSTANT-LIKE
+[const] mlp6     cos=0.9987 cv= 0.377 zero=+0.0566 const=+0.0913 rec=-0.614 CONSTANT-LIKE
+[const] attn7    cos=1.0000 cv= 0.280 zero=+0.0621 const=+0.0571 rec=+0.080 CONSTANT-LIKE
+[const] mlp7     cos=0.9985 cv= 0.312 zero=+0.0498 const=+0.0684 rec=-0.374 CONSTANT-LIKE
+[const] attn8    cos=0.9937 cv= 0.728 zero=+0.0329 const=+0.0344 rec=-0.047 
+[const] mlp8     cos=0.9988 cv= 0.328 zero=+0.0386 const=+0.0555 rec=-0.436 CONSTANT-LIKE
+[const] attn9    cos=0.9999 cv= 0.380 zero=+0.0430 const=+0.0606 rec=-0.408 CONSTANT-LIKE
+[const] mlp9     cos=0.9996 cv= 0.290 zero=+0.0357 const=+0.0555 rec=-0.556 CONSTANT-LIKE
+[const] attn10   cos=0.9997 cv= 0.435 zero=+0.0264 const=+0.0228 rec=+0.134 CONSTANT-LIKE
+[const] mlp10    cos=0.9965 cv= 0.400 zero=+0.0313 const=+0.0437 rec=-0.392 CONSTANT-LIKE
+[const] attn11   cos=0.9992 cv= 0.531 zero=+0.0350 const=+0.0401 rec=-0.147 
+[const] mlp11    cos=0.9998 cv= 0.308 zero=+0.0288 const=+0.0477 rec=-0.656 CONSTANT-LIKE
+[const] attn12   cos=0.9975 cv= 0.600 zero=+0.0132 const=+0.0138 rec=-0.051 
+[const] mlp12    cos=0.9990 cv= 0.398 zero=+0.0267 const=+0.0418 rec=-0.568 CONSTANT-LIKE
+[const] attn13   cos=0.9929 cv= 0.679 zero=+0.0180 const=+0.0176 rec=+0.024 
+[const] mlp13    cos=0.9992 cv= 0.363 zero=+0.0277 const=+0.0396 rec=-0.432 CONSTANT-LIKE
+[const] attn14   cos=0.9124 cv= 1.286 zero=+0.0286 const=+0.0292 rec=-0.021 
+[const] mlp14    cos=0.9992 cv= 0.232 zero=+0.0288 const=+0.0287 rec=+0.005 CONSTANT-LIKE
+[const] attn15   cos=0.9959 cv= 0.442 zero=+0.0102 const=+0.0103 rec=-0.008 CONSTANT-LIKE
+[const] mlp15    cos=1.0000 cv= 0.141 zero=+0.1388 const=+0.0394 rec=+0.716 CONSTANT-LIKE
+[const] attn16   cos=0.8996 cv= 1.091 zero=+0.0126 const=+0.0142 rec=-0.123 
+[const] mlp16    cos=0.9979 cv= 0.306 zero=+0.9112 const=+0.1720 rec=+0.811 CONSTANT-LIKE
+[const] attn17   cos=0.9794 cv= 0.932 zero=+0.0135 const=+0.0128 rec=+0.050 
+[const] mlp17    cos=0.9921 cv= 0.448 zero=+0.5891 const=+0.3317 rec=+0.437 CONSTANT-LIKE
+{
+ "preds": {
+  "pred_a_attn5_is_not_alone": true,
+  "pred_b_constant_arms_recover_their_components": false,
+  "pred_c_attn5_has_the_steadiest_gain": true,
+  "pred_d_constant_writes_are_early": false,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_attn5_alone": false,
+  "b_null_const_arms_fail": true,
+  "c_null_attn5_not_steady": false,
+  "d_null_constants_are_late": false
+ },
+ "summary": {
+  "constant_like": [
+   "attn1",
+   "attn10",
+   "attn15",
+   "attn2",
+   "attn3",
+   "attn4",
+   "attn5",
+   "attn6",
+   "attn7",
+   "attn9",
+   "mlp0",
+   "mlp1",
+   "mlp10",
+   "mlp11",
+   "mlp12",
+   "mlp13",
+   "mlp14",
+   "mlp15",
+   "mlp16",
+   "mlp17",
+   "mlp2",
+   "mlp3",
+   "mlp5",
+   "mlp6",
+   "mlp7",
+   "mlp8",
+   "mlp9"
+  ],
+  "n_constant_like": 27,
+  "median_recovered_of_constant_like": -0.00787303174206433,
+  "attn5_gain_cv": 0.08077128976583481,
+  "attn5_cv_rank": 1,
+  "steadiest_gains_top8": [
+   "attn5",
+   "mlp15",
+   "mlp0",
+   "mlp14",
+   "attn6",
+   "mlp3",
+   "attn2",
+   "attn4"
+  ],
+  "early_fraction_of_constant_like": 0.5555555555555556,
+  "total_zero_damage_of_constant_like": 11.782194296518963,
+  "total_const_damage_of_constant_lik

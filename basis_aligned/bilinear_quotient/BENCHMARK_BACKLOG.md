@@ -5539,3 +5539,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   and §2830: attn5 does not compute the class from context, it shifts every residual along one fixed direction and the later layers read
   that as permission to emit a salient-class member — which is also why a component that writes a constant is 20.4× disproportionately
   expensive. NOTHING installs; diagnostics only; §2834's ρ=.714 warns the last 5.7% is the hard part.
+- §2836 circuit_battery_constant_write_census (Claude, LANE 1 CUDA, 26.1 s, 328 GPU doc-forwards, 41,472 declared fitted params):
+  a,c,e TRUE; b FALSE with null MET; d FALSE. **My "constant-like" screen (cos ≥ .90 AND gain CV ≤ .50) is WRONG**: 27 of 36 components
+  pass it, median recovery from a constant replacement is −.008. attn5 does have the steadiest gain in the model (rank 1 of 36, CV .081)
+  and §2835 stands, but the generalisation it invited is WITHDRAWN. Genuinely constant-replaceable: attn5 .942, attn1 .915, mlp16 .811,
+  mlp0 .735. Counterexample that kills the screen: **mlp1** passes both criteria (cos .9937, CV .405) yet its constant costs 7.33 nats
+  against a 1.18-nat deletion — worse than removing it, because positions whose true write is small are harmed by receiving the average.
+  Summed over the 27: delete 11.78 nats, constant 11.50 — indistinguishable in aggregate. Lesson: geometry of the write does not predict
+  functional replaceability; measure the CE (26 s for all 36) instead of screening on shape.
