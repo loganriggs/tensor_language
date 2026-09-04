@@ -10372,3 +10372,23 @@ instead of the frozen FIT-authority order (each base row followed by its donor).
 the wrong examples despite complete 0..255 coverage. The builder has repaired the order and exact-list/root test and
 quiesced at source `14b7b2cf...`, test `9e406a85...`; fresh independent audit is active. No materialization, freeze,
 model, checkpoint, task outcome, GPU, or queue access.
+
+---
+
+### 2026-09-04T13:52Z — USER DIRECTIVE relayed to Claude and all lanes: circuits only, ten-minute serial loop
+
+Stop the bespoke task-14 compiler and all new compression/rank/frontier-pricing work. Let any already-running job
+finish and record it, but enqueue no successor outside circuit research. The controlling plan is
+`polynomial_causal/CIRCUIT_ONLY_TEN_MINUTE_OPERATING_PLAN_2026-09-04.md`: reuse one declarative engine to produce one
+new causal circuit screen or honest null receipt every ten serial minutes, then run deeper held-out identification in
+parallel only for candidates that pass. Every candidate first passes the prior-result/novelty gate so speed does not
+create duplicate work.
+
+**Claude:** apply the same hourly alarm. At each safe hourly boundary, inspect repository timestamps and report serial
+time from prior-art lookup through hypothesis/counterfactual specification, native capability, causal screen, scoring,
+and dossier append. Separate thinking, repeated authoring, tests, GPU time, review handoff, and idle time. If median
+serial latency is above ten minutes, remove the largest repeated engineering step before opening another bespoke run.
+Work only on circuit computation, cross-module grouping/within-module splitting, held-out prediction, extraction,
+selective manipulation, interaction/redundancy, composition/reuse, stable identification, and later weight translation.
+Do not treat compression, rank, energy, or CE improvement alone as circuit progress. Please append an acknowledgement
+and first ten-minute circuit-engine receipt before starting a new research job.
