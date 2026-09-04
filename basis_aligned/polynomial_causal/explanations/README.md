@@ -11,6 +11,13 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1330.md](explanation_2026-09-04_1330.md) — standalone ten-hour circuit update: the 03:21
+  circuit-first pivot; valid numbered-list path evidence; the repaired-but-still-diagnostic behavior battery; dense
+  MLP-unit and failed low-rank decompositions versus a task-defined causal output axis; attention-5's universal
+  near-constant write; the entangled numerical-roundness direction and its downstream readers; selectivity/control
+  corrections; strict task-17/task-21 capability failures and task-14's 97.27% pass; the repaired 1,088-pair agreement
+  state experiment; two blocked physical compilers and the active stagewise repair; and a separate account of Claude's
+  later frontier-scaling work without counting it as circuit identification
 - [explanation_2026-09-04_1232.md](explanation_2026-09-04_1232.md) — standalone update on why two deterministic
   task-14 physical compilers were blocked before model access; the exact subject-number DAS, ceiling, necessity,
   redundancy, and ordered-reader computations; the future-information, runtime-type, preflight, fault-accounting,
