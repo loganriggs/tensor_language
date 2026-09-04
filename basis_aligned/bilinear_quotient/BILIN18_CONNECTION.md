@@ -74611,3 +74611,40 @@ Queued: two precision replications, both with **bars carried over verbatim** —
 would make the replication meaningless.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2865 — THE REPLICATION SEPARATES A NOISE MISS FROM A REAL ONE: pred_e FLIPS TRUE AT 2.7× THE DATA, pred_c GETS WORSE
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_V6_PRECISION_PREREGISTRATION.md` (08:29Z, `date -u` read in the same tool call as the
+header). Run `circuit_battery_v6_precision_replication`, landed 08:32Z.
+Results: circuit_battery_v6_precision_replication_results.json
+Price: 962 GPU forwards, 15.8 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=64, **bars carried over verbatim
+from §2863** — re-registering a bar for a replication would make the replication meaningless.
+
+SIGN CONVENTION: `selectivity = |d_C|/max(d_A1,.5)`, **LOWER = MORE SELECTIVE**. No CE, no §312 L2, nothing installs.
+
+| clause | §2863 (PER_CELL 24) | **§2865 (PER_CELL 64)** | bar | verdict |
+|---|---|---|---|---|
+| pred_a metrics differ | .781 | .771 | ≥ .30 | TRUE both |
+| pred_b P is a positive control | .072 | **.061** | ≤ .25 | TRUE both |
+| pred_c writer opposes copy | 71.4% (10/14) | **64.3% (9/14)** | ≥ 80% | **FALSE both, and WORSE** |
+| pred_d generalises | .117 | **.083** | ≤ .15 | TRUE both |
+| pred_e ordering stable | .556 | **.609** | ≥ .60 | **FALSE → TRUE** |
+
+**pred_e was a sample-size limit.** Spearman rose .556 → .609 and crosses its bar at 2.7× the rows. §2861's .714 on seven behaviours
+and §2863's .556 on fourteen are reconciled: the behaviour ordering IS stable and §2863's miss was noise. Recorded as a flip, in the
+section that measures it rather than in the one that benefited from it.
+
+**pred_c was not.** It moved the *other way*, 71.4% → 64.3%, further from its 80% bar. More data made it worse, so "the writer opposes
+the copy answer" is a real miss on this population — which supports §2863's post-hoc suspicion that the population is wrong (it includes
+`induction.copy_successor`, whose task IS the copy answer). That restriction remains a **backlog requirement for a future rung**; it is
+still not re-registered after the fact, and pred_c stands FALSE.
+
+The instrument clauses are stable and slightly improved throughout (pred_b .072 → .061, pred_d .117 → .083), so the two moves above are
+about the model and the population, not about the measurement drifting.
+
+Queued: the same treatment for §2864, whose pred_a (.063; bar ≥.15, null ≤.05) and pred_b (−.020; bar ≥0, null ≤−.05) **both landed
+between their bar and their null** and so decided nothing — at PER_CELL=24, bars again carried over verbatim
+(`CIRCUIT_BATTERY_WINNERS_CURSE_PRECISION_PREREGISTRATION.md`, 08:33Z). This section is the reason that is worth doing: sample size
+demonstrably separates a noise miss from a real one in this family of designs.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
