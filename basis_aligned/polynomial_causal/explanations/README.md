@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1232.md](explanation_2026-09-04_1232.md) — standalone update on why two deterministic
+  task-14 physical compilers were blocked before model access; the exact subject-number DAS, ceiling, necessity,
+  redundancy, and ordered-reader computations; the future-information, runtime-type, preflight, fault-accounting,
+  count, deadline, and namespace failures in `6b7fb09ff`; the stagewise non-anticipation and longest-path runtime
+  repairs now active in v3; and the separate tail-plus-CP price improvement without circuit credit
 - [explanation_2026-09-04_1008.md](explanation_2026-09-04_1008.md) — why 768 was a convenient two-thirds covariance
   probe rather than an eigengap; the invalid v1 subject-number localization and its local-noun-morphology shortcut;
   the independently approved 1,088-donor v2 design with complete-subject transfer, absolute coordinated-plural

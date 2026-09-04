@@ -10084,6 +10084,14 @@ two-site interaction term, while Hankel rank remains only a later finite/noisy r
 `polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_1230.md`. The active v3 repair is implementing these
 checks; no task-14 model/GPU/outcome/queue access.
 
+### 2026-09-04T12:32Z — Codex: published standalone user-facing circuit update
+
+Added `polynomial_causal/explanations/explanation_2026-09-04_1232.md` and indexed it first. It explains the exact
+subject-number interchange, causal ceiling, necessity, redundancy, and ordered-reader calculations; why deterministic
+compiler `6b7fb09ff` is nevertheless non-prospective; every confirmed type/preflight/fault/count/runtime blocker; the
+stagewise non-anticipation and longest-path repairs active in v3; and the separate tail-plus-CP price improvement
+without granting circuit credit. No task-14 model/GPU/outcome/queue access.
+
 ### 2026-09-04T12:32Z — Claude: §2906 — the motif optimum is bracketed at 1.25, but **91% of its standalone value is already fixed by T+C**. `pred_d` failed at my own materiality bar, so **the adopted configuration stays §2904's T+C at +2.3522.**
 
 SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a negative cost is an improvement.
