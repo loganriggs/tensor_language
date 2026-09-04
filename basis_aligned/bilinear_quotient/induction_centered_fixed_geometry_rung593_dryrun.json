@@ -1,0 +1,585 @@
+{
+  "authority_hashes": {
+    "bootstrap_cell_ids_sha256": "16e07d0400c37a4270adad09d1e28e04dc079138b61e7bb903d7abebb2ab027e",
+    "control_cell_ids_sha256": "b1777d714ee7a5b9ed134923c1fdbb85850d1e51ee5dc5292184616af9ba5c38",
+    "control_scale_lookup_sha256": "e6a6722ec2720462e1a9f8aaa6a99968df95698f46c58d61ecae7cb961754604",
+    "coverage_key_sha256": "c2eb64f548b2e176e3a8c28451b528cba2627bf42b2cd99b32deb120a179a7a4",
+    "direction_manifest_sha256": "0136a22004ad4c71221661f7b7f5099956988d19430e0ca590aab7f70ae6cf50",
+    "endpoint_manifest_sha256": "3fe0db0a115c6c0b0c09ea2f568cc5cbbee33119311568736164cdb7a0e43eeb",
+    "endpoint_site_role_operation_sha256": "82169667d6f658b993f882b7b9951e07ae93149e5d5138fce548f6205e88cc5e",
+    "structural_identity_sha256": "b7a1b252d6c43e549aecb0162bfbb66f9cb852cb9d4bf766308e4d499cde3495",
+    "target_cell_ids_sha256": "c83d01e0e9b8a3ff506aa3c98cdd6be596e14606974d13da7af965392c2539ea"
+  },
+  "bootstrap_cell_count_by_split": {
+    "FIT": 124,
+    "SELECT": 124
+  },
+  "centered_fixture_sha256": "4a5ab01d11cb78482cb958b404ba898eed52e8acb30b9813a5d40e2262cf9d4f",
+  "centered_mixed_identity_max_abs": 1.9073486328125e-06,
+  "difference_order": [
+    "native_minus_replay",
+    "score_minus_replay",
+    "payload_minus_replay",
+    "joint_minus_replay"
+  ],
+  "evidence_data_bytes": {
+    "FIT_logit_differences": 3013410816,
+    "SELECT_logit_differences": 1506705408,
+    "maximum_logit_differences": 4520116224,
+    "maximum_principal_raw_payload": 5141200896
+  },
+  "evidence_schemas": {
+    "FIT": {
+      "authority.jsonl": {
+        "records": 1872
+      },
+      "bootstrap_cells": {
+        "records": 124,
+        "replicates": 2000
+      },
+      "call_manifest.json": {
+        "records": 639
+      },
+      "canonical_slice_ledger.jsonl": {
+        "records": 639
+      },
+      "directed_factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_live_e.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          2
+        ]
+      },
+      "directed_live_u.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          2,
+          1152
+        ]
+      },
+      "directed_native_equality_term.npy": {
+        "dtype": "float64",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_head_write.npy": {
+        "dtype": "float64",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_non_equality_remainder.npy": {
+        "dtype": "float64",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_records.jsonl": {
+        "records": 3744
+      },
+      "directed_replay_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          50304
+        ]
+      },
+      "directed_tokens.npy": {
+        "dtype": "int64",
+        "shape": [
+          3744,
+          30
+        ]
+      },
+      "endpoint_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          50304
+        ]
+      },
+      "endpoint_records.jsonl": {
+        "records": 1728
+      },
+      "endpoint_tokens.npy": {
+        "dtype": "int64",
+        "shape": [
+          1728,
+          30
+        ]
+      },
+      "factor_e.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          2
+        ]
+      },
+      "factor_u.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          2,
+          1152
+        ]
+      },
+      "factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "hook_deltas.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          4,
+          1152
+        ]
+      },
+      "independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "instrument_gates.json": {
+        "records": 1
+      },
+      "logit_differences.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          50304
+        ]
+      },
+      "native_equality_term.npy": {
+        "dtype": "float64",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "native_head_write.npy": {
+        "dtype": "float64",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "native_non_equality_remainder.npy": {
+        "dtype": "float64",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "support.npy": {
+        "dtype": "bool",
+        "shape": [
+          1728,
+          4,
+          2
+        ]
+      },
+      "token_manifest.json": {
+        "records": 171
+      }
+    },
+    "SELECT": {
+      "authority.jsonl": {
+        "records": 936
+      },
+      "bootstrap_cells": {
+        "records": 124,
+        "replicates": 2000
+      },
+      "call_manifest.json": {
+        "records": 322
+      },
+      "canonical_slice_ledger.jsonl": {
+        "records": 322
+      },
+      "directed_factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_live_e.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          2
+        ]
+      },
+      "directed_live_u.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          2,
+          1152
+        ]
+      },
+      "directed_native_equality_term.npy": {
+        "dtype": "float64",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_head_write.npy": {
+        "dtype": "float64",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_non_equality_remainder.npy": {
+        "dtype": "float64",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_records.jsonl": {
+        "records": 1872
+      },
+      "directed_replay_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          50304
+        ]
+      },
+      "directed_tokens.npy": {
+        "dtype": "int64",
+        "shape": [
+          1872,
+          30
+        ]
+      },
+      "endpoint_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          50304
+        ]
+      },
+      "endpoint_records.jsonl": {
+        "records": 864
+      },
+      "endpoint_tokens.npy": {
+        "dtype": "int64",
+        "shape": [
+          864,
+          30
+        ]
+      },
+      "factor_e.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          2
+        ]
+      },
+      "factor_u.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          2,
+          1152
+        ]
+      },
+      "factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "hook_deltas.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          4,
+          1152
+        ]
+      },
+      "independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "instrument_gates.json": {
+        "records": 1
+      },
+      "logit_differences.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          50304
+        ]
+      },
+      "native_equality_term.npy": {
+        "dtype": "float64",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "native_head_write.npy": {
+        "dtype": "float64",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "native_non_equality_remainder.npy": {
+        "dtype": "float64",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "support.npy": {
+        "dtype": "bool",
+        "shape": [
+          864,
+          4,
+          2
+        ]
+      },
+      "token_manifest.json": {
+        "records": 86
+      }
+    }
+  },
+  "final_opened": false,
+  "fit_call_manifest_sha256": "2b4ac202d026eb159d0cdfdfef9d15f00f3a067f7a61e798032315ab71b43b8c",
+  "fit_token_manifest_sha256": "fcee2a1003b70de9e548b4371fc94549704cfbbb9e6b5d8542322413209723b2",
+  "high_precision_decomposition_fixture": {
+    "dtype": "float64",
+    "identity_max_abs": 1.7053025658242404e-13,
+    "native_head_rms": 79.03758444855663,
+    "planted_2e_minus_5_max_abs": 1.9999999949504854e-05
+  },
+  "invalid_predicate_order": [
+    "nonfinite_observation",
+    "fixed_width_token_manifest_failed",
+    "native_full_write_reconstruction_failed",
+    "native_equality_remainder_reconstruction_failed",
+    "factor_transport_failed",
+    "centered_hook_delta_failed",
+    "directed_native_zero_replay_failed",
+    "structural_output_identity_failed"
+  ],
+  "legacy_machine_ids_observed": [
+    "joint",
+    "payload",
+    "score"
+  ],
+  "machine_arm_order": [
+    "replay",
+    "score",
+    "payload",
+    "joint"
+  ],
+  "manifest_cell_counts": {
+    "FIT": {
+      "controls": 32,
+      "targets": 20
+    },
+    "SELECT": {
+      "controls": 32,
+      "targets": 20
+    }
+  },
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_weights_updated": false,
+  "ood_opened": false,
+  "operational_arm_labels": {
+    "joint": "registered_joint_output_factor_swap",
+    "payload": "registered_projected_content_swap",
+    "replay": "literal_zero_centered_replay",
+    "score": "registered_equality_factor_coefficient_swap"
+  },
+  "phase_counts": {
+    "FIT": {
+      "calls": 639,
+      "directed_chunks": 117,
+      "directions": 3744,
+      "endpoint_calls": 54,
+      "endpoints": 1728,
+      "rows": 1872
+    },
+    "SELECT": {
+      "calls": 322,
+      "directed_chunks": 59,
+      "directions": 1872,
+      "endpoint_calls": 27,
+      "endpoints": 864,
+      "rows": 936
+    }
+  },
+  "registered_max_model_forwards": 961,
+  "schema": "induction_centered_fixed_geometry_rung593_dryrun_v1",
+  "scientific_terminal": null,
+  "select_call_manifest_sha256": "4c16b38080981495a2d0c4735d9cb1a9a18b8139ba6a787ef509568d62c02a32",
+  "select_opened": false,
+  "select_tail_batch_sizes": [
+    16,
+    16,
+    16,
+    16,
+    16
+  ],
+  "select_token_manifest_sha256": "e04660b63b0b0b26a8282d2f2a333ff4c34445e768885298b09fddf64fe2f3fd",
+  "source_sha256": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung593_runtime.py": "768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_replay_native_numerics_rung591.py": "fb8239ded4f3e99510f37ea72337c2d69e4640f7a2556748c9062aa82b2751bc",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "fd772c3b9d6df4271ecbfc90c00c893db5a65ea06601f0c8f6e7a9e34c9a531b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py": "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py": "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py": "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_streaming_preexecution_review.py": "7c84f858625b92af4b7242b168cf7d321d8dcc7ae82a5988bfcb9372d099514b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT.md": "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT.md": "15219749dd1d696e52c3129052cadce6758b7186390303eace216d98c953188e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT_INDEPENDENT_REVIEW.md": "7b127fc100192d2ed0eb432ad2cfbf506d151314b1e9419d1e3fa424eb487772",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT.md": "f93ce1e524e6a0298a0b28f036ac35c75621c5bc80cf4cc0cac7bbe7589a99dc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PHASE_RELATIVE_CAPACITY_AMENDMENT.md": "da634dd10da654739d761a6c8f8ce9c1434d8946a7477ba6d9c005c873386458",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md": "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md": "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md": "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_PREEXECUTION_REVIEW.md": "8a22980fb766b8b51cac81acb69ad8e84cd886dae053613591acabc415c6f225",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md": "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG593_INSTRUMENT_REPAIR_AMENDMENT.md": "df0ceebf57818534a9b4ac5de4cd82ca64f2c1228cdfd476e350e62e5707729c"
+  },
+  "status": "prospective_model_free_only",
+  "streaming_storage": {
+    "complete_fit_plus_select_data_bytes": 8252195328,
+    "largest_current_chunk_data_bytes": 43440640,
+    "maximum_streaming_data_bytes": 8295635968,
+    "r592_prior_full_tree_peak_data_bytes": 10677399552,
+    "remaining_select_plus_chunk_bytes": 2794172416,
+    "required_free_bytes_before_model": 9455639040,
+    "required_free_bytes_before_select": 3954175488,
+    "safety_margin_bytes": 1160003072
+  },
+  "support_descriptor_sha256": {
+    "FIT": "8ad3c99504273cb41873700bf240bca42b62cae7ae42942a063f7fe853ea0f5c",
+    "SELECT": "904d2eb8327a7092b40b0ad6f80c242a4a90150a03b79fd83e48452dc806ede5"
+  },
+  "support_summary": {
+    "FIT": {
+      "false": 8064,
+      "record_sha256": "ad2e827af9d7fada09327aa27c9465173aa283ee918599bfd5cb5ee107f79d6a",
+      "records": 13824,
+      "true": 5760
+    },
+    "SELECT": {
+      "false": 4032,
+      "record_sha256": "b33ebe9b6d971dd1d09cd3ab797b888703c718457e548ed8f2b244a6698397c9",
+      "records": 6912,
+      "true": 2880
+    }
+  }
+}

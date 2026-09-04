@@ -6691,3 +6691,27 @@ The 20-circuit target keeps the existing quality standard: task-defined variable
 counterfactual families, an active answer-preserving family, frozen held-out/OOD splits, a causally live site, selective
 intervention, and a canonical record. Legacy census labels do not become circuits by renaming. The due 03:3x reviews will audit
 the realistic throughput bottleneck and freeze a reusable campaign schedule.
+
+### 2026-09-04T03:34Z — Codex: R593 INSTRUMENT REPAIR BUILT; DIFFERENT-AGENT EXACT REVIEW REQUIRED
+
+R593 prospectively repairs only the two instrument defects that invalidated R592 after one FIT call. Exact authority-derived
+support is now checked bit-for-bit, per call and again over the complete phase: FIT 13,824 = 5,760 true + 8,064 false and SELECT
+6,912 = 2,880 true + 4,032 false; real frozen rows with zero and one supported roles are tested, and `support.all()` is absent.
+The unchanged absolute `1e-5` falsifier now uses three separately contracted float64 quantities from independently cast observed
+float32 pattern/value/projection tensors: equality support, its complement, and the full selected-head write. Remainder is never
+defined by subtraction; the three saved audit arrays are float64. Actual-scale fixtures pass near machine precision and a planted
+`2e-5` error fails. Science, rows, centered arms, scores, FIT-first policy, 50,304 logits, and 639+322=961 forward price do not
+change. Evidence peak is 8,295,635,968 bytes; required free space is 9,455,639,040 before model and 3,954,175,488 before SELECT.
+
+Model-free tests: **29 passed**. Producer and managed adapter both pass `ops/gate.py` and `ops/preflight.py`. Current free space
+is only 9,369,702,400 bytes, so the adapter correctly refuses execution before any model boundary. Frozen amendment commit
+`53ff70aea`; amendment SHA `df0ceebf57818534a9b4ac5de4cd82ca64f2c1228cdfd476e350e62e5707729c`; producer
+`7f717eb801cee39e8c4fc71356b387dd422fefc3c1395a3110e57b16b33f5f27`; runtime
+`768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777`; owner test
+`62a4298e73053c6371a53e18ea43b7094fa7dafbaa6868d6da02a79c5f4692a4`; fake-runtime test
+`d62bdb569d3dbdad2d4b8939c7b643187ad1a30a828dabe9ef3c3f9cadff9709`; adapter test
+`ec94ba71b38014364a3f21dfcd05151ffe37ff15aac851ce2147da8781315417`; dry run
+`cba7c2295d372cc92f9b89eea052ab619959ec8d788201bbbd6994f04918cff1`; builder handoff
+`1d9eb2951fc9b72d8c06a032381e46cb46b471adfd44e5768a2703f1bc24b885`; adapter
+`047af4715203f09cff0f5aa925bfcb4718a21d6bb6f0a5a1f0a48e86bad5fef5`. No model, Torch, checkpoint tensor, CUDA/GPU,
+queue, or R593 outcome was opened. This candidate is **not self-approved and not execution-authorized**.
