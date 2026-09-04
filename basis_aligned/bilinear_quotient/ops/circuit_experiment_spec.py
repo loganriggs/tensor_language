@@ -164,6 +164,17 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
     priorities = [predicate.priority for predicate in spec.predicates]
     if len(priorities) != len(set(priorities)):
         raise SpecError("predicate priorities must be unique")
+    kind_order = {"instrument": 0, "authority": 1, "evidence": 2, "science": 3}
+    typed_predicates = [item for item in spec.predicates if hasattr(item, "kind")]
+    if any(getattr(item, "kind") not in kind_order for item in typed_predicates):
+        raise SpecError("predicate kind must be typed")
+    ordered_kinds = [kind_order[getattr(item, "kind")] for item in sorted(
+        typed_predicates, key=lambda item: item.priority
+    )]
+    if ordered_kinds != sorted(ordered_kinds):
+        raise SpecError("predicate priority must put instrument checks before science")
+    if any(item.predicate_id.startswith("pred_") for item in spec.predicates):
+        raise SpecError("pred_ names are reserved for registered science outputs")
     arrays = {array.name: array for array in spec.arrays}
     for predicate in spec.predicates:
         missing = set(predicate.required_arrays) - set(arrays)
@@ -178,6 +189,28 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
             raise SpecError(f"artifact {artifact.role} has invalid SHA-256")
         if artifact.kind == "outcome" and artifact.dryrun_access:
             raise SpecError("model-free dry run may not access an outcome artifact")
+    for call in spec.calls:
+        if not hasattr(call, "arm_specs"):
+            continue  # legacy shadow specifications remain byte-compatible
+        arm_specs = tuple(getattr(call, "arm_specs"))
+        if tuple(getattr(item, "name", None) for item in arm_specs) != call.arms:
+            raise SpecError("typed arm names differ from call-family arms")
+        if len(call.arms) != len(set(call.arms)):
+            raise SpecError("typed arm names must be unique")
+        if any(getattr(item, "role", None) not in {
+            "native", "counterfactual", "control", "null"
+        } for item in arm_specs):
+            raise SpecError("every typed arm requires a valid role")
+        if any(getattr(item, "direction", None) not in {
+            "undirected", "forward", "reverse"
+        } for item in arm_specs):
+            raise SpecError("every typed arm requires a valid direction")
+        for item in arm_specs:
+            if item.role == "counterfactual" and not any(
+                peer.role == "native" and peer.direction == item.direction
+                for peer in arm_specs
+            ):
+                raise SpecError("counterfactual arm requires a direction-matched native role")
 
 
 def _identity(record: Mapping[str, object], fields: tuple[str, ...]) -> object:
@@ -218,6 +251,9 @@ def compile_authority_tables(
             raise SpecError(f"authority table {table_spec.name} total changed")
         if table_spec.expected_counts and counts != dict(table_spec.expected_counts):
             raise SpecError(f"authority table {table_spec.name} split counts changed: {counts}")
+        expected_digest = getattr(table_spec, "expected_records_sha256", None)
+        if expected_digest is not None and canonical_sha256(records) != expected_digest:
+            raise SpecError(f"authority table {table_spec.name} split/content digest changed")
         output[table_spec.name] = {
             "count": len(records),
             "counts_by_split": counts,
@@ -289,7 +325,7 @@ def _call_record(
     if len(lengths) != 1:
         raise SpecError("compiled call mixes sequence lengths")
     call_kinds = dict(family.arm_call_kinds)
-    return {
+    record = {
         "call_id": family.call_id_template.format(
             split=family.split, family=family.name, arm=arm, batch=batch_index
         ),
@@ -304,6 +340,10 @@ def _call_record(
         "checkpoint_validation": family.checkpoint_validation,
         "model_structure_validation": family.model_structure_validation,
     }
+    if hasattr(family, "arm_specs"):
+        typed = {item.name: item for item in getattr(family, "arm_specs")}[arm]
+        record.update(arm_role=typed.role, arm_direction=typed.direction)
+    return record
 
 
 def compile_call_manifest(

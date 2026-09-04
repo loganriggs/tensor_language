@@ -101,6 +101,45 @@ def _raw_arrays(call_dir: Path) -> dict[str, np.ndarray]:
     return arrays
 
 
+def _call_record(call_dir: Path) -> dict[str, object]:
+    path = call_dir / "call.json"
+    if path.is_symlink() or not path.is_file():
+        raise PackageError("call evidence lacks its exact saved request")
+    value = _strict_json_loads(path.read_bytes(), "saved call request")
+    if not isinstance(value, dict):
+        raise PackageError("saved call request is not an object")
+    return value
+
+
+def _validate_call_arrays(call_dir: Path, arrays: Mapping[str, np.ndarray]) -> None:
+    """Bind physical evidence width and typed-arm activity to saved requests."""
+    if not (call_dir / "call.json").exists():
+        return  # standalone array checks have no request-shape authority
+    call = _call_record(call_dir)
+    width = call.get("logical_batch_size")
+    if not isinstance(width, int) or isinstance(width, bool) or width <= 0:
+        raise PackageError("saved request has invalid physical width")
+    if not arrays or any(array.ndim < 1 or array.shape[0] != width for array in arrays.values()):
+        raise PackageError("saved array physical shape differs from exact request width")
+    if call.get("arm_role") != "counterfactual":
+        return
+    peers: list[tuple[dict[str, object], dict[str, np.ndarray]]] = []
+    for sibling in call_dir.parent.iterdir():
+        if sibling == call_dir or sibling.is_symlink() or not sibling.is_dir():
+            continue
+        peer = _call_record(sibling)
+        if peer.get("arm_role") == "native" and all(
+            peer.get(field) == call.get(field)
+            for field in ("split", "row_ids", "call_kind", "arm_direction")
+        ):
+            peers.append((peer, _raw_arrays(sibling)))
+    for _, peer_arrays in peers:
+        if set(peer_arrays) == set(arrays) and all(
+            np.array_equal(arrays[name], peer_arrays[name], equal_nan=True) for name in arrays
+        ):
+            raise PackageError("counterfactual arm is dead: evidence is identical to native")
+
+
 def write_nonfinite_masks(call_dir: Path) -> list[dict[str, object]]:
     """Write the approved R592 one-to-one masks for one failing call."""
     index_path = call_dir / "nonfinite_mask_index.json"
@@ -147,9 +186,14 @@ def validate_nonfinite_masks(call_dir: Path, predicate_id: str) -> None:
     mask_dir = call_dir / "nonfinite_masks"
     if (call_dir / "nonfinite_mask.npy").exists():
         raise PackageError("flat nonfinite mask is forbidden")
+    raw_arrays = _raw_arrays(call_dir)
+    _validate_call_arrays(call_dir, raw_arrays)
     if predicate_id != "nonfinite_observation":
         if index_path.exists() or mask_dir.exists():
             raise PackageError("mask artifacts exist under a finite predicate")
+        if any(array.dtype.kind == "f" and not bool(np.isfinite(array).all())
+               for array in raw_arrays.values()):
+            raise PackageError("nonfinite array before final diagnostic call")
         return
     if not index_path.is_file() or index_path.is_symlink() \
             or not mask_dir.is_dir() or mask_dir.is_symlink():
@@ -164,7 +208,6 @@ def validate_nonfinite_masks(call_dir: Path, predicate_id: str) -> None:
         raise PackageError("nonfinite mask index is not sorted")
     if any(not isinstance(item, dict) or set(item) != _MASK_FIELDS for item in entries):
         raise PackageError("nonfinite mask index fields changed")
-    raw_arrays = _raw_arrays(call_dir)
     expected_raw = {
         name for name, array in raw_arrays.items()
         if array.dtype.kind == "f" and not bool(np.isfinite(array).all())
@@ -220,12 +263,70 @@ def validate_science_projection(
     saved_projection: Mapping[str, object],
     projector: Callable[[Mapping[str, object]], Mapping[str, object]],
 ) -> dict[str, object]:
-    """Require every saved score/failure/decision input to derive from evidence."""
+    """Require an order-independent, environment-pure evidence projection."""
     observed = dict(projector(evidence))
     if observed != dict(saved_projection):
         raise PackageError("saved scientific projection differs from primitive evidence")
+    records = evidence.get("records")
+    if isinstance(records, list) and len(records) > 1:
+        permuted = dict(evidence); permuted["records"] = list(reversed(records))
+        if not _equivalent_json(observed, dict(projector(permuted))):
+            raise PackageError("scientific projector is not pure under evidence order")
+    environment = dict(os.environ)
+    try:
+        os.environ.clear()
+        try:
+            isolated = dict(projector(evidence))
+        except Exception as error:
+            raise PackageError("scientific projector is not environment-pure") from error
+    finally:
+        os.environ.clear(); os.environ.update(environment)
+    if not _equivalent_json(observed, isolated):
+        raise PackageError("scientific projector is not pure with respect to environment")
     canonical_json_bytes(observed)
     return observed
+
+
+def _equivalent_json(left: object, right: object) -> bool:
+    if isinstance(left, float) and isinstance(right, float):
+        return bool(np.isclose(left, right, rtol=1e-12, atol=1e-15))
+    if isinstance(left, dict) and isinstance(right, dict) and set(left) == set(right):
+        return all(_equivalent_json(left[key], right[key]) for key in left)
+    if isinstance(left, list) and isinstance(right, list) and len(left) == len(right):
+        return all(_equivalent_json(a, b) for a, b in zip(left, right))
+    return left == right
+
+
+def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
+                      evaluators, projector: Callable) -> dict[str, object]:
+    """Evaluate registered instruments before permitting scientific projection."""
+    ordered = sorted(spec.predicates, key=lambda item: item.priority)
+    if compiled.get("predicate_order") != [item.predicate_id for item in ordered]:
+        raise PackageError("compiled predicate order changed")
+    results: dict[str, bool] = {}
+    calls = {call["call_id"]: call for call in compiled.get("call_manifest", [])}
+    for predicate in ordered:
+        phase_primitives = [item for item in primitives if (
+            item.get("call_id") in calls
+            and calls[item["call_id"]].get("split") == predicate.phase
+        )]
+        try:
+            outcome = evaluators[predicate.evaluator_role](phase_primitives)
+        except (KeyError, TypeError) as error:
+            raise PackageError("registered predicate evaluator is unavailable") from error
+        if not isinstance(outcome, bool):
+            raise PackageError("predicate evaluator must return a boolean")
+        results[predicate.predicate_id] = outcome
+        if not outcome and predicate.disposition == "hard_abort":
+            projection = {name: None for name in spec.science.output_types}
+            return {"terminal": "hard_abort", "projection": projection,
+                    "predicates_evaluated": True, "predicate_results": results}
+    projection = dict(projector(primitives))
+    validate_science_projection(
+        {"records": primitives}, projection, lambda value: projector(value["records"])
+    )
+    return {"terminal": "ok", "projection": projection,
+            "predicates_evaluated": True, "predicate_results": results}
 
 
 @dataclass(frozen=True)

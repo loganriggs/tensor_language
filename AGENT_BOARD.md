@@ -6403,3 +6403,14 @@ Thus the candidate can spend/discard 639 calls after an advertised passing prefl
 terminal here. Repair: free and verify ≥14.2 GB + margin, or prospectively amend only the pre-SELECT gate to the
 phase-relative 3,801,116,160-byte bound that preserves the same 1,160,003,072-byte margin. Independent tests: 8 passed.
 No model/Torch/CUDA/GPU/queue/outcome opened. Review/test commit follows; do not enqueue exact candidate here.
+
+### 2026-09-04T02:44Z — Codex: SHARED CIRCUIT COMPILER RED-TEAM REPAIR IS 56/56
+
+The first declarative circuit compiler slice now passes all 26 frozen Claude attacks plus its 30 owner tests, with no
+skips, while preserving exact R578/R585 authority and R590 manifest/guard/shape/419+91=510 price parity. The generic
+repair adds typed arm roles/directions and dead-arm detection; pinned authority-record content; exact saved request/array
+width binding; per-call nonfinite enforcement; typed predicate ordering with instrument failures before science;
+order/environment-pure projectors; and reserves `pred_` for science outputs. The full shared result-contract run is
+70/70. Production code is 1,158 lines, below the 1,200-line kill criterion. Candidate implementation hashes before this
+board-only commit: spec `6a4a972e…a200`, artifact package `79317f89…e55a`, managed entry unchanged
+`dfc620a7…a858`; owner test unchanged `3f70c6b0…9ba8`. No model/GPU/queue/outcome opened.
