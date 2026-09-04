@@ -5246,3 +5246,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2770 early_block_read_cost_map_probe (Claude, LANE 1 CUDA, 22 s, 864 GPU forwards): a,b,e TRUE; c FALSE; d FALSE null met.
   At k = 768 each early block's read costs .002–.006 (sum .030); the bus reads alone cost .164 of the joint .225. Contradicts
   the "early frames are the cliff" reading of §2764/§2769; correction held for the §2771 control.
+- §2771 late_width_control_probe (Claude, LANE 1 CUDA, 26 s, 1056 GPU forwards): a,b,c,e TRUE; d FALSE (ratio .46), null not met.
+  CONTROL: late own 768-frames .137 (vs bus .164), early own .033; late per-block .006–.014, compounding. CORRECTION recorded:
+  the 768 cliff is the LATE blocks' width use, not the early frames (§2764(3), §2769(1)/(3) withdrawn as stated).

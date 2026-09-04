@@ -71419,3 +71419,41 @@ recorded as such under §2771; if the late cost is a sharing artefact (LATE_OWN_
 finding. (4) What is NOT in question from this rung: program v2's arm values (§2769), the block-frame sharing results (§2765,
 §2767), and the hand-off (§2766, §2768) — none of those depended on where the read cost sits. Nothing installs into the §312
 frontier (§2125).
+
+## §2771 — CONTROL LANDED, CORRECTION STANDS: the k = 768 width cost is the LATE blocks' own width use, not the bus's sharing — blocks 8–17 each reading through its OWN 768-frame cost .137 (pred_b "≥ .100" TRUE; null ≤ .050 not met) against .164 through the shared bus, blocks 0–7 through their own 768-frames cost .033 (pred_c "≤ .050" TRUE; null ≥ .100 not met), the late cost is spread — every late block alone costs .006–.009 except block 17 at .014 (top-3 share 40%; pred_e "≤ 60%" TRUE; null ≥ 80% not met) — and it COMPOUNDS: the ten single-block costs sum to .076, 0.46 of the joint .164 (pred_d "in [0.5, 1.5]" FALSE by .04; null ≤ 0.25 not met) (Claude, LANE 1 CUDA, 26 s, 1056 GPU document-forwards): a,b,c,e TRUE; d FALSE, null not met. Preserved.
+
+Registered 2026-09-04 00:10Z (polynomial_causal/LATE_WIDTH_CONTROL_PROBE_PREREGISTRATION.md); landed 00:11Z. Script
+ops/late_width_control_probe.py (built with ops/derive.py); results late_width_control_probe_results.json (sha 2f19a636…). Frozen:
+prereg, §2770 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63
+(FRESH split; fits docs 96–191) — LOWER IS BETTER. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739; BUS_768
+0.16360 (= §2770).
+
+| arm (k = 768, all else untouched) | CE added |
+|---|---|
+| EARLY_OWN_768 (blocks 0–7, own site frames) | .0328 |
+| LATE_OWN_768 (blocks 8–17, own site frames) | **.1370** |
+| BUS_768 (blocks 8–17, shared U_8) | .1636 |
+| one late block alone through U_8: 8 / 9 / 10 / 11 / 12 | .0075 / .0066 / .0069 / .0056 / .0068 |
+| 13 / 14 / 15 / 16 / 17 | .0059 / .0068 / .0068 / .0089 / .0140 |
+| Σ late blocks | .0759 (0.46 × joint) |
+
+CORRECTION (recorded separately, independent control satisfied). The following sentences are withdrawn as stated:
+§2764(3) "the early frames are the price cliff … the early network genuinely uses ≈ 1024 of 1152 dimensions per site";
+§2769(1) "the frame program's residual cost is now essentially the READ cost — what the early blocks lose when 1152 − k input
+directions are dropped"; §2769(3) "the open question the table poses is the READ cliff at the early blocks". Corrected reading:
+at k = 768 the early blocks lose .030–.033 in total whether they read through their own site frames, their block frames, or
+(§2767) pay +.007 more per block-sharing; the .19–.24 cost of every 768-wide program in this arc (§2752 .197, §2753 .218, §2767
+.225, §2769 .242) is the LATE network's — blocks 8–17 use more than 768 dimensions of their frame (own or shared), and the loss
+compounds through the settled region (ten single-block costs of .006–.014 sum to less than half the joint). What was correct
+and stands: the late frame is nearly free at k = 1024 (§2754/§2756, ≈ .004), the bus is one shared frame (§2756, §2758), the
+block is the early sharing unit (§2765, §2767), the hand-off (§2766, §2768), and every arm value in §2764–§2769. §2751/§2753/
+§2759's measurements of early-frame DRIFT (principal angles) are untouched; what changes is their CE interpretation — the drift
+is real and cheap.
+
+What it says. (1) The two halves of the model use width differently: the early blocks' activity fits 768 dimensions per block
+at a cost of a few thousandths each; the settled region's activity does not — between 768 and 1024 the late cost falls from
+.14–.16 to ≈ .004. The natural program is therefore ASYMMETRIC: narrow per-block early frames and a wide bus. Registered next:
+program v3 with early width k_e ∈ {768, 640, 512} and bus width k_b ∈ {1024, 960}. (2) The compounding (0.46) is the signature
+of a recurrent read: each late block reads what the previous late block wrote through the same truncated frame, so the
+truncation error is re-applied ten times; block 17 alone is the largest because nothing after it can repair the loss. (3)
+Nothing installs into the §312 frontier (§2125).

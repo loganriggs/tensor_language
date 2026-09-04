@@ -1,0 +1,135 @@
+{
+ "rung": "late_width_control_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_width_use_is_real_not_a_sharing_artifact": true,
+  "pred_c_early_own_frames_cheap_at_768": true,
+  "pred_d_late_per_block_costs_are_additive": false,
+  "pred_e_late_cost_is_spread": true
+ },
+ "nulls": {
+  "b_null_late_own_le_.05": false,
+  "c_null_early_own_ge_.10": false,
+  "d_null_ratio_ge_3_or_le_.25": false,
+  "e_null_top3_ge_.80": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_min": 0.1,
+  "c_max": 0.05,
+  "d_lo": 0.5,
+  "d_hi": 1.5,
+  "e_max": 0.6
+ },
+ "null_bars": {
+  "b_max": 0.05,
+  "c_min": 0.1,
+  "d_lo": 0.25,
+  "d_hi": 3.0,
+  "e_min": 0.8
+ },
+ "device": "cuda",
+ "split": 8,
+ "k_map": 768,
+ "program": "control: late sites through OWN 768-frames vs the shared bus; early sites through own 768-frames; bus cost per late block",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "bus_768": 0.16359993815422058,
+  "prior_bus_768": 0.1636
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "BUS_768": 0.16359993815422058,
+  "LATE_OWN_768": 0.1369553804397583,
+  "EARLY_OWN_768": 0.03279802203178406,
+  "ONE_L8_768": 0.007518976926803589,
+  "ONE_L9_768": 0.006644636392593384,
+  "ONE_L10_768": 0.006910562515258789,
+  "ONE_L11_768": 0.005623489618301392,
+  "ONE_L12_768": 0.00677180290222168,
+  "ONE_L13_768": 0.005938410758972168,
+  "ONE_L14_768": 0.006833136081695557,
+  "ONE_L15_768": 0.006813406944274902,
+  "ONE_L16_768": 0.008896350860595703,
+  "ONE_L17_768": 0.0139847993850708
+ },
+ "per_late_block_cost_768": {
+  "8": 0.007518976926803589,
+  "9": 0.006644636392593384,
+  "10": 0.006910562515258789,
+  "11": 0.005623489618301392,
+  "12": 0.00677180290222168,
+  "13": 0.005938410758972168,
+  "14": 0.006833136081695557,
+  "15": 0.006813406944274902,
+  "16": 0.008896350860595703,
+  "17": 0.0139847993850708
+ },
+ "summary": {
+  "sum_late_blocks": 0.07593557238578796,
+  "bus": 0.16359993815422058,
+  "additivity_ratio": 0.46415404090315643,
+  "top3_share": 0.40034105515164004,
+  "ranked": [
+   [
+    "17",
+    0.0139847993850708
+   ],
+   [
+    "16",
+    0.008896350860595703
+   ],
+   [
+    "8",
+    0.007518976926803589
+   ],
+   [
+    "10",
+    0.006910562515258789
+   ],
+   [
+    "14",
+    0.006833136081695557
+   ],
+   [
+    "15",
+    0.006813406944274902
+   ],
+   [
+    "12",
+    0.00677180290222168
+   ],
+   [
+    "9",
+    0.006644636392593384
+   ],
+   [
+    "13",
+    0.005938410758972168
+   ],
+   [
+    "11",
+    0.005623489618301392
+   ]
+  ]
+ },
+ "price": {
+  "gpu_doc_forwards": 1056,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 22.505545616149902
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_WIDTH_CONTROL_PROBE_PREREGISTRATION.md": "1cbdd8a73aa3e7cc5170ef92cc8dd05e35858f6faf1bbc319716c804449740ea",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_block_read_cost_map_probe_results.json": "95de78d8b653c4724457c759f0e45cfbbc4f92925e4d2932334ecd3311085c35",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "7ab6f08535ee31a154beb042648207acef85488a650ed54e5a8a87c8184a31b9"
+}
