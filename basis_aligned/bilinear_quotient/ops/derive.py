@@ -31,7 +31,12 @@ def main():
     parent, child = pathlib.Path(a.parent), pathlib.Path(a.child)
     pn, cn = parent.stem, child.stem
     src = parent.read_text()
-    src = pathlib.Path(a.doc).read_text().rstrip("\n") + "\n" + src[src.index("import json, os, sys, time"):]
+    doc = pathlib.Path(a.doc).read_text().rstrip("\n")
+    # 01:00Z guard: the doc file REPLACES the whole module header (shebang, docstring, BQGATE line). A bare paragraph passed here
+    # produced a syntax error only at gate time (one wasted derive+gate cycle); refuse it up front.
+    if not doc.startswith("#!") or doc.count('"""') < 2 or "# BQGATE:" not in doc:
+        sys.exit("derive.py: --doc must be the COMPLETE module header: '#!/usr/bin/env python', a triple-quoted docstring containing the '# BQGATE: EXPERIMENT ...' line, and the closing triple quote")
+    src = doc + "\n" + src[src.index("import json, os, sys, time"):]
     src = src.replace(pn, cn).replace(pn.upper() + "_PREREGISTRATION", cn.upper() + "_PREREGISTRATION")
     prior = pathlib.Path(a.prior)
     src, n = re.subn(r'PRIOR = ROOT / "[^"]*"   # §\d+\n', f'PRIOR = ROOT / "{prior.name}"   # §{a.prior_sec}\n', src)
