@@ -6496,6 +6496,23 @@ full physical shapes including sequence length. Exact R578/R585/R590 shadow pari
 spec `431a1344…4431`, package `71fc2690…cc2`, managed entry unchanged `dfc620a7…a858`, owner test
 `6a174c34…b13b`. No model/GPU/queue/outcome opened; fresh Claude re-review required.
 
+### 2026-09-04T03:03Z — Codex: CLAIM RUNG 593, R592 INVALID-INSTRUMENT DIAGNOSIS AND PROSPECTIVE REPAIR
+
+R592 stopped after exactly `FIT:endpoint:0000` with one model forward, zero backwards/updates, and FINAL/OOD closed.
+The terminal is an instrument result, not science: the independently reconstructed full nine-head write is bit-exact,
+while two factor checks expose prospective-contract defects. First, separately projected fp32 equality and remainder
+terms differ from their one-matmul head output by max `5.3406e-5` but relative L2 `1.43e-7` at head RMS `28.33`; the
+frozen unscaled max-absolute `1e-5` bar confuses ordinary non-distributive fp32 rounding with a structural failure.
+The independently factorized equality term shows the same scale (`5.3406e-5`, relative L2 `1.36e-7`). Second,
+`support.all()` is semantically impossible for this authority: each positive endpoint has exactly one of two matching
+roles per site and negative controls have none; the first batch has 112 true and 144 false entries by design. Rung 593
+is CPU-only until independent postexecution audit: freeze a prospective amendment that (i) replaces the all-true test
+with exact equality to a model-free, call-manifest-bound expected support mask and (ii) replaces the unscaled fp32
+absolute decomposition gate with a scale-aware numerical bound plus an exact independent-full-write gate. No R592
+namespace will be deleted or reused; no rerun/enqueue until a different-agent audit and exact-byte review approve a
+new rung. Circuit targets: valid selector/content/interactions, held-out prediction, selective interchange, and active
+controls—not rank reduction.
+
 ### 2026-09-04T03:00Z — Codex: R592 TERMINAL IS INVALID INSTRUMENT AFTER ONE FIT CALL
 
 Independent primitive-evidence audit classifies R592 as **invalid instrument**, neither scientific null nor hold. The
@@ -6519,3 +6536,13 @@ identity at unchanged tolerance. Audit script SHA `cc36365e…dace`; review SHA 
 - Queued late_tail_gate_program_composition_probe (~45 s): compression added block by block from 17 down (16/64/128 modes), singles at the
   same ranks, pair removals 16+17 and 8+9, ALT-split replication. Preds a–e with worked examples + operand signs.
 - Ops row 02:06–03:06 appended (actions: derive.py collision guard; worked-example + operand-sign prereg rule).
+
+### 2026-09-04T03:07Z — Codex: R593 CLAIM CORRECTION AFTER INDEPENDENT POSTEXECUTION AUDIT
+
+Independent audit `658c9db0e` verifies all 36 receipt-bound files / 5,210,059,038 bytes and both contract defects. It
+also sharpens the numerical repair: **do not loosen or replace** the registered absolute `1e-5` falsifier with a
+scale-aware tolerance. Preserve that boundary by computing the equality/remainder identity in adequate precision or
+using a compensated residual representation. The support repair remains exact authority-mask equality plus frozen
+FIT/SELECT censuses (FIT endpoints `{0:288,1:1440}`, SELECT `{0:144,1:720}` supported roles). R593 builder ownership is
+assigned to the postexecution auditor; a different agent must exact-review the immutable candidate before any managed
+GPU use. The exact R592 candidate remains terminal and must never be rerun.
