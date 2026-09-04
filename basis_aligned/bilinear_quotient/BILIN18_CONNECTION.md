@@ -74822,3 +74822,80 @@ along, is the axis that transports. And it sharpens the standing account of the 
 that shared structure is robust to distribution change, and the ranking *among behaviours* built on top of it is not a stable target.
 
 §2860's "selectivity un-established" stands. The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2871 — THERE IS NO SELECTIVE BAND. THE TOP-8 SET IS BARELY BETTER THAN A RANDOM SUBSET (.231 vs .192), THE REGISTERED NULL FIRED, AND THE ACCOUNT §2867–§2870 WERE CONVERGING ON IS RETIRED
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_SELECTIVE_BAND_PREREGISTRATION.md` (08:44Z). Run
+`circuit_battery_selective_band_overlap`, landed 08:50Z.
+Results: circuit_battery_selective_band_overlap_results.json
+Price: 13392 GPU forwards, 186.0 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). Four populations at PER_CELL=24.
+
+SIGN CONVENTION: `selectivity = |d_C|/max(d_A1,.5)`, LOWER = MORE SELECTIVE. No CE, no §312 L2, nothing installs. (Frontier: L2 is CE
+ADDED ABOVE THE REAL MODEL, LOWER IS BETTER, §2135.)
+
+**pred_a FALSE and the null `a_null_top_set_is_random` is MET.** Median Jaccard(SELECT, TEST) of the top-8 selective sets is **.231**
+against a **matched** random-subset baseline of **.192** — a margin of **.039**, against a bar of ≥ .25 and a null of ≤ .05. **pred_b
+FALSE**: Jaccard(TEST, OOD) = **.333** against a ≥ .40 bar.
+
+| pair | median Jaccard | random baseline |
+|---|---|---|
+| SELECT \| TEST | .231 | **.192** |
+| SELECT \| OOD | .231 | |
+| TEST \| OOD | .333 | |
+| FIT \| OOD | .455 | |
+
+**This retires the band hypothesis, which was my own leading account.** §2867–§2870 converged on "many components in the 8–15 band
+share a similar true value" to reconcile a reproducible ranking (ρ .749, ρ .763 across populations) with an argmin that never
+reproduces. The preregistration named the alternative explicitly and registered the null to detect it — quoting it: *"if the set is no
+more stable than random, then the ρ .763 ranking is carried entirely by the inert tail and there is no band to name."* **That is what
+happened.** The ranking's reproducibility is a property of the tail of the list, not of its head: components that are inert or
+near-inert score consistently, which is enough to carry a Spearman over ~20 live components while the identity of the *selective* ones
+is close to noise.
+
+**pred_c TRUE (depth contiguity .75) is not evidence for a band and is not read as such**: the live pool is itself concentrated in
+depth, so a random subset of it is contiguous too. The clause was registered to decide whether "band" was the right word *given* a
+stable set; with pred_a failed it decides nothing, and it is recorded TRUE without being used.
+
+**pred_d TRUE — 0 of 7 behaviours have one argmin across all four populations**, the fifth consecutive measurement of that fact.
+
+## §2872 — §2869's ADVANTAGE WAS DIRECTIONAL: REVERSING SELECTION AND EVALUATION COLLAPSES IT FROM −.240 TO −.020, AND THE PICK IS NOW WORSE THAN THE NAMED WRITER
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_WINNERS_CURSE_REVERSED_PREREGISTRATION.md` (08:47Z). Run
+`circuit_battery_winners_curse_reversed`, landed 08:51Z.
+Results: circuit_battery_winners_curse_reversed_results.json
+Price: 6696 GPU forwards, 82.8 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). Select on **OOD**, evaluate on **FIT**.
+
+| clause | §2867 (FIT→TEST) | §2869 (FIT→OOD) | **§2872 (OOD→FIT)** | bar |
+|---|---|---|---|---|
+| pred_a inflation | .197 | .193 | **.439** | ≥ .15 |
+| pred_b pick vs named writer | −.031 | +.002 | **+.245** | ≥ 0 |
+| pred_c selection beats random | −.088 | −.240 | **−.020** | ≤ −.05 |
+| pred_d argmin does not reproduce | 0 of 7 | 0 of 7 | **0 of 7** | ≤ 2 |
+
+**pred_c FALSE — §2869's −.240 does not survive reversal**, collapsing to **−.020**. The preregistration registered exactly this
+consequence in advance: *"if it collapses toward §2867's −.088, the asymmetry was directional and §2869's −.240 must not be read as a
+property of the metric."* **It is so recorded.** §2869's clean-looking result was an artefact of selecting on FIT specifically, not a
+property of the OOD population as an evaluation set.
+
+**pred_a: inflation more than doubles to .439**, the largest yet — selecting on the held-out-vocabulary population and paying on FIT is
+the most inflated direction of the three tested. **pred_b TRUE at +.245**: here the searched component is clearly **worse** than the
+battery's identified writer on the evaluation split, where §2864/§2867/§2869 had it indistinguishable (−.020, −.031, +.002). Across all
+four directions the search never beats the named writer, and in the most inflated direction it loses badly — which strengthens the
+writer identification while further weakening the search.
+
+**pred_d: 0 of 7 for the sixth time**, now across three sample sizes and every direction tried.
+
+### Joint reading of §2871 and §2872, and what I am withdrawing
+
+These two land together and they point the same way. **The component-level structure the arc had been building is substantially weaker
+than §2868–§2870 suggested.** What survives: the metric's positive control (§2861/§2863, .056/.072/.061), its held-out gap transfer
+(pred_d throughout), the retirement of the inherited .25 bar (§2862), the writer identification never being beaten by search
+(§2864/§2867/§2869/§2872), and the argmin's instability (0 of 7, six times). **What I withdraw: the "selective band" account** — stated
+in §2867's, §2868's and §2870's readings — and, per §2872, **§2869's −.240 as a property of the metric**.
+
+§2860's "selectivity un-established" stands, now with the added and better-supported statement that **per-component selectivity beyond
+the inert/live distinction is largely not recoverable with this instrument.** That is a real limit on the circuit lane, and it is the
+reason the next rung leaves it: the queued `frontier_a5_constant_collapse` attacks a named largest gap in the frontier's own currency
+instead.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
