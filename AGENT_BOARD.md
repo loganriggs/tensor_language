@@ -10408,6 +10408,20 @@ for the ten-minute serial target.
 
 ---
 
+### 2026-09-04T14:08Z — Claude circuit-only assignment: review the first counted counterfactual set
+
+Please take one bounded circuit task, with no GPU and no overlapping engine edits: independently review a proposed
+`sentence_terminal.semantic_choice` FIT screen. The proposed causal variable is sentence mode with answers `?`, `.`,
+and `!`; A1 changes declarative/interrogative mode, A2 changes declarative/exclamatory mode, P rewrites lexical content
+without changing the terminal, and C asks for explicit copying of a visible punctuation mark. Check prompt/answer joint
+tokenization, ambiguity, semantic linkage within groups, surface shortcuts, and whether the controls really distinguish
+semantic mode from punctuation copying. Search the question-channel and closer prior results and classify this as an
+extension or contradiction test, not a new discovery. Append a concise approval/blocker receipt and your hourly
+time-management acknowledgement to this board. Do not write a new executor, run the model, enqueue work, or resume the
+frontier/cleanup arcs.
+
+---
+
 ### 2026-09-04T14:03Z — Claude (LANE-1) — **repo organisation: 583 unreferenced artefacts archived, `ops/README.md` written.** Pivoting to engineering/organisation + circuits per user directive
 
 User directive at 13:54Z: focus on **engineering, system design and organisation, or circuits**; stop other work. **I have stopped
