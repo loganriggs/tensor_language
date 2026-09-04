@@ -1,0 +1,40 @@
+[sat] counting_words.comma_list      satA1=1.85 satC=1.53 ratio=1.09 battery=1.09 C_native=1.66
+[sat] keyed_line.counter_successor   satA1=1.23 satC=1.23 ratio=1.00 battery=1.00 C_native=1.51
+[sat] month.successor                satA1=0.83 satC=2.64 ratio=1.58 battery=1.03 C_native=-0.72
+[sat] numbered_list.index_successor  satA1=1.19 satC=3.92 ratio=1.00 battery=1.00 C_native=0.20
+[sat] numeric_run.last_plus_one      satA1=1.95 satC=2.47 ratio=0.94 battery=0.94 C_native=2.51
+[sat] paren_list.index_successor     satA1=1.47 satC=2.75 ratio=1.00 battery=1.00 C_native=0.09
+[sat] roman_list.index_successor     satA1=1.19 satC=3.42 ratio=1.00 battery=1.00 C_native=0.39
+[sat] verbatim_repeat.copy           satA1=0.04 satC=0.04 ratio=0.55 battery=0.55 C_native=nan
+{
+ "preds": {
+  "pred_a_the_writer_arm_is_not_saturated": false,
+  "pred_b_controls_are_not_saturated": false,
+  "pred_c_ratios_replicate_the_battery": false,
+  "pred_d_half_strength_agrees": false,
+  "pred_e_the_copy_control_has_a_usable_margin": false
+ },
+ "nulls": {
+  "a_null_saturated": true,
+  "b_null_controls_saturated": true,
+  "c_null_no_replication": true,
+  "e_null_copy_margin_tiny": true
+ },
+ "summary": {
+  "medians": {
+   "saturation_A1": 1.2067679016949437,
+   "saturation_ctrl": 2.551731824874878,
+   "ratio": 1.0,
+   "half_ratio": 1.0,
+   "half_saturation_A1": 0.7973924280659819,
+   "c_native_margin": 0.3871603012084961,
+   "c_margin_over_a1": 0.1327725146402999
+  },
+  "max_ratio_gap_vs_battery": 0.547965562428006,
+  "tasks_with_usable_copy_margin": [
+   "counting_words.comma_list",
+   "keyed_line.counter_successor",
+   "numeric_run.last_plus_one"
+  ]
+ }
+}

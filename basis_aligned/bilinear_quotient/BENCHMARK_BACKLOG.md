@@ -5661,3 +5661,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   NOT supported: the gap (.44) measures instrument bluntness, exactly as the prereg said in advance. Ratios replicate §2849 to .000 and
   §2819 to .057. **Whole-component ablation: use for magnitude ranking only, never selectivity.** OPEN and enqueued next: is the
   BATTERY's own writer arm saturated too? If so, "ZERO behaviours are writer-selective" (§2817, §2840, §2819) is the same artifact.
+- §2851 circuit_battery_writer_arm_saturation (Claude, LANE 1 CUDA, 12.6 s, 1,190 GPU forwards, 0 fitted params): ALL FIVE preds FALSE,
+  all four nulls MET. **CORRECTION to the campaign's most-repeated result.** "ZERO behaviours are writer-selective" (§2817 pred_g,
+  §2840 pred_g, §2819) rests on a SATURATED arm: median target saturation 1.207 (removes more than the whole native margin on 6 of 8
+  behaviours) and median control saturation 2.552 (up to 3.92) — both sides pinned, which is why six ratios are exactly 1.00. SECOND
+  independent defect: the copy control's native margin is a median .39 (.133 of A1's) and is .09 (paren), .20 (numbered), **−.72
+  (month)** — negative means the model does not natively give the copy answer, so C is not controlling for what it should. pred_c
+  replicates §2840 exactly on 6 of 8, diverging only on month (the negative-margin cell). pred_d: the HALF-strength arm (saturation .797)
+  moves ratios by up to .38 — numeric run .94→.69, verbatim repeat .55→.20 — so the negative depended on arm strength. UNAFFECTED:
+  §2818, §2819's edge ratios (edges unsaturated at .053), §2826/§2827, §2841–§2847, §2835. NEEDED: an arm calibrated below the ceiling
+  and a verified-positive copy control, both protocol amendments (~90 s to re-run the bank).

@@ -73891,3 +73891,61 @@ three writer-selectivity results stand as reported with this caveat attached.
 Price: 851 GPU forwards, 8.9 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_node_vs_edge_selectivity_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE — and pred_d is recorded as
 UNUSABLE by its own registered condition. Preserved.
+
+## §2851 — CORRECTION TO THE CAMPAIGN'S MOST-REPEATED RESULT: "ZERO behaviours are writer-selective" (§2817, §2840, §2819) rests on a SATURATED arm and on control families that are partly broken. The writer arm removes **1.21×** the native target margin and **2.55×** the native control margin; the copy control's own native margin is a median **.39** — and NEGATIVE on month (−.72) — so the C term in every selectivity ratio this campaign computed is measured against a near-zero or wrong-signed baseline. All five predictions FALL, all four nulls MET
+
+§2850 caught §2849's ratios as a ceiling artifact and I wrote there that the battery's own writer arm had never been checked, that the
+check was cheap, and that "until it lands the three writer-selectivity results stand as reported with this caveat attached". It has
+landed and they do not. Sign convention: damage d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS; saturation = d_m / max(m_NATIVE, .5),
+1.0 meaning the whole native margin is gone; ratio = max(|d_P|, |d_C|) / max(d_A1, .5), LOWER IS MORE SELECTIVE. **No CE, no §312 L2;
+nothing installs.**
+
+| behaviour | sat(A1) | sat(controls) | ratio | §2840's ratio | half-arm ratio | C native margin |
+|---|---|---|---|---|---|---|
+| numeric run | 1.95 | 2.47 | .94 | .94 | .69 | 2.51 |
+| counting words (commas) | 1.85 | 1.53 | 1.09 | 1.09 | 1.39 | 1.66 |
+| paren list | 1.47 | 2.75 | 1.00 | 1.00 | 1.00 | **.09** |
+| keyed counter | 1.23 | 1.23 | 1.00 | 1.00 | 1.00 | 1.51 |
+| numbered list | 1.19 | 3.92 | 1.00 | 1.00 | 1.01 | **.20** |
+| roman list | 1.19 | 3.42 | 1.00 | 1.00 | 1.00 | .39 |
+| month | .83 | 2.64 | 1.58 | 1.03 | 1.81 | **−.72** |
+| verbatim repeat | .04 | .04 | .55 | .55 | .20 | n/a |
+
+**pred_a FALSE, null MET — the writer arm is saturated.** Median target saturation **1.207**: the battery's selectivity arm removes
+more than the entire native margin on six of eight behaviours. **pred_b FALSE, null MET — the controls are worse**, at a median
+**2.552** and up to 3.92 (numbered list). Both sides of the ratio are pinned past the ceiling, which is exactly why six of the eight
+ratios are exactly 1.00. **The three published statements that "ZERO behaviours are writer-selective" (§2817's pred_g, §2840's pred_g,
+§2819's reader-side version) are therefore not evidence that the writer is generic. They are evidence that the arm is too strong to
+measure selectivity.**
+
+**pred_e FALSE, null MET — and this is a second, independent defect.** The copy control's own native margin is a median **.39** of a
+median A1 margin of ~2.3 — a ratio of **.133** — and it is **.09** on the paren list, **.20** on the numbered list and **−.72** on
+month. A negative native margin means the model does not natively produce the copy answer at all on that control, so the family is not
+controlling for what it was built to control for. **Every selectivity ratio in this campaign takes max(|d_P|, |d_C|), and the C term has
+been measured against a near-zero or wrong-signed baseline throughout.**
+
+**pred_c FALSE — and the way it fails is informative.** The ratios replicate §2840 exactly on six of eight behaviours (1.00 → 1.00,
+.94 → .94, 1.09 → 1.09, .55 → .55) and diverge on month (1.58 against 1.03), which is precisely the behaviour whose copy control has a
+negative native margin — an unstable ratio, as expected once the baseline is wrong-signed. So this rung IS measuring the battery's arm;
+the max gap simply exceeds my .15 bar because of that one unstable cell.
+
+**pred_d FALSE — and the verdict does depend on arm strength.** The half-strength arm (write removed from only half the reader edges,
+median target saturation **.797**, i.e. below the ceiling) gives ratios that differ by up to .38: numeric run .94 → **.69**, verbatim
+repeat .55 → **.20**, counting words 1.09 → 1.39, month 1.58 → 1.81. **At half strength two behaviours look substantially more selective
+than the battery ever reported.** That is not yet a positive selectivity result — .69 and .20 are single unreplicated numbers from an arm
+nobody registered in advance — but it is direct evidence that the campaign's negative was a function of how hard it hit.
+
+**What is corrected, and what is not.** Corrected: any reading of "no behaviour is writer-selective" as a fact about attention 8. The
+measurements stand as measurements; their interpretation does not. NOT corrected, because they do not depend on this arm: §2818's
+super-additivity, §2819's depth gradient in reader-edge ratios (edges are unsaturated at .053, §2850), §2826/§2827's causal-axis
+results, §2841–§2847's roundness lineage, and §2835's constant-write finding. Per the standing rule I am not retiring the failing bars
+in a section that benefits from ignoring them — this section is the one that loses by them, and it reports them first.
+
+**What the battery needs before its selectivity stage means anything again.** An arm calibrated to stay below the ceiling (the
+half-strength arm is one candidate, registered properly), and a copy control whose native margin is verified positive and non-trivial per
+behaviour before it enters a ratio. Both are protocol amendments, which under the v2 document re-run every behaviour — about ninety
+seconds — and neither is done here.
+
+Price: 1,190 GPU forwards, 12.6 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_writer_arm_saturation_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL FALSE; all four nulls met.
+Preserved.
