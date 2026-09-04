@@ -5723,3 +5723,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
   answer and zero are non-copyable — exact checks via `group_id`. NEGATIVE worth keeping: `v3_adjacent`, borrowed from §2841's
   capability-1.00 verbatim_repeat form, is NEGATIVE on 4 of 7 list surfaces — that copy behaviour is surface-specific. NOT DONE: the
   selectivity stage is not re-run, so §2852's verdict stands unchanged until a further protocol amendment.
+
+- **[§2858] Audit which landed §§ used the P family as a control distinct from the target.** `pack(b, "base")` appears in ~20 rung
+  scripts; the defect only corrupts comparisons treating P as a DISTINCT condition (localisation/lens/geometry rungs measure A1 alone
+  and are unaffected). §2840 and §2852 are corrected in substance by §2858 — both keep their published verdict. The audit is to
+  enumerate the rest; a grep for `"P"` used in a ratio/argmax is the cheap first pass. No GPU.
+- **[§2858] Re-score §2840's `selectivity_ratio` with an absolute max over controls.** §2840 used a SIGNED `max(ctrl["P"], ctrl["C"])`
+  and the copy control is negative on every task, so the published ratio reduced to `P` alone — i.e. to the target itself on the 9
+  degenerate tasks. Covered for the FULL arm by the queued donor-control sweep; the signed/absolute question is separable.
+- **[§2858] Consider whether the bank should emit P with its own base.** The donor-side read is correct and needs no bank change, but
+  every future rung must remember to use it. A `pack(b, "control")` accessor that resolves per family would make the correct thing the
+  default. Weigh against the frozen-row-hash cost — a bank change perturbs no rows if it only adds an accessor.

@@ -74238,3 +74238,91 @@ for five of eight — and this section changes nothing about it.**
 Price: 81 GPU forwards, 3.3 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same command
 this section was written from, and every figure above likewise (§2853).
 Results: circuit_battery_copy_control_redesign_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL TRUE; no null met. Preserved.
+
+## §2858 — THE ANSWER-PRESERVING CONTROL WAS THE TARGET CONDITION ITSELF, ON 11 OF 21 BEHAVIOURS — AND THE NEGATIVE SURVIVES ANYWAY
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_PROTOCOL_V5_PREREGISTRATION.md` (written 08:05:35Z, frozen into the rung's `HASHES`
+before execution, git 08:06:11Z; **the in-document header reads "08:0xZ", which is imprecise — these mtimes are authoritative**, and
+the rule adopted here is to read `date -u` BEFORE composing a preregistration header, as §2810 point 7 required of amendment headings).
+Run `circuit_battery_preserving_control_repair`, landed 08:06Z. Results: `circuit_battery_preserving_control_repair_results.json`.
+Price, read with `price` in the same command this section was written from (§2853): **368 GPU forwards, 0 backwards, 0 fitted
+parameters, 6.62 GPU-seconds**, `smoke: false`.
+
+SIGN CONVENTION for everything below: damage `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS that family's own answer**;
+`ratio = max over usable controls of |d_control| / max(d_A1, .5)`, **LOWER IS MORE SELECTIVE**. No CE and no §312 L2 appears here and
+nothing installs. (Frontier convention, stated per standing rule though unused: frontier L2 is CE ADDED ABOVE THE REAL MODEL, LOWER IS
+BETTER, §2135; the frontier is norm-2304 at 2.6735, §2125 stands.)
+
+### The defect
+
+The bank emits a group's four families as transformations of ONE situation and puts the transformation in the **donor**: A1, A2 and P
+share the same `base_text`/`base_answer`, and only C has a base of its own. Every scoring rung to date calls `pack(b, "base")` for
+EVERY family. So the answer-preserving control was evaluated on the target's own prompts, and
+
+    ratio = |d_P| / max(d_A1, .5) = 1.000  **by construction, not by measurement.**
+
+Two independent physical controls, one of which needs no GPU and no model:
+
+1. **Structural census (no GPU, all 21 behaviours, PER_CELL=24):** **11 of 21** tasks have every P SELECT base prompt present in the
+   A1 SELECT base set — `frac_base_in_a1` = 1.00 exactly. The other 10 read exactly 0.00. Nothing in between.
+2. **The already-landed §2840 receipt, read as bytes:** `control_d_m["P"]` is **BITWISE identical** to `split_d_m["FULL"]` for **9 of
+   the 16** tasks carrying both fields (paren_list +2.286295 = +2.286295; roman_list +3.460883; keyed_line +3.087293; numbered_list
+   +2.667098; …), and every such task with a positive value publishes `selectivity_ratio` **exactly 1.000**. This was measured weeks
+   before the census and cannot have been produced by a bug in today's code.
+
+The forced consequence was then measured on this run's own GPU forwards: on the degenerate tasks, **max |d_P_base − d_A1| = 0.0** —
+not within the .015 atomics tolerance, but identically zero, because they are the same forwards. §2852's docstring attributes its
+exact-1.00 readings to both sides being saturated; **that attribution was wrong**, and the cause is that numerator and denominator
+were the same number.
+
+### What this does and does not overturn
+
+The correct answer-preserving condition is the P family's **donor** — same answer, different causal variable
+(`64) beacon / 65) mosaic` → 66 against `64) jasmine / 65) vine` → 66; `donor_answer == base_answer` on **100%** of P rows in all 21
+tasks, so the donor genuinely is answer-preserving). Re-scored with the donor-side control AND §2857's repaired copy control, on
+§2852's own calibrated arms:
+
+| behaviour | identical? | d_A1 | d_P_base | **d_P_donor** | d_C3 | ratio §2852 | **ratio corrected** |
+|---|---|---|---|---|---|---|---|
+| counting words | 0.00 | .859 | 1.197 | 1.088 | −.539 | 1.393 | **1.267** |
+| keyed counter | **1.00** | 1.574 | 1.574 | **1.946** | −.438 | 1.000 | **1.237** |
+| month | 0.00 | .835 | .861 | .881 | −.402 | 1.031 | **1.056** |
+| numbered list | **1.00** | 1.879 | 1.879 | 1.806 | −1.079 | 1.000 | **0.962** |
+| numeric run | 0.00 | .461 | .319 | .355 | −.134 | .256 | **0.267** |
+| paren list | **1.00** | 1.084 | 1.084 | 1.079 | −.509 | 1.000 | **0.996** |
+| roman list | **1.00** | 2.212 | 2.212 | **2.250** | −.816 | 1.000 | **1.017** |
+
+**pred_c FALSE and pred_d FALSE; nulls `c` not met but `d_null_verdict_unchanged` MET.** The donor control separates from the target by
+a median of only **.072** (bar .15), and **zero behaviours cross the .25 selectivity bar — the same verdict §2852 published, with
+nothing flipped in either direction.** On keyed counter and roman list the donor is damaged *more* than the target (1.946 vs 1.574;
+2.250 vs 2.212), i.e. removing attn8's write hurts a same-answer/different-item prompt at least as much as the target itself.
+
+So: **the campaign's negative stands, and the correction is to its evidence, not to its conclusion.** Before today, "zero behaviours
+are writer-selective" rested on a ratio that was 1.000 by construction for 11 of 21 behaviours. It now rests on a control that differs
+from the target in exactly the intended way and still tracks it. That is a strictly better-supported negative and it says something
+about the model: **attn8's write is required for the surface form of the continuation, not for the causal variable the behaviour
+turns on.** Nothing here retires or weakens a registered bound; §2852's verdict is confirmed, not retracted.
+
+### Instrument
+
+`max |A1 native margin − §2852's| = 0.0` across all seven behaviours and the calibrated ladder rung selected is identical to §2852's on
+**7 of 7** (`arm_reproduces: true`), so the only moving part was the control. §2857's derived copy-control rows: **168 checked, 0
+invalid** (single-token answer, joint tokenization intact, answer ≠ its own group's A1 successor answer, answer token literally present
+in the prompt) — pred_e TRUE, reproducing §2857's 0 on the same construction.
+
+### Scope, and what is NOT claimed
+
+`pack(b, "base")` appears in ~20 landed rung scripts. Most measure damage on A1 alone (localisation, lens, geometry, class-gate) and
+are **unaffected**: the defect only corrupts comparisons that treat P as a condition DISTINCT from the target. **No claim is made here
+about which other §§ are affected** — that audit is a separate backlog item. The two sections whose published numbers are known to be
+affected are §2840 (`selectivity_ratio`, 9 of 16 degenerate) and §2852 (six of eight reading exactly 1.00); both are corrected in
+substance by this section, and in both the corrected verdict is the same as the published one. §2840 additionally took a **signed**
+max over controls where the copy control is negative, so its `max(P, C)` reduced to `P` alone; that is noted, not yet re-scored.
+
+Withdrawn: `CIRCUIT_BATTERY_PROTOCOL_V4_PREREGISTRATION.md`, registered and smoke-tested but **never landed** — no ledger section cites
+it and no non-smoke receipt exists. Its smoke run is what exposed this defect. It is kept on disk unedited with a withdrawal note
+appended, as the honest record of what was registered before the defect was known.
+
+Queued next: `circuit_battery_donor_control_sweep` (prereg written 08:09:09Z), which asks the same question of all 21 behaviours at
+their own writers on the FULL arm §2840 actually published, and whose pred_a is the census/receipt cross-check — a no-GPU census of the
+row generator predicting a GPU receipt written weeks earlier, task for task.
