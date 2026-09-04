@@ -5868,3 +5868,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2896] The obvious next question: is 0.25 optimal, and does a per-layer scale beat a global one?** The sweep's grid was coarse
   (0/.25/.5/.75/.9/1). A finer grid plus eight per-layer scalars, all eval-only, is one pipeline run under fit-once/eval-many. A
   per-layer optimum would also be the cheapest possible probe of whether the mismatch is uniform across the tail band.
+
+- **[§2897] Name which ablation question a cost answers.** Frozen-stack and refit-time ablations differ by **4.9479 nats** for the
+  front token table and **0.0215** for the quadratic residual (SIGN: L2 is CE added above the real model, LOWER IS BETTER). Both are
+  correct measurements of *different* questions. Every ledger section quoting a block cost should say which; the frozen number is an
+  upper bound whenever the block's partner could refit.
+- **[§2897] Drop the TABLE, not the residual.** The rank-64 quadratic residual can substitute for the token lookup (recovers 88% when
+  refitted); the lookup cannot substitute for it (under 3%). Parameter counts suggest the opposite priority, so any front-stage
+  simplification should be designed against this asymmetry.
+- **[§2898] The tail band is the only nearly-additive block** (Σ singles −0.2512 vs global −0.2288, gap 0.0224 — under 10%). A targeted
+  per-layer end-to-end refit should compose there; the same move on the motif band or front tables must fight interactions an order of
+  magnitude larger. **0.25 is within 0.0003 of the optimum (0.20)** — do not spend a rung chasing the remainder.

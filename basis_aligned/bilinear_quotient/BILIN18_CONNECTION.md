@@ -76162,3 +76162,101 @@ reconstruction-trained ones).
 **The limit, from §2895:** this does **not** generalise unchanged to the front MLP tables. There, shrinkage improves the fresh window
 (−0.1648 at `a_scale` .5) but is *worse in sample* (+0.0959), which is an overfitting signature rather than an objective-mismatch one.
 The two blocks need different treatments, and §2895's own anchor failed, so nothing there is adopted.
+
+## §2897 — THE COMPENSATION IS **ONE-WAY**: THE QUADRATIC RESIDUAL ABSORBS **4.9479 nats** OF THE TOKEN TABLE'S JOB WHEN REFITTED, THE TOKEN TABLE ABSORBS **0.0215** OF THE RESIDUAL'S. ALL FIVE PREDS TRUE
+
+Registered `polynomial_causal/FRONTIER_FRONT_ANCHOR_RESOLUTION_PREREGISTRATION.md` (10:42Z). Run `frontier_front_anchor_resolution`,
+landed 10:48Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_front_anchor_resolution_results.json
+Price: 0 GPU forwards, 292.8 GPU-seconds, **3 pipeline runs** (`forwards_instrumented: false`, `pipeline_runs: 3` — the forward count is
+absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**. §2125 STANDS.
+
+| arm | measured | target | deviation |
+|---|---|---|---|
+| **refit-time** `tb := 0` | **+0.6811** | §2877's +0.6814 | **0.0003** |
+| **refit-time** `A := 0` | **+0.7535** | §2877's +0.7536 | **0.0001** |
+| **frozen** `tb := 0` | **+5.6290** | §2895's +5.6298 | **0.0008** |
+| **frozen** `A := 0` | **+0.7320** | §2895's +0.7321 | **0.0001** |
+
+**All five predictions TRUE; no null met.** All four anchors reproduce to within a **ten-thousandth**, across three separate rungs and
+two different application paths.
+
+### The asymmetry, which is the result
+
+| removed block | frozen cost | refit-time cost | **compensation** |
+|---|---|---|---|
+| token table `tb` | +5.6290 | +0.6811 | **4.9479** |
+| quadratic residual `A` | +0.7320 | +0.7535 | **0.0215** |
+
+**pred_d HELD (4.9479 ≥ 3.0) and pred_e HELD (0.0215 ≤ 0.10)** — the asymmetry was predicted in both directions before the run, which
+is what makes it a claim rather than an observation.
+
+**The quadratic residual can do the token table's job; the token table cannot do the residual's.** Given the chance to refit, `A`
+recovers **88%** of the 5.63 nats that removing the lookup costs on a frozen stack. Given the same chance, `tb` recovers **nothing** —
+0.0215 of 0.7535, under 3%, and the frozen and refit-time costs of removing `A` are within one atomics tolerance of each other.
+
+This is the largest interaction measured anywhere in this construction — §2880's superadditivity was +3.2104, §2888's +0.3023, §2894's
++0.0609 — and it is **directional**, which none of those were.
+
+**Two consequences, stated separately because they cut differently:**
+
+1. **Every frozen-stack ablation of a block whose partner can refit is an upper bound, not a cost.** §2877's +0.6814 for `tb := 0` and
+   §2895's +5.6298 are both correct measurements of *different questions*, and the ledger should name which one it means. The refit-time
+   number is the one that answers "how much does this block contribute to what the construction can achieve"; the frozen number answers
+   "how much does it contribute to this particular fitted stack".
+2. **The rank-64 quadratic residual is the more expressive half.** It can stand in for a token lookup; the lookup cannot stand in for
+   it. Any simplification of the front MLP stage should therefore try to drop the *table*, not the residual — which is the opposite of
+   what parameter counts alone would suggest.
+
+**Nothing is adopted here.** The preregistration said this rung is diagnostic and does **not** adopt §2895's −0.1648, and it does not:
+§2895's own gate required its pred_c, which failed. `adoption_gate_all_of_a_b_c = TRUE` is recorded in the receipt so a later rung can
+see the anchors were sound without re-deriving them.
+
+## §2898 — **0.25 IS ESSENTIALLY OPTIMAL** (best is 0.2 at −0.2291 against 0.25's −0.2288), THE ADOPTED NUMBER REPRODUCES A **FIFTH** TIME AT 0.0001, AND THE TAIL BAND'S SCALE GAINS ARE **NEARLY ADDITIVE** — UNLIKE EVERY OTHER BLOCK
+
+Registered `polynomial_causal/FRONTIER_TAIL_SCALE_PROFILE_PREREGISTRATION.md` (10:45Z). Run `frontier_tail_scale_profile`, landed
+10:50Z. Parent **unmodified**.
+Results: frontier_tail_scale_profile_results.json
+Price: 0 GPU forwards, 142.1 GPU-seconds, **1 pipeline run** for fifteen arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** L2 is **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a **negative cost is an improvement**.
+
+| global scale | 0.10 | 0.15 | **0.20** | 0.25 | 0.30 | 0.40 |
+|---|---|---|---|---|---|---|
+| cost | −.2168 | −.2254 | **−.2291** | −.2288 | −.2254 | −.2104 |
+
+| layer (scaled alone at 0.25) | a10L | a17L | a15L | a11L | a14L | a12L | a16L | a13L |
+|---|---|---|---|---|---|---|---|---|
+| cost | **−.0698** | −.0467 | −.0302 | −.0296 | −.0276 | −.0240 | −.0177 | −.0056 |
+
+**pred_a, b, c, d TRUE; pred_e FALSE.**
+
+- **pred_b HELD at deviation 0.0001** — §2896's adopted **−0.2287** reproduces a **fifth** time. `b_null_the_anchor_fails`, registered
+  so the adoption itself could be re-opened, did not fire.
+- **pred_c HELD** — the optimum is **interior at s = 0.20, cost −0.2291**, implied L2_F **+2.4445**. The curve is **very flat between
+  .15 and .30** (span .0037), so **the adopted 0.25 is within 0.0003 of optimal** and §2896 needs no revision. The extra available gain
+  is **0.0003 nats** — worth recording precisely so nobody spends a rung chasing it.
+- **pred_d HELD** — the best single layer (a10L, −0.0698) falls short of the global −0.2288 by **0.1590**.
+
+### pred_e FAILED, and the failure is the interesting part
+
+`|Σ singles − global| = 0.0224` against a ≥ .05 bar — so **pred_e is FALSE**, and its null (≤ .02) is **also not met**: the value lands
+in the undecided band. What can be said exactly: the eight per-layer gains sum to **−0.2512** against a global **−0.2288**, a discrepancy
+of **0.0224 — under 10% of the effect.**
+
+**The tail band's scale gains are nearly additive, and that makes it the only block in this construction that is.** Every other
+interaction measured has been large and signed: the motif band **subadditive** (§2889/§2892: .7441 → .3988, all three front pairs
+negative), the front MLP stage **superadditive** (§2880: +3.2104 against an additive 1.4350) and now **one-way directional** (§2897:
+4.9479 vs 0.0215), the front×motif pair **superadditive** (§2888, +0.3023). The tail dictionaries behave like eight **independent
+knobs**.
+
+That is a real structural fact and it is good news for the end-to-end refitting move §2890 argued for: a targeted per-layer fit of the
+tail band should compose, where the same move on the motif band or the front tables would have to fight interactions an order of
+magnitude larger. It also says where the gain lives — **a10L, the first tail layer, carries 30% of it** — without that concentration
+being strong enough to make a single-layer fix worthwhile (pred_d).
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — §2896's improvement is flagged for the adoption ledger, not
+entered by this lane.
