@@ -1,0 +1,90 @@
+{"stage": "heads_done", "t": 14.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.5}
+{"stage": "fit", "n_fit_tokens": 24576, "mu_norm_17": 6416.668, "t": 15.4}
+{"stage": "fit_models", "n_fit_tokens": 24576, "n_seen_types": 6529, "r2_fit_table_cur": 0.3847, "r2_fit_table_prev": 0.3136, "r2_fit_lin_core": 0.3745, "r2_fit_table_then_lin": 0.5144, "tail_mean_norm": 0.0001, "tail_rms": 12206.6735, "t": 18.2}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "FINAL_ONLY": 0.113, "TABLE_CUR": 0.108, "TABLE_PREV": 0.1206, "LIN_CORE": 0.0854, "TABLE_THEN_LIN": 0.0959, "r2_out_TABLE_CUR": 0.0236, "r2_out_TABLE_PREV": -0.1048, "r2_out_LIN_CORE": 0.2463, "r2_out_TABLE_THEN_LIN": 0.1327, "t": 23.3}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_current_token_table_recovers_a_large_share": false,
+  "pred_c_linear_core_read_recovers_a_large_share": false,
+  "pred_d_current_token_beats_previous_token": true,
+  "pred_e_table_value_sits_on_novel_targets": true,
+  "pred_f_table_and_linear_read_are_complementary": false
+ },
+ "nulls": {
+  "b_null_table_cur_le_.10": true,
+  "c_null_lin_core_le_.10": false,
+  "d_null_prev_ge_cur": false,
+  "e_null_novel_share_le_.4": false,
+  "f_null_no_gain_over_best_single": true
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "FINAL_ONLY": 0.11303674269764108,
+  "TABLE_CUR": 0.10797567497635552,
+  "TABLE_PREV": 0.12063528062390194,
+  "LIN_CORE": 0.08543650739668085,
+  "TABLE_THEN_LIN": 0.09587706881001334
+ },
+ "summary": {
+  "recovered_fraction_of_readout_consumption": {
+   "TABLE_CUR": 0.0447736514738688,
+   "TABLE_PREV": -0.06722184083617821,
+   "LIN_CORE": 0.24417047627413813,
+   "TABLE_THEN_LIN": 0.15180616035201655
+  },
+  "r2_out_of_sample": {
+   "TABLE_CUR": 0.02360771526125993,
+   "TABLE_PREV": -0.10477233980218781,
+   "LIN_CORE": 0.2463357092951871,
+   "TABLE_THEN_LIN": 0.1327263729268192
+  },
+  "fit": {
+   "n_fit_tokens": 24576,
+   "n_seen_types": 6529,
+   "r2_fit_table_cur": 0.384690016474178,
+   "r2_fit_table_prev": 0.3136136239760031,
+   "r2_fit_lin_core": 0.3745344111707414,
+   "r2_fit_table_then_lin": 0.5144424229654416,
+   "tail_mean_norm": 0.00013078658355081005,
+   "tail_rms": 12206.673549378937
+  },
+  "eval_current_token_coverage": 0.77264404296875,
+  "table_cur_over_prev": -0.6660580983341952,
+  "complementarity": {
+   "table_then_lin": 0.15180616035201655,
+   "table_plus_half_lin": 0.16685888961093787,
+   "max_single": 0.24417047627413813
+  },
+  "per_token_by_class": {
+   "FINAL_ONLY": {
+    "induction": 0.04737438444149069,
+    "repeat": -0.00852398887261791,
+    "novel": 0.18818584806968483
+   },
+   "TABLE_CUR": {
+    "induction": 0.04296025066648193,
+    "repeat": -0.004504659458885223,
+    "novel": 0.17829919326632848
+   },
+   "LIN_CORE": {
+    "induction": 0.036111628936303306,
+    "repeat": -0.013426056521697276,
+    "novel": 0.14579914018518142
+   },
+   "TABLE_THEN_LIN": {
+    "induction": 0.0424827325868719,
+    "repeat": -0.008977177427904616,
+    "novel": 0.16009791671241616
+   }
+  },
+  "novel_share_of_recovery": {
+   "TABLE_CUR": 1.1468779623957996,
+   "TABLE_PREV": 0.5238990091144916,
+   "LIN_CORE": 0.9016269566964477,
+   "TABLE_THEN_LIN": 0.9609940761078651
+  },
+  "prior_final_only_2797": 0.113
+ }
+}

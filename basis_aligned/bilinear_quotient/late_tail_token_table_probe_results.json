@@ -1,0 +1,129 @@
+{
+ "rung": "late_tail_token_table_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); recovered = 1 - ARM/FINAL_ONLY",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_current_token_table_recovers_a_large_share": false,
+  "pred_c_linear_core_read_recovers_a_large_share": false,
+  "pred_d_current_token_beats_previous_token": true,
+  "pred_e_table_value_sits_on_novel_targets": true,
+  "pred_f_table_and_linear_read_are_complementary": false
+ },
+ "nulls": {
+  "b_null_table_cur_le_.10": true,
+  "c_null_lin_core_le_.10": false,
+  "d_null_prev_ge_cur": false,
+  "e_null_novel_share_le_.4": false,
+  "f_null_no_gain_over_best_single": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_rec": 0.3,
+  "c_rec": 0.35,
+  "d_mult": 2.0,
+  "e_share": 0.7,
+  "f_half": 0.5
+ },
+ "null_bars": {
+  "b_rec": 0.1,
+  "c_rec": 0.1,
+  "e_share": 0.4,
+  "f_margin": 0.03
+ },
+ "device": "cuda",
+ "split": 8,
+ "ridge": 0.01,
+ "program": "the \u00a72797 consumer instrument (late-MLP centred tail writes A withheld from the FINAL READOUT) with A REPLACED at the readout by a model fitted on docs 96-191: a per-CURRENT-token mean table (V x 384; unseen tokens -> global mean), a per-PREVIOUS-token table, a ridge-linear read of the final residual's 768 core coordinates, and table followed by a linear fit of its residual; per-token deltas by target class (ops/target_token_classes.py); out-of-sample R\u00b2 of each model accumulated inside its arm",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "final_only": 0.11303674269764108,
+  "prior_final_only": 0.113,
+  "tok_mean_baseline": 3.032240074699948
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "FINAL_ONLY": 0.11303674269764108,
+  "TABLE_CUR": 0.10797567497635552,
+  "TABLE_PREV": 0.12063528062390194,
+  "LIN_CORE": 0.08543650739668085,
+  "TABLE_THEN_LIN": 0.09587706881001334
+ },
+ "summary": {
+  "recovered_fraction_of_readout_consumption": {
+   "TABLE_CUR": 0.0447736514738688,
+   "TABLE_PREV": -0.06722184083617821,
+   "LIN_CORE": 0.24417047627413813,
+   "TABLE_THEN_LIN": 0.15180616035201655
+  },
+  "r2_out_of_sample": {
+   "TABLE_CUR": 0.02360771526125993,
+   "TABLE_PREV": -0.10477233980218781,
+   "LIN_CORE": 0.2463357092951871,
+   "TABLE_THEN_LIN": 0.1327263729268192
+  },
+  "fit": {
+   "n_fit_tokens": 24576,
+   "n_seen_types": 6529,
+   "r2_fit_table_cur": 0.384690016474178,
+   "r2_fit_table_prev": 0.3136136239760031,
+   "r2_fit_lin_core": 0.3745344111707414,
+   "r2_fit_table_then_lin": 0.5144424229654416,
+   "tail_mean_norm": 0.00013078658355081005,
+   "tail_rms": 12206.673549378937
+  },
+  "eval_current_token_coverage": 0.77264404296875,
+  "table_cur_over_prev": -0.6660580983341952,
+  "complementarity": {
+   "table_then_lin": 0.15180616035201655,
+   "table_plus_half_lin": 0.16685888961093787,
+   "max_single": 0.24417047627413813
+  },
+  "per_token_by_class": {
+   "FINAL_ONLY": {
+    "induction": 0.04737438444149069,
+    "repeat": -0.00852398887261791,
+    "novel": 0.18818584806968483
+   },
+   "TABLE_CUR": {
+    "induction": 0.04296025066648193,
+    "repeat": -0.004504659458885223,
+    "novel": 0.17829919326632848
+   },
+   "LIN_CORE": {
+    "induction": 0.036111628936303306,
+    "repeat": -0.013426056521697276,
+    "novel": 0.14579914018518142
+   },
+   "TABLE_THEN_LIN": {
+    "induction": 0.0424827325868719,
+    "repeat": -0.008977177427904616,
+    "novel": 0.16009791671241616
+   }
+  },
+  "novel_share_of_recovery": {
+   "TABLE_CUR": 1.1468779623957996,
+   "TABLE_PREV": 0.5238990091144916,
+   "LIN_CORE": 0.9016269566964477,
+   "TABLE_THEN_LIN": 0.9609940761078651
+  },
+  "prior_final_only_2797": 0.113
+ },
+ "price": {
+  "gpu_doc_forwards": 800,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 23.303902864456177
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_TOKEN_TABLE_PROBE_PREREGISTRATION.md": "7e8e6a0af41896a888f4ef7501da12382c67d49270ed1a7dc91ed840d243cd46",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_readout_identity_probe_results.json": "2b1d584ef959a091c5d5410ed1a63978c7acc4305459b860c2e436915928e0ff",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "da7e004b820dca73bcdc49c7b4b08acd8234ac9ded3bf79320a5bb2e0daa4cfa"
+}

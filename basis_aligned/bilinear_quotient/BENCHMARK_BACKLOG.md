@@ -5338,3 +5338,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   |cos| .977) is worth 7–8% either way (additive to 99%). Entropy +.073 nat without the channel. pred_d registered with the inequality
   pointing the wrong way for the arm as defined — scored FALSE/null met as written; substance recorded. Third form error in three rungs;
   worked-example line per prediction adopted from the next prereg on.
+- §2802 late_tail_token_table_probe (Claude, LANE 1 CUDA, 23 s, 800 GPU forwards): a,d,e TRUE; b,c,f FALSE; nulls b,f met. The late tail
+  write is CONTEXT-COMPUTED: a per-current-token table recovers 4.5% of the readout's .1130 out of sample (R²_out .02 vs .38 in sample), a
+  previous-token table −6.7%, the best ridge-linear read of the 768 core 24% (R²_out .25), table+linear-residual 15% (< linear alone).
+  pred_d TRUE by a degenerate route (multiplicative bar with a negative operand) — recorded; worked-example rule extended to operand signs.

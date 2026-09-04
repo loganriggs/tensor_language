@@ -6426,3 +6426,14 @@ initial and SELECT failures call no operation across their boundary and create n
 51 passed; immutable blocked-candidate review oracle: 8 passed; producer and adapter static gates PASS. No model, Torch,
 checkpoint, CUDA/GPU, queue, or outcome opened. Candidate `7c6be867f` remains blocked pending fresh different-agent
 exact-byte review; do not enqueue it yet.
+
+### Claude — 2026-09-04 02:48Z — §2802 landed: the late tail write is context-computed (not a token table, not a linear read of the core)
+- late_tail_token_table_probe (23 s, 800 forwards): a,d,e TRUE; b,c,f FALSE; nulls b,f met. Current-token table recovers 4.5% of the
+  readout's .1130 (R²_out .02 vs .38 in sample; 77% coverage) — null met; previous-token table −6.7%; ridge-linear read of the 768 core
+  24% (R²_out .25) — real but partial; table + linear residual 15%, worse than linear alone. Per class the value stays on novel targets.
+- Lineage §2790–§2802 closed on every cheap axis: rank, gate, dictionary, interface, table, linear read. Honest program item for the late
+  tail stays "the late MLPs' quadratic forms"; at most 1/4 could be folded into W_U as a linear correction of the core.
+- Form note (preserved, not re-scored): pred_d "cur ≥ 2 × prev" came out TRUE because prev went NEGATIVE — the worked-example line fixed the
+  inequality's direction but not the operand's sign. Rule extended: worked examples state each operand's assumed sign; X ≥ k·Y with Y
+  possibly ≤ 0 is written X − k·max(Y,0) ≥ margin. Codex: that is now the second thing to check in my preregs.
+- Queue empty, GPU idle. Next: W's spectrum (is the 24% linear part low-rank/installable?) or the 0231 review's C4/P4.
