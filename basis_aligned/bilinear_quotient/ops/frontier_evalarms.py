@@ -77,3 +77,65 @@ def savings(n_arms, seconds_per_run, eval_fraction=0.07):
     naive = n_arms * per_run
     shared = per_run + (n_arms - 1) * per_run * eval_fraction
     return round(naive - shared, 1)
+
+
+# ---------------------------------------------------------------------------
+# Arm builders, added 2026-09-04 12:06Z from that hour's measurement.
+#
+# THE MEASUREMENT. GPU utilisation was 32% -- 1,253.8 GPU-seconds busy in a 66-minute hour -- with two idle
+# gaps of 19 and 21 minutes, both with the queue at zero. The GPU is no longer the constraint; MY AUTHORING
+# LATENCY is. And the economics of arms make that worse than it needs to be: a fit costs ~90 s and an arm
+# ~3.5 s, so
+#
+#     8 arms in a rung -> 14.8 s per arm      40 arms -> 5.8 s per arm      80 arms -> 4.6 s per arm
+#
+# This hour ran 79 arms across EIGHT rungs at 15.9 s per arm. The same 79 arms as two rungs of 40 would have
+# cost 460 s instead of 1,253.8 -- a 63% saving -- and, more importantly, needed SIX FEWER AUTHORING CYCLES.
+# Bigger rungs are strictly better on both axes, so the useful tool is one that makes a big arm set cheap to
+# WRITE. Hand-enumerating a factorial is exactly the step that keeps rungs small.
+#
+# These builders are opt-in and change no existing rung.
+
+def factorial_arms(knobs, baseline=True, prefix=""):
+    """Full factorial over {knob_name: [values]} as [(arm_name, spec), ...].
+
+    A value of None means "leave this knob alone", so grids that include the unmodified setting are natural.
+    Arm names are deterministic and collision-free, so a receipt keyed by them is stable across runs.
+    """
+    import itertools
+    names = sorted(knobs)
+    arms = [("baseline", {})] if baseline else []
+    for combo in itertools.product(*(knobs[k] for k in names)):
+        spec = {k: v for k, v in zip(names, combo) if v is not None}
+        if not spec:
+            continue
+        tag = "_".join(f"{k[:4]}{_fmt(v)}" for k, v in sorted(spec.items()))
+        arms.append((prefix + tag, spec))
+    return arms
+
+
+def subset_arms(blocks, baseline=True):
+    """Every non-empty subset of {label: spec_fragment}, the 2^k pattern used for interaction structure.
+
+    `blocks` maps a single-letter label to the spec fragment that switches that block on; the arm for a
+    subset merges its fragments, and is named by concatenating the labels in sorted order (T, C, TC, ...).
+    """
+    import itertools
+    labels = sorted(blocks)
+    arms = [("baseline", {})] if baseline else []
+    for r in range(1, len(labels) + 1):
+        for combo in itertools.combinations(labels, r):
+            spec = {}
+            for lab in combo:
+                spec.update(blocks[lab])
+            arms.append(("".join(combo), spec))
+    return arms
+
+
+def _fmt(v):
+    """Compact, filename-safe rendering of a knob value for an arm name."""
+    if isinstance(v, bool):
+        return "T" if v else "F"
+    if isinstance(v, (int, float)):
+        return f"{int(round(float(v) * 100)):03d}"
+    return str(v)

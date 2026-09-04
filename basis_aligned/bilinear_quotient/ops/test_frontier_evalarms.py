@@ -33,3 +33,38 @@ def test_savings_matches_the_logged_measurement():
     # three eval-only rungs this hour: 4 + 4 + 3 arms at 94.1 s per pipeline run
     total = sum(FE.savings(n, 94.1) for n in (4, 4, 3))
     assert 680 <= total <= 720, total
+
+
+def test_factorial_arms_covers_the_grid_and_names_are_unique():
+    arms = FE.factorial_arms({"tail_scale": [0.25, 0.5], "cp_scale": [None, 0.5]})
+    names = [n for n, _ in arms]
+    assert names[0] == "baseline"
+    assert len(arms) == 1 + 4, arms            # 2 x 2, none of which is entirely empty
+    assert len(set(names)) == len(names), names
+    specs = [s for _, s in arms[1:]]
+    assert {"tail_scale": 0.25} in specs                       # cp_scale None is dropped
+    assert {"tail_scale": 0.5, "cp_scale": 0.5} in specs
+
+
+def test_factorial_drops_the_all_none_cell():
+    arms = FE.factorial_arms({"a": [None, 1.0]}, baseline=False)
+    assert len(arms) == 1 and arms[0][1] == {"a": 1.0}, arms
+
+
+def test_subset_arms_is_the_two_to_the_k_pattern():
+    arms = FE.subset_arms({"T": {"tail_scale": 0.25}, "C": {"cp_scale": 0.5},
+                           "F": {"a_scale": 0.5}})
+    names = [n for n, _ in arms]
+    assert names == ["baseline", "C", "F", "T", "CF", "CT", "FT", "CFT"], names
+    assert dict(arms)["CFT"] == {"tail_scale": 0.25, "cp_scale": 0.5, "a_scale": 0.5}
+
+
+def test_arm_names_are_deterministic_across_calls():
+    a = FE.factorial_arms({"x": [0.25], "y": [1.5]})
+    b = FE.factorial_arms({"y": [1.5], "x": [0.25]})
+    assert a == b, (a, b)
+
+
+def test_the_logged_economics_hold():
+    per = lambda n: (90 + n * 3.5) / n
+    assert round(per(8), 1) == 14.8 and round(per(40), 1) == 5.8
