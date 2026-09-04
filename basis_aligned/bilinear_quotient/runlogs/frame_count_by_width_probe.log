@@ -1,0 +1,38 @@
+{"stage": "heads_done", "t": 14.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.6}
+{"stage": "width", "k": 896, "OWN16": 0.1069, "BLOCK8": 0.1099, "PAIR4": 0.1185, "EARLY1": 0.149, "t": 19.6}
+{"stage": "width", "k": 768, "OWN16": 0.2183, "BLOCK8": 0.2253, "PAIR4": 0.241, "EARLY1": 0.3183, "t": 23.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_block_frames_cheap_at_896": true,
+  "pred_c_block_frames_under_p03_at_768": true,
+  "pred_d_one_early_frame_is_a_cliff_at_768": false,
+  "pred_e_sharing_penalty_grows_as_k_shrinks": true
+ },
+ "nulls": {
+  "b_null_ge_.03": false,
+  "c_null_ge_.06": false,
+  "d_null_le_.03": false,
+  "e_null_896_le_.015": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "OWN16_896": 0.10688811540603638,
+  "BLOCK8_896": 0.10987228155136108,
+  "PAIR4_896": 0.11854201555252075,
+  "EARLY1_896": 0.1489546000957489,
+  "OWN16_768": 0.21833711862564087,
+  "BLOCK8_768": 0.2253056764602661,
+  "PAIR4_768": 0.24104785919189453,
+  "EARLY1_768": 0.3183131814002991
+ },
+ "penalties": {
+  "P_896_8": 0.002984166145324707,
+  "P_896_4": 0.011653900146484375,
+  "P_896_1": 0.042066484689712524,
+  "P_768_8": 0.006968557834625244,
+  "P_768_4": 0.022710740566253662,
+  "P_768_1": 0.0999760627746582
+ }
+}

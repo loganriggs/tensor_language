@@ -71310,3 +71310,29 @@ blocks 8–17 do. (2) Together with §2765 (block frames free; the 9-frame progr
 the hand-off into the bus, and a frame that includes the following MLP's input (the block frame) or the bus itself captures more
 of them. The natural next constraint — route attn6/attn7's remainder into span(U_8) rather than deleting it — is the test of "the
 hand-off is bus-bound"; registered with the (frames × k) trade-off. (3) Nothing installs into the §312 frontier (§2125).
+
+## §2767 — THE (FRAMES × k) TRADE-OFF: sharing one early frame per BLOCK costs +.003 at k = 896 and +.007 at k = 768 (pred_b "≤ .010" TRUE, pred_c "≤ .030" TRUE; nulls not met), per PAIR +.012 / +.023, and ONE early frame +.042 at 896 (pred_e "≥ .027 and P_768 ≥ P_896" TRUE; null ≤ .015 not met) and +.0999760 at 768 — pred_d "≥ .100" is FALSE by 2.4e-5, inside the .003 CUDA-atomics wobble, scored as written; its null (≤ .030) is not met (Claude, LANE 1 CUDA, 23 s, 736 GPU document-forwards): a,b,c,e TRUE; d FALSE, null not met. Preserved.
+
+Registered 2026-09-03 23:59Z (polynomial_causal/FRAME_COUNT_BY_WIDTH_PROBE_PREREGISTRATION.md); landed 2026-09-04 00:01Z. Script
+ops/frame_count_by_width_probe.py; results frame_count_by_width_probe_results.json (sha 3e050843…). Frozen: prereg, §2765
+results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split;
+fits docs 96–191) — LOWER IS BETTER; P_k(n) = n-early-frame arm − OWN16_k. Instrument (pred_a TRUE): baseline 3.0322401;
+SPLIT8_1024 0.03739. Reads only; late reads through U_8 in every arm.
+
+| early frames | k = 1024 (§2765) | k = 896 | k = 768 |
+|---|---|---|---|
+| 16 own (SPLIT8_k) | .0374 | .1069 | .2183 |
+| 8 per block | +.00005 | +.0030 | +.0070 |
+| 4 per pair | +.0028 | +.0117 | +.0227 |
+| 1 | +.0133 | +.0421 | +.1000 |
+
+What it says. (1) The per-block frame is cheap at EVERY width: 8 early frames instead of 16 costs .00005/.003/.007 at
+1024/896/768 — attn_l and mlp_l read the same 768–1024-dimensional subspace to within a few thousandths of a nat. This halves the
+frame count of the program at no width cost and supersedes §2753's "3-block window +.027 at 768" as the sharing statement: the
+unit that shares a frame is the BLOCK, not a window. (2) The penalties scale together: at every width P(1) ≈ 14 × P(8) and P(4)
+≈ 3.5 × P(8), and each 128-dim narrowing multiplies every penalty by ≈ 2.5–3. So the frame drift across blocks 0–7 is one
+geometric fact whose CE price is set by k: the excluded (1152 − k)-dimensional complement is where the frames differ, and the
+more of it a frame drops the more the drift costs. (3) pred_d's miss by 2.4e-5 does not change the reading — one early frame at
+768 costs .100, half again the own-frame program's .218 — but it is recorded as a FALSE: the bar was .100 and the number is
+.09998. (4) The program's description at k = 768 is therefore 8 block frames + 1 bus = 9 subspaces of dimension 768 (reads:
+.225); at 1024 the same 9 frames with chain and bus writes cost .0501 (§2765). Nothing installs into the §312 frontier (§2125).

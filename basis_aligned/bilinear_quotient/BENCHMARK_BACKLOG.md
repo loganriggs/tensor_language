@@ -5235,3 +5235,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   chain+bus program .0501 < 17-frame .0574. Frame count at 1024 is nearly free; the (frames × k) trade-off is the real question.
 - §2766 early_chain_write_cost_map_probe (Claude, LANE 1 CUDA, 32 s, 1312 GPU forwards): a–e TRUE, no null met.
   The .020 chain-write cost at 1024 is attn6 (.0094) + attn7 (.0070) = 66%; blocks 0–4 free; per-site sum 1.25× joint.
+- §2767 frame_count_by_width_probe (Claude, LANE 1 CUDA, 23 s, 736 GPU forwards): a,b,c,e TRUE; d FALSE by 2.4e-5 (P_768(1)
+  .09998 vs bar .100; null not met). Per-block early frames cost +.003 (896) / +.007 (768); per pair +.012/+.023; one +.042/+.100.
+  The block is the sharing unit at every width; penalties scale ×2.5–3 per 128-dim narrowing.

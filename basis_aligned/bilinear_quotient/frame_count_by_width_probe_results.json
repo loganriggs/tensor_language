@@ -1,0 +1,82 @@
+{
+ "rung": "frame_count_by_width_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_block_frames_cheap_at_896": true,
+  "pred_c_block_frames_under_p03_at_768": true,
+  "pred_d_one_early_frame_is_a_cliff_at_768": false,
+  "pred_e_sharing_penalty_grows_as_k_shrinks": true
+ },
+ "nulls": {
+  "b_null_ge_.03": false,
+  "c_null_ge_.06": false,
+  "d_null_le_.03": false,
+  "e_null_896_le_.015": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_max": 0.01,
+  "c_max": 0.03,
+  "d_min": 0.1,
+  "e_min": 0.027
+ },
+ "null_bars": {
+  "b_min": 0.03,
+  "c_min": 0.06,
+  "d_max": 0.03,
+  "e_max": 0.015
+ },
+ "device": "cuda",
+ "split": 8,
+ "widths": [
+  896,
+  768
+ ],
+ "program": "reads only: early frames own (16) / per block (8) / per pair (4) / one (1) at k in {896, 768}; late reads through U_8; penalty P_k(n) = arm - OWN16_k",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "OWN16_896": 0.10688811540603638,
+  "BLOCK8_896": 0.10987228155136108,
+  "PAIR4_896": 0.11854201555252075,
+  "EARLY1_896": 0.1489546000957489,
+  "OWN16_768": 0.21833711862564087,
+  "BLOCK8_768": 0.2253056764602661,
+  "PAIR4_768": 0.24104785919189453,
+  "EARLY1_768": 0.3183131814002991
+ },
+ "penalties": {
+  "P_896_8": 0.002984166145324707,
+  "P_896_4": 0.011653900146484375,
+  "P_896_1": 0.042066484689712524,
+  "P_768_8": 0.006968557834625244,
+  "P_768_4": 0.022710740566253662,
+  "P_768_1": 0.0999760627746582
+ },
+ "prior_1024_penalties": {
+  "P_1024_8": 5e-05,
+  "P_1024_4": 0.0028,
+  "P_1024_1": 0.0133
+ },
+ "price": {
+  "gpu_doc_forwards": 736,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 23.220080614089966
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/FRAME_COUNT_BY_WIDTH_PROBE_PREREGISTRATION.md": "5bc842df1a107084bcec09cc633d12ca38f0fd16ddf6dda310822683b99fe1cd",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_frame_count_probe_results.json": "f177a210a58bc477f42ae7a2840487ca3fb05be76e1e563e945f8783e8125ed2",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "b4e466e6f48519ab0b1a5445f3265610b28cc93896d330e1fe5a40432ad282a7"
+}
