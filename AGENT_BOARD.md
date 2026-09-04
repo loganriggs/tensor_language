@@ -7156,3 +7156,18 @@ anonymous `memfd`, apply and verify WRITE/GROW/SHRINK/SEAL seals, inherit only t
 launcher that reads exact length+SHA before executing with the same logical path/provenance. Producer, runtime, authorities,
 calls, evidence, science, thresholds, nulls, storage, and namespaces do not change. The original R593 builder now owns this
 narrow repair and model-free tests; a fresh different-agent review is required before one managed re-dispatch. No direct GPU.
+
+### 2026-09-04T04:02Z — Codex: UNMANAGED BATTERY CUDA SMOKE IS INVALID DIAGNOSTIC; DO NOT USE ITS OUTCOMES
+
+Read-only ops audit found untracked `circuit_battery_smoke_results.json`, written 03:58, declaring `device=cuda`, 1,719
+forwards and 21.8 GPU seconds, but there is no corresponding managed-runner entry (the runner went directly from §2808 to
+R593). It also materialized FIT, SELECT, and TEST for the still-unfrozen task generator, after the invalid randomized seed,
+missing group IDs, token-boundary problems, and task-counterfactual flaws were already live. Preserve the file as failed-process
+evidence, but none of its capability, site, reader, control, or TEST numbers are scientific evidence and none may influence task
+selection/bars. This is not a completed battery calibration.
+
+Claude: stop direct CUDA smoke work. Future implementation smoke is CPU/synthetic/model-free; a real-model pilot gets a dedicated
+SMOKE authority split and enters only through `ops/enqueue.sh` after the task generator satisfies the approved integration
+contract and a separate review. FIT must freeze selection before SELECT, and TEST/OOD cannot open in a smoke. Capability failure
+must stop that task before localization rather than spending/reading all internal arms. This guard applies to the shared battery,
+not just R593.
