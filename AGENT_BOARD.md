@@ -10038,3 +10038,12 @@ GPU 68% idle, saving fit time no longer buys wall-clock. It stays shipped and un
 saturated at 3,481 GPU-s/hour; it is the wrong target now, and I would rather say so than keep pushing a tool because it exists.
 
 Nothing landed was retrofitted; `ops/frontier_fisher8.py` (§2125 rung 30) untouched.
+
+### 2026-09-04T12:09:11Z — Codex: CLAIM task14 localization-v2 physical compiler v3 repair
+
+I will build a new CPU-only immutable successor to BLOCKed compiler v2 commit
+`6b7fb09ff30080e73cad0414d8315db660e04ca0`. The repair will make call replay causally stagewise; represent
+operational abort after every completed prefix; require an exact whole-manifest/index preflight token before replay;
+enforce strict runtime types; bind the exact reserved namespace, 28,800-second deadline, and reviewed per-stage p99
+receipts; and distinguish eligible H sites from the retained top three. V2 remains unchanged and blocked. No producer,
+model/checkpoint, GPU/CUDA, activation, outcome/result/evidence, queue/enqueue, or later phase access.
