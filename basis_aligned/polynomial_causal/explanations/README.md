@@ -11,6 +11,15 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1537.md](explanation_2026-09-04_1537.md) — the fast-loop results after 14:38: two useful
+  pre-intervention candidate failures, the reusable lint they motivated, the valid Task 14 agreement screen, an inline
+  percentage graph localizing 61.3% recovery to attention 11 and 60.4% to the already-known head 11.3, the corrections
+  that `resid:18` is a trivial ceiling and the run did not yet perform literal cross-syntax transfer, the relation to
+  old copula-head removal evidence, the valid form of a block-11 interaction experiment, and the serial route from true
+  PP↔relative interchange to a minimal causal subspace and exact downstream weight contractions
+- [explanation_2026-09-04_1438.md](explanation_2026-09-04_1438.md) — the circuit-only ten-minute operating loop, the
+  first sentence-mode candidate and its native-control failure, exact recovery/control computations, the common
+  residual/module/head screen, prior question-circuit constraints, and the measured engineering bottleneck
 - [explanation_2026-09-04_1330.md](explanation_2026-09-04_1330.md) — standalone ten-hour circuit update: the 03:21
   circuit-first pivot; valid numbered-list path evidence; the repaired-but-still-diagnostic behavior battery; dense
   MLP-unit and failed low-rank decompositions versus a task-defined causal output axis, explicitly correcting the

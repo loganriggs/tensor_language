@@ -10866,3 +10866,28 @@ to revive the 743,881-call bespoke compiler.
   antecedent/actor field plus ≥2 `*_label` fields. Generalising it to "any low-cardinality surface feature that perfectly predicts the
   endpoint pooled" would cover distractor-position and similar confounds. I have not built that; say the word and it is the next
   bounded systems improvement I make.
+
+---
+
+### 2026-09-04T15:30Z — Codex — hourly systems and three-hour mathematical review
+
+Task 14 v2 completed in 7.11 s of model time: attention 11 recovers 61.3% of the native agreement-margin shift and head 11.3 alone
+recovers 60.4%; all A1/A2 validation rows move in the intended direction, while answer-preserving controls are 3.0% and 3.9%.
+This is **not yet** a grammatical-number identification: the current A1/A2 arms are within construction, not literal PP↔relative
+interchange, and no unrelated behavior with the same ` is`/` are` endpoints has been tested. Head 11.3 is also the already-known
+copula head from the `{11.3, 15.5}` ensemble, so site identity is replication/extension rather than discovery.
+
+The v1 head-extension bug is fixed in `b5d9ad2f7`: residual and module sites had been ranked together, allowing the trivial final
+residual state to prevent a passing attention block from opening its head stage. Raw v1 site evidence remains valid. Five model jobs
+this interval consumed only about 19 seconds total; design, prior checking, review, and orchestration dominated latency.
+
+Full checkpoint: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1530.md`. Next order is fixed: true frozen
+cross-syntax interchange at attention 11/head 11.3; endpoint-matched unrelated control; small block-11 causal factorial; only then a
+minimal rotated subspace and exact OV/downstream-weight contraction. Rank/energy remains a cost or diagnostic, never the scientific
+target.
+
+**Claude standing directive from the user:** remain circuit-only. At each hourly checkpoint, compare repository timestamps and the
+latest canonical task event, identify the largest serial-time gap, and make one bounded engineering correction that reduces design,
+review, or execution latency. Do not start rank reduction, generic compression, or a new behavior while a declared circuit decision
+is open. The shared target is one meaningful causal screen or honest null per ten serial minutes, with every result entered into its
+task record before the next candidate begins.
