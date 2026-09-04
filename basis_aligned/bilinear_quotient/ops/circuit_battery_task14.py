@@ -86,7 +86,7 @@ _TEMPLATES = {
     "select_relative_noticed_behind": "The {head} that I noticed behind the {attractor}",
     "select_pp_beyond": "The {head} beyond the {attractor}",
     "select_coord_behind": "The {head} and the {second_head} behind the {attractor}",
-    "test_pp_behind": "The {head} behind the {attractor}",
+    "test_pp_in_front_of": "The {head} in front of the {attractor}",
     "test_relative_moved_beyond": "The {head} that I moved beyond the {attractor}",
     "test_pp_across_from": "The {head} across from the {attractor}",
     "test_coord_under": "The {head} and the {second_head} under the {attractor}",
@@ -114,7 +114,7 @@ _PHASE_TEMPLATES = {
         "C": ("select_coord_behind", "select_coord_behind"),
     },
     "TEST": {
-        "A1": ("test_pp_behind", "test_pp_behind"),
+        "A1": ("test_pp_in_front_of", "test_pp_in_front_of"),
         "A2": ("test_relative_moved_beyond", "test_relative_moved_beyond"),
         "P": ("test_pp_across_from", "test_pp_across_from"),
         "C": ("test_coord_under", "test_coord_under"),
@@ -143,6 +143,11 @@ def _phase_pool(split: str, seed: int) -> tuple[tuple[str, str], ...]:
 
 def _form(pair: tuple[str, str], plural: bool) -> str:
     return pair[1 if plural else 0]
+
+
+def _second_head_pool_index(group_number: int) -> int:
+    """Balance the role while preventing second-half C from reversing first-half pairs."""
+    return (5 * group_number + 7 + (3 if group_number >= 16 else 0)) % 16
 
 
 def _answer(plural: bool) -> str:
@@ -313,7 +318,7 @@ def _panel(split: str, group_number: int, seed: int) -> list[dict[str, Any]]:
     head_pair = pool[group_number % 16]
     attractor_pair = pool[(5 * group_number + 3) % 16]
     second_attractor_pair = pool[(5 * group_number + 5) % 16]
-    second_head_pair = pool[(5 * group_number + 7) % 16]
+    second_head_pair = pool[_second_head_pool_index(group_number)]
     surface_attractor_pair = pool[(5 * group_number + 9) % 16]
     if len({
         head_pair, attractor_pair, second_attractor_pair,
@@ -412,7 +417,13 @@ def validate_authority(rows: list[dict[str, Any]]) -> str:
             "head_pair", "attractor_pair", "second_head_pair", "second_attractor_pair",
             "surface_attractor_pair",
         )}
-        number_pairs = Counter()
+        ordinary_number_pairs = {
+            f"{transform}_{side}": Counter()
+            for transform in ("A1", "A2", "P") for side in ("base", "donor")
+        }
+        c_changed_attractor_numbers = {
+            side: Counter() for side in ("base", "donor")
+        }
         answer_counts = {
             key: Counter() for key in (
                 "A1_base", "A1_donor", "A2_base", "A2_donor",
@@ -423,20 +434,41 @@ def validate_authority(rows: list[dict[str, Any]]) -> str:
             a1 = panel["A1"]
             for role in role_counts:
                 role_counts[role][tuple(a1[role])] += 1
-            number_pairs[(a1["base_head_plural"], a1["base_attractor_plural"])] += 1
             for transform in contract.TRANSFORMS:
                 row = panel[transform]
                 answer_counts[f"{transform}_base"][row["base_answer"]] += 1
                 answer_counts[f"{transform}_donor"][row["donor_answer"]] += 1
+                for side in ("base", "donor"):
+                    if transform == "C":
+                        field = (
+                            f"{side}_second_attractor_plural"
+                            if phase == "OOD" else f"{side}_attractor_plural"
+                        )
+                        c_changed_attractor_numbers[side][row[field]] += 1
+                    else:
+                        ordinary_number_pairs[f"{transform}_{side}"][
+                            (row[f"{side}_head_plural"], row[f"{side}_attractor_plural"])
+                        ] += 1
         if any(len(counts) != 16 or set(counts.values()) != {2}
                for counts in role_counts.values()):
             raise contract.BatteryContractError("task14 noun roles are not exactly balanced")
-        if set(number_pairs.values()) != {8} or len(number_pairs) != 4:
+        if any(len(counts) != 4 or set(counts.values()) != {8}
+               for counts in ordinary_number_pairs.values()):
             raise contract.BatteryContractError("task14 head/attractor number cells are unbalanced")
+        if any(dict(counts) != {False: 16, True: 16}
+               for counts in c_changed_attractor_numbers.values()):
+            raise contract.BatteryContractError("task14 C attractor-number sides are unbalanced")
         for key, counts in answer_counts.items():
             expected = {" are": 32} if key.startswith("C_") else {" is": 16, " are": 16}
             if dict(counts) != expected:
                 raise contract.BatteryContractError("task14 answer/foil exposure is unbalanced")
+        c_base_prompts = [panel["C"]["base_text"] for panel in phase_panels]
+        c_donor_prompts = [panel["C"]["donor_text"] for panel in phase_panels]
+        if len(set(c_base_prompts)) != GROUPS_PER_PHASE \
+                or len(set(c_donor_prompts)) != GROUPS_PER_PHASE:
+            raise contract.BatteryContractError("task14 C has duplicate prompts within one side")
+        if set(c_base_prompts) & set(c_donor_prompts):
+            raise contract.BatteryContractError("task14 C base and donor endpoint sets overlap")
     for index, phase in enumerate(contract.PHASES):
         for other in contract.PHASES[index + 1:]:
             if prompts[phase] & prompts[other] or noun_forms[phase] & noun_forms[other]:
@@ -445,10 +477,19 @@ def validate_authority(rows: list[dict[str, Any]]) -> str:
         phase: {template for pair in _PHASE_TEMPLATES[phase].values() for template in pair}
         for phase in contract.PHASES
     }
+    template_surface_sets = {
+        phase: {_TEMPLATES[template] for template in templates}
+        for phase, templates in template_sets.items()
+    }
+    if any(len(template_surface_sets[phase]) != len(template_sets[phase])
+           for phase in contract.PHASES):
+        raise contract.BatteryContractError("task14 template IDs alias one literal surface")
     for index, phase in enumerate(contract.PHASES):
         for other in contract.PHASES[index + 1:]:
             if template_sets[phase] & template_sets[other]:
                 raise contract.BatteryContractError("task14 template identities leak across phases")
+            if template_surface_sets[phase] & template_surface_sets[other]:
+                raise contract.BatteryContractError("task14 literal template surfaces leak across phases")
     return authority_sha
 
 

@@ -1,8 +1,24 @@
 # Task 14 subject–verb agreement: authority design repair
 
-**Date:** 2026-09-04 UTC. **Status:** CPU-only design and semantic generator candidate. This is not an execution
+**Date:** 2026-09-04 UTC. **Status:** CPU-only repaired design and semantic generator candidate. This is not an execution
 preregistration or authorization. It creates no model calls, outcomes, split artifacts, localization objects, queue
 records, or task-21 changes.
+
+## Repair record after rejected candidate `31b812b`
+
+Commit `31b812b751fb5a39b7c7933294ca18213cb52b9f` must not be frozen. Independent review found two real design
+defects: FIT P and TEST A1 used the same literal `The {head} behind the {attractor}` surface under different template
+IDs, and the second half of each in-distribution C panel repeated the first half's endpoint pair in the reverse
+direction. The latter left 32 row records but only 16 independent unordered endpoint pairs and made the base and
+donor prompt sets identical.
+
+This repaired successor changes TEST A1 to the natural and phase-unique
+`The {head} in front of the {attractor}` surface. It assigns the coordinated second-head role with the same balanced
+cyclic map plus an offset of three in groups 16–31. Every noun still occurs exactly twice in that role, but all four
+phases now have 32 distinct C base prompts, 32 distinct C donor prompts, no base/donor prompt overlap, and 32 distinct
+unordered intervention pairs. The validator checks literal template strings as well as template IDs and checks these
+C endpoint-set properties directly. Adversarial tests reconstruct both rejected designs and require rejection. This
+is an explicit repair with new hashes below, not a silent amendment of `31b812b`.
 
 ## Decision
 
@@ -73,14 +89,16 @@ times as answer and 16 times as foil. C has 32 ` are` answers and 32 ` is` foils
 
 - FIT uses `near`, `that I placed beside`, `behind`, and a coordinated `near` surface.
 - SELECT uses disjoint noun vocabulary and `beside`, `that I noticed behind`, `beyond`, and coordinated `behind`.
-- TEST uses disjoint noun vocabulary and `behind`, `that I moved beyond`, `across from`, and coordinated `under`.
+- TEST uses disjoint noun vocabulary and `in front of`, `that I moved beyond`, `across from`, and coordinated `under`.
 - OOD uses the fourth noun vocabulary, two attractors, and longer/fronted structures. Its A1 is
   `Near the A1 beside the A2, the H`, putting the controlling head after both distractors; its A2 retains the head
   before two distractors. This is the prospective test against a fixed “token position 1 is the subject” rule.
 
 Template IDs are disjoint between phases. Prompt strings, noun forms, and group IDs are pairwise disjoint between
-phases. No phase file has been materialized by this design unit; future phase artifacts must be separately frozen and
-opened only in FIT → SELECT → TEST → OOD order.
+phases. Literal template strings are also disjoint between phases; distinct IDs cannot disguise a reused surface.
+Within every phase the C base and donor sets each contain 32 unique prompts, are disjoint from each other, and define
+32 unique unordered intervention pairs. No phase file has been materialized by this design unit; future phase
+artifacts must be separately frozen and opened only in FIT → SELECT → TEST → OOD order.
 
 ## Tokenization and intervention coordinates
 
@@ -168,7 +186,8 @@ Genuinely new work in this unit:
 - OOD fronting and a second attractor to falsify fixed-position and short-template rules;
 - semantic token-coordinate records and full regeneration validation; and
 - adversarial tests for coherent text/ID mutation, resigned schema/template mutation, effect/coordinate mutation,
-  answer mutation, missing panels, duplicate rows, and process-randomization drift.
+  answer mutation, missing panels, duplicate rows, process-randomization drift, literal surface aliases, and
+  reverse-duplicated C endpoint pairs.
 
 Repository organization check: `circuits/DOSSIER.md`, `circuits/experiment_index.json`, and
 `CIRCUIT_EXPERIMENT_INDEX.md` currently contain no subject–verb-agreement event. The older files above therefore need
@@ -186,17 +205,18 @@ later split.
 
 The candidate source bytes and the logical authority they generate are:
 
-- generator SHA-256: `159fcd7c767c16c5a2f30239d8be26a7344964ec4db23c0ed90515b60011f799`;
-- adversarial-test source SHA-256: `327891bd7af3e5bc74af68b5e6741d65bc6ee826b8de5917284c62733c2ad554`;
+- generator SHA-256: `33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94`;
+- adversarial-test source SHA-256: `254fe3798efd8a4426f30e054fd8e5646a5bd6635df69815f376311ac2023694`;
 - full 512-row logical authority SHA-256:
-  `6432f647eb15bae46cfcc22b922f71958edb9d1b092e7bf3e63601df9084c47a`;
-- FIT logical rows SHA-256: `02caa03dc84c31afab2f4dd0d175a8d119ce7322e16e63427807bbe2a4df1d35`;
-- SELECT logical rows SHA-256: `4380825410da4e9b40bca432edf28687889080fae898a21945f0ad99d30c8d41`;
-- TEST logical rows SHA-256: `da98a4cd55fba3106f68c420168ebf6b7556b14594764da65bcca8ef2a787c54`;
-- OOD logical rows SHA-256: `6a30cd0e155c8211e8ad4b310a0b4cb39a7313893ba9cc717142eac049462cc6`.
+  `1cf6cf12668c7428719134bbee03ab84f57cc150f2653cc12ffc4a71566c8db1`;
+- FIT logical rows SHA-256: `3cf3315a77b3176418739e7a9357c0dbd9b95724d6b276038f53691b873377d1`;
+- SELECT logical rows SHA-256: `d6d8a7e7cae24ac3e25e3bef11bde4b4b235e950a23c2842978e7fd2a91803b6`;
+- TEST logical rows SHA-256: `d62dae278f66ae5a2e77aadf8b841fe9aecf4bf2fa7bb9378b8d59e9f5829b27`;
+- OOD logical rows SHA-256: `f2e4a6fc68be3ff8a87efde056780996106b9fb10a532381588d3d47d9da40b6`.
 
-The focused suite passes 14/14 tests, including deterministic regeneration under three Python hash seeds and coherent
-adversarial mutations. A broader CPU-only contract suite passes 59/59 tests. The ordinary experiment gate is not a
+The focused suite passes 16/16 tests, including deterministic regeneration under three Python hash seeds, coherent
+adversarial mutations, literal-surface aliases, and the old reverse-pair construction. A broader CPU-only contract
+suite passes 61/61 tests. The ordinary experiment gate is not a
 validator for this data-only generator: it expects a runnable experiment with three registered prediction keys, so
 its rejection of this module is expected and grants no execution status. Independent review of these exact bytes is
 still required before any capability preregistration/compiler is constructed.

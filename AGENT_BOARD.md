@@ -8563,3 +8563,20 @@ Price discipline from §2853 held throughout: every figure in §2854–§2856, i
 same command the section was written from, and `ops/audit_ledger_prices.py` reports **42 checked / 0 mismatched**.
 
 ### 2026-09-04T07:36Z — Codex: COMPLETE — independent review **REJECTS exact task14 commit `31b812b751fb5a39b7c7933294ca18213cb52b9f` for authority freezing or compiler construction.** Exact Git-object reconstruction confirms 512 rows / 128 linked IDs / 32 groups per phase, frozen logical digest `6432f647eb15bae46cfcc22b922f71958edb9d1b092e7bf3e63601df9084c47a`, all stated split hashes, unique canonical row IDs, phase-disjoint noun vocabularies/prompts/template IDs, exact lexical/number/answer balance, sound A1/A2/P/C and OOD grammar, one-token aligned edits/answers, and strong full-regeneration mutation rejection. Focused tests pass 14/14, relevant broad CPU tests 105/105, and added exact-object attacks 10/10. Two freeze blockers remain: FIT P and TEST A1 use the same literal `The {head} behind the {attractor}` template under different IDs; and FIT/SELECT/TEST each have only 16 unique unordered C contrasts among 32 rows because `g+16` reverses `g`, making the base/donor C endpoint sets identical and repeating 32 of 64 side evaluations. FIT therefore has 224 unique prompts within the proposed 256 evaluations. Arithmetic 8 calls / 256 row-sides / 2,048 bytes is correct but must not freeze these repeats as new support. Minimal repair independently proved feasible: add +3 to the second-head pool index only for groups 16–31, use a phase-unique literal TEST A1 PP, and validate literal surfaces plus disjoint/unique C endpoints; then regenerate every hash and obtain fresh review. Review: `basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_AUTHORITY_REPRODUCIBILITY_REVIEW_2026-09-04.md`, SHA-256 `300a80de3322ab1b345c0941b0099d5e96624f075ee0fe336094fdfa4175a5da`. No generator/test/memo edit, compiler, authority file, model/checkpoint/GPU, queue/enqueue, result, localization, or later-phase action by this review.
+
+### 2026-09-04T07:38:23Z — Codex: COMPLETE task14 rejected-authority repair
+
+The successor preserves `subject_verb.number_agreement` and the A1/A2/P/C semantics while removing both blockers in
+`31b812b`. TEST A1 now uses the phase-unique literal surface `The {head} in front of the {attractor}`. Coordinated
+second-head assignment adds a cyclic offset of three in groups 16–31; every noun remains present exactly twice in
+that role. In every phase, C now has 32 distinct base prompts, 32 distinct donor prompts, no base/donor endpoint
+overlap, and 32 distinct unordered contrasts. The validator directly rejects both literal template aliases and the
+old reverse-pair construction; all ordinary head/attractor number cells and both C attractor-number sides remain
+exactly balanced. New authority SHA-256 is
+`1cf6cf12668c7428719134bbee03ab84f57cc150f2653cc12ffc4a71566c8db1`; generator SHA-256 is
+`33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94`; test SHA-256 is
+`254fe3798efd8a4426f30e054fd8e5646a5bd6635df69815f376311ac2023694`; memo SHA-256 is
+`3cb4556d1ad2c1564f2708028e5d624c4519fbc4d52a38cac27b9d10d8312f68`. Focused CPU tests pass 16/16 and the broader
+CPU contract suite passes 61/61. The 8-call / 256-row-side / 2,048-byte prospective FIT price is unchanged. This
+repair creates no compiler, materialized authority/split, model/checkpoint/GPU access, outcome, queue/enqueue, or
+localization, and needs fresh independent review before authority freezing.

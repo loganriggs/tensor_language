@@ -16,12 +16,12 @@ import circuit_battery_task14 as task14
 
 
 OPS = Path(__file__).resolve().parent
-FULL_SHA = "6432f647eb15bae46cfcc22b922f71958edb9d1b092e7bf3e63601df9084c47a"
+FULL_SHA = "1cf6cf12668c7428719134bbee03ab84f57cc150f2653cc12ffc4a71566c8db1"
 SPLIT_SHA = {
-    "FIT": "02caa03dc84c31afab2f4dd0d175a8d119ce7322e16e63427807bbe2a4df1d35",
-    "SELECT": "4380825410da4e9b40bca432edf28687889080fae898a21945f0ad99d30c8d41",
-    "TEST": "da98a4cd55fba3106f68c420168ebf6b7556b14594764da65bcca8ef2a787c54",
-    "OOD": "6a30cd0e155c8211e8ad4b310a0b4cb39a7313893ba9cc717142eac049462cc6",
+    "FIT": "3cf3315a77b3176418739e7a9357c0dbd9b95724d6b276038f53691b873377d1",
+    "SELECT": "d6d8a7e7cae24ac3e25e3bef11bde4b4b235e950a23c2842978e7fd2a91803b6",
+    "TEST": "d62dae278f66ae5a2e77aadf8b841fe9aecf4bf2fa7bb9378b8d59e9f5829b27",
+    "OOD": "f2e4a6fc68be3ff8a87efde056780996106b9fb10a532381588d3d47d9da40b6",
 }
 
 IDENTITY_FIELDS = (
@@ -68,6 +68,7 @@ def test_split_hashes_phase_isolation_and_exact_templates() -> None:
     prompts = defaultdict(set)
     nouns = defaultdict(set)
     templates = defaultdict(set)
+    template_surfaces = defaultdict(set)
     for row in rows:
         split = row["split"]
         prompts[split].update((row["base_text"], row["donor_text"]))
@@ -83,11 +84,15 @@ def test_split_hashes_phase_isolation_and_exact_templates() -> None:
         assert templates[split] == {
             template for pair in task14._PHASE_TEMPLATES[split].values() for template in pair
         }
+        template_surfaces[split] = {
+            task14._TEMPLATES[template_id] for template_id in templates[split]
+        }
     for index, split in enumerate(contract.PHASES):
         for other in contract.PHASES[index + 1:]:
             assert not prompts[split] & prompts[other]
             assert not nouns[split] & nouns[other]
             assert not templates[split] & templates[other]
+            assert not template_surfaces[split] & template_surfaces[other]
 
 
 def test_noun_number_answer_and_foil_roles_are_balanced() -> None:
@@ -101,15 +106,36 @@ def test_noun_number_answer_and_foil_roles_are_balanced() -> None:
             "head_pair", "attractor_pair", "second_head_pair", "second_attractor_pair",
             "surface_attractor_pair",
         )}
-        number_cells = Counter()
+        number_cells = {
+            f"{transform}_{side}": Counter()
+            for transform in ("A1", "A2", "P") for side in ("base", "donor")
+        }
+        c_changed_attractor_numbers = {
+            side: Counter() for side in ("base", "donor")
+        }
         for panel in phase_panels:
             a1 = panel["A1"]
             for role in role_counts:
                 role_counts[role][tuple(a1[role])] += 1
-            number_cells[(a1["base_head_plural"], a1["base_attractor_plural"])] += 1
+            for transform in ("A1", "A2", "P"):
+                for side in ("base", "donor"):
+                    row = panel[transform]
+                    number_cells[f"{transform}_{side}"][
+                        (row[f"{side}_head_plural"], row[f"{side}_attractor_plural"])
+                    ] += 1
+            for side in ("base", "donor"):
+                c_row = panel["C"]
+                field = (
+                    f"{side}_second_attractor_plural"
+                    if phase == "OOD" else f"{side}_attractor_plural"
+                )
+                c_changed_attractor_numbers[side][c_row[field]] += 1
         assert all(len(counts) == 16 and set(counts.values()) == {2}
                    for counts in role_counts.values())
-        assert len(number_cells) == 4 and set(number_cells.values()) == {8}
+        assert all(len(counts) == 4 and set(counts.values()) == {8}
+                   for counts in number_cells.values())
+        assert all(counts == {False: 16, True: 16}
+                   for counts in c_changed_attractor_numbers.values())
         for transform in ("A1", "A2", "P"):
             for side in ("base", "donor"):
                 answers = Counter(panel[transform][f"{side}_answer"] for panel in phase_panels)
@@ -183,6 +209,40 @@ def test_ood_moves_the_head_and_adds_a_second_attractor() -> None:
     assert all(len(row["base_attractor_positions"]) == 2 for row in a1 + a2)
     assert all(row["base_head_positions"][0] > max(row["base_attractor_positions"]) for row in a1)
     assert all(row["base_head_positions"][0] < min(row["base_attractor_positions"]) for row in a2)
+
+
+def test_c_has_full_effective_sample_size_and_no_reversed_endpoint_pairs() -> None:
+    rows, _ = authority()
+    for phase in contract.PHASES:
+        c_rows = [
+            row for row in rows if row["split"] == phase and row["transform_id"] == "C"
+        ]
+        base_prompts = [row["base_text"] for row in c_rows]
+        donor_prompts = [row["donor_text"] for row in c_rows]
+        endpoint_pairs = {frozenset((row["base_text"], row["donor_text"])) for row in c_rows}
+        assert len(set(base_prompts)) == len(set(donor_prompts)) == 32
+        assert set(base_prompts).isdisjoint(donor_prompts)
+        assert len(endpoint_pairs) == 32
+
+
+def test_validator_rejects_surface_alias_and_old_reversed_c_construction(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    with monkeypatch.context() as patcher:
+        patcher.setitem(
+            task14._TEMPLATES,
+            "test_pp_in_front_of",
+            task14._TEMPLATES["fit_pp_behind"],
+        )
+        with pytest.raises(contract.BatteryContractError, match="literal template surfaces"):
+            task14.build_authority()
+
+    with monkeypatch.context() as patcher:
+        patcher.setattr(
+            task14, "_second_head_pool_index", lambda group_number: (5 * group_number + 7) % 16,
+        )
+        with pytest.raises(contract.BatteryContractError, match="base and donor endpoint sets overlap"):
+            task14.build_authority()
 
 
 @pytest.mark.parametrize(
