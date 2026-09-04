@@ -1,0 +1,93 @@
+{
+ "rung": "late_tail_channel_rank_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_channel_order_beats_bus_order_at_128": false,
+  "pred_c_channel_order_beats_bus_order_at_64": false,
+  "pred_d_256_channel_dims_close_the_gap": false,
+  "pred_e_channel_is_low_rank": false
+ },
+ "nulls": {
+  "b_null_no_gain": true,
+  "c_null_no_gain": true,
+  "d_null_ch256_ge_.03": false,
+  "e_null_eff_rank_ge_300": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_gain": 0.015,
+  "c_gain": 0.01,
+  "d_max": 0.01,
+  "e_max": 150.0
+ },
+ "null_bars": {
+  "gain_null": 0.003,
+  "d_min": 0.03,
+  "e_min": 300.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP reads: core (top-768 of U_8) exact + top-r directions of the pooled late-origin tail covariance (CH_r), vs the bus's own order at 768 + r (BUS_k); rest constant",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249,
+  "bus_896": 0.06615453958511353,
+  "prior_late_mlp_896": 0.0662
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "BUS_896": 0.06615453958511353,
+  "CH_128": 0.06380170583724976,
+  "BUS_832": 0.09434154629707336,
+  "BUS_1024": 0.02460995316505432,
+  "CH_64": 0.0918576717376709,
+  "CH_256": 0.02571895718574524
+ },
+ "summary": {
+  "gain_128_vs_bus896": 0.0023528337478637695,
+  "gain_64_vs_bus832": 0.002483874559402466,
+  "ch_256": 0.02571895718574524,
+  "bus_1024_mlp_only": 0.02460995316505432,
+  "channel_eff_rank": 299.58227178685155,
+  "channel_rank_90": 326,
+  "channel_top_eigs": [
+   1.4598617491580546,
+   0.6712538942417302,
+   0.1055025702303773,
+   0.07403195661327665,
+   0.06960190052432114,
+   0.06585358871426378,
+   0.06557173771007133,
+   0.06521581217759942,
+   0.06502629344586947,
+   0.06452979525746717,
+   0.06450676019664353,
+   0.06435331368187307,
+   0.06424817126280977,
+   0.06405269259428559,
+   0.06358316948960455,
+   0.06335263722975629
+  ]
+ },
+ "price": {
+  "gpu_doc_forwards": 768,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 20.557262659072876
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_CHANNEL_RANK_PROBE_PREREGISTRATION.md": "57bee12112d1657995740602067d312ca99fdc7ba1fc6b3b3541b104ec4774e0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_writer_kind_probe_results.json": "09e55bea2b0fd5b9fb08df978bc119693dbd813afa2b6fe9ded46bb136c0b354",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "a48a05ecd41015b95e2e9777ad0cccf949138e8cda8cdbcae1fe32087e178cb7"
+}

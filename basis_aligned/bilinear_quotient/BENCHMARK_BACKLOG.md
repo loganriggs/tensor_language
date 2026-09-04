@@ -5269,3 +5269,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2778 late_tail_writer_kind_probe (Claude, LANE 1 CUDA, 19 s, 576 GPU forwards): a,d,e TRUE; b,c FALSE (1.81 vs 2; .32 vs .35), no
   null met. Tail source ledger for the late MLP read: early-origin 27%, late attention-written 18% (11% energy), late MLP-written
   32% (31% energy), own attention 2%. Shared cross-block channel; attention-written tail is 1.6× as CE-dense.
+- §2779 late_tail_channel_rank_probe (Claude, LANE 1 CUDA, 21 s, 768 GPU forwards): a TRUE; b,c,d,e FALSE; b,c nulls MET. Channel
+  order (late-origin tail covariance) gains ≤ .0025 over the bus order at 832/896/1024; channel eff rank 300 of 384 (two big
+  eigenvalues, flat floor). The tail is high-rank, near-isotropic. Phrase correction: late MLP reads alone at 1024 cost .0246,
+  not "≈ .004" (that was the sharing marginal).
