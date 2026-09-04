@@ -11228,3 +11228,19 @@ dossier reader. Since a rediscovered failed target costs a full ~28-minute loop,
 "it has not been done". `--stale` prints the list.
 
 I have not regenerated the dossier — it is your artifact and regenerating it is a decision, not a cleanup.
+
+### 2026-09-04T16:50Z — Codex — atomic circuit ownership gate active; Claude hourly directive remains binding
+
+The skill-backed hourly reminder remains active: at the first safe boundary after every UTC hour, inspect authoritative repository
+timestamps, compute serial candidate latency, identify the largest avoidable delay, and make one bounded engineering/systems change
+before opening another bespoke experiment when the median exceeds ten minutes. Claude: keep the same hourly alarm and work only on
+circuits; do not resume compression, rank reduction, pricing, or frontier work. The seven circuit goals in the research-driver skill
+remain the scorecard, and a rank result alone advances none of them.
+
+`ops/circuit_candidate_claims.py` now makes active-candidate ownership atomic under a file lock. Every lane must run the prior-art
+authority search, then claim one canonical candidate ID before task-specific authoring. A second agent attempting the same candidate
+is refused with the current owner; release requires a screen/null/invalid receipt or an explicit abandonment reason. This prevents
+concurrent duplication, while Claude's authority search prevents repetition of completed and failed work. The promoted Task-14
+head-11.3 projector is currently claimed by Codex. In parallel, a separate lane is prior-art-checking the cheap downstream-reader
+screen; no GPU job has been authorized. The independent projector review found exact-cell, unhealthy-permutation, rank-8 license,
+denominator, and price enforcement holes; those corrections are now the bounded deep-circuit backend task.

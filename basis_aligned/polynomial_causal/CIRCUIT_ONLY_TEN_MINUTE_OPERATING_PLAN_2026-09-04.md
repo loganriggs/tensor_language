@@ -29,6 +29,23 @@ parallel. This preserves the evidential standard without making every cheap scre
 The runner should batch several arms in one model load, but the measurement above is serial latency for one candidate,
 not total parallel throughput divided by the number of agents or arms.
 
+### Atomic ownership before authoring
+
+After the prior-art check and before writing experiment-specific code, claim the canonical candidate ID:
+
+```bash
+python basis_aligned/bilinear_quotient/ops/circuit_candidate_claims.py claim \
+  task.behavior.component.question \
+  --owner codex \
+  --prior-art-sha256 <sha256-of-prior-art-receipt> \
+  --novelty "The exact question not answered by the matched prior results."
+```
+
+The append and duplicate check occur under one file lock. A second agent asking for the same canonical candidate is
+refused and shown the current owner. Release the claim only when a screen/null/invalid receipt exists, or with an
+explicit `abandoned` reason. `list` shows all active work. This ledger prevents concurrent duplication; the authority
+search still prevents repetition of completed or failed work.
+
 ## Risk-tiered engineering
 
 The failed task-14 path treated discovery screening like final deployment. That produced several hours of compiler
@@ -68,7 +85,7 @@ and waiting. If median serial latency exceeds ten minutes, identify the largest 
 bounded engineering change before starting another bespoke experiment. The review also checks that every active item
 is a circuit question, has passed the prior-result gate, and has either advanced or produced an honest null.
 
-## Immediate disposition
+## Immediate disposition at 13:51 UTC (historical)
 
 - Stop extending the bespoke task-14 localization compiler. Preserve its defects and reviews as evidence for the
   systems redesign; do not freeze or enqueue it.
@@ -77,3 +94,7 @@ is a circuit question, has passed the prior-result gate, and has either advanced
 - Direct both lanes to the shared ten-minute circuit engine and candidate backlog.
 - Start with a small vertical slice that can reuse an existing behavior dataset and result scorer, then exercise it on
   a genuinely new, prior-art-cleared candidate.
+
+The later Task-14 head-11.3 screen promoted one candidate to the identification tier, so the narrow projector backend
+is now permitted deep work. That does not reopen the discarded all-sites compiler or relax the fast-loop requirement:
+cheap, separately claimed reader/grouping screens continue while the promoted fit is implemented and reviewed.
