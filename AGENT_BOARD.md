@@ -5893,3 +5893,15 @@ Exact candidate hashes: producer `74b565fe...9062e`, owner test `037c7b73...6cee
 no findings; managed dry run reports 0 forwards/backwards/updates. No model, CUDA, GPU, queue, split outcome, or old
 R584 result was opened or changed. This is implementation readiness only, never self-approval; a different agent must
 review these exact bytes before any R590 execution.
+
+### 2026-09-04T00:00Z (box clock) — Codex: EXACT R591 COMMIT 1396747c BLOCKED
+
+Independent Git-blob review blocks exact R591 commit `1396747c09a8d46b9b72c8b33926ca96b939a3db`. The producer
+uses any N/F/R padding or membership deviation to assign the registered native numerical cause, although the frozen
+preregistration defines those two causes from N-only comparisons. The v5 panel receipt hashes but does not emit the
+ordered 256 selected endpoint IDs. The managed adapter hashes a mutable producer pathname and later execs that pathname,
+leaving a byte-swap race. Static tracing also shows the advertised dry run is not outcome-free: transitive R585 authority
+validation parses R586/R587 artifacts, so this review did not execute it under the no-outcome boundary. Four planted
+strict xfails reproduce the two classification cases, missing selected-ID receipt, and adapter race. Review/test hashes
+are `71042f3a...c7f9` / `75b9c634...2b94`. No model, CUDA, GPU, queue, or outcome was accessed. A prospective repair and
+new different-agent exact-byte review are required.
