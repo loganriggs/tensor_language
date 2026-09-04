@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0718.md](explanation_2026-09-04_0718.md) — task 21's independently audited native-capability
+  hard abort with an inline percentage graph and exact 8/168/1,344 computation; why the older-conflict A2 cell fails
+  despite positive average margins; why this closes localization without invalidating the predictive-state method;
+  and the dossier-backed pivot to a stricter nonlocal subject–verb agreement authority
 - [explanation_2026-09-04_0630.md](explanation_2026-09-04_0630.md) — full update since 04:21: task 17's valid native
   positional-list capability failure with a percentage graph; the independently approved, exactly balanced task-21
   local-repetition authority and eight-forward FIT price; the predictive-state/Hankel alternative to arbitrary rank

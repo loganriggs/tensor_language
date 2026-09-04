@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590" role="img" aria-labelledby="title desc">
+  <title id="title">Task 21 native capability compared with frozen thresholds</title>
+  <desc id="desc">Base overall accuracy and every base cell were 100 percent. Donor overall accuracy was 88.10 percent against a 90 percent gate. Donor A1 and C were 100 percent, donor P was 95.24 percent, and donor A2 was 57.14 percent against an 85 percent cell gate.</desc>
+  <rect width="1000" height="590" fill="#f8fafc"/>
+  <style>
+    .title{font:700 25px system-ui,sans-serif;fill:#102a43}.sub{font:16px system-ui,sans-serif;fill:#486581}
+    .label{font:17px system-ui,sans-serif;fill:#243b53}.value{font:700 17px system-ui,sans-serif;fill:#102a43}
+    .tick{font:14px system-ui,sans-serif;fill:#627d98}.grid{stroke:#d9e2ec;stroke-width:1}.gate{stroke:#d64545;stroke-width:3}
+  </style>
+  <text class="title" x="40" y="42">Task 21: one linked donor transformation fails despite strong averages</text>
+  <text class="sub" x="40" y="70">Bars are answer-versus-registered-foil accuracy. Red markers show the relevant frozen gate.</text>
+  <line class="grid" x1="275" y1="105" x2="275" y2="500"/>
+  <line class="grid" x1="410" y1="105" x2="410" y2="500"/>
+  <line class="grid" x1="545" y1="105" x2="545" y2="500"/>
+  <line class="grid" x1="680" y1="105" x2="680" y2="500"/>
+  <line class="grid" x1="815" y1="105" x2="815" y2="500"/>
+  <line class="grid" x1="950" y1="105" x2="950" y2="500"/>
+  <text class="tick" x="275" y="528" text-anchor="middle">0%</text>
+  <text class="tick" x="410" y="528" text-anchor="middle">20%</text>
+  <text class="tick" x="545" y="528" text-anchor="middle">40%</text>
+  <text class="tick" x="680" y="528" text-anchor="middle">60%</text>
+  <text class="tick" x="815" y="528" text-anchor="middle">80%</text>
+  <text class="tick" x="950" y="528" text-anchor="middle">100%</text>
+
+  <text class="label" x="255" y="140" text-anchor="end">base overall</text>
+  <rect x="275" y="117" width="675" height="31" rx="5" fill="#2a9d8f"/>
+  <line class="gate" x1="882.5" y1="108" x2="882.5" y2="157"/><text class="value" x="902" y="140">100%</text>
+
+  <text class="label" x="255" y="200" text-anchor="end">donor overall</text>
+  <rect x="275" y="177" width="594.4" height="31" rx="5" fill="#be4b49"/>
+  <line class="gate" x1="882.5" y1="168" x2="882.5" y2="217"/><text class="value" x="878" y="200" text-anchor="end">88.10%</text>
+
+  <text class="label" x="255" y="270" text-anchor="end">donor A1: replace full run</text>
+  <rect x="275" y="247" width="675" height="31" rx="5" fill="#2a9d8f"/>
+  <line class="gate" x1="848.75" y1="238" x2="848.75" y2="287"/><text class="value" x="902" y="270">100%</text>
+
+  <text class="label" x="255" y="330" text-anchor="end">donor A2: keep old conflict</text>
+  <rect x="275" y="307" width="385.7" height="31" rx="5" fill="#be4b49"/>
+  <line class="gate" x1="848.75" y1="298" x2="848.75" y2="347"/><text class="value" x="672" y="330">57.14%</text>
+
+  <text class="label" x="255" y="390" text-anchor="end">donor P: change prefix</text>
+  <rect x="275" y="367" width="642.9" height="31" rx="5" fill="#2a9d8f"/>
+  <line class="gate" x1="848.75" y1="358" x2="848.75" y2="407"/><text class="value" x="870" y="390">95.24%</text>
+
+  <text class="label" x="255" y="450" text-anchor="end">donor C: add repetition</text>
+  <rect x="275" y="427" width="675" height="31" rx="5" fill="#2a9d8f"/>
+  <line class="gate" x1="848.75" y1="418" x2="848.75" y2="467"/><text class="value" x="902" y="450">100%</text>
+
+  <text class="sub" x="40" y="563">Overall gate: 90%. Per-cell gate: 85%. Every base A1/A2/P/C cell was 21/21.</text>
+</svg>
