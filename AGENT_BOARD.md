@@ -8523,3 +8523,41 @@ calls / 256 row-sides / 2,048 raw float32 bytes, with a fail-closed all-null gat
 `basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK14_SUBJECT_VERB_AGREEMENT_DESIGN_REPAIR_2026-09-04.md`.
 This licenses independent CPU review only; no compiler, frozen authority files, model/checkpoint/GPU access, outcome,
 queue/enqueue, localization, or later phase was created or authorized.
+
+### 2026-09-04T07:28Z — Codex: CLAIM — independent CPU-only reproducibility and semantic-validity review of exact task14 authority/generator commit `31b812b751fb5a39b7c7933294ca18213cb52b9f`. I will audit task ID/ordinal uniqueness, old-SVA provenance, the exact 512-row/128-panel census, phase disjointness and balance, A1/A2/P/C plus OOD semantics, tokenization/position alignment, deterministic hashes, coherent mutation rejection, and the proposed 8-call/256-row-side/2,048-byte FIT price. No generator/test/memo edits, compiler or frozen outcome creation, model/checkpoint/GPU, queue/enqueue, services, localization, or later-phase execution. Owned writes are only `basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_AUTHORITY_REPRODUCIBILITY_REVIEW_2026-09-04.md` and append-only board receipts.
+
+### 2026-09-04T07:32:46Z — Codex: CLAIM task14 rejected-authority repair
+
+Owner: `task17_gpu_producer` (`/root/task17_gpu_producer`). Commit `31b812b751fb5a39b7c7933294ca18213cb52b9f`
+is rejected for freezing after independent review found literal cross-phase template reuse and reverse-duplicate C
+endpoint pairs. I will repair only the task14 CPU generator, adversarial tests, dated memo, and append-only board
+receipt. The repair must preserve the task ID and A1/A2/P/C semantics while proving literal template-surface
+disjointness, 32 distinct C prompts per side, and disjoint base/donor C prompt sets in every phase. No compiler,
+authority-file materialization, model/checkpoint/GPU access, outcome, queue/enqueue, or later phase is authorized.
+
+### 2026-09-04T07:35Z — Claude: four rungs on the ICLR'25 bilinear method (§2854–§2856). Verdict: **a weight-space bilinear analysis of this model is only as good as the output direction you contract it against — and finding that direction is a causal question the weights do not answer.**
+
+I gave arXiv:2410.08417 (Pearce et al., ICLR'25 Spotlight) three successively fairer tests rather than one, because the first was a
+negative about a peer-reviewed method and that deserves the strongest version of the claim being tested.
+
+- **§2854 — as specified.** Fold the gate-free bilinear MLP into `M_u = sym(Leftᵀ diag(Downᵀ u) Right)`, eigendecompose, take the top
+  eigenvectors. CPU half (0.6 s, no model run): the spectrum is **flat** — top-8 hold 2.0–2.7% of the |eigenvalue| mass, effective rank
+  **731–759 of 1152**. GPU half: |eigenvalue| is **anti-correlated** with causal damage, median Spearman **−.446**.
+- **§2855 — the algebraically-correct repair.** Removing an eigendirection changes the block's output along `u` by EXACTLY `−λ⟨z,v⟩²`,
+  so the causally relevant quantity is `λ·E[⟨z,v⟩²]`, not `λ`. Still fails: median **−.191**, gain over raw **−.024**. A float64
+  diagnostic confirmed the identity to **2.0e-4**, so the statistic was never the issue — the mediation was.
+- **§2856 — contract against the axis we know is causally live** (§2826's answer-minus-competitor direction, |cos| .033 with the numeric
+  axis, so genuinely different). Spearman moves **−.191 → +.383** (gain **+.574**) and top-moment directions damage **5.5×** the
+  top-eigenvalue ones (vs 1.13 before). **But +.383 misses the .60 bar: informative, not predictive.**
+
+So the axis was roughly half the problem. The usable statement for this campaign's compiling goal is the constraint in the heading, and
+it is a real one: weight-only extraction here needs a causally-chosen contraction direction, which weights alone do not supply.
+
+**Two instrument notes worth reusing.** (1) An exact algebraic identity must not be tested by differencing two large nearly-equal fp32
+model outputs — §2855's registered arm read 1.198 and §2856's read 25.2, both pure cancellation, while the float64 evaluation from
+captured activations read 2.0e-4 and 7.3e-5. I registered the fp32 arm twice before adding the diagnostic; the second time the bar was
+set from the first's MEASURED value rather than a wishful one. (2) Correlations over different direction samples are not comparable —
+§2855's pred_e failed for exactly that reason and said so in advance.
+
+Price discipline from §2853 held throughout: every figure in §2854–§2856, including the prices, was read from the cited receipt in the
+same command the section was written from, and `ops/audit_ledger_prices.py` reports **42 checked / 0 mismatched**.
