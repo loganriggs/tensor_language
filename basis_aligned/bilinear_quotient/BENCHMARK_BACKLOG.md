@@ -5310,3 +5310,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2793 late_tail_writer_identity_probe (Claude, LANE 1 CUDA, 24 s, 1152 GPU forwards): a,c,d,e TRUE; b FALSE, no null met. §2790's profile = writer
   growth (2.1 → 9.9; ρ .97) + a real ×.87/block fade in reader units (residual norm 433 → 1742; λ0 ≈ 1); half-life ≈ 4.8 blocks replaces "≈ 3";
   single writers ≤ 8% each, sum .52 of the joint — coherent accumulation (bus with memory).
+- §2794 late_tail_writer_pair_coherence_probe (Claude, LANE 1 CUDA, 73 s, 3456 GPU forwards): a,b,c,e,f TRUE; d FALSE by .003, no null met.
+  All 36 writer pairs super-additive; κ falls with distance (.20 → .02; ρ −.81 — a chain, not a shared direction); pairwise quadratic law
+  reconstructs the nine-writer joint to 8%; κ tracks input cosine (ρ .76) though input cosines are ≈ .01 — coherence made by the readers' Jacobian.
