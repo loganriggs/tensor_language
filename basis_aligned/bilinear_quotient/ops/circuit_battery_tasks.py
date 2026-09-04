@@ -545,6 +545,149 @@ def _gen_verbatim_repeat(rng, family, pools):
                 semantic_details={"perturbation": "leading_filler"})
 
 
+
+
+# --- bank v3 additions: five more behaviours, each with measured native capability ------- #
+
+VARS = ["x", "y", "a", "b", "n", "k", "m", "p", "q", "r"]
+
+
+def _gen_comma_counting(rng, family, pools):
+    """'one, two, three,' -> ' four'.  Surface variant of counting_words with commas."""
+    idx = pools.starts(len(COUNT_WORDS) - 4)
+    i = rng.choice(idx)
+    c = COUNT_WORDS
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "
+    run = lambda j: pre + f"{c[j]}, {c[j + 1]}, {c[j + 2]},"
+    if family == "A1":
+        j = rng.choice([x for x in idx if x != i]) if len(idx) > 1 else (i + 1) % len(idx or [1])
+        return dict(base_text=run(i), donor_text=run(j),
+                    base_answer=f" {c[i + 3]}", donor_answer=f" {c[j + 3]}",
+                    semantic_details={"perturbation": "run_start"})
+    if family == "A2":
+        return dict(base_text=run(i), donor_text=run(i) + f" {c[i + 3]},",
+                    base_answer=f" {c[i + 3]}", donor_answer=f" {c[i + 4]}",
+                    semantic_details={"perturbation": "run_length"})
+    if family == "P":
+        w = rng.sample(pools.words(), 2)
+        body = run(i)[len(pre):]
+        return dict(base_text=f"{w[0]}: " + body, donor_text=f"{w[1]}: " + body,
+                    base_answer=f" {c[i + 3]}", donor_answer=f" {c[i + 3]}",
+                    semantic_details={"perturbation": "prefix_word"})
+    j = rng.choice([x for x in idx if x != i]) if len(idx) > 1 else (i + 1) % len(idx or [1])
+    return dict(base_text=pre + f"{c[i]}, {c[i]}, {c[i]},", donor_text=pre + f"{c[j]}, {c[j]}, {c[j]},",
+                base_answer=f" {c[i]}", donor_answer=f" {c[j]}",
+                semantic_details={"control": "repeated_word_copy"})
+
+
+def _gen_lowercase_list(rng, family, pools):
+    """'a. word / b. word' -> 'c'.  The lowercase counterpart of letter_list, which the model
+    performs far better (measured) -- a surface contrast at fixed task structure."""
+    ls = [c for c in LOWER if ord(c) < ord("q")]
+    ls = ls[pools._k::len(SPLITS)] or ls[:2]
+    c = rng.choice(ls)
+    w = rng.sample(pools.words(), 4)
+    nxt = lambda ch, k=2: chr(ord(ch) + k)
+    base = f"{c}. {w[0]}\n{nxt(c, 1)}. {w[1]}\n"
+    if family == "A1":
+        c2 = rng.choice([x for x in ls if x != c]) if len(ls) > 1 else chr(ord(c) + 3)
+        return dict(base_text=base, donor_text=f"{c2}. {w[0]}\n{nxt(c2, 1)}. {w[1]}\n",
+                    base_answer=nxt(c), donor_answer=nxt(c2),
+                    semantic_details={"perturbation": "start_letter"})
+    if family == "A2":
+        return dict(base_text=base,
+                    donor_text=f"{c}. {w[0]}\n{nxt(c, 1)}. {w[1]}\n{nxt(c, 2)}. {w[2]}\n",
+                    base_answer=nxt(c), donor_answer=nxt(c, 3),
+                    semantic_details={"perturbation": "list_length"})
+    if family == "P":
+        return dict(base_text=base, donor_text=f"{c}. {w[2]}\n{nxt(c, 1)}. {w[3]}\n",
+                    base_answer=nxt(c), donor_answer=nxt(c),
+                    semantic_details={"perturbation": "item_words"})
+    c2 = rng.choice([x for x in ls if x != c]) if len(ls) > 1 else chr(ord(c) + 3)
+    return dict(base_text=f"{c}. {w[0]}\n{c}. {w[1]}\n", donor_text=f"{c2}. {w[0]}\n{c2}. {w[1]}\n",
+                base_answer=c, donor_answer=c2,
+                semantic_details={"control": "repeated_letter_copy"})
+
+
+def _gen_percent_run(rng, family, pools):
+    """'10% 20% 30%' -> ' 40'.  The model continues by the STEP here, which it does NOT do on a
+    bare numeric run (numeric_sequence.continuation, capability .06) -- a measured contrast."""
+    step = rng.choice([5, 10])
+    starts = pools.nums(5, 60)
+    a = rng.choice(starts)
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
+    run = lambda s, k: pre + f"{s}% {s + k}% {s + 2 * k}%"
+    if family == "A1":
+        b = rng.choice([x for x in starts if x != a]) if len(starts) > 1 else a + step
+        return dict(base_text=run(a, step), donor_text=run(b, step),
+                    base_answer=f" {a + 3 * step}", donor_answer=f" {b + 3 * step}",
+                    semantic_details={"perturbation": "run_start", "step": step})
+    if family == "A2":
+        k2 = 10 if step == 5 else 5
+        return dict(base_text=run(a, step), donor_text=run(a, k2),
+                    base_answer=f" {a + 3 * step}", donor_answer=f" {a + 3 * k2}",
+                    semantic_details={"perturbation": "step"})
+    if family == "P":
+        w = rng.sample(pools.words(), 2)
+        body = run(a, step)[len(pre):]
+        return dict(base_text=f"{w[0]}: " + body, donor_text=f"{w[1]}: " + body,
+                    base_answer=f" {a + 3 * step}", donor_answer=f" {a + 3 * step}",
+                    semantic_details={"perturbation": "prefix_word"})
+    b = rng.choice([x for x in starts if x != a]) if len(starts) > 1 else a + step
+    return dict(base_text=run(a, 0), donor_text=run(b, 0),
+                base_answer=f" {a}", donor_answer=f" {b}",
+                semantic_details={"control": "constant_run_copy"})
+
+
+def _gen_year_run(rng, family, pools):
+    """'1990 1991 1992' -> ' 1993'."""
+    starts = [1900 + n for n in pools.nums(0, 100) if n <= 92]
+    a = rng.choice(starts)
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
+    run = lambda s: pre + f"{s} {s + 1} {s + 2}"
+    if family == "A1":
+        b = rng.choice([x for x in starts if x != a])
+        return dict(base_text=run(a), donor_text=run(b),
+                    base_answer=f" {a + 3}", donor_answer=f" {b + 3}",
+                    semantic_details={"perturbation": "run_start"})
+    if family == "A2":
+        return dict(base_text=run(a), donor_text=run(a) + f" {a + 3}",
+                    base_answer=f" {a + 3}", donor_answer=f" {a + 4}",
+                    semantic_details={"perturbation": "run_length"})
+    if family == "P":
+        w = rng.sample(pools.words(), 2)
+        body = run(a)[len(pre):]
+        return dict(base_text=f"{w[0]}: " + body, donor_text=f"{w[1]}: " + body,
+                    base_answer=f" {a + 3}", donor_answer=f" {a + 3}",
+                    semantic_details={"perturbation": "prefix_word"})
+    b = rng.choice([x for x in starts if x != a])
+    return dict(base_text=pre + f"{a} {a} {a}", donor_text=pre + f"{b} {b} {b}",
+                base_answer=f" {a}", donor_answer=f" {b}",
+                semantic_details={"control": "repeated_year_copy"})
+
+
+def _gen_variable_lookup(rng, family, pools):
+    """'x = 5 / y = 7 / x =' -> ' 5'.  Retrieval, and its P family is unusually clean: changing the
+    value bound to the OTHER variable cannot change the answer."""
+    v1, v2 = rng.sample(VARS[pools._k::len(SPLITS)] or VARS[:2], 2) if len(VARS[pools._k::len(SPLITS)]) >= 2 \
+        else rng.sample(VARS, 2)
+    ns = pools.nums(2, 90)
+    n1, n2, n3 = rng.sample(ns, 3)
+    prog = lambda a, b, q: f"{v1} = {a}\n{v2} = {b}\n{q} ="
+    if family == "A1":                       # query the other variable
+        return dict(base_text=prog(n1, n2, v1), donor_text=prog(n1, n2, v2),
+                    base_answer=f" {n1}", donor_answer=f" {n2}",
+                    semantic_details={"perturbation": "queried_variable"})
+    if family == "A2":                       # change the value bound to the queried variable
+        return dict(base_text=prog(n1, n2, v1), donor_text=prog(n3, n2, v1),
+                    base_answer=f" {n1}", donor_answer=f" {n3}",
+                    semantic_details={"perturbation": "bound_value"})
+    return dict(base_text=prog(n1, n2, v1), donor_text=prog(n1, n3, v1),
+                base_answer=f" {n1}", donor_answer=f" {n1}",
+                semantic_details={"perturbation": "unqueried_variable_value"})
+
+
+YEARS = [f" {y}" for y in range(1900, 2000)]
 NUMBERS = [str(i) for i in range(0, 100)] + [f" {i}" for i in range(0, 100)]
 
 TASKS: dict[str, Task] = {
@@ -604,6 +747,26 @@ TASKS: dict[str, Task] = {
         "verbatim_repeat.copy", "continue a verbatim repetition of one token",
         "identity of the repeated token", [f" {w}" for w in SINGLE_WORDS], _gen_verbatim_repeat,
         notes="pure copy behaviour; no separate copy control (it is one)",
+        answer_visible_in_prompt=True, families=("A1", "A2", "P")),
+    "counting_words.comma_list": Task(
+        "counting_words.comma_list", "next number word in a comma-separated list",
+        "last number word", [f" {w}" for w in COUNT_WORDS], _gen_comma_counting,
+        notes="surface variant of counting_words: commas instead of spaces"),
+    "letter_list.lowercase": Task(
+        "letter_list.lowercase", "next line label of an 'a. / b.' lowercase list",
+        "last visible list letter", LOWER + [f" {c}" for c in LOWER], _gen_lowercase_list,
+        notes="the model performs this far better than the uppercase version (measured)"),
+    "percent_run.step_continuation": Task(
+        "percent_run.step_continuation", "continue a run of percentages by its STEP",
+        "(last value, step)", NUMBERS, _gen_percent_run,
+        notes="the model continues by the step here but NOT on a bare numeric run -- a measured contrast"),
+    "year_run.successor": Task(
+        "year_run.successor", "next year after a run of consecutive years",
+        "last year in the run", YEARS, _gen_year_run),
+    "variable_lookup.assignment": Task(
+        "variable_lookup.assignment", "value bound to the queried variable in a two-assignment program",
+        "identity of the queried variable", NUMBERS, _gen_variable_lookup,
+        notes="retrieval; P changes the UNQUERIED variable's value, which cannot change the answer",
         answer_visible_in_prompt=True, families=("A1", "A2", "P")),
     "induction.copy_successor": Task(
         "induction.copy_successor",

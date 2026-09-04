@@ -50,7 +50,11 @@ RUNG = "circuit_battery_v2"
 PROTOCOL = "circuit_battery_v2"    # v1 (SS2809) is preserved as a diagnostic screen, not evidence
 D, NH, HD, NL = R.D, R.NH, R.HD, R.NL
 SMOKE = os.environ.get("SURROGATE_SMOKE") == "1"
-OUT = SMOKE_OUT if SMOKE else ROOT / "circuit_battery_v2_results.json"
+# the receipt name carries the bank size, so a bank extension can never overwrite a cited receipt
+# (SS2817's 16-behaviour run keeps circuit_battery_v2_results.json)
+_N = len(BANK.TASKS)
+OUT = SMOKE_OUT if SMOKE else ROOT / ("circuit_battery_v2_results.json" if _N == 16
+                                      else f"circuit_battery_v2_bank{_N}_results.json")
 PER_CELL = 6 if SMOKE else 24
 TASKS = sorted(BANK.TASKS)
 COMPONENTS = [(kd, l) for l in range(NL) for kd in ("attn", "mlp")]

@@ -6,6 +6,31 @@ import sys
 import circuit_battery_tasks as B
 
 
+FROZEN_ROW_HASHES = {
+    "alphabet_run.successor": "ea79ea55d441c4c0",
+    "arithmetic.small_addition": "1438810a5cddacf3",
+    "bracket.close_innermost": "e0391883dfc3f275",
+    "counting_words.comma_list": "4d5b6eeacc764b84",
+    "counting_words.successor": "f0a1cdac4d7a6690",
+    "induction.copy_successor": "0ca0e5f87cd7fa43",
+    "keyed_line.counter_successor": "07a608189d4cc150",
+    "letter_list.index_successor": "651fa396a2cd9bc9",
+    "letter_list.lowercase": "edc1c19ab99bfeca",
+    "month.successor": "35c1431eebed9ae5",
+    "numbered_list.index_successor": "a3a79c39e3bbb19e",
+    "numeric_run.last_plus_one": "e3852ae3d10ea85e",
+    "numeric_sequence.continuation": "a7663a934cc85a41",
+    "numeric_sequence.countdown": "d126fc10cb945fe1",
+    "paren_list.index_successor": "574ff7fec799a5eb",
+    "percent_run.step_continuation": "dd62accb84c4c355",
+    "roman_list.index_successor": "45e857c3aa4db6eb",
+    "variable_lookup.assignment": "887379fc25fdd917",
+    "verbatim_repeat.copy": "142ec67d23224168",
+    "weekday.successor": "721e5a4e2a51d070",
+    "year_run.successor": "1564aad2bdc18053",
+}
+
+
 def _rows(tid, n=6):
     return B.build_rows(tid, per_cell=n)
 
@@ -49,7 +74,7 @@ def test_answer_is_not_already_visible_for_computed_families():
     """A1/A2 answers must be COMPUTED, not copyable from the prompt; C answers must be copyable."""
     for tid in B.TASKS:
         for r in _rows(tid):
-            words = r["base_text"].translate(str.maketrans("\n.:+=()[]{}", "           ")).split()
+            words = r["base_text"].translate(str.maketrans("\n.:+=()[]{},%", "             ")).split()
             visible = r["base_answer"].strip() in words
             if r["family"] in ("A1", "A2") and not B.TASKS[tid].answer_visible_in_prompt:
                 assert not visible, (tid, r["family"], r["base_text"], r["base_answer"])
@@ -109,7 +134,15 @@ def test_joint_tokenization_boundary():
 def test_heldout_splits_are_value_disjoint_where_claimed():
     """TEST/OOD must never share an ANSWER VALUE with FIT/SELECT within a family, except for the
     tasks whose vocabulary is too small to allow it -- which are listed explicitly, not hidden."""
-    small_vocab = {"bracket.close_innermost", "arithmetic.small_addition", "numeric_run.last_plus_one"}
+    # Tasks whose answer vocabulary cannot support value-disjoint held-out splits, named
+    # explicitly rather than exempted by a blanket rule:
+    #   bracket   - three bracket types in total
+    #   addition  - the small addend is drawn from a shared 2..7 range
+    #   numeric_run - A2 perturbs the final term within +-6, which crosses the split partition
+    #   percent_run - the answer is start + 3*step with step in {5, 10}, so two splits' starts can
+    #                 land on the same answer
+    small_vocab = {"bracket.close_innermost", "arithmetic.small_addition", "numeric_run.last_plus_one",
+                   "percent_run.step_continuation"}
     for tid in B.TASKS:
         pol = B.split_policy(tid, per_cell=6)
         assert pol["prompts_disjoint_all_pairs"], tid
@@ -123,3 +156,21 @@ def test_interchange_alignment_available():
         a1 = [r for r in _rows(tid, 12) if r["family"] == "A1"]
         aligned = [r for r in a1 if len(r["base_ids"]) == len(r["donor_ids"])]
         assert len(aligned) >= 0.5 * len(a1), (tid, len(aligned), len(a1))
+
+
+def test_bank_extensions_do_not_perturb_existing_tasks():
+    """Adding a behaviour must never change another behaviour's rows.
+
+    Seeds are per (task, split, group), so this holds by construction -- but the whole value of the
+    protocol is that §2817's numbers stay reproducible when the bank grows, and "by construction" is
+    what the process-salted hash() bug of §2817 also looked like. These hashes were frozen when the
+    bank went from 16 to 21 tasks, with all 16 verified bit-identical against the previous bank.
+    """
+    import hashlib
+    for tid, expect in FROZEN_ROW_HASHES.items():
+        got = hashlib.sha256(",".join(r["row_id"] for r in B.build_rows(tid, per_cell=8)).encode()).hexdigest()[:16]
+        assert got == expect, (tid, got, expect)
+
+
+def test_frozen_hashes_cover_every_task():
+    assert set(FROZEN_ROW_HASHES) == set(B.TASKS), set(B.TASKS) ^ set(FROZEN_ROW_HASHES)
