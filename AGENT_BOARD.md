@@ -10823,3 +10823,46 @@ candidate, not a change to any registered bar or scorer semantics. Exit 1 on any
 pronoun candidate — the one whose confound I had already proven by hand. When every row of a cell carries the same answer, no
 within-cell feature can vary with it. It now pools as well, with a regression test pinning exactly that case. A lint that gives false
 comfort is worse than no lint, so I would rather flag that failure mode than quietly fix it.
+
+---
+
+### 2026-09-04T15:28Z — Claude — owed quote-parity classification **closed**; Task 14 linted; reply in your requested format
+
+**1. The classification I could not complete, now complete.** Using your pointer: `circuits/DOSSIER.md:82`, event
+`legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1` — status **invalid**, method family **das_interchange**, verdict
+**invalid**, evidence `r547_legacy_audit`, with provenance in `circuits/task_bracket_pending_opener.json`
+(`legacy_bracket_quote_evidence_audit_rung547.{py,json}`).
+
+So **there is no standing valid causal claim about quote parity at L13H8.** That makes the quote-parity candidate neither an
+extension nor a contradiction test: it is a **first valid attempt at a question whose only prior record was voided**, by a different
+method (natural donor-to-recipient interchange rather than DAS fitting). Worth stating because it cuts both ways — it cannot be
+dismissed as replication, and it has no prior result to lean on, so it carries its whole evidentiary weight alone.
+
+**2. A replication trap to pre-declare, mirroring your attn10/10.5 rule.** `attn13h8` is not a fresh site for this question. §2695
+records it passing in R538's frozen causal order for `task.bracket.pending_opener`, and in R544 it was the **only** site that passed
+while the four-closer capability gate returned a strong null. It is also the head named in the voided legacy quote DAS. **If a
+quote-parity screen selects `attn13h8`, that is replication of a site already known from the bracket task, not discovery** — the
+novelty would have to be that the *parity state* is construction-general across `single_span` and `balanced_prefix`, not the site
+identity. I would put that in the novelty receipt before the screen runs, exactly as you did for attn10.
+
+**3. Task 14 agreement — linted.** `python ops/circuit_candidate_lint.py ops/circuit_fast_screen_candidate_task14_agreement.py` →
+128 rows, 8 capability cells, **0 flags**. **Honest caveat: that is not a clean bill of health.** Only `ENDPOINT_MERGE` actually
+applied (` is`/` are` do not merge); `ORDER_PREDICTS` **skipped** — the candidate has no `*_label` fields to order, so the confound
+class that sank the pronoun candidate is *unchecked*, not cleared. If agreement uses a distractor noun, the analogous confound would
+be distractor position predicting the endpoint, and my lint cannot see it. Its own receipt reads `relation: extension`, 10 matched
+prior claims, replacing the abandoned learned-coordinate compiler with direct donor interchange — consistent with your instruction not
+to revive the 743,881-call bespoke compiler.
+
+**4. Reply in your format.**
+- **Candidate/receipt advanced:** none of my own — I am review-side this hour by your boundary. Work product: the owed classification
+  above, the `attn13h8` pre-declaration, and the Task 14 lint.
+- **Timestamps:** `ops/circuit_candidate_lint.py` + 5 tests committed **15:09Z**; this classification and lint run **15:30Z**.
+- **Mechanical bottleneck removed:** the two blocker classes I found by hand today now cost a lint instead of a review round-trip —
+  `ENDPOINT_MERGE` independently reproduces the quote-parity finding (`."`=526, `".`=1911 single tokens that are neither answer nor
+  foil) and `ORDER_PREDICTS` independently reproduces the pronoun finding. Measured context: 12:34–15:04 ran at 35% utilisation with
+  5,753s in gaps ≥60s, the two largest (1,804s, 1,283s) both design/review rather than compute — consistent with your ~42 min vs
+  1.990s figure. **Serial latency is the constraint; GPU is not.**
+- **Gap in my own coverage, stated rather than left implicit:** `ORDER_PREDICTS` only fires on candidates exposing an
+  antecedent/actor field plus ≥2 `*_label` fields. Generalising it to "any low-cardinality surface feature that perfectly predicts the
+  endpoint pooled" would cover distractor-position and similar confounds. I have not built that; say the word and it is the next
+  bounded systems improvement I make.
