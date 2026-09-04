@@ -77528,3 +77528,51 @@ tail as a whole rather than about any dictionary.
 dimensions**, with a concentration profile measured against a matched null on the same code path. It is a much smaller claim than "0 of
 68" needs — it certifies nothing — but it is the first number of that shape, and it cost **three CPU-seconds** because §2915 put the
 stack on disk.
+
+---
+
+## §2926 — **§2923 IS ALREADY JOINTLY OPTIMAL: RE-OPTIMISING CP AND MOTIF AROUND THE NEW TAIL OBJECT BUYS ONLY +0.0029, BELOW THE REGISTERED BAR.** AND §2922's BEST STANDALONE CP SPLIT IS **WORSE** IN COMPOSITION THAN THE UNIFORM SCALAR IT BEAT
+
+Written 2026-09-04T13:47Z. Rung `ops/frontier_new_objects_joint`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_NEW_OBJECTS_JOINT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 283.3 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_new_objects_joint_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+§2923 adopted the rank-32 tail projection but **inherited** CP ×0.80 and motif ×1.25 from §2912, where both were chosen against a
+*uniform* tail term; its composition shortfall (0.0275 of a 0.0542 standalone gain) said the terms overlap. §2922 then showed the CP
+correction is itself a split, not a scalar. So this re-optimised all three around the new object types: 36 cells, tail-subspace scale ×
+{uniform CP, three CP splits} × motif, with both identity paths controlled in the same run.
+
+**Controls and anchors all landed:** `svd_identity` **+0.0001**, `cp_identity` **0.0000**, and §2923's own configuration reproduced at
+**−0.4004 against −0.4003, deviation 0.0001**.
+
+| cell (tail 0.25, motif 1.25) | fresh |
+|---|---|
+| CP uniform ×0.80 — **the incumbent** | **−0.4004** |
+| CP bot128 @ 0.8 | **−0.4033** |
+| CP bot256 @ 0.5 | −0.3650 |
+| CP bot128 @ 0.5 — **§2922's best standalone** | **−0.3655** |
+
+**pred_d FAILED.** The best cell (tail 0.25, CP bot128@0.8, motif 1.25) reads −0.4033 against the incumbent's −0.4004 — an improvement
+of **+0.0029**, well under the registered 0.01 bar. `d_null_S2923_is_already_jointly_optimal` is **MET**. pred_e held (the tiny
+improvement does survive held out, +0.0020) and pred_f held (tail scale 0.25 and motif 1.25 both interior), but **the adoption rule
+required pred_d and it failed, so §2923 stands as the frontier of record: +2.2732 in selection / +2.2953 held out.**
+
+**This closes the re-optimisation line, and cleanly.** The inherited constants were not mis-matched to the new tail object after all:
+across 36 cells the optimum sits at exactly the tail scale (0.25) and motif gain (1.25) §2923 and §2912 already used, and the CP axis
+moves the total by at most 0.003 once the tail term is a projection.
+
+**The sharper finding is the CP inversion, and it is a warning about the whole programme.** §2922 measured `bot128 @ 0.5` at **−0.1280
+standalone**, beating uniform ×0.5's −0.1074 and transporting held out. In composition with the adopted tail projection it reads
+**−0.3655 against the uniform scalar's −0.4004 — worse by 0.035, more than ten times the margin by which it won standalone.** The same
+split at scale 0.8 is marginally *better* than uniform. So what the CP site wants in isolation and what it wants inside the frontier are
+**different objects**, and the difference is not small.
+
+That is the local-objective/end-to-end mismatch (§2890, §2902, §2905) reappearing **one level up**: it has been about *fitting criteria*
+versus the end-to-end score, and this is the same pathology between *standalone arm scores* and *composed* ones. **A standalone
+improvement is not evidence about the frontier**, which is exactly why §2923 required a composed, held-out measurement before adoption
+and why §2921's −0.2828 was not adopted on its own. **Registered as a standing caution: no site-level split or projection may be adopted
+on a standalone number** — §2922's CP result is hereby marked as *standalone only*, and the queued front-component rung inherits the same
+condition.
