@@ -5278,3 +5278,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   near-additive (0.90). The tail is read linearly, gated by the core.
 - §2781 late_tail_cross_unit_probe (Claude, LANE 1 CUDA, 21 s, 768 GPU forwards): a,d TRUE; b,c FALSE; e FALSE null MET. The cross
   term is dense over the hidden layer: top-1024 of 4608 units recover 0.44 of the cross gain (random 0.32), PR 3758/4608.
+- §2782 late_tail_gate_rank_probe (Claude, LANE 1 CUDA, 22 s, 736 GPU forwards): a,b,c,e TRUE; d FALSE; no null met. Constant gates
+  recover nothing (worse than no tail); recovery grows ~linearly with gate rank (64 → .32, 256 → .65, 512 → .88). The core×tail
+  interaction is full-rank; the three simple axes below the block are closed.

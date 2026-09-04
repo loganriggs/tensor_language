@@ -1,0 +1,40 @@
+{"stage": "heads_done", "t": 14.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.1}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_MLP_768": 0.1249, "DROP_TT_768": 0.0087, "GATE_0": 0.1304, "GATE_128": 0.071, "GATE_32": 0.1012, "GATE_64": 0.0884, "GATE_256": 0.0495, "GATE_512": 0.0233, "t": 21.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_constant_gates_recover_little": true,
+  "pred_c_256_gate_dims_recover_most": true,
+  "pred_d_64_gate_dims_recover_much": false,
+  "pred_e_512_gate_dims_nearly_exact": true
+ },
+ "nulls": {
+  "b_null_const_ge_.60": false,
+  "c_null_256_le_.35": false,
+  "d_null_64_le_.20": false,
+  "e_null_512_le_.60": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "DROP_TT_768": 0.008696794509887695,
+  "GATE_0": 0.13038331270217896,
+  "GATE_128": 0.07104000449180603,
+  "GATE_32": 0.10118210315704346,
+  "GATE_64": 0.08836618065834045,
+  "GATE_256": 0.04950231313705444,
+  "GATE_512": 0.023273944854736328
+ },
+ "summary": {
+  "cross_gain_768": 0.11622947454452515,
+  "recovery": {
+   "GATE_0": -0.04695060069015137,
+   "GATE_128": 0.4636196177757311,
+   "GATE_32": 0.20428695896989088,
+   "GATE_64": 0.31455092212489494,
+   "GATE_256": 0.6489227987386712,
+   "GATE_512": 0.8745830143173845
+  }
+ }
+}
