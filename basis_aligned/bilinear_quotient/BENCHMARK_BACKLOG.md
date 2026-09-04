@@ -5911,3 +5911,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
   0.0000**, and per-layer optima (§2899, worse by .0198) and prefix shrinkage (§2901, worse at every prefix) both failed to beat it.
   **§2896's adopted single scalar is the whole effect for this block — do not spend further rungs on it.** The open question for the
   tail is whether a genuine end-to-end refit beats one scalar, not what the scalar should be.
+
+- **[§2904] ADOPTED — tail + CP compose almost additively.** −0.3213 fresh / −0.2899 in sample; frontier **+2.6736 → +2.3522**;
+  pairwise interaction only **+0.0149**. TF (−0.3336 fresh) and TCF are **not** adopted: F was never adopted, and both read poorly in
+  sample (−0.0206, −0.0823) because the front tables are overfitted (§2895). **On fresh L2 alone TF looks best — the in-sample column
+  is what rules it out.**
+- **[§2905] ADOPTED with a stated limit — the motif gains want to be BIGGER.** `ALPHA` × 1.25 gives −0.1605 fresh / −0.1640 in sample.
+  **1.25 is the grid edge, so the optimum is unbracketed and the number is a lower bound.** Extend the grid upward before quoting an
+  optimum.
+- **[§2905] Predicate-design fault recorded: the coded pred_c ("some scale with cost < 0") was weaker than the sentence it tested
+  ("some scale BELOW 1 helps").** It passed while my stated direction was wrong. When a preregistration's prose names a direction, the
+  formula must encode the direction.
+- **[§2905] The mismatch is DIRECTIONAL per block.** Tail, CP and front want less; the motif heads want more. Any general account of
+  "local criterion vs end-to-end score" must predict the sign, not just the existence, of the correction.

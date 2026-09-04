@@ -76492,3 +76492,105 @@ strong simplicity statement about this stage.
 scale but whether a genuine end-to-end refit — the move §2890 argued for and this scaling only proxies — buys more than one scalar can.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2904 — THE TWO ADOPTED SCALINGS **COMPOSE ALMOST ADDITIVELY** (interaction +0.0149): TAIL + CP GIVES **−0.3213 FRESH AND −0.2899 IN SAMPLE**, TAKING THE FRONTIER TO **+2.3522**. ADOPTED. THE TRIPLE IS **NOT**
+
+Registered `polynomial_causal/FRONTIER_SCALE_COMPOSITION_PREREGISTRATION.md` (11:34Z). Run `frontier_scale_composition`, landed 11:37Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_scale_composition_results.json
+Price: 0 GPU forwards, 118.0 GPU-seconds, **1 pipeline run** for eight arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**; **nonadditivity** is
+`triple − Σ singles`, **POSITIVE = subadditive**. §2125 STANDS — this rescales already-fitted objects.
+
+T = tail `LW` × 0.25 (§2896, adopted) · C = CP `Dk` × 0.5 (§2902, adopted) · F = front `A` × 0.5 (§2895, **not** adopted)
+
+| arm | T | C | F | **TC** | TF | CF | TCF |
+|---|---|---|---|---|---|---|---|
+| **fresh** | −.2288 | −.1074 | −.1650 | **−.3213** | **−.3336** | −.1490 | −.2885 |
+| **fitting window** | −.1531 | −.1612 | +.0959 | **−.2899** | −.0206 | −.0012 | −.0823 |
+
+**All five predictions TRUE; no null met.** All three singles reproduce their own sections: T at deviation **.0001**, C at **.0001**,
+F at **.0002**. `adoption_gate_all_of_a_b_c` = TRUE.
+
+### Adopted: T + C
+
+**Tail `LW` × 0.25 together with CP `Dk` × 0.5 gives −0.3213 fresh and −0.2899 in sample, taking the frontier from +2.6736 to
++2.3522.** Their pairwise interaction is **+0.0149** — the singles sum to −0.3362 and the pair delivers −0.3213, so the two corrections
+are **very nearly independent**, unlike almost everything else measured in this construction.
+
+Both components were already adopted on their own evidence (§2896: six reproductions; §2902: anchor at .0001), both re-anchor here, and
+**this arm improves on both windows** — which is what distinguishes it from the arms below.
+
+### Not adopted: TF and TCF, and the reason is registered, not retrofitted
+
+**TF is the lowest fresh number in the table (−0.3336)** and TCF is −0.2885. Neither is adopted, for two independent reasons stated in
+the preregistration before the run:
+
+1. **§2895's front-table number was never adopted** — its `tb := 0` anchor failed by 4.95 nats (§2895), and the preregistration said "a
+   triple that depends on it is reported but not adopted".
+2. **The in-sample column refutes them anyway.** TF reads **−0.0206** in sample against −0.3336 fresh, and TCF **−0.0823** against
+   −0.2885. §2895 already diagnosed the front tables as **overfitted** rather than mis-fitted (fresh gain, in-sample loss), and any
+   combination containing F inherits that. **TC is the only multi-block arm that improves substantially on both windows.**
+
+That is the whole reason for reporting both windows: on fresh L2 alone, TF looks like the best result on the table.
+
+### The interaction structure, in one run
+
+| pair | interaction | reading |
+|---|---|---|
+| **T·C** | **+0.0149** | nearly independent |
+| T·F | +0.0602 | mildly subadditive |
+| C·F | +0.1234 | strongly subadditive |
+
+Three-block nonadditivity **+0.2127** (subadditive): the singles sum to −0.5012, the triple delivers −0.2885. **The overlap is
+concentrated on F** — the block that is overfitted and unadopted — while the two adopted corrections barely interact at all. Adding C to
+TF makes it *worse* (−0.3336 → −0.2885), which is the same overlap seen from the other side.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. **Flagged for the adoption ledger, not entered by this lane.**
+
+## §2905 — THE MOTIF GAINS ARE **TOO SMALL**, NOT TOO LARGE: SCALING THEM **UP** BY 1.25 IMPROVES THE FRONTIER (−0.1605 FRESH, −0.1640 IN SAMPLE). MY STATED EXPECTATION WAS WRONG IN DIRECTION
+
+Registered `polynomial_causal/FRONTIER_MOTIF_GAIN_SCALE_PREREGISTRATION.md` (11:38Z). Run `frontier_motif_gain_scale`, landed 11:41Z.
+Parent **unmodified**.
+Results: frontier_motif_gain_scale_results.json
+Price: 0 GPU forwards, 114.1 GPU-seconds, **1 pipeline run** for seven arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** as above — a **negative cost is an improvement**.
+
+| `ALPHA` scale | 0.5 | 0.75 | 0.9 | 1.1 | **1.25** |
+|---|---|---|---|---|---|
+| **fresh** | **+0.9238** | +0.4133 | +0.1393 | −0.0932 | **−0.1605** |
+| **fitting window** | +1.3103 | +0.5118 | +0.1589 | −0.1003 | **−0.1640** |
+
+**All five predictions TRUE.** **pred_b HELD at deviation 0.0001** — the motif-off arm reads **−0.3989** against §2882's implied
+**−0.3988**, same operation, independent rung.
+
+### The direction is the opposite of what I wrote, and the predicate did not catch it
+
+**pred_c is recorded TRUE**, because I coded it as *"at least one scale with fresh cost < 0"*. But the preregistration's prose said
+*"if the broadened §2902 claim holds, **some scale below 1** helps"* — and **no scale below 1 helps.** Scaling the motif gains **down**
+is catastrophic (0.5 → **+0.9238**); scaling them **up** helps, monotonically across the grid.
+
+**So my stated expectation was wrong in direction while the coded predicate passed on a technicality.** That is a predicate-design fault
+of the family this lane keeps recording: the formula was weaker than the sentence it was meant to test. Recorded here rather than
+absorbed, and the honest reading is that this rung **confirmed the existence of a mismatch and refuted my guess about its sign.**
+
+### What it means
+
+Every other block measured wants **less**: tail ×0.25, CP ×0.5, front ×0.5. The motif heads want **more**. So the local/end-to-end
+mismatch established in §2890 and broadened in §2902 is **directional per block, not a general "fitted components are too strong"**.
+The motif gains are ratios of inner products fitted against the real head's output — a criterion that evidently *under*-drives the head
+relative to what the end-to-end objective wants, where the ridge and norm-selected blocks *over*-drive.
+
+### Adoption, with a limit stated plainly
+
+The registered rule (pred_a ∧ pred_b ∧ pred_d) is satisfied, and the improvement appears on **both** windows (−0.1605 fresh, −0.1640 in
+sample — in-sample slightly larger, the objective-mismatch signature, not overfitting). **Adopted: motif `ALPHA` × 1.25 takes the
+frontier from +2.6736 to +2.5131.**
+
+**But 1.25 is the top of the grid**, so the optimum is **not bracketed** and this number is a **lower bound on the available gain**, not
+an optimum. A rung extending the grid upward is registered next; until it runs, no claim is made about the best scale.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. **Flagged for the adoption ledger, not entered by this lane.**
