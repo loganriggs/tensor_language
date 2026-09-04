@@ -8618,3 +8618,32 @@ keeps me away from.
 Price discipline from §2853 held: `ops/audit_ledger_prices.py` reports **43 checked / 0 mismatched**.
 
 ### 2026-09-04T07:43:57Z — Codex: COMPLETE — **APPROVE** exact replacement task14 authority commit `e9686bc9bbb40f872d8e8320b30fab4f019e524d` for a separate CPU-only capability-FIT preregistration/compiler build, not execution. Exact Git-object hashes: generator `33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94`, tests `254fe3798efd8a4426f30e054fd8e5646a5bd6635df69815f376311ac2023694`, memo `3cb4556d1ad2c1564f2708028e5d624c4519fbc4d52a38cac27b9d10d8312f68`; reconstructed authority `1cf6cf12668c7428719134bbee03ab84f57cc150f2653cc12ffc4a71566c8db1`. The prior `b294167ff2ccc9da4b9ac11de7599feab71020d1` rejection remains context, not approval. The replacement has 512 rows / 128 panels / 32 panels per phase, disjoint phase vocabulary/templates/prompts, exact grammar/token/semantic/balance invariants, and the +3 half-offset is collision-free while preserving twice-per-role balance. Every phase's C family has 32 unique base endpoints, 32 unique donor endpoints, zero endpoint overlap, and 32 unordered pairs. The validator rejects both old `31b812b` constructions; independent old-plus-coherent mutation checks reject 12/12. FIT remains exactly 8 forwards / 256 unique row-sides / 2,048 raw bytes. Focused tests pass 16/16 and relevant broad CPU tests pass 107/107. Review: `basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_REPLACEMENT_AUTHORITY_REVIEW_2026-09-04.md`, SHA-256 `7249991dd727f6385d3269cce23b0e5f83c588bcef3488dce33ae19dfd223fd1`. No generator/test/memo edit, compiler, materialized authority, model/checkpoint/GPU, queue/enqueue, result/outcome, localization, or later-phase action.
+
+### 2026-09-04T07:45:15Z — Codex: CLAIM task14 capability-FIT authority/compiler
+
+Owner: `task17_gpu_producer` (`/root/task17_gpu_producer`). Using approval commit
+`ea7efad782c088ba91a2ce338a9f740563c4e7c1`, I will materialize only the approved task14 FIT authority and build a
+prospective, outcome-blind CPU compiler/preregistration plus adversarial tests and deterministic dryrun. The contract
+is exactly four A1/A2/P/C base calls followed by four donor calls, batch 32, 256 unique row-sides, and 2,048 retained
+float32 bytes. Owned files are new task14 FIT authority/compiler/tests/dryrun/preregistration and an append-only board
+receipt. No SELECT/TEST/OOD artifact bytes, producer/adapter, model/checkpoint/GPU access, outcome, queue/enqueue,
+authorization, localization, or result namespace is in scope.
+
+### 2026-09-04T07:58:10Z — Codex: COMPLETE task14 capability-FIT authority/compiler build
+
+CPU-only FIT unit is complete. The only materialized task14 authority is FIT: 128 rows / 32 linked A1/A2/P/C groups,
+file SHA-256 `e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f`, logical SHA-256
+`3cf3315a77b3176418739e7a9357c0dbd9b95724d6b276038f53691b873377d1`. The compiler emits exactly base A1/A2/P/C
+then donor A1/A2/P/C, each batch 32; call-manifest SHA-256 is
+`4b4da44c5090914f87d52e018bc9a8d18b74a202bdb82667283a9f1564682e0e`, metric-manifest SHA-256 is
+`5da9f66829156e352afe087c75f92a7a6a37f06fe1ec5177efeffd9442609dcc`, and compiled-contract SHA-256 is
+`84f8e1cf85323dba94d13c7c716afef448b8621bff6b534c2025715420e86a82`. The frozen gate separately enforces pooled
+side, ordinary cell, 16-row incongruent subset, coordinated-C, positive-margin, and answer-change/invariance
+conditions with exact integer boundaries. Compiler SHA-256 is
+`98b2d263c5120c1a7b700dc4bb451f65cc9f9b338740d2cfbc7ae25a3ba5aab1`; test SHA-256 is
+`a013f9be7464a76b28286b130b99d8d3717299bd27462e2455f5c29566d87e00`; preregistration SHA-256 is
+`06a9747b4707999e11637a45cf83588bfd9cb8671d6b3a25790518af62900f8b`; checked-in zero-execution dryrun SHA-256 is
+`9ee6bf94676befbb89101a254a902ebd84fb4a53a6bd3e748a0c9e36336e5636`. Focused tests pass 19/19; broad CPU tests
+pass 89/89. Price is exactly 8 forwards / 256 unique row-sides / 2,048 raw float32 bytes, zero backward/update. No
+future-split authority artifact, producer/adapter, model/checkpoint/GPU access, outcome, queue/enqueue, authorization,
+localization, or result namespace was created. Fresh independent compiler review is required.
