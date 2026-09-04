@@ -73606,3 +73606,50 @@ axis.
 
 Price: 22 GPU forwards, 4.8 GPU-seconds, 0 backwards, 256 declared fitted parameters.
 Results: circuit_battery_roundness_direction_results.json. (Claude, LANE 1 CUDA.) a, b, c, e TRUE; d FALSE. Preserved.
+
+## §2845 — THE VECTOR STEERS BUT DOES NOT FLIP: injecting §2844's roundness direction into head 3 moves the step-versus-plus-one logit difference by **+.77** on held-out non-round prompts and recovers **1.06** of what swapping the head's entire 128-dimensional output does — but it changes the argmax on only **.125** of them, the reverse edit changes **none**, and on the bare format the injection BEATS the full swap it was supposed to be bounded by (b, c TRUE; a, d, e FALSE, d's null MET)
+
+The campaign's goal names three things — predictive, manipulable, editable — and §2841–§2844 only ever tested the first. This rung tests
+the second: inject the §2844 direction into head 3's output on a held-out NON-ROUND prompt the model would continue by plus-one, and ask
+whether it switches to step continuation. Direction and scale fitted on the other half of the pairs. Sign convention: flip rate is the
+fraction of held-out prompts whose argmax over the numeric vocabulary becomes the step answer, HIGHER MEANS THE EDIT WORKED; logit gain
+is the change in `logit(step) − logit(plus-one)`. **This edits an activation at run time — not a weight, not an installed approximation,
+no CE and no §312 L2.**
+
+**pred_c TRUE (null "≤ .15" not met) — as a push on the logits it works, and works fully.** The injection moves the step-versus-plus-one
+difference by **+.90** (percent) and **+.64** (bare), against **+1.05** and **+.51** for swapping head 3's entire output — a median
+ratio of **1.06**. One 128-dimensional direction does everything the whole 128-dimensional slice does.
+
+**pred_b TRUE (null "≥ .30" not met) — and it is what makes that readable.** A seeded random direction at the same magnitude flips
+**0** prompts in either format. The effect is the vector, not the perturbation.
+
+**pred_a FALSE, its null NOT met — but the edit changes the argmax on only .125 of prompts, and the reason is that the CEILING is just
+as low.** Swapping head 3's whole slice flips .083 (percent) and .000 (bare). So the injection is not falling short of the intervention
+it imitates — it matches or exceeds it — but neither is enough to cross the decision boundary on most prompts. **Head 3 is where the
+roundness feature lives, and head 3 alone cannot decide the behaviour.** That is consistent with §2843, which measured this head at .45
+and .31 of the whole switch and the pair {3, 7} at .925: the missing mass is head 7 and the rest of the component, and this rung did not
+edit them.
+
+**pred_d FALSE with its null MET — the edit is one-directional.** Injecting the negative into ROUND prompts flips none of them.
+§2841 measured the round regime at 1.000 accuracy, 6 of 6, and I wrote in the preregistration that "pushing a confident behaviour off is
+harder than nudging an uncertain one" and set the bar lower for it; even so, zero. A handle that can push toward step continuation and
+not away from it is a weaker object than a feature axis, and it is what was measured.
+
+**pred_e FALSE — and this is a registered SANITY BOUND that failed, so it is reported first and not explained away.** I registered
+`logit_gain(SWAP) ≥ logit_gain(ADD)` on the reasoning that the swap is a strictly larger intervention on the same slice. On the bare
+format the injection gains **+.64** against the swap's **+.51** — the edit beats its own ceiling. The preregistration named the exact
+consequence: "if the injection beats it, α has been fitted to a magnitude the natural difference never reaches and pred_a is measuring
+an out-of-distribution push rather than the feature". **So the .64 on the bare format must be read as an over-scaled push, and pred_c's
+median ratio of 1.06 is inflated by it.** The percent format is within the bound (.90 against 1.05, ratio .857) and is the number I
+would quote. Per the standing rule, the failing bound is not being retired in the section that benefits from ignoring it: the honest
+summary of this rung is "the vector steers on the percent format at .86 of the swap's effect, and the bare-format arm is not
+interpretable at this α".
+
+**Disclosure of an implementation fix between smoke and run.** The first smoke had the injection sign backwards: §2844 fitted its
+direction as (non-round − round), which points toward plus-one, so adding it pushed AWAY from the step answer (logit gain −.26). The
+preregistration's intent is explicit — "inject … and ask whether it switches to step continuation" — so the injected vector must point
+round-ward, and the code now fits (round − non-round), which is exactly −1 × §2844's vector with every magnitude unchanged. The bars
+were not touched. This is disclosed rather than silently corrected because the smoke that revealed it also showed the arm's sign.
+
+Price: 22 GPU forwards, 2.0 GPU-seconds, 0 backwards, 258 declared fitted parameters. First rung to use `ops/fastload.py`.
+Results: circuit_battery_roundness_steering_results.json. (Claude, LANE 1 CUDA.) b, c TRUE; a, d, e FALSE with d's null met. Preserved.

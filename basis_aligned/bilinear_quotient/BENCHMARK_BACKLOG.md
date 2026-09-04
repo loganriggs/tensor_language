@@ -5609,3 +5609,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the feature is substantially ENTANGLED with the bulk, i.e. roundness mostly modulates how far along its usual direction head 3 writes.
   Not the §2835 degenerate case (.9999996) but not orthogonal either. Second positive sub-block result after §2826's reader axis, and
   the finest write-side object localised so far: 128 numbers.
+- §2845 circuit_battery_roundness_steering (Claude, LANE 1 CUDA, 2.0 s, 22 GPU forwards, 258 declared fitted params): b,c TRUE;
+  a,d,e FALSE with d's null MET. First EDIT test of the campaign. Injecting §2844's direction into head 3 moves the step-vs-plus-one
+  logit difference +.90 (percent) / +.64 (bare) against the full-slice swap's +1.05 / +.51 — but changes the argmax on only .125 of
+  held-out prompts, and the SWAP's own ceiling is .083 / .000, so head 3 alone cannot decide the behaviour (§2843: this head is .45/.31
+  of the switch, the pair {3,7} is .925 — the missing mass was not edited). Random direction flips 0. Reverse edit flips 0 (one-
+  directional handle). **pred_e is a FAILED SANITY BOUND, reported not retired**: on the bare format the injection (+.64) BEATS the swap
+  (+.51) it should be bounded by, which the prereg said means α is over-scaled and that arm is an out-of-distribution push — so the
+  quotable number is the percent format's .857 of swap, not the pooled 1.06. Sign of the injection was fixed between smoke and run to
+  match the registered intent (round-ward = −1 × §2844's vector); disclosed.

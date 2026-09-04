@@ -1,0 +1,27 @@
+[steer] percent  flip=0.083 rand=0.000 rev=0.000 swap=0.083 dlogit=0.90 frac_of_swap=0.857
+[steer] bare     flip=0.167 rand=0.000 rev=0.000 swap=0.000 dlogit=0.64 frac_of_swap=1.261
+{
+ "preds": {
+  "pred_a_injection_flips_non_round_prompts": false,
+  "pred_b_random_direction_does_not": true,
+  "pred_c_injection_recovers_the_full_swap": true,
+  "pred_d_the_reverse_edit_works": false,
+  "pred_e_full_swap_bounds_the_injection": false
+ },
+ "nulls": {
+  "a_null_no_flip": false,
+  "b_null_random_flips": false,
+  "c_null_no_recovery": false,
+  "d_null_reverse_fails": true
+ },
+ "summary": {
+  "medians": {
+   "flip_rate": 0.125,
+   "random_flip_rate": 0.0,
+   "reverse_flip_rate": 0.0,
+   "swap_flip_rate": 0.041666666666666664,
+   "logit_gain": 0.7703808546066284,
+   "rec_fraction_of_swap": 1.058806049892721
+  }
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "rung": "circuit_battery_roundness_steering",
+ "preds": {
+  "pred_a_injection_flips_non_round_prompts": false,
+  "pred_b_random_direction_does_not": true,
+  "pred_c_injection_recovers_the_full_swap": true,
+  "pred_d_the_reverse_edit_works": false,
+  "pred_e_full_swap_bounds_the_injection": false
+ },
+ "nulls": {
+  "a_null_no_flip": false,
+  "b_null_random_flips": false,
+  "c_null_no_recovery": false,
+  "d_null_reverse_fails": true
+ },
+ "bars": {
+  "flip": 0.5,
+  "random_flip": 0.05,
+  "rec_frac": 0.5,
+  "reverse_flip": 0.3
+ },
+ "null_bars": {
+  "flip_le": 0.1,
+  "random_flip_ge": 0.3,
+  "rec_frac_le": 0.15,
+  "reverse_flip_le": 0.05
+ },
+ "layer": 8,
+ "head": 3,
+ "seed": 2844,
+ "summary": {
+  "medians": {
+   "flip_rate": 0.125,
+   "random_flip_rate": 0.0,
+   "reverse_flip_rate": 0.0,
+   "swap_flip_rate": 0.041666666666666664,
+   "logit_gain": 0.7703808546066284,
+   "rec_fraction_of_swap": 1.058806049892721
+  }
+ },
+ "formats_detail": {
+  "percent": {
+   "flip_rate": 0.08333333333333333,
+   "random_flip_rate": 0.0,
+   "reverse_flip_rate": 0.0,
+   "swap_flip_rate": 0.08333333333333333,
+   "logit_gain": 0.8997586369514465,
+   "random_logit_gain": 0.0011761983623728156,
+   "reverse_logit_gain": 2.574772596359253,
+   "swap_logit_gain": 1.0500069856643677,
+   "rec_fraction_of_swap": 0.8569072865569033,
+   "alpha": 196.26358032226562,
+   "n_fit": 12,
+   "n_eval": 12
+  },
+  "bare": {
+   "flip_rate": 0.16666666666666666,
+   "random_flip_rate": 0.0,
+   "reverse_flip_rate": 0.0,
+   "swap_flip_rate": 0.0,
+   "logit_gain": 0.6410030722618103,
+   "random_logit_gain": 0.08013860136270523,
+   "reverse_logit_gain": 1.441391944885254,
+   "swap_logit_gain": 0.5084481835365295,
+   "rec_fraction_of_swap": 1.2607048132285388,
+   "alpha": 182.08999633789062,
+   "n_fit": 12,
+   "n_eval": 12
+  }
+ },
+ "smoke": false,
+ "price": {
+  "gpu_forwards": 22,
+  "backwards": 0,
+  "fitted_parameters": 258,
+  "gpu_seconds": 2.0465967655181885
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_ROUNDNESS_STEERING_PREREGISTRATION.md": "97bb6c170b92fc29b0ae644f0d5d3372d90209c5f89800df06934b4a83975d9b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_direction_results.json": "232e023b58e6b429d936143d1b139c6c417d8efe77fa7ef1716eb4c9264d3205",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
