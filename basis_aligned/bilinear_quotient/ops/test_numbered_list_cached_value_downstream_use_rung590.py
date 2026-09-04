@@ -56,6 +56,7 @@ def test_exact_authorities_and_historical_result_is_not_an_input():
     assert observed[str(r590.R584_RUNNER)] == r590.AUTHORITY_HASHES[r590.R584_RUNNER]
     assert observed[str(r590.HANDOFF_V4)] == r590.AUTHORITY_HASHES[r590.HANDOFF_V4]
     assert observed[str(r590.HANDOFF_V5)] == r590.AUTHORITY_HASHES[r590.HANDOFF_V5]
+    assert observed[str(r590.HANDOFF_V6)] == r590.AUTHORITY_HASHES[r590.HANDOFF_V6]
     assert r590.r584.OUT not in r590.AUTHORITY_HASHES
     assert r590.OUT != r590.r584.OUT
     assert not r590.OUT.exists() and not r590.RECEIPT.exists() and not r590.EVIDENCE_DIR.exists()

@@ -68,6 +68,7 @@ HANDOFF_V2 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v2_addendu
 HANDOFF_V3 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v3_addendum.json"
 HANDOFF_V4 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v4_addendum.json"
 HANDOFF_V5 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v5_addendum.json"
+HANDOFF_V6 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v6_addendum.json"
 
 AUTHORITY_HASHES = {
     ROWS: "84c6a78882a33c266b3875285f63ceaed746dac7810fce16b591f7b57763cf3b",
@@ -85,7 +86,8 @@ AUTHORITY_HASHES = {
     HANDOFF_V3: "bf04cda987fc281f146c1e6f054620934f1d994a5d6d3135d7456be6fe9feb8c",
     HANDOFF_V4: "349afa9ec4fe465dbf08109a63cb1a8dc2a278e53a710bf210035f57b8500da0",
     HANDOFF_V5: "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80",
-    NOTE: "8b4019b2da24ee8a6acf73cf1cb35b157e3feece713ca9e90698a0801cf15ab5",
+    HANDOFF_V6: "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c",
+    NOTE: "a6641a20a456d30895a9ba807c22ec74e7695fe5c84ce4300b909787c603afa7",
 }
 
 SITES = tuple(r584.SITES)

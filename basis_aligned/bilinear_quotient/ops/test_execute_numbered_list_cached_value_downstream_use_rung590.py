@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import uuid
 
 import pytest
 
@@ -19,13 +20,17 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(adapter)
 
 
-def test_frozen_bytes_and_exact_scientific_command():
+def test_frozen_bytes_and_complete_executable_closure():
     observed = adapter.verify_frozen_bytes()
     assert observed[str(adapter.PRODUCER)] == adapter.FROZEN_HASHES[adapter.PRODUCER]
-    assert observed[str(adapter.HANDOFF_V5)] == adapter.FROZEN_HASHES[adapter.HANDOFF_V5]
-    executable, argv = adapter.scientific_command()
-    assert executable == sys.executable
-    assert argv == [sys.executable, str(adapter.PRODUCER), "--execute-science"]
+    assert observed[str(adapter.HANDOFF_V6)] == adapter.FROZEN_HASHES[adapter.HANDOFF_V6]
+    required = {
+        adapter.R584_RUNNER, adapter.R588_AUDITOR, adapter.RESULT_CONTRACT,
+        adapter.FACADE, adapter.R576_RUNNER, adapter.R573_RUNNER,
+        adapter.R582_HELPER, adapter.JACCLUST_PACKAGE, adapter.TT_MODEL,
+    }
+    assert required <= set(adapter.FROZEN_HASHES)
+    assert required == {path for _, path, _ in adapter.EXECUTABLE_LOAD_ORDER}
 
 
 def test_subprocess_dryrun_is_model_free_shape_checked_and_outcome_closed():
@@ -45,19 +50,31 @@ def test_subprocess_dryrun_is_model_free_shape_checked_and_outcome_closed():
     assert report["next_step"] == "independent_preexecution_review_required"
 
 
-def test_real_branch_uses_exact_exec_without_falling_into_dryrun():
+def test_real_branch_uses_same_verified_module_without_reopening_path():
     calls = []
 
-    def fake_exec(executable, argv):
-        calls.append((executable, argv))
+    def fake_science(producer):
+        calls.append(producer)
         raise SystemExit(73)
 
     with pytest.raises(SystemExit, match="73"):
         adapter.dispatch(
-            {}, exec_function=fake_exec, recovery_function=lambda: None,
+            {}, science_function=fake_science, recovery_function=lambda: None,
             namespace_paths=(),
         )
-    assert calls == [adapter.scientific_command()]
+    assert len(calls) == 1
+    assert calls[0].__name__ == "r590_managed_producer"
+
+
+def test_verified_source_bytes_survive_a_path_swap(tmp_path):
+    path = tmp_path / "planted_module.py"
+    original = b"VALUE = 'verified'\n"
+    path.write_bytes(original)
+    captured = path.read_bytes()
+    path.write_bytes(b"VALUE = 'swapped'\n")
+    name = "r590_planted_" + uuid.uuid4().hex
+    module = adapter._module_from_verified_bytes(name, path, captured)
+    assert module.VALUE == "verified"
 
 
 def test_tampered_frozen_source_fails_closed(tmp_path):
@@ -65,6 +82,13 @@ def test_tampered_frozen_source_fails_closed(tmp_path):
     planted.write_text("changed\n")
     with pytest.raises(RuntimeError, match="changed"):
         adapter.verify_frozen_bytes({planted: "0" * 64})
+
+
+def test_incomplete_verified_snapshot_is_rejected_before_import():
+    snapshot = adapter.capture_frozen_bytes()
+    snapshot.pop(adapter.R588_AUDITOR)
+    with pytest.raises(RuntimeError, match="snapshot is incomplete"):
+        adapter.load_frozen_producer(snapshot)
 
 
 def test_invalid_mode_and_arguments_fail_closed():

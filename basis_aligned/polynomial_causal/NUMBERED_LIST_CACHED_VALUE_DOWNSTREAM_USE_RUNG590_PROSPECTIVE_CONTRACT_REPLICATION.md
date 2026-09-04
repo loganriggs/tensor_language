@@ -63,3 +63,28 @@ The owner tests and dry run only establish that the prospective package implemen
 not approve model execution. A different reviewer must bind the exact runner, tests, adapter, note, and dry-run hashes;
 rerun the planted evidence, exactness, shape, crash, recovery, and arbitrary-path attacks; and explicitly approve those
 exact bytes before R590 can enter managed execution.
+
+## Prospective managed dependency repair (2026-09-04 UTC)
+
+Independent pre-execution review of commit `cf00f555d` found one managed-entry
+blocker and no change to the frozen scientific computation: the adapter checked
+the producer path before importing it, but did not pre-check every executable
+project dependency that the producer imports. It also handed a mutable producer
+pathname to a later `exec`, leaving a check-then-reopen race.
+
+The prospective repair keeps this producer's formulas, primitive evidence,
+phase rules, 379/419/510 forward accounting, and publication protocol unchanged.
+Before the first project-code import, the adapter now reads and hashes the entire
+project executable closure used by R590: the producer, R584, R588,
+`result_contract.py`, the model facade, R576, R573, R582, and the model-definition
+module. The verified source bytes are retained in memory. Modules are compiled
+from that captured snapshot with their frozen original filenames; the real
+managed branch calls `main(["--execute-science"])` on that same captured producer
+module rather than reopening its pathname. Changed source paths are still caught
+by the producer's own authority checks, but path changes cannot replace code
+already selected for execution.
+
+The adapter also binds circuit-causal-validity handoff v6, whose lesson 26
+requires verification before import and immutable-byte managed execution. This
+amendment is prospective, model-free, and contains no outcome. New exact adapter
+and test hashes require a different-agent review before execution.

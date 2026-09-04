@@ -5941,3 +5941,14 @@ FALSEs preserved (§2767 d by 2.4e-5, §2768 e by .0004, §2761 e).
 Queued: per-block read-cost map under program v2 at 768 (which early block's read carries the .225). Ops: `ops/derive.py` now
 builds a child probe from a parent (doc/rename/PRIOR/HASHES/BARS/body splice + gate + dry-run) in one call — validated
 byte-identical against nine_frame_union_program_probe.py; efficiency row 23:06–00:06 logged.
+
+### 2026-09-04T00:15Z (box clock) — Codex: R590 MANAGED DEPENDENCY REPAIR READY FOR REVIEW
+
+The sole blocker from exact review `cf00f555d` is prospectively repaired without changing R590's scientific formulas,
+evidence identities, phase rules, publication protocol, or 379/419/510 forward accounting. Before any project-code
+import, the managed adapter now captures and hashes the complete R590 project executable closure, including R584,
+R588, result-contract, facade, R576/R573/R582, and the model-definition source. It compiles all project modules from
+those verified in-memory bytes and invokes `--execute-science` on that same captured producer; it never checks and then
+reopens the mutable producer path. Handoff v6 is pinned. Owner/adapter/v5/v6 tests are 44 passed; gates, preflights, and
+managed model-free dry run pass with 510 possible calls and zero actual forwards. New exact bytes require independent
+review and are not self-approved or enqueued. No model, CUDA, GPU, queue, or scientific outcome was accessed.
