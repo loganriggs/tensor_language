@@ -22,7 +22,7 @@ from typing import Iterator, Mapping, Sequence
 
 
 TIMING_TOLERANCE_SECONDS = 0.05
-TERMINALS = {"screen", "null", "invalid"}
+TERMINALS = {"screen", "null", "inconclusive", "invalid"}
 RELATIONS = {"genuinely_new", "replication", "extension", "contradiction_test"}
 ENTRY_FIELDS = {
     "request_id", "candidate_id", "started_utc", "finished_utc", "serial_seconds",
@@ -180,7 +180,9 @@ def validate_entry(entry: Mapping[str, object], *, result_root: Path) -> dict[st
         if reasons or not isinstance(selected, str) or not selected.strip():
             raise ScreenLedgerError("screen terminal requires one site and no failure reasons")
     elif selected is not None or not reasons:
-        raise ScreenLedgerError("null/invalid terminal requires reasons and no selected site")
+        raise ScreenLedgerError(
+            "null/inconclusive/invalid terminal requires reasons and no selected site"
+        )
     if value["relation"] not in RELATIONS:
         raise ScreenLedgerError("relation is outside the prior-art vocabulary")
     if not isinstance(value["novelty"], str) or not value["novelty"].strip():

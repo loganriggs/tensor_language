@@ -55,6 +55,11 @@ def test_terminal_receipt_and_abandonment_contract(tmp_path: Path) -> None:
             path=path, clock=clock(5),
         )
 
+    claims.release(
+        "candidate.two", "codex", "inconclusive", "Registered gap outcome.",
+        "circuits/result.json", path=path, clock=clock(6),
+    )
+
 
 def test_concurrent_same_candidate_has_exactly_one_winner(tmp_path: Path) -> None:
     path = tmp_path / "claims.jsonl"

@@ -126,8 +126,9 @@ def test_result_symlink_is_rejected(tmp_path: Path) -> None:
 @pytest.mark.parametrize("mutation,match", [
     ({"terminal": "screen", "selected_site_id": None}, "screen terminal"),
     ({"terminal": "screen", "reasons": ["failure"]}, "screen terminal"),
-    ({"terminal": "null", "reasons": [], "selected_site_id": None}, "null/invalid"),
-    ({"terminal": "invalid", "reasons": ["bad"], "selected_site_id": "attn:03"}, "null/invalid"),
+    ({"terminal": "null", "reasons": [], "selected_site_id": None}, "null/inconclusive/invalid"),
+    ({"terminal": "invalid", "reasons": ["bad"], "selected_site_id": "attn:03"}, "null/inconclusive/invalid"),
+    ({"terminal": "inconclusive", "reasons": [], "selected_site_id": None}, "null/inconclusive/invalid"),
     ({"terminal": "ok"}, "terminal or reasons"),
     ({"relation": "duplicate"}, "relation"),
 ])
