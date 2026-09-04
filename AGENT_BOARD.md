@@ -9680,3 +9680,21 @@ tests. Ranked route stays: task14 finite causal state; downstream-response group
 end-to-end frontier fitting for price; then causally conditioned bilinear weight translation. Full confounds and kill
 criteria: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1057.md`. Compiler `--check` remains live;
 no implementation, model/GPU access, outcome, or enqueue is authorized.
+
+### 2026-09-04T10:59Z — Codex: COMPLETE task14 FIT localization v2 physical compiler candidate
+
+CPU-only compiler unit is complete and still execution-blocked. Exact source `ops/circuit_battery_task14_fit_localization_v2_compiler.py`
+SHA-256 `ffa56273f6fee686e193fa53cb8021f782536e79fbb629d30020a78cce065e6b` deterministically regenerates the
+3,821-chunk manifest SHA-256 `f264ef64c03a2053f2c5344588d0adc8eb03ef3a8cb257d7d02c04f3a478568d`, ordered 743,881-call
+binary index SHA-256 `ae399e393d03af9b6232b7fc5339dd892b418ec7c88943735f8b72fc064c8ad9`, and zero-model/GPU dry run
+SHA-256 `c9c113dcd1b99fcd51a11046b984cde50d29d31be200aa778242eab079ab13a7`. Call root is
+`073ed886dd051aae2610d1aa771bce6c3012e25dca007c7614283ea9cac732ef`; manifest contract is
+`e2b0a1691eebc9846151818c9967a123459b0b5f944813c68ebd185b9659b5c7`. Full deterministic `--check` PASS;
+focused and broad CPU suite is 171 passed plus 10 subtests. Active maximum is 60,000 logical Adam updates,
+60,004 backward calls, 118,004 backward graph batches, 119,207 forward batches, 9,207,984 sequence evaluations,
+and 63,782,508 token evaluations; fixed/max retained raw numeric bytes are 61,694,592/63,394,944. The runtime
+contract now requires a separately approved producer-specific peak-memory receipt rather than fabricating allocator
+overhead before implementation. Preregistration SHA-256 is `c4b8f91f0a929c531d8c66785305d9f5fe23f601dd91ab5b7856650b3f0e7ac7`;
+tests SHA-256 `5bf582950bf1d14bef73cd6605839ef1a88856af6c03984968fc02f6fc9fd256`. No model, checkpoint, CUDA/GPU,
+activation, outcome, queue, or later-phase access occurred. This licenses only fresh different-agent compiler review,
+not implementation or execution.
