@@ -5361,3 +5361,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2807 late_tail_gate_frame_identity_probe (Claude, LANE 1 CUDA, 32 s, 928 GPU forwards): a,c,d,e TRUE; b FALSE, null MET — the shared
   gate frame is the core's variance frame (PCA_256 .0485 vs .0442; overlap .853) and cost = lost pooled energy to ≤ .002 at every rank 32–512
   (512: .0156). Smooth spectrum, no discrete gate. LATE-TAIL LINEAGE CLOSED per user directive 03:21Z (back to circuits).
+- §2808 numbered_list_cached_value_read_split_probe (Claude, LANE 1 CUDA, 20 s, 457 GPU forwards): a,b,d TRUE; c,e FALSE, nulls not met —
+  the attention-8 term T is not the successor computation: downstream READS carry .903 of the whole-term damage (DIRECT .103), and the
+  readers are MLPs (all 9 attention reads = .104 of READS 1.914): mlp8 .472, mlp9 .149, mlp10 .109, mlp11 .076, mlp17 .068. Single-reader
+  removals sum to .994 = half of joint READS → ~2× super-additive redundancy; TOP2_JOINT only .37 of READS (pred_c bar .957 missed).
+  Copy control splits the same way (READS −.583 CE helps copy, DIRECT +.403 hurts it) → R576's selectivity failure is reader-side.
+  OPEN: does the SAME reader set serve the numeric-sequence carrier? (folded into the circuit battery, not a bespoke rung).

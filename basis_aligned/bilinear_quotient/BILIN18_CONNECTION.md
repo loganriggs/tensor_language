@@ -71970,3 +71970,66 @@ Instrument (pred_a TRUE): UNIFORM_128 .0627 (= §2799), SHARED_256 .0442 (= §28
 Arms (CE added): SHARED_256/384/512 .0442/.0281/.0156 · PCA_128/256/512 .0770/.0485/.0171 · WEIGHT_256 (data-free Gram frame) .2583 · UNEMB_256 .4294 · RANDOM_256 .2562. Pooled captured 256/384/512 = .954/.971/.983; pooled retained under PCA_256 .951, WEIGHT_256 .748, UNEMB_256 .634, RANDOM_256 .356. Unembedding top-256 energy inside the 768 core: .80.
 
 What it says, and why the lineage closes here. The "control subspace" of §2806 is the core's own dominant variance: the variance frame prices within .005 of the Gram-derived frame at 256 and within .002 at 512 (.0171 vs .0156), and CE cost is, to ≤ .002 at every rank from 32 to 512, exactly the fraction of pooled cross-term energy discarded. There is no discrete gate structure — the late tail-read "gate" is the statement that a bilinear cross term loses energy in proportion to the variance you project away, along a SMOOTH spectrum. That is the user's critique of the whole core/tail construction (03:21Z, board): the 768/384 split sits on a smooth eigenvalue decay, not a gap, so "channel" and "gate" are cuts on a continuum, not components. §2790–§2807 stand as recorded measurements (every number reproduces), but they name no mechanism; per the directive the lineage is CLOSED and no further rung is queued on it. Nothing installs into the §312 frontier; the strict explained fraction is unchanged (5.348%/10.923%/4.727 nat/0 of 68).
+
+## §2808 — WHO COMPUTES THE +1: the numbered-list successor is NOT carried by the attention-8 term T, it is computed REDUNDANTLY BY THE MLP STACK 8–12 THAT READS T (a,b,d TRUE; c,e FALSE, nulls not met)
+
+R576 established that the term T = Σ_{h∈{3,7}} p⁽⁸⁾_{h,q,k} W_O,h⁽⁸⁾(λ₈ W_V,h⁽⁰⁾ z_k⁽⁰⁾) — attention 8's write at the final query from
+the last visible list label, through the layer-0 cached value — is NECESSARY for numbered-list index succession (FIT margin damage
+2.16–2.40) but NOT SELECTIVE (removing it also helps the repeated-index copy control). This rung asks the next question down: T is
+written once, but it is READ by nineteen downstream components (mlp8; attn9..17; mlp9..17) and by the final norm→unembed. Which
+read carries the successor behaviour? Instrument: exact residual path-patching of T's EDGES — T is carried as a parallel residual
+tensor scaled by each block's skip λ0 and subtracted from the pre-RMS-norm INPUT of a chosen reader set only. Arms: DIRECT (final
+norm only), READS (all 19 components, direct path intact), COMP_<x> (each single component), BLOCK_j (both components of block j),
+FULL (all edges = R576's whole-term deletion), TOP2_JOINT (the FIT-chosen top-2 readers together). Rows: R567's frozen list families
+on FIT and SELECT (5 necessity families × 2 endpoints + the active repeated-index copy control); FINAL_TEST/OOD left closed.
+Sign convention here is the local circuit one, NOT §2135's frontier one: d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS the
+successor margin; d_CE = CE_arm − CE_NATIVE, NEGATIVE = the arm HELPS that behaviour.
+
+**pred_a TRUE — the instrument is exact.** Replay relative squared error vs the native facade forward 0.0; removing ALL edges
+reproduces R576's whole-term deletion to a_max_dev 6.2e-6 across the twelve FIT cells (bar .02). So the edge decomposition is a
+faithful refactoring of R576's arm, not a new approximation.
+
+**pred_b TRUE — the effect is downstream, and nearly additive between the two paths.** On SELECT, Share(READS) = .903 and
+Share(DIRECT) = .103 (bars ≥ .6 and ≤ .4; null "DIRECT ≥ .6" not met); the two shares sum to 1.005 against FULL = 2.121 list-margin
+units, i.e. cutting T's downstream reads recovers essentially all of the whole-term damage and cutting only its direct unembedding
+path recovers a tenth. The successor is computed FROM T by later components, not delivered by T to the logits.
+
+**pred_c FALSE, null NOT met — the reading is graded and redundant, not two readers.** FIT's top-2 were mlp8 (.390) and mlp10 (.199).
+On SELECT: mlp8 .472 (bootstrap lower .425), mlp10 .109 (.091); their sum .580 against the bar .5 × max(READS,.5) = .957. The full
+SELECT ladder is mlp8 .472 > mlp9 .149 > mlp10 .109 > mlp11 .076 > mlp17 .068 > mlp12 .053 > mlp14 .025, then noise; ALL NINE
+attention reads together sum to .104 of READS = 1.914 (largest attn11 .038) and four late MLP reads are slightly negative
+(mlp13 −.041, mlp15 −.013, mlp16 −.006). Two facts make this a redundancy claim rather than a "diffuse" shrug: (i) the nineteen
+single-reader removals sum to .994, about HALF of the joint READS 1.914 — the readers are ~2× SUPER-ADDITIVE, i.e. each alone is
+substitutable and the damage appears only when several are cut together; (ii) TOP2_JOINT reaches .701, .37 of READS, well above the
+sum of its parts (.580) but far below the whole. So the +1 is computed by the bilinear MLP stack 8–12 (plus a small late mlp17
+contribution) reading a common input, with mlp8 — the MLP of the SAME block that wrote T — dominant.
+
+**pred_d TRUE — the collateral on the copy control flows through the SAME readers, and the direct path pulls the other way.**
+SELECT repeated-index control: FULL d_CE −.352 (removing T HELPS copying, as R576 found), TOP2_JOINT −.267 ≤ .5 × FULL = −.176.
+The split is the informative part: READS −.583 (cutting the reads helps copy strongly) but DIRECT +.403 — removing T's DIRECT
+unembedding path HURTS copying. T itself pushes the copy answer at the logits; the MLP readers convert it into "the next number",
+which is exactly what a repeated-index prompt does not want. R576's selectivity failure is therefore a READER-side effect, not
+evidence that T is the wrong object.
+
+**pred_e FALSE, null NOT met — but the DIRECT arm above says the same thing more strongly.** The zero-forward lens
+ℓ_T(v) = ⟨T, W_U[v]⟩ / rms(x_final) prefers the copied label over its successor on only .521 of list rows (bar .75, null ≤ .25) and
+the median label-minus-answer lens gap is .0024 — T's own unembedding is essentially NEUTRAL between the label and its successor, so
+the clean "T is a copy vector" statement is FALSE as registered. What is true is weaker and measured in situ: T's direct path is
+worth .10 of the effect and, on the copy control, favours copying (+.403 CE when removed).
+
+**Reading.** The numbered-list successor circuit is a WRITE/READ pair with an asymmetry: attention 8 writes a context-blind
+function of the last label token (R576: pure layer-0 value, no context), and the arithmetic is done afterwards by a redundant set of
+bilinear MLP reads led by the same block's mlp8. That is the finer-than-a-block localisation asked for — but it localises to a SET,
+and the honest headline is redundancy, not a two-component circuit. Proposed record update for Codex (his to adopt or reject;
+I did not touch circuits/task_numbered_list_index_successor.json): claim v9 gains a reader clause "T is read for succession by
+{mlp8, mlp9, mlp10, mlp11, mlp17} with mlp8 dominant and the set ~2× super-additive; attention reads inert (.10 of READS)"; the
+selectivity gap stays OPEN and is now attributed to the reader set, with the direct path noted as copy-favouring.
+
+**Prereg-integrity disclosure.** The pre-enqueue smoke run used 2 REAL rows per (family, split) cell rather than surrogate tokens
+and therefore printed a preview (pred_b TRUE, pred_c FALSE, FIT top-2 mlp8/mlp10) before the full run. No bar and no null was
+amended after that preview; the prereg sha 5698b36a626067881b384a14921b6d87845e9caf9a5944e9b06a380f2d343aca was frozen before it.
+The one pre-freeze amendment was pred_a's reference set, narrowed to R576's FIT cells because R576 never opened SELECT.
+
+Price: 457 GPU forwards, 20.2 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: numbered_list_cached_value_read_split_probe_results.json (sha256 1c6dc2fbe838c410…), runlogs/…log, landed 03:40Z exit=0.
+(Claude, LANE 1 CUDA.) a, b, d TRUE; c, e FALSE with nulls not met. Preserved.
