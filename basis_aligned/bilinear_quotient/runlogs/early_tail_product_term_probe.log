@@ -1,0 +1,60 @@
+{"stage": "heads_done", "t": 14.8}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.2}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_DROP_TT_768": 0.0087, "EARLY_MLP_512": 0.0979, "EARLY_DROP_TT_512": 0.0091, "EARLY_DROP_CROSS_512": 0.1027, "EARLY_FULL_512": -0.0, "EARLY_MLP_768": 0.0252, "EARLY_DROP_TT_768": 0.0023, "EARLY_DROP_CROSS_768": 0.0255, "EARLY_MLP_384": 0.19, "EARLY_DROP_TT_384": 0.0195, "EARLY_DROP_CROSS_384": 0.2042, "t": 22.9}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_early_cross_share_512_large": true,
+  "pred_c_early_tt_share_512_small": true,
+  "pred_d_early_cross_share_768_large": true,
+  "pred_e_early_terms_near_additive_512": true
+ },
+ "nulls": {
+  "b_null_cross512_le_.35": false,
+  "c_null_tt512_ge_.50": false,
+  "d_null_cross768_le_.35": false,
+  "e_null_sum512_le_.5": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_DROP_TT_768": 0.008696913719177246,
+  "EARLY_MLP_512": 0.09786906838417053,
+  "EARLY_DROP_TT_512": 0.009052187204360962,
+  "EARLY_DROP_CROSS_512": 0.102713942527771,
+  "EARLY_FULL_512": -8.940696716308594e-08,
+  "EARLY_MLP_768": 0.025204867124557495,
+  "EARLY_DROP_TT_768": 0.002326458692550659,
+  "EARLY_DROP_CROSS_768": 0.025478601455688477,
+  "EARLY_MLP_384": 0.19004687666893005,
+  "EARLY_DROP_TT_384": 0.019491583108901978,
+  "EARLY_DROP_CROSS_384": 0.204237699508667
+ },
+ "summary": {
+  "early_512": {
+   "joint": 0.09786906838417053,
+   "drop_tt": 0.009052187204360962,
+   "drop_cross": 0.102713942527771,
+   "tt_share": 0.09249283102223822,
+   "cross_share": 1.0495036299373222,
+   "sum_over_joint": 1.1419964609595605
+  },
+  "early_768": {
+   "joint": 0.025204867124557495,
+   "drop_tt": 0.002326458692550659,
+   "drop_cross": 0.025478601455688477,
+   "tt_share": 0.09230196219856102,
+   "cross_share": 1.0108603758860637,
+   "sum_over_joint": 1.1031623380846247
+  },
+  "early_384": {
+   "joint": 0.19004687666893005,
+   "drop_tt": 0.019491583108901978,
+   "drop_cross": 0.204237699508667,
+   "tt_share": 0.10256197550069274,
+   "cross_share": 1.074670118701598,
+   "sum_over_joint": 1.1772320942022907
+  },
+  "early_full_512_should_be_zero": -8.940696716308594e-08,
+  "late_drop_tt_768": 0.008696913719177246
+ }
+}

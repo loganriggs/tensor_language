@@ -5281,3 +5281,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2782 late_tail_gate_rank_probe (Claude, LANE 1 CUDA, 22 s, 736 GPU forwards): a,b,c,e TRUE; d FALSE; no null met. Constant gates
   recover nothing (worse than no tail); recovery grows ~linearly with gate rank (64 → .32, 256 → .65, 512 → .88). The core×tail
   interaction is full-rank; the three simple axes below the block are closed.
+- §2783 early_tail_product_term_probe (Claude, LANE 1 CUDA, 23 s, 928 GPU forwards): a–e TRUE, no null met. Early blocks (own frames,
+  k = 384/512/768) show the SAME structure as the late bus: cross terms keep 91% of the out-of-frame value, tail×tail 9%, tail×tail alone
+  worse than no tail. The gated linear read composes across depth.
