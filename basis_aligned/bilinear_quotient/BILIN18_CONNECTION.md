@@ -75211,3 +75211,83 @@ the further 5.3M×8 from the tail refits is **not** available at zero cost.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing here installs; the frontier's published L2 is
 untouched and the collapse arms are measurements against it, not replacements of it.
+
+## §2879 — CORRECTION, CONCLUSION-FLIPPING: THE `fit_attnd` DICTIONARIES ARE **NOT IN THE EVALUATED CONFIGS AT ALL**. §2874, §2875 AND §2876 MEASURED COMPONENTS THE FRONTIER DOES NOT USE, AND THEIR "0.0000 nats / 42.5M PARAMETERS SAVED" HEADLINES ARE WITHDRAWN. §2878 STANDS
+
+Registered `polynomial_causal/FRONTIER_BAND_CONSTANT_VS_DELETED_PREREGISTRATION.md` (09:19Z). Run
+`frontier_band_constant_vs_deleted`, landed 09:32Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_band_constant_vs_deleted_results.json
+Price: 0 GPU forwards, 279.1 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2_F(arm) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+### The run as written
+
+| arm | L1_F | L2_F | L2_C | cost |
+|---|---|---|---|---|
+| BASELINE | 2.2872 | **+2.6735** | +2.4233 | — |
+| band a2–a9 → one constant each | 2.2872 | +2.6735 | +2.4233 | **0.0000** |
+| band a2–a9 → **zero** (deleted) | 2.2871 | +2.6735 | +2.4233 | **0.0000** |
+
+**pred_a HELD; pred_c HELD** (the constant arm reproduces §2875's 0.0000 exactly, the registered cross-rung instrument check).
+**pred_b FAILED, pred_d FAILED, and BOTH nulls fired** — `b_null_the_constants_are_not_doing_work` and
+`d_null_the_whole_stage_is_removable`. The preregistration called those the "strictly larger simplification" and registered them so
+they would be recognised rather than read as disappointments.
+
+**They are neither.** Deleting eight attention dictionaries changed **nothing at all** — not L2_F, not L2_C, and **not L1_F either** —
+and that is the signature of a component that is not installed, not of a component that is free.
+
+### The cause, read from the construction
+
+The evaluated configuration is `order2 = list(cfgF) + ['a10L' … 'a17L']`, where `cfgF = build_arm(False)` returns
+
+    front = ['a0', 'm0E', 'a1v', 'm1', 'm2E', 'm3E']  +  ['c4' … 'c9']  +  ['tailE']
+
+**There is no `a2` … `a9` in it, and no `a10` … `a17` either.** Attention layers 2–9 enter the §312 frontier through the **38 motif
+heads** (`motif_hooks(ML)`), not through `attnd` dictionaries. The `fit_attnd` dictionaries are fitted by the pipeline and then not
+installed in either reported stage.
+
+### The independent physical control, which the standing rule requires before a flip
+
+Not the code reading — a measurement. **The identical manipulation, in the identical code path, on a different target:**
+
+| target of the collapse | Δ L1_F | Δ L2_F | Δ tail-attn increment |
+|---|---|---|---|
+| `fit_attnd` a2–a9 (§2875, and this rung) | **0.0000** | **0.0000** | 0.0000 |
+| `fit_attnd` a2–a17, sixteen (§2876) | 0.0000 | **0.0000** | 0.0000 |
+| inline tail **refits** a10L–a17L (§2878) | 0.0000 | **+0.2011** | **+0.2012** (0.3864 → 0.5876) |
+
+The instrument is demonstrably capable of detecting a collapsed dictionary — it detected one at the refit site, twice over, in two
+quantities. It detected nothing at the `fit_attnd` site in any quantity. Same code, same arms, same resolution (§2876: the pipeline
+reproduces L2_F exactly at four decimals). That is the K-0-style control the standing rule demands, and it is what licenses this
+correction.
+
+### What is withdrawn
+
+- **§2874** — "a5's frontier dictionary collapses for −.0001" and its reading that the frontier's dictionaries are near-constant
+  structure: **withdrawn**. The measurement is real and the arithmetic is right; it is a measurement of an uninstalled component.
+- **§2875** — "the whole motif-attention band collapses to eight constants for 0.0000 nats, **removing 42,550,272 parameters**":
+  **the parameter claim is withdrawn.** Those parameters are not in the frontier's evaluated configuration, so removing them saves
+  nothing the frontier was paying. The row-spread table and the Spearman .690 against §2834's real-model census are unaffected — they
+  are properties of the fitted objects and stand.
+- **§2876** — "sixteen dictionaries collapse for 0.0000 / 85,100,544 parameters": **withdrawn on the same grounds.** Its genuinely
+  valuable result — **the pipeline's resolution is 0.0 at four decimals** — is independent of the collapse arms and **stands**; it is
+  what makes this correction sharp.
+- **This section's own headline claim** that the motif-attention stage is "deletable": **not made.** The stage was never installed.
+
+**§2878 STANDS in full**, and is now the only member of the family that measured an installed component: the eight tail refits are in
+`order2`, collapsing them costs **+0.2011 nats**, and about half the tail-attention increment is their class structure. The queued
+`frontier_tail_refit_split` (prereg 09:32Z) asks where inside them that cost lives, and it targets the **inline refit site only** —
+which, in the light of this correction, is the only site in this family worth targeting.
+
+### The process failure, named
+
+Four sections asserted a frontier simplification without checking that the object being simplified was in the evaluated configuration.
+The check cost one `grep` for `cfgF` and I ran it only when a *third* consecutive arm returned exactly 0.0000 — a run of identical
+zeroes across manipulations of very different sizes should have been read as "the instrument is not connected to this component" long
+before it was read as "this component is free". Recorded as a standing rule in the backlog: **before reporting a frontier cost, verify
+the manipulated entry appears in `order2`/`cfgF`, and state that it does.**
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

@@ -5774,3 +5774,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   — a per-layer sweep would cost 8 pipeline runs, or one run with a leave-one-out design; (ii) whether a *rank-1* or *rank-k* tail
   dictionary recovers the 0.20 at a fraction of the parameters, which is the natural middle point between the full class table and a
   single constant.
+
+- **[§2879] STANDING RULE for every frontier rung: verify the manipulated entry is IN the evaluated config before reporting a cost,
+  and say so in the section.** §2874/§2875/§2876 reported 0.0000-nat "simplifications" of `fit_attnd` dictionaries that are not in
+  `order2 = cfgF + [a10L…a17L]`; attention 2–9 enters the frontier through the 38 motif heads. A run of identical exact zeroes across
+  manipulations of very different sizes means the instrument is not connected, not that the component is free. One `grep` for `cfgF`
+  is the check.
+- **[§2879] Re-ask the simplification question about things that ARE installed.** The evaluated config is
+  `['a0','m0E','a1v','m1','m2E','m3E'] + ['c4'…'c9'] + ['tailE'] + ['a10L'…'a17L']` plus the 38 motif heads. §2878 covered the tail
+  refits. Untouched and installed: the six `c4`–`c9` CP-unit MLPs, the `tailE` entry, the front `m*E` tables, and the 38 motif heads —
+  the heads in particular are the frontier's largest uncosted block and nothing has asked whether they are all needed.
