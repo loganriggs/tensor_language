@@ -1,0 +1,91 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "sentence_terminal.semantic_choice",
+  "canonical_objects": [
+    "question-state carrier at attention layer 10",
+    "head 10.5 terminal-state service",
+    "question rank-2 output channel at MLP11",
+    "sentence-terminal period-versus-question-mark choice"
+  ],
+  "aliases_searched": [
+    "question state",
+    "question head",
+    "question-specific",
+    "terminal specificity",
+    "punctuation",
+    "period",
+    "question mark",
+    "interrogative",
+    "10.5",
+    "mlp11 question slice"
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "component ablation",
+    "head localization",
+    "quadratic-form eigenspace",
+    "output-channel tracing"
+  ],
+  "matched_prior_claims": [
+    "RESULTS.md section 1282 found an attention-layer-10 carrier for question-mark targets.",
+    "RESULTS.md sections 1284-1289 localized the established question circuit to head 10.5 and its upstream writers.",
+    "RESULTS.md section 1313 found head 10.5 much stronger for question marks than periods or exclamation marks.",
+    "RESULTS.md sections 1597-1600 traced a rank-2 MLP11 question slice and question-mark output channel to heads 9.7 and 10.5 plus MLP9 and MLP10.",
+    "BILIN18_CONNECTION.md section 1345 narrowed the label question-specific because head 10.5 also serves comparative refinement.",
+    "BILIN18_CONNECTION.md section 1631 showed that head 10.5 identity is not by itself question-specific because random rank-2 bases also select it, while the concentration magnitude remains distinctive.",
+    "CIRCUIT_REGISTRY.md records the question circuit as closed at head grain and separately records its rank-2 MLP11 output channel.",
+    "circuits/DOSSIER.md contains no version-2 record for a bidirectional, construction-general period-versus-question-mark interchange test."
+  ],
+  "relation": "contradiction_test",
+  "novelty_delta": "Test whether one causally transferable state carries the bidirectional period-versus-question-mark decision across reporting-frame and direct-question constructions, while leaving reporter rewrites invariant and not transferring an explicit punctuation-copy task. This challenges a head-identity reading of the old question circuit; it does not claim a new circuit merely by rediscovering attention layer 10 or head 10.5.",
+  "decision_changed": "A passing common site would justify a deeper subspace-identification experiment on a construction-general sentence-mode variable. A result led only by the known attention-layer-10 or head-10.5 identity without control selectivity is treated as replication, not discovery. Native incapability or no selective site is an honest fast-screen null and stops this candidate.",
+  "reviewer": "Codex prior-art audit with Claude independent counterfactual review",
+  "reviewed_sources": [
+    {
+      "source": "RESULTS.md",
+      "sha256": "9ebd308ba54a56f8062ef71d99d5183df09d5dd7c8e23d7873a7fc79c48b1d5d",
+      "searched_terms": [
+        "section 1282",
+        "section 1289",
+        "section 1313",
+        "section 1597",
+        "section 1600",
+        "question-state carrier",
+        "question-specific"
+      ]
+    },
+    {
+      "source": "BILIN18_CONNECTION.md",
+      "sha256": "ea367d5b29f39126c46ca084b200a03318afde0149db9994f53a3505f9c0f39b",
+      "searched_terms": [
+        "section 1345",
+        "section 1597",
+        "section 1600",
+        "section 1631",
+        "head 10.5",
+        "terminal-state cashing"
+      ]
+    },
+    {
+      "source": "CIRCUIT_REGISTRY.md",
+      "sha256": "0890af832a9dc86c9b2891d3031422060694ef98c11965f762c140c3e591145f",
+      "searched_terms": [
+        "Question (10.5)",
+        "question rank-2 eigen slice",
+        "question output channel",
+        "terminal-state cashing"
+      ]
+    },
+    {
+      "source": "circuits/DOSSIER.md",
+      "sha256": "42cf9818e74c60189dbd58f6acf8abee43b849859cc27fe3f63d50833fff2bca",
+      "searched_terms": [
+        "question",
+        "terminal",
+        "punctuation",
+        "interchange"
+      ]
+    }
+  ]
+}

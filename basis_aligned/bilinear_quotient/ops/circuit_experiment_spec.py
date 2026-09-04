@@ -17,6 +17,8 @@ import result_contract
 
 
 JSONValue = None | bool | int | float | str | list["JSONValue"] | dict[str, "JSONValue"]
+EXACT_COMMON_LENGTH = "dynamic_batched_token_matrix_exact_common_length_v1"
+RIGHT_PADDED_LENGTH = "dynamic_batched_token_matrix_right_padded_v1"
 
 
 class SpecError(ValueError):
@@ -97,7 +99,7 @@ class CallFamilySpec:
     axis_order: Literal["batch_arm", "arm_batch"] = "arm_batch"
     sort_policy: Literal["canonical_json", "legacy_python_repr"] = "canonical_json"
     batch_limit: int | None = None
-    shape_validation_mode: str = "dynamic_batched_token_matrix_exact_common_length_v1"
+    shape_validation_mode: str = EXACT_COMMON_LENGTH
     checkpoint_validation: str = "facade_verified_sha256"
     model_structure_validation: str = "facade_bilin18_structure"
 
@@ -210,6 +212,10 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
            for array in spec.arrays):
         raise SpecError("array finite policy is invalid")
     for call in spec.calls:
+        if call.shape_validation_mode not in {EXACT_COMMON_LENGTH, RIGHT_PADDED_LENGTH}:
+            raise SpecError(
+                f"call family {call.name} has an unsupported shape-validation mode"
+            )
         arm_specs = call.arm_specs
         if tuple(item.name for item in arm_specs) != call.arms:
             raise SpecError("typed arm names differ from call-family arms")
@@ -311,23 +317,30 @@ def _batches(
     if family.sort_policy == "legacy_python_repr":
         key = lambda record: (len(record[family.sequence_field]), str(record))
     else:
-        key = lambda record: (
-            len(record[family.sequence_field]), canonical_json_bytes(record)
-        )
+        key = lambda record: canonical_json_bytes(record)
+    if family.shape_validation_mode == EXACT_COMMON_LENGTH:
+        prior_key = key
+        key = lambda record: (len(record[family.sequence_field]), prior_key(record))
     ordered = sorted(records, key=key)
-    batches: list[list[dict[str, object]]] = []
-    cursor = 0
-    while cursor < len(ordered):
-        length = len(ordered[cursor][family.sequence_field])
-        end = cursor
-        while (
-            end < len(ordered)
-            and len(ordered[end][family.sequence_field]) == length
-            and end - cursor < family.batch_size
-        ):
-            end += 1
-        batches.append(ordered[cursor:end])
-        cursor = end
+    if family.shape_validation_mode == RIGHT_PADDED_LENGTH:
+        batches = [
+            ordered[start:start + family.batch_size]
+            for start in range(0, len(ordered), family.batch_size)
+        ]
+    else:
+        batches = []
+        cursor = 0
+        while cursor < len(ordered):
+            length = len(ordered[cursor][family.sequence_field])
+            end = cursor
+            while (
+                end < len(ordered)
+                and len(ordered[end][family.sequence_field]) == length
+                and end - cursor < family.batch_size
+            ):
+                end += 1
+            batches.append(ordered[cursor:end])
+            cursor = end
     if family.batch_limit is not None:
         if family.batch_limit <= 0:
             raise SpecError("batch limit must be positive")
@@ -340,7 +353,7 @@ def _call_record(
     batch: Sequence[Mapping[str, object]],
 ) -> dict[str, object]:
     lengths = {len(record[family.sequence_field]) for record in batch}
-    if len(lengths) != 1:
+    if family.shape_validation_mode == EXACT_COMMON_LENGTH and len(lengths) != 1:
         raise SpecError("compiled call mixes sequence lengths")
     call_kinds = dict(family.arm_call_kinds)
     record = {
@@ -352,7 +365,7 @@ def _call_record(
         "call_kind": call_kinds.get(arm, family.call_kind),
         "arm": arm,
         "logical_batch_size": len(batch),
-        "padded_sequence_length": next(iter(lengths)),
+        "padded_sequence_length": max(lengths),
         "row_ids": [str(record[family.row_id_field]) for record in batch],
         "shape_validation_mode": family.shape_validation_mode,
         "checkpoint_validation": family.checkpoint_validation,

@@ -343,6 +343,7 @@ def _framework_spec(spec: CircuitFastScreenSpec) -> framework.CircuitExperimentS
                 sequence_field=sequence_field,
                 row_id_field=spec.task.row_id_field,
                 filters=(("transform_id", (transform,)),),
+                shape_validation_mode=framework.RIGHT_PADDED_LENGTH,
             ))
     arrays = tuple(framework.ArraySpec(
         name=contract["name"], call_kinds=("native_paired_logits",),
