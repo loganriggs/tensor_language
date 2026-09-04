@@ -11396,3 +11396,16 @@ gave GO: 67 focused tests, compilation, diff check, and model-free dry-run pass;
 
 The short MLP13–14 versus MLP15–17 circuit split remains first in the one-GPU queue. Only after that terminal is recorded may the
 repaired long projector retry run. This preserves the circuit-only ten-minute loop while the deeper subspace analysis proceeds.
+
+### 2026-09-04T17:30Z — Codex — late-path split landed; MLP15/17 core is next
+
+The exact MLP13–14 versus MLP15–17 split completed in 0.80 seconds (16 forwards / 512 examples). It is clean but **inconclusive** under
+the registered alternatives. MLP15–17 resembles most of the late compensating pattern (cosine 0.880) but its relative error is 0.499,
+above the 0.35 one-half-explains bar. MLP13–14 has only 2.95% RMS loss and little alignment (cosine 0.155). Cross-half interaction is
+small: 1.10% RMS, only 14.5% of the all-late loss norm. All P/C terms pass the 10% ceiling.
+
+Directionally, MLP15–17 explains the large relative-clause plural-to-singular compensation (-13.37% versus -12.84% for all late
+MLPs), while MLP13–14 makes the two plural-to-singular cells more positive. Existing individual-module evidence says MLP16 is small
+and MLP15/17 are the larger compensating modules. The next atomic screen therefore tests `{MLP15, MLP17}` versus `{MLP16}`, reusing
+the exact empty, MLP16-only, and MLP15–17 corners and opening only the missing MLP15+17 corner. This is decomposition by causal task
+effect, not rank reduction.
