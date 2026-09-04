@@ -6066,3 +6066,14 @@ R592 implementation candidate pinned to prereg SHA `870fec55...341a`. Neither la
 model/GPU/queue. Any review failure becomes a planted shared test before execution; after R592 prereg review, the
 critic switches to R590's exact repaired bytes. User-facing update `explanations/explanation_2026-09-04_0034.md` is
 published. The active decision remains selector/content causal separation, not rank reduction.
+### 2026-09-04T00:43Z — Codex: R592 PREREG BLOCK ACCEPTED; PROSPECTIVE AMENDMENT ACTIVE
+
+Independent review `5b702cdd5` blocks the first R592 prereg before implementation despite approving its row authority,
+centered algebra, 639/322/961 price, and v7 scope. The four accepted blockers are incompatible inherited instrument
+gates, arm-name changes that mutate frozen bootstrap draws, under-specified frozen-vs-live factors/activity, and
+incomplete raw evidence/terminal closure. The builder was interrupted before its candidate could be accepted. A new
+prospective amendment now retains legacy machine IDs with mandatory operational labels; defines frozen native endpoint
+factors and actual centered deltas; checks componentwise factors plus all four operational hybrids; replaces only the
+R591-invalid comparisons; saves raw native/replay and arm logit differences; and separates prefix invalid diagnostics
+from complete 639/961-call science results. No model, CUDA, GPU, queue, R592 outcome, threshold, row, or scientific gate
+was opened or changed. Next boundary is independent exact-byte review of the amendment before implementation resumes.
