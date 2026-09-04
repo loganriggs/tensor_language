@@ -73700,3 +73700,54 @@ fifth of prompts, which is exactly what the strongest possible intervention on i
 Price: 26 GPU forwards, 2.1 GPU-seconds, 0 backwards, 516 declared fitted parameters.
 Results: circuit_battery_roundness_two_head_edit_results.json. (Claude, LANE 1 CUDA.) b, d, e TRUE; a, c FALSE with no null met.
 Preserved.
+
+## §2847 — THE DECISION IS IN THE READERS, NOT THE WRITER: the flip-rate ladder runs .208 (heads {3,7}) → .292 (all of attention 8) → **.625** (plus three downstream components) → .667 (all 36), and it is monotone — so the whole writer buys .08 over its own head pair while adding three readers buys **.33**, and on the percent format three readers reach **1.000** (d, e TRUE; a, b, c FALSE, c's null MET)
+
+§2843 and §2844 put the roundness FEATURE in heads {3, 7} of attention 8 along one direction; §2846 showed the strongest intervention
+confined to that pair flips only .208 of held-out non-round prompts. This rung asks how much of the model must move before the behaviour
+changes, as a curve rather than an argument: the flip rate under nested donor patches, from the pair to all 36 components, on the same
+held-out population §2846 used. Sign convention: flip rate is the fraction of held-out non-round prompts whose argmax becomes the STEP
+answer, HIGHER MEANS THE INTERVENTION DECIDED IT. **Interchange patching at run time — no weight change, no CE, no §312 L2.**
+
+| rung | percent | bare | median |
+|---|---|---|---|
+| heads {3, 7} | .333 | .083 | **.208** |
+| all of attention 8 | .417 | .167 | **.292** |
+| attention 8 + three readers | **1.000** | .250 | **.625** |
+| all 36 components | 1.000 | .333 | **.667** |
+
+**pred_e TRUE — the pair replicates exactly.** The median pair flip is **.208**, identical to §2846's published value, measured by a
+different script on the same held-out pairs. The two rungs' patch semantics agree, so §2846's conclusion carries into this one.
+
+**pred_d TRUE — the ladder is monotone in both formats**, so no superset patch undoes a subset one and the curve can be read as a
+localisation.
+
+**pred_a FALSE, its null NOT met — and the shape is the finding.** Going from the two heads to ALL of attention 8 moves the flip rate
+.208 → **.292** (bar ≥ .40): seven further heads of the component that carries the feature buy **.08**. Going from the component to the
+component plus **three** downstream readers moves it .292 → **.625** — four times as much for three components. **The writer holds the
+feature and the readers make the decision.** On the percent format those three readers (mlp8, mlp9, mlp1) take it to **1.000**, i.e.
+attention 8 plus three MLPs is the entire mechanism there.
+
+**pred_b FALSE, its null NOT met — because of the bare format, and the split is worth stating rather than pooling.** The
+component-plus-readers rung reads **1.000** on percent and **.250** on bare, so the median .625 misses the .70 bar while one of its two
+members is at ceiling. The bare format's readers (attn6, mlp1, mlp0 — taken from §2842's published order for that format) are earlier and
+weaker than the percent format's (mlp8, mlp9, mlp1), which matches §2842's observation that the component tail is format-dependent. So
+the honest statement is: **on the percent format the decision is fully localised to attention 8 plus three MLPs; on the bare format the
+same-sized set reaches only a quarter, and where its decision sits is not established here.**
+
+**pred_c FALSE with its null MET — and it bounds what interchange patching can do at all.** Patching all 36 components flips **.667**
+(percent 1.000, bare .333) against a registered bar of ≥ .95 and a null of ≤ .70, which is met. The reason is structural and was
+foreseeable: patching every component output still leaves the token EMBEDDINGS and the final norm computing on the non-round prompt, so
+the base run is never made identical to the donor. §2842's analogous arm reached .978 in LOGIT recovery, which is why I set .95 — but
+logit recovery and argmax flipping are different questions, and a .978 logit recovery evidently leaves a third of the bare-format prompts
+on the wrong side of the boundary. **The bar was mine and it was wrong; the measurement stands and is the more informative of the two.**
+
+**Where the roundness lineage now ends.** §2841 established the switch, §2842–§2844 localised the feature to one direction in heads
+{3, 7}, §2845–§2846 showed that direction steers the logits fully but decides only a fifth of prompts, and §2847 shows why: the deciding
+mass is downstream. On the percent format the full mechanism is attention 8 plus mlp8, mlp9 and mlp1, which flips every prompt. The
+open question is no longer "where is the feature" but "what do those three MLPs do with it", and that is the same mlp8–mlp11 stack
+§2818/§2819 measured as a 2-of-4 redundant threshold for the successor computation — the two lineages meet there.
+
+Price: 24 GPU forwards, 2.0 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_roundness_decision_ladder_results.json. (Claude, LANE 1 CUDA.) d, e TRUE; a, b, c FALSE with c's null met.
+Preserved.

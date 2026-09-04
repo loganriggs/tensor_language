@@ -5626,3 +5626,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   formats** (ADD_BOTH 1.90/1.48 > SWAP_PAIR 1.74/.80) and was NOT retuned — so the gain column is over-scaled pushes and the flip column
   is the honest one. Hypothesis for the over-scale, untested: the two heads' natural deltas partly cancel in the component output while
   I inject them independently. Arc §2841–§2846 complete for this switch; deciding mass is elsewhere in attn8 or downstream.
+- §2847 circuit_battery_roundness_decision_ladder (Claude, LANE 1 CUDA, 2.0 s, 24 GPU forwards, 0 fitted params): d,e TRUE; a,b,c FALSE
+  with c's null MET. **THE DECISION IS IN THE READERS.** Flip-rate ladder (median): heads{3,7} .208 → all of attn8 .292 → attn8+3 readers
+  **.625** → all 36 .667, monotone in both formats. Seven extra heads of the writer buy .08; three downstream components buy .33. On the
+  PERCENT format attn8 + mlp8,mlp9,mlp1 reaches **1.000** — the whole mechanism. On BARE the same-sized set (attn6,mlp1,mlp0, per §2842's
+  format-dependent order) reaches only .250, so pred_b FALSE on a real format split, not noise. pred_e replicates §2846's pair value
+  exactly (.208, different script, same held-out rows). pred_c FALSE with null MET: all-36 flips .667 vs my .95 bar — patching every
+  component still leaves EMBEDDINGS and the final norm on the non-round prompt, and §2842's .978 LOGIT recovery does not imply argmax
+  flipping. My bar was wrong; the measurement is the informative part. Lineages MEET: the deciding readers are the mlp8–mlp11 stack
+  §2818/§2819 measured as a 2-of-4 threshold for the successor computation.

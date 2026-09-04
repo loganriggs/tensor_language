@@ -1,0 +1,25 @@
+[ladder] percent  pair=0.333 comp=0.417 +readers=1.000 all=1.000 (readers ['mlp8', 'mlp9', 'mlp1'])
+[ladder] bare     pair=0.083 comp=0.167 +readers=0.250 all=0.333 (readers ['attn6', 'mlp1', 'mlp0'])
+{
+ "preds": {
+  "pred_a_the_component_beats_the_pair": false,
+  "pred_b_adding_readers_beats_the_component": false,
+  "pred_c_everything_reproduces_the_donor": false,
+  "pred_d_the_ladder_is_monotone": true,
+  "pred_e_the_pair_replicates": true
+ },
+ "nulls": {
+  "a_null_component_no_better": false,
+  "b_null_readers_add_nothing": false,
+  "c_null_everything_fails": true
+ },
+ "summary": {
+  "medians": {
+   "pair": 0.20833333333333331,
+   "component": 0.2916666666666667,
+   "component_plus_readers": 0.625,
+   "everything": 0.6666666666666666
+  },
+  "ladder_monotone": true
+ }
+}
