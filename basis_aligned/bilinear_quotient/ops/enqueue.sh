@@ -17,7 +17,10 @@ if [ "${FORCE:-0}" != "1" ]; then
 fi
 # --- end dedup guard ---
 
-# Append a script to lane 1 ONLY if it exists, parses and gates.
+# Append a script to lane 1 ONLY if it exists, parses and gates.  Lane-1 queue
+# records are content-bound as "<sha256><TAB><absolute path>"; the runner safely
+# captures and verifies those exact bytes before Python parses them.  Lane 2
+# retains its legacy path-only format until its separate runner is upgraded.
 #
 # 2026-08-29, MEASURED: this script used to also REFUSE when the GPU was busy. That guard came from the
 # rule "never launch onto a busy GPU" -- but enqueue does not launch anything. ops/bqrunner.sh pops one
@@ -32,6 +35,8 @@ set -u
 f="${1:?usage: enqueue.sh <absolute-script-path>}"
 case "$f" in /*) ;; *) echo "REFUSED: path is not absolute: $f" >&2; exit 1;; esac
 [ -f "$f" ] || { echo "REFUSED: no such file: $f" >&2; exit 1; }
+[ ! -L "$f" ] || { echo "REFUSED: queued script may not be a symlink: $f" >&2; exit 1; }
+case "$f" in *$'\t'*|*$'\n'*) echo "REFUSED: queued path contains a tab or newline" >&2; exit 1;; esac
 python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f" \
   || { echo "REFUSED: does not parse: $f" >&2; exit 1; }
 D="$(dirname "$f")"
@@ -59,10 +64,50 @@ if [ "$LANE" = "2" ]; then
   echo "QUEUED (lane 2, CPU-only) $f"
   echo "  lane 2 depth now $n   (CUDA_VISIBLE_DEVICES='', 4 threads, nice 10; log runlogs/<name>.2.log, ledger runlogs/_completed2.txt)"
 else
-  echo "$f" >> "$D/queue.txt"
+  sha=$(python3 - "$f" <<'PY'
+import hashlib
+import os
+from pathlib import Path
+import stat
+import sys
+
+path = Path(sys.argv[1])
+flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+descriptor = os.open(path, flags)
+try:
+    before = os.fstat(descriptor)
+    if not stat.S_ISREG(before.st_mode):
+        raise SystemExit("queued script is not a regular file")
+    payload = bytearray()
+    while True:
+        chunk = os.read(descriptor, 1024 * 1024)
+        if not chunk:
+            break
+        payload.extend(chunk)
+    after = os.fstat(descriptor)
+finally:
+    os.close(descriptor)
+identity = lambda value: (
+    value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns
+)
+if identity(before) != identity(after):
+    raise SystemExit("queued script changed during hash capture")
+print(hashlib.sha256(payload).hexdigest())
+PY
+  ) || { echo "REFUSED: could not safely hash queued script: $f" >&2; exit 1; }
+  if [[ ! "$sha" =~ ^[0-9a-f]{64}$ ]]; then
+    echo "REFUSED: invalid captured script SHA-256" >&2
+    exit 1
+  fi
+  if [ -n "${EXPECTED_SHA256:-}" ] && [ "$sha" != "$EXPECTED_SHA256" ]; then
+    echo "REFUSED: reviewed script SHA-256 changed: expected=$EXPECTED_SHA256 observed=$sha" >&2
+    exit 1
+  fi
+  printf '%s\t%s\n' "$sha" "$f" >> "$D/queue.txt"
   n=$(grep -cve '^[[:space:]]*$' "$D/queue.txt" 2>/dev/null); n=${n:-0}
   if bash "$D/ops/gpu_free.sh" >/dev/null 2>&1; then g="GPU free"; else g="GPU busy"; fi
   echo "QUEUED $f"
+  echo "  script sha256 $sha (runner verifies captured bytes before parse/exec)"
   echo "  lane 1 depth now $n   ($g -- the runner serializes; depth >= 2 keeps it fed)"
 fi
 

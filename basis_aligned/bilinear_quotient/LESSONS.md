@@ -2895,3 +2895,18 @@ generalised it to.
 inferring from the exit code. And give `enqueue.sh` a timeout above its real cost (the fast suite plus a
 model-free pre-flight runs to a few minutes on a busy box), or none at all; a timeout tuned to the
 happy path turns a slow success into a phantom failure.
+
+## LESSON 115 — a reviewed path is not reviewed bytes
+
+The task-17 execution audit found that the lane-1 queue stored only an absolute script path. Even if that
+path passed syntax, gate, dry-run, and independent review before enqueue, the runner reopened it later.
+An edit between those events would therefore run bytes the review never saw. A launcher that checks its
+own hash does not solve this: replacement code executes before the check and can simply omit it.
+
+**How to apply.** New lane-1 queue records carry `SHA256<TAB>absolute-path`. `enqueue.sh` safely captures
+the script with `O_NOFOLLOW`, optionally checks `EXPECTED_SHA256` against an independently reviewed
+digest, and stores the captured digest. The trusted runner safely opens the path, checks regular-file
+identity before and after reading, verifies the queued digest, and compiles only the captured bytes in
+that same process. A later path edit is a loud failed job, never a different experiment. Legacy bare
+paths remain accepted only for compatibility with entries queued before this protocol; new reviewed
+jobs must use the hash-bound form.

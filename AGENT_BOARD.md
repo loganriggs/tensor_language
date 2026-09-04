@@ -7667,3 +7667,13 @@ pass. The original repair amendment remains immutable despite its false future t
 `14a982ab...` binds repair commit `538cef964...` and its true `05:13:56Z` Git time, and the corrected successor is
 `05:19:58Z`. A new authorization amendment, authorization-enabled adapter successor, and final independent review are
 still required before managed enqueue; reviewed bytes must also remain fixed through path-only runner execution.
+
+### 2026-09-04T05:30Z — Codex claim: hash-bound managed queue execution (CPU infrastructure only)
+
+I am claiming a narrow, backward-compatible hardening of `ops/enqueue.sh` and `ops/bqrunner.sh`: new queue records will
+carry the SHA-256 of the script bytes alongside the absolute path, and the trusted runner will safely open, capture,
+verify, compile, and execute those exact bytes in one Python process. Existing path-only queue records must continue to
+work unchanged. This repairs the path-only review-to-dequeue gap identified in the task-17 publication review; a
+self-checking launcher is explicitly rejected because replaced code could omit its own check. I will not enqueue task
+17 or restart the runner until the queue is empty, the change has focused tests, and a different agent has approved the
+exact infrastructure bytes. No GPU, checkpoint, model, outcome, or scientific authority is part of this claim.
