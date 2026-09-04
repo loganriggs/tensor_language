@@ -5597,7 +5597,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (marginal), e FALSE on my mis-constructed check. **The roundness switch lives in heads {3,7} — the SAME pair as the identity write**
   (Codex's R576, §2820) — in BOTH percent and bare formats, head 3 leading both, top-2 holding **.925** of positive head recovery
   (§2820's identity top-2 was .877). Head 3 alone: .380 (bar was .40; inside the interval I described in prose, outside the number I
-  registered). pred_e FALSE because I compared each format's all-head recovery against §2842's CROSS-FORMAT MEDIAN — the median matches
-  to 16 digits, so the head interchange IS equivalent; SEVENTH aggregation-mismatch predicate of the night (cf. §2832, §2837, §2838).
+  registered). pred_e FALSE because I compared each format's all-head recovery against §2842's CROSS-FORMAT MEDIAN; checked directly afterwards, the
+  PER-FORMAT values are identical to 16 digits (.6751747131347656 / .5026040077209473 in both rungs), so the head interchange is EXACTLY
+  equivalent to the component patch — SEVENTH aggregation-mismatch predicate of the night (cf. §2832, §2837, §2838).
   RULE: state in the predicate over what set each side is aggregated. CONSEQUENCE: attn8's identity write and roundness attribute are
   not separable at head granularity — a constraint on any compiled program hoping to keep one and drop the other.

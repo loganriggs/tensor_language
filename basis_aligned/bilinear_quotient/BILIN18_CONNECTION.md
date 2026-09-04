@@ -73548,10 +73548,12 @@ prose and outside the number I registered. Scored FALSE as written.
 
 **pred_e FALSE — and it is the seventh mis-constructed check of this campaign's night, of the same family as §2832's.** I registered
 |REC(all nine heads) − .5889| ≤ .05, where .5889 is §2842's whole-component recovery — but that figure is a MEDIAN ACROSS THE TWO
-FORMATS, while this rung compares it against EACH format separately. The percent format's all-head recovery reproduces it exactly
-(median across formats .5888893604278564, identical to §2842's value to sixteen digits, which is the equivalence the check was meant to
-establish); the other format differs by .086 and trips the bound. So the head-slice interchange IS equivalent to the component patch —
-the median is exact — and my predicate compared a per-format value against a pooled one. Scored FALSE as written. **The pattern is now
+FORMATS, while this rung compares it against EACH format separately. Checked directly after the run: the per-format all-head recoveries are
+**.6751747131347656** (percent) and **.5026040077209473** (bare), and §2842's per-format attention-8 COMPONENT recoveries are
+**.6751747131347656** and **.5026040077209473** — identical to sixteen digits in both formats. So the head-slice interchange is
+EXACTLY equivalent to the component patch, which is what the check existed to establish; my predicate simply compared each per-format
+value against the cross-format median (.5889 = the mean of those two), and the bare format sits .086 from that pooled figure by
+construction. Scored FALSE as written, with the equivalence it was testing confirmed more strongly than the bound would have shown. **The pattern is now
 unmistakable: §2832 compared a 32-document average against an 8-document module call, §2837 and §2838 ranked by one endpoint of a
 two-sided quantity, and this compares a per-format value against a cross-format median. Every one is an aggregation mismatch, and the
 rule is to state explicitly, in the predicate, over what set each side is aggregated.**
