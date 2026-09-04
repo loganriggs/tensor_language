@@ -5293,3 +5293,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2786 late_tail_top2_direction_probe (Claude, LANE 1 CUDA, 20 s, 608 GPU forwards): a,d TRUE; b FALSE null MET; c,e FALSE. The two
   dominant tail directions are accumulation bookkeeping (pooled eig 1.46 vs per-block ≤ .46), not pos-0, not readout-aligned, cost .0017
   to drop. The tail's CE value is entirely in the flat high-rank floor.
+- §2787 late_attn_tail_read_probe (Claude, LANE 1 CUDA, 37 s, 736 GPU forwards): a,d TRUE; b,c,e FALSE, no null met. Late attention's
+  tail use is the PATTERN's (.0110 of .0153; query side .0057 > key side .0035), not the value's (.0060) — opposite of my prediction; additive.

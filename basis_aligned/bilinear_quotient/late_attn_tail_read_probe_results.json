@@ -1,0 +1,77 @@
+{
+ "rung": "late_attn_tail_read_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_value_read_carries_the_tail": false,
+  "pred_c_pattern_read_is_cheap": false,
+  "pred_d_sides_additive": true,
+  "pred_e_same_ordering_at_896": false
+ },
+ "nulls": {
+  "b_null_val_768_le_.004": false,
+  "c_null_pat_768_ge_.012": false,
+  "d_null_sum_le_.5x_or_ge_1.5x": false,
+  "e_null_pat_896_ge_2x_val_896": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_min": 0.009,
+  "c_max": 0.006,
+  "d_frac": 0.25,
+  "e_min": 0.004
+ },
+ "null_bars": {
+  "b_max": 0.004,
+  "c_min": 0.012,
+  "d_lo": 0.5,
+  "d_hi": 1.5,
+  "e_ratio": 2.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "late attention blocks 8-17 with reads split by role (pattern q/k vs value v; query vs key side) confined to the bus core top-k; everything else exact",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_attn_768": 0.015339851379394531,
+  "prior_late_attn_768": 0.0153,
+  "late_attn_896": 0.007693886756896973,
+  "prior_late_attn_896": 0.0077
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_ATTN_768": 0.015339851379394531,
+  "ATTN_PAT_768": 0.011023759841918945,
+  "ATTN_VAL_768": 0.005989700555801392,
+  "ATTN_Q_768": 0.005737125873565674,
+  "ATTN_K_768": 0.003454536199569702,
+  "LATE_ATTN_896": 0.007693886756896973,
+  "ATTN_PAT_896": 0.005177706480026245,
+  "ATTN_VAL_896": 0.00322917103767395
+ },
+ "summary": {
+  "val_share_768": 0.3904666614858564,
+  "pat_share_768": 0.7186353745725832,
+  "sum_over_total_768": 1.1091020360584396,
+  "q_over_k_768": 1.6607514126730794,
+  "val_share_896": 0.4197060783068127
+ },
+ "price": {
+  "gpu_doc_forwards": 736,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 36.95026206970215
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_ATTN_TAIL_READ_PROBE_PREREGISTRATION.md": "5139b46546aceae498b61edd65b79b60e874e8a15bb5dc0f4415ea8470c5cf18",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_top2_direction_probe_results.json": "a40141a961da596eb17c84c7c8656915896781bb74d51f0c34ee85b15fde81d7",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "dfef87f595b977eb36d967a28546273f9274da1137af8052a348129fa64b4ef5"
+}

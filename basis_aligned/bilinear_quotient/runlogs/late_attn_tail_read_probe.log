@@ -1,0 +1,36 @@
+{"stage": "heads_done", "t": 22.3}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 22.8}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_ATTN_768": 0.0153, "ATTN_PAT_768": 0.011, "ATTN_VAL_768": 0.006, "ATTN_Q_768": 0.0057, "ATTN_K_768": 0.0035, "LATE_ATTN_896": 0.0077, "ATTN_PAT_896": 0.0052, "ATTN_VAL_896": 0.0032, "t": 37.0}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_value_read_carries_the_tail": false,
+  "pred_c_pattern_read_is_cheap": false,
+  "pred_d_sides_additive": true,
+  "pred_e_same_ordering_at_896": false
+ },
+ "nulls": {
+  "b_null_val_768_le_.004": false,
+  "c_null_pat_768_ge_.012": false,
+  "d_null_sum_le_.5x_or_ge_1.5x": false,
+  "e_null_pat_896_ge_2x_val_896": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_ATTN_768": 0.015339851379394531,
+  "ATTN_PAT_768": 0.011023759841918945,
+  "ATTN_VAL_768": 0.005989700555801392,
+  "ATTN_Q_768": 0.005737125873565674,
+  "ATTN_K_768": 0.003454536199569702,
+  "LATE_ATTN_896": 0.007693886756896973,
+  "ATTN_PAT_896": 0.005177706480026245,
+  "ATTN_VAL_896": 0.00322917103767395
+ },
+ "summary": {
+  "val_share_768": 0.3904666614858564,
+  "pat_share_768": 0.7186353745725832,
+  "sum_over_total_768": 1.1091020360584396,
+  "q_over_k_768": 1.6607514126730794,
+  "val_share_896": 0.4197060783068127
+ }
+}
