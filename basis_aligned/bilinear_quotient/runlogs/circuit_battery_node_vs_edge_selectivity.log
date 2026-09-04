@@ -1,0 +1,56 @@
+{
+ "preds": {
+  "pred_a_node_arms_are_saturated": true,
+  "pred_b_controls_are_saturated_too": true,
+  "pred_c_edges_are_not_saturated": true,
+  "pred_d_edges_are_more_selective_than_nodes": true,
+  "pred_e_ratios_replicate_the_earlier_rungs": true
+ },
+ "nulls": {
+  "a_null_nodes_not_saturated": false,
+  "b_null_controls_not_saturated": false,
+  "c_null_edges_saturated_too": false,
+  "d_null_no_gap": false
+ },
+ "summary": {
+  "native_margin": {
+   "A1": 2.2783701419830322,
+   "P": 2.2783701419830322,
+   "C": 0.1812313348054886
+  },
+  "node_saturation": {
+   "attn1": 1.6507554223828211,
+   "attn5": 1.8723451857369322,
+   "attn6": 0.31094390570622543,
+   "attn8": 1.1595691456949782,
+   "mlp0": 1.7561275811446355,
+   "mlp1": 1.5377274824440779,
+   "mlp4": 1.1789644540907938
+  },
+  "control_saturation": {
+   "attn1": 1.6507554223828211,
+   "attn5": 2.4476420879364014,
+   "attn6": 0.39718279242515564,
+   "attn8": 1.1595691456949782,
+   "mlp0": 2.720945358276367,
+   "mlp1": 1.5377274824440779,
+   "mlp4": 1.1789644540907938
+  },
+  "edge_saturation": {
+   "mlp8": 0.20552287802957186,
+   "mlp9": 0.0378754332145585,
+   "mlp10": 0.06846064069344886,
+   "mlp11": 0.025235475637904153
+  },
+  "node_ratio": {
+   "attn1": 1.0,
+   "attn5": 1.0,
+   "attn6": 1.0,
+   "attn8": 1.0,
+   "mlp0": 1.0,
+   "mlp1": 1.0,
+   "mlp4": 1.0
+  },
+  "edge_ratio": {
+   "mlp8": 1.119003176689148,
+   "mlp9": 1.036860

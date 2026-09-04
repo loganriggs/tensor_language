@@ -73844,3 +73844,50 @@ where task structure lives.
 Price: 5,256 GPU forwards, 61.4 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_successor_full_sweep_results.json. (Claude, LANE 1 CUDA.) a, b, d, e TRUE; c FALSE with its null
 met. Preserved.
+
+## §2850 — §2849's "NO COMPONENT IS SELECTIVE" IS A CEILING ARTIFACT: whole-component ablation removes **1.54×** the native margin on the target family and the same **1.54×** on the controls, so a ratio of exactly 1.00 is arithmetic, not evidence — the edges remove **.053** of it and are informative. All five predictions TRUE, and per this document's own rule the edge-versus-node gap must NOT be read as structure
+
+§2849 reported that all seven admissible components sit at selectivity ratio exactly 1.00 and I wrote that "the components whose
+removal hurts the successor task most are exactly the components whose removal hurts everything". That is true but it is not a
+measurement: a ratio of 1.00 across seven very different components is also what a saturated instrument produces. This rung tested
+which, by measuring damage as a fraction of each family's NATIVE margin. Sign convention: damage d_m = m_NATIVE − m_arm, POSITIVE =
+the arm HURTS; saturation = d_m / max(m_NATIVE, .5), 1.0 meaning the whole native margin is gone. **No CE, no §312 L2; nothing
+installs.**
+
+**pred_a and pred_b TRUE, both nulls not met — the node arms are saturated past the ceiling, and so are the controls.** Median
+node saturation on the target family is **1.538** and on the controls **1.538** as well, against native margins of 2.28 (A1),
+2.28 (P) and .18 (C). A fraction above 1 means the ablation does not merely erase the correct answer's lead, it drives the answer
+*below* its competitors. **Every admissible component's ratio was 1.00 because both its numerator and its denominator were pinned at
+the ceiling.** §2849's central number carries no information about selectivity, and I am recording that against the section that
+made it rather than leaving it to be found.
+
+**pred_c TRUE (null "≥ .90" not met) — the edges are nowhere near saturation, at .053.** Removing a single reader edge of attention
+8's write costs about five percent of the native margin, so edge ratios are measuring something real. This is why §2808, §2819 and
+§2848 could see structure — mlp11 at .56, mlp10 at .90 — where §2849 could not.
+
+**pred_d TRUE, and this document forbids me from using it.** The minimum node ratio is 1.00 and the minimum edge ratio .56, a gap of
+**.44** (bar ≥ .30). But the preregistration said this comparison "is registered to be read ONLY IF pred_a and pred_b hold — because
+if the node arms are saturated, a gap says nothing about nodes and everything about the bluntness of the instrument". pred_a and
+pred_b DO hold. **So the gap is not evidence that selectivity is an edge property; it is evidence that whole-component ablation cannot
+measure selectivity on this task at all.** The tempting structural claim — "task specificity in bilin18 lives in edges, not nodes" —
+is exactly what this rung was built to stop me from making, and it stops it.
+
+**pred_e TRUE — the arms replicate.** Node ratios match §2849 to **.000** and edge ratios match §2819 to **.057**, so this is the same
+instrument as both, and the saturation finding applies to their numbers and not only to mine.
+
+**What this changes, and what it does not.** §2849's conclusions that survive: mlp1's damage is large and replicates, the ranking
+transports across surfaces at ρ .768, and no pre-layer-8 component is *distinguishable* as task-specific. What does not survive is any
+reading of the exact 1.00s as a fact about the components — including my sentence that attention 8 is "the first one this campaign has
+any reason to call task-related", which rested on the same saturated arm. **Whole-component ablation is now a known-blunt instrument
+for this task and should be used for ranking magnitude only, never for selectivity.**
+
+**The open question this raises about the battery itself, which I am not going to leave implicit.** The battery's own selectivity stage
+uses a different arm — the writer's final-position write removed from every reader edge — and its central negative result, "ZERO
+behaviours are writer-selective", has now been reported three times (§2817, §2840, and §2819's reader-side version). **Nothing has
+checked whether THAT arm is saturated too.** If it is, the campaign's most-repeated finding is the same artifact at a different
+granularity. That check is the next rung and it is cheap; it is registered separately rather than asserted here, and until it lands the
+three writer-selectivity results stand as reported with this caveat attached.
+
+Price: 851 GPU forwards, 8.9 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_node_vs_edge_selectivity_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE — and pred_d is recorded as
+UNUSABLE by its own registered condition. Preserved.

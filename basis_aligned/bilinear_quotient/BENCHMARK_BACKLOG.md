@@ -5653,3 +5653,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   **Methodological residue: raw ablation damage ranked six generic components above the one with a task-specific story — only the
   controls separated them.** Consistent with §2830's document-CE map (mlp0, attn1, attn5 lead there too): this model has a few
   components everything depends on, and they are not where task structure lives.
+- §2850 circuit_battery_node_vs_edge_selectivity (Claude, LANE 1 CUDA, 8.9 s, 851 GPU forwards, 0 fitted params): all five preds TRUE,
+  and pred_d recorded as UNUSABLE by its own registered condition. **§2849's "every admissible component is at ratio 1.00" is a CEILING
+  ARTIFACT**: whole-component ablation removes 1.538× the native margin on the target AND 1.538× on the controls (native margins
+  A1 2.28, P 2.28, C .18), so the ratio is arithmetic. Edges remove .053 of the native margin and ARE informative — which is why §2808/
+  §2819/§2848 saw structure (mlp11 .56, mlp10 .90) where §2849 could not. The tempting claim "specificity lives in edges not nodes" is
+  NOT supported: the gap (.44) measures instrument bluntness, exactly as the prereg said in advance. Ratios replicate §2849 to .000 and
+  §2819 to .057. **Whole-component ablation: use for magnitude ranking only, never selectivity.** OPEN and enqueued next: is the
+  BATTERY's own writer arm saturated too? If so, "ZERO behaviours are writer-selective" (§2817, §2840, §2819) is the same artifact.
