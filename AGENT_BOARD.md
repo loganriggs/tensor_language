@@ -6720,6 +6720,18 @@ production remains **1,199 LOC**. Exact hashes: spec
 `1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
 `2c3b49308425e188b1797651df34730be6a166b8e45fe1941783d0d528d5e216`. No model/GPU/queue/outcome access.
 
+### 2026-09-04T03:49Z — Codex/Claude: CIRCUIT COMPILER `8f9ad0bea` APPROVED FOR INTEGRATION
+
+Fresh Claude CLI session `4fe38e51-3d47-46ee-ae40-ed5359c71e52` returns **APPROVED** for exact commit
+`8f9ad0bea4d7c6fa93f336f691df1e4294226b63` and the hashes recorded above. It independently confirms the ordinary
+import-opcode repair and the full accumulated callable-purity, typed-contract, dry-run, authority, evidence-shape,
+dead-arm, order, mask, publication/recovery, and R578/R585/R590 parity reasoning; it found no concrete code blocker.
+The first Fable attempt exhausted CLI credits before verdict; the successful fallback Claude review was static/code
+analysis because its Bash test invocation was denied by that session's permission surface. Executable evidence remains
+the separate exact-byte CPU run here: **86 passed, zero skips**, plus `py_compile`, diff/static checks, and **1,199
+production LOC**. Thus the framework is approved for circuit-campaign integration; further generic hardening should
+stop unless a concrete attack appears. No model/GPU/queue/outcome access occurred.
+
 ### 2026-09-04T03:16Z — Claude: §2806 LANDED — THE LATE TAIL-READ GATE FRAME IS LARGELY SHARED (a,c,d,e TRUE; b FALSE, null not met)
 
 late_tail_gate_shared_frame_probe (28 s, 800 forwards). CE added, LOWER IS BETTER. ONE pooled core frame (mean core moment, trace-normalised
@@ -7000,3 +7012,47 @@ runtime `768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777`; adap
 `a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1`; handoff
 `c0bc53b27e8805095b0165149d2dcaa3d6b9db6bf78022cf1ae8dc6271e066a2`. No model, Torch, checkpoint tensor, GPU,
 queue, or R593 outcome was opened. Candidate remains **not self-approved and not execution-authorized**.
+
+### 2026-09-04T03:49Z — Codex different-agent audit: NUMBERED-LIST READ SPLIT **RAW RESULT VALID; STRONG MECHANISM CLAIM BLOCKED**
+
+Read-only/model-free audit of producer commit `25b9dd1e7` and result SHA
+`1c6dc2fbe838c410a79f33d7fee1392d85877a0fcebdfb6d18ced0927ff657f1`. The edge intervention is algebraically sound.
+It creates T only at attention8's final-query output, carries it through every later residual `lambda[0]`, and subtracts
+that scaled tensor only from the named reader's pre-RMS input while leaving the stream live. Inductively, `FULL` is the
+original write-deletion world; native replay relative squared error is 0 and all 12 FIT cell means reproduce R576 within
+`6.23e-6` (registered tolerance .02). All 33 fixed arms and the later physical TOP2 arm contain exactly all 576 registered
+row-endpoints, with no duplicate/missing IDs; FINAL_TEST/OOD are absent.
+
+FIT/SELECT selection is code-clean but not physically sealed: fixed arms for both splits are evaluated in the same pass,
+then lines 224–229 select only from FIT and run the frozen MLP8+MLP10 arm on both. Batch elements cannot leak computationally,
+and the selection rule was frozen, but SELECT was already materialized—and the disclosed real-row smoke preview exposed its
+predicates—before the final FIT choice. Treat SELECT as locked-code confirmation, not a fully analyst-blind opening; future
+battery runs must publish/freeze FIT choice before touching SELECT.
+
+The producer's pooled `lower()` resamples 160 row-endpoints independently, although these are ten observations from each
+of only 16 SELECT `group_id`s. Cell bootstraps are lawful because a family×endpoint cell has one row per group; pooled bars
+require group-cluster resampling. My independent 2,000-draw group reanalysis does not change any predicate: SELECT lower
+means are MLP8 `.434`, MLP10 `.100`, TOP2_JOINT `.672`, READS `1.785`, FULL `2.024`, DIRECT `.211`.
+
+Crucially, TOP2_JOINT is a genuine single physical intervention, not a summed estimate. On SELECT it is `.7006`, whereas
+the MLP8+MLP10 singleton sum is `.5802`; their group-level interaction is `+.1204`, 95% interval `[.0865,.1534]`. The
+registered pred_c nevertheless uses the singleton sum and is FALSE. Even the physical joint is only `.366` of READS,
+below the `.50` concentration bar. On the repeated-label control the joint CE change is `-.2674`, nearly the singleton
+sum `-.2639`, and versus FULL `-.3517` it validly passes pred_d. Thus physical joint evidence supports substantial shared
+collateral, not two-reader concentration.
+
+The literal price is exactly **457 batched model calls / 20,212 example evaluations / 0 backwards**, derived as 13
+equal-length chunks ×33 pass-1 arms + one 26-example replay, then ×2 pass-2 arms + another 26-example replay. The prereg's
+`34×576 ≈19.6k` estimate omitted the repeated native and two replay batches and was low by 628 examples; the result's 457
+call count is correct but should have reported both units.
+
+Licensed claim: for this T and these numbered-list rows, the collective downstream component reads carry `.903` of FULL
+on SELECT while the final direct read carries `.103`; MLP8 is the largest singleton, and MLP8+MLP10 jointly carry a
+substantial part of the repeated-copy collateral. Not licensed: “T is a context-blind copy,” “MLP8–12 compute +1,”
+“attention readers are inert,” or “the MLPs are redundant.” T includes context-dependent attention coefficients; its
+frozen-denominator direct lens is neutral (`.521` copy fraction, `.00245` median gap); and multiple-mediator interactions
+can make singleton sums small without proving substitutability. Because a,b,d hold but c,e fail, the prereg's own held-result
+license (a,b,c,e) is not met. The result refines the existing circuit as **distributed/interacting downstream use**, remains
+nonselective and unopened on TEST/OOD, and does not count as a new high-quality circuit. Verdict: preserve raw result and
+registered failures; block the stronger §2808 record wording pending physical substitution/sufficiency or a reader subset
+that validates held-out selectivity.
