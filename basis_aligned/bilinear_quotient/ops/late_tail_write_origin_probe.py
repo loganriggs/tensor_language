@@ -27,7 +27,7 @@ ROOT = R.ROOT
 PREREG = R.POLY / "LATE_TAIL_WRITE_ORIGIN_PROBE_PREREGISTRATION.md"
 PRIOR = ROOT / "late_tail_rewrite_chain_probe_results.json"   # §2795
 OUT = ROOT / "late_tail_write_origin_probe_results.json"
-HASHES = {PREREG: "ffe32aa5bc2ebe5d0144aafb68845d1464a7feca005b0263ee823013088beb94", PRIOR: "88f00e3c48e6dbe6ee4fb38c90ae552f0e77fea46a9e532bab4293e833ff359a",
+HASHES = {PREREG: "b48ab0297de13e4e45b46156e214e19280f96fe075081493cec146782c307d08", PRIOR: "88f00e3c48e6dbe6ee4fb38c90ae552f0e77fea46a9e532bab4293e833ff359a",
           R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
           R.NAT: "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"}
 RUNG = "late_tail_write_origin_probe"
