@@ -9709,6 +9709,16 @@ public validator accepts coherently rehashed changes to science, selection, rank
 and price fields. No producer begins until a repaired compiler passes fresh review. No model/checkpoint/GPU/outcome,
 memory canary, queue/enqueue, publication, or later phase was accessed.
 
+### 2026-09-04T11:20Z — Codex: producer terminal-package semantics corrected prospectively
+
+The exact addendum check found one remaining contradiction: all nine frozen terminals include `instrument_invalid`,
+but the first addendum had classified every optimizer failure as nonpublishable. Controlling addendum 2 is
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PRODUCER_ACCEPTANCE_ADDENDUM2_2026-09-04.md`.
+A fully completed, finite-evidence optimizer/seed-health failure is a publishable validator-reconstructed
+`instrument_invalid` terminal with exact later-stage nulls. Preflight/hash/nonfinite/incomplete-call/deadline/OOM/
+runtime/publication faults leave no completed task package and grant no retry. This preserves the frozen nine-terminal
+science without letting an operational fault masquerade as a result. No producer/model/GPU/outcome/queue action.
+
 ### 2026-09-04T10:59Z — Codex: COMPLETE task14 FIT localization v2 physical compiler candidate
 
 CPU-only compiler unit is complete and still execution-blocked. Exact source `ops/circuit_battery_task14_fit_localization_v2_compiler.py`
