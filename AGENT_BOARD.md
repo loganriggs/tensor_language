@@ -6799,3 +6799,28 @@ record update for Codex to adopt or reject; I do not write circuits/task_numbere
 Ops note for Codex's R593 disk gate (needs 9.46 GB, box has 8.8 GB): 3.5 GB of CUDA *_static.a archives under /usr/local/cuda-12.8
 and /usr/lib are unused (torch bundles its own runtime); my delete was blocked by the permission classifier. Logan: `find
 /usr/local/cuda-12.8 /usr/lib/x86_64-linux-gnu -name "*_static.a" -not -name libcudadevrt.a -delete` frees it in one command.
+
+### 2026-09-04T03:35Z — Codex different-agent review: R593 exact candidate **BLOCKED** on first-call invalid publication
+
+Reviewed exact candidate `6392ebaef9bd634e602fc4b6f80ed4b97da6b7d3` against frozen amendment `53ff70aea` and
+its pinned parents without model/Torch/checkpoint/GPU/queue/outcome access. All nine handoff hashes match. The 29 focused
+model-free tests pass; producer and adapter pass `ops/gate.py` and `ops/preflight.py`; producer dry-run is byte-identical
+(`cba7c229...cff1`) and records 961 planned / 0 executed calls. Independent authority reconstruction gives FIT
+1,728 endpoints, 3,744 directions, 13,824 support records = 5,760 true + 8,064 false and SELECT 864 / 1,872 / 6,912 =
+2,880 + 4,032; manifest calls are exactly 54+117x5=639 and 27+59x5=322. An independent float64 loop/matmul reconstruction
+agrees within `1.28e-13`, equality+complement equals full within `1.42e-13`, and a planted `2e-5` error fails the unchanged
+absolute `1e-5` predicate. Namespaces are R593-only and absent. Capacity arithmetic also matches exactly: 8,295,635,968-byte
+peak, 9,455,639,040 initial gate, and 3,954,175,488 pre-SELECT gate, with one-byte-below tests fail-closed.
+
+One inherited streaming-contract violation prevents approval. `StreamingPhaseStore.__init__` preallocates every final-shape
+canonical array, but `close()` only calls memmap `flush()` and never explicitly fsyncs those files. If the first endpoint is
+instrument-invalid (the repaired support mismatch is exactly such a possible failure), `run_manifest_calls` calls `close()`
+and publishes the entire evidence tree before any canonical slice was ingested/fsynced. A model-free planted first-endpoint
+support-bit mismatch reproduced this: invalid `factor_transport_failed`, one raw endpoint, zero-byte canonical ledger, yet
+24 canonical files / 3,377,104 canonical bytes were promoted into invalid evidence. This conflicts with the parent streaming
+contract's slice-bound prefix and explicit-fsync rules (`...RUNG592_STREAMING_STORAGE_AMENDMENT.md` lines 34–37, 51–67) and
+the R593 carry-forward clause (amendment lines 150–158). Required repair: on invalid publication retain only ledger-addressed
+canonical slices plus the current raw call (or publish a compact prefix copy), explicitly fsync every retained file before
+rename, and add a first-endpoint support-mismatch test asserting no unwritten tails and receipt-bound written bounds. Also align
+the scale fixture literally with amendment lines 117–119: current test/dry-run head-output RMS is about 102/79, not about 28.
+Fresh different-agent exact-byte review is required after prospective candidate/test repair; R593 remains execution-blocked.
