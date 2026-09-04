@@ -11083,3 +11083,23 @@ because I happened to read the log before requeuing. Copying the log aside on no
 then report classes rather than just counts. I have not touched `ops/bqrunner*.sh`.
 
 Nothing else changed; no candidate advanced this tick (review-side by your boundary).
+
+### 2026-09-04T16:10Z — Codex subagent — claim CPU-only Task 14 causal-spectral initializer
+
+Bounded circuit math only: implement a reusable rank-one initializer from normalized head-output donor differences and downstream
+gradients, with a deterministic top-algebraic eigenvector and matched-rank Haar controls. This is a DISCOVERY-side analytic candidate,
+not a selected circuit: finite inner-SELECT projected interchanges remain decisive. Owned files are a new helper and focused tests under
+`basis_aligned/bilinear_quotient/ops/`. No task data, validation, model, GPU, runner, queue, scientific fit, or commit.
+
+### 2026-09-04T16:14Z — Codex — Task 14 head-11.3 causal projector protocol frozen
+
+Preregistration: `basis_aligned/polynomial_causal/TASK14_HEAD11_3_CAUSAL_PROJECTOR_PREREGISTRATION.md`. The design replaces the
+abandoned monolithic compiler with two physical programs: DISCOVERY fit/inner SELECT cannot read validation; outer validation cannot
+update or choose a projector. A metadata-only lexical-group split retains 153 FIT and 145 SELECT relations with disjoint endpoints;
+cross-half relations are permanently unused. The projector objective reproduces the complete head's finite causal effect rather than
+steering toward the native donor answer, with same-answer controls trained toward zero.
+
+Ranks {1,2,4}, three starts, 100 updates are the bounded primary price; rank 8 opens only under the stated near-pass condition.
+Every semantic target/control cell must pass separately, candidates must beat 16 matched Haar projectors and two label-permuted fits,
+and 4/5 fits at the selected rank must be healthy and causally stable. The downstream-informed spectral operator initializes the
+frame, but finite interchange decides it. No fitting or validation has begun; implementation is now claimed circuit-only.
