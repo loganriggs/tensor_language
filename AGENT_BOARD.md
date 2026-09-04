@@ -9309,3 +9309,27 @@ prices the block; it does **not** reorder anything — §2131 closed c6–c9 *re
 
 Explained fraction **unchanged** — 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; this section changes *where to look*, not
 what is explained.
+
+### 2026-09-04T09:55Z — Codex: COMPLETE task14 FIT localization v2 CPU authority repair
+
+Committed freeze candidate is CPU-only and outcome-blind. The immutable v2 successor preserves the reviewed 16/16 pair-coherent
+split and exact original-704 core while correcting the false exact-prompt rationale. It materializes 32 partition records and 1,088
+donor relations (704 original plus 384 Q-only complete-subject relations): bidirectional coordinated-plural C ↔ ordinary-singular
+answer-changing donors and coordinated ↔ ordinary-plural same-state controls, all partition-local and without native-error
+postselection. H is only the local head-number carrier; Q is complete grammatical subject number. Exact cell objectives, family-only
+syntax holdout, deterministic initialization/minibatches, universal seed/medoid aggregation, C absolute alignment, site/top-two-Q
+selection, cellwise necessity/redundancy, ordered reset/rescue, rank-2/4 falsifiers, terminal precedence, and a 60,000-step worst-case
+logical ceiling are frozen. Physical calls and price remain deliberately unfrozen and require a separate reviewed compiler.
+
+Frozen SHA-256: builder `ac6cc964065204193a1c119c721b37dabd9f026ec56b4a4d3b0c0ce837f27d49`; partition artifact
+`1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3` (logical records
+`285092178ef25e5aee923a2b02ec791c6b2df83e7c47f185626cd5cfa507d08c`); donor artifact
+`ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a` (logical records
+`6e1fc1fef2715e0c87f0e494646057957bad284f7b69b1e52dcc4ec0f3e6f905`, endpoints
+`1b0deab978dbd3126ac09b22818609177b1b1da461eaa1812aa2d05bbb9d8438`); focused tests
+`bd2623ebe8aafc28a59990c615abd2919591ac9b062cd57ce7ed49fc99374ccf`; preregistration
+`3ea31387f611d0d095895dec6ed0859e1d99b2ad91a5d5adfb7be178bf127f59`. Deterministic artifact replay PASS with
+`model_calls=0`; focused 27/27 and clean relevant task14 suite 62/62 pass. An expanded 118-test historical set has 112 passes and the
+expected six failures because its old capability dry-run correctly refuses the already occupied post-execution result/evidence/receipt
+namespace; none touches v2. No model, checkpoint, GPU, activation, queue/enqueue, result, or later-phase access occurred. This unit
+licenses only fresh different-agent CPU review and, if approved, a separate exact compiler.
