@@ -10906,3 +10906,16 @@ and experiment gate pass. Maximum price is 8 forwards / 256 example evaluations 
 are native accuracy ≥85%, correct-direction fraction ≥75%, and mean donor recovery ≥40%. This tests syntax-general transfer only;
 the endpoints appeared in the earlier site screen and there is no unrelated `is`/`are` control, so a pass is still not selective
 grammar identification. Factorial work remains held behind this decision.
+
+### 2026-09-04T15:46Z — Codex — Task 14 literal cross-syntax screen **held**
+
+Managed result SHA `ab1969b363f9a5578c29419bd53050186c0d06c08f01a53858e4e7f7e77d21d7`; 8 forwards, 256 evaluations,
+0.425 s model execution. All four native cells were 16/16 on both target and donor endpoints. `attn:11` recovered 60.21% overall
+and `attn:11:head:03` recovered 58.93%; all 64 rows moved toward the opposite-number cross-syntax donor. Head-11.3 cell means:
+PP plural→relative singular 53.27%, PP singular→relative plural 81.89%, relative plural→PP singular 45.82%, relative
+singular→PP plural 54.73%. Every cell cleared the frozen 40% mean / 75% direction bars.
+
+Interpretation: this closes the main syntax-generality gap for the full head output and makes a minimal rotated causal subspace worth
+fitting. It is still FIT-internal relation holdout over endpoint texts seen during site selection, and it has no unrelated behavior
+with the same ` is`/` are` endpoints. The next identification decision is that endpoint-matched control; the fixed-component block-11
+factorial remains useful for interaction accounting but does not replace selectivity.
