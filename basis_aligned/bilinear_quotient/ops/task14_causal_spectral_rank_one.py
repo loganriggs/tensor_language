@@ -103,6 +103,32 @@ def _require_effects(
     return effects
 
 
+def _require_sample_weights(
+    value: object | None,
+    *,
+    sample_count: int,
+) -> torch.Tensor:
+    """Return normalized nonnegative CPU float64 sample weights."""
+
+    if value is None:
+        return torch.full(
+            (sample_count,), 1.0 / sample_count, dtype=torch.float64
+        )
+    if not isinstance(value, torch.Tensor) or value.ndim != 1:
+        raise CausalSpectralInputError("sample_weights must be a rank-1 torch tensor")
+    if value.device.type != "cpu" or not value.is_floating_point():
+        raise CausalSpectralInputError("sample_weights must be a floating CPU tensor")
+    if value.shape[0] != sample_count:
+        raise CausalSpectralInputError("sample_weights must have one value per example")
+    weights = value.detach().to(dtype=torch.float64)
+    if not bool(torch.isfinite(weights).all()) or not bool((weights >= 0).all()):
+        raise CausalSpectralInputError("sample_weights must be finite and nonnegative")
+    total = float(weights.sum())
+    if not math.isfinite(total) or total <= 0:
+        raise CausalSpectralInputError("sample_weights must have a positive sum")
+    return weights / total
+
+
 def canonicalize_direction_sign(direction: torch.Tensor) -> torch.Tensor:
     """Choose one deterministic representative of a rank-one projector.
 
@@ -133,6 +159,7 @@ def causal_spectral_rank_one(
     full_head_effects: torch.Tensor,
     *,
     denominator_floor: float = DEFAULT_DENOMINATOR_FLOOR,
+    sample_weights: torch.Tensor | None = None,
 ) -> CausalSpectralRankOne:
     """Return the top-algebraic rank-one local causal candidate.
 
@@ -162,10 +189,12 @@ def causal_spectral_rank_one(
         sample_count=sample_count,
         denominator_floor=denominator_floor,
     )
+    weights = _require_sample_weights(sample_weights, sample_count=sample_count)
 
     scaled_deltas = deltas / effects[:, None]
-    raw_operator = torch.einsum("ni,nj->ij", scaled_deltas, gradients)
-    raw_operator /= sample_count
+    raw_operator = torch.einsum(
+        "n,ni,nj->ij", weights, scaled_deltas, gradients
+    )
     operator = 0.5 * (raw_operator + raw_operator.T)
     if not bool(torch.isfinite(operator).all()):
         raise CausalSpectralInputError(
@@ -185,7 +214,7 @@ def causal_spectral_rank_one(
         raise CausalSpectralInputError(
             "normalization produced a non-finite full-space local response"
         )
-    mean_full_space_response = float(torch.mean(full_space_responses))
+    mean_full_space_response = float(torch.sum(weights * full_space_responses))
     closure_errors = torch.abs(full_space_responses - 1.0)
     operator_trace = float(torch.trace(operator))
     diagnostics = CausalSpectralDiagnostics(
@@ -195,7 +224,9 @@ def causal_spectral_rank_one(
         top_eigenvalue=float(spectrum[-1]),
         eigengap=float(spectrum[-1] - spectrum[-2]),
         full_space_local_closure_mean_ratio=mean_full_space_response,
-        full_space_local_closure_mean_absolute_error=float(torch.mean(closure_errors)),
+        full_space_local_closure_mean_absolute_error=float(
+            torch.sum(weights * closure_errors)
+        ),
         full_space_local_closure_max_absolute_error=float(torch.max(closure_errors)),
         operator_trace=operator_trace,
         operator_trace_identity_error=abs(

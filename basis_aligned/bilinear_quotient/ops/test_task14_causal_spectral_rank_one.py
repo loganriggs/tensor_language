@@ -72,6 +72,63 @@ def test_permuting_examples_does_not_change_operator_or_projector() -> None:
     )
 
 
+def test_explicit_weights_can_equalize_unequal_semantic_cells() -> None:
+    deltas = torch.tensor(
+        [[1.0, 0.0], [1.0, 0.0], [1.0, 0.0], [0.0, 1.0]],
+        dtype=torch.float64,
+    )
+    gradients = deltas.clone()
+    effects = torch.ones(4, dtype=torch.float64)
+    # The first three rows form one cell and the final row forms another.  Each
+    # cell receives total weight 1/2 despite their unequal row counts.
+    equal_cell_weights = torch.tensor(
+        [1.0 / 6.0, 1.0 / 6.0, 1.0 / 6.0, 1.0 / 2.0],
+        dtype=torch.float64,
+    )
+
+    flat = SPECTRAL.causal_spectral_rank_one(deltas, gradients, effects)
+    equal_cell = SPECTRAL.causal_spectral_rank_one(
+        deltas,
+        gradients,
+        effects,
+        sample_weights=equal_cell_weights,
+    )
+
+    assert torch.allclose(
+        flat.operator,
+        torch.diag(torch.tensor([0.75, 0.25], dtype=torch.float64)),
+        atol=2e-15,
+        rtol=0,
+    )
+    assert torch.allclose(
+        equal_cell.operator,
+        torch.diag(torch.tensor([0.5, 0.5], dtype=torch.float64)),
+        atol=2e-15,
+        rtol=0,
+    )
+
+
+@pytest.mark.parametrize(
+    "weights,match",
+    [
+        (torch.ones(3, dtype=torch.float64), "one value per example"),
+        (torch.tensor([1.0, 1.0, 1.0, float("nan")]), "finite"),
+        (torch.tensor([1.0, 1.0, 1.0, -1.0]), "nonnegative"),
+        (torch.zeros(4, dtype=torch.float64), "positive sum"),
+        (torch.ones(4, dtype=torch.int64), "floating CPU"),
+    ],
+)
+def test_invalid_sample_weights_fail_closed(weights, match) -> None:
+    deltas, gradients, effects = _random_inputs(count=4, dimension=3)
+    with pytest.raises(SPECTRAL.CausalSpectralInputError, match=match):
+        SPECTRAL.causal_spectral_rank_one(
+            deltas,
+            gradients,
+            effects,
+            sample_weights=weights,
+        )
+
+
 def test_direction_sign_and_simultaneous_input_sign_leave_projector_response_unchanged() -> None:
     deltas, gradients, effects = _random_inputs()
     result = SPECTRAL.causal_spectral_rank_one(deltas, gradients, effects)
