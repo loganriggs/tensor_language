@@ -253,7 +253,10 @@ def test_split_swap_preserving_counts_rejected(workdir):
 
 def test_arm_role_missing_rejected(workdir):
     rows = make_authority()
-    _expect_refusal(lambda: _spec(workdir, rows, make_calls(rows), arms=[{"name": "native"}, {"name": "counterfactual"}]), ("role",),
+    # construction preserves the role-missing declaration untouched (no adapter validation); the FRAMEWORK boundary must refuse it
+    roleless = _spec(workdir, rows, make_calls(rows), arms=[{"name": "native"}, {"name": "counterfactual"}])
+    assert all(a.role is None for family in roleless.spec.calls for a in family.arm_specs)
+    _expect_refusal(lambda: api.cs.validate_spec(roleless.spec), ("role",),
                     missing="A1: the typed arm declarations reach the spec as CallFamilySpec.arm_specs (ArmSpec(name, role=None, "
                             "direction=None) for this role-missing input, distinct from the role-bearing ARMS in spec JSON and hash), "
                             "but validate_spec/compile_call_manifest read only the arm NAMES, so a spec whose arms declare no "

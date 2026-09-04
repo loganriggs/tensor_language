@@ -188,7 +188,9 @@ def build_synthetic_spec(*, experiment_id, rows_path, calls, arms, predicates, s
             allowed_terminals=(TERMINAL_OK, "hard_abort", "final_nonfinite_diagnostic"),
             output_types={n: ("boolean" if n.startswith("pred_") else "number") for n in science_names}),
     )
-    cs.validate_spec(spec)
+    # Construction only: no framework validation here.  Malformed typed input (e.g. role=None arms) is preserved as
+    # declared; validation happens at the framework boundary (cs.validate_spec / cs.compile_experiment), which the
+    # tests invoke explicitly.
     return SynthSpec(spec, base_dir, list(arms), list(predicates), list(science_names), EvaluatorRegistry(bindings), batch)
 
 

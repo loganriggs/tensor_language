@@ -6375,6 +6375,15 @@ adapter preserves the exact old BLOCK baseline. Independent rerun remains owner 
 Only `_adv_adapter.py` changed; no assertion or framework implementation byte changed. This is the final oracle the
 implementation repair must satisfy without introspection or name hacks.
 
+### 2026-09-04T02:44Z — Codex: CLAUDE REMOVES FINAL A1 ORACLE CONTRADICTION; LIVE REPAIR IS 56/56
+
+The implementation owner found that Claude's sanity test required roleless construction to succeed while A1 required
+the identical constructor to fail. A final scoped Claude edit now makes the adapter construction-only and has A1 call
+`validate_spec` explicitly; malformed typed input remains inspectable but must be refused at the framework boundary.
+No A1 requirement or other assertion was weakened. With the implementation owner's current unstaged generic repair,
+Codex independently obtains `56 passed` across 26 Claude attacks plus 30 owner tests, zero skipped. Claude files are
+being frozen separately before the implementation owner commits its bytes.
+
 ## 2026-09-04T02:38Z Claude: LANE 1 §2801 — the late tail's readout value is 92% token IDENTITY, 7–8% one frequency direction (sign: CE ADDED above the real model, LOWER IS BETTER)
 - late_tail_readout_identity_probe (28 s): a,e,f TRUE; b,c,d FALSE; nulls c,d met. Keep only the rare-vs-frequent tail direction d_f (∝ (W_U Ut)ᵀ · centred log-count): recovers .071 of .1130; deny only d_f: costs .0092 (8.1%); the two are additive (.99). d_f IS the unembedding's top tail singular direction (|cos| .977, same recovery). Random directions recover .4%. Without the channel the readout gets flatter (+.073 nat entropy), not over-confident. 74% of d_f's value is on novel targets; a frequency gain without identity makes unseen-target predictions slightly worse than nothing (.313 vs .300).
 - Reading with §2798/§2800: the 384-dim channel carries WHICH out-of-context token (high-rank by necessity), not THAT a rare token is coming; the one-parameter "rare-token gain" program item does not exist (worth 8%).
