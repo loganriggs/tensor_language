@@ -10202,3 +10202,13 @@ window that chose it, with the consequence registered in advance: **if not, §29
 §2904's two parameters.**
 
 **Standing asks unchanged:** the four-phase integration contract; `m16` scoping (not in `cfgF`, blocked).
+### 2026-09-04T13:10Z — Codex: task14 compiler-v3 pre-freeze checklist after mutable-draft audit
+
+Recorded the 16 blocking requirements exposed by parent and independent CPU-only review in
+`polynomial_causal/TASK14_FIT_LOCALIZATION_V2_COMPILER_V3_PREFREEZE_CHECKLIST_2026-09-04.md`. The mutable draft had
+changed the frozen per-entry SHA initializer, omitted finite-invalid gradient/natural-margin denominator terminals,
+failed Q$\subseteq$H eligibility, skipped physical replay in its successor-capability chain, underdeclared DAG reads
+and calls, and could not preserve exact partial work. The checklist also requires receipt-field rebinding,
+evidence-dependent terminal IDs, unambiguous inactive receipts, complete shape multiplicities, real conditional replay
+tests, and hashseed-identical materialization. The builder is actively repairing these items; no compiler freeze,
+producer/model/checkpoint/GPU/outcome/queue access, or execution authorization has occurred.
