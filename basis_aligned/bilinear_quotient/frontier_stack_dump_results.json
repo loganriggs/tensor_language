@@ -1,0 +1,74 @@
+{
+ "rung": "frontier_stack_dump",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_saved_stack_round_trips_exactly": true,
+  "pred_c_the_dump_contains_the_expected_objects": true,
+  "pred_d_the_file_is_written": true,
+  "pred_e_a_reloaded_stack_reproduces_L2": true
+ },
+ "nulls": {
+  "b_null_the_dump_is_not_faithful": false,
+  "e_null_the_reloaded_stack_does_not_reproduce": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "roundtrip": 0.0,
+  "reeval": 0.001,
+  "min_entries": 20
+ },
+ "null_bars": {
+  "roundtrip_fail": 0.0,
+  "reeval_ge": 0.01
+ },
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4233,
+   "L2_F": 2.6736,
+   "increment": 0.3865
+  },
+  "reload_check": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4233,
+   "L2_F": 2.6736,
+   "increment": 0.3865
+  },
+  "runtime_s": 101.1190869808197
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "L2_F_after_reload": 2.6736,
+  "reload_deviation": 0.0,
+  "cache_key": "5c5a8900d60fa34272bfe7184fad48c2",
+  "cache_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.fitcache/stack_5c5a8900d60fa34272bfe7184fad48c2.pt",
+  "saved": true,
+  "file_size_mb": 1639.3,
+  "roundtrip_ok": true,
+  "tensors_compared": 240,
+  "max_deviation": 0.0,
+  "first_mismatch": null,
+  "entry_kinds": {
+   "cv": 2,
+   "cp": 6,
+   "tableres": 6,
+   "linear": 1,
+   "attnd": 24,
+   "tail": 2
+  },
+  "purpose": "CPU-side certificate work: Hankel/Gramian spectra vs per-matrix spectra"
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 102.9
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_STACK_DUMP_PREREGISTRATION.md": "88a7384c7db88d5040a65f3adfb31e03c5c372063259ad2f157f2e264c172c29"
+ },
+ "self_reviewed": true
+}
