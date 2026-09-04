@@ -1,0 +1,329 @@
+{
+ "rung": "circuit_battery_write_rank_census",
+ "preds": {
+  "pred_a_low_rank_writes_are_architectural": false,
+  "pred_b_attn5_is_extreme_not_unique": true,
+  "pred_c_cheap_surrogates_are_general": true,
+  "pred_d_expensive_is_not_hard_to_approximate": false,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_writes_are_high_rank": false,
+  "b_null_attn5_ordinary": false,
+  "c_null_surrogates_expensive": false,
+  "d_null_expensive_is_hard": false
+ },
+ "bars": {
+  "median_e1": 0.5,
+  "attn5_rank_top": 6,
+  "median_rank32": 0.1,
+  "rho": 0.5,
+  "ce_tol": 0.01
+ },
+ "null_bars": {
+  "median_e1_le": 0.2,
+  "attn5_rank_ge": 20,
+  "median_rank32_ge": 0.5,
+  "rho_ge": 0.8
+ },
+ "rank": 32,
+ "n_fit_docs": 8,
+ "n_eval_docs": 8,
+ "ce_eval_native": 3.0202748775482178,
+ "ce_manual_chunk": 3.0202748775482178,
+ "ce_module_chunk": 3.0202748775482178,
+ "summary": {
+  "median_top_direction_energy": 0.32576699554920197,
+  "attn5_energy_rank": 1,
+  "attn5_top_direction_energy": 0.9816408157348633,
+  "median_rank32_damage": 0.037879228591918945,
+  "median_zero_damage": 0.06213486194610596,
+  "rho_zero_vs_rank32": 0.6926640926640928,
+  "energy_rank_order_top8": [
+   "attn5",
+   "attn6",
+   "attn1",
+   "attn7",
+   "mlp15",
+   "attn9",
+   "mlp16",
+   "attn10"
+  ],
+  "most_expensive_top8": [
+   "mlp0",
+   "attn1",
+   "attn5",
+   "attn0",
+   "mlp1",
+   "mlp16",
+   "mlp17",
+   "mlp4"
+  ]
+ },
+ "components": {
+  "attn0": {
+   "top_direction_energy": 0.1343798190355301,
+   "effective_rank": 32.73535919189453,
+   "zero_damage": 1.7850768566131592,
+   "rank32_damage": 0.05366110801696777,
+   "retained_fraction": 0.9699390489444922
+  },
+  "mlp0": {
+   "top_direction_energy": 0.5065164566040039,
+   "effective_rank": 3.709841012954712,
+   "zero_damage": 2.847539186477661,
+   "rank32_damage": 0.11191248893737793,
+   "retained_fraction": 0.9606985254254531
+  },
+  "attn1": {
+   "top_direction_energy": 0.9339860081672668,
+   "effective_rank": 1.1462385654449463,
+   "zero_damage": 2.6775705814361572,
+   "rank32_damage": 0.02807021141052246,
+   "retained_fraction": 0.9895165372651105
+  },
+  "mlp1": {
+   "top_direction_energy": 0.15356262028217316,
+   "effective_rank": 31.575660705566406,
+   "zero_damage": 1.2211730480194092,
+   "rank32_damage": 0.9832684993743896,
+   "retained_fraction": 0.19481640954234225
+  },
+  "attn2": {
+   "top_direction_energy": 0.2981898784637451,
+   "effective_rank": 10.499698638916016,
+   "zero_damage": 0.31386494636535645,
+   "rank32_damage": 0.04219412803649902,
+   "retained_fraction": 0.8655659750312394
+  },
+  "mlp2": {
+   "top_direction_energy": 0.10307479649782181,
+   "effective_rank": 61.03624725341797,
+   "zero_damage": 0.15270256996154785,
+   "rank32_damage": 0.19787335395812988,
+   "retained_fraction": -0.2958089311002199
+  },
+  "attn3": {
+   "top_direction_energy": 0.1617250144481659,
+   "effective_rank": 29.19110679626465,
+   "zero_damage": 0.1227874755859375,
+   "rank32_damage": 0.03717494010925293,
+   "retained_fraction": 0.6972415962470486
+  },
+  "mlp3": {
+   "top_direction_energy": 0.17805588245391846,
+   "effective_rank": 26.994979858398438,
+   "zero_damage": 0.1233360767364502,
+   "rank32_damage": 0.14478659629821777,
+   "retained_fraction": -0.17391926295502302
+  },
+  "attn4": {
+   "top_direction_energy": 0.3202623426914215,
+   "effective_rank": 9.330759048461914,
+   "zero_damage": 0.25722789764404297,
+   "rank32_damage": 0.05807805061340332,
+   "retained_fraction": 0.7742155841363176
+  },
+  "mlp4": {
+   "top_direction_energy": 0.32575440406799316,
+   "effective_rank": 8.663750648498535,
+   "zero_damage": 0.44268369674682617,
+   "rank32_damage": 0.10121941566467285,
+   "retained_fraction": 0.7713504779857278
+  },
+  "attn5": {
+   "top_direction_energy": 0.9816408157348633,
+   "effective_rank": 1.037750005722046,
+   "zero_damage": 2.23474383354187,
+   "rank32_damage": 0.0853888988494873,
+   "retained_fraction": 0.9617902966917897
+  },
+  "mlp5": {
+   "top_direction_energy": 0.6315097808837891,
+   "effective_rank": 2.498605489730835,
+   "zero_damage": 0.07990884780883789,
+   "rank32_damage": 0.06432843208312988,
+   "retained_fraction": 0.19497735423466855
+  },
+  "attn6": {
+   "top_direction_energy": 0.9577029347419739,
+   "effective_rank": 1.0902549028396606,
+   "zero_damage": 0.07846474647521973,
+   "rank32_damage": 0.029424667358398438,
+   "retained_fraction": 0.6249950623661142
+  },
+  "mlp6": {
+   "top_direction_energy": 0.6225612759590149,
+   "effective_rank": 2.57370924949646,
+   "zero_damage": 0.06397128105163574,
+   "rank32_damage": 0.07728457450866699,
+   "retained_fraction": -0.20811359782345384
+  },
+  "attn7": {
+   "top_direction_energy": 0.8722439408302307,
+   "effective_rank": 1.3139610290527344,
+   "zero_damage": 0.06530022621154785,
+   "rank32_damage": 0.04361557960510254,
+   "retained_fraction": 0.3320761330319947
+  },
+  "mlp7": {
+   "top_direction_energy": 0.24744127690792084,
+   "effective_rank": 15.641932487487793,
+   "zero_damage": 0.06029844284057617,
+   "rank32_damage": 0.06121516227722168,
+   "retained_fraction": -0.015203036653354873
+  },
+  "attn8": {
+   "top_direction_energy": 0.19955965876579285,
+   "effective_rank": 22.00450897216797,
+   "zero_damage": 0.030203580856323242,
+   "rank32_damage": 0.021907567977905273,
+   "retained_fraction": 0.27466984520417104
+  },
+  "mlp8": {
+   "top_direction_energy": 0.144026517868042,
+   "effective_rank": 39.71799850463867,
+   "zero_damage": 0.035852670669555664,
+   "rank32_damage": 0.043020009994506836,
+   "retained_fraction": -0.19991089062822098
+  },
+  "attn9": {
+   "top_direction_energy": 0.7671640515327454,
+   "effective_rank": 1.695441722869873,
+   "zero_damage": 0.045742034912109375,
+   "rank32_damage": 0.03367018699645996,
+   "retained_fraction": 0.26391147527312153
+  },
+  "mlp9": {
+   "top_direction_energy": 0.31730079650878906,
+   "effective_rank": 9.735376358032227,
+   "zero_damage": 0.027680397033691406,
+   "rank32_damage": 0.037834882736206055,
+   "retained_fraction": -0.36684754521963825
+  },
+  "attn10": {
+   "top_direction_energy": 0.7275789380073547,
+   "effective_rank": 1.8804161548614502,
+   "zero_damage": 0.02595686912536621,
+   "rank32_damage": 0.017916440963745117,
+   "retained_fraction": 0.3097610934041205
+  },
+  "mlp10": {
+   "top_direction_energy": 0.10613090544939041,
+   "effective_rank": 67.55769348144531,
+   "zero_damage": 0.028711557388305664,
+   "rank32_damage": 0.0330502986907959,
+   "retained_fraction": -0.15111480174382397
+  },
+  "attn11": {
+   "top_direction_energy": 0.44995415210723877,
+   "effective_rank": 4.805067539215088,
+   "zero_damage": 0.03689742088317871,
+   "rank32_damage": 0.020649433135986328,
+   "retained_fraction": 0.4403556497521953
+  },
+  "mlp11": {
+   "top_direction_energy": 0.4442123770713806,
+   "effective_rank": 5.0312700271606445,
+   "zero_damage": 0.033477067947387695,
+   "rank32_damage": 0.037923574447631836,
+   "retained_fraction": -0.13282245945888205
+  },
+  "attn12": {
+   "top_direction_energy": 0.41962185502052307,
+   "effective_rank": 5.193793773651123,
+   "zero_damage": 0.01095271110534668,
+   "rank32_damage": 0.005640983581542969,
+   "retained_fraction": 0.4849691982846819
+  },
+  "mlp12": {
+   "top_direction_energy": 0.32577958703041077,
+   "effective_rank": 9.223345756530762,
+   "zero_damage": 0.040348052978515625,
+   "rank32_damage": 0.04142904281616211,
+   "retained_fraction": -0.026791623333648484
+  },
+  "attn13": {
+   "top_direction_energy": 0.19559411704540253,
+   "effective_rank": 16.109804153442383,
+   "zero_damage": 0.021540403366088867,
+   "rank32_damage": 0.013008356094360352,
+   "retained_fraction": 0.39609505572957593
+  },
+  "mlp13": {
+   "top_direction_energy": 0.36990171670913696,
+   "effective_rank": 7.204784393310547,
+   "zero_damage": 0.03148221969604492,
+   "rank32_damage": 0.03162884712219238,
+   "retained_fraction": -0.004657467852112074
+  },
+  "attn14": {
+   "top_direction_energy": 0.09684642404317856,
+   "effective_rank": 30.071420669555664,
+   "zero_damage": 0.03846263885498047,
+   "rank32_damage": 0.03385424613952637,
+   "retained_fraction": 0.11981478267337775
+  },
+  "mlp14": {
+   "top_direction_energy": 0.23787625133991241,
+   "effective_rank": 16.77000617980957,
+   "zero_damage": 0.04293417930603027,
+   "rank32_damage": 0.03861260414123535,
+   "retained_fraction": 0.1006558232775615
+  },
+  "attn15": {
+   "top_direction_energy": 0.20280036330223083,
+   "effective_rank": 14.980924606323242,
+   "zero_damage": 0.008711576461791992,
+   "rank32_damage": 0.008246660232543945,
+   "retained_fraction": 0.053367634582227264
+  },
+  "mlp15": {
+   "top_direction_energy": 0.7721865177154541,
+   "effective_rank": 1.6742627620697021,
+   "zero_damage": 0.16267132759094238,
+   "rank32_damage": 0.030522584915161133,
+   "retained_fraction": 0.8123665346119628
+  },
+  "attn16": {
+   "top_direction_energy": 0.15701083838939667,
+   "effective_rank": 16.07098960876465,
+   "zero_damage": 0.01414799690246582,
+   "rank32_damage": 0.01121973991394043,
+   "retained_fraction": 0.20697325626463992
+  },
+  "mlp16": {
+   "top_direction_energy": 0.7374305129051208,
+   "effective_rank": 1.7589335441589355,
+   "zero_damage": 0.8489925861358643,
+   "rank32_damage": 0.03325486183166504,
+   "retained_fraction": 0.9608302093861356
+  },
+  "attn17": {
+   "top_direction_energy": 0.6171028017997742,
+   "effective_rank": 2.537341356277466,
+   "zero_damage": 0.017237186431884766,
+   "rank32_damage": 0.00692296028137207,
+   "retained_fraction": 0.5983706326592714
+  },
+  "mlp17": {
+   "top_direction_energy": 0.6749422550201416,
+   "effective_rank": 2.042550563812256,
+   "zero_damage": 0.5752193927764893,
+   "rank32_damage": 0.07311034202575684,
+   "retained_fraction": 0.8729000743996733
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 110,
+  "backwards": 0,
+  "fitted_parameters": 1327104,
+  "gpu_seconds": 14.570974826812744
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_WRITE_RANK_CENSUS_PREREGISTRATION.md": "3190144d5b0610a384aa4268ed7121326366a3398fd72f603b9918ca6f6ff961",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_attn5_heldout_surrogate_results.json": "a474688fba25cdfdcac1e4b87518efc949a51ccaf2284ae4437d095a122706c0",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
