@@ -28,6 +28,10 @@ AMENDMENT = (
     REPO_ROOT / "basis_aligned/polynomial_causal/"
     "CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_EXECUTION_AMENDMENT.md"
 )
+REPAIR_AMENDMENT = (
+    REPO_ROOT / "basis_aligned/polynomial_causal/"
+    "CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_AMENDMENT.md"
+)
 
 
 def sha256(path: Path) -> str:
@@ -163,13 +167,19 @@ def test_every_frozen_file_matches_adapter_digest_and_review_is_bound() -> None:
     assert adapter.EXECUTION_AUTHORIZED is False
 
 
-def test_producer_and_execution_amendment_bind_each_other() -> None:
+def test_versioned_publication_repair_binds_new_producer_and_preserves_old_amendment() -> None:
     producer_digest = sha256(PRODUCER)
     amendment = AMENDMENT.read_text()
+    repair = REPAIR_AMENDMENT.read_text()
     assert producer_digest == adapter.file_by_role("producer").sha256
-    assert f"`{producer_digest}`" in amendment
+    assert "`a46b64410d0090d2034523be5b1eee58250c876131d78f97b3262c25ca637750`" in amendment
+    assert f"`{producer_digest}`" in repair
     assert adapter.file_by_role("execution_amendment").sha256 == sha256(AMENDMENT)
+    assert adapter.file_by_role("publication_repair_amendment").sha256 == sha256(
+        REPAIR_AMENDMENT
+    )
     assert "not authorized for model" in amendment
+    assert "RENAME_NOREPLACE" in repair
     assert "0 model updates" in amendment
 
 

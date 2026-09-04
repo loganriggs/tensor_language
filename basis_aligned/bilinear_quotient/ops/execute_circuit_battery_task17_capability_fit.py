@@ -91,7 +91,7 @@ FILES = (
     ),
     FrozenFile(
         "producer", "basis_aligned/bilinear_quotient/ops/circuit_battery_task17_capability_fit_producer.py",
-        "a46b64410d0090d2034523be5b1eee58250c876131d78f97b3262c25ca637750",
+        "3dcf04c0f776c056f3701967a666025ed8b63cab4d7e60a868fd766b00ac98ea",
         "source", "circuit_battery_task17_capability_fit_producer",
     ),
     FrozenFile(
@@ -110,6 +110,12 @@ FILES = (
         "compiler_review",
         "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_COMPILE_REVIEW_2026-09-04.md",
         "0494f037748a5e781d038c9960875fbb1e1ee219711c78649246d402e8e6b5c4",
+        "prereg",
+    ),
+    FrozenFile(
+        "publication_repair_amendment",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_AMENDMENT.md",
+        "0c4a20b751cc05c5373b3a1d0eab95164ffc70e5dbe685cc12a9dbb341ff8301",
         "prereg",
     ),
     FrozenFile(

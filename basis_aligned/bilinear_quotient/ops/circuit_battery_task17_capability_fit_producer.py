@@ -10,6 +10,8 @@ atomic package.  It cannot generate later phases or perform localization.
 
 from __future__ import annotations
 
+import ctypes
+import errno
 import hashlib
 import io
 import json
@@ -66,6 +68,9 @@ CANARY2_COMPOSITION = "v2_layer17_mlp_plus_scalar"
 RAW_NUMERIC_BYTES = 1_536
 FORWARD_CALLS = 8
 EXAMPLE_EVALUATIONS = 192
+PUBLICATION_PROTOCOL = "linux_renameat2_noreplace_receipt_last_v1"
+AT_FDCWD = -100
+RENAME_NOREPLACE = 1
 _FORBIDDEN_RESULT_WORDS = (
     "reader", "writer", "component", "attention_head", "mlp_site",
     "activation", "localization", "selection",
@@ -109,13 +114,115 @@ def strict_json_file(path: Path, label: str) -> dict[str, object]:
     return value
 
 
+def path_entry_exists(path: Path) -> bool:
+    """Recognize every directory entry, including a dangling symlink."""
+    try:
+        os.lstat(path)
+    except FileNotFoundError:
+        return False
+    return True
+
+
 def require_unused_namespaces(paths: package.PackagePaths = PATHS) -> None:
     occupied = [
         str(path) for path in (paths.result, paths.receipt, paths.evidence)
-        if path.exists()
+        if path_entry_exists(path)
     ]
     if occupied:
         raise ProducerError(f"task17 capability namespace is occupied: {occupied}")
+
+
+def entry_identity(path: Path) -> tuple[int, int, int, int]:
+    status = os.lstat(path)
+    return (status.st_dev, status.st_ino, status.st_mode, status.st_size)
+
+
+def rename_noreplace(source: Path, destination: Path) -> None:
+    """Atomically move one entry while refusing every existing destination."""
+    library = ctypes.CDLL(None, use_errno=True)
+    try:
+        function = library.renameat2
+    except AttributeError as error:
+        raise ProducerError("renameat2 is unavailable; create-only publication cannot run") from error
+    function.argtypes = (
+        ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint,
+    )
+    function.restype = ctypes.c_int
+    ctypes.set_errno(0)
+    result = function(
+        AT_FDCWD, os.fsencode(source), AT_FDCWD, os.fsencode(destination),
+        RENAME_NOREPLACE,
+    )
+    if result == 0:
+        return
+    error_number = ctypes.get_errno()
+    if error_number in (errno.EEXIST, errno.ENOTEMPTY):
+        raise FileExistsError(
+            error_number, "create-only publication destination exists", str(destination)
+        )
+    if error_number in (errno.ENOSYS, errno.EINVAL):
+        raise ProducerError(
+            "renameat2(RENAME_NOREPLACE) is unavailable; refusing weaker publication"
+        )
+    raise OSError(error_number, os.strerror(error_number), str(destination))
+
+
+def publish_task17_package(
+    stage: Path,
+    paths: package.PackagePaths,
+    *,
+    crash: Callable[[str], None] | None = None,
+    before_move: Callable[[str, Path, Path], None] | None = None,
+) -> None:
+    """Publish evidence/result/receipt last without ever replacing a final entry."""
+    package._validate_stage_tree(stage, paths)
+    moves = (
+        (stage / "evidence", paths.evidence, "evidence"),
+        (stage / "result.json", paths.result, "result"),
+        (stage / "receipt.json", paths.receipt, "receipt"),
+    )
+    if any(path_entry_exists(destination) for _, destination, _ in moves):
+        raise ProducerError("task17 final package namespace is occupied")
+    installed: list[tuple[Path, Path, str, tuple[int, int, int, int]]] = []
+    try:
+        for source, destination, label in moves:
+            expected_identity = entry_identity(source)
+            if before_move is not None:
+                before_move(label, source, destination)
+            rename_noreplace(source, destination)
+            installed.append((source, destination, label, expected_identity))
+            if path_entry_exists(source) or entry_identity(destination) != expected_identity:
+                raise ProducerError(f"task17 {label} identity changed during publication")
+            package._fsync_directory(destination.parent)
+            if crash is not None:
+                crash(f"published:{label}")
+    except BaseException as publication_error:
+        rollback_errors = []
+        for source, destination, label, expected_identity in reversed(installed):
+            try:
+                if path_entry_exists(source):
+                    raise ProducerError(f"task17 rollback source unexpectedly exists: {label}")
+                if not path_entry_exists(destination) \
+                        or entry_identity(destination) != expected_identity:
+                    raise ProducerError(
+                        f"task17 rollback refuses externally replaced destination: {label}"
+                    )
+                rename_noreplace(destination, source)
+                if path_entry_exists(destination) \
+                        or entry_identity(source) != expected_identity:
+                    raise ProducerError(f"task17 rollback identity changed: {label}")
+                package._fsync_directory(source.parent)
+            except BaseException as rollback_error:
+                rollback_errors.append(f"{label}:{type(rollback_error).__name__}:{rollback_error}")
+        if rollback_errors:
+            raise ProducerError(
+                "task17 publication failed and safe rollback was incomplete: "
+                + " | ".join(rollback_errors)
+            ) from publication_error
+        raise
+    (stage / "marker.json").unlink()
+    stage.rmdir()
+    package._fsync_directory(paths.root)
 
 
 def validate_canaries(
@@ -393,6 +500,7 @@ def make_result(
         "model_backwards": 0,
         "model_updates": 0,
         "raw_numeric_evidence_bytes": evidence_numeric_bytes(evidence),
+        "publication_protocol": PUBLICATION_PROTOCOL,
         "literal_price": compiled["literal_price"],
         "decision": dict(decision),
         "checkpoint": {
@@ -458,6 +566,8 @@ def run_dryrun(captured: Mapping[str, bytes]) -> dict[str, object]:
         "completed_calls": len(calls),
         "example_evaluations": len(primitives),
         "raw_numeric_evidence_bytes": evidence_numeric_bytes(evidence),
+        "publication_protocol": PUBLICATION_PROTOCOL,
+        "final_namespace_guard_counts_dangling_symlink": True,
         "evidence_file_count": len(evidence),
         "passing_fixture_terminal": held["terminal"],
         "failing_fixture_terminal": rejected["terminal"],
@@ -507,7 +617,7 @@ def run_science(
         evidence=evidence, elapsed_seconds=clock() - started,
     )
     stage = package.stage_package(paths, evidence_files=evidence, result=result)
-    package.publish_staged_package(stage, paths)
+    publish_task17_package(stage, paths)
     published = package.validate_complete_package(paths)
     if published.get("decision") != decision:
         raise ProducerError("published capability package differs from scored terminal")

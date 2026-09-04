@@ -59,6 +59,14 @@ def package_paths(root: Path) -> package.PackagePaths:
     )
 
 
+def staged_package(paths: package.PackagePaths) -> Path:
+    return package.stage_package(
+        paths,
+        evidence_files={"calls/0000_fixture/answer_logit.npy": b"fixture"},
+        result={"schema": "fixture-result-v1"},
+    )
+
+
 @dataclass(frozen=True)
 class FakeCheckpoint:
     revision: str = producer.MODEL_REVISION
@@ -178,6 +186,130 @@ def test_occupied_final_namespace_stops_before_evaluator(tmp_path: Path) -> None
     paths.result.write_text("occupied")
     with pytest.raises(producer.ProducerError, match="occupied"):
         producer.require_unused_namespaces(paths)
+
+
+@pytest.mark.parametrize("field", ("result", "receipt", "evidence"))
+def test_dangling_symlink_is_an_occupied_final_namespace(
+    tmp_path: Path, field: str,
+) -> None:
+    paths = package_paths(tmp_path)
+    destination = getattr(paths, field)
+    destination.symlink_to(tmp_path / "missing-target")
+    assert destination.is_symlink() and not destination.exists()
+    with pytest.raises(producer.ProducerError, match="occupied"):
+        producer.require_unused_namespaces(paths)
+    assert destination.is_symlink()
+
+
+@pytest.mark.parametrize("race_label", ("evidence", "result", "receipt"))
+def test_late_destination_race_is_never_overwritten_and_prior_moves_roll_back(
+    tmp_path: Path, race_label: str,
+) -> None:
+    paths = package_paths(tmp_path)
+    stage = staged_package(paths)
+    raced = getattr(paths, race_label)
+
+    def plant(label: str, _source: Path, destination: Path) -> None:
+        if label == race_label:
+            destination.symlink_to(tmp_path / f"external-{label}-missing")
+
+    with pytest.raises(FileExistsError, match="destination exists"):
+        producer.publish_task17_package(stage, paths, before_move=plant)
+    assert raced.is_symlink() and not raced.exists()
+    for label in ("evidence", "result", "receipt"):
+        destination = getattr(paths, label)
+        if label != race_label:
+            assert not producer.path_entry_exists(destination)
+    assert (stage / "evidence").is_dir()
+    assert (stage / "result.json").is_file()
+    assert (stage / "receipt.json").is_file()
+    raced.unlink()
+    producer.publish_task17_package(stage, paths)
+    assert package.validate_complete_package(paths)["schema"] == "fixture-result-v1"
+
+
+@pytest.mark.parametrize("crash_label", ("evidence", "result", "receipt"))
+def test_crash_after_each_install_rolls_back_to_a_retryable_complete_stage(
+    tmp_path: Path, crash_label: str,
+) -> None:
+    paths = package_paths(tmp_path)
+    stage = staged_package(paths)
+
+    def crash(point: str) -> None:
+        if point == f"published:{crash_label}":
+            raise RuntimeError(f"planted crash after {crash_label}")
+
+    with pytest.raises(RuntimeError, match="planted crash"):
+        producer.publish_task17_package(stage, paths, crash=crash)
+    assert not any(producer.path_entry_exists(getattr(paths, label)) for label in (
+        "evidence", "result", "receipt",
+    ))
+    assert (stage / "evidence").is_dir()
+    assert (stage / "result.json").is_file()
+    assert (stage / "receipt.json").is_file()
+    producer.publish_task17_package(stage, paths)
+    assert package.validate_complete_package(paths)["schema"] == "fixture-result-v1"
+
+
+def test_rollback_never_moves_an_externally_substituted_inode(tmp_path: Path) -> None:
+    paths = package_paths(tmp_path)
+    stage = staged_package(paths)
+    external = b"external raced result; never overwrite or capture"
+
+    def substitute(point: str) -> None:
+        if point == "published:result":
+            paths.result.unlink()
+            paths.result.write_bytes(external)
+            raise RuntimeError("planted post-install inode substitution")
+
+    with pytest.raises(producer.ProducerError, match="safe rollback was incomplete"):
+        producer.publish_task17_package(stage, paths, crash=substitute)
+    assert paths.result.read_bytes() == external
+    assert not producer.path_entry_exists(paths.evidence)
+    assert not producer.path_entry_exists(paths.receipt)
+    assert (stage / "evidence").is_dir()
+    assert not (stage / "result.json").exists()
+
+
+def test_linux_noreplace_primitive_handles_file_directory_and_dangling_entry(
+    tmp_path: Path,
+) -> None:
+    source_file = tmp_path / "source-file"
+    destination_file = tmp_path / "destination-file"
+    source_file.write_bytes(b"owned")
+    producer.rename_noreplace(source_file, destination_file)
+    assert destination_file.read_bytes() == b"owned" and not source_file.exists()
+
+    source_directory = tmp_path / "source-directory"
+    destination_directory = tmp_path / "destination-directory"
+    source_directory.mkdir()
+    (source_directory / "child").write_bytes(b"owned-directory")
+    producer.rename_noreplace(source_directory, destination_directory)
+    assert (destination_directory / "child").read_bytes() == b"owned-directory"
+
+    raced_source = tmp_path / "raced-source"
+    raced_destination = tmp_path / "raced-destination"
+    raced_source.write_bytes(b"ours")
+    raced_destination.symlink_to(tmp_path / "missing")
+    with pytest.raises(FileExistsError):
+        producer.rename_noreplace(raced_source, raced_destination)
+    assert raced_source.read_bytes() == b"ours"
+    assert raced_destination.is_symlink()
+
+
+def test_successful_publication_installs_receipt_last_and_is_complete(tmp_path: Path) -> None:
+    paths = package_paths(tmp_path)
+    stage = staged_package(paths)
+    order = []
+
+    def observe(label: str, _source: Path, _destination: Path) -> None:
+        order.append(label)
+        if label != "receipt":
+            assert not producer.path_entry_exists(paths.receipt)
+
+    producer.publish_task17_package(stage, paths, before_move=observe)
+    assert order == ["evidence", "result", "receipt"]
+    assert package.validate_complete_package(paths)["schema"] == "fixture-result-v1"
 
 
 def test_canary_gate_rejects_failure_and_changed_fingerprint(tmp_path: Path) -> None:

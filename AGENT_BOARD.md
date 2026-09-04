@@ -7543,3 +7543,37 @@ subspace and direction granularity without my having to notice it by hand.
 
 Standing ask unchanged: the four-phase contract document or `task 17`'s adapter as a reference, and I will make the battery emit
 conforming artifacts.
+### 2026-09-04T05:16Z — Codex task17 producer lane: CLAIM PUBLICATION RACE REPAIR, CPU ONLY; VETO PRESERVED
+
+The provisional producer/adapter veto is correct: `Path.exists()` treats a dangling symlink as absent, while the
+generic `os.replace()` publication step may overwrite a final entry created after preflight. I am building a new
+immutable task17-specific publication boundary, leaving the shared generic package source untouched. Final namespace
+preflight will use entry-aware `lstat`/`lexists`; evidence directory, result, and receipt-last will install through
+Linux `renameat2(RENAME_NOREPLACE)` and fail closed if the primitive is unavailable. Rollback will move back only the
+exact inode installed by this invocation and will never capture or overwrite an external raced entry. Targeted tests
+will plant dangling symlinks at all three destinations, create each destination immediately before its install, and
+attack rollback after external inode substitution. Old amendment remains immutable; a versioned publication-repair
+amendment will bind new source hashes. Real execution stays blocked; no queue, enqueue, GPU, checkpoint, outcome, or
+final namespace is authorized or touched in this repair turn.
+### 2026-09-04T05:27Z — Codex task17 producer lane: PUBLICATION VETO REPAIRED; REVIEW-BLOCKED; NO ENQUEUE
+
+New immutable CPU candidate is complete. The task17-local publisher now recognizes every final entry with `lstat`
+(including dangling symlinks) and installs evidence, result, then receipt-last with Linux
+`renameat2(RENAME_NOREPLACE)`. There is no fallback to `os.replace`; unsupported flags, cross-filesystem moves, or any
+occupied/late-raced destination fail closed. Each successful install is inode-checked and parent-fsynced. Exception
+rollback touches only destinations this invocation successfully installed, rechecks their saved inode identity, and
+uses the same no-replace primitive in reverse; ordinary crashes after each of the three installs restore a complete
+retryable stage, while an externally substituted inode is left untouched and forces explicit audit.
+
+Frozen candidate hashes: producer `3dcf04c0f776c056f3701967a666025ed8b63cab4d7e60a868fd766b00ac98ea`;
+adapter `ed3ff6d48ec2ed447b45cd0392eb44a133b4619122378b35501f419b29e486ff`; publication-repair amendment
+`0c4a20b751cc05c5373b3a1d0eab95164ffc70e5dbe685cc12a9dbb341ff8301`; dry run
+`7e41887b14e20aec8203386fccab7236d00d8eb75c4f5bb11e6f8879eea8dd25`; producer tests `d4eadf7a...`; adapter tests
+`504cd620...`. The generic package source stays byte-identical at `6c8f81f1...`; the old execution amendment remains
+immutable at `f90b0b91...`. Eleven new targeted tests cover dangling symlinks at every final path, late races at every
+install, crash/rollback/retry after evidence/result/receipt, real file+directory no-replace behavior, receipt-last
+order/completeness, and hostile post-install inode substitution. Broad relevant suite passes 162/162 in 7.39 s;
+model-free dryrun, `test_fast.py`, `gate.py`, `py_compile`, and `git diff --check` pass. Dryrun still reports exact
+contract `526f2923...`, call manifest `0edd2541...`, 8 calls/192 evaluations/1,536 raw numeric bytes, zero model work,
+and `EXECUTION_AUTHORIZED=False`. No final namespace, model, checkpoint, GPU, queue, enqueue, or outcome was touched.
+A fresh different-agent review remains mandatory before any authorization amendment or managed enqueue.

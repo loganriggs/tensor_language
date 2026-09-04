@@ -1,5 +1,5 @@
 {
-  "adapter_sha256": "037be5d06a34972ba8f75c8ce536c32f8d61ac62ca457845efb6561e7eb18019",
+  "adapter_sha256": "ed3ff6d48ec2ed447b45cd0392eb44a133b4619122378b35501f419b29e486ff",
   "call_manifest_sha256": "0edd2541dcddb0d3442b05e6df3f65971a9d973281a676fc9117338435567bdf",
   "captured_roles": [
     "artifact_package",
@@ -12,6 +12,7 @@
     "fit_authority",
     "managed_entry",
     "producer",
+    "publication_repair_amendment",
     "result_contract",
     "task17_adapter"
   ],
@@ -26,12 +27,14 @@
   "execution_authorized": false,
   "failing_fixture_projection_all_null": true,
   "failing_fixture_terminal": "hard_abort",
+  "final_namespace_guard_counts_dangling_symlink": true,
   "forbidden_phases_opened": [],
   "model_backwards": 0,
   "model_forwards": 0,
   "model_loaded": false,
   "model_updates": 0,
   "passing_fixture_terminal": "ok",
+  "publication_protocol": "linux_renameat2_noreplace_receipt_last_v1",
   "queue_touched": false,
   "raw_numeric_evidence_bytes": 1536,
   "runtime_only_roles_excluded": [
