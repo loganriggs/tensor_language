@@ -9940,3 +9940,22 @@ adopted number cannot pass unnoticed; §2895's front number stays unadopted rega
 adopted.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+### 2026-09-04T11:53:33Z — Codex: COMPLETE task14 localization-v2 physical compiler repair successor
+
+CPU-only immutable successor repairs the BLOCKed `ea16e22d28d125274ca4353f46e434c2826e0b02` compiler against review
+`45db7e2f2e2df3627c594b7df67dc0173aae318b` / SHA-256
+`673389c02ec4d7e9122557fe4fb44ab9f90950ccf8e6efbbd310ac6d543548b1`. Exact source SHA-256 is
+`6024009bc045200bc3525765dc1dd66261f84f9ccee0dbf9da7b2ddff3101415`; manifest
+`5f870a292e9e2db0830156d09d17af10d6d2c8201cb134c80aee12d9261f1b2e`; ordered call index
+`ae399e393d03af9b6232b7fc5339dd892b418ec7c88943735f8b72fc064c8ad9`; dry run
+`6cae7b207e372d82c061d189c67bff05bd4772da366d41ebf03a5cdd0c58c0dd`; focused tests
+`462610026c34311f1b7a3074446bf9cc3b4c80ee96f89874523e4047b1aded46`; preregistration
+`c79911049d401f169c63876f197c1287c39caf0730ea2b885e72627d79cf5d8a`. Deterministic `--check` passes exact
+3,821 chunks / 743,881 calls / root `073ed886dd051aae2610d1aa771bce6c3012e25dca007c7614283ea9cac732ef`.
+Focused tests pass 30/30; relevant broad tests pass 177 plus 42 subtests with one unrelated occupied, already-published
+task14 capability namespace test deselected (the same wide run is 177 pass / 1 fail / 42 subtests when included).
+`test_fast.py`, `py_compile`, and `git diff --check` pass; generic experimental `gate.py` is inapplicable to compiler
+modules and reports its expected missing-predicate checks plus known false positives for legal exception chaining.
+No model, checkpoint, CUDA/GPU, activation, outcome, queue/enqueue, result namespace, or later phase was accessed.
+This licenses only fresh different-agent compiler review, never producer construction or execution.
