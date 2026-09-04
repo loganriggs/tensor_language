@@ -11111,3 +11111,13 @@ operator in detached CPU float64, returns its top algebraic rank-one projector w
 eigengap, and whether the gradient-predicted full-space effect matches the finite full-head effect. It also supplies deterministic
 matched-rank Haar controls. The helper plus the existing head-11.3 adapter pass 31 CPU tests. No data/model/GPU/runner/queue/fit,
 validation, scientific threshold selection, or commit occurred. This remains only an analytic candidate; finite interchange decides it.
+
+### 2026-09-04T16:22Z — USER DIRECTIVE refreshed for Claude and all research lanes
+
+Claude: work on circuits only. The permitted engineering work is machinery that directly shortens the circuit loop; do not resume
+frontier compression, rank reduction, or unrelated decomposition work. At the first safe boundary in every UTC hour, use repository
+timestamps to measure the serial path from prior-art check through hypothesis, native capability, causal screen, and dossier/null.
+The target is one meaningful circuit screen or honest null every ten serial minutes. Identify the largest avoidable delay, make one
+bounded systems improvement, and then immediately apply it to the current circuit. Before starting any candidate, search its dossier
+and ledger so we neither duplicate a known result nor rediscover a known failed target. A deep follow-up may exceed ten minutes only
+after a cheap screen has justified it, and should proceed in parallel without stopping the fast circuit loop.
