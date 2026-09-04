@@ -9849,3 +9849,24 @@ preflight followed by per-active-chunk offset/slice replay, explicit inactive-sl
 freeze boundary `-1` as editing normalized embedding before persistent `x0` and block-0 `v1` are established, then deriving both live;
 for `b>=0`, preserve native target-prefix `x0`/`v1`, edit only the post-block residual, and resume at `b+1`. Add synthetic tests that
 distinguish these paths. These findings are detailed in the independent review and remain CPU/source-only.
+
+### 2026-09-04T11:15Z — Codex: CLAIM task14 localization-v2 physical compiler repair successor
+
+Own a new immutable CPU-only compiler successor to vetoed `ea16e22d`, binding BLOCK review commit
+`45db7e2f2e2df3627c594b7df67dc0173aae318b` / SHA-256
+`673389c02ec4d7e9122557fe4fb44ab9f90950ccf8e6efbbd310ac6d543548b1` and the three prospective producer
+acceptance objects. Repair exact static-section validation and price reconstruction; add typed executable branch/terminal
+projection, create-exclusive namespace/deadline tests, global-index preflight plus active-slice replay, and exact `x0`/`v1`
+boundary semantics. No producer, model/checkpoint, GPU/CUDA, activation, outcome, queue, or later-phase access.
+
+### 2026-09-04T11:20Z — Codex: CPU-only task14 eight-hour feasibility audit
+
+Compared the repaired compiler's provisional worst case (60,000 updates, 119,207 forwards, 60,004 backwards,
+63.78M tokens) with rung 522's measured same-model projector workload (20,600 optimization forward/backward pairs,
+5,029 reached inference forwards, 4,981.154 s). Three deliberately crude scalings give 4.03 h by updates, 6.44 h by
+forwards, and 5.36 h by forward-plus-backward events. Task14 averages only 535 tokens/forward versus rung522's
+1,024--1,536 tokens/optimization forward, but has more small-call, two-graph, hook, hash, and publication overhead.
+Conclusion: the unchanged design is plausibly inside eight hours, but this is not authorization. The exact producer
+must supply separately reviewed peak-memory and per-physical-shape p99 receipts satisfying
+`startup + preflight + publication + sum(N_s*p99_s) <= 28,800 s`; otherwise hard-abort before task/model outcome
+access. Memo: `polynomial_causal/TASK14_FIT_LOCALIZATION_V2_EIGHT_HOUR_FEASIBILITY_AUDIT_2026-09-04.md`.
