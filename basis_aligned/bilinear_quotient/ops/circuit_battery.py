@@ -16,12 +16,15 @@ couple of GPU-minutes instead of a bespoke dataset, prereg and rung:
 
 # BQGATE: EXPERIMENT  pred_a_instrument_full_equals_writer_ablation pred_b_bank_capability pred_c_writer_localisation
 #                     pred_d_writer_selectivity pred_e_readers_are_redundant_not_concentrated
+#                     pred_f_screen_writer_replicates pred_g_screen_no_writer_is_selective
+#                     pred_h_screen_redundancy_holds_on_ood
 
 SIGN CONVENTION: margin m = logit(answer) - max logit(other candidate); damage d_m = m_NATIVE - m_arm, POSITIVE = the arm HURTS the
 behaviour.  Recovery REC is 0 for no effect and 1 for a full swap.  Nothing here installs into the SS312 frontier (SS2135 applies only
 to frontier L2 numbers, which this rung does not touch).
 Preregistration: polynomial_causal/CIRCUIT_BATTERY_PROTOCOL_PREREGISTRATION.md
 """
+import hashlib
 import json, os, sys, time
 from collections import defaultdict
 from pathlib import Path
@@ -40,17 +43,19 @@ if not torch.cuda.is_available():
     raise RuntimeError("circuit_battery is a lane-1 CUDA script; refusing to fall back to CPU")
 DEV = torch.device("cuda")
 ROOT = R.ROOT
-PREREG = R.POLY / "CIRCUIT_BATTERY_PROTOCOL_PREREGISTRATION.md"
-SMOKE_OUT = ROOT / "circuit_battery_smoke_results.json"   # a smoke never clobbers the real receipt
-HASHES = {PREREG: "d60b4c0c82fd714e401933437192f2731318ae8ee04a5254286822049ca5d30b", R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"}
-RUNG = "circuit_battery"
+PREREG = R.POLY / "CIRCUIT_BATTERY_PROTOCOL_V2_PREREGISTRATION.md"
+SMOKE_OUT = ROOT / "circuit_battery_v2_smoke_results.json"   # a smoke never clobbers the real receipt
+HASHES = {PREREG: "e24f69d5e1a5cafb06766a32c351f94815900dfe67245a8e35aac25ce27c2505", R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"}
+RUNG = "circuit_battery_v2"
+PROTOCOL = "circuit_battery_v2"    # v1 (SS2809) is preserved as a diagnostic screen, not evidence
 D, NH, HD, NL = R.D, R.NH, R.HD, R.NL
 SMOKE = os.environ.get("SURROGATE_SMOKE") == "1"
-OUT = SMOKE_OUT if SMOKE else ROOT / "circuit_battery_results.json"
+OUT = SMOKE_OUT if SMOKE else ROOT / "circuit_battery_v2_results.json"
 PER_CELL = 6 if SMOKE else 24
 TASKS = sorted(BANK.TASKS)
 COMPONENTS = [(kd, l) for l in range(NL) for kd in ("attn", "mlp")]
 
+SCREEN = {"writer": "attn8", "writer_tasks": 7, "selective_tasks": 0, "ood_top3": 0.60}
 BARS = {"exact_tol": 1e-4, "capability_acc": 0.80, "capability_tasks": 8, "localise_rec": 0.50,
         "localise_tasks_frac": 0.50, "select_ratio": 0.25, "select_tasks_frac": 0.50,
         "reader_top3_share": 0.80, "margin_floor": 0.5}
@@ -145,15 +150,27 @@ def run_task(m, task_id, fwd):
            "description": BANK.TASKS[task_id].description,
            "causal_variable": BANK.TASKS[task_id].causal_variable}
 
+    manifest = {sp: {fam: hashlib.sha256(
+        ",".join(sorted(r["row_id"] for r in cells[(fam, sp)])).encode()).hexdigest()
+        for fam in BANK.TASKS[task_id].families} for sp in BANK.SPLITS}
+    out["row_manifest_sha256"] = manifest
+    out["group_ids"] = {sp: sorted({r["group_id"] for r in cells[("A1", sp)]})[:3] for sp in BANK.SPLITS}
+    out["split_policy"] = BANK.split_policy(task_id, per_cell=PER_CELL)
+    out["phases"] = {"FIT": "writer selection only", "SELECT": "scoring",
+                     "TEST": "held out, opened after selection", "OOD": "held out, opened after selection"}
+
     # ---- CAPABILITY: native argmax over the task vocabulary, A1 base prompts ----
     acc, nat_m = [], []
-    for split in ("FIT", "SELECT", "TEST"):
+    acc_by = {}
+    for split in BANK.SPLITS:
         for b in batches(cells[("A1", split)]):
             ids, fin, ans = pack(b, "base")
             lg = run(m, ids, fin); fwd[0] += 1
-            acc.append((lg[:, cand].argmax(1) == (cand.unsqueeze(0) == ans.unsqueeze(1)).float().argmax(1)).float().cpu().numpy())
+            hit = (lg[:, cand].argmax(1) == (cand.unsqueeze(0) == ans.unsqueeze(1)).float().argmax(1)).float().cpu().numpy()
+            acc.append(hit); acc_by.setdefault(split, []).append(hit)
             nat_m.append(margins(lg, ans, cand).cpu().numpy())
     out["capability_acc"] = float(np.concatenate(acc).mean())
+    out["capability_by_split"] = {k: float(np.concatenate(v).mean()) for k, v in acc_by.items()}
     out["native_margin"] = float(np.concatenate(nat_m).mean())
     out["capable"] = out["capability_acc"] >= BARS["capability_acc"]
 
@@ -226,14 +243,24 @@ def run_task(m, task_id, fwd):
     out["control_d_m"] = ctrl
     out["selectivity_ratio"] = float(max(ctrl["P"], ctrl["C"]) / a1)
 
-    # ---- HELD-OUT: the writer's necessity on TEST ----
-    dm = []
-    for b in batches(cells[("A1", "TEST")]):
-        ids, fin, ans = pack(b, "base")
-        lg = run(m, ids, fin); fwd[0] += 1
-        lg2 = run(m, ids, fin, writer=writer, removed=arms["FULL"]); fwd[0] += 1
-        dm.append((margins(lg, ans, cand) - margins(lg2, ans, cand)).cpu().numpy())
-    out["test_full_d_m"] = float(np.concatenate(dm).mean())
+    # ---- HELD-OUT: the writer's necessity and the reader ladder on TEST and OOD ----
+    for split in ("TEST", "OOD"):
+        dm, ladder = [], defaultdict(list)
+        for b in batches(cells[("A1", split)]):
+            ids, fin, ans = pack(b, "base")
+            lg = run(m, ids, fin); fwd[0] += 1
+            mn = margins(lg, ans, cand)
+            lg2 = run(m, ids, fin, writer=writer, removed=arms["FULL"]); fwd[0] += 1
+            dm.append((mn - margins(lg2, ans, cand)).cpu().numpy())
+            for name in ("READS",) + tuple(f"COMP_{c[0]}{c[1]}" for c in readers[:6]):
+                lg3 = run(m, ids, fin, writer=writer, removed=arms[name]); fwd[0] += 1
+                ladder[name].append((mn - margins(lg3, ans, cand)).cpu().numpy())
+        out[f"{split.lower()}_full_d_m"] = float(np.concatenate(dm).mean())
+        lad = {k: float(np.concatenate(v).mean()) for k, v in ladder.items()}
+        out[f"{split.lower()}_ladder"] = lad
+        comps_h = sorted(((k, v) for k, v in lad.items() if k.startswith("COMP_")), key=lambda kv: -kv[1])
+        out[f"{split.lower()}_top3_share"] = float(
+            sum(v for _, v in comps_h[:3]) / max(lad.get("READS", 0.0), BARS["margin_floor"]))
     out["heldout_gap"] = abs(out["test_full_d_m"] - out["split_d_m"]["FULL"])
     return out
 
@@ -264,6 +291,8 @@ def main():
     sel = [t for t in capable if results[t]["selectivity_ratio"] <= BARS["select_ratio"]]
     top3 = [results[t]["reader_top3_share"] for t in capable]
     dev = max(results[t]["instrument_max_dev"] for t in TASKS)
+    attn8 = [t for t in capable if results[t]["writer"] == SCREEN["writer"]]
+    ood3 = [results[t]["ood_top3_share"] for t in capable]
     preds = {
         'pred_a_instrument_full_equals_writer_ablation': bool(dev <= BARS["exact_tol"]),
         'pred_b_bank_capability': bool(len(capable) >= BARS["capability_tasks"]),
@@ -271,6 +300,11 @@ def main():
         'pred_d_writer_selectivity': bool(capable and len(sel) >= BARS["select_tasks_frac"] * len(capable)),
         'pred_e_readers_are_redundant_not_concentrated':
             bool(top3 and float(np.median(top3)) <= BARS["reader_top3_share"]),
+        # prospective replication of the SS2809 SCREEN's three headline claims, on the repaired bank
+        'pred_f_screen_writer_replicates': bool(len(attn8) >= SCREEN["writer_tasks"]),
+        'pred_g_screen_no_writer_is_selective': bool(len(sel) == SCREEN["selective_tasks"]),
+        'pred_h_screen_redundancy_holds_on_ood':
+            bool(ood3 and float(np.median(ood3)) <= SCREEN["ood_top3"]),
     }
     nulls = {
         "b_null_capability_le_2": bool(len(capable) <= NULLS["capability_tasks_le"]),
@@ -279,13 +313,19 @@ def main():
         "d_null_selectivity_ge_.75": bool(capable and float(np.median(
             [results[t]["selectivity_ratio"] for t in capable])) >= NULLS["select_ratio_ge"]),
         "e_null_top3_ge_.8": bool(top3 and float(np.median(top3)) >= NULLS["reader_top3_share_ge"]),
+        "f_null_attn8_le_2": bool(len(attn8) <= 2),
+        "g_null_majority_selective": bool(capable and len(sel) >= 0.5 * len(capable)),
+        "h_null_ood_top3_ge_.8": bool(ood3 and float(np.median(ood3)) >= 0.8),
     }
     summary = {"capable": capable, "localised": loc, "selective": sel,
+               "attn8_writers": attn8, "screen": SCREEN,
+               "median_ood_top3_share": float(np.median(ood3)) if ood3 else None,
                "median_top3_share": float(np.median(top3)) if top3 else None,
                "median_recovery": float(np.median([results[t]["writer_recovery_select"] for t in capable])) if capable else None,
                "max_instrument_dev": dev,
                "writers": {t: results[t]["writer"] for t in TASKS}}
-    result = {"rung": RUNG, "preds": preds, "nulls": nulls, "bars": BARS, "null_bars": NULLS,
+    result = {"rung": RUNG, "protocol": PROTOCOL, "bank_source_sha256": BANK.bank_digest()["source_sha256"],
+              "splits": list(BANK.SPLITS), "preds": preds, "nulls": nulls, "bars": BARS, "null_bars": NULLS,
               "summary": summary, "tasks": results, "bank": BANK.bank_digest(),
               "per_cell": PER_CELL, "smoke": SMOKE, "device": "cuda",
               "price": {"gpu_forwards": fwd[0], "backwards": 0, "fitted_parameters": 0,

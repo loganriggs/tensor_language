@@ -29,7 +29,7 @@ import tiktoken
 
 ENC = tiktoken.get_encoding("gpt2")
 FAMILIES = ("A1", "A2", "P", "C")
-SPLITS = ("FIT", "SELECT", "TEST")
+SPLITS = ("FIT", "SELECT", "TEST", "OOD")
 SCHEMA = "circuit_battery_rows_v1"
 
 WORDS = [
@@ -50,6 +50,18 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
 LETTERS = [chr(c) for c in range(ord("A"), ord("Z") + 1)]
 
 
+def stable_seed(*parts) -> int:
+    """A seed that is identical in every interpreter process.
+
+    The first version of this bank used `hash((seed, task_id, split, family))`. Python salts
+    `hash()` of str per process (PYTHONHASHSEED), so the "frozen" rows differed between runs --
+    caught by Codex's audit of the SS2809 screen (his SS2810 point 2) and reproduced: three
+    subprocesses produced three different first rows. Row identity is now derived from blake2b.
+    """
+    key = "|".join(str(p) for p in parts).encode()
+    return int.from_bytes(hashlib.blake2b(key, digest_size=8).digest(), "big")
+
+
 def single(text: str) -> bool:
     return len(ENC.encode(text)) == 1
 
@@ -64,19 +76,37 @@ class Pools:
         return SPLITS.index(self.split)
 
     def nums(self, lo: int, hi: int) -> list[int]:
-        return [n for n in range(lo, hi) if n % 3 == self._k]
+        return [n for n in range(lo, hi) if n % len(SPLITS) == self._k]
+
+    def starts(self, n: int) -> list[int]:
+        """START indices into a SMALL ordered vocabulary (days, months, numerals, letters).
+
+        A 7-day or 9-numeral vocabulary cannot support four value-disjoint start pools, so the
+        rule is stated rather than faked: the held-out splits (TEST, OOD) always take the second
+        HALF of the vocabulary, disjoint in value from the selection splits (FIT, SELECT); within
+        a half, FIT and SELECT are further separated by value when the half has >= 4 starts, and
+        otherwise share start values and are separated only by the (4-way disjoint) surface word
+        pools. `split_policy()` reports which of the two regimes each task is in.
+        """
+        half = list(range(0, n // 2)) if self.split in ("FIT", "SELECT") else list(range(n // 2, n))
+        if len(half) >= 4:
+            return half[(0 if self.split in ("FIT", "TEST") else 1)::2]
+        return half
+
+    def slice(self, items: list) -> list:
+        return items[self._k::len(SPLITS)]
 
     def words(self) -> list[str]:
-        return WORDS[self._k::3]
+        return WORDS[self._k::len(SPLITS)]
 
     def single_words(self) -> list[str]:
-        return SINGLE_WORDS[self._k::3]
+        return SINGLE_WORDS[self._k::len(SPLITS)]
 
     def days(self) -> list[str]:
         return DAYS
 
     def letters(self) -> list[str]:
-        return LETTERS[self._k::3]
+        return LETTERS[self._k::len(SPLITS)]
 
 
 @dataclass
@@ -127,7 +157,7 @@ def _gen_numeric_sequence(rng, family, pools):
     starts = pools.nums(3, 40)
     a = rng.choice(starts)
     step = rng.choice([2, 3])
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     _s = lambda s, k: " ".join(str(s + i * k) for i in range(4))
     seq = lambda s, k: pre + _s(s, k)
     if family == "A1":
@@ -141,7 +171,8 @@ def _gen_numeric_sequence(rng, family, pools):
                     base_answer=f" {a + 4 * step}", donor_answer=f" {a + 4 * k2}",
                     semantic_details={"perturbation": "step"})
     if family == "P":
-        return dict(base_text="Sequence: " + _s(a, step), donor_text="Numbers: " + _s(a, step),
+        w = rng.sample(pools.words(), 2)
+        return dict(base_text=f"{w[0]}: " + _s(a, step), donor_text=f"{w[1]}: " + _s(a, step),
                     base_answer=f" {a + 4 * step}", donor_answer=f" {a + 4 * step}",
                     semantic_details={"perturbation": "prefix_word"})
     b = rng.choice([x for x in starts if x != a])
@@ -151,12 +182,13 @@ def _gen_numeric_sequence(rng, family, pools):
 
 
 def _gen_weekday(rng, family, pools):
-    i = rng.randrange(0, 5)
+    starts = pools.starts(5)
+    i = rng.choice(starts)
     d = pools.days()
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     nxt = lambda j: f" {d[(j + 2) % 7]}"
     if family == "A1":
-        j = rng.choice([x for x in range(0, 5) if x != i])
+        j = rng.choice([x for x in starts if x != i]) if len(starts) > 1 else (i + 1) % 5
         return dict(base_text=f"{pre}{d[i]} {d[i + 1]}", donor_text=f"{pre}{d[j]} {d[j + 1]}",
                     base_answer=nxt(i), donor_answer=nxt(j),
                     semantic_details={"perturbation": "start_day"})
@@ -170,7 +202,7 @@ def _gen_weekday(rng, family, pools):
         return dict(base_text=f"{w[0]}: {d[i]} {d[i + 1]}", donor_text=f"{w[1]}: {d[i]} {d[i + 1]}",
                     base_answer=nxt(i), donor_answer=nxt(i),
                     semantic_details={"perturbation": "prefix_word"})
-    j = rng.choice([x for x in range(0, 5) if x != i])
+    j = rng.choice([x for x in starts if x != i]) if len(starts) > 1 else (i + 1) % 5
     return dict(base_text=f"{pre}{d[i]} {d[i]}", donor_text=f"{pre}{d[j]} {d[j]}",
                 base_answer=f" {d[i]}", donor_answer=f" {d[j]}",
                 semantic_details={"control": "repeated_day_copy"})
@@ -254,7 +286,7 @@ def _gen_letter_list(rng, family, pools):
 def _gen_countdown(rng, family, pools):
     starts = pools.nums(12, 80)
     a = rng.choice(starts)
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     _s = lambda s: " ".join(str(s - i) for i in range(4))
     seq = lambda s: pre + _s(s)
     if family == "A1":
@@ -278,11 +310,12 @@ def _gen_countdown(rng, family, pools):
 
 
 def _gen_month(rng, family, pools):
-    i = rng.randrange(0, 9)
+    starts = pools.starts(9)
+    i = rng.choice(starts)
     m = MONTHS
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     if family == "A1":
-        j = rng.choice([x for x in range(0, 9) if x != i])
+        j = rng.choice([x for x in starts if x != i])
         return dict(base_text=f"{pre}{m[i]} {m[i + 1]}", donor_text=f"{pre}{m[j]} {m[j + 1]}",
                     base_answer=f" {m[i + 2]}", donor_answer=f" {m[j + 2]}",
                     semantic_details={"perturbation": "start_month"})
@@ -296,7 +329,7 @@ def _gen_month(rng, family, pools):
         return dict(base_text=f"{w[0]}: {m[i]} {m[i + 1]}", donor_text=f"{w[1]}: {m[i]} {m[i + 1]}",
                     base_answer=f" {m[i + 2]}", donor_answer=f" {m[i + 2]}",
                     semantic_details={"perturbation": "prefix_word"})
-    j = rng.choice([x for x in range(0, 9) if x != i])
+    j = rng.choice([x for x in starts if x != i])
     return dict(base_text=f"{pre}{m[i]} {m[i]}", donor_text=f"{pre}{m[j]} {m[j]}",
                 base_answer=f" {m[i]}", donor_answer=f" {m[j]}",
                 semantic_details={"control": "repeated_month_copy"})
@@ -306,7 +339,7 @@ def _gen_month(rng, family, pools):
 
 # --- bank v2 additions: behaviours selected by a measured native-capability scan --------- #
 
-ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "IX", "X", "XI", "XII"]
+ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "IX", "X"]   # XI/XII are 2 gpt2 tokens
 COUNT_WORDS = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                "eleven", "twelve"]
 KEYS = ["Chapter", "Section", "Item", "Part", "Step", "page", "Page", "Figure", "Table"]
@@ -364,7 +397,7 @@ def _gen_keyed_line(rng, family, pools):
 
 
 def _gen_roman_list(rng, family, pools):
-    idx = list(range(len(ROMAN) - 3))[pools._k::3]
+    idx = pools.starts(len(ROMAN) - 3)
     i = rng.choice(idx)
     w = rng.sample(pools.words(), 4)
     lst = lambda j, ws: f"{ROMAN[j]}. {ws[0]}\n{ROMAN[j + 1]}. {ws[1]}\n"
@@ -420,10 +453,10 @@ def _gen_numeric_run(rng, family, pools):
 
 
 def _gen_counting_words(rng, family, pools):
-    idx = list(range(len(COUNT_WORDS) - 4))[pools._k::3]
+    idx = pools.starts(len(COUNT_WORDS) - 4)
     i = rng.choice(idx)
     c = COUNT_WORDS
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     run = lambda j: pre + f"{c[j]} {c[j + 1]} {c[j + 2]}"
     if family == "A1":
         j = rng.choice([x for x in idx if x != i])
@@ -447,10 +480,10 @@ def _gen_counting_words(rng, family, pools):
 
 
 def _gen_alphabet_run(rng, family, pools):
-    idx = list(range(len(LOWER) - 5))[pools._k::3]
+    idx = pools.starts(len(LOWER) - 5)
     i = rng.choice(idx)
     L = LOWER
-    pre = rng.choice(pools.words()) + ": "   # shared surface prefix: widens the draw space
+    pre = " ".join(rng.sample(pools.words(), 2)) + ": "   # shared surface prefix: widens the draw space
     run = lambda j: pre + f"{L[j]} {L[j + 1]} {L[j + 2]} {L[j + 3]}"
     if family == "A1":
         j = rng.choice([x for x in idx if x != i])
@@ -584,8 +617,11 @@ TASKS: dict[str, Task] = {
 def _row(task: Task, family: str, split: str, d: dict) -> dict | None:
     bt, dt = d["base_text"], d["donor_text"]
     ba, da = d["base_answer"], d["donor_answer"]
+    bi_, di_ = ENC.encode(bt), ENC.encode(dt)
     checks = {
         "single_token_answers": single(ba) and single(da),
+        "base_joint_tokenization": ENC.encode(bt + ba) == bi_ + ENC.encode(ba),
+        "donor_joint_tokenization": ENC.encode(dt + da) == di_ + ENC.encode(da),
         "base_roundtrip": ENC.decode(ENC.encode(bt)) == bt,
         "donor_roundtrip": ENC.decode(ENC.encode(dt)) == dt,
         "distinct_prompts": bt != dt,
@@ -611,32 +647,74 @@ def _row(task: Task, family: str, split: str, d: dict) -> dict | None:
 
 
 def build_rows(task_id: str, per_cell: int = 24, seed: int = 2808) -> list[dict]:
-    """Deterministic rows for one task: FAMILIES x SPLITS x per_cell, deduped."""
+    """Deterministic rows for one task: families x SPLITS x per_cell, in COMPLETE GROUPS.
+
+    One group = one generated situation (the same start value, the same words, the same surface
+    prefix) transformed into all of the task's families, sharing a `group_id`.  Every family
+    branch of a generator draws its situation BEFORE branching, so seeding the group rather than
+    the family makes the four rows genuine transformations of one situation rather than four
+    independent draws -- the defect Codex's audit raised against the SS2809 screen (his SS2810
+    point 3).  A group is emitted only if EVERY family produced a valid, unseen row, so no split
+    ever contains a partial group.
+    """
     task = TASKS[task_id]
     out: list[dict] = []
-    for si, split in enumerate(SPLITS):
+    for split in SPLITS:
         pools = Pools(split)
-        for fi, family in enumerate(task.families):
-            rng = random.Random(hash((seed, task_id, split, family)) & 0xFFFFFFFF)
-            seen, made, tries = set(), 0, 0
-            while made < per_cell and tries < per_cell * 60:
-                tries += 1
-                d = task.gen(rng, family, pools)
+        seen: set[str] = set()
+        made = 0
+        for g in range(per_cell * 60):
+            if made >= per_cell:
+                break
+            gseed = stable_seed(seed, task_id, split, "group", g)
+            group_id = hashlib.blake2b(str(gseed).encode(), digest_size=16).hexdigest()
+            group: list[dict] = []
+            for family in task.families:
+                d = task.gen(random.Random(gseed), family, pools)
                 if d is None:
-                    continue
+                    break
                 row = _row(task, family, split, d)
-                if row is None or row["row_id"] in seen:
-                    continue
-                seen.add(row["row_id"])
-                out.append(row)
-                made += 1
-            if made < per_cell:
-                raise RuntimeError(f"{task_id}/{family}/{split}: only {made}/{per_cell} valid rows")
+                if row is None or row["row_id"] in seen or any(r["row_id"] == row["row_id"] for r in group):
+                    break
+                row["group_id"] = group_id
+                group.append(row)
+            if len(group) != len(task.families):
+                continue
+            seen.update(r["row_id"] for r in group)
+            out.extend(group)
+            made += 1
+        if made < per_cell:
+            raise RuntimeError(f"{task_id}/{split}: only {made}/{per_cell} complete groups")
     return out
 
 
 def candidate_strings(task_id: str) -> list[str]:
     return list(TASKS[task_id].answer_vocab)
+
+
+def split_policy(task_id: str, per_cell: int = 24) -> dict:
+    """What is actually disjoint between splits for this task -- measured from the rows, not claimed."""
+    rows = build_rows(task_id, per_cell=per_cell)
+    by = {s: {r["base_text"] for r in rows if r["split"] == s} for s in SPLITS}
+    sel, held = ("FIT", "SELECT"), ("TEST", "OOD")
+    per_family = {}
+    for fam in TASKS[task_id].families:
+        ans = {s: {r["base_answer"] for r in rows if r["split"] == s and r["family"] == fam}
+               for s in SPLITS}
+        per_family[fam] = {
+            "answers_disjoint_selection_vs_heldout":
+                not ({v for s in sel for v in ans[s]} & {v for s in held for v in ans[s]}),
+            "answers_disjoint_fit_vs_select": not (ans["FIT"] & ans["SELECT"]),
+            "answer_counts": {s: len(ans[s]) for s in SPLITS},
+        }
+    return {
+        "prompts_disjoint_all_pairs": all(not (by[a] & by[b]) for a in SPLITS for b in SPLITS if a < b),
+        "per_family": per_family,
+        "all_families_heldout_value_disjoint":
+            all(f["answers_disjoint_selection_vs_heldout"] for f in per_family.values()),
+        "all_families_fit_select_value_disjoint":
+            all(f["answers_disjoint_fit_vs_select"] for f in per_family.values()),
+    }
 
 
 def bank_digest() -> dict:
