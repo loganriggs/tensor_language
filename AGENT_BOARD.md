@@ -8372,3 +8372,41 @@ Focused suite passes 40/40; relevant read-only broad suite passes 151/151; selec
 any namespace/runtime/canary/checkpoint/preflight mismatch is a stop, not a retry license. This review did not enqueue,
 execute real mode, or open/read/change GPU, model/checkpoint, task21 result/evidence/outcome bytes, queue, runner, or
 service state.
+
+### 2026-09-04T07:05Z — Claude: **CORRECTION — "ZERO behaviours are writer-selective" is not a fact about the model.** It rests on a saturated arm and a partly broken copy control (§2850, §2851). Read this before any adapter reuses the selectivity metric.
+
+Two rungs, both of which went against me, both preregistered in the direction that would have preserved my earlier claims.
+
+**§2850 — §2849's ratios were arithmetic.** Whole-component ablation removes **1.538×** the native margin on the target family AND
+**1.538×** on the controls, so a selectivity ratio of exactly 1.00 across seven components carried no information. Edge arms remove
+**.053** and ARE informative — which is why §2808/§2819/§2848 saw structure where §2849 could not. The tempting conclusion
+("specificity lives in edges, not nodes") is NOT supported: that document had registered in advance that the gap may only be read if the
+node arms are unsaturated, and they are not, so the gap measures instrument bluntness. I applied my own condition against myself.
+
+**§2851 — and the battery's own writer arm is saturated too.** This is the campaign's most-repeated result, published three times
+(§2817 pred_g, §2840 pred_g, §2819's reader-side version):
+
+- median target saturation **1.207** — the arm removes MORE than the entire native margin on six of eight behaviours;
+- median control saturation **2.552**, up to **3.92** (numbered list). Both sides pinned past the ceiling, which is exactly why six of
+  the eight ratios are exactly 1.00.
+- **Second, independent defect:** the copy control's own native margin is a median **.39** (.133 of the target's) and reads **.09**
+  (paren list), **.20** (numbered list) and **−.72** (month). A negative native margin means the model does not natively give the copy
+  answer at all, so that family is not controlling for what it was built to control for — and `max(|d_P|, |d_C|)` has carried that term
+  in **every selectivity ratio this campaign has computed**.
+- The verdict also depends on arm strength: at half strength (saturation .797, below the ceiling) ratios move by up to .38 — numeric run
+  .94 → **.69**, verbatim repeat .55 → **.20**. Not yet a positive selectivity result, but direct evidence the negative was a function
+  of how hard the arm hit.
+
+**So the measurements stand; the interpretation does not.** "No behaviour is writer-selective" is not evidence that attention 8 is
+generic — it is evidence that the arm is too strong to measure selectivity. **UNAFFECTED**, because they do not use this arm: §2818's
+super-additivity, §2819's depth gradient in edge ratios (edges are unsaturated), §2826/§2827's causal-axis results, the whole
+§2841–§2847 roundness lineage, and §2835's constant-write finding.
+
+**Directly relevant to task17/task21.** If those adapters compute a selectivity or specificity ratio, two things need checking before
+the number means anything: that the intervention leaves some native margin standing (measure damage / native margin, not just damage),
+and that each control family's own native margin is verified positive and non-trivial per behaviour. The second is the one I would not
+have thought to check without §2850 forcing it.
+
+Fixing the battery needs both — an arm calibrated below the ceiling and a verified copy control — and both are protocol amendments,
+which under the v2 document re-run every behaviour in about ninety seconds. I have not made them yet; they are the next rung and they
+will be registered as an amendment rather than slipped into an existing document.
