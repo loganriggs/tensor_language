@@ -1,0 +1,152 @@
+{
+  "FINAL_TEST_or_OOD_opened": false,
+  "active_scientific_nulls_evaluated": false,
+  "active_scientific_nulls_reason": "no_provisional_fit_candidate",
+  "approved_adapter_snapshot_file_count": 25,
+  "approved_commit": "3eb52938b3641f067d8f8eb9e654f461cbd61ad0",
+  "approved_sha256": {
+    "basis_aligned/bilinear_quotient/numbered_list_cached_value_downstream_use_rung590_dryrun.json": "3ebada19f74906ba3e7cd1637fc1cd6cdff84936124dee01cb058875432d3b95",
+    "basis_aligned/bilinear_quotient/ops/execute_numbered_list_cached_value_downstream_use_rung590.py": "c525cad078935ef0552214fba13c16a5d56483c8e3048bbec4d6ab9ef3f17885",
+    "basis_aligned/bilinear_quotient/ops/numbered_list_cached_value_downstream_use_rung590.py": "c38654506f36fcf111f3a34f356893240548c3cfbf4eded58efb04d31fdb2e36",
+    "basis_aligned/bilinear_quotient/ops/test_numbered_list_cached_value_downstream_use_rung590.py": "49f6f7a998bfb69331c36391f5d3c16d9b702c1fd60b4da5b09c920f3832e5b0",
+    "basis_aligned/polynomial_causal/NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG590_PROSPECTIVE_CONTRACT_REPLICATION.md": "dae72b4aee35030f31ce42674d9535d6bff6c857b9beb8633a8ac809edaf031b"
+  },
+  "audit_failures": [],
+  "audit_passed": true,
+  "audit_script_sha256": "7a0de3fbf1cf431115c98439d76d14c706b45ed2a3a7c4318b43a769444386db",
+  "audit_test_sha256": "bc783b213dd89613298f067dcb9658f065fb983a53c889a56153d883d7c38bff",
+  "audit_verdict": "scientific_null_independently_held_with_postpublication_wrapper_bug",
+  "bootstrap_cell_count": 432,
+  "bootstrap_replicates_per_cell": 2000,
+  "bootstrap_trace_sha256": "6d6d47369f7234ee27b202da6147f6685515d034b00e15fca8c50ede7d7abb57",
+  "candidate_cell_pass_counts": {
+    "mlp10_background_cross": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 2,
+      "target_cells": 10
+    },
+    "mlp10_contrast_self": {
+      "action_gap_cells": 2,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 2,
+      "target_cells": 0
+    },
+    "mlp10_joint_response": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 3,
+      "target_cells": 8
+    },
+    "mlp12_background_cross": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 5,
+      "target_cells": 6
+    },
+    "mlp12_contrast_self": {
+      "action_gap_cells": 8,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 0,
+      "target_cells": 5
+    },
+    "mlp12_joint_response": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 4,
+      "target_cells": 6
+    },
+    "mlp14_background_cross": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 4,
+      "target_cells": 2
+    },
+    "mlp14_contrast_self": {
+      "action_gap_cells": 5,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 2,
+      "target_cells": 0
+    },
+    "mlp14_joint_response": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 2,
+      "target_cells": 2
+    },
+    "mlp8_background_cross": {
+      "action_gap_cells": 6,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 0,
+      "target_cells": 10
+    },
+    "mlp8_contrast_self": {
+      "action_gap_cells": 9,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 0,
+      "target_cells": 6
+    },
+    "mlp8_joint_response": {
+      "action_gap_cells": 9,
+      "active_relation_conflict_cells": 12,
+      "conflict_preservation_cells": 6,
+      "copy_cells": 0,
+      "target_cells": 10
+    }
+  },
+  "evidence_sha256": "3025923441b40d7ced3a0d9b8277ade3639d87deb4b8fe2c6a00438c9fcf4815",
+  "fit_exactness": {
+    "bilinear_response_relative_squared_error": 3.081251238313442e-11,
+    "cached_bus_relative_squared_error": 0.0,
+    "head_source_sum_relative_squared_error": 6.107306289156592e-15,
+    "native_end_to_end_smoke_relative_squared_error": 0.0,
+    "native_replay_relative_squared_error": 0.0,
+    "projected_term_relative_squared_error": 4.384633164167184e-14,
+    "value_split_relative_squared_error": 5.635999733353639e-16
+  },
+  "independently_recomputed_decision": "downstream_use_decomposition_null",
+  "independently_recomputed_model_forwards": 379,
+  "independently_recomputed_opened_splits": [
+    "FIT"
+  ],
+  "independently_recomputed_provisional": null,
+  "independently_recomputed_selected": null,
+  "instrument_invalid": false,
+  "managed_runlog_sha256": "182554a1824fbd7254893d5df28704fb891fc6f78d22d75519f8192c1b657456",
+  "managed_runner_exit_code": 1,
+  "managed_wrapper_clean": false,
+  "model_backwards_by_audit": 0,
+  "model_forwards_by_audit": 0,
+  "model_loaded_by_audit": false,
+  "model_weights_updated_by_audit": false,
+  "next_step": "accept_scientific_null_do_not_rerun_repair_adapter_before_future_reuse",
+  "package_id": "f6955310fae86f5b77e1005ee3f571715a72bc5d66bd400b9e437c7126777c92",
+  "phase_support_census_sha256": "3c5058f3908c6b31575567a3641bd6501d1ef42454eb4aa665d93575f3ee8fdc",
+  "postpublication_adapter_error": true,
+  "postpublication_error_classification": "wrapper_false_failure_after_valid_receipt_commit",
+  "raw_counts": {
+    "fit_capture_rows": 576,
+    "fit_null_arms": 0,
+    "fit_real_arms": 12,
+    "rows_per_fit_arm": [
+      576
+    ],
+    "select_null_arms": 0,
+    "select_real_arms": 0
+  },
+  "receipt_sha256": "2789d205c311ffaa8401edd761a787b8061a138ad297ab5c7f4b67b45ba3b20d",
+  "result_sha256": "e868a0e67aa9e4d3251deccbf625b7708ee1f1ce9070afbdfce2357a9f0bed24",
+  "schema": "numbered_list_cached_value_downstream_use_rung590_postexecution_audit_v1",
+  "scientific_terminal_valid": true
+}
