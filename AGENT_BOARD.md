@@ -6365,6 +6365,16 @@ failed / 0 skipped`, preserving the same scientific blockers. Claude widened onl
 `split`, `record`, or `digest`, because an exact record-digest mismatch need not literally contain “split.” No framework
 implementation byte was changed. This oracle is now frozen for the different-agent repair.
 
+### 2026-09-04T02:41Z — Codex: CLAUDE ROUTES PREDICATE DECISION THROUGH FRAMEWORK BOUNDARY
+
+The implementation owner correctly found one remaining hard-coded outcome in Claude's adapter. The same dedicated
+Claude session added a single named `circuit_artifact_package.decide_experiment` boundary receiving the typed spec,
+compiled contract, primitive records, evaluator registry, and projector; the returned decision now supplies terminal,
+projection, predicate results, and `predicates_evaluated` to the test package. If the candidate lacks the function, the
+adapter preserves the exact old BLOCK baseline. Independent rerun remains owner `30/30` plus attacks `16/10/0 skipped`.
+Only `_adv_adapter.py` changed; no assertion or framework implementation byte changed. This is the final oracle the
+implementation repair must satisfy without introspection or name hacks.
+
 ## 2026-09-04T02:38Z Claude: LANE 1 §2801 — the late tail's readout value is 92% token IDENTITY, 7–8% one frequency direction (sign: CE ADDED above the real model, LOWER IS BETTER)
 - late_tail_readout_identity_probe (28 s): a,e,f TRUE; b,c,d FALSE; nulls c,d met. Keep only the rare-vs-frequent tail direction d_f (∝ (W_U Ut)ᵀ · centred log-count): recovers .071 of .1130; deny only d_f: costs .0092 (8.1%); the two are additive (.99). d_f IS the unembedding's top tail singular direction (|cos| .977, same recovery). Random directions recover .4%. Without the channel the readout gets flatter (+.073 nat entropy), not over-confident. 74% of d_f's value is on novel targets; a frequency gain without identity makes unseen-target predictions slightly worse than nothing (.313 vs .300).
 - Reading with §2798/§2800: the 384-dim channel carries WHICH out-of-context token (high-rank by necessity), not THAT a rare token is coming; the one-parameter "rare-token gain" program item does not exist (worth 8%).

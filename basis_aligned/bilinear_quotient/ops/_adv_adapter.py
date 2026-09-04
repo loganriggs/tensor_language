@@ -419,6 +419,7 @@ class Package:
     result: dict
     predicates_evaluated: bool = False       # True only once a FRAMEWORK function evaluated them; see project_result
     evaluators: EvaluatorRegistry | None = None   # the bindings handed to the framework boundary for this package
+    decision: dict | None = None                  # the decision returned by decide() that this package was built from
 
     @property
     def scores(self) -> dict:
@@ -433,20 +434,38 @@ def _projector_of(synth: SynthSpec):
     return lambda evidence: dict(synth.projector(evidence["records"]))
 
 
+DECISION_FUNCTION = "decide_experiment"     # named framework boundary on circuit_artifact_package (may not exist yet)
+
+
+def decide(c: Compiled, evidence: Evidence) -> dict:
+    """The ONE place the science decision is made.  Framework path: circuit_artifact_package.decide_experiment(
+    spec=<typed spec: predicates carry kind/priority/disposition/evaluator_role>, compiled=<contract incl. predicate_order>,
+    primitives=<evidence records>, evaluators=<EvaluatorRegistry: role -> callable>, projector=<science projector>)
+    returning a mapping with 'terminal', 'projection' and 'predicates_evaluated' (plus any 'predicate_results').
+    Baseline path (the candidate provides no such function): exactly what the framework does today -- the projector
+    runs, validate_science_projection recomputes it once, no predicate is evaluated, terminal 'ok'.  The adapter
+    neither evaluates a predicate nor resolves a terminal itself."""
+    framework_decision = getattr(pkg, DECISION_FUNCTION, None)
+    if framework_decision is None:
+        prim = {"records": evidence.primitives}
+        projection = dict(c.synth.projector(evidence.primitives))
+        pkg.validate_science_projection(prim, projection, _projector_of(c.synth))
+        return {"terminal": TERMINAL_OK, "projection": projection, "predicates_evaluated": False,
+                "predicate_results": {}, "decided_by": None}
+    decision = framework_decision(spec=c.synth.spec, compiled=c.compiled, primitives=evidence.primitives,
+                                  evaluators=c.synth.evaluators, projector=c.synth.projector)
+    return dict(decision, decided_by=DECISION_FUNCTION)
+
+
 def project_result(c: Compiled, evidence: Evidence) -> Package:
-    """Producer path: projection = projector(primitives), projector resolved by science.projector_role through the
-    registry; Codex's audit = validate_science_projection, which recomputes the projector ONCE on the same evidence
-    object.  Every registered predicate evaluator is available here as c.synth.evaluators[predicate.evaluator_role]
-    alongside the typed predicates (kind/priority/disposition) in c.synth.spec.predicates and compiled predicate_order,
-    but NO Codex function takes them: no module evaluates a predicate or resolves a terminal, so predicates_evaluated
-    stays False and the terminal is the projector's unconditional 'ok'."""
-    prim = {"records": evidence.primitives}
-    projection = dict(c.synth.projector(evidence.primitives))
-    pkg.validate_science_projection(prim, projection, _projector_of(c.synth))
+    """Producer path: Package.terminal / scores / predicates_evaluated are BUILT FROM the decision returned by decide()."""
+    decision = decide(c, evidence)
     result = {"schema": "redteam_result_v1", "experiment_id": c.synth.spec.experiment_id, "contract_hash": c.contract_hash,
-              "manifest_sha256": c.compiled["call_summary"]["manifest_sha256"], "projection": projection,
-              "terminal": TERMINAL_OK, "predicate_order": c.compiled["predicate_order"]}
-    return Package(c, evidence, result, predicates_evaluated=False, evaluators=c.synth.evaluators)
+              "manifest_sha256": c.compiled["call_summary"]["manifest_sha256"], "projection": dict(decision["projection"]),
+              "terminal": decision["terminal"], "predicate_order": c.compiled["predicate_order"],
+              "predicate_results": decision.get("predicate_results", {}), "decided_by": decision["decided_by"]}
+    return Package(c, evidence, result, predicates_evaluated=bool(decision["predicates_evaluated"]),
+                   evaluators=c.synth.evaluators, decision=decision)
 
 
 def package_paths(target: pathlib.Path, namespace: str) -> pkg.PackagePaths:
