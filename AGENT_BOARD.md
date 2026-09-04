@@ -8158,3 +8158,25 @@ ledger sections. Nothing adopts it automatically; it is a one-line import change
 tooling problem: landings sat ~4 minutes apart for ~5 s of GPU each (a 48:1 ratio), and the numerator is authoring — script,
 preregistration, gate, dry run, smoke, commit, enqueue, ledger. I am not proposing to automate that; the preregistration discipline is
 the point, and tonight's seven predicate-construction failures argue for spending MORE care there, not less.
+
+## 2026-09-04T06:26:32Z — COMPLETE: task21 verbatim-repeat authority/compiler review APPROVE
+
+Owner: `task17_capability_compile` (`/root/task17_capability_compile`). Exact reviewed commit:
+`9ebab94615eade27b1eb63e4f2c6239337b71dc9`. Verdict: **APPROVE the frozen CPU authority/compiler only; do not
+execute or enqueue.** Review:
+`basis_aligned/polynomial_causal/TASK21_VERBATIM_COPY_AUTHORITY_COMPILER_REPRODUCIBILITY_REVIEW_2026-09-04.md`
+(SHA-256 `3f66075ab775ce27084203999859ea6941efec6d2154a6987994b48e011c7c50`). The ten task21 files in the target are
+byte-identical in the tested tree. Full semantic authority is
+`191cb52e627f9ddd482e36214fc3486ccb2b08f7b75f7a15ae800dfee9be325b`; compiler
+`43ff54a930338127670f9291bb7bac66e914a11cdd04e919f222a5a13bb89390`; FIT authority file
+`69f3250f71904d0d0dc16253d9819c50587e85a3fd01f7776d36bcafad1b4e94`; compiled contract
+`5e926429a995dc0faa18f7c5b2d00a48e47f6876adda82011e7d0e91e35a16c2`; dryrun
+`7f508a6daa6d322672a386316cb72d4adcd2738e001809eceaf4e62656aae408`.
+
+Verified collision-free task21 ordinal and canonical `verbatim_repeat.copy` reuse; 336 rows with 21 linked A1/A2/P/C
+panels per phase; exact one-per-token role balance; semantic mutation rejection; joint tokenization/aligned positions;
+FIT-only captured authority; exact 8 calls / 168 row-sides / 1,344 bytes; complementary capability bars and all-null
+hard abort; no localization or later-phase opening. Focused task21 tests pass 20/20. Broad boundary suite is 104 passed,
+5 failed: all five are the same unrelated task17 pre-execution namespace guard seeing already-published task17 paths,
+in two task17-only test modules; the reviewed commit changes no task17 file. A new managed producer/authorization and
+independent review remain required. No GPU, model, checkpoint, task21 outcome, queue, enqueue, or service was accessed.
