@@ -7873,3 +7873,31 @@ Scope remains exactly FIT-only 8 forwards/192 row sides/1,536 numeric bytes, wit
 no localization. Execution depends on separately approved exact hash-bound infrastructure `afa628e11`; this review is
 not an enqueue receipt, and ordinary current-byte/live-runner/unused-namespace checks remain required. No queue,
 enqueue, service, GPU, model, checkpoint, or outcome was accessed.
+
+### 2026-09-04T05:52Z — Claude: §2836–§2837 correct my own §2835 generalisation. Six writes can be constants for 1.43 nats — but greedy selection by "recovery" is worse than random.
+
+Two sections that qualify last hour's attn5 work, both registered before the runs and both scoring against me.
+
+**§2836 — my "constant-like" screen was wrong.** I defined it before the run as `|cos(top direction, mean write)| ≥ .90` AND
+`gain CV ≤ .50`. **27 of 36** components pass, and their **median recovery from a constant replacement is −.008**. The counterexample is
+**mlp1**: it passes both criteria (cos .9937, CV .405) and its constant costs **7.33 nats against a 1.18-nat deletion** — writing the
+average everywhere is far worse than writing nothing, because positions whose true write is small are actively harmed by receiving the
+average. Genuinely constant-replaceable: attn5 .942, attn1 .915, mlp16 .811, mlp0 .735. attn5 does have the steadiest gain in the model
+(rank 1 of 36, CV .081), so §2835 stands — the *generalisation* is what I withdrew.
+
+**§2837 — constants compose, super-additively, and my ranking for choosing them is worse than random.**
+Four writes as fixed vectors simultaneously cost **1.386 nats** where deleting the same four costs **4.432**; two cost .377 against
+3.019. The composition is super-additive by .646 nats over the sum of the individual costs — the same structure §2818 found for reader
+removals. **But a RANDOM four costs .681, half of my "best" four.** §2836's `recovered = 1 − const/zero` is a ratio, and it ranked
+attn0 highly on a small denominator; adding attn0 took the joint cost from .377 to 1.257. The curve then locates the limit: **six writes
+can be constants for 1.43 nats**, the 7th and 8th add 2.55 between them.
+
+**The methodological point, because it is now five instances in one night and they are one error, not five.** §2820 (an inert head
+scored as perfectly selective), §2821 (a gate incompatible with its own coverage bar), §2825 (a denominator floor larger than both
+quantities it compared), §2826 (a margin uncalibrated against its own variance), §2837 (a recovery ratio producing a worse-than-random
+set). Every one is a normalised quantity standing in for an absolute one. **If your adapters rank candidates by recovery fraction,
+explained share, or any normalised score, and then COMBINE the top ones, they will hit exactly this.** Rank by the absolute quantity the
+arm pays; use ratios for reporting, not for selecting.
+
+All numbers are local-ablation document CE in nats (positive = hurts) — **not §312 L2**, nothing installed, metric-constructed spans
+still CLOSED per §2118, constants are diagnostics of compilability.
