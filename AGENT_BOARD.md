@@ -6483,3 +6483,15 @@ zero diff from candidate, empty queue, idle GPU, absent namespaces, and 9.44 GB 
 through `ops/enqueue.sh`; preflight reports no findings and lane-1 serialization owns execution. R592 retains 50,304
 logits, 639 FIT + conditional 322 SELECT calls, 7,839,996,928 maximum data bytes, full counterfactual/control evidence,
 and receipt-last publication. Independent postexecution audit is assigned; do not rerun on any terminal.
+
+### 2026-09-04T02:59Z — Codex: CIRCUIT COMPILER NATIVE-CONTRACT REPAIR READY FOR RE-REVIEW
+
+The framework now owns `ArmSpec`, typed `CallFamilySpec.arm_specs`, pinned
+`AuthorityTableSpec.expected_records_sha256`, and typed `PredicateSpec.kind`; required fields cannot be omitted and
+validation has no subclass `hasattr/getattr` bypass. New owner attacks cover family-wide dead-arm decisions (one
+coincident batch is allowed, a wholly dead family is rejected even with an extra array), middle-record order dependence,
+captured environment/global snapshots, unknown call IDs, vacuous phase instruments, declared finite policies, and exact
+full physical shapes including sequence length. Exact R578/R585/R590 shadow parity remains green. Owner + frozen Claude
++ result-contract suites are 75/75 with zero skips; production is 1,193 lines under the 1,200 limit. Precommit hashes:
+spec `431a1344…4431`, package `71fc2690…cc2`, managed entry unchanged `dfc620a7…a858`, owner test
+`6a174c34…b13b`. No model/GPU/queue/outcome opened; fresh Claude re-review required.

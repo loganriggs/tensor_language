@@ -62,9 +62,17 @@ class ArtifactRef:
 
 
 @dataclass(frozen=True)
+class ArmSpec:
+    name: str
+    role: Literal["native", "counterfactual", "control", "null"]
+    direction: Literal["undirected", "forward", "reverse"]
+
+
+@dataclass(frozen=True)
 class AuthorityTableSpec:
     name: str
     identity_fields: tuple[str, ...]
+    expected_records_sha256: str | None
     split_field: str | None = "split"
     group_fields: tuple[str, ...] = ()
     expected_counts: Mapping[str, int] = field(default_factory=dict)
@@ -80,6 +88,7 @@ class CallFamilySpec:
     call_kind: str
     guard: str
     call_id_template: str
+    arm_specs: tuple[ArmSpec, ...]
     sequence_field: str = "ids"
     row_id_field: str = "row_id"
     filters: tuple[tuple[str, tuple[object, ...]], ...] = ()
@@ -111,6 +120,7 @@ class PredicateSpec:
     evaluator_role: str
     required_arrays: tuple[str, ...]
     disposition: Literal["diagnostic", "hard_abort"]
+    kind: Literal["instrument", "authority", "evidence", "science"]
 
 
 @dataclass(frozen=True)
@@ -165,11 +175,10 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
     if len(priorities) != len(set(priorities)):
         raise SpecError("predicate priorities must be unique")
     kind_order = {"instrument": 0, "authority": 1, "evidence": 2, "science": 3}
-    typed_predicates = [item for item in spec.predicates if hasattr(item, "kind")]
-    if any(getattr(item, "kind") not in kind_order for item in typed_predicates):
+    if any(item.kind not in kind_order for item in spec.predicates):
         raise SpecError("predicate kind must be typed")
-    ordered_kinds = [kind_order[getattr(item, "kind")] for item in sorted(
-        typed_predicates, key=lambda item: item.priority
+    ordered_kinds = [kind_order[item.kind] for item in sorted(
+        spec.predicates, key=lambda item: item.priority
     )]
     if ordered_kinds != sorted(ordered_kinds):
         raise SpecError("predicate priority must put instrument checks before science")
@@ -189,19 +198,24 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
             raise SpecError(f"artifact {artifact.role} has invalid SHA-256")
         if artifact.kind == "outcome" and artifact.dryrun_access:
             raise SpecError("model-free dry run may not access an outcome artifact")
+    if any(table.expected_records_sha256 is None or len(table.expected_records_sha256) != 64
+           or any(ch not in "0123456789abcdef" for ch in table.expected_records_sha256)
+           for table in spec.authority_tables):
+        raise SpecError("every authority table requires an expected records digest")
+    if any(array.finite_policy not in {"always", "final_nonfinite_diagnostic"}
+           for array in spec.arrays):
+        raise SpecError("array finite policy is invalid")
     for call in spec.calls:
-        if not hasattr(call, "arm_specs"):
-            continue  # legacy shadow specifications remain byte-compatible
-        arm_specs = tuple(getattr(call, "arm_specs"))
-        if tuple(getattr(item, "name", None) for item in arm_specs) != call.arms:
+        arm_specs = call.arm_specs
+        if tuple(item.name for item in arm_specs) != call.arms:
             raise SpecError("typed arm names differ from call-family arms")
         if len(call.arms) != len(set(call.arms)):
             raise SpecError("typed arm names must be unique")
-        if any(getattr(item, "role", None) not in {
+        if any(item.role not in {
             "native", "counterfactual", "control", "null"
         } for item in arm_specs):
             raise SpecError("every typed arm requires a valid role")
-        if any(getattr(item, "direction", None) not in {
+        if any(item.direction not in {
             "undirected", "forward", "reverse"
         } for item in arm_specs):
             raise SpecError("every typed arm requires a valid direction")
@@ -251,8 +265,8 @@ def compile_authority_tables(
             raise SpecError(f"authority table {table_spec.name} total changed")
         if table_spec.expected_counts and counts != dict(table_spec.expected_counts):
             raise SpecError(f"authority table {table_spec.name} split counts changed: {counts}")
-        expected_digest = getattr(table_spec, "expected_records_sha256", None)
-        if expected_digest is not None and canonical_sha256(records) != expected_digest:
+        expected_digest = table_spec.expected_records_sha256
+        if expected_digest is None or canonical_sha256(records) != expected_digest:
             raise SpecError(f"authority table {table_spec.name} split/content digest changed")
         output[table_spec.name] = {
             "count": len(records),
@@ -340,9 +354,6 @@ def _call_record(
         "checkpoint_validation": family.checkpoint_validation,
         "model_structure_validation": family.model_structure_validation,
     }
-    if hasattr(family, "arm_specs"):
-        typed = {item.name: item for item in getattr(family, "arm_specs")}[arm]
-        record.update(arm_role=typed.role, arm_direction=typed.direction)
     return record
 
 
@@ -353,6 +364,18 @@ def compile_call_manifest(
     """Compile a deterministic ordered call manifest from declared families."""
     calls: list[dict[str, object]] = []
     for family in families:
+        if not family.arm_specs:
+            raise SpecError(f"call family {family.name} lacks typed arm roles")
+        if tuple(item.name for item in family.arm_specs) != family.arms:
+            raise SpecError(f"call family {family.name} typed arms changed")
+        if any(item.role not in {"native", "counterfactual", "control", "null"}
+               or item.direction not in {"undirected", "forward", "reverse"}
+               for item in family.arm_specs):
+            raise SpecError(f"call family {family.name} has invalid typed arm role/direction")
+        if any(item.role == "counterfactual" and not any(
+            peer.role == "native" and peer.direction == item.direction for peer in family.arm_specs
+        ) for item in family.arm_specs):
+            raise SpecError(f"call family {family.name} counterfactual has no matched native role")
         selected = _selected_records(records, family)
         batches = _batches(selected, family)
         for label, pairs in {
@@ -415,7 +438,19 @@ def compile_experiment(
 ) -> dict[str, object]:
     validate_spec(spec)
     authority = compile_authority_tables(spec.authority_tables, authority_tables)
-    calls = compile_call_manifest(call_source_records, spec.calls)
+    calls = []
+    for family in spec.calls:
+        family_calls = compile_call_manifest(call_source_records, (family,))
+        for call in family_calls:
+            arm = next(item for item in family.arm_specs if item.name == call["arm"])
+            call.update(call_family=family.name, arm_role=arm.role, arm_direction=arm.direction)
+            call["array_contracts"] = [{
+                "name": array.name, "dtype": array.dtype, "shape": list(array.shape),
+                "finite_policy": array.finite_policy,
+            } for array in spec.arrays if call["call_kind"] in array.call_kinds]
+        calls.extend(family_calls)
+    if len(calls) != len({call["call_id"] for call in calls}):
+        raise SpecError("compiled call IDs are not globally unique")
     compiled = {
         "schema": "circuit_experiment_compiled_contract_v1",
         "experiment_id": spec.experiment_id,

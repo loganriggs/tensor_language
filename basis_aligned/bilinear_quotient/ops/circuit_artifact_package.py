@@ -9,17 +9,13 @@ import os
 from pathlib import Path, PurePosixPath
 import shutil
 import tempfile
+import types
 from typing import Callable, Mapping, Sequence
 
 import numpy as np
-
 from circuit_experiment_spec import canonical_json_bytes
-
-
 class PackageError(ValueError):
     """Evidence or a staged package violates its compiled contract."""
-
-
 def _strict_json_loads(payload: bytes, label: str) -> object:
     def reject_constant(value: str) -> None:
         raise PackageError(f"{label} contains nonfinite JSON number: {value}")
@@ -42,20 +38,12 @@ def _strict_json_loads(payload: bytes, label: str) -> object:
         raise
     except (TypeError, ValueError, UnicodeDecodeError) as error:
         raise PackageError(f"{label} is not strict standard JSON") from error
-
-
 def sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
-
-
 def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
-
-
 def call_directory_name(index: int, call_id: str) -> str:
     return f"{index:04d}_{call_id}"
-
-
 def validate_call_prefix(
     manifest: Sequence[Mapping[str, object]],
     prefix: Sequence[Mapping[str, object]],
@@ -72,8 +60,6 @@ def validate_call_prefix(
     ]
     if list(directory_names) != expected_directories:
         raise PackageError("call-directory census differs from the completed prefix")
-
-
 def first_true_coordinate(mask: np.ndarray) -> list[int]:
     positions = np.flatnonzero(mask.ravel(order="C"))
     if not len(positions):
@@ -82,16 +68,12 @@ def first_true_coordinate(mask: np.ndarray) -> list[int]:
         int(value)
         for value in np.unravel_index(int(positions[0]), mask.shape, order="C")
     ]
-
-
 def canonical_mask_filename(raw_filename: str) -> str:
     path = PurePosixPath(raw_filename)
     if path.is_absolute() or len(path.parts) != 1 or path.suffix != ".npy" \
             or path.name in (".", ".."):
         raise PackageError("raw evidence filename is unsafe")
     return f"nonfinite_masks/{path.stem}.mask.npy"
-
-
 def _raw_arrays(call_dir: Path) -> dict[str, np.ndarray]:
     arrays: dict[str, np.ndarray] = {}
     for path in sorted(call_dir.glob("*.npy"), key=lambda item: item.name):
@@ -99,8 +81,6 @@ def _raw_arrays(call_dir: Path) -> dict[str, np.ndarray]:
             raise PackageError("raw evidence array is not a regular file")
         arrays[path.name] = np.load(path, allow_pickle=False)
     return arrays
-
-
 def _call_record(call_dir: Path) -> dict[str, object]:
     path = call_dir / "call.json"
     if path.is_symlink() or not path.is_file():
@@ -109,8 +89,6 @@ def _call_record(call_dir: Path) -> dict[str, object]:
     if not isinstance(value, dict):
         raise PackageError("saved call request is not an object")
     return value
-
-
 def _validate_call_arrays(call_dir: Path, arrays: Mapping[str, np.ndarray]) -> None:
     """Bind physical evidence width and typed-arm activity to saved requests."""
     if not (call_dir / "call.json").exists():
@@ -119,27 +97,42 @@ def _validate_call_arrays(call_dir: Path, arrays: Mapping[str, np.ndarray]) -> N
     width = call.get("logical_batch_size")
     if not isinstance(width, int) or isinstance(width, bool) or width <= 0:
         raise PackageError("saved request has invalid physical width")
-    if not arrays or any(array.ndim < 1 or array.shape[0] != width for array in arrays.values()):
-        raise PackageError("saved array physical shape differs from exact request width")
-    if call.get("arm_role") != "counterfactual":
-        return
+    contracts = {item["name"]: item for item in call.get("array_contracts", [])}
     peers: list[tuple[dict[str, object], dict[str, np.ndarray]]] = []
     for sibling in call_dir.parent.iterdir():
-        if sibling == call_dir or sibling.is_symlink() or not sibling.is_dir():
+        if sibling.is_symlink() or not sibling.is_dir():
             continue
         peer = _call_record(sibling)
-        if peer.get("arm_role") == "native" and all(
-            peer.get(field) == call.get(field)
-            for field in ("split", "row_ids", "call_kind", "arm_direction")
-        ):
+        if peer.get("call_family") == call.get("call_family"):
             peers.append((peer, _raw_arrays(sibling)))
-    for _, peer_arrays in peers:
-        if set(peer_arrays) == set(arrays) and all(
-            np.array_equal(arrays[name], peer_arrays[name], equal_nan=True) for name in arrays
-        ):
-            raise PackageError("counterfactual arm is dead: evidence is identical to native")
-
-
+    if call.get("arm_role") == "counterfactual":
+        comparisons = []
+        for counter, counter_arrays in (item for item in peers if item[0].get("arm_role") == "counterfactual"):
+            native = next((item for item in peers if item[0].get("arm_role") == "native"
+                           and item[0].get("row_ids") == counter.get("row_ids")
+                           and item[0].get("arm_direction") == counter.get("arm_direction")), None)
+            if native:
+                comparisons.append(all(f"{name}.npy" in counter_arrays and f"{name}.npy" in native[1]
+                    and np.array_equal(counter_arrays[f"{name}.npy"], native[1][f"{name}.npy"], equal_nan=True)
+                    for name in contracts))
+        if comparisons and all(comparisons):
+            raise PackageError("counterfactual family is dead: declared evidence is identical to native")
+    if set(arrays) != {f"{name}.npy" for name in contracts}:
+        raise PackageError("saved arrays differ from the exact request binding")
+    for name, contract in contracts.items():
+        array = arrays[f"{name}.npy"]
+        dimensions = {"batch": width, "sequence": call.get("padded_sequence_length")}
+        try:
+            expected = tuple(dimensions[value] if isinstance(value, str) else value
+                             for value in contract["shape"])
+        except KeyError as error:
+            raise PackageError("array contract has an unresolved physical dimension") from error
+        if array.shape != expected or str(array.dtype) != contract["dtype"]:
+            raise PackageError("saved array physical shape/dtype differs from exact request")
+        if array.dtype.kind == "f" and not bool(np.isfinite(array).all()):
+            siblings = sorted(item.name for item in call_dir.parent.iterdir() if item.is_dir())
+            if contract["finite_policy"] == "always" or call_dir.name != siblings[-1]:
+                raise PackageError("nonfinite array violates its declared finite policy")
 def write_nonfinite_masks(call_dir: Path) -> list[dict[str, object]]:
     """Write the approved R592 one-to-one masks for one failing call."""
     index_path = call_dir / "nonfinite_mask_index.json"
@@ -178,8 +171,6 @@ _MASK_FIELDS = {
     "mask_byte_length", "mask_sha256", "nonfinite_count",
     "first_lexicographic_coordinate",
 }
-
-
 def validate_nonfinite_masks(call_dir: Path, predicate_id: str) -> None:
     """Reconstruct exact mask membership and metadata from saved raw arrays."""
     index_path = call_dir / "nonfinite_mask_index.json"
@@ -256,8 +247,6 @@ def validate_nonfinite_masks(call_dir: Path, predicate_id: str) -> None:
         path.is_symlink() or not path.is_file() for path in children
     ):
         raise PackageError("nonfinite mask directory has missing or extra entries")
-
-
 def validate_science_projection(
     evidence: Mapping[str, object],
     saved_projection: Mapping[str, object],
@@ -269,24 +258,13 @@ def validate_science_projection(
         raise PackageError("saved scientific projection differs from primitive evidence")
     records = evidence.get("records")
     if isinstance(records, list) and len(records) > 1:
-        permuted = dict(evidence); permuted["records"] = list(reversed(records))
-        if not _equivalent_json(observed, dict(projector(permuted))):
-            raise PackageError("scientific projector is not pure under evidence order")
-    environment = dict(os.environ)
-    try:
-        os.environ.clear()
-        try:
-            isolated = dict(projector(evidence))
-        except Exception as error:
-            raise PackageError("scientific projector is not environment-pure") from error
-    finally:
-        os.environ.clear(); os.environ.update(environment)
-    if not _equivalent_json(observed, isolated):
-        raise PackageError("scientific projector is not pure with respect to environment")
+        permutations = (list(reversed(records)), records[1:] + records[:1], records[::2] + records[1::2])
+        for values in permutations:
+            permuted = dict(evidence); permuted["records"] = values
+            if not _equivalent_json(observed, dict(projector(permuted))):
+                raise PackageError("scientific projector is not pure under evidence order")
     canonical_json_bytes(observed)
     return observed
-
-
 def _equivalent_json(left: object, right: object) -> bool:
     if isinstance(left, float) and isinstance(right, float):
         return bool(np.isclose(left, right, rtol=1e-12, atol=1e-15))
@@ -295,8 +273,27 @@ def _equivalent_json(left: object, right: object) -> bool:
     if isinstance(left, list) and isinstance(right, list) and len(left) == len(right):
         return all(_equivalent_json(a, b) for a, b in zip(left, right))
     return left == right
-
-
+def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> None:
+    """Fail closed on environment/global snapshots that black-box reruns cannot vary."""
+    seen = set() if seen is None else seen
+    if id(function) in seen:
+        return
+    seen.add(id(function)); code = getattr(function, "__code__", None)
+    if code is None:
+        raise PackageError("scientific projector is not a pure Python function")
+    for name in code.co_names:
+        if name not in function.__globals__:
+            continue
+        value = function.__globals__[name]
+        if isinstance(value, types.ModuleType) or not callable(value):
+            raise PackageError("scientific projector is not pure: global/environment state")
+        _assert_pure_callable(value, seen)
+    for cell in function.__closure__ or ():
+        if not callable(cell.cell_contents):
+            raise PackageError("scientific projector is not pure: captured environment/global state")
+        _assert_pure_callable(cell.cell_contents, seen)
+    if any(not callable(value) for value in function.__defaults__ or ()):
+        raise PackageError("scientific projector is not pure: captured default state")
 def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
                       evaluators, projector: Callable) -> dict[str, object]:
     """Evaluate registered instruments before permitting scientific projection."""
@@ -305,11 +302,15 @@ def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
         raise PackageError("compiled predicate order changed")
     results: dict[str, bool] = {}
     calls = {call["call_id"]: call for call in compiled.get("call_manifest", [])}
+    if any(item.get("call_id") not in calls for item in primitives):
+        raise PackageError("primitive evidence contains an unknown call ID")
     for predicate in ordered:
         phase_primitives = [item for item in primitives if (
             item.get("call_id") in calls
             and calls[item["call_id"]].get("split") == predicate.phase
         )]
+        if not phase_primitives:
+            raise PackageError("predicate phase has no evidence; vacuous pass forbidden")
         try:
             outcome = evaluators[predicate.evaluator_role](phase_primitives)
         except (KeyError, TypeError) as error:
@@ -321,14 +322,13 @@ def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
             projection = {name: None for name in spec.science.output_types}
             return {"terminal": "hard_abort", "projection": projection,
                     "predicates_evaluated": True, "predicate_results": results}
+    _assert_pure_callable(projector)
     projection = dict(projector(primitives))
     validate_science_projection(
         {"records": primitives}, projection, lambda value: projector(value["records"])
     )
     return {"terminal": "ok", "projection": projection,
             "predicates_evaluated": True, "predicate_results": results}
-
-
 @dataclass(frozen=True)
 class PackagePaths:
     root: Path

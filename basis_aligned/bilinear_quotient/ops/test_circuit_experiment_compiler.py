@@ -7,6 +7,7 @@ from __future__ import annotations
 from dataclasses import replace
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -43,18 +44,35 @@ def minimal_spec(**updates) -> compiler.CircuitExperimentSpec:
     return replace(base, **updates)
 
 
+def table_spec(name, identity_fields, records, **kwargs):
+    return compiler.AuthorityTableSpec(
+        name, identity_fields, expected_records_sha256=compiler.canonical_sha256(records),
+        **kwargs,
+    )
+
+
+def arm_specs(names, *, native=(), counterfactual=(), null=()):
+    return tuple(compiler.ArmSpec(
+        name, "native" if name in native else "counterfactual" if name in counterfactual
+        else "null" if name in null else "control", "undirected"
+    ) for name in names)
+
+
 def r590_call_families() -> tuple[compiler.CallFamilySpec, ...]:
     output = []
     for split in ("FIT", "SELECT"):
         selected_guard = "fit_always" if split == "FIT" else "selected_only"
+        capture_arms = ("source_present", "source_deleted", "native_smoke")
         output.append(compiler.CallFamilySpec(
             name=f"{split.lower()}_capture", split=split,
-            arms=("source_present", "source_deleted", "native_smoke"),
+            arms=capture_arms,
             arm_call_kinds=(("native_smoke", "native_logits_smoke"),),
             arm_batch_limits=(("native_smoke", 1),),
             batch_size=24, call_kind="trajectory", guard=selected_guard,
             call_id_template="{split}:capture:{batch}:{arm}",
             axis_order="batch_arm", sort_policy="legacy_python_repr",
+            arm_specs=arm_specs(capture_arms, native=("source_present",),
+                                counterfactual=("source_deleted",)),
         ))
         real_arms = r590.SELECTION_NAMES if split == "FIT" else tuple(
             f"selected_site_{component}" for component in r590.COMPONENTS
@@ -64,6 +82,7 @@ def r590_call_families() -> tuple[compiler.CallFamilySpec, ...]:
             batch_size=24, call_kind="component_suffix", guard=selected_guard,
             call_id_template="{split}:real:{arm}:{batch}",
             axis_order="arm_batch", sort_policy="legacy_python_repr",
+            arm_specs=arm_specs(real_arms),
         ))
         output.append(compiler.CallFamilySpec(
             name=f"{split.lower()}_null", split=split, arms=tuple(r590.NULLS),
@@ -72,6 +91,7 @@ def r590_call_families() -> tuple[compiler.CallFamilySpec, ...]:
             call_id_template="{split}:null:{arm}:{batch}",
             filters=(("condition", tuple(sorted(r590.r588.ELIGIBLE_CONDITIONS))),),
             axis_order="arm_batch", sort_policy="legacy_python_repr",
+            arm_specs=arm_specs(tuple(r590.NULLS), null=tuple(r590.NULLS)),
         ))
     return tuple(output)
 
@@ -93,9 +113,9 @@ def test_r578_rows_regenerate_and_compile_exact_identities() -> None:
     rows = saved["rows"]
     counts = {split: sum(row["split"] == split for row in rows) for split in r578.SPLITS}
     compiled = compiler.compile_authority_tables(
-        (compiler.AuthorityTableSpec(
+        (table_spec(
             "rows", ("row_id",), group_fields=("group_id",),
-            expected_counts=counts, expected_total=len(rows),
+            expected_counts=counts, expected_total=len(rows), records=rows,
         ),),
         {"rows": rows},
     )["rows"]
@@ -124,16 +144,16 @@ def test_r585_authority_and_manifest_shadow_parity() -> None:
         "bootstrap": bootstrap,
     }
     table_specs = (
-        compiler.AuthorityTableSpec("rows", ("row_id",), group_fields=("group_id",), expected_counts={"FIT": 1872, "SELECT": 936}),
-        compiler.AuthorityTableSpec("endpoints", ("split", "endpoint_id"), expected_counts={"FIT": 1728, "SELECT": 864}),
-        compiler.AuthorityTableSpec("directions", ("directed_id",), group_fields=("group_id",), expected_counts={"FIT": 3744, "SELECT": 1872}),
-        compiler.AuthorityTableSpec("target_cells", ("cell_id",), expected_counts={"FIT": 20, "SELECT": 20}),
-        compiler.AuthorityTableSpec("control_cells", ("cell_id",), expected_counts={"FIT": 32, "SELECT": 32}),
-        compiler.AuthorityTableSpec("coverage_keys", ("split", "arm", "direction", "recipient_condition"), expected_counts={"FIT": 24, "SELECT": 24}),
-        compiler.AuthorityTableSpec("eligible_control_arm_cells", ("cell_id", "arm"), expected_counts={"FIT": 88, "SELECT": 88}),
-        compiler.AuthorityTableSpec("structural_identities", ("cell_id", "left_arm", "right_arm"), split_field=None, expected_total=64),
-        compiler.AuthorityTableSpec("control_scale_lookup", ("split", "control_cell_id", "arm"), expected_counts={"FIT": 96, "SELECT": 96}),
-        compiler.AuthorityTableSpec("bootstrap", ("cell_id",), split_field=None, expected_total=248),
+        table_spec("rows", ("row_id",), tables["rows"], group_fields=("group_id",), expected_counts={"FIT": 1872, "SELECT": 936}),
+        table_spec("endpoints", ("split", "endpoint_id"), tables["endpoints"], expected_counts={"FIT": 1728, "SELECT": 864}),
+        table_spec("directions", ("directed_id",), tables["directions"], group_fields=("group_id",), expected_counts={"FIT": 3744, "SELECT": 1872}),
+        table_spec("target_cells", ("cell_id",), tables["target_cells"], expected_counts={"FIT": 20, "SELECT": 20}),
+        table_spec("control_cells", ("cell_id",), tables["control_cells"], expected_counts={"FIT": 32, "SELECT": 32}),
+        table_spec("coverage_keys", ("split", "arm", "direction", "recipient_condition"), tables["coverage_keys"], expected_counts={"FIT": 24, "SELECT": 24}),
+        table_spec("eligible_control_arm_cells", ("cell_id", "arm"), tables["eligible_control_arm_cells"], expected_counts={"FIT": 88, "SELECT": 88}),
+        table_spec("structural_identities", ("cell_id", "left_arm", "right_arm"), tables["structural_identities"], split_field=None, expected_total=64),
+        table_spec("control_scale_lookup", ("split", "control_cell_id", "arm"), tables["control_scale_lookup"], expected_counts={"FIT": 96, "SELECT": 96}),
+        table_spec("bootstrap", ("cell_id",), tables["bootstrap"], split_field=None, expected_total=248),
     )
     compiled = compiler.compile_authority_tables(table_specs, tables)
     assert compiled["directions"]["records_sha256"] == saved["direction_manifest_sha256"]
@@ -186,7 +206,7 @@ def test_compile_rejects_diagnostic_predicate_with_unretained_input() -> None:
         arrays=(compiler.ArraySpec("full_logits", ("joint",), "float32", ("batch", 50257), False),),
         predicates=(compiler.PredicateSpec(
             "structural_output_identity_failed", "FIT", 0, "science.check",
-            ("full_logits",), "diagnostic",
+            ("full_logits",), "diagnostic", "evidence",
         ),),
     )
     with pytest.raises(compiler.SpecError, match="unretained"):
@@ -208,11 +228,15 @@ def r592_manifest() -> list[dict[str, object]]:
     endpoint = compiler.CallFamilySpec(
         "endpoint", "SELECT", ("capture",), 32, "endpoint", "selected_only",
         "{split}:endpoint:{batch}:{arm}", axis_order="batch_arm",
+        arm_specs=arm_specs(("capture",)),
     )
     directed = compiler.CallFamilySpec(
         "directed", "SELECT", ("native", "replay", "score", "payload", "joint"),
         32, "directed", "selected_only", "{split}:directed:{batch}:{arm}",
         axis_order="batch_arm",
+        arm_specs=arm_specs(("native", "replay", "score", "payload", "joint"),
+                            native=("native",),
+                            counterfactual=("replay", "score", "payload", "joint")),
     )
     # Families use different source tables in a real compiled experiment.  The
     # synthetic combines unique IDs and filters to exercise only prefix logic.
@@ -446,3 +470,128 @@ def test_outcome_bearing_dryrun_dependency_is_rejected() -> None:
     ),))
     with pytest.raises(compiler.SpecError, match="outcome"):
         compiler.validate_spec(spec)
+
+
+def test_native_typed_contracts_cannot_bypass_required_semantics() -> None:
+    rows = [{"row_id": "r", "split": "FIT", "ids": [1]}]
+    with pytest.raises(TypeError):
+        compiler.ArmSpec("native")
+    with pytest.raises(TypeError):
+        compiler.AuthorityTableSpec("rows", ("row_id",))
+    with pytest.raises(TypeError):
+        compiler.PredicateSpec("p", "FIT", 0, "eval", (), "hard_abort")
+    with pytest.raises(TypeError):
+        compiler.CallFamilySpec(
+            "f", "FIT", ("native",), 1, "margin", "fit_always", "{split}:{arm}:{batch}"
+        )
+    family = compiler.CallFamilySpec(
+        "f", "FIT", ("native",), 1, "margin", "fit_always", "{split}:{arm}:{batch}", ()
+    )
+    with pytest.raises(compiler.SpecError, match="typed arm roles"):
+        compiler.compile_call_manifest(rows, (family,))
+    with pytest.raises(compiler.SpecError, match="digest"):
+        compiler.compile_authority_tables(
+            (compiler.AuthorityTableSpec("rows", ("row_id",), None, expected_counts={"FIT": 1}),),
+            {"rows": rows},
+        )
+    predicate = compiler.PredicateSpec(
+        "instrument", "FIT", 0, "instrument_eval", ("margin",), "hard_abort", None
+    )
+    with pytest.raises(compiler.SpecError, match="kind"):
+        compiler.validate_spec(minimal_spec(
+            arrays=(compiler.ArraySpec("margin", ("margin",), "float64", ("batch",), True),),
+            predicates=(predicate,),
+        ))
+
+
+def _write_call(root: Path, index: int, *, arm: str, role: str, rows: list[str],
+                values: np.ndarray, extra: bool = False) -> Path:
+    directory = root / package.call_directory_name(index, f"FIT:{arm}:{index % 2}")
+    directory.mkdir(parents=True)
+    record = {
+        "call_id": f"FIT:{arm}:{index % 2}", "split": "FIT", "arm": arm,
+        "call_kind": "margin", "call_family": "fit_margin", "arm_role": role,
+        "arm_direction": "undirected", "row_ids": rows,
+        "logical_batch_size": len(rows), "padded_sequence_length": 4,
+        "array_contracts": [{"name": "margin", "dtype": "float64", "shape": ["batch"],
+                             "finite_policy": "always"}],
+    }
+    (directory / "call.json").write_bytes(compiler.canonical_json_bytes(record) + b"\n")
+    np.save(directory / "margin.npy", values.astype(np.float64))
+    if extra:
+        np.save(directory / "extra.npy", np.zeros(len(rows)))
+    return directory
+
+
+def test_dead_arm_is_family_scoped_and_extra_array_cannot_hide_it(tmp_path: Path) -> None:
+    calls = tmp_path / "calls"; calls.mkdir()
+    native0 = _write_call(calls, 0, arm="native", role="native", rows=["a"], values=np.array([1.]))
+    native1 = _write_call(calls, 1, arm="native", role="native", rows=["b"], values=np.array([2.]))
+    cf0 = _write_call(calls, 2, arm="counterfactual", role="counterfactual", rows=["a"], values=np.array([1.]))
+    cf1 = _write_call(calls, 3, arm="counterfactual", role="counterfactual", rows=["b"],
+                      values=np.array([3.]), extra=True)
+    package.validate_nonfinite_masks(cf0, "ok")  # one coincident batch is not a dead family
+    np.save(cf1 / "margin.npy", np.load(native1 / "margin.npy"))
+    with pytest.raises(package.PackageError, match="dead"):
+        package.validate_nonfinite_masks(cf0, "ok")
+    assert native0.exists()
+
+
+def _decision_spec() -> compiler.CircuitExperimentSpec:
+    return minimal_spec(science=compiler.ScienceProjectionSpec(
+        "projector", "decision", ("ok", "hard_abort"), {"score": "number"}
+    ))
+
+
+def test_projector_middle_order_and_captured_environment_are_rejected(monkeypatch) -> None:
+    calls = [{"call_id": f"FIT:{index}", "split": "FIT"} for index in range(3)]
+    evidence = [{"call_id": f"FIT:{index}", "margin": float(index)} for index in range(3)]
+    middle = lambda rows: {"score": rows[len(rows) // 2]["margin"]}
+    with pytest.raises(package.PackageError, match="order"):
+        package.decide_experiment(
+            spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+            primitives=evidence, evaluators={}, projector=middle,
+        )
+    monkeypatch.setenv("CIRCUIT_SNAPSHOT", "secret")
+    snapshot = os.environ["CIRCUIT_SNAPSHOT"]
+    captured = lambda rows: {"score": float(len(snapshot))}
+    with pytest.raises(package.PackageError, match="pure"):
+        package.decide_experiment(
+            spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+            primitives=evidence, evaluators={}, projector=captured,
+        )
+
+
+def test_unknown_primitive_and_vacuous_phase_predicate_fail_closed() -> None:
+    calls = [{"call_id": "FIT:0", "split": "FIT"}]
+    with pytest.raises(package.PackageError, match="unknown call"):
+        package.decide_experiment(
+            spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+            primitives=[{"call_id": "SELECT:unknown"}], evaluators={}, projector=lambda rows: {"score": 0.},
+        )
+    predicate = compiler.PredicateSpec(
+        "fit_live", "FIT", 0, "live", (), "hard_abort", "instrument"
+    )
+    spec = replace(_decision_spec(), predicates=(predicate,))
+    with pytest.raises(package.PackageError, match="vacuous"):
+        package.decide_experiment(
+            spec=spec, compiled={"predicate_order": ["fit_live"],
+                                 "call_manifest": [{"call_id": "SELECT:0", "split": "SELECT"}]},
+            primitives=[{"call_id": "SELECT:0"}], evaluators={"live": lambda rows: True},
+            projector=lambda rows: {"score": 0.},
+        )
+
+
+def test_array_policy_and_full_physical_shape_are_enforced(tmp_path: Path) -> None:
+    call = _write_call(tmp_path, 0, arm="native", role="native", rows=["a"], values=np.array([1.]))
+    record = json.loads((call / "call.json").read_text())
+    record["array_contracts"][0]["shape"] = ["batch", "sequence"]
+    (call / "call.json").write_bytes(compiler.canonical_json_bytes(record) + b"\n")
+    np.save(call / "margin.npy", np.zeros((1, 3)))
+    with pytest.raises(package.PackageError, match="physical shape"):
+        package.validate_nonfinite_masks(call, "ok")
+    record["array_contracts"][0].update(shape=["batch"], finite_policy="always")
+    (call / "call.json").write_bytes(compiler.canonical_json_bytes(record) + b"\n")
+    np.save(call / "margin.npy", np.array([np.nan]))
+    with pytest.raises(package.PackageError, match="finite policy"):
+        package.validate_nonfinite_masks(call, "nonfinite_observation")
