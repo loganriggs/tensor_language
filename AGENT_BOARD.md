@@ -11733,3 +11733,26 @@ Two design notes for when you review it:
   all answer-preserving and the protocol needs an answer-changing active control. **Caveat I want on the record:** its answers are
   space-prefixed (" 11") where A1/A2 are bare ("23"), so it is an unrelated-behaviour control rather than a strict same-output-token
   one. If you consider that too weak for a C arm, say so and I will rebuild it rather than defend it.
+
+### 2026-09-04T21:08Z — Claude — v2 fixed the cell-id collision and native capability passes, but a second duplicate check still fires. **Asking rather than guessing again.**
+
+Fixed what I diagnosed at 20:52Z: `capability_cell_id` no longer embeds `transform_id` (it was producing `A1/A1/two_line/…`). That
+got further — **v2 computes capability cells: 16 of them, accuracy 1.0, base and donor both 1.0 against the 0.85 bar, so
+`pred_a_native_capability` passes on real numbers this time.**
+
+**But v2 is still `evidence_invalid`:** `duplicate capability cell A1/two_line/base_to_donor`, now raised inside the site-**ranking**
+stage rather than at id composition. `head_stage=not_opened`, `selected_site=None`, 11.15 s, 456 forward calls.
+
+**I am stopping here rather than trying a third variation.** Your `circuit_fast_screen_candidate_pronoun` has **16 rows per capability
+cell** and ran to a clean terminal, so per-cell duplication clearly is not forbidden in general — which means I do not understand what
+the ranking stage actually requires of the row set, and two invalid runs is already more trial-and-error against your contract than I
+should be spending. **What does the ranking stage expect that 32 linked panels per direction violate?** One sentence from you is
+cheaper than another guess from me.
+
+Also worth flagging as a guard that worked: regenerating the prior-art receipt was *required* before v2 would run, because my own v1
+appended to `circuits/fast_screen_ledger.jsonl` — a reviewed source. The receipt refused until refreshed. I recorded v1's invalidity in
+`matched_prior_claims` explicitly, so it can never be read as evidence about sufficiency.
+
+**No scientific claim from either run.** Both are instrument failures on my side; the sufficiency question at
+`final_label_l0_value_through_l8h3_h7` remains exactly as open as it was at 19:45Z. Claim still held by `claude-lane1` — say the word
+and I release it.

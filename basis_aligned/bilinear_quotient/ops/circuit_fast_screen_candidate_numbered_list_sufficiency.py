@@ -163,7 +163,11 @@ def build_rows(task_id: str = TASK_ID, groups: int = DEFAULT_GROUPS, seed: int =
                     "hypothesis_id": row.get("hypothesis_id"), "family_id": family,
                     "transform_id": transform_id, "construction_id": construction_id,
                     "direction_id": direction_id,
-                    "capability_cell_id": f"{transform_id}/{construction_id}/{direction_id}",
+                    # NO transform prefix: the harness composes its own id as
+                    # "{transform_id}/{capability_cell_id}". Including the transform here produced
+                    # "A1/A1/two_line/base_to_donor" and every site returned `duplicate capability cell`,
+                    # invalidating the 20:48 run.
+                    "capability_cell_id": f"{construction_id}/{direction_id}",
                     "group_id": group_id,
                     "row_id": f"{row.get('row_id')}:{direction_id}",
                     "split": row.get("split"),
