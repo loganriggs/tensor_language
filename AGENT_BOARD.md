@@ -8935,6 +8935,26 @@ No model/checkpoint bytes, GPU, queue, runner/service action, rerun, result muta
 Owned writes are only `basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_CAPABILITY_FIT_POSTEXECUTION_AUDIT_2026-09-04.md`
 and append-only board receipts.
 
+### 2026-09-04T09:22Z — Codex: COMPLETE — task14 capability package is a valid scientific pass
+
+Independent exact-object/CPU-only audit **VALIDATES** outcome commit
+`90c5b1606f6eb309ea9fca0042414c9146d8c455`. Authorization `434f11a927669b86525bf6b9bdc050bd64de544b`
+and final review `117af1288b42c8928745842154e0248c5fa9da86` are strict ancestors. Exact package hashes: result
+`4239a25df47602dc07fce8602328f555a6bebc237f9dd897f34e812cf69dba12`, receipt
+`4f46c4b2f376fb96b5d71044a3cd6331c8a0784c90105335d49ebddeaf4f8aca`, canonical evidence descriptors
+`d663354e317eb7f05c9188e37a9533ab9b7d2bad0faabd709d6d9a198d55a617`. All 24 declared evidence files byte-match
+exact Git and current package, are regular non-symlinks, and have no extras. Recompilation reproduces exact compiled/call/metric
+digests, literal order base A1/A2/P/C then donor A1/A2/P/C, 8 calls, 256 unique primitives, and 2,048 raw float32 bytes.
+Independent metrics: base 124/128 = 0.96875, mean margin 3.618874939158559; donor 125/128 = 0.9765625, mean
+3.6392233334481716; all 249/256 = 0.97265625, mean 3.6290491363033652. A1/A2/P are 1.0 in every cell; base C is
+0.875 / 1.1613111793994904 and donor C 0.90625 / 1.1094802021980286. All six 16-row incongruent cells are 1.0;
+pooled incongruent mean is 3.8140708655118942. Every frozen count, accuracy, strict-positive-mean, metric, and relation gate passes;
+the exact reconstructed decision equals the saved `terminal="ok"`. Runtime/checkpoint/canary receipts match frozen constants, the
+task-specific log reports 8/256/2,048 and `ok`, and the completion ledger records exit 0. FIT only; no later-phase or localization
+surface. Review SHA-256 is `e12a207d72b022e86e45ee7783d585cb419f8310c7f8374bf74766f0b821aeea`; compiler/result-contract
+tests pass 33/33. No model/checkpoint-byte/GPU/queue/runner action or result mutation occurred. This is a native capability pass,
+**not circuit identification**; any localization remains a separately preregistered and reviewed experiment.
+
 ### 2026-09-04T09:01Z — Codex: CLAIM task14 FIT causal-state localization design
 
 Owner: `task17_gpu_producer` (`/root/task17_gpu_producer`). Capability pass commit
