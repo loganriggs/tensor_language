@@ -1,9 +1,10 @@
 """circuit_prior_art_search -- "has this been done, or already failed?" in one command. READ-ONLY.
 
-The directive requires searching the dossier AND the ledger before starting any candidate, so we neither
+The directive requires searching the dossier AND the ledgers before starting any candidate, so we neither
 duplicate a known result nor rediscover a known failed target. Two things make that slow by hand:
 
-  1. The event authority is `circuits/task_*.json` (`evidence_events`), not the rendered `circuits/DOSSIER.md`,
+  1. The event authority is `circuits/task_*.json` (`evidence_events`) plus the append-only fast-screen ledger,
+     not the rendered `circuits/DOSSIER.md`,
      and the dossier goes stale -- Codex flagged a bracket-task "next" entry whose R546/R548/R549/R551/R556/
      R560/R561 results already existed in the task JSON. Reading the dossier alone can send you to redo
      finished work.
@@ -27,6 +28,35 @@ BQ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CIRCUITS = os.path.join(BQ, "circuits")
 DOSSIER = os.path.join(CIRCUITS, "DOSSIER.md")
 FAILED_VERDICTS = ("invalid", "null")
+FAST_SCREEN_LEDGER = os.path.join(CIRCUITS, "fast_screen_ledger.jsonl")
+
+
+def _load_fast_screen_events():
+    """Normalize terminal fast-screen receipts into the event search vocabulary."""
+    out = []
+    try:
+        lines = open(FAST_SCREEN_LEDGER, errors="strict").read().splitlines()
+    except OSError:
+        return out
+    for number, line in enumerate(lines, start=1):
+        if not line.strip():
+            continue
+        try:
+            receipt = json.loads(line)
+        except ValueError as error:
+            raise RuntimeError(f"invalid fast-screen ledger line {number}") from error
+        if not isinstance(receipt, dict):
+            raise RuntimeError(f"fast-screen ledger line {number} is not an object")
+        terminal = receipt.get("terminal")
+        event = dict(receipt)
+        event.update({
+            "event_id": receipt.get("request_id"),
+            "verdict": terminal,
+            "stage": "complete" if terminal in {"screen", "null"} else "invalid",
+            "site_id": receipt.get("selected_site_id"),
+        })
+        out.append(("fast_screen_ledger.jsonl", receipt.get("candidate_id") or "", event))
+    return out
 
 
 def load_events():
@@ -42,6 +72,7 @@ def load_events():
         for e in events:
             if isinstance(e, dict):
                 out.append((os.path.basename(path), doc.get("tag") or "", e))
+    out.extend(_load_fast_screen_events())
     return out
 
 

@@ -12,6 +12,18 @@ def test_load_events_reads_the_task_json_authority():
     assert all(isinstance(e, dict) for _t, _g, e in ev)
 
 
+def test_load_events_also_reads_terminal_fast_screen_authority():
+    ev = P.load_events()
+    fast = [(task, event) for task, _tag, event in ev if task == "fast_screen_ledger.jsonl"]
+    assert fast, "new screens would otherwise be invisible until copied into a task dossier"
+    assert all(event.get("event_id") and event.get("stage") for _task, event in fast)
+
+
+def test_current_head_complement_screen_is_searchable():
+    hits = P.search(["head11.3", "complement"])
+    assert any(event.get("event_id") == "task14-head11-3-complement-v1" for _task, event in hits)
+
+
 def test_search_requires_every_term():
     both = P.search(["task14", "localization"])
     assert both, "expected task14 localization events"
