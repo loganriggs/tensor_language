@@ -71590,3 +71590,19 @@ Sign convention (§2135): CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 
 | 896 | .0662 | .0026 | .0597 |
 
 What it says. (1) For a fixed core input c, the late MLP's output is AFFINE in the tail t: out = Down[Lc∘Rc] + M(c)·t with M(c) = Down·(diag(Lc)·W_R + diag(Rc)·W_L). The width the late MLPs use beyond 768 is not the low-variance state interacting with itself (the quadratic term Lt∘Rt is worth .009 of .125) — it is a core-GATED LINEAR READ of the tail. This is the finest-grain statement of the price cliff so far: the cliff is the term M(c)·t, a bilinear form in (core, tail). (2) It reconciles §2774: truncating one branch's input drops one cross half plus tail×tail (.048 ≈ half of .104 + a little); the super-additivity there was the two halves compounding, not a quadratic effect. (3) Compositionality: the same structure — a linear read of the low-variance directions whose gain vector is set by the high-variance core — is exactly what a "gated linear" surrogate can represent; whether M(c) is itself low-dimensional in c (few gating patterns) or in t (few read directions; §2779 says NO in t on the pooled covariance) or sparse in hidden units is the next question, registered as late_tail_cross_unit_probe. (4) Nothing installs into the §312 frontier (§2125).
+
+## §2781 — THE GATED LINEAR READ OF THE TAIL IS DENSE ACROSS THE HIDDEN LAYER, NOT A NARROW SUB-CIRCUIT: keeping the cross term Lc∘Rt + Lt∘Rc (83% of the late MLPs' 768-cost, §2780) on the top-1024 of 4608 hidden units per block (ranked by fit-set output energy) recovers 0.44 of the cross gain (pred_b "≥ 0.60" FALSE; null ≤ 0.35 not met), the top-512 0.28 (pred_c "≥ 0.40" FALSE; null ≤ 0.20 not met), the top-256 0.19, the top-2048 0.69; a seeded random 1024 units recover 0.32 (pred_d "≤ 0.35" TRUE; null ≥ 0.55 not met) — energy ranking beats random by only 12 points; the unit-energy participation ratio is 3758 of 4608 (blocks 8–16: 3360–4318; block 17: 2010) (pred_e "≤ 1500" FALSE; null ≥ 2500 MET); the top-1024 units hold only 27–37% of the cross-term output energy (Claude, LANE 1 CUDA, 21 s, 768 GPU document-forwards): a, d TRUE; b, c FALSE; e FALSE with its null MET. Preserved.
+
+Sign convention (§2135): CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Preregistration LATE_TAIL_CROSS_UNIT_PROBE_PREREGISTRATION.md (00:48Z, frozen with §2780's results); script ops/late_tail_cross_unit_probe.py; results late_tail_cross_unit_probe_results.json (sha c563c548…). Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 .0374; LATE_MLP_768 .1249; DROP_TT_768 .0087 (all exact to prior).
+
+| cross term kept on | CE added (k = 768, tail×tail dropped) | recovery of the .1162 cross gain |
+|---|---|---|
+| no units (core×core only) | .1249 | 0 |
+| top 256 | .1033 | .19 |
+| top 512 | .0922 | .28 |
+| top 1024 | .0738 | .44 |
+| random 1024 | .0878 | .32 |
+| top 2048 | .0449 | .69 |
+| all 4608 | .0087 | 1 |
+
+What it says. (1) Recovery is close to linear in the number of units kept (.19/.28/.44/.69 at 256/512/1024/2048 — about 1.5–2× the proportional share, never a knee): the tail read is spread over essentially the whole hidden layer, with a mild concentration (energy ranking beats random by 12 points at 1024). Block 17 is the only block with a somewhat concentrated gate (PR 2010), consistent with its outsized single-block cost (§2771, §2774). (2) With §2779 (the tail is not low-rank in t) and this rung (not sparse in hidden units), the remaining axis on which M(c)·t could be simple is the GATE: how many directions of the core c set the gain vectors Lc, Rc of the read — registered next as late_tail_gate_rank_probe (constant gates = a fixed linear read of the tail; gates from the top-r core directions). (3) Nothing installs into the §312 frontier (§2125).

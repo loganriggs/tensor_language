@@ -1,0 +1,142 @@
+{
+ "rung": "late_tail_cross_unit_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_top_1024_units_recover_most_of_the_cross_gain": false,
+  "pred_c_top_512_units_recover_much": false,
+  "pred_d_random_1024_units_recover_little": true,
+  "pred_e_cross_energy_concentrated_on_units": false
+ },
+ "nulls": {
+  "b_null_rec1024_le_.35": false,
+  "c_null_rec512_le_.20": false,
+  "d_null_rand1024_ge_.55": false,
+  "e_null_pr_ge_2500": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_min": 0.6,
+  "c_min": 0.4,
+  "d_max": 0.35,
+  "e_max": 1500.0
+ },
+ "null_bars": {
+  "b_max": 0.35,
+  "c_max": 0.2,
+  "d_min": 0.55,
+  "e_min": 2500.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP reads through the bus (top-768 of U_8; rest constant); the cross term Lc*Rt + Lt*Rc is kept on the top-h hidden units by fit-set output energy (CROSS_TOP_h) or a seeded random h units (CROSS_RAND_h); tail*tail dropped throughout",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249,
+  "drop_tt_768": 0.008696913719177246,
+  "prior_drop_tt_768": 0.0087
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "DROP_TT_768": 0.008696913719177246,
+  "CROSS_TOP_1024": 0.07380110025405884,
+  "CROSS_TOP_256": 0.10330021381378174,
+  "CROSS_TOP_512": 0.0922275185585022,
+  "CROSS_TOP_2048": 0.04487478733062744,
+  "CROSS_RAND_1024": 0.08778268098831177
+ },
+ "summary": {
+  "cross_gain_768": 0.1162293553352356,
+  "recovery": {
+   "CROSS_TOP_1024": 0.43986451316791497,
+   "CROSS_TOP_256": 0.18606362547788338,
+   "CROSS_TOP_512": 0.2813295350524742,
+   "CROSS_TOP_2048": 0.6887372083661324,
+   "CROSS_RAND_1024": 0.31957148827823517
+  },
+  "participation_ratio_mean": 3758.152493686165,
+  "participation_ratio_by_block": [
+   3701.299527602787,
+   3884.8035690674533,
+   4252.617572804119,
+   3360.447368879934,
+   4099.525109971289,
+   3985.2740535350986,
+   4317.9774685995135,
+   4220.37264773885,
+   3749.5001124688138,
+   2009.7075061937921
+  ],
+  "energy_share_top": {
+   "256": [
+    0.12780676180445757,
+    0.11630403919710454,
+    0.10029489232949428,
+    0.10690689230867664,
+    0.09634398973146786,
+    0.09310445525203939,
+    0.08195963383488807,
+    0.08827271614311964,
+    0.11546615942429166,
+    0.18351849506006998
+   ],
+   "512": [
+    0.1984237165429107,
+    0.18460701168777163,
+    0.1670269135835271,
+    0.17246744759823854,
+    0.1629333134616295,
+    0.1585734813971009,
+    0.148069842332002,
+    0.15554703806551307,
+    0.18327068217244621,
+    0.2517316685967015
+   ],
+   "1024": [
+    0.31923286639902626,
+    0.3058532006873651,
+    0.289445184666144,
+    0.29462249870824403,
+    0.28728826988075756,
+    0.2823807418734018,
+    0.27347440209709584,
+    0.28261663843281826,
+    0.30907957828583754,
+    0.3719482449130603
+   ],
+   "2048": [
+    0.5364652430315959,
+    0.5272495673740457,
+    0.5155109619111962,
+    0.5207654691436959,
+    0.5175207049908735,
+    0.5124633264847632,
+    0.5078565773906565,
+    0.5185776533482642,
+    0.54039892175644,
+    0.5879035614406821
+   ]
+  },
+  "hidden_dim": 4608
+ },
+ "price": {
+  "gpu_doc_forwards": 768,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 20.762714624404907
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_CROSS_UNIT_PROBE_PREREGISTRATION.md": "cce1c499305f25e8dfc86861bfddfc32eadc18ef3d11bad387b3a81dce1a0812",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_product_term_probe_results.json": "044ce5ad6bb1e0b4d54b902aa3ca1d1e9d321cebc1c33c0f64246f557a8842ea",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "5ea582e67a48751a262b68295ea8ddefe19ee4a2106322bce11e7d89c53ed59d"
+}

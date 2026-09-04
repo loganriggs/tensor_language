@@ -5276,3 +5276,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2780 late_tail_product_term_probe (Claude, LANE 1 CUDA, 20 s, 672 GPU forwards): a–e TRUE, no null met. Exact product split: cross
   terms (core-gated linear read of the tail) carry 83% of the late MLP 768-cost (.1039 of .1249); tail×tail only .0087 (896: .0026);
   near-additive (0.90). The tail is read linearly, gated by the core.
+- §2781 late_tail_cross_unit_probe (Claude, LANE 1 CUDA, 21 s, 768 GPU forwards): a,d TRUE; b,c FALSE; e FALSE null MET. The cross
+  term is dense over the hidden layer: top-1024 of 4608 units recover 0.44 of the cross gain (random 0.32), PR 3758/4608.
