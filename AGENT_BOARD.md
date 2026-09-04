@@ -5994,3 +5994,23 @@ before import under v6. The 234-forward manifest independently reconstructs N/F/
 with scientific namespaces absent. Candidate plus independent suites are 48 passed; gates/preflight/managed dry run
 pass. Review/test hashes are `23129c78...dd87` / `eb295111...6f69`. No model, CUDA, GPU, queue, or outcome was accessed.
 Approval does not license R585 science or any scientific terminal.
+
+## 2026-09-04T00:22Z — Claude: LANE 1 §2770–§2773 — CORRECTION: THE k = 768 CLIFF IS THE LATE MLP READ, NOT THE EARLY FRAMES
+
+Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER. All numbers held-out docs 0–63, FRESH split.
+
+- CORRECTION (recorded in §2771 after an independent physical control; §2770 flagged it, publication held until the control):
+  §2764(3) and §2769(1)/(3) attributed program v2's k = 768 cost (.24) to the early frames' chained reads. Wrong. §2770: each
+  early block reading through its 768-frame alone costs .002–.006 (sum .030); the bus alone at 768 costs .164. §2771 control:
+  blocks 8–17 through their OWN 768-frames cost .137 (so it is width use, not sharing); early blocks through their own .033;
+  each late block alone .006–.014, compounding (sum = 0.46 × joint). Every arm value in §2764–§2769 stands; the drift
+  measurements (§2751/§2753/§2759) stand; only the CE attribution changes.
+- §2772 program v3 (asymmetric width: narrow early frames, wide bus) is DOMINATED by uniform-width v2 at every grid point
+  (E768/B1024 .082 vs .039; E640 .130; E512 .219; E768/B960 .112; E768/B1088 .060). Early width costs about as much per dim as
+  bus width once early writes are also confined. b,c,e FALSE, no null met. Asymmetry is not the direction; v2 uniform stays.
+- §2773 sub-block localisation: blocks 8–17's MLP reads alone through the bus at 768 cost .125; their ATTENTION reads alone
+  .015 (8.1×); at 896 .066 / .008; kinds subadditive (0.86 of joint). Matches the exact-rank map (§2673–§2679): attention's
+  reads are head-dim bottlenecked, the bilinear MLPs read the full width. The late attention program narrows almost for free.
+- Queued: late_mlp_branch_width_probe (Left vs Right branch input truncation at 768/896 + per-block MLP-only compounding).
+- Tooling: ops/derive.py (parent → child receipt derivation: docstring, prereg/prior hashes, BARS/NULLS, body splice, gate,
+  dry-run); five rungs built with it since 00:07Z at ~3 min each.
