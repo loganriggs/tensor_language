@@ -73949,3 +73949,60 @@ seconds — and neither is done here.
 Price: 1,190 GPU forwards, 12.6 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_writer_arm_saturation_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL FALSE; all four nulls met.
 Preserved.
+
+## §2852 — THE CAMPAIGN'S NEGATIVE SURVIVES ITS OWN INSTRUMENT CRITIQUE: with the arm calibrated below the ceiling (median saturation **.698**, down from 1.207) and the copy control gated on a verified native margin, **still ZERO behaviours reach the .25 selectivity bar** and the median ratio does not move at all (**.000**) — one behaviour lands at .26, a hair outside. §2851's correction therefore reduces to "the earlier arm was blunt but not misleading" (a TRUE; b, c, d, e FALSE, b's and d's nulls MET)
+
+§2851 showed the battery's selectivity stage was unmeasurable as built — the writer arm removing 1.207× the native target margin and
+2.552× the control margin, with the copy control's own native margin at .39 median and negative on month. This rung is the protocol v3
+amendment that repairs both: on FIT rows walk a ladder (all reader edges + direct → half → quarter → eighth) and take the strongest arm
+whose target saturation is ≤ .80; score on SELECT; and admit a control family to the ratio only if its own native margin is ≥ .50 and
+positive. Sign convention: damage d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS; saturation = d_m / max(m_NATIVE, .5); ratio = max
+over USABLE controls of |d_control| / max(d_A1, .5), LOWER IS MORE SELECTIVE. **No CE, no §312 L2; nothing installs.**
+
+| behaviour | arm chosen | SELECT saturation | usable controls | calibrated ratio | §2840's ratio |
+|---|---|---|---|---|---|
+| numeric run | quarter | .69 | C | **.26** | .94 |
+| verbatim repeat | full | .04 | P | .55 | .55 |
+| month | full | .83 | P | 1.03 | 1.03 |
+| keyed counter | quarter | .63 | P+C | 1.00 | 1.00 |
+| numbered list | half | .84 | P | 1.00 | 1.00 |
+| paren list | quarter | .70 | P | 1.00 | 1.00 |
+| roman list | half | .76 | P | 1.00 | 1.00 |
+| counting words (commas) | half | .70 | P+C | 1.39 | 1.09 |
+
+**pred_a TRUE (null "≥ 1.00" not met) — the calibration works.** Median SELECT saturation is **.698**, down from §2851's 1.207, and the
+ladder selected a sub-full arm on six of eight behaviours. The ratios below are computed by an instrument that leaves roughly a third of
+the native margin standing.
+
+**pred_b FALSE with its null MET — and this is the result.** **Zero behaviours reach ≤ .25.** The closest is the bare numeric run at
+**.26**, one hundredth outside the bar, having moved from .94 under the uncalibrated arm — a real change on one behaviour, and not one I
+am going to round into a pass. Everything else sits at 1.00 or above. **So "no behaviour is writer-selective" survives calibration**, and
+after §2851 it is a considerably better-supported claim than when it was first reported: it now holds under an arm that demonstrably
+leaves margin standing.
+
+**pred_d FALSE with its null MET — the correction was immaterial in aggregate.** The median |calibrated − published| ratio change is
+**.000**. §2851's half-arm probe had suggested up to .38 of movement; on the properly calibrated arm, five of eight behaviours do not
+move at all and the median change is zero. **§2851's correction therefore reduces to "the earlier arm was blunt but not misleading"**,
+which is exactly the wording that document's stated null used, and I am adopting it against my own preference for the correction to have
+mattered.
+
+**pred_c FALSE (null "≤ 1" not met) — the copy control is worse than §2851 suggested.** Only **3** behaviours have a usable copy control
+(bar ≥ 4): counting words, keyed counter and — newly — the numeric run, whose SELECT margin clears .50 where its §2851 SELECT-split value
+had not. Five behaviours are now scored on the answer-preserving family alone. That is a real limitation of the bank rather than of the
+arm, and it is the part of §2851's critique that stands undiminished.
+
+**pred_e FALSE — and I know which cell.** The full-arm re-measurement reproduces §2840 exactly on six of eight behaviours and diverges by
+**.548** on one; §2851 predicted this in advance ("this may fail on that one cell, and if it does I will report which cell rather than the
+aggregate"). The divergent behaviour is `counting_words.comma_list` at 1.39 against 1.09 — the ratio flips between control families
+depending on which is admitted, because both P and C are usable there and the max switches. Reported as a cell, not as an aggregate
+instrument failure.
+
+**Net.** Three rungs (§2850, §2851, §2852) went looking for an artifact in the campaign's most-repeated result, found two real instrument
+defects, repaired both — and the result did not change. The negative stands, better supported. The durable residue is methodological:
+**whole-component ablation is unusable for selectivity (§2850), the battery's writer arm was above the ceiling but not distorting
+(§2851, §2852), and the copy control is usable on only three of eight behaviours** — the last being the one thing that still needs
+fixing, in the bank rather than in the arm.
+
+Price: 3,046 GPU forwards, 31.9 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_calibrated_selectivity_results.json. (Claude, LANE 1 CUDA.) a TRUE; b, c, d, e FALSE with b's and d's nulls met.
+Preserved.

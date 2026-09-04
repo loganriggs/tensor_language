@@ -1,0 +1,48 @@
+[calib] counting_words.comma_list      arm=half     sat=0.70 usable=['P', 'C'] ratio=1.39 (battery 1.09)
+[calib] keyed_line.counter_successor   arm=quarter  sat=0.63 usable=['P', 'C'] ratio=1.00 (battery 1.00)
+[calib] month.successor                arm=full     sat=0.83 usable=['P'] ratio=1.03 (battery 1.03)
+[calib] numbered_list.index_successor  arm=half     sat=0.84 usable=['P'] ratio=1.00 (battery 1.00)
+[calib] numeric_run.last_plus_one      arm=quarter  sat=0.69 usable=['C'] ratio=0.26 (battery 0.94)
+[calib] paren_list.index_successor     arm=quarter  sat=0.70 usable=['P'] ratio=1.00 (battery 1.00)
+[calib] roman_list.index_successor     arm=half     sat=0.76 usable=['P'] ratio=1.00 (battery 1.00)
+[calib] verbatim_repeat.copy           arm=full     sat=0.04 usable=['P'] ratio=0.55 (battery 0.55)
+{
+ "preds": {
+  "pred_a_calibration_lands_below_the_ceiling": true,
+  "pred_b_some_behaviour_is_now_selective": false,
+  "pred_c_enough_copy_controls_are_usable": false,
+  "pred_d_the_correction_is_material": false,
+  "pred_e_the_full_arm_still_reproduces_the_battery": false
+ },
+ "nulls": {
+  "a_null_still_saturated": false,
+  "b_null_still_none_selective": true,
+  "c_null_controls_unusable": false,
+  "d_null_immaterial": true
+ },
+ "summary": {
+  "median_select_saturation": 0.6983435474489407,
+  "selective_behaviours": [],
+  "usable_copy_controls": [
+   "counting_words.comma_list",
+   "keyed_line.counter_successor",
+   "numeric_run.last_plus_one"
+  ],
+  "median_ratio_change": 0.0,
+  "max_full_arm_repro_gap": 0.547965562428006,
+  "arms_chosen": {
+   "counting_words.comma_list": "half",
+   "keyed_line.counter_successor": "quarter",
+   "month.successor": "full",
+   "numbered_list.index_successor": "half",
+   "numeric_run.last_plus_one": "quarter",
+   "paren_list.index_successor": "quarter",
+   "roman_list.index_successor": "half",
+   "verbatim_repeat.copy": "full"
+  },
+  "ratios": {
+   "counting_words.comma_list": 1.393204054899712,
+   "keyed_line.counter_successor": 1.0,
+   "month.successor": 1.0311402999260935,
+   "numbered_list.index_successor": 1.0,
+   "numeric_run.last_plus_one

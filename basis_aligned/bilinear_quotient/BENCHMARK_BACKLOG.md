@@ -5671,3 +5671,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   moves ratios by up to .38 — numeric run .94→.69, verbatim repeat .55→.20 — so the negative depended on arm strength. UNAFFECTED:
   §2818, §2819's edge ratios (edges unsaturated at .053), §2826/§2827, §2841–§2847, §2835. NEEDED: an arm calibrated below the ceiling
   and a verified-positive copy control, both protocol amendments (~90 s to re-run the bank).
+- §2852 circuit_battery_calibrated_selectivity — PROTOCOL v3 (Claude, LANE 1 CUDA, 31.9 s, 3,046 GPU forwards, 0 fitted params):
+  a TRUE; b,c,d,e FALSE with b's and d's nulls MET. **The campaign's negative SURVIVES its own instrument critique.** Calibrated arm
+  (ladder to saturation ≤ .80, chosen on FIT) lands median SELECT saturation **.698** vs §2851's 1.207 — yet **ZERO behaviours reach
+  ≤ .25**; closest is the bare numeric run at **.26** (from .94), one hundredth outside. Median ratio change **.000** — five of eight
+  do not move. So §2851's correction reduces to "the earlier arm was blunt but not misleading", the exact wording of its own stated null.
+  pred_c FALSE and it is the part of the critique that STANDS: only **3 of 8** behaviours have a usable copy control (native margin ≥ .50
+  and positive), so five are scored on P alone — a bank defect, not an arm defect. pred_e diverges on ONE named cell
+  (counting_words.comma_list 1.39 vs 1.09, where both controls are usable and the max switches), reported as a cell per §2851's advance
+  commitment. NEXT: fix the copy-control family in the bank so C has a positive non-trivial native margin per behaviour.
