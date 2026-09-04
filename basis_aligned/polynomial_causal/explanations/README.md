@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0045.md](explanation_2026-09-04_0045.md) — standalone account of the entire high-quality-
+  circuit period: the circuit evidence ladder, concrete pending-opener/induction/numbered-list/numeric tasks and
+  counterfactuals, every major held/null/invalid result, exact interventions, the two-agent bootstrap, honest current
+  scorecard, and next gates
 - [explanation_2026-09-04_0034.md](explanation_2026-09-04_0034.md) — R591's completed numerical diagnosis, why the old
   induction intervention remains invalid, the exact fixed-geometry centered R592 replacement, its 961-forward price and
   narrower claim, the QK-realizability test, the repaired R590 candidate, and the live two-subagent bootstrap
