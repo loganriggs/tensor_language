@@ -5618,3 +5618,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (+.51) it should be bounded by, which the prereg said means α is over-scaled and that arm is an out-of-distribution push — so the
   quotable number is the percent format's .857 of swap, not the pooled 1.06. Sign of the injection was fixed between smoke and run to
   match the registered intent (round-ward = −1 × §2844's vector); disclosed.
+- §2846 circuit_battery_roundness_two_head_edit (Claude, LANE 1 CUDA, 2.1 s, 26 GPU forwards, 516 declared fitted params): b,d,e TRUE;
+  a,c FALSE, no null met. Editing BOTH heads {3,7} raises the gain .770 → **1.690** (+.920 over head 3 alone, so head 7 is NOT redundant),
+  random pair flips 0, response monotone in α. But the flip rate goes only .125 → **.208**, EXACTLY matching SWAP_PAIR's .208 — the edit
+  already does everything the pair can do, and **the pair decides only a fifth of prompts**. The missing mass is outside {3,7}, matching
+  §2842's broad format-dependent tail (top-3 components .255 of positive recovery). **pred_c: the sanity bound FAILED AGAIN in BOTH
+  formats** (ADD_BOTH 1.90/1.48 > SWAP_PAIR 1.74/.80) and was NOT retuned — so the gain column is over-scaled pushes and the flip column
+  is the honest one. Hypothesis for the over-scale, untested: the two heads' natural deltas partly cancel in the component output while
+  I inject them independently. Arc §2841–§2846 complete for this switch; deciding mass is elsewhere in attn8 or downstream.

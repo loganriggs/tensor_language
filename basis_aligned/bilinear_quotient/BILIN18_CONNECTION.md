@@ -73653,3 +73653,50 @@ were not touched. This is disclosed rather than silently corrected because the s
 
 Price: 22 GPU forwards, 2.0 GPU-seconds, 0 backwards, 258 declared fitted parameters. First rung to use `ops/fastload.py`.
 Results: circuit_battery_roundness_steering_results.json. (Claude, LANE 1 CUDA.) b, c TRUE; a, d, e FALSE with d's null met. Preserved.
+
+## §2846 — EDITING BOTH HEADS DOUBLES THE PUSH AND STILL DOES NOT DECIDE: the pair-edit gain rises from .770 to **1.690** (+.920 over head 3 alone), the random pair flips nothing, the response is monotone in α — but the flip rate goes only .125 → **.208**, exactly matching the FULL SWAP of both slices (.208), and the sanity bound fails again in BOTH formats (b, d, e TRUE; a, c FALSE, no null met)
+
+§2845 left two things: head 3 alone could not decide the behaviour (flip .125 against a swap ceiling of .083/.000), and its α failed a
+registered sanity bound on the bare format. This rung edits **both heads of the {3, 7} pair** with their own round-ward directions and
+per-head scales, and carries arms that test the scaling directly. Sign convention: flip rate is the fraction of held-out non-round
+prompts whose argmax becomes the STEP answer, HIGHER MEANS THE EDIT WORKED; gain is the change in `logit(step) − logit(plus-one)`.
+**Activation edit at run time — no weight change, no CE, no §312 L2, nothing installs.**
+
+| format | ADD_BOTH | ADD_ONE | SWAP_PAIR | ADD_HALF | RANDOM_PAIR |
+|---|---|---|---|---|---|
+| percent | .250 / **+1.90** | .083 / +0.90 | .333 / +1.74 | — / +0.58 | .000 |
+| bare | .167 / **+1.48** | .167 / +0.64 | .083 / +0.80 | — / +0.47 | .000 |
+
+**pred_b TRUE (null "≤ 0" not met) — head 7 carries an independent share.** The two-head gain exceeds the one-head gain by a median
+**+.920** (1.690 against .770), close to doubling, so the second head of the pair is not redundant with the first. Measured on the same
+rows in the same rung, so this is a paired difference and does not lean on §2845's absolute values.
+
+**pred_d TRUE (null "≥ .30" not met) and pred_e TRUE.** A seeded random pair of directions at the same magnitudes flips **0** prompts in
+either format, and the response is monotone in α (1.90 against .58 at half; 1.48 against .47). The push is the vectors, and it behaves
+like a push.
+
+**pred_a FALSE, its null NOT met — and the ceiling moved with it, which is the point.** The flip rate goes .125 → **.208** (bar ≥ .30),
+while `SWAP_PAIR` — replacing both slices outright, the largest intervention confined to the pair — flips **.208** as well. **The edit
+now does everything the pair can do, and the pair still decides only a fifth of prompts.** So the missing mass is not head 7 and not the
+scaling; it is outside the {3, 7} pair. That fits §2842's component map, where attention 8 led but the tail was broad and
+format-dependent (top-3 components only .255 of positive recovery), and it bounds this lineage: **the roundness switch can be pushed
+from the pair that carries the feature, but not decided there.**
+
+**pred_c FALSE — the registered sanity bound failed AGAIN, now in both formats, and I am not tuning α to make it pass.** `ADD_BOTH`
+(1.90, 1.48) exceeds `SWAP_PAIR` (1.74, .80). §2845's document had already named the consequence — an additive edit that beats the swap
+it imitates is pushing past any magnitude the natural round/non-round difference reaches — and §2846's document repeated it and
+committed in advance to reporting rather than retuning. So the gains above are **over-scaled pushes, not measurements of the feature's
+natural size**, and the honest reading of the table is the FLIP column, where the edit and the swap agree at .208 and neither can do
+more. The pair's per-head fitted α is evidently larger than what the pair naturally moves — plausibly because the two heads' natural
+deltas are partly cancelling in the component's output while I inject them independently, which is a testable follow-up and is not
+tested here.
+
+**What this closes and what it opens.** §2841–§2846 give a complete arc for one behaviour switch: it exists and is sharp (§2841), it is
+in attention 8 (§2842), in heads {3, 7} (§2843), along one 128-dimensional direction (§2844), that direction steers the logits fully
+(§2845) — and the pair that holds it cannot decide the outcome (§2846). The deciding mass is elsewhere in attention 8 or downstream, and
+locating it is the next rung. **The "manipulable" half of the campaign's goal is answered for this feature as: yes, partially — one
+fifth of prompts, which is exactly what the strongest possible intervention on its carrier achieves.**
+
+Price: 26 GPU forwards, 2.1 GPU-seconds, 0 backwards, 516 declared fitted parameters.
+Results: circuit_battery_roundness_two_head_edit_results.json. (Claude, LANE 1 CUDA.) b, d, e TRUE; a, c FALSE with no null met.
+Preserved.

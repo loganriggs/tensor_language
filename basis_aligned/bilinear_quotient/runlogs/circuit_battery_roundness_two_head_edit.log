@@ -1,0 +1,30 @@
+[2head] percent  two=0.250/1.90 one=0.083/0.90 swap=0.333/1.74 rnd=0.000 half=0.58 bound_ok=False
+[2head] bare     two=0.167/1.48 one=0.167/0.64 swap=0.083/0.80 rnd=0.000 half=0.47 bound_ok=False
+{
+ "preds": {
+  "pred_a_two_heads_flip_more_than_one": false,
+  "pred_b_two_head_gain_exceeds_one_head": true,
+  "pred_c_the_sanity_bound_now_holds": false,
+  "pred_d_random_pair_is_inert": true,
+  "pred_e_the_edit_is_monotone_in_alpha": true
+ },
+ "nulls": {
+  "a_null_no_gain_from_two": false,
+  "b_null_second_head_adds_nothing": false,
+  "d_null_random_flips": false
+ },
+ "summary": {
+  "medians": {
+   "two_head_flip": 0.20833333333333331,
+   "two_head_gain": 1.6904675364494324,
+   "one_head_flip": 0.125,
+   "one_head_gain": 0.7703808546066284,
+   "gain_over_one_head": 0.920086681842804,
+   "swap_pair_flip": 0.20833333333333331,
+   "swap_pair_gain": 1.2670945227146149,
+   "random_pair_flip": 0.0,
+   "half_alpha_gain": 0.5223177671432495
+  },
+  "bound_holds_all_formats": false
+ }
+}
