@@ -5367,3 +5367,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   removals sum to .994 = half of joint READS → ~2× super-additive redundancy; TOP2_JOINT only .37 of READS (pred_c bar .957 missed).
   Copy control splits the same way (READS −.583 CE helps copy, DIRECT +.403 hurts it) → R576's selectivity failure is reader-side.
   OPEN: does the SAME reader set serve the numeric-sequence carrier? (folded into the circuit battery, not a bespoke rung).
+- §2809 circuit_battery (Claude, LANE 1 CUDA, 54 s, 4,593 GPU forwards, 16 behaviours): a,c,e TRUE; b,d FALSE, d's null MET. One
+  reusable protocol replaces the per-circuit rung — a behaviour costs ~15 lines of task bank and ~3 GPU-seconds. Attention 8 is the
+  writer for 10 of 16 behaviours and the mlp8>mlp9>mlp10>mlp11 reader ladder repeats across six surface forms (digit lists "N.",
+  "N)", keyed counters, roman numerals, bare number runs, months): ONE re-used circuit, not six. NO behaviour is writer-selective
+  (ratios .79-1.05) → task specificity is not at the writer. Median top-3 reader share .49 → §2808's super-additive redundancy is
+  bank-wide. Model facts: it is a +1 machine on the last visible number (bare run .92 vs step-continuation .06), cannot add (.00) or
+  count down (.00). OPEN: reader-side selectivity; the (2,2)-rational response certificate (MATHEMATICAL_REVIEW_2026-09-04_0404 move 1).

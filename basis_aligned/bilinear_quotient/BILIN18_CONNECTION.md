@@ -72033,3 +72033,75 @@ The one pre-freeze amendment was pred_a's reference set, narrowed to R576's FIT 
 Price: 457 GPU forwards, 20.2 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: numbered_list_cached_value_read_split_probe_results.json (sha256 1c6dc2fbe838c410…), runlogs/…log, landed 03:40Z exit=0.
 (Claude, LANE 1 CUDA.) a, b, d TRUE; c, e FALSE with nulls not met. Preserved.
+
+## §2809 — THE CIRCUIT BATTERY: 16 behaviours localised in 54 GPU-SECONDS, and the answer is that they are mostly ONE circuit — attention 8 writes the last salient item for 10 of 16 tasks, an mlp8>mlp9>mlp10>mlp11 reader stack computes the +1 for six different surface forms, and NO writer is selective (a, c, e TRUE; b, d FALSE, d's null MET)
+
+User directive 2026-09-04T03:43Z: *"Why do you need fresh data for every unique circuit? We should do the 20/80 here… If 1 circuit
+experiment is taking an hour, something is wrong with your methodology. Figure out what's essential, build tools that can be built
+once and reused, and then scale."* This section is the first run of the tool that answers it, and it replaces the per-circuit rung as
+the unit of work. A behaviour now costs a ~15-line task-bank entry and about 3 GPU-seconds; the whole 16-behaviour bank ran in 54.
+
+**The instrument.** `ops/circuit_battery_tasks.py` turns a behaviour (template + slot vocabularies + answer function + named causal
+variable) into four counterfactual families — A1 and A2 answer-changing on the causal variable, P answer-preserving on a surface slot,
+C copy control whose answer is a visible token — over three splits with disjoint value pools, with construction checks and eight unit
+tests (all passing). `ops/circuit_battery.py` then runs the same four stages on every behaviour: CAPABILITY (native argmax over the
+task's own answer vocabulary), LOCALISE (donor-to-base interchange patch of all 36 components, scored as normalized logit-difference
+recovery REC; FIT ranks, SELECT scores), SPLIT (the writer's final-position write carried as a parallel residual and removed from
+chosen reader inputs: FULL / DIRECT / READS / each component), SELECTIVITY (the same FULL deletion on P and C). One preregistration
+(`CIRCUIT_BATTERY_PROTOCOL_PREREGISTRATION.md`, sha d60b4c0c…) fixes the bars for all behaviours, present and future; the amendment
+section of that document discloses the capability scan and the v1 smoke that preceded the freeze. Zero fitted parameters — deliberately
+no DAS-style learned alignment, because a fitted alignment can reach high interchange accuracy without being the mechanism
+(arXiv:2507.08802).
+
+**pred_a TRUE.** The edge decomposition is exact on every one of the 16 behaviours: removing every reader edge plus the direct path
+equals never writing the writer's final-position write at all, max deviation 1.9e-5 (bar 1e-4).
+
+**pred_b FALSE (null not met).** 6 of 16 behaviours clear the .80 native-capability bar (bar was 8): numbered_list 1.00,
+keyed_line ("Chapter 4 / Chapter 5 / Chapter" → 6) 1.00, verbatim_repeat 1.00, paren_list .99, month .93, numeric_run .92; then a
+band the bar excludes — weekday .79, roman_list .78, induction .71, bracket .64, counting_words .64 — and the deliberate failures
+letter_list .26, alphabet_run .21, numeric_sequence.continuation .06, arithmetic.small_addition .00, countdown .00. Two model-level
+facts fall out. (i) **This model is a +1 machine on the last visible number, not an arithmetic machine**: on a bare run "3 5 7 9" it
+answers 10, not 11 (numeric_run .92 vs continuation .06), and it cannot add (.00) or count down (.00). (ii) Succession is *surface-
+robust but not modality-general*: digits after "N." (1.00), after "N)" (.99) and after a key word (1.00) all work, month names work
+(.93), weekdays nearly (.79), but the same task over letters (.26) and roman numerals (.78) does not.
+
+**pred_c TRUE (null not met).** For 5 of the 6 capable behaviours a SINGLE component recovers most of the interchange:
+REC = .92 keyed_line, .87 numbered_list, .82 paren_list, .79 numeric_run, .60 month (median over capable .81; null was ≤ .20). The
+sixth, verbatim_repeat, is .14 and is discussed below.
+
+**The re-use result — the point of building a battery.** The chosen writer is **attention 8** for 10 of the 16 behaviours (attn14 x2,
+attn3, attn11, mlp11, mlp17 once each), and the reader ladder under it is the SAME ladder across six different surface forms:
+numbered_list mlp8 .51 > mlp9 .22 > mlp10 .16 > mlp11 .12; paren_list .44 / .31 / .21 / .08; keyed_line .57 / .42 (mlp10) / .42 (mlp9)
+/ .14; roman_list .79 / .66 / .19 / .18; numeric_run .35 / .17 / .11 / .10; month .32 (mlp9 .33 first) / .25 / .11. §2808's
+numbered-list finding is therefore not about numbered lists: **attention 8 writes "the last salient item" and the bilinear MLP stack
+8→11 computes the successor of whatever that item is**, whether it is a digit after "N.", a digit after "N)", a counter after
+"Chapter", a roman numeral or a month name. That is one circuit re-used six ways, not six circuits.
+
+**pred_d FALSE and its null MET — the honest headline.** NOT ONE behaviour passes selectivity. The writer's deletion damages the
+answer-preserving family P or the copy control C by ≥ .79 of what it does to the target family on every capable behaviour
+(numbered_list .92, paren_list 1.04, keyed_line 1.05, month .91, numeric_run .79, verbatim_repeat .90; median ≥ .75 = the registered
+null, met). §2808 attributed the numbered list's selectivity failure to the reader set; the battery shows the failure is universal at
+the WRITER: attention 8 is a general-purpose "carry the last salient item forward" component, and any circuit whose writer is
+attention 8 inherits its non-selectivity. This is the single most important thing the battery bought, and it says the campaign's
+existing "circuits" are under-specified in the same way: the task-specific part of these behaviours is NOT at the writer, so it must be
+in the reader set or in the input to it, and future work should be preregistered against reader-side selectivity, not writer-side.
+
+**pred_e TRUE (null not met) — §2808's redundancy generalises.** The median over capable behaviours of (top-3 readers' damage /
+READS damage) is .49 (bar ≤ .80, null ≥ .80): numbered_list .39, month .46, roman .48, paren .51, numeric_run .52, keyed_line .57.
+No behaviour's downstream computation is captured by three readers; the reader sets are super-additive, exactly as the self-repair /
+hydra-effect literature predicts for single-component ablation (McGrath et al., arXiv:2307.15771).
+
+**The one contrast worth naming.** `verbatim_repeat.copy` (copy the token being repeated) inverts the pattern: writer attn14, REC only
+.14, and the split is DIRECT 1.93 / READS −.93 — the write reaches the logits through the final norm, and the downstream readers
+actively push the other way. Every successor behaviour is the mirror image (READS .81–1.23, DIRECT .15–.38). So "copy" and "increment"
+are not two circuits with different components; they are the same kind of write consumed through two different paths, and the split
+instrument separates them cleanly in one run.
+
+**Instrument notes, recorded not hidden.** (i) REC is a ratio with a floored denominator; for behaviours whose donor barely changes
+the answer (alphabet_run, capability .21) it degenerates (REC 82.5), which is why REC is only read on capable behaviours — that
+restriction was in the preregistration, not added after. (ii) A2 was recorded and used for no bar in this version. (iii) Rows whose
+base and donor tokenize to different lengths are dropped from the interchange stage and counted in the receipt.
+
+Price: 4,593 GPU forwards, 54.0 GPU-seconds, 0 backwards, 0 fitted parameters — for sixteen behaviours end to end.
+Results: circuit_battery_results.json; smoke receipt circuit_battery_smoke_results.json (kept, never clobbers the registered one).
+(Claude, LANE 1 CUDA.) a, c, e TRUE; b, d FALSE with d's null MET. Preserved.
