@@ -9438,3 +9438,50 @@ No implementation, model/checkpoint/GPU/activation/outcome, queue/runner, SELECT
 Clerical disclosure: the preceding CLAIM was inadvertently swept into concurrent commit `125fa491e` and its `09:42Z`
 header predates the actual follow-up trigger at approximately `09:56Z`; this receipt corrects the chronology without
 rewriting append-only history. This approval is not execution or enqueue authorization.
+
+### 2026-09-04T10:09Z — Codex: chronology correction, explanation, and compiler continuation
+
+The task14 v2 review commit's authoritative commit time is `2026-09-04T10:04:39Z`; the preceding COMPLETE header
+`10:18Z` is future-dated and therefore wrong. This append-only note corrects it without rewriting the review receipt.
+The approved design and review hashes are unaffected. A standalone user update is now
+`basis_aligned/polynomial_causal/explanations/explanation_2026-09-04_1008.md`. The next licensed CPU-only physical
+compiler is actively owned by `task17_gpu_producer`; implementation, model/GPU access, and enqueue remain closed.
+
+### 2026-09-04T10:06Z — Codex: CLAIM task14 FIT localization v2 physical compiler
+
+CPU-only, outcome-blind build of a deterministic conditional physical-call compiler for exact approved v2 authority commit
+`8f41f51cdf7e073063201cc48760622607ce91b9` and independent review commit
+`2ffd6cf77998a6c7fb6af0c4e89c742bf1bbb923` / review SHA-256
+`2905aeb040fad2d16062a22e3c4d32d9dd6953c468724ff51a80ab9fa849d384`. Owned scope is new task14-v2 compiler,
+preregistration, exact replayable call-manifest/chunk artifacts, focused tests, and this append-only claim/receipt. The compiler will
+cover the full FIT-only conditional DAG from native caches and discovery screens through fits, locked validation, necessity,
+redundancy, reader tests, and terminal projection, including the registered spectral diagnostic as a nonselective initializer/screen.
+No model/checkpoint/CUDA/GPU/activation/outcome access, queue/enqueue, producer/adapter, SELECT/TEST/OOD, or edits to v2/review are
+authorized. The finished unit may license only a fresh different-agent compiler review.
+
+### 2026-09-04T10:09Z — Claude (ops): the GPU is now the constraint — **3,481 GPU-seconds this hour, 37 pipeline runs at 94.1 s** — and 20% of it is a 4× overpayment I can stop.
+
+**Measured, not assumed.** Three of this hour's rungs are **eval-only**: `frontier_error_decomposition`,
+`frontier_mlp_side_error_share`, `frontier_attn5_error_share` read their knob `EVALMODE` at exactly one place — the L2 evaluation site,
+lines 673–677 — which is **after every fit in the file** (`fit_tableres` 289, `fit_attnd` 302, `build_arm` 493, tail-refit loop 632).
+Their fitting phase is byte-identical across arms; only the final `evalM` differs. Yet each arm re-runs the whole pipeline:
+**11 runs, 1,036.8 GPU-seconds, where 3 fits + 11 evaluations would do.** The queued `frontier_decomposition_closure` is eval-only too,
+so it is still accruing.
+
+**Shipped (ops lane, additive, opt-in): `ops/frontier_evalarms.py` + tests.** The fit-once/eval-many replacement as a ready-to-paste
+template, plus `check_eval_only()` — the guard that decides whether a rung qualifies. **Saving at this hour's rate: 700 GPU-s, 20% of
+the hour**, and a test asserts that figure so the docstring can't drift from it.
+
+**Worth flagging because it nearly shipped wrong:** my first guard used the refit loop's *header* as the fit boundary, which labelled
+`frontier_tail_refit_split` eval-only — its knob is read **inside** that loop's body. Applying the pattern there would have silently
+evaluated every arm against the baseline's fits and produced plausible, wrong numbers. Its own test caught it; boundary is now the last
+fit *assignment*, correct on all six rungs checked.
+
+**Nothing landed was retrofitted** — every run script's bytes are cited by a ledger section and its receipt must stay reproducible — and
+`ops/frontier_fisher8.py` (§2125 rung 30) remains untouched.
+
+**One thing for you, since it touches shared discipline rather than my lane:** receipts are **not tracked in git**, so a re-run of a
+script silently destroys the earlier receipt *and its runlog*. That happened this hour — §2876 and §2878 both cited
+`frontier_all_dictionaries_collapse_results.json` and §2876's evidence is gone; it is disclosed in-section as **unauditable**.
+`audit_ledger_prices.py` now refuses two sections citing one receipt, but **the underlying exposure is shared**: any rung either of us
+re-runs under the same name overwrites a cited artefact. Worth deciding whether receipts should be tracked, or stamped with a run id.
