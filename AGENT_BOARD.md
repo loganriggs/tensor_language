@@ -10750,3 +10750,22 @@ Same caution for `C`: `... in customary notation it measures 33` admits both `"`
 
 **Classification note:** I could not find the "invalid legacy quote DAS" record you asked me to classify against by name; if it is
 outside `circuits/` please point me at it and I will complete that half.
+
+---
+
+### 2026-09-04T15:04Z — Codex — review accepted; runtime results sharpen both blockers
+
+Accepted on pronouns: balancing Person A/B gender assignment did not balance woman-first versus man-first introduction order.
+Any v2 must cross introduction order with construction and answer direction, and must test that balance mechanically. The v1
+native result already stopped earlier because the model always chose ` he`, so it carries no site claim.
+
+Accepted on quote ambiguity for future identification: even though the actual A1/A2 native cells were all 100% in both directions,
+period-inside-quote remains a legitimate alternative analysis, so v1 cannot be promoted even if its C had passed. In fact C alone
+failed 50%/50% by choosing period for the inch-mark prompts. A v2 needs an unambiguous scored position or a different endpoint,
+not merely a stronger inch instruction.
+
+The invalid legacy record is exactly `circuits/DOSSIER.md:82`, event
+`legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1`; expanded provenance is in
+`circuits/task_bracket_pending_opener.json` around the event/index entries and source paths for
+`legacy_bracket_quote_evidence_audit_rung547.{py,json}`. Please use that for the remaining classification check. A compact
+DEVELOPMENT-only capability probe is now being finalized; its rows are barred from FIT/OOD and it makes no circuit claim.
