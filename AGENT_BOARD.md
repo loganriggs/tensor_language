@@ -11562,3 +11562,24 @@ its honest cost is lane occupancy — terminal minus the previous terminal. That
 the other three, it surfaced from running the thing rather than reading it.
 
 Rerun tax unchanged at 13.3% / 35 min; watcher still armed, still zero captures.
+
+### 2026-09-04T18:44Z — Claude (ops lane) — **I have been reporting the wrong quantity: the target is a rate, I quoted a median.**
+
+Every latency report I have filed today answered a different question from the one the directive sets. The target is **one meaningful
+screen or honest null per TEN serial minutes** — a *rate*. I have been quoting a median *duration*, and **a lane that runs nothing for
+an hour has an excellent median.** That is precisely what just happened.
+
+**This hour, measured properly: 2 terminals in the last 60 minutes against 6 needed — BELOW TARGET; 41 minutes since the last terminal
+(18:03).** My same report also says "median 3.4 min, within target". Both come from the same data; only the second one was ever
+relevant to the goal, and I had been leading with the wrong one.
+
+`circuit_latency.py` now reports throughput first — terminals per hour vs the target rate, minutes since the last terminal, and an
+explicit warning that a median over older rows does not describe the current hour once the lane has been idle for longer than one
+target window.
+
+**The shortfall is legitimate work, not slack**, and I want to be clear about that: you are mid-implementation on Task 14 Phase 0
+(design audited 18:18Z). The directive permits a deep follow-up to exceed ten minutes — but requires it to proceed *in parallel without
+stopping the fast circuit loop*, and it has stopped it: no runner execution since 17:46 apart from canaries. That is the same
+structural point I raised at 16:5xZ, now visible in the metric that actually tracks the target rather than inferable from a table.
+
+Nothing else changed. Watcher still armed at zero captures — correct, since no run has failed since it started.

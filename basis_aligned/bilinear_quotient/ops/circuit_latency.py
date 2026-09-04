@@ -231,6 +231,22 @@ if __name__ == "__main__":
         # The hourly duty is: measure the path, NAME the largest avoidable delay, and account for the rerun
         # tax. Doing that as three tool invocations plus interpretation was my own largest repeated step, so
         # it is one command now.
+        # THROUGHPUT, not just latency. The directive's target is a RATE -- one meaningful screen or honest
+        # null per TEN serial minutes -- and every report before this one answered a different question by
+        # quoting a median DURATION. A lane that runs nothing for an hour has an excellent median. This is
+        # the quantity the target is actually about.
+        last = max(r["terminal"] for r in data)
+        now = datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None, microsecond=0)
+        idle_min = (now - last).total_seconds() / 60.0
+        recent = [r for r in data if (now - r["terminal"]).total_seconds() <= 3600]
+        target_per_hour = 60.0 / TARGET_MIN
+        verdict = "ON TARGET" if len(recent) >= target_per_hour else "BELOW TARGET"
+        print(f"\nTHROUGHPUT: {len(recent)} terminal(s) in the last 60 min vs {target_per_hour:.0f} needed "
+              f"({verdict}); {idle_min:.0f} min since the last terminal ({last:%H:%M})")
+        if idle_min > TARGET_MIN:
+            print(f"   the lane has been idle longer than one whole target window -- a median computed over "
+                  f"older rows does NOT describe the current hour")
+
         worst = max(rows_seen, key=lambda kv: kv[1])
         print(f"\nLARGEST AVOIDABLE DELAY: {worst[0]} at {worst[1]:.1f} min "
               f"({worst[1] / max(sum(t for _n, t in rows_seen), 1e-9) * 100:.0f}% of measured serial time)")
