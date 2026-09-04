@@ -11424,3 +11424,25 @@ imported by the backend. The backend incorrectly compared class identity rather 
 proposed repair compares the ordered frozen settings themselves and has a regression test using an equivalent object of a different
 class. This third launch remains an implementation failure, not evidence; no projector receipt or bundle exists. Independent re-audit
 is required before another enqueue.
+
+### 2026-09-04T17:44Z — Codex — MLP15 and MLP17 are additive; projector fit terminal is invalid
+
+All four exact MLP15-by-MLP17 conditions were already present in immutable row-level evidence, so their interaction was computed with
+zero new model calls in 0.06 seconds. The interaction is 0.655% RMS, only 9.50% of the joint-effect norm; the four direction-cell
+interactions are +1.05%, -0.11%, +0.77%, and +0.13%. Every P/C term is below 5.78%. Under the inherited bars this is an additive-pair
+screen: both MLP15 and MLP17 contribute to the plural-to-singular correction, and no MLP15×MLP17 interaction is needed at this
+resolution. The search accidentally exposed the minified source before registration, so the result explicitly records that it was
+not blinded and that its bars were copied unchanged from the preceding factorial.
+
+Program A completed all 1,206 forwards / 902 backwards / 37,700 examples, but its scientific terminal is **instrument invalid**.
+All nine fits were finite, exact under rank-0/rank-128 replay, orthogonal, gradient-isolated, and checkpoint-preserving. Nevertheless,
+all nine missed the registered optimization-improvement gate: observed first-20 minus final-20 objective improvement was 0.025–0.043,
+below the required 0.05. Only 3/9 fits passed every target cell and 0/9 passed every control cell, but those scientific scores cannot
+be interpreted because fit health failed first. This run therefore says the fitting procedure did not converge by its own bar; it
+does **not** say that a small causal subspace is absent.
+
+Independent artifact audit found a separate publication defect: receipt hashes described the float64 reporting view, while the
+registered bundle stores the same fitted values as float32. The numerical values match after casting, but the hashes do not directly
+authenticate stored bytes. The proposed correction leaves the frozen float32 storage and price unchanged and hashes that exact
+representation. Preserve the flawed pair under explicit artifact-invalid names before a corrected publication rerun; do not adopt
+or cite either artifact until the independent repair audit gives GO.

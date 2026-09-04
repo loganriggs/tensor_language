@@ -1,0 +1,37 @@
+{
+  "candidate_id": "task14.head11_3.mlp15_by_mlp17_path_interaction",
+  "checked_utc": "2026-09-04T17:39:00Z",
+  "decision": "genuinely_new_exact_derived_factorial",
+  "novelty": "Complete the exact Task-14 head-11.3-induced MLP15 by MLP17 factorial. The downstream reader result supplies F(empty), F(15), and F(17); the MLP15+17 core-path result supplies F(15,17). Prior Task-14 results did not combine those four exact corners or score their pair interaction.",
+  "prior_results_checked": [
+    {
+      "path": "circuits/followups/task14_head11_3_downstream_module_reader_screen_v1_result.json",
+      "sha256": "677e5e2eccdc13fcc7bd2053be5d9c450d2af22d36d20760334d9bd2f50a0ffa",
+      "relevance": "Contains row-level single-module restorations F(15) and F(17), plus their common F(empty), under the same Task-14 counterfactual."
+    },
+    {
+      "path": "circuits/followups/task14_head11_3_mlp15_17_vs_mlp16_factorial_v1_result.json",
+      "sha256": "e7765dbfd0269a32ab3e4ea8ccfeda1d4ceccabcce98e1d97d3dfd08c0ad8747",
+      "relevance": "Contains row-level joint restoration F(15,17), but does not compare it with the two singleton corners."
+    },
+    {
+      "path": "late_mlp_subset_lattice_probe_results.json",
+      "sha256": "884a0bba4acbb92638b6b9112ef5f287784dbe1f1dcc08958bc1d97f4ff610b0",
+      "relevance": "Earlier late-MLP subset work measures aggregate model-loss effects on another dataset and intervention, not the Task-14 head-11.3 counterfactual."
+    },
+    {
+      "path": "BILIN18_CONNECTION.md",
+      "relevance": "Historical MLP15/16/17 interaction and rank results do not contain this four-corner Task-14 causal response."
+    }
+  ],
+  "frozen_computation": "I=F(15,17)-F(15)-F(17)+F(empty), computed per row before averaging within each of the four Task-14 direction cells and the P/C controls.",
+  "frozen_predictions": {
+    "pred_a_source_identity": "Both sources have the frozen Task-14 authority, identical 128 row IDs, and identical F(empty) to absolute tolerance 1e-12; otherwise invalid.",
+    "pred_b_additive_pair": "Interaction RMS across the four Task-14 direction cells is at most 0.03 and every absolute P/C term is at most 0.10.",
+    "pred_c_nonlinear_pair": "Interaction RMS is at least 0.08, at least two Task-14 direction cells have absolute interaction at least 0.05, interaction norm is at least 50% of the joint-loss norm, and every absolute P/C term is at most 0.10.",
+    "inconclusive_gap": "A valid result between the additive and nonlinear bars is inconclusive."
+  },
+  "bar_provenance": "The 0.03 additive RMS, 0.08 nonlinear RMS, two-cell 0.05, 0.50 norm-ratio, and 0.10 control bars are copied unchanged from the immediately preceding Task-14 late-MLP-halves factorial rather than chosen from this pair's values.",
+  "blinding_disclosure": "The intended source-identity-only check accidentally printed the minified MLP15+17 source result because a text search matched its single JSON line. Therefore this preregistration is not outcome-blind. The thresholds remain mechanically inherited from the preceding factorial and are not tuned to the exposed values.",
+  "scope": "Zero-GPU exact derived causal grouping screen. It does not identify a semantic subspace, establish held-out generalization, reduce rank, or adopt a replacement."
+}
