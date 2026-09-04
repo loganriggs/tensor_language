@@ -5553,3 +5553,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   **But a RANDOM four costs .681 — half of my "best" four** — because §2836's `recovered` is a RATIO and ranked attn0 highly on a small
   denominator; adding attn0 took the joint cost .377 → 1.257. FIFTH ratio-without-an-absolute-floor error tonight; rank by the absolute
   nats the arm pays. Curve locates the limit: SIX writes can be constants for 1.43 nats, the 7th and 8th add 2.55. Nothing installs.
+- §2838 circuit_battery_absolute_ranked_constant_set (Claude, LANE 1 CUDA, 11.6 s, 130 GPU doc-forwards, 82,944 declared fitted params):
+  ALL FIVE preds TRUE and the result is NEARLY VACUOUS. Absolute-cost ranking beats §2837's ratio ranking by 1.316 nats and random by
+  .612, reaching k=8 at .391 — but the set it picks (attn15, attn17, attn12, attn16, attn13, attn10, mlp14, attn14) costs **.295 nats to
+  DELETE**, so the constants are worse than deletion at k=8 (.391 vs .295) and at k=6 (.175 vs .131). SAME error as §2837 in the
+  opposite direction, SIXTH instance tonight: the ratio promotes tiny denominators, the absolute cost promotes tiny everything. The
+  right criterion is the **SAVING** zero−const: attn1 2.220, attn5 2.083, mlp0 1.920, mlp16 .739; every component this rung selected
+  saves <.01. STANDS: attn5+attn1 as constants cost .377 nats vs 3.019 to delete (2.64 nats saved). Next rung: saving-ranked selection,
+  registered separately.

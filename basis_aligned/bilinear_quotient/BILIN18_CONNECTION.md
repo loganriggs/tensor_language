@@ -73285,3 +73285,50 @@ concentrates where it hurts most.
 Price: 112 GPU document-forwards, 10.6 GPU-seconds, 0 backwards, 55,296 declared fitted parameters.
 Results: circuit_battery_joint_constant_replacement_results.json. (Claude, LANE 1 CUDA.) a, b, e TRUE; c FALSE with its null met;
 d FALSE. Preserved.
+
+## §2838 — ALL FIVE PREDICTIONS TRUE AND THE RESULT IS NEARLY VACUOUS: ranking by absolute constant cost beats the ratio ranking by 1.316 nats and random by .612, reaches k = 8 at .391 nats — but the set it picks (attn15, attn17, attn12, attn16, attn13, attn10, mlp14, attn14) costs only **.295 nats to DELETE outright**, so constanting those eight is *worse than deleting them*. I made the same error a second time, in the opposite direction (a, b, c, d, e TRUE; the section is a correction of itself)
+
+§2837 found my ratio ranking picked a joint constant set twice as expensive as random, because `recovered = 1 − const/zero` promotes
+components with small denominators. This rung ran the fix — rank by the absolute nats a constant costs — as a registered experiment
+against §2837's published ratio-ranked (1.386) and random (.681) values at k = 4. Sign convention: d_ce = CE_arm − CE_NATIVE in nats,
+POSITIVE = the arm HURTS. **Not §312 L2; nothing installs; diagnostics only; metric-constructed spans CLOSED (§2118 lineage).**
+
+| k | absolute-ranked CONSTANT | ratio-ranked CONSTANT | random CONSTANT | **absolute-ranked DELETE** |
+|---|---|---|---|---|
+| 1 | .0103 | .1285 | .1492 | **.0102** |
+| 2 | .0264 | .3772 | .6788 | **.0268** |
+| 3 | .0430 | 1.2568 | .4071 | **.0399** |
+| 4 | .0697 | 1.3860 | 4.4330 | **.0601** |
+| 6 | .1746 | 1.4292 | .6025 | **.1311** |
+| 8 | .3914 | 3.9845 | 2.2326 | **.2953** |
+
+**Every prediction passed.** pred_a: absolute beats the ratio ranking by **1.316** nats at k = 4 (bar ≥ .30). pred_b: it beats random by
+**.612** (bar ≥ 0). pred_c: it reaches **k = 8** under the 1.50-nat ceiling (bar ≥ 6). pred_d: composition stays super-additive
+(+.019). pred_e: the instrument check passes.
+
+**And the last column makes them worthless.** The eight components the absolute ranking selects are attn15, attn17, attn12, attn16,
+attn13, attn10, mlp14, attn14 — late attention, almost all of it — and **deleting them outright costs .295 nats** against **.391** for
+replacing them with constants. At k = 8 the constants are WORSE than deletion; at k = 6, .175 vs .131; at k = 4, .070 vs .060. The
+ranking did not find writes that a constant can stand in for. It found writes that do not matter, and then a constant made them slightly
+worse.
+
+**This is the same error as §2837, committed in the opposite direction, and it is the sixth instance tonight.** The ratio
+`1 − const/zero` promotes components with tiny deletion costs (§2837: attn0). The absolute cost `const` promotes components with tiny
+everything (this section). Both are single-endpoint statistics standing in for a two-sided question. The quantity a compiled program
+actually wants is the **SAVING**, `zero_damage − const_damage` — nats you avoid paying by writing a constant instead of nothing — and on
+that criterion the ordering is not close: **attn5 saves 2.083 nats** (2.211 − .128), attn1 saves 2.220, mlp0 saves 1.920, mlp16 saves
+.739, while every component in this rung's selected set saves under .01 and several save negative. I have now written four
+preregistrations tonight whose ranking statistic was the wrong side of a difference, and the general rule I should have extracted after
+the first is: **when the question is "which arms are worth keeping", rank by the difference the keeping makes, never by either endpoint
+alone.**
+
+**What stands after §2835–§2838.** §2835's measurement of attention 5 is untouched: its write is a constant recovering 94.3% of a
+2.211-nat component, and the per-position gain is worth .0022 nats. §2837's joint result stands: constants compose super-additively, and
+two writes (attn5, attn1) can be fixed vectors for **.377 nats** where deleting them costs 3.019 — those two save 2.64 nats between
+them and remain the only strong joint result in this lineage. What does NOT stand is any claim that I know how to SELECT a larger set;
+two rankings have now failed in opposite ways, and the saving-ranked version is the obvious next rung — registered separately, because
+inventing a third statistic inside the section that discredited the second is exactly how this lineage got here.
+
+Price: 130 GPU document-forwards, 11.6 GPU-seconds, 0 backwards, 82,944 declared fitted parameters.
+Results: circuit_battery_absolute_ranked_constant_set_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE — and the section is
+recorded as a self-correction, because passing predictions do not make a degenerate set informative. Preserved.

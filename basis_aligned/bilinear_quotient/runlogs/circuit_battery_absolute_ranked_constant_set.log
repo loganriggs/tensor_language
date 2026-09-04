@@ -1,0 +1,35 @@
+[absrank] k=1 abs=+0.0103 ratio=+0.1285 rnd=+0.1492 abs_zero=+0.0102 sum_ind=+0.0103
+[absrank] k=2 abs=+0.0264 ratio=+0.3772 rnd=+0.6788 abs_zero=+0.0268 sum_ind=+0.0230
+[absrank] k=3 abs=+0.0430 ratio=+1.2568 rnd=+0.4071 abs_zero=+0.0399 sum_ind=+0.0369
+[absrank] k=4 abs=+0.0697 ratio=+1.3860 rnd=+4.4330 abs_zero=+0.0601 sum_ind=+0.0511
+[absrank] k=6 abs=+0.1746 ratio=+1.4292 rnd=+0.6025 abs_zero=+0.1311 sum_ind=+0.0915
+[absrank] k=8 abs=+0.3914 ratio=+3.9845 rnd=+2.2326 abs_zero=+0.2953 sum_ind=+0.1494
+{
+ "preds": {
+  "pred_a_absolute_beats_ratio_ranking": true,
+  "pred_b_absolute_beats_random": true,
+  "pred_c_more_writes_can_be_constants": true,
+  "pred_d_composition_stays_super_additive": true,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_ratio_as_good": false,
+  "b_null_random_still_better": false,
+  "c_null_few_constants": false,
+  "d_null_subadditive": false
+ },
+ "summary": {
+  "beat_ratio_nats": 1.316307465235392,
+  "beat_random_nats": 0.6115340391801841,
+  "superadditivity_nats": 0.01866292953491211,
+  "largest_cheap_k": 8,
+  "curve_absolute": {
+   "k1": 0.010255177815755356,
+   "k2": 0.026434580485025894,
+   "k3": 0.04301031430562352,
+   "k4": 0.06972972551981593,
+   "k6": 0.1746068000793457,
+   "k8": 0.39137570063273097
+  }
+ }
+}
