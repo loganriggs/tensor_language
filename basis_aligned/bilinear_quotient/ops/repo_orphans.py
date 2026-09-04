@@ -15,9 +15,13 @@ Read-only. It prints what it found and writes nothing unless --json is given. Mo
 deliberate step so that the decision and the action are never the same command.
 
 Usage:
-  python ops/repo_orphans.py                 # summary
+  python ops/repo_orphans.py                 # summary for the bilinear_quotient root
   python ops/repo_orphans.py --list 40       # summary + the 40 largest orphans
   python ops/repo_orphans.py --json out.json # machine-readable, for an archiving step to consume
+  python ops/repo_orphans.py --dir ops       # REPORT on another directory (ops, runlogs, ../polynomial_causal)
+
+`--dir` only ever reports. `ops/archive_orphans.py` always operates on the root, because `ops/` and
+`polynomial_causal/` hold another agent's files and moving those is a decision for that lane, not this tool.
 """
 import os, re, sys, json, collections, signal
 
@@ -48,6 +52,9 @@ def runner_stems():
 def corpus_files():
     """Everything that could legitimately cite an artefact. NOT the runner log -- see runner_stems()."""
     out = []
+    # NOTE: a directory's OWN scripts must be in the corpus, or a file referenced only by a neighbour looks
+    # dead. Reporting on polynomial_causal without its .py files first showed 597 orphans / 245 MB; with them
+    # the number is far smaller. A scan is only as honest as the corpus it compares against.
     for d in (BQ, PC, TL):
         for f in sorted(os.listdir(d)):
             if f.endswith('.md') or f == 'queue.txt':
@@ -59,9 +66,10 @@ def corpus_files():
         for f in sorted(os.listdir(p)):
             if f.endswith(('.py', '.sh', '.md', '.json', '.jsonl', '.conf')):
                 out.append(os.path.join(p, f))
-    for f in sorted(os.listdir(BQ)):
-        if f.endswith('.py'):
-            out.append(os.path.join(BQ, f))
+    for d in (BQ, PC):
+        for f in sorted(os.listdir(d)):
+            if f.endswith('.py'):
+                out.append(os.path.join(d, f))
     # Archived files still COUNT as references. Without this, archiving cascades: every receipt whose only
     # citation was an archived script becomes an orphan on the next scan, and the next, until the root is
     # empty. An artefact that an archived rung produced belongs with that rung, not on a second sweep.
@@ -73,10 +81,11 @@ def corpus_files():
     return out
 
 
-def scan():
+def scan(target=None):
+    target = target or BQ
     cands = {}
-    for f in sorted(os.listdir(BQ)):
-        p = os.path.join(BQ, f)
+    for f in sorted(os.listdir(target)):
+        p = os.path.join(target, f)
         if os.path.isfile(p) and f.endswith(CAND_EXT) and f not in KEEP:
             cands[f] = os.path.getsize(p)
     stems = {os.path.splitext(f)[0]: f for f in cands}
@@ -102,7 +111,11 @@ def scan():
 
 
 if __name__ == '__main__':
-    cands, mentions, orphans, dead, ran_only = scan()
+    target = None
+    if '--dir' in sys.argv:
+        target = os.path.abspath(os.path.join(BQ, sys.argv[sys.argv.index('--dir') + 1]))
+        print(f'reporting on {target} (report only -- archive_orphans never moves outside the root)')
+    cands, mentions, orphans, dead, ran_only = scan(target)
     tot = sum(cands.values()); orph = sum(orphans.values())
     by_ext = collections.Counter(os.path.splitext(f)[1] for f in orphans)
     sz_ext = collections.Counter()

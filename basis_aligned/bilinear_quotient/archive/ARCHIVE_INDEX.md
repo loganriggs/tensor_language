@@ -32,7 +32,20 @@ it, the scan reaches a fixed point — after the batch below, `repo_orphans.py` 
 
 | date | files | size | note |
 |---|---|---|---|
-| `2026-09-04/` | **583** (577 dead, 6 ran-but-uncited) | 38.0 MB | First sweep. Root went from 4,644 to 4,063 files. Largest items were `*_invalid_*` bundles from superseded rungs. |
+| `2026-09-04/` | **516** (after a 67-file restore) | ~30 MB | First sweep. Largest items were `*_invalid_*` bundles from superseded rungs. See the correction below. |
+
+### Correction, same day
+
+The first sweep moved **583** files. Sixty-seven of them were **wrongly archived and have been restored**:
+`corpus_files()` gathered `.py` from the `bilinear_quotient` root and from `ops/`, but **not from
+`polynomial_causal/`** — so an artefact referenced only by a script in that directory looked unreferenced.
+The tell was a report on `polynomial_causal` itself claiming 597 orphans / **245 MB**; with its own scripts in
+the corpus the true figure is 128 / **1.0 MB**, and that gap is what prompted re-checking the root sweep.
+
+All 67 were moved back with `git mv`, the batch manifest records them under `restored_2026-09-04` with the
+reason, and `ops/test_repo_orphans.py` now pins the corpus's completeness so the gap cannot reopen. The lesson
+is general: **a scan is only as honest as the corpus it compares against, and this failure mode is silent —
+it hands you a plausible list of dead files.**
 
 ## Restoring
 
