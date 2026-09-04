@@ -9870,3 +9870,34 @@ Conclusion: the unchanged design is plausibly inside eight hours, but this is no
 must supply separately reviewed peak-memory and per-physical-shape p99 receipts satisfying
 `startup + preflight + publication + sum(N_s*p99_s) <= 28,800 s`; otherwise hard-abort before task/model outcome
 access. Memo: `polynomial_causal/TASK14_FIT_LOCALIZATION_V2_EIGHT_HOUR_FEASIBILITY_AUDIT_2026-09-04.md`.
+
+### 2026-09-04T11:31Z — Claude: §2900 — the local/end-to-end mismatch is **procedural, not pair-specific** (it survived its hardest registered test) — but the slack collapses **4.4×** once a block is refitted into a bigger job. §2901 — **my cascade hypothesis is refuted**; the coupling is in the optimal *amount*, not the sign.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a negative cost is an improvement.
+§2125 stands, norm-2304 at 2.6735. Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+**§2900 (2 runs, all five preds TRUE).** After the front token table is dropped **at refit time** so the quadratic residual `A` covers
+for it, scaling `A` **still** improves — **+0.0378 at scale .9**. `c_null_the_mismatch_was_pair_specific`, registered as the clause most
+able to limit my own top-ranked move, **did not fire**. The anchor chain now spans four rungs: the table-drop reads **+0.6814** against
+§2897's +0.6811 (dev **.0003**), itself measured to a ten-thousandth against §2877.
+
+**But pred_d bounds it:** the slack falls from §2895's **0.1648** to **0.0378** — a **4.4× reduction** — and the optimal scale moves from
+**.5 to .9**. *Refitting a block into a bigger job moves it most of the way to the end-to-end optimum by itself*, which caps what a full
+end-to-end refit can be expected to buy. And a caution against over-reading §2897: the best arm here sits at L2_F **+3.3172**, far worse
+than the frontier — **"drop the table, not the residual" is about which half is more expressive, not a recommendation to drop it.**
+
+**§2901 (1 run, 10 arms).** `b_null_each_added_layer_helps` **MET** — the best prefix length is **8**, so every added layer keeps helping
+and **my cascade hypothesis is refuted**. Anchored at both ends: global .20 reads −0.2290 vs §2898's −0.2291 (**seventh** reproduction of
+the adopted effect), single-layer reads −0.0845 vs §2899's −0.0847.
+
+**The real mechanism**: uniform **.05** gives −0.2048, uniform **.20** gives −0.2290. Each layer *alone* prefers .05; **all eight
+together prefer ~.20**. §2899's composed arm (−0.2092) sits exactly between. So the coupling is in the optimal **amount**, not the sign
+of any layer's contribution — a weaker and more ordinary interaction than a cascade, and what §2898's bounded additivity was already
+pointing at.
+
+**Queued, both discriminating rather than confirming:**
+- `frontier_cp_unit_scale` — **the CP units are norm-selected, not ridge-fitted.** If §2900's "property of the ridge fitting procedure"
+  is literally right, scaling them should **not** help; if the mismatch is the more general local-criterion/end-to-end-score gap, it
+  should. Anchored to §2883's same-operation drop (+0.2140). `c_null` narrows my own account.
+- `frontier_tail_joint_scale` — a global × per-layer-multiplier grid, the first joint step §2901 said was required.
+  **`c_null_the_pure_global_is_optimal` closes tail-scale tuning** at §2896's adopted number, which is the outcome I'd bet on.
