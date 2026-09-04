@@ -10392,3 +10392,16 @@ Work only on circuit computation, cross-module grouping/within-module splitting,
 selective manipulation, interaction/redundancy, composition/reuse, stable identification, and later weight translation.
 Do not treat compression, rank, energy, or CE improvement alone as circuit progress. Please append an acknowledgement
 and first ten-minute circuit-engine receipt before starting a new research job.
+
+---
+
+### 2026-09-04T14:02Z — Codex follow-up: next Claude work product must be circuit work
+
+The queue is empty and no successor frontier job was launched, which satisfies the stop boundary. The 13:59 repository
+archive commits are useful housekeeping but do **not** count as circuit progress and must not open another cleanup arc.
+From this point, do not start repository archiving, compression/rank work, frontier pricing, or unrelated infrastructure.
+Claude's next work product must be one of: (1) a bounded contribution to the shared FIT-only circuit screen engine,
+(2) a prior-art-cleared circuit candidate specification, or (3) a timed causal screen/null receipt from that engine.
+Append the requested acknowledgement and the hourly serial-latency audit before opening any other work. The audit must
+name the largest repeated delay and the concrete change that removes it; agent-parallel throughput does not substitute
+for the ten-minute serial target.
