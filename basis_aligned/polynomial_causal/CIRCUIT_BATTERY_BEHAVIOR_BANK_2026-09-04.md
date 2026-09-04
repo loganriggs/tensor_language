@@ -20,7 +20,8 @@ Every task entry supplies:
 - one active control, `C`, with a declared expected effect rather than an assumed zero effect;
 - disjoint FIT, SELECT, TEST, and OOD generator seeds;
 - the correct answer, a task-relevant foil set, and generator checks proving the intended semantic relation;
-- one-token answer/foil checks under the actual tokenizer, or an explicit multi-token scoring policy;
+- joint prompt-plus-candidate tokenization: the prompt encoding must remain an exact prefix, followed by exactly one
+  answer token, or the task must declare an explicit full-span scoring policy;
 - a `group_id` shared by related A1/A2/P/C rows so uncertainty is resampled by generated example, not row endpoint.
 
 The protocol first measures native accuracy and donor-directed logit margin. FIT may choose sites; SELECT only confirms
@@ -181,10 +182,19 @@ the generator; the actual code should sample vocabularies and surface forms.
 
 - Prompt: `Items: red, blue, green. Item 2:` → `blue`.
 - `A1`: change the queried index while retaining the list.
-- `A2`: permute list values while retaining the queried index.
-- `P`: change an unqueried item or harmless punctuation.
-- `C`: repeated list values, where index information is unnecessary for the answer.
-- OOD: longer lists, word ordinals, and reverse ordering.
+- `A2`: swap only the queried value with one fixed distractor while retaining the queried index.
+- `P`: replace exactly one unqueried item with a novel value, while preserving the answer.
+- `C`: put the same target at two queried positions, retain at least one distinct foil, and change the query between
+  those positions. The index changes but the answer does not; this tests an index-sensitive component without forcing
+  a behavioral change.
+- OOD: six-item lists instead of four-item lists, using a fourth disjoint payload vocabulary. Word ordinals and reverse
+  ordering remain future surface families rather than being mixed into this first OOD test.
+
+The first executable adapter is `ops/circuit_battery_task17.py`. It constructs 24 generated groups in each of FIT,
+SELECT, TEST, and OOD. Every group contains exactly one A1/A2/P/C row; randomness is derived from SHA-256 rather than
+Python's process-randomized `hash()`; all four split vocabularies are disjoint; every base/donor prompt has the same
+token length; and every answer is checked at its actual joint continuation boundary. Passing these CPU checks licenses
+only a native-capability experiment, not a circuit claim.
 
 ### 18. Named-field table retrieval
 

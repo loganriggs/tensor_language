@@ -5374,3 +5374,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (ratios .79-1.05) → task specificity is not at the writer. Median top-3 reader share .49 → §2808's super-additive redundancy is
   bank-wide. Model facts: it is a +1 machine on the last visible number (bare run .92 vs step-continuation .06), cannot add (.00) or
   count down (.00). OPEN: reader-side selectivity; the (2,2)-rational response certificate (MATHEMATICAL_REVIEW_2026-09-04_0404 move 1).
+- §2810 CORRECTION: all §2809 outcome bars are protocol-invalid diagnostic only. The old generator has three rather
+  than four phases, process-randomized `hash()` seeds, no shared A1/A2/P/C group IDs, separate rather than joint
+  prompt/answer token checks, and invalid task counterfactuals. FIT/SELECT/TEST opened in one invocation with no receipt
+  chain or physical call manifest; the result lacks schema/protocol/authority hashes. Its “04:05 before any registered
+  run” amendment postdates the runner's 04:03:46 start and followed outcome-bearing smoke/capability inspection.
+  Therefore attention-8 reuse, writer selectivity, and reader-ladder values are hypotheses only and cannot update any
+  circuit/adoption record. OPEN: first prospective four-phase adapter is positional list retrieval task 17.
