@@ -73093,3 +73093,48 @@ was chosen in §2831 by class-mass damage on task prompts without any reference 
 
 Price: 103 GPU document-forwards, 10.3 GPU-seconds, 0 backwards, 194,688 declared fitted parameters (fitted on the fit set only).
 Results: circuit_battery_attn5_heldout_surrogate_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE; no null met. Preserved.
+
+## §2834 — THE CONTROL MY OWN LAST TWO SECTIONS NEEDED: across all 36 components the median write holds only .321 of its energy in one direction, so near-rank-1 writes are NOT architectural — and attention 5 is **rank 1 of 36** at .981 with an effective rank of **1.0**, the single most one-dimensional write in the model. Held-out rank-32 surrogates are cheap almost everywhere (median .031 nats), but expensive components ARE somewhat harder to approximate (ρ .714) (b, c, e TRUE; a, d FALSE, no null met)
+
+§2832 and §2833 read as statements about attention 5 but had no across-component control, so they could not distinguish "attention 5's
+write is remarkably low-rank" from "every write here is low-rank and attn5 is merely expensive". This rung is that control, on all 36
+components, basis fitted on 24 documents and scored on 24 DISJOINT ones. **pred_a was deliberately registered in the direction that
+would DEFLATE my own two previous sections**, and it came out the other way. Sign convention: d_ce = CE_arm − CE_NATIVE in nats,
+POSITIVE = the arm HURTS. **Not the §312 frontier's L2 (CE added above the real model by an installed approximation, LOWER IS BETTER,
+frontier norm-2304 at 2.6735, §2135); nothing installs; the rank arms are DIAGNOSTICS and metric-constructed bases and spans remain
+CLOSED (§2118 lineage).**
+
+**pred_a FALSE, null "≤ .20" NOT met — low-rank writes are a tendency, not an architecture.** The median top-direction energy across
+the 36 components is **.321** against a bar of ≥ .50. So writes in this model are moderately concentrated but not generally rank-1, and
+the distribution is wide: attn0 sits at **.106** with an effective rank of **43.6**, mlp0 at .506 (eff rank 3.7), mlp16 at .752
+(eff rank 1.7).
+
+**pred_b TRUE (null "rank ≥ 20" not met) — and this is what §2832 and §2833 were actually about.** Attention 5 is **1st of 36** by
+top-direction energy at **.981**, with an **effective rank of 1.0**. The top of that ordering is attn5, attn6, attn1, attn7, mlp15,
+attn9, mlp16, attn10. Combined with pred_a's failure, the honest reading of the last two sections changes: attention 5's write is not
+an instance of a general property, it is **the most one-dimensional write in bilin18**, and it is simultaneously the class gate (§2829,
+§2831) and 3rd most expensive component (§2830). That is a much stronger claim about attn5 than I could make an hour ago, and it exists
+because the control was registered to go the other way.
+
+**pred_c TRUE (null "≥ .50" not met) — but cheap surrogates ARE general, unlike the rank-1 property.** The median held-out rank-32
+surrogate costs **.0313** nats. Keeping 32 of 1152 directions of a component's write is adequate almost everywhere in this model, even
+where the write is not close to rank 1 — attn0, the least concentrated write (eff rank 43.6), still costs only .056 nats at rank 32
+against a 1.48-nat ablation.
+
+**pred_d FALSE, null "≥ .80" NOT met — and it qualifies pred_c in a way worth stating.** The Spearman correlation across components
+between ablation damage and held-out rank-32 damage is **.714** (bar ≤ .50). The expensive components are, to a substantial degree, the
+ones a rank-32 surrogate handles least well: mlp0 costs 2.611 nats to delete and .171 at rank 32; attn5 costs 2.211 and .057; attn1
+costs 2.426 and .024. So "rank-32 is cheap" is true on average but concentrates its residual error exactly on the components that
+matter most — which is the caveat any use of these numbers must carry, and it is why they are diagnostics and not a proposed interface.
+
+**pred_e TRUE.** The matched-chunk instrument check passes inside the .01-nat bar.
+
+**Where attention 5 now sits.** Most one-dimensional write in the model (eff rank 1.0), 3rd most expensive to delete (2.211 nats),
+20.4× disproportionate per unit written (§2830), the class gate for six unrelated answer classes (§2829), gated by two heads that hold
+three quarters of its write energy (§2831), with a direction that is the same on English and code (§2833, |cos| .997). Every one of
+those is a separate measurement on held-out data, and together they say the price cliff is a single, universal, one-dimensional write
+that decides which class of token comes next.
+
+Price: 328 GPU document-forwards, 26.6 GPU-seconds, 0 backwards, 1,327,104 declared fitted parameters (one rank-32 basis per component,
+fitted on the fit documents only).
+Results: circuit_battery_write_rank_census_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a, d FALSE with no null met. Preserved.

@@ -5524,3 +5524,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (gap .0099) and .0574 on code. Instrument check done on MATCHED chunks this time (§2832's version compared different sample sets).
   NOTHING installs; rank arms are diagnostics; metric-constructed spans stay CLOSED (§2118). OPEN for the frontier lane: does the
   two-head restriction hold up inside the §312 construction, where the relevant quantity is L2 and lower is better?
+- §2834 circuit_battery_write_rank_census (Claude, LANE 1 CUDA, 26.6 s, 328 GPU doc-forwards, 1,327,104 declared fitted params):
+  b,c,e TRUE; a,d FALSE, no null met. The across-component control §2832/§2833 needed, registered to deflate them and it did the
+  opposite: median top-direction energy across 36 components is .321 (NOT architectural), while **attn5 is 1st of 36 at .981 with
+  effective rank 1.0** — the most one-dimensional write in bilin18. Spread is wide (attn0 .106 / eff rank 43.6; mlp0 .506; mlp16 .752).
+  Held-out rank-32 surrogates cheap almost everywhere (median .031 nats) BUT ρ(zero damage, rank32 damage) = .714 — the expensive
+  components are the ones rank-32 handles worst (mlp0 2.611→.171), which is why these stay diagnostics. NOTHING installs;
+  metric-constructed spans CLOSED (§2118).
