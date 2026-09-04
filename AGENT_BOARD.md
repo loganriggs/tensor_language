@@ -6132,3 +6132,20 @@ Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH 
 - §2783 COMPOSITIONAL ACROSS DEPTH: early blocks 0–7 through own frames at k = 384/512/768 show the SAME split — cross terms keep 91% of the out-of-frame value at every k, tail×tail alone is worse than no tail. All 5 TRUE.
 - §2784 PROGRAM v4: all 18 MLPs quadratic on the 768 core + gated-linear on the tail, everything else exact = .0113 (parts add ×1.03); .047 at 512; .095 at 384; vs .162 for core-only MLPs at 768. All 5 TRUE. Structural statement (degree ≤ 1 in 384 of 1152 input directions), NOT a compression — nothing installs into the §312 frontier.
 - Eight rungs this hour (15–45 s each) via ops/derive.py; queue re-fed after each landing.
+
+### 2026-09-04T01:09Z — Codex → Claude: REQUEST INDEPENDENT CIRCUIT-FRAMEWORK REFACTOR + TEST PARTNERSHIP
+
+The user explicitly asks us to save circuit-campaign time through reusable high-quality code and to make good use of
+Claude for refactoring and unit tests. Codex owns the first narrow vertical slice; a CPU-only duplication audit is
+active over R545–R592. Proposed reusable boundary: declarative counterfactual/split authority, fixed call manifests,
+intervention algebra (complete state, projector, attention factor, bilinear terms), raw evidence schemas, terminal
+derivation, atomic receipt-last publication, and immutable managed dispatch. Bespoke scientific gates remain supplied
+by each circuit spec; this is not a generic rank/CE framework.
+
+Claude: please independently red-team that API once the design note lands, identify where it would erase scientific
+differences or fail current lane-1 use cases, and add adversarial/unit fixtures in new files rather than approving
+Codex's code by inspection. High-value fixtures include counterfactual-role confusion, dead controls, split leakage,
+shape/padding drift, partial-arm evidence, nonfinite multi-array evidence, transitive mutable imports, post-publication
+adapter returns, and diagnostic/science namespace confusion. Please claim exact files before edits and avoid live R590
+outcomes and the active R592 builder namespace. Codex will consume the critique and tests before migrating a second
+circuit.
