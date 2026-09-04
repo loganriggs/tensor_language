@@ -1,0 +1,300 @@
+{
+ "rung": "circuit_battery_calibrated_selectivity",
+ "preds": {
+  "pred_a_calibration_lands_below_the_ceiling": true,
+  "pred_b_some_behaviour_is_now_selective": false,
+  "pred_c_enough_copy_controls_are_usable": true,
+  "pred_d_the_correction_is_material": false,
+  "pred_e_the_full_arm_still_reproduces_the_battery": false
+ },
+ "nulls": {
+  "a_null_still_saturated": false,
+  "b_null_still_none_selective": true,
+  "c_null_controls_unusable": false,
+  "d_null_immaterial": true
+ },
+ "bars": {
+  "sat": 0.8,
+  "selective": 0.25,
+  "n_selective": 1,
+  "usable_controls": 4,
+  "material": 0.15,
+  "repro": 0.15,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "sat_ge": 1.0,
+  "n_selective_le": 0,
+  "usable_le": 1,
+  "material_le": 0.05
+ },
+ "ceiling": 0.8,
+ "control_min_margin": 0.5,
+ "tasks": [
+  "counting_words.comma_list",
+  "keyed_line.counter_successor",
+  "month.successor",
+  "numbered_list.index_successor",
+  "numeric_run.last_plus_one",
+  "paren_list.index_successor",
+  "roman_list.index_successor",
+  "verbatim_repeat.copy"
+ ],
+ "summary": {
+  "median_select_saturation": 0.7329371112067129,
+  "selective_behaviours": [],
+  "usable_copy_controls": [
+   "counting_words.comma_list",
+   "keyed_line.counter_successor",
+   "numeric_run.last_plus_one",
+   "roman_list.index_successor"
+  ],
+  "median_ratio_change": 0.03053783484151773,
+  "max_full_arm_repro_gap": 0.36744028329849243,
+  "arms_chosen": {
+   "counting_words.comma_list": "half",
+   "keyed_line.counter_successor": "half",
+   "month.successor": "full",
+   "numbered_list.index_successor": "quarter",
+   "numeric_run.last_plus_one": "eighth",
+   "paren_list.index_successor": "quarter",
+   "roman_list.index_successor": "half",
+   "verbatim_repeat.copy": "full"
+  },
+  "ratios": {
+   "counting_words.comma_list": 1.4978392822956201,
+   "keyed_line.counter_successor": 1.0,
+   "month.successor": 0.970064630243058,
+   "numbered_list.index_successor": 1.0,
+   "numeric_run.last_plus_one": 0.5615239143371582,
+   "paren_list.index_successor": 1.0,
+   "roman_list.index_successor": 1.0,
+   "verbatim_repeat.copy": 0.9144613742828369
+  }
+ },
+ "tasks_detail": {
+  "counting_words.comma_list": {
+   "arm": "half",
+   "ladder_saturation_fit": {
+    "full": 1.1012880931329774,
+    "half": 0.4489621915523919,
+    "quarter": 0.1683992317629264,
+    "eighth": 0.13414786102354437
+   },
+   "select_saturation": 0.7186925547473696,
+   "native": {
+    "A1": 1.370656967163086,
+    "P": 2.0173428058624268,
+    "C": 1.6786835193634033
+   },
+   "damage": {
+    "A1": 0.9850809574127197,
+    "P": 1.4754929542541504,
+    "C": -0.6241989135742188
+   },
+   "usable_controls": [
+    "P",
+    "C"
+   ],
+   "ratio": 1.4978392822956201,
+   "full_arm_ratio": 1.169916648131616,
+   "battery_ratio": 1.0902049795433373
+  },
+  "keyed_line.counter_successor": {
+   "arm": "half",
+   "ladder_saturation_fit": {
+    "full": 1.1300618763566923,
+    "half": 0.7245972711577687,
+    "quarter": 0.2796016888254557,
+    "eighth": 0.12780248383987322
+   },
+   "select_saturation": 1.089935000661543,
+   "native": {
+    "A1": 2.3822293281555176,
+    "P": 2.3822293281555176,
+    "C": 1.4196178913116455
+   },
+   "damage": {
+    "A1": 2.596475124359131,
+    "P": 2.596475124359131,
+    "C": -1.454920768737793
+   },
+   "usable_controls": [
+    "P",
+    "C"
+   ],
+   "ratio": 1.0,
+   "full_arm_ratio": 1.0,
+   "battery_ratio": 1.0
+  },
+  "month.successor": {
+   "arm": "full",
+   "ladder_saturation_fit": {
+    "full": 0.7968296008879647,
+    "half": 0.594543685474639,
+    "quarter": 0.3191833763933747,
+    "eighth": 0.23155237184400004
+   },
+   "select_saturation": 1.1884149571915714,
+   "native": {
+    "A1": 0.9454944133758545,
+    "P": 1.4374668598175049,
+    "C": -0.650187611579895
+   },
+   "damage": {
+    "A1": 1.123639702796936,
+    "P": 1.0900031328201294,
+    "C": -1.397876262664795
+   },
+   "usable_controls": [
+    "P"
+   ],
+   "ratio": 0.970064630243058,
+   "full_arm_ratio": 1.2440609380259846,
+   "battery_ratio": 1.0311402999260935
+  },
+  "numbered_list.index_successor": {
+   "arm": "quarter",
+   "ladder_saturation_fit": {
+    "full": 1.291114215873906,
+    "half": 0.8009355612287655,
+    "quarter": 0.3538840683263137,
+    "eighth": 0.20150750940724851
+   },
+   "select_saturation": 0.4361969149696854,
+   "native": {
+    "A1": 2.07395076751709,
+    "P": 2.07395076751709,
+    "C": -0.3837716579437256
+   },
+   "damage": {
+    "A1": 0.9046509265899658,
+    "P": 0.9046509265899658,
+    "C": -1.255354881286621
+   },
+   "usable_controls": [
+    "P"
+   ],
+   "ratio": 1.0,
+   "full_arm_ratio": 1.0,
+   "battery_ratio": 1.0
+  },
+  "numeric_run.last_plus_one": {
+   "arm": "eighth",
+   "ladder_saturation_fit": {
+    "full": 2.0383700052463447,
+    "half": 1.7820594564004861,
+    "quarter": 0.8918597658225809,
+    "eighth": 0.43486911112293863
+   },
+   "select_saturation": 0.2772171504467414,
+   "native": {
+    "A1": 0.9788558483123779,
+    "P": 0.581120491027832,
+    "C": 2.635776996612549
+   },
+   "damage": {
+    "A1": 0.27135562896728516,
+    "P": 0.2807619571685791,
+    "C": -0.062073469161987305
+   },
+   "usable_controls": [
+    "P",
+    "C"
+   ],
+   "ratio": 0.5615239143371582,
+   "full_arm_ratio": 1.0920324147680385,
+   "battery_ratio": 0.9397077995055069
+  },
+  "paren_list.index_successor": {
+   "arm": "quarter",
+   "ladder_saturation_fit": {
+    "full": 1.405613335850073,
+    "half": 1.1690290854075216,
+    "quarter": 0.6584860813181695,
+    "eighth": 0.3478561289480807
+   },
+   "select_saturation": 0.7471816676660563,
+   "native": {
+    "A1": 1.3383450508117676,
+    "P": 1.3383450508117676,
+    "C": 0.4371943473815918
+   },
+   "damage": {
+    "A1": 0.9999868869781494,
+    "P": 0.9999868869781494,
+    "C": -0.8489060401916504
+   },
+   "usable_controls": [
+    "P"
+   ],
+   "ratio": 1.0,
+   "full_arm_ratio": 1.0,
+   "battery_ratio": 1.0
+  },
+  "roman_list.index_successor": {
+   "arm": "half",
+   "ladder_saturation_fit": {
+    "full": 1.1200971252164664,
+    "half": 0.6147014037988254,
+    "quarter": 0.3245043818409687,
+    "eighth": 0.23035636662177883
+   },
+   "select_saturation": 0.7529873829770867,
+   "native": {
+    "A1": 2.5445945262908936,
+    "P": 2.5445945262908936,
+    "C": 0.7023317813873291
+   },
+   "damage": {
+    "A1": 1.9160475730895996,
+    "P": 1.9160475730895996,
+    "C": -1.088078498840332
+   },
+   "usable_controls": [
+    "P",
+    "C"
+   ],
+   "ratio": 1.0,
+   "full_arm_ratio": 1.0,
+   "battery_ratio": 1.0
+  },
+  "verbatim_repeat.copy": {
+   "arm": "full",
+   "ladder_saturation_fit": {
+    "full": 0.02960658623358838,
+    "half": -0.014467050224775969,
+    "quarter": -0.003144332966149632,
+    "eighth": -0.0048926545893000686
+   },
+   "select_saturation": 0.06653129689722788,
+   "native": {
+    "A1": 6.872415065765381,
+    "P": 6.872415065765381
+   },
+   "damage": {
+    "A1": 0.45723068714141846,
+    "P": 0.45723068714141846
+   },
+   "usable_controls": [
+    "P"
+   ],
+   "ratio": 0.9144613742828369,
+   "full_arm_ratio": 0.9144613742828369,
+   "battery_ratio": 0.5470210909843445
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 292,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 4.864327430725098
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_PROTOCOL_V3_PREREGISTRATION.md": "284651385e12e379caf8ae8508fe983c31d9a49a723be08a665a4f1d4b5915a5",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_writer_arm_saturation_results.json": "764035134854e0196e3ff0aed1200e14b7d26ad10beaaf93ad3fd52d9a3a46ab",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_v2_bank21_results.json": "7c1db82061bb6cac010fa7d2141cfc8e2faa4330759bdfe5aed299bab9a94d50",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
