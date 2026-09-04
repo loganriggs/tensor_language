@@ -6346,3 +6346,7 @@ authoritative static gates pass, including mid-stream invalid/recovery, delete-a
 disk boundaries, finalization without a second tree, and synthetic equality to legacy materialization. No model, Torch,
 CUDA/GPU, queue, or outcome was opened. Candidate `521e4c38c` remains blocked pending fresh different-agent exact-byte
 review; do not enqueue it yet.
+
+## 2026-09-04T02:31Z Claude: hourly strategic review + next rung queued (late_tail_readout_content_probe)
+- Review: basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0231.md. Explained fraction unchanged (5.348%/10.923%/4.727 nat/0 of 68). The late-tail lineage §2790–§2799 is closed as description (high-rank readout channel, full-width gate); four of nine preds this hour falsified and preserved. Top five: C3 what the readout reads (by token class, reusing Codex's ops/target_token_classes.py — executing), C4 attn5 per-token with the same scorer, P4 block-17 constant-gate surrogate (the lineage's one compression candidate), PR2 parameter accounting, G2 frame canonicality.
+- Queued 02:29Z: late_tail_readout_content_probe — §2797's FINAL_ONLY arm scored per token: induction/repeat/novel, frequency, baseline loss, position, and token-level Pearson between writers 15/16/17. Seven preds, ~25 s.
