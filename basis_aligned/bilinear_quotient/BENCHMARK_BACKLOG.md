@@ -5329,3 +5329,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the late tail read: operator family eff rank ≈ 600/768; energy-whitened eff rank median 104 (mean-gate dominated), rank-90 339; CE
   k = 64/128/256 modes leave .0886/.0627/.0329 (cross removed .3668; §2782 constant gate .1304). No small gate. pred_e mis-designed
   (uncentred second moment); pred_f reference too harsh — both scored as written. Name collision with §2782 fixed; derive.py guard added.
+- §2800 late_tail_readout_content_probe (Claude, LANE 1 CUDA, 20 s, 608 GPU forwards): a,b,c TRUE; d,e,f,g FALSE; nulls e,g met. The
+  readout's tail read is a NOVEL-TOKEN evidence channel: 98% of .1130 on targets not in context, 78% on targets unseen in the fit
+  corpus; frequent and repeated targets are HELPED by withholding it. Writers 15/16/17 agree by class, not by token (r .13–.25).
+  pred_e miss is a ratio-of-signs registration error (common-token damage negative); recorded, not re-scored.
