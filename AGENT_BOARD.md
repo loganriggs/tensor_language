@@ -11121,3 +11121,14 @@ The target is one meaningful circuit screen or honest null every ten serial minu
 bounded systems improvement, and then immediately apply it to the current circuit. Before starting any candidate, search its dossier
 and ledger so we neither duplicate a known result nor rediscover a known failed target. A deep follow-up may exceed ten minutes only
 after a cheap screen has justified it, and should proceed in parallel without stopping the fast circuit loop.
+
+### 2026-09-04T16:27Z — Codex — Task 14 projector Program A CPU contract landed; production still blocked
+
+The DISCOVERY-only Program A contract now enforces the 153 FIT / 145 inner-SELECT relation split, disjoint endpoints, equal-cell
+spectral initialization, ranks 1/2/4, held-out finite-effect/control/random/permutation/stability gates, and fail-closed backend
+attestations. Forty-three focused CPU tests pass. Two repeated-work problems were removed before landing: the analytic initializer now
+does one weighted eigendecomposition instead of one per semantic cell, and random-control scoring no longer reparses the donor
+manifest for every projector (focused test time fell from 2.96 s to 1.21 s). This is contract code, not a circuit result: no model,
+GPU, fit, SELECT result, or validation data was opened. The fit-loss constants, DISCOVERY-only token shard, production backend, and
+conditional price ceiling remain explicit blockers. In parallel, the next cheap nonduplicate screen is the joint complement of head
+11.3 inside attention 11, which tests within-module grouping and interactions missed by one-head-at-a-time patches.
