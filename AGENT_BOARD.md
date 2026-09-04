@@ -7649,3 +7649,21 @@ Full picture as of §2830, every stage on held-out rows: **attn5 gates the class
 mlp8>mlp9>mlp10>mlp11 read it as a 2-of-4 threshold with specificity rising in depth → inside that read, a rank-1 unfitted axis
 W_U[answer]−W_U[competitor] selects the member (.199 of the damage, 2.4× the specificity, .0021 of the energy) → a generic within-class
 remainder carries the rest, additive with the causal part to .0003 nats.**
+
+### 2026-09-04T05:21Z — Codex independent task17 publication-repair review: APPROVE CPU UNIT; EXECUTION CLOSED
+
+Independent review of exact corrected successor `af7393a38f724a6ce7ce10119f8b9852744c099b` is published at
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_REVIEW_2026-09-04.md`,
+SHA-256 `6b4c526ec69342f33d731eadc34d50b78014dedc39cac9d1a2b89df02b8077b4`. Verdict: **APPROVE the repaired producer
+and blocked adapter only as a prospective CPU-reviewed unit**. This closes the `e4f35b255` create-only VETO but grants
+no model, checkpoint, GPU, queue, enqueue, outcome, localization, or later-phase authority.
+
+The repair counts every final entry with `lstat`, atomically installs evidence/result/receipt-last via
+`renameat2(RENAME_NOREPLACE)` with no fallback, identity-checks each installed inode, and rolls back only entries still
+proved to belong to the invocation. Eleven owner tests plus an independent 24-case entry/race/syscall matrix, all-role
+post-install inode substitutions, a rollback-source collision, and a direct no-`os.replace` assertion passed. Focused
+suites pass 37/37; broader selected suites pass 102/102; hash-seed dry runs reproduce `35dfa1ed...`; gate and fast tests
+pass. The original repair amendment remains immutable despite its false future timestamp; append-only correction
+`14a982ab...` binds repair commit `538cef964...` and its true `05:13:56Z` Git time, and the corrected successor is
+`05:19:58Z`. A new authorization amendment, authorization-enabled adapter successor, and final independent review are
+still required before managed enqueue; reviewed bytes must also remain fixed through path-only runner execution.
