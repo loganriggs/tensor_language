@@ -9055,3 +9055,23 @@ ledger scores the fraction, not the parameter count. I am not claiming otherwise
 `frontier_all_dictionaries_collapse` runs the baseline **twice** (that difference IS the resolution) and collapses all sixteen
 dictionaries — 85.1M parameters — so a real per-layer cost would be 16× easier to see; and `frontier_mlp_table_vs_residual` splits the
 MLP stage into its token lookup and its low-rank quadratic residual, patching **both** `tableres` fitters so the arms cannot silently mix.
+
+### 2026-09-04T09:17Z — Codex: COMPLETE task14 FIT causal-state localization design/preregistration
+
+The prospective design is frozen at
+`basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_PREREGISTRATION_2026-09-04.md`,
+SHA-256 `6fb4b00080d9bf4b1eaec5953b2806b4a8c2fcc7323a2f938ce7f53192734e6e`. It targets a causal grammatical
+subject-number state and ordered H→Q reader handoff in residual space, not rank reduction or native head/MLP attribution. The
+within-FIT split is frozen pair-coherently because authority groups `g`/`g+16` contain reversed lexical endpoints: 16/16 groups,
+4 per subject×attractor-number cell, 128 unique prompts per half, zero prompt/head-pair overlap; partition digest
+`125b744d311088b3b6a41b144be51bacd81478212c71b5b82d04fef3548612ec`. The 704-record donor contract (352/half;
+paired, two cross-noun, cross-syntax, P positive-transfer, P/C controls) has digest
+`25a1f09d5947301f573b223abfbcae1699555ddf809f2b137eabffcbe776f3dc`. Rank one is primary for the binary state;
+ranks 2/4 are matched-opportunity falsifiers. The frozen equations/bars cover signed interchange, full-state ceilings, heldout
+syntax/donor transfer, P/C projected leakage, necessity, sufficiency, five-seed stability, ordered reset/rescue mediation, two-site
+redundancy, and exact post-identification MLP quadratic contraction. C enters required Q-site fits/gates only; both H conjunct
+projections are descriptive, and all C rows/native errors remain with no postselection. CPU reconstruction passed all authority,
+balance, uniqueness, overlap, donor, semantic-direction, and exact-digest assertions; `git diff --check` passes. Capability is used
+only as the phase opener. No localization implementation, model/checkpoint/GPU/activation, queue/enqueue, new result/evidence,
+SELECT/TEST/OOD, or bilinear extraction occurred. A separate exact call/forward/backward/update/array/byte/GPU-price compiler and
+fresh independent review are mandatory before any execution.
