@@ -875,7 +875,7 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "9cd6caaf0081104d35ebde8db1ac1599afa0ae536ab43eb220146b987e1f8900",
+   "record_sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf",
    "kind": "behavior_circuit",
    "identity_instance": null,
    "active_claim_id": "grammatical_subject_number.v2",
@@ -886,16 +886,19 @@
    "negative_event_count": 1,
    "active_negative_event_count": 0,
    "latest_blocker": null,
-   "latest_active_event": "task14_subject_number_localization.fit.preregistered.v2",
+   "latest_active_event": "task14_subject_number_localization.fit.v2.authority_review_held",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
-    "task14_subject_number_localization.fit.preregistered.v2"
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held"
    ],
    "held_test_types": [
-    "capability"
+    "capability",
+    "null_control"
    ],
    "active_blocking_test_types": [],
    "design_keys": [
+    "0535e80f168d12207fe39ec82291ff82ed60c83cdb9c02ee3bc14fa690f7158e",
     "481eb182f82eaf4be6ff6de42c77c32cfbea7348a521da375a87e30670ed60c1",
     "6fffb67974bc0c93ec560a57908f58c6a48575c76451539d716d5066def707a4",
     "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa",

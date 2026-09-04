@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 83,
- "design_count": 70,
- "protocol_count": 65,
- "execution_count": 83,
+ "event_count": 84,
+ "design_count": 71,
+ "protocol_count": 66,
+ "execution_count": 84,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -1343,6 +1343,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "localization_v2_prereg",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_localization.fit.v2.authority_review_held",
+   "claim_id": "grammatical_subject_number.v2",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "0535e80f168d12207fe39ec82291ff82ed60c83cdb9c02ee3bc14fa690f7158e",
+   "protocol_key": "d9aeebe0f288b71f21ec90d24fe4a3bd8a73383fd984a7adb7acdd3ed3c7a22d",
+   "execution_key": "e6112acde13de8ca8e75435a9e3e6a2935d5d6496ef272d61325b980d0a885c5",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "localization_v2_prereg",
+   "result_artifact_id": "localization_v2_review"
   },
   {
    "circuit": "task.successor.pointer",

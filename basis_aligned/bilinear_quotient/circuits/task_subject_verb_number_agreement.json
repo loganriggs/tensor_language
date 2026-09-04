@@ -400,10 +400,11 @@
     "task14_fit_localization_split_v2"
    ],
    "evidence_event_ids": [
-    "task14_subject_number_localization.fit.preregistered.v2"
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held"
    ],
    "translation_ids": [],
-   "next_missing": "fresh independent approval of immutable localization v2, followed by an exact FIT-only call/array/byte/runtime compiler and its separate review before model or GPU access"
+   "next_missing": "exact FIT-only physical call/array/byte/runtime compiler and its separate independent review before any model implementation or GPU access"
   }
  ],
  "split_plans": [
@@ -525,6 +526,12 @@
    "path": "basis_aligned/bilinear_quotient/ops/test_build_task14_fit_localization_v2.py",
    "sha256": "bd2623ebe8aafc28a59990c615abd2919591ac9b062cd57ce7ed49fc99374ccf",
    "kind": "authority_tests",
+   "status": "frozen"
+  },
+  "localization_v2_review": {
+   "path": "basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_V2_INDEPENDENT_REVIEW_2026-09-04.md",
+   "sha256": "2905aeb040fad2d16062a22e3c4d32d9dd6953c468724ff51a80ab9fa849d384",
+   "kind": "independent_review",
    "status": "frozen"
   }
  },
@@ -800,6 +807,61 @@
    ],
    "design_key": "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",
    "execution_key": "cf638e91a475eb227ac01949e348136665406fb05691ee027f85eca62e132b01"
+  },
+  {
+   "event_id": "task14_subject_number_localization.fit.v2.authority_review_held",
+   "claim_id": "grammatical_subject_number.v2",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "c_complete_subject_cross_construction_transfer_v2",
+    "c_complete_subject_plural_cross_construction_control_v2",
+    "subject_number_coordinate_neutralization_v2"
+   ],
+   "site_id": null,
+   "evaluation_role": "independent CPU-only review of exact v2 authority before physical compiler construction",
+   "metrics": [
+    {
+     "name": "canonical_authority_reconstruction",
+     "estimate": true,
+     "ci95": null,
+     "bar": "exact partition, endpoint, and 1088-donor bytes/hashes/censuses independently reproduce"
+    },
+    {
+     "name": "local_head_morphology_false_positive",
+     "estimate": false,
+     "ci95": null,
+     "bar": "cannot satisfy absolute C plural alignment, bidirectional C/singular transfer, and matched plural controls"
+    },
+    {
+     "name": "focused_cpu_tests",
+     "estimate": "43/43",
+     "ci95": null,
+     "bar": "all exact builder and frozen authority tests pass with model_calls=0"
+    }
+   ],
+   "result_artifact_id": "localization_v2_review",
+   "prereg_artifact_id": "localization_v2_prereg",
+   "input_artifact_ids": [
+    "task14_authority",
+    "localization_v2_builder",
+    "localization_v2_partition",
+    "localization_v2_donors",
+    "localization_v2_tests",
+    "localization_v2_review"
+   ],
+   "split_plan_id": "task14_fit_localization_split_v2",
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_V2_INDEPENDENT_REVIEW_2026-09-04.md"
+   ],
+   "design_key": "0535e80f168d12207fe39ec82291ff82ed60c83cdb9c02ee3bc14fa690f7158e",
+   "execution_key": "e6112acde13de8ca8e75435a9e3e6a2935d5d6496ef272d61325b980d0a885c5"
   }
  ]
 }
