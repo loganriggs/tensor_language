@@ -124,7 +124,11 @@ def test_enqueue_writes_hash_bound_lane1_record_and_enforces_reviewed_hash(
     assert f"script sha256 {reviewed}" in accepted.stdout
 
     queue.write_text("", encoding="utf-8")
-    job.write_text("print('post-review change')\n", encoding="utf-8")
+    marker = tmp_path / "unreviewed-marker"
+    job.write_text(
+        f"from pathlib import Path\nPath({str(marker)!r}).write_text('ran')\n",
+        encoding="utf-8",
+    )
     refused = subprocess.run(
         [str(enqueue), str(job)], env=environment, text=True,
         capture_output=True, check=False,
@@ -132,6 +136,7 @@ def test_enqueue_writes_hash_bound_lane1_record_and_enforces_reviewed_hash(
     assert refused.returncode == 1
     assert "reviewed script SHA-256 changed" in refused.stderr
     assert queue.read_text(encoding="utf-8") == ""
+    assert not marker.exists(), "unreviewed bytes executed before EXPECTED_SHA256 refusal"
 
 
 def test_enqueue_rejects_symlink_target(tmp_path: Path) -> None:
@@ -145,3 +150,52 @@ def test_enqueue_rejects_symlink_target(tmp_path: Path) -> None:
     assert refused.returncode == 1
     assert "may not be a symlink" in refused.stderr
     assert queue.read_text(encoding="utf-8") == ""
+
+
+def test_enqueue_dryrun_uses_snapshot_and_refuses_a_late_original_edit(
+    tmp_path: Path,
+) -> None:
+    enqueue, queue, job = make_enqueue_fixture(tmp_path)
+    reviewed_marker = tmp_path / "reviewed-marker"
+    substituted_marker = tmp_path / "substituted-marker"
+    job.write_text(
+        f"from pathlib import Path\nPath({str(reviewed_marker)!r}).write_text('ran')\n",
+        encoding="utf-8",
+    )
+    reviewed = sha256(job)
+    gate = enqueue.parent / "gate.py"
+    gate.write_text(
+        "import os\nfrom pathlib import Path\n"
+        "Path(os.environ['ORIGINAL_JOB']).write_text("
+        "f\"from pathlib import Path\\nPath({os.environ['SUBSTITUTED_MARKER']!r}).write_text('ran')\\n\""
+        ")\n",
+        encoding="utf-8",
+    )
+    environment = dict(
+        os.environ,
+        EXPECTED_SHA256=reviewed,
+        LANE="1",
+        ORIGINAL_JOB=str(job),
+        SUBSTITUTED_MARKER=str(substituted_marker),
+    )
+    refused = subprocess.run(
+        [str(enqueue), str(job)], env=environment, text=True,
+        capture_output=True, check=False,
+    )
+    assert refused.returncode == 1
+    assert "changed after reviewed preflight" in refused.stderr
+    assert reviewed_marker.read_text(encoding="utf-8") == "ran"
+    assert not substituted_marker.exists()
+    assert queue.read_text(encoding="utf-8") == ""
+
+
+def test_lane2_keeps_legacy_path_only_record(tmp_path: Path) -> None:
+    enqueue, _queue, job = make_enqueue_fixture(tmp_path)
+    job.write_text("# BQLANE: cpu\nprint('lane2-dryrun')\n", encoding="utf-8")
+    completed = subprocess.run(
+        [str(enqueue), str(job)], env=dict(os.environ, LANE="2"),
+        text=True, capture_output=True, check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    queue2 = enqueue.parent.parent / "queue2.txt"
+    assert queue2.read_text(encoding="utf-8") == f"{job}\n"

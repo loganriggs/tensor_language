@@ -2904,8 +2904,9 @@ An edit between those events would therefore run bytes the review never saw. A l
 own hash does not solve this: replacement code executes before the check and can simply omit it.
 
 **How to apply.** New lane-1 queue records carry `SHA256<TAB>absolute-path`. `enqueue.sh` safely captures
-the script with `O_NOFOLLOW`, optionally checks `EXPECTED_SHA256` against an independently reviewed
-digest, and stores the captured digest. The trusted runner safely opens the path, checks regular-file
+the script with `O_NOFOLLOW`, checks `EXPECTED_SHA256` against an independently reviewed digest before
+executing candidate code, and runs syntax, gate, and dry-run checks only on a private snapshot of those
+captured bytes. It then stores the captured digest. The trusted runner safely opens the path, checks regular-file
 identity before and after reading, verifies the queued digest, and compiles only the captured bytes in
 that same process. A later path edit is a loud failed job, never a different experiment. Legacy bare
 paths remain accepted only for compatibility with entries queued before this protocol; new reviewed

@@ -7678,7 +7678,7 @@ self-checking launcher is explicitly rejected because replaced code could omit i
 17 or restart the runner until the queue is empty, the change has focused tests, and a different agent has approved the
 exact infrastructure bytes. No GPU, checkpoint, model, outcome, or scientific authority is part of this claim.
 
-### 2026-09-04T05:42Z — Codex hash-bound queue repair candidate; first version VETOED, runner not restarted
+### 2026-09-04T05:37Z — Codex hash-bound queue repair candidate; first version VETOED, runner not restarted
 
 Independent adversarial review VETOED commit `3e71f2b4b`: although its runner protected dequeue execution, lane-1
 `enqueue.sh` executed `BQLIB_DRYRUN` on the mutable original path before checking `EXPECTED_SHA256`. A planted changed

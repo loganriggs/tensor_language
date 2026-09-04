@@ -37,24 +37,96 @@ case "$f" in /*) ;; *) echo "REFUSED: path is not absolute: $f" >&2; exit 1;; es
 [ -f "$f" ] || { echo "REFUSED: no such file: $f" >&2; exit 1; }
 [ ! -L "$f" ] || { echo "REFUSED: queued script may not be a symlink: $f" >&2; exit 1; }
 case "$f" in *$'\t'*|*$'\n'*) echo "REFUSED: queued path contains a tab or newline" >&2; exit 1;; esac
-python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f" \
-  || { echo "REFUSED: does not parse: $f" >&2; exit 1; }
 D="$(dirname "$f")"
 # scripts may live in <proj>/ops/ or at <proj>/ top level; walk up until ops/test_fast.py is found
 [ -f "$D/ops/test_fast.py" ] || D="$(dirname "$D")"
+
+# Lane 1 executes the candidate during its model-free preflight, so the reviewed
+# hash must be checked before that first execution. Capture one private snapshot
+# with O_NOFOLLOW and run every candidate-specific check on those bytes. The
+# original path is never parsed or executed by lane-1 enqueue after this point.
+check_path="$f"
+sha=""
+snapshot=""
+if [ "$LANE" = "1" ]; then
+  capture=$(python3 - "$f" "$(dirname "$f")" "$BASE" <<'PY'
+import hashlib
+import os
+from pathlib import Path
+import stat
+import sys
+import tempfile
+
+source = Path(sys.argv[1])
+directory = Path(sys.argv[2])
+prefix = "." + sys.argv[3] + ".enqueue-snapshot-"
+flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+descriptor = os.open(source, flags)
+snapshot_descriptor = None
+snapshot_name = None
+try:
+    before = os.fstat(descriptor)
+    if not stat.S_ISREG(before.st_mode):
+        raise SystemExit("queued script is not a regular file")
+    chunks = []
+    while True:
+        chunk = os.read(descriptor, 1024 * 1024)
+        if not chunk:
+            break
+        chunks.append(chunk)
+    after = os.fstat(descriptor)
+    identity = lambda value: (
+        value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns
+    )
+    if identity(before) != identity(after):
+        raise SystemExit("queued script changed during safe capture")
+    payload = b"".join(chunks)
+    snapshot_descriptor, snapshot_name = tempfile.mkstemp(
+        prefix=prefix, suffix=".py", dir=directory
+    )
+    written = 0
+    while written < len(payload):
+        written += os.write(snapshot_descriptor, payload[written:])
+    os.fsync(snapshot_descriptor)
+finally:
+    os.close(descriptor)
+    if snapshot_descriptor is not None:
+        os.close(snapshot_descriptor)
+if snapshot_name is None:
+    raise SystemExit("failed to create private enqueue snapshot")
+print(hashlib.sha256(payload).hexdigest() + "\t" + snapshot_name)
+PY
+  ) || { echo "REFUSED: could not safely capture queued script: $f" >&2; exit 1; }
+  sha="${capture%%$'\t'*}"
+  snapshot="${capture#*$'\t'}"
+  if [[ ! "$sha" =~ ^[0-9a-f]{64}$ ]] || [ -z "$snapshot" ] || [ "$snapshot" = "$capture" ]; then
+    [ -n "$snapshot" ] && rm -f -- "$snapshot"
+    echo "REFUSED: invalid safe-capture receipt" >&2
+    exit 1
+  fi
+  trap 'rm -f -- "$snapshot"' EXIT
+  if [ -n "${EXPECTED_SHA256:-}" ] && [ "$sha" != "$EXPECTED_SHA256" ]; then
+    echo "REFUSED: reviewed script SHA-256 changed: expected=$EXPECTED_SHA256 observed=$sha" >&2
+    exit 1
+  fi
+  check_path="$snapshot"
+fi
+
+python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$check_path" \
+  || { echo "REFUSED: does not parse: $f" >&2; exit 1; }
 # The fast suite (~0.4s, no GPU) runs before every enqueue: a broken bqlib or a regressed gate cannot
 # reach the GPU. It encodes the mistakes that actually cost runs -- see ops/test_fast.py.
 python3 "$D/ops/test_fast.py" >/tmp/bq_test_fast.out 2>&1 || {
   echo "REFUSED: ops/test_fast.py is failing -- fix the library before queueing:" >&2
   tail -12 /tmp/bq_test_fast.out >&2; exit 1; }
-python3 "$D/ops/gate.py" "$f" >/dev/null 2>&1 || {
-  echo "REFUSED: gate FAILED:" >&2; python3 "$D/ops/gate.py" "$f" >&2; exit 1; }
+python3 "$D/ops/gate.py" "$check_path" >/dev/null 2>&1 || {
+  echo "REFUSED: gate FAILED:" >&2; python3 "$D/ops/gate.py" "$check_path" >&2; exit 1; }
 
 # PRE-FLIGHT the PLAN itself, GPU-free, in about two seconds. MEASURED 2026-08-30: six GPU runs this
 # session were thrown away because a plan's covered-input control was ill-formed, and every one was
 # decidable from the plan alone before the first GPU call. bqlib's run() now refuses such a plan;
 # BQLIB_DRYRUN makes it do so here instead of after a 450-second run.
-BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$f" >/tmp/bq_dryrun.out 2>&1 || {
+BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$check_path" >/tmp/bq_dryrun.out 2>&1 || {
   echo "REFUSED: plan pre-flight FAILED (no GPU work was done):" >&2
   tail -6 /tmp/bq_dryrun.out >&2; exit 1; }
 if [ "$LANE" = "2" ]; then
@@ -64,7 +136,7 @@ if [ "$LANE" = "2" ]; then
   echo "QUEUED (lane 2, CPU-only) $f"
   echo "  lane 2 depth now $n   (CUDA_VISIBLE_DEVICES='', 4 threads, nice 10; log runlogs/<name>.2.log, ledger runlogs/_completed2.txt)"
 else
-  sha=$(python3 - "$f" <<'PY'
+  current_sha=$(python3 - "$f" <<'PY'
 import hashlib
 import os
 from pathlib import Path
@@ -94,13 +166,9 @@ if identity(before) != identity(after):
     raise SystemExit("queued script changed during hash capture")
 print(hashlib.sha256(payload).hexdigest())
 PY
-  ) || { echo "REFUSED: could not safely hash queued script: $f" >&2; exit 1; }
-  if [[ ! "$sha" =~ ^[0-9a-f]{64}$ ]]; then
-    echo "REFUSED: invalid captured script SHA-256" >&2
-    exit 1
-  fi
-  if [ -n "${EXPECTED_SHA256:-}" ] && [ "$sha" != "$EXPECTED_SHA256" ]; then
-    echo "REFUSED: reviewed script SHA-256 changed: expected=$EXPECTED_SHA256 observed=$sha" >&2
+  ) || { echo "REFUSED: could not revalidate queued script: $f" >&2; exit 1; }
+  if [ "$current_sha" != "$sha" ]; then
+    echo "REFUSED: queued script changed after reviewed preflight: captured=$sha observed=$current_sha" >&2
     exit 1
   fi
   printf '%s\t%s\n' "$sha" "$f" >> "$D/queue.txt"
@@ -111,5 +179,6 @@ PY
   echo "  lane 1 depth now $n   ($g -- the runner serializes; depth >= 2 keeps it fed)"
 fi
 
-# Advisory lint (never blocking): show instrument-clause warnings at enqueue time.
-/venv/main/bin/python "$(dirname "$0")/preflight.py" "$1" 2>/dev/null || true
+# Advisory lint (never blocking): show instrument-clause warnings for the same
+# captured bytes that passed the blocking checks.
+/venv/main/bin/python "$(dirname "$0")/preflight.py" "$check_path" 2>/dev/null || true
