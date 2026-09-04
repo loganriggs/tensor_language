@@ -26,9 +26,16 @@ def main():
     ap.add_argument("--prereg", required=True); ap.add_argument("--prior", required=True); ap.add_argument("--prior-sec", required=True)
     ap.add_argument("--doc", required=True); ap.add_argument("--bars", required=True); ap.add_argument("--nulls", required=True)
     ap.add_argument("--anchor", required=True); ap.add_argument("--body", required=True)
-    ap.add_argument("--extra", action="append", default=[]); ap.add_argument("--no-check", action="store_true")
+    ap.add_argument("--extra", action="append", default=[]); ap.add_argument("--no-check", action="store_true"); ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
     parent, child = pathlib.Path(a.parent), pathlib.Path(a.child)
+    # 2026-09-04 02:20Z: a child named like an EXISTING registered rung (late_tail_gate_rank_probe, §2782) overwrote that rung's
+    # script on disk, and the runner then overwrote its results file too (restored bit-exact from git). A child is a NEW file:
+    # refuse if the script, its results JSON, or its runlog already exist; --force only for re-deriving a rung that never ran.
+    if not a.force:
+        clashes = [q for q in (child, child.parent.parent / f"{child.stem}_results.json", child.parent.parent / "runlogs" / f"{child.stem}.log") if q.exists()]
+        if clashes:
+            sys.exit(f"REFUSED: child name {child.stem!r} collides with an existing rung: {', '.join(str(q) for q in clashes)} (pick a new name; --force only if it never ran)")
     pn, cn = parent.stem, child.stem
     src = parent.read_text()
     doc = pathlib.Path(a.doc).read_text().rstrip("\n")
