@@ -73751,3 +73751,48 @@ open question is no longer "where is the feature" but "what do those three MLPs 
 Price: 24 GPU forwards, 2.0 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_roundness_decision_ladder_results.json. (Claude, LANE 1 CUDA.) d, e TRUE; a, b, c FALSE with c's null met.
 Preserved.
+
+## §2848 — THE TWO FEATURES ARE SEPARABLE AND THE TWO COMPUTATIONS SHARE READERS: projecting the roundness direction out of attention 8's write costs the successor task **.027** of its reader damage (random direction .0045), the two reader profiles correlate at ρ **.90**, and the instrument reproduces §2840 to **.008** — but the successor's biggest reader is **mlp1**, not mlp8, which no earlier section had looked for (a, b, d, e TRUE; c FALSE)
+
+§2847 ended with the roundness and successor lineages meeting at the same MLP stack. This rung asks whether they are one
+mechanism. Two measurements over the fixed reader set {mlp8, mlp9, mlp10, mlp11, mlp1}: each reader's contribution to the
+roundness decision (§2842's logit recovery on held-out percent pairs) and to the successor margin (removal damage on the
+bank's frozen OOD rows of `numbered_list.index_successor`), plus the discriminating arm — project §2844's roundness
+direction out of head 3's slice and run the SUCCESSOR task, where roundness is irrelevant. Sign convention: successor
+damage d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS. **No CE and no §312 L2 — the frontier's L2 is CE ADDED ABOVE THE
+REAL MODEL where LOWER IS BETTER (§2135, norm-2304 at 2.6735) and nothing here installs or may be quoted as one.**
+
+**pred_e TRUE — the instrument is the battery's.** Removing attention 8's final-position write costs **2.646** margin units
+against §2840's published **2.667** on the same frozen OOD rows: a gap of **.008** of the reference (bar ≤ .30). The two
+rungs measure the same thing, so the profiles below are comparable to §2818/§2819's lineage.
+
+**pred_b TRUE (null "≥ .40" not met) — the features are SEPARABLE at this site.** Projecting the roundness direction out of
+head 3's slice costs the successor task **.027** of what removing all five readers costs. Attention 8 writes "which item
+was last" and "whether it is round" into directions that the successor computation does not confuse: you can delete the
+roundness feature and the numbered list still works. **pred_d TRUE** — but it is the caveat, not the confirmation: a random
+direction of the same norm costs **.0045**, so removing *one* of 128 directions is generically almost free, and pred_b's
+.027 is only about six times that floor. The honest statement is that the roundness direction is **not specially load-bearing
+for the successor**, which is weaker than "the features are orthogonal" and is what the measurement supports.
+
+**pred_a TRUE (null "≤ 0" not met) — the two computations recruit the stack in the same order, ρ = .90** over the five
+readers. Roundness recovery mlp8 .325 > mlp1 .310 > mlp9 .309 > mlp10 .213 > mlp11 .175; successor damage mlp1 3.504 ≫
+mlp8 .503 > mlp9 .133 > mlp10 .127 > mlp11 .097. Five paired points is thin evidence and the preregistration said so in
+advance; it is the separability arm that carries the weight.
+
+**pred_c FALSE — and the reason is the most interesting number in the section.** The top roundness reader is mlp8, as
+expected; the top SUCCESSOR reader is **mlp1**, at **3.504** margin units — seven times mlp8's .503 and larger than removing
+attention 8's write altogether (2.646). **No section in the successor lineage had ever measured mlp1**: §2818, §2819 and
+§2821 confined themselves to readers of attention 8's write at layers ≥ 8, because mlp1 is UPSTREAM of layer 8 and cannot
+read that write at all. Its damage is therefore not a reader effect — it is mlp1 doing something the numbered-list task
+needs before attention 8 ever runs, and it entered this rung only because §2847's roundness ladder had named it for the
+percent format. §2830's document-CE map is consistent: mlp1 was 5th of 36 at 1.095 nats. **So the successor circuit as
+described in §2818/§2819 is missing an upstream component larger than the writer it is built around**, and that is now the
+open question this lineage should have asked first.
+
+**What the section establishes.** The two computations share the mlp8–mlp11 readers in the same order (ρ .90) and the two
+features attention 8 carries are separable at that site to within six times the noise floor — so this is closer to "one
+stack, two inputs, two outputs" than to "two functions sharing hardware". But the successor's dominant term is not in that
+stack at all.
+
+Price: 428 GPU forwards, 5.7 GPU-seconds, 0 backwards, 128 declared fitted parameters.
+Results: circuit_battery_lineage_unification_results.json. (Claude, LANE 1 CUDA.) a, b, d, e TRUE; c FALSE. Preserved.

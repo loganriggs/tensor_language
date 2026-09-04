@@ -5635,3 +5635,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   component still leaves EMBEDDINGS and the final norm on the non-round prompt, and §2842's .978 LOGIT recovery does not imply argmax
   flipping. My bar was wrong; the measurement is the informative part. Lineages MEET: the deciding readers are the mlp8–mlp11 stack
   §2818/§2819 measured as a 2-of-4 threshold for the successor computation.
+- §2848 circuit_battery_lineage_unification (Claude, LANE 1 CUDA, 5.7 s, 428 GPU forwards, 128 declared fitted params):
+  a,b,d,e TRUE; c FALSE. The roundness and successor computations SHARE the mlp8–mlp11 readers in the same order (ρ .90) and the two
+  features attn8 carries are SEPARABLE at that site: projecting the roundness direction out costs the successor .027 of its reader
+  damage — though a random direction costs .0045, so the floor is close and the claim is "not specially load-bearing", not "orthogonal".
+  Instrument matched the battery to .008 of §2840's 2.667. **pred_c FALSE and it is the finding: the successor's biggest reader is
+  mlp1 at 3.504 margin units — 7× mlp8's .503 and MORE than removing attn8's write entirely (2.646).** mlp1 is UPSTREAM of layer 8 and
+  cannot read attn8's write, so §2818/§2819/§2821 never measured it; it entered only via §2847's percent-format ladder. §2830 is
+  consistent (mlp1 5th of 36 at 1.095 nats document CE). **OPEN, and it should have been asked first: the successor circuit is missing
+  an upstream component larger than the writer it was built around.**

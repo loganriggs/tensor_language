@@ -1,0 +1,43 @@
+{
+ "preds": {
+  "pred_a_reader_profiles_correlate": true,
+  "pred_b_roundness_direction_is_separable": true,
+  "pred_c_the_top_reader_is_shared": false,
+  "pred_d_random_direction_is_inert": true,
+  "pred_e_full_removal_reproduces_the_battery": true
+ },
+ "nulls": {
+  "a_null_no_correlation": false,
+  "b_null_shared_channel": false,
+  "d_null_random_hurts": false
+ },
+ "summary": {
+  "rho_roundness_vs_successor": 0.8999999999999998,
+  "roundness_recovery": {
+   "mlp8": 0.3247566819190979,
+   "mlp9": 0.30874547362327576,
+   "mlp10": 0.21341688930988312,
+   "mlp11": 0.1749751716852188,
+   "mlp1": 0.3102605640888214
+  },
+  "successor_damage": {
+   "mlp8": 0.5034676790237427,
+   "mlp9": 0.13268721103668213,
+   "mlp10": 0.12680034339427948,
+   "mlp11": 0.09709259122610092,
+   "mlp1": 3.503512382507324
+  },
+  "top_reader_roundness": "mlp8",
+  "top_reader_successor": "mlp1",
+  "arms": {
+   "FULL_READERS": 3.730119466781616,
+   "DROP_ROUNDNESS_DIR": 0.10063052177429199,
+   "DROP_RANDOM_DIR": 0.016896843910217285,
+   "REMOVE_ATTN8": 2.6463723182678223
+  },
+  "separability_fraction": 0.026977828101874976,
+  "random_fraction": 0.004529839877969391,
+  "battery_reference_full": 2.6670982837677,
+  "repro_gap_fraction": 0.0077709792796234
+ }
+}
