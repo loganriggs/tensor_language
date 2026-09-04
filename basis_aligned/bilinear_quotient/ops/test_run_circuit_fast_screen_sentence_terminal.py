@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 
 import circuit_fast_screen_candidates as candidates
+import circuit_experiment_spec as framework
 import circuit_fast_screen_producer as producer
 import circuit_fast_screen_spec as screen
 import circuit_prior_art
@@ -56,3 +57,9 @@ def test_result_writer_is_create_only(tmp_path) -> None:
     else:  # pragma: no cover - create-only invariant
         raise AssertionError("result writer overwrote an existing receipt")
     assert target.read_bytes() == first
+
+
+def test_dataclass_tuple_tree_converts_to_strict_literal_json() -> None:
+    converted = run.literal_json({"outer": (("x", 1),), "empty": ()})
+    assert converted == {"outer": [["x", 1]], "empty": []}
+    assert framework.canonical_json_bytes(converted)

@@ -48,6 +48,17 @@ def utc_text(value: datetime) -> str:
     return value.isoformat(timespec="microseconds").replace("+00:00", "Z")
 
 
+def literal_json(value: object) -> object:
+    """Convert dataclass output containers to the strict literal-JSON tree."""
+    if isinstance(value, tuple):
+        return [literal_json(item) for item in value]
+    if isinstance(value, list):
+        return [literal_json(item) for item in value]
+    if isinstance(value, dict):
+        return {str(key): literal_json(item) for key, item in value.items()}
+    return value
+
+
 def build_spec(rows: list[dict[str, object]]) -> screen.CircuitFastScreenSpec:
     authority_sha256 = candidates.validate_rows(rows)
     if authority_sha256 != EXPECTED_AUTHORITY_SHA256:
@@ -190,7 +201,7 @@ def main() -> None:
             "pred_c_controls_selective": pred_c,
         },
         "fixed_bars": asdict(kernel.FIXED_BARS),
-        "run": asdict(run),
+        "run": literal_json(asdict(run)),
     }
     payload = atomic_create_json(RESULT, result)
     result_sha256 = hashlib.sha256(payload).hexdigest()
