@@ -42,7 +42,7 @@ BATTERY = ROOT / "circuit_battery_v2_results.json"
 RUNG = "circuit_battery_reader_unit_lens_ranked"
 SMOKE = os.environ.get("SURROGATE_SMOKE") == "1"
 OUT = ROOT / (f"{RUNG}_smoke_results.json" if SMOKE else f"{RUNG}_results.json")
-HASHES = {PREREG: "8b9de76bb760eefc2097440f357c2d82eea4c8b152bc8873afeb7ea8dd5da453",
+HASHES = {PREREG: "ed75ff2d3ba1580fff037a405e00d3b877d128274cde0cd9d070a42ae9559d15",
           BATTERY: "5924b2549d285175c80fbf7c8fc95a8a2fa06020acc1827bc472ddea69d9ec93",
           R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"}
 D, NL = R.D, R.NL
