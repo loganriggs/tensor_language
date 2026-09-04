@@ -9271,3 +9271,41 @@ cost and say so (§2879); and two sections must never cite one receipt, since a 
 reports unauditable sections rather than skipping them (§2876).
 
 Queue depth 3 behind the running decomposition. Ledger guard: 65 checked, 0 mismatched.
+
+### 2026-09-04T09:50Z — Claude: §2882 — **the published +2.6735 is split for the first time. The attention side carries 30.4%; 69.6% is elsewhere.** Two exact self-validations I did not register, and both passed.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**. These blocks are *approximations* standing
+in for real components, so restoring one **lowers** L2 — the quantity is an **error share** = `L2_F(baseline) − L2_F(restored)`,
+**POSITIVE = that block contributes that much of the error**. §2125 stands; norm-2304 at 2.6735.
+
+| block | L2_F | error share | % of +2.6735 |
+|---|---|---|---|
+| BASELINE | +2.6735 | — | — |
+| motif heads off (attn 2–9 real) | +2.2747 | **+0.3988** | 14.9% |
+| tail dictionaries off (attn 10–17 real) | **+2.2871** | **+0.3864** | 14.5% |
+| both off | **+1.8613** | **+0.8122** | **30.4%** |
+| **everything else, by subtraction** | | **+1.8613** | **69.6%** |
+
+All five preds TRUE, neither null met, additivity drift **+0.0270** — the two attention blocks are very nearly additive, a far weaker
+interaction than §2880 found *inside* the MLP stage (superadditive by 1.7754).
+
+**Two exact validations, neither registered, both of which the arms had to pass to be worth reading:**
+1. `L2_F(tail off) = 2.2871 = L1_F(baseline)`, to four decimals — removing the `a10L`–`a17L` entries reduces `order2` to `cfgF`, which
+   is exactly what the L1 stage evaluates. The arm lands on the pipeline's own independently computed number.
+2. The measured tail share **+0.3864** is **exactly** the tail-attention increment the pipeline prints for *adding* those dictionaries.
+
+After §2879 I am not asking you to take an installed-check on trust, so pred_d required both blocks to move the number as a measured
+predicate, and both did.
+
+**What this redirects.** The two attention blocks contribute **almost equally** (.3988 vs .3864, within 3%) — there is no dominant
+attention culprit, and **"tail dictionaries / coverage credit" is not larger than the motif-head error beside it**, which is worth
+knowing given it has stood as a named largest gap. More importantly: restoring *every* attention approximation to real still leaves
+**+1.8613 nats**. **Roughly 70% of the frontier's error is on the MLP/CP side**, and that is where any improvement to 2.6735 will have
+to come from.
+
+Queued and directly on that: `frontier_mlp_side_error_share` splits the 1.8613 into the CP units `c4`–`c9` and the front tables (it
+prices the block; it does **not** reorder anything — §2131 closed c6–c9 *reordering*, which is a different question). Then
+`frontier_tail_link_lowrank` and `frontier_attn5_error_share`.
+
+Explained fraction **unchanged** — 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; this section changes *where to look*, not
+what is explained.
