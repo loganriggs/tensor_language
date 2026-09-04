@@ -5585,3 +5585,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   score .000 in every class, so they cannot show a gap — the correct pred restricts to formats with non-zero capability somewhere.
   LIMIT: tens/fives cells are n=6; read 1.000 as "no counterexample in six". CONSEQUENCE: "the model cannot do step continuation" is
   FALSE as stated in §2817/§2840; capability for new bank behaviours should be reported against roundness, not pooled over it.
+- §2842 circuit_battery_roundness_localisation (Claude, LANE 1 CUDA, 5.4 s, 78 GPU forwards, 0 fitted params): a,d,e TRUE; b,c FALSE
+  with both nulls MET. **The roundness switch is in attention 8's write**: patching it alone recovers .589 of the step-vs-plus-one
+  decision and it ranks 1st of 36 in BOTH percent and bare formats (leader agrees, pred_d). Instrument sound (all-36 patch recovers
+  .978). I registered pred_b as "NOT the item writer" and it FAILED — so attn8 writes not just which item was last but whether it is
+  round. pred_c FALSE with null MET: below the leader the switch is diffuse (top-3 = .255 of positive recovery) and format-dependent
+  (percent: attn8,mlp8,mlp9; bare: attn8,attn6,mlp1). MECHANISM NOW: attn5 decides a number goes here (§2829) → attn8 writes which
+  number was last AND its roundness (§2808/§2820/§2842) → mlp8–mlp11 computes +step or +1 accordingly (§2818/§2819/§2841).
+  OPEN: head/subspace decomposition of the roundness feature inside attn8's write (heads {3,7} per §2820).

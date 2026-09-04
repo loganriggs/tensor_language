@@ -1,0 +1,55 @@
+[rloc] percent  top=attn8(0.68) top3=0.25 attn8_rank=1 all=1.00 native_ok=24/24
+[rloc] bare     top=attn8(0.50) top3=0.26 attn8_rank=1 all=0.96 native_ok=22/24
+{
+ "preds": {
+  "pred_a_the_switch_is_localised": true,
+  "pred_b_the_switch_is_not_the_item_writer": false,
+  "pred_c_the_switch_is_concentrated": false,
+  "pred_d_the_leader_is_format_invariant": true,
+  "pred_e_patching_everything_recovers_the_donor": true
+ },
+ "nulls": {
+  "a_null_not_localised": false,
+  "b_null_attn8_leads": true,
+  "c_null_diffuse": true,
+  "e_null_instrument_fails": false
+ },
+ "summary": {
+  "tops": [
+   "attn8",
+   "attn8"
+  ],
+  "leader_agrees_across_formats": true,
+  "medians": {
+   "top_recovery": 0.5888893604278564,
+   "top3_share": 0.2546942739096845,
+   "all_components_recovery": 0.9781965911388397
+  },
+  "attn8_ranks": {
+   "percent": 1,
+   "bare": 1
+  },
+  "order_top8": {
+   "percent": [
+    "attn8",
+    "mlp8",
+    "mlp9",
+    "mlp1",
+    "mlp0",
+    "mlp2",
+    "attn6",
+    "mlp10"
+   ],
+   "bare": [
+    "attn8",
+    "attn6",
+    "mlp1",
+    "mlp0",
+    "attn14",
+    "mlp8",
+    "mlp2",
+    "mlp9"
+   ]
+  }
+ }
+}

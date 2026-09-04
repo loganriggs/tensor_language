@@ -73483,3 +73483,44 @@ capability reported against roundness rather than pooled over it.
 
 Price: 20 GPU forwards, 4.7 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_roundness_capability_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b, c FALSE with no null met. Preserved.
+
+## §2842 — THE ROUNDNESS SWITCH IS IN ATTENTION 8's WRITE: patching attention 8 alone from a non-round run into a round one recovers **.589** of the step-versus-plus-one decision, it ranks **1st of 36 in BOTH formats**, and the instrument reconstructs the donor at .978 — so the component that writes "the last salient item" already encodes whether that item is ROUND. I registered the opposite and it failed (a, d, e TRUE; b FALSE with its null MET; c FALSE with its null MET)
+
+§2841 gave a minimal pair with identical token length: `10% 20% 30%` → ` 40` (step) against `11% 21% 31%` → ` 32` (plus one). This rung
+ran the battery's interchange-localisation stage on it — each of the 36 components patched whole from the non-round run into the round
+one — for two formats (percent, bare), six round starts and four offsets. Sign convention: `ld = logit(plus-one) − logit(step)`,
+`REC = (ld_patch − ld_base)/max(ld_donor − ld_base, 1e-3)`, 0 = no effect, 1 = full switch. **No CE, no §312 L2; nothing installs.**
+
+**pred_e TRUE — the instrument is sound.** Patching all 36 components simultaneously recovers **.978** of the donor's decision, so the
+component set is essentially complete and single-component numbers can be read as shares.
+
+**pred_a TRUE (null "≤ .20" not met) — and pred_b FALSE with its null MET, which is the result.** The best single component recovers a
+median **.589** of the switch — and it is **attention 8**, ranked **1st of 36 in both the percent and the bare format**. I registered
+pred_b as "the switch is NOT the item writer", reasoning that roundness is a property OF the carried item rather than its identity, and
+wrote that if attention 8 led anyway it "would say the write already encodes the roundness of what it carries". That is what the
+measurement says. Attention 8 is the writer for 8 of the 9 capable bank behaviours (§2840), writes a context-blind function of the last
+label (§2808, R576), splits into heads {3, 7} (§2820) — and now it also carries the feature that decides which arithmetic the downstream
+stack performs.
+
+**pred_d TRUE — and the agreement across formats is what makes that readable.** The same component leads whether the run is written
+`10% 20% 30%` or `10 20 30`, so the switch tracks the number rather than the percent surface.
+
+**pred_c FALSE, its null MET — but the switch is diffuse BELOW the leader.** The top three components hold only **.255** of the total
+positive recovery (bar ≥ .60, null ≤ .30 met). The orderings differ after the leader — percent: attn8, mlp8, mlp9, mlp1, mlp0; bare:
+attn8, attn6, mlp1, mlp0, attn14 — so beyond attention 8 the contributions are many, small, and format-dependent. The honest statement
+is a strong leader over a broad, partly surface-specific tail, not a two-component circuit.
+
+**How this sits with the rest.** §2829 put the class gate at attention 5 and showed attention 8 is only 4th in the class map: attn8
+writes a member, not a type. §2842 now says the member it writes carries an attribute — roundness — that downstream blocks read to
+select between two arithmetics. Those are consistent and they sharpen the mechanism: **attention 5 decides that a number goes here,
+attention 8 writes which number was last and whether it is round, and the mlp8–mlp11 stack computes either +step or +1 accordingly.**
+Every stage of that sentence is a separate measurement on held-out or purpose-built data.
+
+**Limits, stated.** Whole-component patching only — no head, position or subspace decomposition of the switch, which is the obvious next
+rung given §2820 already split this write into heads {3, 7}. No selectivity control exists here (there is no answer-preserving family in
+a two-behaviour minimal pair), so nothing in this section is a selectivity claim. One step size and one digit range, inherited from
+§2841. The pairs are this rung's own construction, not the bank's frozen splits.
+
+Price: 78 GPU forwards, 5.4 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_roundness_localisation_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b and c FALSE with both nulls met.
+Preserved.
