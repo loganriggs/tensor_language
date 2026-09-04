@@ -9694,6 +9694,21 @@ Sixteen adversarial test families and two later independent review boundaries ar
 approval, producer construction authority, model/checkpoint/GPU access, memory-canary authority, queue/enqueue, or
 execution authorization.
 
+### 2026-09-04T11:14Z — Codex: independent red-team corrects producer contract before implementation
+
+The source-only red-team found two contradictions and nine missing executable gates in the 11:02Z contract. The
+prospective controlling addendum is
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PRODUCER_ACCEPTANCE_ADDENDUM_2026-09-04.md`: validate the
+whole binary index, then replay only activated per-chunk slices; re-resolve literal tokens/roles/H-Q coordinates and
+their batch hash before every call; freeze the model's carried `x0`/block-0 `v1` semantics, especially boundary -1;
+retain every graph scalar until one backward; add a task-specific nine-terminal evidence/result validator; restore
+all deterministic/CUBLAS/canary/checkpoint/peak/watchdog/synchronized-timing gates; bind separately reviewed memory
+and p99 receipts before authorization; reserve one exact namespace before runtime; and require byte-identical
+schedules/results under hash seeds 0/1/999. Separately, the fresh compiler review has vetoed `ea16e22d` because its
+public validator accepts coherently rehashed changes to science, selection, rank, batching, boundary, initialization,
+and price fields. No producer begins until a repaired compiler passes fresh review. No model/checkpoint/GPU/outcome,
+memory canary, queue/enqueue, publication, or later phase was accessed.
+
 ### 2026-09-04T10:59Z — Codex: COMPLETE task14 FIT localization v2 physical compiler candidate
 
 CPU-only compiler unit is complete and still execution-blocked. Exact source `ops/circuit_battery_task14_fit_localization_v2_compiler.py`
@@ -9784,3 +9799,34 @@ assertion in that test was wrong first time (8 vs 7) and the test caught it befo
 **Adoption has a live verifier already:** every rung in this family carries **pred_a, §2125's reproduction gate**, which fails loudly if
 a cached stack ever differs from a fresh fit. Nothing landed is retrofitted — run-script bytes are cited by ledger sections — and
 `ops/frontier_fisher8.py` (§2125 rung 30) is untouched.
+
+### 2026-09-04T11:11Z — Codex: COMPLETE — task14 FIT-localization-v2 physical compiler review
+
+**BLOCK** exact compiler commit `ea16e22d28d125274ca4353f46e434c2826e0b02` against prospective rubric
+`ef18d5ada4b3c5cf1692310cce9384ddc3f17b47` / SHA-256
+`c85704d9124fa57e920558672110e72ec6afcf0b6faabe34e0501f086180f0b9`.
+
+Exact artifacts do replay: compiler `ffa56273f6fee686e193fa53cb8021f782536e79fbb629d30020a78cce065e6b`, manifest
+`f264ef64c03a2053f2c5344588d0adc8eb03ef3a8cb257d7d02c04f3a478568d`, index
+`ae399e393d03af9b6232b7fc5339dd892b418ec7c88943735f8b72fc064c8ad9`, dry run
+`c9c113dcd1b99fcd51a11046b984cde50d29d31be200aa778242eab079ab13a7`, tests
+`5bf582950bf1d14bef73cd6605839ef1a88856af6c03984968fc02f6fc9fd256`, compiler preregistration
+`c4b8f91f0a929c531d8c66785305d9f5fe23f601dd91ab5b7856650b3f0e7ac7`. Independent regeneration confirms 3,821
+chunks, 743,881 calls / 23,804,192 index bytes, root `073ed886...`, exact 60,000-update maximum price
+(119,207 forwards / 60,004 backwards / 118,004 graph batches / 9,207,984 examples / 63,782,508 tokens), and
+63,394,944 maximum retained raw bytes. All call roles/A_C slots, boundary/intervention bindings, spectral nonselection, eight-hour
+and implementation-dependent peak contracts, and FIT-only closure are correct in the exact artifact.
+
+Blocking gap: after recomputing only `contract_sha256`, public `validate_manifest()` incorrectly accepts coherent changes to an
+ordinary recovery bar, DISCOVERY→VALIDATION H selection, higher-rank rejection threshold, terminal order, initialization seed,
+logical batch size, boundary-17 semantics, and maximum physical price (**8/8 accepted**). `check_manifest()`'s full expected-object
+comparison catches altered disk bytes, but the public validator and focused adversarial suite fail rubric items 3/4/6/8/11. The DAG
+also leaves early terminal/skip behavior as free text and has no executable namespace/deadline terminal tests, so a producer would
+still invent decision-changing branch semantics.
+
+Required prospective successor: canonical exact constructors/equality for science, terminals, selection, seeds, model/batching and
+recomputed price; typed executable guard/terminal projection with explicit skip paths; and planted rubric attacks, including occupied
+temp namespace, simultaneous necessity/redundancy, and deadline hard-abort-not-null. Focused/relevant CPU suite passed **63 tests +
+10 subtests**; full exact `--check` PASS; interior descriptor/index mutations reject. Detailed review:
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_INDEPENDENT_REVIEW_2026-09-04.md`.
+No model/checkpoint/GPU/activation/outcome/queue/later-phase access or execution occurred. No producer construction is licensed.
