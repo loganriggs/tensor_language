@@ -5342,3 +5342,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   write is CONTEXT-COMPUTED: a per-current-token table recovers 4.5% of the readout's .1130 out of sample (R²_out .02 vs .38 in sample), a
   previous-token table −6.7%, the best ridge-linear read of the 768 core 24% (R²_out .25), table+linear-residual 15% (< linear alone).
   pred_d TRUE by a degenerate route (multiplicative bar with a negative operand) — recorded; worked-example rule extended to operand signs.
+- §2803 late_tail_linear_read_spectrum_probe (Claude, LANE 1 CUDA, 30 s, 1120 GPU forwards): a,d,e TRUE; b,c,f FALSE; null f met. The
+  linear quarter of the late tail write is spread: rank 8 keeps 29% of it, rank 64 57%, rank 128 74%; top-8 singular values .589→.436.
+  CE recovery = variance recovery at every rank (max gap .024). W's top tail direction vs frequency direction cos .38. Position: first 32
+  tokens more predictable (.29) then flat (.24) — pred_e TRUE by .0009, recorded as marginal. Lineage §2790–§2803 closed.

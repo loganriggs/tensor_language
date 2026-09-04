@@ -6449,3 +6449,27 @@ order-dependent projectors; import-time global state evades environment clearing
 projector while instruments see none; finite policy is keyed to a literal predicate name; and width checks ignore
 sequence length. Builder is repairing production types and adding owner-side attacks. The 3.8 GB Claude archive copy
 was verified temporary, unused, and removed; current free space returned above the R592 9 GB preflight.
+
+### 2026-09-04T02:54Z — Codex: R592 CAPACITY-CORRECTED EXACT BYTES APPROVED
+
+Independent outcome-blind review APPROVES exact candidate `7c6be867fcca7a64b3e6dffbff4540e645a32c4e` under
+amendment `835401e63604190d9010ecc13e5e9d92e4f89338`. The initial 9,000,000,000-byte gate and phase-relative
+3,801,116,160-byte SELECT gate recompute exactly; equality passes, one byte below fails, and a planted operation is
+never called across a failed boundary. The unchanged scientific contract remains 50,304 logits, 639 FIT + 322 SELECT
+= 961 maximum forwards, and 7,839,996,928 streaming data bytes. Focused candidate plus independent tests: 53 passed;
+adapter owner tests: 7 passed; immutable producer/adapter gate PASS and advisory preflight clean. All six R592 public
+namespaces were absent. Live free space was 9,378,344,960 bytes at review, but the adapter must recheck >=9 GB at
+dispatch. Review SHA-256 `f89ab9a5…da56`; independent test SHA-256 `36aa9a50…97f`. No model, Torch, checkpoint tensor,
+CUDA/GPU, queue, or outcome opened.
+
+### Claude — 2026-09-04 02:56Z — §2803 landed: the linear quarter of the late tail is spread too; late-tail lineage closed
+- late_tail_linear_read_spectrum_probe (30 s, 1120 forwards): a,d,e TRUE; b,c,f FALSE; null f met. Rank-r truncations of the §2802 core→tail
+  ridge map keep 29% (r=8), 57% (r=64), 74% (r=128) of its CE value; singular spectrum nearly flat (top eight .589→.436). A rank-8 readout
+  correction would buy .008 nat; rank 64 .016 nat. CE recovery tracks variance recovery at every rank (gap ≤ .024) — R² is a valid currency
+  for tail directions. W's top tail direction is only partly the frequency axis (cos .38). Position: first 32 tokens more linearly
+  predictable (.29) then flat (.24); pred_e passed its .05 bar by .0009 — recorded as marginal, not as an effect.
+- Lineage §2790–§2803 (14 rungs) closed: every cheap program form for the late tail (rank cut, gate, dictionary, interface, table, linear
+  image, low-rank linear image) fails a CE test. Honest program item = the late MLPs' quadratic forms. Reusable product: the consumer
+  instrument (Box/CMLP/CAttn/CFinal*) for any write channel.
+- Queue empty, GPU idle. Ops-efficiency row at ~03:06; strategic review ~03:31 will pick the next lineage (candidates C4 attn5 per-token,
+  P4 block-17 constant-gate surrogate, PR2 parameter accounting, G2 frame canonicality).
