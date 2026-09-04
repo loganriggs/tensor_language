@@ -19,17 +19,17 @@ import circuit_fast_screen_spec as screen
 ROOT = Path(__file__).resolve().parent.parent
 PRIOR_ART = ROOT / "circuits/fast_screen_numbered_list_sufficiency_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/numbered_list_cached_value_sufficiency_v2_result.json"
+    "circuits/fast_screens/numbered_list_cached_value_sufficiency_v3_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "numbered-list-cached-value-sufficiency-v2"
-EXPERIMENT_ID = "fast-screen-numbered-list-cached-value-sufficiency-v2"
+REQUEST_ID = "numbered-list-cached-value-sufficiency-v3"
+EXPERIMENT_ID = "fast-screen-numbered-list-cached-value-sufficiency-v3"
 EXPECTED_AUTHORITY_SHA256 = (
-    "0ed2680d9fa7f5230b04efdd97fe60df21a8d33ed67d77c1ab923dc675a778fa"
+    "ddf5ead2ba9643f431d0f786ec59cd9a6a5970be867b9415e90291f4ccfe271a"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
-    "2211c1ec02d9659f20f7c4b859dc010af01edb863152baad98ad210e5103176d"
+    "bf499b1907b79248401cfb364a485fc83d31b239018c0827ba3383494c55d893"
 )
 REGISTERED_PREDICTIONS = (
     ("pred_a_native_capability", "Every ordered native capability cell passes."),

@@ -11756,3 +11756,35 @@ appended to `circuits/fast_screen_ledger.jsonl` — a reviewed source. The recei
 **No scientific claim from either run.** Both are instrument failures on my side; the sufficiency question at
 `final_label_l0_value_through_l8h3_h7` remains exactly as open as it was at 19:45Z. Claim still held by `claude-lane1` — say the word
 and I release it.
+
+### 2026-09-04T21:16Z — Claude — **honest null: `no_selective_causal_site`.** Valid terminal, claim released. And the constraint that blocked v1/v2.
+
+**I answered my own 21:08Z question by reading `circuit_fast_screen_producer.py` instead of waiting or guessing again** — that was
+the cheaper move and I should have gone there first. `producer` groups capability by
+`(family, cell_id, recipient_answer_id, donor_answer_id)` but aggregates keyed only on `(family, cell_id)`. So a capability cell
+spanning **two endpoint pairs** emits duplicate keys and the kernel rejects the evidence. Measured: **your pronoun candidate has exactly
+1 answer pair per cell (he/she); mine had 2**, because a numbered list ends at a different index in every panel. Naming the endpoint
+pair in the cell id gives 16 cells × 1 pair and the run goes through.
+
+**A constraint worth having on the record for candidate selection generally: this engine's capability model assumes a small fixed
+endpoint vocabulary per cell.** Open-vocabulary endpoints (numerals, names) are expressible only if the cell id names the pair.
+
+**Result — v3, 21:15Z, 11.17 s, 456 forward calls, `reason = no_selective_causal_site`:**
+
+| prediction | |
+|---|---|
+| `pred_a_native_capability` | **TRUE** — the model does the behaviour |
+| `pred_b_cross_construction_transfer` | FALSE |
+| `pred_c_controls_selective` | FALSE |
+
+Site reasons: `A1_recovery_below_fixed_bar`, `A2_recovery_below_fixed_bar`, `A2_direction_below_fixed_bar`; `selected_site_id = None`,
+`head_stage = skipped_no_parent`. **This is the opposing null I registered at 20:17Z, almost verbatim.**
+
+**What it adds to r576.** Removal at `final_label_l0_value_through_l8h3_h7` was a null (audited r579); this says no single site in the
+engine's ceiling set carries the cached index state sufficiently to move the endpoint in *both* constructions while sparing controls.
+**Neither necessary nor localisable to one sufficient site under the fixed bars** — that sharpens the redundancy rather than restating
+it. **Scope, stated plainly:** it rules out a single site from *this* ceiling set under *fixed* bars; it does not show the information
+is absent, and a distributed or multi-site carrier remains open.
+
+Claim released with outcome `null` naming the receipt. Two invalid runs preceded this one, both my own instrument defects, both
+recorded in the prior-art receipt so they can never be mistaken for evidence.

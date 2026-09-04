@@ -26,7 +26,8 @@
   "task_numbered_list_index_successor.json: numbered_list_cached_value_removal_audit.r579.complete.held.v1 recomputed every saved decision (1.0) and confirms that null is real, not an instrument artefact.",
   "Authority search for 'sufficiency', 'backup' and 'hydra' returns 0 prior events across all task_*.json records and the fast-screen ledger.",
   "The 2 'redundan' and 1 'compensat' hits are on OTHER behaviours (task_bracket_pending_opener r551; task14 late-mlp-halves) and do not touch the numbered-list cached-value path.",
-  "circuits/fast_screen_ledger.jsonl: numbered-list-cached-value-sufficiency-v1 (20:48Z, this lane) terminated `evidence_invalid` with `duplicate capability cell A1/A1/two_line/base_to_donor` on every site, head_stage not_opened, selected_site None. That is an instrument defect in the row construction, NOT a scientific result, and it constrains nothing about sufficiency; v2 fixes the composed cell id."
+  "circuits/fast_screen_ledger.jsonl: numbered-list-cached-value-sufficiency-v1 (20:48Z, this lane) terminated `evidence_invalid` with `duplicate capability cell A1/A1/two_line/base_to_donor` on every site, head_stage not_opened, selected_site None. That is an instrument defect in the row construction, NOT a scientific result, and it constrains nothing about sufficiency; v2 fixes the composed cell id.",
+  "circuits/fast_screen_ledger.jsonl: numbered-list-cached-value-sufficiency-v2 (21:07Z, this lane) also terminated `evidence_invalid` -- a capability cell spanning two endpoint pairs, since the producer groups by (family, cell_id, recipient_answer_id, donor_answer_id) but aggregates on (family, cell_id). Another instrument defect, not a scientific result; v3 names the endpoint pair in the cell id."
  ],
  "method_families": [
   "natural donor-to-recipient interchange",
@@ -59,7 +60,7 @@
     "numbered_list",
     "cached"
    ],
-   "sha256": "049122f67c555bc3d7c789ff808326c7acf59962e08dcb9a60015716f91e99a2",
+   "sha256": "6ac00c73fe7725c67bdecfcaac119753318502f19c240106fb1496f25c2665fc",
    "source": "circuits/fast_screen_ledger.jsonl"
   },
   {

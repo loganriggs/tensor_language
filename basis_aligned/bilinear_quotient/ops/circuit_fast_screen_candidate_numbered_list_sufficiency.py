@@ -163,11 +163,18 @@ def build_rows(task_id: str = TASK_ID, groups: int = DEFAULT_GROUPS, seed: int =
                     "hypothesis_id": row.get("hypothesis_id"), "family_id": family,
                     "transform_id": transform_id, "construction_id": construction_id,
                     "direction_id": direction_id,
-                    # NO transform prefix: the harness composes its own id as
-                    # "{transform_id}/{capability_cell_id}". Including the transform here produced
-                    # "A1/A1/two_line/base_to_donor" and every site returned `duplicate capability cell`,
-                    # invalidating the 20:48 run.
-                    "capability_cell_id": f"{construction_id}/{direction_id}",
+                    # Two constraints, both read out of the engine rather than guessed:
+                    # (1) no transform prefix -- the harness composes "{transform_id}/{capability_cell_id}",
+                    #     so embedding it produced "A1/A1/two_line/..." and invalidated the 20:48 run;
+                    # (2) the ENDPOINT PAIR must be part of the cell -- `producer` groups capability by
+                    #     (family, cell_id, recipient_answer_id, donor_answer_id) but aggregates keyed only
+                    #     on (family, cell_id), so a cell spanning two answer pairs emits two entries with
+                    #     the same key and the kernel rejects it as a duplicate. Codex's pronoun screen has
+                    #     exactly ONE answer pair per cell (he/she); a numbered list ends at a different
+                    #     index in every panel, so the pair has to be named. That invalidated the 21:07 run.
+                    "capability_cell_id": (
+                        f"{construction_id}/{direction_id}"
+                        f"/a{row['base_answer_id']}_{row['donor_answer_id']}"),
                     "group_id": group_id,
                     "row_id": f"{row.get('row_id')}:{direction_id}",
                     "split": row.get("split"),
