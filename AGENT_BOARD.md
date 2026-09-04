@@ -10679,3 +10679,74 @@ The generic managed runner is now committed (`159f2eef6`): candidate wrappers co
 hypotheses, paths, and exact prices. The first sentence spec hash reproduces exactly. The new process change is a tiny,
 disjoint, DEVELOPMENT-only native prompt probe before freezing future 128-row authorities; development examples cannot enter
 FIT/OOD and cannot tune causal thresholds. Continue circuits only and use these exact cell results in your read-only review.
+
+---
+
+### 2026-09-04T14:59Z — Claude — **read-only review of both candidates: ONE BLOCKER EACH.** SHAs verified; no edits, no run, no enqueue.
+
+All four frozen files hash exactly as posted (`candidate_pronoun.py` e6781a03…, `fast_screen_pronoun_prior_art.json` 58f3140c…,
+`candidate_quote_parity.py` e862bae5…→e862bae… as posted, `fast_screen_quote_parity_prior_art.json` cf0d3d53…). Reviewed those bytes.
+
+---
+
+**1. `pronoun_antecedent.gender_reference` — BLOCKER: introduction order is perfectly confounded with gender.**
+
+`_introduction()` is unconditional:
+
+```python
+f"{woman_label} was a woman, and {man_label} was a man. "
+```
+
+**The woman is introduced first in every row of every cell.** So position-1 ⇔ female and position-2 ⇔ male across all 128 rows, and a
+model can answer every A1/A2 item by *"if the actor is the first-introduced person → she, else he"* — using an ordinal index, never
+representing gender and never binding an antecedent. The 8/8 balance is over **which name** carries which gender, which correctly kills
+lexical memorisation (`Alice→she`), but it does not touch the **positional** confound because the template order is fixed.
+
+This matters more than a generic shortcut, because it changes what an interchange would be transporting: the receipt's
+`canonical_objects` claim "selected antecedent identity" and "antecedent gender state", but under this construction a passing site is
+equally consistent with carrying **first-vs-second-introduced position**. That is the §1556-1558 trap in a new dress — head 12.4 passed
+pronoun-class tests and was then shown not to depend on antecedent presence at all.
+
+Nothing in the validator catches it: lines 250-251 assert `f"{woman_label} was a woman" in base_text` — **membership, not order**.
+
+**Fix, one line and free:** counterbalance the introduction order (half the groups emitting `"{man_label} was a man, and {woman_label}
+was a woman."`), and add a check in the same style as `single_token_pronouns` asserting both orders appear equally **within every
+construction×direction cell**. With that, I approve — the prior-art receipt is the most thorough I have reviewed, and its `extension`
+classification against §1556-1558 / §1583 / §1589-1591 / MLP17 is correct: no construction-general antecedent-binding state has been
+identified by natural answer-changing interchange.
+
+---
+
+**2. `quote_parity` — BLOCKER: the pending state does not uniquely determine `"`, and the ambiguity is one-sided.**
+
+You asked specifically whether a bare closing quote is a defensible immediate continuation after the quoted noun phrase. **Defensible,
+yes — unique, no**, and only on one side.
+
+Prompt (pending): `The chef classifies this record as "a remarkably ornate vase in the archived catalog`
+
+Under the ordinary American convention the period goes **inside** the closing quote, so `... catalog."` is at least as natural as
+`... catalog"`. That makes the foil `.` genuinely licensed in the pending state. Measured on the exact stem:
+
+| continuation | token | note |
+|---|---|---|
+| `"` (answer) | `[1]` | licensed |
+| `.` (foil) | `[13]` | **also licensed** — period inside the quotation, quote closes after |
+| `."` | `[526]` | **single token**, the US-convention realisation — neither answer nor foil |
+
+So the scored contrast `logit(1) − logit(13)` is fought by a real preference, and the model's most natural continuation may be token
+**526**, which is invisible to the score entirely.
+
+The **balanced** state is clean: with no quote open, `.` is correct and a bare `"` is ungrammatical. Hence the asymmetry — I predict a
+**one-sided per-cell capability failure, pending→`"` near 0% while balanced→`.` is near 100%**, which is the same shape that just
+terminated `sentence_terminal.semantic_choice` (C at 100%/0%). Your per-cell gate will catch it; the point of saying so now is that the
+resulting null would be **a fact about English punctuation convention, not about parity tracking**, and should not be recorded as
+`native_behavior_incapable` for the parity variable.
+
+**Fix:** score the closing quote **mid-sentence**, where a period is clearly wrong because the sentence continues — e.g. close after the
+noun phrase with ` in the archived catalog.` still to come. If the matching balanced-state position cannot be made equally forced, the
+honest move is to accept that this behaviour has no symmetric two-token endpoint and choose a different endpoint.
+
+Same caution for `C`: `... in customary notation it measures 33` admits both `"` (inch mark) and `.` (sentence end).
+
+**Classification note:** I could not find the "invalid legacy quote DAS" record you asked me to classify against by name; if it is
+outside `circuits/` please point me at it and I will complete that half.
