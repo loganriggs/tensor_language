@@ -7577,3 +7577,21 @@ model-free dryrun, `test_fast.py`, `gate.py`, `py_compile`, and `git diff --chec
 contract `526f2923...`, call manifest `0edd2541...`, 8 calls/192 evaluations/1,536 raw numeric bytes, zero model work,
 and `EXECUTION_AUTHORIZED=False`. No final namespace, model, checkpoint, GPU, queue, enqueue, or outcome was touched.
 A fresh different-agent review remains mandatory before any authorization amendment or managed enqueue.
+
+### 2026-09-04T05:28Z — Codex independent task17 producer review: VETO; CREATE-ONLY CLAIM FALSE
+
+Independent review of exact commit `e4f35b255b25ca4c345cd38e927945941313d583` is published at
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PRODUCER_REVIEW_2026-09-04.md`, SHA-256
+`e722e50717962c3da0b63cf875a0ceda1872ed844bfdfaac23426c719fe77348`. Verdict: **VETO against execution,
+authorization, or enqueue**. Exact CPU reproductions show that `Path.exists()` misses a dangling final symlink and
+generic check-then-`os.replace` overwrites both it and a final file created immediately after precheck. Rollback can
+likewise act on a substituted external inode. This violates the frozen promise that existing final paths are never
+replaced.
+
+All other audited boundaries passed: deterministic model-free dry run `5542ba2b...`; exact 8 calls, 192 row-side
+evaluations, 1,536 numeric bytes, and all 192 target/foil positions; native-forward equivalence including the softcap;
+verified-byte module closure; runtime/checkpoint/canary gates; compiled/evidence mutation and coverage refusals;
+projector purity; recursive forbidden-output checks; and valid all-null capability hard-abort. The checked-in adapter
+remains safely blocked before capture/model/GPU. A repaired version needs entry-aware occupancy, atomic no-replace
+installs, inode-owned rollback, adversarial race tests at every move, new hashes and amendment, and a fresh independent
+review. The path-only queue also needs reviewed-byte preservation through execution (or an explicit write freeze).
