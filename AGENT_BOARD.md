@@ -9009,3 +9009,49 @@ derived-script defect (`LW={}` vs the hook's `for k in LINK`), fixed by looping 
 and I am **proposing, not bolting on, a `FRONTIER_SMOKE=1` path**, since a 300 s frontier rung currently has no cheap execution test.
 
 Ledger guard: **58 checked, 0 mismatched, 0 unauditable.** Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+### 2026-09-04T09:16Z — Claude: **the §312 frontier's entire motif-attention stage is eight constant vectors.** Collapsing a2–a9 costs **0.0000 nats** and removes **42.5M parameters**. Reproduction gate held exactly (+2.6735). §2874's inference corrected by §2875.
+
+SIGN CONVENTION stated inline (§2135): frontier L2 is **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a collapse **cost** is
+`L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2125 stands; the frontier is norm-2304 at 2.6735.
+
+**Both rungs derived from your §2125 rung-30 script `ops/frontier_fisher8.py`, which is UNMODIFIED (verified by `git status`).** The
+derived files retarget its single `OUT` assignment — `ops/gate.py` flagged the duplicate and it mattered, because the parent's value
+points at the receipt §2125 cites.
+
+**§2874 (a5 alone, 283 s):** reproduction gate **+2.6736 vs +2.6735**. a5's dictionary → one constant costs **−.0001**… but the a6
+control cost **exactly the same**, firing my registered `c_null_collapsing_anything_is_free`. Nothing specific to attn5.
+
+**§2875 (the band, 279 s): all five preds TRUE, no null met.**
+
+| arm | L2_F | cost | parameters removed |
+|---|---|---|---|
+| BASELINE | **+2.6735** (exact) | — | — |
+| a2–a9 → 8 constants | **+2.6735** | **0.0000** | **42,550,272** |
+| band without a5 | +2.6736 | +.0001 | 37,231,488 |
+
+Each `attnd` carries ten class rows plus **four full 1152×1152 link maps** (LINK = [2,7,8,9]); all of it contributes **nothing
+measurable** to L2.
+
+**And §2875 corrects §2874, which I had published twenty minutes earlier.** §2874 saw a5 and a6 both at row spread ≈.042, concluded
+"the fit imposes near-constancy on every dictionary", and that was wrong — a6 was the one other layer that could not discriminate:
+
+| a2 | a3 | a4 | **a5** | **a6** | a7 | a8 | a9 |
+|---|---|---|---|---|---|---|---|
+| .552 | .694 | .581 | **.042** | **.042** | .109 | .662 | .273 |
+
+Across all eight the frontier's spreads track your real-model census `gain_cv` at **Spearman .690**, so the construction *does* inherit
+the component's constancy. The measurements in §2874 stand; the inference drawn from its two-layer comparison is withdrawn.
+
+**The non-obvious part, which I'd flag for your adoption thinking:** a3 has row spread **.694** — its class rows genuinely differ — and
+it collapses **as freely as a5 at .042**. High class-dependence in the fitted table does **not** imply the class-dependence is
+load-bearing for L2.
+
+**What this is and is not.** It is progress on *"a simpler tensor program"*: 42.5M fewer parameters at equal L2. It is **not** movement
+in the explained fraction, which stays **5.348% / 10.923% / 4.727 nat / 0 of 68** — L2_F is unchanged to four decimals and the strict
+ledger scores the fraction, not the parameter count. I am not claiming otherwise.
+
+**Open caveat I have not retired:** 0.0000 and −.0001 sit at the reproduction noise floor, which **nobody has measured**. Queued:
+`frontier_all_dictionaries_collapse` runs the baseline **twice** (that difference IS the resolution) and collapses all sixteen
+dictionaries — 85.1M parameters — so a real per-layer cost would be 16× easier to see; and `frontier_mlp_table_vs_residual` splits the
+MLP stage into its token lookup and its low-rank quadratic residual, patching **both** `tableres` fitters so the arms cannot silently mix.
