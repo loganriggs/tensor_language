@@ -74990,3 +74990,59 @@ published number by +.0001 — so the honest reading is **"indistinguishable fro
 layer's collapse cannot be resolved below ~.001 by this instrument. That is precisely why the joint arm matters: eight simultaneous
 collapses should be resolvable if any individual one is real, and `frontier_motif_band_constant_collapse` (queued, prereg 09:01Z) runs
 the whole band a2–a9 with band-minus-a5 as control.
+
+## §2875 — THE WHOLE MOTIF-ATTENTION BAND COLLAPSES TO EIGHT CONSTANTS FOR **0.0000 NATS**, REMOVING **42.5 MILLION PARAMETERS** — AND THE FRONTIER'S SPREADS DO TRACK THE REAL-MODEL CENSUS (ρ .690), WHICH CORRECTS §2874
+
+Registered `polynomial_causal/FRONTIER_MOTIF_BAND_COLLAPSE_PREREGISTRATION.md` (09:01Z). Run
+`frontier_motif_band_constant_collapse`, landed 09:13Z. Derived from `ops/frontier_fisher8.py` (§2125 rung 30); **the parent is
+unmodified**.
+Results: frontier_motif_band_constant_collapse_results.json
+Price: 0 GPU forwards, 279.4 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+**All five predictions TRUE; no null met.**
+
+| arm | L2_F | L2_C | cost | parameters removed |
+|---|---|---|---|---|
+| BASELINE | **+2.6735** | +2.4233 | — | — |
+| motif band a2–a9 → 8 constants | **+2.6735** | +2.4232 | **0.0000** | **42,550,272** |
+| band without a5 → 7 constants | +2.6736 | | +.0001 | 37,231,488 |
+
+**pred_a HELD** — baseline **+2.6735**, matching the published number exactly. **pred_b HELD** — the entire motif-attention stage of
+the §312 frontier becomes **eight fixed vectors** at a cost of **0.0000 nats**, removing **42.5 million parameters** (ten class rows
+plus four 1152×1152 link maps for the LINK classes [2,7,8,9] per layer). **pred_c HELD** — the band without a5 also collapses
+(+.0001), so this is a property of the stage and not of one component, and `c_null_a5_is_the_only_collapsible_one` is not met.
+
+### CORRECTION to §2874, recorded here in the section that measures it
+
+§2874 measured row spreads of **.0416** (a5) and **.0422** (a6), found them indistinguishable, and inferred that *"the fit does not
+inherit the component's constancy; it **imposes** near-constancy on both."* **That inference was wrong**, and this rung's pred_d shows
+why: across the full band the spreads are
+
+| layer | a2 | a3 | a4 | **a5** | **a6** | a7 | a8 | a9 |
+|---|---|---|---|---|---|---|---|---|
+| row spread | .552 | .694 | .581 | **.042** | **.042** | .109 | .662 | .273 |
+
+a5 and a6 are the **two most constant layers in the band** — my control in §2874 was the one other layer that could not discriminate.
+Across all eight, the frontier's fitted spreads track §2834's real-model `gain_cv` at **Spearman .690** (`pred_d` HELD, bar ≥ .50):
+**the construction does inherit the component's constancy.** §2874's own measurements stand; the inference drawn from its two-layer
+comparison does not, and is withdrawn here.
+
+### What this establishes, and what it does not
+
+**Establishes, in the frontier's own currency:** the class structure of the motif attention dictionaries — the ten-row table AND the
+four full-rank link maps — contributes **nothing measurable** to L2, even for layers whose rows genuinely differ (a3 at .694 spread
+collapses as freely as a5 at .042). High class-dependence in the fitted table does **not** imply the class-dependence is load-bearing.
+The stage reduces to one vector per layer.
+
+**Does not establish:** any movement in the explained fraction, which stays **5.348% / 10.923% / 4.727 nat / 0 of 68**. L2_F is
+unchanged to four decimals; what changed is **price** — 42.5M fewer parameters at equal L2 — and the strict ledger scores the fraction,
+not the parameter count. This is progress on "a simpler tensor program" and is recorded as exactly that.
+
+**Resolution caveat, carried from §2874 and not yet retired:** 0.0000 and +.0001 are at the reproduction noise floor. The floor has
+still not been measured; `frontier_all_dictionaries_collapse` (queued, prereg 09:11Z) runs the baseline **twice** so its difference
+*is* the instrument's resolution, and collapses all sixteen dictionaries — 85.1M parameters — so that any real per-layer cost would be
+sixteen times easier to see.
