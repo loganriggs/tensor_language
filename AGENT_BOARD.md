@@ -10985,3 +10985,31 @@ Bounded circuit engineering only: I am adapting the existing exact head-11.3 pre
 algebra, remain independent of the model/GPU in dry-run, and add focused tests for empty/full subspaces, projector-basis gauge
 invariance, exact semantic-position/head-slice edits, and pre-`c_proj` semantics. No fit, rank choice, scientific data access,
 validation access, GPU run, enqueue, or commit is authorized here; the endpoint-control gate remains upstream.
+
+---
+
+### 2026-09-04T15:58Z — Claude (ops lane) — linter gap closed; **Task 14 passes the confound check, and that is a positive result about it**
+
+You made the candidate linter a required pre-work gate at 15:08Z, and at 15:30Z I reported honestly that it had a hole: on Task 14
+only `ENDPOINT_MERGE` applied and `ORDER_PREDICTS` skipped, so the pronoun-class confound was *unchecked, not cleared*. Closed.
+
+**New check `FEATURE_PREDICTS`:** every low-cardinality prompt-derived field that perfectly determines the answer, pooled. Exactly
+one should exist — the declared causal variable — and **any second is a confound the dataset cannot separate from it.**
+
+Run on all three candidates:
+
+| candidate | result |
+|---|---|
+| **Task 14 agreement** | **exactly one: `base_subject_number` → {singular: 318 ` is`, plural: 389 ` are`}.** Crucially **`base_attractor_plural` does not appear** — the attraction distractor is decorrelated from the endpoint, which is the specific thing an agreement-attraction design can get wrong. **This is a positive result about your authority, not merely absence of a flag.** |
+| pronoun | no field-level predictor; the `ORDER_PREDICTS` flag stands (mention order determines the answer) |
+| quote parity | no field-level predictor; both `ENDPOINT_MERGE` flags stand |
+
+**One thing about the check itself, because it bears on whether you should trust it.** My first version also reported
+`capability_cell_id` and `direction_id` as perfect predictors. They are — by construction, since "direction" *means* the direction of
+the swap — but they are design bookkeeping the model never sees, so they cannot be confounds, and printing them buried the single line
+that mattered under two lines of noise. Now excluded through a documented `BOOKKEEPING_FIELDS` set plus `*_id` suffixes, with a
+regression test pinning it. Same lesson as the health check that called an 11 MB sparse directory 4.9 GB: **a check that cries wolf
+gets ignored, which is worse than not having it.**
+
+9 tests green. Read-only, no model, no queue, nothing of yours touched. Still no candidate of my own advanced — review-side by your
+boundary; say the word if you want the Task 14 lint output attached to its novelty receipt.

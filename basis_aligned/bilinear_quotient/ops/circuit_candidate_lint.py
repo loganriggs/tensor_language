@@ -9,6 +9,11 @@ mechanically detectable, so they should not cost a round-trip:
                   natural continuation is invisible to the answer-minus-foil contrast. Found in quote_parity:
                   answer '"' (1), foil '.' (13), but '."' is token 526 -- neither.
 
+  FEATURE_PREDICTS  a low-cardinality row field perfectly predicts the answer. Exactly ONE such field should
+                  exist -- the declared causal variable. Any second one is a confound the screen cannot
+                  separate from it. Reported for judgement (REVIEW), because the intended variable is
+                  supposed to appear here and only the reviewer knows which it is.
+
   ORDER_PREDICTS  a surface ORDER inside the prompt predicts the answer across every row of a cell, so a model
                   can score by ordinal position without representing the causal variable. Found in the pronoun
                   candidate: `_introduction()` always names the woman first, so "actor mentioned first" <=>
@@ -26,6 +31,20 @@ import collections
 import tiktoken
 
 ENCODING = tiktoken.get_encoding("gpt2")
+
+# Fields that trivially encode the endpoint.
+ENDPOINT_FIELDS = frozenset({
+    "base_answer_id", "base_foil_id", "donor_answer_id", "donor_foil_id",
+    "base_answer", "base_foil", "donor_answer", "donor_foil",
+})
+# Experimental bookkeeping. These describe the DESIGN, not the prompt, so of course they track the answer --
+# "direction_id" means the direction of the swap. The model never sees them, so they cannot be confounds, and
+# reporting them buries the one finding that matters. A lint that cries wolf gets ignored.
+BOOKKEEPING_FIELDS = frozenset({
+    "capability_cell_id", "direction_id", "transform_id", "construction_id", "group_id", "group_number",
+    "row_id", "split", "seed", "schema", "task_id", "changed_variable", "expected_effect",
+    "control_relation", "answer_changes", "intervention_token_positions",
+})
 
 
 def _load(path):
@@ -95,7 +114,46 @@ def lint_order_predicts_answer(rows):
     return findings or ["ok: mention order does not by itself determine the answer in any cell"]
 
 
-CHECKS = (("ENDPOINT_MERGE", lint_endpoint_merge), ("ORDER_PREDICTS", lint_order_predicts_answer))
+def lint_feature_predicts_answer(rows):
+    """Every low-cardinality field that perfectly determines the answer, pooled over all rows.
+
+    The declared causal variable MUST appear here -- that is what makes the task scorable. The finding is
+    the SECOND entry: a field that predicts the answer just as perfectly but is not the variable under test
+    cannot be separated from it by this dataset. On an agreement-attraction design, `head_plural` appearing
+    is correct and `attractor_plural` appearing would be fatal.
+    """
+    if not rows:
+        return ["skipped: no rows"]
+    keys = sorted(rows[0])
+    out = []
+    for k in keys:
+        if k in ENDPOINT_FIELDS:
+            continue                                    # the endpoint itself, trivially perfect
+        if k in BOOKKEEPING_FIELDS or k.endswith(("_id", "_ids")):
+            continue                                    # design metadata; the model never sees it
+        try:
+            values = {r.get(k) for r in rows}
+        except TypeError:
+            continue                                    # unhashable (list/dict field); not a candidate feature
+        if not (2 <= len(values) <= 12):
+            continue
+        part = collections.defaultdict(set)
+        for r in rows:
+            part[r.get(k)].add(r.get("base_answer_id"))
+        if all(len(v) == 1 for v in part.values()) and len({tuple(sorted(v)) for v in part.values()}) > 1:
+            mapping = {a: sorted(b)[0] for a, b in sorted(part.items(), key=lambda kv: str(kv[0]))}
+            out.append(f"{k!r} perfectly determines the answer: {mapping}")
+    if not out:
+        return ["ok: no low-cardinality field determines the answer (check the causal variable is scorable)"]
+    head = (f"{len(out)} prompt-derived field(s) perfectly determine the answer; exactly ONE should be the "
+            f"declared causal variable and every other is a confound this dataset cannot separate from it "
+            f"(design bookkeeping is excluded -- the model never sees it):")
+    return [head] + ["    " + line for line in out]
+
+
+CHECKS = (("ENDPOINT_MERGE", lint_endpoint_merge),
+          ("FEATURE_PREDICTS", lint_feature_predicts_answer),
+          ("ORDER_PREDICTS", lint_order_predicts_answer))
 
 if __name__ == "__main__":
     path = sys.argv[1]
@@ -109,9 +167,13 @@ if __name__ == "__main__":
     for name, fn in CHECKS:
         out = fn(rows)
         for line in out:
-            flag = "ok" if line.startswith(("ok:", "skipped:")) else "FLAG"
-            if flag == "FLAG":
+            if line.startswith(("ok:", "skipped:")):
+                tag = "ok"
+            elif name == "FEATURE_PREDICTS":
+                tag = "REVW"          # needs a human: the intended variable belongs in this list
+            else:
+                tag = "FLAG"
                 bad += 1
-            print(f"  {flag:<4} {name:<15} {line}")
+            print(f"  {tag:<4} {name:<16} {line}")
     print(f"\n{bad} flag(s)")
     raise SystemExit(1 if bad else 0)

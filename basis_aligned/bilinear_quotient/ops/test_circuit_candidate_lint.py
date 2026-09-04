@@ -52,3 +52,38 @@ def test_order_predicts_is_quiet_when_order_is_counterbalanced():
 def test_order_predicts_skips_when_fields_absent():
     out = L.lint_order_predicts_answer([{"base_answer_id": 1, "base_foil_id": 13, "base_text": "x"}])
     assert out and out[0].startswith("skipped:")
+
+
+def _frow(answer, **extra):
+    r = {"base_answer_id": answer, "base_foil_id": 1, "base_text": "x", "capability_cell_id": "c"}
+    r.update(extra)
+    return r
+
+
+def test_feature_predicts_finds_a_prompt_derived_predictor():
+    rows = [_frow(318, base_subject_number="singular"), _frow(389, base_subject_number="plural")]
+    out = L.lint_feature_predicts_answer(rows)
+    assert any("base_subject_number" in line for line in out), out
+
+
+def test_feature_predicts_ignores_design_bookkeeping():
+    """Regression: direction_id/capability_cell_id encode the swap direction by construction.
+
+    Reporting them buried the one finding that mattered under two lines of noise.
+    """
+    rows = [_frow(318, direction_id="singular_to_plural", transform_id="A1"),
+            _frow(389, direction_id="plural_to_singular", transform_id="A2")]
+    out = L.lint_feature_predicts_answer(rows)
+    assert out and out[0].startswith("ok:"), out
+
+
+def test_feature_predicts_ignores_id_suffixed_fields():
+    rows = [_frow(318, template_id="t1"), _frow(389, template_id="t2")]
+    assert L.lint_feature_predicts_answer(out_rows := rows)[0].startswith("ok:")
+
+
+def test_feature_predicts_survives_unhashable_fields():
+    """Some candidates carry list-valued fields (token positions); they must not crash the lint."""
+    rows = [_frow(318, base_head_positions=[1, 2], n="s"), _frow(389, base_head_positions=[3], n="p")]
+    out = L.lint_feature_predicts_answer(rows)
+    assert any("'n'" in line for line in out), out
