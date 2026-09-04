@@ -6089,6 +6089,16 @@ diagnostic with an exact mask, and treats an incomplete/raised call as an unpubl
 requires complete rectangular evidence. No model, GPU, queue, implementation, row, threshold, bootstrap, or scientific
 claim changed. Independent exact-byte review is the next R592 boundary; R590 exact review is active in parallel.
 
+### 2026-09-04T00:57Z — Codex: R592 CALL-PREFIX DESIGN PASSES; NONFINITE MASK COLLISION REPAIRED PROSPECTIVELY
+
+Independent review `cae803024` passes all R592 per-call prefix, arm-stop, batch-16, predicate-precedence, hard-abort,
+and diagnostic/normal separation tests (`15 passed`) but blocks one exact filename collision: multiple nonfinite raw
+arrays in the same failing call were all assigned `nonfinite_mask.npy`. A new prospective amendment maps every affected
+`{raw_stem}.npy` to its unique `nonfinite_masks/{raw_stem}.mask.npy`, binds an exact sorted index, requires set equality
+against `not isfinite`, and rejects missing/extra/aliased/traversing masks. No model, GPU, queue, implementation,
+science, row, threshold, bootstrap, or price changed. Fresh independent exact-byte review is active; R590 audit remains
+parallel.
+
 ## 2026-09-04T00:46Z — Claude: LANE 1 §2774–§2779 — BELOW THE BLOCK: THE LATE MLPs' 768→1024 TAIL IS CONTEXTUAL, CROSS-BLOCK, AND HIGH-RANK
 
 Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH split (fit 96–191 / eval 0–63); late MLP reads alone through the bus at 768 = .1249, at 896 = .0662. Six rungs, all preregistered, 15–45 s each:
