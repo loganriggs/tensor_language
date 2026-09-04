@@ -73524,3 +73524,44 @@ a two-behaviour minimal pair), so nothing in this section is a selectivity claim
 Price: 78 GPU forwards, 5.4 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_roundness_localisation_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b and c FALSE with both nulls met.
 Preserved.
+
+## §2843 — THE ROUNDNESS SWITCH AND THE IDENTITY WRITE SHARE THE SAME HEADS: {3, 7} are the top-2 for the switch in BOTH formats — Codex's R576 pair, and §2820's pair for the item write — with head 3 leading both and the two holding **.925** of the positive head recovery. Attention 8's two jobs are not separable at head granularity (b, c, d TRUE; a FALSE marginally; e FALSE on a check I mis-constructed)
+
+§2842 put the step-versus-plus-one switch in attention 8 (1st of 36, recovery .589). §2808/R576 and §2820 put the last-item identity
+write in heads {3, 7} of the same component. This rung asks whether the two jobs share heads, by exact head-level interchange — the
+donor's slice of the concatenated head outputs swapped into the base run before `c_proj`, which is linear without bias — on §2842's
+minimal pairs. Sign convention: `ld = logit(plus-one) − logit(step)`, `REC = (ld_patch − ld_base)/max(ld_donor − ld_base, 1e-3)`.
+**No CE, no §312 L2, nothing installs.**
+
+**pred_b TRUE — the top-2 heads are exactly {3, 7} in BOTH the percent and the bare format.** I registered this as the boolean whose
+FALSE branch would have been "the more informative outcome … two distinct functions inside one attention layer". It is TRUE instead:
+the pair that writes which item was last is the pair that carries whether that item is round. Head orderings: percent
+head3 > head7 > head6 > head5 > head8; bare head3 > head7 > head6 > head8 > head1.
+
+**pred_c TRUE (null "≤ .30" not met) — and it is concentrated: .925 of the positive head recovery in those two**, against §2820's .877
+top-2 share for the identity write. **pred_d TRUE** — head 3 leads in both formats.
+
+**pred_a FALSE, marginally, and its null NOT met.** The best single head recovers a median **.380** against a bar of ≥ .40 (null ≤ .15).
+Head 3 alone therefore carries about two thirds of what the whole component carries (.589, §2842), and the pair carries essentially all
+of it. The bar was set at .40 by reasoning that "if one head carries most of that, .4–.55"; .380 is inside the interval I described in
+prose and outside the number I registered. Scored FALSE as written.
+
+**pred_e FALSE — and it is the seventh mis-constructed check of this campaign's night, of the same family as §2832's.** I registered
+|REC(all nine heads) − .5889| ≤ .05, where .5889 is §2842's whole-component recovery — but that figure is a MEDIAN ACROSS THE TWO
+FORMATS, while this rung compares it against EACH format separately. The percent format's all-head recovery reproduces it exactly
+(median across formats .5888893604278564, identical to §2842's value to sixteen digits, which is the equivalence the check was meant to
+establish); the other format differs by .086 and trips the bound. So the head-slice interchange IS equivalent to the component patch —
+the median is exact — and my predicate compared a per-format value against a pooled one. Scored FALSE as written. **The pattern is now
+unmistakable: §2832 compared a 32-document average against an 8-document module call, §2837 and §2838 ranked by one endpoint of a
+two-sided quantity, and this compares a per-format value against a cross-format median. Every one is an aggregation mismatch, and the
+rule is to state explicitly, in the predicate, over what set each side is aggregated.**
+
+**What attention 8 now is.** It writes a context-blind function of the last visible item (§2808, R576); that write is concentrated in
+heads {3, 7} (§2820, top-2 share .877); it is the FIT-chosen writer for 8 of 9 capable bank behaviours (§2840); it carries the roundness
+attribute that selects which arithmetic runs downstream (§2842, .589 of the switch); and that attribute lives in the same two heads
+(§2843, .925). One component, one head pair, at least two functions that our instruments cannot separate — which is a real constraint on
+any compiled program that hoped to keep the identity write and drop the attribute, or vice versa.
+
+Price: 24 GPU forwards, 4.7 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_roundness_head_split_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a FALSE (marginal); e FALSE on a
+mis-constructed check, disclosed. Preserved.

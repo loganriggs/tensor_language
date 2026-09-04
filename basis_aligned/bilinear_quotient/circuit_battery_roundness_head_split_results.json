@@ -1,0 +1,157 @@
+{
+ "rung": "circuit_battery_roundness_head_split",
+ "preds": {
+  "pred_a_a_head_carries_the_switch": false,
+  "pred_b_it_is_the_r576_pair": true,
+  "pred_c_two_heads_suffice": true,
+  "pred_d_the_head_is_format_invariant": true,
+  "pred_e_all_heads_equal_the_whole_component": false
+ },
+ "nulls": {
+  "a_null_no_head_carries_it": false,
+  "b_null_different_pair": false,
+  "c_null_spread_over_heads": false
+ },
+ "bars": {
+  "top_rec": 0.4,
+  "top2_share": 0.6,
+  "exact_tol": 0.05
+ },
+ "null_bars": {
+  "top_rec_le": 0.15,
+  "top2_share_le": 0.3
+ },
+ "layer": 8,
+ "r576_heads": [
+  3,
+  7
+ ],
+ "whole_component_recovery_2842": 0.5888893604278564,
+ "summary": {
+  "tops": [
+   "head3",
+   "head3"
+  ],
+  "top2_pairs": [
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    7
+   ]
+  ],
+  "matches_r576_pair": true,
+  "all_heads_vs_whole_component_max_dev": 0.08628535270690918,
+  "medians": {
+   "top_recovery": 0.3804639130830765,
+   "top2_share": 0.924936419282856,
+   "all_heads_recovery": 0.5888893604278564
+  },
+  "orders": {
+   "percent": [
+    "head3",
+    "head7",
+    "head6",
+    "head5",
+    "head8",
+    "head0",
+    "head2",
+    "head4",
+    "head1"
+   ],
+   "bare": [
+    "head3",
+    "head7",
+    "head6",
+    "head8",
+    "head1",
+    "head5",
+    "head2",
+    "head4",
+    "head0"
+   ]
+  }
+ },
+ "formats_detail": {
+  "percent": {
+   "recovery": {
+    "head0": 7.33911874704063e-05,
+    "head1": -0.01624567247927189,
+    "head2": -0.002630578586831689,
+    "head3": 0.4498695135116577,
+    "head4": -0.004076347686350346,
+    "head5": 0.0011671434622257948,
+    "head6": 0.05972796678543091,
+    "head7": 0.2787013053894043,
+    "head8": 0.0011391740990802646
+   },
+   "order": [
+    "head3",
+    "head7",
+    "head6",
+    "head5",
+    "head8",
+    "head0",
+    "head2",
+    "head4",
+    "head1"
+   ],
+   "top": "head3",
+   "top_recovery": 0.4498695135116577,
+   "top2_heads": [
+    3,
+    7
+   ],
+   "top2_share": 0.9214501520259927,
+   "all_heads_recovery": 0.6751747131347656,
+   "rows": 24
+  },
+  "bare": {
+   "recovery": {
+    "head0": -0.0015189334517344832,
+    "head1": 0.003027369035407901,
+    "head2": 0.0010366867063567042,
+    "head3": 0.31105831265449524,
+    "head4": 0.00048691927804611623,
+    "head5": 0.0013780718436464667,
+    "head6": 0.030130691826343536,
+    "head7": 0.22055138647556305,
+    "head8": 0.004925035405904055
+   },
+   "order": [
+    "head3",
+    "head7",
+    "head6",
+    "head8",
+    "head1",
+    "head5",
+    "head2",
+    "head4",
+    "head0"
+   ],
+   "top": "head3",
+   "top_recovery": 0.31105831265449524,
+   "top2_heads": [
+    3,
+    7
+   ],
+   "top2_share": 0.9284226865397193,
+   "all_heads_recovery": 0.5026040077209473,
+   "rows": 24
+  }
+ },
+ "smoke": false,
+ "price": {
+  "gpu_forwards": 24,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 4.742765665054321
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_ROUNDNESS_HEAD_SPLIT_PREREGISTRATION.md": "2feb48d22a9a280ad85ec6d808e8b721325c577c099c7e99f72ad3fb890e42ca",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_localisation_results.json": "331454aac1ce218d9194255e19c81c53eca38d99cc6c2b685ff2d9e0ac12788c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}

@@ -5593,3 +5593,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (percent: attn8,mlp8,mlp9; bare: attn8,attn6,mlp1). MECHANISM NOW: attn5 decides a number goes here (§2829) → attn8 writes which
   number was last AND its roundness (§2808/§2820/§2842) → mlp8–mlp11 computes +step or +1 accordingly (§2818/§2819/§2841).
   OPEN: head/subspace decomposition of the roundness feature inside attn8's write (heads {3,7} per §2820).
+- §2843 circuit_battery_roundness_head_split (Claude, LANE 1 CUDA, 4.7 s, 24 GPU forwards, 0 fitted params): b,c,d TRUE; a FALSE
+  (marginal), e FALSE on my mis-constructed check. **The roundness switch lives in heads {3,7} — the SAME pair as the identity write**
+  (Codex's R576, §2820) — in BOTH percent and bare formats, head 3 leading both, top-2 holding **.925** of positive head recovery
+  (§2820's identity top-2 was .877). Head 3 alone: .380 (bar was .40; inside the interval I described in prose, outside the number I
+  registered). pred_e FALSE because I compared each format's all-head recovery against §2842's CROSS-FORMAT MEDIAN — the median matches
+  to 16 digits, so the head interchange IS equivalent; SEVENTH aggregation-mismatch predicate of the night (cf. §2832, §2837, §2838).
+  RULE: state in the predicate over what set each side is aggregated. CONSEQUENCE: attn8's identity write and roundness attribute are
+  not separable at head granularity — a constraint on any compiled program hoping to keep one and drop the other.

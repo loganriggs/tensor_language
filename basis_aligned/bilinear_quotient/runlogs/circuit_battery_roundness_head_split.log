@@ -1,0 +1,63 @@
+[rhead] percent  top=head3(0.450) top2=[3, 7] share=0.92 all_heads=0.675
+[rhead] bare     top=head3(0.311) top2=[3, 7] share=0.93 all_heads=0.503
+{
+ "preds": {
+  "pred_a_a_head_carries_the_switch": false,
+  "pred_b_it_is_the_r576_pair": true,
+  "pred_c_two_heads_suffice": true,
+  "pred_d_the_head_is_format_invariant": true,
+  "pred_e_all_heads_equal_the_whole_component": false
+ },
+ "nulls": {
+  "a_null_no_head_carries_it": false,
+  "b_null_different_pair": false,
+  "c_null_spread_over_heads": false
+ },
+ "summary": {
+  "tops": [
+   "head3",
+   "head3"
+  ],
+  "top2_pairs": [
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    7
+   ]
+  ],
+  "matches_r576_pair": true,
+  "all_heads_vs_whole_component_max_dev": 0.08628535270690918,
+  "medians": {
+   "top_recovery": 0.3804639130830765,
+   "top2_share": 0.924936419282856,
+   "all_heads_recovery": 0.5888893604278564
+  },
+  "orders": {
+   "percent": [
+    "head3",
+    "head7",
+    "head6",
+    "head5",
+    "head8",
+    "head0",
+    "head2",
+    "head4",
+    "head1"
+   ],
+   "bare": [
+    "head3",
+    "head7",
+    "head6",
+    "head8",
+    "head1",
+    "head5",
+    "head2",
+    "head4",
+    "head0"
+   ]
+  }
+ }
+}
