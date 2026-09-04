@@ -1,0 +1,22 @@
+{
+ "corpora": {
+  "pile": {
+   "baseline": 4.034482987721761,
+   "delete": 4.058850065867106,
+   "surrogate": 4.005982844034831,
+   "rank2": 4.034405771891276,
+   "surrogate_vs_base": -0.0285001436869301,
+   "rank2_vs_base": -7.721583048514447e-05
+  },
+  "fineweb": {
+   "baseline": 3.0837094200981987,
+   "delete": 3.125326622856988,
+   "surrogate": 3.0848146438598634,
+   "rank2": 3.084099684821235,
+   "surrogate_vs_base": 0.0011052237616646643,
+   "rank2_vs_base": 0.000390264723036271
+  }
+ },
+ "verdict": "HYPOTHESIS CONFIRMED: the improvement exists on pile and vanishes on fineweb -- the discarded remainder is distribution-specific; truncation acts as regularisation under the shift",
+ "runtime_s": 79.40852308273315
+}

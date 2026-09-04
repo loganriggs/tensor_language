@@ -1,0 +1,28 @@
+{
+ "per_layer": {
+  "6": {
+   "attnwatch_vs_attnwrite": 0.43104052543640137,
+   "attnwatch_vs_mlpwrite": 0.6475635170936584,
+   "mlpwatch_vs_mlpwrite": 0.16947482526302338,
+   "mlpwatch_vs_attnwrite": 0.09856932610273361,
+   "null": 0.22155022621154785
+  },
+  "10": {
+   "attnwatch_vs_attnwrite": 0.38292551040649414,
+   "attnwatch_vs_mlpwrite": 0.6772156357765198,
+   "mlpwatch_vs_mlpwrite": 0.1906266212463379,
+   "mlpwatch_vs_attnwrite": 0.09779950976371765,
+   "null": 0.17070218920707703
+  },
+  "14": {
+   "attnwatch_vs_attnwrite": 0.19542254507541656,
+   "attnwatch_vs_mlpwrite": 0.6192381978034973,
+   "mlpwatch_vs_mlpwrite": 0.231815904378891,
+   "mlpwatch_vs_attnwrite": 0.10958383232355118,
+   "null": 0.15761391818523407
+  }
+ },
+ "pred_a_attn_channel": false,
+ "pred_b_mlp_channel": true,
+ "runtime_s": 10.588672637939453
+}

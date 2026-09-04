@@ -1,0 +1,78 @@
+{
+ "rung": "circuit_battery_roundness_decision_ladder",
+ "preds": {
+  "pred_a_the_component_beats_the_pair": true,
+  "pred_b_adding_readers_beats_the_component": false,
+  "pred_c_everything_reproduces_the_donor": false,
+  "pred_d_the_ladder_is_monotone": true,
+  "pred_e_the_pair_replicates": true
+ },
+ "nulls": {
+  "a_null_component_no_better": false,
+  "b_null_readers_add_nothing": false,
+  "c_null_everything_fails": true
+ },
+ "bars": {
+  "component": 0.4,
+  "with_readers": 0.7,
+  "everything": 0.95,
+  "pair_tol": 0.1
+ },
+ "null_bars": {
+  "component_le": 0.25,
+  "with_readers_le": 0.4,
+  "everything_le": 0.7
+ },
+ "layer": 8,
+ "heads": [
+  3,
+  7
+ ],
+ "pair_reference_2846": 0.20833333333333331,
+ "summary": {
+  "medians": {
+   "pair": 0.25,
+   "component": 0.5,
+   "component_plus_readers": 0.5,
+   "everything": 0.625
+  },
+  "ladder_monotone": true
+ },
+ "formats_detail": {
+  "percent": {
+   "readers_used": [
+    "mlp8",
+    "mlp9",
+    "mlp1"
+   ],
+   "pair": 0.5,
+   "component": 1.0,
+   "component_plus_readers": 1.0,
+   "everything": 1.0
+  },
+  "bare": {
+   "readers_used": [
+    "attn6",
+    "mlp1",
+    "mlp0"
+   ],
+   "pair": 0.0,
+   "component": 0.0,
+   "component_plus_readers": 0.0,
+   "everything": 0.25
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 24,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 2.0246245861053467
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_ROUNDNESS_DECISION_LADDER_PREREGISTRATION.md": "fe7f6d92043e38765f85ee05d89bf675cd0ce0b3a89e588725ff753631d7df3e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_two_head_edit_results.json": "7c96fe4a4108f3b4a55bb51d2d547f738642c1d733e9857ec50aa3b8b68f3dd5",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_localisation_results.json": "331454aac1ce218d9194255e19c81c53eca38d99cc6c2b685ff2d9e0ac12788c",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}

@@ -1,0 +1,296 @@
+{
+ "residual_only": [
+  {
+   "seed": 0,
+   "train_acc": 0.9526066350710901,
+   "test_acc": 0.0,
+   "correct_logit_boost_train": 4.506399117603515,
+   "correct_logit_boost_test": -2.9900950119947867
+  },
+  {
+   "seed": 1,
+   "train_acc": 0.9336492890995262,
+   "test_acc": 0.0,
+   "correct_logit_boost_train": 4.7026048450768405,
+   "correct_logit_boost_test": -3.12028183116734
+  },
+  {
+   "seed": 2,
+   "train_acc": 0.9526066350710901,
+   "test_acc": 0.0031446540880503146,
+   "correct_logit_boost_train": 4.431229463243132,
+   "correct_logit_boost_test": -2.9402182916487476
+  }
+ ],
+ "dynamics_corrected": [
+  {
+   "step": 0,
+   "test_acc": 0.031446540880503145,
+   "circuit_logit_rms": 0.010359451560231903,
+   "residual_logit_rms": 0.0406022796403883,
+   "off_block": 0.9131210193956776,
+   "functional_residual": 0.9025553266928914,
+   "cos_circuit_to_final": -0.009403864176357905
+  },
+  {
+   "step": 3000,
+   "test_acc": 0.012578616352201259,
+   "circuit_logit_rms": 0.9053297449411677,
+   "residual_logit_rms": 1.5064292993512503,
+   "off_block": 0.5635272125981122,
+   "functional_residual": 0.7078465768586032,
+   "cos_circuit_to_final": 0.8013726476329477
+  },
+  {
+   "step": 6000,
+   "test_acc": 0.09119496855345913,
+   "circuit_logit_rms": 1.194744592106918,
+   "residual_logit_rms": 1.5990303148195257,
+   "off_block": 0.44400967278448067,
+   "functional_residual": 0.6209412255895196,
+   "cos_circuit_to_final": 0.8350435455170735
+  },
+  {
+   "step": 9000,
+   "test_acc": 0.37421383647798745,
+   "circuit_logit_rms": 1.501777213865111,
+   "residual_logit_rms": 1.6545893873668849,
+   "off_block": 0.36098148587505674,
+   "functional_residual": 0.533621550892786,
+   "cos_circuit_to_final": 0.8683575212404241
+  },
+  {
+   "step": 12000,
+   "test_acc": 0.4937106918238994,
+   "circuit_logit_rms": 1.8426992282267758,
+   "residual_logit_rms": 1.8497612750806356,
+   "off_block": 0.32227057720869434,
+   "functional_residual": 0.4898881734691035,
+   "cos_circuit_to_final": 0.8484686094085412
+  },
+  {
+   "step": 15000,
+   "test_acc": 0.5031446540880503,
+   "circuit_logit_rms": 2.120207620938667,
+   "residual_logit_rms": 2.239361661064556,
+   "off_block": 0.34715268121569753,
+   "functional_residual": 0.5141202205967749,
+   "cos_circuit_to_final": 0.836497878997343
+  },
+  {
+   "step": 18000,
+   "test_acc": 0.4811320754716981,
+   "circuit_logit_rms": 2.347852487720577,
+   "residual_logit_rms": 2.315148554411425,
+   "off_block": 0.3305798841832456,
+   "functional_residual": 0.48202208392228907,
+   "cos_circuit_to_final": 0.8172092395226233
+  },
+  {
+   "step": 21000,
+   "test_acc": 0.6729559748427674,
+   "circuit_logit_rms": 2.5885805728493074,
+   "residual_logit_rms": 2.3425759715117365,
+   "off_block": 0.2978301743856534,
+   "functional_residual": 0.4412488281331376,
+   "cos_circuit_to_final": 0.8656263557833239
+  },
+  {
+   "step": 24000,
+   "test_acc": 0.7672955974842768,
+   "circuit_logit_rms": 2.581925663660374,
+   "residual_logit_rms": 2.245769791328655,
+   "off_block": 0.2712499920286764,
+   "functional_residual": 0.4221804590898441,
+   "cos_circuit_to_final": 0.9007852327088988
+  },
+  {
+   "step": 27000,
+   "test_acc": 0.8805031446540881,
+   "circuit_logit_rms": 2.6884425045781946,
+   "residual_logit_rms": 2.1360452918199586,
+   "off_block": 0.23328614462334596,
+   "functional_residual": 0.3799781643208998,
+   "cos_circuit_to_final": 0.9235965802389944
+  },
+  {
+   "step": 30000,
+   "test_acc": 0.940251572327044,
+   "circuit_logit_rms": 2.750093314522444,
+   "residual_logit_rms": 2.0533141447987338,
+   "off_block": 0.20601877769114674,
+   "functional_residual": 0.35172197778742603,
+   "cos_circuit_to_final": 0.9513062841543265
+  },
+  {
+   "step": 33000,
+   "test_acc": 0.949685534591195,
+   "circuit_logit_rms": 2.755398211989194,
+   "residual_logit_rms": 1.9618751880832366,
+   "off_block": 0.18261743219246462,
+   "functional_residual": 0.33067431227691274,
+   "cos_circuit_to_final": 0.9805934516504099
+  },
+  {
+   "step": 36000,
+   "test_acc": 0.9622641509433962,
+   "circuit_logit_rms": 2.779727635874268,
+   "residual_logit_rms": 1.943044314300371,
+   "off_block": 0.17880613360597397,
+   "functional_residual": 0.32281171074838744,
+   "cos_circuit_to_final": 0.9937727593023487
+  },
+  {
+   "step": 39000,
+   "test_acc": 0.9779874213836478,
+   "circuit_logit_rms": 2.779762596368091,
+   "residual_logit_rms": 1.9290142570329372,
+   "off_block": 0.17862678159819667,
+   "functional_residual": 0.3197829651461898,
+   "cos_circuit_to_final": 0.9996810540360146
+  }
+ ],
+ "symmetry_nulls": [
+  {
+   "model": "random weights",
+   "equivariant_fraction": 0.5364425072545764,
+   "test_before": 0.04402515723270441,
+   "test_after_symmetrising": 0.03773584905660378,
+   "jade_after_symmetrising": 0
+  },
+  {
+   "model": "task-shuffled",
+   "equivariant_fraction": 0.5276472825430435,
+   "test_before": 0.03459119496855346,
+   "test_after_symmetrising": 0.031446540880503145,
+   "jade_after_symmetrising": 0
+  }
+ ],
+ "residual_split": {
+  "symmetric_share": 0.5215507401713576,
+  "antisymmetric_share": 0.47844925982864245,
+  "target_off_block": 0.1777065828911537,
+  "rows": [
+   {
+    "half": "symmetry-preserving half",
+    "off_block": 0.17770658288956875,
+    "freqs_recovered": 7,
+    "eps": 0.2
+   },
+   {
+    "half": "symmetry-breaking half",
+    "off_block": 0.17770658289065855,
+    "freqs_recovered": 3,
+    "eps": 0.2
+   },
+   {
+    "half": "both (the real residual)",
+    "off_block": 0.1777065828869009,
+    "freqs_recovered": 4,
+    "eps": 0.2
+   }
+  ]
+ },
+ "long_run": [
+  {
+   "step": 0,
+   "test_acc": 0.031446540880503145,
+   "off_block_raw": 0.8962772795789165,
+   "off_block_canonical": 0.9131210193956776,
+   "functional_residual": 0.9025553266928914
+  },
+  {
+   "step": 20000,
+   "test_acc": 0.5660377358490566,
+   "off_block_raw": 0.3548335163352866,
+   "off_block_canonical": 0.31131275104183875,
+   "functional_residual": 0.4522907038324768
+  },
+  {
+   "step": 40000,
+   "test_acc": 0.9779874213836478,
+   "off_block_raw": 0.222611173958851,
+   "off_block_canonical": 0.1777065828911537,
+   "functional_residual": 0.31861892072321885
+  },
+  {
+   "step": 60000,
+   "test_acc": 0.9811320754716981,
+   "off_block_raw": 0.2158795723765713,
+   "off_block_canonical": 0.17234324985291993,
+   "functional_residual": 0.3127033441328961
+  },
+  {
+   "step": 80000,
+   "test_acc": 0.9842767295597484,
+   "off_block_raw": 0.21371267324618537,
+   "off_block_canonical": 0.17043471525348253,
+   "functional_residual": 0.3089968301362015
+  },
+  {
+   "step": 100000,
+   "test_acc": 0.9811320754716981,
+   "off_block_raw": 0.2149534385559425,
+   "off_block_canonical": 0.17129710357619232,
+   "functional_residual": 0.30926576367130554
+  },
+  {
+   "step": 120000,
+   "test_acc": 0.9842767295597484,
+   "off_block_raw": 0.2154625822925712,
+   "off_block_canonical": 0.17066262938856236,
+   "functional_residual": 0.3096467171418673
+  },
+  {
+   "step": 140000,
+   "test_acc": 0.9874213836477987,
+   "off_block_raw": 0.21384417107549714,
+   "off_block_canonical": 0.16826074633435872,
+   "functional_residual": 0.30670920396955675
+  },
+  {
+   "step": 160000,
+   "test_acc": 0.9842767295597484,
+   "off_block_raw": 0.2143644500673988,
+   "off_block_canonical": 0.16857561204343652,
+   "functional_residual": 0.307371706940033
+  },
+  {
+   "step": 180000,
+   "test_acc": 0.9811320754716981,
+   "off_block_raw": 0.2142342483155829,
+   "off_block_canonical": 0.1683212093426124,
+   "functional_residual": 0.3070559333772424
+  },
+  {
+   "step": 200000,
+   "test_acc": 0.9874213836477987,
+   "off_block_raw": 0.2131959156297648,
+   "off_block_canonical": 0.1671757505394348,
+   "functional_residual": 0.30685823866596185
+  },
+  {
+   "step": 220000,
+   "test_acc": 0.9905660377358491,
+   "off_block_raw": 0.21422116668944136,
+   "off_block_canonical": 0.16930796801116732,
+   "functional_residual": 0.306093660587242
+  },
+  {
+   "step": 240000,
+   "test_acc": 0.9905660377358491,
+   "off_block_raw": 0.21427720377347836,
+   "off_block_canonical": 0.16917522411118624,
+   "functional_residual": 0.30543606580034466
+  },
+  {
+   "step": 260000,
+   "test_acc": 0.9905660377358491,
+   "off_block_raw": 0.214268157035023,
+   "off_block_canonical": 0.16924275809495315,
+   "functional_residual": 0.3054592844461078
+  }
+ ],
+ "arrests": true,
+ "runtime_s": 457.99100518226624
+}

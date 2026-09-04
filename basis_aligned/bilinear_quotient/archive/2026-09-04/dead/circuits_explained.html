@@ -1,0 +1,386 @@
+<title>Three Circuits, One Variable</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#faf9f6; --ink:#22211d; --muted:#6b675e; --line:#e3e0d8; --card:#ffffff;
+  --accent:#8a4f18; --accent-soft:#f3e8db; --good:#2e6e4e; --bad:#a03434; --code:#f0eee8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#191817; --ink:#e8e5de; --muted:#a09a8e; --line:#33312c; --card:#211f1d;
+    --accent:#d99a55; --accent-soft:#33291e; --good:#7bc09a; --bad:#d98080; --code:#26241f;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#191817; --ink:#e8e5de; --muted:#a09a8e; --line:#33312c; --card:#211f1d;
+  --accent:#d99a55; --accent-soft:#33291e; --good:#7bc09a; --bad:#d98080; --code:#26241f;
+}
+body{background:var(--bg); color:var(--ink); font-family:'Source Serif 4',Georgia,serif;
+  line-height:1.62; margin:0; padding:2.5rem 1.2rem 4rem;}
+main{max-width:46rem; margin:0 auto;}
+h1{font-size:2.1rem; font-weight:600; line-height:1.15; margin:.2rem 0 .4rem; text-wrap:balance;}
+h2{font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:1.22rem; font-weight:600;
+  margin:2.6rem 0 .6rem; text-wrap:balance;}
+h3{font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:.98rem; font-weight:600; margin:1.3rem 0 .3rem;}
+p{margin:.65rem 0;}
+.lede{font-size:1.06rem; color:var(--muted);}
+.tag{font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:.72rem; font-weight:600;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:.15rem;}
+.circuit{background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:1.3rem 1.5rem; margin:1.4rem 0;}
+.kv{display:grid; grid-template-columns:5.4rem 1fr; gap:.25rem .9rem; margin:.8rem 0;
+  font-size:.95rem;}
+.kv b{font-family:'IBM Plex Sans',system-ui,sans-serif; font-weight:600; color:var(--muted);
+  font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; padding-top:.15rem;}
+code, .mono{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.86em;
+  background:var(--code); border-radius:4px; padding:.06em .3em;}
+.num{font-family:'IBM Plex Mono',ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+.ref{font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:.78rem; color:var(--muted); margin-top:.8rem;}
+.tablewrap{overflow-x:auto; margin:1rem 0;}
+table{border-collapse:collapse; width:100%; font-size:.9rem;
+  font-family:'IBM Plex Sans',system-ui,sans-serif;}
+th{font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+  text-align:left; padding:.4rem .7rem; border-bottom:2px solid var(--line);}
+td{padding:.42rem .7rem; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums;}
+td.hit{color:var(--bad); font-weight:600;}
+td.ok{color:var(--good);}
+.shared{border-left:4px solid var(--accent); background:var(--accent-soft);
+  border-radius:0 10px 10px 0; padding:1.1rem 1.4rem; margin:1.6rem 0;}
+.dfn{font-size:.9rem; color:var(--muted); background:var(--card); border:1px dashed var(--line);
+  border-radius:8px; padding:.7rem 1rem; margin:.9rem 0;}
+.footer{margin-top:3rem; padding-top:1rem; border-top:1px solid var(--line);
+  font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:.82rem; color:var(--muted);}
+a{color:var(--accent);}
+</style>
+
+<main>
+<span class="tag">bilin18 interpretability program · circuits explained</span>
+<h1>Three Circuits, One Variable</h1>
+<p class="lede">Three of the best-certified circuits in an 18-layer, 546M-parameter language
+model — what each one computes, where it physically lives, why the model needs it, and the
+single intermediate variable all three turn out to consume. Every claim below is causal:
+established by removing, scrambling, or window-restricting the component and measuring the
+damage, always against controls.</p>
+
+<div class="dfn"><b>Units and methods in one breath.</b> Damage is measured in <b>nats</b> of
+cross-entropy (prediction loss); this model's total is ≈3.3 nats/token, so 0.9 nats from one
+component is enormous and 0.01 is small. A <b>read-mask</b> blinds a head beyond a distance
+window without touching its output machinery; an <b>ablation</b> zeroes its output; a
+<b>scramble</b> feeds it wrong-token information at the right scale. Heads are named
+<span class="mono">layer.head</span> (e.g. <span class="mono">3.8</span> = layer 3, head 8).</div>
+
+<h2>The variable first: block-0's per-token value code</h2>
+<div class="shared">
+<p>At layer 0, attention computes a <b>value vector for every token</b> — a static, per-token
+code (the same token always gets the same vector). This architecture has an unusual plumbing
+feature: every later layer's attention mixes its own values with these layer-0 values,
+half-and-half (<span class="mono">v = ½·v + ½·v₁</span>, the "value-residual"). So block-0's
+token code is <b>broadcast through the entire network</b> — it rides inside every attention
+value at every layer.</p>
+<p>The demonstration that all three circuits below drink from this one pipe (§1236): scramble
+the code — swap which position's vector belongs to which token, keeping magnitudes right —
+separately along its two routes:</p>
+<div class="tablewrap"><table>
+<tr><th>What was scrambled</th><th>Copying (repeat text CE)</th><th>Content (rare-word CE)</th><th>Grammar (frequent-word CE)</th></tr>
+<tr><td>Nothing (base)</td><td class="num">0.42</td><td class="num">4.34</td><td class="num">1.88</td></tr>
+<tr><td>Block-0's <em>own</em> attention write only</td><td class="num ok">0.44 (+0.02)</td><td class="num">4.64 (+0.31)</td><td class="num">1.97 (+0.09)</td></tr>
+<tr><td>The <em>broadcast</em> to layers 1–17 only</td><td class="num hit">4.06 (+3.65)</td><td class="num hit">5.06 (+0.72)</td><td class="num">2.16 (+0.28)</td></tr>
+</table></div>
+<p>One corruption of the broadcast kills copying (nearly the whole long-range budget) <em>and</em>
+content (with a 2.6× tilt toward content words over grammar) at once, while the same corruption
+of the local write kills neither. Identity-permutation control is exact; combined scramble ≥
+each single. <b>One variable, one distribution channel, three consumers.</b></p>
+</div>
+
+<h2>Circuit 1 — the identity matcher</h2>
+<div class="circuit">
+<span class="tag">"have I seen this token before — and where?"</span>
+<div class="kv">
+<b>What</b><span>A long-range equality test. For each position, two heads look back across
+hundreds of tokens for <em>earlier copies of the current token</em>. On text whose second half
+repeats its first, they park 30–33% of all their long-range attention on the single position
+exactly one period back — the query token's own earlier occurrence. This is not a repeat-only
+mode: on ordinary prose the same heads put ~10% of their far attention on self-match positions,
+6× their layer-mates' baseline. The criterion — token identity — is never switched off (§1215, §1219).</span>
+<b>Where</b><span>Heads <span class="mono">2.5</span> and <span class="mono">3.8</span>, front of
+the network. The localization is extreme: window-restrict only head 3.8's reads and 1.04 nats of
+repeat-text performance vanishes, while its eight layer-mates together account for 0.004 (§1206–07).
+Upstream, layers 0–1's attention (<span class="mono">attn0</span>/<span class="mono">attn1</span>)
+build the per-position identity representations being compared — zero their writes at the source
+half and the matchers' characteristic reads collapse 58–71% (§1228). One auxiliary,
+<span class="mono">3.1</span>, only helps while 3.8 is alive — blind the main matcher and 3.1's
+reads turn actively harmful (§1213).</span>
+<b>Why</b><span>Matching is step one of copying/induction — the model's single most profitable
+long-range behavior. With the matchers working, verbatim-repeated text costs 0.36 nats/token
+against 3.3 on fresh prose: repetition is nearly free. What the match produces is a <em>where</em> —
+a location downstream circuits can exploit. Notably, this model pays for matching with dedicated
+long-range reads; its softmax-attention sibling does the same match locally inside its keys and
+needs no matcher heads at all. Which design a model uses is decided by its attention score
+function — both cost the same total (§1217–18).</span>
+</div>
+<p class="ref">Evidence: §1204–1207 (localization), §1215 (offset signature), §1219 (prose
+criterion), §1213 (auxiliary), §1228–1230 (builders). Uses the shared variable as: the
+<em>substance compared</em> — match keys and queries are built from stream content descending
+from the broadcast token code.</p>
+</div>
+
+<h2>Circuit 2 — the successor fetcher</h2>
+<div class="circuit">
+<span class="tag">"…then what came next?"</span>
+<div class="kv">
+<b>What</b><span>The retrieval step. Where the matchers attend a token's earlier copy
+(offset 128 on period-128 repeat text), these heads attend <em>one position after it</em> —
+offset 127, the successor — and deliver its value as the prediction's raw material. The two
+signatures are cleanly split: matchers peak at 128 with ~1% at 127; fetchers peak at 127
+(§1215).</span>
+<b>Where</b><span>Heads <span class="mono">8.3</span> and <span class="mono">8.4</span>, mid-stack —
+a genuinely redundant pair: each alone costs 0.10–0.17 when read-masked, the two jointly 0.54
+(87% of their layer) — one covers for the other (§1207). A third fetcher,
+<span class="mono">5.5</span> (the head the old head-atlas called "the induction head"), has the
+same offset-127 signature but is fully backed up by the pair: masking its range costs 0.086
+(§1205, §1215). The four named heads together carry 69% of everything all 162 heads do at long
+range when copying binds; a distributed tail carries the rest — the honest split is 59/41 (§1209).</span>
+<b>Why</b><span>Fetching turns a match into a prediction: "the last time <em>X</em> appeared,
+<em>Y</em> followed" is the entire algorithm of induction, and induction is where this
+architecture's one long-range channel earns most of its 3.2-nat repeat-regime value — a price
+that is identical across three architecturally different siblings (3.200 / 3.206 / 3.231 nats),
+because what repetition is worth is set by the text, not the machine (§1212). The payload the
+fetchers deliver is value vectors — which, by the plumbing above, are half block-0 token code:
+corrupt the broadcast and fetching collapses even though every pattern is intact (§1236).</span>
+</div>
+<p class="ref">Evidence: §1205–1210 (stations and redundancy), §1215 (signature), §1209
+(necessity/sufficiency), §1212 (family constant), §1236 (payload). Uses the shared variable as:
+the <em>payload delivered</em> — the fetched value is λ·v₁-laden.</p>
+</div>
+
+<h2>Circuit 3 — the content pool</h2>
+<div class="circuit">
+<span class="tag">"what is this text about?"</span>
+<div class="kv">
+<b>What</b><span>The model's topic sense. Attention in the middle layers accumulates a
+<em>bag of nearby tokens' block-0 codes</em> into the residual stream; by layers 6–14 this bag
+has become a high-dimensional content representation whose readable core is ~8 stable, human-nameable
+features (a livestock topic, a political-register axis, a partitive construction…) read as a
+package by everything downstream (§1076, §1113–15). Patching a real passage's content pattern
+into another text transports its topic — 62× the random-direction effect (§1059–60).</span>
+<b>Where</b><span>Unlike circuits 1 and 2, this one has no star heads: it is a <b>crowd</b>.
+The carrying band is layers 5–9 (read-masking the band costs 0.067 nats on prose while every
+single layer in it costs ≤0.009 — §1186–87), and an exhaustive screen of all 162 heads found
+that the best nameable 12-head core carries only 43% of the prose pooling budget; the other
+half lives in ~150 heads at ≤0.002 each, whose value is <em>synergistic</em> — random subsets
+are worth more per head the more of them you take (§1222–23). Tellingly, the top of that
+12-head core is circuits 1 and 2's stations doing double duty (~22% of prose pooling).</span>
+<b>Why</b><span>Content is the hard 77% of language-model loss (grammar is the easy 23%).
+The pooled bag supplies every deep MLP's working material — the deep layers' computation is
+literally context×context multiplication on it (§1041) — and the readout consumes its 8-feature
+core at the end. It is also the reason the model needs any long-range reading on ordinary prose
+at all: the entire non-copy long-range budget (~0.07 nats at a 128-token horizon) is this
+pooling (§1180–81). And its substance is the same broadcast code: scramble v₁ and content-word
+prediction degrades 2.6× more than grammar (§1236), matching the old result that deleting the
+value-residual costs +3.3 nats, content-tilted (§FINDINGS 4a).</span>
+</div>
+<p class="ref">Evidence: §1049–1076 (the manifold and its origin), §1113–1115 (skeleton/API),
+§1186–87 (the crowd), §1222–23 (core vs tail), §1236 (substance). Uses the shared variable as:
+the <em>bag contents</em> — the pool is an aggregate of broadcast token codes.</p>
+</div>
+
+<h2>Postscript: the criterion read straight off the weights — with a minus sign</h2>
+<div class="circuit">
+<p>After this page was first drafted, the matching criterion was pushed all the way down to
+the weight matrices (§1237–1240). Three facts, in the order they fell:</p>
+<p><b>1. It's computable with zero forward passes.</b> Feed raw token embedding codes through
+heads 2.5 and 3.8's actual query/key pipelines and score all pairs: same-token pairs separate
+from different-token pairs <em>perfectly</em> (AUC discriminability 1.00; their sixteen
+layer-mates average 0.00). "Is this the same token?" is a fact about the weights and the
+embedding table alone.</p>
+<p><b>2. The algebra is a mirrored signed conjunction.</b> This architecture's attention score
+is a <em>product of two bilinear forms</em>, and it has no softmax, so scores keep their sign.
+At same-token pairs, each matcher runs one positive-scoring branch and one negative-scoring
+branch — head 2.5 as (+0.74, −0.78), head 3.8 as (−0.80, +0.81), mirror twins — so the product
+is a large, consistently <em>negative</em> match flag. In the live model the matchers really do
+deliver <b>−1× the matched token's value</b> (in-vivo mean signed pattern −0.30 and −0.42,
+99–100% sign-consistent). Even the fetchers split by sign: 8.4 delivers +successor, 8.3
+−successor, each 100% consistent.</p>
+<p><b>3. The minus sign is load-bearing.</b> Flip one matcher's pattern sign — touch nothing
+else — and copying degrades <em>more than if the head were blinded outright</em>
+(<span class="num">1.43</span> vs <span class="num">1.08</span> nats); flip both matchers and
+the damage (<span class="num">7.81</span>) exceeds twice the value of the entire long-range
+system. Wrong-signed evidence is the worst input this program has ever fed the model —
+downstream circuits trust the convention completely. (Flipping a low-value head as control:
+0.0004.)</p>
+</div>
+
+<h2>Circuit 4, added later — the delimiter closer</h2>
+<div class="circuit">
+<span class="tag">"a quote is open — close it"</span>
+<div class="kv">
+<b>What</b><span>State tracking for paired punctuation. One head predicts closing quotation
+marks <em>and</em> closing brackets/parens — anything with an unmatched opener in context. At
+close positions it fetches from the opener itself: 29.8% of its attention mass sits on
+delimiter-token keys there, versus 2.8% elsewhere (§1272).</span>
+<b>Where</b><span>Head <span class="mono">13.8</span>, deep in the network — and it does
+<em>nothing else</em>: mean-ablating it costs 0.326 nats at quote-close targets and 0.679 at
+bracket-close targets while its damage everywhere else is negative (−0.001). Its eight
+layer-mates sum to zero. Average delete cost 0.011 — invisible to every magnitude-ranked
+screen, found only by the concentration protocol; the behaviour-blind head atlas independently
+ranks punctuation as its top read class (§1270-71).</span>
+<b>Why</b><span>Balanced delimiters are a hard grammatical constraint prose obeys almost
+surely — a dedicated closer converts a long-range state ("something is open") into a
+prediction at exactly the right moment. Its criterion is the instructive part: unlike the copy
+matchers, it is <em>not</em> readable from the embedding table (the weights-only test that
+solved circuit 1 sees nothing here, ratio 0.83) — the head keys on a <b>computed annotation</b>
+written at the opener's position. And the annotator is the same front-attention service
+(attn0–2) that builds the copy matchers' keys: ablate its writes at opener positions only and
+13.8's fetch collapses 54.6% (random-position control 11.8%; §1274). Two retrieval circuits
+with different criterion architectures — embedding-native matching and annotation-based
+fetching — run on one front-attention annotation service.</span>
+</div>
+<p class="ref">Evidence: §1270-74 (five experiments; SOP behaviour-first protocol; both-halves
+certification; one instrument bug disclosed and fixed in-thread).</p>
+</div>
+
+<h2>Circuit 5, added later — the increment head</h2>
+<div class="circuit">
+<span class="tag">"the last list item was 2 — this one is 3"</span>
+<div class="kv">
+<b>What</b><span>Ordinal increment: predicting a digit that <em>never appeared in context</em>
+from its predecessor that did — a transformation, where every other long-range circuit here
+copies or fetches. Discovered by the same concentration screen (attn8 at 18.8), owned by one
+head at 78% share with the certification gate passed, and separated from both resident
+hypotheses by discriminating cells: it ignores digits that lack a predecessor in context
+(so it is not the digit-formatting circuit), and it is not the copy fetchers (§1275-76).</span>
+<b>Where</b><span>Head <span class="mono">8.7</span>. Elsewhere damage 0.0024; average delete
+cost 0.011 — the third consecutive circuit owner invisible to magnitude ranking. The
+behaviour-blind atlas ranks digit as its top read class (2.45).</span>
+<b>Why</b><span>Lists are everywhere, and their next item is <em>computable</em>. The mechanism
+is the striking part: <b>"+1" is carved into the head's weight matrices.</b> Push each digit's
+raw embedding code through 8.7's value and projection weights and read the result against the
+unembedding: for all eight digits tested, the top-ranked prediction is the <em>next</em> digit
+(successor logits 2–4× the digit's own; a control head scores 1 of 8 at chance rank). No
+lookup, no forward pass — two weight matrices compose into the successor function. And it is
+not digits-only: the same map ranks Tuesday after Monday (6/6 weekday pairs top-3, five rank-1)
+and February after January (8/11 month pairs, seven rank-1), and ablating the head at
+weekday/month-successor positions costs 55× its elsewhere damage — one successor head for every
+ordered lexicon tested (§1278). The model
+now shows three long-range designs side by side: equality in the weights (circuit 1),
+computed-state fetching (circuit 4), and arithmetic in the weights (this one) — §1277.</span>
+</div>
+<p class="ref">Evidence: §1275-1277 (screen → head → weights mechanism, closed in one day;
+three-way dedup; atlas cross-check).</p>
+</div>
+
+<h2>Circuit 6, added later — the question head</h2>
+<div class="circuit">
+<span class="tag">"this sentence began with <em>Who</em> — it will end with a question mark"</span>
+<div class="kv">
+<b>What</b><span>Interrogative-state tracking: predicting the closing <span class="mono">?</span>
+of a sentence that opened with a question word (Who/What/How/Is/Can/…). The syntactic cousin of
+the delimiter closer — a carried binary state, but the opener is a <em>word class</em>, not a
+paired symbol. Found by the same concentration screen (attn10 at 32.6, controls clean), owned
+by a single head carrying <b>106%</b> of its layer's damage (the other eight heads mildly mask
+it), concentration 137.</span>
+<b>Where</b><span>Head <span class="mono">10.5</span>. Delete cost 0.023 — the <em>fourth</em>
+consecutive circuit owner invisible to magnitude ranking. At question-mark targets its attention
+on the exact opener position is 11.4× a random earlier key; its mass share on question-word keys
+is 26× baseline. Raw question-word embeddings do <em>not</em> stand out under its query/key
+weights (ratio 1.1) — like the delimiter closer, it keys on an annotation computed in the
+stream, not on the token itself.</span>
+<b>Why</b><span>The upstream story took three corrections to get right, each forced by a
+registered control. First reading: front attention (layers 0–2) "supplies the content" — its
+opener-restricted ablation costs 0.40 nats at 25× position specificity. Overturned: also
+ablating the mid MLPs at the opener <em>restores</em> the behaviour (0.003) — the damage was
+mostly <b>mlp4 re-encoding a corrupted opener state into poison</b> (blocking mlp4 alone
+restores 94%; mlp3 partial; mlp5–8 nothing). Second reading: the front write is "collectively"
+held (single layers free, all three = 0.397). Refined: it is ordinary <b>2-writer
+redundancy</b> — keeping only attn1 alive costs ~0, only attn0 costs 0.10, only attn2 costs
+0.31. The full chain: <b>attn0/attn1 redundantly mark the opener → mlp3/mlp4 re-encode the
+mark → 10.5 fetches it and writes the "?"</b> — the same front layers that build the copy
+matchers' identities, annotating for yet another consumer.</span>
+</div>
+<p class="ref">Evidence: §1282-1288 (screen → head → mechanism → annotation chain; two
+corrections on the record; every step's random control ≤ 2% of its effect).</p>
+</div>
+
+<h2>How the three compose — and one circuit that pointedly doesn't join</h2>
+<p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
+broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers
+deliver it from the matched site (circuit 2) → the crowd pools it into topic (circuit 3)</b> —
+and the matcher branch has since been resolved two steps further (§1242–1245): the −(matched
+value) vector the matchers write is <em>consumed on the spot</em> — the MLP in the matcher's own
+block (mlp3, with mlp2 assisting; 87% of the write's value flows through them) immediately
+re-encodes the evidence into the stream's working form, and block 5 then <em>cleans the raw
+vector out of the stream</em> (its projection collapses 86% across that one block) — a cleanup
+that later testing showed to be block 5's <em>general</em> normalization of spent, off-manifold
+components rather than a matcher-dedicated service (injected random vectors are scrubbed even
+harder). Downstream circuits run on the re-encoding, never
+the raw vector — and the re-encoding's dominant direction is now a <em>certified named
+variable</em>: project that single axis out of the stream (blocks 4–8) and 1.00 nat of
+repeat-text performance vanishes (a random direction: 0.0008; prose spared 28:1). The v1
+broadcast carries the <em>identities</em>; this <b>match-evidence axis</b> carries the
+<em>verdict</em> — and it is sufficient as well as necessary: blind both matcher heads and
+transplant only this one direction's clean per-position values, and 95% of the lost
+copying function returns. The axis even turns out to be family-general — three for three: the softmax
+sibling (which matches inside its keys and has no matcher heads at all) carries its verdict
+on one stable stream direction (1.18 nats, prose spared 71:1), and so does the 12-layer
+sibling (1.75 nats — over half its copy budget on one direction). Three architectures
+implement matching differently and <em>converge on the same intermediate representation</em>.
+The reduction was finally pushed to the whole four-head front end: compute the match from the
+weights, write the verdict on the axis, and deliver the found source's successor token's
+layer-0 code through the fetcher heads' projections with their two measured signed constants —
+<b>0.78</b> of the four heads' function returns, everything computed from weight matrices, the
+embedding table, and four scalars. (Flip the two signs and recovery goes to −111%: the
+conventions are semantic content, not gauge.) — hide it from the cleanup MLPs and the unprocessed anti-signed vector pollutes
+everything after (+2.3 nats); delete it a second time after cleanup and the model reads the
+deletion itself as anti-match evidence (+3.8) —
+with the deep MLPs and readout consuming the last two products. Circuits 1+2 dominate when text
+repeats (3.2 nats at stake); circuit 3 dominates on fresh prose (0.07 nats at stake but feeding
+the hard 77% of prediction). Because all three are downstream of one variable, a single
+scramble of that variable degrades all of them at once — which is exactly what §1236 shows,
+and why the value-residual is the most protected channel in the architecture (it is also the
+most register-robust one, §1079–1112).</p>
+<p>The contrast that proves the sharing is real rather than "everything depends on everything":
+the model's single most expensive head, <span class="mono">5.7</span> (0.92 nats), belongs to a
+circuit that uses <em>none</em> of this. An MLP manufactures a fixed vector at position 0;
+head 5.7 fetches it for 99.8% of queries; the vector is the stream's baseline — replace the
+whole head with that one constant and 98.5% of its function survives. No token code, no
+matching, no pooling: a bias-delivery circuit, whose entire "information need" was later shown
+to be two bits of the current token's frequency class (§1234). Sharing the variable is a
+property of these three circuits, not of the network at large.</p>
+
+<h2>Postscript: can a head be split into its parts?</h2>
+<p>A natural next ambition — proposed by the reader of these pages — is to stop treating
+heads as the unit of membership: since the tail of small contributors "all do different
+things," decompose each head into <em>the part that does this task</em> and the rest, and
+mask just that part. Four registered attempts (§1290–94) mapped exactly where that works.
+Splitting by the architecture's own broadcast route captured only <b>31%</b> of the main
+heads' induction contribution — the identity code also travels through the residual stream
+and is re-extracted fresh by every layer. Splitting by a fixed 16-dimensional subspace
+failed for a structural reason worth knowing: <b>the identity code is full-rank</b> —
+token identity for a 50k vocabulary fills the whole 128-dimensional head channel (16
+directions hold under half its energy), which is <em>why</em> copying uses dedicated heads
+rather than corners of shared ones. A per-position mask along each token's own code
+direction finally produced a clean instrument (60:1 over its shuffled null, elsewhere cost
+2%) — and showed the long tail really is an <b>identity-transport crowd</b> (1.1 nats of
+induction carried collectively) — but it, too, catches only the raw broadcast copy: by
+mid-depth the stream's version of the code has been re-encoded through MLPs into
+coordinates no weight-derived direction spans (adding the one-hop transformed direction
+changed nothing, 0.130 vs 0.125). The standing rule the arc produced: <b>partition
+variables, not pipes.</b> Head-splitting succeeds where content is genuinely low-rank —
+the one-direction match verdict (95% restored through a single axis), the near-rank-1
+successor maps — and fails at transport, where the content <em>is</em> the full-width
+variable. There, the honest per-head statement is a fraction, not a subspace: this head
+carries this much of the identity traffic. A fifth attempt sealed this from the empirical
+side (§1301): even a subspace <em>fitted</em> to the heads' outputs at induction targets
+performs identically to one fitted at random positions, at every rank tried — because each
+target needs a <em>different</em> token delivered, the payload sweeps the whole channel
+uniformly, and no fixed basis of any provenance can be "the part."</p>
+
+<div class="footer">
+<p>Companion pages: <a href="https://claude.ai/code/artifact/60bcb3fd-b383-4ceb-b242-9a6a4f24addb">the full report</a> ·
+<a href="https://claude.ai/code/artifact/bd70f86b-0ea3-46c2-8797-44e00848a6f0">highlights</a> ·
+<a href="https://claude.ai/code/artifact/5403c9b2-4928-4d27-89e3-bb1afb0a8807">the understanding benchmark</a>.
+Section numbers (§) index BILIN18_CONNECTION.md, the program's registered-prediction ledger;
+every experiment cited ran with pre-registered predictions, controls, and nulls. Model:
+bilin18 — 18 layers, d=1152, 9 heads/layer, bilinear (softmax-free) attention, trained on FineWeb.</p>
+</div>
+</main>

@@ -1,0 +1,444 @@
+{
+ "modes": [
+  "rms",
+  "keyshuf",
+  "mean"
+ ],
+ "runs": [
+  {
+   "kind": "logit",
+   "task": "conjunctive",
+   "seed": 0,
+   "ceiling": 0.25,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "type->type"
+   ],
+   "rms": [
+    0.467041015625,
+    0.93017578125
+   ],
+   "keyshuf": [
+    0.189208984375,
+    0.698974609375
+   ],
+   "mean": [
+    0.359130859375,
+    0.9384765625
+   ]
+  },
+  {
+   "kind": "logit",
+   "task": "conjunctive",
+   "seed": 1,
+   "ceiling": 0.25,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "type->type"
+   ],
+   "rms": [
+    0.064697265625,
+    0.06201171875
+   ],
+   "keyshuf": [
+    0.4365234375,
+    0.298095703125
+   ],
+   "mean": [
+    0.68359375,
+    0.58203125
+   ]
+  },
+  {
+   "kind": "logit",
+   "task": "type",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "type->pay"
+   ],
+   "rms": [
+    0.31201171875,
+    0.99951171875
+   ],
+   "keyshuf": [
+    0.127685546875,
+    0.975341796875
+   ],
+   "mean": [
+    0.2392578125,
+    0.999267578125
+   ]
+  },
+  {
+   "kind": "logit",
+   "task": "type",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "prop->prop"
+   ],
+   "rms": [
+    0.062255859375,
+    0.086669921875
+   ],
+   "keyshuf": [
+    0.955322265625,
+    0.12255859375
+   ],
+   "mean": [
+    0.99609375,
+    0.27001953125
+   ]
+  },
+  {
+   "kind": "logit",
+   "task": "prop",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "prop->pay"
+   ],
+   "rms": [
+    0.30126953125,
+    0.99755859375
+   ],
+   "keyshuf": [
+    0.133544921875,
+    0.967041015625
+   ],
+   "mean": [
+    0.25927734375,
+    0.99853515625
+   ]
+  },
+  {
+   "kind": "logit",
+   "task": "prop",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "prop->pay",
+    "type->type"
+   ],
+   "rms": [
+    0.06298828125,
+    0.12890625
+   ],
+   "keyshuf": [
+    0.912353515625,
+    0.135009765625
+   ],
+   "mean": [
+    0.974365234375,
+    0.318115234375
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "conjunctive",
+   "seed": 0,
+   "ceiling": 0.25,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "prop->prop"
+   ],
+   "rms": [
+    0.864990234375,
+    0.819580078125
+   ],
+   "keyshuf": [
+    0.469970703125,
+    0.453125
+   ],
+   "mean": [
+    0.8701171875,
+    0.83056640625
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "conjunctive",
+   "seed": 1,
+   "ceiling": 0.25,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "type->type"
+   ],
+   "rms": [
+    0.854248046875,
+    0.869873046875
+   ],
+   "keyshuf": [
+    0.4501953125,
+    0.46337890625
+   ],
+   "mean": [
+    0.868896484375,
+    0.871337890625
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "type",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "prop->prop"
+   ],
+   "rms": [
+    0.93701171875,
+    0.926513671875
+   ],
+   "keyshuf": [
+    0.546142578125,
+    0.490966796875
+   ],
+   "mean": [
+    0.94287109375,
+    0.921142578125
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "type",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "prop->prop"
+   ],
+   "rms": [
+    0.90673828125,
+    0.926513671875
+   ],
+   "keyshuf": [
+    0.511962890625,
+    0.5263671875
+   ],
+   "mean": [
+    0.903564453125,
+    0.929931640625
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "prop",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "type->type"
+   ],
+   "rms": [
+    0.950927734375,
+    0.905029296875
+   ],
+   "keyshuf": [
+    0.5537109375,
+    0.472412109375
+   ],
+   "mean": [
+    0.958984375,
+    0.897705078125
+   ]
+  },
+  {
+   "kind": "postsoft",
+   "task": "prop",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "type->type"
+   ],
+   "rms": [
+    0.912841796875,
+    0.936767578125
+   ],
+   "keyshuf": [
+    0.516845703125,
+    0.5126953125
+   ],
+   "mean": [
+    0.918701171875,
+    0.9345703125
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "conjunctive",
+   "seed": 0,
+   "ceiling": 0.25,
+   "acc": 0.994384765625,
+   "readout": [
+    "prop->prop",
+    "marker->pay"
+   ],
+   "rms": [
+    0.585693359375,
+    0.000244140625
+   ],
+   "keyshuf": [
+    0.298095703125,
+    0.194091796875
+   ],
+   "mean": [
+    0.572021484375,
+    0.17724609375
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "conjunctive",
+   "seed": 1,
+   "ceiling": 0.25,
+   "acc": 0.99951171875,
+   "readout": [
+    "prop->prop",
+    "type->type"
+   ],
+   "rms": [
+    0.000244140625,
+    0.000244140625
+   ],
+   "keyshuf": [
+    0.32080078125,
+    0.32958984375
+   ],
+   "mean": [
+    0.6171875,
+    0.6328125
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "type",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "prop->prop",
+    "prop->prop"
+   ],
+   "rms": [
+    0.545166015625,
+    0.0
+   ],
+   "keyshuf": [
+    0.33349609375,
+    0.531005859375
+   ],
+   "mean": [
+    0.5576171875,
+    0.829345703125
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "type",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 0.999755859375,
+   "readout": [
+    "prop->prop",
+    "prop->prop"
+   ],
+   "rms": [
+    0.0,
+    0.0
+   ],
+   "keyshuf": [
+    0.43603515625,
+    0.359619140625
+   ],
+   "mean": [
+    0.72607421875,
+    0.64306640625
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "prop",
+   "seed": 0,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "type->type"
+   ],
+   "rms": [
+    0.570068359375,
+    0.0
+   ],
+   "keyshuf": [
+    0.326416015625,
+    0.4921875
+   ],
+   "mean": [
+    0.579345703125,
+    0.740478515625
+   ]
+  },
+  {
+   "kind": "unnorm",
+   "task": "prop",
+   "seed": 1,
+   "ceiling": 1.0,
+   "acc": 1.0,
+   "readout": [
+    "type->type",
+    "type->type"
+   ],
+   "rms": [
+    0.0,
+    0.0
+   ],
+   "keyshuf": [
+    0.4873046875,
+    0.34033203125
+   ],
+   "mean": [
+    0.740966796875,
+    0.6083984375
+   ]
+  }
+ ],
+ "soundness_test": "on a control task where one property suffices, ablating the factor reading the other property must leave accuracy near 1.0",
+ "verdict": {
+  "rms": {
+   "min_best_acc_on_controls": 0.0,
+   "mean_best_acc_on_controls": 0.5899251302083334,
+   "mean_min_acc_on_conjunctive": 0.3672281901041667,
+   "sound": false
+  },
+  "keyshuf": {
+   "min_best_acc_on_controls": 0.43603515625,
+   "mean_best_acc_on_controls": 0.6583048502604166,
+   "mean_min_acc_on_conjunctive": 0.3175862630208333,
+   "sound": false
+  },
+  "mean": {
+   "min_best_acc_on_controls": 0.72607421875,
+   "mean_best_acc_on_controls": 0.8976236979166666,
+   "mean_min_acc_on_conjunctive": 0.572509765625,
+   "sound": false
+  }
+ }
+}

@@ -1,0 +1,477 @@
+{
+ "scores": [
+  {
+   "tag": "r.0.0.1",
+   "name": "second word of proper names",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.1.0.1",
+   "name": "separators before station and date anchors",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.1.1.2",
+   "name": "tokens following MAP in boilerplate",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.3.1",
+   "name": "Connective before proper noun",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.6.0.0",
+   "name": "Adult/child and postcode fields",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.6.2.2",
+   "name": "Section headings and postcodes",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.9",
+   "name": "Listing-entry boundary structure",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.9.1",
+   "name": "Entry-terminating newline",
+   "true_pos": 6,
+   "of": 6,
+   "acc12": 12
+  },
+  {
+   "tag": "r.0.0.0",
+   "name": "word-suffix and grid-digit completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.0.1",
+   "name": "newline ending index lines",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.0",
+   "name": "template whitespace separators",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.0.0",
+   "name": "single newline after headings",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.0.2",
+   "name": "GOOGLE MAP boilerplate completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.1",
+   "name": "index entry name and line completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.1.1",
+   "name": "MAP token in map boilerplate",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.2",
+   "name": "listing boilerplate token onset",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.1.2.0",
+   "name": "parallel-slot template continuation",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2",
+   "name": "end-of-line field transitions",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.0",
+   "name": "table-of-contents item sequencing",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.0.0",
+   "name": "standard section-heading cycle",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.1.0",
+   "name": "heading-name completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.2",
+   "name": "postcode digit completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.2.0",
+   "name": "price-field marker letters",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.2.2",
+   "name": "transport-section tokens",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.2.3",
+   "name": "proper-name head-noun completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.3",
+   "name": "index record terminators",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.3.1.0",
+   "name": "Index-line termination",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.0",
+   "name": "Listing contact-field tokens",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.0.2",
+   "name": "Priced-item noun before amount",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.1",
+   "name": "Listing shorthand completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.2",
+   "name": "All-caps category-tag completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.2.0",
+   "name": "Split header-word completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.6.2.3",
+   "name": "TOC place-name items",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.9.0.0",
+   "name": "All-caps tag completion",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.9.0.1",
+   "name": "Standard heading-word prediction",
+   "true_pos": 5,
+   "of": 6,
+   "acc12": 10
+  },
+  {
+   "tag": "r.0.0.3",
+   "name": "listing-formula slot tokens",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.0.2",
+   "name": "copying previously seen items",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.1",
+   "name": "heading-to-body newline transition",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.1.0.3",
+   "name": "map-template symbol tokens",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.1.2.1",
+   "name": "map-parenthetical symbol tokens",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.1.3",
+   "name": "memorized phrase completion",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.2.1.1",
+   "name": "listing field onset tokens",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.2.2.1",
+   "name": "transport-marker separators and labels",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.3.0",
+   "name": "Heading-list item continuation",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.3.0.0",
+   "name": "Section-heading sequence continuation",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.3.0.1",
+   "name": "Listing-line boundary tokens",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.3.1.1",
+   "name": "Listing end-of-line newlines",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.0.1",
+   "name": "Listing header boundaries",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.0.3",
+   "name": "URL and postcode suffixes",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.1.1",
+   "name": "Adult/child fields and index breaks",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.2.1",
+   "name": "Listing-field continuation",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.3.0",
+   "name": "Contact-line digits and separators",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.6.3.1",
+   "name": "Price and ticket fields",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.9.0",
+   "name": "Caps category-tag endings",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.9.0.2",
+   "name": "Repeated venue-name recall",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.9.1.0",
+   "name": "Multi-word landmark completion",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.9.1.1",
+   "name": "Numeric metadata fields",
+   "true_pos": 4,
+   "of": 6,
+   "acc12": 8
+  },
+  {
+   "tag": "r.0.0",
+   "name": "completing multi-token list items",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.1.1.0",
+   "name": "slot fillers in address templates",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.1.3.0",
+   "name": "section headers and name copying",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.2.1",
+   "name": "formulaic compound continuation",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.3.2",
+   "name": "Boilerplate label completion",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.6",
+   "name": "Memorized multi-token phrase continuation",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.6.1.0",
+   "name": "Room-rate abbreviation fields",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.6.3",
+   "name": "Index-entry label completion",
+   "true_pos": 3,
+   "of": 6,
+   "acc12": 6
+  },
+  {
+   "tag": "r.9.3",
+   "name": "Paragraph-final newline",
+   "true_pos": 2,
+   "of": 6,
+   "acc12": 4
+  },
+  {
+   "tag": "r.0",
+   "name": "structured listing continuation",
+   "true_pos": 1,
+   "of": 6,
+   "acc12": 2
+  }
+ ],
+ "pass": 35,
+ "borderline": 22,
+ "fail": 10,
+ "mean_tp": 4.45
+}

@@ -1,0 +1,89 @@
+{
+ "hypothesis": "the residual shares reader-mode structure with the signal",
+ "alignment": [
+  {
+   "model": "trained seed 0",
+   "alignment": 0.5414357811960661
+  },
+  {
+   "model": "trained seed 1",
+   "alignment": 0.41135213343526766
+  },
+  {
+   "model": "trained seed 2",
+   "alignment": 0.45845732048075166
+  },
+  {
+   "model": "isotropic noise",
+   "alignment": 0.2674162001583094
+  },
+  {
+   "model": "reader-rank-1 synthetic",
+   "alignment": 0.22834106455647066
+  },
+  {
+   "model": "reader-rank-5 synthetic",
+   "alignment": 0.25591817690661217
+  }
+ ],
+ "forced": [
+  {
+   "k": 2,
+   "alignment": 0.4753109037611252,
+   "effective_reader_rank": 1.998717395998944,
+   "off_block": 0.1777065828909664,
+   "blind": 10,
+   "oracle": 11
+  },
+  {
+   "k": 4,
+   "alignment": 0.7358992978519723,
+   "effective_reader_rank": 3.9739436475966934,
+   "off_block": 0.17770658289087882,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "k": 6,
+   "alignment": 1.0000000000000056,
+   "effective_reader_rank": 5.9416638358840705,
+   "off_block": 0.17770658289112784,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "k": 10,
+   "alignment": 0.6078539919931987,
+   "effective_reader_rank": 9.847492788762489,
+   "off_block": 0.1777065828909481,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "k": 23,
+   "alignment": 0.2674162001583066,
+   "effective_reader_rank": 22.425959146051277,
+   "off_block": 0.17770658289059282,
+   "blind": 11,
+   "oracle": 11
+  }
+ ],
+ "stripped": [
+  {
+   "variant": "real residual, unchanged",
+   "alignment": 0.5414357811960673,
+   "off_block": 0.1777065828908877,
+   "blind": 2,
+   "oracle": 4
+  },
+  {
+   "variant": "real residual, reader-aligned part removed",
+   "alignment": 2.5826553386518225e-31,
+   "off_block": 0.17770658289108565,
+   "blind": 7,
+   "oracle": 10
+  }
+ ],
+ "corr_recovery_vs_alignment": 0.07068261924425269,
+ "runtime_s": 57.79217767715454
+}

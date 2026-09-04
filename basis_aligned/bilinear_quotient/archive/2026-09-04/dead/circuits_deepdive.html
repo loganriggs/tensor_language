@@ -1,0 +1,491 @@
+<title>Trigger, Route, Calibrate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9;
+    --ink:#14161b; --muted:#59606c; --faint:#8b93a1;
+    --hair:#d9dce2; --hair-strong:#c3c8d1;
+    --accent:#1f5fd6; --accent-soft:#e6eefb;
+    --ok:#0e8a6d; --ok-soft:#e0f2ec;
+    --warn:#c23b2f; --warn-soft:#f8e5e2;
+    --shadow:0 1px 2px rgba(20,22,27,.05),0 6px 20px rgba(20,22,27,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0d0f13; --surface:#161922; --surface-2:#1c2029;
+      --ink:#e7e9ef; --muted:#9aa2b1; --faint:#6b7382;
+      --hair:#282d38; --hair-strong:#333a47;
+      --accent:#729dff; --accent-soft:#182338;
+      --ok:#37d3a8; --ok-soft:#123128;
+      --warn:#f27a6d; --warn-soft:#331a17;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 26px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d0f13; --surface:#161922; --surface-2:#1c2029;
+    --ink:#e7e9ef; --muted:#9aa2b1; --faint:#6b7382;
+    --hair:#282d38; --hair-strong:#333a47;
+    --accent:#729dff; --accent-soft:#182338;
+    --ok:#37d3a8; --ok-soft:#123128;
+    --warn:#f27a6d; --warn-soft:#331a17;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 26px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  .col{max-width:64ch}
+  a{color:var(--accent)}
+  code,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  h1,h2,h3{font-family:"IBM Plex Serif",Georgia,serif;text-wrap:balance;line-height:1.2}
+
+  /* ---- header ---- */
+  header{border-bottom:1px solid var(--hair);background:
+    linear-gradient(180deg,var(--surface-2),var(--bg));}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);font-weight:600}
+  header h1{font-size:clamp(34px,5.2vw,52px);font-weight:600;margin:.3em 0 .28em;letter-spacing:-.01em}
+  .lede{font-size:19px;color:var(--muted);max-width:62ch;margin:0}
+  .headmeta{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+
+  section{padding:52px 0}
+  section + section{border-top:1px solid var(--hair)}
+  h2{font-size:clamp(23px,3.2vw,30px);font-weight:600;margin:0 0 6px}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--faint);margin:0 0 20px;font-weight:600}
+  p{margin:0 0 16px}
+  .muted{color:var(--muted)}
+
+  /* ---- pills ---- */
+  .pill{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;
+    font-size:12px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:999px;
+    border:1px solid var(--hair-strong);white-space:nowrap}
+  .pill.ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+  .pill.warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+  .pill.acc{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+  .pill.dot::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+
+  /* ---- circuit card ---- */
+  .card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;
+    box-shadow:var(--shadow);overflow:hidden;margin:26px 0}
+  .card-head{padding:22px 26px 18px;border-bottom:1px solid var(--hair);
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px}
+  .card-head h3{font-size:24px;font-weight:600;margin:0}
+  .card-head .tag{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--faint)}
+  .card-body{padding:22px 26px}
+  .card-body > p:last-child{margin-bottom:0}
+
+  /* ---- flow diagram ---- */
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:4px 0 22px;
+    border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:var(--surface-2)}
+  .stage{flex:1 1 150px;min-width:150px;padding:15px 16px;position:relative;
+    border-right:1px solid var(--hair)}
+  .stage:last-child{border-right:0}
+  .stage .s-lab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:5px}
+  .stage .s-what{font-size:14.5px;font-weight:600;line-height:1.35}
+  .stage .s-loc{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:5px}
+  .stage.calib .s-lab{color:var(--ok)}
+
+  /* ---- evidence table ---- */
+  .twrap{overflow-x:auto;margin:6px 0 20px;border:1px solid var(--hair);border-radius:10px}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  thead th{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--faint);font-weight:600;background:var(--surface-2)}
+  tbody tr:last-child td{border-bottom:0}
+  td .num{font-family:"IBM Plex Mono",monospace;font-weight:500;white-space:nowrap}
+  td .exp{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted)}
+  .up{color:var(--ok);font-weight:600}
+  .down{color:var(--warn);font-weight:600}
+
+  /* ---- components list ---- */
+  .comp{list-style:none;padding:0;margin:0 0 4px;display:grid;gap:10px}
+  .comp li{display:flex;gap:12px;align-items:baseline;padding:12px 14px;background:var(--surface-2);
+    border:1px solid var(--hair);border-radius:9px}
+  .comp .cn{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--accent);
+    flex:0 0 auto;min-width:104px}
+  .comp .cd{font-size:14.5px}
+
+  .callout{border-left:3px solid var(--warn);background:var(--warn-soft);
+    padding:14px 18px;border-radius:0 9px 9px 0;margin:20px 0;font-size:15px}
+  .callout.acc{border-color:var(--accent);background:var(--accent-soft)}
+  .callout .cl-lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:600;color:var(--warn);display:block;margin-bottom:3px}
+  .callout.acc .cl-lab{color:var(--accent)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .stat{background:var(--surface);border:1px solid var(--hair);border-radius:11px;padding:18px 20px}
+  .stat .big{font-family:"IBM Plex Mono",monospace;font-size:30px;font-weight:600;letter-spacing:-.02em}
+  .stat .cap{font-size:13.5px;color:var(--muted);margin-top:2px}
+  .stat.ok .big{color:var(--ok)} .stat.warn .big{color:var(--warn)} .stat.acc .big{color:var(--accent)}
+
+  footer{border-top:1px solid var(--hair);padding:34px 0 60px;color:var(--muted);font-size:14px}
+  .footlink{font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+  strong{font-weight:600}
+  hr.soft{border:0;border-top:1px solid var(--hair);margin:26px 0}
+</style>
+
+<header>
+  <div class="wrap" style="padding-top:46px;padding-bottom:40px">
+    <div class="eyebrow">bilin18 · circuit deep-dive</div>
+    <h1>Trigger, Route, Calibrate</h1>
+    <p class="lede">The three best circuits we have traced end-to-end in an 18-layer bilinear
+    transformer — what each component does, and the causal evidence that says so. Plus an honest
+    answer to which method actually found them.</p>
+    <div class="headmeta">
+      <span class="pill acc dot">causal input-tracing</span>
+      <span class="pill dot">ablation · direct-path · discrimination</span>
+      <span class="pill ok dot">3 circuits verified</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap col">
+    <p class="kicker">First, the method question</p>
+    <h2>The SVD(WX) clustering is real structure — but it is not where the good circuits are</h2>
+    <p>You asked about the SVD(W·X) clustering method. To be exact about what it is: for a layer
+    whose MLP output is an exact sum of per-unit terms, we compute each hidden unit's exact
+    contribution, project the removed vectors onto the top singular directions of the layer's
+    <em>realized</em> output (the SVD of W·X over real text), correlate those damages across
+    thousands of tokens, and hierarchically cluster the units. It recovers genuine structure:
+    clustering the same units on two independent halves of the data agrees at
+    <span class="mono">ARI 0.58</span> versus <span class="mono">≈0</span> for a shuffle — the
+    unit groups are stable and reproducible, not noise.</p>
+    <p>But when we ask the only question that matters — <strong>is any cluster causally
+    necessary?</strong> — the method runs into a wall we hit again and again. The cleanest,
+    most stable cluster in the whole model (mlp17's newline group, split-half
+    <span class="mono">ARI 0.778</span>) carries <span class="mono">−16%</span> of its layer's
+    causal effect on the newline prediction — negligible, and <em>less</em> than a random set of
+    the same size. mlp0's article cluster, when mean-ablated, moves the article decision by
+    <span class="mono">0.015</span>, barely above a random-unit control. The computation is
+    <strong>diffuse over units and redundant</strong>: no small group of neurons is the circuit.</p>
+    <div class="callout">
+      <span class="cl-lab">The honest verdict on clustering</span>
+      SVD(W·X) clustering answers "which units vary together" (reproducibly), not "which units
+      compute the behaviour" (no cluster does, alone). It is a good <em>display</em> of a layer's
+      internal covariance and a poor <em>circuit finder</em>. So the circuits below were not found
+      by clustering — they were found by tracing behaviours causally from the input embedding to
+      the output, and they are a categorically stronger object.</p>
+    </div>
+    <p>Every one of the three circuits below turned out to share one shape, which is the headline
+    result of this whole phase:</p>
+    <div class="flow" style="margin-top:18px">
+      <div class="stage"><div class="s-lab">Trigger</div>
+        <div class="s-what">A blunt, context-blind association in the token embedding</div>
+        <div class="s-loc">embedding → unembedding</div></div>
+      <div class="stage"><div class="s-lab">Route</div>
+        <div class="s-what">Front attention reads context and picks which trigger actually fires</div>
+        <div class="s-loc">blocks 0–2, attention</div></div>
+      <div class="stage calib"><div class="s-lab">Calibrate</div>
+        <div class="s-what">The last layer trims over-predicted frequent tokens</div>
+        <div class="s-loc">block 17</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="col">
+      <p class="kicker">Circuit 1 · the flagship</p>
+      <h2>The newline circuit</h2>
+      <p>When does the model predict a line break? This is the circuit we have traced most
+      completely — from the exact embedding association, through the attention that decides
+      whether to use it, to the final calibration — with a separate causal test behind every
+      arrow.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>newline</h3>
+        <span class="tag">predict <code>"\n"</code> / <code>"\n\n"</code></span>
+        <span class="pill ok" style="margin-left:auto">VERIFIED end-to-end</span>
+      </div>
+      <div class="card-body">
+        <div class="flow">
+          <div class="stage"><div class="s-lab">Trigger</div>
+            <div class="s-what">A sentence-ending <code>.</code> <code>!</code> <code>?</code></div>
+            <div class="s-loc">embedding bigram</div></div>
+          <div class="stage"><div class="s-lab">Route</div>
+            <div class="s-what">Is this period a real line-end or mid-paragraph?</div>
+            <div class="s-loc">front attention</div></div>
+          <div class="stage calib"><div class="s-lab">Calibrate</div>
+            <div class="s-what">Trim newline as an over-frequent token</div>
+            <div class="s-loc">block 17</div></div>
+        </div>
+
+        <p style="font-size:15px" class="muted">Each row is a separate experiment on held-out
+        FineWeb text, with its own control and null.</p>
+        <div class="twrap">
+        <table>
+          <thead><tr><th>Claim</th><th>Measurement</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Punctuation is the trigger<br><span class="exp">newline_trigger</span></td>
+              <td><span class="num">P(newline)</span> after a word <span class="num">1.1%</span>
+                → after <code>.!?</code> <span class="num up">30%</span> (a 28× jump)</td>
+              <td><span class="pill ok">held</span></td>
+            </tr>
+            <tr>
+              <td>The trigger lives in the embedding<br><span class="exp">embedding_direct_triggers</span></td>
+              <td>Skip all 18 blocks — read the embedding straight through the output head — and
+                a period still gives <span class="num">0.42</span> newline</td>
+              <td><span class="pill acc">located</span></td>
+            </tr>
+            <tr>
+              <td>…but that bigram is context-blind<br><span class="exp">newline_discrimination</span></td>
+              <td>The direct path gives <span class="num">0.416</span> vs <span class="num">0.419</span>
+                whether a newline truly follows or not — separation <span class="num">≈0</span></td>
+              <td><span class="pill warn">blind</span></td>
+            </tr>
+            <tr>
+              <td>The blocks discriminate real line-ends<br><span class="exp">newline_discrimination</span></td>
+              <td>Full model: <span class="num up">0.472</span> where a newline follows,
+                <span class="num down">0.208</span> where it doesn't — separation <span class="num">+0.264</span></td>
+              <td><span class="pill ok">held</span></td>
+            </tr>
+            <tr>
+              <td>The routing is done by front attention<br><span class="exp">routing_attention_localization</span></td>
+              <td>Ablate front attention → routing collapses <span class="num down">80%</span>
+                (0.459→0.091); ablate late attention → <span class="num up">82%</span> survives</td>
+              <td><span class="pill ok">localized</span></td>
+            </tr>
+            <tr>
+              <td>Block 17 calibrates it down<br><span class="exp">write_axis_ablation_profile</span></td>
+              <td>Delete block 17 and P(newline) <em>rises</em> <span class="num up">0.435→0.65</span>
+                — the last layer was suppressing an over-frequent token</td>
+              <td><span class="pill ok">held</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p><strong>The most convincing single test</strong> is the three-way fanout. A period can
+        be followed by a line break, a capitalized new sentence, or a lowercase continuation. The
+        embedding bigram fires <em>identically</em> at every period —
+        <span class="mono">P(newline)=0.42, P(capital)=0.10</span> regardless of what comes next.
+        The full network flips its bet by context:</p>
+        <div class="grid2">
+          <div class="stat"><div class="big" style="color:var(--ink)">0.47 / 0.24</div>
+            <div class="cap">full model when a <strong>newline</strong> really follows —
+              <span class="mono">P(nl) / P(capital)</span></div></div>
+          <div class="stat"><div class="big" style="color:var(--ink)">0.22 / 0.45</div>
+            <div class="cap">full model when a <strong>capital</strong> really follows — the bet
+              inverts</div></div>
+        </div>
+        <p style="margin-bottom:0">The two outcomes anti-correlate: the blocks trade off "end the
+        paragraph" against "start a sentence" using context the embedding cannot see. That flip is
+        the circuit's whole job, and the context-blind bigram never makes it.</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <ul class="comp">
+        <li><span class="cn">embedding</span><span class="cd">The <code>.</code>/<code>!</code>/<code>?</code>
+          token vectors carry a fixed lean toward <code>"\n"</code> in the output head — a memorised
+          association, not a computation.</span></li>
+        <li><span class="cn">attn 0–2</span><span class="cd">Read the surrounding context and decide
+          whether this period ends a structural unit; 80% of the newline-vs-continuation routing lives
+          here.</span></li>
+        <li><span class="cn">block 17</span><span class="cd">Suppresses newline as a high-frequency
+          function token (see Circuit 3); removing it raises P(newline) by ~21 points.</span></li>
+      </ul>
+      <div class="callout acc">
+        <span class="cl-lab">What "quality" means here</span>
+        Every arrow in the diagram is a causal intervention with a control, not a correlation read
+        off activations. We can say <em>where</em> the association is stored (embedding), <em>where</em>
+        the decision is made (front attention), and <em>where</em> it is tempered (block 17), and each
+        claim survives its own null.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="col">
+      <p class="kicker">Circuit 2 · and a correction it forced</p>
+      <h2>The article circuit</h2>
+      <p>Which article comes next — <code>a</code>/<code>an</code> or <code>the</code>? This circuit
+      has the same trigger→route→calibrate shape, and tracing it causally <strong>overturned</strong>
+      a claim an earlier activation-only reading had made.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>article</h3>
+        <span class="tag">choose <code>" a"</code> <code>" an"</code> vs <code>" the"</code> <code>" The"</code></span>
+        <span class="pill ok" style="margin-left:auto">VERIFIED · one claim corrected</span>
+      </div>
+      <div class="card-body">
+        <div class="flow">
+          <div class="stage"><div class="s-lab">Trigger</div>
+            <div class="s-what">The preceding word — a be-verb, a preposition, a period</div>
+            <div class="s-loc">embedding geometry</div></div>
+          <div class="stage"><div class="s-lab">Route</div>
+            <div class="s-what">Front attention picks a/an vs the; the MLP sets how strongly to
+              predict any article</div>
+            <div class="s-loc">front attn + MLP</div></div>
+          <div class="stage calib"><div class="s-lab">Calibrate</div>
+            <div class="s-what">Block 17 trims "the" — a top-3 frequent token</div>
+            <div class="s-loc">block 17</div></div>
+        </div>
+        <div class="twrap">
+        <table>
+          <thead><tr><th>Preceding word</th><th>Leaning (P a/an − P the)</th><th>Reading</th></tr></thead>
+          <tbody>
+            <tr><td>be-verb — "is __", "was __"</td><td><span class="num up">+0.033</span> toward a/an</td>
+              <td>the only a/an-favouring context ("is <em>a</em> doctor")</td></tr>
+            <tr><td>preposition — "of __", "in __"</td><td><span class="num down">−0.111</span> toward the</td>
+              <td>the strongest definite pull of any context</td></tr>
+            <tr><td>sentence-ending punctuation</td><td><span class="num down">−0.050</span> toward the</td>
+              <td>"). <em>The</em>…" — a/an ≈ 0</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout">
+          <span class="cl-lab">Correction, stated plainly</span>
+          An earlier activation-based writeup grouped prepositions with be-verbs as "reach for the
+          indefinite article." The causal test says the opposite: <strong>prepositions pull toward
+          "the," not "a/an."</strong> Only be-verbs favour the indefinite. The mistake was reading
+          the direction off activations; the intervention reversed it. This is corrected in the main
+          report too.</div>
+        <p style="margin-bottom:0"><strong>Path split.</strong> Ablating front attention shrinks the
+        spread between these contexts from <span class="mono">0.144</span> to
+        <span class="mono">0.105</span> — attention carries the a/an-vs-the <em>choice</em>. Ablating
+        the front MLP collapses <em>all</em> article probability to near zero — the MLP carries the
+        <em>magnitude</em> ("an article is coming at all"). Two paths, two jobs.</p>
+      </div>
+    </div>
+    <div class="col">
+      <ul class="comp">
+        <li><span class="cn">embedding</span><span class="cd">Preceding-word identity carries the
+          raw lean (be→a/an, prep/punct→the), visible even with all blocks skipped.</span></li>
+        <li><span class="cn">attn 0–2</span><span class="cd">Routes the definite/indefinite choice by
+          context — the part that is actually grammar, not lookup.</span></li>
+        <li><span class="cn">mlp 0–2</span><span class="cd">Sets the overall article magnitude; without
+          it the model does not commit to predicting an article.</span></li>
+        <li><span class="cn">block 17</span><span class="cd">Calibrates "the" down as one of the most
+          frequent tokens in the language.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="col">
+      <p class="kicker">Circuit 3 · a whole layer with one job</p>
+      <h2>The frequency calibrator</h2>
+      <p>The cleanest single-component result we have is not a sub-circuit of neurons — it is an
+      entire layer with a nameable, quantified, net-beneficial function. Block 17, the readout layer,
+      does not write content. It <strong>calibrates</strong>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>block 17 = frequency calibrator</h3>
+        <span class="tag">the readout layer's actual job</span>
+        <span class="pill ok" style="margin-left:auto">VERIFIED · net-beneficial</span>
+      </div>
+      <div class="card-body">
+        <p>Delete each block's contribution in turn and watch which token logits move. Block 17 is
+        the one layer that <em>suppresses</em> tokens in proportion to how frequent they are — and
+        it is the only such layer in the model.</p>
+        <div class="grid2">
+          <div class="stat acc"><div class="big">+0.64</div>
+            <div class="cap">correlation between a token's log-frequency and how much removing
+              block 17 lifts it — it pushes common tokens down hardest</div></div>
+          <div class="stat"><div class="big" style="color:var(--ink)">+0.43</div>
+            <div class="cap">nats of loss saved: it is net-beneficial, the only block whose removal
+              <em>helps</em> frequent-token accuracy</div></div>
+        </div>
+        <div class="twrap">
+        <table>
+          <thead><tr><th>Evidence</th><th>Measurement</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>Suppresses common tokens<br><span class="exp">block17_calibration</span></td>
+              <td>The 12 most frequent next-tokens (<code>,</code> <code>the</code> <code>.</code>
+                <code>\n</code> <code>to</code> …) all rise <span class="num up">+1.2…+2.0</span> in
+                logit when block 17 is removed</td>
+              <td><span class="pill ok">held</span></td></tr>
+            <tr><td>It is a trade, and it wins<br><span class="exp">block17_calibration_ce</span></td>
+              <td>Removing it: frequent-target CE <span class="num down">−0.17</span> (helps), but
+                rare-target CE <span class="num up">+0.69</span> (hurts) → net <span class="num">+0.43</span></td>
+              <td><span class="pill ok">held</span></td></tr>
+            <tr><td>Unique to this layer<br><span class="exp">calibrator_ce_profile</span></td>
+              <td>Only block 17 has the calibrator signature (removal <em>helps</em> frequent
+                targets); every other block is a writer that hurts both</td>
+              <td><span class="pill ok">held</span></td></tr>
+            <tr><td>Mass shifts function → content<br><span class="exp">write_class_depth_map</span></td>
+              <td>It suppresses function classes (newline <span class="num down">−0.215</span>,
+                determiner <span class="num down">−0.141</span>) and writes content ones
+                (subword <span class="num up">+0.207</span>, capitalized <span class="num up">+0.187</span>)</td>
+              <td><span class="pill ok">held</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>This is why block 17 appears in the other two circuits as the final
+        stage: the same layer that trims newline and "the" is running one frequency correction across
+        the whole vocabulary. A textbook last-layer calibrator, isolated and measured.</p>
+        <p style="margin-bottom:0">And it is the one part of this model you can actually <em>turn</em>.
+        The correction lives on a single rank-1 direction — remove it and the calibration is gone,
+        remove a random direction and nothing happens — and that direction is stable across disjoint
+        data (cosine 0.98). Scale the model's projection onto it and you get a clean frequency/diversity
+        dial: at the default, the twenty commonest tokens hold 29% of the probability mass; dial it
+        down and that rises to 42%, dial it up and it falls to 13%. It is the exception that frames the
+        rule — everything else in this model (routing, word choice, even its memory of whether it is
+        inside a quote) is distributed and offers no such knob: readable in places, editable almost
+        nowhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap col">
+    <p class="kicker">So — what quality of thing is this?</p>
+    <h2>Honest assessment</h2>
+    <p><strong>What is solid.</strong> Three behaviours are traced from the input embedding to the
+    output with a causal test behind every stage, controls and nulls throughout, and every
+    measurement reproduced on held-out text. We can point to where an association is stored, where
+    the decision is made, and where it is tempered — and say how many nats each is worth. The
+    trigger→route→calibrate shape recurs across all three, which is itself a load-bearing finding,
+    not a coincidence of one example.</p>
+    <p><strong>What is genuinely limited — and one place the limit just moved.</strong> Below the
+    block level the model mostly resists <em>component</em> naming: computation is diffuse and
+    redundant, so single-unit, single-cluster, and single-head ablations are defeated every time —
+    the induction copy operation, chased to its heads, turned out spread across nearly the whole
+    attention stack (ablating the 16 heads that most cleanly point at the copy source removes only
+    19% of it). Clustering components does not isolate anything here. But conditioning on the
+    <em>behaviour</em> instead does: the last layer's frequency calibration isolates to a single
+    rank-1 direction — removing that one direction destroys the calibration (103% of its benefit
+    gone) while removing a random direction does nothing (0–2%). So the right question is not "which
+    component" (redundancy hides that) but "which behaviour-conditioned direction, tested by
+    removal" — and that reaches rank-1. Finally, the embedding "trigger," read on its own, is a poor
+    predictor — worse than uniform overall — so it is a relative <em>lean</em>, not a standalone
+    lookup table; the network does the real work.</p>
+    <p style="margin-bottom:0">Net: these are real circuits with quantified, causally-verified
+    components and honestly-marked resolution limits — a stronger object than the stable-but-inert
+    unit clusters the clustering method produced, and the right level of description for a model this
+    redundant.</p>
+    <div class="callout acc" style="margin-top:24px">
+      <span class="cl-lab">Provenance</span>
+      Every experiment named in the tables is a standalone script in
+      <code>basis_aligned/bilinear_quotient/</code> with its predictions registered before it ran;
+      full derivations are in <code>BILIN18_CONNECTION.md</code> §614, §624–644.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap col">
+    <p class="footlink">bilin18 · trigger → route → calibrate · companion to the main report
+    "Reading bilin18"</p>
+  </div>
+</footer>

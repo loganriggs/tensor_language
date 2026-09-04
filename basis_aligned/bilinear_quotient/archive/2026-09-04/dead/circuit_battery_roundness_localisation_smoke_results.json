@@ -1,0 +1,216 @@
+{
+ "rung": "circuit_battery_roundness_localisation",
+ "preds": {
+  "pred_a_the_switch_is_localised": true,
+  "pred_b_the_switch_is_not_the_item_writer": false,
+  "pred_c_the_switch_is_concentrated": false,
+  "pred_d_the_leader_is_format_invariant": true,
+  "pred_e_patching_everything_recovers_the_donor": true
+ },
+ "nulls": {
+  "a_null_not_localised": false,
+  "b_null_attn8_leads": true,
+  "c_null_diffuse": true,
+  "e_null_instrument_fails": false
+ },
+ "bars": {
+  "top_rec": 0.5,
+  "top3_share": 0.6,
+  "attn8_rank": 3,
+  "format_agree": 1,
+  "all_rec": 0.9
+ },
+ "null_bars": {
+  "top_rec_le": 0.2,
+  "top3_share_le": 0.3,
+  "attn8_top": 1,
+  "all_rec_le": 0.5
+ },
+ "step": 10,
+ "starts": [
+  10,
+  20,
+  30,
+  40,
+  50,
+  60
+ ],
+ "offsets": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "formats": [
+  "bare",
+  "percent"
+ ],
+ "summary": {
+  "tops": [
+   "attn8",
+   "attn8"
+  ],
+  "leader_agrees_across_formats": true,
+  "medians": {
+   "top_recovery": 0.6804471611976624,
+   "top3_share": 0.2976850242925986,
+   "all_components_recovery": 0.9817147254943848
+  },
+  "attn8_ranks": {
+   "percent": 1,
+   "bare": 1
+  },
+  "order_top8": {
+   "percent": [
+    "attn8",
+    "mlp8",
+    "mlp9",
+    "mlp1",
+    "mlp11",
+    "mlp10",
+    "mlp0",
+    "mlp2"
+   ],
+   "bare": [
+    "attn8",
+    "mlp8",
+    "mlp0",
+    "attn6",
+    "mlp1",
+    "mlp11",
+    "mlp2",
+    "mlp9"
+   ]
+  }
+ },
+ "formats_detail": {
+  "percent": {
+   "recovery": {
+    "attn0": 0.12311025708913803,
+    "mlp0": 0.20347392559051514,
+    "attn1": 0.03399292752146721,
+    "mlp1": 0.23236387968063354,
+    "attn2": 0.07280004769563675,
+    "mlp2": 0.20291322469711304,
+    "attn3": 0.10243892669677734,
+    "mlp3": 0.17826569080352783,
+    "attn4": 0.04192791506648064,
+    "mlp4": 0.12018966674804688,
+    "attn5": 0.1282905787229538,
+    "mlp5": 0.06355928629636765,
+    "attn6": 0.1917383223772049,
+    "mlp6": 0.16136164963245392,
+    "attn7": 0.18175844848155975,
+    "mlp7": 0.19087223708629608,
+    "attn8": 0.7547340393066406,
+    "mlp8": 0.3783710300922394,
+    "attn9": 0.058220867067575455,
+    "mlp9": 0.31895002722740173,
+    "attn10": 0.05983196571469307,
+    "mlp10": 0.20910735428333282,
+    "attn11": 0.0059411232359707355,
+    "mlp11": 0.22392141819000244,
+    "attn12": 0.01406258624047041,
+    "mlp12": 0.15232418477535248,
+    "attn13": 0.03651917353272438,
+    "mlp13": 0.10072257369756699,
+    "attn14": 0.09294849634170532,
+    "mlp14": 0.11132341623306274,
+    "attn15": -0.0008994069066829979,
+    "mlp15": 0.08646261692047119,
+    "attn16": -0.014734507538378239,
+    "mlp16": -0.04207201674580574,
+    "attn17": 0.0038437210023403168,
+    "mlp17": 0.07961533218622208
+   },
+   "order_top8": [
+    "attn8",
+    "mlp8",
+    "mlp9",
+    "mlp1",
+    "mlp11",
+    "mlp10",
+    "mlp0",
+    "mlp2"
+   ],
+   "top": "attn8",
+   "top_recovery": 0.7547340393066406,
+   "top3_share": 0.2953758796386969,
+   "attn8_rank": 1,
+   "attn8_recovery": 0.7547340393066406,
+   "all_components_recovery": 1.0,
+   "rows": 6,
+   "rows_with_expected_native_preference": 6
+  },
+  "bare": {
+   "recovery": {
+    "attn0": 0.08537742495536804,
+    "mlp0": 0.22142155468463898,
+    "attn1": -0.008435455150902271,
+    "mlp1": 0.20282764732837677,
+    "attn2": 0.013077393174171448,
+    "mlp2": 0.16969527304172516,
+    "attn3": 0.03402601182460785,
+    "mlp3": 0.09905882924795151,
+    "attn4": 0.07001375406980515,
+    "mlp4": 0.12239062041044235,
+    "attn5": 0.0437038354575634,
+    "mlp5": 0.12792570888996124,
+    "attn6": 0.2083553820848465,
+    "mlp6": 0.12582387030124664,
+    "attn7": 0.08122768998146057,
+    "mlp7": 0.11734429746866226,
+    "attn8": 0.6061602830886841,
+    "mlp8": 0.2824854552745819,
+    "attn9": 0.03893080726265907,
+    "mlp9": 0.167153999209404,
+    "attn10": 0.031249945983290672,
+    "mlp10": 0.1618364006280899,
+    "attn11": 0.008268448524177074,
+    "mlp11": 0.17525851726531982,
+    "attn12": 0.02357477881014347,
+    "mlp12": 0.07650594413280487,
+    "attn13": 0.03403676673769951,
+    "mlp13": 0.09021749347448349,
+    "attn14": 0.1068819984793663,
+    "mlp14": 0.07934898138046265,
+    "attn15": 0.009744211100041866,
+    "mlp15": 0.0597289614379406,
+    "attn16": 0.02311631105840206,
+    "mlp16": -0.0007314374670386314,
+    "attn17": 0.0035276354756206274,
+    "mlp17": -0.044249411672353745
+   },
+   "order_top8": [
+    "attn8",
+    "mlp8",
+    "mlp0",
+    "attn6",
+    "mlp1",
+    "mlp11",
+    "mlp2",
+    "mlp9"
+   ],
+   "top": "attn8",
+   "top_recovery": 0.6061602830886841,
+   "top3_share": 0.2999941689465003,
+   "attn8_rank": 1,
+   "attn8_recovery": 0.6061602830886841,
+   "all_components_recovery": 0.9634294509887695,
+   "rows": 6,
+   "rows_with_expected_native_preference": 6
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 78,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 5.325756311416626
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_ROUNDNESS_LOCALISATION_PREREGISTRATION.md": "a1dcc07ade3f795069309dc282fee6d4e197ed9968f279140dd81fbc14ce3e15",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_capability_results.json": "f099b983dcb1fa35c112d6c1dd3565f6024bb6ea5836b72e4bb050c537ae6923",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}

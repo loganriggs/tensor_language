@@ -1,0 +1,193 @@
+{
+ "registered": {
+  "i": "reader 1's composed path is blind to B and sensitive to A; reader 2 vice versa",
+  "ii": "the path kernel strictly contains the layer kernel; the extra part is the transmitted-but-ignored feature",
+  "iii": "the feature x reader ledger read from weights matches the construction",
+  "iv": "a norm test on the composed form agrees with activation patching"
+ },
+ "config": {
+  "d_in": 24,
+  "d_mid": 18,
+  "h1": 128,
+  "h2": 96,
+  "steps": 15000,
+  "feat_dim": 4
+ },
+ "runs": [
+  {
+   "seed": 0,
+   "fvu": 0.08365922148512092,
+   "layer_block_energy": {
+    "A": 0.43053006871967614,
+    "B": 0.41212884351406187,
+    "C": 0.040348755766447725
+   },
+   "layer_sensitivity_dim": 24,
+   "reader0_block_energy": {
+    "A": 0.9395612348331837,
+    "B": 0.011952728481209495,
+    "C": 0.01214583664254379
+   },
+   "reader1_block_energy": {
+    "A": 0.009954774531160756,
+    "B": 0.950691459473178,
+    "C": 0.009814227185188837
+   },
+   "reader0_sensitivity_dim": 24,
+   "reader1_sensitivity_dim": 24,
+   "patch_reader0": {
+    "A": 1.4015462301439792,
+    "B": 0.15684485156570802,
+    "C": 0.16715066818229687
+   },
+   "patch_reader1": {
+    "A": 0.14464145870815787,
+    "B": 1.4462345097255398,
+    "C": 0.13399266662117293
+   },
+   "layer_lift_rank": 18,
+   "layer_lift_kernel": 282,
+   "norm_vs_patch_agreement": "2/6",
+   "pairs": [
+    {
+     "reader": 0,
+     "feature": "A",
+     "weight_energy": 0.9395612348331837,
+     "patch": 1.4015462301439792
+    },
+    {
+     "reader": 0,
+     "feature": "B",
+     "weight_energy": 0.011952728481209495,
+     "patch": 0.15684485156570802
+    },
+    {
+     "reader": 0,
+     "feature": "C",
+     "weight_energy": 0.01214583664254379,
+     "patch": 0.16715066818229687
+    },
+    {
+     "reader": 1,
+     "feature": "A",
+     "weight_energy": 0.009954774531160756,
+     "patch": 0.14464145870815787
+    },
+    {
+     "reader": 1,
+     "feature": "B",
+     "weight_energy": 0.950691459473178,
+     "patch": 1.4462345097255398
+    },
+    {
+     "reader": 1,
+     "feature": "C",
+     "weight_energy": 0.009814227185188837,
+     "patch": 0.13399266662117293
+    }
+   ]
+  },
+  {
+   "seed": 1,
+   "fvu": 0.07145764054330958,
+   "layer_block_energy": {
+    "A": 0.42770434515720124,
+    "B": 0.36150232555292705,
+    "C": 0.05317578932641341
+   },
+   "layer_sensitivity_dim": 24,
+   "reader0_block_energy": {
+    "A": 0.9540723568014137,
+    "B": 0.009235478706788413,
+    "C": 0.009265188781390831
+   },
+   "reader1_block_energy": {
+    "A": 0.010599860376498994,
+    "B": 0.9463484194353844,
+    "C": 0.011238790472363914
+   },
+   "reader0_sensitivity_dim": 24,
+   "reader1_sensitivity_dim": 24,
+   "patch_reader0": {
+    "A": 1.4006123407040256,
+    "B": 0.14402761577711856,
+    "C": 0.13811355635685377
+   },
+   "patch_reader1": {
+    "A": 0.13607934606430444,
+    "B": 1.3498123496277443,
+    "C": 0.1375141212409563
+   },
+   "layer_lift_rank": 18,
+   "layer_lift_kernel": 282,
+   "norm_vs_patch_agreement": "2/6",
+   "pairs": [
+    {
+     "reader": 0,
+     "feature": "A",
+     "weight_energy": 0.9540723568014137,
+     "patch": 1.4006123407040256
+    },
+    {
+     "reader": 0,
+     "feature": "B",
+     "weight_energy": 0.009235478706788413,
+     "patch": 0.14402761577711856
+    },
+    {
+     "reader": 0,
+     "feature": "C",
+     "weight_energy": 0.009265188781390831,
+     "patch": 0.13811355635685377
+    },
+    {
+     "reader": 1,
+     "feature": "A",
+     "weight_energy": 0.010599860376498994,
+     "patch": 0.13607934606430444
+    },
+    {
+     "reader": 1,
+     "feature": "B",
+     "weight_energy": 0.9463484194353844,
+     "patch": 1.3498123496277443
+    },
+    {
+     "reader": 1,
+     "feature": "C",
+     "weight_energy": 0.011238790472363914,
+     "patch": 0.1375141212409563
+    }
+   ]
+  }
+ ],
+ "null_gauge": {
+  "refactor_residual": 5.810743746632864e-29,
+  "max_function_diff": 2.0961010704922955e-13,
+  "h_before": 128,
+  "h_after": 300,
+  "reader0_before": {
+   "A": 0.9395612348331837,
+   "B": 0.011952728481209495,
+   "C": 0.01214583664254379
+  },
+  "reader0_after": {
+   "A": 0.9395612348331833,
+   "B": 0.011952728481209617,
+   "C": 0.012145836642543916
+  }
+ },
+ "null_random": {
+  "reader0": {
+   "A": 0.1901437869750959,
+   "B": 0.1747930111470172,
+   "C": 0.1759319557109653
+  },
+  "reader1": {
+   "A": 0.15505500486729004,
+   "B": 0.166567364077835,
+   "C": 0.1784024947168414
+  }
+ },
+ "runtime_s": 102.35971570014954
+}

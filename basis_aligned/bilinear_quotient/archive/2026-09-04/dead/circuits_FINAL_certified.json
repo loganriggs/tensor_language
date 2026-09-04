@@ -1,0 +1,58 @@
+[
+ {
+  "circuit_id": 175,
+  "story": "predicting the paragraph break \u2014 a newline after a sentence-ending period, or the capitalized 'The' that opens the next paragraph \u2014 early in the context window",
+  "status": "sound",
+  "precision": 0.204,
+  "recall": 0.514,
+  "lift": 63.6
+ },
+ {
+  "circuit_id": 215,
+  "story": "Predicting 'com' to finish a web address of the form www.something.[com].",
+  "status": "sound",
+  "precision": 0.308,
+  "recall": 0.25,
+  "lift": 443.1
+ },
+ {
+  "circuit_id": 223,
+  "story": "Predicting the paragraph break after a sentence-final period \u2014 the newline(s) ending the paragraph, or the capitalized 'The' that opens the next paragraph \u2014 with very high induction, since '.\\n' and '\\nThe' have occurred many times earlier in the context.",
+  "status": "redteam-fixed",
+  "precision": 0.273,
+  "recall": 0.647,
+  "lift": 52.9
+ },
+ {
+  "circuit_id": 2,
+  "story": "Predicting a closing or opening emphasis marker (**, _) or a spaced dash after a name or clause whose matching marker or pattern already appeared earlier in the context.",
+  "status": "refined",
+  "precision": 0.196,
+  "recall": 0.443,
+  "lift": 64.6
+ },
+ {
+  "circuit_id": 77,
+  "story": "Closing a paired delimiter - parenthesis, bold '**', italic '_' or quote - to match the opener that appeared earlier, whatever word precedes it.",
+  "status": "refined",
+  "precision": 0.242,
+  "recall": 0.618,
+  "lift": 33.8
+ },
+ {
+  "circuit_id": 125,
+  "story": "Predicting the newline right after a sentence-final period at the end of a paragraph, late in the context.",
+  "status": "refined",
+  "precision": 0.258,
+  "recall": 0.388,
+  "lift": 46.0
+ },
+ {
+  "circuit_id": 128,
+  "story": "Attaching the possessive/contraction 's (apostrophe forms) to a noun or proper name that has just been mentioned.",
+  "status": "wave3",
+  "precision": 0.167,
+  "recall": 0.379,
+  "lift": 66.5
+ }
+]

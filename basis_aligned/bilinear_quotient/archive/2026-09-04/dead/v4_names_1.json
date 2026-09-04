@@ -1,0 +1,275 @@
+[
+ {
+  "tag": "r.2.1.0",
+  "name": "list-entry newline terminator",
+  "mechanism": "Predicts the newline that closes a numbered map-key/index entry (name + grid code) so the next numbered entry can start, plus the analogous boundary in heading lists.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.1.1",
+  "name": "listing delimiter whitespace",
+  "mechanism": "Predicts the stereotyped separator tokens inside guidebook listing lines - the space after a semicolon before the hours glyph 'h', entry-final newlines, and trailing grid digits.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.2",
+  "name": "repeated template completion",
+  "mechanism": "Completes recurring local templates by matching earlier occurrences - map-grid digits after a coordinate letter, next place name in a heading run, and '( MAP GOOGLE MAP ) ;' boilerplate.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.2.0",
+  "name": "listing boilerplate punctuation",
+  "mechanism": "Predicts low-entropy punctuation and whitespace slots in stereotyped listing formats (semicolon/space before hours, comma in population figures, entry-final newlines).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.2.2",
+  "name": "grid codes and caps labels",
+  "mechanism": "Predicts the trailing map-grid digit after a coordinate letter and the continuation of all-caps venue-category labels (COCKTAIL BAR, LIVE MUSIC) at listing-name ends.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.3",
+  "name": "in-context name recall",
+  "mechanism": "Retrieves the second token of multi-token names and fields already seen or strongly implied in context (Lamb & Flag, Guildhall, heading place names, '24' in h24hr).",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.3.2",
+  "name": "name-conditioned label matching",
+  "mechanism": "Predicts tokens dictated by the entity just named - the all-caps category echoing the name (Gardens->GARDENS, Cafe->CAFE, Guide->TOURIST), multi-token place-name continuations, and repeated population figures.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.2.3.3",
+  "name": "listing field-value tokens",
+  "mechanism": "Predicts short digit/letter values in address and contact fields of listings - postcode digits, phone prefix '01', street numbers - plus entry-final newlines.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.3",
+  "name": "post-details paragraph break",
+  "mechanism": "Predicts the newline after the closing parenthesis of a listing's details block, handing off from structured fields to the prose description that follows.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.0",
+  "name": "contents-list item continuation",
+  "mechanism": "Continues table-of-contents style lists: the next '####' heading item, its terminating newline, and completions of index entry names (Gatwick, Activities, Allotment).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.0.0",
+  "name": "index entry tokens",
+  "mechanism": "Predicts assorted tokens inside index/listing entries - heading items, caps label suffixes (TOURIST), grid digits, and the boilerplate space before 'MAP' - all copied from the recurring entry format.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.0.1",
+  "name": "next index item prediction",
+  "mechanism": "Predicts the next item in enumerated indexes and heading lists - the following place/section name after '####' or the newline that starts the next numbered entry.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.1",
+  "name": "clause boundary before names",
+  "mechanism": "Predicts connective words and punctuation at prose clause boundaries where the immediately following word is a proper name from the discourse (', Hinrichs', '. Once Cannizzaro', 'by the Canterbury West').",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.1.0",
+  "name": "listing header line break",
+  "mechanism": "Predicts the boundary ending a venue-name-plus-category header line (e.g. 'BOAT TOUR\\n' before the '(' details line) and next items in heading lists.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.3.1.1",
+  "name": "map-key entry termination",
+  "mechanism": "Predicts the newline closing numbered map-key entries ('29FabricC1\\n') and completes the section labels (Entertainment, Shopping) heading those entry runs.",
+  "confidence": "high",
+  "unclear": false
+ },
+ {
+  "tag": "r.6",
+  "name": "proper-name slot filling",
+  "mechanism": "Retrieves proper-name tokens for stereotyped listing slots, most visibly tube-station names after the 't' transport glyph (tLeicester, tTottenham, tAldgate), plus grid digits and entry newlines.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.0",
+  "name": "section label completion",
+  "mechanism": "Completes section and category labels in guidebook indexes - 'Top Sights', 'Shopping\\n', caps venue types (PUB, WINE BAR) - and known multi-token entry names.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.0.0",
+  "name": "GOOGLE MAP boilerplate copy",
+  "mechanism": "Predicts ' MAP' in the fixed '( MAP GOOGLE MAP ) ;' boilerplate by verbatim copy of the template repeated hundreds of times in the document.",
+  "confidence": "high",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.0.1",
+  "name": "caps label suffix completion",
+  "mechanism": "Completes the tail of all-caps venue-type labels appended to names (HOTEL, MUSEUM, LANDMARK, THEATRE, CAFE) and of known multi-token place names (Chichester, Eastbourne).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.0.3",
+  "name": "mixed index and prose tokens",
+  "mechanism": "Members split between index-entry tokens (Shopping, grid digits) and unrelated mid-sentence prose words; no single common function is evident.",
+  "confidence": "low",
+  "unclear": true
+ },
+ {
+  "tag": "r.6.1",
+  "name": "listing address tokens",
+  "mechanism": "Predicts tokens in address/detail fields of listings - postcode digits, street numbers ('8 High St'), field openers - together with index-entry newlines.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.1.0",
+  "name": "adult/child collocation",
+  "mechanism": "Predicts 'child' after 'adult/' in admission-price fields - a fixed collocation in the listing format - plus a few other stereotyped compound completions (Larder, Hotspur).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.1.1",
+  "name": "detail-line field openers",
+  "mechanism": "Predicts the delimiter or first token opening the next field in a listing detail line ('m'ains, ' tower'/';' before adult/, the space before the hours glyph).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.2",
+  "name": "guidebook structure tokens",
+  "mechanism": "Predicts assorted format-determined tokens across guidebook structures - heading names, 'Top Sights', entry newlines, price-field abbreviations (s/d, r) - a broad parent of more specific children.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.2.0",
+  "name": "Sights heading completion",
+  "mechanism": "Completes stereotyped section headings, dominantly '1Top Sights'/'1Sights', and the next place name in '###' heading sequences.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.2.1",
+  "name": "index name and label completion",
+  "mechanism": "Completes index-entry names (Queen's Gallery, Shopping, Entertainment) and the trailing letters of caps venue labels (BAR, SHIP, STADIUM, PUB).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.3",
+  "name": "contents heading items",
+  "mechanism": "Predicts the next place/section name in '####' table-of-contents runs and completions of index entry names, with terminating newlines.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.3.0",
+  "name": "next TOC heading prediction",
+  "mechanism": "Predicts the place name of the next '####' table-of-contents heading (Rye, Dover, Battle, Sandwich, Hastings...), retrieving the geographically ordered list from context.",
+  "confidence": "high",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.3.1",
+  "name": "postcode digit completion",
+  "mechanism": "Predicts the digit completing London postcodes in address fields (WC2, NW1, E1, SE1) after the district letters.",
+  "confidence": "high",
+  "unclear": false
+ },
+ {
+  "tag": "r.6.3.2",
+  "name": "heading line terminator",
+  "mechanism": "Predicts the newline ending '####' heading lines (Information, Tours, Entertainment, History) plus the ' MAP' boilerplate token.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.7",
+  "name": "index and heading tokens",
+  "mechanism": "Broad parent covering format-determined tokens in guidebook indexes: grid digits, multi-token entry names (Hoxton Hotel, Jeake's House), heading items, and caps label endings.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.0",
+  "name": "map-key entry newline",
+  "mechanism": "Predicts the newline terminating numbered map-key/index entries ('4Westminster AbbeyF3\\n', '1Sights\\n') so the next numbered item can begin.",
+  "confidence": "high",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.0.0",
+  "name": "curated list item names",
+  "mechanism": "Predicts the next multi-token name in curated lists ('Best Places to Stay' hotel names, TOC section names like Eating/Shopping/Entertainment).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.0.1",
+  "name": "subsection heading recall",
+  "mechanism": "Predicts short recurring subsection headings (Car, Bicycle, Toilets, Tourist Information) and repeated document figures like population numbers, recalled from parallel sections.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.0.2",
+  "name": "standard section sequence",
+  "mechanism": "Predicts the next section name in the fixed guidebook chapter sequence (Sleeping, Eating, Drinking & Nightlife, Entertainment, Shopping, Information).",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.1",
+  "name": "field separator semicolon",
+  "mechanism": "Predicts the delimiter between fields of a listing detail line, chiefly the semicolon after the price range before the hours field, plus related in-field punctuation.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.1.0",
+  "name": "mains price-field opener",
+  "mechanism": "Predicts the 'mains'/'s'/'d' abbreviation that opens the price field after an address in restaurant and hotel listings, plus table-number digits in the science text.",
+  "confidence": "medium",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.1.1",
+  "name": "grid digits and index tokens",
+  "mechanism": "Predicts trailing map-grid digits after coordinate letters (Clink78F2, GeneratorD3) mixed with index-entry completions and terminators.",
+  "confidence": "low",
+  "unclear": false
+ },
+ {
+  "tag": "r.7.2",
+  "name": "guidebook heading tokens",
+  "mechanism": "Predicts format-determined tokens around headings and labels - population figures after 'Pop', heading place names, caps label endings (CLUB, HOTEL, HOSTEL) - a broad parent pack.",
+  "confidence": "low",
+  "unclear": false
+ }
+]

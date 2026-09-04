@@ -1,0 +1,133 @@
+{
+ "hypothesis": "reader-mode coherence, not magnitude, governs the damage",
+ "coherence": {
+  "trained residual (seed 0)": {
+   "effective_reader_rank": 19.658859849657393,
+   "n_readers": 23,
+   "top_share": 0.07759120035309013,
+   "normalised_eff_rank": 0.8547330369416258,
+   "pairs_spread_over": 100.38676101123278,
+   "n_pairs": 110,
+   "top_pair_share": 0.015985895517246256
+  },
+  "isotropic noise": {
+   "effective_reader_rank": 22.425959146051262,
+   "n_readers": 23,
+   "top_share": 0.05704657338615579,
+   "normalised_eff_rank": 0.9750417020022288,
+   "pairs_spread_over": 109.49657284816273,
+   "n_pairs": 110,
+   "top_pair_share": 0.011071295984860893
+  },
+  "symmetry-breaking half of the residual": {
+   "effective_reader_rank": 18.95522786276436,
+   "n_readers": 23,
+   "top_share": 0.08639451421479465,
+   "normalised_eff_rank": 0.8241403418593201,
+   "pairs_spread_over": 94.88155741300758,
+   "n_pairs": 110,
+   "top_pair_share": 0.02099088526730824
+  },
+  "symmetry-preserving half of the residual": {
+   "effective_reader_rank": 17.760764325809813,
+   "n_readers": 23,
+   "top_share": 0.09718838190568864,
+   "normalised_eff_rank": 0.7722071446004266,
+   "pairs_spread_over": 93.78903920604546,
+   "n_pairs": 110,
+   "top_pair_share": 0.01822358044283923
+  },
+  "reader-rank-1 synthetic (damaging)": {
+   "effective_reader_rank": 1.0,
+   "n_readers": 23,
+   "top_share": 1.0,
+   "normalised_eff_rank": 0.043478260869565216,
+   "pairs_spread_over": 95.80017583043289,
+   "n_pairs": 110,
+   "top_pair_share": 0.017165883557315968
+  }
+ },
+ "rank_sweep": [
+  {
+   "planted_rank": 1,
+   "effective_reader_rank": 1.0,
+   "off_block": 0.1777065828907337,
+   "blind": 0,
+   "oracle": 5
+  },
+  {
+   "planted_rank": 2,
+   "effective_reader_rank": 1.9929986751579039,
+   "off_block": 0.17770658289028185,
+   "blind": 8,
+   "oracle": 9
+  },
+  {
+   "planted_rank": 3,
+   "effective_reader_rank": 2.5742082547874086,
+   "off_block": 0.17770658289048713,
+   "blind": 9,
+   "oracle": 11
+  },
+  {
+   "planted_rank": 5,
+   "effective_reader_rank": 4.048582870448622,
+   "off_block": 0.17770658289048868,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "planted_rank": 8,
+   "effective_reader_rank": 5.44481837910876,
+   "off_block": 0.17770658288972208,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "planted_rank": 12,
+   "effective_reader_rank": 7.258438503133229,
+   "off_block": 0.17770658289095587,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "planted_rank": 23,
+   "effective_reader_rank": 10.134252941851706,
+   "off_block": 0.17770658289105146,
+   "blind": 11,
+   "oracle": 11
+  }
+ ],
+ "real": [
+  {
+   "source": "trained residual (seed 0)",
+   "effective_reader_rank": 19.658859849657354,
+   "off_block": 0.17770658289100505,
+   "blind": 0,
+   "oracle": 2
+  },
+  {
+   "source": "isotropic noise",
+   "effective_reader_rank": 22.42595914605127,
+   "off_block": 0.17770658289059216,
+   "blind": 11,
+   "oracle": 11
+  },
+  {
+   "source": "symmetry-breaking half of the residual",
+   "effective_reader_rank": 18.955227862764374,
+   "off_block": 0.1777065828909351,
+   "blind": 0,
+   "oracle": 1
+  },
+  {
+   "source": "symmetry-preserving half of the residual",
+   "effective_reader_rank": 17.760764325809753,
+   "off_block": 0.177706582890941,
+   "blind": 2,
+   "oracle": 4
+  }
+ ],
+ "corr_recovery_vs_log_eff_rank": -0.304413094775708,
+ "runtime_s": 78.69137954711914
+}
