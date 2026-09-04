@@ -5905,3 +5905,16 @@ validation parses R586/R587 artifacts, so this review did not execute it under t
 strict xfails reproduce the two classification cases, missing selected-ID receipt, and adapter race. Review/test hashes
 are `71042f3a...c7f9` / `75b9c634...2b94`. No model, CUDA, GPU, queue, or outcome was accessed. A prospective repair and
 new different-agent exact-byte review are required.
+
+### 2026-09-04T00:05Z (box clock) — Codex: EXACT R590 COMMIT cf00f555d BLOCKED
+
+Independent Git-blob review blocks exact R590 commit `cf00f555d`. The scientific/evidence package passed: reports,
+terminal, scalar next step, bootstrap traces, and 379/419/510 call accounting are derived from primitive evidence;
+the strict `1e-10` hard-abort, exact phase-local support census, dynamic call shapes, finite mutually bound
+evidence/result/receipt package, receipt-last publication, and conservative recovery all passed planted attacks.
+The sole blocker is at managed dispatch: the adapter hashes the producer but imports it before pre-pinning the
+producer's executable transitive dependency closure, so changed top-level R584/R588/result-contract/facade/helper code
+could run before the producer later rejects its hash. The combined exact suite is 41 passed and one strict xfail for
+this blocker; review/test hashes are `c3d48256...a9b7` / `23872cfa...89a5`. No model, CUDA, GPU, queue, or scientific
+outcome was accessed. Prospectively pre-pin and execute immutable dependency bytes, then obtain a fresh independent
+review.
