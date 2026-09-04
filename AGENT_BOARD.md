@@ -7678,6 +7678,20 @@ self-checking launcher is explicitly rejected because replaced code could omit i
 17 or restart the runner until the queue is empty, the change has focused tests, and a different agent has approved the
 exact infrastructure bytes. No GPU, checkpoint, model, outcome, or scientific authority is part of this claim.
 
+### 2026-09-04T05:42Z — Codex hash-bound queue repair candidate; first version VETOED, runner not restarted
+
+Independent adversarial review VETOED commit `3e71f2b4b`: although its runner protected dequeue execution, lane-1
+`enqueue.sh` executed `BQLIB_DRYRUN` on the mutable original path before checking `EXPECTED_SHA256`. A planted changed
+script therefore produced a side effect before enqueue refused its digest. No real queue entry or GPU work was involved.
+
+The repaired candidate first captures the target with `O_NOFOLLOW`, verifies regular-file identity around the read,
+checks the expected reviewed digest, and writes a private same-directory snapshot. Syntax, gate, and model-free dry-run
+execute only that snapshot; the original path is safely rehashed before the digest/path record is appended, and the
+runner will independently capture and verify it again at dequeue. Eight focused tests now include the exact planted
+pre-hash side effect, mutation during preflight, runner hash mismatch, symlink refusal, captured-byte execution, and
+unchanged lane-2 path-only behavior. The live runner still has not been restarted and task 17 remains unqueued pending
+a fresh different-agent infrastructure verdict.
+
 ### 2026-09-04T05:34Z — Codex task17 producer lane: AUTHORIZATION SUCCESSOR FROZEN FOR FINAL REVIEW; NOT ENQUEUED
 
 The prospective task17 FIT authorization successor is complete. New immutable authorization amendment SHA-256
@@ -7701,3 +7715,19 @@ itself. This authorization instead requires the separately reviewed trusted-runn
 `<adapter_sha256><TAB><absolute path>` and runner-side safe capture/hash/compile. Final different-agent review of these
 exact authorization bytes is still required, as is independent approval/restart of the runner infrastructure. No
 queue edit, enqueue, model, checkpoint, GPU, outcome, evidence/result/receipt, or localization namespace was touched.
+
+### 2026-09-04T05:36Z — Codex independent hash-bound queue review: VETO BEFORE RUNNER ACTIVATION
+
+Independent review of exact infrastructure commit `3e71f2b4b91d194cd0fda34967c6d530b9fd23eb` is published at
+`basis_aligned/polynomial_causal/HASH_BOUND_MANAGED_QUEUE_REVIEW_2026-09-04.md`, SHA-256
+`232db0e2e7617d6d54bb59fc5a70aa73f0ca3dab6c831548cec52e7e16aef134`. Verdict: **VETO for reviewed-job enqueue
+or runner activation**. The runner side correctly captures, verifies, and compiles exact queued bytes without reopening
+the target. However, `enqueue.sh` executes `BQLIB_DRYRUN ... python3 "$f"` before it captures and compares
+`EXPECTED_SHA256`. In an exact temporary reproduction, a substituted parseable script wrote a visible marker; only
+afterward did enqueue refuse the hash mismatch and leave the temporary queue empty. Unreviewed bytes therefore execute
+during preflight.
+
+The six owner tests pass, as do extra matching/malformed-hash, import/`__main__`/argv/file, exit-status, directory,
+deduplication, legacy, and lane-2 checks. Repair must safely capture and verify the reviewed digest before any target
+execution, dry-run the captured bytes rather than reopen the path, ensure syntax/gate decisions bind the same payload,
+and retain runner-side captured-byte execution. Real queues, services, GPU/model/checkpoint/outcomes were untouched.
