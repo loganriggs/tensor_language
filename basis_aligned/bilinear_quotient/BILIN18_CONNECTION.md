@@ -74330,3 +74330,76 @@ appended, as the honest record of what was registered before the defect was know
 Queued next: `circuit_battery_donor_control_sweep` (prereg written 08:09:09Z), which asks the same question of all 21 behaviours at
 their own writers on the FULL arm §2840 actually published, and whose pred_a is the census/receipt cross-check — a no-GPU census of the
 row generator predicting a GPU receipt written weeks earlier, task for task.
+
+## §2859 — THE STRUCTURAL CENSUS PREDICTS A GPU RECEIPT WRITTEN WEEKS EARLIER, TASK FOR TASK (agreement 1.00)
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_DONOR_CONTROL_SWEEP_PREREGISTRATION.md` (written 08:09:09Z; the in-document header reads
+"08:2xZ", which is **wrong** — it was composed without reading `date -u` first, the same slip §2858 records; the mtime is
+authoritative, and the document is left unedited because its sha is frozen into the rung that ran from it).
+Run `circuit_battery_donor_control_sweep`, landed 08:10Z.
+Results: circuit_battery_donor_control_sweep_results.json
+Price: 324 GPU forwards, 5.8 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`).
+
+SIGN CONVENTION: `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS**; ratio LOWER = MORE SELECTIVE. No CE, no §312 L2, nothing
+installs. (Frontier: L2 is CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER, §2135; norm-2304 at 2.6735, §2125 stands.)
+
+All 21 behaviours, each at **its own** identified writer, on the **FULL** arm §2840 published.
+
+**pred_a TRUE — agreement 1.00, and this is the rung's physical control.** For every one of the 16 tasks carrying both fields,
+`frac_base_in_a1 == 1.00` **iff** `control_d_m["P"] == split_d_m["FULL"]` bitwise. A no-GPU census of the row generator, run today,
+predicts task-for-task which entries of a GPU receipt written weeks ago collapsed onto the target — 9 degenerate, 9 bitwise, no
+disagreement in either direction. **pred_b TRUE:** on those 9, `max |d_P_base − d_A1| = 0.0` exactly, not merely inside the .015
+atomics tolerance. §2858's account of the defect is confirmed at full PER_CELL across the whole bank and at each behaviour's own writer.
+
+**pred_c FALSE** (5 behaviours separating, bar 6; median separation .101). **pred_d FALSE**, null `d_null_still_none_selective` MET:
+zero capable behaviours cross .25. **pred_e FALSE** (corrected IQR .176, bar .20).
+
+§2858's verdict therefore replicates at the FULL arm and across writers. **What that verdict MEANS is corrected in §2860 below, which
+was found while this rung was in flight** — the reading published in §2858 does not survive, though every measurement in it does.
+
+## §2860 — CORRECTION (interpretation, not measurement): P PRESERVES THE CAUSAL VARIABLE, SO SCORING IT AS A NEGATIVE CONTROL PINNED THE METRIC AT 1. §2858's closing reading is WITHDRAWN, and the campaign's standing negative is now UN-ESTABLISHED rather than disproven
+
+No new run; no price. Established from the bank's own declarations plus arithmetic on the already-landed §2858 receipt.
+
+§2858 closed with: *"attn8's write is required for the surface form of the continuation, not for the causal variable the behaviour
+turns on."* **That sentence is withdrawn.** The control that refutes it is documentary and needs no GPU:
+
+| | declared value |
+|---|---|
+| `TASKS['paren_list.index_successor'].causal_variable` | **"last visible list label"** |
+| P family `semantic_details` | **`{'perturbation': 'item_words'}`** |
+| generator source comment at the P branch | **"surface: swap the item words only"** / "unrelated filler word changes" |
+
+P swaps filler and **leaves the causal variable exactly intact** — `64) jasmine / 65) vine` → `64) beacon / 65) mosaic`, the labels
+64/65 unchanged. It preserves the answer *because* it preserves the variable. So a writer that genuinely carries the causal variable
+**must** damage P as much as A1: `|d_P|/d_A1 ≈ 1` is the **signature of a variable-carrying writer**, not evidence against selectivity.
+Because the score took `max` over controls and that term is ≈1 by construction, **the metric was pinned near 1 for every behaviour
+however specific the writer was**, and the `max` discarded the control that does carry information. From §2858's own landed receipt:
+
+| behaviour | d_A1 | d_C3 | **\|d_C3\|/d_A1** | \|d_P_donor\|/d_A1 |
+|---|---|---|---|---|
+| counting words | .859 | **−.539** | **.627** | 1.267 |
+| keyed counter | 1.574 | **−.438** | **.278** | 1.237 |
+| month | .835 | **−.402** | **.482** | 1.056 |
+| numbered list | 1.879 | **−1.079** | **.574** | .962 |
+| numeric run | .461 | **−.134** | **.267** | .710 |
+| paren list | 1.084 | **−.509** | **.470** | .996 |
+| roman list | 2.212 | **−.816** | **.369** | 1.017 |
+
+`d_C3` is **negative on all seven** — removing attn8's write *helps* the copy answer, i.e. the writer actively opposes copying while
+supporting the successor, which is what §2842/§2843's "which item was last and whether it is round" predicts.
+
+**Scope of the withdrawal, stated precisely.** WHAT STANDS: every measurement in §2858 and §2859 — the degeneracy census (11 of 21),
+`max |d_P_base − d_A1| = 0.0`, the bitwise §2840 coincidence, agreement 1.00, the instrument checks (A1 native drift 0.0, arm
+reproduces 7 of 7), and §2857's copy-control repair. WHAT IS WITHDRAWN: §2858's closing interpretive sentence, and with it the
+standing campaign claim "**zero behaviours are writer-selective**" as carried by §2840 and §2852 — that number is what a `max` over a
+positive control returns, not a fact about the model.
+
+**No opposite conclusion is published here.** I am withdrawing a claim, not asserting its negation: the honest state is that
+selectivity is **un-established**, in either direction, under a metric that could not have measured it. The standing rule requires an
+independent physical control before a correction FLIPS a conclusion, and the flip — "attn8 IS selective" — is exactly what is NOT
+being claimed. It is registered instead as protocol v6 (`CIRCUIT_BATTERY_PROTOCOL_V6_PREREGISTRATION.md`, 08:15Z, queued), which
+re-specifies P as a **positive** control, scores selectivity on the copy control, and tests it on **held-out TEST/OOD splits the
+selectivity stage has never used** — with `b_null_preserving_control_is_not_positive` registered precisely so that this section's
+central claim can be cleanly refuted. Nothing here retires a failing registered bound: §2852's and §2859's nulls are recorded as met,
+and they stay met.
