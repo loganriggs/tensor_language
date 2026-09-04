@@ -1,0 +1,95 @@
+[price] attn0    d_ce=+1.5930 nats  write_norm=397.836
+[price] mlp0     d_ce=+2.6509 nats  write_norm=49709.820
+[price] attn1    d_ce=+2.4929 nats  write_norm=1634.741
+[price] mlp1     d_ce=+1.0945 nats  write_norm=4033.520
+[price] attn2    d_ce=+0.3365 nats  write_norm=6380.800
+[price] mlp2     d_ce=+0.1414 nats  write_norm=15331.604
+[price] attn3    d_ce=+0.1319 nats  write_norm=6797.015
+[price] mlp3     d_ce=+0.1151 nats  write_norm=20478.615
+[price] attn4    d_ce=+0.2799 nats  write_norm=9946.198
+[price] mlp4     d_ce=+0.4043 nats  write_norm=16092.763
+[price] attn5    d_ce=+2.1996 nats  write_norm=7761.766
+[price] mlp5     d_ce=+0.0750 nats  write_norm=2514.573
+[price] attn6    d_ce=+0.0952 nats  write_norm=2775.161
+[price] mlp6     d_ce=+0.0496 nats  write_norm=1691.659
+[price] attn7    d_ce=+0.0688 nats  write_norm=1911.436
+[price] mlp7     d_ce=+0.0456 nats  write_norm=1305.434
+[price] attn8    d_ce=+0.0336 nats  write_norm=1097.681
+[price] mlp8     d_ce=+0.0353 nats  write_norm=2059.828
+[price] attn9    d_ce=+0.0439 nats  write_norm=3067.651
+[price] mlp9     d_ce=+0.0300 nats  write_norm=2693.340
+[price] attn10   d_ce=+0.0245 nats  write_norm=2062.634
+[price] mlp10    d_ce=+0.0302 nats  write_norm=2354.647
+[price] attn11   d_ce=+0.0351 nats  write_norm=2596.031
+[price] mlp11    d_ce=+0.0289 nats  write_norm=4408.034
+[price] attn12   d_ce=+0.0117 nats  write_norm=1870.706
+[price] mlp12    d_ce=+0.0309 nats  write_norm=4418.971
+[price] attn13   d_ce=+0.0192 nats  write_norm=2194.370
+[price] mlp13    d_ce=+0.0281 nats  write_norm=4777.967
+[price] attn14   d_ce=+0.0295 nats  write_norm=2576.398
+[price] mlp14    d_ce=+0.0332 nats  write_norm=4649.188
+[price] attn15   d_ce=+0.0083 nats  write_norm=2129.396
+[price] mlp15    d_ce=+0.1307 nats  write_norm=11584.479
+[price] attn16   d_ce=+0.0126 nats  write_norm=2788.103
+[price] mlp16    d_ce=+0.8391 nats  write_norm=29939.733
+[price] attn17   d_ce=+0.0132 nats  write_norm=6418.022
+[price] mlp17    d_ce=+0.5668 nats  write_norm=57831.391
+{
+ "preds": {
+  "pred_a_attn5_leads_the_document_ce_map": true,
+  "pred_b_class_mass_predicts_the_ce_price": false,
+  "pred_c_attn5_is_disproportionately_expensive": true,
+  "pred_d_class_beats_margin_as_predictor": true,
+  "pred_e_instrument_reproduces_module_ce": true
+ },
+ "nulls": {
+  "a_null_attn5_outside_top8": false,
+  "b_null_no_class_correlation": false,
+  "c_null_not_disproportionate": false,
+  "d_null_margin_predicts_as_well": false
+ },
+ "summary": {
+  "ce_damage_top8": [
+   [
+    "mlp0",
+    2.6509
+   ],
+   [
+    "attn1",
+    2.4929
+   ],
+   [
+    "attn5",
+    2.1996
+   ],
+   [
+    "attn0",
+    1.593
+   ],
+   [
+    "mlp1",
+    1.0945
+   ],
+   [
+    "mlp16",
+    0.8391
+   ],
+   [
+    "mlp17",
+    0.5668
+   ],
+   [
+    "mlp4",
+    0.4043
+   ]
+  ],
+  "attn5_ce_rank": 3,
+  "attn5_ce_damage": 2.1996163725852966,
+  "attn5_per_norm": 0.0002833912116514564,
+  "median_per_norm": 1.3912564022000147e-05,
+  "disproportion": 20.369445287247242,
+  "rho_class_vs_ce": 0.4584298584298585,
+  "rho_margin_vs_ce": 0.3343629343629344,
+  "rho_gap": 0.1240669240669241
+ }
+}

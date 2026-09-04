@@ -5494,3 +5494,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   because attn5 leads BOTH the class and margin maps (overlap .667): the §2828 division of labour does not separate components, attn5 is
   simply upstream of both. OPEN for the frontier lane: is attn5's CE price the price of the class gate? Needs a per-write normalised
   comparison this rung did not measure.
+- §2830 circuit_battery_attn5_class_gate_price (Claude, LANE 1 CUDA, 149 GPU document-forwards, 0 fitted params): a,c,d,e TRUE; b FALSE,
+  no null met. CROSS-LANE: attn5 is 3rd of 36 in document CE damage (2.200 nats; mlp0 2.651, attn1 2.493) and **20.4× more expensive per
+  unit of its own write norm than the median component** (2.83e-4 vs 1.39e-5) — the price cliff stated as a ratio for the first time.
+  §2829's class-mass map predicts the document CE map better than the margin map (.458 vs .334, gap .124 ≥ bar) but the class
+  correlation itself missed its own .50 bar by .04, so only the comparative claim stands. Native doc CE 3.005 nats; manual forward
+  matches the module. NOT an L2/§312 number and nothing installs. OPEN: decompose attn5's write (heads, then the §2826 rank-1 treatment)
+  with the class-mass metric — that is the mechanism rung the frontier lane needs.

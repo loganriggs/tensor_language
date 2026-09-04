@@ -72910,3 +72910,48 @@ That is a five-stage mechanism for one behaviour family, every stage measured on
 Price: 703 GPU forwards, 11.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_class_mass_localisation_results.json. (Claude, LANE 1 CUDA.) a, c, d, e TRUE; b FALSE with no null met.
 Preserved.
+
+## §2830 — THE TWO LANES ARE LOOKING AT THE SAME COMPONENT: attention 5 is 3rd of 36 in document CE damage (2.20 nats), **20× more expensive per unit of its own write than the median component**, and the class-mass map from §2829 predicts the document CE map better than the margin map does (.458 vs .334) — but the class correlation itself fell .04 short of its bar (a, c, d, e TRUE; b FALSE, no null met)
+
+The circuit lane found attention 5 is the type gate for six unrelated answer classes (§2829). The frontier lane has carried "attn5's
+write = the price cliff" as one of the three largest gaps in the explained fraction for weeks. This rung asks whether those are the same
+fact, by ablating each of the 36 components' write at every position on 32 natural documents and correlating the resulting CE map,
+across components, with §2829's class-mass and margin maps. Sign convention: d_ce = CE_arm − CE_NATIVE in nats, POSITIVE = the arm HURTS.
+**This is a local ablation quantity on documents; it is NOT the §312 frontier's L2 number, nothing here installs into that frontier, and
+no value below may be quoted as an L2.** Native document CE 3.005 nats.
+
+**pred_e TRUE — the instrument is the model.** Manual forward CE matches the model module's own CE to within the .01-nat bar.
+
+**pred_a TRUE (null "rank ≥ 8" not met) — the price cliff replicates in this lane's instrument.** Component CE damage, top of 36:
+**mlp0 2.651, attn1 2.493, attn5 2.200**, then attn0 1.593, mlp1 1.095, mlp16 .839, mlp17 .567, mlp4 .404. Attention 5 is 3rd, and it is
+the first component past the embedding-adjacent block-0/1 cluster. The frontier lane's cliff is a property of the component, measured
+here with a different instrument on different data.
+
+**pred_c TRUE (null "≤ 1.0" not met) — and this is the number to keep: 20.4×.** CE damage per unit of the component's own mean write
+norm is **2.83e-4** for attn5 against a median of **1.39e-5** across the 36 components. The three components above it in raw damage are
+not above it in efficiency the way one might expect: mlp0 writes 49,710 norm units for 2.65 nats (5e-5 per unit) while attn5 writes
+7,762 for 2.20 (2.83e-4). Only attn0 (4.0e-3) and attn1 (1.52e-3) buy more CE per unit written, and both are embedding-adjacent. So
+attn5 is not expensive because it writes a lot; it is expensive per unit written, by 20× the median — which is what "cliff" should mean
+and, as far as I can find, had not been stated as a ratio before.
+
+**pred_d TRUE (null "≤ 0" not met) — class gating is the better predictor of what a component costs.** Spearman across the 36
+components between §2829's pooled class-mass damage and document CE damage is **.458**, against **.334** for the margin map — a gap of
+**.124** (bar ≥ .10). The map built from "how much probability leaves the answer class" ranks components by their document CE price
+better than the map built from "how much the correct answer beats its competitor" does. That is the cross-lane statement, and it holds
+even though the class map was measured on seven narrow behaviours with bank-defined candidate sets and the CE map on natural documents.
+
+**pred_b FALSE, its null NOT met — but by .04, and I am not going to round it up.** The class-vs-CE correlation is .458 against a
+registered bar of .50. It is well above the null (≤ .10) and it beats the margin map (pred_d), but it did not clear the bar I set, and
+"class gating predicts the CE price" is therefore NOT established at the strength I asked for. What is established is the weaker,
+comparative claim of pred_d.
+
+**What this licenses and what it does not.** A correlation across 36 components is not a mechanism: pred_d licenses "class gating
+predicts what components cost better than margin does", not "attn5's CE price IS its class gate". The honest cross-lane summary is that
+both lanes are studying the same component, that its cost is disproportionate to its size by 20×, and that the best single predictor of
+component cost this campaign has is the class-mass map — which is a lead for the frontier lane's attn5 work, not a resolution of it. The
+mechanism claim would need attn5's write decomposed the way attention 8's was in §2820 and §2826, with the class-mass metric, and that
+is the obvious next rung.
+
+Price: 149 GPU document-forwards, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_attn5_class_gate_price_results.json. (Claude, LANE 1 CUDA.) a, c, d, e TRUE; b FALSE with no null met.
+Preserved.
