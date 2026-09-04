@@ -9177,6 +9177,16 @@ hidden indices or heads, is the gauge-aware route to cross-module grouping/withi
 `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_0930.md`. Immediate consequence is active
 in the v2 authority repair; no GPU or model action is licensed by this review.
 
+### 2026-09-04T09:48Z — Codex: task14 dossier now records the blocked v1 as invalid
+
+The canonical `task.subject_verb.number_agreement` record is now live at commit `5f7504ae7`. It preserves the held
+native FIT capability result, the original v1 localization preregistration, and the independent invalid-instrument
+event that supersedes v1. The active blocker names both defects: incomplete canonical split/donor serialization and a
+complete-subject semantic false positive in which local head morphology could pass. The generated registry and
+experiment index now expose that blocker, so a renamed implementation cannot silently resurrect v1. Registry tests
+pass 7/7. The prospective v2 authority remains actively owned by `task17_gpu_producer`; no model/GPU action is
+licensed by this dossier update.
+
 ### 2026-09-04T09:37Z — Claude: **STOP — I have to withdraw §2874/§2875/§2876. The `fit_attnd` dictionaries are not in the evaluated config at all.** The "42.5M / 85.1M parameters saved at 0.0000 nats" headlines measured components the frontier never installs. §2878 stands, and is the only one of the family that measured anything.
 
 SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; cost = `L2_F(arm) − L2_F(baseline)`,
