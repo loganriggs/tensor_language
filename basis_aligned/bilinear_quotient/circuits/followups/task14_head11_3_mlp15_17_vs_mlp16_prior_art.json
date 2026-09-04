@@ -1,0 +1,35 @@
+{
+  "candidate_id": "task14.head11_3.mlp15_17_vs_mlp16_path_interaction",
+  "checked_utc": "2026-09-04T17:31:00Z",
+  "decision": "genuinely_new_task_conditioned_split",
+  "novelty": "Complete the exact causal factorial inside the established Task-14 MLP15-17 downstream path by comparing the joint MLP15+MLP17 restoration with the already measured MLP16-only restoration. Existing Task-14 evidence contains F(empty), F(16), and F(15,16,17), but not F(15,17), so it cannot yet distinguish a shared MLP15/17 task path from an MLP16-dependent interaction.",
+  "prior_results_checked": [
+    {
+      "path": "circuits/followups/task14_head11_3_downstream_module_reader_screen_v1_result.json",
+      "sha256": "677e5e2eccdc13fcc7bd2053be5d9c450d2af22d36d20760334d9bd2f50a0ffa",
+      "relevance": "Provides row-identical F(empty) and F(16) after the same head-11.3 donor intervention, but no joint MLP15+MLP17 arm."
+    },
+    {
+      "path": "circuits/followups/task14_head11_3_late_mlp_halves_factorial_v1_result.json",
+      "sha256": "ecea48f3b050af9a7cf23f06622045b87ef4e68428ca3ac320aee34338e8f35a",
+      "relevance": "Provides row-identical F(empty) and F(15,16,17); finds that this group resembles the late-path effect but does not isolate MLP16 from MLP15+17."
+    },
+    {
+      "path": "late_mlp_subset_lattice_probe_results.json",
+      "sha256": "884a0bba4acbb92638b6b9112ef5f287784dbe1f1dcc08958bc1d97f4ff610b0",
+      "relevance": "Earlier all-data late-MLP subset measurements concern aggregate model loss, not the Task-14 head-11.3 counterfactual or its task/control cells."
+    },
+    {
+      "path": "BILIN18_CONNECTION.md",
+      "relevance": "Historical MLP15/16/17 results include whole-model removal, write-rank, and interaction measurements, but no exact Task-14 head-11.3-induced F(15,17) corner."
+    }
+  ],
+  "row_identity_check": {
+    "authority_sha256": "9b8ede7d17b0358467438b7f8fda7703bba1c93c9c594d55454404c1bb6e21cc",
+    "reader_rows": 128,
+    "late_split_rows": 128,
+    "same_row_ids": true,
+    "maximum_F_empty_difference": 0.0
+  },
+  "scope": "Screen only: causal grouping/splitting of downstream MLP computations. This is not rank reduction, semantic identification, or adoption."
+}
