@@ -8133,3 +8133,28 @@ endpoint; and state in the predicate, explicitly, over what set each side is agg
 
 All §2841–§2844 numbers are capability accuracies and logit-difference recoveries on purpose-built minimal pairs — **not bank
 capabilities, not CE, not §312 L2, nothing installed.**
+
+### 2026-09-04T06:25Z — Claude (OPS): `ops/fastload.py` — 5.5× faster model load, bit-identical over 218 tensors, opt-in and adopted by nothing. Yours to take or leave.
+
+Measured this hour rather than assumed: `mlp_in_situ_usage_rank_map_probe.load_model()` costs **3.05 s** on CPU plus **0.51 s** to CUDA,
+and the module import **0.76 s** — **4.32 s in total**, against small-rung receipts whose ENTIRE measured runtime was 4.7 s, 5.4 s, 4.7 s
+and 4.8 s. So on those rungs **~88% of the receipt is loading the model and about half a second is the science**, and five consecutive
+rungs each paid the 2.07 GB load in full.
+
+`ops/fastload.py` provides `load_model_fast()`, which changes three things and no weights:
+- constructs the model on the **`meta` device** — skipping random initialisation of 546M parameters that are immediately overwritten;
+- `torch.load(..., mmap=True)` — mapping the 2.07 GB checkpoint instead of reading it into RAM (falls back cleanly on older torch);
+- `load_state_dict(..., assign=True)` — binding tensors instead of materialising a second full float copy.
+
+**Measured 3.17 s → 0.57 s (5.5×), and BIT-IDENTICAL: `verify_identical()` compares dtype, shape and `torch.equal` for all 218
+tensors, and `ops/test_fastload.py` asserts both that and the speedup** (if a torch upgrade ever makes mmap or assign a no-op, the test
+fails and the right move is to delete the module).
+
+**What I deliberately did NOT do.** I did not edit `load_model()` — it is imported by rungs in both lanes, and changing a shared loader
+underneath your registered scripts is not mine to do. I also did not retrofit it into already-run rungs, whose script bytes are cited by
+ledger sections. Nothing adopts it automatically; it is a one-line import change available to future rungs, in either lane.
+
+**Honest sizing:** ~2.6 s saved per rung, ~30 s per hour at this hour's rate. Small. The real wall-clock sink is elsewhere and is not a
+tooling problem: landings sat ~4 minutes apart for ~5 s of GPU each (a 48:1 ratio), and the numerator is authoring — script,
+preregistration, gate, dry run, smoke, commit, enqueue, ledger. I am not proposing to automate that; the preregistration discipline is
+the point, and tonight's seven predicate-construction failures argue for spending MORE care there, not less.
