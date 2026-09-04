@@ -7078,3 +7078,49 @@ needs joint prompt+candidate prefix checks; subject–verb A2 is currently answe
 answer and foil; and named-field lookup duplicates the pointer/equality behavior. Those entries should be repaired/merged before
 implementation. The committed behavior bank is a candidate list, not execution authority. Keep TEST physically unopened; a
 real-row smoke must use a dedicated SMOKE split or generated fixture, never preview SELECT as §2808 did.
+
+### 2026-09-04T03:58Z — Codex different-agent exact review: R593 candidate `715fe9656684378dcc6256a01eed9e35a61f50de` **APPROVED**
+
+Fresh model-free/exact-byte review approves candidate `715fe9656684378dcc6256a01eed9e35a61f50de`
+(tree `8289194b9f59c503e4566fff304aefc5d01c8eb0`) against frozen amendment `53ff70aea` and every
+29-entry adapter-pinned parent/source hash. Candidate blobs exactly match the handoff: producer
+`193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a`, runtime
+`768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777`, adapter
+`44b7a57416b3aeb6b45d66050f72b12d20a69ea0dc48391e8420b33065192d11`, dry run
+`a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1`, and handoff
+`c0bc53b27e8805095b0165149d2dcaa3d6b9db6bf78022cf1ae8dc6271e066a2`.
+
+The previous invalid-publication blocker is closed. Independent zero-, mid-, and full-bound executions of the actual
+compactor show: zero-bound preallocations are unlinked; each retained `.npy` has exactly the ledger-proven axis-0 shape
+and physical EOF after in-place header rewrite/truncate; all 23 production schemas have invariant v1 header length at
+every real FIT/SELECT endpoint and directed boundary; and a completed endpoint/full plus directed/mid failure retained
+exactly 7 canonical ledger records and only the four raw current-chunk calls. Canonical writes flush+fsync before ledger
+append; ledger appends and compacted files are explicitly fsynced; recomputing every published slice hash and every
+receipt-bound file hash succeeded. Compaction creates no second on-disk data tree/copy, so exhaustive boundary arithmetic
+stays at FIT `5,501,463,552` + SELECT `2,750,731,776` + live chunk `43,440,640` = `8,295,635,968` bytes.
+
+Independent authority reconstruction is exact: FIT `1,728` endpoints / `3,744` directions / `13,824` support records =
+`5,760` true + `8,064` false, with `54+117*5=639` calls; SELECT `864` / `1,872` / `6,912` = `2,880` true + `4,032`
+false, with `27+59*5=322`; maximum `961` forwards, zero backwards/updates. The deterministic producer dry run is
+byte-identical to the frozen artifact. Its native-head RMS is `27.9266131911`, independent float64 partition error
+`7.1054273576e-14`, and planted `2e-5` error `1.9999999999e-5`, so the absolute `1e-5` falsifier is unchanged and live.
+Both producer and adapter authoritative gates and advisory preflights pass. R593 focused suites pass `31/31`; an
+additional inherited state/stream/storage packet passes `31/31`; parent specification/adversarial packets pass `64`
+with the two registered expected xfails. All six R593 public namespaces are absent. Capacity equality/one-byte-below
+tests fail closed at `9,455,639,040` pre-model and `3,954,175,488` pre-SELECT; the latest live adapter preflight observed
+`9,459,064,832` bytes and passed, with only `3,425,792` bytes headroom, so dispatch must recheck this gate immediately.
+No Torch/model/checkpoint, CUDA/GPU, queue, or R593 outcome was opened. This review authorizes only these exact bytes;
+I did not enqueue and no rerun is authorized after any terminal.
+
+### 2026-09-04T04:18Z — Codex: BEHAVIOR BANK TASKS 7–20 NEED GENERATOR REPAIRS BEFORE IMPLEMENTATION
+
+CPU-only/model-free audit of bank commit `36c15d7e7` is in
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_BEHAVIOR_BANK_TASKS7_20_PREIMPLEMENTATION_AUDIT_2026-09-04.md`.
+Highest-priority blockers: task 15 conditions `a/an` on a future unseen word; HTML/fence/list prompts and their controls do
+not define a unique next span; task 20 is unsafe at a trailing-whitespace GPT-2 BPE boundary; task 14's A2 does not change
+the answer; and task 16's equal-operand control collapses answer and foil while the archived few-shot assay is demo-copy
+confounded. Named-field task 18 should merge into tasks 5/6. Month/weekday/alphabet/ordinal are one successor operation
+family, while quote/tag/fence are pending-closer surfaces until held-out causal profiles distinguish them. Recommended first
+generic adapters are repaired subject–verb agreement, one grouped month/weekday/alphabet successor batch, repaired quote
+surface, and repaired sentence-boundary case margin; positional list retrieval is the best genuinely new pilot. No bank,
+battery code, model, GPU, queue, or result was touched.
