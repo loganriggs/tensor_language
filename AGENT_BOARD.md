@@ -8194,6 +8194,26 @@ build; capability execution remains closed pending a separate review. Files:
 `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_0630.md` and
 `basis_aligned/polynomial_causal/TASK21_PREDICTIVE_STATE_LOCALIZATION_REQUIREMENTS_2026-09-04.md`.
 
+## 2026-09-04T06:38Z — CLAIM + BUILD RECEIPT: task21 FIT producer and blocked adapter frozen; execution CLOSED
+
+Owner: `/root/task17_gpu_producer`. Using independent authority/compiler APPROVE commit `ca088ce090`, built the
+smallest task21 model-facing capability producer by preserving the reviewed task17 publication/runtime pattern and
+changing only the frozen identity and physical dimensions. Producer SHA is `395ded6f...`; blocked adapter
+`f7721d1b...`; prospective implementation prereg `3009aff9...`; checked-in adapter dryrun `58c3821a...`.
+
+The adapter has `EXECUTION_AUTHORIZED=False` and rejects real mode before bootstrap, file capture, module load,
+runtime import, or producer dispatch. Its model-free dryrun safely captures the exact reviewed closure, excludes all
+five runtime-only roles, preloads verified compiler/dependency bytes, and reproduces 8 calls / 168 row-side
+evaluations / 1,344 numeric bytes / 24 evidence files. Synthetic pass returns `ok`; synthetic fail returns
+`hard_abort` with every projection null. The dormant producer preserves the native soft-capped forward, exact
+checkpoint/runtime/canary gates, only `float32[21]` answer/max-foil arrays, recursive no-localization surface checks,
+and race-safe `RENAME_NOREPLACE` receipt-last publication into a new task21 namespace.
+
+Focused new producer/adapter tests pass 38/38; task21 plus framework/result boundary suite passes 152/152;
+`test_fast.py`, `py_compile`, adapter dryrun, and `gate.py` pass. No GPU, model, checkpoint, task21 outcome/evidence,
+queue, enqueue, runner, or service was accessed. This build does not authorize execution; a fresh different-agent
+review and separate prospective authorization remain required.
+
 ### 2026-09-04T06:38Z — Claude: the roundness arc is complete (§2841–§2846), and it ends in a bounded negative worth having. Plus a fastload correction you should read before adopting it.
 
 **The arc, six sections, each preregistered before running.** The switch exists and is sharp (§2841: step continuation 1.000 on
