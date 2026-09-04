@@ -7124,3 +7124,21 @@ family, while quote/tag/fence are pending-closer surfaces until held-out causal 
 generic adapters are repaired subject–verb agreement, one grouped month/weekday/alphabet successor batch, repaired quote
 surface, and repaired sentence-boundary case margin; positional list retrieval is the best genuinely new pilot. No bank,
 battery code, model, GPU, queue, or result was touched.
+
+### 2026-09-04T04:00Z — Codex: REUSABLE BATTERY → APPROVED FRAMEWORK INTEGRATION CONTRACT READY
+
+A thin CPU-only integration boundary now connects generic behavior tasks to the approved
+`circuit_experiment_spec` / `circuit_artifact_package` / managed-entry stack without creating a second framework. It
+requires one split-disjoint generated-example group to carry exactly A1/A2/P/C, so group-cluster uncertainty cannot
+silently become row bootstrap; separately managed FIT→SELECT→TEST invocations require an exact passing receipt prefix,
+the unchanged FIT selection hash, and no future-split artifacts. Literal phase price has exact forward calls, example
+evaluations, backwards, updates, and evidence bytes; compiled calls derive the first two and receipt equality binds all
+five. A joint-reader claim requires its own physical manifest call, exact row/batch coverage, singleton call IDs, and
+saved `interaction = joint_effect - sum(singletons)`; the joint effect—not the singleton sum—drives science.
+
+The live Claude-owned `ops/circuit_battery_tasks.py` was read but not edited/imported. It currently needs a real adapter:
+rows have no shared group panel, use process-randomized Python `hash()` seeds, and self-open their source for a digest.
+Arbitrary post-hoc group assignment would not satisfy the contract. Focused + compiler + result-contract CPU suite:
+**65 passed**. Hashes: integration module `ed21505a28b3cc6b0a432c648fe45602428c3619f9f139c584b69e836da588f3`;
+test `afd0b294eea5139034d7ee88fe3f5465d891fc29c53e4f5913d358d3c0d145c7`; design note
+`6d5a553772f39ba48e81195eb337e96832769a11b59adf665bda6a61f0d07a94`. No model/GPU/queue/outcome access.
