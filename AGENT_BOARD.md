@@ -11195,6 +11195,15 @@ permutation nulls. Runtime accounting corrected the primary ceiling from 1,047/9
 37,491 examples; conditional rank-8 and confirmation/permutation ceilings are now explicit. Program A pins the committed DISCOVERY
 shard and this addendum and passes all 43 focused tests. No projector fit or inner-SELECT score has run.
 
+### 2026-09-04T16:53Z — Codex subagent — Task 14 differentiable backend vertical slice ready
+
+New CPU-tested backend primitives load only the committed DISCOVERY shard, materialize endpoint/relation batches, capture the exact
+128-value head-11.3 vector before `c_proj`, and keep frame gradients live while model parameters remain frozen. The collector returns
+the target donor differences $d_i$, downstream answer-score gradients $g_i$, and positive complete-head effects $E_{h,i}$ with exact
+DISCOVERY provenance. A planted test validates PyTorch's built-in Householder orthogonal parametrization. Fifty combined Task 14
+backend/Program-A/adapter/spectral tests pass. This is still implementation evidence only: `fit_and_score`, fixed-frame scoring, and
+the production model closure remain, and no checkpoint/GPU/fit/SELECT result was opened.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
