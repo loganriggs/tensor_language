@@ -75725,3 +75725,54 @@ fit-once/eval-many pattern (`ops/frontier_evalarms.py`), snapshotting `LW` and r
 separate account 1 from accounts 2 and 3; a single non-monotone triple cannot.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2888 — THE TWO LARGEST BLOCKS ARE **SUPER**ADDITIVE BY **+0.3023 nats**, ACCOUNTING FOR A THIRD OF §2886's CLOSURE GAP — AND THE FIT-ONCE REFACTOR REPRODUCES THE BASELINE TO **0.0**, AT ONE PIPELINE RUN INSTEAD OF FOUR
+
+Registered `polynomial_causal/FRONTIER_INTERACTION_FRONT_MOTIF_PREREGISTRATION.md` (10:12Z). Run
+`frontier_interaction_front_motif`, landed 10:16Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_interaction_front_motif_results.json
+Price: 0 GPU forwards, 104.4 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1` — the forward count is
+absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+An **error share** = `L2_F(baseline) − L2_F(restored)`, **POSITIVE = that block contributes that much error**; the **interaction** is
+`share_both − (share_front + share_motif)`, **POSITIVE = superadditive**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+**All five predictions TRUE; neither null met.**
+
+| arm | L2_F | error share |
+|---|---|---|
+| BASELINE | **+2.6735** | — |
+| front MLP tables restored | +1.6689 | **+1.0046** |
+| motif heads restored | +2.2747 | **+0.3988** |
+| **both restored** | **+0.9678** | **+1.7057** |
+| sum of singles | | +1.4034 |
+| **interaction** | | **+0.3023** |
+
+### The measurement
+
+**pred_b HELD** — the interaction is **+0.3023**, well past the ≥ .15 bar, and **positive**: restoring both blocks recovers
+**more** than the sum of restoring each alone. **pred_c HELD** — the joint restoration exceeds either single by a wide margin. So the
+front tables and the motif heads are **not** explaining overlapping error; they are **mutually compensating**, each partly covering for
+the other's approximation error while both are in place. That is the same phenomenon §2880 measured inside the MLP stage
+(+3.2104 against an additive 1.4350) and §2883 saw as a +0.2129 drift, now isolated as a single pairwise term.
+
+**It accounts for a third of §2886's closure gap on its own**: +0.3023 of +0.8807 (34.3%), from one pair out of the fifteen available
+among six blocks. §2886 said the missing third was interaction structure rather than a missing block; this is the first direct
+measurement of a piece of it, and it is consistent in sign and size.
+
+### The two cross-checks that make it readable
+
+1. **The single shares reproduce their source rungs exactly**: front tables **+1.0046** here against §2883's **+1.0045**; motif heads
+   **+0.3988** against §2882's **+0.3988**. Those were measured in separate runs, days of ledger apart in construction, and read here
+   from their receipts under frozen hashes.
+2. **pred_e HELD with `refactor_baseline_deviation = 0.0`** — exactly zero. This is the instrument check on the new fit-once/eval-many
+   pattern (`ops/frontier_evalarms.py`): all four arms were evaluated against **one** fitted stack, and the baseline arm reproduces
+   §2883's independently-fitted baseline **to the digit**. `e_null_the_refactor_changed_the_construction` did not fire.
+
+**The efficiency result, stated because it was registered as a predicate rather than assumed:** four arms in **104.4 GPU-seconds and one
+pipeline run**, against ~380 s and four runs under the per-arm pattern this family has used all session — a **3.6× saving on this rung**,
+with the equivalence measured rather than argued. That is what licenses using the pattern for the nine-arm motif-band profile now
+running, which would otherwise have cost ~850 s.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.
