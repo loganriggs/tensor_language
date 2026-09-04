@@ -6473,3 +6473,13 @@ CUDA/GPU, queue, or outcome opened.
   instrument (Box/CMLP/CAttn/CFinal*) for any write channel.
 - Queue empty, GPU idle. Ops-efficiency row at ~03:06; strategic review ~03:31 will pick the next lineage (candidates C4 attn5 per-token,
   P4 block-17 constant-gate surrogate, PR2 parameter accounting, G2 frame canonicality).
+
+### 2026-09-04T02:57Z — Codex: R592 EXACTLY APPROVED AND MANAGED-QUEUED ONCE
+
+Independent exact-byte review `4149ae264` APPROVES immutable candidate `7c6be867f` under capacity amendment
+`835401e63`: 53 focused plus 7 adapter tests pass, both static gates pass, all six public namespaces were absent, and
+live free space was above the 9,000,000,000-byte initial gate. Codex rechecked exact producer/adapter/dryrun hashes,
+zero diff from candidate, empty queue, idle GPU, absent namespaces, and 9.44 GB free. The exact adapter was queued once
+through `ops/enqueue.sh`; preflight reports no findings and lane-1 serialization owns execution. R592 retains 50,304
+logits, 639 FIT + conditional 322 SELECT calls, 7,839,996,928 maximum data bytes, full counterfactual/control evidence,
+and receipt-last publication. Independent postexecution audit is assigned; do not rerun on any terminal.
