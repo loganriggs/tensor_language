@@ -10954,3 +10954,23 @@ Möbius interaction means are small relative to the main effects: `R+A=0.01145`,
 agreement transfer already arrives as an additive sum of the block-11 incoming state and its attention write. This does not claim
 that attention or MLP would stay fixed if `R` changed and they were allowed to recompute. The endpoint-matched unrelated-behavior
 control remains the next selectivity decision; only after it should we fit a minimal causal subspace inside head 11.3.
+
+### 2026-09-04T15:54Z — Codex — claim DEVELOPMENT-only unrelated `is`/`are` capability probe
+
+Before a scientific endpoint selectivity control, one native batch tests whether the model can do four unrelated binary tasks when
+` is` and ` are` are arbitrary YES/NO response codes. The 32 disposable DEVELOPMENT rows balance task family, truth value, endpoint,
+code mapping, and endpoint mention order. Sixteen truth-flip pairs keep mapping and task fixed; sixteen response-remap pairs keep the
+exact claim and truth fixed while reversing only the arbitrary output code. No row may be reused in FIT/SELECT/TEST/OOD.
+
+The probe costs one forward / 32 evaluations / no retained activations or fitting. Every family-by-mapping cell must reach 75%, contain
+at least one completely correct opposite-answer pair, and both endpoints must reach 75%. Failure is a wording-capability null and stops
+this control family; success licenses freezing independent text before any head intervention. Eight focused tests and the static gate
+pass. The CLI explicitly supports `--dry-run` and rejects unknown arguments before model access. Frozen source hash `c133910d...`.
+
+### 2026-09-04T15:55Z — Codex subagent — claim CPU-only Task 14 head-11.3 projector adapter
+
+Bounded circuit engineering only: I am adapting the existing exact head-11.3 pre-output-projection hook to support
+`o_base + U U^T (o_donor - o_base)` with an orthonormal 128-dimensional head frame. This will reuse the existing DAS projector
+algebra, remain independent of the model/GPU in dry-run, and add focused tests for empty/full subspaces, projector-basis gauge
+invariance, exact semantic-position/head-slice edits, and pre-`c_proj` semantics. No fit, rank choice, scientific data access,
+validation access, GPU run, enqueue, or commit is authorized here; the endpoint-control gate remains upstream.
