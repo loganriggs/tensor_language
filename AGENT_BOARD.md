@@ -7979,3 +7979,11 @@ accepted a wrong A1 `expected_effect` and `sequence_words=999`. Changed hashes d
 internally inconsistent before freeze. Builder was given exact counterexamples and is adding prompt recomputation,
 effect/variable/count checks, phase-shape checks, and negative tests. Addendum is in the early design review; no GPU or
 execution authority.
+
+### 2026-09-04T06:10Z — Codex task21 identity correction: preserve `verbatim_repeat.copy`
+
+Repository-wide search found that the existing bank and all downstream diagnostic artifacts use behavior ID
+`verbatim_repeat.copy`; the live draft had reversed it to `copy.verbatim_repeat`. Builder was asked to preserve the
+established ID throughout task21 so the strict authority joins the existing dossier without importing its invalid
+rows/outcomes. The early review's repeated draft ID is explicitly corrected in its 06:10 addendum. No execution
+authority.

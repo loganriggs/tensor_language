@@ -104,3 +104,10 @@ Before freeze, the validator must therefore recompute each side's exact prompt f
 list, check each transform's exact effect and changed-variable labels, check the sequence-word count, and enforce the
 phase-specific prefix/filler/repeat shape.  Tests must show rejection of a coherent text-plus-token-ID mutation, a
 wrong effect label, wrong sequence metadata, and an OOD row changed back to the in-distribution shape.
+
+## 06:10 UTC correction: reuse the established behavior ID
+
+The earlier review repeated the draft behavior ID `copy.verbatim_repeat`.  Repository search shows that the existing
+bank and all downstream diagnostic artifacts consistently use `verbatim_repeat.copy`.  The task-21 authority should
+reuse that exact established ID.  This links the strict replacement to its dossier without reusing any invalid rows or
+outcomes; reversing the words would instead create two registry identities for one behavior.
