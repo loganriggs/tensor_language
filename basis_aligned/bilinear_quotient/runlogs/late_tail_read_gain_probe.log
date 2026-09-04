@@ -1,0 +1,43 @@
+{"stage": "heads_done", "t": 51.0}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 51.4}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "TL_A0": 0.1249, "TL_A05": 0.0403, "TL_A1": 0.0087, "TL_A15": 0.0342, "TL_A2": 0.1397, "SC_A05": 0.0351, "SC_A15": 0.0461, "SC_A2": 0.2591, "t": 57.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_half_gain_recovers_three_quarters": true,
+  "pred_c_double_gain_costs_like_removal": true,
+  "pred_d_unit_gain_is_the_minimum": true,
+  "pred_e_self_term_does_not_rescue_over_gain": true
+ },
+ "nulls": {
+  "b_null_half_ge_.60x": false,
+  "c_null_double_le_.30x_or_ge_3x": false,
+  "d_null_over_gain_helps": false,
+  "e_null_sc2_le_.7x_tl2": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "TL_A0": 0.12492626905441284,
+  "TL_A05": 0.04028123617172241,
+  "TL_A1": 0.008696913719177246,
+  "TL_A15": 0.03423681855201721,
+  "TL_A2": 0.13971543312072754,
+  "SC_A05": 0.03510481119155884,
+  "SC_A15": 0.04605719447135925,
+  "SC_A2": 0.2591494619846344
+ },
+ "summary": {
+  "half_over_zero": 0.3224400798696512,
+  "double_over_zero": 1.118383140537665,
+  "a15_over_a05": 0.849944584770504,
+  "sc2_over_tl2": 1.8548377669967526,
+  "sc05_minus_tl05": -0.005176424980163574,
+  "tl_grid": [
+   0.12492626905441284,
+   0.04028123617172241,
+   0.008696913719177246,
+   0.03423681855201721,
+   0.13971543312072754
+  ]
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "rung": "late_tail_read_gain_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_half_gain_recovers_three_quarters": true,
+  "pred_c_double_gain_costs_like_removal": true,
+  "pred_d_unit_gain_is_the_minimum": true,
+  "pred_e_self_term_does_not_rescue_over_gain": true
+ },
+ "nulls": {
+  "b_null_half_ge_.60x": false,
+  "c_null_double_le_.30x_or_ge_3x": false,
+  "d_null_over_gain_helps": false,
+  "e_null_sc2_le_.7x_tl2": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_frac": 0.35,
+  "c_lo": 0.6,
+  "c_hi": 1.6
+ },
+ "null_bars": {
+  "b_frac": 0.6,
+  "c_lo": 0.3,
+  "c_hi": 3.0,
+  "d_gap": 0.003,
+  "e_frac": 0.7
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "late MLPs 8-17 at k=768 with a gain alpha on the tail's linear (cross) read or on the tail input; everything else exact",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "tl_a0": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249,
+  "tl_a1": 0.008696913719177246,
+  "prior_drop_tt_768": 0.0087
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "TL_A0": 0.12492626905441284,
+  "TL_A05": 0.04028123617172241,
+  "TL_A1": 0.008696913719177246,
+  "TL_A15": 0.03423681855201721,
+  "TL_A2": 0.13971543312072754,
+  "SC_A05": 0.03510481119155884,
+  "SC_A15": 0.04605719447135925,
+  "SC_A2": 0.2591494619846344
+ },
+ "summary": {
+  "half_over_zero": 0.3224400798696512,
+  "double_over_zero": 1.118383140537665,
+  "a15_over_a05": 0.849944584770504,
+  "sc2_over_tl2": 1.8548377669967526,
+  "sc05_minus_tl05": -0.005176424980163574,
+  "tl_grid": [
+   0.12492626905441284,
+   0.04028123617172241,
+   0.008696913719177246,
+   0.03423681855201721,
+   0.13971543312072754
+  ]
+ },
+ "price": {
+  "gpu_doc_forwards": 736,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 57.67697262763977
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_READ_GAIN_PROBE_PREREGISTRATION.md": "6b124e00b429cc2adcc6f755ceef17f05dc789b547d628650122a677c6595eb3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_top2_direction_probe_results.json": "a40141a961da596eb17c84c7c8656915896781bb74d51f0c34ee85b15fde81d7",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "d71b4405bee469c9561594c7c47af2559642058ca7ca23b3b8915ff27e5d38d4"
+}
