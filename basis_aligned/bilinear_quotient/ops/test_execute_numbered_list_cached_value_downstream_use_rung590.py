@@ -33,6 +33,57 @@ def test_frozen_bytes_and_complete_executable_closure():
     assert required == {path for _, path, _ in adapter.EXECUTABLE_LOAD_ORDER}
 
 
+def test_recursive_helper_and_provenance_use_verified_snapshot(monkeypatch, tmp_path):
+    snapshot = adapter.capture_frozen_bytes()
+    producer = adapter.load_frozen_producer(snapshot)
+    assert producer.r588.load_r582_helper() is producer.r584.r582
+    assert producer._role_sha256("implementation") == adapter.FROZEN_HASHES[adapter.PRODUCER]
+
+    changed = tmp_path / "changed_producer.py"
+    changed.write_bytes(b"raise RuntimeError('must never execute or attest this')\n")
+    monkeypatch.setattr(producer, "SCRIPT", changed)
+    hashes = producer.source_hashes()
+    assert hashes[str(adapter.PRODUCER)] == adapter.FROZEN_HASHES[adapter.PRODUCER]
+    assert str(changed) not in hashes
+
+
+def test_model_free_plan_never_hashes_prior_outcome_artifacts(monkeypatch):
+    producer = adapter.load_frozen_producer()
+    auditor = producer.r588
+    forbidden_paths = {
+        producer.r584.r582.R576_RESULT.resolve(),
+        producer.r584.r582.R579_AUDIT.resolve(),
+    }
+    original_read_bytes = Path.read_bytes
+    original_read_text = Path.read_text
+
+    def forbidden(*_args, **_kwargs):
+        raise AssertionError("dry run reached a broad prior-outcome authority loader")
+
+    def guarded_read_bytes(path):
+        if path.resolve() in forbidden_paths:
+            raise AssertionError(f"dry run read prior outcome bytes: {path}")
+        return original_read_bytes(path)
+
+    def guarded_read_text(path, *args, **kwargs):
+        if path.resolve() in forbidden_paths:
+            raise AssertionError(f"dry run read prior outcome text: {path}")
+        return original_read_text(path, *args, **kwargs)
+
+    monkeypatch.setattr(auditor, "verify_preoutcome_authority", forbidden)
+    monkeypatch.setattr(auditor, "load_authority", forbidden)
+    monkeypatch.setattr(producer.r584, "load_authority", forbidden)
+    monkeypatch.setattr(producer.r584.r582, "validate_authorities", forbidden)
+    monkeypatch.setattr(Path, "read_bytes", guarded_read_bytes)
+    monkeypatch.setattr(Path, "read_text", guarded_read_text)
+    plan = producer.run_dryrun()
+    assert plan["literal_executable_maximum_forwards"] == 510
+    assert not any(
+        "rung576_results" in path or "rung579_audit" in path
+        for path in plan["input_sha256"]
+    )
+
+
 def test_subprocess_dryrun_is_model_free_shape_checked_and_outcome_closed():
     environment = dict(os.environ, BQLIB_DRYRUN="1", CUDA_VISIBLE_DEVICES="")
     completed = subprocess.run(

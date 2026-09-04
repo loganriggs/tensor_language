@@ -33,6 +33,7 @@ HANDOFF_V6 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v6_addendu
 ADAPTER_TEST = OPS / "test_execute_numbered_list_cached_value_downstream_use_rung590.py"
 R590_BLOCK_REVIEW = POLY / "NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG590_PREEXECUTION_REVIEW.md"
 R590_BLOCK_TEST = OPS / "test_numbered_list_cached_value_downstream_use_rung590_preexecution_review_adversarial.py"
+R590_CLOSURE_REVIEW = POLY / "NUMBERED_LIST_CACHED_VALUE_DOWNSTREAM_USE_RUNG590_IMMUTABLE_CLOSURE_PREEXECUTION_REVIEW.md"
 R584_RUNNER = OPS / "numbered_list_cached_value_downstream_use_rung584.py"
 R588_AUDITOR = OPS / "audit_numbered_list_cached_value_downstream_use_rung588.py"
 RESULT_CONTRACT = OPS / "result_contract.py"
@@ -49,10 +50,10 @@ EVIDENCE = ROOT / "numbered_list_cached_value_downstream_use_rung590_evidence"
 OUTCOME_NAMESPACES = (RESULT, RECEIPT, EVIDENCE)
 
 FROZEN_HASHES = {
-    PRODUCER: "5cc4544158312d7fa6224bf46c635acbb0d4a11fc2d620cedc2516d169f5966e",
+    PRODUCER: "c38654506f36fcf111f3a34f356893240548c3cfbf4eded58efb04d31fdb2e36",
     OWNER_TEST: "49f6f7a998bfb69331c36391f5d3c16d9b702c1fd60b4da5b09c920f3832e5b0",
-    DRYRUN: "817f457ba1cc9737735182f495c54a3956be8c5dd6267bb5d8222f40e750d603",
-    NOTE: "a6641a20a456d30895a9ba807c22ec74e7695fe5c84ce4300b909787c603afa7",
+    DRYRUN: "3ebada19f74906ba3e7cd1637fc1cd6cdff84936124dee01cb058875432d3b95",
+    NOTE: "dae72b4aee35030f31ce42674d9535d6bff6c857b9beb8633a8ac809edaf031b",
     BLOCK_REVIEW: "2fbefdb84822f4b727de769736f182f1b0864912c9f41f76247cc2df385cb45d",
     BLOCK_TEST: "8508b56c1c9e3d25ccd5f8b4cae0780fc263d0782682d8c57cdc22e8aaaef020",
     HANDOFF_V1: "e8970f9ef2d7eb7b291a5fb288833bc252e62fabf1016a699e981c19a6be560a",
@@ -61,9 +62,10 @@ FROZEN_HASHES = {
     HANDOFF_V4: "349afa9ec4fe465dbf08109a63cb1a8dc2a278e53a710bf210035f57b8500da0",
     HANDOFF_V5: "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80",
     HANDOFF_V6: "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c",
-    ADAPTER_TEST: "4c5bd25cdf06e21f823c9e09fdd57a7ca54d8700aa23a379a7913e2fc8c6b174",
+    ADAPTER_TEST: "17d51c8e7df667ecf1cc146b1ac00e34f658e97759ee149ddb254f7d9317f07e",
     R590_BLOCK_REVIEW: "c3d4825695f0c3ca4b6fecf4d31dde67eb41b732286f783711d69c1d7c4ba9b7",
     R590_BLOCK_TEST: "23872cfac16a1adc47c3ff492fbac4ea63de5d1d5a030de3f282b91ce2e589a5",
+    R590_CLOSURE_REVIEW: "b9c79fc43f1bb7e70d9a86b102718549ea5fec85169a7d28850c1af9cedbb87f",
     R584_RUNNER: "50609756d97de2f13f717774f13d72b1c743f38a172375e9b08efc2b055336c7",
     R588_AUDITOR: "b4acebb23bff71c7dc11beec95ff83f5490a86971787bce5930351cfb4572115",
     RESULT_CONTRACT: "af8fb9557dcb77e038319b0fffa919927f3925497a0edafe27fc951125dfb272",
@@ -166,6 +168,24 @@ def _module_from_verified_bytes(
     return module
 
 
+def _bind_verified_recursive_dependencies() -> None:
+    """Make R588 consume the captured R582 module instead of reopening its path."""
+    helper = sys.modules["numbered_list_cached_value_downstream_use_rung582"]
+    auditor = sys.modules["audit_numbered_list_cached_value_downstream_use_rung588"]
+    implementation = sys.modules["numbered_list_cached_value_downstream_use_rung584"]
+    if implementation.r582 is not helper:
+        raise RuntimeError("R584 did not import the verified R582 module")
+    if list(helper.SITES) != list(auditor.SITES) \
+            or list(helper.COMPONENT_ARMS) != list(auditor.COMPONENTS) \
+            or list(helper.NULL_ARMS) != list(auditor.NULLS):
+        raise RuntimeError("verified R582/R588 component grammar changed")
+
+    def load_verified_r582_helper():
+        return helper
+
+    auditor.load_r582_helper = load_verified_r582_helper
+
+
 def load_frozen_producer(snapshot: Mapping[Path, bytes] | None = None):
     os.environ["BQLIB_NO_MODEL"] = "1"
     frozen = dict(capture_frozen_bytes() if snapshot is None else snapshot)
@@ -174,9 +194,16 @@ def load_frozen_producer(snapshot: Mapping[Path, bytes] | None = None):
         raise RuntimeError(f"verified snapshot is incomplete: {sorted(map(str, missing))}")
     for name, path, is_package in EXECUTABLE_LOAD_ORDER:
         _module_from_verified_bytes(name, path, frozen[path], is_package=is_package)
-    return _module_from_verified_bytes(
+    _bind_verified_recursive_dependencies()
+    producer = _module_from_verified_bytes(
         "r590_managed_producer", PRODUCER, frozen[PRODUCER]
     )
+    producer.bind_verified_snapshot(frozen)
+    if producer.r584.r582 is not sys.modules["numbered_list_cached_value_downstream_use_rung582"]:
+        raise RuntimeError("R590 did not retain the verified R582 module")
+    if producer.r588.load_r582_helper() is not producer.r584.r582:
+        raise RuntimeError("R588 recursive R582 binding is not immutable")
+    return producer
 
 
 def require_unused_namespaces(paths: Sequence[Path] = OUTCOME_NAMESPACES) -> None:
@@ -189,15 +216,13 @@ def run_model_free_validation(
     *, snapshot: Mapping[Path, bytes] | None = None, producer=None,
 ) -> dict[str, object]:
     frozen = dict(capture_frozen_bytes() if snapshot is None else snapshot)
-    before = sha256(DRYRUN)
     if producer is None:
         producer = load_frozen_producer(frozen)
     plan = producer.run_dryrun()
     producer.validate_dryrun(plan)
-    if plan != producer.strict_load_json(DRYRUN):
+    committed = producer.r588.strict_loads(frozen[DRYRUN], str(DRYRUN))
+    if type(committed) is not dict or plan != committed:
         raise RuntimeError("committed R590 dry run differs from isolated validation")
-    if sha256(DRYRUN) != before:
-        raise RuntimeError("committed R590 dry run changed during managed validation")
     shape = plan["forward_call_shape_contract"]
     if shape["call_count"] != 510 or shape["validation_mode"] != producer.SHAPE_MODE:
         raise RuntimeError("R590 forward-call shape contract is incomplete")

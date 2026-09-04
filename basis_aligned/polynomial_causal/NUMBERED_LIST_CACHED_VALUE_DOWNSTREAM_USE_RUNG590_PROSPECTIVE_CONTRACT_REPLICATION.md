@@ -88,3 +88,30 @@ The adapter also binds circuit-causal-validity handoff v6, whose lesson 26
 requires verification before import and immutable-byte managed execution. This
 amendment is prospective, model-free, and contains no outcome. New exact adapter
 and test hashes require a different-agent review before execution.
+
+## Recursive closure and provenance repair (2026-09-04 UTC)
+
+Independent review of exact commit `5fc3144eb` found three remaining execution-
+contract defects; it did not find a change in the scientific computation. This
+prospective repair closes those defects while leaving every row, intervention,
+threshold, bootstrap, evidence field, terminal, and 379/419/510-forward path
+unchanged.
+
+First, the adapter now binds R588's R582 helper lookup to the already captured
+and compiled R582 module. R588 can no longer reopen an executable helper path
+after snapshot verification. Second, R590 regenerates its row authority through
+the outcome-free R584/R582 path. Its advertised dry run and managed preflight do
+not call R588's broad audit-authority verifier and therefore do not open or hash
+the prior R576 result or R579 audit. Those historical outcomes are not inputs to
+the prospective R590 computation.
+
+Third, the adapter hands its complete verified byte snapshot to the in-memory
+R590 producer. Implementation/test/note provenance and both source call-site
+censuses use that bound snapshot. A pathname changed after capture can neither
+change executed code nor change the implementation digest claimed by a future
+result or receipt. Uncaptured non-executable row and specification authorities
+remain checked directly against their frozen hashes.
+
+The blocking review and its three planted attacks remain durable authorities.
+All three attacks must pass on this candidate, and a different agent must review
+the new exact hashes before any managed model execution.

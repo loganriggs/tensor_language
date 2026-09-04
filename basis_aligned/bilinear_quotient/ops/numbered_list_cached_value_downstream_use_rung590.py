@@ -87,8 +87,20 @@ AUTHORITY_HASHES = {
     HANDOFF_V4: "349afa9ec4fe465dbf08109a63cb1a8dc2a278e53a710bf210035f57b8500da0",
     HANDOFF_V5: "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80",
     HANDOFF_V6: "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c",
-    NOTE: "a6641a20a456d30895a9ba807c22ec74e7695fe5c84ce4300b909787c603afa7",
+    NOTE: "dae72b4aee35030f31ce42674d9535d6bff6c857b9beb8633a8ac809edaf031b",
 }
+
+# These logical paths are captured at module construction, before any managed
+# caller can mutate a public module attribute.  The adapter binds the verified
+# bytes for these roles immediately after compiling this module from its own
+# snapshot.  Direct CPU tests may leave the binding unset and use current paths.
+_PROVENANCE_PATHS = {
+    "implementation": SCRIPT,
+    "owner_test": TEST,
+    "note": NOTE,
+    "r584_runner": R584_RUNNER,
+}
+_VERIFIED_BYTES_BY_PATH = None  # type: dict[str, bytes] | None
 
 SITES = tuple(r584.SITES)
 COMPONENTS = tuple(r584.COMPONENTS)
@@ -118,6 +130,46 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def bind_verified_snapshot(snapshot: Mapping[Path, bytes]) -> dict[str, str]:
+    """Bind provenance and source inspection to already-verified immutable bytes."""
+    global _VERIFIED_BYTES_BY_PATH
+    normalized = {str(Path(path).resolve()): bytes(data) for path, data in snapshot.items()}
+    required = set(_PROVENANCE_PATHS.values()) | {
+        R582_HELPER, R584_RUNNER, R588_AUDITOR, RESULT_CONTRACT,
+    }
+    missing = [str(path) for path in required if str(path.resolve()) not in normalized]
+    if missing:
+        raise RuntimeError(f"R590 verified source snapshot is incomplete: {sorted(missing)}")
+    for path, expected in AUTHORITY_HASHES.items():
+        key = str(path.resolve())
+        if key in normalized:
+            observed = hashlib.sha256(normalized[key]).hexdigest()
+            if observed != expected:
+                raise RuntimeError(
+                    f"R590 snapshot authority changed: {path}; "
+                    f"expected={expected}, observed={observed}"
+                )
+    _VERIFIED_BYTES_BY_PATH = normalized
+    return {path: hashlib.sha256(data).hexdigest() for path, data in normalized.items()}
+
+
+def _provenance_bytes(path: Path) -> bytes:
+    key = str(path.resolve())
+    if _VERIFIED_BYTES_BY_PATH is not None:
+        if key not in _VERIFIED_BYTES_BY_PATH:
+            raise RuntimeError(f"R590 path is outside the verified runtime snapshot: {path}")
+        return _VERIFIED_BYTES_BY_PATH[key]
+    return path.read_bytes()
+
+
+def _provenance_sha256(path: Path) -> str:
+    return hashlib.sha256(_provenance_bytes(path)).hexdigest()
+
+
+def _role_sha256(role: str) -> str:
+    return _provenance_sha256(_PROVENANCE_PATHS[role])
+
+
 def canonical_bytes(value: object) -> bytes:
     return json.dumps(
         value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -135,20 +187,45 @@ def strict_load_json(path: Path) -> dict:
     return value
 
 
+def load_outcome_blind_authority() -> list[dict]:
+    """Regenerate R582 rows without opening its historical outcome authorities."""
+    document = strict_load_json(ROWS)
+    receipt = strict_load_json(ROWS_RECEIPT)
+    if document.get("model_loaded") is not False \
+            or document.get("model_forwards") != 0 \
+            or document.get("model_backwards") != 0 \
+            or document.get("outcomes_opened") != []:
+        raise RuntimeError("R582 row authority is not outcome-blind")
+    rows = document.get("rows")
+    helper = r584.r582
+    if type(rows) is not list or rows != helper.build_rows():
+        raise RuntimeError("R582 rows do not exactly regenerate")
+    validation = helper.validate_rows(rows)
+    if receipt.get("rows_sha256") != AUTHORITY_HASHES[ROWS] \
+            or receipt.get("rows") != validation["rows"] \
+            or receipt.get("groups") != validation["groups"]:
+        raise RuntimeError("R582 receipt does not bind the regenerated row census")
+    return rows
+
+
 def validate_authorities() -> dict[str, str]:
     observed = {}
     for path, expected in AUTHORITY_HASHES.items():
-        if not path.is_file():
+        if _VERIFIED_BYTES_BY_PATH is None and not path.is_file():
             raise RuntimeError(f"frozen R590 authority is missing: {path}")
-        digest = sha256(path)
+        digest = _provenance_sha256(path) if (
+            _VERIFIED_BYTES_BY_PATH is not None
+            and str(path.resolve()) in _VERIFIED_BYTES_BY_PATH
+        ) else sha256(path)
         if digest != expected:
             raise RuntimeError(
                 f"frozen R590 authority changed: {path}; expected={expected}, observed={digest}"
             )
         observed[str(path)] = digest
-    # This additionally regenerates and validates the frozen 1,440-row authority.
-    observed.update(r588.verify_preoutcome_authority())
-    rows, _ = r588.load_authority()
+    # R584/R582 regenerate the frozen rows from code and row authorities only.
+    # R588's broader audit authority also names R576/R579 outcome artifacts and
+    # is deliberately excluded from the model-free R590 call graph.
+    rows = load_outcome_blind_authority()
     if len(rows) != 1_440:
         raise RuntimeError("R582 authority row count changed")
     return observed
@@ -156,10 +233,10 @@ def validate_authorities() -> dict[str, str]:
 
 def source_hashes() -> dict[str, str]:
     observed = validate_authorities()
-    for path in (SCRIPT, TEST):
-        if not path.is_file():
+    for path in (_PROVENANCE_PATHS["implementation"], _PROVENANCE_PATHS["owner_test"]):
+        if _VERIFIED_BYTES_BY_PATH is None and not path.is_file():
             raise RuntimeError(f"R590 owned source is missing: {path}")
-        observed[str(path)] = sha256(path)
+        observed[str(path)] = _provenance_sha256(path)
     return observed
 
 
@@ -316,7 +393,7 @@ def build_forward_call_manifest(rows: Sequence[dict]) -> list[dict[str, object]]
 
 def source_forward_callsite_census() -> dict[str, int]:
     """Pin the high-level model calls inside the immutable R584 implementation."""
-    tree = ast.parse(R584_RUNNER.read_text(encoding="utf-8"))
+    tree = ast.parse(_provenance_bytes(_PROVENANCE_PATHS["r584_runner"]).decode("utf-8"))
     wanted = {"capture_split", "evaluate_component"}
     functions = {
         node.name: node for node in tree.body
@@ -354,7 +431,7 @@ def source_forward_callsite_census() -> dict[str, int]:
 
 def wrapper_science_callsite_census() -> dict[str, int]:
     """Reject a hidden model path added outside the pinned R584 entry points."""
-    tree = ast.parse(SCRIPT.read_text(encoding="utf-8"))
+    tree = ast.parse(_provenance_bytes(_PROVENANCE_PATHS["implementation"]).decode("utf-8"))
     functions = {
         node.name: node for node in tree.body
         if isinstance(node, ast.FunctionDef) and node.name == "run_science"
@@ -480,7 +557,7 @@ def hard_abort_unretained_exactness(
 
 def evidence_from_legacy_payload(payload: Mapping[str, object]) -> dict[str, object]:
     """Extract only primitive evidence from an R584-shaped planted payload."""
-    rows = r584.load_authority()
+    rows = load_outcome_blind_authority()
     manifest = build_forward_call_manifest(rows)
     provisional = payload.get("provisional_fit_selection")
     selected = payload.get("selected_component")
@@ -558,7 +635,8 @@ def derive_scientific_summary(
     if evidence["result_path"] != str(OUT.relative_to(ROOT.parent.parent)) \
             or evidence["receipt_path"] != str(RECEIPT.relative_to(ROOT.parent.parent)):
         raise RuntimeError("R590 evidence logical package paths changed")
-    rows, helper = r588.load_authority()
+    rows = load_outcome_blind_authority()
+    helper = r584.r582
     manifest = build_forward_call_manifest(rows)
     validate_forward_call_manifest(manifest, rows)
 
@@ -765,9 +843,9 @@ def execution_plan(rows: Sequence[dict]) -> dict[str, object]:
         "model_backwards": 0,
         "model_weights_updated": False,
         "input_sha256": source_hashes(),
-        "implementation_sha256": sha256(SCRIPT),
-        "test_sha256": sha256(TEST),
-        "note_sha256": sha256(NOTE),
+        "implementation_sha256": _role_sha256("implementation"),
+        "test_sha256": _role_sha256("owner_test"),
+        "note_sha256": _role_sha256("note"),
         "result_namespace": str(OUT.relative_to(ROOT.parent.parent)),
         "receipt_namespace": str(RECEIPT.relative_to(ROOT.parent.parent)),
         "evidence_namespace": str(EVIDENCE_DIR.relative_to(ROOT.parent.parent)),
@@ -787,14 +865,14 @@ def validate_dryrun(plan: Mapping[str, object]) -> None:
         expected_backwards=0, expected_weights_updated=False,
         weights_updated_field="model_weights_updated",
     )
-    rows = r584.load_authority()
+    rows = load_outcome_blind_authority()
     expected = execution_plan(rows)
     if dict(plan) != expected:
         raise RuntimeError("R590 dry run differs from current exact sources")
 
 
 def run_dryrun(output_path: Path | None = None) -> dict[str, object]:
-    rows = r584.load_authority()
+    rows = load_outcome_blind_authority()
     plan = execution_plan(rows)
     validate_dryrun(plan)
     if output_path is not None:
@@ -810,7 +888,7 @@ def build_result(
     if checkpoint_sha256 != CHECKPOINT_SHA256:
         raise RuntimeError("checkpoint hash changed")
     derived = derive_scientific_summary(evidence, replicates=replicates)
-    rows = r584.load_authority()
+    rows = load_outcome_blind_authority()
     plan = execution_plan(rows)
     return {
         "schema": RESULT_SCHEMA,
@@ -823,9 +901,9 @@ def build_result(
         "model_weights_updated": False,
         "checkpoint_weights_sha256": checkpoint_sha256,
         "forbidden_splits_opened": [],
-        "implementation_sha256": sha256(SCRIPT),
-        "test_sha256": sha256(TEST),
-        "note_sha256": sha256(NOTE),
+        "implementation_sha256": _role_sha256("implementation"),
+        "test_sha256": _role_sha256("owner_test"),
+        "note_sha256": _role_sha256("note"),
         "input_sha256": source_hashes(),
         "evidence_descriptor": {
             "path": str(EVIDENCE_FILE.relative_to(ROOT.parent.parent)),
@@ -870,14 +948,14 @@ def validate_result_against_evidence(
         _compare_exact(expected, result.get(key), f"result.{key}")
     expected_constants = {
         "stage": "cached_value_downstream_bilinear_use_contract_replication",
-        "execution_plan": execution_plan(r584.load_authority()),
+        "execution_plan": execution_plan(load_outcome_blind_authority()),
         "model_backwards": 0,
         "model_weights_updated": False,
         "checkpoint_weights_sha256": CHECKPOINT_SHA256,
         "forbidden_splits_opened": [],
-        "implementation_sha256": sha256(SCRIPT),
-        "test_sha256": sha256(TEST),
-        "note_sha256": sha256(NOTE),
+        "implementation_sha256": _role_sha256("implementation"),
+        "test_sha256": _role_sha256("owner_test"),
+        "note_sha256": _role_sha256("note"),
         "input_sha256": source_hashes(),
     }
     for key, expected in expected_constants.items():
@@ -902,9 +980,9 @@ def make_receipt(result_bytes: bytes, evidence_bytes: bytes, result: Mapping[str
         "result_sha256": result_digest,
         "evidence_path": str(EVIDENCE_FILE.relative_to(ROOT.parent.parent)),
         "evidence_sha256": evidence_digest,
-        "implementation_sha256": sha256(SCRIPT),
-        "test_sha256": sha256(TEST),
-        "note_sha256": sha256(NOTE),
+        "implementation_sha256": _role_sha256("implementation"),
+        "test_sha256": _role_sha256("owner_test"),
+        "note_sha256": _role_sha256("note"),
         "checkpoint_weights_sha256": result["checkpoint_weights_sha256"],
         "evaluated_splits": result["evaluated_splits"],
         "model_forwards": result["model_forwards"],
@@ -1067,8 +1145,8 @@ def _recognized_result(path: Path) -> None:
     except (OSError, TypeError, ValueError, RuntimeError) as result_error:
         raise RuntimeError(f"unsafe unrecognized R590 result bytes: {path}") from result_error
     if value.get("schema") != RESULT_SCHEMA or value.get("rung") != 590 \
-            or value.get("implementation_sha256") != sha256(SCRIPT) \
-            or value.get("test_sha256") != sha256(TEST):
+            or value.get("implementation_sha256") != _role_sha256("implementation") \
+            or value.get("test_sha256") != _role_sha256("owner_test"):
         raise RuntimeError(f"unsafe unrecognized R590 result bytes: {path}")
 
 
@@ -1080,8 +1158,8 @@ def _recognized_receipt(path: Path) -> None:
     except (OSError, TypeError, ValueError, RuntimeError) as receipt_error:
         raise RuntimeError(f"unsafe unrecognized R590 receipt bytes: {path}") from receipt_error
     if value.get("schema") != RECEIPT_SCHEMA or value.get("rung") != 590 \
-            or value.get("implementation_sha256") != sha256(SCRIPT) \
-            or value.get("test_sha256") != sha256(TEST):
+            or value.get("implementation_sha256") != _role_sha256("implementation") \
+            or value.get("test_sha256") != _role_sha256("owner_test"):
         raise RuntimeError(f"unsafe unrecognized R590 receipt bytes: {path}")
 
 
@@ -1163,7 +1241,7 @@ def run_science() -> dict[str, object]:
     """Execute frozen R584 science into the new R590 package."""
     started = time.time()
     recover_stale_publication()
-    rows = r584.load_authority()
+    rows = load_outcome_blind_authority()
     manifest = build_forward_call_manifest(rows)
     validate_forward_call_manifest(manifest, rows)  # before model load
     plan = execution_plan(rows)
