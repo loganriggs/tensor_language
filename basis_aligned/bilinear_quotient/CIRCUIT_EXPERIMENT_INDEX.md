@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-79 events; 61 scientific protocols; 79 exact executions; 1 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
+82 events; 64 scientific protocols; 82 exact executions; 1 open preregistrations; 0 duplicate execution-key groups; 0 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -97,5 +97,8 @@ No repeated scientific protocol currently lacks an explicit supersession or repl
 | `task.numeric_sequence.continuation` | `numeric_sequence_cached_value_reuse.r576.complete.null.v1` | complete/null | cross_family_transfer | `numeric_sequence_continuation.v5` | `962e04004104` | `ef7cae5cf8cf` | `d976e32a380c` | supersedes `numeric_sequence_cached_value_reuse.r576.preregistered.v1` |
 | `task.numeric_sequence.continuation` | `numeric_sequence_complete_state_factor_localization.r577.complete.null.v1` | complete/null | composition | `numeric_sequence_continuation.v6` | `2e83da305192` | `50e458fabc17` | `6b431f2b85a7` | supersedes `numeric_sequence_complete_state_factor_localization.r577.preregistered.v1` |
 | `task.numeric_sequence.continuation` | `numeric_sequence_factor_localization_audit.r583.complete.held.v1` | complete/held | null_control | `numeric_sequence_continuation.v6` | `757247446ce8` | `7cdf666dad7b` | `c02194302cfb` | — |
+| `task.subject_verb.number_agreement` | `task14_native_capability.fit.complete.held.v1` | complete/held | capability | `grammatical_subject_number.v1` | `fce2348a55ec` | `8e1a8d8e1bf0` | `ab2f2db37e56` | — |
+| `task.subject_verb.number_agreement` | `task14_subject_number_localization.fit.preregistered.v1` | preregistered/inconclusive | das_interchange | `grammatical_subject_number.v1` | `86bb09a847cc` | `481eb182f82e` | `35c955b02d72` | — |
+| `task.subject_verb.number_agreement` | `task14_subject_number_localization.fit.v1.invalid_preregistration` | invalid/invalid | das_interchange | `grammatical_subject_number.v1` | `3a32ae343bb7` | `6fffb67974bc` | `62c63bf1c174` | supersedes `task14_subject_number_localization.fit.preregistered.v1` |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

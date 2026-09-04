@@ -1,0 +1,451 @@
+{
+ "schema_version": 2,
+ "tag": "task.subject_verb.number_agreement",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "task14_authority",
+  "aliases": [
+   "subject_verb_agreement",
+   "grammatical_subject_number",
+   "task14"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "grammatical_subject_number.v1",
+   "revision": 1,
+   "status": "specified",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "grammatical_subject_number",
+    "domain": "singular or plural grammatical subject under prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "the grammatical number of the complete subject rather than the nearest noun",
+    "operation": "transport subject number across syntax and combine it with the prediction context",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the final prompt position",
+    "endpoint": "are-minus-is logit contrast and its signed finite-intervention change"
+   },
+   "alternative_explanations": [
+    "the edited subject token or noun identity rather than grammatical number",
+    "the number of the nearest distractor noun",
+    "one syntax-specific template",
+    "a generic high-damage residual direction",
+    "separate unrelated directions for singular and plural"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition",
+     "role": "interchange",
+     "changes": [
+      "subject-head number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "syntax template",
+      "attractor noun and attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "task14_generator",
+     "control_ids": [
+      "cross-noun donors",
+      "cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "subject-head number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "syntax template",
+      "attractor noun and attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "task14_generator",
+     "control_ids": [
+      "cross-noun donors",
+      "cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer",
+     "role": "interchange",
+     "changes": [
+      "subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_prereg",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "C attractor-number edit"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "task14_generator",
+     "control_ids": [
+      "A1 subject-number swap",
+      "A2 subject-number swap",
+      "coordinate-leakage measurement"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "task14_generator",
+     "control_ids": [
+      "A1/A2 opposite-subject-number swaps",
+      "P same-state noun edit",
+      "both coordinated-subject conjunct projections"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization",
+     "role": "necessity",
+     "changes": [
+      "only the proposed residual subject-number coordinate, replacing it by the discovery midpoint"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_prereg",
+     "control_ids": [
+      "A1 and A2 evaluated separately",
+      "both subject-number directions",
+      "P/C invariance arms"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.subject_head.all_boundaries",
+     "tensor_path": "subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace only a learned orthogonal coordinate with its natural donor value; C conjunct projections are descriptive only",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.prediction_position.all_boundaries",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace only a learned orthogonal coordinate with its natural donor value; complete-state swaps define the site ceiling",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v1"
+   ],
+   "evidence_event_ids": [
+   "task14_native_capability.fit.complete.held.v1",
+    "task14_subject_number_localization.fit.preregistered.v1",
+    "task14_subject_number_localization.fit.v1.invalid_preregistration"
+   ],
+   "translation_ids": [],
+   "next_missing": "prospective v2 localization authority with reproducible materialized manifests and affirmative coordinated-subject transfer, followed by independent approval and an exact call/array/byte compiler before any model-facing localization"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "task14_fit_localization_split_v1",
+   "unit": "mirror-paired task14 FIT authority groups {g,g+16}, kept indivisible",
+   "partition_artifact_id": "localization_prereg",
+   "builder_artifact_id": "task14_generator",
+   "seed": "task14-fit-localization-v1|discovery-validation-pair-coherent",
+   "groups": {
+    "DISCOVERY": 16,
+    "VALIDATION": 16
+   },
+   "leakage_group_keys": [
+    "mirror group pair {g,g+16}",
+    "exact natural endpoint prompt",
+    "head-noun pair",
+    "row id",
+    "learned activations and optimizer state"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-04T09:18:24Z"
+  }
+ ],
+ "artifacts": {
+  "task14_generator": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_battery_task14.py",
+   "sha256": "33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "task14_authority": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_battery_task14_agreement_fit_authority.json",
+   "sha256": "e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "capability_prereg": {
+   "path": "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK14_SUBJECT_VERB_AGREEMENT_CAPABILITY_FIT_PREREGISTRATION.md",
+   "sha256": "06a9747b4707999e11637a45cf83588bfd9cb8671d6b3a25790518af62900f8b",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "capability_result": {
+   "path": "basis_aligned/bilinear_quotient/circuit_battery_task14_capability_fit_v1_results.json",
+   "sha256": "4239a25df47602dc07fce8602328f555a6bebc237f9dd897f34e812cf69dba12",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "capability_receipt": {
+   "path": "basis_aligned/bilinear_quotient/circuit_battery_task14_capability_fit_v1_receipt.json",
+   "sha256": "4f46c4b2f376fb96b5d71044a3cd6331c8a0784c90105335d49ebddeaf4f8aca",
+   "kind": "receipt",
+   "status": "frozen"
+  },
+  "capability_audit": {
+   "path": "basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_CAPABILITY_FIT_POSTEXECUTION_AUDIT_2026-09-04.md",
+   "sha256": "e12a207d72b022e86e45ee7783d585cb419f8310c7f8374bf74766f0b821aeea",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "localization_prereg": {
+   "path": "basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_PREREGISTRATION_2026-09-04.md",
+   "sha256": "6fb4b00080d9bf4b1eaec5953b2806b4a8c2fcc7323a2f938ce7f53192734e6e",
+   "kind": "preregistration_and_split",
+   "status": "frozen"
+  },
+  "localization_review_v1": {
+   "path": "basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_PREREGISTRATION_INDEPENDENT_REVIEW_2026-09-04.md",
+   "sha256": "d4d7ac9b76d54eee73278a2af903c8c34472bcc27917b28c997475d50eab3da2",
+   "kind": "independent_review",
+   "status": "frozen"
+  }
+ },
+ "evidence_events": [
+  {
+   "event_id": "task14_native_capability.fit.complete.held.v1",
+   "claim_id": "grammatical_subject_number.v1",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "a1_subject_number_preposition",
+    "a2_subject_number_relative_clause",
+    "p_noun_identity_same_state",
+    "c_attractor_number_coordinated_subject"
+   ],
+   "site_id": null,
+   "evaluation_role": "frozen FIT native capability only",
+   "metrics": [
+    {
+     "name": "base_accuracy",
+     "estimate": 0.96875,
+     "ci95": null,
+     "bar": ">=0.85"
+    },
+    {
+     "name": "donor_accuracy",
+     "estimate": 0.9765625,
+     "ci95": null,
+     "bar": ">=0.85"
+    },
+    {
+     "name": "a1_a2_p_cell_accuracy",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.85 on every base/donor cell"
+    },
+    {
+     "name": "coordinated_subject_accuracy",
+     "estimate": {
+      "base": 0.875,
+      "donor": 0.90625
+     },
+     "ci95": null,
+     "bar": ">=0.75 on both sides with positive mean margin"
+    }
+   ],
+   "result_artifact_id": "capability_result",
+   "prereg_artifact_id": "capability_prereg",
+   "input_artifact_ids": [
+    "task14_generator",
+    "task14_authority",
+    "capability_receipt",
+    "capability_audit"
+   ],
+   "split_plan_id": null,
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_CAPABILITY_FIT_POSTEXECUTION_AUDIT_2026-09-04.md"
+   ],
+   "design_key": "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa",
+   "execution_key": "ab2f2db37e56a0192e2a6eb433981afc068acdaed01c353a64c1acefd05c1783"
+  },
+  {
+   "event_id": "task14_subject_number_localization.fit.preregistered.v1",
+   "claim_id": "grammatical_subject_number.v1",
+   "test_type": "das_interchange",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "family_ids": [
+    "a1_subject_number_preposition",
+    "a2_subject_number_relative_clause",
+    "p_cross_noun_subject_number_transfer",
+    "p_noun_identity_same_state",
+    "c_attractor_number_coordinated_subject",
+    "subject_number_coordinate_neutralization"
+   ],
+   "site_id": null,
+   "evaluation_role": "FIT-internal DISCOVERY selects once; locked VALIDATION scores once",
+   "metrics": [
+    {
+     "name": "rank1_same_syntax_transfer",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.80 direction and >=0.50 recovery on every A1/A2 matching"
+    },
+    {
+     "name": "rank1_cross_syntax_and_p_transfer",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=0.75 direction and >=0.40 recovery on every matching"
+    },
+    {
+     "name": "p_c_projected_leakage",
+     "estimate": null,
+     "ci95": null,
+     "bar": "mean output and median coordinate leakage <=0.20; coordinate p90 <=0.50"
+    },
+    {
+     "name": "coordinate_necessity",
+     "estimate": null,
+     "ci95": null,
+     "bar": "positive mean, >=0.65 positive rows, and >=0.25 native-margin removal in A1 and A2"
+    },
+    {
+     "name": "seed_and_rank_falsifiers",
+     "estimate": null,
+     "ci95": null,
+     "bar": ">=4/5 seeds pass direction; rank2/4 cannot rescue a failed arm or improve recovery by >0.10"
+    }
+   ],
+   "result_artifact_id": null,
+   "prereg_artifact_id": "localization_prereg",
+   "input_artifact_ids": [
+    "task14_generator",
+    "task14_authority",
+    "capability_result",
+    "capability_receipt",
+    "capability_audit"
+   ],
+   "split_plan_id": "task14_fit_localization_split_v1",
+   "seed": "14001,14002,14003,14004,14005",
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_PREREGISTRATION_2026-09-04.md"
+   ],
+   "design_key": "481eb182f82eaf4be6ff6de42c77c32cfbea7348a521da375a87e30670ed60c1",
+   "execution_key": "35c955b02d7253e35013c333af02c6442d37a82f676a1c84f89033da908252d6"
+  },
+  {
+   "event_id": "task14_subject_number_localization.fit.v1.invalid_preregistration",
+   "claim_id": "grammatical_subject_number.v1",
+   "test_type": "das_interchange",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [
+    "a1_subject_number_preposition",
+    "a2_subject_number_relative_clause",
+    "p_cross_noun_subject_number_transfer",
+    "p_noun_identity_same_state",
+    "c_attractor_number_coordinated_subject",
+    "subject_number_coordinate_neutralization"
+   ],
+   "site_id": null,
+   "evaluation_role": "independent CPU review before compiler construction; v1 is invalid because its serialized split/donor authority is incomplete and all gates admit a local head-morphology false positive",
+   "metrics": [
+    {
+     "name": "canonical_partition_and_donor_reproducibility",
+     "estimate": false,
+     "ci95": null,
+     "bar": "materialized canonical bytes or a complete reproducible schema"
+    },
+    {
+     "name": "complete_subject_number_identifiability",
+     "estimate": false,
+     "ci95": null,
+     "bar": "affirmative coordinated-plural state alignment and bidirectional cross-construction transfer"
+    }
+   ],
+   "result_artifact_id": "localization_review_v1",
+   "prereg_artifact_id": "localization_prereg",
+   "input_artifact_ids": [
+    "task14_generator",
+    "task14_authority",
+    "capability_result",
+    "capability_receipt",
+    "capability_audit",
+    "localization_review_v1"
+   ],
+   "split_plan_id": "task14_fit_localization_split_v1",
+   "seed": "14001,14002,14003,14004,14005",
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_subject_number_localization.fit.preregistered.v1",
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_PREREGISTRATION_INDEPENDENT_REVIEW_2026-09-04.md"
+   ],
+   "design_key": "6fffb67974bc0c93ec560a57908f58c6a48575c76451539d716d5066def707a4",
+   "execution_key": "62c63bf1c174f634d4728ff216a12b87c6e260c2b3ebd7ea4f6dc90d418412c1"
+  }
+ ]
+}
