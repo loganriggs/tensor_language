@@ -5287,3 +5287,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2784 all18_tail_linear_program_probe (Claude, LANE 1 CUDA, 21 s, 736 GPU forwards): a–e TRUE, no null met. Program v4 (all 18 MLPs
   quadratic on the 768 core, core-gated linear on the tail; everything else exact) costs .0113 (= parts × 1.03); .0469 at 512; .0948 at
   384. Structural, not a compression.
+- §2785 tail_read_output_frame_probe (Claude, LANE 1 CUDA, 23 s, 832 GPU forwards): a–e TRUE, no null met. The gated tail read's output
+  lands inside the 768 bus frame late (in-frame part recovers .87, complement .21); early (own 512) both halves recover much (.80/.60,
+  overlapping) — the rotating early frame.

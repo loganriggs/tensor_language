@@ -1,0 +1,84 @@
+{
+ "rung": "tail_read_output_frame_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_in_frame_output_carries_most_late": true,
+  "pred_c_out_of_frame_output_alone_small_late": true,
+  "pred_d_parts_near_additive_late": true,
+  "pred_e_in_frame_output_carries_most_early": true
+ },
+ "nulls": {
+  "b_null_in_le_.35": false,
+  "c_null_perp_ge_.60": false,
+  "d_null_sum_le_.5": false,
+  "e_null_early_in_le_.35": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_min": 0.6,
+  "c_max": 0.4,
+  "d_lo": 0.7,
+  "d_hi": 1.3,
+  "e_min": 0.6
+ },
+ "null_bars": {
+  "b_max": 0.35,
+  "c_min": 0.6,
+  "d_max": 0.5,
+  "e_max": 0.35
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "MLP reads through a k-frame (late: bus U_8 at 768; early: own frames at 512), tail*tail dropped; the gated linear read's OUTPUT Down[Lc*Rt + Lt*Rc] is kept whole / only inside the read frame / only outside it / dropped",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_drop_tt_768": 0.008696883916854858,
+  "prior_drop_tt_768": 0.0087,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_DROP_TT_768": 0.008696883916854858,
+  "LATE_MLP_768": 0.12492626905441284,
+  "LATE_CROSS_IN_768": 0.02349931001663208,
+  "LATE_CROSS_PERP_768": 0.10049110651016235,
+  "EARLY_DROP_TT_512": 0.009052127599716187,
+  "EARLY_MLP_512": 0.09786906838417053,
+  "EARLY_CROSS_IN_512": 0.026723593473434448,
+  "EARLY_CROSS_PERP_512": 0.04484212398529053
+ },
+ "summary": {
+  "late_768": {
+   "recovery_in": 0.8726447181815641,
+   "recovery_perp": 0.2102322275501274,
+   "sum": 1.0828769457316916,
+   "energy_in_share": 0.7129443068813117
+  },
+  "early_512": {
+   "recovery_in": 0.8010349634018097,
+   "recovery_perp": 0.5970363753866349,
+   "sum": 1.3980713387884447,
+   "energy_in_share": 0.5034622077032841
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 832,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 23.012061834335327
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/TAIL_READ_OUTPUT_FRAME_PROBE_PREREGISTRATION.md": "02b3ac5b386922c34b1a42b27376ef92a3ecf288a18c383fa2fdcb6abec06f63",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/all18_tail_linear_program_probe_results.json": "8b4fc5553b4c500ec98891fd48095f1863975f2dd226cb4cbd3bbc74a9e340d6",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "05f120479a7485704e310c969ac6ba7eaf715037626342fe7ce9b9eff2740b78"
+}
