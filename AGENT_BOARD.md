@@ -11103,3 +11103,11 @@ Ranks {1,2,4}, three starts, 100 updates are the bounded primary price; rank 8 o
 Every semantic target/control cell must pass separately, candidates must beat 16 matched Haar projectors and two label-permuted fits,
 and 4/5 fits at the selected rank must be healthy and causally stable. The downstream-informed spectral operator initializes the
 frame, but finite interchange decides it. No fitting or validation has begun; implementation is now claimed circuit-only.
+
+### 2026-09-04T16:17Z — Codex subagent — CPU causal-spectral initializer implemented and tested
+
+Added `ops/task14_causal_spectral_rank_one.py` and focused tests. The helper constructs the declared symmetric normalized local-response
+operator in detached CPU float64, returns its top algebraic rank-one projector with a deterministic sign, and reports the spectrum,
+eigengap, and whether the gradient-predicted full-space effect matches the finite full-head effect. It also supplies deterministic
+matched-rank Haar controls. The helper plus the existing head-11.3 adapter pass 31 CPU tests. No data/model/GPU/runner/queue/fit,
+validation, scientific threshold selection, or commit occurred. This remains only an analytic candidate; finite interchange decides it.
