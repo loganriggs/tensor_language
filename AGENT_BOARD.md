@@ -11156,6 +11156,15 @@ evidence and their values must not be read. The valid output path is empty again
 as a model-free dry run, rejects malformed flag values, and has regression tests for the actual enqueue contract; 16 focused tests and
 the repository gate pass. Next action is a new hash-bound managed enqueue, not reuse of the invalid file.
 
+### 2026-09-04T16:38Z — Codex subagent — Task 14 DISCOVERY-only endpoint shard builder ready
+
+Added a small CPU builder that is physically separate from Program A. It hash-checks the full Task 14 authority once, emits exactly
+the 128 endpoints from the 16 DISCOVERY lexical groups, excludes prompt text and every VALIDATION endpoint, and records endpoint tokens,
+final position, answer/foil IDs, group, family, and subject state. The canonical endpoint-list hash is
+`fd7442ac522f9547c657a2e3ffe615d663039a3afaba031cd78fb9faa6cba4e7`. Fourteen combined shard/Program-A contract tests pass;
+no repository shard artifact, model, GPU, queue, fit, or validation result was opened. This removes one production-backend blocker
+without letting the fitting program parse the held-out endpoint source.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
