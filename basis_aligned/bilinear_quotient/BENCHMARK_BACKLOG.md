@@ -5299,3 +5299,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the late MLPs' tail cross term, vertex at gain 1 (curvature ≈ .12 nat/gain²); doubling the whole tail input costs .259 (self term ×4).
 - §2789 early_attn_tail_read_probe (Claude, LANE 1 CUDA, 21 s, 800 GPU forwards): a,d,e TRUE; b,c FALSE, no null met. Early attention's
   tail use is symmetric (pattern .0079 = value .0085; Q = K) — the late pattern/query dominance does NOT compose to early depth; additive.
+- §2790 late_tail_writer_recency_probe (Claude, LANE 1 CUDA, 21 s, 832 GPU forwards): a,b,d,e TRUE; c FALSE with null met. The late tail
+  channel is a fading accumulation: recent-2 blocks 43% of the .0711 late-origin cost, ≥5 back 10%; cost tracks energy (fade ≈ .8/block);
+  windows sub-additive (.74). Fixes the tail argument's support to the last ~3–4 blocks. Next: T2 exact tail-restricted operator rank.

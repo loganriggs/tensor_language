@@ -1,0 +1,117 @@
+{
+ "rung": "late_tail_writer_recency_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_recent_two_blocks_are_a_minority": true,
+  "pred_c_writers_five_or_more_blocks_back_carry_a_quarter": false,
+  "pred_d_cost_share_tracks_energy_share": true,
+  "pred_e_windows_complementary": true
+ },
+ "nulls": {
+  "b_null_le2_ge_.75": false,
+  "c_null_gt4_le_.10": true,
+  "d_null_gap_ge_.40": false,
+  "e_null_sum_ge_2": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_frac": 0.5,
+  "c_frac": 0.25,
+  "d_gap": 0.2,
+  "e_lo": 0.7,
+  "e_hi": 1.5
+ },
+ "null_bars": {
+  "b_frac": 0.75,
+  "c_frac": 0.1,
+  "d_gap": 0.4,
+  "e_hi": 2.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "windows": {
+  "DROP_ALL": "all",
+  "D_LE0": "('le', 0)",
+  "D_LE1": "('le', 1)",
+  "D_LE2": "('le', 2)",
+  "D_LE4": "('le', 4)",
+  "D_GT2": "('gt', 2)",
+  "D_GT4": "('gt', 4)"
+ },
+ "program": "blocks 8-17 MLP reads: core (top-768 of U_8) exact; tail drops the lambda-propagated writes (attention + MLP + bias) of the late blocks at distance d = reader - writer inside the window, each replaced by its fit-set mean",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249,
+  "drop_all": 0.07111215591430664,
+  "prior_early_tail_only": 0.0711,
+  "d_le0": 0.002325117588043213,
+  "prior_drop_own_attn_tail": 0.0023
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "DROP_ALL": 0.07111215591430664,
+  "D_LE0": 0.002325117588043213,
+  "D_LE1": 0.016882598400115967,
+  "D_LE2": 0.030241161584854126,
+  "D_LE4": 0.052624285221099854,
+  "D_GT2": 0.02246767282485962,
+  "D_GT4": 0.006877213716506958
+ },
+ "summary": {
+  "cost_share": {
+   "D_LE0": 0.03269648568727244,
+   "D_LE1": 0.2374080518731602,
+   "D_LE2": 0.4252600866340783,
+   "D_LE4": 0.7400181381719673,
+   "D_GT2": 0.3159470070339898,
+   "D_GT4": 0.09670939698121811
+  },
+  "energy_share": {
+   "DROP_ALL": 1.0,
+   "D_LE0": 0.05020621420938845,
+   "D_LE1": 0.28206828762987274,
+   "D_LE2": 0.48560623617212423,
+   "D_LE4": 0.7747803944000391,
+   "D_GT2": 0.4515576667214608,
+   "D_GT4": 0.17220023721175054
+  },
+  "energy_by_distance": {
+   "0": 0.05020621420938845,
+   "1": 0.21950189021415484,
+   "2": 0.15149338379108224,
+   "3": 0.11038695740039203,
+   "4": 0.0775444688690869,
+   "5": 0.0530806334643872,
+   "6": 0.03594708328914268,
+   "7": 0.02168709180396328,
+   "8": 0.01234339269302928,
+   "9": 0.004257469711023477
+  },
+  "late_origin_share_of_tail_energy": 0.48010989932479337,
+  "drop_all_over_const": 0.5692330080179778,
+  "sum_le2_gt2_over_all": 0.7412070936680681,
+  "sum_le4_gt4_over_all": 0.8367275351531853,
+  "le2_cost_minus_energy_share": -0.0603461495380459
+ },
+ "price": {
+  "gpu_doc_forwards": 832,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 21.17798686027527
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_WRITER_RECENCY_PROBE_PREREGISTRATION.md": "dd88235d45678d1fe01ae62905a59e4bce55987d73151963ee20e2202778e77b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_attn_tail_read_probe_results.json": "5f30683d664e7bbd0268f53371409845a85019de8398ae4f79b6f456aa5cd7a3",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "2fb65dc39e000047bdeb99f4c7f63ddae37784d141a20fb577f94c017a54888f"
+}
