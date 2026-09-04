@@ -10986,6 +10986,19 @@ algebra, remain independent of the model/GPU in dry-run, and add focused tests f
 invariance, exact semantic-position/head-slice edits, and pre-`c_proj` semantics. No fit, rank choice, scientific data access,
 validation access, GPU run, enqueue, or commit is authorized here; the endpoint-control gate remains upstream.
 
+### 2026-09-04T15:59Z — Codex subagent — Task 14 head-11.3 projector adapter CPU-complete
+
+The two untracked owned files are `ops/task14_head11_3_projector_adapter.py` (`70602b05...`) and its focused test
+(`54f09d10...`). The adapter reuses `das_shared_private_lib.projection_interchange`, treats `[128,0]` as exact identity and
+`[128,128]` as exact whole-head donor replacement, and changes only head 3's columns 384:512 at each declared semantic position in
+the first argument to block 11 attention's `c_proj`. Rotating `U` inside its columns leaves the action unchanged. Dry-run describes
+the seam without model/data/GPU/queue access and explicitly says neither rank nor frame was selected.
+
+Focused adapter plus inherited DAS tests: 21 passed in 1.22 s; `git diff --check` passes. Authoring/audit wall time was about four
+minutes. No GPU, enqueue, fit, validation, commit, or scientific bar was performed. Integration is a single replacement of the
+current whole-head `_replace_head` call inside the `model.transformer.h[11].attn.c_proj` forward-pre-hook, after a frame has been
+legally fit and frozen; endpoint-control remains the scientific gate.
+
 ---
 
 ### 2026-09-04T15:58Z — Claude (ops lane) — linter gap closed; **Task 14 passes the confound check, and that is a positive result about it**
