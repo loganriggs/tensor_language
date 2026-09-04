@@ -1,0 +1,495 @@
+{
+ "rung": "circuit_battery_bilinear_eigen_causal",
+ "preds": {
+  "pred_a_eigenvalue_predicts_damage": false,
+  "pred_b_top_eigendirection_beats_random": true,
+  "pred_c_the_output_axis_matters": false,
+  "pred_d_the_spectrum_is_flat": true,
+  "pred_e_full_basis_removal_is_the_block_input_ablation": true
+ },
+ "nulls": {
+  "a_null_no_prediction": true,
+  "b_null_top_no_better": false,
+  "c_null_axis_irrelevant": true,
+  "d_null_spectrum_concentrated": false
+ },
+ "bars": {
+  "rho": 0.5,
+  "top_over_random": 4.0,
+  "axis_gain": 0.2,
+  "flat_share": 0.1,
+  "exact": 0.05,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "rho_le": 0.1,
+  "top_over_random_le": 1.5,
+  "axis_gain_le": 0.0,
+  "flat_share_ge": 0.4
+ },
+ "method_source": "arXiv:2410.08417 (Pearce et al., ICLR 2025)",
+ "layers": [
+  8,
+  10
+ ],
+ "task": "numbered_list.index_successor",
+ "split": "OOD",
+ "seed": 2854,
+ "summary": {
+  "median_spearman": -0.44565217391304346,
+  "top1_over_random": 6.51132646062708,
+  "axis_gain": -0.004211892639962874,
+  "median_top8_share": 0.02526452112942934,
+  "full_basis_vs_block_ablation": 0.012323859039402679,
+  "cpu_probe_effective_ranks": {
+   "mlp8/numeric_axis": 737.5827026367188,
+   "mlp8/random_axis": 740.8597412109375,
+   "mlp10/numeric_axis": 731.07470703125,
+   "mlp10/random_axis": 759.0044555664062,
+   "mlp11/numeric_axis": 737.976318359375,
+   "mlp11/random_axis": 758.6354370117188
+  }
+ },
+ "layers_detail": {
+  "mlp8": {
+   "numeric_axis": {
+    "per_direction": {
+     "eig0": {
+      "abs_eigenvalue": 45.12255096435547,
+      "damage": -0.002672473667189479
+     },
+     "eig1": {
+      "abs_eigenvalue": 28.069007873535156,
+      "damage": 0.0032792885322123766
+     },
+     "eig2": {
+      "abs_eigenvalue": 27.34427833557129,
+      "damage": -0.00046384334564208984
+     },
+     "eig3": {
+      "abs_eigenvalue": 27.256057739257812,
+      "damage": -0.0473458357155323
+     },
+     "eig4": {
+      "abs_eigenvalue": 26.723390579223633,
+      "damage": 0.007833997718989849
+     },
+     "eig5": {
+      "abs_eigenvalue": 26.330373764038086,
+      "damage": -0.0003317594528198242
+     },
+     "eig6": {
+      "abs_eigenvalue": 26.26557159423828,
+      "damage": -0.006012916564941406
+     },
+     "eig7": {
+      "abs_eigenvalue": 25.572669982910156,
+      "damage": -0.0015288591384887695
+     },
+     "eig8": {
+      "abs_eigenvalue": 25.45612144470215,
+      "damage": -0.00014030933380126953
+     },
+     "eig9": {
+      "abs_eigenvalue": 25.271636962890625,
+      "damage": 0.0016251405468210578
+     },
+     "eig10": {
+      "abs_eigenvalue": 24.973735809326172,
+      "damage": 1.8755594282993115e-05
+     },
+     "eig11": {
+      "abs_eigenvalue": 24.893014907836914,
+      "damage": 0.006230711936950684
+     },
+     "rand0": {
+      "abs_eigenvalue": 11.442015647888184,
+      "damage": -0.002295374870300293
+     },
+     "rand1": {
+      "abs_eigenvalue": 3.053297758102417,
+      "damage": 0.007525523658841848
+     },
+     "rand2": {
+      "abs_eigenvalue": 5.11219596862793,
+      "damage": 0.00013085205864626914
+     },
+     "rand3": {
+      "abs_eigenvalue": 6.298585891723633,
+      "damage": 0.0022175710182636976
+     },
+     "rand4": {
+      "abs_eigenvalue": 6.9572954177856445,
+      "damage": -0.005874196533113718
+     },
+     "rand5": {
+      "abs_eigenvalue": 25.572669982910156,
+      "damage": -0.0015288591384887695
+     },
+     "rand6": {
+      "abs_eigenvalue": 11.975560188293457,
+      "damage": 0.0003191232681274414
+     },
+     "rand7": {
+      "abs_eigenvalue": 1.6357687711715698,
+      "damage": 0.003300786018371582
+     },
+     "rand8": {
+      "abs_eigenvalue": 13.335137367248535,
+      "damage": -0.012712161056697369
+     },
+     "rand9": {
+      "abs_eigenvalue": 11.277641296386719,
+      "damage": -0.00034677982330322266
+     },
+     "rand10": {
+      "abs_eigenvalue": 2.997800827026367,
+      "damage": 0.0022635061759501696
+     },
+     "rand11": {
+      "abs_eigenvalue": 2.1234874725341797,
+      "damage": 0.0008438428048975766
+     }
+    },
+    "top8_share": 0.023763345554471016,
+    "spearman": -0.34347826086956523,
+    "top1_damage": -0.002672473667189479,
+    "median_random_damage": 0.00022498766338685527,
+    "mean_top12_damage": -0.0032923419074298486
+   },
+   "random_axis": {
+    "per_direction": {
+     "eig0": {
+      "abs_eigenvalue": 28.666461944580078,
+      "damage": -0.001042008399963379
+     },
+     "eig1": {
+      "abs_eigenvalue": 27.033021926879883,
+      "damage": -0.005065282341092825
+     },
+     "eig2": {
+      "abs_eigenvalue": 26.83257484436035,
+      "damage": -0.0012059211730957031
+     },
+     "eig3": {
+      "abs_eigenvalue": 26.79096794128418,
+      "damage": 0.0043472847901284695
+     },
+     "eig4": {
+      "abs_eigenvalue": 25.942338943481445,
+      "damage": 0.007564425468444824
+     },
+     "eig5": {
+      "abs_eigenvalue": 25.924198150634766,
+      "damage": 0.0006315310602076352
+     },
+     "eig6": {
+      "abs_eigenvalue": 25.39824676513672,
+      "damage": 0.006693641189485788
+     },
+     "eig7": {
+      "abs_eigenvalue": 25.162517547607422,
+      "damage": -0.0059369406662881374
+     },
+     "eig8": {
+      "abs_eigenvalue": 25.125524520874023,
+      "damage": -0.0017619132995605469
+     },
+     "eig9": {
+      "abs_eigenvalue": 25.050416946411133,
+      "damage": -0.003159721614792943
+     },
+     "eig10": {
+      "abs_eigenvalue": 24.83381462097168,
+      "damage": -0.00601061200723052
+     },
+     "eig11": {
+      "abs_eigenvalue": 24.448896408081055,
+      "damage": 0.007217446807771921
+     },
+     "rand0": {
+      "abs_eigenvalue": 16.687923431396484,
+      "damage": -0.003978768829256296
+     },
+     "rand1": {
+      "abs_eigenvalue": 8.416025161743164,
+      "damage": 0.0022962887305766344
+     },
+     "rand2": {
+      "abs_eigenvalue": 6.838162899017334,
+      "damage": 0.006610671523958445
+     },
+     "rand3": {
+      "abs_eigenvalue": 6.790119171142578,
+      "damage": 0.004864255432039499
+     },
+     "rand4": {
+      "abs_eigenvalue": 0.2856086194515228,
+      "damage": 0.003811995266005397
+     },
+     "rand5": {
+      "abs_eigenvalue": 2.9954516887664795,
+      "damage": -0.0033413965720683336
+     },
+     "rand6": {
+      "abs_eigenvalue": 22.143354415893555,
+      "damage": 0.00014146168541628867
+     },
+     "rand7": {
+      "abs_eigenvalue": 1.4677891731262207,
+      "damage": 0.004938960075378418
+     },
+     "rand8": {
+      "abs_eigenvalue": 3.535170316696167,
+      "damage": -0.0011097192764282227
+     },
+     "rand9": {
+      "abs_eigenvalue": 5.858617305755615,
+      "damage": 0.016069650650024414
+     },
+     "rand10": {
+      "abs_eigenvalue": 17.29558753967285,
+      "damage": -0.0021687746047973633
+     },
+     "rand11": {
+      "abs_eigenvalue": 13.31857967376709,
+      "damage": 0.0032684803009033203
+     }
+    },
+    "top8_share": 0.021678300574421883,
+    "spearman": -0.20869565217391303,
+    "top1_damage": -0.001042008399963379,
+    "median_random_damage": 0.0027823845157399774,
+    "mean_top12_damage": 0.0001893274845012153
+   },
+   "full_basis_damage": 0.5096723437309265,
+   "block_ablation_damage": 0.5034676790237427
+  },
+  "mlp10": {
+   "numeric_axis": {
+    "per_direction": {
+     "eig0": {
+      "abs_eigenvalue": 53.57196807861328,
+      "damage": -0.0025654633063822985
+     },
+     "eig1": {
+      "abs_eigenvalue": 33.01773452758789,
+      "damage": -7.637342059751973e-05
+     },
+     "eig2": {
+      "abs_eigenvalue": 29.847129821777344,
+      "damage": 0.002650737762451172
+     },
+     "eig3": {
+      "abs_eigenvalue": 26.400299072265625,
+      "damage": -0.007022500038146973
+     },
+     "eig4": {
+      "abs_eigenvalue": 25.511432647705078,
+      "damage": -0.0019807417411357164
+     },
+     "eig5": {
+      "abs_eigenvalue": 24.893356323242188,
+      "damage": -0.0007410843973048031
+     },
+     "eig6": {
+      "abs_eigenvalue": 23.779321670532227,
+      "damage": -0.005049745086580515
+     },
+     "eig7": {
+      "abs_eigenvalue": 23.705516815185547,
+      "damage": -0.02585124969482422
+     },
+     "eig8": {
+      "abs_eigenvalue": 23.62346839904785,
+      "damage": 0.0048346915282309055
+     },
+     "eig9": {
+      "abs_eigenvalue": 23.424142837524414,
+      "damage": -0.00022304058074951172
+     },
+     "eig10": {
+      "abs_eigenvalue": 23.37101936340332,
+      "damage": -0.011121789924800396
+     },
+     "eig11": {
+      "abs_eigenvalue": 22.820199966430664,
+      "damage": 0.0013080438366159797
+     },
+     "rand0": {
+      "abs_eigenvalue": 1.74384605884552,
+      "damage": 0.0007844368810765445
+     },
+     "rand1": {
+      "abs_eigenvalue": 13.99986457824707,
+      "damage": 0.006335099693387747
+     },
+     "rand2": {
+      "abs_eigenvalue": 17.25525665283203,
+      "damage": -0.0009369452600367367
+     },
+     "rand3": {
+      "abs_eigenvalue": 3.980649471282959,
+      "damage": 0.003458460094407201
+     },
+     "rand4": {
+      "abs_eigenvalue": 10.528478622436523,
+      "damage": 0.002251863479614258
+     },
+     "rand5": {
+      "abs_eigenvalue": 0.473822683095932,
+      "damage": 0.0063167414627969265
+     },
+     "rand6": {
+      "abs_eigenvalue": 8.240854263305664,
+      "damage": 0.004746437072753906
+     },
+     "rand7": {
+      "abs_eigenvalue": 8.677080154418945,
+      "damage": 0.0015713771572336555
+     },
+     "rand8": {
+      "abs_eigenvalue": 1.9056609869003296,
+      "damage": 0.008502204902470112
+     },
+     "rand9": {
+      "abs_eigenvalue": 19.130596160888672,
+      "damage": -0.0027573108673095703
+     },
+     "rand10": {
+      "abs_eigenvalue": 6.082056522369385,
+      "damage": -0.0003808736801147461
+     },
+     "rand11": {
+      "abs_eigenvalue": 3.2333810329437256,
+      "damage": 0.0022318761330097914
+     }
+    },
+    "top8_share": 0.026765696704387665,
+    "spearman": -0.5478260869565217,
+    "top1_damage": -0.0025654633063822985,
+    "median_random_damage": 0.0022418698063120246,
+    "mean_top12_damage": -0.003819876255268658
+   },
+   "random_axis": {
+    "per_direction": {
+     "eig0": {
+      "abs_eigenvalue": 24.680768966674805,
+      "damage": -0.00815864372998476
+     },
+     "eig1": {
+      "abs_eigenvalue": 23.23508644104004,
+      "damage": -0.0020526647567749023
+     },
+     "eig2": {
+      "abs_eigenvalue": 22.542652130126953,
+      "damage": 0.011843681335449219
+     },
+     "eig3": {
+      "abs_eigenvalue": 22.39373207092285,
+      "damage": 0.004476865287870169
+     },
+     "eig4": {
+      "abs_eigenvalue": 22.10724449157715,
+      "damage": -0.0009079774026758969
+     },
+     "eig5": {
+      "abs_eigenvalue": 22.091012954711914,
+      "damage": -0.0030186574440449476
+     },
+     "eig6": {
+      "abs_eigenvalue": 21.907215118408203,
+      "damage": 0.004394253250211477
+     },
+     "eig7": {
+      "abs_eigenvalue": 21.483238220214844,
+      "damage": 0.0016736587276682258
+     },
+     "eig8": {
+      "abs_eigenvalue": 21.36135482788086,
+      "damage": 0.00042307376861572266
+     },
+     "eig9": {
+      "abs_eigenvalue": 21.313461303710938,
+      "damage": 0.002533952472731471
+     },
+     "eig10": {
+      "abs_eigenvalue": 21.19365692138672,
+      "damage": -0.0039020776748657227
+     },
+     "eig11": {
+      "abs_eigenvalue": 21.06510353088379,
+      "damage": 0.0061614117585122585
+     },
+     "rand0": {
+      "abs_eigenvalue": 20.71518898010254,
+      "damage": 0.0021539528388530016
+     },
+     "rand1": {
+      "abs_eigenvalue": 3.1083528995513916,
+      "damage": -0.0019952456932514906
+     },
+     "rand2": {
+      "abs_eigenvalue": 12.534151077270508,
+      "damage": -0.006024400237947702
+     },
+     "rand3": {
+      "abs_eigenvalue": 10.232563972473145,
+      "damage": 0.0014486709842458367
+     },
+     "rand4": {
+      "abs_eigenvalue": 0.9000660181045532,
+      "damage": -0.0011432170867919922
+     },
+     "rand5": {
+      "abs_eigenvalue": 5.264137268066406,
+      "damage": 8.229414379457012e-05
+     },
+     "rand6": {
+      "abs_eigenvalue": 8.572395324707031,
+      "damage": -0.006128629203885794
+     },
+     "rand7": {
+      "abs_eigenvalue": 1.5834563970565796,
+      "damage": 9.461244189878926e-05
+     },
+     "rand8": {
+      "abs_eigenvalue": 4.324425220489502,
+      "damage": 0.00040900707244873047
+     },
+     "rand9": {
+      "abs_eigenvalue": 18.65679168701172,
+      "damage": 0.0027794837951660156
+     },
+     "rand10": {
+      "abs_eigenvalue": 10.383552551269531,
+      "damage": -0.0050705671310424805
+     },
+     "rand11": {
+      "abs_eigenvalue": 3.5436477661132812,
+      "damage": -0.0016448100795969367
+     }
+    },
+    "top8_share": 0.020694812759757042,
+    "spearman": 0.17565217391304347,
+    "top1_damage": -0.00815864372998476,
+    "median_random_damage": -0.000530461471498711,
+    "mean_top12_damage": 0.001122239632726026
+   },
+   "full_basis_damage": 0.13084864616394043,
+   "block_ablation_damage": 0.12680034339427948
+  }
+ },
+ "smoke": false,
+ "price": {
+  "gpu_forwards": 1000,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 13.177085638046265
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_BILINEAR_EIGEN_CAUSAL_PREREGISTRATION.md": "6e2703f27a0c1b314dabf6b8772d82a49eeb4dc2c440555f97b78aec46140fbb",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_eigen_cpu_probe_results.json": "a88ef6ddd7481ff2ebd26ded2731df2d16364a8a7ebcaa1b0954385b1d2139b5",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}

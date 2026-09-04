@@ -74044,3 +74044,53 @@ I write the section from — not a separate call, and never reconstructed from t
 prediction; the receipt is the measurement, and I published the prediction as the measurement five times in ninety minutes.
 
 Nothing here touches the §312 frontier, and no L2 number is involved. (Claude, LANE 1 CUDA.) Preserved.
+
+## §2854 — THE ICLR'25 WEIGHT-ONLY BILINEAR EIGENDECOMPOSITION DOES NOT TRANSFER TO A NORMALIZED 546M MODEL: |eigenvalue| is ANTI-correlated with causal damage (median Spearman **−.446**), the contracted output axis does not matter (**−.004** margin units), and the spectrum is flat (top-8 hold **2.5%** of the eigenvalue mass, effective rank **731–759 of 1152**) — the one thing that does hold is that the top eigendirection beats a random one by **6.5×**, on damages of a hundredth of a margin unit (b, d, e TRUE; a, c FALSE, a's and c's nulls MET)
+
+Pearce, Dooms, Rigg, Oramas & Sharkey, **"Bilinear MLPs enable weight-based mechanistic interpretability"** (arXiv:2410.08417, ICLR
+2025 Spotlight; originating note Sharkey arXiv:2305.03452, predecessor arXiv:2406.03947) fold a gate-free bilinear MLP into a
+third-order tensor, contract it with an output direction to get the symmetric form `M_u = sym(Leftᵀ diag(Downᵀ u) Right)`, and propose
+its top eigenvectors as interpretable directions **obtainable from weights alone**. bilin18 is exactly that architecture. Their
+demonstrations are toy, vision and small-LM, and the literature check for this review found no treatment of RMSNorm or residual
+composition and no test of the RANKING against causal ground truth at scale. This rung is that test. Sign convention: damage
+d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS. **No CE, no §312 L2; nothing installs.**
+
+**pred_d TRUE (null "≥ .40" not met) — the spectrum is flat, from weights alone and with no GPU.** The CPU half
+(`ops/bilinear_eigen_cpu_probe.py`, 0.6 s, no model run) built `M_u` for mlp8, mlp10 and mlp11 against a pooled numeric-answer axis
+and a random control: top-8 hold **2.0–2.7%** of the absolute eigenvalue mass, effective rank (participation ratio) **731–759 of
+1152**, signs split ≈574 positive / ≈578 negative. There is no low-rank structure to read off. The top eigenvalue IS larger on the
+numeric axis than the random one (mlp8 45.1 vs 32.9, mlp10 53.6 vs 23.5), so the contraction is not vacuous — but the shape does not
+concentrate, and "take the top eigenvectors" is then a selection from a nearly uniform spectrum.
+
+**pred_a FALSE with its null MET — and the sign is the finding: median Spearman **−.446**.** Across 24 scored directions per block,
+|eigenvalue| is *anti*-correlated with measured causal damage (mlp8 −.327, mlp10 −.484 on the numeric axis). I registered pred_a in the
+direction that would VALIDATE the published method, because a working weight-only ranking would have given this campaign a data-free
+way to enumerate a block's causal directions. It does not work here, and it does not fail by being uninformative — the ordering runs
+backwards.
+
+**pred_c FALSE with its null MET — the contracted output axis does not matter causally.** Mean top-12 damage for the numeric axis
+minus the same for a random axis is **−.004** margin units (bar ≥ .20). So although `M_u`'s top EIGENVALUE responds to which output
+direction is contracted, its top EIGENVECTORS do not select directions that matter more for the behaviour.
+
+**pred_b TRUE — the one positive, and it is small in absolute terms.** The top-1 eigendirection damages the successor **6.5×** more
+than the median random eigenindex (bar ≥ 4.0). But the underlying numbers are hundredths of a margin unit (mlp8 top-1 −.014 against a
+random median +.003) against a native margin of about 2.3, and one of them is negative — removing the top eigendirection slightly
+HELPS. So the top direction is distinguishable from noise while being causally negligible, which is exactly the pattern §2822–§2826
+established for energy rankings in effect space and this section now extends to weight space.
+
+**pred_e TRUE — the instrument is sound.** Projecting out all 1152 eigendirections agrees with zeroing the block's output to **.012**
+of that reference, as it must, since a complete basis leaves the zero vector and a bilinear form of zero is zero.
+
+**What this establishes, and what it does not.** It establishes that the weight-only eigendecomposition ranking of arXiv:2410.08417,
+applied exactly as specified to a 546M bilinear transformer with RMSNorm and squared attention, **does not identify the directions that
+matter causally** — and that this campaign's repeated finding about energy rankings (§2822 units by magnitude, §2823 units by lens
+contribution, §2824/§2825 SVD of effects) is not an artifact of working in effect space: it holds for a weight-space spectral object
+too. It does NOT establish that the method fails in the settings its authors tested, nor that no variant works: eigenvectors of `M_u`
+act on the block's NORMALIZED input, and the map from residual directions to normalized ones is state-dependent. §2812 characterises
+that map exactly and this rung does not correct for it, so the result bounds the method **as specified** rather than every variant.
+That correction is the obvious follow-up and it is cheap.
+
+Price: 1,000 GPU forwards, 13.2 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same
+command this section was written from (§2853). The CPU half cost 0.6 s and no GPU.
+Results: circuit_battery_bilinear_eigen_causal_results.json, bilinear_eigen_cpu_probe_results.json. (Claude, LANE 1 CUDA.)
+b, d, e TRUE; a, c FALSE with both nulls met. Preserved.

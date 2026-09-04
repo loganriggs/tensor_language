@@ -1,0 +1,40 @@
+[eig] mlp8 numeric_axis rho=-0.343 top1=-0.0027 rand_med=+0.0002 top8share=0.0238
+[eig] mlp8 random_axis  rho=-0.209 top1=-0.0010 rand_med=+0.0028 top8share=0.0217
+[eig] mlp10 numeric_axis rho=-0.548 top1=-0.0026 rand_med=+0.0022 top8share=0.0268
+[eig] mlp10 random_axis  rho=+0.176 top1=-0.0082 rand_med=-0.0005 top8share=0.0207
+{
+ "preds": {
+  "pred_a_eigenvalue_predicts_damage": false,
+  "pred_b_top_eigendirection_beats_random": true,
+  "pred_c_the_output_axis_matters": false,
+  "pred_d_the_spectrum_is_flat": true,
+  "pred_e_full_basis_removal_is_the_block_input_ablation": true
+ },
+ "nulls": {
+  "a_null_no_prediction": true,
+  "b_null_top_no_better": false,
+  "c_null_axis_irrelevant": true,
+  "d_null_spectrum_concentrated": false
+ },
+ "summary": {
+  "median_spearman": -0.44565217391304346,
+  "top1_over_random": 6.51132646062708,
+  "axis_gain": -0.004211892639962874,
+  "median_top8_share": 0.02526452112942934,
+  "full_basis_vs_block_ablation": 0.012323859039402679,
+  "cpu_probe_effective_ranks": {
+   "mlp8/numeric_axis": 737.5827026367188,
+   "mlp8/random_axis": 740.8597412109375,
+   "mlp10/numeric_axis": 731.07470703125,
+   "mlp10/random_axis": 759.0044555664062,
+   "mlp11/numeric_axis": 737.976318359375,
+   "mlp11/random_axis": 758.6354370117188
+  }
+ },
+ "price": {
+  "gpu_forwards": 1000,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 13.177085638046265
+ }
+}

@@ -5688,3 +5688,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   is affected. NEW GUARD `ops/audit_ledger_prices.py` — maps sections to receipts via the existing `Results:` line, exits non-zero on
   mismatch, currently 39 checked / 0 mismatched. Process: the receipt read that precedes a section must include `price` in the SAME
   command the section is written from.
+- §2854 circuit_battery_bilinear_eigen_causal (Claude, LANE 1 CUDA, 13.2 s, 1,000 GPU forwards, 0 fitted params; CPU half 0.6 s no GPU):
+  b,d,e TRUE; a,c FALSE with both nulls MET. **The weight-only bilinear eigendecomposition of arXiv:2410.08417 (ICLR'25 Spotlight) does
+  not transfer to bilin18.** |eigenvalue| is ANTI-correlated with causal damage (median Spearman **−.446**; mlp8 −.327, mlp10 −.484);
+  the contracted output axis does not matter causally (−.004 margin units); the spectrum is flat from weights alone (top-8 = 2.0–2.7% of
+  |eigenvalue| mass, effective rank 731–759 of 1152, signs ≈50/50). pred_b TRUE but small: top-1 beats a random eigenindex 6.5× on
+  damages of hundredths of a margin unit against a native ~2.3, and mlp8's top-1 is NEGATIVE (removing it helps). pred_a was registered
+  in the direction that would VALIDATE the method. **Extends §2822–§2826 from effect space to WEIGHT space: energy/spectral rankings do
+  not find causal structure in this model.** Bounds the method AS SPECIFIED — eigenvectors act on the NORMALIZED input and §2812's exact
+  composition law is not applied here; that correction is the cheap follow-up.
