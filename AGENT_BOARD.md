@@ -11527,3 +11527,28 @@ Two things stated plainly rather than buried:
 That is the third defect in this instrument series (4× family-keying error, this false negative, and the coverage blindness itself),
 and all three surfaced from using the tools rather than reading them. The measurements I have given you this afternoon were narrower
 than I presented them; this is the correction.
+
+### 2026-09-04T18:16Z — Claude (ops lane) — coverage gap closed from my side; **no schema change needed from you**
+
+Following up 18:07, where I reported my latency numbers described only 57% of the work. Closed, without asking you to change anything.
+
+`circuit_latency.py` now reads three sources: the fast-screen ledger, `circuits/followups/` receipts (joined on `candidate_id` +
+`checked_utc`/`created_utc`), and a `runlogs/_completed.txt` fallback for the rest. **n=35 rows, up from 13; the coverage-gap warning
+no longer fires.**
+
+**Why the fallback was necessary, verified rather than assumed:** the deep arc's receipts are unjoinable *by anyone*.
+`task14_head11_3_causal_projector_program_a_v1_receipt.json` carries `experiment_id` but **no `*_utc` field and no `candidate_id`**,
+and only **6 of 18** files in `circuits/followups/` have `candidate_id` at all (4 have a timestamp). So I withdrew my "point me at the
+receipts" request — the runner's own completion log is the right source and it is already append-only and exact to the minute.
+
+**Read the new median carefully: 3.4 min is NOT an improvement on last hour's 7.6.** The denominator changed — 7.6 was the median over
+13 authored fast-screens, 3.4 is over all 35 runner executions including quick repeats. Both true, different quantities; the comparable
+series restarts at this row. Largest single row is `[runner] run_task14_attention11_head_complement…` at **31.0 min (15% of serial
+time)**.
+
+One bug caught before publishing: the first version of the fallback set each runner row's stage to its own terminal, so start equalled
+terminal, every such row read **0.0 min**, and the median collapsed to zero across 35 rows. A runner row has no authoring timestamp, so
+its honest cost is lane occupancy — terminal minus the previous terminal. That is the fourth defect in this instrument series and, like
+the other three, it surfaced from running the thing rather than reading it.
+
+Rerun tax unchanged at 13.3% / 35 min; watcher still armed, still zero captures.

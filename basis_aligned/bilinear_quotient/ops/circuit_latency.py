@@ -95,8 +95,88 @@ def rows():
     return out
 
 
+def followup_rows():
+    """The deep-arc receipts under circuits/followups/, which never reach the fast-screen ledger.
+
+    Closing the coverage gap found at 18:07 (23 runner executions, 13 ledger rows). These carry timestamps
+    INSIDE the receipt -- `checked_utc` on a prior-art file, `created_utc` on a result/audit -- which is
+    better evidence than an mtime, so these rows are exact where the ledger rows are indicative.
+    """
+    by_candidate = {}
+    for path in glob.glob(os.path.join(BQ, "circuits", "followups", "*.json")):
+        try:
+            doc = json.load(open(path, errors="ignore"))
+        except (OSError, ValueError):
+            continue
+        if not isinstance(doc, dict):
+            continue
+        cid = doc.get("candidate_id")
+        if not cid:
+            continue
+        stamp = doc.get("created_utc") or doc.get("checked_utc")
+        if not stamp:
+            continue
+        try:
+            when = datetime.datetime.strptime(str(stamp)[:19], "%Y-%m-%dT%H:%M:%S")
+        except ValueError:
+            continue
+        lo, hi = by_candidate.get(cid, (when, when))
+        by_candidate[cid] = (min(lo, when), max(hi, when))
+    out = []
+    for cid, (lo, hi) in by_candidate.items():
+        if hi <= lo:
+            continue                      # a single-receipt candidate gives no interval
+        out.append({"candidate_id": cid, "terminal": hi,
+                    "stages": {"receipt_start": lo}, "serial_seconds": None})
+    return out
+
+
+def runner_rows(known):
+    """Executions the receipt sources cannot explain, taken from the runner's own completion log.
+
+    The deep arc's receipts carry NO time field at all -- `..._causal_projector_program_a_v1_receipt.json`
+    has `experiment_id` but no `*_utc` and no `candidate_id` -- so those screens are unjoinable from
+    receipts by anyone, not just by this tool. `runlogs/_completed.txt` is append-only and records the
+    runner's own exit time, so lane occupancy is recoverable there without asking another lane to change a
+    schema. Minute resolution; dated from the receipt rows.
+    """
+    completed = os.path.join(BQ, "runlogs", "_completed.txt")
+    if not os.path.exists(completed) or not known:
+        return []
+    day = min(r["terminal"] for r in known).date()
+    first = min(r["terminal"] for r in known)
+    out = []
+    for raw in open(completed, errors="ignore"):
+        m = re.match(r"^(\d\d):(\d\d)\s+(run_\S+)\s+exit=(\d+)", raw.strip())
+        if not m:
+            continue
+        when = datetime.datetime.combine(day, datetime.time(int(m.group(1)), int(m.group(2))))
+        if when < first:
+            continue
+        # The stage marker is deliberately datetime.min, NOT `when`: a runner row has no authoring
+        # timestamp of its own, so its honest serial cost is LANE OCCUPANCY -- terminal minus the previous
+        # terminal -- which the single-lane chaining below produces once the stage cannot win the max().
+        # Setting the stage to `when` made start == terminal and every such row read 0.0 min, dragging the
+        # median to zero across 35 rows.
+        out.append({"candidate_id": f"[runner] {m.group(3)}" + ("" if m.group(4) == "0" else " FAILED"),
+                    "terminal": when, "stages": {"runner": datetime.datetime.min},
+                    "serial_seconds": None})
+    return out
+
+
 if __name__ == "__main__":
-    data = rows()
+    data = rows() + followup_rows()
+    data += runner_rows(data)
+    # De-duplicate: a runner execution whose receipt row already lands in the same minute is the same event.
+    seen_minutes = set()
+    merged = []
+    for r in sorted(data, key=lambda r: (r["terminal"], r["candidate_id"].startswith("[runner]"))):
+        key = r["terminal"].replace(second=0)
+        if r["candidate_id"].startswith("[runner]") and key in seen_minutes:
+            continue
+        seen_minutes.add(key)
+        merged.append(r)
+    data = merged
     if not data:
         print("no ledger rows"); raise SystemExit(0)
     since = None
