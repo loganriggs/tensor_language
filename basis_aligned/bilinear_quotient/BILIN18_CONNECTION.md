@@ -75452,3 +75452,66 @@ the 2.6735 will have to come from.
 norm-2304 / 2.6735 (§2125). The explained fraction is therefore **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. What this
 section changes is *where to look*, not what is explained. The knob patched only the L2 evaluation, which is why `L1_F` is identical
 across arms (2.2871) — correctly, and it is the reason validation (1) above is a real check rather than a tautology.
+
+## §2883 — THE FRONT MLP TABLES ARE THE FRONTIER'S LARGEST SINGLE ERROR SOURCE (+1.0045 nats, 37.6%), AND THE CP UNITS ARE **BETTER THAN THE REAL MLPs** IN THIS STACK (−0.2140): RESTORING MLPs 4–9 MAKES THE FRONTIER **WORSE**
+
+Registered `polynomial_causal/FRONTIER_MLP_SIDE_ERROR_SHARE_PREREGISTRATION.md` (09:41Z). Run `frontier_mlp_side_error_share`, landed
+09:53Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_mlp_side_error_share_results.json
+Price: 0 GPU forwards, 377.6 GPU-seconds (4 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 4` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+These entries are **approximations standing in for real MLPs**, so restoring one to real should normally **lower** L2; the quantity is
+an **error share** = `L2_F(baseline) − L2_F(restored)`, **POSITIVE = that block contributes that much error, NEGATIVE = the
+approximation is BETTER than the real component in this stack**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | L2_F | L2_C | error share |
+|---|---|---|---|
+| BASELINE | **+2.6735** | +2.4232 | — |
+| CP units `c4`–`c9` off → MLPs 4–9 **real** | **+2.8875** | +2.7072 | **−0.2140** |
+| front tables off → front MLPs **real** | **+1.6690** | | **+1.0045** |
+| both off | +1.6701 | | +1.0034 |
+
+**pred_a HELD** (baseline +2.6735). **pred_d HELD** — both blocks move the number, so both are installed, per §2879's standing rule
+carried as a *measured* predicate rather than a code reading. **pred_e HELD** but not comfortably: the two shares sum to +0.7905 against
+a joint of +1.0034, a drift of **+0.2129** against a ≤ .30 bar — the blocks interact materially.
+
+**pred_c HELD, and it is the headline: the front MLP tables carry +1.0045 nats — 37.6% of the published +2.6735, the largest single
+block measured anywhere in this construction**, larger than the motif heads (.3988) and tail dictionaries (.3864) of §2882 combined.
+
+### pred_b FAILED with the *opposite sign*, and that is the result
+
+`b_null_the_cp_units_are_error_free` is recorded MET (share ≤ .05), but **the null's wording undersells what happened and the sign must
+be stated rather than absorbed**: the CP units' share is **−0.2140**. Restoring MLPs 4–9 to the **real model** makes the frontier
+**worse by 0.214 nats** (higher L2 = worse). The `c4`–`c9` reconstructions are not a source of error at all; **they outperform the
+components they replace, inside this stack.**
+
+That is not a paradox and it is not a bug — it is composition. Every other part of the construction (the empirical base, the 38 motif
+heads, the tail dictionaries refit under the stack) is fitted **with the CP units in place**. Dropping them inserts real MLPs into a
+stack co-adapted to their reconstructions, and the mismatch costs more than the reconstruction error it removes. The sizeable
+additivity drift (+0.2129) is the same effect showing up in the joint arm.
+
+**This bears directly on §2118/§2125's line of work.** The norm-2304 CP selection that defines the frontier's middle is, on this
+measurement, not where the frontier's error is — it is where the frontier is doing better than the model it approximates. §2125's
+finding **stands untouched** (Fisher selection does not install into the frontier); this adds that the norm-selected CP units are not
+the thing to improve.
+
+### The decomposition so far, and what is still unattributed
+
+| block | error share | % of +2.6735 | source |
+|---|---|---|---|
+| front MLP tables | **+1.0045** | 37.6% | this section |
+| motif heads (attn 2–9) | +0.3988 | 14.9% | §2882 |
+| tail dictionaries (attn 10–17) | +0.3864 | 14.5% | §2882 |
+| CP units `c4`–`c9` | **−0.2140** | **−8.0%** | this section |
+| **sum of measured blocks** | **+1.5757** | 58.9% | |
+| **unattributed remainder** | **+1.0978** | 41.1% | base + interactions |
+
+The remainder is not small and it is **not yet attributed to anything** — it includes the empirical matched-context base itself, the
+`tailE` entry, and the interaction terms that the two additivity drifts (+0.0270 in §2882, +0.2129 here) show are real. **No claim is
+made here about where it lives.** Note also that these shares are measured **one block at a time against the full construction**, and
+§2880 showed single-block ablation understates a stage by 2.2× when its parts compensate for one another — so each figure above should
+be read as a lower bound on that block's involvement, not as a partition.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.

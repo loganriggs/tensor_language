@@ -5796,3 +5796,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   reproduction chain, as with §2858/§2859). **Disclose the correct time in the ledger section when the run lands**, and note the mtime
   is authoritative. Fifth instance of this slip today — the memory rule is to paste the exact string `date -u` returned, and pasting a
   *guess made one line later* is how it keeps recurring.
+
+- **[§2883] The front MLP tables are the target.** +1.0045 nats, 37.6% of the frontier's error, larger than the two attention blocks
+  combined (SIGN: L2 is CE added above the real model, LOWER IS BETTER; positive share = that block contributes that much error). They
+  are `m0E`/`m1`/`m2E`/`m3E` — token-indexed tables plus rank-64 quadratic residuals over MLPs 0–3. §2877/§2880 showed neither half is
+  droppable and the pair is superadditive, so the lead is **a better front table**, not a cheaper one: more residual rank, or a
+  residual fitted against the frontier's own error rather than the MLP's.
+- **[§2883] Attribute the +1.0978 remainder.** Base + `tailE` + interactions. The empirical matched-context base has never been priced
+  and is the obvious next block; `tailE` is a single entry and cheap to test. Both are in `cfgF`, so the §2879 installed-check is
+  satisfiable by construction.
