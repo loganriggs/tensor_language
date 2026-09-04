@@ -1,0 +1,165 @@
+{
+ "rung": "circuit_battery_node_vs_edge_selectivity",
+ "preds": {
+  "pred_a_node_arms_are_saturated": true,
+  "pred_b_controls_are_saturated_too": true,
+  "pred_c_edges_are_not_saturated": true,
+  "pred_d_edges_are_more_selective_than_nodes": true,
+  "pred_e_ratios_replicate_the_earlier_rungs": true
+ },
+ "nulls": {
+  "a_null_nodes_not_saturated": false,
+  "b_null_controls_not_saturated": false,
+  "c_null_edges_saturated_too": false,
+  "d_null_no_gap": false
+ },
+ "bars": {
+  "node_sat": 0.9,
+  "ctrl_sat": 0.9,
+  "edge_sat": 0.6,
+  "gap": 0.3,
+  "repro": 0.2,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "node_sat_le": 0.6,
+  "ctrl_sat_le": 0.6,
+  "edge_sat_ge": 0.9,
+  "gap_le": 0.0
+ },
+ "task": "numbered_list.index_successor",
+ "split": "OOD",
+ "nodes": [
+  "attn1",
+  "attn5",
+  "attn6",
+  "attn8",
+  "mlp0",
+  "mlp1",
+  "mlp4"
+ ],
+ "edges": [
+  "mlp8",
+  "mlp9",
+  "mlp10",
+  "mlp11"
+ ],
+ "summary": {
+  "native_margin": {
+   "A1": 2.9360084533691406,
+   "P": 2.9360084533691406,
+   "C": -0.15461349487304688
+  },
+  "node_saturation": {
+   "attn1": 1.4137771760667415,
+   "attn5": 1.5833101628387711,
+   "attn6": 0.3337456652768701,
+   "attn8": 1.280497513827588,
+   "mlp0": 1.4927483931153747,
+   "mlp1": 1.4178335284418904,
+   "mlp4": 1.083589670463596
+  },
+  "control_saturation": {
+   "attn1": 1.4137771760667415,
+   "attn5": 1.5833101628387711,
+   "attn6": 0.3337456652768701,
+   "attn8": 1.280497513827588,
+   "mlp0": 1.4927483931153747,
+   "mlp1": 1.4178335284418904,
+   "mlp4": 1.083589670463596
+  },
+  "edge_saturation": {
+   "mlp8": 0.20053153547619265,
+   "mlp9": 0.0783746850869933,
+   "mlp10": 0.07359682624857566,
+   "mlp11": 0.0437199622689068
+  },
+  "node_ratio": {
+   "attn1": 1.0,
+   "attn5": 1.0,
+   "attn6": 1.0,
+   "attn8": 1.0,
+   "mlp0": 1.0,
+   "mlp1": 1.0,
+   "mlp4": 1.0
+  },
+  "edge_ratio": {
+   "mlp8": 1.0,
+   "mlp9": 1.097437858581543,
+   "mlp10": 0.8550105094909668,
+   "mlp11": 0.5244317054748535
+  },
+  "min_node_ratio": 1.0,
+  "min_edge_ratio": 0.5244317054748535,
+  "gap": 0.4755682945251465,
+  "medians": {
+   "node_sat": 1.4137771760667415,
+   "ctrl_sat": 1.4137771760667415,
+   "edge_sat": 0.07598575566778448
+  },
+  "repro_node": 0.0,
+  "repro_edge": 0.11903805859056815
+ },
+ "node_damage": {
+  "A1": {
+   "attn1": 4.150861740112305,
+   "attn5": 4.648612022399902,
+   "attn6": 0.9798800945281982,
+   "attn8": 3.759551525115967,
+   "mlp0": 4.382721900939941,
+   "mlp1": 4.162771224975586,
+   "mlp4": 3.1814284324645996
+  },
+  "P": {
+   "attn1": 4.150861740112305,
+   "attn5": 4.648612022399902,
+   "attn6": 0.9798800945281982,
+   "attn8": 3.759551525115967,
+   "mlp0": 4.382721900939941,
+   "mlp1": 4.162771224975586,
+   "mlp4": 3.1814284324645996
+  },
+  "C": {
+   "attn1": -1.039308786392212,
+   "attn5": -0.08803272247314453,
+   "attn6": 0.03681015968322754,
+   "attn8": -2.083448648452759,
+   "mlp0": -0.5954685211181641,
+   "mlp1": -1.6083247661590576,
+   "mlp4": -0.33478426933288574
+  }
+ },
+ "edge_damage": {
+  "A1": {
+   "mlp8": 0.5887622833251953,
+   "mlp9": 0.23010873794555664,
+   "mlp10": 0.216080904006958,
+   "mlp11": 0.12836217880249023
+  },
+  "P": {
+   "mlp8": 0.5887622833251953,
+   "mlp9": 0.23010873794555664,
+   "mlp10": 0.216080904006958,
+   "mlp11": 0.12836217880249023
+  },
+  "C": {
+   "mlp8": -0.5877065658569336,
+   "mlp9": -0.5487189292907715,
+   "mlp10": -0.4275052547454834,
+   "mlp11": -0.26221585273742676
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 108,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 2.849761486053467
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_NODE_VS_EDGE_SELECTIVITY_PREREGISTRATION.md": "d63035b30c9a832b0238a9b7f19f12a7eecf8da1f529767a2c485fac940315e6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_successor_full_sweep_results.json": "6e20b244de4a96f1158d5fbbcdc704926048f6b87b1c524480c8b6f3c2a7b3be",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_reader_selectivity_results.json": "8170669c13428850aa07c4539de28dd7d8164f25eb100f11996b63b02121735f",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
