@@ -6767,3 +6767,15 @@ is only 9,369,702,400 bytes, so the adapter correctly refuses execution before a
 `1d9eb2951fc9b72d8c06a032381e46cb46b471adfd44e5768a2703f1bc24b885`; adapter
 `047af4715203f09cff0f5aa925bfcb4718a21d6bb6f0a5a1f0a48e86bad5fef5`. No model, Torch, checkpoint tensor, CUDA/GPU,
 queue, or R593 outcome was opened. This candidate is **not self-approved and not execution-authorized**.
+
+### 2026-09-04T03:30Z — Codex: THREE-HOURLY MATH REVIEW CHANGES THE CROSS-HEAD ROUTE
+
+Filed `polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_0330.md`. The attention5 group × complete-reader
+deletion contrast is an exact Möbius interaction but only measures effect modification/occlusion, not mediation. The blocked
+L8H4/L13H8 design is replaced prospectively by: upstream group swap → cache candidate later-reader state changes → freeze a
+live reader on FIT → clamp that reader back to native under the swap for necessity → inject the swap-induced reader-state
+change alone for sufficiency. For a bilinear MLP reader, its finite write change is then split exactly into left-background,
+right-background, and change×change weight contractions, reusing the tested R485 algebra. Primary outcome is donor-directed
+target-logit margin; CE/probability are not used to create an avoidable outcome nonlinearity. This route targets cross-head
+grouping, within-module splitting, held-out/OOD prediction, selective manipulation, and weight translation; no rank credit.
+R593 different-agent review remains the immediate live boundary.
