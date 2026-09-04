@@ -74403,3 +74403,59 @@ re-specifies P as a **positive** control, scores selectivity on the copy control
 selectivity stage has never used** — with `b_null_preserving_control_is_not_positive` registered precisely so that this section's
 central claim can be cleanly refuted. Nothing here retires a failing registered bound: §2852's and §2859's nulls are recorded as met,
 and they stay met.
+
+## §2861 — THE RE-SPECIFIED METRIC WORKS: P IS A POSITIVE CONTROL AT .056, THE WRITER OPPOSES THE COPY ANSWER 7 OF 7, AND SELECTIVITY GENERALISES TO HELD-OUT SPLITS
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_PROTOCOL_V6_PREREGISTRATION.md` (08:15Z, `date -u` read before composing the header —
+the first prereg written under §2858's rule, after §2859 recorded the second slip). Run
+`circuit_battery_variable_dependence_selectivity`, landed 08:16Z.
+Results: circuit_battery_variable_dependence_selectivity_results.json
+Price: 406 GPU forwards, 6.7 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`).
+
+SIGN CONVENTION: `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS** that condition's own answer, NEGATIVE = it HELPS;
+`selectivity = |d_C| / max(d_A1, .5)`, LOWER = MORE SELECTIVE. No CE, no §312 L2, nothing installs. (Frontier: L2 is CE ADDED ABOVE THE
+REAL MODEL, LOWER IS BETTER, §2135; norm-2304 at 2.6735, §2125 stands.)
+
+The arm is §2852's calibrated ladder rung per behaviour, **read from that receipt and frozen, not re-fit here**, so no parameter was
+chosen on the data being scored. **All five predictions TRUE; no null met.**
+
+| behaviour | old-style ratio | **selectivity SELECT** | **TEST** | OOD | positive control |
+|---|---|---|---|---|---|
+| counting words | 1.267 | .627 | .352 | 1.301 | .267 |
+| keyed counter | 1.237 | **.278** | **.269** | **.215** | .237 |
+| month | 1.056 | .482 | .353 | **.187** | **.056** |
+| numbered list | .962 | .574 | .629 | .670 | **.038** |
+| numeric run | .710 | **.267** | **.176** | **.191** | .211 |
+| paren list | .996 | .470 | .529 | .665 | **.004** |
+| roman list | 1.017 | .369 | **.216** | **.231** | **.017** |
+
+- **pred_a TRUE** — median |old-style − new| = **.574** (bar .30). The old metric was flat near 1 (range .71–1.27); the new one spans
+  .27–.63 on the same forwards. They are not the same measurement.
+- **pred_b TRUE, and this is the clause that confirms §2860** — median positive control `|d_P_donor − d_A1|/d_A1` = **.056**
+  (bar ≤ .25), with paren list at **.004**, roman at **.017**, numbered at **.038**. Removing attn8's write damages a
+  variable-PRESERVING prompt essentially exactly as much as the target. That is the signature of a writer carrying the causal
+  variable, and it is why the old `max`-over-controls score was pinned at 1. `b_null_preserving_control_is_not_positive`, registered
+  specifically so §2860's central claim could be cleanly refuted, is **not met**.
+- **pred_c TRUE** — `d_C < 0` on **7 of 7**: removing attn8's write *helps* the copy answer. The writer actively opposes verbatim
+  copying while supporting the successor, as §2842/§2843's "which item was last and whether it is round" predicts.
+- **pred_d TRUE** — median |SELECT − TEST| = **.091** (bar ≤ .15), on splits with disjoint pools. **pred_e TRUE** — Spearman
+  ρ(SELECT, TEST) = **.714** (bar ≥ .60) over the behaviour axis. This is the first time the selectivity stage has been scored on
+  held-out data at all.
+
+### What this does and does not license
+
+**Established:** the re-specified metric has range, its positive control behaves as §2860 predicted, and it transfers to held-out
+situations with a stable ordering. §2860's withdrawal of the old metric is confirmed by measurement, not just by the bank's
+declarations.
+
+**NOT established, and deliberately not claimed: that attn8 "is selective".** No behaviour clears the campaign's .25 bar on SELECT
+(minimum .267) and three clear it on TEST — but **that bar was calibrated for the OLD metric and carrying it across to a
+differently-constructed quantity is a category error.** A ratio needs a null before it can be read, and the honest null is what this
+same metric reads for a component that is NOT the writer. Registered as
+`CIRCUIT_BATTERY_SELECTIVITY_NULL_PREREGISTRATION.md` (08:19Z, queued): the same metric with all 36 components standing in as the
+writer, under §2820's admissibility gate (`|d_A1| ≥ .10`, so an inert component cannot be crowned selective by a ratio of two
+near-zero numbers), with `a_null_writer_is_typical` registered so that the replacement metric can be shown unusable if attn8 turns out
+to be unremarkable on it.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68): §2858–§2861 correct the campaign's instrument and
+touch no §312 frontier quantity.
