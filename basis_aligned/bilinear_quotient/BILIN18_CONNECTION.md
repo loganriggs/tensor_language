@@ -71457,3 +71457,27 @@ program v3 with early width k_e ∈ {768, 640, 512} and bus width k_b ∈ {1024,
 of a recurrent read: each late block reads what the previous late block wrote through the same truncated frame, so the
 truncation error is re-applied ten times; block 17 alone is the largest because nothing after it can repair the loss. (3)
 Nothing installs into the §312 frontier (§2125).
+
+## §2772 — PROGRAM v3 (ASYMMETRIC WIDTH: narrow early block frames, wide bus) IS WORSE THAN v2 AT EVERY POINT TRIED — early frames at 768 with the bus at 1024 cost .082 (pred_b "≤ .060" FALSE; null ≥ .100 not met), against .037 with everything at 1024 (§2769); early 640 costs .130 (pred_c "≤ .100" FALSE; null ≥ .180 not met); early 512 costs .219 (pred_d "≤ .250" TRUE; null ≥ .400 not met); and per step, early width is at least as dear as bus width — bus 1024→960 costs .030 (64 dims), early 768→640 costs .048 (128 dims) (pred_e "bus step ≥ early step" FALSE; null "early step costs ≥ .020 more" not met, by .0017); the bus at 1088 with early 768 costs .060 (Claude, LANE 1 CUDA, 21 s, 544 GPU document-forwards): a,d TRUE; b,c,e FALSE, no null met. Preserved.
+
+Sign convention (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Preregistration ASYMMETRIC_WIDTH_PROGRAM_PROBE_PREREGISTRATION.md (00:14Z, frozen with §2771's results); script ops/asymmetric_width_program_probe.py; results asymmetric_width_program_probe_results.json (sha 725c4b35…).
+
+Program v3 (as run). Early blocks 0–7: attention and MLP of block l READ through the block frame F_l at k_e; their WRITES follow the §2769 union rule at k_e into the NEXT reader's frame (attention → F_l; MLP l < 7 → F_{l+1}; MLP 7 → the bus U_8 at k_b), remainder replaced by its k_b-projection onto U_8. Late blocks 8–17: read through the bus U_8 at k_b, write to a k_b bus buffer added at the end (§2769's rule). Grid (k_e, k_b) ∈ {(768, 1024), (640, 1024), (512, 1024), (768, 960), (768, 1088)}.
+
+Instrument (pred_a TRUE): baseline 3.0322401 (prior 3.0322401, |Δ| < 1e-7); SPLIT8_1024 .03739 (prior .0374).
+
+| arm | k_e | k_b | CE added | comparison |
+|---|---|---|---|---|
+| SPLIT8_1024 (repro) | 1024 (own) | 1024 | .0374 | — |
+| BLOCK8_1024 = P9(1024) | 1024 (block) | 1024 | .0389 | §2769 |
+| V3_E768_B1024 | 768 | 1024 | .0822 | +.043 above P9(1024) |
+| V3_E640_B1024 | 640 | 1024 | .1303 | |
+| V3_E512_B1024 | 512 | 1024 | .2188 | |
+| V3_E768_B960 | 768 | 960 | .1120 | |
+| V3_E768_B1088 | 768 | 1088 | .0596 | P9(1088) = .0162 (§2769) |
+
+Deltas: bus 1024→960 at e768 = +.0298; bus 1024→1088 at e768 = −.0226; early 768→640 at b1024 = +.0481; early 640→512 at b1024 = +.0886 (the early curve steepens: .048 then .089 per 128 dims).
+
+Scoring. b: .0822 > .060 → FALSE; null (≥ .100) not met. c: .1303 > .100 → FALSE; null (≥ .180) not met. d: .2188 ≤ .250 → TRUE; null (≥ .400) not met. e: (V3_E768_B960 − V3_E768_B1024) = .0298 ≥ (V3_E640_B1024 − V3_E768_B1024) = .0481 is FALSE; null "early drop costs ≥ .020 more" = .0183 ≥ .020 not met. Both hypotheses on e miss — the two width costs are of the same order (.00047 per bus dim vs .00038 per early dim at these steps).
+
+What it says. (1) §2771's asymmetry claim was half right: the late blocks are the LARGER width consumer at 768 (.137–.164 vs .033 for early reads alone), but the early blocks are not cheap to narrow once their WRITES are also confined — narrowing the early frames from 1024 to 768 with the bus held at 1024 costs .043 on top of v2, i.e. more than the early reads-only cost of §2771 (.033) and more than the sum of §2770's single-block read costs (.030). The early write rule at 768 (union into the next frame) adds the rest. (2) v3 is dominated by v2 everywhere measured: at equal price no (k_e < k_b) point beats the uniform width. Program v2 with a uniform k stays the frontier of this lineage (.039 at 1024, .016 at 1088); the width should not be made asymmetric. (3) The bus-width curve at fixed early width (960/1024/1088 → .112/.082/.060) is smooth here — .030 per 64 dims down, .023 per 64 dims up — so the late "cliff" between 768 and 1024 (§2771) is a steady slope steepening toward 768, not a step. Registered next: late_width_by_kind_probe — which late READS need the width (attention's per-head-bottlenecked reads vs the MLP's full-width bilinear reads, §2679/§2673). (4) Nothing installs into the §312 frontier (§2125).

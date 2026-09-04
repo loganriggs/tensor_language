@@ -1,0 +1,37 @@
+{"stage": "heads_done", "t": 13.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.3}
+{"stage": "v3", "ke": 768, "kb": 1024, "ce": 0.0822, "t": 16.6}
+{"stage": "v3", "ke": 640, "kb": 1024, "ce": 0.1303, "t": 17.6}
+{"stage": "v3", "ke": 512, "kb": 1024, "ce": 0.2188, "t": 18.6}
+{"stage": "v3", "ke": 768, "kb": 960, "ce": 0.112, "t": 19.6}
+{"stage": "v3", "ke": 768, "kb": 1088, "ce": 0.0596, "t": 20.6}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "V3_E768_B1024": 0.0822, "V3_E640_B1024": 0.1303, "V3_E512_B1024": 0.2188, "V3_E768_B960": 0.112, "V3_E768_B1088": 0.0596, "t": 20.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_early768_bus1024_under_p06": false,
+  "pred_c_early640_bus1024_under_p10": false,
+  "pred_d_early512_bus1024_under_p25": true,
+  "pred_e_bus_width_costs_more_than_early_width": false
+ },
+ "nulls": {
+  "b_null_ge_.10": false,
+  "c_null_ge_.18": false,
+  "d_null_ge_.40": false,
+  "e_null_early_drop_costs_.02_more": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "V3_E768_B1024": 0.08217629790306091,
+  "V3_E640_B1024": 0.13027825951576233,
+  "V3_E512_B1024": 0.21883532404899597,
+  "V3_E768_B960": 0.11196315288543701,
+  "V3_E768_B1088": 0.059552788734436035
+ },
+ "deltas": {
+  "bus_1024_to_960_at_e768": 0.0297868549823761,
+  "early_768_to_640_at_b1024": 0.048101961612701416,
+  "early_640_to_512_at_b1024": 0.08855706453323364,
+  "bus_1024_to_1088_at_e768": -0.022623509168624878
+ }
+}

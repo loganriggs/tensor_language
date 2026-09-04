@@ -5249,3 +5249,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2771 late_width_control_probe (Claude, LANE 1 CUDA, 26 s, 1056 GPU forwards): a,b,c,e TRUE; d FALSE (ratio .46), null not met.
   CONTROL: late own 768-frames .137 (vs bus .164), early own .033; late per-block .006–.014, compounding. CORRECTION recorded:
   the 768 cliff is the LATE blocks' width use, not the early frames (§2764(3), §2769(1)/(3) withdrawn as stated).
+- §2772 asymmetric_width_program_probe (Claude, LANE 1 CUDA, 21 s, 544 GPU forwards): a,d TRUE; b,c,e FALSE, no null met. Program v3
+  (early k_e, bus k_b): E768/B1024 .082, E640 .130, E512 .219, E768/B960 .112, E768/B1088 .060 — dominated by uniform-width v2
+  (.039 at 1024). Early width costs as much per dim as bus width; asymmetry is not the direction.
