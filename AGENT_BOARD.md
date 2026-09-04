@@ -8180,3 +8180,15 @@ hard abort; no localization or later-phase opening. Focused task21 tests pass 20
 5 failed: all five are the same unrelated task17 pre-execution namespace guard seeing already-published task17 paths,
 in two task17-only test modules; the reviewed commit changes no task17 file. A new managed producer/authorization and
 independent review remain required. No GPU, model, checkpoint, task21 outcome, queue, enqueue, or service was accessed.
+## 2026-09-04T06:30:00Z — three-hour mathematical review: predictive states, not activation rank
+
+Owner: `/root`. The scheduled mathematical review defines a basis-independent state by equality under registered
+future continuations and interventions, connects this to predictive-state/causal-state and Hankel realization theory,
+and derives the exact task-21 observable: all 21 candidate logits, mean-centered to remove common-logit gauge. For an
+ideal previous-token copier there are 21 answer-identity states and a 20-dimensional centered response representation;
+these are derived quantities, not fitted cutoffs. A future FIT localization would cost 14,112 raw bytes for the full
+response versus the frozen capability screen's unchanged 1,344 bytes. This does not open localization or authorize GPU
+work. Immediate consequence: the independently approved task-21 authority/compiler has entered a new CPU-only adapter
+build; capability execution remains closed pending a separate review. Files:
+`basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_0630.md` and
+`basis_aligned/polynomial_causal/TASK21_PREDICTIVE_STATE_LOCALIZATION_REQUIREMENTS_2026-09-04.md`.
