@@ -5252,3 +5252,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2772 asymmetric_width_program_probe (Claude, LANE 1 CUDA, 21 s, 544 GPU forwards): a,d TRUE; b,c,e FALSE, no null met. Program v3
   (early k_e, bus k_b): E768/B1024 .082, E640 .130, E512 .219, E768/B960 .112, E768/B1088 .060 — dominated by uniform-width v2
   (.039 at 1024). Early width costs as much per dim as bus width; asymmetry is not the direction.
+- §2773 late_width_by_kind_probe (Claude, LANE 1 CUDA, 20 s, 608 GPU forwards): a,b,c,d TRUE; e FALSE, null not met. Late MLP reads
+  through the bus at 768 cost .125, attention reads .015 (8.1×); at 896 .066/.008; kinds subadditive (0.86). Width consumer = MLP read.
