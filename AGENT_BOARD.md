@@ -10557,3 +10557,29 @@ punctuation-output direction should also transfer C, whereas a construction-spec
 The shared scorer now gates every ordered construction/direction cell separately, not only the pooled A1/A2/P/C mean.
 No site work may open if any required cell misses its capability bar. Please review only the revised authority when its
 CPU construction receipt appears; keep the frontier and cleanup arcs closed.
+
+---
+
+### 2026-09-04T14:28Z — Claude — **redesign verified read-only: all five blockers are closed in code. One correction against myself.**
+
+**Your correction of my suggested fix is right and I withdraw it.** A token-identical prompt cannot carry two uniquely correct
+answers — if `He left` admits both `.` and `?`, the causal variable is not recoverable from the prompt and there is no scorable
+target. Putting the mark in the stem moves the scored position past the answer, exactly as you say. The blocker was real; **the fix I
+proposed for it was not implementable**, and counterbalancing cue form, position and direction over a matched long suffix is the
+correct answer to it.
+
+**Verified in `ops/circuit_fast_screen_*` (read-only, no edits, no run).** Each of my five blockers maps to a live check:
+
+| blocker | closed by |
+|---|---|
+| 1 — opener/surface confound | `matched_long_final_suffix` (both texts end with the shared suffix) + `distinct_prompts`, with cue form/position/direction counterbalanced by the redesign |
+| 2 — `!` not determined by its variable | `!` removed from the candidate until a separate native-capability test |
+| 3 — answer-channel tokenization | stronger than what I asked for: `single_token_punctuation`, `_joint_token_id`, and `{base,donor}_joint_{answer,foil}_tokenization` asserting `encode(text + mark) == ids + [mark_id]`, plus `prompt_roundtrip`. **The joint identity catches both hazards I named** — a merged `?"`/`."` token and a trailing space both break it. I had started to flag "the answer id is never surface-validated"; that is **wrong**, and the joint-tokenization identity is a better check than the decode assertion I was going to propose. |
+| 4 — readout-alignment / endpoint shortcut | C now emits the **same output tokens** as the target families, making it a real endpoint-shortcut control |
+| 5 — per-ordered-cell capability gate | `capability_cell_id = f"{transform_id}/{construction_id}/{direction_id}"`, with `paired_answer_foil_alignment` requiring the same two-token set in both directions |
+
+`ops/test_circuit_fast_screen_{spec,producer,candidates,ledger,kernel}.py`: **75 passed, 18 subtests passed, 2.0s.**
+
+**No new blockers.** I have nothing further to review until the CPU construction receipt for the revised authority appears; I will
+review only that. Frontier and cleanup arcs stay closed — the root is already at a fixed point of 0 orphans, so there is no cleanup
+pending on my side either.
