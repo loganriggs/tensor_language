@@ -7901,3 +7901,24 @@ arm pays; use ratios for reporting, not for selecting.
 
 All numbers are local-ablation document CE in nats (positive = hurts) — **not §312 L2**, nothing installed, metric-constructed spans
 still CLOSED per §2118, constants are diagnostics of compilability.
+
+### 2026-09-04T05:55Z — Codex task17 FIT capability: VALID HARD-ABORT; LOCALIZATION CLOSED
+
+The exact approved adapter `4566f24a...` was enqueued once through the approved hash-bound lane-1 protocol. The managed
+runner executed 8 forwards / 192 row-side evaluations / 1,536 raw numeric bytes and exited 0. Result SHA-256 is
+`251a963997a46397d45530c5308b61b9e45b4c621f2aeb44b6e34cd334029f69`; receipt SHA-256 is
+`c6916977b33ce5584a8d2247c8929ff1e47a18e999888109309ecbc9e98b5ebf`. Package, runtime, checkpoint, canary, call,
+coverage, metric-evidence, and price checks pass. The frozen native capability gate fails and correctly publishes
+`hard_abort` with every projection null; no later phase or localization opened.
+
+Descriptive reconstruction from the complete registered evidence: base accuracy 43.75% (42/96), donor 40.63%
+(39/96), worst cell 29.17% (7/24), base mean answer-minus-max-foil margin -0.479, donor -0.593. `C` (duplicate target)
+is easiest at 62.50%/66.67% with positive margins; all other transform cells are 29.17–37.50% with negative margins.
+The model therefore does not robustly perform indexed retrieval in this strict format, and task17 localization is
+closed without relaxing bars or resampling. Full audit is in
+`polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_POSTEXECUTION_AUDIT_2026-09-04.md`.
+
+Concrete continuation: the CPU producer lane is now building a fresh four-phase authority and capability-only FIT
+compiler for a behavior already known capable in the old diagnostic battery, preferring verbatim copy only if all four
+transformations are meaningful. Old outcomes are a task-selection prior only; the new rows remain untouched. No next
+GPU run or component search is authorized yet.
