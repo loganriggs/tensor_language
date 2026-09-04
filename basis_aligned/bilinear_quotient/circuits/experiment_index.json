@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 82,
- "design_count": 69,
- "protocol_count": 64,
- "execution_count": 82,
+ "event_count": 83,
+ "design_count": 70,
+ "protocol_count": 65,
+ "execution_count": 83,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -26,6 +26,22 @@
    "supersedes_event_id": "induction_selector_payload_native_capability.r580.preregistered.v1",
    "replicates_event_id": null,
    "prereg_artifact_id": "r580_capability_preregistration_v2",
+   "result_artifact_id": null
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_localization.fit.preregistered.v2",
+   "claim_id": "grammatical_subject_number.v2",
+   "test_type": "das_interchange",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",
+   "protocol_key": "69817802ffa26ec407cb5fb0ea96f4c55bf4ecb90148dd4daaa5d353777a8514",
+   "execution_key": "cf638e91a475eb227ac01949e348136665406fb05691ee027f85eca62e132b01",
+   "supersedes_event_id": "task14_subject_number_localization.fit.v1.invalid_preregistration",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "localization_v2_prereg",
    "result_artifact_id": null
   }
  ],
@@ -1311,6 +1327,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "localization_prereg",
    "result_artifact_id": "localization_review_v1"
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_localization.fit.preregistered.v2",
+   "claim_id": "grammatical_subject_number.v2",
+   "test_type": "das_interchange",
+   "stage": "preregistered",
+   "verdict": "inconclusive",
+   "failure_kind": null,
+   "design_key": "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",
+   "protocol_key": "69817802ffa26ec407cb5fb0ea96f4c55bf4ecb90148dd4daaa5d353777a8514",
+   "execution_key": "cf638e91a475eb227ac01949e348136665406fb05691ee027f85eca62e132b01",
+   "supersedes_event_id": "task14_subject_number_localization.fit.v1.invalid_preregistration",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "localization_v2_prereg",
+   "result_artifact_id": null
   },
   {
    "circuit": "task.successor.pointer",

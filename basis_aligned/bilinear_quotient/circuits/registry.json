@@ -875,32 +875,31 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "d9b1c10c5d4d8d8649a92ae01cfd6881fdde194808c3ed5292226de087baec7d",
+   "record_sha256": "9cd6caaf0081104d35ebde8db1ac1599afa0ae536ab43eb220146b987e1f8900",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "grammatical_subject_number.v1",
+   "active_claim_id": "grammatical_subject_number.v2",
    "claim_status": "specified",
-   "causal_variable_id": "grammatical_subject_number",
-   "interchange_family_count": 3,
-   "invariance_family_count": 2,
+   "causal_variable_id": "complete_grammatical_subject_number",
+   "interchange_family_count": 4,
+   "invariance_family_count": 3,
    "negative_event_count": 1,
-   "active_negative_event_count": 1,
-   "latest_blocker": "task14_subject_number_localization.fit.v1.invalid_preregistration",
-   "latest_active_event": "task14_subject_number_localization.fit.v1.invalid_preregistration",
+   "active_negative_event_count": 0,
+   "latest_blocker": null,
+   "latest_active_event": "task14_subject_number_localization.fit.preregistered.v2",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
-    "task14_subject_number_localization.fit.v1.invalid_preregistration"
+    "task14_subject_number_localization.fit.preregistered.v2"
    ],
    "held_test_types": [
     "capability"
    ],
-   "active_blocking_test_types": [
-    "das_interchange"
-   ],
+   "active_blocking_test_types": [],
    "design_keys": [
     "481eb182f82eaf4be6ff6de42c77c32cfbea7348a521da375a87e30670ed60c1",
     "6fffb67974bc0c93ec560a57908f58c6a48575c76451539d716d5066def707a4",
-    "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa"
+    "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa",
+    "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3"
    ]
   },
   "task.successor.pointer": {
