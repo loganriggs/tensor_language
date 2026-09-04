@@ -10456,3 +10456,64 @@ scripts, not from memory.
 **One correction of record:** my first archive commit used a pathspec covering only `archive/`, which committed the additions and left
 583 staged deletions behind — the repo briefly held both copies. Fixed in the next commit using the batch manifest as the path list.
 `git mv` + pathspec commit splits a rename unless both sides are in the pathspec.
+
+---
+
+### 2026-09-04T14:12Z — Claude — **REVIEW RECEIPT: `sentence_terminal.semantic_choice` — BLOCKED as specified.** Classification: **extension of §1282/§1313, and a contradiction test against §1313.** No GPU, no engine edits, no enqueue.
+
+**Classification (asked for first, because it changes what the screen is allowed to claim).** This is **not a new discovery.**
+§1282 already establishes a question-state carrier (attn10) for `?` inside WH-opened sentences, with the state opened by a **word
+class** (Who/What/How/Is/Can…). §1313 then measured 10.5's specificity: **0.726 at `?` targets, 0.136 at `!` (18.7%), 0.037 at
+sentence-final `.` (5%), 0.004 elsewhere**, and concluded in terms that bear directly on this proposal — *"the question head is not a
+generic sentence-terminal predictor: periods are untouched"* — and **logged the successor explicitly: "an exclamation-state screen (who
+owns `!`?) queued as the next behaviour thread."** **This proposal is that logged screen.** It must be registered as an **extension**
+of §1282/§1313, and simultaneously as a **contradiction test**: bundling `.`, `?`, `!` as three values of one "sentence mode" variable
+presupposes a shared terminal-mode mechanism that §1313's 5% period share argues against. Write the predicates so that *"no common
+site"* is an informative confirmation of §1313, not an uninformative null.
+
+**Blocker 1 — A1's causal manipulation is confounded with a surface cue, and P does not control it.** §1282's state is opened by an
+interrogative word class at sentence start, so `?` is predictable from the **opener token alone**. A1 (declarative↔interrogative)
+necessarily rewrites that opener ("The cat is asleep" → "Is the cat asleep"), so a model can pass every A1 target by reading position 0,
+with no mode variable anywhere. **P cannot remove this**: P holds the terminal fixed, therefore holds the mode fixed, therefore holds the
+opener class fixed. C (copying a visible mark) tests a different capability.
+**Constructive fix, and it is cheap:** add an **opener-invariant interrogative** arm — rising-intonation questions whose prompt tokens
+are *identical* to the declarative. I verified this exists exactly: `He left.` and `He left?` tokenize as stem `[1544, 1364]` + one
+terminal token, **clean_split=True for both, same stem**. That arm changes mode with **zero** surface change and is the only version of
+A1 that can distinguish semantic mode from opener lookup.
+
+**Blocker 2 — A2's answer is not determined by its stated causal variable.** Exclamatory vs declarative is largely register/style:
+"What a beautiful day!" and "What a beautiful day." are both licensed, so the "correct" answer is a preference, not a fact. §1313's
+**18.7% for `!` sits just under its own 20% specificity bar** — disclosed there as near-miss — which is weak evidence for a distinct
+`!` owner rather than partial sharing. Also note "What a…" is a **WH opener carrying exclamatory mode**, so A2 shares A1's opener class
+and adds a second confound. Either restrict A2 to items where `!` is forced (interjections, imperatives with intensifiers) and show the
+forcing, or drop A2 from this screen and run it as its own behaviour.
+
+**Blocker 3 — tokenization trap in the answer channel.** Bare terminals are clean single tokens: `?`=[30], `.`=[13], `!`=[0], and every
+`stem + terminal` I checked split cleanly with the stem's ids unchanged. **But `?"`=[1701], `."`=[526], `!"`=[2474] are single merged
+tokens**, and `' ?'`=[5633], `' .'`=[764], `' !'`=[5145] are distinct from the bare forms. So: (a) any item that places the terminal
+before a closing quote has an answer that is **not** the bare terminal token — a hazard specifically for **C**, which shows a visible
+punctuation mark and is the arm most likely to use quoted text; (b) prompts must be guaranteed to carry **no trailing space**. Both are
+dataset-construction gates, checkable on CPU before any run.
+
+**Blocker 4 — the readout-alignment hazard has already bitten this programme.** R540 was a **STRONG NULL** because rank-1 directions had
+|cos| .49–.57 with the closer unembedding contrast, so — my own 15:15 red-team note, which Codex adopted into R543/544 — *passing
+answer-changing targets is free and the controls are the only informative rows*. Here `?`/`.`/`!` are three unembedding rows and the
+identical hazard applies. **Require the endpoint-shortcut check from the start**, and treat target-passing as uninformative on its own.
+
+**Blocker 5 — run the capability gate per ordered pair before any site work.** R544's four-closer gate **FAILED** (donor correct
+fraction 0 on at least one ordered pair) while R546's three-value confirmation passed. Three values here means **six ordered pairs**;
+§2695 shows capability can fail on a subset. Gate all six, and per §2542's correction use a **normalised stimulus-family id** so
+reported n is independent n.
+
+**Verdict: BLOCK.** Blockers 1 and 2 are design-level; 3, 4 and 5 are gates that must be in the spec before it is executable. With an
+opener-invariant A1 arm, A2 either forced or removed, the quote/space tokenization gates, the endpoint-shortcut check, and a six-pair
+capability gate, I would approve it — as an **extension of §1282/§1313 and a contradiction test of §1313's period result**.
+
+**Hourly time-management acknowledgement.** Acknowledged: no GPU, no engine edits, no enqueue, no new executor, and the frontier and
+cleanup arcs stay closed. **Largest repeated serial delay in my last hour:** registering a new rung took ~4 sequential tool calls each
+(patch script → gate → write prereg → freeze hash → dry-run → enqueue), ×8 rungs — the single biggest repeated cost, well over the
+ten-minute serial target on its own. **The concrete change that removes it:** one `ops/register_rung.sh <script> <prereg>` doing
+stamp → hash-freeze → gate → dry-run → enqueue in a single call, so registration is one round trip instead of four. **Not built** — it
+is infrastructure and my next work product is circuit-only per your boundary; naming it so it is on the record. Second, smaller, and
+**already fixed**: two half-committed `git mv` renames cost two extra round trips today; `ops/repo_health.py` now catches that class
+(bare `A `/`D ` lines) in one command before push.
