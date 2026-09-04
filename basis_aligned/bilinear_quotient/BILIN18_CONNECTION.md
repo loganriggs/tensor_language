@@ -76260,3 +76260,60 @@ being strong enough to make a single-layer fix worthwhile (pred_d).
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — §2896's improvement is flagged for the adoption ledger, not
 entered by this lane.
+
+## §2899 — PER-LAYER TUNING DOES **NOT** COMPOSE: THE COMPOSED OPTIMUM IS **WORSE** THAN THE GLOBAL SCALE (−0.2092 vs −0.2290), `b_null` FIRED, AND §2898's ADDITIVITY IS BOUNDED TO THE SCALE WHERE IT WAS MEASURED
+
+Registered `polynomial_causal/FRONTIER_TAIL_PER_LAYER_OPTIMUM_PREREGISTRATION.md` (10:59Z). Run `frontier_tail_per_layer_optimum`,
+landed 11:05Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_per_layer_optimum_results.json
+Price: 0 GPU forwards, 328.4 GPU-seconds, **2 pipeline runs** (41 arms in run 1; `forwards_instrumented: false`, `pipeline_runs: 2` —
+the forward count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+| layer | a10L | a11L | a12L | a13L | a14L | a15L | a16L | a17L |
+|---|---|---|---|---|---|---|---|---|
+| **best scale alone** | .05 | .05 | .05 | .10 | .05 | .05 | .05 | .10 |
+| **gain at that scale** | −.0847 | −.0345 | −.0274 | −.0058 | −.0329 | −.0370 | −.0202 | −.0481 |
+
+| | additive prediction | **composed** | global 0.20 |
+|---|---|---|---|
+| cost | −0.2906 | **−0.2092** | **−0.2290** |
+
+**pred_a, pred_d, pred_e HELD. pred_b FAILED and `b_null_per_layer_tuning_buys_nothing` is MET. pred_c FAILED.**
+
+- **pred_d HELD at deviation 0.0001** — the global arm re-anchors to §2898's −0.2291. That is the **sixth** reproduction of the adopted
+  effect, and it is what makes the rest of this section readable.
+- **pred_e HELD, unanimously** — **all eight** layers prefer a scale other than the global 0.20, and every one prefers something
+  *smaller* (.05 or .10).
+- **pred_b FAILED, and the sign is the point.** Composing each layer's own optimum gives **−0.2092**, which is **worse than the global
+  0.20's −0.2290 by 0.0198**. Tuning every layer to its individual best makes the frontier **worse**, not better.
+- **pred_c FAILED at a deviation of 0.0814** (bar ≤ .05), though its null (≥ .10) did not fire, so the value sits in the undecided band.
+  The additive prediction **−0.2906** overshoots the measured **−0.2092** by 28%.
+
+### What this does to §2898's headline, in the direction that costs me
+
+§2898 reported the tail band as **the only nearly-additive block in this construction** — eight per-layer gains summing to −0.2512
+against a global −0.2288, a gap of 0.0224, under 10%. **That measurement stands**; what this rung shows is that **it does not
+generalise off the point where it was taken.** §2898 measured every layer at the *same* scale, 0.25, near the global optimum. Move each
+layer to its own optimum — all eight of them well below, at .05–.10 — and additivity fails: the predicted −0.2906 overshoots by .0814,
+and the composition is actually worse than the global.
+
+**So the honest statement replacing §2898's is: the tail layers are approximately additive *near the global optimum*, and not
+additive under aggressive per-layer shrinkage.** The band cannot be treated as eight independent knobs in general, which was the reading
+§2898 invited and this rung — registered specifically to test it constructively — refutes.
+
+### What this protects
+
+**§2896's adoption is unchallenged and slightly strengthened.** The global scale remains the best known configuration; the per-layer
+alternative is **0.0198 worse**, and the adopted number has now reproduced **six times** with a maximum deviation of 0.0003. The
+registered adoption rule for anything beyond §2896 required pred_a, pred_c and pred_d — **pred_c failed**, so nothing further is
+adopted, and there is nothing here I would want to adopt in any case.
+
+**A mechanism worth recording rather than guessing at:** each layer alone prefers .05, but all of them at .05 together over-shrinks. The
+tail dictionaries are a **cascade** — a10L's output is part of a11L's input — so shrinking one layer changes what the next one receives.
+Individually optimal shrinkage compounds down the cascade into collective over-shrinkage. That is consistent with a10L (the *first* tail
+layer) carrying the largest single gain, and it is a hypothesis this rung does not test.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

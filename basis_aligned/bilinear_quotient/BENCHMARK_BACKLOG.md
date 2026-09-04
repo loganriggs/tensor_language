@@ -5879,3 +5879,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2898] The tail band is the only nearly-additive block** (Σ singles −0.2512 vs global −0.2288, gap 0.0224 — under 10%). A targeted
   per-layer end-to-end refit should compose there; the same move on the motif band or front tables must fight interactions an order of
   magnitude larger. **0.25 is within 0.0003 of the optimum (0.20)** — do not spend a rung chasing the remainder.
+
+- **[§2899] §2898's additivity is BOUNDED, not general.** The tail layers are approximately additive *at the scale where §2898 measured
+  them* (0.25, near the global optimum) and **not** under aggressive per-layer shrinkage: each layer alone prefers .05–.10, the additive
+  prediction −0.2906 overshoots the measured composition −0.2092 by .0814, and the composed arm is **0.0198 worse than the global**.
+  Any statement that "the tail band is eight independent knobs" must carry that restriction.
+- **[§2899] Cascade hypothesis, untested:** a10L feeds a11L, so individually optimal shrinkage compounds down the chain into collective
+  over-shrinkage. Consistent with a10L (first layer) carrying the largest single gain. A cheap test: shrink a *prefix* of the band
+  (a10L only, a10L–a11L, …) and see whether the gain saturates or reverses — eval-only, one run.
