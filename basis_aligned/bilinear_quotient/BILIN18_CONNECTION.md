@@ -74899,3 +74899,45 @@ reason the next rung leaves it: the queued `frontier_a5_constant_collapse` attac
 instead.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2873 — AUDIT (no GPU, no price): TEN SECTIONS CARRY A PREDICATE THAT DEPENDS ON THE P CONTROL. THE NUMBERS BARELY MOVE; THE WORD "SPECIFIC" DOES NOT SURVIVE
+
+Closes the §2858 backlog item. No run, no receipt, no price — this is a scan of the rung scripts and their receipts against the
+defects established in §2858 (P scored on the shared `base`, byte-identical to the target on 11 of 21 behaviours) and §2860 (P
+preserves the causal variable, so `|d_P|/d_A1 ≈ 1` is the signature of a variable-carrying writer, not evidence against selectivity).
+
+Of 66 `circuit_battery*` rung scripts, **38 never reference the P family at all and are unaffected**. Ten both read P on the shared
+`base` and let it enter a ratio, a `max` over controls, or a usability gate that a published predicate depends on:
+
+| § | rung | predicate(s) that depend on the P control |
+|---|---|---|
+| §2820 | writer_head_split | `pred_e_heads_do_not_rescue_selectivity` |
+| §2822 | reader_unit_localisation | `pred_c_the_unit_set_is_more_specific_than_its_block` |
+| §2823 | reader_unit_lens_ranked | `pred_c_the_unit_set_is_more_specific_than_its_block` |
+| §2824 | reader_rank_decomposition | `pred_d_low_rank_arm_is_more_specific` |
+| §2826 | causal_direction_read | `pred_e_causal_arm_is_more_specific` |
+| §2827 | causal_basis_rank | `pred_d_specificity_survives_the_wider_basis` |
+| §2849 | successor_full_sweep | `pred_b_mlp1_is_not_selective`, `pred_c_some_upstream_component_is_selective` |
+| §2850 | node_vs_edge_selectivity | `pred_b_controls_are_saturated_too`, `pred_d_edges_are_more_selective_than_nodes`, `pred_e_ratios_replicate_the_earlier_rungs` |
+| §2851 | writer_arm_saturation | `pred_b_controls_are_not_saturated`, `pred_c_ratios_replicate_the_battery`, `pred_e_the_copy_control_has_a_usable_margin` |
+| §2852 | calibrated_selectivity | `pred_b_some_behaviour_is_now_selective`, `pred_c_enough_copy_controls_are_usable` |
+
+The remaining scripts that mention P (Codex's task14/17/21 and the integration contract, and my six post-§2858 rungs, which already
+read the donor side) do not match the pattern.
+
+**What this does and does not change, stated precisely.** The two defects have **opposite** magnitudes:
+
+- The **degenerate read** (§2858) is numerically large where it bites — `d_P_base − d_A1` is *exactly* 0.0 on the 11 degenerate
+  behaviours — but §2858 measured the corrected donor-side read on seven of them and the ratio moved by a median of only **.072**,
+  because of the second defect.
+- The **second defect** (§2860) is the one that matters: P preserves the causal variable by construction, so **no reading of P — base
+  or donor — can support a claim that an arm is "specific" or "selective."**
+
+So the ten predicates above should be read as follows: their *numbers* are close to what a corrected read gives (within roughly a
+tenth), and **their interpretation as evidence of specificity does not stand.** This is not a new retraction; it is the enumeration
+§2858 promised and deferred, applying §2860's already-published withdrawal to the specific sections that inherit it. **No section's
+recorded predicate outcome is altered here** — a predicate that was TRUE stays recorded TRUE, with the reading corrected, exactly as
+§2860 handled its own.
+
+Not audited and explicitly out of scope: whether any of these sections' *other* predicates (localisation, ranking, lens, geometry)
+are affected. They measure damage on A1 alone and the defect does not reach them.

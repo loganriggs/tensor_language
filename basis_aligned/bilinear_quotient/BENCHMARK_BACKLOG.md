@@ -5746,3 +5746,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
   whose task IS the copy answer — and `arithmetic.small_addition`, which has no list-copy surface. The clause is only meaningful for
   behaviours whose answer COMPETES with copying. A future rung must define that population from the task declarations (not from which
   behaviours failed) and re-register the bar over it. §2863's FALSE stands as recorded.
+
+- **[§2873] CLOSED — the §2858 audit is done.** 66 `circuit_battery*` scripts scanned: 38 never touch P; 10 have a published predicate
+  depending on the P control (§2820, §2822, §2823, §2824, §2826, §2827, §2849, §2850, §2851, §2852), enumerated in §2873. Numbers move
+  by ~.07; the word "specific" does not survive §2860. Predicate outcomes unaltered.
+- **[§2871] OPEN — the component ranking's reproducibility needs re-explaining.** ρ .749/.763 is real but the top-8 set is barely
+  better than random (.231 vs .192), so the ranking is carried by the inert tail. A future rung should test that directly: recompute
+  the Spearman over LIVE components only, and over the top half only. If ρ collapses when the tail is removed, that is the explanation
+  and it should be stated in the ledger rather than inferred.
+- **[ops] PROPOSED — a `FRONTIER_SMOKE=1` path for derived frontier rungs.** `ops/gate.py` cannot see defects inside closures (the
+  `LW={}` / `for k in LINK` failure cost 2 runs on 2026-09-04), and the frontier parent has no cheap execution mode, so a 300 s rung's
+  first execution is its only test. One window and two layers would execute every path.
