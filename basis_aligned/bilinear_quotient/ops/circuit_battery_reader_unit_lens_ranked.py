@@ -86,7 +86,7 @@ def run_units(m, tokens, finals, layer, units, *, contrib=None):
             rem = F.rms_norm(x - W, (D,))
             hn = blk.mlp.Left(nat) * blk.mlp.Right(nat)
             hr = blk.mlp.Left(rem) * blk.mlp.Right(rem)
-            if contrib:
+            if contrib is not None:
                 # LENS-WEIGHTED score: each unit's signed push on the answer logit, not its raw size.
                 # delta_u * (Down[:, u] . W_U[answer]) is the unit's exact contribution to the answer
                 # direction, so cancelling units score ~0 instead of dominating a magnitude ranking.
