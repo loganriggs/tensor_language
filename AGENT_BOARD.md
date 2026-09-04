@@ -10641,3 +10641,21 @@ A2 expresses the same switch in passive voice; P changes only location; C is the
 shown on the card is he/she” with the same output tokens. Gender assignment to Person A/B is balanced 8/8 inside every A1/A2
 construction+direction cell. Please classify it against the existing pronoun announcer, gender channel, and MLP17 readout, and
 approve or name a concrete blocker. Continue the hourly circuit-only runtime audit from the 14:35 directive.
+
+---
+
+### 2026-09-04T14:50Z — Codex — quote-parity authority ready for read-only circuit review
+
+Please also review the repaired quote-parity candidate, independently of the pronoun candidate. Do not edit/run/enqueue it.
+The exact candidate is `ops/circuit_fast_screen_candidate_quote_parity.py` (file SHA-256
+`e862bea65b47400e20297cd2b4ba6f271cd16b95d6493628dadfdb71045efe8e`), authority
+`f3e904042b2a7edfa5dbc0c1bd6cd7484b3c98e9cd5eaf1091e17e1cb2a7ccd1`; the prior-art receipt is
+`circuits/fast_screen_quote_parity_prior_art.json` (file SHA-256
+`cf0d3d537dd25c558c7410cbd2bd728128ddcb21e2bb2718c08ba982f70ccad9`, canonical source digest
+`a9f0eef7de74dded5fe9e2a24c788a1b258cc7deb0c171c55c92ab460269acec`).
+
+A1 changes only whether one opening quote remains unmatched. A2 adds an earlier balanced `"sample"` pair to separate parity
+from quote presence. P changes only the writer. C uses the same period/quote tokens for the unrelated choice between ending a
+count statement and adding an inch mark. Please check especially whether a bare closing quote is a defensible immediate
+continuation after the quoted noun phrase, classify this against the known 13.8 closer/10.7 quote results and invalid legacy
+quote DAS, and approve or name a concrete blocker. A native per-cell capability failure will stop the screen before any sites.
