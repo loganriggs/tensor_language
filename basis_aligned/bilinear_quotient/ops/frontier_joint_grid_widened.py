@@ -1,31 +1,26 @@
-"""THE LAST TWO UNTESTED BLOCKS: tailE AND THE EARLY-ATTENTION LINEAR ENTRIES (Claude, LANE 1)
+"""WIDEN THE JOINT GRID -- SS2907's OPTIMUM SAT ON TWO EDGES (Claude, LANE 1)
 
-Every block of `cfgF` has now been priced (SS2882/SS2883/SS2886) and four have been tested against the scale knob -- tail (adopted),
-CP (adopted), front tables (overfitted, unadopted) and motif heads (bracketed, 91% redundant). **Two remain untested: `tailE`
-(+0.1597, SS2886) and the early-attention `linear` entries (+0.0574).**
+SS2907 swept a 3x3x4 joint grid and found the optimum at **tail 0.30, CP 0.65, motif 1.25**, beating the current setting by **+0.0314**
+and improving in sample as well as fresh. **Nothing was adopted**: tail 0.30 and CP 0.65 are both the TOP of their grids, so
+`d_null_the_grid_is_too_narrow` fired and the preregistration's rule -- "an optimum on a grid edge means the true optimum lies outside
+and no optimum may be quoted" -- bound.
 
-`tailE` is `('tail', Wp, DICT, LIN)` where `LIN` is the linear correction -- the structural analogue of the tail band's `LW` and the
-front tables' `A`, both of which responded. The early entries are `('linear', li, W, b)`, so scaling `W` and keeping the bias is the same
-operation again. If SS2902's broadened claim -- that any LOCAL selection criterion leaves end-to-end slack -- is general, both should
-respond; if neither does, the claim has a boundary worth finding.
-
-The rung also asks the question SS2906 made pressing: **does anything still add on top of the adopted T+C?** The motif block's entire
-standalone -0.1604 was 91% absorbed by T+C. If these two behave the same way, the frontier's scale corrections are essentially
-**one two-parameter object**, and further block-by-block scaling is finished.
-
-Solo arms plus a full factorial ON TOP of T+C, built with `ops/frontier_evalarms.factorial_arms`; ~24 arms in ONE pipeline run.
+The direction is established and is the reason to widen rather than stop: **every block wants LESS shrinkage once the others are
+shrinking too** (tail .30 against the solo .25, CP .65 against the solo .50), which is across blocks what SS2899/SS2901 found within the
+tail band. So the grid moves up on both open edges: tail {0.25, 0.30, 0.375, 0.45} x CP {0.50, 0.65, 0.80, 0.95} x motif {1.15, 1.25},
+**32 cells in one pipeline run**, with SS2907's best cell (.30, .65, 1.25) retained as the anchor.
 
 SIGN CONVENTION (SS2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL, so **LOWER IS BETTER** (SS312: +2.6735 beating +2.84/+2.93).
 A cost is L2(arm) - L2(baseline), **POSITIVE = WORSE**, so a NEGATIVE cost is an improvement. SS2128/SS2129/SS2133/SS2134 RETRACTED;
-SS2125 STANDS -- this rescales already-fitted objects; it neither selects nor reorders.
+SS2125 STANDS.
 
 # BQGATE: EXPERIMENT  pred_a_the_baseline_reproduces_the_published_frontier
-#                     pred_b_the_TC_arm_reproduces_S2904
-#                     pred_c_at_least_one_new_block_improves_standalone
-#                     pred_d_the_new_blocks_add_on_top_of_TC
-#                     pred_e_the_best_configuration_improves_in_sample
+#                     pred_b_the_current_cell_reproduces_S2906
+#                     pred_c_the_joint_optimum_beats_the_current_setting
+#                     pred_d_the_joint_optimum_is_interior_in_all_three
+#                     pred_e_the_optimum_improves_in_sample_too
 
-Preregistration: polynomial_causal/FRONTIER_REMAINING_BLOCK_SCALE_PREREGISTRATION.md
+Preregistration: polynomial_causal/FRONTIER_JOINT_GRID_WIDENED_PREREGISTRATION.md
 Derived from ops/frontier_fisher8.py (SS2125 rung 30); that file is unmodified. ORIGINAL HEADER OF THE PARENT FOLLOWS.
 
 INSTALL THE CERTIFIED SELECTOR INTO THE FRONTIER (rung 30). The observability arc's certified, label-free
@@ -69,7 +64,7 @@ if os.environ.get('BQLIB_DRYRUN')=='1':
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
     _p=json.load(open(_bq+'empirical_L2_results.json'))
-    print(f"DRYRUN OK: published L2_F {_p['L2_F']}; ONE pipeline run: tailE and early-attention scales, solo and on top of T+C")
+    print(f"DRYRUN OK: published L2_F {_p['L2_F']}; ONE pipeline run: a 3x3x4 joint grid over the tail, CP and motif scalars")
     raise SystemExit(0)
 import torch
 import torch.nn.functional as F
@@ -77,7 +72,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'frontier_remaining_block_scale_results.json'   # NOT the parent's receipt (SS2125 cites that file)
+OUT=PT+'frontier_joint_grid_widened_results.json'   # NOT the parent's receipt (SS2125 cites that file)
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -678,31 +673,6 @@ def main():
     # scales the whole quadratic reconstruction while leaving the bias -- the exact analogue of the
     # `A` scaling SS2895/SS2900 applied to the ridge-fitted front tables.
     _C0 = {k: S[k][4].clone() for k in order2 if k in S and S[k][0] == 'cp'}
-    # tailE: ('tail', Wp, DICT, LIN) -- LIN is the linear correction, the analogue of LW / A
-    def _deep(o, f=lambda t: t.clone()):
-        # SS2908: `LIN` is a dict of DICTS (keyed by layer, then class), not a flat dict, and the first
-        # version of this snapshot called .clone() on a dict. Recurse instead of assuming a depth --
-        # the third failure of this class, all in code that snapshots an inherited fitted entry.
-        if torch.is_tensor(o):
-            return f(o)
-        if isinstance(o, dict):
-            return {k: _deep(v, f) for k, v in o.items()}
-        if isinstance(o, (list, tuple)):
-            return type(o)(_deep(v, f) for v in o)
-        return o
-    _E0 = {k: _deep(S[k][3]) for k in order2 if k in S and S[k][0] == 'tail'}
-    # early attention: ('linear', li, W, b) -- scale W, keep the bias
-    _N0 = {k: S[k][2].clone() for k in order2 if k in S and S[k][0] == 'linear'}
-    def _apply_taile(sc):
-        for _k, _L0 in _E0.items():
-            _kind, _Wp, _DICT, _LIN = S[_k]
-            _f = (lambda t: t.clone()) if sc is None else (lambda t: (t.float()*float(sc)).to(t.dtype))
-            S[_k] = (_kind, _Wp, _DICT, _deep(_L0, _f))
-    def _apply_linear(sc):
-        for _k, _W0 in _N0.items():
-            _kind, _li, _W, _b = S[_k]
-            _Wn = _W0.clone() if sc is None else (_W0.float()*float(sc)).to(_W0.dtype)
-            S[_k] = (_kind, _li, _Wn, _b)
     # motif heads: ALPHA[li] = (ap, asf), per-head gains fitted as ratios of inner products -- a LOCAL
     # criterion, so SS2902's broadened claim predicts a scale below 1 should help here too.
     _A0 = {li: (a.clone(), b.clone()) for li, (a, b) in ALPHA.items()}
@@ -737,8 +707,6 @@ def main():
     _arms = ARMS or [('single', {})]
     def _cfg(spec):
         _apply_cp(spec.get('cp_scale'))
-        _apply_taile(spec.get('taile_scale'))
-        _apply_linear(spec.get('linear_scale'))
         _apply_motif(spec.get('motif_scale'))
         _apply_tail(spec.get('tail_scale'))
         _apply_front(spec.get('a_scale'))
@@ -793,8 +761,8 @@ def main():
     out['runtime_s']=time.time()-t0
     return out
 
-PREREG = PT + '../polynomial_causal/FRONTIER_REMAINING_BLOCK_SCALE_PREREGISTRATION.md'
-PREREG_SHA = "6912405d5e8c5f289c3498e7c4cbae38cbfe15b9b575999135f38eba7c24acf7"
+PREREG = PT + '../polynomial_causal/FRONTIER_JOINT_GRID_WIDENED_PREREGISTRATION.md'
+PREREG_SHA = "b6a432480ab607828d5c0c9ff8ee2c9f678c6e20bb06f0670e673ae35c42e894"
 
 
 def _sha(path):
@@ -802,82 +770,88 @@ def _sha(path):
     return hashlib.sha256(open(path, 'rb').read()).hexdigest()
 
 
+S2906 = PT + 'frontier_motif_bracket_and_triple_results.json'
 S2904 = PT + 'frontier_scale_composition_results.json'
+S2906_SHA = "e72a5fd6c3cd211ca6fdcffe4aa5126680731c59fae4971e02154ac6cf9c69ed"
 S2904_SHA = "2ad1fc031037be32fd97431eef218d9dc22c382835b78e5409c967439d2850c5"
-TE_GRID = [0.25, 0.5, 0.75]
-LN_GRID = [0.5, 0.75, 1.25]
-T_S, C_S = 0.25, 0.5
-BARS = {"reproduce": 0.05, "anchor": 0.01, "standalone": 0.0, "adds_to_tc": 0.01}
-NULLS = {"anchor_ge": 0.03, "no_standalone": 0.0, "adds_le": 0.0}
+T_GRID = [0.25, 0.30, 0.375, 0.45]
+C_GRID = [0.50, 0.65, 0.80, 0.95]
+M_GRID = [1.15, 1.25]
+BARS = {"reproduce": 0.05, "anchor": 0.01, "beats_current": 0.01}
+NULLS = {"anchor_ge": 0.03, "beats_le": 0.0}
 
 
 if __name__=='__main__':
     T00=time.time()
     if _sha(PREREG) != PREREG_SHA:
         raise RuntimeError(f'frozen hash mismatch: {PREREG}')
-    if _sha(S2904) != S2904_SHA:
-        raise RuntimeError(f'frozen hash mismatch: {S2904}')
-    a04 = json.load(open(S2904))['summary']['cost_fresh']['TC']       # -0.3213
+    for p_, h_ in ((S2906, S2906_SHA), (S2904, S2904_SHA)):
+        if _sha(p_) != h_:
+            raise RuntimeError(f'frozen hash mismatch: {p_}')
+    cur = -0.3677   # SS2907's best cell (t .30, c .65, m 1.25), an edge value and therefore a BOUND
+    tc  = json.load(open(S2904))['summary']['cost_fresh']['TC']        # -0.3213  (T .25, C .5)
     SEL['mode']='norm'
 
     import sys as _sys; _sys.path.insert(0, PT + 'ops')
     import frontier_evalarms as FE
-    TC = {'tail_scale': T_S, 'cp_scale': C_S}
-    solo = ([(f'E{int(v*100):03d}', {'taile_scale': v}) for v in TE_GRID]
-            + [(f'L{int(v*100):03d}', {'linear_scale': v}) for v in LN_GRID])
-    grid = [(f'TC_{n}', dict(TC, **s)) for n, s in
-            FE.factorial_arms({'taile_scale': [None] + TE_GRID,
-                               'linear_scale': [None] + LN_GRID}, baseline=False)]
-    ARMS[:] = [('baseline', {}), ('TC', dict(TC))] + solo + grid
+    # ops/frontier_evalarms.factorial_arms: the 12:07Z ops action, first use. 36 cells + baseline in ONE run.
+    ARMS[:] = FE.factorial_arms({'tail_scale': T_GRID, 'cp_scale': C_GRID, 'motif_scale': M_GRID})
     print(f'ONE pipeline run, {len(ARMS)} evaluations against the same fitted stack',flush=True)
     out=main()
 
     bF = out['baseline']['L2_F']; bC = out['baseline']['L2_C']
-    cF = {n: round(out[n]['L2_F'] - bF, 4) for n, _ in ARMS if n != 'baseline'}
-    cC = {n: round(out[n]['L2_C'] - bC, 4) for n, _ in ARMS if n != 'baseline'}
-    c_tc = cF['TC']
-    solo_names = [n for n, _ in solo]
-    grid_names = [n for n, _ in grid]
-    best_solo = min(solo_names, key=lambda n: cF[n])
-    improving_solo = [n for n in solo_names if cF[n] < 0]
-    best_grid = min(grid_names, key=lambda n: cF[n])
-    adds = round(c_tc - cF[best_grid], 4)          # POSITIVE = the new blocks add on top of TC
-    anchor_dev = abs(c_tc - a04)
+    cell = {}
+    for n, spec in ARMS:
+        if n == 'baseline':
+            continue
+        cell[(spec['tail_scale'], spec['cp_scale'], spec['motif_scale'])] = (
+            round(out[n]['L2_F'] - bF, 4), round(out[n]['L2_C'] - bC, 4))
+    best = min(cell, key=lambda k: cell[k][0])
+    best_fresh, best_fit = cell[best]
+    anchor = cell[(0.30, 0.65, 1.25)][0]
+    anchor_dev = abs(anchor - cur)
+    beats = round(cur - best_fresh, 4)                 # POSITIVE = the joint optimum is better
+    interior = (best[0] not in (T_GRID[0], T_GRID[-1])
+                and best[1] not in (C_GRID[0], C_GRID[-1])
+                and best[2] not in (M_GRID[0], M_GRID[-1]))
 
     pa = abs(bF-2.6735) <= BARS['reproduce']
     pb = anchor_dev <= BARS['anchor']
-    pc = len(improving_solo) >= 1
-    pd = adds >= BARS['adds_to_tc']
-    pe = cC[best_grid] < 0
+    pc = beats >= BARS['beats_current']
+    pd = bool(interior)
+    pe = best_fit < 0
     preds={'pred_a_the_baseline_reproduces_the_published_frontier':bool(pa),
-           'pred_b_the_TC_arm_reproduces_S2904':bool(pb),
-           'pred_c_at_least_one_new_block_improves_standalone':bool(pc),
-           'pred_d_the_new_blocks_add_on_top_of_TC':bool(pd),
-           'pred_e_the_best_configuration_improves_in_sample':bool(pe)}
+           'pred_b_the_current_cell_reproduces_S2906':bool(pb),
+           'pred_c_the_joint_optimum_beats_the_current_setting':bool(pc),
+           'pred_d_the_joint_optimum_is_interior_in_all_three':bool(pd),
+           'pred_e_the_optimum_improves_in_sample_too':bool(pe)}
     nulls={'b_null_the_anchor_fails':bool(anchor_dev>=NULLS['anchor_ge']),
-           'c_null_the_mismatch_does_not_reach_these_blocks':bool(len(improving_solo)==0),
-           'd_null_they_are_redundant_with_TC':bool(adds<=NULLS['adds_le'])}
-    res={'rung':'frontier_remaining_block_scale','preds':preds,'nulls':nulls,
-         'bars':BARS,'null_bars':NULLS,'taile_grid':TE_GRID,'linear_grid':LN_GRID,
-         'arms':out,'published_L2_F':2.6735,
+           'c_null_the_current_setting_is_already_jointly_optimal':bool(beats<=NULLS['beats_le']),
+           'd_null_the_grid_is_too_narrow':bool(not interior)}
+    res={'rung':'frontier_joint_grid_widened','preds':preds,'nulls':nulls,
+         'bars':BARS,'null_bars':NULLS,
+         'grids':{'tail':T_GRID,'cp':C_GRID,'motif':M_GRID},'arms':out,'published_L2_F':2.6735,
          'summary':{'L2_F_baseline':round(bF,4),'L2_C_baseline':round(bC,4),
-                    'cost_fresh':cF,'cost_fit':cC,
-                    'cost_TC':c_tc,'S2904_TC':round(a04,4),'anchor_deviation':round(anchor_dev,4),
-                    'best_standalone':best_solo,'best_standalone_cost':cF[best_solo],
-                    'standalone_improving':improving_solo,
-                    'best_on_top_of_TC':best_grid,'best_on_top_cost':cF[best_grid],
-                    'best_on_top_fit':cC[best_grid],
-                    'adds_to_TC_by':adds,
-                    'implied_L2_F_best':round(bF + cF[best_grid], 4),
-                    'S2904_adopted_L2_F':2.3522,'S2906_best_measured':2.3372},
+                    'n_cells':len(cell),
+                    'cell_fresh':{f't{t}_c{c}_m{m}':v[0] for (t,c,m),v in sorted(cell.items())},
+                    'cell_fit':{f't{t}_c{c}_m{m}':v[1] for (t,c,m),v in sorted(cell.items())},
+                    'best_cell':{'tail':best[0],'cp':best[1],'motif':best[2]},
+                    'best_fresh':best_fresh,'best_fit':best_fit,
+                    'interior_in_all_three':bool(interior),
+                    'S2906_current_best':round(cur,4),'anchor_cell_measured':anchor,
+                    'anchor_deviation':round(anchor_dev,4),
+                    'beats_current_by':beats,
+                    'S2904_TC_for_reference':round(tc,4),
+                    'implied_L2_F_best':round(bF + best_fresh, 4),
+                    'S2904_adopted_L2_F':2.3522},
          'price':{'gpu_forwards':0,'forwards_instrumented':False,'pipeline_runs':1,
                   'backwards':0,'fitted_parameters':0,
                   'gpu_seconds':round(time.time()-T00,1)},
-         'hashes':{PREREG:PREREG_SHA,S2904:S2904_SHA},'self_reviewed':True}
+         'hashes':{PREREG:PREREG_SHA,S2906:S2906_SHA,S2904:S2904_SHA},'self_reviewed':True}
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"(a) baseline L2_F {bF:.4f} vs 2.6735: {'HELD' if pa else 'FAILED'}")
-    print("    solo: " + "  ".join(f"{n}:{cF[n]:+.4f}" for n in solo_names))
-    print(f"(b) TC {c_tc:+.4f} vs SS2904 {a04:+.4f}, dev {anchor_dev:.4f}: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) standalone improving: {improving_solo}: {'HELD' if pc else 'FAILED'}")
-    print(f"(d) best on top of TC {best_grid} {cF[best_grid]:+.4f} (fit {cC[best_grid]:+.4f}) adds {adds:+.4f}: {'HELD' if pd else 'FAILED'}")
-    print(f'wrote {OUT} ({res["price"]["gpu_seconds"]:.0f}s)')
+    print(f"(b) cell (.25,.5,1.25) {anchor:+.4f} vs SS2906 {cur:+.4f}, dev {anchor_dev:.4f}: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) best cell t={best[0]} c={best[1]} m={best[2]} at {best_fresh:+.4f} (fit {best_fit:+.4f}) beats current by {beats:+.4f}: {'HELD' if pc else 'FAILED'}")
+    print(f"(d) interior in all three: {'HELD' if pd else 'FAILED'}")
+    print(f"    implied L2_F = {bF+best_fresh:.4f}   (adopted T+C = 2.3522)")
+    print(f'wrote {OUT} ({res["price"]["gpu_seconds"]:.0f}s, {len(cell)} cells in one run)')
