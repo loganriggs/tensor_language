@@ -1,0 +1,103 @@
+{
+ "rung": "late_mlp_branch_width_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_one_branch_is_cheaper_than_both": true,
+  "pred_c_branches_symmetric": true,
+  "pred_d_branch_costs_additive": false,
+  "pred_e_mlp_only_compounds": true
+ },
+ "nulls": {
+  "b_null_branch_ge_.95": false,
+  "c_null_ratio_le_.25_or_ge_4": false,
+  "d_null_sum_le_.6_or_ge_1.6": false,
+  "e_null_sum_ge_.95": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_frac": 0.7,
+  "c_lo": 0.5,
+  "c_hi": 2.0,
+  "d_lo": 0.8,
+  "d_hi": 1.3,
+  "e_frac": 0.7
+ },
+ "null_bars": {
+  "b_frac": 0.95,
+  "c_lo": 0.25,
+  "c_hi": 4.0,
+  "d_lo": 0.6,
+  "d_hi": 1.6,
+  "e_frac": 0.95
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP: one branch (Left/Right) reads through U_8 at k, other branch exact; per-block MLP-only reads at 768",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "LEFT_768": 0.04841908812522888,
+  "RIGHT_768": 0.04937008023262024,
+  "LEFT_896": 0.02394205331802368,
+  "RIGHT_896": 0.02678525447845459,
+  "ONE_MLP_8_768": 0.004935622215270996,
+  "ONE_MLP_9_768": 0.004173368215560913,
+  "ONE_MLP_10_768": 0.005732446908950806,
+  "ONE_MLP_11_768": 0.004273861646652222,
+  "ONE_MLP_12_768": 0.006148219108581543,
+  "ONE_MLP_13_768": 0.005797624588012695,
+  "ONE_MLP_14_768": 0.005674540996551514,
+  "ONE_MLP_15_768": 0.006291061639785767,
+  "ONE_MLP_16_768": 0.0069290995597839355,
+  "ONE_MLP_17_768": 0.011991024017333984
+ },
+ "per_block_mlp_768": {
+  "8": 0.004935622215270996,
+  "9": 0.004173368215560913,
+  "10": 0.005732446908950806,
+  "11": 0.004273861646652222,
+  "12": 0.006148219108581543,
+  "13": 0.005797624588012695,
+  "14": 0.005674540996551514,
+  "15": 0.006291061639785767,
+  "16": 0.0069290995597839355,
+  "17": 0.011991024017333984
+ },
+ "summary": {
+  "mlp_768": 0.12492626905441284,
+  "left_768": 0.04841908812522888,
+  "right_768": 0.04937008023262024,
+  "left_896": 0.02394205331802368,
+  "right_896": 0.02678525447845459,
+  "max_branch_over_mlp": 0.39519374592958206,
+  "left_over_right": 0.9807374810227063,
+  "sum_branches_over_mlp": 0.7827750648284878,
+  "per_block_sum": 0.061946868896484375,
+  "per_block_sum_over_mlp": 0.49586743737222166,
+  "argmax_block": 17
+ },
+ "price": {
+  "gpu_doc_forwards": 1184,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 23.23853325843811
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_MLP_BRANCH_WIDTH_PROBE_PREREGISTRATION.md": "a2d23680e334de5967e57af8f34893f435b4ada39b0509ead746e6d3b87cb9e6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_width_by_kind_probe_results.json": "8cb89e3fdd3c3ca609550480eeb0470100cfb7f95e5505cf326a51cb7b2a9ce4",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "894ae0d5b1ccad0272bff1eee89e246397926ab517e4d9428ea73bc0d3eb4c5c"
+}

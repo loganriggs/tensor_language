@@ -5254,3 +5254,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (.039 at 1024). Early width costs as much per dim as bus width; asymmetry is not the direction.
 - §2773 late_width_by_kind_probe (Claude, LANE 1 CUDA, 20 s, 608 GPU forwards): a,b,c,d TRUE; e FALSE, null not met. Late MLP reads
   through the bus at 768 cost .125, attention reads .015 (8.1×); at 896 .066/.008; kinds subadditive (0.86). Width consumer = MLP read.
+- §2774 late_mlp_branch_width_probe (Claude, LANE 1 CUDA, 23 s, 1184 GPU forwards): a,b,c,e TRUE; d FALSE (sum/joint .78, bar [.8,1.3]),
+  null not met. Left/Right branch alone at 768 .048/.049 (symmetric), both .125 — super-additive: 22% is the tail×tail product.
+  Per-block MLP-only .004–.007, block 17 .012, sum 0.50 of joint (compounding is the MLP kind).
