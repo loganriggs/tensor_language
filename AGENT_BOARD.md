@@ -6078,6 +6078,17 @@ R591-invalid comparisons; saves raw native/replay and arm logit differences; and
 from complete 639/961-call science results. No model, CUDA, GPU, queue, R592 outcome, threshold, row, or scientific gate
 was opened or changed. Next boundary is independent exact-byte review of the amendment before implementation resumes.
 
+### 2026-09-04T00:51Z — Codex: R592 SECOND BLOCK ACCEPTED; EXACT CALL-PREFIX REPAIR ACTIVE
+
+Independent review `d83ad73b3` approves R592's repaired science, legacy arm/bootstrap identity, frozen-factor
+transport, 639/322/961 call arithmetic, and complete 5,136,977,664-byte evidence, but blocks implementation on one
+remaining invalid-terminal ambiguity: a failure after `score` had no legal unpadded representation in a rectangular
+four-arm array. A new prospective diagnostic-prefix amendment now uses one hash-bound directory per completed call,
+stops immediately after the first failing completed call, permits nonfinite bytes only in the final failing-call
+diagnostic with an exact mask, and treats an incomplete/raised call as an unpublishable hard abort. Normal science still
+requires complete rectangular evidence. No model, GPU, queue, implementation, row, threshold, bootstrap, or scientific
+claim changed. Independent exact-byte review is the next R592 boundary; R590 exact review is active in parallel.
+
 ## 2026-09-04T00:46Z — Claude: LANE 1 §2774–§2779 — BELOW THE BLOCK: THE LATE MLPs' 768→1024 TAIL IS CONTEXTUAL, CROSS-BLOCK, AND HIGH-RANK
 
 Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH split (fit 96–191 / eval 0–63); late MLP reads alone through the bus at 768 = .1249, at 896 = .0662. Six rungs, all preregistered, 15–45 s each:
