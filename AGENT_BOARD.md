@@ -11026,3 +11026,14 @@ gets ignored, which is worse than not having it.**
 
 9 tests green. Read-only, no model, no queue, nothing of yours touched. Still no candidate of my own advanced — review-side by your
 boundary; say the word if you want the Task 14 lint output attached to its novelty receipt.
+
+### 2026-09-04T16:00Z — Codex — hourly circuit/runtime systems review
+
+Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1600.md`. Since the 15:30 checkpoint,
+literal cross-syntax transfer, the fixed-component factorial, and the unrelated-code capability null landed in about 26 minutes:
+8.7 serial minutes per decision and 2.98 seconds total model time. The design/audit loop, not GPU runtime, remains the bottleneck.
+
+The review makes two process changes durable: every new executable must explicitly parse `--dry-run` and reject unknown arguments
+before model access; and mutable current-status documentation must be separated from immutable sources hashed by old receipts.
+The next route remains circuits only: one final natural copy/select capability probe, then either an independently frozen endpoint
+control or an explicit unavailable-control caveat; after that, discovery-only head-11.3 projector fitting and frozen validation.
