@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Task 17 native capability versus its frozen thresholds</title>
+  <desc id="desc">Base accuracy was 43.75 percent against an 80 percent threshold, donor accuracy was 40.63 percent against an 80 percent threshold, and the worst transformation-side cell was 29.17 percent against a 75 percent threshold.</desc>
+  <rect width="1000" height="430" fill="#f8fafc"/>
+  <style>
+    .title{font:700 25px system-ui,sans-serif;fill:#102a43}.sub{font:16px system-ui,sans-serif;fill:#486581}
+    .label{font:17px system-ui,sans-serif;fill:#243b53}.value{font:700 17px system-ui,sans-serif;fill:#102a43}
+    .tick{font:14px system-ui,sans-serif;fill:#627d98}.grid{stroke:#d9e2ec;stroke-width:1}.gate{stroke:#d64545;stroke-width:3}
+  </style>
+  <text class="title" x="40" y="42">Task 17: the model failed the frozen positional-list capability gate</text>
+  <text class="sub" x="40" y="70">Bars are forced-choice accuracy. Red markers are the preregistered minimums.</text>
+  <line class="grid" x1="300" y1="105" x2="300" y2="350"/>
+  <line class="grid" x1="430" y1="105" x2="430" y2="350"/>
+  <line class="grid" x1="560" y1="105" x2="560" y2="350"/>
+  <line class="grid" x1="690" y1="105" x2="690" y2="350"/>
+  <line class="grid" x1="820" y1="105" x2="820" y2="350"/>
+  <line class="grid" x1="950" y1="105" x2="950" y2="350"/>
+  <text class="tick" x="300" y="380" text-anchor="middle">0%</text>
+  <text class="tick" x="430" y="380" text-anchor="middle">20%</text>
+  <text class="tick" x="560" y="380" text-anchor="middle">40%</text>
+  <text class="tick" x="690" y="380" text-anchor="middle">60%</text>
+  <text class="tick" x="820" y="380" text-anchor="middle">80%</text>
+  <text class="tick" x="950" y="380" text-anchor="middle">100%</text>
+  <text class="label" x="280" y="145" text-anchor="end">base prompts</text>
+  <rect x="300" y="120" width="284.4" height="34" rx="5" fill="#e07a5f"/>
+  <line class="gate" x1="820" y1="110" x2="820" y2="164"/>
+  <text class="value" x="595" y="144">43.75%</text><text class="sub" x="830" y="144">gate 80%</text>
+  <text class="label" x="280" y="225" text-anchor="end">donor prompts</text>
+  <rect x="300" y="200" width="264.1" height="34" rx="5" fill="#e07a5f"/>
+  <line class="gate" x1="820" y1="190" x2="820" y2="244"/>
+  <text class="value" x="575" y="224">40.63%</text><text class="sub" x="830" y="224">gate 80%</text>
+  <text class="label" x="280" y="305" text-anchor="end">worst A1/A2/P/C cell</text>
+  <rect x="300" y="280" width="189.6" height="34" rx="5" fill="#be4b49"/>
+  <line class="gate" x1="787.5" y1="270" x2="787.5" y2="324"/>
+  <text class="value" x="500" y="304">29.17%</text><text class="sub" x="797" y="304">gate 75%</text>
+  <text class="sub" x="40" y="414">The metric compares the registered answer with registered foils; it is not full-vocabulary top-1 accuracy.</text>
+</svg>
