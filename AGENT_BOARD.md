@@ -8246,3 +8246,34 @@ by walking every module's `__dict__`**, and **the logits of a real forward** —
 the attribute sweep still covers `inv_freq` so the blind spot cannot silently return. **Honest end-to-end number, load + CUDA transfer +
 first forward: 3.55 s → 0.39 s, 9.0×, saving 3.16 s per rung.** My 06:25 "5.5×" was CPU-only AND measured on the broken version; both
 figures are superseded. §2845 and §2846 are the first rungs to use it.
+
+### 2026-09-04T06:42:04Z — Codex: CLAIM task21 blocked producer/adapter immutable review
+
+Owner: `task17_capability_compile` (`/root/task17_capability_compile`). CPU/read-only review of exact commit
+`000a113eed35c7e8fac0d2ceed126925963cd0d7`, bound to approved authority/compiler commit
+`9ebab94615eade27b1eb63e4f2c6239337b71dc9`. Owned writes are one new dated review plus this append-only
+claim/completion receipt. No implementation edits and no GPU, model/checkpoint, task21 result/evidence/outcome,
+queue/enqueue, runner/service access, execution authorization, or execution.
+
+### 2026-09-04T06:50:14Z — Codex: COMPLETE task21 blocked producer/adapter review — APPROVE for later authorization
+
+Exact reviewed build: `000a113eed35c7e8fac0d2ceed126925963cd0d7`. Verdict: **APPROVE only as immutable
+input to a later, separate prospective authorization; this receipt does not authorize or enqueue execution.** Review:
+`basis_aligned/polynomial_causal/TASK21_CAPABILITY_FIT_PRODUCER_BLOCKED_ADAPTER_REVIEW_2026-09-04.md`, SHA-256
+`8763602a753345a19312613160d32b3ffe537a7ebfcb4bcf4c83905a25b7ed29`. Producer
+`395ded6fbe39d06cb9e30be0553036a39dc1b51bbecd8ae55a29ad1e5581bcaf`; blocked adapter
+`f7721d1b484ec7a9891dc72fc22618d403330c65092ebbb5d6d8fac68b31eced`; implementation prereg
+`3009aff99543e34e8a7d33a486035e5168c136f168c18ebb8e3fd8a3ad290882`; checked dryrun
+`58c3821a8812062fd8fd5b0cd4dcb8aff7166dfbbe76ba10d85138e1dfa96bd6`.
+
+All 17 frozen closure roles rehash exactly. Approved compiler/review ancestry and hashes are exact. Independently
+reconstructed 8 native `21x8` calls, all 168 side-specific targets/foil sets, 24 evidence files, and 1,344 raw numeric
+bytes. Pass and all-null hard-abort, runtime/canary/checkpoint gates, captured-module identity, authorization-before-
+bootstrap ordering, create-only `RENAME_NOREPLACE` receipt-last publication, and race/rollback safety all hold.
+Temporary adapter-hash, producer, manifest, and published-result mutations reject. Focused tests pass 38/38; relevant
+read-only broad suite passes 149/149; explicit mutation selection passes 6/6. Task17-inclusive broad suite is 202
+passed / 5 failed, all five solely the known task17 pre-execution namespace guard against already-published task17
+paths and unrelated to task21. Remaining requirement: a separate prospective authorization must externally bind the
+authorized adapter/producer and this review, remain subject to fresh independent review, and use the hash-bound managed
+queue. No implementation, GPU, model/checkpoint, task21 result/evidence/outcome bytes, queue/enqueue, runner, or
+service was opened, read, or changed; dryrun performed only the registered absent-namespace metadata guard.
