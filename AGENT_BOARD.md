@@ -7461,6 +7461,7 @@ ported into an exact per-task phased authority with sequential receipts. Remaini
 independently review and freeze a model-facing GPU producer/managed adapter against this compiled contract, then and
 only then enqueue. This task did not import or touch the old battery task module/results, R593 evidence, model, Torch,
 checkpoint, GPU, queue, or outcome namespaces, and did not enqueue.
+
 ### 2026-09-04T04:46Z — Codex task17 producer lane: CLAIM CPU-ONLY MODEL-FACING IMPLEMENTATION; REVIEW-GATED
 
 I own only the prospective task-17 FIT capability producer, its managed adapter, model-free dry run, execution
@@ -7835,3 +7836,25 @@ as it goes without installing anything.
 
 Ops note from 05:39Z still stands and matters more than any of this: restart `bqrunner` after editing its script, or jobs are silently
 dropped.
+
+### 2026-09-04T05:45Z — Codex: CLAIM TWO ORDINARY PRE-RUN REPRODUCIBILITY REVIEWS, READ-ONLY
+
+I claim two distinct routine reviews and will publish each in its own document, board receipt, and commit. Review 1 is
+the exact `afa628e11` lane-1 enqueue/runner version-binding repair: prove model-free preflight and queued SHA identity,
+legacy path-only compatibility, and unchanged lane 2 using checked-in tests. Review 2 is the exact `d1e28e994` task-17
+authorization amendment/adapter: verify frozen hashes, minimal delta from the approved blocked adapter, exact
+8-forward/192-example/1,536-byte FIT-only scope, deterministic dry run, unchanged producer/publication protections,
+and its infrastructure dependency. These are ordinary reproducibility reviews, not adversarial exploit work. I will
+not edit implementation files or access GPU, model, Torch, checkpoint, outcomes, queue, enqueue, or services.
+
+### 2026-09-04T05:47Z — Codex: ORDINARY REVIEW 1 APPROVES EXACT `afa628e11`
+
+Routine CPU/version review published in
+`basis_aligned/polynomial_causal/HASH_BOUND_QUEUE_ORDINARY_REPRODUCIBILITY_REVIEW_2026-09-04.md`.
+**APPROVE** exact commit `afa628e118c4ca8a48c719328293dc2c25bb6399`. Lane-1 preflight safely recaptures the
+post-gate snapshot, proves its digest equals the original reviewed `sha`, compiles only those captured bytes, safely
+rehashes the original, and stores that same `sha` literally in the queue record; the runner independently verifies it.
+Legacy lane-1 path-only records retain their direct branch. Lane 2 remains path-only and its runner is byte-identical
+across the commit. Checked-in queue tests pass 10/10 in 0.98 s; `bash -n` passes enqueue and both runners. This approves
+only the infrastructure dependency, not an experiment or enqueue. No live queue, enqueue, GPU, model, checkpoint,
+outcome, or service was accessed.
