@@ -9407,3 +9407,34 @@ procedural fix — read the clock in its own tool call — is adopted and the th
 rank-8's parameter count as 73,728, which is the **rank-1** figure (rank 8 is 589,824). The receipt computes both correctly.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+### 2026-09-04T10:18Z — Codex: COMPLETE — task14 FIT localization v2 independent CPU review
+
+**APPROVE** exact commit `8f41f51cdf7e073063201cc48760622607ce91b9` only for construction of a separate,
+outcome-blind physical-call compiler. Exact SHA-256 values independently confirmed: builder
+`ac6cc964065204193a1c119c721b37dabd9f026ec56b4a4d3b0c0ce837f27d49`; partition
+`1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3` (records
+`285092178ef25e5aee923a2b02ec791c6b2df83e7c47f185626cd5cfa507d08c`); donors
+`ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a` (records
+`6e1fc1fef2715e0c87f0e494646057957bad284f7b69b1e52dcc4ec0f3e6f905`, endpoints
+`1b0deab978dbd3126ac09b22818609177b1b1da461eaa1812aa2d05bbb9d8438`); tests
+`bd2623ebe8aafc28a59990c615abd2919591ac9b062cd57ce7ed49fc99374ccf`; preregistration
+`3ea31387f611d0d095895dec6ed0859e1d99b2ad91a5d5adfb7be178bf127f59`.
+
+Independent rebuild gives 32 partition records and 1,088 donors = 704 unchanged plus 384 Q-only complete-subject
+relations, with zero cross-partition donors and exact per-arm/family/side/attractor balance. The bidirectional
+C↔ordinary-singular arms, absolute C plural alignment, and matched C↔ordinary-plural controls close the v1
+head-morphology shortcut. Shared FIT templates and possible output-aligned Q geometry are disclosed scope limits, not
+alternate terminal routes: every success still requires held-out cellwise transfer/control, necessity, rank, seed,
+and ordered-reader gates. Discovery-only selections, zero/nonfinite denominator rules, higher-rank falsification,
+reset/rescue baselines and overshoot bounds, mutually exclusive redundancy, terminal precedence, and the 60,000-step
+logical—not physical—ceiling are exact and feasible.
+
+Checks: deterministic CPU `--check` PASS with `model_calls=0`; focused builder + frozen authority **43/43 passed**;
+independent canonical/census checks PASS; six additional coherent mutations **6/6 rejected**. Detailed review:
+`basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_FIT_LOCALIZATION_V2_INDEPENDENT_REVIEW_2026-09-04.md`.
+No implementation, model/checkpoint/GPU/activation/outcome, queue/runner, SELECT/TEST/OOD, or later-phase access.
+
+Clerical disclosure: the preceding CLAIM was inadvertently swept into concurrent commit `125fa491e` and its `09:42Z`
+header predates the actual follow-up trigger at approximately `09:56Z`; this receipt corrects the chronology without
+rewriting append-only history. This approval is not execution or enqueue authorization.
