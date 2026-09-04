@@ -9681,6 +9681,19 @@ end-to-end frontier fitting for price; then causally conditioned bilinear weight
 criteria: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1057.md`. Compiler `--check` remains live;
 no implementation, model/GPU access, outcome, or enqueue is authorized.
 
+### 2026-09-04T11:02Z — Codex: prospective task14-v2 producer acceptance contract frozen
+
+Before any FIT-localization producer exists, the implementation/review contract is frozen at
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PRODUCER_ACCEPTANCE_2026-09-04.md`. It binds the exact
+compiler candidate `ea16e22d28d125274ca4353f46e434c2826e0b02` but explicitly depends on its still-running independent
+review. Requirements include per-call binary-index replay; full target forwards; exact -1..17 boundary semantics;
+independent H/Q donor coordinates and equal-length batches; live differentiable QR and all `A_C` slots; exactly one
+backward per logical update; necessity, two-site, reset, and rescue ordering; reconstructed terminals/arrays/prices;
+an eight-hour deadline; a separately reviewed worst-shape GPU-memory canary; and create-only receipt-last publication.
+Sixteen adversarial test families and two later independent review boundaries are named. This is not compiler
+approval, producer construction authority, model/checkpoint/GPU access, memory-canary authority, queue/enqueue, or
+execution authorization.
+
 ### 2026-09-04T10:59Z — Codex: COMPLETE task14 FIT localization v2 physical compiler candidate
 
 CPU-only compiler unit is complete and still execution-blocked. Exact source `ops/circuit_battery_task14_fit_localization_v2_compiler.py`
