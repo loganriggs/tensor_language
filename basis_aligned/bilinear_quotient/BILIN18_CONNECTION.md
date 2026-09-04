@@ -77208,3 +77208,50 @@ tested**, so **−0.2614 is a bound, not a value**. If `svd_identity` fails, thi
 whatever this effect is, it transports. And if it survives its control, **the correction stops being a scalar**: the object to carry
 forward is a rank-64 projection per link map, which is a different kind of thing to compose with §2912's configuration and needs its own
 held-out measurement (§2914/§2916) before it can displace anything.
+
+---
+
+## §2920 — **THE SHRINKAGE IS INTRINSIC TO THE LOCAL OBJECTIVE, NOT TO THE REGULARISER: THE OPTIMAL SCALE IS 0.25 AT EVERY PENALTY (λ×0.25, λ×1, λ×4).** ALL FIVE PREDICATES HOLD, AND THE IDENTITY CELL READS EXACTLY 0.0000 — WHICH RETROACTIVELY SUPPLIES THE CONTROL §2917 LACKED
+
+Written 2026-09-04T13:30Z. Rung `ops/frontier_ridge_scale_interaction`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_RIDGE_SCALE_INTERACTION_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 172.0 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_ridge_scale_interaction_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+§2917 ruled out *larger* penalties and **declared its own gap**: the grid was one-sided, so `λ < 1` was never tested. This closes that
+gap and asks the sharper question — is the adopted `×0.25` compensating for the **ridge bias**, or for the **local objective** itself?
+If the former, how much shrinkage is wanted should depend on the penalty; if the latter, it should not.
+
+| | s=0.15 | **s=0.25** | s=0.40 | s=0.60 | s=1.00 | best |
+|---|---|---|---|---|---|---|
+| λ×0.25 (less ridge than fitted) | −0.2269 | **−0.2283** | −0.2078 | −0.1526 | −0.0007 | **0.25** |
+| λ×1 (the fitted penalty) | −0.2253 | **−0.2287** | −0.2106 | −0.1570 | **0.0000** | **0.25** |
+| λ×4 | −0.2209 | **−0.2243** | −0.2063 | −0.1509 | +0.0195 | **0.25** |
+
+**All five predicates hold; all four nulls refused.**
+
+- **pred_b — the identity cell reads exactly 0.0000.** The fitted penalty with no scaling is the baseline stack **rebuilt from its own
+  cached normal equations**, and it scores identically. **This is the control §2917 did not have**: that rung's λ arms travelled the same
+  re-solve path, and nothing in it proved the path reconstructs what the pipeline actually fitted. It does. **§2917's measurements are
+  retroactively controlled**, which matters because §2919 later overturned its *inference* and the measurements are what survive.
+- **pred_c HELD at deviation 0.0000** — §2896's −0.2287, a **seventh** reproduction.
+- **pred_d HELD.** The optimum is **0.25 at all three penalties**, and `d_null_the_shrinkage_is_compensating_for_the_ridge_penalty` is
+  refused. **pred_e HELD** — every optimum interior, so none of these is a bound.
+
+**The reading.** The excess belongs to **what** was fitted, not **how**. Quadrupling or quartering the regulariser moves the optimal
+scale by not one grid step, and moves the achievable gain by only 0.004 nats (−0.2283 / −0.2287 / −0.2243). A least-squares solution
+fitted against a **local** target is over-large for the end-to-end score by a factor that the regulariser does not control — which is
+precisely the claim §2890/§2902/§2905 make, now tested against the one obvious confound and surviving it.
+
+**Read with §2918 and §2919, the shape of the correction is now three-quarters specified.** It is not a regularisation artefact
+(§2917, §2920, tail side) and not a truncation artefact (§2918, CP side). It **is** anisotropic and concentrated in a small subspace
+(§2919, pending its own control in the queued `frontier_tail_rank_localise`). What remains unexplained is the most interesting part:
+**why the same kind of fixed multiplicative correction fits objects of completely different provenance** — ridge solutions on the tail
+side, the model's own untouched weights on the CP side — and why the CP side's constant is 0.5 while the tail's is 0.25.
+
+Two smaller notes. The fitted penalty is, marginally, the best of the three (−0.2287 against −0.2283 and −0.2243), so `1e-2·n` was a
+reasonable choice and there is nothing to gain by retuning it — **that line is now closed from both sides**. And at λ×0.25 the unscaled
+cell reads −0.0007 rather than 0.0000: a solution fitted with a quarter of the penalty is very slightly *better* unscaled, which is the
+right sign and far too small to pursue.

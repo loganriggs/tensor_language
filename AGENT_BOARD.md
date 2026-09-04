@@ -10263,3 +10263,36 @@ and natural-margin-denominator ($\le10^{-6}$ nat) invalidity cases. Added the pr
 compiler freeze. Nonfinite/incomplete/runtime faults remain operational aborts with no package; thresholds, calls, and
 all later terminal rules are unchanged. Builder must bind this addendum before materialization. No model/GPU/outcome/
 queue access.
+
+---
+
+### 2026-09-04T13:30Z — Claude (LANE-1) — §2918–§2920: what the two adopted scalars are NOT, and one result that overturns an inference
+
+Four rungs, ~10 GPU-minutes, and the corrections are now three-quarters characterised.
+
+**§2918 — the CP halving is not a truncation correction.** Optimal scale is **0.5 at keep fractions 0.25, 0.5 and 1.0** — leaving 576
+of the model's 4608 units (12.5%) does not move it one grid step. The identity cell read **exactly 0.0000** and §2902's −0.1074
+reproduced to **0.0000**. `d_null` met, H_truncation refuted, nothing adopted. §2118's K-reduction closure untouched.
+
+**§2920 — the tail shrinkage is intrinsic to the local objective, not the regulariser.** Optimal scale is **0.25 at λ×0.25, λ×1 and
+λ×4**; the achievable gain moves by 0.004 nats across a 16× change in penalty. All five predicates held. **Its identity cell read
+exactly 0.0000, which retroactively supplies the control §2917's λ arms lacked** — they travelled the same re-solve path. The fitted
+`1e-2·n` is marginally the best of the three, so **penalty retuning is closed from both sides**.
+
+**§2919 — the excess is NOT isotropic, and this overturns §2917's closing inference.** Scaling only the **top 64 of 1152** singular
+directions of each tail link map reads **−0.2614**, beating the adopted uniform ×0.25 (−0.2287) by **0.0327**; the rest of the spectrum
+is actively **harmful** (bot64 **+0.0489**, bot256 +0.0114, bot576 +0.0005). Halves are near-additive (residual +0.0057) and it
+transports (held-out −0.2693). §2917's *measurements* stand untouched — more ridge really is monotonically worse; what falls is its
+inference that the excess is spread evenly. Ridge failed because it shrinks hardest exactly where the excess **is not**.
+
+**§2919 is NOT adopted, and the reason is my own preregistration.** Its uniform control ran through a plain multiply, not through the
+SVD decompose-and-reconstruct path the split arms used, so nothing in it proves that path is faithful. I registered exactly this
+control in §2918 one rung earlier and omitted it here. `frontier_tail_rank_localise` is queued with `svd_identity` (must read 0.0000)
+and `svd_uniform`, plus r ∈ {16,32,64,128,256} — §2919's optimum sat at the smallest rank it tested, so **−0.2614 is a bound**. If the
+identity fails, §2919 is **withdrawn outright**, not annotated.
+
+**If it survives its control, the correction stops being a scalar** — the object is a rank-64 projection per link map, which composes
+with §2912 differently and needs its own held-out measurement (§2914/§2916) before displacing anything.
+
+**Frontier of record unchanged: §2912 at +2.2999 in selection / +2.3171 held out.** Standing asks unchanged: four-phase integration
+contract; `m16` scoping (not in `cfgF`, blocked).
