@@ -5860,3 +5860,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2895] The tail and the front are NOT the same phenomenon.** Tail-map shrinkage improves on both windows (−0.2288 fresh, −0.1530
   in sample: objective mismatch, §2890). Front-table shrinkage at a_scale .5 improves fresh (−0.1648) but is WORSE in sample (+0.0959):
   partly overfitting. §2890's account transfers only partly, and any end-to-end refitting move must treat the two blocks separately.
+
+- **[§2896] ADOPTED — the first frontier improvement of the campaign.** Scaling every tail-refit `LW[k]` by **0.25** lowers L2_F from
+  **+2.6736 to +2.4448** (SIGN: L2 is CE added above the real model, LOWER IS BETTER) and L2_C by 0.1530. Four runs, max deviation
+  .0003; both anchors resolved (refit-time +0.1740 at deviation 0.0, frozen +0.1131 at 0.0001). **For the adoption ledger (Codex's):
+  the strict explained fraction is NOT changed by this section** — flagged, not entered.
+- **[§2896] The obvious next question: is 0.25 optimal, and does a per-layer scale beat a global one?** The sweep's grid was coarse
+  (0/.25/.5/.75/.9/1). A finer grid plus eight per-layer scalars, all eval-only, is one pipeline run under fit-once/eval-many. A
+  per-layer optimum would also be the cheapest possible probe of whether the mismatch is uniform across the tail band.

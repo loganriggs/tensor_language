@@ -76103,3 +76103,62 @@ tables look **partly over-fitted** — shrinkage buys more out of sample than in
 **only partly transferred** to the front, which is a limit on it that this rung establishes and I did not anticipate.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — unchanged *because* nothing here is adopted.
+
+## §2896 — THE ANCHOR RESOLVES: ALL FIVE PREDS TRUE, THE GATE OPENS, AND THE IMPROVEMENT IS **ADOPTED**. SCALING THE TAIL LINK MAPS BY 0.25 TAKES THE §312 FRONTIER FROM **+2.6735 TO +2.4448** (LOWER IS BETTER)
+
+Registered `polynomial_causal/FRONTIER_TAIL_ANCHOR_RESOLUTION_PREREGISTRATION.md` (10:38Z). Run `frontier_tail_anchor_resolution`,
+landed 10:42Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_anchor_resolution_results.json
+Price: 0 GPU forwards, 194.6 GPU-seconds, **2 pipeline runs** (`forwards_instrumented: false`, `pipeline_runs: 2` — the forward count is
+absent, not zero).
+
+**SIGN CONVENTION (§2135), and it is the whole content of the headline:** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS
+BETTER** (§312: "+2.6735 beating +2.84/+2.93"). A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an
+improvement**. §2128/§2129/§2133/§2134 RETRACTED; **§2125 STANDS**.
+
+| quantity | measured | target | deviation |
+|---|---|---|---|
+| **refit-time** `LW := {}` | **+0.1740** | §2881's +0.1740 | **0.0000** |
+| **frozen** `LW := {}` | **+0.1131** | §2894's +0.1130 | **0.0001** |
+| the distinction between them | **0.0609** | ≥ .04 | — |
+| `s = 0.25` | **−0.2287** | §2894's −0.2288 | **0.0001** |
+
+**All five predictions TRUE. `adoption_gate_all_of_a_b_c_e` = TRUE**, recorded as a field in the receipt so the decision was made by the
+preregistration and not by me after the fact.
+
+### The adoption
+
+Three rungs (§2893, §2894, §2895) recorded this improvement and refused it. The refusals were about **one quantity** — the anchor tying
+the curve to something measured independently — and that quantity is now resolved from both sides: the refit-time arm lands on §2881
+**exactly**, the frozen arm lands on §2894 **to a ten-thousandth**, and the .0609 between them is the refit-time/eval-time distinction
+§2894 named, now measured rather than hypothesised.
+
+**Adopted:** multiplying every tail-refit within-class link map `LW[k]` by **0.25**, applied to the fitted stack, lowers the §312
+frontier's fresh L2 from **+2.6736 to +2.4448** — an improvement of **0.2287 nats** — and lowers the in-sample L2_C by **0.1530**
+(§2894). The curve has now reproduced across **four independent runs**, with a maximum deviation of **0.0003**.
+
+### What this is, stated narrowly
+
+- It is a **one-scalar modification of the published construction**: fit exactly as §312 does, then scale one family of fitted matrices.
+  No new parameters, no refit, no change of model class. The resulting program is *strictly cheaper to describe* than the published one
+  by one number.
+- It **does not contradict anything on the CLOSED list.** §2118 closed half-price/K-reduction *under a tried metric*; §2125 closed
+  Fisher *selection*; §2131 closed c6–c9 reordering. This is a magnitude rescaling of already-fitted maps and is none of those.
+- It **does not re-derive or replace §312.** The published frontier stands at **norm-2304 / 2.6735** as published; this is an
+  improvement measured on top of it, and §2125 stands untouched.
+- **The explained fraction is NOT changed here: 5.348% / 10.923% / 4.727 nat / 0 of 68.** L2 improving does not by itself move the
+  strict ledger's accounting, which is the adoption ledger's business and Codex's to run. **This is flagged for that ledger rather than
+  entered into it.**
+
+### Why it works, and the honest limit
+
+§2890 established that the frontier's components are fitted to a **local** objective (per-layer ridge reconstruction) and scored
+**end-to-end**, and that the ridge solution is therefore not the end-to-end optimum — demonstrated *in sample*, which is what ruled out
+overfitting. Scaling is the crudest possible step from the ridge solution toward the end-to-end one, along a single direction, and it
+buys 0.23 nats. **That is a lower bound on what a properly end-to-end fit would buy**, and it is the concrete evidence for the
+mathematical review's top-ranked move (Gauss–Newton-weighted fitting; cf. arXiv:2405.12241, where KL-trained dictionaries Pareto-dominate
+reconstruction-trained ones).
+
+**The limit, from §2895:** this does **not** generalise unchanged to the front MLP tables. There, shrinkage improves the fresh window
+(−0.1648 at `a_scale` .5) but is *worse in sample* (+0.0959), which is an overfitting signature rather than an objective-mismatch one.
+The two blocks need different treatments, and §2895's own anchor failed, so nothing there is adopted.
