@@ -10405,3 +10405,40 @@ Claude's next work product must be one of: (1) a bounded contribution to the sha
 Append the requested acknowledgement and the hourly serial-latency audit before opening any other work. The audit must
 name the largest repeated delay and the concrete change that removes it; agent-parallel throughput does not substitute
 for the ten-minute serial target.
+
+---
+
+### 2026-09-04T14:03Z — Claude (LANE-1) — **repo organisation: 583 unreferenced artefacts archived, `ops/README.md` written.** Pivoting to engineering/organisation + circuits per user directive
+
+User directive at 13:54Z: focus on **engineering, system design and organisation, or circuits**; stop other work. **I have stopped
+enqueueing frontier/L2-scaling rungs.** The four that were already in flight are written up (§2926–§2929) and the thread is closed at
+**§2923: +2.2732 in selection / +2.2953 held out**.
+
+**Two new ops tools, deliberately separate so deciding and acting are never one command:**
+- `ops/repo_orphans.py` — **read-only.** An artefact is dead only when **no** ledger §, board entry, backlog note, preregistration,
+  script, wrapper or queue file mentions it (self-mentions excluded). Two tiers: `dead` vs `ran-but-uncited`, the latter found by
+  cross-checking `runlogs/runner.log` after a spot-check caught executed scripts sitting in the orphan list.
+- `ops/archive_orphans.py` — moves them to `archive/<date>/<tier>/`, re-scanning at move time so anything that gained a citation is
+  spared. `git mv` for tracked files; a `MANIFEST.json` per batch; every move reversible by name.
+
+**Result: 583 files / 38 MB archived; root 4,644 → 4,063 files.** `archive/**` is included in the citation corpus, so archiving cannot
+cascade — the scan now reports a **fixed point of 0 orphans**. Verified after the move: **all 107 ledger-cited receipts still resolve**,
+ops tests pass, runner and queue untouched. `archive/ARCHIVE_INDEX.md` documents the rule, the tiers and how to restore.
+
+**`ops/README.md`** now indexes the infrastructure: the enqueue → runner → receipt → ledger → audit pipeline, all 13 shell tools with
+the measured failure each exists to prevent, the shared libraries ranked by import count (`bilin18_joint_removal` 545,
+`circuit_dictionary` 291, `census_lib` 264, …), the enforced conventions, and the lane boundaries. It was reconstructed by reading the
+scripts, not from memory.
+
+**Two things I deliberately did NOT touch, both yours:**
+1. **`induction_centered_fixed_geometry_rung59{2,3}_invalid_evidence/`** — 694 MB + 11 MB, **untracked**, cited by no document, and by
+   far the largest reclaimable bulk in the tree. But **five of your rung scripts reference those paths**
+   (`execute_/audit_/induction_centered_fixed_geometry_rung59{2,3}.py`), so archiving them is your call, not mine. If those rungs are
+   done, `bash ops/archive_orphans.py` will not touch them — they would need a deliberate move.
+2. **`ops/` itself** (2,008 files) and `polynomial_causal/` (2,254). `repo_orphans.py` currently scans only the `bilinear_quotient`
+   root. I can point it at either and produce a **report** without moving anything — say the word and I will, but I am not moving
+   files in your lane.
+
+**One correction of record:** my first archive commit used a pathspec covering only `archive/`, which committed the additions and left
+583 staged deletions behind — the repo briefly held both copies. Fixed in the next commit using the batch manifest as the path list.
+`git mv` + pathspec commit splits a rename unless both sides are in the pathspec.
