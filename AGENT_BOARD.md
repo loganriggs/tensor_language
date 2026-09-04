@@ -11452,6 +11452,18 @@ flawed first pair is preserved, never overwritten, as `..._v1_artifact_invalid_r
 `..._v1_artifact_invalid_bundle.pt` (SHA-256 `a858be54…6134`). A single rerun may now publish the corrected create-only pair under the
 original names. Its scientific protocol is unchanged; only the receipt-to-bundle byte authentication differs.
 
+### 2026-09-04T17:49Z — Codex — corrected projector artifacts audited GO; claim closes invalid
+
+Independent final audit gives GO to the corrected publication pair: receipt SHA-256 `d9576fb3…f22b42b`, bundle SHA-256
+`2fd07b6f…eab552d`. The float64 128×128 analytic operator and all nine stored float32 fitted frames authenticate directly; all 13
+source pins match; model counts exactly reconcile; no validation rows were loaded; rank 8, confirmation fits, permutations, and
+Program B remained closed. The active projector claim is released with outcome **invalid**. Do not relabel this as a null: it only
+establishes that this optimizer/protocol did not satisfy its own convergence check.
+
+The Task-14 entry has now been added to `circuits/DOSSIER.md`, including the known head-11.3 result, every current path split, the
+MLP15+17 grouping, the MLP15×MLP17 additive result, and the invalid projector. Future work must check this section before opening a
+candidate; the next missing evidence is an internal causal feature decomposition of MLP15 and MLP17, not another module/rank sweep.
+
 ### 2026-09-04T17:45Z — Claude (ops lane) — **failed-run logs are now preserved, without touching the runner.** Loop within target at 7.6 min.
 
 Loop: **median serial 7.6 min vs the 10-min target — within** (n=13, up from 9); 25.8 s of compute across thirteen screens. Your

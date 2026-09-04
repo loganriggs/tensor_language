@@ -1,6 +1,6 @@
 # Circuit dossier — bilin18
 
-Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 5 task-defined behavior circuits/shared subroutines**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
+Assembled from the frozen census (source note: 2026-08-30 by Claude, circuit task (Logan)) plus current version-2 records. **62 census response regions and 6 task-defined behavior circuits/shared subroutines**. Each census region was localised by two independent causal interventions over the 256,000-position census grid.
 
 `concentration` = mean|dCE| on the circuit's members / mean|dCE| off its slice, when the named component is ablated. **mean** replaces the component output with its grid mean; **interchange** replaces it with its output at a random other position (seed 20260830).
 
@@ -13,11 +13,55 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
+| `task.subject_verb_number_agreement` | behavior_circuit | path_grouped | `complete_subject_number_at_final_position` | 4 | 4 | causally identify the internal features MLP15 and MLP17 read/write, using Task-14 donor counterfactuals and unrelated-behavior controls; the first head-11.3 projector fit was instrument-invalid and must not be cited as a subspace null |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
 | `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
 | `task.induction.selector_payload` | behavior_circuit | proposed | `induction_selector_payload` | 5 | 1 | freeze two-valid-source and payload-swap rows; measure selector and value site ceilings |
 | `task.successor.pointer` | behavior_circuit | proposed | `successor_pointer_state` | 4 | 2 | expand families and test shared-plus-private projectors against failed cross-family transfer |
+
+### `task.subject_verb_number_agreement` — path_grouped
+
+**Read:** the grammatical number of the complete subject, including a nearby prepositional phrase or relative clause. **Operation:**
+carry that number to the final-token prediction and combine it with the copula choice. **Write:** evidence favoring ` is` or ` are`.
+**Endpoint:** signed answer-versus-foil logit-margin recovery under donor interchange.
+
+| family | role | status |
+|---|---|---|
+| opposite-number transfer in a prepositional phrase | interchange | measured |
+| opposite-number transfer in a relative clause | interchange | measured |
+| noun identity with answer held fixed | control | measured |
+| attractor number with answer held fixed | control | measured |
+
+**Current causal picture:** attention head 11.3 carries about 60% of the donor answer effect in both syntactic constructions. Later
+attention modules contribute little to the downstream response. MLP11–17 collectively change the transported effect, and within the
+late path MLP15 and MLP17 form a useful causal group: together they reproduce the MLP15–17 effect within 11.6% relative error, MLP16
+contributes only 0.56% RMS, and the MLP15-by-MLP17 interaction is only 0.655% RMS. This groups module contributions to this task; it
+does not yet identify the internal features in either MLP.
+
+**Append-only evidence ledger:**
+| event | stage | test | verdict | lifecycle | result artifact |
+|---|---|---|---|---|---|
+| `agreement_head11_3.legacy` | complete | mean replacement | **non-necessary/redundant** | active | explanation §1548 |
+| `agreement_full_state.v2` | complete | donor interchange | **held** | active | `task14_subject_verb_agreement_full_state_v2_result.json` |
+| `agreement_cross_syntax.v1` | complete | cross-syntax interchange | **held** | active | `task14_subject_verb_agreement_cross_syntax_v1_result.json` |
+| `agreement_head11_3_complement.v1` | complete | head/complement interaction | **held** | active | `task14_attention11_head_complement_factorial_v1_result.json` |
+| `agreement_downstream_modules.v1` | complete | single-module restoration | **inconclusive** | active | `task14_head11_3_downstream_module_reader_screen_v1_result.json` |
+| `agreement_attention_vs_mlp_path.v1` | complete | path restoration | **MLP path held** | active | `task14_head11_3_attention_mlp_path_factorial_v1_result.json` |
+| `agreement_mlp11_12_vs_13_17.v1` | complete | grouped MLP interaction | **inconclusive** | active | `task14_head11_3_early_late_mlp_factorial_v1_result.json` |
+| `agreement_mlp13_14_vs_15_17.v1` | complete | grouped MLP interaction | **inconclusive** | active | `task14_head11_3_late_mlp_halves_factorial_v1_result.json` |
+| `agreement_mlp15_17_vs_16.v1` | complete | grouped MLP interaction | **MLP15+17 held** | active | `task14_head11_3_mlp15_17_vs_mlp16_factorial_v1_result.json` |
+| `agreement_mlp15_by_mlp17.v1` | complete | exact derived interaction | **additive** | active | `task14_head11_3_mlp15_mlp17_interaction_v1_result.json` |
+| `agreement_head11_3_projector_program_a.v1` | complete | learned causal subspace | **instrument invalid** | active | `task14_head11_3_causal_projector_program_a_v1_receipt.json` |
+
+**Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
+minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
+reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
+publication pair is retained only under `artifact_invalid` filenames.
+
+**Next:** use the established MLP15+17 causal grouping to define meaningful donor counterfactuals for internal MLP features, then test
+whether small rotated hidden/output subspaces reproduce each module's task effect while leaving unrelated behavior unchanged. A pass
+must be translated into the bilinear weights; generic low-rank approximation is not evidence for this circuit.
 
 ### `subroutine.induction.equality_score` — site_live
 
@@ -1592,4 +1636,3 @@ At `a9`: mean|dCE| on members **0.5961**, off slice 0.2283, signed dCE on member
 - `…\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich` → `\n`  (dCE 5.04, base CE 22.84)
 - `…\n\n#### Woburn\n\n#### Waddesdon` → `\n`  (dCE 1.23, base CE 16.09)
 - `…\n#### Canterbury\n\n#### Leeds Castle\n\n#### Margate` → `\n`  (dCE -0.5, base CE 23.87)
-
