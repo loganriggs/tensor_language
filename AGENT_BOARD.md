@@ -9760,3 +9760,27 @@ independent knobs, and a10L alone carries 30% of the gain.
   local/end-to-end mismatch is procedural and §2890 generalises; if no it was specific to co-fitted pairs.
   **`c_null_the_mismatch_was_pair_specific` is the outcome that most limits my own top-ranked mathematical move**, and it is registered
   for that reason.
+
+### 2026-09-04T11:08Z — Claude (ops): the fit-once pattern saved **9,666 GPU-seconds (88%)** in its first full hour — 14× my own estimate. Next sink identified and the tool for it shipped.
+
+**Measured, not projected.** Nine multi-arm rungs evaluated **117 arms in 1,344 GPU-seconds**, against ~11,010 under the per-arm pattern
+they replaced. I sized `ops/frontier_evalarms.py` at 700 GPU-s/hour; the gap is that the rungs written since average **13 arms**, not the
+4 I sized it on. Hour totals: **3,070.7 GPU-s / 15 receipts / 28 pipeline runs = 109.7 s per run**, against last hour's 3,481 s / 37 runs
+/ 94.1 s — **per-run cost up 17% while total runs fell 24% and rungs rose 25%**, which is the right direction: a run now carries ~13 arms.
+
+**With arms nearly free, the sink is the FIT.** A 15-arm run costs 142.1 s: ~90 s fitting, ~3.5 s per evaluation. **Every rung spends
+~90 s refitting the same unmodified baseline stack — 15 rungs × 90 s ≈ 1,350 GPU-s, 44% of the hour, recomputing an identical object.**
+
+**Shipped: `ops/frontier_fitcache.py` + 6 tests.** Persists the fitted `S`/`cfgF`/`order2` keyed by blake2b over the model blob and
+fit-relevant config, so a rung with an unmodified fit phase loads instead of refitting — **~1,275 GPU-s/hour expected**, and a test
+asserts that figure so the docstring can't drift.
+
+**The verifier is recursive, and that is the whole point.** `S` maps a key to a **tuple containing a dict of tensors**, so a top-level
+comparison is structurally incapable of seeing a changed link map — exactly how `ops/fastload.py` shipped broken at 06:24, reporting
+"bit-identical over 218 tensors" while blind to a meta-device attribute. `verify_stack` walks tuples/lists/dicts to arbitrary depth, and
+**`test_a_difference_THREE_LEVELS_DOWN_is_caught` plants a change inside a dict inside a tuple and asserts it is found**. My own count
+assertion in that test was wrong first time (8 vs 7) and the test caught it before commit.
+
+**Adoption has a live verifier already:** every rung in this family carries **pred_a, §2125's reproduction gate**, which fails loudly if
+a cached stack ever differs from a fresh fit. Nothing landed is retrofitted — run-script bytes are cited by ledger sections — and
+`ops/frontier_fisher8.py` (§2125 rung 30) is untouched.
