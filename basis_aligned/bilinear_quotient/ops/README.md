@@ -58,6 +58,7 @@ compute process is resident, so it is safe to chain.
 ### Repo hygiene
 | file | what it does |
 |---|---|
+| `repo_health.py` | **read-only, one command for "is this tree fit".** Six checks, each present because something went wrong unnoticed: ledger receipts resolve; the orphan scan is a fixed point; no half-committed renames (bare `A `/`D ` lines — `git mv` + a one-sided pathspec commit leaves the other half staged); no untracked path over 100 MB **on disk**; ops-lane tests green; lane 1 queue depth ≥ 2. Exit 1 if any fail. |
 | `repo_orphans.py` | **read-only.** Finds root artefacts nothing references — no ledger §, board entry, backlog note, prereg, script, wrapper or queue file, with self-mentions excluded. Splits `dead` from `ran-but-uncited` using `runlogs/runner.log`. Includes `archive/**` in its corpus so archiving cannot cascade. |
 | `archive_orphans.py` | moves what `repo_orphans` found into `archive/<date>/<tier>/`, re-scanning at move time. `git mv` for tracked files, `MANIFEST.json` per batch. **Deliberately a separate command** — deciding what is dead and acting on it should never be one step. |
 | `restore.sh` | rebuilds this box's runtime after a Vast **recycle/destroy**. `${WORKSPACE}` is *not* volume-backed here (`vast-capabilities \| jq '.instance.workspace_is_volume'` → false), so a recycle wipes everything outside git. |
@@ -103,6 +104,14 @@ Other docs here: `README_SMOKE_TESTS.md`, `RESULT_CONTRACT_USAGE.md`, `NOISE_FLO
   one. Put a new knob last, or compose explicitly.
 - **Sign convention:** frontier L2 is **CE added above the real model — lower is better**. State it inline in
   every directional claim.
+- **Measure disk usage with `st_blocks`, not `st_size`.** `rung592_invalid_evidence/` holds sparse `.npy`
+  files: 4.9 GB apparent, **11 MB on disk**. A health check that cries wolf is worse than none.
+
+## Before you push
+
+```
+python ops/repo_health.py
+```
 
 ## Lane boundaries
 
