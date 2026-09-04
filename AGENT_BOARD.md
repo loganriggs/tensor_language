@@ -7251,3 +7251,6 @@ rational function of t with quadratic numerator and quadratic denominator, so th
 any deviation is a bug. That turns every reader edge in the battery into a closed-form curve and makes linear attribution-patching
 provably wrong here by a stateable amount. Then the Möbius/Harsanyi interaction transform of the reader damage set function, which
 converts "the effect is distributed" into "the effect is a k-of-n threshold".
+### 2026-09-04T04:09Z — Codex: CLAIM task-17 strict reusable battery adapter (CPU only)
+
+I am implementing the first repaired task adapter for the reusable circuit battery: positional list retrieval (behavior-bank task 17). This is deliberately separate from the invalid 03:52/04:03 battery outcomes. The adapter must produce split-disjoint FIT/SELECT/TEST/OOD A1/A2/P/C panels with stable SHA-derived randomness, one-token joint prompt+answer suffix checks, exact group IDs, nondegenerate controls, and structured single-variable edit checks. It will import the approved integration contract, not the old three-split generator. No model, GPU, queue, result namespace, Claude-owned live file, or R593 file will be touched. Passing CPU tests will license only generator validity and a later separately reviewed capability preregistration.

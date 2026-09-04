@@ -5,7 +5,8 @@
 
 from __future__ import annotations
 
-import base64
+import ctypes
+import fcntl
 import hashlib
 import importlib.util
 import json
@@ -48,12 +49,23 @@ INSTRUMENT_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG593_INSTRUM
 R592_POST_AUDIT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_POSTEXECUTION_AUDIT.md"
 R592_POST_AUDITOR = OPS / "audit_induction_centered_fixed_geometry_rung592_postexecution.py"
 BUILDER_HANDOFF = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG593_BUILDER_HANDOFF.md"
+DISPATCH_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG593_ARG_MAX_DISPATCH_AMENDMENT.md"
+
+MFD_ALLOW_SEALING = int(getattr(os, "MFD_ALLOW_SEALING", 0x0002))
+F_ADD_SEALS = int(getattr(fcntl, "F_ADD_SEALS", 1033))
+F_GET_SEALS = int(getattr(fcntl, "F_GET_SEALS", 1034))
+F_SEAL_SEAL = int(getattr(fcntl, "F_SEAL_SEAL", 0x0001))
+F_SEAL_SHRINK = int(getattr(fcntl, "F_SEAL_SHRINK", 0x0002))
+F_SEAL_GROW = int(getattr(fcntl, "F_SEAL_GROW", 0x0004))
+F_SEAL_WRITE = int(getattr(fcntl, "F_SEAL_WRITE", 0x0008))
+FULL_SEAL_MASK = F_SEAL_WRITE | F_SEAL_GROW | F_SEAL_SHRINK | F_SEAL_SEAL
+_OS_MEMFD_DEFAULT = object()
 
 FROZEN_HASHES = {
     PRODUCER: "193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a",
     OWNER_TEST: "7c573951d8631e1870e6b7d565294223d15739e96d2c44dd24b3a52c840b9a43",
     FAKE_RUNTIME_TEST: "c8b7422d4cf6a3735cb0298489b648b00c2c64a32aae7b2ecf59706a32973860",
-    ADAPTER_TEST: "ec94ba71b38014364a3f21dfcd05151ffe37ff15aac851ce2147da8781315417",
+    ADAPTER_TEST: "83885a79e11d962ba2fcc0fc61e2e2ae984a4bd1643b5738bae2092470c15bae",
     RUNTIME: "768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777",
     DRYRUN: "a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1",
     PREREG: "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
@@ -78,7 +90,8 @@ FROZEN_HASHES = {
     INSTRUMENT_AMENDMENT: "df0ceebf57818534a9b4ac5de4cd82ca64f2c1228cdfd476e350e62e5707729c",
     R592_POST_AUDIT: "1398d4907d868ff3053c3e0690861a8c0be48f19b1b1286cbbb2534d56622b46",
     R592_POST_AUDITOR: "cc36365e6dc95d6975b181ff96ad6c1f1bc44980d05c1afb25e84ff1252ddace",
-    BUILDER_HANDOFF: "c0bc53b27e8805095b0165149d2dcaa3d6b9db6bf78022cf1ae8dc6271e066a2",
+    BUILDER_HANDOFF: "1cef804ca15fce531e5185ba0012d1ed3110058f7fa5a541d0d4bd16dc9c87de",
+    DISPATCH_AMENDMENT: "46bf7c8821fc5988b68a2730eec59e6410a2c730d3364f5a833899edadc1a4df",
 }
 
 MINIMUM_FREE_BYTES = 9_455_639_040
@@ -194,24 +207,86 @@ def preflight(
     }
 
 
-def scientific_command() -> tuple[str, list[str]]:
-    """Embed verified producer bytes so dispatch cannot reopen a swapped path."""
+def linux_memfd_create(
+    name: str, flags: int = MFD_ALLOW_SEALING, *, os_function=_OS_MEMFD_DEFAULT,
+) -> int:
+    """Call the same Linux memfd syscall when this Python omits its os wrapper."""
+    function = getattr(os, "memfd_create", None) if os_function is _OS_MEMFD_DEFAULT else os_function
+    if function is not None:
+        return int(function(name, flags))
+    library = ctypes.CDLL(None, use_errno=True)
+    try:
+        fallback = library.memfd_create
+    except AttributeError as symbol_exception:
+        raise RuntimeError("glibc memfd_create is unavailable") from symbol_exception
+    fallback.argtypes = (ctypes.c_char_p, ctypes.c_uint)
+    fallback.restype = ctypes.c_int
+    descriptor = int(fallback(name.encode("ascii"), flags))
+    if descriptor < 0:
+        error_number = ctypes.get_errno()
+        raise OSError(error_number, os.strerror(error_number))
+    return descriptor
+
+
+def create_sealed_source(source: bytes, *, memfd_function=linux_memfd_create) -> int:
+    descriptor = memfd_function("r593-immutable-producer", MFD_ALLOW_SEALING)
+    try:
+        view = memoryview(source)
+        written = 0
+        while written < len(view):
+            count = os.write(descriptor, view[written:])
+            if count <= 0:
+                raise RuntimeError("R593 memfd source write made no progress")
+            written += count
+        os.lseek(descriptor, 0, os.SEEK_SET)
+        fcntl.fcntl(descriptor, F_ADD_SEALS, FULL_SEAL_MASK)
+        observed_seals = int(fcntl.fcntl(descriptor, F_GET_SEALS))
+        if observed_seals != FULL_SEAL_MASK:
+            raise RuntimeError(
+                f"R593 memfd seal mask changed: {observed_seals} != {FULL_SEAL_MASK}"
+            )
+        os.set_inheritable(descriptor, True)
+        if not os.get_inheritable(descriptor):
+            raise RuntimeError("R593 memfd descriptor is not inheritable")
+        return descriptor
+    except Exception:
+        os.close(descriptor)
+        raise
+
+
+def sealed_python_command(
+    source: bytes, *, logical_path: str, expected_length: int,
+    expected_sha256: str, adapter_sha256: str,
+) -> tuple[str, list[str], int]:
+    descriptor = create_sealed_source(source)
+    launcher = f"""import hashlib,os,sys
+f=int(sys.argv[1]); n={int(expected_length)!r}; h={expected_sha256!r}
+try:
+ b=b''.join(iter(lambda:os.read(f,65536),b''))
+finally:
+ os.close(f)
+if len(b)!=n or hashlib.sha256(b).hexdigest()!=h:
+ raise RuntimeError('R593 sealed producer length/hash mismatch')
+p={logical_path!r}; sys.argv=[p]
+exec(compile(b,p,'exec'),{{'__name__':'__main__','__file__':p,'__package__':None,'__r593_immutable_sha256__':h,'__r593_adapter_sha256__':{adapter_sha256!r}}})
+"""
+    argv = [sys.executable, "-I", "-c", launcher, str(descriptor)]
+    if any(len(argument.encode("utf-8")) >= 4096 for argument in argv):
+        os.close(descriptor)
+        raise RuntimeError("R593 sealed launcher exceeded 4095 bytes per argument")
+    return sys.executable, argv, descriptor
+
+
+def scientific_command() -> tuple[str, list[str], int]:
+    """Dispatch verified bytes through an anonymous, fully sealed memory file."""
     source = PRODUCER.read_bytes()
     if hashlib.sha256(source).hexdigest() != FROZEN_HASHES[PRODUCER]:
         raise RuntimeError("R593 producer changed before immutable dispatch")
-    encoded = base64.b64encode(source).decode("ascii")
-    logical_path = str(PRODUCER)
-    adapter_sha256 = hashlib.sha256(ADAPTER.read_bytes()).hexdigest()
-    launcher = (
-        "import base64,sys;"
-        f"_p={logical_path!r};sys.argv=[_p];"
-        f"_b=base64.b64decode({encoded!r});"
-        "exec(compile(_b,_p,'exec'),"
-        f"{{'__name__':'__main__','__file__':_p,'__package__':None,"
-        f"'__r593_immutable_sha256__':{FROZEN_HASHES[PRODUCER]!r},"
-        f"'__r593_adapter_sha256__':{adapter_sha256!r}}})"
+    return sealed_python_command(
+        source, logical_path=str(PRODUCER), expected_length=len(source),
+        expected_sha256=FROZEN_HASHES[PRODUCER],
+        adapter_sha256=hashlib.sha256(ADAPTER.read_bytes()).hexdigest(),
     )
-    return sys.executable, [sys.executable, "-I", "-c", launcher]
 
 
 def dispatch(environment: Mapping[str, str], *, exec_function=os.execv,
@@ -227,8 +302,14 @@ def dispatch(environment: Mapping[str, str], *, exec_function=os.execv,
         return plan
     if mode is not None:
         raise RuntimeError("BQLIB_DRYRUN must be absent or exactly '1'")
-    executable, argv = scientific_command()
-    exec_function(executable, argv)
+    executable, argv, descriptor = scientific_command()
+    try:
+        exec_function(executable, argv)
+    finally:
+        try:
+            os.close(descriptor)
+        except OSError:
+            pass
     raise RuntimeError("R593 scientific os.execv unexpectedly returned")
 
 
