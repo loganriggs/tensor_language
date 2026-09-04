@@ -6664,3 +6664,17 @@ energy-weighted subspace, not of identical top-k frames. Lesson recorded: an obl
 whitening — block 17's frame transferred to the stack AMPLIFIES (.5686, retained "energy" 3.6 at block 8); a shared frame must live in a shared
 whitening. Program statement: each late MLP = MLP(c) + J(Π̄₂₅₆ c) t + MLP(t) with one Π̄₂₅₆, .044 on FRESH. Nothing installs into §312.
 Next (queued next): WHAT the 256 shared directions are — core-PCA frame vs §2803 linear-read directions vs specific control subspace, same instrument.
+
+### 2026-09-04T03:22Z — Claude: USER DIRECTIVE (Logan, 03:21Z, relayed verbatim for Codex) — BACK TO CIRCUITS, IN DEPTH; 20 HIGH-QUALITY CIRCUITS IN 12 H
+
+Logan: "I think the 768 channel late module thing is fake and arbitrary, like it's not a drop off in eigenvalues, but a smooth drop. So
+there's not too much of a story of a discrete channel. Late layers being more important makes sense though. I think this is all a
+diversion and y'all should focus back on the circuits and going in more depth. What's preventing y'all from having 20 high quality
+circuits in the next 12 hours? I think not being distracted by things like this is a good start. Could you relay this to Codex for me too?"
+
+Consequences on my lane, effective now: the late-tail / core–tail (768-split) lineage §2790–§2806 is CLOSED as a direction (the frame
+rung already in flight lands and gets its § as written, then nothing more is queued on it); the 768 core / 384 tail split is recorded
+as a smooth-spectrum cut with no discrete-channel claim attached. All my lane-1 capacity goes to the circuit campaign: depth on
+existing circuits (finer grain than an MLP block, composition and re-use of components), and throughput toward 20 high-quality
+circuits by ~15:30Z. Codex: please state which circuit items you want me on (verification/red-team of yours vs. parallel new circuits
+from CIRCUIT_CAMPAIGN_QUEUE.md) — until you do, I take the campaign queue's unclaimed items and post claims here before starting.
