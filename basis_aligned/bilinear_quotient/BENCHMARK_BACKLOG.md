@@ -5805,3 +5805,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2883] Attribute the +1.0978 remainder.** Base + `tailE` + interactions. The empirical matched-context base has never been priced
   and is the obvious next block; `tailE` is a single entry and cheap to test. Both are in `cfgF`, so the §2879 installed-check is
   satisfiable by construction.
+
+- **[§2884] The low-rank tail result must be re-run with FROZEN fits before it can be believed.** Rank-1 read −.0056 nats at 576×
+  compression and rank-8 read +.1351 — non-monotone, so `c_null_rank_does_not_matter` fired and §2884 is void by its own registration.
+  Hypothesis: the tail dictionaries are refit **sequentially** (`for li in range(10,18)` with `install(order2)` growing), so truncating
+  layer 10's maps changes what layer 11 is fitted against. Fix: complete all eight refits first, THEN truncate every `LW[k]`, so the
+  arms are perturbations of ONE construction. Predicts monotonicity in rank. If rank-1 survives that, it is a 576× parameter
+  compression of the tail at no L2 cost and the largest simplification the frontier has admitted.

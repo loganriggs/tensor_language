@@ -75515,3 +75515,62 @@ made here about where it lives.** Note also that these shares are measured **one
 be read as a lower bound on that block's involvement, not as a partition.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.
+
+## §2884 — **VOID BY ITS OWN REGISTERED NULL.** Rank-1 link maps look free (−.0056 nats, 576× compression) and rank-8 costs +.1351 — the truncation is NON-MONOTONE, `c_null_rank_does_not_matter` fired, and the preregistration says that makes the rung void. The rank-1 headline is NOT claimed
+
+Registered `polynomial_causal/FRONTIER_TAIL_LINK_LOWRANK_PREREGISTRATION.md`. Run `frontier_tail_link_lowrank`, landed 09:58Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_link_lowrank_results.json
+Price: 0 GPU forwards, 288.1 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2_F(arm) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | parameters (all 8 tail layers) | L2_F | cost | fraction of §2881's +0.1740 recovered |
+|---|---|---|---|---|
+| BASELINE | 42,467,328 | **+2.6735** | — | — |
+| link maps → **rank 8** | 589,824 | +2.8086 | **+0.1351** | 22.4% |
+| link maps → **rank 1** | **73,728** | +2.6679 | **−0.0056** | **103.2%** |
+
+**pred_a HELD** (baseline +2.6735). **pred_d HELD** — both arms are connected, per §2879's rule as a measured predicate.
+
+**pred_b FAILED** (rank 8 costs +.1351 against a ≤ +.05 bar, recovering only 22.4%) and **`b_null_low_rank_does_not_recover` MET**.
+**pred_c FAILED** — rank 1 is not worse than rank 8, it is **better by 0.1407 nats** — and **`c_null_rank_does_not_matter` MET**.
+
+### Why this section claims nothing
+
+The rank-1 numbers are the most attractive result of the session: **576× compression of 42.5 million parameters at −0.0056 nats**, which
+is exactly the "cheap tail dictionary" §2881 said might exist. **I am not claiming it**, because the preregistration wrote, before the
+run and in as many words:
+
+> `c_null_rank_does_not_matter` (`cost_rank1 − cost_rank8 ≤ 0`): the truncation is not behaving monotonically and **the rung is void**.
+
+That null fired. **Adding rank cannot make a reconstruction worse if the truncation is doing what the arm names say**, so a −0.1407
+reversal means the arms are not measuring "how much rank the link maps need". Retiring that bound in the section that benefits from
+ignoring it is precisely what the standing rules forbid, and the temptation here is the reason the rule exists. **The rung is recorded
+VOID and the rank-1 figure is not entered as a result.**
+
+### The mechanism I suspect, stated as a hypothesis and not as a finding
+
+The tail dictionaries are **refit sequentially**: the loop `for li in range(10,18)` fits `a{li}L` with `install(order2)` where `order2`
+has already grown to include the earlier refits. So truncating `LW` at layer 10 changes the stack that layer 11 is then fitted
+**against**, and the downstream fits adapt to the truncation rather than merely inheriting it. Under that account the arms are not
+comparable perturbations of one construction — they are three differently-fitted constructions — and non-monotonicity is expected
+rather than anomalous. §2880's superadditivity and §2883's −0.2140 (the CP reconstruction beating the real component) are the same
+family of composition effects.
+
+**This is a hypothesis.** It predicts that freezing the fits — truncating only after all eight refits are complete — restores
+monotonicity, and that is the registered follow-up rather than an inference drawn here.
+
+### Two disclosures against this rung
+
+1. **Preregistration header time.** It reads `09:44Z`; `date -u` returned **09:43Z** in the command that wrote it, and the file's mtime
+   is **09:43:39Z**, which is authoritative. The document is hash-frozen into the rung that ran from it and must not be edited, so this
+   is disclosed here as §2858 and §2859 disclosed the same slip. Sixth instance this session; the procedural fix (read the clock in its
+   own tool call, then paste) has been adopted and the two preregistrations written since are correct.
+2. **A wrong number inside the preregistration.** It states "rank 8 is 73,728 parameters against 42,467,328". That is the **rank-1**
+   figure; rank 8 is **589,824** (2·8·1152 per map × 4 LINK classes × 8 tail layers). The receipt computes both correctly and the table
+   above uses the receipt's values. The error is in the prose of a frozen document and is corrected here rather than there.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
