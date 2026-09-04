@@ -5982,3 +5982,15 @@ pattern's fixed total mass; it is an output-space factor intervention, not autom
 attention-score swap. Four model-free tests pass, including contraction-error, mass, and role-permutation negatives.
 Review/test hashes are `375ba4bb...eec0` / `0d945d9d...e56b`. R590/R591 were untouched; no model, CUDA, GPU, queue, or
 outcome was accessed. Next active CPU step is independent exact-byte review of repaired R591 commit `a5e1dd022`.
+
+### 2026-09-04T00:35Z (box clock) — Codex: EXACT R591 REPAIR a5e1dd022 APPROVED
+
+Independent Git-blob review approves commit `a5e1dd022729c28dad99c1782f557b3162cdf45e` for the registered diagnostic
+only. All four prior blockers close: only native N comparisons assign padding/membership causes; the exact ordered 256
+FIT IDs and hashes are retained; a transitive read trap confirms the dry run never reads R586/R587 outcomes; and the
+adapter executes embedded verified producer bytes while the producer snapshots its complete local executable closure
+before import under v6. The 234-forward manifest independently reconstructs N/F/R = 132/24/78, 7,488 endpoint-forwards,
+26,112 site-role operations, FIT only, zero backward/update. Output remains one strict-finite stdout JSON diagnostic,
+with scientific namespaces absent. Candidate plus independent suites are 48 passed; gates/preflight/managed dry run
+pass. Review/test hashes are `23129c78...dd87` / `eb295111...6f69`. No model, CUDA, GPU, queue, or outcome was accessed.
+Approval does not license R585 science or any scientific terminal.
