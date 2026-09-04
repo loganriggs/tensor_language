@@ -10047,3 +10047,13 @@ operational abort after every completed prefix; require an exact whole-manifest/
 enforce strict runtime types; bind the exact reserved namespace, 28,800-second deadline, and reviewed per-stage p99
 receipts; and distinguish eligible H sites from the retained top three. V2 remains unchanged and blocked. No producer,
 model/checkpoint, GPU/CUDA, activation, outcome/result/evidence, queue/enqueue, or later phase access.
+
+### 2026-09-04T12:10Z — Codex: hourly circuit-strategy review and v2 parent BLOCK evidence
+
+The exact `6b7fb09ff` compiler reconstructs 3,821 chunks / 743,881 calls, but is not executable prospectively: selected
+fits precede completion of the joint fits that choose them, final-state replay consumes future decisions, the full-index
+preflight is bypassable with a truncated synthetic manifest, operational aborts cannot preserve completed prefixes, and
+runtime types/deadline/namespace/count distinctions are not enforced exactly. Its static DAG also contradicts the frozen
+operational-versus-finite-health failure rule. Task 14 remains the highest-information circuit route only behind a real
+stage-transition compiler; the claimed v3 repair is now the concrete continuation. Review:
+`polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1210.md`. No task-14 model/GPU/outcome/queue access.
