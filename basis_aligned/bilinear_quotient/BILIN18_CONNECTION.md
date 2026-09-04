@@ -75098,3 +75098,55 @@ that prompted it was still worth applying. Checking the artefact before labellin
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. L2_F is unchanged to four decimals in every arm; what these
 sections move is **price** — parameters, and (pending `frontier_band_constant_vs_deleted`, queued 09:19Z) possibly component slots.
+
+## §2877 — THE MLP STAGE DOES **NOT** REDUCE: DROPPING EITHER HALF COSTS ~0.7 NATS, AND THE TWO HALVES ARE NEARLY EQUALLY IMPORTANT (.754 vs .681). THE ATTENTION STAGE WAS FREE; THIS ONE IS NOT
+
+Registered `polynomial_causal/FRONTIER_MLP_TABLE_VS_RESIDUAL_PREREGISTRATION.md` (09:14Z). Run `frontier_mlp_table_vs_residual`,
+landed 09:23Z. Derived from `ops/frontier_fisher8.py` (§2125 rung 30); **the parent is unmodified**.
+Results: frontier_mlp_table_vs_residual_results.json
+Price: 0 GPU forwards, 283.1 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A drop **cost** is `L2_F(dropped) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | L2_F | L2_C | cost |
+|---|---|---|---|
+| BASELINE | **+2.6735** | +2.4233 | — |
+| quadratic residual dropped (`A := 0`) | +3.4271 | +3.7839 | **+0.7536** |
+| token table dropped (`tb := 0`) | +3.3549 | | **+0.6814** |
+
+**pred_a HELD** — baseline +2.6735, matching the published number exactly, so the rest is readable. **pred_c HELD** — dropping the
+token lookup costs **+0.6814**, far past the +.20 bar. **pred_e HELD** — both `tableres` fitters were patched, so the arms were not
+silently mixed.
+
+**pred_d FAILED and `d_null_the_residual_is_load_bearing` is MET.** Dropping the quadratic residual costs **+0.7536** against a bar of
+≤ +.10 and a null of ≥ +.30. The preregistration named this outcome as the one that "would most limit the frontier arc", and it is what
+happened: **the MLP stage does not reduce to token lookups.** The low-rank quadratic correction is doing real work of the same order as
+the lookup itself.
+
+**pred_b FAILED, and lands in the undecided zone rather than on its null.** The asymmetry `|cost(table) − cost(residual)|` is
+**0.0722**, against a bar of ≥ .10 and a null of ≤ .02 — inside both, so no claim is made in either direction. What can be said is
+weaker and worth stating exactly: the two halves cost **within about 10% of each other** to remove, so neither is the junior partner,
+and the decomposition does not identify a cheap half to discard.
+
+### The contrast, which is the point of running this
+
+| stage | what it is | cost of removing its structure |
+|---|---|---|
+| motif attention a2–a9 (§2875) | ten class rows + four 1152×1152 link maps per layer | **0.0000 nats** — 42.5M parameters were free |
+| all sixteen `attnd` dictionaries (§2876) | the same, bank-wide | **0.0000 nats** |
+| MLP token table (§2877) | token-indexed lookup | **+0.6814 nats** |
+| MLP quadratic residual (§2877) | rank-64 polynomial correction | **+0.7536 nats** |
+
+Under §2876's measured resolution — the pipeline reproduces L2_F **exactly at four decimals** — these are not close calls in either
+direction. **The frontier's attention stage is free structure and its MLP stage is not**, by roughly four orders of magnitude. Any
+future simplification effort should stop looking at the attention dictionaries, which are already constants, and the "simpler tensor
+program" claim from §2875 must be scoped to the attention stage rather than to the construction as a whole.
+
+**A quantity this rung does NOT measure, flagged rather than assumed:** dropping *either* half costs ≈ 0.7, but dropping *both* was not
+run. If the halves were independent the joint cost would be ≈ 1.43; if they are substantially redundant with one another it would be
+much closer to 0.75. Nothing here distinguishes those, and the difference decides whether the MLP stage is one job done twice or two
+jobs. Registered as the next rung rather than inferred here.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
