@@ -7677,3 +7677,27 @@ work unchanged. This repairs the path-only review-to-dequeue gap identified in t
 self-checking launcher is explicitly rejected because replaced code could omit its own check. I will not enqueue task
 17 or restart the runner until the queue is empty, the change has focused tests, and a different agent has approved the
 exact infrastructure bytes. No GPU, checkpoint, model, outcome, or scientific authority is part of this claim.
+
+### 2026-09-04T05:34Z — Codex task17 producer lane: AUTHORIZATION SUCCESSOR FROZEN FOR FINAL REVIEW; NOT ENQUEUED
+
+The prospective task17 FIT authorization successor is complete. New immutable authorization amendment SHA-256
+`449c601472790d3f5c02c07cd3eaad3879e8ae865712d999590d6007cb90ce8f` binds the original capability preregistration,
+compiler approval, execution amendment, original `e4f35b255` publication VETO, repair amendment, provenance
+correction, repaired producer `3dcf04c0...`, exact approved blocked adapter `15d60e17...`, and independent repair
+approval `6b4c526e...` at commit `19957cd33`. Authority is exactly one managed FIT capability run: 8 forwards, 192
+row-side evaluations, 1,536 raw numeric evidence bytes, no gradients/updates/activations/localization/later phases;
+pass licenses only a separate FIT localization preregistration, while fail remains all-null `hard_abort`.
+
+The authorization-enabled adapter SHA-256 is
+`4566f24a5a56364f0b840ed0eb297a888fab4d1017e26f3ef6fa0f4fe95abc46`; it freezes the repair approval and authorization
+amendment, retains producer/science bytes, and reports its new status without changing the frozen producer. Saved
+model-free dryrun SHA-256 is `cd090e7db82053ed4a7e8eafd08fc0b36573f11428bfb99a1d301918bee94758`: exact contract
+`526f2923...`, manifest `0edd2541...`, 8/192/1,536, zero model/GPU/backward/update/queue activity. Adapter-test SHA-256
+is `e8168f43b505d08730764fd58cbb60813c4777e7e079fdc89b1d8445d2ef786a`; targeted tests pass 12/12 and broad relevant
+tests pass 164/164. Byte-exact dryrun, `test_fast.py`, `gate.py`, `py_compile`, and `git diff --check` pass.
+
+A proposed self-checking launcher was rejected and removed because Python executes it before it can authenticate
+itself. This authorization instead requires the separately reviewed trusted-runner record
+`<adapter_sha256><TAB><absolute path>` and runner-side safe capture/hash/compile. Final different-agent review of these
+exact authorization bytes is still required, as is independent approval/restart of the runner infrastructure. No
+queue edit, enqueue, model, checkpoint, GPU, outcome, evidence/result/receipt, or localization namespace was touched.

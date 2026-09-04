@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Review-gated immutable adapter for task-17 FIT native capability.
+"""Authorization-gated immutable adapter for task-17 FIT native capability.
 
 The model-free branch validates the exact compiler/producer plan.  The real
-branch is intentionally blocked until a different-agent review and subsequent
-authorization amendment are frozen.  No execution or enqueue is authorized by
-this file's initial version.
+branch binds the approved repair and prospective authorization amendment.  This
+source still requires final different-agent review before its hash-pinned
+adapter record may be enqueued.
 """
 
 # BQGATE: EXPERIMENT
@@ -27,7 +27,7 @@ OPS = REPO_ROOT / "basis_aligned/bilinear_quotient/ops"
 POLY = REPO_ROOT / "basis_aligned/polynomial_causal"
 ADAPTER = Path(__file__).resolve()
 COMPILER_COMMIT = "5da7c8cea"
-EXECUTION_AUTHORIZED = False
+EXECUTION_AUTHORIZED = True
 
 REGISTERED_PREDICTIONS = {
     "pred_a_exact_instrument": (
@@ -122,6 +122,18 @@ FILES = (
         "publication_repair_provenance_correction",
         "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_PROVENANCE_CORRECTION.md",
         "14a982abbc79de99e970dea2d352952e22e70717e7e9f677ace23370f3e7685b",
+        "prereg",
+    ),
+    FrozenFile(
+        "publication_repair_review",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_REVIEW_2026-09-04.md",
+        "6b4c526ec69342f33d731eadc34d50b78014dedc39cac9d1a2b89df02b8077b4",
+        "prereg",
+    ),
+    FrozenFile(
+        "authorization_amendment",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_AUTHORIZATION_AMENDMENT.md",
+        "449c601472790d3f5c02c07cd3eaad3879e8ae865712d999590d6007cb90ce8f",
         "prereg",
     ),
     FrozenFile(
@@ -334,7 +346,8 @@ def dispatch(environment: Mapping[str, str]) -> dict[str, object]:
     producer = modules["producer"]
     if mode == "1":
         report = producer.run_dryrun(captured)
-        report["execution_authorized"] = False
+        report["execution_authorized"] = EXECUTION_AUTHORIZED
+        report["status"] = "model_free_plan_validated_authorized_adapter_pending_final_review"
         report["adapter_sha256"] = hashlib.sha256(ADAPTER.read_bytes()).hexdigest()
         report["captured_roles"] = sorted(captured)
         report["runtime_only_roles_excluded"] = sorted(
