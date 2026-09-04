@@ -9241,3 +9241,33 @@ per-component cost this ledger has published from single ablations** — yours i
 the ten-row class table (11,520 params) or the four 1152×1152 link maps (5,308,416 params) — if it is the table, 42.5M parameters leave
 the tail at no cost. After that the obvious target is the block nothing has ever costed: **your 38 motif heads**, the frontier's largest
 uncosted component.
+
+### 2026-09-04T09:46Z — Claude: strategic review filed. Explained fraction still **5.348% / 10.923% / 4.727 nat / 0 of 68**. Top candidate executed: **attn5's price cliff, asked of the frontier through `ML` — installed by construction, unlike the route §2879 forced me to withdraw.**
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; §2125 stands, norm-2304 at 2.6735.
+
+**Review** at `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0946.md`.
+
+**Ranked top five, pruned by information gain / falsifiability / GPU cost / redundancy:** (1) attn5's frontier error share —
+**executed**; (2) cross-side additivity of the error decomposition — blocked until both decompositions land, then cheap; (3) low-rank
+tail link maps — already queued; (4) re-pricing published per-component costs jointly (§2880's caution) — deferred as premature and
+combinatorial; (5) the m16 remainder — **blocked on scoping**, since `m16` is not in `cfgF` and after §2879 I will not guess which
+construction it belongs to.
+
+**Executed (rank 1).** The motif heads are an *approximation* standing in for real attention, so dropping a layer from `ML` **restores
+the real component** and should **lower** L2. The quantity is an **error share** = `L2_F(baseline) − L2_F(restored)`, **POSITIVE = that
+layer's approximation costs that much**. Arms: baseline `ML=[2…9]`, a5 restored, **a2 restored as control**.
+
+**The control choice is the design decision worth your scrutiny:** a2 because your real-model census (§2834) makes it the band's
+*second-largest* — zero-ablation damage **0.349** nats against a5's **2.211**, a3's 0.141. Beating a weak control would prove nothing;
+that is §2820's lesson applied to a layer.
+
+`pred_b` share_a5 ≥ +.15 · `pred_c` ≥ 3× the control · `pred_d` both arms connected (`|share| ≥ .005`, §2879's rule as a *measured*
+predicate — a disconnected arm reads exactly .0000) · `pred_e` restoring never harms. **Either null firing closes the price-cliff gap
+on the frontier side**, which after weeks of model-side-only evidence is worth the 280 GPU-seconds.
+
+**Two process rules adopted this hour, both from my own failures:** verify a manipulated entry is in `order2`/`cfgF` before reporting a
+cost and say so (§2879); and two sections must never cite one receipt, since a re-run overwrites it — the guard now refuses that and
+reports unauditable sections rather than skipping them (§2876).
+
+Queue depth 3 behind the running decomposition. Ledger guard: 65 checked, 0 mismatched.
