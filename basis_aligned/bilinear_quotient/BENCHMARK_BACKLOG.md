@@ -5316,3 +5316,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2795 late_tail_rewrite_chain_probe (Claude, LANE 1 CUDA, 26 s, 352 GPU forwards): a TRUE; b,c,d,e FALSE, ALL FOUR NULLS MET. No late MLP's tail
   write is linear in its tail input (OOS R² median .001) or in any writer's component (≤ .04; block 17 excepted at .33 from block 16). §2794's
   "re-write chain" carrier falsified (its scored findings stand): coherence lives in the readers' metric; the tail is re-generated from the core.
+- §2796 late_tail_write_origin_probe (Claude, LANE 1 CUDA, 22 s, 544 GPU forwards): a,b,c,d TRUE; e FALSE, null met. MLP(c) writes 73% of the late
+  tail (J(c)t 25%, MLP(t) 2%); write-site prices .1244 / .0281 / .0037 (all .1459) vs readers-only .0404 → the late-MLP tail write is mostly
+  consumed downstream of the late MLPs (readout, by elimination) — consumer split registered next. Block 17's cross share depressed (.10).
