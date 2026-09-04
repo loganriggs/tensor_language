@@ -31,6 +31,9 @@
         "records": 124,
         "replicates": 2000
       },
+      "call_manifest.json": {
+        "records": 639
+      },
       "directed_live_e.npy": {
         "dtype": "float32",
         "shape": [
@@ -149,6 +152,9 @@
           4,
           2
         ]
+      },
+      "token_manifest.json": {
+        "records": 171
       }
     },
     "SELECT": {
@@ -158,6 +164,9 @@
       "bootstrap_cells": {
         "records": 124,
         "replicates": 2000
+      },
+      "call_manifest.json": {
+        "records": 322
       },
       "directed_live_e.npy": {
         "dtype": "float32",
@@ -277,6 +286,9 @@
           4,
           2
         ]
+      },
+      "token_manifest.json": {
+        "records": 86
       }
     }
   },
@@ -356,6 +368,7 @@
   ],
   "select_token_manifest_sha256": "e04660b63b0b0b26a8282d2f2a333ff4c34445e768885298b09fddf64fe2f3fd",
   "source_sha256": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung592_runtime.py": "df2d59245dc5bd407c96af0a8a6d1c98a70ae25f1925c4540dbd47bb956254a1",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_replay_native_numerics_rung591.py": "fb8239ded4f3e99510f37ea72337c2d69e4640f7a2556748c9062aa82b2751bc",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "fd772c3b9d6df4271ecbfc90c00c893db5a65ea06601f0c8f6e7a9e34c9a531b",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",

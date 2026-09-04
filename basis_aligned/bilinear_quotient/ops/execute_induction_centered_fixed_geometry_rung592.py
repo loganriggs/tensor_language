@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
-"""Immutable-byte, model-free managed preflight adapter for R592.
-
-The adapter intentionally exposes no scientific dispatch until a different
-agent approves the complete model-backed producer.  This prevents prospective
-CPU validation from being mistaken for execution authority.
-"""
+"""Immutable-byte managed preflight and scientific dispatch adapter for R592."""
 
 # BQGATE: EXPERIMENT
 
 from __future__ import annotations
 
+import base64
 import hashlib
 import importlib.util
 import json
@@ -24,6 +20,8 @@ OPS = ROOT / "ops"
 POLY = ROOT.parent / "polynomial_causal"
 PRODUCER = OPS / "induction_centered_fixed_geometry_rung592.py"
 OWNER_TEST = OPS / "test_induction_centered_fixed_geometry_rung592.py"
+FAKE_RUNTIME_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_fake_runtime.py"
+RUNTIME = OPS / "induction_centered_fixed_geometry_rung592_runtime.py"
 DRYRUN = ROOT / "induction_centered_fixed_geometry_rung592_dryrun.json"
 PREREG = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md"
 AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md"
@@ -35,9 +33,11 @@ DIAGNOSTIC_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC
 MASK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT_INDEPENDENT_REVIEW.md"
 
 FROZEN_HASHES = {
-    PRODUCER: "e22c8a300c16054b6b4dd66add9353a7c55bf19be49d3ef4d65d61115cacfcea",
+    PRODUCER: "c52e1225c128de98b01d33649eb4227ff99e63177a8cbd85b9fd0556b4bf5aee",
     OWNER_TEST: "85f73a6b35f4e9960320bf23996ebc595d02dcd5a76f34ceaef51a6d502c7d54",
-    DRYRUN: "06f0f6c4ba40c7f870d72dac00615c437c527c6727a08972a866b9499b3e52ff",
+    FAKE_RUNTIME_TEST: "f5ea5e005991d57f6d23b5df44d1eccb500ec59469c20f70745ce37f1f6980c0",
+    RUNTIME: "df2d59245dc5bd407c96af0a8a6d1c98a70ae25f1925c4540dbd47bb956254a1",
+    DRYRUN: "a2c6e760b9b87d70b5a444a11d5bd9f76b0090330fc31e67bdee710aa31e517d",
     PREREG: "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
     AMENDMENT: "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
     DIAGNOSTIC_AMENDMENT: "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
@@ -112,7 +112,7 @@ def preflight(*, namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[s
     dryrun = run_model_free_validation()
     return {
         "schema": "execute_induction_centered_fixed_geometry_rung592_preflight_v1",
-        "status": "model_free_preflight_only_different_agent_runtime_review_required",
+        "status": "prospective_candidate_different_agent_exact_review_required",
         "frozen_sha256": observed,
         "fit_call_manifest_sha256": dryrun["fit_call_manifest_sha256"],
         "select_call_manifest_sha256": dryrun["select_call_manifest_sha256"],
@@ -128,13 +128,44 @@ def preflight(*, namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[s
     }
 
 
+def scientific_command() -> tuple[str, list[str]]:
+    """Embed verified producer bytes so dispatch cannot reopen a swapped path."""
+    source = PRODUCER.read_bytes()
+    if hashlib.sha256(source).hexdigest() != FROZEN_HASHES[PRODUCER]:
+        raise RuntimeError("R592 producer changed before immutable dispatch")
+    encoded = base64.b64encode(source).decode("ascii")
+    logical_path = str(PRODUCER)
+    launcher = (
+        "import base64,sys;"
+        f"_p={logical_path!r};sys.argv=[_p];"
+        f"_b=base64.b64decode({encoded!r});"
+        "exec(compile(_b,_p,'exec'),"
+        f"{{'__name__':'__main__','__file__':_p,'__package__':None,"
+        f"'__r592_immutable_sha256__':{FROZEN_HASHES[PRODUCER]!r}}})"
+    )
+    return sys.executable, [sys.executable, "-I", "-c", launcher]
+
+
+def dispatch(environment: Mapping[str, str], *, exec_function=os.execv,
+             namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[str, object]:
+    plan = preflight(namespace_paths=namespace_paths)
+    mode = environment.get("BQLIB_DRYRUN")
+    if mode == "1":
+        plan["mode"] = "model_free_dryrun"
+        return plan
+    if mode is not None:
+        raise RuntimeError("BQLIB_DRYRUN must be absent or exactly '1'")
+    executable, argv = scientific_command()
+    exec_function(executable, argv)
+    raise RuntimeError("R592 scientific os.execv unexpectedly returned")
+
+
 def main(argv: Sequence[str] | None = None) -> None:
     arguments = list(sys.argv[1:] if argv is None else argv)
     if arguments:
         raise SystemExit("R592 preflight adapter accepts no command-line arguments")
-    if os.environ.get("BQLIB_DRYRUN") != "1":
-        raise SystemExit("R592 scientific dispatch is not enabled before independent implementation review")
-    print(json.dumps(preflight(), indent=2, sort_keys=True, allow_nan=False))
+    report = dispatch(os.environ)
+    print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
 
 
 if __name__ == "__main__":

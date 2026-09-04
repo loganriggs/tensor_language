@@ -45,10 +45,26 @@ def test_hash_mutation_blocks_before_import(tmp_path: Path) -> None:
         adapter.verify_frozen_bytes({path: "0" * 64})
 
 
-def test_real_mode_is_not_silently_available(monkeypatch) -> None:
-    monkeypatch.delenv("BQLIB_DRYRUN", raising=False)
-    with pytest.raises(SystemExit, match="not enabled"):
-        adapter.main([])
+def test_real_mode_dispatches_only_embedded_verified_producer(tmp_path: Path) -> None:
+    called = {}
+    def fake_exec(executable, argv):
+        called["executable"] = executable; called["argv"] = argv
+        return None
+    with pytest.raises(RuntimeError, match="unexpectedly returned"):
+        adapter.dispatch({}, exec_function=fake_exec, namespace_paths=(tmp_path / "unused",))
+    assert called["executable"] == called["argv"][0]
+    assert called["argv"][1:3] == ["-I", "-c"]
+    assert "base64.b64decode" in called["argv"][3]
+    assert "read_bytes" not in called["argv"][3]
+
+
+def test_invalid_dryrun_environment_is_rejected(tmp_path: Path) -> None:
+    with pytest.raises(RuntimeError, match="must be absent"):
+        adapter.dispatch(
+            {"BQLIB_DRYRUN": "true"},
+            exec_function=lambda *_: None,
+            namespace_paths=(tmp_path / "unused",),
+        )
 
 
 def test_dryrun_matches_committed_bytes() -> None:
