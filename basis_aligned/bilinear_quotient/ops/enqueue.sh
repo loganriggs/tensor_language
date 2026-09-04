@@ -122,13 +122,71 @@ python3 "$D/ops/test_fast.py" >/tmp/bq_test_fast.out 2>&1 || {
 python3 "$D/ops/gate.py" "$check_path" >/dev/null 2>&1 || {
   echo "REFUSED: gate FAILED:" >&2; python3 "$D/ops/gate.py" "$check_path" >&2; exit 1; }
 
-# PRE-FLIGHT the PLAN itself, GPU-free, in about two seconds. MEASURED 2026-08-30: six GPU runs this
-# session were thrown away because a plan's covered-input control was ill-formed, and every one was
-# decidable from the plan alone before the first GPU call. bqlib's run() now refuses such a plan;
-# BQLIB_DRYRUN makes it do so here instead of after a 450-second run.
-BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$check_path" >/tmp/bq_dryrun.out 2>&1 || {
+# PRE-FLIGHT the PLAN itself, GPU-free, in about two seconds. For lane 1, do not
+# reopen/execute even the private snapshot by path: gate.py may have changed it.
+# Safely capture it again, require the reviewed digest, and compile only those
+# captured bytes in the same Python process, with the original path semantics.
+if [ "$LANE" = "1" ]; then
+  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 - "$sha" "$check_path" "$f" \
+      >/tmp/bq_dryrun.out 2>&1 <<'PY'
+# BEGIN ENQUEUE_HASH_BOUND_PYTHON
+import hashlib
+import os
+from pathlib import Path
+import stat
+import sys
+import types
+
+expected, capture_name, logical_name = sys.argv[1], sys.argv[2], sys.argv[3]
+if len(expected) != 64 or any(character not in "0123456789abcdef" for character in expected):
+    raise SystemExit("invalid expected SHA-256 for enqueue preflight")
+capture_path = Path(capture_name)
+flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
+descriptor = os.open(capture_path, flags)
+try:
+    before = os.fstat(descriptor)
+    if not stat.S_ISREG(before.st_mode):
+        raise SystemExit("enqueue snapshot is not a regular file")
+    chunks = []
+    while True:
+        chunk = os.read(descriptor, 1024 * 1024)
+        if not chunk:
+            break
+        chunks.append(chunk)
+    after = os.fstat(descriptor)
+finally:
+    os.close(descriptor)
+identity = lambda value: (
+    value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns
+)
+if identity(before) != identity(after):
+    raise SystemExit("enqueue snapshot changed during safe capture")
+payload = b"".join(chunks)
+observed = hashlib.sha256(payload).hexdigest()
+if observed != expected:
+    raise SystemExit(
+        f"enqueue snapshot SHA-256 changed: expected={expected} observed={observed}"
+    )
+sys.argv = [logical_name]
+sys.path[0] = os.path.dirname(os.path.abspath(logical_name))
+module = types.ModuleType("__main__")
+module.__file__ = logical_name
+module.__package__ = None
+module.__cached__ = None
+sys.modules["__main__"] = module
+exec(compile(payload, logical_name, "exec"), module.__dict__, module.__dict__)
+# END ENQUEUE_HASH_BOUND_PYTHON
+PY
+  preflight_rc=$?
+else
+  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$check_path" >/tmp/bq_dryrun.out 2>&1
+  preflight_rc=$?
+fi
+if [ "$preflight_rc" -ne 0 ]; then
   echo "REFUSED: plan pre-flight FAILED (no GPU work was done):" >&2
-  tail -6 /tmp/bq_dryrun.out >&2; exit 1; }
+  tail -6 /tmp/bq_dryrun.out >&2
+  exit 1
+fi
 if [ "$LANE" = "2" ]; then
   grep -q '^# BQLANE: cpu' "$f" || { echo "REFUSED: LANE=2 needs the literal header '# BQLANE: cpu' in $f (lane 2 is CPU-only, fail-closed)" >&2; exit 1; }
   echo "$f" >> "$D/queue2.txt"

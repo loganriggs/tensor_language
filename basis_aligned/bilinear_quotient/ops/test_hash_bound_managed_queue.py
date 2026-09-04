@@ -30,6 +30,17 @@ def captured_runner_program() -> str:
     return match.group(1)
 
 
+def captured_enqueue_program() -> str:
+    source = ENQUEUE.read_text(encoding="utf-8")
+    match = re.search(
+        r"# BEGIN ENQUEUE_HASH_BOUND_PYTHON\n(.*?)# END ENQUEUE_HASH_BOUND_PYTHON",
+        source,
+        flags=re.DOTALL,
+    )
+    assert match is not None
+    return match.group(1)
+
+
 def run_captured(expected: str, target: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         ["python3", "-", expected, str(target)],
@@ -48,6 +59,10 @@ def test_shell_scripts_parse_and_runner_program_is_literal() -> None:
     assert "compile(payload" in program
     assert "Path.read_bytes" not in program
     assert "subprocess" not in program
+    enqueue_program = captured_enqueue_program()
+    assert "O_NOFOLLOW" in enqueue_program
+    assert "compile(payload" in enqueue_program
+    assert "logical_name" in enqueue_program
 
 
 def test_runner_executes_exact_matching_regular_file(tmp_path: Path) -> None:
@@ -199,3 +214,48 @@ def test_lane2_keeps_legacy_path_only_record(tmp_path: Path) -> None:
     assert completed.returncode == 0, completed.stderr
     queue2 = enqueue.parent.parent / "queue2.txt"
     assert queue2.read_text(encoding="utf-8") == f"{job}\n"
+
+
+def test_gate_cannot_replace_snapshot_before_dryrun(tmp_path: Path) -> None:
+    enqueue, queue, job = make_enqueue_fixture(tmp_path)
+    marker = tmp_path / "snapshot-substitution-marker"
+    job.write_text("print('reviewed dryrun')\n", encoding="utf-8")
+    reviewed = sha256(job)
+    gate = enqueue.parent / "gate.py"
+    gate.write_text(
+        "import sys\nfrom pathlib import Path\n"
+        f"Path(sys.argv[1]).write_text(\"from pathlib import Path\\nPath({str(marker)!r}).write_text('ran')\\n\")\n",
+        encoding="utf-8",
+    )
+    refused = subprocess.run(
+        [str(enqueue), str(job)],
+        env=dict(os.environ, EXPECTED_SHA256=reviewed, LANE="1"),
+        text=True, capture_output=True, check=False,
+    )
+    assert refused.returncode == 1
+    assert "plan pre-flight FAILED" in refused.stderr
+    assert "snapshot SHA-256 changed" in refused.stderr
+    assert not marker.exists()
+    assert queue.read_text(encoding="utf-8") == ""
+
+
+def test_snapshot_dryrun_preserves_original_script_semantics(tmp_path: Path) -> None:
+    enqueue, queue, job = make_enqueue_fixture(tmp_path)
+    marker = tmp_path / "semantics-marker"
+    job.write_text(
+        "import os, sys\nfrom pathlib import Path\n"
+        f"assert __file__ == {str(job)!r}\n"
+        f"assert sys.argv == [{str(job)!r}]\n"
+        f"assert sys.path[0] == {str(job.parent)!r}\n"
+        f"Path({str(marker)!r}).write_text('exact')\n",
+        encoding="utf-8",
+    )
+    reviewed = sha256(job)
+    accepted = subprocess.run(
+        [str(enqueue), str(job)],
+        env=dict(os.environ, EXPECTED_SHA256=reviewed, LANE="1"),
+        text=True, capture_output=True, check=False,
+    )
+    assert accepted.returncode == 0, accepted.stderr
+    assert marker.read_text(encoding="utf-8") == "exact"
+    assert queue.read_text(encoding="utf-8") == f"{reviewed}\t{job}\n"

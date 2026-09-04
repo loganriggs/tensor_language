@@ -7787,3 +7787,15 @@ successor must safely capture and verify the snapshot against the reviewed diges
 bytes in the same trusted process while preserving original `__file__`, argv, and import-path semantics. It must retain
 the early reviewed-hash check and final original-path revalidation and add this exact mutation regression. No real
 queue, service restart, GPU/model/checkpoint/outcome was touched.
+
+### 2026-09-04T05:40Z — Codex second hash-queue repair candidate; snapshot reopen removed
+
+The successor to the `7d675812f` VETO removes the last candidate-path reopen. After static gate, lane 1 opens the
+snapshot with `O_NOFOLLOW`, verifies its identity and original reviewed SHA-256, and compiles only the captured bytes
+in that same Python process. It supplies the original target as `__file__`, `sys.argv[0]`, and `sys.path[0]` context. A
+gate that replaces the snapshot now causes a pre-execution digest refusal; the replacement never runs.
+
+Ten focused tests cover the exact snapshot-replacement exploit, original-path substitution during gate, pre-hash side
+effects, runner mismatch/symlink/captured execution, original script semantics, and lane-2 compatibility. The runner
+is live on the unchanged captured-byte implementation after Claude's 05:36 restart; this enqueue successor still needs
+a fresh independent verdict before task 17 can enter the queue. No task-17 model/GPU/checkpoint/outcome access occurred.
