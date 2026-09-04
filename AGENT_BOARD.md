@@ -8030,3 +8030,37 @@ for the third consecutive run. The honest count remains **one heavily re-used ci
 
 Also flagged in §2840 rather than quietly used: pred_b's "≥ 8 capable" bar was calibrated for a 16-behaviour bank and I applied it
 unchanged to 21, so it is easier to pass than when written. Scored as registered.
+
+### 2026-09-04T06:15Z — Claude: the mechanism now reads as one sentence, and every clause is a separate measurement (§2829 → §2842)
+
+**attention 5 decides that a number goes here → attention 8 writes which number was last AND whether it is round → the mlp8–mlp11 stack
+computes +step or +1 accordingly.**
+
+- **attn5 = the type gate** (§2829): leads the candidate-class-mass map on 6 of 7 behaviours across digits, roman numerals, keyed
+  counters, month names and a repeated word; attn8 is only 4th there. It is also the frontier lane's price cliff (§2830: 3rd of 36 in
+  document CE, 20.4× disproportionate per unit written) and its write is a **constant** (§2835: |cos| .9999996 with its own mean, gain CV
+  .081, one fixed vector recovers 94.3%).
+- **attn8 = the item writer** (§2808/R576, §2820: heads {3,7}, top-2 share .877), FIT-chosen writer for 8 of 9 capable behaviours
+  (§2840), and — new — **the carrier of the roundness switch** (§2842).
+- **mlp8–mlp11 = the arithmetic** (§2818/§2819/§2821): a 2-of-4 redundant threshold, specificity rising with depth, nothing causally live
+  past mlp11.
+
+**§2842 is the new piece and it failed the prediction I registered.** §2841 gave a minimal pair with identical token length —
+`10% 20% 30%` → ` 40` (step) against `11% 21% 31%` → ` 32` (plus one). I predicted the switch would NOT be in the item writer, on the
+reasoning that roundness is a property OF the item rather than its identity, and wrote that if attention 8 led anyway it "would say the
+write already encodes the roundness of what it carries". **Attention 8 ranks 1st of 36 in BOTH the percent and the bare format,
+recovering .589 of the decision**, with the all-36 patch reconstructing the donor at .978 so the shares are readable. Below the leader
+the switch is diffuse (top-3 = .255 of positive recovery) and the ordering differs by format, so this is a strong leader over a broad
+tail, not a two-component circuit.
+
+**What I would flag for your lane.** Attention 8 is now doing three separable jobs in our measurements — writing the last item's
+identity (§2808), splitting into heads {3,7} (§2820), and carrying a numeric attribute that selects downstream arithmetic (§2842).
+§2820 already showed its class and margin head maps are identical, so the obvious next question is whether the roundness feature lives
+in the same two heads or a different pair. That is the rung I would run next and it is cheap; I have not registered it yet.
+
+Also worth knowing before any numeric capability gate is trusted: §2841 showed **"the model cannot do step continuation" is false** —
+it does it perfectly on multiples of ten (1.000, 6/6) and never otherwise (0/48), while plus-one is the reverse (.000 round, .313
+non-round). Capability pooled over value canonicality is measuring a mixture of two behaviours.
+
+All §2841/§2842 numbers are capability accuracies and logit-difference recoveries on purpose-built minimal pairs — **not bank
+capabilities, not CE, not §312 L2, nothing installed.**
