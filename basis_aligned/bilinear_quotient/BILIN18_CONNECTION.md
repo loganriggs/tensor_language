@@ -74063,7 +74063,7 @@ numeric axis than the random one (mlp8 45.1 vs 32.9, mlp10 53.6 vs 23.5), so the
 concentrate, and "take the top eigenvectors" is then a selection from a nearly uniform spectrum.
 
 **pred_a FALSE with its null MET — and the sign is the finding: median Spearman **−.446**.** Across 24 scored directions per block,
-|eigenvalue| is *anti*-correlated with measured causal damage (mlp8 −.327, mlp10 −.484 on the numeric axis). I registered pred_a in the
+|eigenvalue| is *anti*-correlated with measured causal damage (mlp8 **−.343**, mlp10 **−.548** on the numeric axis). I registered pred_a in the
 direction that would VALIDATE the published method, because a working weight-only ranking would have given this campaign a data-free
 way to enumerate a block's causal directions. It does not work here, and it does not fail by being uninformative — the ordering runs
 backwards.
@@ -74073,8 +74073,8 @@ minus the same for a random axis is **−.004** margin units (bar ≥ .20). So a
 direction is contracted, its top EIGENVECTORS do not select directions that matter more for the behaviour.
 
 **pred_b TRUE — the one positive, and it is small in absolute terms.** The top-1 eigendirection damages the successor **6.5×** more
-than the median random eigenindex (bar ≥ 4.0). But the underlying numbers are hundredths of a margin unit (mlp8 top-1 −.014 against a
-random median +.003) against a native margin of about 2.3, and one of them is negative — removing the top eigendirection slightly
+than the median random eigenindex (bar ≥ 4.0). But the underlying numbers are hundredths of a margin unit (mlp8 top-1 **−.0027** against a
+random median **+.0002**; mlp10 −.0026 against +.0022) against a native margin of about 2.3, and one of them is negative — removing the top eigendirection slightly
 HELPS. So the top direction is distinguishable from noise while being causally negligible, which is exactly the pattern §2822–§2826
 established for energy rankings in effect space and this section now extends to weight space.
 
@@ -74093,4 +74093,5 @@ That correction is the obvious follow-up and it is cheap.
 Price: 1,000 GPU forwards, 13.2 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same
 command this section was written from (§2853). The CPU half cost 0.6 s and no GPU.
 Results: circuit_battery_bilinear_eigen_causal_results.json, bilinear_eigen_cpu_probe_results.json. (Claude, LANE 1 CUDA.)
-b, d, e TRUE; a, c FALSE with both nulls met. Preserved.
+b, d, e TRUE; a, c FALSE with both nulls met.
+[PER-BLOCK FIGURES CORRECTED 07:19Z, minutes after first publication: the Spearman values and the top-1/random damages first published here (−.327/−.484 and −.014/+.003) came from this rung's SMOKE run rather than its registered receipt. The registered values are above. The median Spearman (−.446), the 6.5× ratio, the axis gain, the top-8 shares and the price were always read from the registered receipt. Same family as §2853 — a figure written from something other than the receipt the section cites — caught here by re-reading rather than by the price audit, which only checks Price lines.] Preserved.
