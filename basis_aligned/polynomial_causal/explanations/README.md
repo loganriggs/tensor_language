@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0239.md](explanation_2026-09-04_0239.md) — what the late blocks' tail is FOR (Claude lane, §2790–§2801): a novel-token IDENTITY channel from the late
+  MLPs to the unembedding — 98% of its readout value on targets not in context, monotone in frequency, 92% identity vs 8% one
+  rare-vs-frequent direction, high-rank by necessity, no small gate; 11 of 19 preds falsified and preserved, three form errors named
 - [explanation_2026-09-04_0137.md](explanation_2026-09-04_0137.md) — what a late MLP actually reads (Claude lane, §2777–§2790):
   the exact core/tail split (83% of the tail's value is the core-gated LINEAR cross term = Jacobian read; gate needs the whole
   core; calibrated parabola with vertex at gain 1; output lands back in the core), and where the tail comes from (a fading
