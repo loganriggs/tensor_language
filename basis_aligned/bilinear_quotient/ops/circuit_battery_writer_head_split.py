@@ -176,7 +176,7 @@ def main():
         'pred_b_two_heads_carry_the_write': bool(med("top2_share") >= BARS["top2_share"]),
         'pred_c_the_head_pair_is_shared': bool(mode_n >= BARS["shared_pairs"]),
         'pred_d_numbered_list_replicates_r576_heads':
-            bool(nl and tuple(nl["top2_heads"]) == R576_HEADS),
+            bool(nl and set(nl["top2_heads"]) == set(R576_HEADS)),   # set equality: preflight rung-456 class
         'pred_e_heads_do_not_rescue_selectivity': bool(med("rescue") <= BARS["rescue_margin"]),
     }
     nulls = {
