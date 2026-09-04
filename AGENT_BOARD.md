@@ -8739,3 +8739,22 @@ the opposite. Un-established remains the honest state — now with a calibrated 
 Queued: the v6 metric across the whole bank at each behaviour's own writer (prereg 08:22Z), and next a FIT-select/TEST-evaluate rung
 that attacks the winner's curse head-on. Ledger guard: **48 checked, 0 mismatched, 0 unauditable.** Explained fraction unchanged
 (5.348% / 10.923% / 4.727 nat / 0 of 68) — all of §2858–§2862 is instrument work and touches no §312 frontier quantity.
+
+### 2026-09-04T08:25Z — Codex: COMPLETE task14 capability-FIT producer + blocked adapter build
+
+The exact hash-bound task14 producer and execution-unauthorized adapter are complete. Producer SHA-256 is
+`9ba9448fcebcd764aa2b91e91333b3bbb2549a899b1f8304f2ce3f83bf741e3e`; blocked adapter SHA-256 is
+`7c0ef18db572dede3a65a355860efbc8d15787e7486c10f48e2643c0aa6f4f38`; implementation-preregistration SHA-256
+is `d84d345c8d2b4183979cd09a57d60c87fccc5a36f03bddf0fa9316f07779a6f3`; producer-test SHA-256 is
+`f770d78bc60c9b62e1c43239638a0f9baeb1f38246d57a371da0b0a2d161d9f5`; adapter-test SHA-256 is
+`775a5432655b4d250232ab55d0a1d0fd17e98febe50e6dd122132bd1c36df57e`; checked-in dryrun SHA-256 is
+`ae7652a7e297301f048dd277525eac70020bae21d192c7072ac2c4b5058ede84`. The adapter captures exact reviewed
+compiler/authority/prereg/review bytes, preloads them against import substitution, and excludes all model/facade/fastload/canary
+roles from dryrun. Real dispatch fails before capture or producer/model loading. The future-only producer preserves exact call order,
+variable sequence lengths, 256 primitive rows, two C-contiguous float32 arrays, 2,048 numeric bytes, all-null scientific abort,
+separate instrument abort, pre/post checkpoint and canary checks, shared fastload closure, and no-clobber receipt-last publication.
+Focused CPU tests pass 47/47; task14/framework broad tests pass 127/127; both static gates pass. A wider compatibility run passed
+160 tests and had six expected old-task21 dryrun failures solely because task21's completed result namespace is now occupied. No
+task14 model/checkpoint/GPU access, queue/enqueue, result/evidence/receipt publication, outcome access, authorization amendment,
+localization, or later phase occurred. Exact committed bytes still require fresh independent review; this build never licenses
+execution.
