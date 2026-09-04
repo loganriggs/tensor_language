@@ -1,0 +1,222 @@
+{
+ "rung": "frontier_cp_unit_split",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_split_path_at_scale_one_is_a_physical_no_op": true,
+  "pred_c_both_uniform_routes_reproduce_S2902": true,
+  "pred_d_the_cp_excess_is_concentrated_like_the_tail": true,
+  "pred_e_the_best_split_is_interior_to_the_rank_grid": false
+ },
+ "nulls": {
+  "b_null_the_split_path_is_not_faithful": false,
+  "c_null_the_uniform_routes_disagree": false,
+  "d_null_the_cp_excess_is_spread_across_units": false,
+  "e_null_the_rank_grid_is_too_narrow": true
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "identity": 0.005,
+  "anchor": 0.01,
+  "beats_uniform": 0.01
+ },
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "L2_F2": 2.671,
+   "increment": 0.3864
+  },
+  "cp_identity": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "L2_F2": 2.671,
+   "increment": 0.3864
+  },
+  "cp_uniform": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2619,
+   "L2_F": 2.5661,
+   "L2_F2": 2.5802,
+   "increment": 0.2789
+  },
+  "plain_half": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2619,
+   "L2_F": 2.5661,
+   "L2_F2": 2.5802,
+   "increment": 0.2789
+  },
+  "top64": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3923,
+   "L2_F": 2.6647,
+   "L2_F2": 2.6599,
+   "increment": 0.3776
+  },
+  "bot64": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3111,
+   "L2_F": 2.5599,
+   "L2_F2": 2.5724,
+   "increment": 0.2728
+  },
+  "top128": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3885,
+   "L2_F": 2.6721,
+   "L2_F2": 2.6693,
+   "increment": 0.385
+  },
+  "bot128": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3099,
+   "L2_F": 2.5455,
+   "L2_F2": 2.5587,
+   "increment": 0.2583
+  },
+  "top256": {
+   "L1_F": 2.2871,
+   "L2_C": 2.363,
+   "L2_F": 2.6566,
+   "L2_F2": 2.6582,
+   "increment": 0.3694
+  },
+  "bot256": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3328,
+   "L2_F": 2.5595,
+   "L2_F2": 2.57,
+   "increment": 0.2723
+  },
+  "top576": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2513,
+   "L2_F": 2.5559,
+   "L2_F2": 2.5684,
+   "increment": 0.2687
+  },
+  "bot576": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4521,
+   "L2_F": 2.6796,
+   "L2_F2": 2.6816,
+   "increment": 0.3925
+  },
+  "top1152": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2408,
+   "L2_F": 2.5498,
+   "L2_F2": 2.5633,
+   "increment": 0.2627
+  },
+  "bot1152": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4445,
+   "L2_F": 2.687,
+   "L2_F2": 2.6856,
+   "increment": 0.3999
+  },
+  "runtime_s": 158.47604727745056
+ },
+ "published_L2_F": 2.6735,
+ "rank_grid": [
+  64,
+  128,
+  256,
+  576,
+  1152
+ ],
+ "split_scale": 0.5,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F2_baseline": 2.671,
+  "cost_fresh": {
+   "cp_identity": 0.0,
+   "cp_uniform": -0.1074,
+   "plain_half": -0.1074,
+   "top64": -0.0088,
+   "bot64": -0.1136,
+   "top128": -0.0014,
+   "bot128": -0.128,
+   "top256": -0.0169,
+   "bot256": -0.114,
+   "top576": -0.1176,
+   "bot576": 0.0061,
+   "top1152": -0.1237,
+   "bot1152": 0.0135
+  },
+  "cost_holdout": {
+   "cp_identity": 0.0,
+   "cp_uniform": -0.0908,
+   "plain_half": -0.0908,
+   "top64": -0.0111,
+   "bot64": -0.0986,
+   "top128": -0.0017,
+   "bot128": -0.1123,
+   "top256": -0.0128,
+   "bot256": -0.101,
+   "top576": -0.1026,
+   "bot576": 0.0106,
+   "top1152": -0.1077,
+   "bot1152": 0.0146
+  },
+  "cost_fit": {
+   "cp_identity": 0.0,
+   "cp_uniform": -0.1613,
+   "plain_half": -0.1613,
+   "top64": -0.0309,
+   "bot64": -0.1121,
+   "top128": -0.0347,
+   "bot128": -0.1133,
+   "top256": -0.0602,
+   "bot256": -0.0904,
+   "top576": -0.1719,
+   "bot576": 0.0289,
+   "top1152": -0.1824,
+   "bot1152": 0.0213
+  },
+  "identity_cost": 0.0,
+  "uniform_cost": -0.1074,
+  "plain_multiply_cost": -0.1074,
+  "route_disagreement": 0.0,
+  "S2902_cp_alone": -0.1074,
+  "anchor_deviation": 0.0,
+  "best_split": "bot128",
+  "best_split_cost": -0.128,
+  "best_beats_uniform_by": 0.0206,
+  "best_holdout_cost": -0.1123,
+  "top_profile": {
+   "64": -0.0088,
+   "128": -0.0014,
+   "256": -0.0169,
+   "576": -0.1176,
+   "1152": -0.1237
+  },
+  "bot_profile": {
+   "64": -0.1136,
+   "128": -0.128,
+   "256": -0.114,
+   "576": 0.0061,
+   "1152": 0.0135
+  },
+  "best_split_interior": false,
+  "S2919_tail_top64": -0.2614,
+  "S2919_tail_uniform": -0.2287
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 158.5
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_CP_UNIT_SPLIT_PREREGISTRATION.md": "34205734f96caab2f0d2d900f31d2e9f8e3f290ee9d87149f502f9e63fb19ab0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motif_bracket_and_triple_results.json": "e72a5fd6c3cd211ca6fdcffe4aa5126680731c59fae4971e02154ac6cf9c69ed",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_scale_composition_results.json": "2ad1fc031037be32fd97431eef218d9dc22c382835b78e5409c967439d2850c5"
+ },
+ "self_reviewed": true
+}

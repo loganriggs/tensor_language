@@ -1,0 +1,74 @@
+{
+ "rung": "tail_subspace_alignment",
+ "preds": {
+  "pred_a_the_random_baseline_matches_theory": true,
+  "pred_b_the_reload_is_faithful": true,
+  "pred_c_layers_share_a_subspace": true,
+  "pred_d_classes_share_a_subspace": true,
+  "pred_e_the_maps_are_not_trivially_similar": true
+ },
+ "nulls": {
+  "a_null_the_statistic_is_miscomputed": false,
+  "c_null_the_layers_do_not_share_a_subspace": false,
+  "d_null_the_classes_do_not_share_a_subspace": false,
+  "e_null_the_maps_are_trivially_similar": false
+ },
+ "bars": {
+  "random_tol": 0.005,
+  "share": 4.0,
+  "trivial": 0.9
+ },
+ "summary": {
+  "n_maps": 32,
+  "layers": [
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "classes": [
+   2,
+   7,
+   8,
+   9
+  ],
+  "rank": 32,
+  "random_null_theory": 0.0278,
+  "random_null_measured": 0.0275,
+  "cross_layer_mean": 0.169,
+  "cross_layer_min": 0.0581,
+  "cross_layer_max": 0.3401,
+  "cross_class_mean": 0.2342,
+  "cross_class_min": 0.1047,
+  "cross_class_max": 0.5896,
+  "cross_layer_over_null": 6.08,
+  "cross_class_over_null": 8.43,
+  "adjacent_layer_overlap": {
+   "10-11": 0.1666,
+   "11-12": 0.2007,
+   "12-13": 0.1961,
+   "13-14": 0.2932,
+   "14-15": 0.2128,
+   "15-16": 0.288,
+   "16-17": 0.2065
+  },
+  "raw_matrix_cosine_max": 0.7871
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 0,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 0.0,
+  "cpu_seconds": 3.1
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/TAIL_SUBSPACE_ALIGNMENT_PREREGISTRATION.md": "f18b9cb519e8ff1c34be33e5a33c1779ebaa55eebcbb760472dafc032c21f12c"
+ },
+ "self_reviewed": true
+}

@@ -1,0 +1,214 @@
+{
+ "rung": "frontier_rank_composition",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_svd_path_at_scale_one_is_a_physical_no_op": true,
+  "pred_c_the_adopted_configuration_reproduces_S2912": true,
+  "pred_d_the_rank_projection_alone_reproduces_S2921": true,
+  "pred_e_the_rank_projection_improves_the_composed_configuration": true,
+  "pred_f_the_improvement_survives_on_the_held_out_window": true,
+  "pred_g_the_optimum_is_interior_in_rank_and_scale": true
+ },
+ "nulls": {
+  "b_null_the_svd_path_is_not_faithful": false,
+  "c_null_the_adopted_configuration_fails": false,
+  "d_null_S2921_does_not_reproduce": false,
+  "e_null_the_projection_adds_nothing_in_composition": false,
+  "f_null_the_improvement_is_selection": false,
+  "g_null_the_grid_is_too_narrow": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "identity": 0.005,
+  "anchor": 0.01,
+  "improves": 0.01
+ },
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4233,
+   "L2_F": 2.6735,
+   "L2_F2": 2.671,
+   "increment": 0.3864
+  },
+  "svd_identity": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4234,
+   "L2_F": 2.6736,
+   "L2_F2": 2.671,
+   "increment": 0.3864
+  },
+  "G_uniform": {
+   "L1_F": 2.2871,
+   "L2_C": 2.0787,
+   "L2_F": 2.2999,
+   "L2_F2": 2.3171,
+   "increment": 0.0127
+  },
+  "rank32_alone": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2199,
+   "L2_F": 2.3906,
+   "L2_F2": 2.3838,
+   "increment": 0.1035
+  },
+  "G_r16_s0.1": {
+   "L1_F": 2.2871,
+   "L2_C": 2.124,
+   "L2_F": 2.3322,
+   "L2_F2": 2.3654,
+   "increment": 0.045
+  },
+  "G_r16_s0.25": {
+   "L1_F": 2.2871,
+   "L2_C": 2.081,
+   "L2_F": 2.2965,
+   "L2_F2": 2.326,
+   "increment": 0.0093
+  },
+  "G_r16_s0.4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.066,
+   "L2_F": 2.2956,
+   "L2_F2": 2.3249,
+   "increment": 0.0084
+  },
+  "G_r32_s0.1": {
+   "L1_F": 2.2871,
+   "L2_C": 2.1015,
+   "L2_F": 2.2983,
+   "L2_F2": 2.3231,
+   "increment": 0.0111
+  },
+  "G_r32_s0.25": {
+   "L1_F": 2.2871,
+   "L2_C": 2.0635,
+   "L2_F": 2.2732,
+   "L2_F2": 2.2953,
+   "increment": -0.0139
+  },
+  "G_r32_s0.4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.0543,
+   "L2_F": 2.28,
+   "L2_F2": 2.3043,
+   "increment": -0.0072
+  },
+  "G_r64_s0.1": {
+   "L1_F": 2.2871,
+   "L2_C": 2.1115,
+   "L2_F": 2.3083,
+   "L2_F2": 2.3281,
+   "increment": 0.0211
+  },
+  "G_r64_s0.25": {
+   "L1_F": 2.2871,
+   "L2_C": 2.0725,
+   "L2_F": 2.2834,
+   "L2_F2": 2.302,
+   "increment": -0.0037
+  },
+  "G_r64_s0.4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.0619,
+   "L2_F": 2.2912,
+   "L2_F2": 2.3111,
+   "increment": 0.0041
+  },
+  "runtime_s": 162.00933980941772
+ },
+ "published_L2_F": 2.6735,
+ "grids": {
+  "rank": [
+   16,
+   32,
+   64
+  ],
+  "scale": [
+   0.1,
+   0.25,
+   0.4
+  ]
+ },
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F2_baseline": 2.671,
+  "cost_fresh": {
+   "svd_identity": 0.0001,
+   "G_uniform": -0.3736,
+   "rank32_alone": -0.2829,
+   "G_r16_s0.1": -0.3413,
+   "G_r16_s0.25": -0.377,
+   "G_r16_s0.4": -0.3779,
+   "G_r32_s0.1": -0.3752,
+   "G_r32_s0.25": -0.4003,
+   "G_r32_s0.4": -0.3935,
+   "G_r64_s0.1": -0.3652,
+   "G_r64_s0.25": -0.3901,
+   "G_r64_s0.4": -0.3823
+  },
+  "cost_holdout": {
+   "svd_identity": 0.0,
+   "G_uniform": -0.3539,
+   "rank32_alone": -0.2872,
+   "G_r16_s0.1": -0.3056,
+   "G_r16_s0.25": -0.345,
+   "G_r16_s0.4": -0.3461,
+   "G_r32_s0.1": -0.3479,
+   "G_r32_s0.25": -0.3757,
+   "G_r32_s0.4": -0.3667,
+   "G_r64_s0.1": -0.3429,
+   "G_r64_s0.25": -0.369,
+   "G_r64_s0.4": -0.3599
+  },
+  "cost_fit": {
+   "svd_identity": 0.0001,
+   "G_uniform": -0.3446,
+   "rank32_alone": -0.2034,
+   "G_r16_s0.1": -0.2993,
+   "G_r16_s0.25": -0.3423,
+   "G_r16_s0.4": -0.3573,
+   "G_r32_s0.1": -0.3218,
+   "G_r32_s0.25": -0.3598,
+   "G_r32_s0.4": -0.369,
+   "G_r64_s0.1": -0.3118,
+   "G_r64_s0.25": -0.3508,
+   "G_r64_s0.4": -0.3614
+  },
+  "svd_identity_cost": 0.0001,
+  "G_uniform_cost": -0.3736,
+  "S2912_G": -0.3736,
+  "rank32_alone_cost": -0.2829,
+  "S2921_rank32": -0.2828,
+  "best_cell": {
+   "rank": 32,
+   "scale": 0.25
+  },
+  "best_cost": -0.4003,
+  "best_holdout_cost": -0.3757,
+  "G_uniform_holdout_cost": -0.3539,
+  "improves_composed_by": 0.0267,
+  "improves_standalone_by": 0.0542,
+  "composition_shortfall": 0.0275,
+  "holdout_improvement": 0.0218,
+  "optimum_interior": true,
+  "implied_L2_F_best": 2.2732,
+  "implied_L2_F2_best": 2.2953,
+  "S2912_L2_F": 2.2999,
+  "S2912_L2_F2": 2.3171
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 162.0
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_RANK_COMPOSITION_PREREGISTRATION.md": "d8b0f08be6e183b77f7946bc9edc92fa26b077da5d51605999e5eb0c119f058b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motif_bracket_and_triple_results.json": "e72a5fd6c3cd211ca6fdcffe4aa5126680731c59fae4971e02154ac6cf9c69ed",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_scale_composition_results.json": "2ad1fc031037be32fd97431eef218d9dc22c382835b78e5409c967439d2850c5"
+ },
+ "self_reviewed": true
+}

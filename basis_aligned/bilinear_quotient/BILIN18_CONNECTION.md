@@ -77316,3 +77316,165 @@ windows.
 map's 1,327,104 — and the §2915 dump makes the subspace itself inspectable on CPU, with no GPU and no refit. If those 32 directions are
 consistent across the eight tail layers or across the four link classes, that is a *structural* claim of the kind "0 of 68" has been
 waiting for, and it can be tested without spending a single GPU-second.
+
+---
+
+## §2922 — **THE CP EXCESS IS CONCENTRATED TOO — BUT AT THE OPPOSITE END OF ITS RANKING.** LEAVING THE TOP 128 UNITS ALONE AND HALVING THE REST READS **−0.1280** AGAINST UNIFORM'S −0.1074, WHILE HALVING ONLY THE TOP 128 IS WORTH **−0.0014**. pred_e FAILED **ON MY OWN CODING**, NOT ON THE GRID
+
+Written 2026-09-04T13:38Z. Rung `ops/frontier_cp_unit_split`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_CP_UNIT_SPLIT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 158.5 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_cp_unit_split_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**. `top r` scales the r
+most-important units and leaves the rest at 1.0; `bot r` scales everything **except** the top r.
+
+**The controls, registered up front this time because §2919's omission cost that rung its result:**
+
+| control | requirement | measured | |
+|---|---|---|---|
+| `cp_identity` — all units × 1.0 **through the split path** | \|·\| ≤ .005 | **0.0000** | HELD |
+| `cp_uniform` vs `plain_half` — same operation, two code paths | agree within .01 | **−0.1074 vs −0.1074, disagreement 0.0000** | HELD |
+| both vs §2902's adopted CP scalar, read from its receipt | within .01 | **deviation 0.0000** | HELD |
+
+| r | `top r` fresh | `bot r` fresh | `bot r` held out | `bot r` in sample |
+|---|---|---|---|---|
+| 64 | −0.0088 | −0.1136 | −0.0986 | −0.1121 |
+| **128** | **−0.0014** | **−0.1280** | **−0.1123** | −0.1133 |
+| 256 | −0.0169 | −0.1140 | −0.1010 | −0.0904 |
+| 576 | −0.1176 | +0.0061 | +0.0106 | +0.0289 |
+| 1152 | −0.1237 | +0.0135 | +0.0146 | +0.0213 |
+| *(uniform ×0.5, all 2304)* | | *−0.1074* | *−0.0908* | *−0.1613* |
+
+**pred_d HELD.** `bot128` — leave the 128 most-important units untouched and halve the other 2176 — reads **−0.1280**, beating the
+adopted uniform by **0.0206**, and **it transports: −0.1123 against uniform's −0.0908 held out**, a margin of 0.0215 that is *larger*
+off the selection window than on it.
+
+**The finding, and it is a contrast rather than a parallel.** Both corrections are concentrated, but **in opposite parts of their
+rankings**:
+
+| | where the excess lives | what the other end wants |
+|---|---|---|
+| tail link maps (ridge solutions) | the **top 32 of 1152** singular directions (§2921) | leaving alone — shrinking the rest **hurts** (+0.0489) |
+| CP units (the model's own weights) | the units ranked roughly **128–576** by importance | the **top 128 need essentially nothing**: halving them alone is worth **−0.0014** |
+
+So the registered "shared shape" reading is **refused**, and the registered "separation" reading is what the data says: the two adopted
+scalars are alike only as scalars. The tail's over-largeness sits in its highest-energy output directions; the CP side's sits in a band
+of middling-importance units while its most important units are already right. **§2910's "one two-parameter object" is a coincidence of
+two different mechanisms**, and that is now measured rather than suspected.
+
+**One more thing the table says.** The in-sample column ranks the arms differently from the fresh one — in sample, `top1152` (−0.1824)
+and uniform (−0.1613) beat `bot128` (−0.1133); on fresh data the order reverses. That is the local-objective/end-to-end mismatch
+(§2890, §2905) appearing *inside a single rung's arm table*, and it is a reminder that a window-C ranking would have chosen the wrong
+end of the CP ranking entirely.
+
+**pred_e FAILED, and the fault is mine and in the code, not in the grid.** I wrote the interiority check as
+`best_split.startswith('top') and int(best_split[3:]) not in (R_GRID[0], R_GRID[-1])` — **it can only pass when a `top` arm wins.** The
+winner was `bot128`, so the predicate was unsatisfiable the moment the CP excess turned out to live at the bottom of the ranking.
+**Scored as written: pred_e is FAILED and `e_null_the_rank_grid_is_too_narrow` is recorded as MET.** The correction, recorded separately
+as the rules require: **128 *is* interior to {64, 128, 256, 576, 1152}**, so the grid did bracket the optimum and −0.1280 is a value,
+not a bound. This is the seventh predicate-construction fault in this campaign and the same species as §2889 and §2905 — **the formula
+did not encode the prose.** The prose said "the best split is interior to the rank grid"; the formula said "the best split is a `top`
+arm and is interior". Registered fix for every future split rung: **compute interiority on the winning arm's rank irrespective of which
+half won.**
+
+**Nothing adopted.** §2912 remains the frontier of record. The CP result now has its own composition question — `bot128` swapped into
+§2912 alongside the tail's rank-32 projection — which follows `frontier_rank_composition` rather than pre-empting it.
+
+---
+
+## §2923 — **ADOPTED: THE TAIL TERM BECOMES A RANK-32 PROJECTION. ALL SEVEN PREDICATES HOLD, INCLUDING HELD-OUT SURVIVAL.** THE FRONTIER OF RECORD IS NOW **+2.2732 IN SELECTION / +2.2953 HELD OUT**, FROM §2912's +2.2999 / +2.3171
+
+Written 2026-09-04T13:39Z. Rung `ops/frontier_rank_composition`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_RANK_COMPOSITION_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 162.0 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_rank_composition_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+§2921 showed the tail correction is a rank-32 projection worth −0.2828 **standalone**. §2912's frontier is a *composition*, and §2904
+measured 0.2127 nats of three-way non-additivity, so a standalone gain entitles nothing. This swapped **only** the tail term, holding CP
+at ×0.80 and motif at ×1.25, and measured the whole configuration on both windows.
+
+**Four anchors, then the comparison:**
+
+| | requirement | measured | |
+|---|---|---|---|
+| a — baseline reproduces the published frontier | ≤ .05 | **+2.6735** | HELD |
+| b — SVD path at scale 1.0 is a no-op | ≤ .005 | **+0.0001** | HELD |
+| c — §2912's configuration reproduces | ≤ .01 | **−0.3736, deviation 0.0000** | HELD |
+| d — §2921's projection reproduces standalone | ≤ .01 | **−0.2829 vs −0.2828** | HELD |
+
+| rank | s=0.10 | **s=0.25** | s=0.40 |
+|---|---|---|---|
+| 16 | −0.3413 | −0.3770 | −0.3779 |
+| **32** | −0.3752 | **−0.4003** | −0.3935 |
+| 64 | −0.3652 | −0.3901 | −0.3823 |
+| *(§2912, uniform tail ×0.30)* | | *−0.3736* | |
+
+- **pred_e HELD** — the composed configuration reads **−0.4003** against §2912's −0.3736, an improvement of **0.0267**.
+- **pred_f HELD** — and this is the one that matters: **held out, −0.3757 against §2912's −0.3539, an improvement of 0.0218.** The
+  ordering does not flip off the window that chose it.
+- **pred_g HELD** — rank 32 interior to {16, 32, 64}, scale 0.25 interior to {0.10, 0.25, 0.40}, so **−0.4003 is a value, not a bound**.
+
+**ADOPTED**, under the rule registered in advance requiring all seven. **The frontier configuration of record becomes: tail link maps
+corrected by a rank-32 projection at scale 0.25 (top 32 singular directions of each `LW` multiplied by 0.25, the other 1120 untouched),
+CP `Dk` × 0.80, motif gains × 1.25 — L2_F = +2.2732 in selection, +2.2953 held out.** It supersedes §2912's +2.2999 / +2.3171, which
+superseded §2904's +2.3522, which superseded §312's +2.6735.
+
+**The composition shortfall, which is the quantity this rung was built to expose.** The swap bought **0.0542 standalone** and **0.0267
+composed** — a shortfall of **0.0275, almost exactly half.** So the rank projection and the CP/motif terms are correcting partly the
+same error, which is consistent with §2904's non-additivity and means **the remaining terms should be re-optimised around the new tail
+object rather than inherited from §2912**. That is the registered next step, not an adoption I am claiming here: CP ×0.80 and motif
+×1.25 were chosen against a *uniform* tail term.
+
+**Selection bias is in line and stays measured.** 0.4003 − 0.3757 = **0.0246**, against §2916's 0.0197 for §2912's three parameters —
+slightly larger for a slightly larger search, exactly the pattern §2914/§2916 established. **Both numbers are quoted together and always
+will be.**
+
+**What has actually changed about the program.** The frontier's tail term is no longer "multiply eight dictionaries' link maps by a
+constant". It is **"project onto 32 directions per map and shrink there"** — 73,728 numbers per map against the map's 1,327,104, and a
+statement about *where* the model's tail attention is over-written rather than *how much*. That is a different kind of object to carry
+into the certificate line, and §2924 begins asking whether those directions are shared.
+
+---
+
+## §2924 — **THE 32 CORRECTING DIRECTIONS ARE PARTLY SHARED: 6.1× THE RANDOM NULL ACROSS LAYERS, 8.4× ACROSS CLASSES — BUT ONLY 0.17–0.23 OF FULL OVERLAP.** SIGNIFICANT STRUCTURE, NOT ONE COMMON SUBSPACE. **0 GPU-SECONDS**
+
+Written 2026-09-04T13:39Z. Analysis `ops/tail_subspace_alignment`, run as registered.
+Preregistration: `polynomial_causal/TAIL_SUBSPACE_ALIGNMENT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 0.0 GPU-seconds (**3.1 CPU-seconds**), 0 pipeline runs, 0 backwards, 0 fitted parameters.
+Results: tail_subspace_alignment_results.json
+
+§2915 put the fitted stack on disk; §2921 and §2923 made the top-32 subspace of each tail link map the object of interest. The
+structural question therefore costs **nothing**: are those 32 directions the same 32 across the eight tail layers and the four link
+classes? Statistic: mean squared principal cosine between top-32 left singular subspaces, 1.0 for identical subspaces and **32/1152 =
+0.0278** for independent random ones.
+
+| | measured | vs null |
+|---|---|---|
+| **random control** (12 pairs of random orthonormal draws, same function) | **0.0275** | theory 0.0278 |
+| across **layers**, same class (112 pairs) | **0.1690** (min 0.0581, max 0.3401) | **6.1×** |
+| across **classes**, same layer (48 pairs) | **0.2342** (min 0.1047, max 0.5896) | **8.4×** |
+
+**All five predicates hold.** The control lands within 0.0003 of closed-form theory, so the statistic is right and "no alignment" is
+calibrated. The reload is faithful — **32 maps, layers 10–17, classes {2, 7, 8, 9}, every one 1152×1152** — which is the §2879 check
+that the analysis reads the objects it thinks it does. And the maps are not trivially the same matrix (max raw cosine **0.7871** < 0.9).
+
+**The honest reading, which is narrower than the headline ratio suggests.** 6–8× the random null is decisive evidence that the correcting
+directions are **not independent** across layers and classes. But 0.17 and 0.23 are **far from 1.0**: there is a shared component, not a
+common subspace. **A single shared rank-32 projection will not do the work of 32 per-map projections** — at 0.17 mean overlap it would
+capture roughly a sixth of each map's correcting subspace — and I am recording that before running the tempting experiment, because the
+ratio invites the opposite conclusion.
+
+Two details sharpen it. **Classes align better than layers** (0.234 vs 0.169), so within one tail layer the four link maps are more
+alike than the same class is across depth — the correction is more nearly a per-layer object than a per-class one. And the
+adjacent-layer profile (0.167, 0.201, 0.196, **0.293**, 0.213, **0.288**, 0.207 for 10-11 … 16-17) is flat rather than decaying, so
+whatever is shared is **not** a local-in-depth effect that fades with distance; layers 13-14 and 15-16 are no more alike than the
+overall cross-layer mean by much.
+
+**Caveat I am registering rather than burying.** The maximum raw matrix cosine is 0.787, so *some* pairs of link maps are genuinely
+similar as matrices, and part of the measured overlap is inherited from that rather than from a shared correcting structure. The bar
+(<0.9) was cleared, but a cleaner version would partial out raw similarity before attributing overlap to the correction. **Registered
+next:** the union of the 32 per-map subspaces has dimension between 32 and 1024, and *that* number — how many directions the whole tail
+is over-large along, jointly — is the one the certificate line wants; it is another CPU-only computation on the §2915 dump.
