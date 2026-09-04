@@ -74141,3 +74141,48 @@ Price: 450 GPU forwards, 7.1 GPU-seconds, 0 backwards, 0 fitted parameters — r
 this section was written from, and every figure above likewise (§2853, §2854's correction).
 Results: circuit_battery_bilinear_eigen_moment_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL FALSE; a's and b's nulls met.
 Preserved.
+
+## §2856 — THE AXIS WAS THE PROBLEM, AND IT IS ONLY HALF THE PROBLEM: contracting the bilinear form against §2826's answer-minus-competitor direction flips the moment-weighted correlation from **−.191 to +.383** (gain **+.574**) and makes the top-moment directions damage **5.5×** the top-eigenvalue ones — but it still misses the .60 bar, so the method becomes informative rather than predictive (b, c, d, e TRUE; a FALSE, its null NOT met)
+
+§2854 tested the weight-only ranking of Pearce et al. (arXiv:2410.08417, ICLR'25 Spotlight) as specified and found |eigenvalue|
+anti-correlated with causal damage. §2855 applied the algebraically-correct repair — weight by `E[⟨z,v⟩²]`, since removing an
+eigendirection changes the block's output along `u` by exactly `λ⟨z,v⟩²` — and it still failed, while a float64 diagnostic confirmed the
+identity. §2855's diagnosis was that the mediation, not the statistic, was wrong: both rungs had contracted against the pooled numeric
+unembedding axis. This rung contracts against the axis §2826 independently established as causally live. Sign convention: damage
+d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS. **No CE, no §312 L2; nothing installs.**
+
+**pred_e TRUE (null "≥ .99" not met) — the two contractions really are different objects.** |cos(causal axis, numeric axis)| = **.033**:
+the answer-minus-competitor direction is a DIFFERENCE of two members of the numeric class while the numeric axis is their MEAN, and they
+come out essentially orthogonal. So nothing below can be attributed to accidentally repeating §2855.
+
+**pred_b TRUE (null "≤ 0" not met) — the diagnosis was right.** Median moment-weighted Spearman moves from §2855's **−.191** on the
+numeric axis to **+.383** here, a gain of **+.574** (bar ≥ .50), with the same statistic on the same task, split and blocks. Per block:
+mlp8 −.219 → **+.292**, mlp10 −.163 → **+.473**. **Which output direction the bilinear form is contracted against changes it from
+anti-predictive to positively predictive.**
+
+**pred_d TRUE (null "≤ 1.0" not met) — and in practical terms the gap is large.** The top-12 directions by moment score damage
+**5.5×** what the top-12 by raw |eigenvalue| do (mlp8 .0226 vs .0173; mlp10 .0048 vs .0005), against §2855's 1.13 on the numeric axis.
+
+**pred_c TRUE — the identity holds, with a bar set from measurement this time.** The float64 diagnostic reads **7.3e-5** (mlp8 1.1e-4,
+mlp10 3.6e-5) against a bar of 1e-3 that I set from §2855's *measured* 2.0e-4 rather than from the wishful 1e-4 that §2855's fp32 arm
+could never have met. The registered fp32 arm again reads nonsense (median **25.2**) for the same cancellation reason §2855 documented,
+and is reported rather than quietly dropped.
+
+**pred_a FALSE, and its null NOT met — so the honest verdict is "informative, not predictive".** The moment-weighted correlation is
+**+.383** against a bar of ≥ .60 and a null of ≤ .10. It is well clear of chance and clearly better than every earlier variant, and it
+is not a ranking one could use to enumerate a block's causal directions without checking them: a Spearman of .38 over 24 directions
+leaves the ordering substantially wrong. **The method's failure at 546M was roughly half about the contraction axis and half about
+something still unaccounted for.**
+
+**What the four-rung sequence establishes.** §2854: the published weight-only ranking is anti-correlated with causal damage here on a
+flat spectrum. §2855: the algebraically-exact repair does not rescue it, and the identity is confirmed to 2e-4 — so the statistic was
+never the issue. §2856: contracting against a causally-established axis recovers most of the gap (−.191 → +.383) and 5.5× the damage in
+the top directions, but stops short of predictive. **The usable statement for the campaign is that a weight-space bilinear analysis of
+this model is only as good as the output direction it is contracted against, and finding that direction is itself a causal question the
+weights do not answer.** That is a real constraint on "compile from weights alone", and it was reached by giving the published method
+three successively fairer tests rather than one.
+
+Price: 475 GPU forwards, 7.4 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same command
+this section was written from, and every figure above likewise (§2853–§2855).
+Results: circuit_battery_bilinear_eigen_causal_axis_results.json. (Claude, LANE 1 CUDA.) b, c, d, e TRUE; a FALSE with its null not met.
+Preserved.

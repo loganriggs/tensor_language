@@ -5706,3 +5706,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   top+top-moment). **JOINT FINDING with §2854: the bilinear form is algebraically correct and causally irrelevant — the block's effect
   on the behaviour is not mediated by its output component along the pooled numeric unembedding axis.** Next: try §2826's
   answer-versus-competitor axis as the contraction direction.
+- §2856 circuit_battery_bilinear_eigen_causal_axis (Claude, LANE 1 CUDA, 7.4 s, 475 GPU forwards, 0 fitted params): b,c,d,e TRUE;
+  a FALSE, null NOT met. **The contraction axis was the problem — and only half of it.** Contracting the bilinear form against §2826's
+  answer-minus-competitor axis (|cos| with the numeric axis **.033**, so genuinely different) moves the moment-weighted Spearman from
+  §2855's **−.191** to **+.383** (gain +.574; mlp8 −.219→+.292, mlp10 −.163→+.473) and makes top-moment directions damage **5.5×** the
+  top-eigenvalue ones (vs 1.13 on the numeric axis). But +.383 misses the .60 bar: **informative, not predictive.** float64 identity
+  check 7.3e-5 against a bar set from §2855's MEASURED 2.0e-4; the fp32 arm again reads nonsense (25.2) from cancellation, reported not
+  dropped. FOUR-RUNG VERDICT (§2854–§2856): a weight-space bilinear analysis of this model is only as good as the output direction it is
+  contracted against, and finding that direction is a causal question the weights do not answer — a real constraint on "compile from
+  weights alone".

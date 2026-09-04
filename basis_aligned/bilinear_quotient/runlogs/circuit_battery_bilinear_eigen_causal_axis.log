@@ -1,0 +1,33 @@
+[mom] mlp8 rho_raw=-0.183 rho_moment=+0.292 dmg_top_mom=+0.0226 dmg_top_raw=+0.0173 alg64=1.10e-04 (SS2855 numeric-axis rho_mom=-0.219)
+[mom] mlp10 rho_raw=-0.278 rho_moment=+0.473 dmg_top_mom=+0.0048 dmg_top_raw=+0.0005 alg64=3.57e-05 (SS2855 numeric-axis rho_mom=-0.163)
+{
+ "preds": {
+  "pred_a_causal_axis_moment_predicts_damage": false,
+  "pred_b_causal_axis_beats_the_numeric_axis": true,
+  "pred_c_the_identity_holds_in_float64": true,
+  "pred_d_moment_top_beats_eigen_top": true,
+  "pred_e_the_contraction_changes_the_object": true
+ },
+ "nulls": {
+  "a_null_moment_no_better_than_chance": false,
+  "b_null_no_gain_over_numeric": false,
+  "d_null_no_top_gain": false,
+  "e_null_same_object": false
+ },
+ "summary": {
+  "median_rho_raw": -0.23023715415019763,
+  "median_rho_moment": 0.382905138339921,
+  "gain": 0.5737577639751553,
+  "top_damage_ratio": 5.499086488080506,
+  "median_algebra_rel_err": 25.153570652008057,
+  "median_algebra_rel_err_float64_diagnostic": 7.301259171251007e-05,
+  "gain_over_numeric_axis": 0.5737577639751553,
+  "axis_cosine_vs_numeric": 0.03275461494922638
+ },
+ "price": {
+  "gpu_forwards": 475,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 7.4256203174591064
+ }
+}
