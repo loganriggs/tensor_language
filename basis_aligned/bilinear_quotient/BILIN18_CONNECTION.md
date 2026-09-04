@@ -77630,3 +77630,96 @@ And a corollary about ordering: **a later `_apply_*` that resets its target from
 wipe an earlier one.** The tail-λ knob carries a comment saying exactly this — *"`_apply_tail_lambda` REBUILDS LW from the normal
 equations, so it must run BEFORE any scaling or it silently discards it"* — written by me, two rungs before I made the mirror-image
 mistake at the front site. **Knowing the hazard is not the same as checking for it**; the two controls above are the check.
+
+---
+
+## §2928 — **THE ADOPTED CORRECTION HELPS *EVERY* TOKEN CLASS, AND 73% OF IT LANDS ON TWO OF THEM.** BOTH ARITHMETIC CONTROLS RECONSTRUCT EXACTLY; ALL FIVE PREDICATES HOLD
+
+Written 2026-09-04T14:01Z. Rung `ops/frontier_class_decomposition`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_CLASS_DECOMPOSITION_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 109.7 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_class_decomposition_results.json
+
+**SIGN CONVENTION (§2135): LOWER IS BETTER.** A per-class **damage** is CE added above the real model on that class's tokens; a **gain**
+is damage removed, **POSITIVE = BETTER**.
+
+Every frontier number this campaign has quoted is one scalar over 30,720 token positions. This decomposes §2923's adopted −0.4004 over
+the ten token classes, using the per-token CE the pipeline already computes and discards.
+
+| class | n | damage, uncorrected | **gain from §2923** |
+|---|---|---|---|
+| 7 (non-space alphabetic) | 3,415 | **4.1037** | **1.2949** |
+| 5 (name-like) | 329 | 3.8219 | 0.6436 |
+| 0 (digit) | 308 | 1.3519 | 0.4608 |
+| 6 (repeat of previous) | 134 | 1.6124 | 0.4329 |
+| 9 (other) | 14,287 | 2.8879 | 0.3221 |
+| 8 (seen earlier in context) | 8,989 | 2.4854 | 0.2940 |
+| 1 (bracket close) | 53 | 1.8514 | 0.0920 |
+| 4 (comma) | 1,475 | 0.9589 | 0.0907 |
+| 3 (sentence end) | 971 | 0.8640 | 0.0752 |
+| 2 (newline) | 759 | 0.3645 | **0.0119** |
+
+**Both arithmetic controls are exact.** The token-weighted mean of the per-class damages reconstructs the scalar at **2.6736** against
++2.6736, and the weighted mean of the per-class gains reconstructs **0.4004** against the measured −0.4004. A decomposition that does not
+sum to the thing it decomposes is not a decomposition; these do, so the table is trustworthy.
+
+- **pred_d HELD — no class is harmed.** The worst class gain is **+0.0119** (newline), and every one of the ten is positive.
+  **§2923's correction is not a redistribution**: it does not buy its 0.40 nats by trading one class against another. That was the
+  outcome I registered as "the interesting null" and it did not occur, which is the better news.
+- **pred_c HELD — the gain is concentrated.** Token-weighted, classes **9 (other)** and **7 (non-space alphabetic)** hold **73.4%** of
+  the total, by different routes: class 9 is 47% of all tokens with a middling per-token gain, class 7 is 11% of tokens with by far the
+  largest per-token gain (**1.2949**, three times any other class).
+
+**The substantive observation.** Class 7 — word-continuation subword tokens — is both the **worst-damaged** class in the uncorrected
+frontier (4.1037) and the one the correction helps most (1.2949). The tail dictionaries are least faithful exactly where mid-word
+continuation is being predicted, and the rank-32 projection is disproportionately fixing that. **This is the first time the scaling
+programme has connected to anything about what the model is doing**, rather than to how its components were fitted.
+
+**Registered next (not started — see §2930):** does the rank-32 subspace align with class 7's write directions? That would tie the
+correction to the dictionary structure. Recorded as a lead, not begun.
+
+---
+
+## §2929 — **THE FRONT EXCESS IS CONCENTRATED TOO: 8 OF 64 COMPONENTS, −0.1813 AGAINST UNIFORM'S −0.1650.** THE ORDERING FIX WORKED AND ALL FIVE PREDICATES HOLD — INCLUDING THE ROUTE-AGREEMENT CHECK THAT CAUGHT §2927
+
+Written 2026-09-04T14:01Z. Rung `ops/frontier_front_split_fixed`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_FRONT_SPLIT_FIXED_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 158.5 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_front_split_fixed_results.json
+
+**SIGN CONVENTION (§2135): LOWER IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+§2927 was void because the split knob ran before `_apply_front`, which reset its target — every arm read exactly 0.0000. One line moved,
+every prediction unchanged.
+
+**The controls that were missing last time now both pass:** `f_identity` **0.0000**, and the two routes agree exactly — `f_uniform`
+**−0.1650** against `plain_half` **−0.1650**, disagreement **0.0000**, both within 0.0002 of §2895's −0.1648. **In §2927 that same
+disagreement was 0.1649**, which is what exposed the no-op.
+
+| r | `top r` | `bot r` |
+|---|---|---|
+| 4 | −0.0261 | −0.1743 |
+| **8** | **−0.1813** | −0.0126 |
+| 16 | −0.1789 | +0.0062 |
+| 32 | −0.1763 | +0.0046 |
+| 48 | −0.1704 | −0.0011 |
+
+**pred_d HELD** — `top8` beats uniform by **0.0163**. **pred_e HELD** — 8 is interior to {4, 8, 16, 32, 48}, so this is a value, not a
+bound.
+
+**All three correction sites are now known to be concentrated, and two of the three sit at the top of their ranking:**
+
+| site | provenance | where the excess lives | best | uniform |
+|---|---|---|---|---|
+| tail `LW` | ridge solutions | **top 32 of 1152** singular directions | −0.2828 | −0.2287 |
+| front `A` | quadratic residuals | **top 8 of 64** components | −0.1813 | −0.1650 |
+| CP `Dk` | the model's own weights | all **but** the top 128 of 2304 units | −0.1280 | −0.1074 |
+
+The two *fitted* sites are over-large in their highest-energy directions; the one site that is **not fitted** — the CP units are the
+model's own weights — is the one whose top is already right. That is a sharper version of §2890/§2905's local-objective story than the
+campaign has had: **fitting produces excess at the top of the spectrum; selection produces it in the middle.**
+
+**Not adopted, per §2926's standing caution.** This is a **standalone** number, and §2922's CP split won standalone by 0.0206 before
+losing by 0.035 in composition. §2895's front scalar already failed to compose (§2904: TCF −0.2885 against TC −0.3213); whether a
+concentrated front term composes is a separate, unrun measurement. **§2923 remains the frontier of record: +2.2732 in selection /
++2.2953 held out.**
