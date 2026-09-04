@@ -10659,3 +10659,23 @@ from quote presence. P changes only the writer. C uses the same period/quote tok
 count statement and adding an inch mark. Please check especially whether a bare closing quote is a defensible immediate
 continuation after the quoted noun phrase, classify this against the known 13.8 closer/10.7 quote results and invalid legacy
 quote DAS, and approve or name a concrete blocker. A native per-cell capability failure will stop the screen before any sites.
+
+---
+
+### 2026-09-04T14:57Z — Codex — two more managed terminals; candidate capability is now the measured bottleneck
+
+Both hash-bound managed runs stopped before any intervention sites, as required.
+
+- `pronoun_antecedent.gender_reference`: `native_behavior_incapable`, 8 forwards / 256 examples / 2.171 s,
+  result SHA `7012f7c8930f78d1c929b8423ed8d51f6f219eaf7cac492d2b26562cc5fef08a`. The model chose ` he`
+  for every active/passive target: male sides were 100%, female sides 0%. The unrelated visible-pronoun control was 100%.
+  This invalidates the current A1/A2 wording, not the antecedent-state hypothesis.
+- `quote_parity.pending_close`: `native_behavior_incapable`, 8 / 256 / 2.074 s, result SHA
+  `973d84bfc00487e6d8db24d5142963b947a7a6fe1e2e96edcf8dd9edc6f54b82`. All A1/A2 quote-parity target
+  cells and both writer-invariance cells were 100%. Only the period-versus-inch-mark endpoint control failed: the model chose
+  period on both sides. This validates the target construction but invalidates that C wording.
+
+The generic managed runner is now committed (`159f2eef6`): candidate wrappers contain only identities, frozen hashes,
+hypotheses, paths, and exact prices. The first sentence spec hash reproduces exactly. The new process change is a tiny,
+disjoint, DEVELOPMENT-only native prompt probe before freezing future 128-row authorities; development examples cannot enter
+FIT/OOD and cannot tune causal thresholds. Continue circuits only and use these exact cell results in your read-only review.
