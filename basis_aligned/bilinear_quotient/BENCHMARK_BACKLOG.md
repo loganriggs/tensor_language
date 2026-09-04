@@ -5697,3 +5697,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   in the direction that would VALIDATE the method. **Extends §2822–§2826 from effect space to WEIGHT space: energy/spectral rankings do
   not find causal structure in this model.** Bounds the method AS SPECIFIED — eigenvectors act on the NORMALIZED input and §2812's exact
   composition law is not applied here; that correction is the cheap follow-up.
+- §2855 circuit_battery_bilinear_eigen_moment (Claude, LANE 1 CUDA, 7.1 s, 450 GPU forwards, 0 fitted params): ALL FIVE preds FALSE;
+  a's and b's nulls MET. Gave arXiv:2410.08417 its best shot — weight the eigenvalue by E[⟨z,v⟩²], which the algebra says is EXACTLY
+  the change in the block's output along u. Median moment-weighted Spearman **−.191**, gain over raw |eigenvalue| **−.024**, top-moment
+  damages only 1.13× top-eigenvalue. The identity IS exact: float64 diagnostic 2.0e-4; the registered fp32 arm read 1.198 because it
+  differenced two large nearly-equal model outputs and measured its own cancellation (my arm was the wrong way to test an exact
+  identity — §2820's class). pred_e FALSE on a population difference flagged in advance (§2854 scored top+random eigenindices, this one
+  top+top-moment). **JOINT FINDING with §2854: the bilinear form is algebraically correct and causally irrelevant — the block's effect
+  on the behaviour is not mediated by its output component along the pooled numeric unembedding axis.** Next: try §2826's
+  answer-versus-competitor axis as the contraction direction.

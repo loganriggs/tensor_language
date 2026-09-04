@@ -74095,3 +74095,49 @@ command this section was written from (§2853). The CPU half cost 0.6 s and no G
 Results: circuit_battery_bilinear_eigen_causal_results.json, bilinear_eigen_cpu_probe_results.json. (Claude, LANE 1 CUDA.)
 b, d, e TRUE; a, c FALSE with both nulls met.
 [PER-BLOCK FIGURES CORRECTED 07:19Z, minutes after first publication: the Spearman values and the top-1/random damages first published here (−.327/−.484 and −.014/+.003) came from this rung's SMOKE run rather than its registered receipt. The registered values are above. The median Spearman (−.446), the 6.5× ratio, the axis gain, the top-8 shares and the price were always read from the registered receipt. Same family as §2853 — a figure written from something other than the receipt the section cites — caught here by re-reading rather than by the price audit, which only checks Price lines.] Preserved.
+
+## §2855 — GIVING THE METHOD ITS BEST SHOT DOES NOT RESCUE IT: weighting the eigenvalue by the input's occupancy of its eigenvector — the quantity the algebra says is exactly the change in the block's output along u — still fails to predict causal damage (median Spearman **−.191**, gain over raw |eigenvalue| **−.024**), while the identity itself is confirmed to 2.0e-4 in float64. So the failure is NOT the ranking statistic: this block's contribution to the behaviour is not carried by the output component the bilinear form describes (all five preds FALSE; a's and b's nulls MET)
+
+§2854 found the ICLR'25 weight-only ranking anti-correlated with causal damage and bounded that to the method AS SPECIFIED. There was an
+algebraic reason it had to fail in that form: for `M_u = sym(Leftᵀ diag(Downᵀ u) Right)` and normalized input `z`, removing an
+eigendirection `v` with eigenvalue `λ` changes the output along `u` by **exactly −λ⟨z,v⟩²**. So the causally relevant quantity is
+`λ·E[⟨z,v⟩²]`, not `λ` — a direction the data never occupies does nothing. This rung tests that repair, which costs one second-moment
+statistic and is still overwhelmingly weight-space. Sign convention: damage d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS.
+**No CE, no §312 L2; nothing installs.**
+
+**pred_c FALSE as registered, and the diagnostic says why — cancellation, not a wrong identity.** The registered check differenced the
+model's own fp32 output along `u` and read a median relative error of **1.198**, wildly outside the 1e-4 bar. The float64 diagnostic
+added before the run — the same identity evaluated directly from the captured `z` and the weights, with no differencing of model
+outputs — reads **2.0e-4** (mlp8 1.9e-4, mlp10 2.1e-4), consistent with exact algebra through eigenvectors that are themselves only
+fp32-accurate. So the identity holds; my registered arm computed it as a difference of two large nearly-equal fp32 numbers and measured
+its own cancellation. **The bar was mine and the arm was the wrong way to test an exact identity** — the same class of error as
+§2820's, and the reason the diagnostic existed at all.
+
+**pred_a and pred_b FALSE with both nulls MET — the repair does not work.** Median moment-weighted Spearman is **−.191** against a bar
+of ≥ .60, and the gain over raw |eigenvalue| is **−.024** against ≥ .50 — moment weighting is, if anything, very slightly worse. Per
+block: mlp8 raw −.037 → moment −.219; mlp10 raw −.296 → moment −.163. **pred_d FALSE**: the top-12 by moment score damage 1.13× the
+top-12 by raw eigenvalue (bar ≥ 2.0), on damages of thousandths of a margin unit against a native ~2.3.
+
+**pred_e FALSE, and the reason is a population difference I predicted in advance.** The raw-|eigenvalue| correlation here (mlp8 −.037,
+mlp10 −.296) differs from §2854's (−.343, −.548) by up to **.307**, outside the .15 bar. §2854 scored 12 top-|eigenvalue| directions
+plus 12 RANDOM eigenindices; this rung scores 12 top-|eigenvalue| plus 12 top-MOMENT, a set concentrated in directions the data
+occupies. The preregistration flagged that the sets were "partly different" and set the bar anyway; it was too tight for the change in
+population, and the two numbers are not in conflict — they are correlations over different direction samples.
+
+**What §2854 and §2855 establish together, and it is a sharper negative than either alone.** The identity is exact: the bilinear form
+`M_u` does describe the block's output along `u`, and the change from removing an eigendirection is `λ⟨z,v⟩²` to fp64 precision. Yet
+neither `λ` nor `λ·E[⟨z,v⟩²]` predicts the damage the removal does to the BEHAVIOUR. **The failure is therefore not in the ranking
+statistic but in the mediation: this block's effect on the numbered-list successor is not carried by the component of its output along
+the pooled numeric unembedding axis.** That is a much more specific finding than "the method does not transfer" — it says a weight-space
+bilinear analysis contracted against a plausible output direction can be algebraically correct and causally irrelevant at the same
+time, and it points the next question at which output direction, if any, makes the form causally predictive. §2826's answer-versus-
+competitor axis is the obvious candidate and was not tested here.
+
+**Standing caution recorded against my own two sections.** The method's authors validate it on toy, vision and small-LM settings; both
+§2854 and §2855 test one architecture, two blocks, one task, one split and one output axis, and neither licenses a claim about the
+method outside that scope.
+
+Price: 450 GPU forwards, 7.1 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same command
+this section was written from, and every figure above likewise (§2853, §2854's correction).
+Results: circuit_battery_bilinear_eigen_moment_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL FALSE; a's and b's nulls met.
+Preserved.
