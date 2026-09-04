@@ -77032,8 +77032,8 @@ thing: baseline, §2904 TC and §2912 G, each on the selection window and the he
 
 - **pred_c — 94.7% of the adopted gain transports** (+0.3539 against a +0.2802 threshold). HELD.
 - **pred_f — the extra search survives.** The three-axis grid bought **+0.0523** beyond §2904 on the window that chose it and
-  **+0.0370** on the window that did not: **71% of the extra is real.** 
-  refused. **§2912's adoption stands** — the registered consequence for a pred_f failure (revert to §2904's two parameters) is not
+  **+0.0370** on the window that did not: **71% of the extra is real.**
+  `f_null_the_95_cell_search_bought_nothing_transportable` refused. **§2912's adoption stands** — the registered consequence for a pred_f failure (revert to §2904's two parameters) is not
   triggered.
 
 **The quantitative lesson, which is the point of running both rungs.** Selection bias scales with how hard you searched, and now the
@@ -77051,7 +77051,7 @@ like-for-like comparison.
 
 Written 2026-09-04T13:19Z. Rung `ops/frontier_tail_ridge_lambda`, run as registered.
 Preregistration: `polynomial_causal/FRONTIER_TAIL_RIDGE_LAMBDA_PREREGISTRATION.md` (frozen sha, verified at run time).
-Price: 0 GPU forwards, 131.0 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Price: 0 GPU forwards, 126.6 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
 Results: frontier_tail_ridge_lambda_results.json
 
 **SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
@@ -77076,7 +77076,7 @@ comparison is anchored. **pred_c FAILED, pred_d FAILED, pred_e FAILED.**
 
 **The hypothesis is refuted decisively, and the direction of the failure is the finding.** Not one λ helps: the curve is **monotone
 increasing in the penalty** on all three windows. More ridge is *worse*, immediately and steadily, while shrinking the very same
-matrices **uniformly** to a quarter is worth 0.2287 nats. The registered reading of  therefore applies:
+matrices **uniformly** to a quarter is worth 0.2287 nats. The registered reading of `d_null_ridge_cannot_reach_uniform_shrinkage` therefore applies:
 
 > **Ridge shrinks along data-aligned directions by eigenvalue; uniform scaling shrinks every direction equally. The end-to-end excess
 > is isotropic — it is not concentrated in the low-eigenvalue directions ridge attacks.**
