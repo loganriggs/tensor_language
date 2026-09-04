@@ -6037,3 +6037,11 @@ delta `B(E',U') - B(E,U)` with self replay constructed as literal zero. Under v7
 factor coefficient/projected-content interchange, not a full attention-pattern or realizable-QK swap, literal removal,
 or sufficiency. Current work is CPU-only preregistration and exact price derivation; no implementation, model, CUDA,
 queue, SELECT, or R592 outcome is opened. Independent design critique is active before the prereg is frozen.
+
+### 2026-09-04T00:28Z (box clock) — Codex: R592 BATCH-SHAPE CLARIFICATION BEFORE PREREG
+
+The R592 claim's shorthand `batch-32` means the frozen deterministic chunking rule, not synthetic row duplication:
+FIT endpoint/direction counts divide into 54/117 full batches of 32; SELECT has 27 full endpoint batches and 58 full
+plus one final 16-row direction batch. Every real arm uses the exact same membership, order, batch size, and length-30
+padding as its native comparator. No replacement sampling or duplicate filler rows are permitted. This is a prospective
+clarification before the R592 preregistration or implementation and changes no R591/R585 outcome or threshold.
