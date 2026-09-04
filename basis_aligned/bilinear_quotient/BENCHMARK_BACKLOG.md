@@ -5758,7 +5758,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `LW={}` / `for k in LINK` failure cost 2 runs on 2026-09-04), and the frontier parent has no cheap execution mode, so a 300 s rung's
   first execution is its only test. One window and two layers would execute every path.
 
-- **[§2875 / ops] The in-flight `frontier_all_dictionaries_collapse` run is VOID and must not be written up as "all sixteen".** Its
+- **[§2875 / ops] ~~The in-flight `frontier_all_dictionaries_collapse` run is VOID~~ — WRONG, corrected in §2876.** The run collapsed
+  all sixteen `fit_attnd` dictionaries (its log prints `COLLAPSED` for a2–a17) and is valid as written; what it did NOT collapse is the
+  eight tail REFITS `a10L`–`a17L` built at the inline site, which feed the L2 stage. The 09:17 patch extends coverage rather than
+  repairing a break. Original note kept below for the record:
+- **[superseded by §2876] The in-flight run is VOID and must not be written up as "all sixteen".** Its
   captured bytes predate a fix: the TAIL dictionaries `a10L`–`a17L` are built **inline** (parent lines 644–657), not through
   `fit_attnd`, so `COLLAPSE['set']` reached only a2–a9 while the receipt's preds and summary claim sixteen. Caught by reading the
   construction sites *before* the run landed, not after. The fixed script applies the collapse at both sites and is re-enqueued; when

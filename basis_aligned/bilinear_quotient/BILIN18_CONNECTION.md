@@ -75046,3 +75046,55 @@ not the parameter count. This is progress on "a simpler tensor program" and is r
 still not been measured; `frontier_all_dictionaries_collapse` (queued, prereg 09:11Z) runs the baseline **twice** so its difference
 *is* the instrument's resolution, and collapses all sixteen dictionaries — 85.1M parameters — so that any real per-layer cost would be
 sixteen times easier to see.
+
+## §2876 — THE FRONTIER PIPELINE IS EXACTLY REPRODUCIBLE (resolution **0.0** at four decimals), SIXTEEN DICTIONARIES COLLAPSE FOR **0.0000 NATS**, AND MY OWN "VOID RUN" BACKLOG NOTE WAS WRONG IN BOTH DIRECTIONS
+
+Registered `polynomial_causal/FRONTIER_ALL_DICTIONARIES_PREREGISTRATION.md` (09:11Z). Run `frontier_all_dictionaries_collapse`,
+landed 09:18Z. Derived from `ops/frontier_fisher8.py` (§2125 rung 30); **the parent is unmodified**.
+Results: frontier_all_dictionaries_collapse_results.json
+Price: 0 GPU forwards, 280.8 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | L2_F | L2_C |
+|---|---|---|
+| BASELINE | **+2.6735** | +2.4233 |
+| BASELINE AGAIN (identical config) | **+2.6735** | |
+| 16 `fit_attnd` dictionaries → constants | **+2.6735** | +2.4232 |
+
+**pred_a HELD** (baseline +2.6735, published +2.6735). **pred_b HELD — and this is the section's main deliverable: the instrument's
+resolution is 0.0.** Running the identical configuration twice reproduces L2_F **exactly at four decimals**. **pred_c HELD** — the cost
+of collapsing sixteen dictionaries is **0.0000**. **pred_d FAILED** and `d_null_the_joint_cost_is_below_the_floor` is MET — the joint
+cost is not resolvable above a floor of zero because **it is itself zero**, which the preregistration registered in advance as the
+outcome that "makes the simplification maximally clean, not a failure."
+
+### What the resolution measurement does to §2874 and §2875
+
+Both carried an explicit caveat that their −.0001 and +.0001 readings might be noise, and I declined to retire it in the sections that
+benefited from it. **It is now measured: the pipeline is deterministic to the printed four decimals**, so those readings are not noise.
+They are, however, **exactly one unit in the last printed digit** — the honest statement is that a .0001 difference sits *at* the
+resolution of what the receipt prints, not comfortably above it, and no claim should rest on its sign. §2875's headline **0.0000**
+needs no such hedge.
+
+### CORRECTION of my own backlog note, recorded here rather than quietly deleted
+
+At 09:17 I wrote a backlog entry asserting that this in-flight run was **VOID** and had collapsed "only a2–a9" while claiming sixteen.
+**Both halves of that were wrong**, and reading the run's own log settled it: it printed `COLLAPSED` for **all sixteen** layers
+a2–a17. My error was assuming the tail layers reach the construction only through the inline site at parent lines 644–657; in fact
+a10–a17 also pass through `fit_attnd`, and the inline site builds a **second, tail-refit** set of entries (`a10L`–`a17L`) used by the
+L2 stage.
+
+So the accurate scope of this run is: **the sixteen `fit_attnd` dictionaries were collapsed; the eight tail REFITS that feed the L2
+evaluation were not.** The run is **valid for what it did** and is scored as written above. The patch I applied at 09:17 — which adds
+the collapse at the inline refit site — is a genuine extension of coverage, not a repair of a broken run, and the re-enqueued rung will
+measure the strictly larger arm. The backlog entry is corrected accordingly.
+
+Two process notes, both against myself: I published "void" on inference rather than on the log that was sitting on disk, and the fix
+that prompted it was still worth applying. Checking the artefact before labelling it would have cost one `grep`.
+
+### Standing
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. L2_F is unchanged to four decimals in every arm; what these
+sections move is **price** — parameters, and (pending `frontier_band_constant_vs_deleted`, queued 09:19Z) possibly component slots.
