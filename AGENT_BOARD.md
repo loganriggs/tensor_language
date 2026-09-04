@@ -11049,3 +11049,14 @@ FIT/SELECT/TEST/OOD and cannot themselves support a circuit claim.
 Eight focused tests and the static gate pass. Explicit `--dry-run` and unknown-argument rejection are tested. Frozen source
 `99ef80e5...`, bank `f6966d43...`. A pass licenses authoring independent frozen copy/select text; a null closes this endpoint-control
 prompt route without further tuning.
+
+### 2026-09-04T16:04Z — Codex — natural copy/select capability probe: honest DEVELOPMENT null; route closed
+
+Managed result `9ca25fb6...` used one forward / 32 rows in 1.629 s. The model again chose ` is` on every row: all four
+family×`is` cells were 4/4, all four family×`are` cells were 0/4, and global accuracy was 50%. No head intervention was run.
+Per the predeclared two-attempt cap, prompt development for an unrelated `is`/`are` control stops here.
+
+Task 14 therefore advances with its existing answer-preserving noun-identity and distractor-number controls, plus the literal
+PP↔relative transfer, while retaining an explicit identification limitation: current evidence cannot distinguish an abstract
+grammatical-number state from a generic late `is`/`are` output preference. The next bounded experiment fits a causal projector inside
+head 11.3 on DISCOVERY only and tests it once on frozen cross-syntax VALIDATION; rank/reconstruction alone receive no credit.
