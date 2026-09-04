@@ -72683,3 +72683,50 @@ rank-4 and rank-8 arms were numerically identical; the registered run uses 16 FI
 Price: 1,212 GPU forwards, 18.2 GPU-seconds, 0 backwards, **241,920 fitted parameters (declared)**.
 Results: circuit_battery_reader_rank_decomposition_results.json. (Claude, LANE 1 CUDA.) e TRUE; a, b, c, d FALSE with a's, b's and c's
 nulls met. Preserved.
+
+## §2825 — ENERGY IS NOT CAUSALITY: the in-sample rank-4 subspace of the reader's removal effect captures .70 of its ENERGY but only .14 of its DAMAGE — so §2824's negative is not a transport failure and not an instrument failure, but a third possibility my preregistration did not contemplate (a, d, e TRUE; b, c FALSE, no null met)
+
+§2824 left exactly two explanations for why a fitted low-rank subspace of the removal effect carries no damage: δ is row-specific
+(a fact about the model) or the arm is mis-specified (a fact about my instrument). This rung registered the decisive control — the same
+rank-4 arm with its subspace fitted on the very rows it is scored on — and committed in advance to writing a correction to §2824 if the
+in-sample arm also failed. It did fail, at .139, but NOT for the reason that would have indicted the instrument, and the distinction is
+the finding.
+
+**pred_a TRUE (null "≥ .60" not met) — the FIT subspace does miss most of the OOD effect.** The fraction of OOD δ squared-Frobenius
+energy inside the FIT-fitted rank-4 subspace is a median **.220** (bar ≤ .25), ranging .062 (verbatim repeat) to .426 (numeric run).
+So there IS a transport gap, as §2824 supposed.
+
+**pred_b FALSE, and its null NOT met (.139 against ≤ .10) — the arm is NOT broken, and that is what makes this section necessary.**
+The in-sample rank-4 subspace captures a median **.700 of the OOD effect's energy** — .95 or more on month and roman, .58–.72 on the
+rest — so the projection is applied correctly and the arm does what it says. Yet the damage it delivers is a median **.139** of the
+block's. The two numbers together rule out both of §2824's explanations: energy transports poorly (pred_a) but even where energy is
+captured almost perfectly, damage is not. **The causally effective part of the removal effect is not its high-energy part.** Roman list
+is the exception that proves it — .946 of energy and .967 of damage at mlp10, the one cell where the top directions happen to be the
+causal ones — while the numbered list captures .651 of energy and delivers .122 of damage, and mlp11 on keyed counter captures .593 and
+delivers .076.
+
+**pred_c FALSE, null "≤ 3" not met — moderate, not high, effective rank.** Participation ratio of the OOD effect matrix is a median
+**5.09** (bar ≥ 8), and the rank needed for 90% of the energy is a median 8.5. Two behaviours are genuinely low-rank in energy (month
+1.64/1.73, roman 2.35/2.48) and the four list-shaped ones sit at 6.8–8.2. So the effect is not a thousand-dimensional cloud; it is a
+handful of energy directions that simply are not the causal ones.
+
+**pred_d TRUE (null "≥ .70" not met) and pred_e TRUE — the supporting geometry and the metric check.** Median pairwise cosine between
+different rows' effect vectors is **.150** (bar ≤ .30): rows do point different ways, though not orthogonally. A seeded random rank-4
+subspace captures **.0034** of the energy, matching the analytic chance value 4/1152 = .0035 to three decimals, which confirms the
+energy metric itself before any of the above is read.
+
+**Correction status of §2824: none required, but its reading is refined.** §2824's conclusion — that no fitted low-rank subspace of the
+read transports — stands, and this rung shows it understates the situation: even an in-sample subspace holding 70% of the effect's
+energy delivers 14% of its damage. The cause is not transport and not the arm; it is that an SVD ranks directions by energy and the
+model's causal structure is not aligned with energy. That is the same lesson as §2822/§2823 in a different basis — there, the units with
+the largest magnitude were not the causal ones; here, the directions with the largest variance are not the causal ones — and it is now
+twice-measured rather than argued.
+
+**My preregistration framed a binary and the world supplied a third option.** I wrote "exactly two explanations survive" and registered
+pred_b to choose between them. Neither was right. The prediction still did its job — it is precisely because the in-sample control was
+registered that the third explanation is visible at all — but the framing was over-confident, and the correct habit is to register the
+discriminating control without asserting that the alternatives are exhaustive.
+
+Price: 302 GPU forwards, 8.1 GPU-seconds, 0 backwards, 129,024 declared fitted parameters.
+Results: circuit_battery_removal_effect_geometry_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b, c FALSE with no null met.
+Preserved.

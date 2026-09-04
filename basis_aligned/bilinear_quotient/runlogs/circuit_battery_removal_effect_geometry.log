@@ -1,0 +1,39 @@
+[geom] keyed_line.counter_successor mlp10 E_fit=0.147 E_in=0.609 E_rnd=0.0034 effrank=7.8 r90=9 cos=0.10 trans=0.01 in=0.46
+[geom] keyed_line.counter_successor mlp11 E_fit=0.142 E_in=0.593 E_rnd=0.0045 effrank=8.2 r90=10 cos=0.09 trans=-0.13 in=0.08
+[geom] month.successor              mlp10 E_fit=0.104 E_in=0.968 E_rnd=0.0053 effrank=1.6 r90=2 cos=0.92 trans=0.08 in=0.33
+[geom] month.successor              mlp11 E_fit=0.120 E_in=0.957 E_rnd=0.0025 effrank=1.7 r90=2 cos=0.89 trans=0.02 in=0.19
+[geom] numbered_list.index_successor mlp10 E_fit=0.235 E_in=0.651 E_rnd=0.0030 effrank=6.8 r90=8 cos=0.15 trans=-0.18 in=0.12
+[geom] numbered_list.index_successor mlp11 E_fit=0.224 E_in=0.641 E_rnd=0.0028 effrank=7.0 r90=9 cos=0.15 trans=-0.13 in=0.12
+[geom] numeric_run.last_plus_one    mlp10 E_fit=0.400 E_in=0.686 E_rnd=0.0053 effrank=5.4 r90=9 cos=0.25 trans=0.07 in=0.21
+[geom] numeric_run.last_plus_one    mlp11 E_fit=0.426 E_in=0.715 E_rnd=0.0041 effrank=4.8 r90=9 cos=0.26 trans=0.04 in=0.03
+[geom] paren_list.index_successor   mlp10 E_fit=0.236 E_in=0.594 E_rnd=0.0027 effrank=7.9 r90=10 cos=0.14 trans=-0.07 in=0.16
+[geom] paren_list.index_successor   mlp11 E_fit=0.244 E_in=0.580 E_rnd=0.0034 effrank=8.1 r90=10 cos=0.14 trans=-0.08 in=0.08
+[geom] roman_list.index_successor   mlp10 E_fit=0.224 E_in=0.946 E_rnd=0.0023 effrank=2.4 r90=3 cos=0.50 trans=0.08 in=0.97
+[geom] roman_list.index_successor   mlp11 E_fit=0.216 E_in=0.934 E_rnd=0.0049 effrank=2.5 r90=3 cos=0.47 trans=0.10 in=0.51
+[geom] verbatim_repeat.copy         mlp10 E_fit=0.067 E_in=0.819 E_rnd=0.0033 effrank=4.6 r90=6 cos=0.12 trans=-0.04 in=-0.06
+[geom] verbatim_repeat.copy         mlp11 E_fit=0.062 E_in=0.827 E_rnd=0.0022 effrank=4.6 r90=6 cos=0.11 trans=-0.05 in=-0.00
+{
+ "preds": {
+  "pred_a_fit_subspace_misses_ood_energy": true,
+  "pred_b_in_sample_arm_works": false,
+  "pred_c_effect_has_high_effective_rank": false,
+  "pred_d_rows_point_different_ways": true,
+  "pred_e_random_subspace_captures_chance_energy": true
+ },
+ "nulls": {
+  "a_null_transport_ge_.6": false,
+  "b_null_in_sample_le_.1": false,
+  "c_null_low_rank": false,
+  "d_null_rows_aligned": false
+ },
+ "medians": {
+  "transport_energy": 0.21982763707637787,
+  "in_sample_energy": 0.7002699375152588,
+  "random_energy": 0.0033736288314685225,
+  "effective_rank": 5.0936009883880615,
+  "rank_for_90pct_energy": 8.5,
+  "median_row_cosine": 0.15026888996362686,
+  "transported_share": -0.012003093957901001,
+  "in_sample_share": 0.13947302103042603
+ }
+}

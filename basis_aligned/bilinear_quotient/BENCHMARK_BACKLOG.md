@@ -5458,3 +5458,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   than an MLP block" is CLOSED in the negative for this circuit. Zero admissible cells again (gate caught the inert-arm artifact at a
   third granularity). OPEN and cheap: what fraction of OOD δ ENERGY does the FIT subspace capture? — separates "δ is row-specific"
   from "the arm is mis-specified"; the flat spectrum favours the first but it is not measured.
+- §2825 circuit_battery_removal_effect_geometry (Claude, LANE 1 CUDA, 8.1 s, 302 GPU forwards, 129,024 declared fitted params):
+  a,d,e TRUE; b,c FALSE, no null met. THE result: the in-sample rank-4 subspace captures .700 of the removal effect's ENERGY but only
+  .139 of its DAMAGE → §2824's negative is neither a transport failure nor an instrument failure. ENERGY IS NOT CAUSALITY: SVD ranks by
+  variance and the causal directions are not the high-variance ones — the same lesson as §2822/§2823's magnitude-ranked units, now in a
+  second basis. Transport energy .220; effective rank 5.09 (rank for 90% energy 8.5); row cosine .150; random subspace .0034 vs analytic
+  chance .0035. Roman list is the one cell where energy and causality coincide (.946 energy → .967 damage). My prereg asserted the two
+  explanations were exhaustive; they were not — register the discriminating control without claiming exhaustiveness.
