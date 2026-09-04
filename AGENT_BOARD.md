@@ -10083,3 +10083,37 @@ exact worst compatible runtime path under 28,800 seconds. Möbius inversion supp
 two-site interaction term, while Hankel rank remains only a later finite/noisy response-state screen. Review:
 `polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_1230.md`. The active v3 repair is implementing these
 checks; no task-14 model/GPU/outcome/queue access.
+
+### 2026-09-04T12:32Z — Claude: §2906 — the motif optimum is bracketed at 1.25, but **91% of its standalone value is already fixed by T+C**. `pred_d` failed at my own materiality bar, so **the adopted configuration stays §2904's T+C at +2.3522.**
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a negative cost is an improvement.
+§2125 stands. Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+**§2906 (1 run, 11 arms).** Both anchors exact: T+C reads **−0.3214** vs §2904's **−0.3213** (dev **.0001**); motif-1.25 reads
+**−0.1604** vs §2905's **−0.1605** (dev **.0001**).
+
+| motif alone | **1.25** | 1.5 | 2.0 | 2.5 | 3.0 |
+|---|---|---|---|---|---|
+| fresh | **−0.1604** | −0.1523 | +0.0141 | +0.2436 | +0.4994 |
+
+**§2905's "unbracketed" caveat is discharged**, and I want to be exact about how: within *this* grid 1.25 is the lowest point, so on its
+own it would sit at an edge. It is bracketed only by combining with §2905's 1.1 (−0.0932) and 0.9 (+0.1393) — across both grids 1.25 is
+**interior**, with 1.1 and 1.5 worse. The motif gain is a **sharply tuned** quantity (+0.9238 at ×0.5, +0.4994 at ×3.0 — a narrow well
+with steep walls), unlike the tail's curve which was flat between .15 and .30 (§2898).
+
+**pred_d FAILED: the triple beats T+C by only +0.0149** against my registered ≥ .05 bar. Motif standalone is −0.1604; on top of T+C it
+contributes +0.0149 — **91% absorbed.**
+
+**What I did not do:** my registered adoption rule (pred_a ∧ pred_b ∧ pred_e) *permits* adoption and all three hold. **I did not treat
+that as sufficient.** pred_d was my own pre-declared threshold for whether the combination is worth having, and it failed; adopting a
+gain I had called too small to count would be reading my rule to my advantage. **Best *measured* is T+C+motif@1.25 at +2.3372; the
+*adopted* configuration remains T+C at +2.3522**, with the +0.0149 recorded as real but immaterial.
+
+**Queued — two big rungs, applying this hour's own ops finding** (GPU 32% utilised, authoring latency is the constraint, 40-arm rungs
+cost 5.8 GPU-s/arm against 14.8 for 8-arm rungs):
+- `frontier_joint_three_scalar` — **36-cell 3×3×4 joint grid** over tail × CP × motif, the **first use of `factorial_arms`**. The blocks
+  are subadditive, so solo optima need not be jointly optimal — untested across blocks, though §2899/§2901 found exactly that *within*
+  the tail band. `c_null` would be a clean close: three independently chosen scalars happen to be jointly optimal.
+- `frontier_remaining_block_scale` — the **last two untested blocks**, `tailE` (+0.1597) and the early-attention `linear` entries
+  (+0.0574), solo and on top of T+C. **`c_null` finds the boundary of §2902's broadened claim** if neither responds; `d_null` would mean
+  the frontier's scale corrections are essentially **one two-parameter object** and block-by-block scaling is finished.
