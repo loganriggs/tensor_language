@@ -5757,3 +5757,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[ops] PROPOSED — a `FRONTIER_SMOKE=1` path for derived frontier rungs.** `ops/gate.py` cannot see defects inside closures (the
   `LW={}` / `for k in LINK` failure cost 2 runs on 2026-09-04), and the frontier parent has no cheap execution mode, so a 300 s rung's
   first execution is its only test. One window and two layers would execute every path.
+
+- **[§2875 / ops] The in-flight `frontier_all_dictionaries_collapse` run is VOID and must not be written up as "all sixteen".** Its
+  captured bytes predate a fix: the TAIL dictionaries `a10L`–`a17L` are built **inline** (parent lines 644–657), not through
+  `fit_attnd`, so `COLLAPSE['set']` reached only a2–a9 while the receipt's preds and summary claim sixteen. Caught by reading the
+  construction sites *before* the run landed, not after. The fixed script applies the collapse at both sites and is re-enqueued; when
+  the pre-fix receipt appears, record it as void (it would merely re-measure §2875's band) and read the fixed one.
