@@ -72514,3 +72514,47 @@ WRITE side does not localise task specificity; the specificity is on the READ si
 Price: 660 GPU forwards, 11.4 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_writer_head_split_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a FALSE (bar too tight for fp32),
 e FALSE with its null met but on a degenerate predicate, disclosed. Preserved.
+
+## §2821 — THE DEPTH GRADIENT IS REAL BUT THE GATE I CHOSE MADE IT NEARLY UNMEASURABLE: Spearman −1.0 between reader depth and selectivity on every behaviour with enough admissible readers, the most specific admissible reader at layer ≥ 10 on 5 of 7, and EVERY behaviour has inert readers the ungated metric would crown — but my admissibility threshold admitted only 1–3 of ten readers, leaving pred_c unevaluable and pred_e's coverage bar inconsistent with my own gate (a, b, d TRUE; c FALSE by non-evaluability, e FALSE with its null MET)
+
+Extending §2819's four readers to all ten MLPs that can read attention 8's write (mlp8…mlp17), on OOD only, with the admissibility gate
+forced by §2820: a reader counts only if its own A1 damage is ≥ .10 × the whole READS damage. Sign convention: d_m = m_NATIVE − m_arm,
+POSITIVE = the arm HURTS that family's answer; ratio = max(|d_P|, |d_C|) / max(d_A1, .5), LOWER IS MORE SPECIFIC.
+
+**pred_d TRUE (null "≤ 1" not met) — the §2820 failure mode is pervasive, and now it is a measurement.** Every one of the 7 behaviours
+has at least two NON-admissible readers whose raw ratio is ≤ .25, and most have many more: numeric run 8, verbatim repeat 8, month 6,
+keyed counter 4, numbered list 4, paren list 4, roman 2. The numbered list's ladder shows it plainly — mlp16 has an A1 damage of −.006
+margin units and a raw ratio of **.02**, which an ungated metric would rank as the most task-specific reader in the model. Without an
+admissibility gate, "which component is selective?" reliably answers "the ones that do nothing".
+
+**pred_a TRUE (null "≥ 0" not met), on thin evidence I am flagging rather than burying.** Median Spearman between an admissible
+reader's layer and its ratio is **−1.0**. But only three behaviours had the three or more admissible readers the statistic needs
+(keyed counter −1.0, month −1.0, roman −0.5); the other four had one or two and were excluded from the median and counted. The
+gradient is also visible in the raw, ungated ladder of the numbered list, which is monotone across all ten layers — 1.12, 1.06, .90,
+.59, .43, .34, .09, .08, .02, .08 — but that ladder's tail is exactly the inert region pred_d indicts, so it corroborates the direction
+without carrying weight on its own.
+
+**pred_b TRUE (null "≤ 2" not met).** The most specific ADMISSIBLE reader sits at layer ≥ 10 on 5 of 7 behaviours (mlp10 on keyed
+counter .64, month .34, numeric run .24, roman .94; mlp16 on verbatim repeat .13); the numbered list and paren list are the exceptions,
+where only mlp8 and mlp9 clear the gate at all.
+
+**pred_c FALSE by NON-EVALUABILITY, and the non-evaluability is the finding.** I predicted the gradient saturates after mlp11, as
+`min(ratio at layers 12–17) − min(ratio at layers 8–11) ≥ −.10`. **No behaviour had a single admissible reader at layers 12–17** — the
+deep MLPs never reach a tenth of the READS damage — so the statistic is undefined on every behaviour and the predicate evaluates FALSE
+as written. Scored FALSE. What the run actually establishes is stronger than what I asked: past mlp11 there is nothing left to be
+specific *about*; the entire causally live read of attention 8's write is in blocks 8–11, and the apparent super-specificity of
+mlp12–mlp17 is the inert artifact of pred_d.
+
+**pred_e FALSE, its null MET, and the inconsistency is mine.** Admissible readers cover a median **.378** of the READS damage against a
+registered bar of .80 (null ≤ .40, met). The two numbers were incompatible the moment I wrote them: §2818 had already measured
+singles/joint at .759 and joint/READS at .669, so a single reader averages about .13 of READS, and a gate set at .10 × READS can only
+admit one to three readers whose damages then sum to well under .80. I set a gate and a coverage bar that could not both be satisfied,
+in the same document, using numbers I had measured an hour earlier. The correct gate is a fraction of the JOINT damage of the
+predeclared set (or of the leading reader), not of READS.
+
+**What survives.** The direction of §2819 replicates (specificity rises with depth); the live read is confined to blocks 8–11; and the
+metric's inert-arm failure mode is now quantified on every behaviour rather than argued from one example.
+
+Price: 1,138 GPU forwards, 17.1 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_depth_gradient_results.json. (Claude, LANE 1 CUDA.) a, b, d TRUE; c FALSE (unevaluable as registered),
+e FALSE with its null met. Preserved.

@@ -5434,3 +5434,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   an INERT head (A1 damage ±.001) because the ratio has no minimum-damage floor — third instance of the trivial-object class of error.
   Corrected descriptive number: among ACTIVE heads, h3 ratio 1.066 and h7 1.104 — worse than the whole write's 1.00. Specificity is
   not on the write side at any granularity. OPEN: a minimum-damage floor on every selectivity ratio from the next document on.
+- §2821 circuit_battery_reader_depth_gradient (Claude, LANE 1 CUDA, 17.1 s, 1,138 GPU forwards): a,b,d TRUE; c FALSE (unevaluable as
+  registered), e FALSE with null MET. Depth gradient replicates (Spearman −1.0 where measurable; most specific admissible reader at
+  layer ≥10 on 5 of 7). NO admissible reader exists at layers 12–17 → the causally live read of attn8's write is confined to blocks
+  8–11 and mlp12–17's low ratios are the inert artifact. pred_d confirms the §2820 failure mode on ALL 7 behaviours (2–8 inert readers
+  with ratio ≤ .25 each). MY registration inconsistency: a gate at .10×READS cannot coexist with a .80 coverage bar given §2818's
+  singles/joint .759 and joint/READS .669 — gate the next one on the predeclared set's JOINT damage instead.

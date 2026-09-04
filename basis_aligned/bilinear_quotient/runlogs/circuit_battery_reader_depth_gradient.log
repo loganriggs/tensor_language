@@ -1,0 +1,29 @@
+[depth] keyed_line.counter_successor   adm=3 rho=-1.00 best=mlp10(0.64) sat=nan inert_low=4
+[depth] month.successor                adm=3 rho=-1.00 best=mlp10(0.34) sat=nan inert_low=6
+[depth] numbered_list.index_successor  adm=1 rho=nan best=mlp8(1.12) sat=nan inert_low=4
+[depth] numeric_run.last_plus_one      adm=2 rho=nan best=mlp10(0.24) sat=nan inert_low=8
+[depth] paren_list.index_successor     adm=2 rho=nan best=mlp9(1.04) sat=nan inert_low=4
+[depth] roman_list.index_successor     adm=3 rho=-0.50 best=mlp10(0.94) sat=nan inert_low=2
+[depth] verbatim_repeat.copy           adm=1 rho=nan best=mlp16(0.13) sat=nan inert_low=8
+{
+ "preds": {
+  "pred_a_specificity_rises_with_depth": true,
+  "pred_b_the_specific_reader_is_deep": true,
+  "pred_c_the_gradient_saturates_after_eleven": false,
+  "pred_d_ungated_ratios_crown_inert_readers": true,
+  "pred_e_admissible_readers_carry_the_read": false
+ },
+ "nulls": {
+  "a_null_no_gradient": false,
+  "b_null_shallow": false,
+  "c_null_keeps_rising": false,
+  "d_null_gate_unnecessary": false,
+  "e_null_low_coverage": true
+ },
+ "medians": {
+  "rho_layer_vs_ratio": -1.0,
+  "best_ratio": 0.642774224281311,
+  "saturation_gap": NaN,
+  "admissible_coverage": 0.37786340326565787
+ }
+}

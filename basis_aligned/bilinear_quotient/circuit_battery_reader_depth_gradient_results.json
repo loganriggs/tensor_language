@@ -1,0 +1,963 @@
+{
+ "rung": "circuit_battery_reader_depth_gradient",
+ "preds": {
+  "pred_a_specificity_rises_with_depth": true,
+  "pred_b_the_specific_reader_is_deep": true,
+  "pred_c_the_gradient_saturates_after_eleven": false,
+  "pred_d_ungated_ratios_crown_inert_readers": true,
+  "pred_e_admissible_readers_carry_the_read": false
+ },
+ "nulls": {
+  "a_null_no_gradient": false,
+  "b_null_shallow": false,
+  "c_null_keeps_rising": false,
+  "d_null_gate_unnecessary": false,
+  "e_null_low_coverage": true
+ },
+ "bars": {
+  "rho": -0.5,
+  "deep_tasks": 5,
+  "saturate": -0.1,
+  "inert_tasks": 4,
+  "coverage": 0.8,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "rho_ge": 0.0,
+  "deep_tasks_le": 2,
+  "saturate_ge": 0.2,
+  "inert_tasks_le": 1,
+  "coverage_le": 0.4
+ },
+ "writer": "attn8",
+ "readers": [
+  "mlp8",
+  "mlp9",
+  "mlp10",
+  "mlp11",
+  "mlp12",
+  "mlp13",
+  "mlp14",
+  "mlp15",
+  "mlp16",
+  "mlp17"
+ ],
+ "admissibility_fraction": 0.1,
+ "eval_split": "OOD",
+ "bank_source_sha256": "170345efdf3bb00651ab885c48c1929e9cfdc7b568bcdbf657c2b48f7e00056e",
+ "summary": {
+  "tasks": [
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "paren_list.index_successor",
+   "roman_list.index_successor",
+   "verbatim_repeat.copy"
+  ],
+  "deep_best_tasks": [
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numeric_run.last_plus_one",
+   "roman_list.index_successor",
+   "verbatim_repeat.copy"
+  ],
+  "tasks_with_inert_low_ratio_readers": [
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "paren_list.index_successor",
+   "roman_list.index_successor",
+   "verbatim_repeat.copy"
+  ],
+  "medians": {
+   "rho_layer_vs_ratio": -1.0,
+   "best_ratio": 0.642774224281311,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.37786340326565787
+  }
+ },
+ "tasks": {
+  "keyed_line.counter_successor": {
+   "reads_damage": 2.6037497520446777,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 0.742160439491272,
+      "P": 0.742160439491272,
+      "C": -0.48986029624938965
+     },
+     "ratio": 1.0,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.44967877864837646,
+      "P": 0.44967877864837646,
+      "C": -0.2770705819129944
+     },
+     "ratio": 0.8993575572967529,
+     "admissible": true
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.3213736414909363,
+      "P": 0.3213736414909363,
+      "C": -0.3213871121406555
+     },
+     "ratio": 0.642774224281311,
+     "admissible": true
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.13607442378997803,
+      "P": 0.13607442378997803,
+      "C": -0.22203457355499268
+     },
+     "ratio": 0.44406914710998535,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.06924843788146973,
+      "P": 0.06924843788146973,
+      "C": -0.1616802215576172
+     },
+     "ratio": 0.3233604431152344,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": 0.03672915697097778,
+      "P": 0.03672915697097778,
+      "C": -0.15395987033843994
+     },
+     "ratio": 0.3079197406768799,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": 0.02001643180847168,
+      "P": 0.02001643180847168,
+      "C": -0.06303030252456665
+     },
+     "ratio": 0.1260606050491333,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": -0.0007499456405639648,
+      "P": -0.0007499456405639648,
+      "C": -0.07456260919570923
+     },
+     "ratio": 0.14912521839141846,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.03328520059585571,
+      "P": 0.03328520059585571,
+      "C": 0.013844668865203857
+     },
+     "ratio": 0.06657040119171143,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.12196886539459229,
+      "P": 0.12196886539459229,
+      "C": 0.1034621000289917
+     },
+     "ratio": 0.24393773078918457,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp10",
+    "mlp8",
+    "mlp9"
+   ],
+   "n_admissible": 3,
+   "inert_readers_with_low_ratio": [
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": -1.0,
+   "best_admissible": "mlp10",
+   "best_ratio": 0.642774224281311,
+   "best_layer": 10,
+   "min_ratio_8_11": 0.642774224281311,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.5811667801186676
+  },
+  "month.successor": {
+   "reads_damage": 1.5684139728546143,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 0.404852956533432,
+      "P": 0.3747730255126953,
+      "C": -0.15863677859306335
+     },
+     "ratio": 0.7495460510253906,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.2577573359012604,
+      "P": 0.24046504497528076,
+      "C": -0.28716841340065
+     },
+     "ratio": 0.5743368268013,
+     "admissible": true
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.15921691060066223,
+      "P": 0.17210912704467773,
+      "C": -0.17172777652740479
+     },
+     "ratio": 0.34421825408935547,
+     "admissible": true
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.09372279047966003,
+      "P": 0.10235923528671265,
+      "C": -0.11504441499710083
+     },
+     "ratio": 0.23008882999420166,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.0739431083202362,
+      "P": 0.05922156572341919,
+      "C": -0.10040420293807983
+     },
+     "ratio": 0.20080840587615967,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": 0.06365653872489929,
+      "P": 0.06397759914398193,
+      "C": -0.1260412335395813
+     },
+     "ratio": 0.2520824670791626,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": -0.005205124616622925,
+      "P": 0.0014404654502868652,
+      "C": -0.0653262734413147
+     },
+     "ratio": 0.1306525468826294,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": 0.011721581220626831,
+      "P": 0.017508268356323242,
+      "C": -0.038676291704177856
+     },
+     "ratio": 0.07735258340835571,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.04734310507774353,
+      "P": 0.04862791299819946,
+      "C": 0.03963169455528259
+     },
+     "ratio": 0.09725582599639893,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.002407461404800415,
+      "P": -0.005036413669586182,
+      "C": 0.029036730527877808
+     },
+     "ratio": 0.058073461055755615,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp10",
+    "mlp8",
+    "mlp9"
+   ],
+   "n_admissible": 3,
+   "inert_readers_with_low_ratio": [
+    "mlp11",
+    "mlp12",
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": -1.0,
+   "best_admissible": "mlp10",
+   "best_ratio": 0.34421825408935547,
+   "best_layer": 10,
+   "min_ratio_8_11": 0.34421825408935547,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.5239861524184054
+  },
+  "numbered_list.index_successor": {
+   "reads_damage": 2.4240522384643555,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 0.5305260419845581,
+      "P": 0.5305260419845581,
+      "C": -0.5936788320541382
+     },
+     "ratio": 1.1190380585905682,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.0750228762626648,
+      "P": 0.0750228762626648,
+      "C": -0.5317503213882446
+     },
+     "ratio": 1.0635006427764893,
+     "admissible": false
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.1311139464378357,
+      "P": 0.1311139464378357,
+      "C": -0.45165443420410156
+     },
+     "ratio": 0.9033088684082031,
+     "admissible": false
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.06670618057250977,
+      "P": 0.06670618057250977,
+      "C": -0.2965965270996094
+     },
+     "ratio": 0.5931930541992188,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.03586059808731079,
+      "P": 0.03586059808731079,
+      "C": -0.2163257598876953
+     },
+     "ratio": 0.4326515197753906,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": -0.02183741331100464,
+      "P": -0.02183741331100464,
+      "C": -0.17024832963943481
+     },
+     "ratio": 0.34049665927886963,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": -0.014359533786773682,
+      "P": -0.014359533786773682,
+      "C": -0.04420769214630127
+     },
+     "ratio": 0.08841538429260254,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": -0.0017523765563964844,
+      "P": -0.0017523765563964844,
+      "C": -0.041148602962493896
+     },
+     "ratio": 0.08229720592498779,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": -0.0059299468994140625,
+      "P": -0.0059299468994140625,
+      "C": -0.010334670543670654
+     },
+     "ratio": 0.02066934108734131,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.04037994146347046,
+      "P": 0.04037994146347046,
+      "C": 0.011323094367980957
+     },
+     "ratio": 0.08075988292694092,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp8"
+   ],
+   "n_admissible": 1,
+   "inert_readers_with_low_ratio": [
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": NaN,
+   "best_admissible": "mlp8",
+   "best_ratio": 1.1190380585905682,
+   "best_layer": 8,
+   "min_ratio_8_11": 1.1190380585905682,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.21885916217739926
+  },
+  "numeric_run.last_plus_one": {
+   "reads_damage": 0.9983126521110535,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 0.2610687017440796,
+      "P": 0.3177378177642822,
+      "C": -0.060432374477386475
+     },
+     "ratio": 0.6354756355285645,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.08163774013519287,
+      "P": 0.11136054992675781,
+      "C": -0.08394438028335571
+     },
+     "ratio": 0.22272109985351562,
+     "admissible": false
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.11615711450576782,
+      "P": 0.12130731344223022,
+      "C": -0.12033170461654663
+     },
+     "ratio": 0.24261462688446045,
+     "admissible": true
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.04811251163482666,
+      "P": 0.06847208738327026,
+      "C": -0.05217170715332031
+     },
+     "ratio": 0.13694417476654053,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.027054429054260254,
+      "P": 0.04333078861236572,
+      "C": -0.09458649158477783
+     },
+     "ratio": 0.18917298316955566,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": 0.05172175168991089,
+      "P": 0.05395478010177612,
+      "C": -0.10115265846252441
+     },
+     "ratio": 0.20230531692504883,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": 0.03736764192581177,
+      "P": 0.04563915729522705,
+      "C": -0.055445194244384766
+     },
+     "ratio": 0.11089038848876953,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": 0.023641645908355713,
+      "P": 0.020501792430877686,
+      "C": -0.04644763469696045
+     },
+     "ratio": 0.0928952693939209,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.01546257734298706,
+      "P": 0.019445717334747314,
+      "C": -0.03148728609085083
+     },
+     "ratio": 0.06297457218170166,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.03584975004196167,
+      "P": 0.03809630870819092,
+      "C": 0.013056755065917969
+     },
+     "ratio": 0.07619261741638184,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp10",
+    "mlp8"
+   ],
+   "n_admissible": 2,
+   "inert_readers_with_low_ratio": [
+    "mlp9",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": NaN,
+   "best_admissible": "mlp10",
+   "best_ratio": 0.24261462688446045,
+   "best_layer": 10,
+   "min_ratio_8_11": 0.24261462688446045,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.37786340326565787
+  },
+  "paren_list.index_successor": {
+   "reads_damage": 2.2920756340026855,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 0.46481698751449585,
+      "P": 0.46481698751449585,
+      "C": -0.5584806203842163
+     },
+     "ratio": 1.1169612407684326,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.24487745761871338,
+      "P": 0.24487745761871338,
+      "C": -0.5206819176673889
+     },
+     "ratio": 1.0413638353347778,
+     "admissible": true
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.14336931705474854,
+      "P": 0.14336931705474854,
+      "C": -0.3692649006843567
+     },
+     "ratio": 0.7385298013687134,
+     "admissible": false
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.10805410146713257,
+      "P": 0.10805410146713257,
+      "C": -0.2897968292236328
+     },
+     "ratio": 0.5795936584472656,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.08191239833831787,
+      "P": 0.08191239833831787,
+      "C": -0.20770621299743652
+     },
+     "ratio": 0.41541242599487305,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": 0.03342103958129883,
+      "P": 0.03342103958129883,
+      "C": -0.17621487379074097
+     },
+     "ratio": 0.35242974758148193,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": 0.005874514579772949,
+      "P": 0.005874514579772949,
+      "C": -0.06018471717834473
+     },
+     "ratio": 0.12036943435668945,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": 0.014907360076904297,
+      "P": 0.014907360076904297,
+      "C": -0.02884066104888916
+     },
+     "ratio": 0.05768132209777832,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.0290377140045166,
+      "P": 0.0290377140045166,
+      "C": -0.004272639751434326
+     },
+     "ratio": 0.0580754280090332,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.02192026376724243,
+      "P": 0.02192026376724243,
+      "C": 0.024115324020385742
+     },
+     "ratio": 0.048230648040771484,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp8",
+    "mlp9"
+   ],
+   "n_admissible": 2,
+   "inert_readers_with_low_ratio": [
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": NaN,
+   "best_admissible": "mlp9",
+   "best_ratio": 1.0413638353347778,
+   "best_layer": 9,
+   "min_ratio_8_11": 1.0413638353347778,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.30962959276080226
+  },
+  "roman_list.index_successor": {
+   "reads_damage": 3.4979987144470215,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": 1.3845469951629639,
+      "P": 1.3845469951629639,
+      "C": -0.32279813289642334
+     },
+     "ratio": 1.0,
+     "admissible": true
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.7047911286354065,
+      "P": 0.7047911286354065,
+      "C": -0.39750391244888306
+     },
+     "ratio": 1.0,
+     "admissible": true
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": 0.47174543142318726,
+      "P": 0.47174543142318726,
+      "C": -0.2950378656387329
+     },
+     "ratio": 0.9434908628463745,
+     "admissible": true
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": 0.25972980260849,
+      "P": 0.25972980260849,
+      "C": -0.17986106872558594
+     },
+     "ratio": 0.51945960521698,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": 0.13810229301452637,
+      "P": 0.13810229301452637,
+      "C": -0.08473098278045654
+     },
+     "ratio": 0.27620458602905273,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": 0.14809459447860718,
+      "P": 0.14809459447860718,
+      "C": -0.1058429479598999
+     },
+     "ratio": 0.29618918895721436,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": 0.168867290019989,
+      "P": 0.168867290019989,
+      "C": -0.17200523614883423
+     },
+     "ratio": 0.34401047229766846,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": 0.025272905826568604,
+      "P": 0.025272905826568604,
+      "C": -0.06853485107421875
+     },
+     "ratio": 0.1370697021484375,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.07948613166809082,
+      "P": 0.07948613166809082,
+      "C": -0.0016707181930541992
+     },
+     "ratio": 0.15897226333618164,
+     "admissible": false
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": 0.17219126224517822,
+      "P": 0.17219126224517822,
+      "C": 0.010640501976013184
+     },
+     "ratio": 0.34438252449035645,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp10",
+    "mlp8",
+    "mlp9"
+   ],
+   "n_admissible": 3,
+   "inert_readers_with_low_ratio": [
+    "mlp15",
+    "mlp16"
+   ],
+   "rho_layer_vs_ratio": -0.5,
+   "best_admissible": "mlp10",
+   "best_ratio": 0.9434908628463745,
+   "best_layer": 10,
+   "min_ratio_8_11": 0.9434908628463745,
+   "min_ratio_12_17": NaN,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.7321568028724746
+  },
+  "verbatim_repeat.copy": {
+   "reads_damage": -0.6879445314407349,
+   "per_reader": {
+    "mlp8": {
+     "layer": 8,
+     "damage": {
+      "A1": -0.1247241199016571,
+      "P": -0.1247241199016571
+     },
+     "ratio": 0.2494482398033142,
+     "admissible": false
+    },
+    "mlp9": {
+     "layer": 9,
+     "damage": {
+      "A1": 0.006548941135406494,
+      "P": 0.006548941135406494
+     },
+     "ratio": 0.013097882270812988,
+     "admissible": false
+    },
+    "mlp10": {
+     "layer": 10,
+     "damage": {
+      "A1": -0.048859864473342896,
+      "P": -0.048859864473342896
+     },
+     "ratio": 0.09771972894668579,
+     "admissible": false
+    },
+    "mlp11": {
+     "layer": 11,
+     "damage": {
+      "A1": -0.01900196075439453,
+      "P": -0.01900196075439453
+     },
+     "ratio": 0.03800392150878906,
+     "admissible": false
+    },
+    "mlp12": {
+     "layer": 12,
+     "damage": {
+      "A1": -0.034035563468933105,
+      "P": -0.034035563468933105
+     },
+     "ratio": 0.06807112693786621,
+     "admissible": false
+    },
+    "mlp13": {
+     "layer": 13,
+     "damage": {
+      "A1": -0.09424242377281189,
+      "P": -0.09424242377281189
+     },
+     "ratio": 0.18848484754562378,
+     "admissible": false
+    },
+    "mlp14": {
+     "layer": 14,
+     "damage": {
+      "A1": -0.136829674243927,
+      "P": -0.136829674243927
+     },
+     "ratio": 0.273659348487854,
+     "admissible": false
+    },
+    "mlp15": {
+     "layer": 15,
+     "damage": {
+      "A1": -0.09414401650428772,
+      "P": -0.09414401650428772
+     },
+     "ratio": 0.18828803300857544,
+     "admissible": false
+    },
+    "mlp16": {
+     "layer": 16,
+     "damage": {
+      "A1": 0.0652957558631897,
+      "P": 0.0652957558631897
+     },
+     "ratio": 0.1305915117263794,
+     "admissible": true
+    },
+    "mlp17": {
+     "layer": 17,
+     "damage": {
+      "A1": -0.09500381350517273,
+      "P": -0.09500381350517273
+     },
+     "ratio": 0.19000762701034546,
+     "admissible": false
+    }
+   },
+   "admissible": [
+    "mlp16"
+   ],
+   "n_admissible": 1,
+   "inert_readers_with_low_ratio": [
+    "mlp8",
+    "mlp9",
+    "mlp10",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "mlp15",
+    "mlp17"
+   ],
+   "rho_layer_vs_ratio": NaN,
+   "best_admissible": "mlp16",
+   "best_ratio": 0.1305915117263794,
+   "best_layer": 16,
+   "min_ratio_8_11": NaN,
+   "min_ratio_12_17": 0.1305915117263794,
+   "saturation_gap": NaN,
+   "admissible_coverage": 0.1305915117263794
+  }
+ },
+ "per_cell": 16,
+ "smoke": false,
+ "price": {
+  "gpu_forwards": 1138,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 17.14382266998291
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_READER_DEPTH_GRADIENT_PREREGISTRATION.md": "bde01acb8794434233313e6a098b7580d34b304579438cfb4a5284403ddccbd2",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_v2_results.json": "5924b2549d285175c80fbf7c8fc95a8a2fa06020acc1827bc472ddea69d9ec93",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
