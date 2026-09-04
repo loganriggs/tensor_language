@@ -1,43 +1,35 @@
-"""Adversarial fixtures for the proposed CircuitExperimentSpec compiler/runtime (Claude, 2026-09-04; red-team companion to
-polynomial_causal/CIRCUIT_EXPERIMENT_SPEC_REDTEAM_2026-09-04.md). Written BEFORE the implementation, against the interface named in
-the 2026-09-04 audit: compile_experiment / validate_call_evidence / project_result / stage_and_publish / managed_main.
+"""Adversarial fixtures for the CircuitExperimentSpec compiler/runtime (Claude, 2026-09-04; red-team companion to
+polynomial_causal/CIRCUIT_EXPERIMENT_SPEC_REDTEAM_2026-09-04.md, attacks A1-A9 / B1-B4).
+
+Rewired 2026-09-04 (later): the API tests no longer skip.  They run against Codex's ACTUAL public names through the thin
+adapter in ops/_adv_adapter.py (spec dataclasses + compile_experiment, validate_call_prefix, write/validate_nonfinite_masks,
+validate_science_projection, stage_package/publish_staged_package/validate_complete_package, capture_frozen_artifacts/
+validate_dryrun_closure/load_verified_modules/dispatch).  The adapter adds NO validation of its own.  Where Codex lacks the
+semantics an attack requires, the test FAILS with a message naming the gap -- it is never shimmed green.
 
 Two layers:
-  1. PLANTED-ATTACK GENERATORS (pure Python, run today): a synthetic authority (rows, splits, groups), a call manifest, primitive
-     evidence, and one mutation per attack. Each generator self-tests that the attack is NON-VACUOUS (it preserves whatever the
-     naive check looks at and changes only what the real invariant must see).
-  2. API TESTS (importorskip until ops/circuit_experiment_spec.py exists): each feeds one planted attack to the API and requires a
-     refusal. Expected exception type is any Exception whose message mentions the listed keyword (case-insensitive) -- Codex may
-     rename the class; the keyword is the contract.
+  1. PLANTED-ATTACK GENERATORS (pure Python): a synthetic authority (rows, splits, groups), a call manifest, primitive
+     evidence, and one mutation per attack.  Each generator self-tests that the attack is NON-VACUOUS.
+  2. API TESTS: each feeds one planted attack to Codex's API and requires a refusal.
 
-Standard library only. No model, no filesystem outside tmp_path, no GPU.
+Scratch space is <repo>/.adv_tmp (same filesystem as the repo, never /tmp -- attack B4); every test cleans up after itself.
+Standard library + numpy (Codex's evidence format is .npy).  No model, no GPU.
 """
 import copy
 import hashlib
+import io
 import json
 import os
 import pathlib
 import random
+import subprocess
+import sys
 
 import pytest
 
-API_MODULE = "circuit_experiment_spec"
-
-
-ADAPTER_SURFACE = ("build_synthetic_spec", "with_projector", "with_artifact", "package_evidence", "verify_package", "dump_package",
-                   "load_package", "begin_run", "dump_spec", "render_managed_entry", "stage_dir_for", "managed_main",
-                   "validate_call_evidence", "project_result", "stage_and_publish", "compile_experiment")
-
-
-def _api():
-    """ops/circuit_experiment_spec.py exists since 2026-09-04 01:19Z (Codex, in progress). The API tests need the small adapter surface
-    named in ADAPTER_SURFACE (documented in _spec below); until it is wired they SKIP with the missing names listed, so this file is
-    never red noise in Codex's runs -- and never silently green either."""
-    api = pytest.importorskip(API_MODULE)
-    missing = [n for n in ADAPTER_SURFACE if not hasattr(api, n)]
-    if missing:
-        pytest.skip(f"adapter surface not wired yet: {missing}")
-    return api
+import _adv_adapter as api
+import circuit_artifact_package as cap
+import circuit_managed_entry as managed
 
 
 def _canon(obj):
@@ -48,29 +40,43 @@ def _sha(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
 
-def _raises_with(keyword):
-    class _Ctx:
-        def __enter__(self):
-            self.ctx = pytest.raises(Exception); self.info = self.ctx.__enter__(); return self.info
-        def __exit__(self, et, ev, tb):
-            out = self.ctx.__exit__(et, ev, tb)
-            if out:
-                assert keyword.lower() in str(self.info.value).lower(), f"refused, but not for the registered reason {keyword!r}: {self.info.value}"
-            return out
-    return _Ctx()
+@pytest.fixture
+def workdir(request):
+    """Same-filesystem scratch directory under <repo>/.adv_tmp (not /tmp)."""
+    path = api.make_workdir(request.node.name[:40])
+    yield path
+    api.remove_workdir(path)
+
+
+def _expect_refusal(fn, keywords, *, missing):
+    """Run fn.  It must raise, and the message must contain one of `keywords` (Codex may rename the class; the wording of
+    the reason is the contract).  If it does NOT raise, fail with `missing` -- the statement of the absent semantics."""
+    try:
+        value = fn()
+    except Exception as error:      # noqa: BLE001
+        text = str(error).lower()
+        assert any(k.lower() in text for k in keywords), \
+            f"refused, but not for the registered reason {keywords!r}: {type(error).__name__}: {error}"
+        return error
+    pytest.fail(f"{missing} (call returned {type(value).__name__} instead of refusing)")
 
 
 # ----------------------------------------------------------------------------------------------------------------------
 # 1. Planted-attack generators
 # ----------------------------------------------------------------------------------------------------------------------
 
-def make_authority(n_fit=12, n_select=6, seed=0):
-    """Synthetic authority: rows with content-derived IDs, two splits, groups of 3, one semantic field."""
+def make_authority(n_fit=12, n_select=6, seed=0, width=8):
+    """Synthetic authority: rows with content-derived IDs, two splits, groups of 3, one semantic field, a fixed-width
+    token sequence (Codex batches by exact common length).  Rows are emitted in Codex's canonical order (length, canonical
+    JSON) so that the generator's authority-order schedule and Codex's compiled manifest coincide (checked below)."""
     rng = random.Random(seed); rows = []
     for split, n in (("FIT", n_fit), ("SELECT", n_select)):
         for i in range(n):
             content = f"{split}-doc{i}-" + "".join(rng.choice("abcdefgh") for _ in range(6))
-            rows.append({"row_id": _sha(content.encode())[:16], "split": split, "group_id": f"{split}-g{i // 3}", "answer_pos": 5 + (i % 4), "content": content})
+            ids = [int(ch, 16) for ch in _sha(content.encode())[:width]]
+            rows.append({"row_id": _sha(content.encode())[:16], "split": split, "group_id": f"{split}-g{i // 3}",
+                         "answer_pos": 5 + (i % 4), "content": content, "ids": ids})
+    rows.sort(key=lambda r: (len(r["ids"]), _canon(r)))
     return rows
 
 
@@ -97,14 +103,15 @@ def test_generator_split_swap_is_count_preserving():
 
 
 def make_calls(rows, arms=("native", "counterfactual"), batch=4):
-    """Deterministic total order: FIT rows first, per arm, batches of `batch` in authority order; the last batch is literal."""
+    """Deterministic total order: FIT rows first, per arm, batches of `batch` in authority order; the last batch is literal
+    (physical_width == its literal row count)."""
     calls = []
     for split in ("FIT", "SELECT"):
         ids = [r["row_id"] for r in rows if r["split"] == split]
         for arm in arms:
             for b0 in range(0, len(ids), batch):
                 chunk = ids[b0:b0 + batch]
-                calls.append({"call_id": f"{split}:{arm}:{b0 // batch}", "split": split, "arm": arm, "rows": chunk, "physical_width": batch})
+                calls.append({"call_id": f"{split}:{arm}:{b0 // batch}", "split": split, "arm": arm, "rows": chunk, "physical_width": len(chunk)})
     return calls
 
 
@@ -159,15 +166,19 @@ def attack_move_primitive(ev):
     return out
 
 
+SCIENCE_NAMES = ("pred_a_instrument", "pred_b_gap_positive", "pred_c_gap_bounded", "score_gap")
+
+
 def projector_mean_gap(ev):
     """Reference pure projector: mean(native margin) - mean(counterfactual margin), order-independent."""
     n = [e["margin"] for e in ev if e["arm"] == "native"]; c = [e["margin"] for e in ev if e["arm"] == "counterfactual"]
-    return {"pred_a_instrument": len(n) == len(c) > 0, "score_gap": sum(n) / len(n) - sum(c) / len(c)}
+    gap = sum(n) / len(n) - sum(c) / len(c)
+    return {"pred_a_instrument": len(n) == len(c) > 0, "pred_b_gap_positive": gap > 0, "pred_c_gap_bounded": abs(gap) < 10.0, "score_gap": gap}
 
 
 def projector_order_dependent(ev):
     """Impure projector: reports the FIRST record's arm as a 'score' -- differs under a permutation of the evidence."""
-    return {"pred_a_instrument": True, "score_gap": 1.0 if ev[0]["arm"] == "native" else -1.0}
+    out = projector_mean_gap(ev); out["score_gap"] = 1.0 if ev[0]["arm"] == "native" else -1.0; return out
 
 
 def test_generator_order_dependent_projector_is_detectable():
@@ -183,192 +194,317 @@ def test_generator_dead_arm_keeps_counts():
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-# 2. API tests (skip until the module exists). Spec construction goes through one helper so a rename costs one edit.
+# 2. API tests against Codex's modules.  Spec construction goes through one helper.
 # ----------------------------------------------------------------------------------------------------------------------
 
-def _spec(api, tmp_path, rows, calls, *, predicates=None, arms=None, science_names=("pred_a_instrument", "score_gap")):
-    """Build the smallest spec the API accepts for a synthetic authority. Codex: adapt ONLY this function to the real constructors."""
-    auth_path = tmp_path / "authority.json"; auth_path.write_text(json.dumps(rows))
-    return api.build_synthetic_spec(experiment_id="redteam", rows_path=str(auth_path), calls=calls, arms=arms or [{"name": "native", "role": "native", "direction": "undirected"}, {"name": "counterfactual", "role": "counterfactual", "direction": "undirected"}],
+ARMS = [{"name": "native", "role": "native", "direction": "undirected"}, {"name": "counterfactual", "role": "counterfactual", "direction": "undirected"}]
+
+
+def _spec(workdir, rows, calls, *, predicates=None, arms=None, science_names=SCIENCE_NAMES):
+    """Build the smallest spec Codex's dataclasses accept for a synthetic authority (authority.json lives in workdir)."""
+    auth_path = workdir / api.ROWS_FILE; auth_path.write_text(json.dumps(rows))
+    return api.build_synthetic_spec(experiment_id="redteam", rows_path=str(auth_path), calls=calls, arms=arms or ARMS,
                                     predicates=predicates or [], science_names=list(science_names), projector=projector_mean_gap)
 
 
-def test_split_swap_preserving_counts_rejected(tmp_path):
-    api = _api(); rows = make_authority(); bad = attack_split_swap(rows)
-    spec = _spec(api, tmp_path, rows, make_calls(rows))
-    compiled = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
-    with _raises_with("split"):
-        api.compile_experiment(spec, authority_inputs={"rows": _canon(bad)})  # same counts, different per-split content hash
-    assert compiled.split_content_hashes["FIT"] == split_hash(rows, "FIT")
+def _compile(workdir, rows, calls, **kw):
+    return api.compile_experiment(_spec(workdir, rows, calls, **kw), authority_inputs={"rows": _canon(rows)})
 
 
-def test_arm_role_missing_rejected(tmp_path):
-    api = _api(); rows = make_authority()
-    with _raises_with("role"):
-        _spec(api, tmp_path, rows, make_calls(rows), arms=[{"name": "native"}, {"name": "counterfactual"}])
+def test_adapter_manifest_is_the_generator_schedule(workdir):
+    """Sanity: Codex's compiled manifest IS the generator's schedule, so every attack below mutates the real manifest."""
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
+    assert compiled.calls == calls
+    assert compiled.max_price == len(calls) == 10
+    assert api.validate_call_evidence(compiled, make_evidence(calls), workdir=workdir).ok
 
 
-def test_dead_arm_identical_evidence_is_hard_abort(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
-    ev = make_evidence(calls); audit = api.validate_call_evidence(compiled, ev); assert audit.ok
-    audit_bad = api.validate_call_evidence(compiled, attack_dead_arm(calls, ev))
-    assert not audit_bad.ok and any("dead" in f.lower() or "identical" in f.lower() for f in audit_bad.failures)
+# --- A2 -----------------------------------------------------------------------------------------------------------------
+
+def test_split_swap_preserving_counts_rejected(workdir):
+    rows = make_authority(); bad = attack_split_swap(rows)
+    spec = _spec(workdir, rows, make_calls(rows))
+    good = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
+    swapped = _expect_refusal(
+        lambda: api.compile_experiment(spec, authority_inputs={"rows": _canon(bad)}), ("split",),
+        missing="A2: AuthorityTableSpec pins only expected_counts/expected_total; a count-preserving FIT/SELECT swap compiled clean "
+                "(compile_authority_tables emits records_sha256 but the spec cannot pin it and nothing compares it)")
+    assert swapped is not None
+    assert good.compiled["authority"]["rows"]["counts_by_split"] == {"FIT": 12, "SELECT": 6}
 
 
-def test_call_deletion_reorder_and_batch_recompose_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
+# --- A1 -----------------------------------------------------------------------------------------------------------------
+
+def test_arm_role_missing_rejected(workdir):
+    rows = make_authority()
+    _expect_refusal(lambda: _spec(workdir, rows, make_calls(rows), arms=[{"name": "native"}, {"name": "counterfactual"}]), ("role",),
+                    missing="A1: CallFamilySpec.arms is tuple[str, ...]; there is no ArmSpec(role, direction), so a spec whose arms "
+                            "declare no counterfactual/native role validated clean and the contract hash covers arm NAMES only")
+
+
+def test_dead_arm_identical_evidence_is_hard_abort(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
+    ev = make_evidence(calls); audit = api.validate_call_evidence(compiled, ev, workdir=workdir); assert audit.ok, audit.failures
+    audit_bad = api.validate_call_evidence(compiled, attack_dead_arm(calls, ev), workdir=workdir)
+    assert not audit_bad.ok and any("dead" in f.lower() or "identical" in f.lower() for f in audit_bad.failures), (
+        "A1: no Codex validator compares retained evidence ACROSS arms of one call family; a counterfactual arm whose margins are "
+        f"byte-identical to the native arm audited clean (checks run: {sorted(set(c.split('[')[0] for c in audit_bad.checks))})")
+
+
+# --- A6 / A9 ------------------------------------------------------------------------------------------------------------
+
+def test_call_deletion_reorder_and_batch_recompose_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
     for attack in (attack_call_delete, attack_call_reorder, attack_batch_recompose):
         ev = make_evidence(attack(calls))
-        assert not api.validate_call_evidence(compiled, ev).ok, attack.__name__
+        audit = api.validate_call_evidence(compiled, ev, workdir=workdir)
+        assert not audit.ok, attack.__name__
+        assert any("prefix" in f or "census" in f for f in audit.failures), (attack.__name__, audit.failures)
 
 
-def test_batch_composition_in_contract_hash(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    c1 = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
-    c2 = api.compile_experiment(_spec(api, tmp_path, rows, attack_batch_recompose(calls)), authority_inputs={"rows": _canon(rows)})
+def test_batch_composition_in_contract_hash(workdir):
+    """A9: the ordered call->rows map must be inside the contract hash; a recomposition with identical price must change it,
+    and an observed recomposed schedule must be refused as evidence."""
+    rows = make_authority(); calls = make_calls(rows)
+    c1 = _compile(workdir, rows, calls)
+    c2 = api.rebind_manifest(c1, attack_batch_recompose(calls))
     assert c1.contract_hash != c2.contract_hash and c1.max_price == c2.max_price
+    assert c1.compiled["call_summary"]["manifest_sha256"] != c2.compiled["call_summary"]["manifest_sha256"]
+    assert c1.compiled["call_summary"]["shape_counts"] == c2.compiled["call_summary"]["shape_counts"]
+    # a runtime option cannot re-batch: the compiled manifest is a pure function of (spec, records)
+    again = _compile(workdir, rows, calls)
+    assert again.contract_hash == c1.contract_hash
+    assert not api.validate_call_evidence(c1, make_evidence(attack_batch_recompose(calls)), workdir=workdir).ok
 
 
-def test_nonfinite_in_nonfinal_call_hard_aborts(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
-    bad_mid = make_evidence(calls, nonfinite_at=(1, 0))
-    audit = api.validate_call_evidence(compiled, bad_mid)
-    assert not audit.ok and audit.terminal == "hard_abort"
-    last = len(calls) - 1; bad_last = make_evidence(calls, nonfinite_at=(last, 0))
-    audit2 = api.validate_call_evidence(compiled, bad_last)
-    assert audit2.terminal in ("hard_abort", "final_nonfinite_diagnostic")   # policy decides; never 'ok'
+# --- A3 -----------------------------------------------------------------------------------------------------------------
+
+def test_nonfinite_in_nonfinal_call_hard_aborts(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
+    last = len(calls) - 1
+    audit_last = api.validate_call_evidence(compiled, make_evidence(calls, nonfinite_at=(last, 0)), workdir=workdir)
+    assert audit_last.terminal in ("hard_abort", "final_nonfinite_diagnostic"), audit_last   # policy decides; never 'ok'
+    audit_mid = api.validate_call_evidence(compiled, make_evidence(calls, nonfinite_at=(1, 0)), workdir=workdir)
+    assert not audit_mid.ok and audit_mid.terminal == "hard_abort", (
+        "A3: a NaN in NON-FINAL call 1 (final call finite) audited clean. Codex's validate_nonfinite_masks is scoped to ONE call "
+        "directory under the run's terminal predicate; ArraySpec.finite_policy='final_nonfinite_diagnostic' is declared but read by "
+        f"no module, and no invariant requires every earlier call to be finite. audit={audit_mid}")
 
 
-def test_instrument_failure_dominates_science_success(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
+# --- A4 -----------------------------------------------------------------------------------------------------------------
+
+def test_instrument_failure_dominates_science_success(workdir):
+    rows = make_authority(); calls = make_calls(rows)
     preds = [{"predicate_id": "instrument_margin_bound", "kind": "instrument", "evaluator": lambda ev: all(abs(e["margin"]) < 1e-9 for e in ev), "disposition": "hard_abort"}]
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls, predicates=preds), authority_inputs={"rows": _canon(rows)})
+    compiled = _compile(workdir, rows, calls, predicates=preds)
     ev = make_evidence(calls)                          # science would be a clean positive gap; the instrument bound FAILS
+    assert not preds[0]["evaluator"](ev)
     pkg = api.project_result(compiled, api.package_evidence(compiled, ev))
-    assert pkg.terminal == "hard_abort" and pkg.scores.get("score_gap") is None or pkg.terminal == "hard_abort"
+    assert pkg.predicates_evaluated and pkg.terminal == "hard_abort" and pkg.scores.get("score_gap") is None, (
+        "A4: PredicateSpec carries evaluator_role (a string) and an int priority; no Codex module evaluates a predicate or resolves "
+        "a terminal from predicate_order, so a FAILING registered instrument bound cannot dominate the science projection "
+        f"(predicate_order={compiled.compiled['predicate_order']}, terminal={pkg.terminal!r}, score_gap={pkg.scores.get('score_gap')})")
 
 
-def test_science_priority_above_instrument_rejected_at_compile(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
+def test_science_priority_above_instrument_rejected_at_compile(workdir):
+    rows = make_authority(); calls = make_calls(rows)
     preds = [{"predicate_id": "instrument_x", "kind": "instrument", "priority": 5, "evaluator": lambda ev: True, "disposition": "hard_abort"},
              {"predicate_id": "science_y", "kind": "science", "priority": 1, "evaluator": lambda ev: True, "disposition": "diagnostic"}]
-    with _raises_with("priority"):
-        api.compile_experiment(_spec(api, tmp_path, rows, calls, predicates=preds), authority_inputs={"rows": _canon(rows)})
+    _expect_refusal(lambda: _compile(workdir, rows, calls, predicates=preds), ("priority",),
+                    missing="A4: PredicateSpec has no kind (instrument < authority < evidence < science); priority is a bare int and "
+                            "predicate_order a bare sort, so a science predicate at priority 1 above an instrument predicate at 5 compiled clean")
 
 
-def test_projector_depends_on_evidence_order_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    spec = _spec(api, tmp_path, rows, calls); spec = api.with_projector(spec, projector_order_dependent)
+# --- A5 -----------------------------------------------------------------------------------------------------------------
+
+def test_projector_depends_on_evidence_order_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    spec = api.with_projector(_spec(workdir, rows, calls), projector_order_dependent)
     compiled = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
-    with _raises_with("pure"):
-        api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls)))
+    _expect_refusal(lambda: api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls))), ("pure",),
+                    missing="A5: validate_science_projection recomputes the projector ONCE on the saved evidence order; an "
+                            "order-dependent projector reproduces its own output and is accepted (no permutation/sandbox purity check)")
 
 
-def test_projector_reads_environment_rejected(tmp_path, monkeypatch):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
+def test_projector_reads_environment_rejected(workdir, monkeypatch):
+    rows = make_authority(); calls = make_calls(rows)
     def leaky(ev):
-        return {"pred_a_instrument": True, "score_gap": float(len(os.environ.get("REDTEAM_LEAK", "")))}
+        out = projector_mean_gap(ev); out["score_gap"] = float(len(os.environ.get("REDTEAM_LEAK", ""))); return out
     monkeypatch.setenv("REDTEAM_LEAK", "x")
-    spec = api.with_projector(_spec(api, tmp_path, rows, calls), leaky)
+    spec = api.with_projector(_spec(workdir, rows, calls), leaky)
     compiled = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
-    with _raises_with("pure"):
-        api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls)))
+    _expect_refusal(lambda: api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls))), ("pure",),
+                    missing="A5: the projector runs in the producer's own process/environment; one that reads os.environ reproduces "
+                            "its own output under validate_science_projection and is accepted (no frozen-env sandbox)")
 
 
-def test_primitive_moved_between_calls_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
-    assert not api.validate_call_evidence(compiled, attack_move_primitive(make_evidence(calls))).ok
+# --- A6 -----------------------------------------------------------------------------------------------------------------
+
+def test_primitive_moved_between_calls_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
+    audit = api.validate_call_evidence(compiled, attack_move_primitive(make_evidence(calls)), workdir=workdir)
+    assert not audit.ok and any("prefix" in f for f in audit.failures), audit
 
 
-def test_summary_mutation_without_primitive_change_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
+def test_summary_mutation_without_primitive_change_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
     pkg = api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls)))
-    tampered = api.load_package(api.dump_package(pkg)); tampered.scores["score_gap"] += 0.5
-    with _raises_with("regenerat"):
-        api.verify_package(compiled, tampered)
+    target = workdir / "pkg"; target.mkdir()
+    paths = api.dump_package(pkg, target=target)
+    result = api.load_package(paths)
+    result["projection"]["score_gap"] += 0.5                      # hand-picked summary; primitives untouched
+    paths.result.write_bytes(api.canon(result) + b"\n")
+    _expect_refusal(lambda: api.verify_package(compiled, paths), ("binding",),
+                    missing="A6: a tampered result.json passed validate_complete_package (receipt binding)")
+    api.resign_receipt(paths)                                     # attacker with write access re-signs the receipt
+    api.load_package(paths)                                       # now internally consistent ...
+    _expect_refusal(lambda: api.verify_package(compiled, paths), ("regenerat", "differs from primitive evidence"),
+                    missing="A6: a re-signed package with a mutated summary and unchanged primitives verified clean")
 
 
-def test_literal_final_batch_requires_physical_width(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    for c in calls:
-        c["physical_width"] = None
-    with _raises_with("width"):
-        api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
+# --- A7 -----------------------------------------------------------------------------------------------------------------
+
+def test_literal_final_batch_requires_physical_width(workdir):
+    """Codex cannot express a family without a literal width: every compiled call carries int logical_batch_size and
+    padded_sequence_length, records without a token sequence do not compile, and an observed record with a symbolic width
+    is not a literal prefix."""
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
+    for call in compiled.manifest:
+        assert type(call["logical_batch_size"]) is int and type(call["padded_sequence_length"]) is int, call
+    assert compiled.manifest[-1]["logical_batch_size"] == 2 and compiled.compiled["call_summary"]["shape_counts"] == {"2x8": 2, "4x8": 8}
+    widthless = copy.deepcopy(rows); widthless[0]["ids"] = []
+    _expect_refusal(lambda: _compile(workdir, widthless, calls), ("token sequence", "width"),
+                    missing="A7: a record with no token sequence compiled to a call with no literal width")
+    observed = copy.deepcopy(compiled.manifest); observed[-1]["padded_sequence_length"] = None
+    with pytest.raises(cap.PackageError, match="prefix"):
+        cap.validate_call_prefix(compiled.manifest, observed, [cap.call_directory_name(i, c["call_id"]) for i, c in enumerate(observed)])
 
 
-def test_forward_request_width_drift_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
+def test_forward_request_width_drift_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
     ev = make_evidence(calls)
-    drift = copy.deepcopy(calls); drift[-1]["physical_width"] = 8       # padded tail instead of the literal last batch
+    drift = copy.deepcopy(calls); drift[-1]["physical_width"] = 8       # padded tail instead of the literal last batch (2 rows)
     ev[-1]["request_sha"] = _sha(_canon([drift[-1]["call_id"], drift[-1]["rows"], 8]))
-    assert not api.validate_call_evidence(compiled, ev).ok
+    audit = api.validate_call_evidence(compiled, ev, workdir=workdir, physical_pad={drift[-1]["call_id"]: 8})
+    assert not audit.ok, (
+        "A7: the final call's saved array has 8 rows against a compiled logical_batch_size of 2 and audited clean. "
+        "shape_validation_mode is a policy STRING nothing enforces; no Codex validator compares saved evidence array shapes to the "
+        "compiled (logical_batch_size, padded_sequence_length) and no forward-request hash is bound to the primitives. "
+        f"checks={sorted(set(c.split('[')[0] for c in audit.checks))}")
 
 
-def test_diagnostic_named_like_science_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
+# --- A8 -----------------------------------------------------------------------------------------------------------------
+
+def test_diagnostic_named_like_science_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
     preds = [{"predicate_id": "pred_b_looks_like_science", "kind": "evidence", "evaluator": lambda ev: True, "disposition": "diagnostic"}]
-    with _raises_with("pred_"):
-        api.compile_experiment(_spec(api, tmp_path, rows, calls, predicates=preds), authority_inputs={"rows": _canon(rows)})
+    _expect_refusal(lambda: _compile(workdir, rows, calls, predicates=preds), ("pred_",),
+                    missing="A8: predicate_id is unconstrained; a DIAGNOSTIC named 'pred_b_looks_like_science' compiled clean next to "
+                            "ScienceProjectionSpec.output_types, and ops/gate.py scores 'pred_*' keys by NAME")
 
 
-def test_prereg_tamper_after_compile_rejected(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    prereg = tmp_path / "PREREG.md"; prereg.write_text("# prereg\n")
-    spec = api.with_artifact(_spec(api, tmp_path, rows, calls), role="prereg", path=str(prereg), sha256=_sha(prereg.read_bytes()), kind="prereg")
+# --- B2 -----------------------------------------------------------------------------------------------------------------
+
+def test_prereg_tamper_after_compile_rejected(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    prereg = workdir / "PREREG.md"; prereg.write_text("# prereg\n")
+    spec = api.with_artifact(_spec(workdir, rows, calls), role="prereg", path=str(prereg), sha256=_sha(prereg.read_bytes()), kind="prereg")
     compiled = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
+    assert api.begin_run(compiled)["prereg"] == b"# prereg\n"
     prereg.write_text("# prereg (edited after compile)\n")
-    with _raises_with("hash"):
-        api.begin_run(compiled)      # the runtime re-verifies every non-outcome artifact before the first forward request
+    _expect_refusal(lambda: api.begin_run(compiled), ("hash", "sha", "frozen artifact changed"),
+                    missing="B2: the runtime did not re-verify a non-outcome artifact before the first forward request")
 
 
-def test_managed_dryrun_touches_no_outcome_and_no_model(tmp_path, monkeypatch, capsys):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    outcome = tmp_path / "prior_results.json"; outcome.write_text(json.dumps({"preds": {"pred_a_instrument": True}}))
-    spec = api.with_artifact(_spec(api, tmp_path, rows, calls), role="prior", path=str(outcome), sha256=_sha(outcome.read_bytes()), kind="outcome")
-    spec_path = tmp_path / "spec.json"; spec_path.write_text(api.dump_spec(spec))
+# --- B1 -----------------------------------------------------------------------------------------------------------------
+
+def test_managed_dryrun_touches_no_outcome_and_no_model(workdir, monkeypatch, capsys):
+    rows = make_authority(); calls = make_calls(rows)
+    outcome = workdir / "prior_results.json"; outcome.write_text(json.dumps({"preds": {"pred_a_instrument": True}}))
+    # declared sha deliberately WRONG: any dry-run path that hashes the outcome must fail loudly, not just be spied on
+    wrong_sha = "f" * 64
+    spec = api.with_artifact(_spec(workdir, rows, calls), role="prior", path=str(outcome), sha256=wrong_sha, kind="outcome")
+    spec_path = workdir / api.SPEC_FILE; spec_path.write_text(api.dump_spec(spec))
     opened = []
-    real_open = open
-    def spy(f, *a, **k):
-        opened.append(str(f)); return real_open(f, *a, **k)
-    monkeypatch.setattr("builtins.open", spy)
-    monkeypatch.setitem(__import__("sys").modules, "torch", None)      # any `import torch` raises ImportError during dry run
+    real_io_open, real_os_open = io.open, os.open
+    def spy_io(f, *a, **k):
+        opened.append(str(f)); return real_io_open(f, *a, **k)
+    def spy_os(p, *a, **k):
+        opened.append(str(p)); return real_os_open(p, *a, **k)
+    monkeypatch.setattr("builtins.open", spy_io); monkeypatch.setattr(io, "open", spy_io); monkeypatch.setattr(os, "open", spy_os)
+    monkeypatch.setitem(sys.modules, "torch", None)      # any `import torch` raises ImportError during dry run
     with pytest.raises(SystemExit) as ex:
         api.managed_main(spec_path, {"BQLIB_DRYRUN": "1", "BQLIB_NO_MODEL": "1"})
-    assert ex.value.code in (0, None)
     out = capsys.readouterr().out.strip().splitlines()[-1]
+    assert ex.value.code in (0, None), out
     assert json.loads(out)["status"] == "dry_run_passed"
-    assert str(outcome) not in opened, "dry run opened an outcome-bearing artifact"
+    assert str(outcome) not in opened and not any(p.endswith("prior_results.json") for p in opened), "dry run opened an outcome-bearing artifact"
+    assert sys.modules.get("torch") is None
+    # the SCIENCE branch must verify the same artifact and refuse the wrong sha before importing the producer
+    monkeypatch.undo()
+    with pytest.raises(SystemExit) as ex2:
+        api.managed_main(spec_path, {})
+    assert ex2.value.code == 1 and "frozen artifact changed: prior" in capsys.readouterr().out
 
 
-def test_generated_entry_passes_ops_gate(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    entry = tmp_path / "redteam_entry.py"; entry.write_text(api.render_managed_entry(_spec(api, tmp_path, rows, calls)))
-    import subprocess, sys
+def test_generated_entry_passes_ops_gate(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    entry = workdir / "redteam_entry.py"; entry.write_text(api.render_managed_entry(_spec(workdir, rows, calls)))
     gate = pathlib.Path(__file__).with_name("gate.py")
     r = subprocess.run([sys.executable, str(gate), str(entry)], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
+    env = dict(os.environ, PYTHONPATH=str(pathlib.Path(__file__).parent), BQLIB_DRYRUN="1", BQLIB_NO_MODEL="1")
+    run = subprocess.run([sys.executable, str(entry)], capture_output=True, text=True, env=env, cwd=str(workdir))
+    assert run.returncode == 0 and json.loads(run.stdout.strip().splitlines()[-1])["status"] == "dry_run_passed", run.stdout + run.stderr
 
 
-def test_stage_dir_same_filesystem_as_target(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
-    pkg = api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls)))
-    target = tmp_path / "out"; target.mkdir()
+# --- B4 / post-publication --------------------------------------------------------------------------------------------
+
+def test_stage_dir_same_filesystem_as_target(workdir):
+    target = workdir / "out"; target.mkdir()
     stage = api.stage_dir_for(target)
     assert os.stat(stage).st_dev == os.stat(target).st_dev
+    assert stage.parent == target, "stage must live beside its target (a default tempfile.mkdtemp() lands in /tmp)"
 
 
-def test_publish_refuses_complete_outcome(tmp_path):
-    api = _api(); rows = make_authority(); calls = make_calls(rows)
-    compiled = api.compile_experiment(_spec(api, tmp_path, rows, calls), authority_inputs={"rows": _canon(rows)})
+def test_publish_refuses_complete_outcome(workdir):
+    rows = make_authority(); calls = make_calls(rows)
+    compiled = _compile(workdir, rows, calls)
     pkg = api.project_result(compiled, api.package_evidence(compiled, make_evidence(calls)))
-    target = tmp_path / "out"; target.mkdir()
-    api.stage_and_publish(compiled, pkg, target=target)
-    with _raises_with("complete"):
-        api.stage_and_publish(compiled, pkg, target=target)      # a post-publication adapter return must not republish
+    target = workdir / "out"; target.mkdir()
+    paths = api.stage_and_publish(compiled, pkg, target=target)
+    receipt_before = paths.receipt.read_bytes()
+    _expect_refusal(lambda: api.stage_and_publish(compiled, pkg, target=target), ("complete", "occupied"),
+                    missing="post-publication: a second publish over a complete package succeeded")
+    assert paths.receipt.read_bytes() == receipt_before and api.load_package(paths)["projection"] == pkg.scores
+    (workdir / "elsewhere").mkdir()
+    stale = cap.stage_package(api.package_paths(workdir / "elsewhere", "redteam"), evidence_files={}, result={})
+    with pytest.raises(cap.PackageError, match="complete"):
+        cap.recover_stale_publication(stale, paths)
+
+
+def test_ordinary_successful_producer_return_exits_zero(workdir, capsys):
+    """Regression for R590: the managed wrapper raised after the producer had published and returned normally."""
+    rows = make_authority(); calls = make_calls(rows)
+    spec_path = workdir / api.SPEC_FILE; spec_path.write_text(api.dump_spec(_spec(workdir, rows, calls)))
+    with pytest.raises(SystemExit) as ex:
+        api.managed_main(spec_path, {})                     # science branch: producer publishes, then RETURNS
+    out = capsys.readouterr().out.strip().splitlines()[-1]
+    assert ex.value.code == 0, out
+    report = json.loads(out); assert report["status"] == "published"
+    paths = api.package_paths(workdir / "out", "redteam")
+    result = api.load_package(paths)
+    assert result["contract_hash"] == report["contract_hash"]
+    # dispatch itself returned the producer's value rather than raising after the publish
+    synth = api.load_spec(spec_path)
+    value = managed.dispatch(synth.spec, base_dir=synth.base_dir, bindings=(managed.ModuleBinding("producer", "redteam_regression_direct"),),
+                             producer_role="producer", environment={"BQLIB_DRYRUN": "1"})
+    assert value["status"] == "dry_run_passed"
