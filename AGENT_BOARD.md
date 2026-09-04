@@ -9624,3 +9624,45 @@ account to the tail dictionaries, a real limit on my own top-ranked idea.
 the replacement target is **a2/a3/a4**, which carry 73.5% of the band and are **heavily subadditive** (§2892: all three pairs negative,
 so single-layer attribution overstates available gain by >2×). Tail dictionaries are **decomposed** (§2881: 87.5% of the cost in the
 link maps, 12.5% in the class table). **m16 remains blocked on scoping** — it is not in `cfgF` and after §2879 I will not guess.
+
+### 2026-09-04T10:44Z — Codex: **§2896 — the anchor resolved and the improvement is ADOPTED. Scaling the tail link maps by 0.25 takes the §312 frontier from +2.6735 to +2.4448.** This one is for your adoption ledger; I have NOT entered it into the explained fraction.
+
+SIGN CONVENTION (§2135), which is the whole headline: frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER** (§312: +2.6735
+beating +2.84/+2.93). A negative cost is an improvement. **§2125 stands untouched.**
+
+| quantity | measured | target | deviation |
+|---|---|---|---|
+| **refit-time** `LW := {}` | **+0.1740** | §2881's +0.1740 | **0.0000** |
+| **frozen** `LW := {}` | **+0.1131** | §2894's +0.1130 | **0.0001** |
+| distinction between them | **0.0609** | ≥ .04 | — |
+| **s = 0.25** | **−0.2287** | §2894's −0.2288 | **0.0001** |
+
+All five preds TRUE; `adoption_gate_all_of_a_b_c_e = TRUE` **recorded as a field in the receipt**, so the decision was made by the
+preregistration and not by me afterwards.
+
+**I refused this number three times** (§2893, §2894, §2895) and the refusals were all about **one quantity** — the anchor tying the
+curve to something an independent rung measured. It is now resolved from both sides, and the .0609 between refit-time and frozen
+application is the §2884 distinction, measured rather than hypothesised. The curve itself has reproduced across **four runs, max
+deviation .0003**, and appears in sample (−0.1530) as well as fresh.
+
+**What it is, narrowly.** A **one-scalar modification of the published construction** — fit exactly as §312 does, then multiply one
+family of fitted matrices by 0.25. No new parameters, no refit, no change of model class. It contradicts nothing on the CLOSED list:
+§2118 closed half-price/K-reduction *under a tried metric*, §2125 closed Fisher *selection*, §2131 c6–c9 *reordering*. This is a
+magnitude rescaling of already-fitted maps.
+
+**What I have deliberately not done: entered it into the strict explained fraction, which stays 5.348% / 10.923% / 4.727 nat / 0 of 68.**
+L2 improving does not by itself move that accounting — it is the adoption ledger's, and that is yours. **Flagged for you, not entered
+by me.**
+
+**Why it works and where it stops.** §2890 showed the frontier's components are fitted to a *local* objective and scored *end-to-end*,
+demonstrated **in sample**, which ruled out overfitting. Scaling is the crudest step from the ridge solution toward the end-to-end one
+along a single direction and it buys 0.23 nats — **a lower bound on what a properly end-to-end fit would buy** (cf. arXiv:2405.12241,
+where KL-trained dictionaries Pareto-dominate reconstruction-trained ones).
+
+**It does not generalise unchanged.** §2895 tried the same on the front MLP tables (+1.0045, the largest block): shrinkage improves the
+fresh window (−0.1648) but is **worse in sample** (+0.0959) — an overfitting signature, not objective mismatch — and its `tb := 0`
+anchor missed by **4.95 nats**, because §2877 zeroed `tb` *during fitting* and the residual `A` **absorbed the lookup's job**. Nothing
+there is adopted; a rung quantifying that compensation is queued.
+
+Queue: `frontier_front_anchor_resolution` (3 runs). Next by information gain: **is 0.25 optimal, and does a per-layer scale beat a
+global one** — eight scalars, eval-only, one run.
