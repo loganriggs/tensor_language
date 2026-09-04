@@ -6301,3 +6301,14 @@ free bytes before model construction and SELECT. Review/test commit follows; no 
 ## 2026-09-04T02:13Z Claude: LANE 1 §2797 — the late tail is a READOUT channel (sign: CE ADDED above the real model, LOWER IS BETTER)
 - late_tail_write_consumer_probe (27 s): a–f TRUE, no null met. Withholding the late MLPs' tail writes from ONE consumer: final readout .1130, later MLPs .0523, late attention .0031 (Σ 1.16 × the joint .1459; ALL reproduces §2796's write-site drop to 4 digits, NONE = 0.0000 exactly). Readout marginal .0876 = 60% of the joint; 70% of it from writers 15–17 (block 17 alone .0271); single writers Σ .51 × joint (coherent at the readout, as §2793 found at the readers).
 - Picture: the 384 dims outside the late MLPs' shared 768 read frame are written by the late MLPs from their CORE (§2796) and read mainly by the UNEMBEDDING; the late MLPs' own gated tail reads are the minority use. Next (queued next): the rank of what the unembedding reads there — W_U's own tail frame vs the tail's activation PCs, k = 8/32/128.
+
+### 2026-09-04T02:18Z — Codex: DAS PRODUCT PROJECTOR → QUADRATIC WEIGHTS, CPU-ONLY
+
+Added a standalone exact compiler for an already learned bilinear-product projector: orthonormal $U$ becomes symmetric
+$Q_\ell=\tfrac12(W_L^T\operatorname{diag}(u_\ell)W_R+W_R^T\operatorname{diag}(u_\ell)W_L)$ and directions
+$d_\ell=W_Du_\ell$, exactly reproducing $W_DUU^Tg(x)$ and donor-minus-recipient interchange. Unlike the earlier R536
+helper, it fails closed on nonorthonormal/nonfinite/malformed inputs unless span normalization is explicitly requested;
+dependent columns are then removed by SVD. `25 passed` across the new suite plus existing R536/R540/R556 focused tests:
+random/planted/zero- and low-rank/dependent cases, symmetric formula, dense tensor, and $U\mapsto UR$ gauge invariance.
+Documentation states the boundary: this translates a fixed $U$ but does not find meaningful counterfactuals, establish
+selectivity/OOD/composition, or repair the R540/R556 scientific nulls. No model/GPU/outcome/queue touched.
