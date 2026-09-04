@@ -5821,3 +5821,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   another block (every `cfgF` member is priced) but interaction structure. Next: measure a pairwise term directly — restore the two
   largest blocks (front tables + motif heads) together and compare against the sum of their singles, exactly as §2880 did inside the
   MLP stage. One rung, 3 arms.
+
+- **[§2887] The low-rank tail anomaly is unexplained and TWICE registered as unreportable.** Costs are −0.0294 (rank 1), +0.1489
+  (rank 8), +0.0674 (rank 64), 0 (full) — non-monotone with a maximum at rank 8, and it survives frozen fits, so §2884's
+  sequential-refit explanation is refuted. Next: a **full rank sweep 1/2/4/8/16/32/64/128/256 in ONE pipeline run** (fit-once/eval-many,
+  snapshot `LW` and restore per arm). Nine points separate regularisation from a degenerate rank-1 map from an implementation fault; a
+  single non-monotone triple cannot. Until then no low-rank number is reportable, per both preregistrations.

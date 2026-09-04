@@ -75662,3 +75662,66 @@ hedge at **32.9%**. Any statement of the form "block X is Y% of the frontier's e
 — must be read as "X alone accounts for at least Y%", with a third of the total unassigned to any single block.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.
+
+## §2887 — THE NON-MONOTONICITY SURVIVES FROZEN FITS. MY §2884 EXPLANATION IS **REFUTED**, `b_null_still_nonmonotone` FIRED, AND BY ITS OWN REGISTRATION **NO LOW-RANK NUMBER FROM THIS FAMILY MAY BE REPORTED**
+
+Registered `polynomial_causal/FRONTIER_TAIL_LINK_LOWRANK_FROZEN_PREREGISTRATION.md` (10:02Z). Run
+`frontier_tail_link_lowrank_frozen`, landed 10:14Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_link_lowrank_frozen_results.json
+Price: 0 GPU forwards, 384.6 GPU-seconds (4 full frontier pipeline runs; `forwards_instrumented: false`, `pipeline_runs: 4` — the
+forward count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2_F(arm) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | parameters (8 tail layers) | L2_F | cost | §2884's sequential value |
+|---|---|---|---|---|
+| BASELINE (full-rank maps) | 42,467,328 | **+2.6735** | — | — |
+| rank 64 | 4,718,592 | +2.7409 | **+0.0674** | — |
+| rank 8 | 589,824 | +2.8224 | **+0.1489** | +0.1351 |
+| rank 1 | **73,728** | +2.6441 | **−0.0294** | −0.0056 |
+
+**pred_a HELD; pred_d HELD** (arms connected). **pred_e HELD** — rank 1 is cheap, at −0.0294.
+
+**pred_b FAILED and `b_null_still_nonmonotone` is MET.** The gap `cost(rank1) − cost(rank8)` is **−0.1783**: rank 1 is far *better*
+than rank 8, which cannot happen if the arms differ only in how much of a fixed matrix is retained. The 8→64 direction is correct
+(+0.0815, more rank is better), so the anomaly is specifically that **rank 1 beats everything, including the full-rank baseline**.
+
+### What this refutes — my own explanation
+
+§2884 attributed its non-monotonicity to the **sequential refit**: truncating layer 10 changes what layer 11 is fitted against, so the
+arms were three differently-fitted constructions. This rung applied the identical truncation **after** all eight refits complete, so
+every arm perturbs the same fitted stack. **The non-monotonicity is unchanged** — §2884 read −0.1407 for the 1-vs-8 gap, this reads
+**−0.1783**. **The sequential-refit hypothesis is refuted**, and §2884's stated cause is withdrawn.
+
+### What is NOT reported here, and why
+
+The preregistration said, before the run:
+
+> `b_null_still_nonmonotone` (either gap < −.05): the fix does not restore monotonicity, the sequential-refit hypothesis in §2884 is
+> wrong, and **no low-rank number from this family may be reported** until the cause is found.
+
+That null fired. So although **pred_e held** and rank 1 again looks like a 576× compression of 42.5 million parameters at negative cost,
+**it is not entered as a result** — for the second time. Two independent runs now agree on the number (−0.0056 and −0.0294) and that is
+*not* sufficient: agreement between two runs of a procedure whose behaviour is not understood is agreement about the procedure, not
+about the frontier. The bound was registered precisely to stop a number this attractive from being adopted on the strength of looking
+good twice.
+
+### What is actually unexplained
+
+The costs are **−0.0294 (rank 1), +0.1489 (rank 8), +0.0674 (rank 64), 0 (full)** — non-monotone with a maximum at rank 8. Three
+accounts survive and this rung cannot separate them:
+
+1. **Regularisation.** The fitted link maps overfit their 512-document window, and severe truncation removes variance the frontier does
+   not want. This predicts a smooth U with its optimum at low rank — but then rank 8 should sit *between* rank 1 and rank 64, not above
+   both.
+2. **A degenerate rank-1 map.** At rank 1 the within-class correction may collapse to something close to a constant offset, making the
+   layer behave like a variant the class table already handles well. §2881 measured that removing `LW` entirely costs **+0.1740**, so
+   rank 1 is not simply "nearly removed" — that direction is 0.20 nats away.
+3. **An implementation fault in the truncation** that happens to be benign at rank 1. Nothing here excludes it.
+
+**Registered next, and it is cheap now:** a full rank sweep — 1, 2, 4, 8, 16, 32, 64, 128, 256 — in **one pipeline run** using the
+fit-once/eval-many pattern (`ops/frontier_evalarms.py`), snapshotting `LW` and restoring it per arm. Nine points fix the shape and
+separate account 1 from accounts 2 and 3; a single non-monotone triple cannot.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
