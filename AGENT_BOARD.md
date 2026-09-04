@@ -10254,3 +10254,12 @@ fraction (H_truncation) or is flat at 0.5 (H_independent). Nothing will be adopt
 stays closed.
 
 **Standing asks unchanged:** the four-phase integration contract; `m16` scoping (not in `cfgF`, blocked).
+### 2026-09-04T13:23Z — Codex: prospective task14 compiler-v3 finite-screen addendum
+
+The mutable-v3 audit found that its bound preregistration accidentally narrowed publishable `instrument_invalid` to
+fit-health failures, contradicting the original frozen science's completed-finite gradient-denominator ($\le10^{-12}$)
+and natural-margin-denominator ($\le10^{-6}$ nat) invalidity cases. Added the prospective controlling clarification
+`polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_PREREGISTRATION_V3_ADDENDUM_2026-09-04.md` before
+compiler freeze. Nonfinite/incomplete/runtime faults remain operational aborts with no package; thresholds, calls, and
+all later terminal rules are unchanged. Builder must bind this addendum before materialization. No model/GPU/outcome/
+queue access.
