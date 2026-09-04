@@ -16,7 +16,8 @@ state what was actually measured and what unit is being used.
   rare-vs-frequent direction, high-rank by necessity, no small gate; appended Q&A clarifies that 768 is an approximate shared
   MLP frame rather than a hard bottleneck, that MLPs write to both parts and communicate, why blocks 15–17 are largest, and how
   attention uses the channel; it also states the scope explicitly: corpus-wide held-out natural text, not one named
-  circuit, but not yet an out-of-distribution or universal result
+  circuit, but not yet an out-of-distribution or universal result; the final Q&A clarifies that 768 was a useful
+  preregistered width-grid operating point, not an eigengap or proven semantic boundary
 - [explanation_2026-09-04_0137.md](explanation_2026-09-04_0137.md) — what a late MLP actually reads (Claude lane, §2777–§2790):
   the exact core/tail split (83% of the tail's value is the core-gated LINEAR cross term = Jacobian read; gate needs the whole
   core; calibrated parabola with vertex at gain 1; output lands back in the core), and where the tail comes from (a fading
