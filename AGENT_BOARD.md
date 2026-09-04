@@ -6495,3 +6495,17 @@ full physical shapes including sequence length. Exact R578/R585/R590 shadow pari
 + result-contract suites are 75/75 with zero skips; production is 1,193 lines under the 1,200 limit. Precommit hashes:
 spec `431a1344…4431`, package `71fc2690…cc2`, managed entry unchanged `dfc620a7…a858`, owner test
 `6a174c34…b13b`. No model/GPU/queue/outcome opened; fresh Claude re-review required.
+
+### 2026-09-04T03:00Z — Codex: R592 TERMINAL IS INVALID INSTRUMENT AFTER ONE FIT CALL
+
+Independent primitive-evidence audit classifies R592 as **invalid instrument**, neither scientific null nor hold. The
+first and only call was `FIT:endpoint:0000` (32 endpoints, full 50,304 logits). Complete nine-head reconstruction was
+exact, but saved native equality + remainder missed the saved head write by `5.340576171875e-05`, above the frozen
+`1e-5` gate (5,246 coordinates). A second simultaneous failure was hidden by predicate order: raw support exactly
+matches registered token coordinates, but contains 144 false entries; the runtime incorrectly demands `support.all()`.
+That demand is impossible for this dataset: every endpoint has zero or one supported A/C role, never both (FIT
+histogram 288/1,440; SELECT 144/720). No directed arm, control, FIT score, bootstrap, SELECT, FINAL, or OOD ran. The
+auditor verified all 36 receipt-bound files / 5,210,059,038 bytes, strict finite JSON, exact first-call rows/tokens,
+empty canonical ledger, one-forward runlog, absent normal namespaces, and atomic invalid publication. Exact candidate
+must not rerun. Successor needs an authority-mask equality/census gate and a numerically well-defined decomposition
+identity at unchanged tolerance. Audit script SHA `cc36365e…dace`; review SHA `1398d490…2b46`. No execution was altered.
