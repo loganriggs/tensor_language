@@ -46,6 +46,9 @@ TOPOLOGY_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLO
 TOPOLOGY_REVIEW_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py"
 IMPLEMENTATION_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md"
 IMPLEMENTATION_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py"
+STORAGE_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md"
+STORAGE_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md"
+STORAGE_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py"
 RUNTIME = OPS / "induction_centered_fixed_geometry_rung592_runtime.py"
 
 SOURCE_HASHES = {
@@ -61,6 +64,9 @@ SOURCE_HASHES = {
     TOPOLOGY_REVIEW_TEST: "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
     IMPLEMENTATION_BLOCK_REVIEW: "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
     IMPLEMENTATION_BLOCK_TEST: "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+    STORAGE_AMENDMENT: "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
+    STORAGE_BLOCK_REVIEW: "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
+    STORAGE_BLOCK_TEST: "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
     RUNTIME: "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
 }
 
@@ -72,6 +78,10 @@ VOCAB = 50_304
 RESIDUAL = 1_152
 PAD_TOKEN = 50_256
 TOLERANCE = 1e-5
+MINIMUM_FREE_BYTES = 9_000_000_000
+COMPLETE_CANONICAL_DATA_BYTES = 7_798_325_760
+LARGEST_CURRENT_CHUNK_DATA_BYTES = 41_671_168
+MAXIMUM_STREAMING_DATA_BYTES = 7_839_996_928
 SITES = ("L5H5", "L7H3", "L8H3", "L8H4")
 ROLES = ("A", "C")
 MACHINE_ARMS = ("replay", "score", "payload", "joint")
@@ -127,7 +137,28 @@ def sha256_bytes(data: bytes) -> str:
 
 
 def sha256_file(path: Path) -> str:
-    return sha256_bytes(path.read_bytes())
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        while block := stream.read(8 * 1024 * 1024):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def available_bytes(path: Path, *, statvfs_function=os.statvfs) -> int:
+    statistics = statvfs_function(path)
+    return int(statistics.f_bavail) * int(statistics.f_frsize)
+
+
+def require_free_space(
+    path: Path, *, minimum: int = MINIMUM_FREE_BYTES, boundary: str = "model",
+    statvfs_function=os.statvfs,
+) -> dict[str, int | str]:
+    observed = available_bytes(path, statvfs_function=statvfs_function)
+    if observed < minimum:
+        raise RuntimeError(
+            f"R592 insufficient free space before {boundary} boundary: {observed} < {minimum}"
+        )
+    return {"boundary": boundary, "available_bytes": observed, "required_free_bytes": int(minimum)}
 
 
 def content_sha256(value: object) -> str:
@@ -444,10 +475,12 @@ def phase_evidence_schema(phase: str) -> dict[str, object]:
         "token_manifest.json": {
             "records": counts["endpoint_calls"] + counts["directed_chunks"]
         },
+        "canonical_slice_ledger.jsonl": {"records": counts["calls"]},
         "instrument_gates.json": {"records": 1},
         "authority.jsonl": {"records": counts["rows"]},
         "endpoint_records.jsonl": {"records": ne},
         "endpoint_tokens.npy": {"dtype": "int64", "shape": [ne, WIDTH]},
+        "endpoint_logits.npy": {"dtype": "float32", "shape": [ne, VOCAB]},
         "factor_e.npy": {"dtype": "float32", "shape": [ne, 4, 2]},
         "factor_u.npy": {"dtype": "float32", "shape": [ne, 4, 2, RESIDUAL]},
         "support.npy": {"dtype": "bool", "shape": [ne, 4, 2]},
@@ -458,6 +491,7 @@ def phase_evidence_schema(phase: str) -> dict[str, object]:
         )},
         "directed_records.jsonl": {"records": nd},
         "directed_tokens.npy": {"dtype": "int64", "shape": [nd, WIDTH]},
+        "directed_replay_logits.npy": {"dtype": "float32", "shape": [nd, VOCAB]},
         "directed_live_e.npy": {"dtype": "float32", "shape": [nd, 4, 2]},
         "directed_live_u.npy": {"dtype": "float32", "shape": [nd, 4, 2, RESIDUAL]},
         **{f"directed_{name}": {"dtype": "float32", "shape": [nd, 4, RESIDUAL]} for name in (
@@ -532,6 +566,328 @@ def _fsync_file(path: Path) -> None:
         os.fsync(stream.fileno())
 
 
+def canonical_array_schema(bundle: Mapping[str, object]) -> dict[str, tuple[np.dtype, tuple[int, ...]]]:
+    calls = bundle["calls"]
+    endpoint_rows = sum(int(call["batch_size"]) for call in calls if call["call_kind"] == "endpoint")
+    directed_rows = sum(int(call["batch_size"]) for call in calls if call["call_kind"] == "native")
+    endpoint = {
+        "endpoint_tokens.npy": (np.dtype("<i8"), (endpoint_rows, WIDTH)),
+        "endpoint_logits.npy": (np.dtype("<f4"), (endpoint_rows, VOCAB)),
+        "factor_e.npy": (np.dtype("<f4"), (endpoint_rows, 4, 2)),
+        "factor_u.npy": (np.dtype("<f4"), (endpoint_rows, 4, 2, RESIDUAL)),
+        "support.npy": (np.dtype("bool"), (endpoint_rows, 4, 2)),
+    }
+    for name in (
+        "native_equality_term.npy", "factorized_equality_term.npy",
+        "native_non_equality_remainder.npy", "native_head_write.npy",
+        "native_full_attention_write.npy", "independent_full_native_write.npy",
+    ):
+        endpoint[name] = (np.dtype("<f4"), (endpoint_rows, 4, RESIDUAL))
+    directed = {
+        "directed_tokens.npy": (np.dtype("<i8"), (directed_rows, WIDTH)),
+        "directed_replay_logits.npy": (np.dtype("<f4"), (directed_rows, VOCAB)),
+        "directed_live_e.npy": (np.dtype("<f4"), (directed_rows, 4, 2)),
+        "directed_live_u.npy": (np.dtype("<f4"), (directed_rows, 4, 2, RESIDUAL)),
+        "hook_deltas.npy": (np.dtype("<f4"), (directed_rows, 4, 4, RESIDUAL)),
+        "logit_differences.npy": (np.dtype("<f4"), (directed_rows, 4, VOCAB)),
+    }
+    for name in (
+        "native_equality_term.npy", "factorized_equality_term.npy",
+        "native_non_equality_remainder.npy", "native_head_write.npy",
+        "native_full_attention_write.npy", "independent_full_native_write.npy",
+    ):
+        directed["directed_" + name] = (np.dtype("<f4"), (directed_rows, 4, RESIDUAL))
+    return endpoint | directed
+
+
+def canonical_slice_sha256(
+    filename: str, value: np.ndarray, start: int, stop: int, *, axis1: int | None = None,
+) -> str:
+    payload = np.ascontiguousarray(value)
+    header: dict[str, object] = {
+        "filename": filename, "dtype": str(payload.dtype), "shape": list(payload.shape),
+        "axis0": [int(start), int(stop)],
+    }
+    if axis1 is not None:
+        header["axis1"] = int(axis1)
+    return sha256_bytes(_json_bytes(header) + b"\n" + payload.tobytes(order="C"))
+
+
+class StreamingPhaseStore:
+    """Append verified calls into canonical evidence while retaining one raw chunk."""
+
+    ENDPOINT_MAP = {
+        "tokens.npy": "endpoint_tokens.npy", "logits.npy": "endpoint_logits.npy",
+        "factor_e.npy": "factor_e.npy",
+        "factor_u.npy": "factor_u.npy", "support.npy": "support.npy",
+        "native_equality_term.npy": "native_equality_term.npy",
+        "factorized_equality_term.npy": "factorized_equality_term.npy",
+        "native_non_equality_remainder.npy": "native_non_equality_remainder.npy",
+        "native_head_write.npy": "native_head_write.npy",
+        "native_full_attention_write.npy": "native_full_attention_write.npy",
+        "independent_full_native_write.npy": "independent_full_native_write.npy",
+    }
+    NATIVE_MAP = {
+        "tokens.npy": "directed_tokens.npy", "live_e.npy": "directed_live_e.npy",
+        "live_u.npy": "directed_live_u.npy",
+        "native_equality_term.npy": "directed_native_equality_term.npy",
+        "factorized_equality_term.npy": "directed_factorized_equality_term.npy",
+        "native_non_equality_remainder.npy": "directed_native_non_equality_remainder.npy",
+        "native_head_write.npy": "directed_native_head_write.npy",
+        "native_full_attention_write.npy": "directed_native_full_attention_write.npy",
+        "independent_full_native_write.npy": "directed_independent_full_native_write.npy",
+    }
+
+    def __init__(
+        self, evidence_root: Path, bundle: Mapping[str, object],
+        execution: Mapping[str, object] | None = None,
+    ) -> None:
+        self.bundle, self.phase, self.execution = bundle, str(bundle["phase"]), execution
+        self.phase_root = evidence_root / self.phase
+        self.phase_root.mkdir(parents=True, exist_ok=False)
+        self.calls_root = evidence_root / "calls"
+        self.calls_root.mkdir(parents=True, exist_ok=True)
+        self.ledger_path = self.phase_root / "canonical_slice_ledger.jsonl"
+        _write_bytes(self.ledger_path, b"")
+        self.schema = canonical_array_schema(bundle)
+        self.arrays: dict[str, np.memmap] = {}
+        for name, (dtype, shape) in self.schema.items():
+            self.arrays[name] = np.lib.format.open_memmap(
+                self.phase_root / name, mode="w+", dtype=dtype, shape=shape
+            )
+        self.endpoint_offset = 0
+        self.directed_offset = 0
+        self.ledger_records: list[dict[str, object]] = []
+        self.call_references: dict[str, dict[str, tuple[str, int, int]]] = {}
+        self.endpoint_summaries: dict[str, dict[str, object]] = {}
+        self.scientific_records: list[dict[str, object]] = []
+        self.replay_records: list[dict[str, object]] = []
+        self.endpoint_rows = {
+            str(row["endpoint_id"]): row for row in (execution or {}).get("endpoints", [])
+            if row.get("split") == self.phase
+        }
+        self.direction_rows = {
+            str(row["directed_id"]): row for row in (execution or {}).get("directions", [])
+            if row.get("split") == self.phase
+        }
+        self.needed_ids: dict[str, set[int]] = {key: set() for key in self.endpoint_rows}
+        for endpoint_id, row in self.endpoint_rows.items():
+            self.needed_ids[endpoint_id].update((int(row["answer_id"]), int(row["other_answer_id"])))
+        for row in self.direction_rows.values():
+            ids = (int(row["recipient_answer_id"]), int(row["donor_answer_id"]),
+                   int(row["recipient_other_answer_id"]))
+            self.needed_ids[str(row["recipient_endpoint_id"])].update(ids)
+            self.needed_ids[str(row["donor_endpoint_id"])].update(ids)
+
+    def _append_ledger(self, record: Mapping[str, object]) -> None:
+        with self.ledger_path.open("ab") as stream:
+            stream.write(_json_bytes(dict(record)) + b"\n")
+            stream.flush(); os.fsync(stream.fileno())
+        self.ledger_records.append(dict(record))
+
+    def _write_slice(
+        self, name: str, start: int, stop: int, value: np.ndarray, *, axis1: int | None = None,
+    ) -> dict[str, object]:
+        destination = self.arrays[name]
+        expected = destination[start:stop] if axis1 is None else destination[start:stop, axis1]
+        payload = np.ascontiguousarray(value, dtype=destination.dtype)
+        if expected.shape != payload.shape:
+            raise RuntimeError(f"canonical slice shape changed for {name}: {payload.shape} != {expected.shape}")
+        expected[...] = payload
+        destination.flush()
+        path = self.phase_root / name
+        _fsync_file(path)
+        observed = np.ascontiguousarray(
+            destination[start:stop] if axis1 is None else destination[start:stop, axis1]
+        )
+        if not np.array_equal(observed, payload, equal_nan=True):
+            raise RuntimeError(f"canonical slice readback changed for {name}")
+        descriptor: dict[str, object] = {
+            "filename": f"{self.phase}/{name}", "axis0": [start, stop],
+            "dtype": str(observed.dtype), "shape": list(observed.shape),
+            "sha256": canonical_slice_sha256(f"{self.phase}/{name}", observed, start, stop, axis1=axis1),
+        }
+        if axis1 is not None:
+            descriptor["axis1"] = axis1
+        return descriptor
+
+    def _canonical_record(
+        self, call: Mapping[str, object], descriptors: Sequence[Mapping[str, object]],
+    ) -> dict[str, object]:
+        return {**dict(call), "storage": "canonical_slices",
+                "canonical_slices": [dict(value) for value in descriptors]}
+
+    def ingest_endpoint(
+        self, call: Mapping[str, object], arrays: Mapping[str, np.ndarray], raw_directory: Path,
+    ) -> dict[str, object]:
+        start, stop = self.endpoint_offset, self.endpoint_offset + int(call["batch_size"])
+        descriptors = [
+            self._write_slice(canonical, start, stop, arrays[raw])
+            for raw, canonical in self.ENDPOINT_MAP.items()
+        ]
+        if self.execution is not None:
+            for local, endpoint_id_value in enumerate(call["authority_row_ids"]):
+                endpoint_id = str(endpoint_id_value)
+                logits = np.asarray(arrays["logits.npy"][local], dtype=np.float64)
+                maximum = float(np.max(logits))
+                summary = {
+                    "log_normalizer": maximum + math.log(float(np.exp(logits - maximum).sum())),
+                    "logits": {str(index): float(logits[index]) for index in sorted(self.needed_ids[endpoint_id])},
+                }
+                self.endpoint_summaries[endpoint_id] = summary
+        self.call_references[str(call["call_id"])] = {
+            raw: (canonical, start, stop) for raw, canonical in self.ENDPOINT_MAP.items()
+        }
+        record = self._canonical_record(call, descriptors)
+        self._append_ledger(record)
+        self.endpoint_offset = stop
+        shutil.rmtree(raw_directory)
+        return record
+
+    def reference(self, call_id: str) -> dict[str, object]:
+        return {"canonical_store": self, "call_id": call_id}
+
+    def load_reference(self, call_id: str) -> dict[str, np.ndarray]:
+        result = {}
+        for raw, (canonical, start, stop) in self.call_references[call_id].items():
+            result[raw] = np.asarray(self.arrays[canonical][start:stop])
+        return result
+
+    @staticmethod
+    def _summary_measurement(summary: Mapping[str, object], answer: int, other: int) -> dict[str, float]:
+        logits = summary["logits"]
+        answer_logit, other_logit = float(logits[str(answer)]), float(logits[str(other)])
+        return {
+            "answer_logit": answer_logit, "other_logit": other_logit,
+            "correct_margin": answer_logit - other_logit,
+            "log_normalizer": float(summary["log_normalizer"]),
+            "correct_ce": float(summary["log_normalizer"]) - answer_logit,
+        }
+
+    def _derive_chunk_records(
+        self, calls_and_arrays: Sequence[tuple[Mapping[str, object], Mapping[str, np.ndarray], Path]],
+    ) -> list[dict[str, object]]:
+        if self.execution is None:
+            return []
+        by_kind = {str(call["call_kind"]): arrays for call, arrays, _path in calls_and_arrays}
+        native_call = calls_and_arrays[0][0]
+        records = []
+        for local, directed_id_value in enumerate(native_call["direction_ids"]):
+            row = self.direction_rows[str(directed_id_value)]
+            recipient_summary = self.endpoint_summaries[str(row["recipient_endpoint_id"])]
+            donor_summary = self.endpoint_summaries[str(row["donor_endpoint_id"])]
+            replay_logits = by_kind["replay"]["logits.npy"][local]
+            native_logits = by_kind["native"]["logits.npy"][local]
+            recipient_answer, donor_answer = int(row["recipient_answer_id"]), int(row["donor_answer_id"])
+            other = int(row["recipient_other_answer_id"])
+            replay_measure = _measurement(replay_logits, recipient_answer, other)
+            self.replay_records.append({
+                "directed_id": str(directed_id_value),
+                "native_measurement": _measurement(native_logits, recipient_answer, other),
+                "replay_measurement": replay_measure,
+            })
+            for arm in ("score", "payload", "joint"):
+                arm_arrays = by_kind[arm]
+                logits = arm_arrays["logits.npy"][local]
+                measure = _measurement(logits, recipient_answer, other)
+                if bool(row["answer_changes"]):
+                    m_i = float(logits[donor_answer] - logits[recipient_answer])
+                    m_r = float(replay_logits[donor_answer] - replay_logits[recipient_answer])
+                    m_d = float(
+                        np.float32(donor_summary["logits"][str(donor_answer)])
+                        - np.float32(donor_summary["logits"][str(recipient_answer)])
+                    )
+                    m_x = float(
+                        np.float32(recipient_summary["logits"][str(donor_answer)])
+                        - np.float32(recipient_summary["logits"][str(recipient_answer)])
+                    )
+                    n_value, d_value = m_i - m_r, m_d - m_x
+                    q_value = (
+                        _measurement(replay_logits, donor_answer, recipient_answer)["correct_ce"]
+                        - _measurement(logits, donor_answer, recipient_answer)["correct_ce"]
+                    )
+                else:
+                    sign = int(row["donor_coherence_sign"] or 1)
+                    n_value = sign * (measure["correct_margin"] - replay_measure["correct_margin"])
+                    donor_measure = self._summary_measurement(donor_summary, recipient_answer, other)
+                    recipient_measure = self._summary_measurement(recipient_summary, recipient_answer, other)
+                    d_value = sign * (donor_measure["correct_margin"] - recipient_measure["correct_margin"])
+                    q_value = sign * (replay_measure["correct_ce"] - measure["correct_ce"])
+                difference = logits.astype(np.float64) - replay_logits.astype(np.float64)
+                actual = arm_arrays["hook_deltas.npy"][local]
+                records.append({
+                    **{key: row[key] for key in (
+                        "split", "directed_id", "row_id", "group_id", "family", "variant",
+                        "recipient_condition", "direction", "control_kind", "answer_changes",
+                    )},
+                    "arm": arm, "recipient_endpoint_id": row["recipient_endpoint_id"],
+                    "donor_endpoint_id": row["donor_endpoint_id"],
+                    "recipient_answer_id": recipient_answer, "donor_answer_id": donor_answer,
+                    "other_answer_id": other,
+                    "replay_correct_margin": replay_measure["correct_margin"],
+                    "correct_margin": measure["correct_margin"],
+                    "replay_correct_ce": replay_measure["correct_ce"], "correct_ce": measure["correct_ce"],
+                    "answer_logit": measure["answer_logit"], "other_logit": measure["other_logit"],
+                    "log_normalizer": measure["log_normalizer"],
+                    "n": float(n_value), "d": float(d_value), "q": float(q_value),
+                    "insertion_activity": float(np.median(np.linalg.norm(actual.astype(np.float64), axis=-1))),
+                    "per_site_delta_norms": [float(value) for value in np.linalg.norm(actual.astype(np.float64), axis=-1)],
+                    "vocab_squared_difference_sum": float(np.square(difference).sum()),
+                    "vocab_size": VOCAB,
+                    "vocab_rms": float(math.sqrt(float(np.square(difference).mean()))),
+                })
+        return records
+
+    def ingest_directed_chunk(
+        self, calls_and_arrays: Sequence[tuple[Mapping[str, object], Mapping[str, np.ndarray], Path]],
+    ) -> list[dict[str, object]]:
+        kinds = tuple(str(call["call_kind"]) for call, _arrays, _path in calls_and_arrays)
+        if kinds != DIRECTED_KINDS:
+            raise RuntimeError(f"directed chunk order changed: {kinds}")
+        start = self.directed_offset
+        stop = start + int(calls_and_arrays[0][0]["batch_size"])
+        native_arrays = calls_and_arrays[0][1]
+        descriptors_by_kind: dict[str, list[dict[str, object]]] = {kind: [] for kind in DIRECTED_KINDS}
+        for raw, canonical in self.NATIVE_MAP.items():
+            descriptors_by_kind["native"].append(
+                self._write_slice(canonical, start, stop, native_arrays[raw])
+            )
+        by_kind = {str(call["call_kind"]): arrays for call, arrays, _path in calls_and_arrays}
+        replay_logits = by_kind["replay"]["logits.npy"]
+        for axis1, kind in enumerate(MACHINE_ARMS):
+            descriptors_by_kind[kind].append(self._write_slice(
+                "hook_deltas.npy", start, stop, by_kind[kind]["hook_deltas.npy"], axis1=axis1
+            ))
+        descriptors_by_kind["replay"].append(self._write_slice(
+            "directed_replay_logits.npy", start, stop, replay_logits
+        ))
+        descriptors_by_kind["native"].append(self._write_slice(
+            "logit_differences.npy", start, stop,
+            by_kind["native"]["logits.npy"] - replay_logits, axis1=0,
+        ))
+        for axis1, kind in enumerate(("score", "payload", "joint"), start=1):
+            descriptors_by_kind[kind].append(self._write_slice(
+                "logit_differences.npy", start, stop,
+                by_kind[kind]["logits.npy"] - replay_logits, axis1=axis1,
+            ))
+        self.scientific_records.extend(self._derive_chunk_records(calls_and_arrays))
+        records = [
+            self._canonical_record(call, descriptors_by_kind[str(call["call_kind"])])
+            for call, _arrays, _path in calls_and_arrays
+        ]
+        for record in records:
+            self._append_ledger(record)
+        self.directed_offset = stop
+        for _call, _arrays, raw_directory in calls_and_arrays:
+            shutil.rmtree(raw_directory)
+        return records
+
+    def close(self) -> None:
+        for array in self.arrays.values():
+            array.flush()
+        self.arrays.clear()
+
+
 def write_completed_call(
     calls_root: Path, call: Mapping[str, object], arrays: Mapping[str, np.ndarray],
     *, nonfinite_terminal: bool = False,
@@ -555,7 +911,12 @@ def write_completed_call(
     return {**dict(call), "evidence_files": descriptors}
 
 
-def load_call_arrays(directory: Path) -> dict[str, np.ndarray]:
+def load_call_arrays(directory: Path | Mapping[str, object]) -> dict[str, np.ndarray]:
+    if isinstance(directory, Mapping) and "canonical_store" in directory:
+        store = directory["canonical_store"]
+        return store.load_reference(str(directory["call_id"]))
+    if not isinstance(directory, Path):
+        raise TypeError("call evidence reference must be a path or canonical reference")
     return {
         path.name: np.load(path, allow_pickle=False)
         for path in directory.glob("*.npy")
@@ -704,7 +1065,7 @@ def evaluate_completed_call(
 
 def run_manifest_calls(
     executor: object, bundle: Mapping[str, object], contexts: object,
-    *, stage: Path, public_root: Path = ROOT,
+    *, stage: Path, public_root: Path = ROOT, store: StreamingPhaseStore | None = None,
 ) -> dict[str, object]:
     """Run one phase sequentially and stop/publish at the first completed-call failure.
 
@@ -712,10 +1073,14 @@ def run_manifest_calls(
     for the caller to inspect and nothing is renamed into a public namespace.
     """
     calls = bundle["calls"]
-    calls_root = stage / "evidence" / "calls"
-    calls_root.mkdir(parents=True)
+    if store is None:
+        store = StreamingPhaseStore(
+            stage / "evidence", bundle, getattr(contexts, "execution", None)
+        )
+    calls_root = store.calls_root
     prefix: list[dict[str, object]] = []
-    outputs: dict[str, Path] = {}
+    outputs: dict[str, Path | Mapping[str, object]] = {}
+    current_chunk: list[tuple[Mapping[str, object], Mapping[str, np.ndarray], Path]] = []
     for call in calls:
         token = bundle["token_arrays"][call["token_record_id"]]
         if token.shape != (int(call["batch_size"]), WIDTH) or (
@@ -748,16 +1113,33 @@ def run_manifest_calls(
         record = write_completed_call(
             calls_root, call, arrays, nonfinite_terminal=(predicate == "nonfinite_observation")
         )
+        record["storage"] = "raw_current_chunk"
+        raw_directory = calls_root / f"{int(call['manifest_index']):04d}_{call['call_id']}"
         prefix.append(record)
-        outputs[str(call["call_id"])] = (
-            calls_root / f"{int(call['manifest_index']):04d}_{call['call_id']}"
-        )
+        outputs[str(call["call_id"])] = raw_directory
+        if call["call_kind"] != "endpoint":
+            current_chunk.append((call, arrays, raw_directory))
         if predicate is not None:
+            store.close()
             diagnostic = publish_invalid_prefix(
                 stage, calls, prefix, predicate, details, public_root=public_root
             )
             return {"status": "invalid", "diagnostic": diagnostic, "outputs": outputs}
-    return {"status": "complete", "records": prefix, "outputs": outputs}
+        if call["call_kind"] == "endpoint":
+            prefix[-1] = store.ingest_endpoint(call, arrays, raw_directory)
+            outputs[str(call["call_id"])] = store.reference(str(call["call_id"]))
+        elif call["call_kind"] == "joint":
+            if len(current_chunk) != len(DIRECTED_KINDS):
+                raise RuntimeError("directed chunk did not retain exactly five calls")
+            canonical = store.ingest_directed_chunk(current_chunk)
+            prefix[-len(DIRECTED_KINDS):] = canonical
+            current_chunk = []
+    if current_chunk:
+        raise RuntimeError("phase ended with an incomplete directed chunk")
+    return {
+        "status": "complete", "records": prefix, "outputs": outputs,
+        "scientific_records": list(store.scientific_records), "store": store,
+    }
 
 
 def make_context_factory(execution: Mapping[str, object], bundle: Mapping[str, object]):
@@ -827,6 +1209,8 @@ def make_context_factory(execution: Mapping[str, object], bundle: Mapping[str, o
 
     factory.endpoint_location = endpoint_location
     factory.direction_location = direction_location
+    factory.execution = execution
+    factory.bundle = bundle
     return factory
 
 
@@ -921,168 +1305,113 @@ def _write_jsonl(path: Path, rows: Sequence[Mapping[str, object]]) -> dict[str, 
     return {"records": len(rows), "byte_length": path.stat().st_size, "sha256": sha256_file(path)}
 
 
-def write_complete_phase_evidence(
-    evidence_root: Path, phase: str, execution: Mapping[str, object],
-    bundle: Mapping[str, object], outputs: Mapping[str, Path], records: Sequence[Mapping[str, object]],
+
+def _finite_memmap(path: Path, *, block_rows: int = 32) -> bool:
+    array = np.load(path, mmap_mode="r", allow_pickle=False)
+    if array.dtype.kind != "f":
+        return True
+    return all(bool(np.isfinite(array[start:start + block_rows]).all()) for start in range(0, len(array), block_rows))
+
+
+def _maximum_reconstruction_errors(phase_root: Path) -> dict[str, object]:
+    maxima = {"native_full_write_reconstruction_max_abs": 0.0,
+              "native_equality_remainder_reconstruction_max_abs": 0.0,
+              "factorized_vs_native_equality_max_abs": 0.0}
+    for prefix in ("", "directed_"):
+        full = np.load(phase_root / f"{prefix}native_full_attention_write.npy", mmap_mode="r", allow_pickle=False)
+        reconstructed = np.load(phase_root / f"{prefix}independent_full_native_write.npy", mmap_mode="r", allow_pickle=False)
+        native = np.load(phase_root / f"{prefix}native_equality_term.npy", mmap_mode="r", allow_pickle=False)
+        factorized = np.load(phase_root / f"{prefix}factorized_equality_term.npy", mmap_mode="r", allow_pickle=False)
+        remainder = np.load(phase_root / f"{prefix}native_non_equality_remainder.npy", mmap_mode="r", allow_pickle=False)
+        head = np.load(phase_root / f"{prefix}native_head_write.npy", mmap_mode="r", allow_pickle=False)
+        for start in range(0, len(full), 32):
+            section = slice(start, start + 32)
+            maxima["native_full_write_reconstruction_max_abs"] = max(
+                maxima["native_full_write_reconstruction_max_abs"],
+                float(np.max(np.abs(
+                    reconstructed[section].astype(np.float64) - full[section].astype(np.float64)
+                ))),
+            )
+            maxima["native_equality_remainder_reconstruction_max_abs"] = max(
+                maxima["native_equality_remainder_reconstruction_max_abs"],
+                float(np.max(np.abs(
+                    native[section].astype(np.float64) + remainder[section].astype(np.float64)
+                    - head[section].astype(np.float64)
+                ))),
+            )
+            maxima["factorized_vs_native_equality_max_abs"] = max(
+                maxima["factorized_vs_native_equality_max_abs"],
+                float(np.max(np.abs(
+                    factorized[section].astype(np.float64) - native[section].astype(np.float64)
+                ))),
+            )
+        del full, reconstructed, native, factorized, remainder, head
+    maxima["literal_remove_insert_claimed"] = False
+    return maxima
+
+
+def finalize_streamed_phase_evidence(
+    store: StreamingPhaseStore, execution: Mapping[str, object], bundle: Mapping[str, object],
     score_report: Mapping[str, object], fit_scales: Mapping[str, object], r585: object,
 ) -> dict[str, object]:
-    """Materialize the complete rectangular phase evidence from per-call raw bytes."""
-    phase_root = evidence_root / phase
-    phase_root.mkdir(parents=True, exist_ok=False)
-    factory = make_context_factory(execution, bundle)
-    endpoint_calls = [call for call in bundle["calls"] if call["call_kind"] == "endpoint"]
-    native_calls = [call for call in bundle["calls"] if call["call_kind"] == "native"]
-    endpoint_arrays = [load_call_arrays(outputs[str(call["call_id"])]) for call in endpoint_calls]
-    native_arrays = [load_call_arrays(outputs[str(call["call_id"])]) for call in native_calls]
-    descriptors: dict[str, object] = {}
+    """Finalize already-canonical append-only evidence without a second raw tree."""
+    phase, phase_root = store.phase, store.phase_root
+    expected_endpoint = sum(
+        int(call["batch_size"]) for call in bundle["calls"] if call["call_kind"] == "endpoint"
+    )
+    expected_directed = sum(
+        int(call["batch_size"]) for call in bundle["calls"] if call["call_kind"] == "native"
+    )
+    if store.endpoint_offset != expected_endpoint or store.directed_offset != expected_directed:
+        raise RuntimeError("streaming canonical offsets did not reach the frozen phase census")
+    if len(store.ledger_records) != len(bundle["calls"]):
+        raise RuntimeError("streaming call-prefix ledger did not reach the frozen call census")
+    store.close()
+    if any(store.calls_root.iterdir()):
+        raise RuntimeError("verified raw call bytes survived canonicalization")
+    store.calls_root.rmdir()
 
-    for filename, payload in (
-        ("call_manifest.json", bundle["calls"]),
-        ("token_manifest.json", bundle["token_records"]),
-    ):
+    descriptors: dict[str, object] = {}
+    for filename, payload in (("call_manifest.json", bundle["calls"]),
+                              ("token_manifest.json", bundle["token_records"])):
         path = phase_root / filename
         _write_bytes(path, _json_bytes(payload))
-        descriptors[filename] = {
-            "records": len(payload), "byte_length": path.stat().st_size,
-            "sha256": sha256_file(path),
-        }
-
-    def save(name: str, value: np.ndarray) -> None:
-        descriptors[name] = _write_npy(phase_root / name, value)
-
-    save("endpoint_tokens.npy", np.concatenate([row["tokens.npy"] for row in endpoint_arrays]))
-    for name in (
-        "factor_e.npy", "factor_u.npy", "support.npy", "native_equality_term.npy",
-        "factorized_equality_term.npy", "native_non_equality_remainder.npy",
-        "native_head_write.npy", "native_full_attention_write.npy",
-        "independent_full_native_write.npy",
-    ):
-        save(name, np.concatenate([row[name] for row in endpoint_arrays]))
-    native_full = np.load(phase_root / "native_full_attention_write.npy", mmap_mode="r", allow_pickle=False)
-    reconstructed_full = np.load(phase_root / "independent_full_native_write.npy", mmap_mode="r", allow_pickle=False)
-    native_equality = np.load(phase_root / "native_equality_term.npy", mmap_mode="r", allow_pickle=False)
-    factorized_equality = np.load(phase_root / "factorized_equality_term.npy", mmap_mode="r", allow_pickle=False)
-    remainder = np.load(phase_root / "native_non_equality_remainder.npy", mmap_mode="r", allow_pickle=False)
-    head_write = np.load(phase_root / "native_head_write.npy", mmap_mode="r", allow_pickle=False)
-    gate_summary = {
-        "native_full_write_reconstruction_max_abs": float(np.max(np.abs(
-            reconstructed_full.astype(np.float64) - native_full.astype(np.float64)
-        ))),
-        "native_equality_remainder_reconstruction_max_abs": float(np.max(np.abs(
-            native_equality.astype(np.float64) + remainder.astype(np.float64)
-            - head_write.astype(np.float64)
-        ))),
-        "factorized_vs_native_equality_max_abs": float(np.max(np.abs(
-            factorized_equality.astype(np.float64) - native_equality.astype(np.float64)
-        ))),
-        "literal_remove_insert_claimed": False,
+        descriptors[filename] = {"records": len(payload), "byte_length": path.stat().st_size,
+                                 "sha256": sha256_file(path)}
+    descriptors["canonical_slice_ledger.jsonl"] = {
+        "records": len(store.ledger_records), "byte_length": store.ledger_path.stat().st_size,
+        "sha256": sha256_file(store.ledger_path),
     }
-    del native_full, reconstructed_full, native_equality, factorized_equality, remainder, head_write
-    gate_path = phase_root / "instrument_gates.json"
-    _write_bytes(gate_path, _json_bytes(gate_summary))
-    descriptors["instrument_gates.json"] = {
-        "records": 1, "byte_length": gate_path.stat().st_size,
-        "sha256": sha256_file(gate_path),
-    }
-    save("directed_tokens.npy", np.concatenate([row["tokens.npy"] for row in native_arrays]))
-    save("directed_live_e.npy", np.concatenate([row["live_e.npy"] for row in native_arrays]))
-    save("directed_live_u.npy", np.concatenate([row["live_u.npy"] for row in native_arrays]))
-    for name in (
-        "native_equality_term.npy", "factorized_equality_term.npy",
-        "native_non_equality_remainder.npy", "native_head_write.npy",
-        "native_full_attention_write.npy", "independent_full_native_write.npy",
-    ):
-        save("directed_" + name, np.concatenate([row[name] for row in native_arrays]))
 
-    directed_native_full = np.load(
-        phase_root / "directed_native_full_attention_write.npy", mmap_mode="r", allow_pickle=False
-    )
-    directed_reconstructed_full = np.load(
-        phase_root / "directed_independent_full_native_write.npy", mmap_mode="r", allow_pickle=False
-    )
-    directed_native_equality = np.load(
-        phase_root / "directed_native_equality_term.npy", mmap_mode="r", allow_pickle=False
-    )
-    directed_remainder = np.load(
-        phase_root / "directed_native_non_equality_remainder.npy", mmap_mode="r", allow_pickle=False
-    )
-    directed_head_write = np.load(
-        phase_root / "directed_native_head_write.npy", mmap_mode="r", allow_pickle=False
-    )
-    gate_summary["native_full_write_reconstruction_max_abs"] = max(
-        gate_summary["native_full_write_reconstruction_max_abs"],
-        float(np.max(np.abs(
-            directed_reconstructed_full.astype(np.float64)
-            - directed_native_full.astype(np.float64)
-        ))),
-    )
-    gate_summary["native_equality_remainder_reconstruction_max_abs"] = max(
-        gate_summary["native_equality_remainder_reconstruction_max_abs"],
-        float(np.max(np.abs(
-            directed_native_equality.astype(np.float64)
-            + directed_remainder.astype(np.float64)
-            - directed_head_write.astype(np.float64)
-        ))),
-    )
+    for name, (dtype, shape) in store.schema.items():
+        path = phase_root / name
+        array = np.load(path, mmap_mode="r", allow_pickle=False)
+        if array.dtype != dtype or tuple(array.shape) != shape:
+            raise RuntimeError(f"canonical array contract changed at finalization: {name}")
+        if not _finite_memmap(path):
+            raise RuntimeError(f"nonfinite complete evidence: {name}")
+        _fsync_file(path)
+        descriptors[name] = {"dtype": str(array.dtype), "shape": list(array.shape),
+                             "byte_length": path.stat().st_size, "sha256": sha256_file(path)}
+        del array
+
+    gate_summary = _maximum_reconstruction_errors(phase_root)
     if not all(math.isfinite(float(value)) for key, value in gate_summary.items() if key.endswith("_max_abs")) or (
         gate_summary["native_full_write_reconstruction_max_abs"] > TOLERANCE
     ) or gate_summary["native_equality_remainder_reconstruction_max_abs"] > TOLERANCE:
         raise RuntimeError("complete native reconstruction evidence contradicts call gates")
-    del (
-        directed_native_full, directed_reconstructed_full, directed_native_equality,
-        directed_remainder, directed_head_write,
-    )
+    gate_path = phase_root / "instrument_gates.json"
     _write_bytes(gate_path, _json_bytes(gate_summary))
-    descriptors["instrument_gates.json"] = {
-        "records": 1, "byte_length": gate_path.stat().st_size,
-        "sha256": sha256_file(gate_path),
-    }
+    descriptors["instrument_gates.json"] = {"records": 1, "byte_length": gate_path.stat().st_size,
+                                             "sha256": sha256_file(gate_path)}
 
-    hook_path = phase_root / "hook_deltas.npy"
-    logit_path = phase_root / "logit_differences.npy"
-    nd = PHASE_COUNTS[phase]["directions"]
-    hooks = np.lib.format.open_memmap(hook_path, mode="w+", dtype="<f4", shape=(nd, 4, 4, RESIDUAL))
-    differences = np.lib.format.open_memmap(logit_path, mode="w+", dtype="<f4", shape=(nd, 4, VOCAB))
-    offset = 0
-    for call in native_calls:
-        chunk = int(call["chunk_index"]); b = int(call["batch_size"])
-        by_kind = {
-            kind: load_call_arrays(outputs[f"{phase}:directed:{chunk:04d}:{kind}"])
-            for kind in DIRECTED_KINDS
-        }
-        replay_logits = by_kind["replay"]["logits.npy"]
-        for arm_index, arm in enumerate(MACHINE_ARMS):
-            hooks[offset:offset + b, arm_index] = by_kind[arm]["hook_deltas.npy"]
-        differences[offset:offset + b, 0] = by_kind["native"]["logits.npy"] - replay_logits
-        for index, arm in enumerate(("score", "payload", "joint"), start=1):
-            differences[offset:offset + b, index] = by_kind[arm]["logits.npy"] - replay_logits
-        offset += b
-    hooks.flush(); differences.flush(); del hooks, differences
-    if offset != nd:
-        raise RuntimeError(f"complete evidence offset changed: {offset} != {nd}")
-    for complete_path in (hook_path, logit_path):
-        complete_array = np.load(complete_path, mmap_mode="r", allow_pickle=False)
-        if not bool(np.isfinite(complete_array).all()):
-            raise RuntimeError(f"nonfinite complete evidence: {complete_path.name}")
-        del complete_array
-    _fsync_file(hook_path)
-    _fsync_file(logit_path)
-    descriptors["hook_deltas.npy"] = {
-        "dtype": "float32", "shape": [nd, 4, 4, RESIDUAL],
-        "byte_length": hook_path.stat().st_size, "sha256": sha256_file(hook_path),
-    }
-    descriptors["logit_differences.npy"] = {
-        "dtype": "float32", "shape": [nd, 4, VOCAB],
-        "byte_length": logit_path.stat().st_size, "sha256": sha256_file(logit_path),
-    }
     endpoint_rows = []
     for row in (row for row in execution["endpoints"] if row["split"] == phase):
-        call_id, local = factory.endpoint_location[str(row["endpoint_id"])]
-        logits = load_call_arrays(outputs[call_id])["logits.npy"][local]
+        summary = store.endpoint_summaries[str(row["endpoint_id"])]
         endpoint_rows.append({
             **row,
-            "native_measurement": _measurement(
-                logits, int(row["answer_id"]), int(row["other_answer_id"])
+            "native_measurement": store._summary_measurement(
+                summary, int(row["answer_id"]), int(row["other_answer_id"])
             ),
             "array_index": len(endpoint_rows),
         })
@@ -1090,6 +1419,7 @@ def write_complete_phase_evidence(
         phase_root / "endpoint_records.jsonl", endpoint_rows
     )
     evidence_records = []
+    records = store.scientific_records
     for directed_id in sorted({str(row["directed_id"]) for row in records}):
         members = [row for row in records if row["directed_id"] == directed_id]
         base = {key: value for key, value in members[0].items() if key not in {
@@ -1106,18 +1436,12 @@ def write_complete_phase_evidence(
         }
         for arm in base["arms"].values():
             arm["c"] = arm["correct_margin"]
-        chunk, local = factory.direction_location[directed_id]
-        authority_row = next(
-            row for row in execution["directions"] if row["directed_id"] == directed_id
-        )
-        answer = int(authority_row["recipient_answer_id"])
-        other = int(authority_row["recipient_other_answer_id"])
-        for condition in ("native", "replay"):
-            logits = load_call_arrays(
-                outputs[f"{phase}:directed:{chunk:04d}:{condition}"]
-            )["logits.npy"][local]
-            base[condition] = _measurement(logits, answer, other)
         evidence_records.append(base)
+    measurements_by_direction = {str(row["directed_id"]): row for row in store.replay_records}
+    for row in evidence_records:
+        measurements = measurements_by_direction[str(row["directed_id"])]
+        row["native"] = measurements["native_measurement"]
+        row["replay"] = measurements["replay_measurement"]
     descriptors["directed_records.jsonl"] = _write_jsonl(
         phase_root / "directed_records.jsonl", evidence_records
     )
@@ -1133,14 +1457,12 @@ def write_complete_phase_evidence(
     }
     bootstrap_path = phase_root / "bootstrap_cells.json"
     _write_bytes(bootstrap_path, _json_bytes(bootstrap))
-    descriptors["bootstrap_cells.json"] = {
-        "byte_length": bootstrap_path.stat().st_size, "sha256": sha256_file(bootstrap_path),
-    }
-    expected = phase_evidence_schema(phase)
-    if descriptors["authority.jsonl"]["records"] != expected["authority.jsonl"]["records"] or (
-        descriptors["endpoint_records.jsonl"]["records"] != expected["endpoint_records.jsonl"]["records"]
-    ) or descriptors["directed_records.jsonl"]["records"] != PHASE_COUNTS[phase]["directions"]:
-        raise RuntimeError("complete phase JSONL census changed")
+    descriptors["bootstrap_cells.json"] = {"byte_length": bootstrap_path.stat().st_size,
+                                            "sha256": sha256_file(bootstrap_path)}
+    if descriptors["authority.jsonl"]["records"] != len(authority_rows) or (
+        descriptors["endpoint_records.jsonl"]["records"] != expected_endpoint
+    ) or descriptors["directed_records.jsonl"]["records"] != expected_directed:
+        raise RuntimeError("complete streamed phase JSONL census changed")
     return descriptors
 
 
@@ -1204,6 +1526,7 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
     r585, execution = load_authority()
     fit_bundle = build_phase_manifest(execution, "FIT")
     select_bundle = build_phase_manifest(execution, "SELECT")
+    before_model_capacity = require_free_space(public_root)
     runtime = _immutable_module(RUNTIME, SOURCE_HASHES[RUNTIME], "r592_pinned_model_runtime")
     # This constructor is the first permitted torch/checkpoint/CUDA boundary.
     executor = runtime.R592ModelExecutor(types.SimpleNamespace(**globals()), r585)
@@ -1225,19 +1548,19 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
             if stage.exists(): shutil.rmtree(stage)
             return {"status": "invalid_diagnostic", "model_forwards": calls}
         calls = PHASE_COUNTS["FIT"]["calls"]; evaluated.append("FIT")
-        fit_records = derive_scientific_records(execution, fit_bundle, fit["outputs"])
+        fit_records = fit["scientific_records"]
         fit_scales = r585.compute_fit_scales(fit_records, execution["manifests"])
         fit_report, fit_failures = r585.score_split(
             fit_records, "FIT", execution["manifests"], fit_scales, replicates=2_000
         )
         split_scores["FIT"] = fit_report
         failure_classes = {name: list(values) for name, values in fit_failures.items()}
-        write_complete_phase_evidence(
-            stage / "evidence", "FIT", execution, fit_bundle, fit["outputs"],
-            fit_records, fit_report, fit_scales, r585,
+        finalize_streamed_phase_evidence(
+            fit["store"], execution, fit_bundle, fit_report, fit_scales, r585,
         )
-        shutil.rmtree(stage / "evidence" / "calls")
+        before_select_capacity = None
         if not any(failure_classes.values()):
+            before_select_capacity = require_free_space(stage, boundary="SELECT")
             select = run_manifest_calls(
                 executor, select_bundle, make_context_factory(execution, select_bundle),
                 stage=stage, public_root=public_root,
@@ -1248,18 +1571,16 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
                 return {"status": "invalid_diagnostic", "model_forwards": calls}
             calls = PHASE_COUNTS["FIT"]["calls"] + PHASE_COUNTS["SELECT"]["calls"]
             evaluated.append("SELECT")
-            select_records = derive_scientific_records(execution, select_bundle, select["outputs"])
+            select_records = select["scientific_records"]
             select_report, select_failures = r585.score_split(
                 select_records, "SELECT", execution["manifests"], fit_scales, replicates=2_000
             )
             split_scores["SELECT"] = select_report
             for name, values in select_failures.items():
                 failure_classes["select_" + name] = list(values)
-            write_complete_phase_evidence(
-                stage / "evidence", "SELECT", execution, select_bundle, select["outputs"],
-                select_records, select_report, fit_scales, r585,
+            finalize_streamed_phase_evidence(
+                select["store"], execution, select_bundle, select_report, fit_scales, r585,
             )
-            shutil.rmtree(stage / "evidence" / "calls")
         terminal = r585.terminal_from_failures(evaluated, failure_classes)
         result = {
             "schema": SCHEMA, "rung": 592,
@@ -1288,6 +1609,10 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
             },
             "authority_sha256": {
                 key: execution[key] for key in execution if key.endswith("_sha256")
+            },
+            "capacity_preflight": {
+                "before_model": before_model_capacity,
+                **({"before_select": before_select_capacity} if before_select_capacity is not None else {}),
             },
             "elapsed_seconds": float(time.time() - started),
         }
@@ -1356,6 +1681,14 @@ def build_dryrun() -> dict[str, object]:
             "SELECT_logit_differences": 1_506_705_408,
             "maximum_logit_differences": 4_520_116_224,
             "maximum_principal_raw_payload": 5_141_200_896,
+        },
+        "streaming_storage": {
+            "complete_fit_plus_select_data_bytes": COMPLETE_CANONICAL_DATA_BYTES,
+            "largest_current_chunk_data_bytes": LARGEST_CURRENT_CHUNK_DATA_BYTES,
+            "maximum_streaming_data_bytes": MAXIMUM_STREAMING_DATA_BYTES,
+            "required_free_bytes_before_model": MINIMUM_FREE_BYTES,
+            "required_free_bytes_before_select": MINIMUM_FREE_BYTES,
+            "prior_full_tree_peak_data_bytes": 10_677_399_552,
         },
         "invalid_predicate_order": list(PREDICATE_ORDER),
         "model_forwards": 0,

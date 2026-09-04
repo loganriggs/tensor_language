@@ -40,6 +40,9 @@
       "call_manifest.json": {
         "records": 639
       },
+      "canonical_slice_ledger.jsonl": {
+        "records": 639
+      },
       "directed_factorized_equality_term.npy": {
         "dtype": "float32",
         "shape": [
@@ -108,11 +111,25 @@
       "directed_records.jsonl": {
         "records": 3744
       },
+      "directed_replay_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          50304
+        ]
+      },
       "directed_tokens.npy": {
         "dtype": "int64",
         "shape": [
           3744,
           30
+        ]
+      },
+      "endpoint_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          50304
         ]
       },
       "endpoint_records.jsonl": {
@@ -233,6 +250,9 @@
       "call_manifest.json": {
         "records": 322
       },
+      "canonical_slice_ledger.jsonl": {
+        "records": 322
+      },
       "directed_factorized_equality_term.npy": {
         "dtype": "float32",
         "shape": [
@@ -301,11 +321,25 @@
       "directed_records.jsonl": {
         "records": 1872
       },
+      "directed_replay_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          50304
+        ]
+      },
       "directed_tokens.npy": {
         "dtype": "int64",
         "shape": [
           1872,
           30
+        ]
+      },
+      "endpoint_logits.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          50304
         ]
       },
       "endpoint_records.jsonl": {
@@ -498,13 +532,24 @@
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py": "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py": "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py": "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT.md": "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT.md": "15219749dd1d696e52c3129052cadce6758b7186390303eace216d98c953188e",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT_INDEPENDENT_REVIEW.md": "7b127fc100192d2ed0eb432ad2cfbf506d151314b1e9419d1e3fa424eb487772",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT.md": "f93ce1e524e6a0298a0b28f036ac35c75621c5bc80cf4cc0cac7bbe7589a99dc",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md": "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
-    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md": "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094"
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md": "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md": "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md": "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07"
   },
-  "status": "prospective_model_free_only"
+  "status": "prospective_model_free_only",
+  "streaming_storage": {
+    "complete_fit_plus_select_data_bytes": 7798325760,
+    "largest_current_chunk_data_bytes": 41671168,
+    "maximum_streaming_data_bytes": 7839996928,
+    "prior_full_tree_peak_data_bytes": 10677399552,
+    "required_free_bytes_before_model": 9000000000,
+    "required_free_bytes_before_select": 9000000000
+  }
 }

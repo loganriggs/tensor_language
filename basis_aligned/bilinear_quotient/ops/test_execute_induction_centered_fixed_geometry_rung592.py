@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+import types
 
 import pytest
 
@@ -25,6 +26,7 @@ def test_frozen_bytes_and_model_free_preflight(tmp_path: Path) -> None:
     assert report["registered_fit_forwards"] == 639
     assert report["registered_select_forwards"] == 322
     assert report["registered_max_forwards"] == 961
+    assert report["capacity_preflight"]["required_free_bytes"] == 9_000_000_000
     assert report["model_forwards"] == report["model_backwards"] == 0
     assert report["model_weights_updated"] is False
     assert report["select_opened"] is report["final_opened"] is report["ood_opened"] is False
@@ -71,3 +73,12 @@ def test_dryrun_matches_committed_bytes() -> None:
     observed = adapter.run_model_free_validation()
     assert observed["status"] == "prospective_model_free_only"
     assert observed["scientific_terminal"] is None
+
+
+def test_insufficient_capacity_blocks_before_dispatch(tmp_path: Path) -> None:
+    low = lambda _path: types.SimpleNamespace(f_bavail=8_999_999_999, f_frsize=1)
+    with pytest.raises(RuntimeError, match="insufficient free space"):
+        adapter.preflight(
+            namespace_paths=(tmp_path / "unused",), capacity_path=tmp_path,
+            statvfs_function=low,
+        )

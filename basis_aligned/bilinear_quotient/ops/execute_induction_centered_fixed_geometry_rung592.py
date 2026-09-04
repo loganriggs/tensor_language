@@ -22,6 +22,8 @@ PRODUCER = OPS / "induction_centered_fixed_geometry_rung592.py"
 OWNER_TEST = OPS / "test_induction_centered_fixed_geometry_rung592.py"
 FAKE_RUNTIME_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_fake_runtime.py"
 REPAIR_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_repair.py"
+STREAMING_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_streaming_storage.py"
+ADAPTER_TEST = OPS / "test_execute_induction_centered_fixed_geometry_rung592.py"
 RUNTIME = OPS / "induction_centered_fixed_geometry_rung592_runtime.py"
 DRYRUN = ROOT / "induction_centered_fixed_geometry_rung592_dryrun.json"
 PREREG = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md"
@@ -33,18 +35,23 @@ TOPOLOGY_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLO
 TOPOLOGY_REVIEW_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py"
 IMPLEMENTATION_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md"
 IMPLEMENTATION_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py"
+STORAGE_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md"
+STORAGE_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md"
+STORAGE_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py"
 PREREG_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_REVIEW.md"
 AMENDMENT_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_AMENDMENT_INDEPENDENT_REVIEW.md"
 DIAGNOSTIC_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT_INDEPENDENT_REVIEW.md"
 MASK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT_INDEPENDENT_REVIEW.md"
 
 FROZEN_HASHES = {
-    PRODUCER: "9d75aaa291af61321cee29410b4ecfa772425e3dd2298e15440fb3a5843e799b",
+    PRODUCER: "741d7a1481e79a726d3a2edb8bb5274a5d262ce0a93803d438c5762911809efb",
     OWNER_TEST: "59764d300fdbe3f2024ee40b32b23fb2bcc56ccd79b48e7b1abbe5c0083eb2fc",
     FAKE_RUNTIME_TEST: "52d3d22e7d1eeaaa31bed66a01d28aef296974bff94e96ab7707af6fa4219e85",
-    REPAIR_TEST: "691eb9786f344f1851447776ce0a2f5d324c60f9efbb0c780731c489e5e3c7dd",
+    REPAIR_TEST: "dceb2416d20e7e795f8d3d0dd59bac18c123e3ed7705d3660fe6187abfc73844",
+    STREAMING_TEST: "2f36d595bfe7efa8f8825e9829912e1f6c70ff0d4c0d1f69fe054aebc48a7fda",
+    ADAPTER_TEST: "c6c4e6bb8e9b23a63b1352064f670429fba8227c92260bb638004edadeb22478",
     RUNTIME: "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
-    DRYRUN: "152c0cc38c671e7a1b96e199a76ebed607e058427b68be9cd9a53611d83c614e",
+    DRYRUN: "937d5d9682ea89ca7e4feda3e646937dee83d56f31b18b8dffd4f04b26b4a1eb",
     PREREG: "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
     AMENDMENT: "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
     DIAGNOSTIC_AMENDMENT: "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
@@ -54,11 +61,16 @@ FROZEN_HASHES = {
     TOPOLOGY_REVIEW_TEST: "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
     IMPLEMENTATION_BLOCK_REVIEW: "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
     IMPLEMENTATION_BLOCK_TEST: "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+    STORAGE_AMENDMENT: "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
+    STORAGE_BLOCK_REVIEW: "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
+    STORAGE_BLOCK_TEST: "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
     PREREG_REVIEW: "9b76b91995374697b8a828ce042e59d81bfddcbaa5f6e843cb0f32f6b01e57f7",
     AMENDMENT_REVIEW: "21bdc310b4798d3ae6d47fc2ed7dfee969afd871bc90db381db634e2c4cae2f5",
     DIAGNOSTIC_REVIEW: "e7373c2249e0456327d386559d4f3fa68e0661ed076a35fb120ad9d8effaa675",
     MASK_REVIEW: "b1990a81565cdd63e283ba8896cd9a57b7e8ab81064435a90ea9304d1a5a6c60",
 }
+
+MINIMUM_FREE_BYTES = 9_000_000_000
 
 REGISTERED_PREDICTIONS = {
     "pred_a_selector_transfer": "score and joint transfer selector changes while payload remains selective",
@@ -95,6 +107,18 @@ def require_unused_namespaces(paths: Sequence[Path] = OUTCOME_NAMESPACES) -> Non
         raise RuntimeError(f"R592 outcome namespace already exists: {occupied}")
 
 
+def require_free_space(
+    path: Path, *, minimum: int = MINIMUM_FREE_BYTES, statvfs_function=os.statvfs,
+) -> dict[str, int]:
+    statistics = statvfs_function(path)
+    observed = int(statistics.f_bavail) * int(statistics.f_frsize)
+    if observed < minimum:
+        raise RuntimeError(
+            f"R592 insufficient free space before model boundary: {observed} < {minimum}"
+        )
+    return {"boundary": "model", "available_bytes": observed, "required_free_bytes": int(minimum)}
+
+
 def load_frozen_producer():
     os.environ["BQLIB_NO_MODEL"] = "1"
     source = PRODUCER.read_bytes()
@@ -124,10 +148,14 @@ def run_model_free_validation() -> dict[str, object]:
     return observed
 
 
-def preflight(*, namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[str, object]:
+def preflight(
+    *, namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES, capacity_path: Path = ROOT,
+    statvfs_function=os.statvfs,
+) -> dict[str, object]:
     observed = verify_frozen_bytes()
     require_unused_namespaces(namespace_paths)
     dryrun = run_model_free_validation()
+    capacity = require_free_space(capacity_path, statvfs_function=statvfs_function)
     return {
         "schema": "execute_induction_centered_fixed_geometry_rung592_preflight_v1",
         "status": "prospective_candidate_different_agent_exact_review_required",
@@ -137,6 +165,7 @@ def preflight(*, namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[s
         "registered_fit_forwards": 639,
         "registered_select_forwards": 322,
         "registered_max_forwards": 961,
+        "capacity_preflight": capacity,
         "model_forwards": 0,
         "model_backwards": 0,
         "model_weights_updated": False,

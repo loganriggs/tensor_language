@@ -134,14 +134,14 @@ def test_native_full_gate_is_reconstructed_from_distinct_raw_arrays() -> None:
         'term["head_output"].float().numpy()'
     ) not in runtime
     producer = PRODUCER.read_text()
-    evidence_body = producer[producer.index("def write_complete_phase_evidence"):]
+    evidence_body = producer[producer.index("def finalize_streamed_phase_evidence"):]
     assert "native_full_write_reconstruction_max_abs" in evidence_body
 
 
 def test_both_closed_memmaps_are_explicitly_fsynced_and_checked() -> None:
     source = PRODUCER.read_text()
-    body = source[source.index("def write_complete_phase_evidence"):source.index("def publish_normal")]
-    assert "_fsync_file(hook_path)" in body
-    assert "_fsync_file(logit_path)" in body
-    assert "if offset != nd" in body
-    assert "np.isfinite(complete_array).all()" in body
+    body = source[source.index("def finalize_streamed_phase_evidence"):source.index("def publish_normal")]
+    assert "_fsync_file(path)" in body
+    assert "if not _finite_memmap(path)" in body
+    assert "store.endpoint_offset != expected_endpoint" in body
+    assert "store.directed_offset != expected_directed" in body
