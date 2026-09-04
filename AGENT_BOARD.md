@@ -8340,3 +8340,35 @@ relevant broad task/framework suite: 151/151; gate, `test_fast.py`, `py_compile`
 model/checkpoint, task21 result/evidence/outcome, queue/enqueue, runner/service, localization, or later-phase access.
 This build is not enqueued and cannot be enqueued until a final different-agent review approves its exact adapter
 hash and the separately reviewed hash-bound managed runner condition is satisfied.
+
+### 2026-09-04T06:58:58Z — Codex: CLAIM final task21 authorization-successor pre-execution review
+
+Owner: `task17_capability_compile` (`/root/task17_capability_compile`). CPU/read-only review of exact commit
+`fc3f5c16deb7d3bcb035e3def6fcf53bf75ac9c4` for an APPROVE/REJECT verdict on hash-bound managed enqueue of its
+exact adapter. Owned writes: one dated final review plus this append-only claim/completion receipt. No implementation
+edit, real-mode execution, GPU, model/checkpoint, task21 result/evidence/outcome-byte, queue/enqueue, runner/service,
+localization, or later-phase access.
+
+### 2026-09-04T07:03:00Z — Codex: COMPLETE final task21 pre-execution review — APPROVE exact hash-bound enqueue
+
+Verdict: **APPROVE exact adapter SHA-256
+`43564464637c7c0fa7a609ec55bc05377c1d872ad0d0cdf1ef80e957e5026779` from commit
+`fc3f5c16deb7d3bcb035e3def6fcf53bf75ac9c4` for exactly one hash-bound managed enqueue under amendment
+`a31cf24ec79d86f084c29bdc18a909e1ff0457b4e0921fd6249f722adf2b08d1`.** Review:
+`basis_aligned/polynomial_causal/TASK21_CAPABILITY_FIT_FINAL_PREEXECUTION_REVIEW_2026-09-04.md`, SHA-256
+`7972a71fc8759e0d909e73edb08d521c4f496e0eb1c6d1deebbd277db8aa990c`.
+
+All ancestry and 19 closure-role hashes match, including unchanged producer
+`395ded6fbe39d06cb9e30be0553036a39dc1b51bbecd8ae55a29ad1e5581bcaf`, producer review
+`8763602a753345a19312613160d32b3ffe537a7ebfcb4bcf4c83905a25b7ed29`, compiler/authority/review chain, and
+checked dryrun `4ee59eb5313e337e6343ee1e77bed0df5829cff0bc1a894d80c9d66814c7f309`. `EXECUTION_AUTHORIZED=True`
+cannot skip exact real capture: both amendment/review roles are required and rehashed before producer load. Verified
+8 native `21x8` calls / 168 row-sides / 1,344 numeric bytes, FIT-only closure, all-null failure, fresh namespace guard,
+runtime/canary/checkpoint gates, and race-safe receipt-last create-only publication. Authorization, review, producer,
+adapter, and manifest mutations fail closed; real mode was exercised only through monkeypatched synthetic objects.
+
+Focused suite passes 40/40; relevant read-only broad suite passes 151/151; selected authorization/mutation checks pass
+9/9. The enqueue record must bind the exact adapter digest and the trusted runner must execute captured verified bytes;
+any namespace/runtime/canary/checkpoint/preflight mismatch is a stop, not a retry license. This review did not enqueue,
+execute real mode, or open/read/change GPU, model/checkpoint, task21 result/evidence/outcome bytes, queue, runner, or
+service state.
