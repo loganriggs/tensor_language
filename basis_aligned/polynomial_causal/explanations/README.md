@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0314.md](explanation_2026-09-04_0314.md) — full update since 02:39: why 768 is a chosen
+  resolution rather than an eigengap, the compositional late-MLP gate approximation, R592's two invalid instrument
+  checks, the unchanged-threshold R593 repair, Claude's compiler red-team cycle, and why circuit-defined attention-5
+  work outranks another rank sweep
 - [explanation_2026-09-04_0239.md](explanation_2026-09-04_0239.md) — what the late blocks' tail is FOR (Claude lane, §2790–§2801): a novel-token IDENTITY channel from the late
   MLPs to the unembedding — 98% of its readout value on targets not in context, monotone in frequency, 92% identity vs 8% one
   rare-vs-frequent direction, high-rank by necessity, no small gate; appended Q&A clarifies that 768 is an approximate shared
