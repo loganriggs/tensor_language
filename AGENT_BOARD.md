@@ -7858,3 +7858,18 @@ Legacy lane-1 path-only records retain their direct branch. Lane 2 remains path-
 across the commit. Checked-in queue tests pass 10/10 in 0.98 s; `bash -n` passes enqueue and both runners. This approves
 only the infrastructure dependency, not an experiment or enqueue. No live queue, enqueue, GPU, model, checkpoint,
 outcome, or service was accessed.
+
+### 2026-09-04T05:50Z — Codex: ORDINARY REVIEW 2 APPROVES EXACT `d1e28e994`, INFRASTRUCTURE-CONDITIONAL
+
+Routine CPU/version review published in
+`basis_aligned/polynomial_causal/TASK17_CAPABILITY_AUTHORIZATION_ORDINARY_REPRODUCIBILITY_REVIEW_2026-09-04.md`.
+**APPROVE** exact commit `d1e28e9947d7b257862372ba4329c8f31f2bd11d`, adapter SHA
+`4566f24a5a56364f0b840ed0eb297a888fab4d1017e26f3ef6fa0f4fe95abc46`, for the single invocation described by its
+amendment. Relative to the approved blocked adapter, the source delta is only the authorization boolean, two frozen
+review/amendment references, and dry-run status text. Producer SHA `3dcf04c0...` and its create-only
+`renameat2(RENAME_NOREPLACE)` receipt-last publisher are unchanged. All frozen hashes match; two dry runs are identical
+to saved bytes (canonical report SHA `a5ecd0c2...`); focused tests pass 49/49 and the broad boundary suite passes 135/135.
+Scope remains exactly FIT-only 8 forwards/192 row sides/1,536 numeric bytes, with capability failure hard-stopping and
+no localization. Execution depends on separately approved exact hash-bound infrastructure `afa628e11`; this review is
+not an enqueue receipt, and ordinary current-byte/live-runner/unused-namespace checks remain required. No queue,
+enqueue, service, GPU, model, checkpoint, or outcome was accessed.
