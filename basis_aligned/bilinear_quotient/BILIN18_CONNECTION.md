@@ -75344,3 +75344,49 @@ Two consequences worth stating separately:
    every per-component cost this ledger has published from single ablations.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2881 — THE TAIL DICTIONARIES' COST IS IN THE **PARAMETERS**: THE FOUR LINK MAPS (99.78% OF THE WEIGHTS) CARRY **87.5%** OF THE COST, THE TEN-ROW CLASS TABLE CARRIES **12.5%**. NO CHEAP SIMPLIFICATION EXISTS HERE — AND THE PIECES ADD TO §2878 WITHIN .0023
+
+Registered `polynomial_causal/FRONTIER_TAIL_REFIT_SPLIT_PREREGISTRATION.md` (09:32Z). Run `frontier_tail_refit_split`, landed 09:40Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_refit_split_results.json
+Price: 0 GPU forwards, 282.7 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2_F(arm) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+**Installed-check first, per §2879's standing rule:** L2_F moves 2.6735 → **2.8475** and L2_C moves 2.4233 → **2.6958**. The
+manipulated entries are the `a10L`–`a17L` members of `order2`, and they move the number. L1_F is unchanged (2.2871), correctly — the
+tail refits belong to the L2 stage only.
+
+| arm | parameters touched per layer | L2_F | cost |
+|---|---|---|---|
+| BASELINE | — | **+2.6735** | — |
+| link maps dropped (`LW := {}`), class table kept | **5,308,416** (99.78%) | +2.8475 | **+0.1740** |
+| class table collapsed, link maps kept | **11,520** (0.22%) | +2.6983 | **+0.0248** |
+
+**pred_d HELD, and it is the clause that makes the rest trustworthy.** The two pieces sum to **+0.1988** against §2878's independently
+measured joint cost of **+0.2011** — a drift of **0.0023**, against a ≤ .05 bar. The decomposition is additive, and it cross-validates
+§2878's number from a different pair of arms.
+
+**pred_b FAILED and `b_null_the_link_maps_are_load_bearing` is MET.** **pred_c FAILED and `c_null_the_class_table_is_free` is MET.**
+Both nulls fired, and together they say something clean: **the cost tracks the parameters almost exactly.** The link maps are 99.78% of
+the weights and carry **87.5%** of the cost (.1740/.1988); the ten-row class table is 0.22% of the weights and carries **12.5%**.
+
+### What this closes
+
+The rung was registered because the parameter split is wildly asymmetric, and the hoped-for outcome was that the cheap piece did the
+work — which would have let **42,467,328 parameters** leave the tail at no cost. **It does not.** The four 1152×1152 within-class linear
+maps are the mechanism of the tail dictionaries, not decoration, and there is no cheap version of them available by this route. The
+preregistration named this as the outcome that "closes this line", and it is so recorded.
+
+That said, the class table is not nothing in the ratio that matters: **it buys .0248 nats for 11,520 parameters, versus .1740 nats for
+5,308,416** — per parameter, the class table is **≈ 6,600× more efficient**. If a future rung looks for a cheaper tail dictionary, the
+place to look is a **low-rank** replacement of the link maps, not their removal: the whole-map drop costs .174, so a rank-k map has .174
+of headroom to recover and 5.3M parameters to spend it from. That is registered in the backlog rather than claimed here.
+
+### Standing
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; these are measurements against the published
+frontier, which is untouched at norm-2304 / 2.6735 (§2125).

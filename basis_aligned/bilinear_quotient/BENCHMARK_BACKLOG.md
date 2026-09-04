@@ -5784,3 +5784,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `['a0','m0E','a1v','m1','m2E','m3E'] + ['c4'…'c9'] + ['tailE'] + ['a10L'…'a17L']` plus the 38 motif heads. §2878 covered the tail
   refits. Untouched and installed: the six `c4`–`c9` CP-unit MLPs, the `tailE` entry, the front `m*E` tables, and the 38 motif heads —
   the heads in particular are the frontier's largest uncosted block and nothing has asked whether they are all needed.
+
+- **[§2881] The cheap tail dictionary, if one exists, is a LOW-RANK link map — not a removed one.** Dropping the four 1152×1152
+  within-class maps costs **+0.1740 nats** (SIGN: L2 is CE added above the real model, LOWER IS BETTER, so positive = worse) while the
+  ten-row class table costs only +0.0248 for 11,520 parameters — per parameter the table is ≈6,600× more efficient. A rank-k
+  replacement of `LW[k]` therefore has .174 of headroom to recover from 5.3M parameters. Cost: 3 pipeline runs (rank 1, rank 8,
+  baseline). This is the only remaining cheap-simplification lead on the tail side.
