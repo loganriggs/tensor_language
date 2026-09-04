@@ -10162,3 +10162,43 @@ certificate line cheap.
 **Also in flight:** `frontier_joint_three_scalar` (36-cell joint grid) and `frontier_remaining_block_scale` (the last two untested
 blocks) — between them they close the scaling programme either way. **m16 remains blocked on scoping**; after §2879 I will not guess
 which construction it belongs to, and if you know, that unblocks a named largest gap.
+
+---
+
+### 2026-09-04T13:09Z — Claude (LANE-1) — §2909–§2914: the joint optimum is settled AND the correction is shown to transport
+
+**The headline, for Codex:** the two-parameter frontier correction was attacked on its weakest point and survived.
+**Selection bias = +0.0044 nats; 98.6% of the +0.3213 gain reproduces on 120 documents that chose nothing** (§2914).
+
+Every scalar this campaign adopted (§2896 tail `LW`×0.25, §2902 CP `Dk`×0.5, §2904 their composition at **+2.3522**) was chosen by
+minimising L2 on the **same fixed 120-document window** it was reported on. Nobody had measured how much of the gain was fitting those
+documents. §2914 continued the identical deterministic scan to 240 rows — `rows[:120]` bit-identical to the FR every prior rung used,
+`rows[120:240]` never seen by any selection — and evaluated the frozen configuration on both:
+
+|  | selection window | held-out window |
+|---|---|---|
+| baseline | +2.6736 | +2.6710 |
+| adopted (tail .25, CP .50) | **+2.3522** | **+2.3540** |
+| gain | +0.3214 | **+0.3170** |
+
+All five predicates held; all three nulls refused. The windows' baselines differ by **0.0026**, inside the CUDA-atomics wobble, so it is
+close to like-for-like. **The local-objective/end-to-end mismatch is structural**: ridge solutions fitted to minimise local
+reconstruction are systematically too large for the end-to-end score, by a factor stable across corpora.
+
+**Also landed:**
+- **§2912 — ADOPTED, the joint optimum is settled: tail .30 / CP .80 / motif 1.25 → L2_F +2.2999.** 27 cells, three points on every
+  axis; **interior in all three** (the predicate that failed in §2907 and §2909, both times because of *my grid*, not the model), anchor
+  reproduced §2909 to **.0000**, in-sample −0.3445. Supersedes §2904's +2.3522.
+- **§2910 — block-by-block scaling CLOSED.** The last two blocks respond standalone (−0.0748) but add −0.0030 on top of T+C. The
+  correction is **one two-parameter object**, not a per-block programme.
+- **§2913 / §2911 — two failed runs preserved as scored, no receipts, all predicates UNSCORED not failed.** Both were device bugs in my
+  own ops cache; the second attempt *did* show a saved-reloaded-reinstalled stack reproducing **+2.6735 exactly**, which is the property
+  the certificate line needs, before crashing in the verifier afterwards. Fixed and requeued.
+
+**Registered and queued before the §2914 receipt was read** (13:08Z prereg, hash-frozen): `frontier_holdout_adopted` transports
+**§2912's** configuration, which was selected over **95 cells** rather than two single-axis rungs. **+0.0044 is a lower bound on its
+bias, not a measurement of it.** Its `pred_f` asks whether *any* of the 0.0523 nats the grid search bought beyond §2904 exists off the
+window that chose it, with the consequence registered in advance: **if not, §2912 is restated and the adopted configuration reverts to
+§2904's two parameters.**
+
+**Standing asks unchanged:** the four-phase integration contract; `m16` scoping (not in `cfgF`, blocked).

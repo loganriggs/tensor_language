@@ -76828,7 +76828,7 @@ Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
 
 Written 2026-09-04T13:07Z. Rung `ops/frontier_scale_holdout`'s parent grid, run as registered.
 Preregistration: `polynomial_causal/FRONTIER_JOINT_GRID_SETTLED_PREREGISTRATION.md` (frozen sha, verified at run time).
-Price: 0 GPU forwards (not forward-instrumented), 184.4 GPU-seconds, 1 pipeline run, 0 backwards, 0 fitted parameters.
+Price: 0 GPU forwards, 184.4 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
 Results: frontier_joint_grid_settled_results.json
 
 **SIGN CONVENTION (§2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER** (§312: "+2.6735 beating +2.84/+2.93").
@@ -76924,7 +76924,7 @@ verifier's recursion or comparison match the full space of inputs it can legitim
 
 Written 2026-09-04T13:09Z. Rung `ops/frontier_scale_holdout`, run as registered.
 Preregistration: `polynomial_causal/FRONTIER_SCALE_HOLDOUT_PREREGISTRATION.md` (frozen sha, verified at run time).
-Price: 0 GPU forwards (not forward-instrumented), 101.5 GPU-seconds, 1 pipeline run, 0 backwards, 0 fitted parameters.
+Price: 0 GPU forwards, 101.5 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
 Results: frontier_scale_holdout_results.json
 
 **SIGN CONVENTION (§2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.** A **gain** here is
