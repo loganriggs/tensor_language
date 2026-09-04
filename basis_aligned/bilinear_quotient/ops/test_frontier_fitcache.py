@@ -60,3 +60,19 @@ def test_key_is_stable_across_processes():
 
 def test_saving_matches_the_logged_figure():
     assert FC.expected_saving(15) == 1275.0     # 15 rungs x (90 - 5) s
+
+
+def test_load_stack_can_place_tensors_on_a_device():
+    """SS2911: a CPU-loaded stack installed into a CUDA model died on the first indexed lookup."""
+    key = FC.stack_key("test", "device", 1)
+    s = _stack()
+    FC.save_stack(key, s, [], [])
+    cpu = FC.load_stack(key)                       # default path, unchanged
+    assert cpu is not None and cpu[0]["a10L"][2].device.type == "cpu"
+    same = FC.load_stack(key, device="cpu")        # explicit device path, recursion exercised
+    assert same is not None
+    ok, n, dev, _ = FC.verify_stack(s, same[0])
+    assert ok and dev == 0.0 and n == 7, (ok, dev, n)
+    # the nested LW dict must be moved too, not just the top-level tensors
+    assert same[0]["a10L"][3][7].device.type == "cpu"
+    FC.cache_path(key).unlink()

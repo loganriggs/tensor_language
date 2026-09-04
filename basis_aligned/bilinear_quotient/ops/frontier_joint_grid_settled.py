@@ -1,36 +1,32 @@
-"""DUMP THE FITTED STACK SO THE CERTIFICATE LINE CAN PROCEED ON CPU (Claude, LANE 1)
+"""SETTLE THE JOINT GRID: ALL THREE AXES AT THREE POINTS AROUND THE OPTIMUM (Claude, LANE 1)
 
-The explained fraction is **5.348% / 10.923% / 4.727 nat / 0 of 68**, and the last component is a CERTIFICATE COUNT -- SS-line 67799
-records "0 of 68 stands; this is a distinct effect-variance metric, proposed as coverage credit". **It has been exactly zero for the
-whole campaign.** Nothing this lane has produced -- including the two adopted rescalings that took the frontier from +2.6735 to
-+2.3522 (SIGN, SS2135: L2 is CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER) -- carries an a priori bound. Those improve the number and
-certify nothing.
+The joint optimisation has converged in value and failed twice on interiority, both times for reasons about the GRID rather than the
+frontier:
 
-The 10:28Z mathematical review ranked **balanced truncation with the Glover bound** second precisely because it would supply the
-ledger's first certificate: for a linear system, `||G - G_r||_inf <= 2 * sum_{i>r} sigma_i` in the Hankel singular values, an A PRIORI
-bound rather than a measured one. Its stated blocker was mundane: **the fitted matrices are never written to disk**, so every spectrum
-computation would need a GPU pipeline run.
+    SS2907  3x3x4 grid   best (t .30, c .65, m 1.25) = -0.3677   pred_d FAILED: tail and CP both on the TOP edge
+    SS2909  4x4x2 grid   best (t .30, c .80, m 1.25) = -0.3736   pred_d FAILED: motif at the edge of a 2-point axis
+                                                                 -- an axis I narrowed in my own preregistration, which
+                                                                 GUARANTEES an edge optimum and could not have passed
 
-This rung removes that blocker for good. It fits the published stack once and **persists it** with `ops/frontier_fitcache.save_stack`,
-after which Gramians, Hankel spectra and per-matrix spectra can all be computed on CPU at zero GPU cost.
+Value has essentially converged: +0.0314 then +0.0059. What has never been demonstrated **within a single rung** is that the optimum is
+interior in all three coordinates, and that is the only thing standing between the measured -0.3736 / +2.2999 and adoption under the
+rule that has governed every one of these rungs.
 
-**A note on the tool, recorded because I downgraded it myself.** `frontier_fitcache.py` was written at 11:06Z to save GPU time, and the
-12:07Z ops review downgraded it when the GPU turned out to be 68% idle -- saving fit time no longer bought wall-clock. Its real value is
-different from the one it was built for: **getting the fitted objects onto disk**. That is worth stating rather than quietly reusing it.
+This grid is built so the predicate can pass or fail **on the frontier rather than on my grid design**: tail {0.25, 0.30, 0.35} x
+CP {0.65, 0.80, 0.95} x motif {1.15, 1.25, 1.35} -- **three points on every axis, centred on SS2909's optimum**, 27 cells in ONE
+pipeline run. If the optimum is where SS2907 and SS2909 say it is, it lands in the middle of all three.
 
-pred_b and pred_e are the checks that matter: the dump must round-trip **exactly** (recursive verification over tuples and dicts, the
-fastload lesson), and a stack RELOADED from disk must reproduce L2_F, which is the only test that the persisted object is usable rather
-than merely well-formed.
-
-SS2128/SS2129/SS2133/SS2134 RETRACTED; SS2125 STANDS. Nothing here changes the construction -- it writes it down.
+SIGN CONVENTION (SS2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL, so **LOWER IS BETTER** (SS312: +2.6735 beating +2.84/+2.93).
+A cost is L2(arm) - L2(baseline), **POSITIVE = WORSE**, so a NEGATIVE cost is an improvement. SS2128/SS2129/SS2133/SS2134 RETRACTED;
+SS2125 STANDS -- this rescales already-fitted objects; it neither selects nor reorders.
 
 # BQGATE: EXPERIMENT  pred_a_the_baseline_reproduces_the_published_frontier
-#                     pred_b_the_saved_stack_round_trips_exactly
-#                     pred_c_the_dump_contains_the_expected_objects
-#                     pred_d_the_file_is_written
-#                     pred_e_a_reloaded_stack_reproduces_L2
+#                     pred_b_the_current_cell_reproduces_S2906
+#                     pred_c_the_joint_optimum_beats_the_current_setting
+#                     pred_d_the_joint_optimum_is_interior_in_all_three
+#                     pred_e_the_optimum_improves_in_sample_too
 
-Preregistration: polynomial_causal/FRONTIER_STACK_DUMP_PREREGISTRATION.md
+Preregistration: polynomial_causal/FRONTIER_JOINT_GRID_SETTLED_PREREGISTRATION.md
 Derived from ops/frontier_fisher8.py (SS2125 rung 30); that file is unmodified. ORIGINAL HEADER OF THE PARENT FOLLOWS.
 
 INSTALL THE CERTIFIED SELECTOR INTO THE FRONTIER (rung 30). The observability arc's certified, label-free
@@ -74,7 +70,7 @@ if os.environ.get('BQLIB_DRYRUN')=='1':
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
     _p=json.load(open(_bq+'empirical_L2_results.json'))
-    print(f"DRYRUN OK: published L2_F {_p['L2_F']}; ONE pipeline run: fit the published stack, persist it, verify the dump")
+    print(f"DRYRUN OK: published L2_F {_p['L2_F']}; ONE pipeline run: a 3x3x4 joint grid over the tail, CP and motif scalars")
     raise SystemExit(0)
 import torch
 import torch.nn.functional as F
@@ -82,7 +78,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'frontier_stack_dump_results.json'   # NOT the parent's receipt (SS2125 cites that file)
+OUT=PT+'frontier_joint_grid_settled_results.json'   # NOT the parent's receipt (SS2125 cites that file)
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -714,28 +710,8 @@ def main():
     _ml = ML
     _o2 = [x for x in order2
            if x.endswith('L') or not (x[0] in EVALMODE['drop'])]
-    # Persist the fitted stack for CPU-side certificate work. This is the first use of
-    # ops/frontier_fitcache.py, written at 11:06Z to save GPU time -- a purpose the 12:07Z ops review
-    # downgraded when the GPU turned out to be 68% idle. Its real value is this: getting the fitted
-    # objects (LW, A, Dk, DICT/LIN, W) onto disk so Gramian and Hankel spectra can be computed with no
-    # GPU at all, which is what the certificate line needs.
-    global _SAVED_S
-    import sys as _sys2; _sys2.path.insert(0, PT + 'ops')
-    import frontier_fitcache as _FC
-    _key = _FC.stack_key('frontier_fisher8', 'norm', 'blob')
-    _FC.save_stack(_key, S, cfgF, order2)
-    _SAVED_S = S
     _arms = ARMS or [('single', {})]
     def _cfg(spec):
-        if spec.get('_reload'):
-            # Replace every fitted entry with the one read back from disk. Without this the "reload"
-            # arm would silently evaluate the in-memory stack and pred_e would test nothing -- the
-            # same class of vacuous check that made ops/fastload.py's verifier useless at 06:24.
-            _got = _FC.load_stack(_key, device=DEV)   # SS2911: the model is on CUDA; a CPU stack cannot be installed
-            if _got is None:
-                raise RuntimeError('reload arm: nothing on disk to load')
-            for _k, _v in _got[0].items():
-                S[_k] = _v
         _apply_cp(spec.get('cp_scale'))
         _apply_motif(spec.get('motif_scale'))
         _apply_tail(spec.get('tail_scale'))
@@ -791,8 +767,8 @@ def main():
     out['runtime_s']=time.time()-t0
     return out
 
-PREREG = PT + '../polynomial_causal/FRONTIER_STACK_DUMP_PREREGISTRATION.md'
-PREREG_SHA = "88a7384c7db88d5040a65f3adfb31e03c5c372063259ad2f157f2e264c172c29"
+PREREG = PT + '../polynomial_causal/FRONTIER_JOINT_GRID_SETTLED_PREREGISTRATION.md'
+PREREG_SHA = "8fff536935659917833d5ff0a87d1a28cd98e112ed1bc20b7b8e3324b4bc4727"
 
 
 def _sha(path):
@@ -800,70 +776,88 @@ def _sha(path):
     return hashlib.sha256(open(path, 'rb').read()).hexdigest()
 
 
-BARS = {"reproduce": 0.05, "roundtrip": 0.0, "reeval": 0.001, "min_entries": 20}
-NULLS = {"roundtrip_fail": 0.0, "reeval_ge": 0.01}
+S2906 = PT + 'frontier_motif_bracket_and_triple_results.json'
+S2904 = PT + 'frontier_scale_composition_results.json'
+S2906_SHA = "e72a5fd6c3cd211ca6fdcffe4aa5126680731c59fae4971e02154ac6cf9c69ed"
+S2904_SHA = "2ad1fc031037be32fd97431eef218d9dc22c382835b78e5409c967439d2850c5"
+T_GRID = [0.25, 0.30, 0.35]
+C_GRID = [0.65, 0.80, 0.95]
+M_GRID = [1.15, 1.25, 1.35]
+BARS = {"reproduce": 0.05, "anchor": 0.01, "beats_current": 0.0}
+NULLS = {"anchor_ge": 0.03, "beats_le": 0.0}
 
 
 if __name__=='__main__':
     T00=time.time()
     if _sha(PREREG) != PREREG_SHA:
         raise RuntimeError(f'frozen hash mismatch: {PREREG}')
+    for p_, h_ in ((S2906, S2906_SHA), (S2904, S2904_SHA)):
+        if _sha(p_) != h_:
+            raise RuntimeError(f'frozen hash mismatch: {p_}')
+    cur = -0.3736   # SS2909's best cell (t .30, c .80, m 1.25) -- still a BOUND: pred_d failed there
+    tc  = json.load(open(S2904))['summary']['cost_fresh']['TC']        # -0.3213  (T .25, C .5)
     SEL['mode']='norm'
 
     import sys as _sys; _sys.path.insert(0, PT + 'ops')
-    import frontier_fitcache as FC
-
-    print('RUN 1/1: fit the published stack, save it, and verify the dump round-trips',flush=True)
-    ARMS[:] = [('baseline', {}), ('reload_check', {'_reload': True})]
+    import frontier_evalarms as FE
+    # ops/frontier_evalarms.factorial_arms: the 12:07Z ops action, first use. 36 cells + baseline in ONE run.
+    ARMS[:] = FE.factorial_arms({'tail_scale': T_GRID, 'cp_scale': C_GRID, 'motif_scale': M_GRID})
+    print(f'ONE pipeline run, {len(ARMS)} evaluations against the same fitted stack',flush=True)
     out=main()
-    bF = out['baseline']['L2_F']
-    reeval = out['reload_check']['L2_F']
 
-    key = FC.stack_key('frontier_fisher8', 'norm', 'blob')
-    path = FC.cache_path(key)
-    saved = path.is_file()
-    size_mb = round(path.stat().st_size / 1e6, 1) if saved else 0.0
-    got = FC.load_stack(key)   # default CPU path -- what the certificate analysis will use
-    ok, n_tensors, dev, where = (False, 0, float('inf'), 'not saved')
-    manifest = {}
-    if got is not None:
-        S2, cfg2, o22 = got
-        ok, n_tensors, dev, where = FC.verify_stack(_SAVED_S, S2)
-        from collections import Counter
-        manifest = dict(Counter(v[0] for v in S2.values() if isinstance(v, tuple) and v))
-    reeval_dev = abs(reeval - bF)
+    bF = out['baseline']['L2_F']; bC = out['baseline']['L2_C']
+    cell = {}
+    for n, spec in ARMS:
+        if n == 'baseline':
+            continue
+        cell[(spec['tail_scale'], spec['cp_scale'], spec['motif_scale'])] = (
+            round(out[n]['L2_F'] - bF, 4), round(out[n]['L2_C'] - bC, 4))
+    best = min(cell, key=lambda k: cell[k][0])
+    best_fresh, best_fit = cell[best]
+    anchor = cell[(0.30, 0.80, 1.25)][0]
+    anchor_dev = abs(anchor - cur)
+    beats = round(cur - best_fresh, 4)                 # POSITIVE = the joint optimum is better
+    interior = (best[0] not in (T_GRID[0], T_GRID[-1])
+                and best[1] not in (C_GRID[0], C_GRID[-1])
+                and best[2] not in (M_GRID[0], M_GRID[-1]))
 
     pa = abs(bF-2.6735) <= BARS['reproduce']
-    pb = bool(ok) and dev <= BARS['roundtrip']
-    pc = n_tensors >= BARS['min_entries']
-    pd = bool(saved) and size_mb > 0
-    pe = reeval_dev <= BARS['reeval']
+    pb = anchor_dev <= BARS['anchor']
+    pc = beats >= BARS['beats_current']
+    pd = bool(interior)
+    pe = best_fit < 0
     preds={'pred_a_the_baseline_reproduces_the_published_frontier':bool(pa),
-           'pred_b_the_saved_stack_round_trips_exactly':bool(pb),
-           'pred_c_the_dump_contains_the_expected_objects':bool(pc),
-           'pred_d_the_file_is_written':bool(pd),
-           'pred_e_a_reloaded_stack_reproduces_L2':bool(pe)}
-    nulls={'b_null_the_dump_is_not_faithful':bool(not ok or dev > NULLS['roundtrip_fail']),
-           'e_null_the_reloaded_stack_does_not_reproduce':bool(reeval_dev >= NULLS['reeval_ge'])}
-    res={'rung':'frontier_stack_dump','preds':preds,'nulls':nulls,'bars':BARS,'null_bars':NULLS,
-         'arms':out,'published_L2_F':2.6735,
-         'summary':{'L2_F_baseline':round(bF,4),
-                    'L2_F_after_reload':round(reeval,4),'reload_deviation':round(reeval_dev,6),
-                    'cache_key':key,'cache_path':str(path),'saved':bool(saved),
-                    'file_size_mb':size_mb,
-                    'roundtrip_ok':bool(ok),'tensors_compared':n_tensors,
-                    'max_deviation':dev if dev != float('inf') else None,
-                    'first_mismatch':where,
-                    'entry_kinds':manifest,
-                    'purpose':'CPU-side certificate work: Hankel/Gramian spectra vs per-matrix spectra'},
+           'pred_b_the_current_cell_reproduces_S2906':bool(pb),
+           'pred_c_the_joint_optimum_beats_the_current_setting':bool(pc),
+           'pred_d_the_joint_optimum_is_interior_in_all_three':bool(pd),
+           'pred_e_the_optimum_improves_in_sample_too':bool(pe)}
+    nulls={'b_null_the_anchor_fails':bool(anchor_dev>=NULLS['anchor_ge']),
+           'c_null_the_current_setting_is_already_jointly_optimal':bool(beats<=NULLS['beats_le']),
+           'd_null_the_grid_is_too_narrow':bool(not interior)}
+    res={'rung':'frontier_joint_grid_settled','preds':preds,'nulls':nulls,
+         'bars':BARS,'null_bars':NULLS,
+         'grids':{'tail':T_GRID,'cp':C_GRID,'motif':M_GRID},'arms':out,'published_L2_F':2.6735,
+         'summary':{'L2_F_baseline':round(bF,4),'L2_C_baseline':round(bC,4),
+                    'n_cells':len(cell),
+                    'cell_fresh':{f't{t}_c{c}_m{m}':v[0] for (t,c,m),v in sorted(cell.items())},
+                    'cell_fit':{f't{t}_c{c}_m{m}':v[1] for (t,c,m),v in sorted(cell.items())},
+                    'best_cell':{'tail':best[0],'cp':best[1],'motif':best[2]},
+                    'best_fresh':best_fresh,'best_fit':best_fit,
+                    'interior_in_all_three':bool(interior),
+                    'S2906_current_best':round(cur,4),'anchor_cell_measured':anchor,
+                    'anchor_deviation':round(anchor_dev,4),
+                    'beats_current_by':beats,
+                    'S2904_TC_for_reference':round(tc,4),
+                    'implied_L2_F_best':round(bF + best_fresh, 4),
+                    'S2904_adopted_L2_F':2.3522},
          'price':{'gpu_forwards':0,'forwards_instrumented':False,'pipeline_runs':1,
                   'backwards':0,'fitted_parameters':0,
                   'gpu_seconds':round(time.time()-T00,1)},
-         'hashes':{PREREG:PREREG_SHA},'self_reviewed':True}
+         'hashes':{PREREG:PREREG_SHA,S2906:S2906_SHA,S2904:S2904_SHA},'self_reviewed':True}
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"(a) baseline L2_F {bF:.4f} vs 2.6735: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) round-trip ok={ok} over {n_tensors} tensors, max dev {dev}: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) entry kinds {manifest}: {'HELD' if pc else 'FAILED'}")
-    print(f"(d) saved {size_mb} MB at {path}: {'HELD' if pd else 'FAILED'}")
-    print(f"(e) reloaded L2_F {reeval:.4f} vs {bF:.4f}, dev {reeval_dev:.6f}: {'HELD' if pe else 'FAILED'}")
-    print(f'wrote {OUT} ({res["price"]["gpu_seconds"]:.0f}s)')
+    print(f"(b) cell (.25,.5,1.25) {anchor:+.4f} vs SS2906 {cur:+.4f}, dev {anchor_dev:.4f}: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) best cell t={best[0]} c={best[1]} m={best[2]} at {best_fresh:+.4f} (fit {best_fit:+.4f}) beats current by {beats:+.4f}: {'HELD' if pc else 'FAILED'}")
+    print(f"(d) interior in all three: {'HELD' if pd else 'FAILED'}")
+    print(f"    implied L2_F = {bF+best_fresh:.4f}   (adopted T+C = 2.3522)")
+    print(f'wrote {OUT} ({res["price"]["gpu_seconds"]:.0f}s, {len(cell)} cells in one run)')

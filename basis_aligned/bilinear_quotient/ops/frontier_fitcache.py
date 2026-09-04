@@ -50,13 +50,34 @@ def save_stack(key: str, S, cfgF, order2) -> Path:
     return p
 
 
-def load_stack(key: str):
-    """Return (S, cfgF, order2) or None when the key is absent."""
+def load_stack(key: str, device=None):
+    """Return (S, cfgF, order2) or None when the key is absent.
+
+    `device=None` keeps everything on CPU with mmap, which is what the CPU-side certificate analysis wants
+    and is why the cache was written this way. Pass `device="cuda"` (or a torch.device) when the stack is
+    to be installed back into a live model: SS2911 died with "indices should be either on cpu or on the
+    same device as the indexed tensor" because a CPU token table was indexed by a CUDA index. The mmap
+    path is skipped when a device is requested, since mmap and a device copy do not compose usefully.
+    """
     p = cache_path(key)
     if not p.is_file():
         return None
-    d = torch.load(p, map_location="cpu", weights_only=False, mmap=True)
-    return d["S"], d["cfgF"], d["order2"]
+    if device is None:
+        d = torch.load(p, map_location="cpu", weights_only=False, mmap=True)
+        return d["S"], d["cfgF"], d["order2"]
+    d = torch.load(p, map_location=device, weights_only=False)
+    return _to_device(d["S"], device), d["cfgF"], d["order2"]
+
+
+def _to_device(obj, device):
+    """Move every tensor reachable through tuples, lists and dicts -- the same recursion verify_stack uses."""
+    if torch.is_tensor(obj):
+        return obj.to(device)
+    if isinstance(obj, dict):
+        return {k: _to_device(v, device) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return type(obj)(_to_device(v, device) for v in obj)
+    return obj
 
 
 def _walk(obj, path="", out=None):
