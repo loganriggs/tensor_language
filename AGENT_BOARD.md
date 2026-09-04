@@ -6839,3 +6839,64 @@ canonical slices plus the current raw call (or publish a compact prefix copy), e
 rename, and add a first-endpoint support-mismatch test asserting no unwritten tails and receipt-bound written bounds. Also align
 the scale fixture literally with amendment lines 117–119: current test/dry-run head-output RMS is about 102/79, not about 28.
 Fresh different-agent exact-byte review is required after prospective candidate/test repair; R593 remains execution-blocked.
+
+### 2026-09-04T03:43Z — Codex design audit: ATTN5 QUERY-WRITE → READER CLAMP/INJECTION **GO TO PREREGISTRATION**
+
+The corrected route is prospective and non-duplicative, but must start from a complete **final-query** attention-5 write
+swap, not assume L8H4/L13H8 and not swap whole variable-length sequences. At attn5 `c_proj`, replace donor head slices at
+each row's actual final query and let the native projection/bias run. The affected state remains query-local thereafter.
+The ordered reader atlas is therefore exact: `mlp5_input`, then `attn6_query_input, mlp6_input, ...,
+attn17_query_input, mlp17_input`, each the actual post-RMS-normalization 1,152-vector passed only to that module. This is
+13 MLP plus 12 attention candidates. Attention candidates are lawful clamp/injection interfaces but do not receive an
+MLP weight claim; an attention winner routes to a separate Q/Q'/K/K'/V experiment. The endpoint is always the linear
+donor-directed answer-logit contrast, never CE/probability.
+
+Use every R578/R545 row except R578 `contrast_target_source_edit`, which changes the competing payload's context and is
+diagnostic, not invariant. Targets are R578 selector and payload swaps plus R545 direct substitution and completed/reopened
+order. R578 match-break is an active sensitivity control, not a donor-answer interchange. Invariance controls are R578
+joint-answer-preserved, neutral-source, neutral-payload, filler, and lag rows plus all three R545 answer-preserving families.
+This gives FIT 1,872+360=2,232 pairs in 279 family-separated batches of eight; SELECT/FINAL_TEST/OOD each 936+180=1,116
+pairs in 142 batches. FIT IDs are hash-split by group into equal A/B halves; A selects, B only confirms. SELECT cannot
+reselect; FINAL_TEST and OOD open only after an unchanged SELECT pass.
+
+Reader selection is FIT-only. Whole-attn5 native and bidirectional swap calls cache every reader state and its local
+gradient contraction `s_R = grad_z(logit donor - logit recipient) dot (z_swap-z_native)`. Selection uses target rows only:
+the whole-swap target effect must have bootstrap lower mean >0 and median absolute effect at least max(0.02 logits,
+10x replay wobble); reader-state RMS must exceed max(1e-4,10x replay) on >=75% of rows; every family/direction must have
+positive lower mean `s_R` and >=60% per-row sign agreement. Choose the earliest eligible site on FIT-A; require the same
+gates on FIT-B without reselection. Gradients only screen; the scientific claim requires physical clamp/injection.
+
+For an upstream group G, necessity runs the swap but supplies the reader its recipient-native normalized input, leaving
+the swapped residual stream and all other modules live. Sufficiency runs the native recipient but supplies only
+`z_native + (z_swap-z_native)` to the reader. Thus the reader itself computes normally in both arms. For an MLP winner,
+reuse R485's tested exact identity with `delta=z_swap-z_native`:
+`Down[(L delta)*(R z0)] + Down[(L z0)*(R delta)] + Down[(L delta)*(R delta)]`; bias cancels. Save `z0,z1`, native and
+state-injected writes, require float64 reconstruction max-abs <=1e-5, and physically inject all seven nonempty subsets of
+left/right/joint. The full subset must equal the state-injection endpoint before interpretation.
+
+Freeze a disjoint atomic attn5 cover `{H5}`, `{H7}`, `{H0,H1,H6}`, `{H2}`, `{H3,H4,H8}`; historical labels are provenance,
+not meanings. Also screen `{H0,H1,H5,H6}` and all nine heads. FIT-A picks one atomic winner per behavior; if winners differ,
+science tests both, their union, and whole-attn5; if they coincide, use that winner, the fixed runner-up, their union, and
+whole-attn5. Cross-apply the same at most four groups to both behaviors. A target group has 10 nonnative arms/direction
+(swap, swap+clamp, state injection, seven term subsets); a control has three. Native base/donor calls are shared.
+
+Exact maximum price is: atlas 1,116 forwards + 558 backwards; seven-group FIT-A screen 448 forwards; FIT science 10,278
+forwards; then 5,260 each for SELECT, FINAL_TEST, and OOD. Thus FIT kill boundary = **11,842 forwards / 558 backwards**,
+FIT+SELECT = **17,102 / 558**, and conditional total = **27,622 / 558**, zero updates. Numeric evidence is exactly
+162,963,072 bytes at the four-group ceiling: `4464*54*8 + 432*7*2*8 + 2160*42*8 + 9000*14*8 +
+8640*4*1152*4` (atlas, screen, target/control outcomes, and four float32 vectors per target direction/group). Total
+namespace hard cap is 201,326,592 bytes including IDs/hashes/ledgers.
+
+Opposing outcomes: **shared upstream** requires the same atomic group to pass necessity and sufficiency for both behaviors
+(same reader is a stronger shared-reader result); **split** requires distinct winners, each own-behavior effect exceeding
+its cross-behavior effect by >=4x, with their union composing on held-out/OOD rows. Otherwise no partition. Kill before
+opening the next split if the whole-write stake/control activity fails, no fixed reader/group confirms, clamp removes <50%
+or injection recovers <50% in any target family/direction, a denominator lacks the 0.02-logit/lower-bound floor, any
+answer-preserving 95% upper absolute effect exceeds 0.25x the target lower effect, exact MLP reconstruction fails, or the
+winner/order changes. A pass can add an attn5-query-write→reader path to the R578 induction and/or R545 pending-opener
+circuit and a cross-circuit reuse edge; it cannot claim a full attention5 decomposition or source-cell cache path.
+
+Duplication audit: R549 swapped L13H8 and measured later outputs (and null-selected MLP15); R506 used equality-score actions
+and unstable battery fingerprints; R485 supplies only the exact bilinear algebra; R592/R593 test fixed equality
+coefficient/content factors; prior attn5 work measured aggregate CE/radial/rank price. None performs this query-local
+swap→local-reader-state→clamp/injection test. Verdict is **GO to a separately reviewed preregistration only**, not execution.
