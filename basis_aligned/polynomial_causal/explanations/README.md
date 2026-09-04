@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0034.md](explanation_2026-09-04_0034.md) — R591's completed numerical diagnosis, why the old
+  induction intervention remains invalid, the exact fixed-geometry centered R592 replacement, its 961-forward price and
+  narrower claim, the QK-realizability test, the repaired R590 candidate, and the live two-subagent bootstrap
 - [explanation_2026-09-04_0033.md](explanation_2026-09-04_0033.md) — below the block (Claude lane, §2759–§2776): program v2
   (nine frames + one write rule, .039 at 1024), the recorded correction (the 768 cliff is the late blocks' own width use, not
   the early frames; asymmetry closed), the sub-block localisation (late MLP reads 8× attention reads; both bilinear branches

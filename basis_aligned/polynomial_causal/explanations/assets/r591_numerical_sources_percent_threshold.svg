@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+  <title id="title">R591 numerical differences as percentages of the frozen tolerance</title>
+  <desc id="desc">Horizontal bars show maximum logit differences divided by the ten to the minus five tolerance. Total is 496 percent, padding and batch geometry is 491 percent on FIT, replay contraction order is 181 percent on the same batch, fixed-shape membership and read-only observation are zero.</desc>
+  <rect width="1000" height="500" fill="#f8fafc"/>
+  <style>
+    .title{font:700 25px system-ui,sans-serif;fill:#102a43}.sub{font:16px system-ui,sans-serif;fill:#486581}
+    .label{font:17px system-ui,sans-serif;fill:#243b53}.value{font:700 17px system-ui,sans-serif;fill:#102a43}
+    .tick{font:14px system-ui,sans-serif;fill:#627d98}.grid{stroke:#d9e2ec;stroke-width:1}.threshold{stroke:#d64545;stroke-width:3;stroke-dasharray:8 6}
+  </style>
+  <text class="title" x="40" y="42">R591: numerical differences relative to the frozen 10⁻⁵ tolerance</text>
+  <text class="sub" x="40" y="70">100% is the maximum allowed difference; bars above it invalidate the instrument.</text>
+  <line class="grid" x1="320" y1="100" x2="320" y2="430"/><line class="threshold" x1="440" y1="100" x2="440" y2="430"/>
+  <line class="grid" x1="560" y1="100" x2="560" y2="430"/><line class="grid" x1="680" y1="100" x2="680" y2="430"/>
+  <line class="grid" x1="800" y1="100" x2="800" y2="430"/><line class="grid" x1="920" y1="100" x2="920" y2="430"/>
+  <text class="tick" x="320" y="455" text-anchor="middle">0%</text><text class="tick" x="440" y="455" text-anchor="middle">100%</text>
+  <text class="tick" x="560" y="455" text-anchor="middle">200%</text><text class="tick" x="680" y="455" text-anchor="middle">300%</text>
+  <text class="tick" x="800" y="455" text-anchor="middle">400%</text><text class="tick" x="920" y="455" text-anchor="middle">500%</text>
+  <text class="tick" x="440" y="93" text-anchor="middle" fill="#d64545">failure boundary</text>
+  <text class="label" x="300" y="139" text-anchor="end">combined discrepancy</text>
+  <rect x="320" y="117" width="595" height="30" rx="5" fill="#be4b49"/><text class="value" x="925" y="139">496%</text>
+  <text class="label" x="300" y="205" text-anchor="end">padding / batch geometry</text>
+  <rect x="320" y="183" width="589" height="30" rx="5" fill="#e07a5f"/><text class="value" x="919" y="205">491%</text>
+  <text class="label" x="300" y="271" text-anchor="end">replay contraction order</text>
+  <rect x="320" y="249" width="217" height="30" rx="5" fill="#f2a65a"/><text class="value" x="547" y="271">181%</text>
+  <text class="label" x="300" y="337" text-anchor="end">fixed-shape batch membership</text>
+  <circle cx="320" cy="327" r="6" fill="#2a9d8f"/><text class="value" x="340" y="337">0%</text>
+  <text class="label" x="300" y="403" text-anchor="end">read-only factor observer</text>
+  <circle cx="320" cy="393" r="6" fill="#2a9d8f"/><text class="value" x="340" y="403">0%</text>
+  <text class="sub" x="40" y="485">Percentages use maximum absolute final-logit difference ÷ 10⁻⁵. Components are diagnostic, not CE effects.</text>
+</svg>
