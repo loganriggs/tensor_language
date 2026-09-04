@@ -6606,6 +6606,37 @@ R578/R585/R590 parity, and the **1,193 production LOC** cap pass. Candidate hash
 `1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
 `2a30fe781eeae760a7e3ffc84269fa233e5ca1636c3126a928f2637cb5beee2f`. No model, GPU, queue, or outcome bytes were read.
 
+### 2026-09-04T03:42Z — Codex subagent: POST-§2805 ATTN5 CIRCUIT DESIGN RECEIPT (DESIGN ONLY; NO RUNG CLAIM/QUEUE/GPU)
+
+Ledger audit says the genuinely new next test is an **attention-5 head-group × downstream-reader finite factorial**, not
+C4's aggregate per-token CE map, another rank sweep, or another R592 equality-factor run. Freeze five architecture/evidence-
+defined groups before outcomes: copy comparator `{H5}` (§882/R459), sink/structure comparator `{H7}` (§2111–§2114),
+other price heads `{H0,H1,H6}`, their price union `{H0,H1,H5,H6}` (§2115), and energy/low-price control `{H2}`. On
+semantically aligned positions, physically replace each group's exact projected attn5 write by its donor value. Cross every
+swap with removal of the behavior's already-established downstream reader and score the four-cell interaction
+`[Y(G)-Y(native)]-[Y(G+remove R)-Y(remove R)]`, never a gradient, rank, or aggregate-loss proxy.
+
+Use two independent frozen authorities: R578 induction selector/payload rows (72/36/36/36 FIT/SELECT/FINAL_TEST/OOD groups;
+reader `L8H4` registered equality contribution) and R545 pending-opener rows (72/36/36/36; readers = complete final-position
+`L13H8`, held in R546). Target families are R578 selector swap, payload swap, and match-break necessity, and R545 direct
+delimiter substitution plus completed-then-reopened order. All R578 irrelevant-source/payload, joint-answer-preserved,
+copy-preserved nuisance rows and all three R545 answer-preserving families are mandatory active controls. Require nonzero
+write intervention on >=75% of control groups, bidirectional donor-directed target movement, group-bootstrap lower mean >0,
+cell-level recovery ratios only when the whole-attn5 denominator is positive, and <=.25 target-scale answer leakage on every
+answer-preserving cell. Opposing predictions are frozen: **shared service** iff the price union transfers both behaviors and
+>=50% of each effect disappears with that behavior's reader; **split service** iff H5 is selectively L8H4-mediated while H7
+or `{H0,H1,H6}` is selectively L13H8-mediated, with each cross-behavior recovery <=.25; otherwise no interpretable partition.
+
+Run a FIT whole-attn5 ceiling first and kill after 540 maximum forwards if either behavior fails any target family/direction;
+do not open group arms. Full maximum through fixed SELECT then unopened FINAL_TEST/OOD is 5,847 forwards (R578 4,251;
+R545 1,596), zero backwards/updates. Only after the same fixed verdict holds OOD, run the canonical current-tree BATTERY
+collateral panel: native plus mean-ablation of H5/H7/other-price/price/H2/whole-attn5 = 1,750 forwards on the 1,000-row census,
+for a total ceiling of 7,597. The 62 overlapping masks are numeric collateral strata only (44/62 names come from the wrong
+tree); they neither train nor name the groups. A removal candidate dies unless >=50/62 current masks stay within 0.5x their
+own BATTERY reference in both document halves. Novelty audit: §2114–§2115 priced heads only in a compiled arm; §2191/§2704–
+§2706 split DC/radial/rank only on aggregate CE; R495 was attention1 first-order fingerprints; R592/R593 tests fixed equality
+coefficient/content terms, not attn5 groups crossed with two physical readers. Thus this design is not a duplicate.
+
 ### 2026-09-04T03:18Z — Codex: SECOND CIRCUIT-COMPILER PURITY REPAIR READY FOR CLAUDE
 
 Fresh Claude Fable session `6a9d8c79-94e9-48d5-aa8a-6e2cdbd5dfdf` exact-reviewed `100e4f3ff` and confirmed its
