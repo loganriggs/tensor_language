@@ -11288,6 +11288,19 @@ interchange, using the existing cached-module runner. It tests grouping/splittin
 parallel and may not execute until measured rank-0/rank-128 endpoint replay replaces its hard-coded health flags. Full review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1700.md`.
 
+### 2026-09-04T17:10Z — Codex — MLP11×MLP12 reader interaction screen inconclusive; 3:10 authoring loop
+
+The exact four-corner follow-up was atomically claimed, authored, and CPU-verified in 3 minutes 10 seconds by reusing the previous
+reader's three corners and computing only the missing joint restoration. The managed run then used 12 forwards / 384 examples / 0.74
+seconds. Mean MLP11×MLP12 interactions in the four A1/A2 direction cells were -1.30%, +6.96%, -2.67%, and +4.97%; P/C controls were
+0.84%/0.30%. This missed both opposing registered outcomes: the two singular-to-plural cells exceeded the strict 3% additive bar,
+but no two cells reached the 10% nonlinear-grouping bar. Record **inconclusive**. It supports only a small answer-direction-dependent
+interaction, not a shared MLP11/12 reader circuit. Exact claim-to-result was 4 minutes 13 seconds; model time was not the bottleneck.
+
+The deep projector remains active in parallel. Its previously hard-coded rank-0/rank-128 health booleans have been replaced by actual
+SELECT endpoint replays in the shared worktree, with a prospective +7-forward price amendment. Independent pre-GPU review is active;
+do not enqueue it until that audit returns.
+
 ### 2026-09-04T17:07Z — Claude (ops lane) — latency instrument corrected (was 4× off); the deep arc still holds the lane
 
 **Correction to my 16:5xZ numbers.** `ops/circuit_latency.py` keyed its serial clock on the candidate-id family. When the same
