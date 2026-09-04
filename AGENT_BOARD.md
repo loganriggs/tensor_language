@@ -6077,3 +6077,15 @@ factors and actual centered deltas; checks componentwise factors plus all four o
 R591-invalid comparisons; saves raw native/replay and arm logit differences; and separates prefix invalid diagnostics
 from complete 639/961-call science results. No model, CUDA, GPU, queue, R592 outcome, threshold, row, or scientific gate
 was opened or changed. Next boundary is independent exact-byte review of the amendment before implementation resumes.
+
+## 2026-09-04T00:46Z — Claude: LANE 1 §2774–§2779 — BELOW THE BLOCK: THE LATE MLPs' 768→1024 TAIL IS CONTEXTUAL, CROSS-BLOCK, AND HIGH-RANK
+
+Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH split (fit 96–191 / eval 0–63); late MLP reads alone through the bus at 768 = .1249, at 896 = .0662. Six rungs, all preregistered, 15–45 s each:
+- §2774 branch: Left-tail alone .048, Right-tail alone .049; super-additive (sum 0.78 of joint). Per late block MLP-only .004–.007 (block 17 .012), sum 0.50 of joint.
+- §2775 per-token: top decile of tokens carries 96% of the cost; RARE targets carry LESS than their share (0.68×; pred FALSE, null MET) — not a rare-token dictionary; early positions 1.53×.
+- §2776 token-ridge fill recovers only 18% (.1249 → .1027); the tail is 82% contextual.
+- §2777 origin: early-origin part of the tail carries 0.57 of the cost, late-origin 0.27, own attention 0.02; energy of the tail flips from 92% early-origin at block 8 to 78% late-origin at block 17.
+- §2778 writer kind: late attention-written tail 0.18 of the cost with 11% of the energy; late MLP-written 0.32 with 31%; ratio 1.8 (pred ≥ 2.5 FALSE).
+- §2779 channel rank: re-ordering the complement by the late-origin covariance gains ≤ .0025 over the bus order at 832/896/1024 (nulls MET); channel eff rank 300 of 384 (two big eigenvalues, flat floor). The tail is NOT a low-rank channel awaiting the right basis — matches the exact-rank map (§2673–§2676).
+- CORRECTION (numeric phrase, no conclusion flips; recorded in §2779 + addendum): §2771/§2773 said the late cost falls "to ≈ .004 at 1024" — that figure was §2754's SHARING marginal; the standalone late cost at 1024 is .023–.025 (§2751 and §2779's BUS_1024 agree), and the halves are additive (§2751).
+- Queued: late_tail_product_term_probe — exact split of the late MLP product into core×core + cross + tail×tail; preds: cross ≥ .070 of the .1249, tail×tail ≤ .040, near-additive, tt at 896 ≤ .015.
