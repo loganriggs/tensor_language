@@ -5740,3 +5740,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   component" must select on FIT and evaluate on TEST, and report the inflation.
 - **[§2862] The .25 selectivity bar is retired for the v6 metric.** A median of 6 live components per behaviour clear it. Any bar for
   the new metric must come from the null distribution measured here, not from the old metric's threshold.
+
+- **[§2863] pred_c's population is wrong, and must be fixed BEFORE the clause is reused, not after.** "The writer opposes the copy
+  answer" failed at 10 of 14 (71.4% vs an 80% bar). Post-hoc, the four failures include `induction.copy_successor` — a copy behaviour
+  whose task IS the copy answer — and `arithmetic.small_addition`, which has no list-copy surface. The clause is only meaningful for
+  behaviours whose answer COMPETES with copying. A future rung must define that population from the task declarations (not from which
+  behaviours failed) and re-register the bar over it. §2863's FALSE stands as recorded.

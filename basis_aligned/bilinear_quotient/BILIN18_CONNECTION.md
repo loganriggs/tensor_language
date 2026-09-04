@@ -74519,3 +74519,51 @@ evaluate that component's selectivity on **TEST**, reporting the inflation betwe
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68); §2858–§2862 correct the campaign's instrument and
 touch no §312 frontier quantity.
+
+## §2863 — P IS A POSITIVE CONTROL BANK-WIDE (.072), SO §2860's ACCOUNT IS THE BANK'S DESIGN, NOT attn8's CIRCUIT — TWO CLAUSES MISS
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_V6_BANK_SWEEP_PREREGISTRATION.md` (08:22Z; the header first read 08:23Z and was corrected
+to the value `date -u` returned **before** the file was hashed into the rung, so no frozen-hash disclosure is needed here — unlike
+§2858 and §2859, where the slip was caught only after freezing).
+Run `circuit_battery_v6_bank_sweep`, landed 08:23Z.
+Results: circuit_battery_v6_bank_sweep_results.json
+Price: 760 GPU forwards, 11.0 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`).
+
+SIGN CONVENTION: `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS**; `selectivity = |d_C|/max(d_A1,.5)`, **LOWER = MORE
+SELECTIVE**. No CE, no §312 L2, nothing installs. (Frontier: L2 is CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER, §2135.)
+
+**14 behaviours, each at its own identified writer, FULL arm, splits SELECT/TEST/OOD. pred_a, b, d TRUE; pred_c, e FALSE; no null met.**
+
+- **pred_b TRUE at .072 — the clause that matters.** Median `|d_P_donor − d_A1|/d_A1` = **.072** across 14 behaviours at their own
+  writers, against a bar of ≤ .25. §2861 measured .056 on seven attn8 behaviours; the bank-wide value confirms that **P preserving the
+  causal variable is a property of the BANK's design, not of attn8's circuit**. §2860's account of why the old metric was pinned at 1
+  therefore generalises, and `b_null_preserving_control_is_not_positive` — registered precisely to bound my own correction to attn8 —
+  is not met.
+- **pred_a TRUE** — median |old-style − new| = **.781**, larger than §2861's .574 on the attn8 seven. **pred_d TRUE** — median
+  |SELECT − TEST| = **.117** (bar ≤ .15), so the metric generalises to held-out situations bank-wide.
+- **pred_c FALSE** — `d_C < 0` on **10 of 14 = 71.4%**, against a bar of ≥ 80%. The four behaviours where removing the writer does NOT
+  help the copy answer are recorded as a miss, not explained away. Note the bar was deliberately registered as a FRACTION rather than
+  §2861's "6 of 7" count, because the task count changed — carrying the count across would have made this clause pass at 10 of 14 for
+  no reason but arithmetic.
+- **pred_e FALSE by .044** — Spearman ρ(SELECT, TEST) over the behaviour axis = **.556** against ≥ .60. §2861's .714 on seven
+  behaviours does not hold up at 14; the ordering is positively correlated and well clear of the ρ ≤ .20 null, but it is **not** stable
+  at the strength I registered.
+
+### Reading
+
+The instrument claim generalises and the two clauses that fail are the ones about the WRITERS, not about the metric: the metric's
+positive control, range and held-out transfer all hold bank-wide, while "the writer opposes the copy answer" and "the behaviour
+ordering is stable" degrade once the sample is not seven behaviours sharing one writer. Taken with §2862 — attn8 at the 21st
+percentile, missing its outlier bar, and an argmin that reproduces on 0 of 7 — the consistent picture is that **the v6 metric is a
+sound instrument whose per-behaviour readings are noisier than the attn8 seven suggested.** Nothing here revives the withdrawn claim
+in either direction; §2860's "un-established" stands.
+
+**Post-hoc, unregistered:** the four behaviours where the writer does NOT oppose the copy answer are
+`induction.copy_successor`, `arithmetic.small_addition`, `alphabet_run.successor`, `keyed_line.counter_successor`. The first is a
+**copy** behaviour — the copy answer IS its task, so a writer supporting it opposing copying would be incoherent — and the second has no
+list-copy surface at all. That is a candidate explanation, not a result: it was noticed after seeing which four failed, and if it is
+right then pred_c's bar should have been registered over behaviours whose answer competes with copying, which is a smaller set than
+"all 14". Registering that restriction now, after seeing the outcome, would be exactly the predicate-fitting this lane keeps catching,
+so pred_c stands as FALSE and the restriction is recorded in the backlog as something a FUTURE rung must fix before it is used.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
