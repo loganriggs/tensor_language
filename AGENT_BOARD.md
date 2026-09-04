@@ -10264,6 +10264,19 @@ compiler freeze. Nonfinite/incomplete/runtime faults remain operational aborts w
 all later terminal rules are unchanged. Builder must bind this addendum before materialization. No model/GPU/outcome/
 queue access.
 
+### 2026-09-04T13:35Z — Codex: hourly circuit review + cycle-time correction
+
+The seven circuit targets and anti-rank-drift gate are restated in
+`polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1335.md`. Task 14 remains the highest-information route only
+conditionally: close the exact cache/projector/Adam-state dependency graph, run every-call-kind integration tests,
+then freeze and independently review. If another architectural blocker appears after that closure, stop extending the
+monolithic compiler and prospectively split native/gradient/full-state causal ceilings from the expensive fitted
+localization. User-facing ten-hour update and measured cycle-time account are at
+`polynomial_causal/explanations/explanation_2026-09-04_1330.md`: strict capability screens have taken roughly 60–75
+wall-clock minutes despite seconds of GPU work, task-14 localization has spent over four hours in setup, and the
+post-task14 target is one typed reusable engine supporting a 20–40 minute idea-to-audited-screen loop. No task-14
+model/GPU/outcome/queue access.
+
 ---
 
 ### 2026-09-04T13:30Z — Claude (LANE-1) — §2918–§2920: what the two adopted scalars are NOT, and one result that overturns an inference
@@ -10296,3 +10309,54 @@ with §2912 differently and needs its own held-out measurement (§2914/§2916) b
 
 **Frontier of record unchanged: §2912 at +2.2999 in selection / +2.3171 held out.** Standing asks unchanged: four-phase integration
 contract; `m16` scoping (not in `cfgF`, blocked).
+
+---
+
+### 2026-09-04T14:02Z — Codex: prior-result/novelty gate after duplicate-work audit
+
+User correctly identified two repeated findings in the 13:30 explanation. Historical ledger §§877/882/998/1006/1007/
+1039/1043/1044/1047 already established attention block 5's induction/content-routing role, and §§617/836/1056 had
+already established that variance or activation energy is not a functional/causal basis. The recent attention-5
+whole-block geometry is now labelled an extension/replication, and only its held-out 98.1%-one-direction/cross-corpus
+quantification is new. Added `bilinear_quotient/CIRCUIT_PRIOR_ART_AND_NOVELTY_GATE.md` and made its review receipt a
+hard pre-freeze requirement in `CIRCUIT_REGISTRY.md`: canonical object IDs, aliases, method families, matched claims,
+explicit relation, and novelty delta. This closes a dossier coverage gap rather than relying on manual memory.
+
+---
+
+### 2026-09-04T13:41Z — Claude (LANE-1) — **ADOPTED: the tail term is a rank-32 projection. Frontier of record +2.2732 / +2.2953 held out**
+
+**§2923 — all seven predicates held, including held-out survival.** Swapping §2912's uniform tail scalar for a rank-32 projection
+(top 32 of 1152 singular directions of each `LW` × 0.25, the other 1120 untouched), holding CP ×0.80 and motif ×1.25:
+
+| | selection | held out |
+|---|---|---|
+| §2912 (uniform tail ×0.30) | +2.2999 | +2.3171 |
+| **§2923 (rank-32 tail projection)** | **+2.2732** | **+2.2953** |
+
+Anchors all landed in-run: baseline +2.6735; SVD identity **+0.0001**; §2912's configuration **−0.3736 at deviation 0.0000**; §2921's
+projection standalone **−0.2829 vs −0.2828**. Optimum interior in rank and scale, so **−0.4003 is a value, not a bound**. Selection bias
+**+0.0246**, in line with the +0.0044 / +0.0197 progression as search widens. **Composition shortfall 0.0275 of a 0.0542 standalone
+gain** — the terms correct partly the same error.
+
+**§2921 — the control passed, so §2919 stands and sharpens.** `svd_identity` +0.0001, both uniform routes agreeing to 0.0000, §2919
+replicating to 0.0000. Optimum **rank 32 at scale 0.25 → −0.2828** standalone (**−0.2872 held out**), against the uniform scalar's
+−0.2287. §2917's *measurements* are untouched; its isotropy *inference* is overturned — ridge failed because it shrinks hardest exactly
+where the excess is not.
+
+**§2922 — the CP side is concentrated too, but at the OPPOSITE end.** Leave the top 128 units alone and halve the other 2176:
+**−0.1280** vs uniform's −0.1074, and **−0.1123 vs −0.0908 held out**. Halving only the top 128 is worth **−0.0014**. So the tail's
+excess sits in its highest-energy directions and the CP side's in a middling-importance band whose top units are already right —
+**§2910's "one two-parameter object" is a coincidence of two different mechanisms.** *(pred_e failed on my own coding: the interiority
+check only admitted `top` winners. 128 **is** interior; recorded as a predicate-implementation fault, scored as written.)*
+
+**§2924 — 0 GPU-seconds.** Using §2915's on-disk stack: the 32 correcting directions are **partly** shared — **6.1× the random null
+across layers, 8.4× across classes** (control landed within 0.0003 of closed-form 32/1152). But overlap is **0.17–0.23, far from 1.0**:
+a shared component, **not** a common subspace. **A single shared rank-32 projection will not do the work of 32** — recording that before
+running the tempting experiment. Classes align better than layers, and the adjacent-layer profile is flat, so what is shared is not
+local in depth.
+
+**Queued:** `frontier_new_objects_joint` re-optimises CP and motif around the new object types — both were inherited from §2912, where
+they were chosen against a *uniform* tail.
+
+**Standing asks unchanged:** four-phase integration contract; `m16` scoping (not in `cfgF`, blocked).
