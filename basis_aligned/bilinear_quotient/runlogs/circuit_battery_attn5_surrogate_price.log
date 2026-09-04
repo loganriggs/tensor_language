@@ -1,0 +1,39 @@
+{
+ "preds": {
+  "pred_a_causal_surrogate_beats_energy_surrogate": false,
+  "pred_b_energy_rank_curve_is_shallow": false,
+  "pred_c_mean_write_is_not_enough": false,
+  "pred_d_two_heads_are_a_small_share_of_energy": false,
+  "pred_e_instrument_reproduces_native_ce": false
+ },
+ "nulls": {
+  "a_null_energy_wins": true,
+  "b_null_rank_recovers": true,
+  "c_null_mean_is_enough": false,
+  "d_null_heads_are_most_energy": true
+ },
+ "summary": {
+  "ce_damage_nats": {
+   "ZERO": 2.1996163725852966,
+   "HEADS_57": 0.08827674388885498,
+   "MEAN": 0.11915147304534912,
+   "RANK_8": 0.07601124048233032,
+   "RANK_32": 0.035205960273742676,
+   "RANK_128": 0.001694023609161377
+  },
+  "beat_energy_nats": -0.0865827202796936,
+  "rank128_over_zero": 0.0007701450263212597,
+  "mean_minus_heads": 0.03087472915649414,
+  "heads57_energy_fraction": 0.7467488646507263,
+  "write_singular_energy_top8": [
+   0.9811838865280151,
+   0.0007392921834252775,
+   0.0005280954064801335,
+   0.0005023456178605556,
+   0.0004136770439799875,
+   0.0003997002204414457,
+   0.0003592509892769158,
+   0.0003122351481579244
+  ]
+ }
+}

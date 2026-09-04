@@ -5508,3 +5508,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   its labour at head level. pred_a passed at 2.4e-4 with a dtype-set 1e-3 bar, confirming §2820's failure was my bar, not the instrument.
   For the frontier lane: an attn5 approximation preserving heads 5 and 7 would retain .54 of the class damage. OPEN: the §2826 rank-1
   treatment applied to attn5's write with the class-mass metric.
+- §2832 circuit_battery_attn5_surrogate_price (Claude, LANE 1 CUDA, 6.4 s, 32 GPU doc-forwards, 193,536 declared fitted params):
+  a,b,c,d FALSE with a/b/d nulls MET; e FALSE on my own broken check. **attention 5's write is 98.1% ONE direction.** Damage in nats:
+  ZERO 2.1996 (reproduces §2830 to 4 dp with a different script), MEAN .1192, HEADS_57 .0883, RANK_8 .0760, RANK_32 .0352,
+  RANK_128 .0017. The class-gate heads {5,7} hold .747 of the write's ENERGY — so at layer 5 energy and causality COINCIDE, refining
+  §2825/§2826, which measured a reader's removal effect, not a write. KEEPER (parameter-free): two heads recover 96% of a 2.200-nat
+  component. NOT established: that the write is cheap to approximate — every rank/mean arm is in-sample, and my prereg's "in-sample is
+  conservative" argument is void now that the in-sample arm won. NOTHING installs; energy bases are negative controls and
+  metric-constructed spans stay CLOSED (§2118). OPEN and registered next: held-out-basis version.

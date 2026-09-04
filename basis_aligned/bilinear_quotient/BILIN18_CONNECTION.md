@@ -72994,3 +72994,60 @@ the class damage sits in those two, .45 in the tail.
 Price: 228 GPU forwards, 6.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_attn5_head_class_split_results.json. (Claude, LANE 1 CUDA.) a, c TRUE; b, d, e FALSE with d's null met.
 Preserved.
+
+## §2832 — THE PRICE CLIFF IS A RANK-1 WRITE: attention 5's write is 98.1% ONE direction, keeping only its two class-gate heads costs .088 nats of the 2.200 it is worth (96% recovered, ZERO fitted parameters), and a constant write recovers 95% — so at layer 5 energy and causality COINCIDE, the opposite of §2825/§2826 (a, b, c, d FALSE with three nulls MET; e FALSE on a broken check of mine)
+
+§2830 measured attention 5 at 2.200 nats of document CE damage when ablated, 3rd of 36 and 20.4× more expensive per unit of its own
+write than the median component. §2831 put its class gate in heads {5, 7}. §2825/§2826 established that in this model energy-ranked
+structure is not causal structure. This rung tested the design rule that follows: that a causally chosen surrogate for attention 5
+(keep those two heads) should be cheaper than an energy-chosen one (project the write onto its own top-k singular directions).
+**It is not, and the reason is worth more than the prediction was.** Sign convention: d_ce = CE_arm − CE_NATIVE in nats on 32 natural
+documents, POSITIVE = the arm HURTS; native CE 3.005. **These are LOCAL surrogate numbers, NOT the §312 frontier's L2 (CE added above
+the real model, LOWER IS BETTER, frontier norm-2304 at 2.6735); nothing here installs and no value below may be quoted as an L2. The
+energy-basis arms are negative controls, not proposed interfaces — metric-constructed bases and spans remain CLOSED (§2118 lineage) and
+this rung does not reopen them.**
+
+**The measurement.** Damage in nats: `ZERO` **2.1996** (reproducing §2830's 2.1996 to four decimals with a different script — an
+unplanned but welcome cross-check), `MEAN` **.1192**, `HEADS_57` **.0883**, `RANK_8` **.0760**, `RANK_32` **.0352**, `RANK_128`
+**.0017**. And the structural fact behind all of it: **attention 5's write has 98.1% of its squared energy in a single direction**
+(next singular values .0007, .0005).
+
+**pred_d FALSE, null MET — the class-gate heads ARE the big heads, .747 of the write's energy.** I registered ≤ .40 expecting the
+§2825/§2826 dissociation to hold here. It does not: heads 5 and 7 hold three quarters of the write's energy and are also its causal
+core. **At layer 5, energy and causality coincide.** That is a genuine refinement rather than a contradiction — §2825 and §2826 measured
+a reader's REMOVAL EFFECT (what a downstream block does with an incoming write), and this measures a WRITE. The lesson "energy is not
+causality" was established for the former and is now shown NOT to transfer to the latter.
+
+**pred_a FALSE, null MET; pred_b FALSE, null MET — energy wins, and the rank curve is steep.** `RANK_128 − HEADS_57` is **−.087** nats
+(bar ≥ +.20): the energy surrogate is cheaper, not dearer. `RANK_128 / ZERO` is **.0008** (bar ≥ .50, null ≤ .20 met): keeping 128 of
+1152 energy directions costs less than a tenth of a percent of what deleting the component costs. Rank 32 already costs only .035 nats.
+
+**pred_c FALSE — a constant write recovers 95% of the component's value.** `MEAN − HEADS_57` is **+.031** nats against a bar of ≥ .30.
+A rank-0 constant costs .119 nats where deletion costs 2.200. My preregistration said that if this happened, "the component's value is
+a bias and every claim about its heads is wrong". I hold to the first half and reject the second: the value is largely bias-like, but
+§2831's head map was measured on class-mass damage at the final position of task prompts, which a constant write cannot supply, and the
+two measurements are not in competition. What IS damaged is the implicit assumption that a component's CE price implies a rich
+computation — attention 5's price is almost entirely the price of writing *something* in one particular direction.
+
+**The one thing here that is parameter-free and therefore not vulnerable to the caveat below: HEADS_57 costs .0883 nats.** Two of nine
+heads, chosen in §2831 by class-mass damage on task prompts without any reference to document CE, recover **96%** of a 2.200-nat
+component. That is a transferable, unfitted result.
+
+**pred_e FALSE — and it is a broken check of mine, not an instrument failure.** I compared this rung's native CE, averaged over all 32
+documents (3.0054), against the model module's own CE computed on the FIRST CHUNK of 8 (a different sample), so the .01-nat bar was
+being applied to two different quantities. §2830 ran the correct matched-sample version of exactly this check and it passed; and this
+rung's `ZERO` arm reproduces §2830's `attn5` ablation to four decimals. So the forward is the model, but pred_e as registered could not
+have shown that. Scored FALSE as written. **This is the fourth registration flaw of the night** (after §2821's incompatible gate and
+coverage bar, §2825's false dichotomy, §2826's uncalibrated margin), and all four are of one kind: writing the predicate faster than I
+checked what it compares.
+
+**The caveat that governs the energy arms, and the follow-up it forces.** The rank bases and the mean are fitted ON THE SAME 32
+documents they are scored on — 193,536 declared fitted parameters. My preregistration argued this was conservative because it favoured
+the arm I expected to lose; that argument is now void, because the in-sample arm WON. So "attention 5's write is cheap to approximate"
+is NOT established here at any rank; only the parameter-free HEADS_57 number and the 98.1% single-direction energy fact are. A
+held-out-basis version — fit on one document set, score on another — is the immediate next rung and is registered separately rather
+than folded in.
+
+Price: 32 GPU document-forwards, 6.4 GPU-seconds, 0 backwards, 193,536 declared fitted parameters.
+Results: circuit_battery_attn5_surrogate_price_results.json. (Claude, LANE 1 CUDA.) a, b, c, d FALSE with a's, b's and d's nulls met;
+e FALSE on a mis-constructed check, disclosed. Preserved.
