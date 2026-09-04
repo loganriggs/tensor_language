@@ -1,0 +1,44 @@
+{"stage": "heads_done", "t": 13.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.4}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_DROP_TT_768": 0.0087, "EARLY_DROP_TT_768": 0.0023, "ALL18_DROP_TT_768": 0.0113, "ALL18_DROP_TT_512": 0.0469, "ALL18_DROP_TT_384": 0.0948, "ALL18_MLP_768": 0.1621, "LATE_MLP_512": 0.3033, "LATE_DROP_TT_512": 0.0375, "t": 21.2}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_all18_tail_linear_768_cheap": true,
+  "pred_c_all18_tail_linear_512_cheap": true,
+  "pred_d_late_tt_share_512_small": true,
+  "pred_e_all18_near_additive_768": true
+ },
+ "nulls": {
+  "b_null_all18_768_ge_.05": false,
+  "c_null_all18_512_ge_.10": false,
+  "d_null_late_tt_share_512_ge_.30": false,
+  "e_null_all18_768_ge_2x_parts": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_DROP_TT_768": 0.008696913719177246,
+  "EARLY_DROP_TT_768": 0.002326458692550659,
+  "ALL18_DROP_TT_768": 0.011310160160064697,
+  "ALL18_DROP_TT_512": 0.046946436166763306,
+  "ALL18_DROP_TT_384": 0.09484586119651794,
+  "ALL18_MLP_768": 0.1621077060699463,
+  "LATE_MLP_512": 0.3033023476600647,
+  "LATE_DROP_TT_512": 0.03753271698951721
+ },
+ "summary": {
+  "all18_drop_tt": {
+   "768": 0.011310160160064697,
+   "512": 0.046946436166763306,
+   "384": 0.09484586119651794
+  },
+  "all18_core_only_768": 0.1621077060699463,
+  "parts_768": 0.011023372411727905,
+  "all18_over_parts_768": 1.0260163348950884,
+  "late_512": {
+   "joint": 0.3033023476600647,
+   "drop_tt": 0.03753271698951721,
+   "tt_share": 0.12374687264730025
+  }
+ }
+}

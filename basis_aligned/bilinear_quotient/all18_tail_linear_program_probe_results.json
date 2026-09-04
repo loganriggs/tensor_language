@@ -1,0 +1,84 @@
+{
+ "rung": "all18_tail_linear_program_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_all18_tail_linear_768_cheap": true,
+  "pred_c_all18_tail_linear_512_cheap": true,
+  "pred_d_late_tt_share_512_small": true,
+  "pred_e_all18_near_additive_768": true
+ },
+ "nulls": {
+  "b_null_all18_768_ge_.05": false,
+  "c_null_all18_512_ge_.10": false,
+  "d_null_late_tt_share_512_ge_.30": false,
+  "e_null_all18_768_ge_2x_parts": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_max": 0.02,
+  "c_max": 0.05,
+  "d_max": 0.15,
+  "e_factor": 1.3
+ },
+ "null_bars": {
+  "b_min": 0.05,
+  "c_min": 0.1,
+  "d_min": 0.3,
+  "e_factor": 2.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "PROGRAM v4 (tail-linear): all 18 MLPs quadratic on their k-core (own frames for blocks 0-7, bus U_8 for 8-17) and core-gated LINEAR on the tail (tail*tail dropped); attention, writes, readout exact",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_drop_tt_768": 0.008696913719177246,
+  "prior_drop_tt_768": 0.0087,
+  "early_drop_tt_768": 0.002326458692550659,
+  "prior_early_drop_tt_768": 0.0023
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_DROP_TT_768": 0.008696913719177246,
+  "EARLY_DROP_TT_768": 0.002326458692550659,
+  "ALL18_DROP_TT_768": 0.011310160160064697,
+  "ALL18_DROP_TT_512": 0.046946436166763306,
+  "ALL18_DROP_TT_384": 0.09484586119651794,
+  "ALL18_MLP_768": 0.1621077060699463,
+  "LATE_MLP_512": 0.3033023476600647,
+  "LATE_DROP_TT_512": 0.03753271698951721
+ },
+ "summary": {
+  "all18_drop_tt": {
+   "768": 0.011310160160064697,
+   "512": 0.046946436166763306,
+   "384": 0.09484586119651794
+  },
+  "all18_core_only_768": 0.1621077060699463,
+  "parts_768": 0.011023372411727905,
+  "all18_over_parts_768": 1.0260163348950884,
+  "late_512": {
+   "joint": 0.3033023476600647,
+   "drop_tt": 0.03753271698951721,
+   "tt_share": 0.12374687264730025
+  }
+ },
+ "price": {
+  "gpu_doc_forwards": 736,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 21.23628282546997
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/ALL18_TAIL_LINEAR_PROGRAM_PROBE_PREREGISTRATION.md": "c136f7cb38f102079aa984244973c9757e6406b75cf53c1a5a52028f88e7ef50",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_tail_product_term_probe_results.json": "02a246b246b2fc2607a13a84d63441a8aa6100747410cd16a0167598762f047d",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "9f2905c9a9202e7ecee1e5e8bf2ad883e05cfb5faff12743fd3d6439c9438a44"
+}

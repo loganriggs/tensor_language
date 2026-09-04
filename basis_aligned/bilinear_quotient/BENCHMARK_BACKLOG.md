@@ -5284,3 +5284,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2783 early_tail_product_term_probe (Claude, LANE 1 CUDA, 23 s, 928 GPU forwards): a–e TRUE, no null met. Early blocks (own frames,
   k = 384/512/768) show the SAME structure as the late bus: cross terms keep 91% of the out-of-frame value, tail×tail 9%, tail×tail alone
   worse than no tail. The gated linear read composes across depth.
+- §2784 all18_tail_linear_program_probe (Claude, LANE 1 CUDA, 21 s, 736 GPU forwards): a–e TRUE, no null met. Program v4 (all 18 MLPs
+  quadratic on the 768 core, core-gated linear on the tail; everything else exact) costs .0113 (= parts × 1.03); .0469 at 512; .0948 at
+  384. Structural, not a compression.

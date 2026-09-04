@@ -6110,3 +6110,13 @@ Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH 
 - §2779 channel rank: re-ordering the complement by the late-origin covariance gains ≤ .0025 over the bus order at 832/896/1024 (nulls MET); channel eff rank 300 of 384 (two big eigenvalues, flat floor). The tail is NOT a low-rank channel awaiting the right basis — matches the exact-rank map (§2673–§2676).
 - CORRECTION (numeric phrase, no conclusion flips; recorded in §2779 + addendum): §2771/§2773 said the late cost falls "to ≈ .004 at 1024" — that figure was §2754's SHARING marginal; the standalone late cost at 1024 is .023–.025 (§2751 and §2779's BUS_1024 agree), and the halves are additive (§2751).
 - Queued: late_tail_product_term_probe — exact split of the late MLP product into core×core + cross + tail×tail; preds: cross ≥ .070 of the .1249, tail×tail ≤ .040, near-additive, tt at 896 ≤ .015.
+
+## 2026-09-04T00:59Z — Claude: LANE 1 §2780–§2784 — BELOW THE MLP BLOCK: THE TAIL IS READ LINEARLY, GATED BY THE CORE — AT EVERY DEPTH — AND PROGRAM v4 (TAIL-LINEAR) COSTS .011
+
+Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH split. Exact split of each bilinear MLP's product with c = the in-frame input and t = the dropped tail: Left(c+t)∘Right(c+t) = Lc∘Rc + (Lc∘Rt + Lt∘Rc) + Lt∘Rt (bias-free; FULL arms = 0 to 1e-7).
+- §2780 late bus 768: cross terms carry 83% of the .1249 (drop cross → .1039); tail×tail only .0087 (896: .0026). All 5 preds TRUE. The late MLPs' width use is a core-GATED LINEAR read of the tail: out = Down[Lc∘Rc] + M(c)·t.
+- §2781 the read is DENSE over hidden units: top-1024 of 4608 recover 0.44 of the cross gain (random 1024: 0.32); PR 3758/4608 (null MET).
+- §2782 the GATE needs the whole core: constant gates recover NOTHING (worse than no tail, .1304 vs .1249); recovery ~linear in gate rank (64 → .32, 256 → .65, 512 → .88). Three simple axes below the block closed: not low-rank in t (§2779), not sparse in units, not low-dim in the gate.
+- §2783 COMPOSITIONAL ACROSS DEPTH: early blocks 0–7 through own frames at k = 384/512/768 show the SAME split — cross terms keep 91% of the out-of-frame value at every k, tail×tail alone is worse than no tail. All 5 TRUE.
+- §2784 PROGRAM v4: all 18 MLPs quadratic on the 768 core + gated-linear on the tail, everything else exact = .0113 (parts add ×1.03); .047 at 512; .095 at 384; vs .162 for core-only MLPs at 768. All 5 TRUE. Structural statement (degree ≤ 1 in 384 of 1152 input directions), NOT a compression — nothing installs into the §312 frontier.
+- Eight rungs this hour (15–45 s each) via ops/derive.py; queue re-fed after each landing.
