@@ -1,0 +1,2027 @@
+{
+  "analytic_operator_sha256": "03763edb14683524fe177602c4aa5d4f130275eb03d3fce7fe0842c75361231a",
+  "backend_reported_model_counts": {
+    "backward_calls": 902,
+    "example_evaluations": 37700,
+    "forward_calls": 1206
+  },
+  "counts": {
+    "FIT": {
+      "controls": 37,
+      "endpoints": 64,
+      "relations": 153,
+      "targets": 116
+    },
+    "SELECT": {
+      "controls": 39,
+      "endpoints": 64,
+      "relations": 145,
+      "targets": 106
+    }
+  },
+  "effect_stability": {
+    "median": null,
+    "p90": null,
+    "passed": false
+  },
+  "experiment_id": "task14-head11-3-causal-projector-program-a-v1",
+  "fit_objective_constants": {
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "control_coefficient": 1.0,
+    "control_draws_per_update": 16,
+    "control_normalizer": "detached_median_positive_fit_target_full_head_effect",
+    "denominator_floor": 1e-06,
+    "full_vocabulary_size": 50304,
+    "huber_transition": 0.5,
+    "learning_rate": 0.03,
+    "learning_rate_schedule": "0.03*(1+cos(pi*t/99))/2",
+    "orthogonal_parametrization": "torch_householder",
+    "permutation_rule": "within_cell_sha256_balanced_plus_minus_target_labels",
+    "sampling": "uniform_cell_then_uniform_relation_with_replacement",
+    "schedule_seed_base": 14114000,
+    "target_coefficient": 1.0,
+    "target_draws_per_update": 16,
+    "weight_decay": 0.0
+  },
+  "fit_receipts": {
+    "1": [
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.017406729374028457,
+            "normalized_margin_movement": 0.17488059301277412
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.02089727551634779,
+            "normalized_margin_movement": 0.19338444102590424
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.011717880859483257,
+            "normalized_margin_movement": 0.12092955639422724
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.0029868359664428465,
+            "normalized_margin_movement": 0.041725914665503835
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.008754998786069921,
+            "normalized_margin_movement": 0.08767565511936051
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.020123025595114696,
+            "normalized_margin_movement": 0.200728515481737
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.016849772920950617,
+            "normalized_margin_movement": 0.1352716092615273
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "9a5b682695586c19c72100bc1acf282c8e554623b31e0d56586832c0fe8536a7",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.036582717578858136,
+          "finite": true,
+          "first20_objective": 0.06367440149188042,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.3857392299509408,
+          "orthonormality_error": 1.7099394178377025e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3800,
+          "forward_calls": 120
+        },
+        "rank": 1,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 0,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0656556545037301,
+            "native_donor_recovery": 0.5542778940998955
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.080940794085694,
+            "native_donor_recovery": 0.49906871224115423
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.872390917690663,
+            "native_donor_recovery": 0.543438004573011
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8334777891353126,
+            "native_donor_recovery": 0.5127133027848936
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8957294279523408,
+            "native_donor_recovery": 0.5068990634139275
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8124811599710862,
+            "native_donor_recovery": 0.4557466969801857
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9081064907822725,
+            "native_donor_recovery": 0.6108188137889189
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.777518491573454,
+            "native_donor_recovery": 0.42071704733465104
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8996739430888083,
+            "native_donor_recovery": 0.7135296894656096
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8330862499430051,
+            "native_donor_recovery": 0.5287514557766982
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8761323137427921,
+            "native_donor_recovery": 0.631314811585625
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7891123688342818,
+            "native_donor_recovery": 0.44923659061844606
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8893292809073712,
+            "native_donor_recovery": 0.7285151225723803
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7710920911902996,
+            "native_donor_recovery": 0.389482276861404
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9289292148630924,
+            "native_donor_recovery": 0.810908112747783
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7740080795212633,
+            "native_donor_recovery": 0.4317362071631948
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9029023732456912,
+            "native_donor_recovery": 0.6878702480138723
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7826706041674134,
+            "native_donor_recovery": 0.40346120076518405
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8803200380093824,
+            "native_donor_recovery": 0.6899904152633838
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9430779651266736,
+            "native_donor_recovery": 0.5911483380922361
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9010454142052916,
+            "native_donor_recovery": 0.6162563566179837
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7522697238820772,
+            "native_donor_recovery": 0.41915529032913124
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0454543844181512,
+            "native_donor_recovery": 0.6997215148464772
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1150230320178938,
+            "native_donor_recovery": 0.6008666800391165
+          }
+        },
+        "target_cells_pass": false
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.01795273076573667,
+            "normalized_margin_movement": 0.1795580612876051
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.019394631735807435,
+            "normalized_margin_movement": 0.18149028528151395
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.011699025367428827,
+            "normalized_margin_movement": 0.12082539038007158
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.003050173013919955,
+            "normalized_margin_movement": 0.042013305768574434
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.008545618233130478,
+            "normalized_margin_movement": 0.08588649521472849
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.02071793343043901,
+            "normalized_margin_movement": 0.2068492033775249
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.015232483673787413,
+            "normalized_margin_movement": 0.11702309090773154
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "87590d674f609eeb4d3940981d5b07b1c5b88db0b5ff7a64ec1dda2ad237dfdf",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.04861483778804541,
+          "finite": true,
+          "first20_objective": 0.07520954012870788,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.3853851203222348,
+          "orthonormality_error": 2.3668857096481588e-08,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 1,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 1,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.02744388430959,
+            "native_donor_recovery": 0.534402862776667
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1188902841629325,
+            "native_donor_recovery": 0.516589933798044
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8528508035529181,
+            "native_donor_recovery": 0.5312658917955712
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8120430013908645,
+            "native_donor_recovery": 0.499527707485047
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.885613200004238,
+            "native_donor_recovery": 0.5011742247381483
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7904274314864065,
+            "native_donor_recovery": 0.4433760545478759
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9040703773956967,
+            "native_donor_recovery": 0.608104006642257
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7504312178730657,
+            "native_donor_recovery": 0.40606006112135745
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8828200493835936,
+            "native_donor_recovery": 0.7001628984918921
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8057232349092713,
+            "native_donor_recovery": 0.5113844256108346
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8616518513502278,
+            "native_donor_recovery": 0.6208806223157629
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7609977330671995,
+            "native_donor_recovery": 0.43323110950155347
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8751752506284535,
+            "native_donor_recovery": 0.7169205137757169
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7416516425984734,
+            "native_donor_recovery": 0.37461176647701494
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9217452294577761,
+            "native_donor_recovery": 0.8046368576792349
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7448167580222494,
+            "native_donor_recovery": 0.41545349544542975
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8933713624694992,
+            "native_donor_recovery": 0.6806091099986131
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7602237580899277,
+            "native_donor_recovery": 0.39189000922740086
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8313394843196655,
+            "native_donor_recovery": 0.6515997037937012
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9766477436899247,
+            "native_donor_recovery": 0.612190838862705
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9204660106011702,
+            "native_donor_recovery": 0.6295387792235392
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.6720287950351665,
+            "native_donor_recovery": 0.3744460474081995
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.009758797318082,
+            "native_donor_recovery": 0.6758304961169552
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1509860085312646,
+            "native_donor_recovery": 0.6202465077928153
+          }
+        },
+        "target_cells_pass": false
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.01743453961810306,
+            "normalized_margin_movement": 0.17674044862536448
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.021086544300680545,
+            "normalized_margin_movement": 0.19664489115375597
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.011661072283965321,
+            "normalized_margin_movement": 0.12089692242471
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.002851999302357546,
+            "normalized_margin_movement": 0.03988681872547274
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.008922155996640155,
+            "normalized_margin_movement": 0.08957617970789465
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.020503216369326695,
+            "normalized_margin_movement": 0.2054285648469305
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.0170994134322144,
+            "normalized_margin_movement": 0.13975440193182323
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "841b2aa2ff7eb3b6d44b34b64ae2a388c1571d492e9c5578f801b45adf6f3fd8",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.04413807447999716,
+          "finite": true,
+          "first20_objective": 0.07323949690908194,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.36731163364818326,
+          "orthonormality_error": 2.2350333939158418e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 1,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 2,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.071011421556207,
+            "native_donor_recovery": 0.5570635812687201
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0695985758660322,
+            "native_donor_recovery": 0.4938320274275029
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8708721879395243,
+            "native_donor_recovery": 0.5424919430669727
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8278817949447238,
+            "native_donor_recovery": 0.5092709307130494
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.895199116679272,
+            "native_donor_recovery": 0.506598956842403
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.815825075583929,
+            "native_donor_recovery": 0.4576224063142801
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9123173775774507,
+            "native_donor_recovery": 0.6136511786088361
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7780286597250664,
+            "native_donor_recovery": 0.4209931004970089
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9026646584499385,
+            "native_donor_recovery": 0.7159016201181532
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8315753615034648,
+            "native_donor_recovery": 0.5277925100949303
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8784004994995079,
+            "native_donor_recovery": 0.6329491985853751
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7894514529140256,
+            "native_donor_recovery": 0.44942962900174005
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8929236603899663,
+            "native_donor_recovery": 0.7314595435709363
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.764681282635652,
+            "native_donor_recovery": 0.3862441470181419
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9340618400129364,
+            "native_donor_recovery": 0.8153886343064844
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.766953899698715,
+            "native_donor_recovery": 0.4278014357805526
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9047651553076893,
+            "native_donor_recovery": 0.6892893963038212
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7815791414274427,
+            "native_donor_recovery": 0.40289855938665997
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8855016162106131,
+            "native_donor_recovery": 0.6940517101793456
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9343434050910737,
+            "native_donor_recovery": 0.5856732651502888
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8981277737183941,
+            "native_donor_recovery": 0.6142608806208473
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.759569890043491,
+            "native_donor_recovery": 0.42322285169667856
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0517460567234758,
+            "native_donor_recovery": 0.7039325244725447
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1094765740979642,
+            "native_donor_recovery": 0.597877789531363
+          }
+        },
+        "target_cells_pass": false
+      }
+    ],
+    "2": [
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.02085749177085737,
+            "normalized_margin_movement": 0.1558846029608923
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.029102018857022238,
+            "normalized_margin_movement": 0.12088262190943005
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.012092961716107646,
+            "normalized_margin_movement": 0.12448972797818313
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.0028558178800709003,
+            "normalized_margin_movement": 0.038089803430345466
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009344094826788406,
+            "normalized_margin_movement": 0.07751863520900189
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.02440930378342998,
+            "normalized_margin_movement": 0.21955225385550647
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.024514075157644224,
+            "normalized_margin_movement": 0.09467762858204964
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "2b53ede37207ae59c006885b1fe12919d8c808e52ba15aad73b07e0e5ee616c4",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.029026392521336673,
+          "finite": true,
+          "first20_objective": 0.07167124338448047,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.73119372172604,
+          "orthonormality_error": 1.3659242115160453e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 2,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 0,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0692307414438957,
+            "native_donor_recovery": 0.5561373987645066
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0547440227254252,
+            "native_donor_recovery": 0.4869737029500081
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8961316148299387,
+            "native_donor_recovery": 0.558226784257573
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8856754947300209,
+            "native_donor_recovery": 0.5448226863606948
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9145924952967553,
+            "native_donor_recovery": 0.5175737949473725
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8799272938773046,
+            "native_donor_recovery": 0.493579393005945
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9102292563963946,
+            "native_donor_recovery": 0.6122466476250729
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.830057723021812,
+            "native_donor_recovery": 0.4491461465313185
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9113660354943407,
+            "native_donor_recovery": 0.7228026656670545
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8936317914027035,
+            "native_donor_recovery": 0.5671791014013791
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8920471879763473,
+            "native_donor_recovery": 0.6427825952417765
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8435312075637215,
+            "native_donor_recovery": 0.48021688511356697
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8981946194644234,
+            "native_donor_recovery": 0.7357773744111447
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8236775205895224,
+            "native_donor_recovery": 0.41604342695766316
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9279724855880319,
+            "native_donor_recovery": 0.8100729365917997
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8273661119708328,
+            "native_donor_recovery": 0.4614989385363819
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9154085444673187,
+            "native_donor_recovery": 0.6973979924908315
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8388286485905254,
+            "native_donor_recovery": 0.43241027834000356
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8588272664654886,
+            "native_donor_recovery": 0.6731444890974111
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9399802734333166,
+            "native_donor_recovery": 0.589206616024534
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9353509599611893,
+            "native_donor_recovery": 0.639719114772041
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8128368549414773,
+            "native_donor_recovery": 0.4529025389523989
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0539899803482464,
+            "native_donor_recovery": 0.7054343801836365
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1111964079463863,
+            "native_donor_recovery": 0.5988045783285864
+          }
+        },
+        "target_cells_pass": true
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.020491996184712796,
+            "normalized_margin_movement": 0.15223768109186908
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.02919422283226696,
+            "normalized_margin_movement": 0.11957295234638915
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.012054877364199185,
+            "normalized_margin_movement": 0.12387439326580359
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.0029022041857178515,
+            "normalized_margin_movement": 0.038986555612830584
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009154222519341346,
+            "normalized_margin_movement": 0.07621254393209224
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.023933525326568637,
+            "normalized_margin_movement": 0.21156142733506156
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.024535997447471914,
+            "normalized_margin_movement": 0.09176012139701949
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "6bc959e81fe9ee29423055ae168e1a8f22466304c398bb3a9b518429b1fbcf2b",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.03335027825087309,
+          "finite": true,
+          "first20_objective": 0.06799533842131496,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.7288902018587005,
+          "orthonormality_error": 3.292862911230543e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 2,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 1,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0679802170162764,
+            "native_donor_recovery": 0.5554869653497991
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0419943602208177,
+            "native_donor_recovery": 0.4810872032614975
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8852825952533652,
+            "native_donor_recovery": 0.5514686103349541
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8714897522853987,
+            "native_donor_recovery": 0.536096336413465
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9091019514647918,
+            "native_donor_recovery": 0.5144666607624236
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8766486451207105,
+            "native_donor_recovery": 0.49174029394126123
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9027352740199217,
+            "native_donor_recovery": 0.6072059773157912
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8123256145717546,
+            "native_donor_recovery": 0.4395512617909841
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9056545478192768,
+            "native_donor_recovery": 0.7182728956781812
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8776245501045548,
+            "native_donor_recovery": 0.5570194665016983
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8824240491972061,
+            "native_donor_recovery": 0.6358484484811544
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8250849690869664,
+            "native_donor_recovery": 0.46971556032090933
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.890101354746115,
+            "native_donor_recovery": 0.7291475851251632
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7941910363140541,
+            "native_donor_recovery": 0.4011496637308619
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9220570859901104,
+            "native_donor_recovery": 0.8049090926224758
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7955181851047542,
+            "native_donor_recovery": 0.4437343912209636
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9068269854968436,
+            "native_donor_recovery": 0.6908601881032467
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8180182735357874,
+            "native_donor_recovery": 0.42168267612362786
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8462619667069827,
+            "native_donor_recovery": 0.663295870386101
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9275716936280928,
+            "native_donor_recovery": 0.581428562034101
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9232083202615864,
+            "native_donor_recovery": 0.6314143403588645
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7948541049470395,
+            "native_donor_recovery": 0.44288277535492576
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0483062670255625,
+            "native_donor_recovery": 0.7016302768622706
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1095779317031984,
+            "native_donor_recovery": 0.5979324093966079
+          }
+        },
+        "target_cells_pass": false
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.020424525407917712,
+            "normalized_margin_movement": 0.15255365919300493
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.029043555915363756,
+            "normalized_margin_movement": 0.11887012643322568
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.012062680181892407,
+            "normalized_margin_movement": 0.12517707464651753
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.0029396598251272164,
+            "normalized_margin_movement": 0.039327267389005605
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009060686809937473,
+            "normalized_margin_movement": 0.07629425514833706
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.02401764915623896,
+            "normalized_margin_movement": 0.21474227954036013
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.02447348247677486,
+            "normalized_margin_movement": 0.09272405274430803
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "47447cad7ba676c2d092edb0aac616e4a072e4c5acaab992b3f76a13837fc731",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.03089508144184947,
+          "finite": true,
+          "first20_objective": 0.06560841631144285,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.7293327942838337,
+          "orthonormality_error": 1.1504493737952287e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 2,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 2,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0686783185495918,
+            "native_donor_recovery": 0.5558500678643109
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0397740783730638,
+            "native_donor_recovery": 0.48006210252644
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8928524918443858,
+            "native_donor_recovery": 0.556184121941996
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8806220384276966,
+            "native_donor_recovery": 0.5417140561068138
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9137779867780709,
+            "native_donor_recovery": 0.5171128593206312
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8750926370611201,
+            "native_donor_recovery": 0.4908674791997377
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9058476220382472,
+            "native_donor_recovery": 0.6092994330326578
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8258758614072937,
+            "native_donor_recovery": 0.4468833315759317
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9104241816106813,
+            "native_donor_recovery": 0.7220556831471183
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8879524705471057,
+            "native_donor_recovery": 0.563574493630664
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8878089991441775,
+            "native_donor_recovery": 0.6397286827880565
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8355735307938484,
+            "native_donor_recovery": 0.4756866309665912
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8941679011497792,
+            "native_donor_recovery": 0.7324787928288938
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8128059297583011,
+            "native_donor_recovery": 0.4105521348040718
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.924880351301142,
+            "native_donor_recovery": 0.8073736601142975
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.818125960499722,
+            "native_donor_recovery": 0.45634484770025235
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9115411766894195,
+            "native_donor_recovery": 0.6944516637277542
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8304248916537971,
+            "native_donor_recovery": 0.4280782006478332
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8555885360552375,
+            "native_donor_recovery": 0.6706059885019362
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9321323488591573,
+            "native_donor_recovery": 0.5842873116392763
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9278969416164957,
+            "native_donor_recovery": 0.634621051883262
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8105494287467422,
+            "native_donor_recovery": 0.4516280136587145
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0514696283521165,
+            "native_donor_recovery": 0.7037475112556728
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1048840260538975,
+            "native_donor_recovery": 0.5954029446026762
+          }
+        },
+        "target_cells_pass": true
+      }
+    ],
+    "4": [
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.023108718301862823,
+            "normalized_margin_movement": 0.16267100924103758
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.028828002517590032,
+            "normalized_margin_movement": 0.11584042103411223
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.012429609347133054,
+            "normalized_margin_movement": 0.12417676265364487
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.003757787592761248,
+            "normalized_margin_movement": 0.040058399650341664
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009377598925685357,
+            "normalized_margin_movement": 0.07637359206649004
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.02627011292573855,
+            "normalized_margin_movement": 0.21939155933997342
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.024454899412482734,
+            "normalized_margin_movement": 0.0899255298877654
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "2420fab2bb4c1de45cd1637b44429725277f781f9f77822d9c9e3cb980b3db72",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.025695865415036677,
+          "finite": true,
+          "first20_objective": 0.05397614846006036,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.7132529005197427,
+          "orthonormality_error": 2.1998144084101057e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 4,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 0,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0614292452319014,
+            "native_donor_recovery": 0.5520796181175056
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0836430125877667,
+            "native_donor_recovery": 0.5003163223927947
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8979521069578853,
+            "native_donor_recovery": 0.5593608224384966
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8883511937425557,
+            "native_donor_recovery": 0.5464686408130602
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9185061117988796,
+            "native_donor_recovery": 0.5197885357804645
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8701158948764651,
+            "native_donor_recovery": 0.4880758651610083
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9146264401216219,
+            "native_donor_recovery": 0.615204321173625
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8418925531542529,
+            "native_donor_recovery": 0.4555500003855871
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.911658927718887,
+            "native_donor_recovery": 0.7230349579320833
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8987053860873628,
+            "native_donor_recovery": 0.570399260869523
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8940326109593115,
+            "native_donor_recovery": 0.6442132318211456
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8458017122471945,
+            "native_donor_recovery": 0.4815094688104787
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.897399652684052,
+            "native_donor_recovery": 0.7351261585635652
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8161411521478841,
+            "native_donor_recovery": 0.4122367714706582
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9278064303741907,
+            "native_donor_recovery": 0.8099279788082427
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.828260111557358,
+            "native_donor_recovery": 0.46199760515357097
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9150426387390795,
+            "native_donor_recovery": 0.697119229612926
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8394127534506376,
+            "native_donor_recovery": 0.43271138029397865
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8401867937537933,
+            "native_donor_recovery": 0.6585341804008922
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9736112228220126,
+            "native_donor_recovery": 0.6102874604242028
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9530639909016655,
+            "native_donor_recovery": 0.6518336738607935
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7664396509208002,
+            "native_donor_recovery": 0.42705059661795586
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.047809843320989,
+            "native_donor_recovery": 0.7012980210013292
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.1573221071047812,
+            "native_donor_recovery": 0.6236609220290661
+          }
+        },
+        "target_cells_pass": false
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.022447594354071357,
+            "normalized_margin_movement": 0.16291373772019202
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.029569164232829598,
+            "normalized_margin_movement": 0.1225047389979573
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.012770609412999956,
+            "normalized_margin_movement": 0.1284283222643893
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.003434424562607988,
+            "normalized_margin_movement": 0.03537653639819181
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009944596284064836,
+            "normalized_margin_movement": 0.08103039889622418
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.0278582478219469,
+            "normalized_margin_movement": 0.22659861490521702
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.02499691655440678,
+            "normalized_margin_movement": 0.09612840891111456
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "a7cb079390450c0c5557374db907e039762f0e58307fece64c434819b77f26c7",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.0274590187240392,
+          "finite": true,
+          "first20_objective": 0.05371146518737078,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.7582917529461003,
+          "orthonormality_error": 1.5791570451284542e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 4,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 1,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0618867422117662,
+            "native_donor_recovery": 0.5523175753426981
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0333601214836323,
+            "native_donor_recovery": 0.47710078843533255
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8930271251974627,
+            "native_donor_recovery": 0.5562929062025879
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8787074444560264,
+            "native_donor_recovery": 0.5405362949096912
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9164911454549647,
+            "native_donor_recovery": 0.5186482533238793
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8847670911803973,
+            "native_donor_recovery": 0.49629419027584915
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9151131980996383,
+            "native_donor_recovery": 0.6155317287340293
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8255305245358054,
+            "native_donor_recovery": 0.4466964689990503
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9134723368874942,
+            "native_donor_recovery": 0.7244731692873082
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8842983779604922,
+            "native_donor_recovery": 0.5612552778533698
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8906497874298936,
+            "native_donor_recovery": 0.6417756700903398
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8375160342493948,
+            "native_donor_recovery": 0.4767924856763879
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9032161955927898,
+            "native_donor_recovery": 0.7398909173104977
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8089839114593432,
+            "native_donor_recovery": 0.4086216152120654
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9323521083280484,
+            "native_donor_recovery": 0.8138961252199854
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8051263981077643,
+            "native_donor_recovery": 0.44909378416438267
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9135472470836721,
+            "native_donor_recovery": 0.6959799752933418
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8294711271589373,
+            "native_donor_recovery": 0.4275865417477872
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8523778041377343,
+            "native_donor_recovery": 0.6680894329841647
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.923698370074806,
+            "native_donor_recovery": 0.5790006516533177
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9304984683965355,
+            "native_donor_recovery": 0.6364003267009751
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8096706804957282,
+            "native_donor_recovery": 0.4511383861134516
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0519509636822468,
+            "native_donor_recovery": 0.7040696684835419
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.111368041822245,
+            "native_donor_recovery": 0.5988970688639458
+          }
+        },
+        "target_cells_pass": true
+      },
+      {
+        "control_cells": {
+          "C_to_ordinary_plural_control|C|donor_A1_sha1|1": {
+            "full_head_normalized_movement": 0.2707692763985856,
+            "normalized_full_vocabulary_rms": 0.02144583042504792,
+            "normalized_margin_movement": 0.14420134999783002
+          },
+          "C_to_ordinary_plural_control|C|donor_A2_sha1|1": {
+            "full_head_normalized_movement": 0.2503725964104789,
+            "normalized_full_vocabulary_rms": 0.028892736169936855,
+            "normalized_margin_movement": 0.11705779607345654
+          },
+          "C_zero_coordinate_control|C|paired|1": {
+            "full_head_normalized_movement": 0.09162825523845934,
+            "normalized_full_vocabulary_rms": 0.0123730004874578,
+            "normalized_margin_movement": 0.1223473786031489
+          },
+          "P_zero_coordinate_control|P|paired|-1": {
+            "full_head_normalized_movement": 0.03703000769272582,
+            "normalized_full_vocabulary_rms": 0.0031382165499566454,
+            "normalized_margin_movement": 0.03972642731182374
+          },
+          "P_zero_coordinate_control|P|paired|1": {
+            "full_head_normalized_movement": 0.10822427053985073,
+            "normalized_full_vocabulary_rms": 0.009141071073460556,
+            "normalized_margin_movement": 0.07276849825746727
+          },
+          "ordinary_plural_to_C_control|A1|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.22964458677210842,
+            "normalized_full_vocabulary_rms": 0.024425146645051014,
+            "normalized_margin_movement": 0.21259035719748764
+          },
+          "ordinary_plural_to_C_control|A2|donor_C_sha1|1": {
+            "full_head_normalized_movement": 0.2719270806917162,
+            "normalized_full_vocabulary_rms": 0.023599907654170586,
+            "normalized_margin_movement": 0.09502417506949284
+          }
+        },
+        "control_cells_pass": false,
+        "frame_sha256": "a0e1a3716d545421ae13a23fa3ceaf061f5561f473b1f861a46c00a7315efc73",
+        "health": {
+          "checkpoint_hash_unchanged": true,
+          "final20_objective": 0.034249438904225826,
+          "finite": true,
+          "first20_objective": 0.05946894576773047,
+          "hook_exact": true,
+          "model_parameter_gradients_absent": true,
+          "normalized_projector_movement": 0.7104522467959096,
+          "orthonormality_error": 3.043797034418816e-07,
+          "replay_rank0_exact": true,
+          "replay_rank128_exact": true,
+          "schedule_updates": 100
+        },
+        "healthy": false,
+        "model_counts": {
+          "backward_calls": 100,
+          "example_evaluations": 3345,
+          "forward_calls": 105
+        },
+        "rank": 4,
+        "scored_ordinals_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+        "start": 2,
+        "target_cells": {
+          "C_to_ordinary_singular|C|donor_A1_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0692880737031738,
+            "native_donor_recovery": 0.5561672189074415
+          },
+          "C_to_ordinary_singular|C|donor_A2_sha1|1": {
+            "coordinated_subject_cell": true,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.0507109932351872,
+            "native_donor_recovery": 0.4851116593994858
+          },
+          "P_positive_transfer|P|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.887640145519905,
+            "native_donor_recovery": 0.5529371978529448
+          },
+          "P_positive_transfer|P|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.872987081693014,
+            "native_donor_recovery": 0.5370174175939627
+          },
+          "P_positive_transfer|P|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9079615542532181,
+            "native_donor_recovery": 0.5138213026214189
+          },
+          "P_positive_transfer|P|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8790385672250063,
+            "native_donor_recovery": 0.49308087777105924
+          },
+          "answer_change|A1|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9061117766067861,
+            "native_donor_recovery": 0.6094771110713566
+          },
+          "answer_change|A1|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8182801794290283,
+            "native_donor_recovery": 0.4427732905556572
+          },
+          "answer_change|A1|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.900115513835876,
+            "native_donor_recovery": 0.7138798983834653
+          },
+          "answer_change|A1|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.882137382642681,
+            "native_donor_recovery": 0.559883715880888
+          },
+          "answer_change|A1|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8840411350736337,
+            "native_donor_recovery": 0.6370136723284904
+          },
+          "answer_change|A1|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8310347023897099,
+            "native_donor_recovery": 0.47310270518085107
+          },
+          "answer_change|A2|cross_noun_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8897003529735069,
+            "native_donor_recovery": 0.7288190950351651
+          },
+          "answer_change|A2|cross_noun_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8020010026219712,
+            "native_donor_recovery": 0.40509451479932873
+          },
+          "answer_change|A2|cross_noun_2|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9167717102380323,
+            "native_donor_recovery": 0.8002952275316764
+          },
+          "answer_change|A2|cross_noun_2|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7998517529940962,
+            "native_donor_recovery": 0.44615162459814733
+          },
+          "answer_change|A2|paired|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9049818339902683,
+            "native_donor_recovery": 0.6894544715362511
+          },
+          "answer_change|A2|paired|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8214543590159157,
+            "native_donor_recovery": 0.423453954061451
+          },
+          "cross_syntax|A1|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.8426378046648488,
+            "native_donor_recovery": 0.6604552704173803
+          },
+          "cross_syntax|A1|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9358539884361732,
+            "native_donor_recovery": 0.586620142149886
+          },
+          "cross_syntax|A2|cross_syntax_1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.9275460806484597,
+            "native_donor_recovery": 0.6343810858411152
+          },
+          "cross_syntax|A2|cross_syntax_1|1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 0.7949750356511446,
+            "native_donor_recovery": 0.4429501564321906
+          },
+          "ordinary_singular_to_C|A1|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.040966752973727,
+            "native_donor_recovery": 0.6967179478624306
+          },
+          "ordinary_singular_to_C|A2|donor_C_sha1|-1": {
+            "coordinated_subject_cell": false,
+            "direction_fraction": 1.0,
+            "full_head_fraction": 1.108731495839782,
+            "native_donor_recovery": 0.5974762797091371
+          }
+        },
+        "target_cells_pass": false
+      }
+    ]
+  },
+  "instrument_invalid_reasons": [
+    "rank_1_has_fewer_than_2_healthy_primary_fits",
+    "rank_2_has_fewer_than_2_healthy_primary_fits",
+    "rank_4_has_fewer_than_2_healthy_primary_fits"
+  ],
+  "literal_price": {
+    "backward_calls": 902,
+    "example_evaluations": 37700,
+    "forward_calls": 1206,
+    "stored_frame_bytes": 141824
+  },
+  "nonidentification_reasons": [],
+  "ordinal_sha256": {
+    "FIT": "5c24f97e98de6ff351514e19586d6ec4e72b5d1af6a3d5971d3d0b7d1b2267db",
+    "SELECT": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823"
+  },
+  "permutation_receipts": [],
+  "pred_a_instrument_health": false,
+  "pred_b_causal_projector_selected": false,
+  "pred_c_small_subspace_null": false,
+  "primary_ranks": [
+    1,
+    2,
+    4
+  ],
+  "program_b_opened": false,
+  "projector_overlap_pairs": [],
+  "provisional_rank": null,
+  "random_control_verdicts": {
+    "1": {
+      "count": 16,
+      "passing_candidate_starts": [
+        0,
+        1,
+        2
+      ]
+    },
+    "2": {
+      "count": 16,
+      "passing_candidate_starts": [
+        0,
+        1,
+        2
+      ]
+    },
+    "4": {
+      "count": 16,
+      "passing_candidate_starts": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "rank8_opened": false,
+  "registered_execution_counts_exactly_reconciled": true,
+  "registered_execution_counts_within_ceiling": true,
+  "remaining_production_functions": [
+    "independent_receipt_and_bundle_audit"
+  ],
+  "schema": "task14_head11_3_projector_program_a_v1",
+  "selected_rank": null,
+  "selected_start": null,
+  "site_id": "attn:11:head:03",
+  "source_sha256": {
+    "audit_amendment": "17982c8da1d881d48a53a99cc46c3b4c41a9509996f6f4375b3492da2459d14b",
+    "authority_opaque": "e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f",
+    "causal_spectral": "667dc100d7a936f85ed36557da333f02965f3dc300a1bbcc3520550f667aea40",
+    "das_shared_private_library": "edcf3d750e8fbdcb2ae479bcc6e68bd7ccc5078217b62cf981570656b6a773e4",
+    "discovery_endpoint_shard": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b",
+    "donors": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a",
+    "execution_addendum": "32e25dc298a80203a689666e407215b0e997989ad37d8eefbd84dc9e9ae085e7",
+    "implementation_amendment": "5121f191ff4d616ee796e838eda844284d07b94e4ece88faf20582a403fadc7e",
+    "observed_model_facade": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "partition": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3",
+    "preregistration": "dc0749a48c6c21cf00115d44804d7a8e24d411c7f202765ac84f41a1e5ce24ac",
+    "production_backend": "4934ef18ee90cc5bc0ff0504cec7bf31d9fa863416e3734530565a9264557ba2",
+    "projector_adapter": "70602b0589aa8e0125ec26362a8c4f7ec42308c0c9042438ece589e451c0a2c2"
+  },
+  "terminal": "instrument_invalid",
+  "validation_rows_loaded": 0
+}

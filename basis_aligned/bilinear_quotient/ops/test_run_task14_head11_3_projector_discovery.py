@@ -152,6 +152,11 @@ def test_fake_lifecycle_is_create_only_and_records_selection(tmp_path) -> None:
     assert receipt["analytic_operator_sha256"]
     assert receipt["terminal"] == "program_a_selected"
     assert len(receipt["projector_overlap_pairs"]) == 10
+    bundle = torch.load(bundle_path, map_location="cpu", weights_only=True)
+    for rank, summaries in receipt["fit_receipts"].items():
+        for summary in summaries:
+            key = f"rank{rank}_start{summary['start']}_permnone"
+            assert PROGRAM._tensor_sha(bundle[key]) == summary["frame_sha256"]
     with pytest.raises(FileExistsError):
         PROGRAM.execute_program_a(
             FakeBackend(), receipt_path=receipt_path, bundle_path=bundle_path

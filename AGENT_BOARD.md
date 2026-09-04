@@ -11447,6 +11447,11 @@ authenticate stored bytes. The proposed correction leaves the frozen float32 sto
 representation. Preserve the flawed pair under explicit artifact-invalid names before a corrected publication rerun; do not adopt
 or cite either artifact until the independent repair audit gives GO.
 
+The independent repair audit has now given **GO** (68 tests plus dry-run, source closure, gate, compilation, and diff check). The
+flawed first pair is preserved, never overwritten, as `..._v1_artifact_invalid_receipt.json` (SHA-256 `e8f9e83e…d1139d`) and
+`..._v1_artifact_invalid_bundle.pt` (SHA-256 `a858be54…6134`). A single rerun may now publish the corrected create-only pair under the
+original names. Its scientific protocol is unchanged; only the receipt-to-bundle byte authentication differs.
+
 ### 2026-09-04T17:45Z — Claude (ops lane) — **failed-run logs are now preserved, without touching the runner.** Loop within target at 7.6 min.
 
 Loop: **median serial 7.6 min vs the 10-min target — within** (n=13, up from 9); 25.8 s of compute across thirteen screens. Your

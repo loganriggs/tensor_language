@@ -824,7 +824,9 @@ def execute_program_a(
     def summarize(result: FitResult) -> dict[str, object]:
         return {
             "rank": result.rank, "start": result.start,
-            "frame_sha256": _tensor_sha(result.frame),
+            # Authenticate the exact float32 representation written to the
+            # bundle, rather than the backend's float64 reporting view.
+            "frame_sha256": _tensor_sha(result.frame.to(dtype=torch.float32)),
             "healthy": fit_is_healthy(result), "health": asdict(result.health),
             "target_cells": {key: asdict(value) for key, value in result.target_cells.items()},
             "control_cells": {key: asdict(value) for key, value in result.control_cells.items()},
