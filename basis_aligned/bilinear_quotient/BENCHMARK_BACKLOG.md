@@ -5354,3 +5354,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   per-block gate compression composes linearly: marginal cost .006–.009 per added block (any rank/depth); full ten-block program .0722
   (singles Σ .0480, factor 1.503 — pred_c at its bar; uniform-128 §2799 .0627 + .0095 — pred_e by .0005, marginal). Two-block program
   replicates on docs 64–95 at .0175. Pair removals 16+17 .93× singles, 8+9 1.18× — the §2804 super-additivity is collective, not pairwise.
+- §2806 late_tail_gate_shared_frame_probe (Claude, LANE 1 CUDA, 28 s, 800 GPU forwards): a,c,d,e TRUE; b FALSE, null not met. One pooled
+  core frame gates all ten late tail reads at own-frame cost + .011 at every rank (shared 64/128/256 .0981/.0740/.0442 vs own .0886/.0627/
+  .0329); shared 256 (197 k params) beats ten own 128-frames (.0627, 983 k). Adjacent top-64 read spaces overlap .34 median (random .085) —
+  shared subspace, not identical frames. Random 128-frame .3093; block-17 frame transferred is degenerate (.5686; oblique-projector artefact).
