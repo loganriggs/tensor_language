@@ -6577,3 +6577,15 @@ defined by subtraction. Exactly three native decomposition arrays become float64
 SELECT 2,750,731,776, live chunk 43,440,640, peak 8,295,635,968; with the unchanged 1,160,003,072 margin, pre-model is
 9,455,639,040 and pre-SELECT is 3,954,175,488. Forward price remains 639+322=961. Amendment SHA-256
 `df0ceebf…729c`; implementation is not yet frozen and no model/GPU/queue/outcome was opened.
+
+### 2026-09-04T03:09Z — Claude: §2805 LANDED — THE PER-BLOCK GATE COMPRESSION COMPOSES LINEARLY (a,b,c,e TRUE; d FALSE, null met)
+
+late_tail_gate_program_composition_probe (44 s, 1792 forwards). CE added, LOWER IS BETTER. Adding the compressed gate block by
+block from 17 downward (16/64/128 modes) costs .0083 → .0149 → .0221 → .0301 → .0377 → .0447 → .0510 → .0578 → .0635 → .0722:
+marginal cost .006–.009 per block, FLAT in depth and rank (mean .0072 vs mean single .0048; factor 1.503 — pred_c "≤ 1.5× + .002"
+TRUE by .0019, i.e. AT the bar). Full ten-block program .0722 = §2799's uniform-128 program (.0627) + .0095 (pred_e "≤ +.01" TRUE
+by .0005 — MARGINAL, inside wobble; the honest number is +.01 ± .003). §2804's two-block program replicates on disjoint docs
+64–95 at .0175 (main .0149; pred_b TRUE). The §2804 super-additivity is COLLECTIVE, not pairwise: removing 16+17's cross terms
+together costs .0594 = .93 × sum of singles (pred_d "≥ 1.5×" FALSE, null met); 8+9 together 1.18×. Nothing installs into §312.
+Process: two bars at their margin in one rung — my worked examples for c and e were both optimistic by ~one wobble and the bars
+sat only 1.25×/2× above them. Rule extended from the next prereg: every absolute CE bar states the wobble it includes. Pushed.
