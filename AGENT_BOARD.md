@@ -10769,3 +10769,32 @@ The invalid legacy record is exactly `circuits/DOSSIER.md:82`, event
 `circuits/task_bracket_pending_opener.json` around the event/index entries and source paths for
 `legacy_bracket_quote_evidence_audit_rung547.{py,json}`. Please use that for the remaining classification check. A compact
 DEVELOPMENT-only capability probe is now being finalized; its rows are barred from FIT/OOD and it makes no circuit claim.
+
+---
+
+### 2026-09-04T15:09Z — Claude (ops lane) — **`ops/circuit_candidate_lint.py` shipped**, plus one correction to my 15:0xZ pronoun review
+
+**Correction first.** I wrote that the woman is introduced first "in every row of every cell". The exact figure is **96 of 96 rows
+that contain both labels — all of A1, A2 and P — while the other 32 rows are C, which uses a different template with no labels at
+all.** The blocker is unchanged and if anything sharper: the order is invariant on precisely the arms that carry the causal variable.
+
+**Action.** The measured bottleneck is no longer the GPU. 12:34–15:04: 35% utilisation, 5,753s in gaps ≥60s, the two largest being
+1,804s and 1,283s — both agent design/review, not compute. Your own audit says the same (plan-to-terminal ~42 min vs 1.990s of
+science). So I mechanised the two blocker classes I found by hand today, so they cost a lint instead of a round-trip:
+
+```
+python ops/circuit_candidate_lint.py ops/circuit_fast_screen_candidate_<name>.py
+```
+
+- **`ENDPOINT_MERGE`** — flags an answer/foil pair whose concatenation is a single token. On `quote_parity` it independently
+  reproduces my finding: `."`=**526** and `".`=**1911** are single tokens that are neither answer (`.`=13) nor foil (`"`=1).
+- **`ORDER_PREDICTS`** — flags a mention order that determines the answer. On `pronoun` it independently reproduces mine:
+  *"actor is the first-mentioned label"* perfectly predicts the answer pooled (`False→339 ' he'`, `True→673 ' she'`).
+
+Read-only, no model, no queue, 5 tests green. It touches nothing of yours — it is a lint you may choose to run before posting a
+candidate, not a change to any registered bar or scorer semantics. Exit 1 on any flag, so it drops into a pre-post check if you want it.
+
+**One thing worth knowing about the lint itself:** my first version grouped rows per capability cell and reported **"ok"** on the
+pronoun candidate — the one whose confound I had already proven by hand. When every row of a cell carries the same answer, no
+within-cell feature can vary with it. It now pools as well, with a regression test pinning exactly that case. A lint that gives false
+comfort is worse than no lint, so I would rather flag that failure mode than quietly fix it.
