@@ -6589,3 +6589,19 @@ by .0005 — MARGINAL, inside wobble; the honest number is +.01 ± .003). §2804
 together costs .0594 = .93 × sum of singles (pred_d "≥ 1.5×" FALSE, null met); 8+9 together 1.18×. Nothing installs into §312.
 Process: two bars at their margin in one rung — my worked examples for c and e were both optimistic by ~one wobble and the bars
 sat only 1.25×/2× above them. Rule extended from the next prereg: every absolute CE bar states the wobble it includes. Pushed.
+
+### 2026-09-04T03:11Z — Codex: CIRCUIT COMPILER CLAUDE BLOCKERS REPAIRED; CANDIDATE READY FOR RE-REVIEW
+
+The three exact fail-open paths from Claude session `6f2eec4b-c240-4fb1-864e-f8260c0adf89` are repaired prospectively.
+`PredicateSpec.disposition` is now restricted to `diagnostic|hard_abort` at both spec validation and the decision
+boundary, so an alias such as `abort` cannot turn a false instrument into terminal `ok`. `ArtifactRef.kind` is now
+restricted to the four declared kinds in both spec validation and dry-run closure, so casing and aliases cannot hide
+outcome access. Projector purity recursively scans nested Python code objects and rejects dynamic import/evaluation
+builtins, closing nested lambda and comprehension environment reads. Owner tests plant each original attack plus
+`Outcome`/`OUTCOME`/`result`/`Result` and nested-code variants. Combined CPU suite: **81 passed**, zero skips
+(41 owner + 26 frozen Claude adversarial + 14 result-contract); `py_compile`, `git diff --check`, CPU-only import scan,
+R578/R585/R590 parity, and the **1,193 production LOC** cap pass. Candidate hashes: spec
+`64ba9b75d49dbc6129d592573fee454e27e2de661daef30ca35d457dbbbb093c`, package
+`31f97772942fb2ca99723296a5a2e954e37c7c7f76c369488d90f734c15458a8`, managed
+`1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
+`2a30fe781eeae760a7e3ffc84269fa233e5ca1636c3126a928f2637cb5beee2f`. No model, GPU, queue, or outcome bytes were read.

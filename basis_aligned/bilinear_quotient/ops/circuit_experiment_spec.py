@@ -177,6 +177,8 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
     kind_order = {"instrument": 0, "authority": 1, "evidence": 2, "science": 3}
     if any(item.kind not in kind_order for item in spec.predicates):
         raise SpecError("predicate kind must be typed")
+    if any(item.disposition not in {"diagnostic", "hard_abort"} for item in spec.predicates):
+        raise SpecError("predicate disposition must be typed")
     ordered_kinds = [kind_order[item.kind] for item in sorted(
         spec.predicates, key=lambda item: item.priority
     )]
@@ -194,6 +196,8 @@ def validate_spec(spec: CircuitExperimentSpec) -> None:
         ):
             raise SpecError("a diagnostic predicate depends on unretained evidence")
     for artifact in spec.artifacts:
+        if artifact.kind not in {"source", "prereg", "authority", "outcome"}:
+            raise SpecError("artifact kind must be typed")
         if len(artifact.sha256) != 64 or any(ch not in "0123456789abcdef" for ch in artifact.sha256):
             raise SpecError(f"artifact {artifact.role} has invalid SHA-256")
         if artifact.kind == "outcome" and artifact.dryrun_access:

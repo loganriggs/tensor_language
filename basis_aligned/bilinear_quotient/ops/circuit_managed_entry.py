@@ -23,8 +23,6 @@ class ModuleBinding:
     role: str
     module_name: str
     is_package: bool = False
-
-
 def _safe_open_bytes(path: Path) -> bytes:
     flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
     try:
@@ -50,8 +48,6 @@ def _safe_open_bytes(path: Path) -> bytes:
     if identity(before) != identity(after):
         raise ManagedEntryError(f"frozen artifact changed during capture: {path}")
     return b"".join(chunks)
-
-
 def capture_frozen_artifacts(
     spec: CircuitExperimentSpec, *, base_dir: Path, dryrun: bool = False
 ) -> dict[str, bytes]:
@@ -77,11 +73,11 @@ def capture_frozen_artifacts(
             )
         captured[reference.role] = data
     return captured
-
-
 def validate_dryrun_closure(spec: CircuitExperimentSpec) -> None:
     """Forbid all outcome-bearing bytes from the advertised model-free path."""
     for reference in spec.artifacts:
+        if reference.kind not in {"source", "prereg", "authority", "outcome"}:
+            raise ManagedEntryError("artifact kind must be typed")
         if reference.kind == "outcome" and reference.dryrun_access:
             raise ManagedEntryError(f"dry run reaches outcome artifact: {reference.role}")
 

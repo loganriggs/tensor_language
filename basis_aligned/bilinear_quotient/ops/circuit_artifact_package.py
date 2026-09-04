@@ -281,7 +281,13 @@ def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> N
     seen.add(id(function)); code = getattr(function, "__code__", None)
     if code is None:
         raise PackageError("scientific projector is not a pure Python function")
-    for name in code.co_names:
+    codes = [code]
+    for nested in codes:
+        codes.extend(value for value in nested.co_consts if isinstance(value, types.CodeType))
+    names = {name for nested in codes for name in nested.co_names}
+    if names & {"__import__", "open", "globals", "vars", "eval", "exec", "compile", "__builtins__"}:
+        raise PackageError("scientific projector is not pure: dynamic environment access")
+    for name in names:
         if name not in function.__globals__:
             continue
         value = function.__globals__[name]
@@ -298,6 +304,8 @@ def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
                       evaluators, projector: Callable) -> dict[str, object]:
     """Evaluate registered instruments before permitting scientific projection."""
     ordered = sorted(spec.predicates, key=lambda item: item.priority)
+    if any(item.disposition not in {"diagnostic", "hard_abort"} for item in ordered):
+        raise PackageError("predicate disposition must be typed")
     if compiled.get("predicate_order") != [item.predicate_id for item in ordered]:
         raise PackageError("compiled predicate order changed")
     results: dict[str, bool] = {}
@@ -336,30 +344,22 @@ class PackagePaths:
     receipt: Path
     evidence: Path
     namespace: str
-
-
 def _safe_relative(path: str) -> PurePosixPath:
     value = PurePosixPath(path)
     if value.is_absolute() or not value.parts or ".." in value.parts:
         raise PackageError(f"unsafe evidence path: {path}")
     return value
-
-
 def _fsync_directory(path: Path) -> None:
     descriptor = os.open(path, os.O_RDONLY)
     try:
         os.fsync(descriptor)
     finally:
         os.close(descriptor)
-
-
 def _write_fsynced(path: Path, payload: bytes) -> None:
     with path.open("xb") as handle:
         handle.write(payload)
         handle.flush()
         os.fsync(handle.fileno())
-
-
 def _marker_bytes(namespace: str) -> bytes:
     return canonical_json_bytes({"namespace": namespace, "schema": "circuit-stage-v1"})
 

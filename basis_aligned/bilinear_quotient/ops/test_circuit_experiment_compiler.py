@@ -595,3 +595,53 @@ def test_array_policy_and_full_physical_shape_are_enforced(tmp_path: Path) -> No
     np.save(call / "margin.npy", np.array([np.nan]))
     with pytest.raises(package.PackageError, match="finite policy"):
         package.validate_nonfinite_masks(call, "nonfinite_observation")
+
+
+def test_false_instrument_cannot_evade_abort_with_untyped_disposition() -> None:
+    predicate = compiler.PredicateSpec(
+        "fit_live", "FIT", 0, "live", (), "abort", "instrument"
+    )
+    spec = replace(_decision_spec(), predicates=(predicate,))
+    with pytest.raises(compiler.SpecError, match="disposition"):
+        compiler.validate_spec(spec)
+    with pytest.raises(package.PackageError, match="disposition"):
+        package.decide_experiment(
+            spec=spec,
+            compiled={"predicate_order": ["fit_live"],
+                      "call_manifest": [{"call_id": "FIT:0", "split": "FIT"}]},
+            primitives=[{"call_id": "FIT:0"}], evaluators={"live": lambda rows: False},
+            projector=lambda rows: {"score": 1.},
+        )
+
+
+@pytest.mark.parametrize("kind", ["Outcome", "OUTCOME", "result", "Result"])
+def test_artifact_kind_aliases_cannot_evade_dryrun_closure(kind: str) -> None:
+    artifact = compiler.ArtifactRef("result", "result.json", ZERO_SHA, kind, dryrun_access=True)
+    spec = minimal_spec(artifacts=(artifact,))
+    with pytest.raises(compiler.SpecError, match="artifact kind"):
+        compiler.validate_spec(spec)
+    with pytest.raises(managed.ManagedEntryError, match="artifact kind"):
+        managed.validate_dryrun_closure(spec)
+
+
+def test_nested_dynamic_environment_projectors_are_rejected() -> None:
+    calls = [{"call_id": "FIT:0", "split": "FIT"}]
+    evidence = [{"call_id": "FIT:0"}]
+
+    def nested_lambda(rows):
+        return (lambda: {"score": float(len(os.environ))})()
+
+    def nested_comprehension(rows):
+        return {"score": float(sum(len(os.environ) for _ in (0,)))}
+
+    projectors = (
+        lambda rows: {"score": float(len(__import__("os").environ))},
+        nested_lambda,
+        nested_comprehension,
+    )
+    for projector in projectors:
+        with pytest.raises(package.PackageError, match="pure"):
+            package.decide_experiment(
+                spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+                primitives=evidence, evaluators={}, projector=projector,
+            )
