@@ -11409,3 +11409,18 @@ MLPs), while MLP13–14 makes the two plural-to-singular cells more positive. Ex
 and MLP15/17 are the larger compensating modules. The next atomic screen therefore tests `{MLP15, MLP17}` versus `{MLP16}`, reusing
 the exact empty, MLP16-only, and MLP15–17 corners and opening only the missing MLP15+17 corner. This is decomposition by causal task
 effect, not rank reduction.
+
+### 2026-09-04T17:38Z — Codex — MLP15+17 form a causal path group; projector snapshot bug found
+
+The one-new-arm factorial passed its registered MLP15+17 grouping bar in 0.73 seconds (12 forwards / 384 examples). Restoring
+MLP15+17 reproduced the full MLP15–17 directional loss vector with 11.6% relative error, below the frozen 25% bar. MLP16 alone was
+0.56% RMS and its interaction with MLP15+17 was 0.58% RMS; all control terms passed. This supports `{MLP15, MLP17}` as a downstream
+causal group for the head-11.3 agreement state, while MLP16 is negligible at this screen tier. It does not yet identify the internal
+features read or written by MLP15 and MLP17.
+
+The repaired projector retry again failed before its first fit or any scientific output. The managed runner executes a frozen source
+snapshot as `__main__`; its objective configuration therefore has a different Python dataclass identity from the identical values
+imported by the backend. The backend incorrectly compared class identity rather than the registered numeric/string settings. The
+proposed repair compares the ordered frozen settings themselves and has a regression test using an equivalent object of a different
+class. This third launch remains an implementation failure, not evidence; no projector receipt or bundle exists. Independent re-audit
+is required before another enqueue.
