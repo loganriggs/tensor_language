@@ -5577,3 +5577,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   not "percentage steps". A single-prompt probe is a screen for what to TRY, never a capability estimate. BAR FLAGGED: pred_b's "≥ 8
   capable" was calibrated for 16 behaviours and applied unchanged to 21 — scored as registered, easier to pass than when written.
   Standing: 9 capable, 8 write through attn8, ZERO writer-selective for the third run running → one re-used circuit + verbatim_repeat.
+- §2841 circuit_battery_roundness_capability (Claude, LANE 1 CUDA, 4.7 s, 20 GPU forwards, 0 fitted params): a,d,e TRUE; b,c FALSE, no
+  null met. **ROUNDNESS SWITCHES THE MODEL BETWEEN TWO BEHAVIOURS.** Percent run → LAST+STEP: tens 1.000 (6/6), fives .000, other .000
+  (0/48). Bare run → LAST+1: tens .000, other **.313** — the successor is ANTI-correlated with roundness (gap −.3125, pred_c FALSE as
+  registered). So §2817's "+1 machine" is really "adds one WHEN VALUES ARE NOT ROUND"; on round values it does the step, perfectly.
+  Effect is multiple-of-TEN, not multiple-of-five (tens−fives = 1.0). pred_b FALSE on a ceiling artefact: numbered_list and keyed_line
+  score .000 in every class, so they cannot show a gap — the correct pred restricts to formats with non-zero capability somewhere.
+  LIMIT: tens/fives cells are n=6; read 1.000 as "no counterexample in six". CONSEQUENCE: "the model cannot do step continuation" is
+  FALSE as stated in §2817/§2840; capability for new bank behaviours should be reported against roundness, not pooled over it.

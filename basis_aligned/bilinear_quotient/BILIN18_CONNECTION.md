@@ -73432,3 +73432,54 @@ and now demonstrably safe for the existing ones; what it has not done is add mec
 
 Price: 7,377 GPU forwards, 85.5 GPU-seconds, 0 backwards, 0 fitted parameters, 21 behaviours across four splits.
 Results: circuit_battery_v2_bank21_results.json. (Claude, LANE 1 CUDA.) a, b, c, e, f, g, h TRUE; d FALSE with its null met. Preserved.
+
+## §2841 — ROUNDNESS SWITCHES THE MODEL BETWEEN TWO BEHAVIOURS: on multiples of ten it continues a percentage run BY ITS STEP with accuracy **1.000** (6/6) and never answers LAST + 1 (**0.000**); on non-round values it does the reverse — step continuation **0.000** (0/48) and LAST + 1 **.313**. §2817's "+1 machine" is not a machine that adds one, it is a machine that adds one WHEN THE VALUES ARE NOT ROUND (a, d, e TRUE; b, c FALSE, no null met)
+
+§2840 found my hand-probe of `10% 20% 30%` was continued by its STEP while the bank's `13% 23% 33%` collapsed to capability .07, and
+§2817 had separately measured that on bare runs the model answers LAST + 1 (.92) rather than LAST + STEP (.06). This rung tested whether
+roundness is the hidden variable in both, with the step fixed at 10 in every comparison. Capability is argmax accuracy over a shared
+numeric vocabulary, HIGHER IS BETTER; every prompt was checked for the joint-tokenization prefix property first. **A model-property
+measurement on its own value sets, not the bank's frozen splits — no localisation, no selectivity, no §312 L2, nothing installs.**
+
+| format | tens (n=6) | fives (n=6) | other (n=48) |
+|---|---|---|---|
+| percent run → LAST + STEP | **1.000** | .000 | .000 |
+| bare run → LAST + STEP | .333 | .000 | .000 |
+| numbered list → LAST + STEP | .000 | .000 | .000 |
+| keyed line → LAST + STEP | .000 | .000 | .000 |
+| **bare run → LAST + 1** | **.000** | **.000** | **.313** |
+
+**pred_a TRUE (null "≤ .05" not met) — the percent gap is total: 1.000 against .000**, a gap of exactly 1.0 (bar ≥ .30). Every one of the
+six round-start percentage runs is continued correctly by its step; not one of the forty-eight non-round ones is.
+
+**pred_d TRUE (null not met) — and roundness is not "multiple of five", it is "multiple of ten".** Multiples of five that are not
+multiples of ten score **.000** on the percent run, identically to arbitrary values, giving a tens-minus-fives gap of 1.0 (bar ≥ .10).
+The effect is sharp, not graded.
+
+**pred_c FALSE, its null NOT met — and the failure is the finding.** I predicted the LAST + 1 behaviour would be roundness-ROBUST
+(|gap| ≤ .15), reasoning from §2817's .92 capability. The measured gap is **−.3125**: LAST + 1 scores **.000 on round starts** and
+**.313 on non-round ones**. So the successor behaviour is not merely independent of roundness, it is **anti-correlated with it**. Put
+the two rows together and the picture is one mechanism, not two: **on round values this model continues by the step; on non-round values
+it adds one; and it does not do both anywhere.** §2817's "+1 machine" framing survives only as a description of the non-round regime,
+which is what the bank's split-disjoint value pools happen to sample almost exclusively.
+
+**pred_b FALSE, null "≤ 1" not met — but the two formats that show the effect are the two that CAN show it.** Only percent run (1.0)
+and bare run (.333) clear the .15 format gap; numbered list and keyed line score **.000 in every class**, so they have no gap because
+they have no capability at step 10 at all. That is a ceiling artefact of my format choice rather than evidence against generality: a
+format the model cannot do at any roundness cannot exhibit a roundness effect. Scored FALSE as registered; the correct version of
+pred_b restricts to formats with non-zero capability somewhere, which I did not write.
+
+**Honest limits.** The `tens` and `fives` cells contain only **6 prompts each** (multiples of 10 in 10–99 with three further terms below
+100), against 48 for `other`. A 6/6 is six samples, and 1.000 should be read as "no counterexample in six" rather than as a precise rate;
+the .000 cells are better powered (0 of 48). One step size (10) and one digit range. The candidate vocabulary is shared across formats,
+so accuracies are comparable across rows.
+
+**Why this matters beyond the capability table.** Several earlier sections rest on capability numbers measured over the bank's value
+pools — §2817's "+1 machine", §2840's percentage collapse, and the capability gate that decides which behaviours become circuits at all.
+This rung says those numbers are conditional on a value-canonicality variable nobody in either lane had controlled. It does not
+invalidate them; the bank's pools are what they are and the circuits found on them are real. It does mean **"the model cannot do step
+continuation" is false as stated** — it can, perfectly, on round values — and any future behaviour added to the bank should have its
+capability reported against roundness rather than pooled over it.
+
+Price: 20 GPU forwards, 4.7 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_roundness_capability_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b, c FALSE with no null met. Preserved.

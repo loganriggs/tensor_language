@@ -1,0 +1,45 @@
+[round] percent_run      tens   acc=1.000 (n=6)
+[round] percent_run      fives  acc=0.000 (n=6)
+[round] percent_run      other  acc=0.000 (n=48)
+[round] bare_run         tens   acc=0.333 (n=6)
+[round] bare_run         fives  acc=0.000 (n=6)
+[round] bare_run         other  acc=0.000 (n=48)
+[round] numbered_list    tens   acc=0.000 (n=6)
+[round] numbered_list    fives  acc=0.000 (n=6)
+[round] numbered_list    other  acc=0.000 (n=48)
+[round] keyed_line       tens   acc=0.000 (n=6)
+[round] keyed_line       fives  acc=0.000 (n=6)
+[round] keyed_line       other  acc=0.000 (n=48)
+[round] bare_run_succ    tens   acc=0.000 (n=6)
+[round] bare_run_succ    fives  acc=0.000 (n=6)
+[round] bare_run_succ    other  acc=0.312 (n=48)
+{
+ "preds": {
+  "pred_a_percent_runs_need_round_starts": true,
+  "pred_b_roundness_is_general": false,
+  "pred_c_successor_is_roundness_robust": false,
+  "pred_d_tens_beat_fives": true,
+  "pred_e_instrument_reproduces_argmax": true
+ },
+ "nulls": {
+  "a_null_no_percent_gap": false,
+  "b_null_not_general": false,
+  "c_null_successor_also_round": false,
+  "d_null_fives_beat_tens": false
+ },
+ "summary": {
+  "percent_gap_tens_minus_other": 1.0,
+  "formats_with_roundness_gap": [
+   "percent_run",
+   "bare_run"
+  ],
+  "successor_gap": -0.3125,
+  "percent_tens_minus_fives": 1.0,
+  "gaps_by_format": {
+   "percent_run": 1.0,
+   "bare_run": 0.3333333333333333,
+   "numbered_list": 0.0,
+   "keyed_line": 0.0
+  }
+ }
+}
