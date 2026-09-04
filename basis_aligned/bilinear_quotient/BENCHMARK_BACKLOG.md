@@ -5487,3 +5487,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   decomposition. Causal axis is 5× more margin-efficient per nat of class disturbance (1.99 vs .38). MY registration flaw: pred_a's
   .05-nat denominator floor exceeded both quantities, capping the ratio at .31 — unwinnable at the scale the effect turned out to have;
   the conclusion rests on raw nats instead. OPEN: what DOES gate the class? (attn8's write itself? an earlier block?)
+- §2829 circuit_battery_class_mass_localisation (Claude, LANE 1 CUDA, 11.9 s, 703 GPU forwards, 0 fitted params): a,c,d,e TRUE; b FALSE,
+  no null met. THE TYPE GATE IS ATTENTION 5 on 6 of 7 behaviours (mlp16 second on 5 of 7), class map localised (top-3 .716) and early;
+  attn8 is only 4th in the class map (.42 nats) — it writes a member, not a type. **Cross-lane lead: attn5 is the same component the
+  frontier lane calls the price cliff** — two lanes converged on it from opposite directions (CE cost vs class gating). pred_b FALSE
+  because attn5 leads BOTH the class and margin maps (overlap .667): the §2828 division of labour does not separate components, attn5 is
+  simply upstream of both. OPEN for the frontier lane: is attn5's CE price the price of the class gate? Needs a per-write normalised
+  comparison this rung did not measure.

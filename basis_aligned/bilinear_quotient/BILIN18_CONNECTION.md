@@ -72863,3 +72863,50 @@ five things it is not and one thing it is: within-class and inefficient.
 
 Price: 190 GPU forwards, 6.8 GPU-seconds, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_remainder_class_gate_results.json. (Claude, LANE 1 CUDA.) b, c, d, e TRUE; a FALSE with its null met. Preserved.
+
+## §2829 — THE TYPE GATE IS ATTENTION 5, ON 6 OF 7 BEHAVIOURS, AND IT IS THE SAME COMPONENT THE FRONTIER LANE CALLS THE PRICE CLIFF: the class-mass map is localised (top-3 = .72), early (leader layer ≤ 8 everywhere), and shared across digit lists, roman lists, keyed counters, months and even the copy behaviour — but it does NOT come apart from the margin map as I predicted (a, c, d, e TRUE; b FALSE, no null met)
+
+§2828 showed the read of attention 8's write decides which member of the answer class, not whether the class applies, so the type gate
+had to be elsewhere. This rung localised it the way the battery localises writers, but scoring `log Σ_{v∈candidates} p(v)` in nats
+instead of the margin: all 36 components, final-position write ablated outright, OOD rows, zero fitted parameters. The margin map of the
+same arms was recorded alongside.
+
+**pred_d TRUE (null "≤ 1" not met) — the class gate is ATTENTION 5, and it is shared.** Attention 5 leads the class-mass map on **6 of
+the 7** behaviours (numeric run puts mlp16 first and attn5 second). The answer classes involved are not the same class: single-token
+digits after "N." and after "N)", roman numerals, "Chapter"-style counters, month names, and the repeated word of the copy behaviour.
+One component gates "a member of the salient class goes here" across all of them. mlp16 is the consistent second (5 of 7 top-3), with
+attn1 and attn2 appearing behind it.
+
+**This is the same attention 5 the frontier lane has been stuck on.** The standing strategic framing names three largest gaps in the
+explained fraction — tail dictionaries, the m16 remainder, and *attn5's write, the price cliff*. Two lanes that have not touched each
+other for weeks arrived at the same component from opposite directions: the frontier lane because removing attn5's write is
+disproportionately expensive in CE, this lane because it is what decides that a member of the answer class is emitted at all. That
+convergence is the most useful thing in this section, and it is a lead for the frontier lane, not a result of it — nothing here measures
+CE.
+
+**pred_a TRUE (null "≤ .30" not met) — the class map is localised.** Median top-3 share of the total positive class damage is **.716**:
+keyed counter .95, numbered list .78, paren list .73, roman .72, numeric run .68, verbatim repeat .66, month .34 (the one diffuse case).
+
+**pred_c TRUE — and it is early.** The leading class component sits at layer ≤ 8 on every behaviour (attn5 on six, mlp16 on one, which
+is layer 16 — so 6 of 7 by the registered rule, above the bar of 4).
+
+**pred_e TRUE — attention 8 is not the class gate.** Its median rank in the class map is **4th**, against 3rd in the margin map, with a
+class damage of .42 nats. Its write is a context-blind copy of the last item (§2808, §2820) — a member, not a type — and the measurement
+agrees.
+
+**pred_b FALSE, no null met — the two maps overlap more than I predicted, and the reason is instructive.** Median overlap of the top-3
+class and top-3 margin components is **.667** (bar ≤ .50), i.e. two of three shared, because **attention 5 leads BOTH maps on most
+behaviours**. So the division of labour §2828 found inside mlp10/mlp11 does not extend to a clean separation of components: the type
+gate is also a large contributor to the margin. The honest statement is that attn5 is upstream of both jobs — it is early enough
+(layer 5) that everything after it, including attention 8's write and blocks 8–11's read, operates on a residual it has already shaped.
+A cleaner test of separation would compare attn5's class and margin damage per unit of its own write, which this rung does not measure
+and which is therefore not claimed.
+
+**What this adds to the circuit.** Attention 5 gates the class; attention 8's heads 3 and 7 write the last salient item (§2808, §2820);
+blocks 8–11 read it as a 2-of-4 redundant threshold (§2818, §2821) whose specificity rises with depth (§2819); and that read splits
+exactly and additively (§2828) into a rank-1 unfitted low-energy axis that selects the member (§2826, §2827) and a generic remainder.
+That is a five-stage mechanism for one behaviour family, every stage measured on held-out rows.
+
+Price: 703 GPU forwards, 11.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_class_mass_localisation_results.json. (Claude, LANE 1 CUDA.) a, c, d, e TRUE; b FALSE with no null met.
+Preserved.
