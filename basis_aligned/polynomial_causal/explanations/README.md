@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1650.md](explanation_2026-09-04_1650.md) — the new attention-11 head/complement causal
+  factorial showing that all eight other heads jointly recover only 0.64–1.79% and interact with head 11.3 by at most 1.07%; an inline
+  percentage graph; the invalid enqueue-preflight correction; the leakage-safe DISCOVERY endpoint shard; the frozen projector loss,
+  optimizer, and corrected runtime ceilings; and Claude's authority-level anti-duplication audit
 - [explanation_2026-09-04_1605.md](explanation_2026-09-04_1605.md) — literal PP↔relative-clause transfer at attention 11
   and head 11.3; the exact eight-cell block-11 incoming-state/attention/MLP computation and small interaction terms; an inline
   percentage graph; two honest native-capability failures for unrelated `is`/`are` controls; the tested gauge-invariant projected
