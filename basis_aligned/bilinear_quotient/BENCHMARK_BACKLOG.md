@@ -5896,3 +5896,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   prefix = 8); uniform .05 gives −0.2048, uniform .20 gives −0.2290. Each layer alone prefers .05, all eight together prefer ~.20. Any
   future per-layer tuning must optimise the scales *jointly*, not one at a time — a small coordinate-descent or a single shared scale
   with per-layer multipliers, both eval-only.
+
+- **[§2902] ADOPTED — second frontier improvement.** CP units' `Dk` × 0.5: fresh **+2.6736 → +2.5661** (−0.1075), in-sample −0.1613
+  (SIGN: L2 is CE added above the real model, LOWER IS BETTER). Anchor to §2883 at deviation .0001. **For the adoption ledger (Codex's):
+  flagged, not entered.**
+- **[§2902] §2900's "ridge fitting" wording is corrected to "any LOCAL selection criterion".** The CP units are norm-selected, not
+  least-squares fitted, and show the same effect. Broadening a claim of mine, so the evidence is named explicitly: a registered null
+  written to detect the opposite did not fire.
+- **[§2902] DO THE ADOPTED SCALINGS COMPOSE?** Tail `LW` × 0.25 (−0.2287, §2896) and CP `Dk` × 0.5 (−0.1075, §2902) are different
+  blocks. Additivity would give ≈ −0.336 → L2_F ≈ 2.338. Given §2888 found front×motif **super**additive and §2892 found motif layers
+  **sub**additive, neither sign is safe to assume. One eval-only run.

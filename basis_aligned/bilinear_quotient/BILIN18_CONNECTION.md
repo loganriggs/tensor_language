@@ -76393,3 +76393,60 @@ not across the parameter range.
 is worse than the adopted configuration, as is every prefix.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2902 — THE MISMATCH IS **NOT** CONFINED TO RIDGE FITS: SCALING THE **NORM-SELECTED** CP UNITS BY 0.5 IMPROVES THE FRONTIER BY **−0.1075 nats FRESH AND −0.1613 IN SAMPLE**. ADOPTED, AND §2900's WORDING IS CORRECTED
+
+Registered `polynomial_causal/FRONTIER_CP_UNIT_SCALE_PREREGISTRATION.md` (11:29Z). Run `frontier_cp_unit_scale`, landed 11:32Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_cp_unit_scale_results.json
+Price: 0 GPU forwards, 113.6 GPU-seconds, **1 pipeline run** for seven arms (`forwards_instrumented: false`, `pipeline_runs: 1` — the
+forward count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2128/§2129/§2133/§2134 RETRACTED;
+**§2125 STANDS** — and note this rung neither selects, reorders nor re-derives anything; it **rescales an already-fitted
+reconstruction**, so it is none of §2118, §2125 or §2131.
+
+| `Dk` scale | **0.5** | 0.75 | 0.9 | 1.1 | 1.25 |
+|---|---|---|---|---|---|
+| cost, **fresh** | **−0.1075** | −0.0670 | −0.0302 | +0.0325 | +0.0817 |
+| cost, **fitting window** | **−0.1613** | −0.1020 | −0.0444 | +0.0465 | +0.1199 |
+
+**All five predictions TRUE; neither null met.**
+
+- **pred_b HELD at deviation 0.0001** — removing `c4`–`c9` from the evaluated config reads **+0.2139** against §2883's implied
+  **+0.2140**. Same operation, independent rung.
+- **pred_c HELD and `c_null_the_mismatch_is_confined_to_ridge_fits` did NOT fire.** Every scale below 1 improves; the best, **0.5**,
+  gives **−0.1075 fresh** and **−0.1613 in sample**.
+
+### The correction to §2900, which this rung was written to force
+
+§2900 concluded that the local/end-to-end mismatch is *"a property of the **ridge fitting procedure** itself"*. **That wording is too
+narrow and is corrected here.** The CP units `c4`–`c9` are **norm-selected CP factors** — the norm-2304 construction of §2118/§2125 —
+**not least-squares solutions**, and they show the same effect at a comparable size.
+
+The accurate statement is: **the mismatch is a property of choosing a component by a LOCAL criterion while scoring the construction
+END-TO-END.** Ridge regression is one such criterion; norm-based selection is another; both leave the same kind of slack. §2900's
+measurements stand unchanged — only the clause naming the cause is corrected, and it is corrected in the direction that makes the claim
+*broader*, which is the direction that should be viewed most sceptically. The evidence for the broadening is a registered null that was
+written to detect exactly the opposite and did not fire.
+
+### Adopted
+
+The preregistration's adoption rule, written before the run: *"any improvement may be entered as a result **only if pred_a, pred_b and
+pred_d hold**."* **All three hold** — baseline +2.6736, anchor deviation .0001, arms connected.
+
+**Adopted: multiplying every CP unit's `Dk` by 0.5 lowers the frontier's fresh L2 from +2.6736 to +2.5661**, an improvement of
+**0.1075 nats**, and lowers the in-sample L2_C by **0.1613**.
+
+**The in-sample gain exceeds the fresh gain** (0.1613 vs 0.1075) — the same signature the tail maps showed (§2890/§2894) and the
+**opposite** of the front tables, where the fresh gain exceeded the in-sample one (§2895: −0.1648 fresh, +0.0959 in sample). So the tail
+maps and the CP units are both **mis-fitted for the end-to-end objective in sample**, while the front tables are partly **over-fitted**.
+Three blocks, two distinct diagnoses, and the distinction is only visible because both windows are reported.
+
+**What this bears on:** §2883 measured that the CP reconstructions already **beat** the real MLPs they replace (−0.2140). This adds that
+they are also **too strong** for the end-to-end objective by roughly a factor of two. §2125 stands untouched — Fisher *selection* still
+does not install; what installs is a rescaling of what norm selection produced.
+
+**Not entered into the explained fraction**, which stays **5.348% / 10.923% / 4.727 nat / 0 of 68**. As with §2896, an L2 improvement is
+the adoption ledger's business; this is flagged for it, not entered by this lane.
