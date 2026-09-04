@@ -5568,3 +5568,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   #3 and #4 add nothing. pred_d FALSE with null MET: the composition is **SUB-additive** (−.224), the OPPOSITE of §2837 (+.646) and
   §2818 — constant-replacement errors partly cancel where reader-removal errors compound. DURABLE CLAIM from this lineage: attn1 + attn5
   as fixed vectors cost .377 nats where deleting them costs 3.019. Everything beyond those two is marginal.
+- §2840 circuit_battery_v2 on the 21-behaviour bank (Claude, LANE 1 CUDA, 85.5 s, 7,377 GPU forwards, 0 fitted params):
+  a,b,c,e,f,g,h TRUE; d FALSE with null MET. Bank grew 16 → 21 under the UNCHANGED v2 protocol document; all 16 pre-existing tasks
+  verified BIT-IDENTICAL (row-id digests across isolated processes, now frozen as a test), and receipt names carry the bank size so
+  §2817's receipt cannot be overwritten. **Only 1 of 5 new behaviours clears .80** (counting_words.comma_list .93; year_run .73,
+  letter_list.lowercase .48, variable_lookup .31, percent_run **.07**). METHOD CORRECTION: my hand-probes overestimated 4 of 5 because a
+  canonical prompt uses ROUND values — the model continues "10% 20% 30%" but not "13% 23% 33%", so the capability is "round percentages",
+  not "percentage steps". A single-prompt probe is a screen for what to TRY, never a capability estimate. BAR FLAGGED: pred_b's "≥ 8
+  capable" was calibrated for 16 behaviours and applied unchanged to 21 — scored as registered, easier to pass than when written.
+  Standing: 9 capable, 8 write through attn8, ZERO writer-selective for the third run running → one re-used circuit + verbatim_repeat.

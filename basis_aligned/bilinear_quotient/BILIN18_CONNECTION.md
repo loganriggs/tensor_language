@@ -73382,3 +73382,53 @@ measurements support.
 Price: 130 GPU document-forwards, 11.4 GPU-seconds, 0 backwards, 82,944 declared fitted parameters.
 Results: circuit_battery_saving_ranked_constant_set_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a FALSE; d FALSE with its null
 met. Preserved.
+
+## §2840 — THE BANK GROWS TO 21 BEHAVIOURS AND MY HAND-PROBES OVERESTIMATED FOUR OF FIVE: only `counting_words.comma_list` (.93) clears the capability bar of the five added; year_run .73, lowercase letters .48, variable lookup .31, percentage steps **.07** — because a single canonical prompt uses round values and the generated bank does not. Nine of 21 behaviours are now capable, all eight capable non-copy ones write through attention 8, and ZERO are writer-selective for the third run running
+
+The campaign's target is 20 high-quality circuits; the protocol says a behaviour costs a task-bank entry and no new preregistration, so
+this is the first test of that claim at scale. I probed sixteen candidate formats on the GPU, took the five that answered correctly on
+canonical prompts, wrote them as bank entries, and re-ran the battery under the UNCHANGED v2 protocol document
+(`CIRCUIT_BATTERY_PROTOCOL_V2_PREREGISTRATION.md`, sha e24f69d5…).
+
+**The integrity check first, because a growing bank is exactly where a silent perturbation would hide.** Adding tasks must not change
+any existing task's rows. Seeds are per (task, split, group) so this holds by construction — but "by construction" is what §2817's
+process-salted `hash()` bug also looked like, so I verified it: all **16 pre-existing tasks are bit-identical** to the previous bank,
+compared as row-id digests across isolated processes. Those digests are now frozen in
+`test_bank_extensions_do_not_perturb_existing_tasks`, and the engine's receipt name carries the bank size, so §2817's 16-behaviour
+receipt (`circuit_battery_v2_results.json`) can never be overwritten by a larger bank. This run is
+`circuit_battery_v2_bank21_results.json`.
+
+**The result on the new behaviours, and it is mostly a negative about my probing method.**
+
+| new behaviour | capability | writer | REC | verdict |
+|---|---|---|---|---|
+| counting_words.comma_list ("one, two, three," → " four") | **.93** | attn8 | .86 | capable |
+| year_run.successor ("1990 1991 1992" → " 1993") | .73 | attn8 | .58 | below bar |
+| letter_list.lowercase ("a. w / b. w" → "c") | .48 | attn8 | .83 | below bar |
+| variable_lookup.assignment ("x = 5 / y = 7 / x =" → " 5") | .31 | attn8 | .78 | below bar |
+| percent_run.step_continuation ("10% 20% 30%" → " 40") | **.07** | mlp16 | −2.31 | far below bar |
+
+**One of five. The percentage case is the instructive one.** My probe used `10% 20% 30%` and `5% 10% 15%` — round starts on round
+steps — and the model continued both correctly, which contradicted §2817's finding that it cannot do step continuation (capability .06
+on bare runs). The bank's generator draws split-disjoint starts, so it produces `13% 23% 33%`, and capability collapses to **.07**. The
+behaviour the model actually has is not "continue percentages by their step", it is "continue ROUND percentages", and that is a much
+narrower and more specific claim than either my probe or §2817 supported alone. The same mechanism explains the other three
+overestimates: a hand-chosen prompt is canonical by construction, and canonical values are where a weak capability lives.
+**Recorded as a method correction: a single-prompt capability probe is a screen for what to TRY, never an estimate of capability, and
+the bank's own capability stage is the measurement.**
+
+**Bank-level results, and one bar I am flagging rather than quietly benefiting from.** pred_a TRUE (instrument exact, max deviation
+1.7e-5), pred_b TRUE (**9 capable**), pred_c TRUE (median writer REC .836), pred_e TRUE (median SELECT top-3 share), pred_f TRUE
+(attention 8 is the FIT-chosen writer for **8 of the 9** capable behaviours), pred_g TRUE (**exactly 0** writer-selective — the third
+consecutive run and now over nine behaviours), pred_h TRUE (median OOD top-3 reader share **.458**), pred_d FALSE with its null MET.
+**pred_b's bar of 8 was calibrated in the v2 document for a SIXTEEN-behaviour bank and I applied it unchanged to twenty-one**; 9 of 21
+is a weaker result than 9 of 16 would be, and the prediction is easier to pass than when it was written. It is scored as registered and
+flagged here; rescaling a bar in the run that benefits from it is exactly what the standing rules forbid.
+
+**Where the 20-circuit target stands.** Nine capable behaviours, eight of them writing through attention 8 with the same mlp8–mlp11
+reader stack (§2818, §2819) and none writer-selective (§2817, §2819, and now this) — so the honest count is not nine circuits but
+**one heavily re-used circuit plus `verbatim_repeat.copy`**, which routes through the direct path instead. Adding behaviours is cheap
+and now demonstrably safe for the existing ones; what it has not done is add mechanisms.
+
+Price: 7,377 GPU forwards, 85.5 GPU-seconds, 0 backwards, 0 fitted parameters, 21 behaviours across four splits.
+Results: circuit_battery_v2_bank21_results.json. (Claude, LANE 1 CUDA.) a, b, c, e, f, g, h TRUE; d FALSE with its null met. Preserved.
