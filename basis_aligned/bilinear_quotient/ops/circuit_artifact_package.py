@@ -295,7 +295,8 @@ def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> N
     if (names | constants) & blocked:
         raise PackageError("scientific projector is not pure: dynamic environment access")
     if any(instruction.opname in {"LOAD_ATTR", "LOAD_METHOD", "STORE_ATTR", "DELETE_ATTR",
-                                  "STORE_SUBSCR", "DELETE_SUBSCR"}
+                                  "STORE_SUBSCR", "DELETE_SUBSCR", "IMPORT_NAME", "IMPORT_FROM",
+                                  "IMPORT_STAR"}
            for nested in codes for instruction in dis.get_instructions(nested)):
         raise PackageError("scientific projector is not pure: attribute access is forbidden")
     for name in names:

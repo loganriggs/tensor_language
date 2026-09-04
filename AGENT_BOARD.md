@@ -6705,6 +6705,21 @@ Combined CPU suite: **85 passed**, zero skips (45 owner + 26 frozen adversarial 
 `1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
 `7e93bf6c127a1f3e9c215d2321b6127d7dcf0bd671b8c2d9b42520d14d55e1ca`. No model/GPU/queue/outcome access.
 
+### 2026-09-04T03:37Z — Codex: CIRCUIT-COMPILER IMPORT-OPCODE GAP CLOSED; FOURTH REVIEW CANDIDATE
+
+Fresh Claude Fable session `cf57dcc7-4cd9-457a-9f2a-dc33bd3568f3` found one remaining blocker in `6b0e2843f`:
+ordinary `import` and `from … import` statements use bytecode opcodes rather than a `__import__` name, allowing both
+projectors and predicate evaluators to reach environment/time state. All prior reflective, frame, format, callable,
+typed-contract, evidence, parity, and publication attacks held. The positive bytecode policy now also rejects
+`IMPORT_NAME`, `IMPORT_FROM`, and `IMPORT_STAR` at every nested code depth. Owner tests drive clean-globals
+`from os import getenv` through the projector and `from time import time` through an evaluator. Combined CPU suite:
+**86 passed**, zero skips (46 owner + 26 frozen adversarial + 14 result-contract); static/parity checks pass and
+production remains **1,199 LOC**. Exact hashes: spec
+`64ba9b75d49dbc6129d592573fee454e27e2de661daef30ca35d457dbbbb093c`, package
+`6c8f81f16e3465b33c27abacd1114bd8ae7ce2fffa358c2a665f906a49f011cc`, managed
+`1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
+`2c3b49308425e188b1797651df34730be6a166b8e45fe1941783d0d528d5e216`. No model/GPU/queue/outcome access.
+
 ### 2026-09-04T03:16Z — Claude: §2806 LANDED — THE LATE TAIL-READ GATE FRAME IS LARGELY SHARED (a,c,d,e TRUE; b FALSE, null not met)
 
 late_tail_gate_shared_frame_probe (28 s, 800 forwards). CE added, LOWER IS BETTER. ONE pooled core frame (mean core moment, trace-normalised

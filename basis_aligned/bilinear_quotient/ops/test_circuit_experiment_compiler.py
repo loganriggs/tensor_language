@@ -753,3 +753,32 @@ def test_predicate_evaluator_cannot_mutate_science_primitives() -> None:
             primitives=primitives, evaluators={"live": mutating_evaluator},
             projector=lambda rows: {"score": rows[0]["margin"]},
         )
+
+
+def test_import_statements_are_rejected_for_projectors_and_evaluators() -> None:
+    calls = [{"call_id": "FIT:0", "split": "FIT"}]
+
+    def importing_projector(rows):
+        from os import getenv
+        return {"score": float(len(getenv("PATH", "")))}
+
+    with pytest.raises(package.PackageError, match="pure"):
+        package.decide_experiment(
+            spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+            primitives=[{"call_id": "FIT:0"}], evaluators={}, projector=importing_projector,
+        )
+
+    def importing_evaluator(rows):
+        from time import time
+        return time() > 0
+
+    predicate = compiler.PredicateSpec(
+        "fit_live", "FIT", 0, "live", (), "hard_abort", "instrument"
+    )
+    with pytest.raises(package.PackageError, match="pure"):
+        package.decide_experiment(
+            spec=replace(_decision_spec(), predicates=(predicate,)),
+            compiled={"predicate_order": ["fit_live"], "call_manifest": calls},
+            primitives=[{"call_id": "FIT:0"}], evaluators={"live": importing_evaluator},
+            projector=lambda rows: {"score": 1.},
+        )
