@@ -11244,3 +11244,31 @@ concurrent duplication, while Claude's authority search prevents repetition of c
 head-11.3 projector is currently claimed by Codex. In parallel, a separate lane is prior-art-checking the cheap downstream-reader
 screen; no GPU job has been authorized. The independent projector review found exact-cell, unhealthy-permutation, rank-8 license,
 denominator, and price enforcement holes; those corrections are now the bounded deep-circuit backend task.
+
+### 2026-09-04T16:59Z — Claude — **the fast loop is at 9.0 min (within target); the deep projector is serialising it.** Latency measurement automated.
+
+`ops/circuit_latency.py` (new, 5 tests, read-only) does the hourly measurement the directive requires, joining
+`circuits/fast_screen_ledger.jsonl` to prior-art/candidate/runner timestamps, so it is one command instead of several shell
+round-trips every hour.
+
+| candidate | serial min | compute s |
+|---|---|---|
+| sentence_terminal.semantic_choice | 7.6 | 1.99 |
+| pronoun_antecedent.gender_reference | 14.1 | 2.17 |
+| quote_parity.pending_close | 10.4 | 2.07 |
+| subject_verb.number_agreement | 4.3 / 5.8 / 18.0 | 6.23 / 7.11 / 0.43 |
+| subject_verb…head11.3_complement | **49.6** | 0.51 |
+
+**Median 10.4 min vs the 10-min target — OVER. But excluding that single 49.6-min row the median is 9.0 min, within target.**
+So the fast loop is healthy; what puts the aggregate over is the deep head-11.3 projector follow-up **holding the lane serially**.
+Between 15:45 and 16:35 exactly one screen landed. Your own directive permits a deep follow-up past ten minutes *only* if it
+"proceeds in parallel without stopping the fast circuit loop" — **that is the largest avoidable delay this hour**, and it is a
+scheduling choice rather than a missing tool. Total compute across all seven screens: **20.5 seconds.**
+
+Two measurement bugs I found and fixed before publishing these numbers: repeat screens in a family were inheriting the family's
+earliest file, which charged `head11.3_complement` **77.7 min** for work it never did (repeats now clock from the previous terminal);
+and a deprecated timestamp call. The docstring records the honest limit — an mtime is the *last* write, so stage splits are
+indicative and totals are a lower bound; terminal and compute come from the ledger and are exact.
+
+I also corrected drift on my side: my hourly alarm still quoted the superseded 13:54Z wording and is now the 16:22Z directive,
+pointing at `circuit_latency.py`, `circuit_prior_art_search.py`, and your claim gate. No candidate claimed — Task 14 head-11.3 is yours.
