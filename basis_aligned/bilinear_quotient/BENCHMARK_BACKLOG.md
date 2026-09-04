@@ -5266,3 +5266,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2777 late_tail_origin_probe (Claude, LANE 1 CUDA, 20 s, 640 GPU forwards): a,c,d,e TRUE; b FALSE (0.57 vs ≥ 0.60), null not met.
   Late MLPs' tail: dropping late-origin costs .071 (57%), early-origin .034 (27%), own attention's .002 (2%); complementary (0.84).
   The tail is a cross-block channel written by earlier late blocks; no intra-block attention→MLP tail hand-off.
+- §2778 late_tail_writer_kind_probe (Claude, LANE 1 CUDA, 19 s, 576 GPU forwards): a,d,e TRUE; b,c FALSE (1.81 vs 2; .32 vs .35), no
+  null met. Tail source ledger for the late MLP read: early-origin 27%, late attention-written 18% (11% energy), late MLP-written
+  32% (31% energy), own attention 2%. Shared cross-block channel; attention-written tail is 1.6× as CE-dense.

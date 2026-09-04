@@ -1,0 +1,116 @@
+{
+ "rung": "late_tail_writer_kind_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_mlp_written_tail_dominates": false,
+  "pred_c_mlp_written_tail_is_a_third_of_the_cost": false,
+  "pred_d_attention_written_tail_is_minor": true,
+  "pred_e_kinds_complementary_within_late_origin": true
+ },
+ "nulls": {
+  "b_null_attn_ge_mlp": false,
+  "c_null_drop_mlp_le_.15": false,
+  "d_null_drop_attn_ge_.5": false,
+  "e_null_sum_ge_2": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_ratio": 2.0,
+  "c_frac": 0.35,
+  "d_frac": 0.25,
+  "e_lo": 0.7,
+  "e_hi": 1.5
+ },
+ "null_bars": {
+  "c_frac": 0.15,
+  "d_frac": 0.5,
+  "e_hi": 2.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP reads: core (top-768 of U_8) exact; tail drops one late writer kind's (attention / MLP) lambda-propagated contribution, replaced by its fit-set mean",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249,
+  "early_tail_only": 0.07111221551895142,
+  "prior_early_tail_only": 0.0711
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "EARLY_TAIL_ONLY": 0.07111221551895142,
+  "DROP_LATE_ATTN_TAIL": 0.0223047137260437,
+  "DROP_LATE_MLP_TAIL": 0.04044356942176819
+ },
+ "tail_energy_by_writer_kind": {
+  "8": {
+   "attn_written_share": 0.042445399626590115,
+   "mlp_written_share": 0.0
+  },
+  "9": {
+   "attn_written_share": 0.08356377716509714,
+   "mlp_written_share": 0.07438387469212085
+  },
+  "10": {
+   "attn_written_share": 0.10185324347406008,
+   "mlp_written_share": 0.14929724287112256
+  },
+  "11": {
+   "attn_written_share": 0.1225865517619442,
+   "mlp_written_share": 0.21643270436467332
+  },
+  "12": {
+   "attn_written_share": 0.11276565874357607,
+   "mlp_written_share": 0.28438858603047795
+  },
+  "13": {
+   "attn_written_share": 0.12059677550029459,
+   "mlp_written_share": 0.3407708999052827
+  },
+  "14": {
+   "attn_written_share": 0.1297627144428153,
+   "mlp_written_share": 0.3966492248447654
+  },
+  "15": {
+   "attn_written_share": 0.12948612418282557,
+   "mlp_written_share": 0.4545324263968409
+  },
+  "16": {
+   "attn_written_share": 0.14392916362011288,
+   "mlp_written_share": 0.5255370949917574
+  },
+  "17": {
+   "attn_written_share": 0.16057229554171565,
+   "mlp_written_share": 0.667352490026683
+  }
+ },
+ "summary": {
+  "drop_attn_over_const": 0.17854302297564548,
+  "drop_mlp_over_const": 0.3237395123370938,
+  "mlp_over_attn": 1.8132297019595895,
+  "sum_kinds_over_early_only": 0.882384027693378,
+  "decomposition_residual_sq_per_token": 8.436103659429743e-05,
+  "mean_attn_written_energy_share": 0.11475617040590316,
+  "mean_mlp_written_energy_share": 0.3109344544123724
+ },
+ "price": {
+  "gpu_doc_forwards": 576,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 18.63163447380066
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_WRITER_KIND_PROBE_PREREGISTRATION.md": "9d880839fe773f2accad5c511801848d4da85c898e735cbf6515268c9592cff8",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_origin_probe_results.json": "a24fa24047771eb53a5ff8b2d17d2f3e3621b6414432d9a9711efcb95a5616a4",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "0db9e808d0d743c76e54db550ff1324c11308761ffd78441e01dec89da343e91"
+}

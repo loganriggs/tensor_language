@@ -1,0 +1,35 @@
+{"stage": "heads_done", "t": 13.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.3}
+{"stage": "writer_energy", "attn": 0.115, "mlp": 0.311, "decomp_resid_per_tok": 8.436103659429743e-05, "t": 15.3}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_MLP_768": 0.1249, "EARLY_TAIL_ONLY": 0.0711, "DROP_LATE_ATTN_TAIL": 0.0223, "DROP_LATE_MLP_TAIL": 0.0404, "t": 18.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_mlp_written_tail_dominates": false,
+  "pred_c_mlp_written_tail_is_a_third_of_the_cost": false,
+  "pred_d_attention_written_tail_is_minor": true,
+  "pred_e_kinds_complementary_within_late_origin": true
+ },
+ "nulls": {
+  "b_null_attn_ge_mlp": false,
+  "c_null_drop_mlp_le_.15": false,
+  "d_null_drop_attn_ge_.5": false,
+  "e_null_sum_ge_2": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "EARLY_TAIL_ONLY": 0.07111221551895142,
+  "DROP_LATE_ATTN_TAIL": 0.0223047137260437,
+  "DROP_LATE_MLP_TAIL": 0.04044356942176819
+ },
+ "summary": {
+  "drop_attn_over_const": 0.17854302297564548,
+  "drop_mlp_over_const": 0.3237395123370938,
+  "mlp_over_attn": 1.8132297019595895,
+  "sum_kinds_over_early_only": 0.882384027693378,
+  "decomposition_residual_sq_per_token": 8.436103659429743e-05,
+  "mean_attn_written_energy_share": 0.11475617040590316,
+  "mean_mlp_written_energy_share": 0.3109344544123724
+ }
+}
