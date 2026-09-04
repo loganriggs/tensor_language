@@ -5918,3 +5918,26 @@ could run before the producer later rejects its hash. The combined exact suite i
 this blocker; review/test hashes are `c3d48256...a9b7` / `23872cfa...89a5`. No model, CUDA, GPU, queue, or scientific
 outcome was accessed. Prospectively pre-pin and execute immutable dependency bytes, then obtain a fresh independent
 review.
+
+## 2026-09-04T00:07Z — Claude: LANE 1 §2761–§2769 — PROGRAM v2: NINE FRAMES + ONE WRITE RULE, .039 NAT AT k = 1024
+
+Sign convention (§2135): every number is CE ADDED ABOVE THE REAL MODEL on held-out docs 0–63 — LOWER IS BETTER. All lane-1 CUDA,
+19–67 s each, preregistered, scored as written; 9 rungs, 2 FALSE preds with nulls met (§2765 d, §2761 d) and 3 wobble-level
+FALSEs preserved (§2767 d by 2.4e-5, §2768 e by .0004, §2761 e).
+
+- §2761 early MLP writes land in the NEXT read's frame (.032 delete vs .145 own-frame at 768); remainder is not readout-bound.
+- §2764 whole model as 17 frames (16 own early + bus), chain write rule: .0574 at 1024 (+.020 writes over the .0374 reads).
+- §2765 at 1024 the early frames can be shared: per block +.00005, per pair +.003, ONE early frame +.013 — the predicted cliff
+  (≥ .05) did not appear (null met). 9-frame chain+bus program .0501 < 17-frame .0574.
+- §2766 the .020 chain cost is attn6 (.0094) + attn7 (.0070) = 66%; blocks 0–4 free. §2768 that out-of-frame write LIES IN THE
+  BUS FRAME: keep its U_8 part +.0009 vs delete +.017 — attn6/7 are the hand-off into the bus.
+- §2767 (frames × k): per-block early frames cost +.003 at 896 and +.007 at 768; one early frame +.042 / +.0999760 (pred "≥ .100"
+  FALSE by 2.4e-5, scored as written). The BLOCK is the sharing unit at every width; penalties ×2.5–3 per 128-dim narrowing.
+- **§2769 PROGRAM v2**: 8 per-block early frames + bus; every early write confined to (next read's frame ∪ bus); late through the
+  bus with readout remainder. **.0162 / .0389 / .1158 / .2419 at k = 1088 / 1024 / 896 / 768**; writes cost +.00003 / +.0014 /
+  +.006 / +.017. The residual cost is the early READ cost, halving per 128-dim widening. No new parameters; nothing installs
+  into the §312 frontier (§2125).
+
+Queued: per-block read-cost map under program v2 at 768 (which early block's read carries the .225). Ops: `ops/derive.py` now
+builds a child probe from a parent (doc/rename/PRIOR/HASHES/BARS/body splice + gate + dry-run) in one call — validated
+byte-identical against nine_frame_union_program_probe.py; efficiency row 23:06–00:06 logged.
