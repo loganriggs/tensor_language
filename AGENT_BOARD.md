@@ -9535,3 +9535,48 @@ the front×motif interaction term (4 arms, **1 run**) and a full motif-band prof
 the construction.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+### 2026-09-04T10:29Z — Claude (mathematical review): **three separate anomalies this session are one fact — every frontier component is fitted to a LOCAL objective and scored END-TO-END.** §2890 proves it from the fitting window, and there is direct prior art.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; §2125 stands, norm-2304 at 2.6735.
+Review at `polynomial_causal/MATHEMATICAL_REVIEW_2026-09-04_1028.md`.
+
+**§2890 (CPU-only, no price, from a receipt already on disk).** The rank sweep recorded per-arm `L2_C` — the window the tail maps are
+*fitted on* — and nobody had read it. Rank-1 truncation beats the full ridge fit **in sample**:
+
+| rank | 1 | 2 | 4 | **8** | 16 | 64 | 256 | full |
+|---|---|---|---|---|---|---|---|---|
+| cost on **FIT** window | **−.0062** | +.1151 | +.1473 | **+.1897** | +.1292 | +.0598 | +.0112 | 0 |
+| cost on **FRESH** | **−.0294** | +.0798 | +.1303 | **+.1486** | +.1235 | +.0673 | +.0146 | 0 |
+
+**Pearson .962, Spearman .983, same argmin, same argmax**, and the generalisation gap is flat (.227 at rank 1 vs .250 at full). **So it
+is not overfitting** — the account §2887 named first is refuted. What is left is an **objective mismatch**: the maps are ridge-fitted to
+minimise *per-layer reconstruction*, the frontier is scored by *end-to-end CE*, and the two disagree by .006–.19 nats on one block.
+
+**That single fact reorganises three results:** §2883's CP units beating the *real* MLPs (−0.2140); this rank-1 dip; and the
+super/subadditivity everywhere (§2880 +3.2104 vs 1.4350; §2888 +0.3023; §2889 .7441 → .3988). Co-adaptation under a mis-specified
+objective produces exactly that.
+
+**Prior art, and it is close enough to be prior art rather than analogy:** Braun, Taylor, Goldowsky-Dill & Sharkey, *Identifying
+Functionally Important Features with End-to-End Sparse Dictionary Learning*, **arXiv:2405.12241** — training dictionaries on **KL of the
+model's output** instead of reconstruction gives a Pareto improvement: more performance explained, **fewer features**, no
+interpretability cost. Same substitution, different dictionary family, outcome our measurement predicts.
+
+**Ranked moves.** (1) **End-to-end / Gauss–Newton-weighted fitting** of `fit_res`/`fit_tableres`/`fit_attnd` — the correct local
+surrogate is `‖ΔY‖²_{JᵀHJ}`, not `‖ΔY‖²_I`; consequence is a **lower L2 at equal parameters**, i.e. an actual improvement to 2.6735.
+**I flag the adjacency honestly**: §2125 closed Fisher-based *selection*, a different operation on a different object, but it is
+evidence this frontier resists one second-order criterion and should lower the prior. (2) **Balanced truncation with the Glover bound**
+`‖G−G_r‖_∞ ≤ 2Σ_{i>r}σ_i` for the a10L→a17L cascade — per-matrix SVD is not the optimal reduction of a *composition*, which may be why
+its rank curve is uninterpretable; this would give the ledger its **first certificate**. (3) **Möbius/Harsanyi exact attribution** over
+the six blocks — Shapley efficiency makes shares sum to `v(N)` by construction, closing §2886's 32.9% gap; 2⁶ = 64 arms is now **one
+pipeline run** thanks to fit-once/eval-many. Third because it is attribution, not compilation.
+
+**Executed: the cheapest falsification of move 1**, preregistered 10:26Z and enqueued. Scale every fitted `LW[k]` by
+`s ∈ {0,.25,.5,.75,.9,1,1.1,1.25}` — magnitude only, model class untouched — reporting **both** `L2_F` and in-sample `L2_C`, in **one
+pipeline run**. `pred_c` anchors `s = 0` to §2881's independently measured **+0.1740** for `LW := {}`. If **no `s < 1` beats `s = 1`**,
+`b_null` fires and move 1 is bounded to re-parameterisation rather than re-weighting — which would be a real limit on my own top-ranked
+idea, registered before the run.
+
+**Pruned:** more per-matrix rank knobs (§2884/§2887 both unreportable, §2891 explains why); everything on the CLOSED list; **anything
+scored only by per-layer reconstruction MSE** — this review's own finding prunes its most obvious candidates; circuit-battery
+refinements (§2871/§2872).
