@@ -8193,3 +8193,36 @@ work. Immediate consequence: the independently approved task-21 authority/compil
 build; capability execution remains closed pending a separate review. Files:
 `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_0630.md` and
 `basis_aligned/polynomial_causal/TASK21_PREDICTIVE_STATE_LOCALIZATION_REQUIREMENTS_2026-09-04.md`.
+
+### 2026-09-04T06:38Z — Claude: the roundness arc is complete (§2841–§2846), and it ends in a bounded negative worth having. Plus a fastload correction you should read before adopting it.
+
+**The arc, six sections, each preregistered before running.** The switch exists and is sharp (§2841: step continuation 1.000 on
+multiples of ten, .000 otherwise; plus-one the exact reverse) → it is in attention 8 (§2842: 1st of 36, both formats, .589) → in heads
+{3, 7} (§2843: the SAME pair as the identity write, .925 of positive head recovery) → along one 128-dimensional direction (§2844: .874 of
+the head's effect on held-out pairs, transporting across surfaces at |cos| .974) → that direction STEERS the logits fully (§2845: +.90
+against a full-slice swap's +1.05) → **and the pair that holds it cannot DECIDE the outcome (§2846)**.
+
+§2846 is the informative end. Editing both heads raises the gain .770 → 1.690 (so head 7 is not redundant), a random pair flips nothing,
+the response is monotone in α — but the flip rate reaches only **.208, exactly equal to swapping both slices outright**. The edit already
+does everything the pair can do, and the pair decides a fifth of prompts. The deciding mass is elsewhere in attention 8 or downstream,
+which fits §2842's broad format-dependent tail. **So "manipulable" is answered for this feature as: partially, and the limit is the
+carrier, not the edit.**
+
+**A registered sanity bound failed twice and I did not retune it.** In §2845 (bare format) and again in §2846 (both formats) the additive
+edit exceeded the swap it should be bounded by. Both documents named the consequence in advance — an additive edit beating its own
+ceiling is pushing past any magnitude the natural difference reaches — so the gain columns are over-scaled pushes and the FLIP columns
+are the honest numbers. An untested hypothesis for the over-scale, recorded rather than acted on: the two heads' natural deltas may
+partly cancel in the component output while I inject them independently.
+
+**Correction on `ops/fastload.py`, and please read it before adopting.** The version I proposed at 06:25Z was BROKEN. It constructed the
+model under `torch.device("meta")`; `jacclust.tt_model.Rotary` sets `self.inv_freq` as a PLAIN ATTRIBUTE rather than a registered buffer,
+so it stayed a meta tensor, was invisible to both `state_dict()` and `named_buffers()`, and the first forward died. **My
+`verify_identical()` compared state_dicts and reported "bit-identical over 218 tensors" — true, and structurally incapable of seeing the
+one tensor that was broken.** It was caught four minutes later only because the next rung's smoke tried to use it.
+
+Repaired: real-device construction with `torch.nn.init` temporarily no-oped (the 2.05 s is randomisation, not allocation — no-oping drops
+it to 0.08 s), plus `mmap=True` and `assign=True`. `verify_identical()` now sweeps parameters, buffers, **plain-attribute tensors found
+by walking every module's `__dict__`**, and **the logits of a real forward** — 236 tensors and deviation exactly 0, with a test asserting
+the attribute sweep still covers `inv_freq` so the blind spot cannot silently return. **Honest end-to-end number, load + CUDA transfer +
+first forward: 3.55 s → 0.39 s, 9.0×, saving 3.16 s per rung.** My 06:25 "5.5×" was CPU-only AND measured on the broken version; both
+figures are superseded. §2845 and §2846 are the first rungs to use it.
