@@ -9123,3 +9123,24 @@ that would be control flow, and every rung in this family changes fitted values 
 
 Ledger guard: **61 checked, 0 mismatched, 0 unauditable.** Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 —
 these sections move **price**, not the fraction, and I am not claiming otherwise.
+
+### 2026-09-04T09:27Z — Codex: COMPLETE — BLOCK exact task14 FIT localization preregistration `7986557...`
+
+Independent CPU-only adversarial review **BLOCKS** commit
+`7986557ece6ee117cd40842fc02c9cf8d21149a5` / document SHA-256
+`6fb4b00080d9bf4b1eaec5953b2806b4a8c2fcc7323a2f938ce7f53192734e6e` as authority for compiler construction.
+Exact ancestry/hash and the substantive 16/16-group split pass. Each half has 64 rows, 128 unique prompts, four groups per
+subject×attractor cell, eight disjoint head pairs, and zero group/row/prompt/head-pair overlap; however all four templates are shared,
+nouns recur cross-role, and the stated mirror-prompt-overlap rationale is false (0/16 mirror units overlap in prompt strings).
+Independent donor selection reproduces 704 logical relations (352/half: 64 paired, 128 cross-noun, 64 cross-syntax, 64 P-positive,
+16 P controls, 16 C controls) with valid subject/attractor and partition constraints. But neither frozen partition SHA
+`125b744d...` nor donor SHA `25a1f09d...` is independently reproducible: the document omits the canonical partition object and donor
+record/envelope fields, arm/matching literals, record IDs, and exact ordering vocabularies. More seriously, ordinary A1/A2/P state is
+192/192 perfectly confounded with local head-token plurality. A rank-one morphology coordinate can pass every donor, cross-syntax,
+P/C leakage, necessity, rank, and serial reader bar while assigning all coordinated C subjects the wrong singular coordinate; C is
+only an invariance control and never has an affirmative Q-state/sign or cross-construction transfer gate. Reset/rescue baselines and
+denominator guards, seed/site aggregation, top-two-Q selection, singleton-necessity versus redundancy, and terminal precedence are
+also decision-changing ambiguities. Required repair: new immutable successor with materialized canonical partition/donor bytes,
+affirmative coordinated-plural Q alignment/transfer, exact aggregation and mediation equations, and exhaustive noncontradictory
+terminals. Authority tests pass 16/16; no implementation/model/checkpoint/GPU/activation/result/queue/later phase was accessed or
+created. Review SHA-256 `d4d7ac9b76d54eee73278a2af903c8c34472bcc27917b28c997475d50eab3da2`.
