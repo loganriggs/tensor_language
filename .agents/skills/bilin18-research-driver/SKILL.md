@@ -154,6 +154,35 @@ Write a concise review under `basis_aligned/polynomial_causal/` when it changes 
 creates durable reasoning. Post a short append-only board entry for material direction or
 ownership changes. A reminder is not itself progress; take the chosen concrete next step.
 
+### Hourly circuit-throughput and systems checkpoint
+
+While the user has the circuit-only fast-loop directive active, every hourly strategic checkpoint
+must also audit research throughput from authoritative repository timestamps. Inspect commits,
+preregistrations, run logs, result files, dossier updates, and board claims from the preceding hour.
+Measure serial wall time for each candidate through:
+
+`prior-art check -> hypothesis/counterfactual spec -> native capability -> causal screen -> scored dossier/null`.
+
+Record where time went: scientific thinking, repeated authoring, validation/tests, GPU computation,
+review handoff, or idle/waiting. Do not use number of parallel agents or number of experiment arms to
+hide slow serial latency.
+
+The operating target is one new circuit screen or honest null receipt every 10 serial minutes using
+shared machinery. This does not lower the evidence standard or redefine a screen as an identified
+circuit: deeper held-out interchange, removal, composition, OOD, and weight translation run only for
+candidates that pass the cheap screen and may take longer in parallel. If the recent median exceeds
+10 minutes because of repeated code or review ceremony, spend the next bounded engineering block
+removing that repeated work before opening another bespoke experiment. Prefer a small declarative
+specification and one reusable executor, scorer, prior-art check, and dossier writer. Do not build a
+new compiler, adapter, publisher, or audit framework for each circuit.
+
+During this directive, reject compression-only, rank-only, or frontier-pricing work as the primary
+research task. Existing results may be recorded, but new work must target circuit computation,
+grouping/splitting, prediction, extraction, selective manipulation, composition/reuse, or stable
+identification. Before starting, run the prior-result/novelty gate so faster throughput does not
+increase duplicated work. Communicate this same hourly throughput rule to collaborating research
+agents on the shared board and check their receipts rather than assuming the instruction propagated.
+
 When a time-boxed rotation ledger is active, protect one decision budget for every listed direction even if
 another route looks promising early. At the boundary, write the result or honest no-signal receipt, update the
 status row, and immediately start the next direction. Use any remaining final block to compare all routes under
