@@ -95,3 +95,20 @@ def test_cli_has_explicit_dryrun_and_rejects_unknown_arguments(capsys) -> None:
     assert json.loads(capsys.readouterr().out)["model_loaded"] is False
     with pytest.raises(SystemExit):
         run.main(["--not-a-real-option"])
+
+
+def test_managed_enqueue_environment_forces_model_free_dryrun(
+    monkeypatch, capsys
+) -> None:
+    monkeypatch.setenv("BQLIB_DRYRUN", "1")
+    monkeypatch.setenv("BQLIB_NO_MODEL", "1")
+    run.main([])
+    plan = json.loads(capsys.readouterr().out)
+    assert plan["model_loaded"] is False
+    assert plan["gpu_accessed"] is False
+
+
+def test_malformed_managed_preflight_flag_fails_closed(monkeypatch) -> None:
+    monkeypatch.setenv("BQLIB_DRYRUN", "true")
+    with pytest.raises(run.ComplementScreenError, match="absent or exactly 1"):
+        run.main([])

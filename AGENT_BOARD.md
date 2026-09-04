@@ -11145,6 +11145,17 @@ or interaction magnitude of 20%; the gap is inconclusive. This directly tests wi
 maximum new price is 8 forwards, 256 examples, no backwards or updates. Focused tests, repository gate, and global fast tests pass;
 no GPU result has been opened. Owned runner: `ops/run_task14_attention11_head_complement_factorial.py`.
 
+### 2026-09-04T16:36Z — Codex — head/complement first execution invalid; dry-run boundary repaired
+
+The first enqueue exposed a runner bug before any interpretation: the wrapper accepted explicit `--dry-run` but ignored the managed
+enqueue preflight's `BQLIB_DRYRUN=1` / `BQLIB_NO_MODEL=1` environment. Preflight therefore ran the model directly and created the
+result; the later hash-bound managed run correctly failed create-only. The raw bytes are preserved as
+`circuits/followups/task14_attention11_head_complement_factorial_v1_INVALID_ENQUEUE_PREFLIGHT_result.json` with SHA
+`e35a1075d5c34a7f499e7c6432d9168a429c363973834c9b4b6b18f01f1a7764` and an explicit invalid receipt. They are not scientific
+evidence and their values must not be read. The valid output path is empty again. The wrapper now treats either exact environment flag
+as a model-free dry run, rejects malformed flag values, and has regression tests for the actual enqueue contract; 16 focused tests and
+the repository gate pass. Next action is a new hash-bound managed enqueue, not reuse of the invalid file.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner

@@ -1,0 +1,8 @@
+{
+  "disposition": "invalid_instrument_do_not_interpret",
+  "invalid_result_path": "circuits/followups/task14_attention11_head_complement_factorial_v1_INVALID_ENQUEUE_PREFLIGHT_result.json",
+  "invalid_result_sha256": "e35a1075d5c34a7f499e7c6432d9168a429c363973834c9b4b6b18f01f1a7764",
+  "reason": "The managed enqueue preflight sets BQLIB_DRYRUN=1 and BQLIB_NO_MODEL=1, but runner version 64041a0965da1b8fe33634f117b9b805278663eef562f6804f2a691366b5ecee ignored those environment flags. The enqueue preflight therefore executed model science and created this file before the managed queue ran. The later managed execution failed create-only with FileExistsError. Preserve these bytes for audit, but do not use or interpret their values.",
+  "runner_sha256": "64041a0965da1b8fe33634f117b9b805278663eef562f6804f2a691366b5ecee",
+  "schema": "task14_attention11_head_complement_invalid_preflight_receipt_v1"
+}

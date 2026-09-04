@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import statistics
 import time
@@ -286,7 +287,15 @@ def main(argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
-    if args.dry_run:
+    environment = os.environ
+    for name in ("BQLIB_DRYRUN", "BQLIB_NO_MODEL"):
+        if environment.get(name) not in {None, "1"}:
+            raise ComplementScreenError(f"{name} must be absent or exactly 1")
+    managed_preflight = (
+        environment.get("BQLIB_DRYRUN") == "1"
+        or environment.get("BQLIB_NO_MODEL") == "1"
+    )
+    if args.dry_run or managed_preflight:
         print(json.dumps(compile_dryrun(), sort_keys=True))
         return
     result = run_science()
