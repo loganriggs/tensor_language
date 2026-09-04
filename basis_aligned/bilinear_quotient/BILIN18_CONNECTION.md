@@ -75825,3 +75825,58 @@ there must be designed for subadditivity: improving a2 alone will recover less t
 covering part of the same error.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2890 — THE RANK-1 ANOMALY IS **NOT OVERFITTING**: IT APPEARS ON THE FITTING WINDOW TOO (−.0062) AND THE TWO CURVES AGREE AT PEARSON **.962**. THE FRONTIER'S COMPONENTS ARE FITTED TO A **LOCAL** OBJECTIVE AND SCORED **END-TO-END**
+
+No run, no price — a CPU-side analysis of the already-landed `frontier_tail_rank_sweep_results.json` (§2891's rung, landed 10:21Z),
+whose per-arm `L2_C` values were recorded but not read when that receipt was first summarised.
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+`L2_C` is measured on **window C, the very documents the tail dictionaries are fitted on** (`CA,CB = 300,512`); `L2_F` is measured on
+**120 fresh documents**. The sweep truncates each fitted link map to rank r after all refits are complete.
+
+| rank | 1 | 2 | 4 | **8** | 16 | 32 | 64 | 128 | 256 | full |
+|---|---|---|---|---|---|---|---|---|---|---|
+| cost on **FIT** window | **−.0062** | +.1151 | +.1473 | **+.1897** | +.1292 | +.1046 | +.0598 | +.0297 | +.0112 | 0 |
+| cost on **FRESH** window | **−.0294** | +.0798 | +.1303 | **+.1486** | +.1235 | +.1106 | +.0673 | +.0360 | +.0146 | 0 |
+
+- **Pearson r = .9616, Spearman = .9833** between the two curves.
+- **Same argmax (rank 8) and same argmin (rank 1)** on both windows.
+- **Rank 1 is negative on both** — it beats the full fitted map **on the data the map was fitted on**.
+- The **generalisation gap** `L2_F − L2_C` is essentially flat across arms: **.227 at rank 1, .209 at rank 8, .254 at rank 256, .250 at
+  full**. Truncation barely moves it.
+
+### What this refutes
+
+§2887 left three accounts open and named **regularisation/overfitting** first: the maps overfit their 512-document window and truncation
+removes variance the fresh window does not want. **That account is refuted.** Overfitting predicts the two curves *differ* — monotone
+toward 0 on the fitting window, dipping only on fresh — and predicts the generalisation gap *shrinks* at the favoured rank. Neither
+holds: the curves are the same shape to Pearson .962, and the gap moves by .023 while the cost moves by .19.
+
+### What it establishes, and it is a structural fact about the construction
+
+**The frontier's components are fitted to a LOCAL objective and scored END-TO-END, and the two disagree by a measurable margin.** Each
+tail dictionary's link maps are obtained by ridge regression minimising per-layer reconstruction error of that layer's attention output
+`Y`; the frontier is scored by cross-entropy at the output. A rank-1 truncation of the locally-optimal map is **better end-to-end, in
+sample**. So the ridge solution is not the end-to-end optimum, and the distance between them is at least **.0062 nats in sample and
+.0294 out of sample** on this one block.
+
+That single fact reorganises three otherwise-separate results of this session:
+
+1. **§2883's −0.2140** — the CP-unit reconstructions beat the *real* MLPs they replace. A locally-fitted stand-in outperforming the true
+   component is the same phenomenon at a larger scale.
+2. **This rung's rank-1 dip** — a *constrained* fit beating the unconstrained one on the fitting data.
+3. **§2880/§2888/§2889's interactions** — super- and sub-additivity are what co-adaptation under a mis-specified objective produces.
+
+The intermediate ranks are then unsurprising rather than anomalous: ranks 2–256 are monotone (+.0798 → +.0146 → 0, more rank is
+better), because they are progressively better approximations *of the ridge solution*. Only rank 1 leaves that family — it is a
+different model class, a fixed direction with an input-dependent scalar gain, and it happens to sit closer to the end-to-end optimum
+than the ridge solution does.
+
+**No low-rank number is adopted here**; §2884 and §2887's bar still stands and this section does not lift it. What changes is the
+*explanation*: the curve is not a bug and not overfitting, and the open question is now a well-posed one — how far is the ridge solution
+from the end-to-end optimum, and does fitting under the right metric close it.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
