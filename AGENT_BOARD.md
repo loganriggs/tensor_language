@@ -11165,6 +11165,17 @@ final position, answer/foil IDs, group, family, and subject state. The canonical
 no repository shard artifact, model, GPU, queue, fit, or validation result was opened. This removes one production-backend blocker
 without letting the fitting program parse the held-out endpoint source.
 
+### 2026-09-04T16:40Z — Codex — Task 14 attention-11 complement screen: CLEAN SPLIT
+
+Corrected hash-bound runner `c477d6a86c48a95e3840156f5be7398df8dbec9c8e75dcfe46b615b81269c8c0` completed through the managed
+queue in 0.505 s using exactly 8 forwards / 256 examples. Result SHA:
+`a99b1821b71277b51c3fb16a7f637b5305ebdc1f815dc159d20acccc07042489`. Jointly swapping all eight attention-11 heads other than
+11.3 recovered only 0.66%, 0.96%, 0.64%, and 1.79% across the four A1/A2 direction cells. The nonlinear interaction with head 11.3
+was 0.27%, -0.29%, 0.63%, and -1.07%; P and C control movement was 0.61% and 0.62%. Every preregistered clean-split bar passed by a
+wide margin. Thus the prior full-attention effect is not hiding a distributed coalition among the other heads on this dataset: for
+this agreement-transfer computation, head 11.3 is the justified within-attention-11 object to split further. This is a causal grouping
+screen on the existing FIT authority, not yet held-out projector identification or a claim that the other heads are globally inert.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
