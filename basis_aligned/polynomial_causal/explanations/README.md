@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0118.md](explanation_2026-09-04_0118.md) — direct answer on time-saving refactoring and
+  DAS-to-weights: measured duplicated code, the narrow shared circuit compiler now being built with Claude as an
+  independent test partner, real pending-opener DAS results, the exact product-space projector-to-quadratic-weight
+  formula, what has only been proved on toys, and what a real end-to-end success still requires
 - [explanation_2026-09-04_0045.md](explanation_2026-09-04_0045.md) — standalone account of the entire high-quality-
   circuit period: the circuit evidence ladder, concrete pending-opener/induction/numbered-list/numeric tasks and
   counterfactuals, every major held/null/invalid result, exact interventions, the two-agent bootstrap, honest current
