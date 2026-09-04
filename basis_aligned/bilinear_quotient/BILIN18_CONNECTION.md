@@ -77478,3 +77478,53 @@ similar as matrices, and part of the measured overlap is inherited from that rat
 (<0.9) was cleared, but a cleaner version would partial out raw similarity before attributing overlap to the correction. **Registered
 next:** the union of the 32 per-map subspaces has dimension between 32 and 1024, and *that* number — how many directions the whole tail
 is over-large along, jointly — is the one the certificate line wants; it is another CPU-only computation on the §2915 dump.
+
+---
+
+## §2925 — **THE TAIL'S CORRECTING STRUCTURE SPANS ~390 DIMENSIONS OF 1152, NOT 32 AND NOT 1024.** THE TOP 128 UNION DIRECTIONS HOLD **61%** OF ALL 32 SUBSPACES (RANDOM: 35%), AND IT SURVIVES A DEPTH HALF-SPLIT AT **3× THE NULL** — BUT **pred_d FAILED BY 0.8 OF A DIMENSION** AND I AM HONOURING THE BAR. **0 GPU-SECONDS**
+
+Written 2026-09-04T13:46Z. Analysis `ops/tail_subspace_union`, run as registered.
+Preregistration: `polynomial_causal/TAIL_SUBSPACE_UNION_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 0.0 GPU-seconds (**3.0 CPU-seconds**), 0 pipeline runs, 0 backwards, 0 fitted parameters.
+Results: tail_subspace_union_results.json
+
+§2923 adopted a rank-32 projection **per** tail link map — 32 objects. §2924 showed their subspaces are partly shared but far from
+identical, and registered the question pairwise overlap cannot answer: **32 subspaces can be pairwise 20% aligned and still span
+anywhere from 32 to 1024 dimensions.** Method: stack the 32 top-32 bases into `M = [U₁|…|U₃₂]`, 1152×1024, and read the energy profile
+`f(k) = Σ_{i≤k}σᵢ²/1024`. The control is the identical computation on 32 independent random 32-dimensional subspaces.
+
+| | measured | random control | ratio |
+|---|---|---|---|
+| total energy (arithmetic control) | **1024.00** | — | expected exactly 1024 |
+| f(32) | **0.300** | 0.104 | **2.9×** |
+| **f(128)** | **0.613** | 0.353 | **1.74×** |
+| f(256) | 0.799 | 0.594 | 1.35× |
+| f(512) | 0.950 | 0.872 | 1.09× |
+| **k90** (dimensions for 90% of the energy) | **390** | 556 | **0.702** |
+| half-split stability (layers 10–13 vs 14–17, top 128) | **0.3299** | null 0.1111 | **3.0×** |
+
+**pred_a, pred_b, pred_c and pred_e HELD. pred_d FAILED.**
+
+**pred_d failed by 0.8 of a dimension out of 1152.** The registered bar was `k90 ≤ 0.7 × k90_random = 389.2`; the measurement is
+**390**, a ratio of **0.702** against 0.700. **Scored as written: FAILED, and `d_null_the_union_fills_the_available_space` is recorded
+as MET.** I am not reinterpreting a bar after seeing the number it decides — that is the discipline that has made §2884, §2887, §2893,
+§2895 and §2909 mean something, and it costs more here precisely because the miss is so small. **The registered consequence binds: I am
+not launching the shared-projection GPU rung**, which the preregistration made conditional on c, d **and** e. A future rung may
+re-register this question with a bar argued from something other than my guess — but it must argue the bar, not relabel this result.
+
+**What the numbers say, independent of which side of 0.700 they landed on.** The correcting structure is **real, shared and modest in
+size**. The top 128 directions of the union carry **61%** of all 32 subspaces' energy against 35% by chance, and the top 32 carry
+**30%** against 10%. So a **single** shared rank-32 projection would capture roughly **30%** of what the 32 per-map projections do, and
+a shared rank-128 one about **61%** — substantial, and not a replacement. **The adopted correction is not one object, and it is not
+thirty-two independent ones either; it is thirty-two objects drawn from a roughly 390-dimensional common pool.**
+
+**pred_e is the result I trust most.** Split the eight tail layers in half by depth, form each half's top-128 union basis, and compare:
+**0.3299 against a null of 0.1111**. §2924's caveat was that some link maps are similar as raw matrices (max cosine 0.787), and raw
+similarity *within* a half cannot manufacture agreement *across* halves. So the shared structure is not an artefact of a few near-twin
+maps — **layers 10–13 and layers 14–17 are over-large along substantially the same directions**, which is a statement about the model's
+tail as a whole rather than about any dictionary.
+
+**For the certificate line.** This is the campaign's first *size* estimate for a correction treated as a single object: **~390
+dimensions**, with a concentration profile measured against a matched null on the same code path. It is a much smaller claim than "0 of
+68" needs — it certifies nothing — but it is the first number of that shape, and it cost **three CPU-seconds** because §2915 put the
+stack on disk.

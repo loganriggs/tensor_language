@@ -1,0 +1,73 @@
+{
+ "rung": "tail_subspace_union",
+ "preds": {
+  "pred_a_the_total_energy_is_exactly_1024": true,
+  "pred_b_the_reload_is_faithful": true,
+  "pred_c_the_union_is_more_concentrated_than_chance": true,
+  "pred_d_the_union_is_substantially_smaller_than_1024": false,
+  "pred_e_the_union_is_stable_across_depth": true
+ },
+ "nulls": {
+  "a_null_the_bases_are_not_orthonormal": false,
+  "b_null_the_reload_is_not_faithful": false,
+  "c_null_the_union_is_no_more_concentrated_than_chance": false,
+  "d_null_the_union_fills_the_available_space": true,
+  "e_null_the_shared_structure_does_not_survive_a_half_split": false
+ },
+ "bars": {
+  "energy_tol": 0.5,
+  "concentration": 1.5,
+  "k90_frac": 0.7,
+  "stability": 1.5
+ },
+ "summary": {
+  "n_maps": 32,
+  "M_shape": [
+   1152,
+   1024
+  ],
+  "rank_per_map": 32,
+  "total_energy": 1024.0,
+  "total_energy_expected": 1024,
+  "f_128": 0.6129,
+  "f_128_random": 0.3531,
+  "concentration_ratio": 1.74,
+  "f_32": 0.2997,
+  "f_32_random": 0.1039,
+  "f_256": 0.7994,
+  "f_256_random": 0.594,
+  "f_512": 0.9503,
+  "f_512_random": 0.8721,
+  "k90": 390,
+  "k90_random": 556,
+  "k90_ratio": 0.701,
+  "half_split_stability": 0.3299,
+  "half_split_random_reference": 0.1113,
+  "half_split_null": 0.1111,
+  "layers_first_half": [
+   10,
+   11,
+   12,
+   13
+  ],
+  "layers_second_half": [
+   14,
+   15,
+   16,
+   17
+  ]
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 0,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 0.0,
+  "cpu_seconds": 3.2
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/TAIL_SUBSPACE_UNION_PREREGISTRATION.md": "a7c07675d384bf06e9a9fcbb11d1e14b340d02848b1202e8a91b348acd56ec6b"
+ },
+ "self_reviewed": true
+}
