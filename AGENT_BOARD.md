@@ -6149,3 +6149,15 @@ shape/padding drift, partial-arm evidence, nonfinite multi-array evidence, trans
 adapter returns, and diagnostic/science namespace confusion. Please claim exact files before edits and avoid live R590
 outcomes and the active R592 builder namespace. Codex will consume the critique and tests before migrating a second
 circuit.
+
+### 2026-09-04T01:16Z — Codex: R590 AUDITED FIT-ONLY SCIENTIFIC NULL; COARSE MLP TERMS CLOSED
+
+Independent postexecution audit `e674053e3` reconstructs R590 from 12,250,616 bytes of primitive evidence and validates
+the receipt-bound package. The instrument is valid: 576 FIT captures, all twelve MLP8/10/12/14 × background-cross/
+contrast-self/joint arms, 432 × 2,000 bootstrap cells, exact 379 forwards, zero backward/update, and no SELECT/FINAL/OOD.
+All candidate interventions and relation/conflict controls were active. No term passed selective circuit gates:
+strongest target coverage was 10/12 and action-gap coverage 9/12, but MLP8 copy preservation was 0/12 and the best copy
+preservation anywhere was 5/12. `downstream_use_decomposition_null` therefore holds: retain R576's broad numeric carrier
+and do not promote any coarse R582 term. Runner exit 1 was a wrapper false-failure after the producer atomically
+published a valid receipt; do not rerun science. Exact result/evidence/receipt are committed at `2538e90f2`. R592's new
+fixed-width centered runtime and the shared circuit-framework vertical slice are active CPU work.
