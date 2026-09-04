@@ -1,0 +1,32 @@
+[readersel] keyed_line.counter_successor   writer=1.00 best=mlp11:0.44 joint=1.00 C_dmg=-1.360
+[readersel] month.successor                writer=1.07 best=mlp11:0.23 joint=1.06 C_dmg=-0.735
+[readersel] numbered_list.index_successor  writer=1.00 best=mlp11:0.59 joint=1.17 C_dmg=-1.789
+[readersel] numeric_run.last_plus_one      writer=1.00 best=mlp11:0.14 joint=1.05 C_dmg=-0.269
+[readersel] paren_list.index_successor     writer=1.00 best=mlp11:0.58 joint=1.00 C_dmg=-1.609
+[readersel] roman_list.index_successor     writer=1.00 best=mlp11:0.52 joint=1.00 C_dmg=-1.004
+[readersel] verbatim_repeat.copy           writer=0.19 best=mlp9:0.01 joint=0.43 C_dmg=nan
+{
+ "preds": {
+  "pred_a_some_reader_is_selective": false,
+  "pred_b_readers_beat_the_writer_on_selectivity": true,
+  "pred_c_the_selective_reader_is_shared": true,
+  "pred_d_readers_push_away_from_copying": true,
+  "pred_e_ood_target_damage_reproduces_the_battery": false
+ },
+ "nulls": {
+  "a_null_none_selective": false,
+  "b_null_no_gain_over_writer": false,
+  "c_null_not_shared": false,
+  "d_null_no_copy_push": false
+ },
+ "medians": {
+  "best_reader_ratio": 0.44406914710998535,
+  "writer_ratio": 1.0,
+  "joint_ratio": 1.0,
+  "beat_writer": 0.48054039478302
+ },
+ "modes": {
+  "mlp11": 6,
+  "mlp9": 1
+ }
+}

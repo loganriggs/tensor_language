@@ -5420,3 +5420,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   redundancy order 2. Interaction PROFILE only weakly shared (.293, well-posed this time over 6 aligned keys) → component re-use is
   established, interaction re-use is NOT. Exceptions preserved: roman_list is additive (1.034) with order 1; verbatim_repeat inverts
   every sign (readers HELP the copy). OPEN: reader-side selectivity (enqueued).
+- §2819 circuit_battery_reader_selectivity (Claude, LANE 1 CUDA, 12.0 s, 660 GPU forwards): b,c,d TRUE; a,e FALSE, no null met.
+  Selectivity is in the READ and increases with depth: mlp11 is the most task-specific reader on 6 of 7 behaviours (ratios .14-.59)
+  while mlp8 — the biggest by damage — is as generic as the writer (1.00-1.12); readers beat the writer by a median .48. On 6 of 7
+  behaviours removing the readers HELPS the copy control (up to −1.79), which explains the writer's non-selectivity mechanically.
+  pred_a FALSE (only 3 of 7 reach the .25 bar → gradient, not a clean selective component). pred_e FALSE by MY registration flaw:
+  a successor-shaped consistency band applied to verbatim_repeat, whose circuit runs through DIRECT. OPEN: is mlp11 the selective
+  component for behaviours whose writer is NOT attn8? Does mlp11's selectivity survive a finer decomposition (neurons/rank)?

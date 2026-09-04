@@ -72419,3 +72419,55 @@ more favourable to every prediction, which is why the set was fixed in advance.
 
 Price: 323 GPU forwards, 8.0 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_common_reader_interaction_results.json. (Claude, LANE 1 CUDA.) a, b, c, e TRUE; d FALSE, null not met. Preserved.
+
+## §2819 — SELECTIVITY LIVES IN THE READ, AND IT INCREASES WITH DEPTH: mlp11 is the most task-specific reader on 6 of 7 behaviours, beating attention 8's selectivity by a median .48, while mlp8 is as generic as the writer (ratio 1.0–1.12) — and on 6 of 7 behaviours removing the readers HELPS the copy control (b, c, d TRUE; a, e FALSE, no null met)
+
+§2817 showed no writer is selective, on paired situations, on the repaired bank. The only remaining place for task specificity inside
+this circuit is the read, so this rung measured it directly: predeclared readers {mlp8, mlp9, mlp10, mlp11}, writer attention 8,
+evaluation on OOD only, families A1 / P / C drawn from the SAME generated situation, nothing selected anywhere in the rung.
+Selectivity ratio of an arm = max(|d_P|, |d_C|) / max(d_A1, .5); LOWER IS MORE SELECTIVE. Sign convention: d_m = m_NATIVE − m_arm,
+POSITIVE = the arm HURTS that family's own answer, so a NEGATIVE control damage means removing the edge HELPS the control's answer.
+
+**The finding: a monotone selectivity gradient with depth.** On every one of the six successor behaviours the ratio falls from mlp8 to
+mlp11:
+
+| behaviour | writer attn8 | mlp8 | mlp9 | mlp10 | mlp11 |
+|---|---|---|---|---|---|
+| keyed counter | 1.00 | 1.00 | .90 | .64 | **.44** |
+| numbered list | 1.00 | 1.12 | 1.06 | .90 | **.59** |
+| paren list | 1.00 | 1.12 | 1.04 | .74 | **.58** |
+| roman list | 1.00 | 1.00 | 1.00 | .94 | **.52** |
+| month | 1.07 | .75 | .57 | .34 | **.23** |
+| bare number run | 1.00 | .64 | .22 | .24 | **.14** |
+| verbatim repeat (copy) | .19 | .25 | **.01** | .10 | .04 |
+
+**pred_c TRUE (null "≤ 2" not met) — the most selective reader is SHARED: mlp11, on 6 of the 7 behaviours** (verbatim repeat picks
+mlp9). This is the first component in the campaign that is both re-used across surface forms AND task-specific, and it is not the
+dominant one by damage — §2818's damage ladder is led by mlp8, which is here the LEAST selective reader of the four. Magnitude and
+specificity are carried by different components of the same set.
+
+**pred_b TRUE (null "≤ 0" not met) — reading is much more selective than writing.** Median over behaviours of (writer ratio − best
+reader ratio) is **.481** (bar ≥ .25): the writer sits at 1.00–1.07 on every successor behaviour while the best reader sits at .14–.59.
+
+**pred_d TRUE (null "≤ 1" not met) — the readers push AWAY from copying.** On 6 of 7 behaviours the joint removal of the four readers
+has NEGATIVE damage on the copy control (keyed counter −1.36, numbered list −1.79, paren list −1.61, roman −1.00, month −.74, numeric
+run −.27): removing the read HELPS the answer that copies a visible token. This is §2808's numbered-list observation generalised to six
+behaviours, on held-out rows, with the control drawn from the same situation as the target — and it explains the writer's
+non-selectivity mechanically: attention 8's write is useful to both a copy and an increment, and it is the READ that converts it into
+"the next one", which is exactly what a copy prompt does not want.
+
+**pred_a FALSE (null "no reader is selective anywhere" NOT met).** Only 3 of 7 behaviours have a reader reaching the .25 bar (month
+.23, numeric run .14, verbatim repeat .01); bar was 4 of 7. So the honest statement is a gradient, not a clean selective component:
+the read is substantially more specific than the write everywhere, and strongly specific on only some behaviours. The four list-shaped
+behaviours (keyed counter, numbered list, paren list, roman list) all sit at .44–.59 — better than the writer by half, but not
+selective by the protocol's standard.
+
+**pred_e FALSE — and the reason is a registration flaw of mine, not an instrument fault.** I registered the consistency band
+[.30, 1.05] for the four readers' joint OOD damage over §2817's OOD FULL damage on EVERY behaviour. The six successor behaviours land
+at .525, .577, .658, .712, .737, .862 — inside the band. `verbatim_repeat.copy` lands at −.434, because its circuit runs through the
+DIRECT path (§2817 measured DIRECT 1.81 / READS −1.25 for it) so its readers help rather than hurt. I already knew that when I wrote
+the clause and still registered a successor-shaped bound over all behaviours. Scored FALSE as written; the correct clause excludes
+behaviours whose §2817 READS share is negative, and that is a change to a future document, not to this one.
+
+Price: 660 GPU forwards, 12.0 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_selectivity_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a, e FALSE, no null met. Preserved.

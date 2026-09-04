@@ -1,0 +1,462 @@
+{
+ "rung": "circuit_battery_reader_selectivity",
+ "preds": {
+  "pred_a_some_reader_is_selective": false,
+  "pred_b_readers_beat_the_writer_on_selectivity": true,
+  "pred_c_the_selective_reader_is_shared": true,
+  "pred_d_readers_push_away_from_copying": true,
+  "pred_e_ood_target_damage_reproduces_the_battery": false
+ },
+ "nulls": {
+  "a_null_none_selective": false,
+  "b_null_no_gain_over_writer": false,
+  "c_null_not_shared": false,
+  "d_null_no_copy_push": false
+ },
+ "bars": {
+  "sel_ratio": 0.25,
+  "sel_tasks": 4,
+  "beat_writer": 0.25,
+  "shared_mode": 4,
+  "copy_help_tasks": 4,
+  "repro_tol": 0.15,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "sel_tasks_le": 0,
+  "beat_writer_le": 0.0,
+  "shared_mode_le": 2,
+  "copy_help_tasks_le": 1
+ },
+ "common_reader_set": [
+  "mlp8",
+  "mlp9",
+  "mlp10",
+  "mlp11"
+ ],
+ "writer": "attn8",
+ "eval_split": "OOD",
+ "bank_source_sha256": "170345efdf3bb00651ab885c48c1929e9cfdc7b568bcdbf657c2b48f7e00056e",
+ "summary": {
+  "tasks": [
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "paren_list.index_successor",
+   "roman_list.index_successor",
+   "verbatim_repeat.copy"
+  ],
+  "selective_tasks": [
+   "month.successor",
+   "numeric_run.last_plus_one",
+   "verbatim_repeat.copy"
+  ],
+  "best_reader_modes": {
+   "mlp11": 6,
+   "mlp9": 1
+  },
+  "copy_help_tasks": [
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "paren_list.index_successor",
+   "roman_list.index_successor"
+  ],
+  "common_over_full_ood": {
+   "keyed_line.counter_successor": 0.6576104309235407,
+   "month.successor": 0.7117798170697995,
+   "numbered_list.index_successor": 0.5768930275819341,
+   "numeric_run.last_plus_one": 0.5247288748146708,
+   "paren_list.index_successor": 0.7370802900061966,
+   "roman_list.index_successor": 0.8622890068445208,
+   "verbatim_repeat.copy": -0.43442052602767944
+  },
+  "medians": {
+   "best_reader_ratio": 0.44406914710998535,
+   "writer_ratio": 1.0,
+   "joint_ratio": 1.0,
+   "beat_writer": 0.48054039478302
+  }
+ },
+ "tasks": {
+  "keyed_line.counter_successor": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 0.742160439491272,
+     "P": 0.742160439491272,
+     "C": -0.48986029624938965
+    },
+    "mlp9": {
+     "A1": 0.44967877864837646,
+     "P": 0.44967877864837646,
+     "C": -0.2770705819129944
+    },
+    "mlp10": {
+     "A1": 0.3213736414909363,
+     "P": 0.3213736414909363,
+     "C": -0.3213871121406555
+    },
+    "mlp11": {
+     "A1": 0.13607442378997803,
+     "P": 0.13607442378997803,
+     "C": -0.22203457355499268
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 1.0,
+    "mlp9": 0.8993575572967529,
+    "mlp10": 0.642774224281311,
+    "mlp11": 0.44406914710998535
+   },
+   "joint": {
+    "A1": 1.9420931339263916,
+    "P": 1.9420931339263916,
+    "C": -1.3604953289031982
+   },
+   "writer_full": {
+    "A1": 2.966844081878662,
+    "P": 2.966844081878662,
+    "C": -0.821922242641449
+   },
+   "writer_ratio": 1.0,
+   "joint_ratio": 1.0,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.44406914710998535,
+   "beat_writer": 0.5559308528900146,
+   "copy_control_joint_damage": -1.3604953289031982,
+   "ood_a1_joint": 1.9420931339263916,
+   "battery_ood_full": 2.9532577991485596,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "month.successor": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 0.404852956533432,
+     "P": 0.3747730255126953,
+     "C": -0.15863677859306335
+    },
+    "mlp9": {
+     "A1": 0.2577573359012604,
+     "P": 0.24046504497528076,
+     "C": -0.28716841340065
+    },
+    "mlp10": {
+     "A1": 0.15921691060066223,
+     "P": 0.17210912704467773,
+     "C": -0.17172777652740479
+    },
+    "mlp11": {
+     "A1": 0.09372279047966003,
+     "P": 0.10235923528671265,
+     "C": -0.11504441499710083
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 0.7495460510253906,
+    "mlp9": 0.5743368268013,
+    "mlp10": 0.34421825408935547,
+    "mlp11": 0.23008882999420166
+   },
+   "joint": {
+    "A1": 0.9407927989959717,
+    "P": 0.9928960204124451,
+    "C": -0.7352279424667358
+   },
+   "writer_full": {
+    "A1": 1.2716200351715088,
+    "P": 1.366725206375122,
+    "C": -0.9112287759780884
+   },
+   "writer_ratio": 1.0747905573780818,
+   "joint_ratio": 1.0553822493880467,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.23008882999420166,
+   "beat_writer": 0.8447017273838802,
+   "copy_control_joint_damage": -0.7352279424667358,
+   "ood_a1_joint": 0.9407927989959717,
+   "battery_ood_full": 1.3217469453811646,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "numbered_list.index_successor": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 0.5305260419845581,
+     "P": 0.5305260419845581,
+     "C": -0.5936788320541382
+    },
+    "mlp9": {
+     "A1": 0.0750228762626648,
+     "P": 0.0750228762626648,
+     "C": -0.5317503213882446
+    },
+    "mlp10": {
+     "A1": 0.1311139464378357,
+     "P": 0.1311139464378357,
+     "C": -0.45165443420410156
+    },
+    "mlp11": {
+     "A1": 0.06670618057250977,
+     "P": 0.06670618057250977,
+     "C": -0.2965965270996094
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 1.1190380585905682,
+    "mlp9": 1.0635006427764893,
+    "mlp10": 0.9033088684082031,
+    "mlp11": 0.5931930541992188
+   },
+   "joint": {
+    "A1": 1.5266741514205933,
+    "P": 1.5266741514205933,
+    "C": -1.7894567251205444
+   },
+   "writer_full": {
+    "A1": 2.9145689010620117,
+    "P": 2.9145689010620117,
+    "C": -2.0500643253326416
+   },
+   "writer_ratio": 1.0,
+   "joint_ratio": 1.1721274794987706,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.5931930541992188,
+   "beat_writer": 0.40680694580078125,
+   "copy_control_joint_damage": -1.7894567251205444,
+   "ood_a1_joint": 1.5266741514205933,
+   "battery_ood_full": 2.6463730335235596,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "numeric_run.last_plus_one": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 0.2610687017440796,
+     "P": 0.3177378177642822,
+     "C": -0.060432374477386475
+    },
+    "mlp9": {
+     "A1": 0.08163774013519287,
+     "P": 0.11136054992675781,
+     "C": -0.08394438028335571
+    },
+    "mlp10": {
+     "A1": 0.11615711450576782,
+     "P": 0.12130731344223022,
+     "C": -0.12033170461654663
+    },
+    "mlp11": {
+     "A1": 0.04811251163482666,
+     "P": 0.06847208738327026,
+     "C": -0.05217170715332031
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 0.6354756355285645,
+    "mlp9": 0.22272109985351562,
+    "mlp10": 0.24261462688446045,
+    "mlp11": 0.13694417476654053
+   },
+   "joint": {
+    "A1": 0.6676594018936157,
+    "P": 0.7015949487686157,
+    "C": -0.26876264810562134
+   },
+   "writer_full": {
+    "A1": 1.16725754737854,
+    "P": 1.1680095195770264,
+    "C": -0.08962589502334595
+   },
+   "writer_ratio": 1.0006442213204576,
+   "joint_ratio": 1.0508276327402146,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.13694417476654053,
+   "beat_writer": 0.8637000465539171,
+   "copy_control_joint_damage": -0.26876264810562134,
+   "ood_a1_joint": 0.6676594018936157,
+   "battery_ood_full": 1.27238929271698,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "paren_list.index_successor": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 0.46481698751449585,
+     "P": 0.46481698751449585,
+     "C": -0.5584806203842163
+    },
+    "mlp9": {
+     "A1": 0.24487745761871338,
+     "P": 0.24487745761871338,
+     "C": -0.5206819176673889
+    },
+    "mlp10": {
+     "A1": 0.14336931705474854,
+     "P": 0.14336931705474854,
+     "C": -0.3692649006843567
+    },
+    "mlp11": {
+     "A1": 0.10805410146713257,
+     "P": 0.10805410146713257,
+     "C": -0.2897968292236328
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 1.1169612407684326,
+    "mlp9": 1.0413638353347778,
+    "mlp10": 0.7385298013687134,
+    "mlp11": 0.5795936584472656
+   },
+   "joint": {
+    "A1": 1.7237040996551514,
+    "P": 1.7237040996551514,
+    "C": -1.6092891693115234
+   },
+   "writer_full": {
+    "A1": 2.4141721725463867,
+    "P": 2.4141721725463867,
+    "C": -1.5813398361206055
+   },
+   "writer_ratio": 1.0,
+   "joint_ratio": 1.0,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.5795936584472656,
+   "beat_writer": 0.4204063415527344,
+   "copy_control_joint_damage": -1.6092891693115234,
+   "ood_a1_joint": 1.7237040996551514,
+   "battery_ood_full": 2.3385567665100098,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "roman_list.index_successor": {
+   "per_reader": {
+    "mlp8": {
+     "A1": 1.3845469951629639,
+     "P": 1.3845469951629639,
+     "C": -0.32279813289642334
+    },
+    "mlp9": {
+     "A1": 0.7047911286354065,
+     "P": 0.7047911286354065,
+     "C": -0.39750391244888306
+    },
+    "mlp10": {
+     "A1": 0.47174543142318726,
+     "P": 0.47174543142318726,
+     "C": -0.2950378656387329
+    },
+    "mlp11": {
+     "A1": 0.25972980260849,
+     "P": 0.25972980260849,
+     "C": -0.17986106872558594
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 1.0,
+    "mlp9": 1.0,
+    "mlp10": 0.9434908628463745,
+    "mlp11": 0.51945960521698
+   },
+   "joint": {
+    "A1": 2.727107524871826,
+    "P": 2.727107524871826,
+    "C": -1.0037966966629028
+   },
+   "writer_full": {
+    "A1": 3.2066128253936768,
+    "P": 3.2066128253936768,
+    "C": -0.3893578052520752
+   },
+   "writer_ratio": 1.0,
+   "joint_ratio": 1.0,
+   "best_reader": "mlp11",
+   "best_reader_ratio": 0.51945960521698,
+   "beat_writer": 0.48054039478302,
+   "copy_control_joint_damage": -1.0037966966629028,
+   "ood_a1_joint": 2.727107524871826,
+   "battery_ood_full": 3.16263747215271,
+   "rows": {
+    "A1": 16,
+    "P": 16,
+    "C": 16
+   }
+  },
+  "verbatim_repeat.copy": {
+   "per_reader": {
+    "mlp8": {
+     "A1": -0.1247241199016571,
+     "P": -0.1247241199016571
+    },
+    "mlp9": {
+     "A1": 0.006548941135406494,
+     "P": 0.006548941135406494
+    },
+    "mlp10": {
+     "A1": -0.048859864473342896,
+     "P": -0.048859864473342896
+    },
+    "mlp11": {
+     "A1": -0.01900196075439453,
+     "P": -0.01900196075439453
+    }
+   },
+   "reader_ratios": {
+    "mlp8": 0.2494482398033142,
+    "mlp9": 0.013097882270812988,
+    "mlp10": 0.09771972894668579,
+    "mlp11": 0.03800392150878906
+   },
+   "joint": {
+    "A1": -0.21721026301383972,
+    "P": -0.21721026301383972
+   },
+   "writer_full": {
+    "A1": 0.09295585751533508,
+    "P": 0.09295585751533508
+   },
+   "writer_ratio": 0.18591171503067017,
+   "joint_ratio": 0.43442052602767944,
+   "best_reader": "mlp9",
+   "best_reader_ratio": 0.013097882270812988,
+   "beat_writer": 0.17281383275985718,
+   "copy_control_joint_damage": NaN,
+   "ood_a1_joint": -0.21721026301383972,
+   "battery_ood_full": 0.12937600910663605,
+   "rows": {
+    "A1": 16,
+    "P": 16
+   }
+  }
+ },
+ "per_cell": 16,
+ "smoke": false,
+ "price": {
+  "gpu_forwards": 660,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 11.988954544067383
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_READER_SELECTIVITY_PREREGISTRATION.md": "dfa262bf64362d28b14af4225fd0e26666eb674b6fba576f981c936d56d03abd",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_v2_results.json": "5924b2549d285175c80fbf7c8fc95a8a2fa06020acc1827bc472ddea69d9ec93",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
