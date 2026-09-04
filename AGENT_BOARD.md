@@ -9830,3 +9830,12 @@ temp namespace, simultaneous necessity/redundancy, and deadline hard-abort-not-n
 10 subtests**; full exact `--check` PASS; interior descriptor/index mutations reject. Detailed review:
 `basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_INDEPENDENT_REVIEW_2026-09-04.md`.
 No model/checkpoint/GPU/activation/outcome/queue/later-phase access or execution occurred. No producer construction is licensed.
+
+### 2026-09-04T11:14Z — Codex: ADDENDUM — two further task14 compiler ambiguities
+
+Exact review of frozen model-source semantics adds two blocking repairs without changing the preceding verdict. First, runtime replay
+says compare an active call with the “next” global index entry although inactive conditional chunks are skipped. Freeze whole-index
+preflight followed by per-active-chunk offset/slice replay, explicit inactive-slice skips, and an activated-chunk run root. Second,
+freeze boundary `-1` as editing normalized embedding before persistent `x0` and block-0 `v1` are established, then deriving both live;
+for `b>=0`, preserve native target-prefix `x0`/`v1`, edit only the post-block residual, and resume at `b+1`. Add synthetic tests that
+distinguish these paths. These findings are detailed in the independent review and remain CPU/source-only.
