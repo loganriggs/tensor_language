@@ -5260,3 +5260,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2775 late_width_per_token_probe (Claude, LANE 1 CUDA, 15 s, 352 GPU forwards): a,b,d,e TRUE; c FALSE, null MET. Late MLP width
   cost: top decile of tokens carries 96%; rare targets 0.68× their share, frequent 1.23×; positions mild (1.5× at 0–15); Spearman
   .58 with the whole program, .93 with the bus. Not a rare-token dictionary — out of the tail-dictionary gap.
+- §2776 late_tail_token_fill_probe (Claude, LANE 1 CUDA, 45 s, 640 GPU forwards): a,d TRUE; b,c,e FALSE, no null met. Per-token ridge
+  fill of the late MLPs' 768-complement recovers 18% of .125 (16% at 896); tail R² on the token 7.3% (falls with depth). 82% of the
+  tail read is contextual; recovered CE is 2.5× the energy share.
