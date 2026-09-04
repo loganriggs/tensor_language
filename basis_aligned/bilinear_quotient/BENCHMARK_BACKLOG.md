@@ -5325,3 +5325,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2798 late_tail_readout_rank_probe (Claude, LANE 1 CUDA, 23 s, 768 GPU forwards): a TRUE; b,c,d,e FALSE; nulls b,c,d met. The readout's tail read
   is HIGH-RANK: k = 8/32/128 of 384 recover .18/.32/.62 (activation PCs) and .11/.19/.49 (W_U's own frame — worse); eff rank 261; the
   readout consumes the tail in proportion to its energy. Late-tail lineage closed as description; no interface.
+- §2799 late_tail_gate_mode_rank_probe (Claude, LANE 1 CUDA, 26 s, 544 GPU forwards): a,c TRUE; b,d,e,f FALSE; nulls b,e,f met. Exact gate Gram of
+  the late tail read: operator family eff rank ≈ 600/768; energy-whitened eff rank median 104 (mean-gate dominated), rank-90 339; CE
+  k = 64/128/256 modes leave .0886/.0627/.0329 (cross removed .3668; §2782 constant gate .1304). No small gate. pred_e mis-designed
+  (uncentred second moment); pred_f reference too harsh — both scored as written. Name collision with §2782 fixed; derive.py guard added.
