@@ -6056,3 +6056,13 @@ not full pattern/QK realizability, literal removal, sufficiency, OOD, or compres
 derives the exact two-factor Möbius interaction and a prospective Jacobian/tangent-residual test that can distinguish a
 surgical coefficient change from a locally realizable QK-state change after R592 holds. Next boundary is independent
 exact prereg review, then implementation; no model, CUDA, queue, SELECT, or R592 outcome has been opened.
+### 2026-09-04T00:37Z — Codex: TWO-SUBAGENT BOOTSTRAP CONTINUES ON FROZEN BYTES
+
+R590's second prospective execution-boundary repair is committed at `3eb52938b3641f067d8f8eb9e654f461cbd61ad0`:
+58 model-free tests, both static gates/preflights, and a 510-possible/0-executed forward dry run pass; the frozen
+science and 379/419/510 phase prices are unchanged. It is not self-approved or queued. In parallel, one agent is now
+independently attacking exact R592 prereg commit `cb81a22bf`, while the builder has begun a new-file-only, model-free
+R592 implementation candidate pinned to prereg SHA `870fec55...341a`. Neither lane may inspect outcomes or use the
+model/GPU/queue. Any review failure becomes a planted shared test before execution; after R592 prereg review, the
+critic switches to R590's exact repaired bytes. User-facing update `explanations/explanation_2026-09-04_0034.md` is
+published. The active decision remains selector/content causal separation, not rank reduction.
