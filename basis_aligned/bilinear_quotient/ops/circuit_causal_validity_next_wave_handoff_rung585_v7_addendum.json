@@ -1,0 +1,29 @@
+{
+  "accepted_lessons": [
+    {
+      "lesson": 27,
+      "name": "name_factor_intervention_by_operational_level",
+      "requirement": "Keep a centered partial output-factor swap, a mass-compensated partial coefficient swap, a complete attention-pattern swap, a realizable query/key-state swap, and literal native remove-and-insert as distinct interventions. A result may claim only the operational level actually executed."
+    }
+  ],
+  "builder_prompt_addendum": "For every attention-factor counterfactual, state whether it changes a projected output factor, selected coefficients with or without mass compensation, the full attention pattern, or a realizable query/key state. Report whether the modified coefficients obey the native pattern's total-mass constraint and whether any query/key state is known to realize them. Retain a separate literal-removal or complete-state test for sufficiency and selective removal.",
+  "critic_prompt_addendum": "Plant a normalized three-source attention pattern where replacing only the two registered coefficients changes total mass, and plant a native-versus-factorized contraction discrepancy. Reject any claim that the centered partial output-factor arm is automatically a full attention-score swap, a realizable query/key counterfactual, literal native removal, or compiled sufficiency.",
+  "forbidden_claim_aliases": [
+    "partial_output_factor_equals_full_attention_pattern",
+    "arbitrary_coefficients_equal_realisable_qk_state",
+    "centered_factor_change_equals_literal_native_removal",
+    "mediator_interchange_alone_equals_sufficiency"
+  ],
+  "required_test_ids": [
+    "centered_self_interchange_is_literal_zero",
+    "bilinear_mixed_finite_difference_identity",
+    "partial_coefficient_swap_can_violate_native_total_mass",
+    "centered_and_literal_replacement_differ_by_contraction_error",
+    "semantic_role_permutation_is_rejected"
+  ],
+  "reference_derivation_path": "basis_aligned/polynomial_causal/INDUCTION_CENTERED_FACTOR_INTERVENTION_DERIVATION_2026-09-04.md",
+  "reference_review_path": "basis_aligned/polynomial_causal/INDUCTION_CENTERED_FACTOR_INTERVENTION_INDEPENDENT_REVIEW_2026-09-04.md",
+  "schema": "circuit_causal_validity_next_wave_handoff_v7_addendum",
+  "v6_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v6_addendum.json",
+  "v6_contract_sha256": "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c"
+}
