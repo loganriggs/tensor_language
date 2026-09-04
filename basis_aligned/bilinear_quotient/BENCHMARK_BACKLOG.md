@@ -5827,3 +5827,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   sequential-refit explanation is refuted. Next: a **full rank sweep 1/2/4/8/16/32/64/128/256 in ONE pipeline run** (fit-once/eval-many,
   snapshot `LW` and restore per arm). Nine points separate regularisation from a degenerate rank-1 map from an implementation fault; a
   single non-monotone triple cannot. Until then no low-rank number is reportable, per both preregistrations.
+
+- **[§2889] Predicate-design error to carry forward: a null named "the band is flat" whose formula was `top/second ≤ 1.15`.** That
+  ratio tests whether ONE layer dominates, not flatness — it fired at 1.003 because a2 and a4 are tied, while the band spans 10.2×
+  from a2 to a8. Before registering a null, check that its FORMULA computes what its NAME claims; a spread measure (p90/p10, or
+  max/median) was the right instrument here.
+- **[§2889] The motif fix must be designed for subadditivity.** a2/a3/a4 carry 73.5% of the band's .7441 summed share, but restoring
+  all eight at once recovers only .3988 (§2882) — the layers explain overlapping error, so improving a2 alone recovers less than its
+  .1946 suggests. Contrast §2888, where front tables × motif heads are SUPERadditive (+0.3023): the frontier contains both signs of
+  interaction and neither is the default.

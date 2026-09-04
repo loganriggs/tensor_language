@@ -75776,3 +75776,52 @@ with the equivalence measured rather than argued. That is what licenses using th
 running, which would otherwise have cost ~850 s.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.
+
+## §2889 — THE MOTIF BAND'S ERROR IS CONCENTRATED IN a2/a3/a4 (.195/.158/.194), **NOT** AT a5 (.060, FIFTH OF EIGHT), AND THE LAYERS ARE STRONGLY **SUB**ADDITIVE: .7441 INDIVIDUALLY, .3988 JOINTLY. MY `b_null` WAS MIS-SPECIFIED
+
+Registered `polynomial_causal/FRONTIER_MOTIF_BAND_PROFILE_PREREGISTRATION.md` (10:14Z). Run `frontier_motif_band_profile`, landed
+10:18Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_motif_band_profile_results.json
+Price: 0 GPU forwards, 121.6 GPU-seconds, **1 pipeline run** for nine arms (`forwards_instrumented: false`, `pipeline_runs: 1` — the
+forward count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+An **error share** = `L2_F(baseline) − L2_F(layer restored to real)`, **POSITIVE = that layer's motif approximation costs that much**.
+§2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| layer | **a2** | **a4** | **a3** | a6 | **a5** | a7 | a9 | a8 |
+|---|---|---|---|---|---|---|---|---|
+| error share | **.1946** | **.1941** | **.1579** | .0665 | **.0597** | .0319 | .0204 | .0190 |
+
+**pred_a, pred_d HELD** (8 of 8 layers connected). **pred_c HELD with deviations of exactly `0.0` and `0.0`** — a5 lands on §2885's
++0.0597 and a2 on its +0.1946, to the digit, from a separate run. **pred_e HELD, `refactor_baseline_deviation = 0.0`** — the second
+independent confirmation that the fit-once/eval-many pattern does not change the construction (§2888 was the first).
+
+### pred_b FAILED, and the null that fired was mis-specified — my error, recorded
+
+`b_null_the_band_is_flat` is recorded MET, and **the wording is wrong for what the data show.** I defined flatness as
+`top / second ≤ 1.15`; the measured ratio is **1.003** because a2 (.1946) and a4 (.1941) are effectively tied. But the band is emphatically
+**not flat**: a2 is **10.2×** a8. What the ratio actually tested is whether **one single layer dominates**, and that is a different
+question from flatness — the same predicate-construction error this lane keeps catching, here in the form of a null whose *name* does
+not describe its *formula*. The registered outcome stands as recorded; the conclusion drawn from it does not, and the honest statement
+is below.
+
+### What the profile shows
+
+**The frontier's motif error is a front-of-band phenomenon.** a2, a3 and a4 carry **.5466** of the band's **.7441** total (73.5%);
+a5 is **fifth of eight**. §2885's replacement lead — "a2, not a5" — is confirmed in direction but **refined**: it is not a2 alone, it is
+**a2/a3/a4 as a group**, with a2 and a4 statistically indistinguishable at this resolution (§2876: the pipeline resolves to 0.0 at four
+decimals, so .1946 vs .1941 is a real but tiny .0005 difference).
+
+**And the layers are strongly SUBadditive.** The eight individual shares sum to **.7441**, while §2882 measured the cost of restoring
+the whole band at once as **.3988** — restoring all eight recovers **little more than half** of what restoring them one at a time
+suggests. The motif layers are largely explaining **overlapping** error: each one alone looks responsible for damage that another also
+covers. This is the opposite sign from §2888's front-tables×motif-heads interaction (**super**additive, +0.3023), so the frontier
+contains both kinds of interaction and neither is the default.
+
+**Consequence for the standing gap.** "attn5's write = the price cliff" is now closed frontier-side twice over — §2885 against a
+registered control, and here against all seven of its neighbours. The replacement target is the **front of the motif band**, and any fix
+there must be designed for subadditivity: improving a2 alone will recover less than its .1946 share suggests, because a3 and a4 are
+covering part of the same error.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
