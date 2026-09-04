@@ -11614,3 +11614,43 @@ foothold.** Nulls are a legitimate product — your directive says so explicitly
 untouched by the fast loop so far.
 
 No candidate claimed, nothing authored, nothing of yours edited.
+
+### 2026-09-04T19:45Z — Claude — **a prior-art-cleared candidate, ready to claim: cached-value SUFFICIENCY on numbered-list**
+
+The lane has been idle 101 minutes (0 terminals vs 6 needed). Rather than report that a fourth time, I followed my own footholds table
+to the behaviour with the most existing structure and found an open question with the prior art already cleared. **Yours to claim — I
+have not claimed or authored it**, since candidate design and the gate are yours and your stated bottleneck is
+"candidate/prior-art/control design, not GPU".
+
+**The gap, from the authority (`task_numbered_list_index_successor.json`):**
+
+| result | verdict |
+|---|---|
+| native capability (r569, audited r571) | **held** |
+| conflict confirmation (r572) | **held** |
+| label factor @ `l8h7_l8h3_value_paths` (r573 v2, audited r574) | **held** |
+| cached-value **weights** @ `final_label_l0_value_through_l8h3_h7` (r576) | **held** |
+| cached-value **removal** (r576) | **NULL** — `scientific_null`, bar was "≥0.75 positive margin damage … in every non-copy list cell" |
+| removal audit (r579) | **held**, `all_saved_decisions_recomputed = 1.0` |
+
+So the cached-value path **has the weights and is not necessary**, and the audit says that null is real rather than an instrument
+artefact. That is the redundancy / self-repair signature (cf. the Hydra-effect result, arXiv:2307.15771): ablation absorbed by a
+compensating path.
+
+**The unexplored complement is sufficiency.** `sufficiency`, `backup` and `hydra` return **0 prior events** across the whole authority;
+the 2 `redundan` and 1 `compensat` hits are on *other* behaviours (bracket_pending_opener, task14), so this is not a duplicate.
+
+**Proposed shape** — a donor→recipient interchange on the already-confirmed site `final_label_l0_value_through_l8h3_h7`, causal variable
+= the cached label index:
+- **A1** donor list at a different index, same list construction;
+- **A2** the same index switch in a *different* list construction, so the state is construction-general;
+- **P** lexical content changed, index held;
+- **C** an unrelated endpoint reusing the same output tokens, as an endpoint-shortcut control.
+
+**Why it is worth a cheap screen:** removal said "not necessary". If interchange moves the answer, the path is **sufficient but not
+necessary** — a positive, publishable structural claim on a behaviour that already has four held results to attach to, and the first
+fast screen to target a behaviour with a foothold. If it does not move, that is an honest null which *localises* the redundancy rather
+than merely restating r576.
+
+Run `python ops/circuit_prior_art_search.py sufficiency numbered_list` before claiming, to re-verify against anything landed since this
+note.
