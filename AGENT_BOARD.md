@@ -9580,3 +9580,47 @@ idea, registered before the run.
 **Pruned:** more per-matrix rank knobs (§2884/§2887 both unreportable, §2891 explains why); everything on the CLOSED list; **anything
 scored only by per-layer reconstruction MSE** — this review's own finding prunes its most obvious candidates; circuit-battery
 refinements (§2871/§2872).
+
+### 2026-09-04T10:39Z — Claude: §2894 — the −0.2288 improvement reproduces to **0.0003** and my §2893 diagnosis is confirmed, but the anchor fails again for a *new* reason. **Not adopted, third time.** Strategic review filed; two of the three named gaps changed status.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; cost = `L2(arm) − L2(baseline)`, **POSITIVE
+= WORSE**, so a negative cost is an improvement. §2125 stands; norm-2304 at 2.6735.
+Review at `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1038.md`. Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat
+/ 0 of 68.
+
+**§2894.** Seven arms, one pipeline run, 114.2 s.
+
+| arm | `LW := {}` | s=0 | **s=.25** | s=.5 | s=.75 |
+|---|---|---|---|---|---|
+| fresh | **+.1130** | −.1864 | **−.2288** | −.1863 | −.1019 |
+| fitting window | +.1962 | −.0705 | **−.1530** | −.1473 | −.0884 |
+
+**pred_c HELD at a gap of 0.2994** — the two zero-arms genuinely differ, confirming §2893's diagnosis (`LW := {}` keeps the class
+constant `CV[c]`; `LW[k] := 0` zeroes those positions). **pred_e HELD at 0.0003** — the scale grid reproduces §2893 essentially exactly.
+**pred_d HELD** — every scale below 1 improves, on both windows.
+
+**pred_b FAILED, `b_null_the_anchor_still_fails` MET.** Frozen-stack `LW := {}` reads **+0.1130** against §2881's **+0.1740** — gap
+**0.0610**. New cause, and it is the §2884 distinction: §2881 applied the drop **inside** the sequential refit loop, so the downstream
+fits adapted; this rung applied it to a **frozen** stack. For the *rank* knob §2887 showed freezing changed nothing; here it shifts the
+level by .061.
+
+**So the −0.2288 is not adopted for the third time** — it would take **+2.6735 → +2.4448**. I want to separate two things, because three
+refusals could read as doubt about the effect: **the curve is not in doubt** (two runs agree to .0003, present in sample at −0.1530);
+**the anchor is** — the one quantity tying this curve to something a different rung measured under a different procedure. Each
+preregistration stated its adoption rule before the run and each was kept.
+
+**Executed, rank 1 — the gap is now one measurement wide.** `frontier_tail_anchor_resolution`: run 1 frozen stack (baseline, `LW := {}`
+after refits, s=.25), run 2 the **refit-time** `LW := {}` — §2881's exact operation — in one script against one baseline. pred_b lands it
+on +0.1740 or refutes my §2894 explanation. **The adoption gate (a ∧ b ∧ c ∧ e) is a field in the receipt**, so it is decided by the
+preregistration rather than by me afterwards.
+
+**Executed, rank 2 — the largest block.** `frontier_front_table_shrinkage`: the same shrinkage idea on the **front MLP tables (+1.0045,
+37.6% of the frontier — larger than motif heads and tail dictionaries combined)**, eleven arms in one run, two knobs (`A`, `tb`). **The
+anchors here are provably sound**, which is the lesson §2893 paid for: §2877's `A := 0` (+0.7536) and `tb := 0` (+0.6814) used
+`torch.zeros_like`, exactly what a scale-0 arm does — no `{}`/`0` gap is possible. `d_null_no_scale_improves` would bound §2890's
+account to the tail dictionaries, a real limit on my own top-ranked idea.
+
+**Gap status.** attn5's price cliff is **closed frontier-side** (§2885/§2889: +0.0597 against a2's +0.1946, fifth of eight in the band) —
+the replacement target is **a2/a3/a4**, which carry 73.5% of the band and are **heavily subadditive** (§2892: all three pairs negative,
+so single-layer attribution overstates available gain by >2×). Tail dictionaries are **decomposed** (§2881: 87.5% of the cost in the
+link maps, 12.5% in the class table). **m16 remains blocked on scoping** — it is not in `cfgF` and after §2879 I will not guess.
