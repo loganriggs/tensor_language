@@ -72637,3 +72637,49 @@ type in the derivative.
 Price: 662 GPU forwards, 12.1 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_unit_lens_ranked_results.json. (Claude, LANE 1 CUDA.) a, e TRUE; b, c, d FALSE with b's and d's nulls
 met. Preserved.
+
+## §2824 — AND IT IS NOT LOW-RANK EITHER: a fitted rank-1 to rank-8 subspace of the reader's removal effect carries −.01 of the block's damage on held-out rows, the fitted subspaces of different behaviours overlap at chance (.008–.010 against .0035), and the singular spectrum of the effect is flat (top direction .32 of the energy, eighth still .04) — with §2822 and §2823 this closes "smaller than an MLP block" in the NEGATIVE for this circuit, in both a coordinate and a subspace sense (e TRUE; a, b, c, d FALSE, a's, b's and c's nulls MET)
+
+§2822 and §2823 showed the read of attention 8's write is dense in the hidden-unit basis, with two independent selectors and a random
+control agreeing. Unit coordinates are basis-dependent, so this rung asked the same question basis-free: fit the top singular
+directions of the reader's removal effect `δ = mlp(rms_norm(x)) − mlp(rms_norm(x − W))` over FIT rows, then intervene with only the
+rank-r part and score on OOD. This is the first battery rung with FITTED PARAMETERS — 241,920 of them, declared in the receipt — and
+they were fitted on FIT rows only.
+
+**pred_a, pred_b FALSE with their nulls MET — no rank helps.** Median share of the block's A1 damage carried by the fitted rank-r arm:
+rank 1 **−.013**, rank 2 −.013, rank 4 **−.012**, rank 8 −.039 (bars .50 and .80; nulls ≤ .20 and ≤ .40, both met). The curve does not
+rise with r at all. For comparison the seeded RANDOM rank-4 subspace carries +.0005 (pred_e TRUE, null ≥ .40 not met) — the fitted
+subspace is not merely weak, it is indistinguishable from a random one, exactly as the ranked unit sets were in §2822 and §2823.
+
+**pred_c FALSE, null MET — the fitted subspaces do not transport across behaviours.** Median mean-squared principal cosine between two
+behaviours' fitted rank-4 subspaces is **.0099** at mlp10 and **.0077** at mlp11, against a chance value of 4/1152 ≈ **.0035** for
+random 4-dimensional subspaces of R^1152 (bar ≥ .50, null ≤ .10 met). Two to three times chance is not shared structure.
+
+**pred_d FALSE — and again the gate, not my judgement, is what prevented a false positive.** ZERO of the 14 cells had an admissible
+rank-4 arm (its damage must reach .25 × its block's), so no cell was eligible to claim a specificity gain. This is the third
+consecutive rung in which a sub-block arm looked specific and was simply inert; the gate registered in §2821 has now caught that
+artifact at head granularity (§2820), unit granularity (§2822, §2823) and subspace granularity.
+
+**The spectrum says why.** The singular energy of the removal effect on the keyed counter at mlp10 is .324, .164, .117, .077, .069,
+.052, .048, .040 — the top direction holds under a third and the eighth still holds four percent. That is a flat spectrum, i.e. δ is
+strongly row-dependent: each input's removal effect points its own way, so no fixed subspace fitted on some rows transports to others.
+
+**What §2822–§2824 establish together.** For this circuit, the read of attention 8's write by mlp10 and mlp11 is dense in the network's
+own coordinates AND has no transportable low-rank structure. Three decompositions (per-unit by magnitude, per-unit by exact lens
+contribution, per-direction by fitted SVD) each with its own random control, all agree. **The 03:21Z directive asked us to narrow the
+circuits to something smaller than an MLP block; for this circuit the measured answer is that we cannot, and the MLP block is the
+smallest honest unit.** That is a real constraint on how compact a compiled tensor program for this behaviour can be, and it was reached
+by measurement rather than by giving up.
+
+**Open, and the right next question.** This rung shows a FIT-fitted subspace does not transport to OOD, but it did not measure the one
+diagnostic that separates "δ is row-specific" from "the intervention arm is mis-specified": the fraction of OOD δ ENERGY that the FIT
+subspace captures. The flat spectrum makes the first explanation likely, but it is not measured here and is therefore not claimed. That
+diagnostic is the next rung, and it is cheap.
+
+**Disclosure.** A 4-rows-per-cell smoke ran at 04:55Z before this registered run and printed the same verdicts. No bar or null was
+amended after it. The smoke also contained an artifact this run does not: with only 4 FIT rows the effect matrix has rank ≤ 4, so its
+rank-4 and rank-8 arms were numerically identical; the registered run uses 16 FIT rows and its rank-8 arm is genuinely rank 8.
+
+Price: 1,212 GPU forwards, 18.2 GPU-seconds, 0 backwards, **241,920 fitted parameters (declared)**.
+Results: circuit_battery_reader_rank_decomposition_results.json. (Claude, LANE 1 CUDA.) e TRUE; a, b, c, d FALSE with a's, b's and c's
+nulls met. Preserved.

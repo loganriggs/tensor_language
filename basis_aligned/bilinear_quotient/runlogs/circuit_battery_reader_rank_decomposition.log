@@ -1,0 +1,40 @@
+[rank] keyed_line.counter_successor mlp10 r1=-0.01 r4=0.01 rnd=0.01 block_r=0.64 r4_r=0.04 e1=0.32
+[rank] keyed_line.counter_successor mlp11 r1=-0.01 r4=-0.13 rnd=-0.01 block_r=0.44 r4_r=0.13 e1=0.28
+[rank] month.successor              mlp10 r1=0.07 r4=0.08 rnd=0.00 block_r=0.34 r4_r=0.10 e1=0.81
+[rank] month.successor              mlp11 r1=0.01 r4=0.02 rnd=0.00 block_r=0.23 r4_r=0.06 e1=0.78
+[rank] numbered_list.index_successor mlp10 r1=-0.01 r4=-0.18 rnd=0.01 block_r=0.90 r4_r=0.27 e1=0.25
+[rank] numbered_list.index_successor mlp11 r1=-0.05 r4=-0.13 rnd=0.00 block_r=0.59 r4_r=0.13 e1=0.24
+[rank] numeric_run.last_plus_one    mlp10 r1=0.07 r4=0.07 rnd=0.00 block_r=0.24 r4_r=0.11 e1=0.33
+[rank] numeric_run.last_plus_one    mlp11 r1=0.05 r4=0.04 rnd=-0.00 block_r=0.14 r4_r=0.06 e1=0.38
+[rank] paren_list.index_successor   mlp10 r1=-0.05 r4=-0.07 rnd=-0.00 block_r=0.74 r4_r=0.23 e1=0.27
+[rank] paren_list.index_successor   mlp11 r1=-0.02 r4=-0.08 rnd=0.00 block_r=0.58 r4_r=0.13 e1=0.25
+[rank] roman_list.index_successor   mlp10 r1=-0.09 r4=0.08 rnd=-0.03 block_r=0.94 r4_r=0.26 e1=0.65
+[rank] roman_list.index_successor   mlp11 r1=-0.01 r4=0.10 rnd=-0.00 block_r=0.52 r4_r=0.16 e1=0.64
+[rank] verbatim_repeat.copy         mlp10 r1=-0.03 r4=-0.04 rnd=-0.01 block_r=0.10 r4_r=0.04 e1=0.38
+[rank] verbatim_repeat.copy         mlp11 r1=-0.03 r4=-0.05 rnd=0.00 block_r=0.04 r4_r=0.05 e1=0.34
+{
+ "preds": {
+  "pred_a_rank_one_carries_half": false,
+  "pred_b_rank_four_carries_most": false,
+  "pred_c_the_subspace_is_shared_across_behaviours": false,
+  "pred_d_low_rank_arm_is_more_specific": false,
+  "pred_e_random_subspace_does_not_carry_the_read": true
+ },
+ "nulls": {
+  "a_null_rank1_le_.2": true,
+  "b_null_rank4_le_.4": true,
+  "c_null_overlap_le_.1": true,
+  "d_null_no_gain": false,
+  "e_null_random_ge_.4": false
+ },
+ "median_rank_share": {
+  "rank1": -0.0132790207862854,
+  "rank2": -0.013248801231384277,
+  "rank4": -0.012003093957901001,
+  "rank8": -0.039043545722961426
+ },
+ "overlap": {
+  "mlp10": 0.009926164522767067,
+  "mlp11": 0.007666261866688728
+ }
+}

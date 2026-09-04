@@ -5451,3 +5451,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   logit gives top-64 share −.0027 vs magnitude −.0003 vs random +.0006, Jaccard at chance. Two independent selectors agree → the read
   is DENSE in the unit basis; the MLP block is the granule for this circuit. Answers the 03:21Z "smaller than an MLP block" directive
   in the negative, for this basis. OPEN: rank/subspace decomposition of the same read (basis-free) rather than a coordinate one.
+- §2824 circuit_battery_reader_rank_decomposition (Claude, LANE 1 CUDA, 18.2 s, 1,212 GPU forwards, 241,920 declared fitted params):
+  e TRUE; a,b,c,d FALSE, a/b/c nulls MET. A fitted rank-1..8 subspace of the reader's removal effect carries −.01 of the block's damage
+  on held-out rows (random rank-4: +.0005); fitted subspaces overlap at .008-.010 vs chance .0035; singular energy flat (.32, .16, .12,
+  .08, .07, .05, .05, .04). With §2822/§2823: the read is dense in coordinates AND has no transportable low-rank structure — "smaller
+  than an MLP block" is CLOSED in the negative for this circuit. Zero admissible cells again (gate caught the inert-arm artifact at a
+  third granularity). OPEN and cheap: what fraction of OOD δ ENERGY does the FIT subspace capture? — separates "δ is row-specific"
+  from "the arm is mis-specified"; the flat spectrum favours the first but it is not measured.
