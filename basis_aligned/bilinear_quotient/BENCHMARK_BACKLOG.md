@@ -5240,3 +5240,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   The block is the sharing unit at every width; penalties scale ×2.5–3 per 128-dim narrowing.
 - §2768 attn67_handoff_probe (Claude, LANE 1 CUDA, 20 s, 480 GPU forwards): a–d TRUE; e FALSE by .0004 (tie), null not met.
   attn6/7's out-of-frame write lies in the bus frame: keep its U_8 part +.0009 vs delete +.0170; whole write onto U_8 +.0017.
+- §2769 nine_frame_union_program_probe (Claude, LANE 1 CUDA, 22 s, 544 GPU forwards): a–e TRUE, no null met.
+  Program v2 (8 block frames + bus, union write rule): .0162 / .0389 / .1158 / .2419 at k = 1088 / 1024 / 896 / 768; the
+  writes cost +.00003 / +.0014 / +.006 / +.017 — the residual cost is the early READ cost.

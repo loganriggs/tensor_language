@@ -1,0 +1,80 @@
+{
+ "rung": "nine_frame_union_program_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_nine_frame_program_under_p045_at_1024": true,
+  "pred_c_union_writes_under_p045_at_768": true,
+  "pred_d_nine_frame_program_under_p13_at_896": true,
+  "pred_e_nine_frame_program_under_p025_at_1088": true
+ },
+ "nulls": {
+  "b_null_ge_.06": false,
+  "c_null_ge_.08": false,
+  "d_null_ge_.18": false,
+  "e_null_ge_.045": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_max": 0.045,
+  "c_max": 0.045,
+  "d_max": 0.13,
+  "e_max": 0.025
+ },
+ "null_bars": {
+  "b_min": 0.06,
+  "c_min": 0.08,
+  "d_min": 0.18,
+  "e_min": 0.045
+ },
+ "device": "cuda",
+ "split": 8,
+ "widths": [
+  1024,
+  896,
+  768,
+  1088
+ ],
+ "program": "9 frames (8 block frames + bus U_8); early writes confined to span(F_next) U span(U_8) (union rule); late reads/writes through U_8, remainder to readout",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "P9_1024": 0.03887659311294556,
+  "P9_896": 0.11583587527275085,
+  "P9_768": 0.2419351041316986,
+  "P9_1088": 0.016204416751861572,
+  "BLOCK8_1088": 0.016175776720046997
+ },
+ "write_cost_over_block8_reads": {
+  "W_1024": 0.0014365931129455556,
+  "W_896": 0.005935875272750857,
+  "W_768": 0.016635104131698608,
+  "W_1088": 2.8640031814575195e-05
+ },
+ "prior_block8_reads": {
+  "1024": 0.03744,
+  "896": 0.1099,
+  "768": 0.2253,
+  "1088": 0.016175776720046997
+ },
+ "price": {
+  "gpu_doc_forwards": 544,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 21.767353773117065
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/NINE_FRAME_UNION_PROGRAM_PROBE_PREREGISTRATION.md": "f0d0cc656594cfa2b68e6f3420a9786f53c2212d1a3cdd38e66b551f2ac9761c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/attn67_handoff_probe_results.json": "7ae23748391393bf1c0e639666eabcefde0036e30ff557bc1403193ea2e1d6fa",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "8fab3080ec2bec9d4a408cbfec3a54217a962206f7fd4cbe1de89ef9d5ddabf3"
+}

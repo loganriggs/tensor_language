@@ -1,0 +1,36 @@
+{"stage": "heads_done", "t": 14.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 15.3}
+{"stage": "p9", "k": 1024, "ce": 0.0389, "t": 17.7}
+{"stage": "p9", "k": 896, "ce": 0.1158, "t": 18.8}
+{"stage": "p9", "k": 768, "ce": 0.2419, "t": 19.8}
+{"stage": "p9", "k": 1088, "ce": 0.0162, "t": 20.9}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "P9_1024": 0.0389, "P9_896": 0.1158, "P9_768": 0.2419, "P9_1088": 0.0162, "BLOCK8_1088": 0.0162, "t": 21.8}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_nine_frame_program_under_p045_at_1024": true,
+  "pred_c_union_writes_under_p045_at_768": true,
+  "pred_d_nine_frame_program_under_p13_at_896": true,
+  "pred_e_nine_frame_program_under_p025_at_1088": true
+ },
+ "nulls": {
+  "b_null_ge_.06": false,
+  "c_null_ge_.08": false,
+  "d_null_ge_.18": false,
+  "e_null_ge_.045": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "P9_1024": 0.03887659311294556,
+  "P9_896": 0.11583587527275085,
+  "P9_768": 0.2419351041316986,
+  "P9_1088": 0.016204416751861572,
+  "BLOCK8_1088": 0.016175776720046997
+ },
+ "write_cost_over_block8_reads": {
+  "W_1024": 0.0014365931129455556,
+  "W_896": 0.005935875272750857,
+  "W_768": 0.016635104131698608,
+  "W_1088": 2.8640031814575195e-05
+ }
+}

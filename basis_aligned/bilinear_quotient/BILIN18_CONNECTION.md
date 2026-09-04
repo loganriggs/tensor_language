@@ -71360,3 +71360,33 @@ blocks-5/6 MLP remainders of §2766). Registered next as the full 9-frame progra
 pred_e miss is a wobble-level tie (readout .0540 vs delete .0544): when the remainder is bus-bound, adding it back at the
 readout neither helps nor hurts beyond noise — consistent with the bus's remainder being readout-routable in §2756. (4) Nothing
 installs into the §312 frontier (§2125).
+
+## §2769 — PROGRAM v2, PRICED ACROSS k: NINE frames (8 per-block early frames + the bus) with the UNION write rule (every early write confined to the next read's frame ∪ the bus frame; late writes through the bus with the remainder to the readout) costs .0389 at k = 1024 (pred_b "≤ .045" TRUE; null ≥ .060 not met) — the writes add only +.0014 over the reads — .1158 at 896 (pred_d "≤ .130" TRUE; null not met), .2419 at 768 where the writes add +.0166 (pred_c "≤ .045" TRUE; null ≥ .080 not met), and .0162 at 1088 where the writes add +.00003 (pred_e "≤ .025" TRUE; null ≥ .045 not met) (Claude, LANE 1 CUDA, 22 s, 544 GPU document-forwards): a–e TRUE; no null met. Preserved.
+
+Registered 2026-09-04 00:04Z (polynomial_causal/NINE_FRAME_UNION_PROGRAM_PROBE_PREREGISTRATION.md); landed 00:05Z. Script
+ops/nine_frame_union_program_probe.py; results nine_frame_union_program_probe_results.json (sha 6e807004…). Frozen: prereg,
+§2768 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH
+split; fits docs 96–191) — LOWER IS BETTER. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739.
+
+| k | BLOCK8_k reads only | P9_k (reads + union writes + bus writes) | write cost W_k |
+|---|---|---|---|
+| 1088 | .0162 | .0162 | +.00003 |
+| 1024 | .0374 (§2765) | .0389 | +.0014 |
+| 896 | .1099 (§2767) | .1158 | +.0059 |
+| 768 | .2253 (§2767) | .2419 | +.0166 |
+
+Program v2 (complete statement). Nine k-dimensional subspaces of the 1152-dimensional residual: F_0..F_7 (one per early
+block, the top-k core of the block's averaged attention+MLP input covariance) and U_8 (the bus, top-k core of blocks 8–17's
+averaged input covariance). Block l < 8: attention and MLP read x̄ + F_lF_lᵀ(x̂ − x̄); the attention write is confined to
+span(F_l) ∪ span(U_8), the MLP write to span(F_{l+1}) ∪ span(U_8) (F_8 := U_8). Blocks 8–17: read and write through U_8; the
+write remainder is summed and added before the final norm. Everything else (attention patterns, bilinear MLPs, λ-blend, unembed)
+is the real model. Price: .039 nat at k = 1024, .016 at 1088.
+
+What it says. (1) The union rule closes the write side: §2764's chain rule cost +.020 at 1024 (attn6/7's hand-off, §2766/§2768);
+the union rule costs +.0014. At 1088 the writes are free to 3e-5. The frame program's residual cost is now essentially the READ
+cost — what the early blocks lose when 1152 − k input directions are dropped — and that cost halves per 128-dim widening
+(.225 → .110 → .037 → .016). (2) This is the smallest structural statement of the model reached in this arc: 9 subspaces, one
+write rule, no new parameters, .039 at 11% narrowing. It is a statement about where the activity lives, not a compression of
+the weights (§2125: nothing installs into the §312 frontier). (3) The open question the table poses is the READ cliff at the
+early blocks: which early block's read at k = 768 carries the .225 — registered next as the per-block read-cost map under
+program v2 — and whether the mlp4 position-0 spike (§2763) is one of those directions. 
