@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Task 14 subject-verb agreement capability accuracy</title>
+  <desc id="desc">Grouped horizontal bars show base and donor accuracy for A1, A2, P, and C. A1, A2, and P are 100 percent on both sides. C is 87.5 percent on base prompts and 90.625 percent on donor prompts. Frozen thresholds are 85 percent for A1, A2, and P and 75 percent for C.</desc>
+  <rect width="980" height="520" fill="#ffffff"/>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+    .title { font-size: 24px; font-weight: 700; }
+    .subtitle { font-size: 14px; fill: #526078; }
+    .label { font-size: 16px; font-weight: 650; }
+    .tick { font-size: 13px; fill: #657188; }
+    .value { font-size: 14px; font-weight: 700; }
+    .legend { font-size: 14px; }
+    .grid { stroke: #dce2eb; stroke-width: 1; }
+    .threshold { stroke: #b84a3a; stroke-width: 2; stroke-dasharray: 6 5; }
+  </style>
+  <text x="36" y="38" class="title">Subject–verb agreement capability on frozen FIT prompts</text>
+  <text x="36" y="64" class="subtitle">Percentage choosing the registered is/are answer; this tests behavior, not circuit localization.</text>
+
+  <rect x="650" y="27" width="16" height="16" rx="3" fill="#3274a1"/>
+  <text x="674" y="40" class="legend">base prompt</text>
+  <rect x="782" y="27" width="16" height="16" rx="3" fill="#e1812c"/>
+  <text x="806" y="40" class="legend">donor prompt</text>
+
+  <line x1="190" y1="88" x2="190" y2="442" class="grid"/>
+  <line x1="330" y1="88" x2="330" y2="442" class="grid"/>
+  <line x1="470" y1="88" x2="470" y2="442" class="grid"/>
+  <line x1="610" y1="88" x2="610" y2="442" class="grid"/>
+  <line x1="750" y1="88" x2="750" y2="442" class="grid"/>
+  <line x1="890" y1="88" x2="890" y2="442" class="grid"/>
+  <text x="190" y="464" text-anchor="middle" class="tick">0%</text>
+  <text x="330" y="464" text-anchor="middle" class="tick">20%</text>
+  <text x="470" y="464" text-anchor="middle" class="tick">40%</text>
+  <text x="610" y="464" text-anchor="middle" class="tick">60%</text>
+  <text x="750" y="464" text-anchor="middle" class="tick">80%</text>
+  <text x="890" y="464" text-anchor="middle" class="tick">100%</text>
+
+  <text x="42" y="130" class="label">A1 · preposition</text>
+  <rect x="190" y="105" width="700" height="22" rx="4" fill="#3274a1"/>
+  <rect x="190" y="133" width="700" height="22" rx="4" fill="#e1812c"/>
+  <text x="902" y="122" class="value">100%</text>
+  <text x="902" y="150" class="value">100%</text>
+
+  <text x="42" y="218" class="label">A2 · relative clause</text>
+  <rect x="190" y="193" width="700" height="22" rx="4" fill="#3274a1"/>
+  <rect x="190" y="221" width="700" height="22" rx="4" fill="#e1812c"/>
+  <text x="902" y="210" class="value">100%</text>
+  <text x="902" y="238" class="value">100%</text>
+
+  <text x="42" y="306" class="label">P · noun control</text>
+  <rect x="190" y="281" width="700" height="22" rx="4" fill="#3274a1"/>
+  <rect x="190" y="309" width="700" height="22" rx="4" fill="#e1812c"/>
+  <text x="902" y="298" class="value">100%</text>
+  <text x="902" y="326" class="value">100%</text>
+
+  <text x="42" y="394" class="label">C · coordinated subject</text>
+  <rect x="190" y="369" width="612.5" height="22" rx="4" fill="#3274a1"/>
+  <rect x="190" y="397" width="634.375" height="22" rx="4" fill="#e1812c"/>
+  <text x="812" y="386" class="value">87.5%</text>
+  <text x="834" y="414" class="value">90.6%</text>
+
+  <line x1="785" y1="88" x2="785" y2="342" class="threshold"/>
+  <text x="779" y="84" text-anchor="end" class="tick" fill="#b84a3a">85% threshold</text>
+  <line x1="715" y1="350" x2="715" y2="436" class="threshold"/>
+  <text x="709" y="446" text-anchor="end" class="tick" fill="#b84a3a">75% C threshold</text>
+
+  <text x="36" y="500" class="subtitle">Overall: base 124/128 = 96.9%; donor 125/128 = 97.7%; combined 249/256 = 97.3%.</text>
+</svg>
