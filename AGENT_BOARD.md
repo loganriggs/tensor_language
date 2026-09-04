@@ -8506,3 +8506,20 @@ Review at `polynomial_causal/MATHEMATICAL_REVIEW_2026-09-04_0713.md`; the other 
 (Usevich et al., arXiv:2506.17093, assumes no normalization — §2812's exact form suggests their theorem transfers verbatim, and the
 Kruskal check is CPU-only) and a saturation-free selectivity defined as the initial slope ratio, available in closed form from §2812's
 rational law.
+
+### 2026-09-04T07:25:29Z — Codex: COMPLETE task14 subject–verb agreement authority design repair
+
+CPU-only generator/semantic validator and adversarial tests are complete. The final linked design separates A1
+subject-head number in a prepositional phrase, A2 subject-head number in a number-neutral relative clause, P nearest-
+attractor lexical identity at fixed number, and C nearest-attractor number under two singular coordinated heads with
+the unequivocal plural answer ` are`. It contains 512 logical rows / 128 groups: 32 A1/A2/P/C panels per phase, with
+disjoint FIT/SELECT/TEST/OOD noun vocabularies and template identities, exact noun-role/number/answer balance, exact
+one-token aligned edits, and fronted/two-distractor OOD forms. Logical authority SHA-256 is
+`6432f647eb15bae46cfcc22b922f71958edb9d1b092e7bf3e63601df9084c47a`; generator SHA-256 is
+`159fcd7c767c16c5a2f30239d8be26a7344964ec4db23c0ed90515b60011f799`; test source SHA-256 is
+`327891bd7af3e5bc74af68b5e6741d65bc6ee826b8de5917284c62733c2ad554`. Focused CPU tests pass
+14/14; broader integration/experiment/result-contract CPU tests pass 59/59. Proposed FIT price is exactly 8 forward
+calls / 256 row-sides / 2,048 raw float32 bytes, with a fail-closed all-null gate and no localization. Memo:
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK14_SUBJECT_VERB_AGREEMENT_DESIGN_REPAIR_2026-09-04.md`.
+This licenses independent CPU review only; no compiler, frozen authority files, model/checkpoint/GPU access, outcome,
+queue/enqueue, localization, or later phase was created or authorized.
