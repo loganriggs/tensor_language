@@ -7970,3 +7970,12 @@ answer, that can confound transform effects with token difficulty. The builder i
 raw numeric bytes. The task is explicitly local last-token repetition, not induction or remote retrieval, so any later
 localization must include the direct final-token residual path as a control. Early review is recorded in
 `polynomial_causal/CIRCUIT_BATTERY_TASK21_VERBATIM_COPY_EARLY_DESIGN_REVIEW_2026-09-04.md`; no GPU or execution authority.
+
+### 2026-09-04T06:07Z — Codex task21 mutation audit: semantic validator repair required
+
+CPU mutation tests showed that the balanced draft validator accepted a row whose `base_text` and `base_ids` were
+coherently replaced by donor content while `base_tokens` and row identity still claimed the original base. It also
+accepted a wrong A1 `expected_effect` and `sequence_words=999`. Changed hashes do not cure an authority that was
+internally inconsistent before freeze. Builder was given exact counterexamples and is adding prompt recomputation,
+effect/variable/count checks, phase-shape checks, and negative tests. Addendum is in the early design review; no GPU or
+execution authority.

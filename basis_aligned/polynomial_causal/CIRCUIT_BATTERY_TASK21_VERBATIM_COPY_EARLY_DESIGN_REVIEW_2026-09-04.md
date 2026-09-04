@@ -87,3 +87,20 @@ After repair and freeze, an independent review should verify:
 7. an explicit statement that a capability pass licenses only a new FIT localization preregistration.
 
 Until those checks pass on committed hashes, there is no execution authority.
+
+## 06:07 UTC addendum: semantic recomputation gap
+
+Mutation tests against the balanced task-21 draft found that `validate_authority` accepted all three of the following:
+
+1. replacing an `A1` row's `base_text` with its donor text and coherently replacing `base_ids`, while leaving the
+   structured `base_tokens` and row ID unchanged;
+2. changing the `A1` row's `expected_effect` from `toward_donor` to `invariant`; and
+3. changing `sequence_words` to `999`.
+
+The returned authority digests changed, but the validator did not reject the semantic contradictions.  A content hash
+can preserve bytes after freeze; it cannot establish that the bytes were internally correct when frozen.
+
+Before freeze, the validator must therefore recompute each side's exact prompt from its registered prefix and token
+list, check each transform's exact effect and changed-variable labels, check the sequence-word count, and enforce the
+phase-specific prefix/filler/repeat shape.  Tests must show rejection of a coherent text-plus-token-ID mutation, a
+wrong effect label, wrong sequence metadata, and an OOD row changed back to the in-distribution shape.
