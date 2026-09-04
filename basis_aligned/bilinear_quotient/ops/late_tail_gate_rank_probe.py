@@ -1,14 +1,16 @@
 #!/usr/bin/env python
-"""late_tail_gate_rank_probe -- BELOW THE MLP BLOCK, third cut: the late MLPs read the tail t through a core-gated linear map
-M(c) t = Down[L(c)*Rt + Lt*R(c)] (§2780; dense over hidden units, §2781). How many CORE directions set the gates? Gates computed from
-g = mx + top-r bus projection of (xh - mx): r = 0 is a constant gate (a fixed linear read of the tail), r = 768 is exact. core*core
-kept exact at 768, tail*tail dropped throughout (§2780: .0087). CUDA lane-1.
+"""late_tail_gate_rank_probe -- how many CORE directions independently modulate each late MLP's linear tail read. The cross term
+J(c) t = W_D[(L c) o (R t) + (R c) o (L t)] is linear in the gate c, so it is sum_i c_i J_i t over the 768 core coordinates; the exact
+weight-side Gram G_ij = tr(J_i^T J_j M_t) (M_t = tail second moment of the normalised input, docs 96-191), whitened by the core second
+moment, gives the spectrum of gate modes (the only item in the late-tail lineage that could REDUCE parameters: a low-rank gate = few
+scalar gates). CE arms replace c in the cross term by its projection on the top-k gate modes (k = 0/64/128/256), MLP(c) and MLP(t)
+exact. Instrument: materialised J_i for random pairs vs the Gram formula; GATE_EXACT = 0. CUDA lane-1.
 
-# BQGATE: EXPERIMENT  pred_a_instrument pred_b_constant_gates_recover_little pred_c_256_gate_dims_recover_most
-#                     pred_d_64_gate_dims_recover_much pred_e_512_gate_dims_nearly_exact
+# BQGATE: EXPERIMENT  pred_a_instrument pred_b_gate_is_high_rank pred_c_gate_rank90_large pred_d_top64_gate_modes_carry_a_minority
+#                     pred_e_gate_narrower_than_its_core_input pred_f_gate128_recovers_at_most_half_of_gate0
 
 SIGN CONVENTION (§2135): every CE number is CE ADDED ABOVE THE REAL MODEL on held-out docs 0-63 -- LOWER IS BETTER. Descriptive;
-nothing installs into the §312 frontier (§2125).
+nothing installs into the §312 frontier; the gate frame is a weight Gram whitened by a data second moment, scored by CE only (§2118 stays closed).
 Preregistration: polynomial_causal/LATE_TAIL_GATE_RANK_PROBE_PREREGISTRATION.md
 """
 import json, os, sys, time
@@ -25,9 +27,9 @@ if not torch.cuda.is_available():
 DEV = torch.device("cuda")
 ROOT = R.ROOT
 PREREG = R.POLY / "LATE_TAIL_GATE_RANK_PROBE_PREREGISTRATION.md"
-PRIOR = ROOT / "late_tail_cross_unit_probe_results.json"   # §2781
+PRIOR = ROOT / "late_tail_readout_rank_probe_results.json"   # §2798
 OUT = ROOT / "late_tail_gate_rank_probe_results.json"
-HASHES = {PREREG: "e53745b3c787cd2360e6d3883ed97ddceb86e736712cf51a359fd46b6f1d8034", PRIOR: "c563c548f2335b946f05d90eeeecb781df726337751c81be92e8e2ab5dc083c7",
+HASHES = {PREREG: "944490717580736f85e27a677f6d49434f220bc6d62a4ed64c1520ca70d12881", PRIOR: "e7098c78f4c999052b202d1131c65791a121924b3eb9cdf8efb220334fa35cc6",
           R.BLOB: "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
           R.NAT: "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"}
 RUNG = "late_tail_gate_rank_probe"
@@ -35,12 +37,12 @@ D, NH, HD, NL, V = R.D, R.NH, R.HD, R.NL, R.V
 TI = 256; FIT = (96, 192); EVAL = (0, 64); CH = 8
 KM = 16
 LATE7 = [("mlp", l) for l in range(11, 18)]; LAST2 = [("mlp", 16), ("mlp", 17)]
-PRIOR_BASE = 3.0322401; PRIOR_SPLIT8_1024 = 0.0374; PRIOR_LATE_MLP_768 = 0.1249; PRIOR_LATE_MLP_896 = 0.0662; PRIOR_DROP_TT_768 = 0.0087; LAM = 1e-2
+PRIOR_BASE = 3.0322401; PRIOR_SPLIT8_1024 = 0.0374; PRIOR_LATE_MLP_768 = 0.1249; PRIOR_EARLY_TAIL_ONLY = 0.0711; LAM = 1e-2
 K = 1024; SPLIT = 8; EARLY = list(range(0, 11)); LATE = list(range(11, 18))
 SITES = [("mlp", l) for l in range(NL)]; ASITES = [("attn", l) for l in range(NL)]; FINAL = ("final", -1)
 ESITES = [(kd, l) for l in EARLY for kd in ("attn", "mlp")]; LSITES = [("mlp", l) for l in LATE] + [("attn", l) for l in LATE]
-BARS = {"ce_tol": 1e-4, "repro_tol": 0.015, "b_max": 0.30, "c_min": 0.60, "d_min": 0.40, "e_min": 0.85}
-NULLS = {"b_min": 0.60, "c_max": 0.35, "d_max": 0.20, "e_max": 0.60}
+BARS = {"ce_tol": 1e-4, "repro_tol": 0.015, "exact_tol": 1e-3, "gram_tol": 1e-6, "b_eff": 307, "c_r90": 256, "d_cap": 0.5, "e_ratio": 0.8, "f_rec": 0.5}
+NULLS = {"b_eff": 128, "c_r90": 96, "d_cap": 0.8, "e_ratio": 1.0, "f_rec": 0.8}
 
 
 def check_hashes():
@@ -405,45 +407,119 @@ def main():
         for s_ in SET8:
             patch[s_] = head(s_, k, U_8)
         return run(patch)
-    class GateHead(OwnHead):
-        """MLP l reads the bus core c (top-768 of U_8; rest constant), t the dropped tail. Product = Lc*Rc + L(g)*Rt + Lt*R(g), tail*tail dropped,
-        with the GATE input g = mx + P_r (xh - mx), P_r the top-r bus directions (r = 0: constant gates; r = 768: exact = DROP_TT_768)."""
-        def __init__(self, l, r):
-            super().__init__(l, 768, "const", U_8[:, :768]); self.Ur = U_8[:, :r] if r > 0 else None
+    LB = list(range(SPLIT, NL))
+    Uk = U_8[:, :768]; Ut = U_8[:, 768:]
+    def perp(z):
+        return z - (z @ Uk) @ Uk.T
+    def core(z):
+        return (z @ Uk) @ Uk.T
+    # ---- exact weight-side gate Gram: G_ij = E_t <J_i t, J_j t> for the core coordinates i, j, where J(c) t = W_D[(L c) o (R t) + (R c) o (L t)]
+    #      = sum_i c_i J_i t and E over the tail second moment M_t; then weighted by the core second moment M_c (independence factorisation).
+    def gate_gram(l):
+        mlp = m.transformer.h[l].mlp; h = heads[("mlp", l)]
+        M = h["Cx"].double().to(DEV) + torch.outer(h["mx"].double(), h["mx"].double())
+        Ukd, Utd = Uk.double(), Ut.double(); Mc = Ukd.T @ M @ Ukd; Mt = Utd.T @ M @ Utd
+        Wl, Wr, Wd = mlp.Left.weight.double(), mlp.Right.weight.double(), mlp.Down.weight.double()
+        Lk, Rk, Lt, Rt = Wl @ Ukd, Wr @ Ukd, Wl @ Utd, Wr @ Utd
+        Gd = Wd.T @ Wd
+        Mrr = Gd * (Rt @ Mt @ Rt.T); Mll = Gd * (Lt @ Mt @ Lt.T); Mrl = Gd * (Rt @ Mt @ Lt.T).T
+        G = Lk.T @ Mrr @ Lk + Rk.T @ Mll @ Rk + Rk.T @ Mrl @ Lk + Lk.T @ Mrl.T @ Rk
+        G = 0.5 * (G + G.T)
+        ev_c, V_c = torch.linalg.eigh(Mc); ev_c = ev_c.clamp_min(1e-8 * float(ev_c.max()))
+        Mc_h = (V_c * ev_c.sqrt()) @ V_c.T; Mc_ih = (V_c / ev_c.sqrt()) @ V_c.T
+        Gw = Mc_h @ G @ Mc_h; Gw = 0.5 * (Gw + Gw.T); evw, Vw = torch.linalg.eigh(Gw); evw = evw.flip(0).clamp_min(0); Vw = Vw.flip(1)
+        return {"G": G, "Gw": Gw, "evw": evw, "Vw": Vw, "Mc_h": Mc_h, "Mc_ih": Mc_ih, "Mt": Mt, "Lk": Lk, "Rk": Rk, "Lt": Lt, "Rt": Rt, "Wd": Wd, "eff_rank_core_input": R.spectrum(Mc.cpu())["eff_rank"]}
+    def direct_check(g, n_pairs=6, seed=0):
+        """materialise J_i = W_D[diag(L_i) R_t + diag(R_i) L_t] for random i, j and compare tr(J_i^T J_j M_t) with the Gram formula."""
+        gen = torch.Generator().manual_seed(seed); worst = 0.0
+        for _ in range(n_pairs):
+            i, j = (int(v) for v in torch.randint(0, 768, (2,), generator=gen))
+            Ji = g["Wd"] @ (g["Lk"][:, i:i + 1] * g["Rt"] + g["Rk"][:, i:i + 1] * g["Lt"]); Jj = g["Wd"] @ (g["Lk"][:, j:j + 1] * g["Rt"] + g["Rk"][:, j:j + 1] * g["Lt"])
+            d = float(torch.trace(Ji.T @ Jj @ g["Mt"])); f = float(g["G"][i, j]); worst = max(worst, abs(d - f) / max(abs(d), 1e-12))
+        return worst
+    gates = {}
+    for l in LB:
+        gates[l] = gate_gram(l)
+        gates[l]["check"] = direct_check(gates[l]) if l in (SPLIT, NL - 1) else None
+        gates[l]["spec"] = R.spectrum(gates[l]["Gw"].cpu()); gates[l]["spec_unweighted"] = R.spectrum(gates[l]["G"].cpu())
+        pr_ = gates[l]["evw"] / gates[l]["evw"].sum(); gates[l]["captured"] = {k: float(pr_[:k].sum()) for k in (16, 64, 128, 256)}
+        gates[l]["trace_ratio_gw_over_g"] = float(gates[l]["evw"].sum())
+        for nm in ("G", "Mt", "Lt", "Rt", "Wd"):
+            gates[l][nm] = None
+        torch.cuda.empty_cache()
+    log(stage="gate_grams", check_8=gates[SPLIT]["check"], check_17=gates[NL - 1]["check"], eff=[round(gates[l]["spec"]["eff_rank"], 1) for l in LB], r90=[gates[l]["spec"]["rank_90"] for l in LB])
+    def med(v):
+        v = sorted(v); return v[len(v) // 2] if len(v) % 2 else 0.5 * (v[len(v) // 2 - 1] + v[len(v) // 2])
+    class Gate(OwnHead):
+        """MLP l = MLP(c) + J(Pi_k c) t + MLP(t): the cross term's gate input c is replaced by its projection onto the top-k gate modes (in the
+        core-second-moment-whitened metric; k = 0 removes the cross term). rec: fit-pass cross-term output energy (exact, no factorisation)."""
+        def __init__(self, l, k, rec=None):
+            super().__init__(l, 768, "const", Uk); self.l = l; self.k = k; self.rec = rec
+            g = gates[l]
+            self.Pi = None if k is None else (g["Mc_h"] @ g["Vw"][:, :k] @ g["Vw"][:, :k].T @ g["Mc_ih"]).float() if k > 0 else torch.zeros(768, 768, device=DEV)
         def __call__(self, w, x):
-            xh = F.rms_norm(x, (D,)); c = (xh @ self.U) @ self.U.T + self.mx - (self.mx @ self.U) @ self.U.T; t = xh - c
-            g = self.mx if self.Ur is None else self.mx + ((xh - self.mx) @ self.Ur) @ self.Ur.T
-            Lc = self.mlp.Left(c); Rc = self.mlp.Right(c); Lt = self.mlp.Left(t); Rt = self.mlp.Right(t); Lg = self.mlp.Left(g); Rg = self.mlp.Right(g)
-            return self.mlp.Down(Lc * Rc + Lg * Rt + Lt * Rg)
-    def gate(r):
-        return run({("mlp", l): GateHead(l, r) for l in range(SPLIT, NL)})
-    arms = {"SPLIT8_1024": split8(1024), "LATE_MLP_768": run({("mlp", l): head(("mlp", l), 768, U_8) for l in range(SPLIT, NL)}), "DROP_TT_768": gate(768), "GATE_0": gate(0), "GATE_128": gate(128)}
-    if not smoke:
-        arms["GATE_32"] = gate(32); arms["GATE_64"] = gate(64); arms["GATE_256"] = gate(256); arms["GATE_512"] = gate(512)
+            xh = F.rms_norm(x, (D,)); c = core(xh); t = xh - c; mlp = self.mlp
+            Mc_ = mlp.Down(mlp.Left(c) * mlp.Right(c)); Mt_ = mlp.Down(mlp.Left(t) * mlp.Right(t))
+            if self.Pi is None:
+                cross = mlp.Down(mlp.Left(xh) * mlp.Right(xh)) - Mc_ - Mt_
+            else:
+                cg = ((xh @ Uk) @ self.Pi.T) @ Uk.T
+                cross = mlp.Down(mlp.Left(cg) * mlp.Right(t) + mlp.Right(cg) * mlp.Left(t))
+            if self.rec is not None:
+                self.rec[("e_cross", self.l)] += float(cross.pow(2).sum()); self.rec[("n", self.l)] += xh.shape[0] * xh.shape[1]
+            return Mc_ + cross + Mt_
+    rec = {}
+    for l in LB:
+        rec[("e_cross", l)] = 0.0; rec[("n", l)] = 0
+    for i in range(0, fit_rows.shape[0], CH):
+        forward(m, fit_rows[i:i + CH, :TI], patch={("mlp", l): Gate(l, None, rec=rec) for l in LB})
+    indep = {l: gates[l]["trace_ratio_gw_over_g"] / max(rec[("e_cross", l)] / rec[("n", l)], 1e-12) for l in LB}
+    log(stage="fit", indep_factor=[round(indep[l], 3) for l in LB])
+    KS = (64, 128, 256)
+    arms = {"SPLIT8_1024": split8(1024), "GATE_EXACT": run({("mlp", l): Gate(l, None) for l in LB}), "GATE_0": run({("mlp", l): Gate(l, 0) for l in LB})}
+    arms.update({f"GATE_{k}": run({("mlp", l): Gate(l, k) for l in LB}) for k in KS})
     log(stage="arms", **{k: round(v, 4) for k, v in arms.items()})
-    C0 = arms["LATE_MLP_768"]; CT = arms["DROP_TT_768"]; gain = max(C0 - CT, 1e-9)
-    def rec_of(name):
-        return (C0 - arms[name]) / gain if name in arms else None
-    r0 = rec_of("GATE_0"); r64 = rec_of("GATE_64"); r256 = rec_of("GATE_256"); r512 = rec_of("GATE_512")
-    summ = {"cross_gain_768": C0 - CT, "recovery": {k: rec_of(k) for k in arms if k.startswith("GATE_")}}
-    inst_ok = bool(abs(ce0 - PRIOR_BASE) <= BARS["ce_tol"] and abs(arms["SPLIT8_1024"] - PRIOR_SPLIT8_1024) <= BARS["repro_tol"] and abs(C0 - PRIOR_LATE_MLP_768) <= BARS["repro_tol"] and abs(CT - PRIOR_DROP_TT_768) <= BARS["repro_tol"]) if not smoke else True
+    def sdiv(a, b):
+        return a / b if abs(b) > 1e-9 else float("inf")
+    recov = {k: 1.0 - sdiv(arms[f"GATE_{k}"], arms["GATE_0"]) for k in KS}
+    eff = {l: gates[l]["spec"]["eff_rank"] for l in LB}; r90 = {l: gates[l]["spec"]["rank_90"] for l in LB}
+    summ = {"gate_eff_rank_by_block": {str(l): eff[l] for l in LB}, "gate_rank90_by_block": {str(l): r90[l] for l in LB},
+            "gate_eff_rank_unweighted_by_block": {str(l): gates[l]["spec_unweighted"]["eff_rank"] for l in LB},
+            "core_input_eff_rank_by_block": {str(l): gates[l]["eff_rank_core_input"] for l in LB},
+            "energy_captured_by_top_modes": {str(l): {str(k): v for k, v in gates[l]["captured"].items()} for l in LB},
+            "median_gate_eff_rank": med(list(eff.values())), "median_gate_rank90": med(list(r90.values())), "median_captured_64": med([gates[l]["captured"][64] for l in LB]),
+            "median_gate_over_core_input_eff_rank": med([eff[l] / max(gates[l]["eff_rank_core_input"], 1e-9) for l in LB]),
+            "independence_factor_by_block": {str(l): indep[l] for l in LB}, "recovered_fraction_of_gate0": {str(k): recov[k] for k in KS},
+            "direct_check_rel_err": {"8": gates[SPLIT]["check"], "17": gates[NL - 1]["check"]}, "n_fit_tokens": rec[("n", SPLIT)]}
+    inst_ok = bool(abs(ce0 - PRIOR_BASE) <= BARS["ce_tol"] and abs(arms["SPLIT8_1024"] - PRIOR_SPLIT8_1024) <= BARS["repro_tol"] and abs(arms["GATE_EXACT"]) <= BARS["exact_tol"]
+                   and max(gates[SPLIT]["check"], gates[NL - 1]["check"]) <= BARS["gram_tol"]) if not smoke else True
     preds = {
         'pred_a_instrument': bool(inst_ok),
-        'pred_b_constant_gates_recover_little': bool(r0 is not None and r0 <= BARS["b_max"]),
-        'pred_c_256_gate_dims_recover_most': bool(r256 is not None and r256 >= BARS["c_min"]),
-        'pred_d_64_gate_dims_recover_much': bool(r64 is not None and r64 >= BARS["d_min"]),
-        'pred_e_512_gate_dims_nearly_exact': bool(r512 is not None and r512 >= BARS["e_min"]),
+        'pred_b_gate_is_high_rank': bool(summ["median_gate_eff_rank"] >= BARS["b_eff"]),
+        'pred_c_gate_rank90_large': bool(summ["median_gate_rank90"] >= BARS["c_r90"]),
+        'pred_d_top64_gate_modes_carry_a_minority': bool(summ["median_captured_64"] <= BARS["d_cap"]),
+        'pred_e_gate_narrower_than_its_core_input': bool(summ["median_gate_over_core_input_eff_rank"] <= BARS["e_ratio"]),
+        'pred_f_gate128_recovers_at_most_half_of_gate0': bool(recov[128] <= BARS["f_rec"]),
     }
-    nulls = {"b_null_const_ge_.60": bool(r0 is not None and r0 >= NULLS["b_min"]), "c_null_256_le_.35": bool(r256 is not None and r256 <= NULLS["c_max"]),
-             "d_null_64_le_.20": bool(r64 is not None and r64 <= NULLS["d_max"]), "e_null_512_le_.60": bool(r512 is not None and r512 <= NULLS["e_max"])}
+    nulls = {"b_null_eff_le_128": bool(summ["median_gate_eff_rank"] <= NULLS["b_eff"]), "c_null_r90_le_96": bool(summ["median_gate_rank90"] <= NULLS["c_r90"]),
+             "d_null_cap64_ge_.8": bool(summ["median_captured_64"] >= NULLS["d_cap"]), "e_null_ratio_ge_1": bool(summ["median_gate_over_core_input_eff_rank"] >= NULLS["e_ratio"]),
+             "f_null_rec128_ge_.8": bool(recov[128] >= NULLS["f_rec"])}
     out = {"rung": RUNG, "status": "complete", "smoke": smoke,
            "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
-           "preds": preds, "nulls": nulls, "bars": BARS, "null_bars": NULLS, "device": "cuda", "split": SPLIT,
-           "program": "blocks 8-17 MLP reads through the bus (top-768 of U_8; rest constant); core*core exact at 768, tail*tail dropped, the cross term's GATES L(g), R(g) computed from g = mx + top-r bus projection of (xh - mx) (GATE_r); GATE_0 = constant gates = a fixed linear read of the tail",
-           "instrument": {"baseline_ce": ce0, "prior_baseline": PRIOR_BASE, "split8_1024": arms["SPLIT8_1024"], "prior_split8_1024": PRIOR_SPLIT8_1024, "late_mlp_768": C0, "prior_late_mlp_768": PRIOR_LATE_MLP_768, "drop_tt_768": CT, "prior_drop_tt_768": PRIOR_DROP_TT_768},
+           "preds": preds, "nulls": nulls, "bars": BARS, "null_bars": NULLS, "device": "cuda", "split": SPLIT, "ks": list(KS),
+           "program": "per late MLP the gated tail read J(c)t = sum_i c_i J_i t is linear in the core gate c; the exact weight-side Gram G_ij = tr(J_i^T J_j M_t) (M_t = tail second moment, docs 96-191), whitened by the core second moment M_c, gives the gate-mode spectrum; arms replace c in the cross term by its projection on the top-k gate modes (k = 0 removes the cross term), MLP(c) and MLP(t) exact",
+           "instrument": {"baseline_ce": ce0, "prior_baseline": PRIOR_BASE, "split8_1024": arms["SPLIT8_1024"], "prior_split8_1024": PRIOR_SPLIT8_1024, "gate_exact": arms["GATE_EXACT"], "direct_check_rel_err": summ["direct_check_rel_err"]},
            "ce_added": arms, "summary": summ,
            "price": {"gpu_doc_forwards": int(fit_rows.shape[0]) + int(ev.shape[0]) * (1 + len(arms)), "cpu_doc_forwards": 0, "gpu_seconds": time.time() - started},
            "hashes": {str(k): (v if v and len(v) == 64 else R.sha256(k)) for k, v in HASHES.items()}, "script_sha256": R.sha256(SELF)}
+    if smoke:
+        print(json.dumps({k: out[k] for k in ("preds", "nulls", "instrument", "ce_added", "summary", "price")}, indent=1)); return
+    if smoke:
+        print(json.dumps({k: out[k] for k in ("preds", "nulls", "instrument", "ce_added", "summary", "price")}, indent=1)); return
+    if smoke:
+        print(json.dumps({k: out[k] for k in ("preds", "nulls", "instrument", "ce_added", "summary", "price")}, indent=1)); return
+    if smoke:
+        print(json.dumps({k: out[k] for k in ("preds", "nulls", "instrument", "ce_added", "summary", "price")}, indent=1)); return
     if smoke:
         print(json.dumps({k: out[k] for k in ("preds", "nulls", "instrument", "ce_added", "summary", "price")}, indent=1)); return
     from receipt import dump
