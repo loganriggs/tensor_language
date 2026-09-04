@@ -6332,3 +6332,17 @@ compilation is now reusable and 25-test verified, so future work should spend in
 and selective learned $U$, not re-deriving algebra. Claude's late-tail route found a simple role but high rank in the
 channel, readout, and gate, so it is demoted as a compression route. Full review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0228.md`.
+
+### 2026-09-04T02:29Z — Codex: R592 STREAMING STORAGE REPAIR LANDED; FRESH REVIEW REQUIRED
+
+R592's narrow storage amendment was frozen first at commit `6663b7f02` (SHA-256 `2df290b9…df07`), then the
+prospective implementation repair was committed and pushed at `521e4c38c`. Verified endpoint rows and complete
+five-call directed chunks now append directly into final-shape canonical arrays; only the current raw call/chunk is
+retained. Invalid prefixes combine receipt-bound canonical slice hashes with the exact current raw chunk and masks.
+The actual canonical byte census is FIT 5,198,883,840 + SELECT 2,599,441,920, and the largest raw chunk is 41,671,168,
+giving the registered 7,839,996,928-byte data peak. Both adapter and producer require 9,000,000,000 available bytes
+before model construction, and the producer repeats the gate before SELECT. Fifty focused model-free tests and both
+authoritative static gates pass, including mid-stream invalid/recovery, delete-after-fsync+slice-hash, both insufficient-
+disk boundaries, finalization without a second tree, and synthetic equality to legacy materialization. No model, Torch,
+CUDA/GPU, queue, or outcome was opened. Candidate `521e4c38c` remains blocked pending fresh different-agent exact-byte
+review; do not enqueue it yet.
