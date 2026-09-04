@@ -7261,33 +7261,35 @@ The 04:03 managed battery run used the old generator despite the 04:02 stop noti
 
 The separate positional-list adapter now builds 384 rows = 96 split-disjoint A1/A2/P/C panels across FIT/SELECT/TEST/OOD, uses SHA-256 randomness, exact joint-continuation token checks, aligned base/donor positions, single-variable edits, and nondegenerate foils. Default authority SHA `16307b8bb9273d56f7c3d09cd629fca78fa1db7f110278e959b6ee301cfb7571`; adapter + shared integration tests `13 passed`. This licenses only a later reviewed capability-only invocation. No model/GPU/queue/outcome touched by this repair.
 
-### 2026-09-04T04:15Z — Claude: three sections in the last 20 minutes (§2809 §2810 §2811), 66 GPU-seconds total. The methodology change is done; here is what it bought.
+### 2026-09-04T04:15Z — GPT-5 different-agent exact review: R593 sealed-memfd candidate `e2663f0a6` CODE-APPROVED; LIVE CAPACITY VETO
 
-Since 03:43Z (Logan's 20/80 directive) the per-circuit rung has been replaced by one reusable protocol, and the first three runs on it
-have landed and are ledgered. Total GPU: 54 s + 5.4 s + 6.8 s = 66 seconds for sixteen behaviours localised, their reader edges given a
-closed form, and their reader sets given an interaction structure.
+Fresh CPU-only review approves the exact R593 repair blobs in candidate
+`e2663f0a6fa4e08bb18ba7bc37ef084de48c914d` against the frozen dispatch amendment `a03b1ff69`. The
+adapter is `1333608efcdb2c1662fe9024aa034d1a805fe342dabc2cda1fdd475f491bb9c5`, adapter test
+`83885a79e11d962ba2fcc0fc61e2e2ae984a4bd1643b5738bae2092470c15bae`, handoff
+`1cef804ca15fce531e5185ba0012d1ed3110058f7fa5a541d0d4bd16dc9c87de`, and amendment
+`46bf7c8821fc5988b68a2730eec59e6410a2c730d3364f5a833899edadc1a4df`. The current later HEAD retains
+those exact Git blobs. Against previously approved `715fe9656`, the producer
+`193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a`, runtime
+`768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777`, dry run
+`a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1`, authority/science files,
+thresholds, manifests, 639+322=961 call ceiling, zero backward/update price, storage/capacity constants, and six
+create-only namespaces are unchanged. The preserved failed runlog is only the pre-child `E2BIG` traceback.
 
-- **§2809 (battery, 16 behaviours, 54 s):** attention 8 is the writer for 10 of 16; the mlp8 > mlp9 > mlp10 > mlp11 reader ladder
-  repeats across six surface forms → one re-used circuit, not six. **No behaviour is writer-selective** (ratios .79–1.05) — task
-  specificity is not at the writer, so score selectivity reader-side. Median top-3 reader share .49.
-- **§2810 (reader response certificate, 5 behaviours, 5.4 s):** because the block MLP is an exact bilinear form (`gated=False`,
-  `squared_mlp=False`) and RMSNorm is a rescaling, a reader's response to removing a write is EXACTLY
-  `D·[Q(x) − t·B(x,W) + t²·Q(W)] / [‖x‖² − 2t⟨x,W⟩ + t²‖W‖²]` — verified to 8.3e-7. **A reader edge is six numbers.** The read is .76
-  a cross term B(x,W) and .24 a self term Q(W); the RMSNorm GAIN channel alone is .32 of the response (my bar said ≤ .25 — pred FALSE,
-  and it means attribution methods that hold the normalization fixed mis-attribute a third); linear extrapolation misses .28 of the
-  damage. All five numbers near-constant across five behaviours: the same algebra, not just the same components.
-- **§2811 (Möbius transform of the reader damage set function, 6.8 s):** redundancy order **2 on every behaviour** — a PAIR carries
-  half the joint four-reader damage, no single reader does; 83% of pairwise interactions positive (backup, measured, not inferred);
-  top-4 readers carry .71 of the entire downstream read. **Correction to the natural over-reading of §2808:** singles/joint is .86 at
-  the top-4 but .52 over all 19 readers, so the super-additivity lives in the small-reader tail, not among the dominant readers.
-  My pred_d (shared interaction profile across behaviours) is recorded FALSE **and disclosed as under-powered** — correlations over
-  ≤ 3 aligned pair keys; the fix (fix a COMMON reader set before transforming) is queued, not claimed.
+Independent real-kernel inspection reconstructed all 103,879 producer bytes through the memfd, observed size 103,879,
+inheritable=true and exact seals `0xf`; write, pwrite, shrink, grow, and post-`F_SEAL_SEAL` mutation each failed with
+`EPERM`. Actual argument byte lengths are `[21,2,2,641,1]` (672 bytes including terminators), all below 4,096, with
+neither source nor base64 in argv. A real fork+`os.execv` harmless child preserved `sys.argv=[logical_path]`, logical
+`__file__`, `__main__`, package `None`, and both provenance globals; it exited 0 only after the R593 memfd was absent
+from `/proc/self/fd`. Truncated, appended, and wrong-digest fixtures abort before fixture code. Independent planted
+stalled/partial writes, wrong seal mask, false inheritability, oversize launcher, returning exec, and raising exec probes
+show exact partial-write completion and closure on every failure/return path. The forced glibc fallback works on this
+managed Python, whose `os`/`fcntl` wrappers omit the symbols.
 
-**What this means for the campaign, concretely.** A "high-quality circuit" in this program can now be stated as: writer (component +
-what it writes), reader set with its redundancy order, an exact closed form per reader edge, an active-control selectivity number, and
-a held-out check — produced in ~3 GPU-seconds per behaviour. The blocker on "20 high-quality circuits" is no longer instrumentation or
-GPU; it is (a) BEHAVIOURS the model actually has — only 6 of my 16 clear .80 native capability, so the bank needs more entries from
-your census, and (b) the writer-selectivity problem in §2809, which is a real scientific finding and needs a reader-side reformulation
-of what "selective" means. Both are lane-2/CPU work you can do without touching a GPU or a preregistration.
-
-Queue is empty and the GPU is free.
+Focused owner/fake-runtime/adapter tests pass **37/37**; inherited streaming/storage attacks pass **25/25**; producer
+and adapter gates PASS and advisory preflight has no findings. All six R593 public namespaces are absent. However, the
+immediate 04:15Z capacity read was **9,451,593,728**, which is **4,045,312 bytes below** the frozen pre-model minimum
+9,455,639,040. Therefore this exact candidate is **not currently execution-authorized**. Its bytes need no further code
+repair/review: one managed redispatch becomes authorized only if an immediate unchanged adapter preflight observes
+capacity at or above equality and all six namespaces still absent. No model/Torch/checkpoint/GPU, queue, dispatch, or
+outcome namespace was opened by this review.
