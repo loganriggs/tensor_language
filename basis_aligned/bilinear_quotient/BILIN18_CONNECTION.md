@@ -72471,3 +72471,46 @@ behaviours whose §2817 READS share is negative, and that is a change to a futur
 
 Price: 660 GPU forwards, 12.0 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_selectivity_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a, e FALSE, no null met. Preserved.
+
+## §2820 — HEADS 3 AND 7 OF ATTENTION 8 ARE THE WRITER, ON SIX OF SEVEN BEHAVIOURS, AND THEY REPLICATE R576's PAIR EXACTLY — but going finer than the component does NOT find selectivity (the active heads score 1.07 and 1.10, WORSE than the whole write), and my pred_e predicate was degenerate: it crowned an INERT head (b, c, d TRUE; a, e FALSE, e's null MET but not meaningfully)
+
+Attention 8's write is `c_proj(concat_h o_h)` with no bias, so it decomposes exactly and additively into nine head writes; each was
+carried through the §2808 residual path-patching instrument and removed from every reader edge plus the direct path, on OOD rows only,
+for §2817's seven capable attn8-writer behaviours. Sign convention: d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS that family's own
+answer; selectivity ratio = max(|d_P|, |d_C|) / max(d_A1, .5), LOWER IS MORE SELECTIVE.
+
+**pred_c and pred_d TRUE — the SAME head pair writes across surface forms, and it is R576's pair.** Heads **{3, 7}** are the top-2 on
+**6 of the 7** behaviours (keyed counter, month, numbered list, numeric run, paren list, roman list); the copy behaviour
+`verbatim_repeat` takes {3, 6}. And for the numbered list specifically the top-2 are exactly {3, 7} — a point prediction taken from
+Codex's R576, which ran on his own validated dataset. **That is an independent replication of a valid-dataset result by my repaired
+bank and my instrument, and it is the strongest evidence so far that the battery measures what it claims to.** Null "the pair is
+idiosyncratic" not met.
+
+**pred_b TRUE (null "≤ .35" not met) — two heads are the write.** Median top-2 share of the whole-write damage is **.877**
+(bar ≥ .60): roman list 1.02 and month 1.06 (the other seven heads contribute slightly negatively), paren list .92, numeric run .88,
+keyed counter .87, numbered list .75. The head ladders are steep and consistent: h3 leads on five behaviours (1.11–2.32 margin units),
+h7 leads on paren list, h4 is a distant third (.05–.47) and heads 0,1,2,5,6,8 are at or below ±.03.
+
+**pred_a FALSE — and the bar, not the instrument, is what failed.** Max deviation of `Σ_h W_h` from the whole write is 1.83e-4 against
+a registered 1e-4. This is fp32 accumulation over nine masked 1152-dimensional projections; the arithmetic is exact in principle and
+the deviation is five orders of magnitude below the write's own scale. Scored FALSE as written. The bar should have been set from the
+dtype (a 1e-3 absolute bound, or a relative one) rather than copied from the earlier single-tensor identity checks, where 1e-4 was
+appropriate.
+
+**pred_e FALSE, its null MET, and the predicate was DEGENERATE — recorded as a design error of mine, not as a finding.** I registered
+"heads do not rescue selectivity" as `(whole-write ratio) − (best head's ratio) ≤ .25`, and it read .999, apparently saying some head
+IS selective. It is not: the "best" head is an INERT one every time — head 2 on the keyed counter, head 0 on the numbered list, head 5
+on month and roman — each with A1 damage of ±0.001 margin units. My ratio has no minimum-damage requirement, so a head that does
+nothing at all scores as perfectly selective. This is the third time I have registered a clause a trivial object passes, and the rule
+in my notes ("ask what a trivial or random object would score") would have caught it in seconds.
+
+**The corrected quantity, reported descriptively and NOT as a scored prediction, because it was not registered:** among the heads that
+actually write, selectivity is not merely absent, it is *worse* than the component's. Mean over the six successor behaviours of head 3's
+ratio is **1.066** and of head 7's is **1.104**, against the whole write's 1.00–1.07 — each head alone damages the controls slightly
+more, relative to its target damage, than the two together do. Head 4, the small third contributor, is the only one with a lower ratio
+(.05–.70) and it carries .02–.16 of the write. So the §2817/§2819 picture stands and is sharpened: going finer than attention 8 on the
+WRITE side does not localise task specificity; the specificity is on the READ side and increases with depth (§2819, mlp11 on 6 of 7).
+
+Price: 660 GPU forwards, 11.4 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_writer_head_split_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a FALSE (bar too tight for fp32),
+e FALSE with its null met but on a degenerate predicate, disclosed. Preserved.

@@ -5427,3 +5427,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   pred_a FALSE (only 3 of 7 reach the .25 bar → gradient, not a clean selective component). pred_e FALSE by MY registration flaw:
   a successor-shaped consistency band applied to verbatim_repeat, whose circuit runs through DIRECT. OPEN: is mlp11 the selective
   component for behaviours whose writer is NOT attn8? Does mlp11's selectivity survive a finer decomposition (neurons/rank)?
+- §2820 circuit_battery_writer_head_split (Claude, LANE 1 CUDA, 11.4 s, 660 GPU forwards): b,c,d TRUE; a,e FALSE. Heads {3,7} of
+  attention 8 are the top-2 writers on 6 of 7 behaviours (top-2 share .877) and EXACTLY reproduce Codex's R576 head pair on the
+  numbered list — an independent replication of a valid-dataset result by the repaired bank. pred_a FALSE on a bar too tight for fp32
+  (1.83e-4 vs 1e-4 over nine masked 1152-d projections). pred_e FALSE on a DEGENERATE predicate of mine: the "most selective" head is
+  an INERT head (A1 damage ±.001) because the ratio has no minimum-damage floor — third instance of the trivial-object class of error.
+  Corrected descriptive number: among ACTIVE heads, h3 ratio 1.066 and h7 1.104 — worse than the whole write's 1.00. Specificity is
+  not on the write side at any granularity. OPEN: a minimum-damage floor on every selectivity ratio from the next document on.

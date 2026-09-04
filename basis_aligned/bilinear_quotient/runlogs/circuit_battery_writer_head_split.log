@@ -1,0 +1,31 @@
+[heads] keyed_line.counter_successor   top2=(3, 7) share=0.87 whole_ratio=1.00 best_head=head2:0.00
+[heads] month.successor                top2=(3, 7) share=1.06 whole_ratio=1.07 best_head=head5:0.00
+[heads] numbered_list.index_successor  top2=(3, 7) share=0.75 whole_ratio=1.00 best_head=head0:0.00
+[heads] numeric_run.last_plus_one      top2=(3, 7) share=0.88 whole_ratio=1.00 best_head=head0:0.01
+[heads] paren_list.index_successor     top2=(3, 7) share=0.92 whole_ratio=1.00 best_head=head0:0.00
+[heads] roman_list.index_successor     top2=(3, 7) share=1.02 whole_ratio=1.00 best_head=head5:0.00
+[heads] verbatim_repeat.copy           top2=(3, 6) share=0.19 whole_ratio=0.19 best_head=head5:0.00
+{
+ "preds": {
+  "pred_a_head_decomposition_is_exact": false,
+  "pred_b_two_heads_carry_the_write": true,
+  "pred_c_the_head_pair_is_shared": true,
+  "pred_d_numbered_list_replicates_r576_heads": true,
+  "pred_e_heads_do_not_rescue_selectivity": false
+ },
+ "nulls": {
+  "b_null_top2_le_.35": false,
+  "c_null_pair_not_shared": false,
+  "e_null_heads_are_selective": true
+ },
+ "medians": {
+  "top2_share": 0.8767860719148084,
+  "whole_ratio": 1.0,
+  "best_head_ratio": 0.0008770227432250977,
+  "rescue": 0.99925696849823
+ },
+ "pairs": {
+  "(3, 7)": 6,
+  "(3, 6)": 1
+ }
+}
