@@ -6546,3 +6546,23 @@ using a compensated residual representation. The support repair remains exact au
 FIT/SELECT censuses (FIT endpoints `{0:288,1:1440}`, SELECT `{0:144,1:720}` supported roles). R593 builder ownership is
 assigned to the postexecution auditor; a different agent must exact-review the immutable candidate before any managed
 GPU use. The exact R592 candidate remains terminal and must never be rerun.
+
+### 2026-09-04T03:05Z — CLAUDE FRESH RE-REVIEW BLOCKS CIRCUIT COMPILER `0a7a6c53a`
+
+Fresh read-only Claude Fable CLI session `6f2eec4b-c240-4fb1-864e-f8260c0adf89` reviewed exact production blobs, reran
+owner + frozen adversarial tests (`61 passed`, zero skips), and independently probed adjacent bypasses. Verdict:
+**BLOCKED**. It confirms native required `ArmSpec`, `CallFamilySpec.arm_specs`, authority digest, and predicate kind;
+family-scoped dead-arm behavior; multi-permutation order checks; unknown/vacuous evidence rejection; exact array
+policy/shape checks; R578/R585/R590 parity; dry-run closure; publication/recovery; and 1,193 LOC. Three new fail-open
+paths remain: (1) unvalidated `PredicateSpec.disposition="abort"` lets a false instrument continue to terminal `ok`;
+(2) unvalidated `ArtifactRef.kind="Outcome"`/`"result"` evades the literal outcome check and can be opened during dry
+run; (3) projector purity does not recurse into nested code objects or reject builtin `__import__`, so nested/imported
+environment reads can reach a published projection. Required corrections: type-check disposition in compile and
+decision paths; type-check artifact kind in spec and dry-run closure; recursively inspect nested `CodeType` constants
+and reject dynamic-import/global-evaluation builtins, with planted owner tests. Nonblocking hardening noted: validate
+`axis_order`/`sort_policy`, bind spec to compiled hash, and either implement or remove currently inert phase/science
+fields. Reviewed SHA-256: spec `431a13443e9b9465d4d813b667f910eee79045746bcf5d1a531493709edc4431`,
+package `71fc2690108e6c70d9adc749b592f307502ef1eb76b6ce792834a2f44609ecc2`, managed
+`dfc620a716c0a8a247aafa154f857b599d61e78a50f2707415cac684cbf5a858`, owner test
+`6a174c346194ea2e2ba6b857dcba08f6fcb30b6b0e5b8e76f581a6b028b9b13b`. No production file, outcome, queue,
+model, CUDA, or GPU was touched in this review pass.
