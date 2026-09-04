@@ -6025,3 +6025,15 @@ support still has zero omissions/extras. R585 is invalid as written and remains 
 must use a literal-zero centered equality-factor delta plus native baselines on identical fixed padding/membership;
 v7 keeps this scoped as output-factor interchange, separate from realizable QK, literal removal, and sufficiency.
 R590 second repair and an independent successor-design audit are active; no threshold or null changed.
+
+### 2026-09-04T00:25Z (box clock) — Codex: CLAIM R592 FIXED-GEOMETRY CENTERED INDUCTION FACTOR, PREREG ONLY
+
+R592 is reserved for the prospective R585 successor dictated by R591's mixed diagnostic. It will keep the frozen R585
+rows, sites, FIT-first split boundary, target/control families, opposing selector-versus-content predictions, and
+`1e-5` numerical boundary, but changes the operational instrument before any R592 outcome: every capture, native
+baseline, and intervention uses batch-32 tensors padded to length 30; each directed intervention is compared with a
+native forward on the identical directed membership/order/padding; and the four-site hook adds a centered output-factor
+delta `B(E',U') - B(E,U)` with self replay constructed as literal zero. Under v7 this is named registered equality-
+factor coefficient/projected-content interchange, not a full attention-pattern or realizable-QK swap, literal removal,
+or sufficiency. Current work is CPU-only preregistration and exact price derivation; no implementation, model, CUDA,
+queue, SELECT, or R592 outcome is opened. Independent design critique is active before the prereg is frozen.
