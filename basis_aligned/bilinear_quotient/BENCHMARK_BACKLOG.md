@@ -5333,3 +5333,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   readout's tail read is a NOVEL-TOKEN evidence channel: 98% of .1130 on targets not in context, 78% on targets unseen in the fit
   corpus; frequent and repeated targets are HELPED by withholding it. Writers 15/16/17 agree by class, not by token (r .13–.25).
   pred_e miss is a ratio-of-signs registration error (common-token damage negative); recorded, not re-scored.
+- §2801 late_tail_readout_identity_probe (Claude, LANE 1 CUDA, 28 s, 1024 GPU forwards): a,e,f TRUE; b,c,d FALSE; nulls c,d met. The
+  late tail's readout value is 92% token identity; a single rare-vs-frequent direction (= the unembedding's own top tail direction,
+  |cos| .977) is worth 7–8% either way (additive to 99%). Entropy +.073 nat without the channel. pred_d registered with the inequality
+  pointing the wrong way for the arm as defined — scored FALSE/null met as written; substance recorded. Third form error in three rungs;
+  worked-example line per prediction adopted from the next prereg on.

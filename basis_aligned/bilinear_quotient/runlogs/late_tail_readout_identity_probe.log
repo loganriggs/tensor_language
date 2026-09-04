@@ -1,0 +1,110 @@
+{"stage": "heads_done", "t": 13.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.4}
+{"stage": "fit", "n_fit_tokens": 24576, "mu_norm_17": 6416.668, "t": 15.2}
+{"stage": "frames", "cos_df_WU1": 0.9768, "cos_df_PCA1": 0.1477, "tail_cov_energy_along_df": 0.0109, "tail_cov_energy_WU1": 0.0106, "tail_cov_energy_PCA1": 0.0637, "WU_logit_energy_share_along_df": 0.0671, "cos_u_vs_WU_meanA": -0.0809, "t": 16.9}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "FINAL_ONLY": 0.113, "KEEP_ALL": 0.0, "KEEP_FREQ1": 0.105, "DROP_FREQ1": 0.0092, "KEEP_WU1": 0.1047, "KEEP_PCA1": 0.1092, "KEEP_FREQ1_WU32": 0.0908, "KEEP_RAND1_0": 0.1126, "KEEP_RAND1_1": 0.1124, "KEEP_RAND1_2": 0.1126, "t": 27.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_frequency_direction_alone_recovers_a_real_share": false,
+  "pred_c_frequency_direction_beats_the_top_unembed_direction": false,
+  "pred_d_channel_is_mostly_identity_not_frequency": false,
+  "pred_e_withholding_the_channel_raises_entropy": true,
+  "pred_f_frequency_direction_value_sits_on_novel_targets": true
+ },
+ "nulls": {
+  "b_null_rec_freq1_le_.05": false,
+  "c_null_freq1_le_wu1": true,
+  "d_null_drop_frac_le_.6": true,
+  "e_null_entropy_change_le_0": false,
+  "f_null_novel_share_le_.4": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "FINAL_ONLY": 0.11303674269764108,
+  "KEEP_ALL": 1.4569231154837325e-08,
+  "KEEP_FREQ1": 0.1050221354314489,
+  "DROP_FREQ1": 0.009163551751245835,
+  "KEEP_WU1": 0.10469181836052743,
+  "KEEP_PCA1": 0.1091859589904205,
+  "KEEP_FREQ1_WU32": 0.09076968385673867,
+  "KEEP_RAND1_0": 0.11260036302542065,
+  "KEEP_RAND1_1": 0.11242937542179088,
+  "KEEP_RAND1_2": 0.11261829979129168
+ },
+ "summary": {
+  "recovered_fraction_of_readout_consumption": {
+   "FREQ1": 0.07090267354598356,
+   "WU1": 0.07382488328981007,
+   "PCA1": 0.03406665492406258,
+   "FREQ1_WU32": 0.19698956560048764,
+   "RAND1_0": 0.0038605117398657907,
+   "RAND1_1": 0.005373184518195351,
+   "RAND1_2": 0.003701830894655922
+  },
+  "recovered_rand1_mean": 0.0043118423842390214,
+  "drop_freq1_over_final_only": 0.08106701885206628,
+  "freq1_over_wu1": 0.9604170082822217,
+  "freq1_over_pca1": 2.081292504474876,
+  "freq1_wu32_minus_wu32_prior_2798": 0.003989565600487632,
+  "prior_rec_wu32_2798": 0.193,
+  "entropy": {
+   "baseline": 3.060744524002075,
+   "FINAL_ONLY": 3.1332606375217438,
+   "KEEP_ALL": 3.06074458360672,
+   "KEEP_FREQ1": 3.1125159859657288,
+   "DROP_FREQ1": 3.075155884027481,
+   "KEEP_WU1": 3.1130233108997345,
+   "KEEP_PCA1": 3.1434316635131836,
+   "KEEP_FREQ1_WU32": 3.1117503345012665,
+   "KEEP_RAND1_0": 3.133007138967514,
+   "KEEP_RAND1_1": 3.1332366168498993,
+   "KEEP_RAND1_2": 3.1322507560253143,
+   "final_only_minus_baseline": 0.07251611351966858,
+   "keep_freq1_minus_baseline": 0.051771461963653564
+  },
+  "per_token_by_class": {
+   "FINAL_ONLY": {
+    "induction": 0.04737438444149069,
+    "repeat": -0.00852398887261791,
+    "novel": 0.18818584806968483
+   },
+   "KEEP_FREQ1": {
+    "induction": 0.031518339676123115,
+    "repeat": -0.00962708580293563,
+    "novel": 0.17804044547385317
+   },
+   "DROP_FREQ1": {
+    "induction": 0.014441871735007123,
+    "repeat": 0.00013227351922369044,
+    "novel": 0.012867212466032747
+   }
+  },
+  "per_token_by_freq": {
+   "FINAL_ONLY": {
+    "unseen": 0.2999190584626486,
+    "common_ge64": -0.04929451746305239
+   },
+   "KEEP_FREQ1": {
+    "unseen": 0.3132883312509615,
+    "common_ge64": -0.05181224927803627
+   },
+   "DROP_FREQ1": {
+    "unseen": -0.009528186614884084,
+    "common_ge64": 0.0029809958378857137
+   }
+  },
+  "novel_share_of_freq1_recovery": 0.7431851535684142,
+  "frame_facts": {
+   "cos_df_WU1": 0.976829469203949,
+   "cos_df_PCA1": 0.14767949283123016,
+   "tail_cov_energy_along_df": 0.010851150622022951,
+   "tail_cov_energy_WU1": 0.01060860018824145,
+   "tail_cov_energy_PCA1": 0.06371078532567387,
+   "WU_logit_energy_share_along_df": 0.06714656680983673,
+   "cos_u_vs_WU_meanA": -0.08092112609221737
+  },
+  "prior_final_only_2797": 0.113,
+  "n_fit_tokens": 24576
+ }
+}
