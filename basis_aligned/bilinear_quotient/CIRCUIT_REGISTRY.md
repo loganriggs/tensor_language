@@ -12,6 +12,21 @@ Dedup discipline (§1092): before opening a thread, grep the ledger with MULTIPL
 vocabularies (old arcs predate the § era: "sink", "cost map", dotted head names), check
 this board, and check `leaf_duplicates.json` if drawing census-tag controls.
 
+## Hard prior-result and novelty gate
+
+The manual search above was insufficient: module-level facts and method failures were repeatedly
+rediscovered because they were not represented as version-2 behavior-circuit events. Before a new
+preregistration can be frozen, follow `CIRCUIT_PRIOR_ART_AND_NOVELTY_GATE.md` and attach a review
+receipt containing canonical object IDs, aliases searched, method family, matched prior claims,
+the explicit relation (`replication`, `extension`, `contradiction_test`, or `new_question`), and a
+one-sentence novelty delta. A reviewer blocks a preregistration that has a prior match but no
+explicit relation and novelty delta.
+
+Variance, activation energy, reconstruction error, or rank cannot be the primary circuit-discovery
+criterion. They are allowed as controls or implementation prices, or when paired with a declared
+task-conditioned causal measurement and a matched-capacity null. The known exceptions and module
+facts must be checked in the prior-result gate even when the exact experiment protocol is new.
+
 ## The pipeline (stages a circuit moves through)
 
 CANDIDATE → SCREENED (concentration + both controls clean, §1302/1315 standard)

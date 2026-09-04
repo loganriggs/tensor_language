@@ -13,8 +13,9 @@ state what was actually measured and what unit is being used.
 
 - [explanation_2026-09-04_1330.md](explanation_2026-09-04_1330.md) — standalone ten-hour circuit update: the 03:21
   circuit-first pivot; valid numbered-list path evidence; the repaired-but-still-diagnostic behavior battery; dense
-  MLP-unit and failed low-rank decompositions versus a task-defined causal output axis; attention-5's universal
-  near-constant write; the entangled numerical-roundness direction and its downstream readers; selectivity/control
+  MLP-unit and failed low-rank decompositions versus a task-defined causal output axis, explicitly correcting the
+  variance/energy lesson to a replication of old sections 617/836/1056; attention-5's held-out constant-write
+  refinement, explicitly separated from its already-known induction/content role; the entangled numerical-roundness direction and its downstream readers; selectivity/control
   corrections; strict task-17/task-21 capability failures and task-14's 97.27% pass; the repaired 1,088-pair agreement
   state experiment; two blocked physical compilers and the active stagewise repair; and a separate account of Claude's
   later frontier-scaling work without counting it as circuit identification
