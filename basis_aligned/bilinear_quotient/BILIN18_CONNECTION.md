@@ -76317,3 +76317,79 @@ Individually optimal shrinkage compounds down the cascade into collective over-s
 layer) carrying the largest single gain, and it is a hypothesis this rung does not test.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2900 — THE LOCAL/END-TO-END MISMATCH IS **PROCEDURAL, NOT PAIR-SPECIFIC**: SCALING STILL HELPS AFTER THE TABLE IS DROPPED AND `A` REFITS — BUT THE SLACK COLLAPSES FROM **0.1648 TO 0.0378** AND THE OPTIMAL SCALE MOVES FROM .5 TO .9
+
+Registered `polynomial_causal/FRONTIER_FRONT_NO_TABLE_SCALE_PREREGISTRATION.md` (11:01Z). Run `frontier_front_no_table_scale`, landed
+11:09Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_front_no_table_scale_results.json
+Price: 0 GPU forwards, 202.5 GPU-seconds, **2 pipeline runs** (`forwards_instrumented: false`, `pipeline_runs: 2` — the forward count is
+absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**; a **gain** is `cost(tb dropped) − cost(tb dropped and scaled)`, **POSITIVE =
+the scaling helps**. §2125 STANDS.
+
+**All five predictions TRUE; neither null met.**
+
+| `A` scale after the table is dropped | 0.25 | 0.5 | 0.75 | **0.9** |
+|---|---|---|---|---|
+| cost vs the frontier | +2.3642 | +1.1956 | +0.6607 | **+0.6436** |
+| **gain vs the tb-dropped stack** | −1.6828 | −0.5142 | +0.0207 | **+0.0378** |
+
+**pred_b HELD at deviation 0.0003** — dropping the table at refit time reads **+0.6814** against §2897's **+0.6811**, itself measured to
+a ten-thousandth against §2877. The anchor chain now spans four rungs.
+
+**pred_c HELD and `c_null_the_mismatch_was_pair_specific` did NOT fire.** After the token table is removed and the quadratic residual
+`A` has been **refitted to cover for it**, scaling `A` down *still* improves the result — by **+0.0378** at scale 0.9. **So the
+local/end-to-end objective mismatch §2890 identified is a property of the ridge fitting procedure itself, not an artefact of two
+co-fitted blocks dividing one job.** That was registered as the clause most able to limit my own top-ranked mathematical move, and it
+did not.
+
+**pred_d HELD, and it is the quantitative half of the story.** The available slack is **much smaller** once `A` has been refitted into a
+bigger job: **0.0378** against §2895's **0.1648** with the table present — a **4.4× reduction** — and the optimal scale moves from
+**0.5 to 0.9**, i.e. from heavy shrinkage to almost none. Refitting a block to do more work moves it most of the way to the end-to-end
+optimum on its own.
+
+**One thing this rung does not license, stated because the numbers invite it.** The best arm here sits at **L2_F +3.3172**, far worse
+than the published **+2.6736**: dropping the token table costs +0.6814 and scaling recovers only +0.0378 of it. **"Drop the table, not
+the residual" (§2897) is a statement about which half is more expressive, not a recommendation to drop it.** Nothing here is adopted.
+
+## §2901 — THE CASCADE HYPOTHESIS IS **REFUTED**: EVERY ADDED LAYER STILL HELPS, `b_null` FIRED, AND §2899's NON-COMPOSITION HAS A DIFFERENT MECHANISM
+
+Registered `polynomial_causal/FRONTIER_TAIL_PREFIX_SHRINKAGE_PREREGISTRATION.md` (11:10Z). Run `frontier_tail_prefix_shrinkage`, landed
+11:13Z. Parent **unmodified**.
+Results: frontier_tail_prefix_shrinkage_results.json
+Price: 0 GPU forwards, 124.4 GPU-seconds, **1 pipeline run** for ten arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** as above — a **negative cost is an improvement**.
+
+| prefix length (layers a10L… shrunk to .05) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | **8** |
+|---|---|---|---|---|---|---|---|---|
+| cost | −.0845 | −.1057 | −.1083 | −.1020 | −.1251 | −.1345 | −.1270 | **−.2048** |
+
+**pred_a, c, d, e HELD.** The curve is anchored at **both** ends to numbers other rungs measured: the global 0.20 arm reads **−0.2290**
+against §2898's **−0.2291** (deviation **0.0001**, a **seventh** reproduction of the adopted effect), and the single-layer arm reads
+**−0.0845** against §2899's **−0.0847** (deviation **0.0002**).
+
+**pred_b FAILED and `b_null_each_added_layer_helps` is MET.** The best prefix length is **8** — the full band. **My cascade hypothesis
+is refuted.** §2899 proposed that individually optimal shrinkage compounds down the chain into collective over-shrinkage, which predicts
+an interior argmin; instead the cost keeps falling as more layers are shrunk, with only small non-monotone wobbles (4 turns: n=4 above
+n=3, n=7 above n=6).
+
+### So what does explain §2899?
+
+The two facts sit together cleanly once the cascade story is dropped. Uniform **.05** across all eight layers gives **−0.2048**; uniform
+**.20** gives **−0.2290**. Each layer *alone* prefers .05 — with one layer shrunk, more shrinkage is better — but **with all eight
+shrunk, less is better.** §2899's composed arm (six layers at .05, two at .10) landed at −0.2092, between the two uniform values, exactly
+where that reading puts it.
+
+**The coupling is in the optimal *amount*, not in the *sign* of each layer's contribution.** Every layer's shrinkage helps, always and
+additively in sign; how much shrinkage is best depends on how many others are being shrunk. That is a weaker and more ordinary kind of
+interaction than a cascade, and it is what §2898's bounded additivity was already pointing at — additive near the operating point,
+not across the parameter range.
+
+**§2896's adopted global scale is untouched and now has seven reproductions.** Nothing here is adopted; the full band at .05 (−0.2048)
+is worse than the adopted configuration, as is every prefix.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

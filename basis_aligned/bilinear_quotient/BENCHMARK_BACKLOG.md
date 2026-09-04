@@ -5887,3 +5887,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2899] Cascade hypothesis, untested:** a10L feeds a11L, so individually optimal shrinkage compounds down the chain into collective
   over-shrinkage. Consistent with a10L (first layer) carrying the largest single gain. A cheap test: shrink a *prefix* of the band
   (a10L only, a10L–a11L, …) and see whether the gain saturates or reverses — eval-only, one run.
+
+- **[§2900] §2890's account is PROCEDURAL and survives its hardest registered test** — scaling still helps after the token table is
+  dropped and the residual refits (+0.0378 at scale .9), so the local/end-to-end mismatch is a property of ridge fitting, not of
+  co-fitted pairs. **But the slack collapses 4.4× (0.1648 → 0.0378) and the optimal scale moves .5 → .9**: refitting a block into a
+  bigger job moves it most of the way to the end-to-end optimum by itself. That bounds the expected payoff of a full end-to-end refit.
+- **[§2901] The cascade hypothesis is refuted; the coupling is in the optimal AMOUNT, not the sign.** Every added layer helps (best
+  prefix = 8); uniform .05 gives −0.2048, uniform .20 gives −0.2290. Each layer alone prefers .05, all eight together prefer ~.20. Any
+  future per-layer tuning must optimise the scales *jointly*, not one at a time — a small coordinate-descent or a single shared scale
+  with per-layer multipliers, both eval-only.
