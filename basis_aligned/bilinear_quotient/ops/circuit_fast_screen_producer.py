@@ -331,12 +331,50 @@ class Bilin18TorchBackend:
             )
         return changed
 
+    def _replace_heads(
+        self,
+        value,
+        batch: ModelBatch,
+        layer: int,
+        heads: Sequence[int],
+        donor_cache,
+    ) -> object:
+        """Replace an exact nonempty set of pre-projection head slices.
+
+        Donor capture already stores every head separately, so a joint mask
+        needs no new activation format and cannot alter an undeclared slice.
+        """
+        selected = tuple(heads)
+        n_head = self.model.config.n_head
+        if not selected or len(selected) != len(set(selected)) or any(
+            type(head) is not int or not 0 <= head < n_head for head in selected
+        ):
+            raise ProducerError("head subset must be nonempty, unique, and in range")
+        width = self.model.config.n_embd // n_head
+        changed = value.clone()
+        for index, (row_id, position) in enumerate(
+            zip(batch.row_ids, batch.semantic_positions)
+        ):
+            for head in selected:
+                site_id = f"attn:{layer:02d}:head:{head:02d}"
+                replacement = donor_cache.get((row_id, site_id))
+                if replacement is None or tuple(replacement.shape) != (width,):
+                    raise ProducerError(
+                        f"donor head cache lacks exact slice {row_id}/{site_id}"
+                    )
+                start, stop = head * width, (head + 1) * width
+                changed[index, position, start:stop] = replacement.to(
+                    device=value.device, dtype=value.dtype
+                )
+        return changed
+
     def _forward(
         self,
         batch: ModelBatch,
         *,
         capture: bool,
         patch_site: kernel.SiteRef | None = None,
+        patch_heads: tuple[int, tuple[int, ...]] | None = None,
         donor_cache: Mapping[tuple[str, str], object] | None = None,
     ) -> BatchOutput:
         torch, F, model = self.torch, self.F, self.model
@@ -356,6 +394,12 @@ class Bilin18TorchBackend:
                 def c_proj_pre(_module, arguments):
                     value = arguments[0]
                     preprojection["value"] = value
+                    if patch_heads is not None and patch_heads[0] == layer:
+                        return (
+                            self._replace_heads(
+                                value, batch, layer, patch_heads[1], donor_cache or {}
+                            ),
+                        ) + tuple(arguments[1:])
                     prefix = f"attn:{layer:02d}:head:"
                     if patch_site is None or not patch_site.site_id.startswith(prefix):
                         return None
@@ -419,6 +463,23 @@ class Bilin18TorchBackend:
     ) -> BatchOutput:
         return self._forward(
             batch, capture=False, patch_site=site, donor_cache=donor_cache
+        )
+
+    def patched_heads(
+        self,
+        batch: ModelBatch,
+        *,
+        layer: int,
+        heads: Sequence[int],
+        donor_cache: Mapping[tuple[str, str], object],
+    ) -> BatchOutput:
+        """Run one exact donor replacement for a declared head subset."""
+        selected = tuple(heads)
+        return self._forward(
+            batch,
+            capture=False,
+            patch_heads=(layer, selected),
+            donor_cache=donor_cache,
         )
 
 

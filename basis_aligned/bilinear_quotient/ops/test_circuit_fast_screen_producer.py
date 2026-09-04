@@ -265,6 +265,52 @@ def test_real_backend_head_helper_scatter_is_slice_and_position_local() -> None:
     ]
 
 
+def test_real_backend_multi_head_helper_changes_only_declared_slices() -> None:
+    class Tensor:
+        def __init__(self, values):
+            self.values = values
+            self.shape = (len(values),)
+
+        def to(self, **_kwargs):
+            return self.values
+
+    class State:
+        device = "fake"
+        dtype = "fake"
+
+        def __init__(self):
+            self.values = [[[0] * 6 for _ in range(3)]]
+
+        def clone(self):
+            copy = State()
+            copy.values = [[list(position) for position in row] for row in self.values]
+            return copy
+
+        def __setitem__(self, key, value):
+            row, position, interval = key
+            self.values[row][position][interval] = value
+
+    backend = object.__new__(producer.Bilin18TorchBackend)
+    backend.model = type("Model", (), {
+        "config": type("Config", (), {"n_embd": 6, "n_head": 3})()
+    })()
+    batch = producer.ModelBatch(("row",), "base", ((1, 2, 3),), (1,), (2,), (1,))
+    cache = {
+        ("row", "attn:04:head:00"): Tensor([7, 8]),
+        ("row", "attn:04:head:02"): Tensor([9, 10]),
+    }
+    state = State()
+    changed = backend._replace_heads(  # noqa: SLF001 - real helper regression
+        state, batch, 4, (0, 2), cache
+    )
+    assert state.values == [[[0] * 6 for _ in range(3)]]
+    assert changed.values == [
+        [[0, 0, 0, 0, 0, 0], [7, 8, 0, 0, 9, 10], [0, 0, 0, 0, 0, 0]]
+    ]
+    with pytest.raises(producer.ProducerError, match="nonempty, unique, and in range"):
+        backend._replace_heads(state, batch, 4, (0, 0), cache)
+
+
 def test_import_and_dryrun_have_no_torch_fastload_or_cuda_access(monkeypatch) -> None:
     tree = ast.parse(SOURCE.read_text())
     imports = {

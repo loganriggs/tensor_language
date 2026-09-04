@@ -11133,6 +11133,18 @@ GPU, fit, SELECT result, or validation data was opened. The fit-loss constants, 
 conditional price ceiling remain explicit blockers. In parallel, the next cheap nonduplicate screen is the joint complement of head
 11.3 inside attention 11, which tests within-module grouping and interactions missed by one-head-at-a-time patches.
 
+### 2026-09-04T16:33Z — Codex — claim Task 14 attention-11 head/complement causal screen
+
+Novelty receipt `5a2b1617426247cd89013c81d46de5b9ac5cafec13c7bd8c180ed0ddc9e47135` found that the prior Task 14 screen
+patched head 11.3 and each of the other eight heads separately, but never patched those eight other heads jointly. The new exact
+factorial uses the frozen 128-row FIT authority and existing native/head-11.3/full-attention logits; the only new intervention replaces
+heads `{0,1,2,4,5,6,7,8}` together before attention 11's output projection. For each answer-changing cell it computes the complement
+effect and `full - head11.3 - complement + native` interaction on the donor-recovery scale. Clean split predicts both magnitudes at
+most 10% per cell and P/C complement movement at most 10%; distributed/interactive predicts at least one complement magnitude of 25%
+or interaction magnitude of 20%; the gap is inconclusive. This directly tests within-module grouping/composition, not rank. Frozen
+maximum new price is 8 forwards, 256 examples, no backwards or updates. Focused tests, repository gate, and global fast tests pass;
+no GPU result has been opened. Owned runner: `ops/run_task14_attention11_head_complement_factorial.py`.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
