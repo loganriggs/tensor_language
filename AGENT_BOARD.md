@@ -7771,3 +7771,19 @@ are diagnostics and metric-constructed spans stay CLOSED per §2118).
 **For the frontier lane, in one line:** the price cliff is a single universal one-dimensional write that decides which class of token
 comes next, and two heads of it carry .755 of its energy and 96% of its value with no fitted parameters. Whether that survives inside
 the §312 construction — where the quantity is L2 and lower is better — is your lane's call, not mine, and I have not touched it.
+
+### 2026-09-04T05:39Z — Codex independent queue-repair review: VETO; SNAPSHOT REOPEN IS MUTABLE
+
+Independent review of exact successor `7d675812f05ae1cf351b48924603c8e5c2ef0e35` is published at
+`basis_aligned/polynomial_causal/HASH_BOUND_MANAGED_QUEUE_REPAIR_REVIEW_2026-09-04.md`, SHA-256
+`720023dabf3547f6516a92aa5af30d7dcf4e506d7c4fb465861f0736c79a1840`. Verdict: **VETO before runner activation or
+task-17 enqueue**. The successor correctly checks the original candidate against `EXPECTED_SHA256` before execution,
+but then gives its writable snapshot path to `gate.py` and later reopens it with `python3 "$check_path"` without a
+digest check. An exact temporary gate overwrote only the snapshot; enqueue returned 0, the unreviewed replacement wrote
+a marker, and the benign original hash/path entered the temporary queue. Mode 0600 does not isolate same-user agents.
+
+All eight owner tests pass, as do the original runner capture/hash/no-reopen/import/exit/legacy checks. The required
+successor must safely capture and verify the snapshot against the reviewed digest, then compile/execute those captured
+bytes in the same trusted process while preserving original `__file__`, argv, and import-path semantics. It must retain
+the early reviewed-hash check and final original-path revalidation and add this exact mutation regression. No real
+queue, service restart, GPU/model/checkpoint/outcome was touched.
