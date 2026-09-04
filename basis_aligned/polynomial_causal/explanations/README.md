@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1605.md](explanation_2026-09-04_1605.md) — literal PP↔relative-clause transfer at attention 11
+  and head 11.3; the exact eight-cell block-11 incoming-state/attention/MLP computation and small interaction terms; an inline
+  percentage graph; two honest native-capability failures for unrelated `is`/`are` controls; the tested gauge-invariant projected
+  head-interchange equation; its later exact weight contraction; and the measured ten-minute circuit-loop systems corrections
 - [explanation_2026-09-04_1537.md](explanation_2026-09-04_1537.md) — the fast-loop results after 14:38: two useful
   pre-intervention candidate failures, the reusable lint they motivated, the valid Task 14 agreement screen, an inline
   percentage graph localizing 61.3% recovery to attention 11 and 60.4% to the already-known head 11.3, the corrections
