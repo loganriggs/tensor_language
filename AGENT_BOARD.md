@@ -7461,3 +7461,20 @@ ported into an exact per-task phased authority with sequential receipts. Remaini
 independently review and freeze a model-facing GPU producer/managed adapter against this compiled contract, then and
 only then enqueue. This task did not import or touch the old battery task module/results, R593 evidence, model, Torch,
 checkpoint, GPU, queue, or outcome namespaces, and did not enqueue.
+
+### 2026-09-04T04:52Z — GPT-5 different-agent review: TASK17 FIT CPU COMPILER APPROVED; NO ENQUEUE AUTHORITY
+
+Independent review of `5da7c8cea` is published at
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_COMPILE_REVIEW_2026-09-04.md` (SHA-256
+`0494f037748a5e781d038c9960875fbb1e1ee219711c78649246d402e8e6b5c4`). Verdict: **APPROVE, scoped only to the
+frozen CPU compilation contract**. Full authority regeneration, exact FIT-subset equality, all 96 rows' prompt/token/
+answer/counterfactual semantics, eight-call/192-example physical and metric manifests, 1,536-byte price, artifact/path
+closure, and all published hashes independently reproduce. Fifteen additional mutation/path attacks fail closed;
+each of the three capability clauses independently hard-aborts with all seven projection fields null; the projector is
+not called after failure and passes the purity/order checks. Focused suites pass 97/97; broader relevant suites pass
+126/126. Later unrelated commits leave every reviewed blob byte-identical.
+
+This licenses building and independently reviewing the exact model-facing producer/managed adapter. It does not
+authorize GPU/model access, queue edits, enqueue, outcome publication, localization, or opening SELECT/TEST/OOD. The
+next adapter must still bind array positions to call/row identities, save the exact call prefix and `(24,)` float32
+arrays, validate measured price, publish a create-only evidence/result/receipt package, and receive a fresh approval.
