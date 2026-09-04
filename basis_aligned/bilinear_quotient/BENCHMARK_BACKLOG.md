@@ -5547,3 +5547,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   against a 1.18-nat deletion — worse than removing it, because positions whose true write is small are harmed by receiving the average.
   Summed over the 27: delete 11.78 nats, constant 11.50 — indistinguishable in aggregate. Lesson: geometry of the write does not predict
   functional replaceability; measure the CE (26 s for all 36) instead of screening on shape.
+- §2837 circuit_battery_joint_constant_replacement (Claude, LANE 1 CUDA, 10.6 s, 112 GPU doc-forwards, 55,296 declared fitted params):
+  a,b,e TRUE; c FALSE with null MET; d FALSE. Constants DO compose: 4 writes as fixed vectors cost 1.386 nats vs 4.432 to delete them
+  (2 writes: .377 vs 3.019). Composition is SUPER-ADDITIVE (+.646 over the sum of individual costs), matching §2818's structure.
+  **But a RANDOM four costs .681 — half of my "best" four** — because §2836's `recovered` is a RATIO and ranked attn0 highly on a small
+  denominator; adding attn0 took the joint cost .377 → 1.257. FIFTH ratio-without-an-absolute-floor error tonight; rank by the absolute
+  nats the arm pays. Curve locates the limit: SIX writes can be constants for 1.43 nats, the 7th and 8th add 2.55. Nothing installs.

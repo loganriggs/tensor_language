@@ -73236,3 +73236,52 @@ positions where the write is small can tolerate receiving the average. The right
 Price: 328 GPU document-forwards, 26.1 GPU-seconds, 0 backwards, 41,472 declared fitted parameters (one mean vector per component).
 Results: circuit_battery_constant_write_census_results.json. (Claude, LANE 1 CUDA.) a, c, e TRUE; b FALSE with its null met; d FALSE.
 Preserved.
+
+## §2837 — CONSTANTS DO COMPOSE, BUT MY RANKING FOR CHOOSING THEM IS WORSE THAN RANDOM: replacing the four "best" writes with fixed vectors simultaneously costs 1.386 nats where DELETING the same four costs 4.432 — yet a random four costs only .681, and the culprit is attn0, whose 98%-"recovery" is an artifact of a ratio with a tiny denominator (a, b, e TRUE; c FALSE with its null MET; d FALSE)
+
+§2836 established that a constant can replace some writes and catastrophically not others, and recorded that it said nothing about
+replacing several at once. This rung does that, greedily by §2836's per-component recovery, k ∈ {1,2,3,4,6,8}, against a size-matched
+random control (seed 2836), means fitted on 24 documents and everything scored on 24 disjoint ones. Sign convention: d_ce = CE_arm −
+CE_NATIVE in nats, POSITIVE = the arm HURTS. **Not §312 L2; nothing installs; diagnostics only; metric-constructed bases/spans stay
+CLOSED (§2118 lineage).**
+
+| k | components | joint CONSTANT | joint DELETE | Σ individual constants | random-k CONSTANT |
+|---|---|---|---|---|---|
+| 1 | attn5 | **.128** | 2.211 | .128 | .023 |
+| 2 | + attn1 | **.377** | 3.019 | .334 | .131 |
+| 3 | + attn0 | 1.257 | 3.506 | .568 | .918 |
+| 4 | + mlp16 | 1.386 | 4.432 | .740 | **.681** |
+| 6 | + mlp4, mlp0 | 1.429 | 4.290 | 1.542 | 1.315 |
+| 8 | + mlp15, attn2 | 3.984 | 4.573 | 1.731 | 5.818 |
+
+**pred_a TRUE (null "≤ 0" not met) — constants do compose, and by a wide margin.** At k = 4 the joint constant arm costs **1.386** nats
+where deleting the same four costs **4.432** — a gain of **3.046** (bar ≥ .50). Two components can be constants for **.377 nats** where
+deleting them costs 3.019. So "several writes at once can be fixed vectors" is established; the compilation reading of §2835 survives
+into the joint setting.
+
+**pred_b TRUE (null "≤ −.20" not met) — and the composition is SUPER-ADDITIVE, as §2818 predicted for a different arm.** The joint
+constant at k = 4 costs .646 nats more than the sum of the individual constant costs (1.386 vs .740). Errors from separate constants do
+not cancel, they compound — the same qualitative structure §2818 measured for reader removals, now for write surrogates.
+
+**pred_c FALSE, its null MET — and this is the finding that matters.** A **random** four writes replaced by constants costs **.681**
+nats against **1.386** for my "best" four: the random set is **twice as good**. §2836's per-component recovery is therefore not merely
+uninformative for choosing a joint set, it is actively misleading. The cause is visible in the table: the third pick is **attn0**, and
+adding it takes the joint cost from .377 to 1.257. §2836 ranked attn0 highly because `recovered = 1 − const/zero` is a RATIO, and
+attn0's constant happens to be a small fraction of its own deletion cost — but that ratio says nothing about the absolute nats a joint
+arm pays. **This is the fifth time tonight a ratio without an absolute floor has misled me** (§2820's inert head, §2821's gate, §2825's
+floored nats, §2826's uncalibrated margin, and now this), and it is the same fix each time: rank by the absolute quantity the arm
+actually pays, not by a normalised one.
+
+**pred_d FALSE, null "≥ 5" not met — the curve does bend, at k = 8.** `k8 / k4` is **2.87** against a bar of ≤ 2.0: the cost is nearly
+flat from k = 4 to k = 6 (1.386 → 1.429) and then jumps to 3.984 at k = 8 when mlp15 and attn2 enter. I registered this prediction
+knowing §2836's distribution made it likely to fail and said its failure would "locate exactly how many writes in this model can be
+constants". It does: **six**, at a joint cost of 1.43 nats, with the seventh and eighth adding 2.55 between them.
+
+**Net statement.** Six of bilin18's 36 writes can simultaneously be fixed vectors for about 1.4 nats of document CE — against 4.3 nats
+for deleting the same six — and the best joint set is NOT the one greedy per-component ranking picks. Nothing here is installed or
+measured as an L2, and §2834's ρ = .714 (expensive components are the ones surrogates handle worst) still says the remaining cost
+concentrates where it hurts most.
+
+Price: 112 GPU document-forwards, 10.6 GPU-seconds, 0 backwards, 55,296 declared fitted parameters.
+Results: circuit_battery_joint_constant_replacement_results.json. (Claude, LANE 1 CUDA.) a, b, e TRUE; c FALSE with its null met;
+d FALSE. Preserved.

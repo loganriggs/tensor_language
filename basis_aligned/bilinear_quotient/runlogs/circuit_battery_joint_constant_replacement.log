@@ -1,0 +1,35 @@
+[joint] k=1 best_const=+0.1285 best_zero=+2.2109 sum_ind_const=+0.1285 rnd_const=+0.0228
+[joint] k=2 best_const=+0.3772 best_zero=+3.0193 sum_ind_const=+0.3345 rnd_const=+0.1315
+[joint] k=3 best_const=+1.2568 best_zero=+3.5062 sum_ind_const=+0.5678 rnd_const=+0.9179
+[joint] k=4 best_const=+1.3860 best_zero=+4.4319 sum_ind_const=+0.7398 rnd_const=+0.6813
+[joint] k=6 best_const=+1.4292 best_zero=+4.2901 sum_ind_const=+1.5423 rnd_const=+1.3155
+[joint] k=8 best_const=+3.9845 best_zero=+4.5734 sum_ind_const=+1.7309 rnd_const=+5.8184
+{
+ "preds": {
+  "pred_a_joint_beats_deleting_them": true,
+  "pred_b_joint_is_worse_than_the_sum_of_parts": true,
+  "pred_c_random_sets_are_worse": false,
+  "pred_d_the_curve_degrades_gracefully": false,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_no_gain_over_deleting": false,
+  "b_null_subadditive": false,
+  "c_null_random_as_good": true,
+  "d_null_blows_up": false
+ },
+ "summary": {
+  "beat_delete_nats": 3.0458736419677734,
+  "superadditivity_nats": 0.6462255318959547,
+  "random_gap_nats": -0.7047734260559078,
+  "k8_over_k4": 2.87472351526205,
+  "curve": {
+   "k1": 0.12845253944396973,
+   "k2": 0.37720417976379395,
+   "k3": 1.256813844045003,
+   "k4": 1.386037190755208,
+   "k6": 1.4291876157124834,
+   "k8": 3.984473705291748
+  }
+ }
+}
