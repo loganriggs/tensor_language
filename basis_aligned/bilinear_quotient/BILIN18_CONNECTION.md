@@ -74459,3 +74459,63 @@ to be unremarkable on it.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68): §2858–§2861 correct the campaign's instrument and
 touch no §312 frontier quantity.
+
+## §2862 — THE NULL SAYS THE INHERITED BAR MARKED A SIXTH OF THE MODEL, THE NEW METRIC HAS RANGE AND A STABLE RANKING — BUT attn8 IS ONLY AT THE 21st PERCENTILE, AND THE ARGMIN IS PURE NOISE
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_SELECTIVITY_NULL_PREREGISTRATION.md` (08:19Z, `date -u` read before the header).
+Run `circuit_battery_selectivity_null_calibration`, landed 08:21Z.
+Results: circuit_battery_selectivity_null_calibration_results.json
+Price: 6408 GPU forwards, 73.8 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=16, registered in advance.
+
+SIGN CONVENTION: `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS**; `selectivity = |d_C| / max(d_A1, .5)`, **LOWER = MORE
+SELECTIVE**; percentile = fraction of live components scoring LOWER, so **SMALL = attn8 is among the most selective**. No CE, no §312
+L2, nothing installs. (Frontier: L2 is CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER, §2135; norm-2304 at 2.6735, §2125 stands.)
+
+The v6 metric computed with **all 36 components** standing in as the writer, under §2820's admissibility gate (`|d_A1| ≥ .10`, so an
+inert component cannot be crowned selective by a ratio of two near-zero numbers).
+
+**pred_b, c, d, e TRUE; pred_a FALSE; no null met.**
+
+- **pred_c TRUE — the inherited bar was not the right bar, and this retires it for the new metric.** A median of **6** live components
+  per behaviour score ≤ .25 (range 4–9). A bar meant to mark one special writer marks roughly a sixth of the model. §2861 declined to
+  carry that bar across and this is the measurement that justifies the refusal.
+- **pred_b TRUE** — median (p90 − p10) across live components = **1.457**. The metric has real range, unlike the old one which
+  returned ≈1 for everything (§2860). **pred_e TRUE** — the gate binds, excluding inert components as designed.
+- **pred_d TRUE** — median Spearman ρ(component ordering, SELECT vs TEST) = **.596** (bar ≥ .50). Per-component selectivity is a
+  reproducible property, not noise.
+- **pred_a FALSE, by .014** — median percentile of attn8 = **.214** against a bar of ≤ .20. Registered as a miss and reported as one.
+  attn8 is more selective than about **79%** of live components, which is a real signal, but it is **not the outlier the prediction
+  required**. The behaviour-level spread is the substance: counting words **.000**, paren list **.056**, keyed counter **.100** —
+  against month **.433** and numbered list **.474**, i.e. entirely typical for two of the seven.
+
+### Post-hoc, unregistered, and the most important thing in this section
+
+Reading the same receipt further (**exploratory — no prediction was registered for it, and it is reported as exploratory**): the
+**most** selective component never agrees between SELECT and TEST — **0 of 7 behaviours**.
+
+| behaviour | best on SELECT | best on TEST | attn8 (SELECT) |
+|---|---|---|---|
+| counting words | attn8 (.017) | attn10 (.020) | .017 |
+| keyed counter | attn10 (.039) | attn11 (.121) | .159 |
+| month | attn10 (.036) | mlp10 (.003) | .423 |
+| numbered list | mlp8 (.043) | attn5 (.081) | .375 |
+| numeric run | attn3 (.014) | mlp8 (.000) | .082 |
+| paren list | attn11 (.111) | attn6 (.013) | .213 |
+| roman list | mlp15 (.034) | attn1 (.010) | .224 |
+
+So the *ranking* is reproducible (ρ .596) while the *argmin* is not reproducible at all. That is a textbook winner's curse: the minimum
+of a ratio over 36 candidates selects whichever component's noise happened to be most favourable, and it does not survive a disjoint
+split. **Nothing in this campaign may read "the most selective component" off this metric on a single split** — including me, which is
+why this is stated here rather than used. It also bounds §2861: the metric is usable for ranking and for comparing a NAMED component
+against a distribution, not for discovering the writer.
+
+**Consequence for the standing claim.** The campaign's negative ("zero behaviours writer-selective") was withdrawn in §2860 as
+un-established. §2861 and this section do **not** replace it with a positive claim: attn8 is at the 21st percentile, missing its
+registered outlier bar, with two of seven behaviours entirely typical. The honest state remains **un-established, now with a
+calibrated instrument and a documented failure mode** rather than with a metric that could not have measured it.
+
+Registered next, to attack the winner's curse directly rather than work around it: select the most-selective component on **FIT** and
+evaluate that component's selectivity on **TEST**, reporting the inflation between the selection value and the held-out value.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68); §2858–§2862 correct the campaign's instrument and
+touch no §312 frontier quantity.

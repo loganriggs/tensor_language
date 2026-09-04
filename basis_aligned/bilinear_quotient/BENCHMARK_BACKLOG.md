@@ -5734,3 +5734,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2858] Consider whether the bank should emit P with its own base.** The donor-side read is correct and needs no bank change, but
   every future rung must remember to use it. A `pack(b, "control")` accessor that resolves per family would make the correct thing the
   default. Weigh against the frozen-row-hash cost — a bank change perturbs no rows if it only adds an accessor.
+
+- **[§2862] Never read the argmin of the selectivity metric off one split.** The component ranking reproduces (Spearman .596) but the
+  most-selective component agrees between SELECT and TEST on **0 of 7** behaviours. Any future rung naming "the most selective
+  component" must select on FIT and evaluate on TEST, and report the inflation.
+- **[§2862] The .25 selectivity bar is retired for the v6 metric.** A median of 6 live components per behaviour clear it. Any bar for
+  the new metric must come from the null distribution measured here, not from the old metric's threshold.
