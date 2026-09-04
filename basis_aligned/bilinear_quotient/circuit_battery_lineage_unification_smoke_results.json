@@ -1,0 +1,80 @@
+{
+ "rung": "circuit_battery_lineage_unification",
+ "preds": {
+  "pred_a_reader_profiles_correlate": true,
+  "pred_b_roundness_direction_is_separable": true,
+  "pred_c_the_top_reader_is_shared": false,
+  "pred_d_random_direction_is_inert": true,
+  "pred_e_full_removal_reproduces_the_battery": false
+ },
+ "nulls": {
+  "a_null_no_correlation": false,
+  "b_null_shared_channel": false,
+  "d_null_random_hurts": false
+ },
+ "bars": {
+  "rho": 0.5,
+  "separable": 0.1,
+  "random": 0.05,
+  "repro": 0.3,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "rho_le": 0.0,
+  "separable_ge": 0.4,
+  "random_ge": 0.3
+ },
+ "layer": 8,
+ "head": 3,
+ "readers": [
+  "mlp8",
+  "mlp9",
+  "mlp10",
+  "mlp11",
+  "mlp1"
+ ],
+ "successor_task": "numbered_list.index_successor",
+ "seed": 2847,
+ "summary": {
+  "rho_roundness_vs_successor": 0.8999999999999998,
+  "roundness_recovery": {
+   "mlp8": 0.3247566819190979,
+   "mlp9": 0.30874547362327576,
+   "mlp10": 0.21341688930988312,
+   "mlp11": 0.1749751716852188,
+   "mlp1": 0.3102605640888214
+  },
+  "successor_damage": {
+   "mlp8": 0.5176327228546143,
+   "mlp9": 0.3621819019317627,
+   "mlp10": 0.27524828910827637,
+   "mlp11": 0.2041642665863037,
+   "mlp1": 4.162771224975586
+  },
+  "top_reader_roundness": "mlp8",
+  "top_reader_successor": "mlp1",
+  "arms": {
+   "FULL_READERS": 4.425868988037109,
+   "DROP_ROUNDNESS_DIR": 0.012327909469604492,
+   "DROP_RANDOM_DIR": 0.016060590744018555,
+   "REMOVE_ATTN8": 3.7778372764587402
+  },
+  "separability_fraction": 0.002785421236581151,
+  "random_fraction": 0.0036287994035588233,
+  "battery_reference_full": 2.6670982837677,
+  "repro_gap_fraction": 0.4164597155834635
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 39,
+  "backwards": 0,
+  "fitted_parameters": 128,
+  "gpu_seconds": 2.222339391708374
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_LINEAGE_UNIFICATION_PREREGISTRATION.md": "4845dc73f72e420c04e7c127c10b1db46f4bce4ba63959fc67b09b80e666674c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_roundness_decision_ladder_results.json": "7d6f806ddb5258518f9893cebbd2aa8b8d35668f6e1a34e97e7a26cbd0585fe7",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_v2_bank21_results.json": "7c1db82061bb6cac010fa7d2141cfc8e2faa4330759bdfe5aed299bab9a94d50",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
