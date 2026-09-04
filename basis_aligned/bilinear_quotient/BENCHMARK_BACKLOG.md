@@ -5480,3 +5480,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the damage, 2.4× the specificity) + a generic four-fifths remainder that has resisted units, lens, SVD, in-sample subspaces and
   competitor axes. OPEN: does the rank-1 axis transport to the non-attn8 writers (weekday/attn14, bracket/attn13)? Can the generic
   remainder be characterised by what it does to the CANDIDATE SET rather than to the margin?
+- §2828 circuit_battery_remainder_class_gate (Claude, LANE 1 CUDA, 6.8 s, 190 GPU forwards, 0 fitted params): b,c,d,e TRUE; a FALSE with
+  null MET. The type-gate hypothesis is dead: the WHOLE read costs .0148 nats of candidate-class mass (remainder .0153, causal .0055,
+  random .0001) while moving the within-class margin by 2.6 units — the read decides WHICH member, not whether the class applies.
+  pred_e is the keeper: |d_c(CAUSAL)+d_c(REMAINDER)−d_c(ALL)| = .0003 nats, so §2826/§2827's split is an essentially EXACT additive
+  decomposition. Causal axis is 5× more margin-efficient per nat of class disturbance (1.99 vs .38). MY registration flaw: pred_a's
+  .05-nat denominator floor exceeded both quantities, capping the ratio at .31 — unwinnable at the scale the effect turned out to have;
+  the conclusion rests on raw nats instead. OPEN: what DOES gate the class? (attn8's write itself? an earlier block?)

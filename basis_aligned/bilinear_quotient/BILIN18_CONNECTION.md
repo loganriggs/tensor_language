@@ -72816,3 +72816,50 @@ resisted every decomposition this campaign can apply.
 
 Price: 744 GPU forwards, 13.2 GPU-seconds, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_causal_basis_rank_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with both nulls met. Preserved.
+
+## §2828 — THE READ IS ENTIRELY WITHIN-CLASS, SO THE "TYPE GATE" HYPOTHESIS IS DEAD: removing the whole read costs .015 nats of candidate-class mass, the causal axis .006 and a random direction .0001 — and the two orthogonal parts add to the whole to within .0003 nats, so the split of §2826/§2827 is essentially EXACT rather than merely convenient (b, c, d, e TRUE; a FALSE, its null MET)
+
+Five decompositions asked WHERE the generic four fifths of the read lives and found nothing (§2822–§2825, §2827). This rung asked what
+it DOES, with a measurement the campaign had not used: candidate-class mass `log Σ_{v∈candidates} p(v)` in nats — how much probability
+the model puts on the task's answer class at all, independent of which member it picks. The registered hypothesis was that the remainder
+maintains the TYPE while the rank-1 causal axis selects the MEMBER. Arms: ALL, CAUSAL (along u), REMAINDER (the orthogonal complement
+of u inside the effect), RANDOM. OOD rows, zero fitted parameters. Sign convention: class-mass damage d_c = logmass_NATIVE − logmass_arm,
+POSITIVE = the arm REMOVES class mass.
+
+**pred_a FALSE, null MET — the type-gate hypothesis is refuted, and by a wider margin than the ratio suggests.** The registered ratio
+`|d_c(REMAINDER)| / max(|d_c(CAUSAL)|, .05)` reads .307 against a bar of 3.0 and a null of ≤ 1.0. But the ratio understates the result:
+**the whole read barely touches class mass at all.** Removing the ENTIRE removal effect costs **.0148 nats** of candidate-class mass;
+the remainder alone .0153; the causal axis .0055; a random direction .0001. For scale, the same arms move the within-class margin by
+2.6 margin units. So mlp10 and mlp11's read of attention 8's write is essentially **all within-class**: it decides which member, not
+whether a member of the class goes here. Whatever maintains the type in this circuit, it is not this read.
+
+**A registration note on the ratio itself.** My denominator floor of .05 nats — added to prevent division through zero — is larger than
+both quantities it compares, so pred_a's ratio was capped at |d_c(REMAINDER)|/.05 and could not have exceeded .31 no matter what the
+remainder did. The prediction was therefore unwinnable given the scale the effect turned out to have, and I did not know that scale when
+I registered it. Scored FALSE as written; the substantive conclusion above rests on the raw nats, which are reported and are not
+floor-dependent.
+
+**pred_e TRUE, and it is the most useful number in the section — the decomposition is essentially EXACT.** `|d_c(CAUSAL) +
+d_c(REMAINDER) − d_c(ALL)|` is **.0003 nats** (bar ≤ .20). CAUSAL and REMAINDER are exact orthogonal parts of one effect vector, and
+the network's response to removing them is additive to three decimal places at this scale. That licenses reading §2826's and §2827's
+split as a genuine decomposition of the read rather than as two arms that happen to be defined complementarily.
+
+**pred_c TRUE (null "≤ 0" not met) — the causal axis buys margin damage cheaply and the remainder expensively.** Margin damage per nat
+of class-mass damage is **1.99** for the causal axis against **0.38** for the remainder, a difference of **1.29** (bar ≥ .10). Even
+though both parts are within-class, the rank-1 axis is more than five times as efficient per unit of class disturbance — which is the
+quantitative version of "it is the direction the behaviour is measured on".
+
+**pred_b TRUE (null "≥ .50" not met) and pred_d TRUE (null "≥ .30" not met).** The causal axis costs .0055 nats of class mass (bar
+≤ .15) — as it should, being a difference of two members of the same class — and the random control .00008 nats (bar ≤ .05).
+
+**Where the circuit stands after §2808–§2828.** Attention 8's heads 3 and 7 write a context-blind copy of the last salient item
+(§2808, §2820, replicating Codex's R576 pair). Blocks 8–11's MLPs read it — nothing beyond mlp11 is causally live (§2821) — as a 2-of-4
+redundant threshold (§2818) whose specificity rises with depth (§2819). That read splits exactly and additively (§2828) into a rank-1,
+unfitted, low-energy, task-specific component along the answer-versus-competitor axis carrying a fifth of the margin damage at 2.4× the
+block's specificity (§2826), which does not widen (§2827), and a generic remainder of four fifths that is dense in units (§2822, §2823),
+has no transportable low-rank energy structure (§2824), is not aligned with the effect's own principal directions (§2825), reaches no
+further competitor axis (§2827), and — now — does not gate the answer class either (this section). The remainder is characterised by
+five things it is not and one thing it is: within-class and inefficient.
+
+Price: 190 GPU forwards, 6.8 GPU-seconds, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_remainder_class_gate_results.json. (Claude, LANE 1 CUDA.) b, c, d, e TRUE; a FALSE with its null met. Preserved.

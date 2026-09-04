@@ -1,0 +1,40 @@
+[class] keyed_line.counter_successor mlp10 rem_nats=0.001 caus_nats=0.001 ratio=0.0 within_gain=3.10 add_gap=0.000
+[class] keyed_line.counter_successor mlp11 rem_nats=0.000 caus_nats=0.000 ratio=0.0 within_gain=3.31 add_gap=0.000
+[class] month.successor              mlp10 rem_nats=0.165 caus_nats=0.008 ratio=3.3 within_gain=0.59 add_gap=0.002
+[class] month.successor              mlp11 rem_nats=0.124 caus_nats=0.007 ratio=2.5 within_gain=0.76 add_gap=0.000
+[class] numbered_list.index_successor mlp10 rem_nats=0.013 caus_nats=0.006 ratio=0.3 within_gain=3.52 add_gap=0.001
+[class] numbered_list.index_successor mlp11 rem_nats=0.008 caus_nats=0.005 ratio=0.2 within_gain=3.26 add_gap=0.000
+[class] numeric_run.last_plus_one    mlp10 rem_nats=0.034 caus_nats=0.001 ratio=0.7 within_gain=1.35 add_gap=0.000
+[class] numeric_run.last_plus_one    mlp11 rem_nats=0.016 caus_nats=0.001 ratio=0.3 within_gain=0.10 add_gap=0.000
+[class] paren_list.index_successor   mlp10 rem_nats=0.034 caus_nats=0.006 ratio=0.7 within_gain=2.05 add_gap=0.001
+[class] paren_list.index_successor   mlp11 rem_nats=0.015 caus_nats=0.007 ratio=0.3 within_gain=2.15 add_gap=0.000
+[class] roman_list.index_successor   mlp10 rem_nats=0.027 caus_nats=0.027 ratio=0.5 within_gain=-0.03 add_gap=0.006
+[class] roman_list.index_successor   mlp11 rem_nats=0.003 caus_nats=0.008 ratio=0.1 within_gain=-2.52 add_gap=0.001
+[class] verbatim_repeat.copy         mlp10 rem_nats=0.019 caus_nats=0.002 ratio=0.4 within_gain=1.24 add_gap=0.000
+[class] verbatim_repeat.copy         mlp11 rem_nats=0.011 caus_nats=0.003 ratio=0.2 within_gain=0.19 add_gap=0.000
+{
+ "preds": {
+  "pred_a_remainder_carries_the_class_mass": false,
+  "pred_b_causal_axis_spares_the_class": true,
+  "pred_c_causal_axis_is_within_class": true,
+  "pred_d_random_direction_does_neither": true,
+  "pred_e_the_two_parts_add_up": true
+ },
+ "nulls": {
+  "a_null_ratio_le_1": true,
+  "b_null_causal_class_ge_.5": false,
+  "c_null_no_within_gain": false,
+  "d_null_random_ge_.3": false
+ },
+ "medians": {
+  "class_ratio": 0.30698846094310284,
+  "causal_class_nats": 0.005514749092981219,
+  "remainder_class_nats": 0.015349423047155142,
+  "all_class_nats": 0.014787351712584496,
+  "margin_per_nat_causal": 1.9918113946914673,
+  "margin_per_nat_remainder": 0.37505272535444906,
+  "within_gain": 1.2906467914581299,
+  "random_class_nats": 8.38153064250946e-05,
+  "additivity_gap": 0.0002957051619887352
+ }
+}
