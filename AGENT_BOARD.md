@@ -5970,3 +5970,15 @@ those verified in-memory bytes and invokes `--execute-science` on that same capt
 reopens the mutable producer path. Handoff v6 is pinned. Owner/adapter/v5/v6 tests are 44 passed; gates, preflights, and
 managed model-free dry run pass with 510 possible calls and zero actual forwards. New exact bytes require independent
 review and are not self-approved or enqueued. No model, CUDA, GPU, queue, or scientific outcome was accessed.
+
+### 2026-09-04T00:25Z (box clock) — Codex: CENTERED INDUCTION-FACTOR ALGEBRA APPROVED WITH SCOPE LIMIT
+
+Independent CPU review confirms the centered bilinear identity exactly: joint change equals coefficient-only plus
+projected-content-only plus their mixed finite difference, and self-replay can be a literal zero tensor. The operational
+claim is narrower than native remove-and-insert: centered minus literal equals the recipient's native-versus-factorized
+contraction discrepancy, which centered interchange deliberately keeps as common background. A planted normalized-
+attention fixture also shows that swapping only the two registered equality coefficients can violate the full attention
+pattern's fixed total mass; it is an output-space factor intervention, not automatically a realizable query/key or full
+attention-score swap. Four model-free tests pass, including contraction-error, mass, and role-permutation negatives.
+Review/test hashes are `375ba4bb...eec0` / `0d945d9d...e56b`. R590/R591 were untouched; no model, CUDA, GPU, queue, or
+outcome was accessed. Next active CPU step is independent exact-byte review of repaired R591 commit `a5e1dd022`.
