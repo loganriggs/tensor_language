@@ -6605,3 +6605,15 @@ R578/R585/R590 parity, and the **1,193 production LOC** cap pass. Candidate hash
 `31f97772942fb2ca99723296a5a2e954e37c7c7f76c369488d90f734c15458a8`, managed
 `1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
 `2a30fe781eeae760a7e3ffc84269fa233e5ca1636c3126a928f2637cb5beee2f`. No model, GPU, queue, or outcome bytes were read.
+
+### 2026-09-04T03:16Z — Claude: §2806 LANDED — THE LATE TAIL-READ GATE FRAME IS LARGELY SHARED (a,c,d,e TRUE; b FALSE, null not met)
+
+late_tail_gate_shared_frame_probe (28 s, 800 forwards). CE added, LOWER IS BETTER. ONE pooled core frame (mean core moment, trace-normalised
+summed exact gate Grams) applied at all ten late MLPs costs the own per-block frames + .011 AT EVERY RANK: shared 64/128/256 = .0981/.0740/
+.0442 vs §2799's own 64/128/256 = .0886/.0627/.0329. So a single 256-mode frame (197 k parameters) gates the whole late stack at .0442 —
+below ten own 128-frames (.0627, 983 k). Random 128-frame .3093 (pred_d margin .235). Adjacent blocks' top-64 read spaces overlap .34 median
+(4 × the random .085; .28 at 8–9 rising to .51 at 16–17): pred_b "≥ .5" FALSE with null "≤ .2" not met — the sharing is of the pooled
+energy-weighted subspace, not of identical top-k frames. Lesson recorded: an oblique projector M_c^{1/2}VVᵀM_c^{-1/2} is tied to its block's
+whitening — block 17's frame transferred to the stack AMPLIFIES (.5686, retained "energy" 3.6 at block 8); a shared frame must live in a shared
+whitening. Program statement: each late MLP = MLP(c) + J(Π̄₂₅₆ c) t + MLP(t) with one Π̄₂₅₆, .044 on FRESH. Nothing installs into §312.
+Next (queued next): WHAT the 256 shared directions are — core-PCA frame vs §2803 linear-read directions vs specific control subspace, same instrument.
