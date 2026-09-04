@@ -1,8 +1,9 @@
 {
-  "adapter_sha256": "7c0ef18db572dede3a65a355860efbc8d15787e7486c10f48e2643c0aa6f4f38",
+  "adapter_sha256": "ea6acb2a0382a474bda5e48f3c21d368697ab4a7b56adeae489506eff0a25ecd",
   "call_manifest_sha256": "4b4da44c5090914f87d52e018bc9a8d18b74a202bdb82667283a9f1564682e0e",
   "captured_roles": [
     "artifact_package",
+    "authorization_amendment",
     "battery_contract",
     "capability_compiler",
     "capability_preregistration",
@@ -12,6 +13,7 @@
     "managed_entry",
     "producer",
     "producer_implementation_preregistration",
+    "producer_review",
     "result_contract",
     "task14_generator"
   ],
@@ -22,7 +24,7 @@
   "evaluated_phases": ["FIT"],
   "evidence_file_count": 24,
   "example_evaluations": 256,
-  "execution_authorized": false,
+  "execution_authorized": true,
   "final_namespace_guard_counts_dangling_symlink": true,
   "forbidden_phases_opened": [],
   "gpu_accessed": false,
@@ -52,5 +54,5 @@
   "schema": "circuit_battery_task14_capability_fit_producer_dryrun_v1",
   "scientific_fail_projection_all_null": true,
   "scientific_fail_terminal": "hard_abort",
-  "status": "model_free_plan_validated_execution_unauthorized"
+  "status": "model_free_plan_validated_authorized_candidate_pending_final_review"
 }

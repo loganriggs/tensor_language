@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # BQLANE: cpu
-"""Adversarial tests for the execution-blocked task14 managed adapter."""
+"""Adversarial tests for the prospectively authorized task14 adapter."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ import execute_circuit_battery_task14_capability_fit as adapter
 ROOT = Path(__file__).resolve().parents[3]
 OPS = Path(__file__).resolve().parent
 DRYRUN = ROOT / "basis_aligned/bilinear_quotient/circuit_battery_task14_capability_fit_producer_v1_dryrun.json"
+AUTHORIZATION = ROOT / "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK14_CAPABILITY_FIT_AUTHORIZATION_AMENDMENT_2026-09-04.md"
 
 
 def sha(path):
@@ -28,7 +29,7 @@ def sha(path):
 
 def test_dryrun_exact_and_runtime_sources_excluded():
     report = adapter.dispatch({"BQLIB_DRYRUN": "1"})
-    assert report["execution_authorized"] is False
+    assert report["execution_authorized"] is True
     assert report["compiled_contract_sha256"] == "84f8e1cf85323dba94d13c7c716afef448b8621bff6b534c2025715420e86a82"
     assert report["call_manifest_sha256"] == "4b4da44c5090914f87d52e018bc9a8d18b74a202bdb82667283a9f1564682e0e"
     assert report["metric_manifest_sha256"] == "5da9f66829156e352afe087c75f92a7a6a37f06fe1ec5177efeffd9442609dcc"
@@ -43,8 +44,8 @@ def test_dryrun_exact_and_runtime_sources_excluded():
     }
     assert not set(report["captured_roles"]) & set(report["runtime_only_roles_excluded"])
     assert "compiler_review" in report["captured_roles"]
-    assert not any("authorization" in role for role in report["captured_roles"])
-    assert not any("producer_review" in role for role in report["captured_roles"])
+    assert "authorization_amendment" in report["captured_roles"]
+    assert "producer_review" in report["captured_roles"]
 
 
 def test_checked_in_dryrun_matches_exact_adapter_output():
@@ -63,25 +64,104 @@ def test_subprocess_dryrun_imports_no_torch_and_has_no_cuda(monkeypatch):
         env=environment, text=True, capture_output=True, check=False,
     )
     assert result.returncode == 0, result.stderr
-    assert '"execution_authorized": false' in result.stdout
+    assert '"execution_authorized": true' in result.stdout
     assert '"gpu_accessed": false' in result.stdout
 
 
-def test_real_dispatch_fails_before_capture_load_or_producer(monkeypatch):
+def test_real_dispatch_delegates_once_through_verified_real_closure(monkeypatch):
     events = []
-    monkeypatch.setattr(adapter, "capture", lambda _mode: events.append("capture"))
-    monkeypatch.setattr(
-        adapter, "load_verified_closure", lambda *_args, **_kwargs: events.append("load")
-    )
-    with pytest.raises(adapter.AdapterError, match="unauthorized"):
-        adapter.dispatch({})
-    assert events == []
+    captured = {"authorization_amendment": b"a", "producer_review": b"r"}
+    producer = ModuleType("fake_producer")
+    producer.run_science = lambda value: events.append(("science", value)) or {"terminal": "fake"}
+    def fake_capture(mode):
+        events.append(("capture", mode)); return ModuleType("compiler"), ModuleType("managed"), captured
+    def fake_load(_managed, value, *, real):
+        events.append(("load", real, value)); return {"producer": producer}
+    monkeypatch.setattr(adapter, "capture", fake_capture)
+    monkeypatch.setattr(adapter, "load_verified_closure", fake_load)
+    assert adapter.dispatch({}) == {"terminal": "fake"}
+    assert events == [
+        ("capture", None), ("load", True, captured), ("science", captured),
+    ]
 
 
-def test_dead_real_closure_loader_is_rejected():
-    _, managed, captured = adapter.capture("1")
-    with pytest.raises(adapter.AdapterError, match="real closure loading is disabled"):
-        adapter.load_verified_closure(managed, captured, real=True)
+def test_real_capture_includes_exact_runtime_roles_only():
+    _, _, captured = adapter.capture(None)
+    assert set(captured) == {item.role for item in adapter.FILES}
+    assert set(adapter.REAL_LOAD_ORDER).issubset(captured)
+    assert not any(item.kind == "outcome" for item in adapter.FILES)
+
+
+def _fake_real_modules():
+    modules = {role: ModuleType(f"fake_{role}") for role in adapter.BASE_LOAD_ORDER + adapter.REAL_LOAD_ORDER}
+    model = modules["model_source"]
+    modules["observed_model_facade"].TT = model
+    modules["jacclust_package"].tt_model = model
+    modules["producer"].capability = modules["capability_compiler"]
+    modules["producer"].package = modules["artifact_package"]
+    modules["producer"].framework = modules["experiment_spec"]
+    exec("def load_model_fast(): return None", modules["fastload_source"].__dict__)
+    exec("def load_model(): return None", modules["fastload_dependency"].__dict__)
+    return modules
+
+
+def test_dynamic_real_module_identity_graph(monkeypatch):
+    modules = _fake_real_modules()
+    names = {
+        "jacclust": "jacclust_package", "jacclust.tt_model": "model_source",
+        "bilin18_observed_model_facade": "observed_model_facade",
+        "mlp_in_situ_usage_rank_map_probe": "fastload_dependency",
+        "fastload": "fastload_source",
+    }
+    for name, role in names.items():
+        monkeypatch.setitem(sys.modules, name, modules[role])
+    adapter.validate_real_module_identities(modules)
+
+
+def test_real_loader_uses_exact_base_then_runtime_order_without_disk(monkeypatch):
+    modules = _fake_real_modules()
+    calls = []
+
+    class FakeManaged:
+        @staticmethod
+        def module_from_verified_bytes(name, _path, _payload, *, is_package=False):
+            role = next(item.role for item in adapter.FILES if item.module_name == name)
+            module = modules[role]
+            module.__name__ = name
+            module.__package__ = name if is_package else name.rpartition(".")[0]
+            sys.modules[name] = module
+            parent_name, _, child = name.rpartition(".")
+            if parent_name:
+                setattr(sys.modules[parent_name], child, module)
+            calls.append(role)
+            return module
+
+    monkeypatch.setattr(adapter, "validate_captured_bytes", lambda _captured: None)
+    captured = {item.role: b"captured" for item in adapter.FILES}
+    loaded = adapter.load_verified_closure(FakeManaged(), captured, real=True)
+    assert calls == list(adapter.BASE_LOAD_ORDER + adapter.REAL_LOAD_ORDER)
+    assert loaded == modules
+
+
+@pytest.mark.parametrize("name,role", (
+    ("jacclust.tt_model", "model_source"),
+    ("bilin18_observed_model_facade", "observed_model_facade"),
+    ("mlp_in_situ_usage_rank_map_probe", "fastload_dependency"),
+    ("fastload", "fastload_source"),
+))
+def test_dynamic_real_module_substitution_rejected(monkeypatch, name, role):
+    modules = _fake_real_modules()
+    bindings = {
+        "jacclust": "jacclust_package", "jacclust.tt_model": "model_source",
+        "bilin18_observed_model_facade": "observed_model_facade",
+        "mlp_in_situ_usage_rank_map_probe": "fastload_dependency",
+        "fastload": "fastload_source",
+    }
+    for module_name, bound_role in bindings.items():
+        monkeypatch.setitem(sys.modules, module_name, modules[bound_role])
+    monkeypatch.setitem(sys.modules, name, ModuleType("planted"))
+    with pytest.raises(adapter.AdapterError):
+        adapter.validate_real_module_identities(modules)
 
 
 def test_only_exact_mode_and_zero_arguments():
@@ -131,7 +211,8 @@ def test_disk_module_poisoning_cannot_execute(tmp_path, monkeypatch):
 @pytest.mark.parametrize("role", (
     "capability_compiler", "task14_generator", "producer", "fit_authority",
     "compiler_review", "capability_preregistration",
-    "producer_implementation_preregistration",
+    "producer_implementation_preregistration", "producer_review",
+    "authorization_amendment",
 ))
 def test_captured_source_authority_and_review_mutation_reject(role):
     _, managed, captured = adapter.capture("1")
@@ -141,10 +222,10 @@ def test_captured_source_authority_and_review_mutation_reject(role):
 
 
 @pytest.mark.parametrize("role", ("authorization_amendment", "producer_review"))
-def test_blocked_adapter_rejects_dead_authorization_bypass(role):
+def test_missing_authorization_closure_rejected(role):
     _, _, captured = adapter.capture("1")
-    attack = dict(captured); attack[role] = b"planted"
-    with pytest.raises(adapter.AdapterError, match="authorization or producer review"):
+    attack = dict(captured); attack.pop(role)
+    with pytest.raises(adapter.AdapterError, match="review and authorization"):
         adapter.validate_captured_bytes(attack)
 
 
@@ -169,6 +250,8 @@ def test_every_frozen_file_and_exact_review_chain():
         assert sha(ROOT / item.relative_path) == item.sha256
     assert adapter.COMPILER_COMMIT == "fc586c1158ddeee7df8f4b502deec54189609c4c"
     assert adapter.COMPILER_REVIEW_COMMIT == "10afc5d6005d169879b07e92cb5fcb4e3a65f312"
+    assert adapter.PRODUCER_BUILD_COMMIT == "26d45e89797515240eec368bc313728925d5f48a"
+    assert adapter.PRODUCER_REVIEW_COMMIT == "753afa27e05b594acc39b0c1d84d72272c26e640"
     assert adapter.file_by_role("compiler_review").sha256 == \
         "a1707dd88949a9b5beb439b275e665cda1a7a62a6d5eedf076d20d192c852e59"
     assert adapter.file_by_role("producer").sha256 == \
@@ -177,7 +260,31 @@ def test_every_frozen_file_and_exact_review_chain():
         "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90"
     assert adapter.file_by_role("fastload_dependency").sha256 == \
         "c701af71491d29f33f5ad691f89380a9fa7c2d86514a61fd7423ad8a78fd4d16"
-    assert adapter.EXECUTION_AUTHORIZED is False
+    assert adapter.file_by_role("producer_review").sha256 == \
+        "fddb2bac0595f733b765669cb41de1d21ad81a17205df4156505f332c0ea1ccc"
+    assert adapter.file_by_role("authorization_amendment").sha256 == sha(AUTHORIZATION) == \
+        "e20878d9dcbcf1c2ce0de289a6aed390b44167297a26fe89966c423a010bbee8"
+    assert adapter.EXECUTION_AUTHORIZED is True
+
+
+def test_authorization_binds_exact_scope_chain_and_final_review_dependency():
+    note = AUTHORIZATION.read_text()
+    for value in (
+        adapter.COMPILER_COMMIT, adapter.COMPILER_REVIEW_COMMIT,
+        adapter.PRODUCER_BUILD_COMMIT, adapter.PRODUCER_REVIEW_COMMIT,
+        "9ba9448fcebcd764aa2b91e91333b3bbb2549a899b1f8304f2ce3f83bf741e3e",
+        "7c0ef18db572dede3a65a355860efbc8d15787e7486c10f48e2643c0aa6f4f38",
+        "fddb2bac0595f733b765669cb41de1d21ad81a17205df4156505f332c0ea1ccc",
+        "84f8e1cf85323dba94d13c7c716afef448b8621bff6b534c2025715420e86a82",
+        "4b4da44c5090914f87d52e018bc9a8d18b74a202bdb82667283a9f1564682e0e",
+        "5da9f66829156e352afe087c75f92a7a6a37f06fe1ec5177efeffd9442609dcc",
+    ):
+        assert value in note
+    assert "exactly one managed invocation" in note
+    assert "exactly 256 unique row-side evaluations" in note
+    assert "exactly 2,048 raw numeric evidence bytes" in note
+    assert "no automatic retry" in note
+    assert "final independent approval" in note
 
 
 def test_only_fit_authority_and_runtime_fastload_closure():
@@ -197,11 +304,11 @@ def test_only_fit_authority_and_runtime_fastload_closure():
     )
 
 
-def test_source_has_no_queue_results_authorization_or_future_authority():
+def test_source_has_no_queue_results_or_future_authority():
     source = adapter.ADAPTER.read_text()
     assert "queue.txt" not in source and "enqueue.sh" not in source
     assert "_results.json" not in source and "_evidence" not in source
     assert "build_authority(" not in source
-    assert "EXECUTION_AUTHORIZED = False" in source
-    assert "EXECUTION_AUTHORIZED = True" not in source
+    assert "EXECUTION_AUTHORIZED = True" in source
+    assert "EXECUTION_AUTHORIZED = False" not in source
     assert not any(item.kind == "outcome" for item in adapter.FILES)

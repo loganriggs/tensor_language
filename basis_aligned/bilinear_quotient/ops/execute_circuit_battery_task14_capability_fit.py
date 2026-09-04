@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # BQGATE: EXPERIMENT
-"""Hash-bound, execution-blocked managed adapter for task14 capability FIT."""
+"""Hash-bound prospective one-run adapter for task14 capability FIT."""
 
 from __future__ import annotations
 
@@ -19,7 +19,9 @@ REPO_ROOT = Path("/workspace/tensor_language")
 ADAPTER = Path(__file__).resolve()
 COMPILER_COMMIT = "fc586c1158ddeee7df8f4b502deec54189609c4c"
 COMPILER_REVIEW_COMMIT = "10afc5d6005d169879b07e92cb5fcb4e3a65f312"
-EXECUTION_AUTHORIZED = False
+PRODUCER_BUILD_COMMIT = "26d45e89797515240eec368bc313728925d5f48a"
+PRODUCER_REVIEW_COMMIT = "753afa27e05b594acc39b0c1d84d72272c26e640"
+EXECUTION_AUTHORIZED = True
 
 REGISTERED_PREDICTIONS = {
     "pred_a_exact_instrument": (
@@ -104,6 +106,18 @@ FILES = (
         "prereg",
     ),
     FrozenFile(
+        "producer_review",
+        "basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_PRODUCER_BLOCKED_ADAPTER_REVIEW_2026-09-04.md",
+        "fddb2bac0595f733b765669cb41de1d21ad81a17205df4156505f332c0ea1ccc",
+        "prereg",
+    ),
+    FrozenFile(
+        "authorization_amendment",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK14_CAPABILITY_FIT_AUTHORIZATION_AMENDMENT_2026-09-04.md",
+        "e20878d9dcbcf1c2ce0de289a6aed390b44167297a26fe89966c423a010bbee8",
+        "prereg",
+    ),
+    FrozenFile(
         "fit_authority",
         "basis_aligned/bilinear_quotient/ops/circuit_battery_task14_agreement_fit_authority.json",
         "e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f",
@@ -161,6 +175,7 @@ REAL_LOAD_ORDER = (
     "receipt_source", "jacclust_package", "model_source", "observed_model_facade",
     "fastload_dependency", "fastload_source",
 )
+AUTHORIZATION_ROLES = ("producer_review", "authorization_amendment")
 
 
 class AdapterError(RuntimeError):
@@ -253,7 +268,7 @@ def execution_spec(compiler: ModuleType):
         for item in FILES
     )
     spec = compiler.CircuitExperimentSpec(
-        experiment_id="circuit-battery-task14-capability-fit-execution-blocked-v1",
+        experiment_id="circuit-battery-task14-capability-fit-execution-authorized-candidate-v1",
         rung=14,
         artifacts=artifacts,
         phases=(compiler.PhaseSpec(
@@ -266,26 +281,24 @@ def execution_spec(compiler: ModuleType):
 
 
 def validate_captured_bytes(captured: Mapping[str, bytes]) -> None:
-    forbidden_roles = {
-        role for role in captured
-        if "authorization" in role.lower() or "producer_review" in role.lower()
-    }
-    if forbidden_roles:
-        raise AdapterError("blocked adapter captured an authorization or producer review")
+    if not set(AUTHORIZATION_ROLES).issubset(captured):
+        raise AdapterError("producer review and authorization amendment must both be captured")
     for role, payload in captured.items():
         item = file_by_role(role)
         if type(payload) is not bytes or hashlib.sha256(payload).hexdigest() != item.sha256:
             raise AdapterError(f"captured frozen bytes changed before module load: {role}")
 
 
-def capture(mode: str) -> tuple[ModuleType, ModuleType, dict[str, bytes]]:
+def capture(mode: str | None) -> tuple[ModuleType, ModuleType, dict[str, bytes]]:
     compiler, managed = bootstrap()
     spec = execution_spec(compiler)
     managed.validate_dryrun_closure(spec)
-    captured = managed.capture_frozen_artifacts(spec, base_dir=REPO_ROOT, dryrun=True)
-    expected = {item.role for item in FILES if item.dryrun_access}
-    if mode != "1" or set(captured) != expected:
-        raise AdapterError("managed closure differs from blocked dryrun mode")
+    captured = managed.capture_frozen_artifacts(
+        spec, base_dir=REPO_ROOT, dryrun=mode == "1"
+    )
+    expected = {item.role for item in FILES if mode != "1" or item.dryrun_access}
+    if set(captured) != expected:
+        raise AdapterError("managed closure differs from execution mode")
     validate_captured_bytes(captured)
     return compiler, managed, captured
 
@@ -293,11 +306,9 @@ def capture(mode: str) -> tuple[ModuleType, ModuleType, dict[str, bytes]]:
 def load_verified_closure(
     managed: ModuleType, captured: Mapping[str, bytes], *, real: bool,
 ) -> dict[str, ModuleType]:
-    if real:
-        raise AdapterError("real closure loading is disabled in this adapter")
     validate_captured_bytes(captured)
     loaded = {}
-    for role in BASE_LOAD_ORDER:
+    for role in BASE_LOAD_ORDER + (REAL_LOAD_ORDER if real else ()):
         item = file_by_role(role)
         payload = captured.get(role)
         if payload is None:
@@ -309,28 +320,65 @@ def load_verified_closure(
             or loaded["producer"].package is not loaded["artifact_package"] \
             or loaded["producer"].framework is not loaded["experiment_spec"]:
         raise AdapterError("producer imports did not resolve to captured modules")
+    if real:
+        validate_real_module_identities(loaded)
     return loaded
+
+
+def _resolve_from(module: ModuleType, name: str) -> ModuleType:
+    resolved = eval(f"__import__({name!r}, fromlist=['*'])", module.__dict__)
+    if not isinstance(resolved, ModuleType):
+        raise AdapterError(f"captured module import did not resolve to a module: {name}")
+    return resolved
+
+
+def validate_real_module_identities(loaded: Mapping[str, ModuleType]) -> None:
+    """Prove every future local import resolves to this captured object graph."""
+    required = set(BASE_LOAD_ORDER + REAL_LOAD_ORDER)
+    if set(loaded) != required:
+        raise AdapterError("real executable module closure is incomplete or enlarged")
+    producer = loaded["producer"]
+    facade = loaded["observed_model_facade"]
+    model_source = loaded["model_source"]
+    fast_dependency = loaded["fastload_dependency"]
+    fastload = loaded["fastload_source"]
+    jacclust = loaded["jacclust_package"]
+    if facade.TT is not model_source \
+            or getattr(jacclust, "tt_model", None) is not model_source:
+        raise AdapterError("facade or jacclust package does not bind captured tt_model")
+    if _resolve_from(fast_dependency, "jacclust.tt_model") is not model_source:
+        raise AdapterError("fastload dependency would not import captured tt_model")
+    if _resolve_from(fastload, "jacclust.tt_model") is not model_source \
+            or _resolve_from(fastload, "mlp_in_situ_usage_rank_map_probe") is not fast_dependency:
+        raise AdapterError("fastload would not import its captured dependencies")
+    if _resolve_from(producer, "bilin18_observed_model_facade") is not facade \
+            or _resolve_from(producer, "fastload") is not fastload:
+        raise AdapterError("producer run_science imports would not resolve to captured modules")
+    if fastload.load_model_fast.__globals__ is not fastload.__dict__ \
+            or fast_dependency.load_model.__globals__ is not fast_dependency.__dict__:
+        raise AdapterError("captured fast-load callables escaped their module globals")
 
 
 def dispatch(environment: Mapping[str, str]) -> dict[str, object]:
     mode = environment.get("BQLIB_DRYRUN")
     if mode not in (None, "1"):
         raise AdapterError("BQLIB_DRYRUN must be absent or exactly '1'")
-    if mode is None:
-        raise AdapterError(
-            "task14 capability execution is unauthorized: producer review and prospective authorization are absent"
-        )
     _, managed, captured = capture(mode)
-    producer = load_verified_closure(managed, captured, real=False)["producer"]
-    report = producer.run_dryrun(captured)
-    report["execution_authorized"] = EXECUTION_AUTHORIZED
-    report["status"] = "model_free_plan_validated_execution_unauthorized"
-    report["adapter_sha256"] = hashlib.sha256(ADAPTER.read_bytes()).hexdigest()
-    report["captured_roles"] = sorted(captured)
-    report["runtime_only_roles_excluded"] = sorted(
-        item.role for item in FILES if not item.dryrun_access
-    )
-    return report
+    modules = load_verified_closure(managed, captured, real=mode is None)
+    producer = modules["producer"]
+    if mode == "1":
+        report = producer.run_dryrun(captured)
+        report["execution_authorized"] = EXECUTION_AUTHORIZED
+        report["status"] = "model_free_plan_validated_authorized_candidate_pending_final_review"
+        report["adapter_sha256"] = hashlib.sha256(ADAPTER.read_bytes()).hexdigest()
+        report["captured_roles"] = sorted(captured)
+        report["runtime_only_roles_excluded"] = sorted(
+            item.role for item in FILES if not item.dryrun_access
+        )
+        return report
+    if not EXECUTION_AUTHORIZED:
+        raise AdapterError("prospective authorization flag changed")
+    return producer.run_science(captured)
 
 
 def main(argv: Sequence[str] | None = None) -> None:
