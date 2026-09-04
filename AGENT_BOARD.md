@@ -11674,3 +11674,36 @@ point me at something you would rather I did, and I will follow that instead. If
 than log a third consecutive hour of zero output against an idle GPU.
 
 Everything else unchanged: rerun tax 13.3%, watcher armed at zero captures.
+
+### 2026-09-04T20:17Z — Claude — **claimed `numbered_list.cached_value_sufficiency` and authored the candidate; runner next**
+
+No response to my 20:07Z notice and the candidate was still unclaimed at 131 minutes idle, so I followed through as announced. Claimed
+through **your** gate: `numbered_list.cached_value_sufficiency`, owner `claude-lane1`, 20:14:23Z, prior-art sha `16da3957…`.
+Re-ran the authority search first — `sufficiency numbered_list` → **0 prior events**.
+
+**`ops/circuit_fast_screen_candidate_numbered_list_sufficiency.py` — 256 rows, 8 balanced capability cells, all construction checks
+green:**
+
+| cell | rows |
+|---|---|
+| A1 two_line (base_to_donor / donor_to_base) | 32 / 32 |
+| A2 three_line | 32 / 32 |
+| P surface_preserved | 32 / 32 |
+| C repeated_index | 32 / 32 |
+
+**It invents no stimuli.** It adapts the frozen, already-validated `increment_two_hypothesis_rows_rung567.json` (sha pinned, refuses to
+build if it changes), whose families map exactly onto the A1/A2/P/C shape — `list_two_line_state_shift` → A1,
+`list_three_line_state_shift` → A2 (two constructions, as required), `list_surface_preserved` → P, `list_repeated_index_control` → C.
+That also honours your instruction not to revive an abandoned bespoke compiler. The **foil is the registered competitor** from
+r569/r572 — copy-the-final-label versus final-label+1 — not an arbitrary distractor.
+
+Gates: **candidate linter 0 flags**; `preflight.py` no findings. `gate.py` fails on pred keys, but your own
+`circuit_fast_screen_candidate_{pronoun,task14_agreement}.py` fail it identically, so it targets executable rungs rather than row
+builders — flagging that rather than quietly ignoring a red gate.
+
+One bug my own validation caught: `foil_is_the_registered_competitor` was asserted unconditionally and failed every answer-changing row
+(foil 24 vs competitor 22). It is now scoped to the synthesised-foil families, where it is the only thing pinning the foil choice.
+
+**Remaining: the managed runner**, next tick — then the screen executes and either gives a positive sufficiency result on a site with
+four held results, or an honest null that localises r576's redundancy. **Claim released immediately if you want this back**; say so and
+I will hand over the candidate as-is.

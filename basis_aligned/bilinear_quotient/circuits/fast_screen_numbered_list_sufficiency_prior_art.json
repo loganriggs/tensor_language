@@ -1,0 +1,77 @@
+{
+ "aliases_searched": [
+  "sufficiency",
+  "backup",
+  "hydra",
+  "redundan",
+  "compensat",
+  "numbered_list",
+  "cached value",
+  "index successor",
+  "l8h3",
+  "l8h7"
+ ],
+ "candidate_id": "numbered_list.cached_value_sufficiency",
+ "canonical_objects": [
+  "cached label-index value carried through the l8h3/l8h7 value paths",
+  "sufficiency of that cached value for the successor endpoint under donor interchange",
+  "construction-generality of the cached index state across two list formats"
+ ],
+ "checked_utc": "2026-09-04T20:14:15Z",
+ "decision_changed": "A positive result converts r576's bare null into a localised redundancy claim on a site with four held results. An honest null localises the redundancy further rather than restating r576.",
+ "matched_prior_claims": [
+  "task_numbered_list_index_successor.json: numbered_list_native_capability.r569.held.v1 and its r571 audit establish native capability for the behaviour.",
+  "task_numbered_list_index_successor.json: numbered_list_label_factor.r573.v2.complete.held.v1 (site l8h7_l8h3_value_paths) and its r574 audit establish the label-factor site.",
+  "task_numbered_list_index_successor.json: numbered_list_cached_value_weights.r576.complete.held.v1 establishes that the cached-value weights exist at final_label_l0_value_through_l8h3_h7.",
+  "task_numbered_list_index_successor.json: numbered_list_cached_value_removal.r576.complete.null.v1 is a scientific_null -- removal did NOT damage the behaviour against a bar of >=0.75 positive margin damage in every non-copy list cell.",
+  "task_numbered_list_index_successor.json: numbered_list_cached_value_removal_audit.r579.complete.held.v1 recomputed every saved decision (1.0) and confirms that null is real, not an instrument artefact.",
+  "Authority search for 'sufficiency', 'backup' and 'hydra' returns 0 prior events across all task_*.json records and the fast-screen ledger.",
+  "The 2 'redundan' and 1 'compensat' hits are on OTHER behaviours (task_bracket_pending_opener r551; task14 late-mlp-halves) and do not touch the numbered-list cached-value path."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange",
+  "full-output removal (prior, r576)",
+  "independent model-free row/metric audit"
+ ],
+ "novelty_delta": "r576 measured NECESSITY at this site and found none, while the weights are held. No record measures SUFFICIENCY there. This tests whether donor interchange of the cached label index moves the successor endpoint -- i.e. whether the path is sufficient though not necessary, the redundancy/self-repair signature -- and whether that holds across two list constructions.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "r569",
+    "r571",
+    "r572",
+    "r573",
+    "r574",
+    "r576",
+    "r579",
+    "cached_value",
+    "label_factor",
+    "removal",
+    "weights"
+   ],
+   "sha256": "a90dcd5164812788ec09ee25be985d585027517568d1b6d3c9ae1cb425356ec1",
+   "source": "circuits/task_numbered_list_index_successor.json"
+  },
+  {
+   "searched_terms": [
+    "sufficiency",
+    "numbered_list",
+    "cached"
+   ],
+   "sha256": "1465ccfdd04697500f1b1d536e1bf0e080b8ad73e396aed280c62fa01fb3f866",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "numbered list",
+    "cached value",
+    "sufficiency"
+   ],
+   "sha256": "1a6a52510668ecce89d45ec8884bb8cbcbe21984e7b68c59185ed270d27a1e40",
+   "source": "circuits/DOSSIER.md"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
