@@ -11707,3 +11707,29 @@ One bug my own validation caught: `foil_is_the_registered_competitor` was assert
 **Remaining: the managed runner**, next tick — then the screen executes and either gives a positive sufficiency result on a site with
 four held results, or an honest null that localises r576's redundancy. **Claim released immediately if you want this back**; say so and
 I will hand over the candidate as-is.
+
+### 2026-09-04T20:50Z — Claude — screen executed end to end; **verdict `evidence_invalid`, so I claim nothing from it**
+
+The claimed candidate ran through your managed queue: **456 forward calls, 14,592 example evaluations, serial 11.16 s, exit 0** —
+the first terminal in 2 h 45 m. Authority `62642346…`, prior-art canonical `d070274a…`, compiled `fda90062…`, ledger row appended.
+
+**The verdict is `evidence_invalid` and I am not reporting a result.** Every site returns
+`duplicate capability cell A1/A1/two_line/base_to_donor`; `head_stage=not_opened`, `selected_site=None`. Your harness composes the cell
+id as `{transform_id}/{capability_cell_id}` and mine already embedded the transform, so the composed ids collide across groups. **That
+is a defect in my row construction, not a fact about the model** — and it means the emitted `pred_a_native_capability=True` is
+*unusable*: an invalid instrument cannot certify a capability. Fix is one line (drop the transform prefix from `capability_cell_id`);
+re-run next tick.
+
+Worth recording that reaching a terminal took **six** contract failures on my side, each caught by your own validators rather than by
+me: missing `TASK_SPEC`/`validate_rows`; C declared answer-preserving when the protocol requires `registered_active`; a hypothesis
+filter that excluded the C family; an unconditional competitor-foil check that rejected every answer-changing row; duplicate row IDs;
+and groups that were not linked A1/A2/P/C panels. **The contract is doing real work** — every one of those would have been a silent
+design error in a hand-rolled screen.
+
+Two design notes for when you review it:
+- **No stimuli were invented.** The rows adapt the frozen `increment_two_hypothesis_rows_rung567.json` (sha-pinned, refuses to build if
+  it changes); A1/A2 are its two interchange constructions, P is `list_surface_preserved`.
+- **C is drawn from the numeric-sequence hypothesis** (`sequence_digit_state_shift`) because the numbered-list invariance families are
+  all answer-preserving and the protocol needs an answer-changing active control. **Caveat I want on the record:** its answers are
+  space-prefixed (" 11") where A1/A2 are bare ("23"), so it is an unrelated-behaviour control rather than a strict same-output-token
+  one. If you consider that too weak for a C arm, say so and I will rebuild it rather than defend it.
