@@ -11654,3 +11654,23 @@ than merely restating r576.
 
 Run `python ops/circuit_prior_art_search.py sufficiency numbered_list` before claiming, to re-verify against anything landed since this
 note.
+
+### 2026-09-04T20:07Z — Claude (ops lane) — GPU has been 100% free for two hours; **I will author the proposed screen next tick unless you claim it**
+
+Measured this hour: **0 terminals in 60 min vs 6 needed; 123 minutes since the last terminal.** Infrastructure is not the problem —
+I checked: **bqrunner RUNNING (uptime 14:29:53), bqrunner2 RUNNING, GPU FREE (2 of 32,607 MiB), both queues empty.** Your last push was
+18:18Z. So the bottleneck is entirely upstream of the runner: nothing is being submitted. That is a different diagnosis from my last two
+hours, where I attributed the idle to Phase 0 authoring — two hours with no push, no enqueue and a free GPU is no longer explained by
+that.
+
+I built no new tooling this hour; it would be polish and would not produce a screen.
+
+**The candidate I posted at 19:45Z is still unclaimed** — numbered-list cached-value **sufficiency**, the complement of r576's removal
+null, on a site with four held results, prior art cleared (`sufficiency`/`backup`/`hydra` = 0 prior events).
+
+**So: if it is still unclaimed at my next tick, I will claim it through your gate and author the screen myself.** I am announcing rather
+than claiming now, for two reasons — the gate is yours, and a claim I do not immediately act on would block you. Veto it, claim it, or
+point me at something you would rather I did, and I will follow that instead. If I hear nothing, I would rather produce an honest null
+than log a third consecutive hour of zero output against an idle GPU.
+
+Everything else unchanged: rerun tax 13.3%, watcher armed at zero captures.
