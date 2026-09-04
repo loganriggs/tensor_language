@@ -1,0 +1,109 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "pronoun_antecedent.gender_reference",
+  "canonical_objects": [
+    "selected antecedent identity",
+    "antecedent gender state at the final prediction position",
+    "he-versus-she continuation decision",
+    "active-to-passive construction-general causal state"
+  ],
+  "aliases_searched": [
+    "pronoun",
+    "antecedent",
+    "coreference",
+    "gender",
+    "he she",
+    "pronoun announcer",
+    "head 12.4",
+    "signed gender channel",
+    "pronoun-context cluster"
+  ],
+  "method_families": [
+    "natural donor-to-recipient interchange",
+    "activation patching",
+    "head ablation",
+    "MLP unit intervention",
+    "gender-axis reflection",
+    "cross-construction counterfactual identification"
+  ],
+  "matched_prior_claims": [
+    "RESULTS.md sections 1556-1558 found and verified head 12.4 as a pronoun-class announcer, then found that its effect did not depend on antecedent presence and explicitly rejected the coreference-head interpretation.",
+    "RESULTS.md sections 600, 604, and 606 found a front-layer pronoun-context cluster but measured only a weak, partly nonspecific pronoun-class write rather than antecedent identity.",
+    "RESULTS.md section 1591 localized the conversion from an existing gender state to pronoun output at MLP17 while retaining the claim that the upstream state is distributed.",
+    "BILIN18_CONNECTION.md sections 1555-1558 establish pronoun-class localization and the powered negative result for antecedent tracking by head 12.4.",
+    "BILIN18_CONNECTION.md sections 1583 and 1589-1591 establish an asymmetric he-versus-she gender axis and a localized MLP17 readout, but do not identify a construction-general antecedent-binding state by natural answer-changing interchange.",
+    "CIRCUIT_REGISTRY.md records pronoun-class heads, a pronoun MLP17 payload/gate split, and a 64-unit signed gender readout; it does not record a counterfactually identified selected-antecedent variable.",
+    "circuits/DOSSIER.md contains no version-2 task record for pronoun antecedent identity or he-versus-she cross-construction interchange.",
+    "circuits/task_subject_verb_number_agreement.json provides a neighboring two-construction A1/A2/P/C task specification, but its causal variable and is-versus-are endpoint are distinct from pronoun antecedent identity."
+  ],
+  "relation": "extension",
+  "novelty_delta": "Test whether one site carries which explicitly introduced person performed an action, expressed as the correct he-versus-she continuation, across independently worded active-voice and passive-voice constructions. The linked location rewrite must remain invariant, and the same site must not transfer an unrelated explicit pronoun-copy task with identical output tokens. This extends pronoun-class and gender-readout evidence to natural, answer-changing antecedent counterfactuals; rediscovering head 12.4 or MLP17 without A1/A2 transfer and control selectivity is not novel.",
+  "decision_changed": "If native capability passes separately in every construction and ordered direction and one site transfers both A1 and A2 while sparing P and C, promote that site to held-out subspace identification for a construction-general antecedent state. If capability fails, record an invalid instrument. If no site is selective, record a fast-screen null; do not relabel the established pronoun announcer or gender readout as antecedent binding.",
+  "reviewer": "independent circuit-candidate worker subagent",
+  "reviewed_sources": [
+    {
+      "source": "RESULTS.md",
+      "sha256": "9ebd308ba54a56f8062ef71d99d5183df09d5dd7c8e23d7873a7fc79c48b1d5d",
+      "searched_terms": [
+        "section 600",
+        "section 604",
+        "section 606",
+        "section 1556",
+        "section 1558",
+        "section 1591",
+        "pronoun",
+        "antecedent",
+        "coreference",
+        "gender"
+      ]
+    },
+    {
+      "source": "BILIN18_CONNECTION.md",
+      "sha256": "ea367d5b29f39126c46ca084b200a03318afde0149db9994f53a3505f9c0f39b",
+      "searched_terms": [
+        "section 1555",
+        "section 1558",
+        "section 1583",
+        "section 1589",
+        "section 1591",
+        "pronoun announcer",
+        "antecedent tracking",
+        "signed gender channel"
+      ]
+    },
+    {
+      "source": "CIRCUIT_REGISTRY.md",
+      "sha256": "0890af832a9dc86c9b2891d3031422060694ef98c11965f762c140c3e591145f",
+      "searched_terms": [
+        "pronouns",
+        "head 12.4",
+        "gender axis",
+        "gender committee",
+        "pronoun writers"
+      ]
+    },
+    {
+      "source": "circuits/DOSSIER.md",
+      "sha256": "42cf9818e74c60189dbd58f6acf8abee43b849859cc27fe3f63d50833fff2bca",
+      "searched_terms": [
+        "pronoun",
+        "antecedent",
+        "coreference",
+        "gender",
+        "interchange"
+      ]
+    },
+    {
+      "source": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf",
+      "searched_terms": [
+        "counterfactual_families",
+        "A1",
+        "A2",
+        "P same-state",
+        "C control",
+        "complete grammatical subject number"
+      ]
+    }
+  ]
+}
