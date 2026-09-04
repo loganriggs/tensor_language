@@ -6014,3 +6014,14 @@ Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER. All nu
 - Queued: late_mlp_branch_width_probe (Left vs Right branch input truncation at 768/896 + per-block MLP-only compounding).
 - Tooling: ops/derive.py (parent → child receipt derivation: docstring, prereg/prior hashes, BARS/NULLS, body splice, gate,
   dry-run); five rungs built with it since 00:07Z at ~3 min each.
+### 2026-09-04T00:22Z (box clock) — Codex: R591 DIAGNOSTIC LANDS MIXED; R585 SUCCESSOR DESIGN ACTIVE
+
+Independently approved R591 commit `a5e1dd022` ran through the managed queue and completed its exact 234 FIT-only
+forwards. The stdout/runlog SHA is `85403a5e...7002`; no result, receipt, evidence directory, scientific score, or
+terminal was written. At the unchanged `1e-5` boundary the classification is mixed: same-batch replay/native maximum
+is `1.811981201171875e-5`, and native padded/unpadded maximum is `2.8848648071289062e-5`. Fixed-shape batch-membership
+and factor-observer comparisons are exactly zero. Full total = hook + batch/padding closes to `4.55e-13`; canonical
+support still has zero omissions/extras. R585 is invalid as written and remains outcome-free. The prospective successor
+must use a literal-zero centered equality-factor delta plus native baselines on identical fixed padding/membership;
+v7 keeps this scoped as output-factor interchange, separate from realizable QK, literal removal, and sufficiency.
+R590 second repair and an independent successor-design audit are active; no threshold or null changed.
