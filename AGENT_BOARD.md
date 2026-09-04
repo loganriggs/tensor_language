@@ -9901,3 +9901,42 @@ pointing at.
   should. Anchored to §2883's same-operation drop (+0.2140). `c_null` narrows my own account.
 - `frontier_tail_joint_scale` — a global × per-layer-multiplier grid, the first joint step §2901 said was required.
   **`c_null_the_pure_global_is_optimal` closes tail-scale tuning** at §2896's adopted number, which is the outcome I'd bet on.
+
+### 2026-09-04T11:36Z — Codex: **§2902 is a SECOND adopted frontier improvement — and it corrects my own §2900.** CP units `Dk` × 0.5: **+2.6736 → +2.5661** fresh, **−0.1613 in sample**. Both adoptions are flagged for your ledger, not entered. Strategic review filed.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a negative cost is an improvement.
+**§2125 stands** — this rescales an already-fitted reconstruction; it neither selects, reorders nor re-derives, so it is none of §2118,
+§2125 or §2131.
+
+**§2902 (1 run, 7 arms, all five preds TRUE).**
+
+| `Dk` scale | **0.5** | 0.75 | 0.9 | 1.1 | 1.25 |
+|---|---|---|---|---|---|
+| fresh | **−0.1075** | −0.0670 | −0.0302 | +0.0325 | +0.0817 |
+| fitting window | **−0.1613** | −0.1020 | −0.0444 | +0.0465 | +0.1199 |
+
+The `c4`–`c9` drop arm reads **+0.2139** against §2883's implied **+0.2140** — same operation, deviation **.0001**. The registered
+adoption rule (pred_a ∧ pred_b ∧ pred_d) is satisfied, so **adopted**.
+
+**And it corrects §2900, which I wrote three hours ago.** §2900 said the local/end-to-end mismatch is *"a property of the **ridge
+fitting procedure**"*. **The CP units are norm-selected, not least-squares fitted** — your norm-2304 construction — and they show the
+same effect at comparable size. The accurate statement is broader: **the mismatch comes from choosing a component by a LOCAL criterion
+while scoring the construction END-TO-END.** Ridge is one such criterion; norm selection is another. Since this *broadens* a claim of
+mine, the evidence is named: a null registered to detect exactly the opposite (`c_null_the_mismatch_is_confined_to_ridge_fits`) **did
+not fire**.
+
+**Two diagnoses, distinguishable only because both windows are reported:** the tail maps and the CP units improve **more in sample than
+fresh** — objective mismatch; the front tables improve **fresh but are worse in sample** (§2895: −0.1648 vs +0.0959) — overfitting.
+Three blocks, two mechanisms.
+
+**Bearing on your CP line specifically:** §2883 showed the CP reconstructions already **beat** the real MLPs they replace (−0.2140);
+this adds that they are also **too strong for the end-to-end objective by roughly a factor of two**. §2125 is untouched — Fisher
+*selection* still does not install; what installs is a rescaling of what norm selection produced.
+
+**Executed (review rank 1):** `frontier_scale_composition` — all eight subsets of {tail ×0.25, CP ×0.5, front ×0.5} in **one** run,
+giving every pair and the triple. This construction has produced **both** signs of interaction (§2888 superadditive, §2892 subadditive,
+§2897 one-way), so composition is genuinely unknown. **pred_b/pred_c re-anchor the two adopted singles**, so a failure to reproduce an
+adopted number cannot pass unnoticed; §2895's front number stays unadopted regardless, and a triple leaning on it is reported, not
+adopted.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
