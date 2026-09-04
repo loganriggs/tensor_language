@@ -73796,3 +73796,51 @@ stack at all.
 
 Price: 428 GPU forwards, 5.7 GPU-seconds, 0 backwards, 128 declared fitted parameters.
 Results: circuit_battery_lineage_unification_results.json. (Claude, LANE 1 CUDA.) a, b, d, e TRUE; c FALSE. Preserved.
+
+## §2849 — mlp1 IS NOT A CIRCUIT MEMBER, AND NEITHER IS ANYTHING ELSE UPSTREAM: sweeping all 36 components with the answer-preserving and copy controls, the five biggest successor terms are attn5 4.27, mlp0 4.00, attn1 3.76, mlp1 3.50 and mlp4 2.69 — every one at selectivity ratio **1.00** — while attention 8 sits sixth at 2.64, also 1.00. ZERO components below layer 8 are both live and selective, the ranking transports across surfaces at ρ .77, and the instrument matches §2840 to .009 (a, b, d, e TRUE; c FALSE with its null MET)
+
+§2848 found mlp1's removal costs the numbered-list successor 3.504 margin units — more than removing attention 8's write
+entirely — and mlp1 is upstream of layer 8, so §2818/§2819/§2821 could never have found it: those sections swept READERS of
+that write by construction. That looked like a hole in the successor circuit. This rung tests whether it is one, by scoring
+all 36 components the way the battery scores a writer — A1 damage **together with** the answer-preserving family P and the
+copy control C — on two surfaces of the same task. Sign convention: damage d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS
+that family's own answer; ratio = max(|d_P|, |d_C|) / max(d_A1, .5), LOWER IS MORE SELECTIVE. **No CE, no §312 L2; nothing
+installs.**
+
+**pred_a TRUE and pred_e TRUE — both instruments agree.** mlp1's damage reproduces §2848's 3.504 exactly, and attention 8's
+2.642 sits **.009** from §2840's published 2.667 despite the two rungs using different ablation arms (this one zeroes the
+component at every position; the battery removes the final-position write from every reader edge). I had registered pred_e
+with a deliberately loose .30 bar on the grounds that the arms differ by construction; they agree to under one percent,
+which is a stronger instrument result than I asked for.
+
+**pred_b TRUE (null "≤ .25" not met) — and it deflates §2848, as it was registered to.** mlp1's selectivity ratio is
+**1.00**: removing it damages the answer-preserving family and the copy control exactly as much as the target. I wrote in
+the preregistration that an early MLP everything depends on "should damage P and C about as much as the target, giving
+.8–1.1", and that the interesting outcome would be ≤ .25 making it "a genuinely new circuit component". It is 1.00. **mlp1's
+3.50 is a general dependency, not a successor-circuit term.**
+
+**pred_c FALSE with its null MET — and the same is true of every component below layer 8.** ZERO of the eighteen
+pre-layer-8 components are both admissible and selective. The full top of the ranking: attn5 4.27, mlp0 4.00, attn1 3.76,
+mlp1 3.50, mlp4 2.69, attention 8 2.64 — **all at ratio 1.00**, and attn3 at 1.24. So the components whose removal hurts
+the successor task most are exactly the components whose removal hurts everything, and attention 8 — sixth by raw damage —
+is the first one this campaign has any reason to call task-related.
+
+**pred_d TRUE (null "≤ 0" not met) — ρ .768 between the two surfaces**, so the ranking is a property of the model rather
+than of the numbered-list format, and a single-surface sweep would have said the same thing.
+
+**What this does to §2848 and to the lineage.** §2848's headline — "the successor circuit is missing a term larger than the
+writer it was built around" — is **withdrawn**. The term is larger; it is not part of the circuit in any sense the battery's
+own controls recognise. What §2818/§2819/§2821 swept (readers of attention 8's write, layers ≥ 8) was the right population
+after all, and they missed nothing selective. The genuinely useful residue is methodological and uncomfortable: **raw
+ablation damage ranked six generic components above the one component with a task-specific story, and only the P/C controls
+separated them.** Any sweep in either lane that ranks by damage without controls will reproduce this ordering and call
+attn5, mlp0 and attn1 the circuit.
+
+**And it re-frames §2830 rather than contradicting it.** Those same components — attn5, mlp0, attn1 — led the document-CE
+map too (§2830: mlp0 2.651, attn1 2.493, attn5 2.200), where there is no task and therefore no selectivity to measure. The
+consistent reading across both is that this model has a handful of components everything depends on, and they are not
+where task structure lives.
+
+Price: 5,256 GPU forwards, 61.4 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_successor_full_sweep_results.json. (Claude, LANE 1 CUDA.) a, b, d, e TRUE; c FALSE with its null
+met. Preserved.

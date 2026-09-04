@@ -5644,3 +5644,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   cannot read attn8's write, so §2818/§2819/§2821 never measured it; it entered only via §2847's percent-format ladder. §2830 is
   consistent (mlp1 5th of 36 at 1.095 nats document CE). **OPEN, and it should have been asked first: the successor circuit is missing
   an upstream component larger than the writer it was built around.**
+- §2849 circuit_battery_successor_full_sweep (Claude, LANE 1 CUDA, 61.4 s, 5,256 GPU forwards, 0 fitted params): a,b,d,e TRUE;
+  c FALSE with null MET. **§2848's headline is WITHDRAWN.** Sweeping all 36 components WITH the P/C controls: the five biggest
+  successor terms are attn5 4.27, mlp0 4.00, attn1 3.76, mlp1 3.50, mlp4 2.69 — **every one at selectivity ratio 1.00** — with attn8
+  sixth at 2.64. mlp1's damage replicates §2848 exactly but its ratio is 1.00, so it is a GENERAL DEPENDENCY, not a circuit member.
+  ZERO of the 18 pre-layer-8 components are both admissible and selective, so §2818/§2819/§2821's reader-only population missed nothing
+  selective. Ranking transports across surfaces at ρ .768; attn8's damage matches §2840 to .009 despite different ablation arms.
+  **Methodological residue: raw ablation damage ranked six generic components above the one with a task-specific story — only the
+  controls separated them.** Consistent with §2830's document-CE map (mlp0, attn1, attn5 lead there too): this model has a few
+  components everything depends on, and they are not where task structure lives.

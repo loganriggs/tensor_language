@@ -1,0 +1,47 @@
+[sweep] numbered_list.index_successor    top: attn5=4.27/r1.00, mlp0=4.00/r1.00, attn1=3.76/r1.00, mlp1=3.50/r1.00, mlp4=2.69/r1.00
+[sweep] paren_list.index_successor       top: attn5=4.06/r1.00, mlp0=3.60/r1.00, attn1=3.09/r1.00, mlp1=2.72/r1.00, attn8=2.35/r1.00
+{
+ "preds": {
+  "pred_a_mlp1_damage_replicates": true,
+  "pred_b_mlp1_is_not_selective": true,
+  "pred_c_some_upstream_component_is_selective": false,
+  "pred_d_the_ranking_is_task_stable": true,
+  "pred_e_attn8_reproduces_the_battery": true
+ },
+ "nulls": {
+  "b_null_mlp1_is_selective": false,
+  "c_null_no_upstream_selective": true,
+  "d_null_no_stability": false
+ },
+ "summary": {
+  "mlp1_damage": 3.503512382507324,
+  "mlp1_ratio": 1.0,
+  "attn8_damage": 2.641927719116211,
+  "upstream_selective": [],
+  "rho_task_stability": 0.7683397683397685,
+  "battery_reference_full": 2.6670982837677,
+  "repro_gap_fraction": 0.009437434235056323,
+  "top8": {
+   "numbered_list.index_successor": [
+    "attn5",
+    "mlp0",
+    "attn1",
+    "mlp1",
+    "mlp4",
+    "attn8",
+    "attn6",
+    "attn3"
+   ],
+   "paren_list.index_successor": [
+    "attn5",
+    "mlp0",
+    "attn1",
+    "mlp1",
+    "attn8",
+    "mlp4",
+    "attn6",
+    "mlp16"
+   ]
+  }
+ }
+}
