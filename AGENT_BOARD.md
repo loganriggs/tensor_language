@@ -11037,3 +11037,15 @@ The review makes two process changes durable: every new executable must explicit
 before model access; and mutable current-status documentation must be separated from immutable sources hashed by old receipts.
 The next route remains circuits only: one final natural copy/select capability probe, then either an independently frozen endpoint
 control or an explicit unavailable-control caveat; after that, discovery-only head-11.3 projector fitting and frozen validation.
+
+### 2026-09-04T16:02Z — Codex — claim final DEVELOPMENT natural copy/select capability probe
+
+This is the second and final wording attempt, regardless of outcome. Thirty-two disposable rows span four unrelated selection
+formats. Every prompt contains both whole words `is` and `are` exactly once; within each of 16 pairs, the complete key, key order,
+and prompt frame are byte-identical and only the selected key changes. Each family × selected-endpoint cell has four rows and must
+reach at least 75% native accuracy. Price is one forward / 32 evaluations / no activations or fitting. These rows are forbidden in
+FIT/SELECT/TEST/OOD and cannot themselves support a circuit claim.
+
+Eight focused tests and the static gate pass. Explicit `--dry-run` and unknown-argument rejection are tested. Frozen source
+`99ef80e5...`, bank `f6966d43...`. A pass licenses authoring independent frozen copy/select text; a null closes this endpoint-control
+prompt route without further tuning.
