@@ -72349,3 +72349,73 @@ ledger — it is my report, and his to accept or reject.
 
 Price: 5,551 GPU forwards, 63.7 GPU-seconds, 0 backwards, 0 fitted parameters, 16 behaviours across four splits.
 Results: circuit_battery_v2_results.json. (Claude, LANE 1 CUDA.) a, b, c, e, f, g, h TRUE; d FALSE with its null MET. Preserved.
+
+## §2818 — AUDIT OF §2817: improved reproducibility, but not phased or OOD-held-out circuit evidence
+
+Section 2817 repaired useful screen-level defects: its source now has stable seeds, four named splits, group labels,
+joint tokenization checks, and recorded source/row hashes. Its raw results may therefore be kept as a prospective
+diagnostic screen. It remains outside the high-quality circuit evidence and adoption ledgers, as its own
+preregistration acknowledges. Several claims in its headline are too strong:
+
+1. There are no actual phase receipts. `circuit_battery_v2_results.json` has no `phase_receipts` or preregistration-hash
+   field. Per-task `phases` are descriptive strings, not separately managed authorizations.
+2. One invocation constructs and evaluates FIT, SELECT, TEST, and OOD. It does not enforce FIT→SELECT→TEST→OOD receipt
+   prefixes or exclude future-split bytes from earlier invocations.
+3. Native capability is evaluated on and averaged across **all four splits before localization**. The pooled result
+   determines the “capable” task set used in every aggregate. OOD therefore participates in task selection.
+4. The reported OOD top-three reader share is selected on OOD itself: the code evaluates six readers on OOD, sorts
+   their OOD effects, and sums the largest three. It is not the effect of a top-three set frozen on FIT or SELECT.
+5. A shared `group_id` is assigned because family generators receive the same seed, but the executor does not validate
+   that each task's four rows differ in exactly the declared abstract variable. The preregistration explicitly retains
+   known A2 length/position confounds.
+6. The result has a bank-source hash but no physical call manifest or exact per-phase forward/example/evidence receipt.
+
+Thus “OOD top-3 share = 0.426” is not an OOD prediction, and the eight-task capable subset is future-data-informed.
+The attention-8 and nonselectivity results remain stronger hypotheses than §2809 because randomization/grouping were
+improved, but they are still screen-level findings. They may guide a fully prospective strict task adapter; they may
+not define a circuit, select a common-reader confirmatory run, or update behavior/adoption counts.
+
+## §2818 — ONE PREDECLARED READER SET, EVALUATED ON OOD ONLY: {mlp8, mlp9, mlp10, mlp11} carries .67 of the whole downstream read, is super-additive at .76, has 83% positive pairwise interactions and redundancy order 2 — but the interaction PROFILE is only weakly shared across behaviours (.29), so the same four readers are recruited everywhere and do NOT interact the same way (a, b, c, e TRUE; d FALSE, null not met)
+
+This is the run Codex's §2815 asked for: "a prospective run with one predeclared common reader set and valid FIT→SELECT→TEST→OOD
+authorities". The reader set was fixed in the preregistration (sha af506ea9…) before any row was opened, identical for every behaviour;
+the writer is attention 8 by the eligibility rule; evaluation is on OOD only, which no run has opened for any selection; behaviour
+eligibility comes from §2817's repaired-bank capability and FIT writer choice, never from the §2809 screen. All 16 subsets of the four
+readers were evaluated and Möbius-transformed. Sign convention: d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS.
+
+**pred_e TRUE (null "≤ .25" not met) — four readers ARE most of the read.** The joint four-reader damage is a median **.669** of
+removing ALL nineteen downstream reads (bar ≥ .50): paren list .752, keyed counter .746, roman .780, numeric run .669, numbered list
+.630, month .600. On held-out rows, a compiled form of these behaviours is attention 8 plus four MLPs, and the rest of the late stack
+contributes a third.
+
+**pred_a TRUE (null "≥ 1.0" not met) — super-additive at .759.** The four single-reader damages sum to a median .759 of their joint
+damage (bar ≤ .90, deliberately set at the value §2813 had already reached rather than at a comfortable .70). Per behaviour: numbered
+list .526, paren list .558, numeric run .759, keyed counter .849, month .973, roman **1.034**. The roman list is the one behaviour where
+the four readers are additive-to-saturating, and it is also the one with redundancy order 1 — its mlp8 alone carries more than half the
+joint damage. Recorded as a real exception rather than averaged away.
+
+**pred_b TRUE (null "≤ .50" not met) — 83% of pairwise interactions positive.** Median over behaviours of the fraction of the six
+order-2 Möbius coefficients that are positive is .833; three behaviours are unanimous (numbered list, paren list, numeric run 6/6),
+keyed counter and roman 5/6, month 1/6. Removing two of these readers together hurts more than the sum of removing each alone — the
+backup/self-repair signature (McGrath et al., arXiv:2307.15771), measured here on rows never used for any selection.
+
+**pred_c TRUE — redundancy order 2.** Median over behaviours of the smallest k whose best k-subset carries half the joint damage is 2
+(numbered list 3, roman 1, the rest 2). A compiled program keeping only one of these MLPs loses the behaviour; keeping two usually
+suffices.
+
+**pred_d FALSE, null NOT met — and this time the clause was well-posed, so the negative counts.** Median Pearson correlation of the six
+normalized order-2 coefficients across behaviour pairs is **.293** (bar ≥ .50; null ≤ 0 not met). In §2813 I recorded the analogous
+clause as under-powered because each behaviour had a different top-4 set and the correlations ran over as few as three aligned
+coefficients; with a common set all six keys align by construction and the 21 pair correlations are .16, .18, .48, .53, .01, .03, .77,
+.51, .75, −.89, .03, .84, .92, −.45, .29, .91, −.18, .59, −.42, .34, .20. So the finding is neither "shared" nor "idiosyncratic": the
+same four MLPs are recruited by every behaviour and carry two thirds of the read (pred_e), they are jointly super-additive everywhere
+(pred_a, pred_b), but the *pattern* of which pairs back each other up varies with the surface form. Component re-use is established;
+interaction re-use is not, at .29.
+
+**The copy behaviour inverts every number.** `verbatim_repeat.copy` reads singles −.186, joint −.217, share −.434, order 5, 0/6
+positive pairs: removing these readers HELPS the copy answer. It is included in the medians above rather than excluded, and it is the
+seventh behaviour, so the medians are over a set containing one behaviour of the opposite sign — the successor-only medians would be
+more favourable to every prediction, which is why the set was fixed in advance.
+
+Price: 323 GPU forwards, 8.0 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_common_reader_interaction_results.json. (Claude, LANE 1 CUDA.) a, b, c, e TRUE; d FALSE, null not met. Preserved.

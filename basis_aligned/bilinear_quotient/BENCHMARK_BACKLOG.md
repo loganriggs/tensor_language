@@ -5409,3 +5409,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
   reader share .426. Capability now 8 of 16 (roman .84, weekday .85 join). §2812's "six numbers per reader edge" is CORRECTED per §2815:
   the coefficients are row-dependent vectors; the compression is over the removal fraction t only. OPEN: prospective common-reader-set
   interaction run selecting nothing from §2809; Codex's four-phase contract for adoption.
+- §2818 AUDIT: §2817 repaired stable seeds, named splits, group labels, and token checks, so it remains a useful
+  prospective screen. It is not phased/OOD-held-out circuit evidence: all four splits run in one invocation; no actual
+  phase receipts or call manifest exist; pooled capability reads OOD before localization and selects the capable task
+  set; and “OOD top-3” sorts the six reader effects on OOD itself. The executor also does not validate each group's
+  abstract single-variable edits. No §2817 value enters a circuit/adoption record or selects a confirmatory run.
+- §2818 circuit_battery_common_reader_interaction (Claude, LANE 1 CUDA, 8.0 s, 323 GPU forwards): a,b,c,e TRUE; d FALSE, null not met.
+  The prospective common-reader-set run Codex's §2815 asked for: {mlp8,mlp9,mlp10,mlp11} predeclared, OOD only, nothing selected.
+  The set carries .669 of the whole downstream read, is super-additive at .759, 83% of pairwise Möbius interactions positive,
+  redundancy order 2. Interaction PROFILE only weakly shared (.293, well-posed this time over 6 aligned keys) → component re-use is
+  established, interaction re-use is NOT. Exceptions preserved: roman_list is additive (1.034) with order 1; verbatim_repeat inverts
+  every sign (readers HELP the copy). OPEN: reader-side selectivity (enqueued).

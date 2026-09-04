@@ -1,0 +1,29 @@
+[common] keyed_line.counter_successor   singles=1.649 joint=1.942 ratio=0.849 order=2 share=0.746
+[common] month.successor                singles=0.916 joint=0.941 ratio=0.973 order=2 share=0.600
+[common] numbered_list.index_successor  singles=0.803 joint=1.527 ratio=0.526 order=3 share=0.630
+[common] numeric_run.last_plus_one      singles=0.507 joint=0.668 ratio=0.759 order=2 share=0.669
+[common] paren_list.index_successor     singles=0.961 joint=1.724 ratio=0.558 order=2 share=0.752
+[common] roman_list.index_successor     singles=2.821 joint=2.727 ratio=1.034 order=1 share=0.780
+[common] verbatim_repeat.copy           singles=-0.186 joint=-0.217 ratio=-0.372 order=5 share=-0.434
+{
+ "preds": {
+  "pred_a_common_set_is_super_additive": true,
+  "pred_b_order_two_interactions_are_positive": true,
+  "pred_c_redundancy_order_exceeds_one": true,
+  "pred_d_interaction_profile_is_shared": false,
+  "pred_e_common_set_carries_the_reads": true
+ },
+ "nulls": {
+  "a_null_ratio_ge_1": false,
+  "b_null_order2_le_.5": false,
+  "d_null_corr_le_0": false,
+  "e_null_share_le_.25": false
+ },
+ "medians": {
+  "super_additive_ratio": 0.7593333765419633,
+  "order2_positive_frac": 0.8333333333333334,
+  "redundancy_order": 2.0,
+  "common_share_of_reads": 0.6687878797105984
+ },
+ "profile_corr": 0.2928482747073701
+}
