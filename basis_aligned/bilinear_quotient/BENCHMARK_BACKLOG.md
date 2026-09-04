@@ -5940,3 +5940,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   not a flat dict. Neither the gate (does not execute closures) nor the dry run (exits before model work) can catch these. **Before
   snapshotting any `S` entry, print its structure once in a dry-run-safe way** — or add a tiny shape-assertion helper to
   `ops/frontier_evalarms.py` that walks an entry and reports its nesting, callable from a smoke path.
+
+- **[§2910] CLOSED — block-by-block scaling.** Every `cfgF` block responds standalone; **none adds materially on top of T+C** (motif
+  +0.0149, tailE/early −0.0030). The frontier's end-to-end scale correction is **one two-parameter object**. No further rungs of this
+  shape.
+- **[§2909] The joint grid has converged** (+0.0314 then +0.0059). Best measured −0.3736 / +2.2999, still unadopted because pred_d failed
+  **on an axis I narrowed to two points in my own preregistration** — narrowing an axis to two values guarantees an edge optimum, so the
+  predicate could not pass. One grid with all three axes ≥3 points around the optimum settles it.
+- **[§2911] Fourth failure of the shape-or-placement family**, all in code that snapshots/reloads/rewrites a fitted entry. `load_stack`
+  now takes `device=`. Worth a standing habit: **when a rung installs objects into the live model, assert device and dtype before the
+  first forward**, not after.

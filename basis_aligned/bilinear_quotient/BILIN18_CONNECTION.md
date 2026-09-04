@@ -76720,3 +76720,104 @@ were in code that snapshots or rewrites a fitted entry.
 still valid, the defect is in the rung's own snapshot code, and the fixed rung is re-enqueued under the same document.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2909 — THE JOINT GRID HAS ESSENTIALLY CONVERGED (**−0.3736**, only **+0.0059** beyond §2907) AND TAIL/CP ARE NOW INTERIOR — BUT pred_d FAILED ON THE MOTIF AXIS **BECAUSE I NARROWED IT**, SO STILL NOTHING IS ADOPTED
+
+Registered `polynomial_causal/FRONTIER_JOINT_GRID_WIDENED_PREREGISTRATION.md` (12:38Z). Run `frontier_joint_grid_widened`, landed
+12:42Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_joint_grid_widened_results.json
+Price: 0 GPU forwards, 201.7 GPU-seconds, **1 pipeline run for 32 cells** (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+**pred_a, pred_b, pred_e HELD; pred_c and pred_d FAILED; `d_null_the_grid_is_too_narrow` MET.**
+
+- **pred_b HELD at deviation 0.0001** — §2907's cell (0.30, 0.65, 1.25) reads **−0.3676** against its **−0.3677**.
+- **Best cell: tail 0.30, CP 0.80, motif 1.25 — fresh −0.3736, in sample −0.3444, implied L2_F +2.2999.**
+- **pred_c FAILED at +0.0059** against a ≥ +.01 bar. The widened grid beats §2907's bound by **less than one hundredth of a nat**, so
+  **the joint optimisation has essentially converged**: the previous step gained +0.0314, this one +0.0059.
+
+### pred_d failed for a reason that is mine, and I am not going to paper over it
+
+**Tail 0.30 and CP 0.80 are now both interior** — the widening did its job on the two coordinates that needed it. `interior_in_all_three`
+is False **only because motif 1.25 is at the edge of {1.15, 1.25}** — and I narrowed the motif axis to those two values *in this
+rung's own preregistration*, on the grounds that motif "was never at an edge and spending cells on it would crowd out the two
+coordinates that were".
+
+**That reasoning was wrong in a specific way: narrowing an axis to two points guarantees its optimum is an edge.** The predicate I
+registered could not have passed. The failure is a design error in the grid, not a fact about the frontier.
+
+**What is substantively true, taken across rungs:** §2907 swept motif over {1.00, 1.15, 1.25, 1.40} with tail and CP free and found
+**1.25 interior**; §2906 bracketed it against §2905's 1.1 and 1.5. This rung finds tail and CP interior. So **all three coordinates are
+bracketed once the grids are combined** — the same argument §2906 used to discharge §2905's caveat.
+
+**Nothing is adopted anyway.** The registered rule required pred_d *within this rung*, and it did not hold. Reading a cross-rung
+argument into a within-rung predicate after seeing the result is precisely the move the rules exist to stop, and the fact that I believe
+the substantive claim makes it more tempting, not less. **§2904's T+C at +2.3522 remains the adopted configuration**; −0.3736 / +2.2999
+is recorded as the best measured.
+
+**Registered next:** one grid with **all three axes ≥ 3 points around the current optimum**, so pred_d can pass or fail on the frontier
+rather than on my grid design.
+
+## §2910 — THE LAST TWO BLOCKS **DO** RESPOND STANDALONE (−0.0748) BUT ADD **NOTHING** ON TOP OF T+C (−0.003). BLOCK-BY-BLOCK SCALING IS FINISHED: THE CORRECTION IS **ONE TWO-PARAMETER OBJECT**
+
+Registered `polynomial_causal/FRONTIER_REMAINING_BLOCK_SCALE_PREREGISTRATION.md` (12:31Z) — the same frozen document the §2908 failure
+ran under. Run `frontier_remaining_block_scale`, landed 12:45Z after the nested-dict fix.
+Results: frontier_remaining_block_scale_results.json
+Price: 0 GPU forwards, 168.9 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** as above; a **negative cost is an improvement**, and an `adds_to_TC_by` that is **negative means the extra
+block makes things worse**.
+
+**pred_a, b, c, e HELD; pred_d FAILED; `d_null_they_are_redundant_with_TC` MET.**
+
+- **pred_b HELD at deviation 0.0001** — T+C reads **−0.3214** against §2904's **−0.3213**.
+- **pred_c HELD** — the early-attention `linear` entries **do** respond: `W × 0.5` gives **−0.0748** standalone.
+  `c_null_the_mismatch_does_not_reach_these_blocks` did **not** fire, so **§2902's broadened claim extends to a sixth block**: local
+  criterion, end-to-end score, slack left behind. The claim has not yet found its boundary.
+- **pred_d FAILED at −0.0030.** On top of T+C, the best configuration of the new blocks is **worse than T+C alone**. Not merely
+  redundant — very slightly harmful.
+
+### What this closes
+
+Every block of `cfgF` has now been tested against the scale knob:
+
+| block | standalone | adds on top of T+C |
+|---|---|---|
+| tail `LW` | −0.2287 | — (is T) |
+| CP `Dk` | −0.1075 | — (is C) |
+| motif `ALPHA` | −0.1604 | **+0.0149** (§2906, 91% absorbed) |
+| front `A` | −0.1648 | overfitted, unadopted (§2895) |
+| `tailE` / early `linear` | **−0.0748** | **−0.0030** (this rung) |
+
+**Every block responds alone; none adds materially on top of T+C.** The frontier's end-to-end scale correction is, to the resolution of
+this instrument, **one two-parameter object** — and that is a stronger and cleaner statement than the sum of five separate adoptions
+would have been. The preregistration named this outcome as `d_null` and it fired.
+
+**Block-by-block scaling is closed.** No further rungs of this shape are warranted, and the backlog says so.
+
+## §2911 — FAILED RUN, PRESERVED AS SCORED: THE STACK DUMP LOADED TO CPU AND THE MODEL IS ON CUDA
+
+Registered `polynomial_causal/FRONTIER_STACK_DUMP_PREREGISTRATION.md` (12:34Z). Run `frontier_stack_dump`, landed 12:37Z **exit=1**.
+No receipt, so no price line and **all five predicates are UNSCORED, not failed.**
+
+```
+File ops/frontier_stack_dump.py, line 192, in h
+  return tb[cur['idx']].to(o_.dtype)
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+```
+
+`ops/frontier_fitcache.load_stack` calls `torch.load(..., map_location="cpu", mmap=True)` — deliberately, since the cache was written at
+11:06Z to be read for **CPU-side analysis**. The reload arm then installed those CPU tensors into a model living on CUDA, and the first
+token-table lookup indexed a CPU tensor with a CUDA index.
+
+**The irony is worth recording**: `map_location="cpu"` is exactly right for the purpose this dump serves — Gramian and Hankel spectra on
+CPU — and exactly wrong for the verification arm that proves the dump is usable. **pred_e, the predicate I added specifically because
+the first version of the reload arm tested nothing, is what surfaced it.** The check worked; the tool needed a device argument.
+
+**Fix:** `load_stack(key, device=...)` added to `ops/frontier_fitcache.py`, defaulting to CPU so the analysis path is unchanged, with
+the rung passing the model's device. **Cost: one pipeline run, ~120 GPU-seconds, no science.** Fourth failure of the shape-or-placement
+family; all four were in code that snapshots, reloads or rewrites a fitted entry.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
