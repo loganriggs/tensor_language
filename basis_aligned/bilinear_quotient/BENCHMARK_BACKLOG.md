@@ -5846,3 +5846,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2892] Layer-wise motif attribution overstates available gain by >2×.** a2/a3/a4 singles sum to .5467 but jointly recover .2401;
   all three pairs are subadditive (−.1448, −.1379, −.1009). Any fix targeting one front-band layer must be priced against the joint,
   not the single.
+
+- **[§2894] The −0.2288 improvement is one measurement from adoption.** The scale curve reproduces across runs to **0.0003** and
+  appears in sample too; what blocks it is that the `LW := {}` anchor reads **+0.1130** frozen-stack against §2881's **+0.1740**
+  refit-time — a **0.0610** gap from the refit-time/eval-time distinction (the §2884 issue, which for the *rank* knob did not matter but
+  here shifts the level). Fix: ONE rung with both arms — `LW := {}` applied during the refit loop, and after it — plus s = .25. Two
+  pipeline runs at most. If both reproduce their expected values the distinction is quantified and the frozen-stack anchor is valid.

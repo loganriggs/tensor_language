@@ -75986,3 +75986,61 @@ scale result stands on its own footing and the improvement can be adopted proper
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — and it stays unchanged precisely because §2893 is not
 adopted.
+
+## §2894 — THE SCALE CURVE REPRODUCES TO **0.0003** AND MY §2893 DIAGNOSIS IS CONFIRMED — BUT THE ANCHOR **STILL** FAILS (.1130 vs §2881's .1740), SO THE −0.2288 IS **NOT ADOPTED FOR THE THIRD TIME**. THE REMAINING CAUSE IS REFIT-TIME vs EVAL-TIME APPLICATION
+
+Registered `polynomial_causal/FRONTIER_TAIL_SHRINKAGE_ANCHORED_PREREGISTRATION.md` (10:32Z). Run
+`frontier_tail_shrinkage_anchored`, landed 10:35Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_shrinkage_anchored_results.json
+Price: 0 GPU forwards, 114.2 GPU-seconds, **1 pipeline run** for seven arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+| arm | `LW := {}` | s=0 | **s=.25** | s=.5 | s=.75 | s=1 |
+|---|---|---|---|---|---|---|
+| cost, **fresh** | **+.1130** | −.1864 | **−.2288** | −.1863 | −.1019 | 0 |
+| cost, **fitting window** | +.1962 | −.0705 | **−.1530** | −.1473 | −.0884 | 0 |
+
+**What held.** **pred_c HELD at a gap of 0.2994** — the two zero-arms genuinely differ, so **§2893's diagnosis is confirmed**:
+`LW := {}` leaves LINK-class positions at the class constant `CV[c]`, `LW[k] := 0` overwrites them with zero. **pred_e HELD at a
+maximum deviation of 0.0003** — the scale grid reproduces §2893 essentially exactly. **pred_d HELD** — every scale below 1 improves,
+again, on both windows.
+
+**What failed, and it is decisive.** **pred_b FAILED and `b_null_the_anchor_still_fails` is MET.** The `LW := {}` arm reads **+0.1130**
+against §2881's **+0.1740** — deviation **0.0610**, past both the .02 bar and the .05 null.
+
+### The remaining cause, and it is the §2884 distinction again
+
+§2881 applied `LW := {}` **inside the sequential refit loop**, so layer 11 was fitted against a layer 10 that already had no link maps —
+**the downstream fits adapted to the change**. This rung applies it **after all eight refits complete**, to a frozen stack. Those are
+two different quantities, and the gap between them is **0.0610**.
+
+That is the same refit-time/eval-time distinction §2884 raised and §2887 tested for the *rank* knob — where freezing did **not** change
+the non-monotonicity. Here it evidently **does** change the level, by .061. So the distinction is real but its effect is
+quantity-specific, which is precisely why it must be measured rather than argued.
+
+### Not adopted, third time
+
+The preregistration's adoption rule, written before the run: *"the improvement may be entered as a result **only if pred_a, pred_b,
+pred_d and pred_e all hold**."* **pred_b did not hold.** The **−0.2288 nats at s = 0.25** — which would take the frontier from +2.6735
+to **+2.4448** and be the campaign's first genuine improvement — is **recorded and not adopted**, for the third consecutive rung.
+
+I want to be exact about what is and is not in doubt, because three refusals could be mistaken for doubt about the effect itself:
+
+- **The curve is not in doubt.** It reproduces across two independent runs to **0.0003**, appears on the fitting window as well as
+  fresh, and its endpoint behaviour is internally consistent.
+- **What is in doubt is the anchor** — the single quantity tying this curve to something measured by a different rung under a different
+  procedure. Without it, the curve is a well-reproduced measurement of something whose relationship to the published frontier's
+  construction is not yet pinned.
+
+That distinction is the whole reason for the rule, and it is why the rule is being kept rather than argued around. The gap is now
+**one measurement wide**: reproduce §2881's refit-time `LW := {}` and this rung's frozen-stack `LW := {}` **in the same run**, and the
+.061 is either explained or it is not.
+
+**Registered next:** exactly that — one rung, two arms differing **only** in whether `LW := {}` is applied during the refit loop or
+after it, plus the s = .25 arm. If the refit-time arm reproduces §2881's +0.1740 and the frozen arm reproduces this rung's +0.1130, the
+distinction is quantified, the frozen-stack anchor becomes valid for a frozen-stack curve, and the improvement can finally be adopted
+on its own footing.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — unchanged *because* §2894 is not adopted.
