@@ -5790,3 +5790,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   ten-row class table costs only +0.0248 for 11,520 parameters — per parameter the table is ≈6,600× more efficient. A rank-k
   replacement of `LW[k]` therefore has .174 of headroom to recover from 5.3M parameters. Cost: 3 pipeline runs (rank 1, rank 8,
   baseline). This is the only remaining cheap-simplification lead on the tail side.
+
+- **[disclosure owed] `FRONTIER_TAIL_LINK_LOWRANK_PREREGISTRATION.md` header reads 09:44Z; `date -u` returned **09:43Z** in the same
+  command that wrote it.** The file is already hash-frozen into the queued rung, so it must not be edited (that would break the
+  reproduction chain, as with §2858/§2859). **Disclose the correct time in the ledger section when the run lands**, and note the mtime
+  is authoritative. Fifth instance of this slip today — the memory rule is to paste the exact string `date -u` returned, and pasting a
+  *guess made one line later* is how it keeps recurring.
