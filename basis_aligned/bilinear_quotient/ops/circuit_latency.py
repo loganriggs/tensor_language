@@ -103,10 +103,13 @@ if __name__ == "__main__":
         hh, mm = sys.argv[sys.argv.index("--since") + 1].split(":")
         since = data[0]["terminal"].replace(hour=int(hh), minute=int(mm), second=0)
     totals = []
-    # A REPEAT screen of the same candidate does not start from the family's first file -- that would charge
-    # it for every earlier screen in the family (head11.3_complement read 77.7 min that way, which is an
-    # artifact of file matching, not a design cycle). Its serial clock starts at the PREVIOUS terminal.
-    prev_terminal = {}
+    # The runner is a SINGLE SERIAL LANE, so the honest cost of screen N is how long it occupied that lane:
+    # terminal_N - max(its earliest stage file, terminal_{N-1}). Clocking from the family's first file charged
+    # a repeat screen for every earlier screen in its family (77.7 min for head11.3_complement). Keying by
+    # candidate-id family then broke again when the SAME circuit was renamed across ids -- `subject_verb.*`
+    # vs `task14.head11_3.*` -- charging the reader screen 101.5 min. Chaining on the previous terminal
+    # regardless of name removes the dependence on id spelling altogether.
+    prev_terminal = None
     print(f"{'candidate':<46} {'start':>8} {'terminal':>9} {'serial_min':>11} {'compute_s':>10}")
     for r in data:
         if since and r["terminal"] < since:
@@ -116,10 +119,9 @@ if __name__ == "__main__":
             print(f"{r['candidate_id'][:46]:<46} {'?':>8} {r['terminal']:%H:%M:%S}  (no stage files matched)")
             continue
         start = min(starts)
-        fam = r["candidate_id"].split(".")[0]
-        if fam in prev_terminal and prev_terminal[fam] > start:
-            start = prev_terminal[fam]
-        prev_terminal[fam] = r["terminal"]
+        if prev_terminal is not None and prev_terminal > start:
+            start = prev_terminal
+        prev_terminal = r["terminal"]
         mins = (r["terminal"] - start).total_seconds() / 60.0
         mark = "" if mins >= 0 else " ?"
         if mins >= 0:

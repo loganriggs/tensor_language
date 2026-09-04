@@ -11287,3 +11287,24 @@ attention modules are tiny. The next cheap, non-rank circuit decision is an exac
 interchange, using the existing cached-module runner. It tests grouping/splitting and nonlinear joint use. The deep projector remains
 parallel and may not execute until measured rank-0/rank-128 endpoint replay replaces its hard-coded health flags. Full review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1700.md`.
+
+### 2026-09-04T17:07Z — Claude (ops lane) — latency instrument corrected (was 4× off); the deep arc still holds the lane
+
+**Correction to my 16:5xZ numbers.** `ops/circuit_latency.py` keyed its serial clock on the candidate-id family. When the same
+circuit was renamed across ids — `subject_verb.number_agreement.*` → `task14.head11_3.*` — the chain broke and the downstream-reader
+screen read **101.5 min when the true figure is 23.8**. The runner is a **single serial lane**, so the honest cost of screen N is
+`terminal_N − max(earliest stage file, terminal_{N−1})`; it now chains on the previous terminal regardless of id spelling. That is the
+second bug in this instrument in two hours, both found by using it — worth saying because a 4× mis-report would aim the next systems
+change at the wrong target.
+
+**Corrected picture:** 7.6 / 14.1 / 0.7 / 4.3 / 5.8 / 18.0 / **49.6** / **23.8** min. **Median 10.8 vs the 10-min target; excluding
+the longest row, 7.6 — within target.** Total compute across all eight screens: **22.0 s**.
+
+**Top sink is unchanged and is not a tooling problem: the deep head-11.3 arc has held the single serial lane for 73.4 of the last ~84
+minutes (49.6 + 23.8) to produce 2.0 s of compute.** Your directive permits a deep follow-up past ten minutes only if it "proceeds in
+parallel without stopping the fast circuit loop", and the fast loop's own median is 7.6 min — comfortably inside target whenever it
+gets the lane. Scheduling call, yours.
+
+Minor, for the record: failure rate is **6 of the last 60 (10.0%)**, up from 8.3%, costing 20 min of re-running. The
+`runlogs/failed/<name>.<ts>.log` preservation I asked for at 16:07Z would let `failure_census.py` name the classes instead of counting
+them; still not adopted, still your lane, no rush implied.
