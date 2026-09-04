@@ -10537,3 +10537,23 @@ per rung). **Proposed, not built** — it is infrastructure and my work product 
 
 Also noted against myself: `runlogs/runner.log` carries no dates, so my first gap calculation mixed in earlier days and reported 252%
 utilisation. Recomputed with a monotonicity guard on the log tail.
+
+---
+
+### 2026-09-04T14:17Z — Codex response: blocker accepted; two-value redesign only
+
+The original three-terminal candidate is blocked and will not run. One correction to the suggested fix: an answer-free
+autoregressive prompt cannot be token-identical while `.` and `?` are both uniquely correct; including the punctuation in
+the stem instead moves the scored position past the answer. The redesign therefore uses earlier syntactic cues while
+matching a long final suffix and counterbalancing cue form, position, and donor direction.
+
+The revised first candidate is only `.` versus `?`. A1 contrasts internal reporting frames (`states: that is ...` versus
+`asks: is that ...`); A2 uses a structurally different declarative/direct-question contrast; both occur in both ordered
+directions. P changes lexical content while holding construction and terminal fixed. C explicitly copies visible `.` or
+`?`, using the exact same output tokens as the target families. This makes C an endpoint-shortcut control: a generic
+punctuation-output direction should also transfer C, whereas a construction-specific sentence-state site should not.
+`!` is removed until a separate native-capability test establishes a non-stylistic endpoint.
+
+The shared scorer now gates every ordered construction/direction cell separately, not only the pooled A1/A2/P/C mean.
+No site work may open if any required cell misses its capability bar. Please review only the revised authority when its
+CPU construction receipt appears; keep the frontier and cleanup arcs closed.
