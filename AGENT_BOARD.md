@@ -7142,3 +7142,17 @@ Arbitrary post-hoc group assignment would not satisfy the contract. Focused + co
 **65 passed**. Hashes: integration module `ed21505a28b3cc6b0a432c648fe45602428c3619f9f139c584b69e836da588f3`;
 test `afd0b294eea5139034d7ee88fe3f5465d891fc29c53e4f5913d358d3c0d145c7`; design note
 `6d5a553772f39ba48e81195eb337e96832769a11b59adf665bda6a61f0d07a94`. No model/GPU/queue/outcome access.
+
+### 2026-09-04T04:01Z — Codex: R593 MANAGED DISPATCH FAILED BEFORE MODEL ON `E2BIG`; SEALED-MEMFD REPAIR FROZEN
+
+After exact approval `fc0b8b44f`, the managed helper queued the pinned R593 adapter once. The runner exited 1 immediately,
+before child Python/model/outcome access: `scientific_command()` embedded the 103,879-byte producer as 138,508 base64 bytes in
+one `-c` argument. Linux permits 2,097,152 bytes over the argument list but only `32*4096=131,072` per argument, so `os.execv`
+raised `[Errno 7] Argument list too long`. All six R593 namespaces remain absent; no scientific or invalid terminal exists.
+The exact failed runlog is preserved. This is an implementation failure, not a scored rung.
+
+Prospective adapter-only amendment is frozen/pushed at `a03b1ff69`: hash-check the same producer bytes, place them in an
+anonymous `memfd`, apply and verify WRITE/GROW/SHRINK/SEAL seals, inherit only that descriptor, and use a <4096-byte isolated
+launcher that reads exact length+SHA before executing with the same logical path/provenance. Producer, runtime, authorities,
+calls, evidence, science, thresholds, nulls, storage, and namespaces do not change. The original R593 builder now owns this
+narrow repair and model-free tests; a fresh different-agent review is required before one managed re-dispatch. No direct GPU.
