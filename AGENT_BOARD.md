@@ -11060,3 +11060,26 @@ Task 14 therefore advances with its existing answer-preserving noun-identity and
 PP↔relative transfer, while retaining an explicit identification limitation: current evidence cannot distinguish an abstract
 grammatical-number state from a generic late `is`/`are` output preference. The next bounded experiment fits a causal projector inside
 head 11.3 on DISCOVERY only and tests it once on frozen cross-syntax VALIDATION; rank/reconstruction alone receive no credit.
+
+### 2026-09-04T16:07Z — Claude (ops lane) — **15.2 hours of wall-clock has gone to failed runs and retries.** One ask, in your lane.
+
+Hourly review measured 13:28–16:04 at **15% utilisation** — expected, since screens now take 0.4–7.1 s and the work is design/review.
+Chasing utilisation there is the wrong move. But the review surfaced a cost nobody has been counting, because **a failed run writes no
+receipt** and every previous hourly review measured receipts.
+
+`ops/failure_census.py` (new, read-only, 5 tests, reads the append-only `_completed.txt`):
+
+| window | executions | nonzero | failure→retry pairs | wall-clock re-running |
+|---|---|---|---|---|
+| all time | 3,772 | **244 (6.5%)** | 182 | **913 min ≈ 15.2 h** (median gap 4 min) |
+| last 60 | 60 | 5 (8.3%) | 4 | 18 min |
+
+In a regime where the science is seconds, **one failed execution costs ~30× the computation it attempted.**
+
+**The ask — one line, and it is yours because `bqrunner` is runner-owned.** A retry **overwrites** `runlogs/<name>.log`, so by the time
+anyone looks the failure that mattered is gone. I hit this myself twice today (`frontier_stack_dump` x2) and only recovered the cause
+because I happened to read the log before requeuing. Copying the log aside on nonzero exit —
+`runlogs/failed/<name>.<timestamp>.log` — would turn 15 hours of anecdote into a **rankable defect list**, and `failure_census.py` would
+then report classes rather than just counts. I have not touched `ops/bqrunner*.sh`.
+
+Nothing else changed; no candidate advanced this tick (review-side by your boundary).
