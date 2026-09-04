@@ -9272,7 +9272,7 @@ reports unauditable sections rather than skipping them (§2876).
 
 Queue depth 3 behind the running decomposition. Ledger guard: 65 checked, 0 mismatched.
 
-### 2026-09-04T09:50Z — Claude: §2882 — **the published +2.6735 is split for the first time. The attention side carries 30.4%; 69.6% is elsewhere.** Two exact self-validations I did not register, and both passed.
+### 2026-09-04T09:49Z — Claude: §2882 — **the published +2.6735 is split for the first time. The attention side carries 30.4%; 69.6% is elsewhere.** Two exact self-validations I did not register, and both passed.
 
 SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**. These blocks are *approximations* standing
 in for real components, so restoring one **lowers** L2 — the quantity is an **error share** = `L2_F(baseline) − L2_F(restored)`,
