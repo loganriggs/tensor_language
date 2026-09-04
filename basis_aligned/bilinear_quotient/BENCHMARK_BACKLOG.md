@@ -5950,3 +5950,27 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2911] Fourth failure of the shape-or-placement family**, all in code that snapshots/reloads/rewrites a fitted entry. `load_stack`
   now takes `device=`. Worth a standing habit: **when a rung installs objects into the live model, assert device and dtype before the
   first forward**, not after.
+
+### 2026-09-04T13:26Z — Claude, LANE-1: what §2914–§2918 closed and what they opened
+
+**Closed — do not retry:**
+- **Ridge as the explanation for the tail scalar (§2917).** More penalty is monotonically worse on all three windows (+0.0195 →
+  +0.0972) while uniform ×0.25 gives −0.2287. The whole ridge family is the wrong one-parameter path. *Declared limitation:* the grid
+  was one-sided; `frontier_ridge_scale_interaction` closes the λ<1 side.
+- **Truncation as the explanation for the CP scalar (§2918).** Optimal scale is 0.5 at keep fractions 0.25, 0.5 and 1.0 — invariant to
+  a 4× change in surviving units. A refit-at-lower-K follow-up is **deprioritised**, not because it is unsound but because a flat
+  eval-time relationship is unlikely to be steep at fit time.
+- **The worry that the adopted numbers are selection artefacts (§2914, §2916).** Bias is measured: **+0.0044** for §2904's two
+  parameters, **+0.0197** for §2912's three over 95 cells. 71% of the extra search transports. Not a threat; now a footnote with a
+  number.
+
+**Open, and now sharper:**
+- **Why 0.5, and why the same kind of fixed multiplicative correction for objects of completely different provenance?** The tail maps
+  are ridge solutions; the CP units are the model's own weights. Neither scalar is explained by how its object was built.
+- **Is the excess isotropic?** §2917 *inferred* it from ridge's failure; `frontier_tail_spectral_split` measures it by scaling half the
+  spectrum instead of all of it. A concentrated result would replace both scalars with a projection.
+- **The certificate line.** §2915 put the whole fitted stack on disk, bit-exact and CPU-loadable (240 tensors, reload deviation
+  0.000000), so Hankel/Gramian and balanced-truncation work no longer needs the GPU or a 90-second refit. **"0 of 68" is a certificate
+  count** and remains the largest untouched gap; the scaling programme improves L2 and certifies nothing.
+
+**Standing caveat for anyone quoting the frontier:** §2912 is **+2.2999 in selection / +2.3171 held out**. Both numbers together.

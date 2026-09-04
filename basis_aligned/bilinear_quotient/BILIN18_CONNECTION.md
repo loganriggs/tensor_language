@@ -77147,3 +77147,64 @@ now much less interesting**: a relationship that is flat across a 4× change in 
 fit time, and the honest ranking puts the invariance itself — why 0.5, and why the same 0.5 for objects with different provenance —
 above another K sweep. **Nothing was adopted from this rung**, and §2118's closure of K-reduction-for-price stays closed: no cell here
 is offered as a cheaper frontier.
+
+---
+
+## §2919 — **THE EXCESS IS NOT ISOTROPIC: IT LIVES IN THE TOP 64 SINGULAR DIRECTIONS.** SCALING ONLY THOSE READS **−0.2614**, BEATING THE ADOPTED UNIFORM ×0.25 (−0.2287), WHILE THE REST OF THE SPECTRUM IS ACTIVELY HARMFUL. **NOT ADOPTED — I FAILED TO REGISTER AN IDENTITY CONTROL ON THE SVD PATH**
+
+Written 2026-09-04T13:28Z. Rung `ops/frontier_tail_spectral_split`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_TAIL_SPECTRAL_SPLIT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 132.2 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_tail_spectral_split_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+§2917 inferred from ridge's monotone failure that the end-to-end excess is **isotropic**. This rung was registered to test that
+inference rather than let it harden: each tail link map is `LW = U diag(s) Vᵀ`, and applying the **same adopted scalar 0.25** to only
+the top r singular values, or only the bottom ones, holds shrinkage-per-direction fixed and varies only **which** directions get it.
+
+| arm | fresh | held out | in sample |
+|---|---|---|---|
+| uniform ×0.25 (adopted) | −0.2287 | −0.2363 | −0.1531 |
+| **top 64** | **−0.2614** | **−0.2693** | — |
+| top 256 | −0.2344 | −0.2442 | — |
+| top 576 | −0.2281 | −0.2362 | — |
+| bot 64 | **+0.0489** | +0.0499 | — |
+| bot 256 | +0.0114 | +0.0112 | — |
+| bot 576 | +0.0005 | +0.0009 | — |
+
+**pred_a HELD** (+2.6735). **pred_b HELD at deviation 0.0000** — uniform ×0.25 reproduced §2896's −0.2287 a **sixth** time.
+**pred_c FAILED**, **pred_d FAILED**, **pred_e HELD** (additivity residual **+0.0057** at r=256, so the two halves are very nearly
+independent). `c_null_the_excess_is_concentrated_in_a_subspace` and `d_null_one_half_of_the_spectrum_carries_nothing` are both MET.
+
+**The reading, which was registered in advance as the interesting outcome.** The excess is **concentrated**. Shrinking the top 64 of
+1152 directions — **5.6% of them** — is worth more than shrinking all 1152, by **0.0327 nats**. The bottom of the spectrum does not
+merely fail to help: shrinking it **hurts** (+0.0489 for everything below the top 64), and the harm falls monotonically toward zero as
+the untouched top grows (+0.0489, +0.0114, +0.0005). So the tail link maps are **right almost everywhere and systematically over-large
+in a small, identifiable subspace**, and the adopted scalar is a blunt instrument that pays for its gain on 64 directions by damaging
+1088 others.
+
+**What this does and does not do to §2917.** §2917's **measurements stand entirely** — more ridge really is monotonically worse on all
+three windows, and that refutation of the under-regularisation hypothesis is untouched. What falls is its closing **inference**, which
+this section's own preregistration named as an inference and not a measurement: *"Ridge is one particular anisotropic shrinkage; its
+failure rules ridge out and hints at isotropy without demonstrating it."* Ridge failed not because the excess is spread evenly, but
+because ridge shrinks hardest exactly where the excess **is not** — the low-eigenvalue directions — and leaves the top of the spectrum
+nearly untouched. **The two results are consistent and the pair is more informative than either alone.**
+
+**NOT ADOPTED, and the reason is a gap in my own preregistration.** The uniform control in this rung went through `_apply_tail`, a plain
+multiply — **not** through the SVD decompose-and-reconstruct path every split arm used. **Nothing here proves that path is faithful.**
+If `U diag(s) Vᵀ` did not return `LW` exactly, every split arm would carry an unmeasured reconstruction error and the arm that happened
+to cancel it would look best. I registered precisely this identity control in §2918's keep-scale rung, one rung earlier, and did not
+register it here. The internal evidence is encouraging — additivity at +0.0057, and `top576` (−0.2281) landing within 0.0006 of uniform
+as it should when `bot576` contributes +0.0005 — but **encouraging internal consistency is not a control**, and the standing rule for a
+conclusion-flipping correction requires an independent physical check before publication.
+
+**`ops/frontier_tail_rank_localise` is registered and queued** with `svd_identity` (all directions × 1.0 through the SVD path, which
+must read 0.0000) and `svd_uniform` (all directions × 0.25 through it, which must agree with the plain multiply), plus a finer sweep
+r ∈ {16, 32, 64, 128, 256} × scale ∈ {0.10, 0.25, 0.40} so that 64 can be interior — §2919's optimum sat at the **smallest rank it
+tested**, so **−0.2614 is a bound, not a value**. If `svd_identity` fails, this section is **withdrawn outright** rather than annotated.
+
+**Two things worth keeping regardless of that outcome.** The held-out column tracks the fresh column within 0.008 at every arm, so
+whatever this effect is, it transports. And if it survives its control, **the correction stops being a scalar**: the object to carry
+forward is a rank-64 projection per link map, which is a different kind of thing to compose with §2912's configuration and needs its own
+held-out measurement (§2914/§2916) before it can displace anything.
