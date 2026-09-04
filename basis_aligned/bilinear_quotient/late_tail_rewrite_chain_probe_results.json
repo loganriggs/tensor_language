@@ -1,0 +1,153 @@
+{
+ "rung": "late_tail_rewrite_chain_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); R^2 values are out-of-sample on docs 0-63 (fits on docs 96-191) and are NOT CE numbers",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_transfer_falls_with_distance": false,
+  "pred_c_adjacent_transfer_dominates_far": false,
+  "pred_d_transfer_tracks_loss_coherence": false,
+  "pred_e_tail_write_is_mostly_linear_in_tail_input": false
+ },
+ "nulls": {
+  "b_null_rho_ge_0": true,
+  "c_null_ratio_le_1.2": true,
+  "d_null_rho_le_.1": true,
+  "e_null_r2_le_.2": true
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_rho": -0.4,
+  "c_ratio": 2.0,
+  "d_rho": 0.5,
+  "e_r2": 0.5
+ },
+ "null_bars": {
+  "b_rho": 0.0,
+  "c_ratio": 1.2,
+  "d_rho": 0.1,
+  "e_r2": 0.2
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "no drops: each late MLP l's tail write (out @ Ut, 384 dims) is ridge-regressed (lambda = 1e-2 x mean eigenvalue) on (i) each earlier late writer j's lambda-propagated tail component as l reads it, (ii) l's full tail input xh @ Ut, (iii) block l-1's component; out-of-sample R^2 on docs 0-63",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284
+ },
+ "summary": {
+  "r2_pair_reader_from_writer": {
+   "9<-8": 0.02212079129094824,
+   "10<-8": 0.010896101842340689,
+   "10<-9": 0.020664592923157366,
+   "11<-8": 0.008996094945972977,
+   "11<-9": 0.02065313663641344,
+   "11<-10": 0.01749431446630101,
+   "12<-8": 0.004287887575427973,
+   "12<-9": 0.01280950858281249,
+   "12<-10": 0.009785800262188893,
+   "12<-11": 0.01776180977492603,
+   "13<-8": -0.00264292428238333,
+   "13<-9": 0.0028356457001496027,
+   "13<-10": 0.0019826672383352895,
+   "13<-11": 0.008186839027212955,
+   "13<-12": 0.01188164569691652,
+   "14<-8": -0.008743595726766307,
+   "14<-9": -0.004610810439164004,
+   "14<-10": -0.006044350432542478,
+   "14<-11": -0.0012520780952660626,
+   "14<-12": 0.0016844975549972219,
+   "14<-13": -0.004588411787552538,
+   "15<-8": -0.004811838230579735,
+   "15<-9": -0.00017857484689298708,
+   "15<-10": -0.0029791746372658245,
+   "15<-11": 0.0034423264740550685,
+   "15<-12": 0.0037308382564429365,
+   "15<-13": -0.0034613936299874304,
+   "15<-14": -0.006319347362730987,
+   "16<-8": 0.01711418891815275,
+   "16<-9": 0.027808531549808557,
+   "16<-10": 0.022218316614728506,
+   "16<-11": 0.02818683662580357,
+   "16<-12": 0.03154352088107648,
+   "16<-13": 0.016418341276528525,
+   "16<-14": 0.011079858996428604,
+   "16<-15": 0.038054026743051916,
+   "17<-8": 0.1222800982275265,
+   "17<-9": 0.1594651678168344,
+   "17<-10": 0.1408272074819258,
+   "17<-11": 0.1582194381110067,
+   "17<-12": 0.17651052001020784,
+   "17<-13": 0.132526115088885,
+   "17<-14": 0.11815509587149586,
+   "17<-15": 0.21606222477260284,
+   "17<-16": 0.3262586979852421
+  },
+  "median_r2_by_distance": {
+   "1": 0.01776180977492603,
+   "2": 0.01034095105226479,
+   "3": 0.008996094945972977,
+   "4": 0.003865107024741521,
+   "5": -0.00264292428238333,
+   "6": 0.01101987088391776,
+   "7": 0.027808531549808557,
+   "8": 0.08828967836749357,
+   "9": 0.1222800982275265
+  },
+  "spearman_distance_vs_r2": 0.011198945981554676,
+  "median_r2_adjacent": 0.01776180977492603,
+  "median_r2_far_ge5": 0.022218316614728506,
+  "adjacent_over_far": 0.7994219401460747,
+  "r2_full_tail_input": {
+   "8": 0.027432385127056924,
+   "9": 0.014747253045932385,
+   "10": 0.0037244954821159526,
+   "11": 0.001000710664682547,
+   "12": -0.003300755189384441,
+   "13": -0.009239229078839895,
+   "14": -0.011456533541986946,
+   "15": -0.007737533238644234,
+   "16": 0.00042266389944789484,
+   "17": 0.05676142716242616
+  },
+  "median_r2_full_tail_input": 0.0007116872820652209,
+  "r2_prev_block_component": {
+   "9": 0.02212079129094824,
+   "10": 0.020664592923157366,
+   "11": 0.01749431446630101,
+   "12": 0.01776180977492603,
+   "13": 0.01188164569691652,
+   "14": -0.004588411787552538,
+   "15": -0.006319347362730987,
+   "16": 0.038054026743051916,
+   "17": 0.3262586979852421
+  },
+  "spearman_r2_vs_kappa_2794": -0.1848133848133848,
+  "n_common_pairs": 36,
+  "ridge_lambda_frac_of_mean_eigen": 0.01,
+  "n_fit_tokens": 24576,
+  "n_eval_tokens": 16384
+ },
+ "price": {
+  "gpu_doc_forwards": 352,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 25.720946311950684
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_REWRITE_CHAIN_PROBE_PREREGISTRATION.md": "276fe663cfbd047ddbeaca846a3ce44fb3ae5314fb32ca0b36cf6b8a69a85dfe",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_writer_pair_coherence_probe_results.json": "ccc0b6323fc20d83d6df4cd9aa6d541a2cdc41c84cef86decf8b4ee260b6bd26",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "acd51ce627e884299651e869e72c50cffe62a361c801e66490fbbe026d8d189c"
+}

@@ -5313,3 +5313,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2794 late_tail_writer_pair_coherence_probe (Claude, LANE 1 CUDA, 73 s, 3456 GPU forwards): a,b,c,e,f TRUE; d FALSE by .003, no null met.
   All 36 writer pairs super-additive; κ falls with distance (.20 → .02; ρ −.81 — a chain, not a shared direction); pairwise quadratic law
   reconstructs the nine-writer joint to 8%; κ tracks input cosine (ρ .76) though input cosines are ≈ .01 — coherence made by the readers' Jacobian.
+- §2795 late_tail_rewrite_chain_probe (Claude, LANE 1 CUDA, 26 s, 352 GPU forwards): a TRUE; b,c,d,e FALSE, ALL FOUR NULLS MET. No late MLP's tail
+  write is linear in its tail input (OOS R² median .001) or in any writer's component (≤ .04; block 17 excepted at .33 from block 16). §2794's
+  "re-write chain" carrier falsified (its scored findings stand): coherence lives in the readers' metric; the tail is re-generated from the core.
