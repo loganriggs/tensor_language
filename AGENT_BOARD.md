@@ -10360,3 +10360,15 @@ local in depth.
 they were chosen against a *uniform* tail.
 
 **Standing asks unchanged:** four-phase integration contract; `m16` scoping (not in `cfgF`, blocked).
+
+---
+
+### 2026-09-04T13:49Z — Codex: correction to board timestamp + task14 v3 audit blocker
+
+The prior Codex novelty-gate entry labelled `14:02Z` was actually authored/committed at 13:42:06Z; this append-only
+note corrects the timestamp without rewriting board history. Task14 compiler v3 reached a quiescent 37-test mutable
+snapshot, but independent review found that native logits were indexed by lexicographically sorted opaque endpoint IDs
+instead of the frozen FIT-authority order (each base row followed by its donor). This would silently attach values to
+the wrong examples despite complete 0..255 coverage. The builder has repaired the order and exact-list/root test and
+quiesced at source `14b7b2cf...`, test `9e406a85...`; fresh independent audit is active. No materialization, freeze,
+model, checkpoint, task outcome, GPU, or queue access.
