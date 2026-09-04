@@ -126,7 +126,7 @@ class FastScreenKernelTests(unittest.TestCase):
     def test_valid_gate_or_science_failures_are_nulls(self) -> None:
         adapter = FakeModelAdapter(kernel.SiteRef("residual", "nulls"))
         cases = {
-            "A2_capability_below_fixed_bar": (
+            "A2/all_capability_below_fixed_bar": (
                 adapter.evidence(), capability_evidence(a2=16)
             ),
             "A1_recovery_below_fixed_bar": (
@@ -166,10 +166,50 @@ class FastScreenKernelTests(unittest.TestCase):
             capability=capability_evidence(a1=20, a2=16, p=20, c=20),
         )
         self.assertEqual(result.terminal, "null")
-        self.assertEqual(result.reasons, ("A2_capability_below_fixed_bar",))
+        self.assertEqual(result.reasons, ("A2/all_capability_below_fixed_bar",))
         self.assertEqual(
-            tuple((cell.family, cell.accuracy) for cell in result.capability or ()),
-            (("A1", 1.0), ("A2", 0.8), ("P", 1.0), ("C", 1.0)),
+            tuple(
+                (cell.family, cell.cell_id, cell.accuracy)
+                for cell in result.capability or ()
+            ),
+            (
+                ("A1", "all", 1.0), ("A2", "all", 0.8),
+                ("P", "all", 1.0), ("C", "all", 1.0),
+            ),
+        )
+
+    def test_capability_is_thresholded_per_ordered_construction_cell(self) -> None:
+        adapter = FakeModelAdapter(kernel.SiteRef("module", "ordered-cells"))
+        capability = kernel.CapabilityEvidence((
+            kernel.FamilyCapabilityEvidence(
+                "A1", 18, 20, 20, cell_id="statement_to_question"
+            ),
+            kernel.FamilyCapabilityEvidence(
+                "A1", 16, 20, 20, cell_id="question_to_statement"
+            ),
+            kernel.FamilyCapabilityEvidence(
+                "A2", 18, 20, 20, cell_id="direct_to_indirect"
+            ),
+            kernel.FamilyCapabilityEvidence("P", 18, 20, 20),
+            kernel.FamilyCapabilityEvidence("C", 16, 20, 20),
+        ))
+        result = score(adapter, capability=capability)
+        self.assertEqual(result.terminal, "null")
+        self.assertIn(
+            "A1/question_to_statement_capability_below_fixed_bar", result.reasons,
+        )
+        self.assertEqual(
+            tuple(
+                (cell.family, cell.cell_id, cell.accuracy)
+                for cell in result.capability or ()
+            ),
+            (
+                ("A1", "question_to_statement", 0.8),
+                ("A1", "statement_to_question", 0.9),
+                ("A2", "direct_to_indirect", 0.9),
+                ("P", "all", 0.9),
+                ("C", "all", 0.8),
+            ),
         )
 
     def test_direction_bars_prevent_mean_from_hiding_sign_failures(self) -> None:

@@ -146,13 +146,14 @@ class ScalarInterventionEvidence:
 
 @dataclass(frozen=True)
 class FamilyCapabilityEvidence:
-    """Native capability and exact coverage for one family."""
+    """Native capability and exact coverage for one ordered construction cell."""
 
     family: Family
     correct_count: int
     observed_count: int
     expected_count: int
     complete: bool = True
+    cell_id: str = "all"
 
 
 @dataclass(frozen=True)
@@ -166,6 +167,7 @@ class CapabilityEvidence:
 @dataclass(frozen=True)
 class FamilyCapabilityScore:
     family: Family
+    cell_id: str
     correct_count: int
     expected_count: int
     accuracy: float
@@ -300,12 +302,17 @@ def _capability_scores(
         "P": MIN_P_CAPABILITY_ACCURACY,
         "C": MIN_C_CAPABILITY_ACCURACY,
     }
-    cells: dict[Family, FamilyCapabilityEvidence] = {}
+    cells: dict[tuple[Family, str], FamilyCapabilityEvidence] = {}
     for cell in capability.families:
         if not isinstance(cell, FamilyCapabilityEvidence) or cell.family not in thresholds:
             raise InvalidEvidenceError("capability family evidence is malformed")
-        if cell.family in cells:
-            raise InvalidEvidenceError(f"duplicate capability family {cell.family}")
+        if type(cell.cell_id) is not str or not cell.cell_id:
+            raise InvalidEvidenceError("capability cell_id must be nonempty")
+        key = (cell.family, cell.cell_id)
+        if key in cells:
+            raise InvalidEvidenceError(
+                f"duplicate capability cell {cell.family}/{cell.cell_id}"
+            )
         if type(cell.complete) is not bool or not cell.complete:
             raise InvalidEvidenceError(f"capability family {cell.family} is incomplete")
         for name in ("correct_count", "observed_count", "expected_count"):
@@ -323,18 +330,23 @@ def _capability_scores(
             raise InvalidEvidenceError(
                 f"capability {cell.family} correct_count is out of range"
             )
-        cells[cell.family] = cell
-    if set(cells) != set(thresholds):
-        raise InvalidEvidenceError("capability must cover A1, A2, P, and C exactly once")
+        cells[key] = cell
+    if {family for family, _ in cells} != set(thresholds):
+        raise InvalidEvidenceError("capability must cover A1, A2, P, and C")
     return tuple(
         FamilyCapabilityScore(
-            family,
-            cells[family].correct_count,
-            cells[family].expected_count,
-            cells[family].correct_count / cells[family].expected_count,
-            thresholds[family],
+            cell.family,
+            cell.cell_id,
+            cell.correct_count,
+            cell.expected_count,
+            cell.correct_count / cell.expected_count,
+            thresholds[cell.family],
         )
         for family in ("A1", "A2", "P", "C")
+        for _, cell in sorted(
+            (item for item in cells.items() if item[0][0] == family),
+            key=lambda item: item[0][1],
+        )
     )
 
 
@@ -445,7 +457,9 @@ def score_site(
         failures: list[str] = []
         for cell in capability_scores:
             if cell.accuracy < cell.minimum_accuracy:
-                failures.append(f"{cell.family}_capability_below_fixed_bar")
+                failures.append(
+                    f"{cell.family}/{cell.cell_id}_capability_below_fixed_bar"
+                )
         if a1.direction_fraction < MIN_TARGET_DIRECTION_FRACTION:
             failures.append("A1_direction_below_fixed_bar")
         if a2.direction_fraction < MIN_TARGET_DIRECTION_FRACTION:
