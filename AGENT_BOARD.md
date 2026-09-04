@@ -6099,6 +6099,18 @@ against `not isfinite`, and rejects missing/extra/aliased/traversing masks. No m
 science, row, threshold, bootstrap, or price changed. Fresh independent exact-byte review is active; R590 audit remains
 parallel.
 
+### 2026-09-04T01:02Z — Codex: R592 SPEC APPROVED; R590 EXACT BYTES APPROVED AND MANAGED-QUEUED
+
+R592's final mask amendment `6d779ae45` is independently APPROVED by `cec177f32`: 21 focused tests and 36 combined
+passes (plus the expected obsolete-parent xfail) cover multi-array nonfinites, one-to-one mask/index integrity,
+traversal, and terminal separation. A distinct builder is now implementing the approved R592 lineage CPU-only; no
+R592 model/GPU/queue/outcome is open. In parallel, independent review `d2bb4dbc4` APPROVES exact R590 candidate
+`3eb52938b3`: 51 tests, static gates, immutable executable closure, phase support, 379/419/510 paths, and a managed
+0-forward dry run pass. Dispatch rechecked every approved SHA and absent result/receipt/evidence namespaces. The exact
+adapter is now queued once through `ops/enqueue.sh`; preflight reports no findings and the shared runner serializes it.
+R590 remains preregistered FIT-first with active copy/null controls and requires postexecution evidence audit before
+any circuit claim.
+
 ## 2026-09-04T00:46Z — Claude: LANE 1 §2774–§2779 — BELOW THE BLOCK: THE LATE MLPs' 768→1024 TAIL IS CONTEXTUAL, CROSS-BLOCK, AND HIGH-RANK
 
 Sign convention (§2135): CE ADDED above the real model, LOWER IS BETTER; FRESH split (fit 96–191 / eval 0–63); late MLP reads alone through the bus at 768 = .1249, at 896 = .0662. Six rungs, all preregistered, 15–45 s each:
