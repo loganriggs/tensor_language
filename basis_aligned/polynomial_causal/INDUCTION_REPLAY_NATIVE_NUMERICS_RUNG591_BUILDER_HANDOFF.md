@@ -9,10 +9,10 @@ approval and not permission to enqueue.
 
 | Artifact | SHA-256 |
 |---|---|
-| `ops/induction_replay_native_numerics_rung591.py` | `b2b266529f0f842211fea46856064133df5e3f4a8a7758c9095e7d29a94b6c49` |
-| `ops/test_induction_replay_native_numerics_rung591.py` | `e756ba3d17d3ebee2f81e97e573dd216090555de1fd3f1cfc926268f902d9ce7` |
-| `induction_replay_native_numerics_rung591_dryrun.json` | `161193de5d90da69aafcd681e375993fa91d32e99100f0ed02fb586d5a629d8b` |
-| amended preregistration | `e72cb386d65c68f55b767c8141c3c4d774b3c8ad9387ac7f8ad43bebef118593` |
+| `ops/induction_replay_native_numerics_rung591.py` | `fb8239ded4f3e99510f37ea72337c2d69e4640f7a2556748c9062aa82b2751bc` |
+| `ops/test_induction_replay_native_numerics_rung591.py` | `8a24a9903d10ada8a4048c7adcb33cb4ef3e8aeef11d6f9718f8e50e57b6212c` |
+| `induction_replay_native_numerics_rung591_dryrun.json` | `8a6331fb1a4d3800abff5ab6b7e291105872b06b41a43b003436312b6e50dc5d` |
+| amended preregistration | `2dd8f918f767a6e5d91af357cfaa14770b79334ebac837d1bf52e8046ce190a5` |
 
 The implementation independently verifies the exact R585 producer, owner test,
 dry run, facade, induction helper, manifest, dependency lock, and amended
@@ -20,6 +20,8 @@ preregistration hashes before either dry-run construction or diagnostic work.
 It also binds the phase-specific panel-method handoff v5 at commit
 `f69f695da1cae57cbb79326a859d58c401f2473a`, SHA-256
 `810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80`.
+It also binds shared handoff v6 at commit `4eb17c5cc`, SHA-256
+`d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c`.
 The checkpoint receipt must equal
 `680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3`.
 
@@ -35,6 +37,8 @@ and zero updates.
 
 The ordered panel hash is
 `6b56a6740dbea7d0765d6a8668361ff43b06562152f091f6969ca8591522ebe4`;
+the receipt now also emits all 256 ordered FIT endpoint IDs and their direct
+ordered-list hash `cb0112c4b750bd4f3b104595efef127eed8aff4438e485f8cb5d8c0806fc7f7d`;
 the ordered forward-call hash is
 `1e838190752e72eed6f35119c3e99bfb7620e787ae73c7a052046160d600ad3f`.
 Dispatcher counts are N=132, F=24, R=78. The F dispatcher returns the exact
@@ -53,17 +57,22 @@ semantic authority.
 ## Boundary and output
 
 `BQLIB_DRYRUN=1` executes only source, authority, schedule, support, and shape
-validation. With the environment variable absent, the managed no-argument path
+validation. Endpoint authority is constructed from immutable snapshots of the
+direct R578 rows and R585 manifest; it cannot parse R586/R587 outcome artifacts.
+With the environment variable absent, the managed no-argument path
 runs the diagnostic. The only diagnostic output is one strict-finite JSON object
 on stdout. The script contains no R585 result, receipt, or evidence namespace;
 no scoring, selection, scientific terminal, or publication function is called.
 The absolute `1e-5` threshold and the registered observer/hook/padding/batch
-interpretation remain unchanged. Even a passing diagnostic cannot license R585
+interpretation remain unchanged. Only N comparisons can activate the registered
+native padding and membership causes; auxiliary F/R comparisons remain descriptive.
+Executable project dependencies are hash-snapshotted before import, and the managed
+adapter executes an immutable snapshot of the checked producer bytes. Even a passing diagnostic cannot license R585
 science.
 
 ## Builder verification
 
-- owner suite: `15 passed`;
+- owner suite: `19 passed`;
 - deterministic managed dry run: exact match to the committed JSON;
 - static gate: `PASS` with no findings;
 - preflight: no findings;

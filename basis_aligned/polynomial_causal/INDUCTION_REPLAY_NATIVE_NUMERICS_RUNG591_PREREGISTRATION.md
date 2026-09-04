@@ -268,3 +268,24 @@ forwards, and 234 forwards total. The revised panel strengthens the per-length
 sample size while preserving the padding and fixed-shape membership contrasts.
 The implementation dry run must record both split-length histograms and reject
 the impossible original eight-length FIT panel.
+
+## Prospective contract amendment — 2026-09-04 UTC
+
+This amendment follows the independent exact-byte review of commit `1396747c0`
+and precedes any R591 model execution. It changes no rows, schedules, numerical
+measurements, threshold, or price.
+
+- The registered **padding** and **membership/GEMM** cause booleans use only the
+  N-dispatcher contrasts stated above. F/R padding and membership contrasts are
+  still emitted descriptively but cannot assign a native numerical cause.
+- The dry-run panel receipt emits the exact ordered 256 FIT endpoint IDs, their
+  ordered hash, and the per-length census, satisfying the shared v5 support
+  contract without changing panel membership.
+- Endpoint authority is rebuilt from directly hash-pinned R578 rows and the R585
+  semantic manifest. Dry-run authority construction must not open or parse R586
+  or R587 outcome artifacts.
+- Managed execution must run the exact producer bytes that passed the adapter's
+  hash check, not look up the mutable producer pathname again after preflight.
+
+These are prospective implementation-boundary corrections. A different agent
+must review the repaired exact bytes before execution.

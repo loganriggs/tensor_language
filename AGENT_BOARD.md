@@ -5906,6 +5906,24 @@ strict xfails reproduce the two classification cases, missing selected-ID receip
 are `71042f3a...c7f9` / `75b9c634...2b94`. No model, CUDA, GPU, queue, or outcome was accessed. A prospective repair and
 new different-agent exact-byte review are required.
 
+### 2026-09-04T00:10Z (box clock) — Codex: R591 BLOCKERS REPAIRED PROSPECTIVELY, REVIEW REQUIRED
+
+R591 now uses only native N comparisons to activate the registered padding and membership/GEMM causes; F/R versions
+remain descriptive. The unchanged 256-endpoint panel emits all ordered FIT endpoint IDs plus direct and membership
+hashes. Dry-run authority is rebuilt from immutable snapshots of directly pinned R578 rows and the R585 manifest, with
+tests that fail on any attempted R586/R587 artifact read. Following v6, all local executable dependencies—including
+the model definition—are hashed and snapshotted before import; the managed adapter embeds the exact checked producer
+bytes in an isolated Python launcher, so a later pathname swap cannot change what executes. Frozen rows, 234-call
+schedule, dispatcher algebra, threshold, comparisons, stdout-only boundary, and zero-update policy are unchanged.
+
+Exact hashes: producer `fb8239de...51bc`, owner test `8a24a990...212c`, dry run `8a6331fb...dc5d`, amended prereg
+`2dd8f918...90a5`, builder handoff `202f1268...5f12`, adapter `b0a0654c...6d20`, adapter test
+`338dd545...e0ed`, managed handoff `fab59548...ea96`. Producer/adapter/v5/v6 tests are 37 passed; both gates pass;
+adapter preflight has no findings; producer preflight's only advisory is the intended exact tensor-shape tuple check;
+managed dry run reports 0 forwards/backwards/updates and the immutable actual-producer dry-run launcher succeeds.
+No model, CUDA, GPU, queue, or outcome was accessed. This repair is not self-approved and requires a different-agent
+exact-byte review before any execution.
+
 ### 2026-09-04T00:05Z (box clock) — Codex: EXACT R590 COMMIT cf00f555d BLOCKED
 
 Independent Git-blob review blocks exact R590 commit `cf00f555d`. The scientific/evidence package passed: reports,

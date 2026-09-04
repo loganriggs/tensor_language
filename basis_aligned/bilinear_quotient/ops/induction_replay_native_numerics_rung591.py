@@ -19,6 +19,7 @@ import math
 import os
 from pathlib import Path
 import sys
+import types
 from typing import Any, Mapping, Sequence
 
 
@@ -34,7 +35,13 @@ FACADE = POLY / "bilin18_observed_model_facade.py"
 INDUCTION = POLY / "circuit_induction_tensor.py"
 MANIFEST = OPS / "induction_selector_payload_frozen_factor_rung585_manifest.py"
 DEPENDENCY_LOCK = ROOT / "induction_selector_payload_frozen_factor_rung585_dependency_lock.json"
+R578_ROWS = ROOT / "induction_selector_payload_three_source_rows_rung578.json"
+R585_AMENDMENT = POLY / "INDUCTION_SELECTOR_PAYLOAD_FROZEN_FACTOR_RUNG585_REPLACEMENT_AMENDMENT.md"
+R459_FACTOR = OPS / "equality_term_score_payload_rung459.py"
+CANONICAL_TERM = OPS / "equality_term_subset_factorial_stage1.py"
 METHOD_HANDOFF_V5 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v5_addendum.json"
+METHOD_HANDOFF_V6 = OPS / "circuit_causal_validity_next_wave_handoff_rung585_v6_addendum.json"
+TT_MODEL = ROOT.parent.parent / "jacclust" / "tt_model.py"
 PREREGISTRATION = POLY / "INDUCTION_REPLAY_NATIVE_NUMERICS_RUNG591_PREREGISTRATION.md"
 
 SOURCE_HASHES = {
@@ -45,8 +52,14 @@ SOURCE_HASHES = {
     INDUCTION: "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a",
     MANIFEST: "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
     DEPENDENCY_LOCK: "908826844336fe7a073ae16a5ef9123434514c21a73f8d3b331b4bab6e9f49b7",
+    R578_ROWS: "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6",
+    R585_AMENDMENT: "98ed34711ada83bbe1591887edf17164efd443d4c6a47559f43dec33f60aa5bf",
+    R459_FACTOR: "9f9e66f689452cbcb14d741792b66eb9ff526dff5472a5938c58a2a4c82620d8",
+    CANONICAL_TERM: "3caa753cd856ec87899936fe71137ce28e893f86433558f40a815afff61824af",
     METHOD_HANDOFF_V5: "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80",
-    PREREGISTRATION: "e72cb386d65c68f55b767c8141c3c4d774b3c8ad9387ac7f8ad43bebef118593",
+    METHOD_HANDOFF_V6: "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c",
+    TT_MODEL: "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    PREREGISTRATION: "2dd8f918f767a6e5d91af357cfaa14770b79334ebac837d1bf52e8046ce190a5",
 }
 
 CHECKPOINT_SHA256 = "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
@@ -80,6 +93,8 @@ REGISTERED_PREDICATES = {
     "pred_c_padding_identity": "native padded and unpadded logits agree at absolute 1e-5",
     "pred_d_membership_identity": "native fixed-shape batch memberships agree at absolute 1e-5",
 }
+
+_VERIFIED_SOURCE_BYTES = {}
 
 
 def sha256(path: Path) -> str:
@@ -116,28 +131,87 @@ def require_finite_json(value: object, path: str = "root") -> None:
 
 
 def load_module(path: Path, name: str):
-    spec = importlib.util.spec_from_file_location(name, path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError(f"cannot import {path}")
+    source = _VERIFIED_SOURCE_BYTES.get(path)
+    if source is None:
+        raise RuntimeError(f"executable dependency was not snapshotted before import: {path}")
+    if path == FACADE and getattr(
+        sys.modules.get("jacclust.tt_model"), "__r591_verified_sha256__", None
+    ) != SOURCE_HASHES[TT_MODEL]:
+        raise RuntimeError("facade dependency jacclust.tt_model was not immutably loaded")
+    spec = importlib.util.spec_from_loader(name, loader=None, origin=str(path))
+    if spec is None:
+        raise RuntimeError(f"cannot construct immutable module {path}")
     module = importlib.util.module_from_spec(spec)
+    module.__file__ = str(path)
+    module.__r591_verified_sha256__ = SOURCE_HASHES[path]
     sys.modules[name] = module
-    spec.loader.exec_module(module)
+    exec(compile(source, str(path), "exec"), module.__dict__)
     return module
 
 
 def verify_sources() -> dict[str, str]:
     observed = {}
+    snapshots = {}
     for path, expected in SOURCE_HASHES.items():
-        if not path.is_file() or sha256(path) != expected:
+        if not path.is_file():
+            raise RuntimeError(f"frozen source mismatch: {path}")
+        source = path.read_bytes()
+        if hashlib.sha256(source).hexdigest() != expected:
             raise RuntimeError(f"frozen source mismatch: {path}")
         observed[str(path)] = expected
+        snapshots[path] = source
+    _VERIFIED_SOURCE_BYTES.clear()
+    _VERIFIED_SOURCE_BYTES.update(snapshots)
     return observed
 
 
 def load_authority() -> tuple[object, dict[str, object]]:
+    """Build endpoint semantics without parsing R586/R587 outcome artifacts."""
     verify_sources()
     r585 = load_module(R585, "r591_pinned_r585_authority")
-    execution = r585.build_execution_authority()
+    manifest = load_module(MANIFEST, "r591_pinned_r585_manifest")
+    expected_direct = {
+        r585.ROWS: SOURCE_HASHES[R578_ROWS],
+        r585.AMENDMENT: SOURCE_HASHES[R585_AMENDMENT],
+        r585.MANIFEST: SOURCE_HASHES[MANIFEST],
+        r585.R459_FACTOR: SOURCE_HASHES[R459_FACTOR],
+        r585.CANONICAL_TERM: SOURCE_HASHES[CANONICAL_TERM],
+        r585.INDUCTION: SOURCE_HASHES[INDUCTION],
+        r585.FACADE: SOURCE_HASHES[FACADE],
+    }
+    for path, digest in expected_direct.items():
+        if r585.AUTHORITY_HASHES.get(path) != digest:
+            raise RuntimeError("R585 direct semantic authority mapping changed")
+    original_verify = r585.verify_authorities
+    original_load_manifest = r585.load_manifest
+    original_strict_load_json = r585.strict_load_json
+    original_manifest_builder = manifest.build_authority_manifest
+    rows_document = json.loads(_VERIFIED_SOURCE_BYTES[R578_ROWS])
+    manifest_rows = [
+        row for row in rows_document["rows"]
+        if row["family_id"] in manifest.INCLUDED_FAMILIES
+    ]
+    try:
+        # All direct files used by build_execution_authority were checked above.
+        # Suppress only its transitive R586/R587 dependency parser: those outcome
+        # artifacts are neither needed nor authorized for this diagnostic panel.
+        r585.verify_authorities = lambda *args, **kwargs: {
+            str(path): digest for path, digest in expected_direct.items()
+        }
+        manifest.build_authority_manifest = lambda rows=None: original_manifest_builder(
+            manifest_rows if rows is None else rows
+        )
+        r585.load_manifest = lambda: manifest
+        r585.strict_load_json = lambda path: (
+            json.loads(_VERIFIED_SOURCE_BYTES[R578_ROWS])
+            if path == r585.ROWS else original_strict_load_json(path)
+        )
+        execution = r585.build_execution_authority()
+    finally:
+        r585.verify_authorities = original_verify
+        r585.load_manifest = original_load_manifest
+        r585.strict_load_json = original_strict_load_json
+        manifest.build_authority_manifest = original_manifest_builder
     return r585, execution
 
 
@@ -398,7 +472,12 @@ def build_dryrun() -> dict[str, object]:
         "source_sha256": sources,
         "checkpoint_weights_sha256": CHECKPOINT_SHA256,
         "panel": {
+            "split": "FIT",
             "endpoint_count": len(panel),
+            "ordered_endpoint_ids": [str(row["endpoint_id"]) for row in panel],
+            "ordered_endpoint_ids_sha256": content_sha256([
+                str(row["endpoint_id"]) for row in panel
+            ]),
             "length_counts": {
                 str(length): sum(int(row["length"]) == length for row in panel)
                 for length in FIT_LENGTHS
@@ -626,14 +705,10 @@ def interpret(comparisons: Mapping[str, object]) -> dict[str, object]:
         panel["hook"][schedule]["max_abs"] > TOLERANCE
         for schedule in PANEL_SCHEDULES
     )
-    padding = any(
-        panel["padding"][dispatcher]["max_abs"] > TOLERANCE
-        for dispatcher in DISPATCHERS
-    )
-    membership = any(
-        panel["membership"][dispatcher]["max_abs"] > TOLERANCE
-        for dispatcher in DISPATCHERS
-    )
+    # The preregistered native numerical causes are N-only.  F/R versions remain
+    # descriptive measurements and must not relabel an observer/hook effect.
+    padding = panel["padding"]["N"]["max_abs"] > TOLERANCE
+    membership = panel["membership"]["N"]["max_abs"] > TOLERANCE
     active = [
         label for label, value in (
             ("observer_failure", observer), ("hook", hook),
@@ -668,6 +743,12 @@ def _load_runtime():
             sys.path.insert(0, str(path))
     import torch
     import torch.nn.functional as functional
+    verify_sources()
+    package = types.ModuleType("jacclust")
+    package.__path__ = [str(TT_MODEL.parent)]
+    package.__package__ = "jacclust"
+    sys.modules["jacclust"] = package
+    load_module(TT_MODEL, "jacclust.tt_model")
     facade = load_module(FACADE, "r591_pinned_facade")
     induction = load_module(INDUCTION, "r591_pinned_induction")
     r585 = load_module(R585, "r591_pinned_r585_runtime")

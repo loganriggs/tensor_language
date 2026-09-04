@@ -55,8 +55,14 @@ def test_exact_sources_and_prospective_amendment_are_hash_pinned(runner):
     assert runner.SOURCE_HASHES[runner.METHOD_HANDOFF_V5] == (
         "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80"
     )
+    assert runner.SOURCE_HASHES[runner.METHOD_HANDOFF_V6] == (
+        "d1fdedd90ffff29e6790042b9c9a6ad84278849c3f66707cb586317832fdad1c"
+    )
     assert runner.SOURCE_HASHES[runner.PREREGISTRATION] == (
-        "e72cb386d65c68f55b767c8141c3c4d774b3c8ad9387ac7f8ad43bebef118593"
+        "2dd8f918f767a6e5d91af357cfaa14770b79334ebac837d1bf52e8046ce190a5"
+    )
+    assert runner.SOURCE_HASHES[runner.R578_ROWS] == (
+        "8893ff83ea6080ad704f38376715d19be8971867178a4edc3bfd61fe025b39b6"
     )
 
 
@@ -69,6 +75,43 @@ def test_source_gate_fails_closed_on_tampering(runner, tmp_path, monkeypatch):
     source.write_bytes(b"tampered")
     with pytest.raises(RuntimeError, match="frozen source mismatch"):
         runner.verify_sources()
+
+
+def test_authority_builder_never_reads_r586_or_r587_outcomes(runner, monkeypatch):
+    forbidden = (
+        "induction_selector_payload_native_capability_rung586_results.json",
+        "induction_selector_payload_native_capability_rung586_receipt.json",
+        "induction_selector_payload_native_capability_audit_rung587.json",
+    )
+    original_read_bytes = Path.read_bytes
+    original_read_text = Path.read_text
+
+    def checked_read_bytes(path):
+        if path.name in forbidden:
+            pytest.fail(f"outcome artifact read through read_bytes: {path}")
+        return original_read_bytes(path)
+
+    def checked_read_text(path, *args, **kwargs):
+        if path.name in forbidden:
+            pytest.fail(f"outcome artifact read through read_text: {path}")
+        return original_read_text(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "read_bytes", checked_read_bytes)
+    monkeypatch.setattr(Path, "read_text", checked_read_text)
+    _, authority = runner.load_authority()
+    assert len(authority["endpoints"]) == 2_592
+
+
+def test_executable_dependencies_are_verified_snapshots_before_import(runner):
+    runner.verify_sources()
+    for path in (
+        runner.R585, runner.MANIFEST, runner.FACADE,
+        runner.INDUCTION, runner.TT_MODEL,
+    ):
+        assert runner._VERIFIED_SOURCE_BYTES[path] == path.read_bytes()
+    planted = Path("/tmp/r591-unverified-executable.py")
+    with pytest.raises(RuntimeError, match="not snapshotted"):
+        runner.load_module(planted, "r591_forbidden_unverified_module")
 
 
 def test_split_length_histograms_and_impossible_original_panel(runner, execution):
@@ -103,6 +146,11 @@ def test_exact_256_panel_membership_and_hash(runner, execution):
     assert runner.content_sha256(membership) == runner.EXPECTED_PANEL_SHA256 == (
         "6b56a6740dbea7d0765d6a8668361ff43b06562152f091f6969ca8591522ebe4"
     )
+    receipt = runner.build_dryrun()["panel"]
+    identifiers = [str(row["endpoint_id"]) for row in panel]
+    assert receipt["split"] == "FIT"
+    assert receipt["ordered_endpoint_ids"] == identifiers
+    assert receipt["ordered_endpoint_ids_sha256"] == runner.content_sha256(identifiers)
 
 
 def test_semantic_roles_exhaust_canonical_equality_support(runner, execution):
@@ -189,6 +237,7 @@ def test_v4_forward_shapes_are_dynamic_and_facade_valid(runner, execution):
     assert contract["all_batch_sizes"] == [32]
     assert contract["all_padding_lengths"] == [19, 20, 27, 28, 30]
     assert contract["facade_require_production"] is False
+    runner.load_module(runner.TT_MODEL, "jacclust.tt_model")
     facade = runner.load_module(runner.FACADE, "r591_shape_test_facade")
     for shape in sorted({(row["batch_size"], row["padding_length"]) for row in manifest}):
         tokens = torch.full(shape, runner.PAD_TOKEN, dtype=torch.long)
@@ -322,6 +371,29 @@ def test_comparison_and_interpretation_use_frozen_absolute_threshold(runner):
     assert decision["classification"] == "hook_dominated"
     assert decision["threshold_unchanged"] == 1e-5
     assert decision["licenses_r585_science"] is False
+
+
+@pytest.mark.parametrize(
+    "family,dispatcher",
+    [("padding", "R"), ("membership", "F")],
+)
+def test_non_native_descriptive_cells_do_not_assign_native_cause(
+    runner, family, dispatcher,
+):
+    zero = {"max_abs": 0.0}
+    comparisons = {
+        "full_fit": {"total": zero, "hook": zero},
+        "panel": {
+            "observer": {name: zero for name in runner.PANEL_SCHEDULES},
+            "hook": {name: zero for name in runner.PANEL_SCHEDULES},
+            "padding": {name: dict(zero) for name in runner.DISPATCHERS},
+            "membership": {name: dict(zero) for name in runner.DISPATCHERS},
+        },
+    }
+    comparisons["panel"][family][dispatcher] = {"max_abs": 2e-5}
+    observed = runner.interpret(comparisons)
+    assert observed["classification"] == "all_registered_components_within_threshold"
+    assert observed["active_components"] == []
 
 
 def test_strict_finite_json_and_stdout_only_dryrun(runner):
