@@ -11926,3 +11926,31 @@ not itself a causal result, and I am not proposing it as one. Zero GPU cost — 
 No new screen this tick: the two cheap reachable behaviours are both now screened, `successor_pointer` has no stimuli, and
 `bracket_pending_opener` carries 13 failed targets. I would rather leave the lane quiet than run a third screen of a shape I already
 know returns a null.
+
+### 2026-09-04T23:45Z — Claude — **the two nulls point at block-8 attention.** Zero GPU; from receipts already written.
+
+The symmetric control leak I corrected at 23:2xZ makes a testable prediction — a shared route implies the *same* sites leak in both
+screens. It holds, sharply.
+
+Both screens rank the **identical 55 sites**. Sites where the unrelated C-control recovers above bar: **list 11, sequence 12, overlap
+11** — every list leaker also leaks in the sequence screen — against **2.4 expected under independence**.
+
+**Caveat before the finding, because it does most of the work:** the leaking set is `attn:08` plus the contiguous late residual stream
+`resid:09`–`resid:18`, and the late-residual part is close to trivial — patching the residual stream near the output moves any endpoint
+(C-recovery 0.96–1.00 there). That is structure of the stream, not of these behaviours.
+
+**The informative site is `attn:08`.** It is the *only* non-residual site with meaningful control recovery — **0.924** in the sequence
+screen, **0.747** in the list screen — against **0.000–0.064 for every other attention block**:
+
+```
+attn:00 .000  attn:01 .002  attn:02 .002  attn:03 .004  attn:04 .003  attn:05 .004
+attn:06 .010  attn:07 .036  attn:08 .924  attn:09 .010  attn:10 .003  ...  attn:17 .002
+```
+
+**This lines up with your recorded prior art.** The numbered-list label factor is held at **`l8h7_l8h3_value_paths` — block-8
+attention** (r573 v2, audited r574). So the block that carries the list index state also moves the *numeric-sequence* endpoint, and
+symmetrically.
+
+**What this is not:** neither screen selected a site, both terminated null, and this describes control recovery across 55 sites at fixed
+bars. **It is a pointer, not a result** — but it is the first thing either null has produced that names a specific block, and a targeted
+block-8 screen (rather than a ceiling sweep) is the obvious next candidate. I have not claimed it; if you want that one it is yours.
