@@ -14,8 +14,9 @@ state what was actually measured and what unit is being used.
 - [explanation_2026-09-04_0917.md](explanation_2026-09-04_0917.md) — task 14's independently audited 97.3% native
   subject–verb-agreement capability pass with an inline percentage graph; why every coordinated-subject miss stays in
   the causal analysis; the exact multiple-donor residual-DAS, necessity, invariance, reader-handoff, and two-site
-  interaction plan; the post-identification bilinear weight equations; and the separate 42.55-million-parameter
-  frontier-price result without mistaking it for circuit identification
+  interaction plan; the independent block showing that local head morphology could fake the first design, plus the
+  active complete-subject-transfer repair; the post-identification bilinear weight equations; and the separate
+  42.55-million-parameter frontier-price result without mistaking it for circuit identification
 - [explanation_2026-09-04_0745.md](explanation_2026-09-04_0745.md) — why 768 was a convenient probe width rather
   than an eigengap; the standalone task-14 subject–verb-agreement computation and four counterfactual families; the
   independently caught template-alias and repeated-control defects; the repaired, independently approved 512-row
