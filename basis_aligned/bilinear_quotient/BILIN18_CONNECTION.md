@@ -73332,3 +73332,51 @@ inventing a third statistic inside the section that discredited the second is ex
 Price: 130 GPU document-forwards, 11.6 GPU-seconds, 0 backwards, 82,944 declared fitted parameters.
 Results: circuit_battery_absolute_ranked_constant_set_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE — and the section is
 recorded as a self-correction, because passing predictions do not make a degenerate set informative. Preserved.
+
+## §2839 — RANKING BY THE SAVING WORKS, AND THE COMPOSITION REVERSES SIGN: the four writes with the largest individual saving cost 3.463 nats to delete and 1.035 as constants — a real saving of **2.428 nats** on a set that is provably not degenerate — but almost all of it comes from the FIRST component (attn1 alone saves 2.220), and the joint constant is **.224 nats CHEAPER than the sum of its parts**, i.e. sub-additive, the opposite of §2837 and §2818 (b, c, e TRUE; a FALSE, d FALSE with its null MET)
+
+Two rankings failed in opposite directions — §2837's ratio promoted components with tiny deletion costs, §2838's absolute cost promoted
+components with tiny everything and passed all five of its predictions on a set that cost .060 nats to delete. §2838 extracted the rule:
+rank by the DIFFERENCE keeping makes, `zero_damage − const_damage`. This rung tests it, with a predicate (pred_c) written specifically
+so a degenerate set cannot pass. Sign convention: d_ce = CE_arm − CE_NATIVE in nats, POSITIVE = the arm HURTS. **Not §312 L2; nothing
+installs; diagnostics only; metric-constructed spans CLOSED (§2118 lineage).**
+
+| k | DELETE these | CONSTANT these | **SAVING** |
+|---|---|---|---|
+| 1 | 2.426 | .206 | **2.220** |
+| 2 | 3.019 | .377 | **2.642** |
+| 3 | 3.462 | 1.027 | 2.435 |
+| 4 | 3.463 | 1.035 | 2.428 |
+| 6 | 4.290 | 1.429 | 2.861 |
+| 8 | 8.953 | 4.831 | 4.122 |
+
+**pred_c TRUE — the set is not degenerate, and this is the clause §2838 lacked.** Deleting the saving-ranked four costs **3.463 nats**
+(bar ≥ 3.0) against **.060** for §2838's absolute-ranked four. The ranking now selects components that actually matter: attn1, attn5,
+mlp16, mlp0 — three of the four most expensive in the model (§2830).
+
+**pred_b TRUE (null "worse by ≥ .30" not met) — it beats the ranking this lineage set out to improve on**, by **.351** nats at k = 4
+(1.035 against §2837's 1.386).
+
+**pred_a FALSE, null "≤ 1.0" NOT met — the saving is real but 2.428 nats, not the ≥ 4.0 I registered.** The individual savings of the
+four sum to 6.96 and I predicted 4.0–6.0 would survive composition; 2.43 survived. The curve explains why: **attn1 alone saves 2.220,
+the second component adds .42, and components three and four add nothing at all** (2.642 → 2.435 → 2.428). The saving is not spread
+across a set; it is one component plus a little.
+
+**pred_d FALSE with its null MET — and it is the genuinely new fact here.** The joint constant costs **.224 nats LESS** than the sum of
+the four individual constant costs — **sub-additive**. §2837 measured +.646 (super-additive) for its set and §2818 found the same
+qualitative structure for reader removals, so I registered ≥ 0 and wrote in the preregistration that a negative value "would mean these
+particular constants' errors partly cancel", which is what happened. Replacing several writes with their means introduces errors that
+partially offset each other, where replacing several reader edges compounds them. Those are different operations on different objects
+and there is no contradiction — but it does mean the super-additivity of §2818 and §2837 is not a general property of this model, and
+any plan that assumes joint interventions always cost more than the sum of their parts is wrong in at least this case.
+
+**Where this lineage ends.** Three rankings, three registered runs: the ratio one produced a set worse than random (§2837), the absolute
+one produced a vacuous set that passed everything (§2838), and the saving one produces a real but shallow result — **2.4 nats saved at
+k = 4, of which 2.2 is attn1**. Combined with §2835 (attn5's write is a constant recovering 94.3% of 2.211 nats) the durable statement is
+small and specific: **two components, attn1 and attn5, can be fixed vectors for .377 nats where deleting them costs 3.019.** Everything
+beyond those two is marginal. That is a much less exciting claim than the one I was heading toward at §2835, and it is what the
+measurements support.
+
+Price: 130 GPU document-forwards, 11.4 GPU-seconds, 0 backwards, 82,944 declared fitted parameters.
+Results: circuit_battery_saving_ranked_constant_set_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a FALSE; d FALSE with its null
+met. Preserved.

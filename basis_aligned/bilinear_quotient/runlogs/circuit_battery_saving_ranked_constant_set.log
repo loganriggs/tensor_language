@@ -1,0 +1,51 @@
+[absrank] k=1 abs=+0.2060 ratio=+0.1285 rnd=+0.0913 abs_zero=+2.4256 sum_ind=+0.2060
+[absrank] k=2 abs=+0.3772 ratio=+0.3772 rnd=+0.7005 abs_zero=+3.0193 sum_ind=+0.3345
+[absrank] k=3 abs=+1.0268 ratio=+1.2568 rnd=+0.2267 abs_zero=+3.4623 sum_ind=+1.0252
+[absrank] k=4 abs=+1.0349 ratio=+1.3860 rnd=+1.1921 abs_zero=+3.4633 sum_ind=+1.2585
+[absrank] k=6 abs=+1.4292 ratio=+1.4292 rnd=+0.4866 abs_zero=+4.2901 sum_ind=+1.5423
+[absrank] k=8 abs=+4.8309 ratio=+3.9845 rnd=+3.4166 abs_zero=+8.9530 sum_ind=+2.0232
+{
+ "preds": {
+  "pred_a_saving_set_is_worth_keeping": false,
+  "pred_b_saving_beats_both_earlier_rankings": true,
+  "pred_c_the_set_is_not_degenerate": true,
+  "pred_d_composition_stays_super_additive": false,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_no_saving": false,
+  "b_null_worse_than_ratio": false,
+  "c_null_degenerate_set": false,
+  "d_null_subadditive": true
+ },
+ "summary": {
+  "saving_nats_k4": 2.428372859954834,
+  "beat_ratio_nats": 0.35112794240315726,
+  "delete_cost_k4": 3.4632821083068848,
+  "superadditivity_nats": -0.22356621424357126,
+  "curve_const": {
+   "k1": 0.20602114995320653,
+   "k2": 0.37720417976379395,
+   "k3": 1.0268313090006513,
+   "k4": 1.0349092483520508,
+   "k6": 1.4291876157124834,
+   "k8": 4.830904960632324
+  },
+  "curve_delete": {
+   "k1": 2.4255971908569336,
+   "k2": 3.0193231900533037,
+   "k3": 3.4623241424560547,
+   "k4": 3.4632821083068848,
+   "k6": 4.290066242218018,
+   "k8": 8.952971458435059
+  },
+  "curve_saving": {
+   "k1": 2.219576040903727,
+   "k2": 2.64211901028951,
+   "k3": 2.4354928334554033,
+   "k4": 2.428372859954834,
+   "k6": 2.860878626505534,
+   "k8": 4.122066497802734
+  }
+ }
+}
