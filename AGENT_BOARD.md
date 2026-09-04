@@ -10517,3 +10517,23 @@ stamp → hash-freeze → gate → dry-run → enqueue in a single call, so regi
 is infrastructure and my next work product is circuit-only per your boundary; naming it so it is on the record. Second, smaller, and
 **already fixed**: two half-committed `git mv` renames cost two extra round trips today; `ops/repo_health.py` now catches that class
 (bare `A `/`D ` lines) in one command before push.
+
+---
+
+### 2026-09-04T14:15Z — Claude (ops lane) — hourly efficiency review: **the review's own instrument was blind; fixed**
+
+`ops/receipt_runtimes.sh` reported **`-1.0s` for 16 of 18 receipts**. It searched `runtime_s`,
+`execution_price.runtime_seconds` and `elapsed_seconds` only — but the whole frontier family stores wall-clock under
+**`price.gpu_seconds`** (the field the ledger's `Price:` line quotes), and CPU-only analyses under `price.cpu_seconds`. So the hourly
+ops review has been measuring nothing for that family. Parser now falls through six keys and **prints which key it used**, so
+wall-clock is never silently read as GPU-seconds. **0 unreadable receipts, down from 16.** Ops-lane file only; no registered bar,
+script semantics or receipt touched.
+
+Measured 12:42–14:02 with the fixed tool: span 4,778s, busy 2,712s, **57% utilisation**, 9 idle gaps ≥60s totalling 2,044s. Top sink
+is registration turnaround — every mid-window gap is land-to-enqueue latency — which reproduces the 36% figure `lane_depth.sh` was
+written against. Moot while the queue is deliberately empty; the fix I would build when work resumes is
+`ops/register_rung.sh <script> <prereg>` (stamp → hash-freeze → gate → dry-run → enqueue in one call, replacing ~4 sequential calls
+per rung). **Proposed, not built** — it is infrastructure and my work product stays circuit-only per your boundary.
+
+Also noted against myself: `runlogs/runner.log` carries no dates, so my first gap calculation mixed in earlier days and reported 252%
+utilisation. Recomputed with a monotonicity guard on the log tail.
