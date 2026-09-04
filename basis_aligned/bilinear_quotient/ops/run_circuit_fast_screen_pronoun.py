@@ -1,35 +1,35 @@
 #!/usr/bin/env python3
 # BQGATE: three frozen science predictions are emitted by the managed harness.
-"""Thin sentence-terminal wrapper for the generic managed FIT screen."""
+"""Thin pronoun-antecedent wrapper for the generic managed FIT screen."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
-import circuit_fast_screen_candidates as candidates
+import circuit_fast_screen_candidate_pronoun as candidate
 import circuit_fast_screen_managed_runner as managed
 import circuit_fast_screen_spec as screen
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PRIOR_ART = ROOT / "circuits/fast_screen_sentence_terminal_prior_art.json"
+PRIOR_ART = ROOT / "circuits/fast_screen_pronoun_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/sentence_terminal_semantic_choice_v1_result.json"
+    "circuits/fast_screens/pronoun_antecedent_gender_reference_v1_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "sentence-terminal-semantic-choice-v1"
-EXPERIMENT_ID = "fast-screen-sentence-terminal-semantic-choice-v1"
+REQUEST_ID = "pronoun-antecedent-gender-reference-v1"
+EXPERIMENT_ID = "fast-screen-pronoun-antecedent-gender-reference-v1"
 EXPECTED_AUTHORITY_SHA256 = (
-    "d0da3cda58fa77e93f982932f9a890af8b77d9e0162f5144c2cb9288004a81ab"
+    "a4acf288af74f6e6787f01e06818a55d03174370323d07b6940cf85df964ab5b"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
-    "13a6d697b04e3d378f5d0a0ed293efa0983808d9ed633424a79346934f7b4f6d"
+    "0f6b9fb585ecf688109b9feabb86e5c08bf95b906ed9e3876f89cf95ce84d711"
 )
 REGISTERED_PREDICTIONS = (
     ("pred_a_native_capability", "Every ordered native capability cell passes."),
-    ("pred_b_cross_construction_transfer", "One site transfers both target constructions."),
-    ("pred_c_controls_selective", "The selected site spares both registered controls."),
+    ("pred_b_cross_construction_transfer", "One site transfers active and passive targets."),
+    ("pred_c_controls_selective", "The selected site spares location and pronoun controls."),
 )
 
 CONFIG = managed.CandidateRunConfig(
@@ -40,19 +40,22 @@ CONFIG = managed.CandidateRunConfig(
     ledger_relative=LEDGER.relative_to(ROOT).as_posix(),
     expected_prior_art_sha256=EXPECTED_PRIOR_ART_SHA256,
     expected_authority_sha256=EXPECTED_AUTHORITY_SHA256,
-    information_read="whether the unfinished sentence is declarative or interrogative",
-    proposed_operation="carry that sentence-mode state across two syntactic constructions",
-    proposed_write="evidence for a period or question mark",
+    information_read="which explicitly gendered person performed the action",
+    proposed_operation=(
+        "bind the selected event participant to the correct gendered pronoun across "
+        "active and passive voice"
+    ),
+    proposed_write="evidence for he versus she",
     alternative_explanation=(
-        "a construction-specific word cue or generic punctuation-token service"
+        "construction-specific actor-position cue or generic he/she output service"
     ),
     circuit_prediction=(
-        "one site transfers both target constructions while sparing both controls"
+        "one site transfers A1 and A2 while sparing location P and visible-pronoun C"
     ),
     opposing_null_prediction=(
         "native capability fails or no site transfers both constructions selectively"
     ),
-    semantic_position_role="final input token before the predicted punctuation",
+    semantic_position_role="final input token before the predicted pronoun",
     batch_size=32,
     max_price=screen.battery.ExactPhasePrice(
         phase="FIT",
@@ -64,7 +67,6 @@ CONFIG = managed.CandidateRunConfig(
     ),
 )
 
-# Compatibility aliases keep the checked-in sentence tests and callers stable.
 utc_now = managed.utc_now
 utc_text = managed.utc_text
 literal_json = managed.literal_json
@@ -73,11 +75,11 @@ selected_controls_pass = managed.selected_controls_pass
 
 
 def build_spec(rows: list[dict[str, object]]) -> screen.CircuitFastScreenSpec:
-    return managed.build_spec(CONFIG, candidates, rows)
+    return managed.build_spec(CONFIG, candidate, rows)
 
 
 def main() -> None:
-    managed.run_managed(CONFIG, candidates, root=ROOT)
+    managed.run_managed(CONFIG, candidate, root=ROOT)
 
 
 if __name__ == "__main__":
