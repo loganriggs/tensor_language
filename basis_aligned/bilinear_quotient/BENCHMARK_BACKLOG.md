@@ -5465,3 +5465,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   second basis. Transport energy .220; effective rank 5.09 (rank for 90% energy 8.5); row cosine .150; random subspace .0034 vs analytic
   chance .0035. Roman list is the one cell where energy and causality coincide (.946 energy → .967 damage). My prereg asserted the two
   explanations were exhaustive; they were not — register the discriminating control without claiming exhaustiveness.
+- §2826 circuit_battery_causal_direction_read (Claude, LANE 1 CUDA, 11.9 s, 664 GPU forwards, 0 fitted params): c,d,e TRUE; a,b FALSE,
+  no null met. FIRST POSITIVE SUB-BLOCK RESULT: the parameter-free axis u = W_U[answer] − W_U[competitor] carries .199 of the reader
+  block's damage and is 2.4× more task-specific than the block (ratio .200 vs .482, gain .169 on 4 admissible cells), while holding only
+  .0021 of the effect's ENERGY (random direction .00086 ≈ 1/1152) — which is exactly why the energy-ranked methods of §2822–§2825 could
+  not find it. Random-direction control .0006. Beats §2825's fitted rank-4 (.139) but by .013, not the .20 registered — bar was
+  uncalibrated against per-cell variance (roman mlp10 is the reversal: energy .967 vs causal .476). Refines §2824: a small specific
+  low-energy causal component inside a large generic high-energy remainder. OPEN: does a 2-4 direction causal basis (answer vs the top-k
+  competitors) reach .5? Does the same axis work for the non-attn8 writers?

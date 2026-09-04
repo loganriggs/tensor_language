@@ -72730,3 +72730,52 @@ discriminating control without asserting that the alternatives are exhaustive.
 Price: 302 GPU forwards, 8.1 GPU-seconds, 0 backwards, 129,024 declared fitted parameters.
 Results: circuit_battery_removal_effect_geometry_results.json. (Claude, LANE 1 CUDA.) a, d, e TRUE; b, c FALSE with no null met.
 Preserved.
+
+## §2826 — THE FIRST POSITIVE SUB-BLOCK RESULT, AND IT IS ONE UNFITTED DIRECTION HOLDING 0.2% OF THE ENERGY: the answer-versus-competitor axis W_U[answer] − W_U[competitor] carries .199 of the reader block's damage with ZERO fitted parameters and is 2.4× MORE TASK-SPECIFIC than the block containing it (ratio .200 vs .482) — but it is not the whole read (c, d, e TRUE; a, b FALSE, no null met)
+
+Four rungs failed to localise the read of attention 8's write below the block, and §2825 diagnosed why: every ranking used was a SIZE
+ranking (unit magnitude §2822, exact lens magnitude §2823, singular energy §2824/§2825), and in this model energy is not causality. This
+rung ranks by causality with nothing fitted: for each row the axis the margin is defined on is `u = W_U[answer] − W_U[best competing
+candidate]`, read straight off the unembedding, the competitor taken from that row's own native logits. The arm removes only the
+component of the removal effect along u. OOD rows, §2817's capable attn8-writer behaviours, readers mlp10 and mlp11, admissibility gate
+at .25 × the block's damage. Sign convention: d_m = m_NATIVE − m_arm, POSITIVE = the arm HURTS; ratio = max(|d_P|, |d_C|) / max(d_A1, .5),
+LOWER IS MORE SPECIFIC.
+
+**pred_d TRUE (null "≥ .60" not met) — the causal axis is a LOW-ENERGY direction, and this is §2825 stated positively.** The fraction of
+the removal effect's squared norm lying along u is a median **.0021** — two tenths of one percent — against **.00086** for a seeded
+random direction and an analytic 1/1152 = .00087. So the axis that the behaviour is measured on holds about 2.4× a random direction's
+share of the effect's size. **No energy-ranked method could ever have found it**, which retroactively explains §2822 through §2825 in
+one number rather than as four separate failures.
+
+**pred_e TRUE — and it is the first positive sub-block localisation in this sequence.** On the four ADMISSIBLE cells the causal arm's
+selectivity ratio is a median **.200** against its block's **.482**: restricting the intervention to one direction of 1152 leaves the
+answer-preserving and copy controls substantially less damaged, relative to target damage, than intervening on the whole block does
+(gain .169, bar ≥ .10). The task-specific part of the read is, at least in part, a one-dimensional object — and it is the obvious one,
+the axis between the answer and its competitor, requiring no fitting to find. Per cell: keyed counter mlp10 .46 vs block .64 and mlp11
+.30 vs .44; numbered list mlp10 .31 vs .90; roman mlp10 .48 vs .94.
+
+**pred_c TRUE (null "≥ .30" not met) — the control that makes the above readable.** A seeded random unit direction carries **.0006** of
+the block's damage. The causal direction's .199 is not "any direction hurts".
+
+**pred_a FALSE, null "≤ .15" NOT met — but it is genuinely partial, not null.** The causal arm carries a median **.199** of the block's
+damage (bar ≥ .50), ranging .464 (keyed counter mlp10) and .476 (roman mlp10) down to .021 and −.014 on the copy behaviour. So roughly
+a fifth of what the block does to the margin travels along the answer-competitor axis, and four fifths does not. The read is not
+reducible to this axis; it is partially aligned with it.
+
+**pred_b FALSE, null "≤ 0" NOT met — the causal direction beats §2825's fitted rank-4 energy subspace, but by .013, not the .20 I
+registered.** Median causal share .199 against §2825's in-sample fitted rank-4 share .139. One unfitted direction does slightly better
+than four fitted ones, which is the right ordering and a genuine (if small) vindication of the diagnosis — and the cells split sharply:
+on the numbered list mlp10 the causal direction gives .310 against energy's .122 and on paren list mlp11 .216 against .080, while on
+roman mlp10 energy wins outright (.967 against .476) because there, uniquely, the top energy directions ARE the causal ones (§2825
+measured .946 energy → .967 damage on that same cell). I registered a margin of .20 on a comparison whose per-cell variance is larger
+than that; the direction of the effect replicates, the magnitude bar was not calibrated.
+
+**Where this leaves the sub-block question.** §2822–§2825 said the read is not sparse in units and has no transportable low-rank energy
+structure; this rung says a single unfitted causally-defined direction nonetheless captures a fifth of the damage and most of the
+specificity. Both are true and they are not in tension: **the block's read has a small, specific, low-energy causal component along the
+answer-competitor axis, sitting inside a large, generic, high-energy remainder.** That is a sharper picture than "the block is the
+granule" (§2824's reading, which I do not retract but do refine), and it is the first result in this sequence that a compiled tensor
+program could actually use: the specific part of what mlp10 does to attention 8's write is one rank-1 read requiring no fitting.
+
+Price: 664 GPU forwards, 11.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_causal_direction_read_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with no null met. Preserved.

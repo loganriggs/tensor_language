@@ -1,0 +1,40 @@
+[causal] keyed_line.counter_successor mlp10 causal=0.46 energy_r4=0.46 rnd=-0.003 E_frac=0.0044 block_r=0.64 caus_r=0.46 adm=True
+[causal] keyed_line.counter_successor mlp11 causal=0.30 energy_r4=0.08 rnd=-0.002 E_frac=0.0046 block_r=0.44 caus_r=0.30 adm=True
+[causal] month.successor              mlp10 causal=0.12 energy_r4=0.33 rnd=0.001 E_frac=0.0015 block_r=0.34 caus_r=0.18 adm=False
+[causal] month.successor              mlp11 causal=0.11 energy_r4=0.19 rnd=0.003 E_frac=0.0014 block_r=0.23 caus_r=0.16 adm=False
+[causal] numbered_list.index_successor mlp10 causal=0.31 energy_r4=0.12 rnd=0.001 E_frac=0.0030 block_r=0.90 caus_r=0.31 adm=True
+[causal] numbered_list.index_successor mlp11 causal=0.23 energy_r4=0.12 rnd=0.004 E_frac=0.0025 block_r=0.59 caus_r=0.23 adm=False
+[causal] numeric_run.last_plus_one    mlp10 causal=0.18 energy_r4=0.21 rnd=0.003 E_frac=0.0018 block_r=0.24 caus_r=0.17 adm=False
+[causal] numeric_run.last_plus_one    mlp11 causal=0.05 energy_r4=0.03 rnd=0.002 E_frac=0.0011 block_r=0.14 caus_r=0.06 adm=False
+[causal] paren_list.index_successor   mlp10 causal=0.25 energy_r4=0.16 rnd=-0.001 E_frac=0.0033 block_r=0.74 caus_r=0.25 adm=False
+[causal] paren_list.index_successor   mlp11 causal=0.22 energy_r4=0.08 rnd=-0.002 E_frac=0.0036 block_r=0.58 caus_r=0.22 adm=False
+[causal] roman_list.index_successor   mlp10 causal=0.48 energy_r4=0.97 rnd=-0.007 E_frac=0.0037 block_r=0.94 caus_r=0.48 adm=True
+[causal] roman_list.index_successor   mlp11 causal=0.15 energy_r4=0.51 rnd=0.003 E_frac=0.0007 block_r=0.52 caus_r=0.15 adm=False
+[causal] verbatim_repeat.copy         mlp10 causal=0.02 energy_r4=-0.06 rnd=-0.001 E_frac=0.0013 block_r=0.10 caus_r=0.02 adm=False
+[causal] verbatim_repeat.copy         mlp11 causal=-0.01 energy_r4=-0.00 rnd=-0.000 E_frac=0.0012 block_r=0.04 caus_r=0.01 adm=False
+{
+ "preds": {
+  "pred_a_causal_direction_carries_the_damage": false,
+  "pred_b_causal_beats_fitted_energy": false,
+  "pred_c_random_direction_is_inert": true,
+  "pred_d_the_causal_direction_is_low_energy": true,
+  "pred_e_causal_arm_is_more_specific": true
+ },
+ "nulls": {
+  "a_null_causal_le_.15": false,
+  "b_null_no_beat": false,
+  "c_null_random_ge_.3": false,
+  "d_null_causal_high_energy": false
+ },
+ "medians": {
+  "causal_share": 0.19918113946914673,
+  "energy_rank4_in_sample_share": 0.13947302103042603,
+  "beat_energy": 0.013429701328277588,
+  "random_share": 0.0006102919578552246,
+  "causal_direction_energy_fraction": 0.002147796214558184,
+  "random_direction_energy_fraction": 0.0008565422031097114,
+  "block_ratio": 0.4817652106285095,
+  "causal_ratio": 0.2001667320728302,
+  "specific_gain": 0.16920378804206848
+ }
+}
