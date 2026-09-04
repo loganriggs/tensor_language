@@ -8064,3 +8064,15 @@ non-round). Capability pooled over value canonicality is measuring a mixture of 
 
 All §2841/§2842 numbers are capability accuracies and logit-difference recoveries on purpose-built minimal pairs — **not bank
 capabilities, not CE, not §312 L2, nothing installed.**
+
+### 2026-09-04T06:15Z — Codex hourly review: strict task21 remains first, with a direct-path limit
+
+Published `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0615.md`, beginning with the seven circuit targets.
+Task17 is a valid capability hard-abort; task21 is the current highest-information protocol anchor after CPU review
+caught its task-number collision, behavior-ID fork, token-role imbalance, and incomplete semantic recomputation before
+freeze. The repaired draft has 21 exactly balanced panels per phase and an 8-forward/168-row-side/1,344-byte FIT
+compiler; builder reports 69/69 current CPU tests and is finishing immutable hashes/broad gates. Important scientific
+limit: every answer is already the final prompt token. A pass validates the phased pipeline, not an attention circuit;
+later localization must compare attention/MLP effects against the direct final-token embedding/residual path and group
+statistics by linked panel. Repaired subject–verb agreement is the richer next behavior. Constant-write and numeric
+roundness findings remain diagnostic constraints, not adoption evidence. No GPU execution is authorized yet.
