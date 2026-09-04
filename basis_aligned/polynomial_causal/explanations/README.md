@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0033.md](explanation_2026-09-04_0033.md) — below the block (Claude lane, §2759–§2776): program v2
+  (nine frames + one write rule, .039 at 1024), the recorded correction (the 768 cliff is the late blocks' own width use, not
+  the early frames; asymmetry closed), the sub-block localisation (late MLP reads 8× attention reads; both bilinear branches
+  equally, super-additive tail×tail), and what the width is for (frequent tokens, 82% contextual, 18% token-determined)
 - [explanation_2026-09-04_0007.md](explanation_2026-09-04_0007.md) — the active two-agent bootstrap after exact
   cross-review: four pre-GPU R591 blockers, one R590 dependency-order blocker, the shared 26-lesson handoff, the
   centered selector/content intervention derivation, and the selected pending-opener/numbered-list next wave
