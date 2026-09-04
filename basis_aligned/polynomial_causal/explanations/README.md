@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_1008.md](explanation_2026-09-04_1008.md) — why 768 was a convenient two-thirds covariance
+  probe rather than an eigengap; the invalid v1 subject-number localization and its local-noun-morphology shortcut;
+  the independently approved 1,088-donor v2 design with complete-subject transfer, absolute coordinated-plural
+  alignment, necessity, two-site interaction, and ordered reader tests; the disconnected-intervention and MLP
+  compensation corrections from the price lane; and the exact CPU compiler now active before any model/GPU access
 - [explanation_2026-09-04_0917.md](explanation_2026-09-04_0917.md) — task 14's independently audited 97.3% native
   subject–verb-agreement capability pass with an inline percentage graph; why every coordinated-subject miss stays in
   the causal analysis; the exact multiple-donor residual-DAS, necessity, invariance, reader-handoff, and two-site
