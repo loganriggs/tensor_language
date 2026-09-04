@@ -9356,3 +9356,54 @@ semantic arms, decision logic, and terminal feasibility, including adversarial l
 denominator, higher-rank, reset/rescue, and interaction shortcuts. No localization implementation, model/checkpoint/GPU/activation,
 result/evidence, queue/runner, SELECT/TEST/OOD, or later-phase access. Owned writes are only a new independent review under
 `basis_aligned/polynomial_causal/` and append-only board receipts.
+
+### 2026-09-04T10:02Z — Claude: §2883 — **the front MLP tables are the frontier's largest error source (+1.0045, 37.6%), and the CP units are BETTER than the real MLPs (−0.2140).** §2884 — the prettiest number of the session, **voided by its own registered null**.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**. These blocks are *approximations*, so
+restoring one to real normally **lowers** L2 — the quantity is an **error share** = `L2_F(baseline) − L2_F(restored)`; **POSITIVE = that
+block contributes that much error, NEGATIVE = the approximation BEATS the real component in this stack**. §2125 stands.
+
+**§2883 — the MLP side, and it contains a genuine surprise for your CP line of work.**
+
+| block | L2_F | error share | % of +2.6735 |
+|---|---|---|---|
+| BASELINE | +2.6735 | — | — |
+| front tables off (front MLPs real) | **+1.6690** | **+1.0045** | **37.6%** |
+| CP units `c4`–`c9` off (MLPs 4–9 real) | **+2.8875** | **−0.2140** | **−8.0%** |
+
+The front tables are the **largest single block anywhere in this construction** — bigger than §2882's motif heads (.3988) and tail
+dictionaries (.3864) **combined**.
+
+And **pred_b failed with the opposite sign**: restoring MLPs 4–9 to the **real model** makes the frontier **worse by 0.214 nats**. The
+`c4`–`c9` reconstructions *outperform the components they replace*. That is composition, not paradox — the base, the 38 motif heads and
+the tail dictionaries are all fitted **with the CP units in place**, so dropping them inserts real MLPs into a co-adapted stack. **The
+norm-2304 CP selection is not where the frontier's error is; it is where the frontier is beating the model.** §2125 stands untouched;
+this adds that the CP units are not the thing to improve.
+
+**Running decomposition** (each measured one block at a time against the full construction, so each is a **lower bound** on involvement,
+not a partition — §2880 showed single-block ablation understates by 2.2× when parts compensate):
+
+| front tables | motif heads | tail dicts | CP units | sum | unattributed |
+|---|---|---|---|---|---|
+| +1.0045 | +0.3988 | +0.3864 | −0.2140 | +1.5757 (58.9%) | **+1.0978 (41.1%)** |
+
+**§2884 — and here is where I had to stop myself.** Low-rank tail link maps: **rank 1 read −0.0056 nats at 576× compression** (73,728
+parameters against 42,467,328) — exactly the cheap tail dictionary §2881 said might exist, and the most attractive number of the
+session. **Rank 8 read +0.1351.** More rank was *worse*, so `c_null_rank_does_not_matter` fired, and that null's registered consequence,
+written before the run, was "the rung is void". **It is recorded VOID and the rank-1 figure is not entered as a result** — retiring that
+bound in the section that benefits from ignoring it is exactly what the standing rules forbid, and this is the case they exist for.
+
+Suspected cause, stated as hypothesis: the tail dictionaries are **refit sequentially**, so truncating layer 10 changes what layer 11 is
+fitted against — three differently-fitted constructions, not three perturbations of one. **Queued:** the identical truncation applied
+*after* all eight refits complete, four arms (rank 64/8/1), with **pred_b testing monotonicity directly**. If rank-1 survives that, it
+is the largest simplification the frontier has admitted; if not, the tail side closes cleanly.
+
+Also queued: `frontier_decomposition_closure` prices the last two `cfgF` blocks (`a0`/`a1v`, `tailE`) and tests whether all six shares
+**sum to 2.6735** — the first check of whether this decomposition is a partition at all, with `e_null_interactions_dominate` registered
+for the outcome where it isn't.
+
+Two disclosures against §2884 in the ledger: its prereg header reads 09:44Z against an mtime of **09:43:39Z** (sixth instance; the
+procedural fix — read the clock in its own tool call — is adopted and the three preregs since are correct), and its prose misstated
+rank-8's parameter count as 73,728, which is the **rank-1** figure (rank 8 is 589,824). The receipt computes both correctly.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
