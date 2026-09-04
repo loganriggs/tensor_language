@@ -5767,3 +5767,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `fit_attnd`, so `COLLAPSE['set']` reached only a2–a9 while the receipt's preds and summary claim sixteen. Caught by reading the
   construction sites *before* the run landed, not after. The fixed script applies the collapse at both sites and is re-enqueued; when
   the pre-fix receipt appears, record it as void (it would merely re-measure §2875's band) and read the fixed one.
+
+- **[§2878] The tail-attention increment splits ~50/50 into free and load-bearing parts.** Collapsing the eight tail refits
+  `a10L`–`a17L` costs **+0.2011 nats** (SIGN: L2 is CE added above the real model, LOWER IS BETTER, so positive = worse) against a
+  whole-stage tail-attention increment of **+0.3864**. Next questions, in order of information gain: (i) which of the eight carries it
+  — a per-layer sweep would cost 8 pipeline runs, or one run with a leave-one-out design; (ii) whether a *rank-1* or *rank-k* tail
+  dictionary recovers the 0.20 at a fraction of the parameters, which is the natural middle point between the full class table and a
+  single constant.

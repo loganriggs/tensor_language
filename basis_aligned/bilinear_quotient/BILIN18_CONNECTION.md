@@ -75150,3 +75150,55 @@ much closer to 0.75. Nothing here distinguishes those, and the difference decide
 jobs. Registered as the next rung rather than inferred here.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2878 — THE TAIL **REFIT** DICTIONARIES ARE LOAD-BEARING (+0.2011 nats) WHILE THE `fit_attnd` DICTIONARIES ARE FREE (0.0000). ABOUT HALF THE TAIL-ATTENTION INCREMENT IS CLASS STRUCTURE
+
+Registered `polynomial_causal/FRONTIER_ALL_DICTIONARIES_PREREGISTRATION.md` (09:11Z) — the same document as §2876, re-run after the
+collapse was extended to the inline tail-refit construction site (parent lines 644–657), which §2876 recorded it had missed.
+Run `frontier_all_dictionaries_collapse`, landed 09:28Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_all_dictionaries_collapse_results.json
+Price: 0 GPU forwards, 280.0 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | L2_F | L2_C | cost |
+|---|---|---|---|
+| BASELINE | **+2.6736** | +2.4232 | — |
+| BASELINE AGAIN | +2.6735 | | resolution **.0001** |
+| 16 `fit_attnd` **+ 8 tail refits** → constants | **+2.8747** | +2.7419 | **+0.2011** |
+
+**pred_a HELD.** **pred_b HELD** — resolution **.0001**, consistent with §2876's 0.0; both sit at the last printed digit, and neither
+licenses a claim on a .0001 difference. **pred_d HELD** — unlike §2876, the joint cost is now comfortably resolvable, at **2,000×** the
+floor. **pred_c FAILED and `c_null_the_dictionaries_are_jointly_load_bearing` is MET** (+0.2011 against a ≥ +.20 null).
+
+### The dissociation, which is the result
+
+This run and §2876 share a preregistration, a derivation and a baseline; they differ in **exactly one thing** — whether the eight
+inline tail **refits** `a10L`–`a17L` are collapsed along with the sixteen `fit_attnd` dictionaries. The logs make the difference
+explicit: §2876's printed 16 `COLLAPSED` lines, this one printed **24**, the extra eight all `aNL`.
+
+| collapsed | cost |
+|---|---|
+| 16 `fit_attnd` dictionaries (§2876) | **0.0000** |
+| the same 16 **plus** the 8 tail refits (§2878) | **+0.2011** |
+
+**So the entire cost is attributable to the eight tail refits**, whose class structure is worth **≈ +0.20 nats** — against a
+tail-attention increment for the whole stage of **+0.3864** as printed by this pipeline. **Roughly half of what the tail-attention
+dictionaries buy the frontier is their class-conditional structure**, and the other half is the mean write they would keep under
+collapse.
+
+This bears directly on **tail dictionaries / coverage credit**, one of the three largest standing gaps in the explained fraction, and
+it is the first quantitative split of that increment into a part that is free and a part that is not.
+
+### Scope, stated so §2875 and §2876 are not over-read
+
+§2875's "the motif-attention stage is eight constants for 0.0000 nats" **stands unchanged** — it concerned a2–a9 in the `fit_attnd`
+construction, which this run confirms is free. §2876's "sixteen dictionaries collapse for 0.0000" **also stands** for what it measured.
+What is now corrected is the *reach* of the simplification: it does **not** extend to the tail refits, and any statement that "the
+frontier's attention dictionaries are free" must be scoped to the `fit_attnd` set. The 42.5M-parameter saving of §2875 is unaffected;
+the further 5.3M×8 from the tail refits is **not** available at zero cost.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing here installs; the frontier's published L2 is
+untouched and the collapse arms are measurements against it, not replacements of it.
