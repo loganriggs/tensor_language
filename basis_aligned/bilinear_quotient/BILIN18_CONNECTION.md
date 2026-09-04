@@ -75574,3 +75574,91 @@ monotonicity, and that is the registered follow-up rather than an inference draw
    above uses the receipt's values. The error is in the prose of a frozen document and is corrected here rather than there.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2885 — attn5 IS **NOT** THE FRONTIER'S ERROR SOURCE: ITS MOTIF APPROXIMATION COSTS **+0.0597 nats** WHILE THE CONTROL LAYER a2 COSTS **+0.1946** — 3.3× MORE. THE PRICE CLIFF DOES NOT TRANSFER TO THE CONSTRUCTION
+
+Registered `polynomial_causal/FRONTIER_ATTN5_ERROR_SHARE_PREREGISTRATION.md` (09:46Z). Run `frontier_attn5_error_share`, landed 10:03Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_attn5_error_share_results.json
+Price: 0 GPU forwards, 283.3 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+The motif heads are an **approximation**, so restoring a layer to real should **lower** L2; the quantity is an **error share** =
+`L2_F(baseline) − L2_F(restored)`, **POSITIVE = that layer's approximation costs that much**. §2128/§2129/§2133/§2134 RETRACTED;
+§2125 STANDS.
+
+| arm | L2_F | L2_C | error share |
+|---|---|---|---|
+| BASELINE (`ML = [2…9]`) | **+2.6735** | +2.4232 | — |
+| **attention 5** restored to real | +2.6138 | +2.4010 | **+0.0597** |
+| **attention 2** restored to real (control) | **+2.4789** | | **+0.1946** |
+
+**pred_a HELD; pred_d HELD** (both arms connected, §2879's rule as a measured predicate); **pred_e HELD** (neither restoration harms).
+
+**pred_b FAILED** (+0.0597 against a ≥ +.15 bar) and **pred_c FAILED decisively, with `c_null_attn5_is_not_special_in_the_band` MET**:
+the specificity ratio is **0.307**, not ≥ 3.0. **The control layer is 3.3× worse than the target.**
+
+### What this settles, and it is a standing gap
+
+"attn5's write = the price cliff" has been carried as one of the three largest gaps in the explained fraction for weeks, on **model-side
+evidence only** — §2830 put attn5 3rd of 36 in document CE and 20.4× disproportionate per unit written; §2834/§2835 showed its write is
+one fixed vector recovering 94.2% of a 2.211-nat deletion cost. All of that stands as a fact about **bilin18**.
+
+**It does not transfer to the §312 construction.** The motif-head approximation at layer 5 costs the frontier **+0.0597 nats** — 2.2% of
+the published +2.6735 — while the same approximation at layer 2 costs **+0.1946**, 7.3%. Whatever makes attn5 expensive in the model,
+the frontier's scaled-value-copy approximation **already captures it**, and the layer the construction actually struggles with is a2.
+
+The control choice is what makes this readable: a2 was registered in advance as the *hardest available* control — §2834's census makes it
+the band's second-largest at 0.349 nats against a5's 2.211 — precisely so that a win could not come from a weak comparison (§2820's
+lesson). The result is the reverse of the registered direction, which is a stronger outcome than a narrow miss.
+
+**Consequence:** the price cliff is closed as a **frontier-side** target. It remains an open and interesting fact about the model, and
+§2835's constant-write result is untouched. Anyone reading "attn5's write" as a lever on the 2.6735 should stop; §2883's front MLP
+tables (+1.0045) are 17× larger.
+
+## §2886 — THE DECOMPOSITION DOES **NOT** CLOSE: SIX BLOCKS SUM TO **+1.7928** OF THE FRONTIER'S **+2.6735**, LEAVING **+0.8807 (32.9%)** THAT NO SINGLE BLOCK ACCOUNTS FOR
+
+Registered `polynomial_causal/FRONTIER_DECOMPOSITION_CLOSURE_PREREGISTRATION.md` (09:59Z). Run `frontier_decomposition_closure`, landed
+10:08Z. Parent **unmodified**.
+Results: frontier_decomposition_closure_results.json
+Price: 0 GPU forwards, 283.4 GPU-seconds (3 full frontier pipeline runs; `forwards_instrumented: false`, `pipeline_runs: 3`).
+
+**SIGN CONVENTION (§2135):** as above — L2 is CE ADDED ABOVE THE REAL MODEL, **LOWER IS BETTER**; error share POSITIVE = that block
+contributes that much error, NEGATIVE = the approximation **beats** the real component in this stack.
+
+| arm | L2_F | error share |
+|---|---|---|
+| BASELINE | **+2.6735** | — |
+| early attention `a0`/`a1v` restored | +2.6161 | **+0.0574** |
+| `tailE` restored | +2.5138 | **+0.1597** |
+
+**pred_a, pred_d HELD. pred_c HELD** (`tailE` carries +0.1597 ≥ +.10). **pred_b FAILED** (+0.0574 against a ≥ +.10 bar) but its null is
+**not** met (+0.0574 > .02), so the early-attention entries are small rather than free, and no claim is made in either direction.
+
+**pred_e FAILED — the decomposition does not close.** With every block of `cfgF` now priced:
+
+| block | share | source |
+|---|---|---|
+| front MLP tables | +1.0045 | §2883 |
+| motif heads (attn 2–9) | +0.3988 | §2882 |
+| tail dictionaries (attn 10–17) | +0.3864 | §2882 |
+| `tailE` | +0.1597 | here |
+| early attention `a0`/`a1v` | +0.0574 | here |
+| CP units `c4`–`c9` | **−0.2140** | §2883 |
+| **sum of six** | **+1.7928** | |
+| **frontier L2_F** | **+2.6735** | |
+| **closure gap** | **+0.8807 (32.9%)** | |
+
+The gap lands **between the bar (≤ .60) and the null (≥ 1.20)**, so `e_null_interactions_dominate` did **not** fire and this rung
+decides the question only partially. What can be said exactly: **single-block error shares recover two thirds of the frontier's error
+and no more.** The missing third is not another block — every member of `cfgF` is now priced — it is the **interaction structure**, and
+its existence was already visible in the drifts this family has measured (+0.0270 in §2882, +0.2129 in §2883) and in §2880's
+superadditivity inside the MLP stage (+3.2104 against an additive 1.4350).
+
+**Consequence for how the earlier shares should be read**, and it is a caution against my own sections: the six figures above are
+**lower bounds on each block's involvement, not a partition**. §2883 already hedged them that way; this section measures the size of the
+hedge at **32.9%**. Any statement of the form "block X is Y% of the frontier's error" — including §2883's "the front tables are 37.6%"
+— must be read as "X alone accounts for at least Y%", with a third of the total unassigned to any single block.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; the frontier stands at norm-2304 / 2.6735.

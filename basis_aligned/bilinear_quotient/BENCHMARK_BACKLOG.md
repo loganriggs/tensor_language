@@ -5812,3 +5812,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   layer 10's maps changes what layer 11 is fitted against. Fix: complete all eight refits first, THEN truncate every `LW[k]`, so the
   arms are perturbations of ONE construction. Predicts monotonicity in rank. If rank-1 survives that, it is a 576× parameter
   compression of the tail at no L2 cost and the largest simplification the frontier has admitted.
+
+- **[§2885] "attn5's write = the price cliff" is CLOSED as a frontier-side target.** Its motif approximation costs +0.0597 nats (2.2%
+  of +2.6735) against control layer a2's +0.1946 — the control is 3.3× worse (SIGN: L2 is CE added above the real model, LOWER IS
+  BETTER). The model-side facts (§2830/§2834/§2835) stand; they do not transfer to the construction. **a2, not a5, is the motif band's
+  problem layer** and has never been studied — that is the replacement lead.
+- **[§2886] The frontier's error is one-third interaction.** Six single-block shares sum to +1.7928 of +2.6735; the +0.8807 gap is not
+  another block (every `cfgF` member is priced) but interaction structure. Next: measure a pairwise term directly — restore the two
+  largest blocks (front tables + motif heads) together and compare against the sum of their singles, exactly as §2880 did inside the
+  MLP stage. One rung, 3 arms.
