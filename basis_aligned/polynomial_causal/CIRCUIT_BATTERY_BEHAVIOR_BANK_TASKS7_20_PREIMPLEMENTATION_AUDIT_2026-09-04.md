@@ -1,7 +1,9 @@
 # Circuit-battery behavior bank tasks 7–20: pre-implementation audit
 
-Date: 2026-09-04  
-Scope: CPU-only, model-free review of behavior-bank commit `36c15d7e7`  
+Date: 2026-09-04
+
+Scope: CPU-only, model-free review of behavior-bank commit `36c15d7e7`
+
 Verdict: **REPAIR BEFORE IMPLEMENTATION**
 
 ## Bottom line
