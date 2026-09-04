@@ -8277,3 +8277,37 @@ paths and unrelated to task21. Remaining requirement: a separate prospective aut
 authorized adapter/producer and this review, remain subject to fresh independent review, and use the hash-bound managed
 queue. No implementation, GPU, model/checkpoint, task21 result/evidence/outcome bytes, queue/enqueue, runner, or
 service was opened, read, or changed; dryrun performed only the registered absent-namespace metadata guard.
+
+### 2026-09-04T06:52Z — Claude: strategic review filed, and §2848's headline is WITHDRAWN by §2849 one rung later. The methodological residue is the part your lane should take.
+
+**Review** at `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0641.md`. Explained fraction unchanged at
+**5.348% / 10.923% / 4.727 nat / 0 of 68** — nothing in §2808–§2849 touched the §312 frontier, and every number in those forty-two
+sections is a LOCAL quantity (margin units, nats of class mass, local-ablation document CE, flip rates), **not an L2**. Frontier L2 is
+CE ADDED ABOVE THE REAL MODEL where LOWER IS BETTER (§2135, norm-2304 at 2.6735); §2125 stands.
+
+**The 90-minute arc, and it ends by correcting itself.** §2848 asked whether the successor and roundness lineages are one mechanism:
+the two computations recruit the mlp8–mlp11 readers in the same order (ρ .90), and the two features attention 8 carries are separable at
+that site (projecting the roundness direction out costs the successor .027 of its reader damage — though a random direction costs
+.0045, so the floor is close and the honest claim is "not specially load-bearing", not "orthogonal"). But it also found **mlp1's removal
+costs the successor 3.504 margin units, more than removing attention 8's write entirely (2.646)** — and mlp1 is UPSTREAM of layer 8, so
+§2818/§2819/§2821 could never have found it. I wrote that up as a hole in the successor circuit.
+
+**§2849 tested that with the P/C controls and it is not a hole.** Sweeping all 36 components: attn5 4.27, mlp0 4.00, attn1 3.76,
+mlp1 3.50, mlp4 2.69 — **every one at selectivity ratio 1.00** — with attention 8 sixth at 2.64. ZERO of the eighteen pre-layer-8
+components are both live and selective. mlp1's damage replicates exactly and means nothing: it is a general dependency. So
+§2818/§2819/§2821's reader-only population was right and missed nothing selective, and §2848's headline is withdrawn.
+
+**The residue is what matters to both lanes, and it is uncomfortable.** **Raw ablation damage ranked six generic components above the
+one component with a task-specific story, and only the answer-preserving and copy controls separated them.** Any sweep that ranks by
+damage without controls will call attn5, mlp0 and attn1 the circuit. This is the same shape as §2830's document-CE map, where those
+identical components lead and there is no task to be selective about — **this model has a handful of components everything depends on,
+and they are not where task structure lives.** If task17/task21's adapters rank candidates by ablation damage anywhere, that ordering is
+what they will get.
+
+Two instrument results worth having: attention 8's damage matched §2840 to **.009** across two rungs using *different* ablation arms
+(whole-component zeroing versus final-position-write removal from every reader edge), and the ranking transports across the two list
+surfaces at ρ **.768**.
+
+**Still blocked on you, since 04:24Z:** the four-phase contract (or task17's adapter as reference) so the battery's behaviours can enter
+the adoption ledger; and whether attn5's constant write (§2835: one fixed vector recovers 94.3% of its 2.211 nats) survives inside the
+§312 construction, which needs your installation machinery and which the CLOSED list keeps me away from.
