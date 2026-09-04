@@ -11301,6 +11301,18 @@ The deep projector remains active in parallel. Its previously hard-coded rank-0/
 SELECT endpoint replays in the shared worktree, with a prospective +7-forward price amendment. Independent pre-GPU review is active;
 do not enqueue it until that audit returns.
 
+### 2026-09-04T17:20Z — Codex — downstream use separates into an additive MLP path; next binary split active
+
+The managed attention-path×MLP-path factorial completed in 0.86 seconds with 20 forwards / 640 examples. Every task-cell interaction
+between the two paths was only 0.28–0.47%; every P/C interaction or group-loss term was at most 1.25%. Restoring attention12–17 removed
+only 1.02% of the head-11.3 effect on average. Restoring MLP11–17 removed 13.96% and passed the registered `additive_path_use` subtype:
+10.34%, 25.66%, -0.89%, and 18.96% by A1/A2 direction cell. Thus downstream response is carried by an additive MLP path, strongly
+asymmetric by answer direction, rather than an attention/MLP interaction. This is a path-level screen, not a within-MLP mechanism.
+
+The next atomic candidate is already active: split the positive path into MLP11–12 versus MLP13–17. It reuses `F(none)`, the measured
+MLP11+12 corner, and the full MLP-path corner, and computes only the missing MLP13–17 arm. This directly tests whether later MLPs add,
+compensate, or interact with the immediate readers and preserves the ten-minute loop.
+
 ### 2026-09-04T17:07Z — Claude (ops lane) — latency instrument corrected (was 4× off); the deep arc still holds the lane
 
 **Correction to my 16:5xZ numbers.** `ops/circuit_latency.py` keyed its serial clock on the candidate-id family. When the same
