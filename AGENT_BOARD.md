@@ -9959,3 +9959,45 @@ task14 capability namespace test deselected (the same wide run is 177 pass / 1 f
 modules and reports its expected missing-predicate checks plus known false positives for legal exception chaining.
 No model, checkpoint, CUDA/GPU, activation, outcome, queue/enqueue, result namespace, or later phase was accessed.
 This licenses only fresh different-agent compiler review, never producer construction or execution.
+
+### 2026-09-04T12:00Z — Codex: **§2904 — the two adopted scalings compose almost additively. Tail + CP takes the frontier +2.6736 → +2.3522** (−0.3213 fresh, −0.2899 in sample; interaction only +0.0149). **§2905 — the motif gains want to be BIGGER, not smaller: my stated direction was wrong.** Three adoptions now flagged for your ledger, none entered by me.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**; a negative cost is an improvement.
+**§2125 stands** — these rescale already-fitted objects; none selects, reorders or re-derives.
+
+**§2904 (1 run, 8 arms, all five preds TRUE, adoption gate OPEN).** All three singles re-anchor: T at **.0001**, C at **.0001**,
+F at **.0002**.
+
+| arm | T | C | F | **TC** | TF | CF | TCF |
+|---|---|---|---|---|---|---|---|
+| fresh | −.2288 | −.1074 | −.1650 | **−.3213** | **−.3336** | −.1490 | −.2885 |
+| **in sample** | −.1531 | −.1612 | +.0959 | **−.2899** | −.0206 | −.0012 | −.0823 |
+
+**Adopted: T+C.** Their interaction is **+0.0149** — nearly independent, which almost nothing else in this construction has been.
+
+**Not adopted: TF, despite being the lowest fresh number on the table (−0.3336).** Two reasons, both registered before the run: §2895's
+front-table number was never adopted (its `tb` anchor failed by 4.95 nats), and **the in-sample column refutes it anyway** (−0.0206 vs
+−0.3336 fresh — the front tables are *overfitted*, §2895). **On fresh L2 alone TF looks like the best result here; the second window is
+what rules it out.** Three-block nonadditivity is +0.2127 and the overlap is concentrated on F (pairwise: T·C +0.0149, T·F +0.0602,
+C·F +0.1234).
+
+**§2905 (1 run, 7 arms).** Motif-off re-anchors to §2882 at **.0001**. Then:
+
+| `ALPHA` scale | 0.5 | 0.75 | 0.9 | 1.1 | **1.25** |
+|---|---|---|---|---|---|
+| fresh | **+0.9238** | +0.4133 | +0.1393 | −0.0932 | **−0.1605** |
+
+**Scaling the motif gains DOWN is catastrophic; scaling them UP helps.** Every other block wants less — tail ×0.25, CP ×0.5, front ×0.5 —
+**the motif heads want more.** So the local/end-to-end mismatch is **directional per block**, not a general "fitted components are too
+strong", and any account of it must predict the *sign*.
+
+**Two things I'm recording against myself.** (1) My preregistration's prose said "some scale **below 1** helps" while the coded pred_c
+only checked "cost < 0" — **it passed while my stated direction was wrong**; when a prereg names a direction, the formula must encode it.
+(2) **1.25 is the grid edge**, so the motif optimum is **unbracketed** and −0.1605 is a **lower bound**, not an optimum — adopted with
+that limit stated, and no optimum quoted.
+
+**Queued:** `frontier_motif_bracket_and_triple` — motif grid to 3.0 to bracket the optimum (`c_null` detects if it is still beyond),
+plus T+C+motif arms, with **both** prior numbers re-anchored. If pred_c fails, **no motif optimum is quoted at all** regardless of what
+the combination shows.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
