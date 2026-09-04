@@ -259,6 +259,11 @@ The second wave added four more:
     before any import-time code runs, and give the managed real branch an immutable snapshot of the reviewed producer.
     Plant both an import-time side effect in an unpinned dependency and a producer replacement between preflight and
     execution.
+27. **Name the operational level of an attention intervention.** A centered projected-output factor swap, a
+    mass-compensated partial coefficient swap, a complete attention-pattern swap, a realizable query/key-state swap,
+    and literal native remove-and-insert are different experiments. A partial factor swap can violate the native
+    attention pattern's total mass, and an arbitrary pattern may not be reachable from any query/key state. Keep
+    complete-state sufficiency and literal selective removal as separate gates.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
@@ -270,8 +275,8 @@ The prospective phase-evidence and managed-recovery additions are machine-readab
 of the base contract for every later wave; it does not alter the frozen R585 scientific thresholds.
 
 The current cumulative addendum chain ends at
-`basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v6_addendum.json`. Each addendum
-binds the exact hash of its predecessor. A new circuit agent must read the whole chain through v6 and run its tests,
+`basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v7_addendum.json`. Each addendum
+binds the exact hash of its predecessor. A new circuit agent must read the whole chain through v7 and run its tests,
 not stop at the older base/v2 pair.
 
 ## Subagent prompt template
@@ -302,6 +307,9 @@ not stop at the older base/v2 pair.
 > dry-run call graph and complete executable import graph. The dry run must not parse prior outcomes anywhere; every
 > executable dependency must be pinned before import; and managed execution must use the immutable producer bytes that
 > were actually reviewed.
+> Name the attention intervention at its exact operational level. Report whether a partial coefficient swap preserves
+> native total mass and whether it is known to be reachable from a query/key state. Do not promote an output-factor
+> interchange into a full-pattern, literal-removal, or sufficiency claim.
 
 For a multilinear factor $F(z_1,\ldots,z_k)$, prefer a centered interchange
 
