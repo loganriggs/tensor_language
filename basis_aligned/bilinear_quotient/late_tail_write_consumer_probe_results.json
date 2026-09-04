@@ -1,0 +1,107 @@
+{
+ "rung": "late_tail_write_consumer_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_readout_consumes_more_than_later_mlps": true,
+  "pred_c_late_attention_consumes_little": true,
+  "pred_d_consumer_prices_additive": true,
+  "pred_e_readout_is_the_majority_consumer": true,
+  "pred_f_readout_consumption_concentrated_in_blocks_15_17": true
+ },
+ "nulls": {
+  "b_null_final_le_.8x_mlp": false,
+  "c_null_attn_ge_.06": false,
+  "d_null_additivity_outside_.5_2": false,
+  "e_null_final_marginal_le_.25": false,
+  "f_null_late_frac_le_.3": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "none_tol": 0.001,
+  "b_ratio": 1.5,
+  "c_max": 0.03,
+  "d_lo": 0.7,
+  "d_hi": 1.4,
+  "e_frac": 0.5,
+  "f_frac": 0.5
+ },
+ "null_bars": {
+  "b_ratio": 0.8,
+  "c_min": 0.06,
+  "d_lo": 0.5,
+  "d_hi": 2.0,
+  "e_frac": 0.25,
+  "f_frac": 0.3
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP tail writes (perp onto the 384 dims outside the bus-768 core, centred by fit means from docs 96-191) are accumulated in one lambda-propagated A; a named consumer set (later MLPs / later attention / final readout) computes from x - A while the stream keeps every real write; ALL reproduces \u00a72796's write-site drop",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "none": 0.0,
+  "all": 0.14586922526359558,
+  "prior_all_tailout": 0.1459
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "NONE": 0.0,
+  "ALL": 0.14586922526359558,
+  "MLP_ONLY": 0.05232912302017212,
+  "ATTN_ONLY": 0.0031237006187438965,
+  "FINAL_ONLY": 0.11303675174713135,
+  "NOT_FINAL": 0.05828019976615906,
+  "FINAL_W8": 0.0006988644599914551,
+  "FINAL_W9": 0.001221299171447754,
+  "FINAL_W10": 0.0011292994022369385,
+  "FINAL_W11": 0.002559155225753784,
+  "FINAL_W12": 0.0034325718879699707,
+  "FINAL_W13": 0.003850281238555908,
+  "FINAL_W14": 0.004381090402603149,
+  "FINAL_W15": 0.006387054920196533,
+  "FINAL_W16": 0.00678330659866333,
+  "FINAL_W17": 0.027148425579071045
+ },
+ "summary": {
+  "final_over_mlp": 2.160111716444346,
+  "attn_only": 0.0031237006187438965,
+  "additivity_sum_three_over_all": 1.155072806354975,
+  "final_marginal": 0.08758902549743652,
+  "final_marginal_frac": 0.6004626770256524,
+  "final_by_writer": {
+   "8": 0.0006988644599914551,
+   "9": 0.001221299171447754,
+   "10": 0.0011292994022369385,
+   "11": 0.002559155225753784,
+   "12": 0.0034325718879699707,
+   "13": 0.003850281238555908,
+   "14": 0.004381090402603149,
+   "15": 0.006387054920196533,
+   "16": 0.00678330659866333,
+   "17": 0.027148425579071045
+  },
+  "final_by_writer_sum_over_final_only": 0.5094922491697611,
+  "final_late_writer_frac_15_17": 0.7000840903622095,
+  "prior_all_tailout_2796": 0.1459,
+  "prior_drop_late_mlp_tail_readers_only": 0.0404,
+  "n_fit_tokens": 24576
+ },
+ "price": {
+  "gpu_doc_forwards": 1248,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 27.112746477127075
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_WRITE_CONSUMER_PROBE_PREREGISTRATION.md": "15ec293dedd268e5b38a29af93e130154d15c7aa5c37ce1ed40bda6ee7e89b58",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_write_origin_probe_results.json": "3a9716af474cb0ebe3d6e964ae45ea8d266f800b40741aafab31def03f3389cc",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "5624eac27ee3627c82f834699d1f0e728f94556509b3c94d3711c2c994247881"
+}

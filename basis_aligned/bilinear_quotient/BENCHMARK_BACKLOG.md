@@ -5319,3 +5319,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2796 late_tail_write_origin_probe (Claude, LANE 1 CUDA, 22 s, 544 GPU forwards): a,b,c,d TRUE; e FALSE, null met. MLP(c) writes 73% of the late
   tail (J(c)t 25%, MLP(t) 2%); write-site prices .1244 / .0281 / .0037 (all .1459) vs readers-only .0404 → the late-MLP tail write is mostly
   consumed downstream of the late MLPs (readout, by elimination) — consumer split registered next. Block 17's cross share depressed (.10).
+- §2797 late_tail_write_consumer_probe (Claude, LANE 1 CUDA, 27 s, 1248 GPU forwards): a–f TRUE; no null met. The late-MLP tail write is consumed by
+  the FINAL READOUT (.1130; marginal .0876 = 60% of the .1459 joint), later MLPs .0523, late attention .0031; 70% of the readout's share
+  from writers 15–17 (block 17 alone .0271); singles Σ .51 × joint. ALL reproduces §2796's write-site drop exactly (.1459).

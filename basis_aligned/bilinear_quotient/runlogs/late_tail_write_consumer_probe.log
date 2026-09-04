@@ -1,0 +1,64 @@
+{"stage": "heads_done", "t": 13.9}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.3}
+{"stage": "fit", "n_fit_tokens": 24576, "mu_norm_17": 6416.668, "t": 15.2}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "NONE": 0.0, "ALL": 0.1459, "MLP_ONLY": 0.0523, "ATTN_ONLY": 0.0031, "FINAL_ONLY": 0.113, "NOT_FINAL": 0.0583, "FINAL_W8": 0.0007, "FINAL_W9": 0.0012, "FINAL_W10": 0.0011, "FINAL_W11": 0.0026, "FINAL_W12": 0.0034, "FINAL_W13": 0.0039, "FINAL_W14": 0.0044, "FINAL_W15": 0.0064, "FINAL_W16": 0.0068, "FINAL_W17": 0.0271, "t": 27.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_readout_consumes_more_than_later_mlps": true,
+  "pred_c_late_attention_consumes_little": true,
+  "pred_d_consumer_prices_additive": true,
+  "pred_e_readout_is_the_majority_consumer": true,
+  "pred_f_readout_consumption_concentrated_in_blocks_15_17": true
+ },
+ "nulls": {
+  "b_null_final_le_.8x_mlp": false,
+  "c_null_attn_ge_.06": false,
+  "d_null_additivity_outside_.5_2": false,
+  "e_null_final_marginal_le_.25": false,
+  "f_null_late_frac_le_.3": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "NONE": 0.0,
+  "ALL": 0.14586922526359558,
+  "MLP_ONLY": 0.05232912302017212,
+  "ATTN_ONLY": 0.0031237006187438965,
+  "FINAL_ONLY": 0.11303675174713135,
+  "NOT_FINAL": 0.05828019976615906,
+  "FINAL_W8": 0.0006988644599914551,
+  "FINAL_W9": 0.001221299171447754,
+  "FINAL_W10": 0.0011292994022369385,
+  "FINAL_W11": 0.002559155225753784,
+  "FINAL_W12": 0.0034325718879699707,
+  "FINAL_W13": 0.003850281238555908,
+  "FINAL_W14": 0.004381090402603149,
+  "FINAL_W15": 0.006387054920196533,
+  "FINAL_W16": 0.00678330659866333,
+  "FINAL_W17": 0.027148425579071045
+ },
+ "summary": {
+  "final_over_mlp": 2.160111716444346,
+  "attn_only": 0.0031237006187438965,
+  "additivity_sum_three_over_all": 1.155072806354975,
+  "final_marginal": 0.08758902549743652,
+  "final_marginal_frac": 0.6004626770256524,
+  "final_by_writer": {
+   "8": 0.0006988644599914551,
+   "9": 0.001221299171447754,
+   "10": 0.0011292994022369385,
+   "11": 0.002559155225753784,
+   "12": 0.0034325718879699707,
+   "13": 0.003850281238555908,
+   "14": 0.004381090402603149,
+   "15": 0.006387054920196533,
+   "16": 0.00678330659866333,
+   "17": 0.027148425579071045
+  },
+  "final_by_writer_sum_over_final_only": 0.5094922491697611,
+  "final_late_writer_frac_15_17": 0.7000840903622095,
+  "prior_all_tailout_2796": 0.1459,
+  "prior_drop_late_mlp_tail_readers_only": 0.0404,
+  "n_fit_tokens": 24576
+ }
+}

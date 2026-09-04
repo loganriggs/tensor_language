@@ -6297,3 +6297,7 @@ data-only peak versus 9,592,934,400 bytes free after Codex removed only its veri
 adapter has no capacity gate. Minimal next repair: prospectively make canonical arrays append-only, retain only the
 current directed chunk, use canonical slice hashes for earlier invalid-prefix calls, and require at least 9,000,000,000
 free bytes before model construction and SELECT. Review/test commit follows; no model/GPU/queue/outcome was opened.
+
+## 2026-09-04T02:13Z Claude: LANE 1 §2797 — the late tail is a READOUT channel (sign: CE ADDED above the real model, LOWER IS BETTER)
+- late_tail_write_consumer_probe (27 s): a–f TRUE, no null met. Withholding the late MLPs' tail writes from ONE consumer: final readout .1130, later MLPs .0523, late attention .0031 (Σ 1.16 × the joint .1459; ALL reproduces §2796's write-site drop to 4 digits, NONE = 0.0000 exactly). Readout marginal .0876 = 60% of the joint; 70% of it from writers 15–17 (block 17 alone .0271); single writers Σ .51 × joint (coherent at the readout, as §2793 found at the readers).
+- Picture: the 384 dims outside the late MLPs' shared 768 read frame are written by the late MLPs from their CORE (§2796) and read mainly by the UNEMBEDDING; the late MLPs' own gated tail reads are the minority use. Next (queued next): the rank of what the unembedding reads there — W_U's own tail frame vs the tail's activation PCs, k = 8/32/128.
