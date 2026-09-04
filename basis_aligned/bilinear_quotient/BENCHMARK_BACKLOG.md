@@ -5350,3 +5350,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   tail-read gate compresses: block 17 cross term alone .0458 → 16 modes .0083 (18%), 4 modes .0125, 64 modes .0050; block 16 .0181 → 64
   modes .0051; block 15 (control) .0116 → 64 modes .0063. Two-block program (16@64 + 17@16) .01491 vs bar .015 — TRUE by 9e-5, marginal.
   Per-block removals sum .190 vs §2799 joint .3668: super-additive interaction .177. First surviving sub-MLP compression in the lineage.
+- §2805 late_tail_gate_program_composition_probe (Claude, LANE 1 CUDA, 44 s, 1792 GPU forwards): a,b,c,e TRUE; d FALSE; null d met. The
+  per-block gate compression composes linearly: marginal cost .006–.009 per added block (any rank/depth); full ten-block program .0722
+  (singles Σ .0480, factor 1.503 — pred_c at its bar; uniform-128 §2799 .0627 + .0095 — pred_e by .0005, marginal). Two-block program
+  replicates on docs 64–95 at .0175. Pair removals 16+17 .93× singles, 8+9 1.18× — the §2804 super-additivity is collective, not pairwise.

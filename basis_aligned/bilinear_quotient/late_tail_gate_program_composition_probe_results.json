@@ -1,0 +1,180 @@
+{
+ "rung": "late_tail_gate_program_composition_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER); ALT arms on docs 64-95",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_two_block_price_replicates_on_a_disjoint_split": true,
+  "pred_c_full_program_compounds_weakly": true,
+  "pred_d_pair_16_17_removal_already_compounds": false,
+  "pred_e_full_program_near_uniform_128": true
+ },
+ "nulls": {
+  "b_null_alt_ge_.04": false,
+  "c_null_factor_ge_1.9": false,
+  "d_null_pair_le_1.1x": true,
+  "e_null_full_ge_uniform_plus_.03": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "exact_tol": 0.001,
+  "gram_tol": 1e-06,
+  "floor": 0.002,
+  "b_alt": 0.03,
+  "c_factor": 1.5,
+  "d_factor": 1.5,
+  "e_margin": 0.01
+ },
+ "null_bars": {
+  "b_alt": 0.04,
+  "c_factor": 1.9,
+  "d_factor": 1.1,
+  "e_margin": 0.03
+ },
+ "device": "cuda",
+ "split": 8,
+ "alt": [
+  64,
+  96
+ ],
+ "program": "the \u00a72804 per-block gate compression composed across the late stack: each late MLP's cross term gated by its top-k whitened gate modes (k = 16 at block 17, 64 at block 16, 128 at blocks 8-15), added cumulatively from block 17 downward, against the sum of single-block costs; pairwise cross-term removals (16+17, 8+9) against \u00a72804's singles; the two-block program re-priced on the disjoint docs 64-95",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "gate_exact": -2.9802322387695312e-08,
+  "alt_gate_exact": 0.0,
+  "b17_gate_16": 0.00825035572052002,
+  "prior_b17_gate_16": 0.0083,
+  "b16_gate_64": 0.005091816186904907,
+  "prior_b16_gate_64": 0.0051,
+  "direct_check_rel_err": {
+   "8": 8.271681321971189e-15,
+   "17": 2.2975920061004358e-14
+  }
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "GATE_EXACT": -2.9802322387695312e-08,
+  "B8_GATE_128": 0.005258023738861084,
+  "B9_GATE_128": 0.003299623727798462,
+  "B10_GATE_128": 0.004003435373306274,
+  "B11_GATE_128": 0.003262817859649658,
+  "B12_GATE_128": 0.004477411508560181,
+  "B13_GATE_128": 0.004623144865036011,
+  "B14_GATE_128": 0.0047824084758758545,
+  "B15_GATE_128": 0.004977136850357056,
+  "B16_GATE_64": 0.005091816186904907,
+  "B17_GATE_16": 0.00825035572052002,
+  "CUM_1_17": 0.00825035572052002,
+  "CUM_2_16": 0.014912635087966919,
+  "CUM_3_15": 0.022066861391067505,
+  "CUM_4_14": 0.03014889359474182,
+  "CUM_5_13": 0.03772798180580139,
+  "CUM_6_12": 0.044731736183166504,
+  "CUM_7_11": 0.05095791816711426,
+  "CUM_8_10": 0.05779936909675598,
+  "CUM_9_9": 0.06354406476020813,
+  "CUM_10_8": 0.07217133045196533,
+  "PAIR_16_17_GATE_0": 0.05937787890434265,
+  "PAIR_8_9_GATE_0": 0.06042948365211487,
+  "ALT_GATE_EXACT": 0.0,
+  "ALT_TWO_BLOCK": 0.017497777938842773
+ },
+ "summary": {
+  "ranks": {
+   "8": 128,
+   "9": 128,
+   "10": 128,
+   "11": 128,
+   "12": 128,
+   "13": 128,
+   "14": 128,
+   "15": 128,
+   "16": 64,
+   "17": 16
+  },
+  "singles_at_program_rank": {
+   "8": 0.005258023738861084,
+   "9": 0.003299623727798462,
+   "10": 0.004003435373306274,
+   "11": 0.003262817859649658,
+   "12": 0.004477411508560181,
+   "13": 0.004623144865036011,
+   "14": 0.0047824084758758545,
+   "15": 0.004977136850357056,
+   "16": 0.005091816186904907,
+   "17": 0.00825035572052002
+  },
+  "sum_singles": 0.04802617430686951,
+  "cumulative_from_17_down": {
+   "17": 0.00825035572052002,
+   "16": 0.014912635087966919,
+   "15": 0.022066861391067505,
+   "14": 0.03014889359474182,
+   "13": 0.03772798180580139,
+   "12": 0.044731736183166504,
+   "11": 0.05095791816711426,
+   "10": 0.05779936909675598,
+   "9": 0.06354406476020813,
+   "8": 0.07217133045196533
+  },
+  "marginal_cost_of_adding_block": {
+   "17": 0.00825035572052002,
+   "16": 0.006662279367446899,
+   "15": 0.007154226303100586,
+   "14": 0.008082032203674316,
+   "13": 0.00757908821105957,
+   "12": 0.007003754377365112,
+   "11": 0.006226181983947754,
+   "10": 0.006841450929641724,
+   "9": 0.0057446956634521484,
+   "8": 0.008627265691757202
+  },
+  "full_program": 0.07217133045196533,
+  "compounding_factor_full": 1.5027499377905307,
+  "prior_uniform_gate128_2799": 0.0627,
+  "full_minus_uniform128": 0.009471330451965326,
+  "pair_16_17": {
+   "joint_gate0": 0.05937787890434265,
+   "sum_singles_2804": 0.0639,
+   "factor": 0.929231281758101
+  },
+  "pair_8_9": {
+   "joint_gate0": 0.06042948365211487,
+   "sum_singles_2804": 0.0513,
+   "factor": 1.1779626442907383
+  },
+  "alt_split": {
+   "docs": [
+    64,
+    96
+   ],
+   "baseline_ce": 3.077528655529022,
+   "gate_exact": 0.0,
+   "two_block": 0.017497777938842773,
+   "two_block_main_split_2804": 0.01491
+  },
+  "prior_gate0_factor_2799_over_2804": 1.9356200527704486,
+  "direct_check_rel_err": {
+   "8": 8.271681321971189e-15,
+   "17": 2.2975920061004358e-14
+  },
+  "n_fit_tokens": 24576
+ },
+ "price": {
+  "gpu_doc_forwards": 1792,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 44.25260305404663
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_GATE_PROGRAM_COMPOSITION_PROBE_PREREGISTRATION.md": "4433976712d3de636bae653f12e4a4436dcf2c7fc229be99b1d7b299c2f85b95",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_gate_per_block_probe_results.json": "036020dcf0cb1cba497f08498627b6c31791d660df8ad9817374957c859f48fb",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "b6a016c355726facd3a1f3321a2c13cd735aa479199e05ec2c36c5bf958ded13"
+}
