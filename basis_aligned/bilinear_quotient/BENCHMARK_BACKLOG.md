@@ -5307,3 +5307,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   constant gate 16%. P3 (low-rank W_l(c)) CLOSED exactly. Block 17 is the narrow, hard-reading outlier (T4 next).
 - §2792 caveat (no run): §2790's "fade ≈ .8/block" is confounded with writer identity (λ0 ≥ .88 late, mostly ≥ 1 — no architectural fade);
   window costs stand; half-life language withdrawn pending late_tail_writer_identity_probe (writer fixed effects).
+- §2793 late_tail_writer_identity_probe (Claude, LANE 1 CUDA, 24 s, 1152 GPU forwards): a,c,d,e TRUE; b FALSE, no null met. §2790's profile = writer
+  growth (2.1 → 9.9; ρ .97) + a real ×.87/block fade in reader units (residual norm 433 → 1742; λ0 ≈ 1); half-life ≈ 4.8 blocks replaces "≈ 3";
+  single writers ≤ 8% each, sum .52 of the joint — coherent accumulation (bus with memory).
