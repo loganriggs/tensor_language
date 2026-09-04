@@ -5836,3 +5836,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   all eight at once recovers only .3988 (§2882) — the layers explain overlapping error, so improving a2 alone recovers less than its
   .1946 suggests. Contrast §2888, where front tables × motif heads are SUPERadditive (+0.3023): the frontier contains both signs of
   interaction and neither is the default.
+
+- **[§2893] URGENT and high-value: re-run the shrinkage sweep with an INTERNAL anchor.** The sweep found every scale below 1 improving
+  the frontier, best **−0.2287 nats at s = 0.25** (fresh) and **−0.1530** in sample — which would be the campaign's first real
+  improvement to +2.6735 — but its registered anchor failed and the rung is therefore not adopted. Cause: `LW := {}` (§2881) leaves
+  LINK-class positions at the class constant `CV[c]`; `LW[k] := 0` (s=0) overwrites them with zero. Different operations. Fix: one rung
+  containing **both** zero-arms plus the scale grid, so the anchor is internal. If it reproduces §2881's +0.1740 for the `{}` arm, the
+  scale curve stands and the improvement can be adopted.
+- **[§2892] Layer-wise motif attribution overstates available gain by >2×.** a2/a3/a4 singles sum to .5467 but jointly recover .2401;
+  all three pairs are subadditive (−.1448, −.1379, −.1009). Any fix targeting one front-band layer must be priced against the joint,
+  not the single.

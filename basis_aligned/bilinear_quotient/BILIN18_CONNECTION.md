@@ -75880,3 +75880,109 @@ than the ridge solution does.
 from the end-to-end optimum, and does fitting under the right metric close it.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2891 — THE RANK CURVE IS UNIMODAL, NOT ERRATIC: MONOTONE FROM RANK 2 TO 256, WITH ONLY RANK 1 BELOW ZERO. ALL FIVE PREDS TRUE
+
+Registered `polynomial_causal/FRONTIER_TAIL_RANK_SWEEP_PREREGISTRATION.md` (10:18Z). Run `frontier_tail_rank_sweep`, landed 10:21Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_rank_sweep_results.json
+Price: 0 GPU forwards, 166.3 GPU-seconds, **1 pipeline run** for ten arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER**; a cost is `L2_F(arm) − L2_F(baseline)`,
+**POSITIVE = WORSE**. §2125 STANDS.
+
+| rank | 1 | 2 | 4 | **8** | 16 | 32 | 64 | 128 | 256 | full |
+|---|---|---|---|---|---|---|---|---|---|---|
+| cost | **−.0294** | +.0798 | +.1303 | **+.1486** | +.1235 | +.1106 | +.0673 | +.0360 | +.0146 | 0 |
+
+**All five predictions TRUE.** **pred_b HELD — turns = 1**, so `b_null_the_curve_is_erratic` did not fire and the implementation-fault
+account of §2887 is disfavoured. **pred_c HELD** — ranks 1, 8 and 64 reproduce §2887 at deviations **.0000 / .0003 / .0001**.
+
+The shape is sharper than §2884/§2887 could see: **from rank 2 to 256 the curve is monotone in the expected direction** (+.0798 →
++.0146 → 0, more rank is better, as a truncation of a fixed matrix must be). **The anomaly is rank 1 alone.** §2890 then established
+from the fitting window that this is not overfitting; the interpretation lives there.
+
+**No low-rank number is adopted**, per §2884 and §2887 — unchanged by this rung.
+
+## §2892 — THE FRONT OF THE MOTIF BAND OVERLAPS HEAVILY: ALL THREE PAIRS SUBADDITIVE, TRIPLE SUBADDITIVITY **+0.3066** — a2/a3/a4 SUM TO .5467 BUT JOINTLY RECOVER ONLY **.2401**
+
+Registered `polynomial_causal/FRONTIER_FRONT_BAND_INTERACTION_PREREGISTRATION.md` (10:21Z). Run `frontier_front_band_interaction`,
+landed 10:24Z. Parent **unmodified**.
+Results: frontier_front_band_interaction_results.json
+Price: 0 GPU forwards, 117.8 GPU-seconds, **1 pipeline run** for eight arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** as above. An **error share** = `L2_F(baseline) − L2_F(subset restored to real)`, **POSITIVE = that subset's
+approximation costs that much**; a **pairwise interaction** = `share(pair) − (single_a + single_b)`, **NEGATIVE = overlap**.
+
+| subset | a2 | a3 | a4 | a2a3 | a2a4 | a3a4 | **a2a3a4** |
+|---|---|---|---|---|---|---|---|
+| share | .1946 | .1580 | .1941 | .2078 | .2508 | .2512 | **.2401** |
+
+**All five predictions TRUE; neither null met.**
+
+- **pred_c HELD at a maximum single-layer deviation of .0001** against §2889 — an exact cross-rung reproduction.
+- **pred_b HELD:** the three singles sum to **.5467**; restoring all three together recovers **.2401**. Subadditivity **+0.3066**.
+- **pred_e HELD, and stronger than required:** **all three** pairwise interactions are negative — a2a3 **−.1448**, a2a4 **−.1379**,
+  a3a4 **−.1009**.
+
+**Reading.** The three front motif layers are **not three separate error sources**; they largely explain the *same* error, and any two
+of them recover about as much as all three (.2078–.2512 versus .2401). Fixing a2 alone will therefore return far less than its .1946
+single share suggests — **the layer-wise attribution overstates the available gain by more than 2×** — and the same caution applies to
+§2889's profile as a whole.
+
+Note the contrast, which is now measured on both sides: **within** the motif band the interaction is **subadditive** (overlapping
+error), while **across** blocks the front tables and motif heads are **superadditive** (§2888, +0.3023, mutually compensating). Both
+signs are present in the same construction and neither is the default.
+
+## §2893 — THE SHRINKAGE SWEEP FOUND A LARGE APPARENT IMPROVEMENT (**−0.2287 nats at s = 0.25**) — AND ITS OWN REGISTERED ANCHOR FAILED, SO IT IS **NOT ADOPTED**. THE ANCHOR CAUGHT A REAL ERROR IN MY PREREGISTRATION
+
+Registered `polynomial_causal/FRONTIER_TAIL_LINK_SHRINKAGE_PREREGISTRATION.md` (10:26Z). Run `frontier_tail_link_shrinkage`, landed
+10:29Z. Parent **unmodified**.
+Results: frontier_tail_link_shrinkage_results.json
+Price: 0 GPU forwards, 121.1 GPU-seconds, **1 pipeline run** for nine arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER**; a cost is
+`L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement to the frontier**. §2125 STANDS.
+
+| scale s | 0.0 | **0.25** | 0.5 | 0.75 | 0.9 | 1.0 | 1.1 | 1.25 |
+|---|---|---|---|---|---|---|---|---|
+| cost, **fresh** | −.1863 | **−.2287** | −.1860 | −.1017 | −.0421 | 0 | +.0436 | +.1091 |
+| cost, **fitting window** | −.0705 | **−.1530** | −.1474 | −.0884 | −.0378 | 0 | +.0401 | +.1057 |
+
+**pred_b HELD, emphatically**: every scale below 1 improves the frontier, with a minimum of **−0.2287 nats** at s = 0.25 — on the fresh
+window *and* **−0.1530 in sample**. **pred_a, pred_d, pred_e HELD** (unimodal, one turn).
+
+### Why this section adopts nothing
+
+**pred_c FAILED and `c_null_this_rung_disagrees_with_S2881` is MET.** The `s = 0` arm reads **−0.1863**; §2881 measured what I asserted
+was the same manipulation at **+0.1740**. Deviation **0.3603**, and the **signs are opposite**.
+
+The cause is a real error in my preregistration, and the hook makes it exact:
+
+```
+new = CV[c].clone()
+for k in LW:
+    sel = c == k
+    if sel.any(): new[sel] = x[sel] @ LW[k]
+```
+
+§2881 set `LW = {}`, so the loop never runs and LINK-class positions **keep the class constant `CV[c]`**. This rung's `s = 0` sets
+`LW[k] = 0`, so the loop *does* run and those positions are **overwritten with zero**. **They are different operations**, and I
+registered them as the same one. The anchor did exactly what an anchor is for.
+
+The preregistration's stated consequence, written before the run, was that a deviation ≥ .05 means the two disagree and **"neither is
+usable"**. That consequence binds here, and it binds hardest precisely because this rung would otherwise report **the first genuine
+improvement to the §312 frontier in this campaign — 2.6735 → 2.4448**. Retiring a failing sanity bound in the entry that benefits from
+ignoring it is the one thing the standing rules forbid outright, and a 0.23-nat headline is exactly the temptation the rule exists to
+resist. **The −0.2287 is recorded and not adopted.**
+
+What can be said without the anchor: the curve is monotone in |s − s*| with a single turn, the in-sample and fresh curves agree in
+shape (as §2890 found for rank), and **every** scale below 1 improves both. That is consistent with §2890's local-fit/end-to-end-score
+mismatch and is *why* the corrected rung is worth running immediately — not a reason to keep this one's number.
+
+**Registered next:** the same sweep with **both** zero-arms present in one run — `LW := {}` (§2881's operation) and `LW[k] := 0` — so
+the anchor is measured internally rather than imported across rungs, plus the scale grid. If the corrected anchor reproduces §2881, the
+scale result stands on its own footing and the improvement can be adopted properly.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — and it stays unchanged precisely because §2893 is not
+adopted.
