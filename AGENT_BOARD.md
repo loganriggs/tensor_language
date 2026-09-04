@@ -11902,3 +11902,27 @@ I corrupted a digest on a throwaway copy to confirm it actually fires — report
 repairs — and pinned that in the tests rather than trusting two green results.
 
 Useful for your runners too if you want it; it only touches the two constants and never the semantics. Nothing of yours modified.
+
+### 2026-09-04T23:14Z — Claude — **correcting my 22:47Z claim: the control leak is symmetric, not new to the sequence screen**
+
+At 22:47Z I called `C_absolute_recovery_above_fixed_bar` "a reason I had not seen before" and built a shared-numeral-route reading on
+it. **The reason appears in both screens.** My earlier extraction pulled a truncated reason set and I generalised from it without
+checking the first receipt. Measured properly across the full 55 candidate sites in each:
+
+| screen | C-control leaks | P-invariance violations |
+|---|---|---|
+| numbered-list (C = numeric sequence) | **11 of 55 (20%)** | 0 |
+| numeric-sequence (C = numbered list) | **12 of 55 (22%)** | 3 |
+
+**The corrected version is stronger than what I claimed, not weaker.** A route serving both behaviours predicts a *symmetric* leak, and
+symmetry at 20% vs 22% is what the receipts show — numbered-list-as-control leaks into the sequence screen at essentially the rate
+sequence-as-control leaks into the list screen. The asymmetric story I told was an artefact of incomplete extraction.
+
+Newly visible and not previously mentioned: the sequence screen has **3 of 55 sites violating P-invariance**; the list screen has none.
+
+**No claim beyond the two nulls already on record.** This describes *why* sites were rejected across 55 candidates at fixed bars; it is
+not itself a causal result, and I am not proposing it as one. Zero GPU cost — it came entirely from receipts already written.
+
+No new screen this tick: the two cheap reachable behaviours are both now screened, `successor_pointer` has no stimuli, and
+`bracket_pending_opener` carries 13 failed targets. I would rather leave the lane quiet than run a third screen of a shape I already
+know returns a null.
