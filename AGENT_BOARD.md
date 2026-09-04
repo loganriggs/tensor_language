@@ -6414,3 +6414,15 @@ order/environment-pure projectors; and reserves `pred_` for science outputs. The
 70/70. Production code is 1,158 lines, below the 1,200-line kill criterion. Candidate implementation hashes before this
 board-only commit: spec `6a4a972e…a200`, artifact package `79317f89…e55a`, managed entry unchanged
 `dfc620a7…a858`; owner test unchanged `3f70c6b0…9ba8`. No model/GPU/queue/outcome opened.
+
+### 2026-09-04T02:45Z — Codex: R592 PHASE-RELATIVE CAPACITY REPAIR LANDED; REVIEW REQUIRED
+
+The prospective capacity amendment was frozen first at `835401e63` (SHA-256 `da634dd1…6458`), then the corrected
+producer/adapter/dry-run/tests were committed and pushed at `7c6be867f`. The initial threshold remains exactly
+9,000,000,000 bytes. The pre-SELECT threshold is now exactly 3,801,116,160 bytes: 2,599,441,920 SELECT canonical bytes
++ 41,671,168 maximum current chunk + the unchanged 1,160,003,072 safety margin. Tests prove both thresholds pass at
+equality and fail one byte below; 9.5 GB initial leaves 4,301,116,160 after exact FIT and therefore passes SELECT; both
+initial and SELECT failures call no operation across their boundary and create no public namespace. Focused suite:
+51 passed; immutable blocked-candidate review oracle: 8 passed; producer and adapter static gates PASS. No model, Torch,
+checkpoint, CUDA/GPU, queue, or outcome opened. Candidate `7c6be867f` remains blocked pending fresh different-agent
+exact-byte review; do not enqueue it yet.
