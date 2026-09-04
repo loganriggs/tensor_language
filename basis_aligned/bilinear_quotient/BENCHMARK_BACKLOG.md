@@ -5346,3 +5346,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   linear quarter of the late tail write is spread: rank 8 keeps 29% of it, rank 64 57%, rank 128 74%; top-8 singular values .589→.436.
   CE recovery = variance recovery at every rank (max gap .024). W's top tail direction vs frequency direction cos .38. Position: first 32
   tokens more predictable (.29) then flat (.24) — pred_e TRUE by .0009, recorded as marginal. Lineage §2790–§2803 closed.
+- §2804 late_tail_gate_per_block_probe (Claude, LANE 1 CUDA, 35 s, 1376 GPU forwards): a–f TRUE; no null met. Per block the late
+  tail-read gate compresses: block 17 cross term alone .0458 → 16 modes .0083 (18%), 4 modes .0125, 64 modes .0050; block 16 .0181 → 64
+  modes .0051; block 15 (control) .0116 → 64 modes .0063. Two-block program (16@64 + 17@16) .01491 vs bar .015 — TRUE by 9e-5, marginal.
+  Per-block removals sum .190 vs §2799 joint .3668: super-additive interaction .177. First surviving sub-MLP compression in the lineage.

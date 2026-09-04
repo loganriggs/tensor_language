@@ -6509,3 +6509,13 @@ auditor verified all 36 receipt-bound files / 5,210,059,038 bytes, strict finite
 empty canonical ledger, one-forward runlog, absent normal namespaces, and atomic invalid publication. Exact candidate
 must not rerun. Successor needs an authority-mask equality/census gate and a numerically well-defined decomposition
 identity at unchanged tolerance. Audit script SHA `cc36365e…dace`; review SHA `1398d490…2b46`. No execution was altered.
+
+### Claude — 2026-09-04 03:06Z — §2804: first surviving sub-MLP compression (per-block gate), one marginal bar; composition rung queued
+- late_tail_gate_per_block_probe (35 s): a–f TRUE, no null met. One late block at a time, the tail-read gate compresses: block 17's cross
+  term removed .0458 → 16 whitened gate modes .0083 (18%), 4 modes .0125, 64 modes .0050; block 16 .0181 → 64 modes .0051; control block
+  15 .0116 → 64 modes .0063. Two-block program (16@64 + 17@16) .01491 vs bar .015 — passed by 9e-5, inside the .003 wobble: recorded as
+  MARGINAL, replication on the disjoint docs 64–95 is in the next rung. Per-block removals sum .190 vs §2799's joint .3668 → the late tail
+  reads interact super-additively (.177). Nothing installs; explained fraction unchanged.
+- Queued late_tail_gate_program_composition_probe (~45 s): compression added block by block from 17 down (16/64/128 modes), singles at the
+  same ranks, pair removals 16+17 and 8+9, ALT-split replication. Preds a–e with worked examples + operand signs.
+- Ops row 02:06–03:06 appended (actions: derive.py collision guard; worked-example + operand-sign prereg rule).

@@ -1,0 +1,235 @@
+{
+ "rung": "late_tail_gate_per_block_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_block17_cross_term_matters": true,
+  "pred_c_block17_rank16_gate_recovers_most": true,
+  "pred_d_block17_rank4_gate_recovers_half": true,
+  "pred_e_block16_rank64_gate_recovers_most": true,
+  "pred_f_two_block_program_is_cheap": true
+ },
+ "nulls": {
+  "b_null_b17_gate0_le_.005": false,
+  "c_null_b17_16_ge_.6x": false,
+  "d_null_b17_4_ge_.8x": false,
+  "e_null_b16_64_ge_.7x": false,
+  "f_null_two_block_ge_.04": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "exact_tol": 0.001,
+  "gram_tol": 1e-06,
+  "floor": 0.002,
+  "b_cost": 0.02,
+  "c_frac": 0.3,
+  "d_frac": 0.5,
+  "e_frac": 0.4,
+  "f_cost": 0.015
+ },
+ "null_bars": {
+  "b_cost": 0.005,
+  "c_frac": 0.6,
+  "d_frac": 0.8,
+  "e_frac": 0.7,
+  "f_cost": 0.04
+ },
+ "device": "cuda",
+ "split": 8,
+ "ks": {
+  "17": [
+   4,
+   16,
+   64
+  ],
+  "16": [
+   16,
+   64
+  ],
+  "15": [
+   64
+  ]
+ },
+ "program": "per late MLP the gated tail read J(c)t is linear in the core gate c (\u00a72799); this rung truncates the gate of ONE block at a time to its top-k whitened gate modes (k = 0 removes that block's cross term), the other nine late MLPs exact, and prices the two-block compression (block 16 at 64 modes, block 17 at 16 modes) that \u00a72799's spectra suggest",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "gate_exact": -2.9802322387695312e-08,
+  "direct_check_rel_err": {
+   "8": 8.271681321971189e-15,
+   "17": 2.2975920061004358e-14
+  }
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "GATE_EXACT": -2.9802322387695312e-08,
+  "B8_GATE_0": 0.030413031578063965,
+  "B9_GATE_0": 0.02089264988899231,
+  "B10_GATE_0": 0.01405787467956543,
+  "B11_GATE_0": 0.01107671856880188,
+  "B12_GATE_0": 0.014093935489654541,
+  "B13_GATE_0": 0.011910587549209595,
+  "B14_GATE_0": 0.011690914630889893,
+  "B15_GATE_0": 0.011577457189559937,
+  "B16_GATE_0": 0.018052756786346436,
+  "B17_GATE_0": 0.04576805233955383,
+  "B17_GATE_4": 0.012544214725494385,
+  "B17_GATE_16": 0.00825035572052002,
+  "B17_GATE_64": 0.005010008811950684,
+  "B16_GATE_16": 0.007042288780212402,
+  "B16_GATE_64": 0.005091816186904907,
+  "B15_GATE_64": 0.006274670362472534,
+  "TWO_BLOCK_B16_64_B17_16": 0.014912635087966919
+ },
+ "summary": {
+  "gate0_by_block": {
+   "8": 0.030413031578063965,
+   "9": 0.02089264988899231,
+   "10": 0.01405787467956543,
+   "11": 0.01107671856880188,
+   "12": 0.014093935489654541,
+   "13": 0.011910587549209595,
+   "14": 0.011690914630889893,
+   "15": 0.011577457189559937,
+   "16": 0.018052756786346436,
+   "17": 0.04576805233955383
+  },
+  "sum_of_single_gate0": 0.18953397870063782,
+  "prior_joint_gate0_2799": 0.3668,
+  "interaction_joint_minus_sum": 0.1772660212993622,
+  "fraction_of_block_gate0": {
+   "B17": {
+    "4": 0.27408233657024944,
+    "16": 0.18026451419235656,
+    "64": 0.10946519582658569
+   },
+   "B16": {
+    "16": 0.3900949236483698,
+    "64": 0.28205200165084604
+   },
+   "B15": {
+    "64": 0.5419730999420812
+   }
+  },
+  "energy_captured_by_top_modes": {
+   "8": {
+    "16": 0.5120698908447656,
+    "64": 0.665061316138259,
+    "128": 0.770946905664055,
+    "256": 0.8812396944025224
+   },
+   "9": {
+    "16": 0.4711083316871265,
+    "64": 0.6478672336527538,
+    "128": 0.7614834343327495,
+    "256": 0.8766643670509002
+   },
+   "10": {
+    "16": 0.4122943752477045,
+    "64": 0.5951196994189663,
+    "128": 0.7197258863889093,
+    "256": 0.8520914233135499
+   },
+   "11": {
+    "16": 0.38873924300740825,
+    "64": 0.5840628791909241,
+    "128": 0.7129468862231261,
+    "256": 0.847509746796818
+   },
+   "12": {
+    "16": 0.4107225521528428,
+    "64": 0.5962501015765508,
+    "128": 0.719969098613329,
+    "256": 0.8508056272253437
+   },
+   "13": {
+    "16": 0.4483069548723272,
+    "64": 0.613983866731182,
+    "128": 0.7289472411992501,
+    "256": 0.8524490911251643
+   },
+   "14": {
+    "16": 0.38156031381627864,
+    "64": 0.5611364841683166,
+    "128": 0.68820795908476,
+    "256": 0.8270697350788967
+   },
+   "15": {
+    "16": 0.48206900961779103,
+    "64": 0.6350491501666325,
+    "128": 0.7399578747565714,
+    "256": 0.8541893331762658
+   },
+   "16": {
+    "16": 0.6880160174461698,
+    "64": 0.7848038947458125,
+    "128": 0.8467636810434596,
+    "256": 0.9125946658043127
+   },
+   "17": {
+    "16": 0.931649199880044,
+    "64": 0.9557122881544063,
+    "128": 0.9684238318840003,
+    "256": 0.9815249137505456
+   }
+  },
+  "gate_eff_rank_by_block": {
+   "8": 68.14675821377966,
+   "9": 94.42213321621514,
+   "10": 131.1259759419225,
+   "11": 158.69092119155127,
+   "12": 136.33294332885845,
+   "13": 109.58921868676973,
+   "14": 155.0175283232589,
+   "15": 97.64935475637849,
+   "16": 24.262460941415952,
+   "17": 4.821692881704932
+  },
+  "gate_rank90_by_block": {
+   "8": 291,
+   "9": 299,
+   "10": 337,
+   "11": 344,
+   "12": 340,
+   "13": 340,
+   "14": 377,
+   "15": 342,
+   "16": 225,
+   "17": 4
+  },
+  "two_block_program": {
+   "cost": 0.014912635087966919,
+   "additive_prediction": 0.013342171907424927,
+   "modes": {
+    "16": 64,
+    "17": 16
+   },
+   "gate_params_saved_vs_full": {
+    "16": 0.9166666666666666,
+    "17": 0.9791666666666666
+   }
+  },
+  "direct_check_rel_err": {
+   "8": 8.271681321971189e-15,
+   "17": 2.2975920061004358e-14
+  },
+  "n_fit_tokens": 24576
+ },
+ "price": {
+  "gpu_doc_forwards": 1376,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 34.52105474472046
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_GATE_PER_BLOCK_PROBE_PREREGISTRATION.md": "a5f72944781e1f8b9fa27e1e4b15841f336802946f0b2a7870be4a4cf805e32f",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_gate_mode_rank_probe_results.json": "1ac5b061b9513f34bfaa02f12a7aeef1c19a6a0d3cfc4d18f2db435b073cc5e5",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "2537855d8ace3d9a7c5c4af595799d491fe4b9cac12ee992896f0108204d1d12"
+}
