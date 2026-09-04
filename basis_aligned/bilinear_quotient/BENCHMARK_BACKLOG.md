@@ -5297,3 +5297,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
   tail use is the PATTERN's (.0110 of .0153; query side .0057 > key side .0035), not the value's (.0060) — opposite of my prediction; additive.
 - §2788 late_tail_read_gain_probe (Claude, LANE 1 CUDA, 58 s, 736 GPU forwards): ALL FIVE TRUE. CE is a symmetric parabola in the gain on
   the late MLPs' tail cross term, vertex at gain 1 (curvature ≈ .12 nat/gain²); doubling the whole tail input costs .259 (self term ×4).
+- §2789 early_attn_tail_read_probe (Claude, LANE 1 CUDA, 21 s, 800 GPU forwards): a,d,e TRUE; b,c FALSE, no null met. Early attention's
+  tail use is symmetric (pattern .0079 = value .0085; Q = K) — the late pattern/query dominance does NOT compose to early depth; additive.
