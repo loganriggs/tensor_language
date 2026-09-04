@@ -1,32 +1,38 @@
-[battery] alphabet_run.successor             cap=0.21 writer=mlp17 rec=82.47 reads=0.00 sel=0.94 (3.17s)
-[battery] arithmetic.small_addition          cap=0.00 writer=attn3 rec=-1.69 reads=0.64 sel=0.51 (1.25s)
-[battery] bracket.close_innermost            cap=0.64 writer=attn11 rec=0.55 reads=0.30 sel=-0.16 (3.77s)
-[battery] counting_words.successor           cap=0.64 writer=attn8 rec=0.74 reads=0.81 sel=1.03 (3.44s)
-[battery] induction.copy_successor           cap=0.71 writer=attn8 rec=0.87 reads=0.51 sel=1.02 (1.19s)
-[battery] keyed_line.counter_successor       cap=1.00 writer=attn8 rec=0.92 reads=0.84 sel=1.05 (1.4s)
-[battery] letter_list.index_successor        cap=0.26 writer=attn8 rec=0.80 reads=2.32 sel=1.08 (5.79s)
-[battery] month.successor                    cap=0.93 writer=attn8 rec=0.60 reads=1.23 sel=0.91 (3.39s)
-[battery] numbered_list.index_successor      cap=1.00 writer=attn8 rec=0.87 reads=0.81 sel=0.92 (5.21s)
-[battery] numeric_run.last_plus_one          cap=0.92 writer=attn8 rec=0.79 reads=0.90 sel=0.79 (1.23s)
-[battery] numeric_sequence.continuation      cap=0.06 writer=attn14 rec=0.09 reads=0.09 sel=0.73 (2.57s)
-[battery] numeric_sequence.countdown         cap=0.00 writer=mlp11 rec=2.67 reads=0.48 sel=0.15 (3.53s)
-[battery] paren_list.index_successor         cap=0.99 writer=attn8 rec=0.82 reads=0.89 sel=1.04 (4.56s)
-[battery] roman_list.index_successor         cap=0.78 writer=attn8 rec=0.89 reads=0.85 sel=1.01 (4.7s)
-[battery] verbatim_repeat.copy               cap=1.00 writer=attn14 rec=0.14 reads=-0.93 sel=0.90 (0.99s)
-[battery] weekday.successor                  cap=0.79 writer=attn8 rec=0.39 reads=1.03 sel=0.92 (3.38s)
+[battery] alphabet_run.successor             cap=0.30 writer=attn8 rec=0.26 reads=1.25 sel=1.06 (5.31s)
+[battery] arithmetic.small_addition          cap=0.00 writer=attn11 rec=2.60 reads=0.30 sel=-0.14 (1.26s)
+[battery] bracket.close_innermost            cap=0.62 writer=attn13 rec=0.22 reads=0.63 sel=1.00 (4.0s)
+[battery] counting_words.successor           cap=0.64 writer=attn8 rec=0.84 reads=0.67 sel=1.13 (4.52s)
+[battery] induction.copy_successor           cap=0.73 writer=attn8 rec=0.85 reads=0.44 sel=1.00 (1.39s)
+[battery] keyed_line.counter_successor       cap=1.00 writer=attn8 rec=0.91 reads=0.88 sel=1.00 (1.65s)
+[battery] letter_list.index_successor        cap=0.35 writer=attn8 rec=0.87 reads=2.66 sel=1.00 (5.22s)
+[battery] month.successor                    cap=0.96 writer=attn8 rec=0.46 reads=1.47 sel=1.03 (3.89s)
+[battery] numbered_list.index_successor      cap=1.00 writer=attn8 rec=0.85 reads=0.85 sel=1.00 (5.39s)
+[battery] numeric_run.last_plus_one          cap=0.85 writer=attn8 rec=0.79 reads=0.81 sel=0.94 (1.39s)
+[battery] numeric_sequence.continuation      cap=0.03 writer=attn8 rec=0.83 reads=0.07 sel=0.10 (4.87s)
+[battery] numeric_sequence.countdown         cap=0.00 writer=attn8 rec=-73.06 reads=-1.65 sel=-0.55 (4.77s)
+[battery] paren_list.index_successor         cap=0.98 writer=attn8 rec=0.84 reads=0.89 sel=1.00 (5.35s)
+[battery] roman_list.index_successor         cap=0.84 writer=attn8 rec=0.87 reads=0.90 sel=1.00 (4.23s)
+[battery] verbatim_repeat.copy               cap=1.00 writer=attn8 rec=0.11 reads=-1.25 sel=0.55 (1.29s)
+[battery] weekday.successor                  cap=0.85 writer=attn14 rec=0.50 reads=-0.05 sel=0.88 (4.67s)
 {
  "preds": {
   "pred_a_instrument_full_equals_writer_ablation": true,
-  "pred_b_bank_capability": false,
+  "pred_b_bank_capability": true,
   "pred_c_writer_localisation": true,
   "pred_d_writer_selectivity": false,
-  "pred_e_readers_are_redundant_not_concentrated": true
+  "pred_e_readers_are_redundant_not_concentrated": true,
+  "pred_f_screen_writer_replicates": true,
+  "pred_g_screen_no_writer_is_selective": true,
+  "pred_h_screen_redundancy_holds_on_ood": true
  },
  "nulls": {
   "b_null_capability_le_2": false,
   "c_null_localise_rec_le_.2": false,
   "d_null_selectivity_ge_.75": true,
-  "e_null_top3_ge_.8": false
+  "e_null_top3_ge_.8": false,
+  "f_null_attn8_le_2": false,
+  "g_null_majority_selective": false,
+  "h_null_ood_top3_ge_.8": false
  },
  "summary": {
   "capable": [
@@ -35,17 +41,19 @@
    "numbered_list.index_successor",
    "numeric_run.last_plus_one",
    "paren_list.index_successor",
-   "verbatim_repeat.copy"
+   "roman_list.index_successor",
+   "verbatim_repeat.copy",
+   "weekday.successor"
   ],
   "localised": [
    "keyed_line.counter_successor",
-   "month.successor",
    "numbered_list.index_successor",
    "numeric_run.last_plus_one",
-   "paren_list.index_successor"
+   "paren_list.index_successor",
+   "roman_list.index_successor"
   ],
   "selective": [],
-  "median_top3_share": 0.48821771113522383,
-  "median_recovery": 0.8075556755065918
+  "median_top3_share": 0.5082909335159287,
+  "median_recovery": 0.8111520409584045
  }
 }

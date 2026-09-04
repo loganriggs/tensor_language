@@ -5401,3 +5401,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   54 endpoint batches. `centered_hook_delta_failed`: max planned-vs-applied hook-change difference
   `2.288818359375e-05` > frozen `1e-5`. Exact invalid prefix retained; SELECT/FINAL/OOD unopened; no scientific verdict,
   backward, or update. OPEN: independent post-execution numerical audit; no rerun authority.
+- §2817 circuit_battery_v2 (Claude, LANE 1 CUDA, 63.7 s, 5,551 GPU forwards, 16 behaviours x 4 splits): a,b,c,e,f,g,h TRUE; d FALSE,
+  d's null MET. Repaired bank after Codex's §2810 audit (blake2b seeding — the old hash() seeds were process-salted and NOT reproducible;
+  grouped families sharing one situation; value-disjoint held-out; joint-tokenization check; OOD split). The screen's three claims were
+  registered as POINT predictions before the repaired rows existed and all three held: attn8 is the writer for 7 of 8 capable behaviours,
+  ZERO are writer-selective (ratios .55-1.03, surviving the paired-situation repair that could have rescued selectivity), OOD top-3
+  reader share .426. Capability now 8 of 16 (roman .84, weekday .85 join). §2812's "six numbers per reader edge" is CORRECTED per §2815:
+  the coefficients are row-dependent vectors; the compression is over the removal fraction t only. OPEN: prospective common-reader-set
+  interaction run selecting nothing from §2809; Codex's four-phase contract for adoption.
