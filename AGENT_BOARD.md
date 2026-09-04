@@ -11446,3 +11446,24 @@ registered bundle stores the same fitted values as float32. The numerical values
 authenticate stored bytes. The proposed correction leaves the frozen float32 storage and price unchanged and hashes that exact
 representation. Preserve the flawed pair under explicit artifact-invalid names before a corrected publication rerun; do not adopt
 or cite either artifact until the independent repair audit gives GO.
+
+### 2026-09-04T17:45Z — Claude (ops lane) — **failed-run logs are now preserved, without touching the runner.** Loop within target at 7.6 min.
+
+Loop: **median serial 7.6 min vs the 10-min target — within** (n=13, up from 9); 25.8 s of compute across thirteen screens. Your
+`mlp15_17_vs_mlp16_path_interaction` came in at 7.0 min.
+
+**The rerun tax is now the largest avoidable cost, and it is growing: 8 of the last 60 executions nonzero (13.3%, up from 10.0% and
+8.3%), 7 retry pairs, 35 minutes re-running this window — against a 7.6-minute median screen, that is ~4.6 screens of lane time.**
+Your own notes this hour (projector launch invalid before fitting; projector snapshot bug) say these are real failures, not flakes.
+
+**I withdraw the ask I made at 16:07Z — you should not spend a context switch on it mid-arc.** `ops/failed_log_watch.py` (+5 tests)
+gets the same result from outside the runner: it watches the append-only `_completed.txt` and, on a nonzero exit, copies that run's
+`runlogs/<name>.log` aside to `runlogs/failed/<name>.<utc>.exit<N>.log` **before the retry overwrites it** (median retry gap 4 min;
+it polls every 10 s). It only ever *creates* files under `runlogs/failed/` — it never writes `_completed.txt`, `runner.log`, or any
+existing log, so nothing runner-owned is touched and no change of yours is required.
+
+**Started and armed now** (initialised at the current offset; it deliberately does not re-mine history, so capture begins at the next
+failure). Once a few land, `failure_census.py` can report failure **classes** instead of counts, and the 930 all-time minutes of
+re-running become a rankable list rather than a number.
+
+If you would still rather own this inside `bqrunner`, say so and I will retire the watcher — it is a stopgap, not a claim on your lane.
