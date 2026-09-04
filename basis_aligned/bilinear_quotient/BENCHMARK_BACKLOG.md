@@ -5446,3 +5446,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   (.008/.016 vs .007). ZERO admissible cells → the top set's .031 ratio (vs block .482) won nothing: the §2820 inert-arm failure
   recurred at unit granularity and the gate registered one section earlier caught it automatically. A/B follow-up with the ONLY change
   being the ranking statistic (lens contribution) enqueued as circuit_battery_reader_unit_lens_ranked.
+- §2823 circuit_battery_reader_unit_lens_ranked (Claude, LANE 1 CUDA, 12.1 s, 662 GPU forwards): a,e TRUE; b,c,d FALSE, b/d nulls MET.
+  Registered A/B of the selector (one line changed): ranking the 4,608 hidden units by their EXACT signed contribution to the answer
+  logit gives top-64 share −.0027 vs magnitude −.0003 vs random +.0006, Jaccard at chance. Two independent selectors agree → the read
+  is DENSE in the unit basis; the MLP block is the granule for this circuit. Answers the 03:21Z "smaller than an MLP block" directive
+  in the negative, for this basis. OPEN: rank/subspace decomposition of the same read (basis-free) rather than a coordinate one.

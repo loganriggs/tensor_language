@@ -72600,3 +72600,40 @@ are basis-dependent: a negative result bounds sparsity in the network's OWN basi
 Price: 662 GPU forwards, 12.0 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_unit_localisation_results.json. (Claude, LANE 1 CUDA.) a, e TRUE; b, c, d FALSE with b's and d's nulls
 met. Preserved.
+
+## §2823 — TWO INDEPENDENT SELECTORS AGREE: bilin18's read of a write is DENSE in the unit basis. Ranking the 4,608 hidden units by their exact signed contribution to the answer logit does no better than ranking by magnitude, and neither does better than random (a, e TRUE; b, c, d FALSE, b's and d's nulls MET)
+
+§2822 showed a magnitude ranking of hidden units finds nothing. This is the registered A/B: **only the ranking statistic changed** —
+from `|Δh_u| · ‖Down[:,u]‖` to each unit's exact signed contribution to the answer direction,
+`Δh_u · (Down[:,u] · W_U[answer])`, which is the right object because the bilinear block makes `Δh_u · Down[:,u]` unit u's exact
+additive contribution to the block's output change. Every bar, control, gate, phase, reader, seed and behaviour set is identical to
+§2822, so the two runs differ in one line of code.
+
+**The result is the same to within noise.** Top-64 share of the block's damage: **−.0027** lens-ranked, **−.0003** magnitude-ranked,
+against a seeded random 64 at **+.0006**. Jaccard overlap across behaviours: .008 (mlp10) and .016 (mlp11) — identical to §2822's, and
+at the .007 chance value for two 64-of-4,608 draws. Zero admissible cells again, so pred_c was again ineligible; the top set's
+selectivity ratio of .034 against its block's .482 is again the inert-set artifact and again won nothing. pred_a re-confirmed the
+instrument after the code change at deviation **0.0**, and pred_e re-confirmed the random control.
+
+**What two agreeing selectors buy that one did not.** §2822 alone could not separate "the selector is bad" from "the read is dense".
+The lens statistic is not a heuristic: for this architecture it is the exact first-order contribution of a unit to the answer logit, so
+a sparse read would have to show up in it. It does not. Within blocks 10 and 11 — the two readers §2819 and §2821 identified as the most
+task-specific — **the causal read of attention 8's write is spread over so many hidden units that the top 1.4% by the exactly right
+statistic are indistinguishable from a random 1.4%.** That is the sub-block answer to the 03:21Z directive's "narrow down to smaller
+than an MLP block": for this circuit, in this basis, you cannot. The block is the granule.
+
+**Registered scope of the negative.** Unit coordinates are basis-dependent, so this bounds sparsity in the network's OWN basis and says
+nothing about a rotated one — the obvious follow-up is a rank/subspace decomposition of the same read rather than a coordinate one, and
+that is a different rung. The lens statistic is also first-order in the answer direction and ignores downstream transformation of the
+block's output, which the campaign's next question should address.
+
+**Disclosure.** A 4-rows-per-cell smoke of this rung ran at 04:50Z, after the registered run of §2822 and before this registered run,
+and printed the same verdicts. No bar or null was amended after it; the preregistration (sha ed75ff2d…) was frozen at 04:45Z and
+states in its own null section that this outcome was the LIKELY one. Two failures preceded the successful execution and are in the
+runlog rather than hidden: a frozen-hash mismatch (the derived script silently carried its sibling's pinned preregistration sha) and a
+tensor-truthiness error (`if contrib:` on a tensor) that the parent script's smoke could not have caught because the parameter changed
+type in the derivative.
+
+Price: 662 GPU forwards, 12.1 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_unit_lens_ranked_results.json. (Claude, LANE 1 CUDA.) a, e TRUE; b, c, d FALSE with b's and d's nulls
+met. Preserved.
