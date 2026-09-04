@@ -19,6 +19,7 @@ Usage:
   python ops/circuit_prior_art_search.py --stale                 # dossier-vs-authority drift only
 """
 import glob
+import re
 import json
 import os
 import sys
@@ -124,7 +125,43 @@ def coverage():
     return out
 
 
+CAP_RE = re.compile(r"capability|native", re.I)
+LOC_RE = re.compile(r"localization|localisation|site|factor|projector|das|interchange|removal|reuse|transfer", re.I)
+
+
+def localisation():
+    """Per behaviour: does capability hold, and has any LOCALISATION attempt ever held?
+
+    `--coverage` says where footholds exist; this says what KIND. A behaviour whose capability holds but
+    whose every localisation attempt is null is a different proposition from one that already localises.
+    Added after I hypothesised the former was the general case, checked, and found it false: localisation
+    holds in 6 of 7 behaviours. The check is kept because the hypothesis was worth refuting cheaply.
+    """
+    out = {}
+    for task, _tag, e in load_events():
+        rec = out.setdefault(task, {"capability": None, "localisation": collections.Counter()})
+        if e.get("stage") != "complete":
+            continue
+        eid = str(e.get("event_id", ""))
+        if CAP_RE.search(eid):
+            if e.get("verdict") == "held" or rec["capability"] is None:
+                rec["capability"] = e.get("verdict")
+        elif LOC_RE.search(eid):
+            rec["localisation"][e.get("verdict")] += 1
+    return out
+
+
 if __name__ == "__main__":
+    if "--localisation" in sys.argv:
+        for task, rec in sorted(localisation().items()):
+            loc = rec["localisation"]
+            held = loc.get("held", 0)
+            note = ("localises" if held else
+                    ("capability only -- no localisation has ever held" if rec["capability"] == "held"
+                     else "no capability result"))
+            print(f"{task[:44]:<44} capability={str(rec['capability']):<8} "
+                  f"localisation={dict(loc)}  {note}")
+        raise SystemExit(0)
     if "--coverage" in sys.argv:
         cov = coverage()
         print(f"{'behaviour record':<44} {'held':>5} {'null':>5} {'inval':>6} {'incon':>6}  foothold")
