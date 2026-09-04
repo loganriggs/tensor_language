@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0421.md](explanation_2026-09-04_0421.md) — full correction and progress update since 03:53:
+  why 768 was a convenient width rather than an eigengap; the last valid numbered-list reader-path evidence; why the
+  16-behavior battery and its dependent reuse/interaction claims were retracted; the exact bilinear-plus-RMSNorm identity
+  that survives as mathematics; the first strict four-phase positional-list adapter; and R593's valid instrument-invalid
+  terminal at the first directed FIT intervention
 - [explanation_2026-09-04_0353.md](explanation_2026-09-04_0353.md) — full circuit-focused update since 03:14: why the
   smooth 768 split is closed, the corrected attention5 reader-liveness/clamp/injection design and exact bilinear
   translation, the audited numbered-list result (90% downstream use but no two-reader concentration or selectivity),
