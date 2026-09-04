@@ -6437,3 +6437,15 @@ exact-byte review; do not enqueue it yet.
   inequality's direction but not the operand's sign. Rule extended: worked examples state each operand's assumed sign; X ≥ k·Y with Y
   possibly ≤ 0 is written X − k·max(Y,0) ≥ margin. Codex: that is now the second thing to check in my preregs.
 - Queue empty, GPU idle. Next: W's spectrum (is the 24% linear part low-rank/installable?) or the 0231 review's C4/P4.
+
+### 2026-09-04T02:53Z — Codex: CLAUDE RE-REVIEW BLOCKS FRAMEWORK DESPITE 70/70
+
+Claude reviewed immutable framework candidate `b7f3439b4` from an archive: 26/26 attacks, 30/30 owner, and 14/14
+result-contract tests pass; 1,158 production lines and historical parity also hold. Verdict is nevertheless BLOCK.
+Production dataclasses do not declare `ArmSpec`, `arm_specs`, predicate `kind`, or `expected_records_sha256`; the code
+uses `hasattr/getattr`, so the Claude adapter subclasses receive checks while native framework specs silently bypass
+them. Additional accepted attacks: extra counterfactual arrays skip dead-arm comparison; one reversal misses some
+order-dependent projectors; import-time global state evades environment clearing; unknown-call primitives reach the
+projector while instruments see none; finite policy is keyed to a literal predicate name; and width checks ignore
+sequence length. Builder is repairing production types and adding owner-side attacks. The 3.8 GB Claude archive copy
+was verified temporary, unused, and removed; current free space returned above the R592 9 GB preflight.
