@@ -65,13 +65,30 @@ def audit(since=0, verbose=True):
             bad.append((num, wf, ws, af, asec, rm.group(1)))
             if verbose:
                 print(f"§{num}: ledger {wf} fwd / {ws} s  vs receipt {af} / {asec}  ({rm.group(1)})")
+    # Two sections citing ONE receipt is an integrity failure, not a style issue: re-running a script
+    # overwrites its own `<stem>_results.json`, so the earlier section's evidence is destroyed and its
+    # price silently starts mismatching the replacement (found 2026-09-04 09:30Z between SS2876 and
+    # SS2878). Receipts are not tracked in git and the runlog is overwritten too, so nothing else catches it.
+    seen = {}
+    for num, start in marks:
+        if int(num) < since:
+            continue
+        i = [k for k, (n, _) in enumerate(marks) if n == num][0]
+        end = marks[i + 1][1] if i + 1 < len(marks) else len(text)
+        rm2 = RESULTS.search(text[start:end])
+        if rm2:
+            seen.setdefault(rm2.group(1), []).append(num)
+    shared = {f: ns for f, ns in seen.items() if len(ns) > 1}
     if verbose:
         print(f"checked {checked} sections with both a Price and a Results line; {len(bad)} mismatched")
+        for f, ns in shared.items():
+            print(f"SHARED RECEIPT: {f} is cited by " + ", ".join("§" + n for n in ns)
+                  + " -- a re-run overwrites it, destroying the earlier section's evidence")
         if halfnamed:
             print(f"UNAUDITABLE: {len(halfnamed)} section(s) mention a price or a receipt but not in the parseable "
                   f"`Price: N GPU forwards, X GPU-seconds` / `Results: <file>.json` form: "
                   + ", ".join("§" + n for n in halfnamed))
-    return bad, checked, halfnamed
+    return bad, checked, halfnamed, shared
 
 
 if __name__ == "__main__":
@@ -80,5 +97,5 @@ if __name__ == "__main__":
     ap.add_argument("--strict", action="store_true",
                     help="also fail when a section names a price or receipt unparseably")
     a = ap.parse_args()
-    bad, _checked, halfnamed = audit(a.since)
-    sys.exit(1 if (bad or (a.strict and halfnamed)) else 0)
+    bad, _checked, halfnamed, shared = audit(a.since)
+    sys.exit(1 if (bad or shared or (a.strict and halfnamed)) else 0)

@@ -75051,9 +75051,15 @@ sixteen times easier to see.
 
 Registered `polynomial_causal/FRONTIER_ALL_DICTIONARIES_PREREGISTRATION.md` (09:11Z). Run `frontier_all_dictionaries_collapse`,
 landed 09:18Z. Derived from `ops/frontier_fisher8.py` (§2125 rung 30); **the parent is unmodified**.
-Results: frontier_all_dictionaries_collapse_results.json
+Results: (DESTROYED — see note) frontier_all_dictionaries_collapse_results.json
 Price: 0 GPU forwards, 280.8 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
 `forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+**ARTEFACT DESTROYED, disclosed 2026-09-04T09:30Z:** the 09:28 re-run of the same script (§2878) wrote to the same
+`<stem>_results.json` and overwrote this receipt, and its runlog too; receipts are not tracked in git, so **the run behind this section
+no longer exists on disk and this section is UNAUDITABLE.** The figures above are exactly what the receipt printed when this section was
+written — the read command included `price`, per §2853 — and they stand as recorded, but a reader cannot now re-derive them. Caught by
+`ops/audit_ledger_prices.py` reporting a mismatch against the replacement receipt, not by inspection. The guard now refuses two sections
+citing one receipt, and §2878's copy is preserved under a distinct name.
 
 **SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
 A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
@@ -75156,9 +75162,12 @@ Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
 Registered `polynomial_causal/FRONTIER_ALL_DICTIONARIES_PREREGISTRATION.md` (09:11Z) — the same document as §2876, re-run after the
 collapse was extended to the inline tail-refit construction site (parent lines 644–657), which §2876 recorded it had missed.
 Run `frontier_all_dictionaries_collapse`, landed 09:28Z. Parent `ops/frontier_fisher8.py` **unmodified**.
-Results: frontier_all_dictionaries_collapse_results.json
+Results: frontier_all_dictionaries_collapse_tailrefits_results.json
 Price: 0 GPU forwards, 280.0 GPU-seconds (3 full frontier pipeline runs; the parent is **not** forward-instrumented, so
-`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+`forwards_instrumented: false` and `pipeline_runs: 3` sit beside a `gpu_forwards` of 0 — the count is absent, not zero). The receipt is
+cited under a **distinct filename**: re-running a script writes to its own `<stem>_results.json`, so this run overwrote §2876's
+artefact. A copy under a distinct name is what a ledger section is entitled to, and `ops/audit_ledger_prices.py` now refuses two
+sections that cite one receipt.
 
 **SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
 A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
