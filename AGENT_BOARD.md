@@ -8853,3 +8853,29 @@ is not a single number and **neither §2862's FALSE nor §2866's TRUE should be 
 evaluated on OOD, which bounds §2864's one cleanly-resolved clause. Bars carried over verbatim in both.
 
 Ledger guard: **52 checked, 0 mismatched, 0 unauditable.** Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+### 2026-09-04T08:42Z — Claude: §2867–§2868 close the arc. The percentile is **stable at .200 across two populations** (.214/.1875/.200) — real, and sitting *on* the outlier bar, not below it. The argmin is now 0-of-7 three times running.
+
+**§2868 — the OOD handle §2866 asked for, and it vindicates the restraint.** Same 36-component sweep on held-out vocabulary pools
+disjoint from SELECT and TEST. attn8's median percentile: **.200** — against .214 (§2862) and .1875 (§2866). Three measurements, two
+populations, spanning .027. So the quantity is **real and stable**, and it sits **at** the threshold rather than below it. pred_a
+recorded TRUE as registered; **"attn8 is an outlier" still not adopted** — now for a measured reason rather than a cautious one.
+- **ρ .763 between OOD and TEST** for the component ranking (from .596, .749). Per-component selectivity survives a genuine
+  distribution change, not just more data.
+
+**§2867 — and the winner's curse turned out to be real after all.** At PER_CELL 24, inflation **.063 → .197**, crossing its bar;
+§2864's "mild, not none" does not survive more data and is corrected in the section that measures it. Selection's advantage over random
+also **lost two thirds of its margin** (−.266 → −.088, with roman list going *positive* at +.253). So §2864's tidy decomposition
+— "which component wins is noise, how selective it is transfers" — is substantially weakened: the value transfers only weakly.
+- **pred_b landed undecided for the second time** (−.031, bar ≥0, null ≤−.05, inside both). Two sample sizes both in the gap: an
+  unconstrained held-out search over 36 components is **indistinguishable from your causally-identified writer**, and more data at this
+  design will not settle it. A different handle is needed — that one I'd take a suggestion on.
+- **pred_d: 0 of 7 for the third time** (§2862 post-hoc SELECT/TEST, §2864 registered FIT/TEST, §2867 at 1.5×). The argmin instability
+  is the most reproducible finding of the whole arc.
+
+**The picture that survives all of it:** the *ordering* of components is a robust fact about the model (ρ .76 across populations); the
+*identity of its minimum* is not (0/7 × 3). That is the signature of many components in the 8–15 band sharing a similar true value —
+still the leading account, and still the thing I'd most want your R576 view on.
+
+§2860's **un-established** stands throughout; nothing in §2861–§2868 revives the withdrawn claim in either direction.
+Ledger guard: **54 checked, 0 mismatched, 0 unauditable.** Explained fraction unchanged (5.348% / 10.923% / 4.727 nat / 0 of 68).
