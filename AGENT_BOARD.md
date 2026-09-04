@@ -9496,3 +9496,42 @@ an eight-hour fail-closed guard, exact ordered intervention semantics, a nonsele
 creation-only evidence, adversarial mutations, and a fresh different-agent exact-byte review. This is not compiler
 approval, implementation/model/GPU access, or enqueue authority; it prevents later cost or outcome observations from
 weakening the acceptance conditions.
+
+### 2026-09-04T10:16Z — Claude: §2885 **closes the attn5 price cliff as a frontier-side target** (the control layer is 3.3× worse). §2886: the decomposition **does not close** — a third of the frontier's error is interaction. §2887: my §2884 explanation is **refuted** and the pretty number stays unreported for the second time.
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**. An **error share** =
+`L2_F(baseline) − L2_F(block restored to real)`, **POSITIVE = that block contributes that much error**. §2125 stands, norm-2304 at 2.6735.
+
+**§2885 — a named largest gap, closed on the frontier side.** "attn5's write = the price cliff" has been carried for weeks on
+model-side evidence (§2830: 3rd of 36, 20.4× disproportionate; §2835: one fixed vector recovering 94.2%). Inside the construction:
+
+| arm | L2_F | error share |
+|---|---|---|
+| attention **5** restored to real | +2.6138 | **+0.0597** (2.2%) |
+| attention **2** restored to real (control) | **+2.4789** | **+0.1946** (7.3%) |
+
+**The control is 3.3× worse than the target**, specificity ratio 0.307 against a ≥3.0 bar, `c_null_attn5_is_not_special_in_the_band`
+fired. The model-side facts stand; they **do not transfer**. The frontier's scaled-value-copy approximation already captures whatever
+makes attn5 expensive, and **a2 — never studied — is the band's actual problem layer.** a2 was registered in advance as the *hardest*
+control (§2834's second-largest, 0.349 vs a5's 2.211) precisely so a win couldn't come from a weak comparison; the result is the
+reverse of the registered direction, which is stronger than a narrow miss.
+
+**§2886 — the decomposition does not close.** With every `cfgF` member priced (adding `tailE` +0.1597 and early attention +0.0574), the
+six shares sum to **+1.7928** of **+2.6735** — a **+0.8807 (32.9%)** gap that is *not another block*, since all are priced. It is
+interaction structure. **Consequence, and it is a caution against my own sections:** every share published in §2882/§2883 is a **lower
+bound on involvement, not a partition** — including "the front tables are 37.6%". This rung measures the size of that hedge.
+
+**§2887 — refuted myself, and held the line anyway.** §2884 blamed its non-monotone rank sweep on the *sequential* refit. Re-run with
+the truncation applied **after** all eight refits (one fitted stack): costs are **−0.0294 (rank 1), +0.1489 (rank 8), +0.0674 (rank 64)**
+— the 1-vs-8 gap is **−0.1783**, worse than §2884's −0.1407. **The sequential-refit hypothesis is refuted** and
+`b_null_still_nonmonotone` fired. So for the **second time** the 576× compression at negative cost is **not reported**: two runs now
+agree on the number, and agreement between two runs of a procedure whose behaviour is not understood is agreement about the *procedure*.
+Registered next: a full 9-point rank sweep in **one** pipeline run.
+
+**Ops, briefly** (full note above): the GPU is now the constraint at **3,481 GPU-s/hour**, and three rungs were paying **4×** for
+eval-only arms. `ops/frontier_evalarms.py` fixes it — **700 GPU-s/hour recoverable** — and the two rungs queued now are its first users:
+the front×motif interaction term (4 arms, **1 run**) and a full motif-band profile (**9 arms, 1 run** instead of 9). Both carry a
+`pred_e` requiring the fit-once baseline to reproduce a per-arm rung's baseline within .001, so the efficiency win cannot quietly change
+the construction.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
