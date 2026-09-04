@@ -76917,3 +76917,62 @@ propagates to every consumer of the widened type; the test for a device argument
 loaded.** This is the third time in this ops tool that a verifier has been blind to exactly the case it was written to catch
 (`ops/fastload.py`'s meta-device attribute, `frontier_fitcache`'s nested-dict walk, now this) — and each time the fix was to make the
 verifier's recursion or comparison match the full space of inputs it can legitimately receive.
+
+---
+
+## §2914 — **THE ADOPTED CORRECTION TRANSPORTS: SELECTION BIAS IS +0.0044 NATS, 1.4% OF THE GAIN.** 98.6% OF §2904'S +0.3213 SURVIVES ON 120 DOCUMENTS THAT CHOSE NOTHING — ALL FIVE PREDICATES HOLD
+
+Written 2026-09-04T13:09Z. Rung `ops/frontier_scale_holdout`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_SCALE_HOLDOUT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards (not forward-instrumented), 101.5 GPU-seconds, 1 pipeline run, 0 backwards, 0 fitted parameters.
+Results: frontier_scale_holdout_results.json
+
+**SIGN CONVENTION (§2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER.** A **gain** here is
+`L2(baseline) − L2(arm)`, **POSITIVE = BETTER**.
+
+This rung existed to attack the campaign's own adopted results. **Every scalar adopted so far was chosen by minimising L2 on the same
+120 documents it is reported on** — §2896 chose tail `LW` × 0.25 on `FR`, §2902 chose CP `Dk` × 0.5 on `FR`, §2904 reported the
+composition as **+2.3522** on `FR`. That is selection on the evaluation set, and its magnitude had never been measured. The test:
+continue the *same* deterministic document scan to 240 rows, so `rows[:120]` is bit-identical to the FR every prior rung used and
+`rows[120:240]` is a second window that **played no part in choosing any scalar**; evaluate the baseline and the frozen (tail .25,
+CP .50) configuration on both. Two arms, no fitting, no grid, no selection.
+
+| | selection window `FR` | held-out window `FR2` |
+|---|---|---|
+| baseline | **+2.6736** | **+2.6710** |
+| adopted (tail .25, CP .50) | **+2.3522** | **+2.3540** |
+| **gain** | **+0.3214** | **+0.3170** |
+
+**SELECTION BIAS = +0.0044 nats. Transported fraction = 0.9863.**
+
+| predicate | bar | measured | |
+|---|---|---|---|
+| a — baseline reproduces the published frontier | ≤ .05 | +2.6736, dev **.0001** | HELD |
+| b — the adopted gain reproduces on the selection window | ≥ 0.25 | **+0.3214** | HELD |
+| c — **≥ ¾ of the gain transports** | ≥ +0.2411 | **+0.3170** | **HELD** |
+| d — the two windows are comparable | ≤ .50 | offset **−0.0026** | HELD |
+| e — the gain keeps its sign off the selection window | > 0 | **+0.3170** | HELD |
+
+All three nulls are refused, including `c_null_the_gain_is_an_artefact_of_the_selection_window`.
+
+**What this establishes.** The two-parameter correction is **a property of the fitted stack, not of the documents that scored it.**
+Shrinking the tail-attention link maps to a quarter and the CP output maps to a half removes ~0.32 nats of frontier error on documents
+the scalars have never seen. This is the strongest evidence yet that the local-objective/end-to-end-score mismatch (§2890, §2902,
+§2905) is a real structural fact about how these components are fitted, rather than an artefact of one evaluation window — a ridge
+solution fitted to minimise local reconstruction is systematically *too large* for the end-to-end score, by a factor that is stable
+across corpora.
+
+**Two details worth keeping.** The held-out baseline is +2.6710 against +2.6736 — the windows differ by **0.0026**, well inside the
+0.003 CUDA-atomics wobble, so this is close to a like-for-like comparison of the same task. And the baseline reproduced at +2.6736
+rather than +2.6735: **0.0001, the ordinary wobble**, not a change from continuing the scan to 240 rows — as designed, `rows[:120]` is
+the same 120 documents in the same order.
+
+**What this does NOT establish, stated precisely.** §2912's adopted configuration (tail .30, CP .80, motif 1.25, +2.2999) was selected
+over **95 grid cells** on `FR`; this rung transported the **two-parameter** configuration found by two single-axis rungs. **+0.0044 is
+therefore a lower bound on §2912's bias, not a measurement of it.** The 0.0523 nats that the three-axis search bought beyond §2904 is
+exactly where selection would concentrate, and it is untested. `ops/frontier_holdout_adopted` was preregistered at 13:08Z — before this
+receipt was read — and is queued; its `pred_f` asks whether **any** of that 0.0523 exists off the window that chose it, with the
+consequence registered in advance: **if EXTRA(FR2) ≤ 0, §2912 is restated and the adopted configuration reverts to §2904's two
+parameters.**
+
+**Nothing here licenses re-tuning on FR2.** That would repeat the exact error under test, and the preregistration says so.
