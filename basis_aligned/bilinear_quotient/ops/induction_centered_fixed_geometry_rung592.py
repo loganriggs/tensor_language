@@ -32,6 +32,7 @@ os.environ["BQLIB_NO_MODEL"] = "1"
 ROOT = Path(__file__).resolve().parents[1]
 OPS = ROOT / "ops"
 POLY = ROOT.parent / "polynomial_causal"
+SCRIPT = Path(__file__).resolve()
 
 R591 = OPS / "induction_replay_native_numerics_rung591.py"
 R585 = OPS / "induction_selector_payload_frozen_factor_rung585.py"
@@ -40,6 +41,11 @@ PREREG = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md"
 AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md"
 DIAGNOSTIC_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT.md"
 MASK_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT.md"
+TOPOLOGY_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT.md"
+TOPOLOGY_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT_INDEPENDENT_REVIEW.md"
+TOPOLOGY_REVIEW_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py"
+IMPLEMENTATION_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md"
+IMPLEMENTATION_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py"
 RUNTIME = OPS / "induction_centered_fixed_geometry_rung592_runtime.py"
 
 SOURCE_HASHES = {
@@ -50,14 +56,19 @@ SOURCE_HASHES = {
     AMENDMENT: "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
     DIAGNOSTIC_AMENDMENT: "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
     MASK_AMENDMENT: "f93ce1e524e6a0298a0b28f036ac35c75621c5bc80cf4cc0cac7bbe7589a99dc",
-    RUNTIME: "df2d59245dc5bd407c96af0a8a6d1c98a70ae25f1925c4540dbd47bb956254a1",
+    TOPOLOGY_AMENDMENT: "15219749dd1d696e52c3129052cadce6758b7186390303eace216d98c953188e",
+    TOPOLOGY_REVIEW: "7b127fc100192d2ed0eb432ad2cfbf506d151314b1e9419d1e3fa424eb487772",
+    TOPOLOGY_REVIEW_TEST: "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
+    IMPLEMENTATION_BLOCK_REVIEW: "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
+    IMPLEMENTATION_BLOCK_TEST: "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+    RUNTIME: "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
 }
 
 SCHEMA = "induction_centered_fixed_geometry_rung592_v1"
 DRYRUN_SCHEMA = "induction_centered_fixed_geometry_rung592_dryrun_v1"
 WIDTH = 30
 BATCH = 32
-VOCAB = 50_257
+VOCAB = 50_304
 RESIDUAL = 1_152
 PAD_TOKEN = 50_256
 TOLERANCE = 1e-5
@@ -91,6 +102,12 @@ PHASE_COUNTS = {
             "endpoint_calls": 54, "directed_chunks": 117, "calls": 639},
     "SELECT": {"rows": 936, "endpoints": 864, "directions": 1_872,
                "endpoint_calls": 27, "directed_chunks": 59, "calls": 322},
+}
+
+REGISTERED_PREDICTIONS = {
+    "pred_a_selector_transfer": "score and joint transfer selector changes while payload is the opposing arm",
+    "pred_b_payload_transfer": "payload and joint transfer content changes while score is the opposing arm",
+    "pred_c_active_control_selectivity": "active controls remain selective under full-vocabulary causal comparison",
 }
 
 NORMAL_RESULT = ROOT / "induction_centered_fixed_geometry_rung592_results.json"
@@ -342,6 +359,7 @@ def mandatory_call_shapes(call: Mapping[str, object]) -> dict[str, tuple[np.dtyp
         "factorized_equality_term.npy": (np.dtype("<f4"), (b, 4, RESIDUAL)),
         "native_non_equality_remainder.npy": (np.dtype("<f4"), (b, 4, RESIDUAL)),
         "native_head_write.npy": (np.dtype("<f4"), (b, 4, RESIDUAL)),
+        "native_full_attention_write.npy": (np.dtype("<f4"), (b, 4, RESIDUAL)),
         "independent_full_native_write.npy": (np.dtype("<f4"), (b, 4, RESIDUAL)),
     }
     kind = str(call["call_kind"])
@@ -426,6 +444,7 @@ def phase_evidence_schema(phase: str) -> dict[str, object]:
         "token_manifest.json": {
             "records": counts["endpoint_calls"] + counts["directed_chunks"]
         },
+        "instrument_gates.json": {"records": 1},
         "authority.jsonl": {"records": counts["rows"]},
         "endpoint_records.jsonl": {"records": ne},
         "endpoint_tokens.npy": {"dtype": "int64", "shape": [ne, WIDTH]},
@@ -435,12 +454,17 @@ def phase_evidence_schema(phase: str) -> dict[str, object]:
         **{name: {"dtype": "float32", "shape": [ne, 4, RESIDUAL]} for name in (
             "native_equality_term.npy", "factorized_equality_term.npy",
             "native_non_equality_remainder.npy", "native_head_write.npy",
-            "independent_full_native_write.npy",
+            "native_full_attention_write.npy", "independent_full_native_write.npy",
         )},
         "directed_records.jsonl": {"records": nd},
         "directed_tokens.npy": {"dtype": "int64", "shape": [nd, WIDTH]},
         "directed_live_e.npy": {"dtype": "float32", "shape": [nd, 4, 2]},
         "directed_live_u.npy": {"dtype": "float32", "shape": [nd, 4, 2, RESIDUAL]},
+        **{f"directed_{name}": {"dtype": "float32", "shape": [nd, 4, RESIDUAL]} for name in (
+            "native_equality_term.npy", "factorized_equality_term.npy",
+            "native_non_equality_remainder.npy", "native_head_write.npy",
+            "native_full_attention_write.npy", "independent_full_native_write.npy",
+        )},
         "hook_deltas.npy": {"dtype": "float32", "shape": [nd, 4, 4, RESIDUAL]},
         "logit_differences.npy": {"dtype": "float32", "shape": [nd, 4, VOCAB]},
         "bootstrap_cells": {"records": 124, "replicates": 2_000},
@@ -503,6 +527,11 @@ def _fsync_directory(path: Path) -> None:
         os.close(descriptor)
 
 
+def _fsync_file(path: Path) -> None:
+    with path.open("rb") as stream:
+        os.fsync(stream.fileno())
+
+
 def write_completed_call(
     calls_root: Path, call: Mapping[str, object], arrays: Mapping[str, np.ndarray],
     *, nonfinite_terminal: bool = False,
@@ -563,7 +592,13 @@ def publish_invalid_prefix(
         "diagnostic_sha256": sha256_file(diagnostic_path),
         "call_prefix_sha256": sha256_file(prefix_path),
         "executed_call_ids": diagnostic["executed_call_ids"],
-        "evidence_tree_files": sorted(str(path.relative_to(evidence)) for path in evidence.rglob("*") if path.is_file()),
+        "evidence_files": {
+            str(path.relative_to(evidence)): {
+                "byte_length": path.stat().st_size,
+                "sha256": sha256_file(path),
+            }
+            for path in sorted(evidence.rglob("*")) if path.is_file()
+        },
     }
     receipt_path = stage / "receipt.json"
     _write_bytes(receipt_path, _json_bytes(receipt, pretty=True))
@@ -607,12 +642,15 @@ def evaluate_completed_call(
             sha256_bytes(np.asarray(arrays["tokens.npy"]).tobytes(order="C")) != call["token_sha256"]
         ):
             raise ValueError("token bytes differ")
-    except ValueError as error:
+    except ValueError as contract_exception:
         failures.append("fixed_width_token_manifest_failed")
-        details["token_or_shape_error"] = str(error)
+        details["token_or_shape_error"] = str(contract_exception)
     kind = str(call["call_kind"])
     if kind in ("endpoint", "native") and not nonfinite:
-        full = float(metadata.get("native_full_write_reconstruction_max_abs", math.inf))
+        full = float(np.max(np.abs(
+            arrays["independent_full_native_write.npy"].astype(np.float64)
+            - arrays["native_full_attention_write.npy"].astype(np.float64)
+        )))
         details["native_full_write_reconstruction_max_abs"] = full
         if full > TOLERANCE:
             failures.append("native_full_write_reconstruction_failed")
@@ -636,12 +674,12 @@ def evaluate_completed_call(
         if max(maxima.values()) > TOLERANCE:
             failures.append("factor_transport_failed")
     if kind in MACHINE_ARMS and not nonfinite:
-        error = float(np.max(np.abs(
+        hook_delta_error = float(np.max(np.abs(
             arrays["hook_deltas.npy"].astype(np.float64)
             - arrays["planned_hook_deltas.npy"].astype(np.float64)
         )))
-        details["actual_centered_hook_delta_max_abs"] = error
-        if error > TOLERANCE or (kind == "replay" and np.any(arrays["planned_hook_deltas.npy"])):
+        details["actual_centered_hook_delta_max_abs"] = hook_delta_error
+        if hook_delta_error > TOLERANCE or (kind == "replay" and np.any(arrays["planned_hook_deltas.npy"])):
             failures.append("centered_hook_delta_failed")
         if kind == "replay" and cached is not None and "native_logits" in cached:
             replay_error = float(np.max(np.abs(
@@ -693,6 +731,16 @@ def run_manifest_calls(
         except Exception:
             # Incomplete call: do not turn temporary bytes into a diagnostic.
             raise
+        if not isinstance(response, Mapping) or not isinstance(response.get("arrays"), Mapping):
+            raise RuntimeError("incomplete call: required array mapping was not materialized")
+        required_names = set(mandatory_call_shapes(call))
+        observed_names = set(response["arrays"])
+        if observed_names != required_names:
+            raise RuntimeError(
+                "incomplete call: missing or extra mandatory observations; "
+                f"missing={sorted(required_names - observed_names)}, "
+                f"extra={sorted(observed_names - required_names)}"
+            )
         arrays = {name: np.ascontiguousarray(value) for name, value in response["arrays"].items()}
         predicate, details = evaluate_completed_call(
             call, arrays, token, metadata=response, cached=context.get("cached")
@@ -906,12 +954,89 @@ def write_complete_phase_evidence(
     for name in (
         "factor_e.npy", "factor_u.npy", "support.npy", "native_equality_term.npy",
         "factorized_equality_term.npy", "native_non_equality_remainder.npy",
-        "native_head_write.npy", "independent_full_native_write.npy",
+        "native_head_write.npy", "native_full_attention_write.npy",
+        "independent_full_native_write.npy",
     ):
         save(name, np.concatenate([row[name] for row in endpoint_arrays]))
+    native_full = np.load(phase_root / "native_full_attention_write.npy", mmap_mode="r", allow_pickle=False)
+    reconstructed_full = np.load(phase_root / "independent_full_native_write.npy", mmap_mode="r", allow_pickle=False)
+    native_equality = np.load(phase_root / "native_equality_term.npy", mmap_mode="r", allow_pickle=False)
+    factorized_equality = np.load(phase_root / "factorized_equality_term.npy", mmap_mode="r", allow_pickle=False)
+    remainder = np.load(phase_root / "native_non_equality_remainder.npy", mmap_mode="r", allow_pickle=False)
+    head_write = np.load(phase_root / "native_head_write.npy", mmap_mode="r", allow_pickle=False)
+    gate_summary = {
+        "native_full_write_reconstruction_max_abs": float(np.max(np.abs(
+            reconstructed_full.astype(np.float64) - native_full.astype(np.float64)
+        ))),
+        "native_equality_remainder_reconstruction_max_abs": float(np.max(np.abs(
+            native_equality.astype(np.float64) + remainder.astype(np.float64)
+            - head_write.astype(np.float64)
+        ))),
+        "factorized_vs_native_equality_max_abs": float(np.max(np.abs(
+            factorized_equality.astype(np.float64) - native_equality.astype(np.float64)
+        ))),
+        "literal_remove_insert_claimed": False,
+    }
+    del native_full, reconstructed_full, native_equality, factorized_equality, remainder, head_write
+    gate_path = phase_root / "instrument_gates.json"
+    _write_bytes(gate_path, _json_bytes(gate_summary))
+    descriptors["instrument_gates.json"] = {
+        "records": 1, "byte_length": gate_path.stat().st_size,
+        "sha256": sha256_file(gate_path),
+    }
     save("directed_tokens.npy", np.concatenate([row["tokens.npy"] for row in native_arrays]))
     save("directed_live_e.npy", np.concatenate([row["live_e.npy"] for row in native_arrays]))
     save("directed_live_u.npy", np.concatenate([row["live_u.npy"] for row in native_arrays]))
+    for name in (
+        "native_equality_term.npy", "factorized_equality_term.npy",
+        "native_non_equality_remainder.npy", "native_head_write.npy",
+        "native_full_attention_write.npy", "independent_full_native_write.npy",
+    ):
+        save("directed_" + name, np.concatenate([row[name] for row in native_arrays]))
+
+    directed_native_full = np.load(
+        phase_root / "directed_native_full_attention_write.npy", mmap_mode="r", allow_pickle=False
+    )
+    directed_reconstructed_full = np.load(
+        phase_root / "directed_independent_full_native_write.npy", mmap_mode="r", allow_pickle=False
+    )
+    directed_native_equality = np.load(
+        phase_root / "directed_native_equality_term.npy", mmap_mode="r", allow_pickle=False
+    )
+    directed_remainder = np.load(
+        phase_root / "directed_native_non_equality_remainder.npy", mmap_mode="r", allow_pickle=False
+    )
+    directed_head_write = np.load(
+        phase_root / "directed_native_head_write.npy", mmap_mode="r", allow_pickle=False
+    )
+    gate_summary["native_full_write_reconstruction_max_abs"] = max(
+        gate_summary["native_full_write_reconstruction_max_abs"],
+        float(np.max(np.abs(
+            directed_reconstructed_full.astype(np.float64)
+            - directed_native_full.astype(np.float64)
+        ))),
+    )
+    gate_summary["native_equality_remainder_reconstruction_max_abs"] = max(
+        gate_summary["native_equality_remainder_reconstruction_max_abs"],
+        float(np.max(np.abs(
+            directed_native_equality.astype(np.float64)
+            + directed_remainder.astype(np.float64)
+            - directed_head_write.astype(np.float64)
+        ))),
+    )
+    if not all(math.isfinite(float(value)) for key, value in gate_summary.items() if key.endswith("_max_abs")) or (
+        gate_summary["native_full_write_reconstruction_max_abs"] > TOLERANCE
+    ) or gate_summary["native_equality_remainder_reconstruction_max_abs"] > TOLERANCE:
+        raise RuntimeError("complete native reconstruction evidence contradicts call gates")
+    del (
+        directed_native_full, directed_reconstructed_full, directed_native_equality,
+        directed_remainder, directed_head_write,
+    )
+    _write_bytes(gate_path, _json_bytes(gate_summary))
+    descriptors["instrument_gates.json"] = {
+        "records": 1, "byte_length": gate_path.stat().st_size,
+        "sha256": sha256_file(gate_path),
+    }
 
     hook_path = phase_root / "hook_deltas.npy"
     logit_path = phase_root / "logit_differences.npy"
@@ -933,6 +1058,15 @@ def write_complete_phase_evidence(
             differences[offset:offset + b, index] = by_kind[arm]["logits.npy"] - replay_logits
         offset += b
     hooks.flush(); differences.flush(); del hooks, differences
+    if offset != nd:
+        raise RuntimeError(f"complete evidence offset changed: {offset} != {nd}")
+    for complete_path in (hook_path, logit_path):
+        complete_array = np.load(complete_path, mmap_mode="r", allow_pickle=False)
+        if not bool(np.isfinite(complete_array).all()):
+            raise RuntimeError(f"nonfinite complete evidence: {complete_path.name}")
+        del complete_array
+    _fsync_file(hook_path)
+    _fsync_file(logit_path)
     descriptors["hook_deltas.npy"] = {
         "dtype": "float32", "shape": [nd, 4, 4, RESIDUAL],
         "byte_length": hook_path.stat().st_size, "sha256": sha256_file(hook_path),
@@ -1062,7 +1196,7 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
     started = time.time()
     implementation_sha256 = globals().get("__r592_immutable_sha256__")
     if implementation_sha256 is None:
-        implementation_sha256 = sha256_file(Path(__file__))
+        implementation_sha256 = sha256_file(SCRIPT)
     public = tuple(public_root / path.name for path in PUBLIC_NAMESPACES)
     occupied = [str(path) for path in public if path.exists()]
     if occupied:
@@ -1217,6 +1351,12 @@ def build_dryrun() -> dict[str, object]:
         "centered_fixture_sha256": sha256_bytes(deltas.tobytes(order="C")),
         "centered_mixed_identity_max_abs": mixed_identity_error(deltas, ex, ux, ey, uy),
         "evidence_schemas": {phase: phase_evidence_schema(phase) for phase in PHASE_COUNTS},
+        "evidence_data_bytes": {
+            "FIT_logit_differences": 3_013_410_816,
+            "SELECT_logit_differences": 1_506_705_408,
+            "maximum_logit_differences": 4_520_116_224,
+            "maximum_principal_raw_payload": 5_141_200_896,
+        },
         "invalid_predicate_order": list(PREDICATE_ORDER),
         "model_forwards": 0,
         "registered_max_model_forwards": 961,

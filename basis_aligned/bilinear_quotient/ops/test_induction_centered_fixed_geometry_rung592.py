@@ -129,7 +129,7 @@ def test_complete_evidence_and_terminal_shapes() -> None:
     fit = r592.phase_evidence_schema("FIT")
     select = r592.phase_evidence_schema("SELECT")
     assert fit["hook_deltas.npy"]["shape"] == [3744, 4, 4, 1152]
-    assert fit["logit_differences.npy"]["shape"] == [3744, 4, 50257]
+    assert fit["logit_differences.npy"]["shape"] == [3744, 4, 50304]
     assert select["directed_live_u.npy"]["shape"] == [1872, 4, 2, 1152]
     assert r592.terminal_contract("fit_scientific_null", 639)["namespace"] == "normal"
     assert r592.terminal_contract("select_runtime_invalid", 639, 1)["namespace"] == "invalid"

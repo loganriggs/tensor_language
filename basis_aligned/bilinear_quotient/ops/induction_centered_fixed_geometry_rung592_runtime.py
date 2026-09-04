@@ -10,6 +10,7 @@ fake executor instead.
 
 from __future__ import annotations
 
+import sys
 from typing import Mapping, Sequence
 
 import numpy as np
@@ -37,11 +38,39 @@ class R592ModelExecutor:
             raise RuntimeError("checkpoint hash changed")
         self.checkpoint_sha256 = checkpoint.weights_sha256
 
+    def _independent_full_attention_write(self, event):
+        """Reconstruct the complete nine-head attention write from observed state."""
+        torch, functional = self.torch, self.functional
+        state, attention = event.state, event.block.attn
+        batch, length, width = state.shape
+        q = functional.linear(state, attention.c_q.weight).view(batch, length, 9, 128)
+        k = functional.linear(state, attention.c_k.weight).view(batch, length, 9, 128)
+        q2 = functional.linear(state, attention.c_q2.weight).view(batch, length, 9, 128)
+        k2 = functional.linear(state, attention.c_k2.weight).view(batch, length, 9, 128)
+        raw_value = functional.linear(state, attention.c_v.weight).view(batch, length, 9, 128)
+        value = (1 - attention.lamb) * raw_value + attention.lamb * event.first_value.view_as(raw_value)
+        cos, sin = attention.rotary(q)
+        attention_module = sys.modules[type(attention).__module__]
+        q = attention_module.apply_rotary_emb(functional.rms_norm(q, (128,)), cos, sin)
+        k = attention_module.apply_rotary_emb(functional.rms_norm(k, (128,)), cos, sin)
+        q2 = attention_module.apply_rotary_emb(functional.rms_norm(q2, (128,)), cos, sin)
+        k2 = attention_module.apply_rotary_emb(functional.rms_norm(k2, (128,)), cos, sin)
+        score1 = torch.einsum("bqhd,bkhd->bhqk", q, k) / 128
+        score2 = torch.einsum("bqhd,bkhd->bhqk", q2, k2) / 128
+        pattern = score1 * score2
+        causal = torch.tril(torch.ones(length, length, dtype=torch.bool, device=state.device))
+        pattern = pattern.masked_fill(~causal, 0)
+        heads = torch.einsum("bhqk,bkhd->bhqd", pattern, value)
+        flattened = heads.transpose(1, 2).contiguous().view(batch, length, width)
+        return functional.linear(flattened, attention.c_proj.weight)
+
     def _capture(self, tokens, specs):
         torch, functional = self.torch, self.functional
         device = next(self.model.parameters()).device
         token_tensor = torch.as_tensor(tokens, dtype=torch.long, device=device)
         per_row = [{site: None for site in self.p.SITES} for _ in specs]
+        full_native = [{site: None for site in self.p.SITES} for _ in specs]
+        full_reconstructed = [{site: None for site in self.p.SITES} for _ in specs]
         full_errors = []
 
         def attention(event):
@@ -50,10 +79,15 @@ class R592ModelExecutor:
             write, next_value, terms, full_error = self.r585.factorize_attention_event(
                 event, specs, torch=torch, functional=functional, induction=self.induction
             )
-            full_errors.append(float(full_error))
+            reconstructed = self._independent_full_attention_write(event)
+            independent_error = float((reconstructed.float() - write.float()).abs().max().detach().cpu())
+            full_errors.extend((float(full_error), independent_error))
             for local, row in enumerate(terms):
                 for site, value in row.items():
                     per_row[local][site] = value
+                    query = int(specs[local]["final_position"])
+                    full_native[local][site] = write[local, query].float().detach().cpu().contiguous()
+                    full_reconstructed[local][site] = reconstructed[local, query].float().detach().cpu().contiguous()
             return write, next_value
 
         def mlp(event):
@@ -74,6 +108,7 @@ class R592ModelExecutor:
         for name in (
             "native_equality_term.npy", "factorized_equality_term.npy",
             "native_non_equality_remainder.npy", "native_head_write.npy",
+            "native_full_attention_write.npy",
             "independent_full_native_write.npy",
         ):
             arrays[name] = np.empty((b, 4, self.p.RESIDUAL), dtype="<f4")
@@ -96,11 +131,8 @@ class R592ModelExecutor:
                 arrays["factorized_equality_term.npy"][local, site_index] = term["term"].float().numpy()
                 arrays["native_non_equality_remainder.npy"][local, site_index] = term["remainder"].float().numpy()
                 arrays["native_head_write.npy"][local, site_index] = term["head_output"].float().numpy()
-                # The independently contracted head output is the heads->O path;
-                # native_head_write is the same physical head slice named by the
-                # native decomposition path.  Their equality is checked by the
-                # producer along with the full-attention scalar error.
-                arrays["independent_full_native_write.npy"][local, site_index] = term["head_output"].float().numpy()
+                arrays["native_full_attention_write.npy"][local, site_index] = full_native[local][site].numpy()
+                arrays["independent_full_native_write.npy"][local, site_index] = full_reconstructed[local][site].numpy()
         return arrays, max(full_errors, default=0.0)
 
     def _intervene(self, tokens, specs, planned):
@@ -163,6 +195,7 @@ class R592ModelExecutor:
                     **{key: arrays[key] for key in (
                         "native_equality_term.npy", "factorized_equality_term.npy",
                         "native_non_equality_remainder.npy", "native_head_write.npy",
+                        "native_full_attention_write.npy",
                         "independent_full_native_write.npy",
                     )},
                 }

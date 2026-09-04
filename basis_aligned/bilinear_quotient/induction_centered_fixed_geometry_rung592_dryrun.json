@@ -22,6 +22,12 @@
     "payload_minus_replay",
     "joint_minus_replay"
   ],
+  "evidence_data_bytes": {
+    "FIT_logit_differences": 3013410816,
+    "SELECT_logit_differences": 1506705408,
+    "maximum_logit_differences": 4520116224,
+    "maximum_principal_raw_payload": 5141200896
+  },
   "evidence_schemas": {
     "FIT": {
       "authority.jsonl": {
@@ -33,6 +39,22 @@
       },
       "call_manifest.json": {
         "records": 639
+      },
+      "directed_factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
       },
       "directed_live_e.npy": {
         "dtype": "float32",
@@ -48,6 +70,38 @@
           3744,
           4,
           2,
+          1152
+        ]
+      },
+      "directed_native_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_head_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
+          1152
+        ]
+      },
+      "directed_native_non_equality_remainder.npy": {
+        "dtype": "float32",
+        "shape": [
+          3744,
+          4,
           1152
         ]
       },
@@ -113,15 +167,26 @@
           1152
         ]
       },
+      "instrument_gates.json": {
+        "records": 1
+      },
       "logit_differences.npy": {
         "dtype": "float32",
         "shape": [
           3744,
           4,
-          50257
+          50304
         ]
       },
       "native_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          1728,
+          4,
+          1152
+        ]
+      },
+      "native_full_attention_write.npy": {
         "dtype": "float32",
         "shape": [
           1728,
@@ -168,6 +233,22 @@
       "call_manifest.json": {
         "records": 322
       },
+      "directed_factorized_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_independent_full_native_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
       "directed_live_e.npy": {
         "dtype": "float32",
         "shape": [
@@ -182,6 +263,38 @@
           1872,
           4,
           2,
+          1152
+        ]
+      },
+      "directed_native_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_full_attention_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_head_write.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
+          1152
+        ]
+      },
+      "directed_native_non_equality_remainder.npy": {
+        "dtype": "float32",
+        "shape": [
+          1872,
+          4,
           1152
         ]
       },
@@ -247,15 +360,26 @@
           1152
         ]
       },
+      "instrument_gates.json": {
+        "records": 1
+      },
       "logit_differences.npy": {
         "dtype": "float32",
         "shape": [
           1872,
           4,
-          50257
+          50304
         ]
       },
       "native_equality_term.npy": {
+        "dtype": "float32",
+        "shape": [
+          864,
+          4,
+          1152
+        ]
+      },
+      "native_full_attention_write.npy": {
         "dtype": "float32",
         "shape": [
           864,
@@ -368,11 +492,16 @@
   ],
   "select_token_manifest_sha256": "e04660b63b0b0b26a8282d2f2a333ff4c34445e768885298b09fddf64fe2f3fd",
   "source_sha256": {
-    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung592_runtime.py": "df2d59245dc5bd407c96af0a8a6d1c98a70ae25f1925c4540dbd47bb956254a1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung592_runtime.py": "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_replay_native_numerics_rung591.py": "fb8239ded4f3e99510f37ea72337c2d69e4640f7a2556748c9062aa82b2751bc",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "fd772c3b9d6df4271ecbfc90c00c893db5a65ea06601f0c8f6e7a9e34c9a531b",
     "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py": "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py": "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT.md": "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT.md": "15219749dd1d696e52c3129052cadce6758b7186390303eace216d98c953188e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT_INDEPENDENT_REVIEW.md": "7b127fc100192d2ed0eb432ad2cfbf506d151314b1e9419d1e3fa424eb487772",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT.md": "f93ce1e524e6a0298a0b28f036ac35c75621c5bc80cf4cc0cac7bbe7589a99dc",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md": "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
     "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md": "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094"

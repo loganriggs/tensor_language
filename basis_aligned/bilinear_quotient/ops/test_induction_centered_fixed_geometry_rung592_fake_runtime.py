@@ -49,6 +49,7 @@ def arrays_for(call, tokens, planned=None):
         for name in (
             "native_equality_term.npy", "factorized_equality_term.npy",
             "native_non_equality_remainder.npy", "native_head_write.npy",
+            "native_full_attention_write.npy",
             "independent_full_native_write.npy",
         )
     }
