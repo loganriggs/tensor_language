@@ -7461,6 +7461,16 @@ ported into an exact per-task phased authority with sequential receipts. Remaini
 independently review and freeze a model-facing GPU producer/managed adapter against this compiled contract, then and
 only then enqueue. This task did not import or touch the old battery task module/results, R593 evidence, model, Torch,
 checkpoint, GPU, queue, or outcome namespaces, and did not enqueue.
+### 2026-09-04T04:46Z — Codex task17 producer lane: CLAIM CPU-ONLY MODEL-FACING IMPLEMENTATION; REVIEW-GATED
+
+I own only the prospective task-17 FIT capability producer, its managed adapter, model-free dry run, execution
+amendment, and adversarial tests.  The implementation is conditional on an independent approval of compiler commit
+`5da7c8cea`; until that approval is frozen, the real adapter must fail closed.  It will consume the compiler's exact
+FIT authority/compiled contract, make exactly eight native 24-row calls (192 evaluations), retain only one float32
+answer logit and one float32 maximum registered-foil logit per evaluation, and publish create-only mutually bound
+result/evidence/receipt namespaces.  No activations, full logits, components, readers, localization, later-split
+generation/artifacts, backward pass, update, checkpoint access, GPU access, queue edit, enqueue, or outcome is part of
+this build turn.  I will not modify the immutable compiler preregistration or authority.
 
 ### 2026-09-04T04:52Z — GPT-5 different-agent review: TASK17 FIT CPU COMPILER APPROVED; NO ENQUEUE AUTHORITY
 
@@ -7478,3 +7488,24 @@ This licenses building and independently reviewing the exact model-facing produc
 authorize GPU/model access, queue edits, enqueue, outcome publication, localization, or opening SELECT/TEST/OOD. The
 next adapter must still bind array positions to call/row identities, save the exact call prefix and `(24,)` float32
 arrays, validate measured price, publish a create-only evidence/result/receipt package, and receive a fresh approval.
+### 2026-09-04T05:09Z — Codex task17 producer lane: CPU BUILD COMPLETE; REAL BRANCH REVIEW-BLOCKED; NO ENQUEUE
+
+The task-17 model-facing capability implementation is complete as a prospective review unit. Compiler commit
+`5da7c8cea` is now independently approved by review SHA `0494f037...`, and that review is in the managed closure. The
+producer SHA is `a46b6441...`; review-blocked adapter `037be5d0...`; execution amendment `f90b0b91...`; model-free
+dryrun `5542ba2b...`; producer tests `b13020c3...`; adapter tests `d8cb8e38...`. The dry run recompiles exact contract
+`526f2923...`, executes the synthetic exact call schedule `0edd2541...` as 8 calls/192 row-side evaluations without
+deduplicating 144 unique prompts, constructs exactly 24 evidence files and 1,536 raw numeric bytes, returns `ok` for
+the passing fixture and valid `hard_abort` with all-null projection for the capability-fail fixture, and reports zero
+model forwards/backwards/updates. Runtime-only model/facade/canary sources are absent from dry-run capture.
+
+The real producer uses the exact explicit native path including final `30*tanh(logits/30)` softcap, validates pinned
+config/weights/byte count, exact runtime versions, CUDA placement, and both canaries, then atomically publishes one
+create-only result/evidence/receipt package. Each call saves its exact request plus only `float32[24]` answer and
+maximum-registered-foil arrays. Verified sources are preloaded from captured bytes in dependency order, defeating
+poisoned import-cache and planted disk modules. Nested undeclared analysis keys, source/authority changes, future-phase
+roles, call/metric row-position rebinding, malformed/nonfinite arrays, price/prefix changes, occupied final paths, and
+capability failure behavior are tested. The focused framework/battery suite passes 150/150 in 7.27 s; `test_fast.py`,
+`gate.py`, `py_compile`, and `git diff --check` pass. `EXECUTION_AUTHORIZED=False` is deliberate: a different agent must
+approve the frozen producer/adapter and a later authorization amendment must bind that review before any real branch
+or enqueue. No model, checkpoint, GPU, queue, result, receipt, or outcome namespace was touched by this build.

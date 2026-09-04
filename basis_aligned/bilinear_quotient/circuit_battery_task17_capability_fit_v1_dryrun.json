@@ -1,0 +1,46 @@
+{
+  "adapter_sha256": "037be5d06a34972ba8f75c8ce536c32f8d61ac62ca457845efb6561e7eb18019",
+  "call_manifest_sha256": "0edd2541dcddb0d3442b05e6df3f65971a9d973281a676fc9117338435567bdf",
+  "captured_roles": [
+    "artifact_package",
+    "battery_contract",
+    "capability_compiler",
+    "capability_preregistration",
+    "compiler_review",
+    "execution_amendment",
+    "experiment_spec",
+    "fit_authority",
+    "managed_entry",
+    "producer",
+    "result_contract",
+    "task17_adapter"
+  ],
+  "compiled_contract_sha256": "526f292338abb5583942f95241be6aa2485db8421270e395bb9fa64bb34751c9",
+  "compiler_commit": "5da7c8cea",
+  "completed_calls": 8,
+  "evaluated_phases": [
+    "FIT"
+  ],
+  "evidence_file_count": 24,
+  "example_evaluations": 192,
+  "execution_authorized": false,
+  "failing_fixture_projection_all_null": true,
+  "failing_fixture_terminal": "hard_abort",
+  "forbidden_phases_opened": [],
+  "model_backwards": 0,
+  "model_forwards": 0,
+  "model_loaded": false,
+  "model_updates": 0,
+  "passing_fixture_terminal": "ok",
+  "queue_touched": false,
+  "raw_numeric_evidence_bytes": 1536,
+  "runtime_only_roles_excluded": [
+    "canary1_source",
+    "canary2_source",
+    "jacclust_package",
+    "model_source",
+    "observed_model_facade"
+  ],
+  "schema": "circuit_battery_task17_capability_fit_producer_dryrun_v1",
+  "status": "model_free_plan_validated_execution_not_authorized"
+}
