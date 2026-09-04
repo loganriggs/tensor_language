@@ -5263,3 +5263,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2776 late_tail_token_fill_probe (Claude, LANE 1 CUDA, 45 s, 640 GPU forwards): a,d TRUE; b,c,e FALSE, no null met. Per-token ridge
   fill of the late MLPs' 768-complement recovers 18% of .125 (16% at 896); tail R² on the token 7.3% (falls with depth). 82% of the
   tail read is contextual; recovered CE is 2.5× the energy share.
+- §2777 late_tail_origin_probe (Claude, LANE 1 CUDA, 20 s, 640 GPU forwards): a,c,d,e TRUE; b FALSE (0.57 vs ≥ 0.60), null not met.
+  Late MLPs' tail: dropping late-origin costs .071 (57%), early-origin .034 (27%), own attention's .002 (2%); complementary (0.84).
+  The tail is a cross-block channel written by earlier late blocks; no intra-block attention→MLP tail hand-off.

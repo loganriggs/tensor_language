@@ -1,0 +1,116 @@
+{
+ "rung": "late_tail_origin_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_origin_tail_carries_the_cost": false,
+  "pred_c_early_origin_tail_is_minor": true,
+  "pred_d_own_attention_tail_is_minor": true,
+  "pred_e_origins_complementary": true
+ },
+ "nulls": {
+  "b_null_early_only_le_.3": false,
+  "c_null_late_only_ge_.9": false,
+  "d_null_drop_own_ge_.6": false,
+  "e_null_sum_ge_2": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_frac": 0.6,
+  "c_frac": 0.5,
+  "d_frac": 0.3,
+  "e_lo": 0.7,
+  "e_hi": 1.5
+ },
+ "null_bars": {
+  "b_frac": 0.3,
+  "c_frac": 0.9,
+  "d_frac": 0.6,
+  "e_hi": 2.0
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "blocks 8-17 MLP reads: core (top-768 of U_8) exact; tail keeps one origin (early-residual / late writes / own attention) and replaces the other by its fit-set mean",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "EARLY_TAIL_ONLY": 0.07111218571662903,
+  "LATE_TAIL_ONLY": 0.033770591020584106,
+  "DROP_OWN_ATTN_TAIL": 0.00232502818107605,
+  "OWN_ATTN_TAIL_ONLY": 0.11223980784416199
+ },
+ "tail_energy_by_origin": {
+  "8": {
+   "early_share": 0.9191478900354265,
+   "late_share": 0.042445399392423075
+  },
+  "9": {
+   "early_share": 0.6102429568095412,
+   "late_share": 0.16321999426591055
+  },
+  "10": {
+   "early_share": 0.42808677862606587,
+   "late_share": 0.2739591875710428
+  },
+  "11": {
+   "early_share": 0.3338830395066385,
+   "late_share": 0.3685808630793817
+  },
+  "12": {
+   "early_share": 0.24940040989024206,
+   "late_share": 0.44872331048323694
+  },
+  "13": {
+   "early_share": 0.1998806781862855,
+   "late_share": 0.5154483302648021
+  },
+  "14": {
+   "early_share": 0.1641143838125976,
+   "late_share": 0.5769529390618917
+  },
+  "15": {
+   "early_share": 0.15182352518891584,
+   "late_share": 0.6207379934045549
+  },
+  "16": {
+   "early_share": 0.14697066927706312,
+   "late_share": 0.678603630525383
+  },
+  "17": {
+   "early_share": 0.15217138190173884,
+   "late_share": 0.7832569725572173
+  }
+ },
+ "summary": {
+  "early_tail_only_over_const": 0.5692332465772706,
+  "late_tail_only_over_const": 0.2703241782228764,
+  "drop_own_attn_over_const": 0.01861120322150469,
+  "own_attn_only_over_const": 0.898448410360153,
+  "sum_origins_over_const": 0.839557424800147,
+  "mean_early_energy_share": 0.3355721713234515,
+  "mean_late_energy_share": 0.4471928620605844
+ },
+ "price": {
+  "gpu_doc_forwards": 640,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 19.540027141571045
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_ORIGIN_PROBE_PREREGISTRATION.md": "6283a2679e3fcfe6e253f5045966dde4ab2ef3122f75d1cd20df4897daa68da0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_tail_token_fill_probe_results.json": "5500188542036eaf6763b45788c71a92821c64427990d37a860f8940dfe122d1",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "8e535dbaf03eac2439c3fcb07a148c4caf6764ee7501d7a3dbaee35c8f5b63f6"
+}

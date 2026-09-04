@@ -1,0 +1,36 @@
+{"stage": "heads_done", "t": 14.5}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.9}
+{"stage": "origin_energy", "early": 0.336, "late": 0.447, "t": 15.7}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_MLP_768": 0.1249, "EARLY_TAIL_ONLY": 0.0711, "LATE_TAIL_ONLY": 0.0338, "DROP_OWN_ATTN_TAIL": 0.0023, "OWN_ATTN_TAIL_ONLY": 0.1122, "t": 19.5}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_late_origin_tail_carries_the_cost": false,
+  "pred_c_early_origin_tail_is_minor": true,
+  "pred_d_own_attention_tail_is_minor": true,
+  "pred_e_origins_complementary": true
+ },
+ "nulls": {
+  "b_null_early_only_le_.3": false,
+  "c_null_late_only_ge_.9": false,
+  "d_null_drop_own_ge_.6": false,
+  "e_null_sum_ge_2": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "EARLY_TAIL_ONLY": 0.07111218571662903,
+  "LATE_TAIL_ONLY": 0.033770591020584106,
+  "DROP_OWN_ATTN_TAIL": 0.00232502818107605,
+  "OWN_ATTN_TAIL_ONLY": 0.11223980784416199
+ },
+ "summary": {
+  "early_tail_only_over_const": 0.5692332465772706,
+  "late_tail_only_over_const": 0.2703241782228764,
+  "drop_own_attn_over_const": 0.01861120322150469,
+  "own_attn_only_over_const": 0.898448410360153,
+  "sum_origins_over_const": 0.839557424800147,
+  "mean_early_energy_share": 0.3355721713234515,
+  "mean_late_energy_share": 0.4471928620605844
+ }
+}
