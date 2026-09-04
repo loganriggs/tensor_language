@@ -1,0 +1,220 @@
+{
+ "rung": "circuit_battery_absolute_ranked_constant_set",
+ "preds": {
+  "pred_a_absolute_beats_ratio_ranking": true,
+  "pred_b_absolute_beats_random": true,
+  "pred_c_more_writes_can_be_constants": true,
+  "pred_d_composition_stays_super_additive": true,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_ratio_as_good": false,
+  "b_null_random_still_better": false,
+  "c_null_few_constants": false,
+  "d_null_subadditive": false
+ },
+ "bars": {
+  "beat_ratio": 0.3,
+  "beat_random": 0.0,
+  "n_cheap": 6,
+  "cheap_nats": 1.5,
+  "superadd": 0.0,
+  "ce_tol": 0.01
+ },
+ "null_bars": {
+  "beat_ratio_le": 0.0,
+  "beat_random_ge": 0.3,
+  "n_cheap_le": 3,
+  "superadd_le": -0.2
+ },
+ "ks": [
+  1,
+  2,
+  3,
+  4,
+  6,
+  8
+ ],
+ "seed": 2837,
+ "order_by_absolute_const_cost": [
+  "attn15",
+  "attn17",
+  "attn12",
+  "attn16",
+  "attn13",
+  "attn10",
+  "mlp14",
+  "attn14",
+  "attn8",
+  "mlp15"
+ ],
+ "order_by_recovery_ratio": [
+  "attn5",
+  "attn1",
+  "attn0",
+  "mlp16",
+  "mlp4",
+  "mlp0",
+  "mlp15",
+  "attn2",
+  "mlp17",
+  "attn6"
+ ],
+ "reference_from_2837": {
+  "ratio_k4": 1.386037190755208,
+  "random_k4": 0.6812637647
+ },
+ "n_fit_docs": 8,
+ "n_eval_docs": 8,
+ "ce_eval_native": 3.0202748775482178,
+ "ce_manual_chunk": 3.0202748775482178,
+ "ce_module_chunk": 3.0202748775482178,
+ "summary": {
+  "beat_ratio_nats": 1.3095057805379229,
+  "beat_random_nats": 0.6047323544827149,
+  "superadditivity_nats": 0.025464614232381333,
+  "largest_cheap_k": 8,
+  "curve_absolute": {
+   "k1": 0.008138895034790039,
+   "k2": 0.02833724021911621,
+   "k3": 0.04470562934875488,
+   "k4": 0.07653141021728516,
+   "k6": 0.22654223442077637,
+   "k8": 0.49491095542907715
+  }
+ },
+ "arms": {
+  "k1": {
+   "names_absolute": [
+    "attn15"
+   ],
+   "names_ratio": [
+    "attn5"
+   ],
+   "sum_of_individual_const_absolute": 0.010255177815755356,
+   "sum_of_individual_zero_absolute": 0.010175069173177231,
+   "absolute_const": 0.008138895034790039,
+   "ratio_const": 0.15038490295410156,
+   "random_const": 0.1673734188079834,
+   "absolute_zero": 0.008711576461791992
+  },
+  "k2": {
+   "names_absolute": [
+    "attn15",
+    "attn17"
+   ],
+   "names_ratio": [
+    "attn5",
+    "attn1"
+   ],
+   "sum_of_individual_const_absolute": 0.023040056228637695,
+   "sum_of_individual_zero_absolute": 0.023637771606445312,
+   "absolute_const": 0.02833724021911621,
+   "ratio_const": 0.3955061435699463,
+   "random_const": 0.7172322273254395,
+   "absolute_zero": 0.030881166458129883
+  },
+  "k3": {
+   "names_absolute": [
+    "attn15",
+    "attn17",
+    "attn12"
+   ],
+   "names_ratio": [
+    "attn5",
+    "attn1",
+    "attn0"
+   ],
+   "sum_of_individual_const_absolute": 0.0368878046671548,
+   "sum_of_individual_zero_absolute": 0.03680872917175293,
+   "absolute_const": 0.04470562934875488,
+   "ratio_const": 1.2421481609344482,
+   "random_const": 0.46228718757629395,
+   "absolute_zero": 0.040987253189086914
+  },
+  "k4": {
+   "names_absolute": [
+    "attn15",
+    "attn17",
+    "attn12",
+    "attn16"
+   ],
+   "names_ratio": [
+    "attn5",
+    "attn1",
+    "attn0",
+    "mlp16"
+   ],
+   "sum_of_individual_const_absolute": 0.05106679598490382,
+   "sum_of_individual_zero_absolute": 0.04943108558654785,
+   "absolute_const": 0.07653141021728516,
+   "ratio_const": 1.3609020709991455,
+   "random_const": 4.048879384994507,
+   "absolute_zero": 0.0637366771697998
+  },
+  "k6": {
+   "names_absolute": [
+    "attn15",
+    "attn17",
+    "attn12",
+    "attn16",
+    "attn13",
+    "attn10"
+   ],
+   "names_ratio": [
+    "attn5",
+    "attn1",
+    "attn0",
+    "mlp16",
+    "mlp4",
+    "mlp0"
+   ],
+   "sum_of_individual_const_absolute": 0.09147826830546046,
+   "sum_of_individual_zero_absolute": 0.09380451838175441,
+   "absolute_const": 0.22654223442077637,
+   "ratio_const": 1.4851996898651123,
+   "random_const": 0.5985593795776367,
+   "absolute_zero": 0.14341044425964355
+  },
+  "k8": {
+   "names_absolute": [
+    "attn15",
+    "attn17",
+    "attn12",
+    "attn16",
+    "attn13",
+    "attn10",
+    "mlp14",
+    "attn14"
+   ],
+   "names_ratio": [
+    "attn5",
+    "attn1",
+    "attn0",
+    "mlp16",
+    "mlp4",
+    "mlp0",
+    "mlp15",
+    "attn2"
+   ],
+   "sum_of_individual_const_absolute": 0.14939880371093706,
+   "sum_of_individual_zero_absolute": 0.15125679969787553,
+   "absolute_const": 0.49491095542907715,
+   "ratio_const": 4.276824712753296,
+   "random_const": 2.230652093887329,
+   "absolute_zero": 0.3562157154083252
+  }
+ },
+ "smoke": true,
+ "price": {
+  "gpu_forwards": 44,
+  "backwards": 0,
+  "fitted_parameters": 82944,
+  "gpu_seconds": 6.922280311584473
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_ABSOLUTE_RANKED_CONSTANT_SET_PREREGISTRATION.md": "b4343a88d3e98745ca150d9f4ea6dfb09232f69fe55c5cbf7b6e6886f0028160",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_constant_write_census_results.json": "ab7cc4a16d879c981772fe4e65aab3c28b733000436fdbd49600dc21943e78e0",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}
