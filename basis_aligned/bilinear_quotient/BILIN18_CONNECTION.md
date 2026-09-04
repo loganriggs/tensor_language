@@ -72143,7 +72143,7 @@ Preserved diagnostic hashes: old generator
 `6d1eda1cc05adf72c525375a0602bbafbf9b4335653be0e410de3d69da03265c`; mutable preregistration artifact
 `d60b4c0c82fd714e401933437192f2731318ae8ee04a5254286822049ca5d30b`.
 
-## §2810 — A CLOSED FORM FOR EVERY READER EDGE: a bilinear block's response to removing a write is EXACTLY a (2,2)-rational function of the removal fraction (verified to 8.3e-7), the read is 76% a CROSS term with the context and 32% an RMSNorm GAIN change, and linear attribution is wrong by .28 of the damage (a, b, d TRUE; c, e FALSE, nulls not met)
+## §2812 — A CLOSED FORM FOR EVERY READER EDGE: a bilinear block's response to removing a write is EXACTLY a (2,2)-rational function of the removal fraction (verified to 8.3e-7), the read is 76% a CROSS term with the context and 32% an RMSNorm GAIN change, and linear attribution is wrong by .28 of the damage (a, b, d TRUE; c, e FALSE, nulls not met)
 
 Move 1 of MATHEMATICAL_REVIEW_2026-09-04_0404, run on §2809's five capable-and-localised behaviours in 5.4 GPU-seconds.
 
@@ -72195,7 +72195,7 @@ c, e FALSE — the same verdicts). No bar and no null was amended after it; the 
 Price: 78 GPU forwards, 5.4 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_response_certificate_results.json. (Claude, LANE 1 CUDA.) a, b, d TRUE; c, e FALSE, nulls not met. Preserved.
 
-## §2811 — THE READER SET IS A 2-OF-4 THRESHOLD, NOT A PAIR: the Möbius transform of the reader damage set function gives redundancy order 2 on every behaviour, 83% of pairwise interactions positive, top-4 carrying .71 of the whole downstream read — but the super-additivity is milder at top-4 (.86) than over all 19 readers (.52), and my shared-profile clause was under-powered (b, c, e TRUE; a, d FALSE, d's null MET)
+## §2813 — THE READER SET IS A 2-OF-4 THRESHOLD, NOT A PAIR: the Möbius transform of the reader damage set function gives redundancy order 2 on every behaviour, 83% of pairwise interactions positive, top-4 carrying .71 of the whole downstream read — but the super-additivity is milder at top-4 (.86) than over all 19 readers (.52), and my shared-profile clause was under-powered (b, c, e TRUE; a, d FALSE, d's null MET)
 
 Move 2 of MATHEMATICAL_REVIEW_2026-09-04_0404, run on §2809's five capable-and-localised behaviours in 6.8 GPU-seconds. All 16
 subsets of each behaviour's top-4 MLP readers were evaluated on A1/SELECT rows, and the damage set function v(S) transformed by
@@ -72237,3 +72237,52 @@ recorded verdict stays FALSE with the null met, as registered.
 Price: 221 GPU forwards, 6.8 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_interaction_transform_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a, d FALSE with d's null met,
 and pred_d additionally disclosed as under-powered. Preserved.
+
+## §2814 — SECTION-NUMBER COLLISION AND RENUMBER (process note, no science)
+
+Codex's correction section and my reader-response section were both written as §2810 within a few minutes of each other (his at
+BILIN18_CONNECTION.md line 72109, mine at 72146); my interaction-transform section then took §2811. Codex's §2810 was written first
+and is already cited, so MY two sections have been renumbered to **§2812** (reader response certificate,
+circuit_battery_reader_response_certificate_results.json) and **§2813** (reader interaction transform,
+circuit_battery_reader_interaction_transform_results.json). No content changed; the receipts they cite are unchanged. §2811 is now
+UNUSED — do not allocate it, so that any external citation of "§2811" made in the collision window resolves to nothing rather than to
+the wrong section. Cause: two agents appending to a 2,000-section ledger with no allocation step. Mitigation adopted on my side: read
+`grep -c "^## §" BILIN18_CONNECTION.md` and the last three headings immediately before composing a section number, which is how this
+collision was caught within ten minutes.
+
+## §2815 — CORRECTION: §2812's identity survives only as mathematics; §2812–§2813's circuit claims inherit §2809's invalid authority
+
+Sections 2812 and 2813 were executed after §2810 had already declared their input battery invalid. Their raw files are
+preserved, but the behavior-level claims are not licensed evidence.
+
+The algebraic identity in §2812 is independent of the task bank: for an exactly bilinear MLP behind pure RMS
+normalization, the response along $x-tW$ is a vector quadratic divided by a scalar quadratic. That theorem remains
+valid when its architectural assumptions hold. The observed $8.3\times10^{-7}$ agreement is at most a numerical
+implementation screen on the sampled rows. The reported cross/self fractions, normalization contribution, linear
+error, and similarity “across five behaviors” inherit §2809's post-selected capable-task set and writer/reader choices;
+they cannot establish circuit reuse, held-out prediction, or selective manipulation.
+
+Section 2813 depends even more directly on invalid selection: its five behaviors and each behavior's top-four readers
+were chosen from §2809, whose generators, phase opening, and authority receipts fail the shared contract. The Möbius
+formula itself is ordinary exact arithmetic on a set function, but the claims “2-of-4 threshold,” 83% positive pair
+interactions, and top-four coverage do not establish properties of validated task circuits. They are hypotheses for a
+prospective run with one predeclared common reader set and valid FIT→SELECT→TEST→OOD authorities.
+
+Neither section may update circuit records, behavior counts, or adoption ledgers. In particular, a row-dependent
+closed form is not a six-number reusable reader implementation: its vector coefficients depend on $x$ and $W$ and
+must themselves be generated or stored. No further GPU work may use §2809-selected tasks/readers until a repaired task
+adapter passes the shared phase contract.
+
+## §2816 — R593 terminates instrument-invalid at the first directed FIT score; no science opened
+
+The code-approved R593 sealed-memory repair passed immediate managed preflight and ran once through `ops/enqueue.sh`
+at 04:17:59. The immutable transport succeeded. All 54 FIT endpoint batches completed, but the first directed group
+failed `centered_hook_delta_failed`: the maximum absolute difference between the planned and applied centered hook
+change was $2.288818359375\times10^{-5}$, above the frozen $10^{-5}$ tolerance.
+
+The terminal is an instrument failure, not evidence for or against selector/content factorization. The result and
+normal receipt namespaces are absent. SELECT, FINAL, and OOD stayed closed; zero backwards and zero weight updates
+occurred. The invalid diagnostic preserves exactly 1,728 endpoint rows, 54 canonical ledger records, and the three raw
+calls from the failing directed group. A separate post-execution audit is checking whether the mismatch is a float32
+rounding floor in the hook comparison or a true disagreement between the planned and applied intervention. No rerun is
+authorized, and any prospective repair must retain the scientific hypotheses and frozen nulls.

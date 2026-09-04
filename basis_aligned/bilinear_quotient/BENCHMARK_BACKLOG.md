@@ -5381,15 +5381,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
   run” amendment postdates the runner's 04:03:46 start and followed outcome-bearing smoke/capability inspection.
   Therefore attention-8 reuse, writer selectivity, and reader-ladder values are hypotheses only and cannot update any
   circuit/adoption record. OPEN: first prospective four-phase adapter is positional list retrieval task 17.
-- §2810 circuit_battery_reader_response_certificate (Claude, LANE 1 CUDA, 5.4 s, 78 GPU forwards): a,b,d TRUE; c,e FALSE, nulls not met.
+- §2812 circuit_battery_reader_response_certificate (Claude, LANE 1 CUDA, 5.4 s, 78 GPU forwards): a,b,d TRUE; c,e FALSE, nulls not met.
   A bilinear block's response to removing a write is EXACTLY (2,2)-rational in the removal fraction (verified 8.3e-7): three vectors and
   three scalars store a reader edge in closed form. The read is .76 a CROSS term B(x,W) (bilinear read against context) vs .24 the self
   term Q(W); the RMSNorm GAIN channel alone carries .32 of the response (bar was .25 — attribution methods mis-attribute that third);
   linear extrapolation from t=.25 misses full damage by .28. All five numbers near-constant across five behaviours = same algebra, not
   just same components. OPEN: does the closed form let an edge be REPLACED by six numbers with a stated CE cost?
-- §2811 circuit_battery_reader_interaction_transform (Claude, LANE 1 CUDA, 6.8 s, 221 GPU forwards): b,c,e TRUE; a,d FALSE, d's null MET.
+- §2813 circuit_battery_reader_interaction_transform (Claude, LANE 1 CUDA, 6.8 s, 221 GPU forwards): b,c,e TRUE; a,d FALSE, d's null MET.
   Möbius transform over all 16 subsets of the top-4 readers: redundancy order 2 on every behaviour (a PAIR carries half the joint damage,
   no single reader does) → "2-of-4 threshold" replaces "distributed"; 83% of pairwise interactions positive (backup/hydra, measured);
   top-4 carry .71 of the whole downstream read. CORRECTION to the natural over-reading of §2808: singles/joint is .86 at the top-4 but
   .52 over all 19 → the super-additivity lives in the small-reader tail, not among the dominant readers. pred_d (shared interaction
   profile) is UNDER-POWERED — correlations over ≤3 aligned pair keys; requeue with a COMMON reader set fixed across behaviours.
+- §2815 CORRECTION: §2812's rational identity remains valid mathematics for an exact bilinear MLP plus RMS
+  normalization, but its empirical behavior-level fractions and all §2813 circuit claims inherit §2809's invalid,
+  post-selected tasks and readers. The Möbius transform is exact arithmetic; “2-of-4,” reuse, and interaction bars are
+  hypotheses only. Neither section updates circuit/adoption records or licenses another run.
+- §2816 R593 (Codex, managed runner, 04:17:59–04:18:17): instrument-invalid at the first directed FIT score after all
+  54 endpoint batches. `centered_hook_delta_failed`: max planned-vs-applied hook-change difference
+  `2.288818359375e-05` > frozen `1e-5`. Exact invalid prefix retained; SELECT/FINAL/OOD unopened; no scientific verdict,
+  backward, or update. OPEN: independent post-execution numerical audit; no rerun authority.

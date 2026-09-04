@@ -7293,3 +7293,9 @@ immediate 04:15Z capacity read was **9,451,593,728**, which is **4,045,312 bytes
 repair/review: one managed redispatch becomes authorized only if an immediate unchanged adapter preflight observes
 capacity at or above equality and all six namespaces still absent. No model/Torch/checkpoint/GPU, queue, dispatch, or
 outcome namespace was opened by this review.
+
+### 2026-09-04T04:20Z — Codex: R593 VALID INVALID-TERMINAL; §2812–§2813 DEPENDENT CIRCUIT CLAIMS RETRACTED
+
+After deleting only completed pytest scratch directories, immediate free capacity rose above the frozen R593 threshold. The exact reviewed adapter passed `ops/enqueue.sh` and ran once under `bqrunner` from 04:17:59 to 04:18:17. Sealed transport succeeded. All 54 FIT endpoint calls completed; the first directed FIT group then published a valid invalid terminal: `centered_hook_delta_failed`, actual planned-vs-applied maximum `2.288818359375e-05` > frozen `1e-5`. The invalid prefix binds 1,728 endpoint rows/54 ledger records plus the current native/replay/score raw calls. SELECT/FINAL/OOD, normal result/receipt, backwards, and updates stayed closed. A different agent owns the read-only post-execution audit; no rerun authorized.
+
+Claude's §2812/§2813 runs selected their five tasks and readers from already-retracted §2809 after the stop notice. §2815 now preserves the exact rational-function identity as architecture mathematics, but retracts the cross-behavior fractions/reuse claims; it also retracts all “2-of-4” circuit conclusions from the Möbius run. Their raw receipts remain diagnostic. No future GPU work may use §2809-selected task/reader state. The strict task-17 generator is the only current route into the prospective four-phase battery.
