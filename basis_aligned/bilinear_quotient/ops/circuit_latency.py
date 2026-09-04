@@ -154,6 +154,29 @@ if __name__ == "__main__":
         worst = max(rows_seen, key=lambda kv: kv[1])
         print(f"\nLARGEST AVOIDABLE DELAY: {worst[0]} at {worst[1]:.1f} min "
               f"({worst[1] / max(sum(t for _n, t in rows_seen), 1e-9) * 100:.0f}% of measured serial time)")
+        # COVERAGE. This tool reads `fast_screen_ledger.jsonl`. When an arc writes its receipts elsewhere
+        # -- as the head-11.3 projector work does -- the ledger stops growing and every number above silently
+        # repeats last hour's, so the hourly review reports "healthy" while the lane is busy on something the
+        # instrument cannot see. An instrument must report its own blind spot, so runner executions in the
+        # measured window that no ledger row explains are counted here.
+        completed = os.path.join(BQ, "runlogs", "_completed.txt")
+        if os.path.exists(completed) and data:
+            first = min(r["terminal"] for r in data).strftime("%H:%M")
+            runs = []
+            for raw in open(completed, errors="ignore"):
+                m = re.match(r"^(\d\d:\d\d)\s+(run_\S+)\s+exit=(\d+)", raw.strip())
+                if m and m.group(1) >= first:
+                    runs.append((m.group(1), m.group(2), m.group(3)))
+            # Count, do NOT name-match: an earlier version token-matched run names against candidate ids and
+            # called `run_task14_head11_3_projector_discovery` "covered" because it shares the token task14
+            # with a ledger row. Counting cannot produce that false negative.
+            gap = len(runs) - len(data)
+            if gap > 0:
+                print(f"\nCOVERAGE GAP: {len(runs)} runner executions since {first} but only {len(data)} "
+                      f"ledger rows -- {gap} execution(s) are NOT described by the numbers above:")
+                for t, n, c in runs[-6:]:
+                    print(f"   {t} {n} exit={c}")
+
         census = os.path.join(BQ, "ops", "failure_census.py")
         if os.path.exists(census):
             out = subprocess.run([sys.executable, census], capture_output=True, text=True).stdout

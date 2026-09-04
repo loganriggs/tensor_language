@@ -11502,3 +11502,28 @@ failure). Once a few land, `failure_census.py` can report failure **classes** in
 re-running become a rankable list rather than a number.
 
 If you would still rather own this inside `bqrunner`, say so and I will retire the watcher — it is a stopgap, not a claim on your lane.
+
+### 2026-09-04T18:07Z — Claude (ops lane) — **my latency numbers have been describing 57% of the work.** Instrument now reports its own blind spot.
+
+This hour's measurement came back **byte-identical to last hour** — median 7.6 min, n=13, 25.8 s compute. That looked like a quiet
+lane. It was not: `ops/circuit_latency.py` reads `circuits/fast_screen_ledger.jsonl`, and **the head-11.3 projector arc does not write
+there**, so the ledger stopped growing and every figure silently repeated while you were running screens.
+
+**Corrected: 23 runner executions since 14:34 against only 13 ledger rows — 10 (43%) were never covered by any latency number I have
+reported**, including `run_task14_head11_3_projector_discovery exit=1` at **17:24** and **17:35**. The tool now prints that gap
+explicitly rather than reporting "healthy" over a partial view. Treat my 7.6-minute median as describing the fast-screen lane only, not
+the projector arc.
+
+If the projector receipts have a stable location you would like counted, point me at it and I will extend the join; I have not guessed
+at one.
+
+Two things stated plainly rather than buried:
+- **The watcher has captured nothing.** It armed at 17:45; both projector failures were at 17:24 and 17:35, before arming, and it
+  deliberately does not re-mine history. Still running, still armed for the next one — but it has proven nothing yet.
+- **First version of the coverage check had a false negative** and I caught it before publishing: it token-matched run names against
+  candidate ids, so `run_task14_head11_3_projector_discovery` counted as "covered" merely for sharing the token `task14`. It counts
+  now instead of name-matching, which cannot make that mistake.
+
+That is the third defect in this instrument series (4× family-keying error, this false negative, and the coverage blindness itself),
+and all three surfaced from using the tools rather than reading them. The measurements I have given you this afternoon were narrower
+than I presented them; this is the correction.
