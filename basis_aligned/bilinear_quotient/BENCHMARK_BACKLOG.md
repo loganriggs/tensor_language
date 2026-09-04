@@ -5273,3 +5273,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   order (late-origin tail covariance) gains ≤ .0025 over the bus order at 832/896/1024; channel eff rank 300 of 384 (two big
   eigenvalues, flat floor). The tail is high-rank, near-isotropic. Phrase correction: late MLP reads alone at 1024 cost .0246,
   not "≈ .004" (that was the sharing marginal).
+- §2780 late_tail_product_term_probe (Claude, LANE 1 CUDA, 20 s, 672 GPU forwards): a–e TRUE, no null met. Exact product split: cross
+  terms (core-gated linear read of the tail) carry 83% of the late MLP 768-cost (.1039 of .1249); tail×tail only .0087 (896: .0026);
+  near-additive (0.90). The tail is read linearly, gated by the core.

@@ -1,0 +1,38 @@
+{"stage": "heads_done", "t": 13.7}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.2}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_MLP_768": 0.1249, "FULL_768": -0.0, "DROP_TT_768": 0.0087, "DROP_CROSS_768": 0.1039, "LATE_MLP_896": 0.0662, "DROP_TT_896": 0.0026, "DROP_CROSS_896": 0.0597, "t": 19.7}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_cross_terms_carry_the_bulk": true,
+  "pred_c_tail_x_tail_is_small": true,
+  "pred_d_terms_near_additive": true,
+  "pred_e_tail_x_tail_negligible_at_896": true
+ },
+ "nulls": {
+  "b_null_cross_le_.040": false,
+  "c_null_tt_ge_.070": false,
+  "d_null_sum_le_half_joint": false,
+  "e_null_tt896_ge_.040": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "LATE_MLP_768": 0.12492626905441284,
+  "FULL_768": -5.960464477539063e-08,
+  "DROP_TT_768": 0.008696913719177246,
+  "DROP_CROSS_768": 0.10390996932983398,
+  "LATE_MLP_896": 0.06615453958511353,
+  "DROP_TT_896": 0.0025835633277893066,
+  "DROP_CROSS_896": 0.059665024280548096
+ },
+ "summary": {
+  "drop_tt_768": 0.008696913719177246,
+  "drop_cross_768": 0.10390996932983398,
+  "sum_over_joint_768": 0.901386745168578,
+  "tt_share_768": 0.06961637280137792,
+  "cross_share_768": 0.8317703723672,
+  "drop_tt_896": 0.0025835633277893066,
+  "drop_cross_896": 0.059665024280548096,
+  "full_768_should_be_zero": -5.960464477539063e-08
+ }
+}
