@@ -145,7 +145,8 @@ def test_exact_registered_streaming_peak_and_dryrun() -> None:
     assert r592.MAXIMUM_STREAMING_DATA_BYTES == 7_839_996_928
     storage = r592.build_dryrun()["streaming_storage"]
     assert storage["required_free_bytes_before_model"] == 9_000_000_000
-    assert storage["required_free_bytes_before_select"] == 9_000_000_000
+    assert storage["required_free_bytes_before_select"] == 3_801_116_160
+    assert storage["remaining_select_plus_chunk_bytes"] + storage["safety_margin_bytes"] == 3_801_116_160
 
 
 def test_capacity_gate_fails_before_model_and_adapter_dispatch(tmp_path: Path) -> None:
@@ -153,11 +154,15 @@ def test_capacity_gate_fails_before_model_and_adapter_dispatch(tmp_path: Path) -
     with pytest.raises(RuntimeError, match="insufficient free space"):
         r592.require_free_space(tmp_path, statvfs_function=low)
     adapter = load(ADAPTER, "r592_streaming_adapter_test")
+    dispatched = []
     with pytest.raises(RuntimeError, match="insufficient free space"):
-        adapter.preflight(
+        adapter.dispatch(
+            {}, exec_function=lambda *_args: dispatched.append(True),
             namespace_paths=(tmp_path / "unused",), capacity_path=tmp_path,
             statvfs_function=low,
         )
+    assert dispatched == []
+    assert not any((tmp_path / path.name).exists() for path in r592.PUBLIC_NAMESPACES)
 
 
 def test_producer_capacity_failure_precedes_runtime_construction(monkeypatch, tmp_path: Path) -> None:
@@ -173,17 +178,45 @@ def test_producer_capacity_failure_precedes_runtime_construction(monkeypatch, tm
     )
     with pytest.raises(RuntimeError, match="insufficient free space"):
         r592.run_science(public_root=tmp_path)
+    assert not any((tmp_path / path.name).exists() for path in r592.PUBLIC_NAMESPACES)
 
 
-def test_select_capacity_gate_precedes_select_calls() -> None:
+def test_select_capacity_gate_precedes_select_calls(tmp_path: Path) -> None:
     source = PRODUCER.read_text()
     science = source[source.index("def run_science"):source.index("def build_dryrun")]
-    gate = science.index("before_select_capacity = require_free_space(stage, boundary=\"SELECT\")")
-    select = science.index("executor, select_bundle")
+    gate = science.index("before_select_capacity, select = run_after_capacity_gate(")
+    select = science.index("lambda: run_manifest_calls(", gate)
     assert gate < select
     low = lambda _path: types.SimpleNamespace(f_bavail=1, f_frsize=1)
+    called = []
     with pytest.raises(RuntimeError, match="insufficient free space"):
-        r592.require_free_space(Path("."), statvfs_function=low)
+        r592.run_after_capacity_gate(
+            tmp_path, lambda: called.append(True), boundary="SELECT", statvfs_function=low
+        )
+    assert called == []
+    assert not any((tmp_path / path.name).exists() for path in r592.PUBLIC_NAMESPACES)
+
+
+def test_phase_relative_capacity_boundaries_are_exact(tmp_path: Path) -> None:
+    def stat(value):
+        return lambda _path: types.SimpleNamespace(f_bavail=value, f_frsize=1)
+
+    # A current-size 9.5 GB filesystem passes initially and after exact FIT.
+    initial = 9_500_000_000
+    remaining = initial - 5_198_883_840
+    assert r592.require_free_space(tmp_path, statvfs_function=stat(initial))["required_free_bytes"] == 9_000_000_000
+    assert remaining == 4_301_116_160
+    assert r592.require_free_space(
+        tmp_path, boundary="SELECT", statvfs_function=stat(remaining)
+    )["required_free_bytes"] == 3_801_116_160
+
+    # Equality passes at each inclusive boundary; one byte below fails.
+    r592.require_free_space(tmp_path, statvfs_function=stat(9_000_000_000))
+    r592.require_free_space(tmp_path, boundary="SELECT", statvfs_function=stat(3_801_116_160))
+    with pytest.raises(RuntimeError, match="before model"):
+        r592.require_free_space(tmp_path, statvfs_function=stat(8_999_999_999))
+    with pytest.raises(RuntimeError, match="before SELECT"):
+        r592.require_free_space(tmp_path, boundary="SELECT", statvfs_function=stat(3_801_116_159))
 
 
 def test_invalid_prefix_uses_canonical_slices_plus_only_current_raw_chunk(tmp_path: Path) -> None:

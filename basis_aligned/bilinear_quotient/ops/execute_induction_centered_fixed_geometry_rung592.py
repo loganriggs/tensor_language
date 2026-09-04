@@ -38,20 +38,23 @@ IMPLEMENTATION_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung59
 STORAGE_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md"
 STORAGE_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md"
 STORAGE_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py"
+CAPACITY_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PHASE_RELATIVE_CAPACITY_AMENDMENT.md"
+STREAMING_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_PREEXECUTION_REVIEW.md"
+STREAMING_REVIEW_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_streaming_preexecution_review.py"
 PREREG_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_REVIEW.md"
 AMENDMENT_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_AMENDMENT_INDEPENDENT_REVIEW.md"
 DIAGNOSTIC_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT_INDEPENDENT_REVIEW.md"
 MASK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT_INDEPENDENT_REVIEW.md"
 
 FROZEN_HASHES = {
-    PRODUCER: "741d7a1481e79a726d3a2edb8bb5274a5d262ce0a93803d438c5762911809efb",
+    PRODUCER: "e625a94216659f4cafb91114b3f253b42844f7e54cb8531b17e0f47614dc5431",
     OWNER_TEST: "59764d300fdbe3f2024ee40b32b23fb2bcc56ccd79b48e7b1abbe5c0083eb2fc",
     FAKE_RUNTIME_TEST: "52d3d22e7d1eeaaa31bed66a01d28aef296974bff94e96ab7707af6fa4219e85",
     REPAIR_TEST: "dceb2416d20e7e795f8d3d0dd59bac18c123e3ed7705d3660fe6187abfc73844",
-    STREAMING_TEST: "2f36d595bfe7efa8f8825e9829912e1f6c70ff0d4c0d1f69fe054aebc48a7fda",
-    ADAPTER_TEST: "c6c4e6bb8e9b23a63b1352064f670429fba8227c92260bb638004edadeb22478",
+    STREAMING_TEST: "c927f6828e651589089217fec7a92118563aa893cae1b529651ac7a5a7e77a9e",
+    ADAPTER_TEST: "f81b5c3df85c5c7bd8def93136ac2bbbc3d826970c2571c0626dffbad6f1a4e3",
     RUNTIME: "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
-    DRYRUN: "937d5d9682ea89ca7e4feda3e646937dee83d56f31b18b8dffd4f04b26b4a1eb",
+    DRYRUN: "5aa8ee4ce3d4d40d00c74c64d12af7431fdbac090b74c7dabd5ae8ed4cb83e38",
     PREREG: "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
     AMENDMENT: "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
     DIAGNOSTIC_AMENDMENT: "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
@@ -64,6 +67,9 @@ FROZEN_HASHES = {
     STORAGE_AMENDMENT: "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
     STORAGE_BLOCK_REVIEW: "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
     STORAGE_BLOCK_TEST: "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
+    CAPACITY_AMENDMENT: "da634dd10da654739d761a6c8f8ce9c1434d8946a7477ba6d9c005c873386458",
+    STREAMING_REVIEW: "8a22980fb766b8b51cac81acb69ad8e84cd886dae053613591acabc415c6f225",
+    STREAMING_REVIEW_TEST: "7c84f858625b92af4b7242b168cf7d321d8dcc7ae82a5988bfcb9372d099514b",
     PREREG_REVIEW: "9b76b91995374697b8a828ce042e59d81bfddcbaa5f6e843cb0f32f6b01e57f7",
     AMENDMENT_REVIEW: "21bdc310b4798d3ae6d47fc2ed7dfee969afd871bc90db381db634e2c4cae2f5",
     DIAGNOSTIC_REVIEW: "e7373c2249e0456327d386559d4f3fa68e0661ed076a35fb120ad9d8effaa675",
@@ -71,6 +77,7 @@ FROZEN_HASHES = {
 }
 
 MINIMUM_FREE_BYTES = 9_000_000_000
+SELECT_MINIMUM_FREE_BYTES = 3_801_116_160
 
 REGISTERED_PREDICTIONS = {
     "pred_a_selector_transfer": "score and joint transfer selector changes while payload remains selective",
@@ -166,6 +173,13 @@ def preflight(
         "registered_select_forwards": 322,
         "registered_max_forwards": 961,
         "capacity_preflight": capacity,
+        "capacity_thresholds": {
+            "before_model": MINIMUM_FREE_BYTES,
+            "before_select_after_fit": SELECT_MINIMUM_FREE_BYTES,
+            "fit_canonical_data_bytes": 5_198_883_840,
+            "remaining_select_plus_chunk_bytes": 2_641_113_088,
+            "safety_margin_bytes": 1_160_003_072,
+        },
         "model_forwards": 0,
         "model_backwards": 0,
         "model_weights_updated": False,
@@ -194,8 +208,12 @@ def scientific_command() -> tuple[str, list[str]]:
 
 
 def dispatch(environment: Mapping[str, str], *, exec_function=os.execv,
-             namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES) -> dict[str, object]:
-    plan = preflight(namespace_paths=namespace_paths)
+             namespace_paths: Sequence[Path] = OUTCOME_NAMESPACES,
+             capacity_path: Path = ROOT, statvfs_function=os.statvfs) -> dict[str, object]:
+    plan = preflight(
+        namespace_paths=namespace_paths, capacity_path=capacity_path,
+        statvfs_function=statvfs_function,
+    )
     mode = environment.get("BQLIB_DRYRUN")
     if mode == "1":
         plan["mode"] = "model_free_dryrun"

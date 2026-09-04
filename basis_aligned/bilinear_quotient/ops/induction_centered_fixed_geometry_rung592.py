@@ -49,6 +49,9 @@ IMPLEMENTATION_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung59
 STORAGE_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md"
 STORAGE_BLOCK_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md"
 STORAGE_BLOCK_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py"
+CAPACITY_AMENDMENT = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PHASE_RELATIVE_CAPACITY_AMENDMENT.md"
+STREAMING_REVIEW = POLY / "INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_PREEXECUTION_REVIEW.md"
+STREAMING_REVIEW_TEST = OPS / "test_induction_centered_fixed_geometry_rung592_streaming_preexecution_review.py"
 RUNTIME = OPS / "induction_centered_fixed_geometry_rung592_runtime.py"
 
 SOURCE_HASHES = {
@@ -67,6 +70,9 @@ SOURCE_HASHES = {
     STORAGE_AMENDMENT: "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
     STORAGE_BLOCK_REVIEW: "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
     STORAGE_BLOCK_TEST: "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
+    CAPACITY_AMENDMENT: "da634dd10da654739d761a6c8f8ce9c1434d8946a7477ba6d9c005c873386458",
+    STREAMING_REVIEW: "8a22980fb766b8b51cac81acb69ad8e84cd886dae053613591acabc415c6f225",
+    STREAMING_REVIEW_TEST: "7c84f858625b92af4b7242b168cf7d321d8dcc7ae82a5988bfcb9372d099514b",
     RUNTIME: "09309b1299b85f2c57689913547fef01f2a9e7b538b2768ac62ff3e48e0f039c",
 }
 
@@ -78,7 +84,9 @@ VOCAB = 50_304
 RESIDUAL = 1_152
 PAD_TOKEN = 50_256
 TOLERANCE = 1e-5
-MINIMUM_FREE_BYTES = 9_000_000_000
+INITIAL_MINIMUM_FREE_BYTES = 9_000_000_000
+SELECT_MINIMUM_FREE_BYTES = 3_801_116_160
+MINIMUM_FREE_BYTES = INITIAL_MINIMUM_FREE_BYTES
 COMPLETE_CANONICAL_DATA_BYTES = 7_798_325_760
 LARGEST_CURRENT_CHUNK_DATA_BYTES = 41_671_168
 MAXIMUM_STREAMING_DATA_BYTES = 7_839_996_928
@@ -150,15 +158,25 @@ def available_bytes(path: Path, *, statvfs_function=os.statvfs) -> int:
 
 
 def require_free_space(
-    path: Path, *, minimum: int = MINIMUM_FREE_BYTES, boundary: str = "model",
+    path: Path, *, minimum: int | None = None, boundary: str = "model",
     statvfs_function=os.statvfs,
 ) -> dict[str, int | str]:
+    if minimum is None:
+        minimum = SELECT_MINIMUM_FREE_BYTES if boundary == "SELECT" else INITIAL_MINIMUM_FREE_BYTES
     observed = available_bytes(path, statvfs_function=statvfs_function)
     if observed < minimum:
         raise RuntimeError(
             f"R592 insufficient free space before {boundary} boundary: {observed} < {minimum}"
         )
     return {"boundary": boundary, "available_bytes": observed, "required_free_bytes": int(minimum)}
+
+
+def run_after_capacity_gate(
+    path: Path, operation: object, *, boundary: str, statvfs_function=os.statvfs,
+) -> tuple[dict[str, int | str], object]:
+    """Cross a model-call boundary only after its phase-relative disk check."""
+    capacity = require_free_space(path, boundary=boundary, statvfs_function=statvfs_function)
+    return capacity, operation()
 
 
 def content_sha256(value: object) -> str:
@@ -1560,10 +1578,13 @@ def run_science(*, public_root: Path = ROOT) -> dict[str, object]:
         )
         before_select_capacity = None
         if not any(failure_classes.values()):
-            before_select_capacity = require_free_space(stage, boundary="SELECT")
-            select = run_manifest_calls(
-                executor, select_bundle, make_context_factory(execution, select_bundle),
-                stage=stage, public_root=public_root,
+            before_select_capacity, select = run_after_capacity_gate(
+                stage,
+                lambda: run_manifest_calls(
+                    executor, select_bundle, make_context_factory(execution, select_bundle),
+                    stage=stage, public_root=public_root,
+                ),
+                boundary="SELECT",
             )
             if select["status"] == "invalid":
                 calls = PHASE_COUNTS["FIT"]["calls"] + len(select["diagnostic"]["executed_call_ids"])
@@ -1686,8 +1707,10 @@ def build_dryrun() -> dict[str, object]:
             "complete_fit_plus_select_data_bytes": COMPLETE_CANONICAL_DATA_BYTES,
             "largest_current_chunk_data_bytes": LARGEST_CURRENT_CHUNK_DATA_BYTES,
             "maximum_streaming_data_bytes": MAXIMUM_STREAMING_DATA_BYTES,
-            "required_free_bytes_before_model": MINIMUM_FREE_BYTES,
-            "required_free_bytes_before_select": MINIMUM_FREE_BYTES,
+            "required_free_bytes_before_model": INITIAL_MINIMUM_FREE_BYTES,
+            "required_free_bytes_before_select": SELECT_MINIMUM_FREE_BYTES,
+            "safety_margin_bytes": 1_160_003_072,
+            "remaining_select_plus_chunk_bytes": 2_641_113_088,
             "prior_full_tree_peak_data_bytes": 10_677_399_552,
         },
         "invalid_predicate_order": list(PREDICATE_ORDER),

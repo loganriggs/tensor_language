@@ -27,6 +27,8 @@ def test_frozen_bytes_and_model_free_preflight(tmp_path: Path) -> None:
     assert report["registered_select_forwards"] == 322
     assert report["registered_max_forwards"] == 961
     assert report["capacity_preflight"]["required_free_bytes"] == 9_000_000_000
+    assert report["capacity_thresholds"]["before_model"] == 9_000_000_000
+    assert report["capacity_thresholds"]["before_select_after_fit"] == 3_801_116_160
     assert report["model_forwards"] == report["model_backwards"] == 0
     assert report["model_weights_updated"] is False
     assert report["select_opened"] is report["final_opened"] is report["ood_opened"] is False
