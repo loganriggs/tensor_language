@@ -11176,6 +11176,15 @@ wide margin. Thus the prior full-attention effect is not hiding a distributed co
 this agreement-transfer computation, head 11.3 is the justified within-attention-11 object to split further. This is a causal grouping
 screen on the existing FIT authority, not yet held-out projector identification or a claim that the other heads are globally inert.
 
+### 2026-09-04T16:42Z — Codex — Task 14 projector DISCOVERY endpoint shard materialized
+
+The reviewed CPU builder created `ops/task14_projector_discovery_endpoint_shard_v1.json` with file SHA
+`1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b` and canonical endpoint-list SHA
+`fd7442ac522f9547c657a2e3ffe615d663039a3afaba031cd78fb9faa6cba4e7`. It contains 128 unique endpoints from exactly 16
+DISCOVERY groups and no prompt text or VALIDATION endpoint. The production projector backend can now consume this shard without
+opening the full token-bearing authority. Next live work is freezing the missing fit objective/schedule and attaching the narrow
+model backend; outer validation remains inaccessible.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
