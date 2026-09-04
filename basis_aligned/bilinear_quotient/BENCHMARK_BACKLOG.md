@@ -5852,3 +5852,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   refit-time — a **0.0610** gap from the refit-time/eval-time distinction (the §2884 issue, which for the *rank* knob did not matter but
   here shifts the level). Fix: ONE rung with both arms — `LW := {}` applied during the refit loop, and after it — plus s = .25. Two
   pipeline runs at most. If both reproduce their expected values the distinction is quantified and the frozen-stack anchor is valid.
+
+- **[§2895] The front MLP stage's two halves compensate by ≈4.95 nats when refitting is allowed.** `tb := 0` costs **+5.6298** on a
+  frozen stack against **+0.6814** when the residual `A` is refitted against the change (§2877). That is an order of magnitude beyond
+  every interaction measured so far and it deserves a section of its own once anchored. It also means **every frozen-stack ablation of
+  a block whose partner can refit is an upper bound, not a cost.**
+- **[§2895] The tail and the front are NOT the same phenomenon.** Tail-map shrinkage improves on both windows (−0.2288 fresh, −0.1530
+  in sample: objective mismatch, §2890). Front-table shrinkage at a_scale .5 improves fresh (−0.1648) but is WORSE in sample (+0.0959):
+  partly overfitting. §2890's account transfers only partly, and any end-to-end refitting move must treat the two blocks separately.

@@ -76044,3 +76044,62 @@ distinction is quantified, the frozen-stack anchor becomes valid for a frozen-st
 on its own footing.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — unchanged *because* §2894 is not adopted.
+
+## §2895 — SHRINKING THE LARGEST BLOCK IMPROVES THE FRONTIER TOO (**−0.1648 nats at A-scale .5**) — BUT THE `tb := 0` ANCHOR MISSES BY **4.95 nats**, AND THAT MISS IS THE MOST INFORMATIVE NUMBER HERE. NOT ADOPTED (FOURTH TIME)
+
+Registered `polynomial_causal/FRONTIER_FRONT_TABLE_SHRINKAGE_PREREGISTRATION.md` (10:35Z). Run `frontier_front_table_shrinkage`, landed
+10:38Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_front_table_shrinkage_results.json
+Price: 0 GPU forwards, 128.0 GPU-seconds, **1 pipeline run** for eleven arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+| `a_scale` (quadratic residual) | 0 | .25 | **.5** | .75 | .9 | 1.1 |
+|---|---|---|---|---|---|---|
+| **fresh** | +.7321 | −.0204 | **−.1648** | −.1298 | −.0637 | +.0813 |
+| **fitting window** | +1.4489 | +.5351 | +.0959 | **−.0826** | −.0537 | +.0803 |
+
+| `tb_scale` (token table) | 0 | .5 | .75 | .9 |
+|---|---|---|---|---|
+| **fresh** | **+5.6298** | +.2480 | −.0336 | −.0265 |
+| **fitting window** | +5.8724 | +.4132 | −.0244 | −.0280 |
+
+**pred_a, pred_e HELD. pred_b HELD** — `A := 0` reads **+0.7321** against §2877's **+0.7536**, deviation **.0215**, inside the .05 bar.
+**pred_d HELD** — four A-scales and two tb-scales below 1 improve on fresh, best **−0.1648 at A-scale .5**.
+
+### pred_c FAILED by 4.95 nats, and the size of the miss is the result
+
+`tb := 0` reads **+5.6298** here against §2877's **+0.6814** — deviation **4.9484**, and `c_null_the_tb_anchor_fails` is MET.
+
+The cause is the refit-time/eval-time distinction again, and this time it is enormous. **§2877 zeroed `tb` during FITTING**, so the
+quadratic residual `A` was then fitted against a residual computed with no token table — **`A` absorbed the lookup's job**. This rung
+zeroes `tb` **after** fitting, on a stack where `A` was fitted assuming `tb` present. **Removing the lookup without letting the residual
+refit costs 5.63 nats; letting it refit costs 0.68.**
+
+So the front MLP stage's two halves compensate for each other to the tune of **≈ 4.95 nats when refitting is allowed** — an order of
+magnitude larger than any interaction measured so far (§2880's +3.2104 superadditivity, §2888's +0.3023, §2894's +0.0610). That is a
+substantive fact about the construction and it arrives as a *failed anchor*, which is the second time this session that a sanity bound
+has been more informative than the predicate it guarded.
+
+### Not adopted — fourth time — and a rule I am deliberately not amending
+
+The preregistration's adoption rule, written before the run: *"any improvement may be entered as a result **only if pred_a, pred_b,
+pred_c and pred_e all hold**."* **pred_c did not hold.** The **−0.1648** is recorded and **not adopted**.
+
+I note explicitly what I am declining to do: **pred_b — the `A`-side anchor — DID hold at .0215**, and the improving arms are all
+`a_scale` arms. A rule keyed only to the A knob would license the result immediately. **Amending the adoption rule after seeing which
+half of it passed is exactly the move the standing rules forbid**, and the fact that it would be defensible on the merits is what makes
+it worth refusing in writing.
+
+### A genuine difference from the tail, worth carrying forward
+
+The tail-map improvement (§2893/§2894) appeared on **both** windows — −0.2288 fresh, −0.1530 in sample — which is what made §2890 call
+it objective mismatch rather than overfitting. **The front-table improvement does not behave the same way.** At `a_scale = .5` the fresh
+gain is **−0.1648** while the fitting window is **+0.0959 — worse**. Only `a_scale = .75/.9` improve in sample (−0.0826, −0.0537).
+
+So the two blocks are not the same phenomenon: the tail maps are **mis-fitted for the end-to-end objective in sample**, while the front
+tables look **partly over-fitted** — shrinkage buys more out of sample than in. §2890's account therefore holds for the tail and is
+**only partly transferred** to the front, which is a limit on it that this rung establishes and I did not anticipate.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68 — unchanged *because* nothing here is adopted.
