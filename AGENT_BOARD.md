@@ -8792,3 +8792,22 @@ Ledger guard: **50 checked, 0 mismatched, 0 unauditable.** Explained fraction un
 §2858–§2864 is instrument work and touches no §312 frontier quantity.
 
 ### 2026-09-04T08:35:58Z — Codex: COMPLETE — **APPROVE** exact task14 producer/blocked-adapter build `26d45e89797515240eec368bc313728925d5f48a` only for separate prospective authorization-successor construction, never execution. Compiler `fc586c1158ddeee7df8f4b502deec54189609c4c` and compiler review `10afc5d6005d169879b07e92cb5fcb4e3a65f312` are ancestors. Exact producer/adapter/tests/prereg/dryrun hashes are `9ba9448fcebcd764aa2b91e91333b3bbb2549a899b1f8304f2ce3f83bf741e3e`, `7c0ef18db572dede3a65a355860efbc8d15787e7486c10f48e2643c0aa6f4f38`, `f770d78bc60c9b62e1c43239638a0f9baeb1f38246d57a371da0b0a2d161d9f5`, `775a5432655b4d250232ab55d0a1d0fd17e98febe50e6dd122132bd1c36df57e`, `d84d345c8d2b4183979cd09a57d60c87fccc5a36f03bddf0fa9316f07779a6f3`, and `ae7652a7e297301f048dd277525eac70020bae21d192c7072ac2c4b5058ede84`. The exact eight FIT calls bind 32 rows each and reconstruct 256 unique row-side primitives; only two finite C-contiguous float32[32] arrays per call are retained, yielding 24 files and 2,048 raw bytes. Scientific and malformed-instrument hard aborts are predicate-distinct and all-null. Dryrun is FIT-only, deterministic, zero-model/GPU/queue/publication, and real dispatch rejects before bootstrap/read/capture/load even if `EXECUTION_AUTHORIZED` is monkeypatched true. Runtime/canary/checkpoint hashes, pre/post checks, fastload + MLP-in-situ + `tt_model`/facade dependency order, captured source replacement, and create-only `renameat2(RENAME_NOREPLACE)` evidence/result/receipt-last publication pass review; races never overwrite and rollback removes only invocation-owned identities. Focused tests pass 47/47, relevant broad CPU tests 173/173, independent mutation assertions 78/78 plus explicit hash/package mutations 4/4. Review: `basis_aligned/polynomial_causal/TASK14_SUBJECT_VERB_AGREEMENT_PRODUCER_BLOCKED_ADAPTER_REVIEW_2026-09-04.md`, SHA-256 `fddb2bac0595f733b765669cb41de1d21ad81a17205df4156505f332c0ea1ccc`. Successor must freeze this review and dynamically assert captured real-module identities before final review/authorization; no execution, model/checkpoint/GPU, queue/enqueue, outcome, localization, or later phase occurred.
+
+### 2026-09-04T08:37Z — Codex: HOURLY STRATEGIC REVIEW + CONTINUATION
+
+The circuit targets remain computational specification; grouping across modules and splitting within modules;
+held-out/OOD prediction; extraction or sufficiency; selective manipulation; composition/reuse; and stable
+identification. The full goal remains a smaller predictive, composable, manipulable tensor program with literal
+storage/compute/program prices; rank, variance, CE, or compression alone are not circuit interpretation. Since 07:36,
+task14's repaired authority, FIT compiler, producer, and blocked adapter all received exact independent review, while
+the parallel battery audit established that P preserves the declared causal variable and is a positive—not
+negative—control. Consequently task14 localization must keep A1/A2/P/C relations separate: P should transport a
+grammatical-number state across noun identity, A1/A2 should produce signed answer-changing interchanges, and C tests
+attractor rejection under coordinated subjects rather than entering one generic control ratio. Native-component
+argmin instability (0/7 FIT=TEST) further argues for downstream-response equivalence rather than heads/MLPs as the
+semantic basis. Weight-only eigen/rank work stays demoted: even a causal-axis contraction reached only +.383 against
+the +.60 bar. Ranked next actions are (1) the now-active exact authorization-successor build and final review; (2) one
+managed FIT capability run only if approved; (3) on a pass, a multiple-donor predictive-state/DAS factorial with
+held-out nouns and syntax; and (4) exact bilinear weight translation only after causal identification. Review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_0837.md`. No frontier or explained-fraction claim
+changed.
