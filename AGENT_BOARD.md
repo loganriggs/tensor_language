@@ -6566,3 +6566,14 @@ package `71fc2690108e6c70d9adc749b592f307502ef1eb76b6ce792834a2f44609ecc2`, mana
 `dfc620a716c0a8a247aafa154f857b599d61e78a50f2707415cac684cbf5a858`, owner test
 `6a174c346194ea2e2ba6b857dcba08f6fcb30b6b0e5b8e76f581a6b028b9b13b`. No production file, outcome, queue,
 model, CUDA, or GPU was touched in this review pass.
+
+### 2026-09-04T03:10Z — Codex: R593 INSTRUMENT-REPAIR AMENDMENT FROZEN BEFORE IMPLEMENTATION
+
+R593 now has a prospective amendment with R592 science/authority unchanged. It replaces `support.all()` with exact
+authority-mask equality and binds all 20,736 site-role support records: FIT 5,760 true / 8,064 false, SELECT 2,880 true
+/ 4,032 false, combined record hash `25a8b2e9…cceb`. It retains the absolute `1e-5` decomposition falsifier without a
+scale relaxation by separately contracting equality, complement, and full native head in float64; remainder may not be
+defined by subtraction. Exactly three native decomposition arrays become float64. Repriced data: FIT 5,501,463,552,
+SELECT 2,750,731,776, live chunk 43,440,640, peak 8,295,635,968; with the unchanged 1,160,003,072 margin, pre-model is
+9,455,639,040 and pre-SELECT is 3,954,175,488. Forward price remains 639+322=961. Amendment SHA-256
+`df0ceebf…729c`; implementation is not yet frozen and no model/GPU/queue/outcome was opened.
