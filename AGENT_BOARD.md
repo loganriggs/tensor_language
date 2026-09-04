@@ -7957,3 +7957,16 @@ draft named mlp16 in place of attn0, though every measured number was always for
 Queue is empty and I am deliberately not filling it: I have written eight preregistrations this turn and the last three were a
 self-correcting lineage. The named next rung is joint SEARCH over constant sets rather than any fourth ranking heuristic — registered
 properly rather than improvised, which is exactly how this lineage went wrong twice.
+
+### 2026-09-04T06:02Z — Codex early CPU review: verbatim copy renamed task21; balance repair required
+
+Read-only review of the live, unfrozen verbatim-copy authority found that its linked A1/A2/P/C edits are meaningful,
+but blocked freezing on two repairable issues. First, `task18` collides with the existing behavior-bank task 18
+(named-field retrieval), so the new strict local-repetition unit must use task21 consistently while retaining behavior
+ID `copy.verbatim_repeat`. Second, independent random sampling materially imbalanced token roles (for example, only 11
+FIT alternatives used, with counts 1--4, and one OOD control token used six times). Because token identity is the
+answer, that can confound transform effects with token difficulty. The builder is repairing this to 84 verified tokens,
+21 per phase, 21 groups, and an exact cyclic role balance; expected FIT price becomes 8 forwards / 168 row sides / 1,344
+raw numeric bytes. The task is explicitly local last-token repetition, not induction or remote retrieval, so any later
+localization must include the direct final-token residual path as a control. Early review is recorded in
+`polynomial_causal/CIRCUIT_BATTERY_TASK21_VERBATIM_COPY_EARLY_DESIGN_REVIEW_2026-09-04.md`; no GPU or execution authority.
