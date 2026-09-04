@@ -119,6 +119,12 @@ FILES = (
         "prereg",
     ),
     FrozenFile(
+        "publication_repair_provenance_correction",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_PROVENANCE_CORRECTION.md",
+        "14a982abbc79de99e970dea2d352952e22e70717e7e9f677ace23370f3e7685b",
+        "prereg",
+    ),
+    FrozenFile(
         "fit_authority", "basis_aligned/bilinear_quotient/ops/circuit_battery_task17_fit_authority.json",
         "b1d33859f15bee8be04719ec532e84057ac70ef150a06e40ae7583ce70a79d6b",
         "authority",

@@ -32,6 +32,12 @@ REPAIR_AMENDMENT = (
     REPO_ROOT / "basis_aligned/polynomial_causal/"
     "CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_AMENDMENT.md"
 )
+PROVENANCE_CORRECTION = (
+    REPO_ROOT / "basis_aligned/polynomial_causal/"
+    "CIRCUIT_BATTERY_TASK17_CAPABILITY_FIT_PUBLICATION_REPAIR_PROVENANCE_CORRECTION.md"
+)
+REPAIR_COMMIT = "538cef96451b3e8f07758f20cca2be1b7bfdf561"
+REPAIR_COMMIT_TIME = "2026-09-04T05:13:56+00:00"
 
 
 def sha256(path: Path) -> str:
@@ -181,6 +187,41 @@ def test_versioned_publication_repair_binds_new_producer_and_preserves_old_amend
     assert "not authorized for model" in amendment
     assert "RENAME_NOREPLACE" in repair
     assert "0 model updates" in amendment
+
+
+def test_provenance_correction_preserves_original_and_binds_git_freeze_event() -> None:
+    repair_bytes = REPAIR_AMENDMENT.read_bytes()
+    repair = repair_bytes.decode()
+    correction = PROVENANCE_CORRECTION.read_text()
+    original_digest = hashlib.sha256(repair_bytes).hexdigest()
+
+    assert original_digest == (
+        "0c4a20b751cc05c5373b3a1d0eab95164ffc70e5dbe685cc12a9dbb341ff8301"
+    )
+    assert "Frozen prospectively:** 2026-09-04 05:22 UTC" in repair
+    assert original_digest in correction
+    assert REPAIR_COMMIT in correction
+    assert REPAIR_COMMIT_TIME in correction
+    assert "future-time transcription error" in correction
+    assert "Git commit object and its timestamp supersede only" in correction
+    assert "did not access a model checkpoint or GPU" in correction
+    assert "real adapter branch remains blocked" in correction
+    assert adapter.file_by_role("publication_repair_amendment").sha256 == original_digest
+    assert adapter.file_by_role("publication_repair_provenance_correction").sha256 == sha256(
+        PROVENANCE_CORRECTION
+    )
+    assert adapter.EXECUTION_AUTHORIZED is False
+
+    committed_repair = subprocess.run(
+        ["git", "show", f"{REPAIR_COMMIT}:{REPAIR_AMENDMENT.relative_to(REPO_ROOT)}"],
+        cwd=REPO_ROOT, check=True, capture_output=True,
+    ).stdout
+    metadata = subprocess.run(
+        ["git", "show", "-s", "--format=%H%n%aI%n%cI", REPAIR_COMMIT],
+        cwd=REPO_ROOT, check=True, text=True, capture_output=True,
+    ).stdout.splitlines()
+    assert committed_repair == repair_bytes
+    assert metadata == [REPAIR_COMMIT, REPAIR_COMMIT_TIME, REPAIR_COMMIT_TIME]
 
 
 def test_adapter_source_has_no_enqueue_or_outcome_read_path() -> None:
