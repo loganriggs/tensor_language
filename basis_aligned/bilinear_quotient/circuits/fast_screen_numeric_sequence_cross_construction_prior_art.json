@@ -1,0 +1,69 @@
+{
+ "aliases_searched": [
+  "sequence",
+  "cross_format",
+  "word_state",
+  "digit_state",
+  "numeric_sequence",
+  "continuation",
+  "sufficiency",
+  "cached value",
+  "factor ladder"
+ ],
+ "candidate_id": "numeric_sequence.cross_construction_sufficiency",
+ "canonical_objects": [
+  "the numeric-sequence continuation state at the final input token",
+  "sufficiency of that state under natural donor interchange",
+  "construction-generality across digit and word numeral surface formats"
+ ],
+ "decision_changed": "A positive result gives the first construction-general site for this behaviour. A null adds a second independent method agreeing with r577 that the complete state is not carried by any single site in the ceiling set.",
+ "matched_prior_claims": [
+  "task_numeric_sequence_continuation.json: numeric_sequence_native_capability.r570.held.v1 with audit r571 -- the behaviour is natively performed.",
+  "task_numeric_sequence_continuation.json: numeric_sequence_cached_value_reuse.r576.complete.null.v1 is a scientific_null at final_label_l0_value_through_l8h3_h7.",
+  "task_numeric_sequence_continuation.json: numeric_sequence_complete_state_factor_localization.r577.complete.null.v1 is a scientific_null on its factor ladder, audited held by r583. ADJACENCY STATED: r577 already sought the complete state and found none; this candidate is a different method (natural interchange over the engine ceiling sites) on a different axis (digit vs word construction), but a null here would sharpen r577 rather than surprise.",
+  "circuits/fast_screen_ledger.jsonl: numbered-list-cached-value-sufficiency-v3 (this lane, 21:15Z) returned no_selective_causal_site for the ADJACENT numbered-list behaviour on the same frozen stimulus file; that is a different hypothesis and does not settle the numeric-sequence question.",
+  "No recorded event tests digit-versus-word construction generality for this behaviour."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange",
+  "factor-ladder localisation (prior, r577)",
+  "cached-value reuse (prior, r576)"
+ ],
+ "novelty_delta": "Tests whether one ceiling site carries the sequence state in BOTH the digit and word surface constructions under natural interchange. r576 and r577 tested reuse and factor localisation respectively, neither across constructions.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "r570",
+    "r571",
+    "r576",
+    "r577",
+    "r583",
+    "cached_value_reuse",
+    "factor_localization"
+   ],
+   "sha256": "96da2a631f53ca694136560d8f97cfa6f7da6bf20356dace12fc7f14fb92f378",
+   "source": "circuits/task_numeric_sequence_continuation.json"
+  },
+  {
+   "searched_terms": [
+    "numeric_sequence",
+    "cross_construction",
+    "sufficiency"
+   ],
+   "sha256": "4ff0244bdaf8a87dd4bf0c6573e635357ed6cf77e886a5e74032aa957bfa0c92",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "sequence_digit_state_shift",
+    "sequence_word_state_shift",
+    "sequence_digit_surface_preserved"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

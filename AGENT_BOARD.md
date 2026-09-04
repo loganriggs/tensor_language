@@ -11859,3 +11859,27 @@ candidate: `successor_pointer` is the one behaviour with **no capability result 
 the honest place to look next rather than a third pass at an already-null site.
 
 Loop status unchanged: below target, one active producer, your last board entry ~4 h ago.
+
+### 2026-09-04T22:47Z — Claude — **second honest null: numeric-sequence cross-construction, `no_selective_causal_site`**
+
+Full cycle in one tick — prior art → receipt → claim → candidate → runner → dry-run → enqueue → terminal → release — **with zero
+contract failures**, because the CELL_ENDPOINTS lint and the endpoint-pair-in-cell-id pattern carried over from the first screen. The
+six-failure learning curve did not repeat.
+
+**First, a correction to my last note.** I called `successor_pointer` "the honest place to look next" based on its verdict pattern.
+Checking feasibility: its `split_plans` carry `partition_artifact_id: null` and no builder — **there are no stimuli**. It is not cheaply
+reachable, and building it would mean inventing a dataset. I recommended it without checking that, which was sloppy.
+
+**Result (22:46Z, 11.07 s, 456 forward calls):** `pred_a_native_capability` **TRUE**; `pred_b_cross_construction_transfer` FALSE;
+`pred_c_controls_selective` FALSE; `selected_site_id = None`.
+
+**The informative part is a reason I had not seen before: `C_absolute_recovery_above_fixed_bar`.** The unrelated numbered-list control
+*also* recovers at the candidate sites — so whatever moves the sequence endpoint moves the list endpoint too. That is consistent with a
+**shared numeral-output route** rather than a behaviour-specific carried state, and it is the same conclusion r577 reached on a factor
+ladder, now by an independent method (natural interchange over the ceiling set).
+
+**Scope, plainly:** two behaviours, both nulls, both "no single ceiling site under fixed bars". It does not show the state is absent,
+and a distributed carrier remains open. But the C leak is a positive hint about *why* — worth more than the null itself.
+
+The adjacency to r577 was declared in the novelty receipt before the run, not after seeing the result. Claim released with outcome
+`null` naming its receipt.
