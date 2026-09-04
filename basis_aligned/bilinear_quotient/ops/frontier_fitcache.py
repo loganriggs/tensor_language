@@ -110,7 +110,9 @@ def verify_stack(a, b):
             return False, len(ta), float("inf"), f"path {pa} vs {pb}"
         if xa.shape != xb.shape or xa.dtype != xb.dtype:
             return False, len(ta), float("inf"), pa
-        d = float((xa.float() - xb.float()).abs().max()) if xa.numel() else 0.0
+        # SS2913: the whole point of load_stack(device=) is that the two sides can live on DIFFERENT devices --
+        # a CPU reference against a stack reloaded onto CUDA. Compare on CPU rather than crashing on the subtraction.
+        d = float((xa.float().cpu() - xb.float().cpu()).abs().max()) if xa.numel() else 0.0
         if d > worst:
             worst, where = d, pa
     return worst == 0.0, len(ta), worst, where

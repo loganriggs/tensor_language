@@ -76,3 +76,17 @@ def test_load_stack_can_place_tensors_on_a_device():
     # the nested LW dict must be moved too, not just the top-level tensors
     assert same[0]["a10L"][3][7].device.type == "cpu"
     FC.cache_path(key).unlink()
+
+
+def test_verify_stack_compares_across_devices():
+    """SS2913: verify_stack crashed subtracting a CPU reference from a CUDA-reloaded stack."""
+    s = _stack()
+    class _Fake(torch.Tensor):
+        pass
+    a = _stack()
+    ok, n, dev, where = FC.verify_stack(s, a)
+    assert ok and dev == 0.0, (ok, dev, where)
+    if torch.cuda.is_available():
+        cu = FC._to_device(_stack(), "cuda")
+        ok2, n2, dev2, where2 = FC.verify_stack(s, cu)   # CPU vs CUDA -- must compare, not raise
+        assert ok2 and dev2 == 0.0 and n2 == n, (ok2, dev2, where2)

@@ -76821,3 +76821,99 @@ the rung passing the model's device. **Cost: one pipeline run, ~120 GPU-seconds,
 family; all four were in code that snapshots, reloads or rewrites a fitted entry.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+---
+
+## §2912 — **ADOPTED: THE JOINT OPTIMUM IS SETTLED AT (tail .30, CP .80, motif 1.25) → +2.2999.** ALL FIVE PREDICATES HOLD, THE OPTIMUM IS **INTERIOR IN ALL THREE AXES**, AND THE ANCHOR REPRODUCED §2909 TO **.0000**
+
+Written 2026-09-04T13:07Z. Rung `ops/frontier_scale_holdout`'s parent grid, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_JOINT_GRID_SETTLED_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards (not forward-instrumented), 184.4 GPU-seconds, 1 pipeline run, 0 backwards, 0 fitted parameters.
+Results: frontier_joint_grid_settled_results.json
+
+**SIGN CONVENTION (§2135): frontier L2 is CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER** (§312: "+2.6735 beating +2.84/+2.93").
+A cost is `L2(arm) − L2(baseline)`, **positive = worse**, so a **negative cost is an improvement**.
+
+§2907 and §2909 both failed `pred_d` — the interiority predicate — and both times **for a reason about my grid, not about the model**:
+§2907 put tail and CP on the top edge, §2909 put motif at the edge of a **two-point axis I had narrowed myself**, which could not have
+passed. This grid was built at **three points on every axis** centred on §2909's optimum, 27 cells in one run, precisely so the
+predicate could be decided by the frontier.
+
+**It was.** Every predicate holds:
+
+| predicate | bar | measured | |
+|---|---|---|---|
+| a — baseline reproduces the published frontier | ≤ .05 | **+2.6735**, dev **.0000** | HELD |
+| b — the anchor cell reproduces §2909 | ≤ .01 | **−0.3736**, dev **.0000** | HELD |
+| c — the settled grid does not lose ground | ≥ 0 | **+0.0000** | HELD |
+| d — **the optimum is interior in all three coordinates** | — | **tail .30, CP .80, motif 1.25 — middle of every axis** | **HELD** |
+| e — the optimum improves in sample too | < 0 | **−0.3445** | HELD |
+
+**Best cell: tail 0.30 / CP 0.80 / motif 1.25 → fresh −0.3736, in sample −0.3445, implied L2_F = +2.2999.**
+
+Two things are worth stating precisely because they are easy to over-read.
+
+**First, `beats_current_by` is exactly 0.0000 and `c_null_the_current_setting_is_already_jointly_optimal` is TRUE.** That is not a
+failure — the preregistration set that bar at 0 and said so in advance: *"this rung exists to establish interiority, and demanding a
+further gain would make a converged optimisation look like a failure."* The optimisation converged three rungs ago (+0.0314, then
++0.0059, now **+0.0000**); what was missing was never more gain, it was a demonstration that the optimum is where the search said it is.
+The anchor reproducing §2909 to **.0000** across an independently-constructed grid is that demonstration.
+
+**Second, the surface is genuinely flat near the optimum and this is a two-parameter object, not three.** Across all 27 cells the fresh
+cost spans only −0.3362 to −0.3736; the motif axis moves it by ~.01 and every cell at motif 1.25 sits within .04 of the best. The
+adopted §2904 two-parameter configuration (tail .25, CP .50) reads −0.3213, so **95 evaluated cells of three-axis search have bought
+0.0523 nats beyond the two scalars found by two single-axis rungs.**
+
+**Adopted** under the rule registered in advance (a, b, d, e — pred_c deliberately excluded because it measures remaining gain, not
+soundness). The frontier configuration of record becomes **tail `LW` × 0.30, CP `Dk` × 0.80, motif gains × 1.25, L2_F = +2.2999**,
+superseding §2904's +2.3522, which in turn superseded §312's +2.6735.
+
+**Stated plainly, because it qualifies the number above.** Every one of those 95 cells was scored on the **same fixed 120 documents**
+— `FR`, built once from `dsf[di]`, `di in range(3000,10000)`. This is selection on the evaluation set, and its magnitude has never
+been measured. **`frontier_scale_holdout` was preregistered and enqueued before this receipt was read** (13:05Z, prereg hash frozen;
+this section written at 13:07Z) and is running now; it evaluates the frozen configuration on a second 120-document window that chose
+nothing, and reports the selection bias in nats. **It tests the two-parameter §2904 configuration, so whatever bias it reports is a
+LOWER BOUND on the bias in this section's three-parameter, 95-cell number.** The adoption above stands on its registered rule; the
+qualification is recorded here in advance of the evidence rather than after it.
+
+**Registered next:** the same held-out evaluation applied to *this* configuration, so the campaign's headline number carries a
+measured out-of-selection value and not only an in-selection one.
+
+---
+
+## §2913 — FAILED RUN, PRESERVED AS SCORED: THE DEVICE FIX **WORKED** — THE RELOADED STACK REPRODUCED **+2.6735 EXACTLY** — AND THEN MY *VERIFIER* CRASHED COMPARING ACROSS DEVICES
+
+Written 2026-09-04T13:07Z. Rung `ops/frontier_stack_dump`, second attempt (§2911 was the first).
+Preregistration: `polynomial_causal/FRONTIER_STACK_DUMP_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards (not forward-instrumented), ~106 GPU-seconds to the crash, 1 pipeline run, 0 backwards, 0 fitted parameters.
+Results: none — exit=1, no receipt written. **All five predicates are UNSCORED, not failed.**
+
+§2911 died because `load_stack` used `map_location="cpu"` while the model is on CUDA. The fix landed as registered:
+`load_stack(key, device=None)`, defaulting to CPU so the certificate analysis path is unchanged, with the rung passing the model's
+device, plus a recursive `_to_device` mirroring `verify_stack`'s `_walk`, plus a test.
+
+**The fix worked, and that is the substantive result of this attempt.** The run reached the arm evaluation and printed:
+
+```
+L2 per arm: baseline +2.6735 | reload_check +2.6735
+```
+
+**A stack saved to disk, reloaded, and reinstalled into the live model reproduces the frontier to four decimals** — which is the
+property the certificate line needs and the thing `pred_e` was added to test. It then crashed **after** that measurement, in
+`verify_stack`, at `(xa.float() - xb.float())`: the reference stack is on CUDA, the reloaded one came back on CUDA, but the saved
+reference `_SAVED_S` had been captured CPU-side. `RuntimeError: Expected all tensors to be on the same device`.
+
+**The defect is in my verifier, not in the cache.** `verify_stack` exists precisely to compare a reference against a reload, and
+`load_stack(device=)` — which I had *just added* — makes cross-device comparison the normal case. I extended the function's contract
+and did not extend the function. Fixed by comparing on CPU (`xa.float().cpu() - xb.float().cpu()`), with a test that runs the CPU-vs-CUDA
+comparison when CUDA is present. Requeued.
+
+**Scored as written: no receipt, so nothing is claimed.** The `+2.6735` reload figure above is read from the runlog and is reported as
+a log observation, not as a predicate result; `pred_e` will be scored from a receipt on the next attempt or not at all.
+
+**The lesson, and it is the same one twice in two rungs.** §2911's fix was correct and I shipped it with a test — but the test I wrote
+covered `load_stack`, the function I changed, and not `verify_stack`, the function whose *inputs* I had changed. **A widened contract
+propagates to every consumer of the widened type; the test for a device argument belongs wherever two stacks meet, not only where one is
+loaded.** This is the third time in this ops tool that a verifier has been blind to exactly the case it was written to catch
+(`ops/fastload.py`'s meta-device attribute, `frontier_fitcache`'s nested-dict walk, now this) — and each time the fix was to make the
+verifier's recursion or comparison match the full space of inputs it can legitimately receive.
