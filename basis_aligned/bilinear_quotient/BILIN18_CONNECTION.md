@@ -74754,3 +74754,71 @@ picture: **the ordering of components is a robust fact about the model; the iden
 components sharing a similar true value looks like, and it is the leading account of the 8–15 band.
 
 §2860's "selectivity un-established" stands. The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2869 — SELECTION SURVIVES A CHANGE OF POPULATION: ALL FIVE TRUE, INFLATION REPLICATES AT .193, AND pred_b FINALLY RESOLVES — THE SEARCH IS NOT BETTER THAN THE NAMED WRITER
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_WINNERS_CURSE_OOD_PREREGISTRATION.md` (08:38Z). Run
+`circuit_battery_winners_curse_ood`, landed 08:42Z.
+Results: circuit_battery_winners_curse_ood_results.json
+Price: 6696 GPU forwards, 85.8 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). Selection on FIT, evaluation on **OOD**;
+**bars carried over verbatim from §2864**.
+
+| clause | §2864 (TEST, n=16) | §2867 (TEST, n=24) | **§2869 (OOD, n=24)** | bar |
+|---|---|---|---|---|
+| pred_a inflation | .063 | .197 | **.193** | ≥ .15 |
+| pred_b pick vs named writer | −.020 | −.031 | **+.0023** | ≥ 0 |
+| pred_c selection beats random | −.266 | −.088 | **−.240** | ≤ −.05 |
+| pred_d argmin does not reproduce | 0 of 7 | 0 of 7 | **0 of 7** | ≤ 2 |
+
+**All five TRUE, no null met.** Three findings, each of a different kind:
+
+- **Inflation replicates across populations**: .197 on TEST, **.193** on OOD. §2867's flip was not a sample-size artefact in the other
+  direction — the winner's curse is a stable property of this selection procedure, and §2864's "mild" reading is now doubly retired.
+- **pred_b resolves for the first time, at +.0023.** After landing inside the undecided gap twice (−.020, −.031), the third measurement
+  on a different population is essentially exactly zero. Taken together, **an unconstrained held-out search over all 36 components is
+  indistinguishable from the writer the battery identified from causal evidence** — the strongest support the writer identification has,
+  and it comes from a procedure designed to beat it.
+- **pred_c is stronger on OOD (−.240) than on TEST at the same sample size (−.088).** That ordering is unexpected and is recorded as
+  such rather than explained: a held-out-vocabulary population separates the selected component from a random one *more* cleanly than
+  the nearer TEST population does. §2870 below bears on why.
+- **pred_d: 0 of 7 for the FOURTH time**, now across two populations and three sample sizes.
+
+## §2870 — THE DISSOCIATION: THE COMPONENT RANKING SURVIVES A POPULATION CHANGE (ρ .763), THE BEHAVIOUR ORDERING DOES NOT (ρ .253)
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_V6_OOD_PREREGISTRATION.md` (08:40Z). Run `circuit_battery_v6_ood_population`, landed
+08:42Z.
+Results: circuit_battery_v6_ood_population_results.json
+Price: 760 GPU forwards, 11.1 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=24 (§2863's value, so the
+comparison is against published numbers); **bars carried over verbatim**.
+
+| clause | §2863 (TEST, n=24) | §2865 (TEST, n=64) | **§2870 (OOD, n=24)** | bar |
+|---|---|---|---|---|
+| pred_a metrics differ | .781 | .771 | **.781** | ≥ .30 |
+| pred_b P is a positive control | .072 | .061 | **.072** | ≤ .25 |
+| pred_c writer opposes copy | 71.4% | 64.3% | **71.4%** | ≥ 80% |
+| pred_d generalises | .117 | .083 | **.119** | ≤ .15 |
+| pred_e behaviour ordering stable | .556 | **.609** | **.253** | ≥ .60 |
+
+**pred_e collapses to ρ .253 against the OOD population** — barely above its own ρ ≤ .20 null, from .609 against TEST. This is precisely
+the outcome the preregistration was written to be able to find, quoted from it: *"a metric that generalises to TEST but not to OOD is
+measuring something tied to the pools those two splits share rather than to the behaviour."* **So §2865's pred_e flip must be read as
+pool-limited**: the behaviour ordering is stable across SELECT and TEST, which share vocabulary pools, and is **not** stable against
+held-out pools. Recorded here rather than left to stand in §2865.
+
+Note what does NOT collapse: pred_d, the per-behaviour held-out **gap**, is .119 on OOD against .117 on TEST. The *levels* transfer; the
+*ranking among behaviours* does not.
+
+### The dissociation, which is the substantive result of this arc
+
+| object | across sample size | across population |
+|---|---|---|
+| **component** ranking (§2868) | ρ .596 → .749 | **ρ .763** — survives |
+| **behaviour** ordering (§2865, §2870) | ρ .556 → .609 | **ρ .253** — collapses |
+| argmin identity (§2862/§2864/§2867/§2869) | 0 of 7 | 0 of 7 — never reproduces |
+
+**Per-component selectivity is a fact about the model; per-behaviour selectivity is substantially a fact about the vocabulary pools.**
+That also accounts for §2869's surprise — selection beats random more cleanly on OOD because the component axis, which selection runs
+along, is the axis that transports. And it sharpens the standing account of the 8–15 band: many components share a similar true value,
+that shared structure is robust to distribution change, and the ranking *among behaviours* built on top of it is not a stable target.
+
+§2860's "selectivity un-established" stands. The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
