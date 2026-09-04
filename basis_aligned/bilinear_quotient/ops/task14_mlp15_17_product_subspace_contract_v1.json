@@ -1,0 +1,122 @@
+{
+  "schema": "task14_mlp15_17_product_subspace_contract_v1",
+  "candidate_id": "task14.mlp15_17.product_subspace_causal_interchange",
+  "execution_authorized": false,
+  "status": "blocked_and_superseded_by_phase0_full_rank_panel",
+  "blocking_phase0": {
+    "contract_path": "ops/task14_mlp15_17_full_rank_panel_contract_v1.json",
+    "contract_sha256": "9da1af3b6c964bb137ba66fc3955f65d26e847fe93521bf4a7d028bb599df98c",
+    "preregistration_path": "../polynomial_causal/TASK14_MLP15_17_FULL_RANK_CONDITIONAL_RESPONSE_PANEL_PREREGISTRATION.md",
+    "preregistration_sha256": "23637d35c2d020f2d4bce788c68bbe68ad13e95afb0677b2df9f0014ee9291c2",
+    "rule": "No projector fit, optimizer, rank selection, model run, or queue entry may occur until Phase0 is separately implemented, executed, and reviewed."
+  },
+  "scope": "historical subspace design only; task-conditioned causal splitting and composition, never reconstruction or generic rank reduction",
+  "model_dimensions": {
+    "normalized_mlp_input": 1152,
+    "bilinear_product": 4608,
+    "mlp_output": 1152
+  },
+  "modules": [15, 17],
+  "parameterizations": {
+    "product": "W_D U U^T ((W_L x) odot (W_R x))",
+    "output": "V V^T W_D ((W_L x) odot (W_R x))"
+  },
+  "candidate_ranks": [1, 2, 4, 8],
+  "starts_per_rank": 3,
+  "confirmation_starts": 2,
+  "optimizer_updates_per_start": 100,
+  "fit_batch_size": 32,
+  "forbidden_fit_objectives": [
+    "activation reconstruction",
+    "explained variance",
+    "activation energy",
+    "parameter count",
+    "tensor rank"
+  ],
+  "data": {
+    "task_record": {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf"
+    },
+    "partition": {
+      "path": "ops/circuit_battery_task14_fit_localization_partition_v2.json",
+      "sha256": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3"
+    },
+    "donors": {
+      "path": "ops/circuit_battery_task14_fit_localization_donors_v2.json",
+      "sha256": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a"
+    },
+    "discovery_endpoints": {
+      "path": "ops/task14_projector_discovery_endpoint_shard_v1.json",
+      "sha256": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b"
+    },
+    "inner_fit_group_numbers": [0, 9, 10, 11, 16, 25, 26, 27],
+    "inner_select_group_numbers": [1, 4, 6, 15, 17, 20, 22, 31],
+    "fit_relations": 153,
+    "select_relations": 145,
+    "fit_ordinal_sha256": "5c24f97e98de6ff351514e19586d6ec4e72b5d1af6a3d5971d3d0b7d1b2267db",
+    "select_ordinal_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+    "role_rule": {
+      "opposite_subject_toward_donor": "target",
+      "same_subject_zero_projected_effect": "control",
+      "family_letters_never_define_role": true
+    },
+    "outer_validation_policy": "physically unopened until one frozen candidate passes inner SELECT"
+  },
+  "interventions": {
+    "head_counterfactual": "H is the base prompt with only attention-head 11.3 pre-output value replaced by its natural Task-14 donor value",
+    "conditional_response": "delta_z=z_H-z_B from the head-swap trajectory and matched native recipient; never raw natural-donor z",
+    "full_module_reference": "E_full=f(z_B)-f(z_H) in the same H upstream background",
+    "remove_selected": "E_remove=f(z_H-P delta_z)-f(z_H); target E_full",
+    "keep_only_selected": "E_suff=f(z_B+P delta_z)-f(z_B); target -E_full",
+    "product_projector": "P=U U^T in R^4608",
+    "output_projector": "replace y_current by y_b + (I-V V^T)(y_current-y_b) for removal, or y_b + V V^T(y_current-y_b) for sufficiency",
+    "joint_rule": "depth-ordered intervention must recompute the live MLP17 product after the MLP15 intervention; cached-output factorial is diagnostic only"
+  },
+  "select_bars": {
+    "removal_cell_vector_relative_l2_max": 0.2,
+    "sufficiency_cell_vector_relative_l2_max": 0.2,
+    "cell_vector_cosine_min": 0.95,
+    "strong_reference_cell_abs_min": 0.03,
+    "strong_cell_normalized_abs_error_max": 0.03,
+    "control_answer_margin_abs_max": 0.05,
+    "control_full_vocab_rms_max": 0.05,
+    "control_excess_over_full_module_max": 0.02,
+    "random_worst_cell_error_advantage_min": 0.1,
+    "passing_initial_starts_min": 2,
+    "passing_all_starts_min": 4,
+    "response_seed_median_abs_difference_max": 0.1,
+    "response_seed_p90_abs_difference_max": 0.2,
+    "complement_effect_fraction_max": 0.25,
+    "joint_cell_vector_relative_l2_max": 0.25,
+    "joint_interaction_normalized_abs_max": 0.03,
+    "unrelated_interchange_fraction_of_full_module_max": 0.1,
+    "unrelated_accuracy_drop_pp_max": 2.0
+  },
+  "random_controls_per_rank": 16,
+  "permuted_label_fits": 2,
+  "unrelated_behavior_control": {
+    "status": "deferred_until_module_liveness_is_proven",
+    "reason": "the numbered-list circuit is currently live at L8H7/L8H3 and MLP8-14, not proven at MLP15/17; a near-zero full-module denominator could pass trivially",
+    "entry_condition": "an unrelated behavior must first pass a preregistered MLP15/17 full-module causal liveness floor"
+  },
+  "weight_translation": {
+    "compiler": {
+      "path": "../polynomial_causal/product_projector_quadratic_compiler.py",
+      "sha256": "7063fe133a36aa0f5806bbd9e0e84d023c008bc3db14bcad0536b2f70ef12e77"
+    },
+    "product_formula": "Q_j=sym(W_L^T diag(u_j) W_R), d_j=W_D u_j",
+    "output_formula": "a_j=W_D^T v_j, Q_j=sym(W_L^T diag(a_j) W_R), d_j=v_j",
+    "selected_function": "sum_j d_j (x^T Q_j x)",
+    "bias_policy": "Down_bias stays in the background MLP and is not assigned to the selected response",
+    "identifiability": "Product representations are equivalent modulo ker(W_D), whose dimension is at least 3456. Only the causal output function or dense compiled tensor may be claimed, never a unique hidden product basis."
+  },
+  "registered_outcomes": [
+    "product-space causal feature",
+    "output-only causal write",
+    "operational response class with unstable geometry",
+    "small-linear-subspace null through rank 8",
+    "instrument invalid"
+  ],
+  "price_policy": "This design is blocked. Phase0 full-rank conditional responses must be reviewed before a new create-only subspace implementation amendment may hash a runner and freeze exact costs."
+}

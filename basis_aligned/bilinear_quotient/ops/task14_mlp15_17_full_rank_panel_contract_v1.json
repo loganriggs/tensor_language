@@ -1,0 +1,206 @@
+{
+  "schema": "task14_mlp15_17_full_rank_panel_contract_v1",
+  "candidate_id": "task14.mlp15_17.product_subspace_causal_interchange",
+  "phase": "phase0_full_rank_conditional_response",
+  "execution_authorized": false,
+  "screen_only": true,
+  "optimizer": null,
+  "candidate_ranks": null,
+  "question": "Before learning any subspace, determine whether the full MLP15 and MLP17 bilinear responses to the head-11.3 Task-14 interchange are live outside the previously measured direction and whether their depth-ordered joint intervention is executable.",
+  "sources": {
+    "task_record": {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf"
+    },
+    "partition": {
+      "path": "ops/circuit_battery_task14_fit_localization_partition_v2.json",
+      "sha256": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3"
+    },
+    "donors": {
+      "path": "ops/circuit_battery_task14_fit_localization_donors_v2.json",
+      "sha256": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a"
+    },
+    "discovery_endpoints": {
+      "path": "ops/task14_projector_discovery_endpoint_shard_v1.json",
+      "sha256": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b"
+    },
+    "relation_audit": {
+      "path": "circuits/followups/task14_mlp15_17_full_rank_panel_relation_audit_v1.json",
+      "sha256": "5c06979ff388e4847af843593d8b6e121a744d87ab4cbff8667eb0af84b48c8b"
+    },
+    "cached_factorial_context_only": {
+      "path": "circuits/followups/task14_head11_3_mlp15_mlp17_interaction_v1_result.json",
+      "sha256": "fdae100bd42177371b8429372f1d02ce24c1bb5eb0b29ac6a00e9511286968de"
+    }
+  },
+  "data": {
+    "fit_group_numbers": [0, 9, 10, 11, 16, 25, 26, 27],
+    "select_group_numbers": [1, 4, 6, 15, 17, 20, 22, 31],
+    "fit_relation_count": 153,
+    "select_relation_count": 145,
+    "fit_ordinal_sha256": "5c24f97e98de6ff351514e19586d6ec4e72b5d1af6a3d5971d3d0b7d1b2267db",
+    "select_ordinal_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+    "role_from_expected_relation_only": {
+      "opposite_subject_toward_donor": "target",
+      "same_subject_zero_projected_effect": "control"
+    },
+    "cell_key": ["arm", "family", "matching", "recipient_subject_state"],
+    "target_classes": ["paired", "cross_noun", "literal_cross_syntax", "complete_subject_transfer"],
+    "prediction_cell": ["target_class", "recipient_subject_state"],
+    "subject_state_semantics": {"-1": "singular", "+1": "plural"},
+    "outer_validation": "unopened and forbidden in Phase 0"
+  },
+  "model_dimensions": {
+    "normalized_mlp_input": 1152,
+    "bilinear_product": 4608,
+    "mlp_output": 1152
+  },
+  "trajectory": {
+    "B": "native recipient prompt",
+    "H": "the same recipient prompt with only attention head 11.3's final-token pre-output value replaced by the relation's natural donor value",
+    "module_product": "z_l=(W_L,l x_l) odot (W_R,l x_l)",
+    "conditional_response": "delta_z_l = z_l(H) - z_l(B)",
+    "background_for_single_module_f": "run the H trajectory to layer l, override only z_l, then recompute every later operation normally",
+    "score_outputs": ["donor-oriented is/are answer margin", "full-vocabulary logit vector"]
+  },
+  "signed_single_module_interventions": {
+    "definition": "For f_l evaluated in the fixed H upstream background, delta=z_H-z_B and P=I_4608.",
+    "full_effect": "E_full = f_l(z_B) - f_l(z_H)",
+    "removal": "E_remove = f_l(z_H - P delta) - f_l(z_H); target E_full",
+    "sufficiency": "E_suff = f_l(z_B + P delta) - f_l(z_B); target -E_full",
+    "required_exact_endpoints": [
+      "z_H - delta == z_B",
+      "z_B + delta == z_H",
+      "E_remove == E_full",
+      "E_suff == -E_full"
+    ],
+    "modules": [15, 17],
+    "exact_abs_tolerance": 0.0001
+  },
+  "exact_bilinear_expansion": {
+    "input_response": "dx_l=x_l(H)-x_l(B)",
+    "identity": "delta_z_l = (W_L x_B) odot (W_R dx_l) + (W_L dx_l) odot (W_R x_B) + (W_L dx_l) odot (W_R dx_l)",
+    "terms": {
+      "left_base_right_response": "t_BR=(W_L x_B) odot (W_R dx_l)",
+      "left_response_right_base": "t_LB=(W_L dx_l) odot (W_R x_B)",
+      "response_response": "t_RR=(W_L dx_l) odot (W_R dx_l)"
+    },
+    "phase0_required_closure": "max_abs(delta_z_l-(t_BR+t_LB+t_RR)) <= 1e-5 for every relation and module",
+    "phase0B_status": "preregistered but not authorized or included in the Phase0 price",
+    "phase0B_arms": "For each module and relation, evaluate all 8 subsets S of {t_BR,t_LB,t_RR} in the same fixed H upstream background at z_S=z_B+sum_{t in S}t.",
+    "phase0B_composition": "Use the 8-cell Boolean factorial to report three main effects, three pair interactions, and the three-way interaction on signed answer margin and full-vocabulary logits.",
+    "phase0B_price": {
+      "total_subset_states_per_module": 8,
+      "existing_phase0_states_per_module": ["empty/reset", "full/H"],
+      "additional_relation_conditions": 12,
+      "explanation": "six new subset states for each of two modules; empty and full are reused from Phase0",
+      "additional_relation_forward_calls_max_at_batch32": 120,
+      "additional_sequence_examples_max": 3576,
+      "backward_calls": 0,
+      "optimizer_updates": 0,
+      "joint_cross_module_term_factorial": "deferred; a 64-condition cross-module factorial is not silently included"
+    },
+    "interpretation": "Term effects are causal computations relative to the Task14 counterfactual. Product vectors are still interpreted only through W_D and modulo ker(W_D)."
+  },
+  "depth_ordered_joint": {
+    "cached_factorial_status": "diagnostic prior context only; it does not establish endogenous recomputation",
+    "reset": [
+      "run H to MLP15 and replace z15_H by z15_B",
+      "continue blocks 15 and 16 normally",
+      "at MLP17 record the newly recomputed z17_after_15_reset",
+      "define delta17_after_15_reset=z17_after_15_reset-z17_B and replace z17 by z17_after_15_reset-delta17_after_15_reset=z17_B",
+      "continue normally to logits"
+    ],
+    "rescue": [
+      "run the same H background and install z15_B+delta15=z15_H at MLP15",
+      "continue normally and record the resulting current z17",
+      "define its live delta17=current_z17-z17_B and install z17_B+delta17=current_z17",
+      "continue normally to logits"
+    ],
+    "required_diagnostic": "retain norm and hash of z17_after_15_reset-z17_H, plus the ordered hook-provenance record and counters below; a norm/hash alone is not proof of live recomputation",
+    "required_hook_provenance": {
+      "ordered_events_per_relation": [
+        "mlp15_product_enter",
+        "mlp15_reset_applied",
+        "mlp17_product_enter_after_mlp15",
+        "mlp17_live_product_captured",
+        "mlp17_reset_applied"
+      ],
+      "event_count_each_per_relation": 1,
+      "capture_rule": "z17_after_15_reset must be copied from the live MLP17 product-hook input reached after the MLP15 reset; a cached z17_H or precomputed substitute is forbidden",
+      "retained_hashes": [
+        "z17_after_15_reset",
+        "z17_after_15_reset_minus_z17_H"
+      ]
+    },
+    "joint_full_effect": "E_joint=f_joint_reset-f_H",
+    "joint_sufficiency": "E_joint_suff=f_joint_rescue-f_joint_reset; target -E_joint",
+    "note": "The joint rescue endpoint should reproduce H, but it is executed separately as a hook liveness check."
+  },
+  "metrics": {
+    "head_effect": "h_i = score(H_i)-score(B_i)",
+    "module_effect": "e_i = score(reset_i)-score(H_i)",
+    "signed_coefficient": "beta_G = -dot(e_G,h_G)/dot(h_G,h_G); beta>0 restores the native answer effect and beta<0 is compensatory",
+    "liveness_ratio": "q_G = rms(e_G)/max(rms(h_G),1e-12)",
+    "coherence": "c_G = abs(dot(e_G,h_G))/(norm(e_G) norm(h_G)); report the signed dot separately",
+    "control_scale": "FIT median absolute target head effect, frozen once and reused for FIT and SELECT controls",
+    "full_vocab_summary": "per relation RMS and maximum absolute logit change; full vocabulary arrays are reduced online and not retained"
+  },
+  "opposing_predictions": {
+    "broad_task14_response": {
+      "joint_required_in_each_directional_cell": "q_G >= 0.10 and c_G >= 0.50 separately for recipient_subject_state=-1 and +1 in each of paired, cross_noun, literal_cross_syntax, and complete_subject_transfer",
+      "single_module_required": "at least one of MLP15 or MLP17 has q_G >= 0.05 separately in both recipient states of every target class",
+      "interpretation": "The path is broader than the previously observed direction; report beta_G and its sign rather than forcing restoration."
+    },
+    "direction_specific_response": {
+      "gated_effect": "the depth-ordered joint MLP15-plus-MLP17 reset effect; single-module q values are reported but do not determine this terminal",
+      "required_live_direction": "the depth-ordered joint effect in paired recipient_subject_state=+1 (plural recipient with singular donor; the previously live plural-to-singular direction) has q_G >= 0.10",
+      "required_weak_opposite_direction": "the depth-ordered joint effect in paired recipient_subject_state=-1 has q_G < 0.05",
+      "required_lack_of_breadth": "for the depth-ordered joint effect, in at least two of {cross_noun,literal_cross_syntax,complete_subject_transfer}, at least one separately reported recipient-state cell has q_G < 0.05",
+      "interpretation": "Retain the label direction-specific compensatory response; do not claim a general subject-number feature."
+    },
+    "intermediate_or_mixed": "Anything between the two frozen patterns; report every signed cell and do not upgrade the claim.",
+    "control_failure": "control RMS module effect divided by FIT target head scale > 0.20 for any registered control arm"
+  },
+  "reporting": {
+    "never_pool_away": ["FIT versus SELECT", "target class", "arm", "family", "matching", "recipient subject state", "module", "reset versus rescue"],
+    "signed_cells_required": true,
+    "report_negative_effects_as": "compensatory, not failed or clipped",
+    "screen_language": "causal screen only; not a learned circuit, OOD result, or unique representation"
+  },
+  "product_space_identifiability": {
+    "observable_object": "delta_y_l = W_D,l delta_z_l and the induced downstream causal output function",
+    "equivalence": "delta_z and delta_z+n are observationally identical at the MLP output whenever n is in ker(W_D)",
+    "minimum_nullity": 3456,
+    "maximum_identifiable_dimension": 1152,
+    "allowed_future_claim": "a causal output function represented by a dense compiled quadratic tensor or an explicitly quotient-aware equivalence class",
+    "forbidden_claim": "a unique hidden product basis"
+  },
+  "unrelated_behavior_control": {
+    "phase0_status": "deferred",
+    "reason": "the current numbered-list circuit is causally live at L8H7/L8H3 with candidate MLP8-14 writes, not established at MLP15/17; a ratio with a near-zero MLP15/17 denominator could pass trivially",
+    "future_entry_condition": "choose an unrelated behavior with a preregistered MLP15/17 full-module causal liveness floor before scoring collateral effects"
+  },
+  "price": {
+    "batch_size": 32,
+    "native_endpoint_examples": 128,
+    "inner_relation_examples": 298,
+    "relation_conditions": ["H", "MLP15_reset", "MLP15_rescue", "MLP17_reset", "MLP17_rescue", "joint_reset", "joint_rescue"],
+    "native_forward_calls_max": 4,
+    "relation_forward_calls_max": 70,
+    "model_forward_calls_max": 74,
+    "sequence_examples_max": 2214,
+    "backward_calls": 0,
+    "optimizer_updates": 0,
+    "full_vocab_arrays_retained": false,
+    "runtime_cap": "must be measured and frozen with the eventual hashed runner before execution"
+  },
+  "terminal_states": [
+    "instrument_invalid",
+    "broad_task14_full_rank_response_supported",
+    "direction_specific_compensatory_response_supported",
+    "mixed_full_rank_response_screen",
+    "control_failure"
+  ],
+  "execution_boundary": "No model or GPU run is authorized by this contract. A create-only runner amendment must freeze runner/source hashes, exact retained bytes, measured runtime, and managed-queue entry."
+}

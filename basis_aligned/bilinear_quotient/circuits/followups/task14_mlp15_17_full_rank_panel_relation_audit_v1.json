@@ -1,0 +1,93 @@
+{
+  "schema": "task14_mlp15_17_full_rank_panel_relation_audit_v1",
+  "status": "immutable_metadata_audit_no_model_values",
+  "created_utc": "2026-09-04T18:03:00Z",
+  "candidate_id": "task14.mlp15_17.product_subspace_causal_interchange",
+  "sources": {
+    "partition": {
+      "path": "ops/circuit_battery_task14_fit_localization_partition_v2.json",
+      "sha256": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3"
+    },
+    "donors": {
+      "path": "ops/circuit_battery_task14_fit_localization_donors_v2.json",
+      "sha256": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a"
+    },
+    "discovery_endpoints": {
+      "path": "ops/task14_projector_discovery_endpoint_shard_v1.json",
+      "sha256": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b"
+    }
+  },
+  "role_rule": {
+    "target": "expected_relation == opposite_subject_toward_donor",
+    "control": "expected_relation == same_subject_zero_projected_effect",
+    "prohibited_shortcut": "family labels A1, A2, P, and C never determine target/control role"
+  },
+  "target_class_rule": {
+    "paired": "arm == answer_change and matching == paired",
+    "cross_noun": "expected_relation is target and matching begins cross_noun; includes answer_change and P_positive_transfer",
+    "literal_cross_syntax": "arm == cross_syntax",
+    "complete_subject_transfer": "arm in {C_to_ordinary_singular, ordinary_singular_to_C}"
+  },
+  "inner_splits": {
+    "FIT": {
+      "group_numbers": [0, 9, 10, 11, 16, 25, 26, 27],
+      "endpoint_count": 64,
+      "relation_count": 153,
+      "ordinal_sha256": "5c24f97e98de6ff351514e19586d6ec4e72b5d1af6a3d5971d3d0b7d1b2267db",
+      "target_count": 116,
+      "control_count": 37,
+      "target_class_counts": {
+        "paired": 32,
+        "cross_noun": 43,
+        "literal_cross_syntax": 12,
+        "complete_subject_transfer": 29
+      },
+      "target_arm_counts": {
+        "answer_change": 59,
+        "P_positive_transfer": 16,
+        "cross_syntax": 12,
+        "C_to_ordinary_singular": 19,
+        "ordinary_singular_to_C": 10
+      },
+      "control_arm_counts": {
+        "P_zero_coordinate_control": 8,
+        "C_zero_coordinate_control": 8,
+        "C_to_ordinary_plural_control": 16,
+        "ordinary_plural_to_C_control": 5
+      }
+    },
+    "SELECT": {
+      "group_numbers": [1, 4, 6, 15, 17, 20, 22, 31],
+      "endpoint_count": 64,
+      "relation_count": 145,
+      "ordinal_sha256": "4b7de6802d6f6fd23c669cde5276e57987ba552dd2b1ac67068c21fea9c0f823",
+      "target_count": 106,
+      "control_count": 39,
+      "target_class_counts": {
+        "paired": 32,
+        "cross_noun": 43,
+        "literal_cross_syntax": 12,
+        "complete_subject_transfer": 19
+      },
+      "target_arm_counts": {
+        "answer_change": 58,
+        "P_positive_transfer": 17,
+        "cross_syntax": 12,
+        "C_to_ordinary_singular": 11,
+        "ordinary_singular_to_C": 8
+      },
+      "control_arm_counts": {
+        "P_zero_coordinate_control": 8,
+        "C_zero_coordinate_control": 8,
+        "C_to_ordinary_plural_control": 15,
+        "ordinary_plural_to_C_control": 8
+      }
+    }
+  },
+  "outer_validation": {
+    "status": "unopened",
+    "ordinal_range": [544, 1087],
+    "ordinal_sha256": "32ecc3a9ab78a031df9207bfc0f788d4d7040ed4fa2f5ddeb61321dfd23e7191",
+    "phase0_use": "forbidden"
+  }
+}

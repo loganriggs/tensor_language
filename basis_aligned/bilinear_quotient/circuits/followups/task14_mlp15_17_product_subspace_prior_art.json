@@ -1,0 +1,57 @@
+{
+  "candidate_id": "task14.mlp15_17.product_subspace_causal_interchange",
+  "checked_utc": "2026-09-04T17:50:00Z",
+  "decision": "novel_specialization_of_existing_algebra",
+  "novelty": "Learn separate Task-14-conditioned projectors in the 4,608-dimensional bilinear product activations of MLP15 and MLP17. Each projector must reproduce both removal and sufficiency relative to that module's exact full-output causal effect, pass held-out lexical groups and active controls, and compose across MLP15+MLP17. No prior result fits or validates this object.",
+  "reuse_not_reimplementation": [
+    {
+      "path": "basis_aligned/polynomial_causal/BILINEAR_WEIGHT_COMPILED_DAS_RUNG536_PREREGISTRATION.md",
+      "sha256": "aa610d826a36cc2a73e73165691f171a05a210f65ffd97edd6a1e3300f6d1c49",
+      "finding": "Already defines product-space DAS and the exact quadratic fold; its real-model stage was blocked because no valid causal variable and sufficiently reliable label existed."
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/BILINEAR_WEIGHT_COMPILED_DAS_RUNG536_STAGE_A_RECEIPT.md",
+      "sha256": "ce0733192333d5e95118bcee62fe5d42e7d4bf91f97e30a2670124884eba02fb",
+      "finding": "Planted optimization, projector gauge, direct interchange, and quadratic compilation already pass; reuse these helpers and tests."
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/PRODUCT_PROJECTOR_TO_QUADRATIC_WEIGHTS.md",
+      "sha256": "f7257d8eca5c12d92a6d98c60c0b30c80728dabce595b66164331d85d86e99c1",
+      "finding": "Gives the audited exact map from a chosen product projector to quadratic forms and output vectors; it does not identify a causal projector."
+    },
+    {
+      "path": "basis_aligned/bilinear_quotient/circuits/DAS_M16.json",
+      "sha256": "f3bace628559511055f06245a6a4c8ff204ab7c11fbc659c0d21de7dac28b10b",
+      "finding": "Old rank-one MLP16 DAS uses overlapping census masks and module-level effects, not Task-14 natural donor pairs or MLP15/17 product activations."
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/explanations/MLP17_CURRENT_UNDERSTANDING.md",
+      "sha256": "27d24d2441f8230dd3c5cd7c37f593fb0e8fb1456fd56e82fe30ad391b405e6f",
+      "finding": "Generic output-rank, activation-conditioned Down-rank, and four-quadratic whole-layer MLP17 studies are closed or distribution-fragile; none is task-conditioned product-space interchange."
+    }
+  ],
+  "new_causal_support": [
+    {
+      "path": "basis_aligned/bilinear_quotient/circuits/followups/task14_head11_3_mlp15_17_vs_mlp16_factorial_v1_result.json",
+      "sha256": "e7765dbfd0269a32ab3e4ea8ccfeda1d4ceccabcce98e1d97d3dfd08c0ad8747",
+      "finding": "MLP15+17 reproduce the established late-path response while MLP16 and its interaction are small."
+    },
+    {
+      "path": "basis_aligned/bilinear_quotient/circuits/followups/task14_head11_3_mlp15_mlp17_interaction_v1_result.json",
+      "sha256": "fdae100bd42177371b8429372f1d02ce24c1bb5eb0b29ac6a00e9511286968de",
+      "finding": "MLP15 and MLP17 both contribute and their Task-14 interaction is small under the registered screen."
+    }
+  ],
+  "authority": {
+    "task_record": "basis_aligned/bilinear_quotient/circuits/task_subject_verb_number_agreement.json",
+    "task_record_sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf",
+    "partition_sha256": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3",
+    "donor_authority_sha256": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a"
+  },
+  "active_unrelated_control": {
+    "task_record": "basis_aligned/bilinear_quotient/circuits/task_numbered_list_index_successor.json",
+    "task_record_sha256": "a90dcd5164812788ec09ee25be985d585027517568d1b6d3c9ae1cb425356ec1",
+    "reason": "Its latest weight-translated claim explicitly provides active repeated-list and word-copy collateral controls; these are used as unrelated behavior tests rather than assuming the 62 overlapping masks are independent semantic circuits."
+  },
+  "scope": "Causal within-MLP splitting and cross-MLP composition. Rank is only the cost of the smallest passing task-conditioned intervention; reconstruction, variance, or parameter count cannot pass."
+}
