@@ -87,12 +87,33 @@ def test_foils_are_nondegenerate() -> None:
         assert all(len(task17.ENCODING.encode(foil)) == 1 for foil in row["foil_answers"])
 
 
-def test_static_gate_rejects_cross_phase_payload_leakage() -> None:
+def test_static_gate_rejects_cross_phase_payload_mutation() -> None:
     rows = authority(2)
     fit = next(row for row in rows if row["split"] == "FIT")
     select = next(row for row in rows if row["split"] == "SELECT")
     select["base_values"][0] = fit["base_values"][0]
-    with pytest.raises(contract.BatteryContractError, match="payload vocabulary leakage"):
+    with pytest.raises(contract.BatteryContractError, match="row identity"):
+        task17.validate_authority(rows)
+
+
+def test_static_gate_rejects_semantic_and_identity_corruption() -> None:
+    rows = authority(2)
+    a2 = next(row for row in rows if row["split"] == "FIT" and row["transform_id"] == "A2")
+    a2["donor_query"] = (a2["donor_query"] + 1) % a2["list_length"]
+    with pytest.raises(contract.BatteryContractError, match="row identity"):
+        task17.validate_authority(rows)
+
+    rows = authority(2)
+    a2 = next(row for row in rows if row["split"] == "FIT" and row["transform_id"] == "A2")
+    a2["donor_values"] = list(a2["base_values"])
+    identity = {
+        "schema": task17.SCHEMA, "task_id": task17.TASK_ID, "split": a2["split"],
+        "group_id": a2["group_id"], "transform_id": a2["transform_id"],
+        "base_values": a2["base_values"], "donor_values": a2["donor_values"],
+        "base_query": a2["base_query"], "donor_query": a2["donor_query"],
+    }
+    a2["row_id"] = task17._canonical_sha(identity)
+    with pytest.raises(contract.BatteryContractError, match="A2 is not"):
         task17.validate_authority(rows)
 
 

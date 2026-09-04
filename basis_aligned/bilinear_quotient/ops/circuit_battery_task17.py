@@ -181,23 +181,71 @@ def _panel(split: str, group_number: int, seed: int) -> list[dict[str, Any]]:
     return [a1, a2, p, c]
 
 
+def _validate_panel_semantics(panel: list[dict[str, Any]]) -> None:
+    by_transform = {row["transform_id"]: row for row in panel}
+    if set(by_transform) != set(contract.TRANSFORMS) or len(panel) != 4:
+        raise contract.BatteryContractError("panel is not exactly A1/A2/P/C")
+    a1, a2, p, c = (by_transform[name] for name in contract.TRANSFORMS)
+    core = a1["base_values"]
+    query = a1["base_query"]
+    if not (a2["base_values"] == p["base_values"] == core
+            and a2["base_query"] == p["base_query"] == query):
+        raise contract.BatteryContractError("A1/A2/P do not share one generated base situation")
+
+    alternate = a1["donor_query"]
+    if a1["donor_values"] != core or alternate == query:
+        raise contract.BatteryContractError("A1 changes more than the query index")
+
+    changed_a2 = [index for index, values in enumerate(zip(core, a2["donor_values"]))
+                  if values[0] != values[1]]
+    if (a2["donor_query"] != query or set(changed_a2) != {query, alternate}
+            or a2["donor_values"][query] != core[alternate]
+            or a2["donor_values"][alternate] != core[query]):
+        raise contract.BatteryContractError("A2 is not the registered queried-payload swap")
+
+    changed_p = [index for index, values in enumerate(zip(core, p["donor_values"]))
+                 if values[0] != values[1]]
+    if (p["donor_query"] != query or len(changed_p) != 1 or changed_p[0] == query
+            or p["donor_values"][changed_p[0]] in core):
+        raise contract.BatteryContractError("P is not one novel unqueried-payload replacement")
+
+    expected_control = list(core)
+    expected_control[alternate] = core[query]
+    if (c["base_values"] != expected_control or c["donor_values"] != expected_control
+            or c["base_query"] != query or c["donor_query"] != alternate
+            or len(set(expected_control)) < 2):
+        raise contract.BatteryContractError("C is not the registered duplicate-target index control")
+
+
 def validate_authority(rows: list[dict[str, Any]]) -> str:
     """Fail closed on task semantics in addition to the shared typed contract."""
     authority_sha = contract.validate_rows(TASK_SPEC, rows)
     phases = set(contract.PHASES)
     prompts_by_phase: dict[str, set[str]] = {phase: set() for phase in phases}
     values_by_phase: dict[str, set[str]] = {phase: set() for phase in phases}
+    panels: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for row in rows:
         phase = row["split"]
         prompts_by_phase[phase].update((row["base_text"], row["donor_text"]))
         values_by_phase[phase].update(row["base_values"])
         values_by_phase[phase].update(row["donor_values"])
+        panels.setdefault((phase, row["group_id"]), []).append(row)
+        identity = {
+            "schema": SCHEMA, "task_id": TASK_ID, "split": phase,
+            "group_id": row["group_id"], "transform_id": row["transform_id"],
+            "base_values": row["base_values"], "donor_values": row["donor_values"],
+            "base_query": row["base_query"], "donor_query": row["donor_query"],
+        }
+        if row["row_id"] != _canonical_sha(identity):
+            raise contract.BatteryContractError("row identity does not bind its structured authority")
         _joint_encoding(row["base_text"], row["base_answer"])
         _joint_encoding(row["donor_text"], row["donor_answer"])
         if len(row["base_ids"]) != len(row["donor_ids"]):
             raise contract.BatteryContractError("interchange prompts are not position-aligned")
         if row["base_answer"] in row["foil_answers"] or not row["foil_answers"]:
             raise contract.BatteryContractError("answer/foil margin is degenerate")
+    for panel in panels.values():
+        _validate_panel_semantics(panel)
     for index, phase in enumerate(contract.PHASES):
         for other in contract.PHASES[index + 1:]:
             if prompts_by_phase[phase] & prompts_by_phase[other]:
