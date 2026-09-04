@@ -77255,3 +77255,64 @@ Two smaller notes. The fitted penalty is, marginally, the best of the three (−
 reasonable choice and there is nothing to gain by retuning it — **that line is now closed from both sides**. And at λ×0.25 the unscaled
 cell reads −0.0007 rather than 0.0000: a solution fitted with a quarter of the penalty is very slightly *better* unscaled, which is the
 right sign and far too small to pursue.
+
+---
+
+## §2921 — **THE CONTROL PASSES AND §2919 SHARPENS: THE TAIL CORRECTION IS A RANK-32 PROJECTION, NOT A SCALAR.** −0.2828 AGAINST THE ADOPTED SCALAR'S −0.2287, INTERIOR IN BOTH AXES, **−0.2872 HELD OUT.** ALL FIVE PREDICATES HOLD
+
+Written 2026-09-04T13:33Z. Rung `ops/frontier_tail_rank_localise`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_TAIL_RANK_LOCALISE_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 185.0 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_tail_rank_localise_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+**The controls first, because §2919's result was held hostage to them.**
+
+| control | requirement | measured | |
+|---|---|---|---|
+| `svd_identity` — all directions × 1.0 **through the SVD path** | \|·\| ≤ .005 | **+0.0001** | HELD |
+| `svd_uniform` vs plain multiply — same operation, two code paths | agree within .01 | **−0.2287 vs −0.2287, disagreement 0.0000** | HELD |
+| `top64 s0.25` — §2919's headline cell | within .01 | **−0.2614, deviation 0.0000** | HELD |
+
+`U diag(s) Vᵀ` reconstructs `LW` faithfully; the decompose-and-reconstruct path and the plain multiply agree exactly; and §2919
+replicates to four decimals. **`b_null_the_svd_path_is_not_faithful` is refused, so §2919 is confirmed rather than withdrawn**, and the
+standing requirement of an independent physical control before publishing a conclusion-flipping correction is satisfied.
+
+| rank | s=0.10 | **s=0.25** | s=0.40 |
+|---|---|---|---|
+| 16 | −0.2515 | −0.2646 | −0.2480 |
+| **32** | −0.2783 | **−0.2828** | −0.2586 |
+| 64 | −0.2545 | −0.2614 | −0.2395 |
+| 128 | −0.2370 | −0.2448 | −0.2243 |
+| 256 | −0.2249 | −0.2343 | −0.2158 |
+| *(uniform ×0.25, all 1152)* | | *−0.2287* | |
+
+**pred_e HELD — the optimum is interior in both axes** (rank 32 inside {16…256}, scale 0.25 inside {0.10, 0.25, 0.40}), so **−0.2828 is
+a value, not a bound**, unlike §2919's −0.2614 which sat at the smallest rank that rung tested.
+
+**The result.** **Shrinking 32 of 1152 singular directions — 2.8% of them — is worth 0.0541 nats more than shrinking all 1152.** The
+tail link maps are accurate almost everywhere and systematically over-large on a 32-dimensional subspace; the adopted scalar buys its
+−0.2287 by correcting that subspace while damaging the 1120 directions that did not need correcting. Implied tail-alone frontier:
+**+2.3907** against §2896's +2.4448.
+
+**It transports, and slightly better than it selects: −0.2872 held out against −0.2828 fresh** — a *negative* selection bias of 0.0044,
+the same sign and size as §2914 found for the uniform scalar. Whatever this subspace is, it is not an artefact of the 120 documents.
+
+**§2917's inference is now definitively overturned, with its measurements intact.** More ridge really is monotonically worse (§2917) and
+that path is now controlled too (§2920's identity cell). Ridge failed not because the excess is spread evenly but because it shrinks
+hardest in the low-eigenvalue directions, which is exactly where the excess **is not** — `bot64` at **+0.0489** says shrinking there is
+actively harmful. The three results compose into one statement: **the excess is a small, high-eigenvalue, regulariser-independent
+subspace of each tail link map.**
+
+**Still not adopted, and the remaining step is specified.** §2912's configuration (tail ×0.30 uniform, CP ×0.80, motif ×1.25, +2.2999
+in selection / +2.3171 held out) remains the frontier of record. What this rung measured is the **tail term alone**; a rank-32
+projection is a different kind of object and must be shown to compose — the tail and CP terms interact by +0.0149 (§2904) and the motif
+term by more — and to hold up on a held-out window **in composition**, not just standalone. `frontier_rank_composition` is registered
+next to do exactly that, swapping §2912's uniform tail term for the rank-32 projection and measuring the whole configuration on both
+windows.
+
+**One observation for the certificate line.** A rank-32 correction on a 1152×1152 map is **1152·32·2 = 73,728 numbers** against the
+map's 1,327,104 — and the §2915 dump makes the subspace itself inspectable on CPU, with no GPU and no refit. If those 32 directions are
+consistent across the eight tail layers or across the four link classes, that is a *structural* claim of the kind "0 of 68" has been
+waiting for, and it can be tested without spending a single GPU-second.
