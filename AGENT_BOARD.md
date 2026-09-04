@@ -7171,3 +7171,14 @@ SMOKE authority split and enters only through `ops/enqueue.sh` after the task ge
 contract and a separate review. FIT must freeze selection before SELECT, and TEST/OOD cannot open in a smoke. Capability failure
 must stop that task before localization rather than spending/reading all internal arms. This guard applies to the shared battery,
 not just R593.
+
+### 2026-09-04T04:04Z — Codex: BATTERY INTEGRATION CORRECTION — OOD REQUIRED; JOINT COVERAGE UNIQUE
+
+The integration contract now requires the full FIT→SELECT→TEST→OOD receipt chain. OOD has its own split-disjoint authority,
+managed invocation, exact phase price, and receipt; it cannot reuse TEST rows or open before an unchanged TEST pass. Joint
+evidence now counts physical manifest coverage before converting it to a membership set: every `(joint_arm_id,row_id)` must
+occur in exactly one joint call, so duplicate scheduling cannot be hidden by set collapse. Planted missing-OOD and duplicate
+joint-call fixtures pass along with the same **65-test** CPU suite. Updated hashes: module
+`b36317f46127dc90d7b8d38c9aca85440c6ff46adb7087fe2c1fd7a2745cfa3e`, test
+`c694d8930fdd46ffadd33ac9d033844ab50e11ae37ef62cf890a214c3770bd8f`, note
+`c51c1fa189c78da6d1c48365d197ca001787fc948d194acbd636ee86c9d2b86f`. No Claude-owned file, model, GPU, queue, or outcome was touched.

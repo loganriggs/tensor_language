@@ -14,7 +14,7 @@ from typing import Literal, Mapping, Sequence
 import circuit_experiment_spec as framework
 
 
-PHASES = ("FIT", "SELECT", "TEST")
+PHASES = ("FIT", "SELECT", "TEST", "OOD")
 TRANSFORMS = ("A1", "A2", "P", "C")
 
 
@@ -50,12 +50,12 @@ class BatteryTaskSpec:
 @dataclass(frozen=True)
 class PhasedArtifact:
     artifact: framework.ArtifactRef
-    visibility: Literal["PROTOCOL", "FIT", "SELECT", "TEST"]
+    visibility: Literal["PROTOCOL", "FIT", "SELECT", "TEST", "OOD"]
 
 
 @dataclass(frozen=True)
 class ExactPhasePrice:
-    phase: Literal["FIT", "SELECT", "TEST"]
+    phase: Literal["FIT", "SELECT", "TEST", "OOD"]
     forward_calls: int
     example_evaluations: int
     backward_calls: int
@@ -66,7 +66,7 @@ class ExactPhasePrice:
 @dataclass(frozen=True)
 class PhaseReceipt:
     task_id: str
-    phase: Literal["FIT", "SELECT", "TEST"]
+    phase: Literal["FIT", "SELECT", "TEST", "OOD"]
     decision: Literal["pass", "fail", "invalid"]
     selection_sha256: str
     result_sha256: str
@@ -214,14 +214,19 @@ def validate_joint_arm_evidence(task: BatteryTaskSpec, rows: Sequence[Mapping[st
     validate_task(task)
     calls = {str(call["call_id"]): call for call in compiled.get("call_manifest", ())}
     row_groups = {str(row[task.row_id_field]): str(row[task.group_id_field]) for row in rows}
-    expected: set[tuple[str, str]] = set()
+    expected_counts: dict[tuple[str, str], int] = {}
     arms = {arm.arm_id: arm for arm in task.joint_arms}
     for arm in task.joint_arms:
         for call in calls.values():
             if call.get("arm") == arm.arm_id:
-                expected.update((arm.arm_id, str(row_id)) for row_id in call["row_ids"])
+                for row_id in call["row_ids"]:
+                    key = (arm.arm_id, str(row_id))
+                    expected_counts[key] = expected_counts.get(key, 0) + 1
         if not any(call.get("arm") == arm.arm_id for call in calls.values()):
             raise BatteryContractError("declared joint arm is absent from the physical manifest")
+    if any(count != 1 for count in expected_counts.values()):
+        raise BatteryContractError("a joint arm/row occurs in more than one physical joint call")
+    expected = set(expected_counts)
     observed: set[tuple[str, str]] = set()
     for record in evidence:
         arm_id, row_id = str(record.get("joint_arm_id")), str(record.get("row_id"))

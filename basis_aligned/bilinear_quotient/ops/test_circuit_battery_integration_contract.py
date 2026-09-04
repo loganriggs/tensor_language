@@ -92,12 +92,16 @@ def test_phase_opening_requires_exact_passing_prefix_and_frozen_selection() -> N
     battery.authorize_phase(task(), "SELECT", (fit,))
     select = receipt("SELECT")
     battery.authorize_phase(task(), "TEST", (fit, select))
+    test = receipt("TEST")
+    battery.authorize_phase(task(), "OOD", (fit, select, test))
     with pytest.raises(battery.BatteryContractError, match="exact required prefix"):
         battery.authorize_phase(task(), "TEST", (fit,))
     with pytest.raises(battery.BatteryContractError, match="fail"):
         battery.authorize_phase(task(), "SELECT", (replace(fit, decision="fail"),))
     with pytest.raises(battery.BatteryContractError, match="selection changed"):
         battery.authorize_phase(task(), "TEST", (fit, replace(select, selection_sha256="2" * 64)))
+    with pytest.raises(battery.BatteryContractError, match="exact required prefix"):
+        battery.authorize_phase(task(), "OOD", (fit, select))
     with pytest.raises(battery.BatteryContractError, match="price is for another phase"):
         battery.authorize_phase(
             task(), "SELECT", (replace(fit, price=replace(fit.price, phase="SELECT")),)
@@ -166,3 +170,11 @@ def test_joint_arm_requires_physical_call_exact_coverage_and_interaction() -> No
         battery.validate_joint_arm_evidence(task(), fit_rows, compiled, wrong_interaction)
     with pytest.raises(battery.BatteryContractError, match="incomplete"):
         battery.validate_joint_arm_evidence(task(), fit_rows, compiled, evidence[:-1])
+    duplicate = dict(compiled)
+    duplicate_call = dict(next(
+        call for call in compiled["call_manifest"] if call["arm"] == "reader8_reader10"
+    ))
+    duplicate_call["call_id"] = "FIT:reader8_reader10:duplicate"
+    duplicate["call_manifest"] = [*compiled["call_manifest"], duplicate_call]
+    with pytest.raises(battery.BatteryContractError, match="more than one physical"):
+        battery.validate_joint_arm_evidence(task(), fit_rows, duplicate, evidence)

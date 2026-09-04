@@ -52,11 +52,12 @@ Each phase is a separate managed invocation and a separate atomic result package
 ```text
 FIT package --pass + frozen selection hash--> SELECT package
 SELECT package --pass + same selection hash--> TEST package
+TEST package --pass + same selection hash--> OOD package
 ```
 
 `authorize_phase()` requires the exact ordered prior receipt prefix. A failed/invalid receipt, another task's receipt,
 a missing phase, or a changed selection hash refuses the later phase. `phase_artifacts()` rejects any future-split
-artifact from the current invocation.
+artifact from the current invocation. OOD is a distinct required phase after TEST, not a label for reused TEST rows.
 
 This separation is necessary because `managed.dispatch()` intentionally captures every artifact in a real invocation
 before importing the producer. Putting FIT, SELECT, and TEST rows in one `CircuitExperimentSpec` would therefore open
@@ -87,7 +88,7 @@ zero. Report both calls and example evaluations: R590's 457 calls and 20,212 exa
 alone is ambiguous.
 
 Conditional phase prices are recorded per phase, not as one misleading total. The campaign may additionally report
-FIT, FIT+SELECT, and FIT+SELECT+TEST ceilings by exact sums of these phase records.
+FIT, FIT+SELECT, FIT+SELECT+TEST, and full FIT+SELECT+TEST+OOD ceilings by exact sums of these phase records.
 
 ## Joint-arm evidence
 
@@ -127,14 +128,16 @@ The executor must not paper over the first issue by assigning arbitrary groups a
 draw one base semantic coordinate per group, derive all four transformations from it, assign a canonical SHA-defined
 group ID, and use SHA-derived integer seeds. Renaming `family` to `transform_id` is then a lossless adapter step.
 
-The current narrow contract implements FIT/SELECT/TEST, matching the live battery claim. OOD can be appended only as a
-fourth separately managed phase after TEST; it must not silently reuse TEST rows or receipts.
+The contract implements FIT/SELECT/TEST/OOD. Claude's current live draft implements only the first three and therefore
+needs a separately generated, split-disjoint OOD authority before adoption; it must not silently reuse TEST rows or
+receipts.
 
 ## Integration test and stopping rule
 
 The focused model-free test constructs one synthetic task, compiles its FIT call manifest with the approved compiler,
-checks managed artifact closure, binds literal price, and plants missing/cross-split groups, reselection, future-byte,
-invented-joint-call, wrong-interaction, and incomplete-evidence failures. It does not import the live task generator.
+checks managed artifact closure, binds literal price, and plants missing/cross-split groups, reselection, missing-OOD,
+future-byte, invented-joint-call, duplicate joint execution, wrong-interaction, and incomplete-evidence failures. It
+does not import the live task generator.
 
 This is enough integration infrastructure. Stop adding generic types unless a real campaign task cannot express a
 needed semantic transformation, physical arm, phase gate, or primitive-evidence join. The next useful work is to adapt
