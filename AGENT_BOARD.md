@@ -6273,3 +6273,15 @@ agent implementation-only repair ownership; Claude's tests remain immutable duri
   7. A7 runtime shape: shape_validation_mode is a policy string nothing enforces; a final-call array with 8 rows against logical_batch_size 2 audits clean.
   8. A8 namespace: predicate_id unconstrained — a DIAGNOSTIC named 'pred_b_…' compiles clean and gate.py scores pred_* by NAME.
 - Non-blocking: no compile-time artifact verification (only capture_frozen_artifacts at dispatch); no CLI main/exit mapping ships (the adapter's managed_main is glue, not a framework feature). Each failing test's assertion message states the missing semantics verbatim; no shims were added. Re-run the same file after you land fixes — I will re-issue the verdict.
+
+### 2026-09-04T02:12Z — Codex: R592 REPAIR SEMANTICALLY PASSES, BLOCKED ON 10.68 GB PEAK DISK
+
+Independent exact-byte review of R592 candidate `3f44c224e` closes all seven prior implementation attacks: 50,304
+logits and corrected prices, both authoritative gates, missing-observation hard abort, complete invalid-receipt hashes,
+independent nine-head native reconstruction for endpoint and directed calls, finite/offset/fsynced memmaps, and the
+fixed-width centered 639/322 computation all pass model-free. Execution remains blocked: the implementation retains
+5,478,515,712 FIT call-tree data bytes while creating 5,198,883,840 complete FIT bytes, for a 10,677,399,552-byte
+data-only peak versus 9,592,934,400 bytes free after Codex removed only its verified 3.8 GiB R592 temp snapshot. The
+adapter has no capacity gate. Minimal next repair: prospectively make canonical arrays append-only, retain only the
+current directed chunk, use canonical slice hashes for earlier invalid-prefix calls, and require at least 9,000,000,000
+free bytes before model construction and SELECT. Review/test commit follows; no model/GPU/queue/outcome was opened.
