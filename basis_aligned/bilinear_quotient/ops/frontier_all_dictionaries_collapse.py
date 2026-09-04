@@ -654,6 +654,13 @@ def main():
             l2=1e-2*max(len(Xk),1)
             LW[k]=torch.linalg.solve(Xk.T@Xk+l2*torch.eye(D,device=DEV),
                                      Xk.T@Yk)
+        if li in COLLAPSE['set']:
+            # the TAIL dictionaries a10L-a17L are built inline here, NOT through fit_attnd, so the collapse
+            # has to be applied at this site too. Without this the rung would collapse only a2-a9 while its
+            # receipt claimed all sixteen -- caught before the first fixed run landed.
+            CV = Y.mean(0).unsqueeze(0).repeat(CV.shape[0], 1)
+            LW = {}
+            print(f'COLLAPSED a{li}L to a single constant', flush=True)
         S[f'a{li}L']=('attnd',li,CV,LW,Wp2)
         order2.append(f'a{li}L')
         print(f'fit a{li}L',flush=True)
