@@ -11,6 +11,11 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0745.md](explanation_2026-09-04_0745.md) — why 768 was a convenient probe width rather
+  than an eigengap; the standalone task-14 subject–verb-agreement computation and four counterfactual families; the
+  independently caught template-alias and repeated-control defects; the repaired, independently approved 512-row
+  authority and exact prospective 8-call/256-prompt/2,048-byte FIT test; plus a graph of why weight-only bilinear
+  eigenvectors become informative only after supplying a causally identified output axis
 - [explanation_2026-09-04_0718.md](explanation_2026-09-04_0718.md) — task 21's independently audited native-capability
   hard abort with an inline percentage graph and exact 8/168/1,344 computation; why the older-conflict A2 cell fails
   despite positive average margins; why this closes localization without invalidating the predictive-state method;

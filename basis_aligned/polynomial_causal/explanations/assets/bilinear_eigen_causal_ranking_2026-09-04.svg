@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+  <title id="title">Correlation between bilinear eigenvector ranking and causal importance</title>
+  <desc id="desc">Raw eigenvalue magnitude has Spearman correlation minus 0.446, input-moment weighting minus 0.191, and using a causally established output axis plus 0.383. The preregistered success threshold was plus 0.600.</desc>
+  <rect width="900" height="360" fill="#ffffff"/>
+  <text x="450" y="31" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#172033">Does the weight ranking predict causal importance?</text>
+  <text x="450" y="55" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#4b5563">Spearman correlation: negative means the ordering runs backwards; +1 would be perfect</text>
+  <line x1="410" y1="82" x2="410" y2="290" stroke="#374151" stroke-width="2"/>
+  <line x1="118" y1="290" x2="780" y2="290" stroke="#9ca3af" stroke-width="1"/>
+  <line x1="760" y1="76" x2="760" y2="295" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="760" y="317" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#6d28d9">registered success: +0.600</text>
+  <text x="395" y="310" text-anchor="end" font-family="sans-serif" font-size="12" fill="#4b5563">0</text>
+  <text x="118" y="310" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#4b5563">−0.5</text>
+  <text x="702" y="310" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#4b5563">+0.5</text>
+  <text x="28" y="118" font-family="sans-serif" font-size="15" fill="#172033">Raw |eigenvalue|</text>
+  <rect x="150" y="94" width="260" height="34" rx="4" fill="#dc2626"/>
+  <text x="142" y="117" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#991b1b">−0.446</text>
+  <text x="28" y="188" font-family="sans-serif" font-size="15" fill="#172033">Include input use</text>
+  <rect x="299" y="164" width="111" height="34" rx="4" fill="#f97316"/>
+  <text x="291" y="187" text-anchor="end" font-family="sans-serif" font-size="14" font-weight="700" fill="#9a3412">−0.191</text>
+  <text x="28" y="258" font-family="sans-serif" font-size="15" fill="#172033">Causal output axis</text>
+  <rect x="410" y="234" width="223" height="34" rx="4" fill="#16a34a"/>
+  <text x="641" y="257" font-family="sans-serif" font-size="14" font-weight="700" fill="#166534">+0.383</text>
+  <text x="450" y="346" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#4b5563">The causal axis helps substantially, but the ranking still misses the preregistered predictive threshold.</text>
+</svg>
