@@ -75291,3 +75291,56 @@ before it was read as "this component is free". Recorded as a standing rule in t
 the manipulated entry appears in `order2`/`cfgF`, and state that it does.**
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2880 — THE MLP STAGE'S TWO HALVES ARE STRONGLY **SUPER**ADDITIVE: EACH ALONE COSTS ~0.7 NATS, BOTH TOGETHER COST **+3.2104**. NOT ONE JOB DONE TWICE — TWO HALVES THAT EACH ABSORB THE OTHER'S ABSENCE
+
+Registered `polynomial_causal/FRONTIER_MLP_JOINT_DROP_PREREGISTRATION.md` (09:28Z). Run `frontier_mlp_joint_drop`, landed 09:36Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_mlp_joint_drop_results.json
+Price: 0 GPU forwards, 189.2 GPU-seconds (2 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 2` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A drop **cost** is `L2_F(dropped) − L2_F(baseline)`, **POSITIVE = WORSE**; the **subadditivity gap** is `(sum of singles) − joint`,
+**POSITIVE = redundant**, NEGATIVE = superadditive. §2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+| arm | L1_F | L2_F | L2_C | cost |
+|---|---|---|---|---|
+| BASELINE | 2.2871 | **+2.6735** | +2.4233 | — |
+| token table dropped (§2877) | | +3.3549 | | +0.6814 |
+| quadratic residual dropped (§2877) | | +3.4271 | +3.7839 | +0.7536 |
+| **BOTH dropped** | **5.7448** | **+5.8839** | +6.8162 | **+3.2104** |
+
+**This component IS installed, and unlike §2879's case the check is in the data rather than only in the code:** L1_F moves
+2.2871 → **5.7448** and L2_C moves 2.4233 → **6.8162**. Every reported quantity responds. Per the standing rule adopted in §2879, the
+manipulated entries (`m0E`, `m2E`, `m3E` via `fit_res`, and the `fit_tableres` entries) are in the evaluated stack — and §2877's
+non-zero single-drop costs already demonstrated the connection.
+
+**pred_a HELD** (+2.6735) and **pred_e HELD** — the baseline reproduces §2877's baseline exactly, which is what licenses comparing this
+run's joint cost against §2877's singles at all. §2877's costs were read from its receipt under a frozen hash, so the arithmetic below
+cannot drift from the numbers it is compared against.
+
+**pred_b HELD** — the halves are emphatically **not additive**: the additive prediction is **1.4350** and the measured joint cost is
+**3.2104**, a discrepancy of **1.7754 nats**. **pred_d HELD** — dropping both is worse than dropping either by **+2.4568**.
+
+**pred_c FAILED, with the gap NEGATIVE (−1.7754).** The preregistration anticipated exactly this and said how to report it: *"if
+dropping both is worse than the sum (superadditive — the pair is load-bearing in a way neither is alone) the gap goes negative, which
+pred_b would still catch and which is reported with its sign rather than as an absolute."* It is so reported. **Neither null fired.**
+
+### Reading
+
+The MLP stage is **not** one job done twice. Each half absorbs a large part of the other's absence — dropping the token lookup alone
+costs .68 because the rank-64 quadratic residual still supplies a partial reconstruction, and vice versa — but with **both** gone the
+stage emits nothing and the frontier loses **3.21 nats**, more than twice the sum of the individual damages.
+
+Two consequences worth stating separately:
+
+1. **No simplification is available here.** §2877 already showed neither half is cheap; this shows the pair is worth far more than
+   their separate costs suggest, so any scheme that drops one half and hopes the other covers it is buying a .7-nat loss for a modest
+   parameter saving, and dropping both is catastrophic.
+2. **Single-component ablation systematically understates this stage.** Measuring each half alone would price the MLP stage at
+   ≈ 1.4 nats; it is worth ≥ 3.2. This is the same compensation effect the circuit literature calls the Hydra effect
+   (McGrath et al., arXiv:2307.15771), appearing here in a *fitted reconstruction* rather than in the model — and it is a caution for
+   every per-component cost this ledger has published from single ablations.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
