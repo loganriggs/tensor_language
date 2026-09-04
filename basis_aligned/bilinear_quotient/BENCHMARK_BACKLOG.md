@@ -5531,3 +5531,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Held-out rank-32 surrogates cheap almost everywhere (median .031 nats) BUT ρ(zero damage, rank32 damage) = .714 — the expensive
   components are the ones rank-32 handles worst (mlp0 2.611→.171), which is why these stay diagnostics. NOTHING installs;
   metric-constructed spans CLOSED (§2118).
+- §2835 circuit_battery_attn5_direction_identity (Claude, LANE 1 CUDA, 5.5 s, 16 GPU doc-forwards, 1,153 declared fitted params):
+  c,d,e TRUE; a,b FALSE, no null met. **THE PRICE CLIFF IS A CONSTANT.** attn5's top direction IS its mean write (|cos| .9999996);
+  gain CV .080 (never changes sign); 1.9% of energy off that axis. CONST (one vector, one scalar, NO context) costs .1286 nats and
+  RANK1 (true per-position gain) .1264 — the gain is worth **.0022 nats**. Against a 2.211-nat ablation, one fixed vector recovers
+  94.3%. pred_a FALSE because I set its bar from §2833's rank-32 figure without allowing for the rank-32→rank-1 gap. Reconciles §2829
+  and §2830: attn5 does not compute the class from context, it shifts every residual along one fixed direction and the later layers read
+  that as permission to emit a salient-class member — which is also why a component that writes a constant is 20.4× disproportionately
+  expensive. NOTHING installs; diagnostics only; §2834's ρ=.714 warns the last 5.7% is the hard part.

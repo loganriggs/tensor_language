@@ -1,0 +1,26 @@
+{
+ "preds": {
+  "pred_a_rank_one_reconstruction_is_cheap": false,
+  "pred_b_the_scalar_carries_value": false,
+  "pred_c_the_direction_is_the_mean_write": true,
+  "pred_d_the_gain_is_stable": true,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_rank1_fails": false,
+  "b_null_scalar_worthless": false,
+  "c_null_direction_not_mean": false,
+  "d_null_gain_wild": false
+ },
+ "summary": {
+  "zero_damage": 2.2109448115030927,
+  "rank1_damage": 0.1263665358225503,
+  "const_damage": 0.12855879465738917,
+  "scalar_value_nats": 0.002192258834838867,
+  "cos_u_vs_mean_write": 0.9999996423721313,
+  "gain_mean": -7611.6943359375,
+  "gain_cv": 0.08004758507013321,
+  "residual_energy_off_u": 0.01935228519141674,
+  "alpha_const_fit": -7711.87646484375
+ }
+}

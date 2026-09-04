@@ -73138,3 +73138,50 @@ that decides which class of token comes next.
 Price: 328 GPU document-forwards, 26.6 GPU-seconds, 0 backwards, 1,327,104 declared fitted parameters (one rank-32 basis per component,
 fitted on the fit documents only).
 Results: circuit_battery_write_rank_census_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a, d FALSE with no null met. Preserved.
+
+## §2835 — THE PRICE CLIFF IS A CONSTANT: attention 5's write is ONE FIXED VECTOR with a gain that varies by 8%, its top direction IS its mean write (|cos| .9999996), and replacing the whole component with a single constant vector — 1,153 fitted numbers, no context whatsoever — costs .129 nats of the 2.211 it is worth, while letting the gain vary per position buys back only **.0022 nats** (c, d, e TRUE; a, b FALSE, no null met)
+
+§2834 put attention 5 at the top of the model for one-dimensionality (energy .981, effective rank 1.0, 1st of 36) and §2833 showed its
+direction is the same on English and code. This rung asked whether that makes it COMPILABLE to two objects — one fixed vector `u` and
+one scalar per position `α(pos) = ⟨write, u⟩` — with both fitted on 24 documents and everything scored on 24 DISJOINT ones. Sign
+convention: d_ce = CE_arm − CE_NATIVE in nats, POSITIVE = the arm HURTS. **Not the §312 frontier's L2 (CE added above the real model by
+an installed approximation, LOWER IS BETTER, frontier norm-2304 at 2.6735, §2135); nothing installs; metric-constructed bases and spans
+stay CLOSED (§2118 lineage) and this is a diagnostic of compilability, not a proposed interface.**
+
+**pred_c TRUE (null "≤ .50" not met) — the dominant direction IS the mean write, to six decimals.** |cos(u, mean write)| =
+**.9999996** (bar ≥ .90; two random directions in R^1152 sit at ≈ .03). Attention 5 does not write a context-carrying axis that happens
+to have a large offset; the axis and the offset are the same object.
+
+**pred_d TRUE (null "≥ 1.50" not met) — and the gain barely moves.** The coefficient of variation of α over held-out positions is
+**.080**: a mean gain of −7,612 with a standard deviation about 8% of it, never changing sign. Only **1.9%** of the write's energy lies
+off `u` at all.
+
+**pred_b FALSE, null "≤ 0" NOT met — the per-position gain is worth .0022 nats, which is the headline.** `CONST` (one vector times one
+fixed scalar, no context of any kind) costs **.1286** nats; `RANK1` (the same vector with the true per-position gain) costs **.1264**.
+The difference is **.0022 nats** against a bar of ≥ .03. I registered pred_b expecting the gain to matter and wrote in the
+preregistration that if it did not, "attention 5 reduces to a pure BIAS — a stronger and simpler result than the one this rung is set up
+to find, and one I would rather discover than assume". That is what happened. **Attention 5, the price cliff, the class gate, the most
+one-dimensional write in the model, is to within .0022 nats a CONSTANT.**
+
+**pred_a FALSE — and the honest number is 94%, not the 98% I asked for.** The rank-1 reconstruction costs .1264 nats against a bar of
+≤ .05. Deleting the component costs 2.211, so one fixed vector recovers **94.3%** of its value — a large fraction, but the last 5.7%
+costs more than the bar I set, and the bar was set from §2833's held-out rank-32 figure of .049 without allowing for the gap between
+rank 32 and rank 1. Scored FALSE as written.
+
+**What this does to the earlier sections.** §2829 called attention 5 the type gate because ablating it removes more candidate-class
+mass than any other component across six unrelated answer classes. §2835 says the thing doing that gating is a constant vector added to
+the residual at layer 5. Those are consistent and together they are mechanistically specific: attention 5 does not compute which class
+applies from context — it shifts every position's residual along one fixed direction, and the later layers read that shift as
+permission to emit a member of whatever class the context has made salient. It also explains §2830's 20.4× per-write disproportion
+without appeal to sophistication: a constant is cheap to write and, evidently, expensive to remove.
+
+**The caveat that keeps this from being an interface.** .129 nats is not nothing — it is 5.7% of the component's value and roughly 4% of
+the model's native document CE — and this is document CE under local ablation, not the §312 frontier's L2 where lower is better and
+where an installed approximation is judged. The rank arms and this reconstruction are diagnostics. Whether a constant survives inside
+that construction is the frontier lane's question, and §2834's ρ = .714 (expensive components are the ones low-rank surrogates handle
+worst) is the reason to expect the last 5.7% to be the hard part.
+
+Price: 16 GPU document-forwards, 5.5 GPU-seconds, 0 backwards, **1,153 declared fitted parameters — the smallest fitted object in this
+campaign**.
+Results: circuit_battery_attn5_direction_identity_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with no null met.
+Preserved.
