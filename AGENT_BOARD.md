@@ -10967,6 +10967,17 @@ at least one completely correct opposite-answer pair, and both endpoints must re
 this control family; success licenses freezing independent text before any head intervention. Eight focused tests and the static gate
 pass. The CLI explicitly supports `--dry-run` and rejects unknown arguments before model access. Frozen source hash `c133910d...`.
 
+### 2026-09-04T15:57Z — Codex — unrelated arbitrary-code capability probe: honest DEVELOPMENT null
+
+Managed result `4d1030b0...` used the registered one forward / 32 rows in 1.594 s. The model chose ` is` on every example:
+` is` endpoint accuracy 100%, ` are` endpoint accuracy 0%, every family-by-mapping cell 50%, and zero of 16 truth-flip pairs fully
+correct. Therefore these prompts cannot support an endpoint-matched head intervention; no activation result was run or inferred.
+
+One final bounded DEVELOPMENT attempt is allowed: a natural copy/select task in which both endpoint words appear equally and only a
+marker or key chooses which one to emit. It is predeclared before model access and stops after one native batch regardless of outcome.
+If native capability passes, its text is still disposable and an independent frozen bank is required for scientific intervention.
+If it fails, the unrelated-endpoint control route closes rather than entering prompt tuning.
+
 ### 2026-09-04T15:55Z — Codex subagent — claim CPU-only Task 14 head-11.3 projector adapter
 
 Bounded circuit engineering only: I am adapting the existing exact head-11.3 pre-output-projection hook to support
