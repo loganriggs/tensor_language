@@ -72558,3 +72558,45 @@ metric's inert-arm failure mode is now quantified on every behaviour rather than
 Price: 1,138 GPU forwards, 17.1 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_reader_depth_gradient_results.json. (Claude, LANE 1 CUDA.) a, b, d TRUE; c FALSE (unevaluable as registered),
 e FALSE with its null met. Preserved.
+
+## §2822 — THE READ IS NOT UNIT-SPARSE, AND THE ADMISSIBILITY GATE EARNED ITS KEEP ON ITS FIRST RUN: an exact per-hidden-unit decomposition of the bilinear read (deviation 0.0) shows the 64 highest-MAGNITUDE units of 4,608 carry −.0003 of their block's damage, their overlap across behaviours is at chance, and ZERO cells were admissible — so the ratio of .031 that would have looked "perfectly specific" won nothing (a, e TRUE; b, c, d FALSE, b's and d's nulls MET)
+
+Because `mlp(u) = Down(Left(u) ⊙ Right(u)) + b` is exactly bilinear, the block's response to removing attention 8's write decomposes
+ADDITIVELY over its 4,608 hidden units: removing unit u's read means taking that one coordinate of the hidden vector from the
+removed-input forward and the rest from the native one. Readers mlp10 and mlp11 (the §2819/§2821 specificity peak), FIT ranks units,
+OOD scores them, admissibility gate at .25 × the block's own A1 damage. Sign convention: d_m = m_NATIVE − m_arm, POSITIVE = the arm
+HURTS.
+
+**pred_a TRUE — the decomposition is exact to the bit.** Removing all 4,608 units' reads equals removing the write from the block
+outright with a maximum logit deviation of **0.0** across every cell (bar 1e-3). The finest decomposition attempted in this campaign is
+not an approximation.
+
+**pred_b FALSE, null MET — the top-64 by magnitude carry NOTHING.** Median share of the block's A1 damage is **−.0003** (bar ≥ .50,
+null ≤ .20 met). Concretely, on the keyed counter: mlp10's block damage is .321 margin units and its top-64 units deliver .001;
+mlp11's block damage is .136 and its top-64 deliver −.015. Sixty-four of 4,608 units chosen for the largest `|Δh_u| · ‖Down[:,u]‖`
+account for none of the causal effect.
+
+**pred_e TRUE (null "≥ .40" not met) — and it is what makes pred_b's failure interpretable.** A seeded random 64-unit set carries
+.0006 of the block's damage, statistically indistinguishable from the ranked set's −.0003. The ranking added nothing over chance.
+
+**pred_d FALSE, null MET — the sets are at chance overlap.** Median pairwise Jaccard between behaviours' top-64 sets is .008 for mlp10
+and .016 for mlp11, against a chance value of ≈ .007 for two 64-of-4,608 draws.
+
+**pred_c FALSE, and this is the sentence the last two sections were building toward.** ZERO of the 14 (behaviour, reader) cells were
+ADMISSIBLE, so no cell was eligible to demonstrate a specificity gain — and the numbers show exactly why that matters: the top-64 set's
+selectivity ratio reads **.031** against its block's .482, which without the gate would have been reported as a unit set twenty times
+more task-specific than the block containing it. It is instead an inert set, by the same mechanism that made §2820 crown an inert
+attention head. The gate was registered one section after that error and caught the identical failure on its first outing, on a
+different granularity, without my having to notice it by hand.
+
+**What this establishes, and what it does not.** The magnitude ranking failed; that is a fact about the SELECTOR. The controls make a
+stronger reading available but not yet licensed: a random set does as well as the ranked one, which is what a DENSE read looks like in
+this basis. Whether a better statistic can find a sparse set is the immediate follow-up, registered separately as
+`circuit_battery_reader_unit_lens_ranked` (sha ed75ff2d…), which changes ONLY the ranking statistic — to each unit's exact signed
+contribution to the answer direction, `Δh_u · (Down[:,u] · W_U[answer])` — and holds every bar, control, gate and phase fixed. That is
+a clean A/B of the selector, and this run's failed ranking is preserved rather than overwritten by it. Note also that unit coordinates
+are basis-dependent: a negative result bounds sparsity in the network's OWN basis and says nothing about a rotated one.
+
+Price: 662 GPU forwards, 12.0 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_unit_localisation_results.json. (Claude, LANE 1 CUDA.) a, e TRUE; b, c, d FALSE with b's and d's nulls
+met. Preserved.

@@ -1,0 +1,41 @@
+[units] keyed_line.counter_successor mlp10 share=0.00 rnd=0.01 block_r=0.64 top_r=0.02 adm=False dev=0.0e+00
+[units] keyed_line.counter_successor mlp11 share=-0.03 rnd=-0.01 block_r=0.44 top_r=0.03 adm=False dev=0.0e+00
+[units] month.successor              mlp10 share=0.01 rnd=0.01 block_r=0.34 top_r=0.02 adm=False dev=0.0e+00
+[units] month.successor              mlp11 share=-0.00 rnd=-0.00 block_r=0.23 top_r=0.01 adm=False dev=0.0e+00
+[units] numbered_list.index_successor mlp10 share=-0.02 rnd=-0.01 block_r=0.90 top_r=0.05 adm=False dev=0.0e+00
+[units] numbered_list.index_successor mlp11 share=-0.06 rnd=-0.01 block_r=0.59 top_r=0.06 adm=False dev=0.0e+00
+[units] numeric_run.last_plus_one    mlp10 share=0.01 rnd=0.01 block_r=0.24 top_r=0.03 adm=False dev=0.0e+00
+[units] numeric_run.last_plus_one    mlp11 share=0.04 rnd=-0.00 block_r=0.14 top_r=0.05 adm=False dev=0.0e+00
+[units] paren_list.index_successor   mlp10 share=-0.03 rnd=-0.00 block_r=0.74 top_r=0.06 adm=False dev=0.0e+00
+[units] paren_list.index_successor   mlp11 share=0.00 rnd=0.00 block_r=0.58 top_r=0.01 adm=False dev=0.0e+00
+[units] roman_list.index_successor   mlp10 share=0.10 rnd=0.02 block_r=0.94 top_r=0.10 adm=False dev=0.0e+00
+[units] roman_list.index_successor   mlp11 share=0.13 rnd=0.00 block_r=0.52 top_r=0.13 adm=False dev=0.0e+00
+[units] verbatim_repeat.copy         mlp10 share=-0.03 rnd=0.00 block_r=0.10 top_r=0.03 adm=False dev=0.0e+00
+[units] verbatim_repeat.copy         mlp11 share=-0.00 rnd=-0.00 block_r=0.04 top_r=0.00 adm=False dev=0.0e+00
+{
+ "preds": {
+  "pred_a_unit_decomposition_is_exact": true,
+  "pred_b_a_few_units_carry_the_read": false,
+  "pred_c_the_unit_set_is_more_specific_than_its_block": false,
+  "pred_d_the_unit_set_is_shared": false,
+  "pred_e_random_units_do_not_carry_the_read": true
+ },
+ "nulls": {
+  "b_null_share_le_.2": true,
+  "c_null_no_gain": false,
+  "d_null_jaccard_le_.02": true,
+  "e_null_random_ge_.4": false
+ },
+ "medians": {
+  "top_share": -0.00025084614753723145,
+  "random_share": 0.0005883574485778809,
+  "block_ratio": 0.48176437616348267,
+  "top_ratio": 0.031090468168258667,
+  "specific_gain": 0.4008854031562805,
+  "max_exact_dev": 0.0
+ },
+ "jaccard": {
+  "mlp10": 0.007874015748031496,
+  "mlp11": 0.015873015873015872
+ }
+}

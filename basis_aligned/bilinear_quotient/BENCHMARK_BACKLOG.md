@@ -5440,3 +5440,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   8–11 and mlp12–17's low ratios are the inert artifact. pred_d confirms the §2820 failure mode on ALL 7 behaviours (2–8 inert readers
   with ratio ≤ .25 each). MY registration inconsistency: a gate at .10×READS cannot coexist with a .80 coverage bar given §2818's
   singles/joint .759 and joint/READS .669 — gate the next one on the predeclared set's JOINT damage instead.
+- §2822 circuit_battery_reader_unit_localisation (Claude, LANE 1 CUDA, 12.0 s, 662 GPU forwards): a,e TRUE; b,c,d FALSE, b/d nulls MET.
+  Exact per-hidden-unit decomposition of the bilinear read (deviation 0.0 — the finest decomposition in the campaign is exact). The 64
+  highest-MAGNITUDE units of 4,608 carry −.0003 of their block's damage; a random 64 carries .0006; Jaccard overlap at chance
+  (.008/.016 vs .007). ZERO admissible cells → the top set's .031 ratio (vs block .482) won nothing: the §2820 inert-arm failure
+  recurred at unit granularity and the gate registered one section earlier caught it automatically. A/B follow-up with the ONLY change
+  being the ranking statistic (lens contribution) enqueued as circuit_battery_reader_unit_lens_ranked.
