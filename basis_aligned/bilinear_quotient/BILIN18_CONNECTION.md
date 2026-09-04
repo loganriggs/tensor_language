@@ -71390,3 +71390,32 @@ write rule, no new parameters, .039 at 11% narrowing. It is a statement about wh
 the weights (§2125: nothing installs into the §312 frontier). (3) The open question the table poses is the READ cliff at the
 early blocks: which early block's read at k = 768 carries the .225 — registered next as the per-block read-cost map under
 program v2 — and whether the mlp4 position-0 spike (§2763) is one of those directions. 
+
+## §2770 — THE k = 768 READ COST OF PROGRAM v2 IS THE BUS, NOT THE EARLY BLOCKS: each early block reading through its 768-frame alone costs .002–.006 (sum .030; top-2 share 37% — pred_c "≥ 50%" FALSE, null ≤ 30% not met; max .0064 — pred_e "≤ .100" TRUE), while blocks 8–17 reading through the shared bus frame alone cost .164 — pred_d "≤ .050" FALSE with its NULL (≥ .100) MET; the parts add to .86 of the joint .225 (pred_b "in [0.5, 1.5]" TRUE; null not met) (Claude, LANE 1 CUDA, 22 s, 864 GPU document-forwards): a,b,e TRUE; c FALSE; d FALSE null met. Preserved. The interpretive sentences of §2764(3) and §2769(1)/(3) are CONTRADICTED by this measurement; the correction is HELD until the independent physical control (late_width_control_probe, registered 00:10Z) lands — see §2771.
+
+Registered 2026-09-04 00:07Z (polynomial_causal/EARLY_BLOCK_READ_COST_MAP_PROBE_PREREGISTRATION.md); landed 00:08Z. Script
+ops/early_block_read_cost_map_probe.py (built with ops/derive.py); results early_block_read_cost_map_probe_results.json (sha
+95de78d8…). Frozen: prereg, §2769 results, checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on
+held-out docs 0–63 (FRESH split; fits docs 96–191) — LOWER IS BETTER. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024
+0.03739; BLOCK8_768 0.22531 (= §2767).
+
+| arm (k = 768, all else untouched) | CE added |
+|---|---|
+| block 0 / 1 / 2 / 3 through F_l | .0031 / .0037 / .0022 / .0023 |
+| block 4 / 5 / 6 / 7 through F_l | .0034 / .0064 / .0046 / .0041 |
+| Σ early blocks | .0298 |
+| BUS_768 (blocks 8–17 through U_8) | **.1636** |
+| BLOCK8_768 (all jointly) | .2253 |
+
+What it says, scored and preserved. (1) pred_d was registered as "the late frame is cheap (≈ .004 at 1024, §2754)"; at 768 it
+is .164 — the width the model uses in blocks 8–17 is NOT 768 dimensions, whatever it is at 1024. The eight early blocks
+together lose .030 at 768. (2) pred_c's miss (flat over blocks, block 5 largest at .0064) says the early read cost has no
+locus; it is a small, spread cost. (3) The direct implication — that the k = 768 cliff of §2751/§2753/§2764/§2769 is a LATE
+phenomenon and the early frames were never the price cliff — would flip the stated reading of §2764(3) ("the early frames are
+the price cliff") and §2769(1)/(3) ("the residual cost is the early READ cost"). Per the standing rule, that correction is not
+published on this rung alone: late_width_control_probe measures the late sites through their OWN 768-frames (no sharing) and the
+early sites through their own, and maps the bus cost per late block. If LATE_OWN_768 ≥ .100 the correction stands and will be
+recorded as such under §2771; if the late cost is a sharing artefact (LATE_OWN_768 ≤ .050) the bus, not the width, is the
+finding. (4) What is NOT in question from this rung: program v2's arm values (§2769), the block-frame sharing results (§2765,
+§2767), and the hand-off (§2766, §2768) — none of those depended on where the read cost sits. Nothing installs into the §312
+frontier (§2125).

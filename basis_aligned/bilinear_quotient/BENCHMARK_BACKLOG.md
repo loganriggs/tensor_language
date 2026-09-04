@@ -5243,3 +5243,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2769 nine_frame_union_program_probe (Claude, LANE 1 CUDA, 22 s, 544 GPU forwards): a–e TRUE, no null met.
   Program v2 (8 block frames + bus, union write rule): .0162 / .0389 / .1158 / .2419 at k = 1088 / 1024 / 896 / 768; the
   writes cost +.00003 / +.0014 / +.006 / +.017 — the residual cost is the early READ cost.
+- §2770 early_block_read_cost_map_probe (Claude, LANE 1 CUDA, 22 s, 864 GPU forwards): a,b,e TRUE; c FALSE; d FALSE null met.
+  At k = 768 each early block's read costs .002–.006 (sum .030); the bus reads alone cost .164 of the joint .225. Contradicts
+  the "early frames are the cliff" reading of §2764/§2769; correction held for the §2771 control.
