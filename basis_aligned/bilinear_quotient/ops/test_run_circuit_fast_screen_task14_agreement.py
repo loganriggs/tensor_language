@@ -10,6 +10,7 @@ import circuit_fast_screen_candidate_task14_agreement as candidate
 import circuit_fast_screen_spec as screen
 import circuit_prior_art
 import run_circuit_fast_screen_task14_agreement as run
+import run_circuit_fast_screen_task14_agreement_v2 as run_v2
 
 
 def test_wrapper_binds_reviewed_authority_prior_art_and_same_answer_c() -> None:
@@ -56,9 +57,19 @@ def test_dryrun_is_queue_free_and_model_free() -> None:
 
 def test_managed_dryrun_validates_hashes_without_creating_result(monkeypatch) -> None:
     monkeypatch.setenv("BQLIB_DRYRUN", "1")
-    assert not run.RESULT.exists()
+    before = run.RESULT.read_bytes() if run.RESULT.exists() else None
     receipt = run.managed.run_managed(run.CONFIG, candidate, root=run.ROOT)
     assert receipt["authority_sha256"] == run.EXPECTED_AUTHORITY_SHA256
     assert receipt["prior_art_sha256"] == run.EXPECTED_PRIOR_ART_SHA256
     assert receipt["dryrun"]["model_loaded"] is False
-    assert not run.RESULT.exists()
+    after = run.RESULT.read_bytes() if run.RESULT.exists() else None
+    assert after == before
+
+
+def test_v2_is_only_an_execution_fix_with_a_fresh_create_only_result() -> None:
+    assert run_v2.CONFIG.expected_authority_sha256 == run.EXPECTED_AUTHORITY_SHA256
+    assert run_v2.CONFIG.expected_prior_art_sha256 == run.EXPECTED_PRIOR_ART_SHA256
+    assert run_v2.CONFIG.max_price == run.CONFIG.max_price
+    assert run_v2.CONFIG.request_id.endswith("-v2")
+    assert run_v2.CONFIG.experiment_id.endswith("-v2")
+    assert run_v2.RESULT != run.RESULT

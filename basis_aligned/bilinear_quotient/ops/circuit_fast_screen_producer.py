@@ -543,11 +543,33 @@ def run_science(
         passing = [item.result for item in ranked if item.result.terminal == "screen"]
         if not passing:
             return finish("null", "no_selective_causal_site", head_stage="skipped_no_parent")
-        parent = passing[0]
-        head_stage = "skipped_parent_not_attention"
-        if parent.site.evidence_kind == "module" and parent.site.site_id.startswith("attn:"):
-            layer = int(parent.site.site_id.split(":")[1])
-            head_stage = "expanded"
+        attention_results = {
+            result.site.site_id: {
+                "a1_mean_recovery": result.a1.mean_effect,
+                "a2_mean_recovery": result.a2.mean_effect,
+                "a1_direction_fraction": result.a1.direction_fraction,
+                "a2_direction_fraction": result.a2.direction_fraction,
+                "p_invariance_effect": result.p_invariance_effect,
+                "c_absolute_recovery": result.c_absolute_recovery,
+            }
+            for result in site_results
+            if result.site.evidence_kind == "module"
+            and result.site.site_id.startswith("attn:")
+            and result.a1 is not None
+            and result.a2 is not None
+            and result.a1.direction_fraction is not None
+            and result.a2.direction_fraction is not None
+            and result.p_invariance_effect is not None
+            and result.c_absolute_recovery is not None
+        }
+        resolved = screen_spec.compile_screen(
+            spec, rows, attention_module_scores=attention_results
+        )
+        plan = resolved["conditional_head_plan"]
+        head_stage = str(plan["status"])
+        parent_site_id = plan["selected_parent_site_id"]
+        if parent_site_id is not None:
+            layer = int(str(parent_site_id).split(":")[1])
             for head in range(9):
                 site_results.append(evaluate_site(_site(
                     f"attn:{layer:02d}:head:{head:02d}"

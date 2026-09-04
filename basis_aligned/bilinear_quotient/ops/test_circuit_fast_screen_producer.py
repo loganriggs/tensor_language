@@ -114,8 +114,13 @@ class FakeBackend:
             assert [i for i, pair in enumerate(zip(before, after)) if pair[0] != pair[1]] \
                    == [position]
         target_recovery = 0.60
+        if site.site_id.startswith("attn:"):
+            target_recovery = 0.10
         if self.attention_parent and site.site_id == "attn:00":
-            target_recovery = 0.90
+            # The residual sites remain stronger, which verifies that attention
+            # expansion is selected among attention modules rather than from the
+            # overall residual/module ranking.
+            target_recovery = 0.55
         if site.evidence_kind == "head":
             target_recovery = 0.95
         pairs = []
@@ -147,11 +152,11 @@ def test_all_55_routes_screen_and_residual_module_scores_agree() -> None:
         spec(authority), authority, backend=backend, clock=lambda: next(ticks)
     )
     assert result.terminal == "screen"
-    assert result.head_stage == "skipped_parent_not_attention"
+    assert result.head_stage == "skipped_no_passing_attention_module"
     assert len(result.site_results) == 55
     by_site = {item.site.site_id: item for item in result.site_results}
-    assert by_site["resid:00"].target_recovery == by_site["attn:00"].target_recovery
-    assert by_site["attn:00"].target_recovery == by_site["mlp:00"].target_recovery
+    assert by_site["resid:00"].target_recovery == by_site["mlp:00"].target_recovery
+    assert abs((by_site["attn:00"].target_recovery or 0.0) - 0.10) < 1e-12
     assert result.timing.forward_calls == 228
     assert result.timing.example_evaluations == 228
     assert result.timing.seconds == 2.5
