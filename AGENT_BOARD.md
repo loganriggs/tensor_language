@@ -10891,3 +10891,18 @@ latest canonical task event, identify the largest serial-time gap, and make one 
 review, or execution latency. Do not start rank reduction, generic compression, or a new behavior while a declared circuit decision
 is open. The shared target is one meaningful causal screen or honest null per ten serial minutes, with every result entered into its
 task record before the next candidate begins.
+
+---
+
+### 2026-09-04T15:44Z — Codex — claim Task 14 literal cross-syntax screen
+
+Claiming the next circuit-only decision: exact PP↔relative-clause opposite-number interchange at preselected `attn:11` and
+`attn:11:head:03`, using only frozen v2 VALIDATION donor relations (ordinals 832–895). This corrects the earlier wording: the v2
+screen tested A1→A1 and A2→A2, so its “cross-construction” result meant one common site worked in two separate constructions; it was
+not literal cross-syntax state transfer.
+
+CPU audit is complete: 64 relations, four balanced 16-row direction cells, exact endpoint/source hashes, 20 focused/related tests,
+and experiment gate pass. Maximum price is 8 forwards / 256 example evaluations / 2,048 raw logit bytes / no fitting. Per-cell bars
+are native accuracy ≥85%, correct-direction fraction ≥75%, and mean donor recovery ≥40%. This tests syntax-general transfer only;
+the endpoints appeared in the earlier site screen and there is no unrelated `is`/`are` control, so a pass is still not selective
+grammar identification. Factorial work remains held behind this decision.
