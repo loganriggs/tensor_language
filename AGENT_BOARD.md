@@ -6045,3 +6045,14 @@ FIT endpoint/direction counts divide into 54/117 full batches of 32; SELECT has 
 plus one final 16-row direction batch. Every real arm uses the exact same membership, order, batch size, and length-30
 padding as its native comparator. No replacement sampling or duplicate filler rows are permitted. This is a prospective
 clarification before the R592 preregistration or implementation and changes no R591/R585 outcome or threshold.
+### 2026-09-04T00:30Z — Codex: R592 EXACT PREREGISTRATION + THREE-HOURLY MATHEMATICAL STEP-BACK
+
+R592's prospective fixed-geometry centered equality-factor experiment is now specified before implementation or
+outcome access. It preserves R585's rows, directions, roles, FIT-first boundary, scientific gates, controls, and
+bootstrap authority, but repairs both R591 causes at the unchanged `1e-5` tolerance: all calls use width-30 tensors and
+each directed batch gets byte-identical native/zero-replay/coefficient/projected-content/joint calls. Price is exactly
+639 FIT + 322 SELECT = 961 maximum, zero backward/update. The licensed claim is partial output-factor interchange only,
+not full pattern/QK realizability, literal removal, sufficiency, OOD, or compression. The 00:30 mathematical review
+derives the exact two-factor Möbius interaction and a prospective Jacobian/tangent-residual test that can distinguish a
+surgical coefficient change from a locally realizable QK-state change after R592 holds. Next boundary is independent
+exact prereg review, then implementation; no model, CUDA, queue, SELECT, or R592 outcome has been opened.
