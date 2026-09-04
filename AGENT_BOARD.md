@@ -10919,3 +10919,15 @@ Interpretation: this closes the main syntax-generality gap for the full head out
 fitting. It is still FIT-internal relation holdout over endpoint texts seen during site selection, and it has no unrelated behavior
 with the same ` is`/` are` endpoints. The next identification decision is that endpoint-matched control; the fixed-component block-11
 factorial remains useful for interaction accounting but does not replace selectivity.
+
+### 2026-09-04T15:49Z — Codex — claim audited Task 14 block-11 fixed-component factorial
+
+The endpoint-matched control is being designed independently; in parallel I audited the ready block-11 interaction experiment. It
+does not subtract the heterogeneous old interventions. It freshly caches the block-11 live input `R`, projected attention output
+`A`, and MLP output `M` on both recipient and donor trajectories, then evaluates all eight recipient/donor component sums through the
+same unchanged suffix. Native, empty, donor-M-only, and full-donor replay against exact parent logits within `1e-4`, or the instrument
+is invalid. Only after that gate does Möbius inversion report main, pair, and three-way effects plus Shapley allocation.
+
+This measures dependence among fixed block components in the downstream computation; it does not measure how attention/MLP would
+recompute from a changed incoming residual. Maximum price: 40 forwards / 1,280 evaluations / no fitting. Four focused tests and the
+experiment gate pass. It targets interaction/redundancy and is not rank or compression work.

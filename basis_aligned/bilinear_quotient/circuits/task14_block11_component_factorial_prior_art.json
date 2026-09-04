@@ -1,0 +1,80 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.block11_component_interaction",
+  "canonical_objects": [
+    "complete grammatical subject number at the final prediction position",
+    "block 11 incoming residual",
+    "block 11 attention output",
+    "block 11 MLP output",
+    "exact donor-component factorial"
+  ],
+  "aliases_searched": [
+    "subject verb agreement",
+    "grammatical subject number",
+    "task14",
+    "agreement state",
+    "block 11",
+    "resid 11",
+    "resid 12",
+    "attention 11",
+    "MLP 11",
+    "interaction",
+    "factorial"
+  ],
+  "method_families": [
+    "full residual donor interchange",
+    "whole attention-output donor interchange",
+    "whole MLP-output donor interchange",
+    "subset factorial",
+    "Moebius interaction decomposition"
+  ],
+  "matched_prior_claims": [
+    "BILIN18_CONNECTION section 1548 already shows that the late copula-output heads announce a copula but do not determine singular versus plural agreement.",
+    "BILIN18_CONNECTION sections 1550 through 1552 already show that agreement survives individual approximate attention and MLP replacements and a simultaneous approximate replacement of all attention layers; this follow-up is not another module-necessity scan.",
+    "The Task 14 dossier already defines complete grammatical subject number, the A1/A2 answer-changing families, the P noun-identity invariance family, and the C coordinated-subject attractor-number control.",
+    "The frozen full-state screen identifies a sharp target-recovery transition from resid:11 at 0.3304497527 to resid:12 at 0.9369324969, with attn:11 alone at 0.6126028456 and mlp:11 alone at 0.0638338862.",
+    "The frozen full-state result contains exact logits for the native empty corner, the fixed donor-MLP corner, and the full donor block-output corner.",
+    "The earlier resid:11 and attn:11 interventions are not fixed-component factorial corners: resid:11 lets attention and MLP recompute, while attn:11 lets the MLP recompute. They motivate the block choice but cannot be mixed into a component Moebius decomposition.",
+    "No prior result measures the complete eight-cell factorial formed by choosing native-base or natural-donor live input, attention output, and MLP output and assembling their exact block sum before the downstream suffix."
+  ],
+  "relation": "extension",
+  "novelty_delta": "Cache native-base and natural-donor block-11 live input, attention output, and MLP output; assemble every one of the eight fixed-component sums at the prediction position; and run the unchanged recipient suffix. The complete factorial separates the three component changes, all pair interactions, and the three-way interaction on the same per-row agreement recovery scale. It therefore distinguishes an attention write added to an upstream state from redundancy or nonlinear dependence among the block components. No rank reduction, learned rotation, or approximate module replacement is involved.",
+  "decision_changed": "The sharp resid:11 to resid:12 transition makes block 11 the only promoted follow-up. The experiment holds the frozen A1/A2/P/C counterfactuals fixed and opens only the three missing component pairs; it will not repeat the abandoned learned-coordinate compiler or the older approximate module-localization experiments.",
+  "reviewer": "Codex Task 14 block-11 circuit-only prior-art audit",
+  "reviewed_sources": [
+    {
+      "source": "circuits/fast_screen_task14_agreement_prior_art.json",
+      "sha256": "b2def14e6cc1b699e7fef06b32d67af7bbc00728e786a3ffcbda9aed22ac71c9",
+      "searched_terms": [
+        "section 1548",
+        "sections 1550-1552",
+        "distributed and robust",
+        "direct donor interchange"
+      ]
+    },
+    {
+      "source": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf",
+      "searched_terms": [
+        "grammatical_subject_number.v2",
+        "A1",
+        "A2",
+        "P",
+        "C",
+        "alternative_explanations"
+      ]
+    },
+    {
+      "source": "circuits/fast_screens/task14_subject_verb_agreement_full_state_v1_result.json",
+      "sha256": "bcabc936a78ee4955843c201684c2150e90897160a9201524f49c1bf71dc5744",
+      "searched_terms": [
+        "resid:11",
+        "resid:12",
+        "attn:11",
+        "mlp:11",
+        "native_logits",
+        "intervention_logits"
+      ]
+    }
+  ]
+}
