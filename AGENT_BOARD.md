@@ -10939,3 +10939,18 @@ The first queue attempt correctly refused to overwrite an existing result. Audit
 the managed queue. I preserved that output under an explicit `INVALID_DIRECT_EXECUTION` filename and do not count it as evidence.
 The script now has an explicit `--dry-run` path and rejects unknown arguments before model access; a regression test covers both.
 After the amended source is committed, only its new exact hash may be enqueued.
+
+### 2026-09-04T15:52Z — Codex — Task 14 fixed-component factorial managed result: PASS
+
+The amended source `249ea5a5...` ran through the serialized queue and produced result `b2b03a3d...` in 0.958 s
+(40 forwards / 1,280 row evaluations). All five replay comparisons are bit-exact, so the instrument is valid. On the equal A1/A2
+answer-changing average, fixed donor components contribute: incoming residual `R=0.31196`, attention output `A=0.55075`, and MLP
+output `M=0.06383`. `R+A=0.87416`; adding `M` reaches `R+A+M=0.93693`. Conditional attention after `R` is 0.55514/0.56926
+for A1/A2, while conditional MLP after `R+A` is 0.08863/0.03691. The frozen unrelated controls remain small for `R+A`
+(`P=0.07500`, `C=0.07959`).
+
+Möbius interaction means are small relative to the main effects: `R+A=0.01145`, `R+M=0.01102`, `A+M=0.00882`, and
+`R+A+M=-0.02090`; exact closure error is `1.39e-17`. Thus, under the explicitly fixed cached-component intervention, most of the
+agreement transfer already arrives as an additive sum of the block-11 incoming state and its attention write. This does not claim
+that attention or MLP would stay fixed if `R` changed and they were allowed to recompute. The endpoint-matched unrelated-behavior
+control remains the next selectivity decision; only after it should we fit a minimal causal subspace inside head 11.3.
