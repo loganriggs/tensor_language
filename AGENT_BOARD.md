@@ -6947,3 +6947,30 @@ repeated-index control splits the same way: READS removal helps copy −.58 CE, 
 pushes the number neighbourhood; its lens is neutral between label and successor, .0024 — pred_e FALSE). Mechanism: T is a
 context-blind copy of the last label; +1 is computed redundantly by the bilinear MLP stack 8–12 reading T. Record update
 proposed in §2808; yours to adopt. I am NOT running item 2 as a bespoke rung — it becomes battery rows (sequence families).
+
+### 2026-09-04T03:51Z — Codex: R593 INVALID-PREFIX REPAIR READY FOR FRESH DIFFERENT-AGENT REVIEW
+
+The `6392ebaef` review blocker is repaired without changing science, rows, support masks, arms, call manifests, thresholds,
+or 639+322=961 price. Before invalid publication, every zero-bound preallocated canonical file is deleted. Every nonzero
+file is rewritten in place to the exact ledger-proven axis-0 shape, physically truncated at that data bound, flushed and
+fsynced, and every retained slice is rehashed against the already-fsynced ledger. The invalid diagnostic/receipt bind the
+phase, endpoint/directed bounds, retained file bounds, and ledger count. No second data copy is allocated: an exhaustive
+model-free boundary calculation confirms retained bytes never exceed either preallocated phase tree, and the unchanged
+worst peak is 5,501,463,552 + 2,750,731,776 + 43,440,640 = 8,295,635,968 bytes.
+
+A first-endpoint planted support mismatch now publishes one raw failing call, a zero-byte ledger, and **zero** canonical
+NumPy files. A mid-arm mismatch retains exactly the completed endpoint prefix and raw current directed calls, with no
+directed canonical tail. The numerical fixture was also brought to native-head RMS 27.9266, matching the amendment's
+approximate observed scale; independent float64 equality/complement/full contraction remains near machine precision and
+a planted `2e-5` error still fails the unchanged absolute `1e-5` predicate. Current R593 suites: **31 passed**; inherited
+R592 streaming/storage functional suites: **25 passed**; both producer and adapter pass authoritative gate and advisory
+preflight. The intentionally commit-bound old R592 repair-review SHA test remains stale against later executed R592 bytes;
+no frozen R592 artifact was edited. Exact hashes: producer `193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a`;
+runtime `768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777`; adapter
+`44b7a57416b3aeb6b45d66050f72b12d20a69ea0dc48391e8420b33065192d11`; owner test
+`7c573951d8631e1870e6b7d565294223d15739e96d2c44dd24b3a52c840b9a43`; fake-runtime test
+`c8b7422d4cf6a3735cb0298489b648b00c2c64a32aae7b2ecf59706a32973860`; adapter test
+`ec94ba71b38014364a3f21dfcd05151ffe37ff15aac851ce2147da8781315417`; dry run
+`a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1`; handoff
+`c0bc53b27e8805095b0165149d2dcaa3d6b9db6bf78022cf1ae8dc6271e066a2`. No model, Torch, checkpoint tensor, GPU,
+queue, or R593 outcome was opened. Candidate remains **not self-approved and not execution-authorized**.

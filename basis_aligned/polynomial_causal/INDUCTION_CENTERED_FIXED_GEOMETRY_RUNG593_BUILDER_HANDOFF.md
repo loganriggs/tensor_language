@@ -12,11 +12,11 @@ post-execution audit.
 
 | artifact | SHA-256 |
 |---|---|
-| producer | `7f717eb801cee39e8c4fc71356b387dd422fefc3c1395a3110e57b16b33f5f27` |
+| producer | `193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a` |
 | model runtime | `768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777` |
-| owner test | `62a4298e73053c6371a53e18ea43b7094fa7dafbaa6868d6da02a79c5f4692a4` |
-| fake-runtime/state-machine test | `d62bdb569d3dbdad2d4b8939c7b643187ad1a30a828dabe9ef3c3f9cadff9709` |
-| deterministic dry run | `cba7c2295d372cc92f9b89eea052ab619959ec8d788201bbbd6994f04918cff1` |
+| owner test | `7c573951d8631e1870e6b7d565294223d15739e96d2c44dd24b3a52c840b9a43` |
+| fake-runtime/state-machine test | `c8b7422d4cf6a3735cb0298489b648b00c2c64a32aae7b2ecf59706a32973860` |
+| deterministic dry run | `a763b8f48541d152c302cd6d31127aa108f1a90abf54e07cc77ff77c224c36a1` |
 | prospective R593 amendment | `df0ceebf57818534a9b4ac5de4cd82ca64f2c1228cdfd476e350e62e5707729c` |
 
 The final adapter pins this handoff but the handoff deliberately does not name the adapter hash, avoiding a circular
@@ -38,6 +38,15 @@ decomposition threshold is `1e-5`.
 The invalid diagnostic and receipt now bind producer, adapter, runtime, checkpoint, and transitive source provenance
 when the managed model boundary was crossed. Normal results also record the adapter hash.
 
+The first different-agent review blocked candidate `6392ebaef` because an invalid call before the first canonical slice
+could publish all preallocated canonical files. The repaired store deletes every zero-bound canonical file. For a nonzero
+ledger-proven prefix it rewrites the NumPy header in place, truncates the file at the exact axis-0 bound, flushes and fsyncs
+the file, then recomputes every retained slice hash against the fsynced ledger before publication. It never allocates a
+second data copy, so invalid-prefix preparation adds zero data bytes and cannot exceed the frozen streaming peak. The
+invalid diagnostic and receipt explicitly bind the phase, endpoint/directed written bounds, retained filename bounds, and
+ledger-record count. The first-call fixture leaves only the raw failing call and a zero-byte ledger; a mid-arm fixture
+retains exactly the completed endpoint prefix plus the current raw directed calls.
+
 ## Frozen tripwires
 
 - support records: FIT 13,824 = 5,760 true + 8,064 false; SELECT 6,912 = 2,880 true + 4,032 false;
@@ -48,10 +57,17 @@ when the managed model boundary was crossed. Normal results also record the adap
 - geometry/output: physical width 30 and complete 50,304-logit vectors;
 - split closure: dry run opens no SELECT, FINAL, or OOD data.
 
-Model-free owner and fake-runtime suites pass 22 tests, and the managed-adapter suite adds 7 tests, for 29 total. They include real authority rows with zero and one supported
+Model-free owner and fake-runtime suites pass 24 tests, and the managed-adapter suite adds 7 tests, for 31 total. The
+three inherited R592 streaming/storage functional suites add 25 passing tests. They include real authority rows with zero and one supported
 roles, true-bit and false-bit flips, all-true rejection, full-phase one-bit corruption, actual-scale float32 inputs to
 the independent float64 primitive, a planted `2e-5` error, source inspection forbidding subtraction-defined remainder,
 all inherited invalid/hard-abort/receipt-last state transitions, exact evidence pricing, and capacity boundaries.
+The numerical fixture now has native-head RMS `27.9266`, matching the amendment's approximate observed scale; the absolute
+falsifier remains mathematically independent of RMS and is unchanged at `1e-5`.
+
+The superseded R592 repair-review suite was also invoked: its functional attacks pass, but its deliberate worktree-SHA
+assertion fails because it pins the older `521e4c38c` R592 candidate rather than the later executed R592 bytes. No R592
+source or frozen review test was changed to mask that expected lineage mismatch.
 
 ## Required different-agent review
 

@@ -455,9 +455,9 @@
   "fit_token_manifest_sha256": "fcee2a1003b70de9e548b4371fc94549704cfbbb9e6b5d8542322413209723b2",
   "high_precision_decomposition_fixture": {
     "dtype": "float64",
-    "identity_max_abs": 1.7053025658242404e-13,
-    "native_head_rms": 79.03758444855663,
-    "planted_2e_minus_5_max_abs": 1.9999999949504854e-05
+    "identity_max_abs": 7.105427357601002e-14,
+    "native_head_rms": 27.926613191121223,
+    "planted_2e_minus_5_max_abs": 1.9999999999242846e-05
   },
   "invalid_predicate_order": [
     "nonfinite_observation",
@@ -469,6 +469,12 @@
     "directed_native_zero_replay_failed",
     "structural_output_identity_failed"
   ],
+  "invalid_prefix_publication": {
+    "extra_data_bytes": 0,
+    "method": "in_place_npy_header_rewrite_and_truncate",
+    "nonzero_arrays_shape_equals_written_axis0_bound": true,
+    "zero_written_rows_retains_preallocated_arrays": false
+  },
   "legacy_machine_ids_observed": [
     "joint",
     "payload",

@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import ast
 import importlib.util
+import inspect
 import json
 from pathlib import Path
 import types
@@ -132,7 +133,7 @@ def test_actual_scale_float64_partition_and_live_absolute_falsifier() -> None:
     rng = np.random.default_rng(593_1)
     pattern = rng.normal(size=(32, 30)).astype("<f4")
     values = (8 * rng.normal(size=(32, 30, 128))).astype("<f4")
-    projection = (0.2 * rng.normal(size=(1152, 128))).astype("<f4")
+    projection = (0.055 * rng.normal(size=(1152, 128))).astype("<f4")
     support = rng.random(size=(32, 30)) < 0.2
     equality, remainder, full = r593.high_precision_native_decomposition(
         pattern, values, projection, support
@@ -140,7 +141,8 @@ def test_actual_scale_float64_partition_and_live_absolute_falsifier() -> None:
     assert all(value.dtype == np.dtype("<f8") for value in (equality, remainder, full))
     clean = float(np.max(np.abs(equality + remainder - full)))
     assert clean < 1e-10
-    assert float(np.sqrt(np.mean(np.square(full)))) > 20
+    head_rms = float(np.sqrt(np.mean(np.square(full))))
+    assert 24 < head_rms < 32
     planted = remainder.copy()
     planted[0, 0] += 2e-5
     assert float(np.max(np.abs(equality + planted - full))) > r593.TOLERANCE
@@ -182,6 +184,40 @@ def test_exact_float64_evidence_prices_and_capacity() -> None:
     assert r593.INITIAL_MINIMUM_FREE_BYTES == 9_455_639_040
     assert r593.SELECT_MINIMUM_FREE_BYTES == 3_954_175_488
     assert phase_bytes["SELECT"] + chunk + 1_160_003_072 == r593.SELECT_MINIMUM_FREE_BYTES
+
+
+def test_invalid_prefix_in_place_truncation_has_zero_extra_data_peak(authority, fit) -> None:
+    select = r593.build_phase_manifest(authority, "SELECT")
+    endpoint_names = set(r593.StreamingPhaseStore.ENDPOINT_MAP.values())
+    phase_bytes = {}
+    for bundle in (fit, select):
+        schema = r593.canonical_array_schema(bundle)
+        endpoint_bounds = [0]
+        directed_bounds = [0]
+        for call in bundle["calls"]:
+            if call["call_kind"] == "endpoint":
+                endpoint_bounds.append(endpoint_bounds[-1] + int(call["batch_size"]))
+            elif call["call_kind"] == "native":
+                directed_bounds.append(directed_bounds[-1] + int(call["batch_size"]))
+        full = sum(int(np.prod(shape)) * dtype.itemsize for dtype, shape in schema.values())
+        phase_bytes[bundle["phase"]] = full
+        for endpoint_rows in endpoint_bounds:
+            retained = sum(
+                endpoint_rows * int(np.prod(shape[1:])) * dtype.itemsize
+                for name, (dtype, shape) in schema.items() if name in endpoint_names
+            )
+            assert retained <= full
+        for directed_rows in directed_bounds:
+            retained = sum(
+                (shape[0] if name in endpoint_names else directed_rows)
+                * int(np.prod(shape[1:])) * dtype.itemsize
+                for name, (dtype, shape) in schema.items()
+            )
+            assert retained <= full
+    source = inspect.getsource(r593.StreamingPhaseStore._compact_canonical_file)
+    assert "open_memmap" not in source
+    assert "stream.truncate(" in source
+    assert phase_bytes["FIT"] + phase_bytes["SELECT"] + r593.LARGEST_CURRENT_CHUNK_DATA_BYTES == r593.MAXIMUM_STREAMING_DATA_BYTES
 
 
 @pytest.mark.parametrize(

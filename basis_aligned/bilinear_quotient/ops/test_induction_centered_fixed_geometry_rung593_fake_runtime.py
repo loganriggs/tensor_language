@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import ast
 import importlib.util
+import json
 from pathlib import Path
 
 import numpy as np
@@ -106,6 +107,8 @@ class FakeExecutor:
             arrays["hook_deltas.npy"][0, 0, 0] = 2e-5
         if self.mutation == (kind, "nonfinite"):
             arrays["logits.npy"][0, 0] = np.nan
+        if self.mutation == (kind, "support"):
+            arrays["support.npy"][0, 0, 0] = ~arrays["support.npy"][0, 0, 0]
         return {"arrays": arrays, "native_full_write_reconstruction_max_abs": 0.0}
 
 
@@ -169,6 +172,47 @@ def test_invalid_mid_arm_publishes_exact_prefix_and_stops(tmp_path: Path) -> Non
     assert executor.calls[-1] == "FIT:payload" and "FIT:joint" not in executor.calls
     assert (tmp_path / r593.INVALID_RECEIPT.name).is_file()
     assert not (tmp_path / r593.NORMAL_RESULT.name).exists()
+    evidence = tmp_path / r593.INVALID_EVIDENCE.name
+    ledger = evidence / "FIT" / "canonical_slice_ledger.jsonl"
+    assert len(ledger.read_text(encoding="utf-8").splitlines()) == 1
+    receipt = json.loads((tmp_path / r593.INVALID_RECEIPT.name).read_text())
+    bounds = receipt["canonical_written_bounds"]
+    assert bounds["endpoint_axis0"] == [0, 2]
+    assert bounds["directed_axis0"] == [0, 0]
+    assert bounds["ledger_records"] == 1
+    assert set(bounds["files"]) == set(r593.StreamingPhaseStore.ENDPOINT_MAP.values())
+    assert not set(r593.StreamingPhaseStore.NATIVE_MAP.values()).intersection(bounds["files"])
+    for name, written in bounds["files"].items():
+        array = np.load(evidence / "FIT" / name, mmap_mode="r", allow_pickle=False)
+        assert list(array.shape[:1]) == [written[1]]
+
+
+def test_first_endpoint_invalid_publishes_raw_only_and_no_preallocation(tmp_path: Path) -> None:
+    bundle = toy_bundle("FIT"); executor = FakeExecutor(("endpoint", "support"))
+    stage = tmp_path / "stage"; stage.mkdir()
+    observed = r593.run_manifest_calls(
+        executor, bundle, contexts(bundle), stage=stage, public_root=tmp_path,
+    )
+    assert observed["diagnostic"]["failure_predicate"] == "factor_transport_failed"
+    assert executor.calls == ["FIT:endpoint"]
+    evidence = tmp_path / r593.INVALID_EVIDENCE.name
+    ledger = evidence / "FIT" / "canonical_slice_ledger.jsonl"
+    assert ledger.stat().st_size == 0
+    assert list((evidence / "FIT").glob("*.npy")) == []
+    raw = evidence / "calls" / "0000_FIT:endpoint"
+    assert raw.is_dir() and len(list(raw.glob("*.npy"))) == len(r593.mandatory_call_shapes(bundle["calls"][0]))
+    receipt = json.loads((tmp_path / r593.INVALID_RECEIPT.name).read_text())
+    bounds = receipt["canonical_written_bounds"]
+    assert bounds == {
+        "phase": "FIT", "endpoint_axis0": [0, 0], "directed_axis0": [0, 0],
+        "files": {}, "ledger_records": 0,
+    }
+    assert all(not name.startswith("FIT/") or name == "FIT/canonical_slice_ledger.jsonl"
+               for name in receipt["evidence_files"])
+    for name, descriptor in receipt["evidence_files"].items():
+        path = evidence / name
+        assert descriptor["byte_length"] == path.stat().st_size
+        assert descriptor["sha256"] == r593.sha256_file(path)
 
 
 def test_nonfinite_final_call_gets_distinct_mask_index(tmp_path: Path) -> None:

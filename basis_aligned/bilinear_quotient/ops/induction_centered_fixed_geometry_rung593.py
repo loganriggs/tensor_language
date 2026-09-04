@@ -1021,6 +1021,98 @@ class StreamingPhaseStore:
             array.flush()
         self.arrays.clear()
 
+    def _compact_canonical_file(self, name: str, stop: int) -> None:
+        """Retain only a ledger-proven axis-0 prefix for invalid publication."""
+        path = self.phase_root / name
+        if stop == 0:
+            path.unlink()
+            _fsync_directory(self.phase_root)
+            return
+        dtype, full_shape = self.schema[name]
+        if not 0 < stop <= full_shape[0]:
+            raise RuntimeError(f"invalid canonical compaction bound for {name}")
+        with path.open("r+b") as stream:
+            version = np.lib.format.read_magic(stream)
+            if version == (1, 0):
+                observed_shape, fortran_order, observed_dtype = np.lib.format.read_array_header_1_0(stream)
+                writer = np.lib.format.write_array_header_1_0
+            elif version == (2, 0):
+                observed_shape, fortran_order, observed_dtype = np.lib.format.read_array_header_2_0(stream)
+                writer = np.lib.format.write_array_header_2_0
+            else:
+                raise RuntimeError(f"unsupported canonical npy version for {name}: {version}")
+            data_offset = stream.tell()
+            if observed_dtype != dtype or observed_shape != full_shape or fortran_order:
+                raise RuntimeError(f"invalid canonical compaction source for {name}")
+            compact_shape = (stop, *full_shape[1:])
+            header = io.BytesIO()
+            writer(header, {
+                "descr": np.lib.format.dtype_to_descr(dtype),
+                "fortran_order": False,
+                "shape": compact_shape,
+            })
+            header_bytes = header.getvalue()
+            if len(header_bytes) != data_offset:
+                raise RuntimeError(f"canonical header size changed during in-place compaction for {name}")
+            stream.seek(0)
+            stream.write(header_bytes)
+            retained_data_bytes = int(np.prod(compact_shape)) * dtype.itemsize
+            stream.truncate(data_offset + retained_data_bytes)
+            stream.flush(); os.fsync(stream.fileno())
+        _fsync_directory(self.phase_root)
+
+    def prepare_invalid_prefix(
+        self, records: Sequence[Mapping[str, object]],
+    ) -> dict[str, object]:
+        """Remove every unwritten preallocation byte before invalid publication."""
+        canonical_records = [dict(row) for row in records if row.get("storage") == "canonical_slices"]
+        if canonical_records != self.ledger_records:
+            raise RuntimeError("invalid prefix canonical records differ from fsynced ledger")
+        self.close()
+        endpoint_names = set(self.ENDPOINT_MAP.values())
+        bounds: dict[str, list[int]] = {}
+        for name in sorted(self.schema):
+            stop = self.endpoint_offset if name in endpoint_names else self.directed_offset
+            self._compact_canonical_file(name, stop)
+            if stop:
+                bounds[name] = [0, int(stop)]
+        _fsync_file(self.ledger_path)
+
+        retained = {
+            path.name: np.load(path, mmap_mode="r", allow_pickle=False)
+            for path in sorted(self.phase_root.glob("*.npy"))
+        }
+        if set(retained) != set(bounds):
+            raise RuntimeError("invalid prefix contains unledgered canonical files")
+        try:
+            for record in canonical_records:
+                for descriptor in record["canonical_slices"]:
+                    filename = Path(str(descriptor["filename"])).name
+                    start, stop = map(int, descriptor["axis0"])
+                    axis1 = descriptor.get("axis1")
+                    array = retained[filename]
+                    observed = np.ascontiguousarray(
+                        array[start:stop] if axis1 is None else array[start:stop, int(axis1)]
+                    )
+                    if (
+                        str(observed.dtype) != descriptor["dtype"]
+                        or list(observed.shape) != descriptor["shape"]
+                        or canonical_slice_sha256(
+                            str(descriptor["filename"]), observed, start, stop,
+                            axis1=None if axis1 is None else int(axis1),
+                        ) != descriptor["sha256"]
+                    ):
+                        raise RuntimeError("invalid prefix canonical slice differs from ledger")
+        finally:
+            retained.clear()
+        return {
+            "phase": self.phase,
+            "endpoint_axis0": [0, int(self.endpoint_offset)],
+            "directed_axis0": [0, int(self.directed_offset)],
+            "files": bounds,
+            "ledger_records": len(self.ledger_records),
+        }
+
 
 def write_completed_call(
     calls_root: Path, call: Mapping[str, object], arrays: Mapping[str, np.ndarray],
@@ -1063,6 +1155,7 @@ def publish_invalid_prefix(
     records: Sequence[Mapping[str, object]], predicate: str,
     details: Mapping[str, object], *, public_root: Path = ROOT,
     provenance: Mapping[str, object] | None = None,
+    canonical_written_bounds: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
     validate_prefix(manifest, [{key: row[key] for key in manifest[0]} for row in records])
     if predicate not in PREDICATE_ORDER:
@@ -1081,6 +1174,7 @@ def publish_invalid_prefix(
         "model_backwards": 0, "model_weights_updated": False,
         "final_opened": False, "ood_opened": False,
         "provenance": dict(provenance or {}),
+        "canonical_written_bounds": dict(canonical_written_bounds or {}),
     }
     diagnostic_path = stage / "diagnostic.json"
     _write_bytes(diagnostic_path, _json_bytes(diagnostic))
@@ -1090,6 +1184,7 @@ def publish_invalid_prefix(
         "call_prefix_sha256": sha256_file(prefix_path),
         "executed_call_ids": diagnostic["executed_call_ids"],
         "provenance": diagnostic["provenance"],
+        "canonical_written_bounds": diagnostic["canonical_written_bounds"],
         "evidence_files": {
             str(path.relative_to(evidence)): {
                 "byte_length": path.stat().st_size,
@@ -1280,10 +1375,10 @@ def run_manifest_calls(
         if call["call_kind"] != "endpoint":
             current_chunk.append((call, arrays, raw_directory))
         if predicate is not None:
-            store.close()
+            written_bounds = store.prepare_invalid_prefix(prefix)
             diagnostic = publish_invalid_prefix(
                 stage, calls, prefix, predicate, details, public_root=public_root,
-                provenance=invalid_provenance,
+                provenance=invalid_provenance, canonical_written_bounds=written_bounds,
             )
             return {"status": "invalid", "diagnostic": diagnostic, "outputs": outputs}
         if call["call_kind"] == "endpoint":
@@ -1845,7 +1940,7 @@ def build_dryrun() -> dict[str, object]:
         raise RuntimeError("replay is not bitwise zero")
     audit_pattern = rng.normal(size=(4, WIDTH)).astype("<f4")
     audit_values = (8.0 * rng.normal(size=(4, WIDTH, 128))).astype("<f4")
-    audit_projection = (0.15 * rng.normal(size=(RESIDUAL, 128))).astype("<f4")
+    audit_projection = (0.053 * rng.normal(size=(RESIDUAL, 128))).astype("<f4")
     audit_support = np.zeros((4, WIDTH), dtype=np.bool_)
     audit_support[:, (2, 7, 13)] = True
     audit_c, audit_r, audit_h = high_precision_native_decomposition(
@@ -1897,6 +1992,12 @@ def build_dryrun() -> dict[str, object]:
             "identity_max_abs": audit_error,
             "planted_2e_minus_5_max_abs": planted_error,
             "dtype": str(audit_h.dtype),
+        },
+        "invalid_prefix_publication": {
+            "method": "in_place_npy_header_rewrite_and_truncate",
+            "extra_data_bytes": 0,
+            "zero_written_rows_retains_preallocated_arrays": False,
+            "nonzero_arrays_shape_equals_written_axis0_bound": True,
         },
         "evidence_schemas": {phase: phase_evidence_schema(phase) for phase in PHASE_COUNTS},
         "evidence_data_bytes": {
