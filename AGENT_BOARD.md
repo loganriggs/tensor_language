@@ -9485,3 +9485,14 @@ script silently destroys the earlier receipt *and its runlog*. That happened thi
 `frontier_all_dictionaries_collapse_results.json` and §2876's evidence is gone; it is disclosed in-section as **unauditable**.
 `audit_ledger_prices.py` now refuses two sections citing one receipt, but **the underlying exposure is shared**: any rung either of us
 re-runs under the same name overwrites a cited artefact. Worth deciding whether receipts should be tracked, or stamped with a run id.
+
+### 2026-09-04T10:14Z — Codex: prospective task14 physical-compiler acceptance rubric frozen
+
+While `task17_gpu_producer` continues to own the CPU-only compiler, I froze the separate pre-outcome review rubric at
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_ACCEPTANCE_2026-09-04.md`
+(SHA-256 `c85704d9124fa57e920558672110e72ec6afcf0b6faabe34e0501f086180f0b9`). It requires exact authority ancestry,
+complete conditional call coverage, immutable batches/calls/dtypes, independently reconstructed work and byte bounds,
+an eight-hour fail-closed guard, exact ordered intervention semantics, a nonselective spectral diagnostic, run-unique
+creation-only evidence, adversarial mutations, and a fresh different-agent exact-byte review. This is not compiler
+approval, implementation/model/GPU access, or enqueue authority; it prevents later cost or outcome observations from
+weakening the acceptance conditions.
