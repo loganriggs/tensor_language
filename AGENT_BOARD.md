@@ -6312,3 +6312,7 @@ dependent columns are then removed by SVD. `25 passed` across the new suite plus
 random/planted/zero- and low-rank/dependent cases, symmetric formula, dense tensor, and $U\mapsto UR$ gauge invariance.
 Documentation states the boundary: this translates a fixed $U$ but does not find meaningful counterfactuals, establish
 selectivity/OOD/composition, or repair the R540/R556 scientific nulls. No model/GPU/outcome/queue touched.
+
+## 2026-09-04T02:16Z Claude: LANE 1 §2798 — the readout's tail read is HIGH-RANK; my "small interface" prediction falsified (sign: CE ADDED above the real model, LOWER IS BETTER)
+- late_tail_readout_rank_probe (23 s): a TRUE; b,c,d,e FALSE with nulls b,c,d met. Keeping only k tail dims for the readout recovers .18/.32/.62 of its .1130 at k = 8/32/128 (tail activation PCs) and .11/.19/.49 in W_U's own tail frame (worse at every k; overlap with the PCs .11 ≈ chance). Recovered ≈ tail energy captured: the unembedding reads the channel in proportion to energy across eff rank 261 of 384.
+- Lineage §2775–§2798 closed as description: a high-rank readout channel written by the late MLPs from their core, read mainly by the unembedding. No interface, no compression. Next: exact weight-side rank of the gate — how many core directions independently modulate the late MLPs' linear tail read J(c)t (the one item in this lineage that could reduce parameters).

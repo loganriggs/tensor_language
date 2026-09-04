@@ -5322,3 +5322,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2797 late_tail_write_consumer_probe (Claude, LANE 1 CUDA, 27 s, 1248 GPU forwards): a–f TRUE; no null met. The late-MLP tail write is consumed by
   the FINAL READOUT (.1130; marginal .0876 = 60% of the .1459 joint), later MLPs .0523, late attention .0031; 70% of the readout's share
   from writers 15–17 (block 17 alone .0271); singles Σ .51 × joint. ALL reproduces §2796's write-site drop exactly (.1459).
+- §2798 late_tail_readout_rank_probe (Claude, LANE 1 CUDA, 23 s, 768 GPU forwards): a TRUE; b,c,d,e FALSE; nulls b,c,d met. The readout's tail read
+  is HIGH-RANK: k = 8/32/128 of 384 recover .18/.32/.62 (activation PCs) and .11/.19/.49 (W_U's own frame — worse); eff rank 261; the
+  readout consumes the tail in proportion to its energy. Late-tail lineage closed as description; no interface.

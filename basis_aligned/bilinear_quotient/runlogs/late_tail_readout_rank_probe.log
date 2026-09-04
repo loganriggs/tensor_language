@@ -1,0 +1,59 @@
+{"stage": "heads_done", "t": 14.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.5}
+{"stage": "fit", "n_fit_tokens": 24576, "mu_norm_17": 6416.668, "t": 15.4}
+{"stage": "frames", "eff_rank_A": 260.8, "rank90_A": 307, "eff_rank_WU_tail": 319.7, "cap_WU32": 0.091, "cap_PCA32": 0.304, "overlap32": 0.106, "t": 17.1}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "FINAL_ONLY": 0.113, "KEEP_PCA8": 0.0925, "KEEP_PCA32": 0.0772, "KEEP_PCA128": 0.0434, "KEEP_WU8": 0.1008, "KEEP_WU32": 0.0912, "KEEP_WU128": 0.0573, "t": 23.1}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_unembed_frame_k32_recovers_most": false,
+  "pred_c_unembed_frame_beats_activation_pca_at_k32": false,
+  "pred_d_unembed_frame_k8_recovers_a_large_share": false,
+  "pred_e_k128_recovers_nearly_all_in_either_frame": false
+ },
+ "nulls": {
+  "b_null_WU32_le_.4": true,
+  "c_null_WU32_le_PCA32": true,
+  "d_null_WU8_le_.15": true,
+  "e_null_k128_le_.6": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "FINAL_ONLY": 0.11303675174713135,
+  "KEEP_PCA8": 0.09245264530181885,
+  "KEEP_PCA32": 0.07718759775161743,
+  "KEEP_PCA128": 0.043360888957977295,
+  "KEEP_WU8": 0.10075578093528748,
+  "KEEP_WU32": 0.091229647397995,
+  "KEEP_WU128": 0.05733272433280945
+ },
+ "summary": {
+  "recovered_fraction_of_readout_consumption": {
+   "PCA8": 0.18210100809832308,
+   "PCA32": 0.3171460028832941,
+   "PCA128": 0.616400079728249,
+   "WU8": 0.10864582201828477,
+   "WU32": 0.19292047950846902,
+   "WU128": 0.4927957195632664
+  },
+  "tail_cov_energy_captured": {
+   "PCA8": 0.1960842779524449,
+   "PCA32": 0.3035817982283952,
+   "PCA128": 0.5704581175803854,
+   "WU8": 0.03082341420575661,
+   "WU32": 0.0905808213925938,
+   "WU128": 0.33767256549171315
+  },
+  "A_tail_spectrum": {
+   "eff_rank": 260.7870253353642,
+   "rank_90": 307,
+   "top1": 0.06371078498715156,
+   "psd_min_over_max": 0.0158823777697269
+  },
+  "WU_tail_eff_rank": 319.7437744140625,
+  "WU_tail_top_sv_share": 0.07021497935056686,
+  "frame_overlap_32": 0.10595700144767761,
+  "prior_final_only_2797": 0.113,
+  "n_fit_tokens": 24576
+ }
+}
