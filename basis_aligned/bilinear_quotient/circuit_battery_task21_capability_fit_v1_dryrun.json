@@ -1,0 +1,2020 @@
+{
+  "authority_roles": [
+    "fit_authority"
+  ],
+  "captured_roles": [
+    "artifact_package",
+    "battery_contract",
+    "experiment_spec",
+    "fit_authority",
+    "managed_entry",
+    "preregistration",
+    "task21_adapter"
+  ],
+  "compiled_contract": {
+    "authority": {
+      "fit_rows": {
+        "count": 84,
+        "counts_by_split": {
+          "FIT": 84
+        },
+        "ordered_identities": [
+          "f9f75cc27a6eb4a7d59c0409e5a111c9fc97245c12fef09c5b9df4b40c6ed767",
+          "5a9b6d230b5d1a071018d29ca83b38a9ee943feb290c857858388d96846cd1a9",
+          "998aa6cc9e2be777ed661a19f8c4d554de5144f99bee77b7c27590fb87b3c44c",
+          "2c8afddce63dc42bb18068a1f1c66d1a962b74f5bb6f6058d592ac87776ab5e1",
+          "e504349e8a93e3d1f76eb94b9faa32d3ad7c58cd150a5a7c4da49d2cfff7bc9c",
+          "c4f3c7969e37905a6a452d7e716a42d0754de4747a1e8d1c9f673a8ac90121ef",
+          "b8e2f77dad158b657f3f2f8b9099f2ce07f0708eece5883df9ad1a8a802d10fc",
+          "b0c69cdd05c04f7f9b5d1c6521bc0d41313e837c6cbde4d5625a425b918ce798",
+          "6cbac959562274e173249bcba95d2e8c499b651ce17d81fd961fa748ded6bd72",
+          "6252257ae78db9b5abe8d227140c0aa310c9df091f988ca009192f052afa02ad",
+          "e38cad86f70729c1507d87d836921bbfdea01bda0a49b94705d73d7e7d9278fa",
+          "36f9bfcce12f70dc8ac21a4e762f4ac74a41e71135df9a211f1d43f8bcd1bfa5",
+          "f27a603890327e446a48749860209f3ff346a174ee37d5e31ad065d1dbb6e20c",
+          "a37133b3b0e397fc533ec14d603be3a9ad7322f9357438b003c0e1ad0766d377",
+          "37668f2cb64d62a5d4b2bd77df9823fffa6672697dee2a3e298cf1f6614c40c1",
+          "0ea2ee0448f5e5d2ae42e2a2dd519f092067baf9cfe83721c7b6d457c5776eea",
+          "49142290ba857ae4cbda3b1b8f88e8f7c8dbcaf2b8ca7444ea45251bbf283a45",
+          "71d0d898418f627a3c9c269afeac6c99c1ea7cc8e95d34dece192f722f4281f8",
+          "a92014ebae2de91da0da6e6a5bfd590ffd0c8f90d3d0ae9d3f5cbd90b1c91f4f",
+          "1d4ebf4aeb57b6540cd68eb468d153da939c7e54ee16e7177902702d5ee61cf3",
+          "994b9cfa241f6774acdc7dcc46ebbbb84761e3317d5978941218f6b1dcf7eb5e",
+          "8bf52aebf02beabdf6404b0948aec8a1e5c355339afaeb02dbce755f542a9a0a",
+          "b2f2a6bfb2e5fb7fdb9cc994b53650965c4399b98dcf61230d8ab827acecbe80",
+          "f8fc1f6d6c822f4f19a65fd1f23d1db70ef2cb1db8ef551de7a5c435f2cf0f18",
+          "e05d2cc1304dd31a60fbcb3972ea04c8c219b0ac7a35c717420938308c0cea60",
+          "32c781a482544bb17d6d2ed947a22331f4f3434a7d81e1bc33fb4f62be0c4997",
+          "92fd2dde9ac93ea2bdd3e256eaaa8d3ae7d9da23ad9059eae3918e51956e5f61",
+          "7f5380f541f0e3a30b9cfabd2112653be471a46cfc1c79c006076221ff08e1dc",
+          "2b54c93e039d3bb0994597bb072e142f340379b9b537e96ce04add27507ec9fc",
+          "5e51311395d2b50e463f83ee04059e8602ddd73ec45dcc0e7aaf2fa10c30ce9d",
+          "2d75402d2396e2149d545781a6161568ea82c78c43e2a5fddb99bdec6a03f458",
+          "074258075a4500dc49c7e4d71b90af90cb78614fdeb63da80ee7965441bf2aa0",
+          "5025b0d9d0a78cb232e8a96959b97bdb3820653591d8947c3b3e6e72002061af",
+          "4c550708e664eda6a84604d67d1343c3fad072a5bbffe87ceb6ba13bd0a90cb2",
+          "27eafc3bc91e941536615cf2e16281ffde06c21e604faa418456183a091b1422",
+          "31844be069735c49ee994618887a9ce28f9e4e6650660f4b07813295d0161e08",
+          "6460ad08b3fbb39624bf105d364a4152128a34a43f67bde25404ee3bcc3e0705",
+          "c33e00861ab8a3cc7b80c85466c0ca8b2456b5caa511b22214ba7e009f8a100e",
+          "c4d87a125230a4631bb2cd3d54d3ef8a5e359ef32843219971920e04f9f57c98",
+          "8da35bc980fda867918864f3343801bba2b813ac8470d6d35bf81a65fe6d98ee",
+          "4169c3594e8c8166245e46bd874704744ba60cef65c07b661de2933d1cf483e4",
+          "270a4466af5c23f1de62e6f7bb3c3e9a920150917e3a14d31e23a6b3c95e21a5",
+          "6344fa7c0a1f9f983ea117dc5e5ee655adf5504805fb265fbb14f6ad0822e1bf",
+          "6ac814f7cf2c58eebf1cd5798320719c92db833e2a0979f13dec14f017a9125f",
+          "88f3b12924cd10fae7e535c37d5f337ac1f2a6168c9bd461086faecadec2242d",
+          "5740be7828a9c3ab18b548029bae2eb2d984f0ace0f9eabdfdba1474ad36fc2d",
+          "2d097555afd636b0c8b343bb9ceb8b11359f6bbe86dc0c9f6aeacca4ab066b95",
+          "a831b4b3dcbed30ea55c01cfc03e0fe7b7467866f86e798b7af4f0d0abe9d283",
+          "9ebae7a2715f82b2eebbfcc6685f0ae51c2c6f81c3df8d709960cb024319090d",
+          "fa78f281966071467694d392d52008a832b26f6f0241377568e261a0aa812d6a",
+          "4f56a0bc22791f16be7c7c4f278d5665a86823ce41931d82b346326ef8afc7df",
+          "a2abf184254c63be3fe34b4931f513eaba270916c13befbf77bf2eba4efa3626",
+          "2e6f92a8e9f443b60bd3bcfdb229d089b4682195c8d1ea5e9343407239d845fe",
+          "7c78e22bbe62fb7744278fb3020513d03e66591dafb367738fd892edae1c2efb",
+          "f74ec63f3e5f65990709d84e2fd9d08a5e5f004c65185893a69281c41613829e",
+          "3ec9ccbd5f1f752e134ca82ca1706f3b1fd8c368a5c0ca7ddcedd548342633f5",
+          "017ae36cc37e4f66051c558c8b81f01e005f0ea5ca1d23c5333578180c62d7bd",
+          "2e2474ce9aea366f7ecd0a8c2a3116df6e1e22905c1b72f676223f13f21bea1b",
+          "a070bc111b2a3b436de49bc921f26c3a82db7dcc15728d53fc685a2ae21789fa",
+          "03e22be191407bddc4993753e608e6a0a750c56f947f17db6bfeaf70d20cca03",
+          "e7966953fdcbee753cf88dd65cdf8d93434569a49e3f4f8ed7525194964a36f9",
+          "209e929d451616fd02d1f5e7176222573cc20283025c7e8bb975ccb2dde5a3f0",
+          "ea8b6e1996f5710d06187d2e7274a9492b6ad9ea67abe2c43707df502d73ed39",
+          "a655cd2c547d1542367694677d522c041fb864838edf10e272128e2ae261d74d",
+          "f45184335583b40f06e1cb14917d3329523a1f329ef7b7bb1b9ed22d601ec947",
+          "c307a37bbae2bdd884cf4356d74ab6d07f0f339dcea1618d73df15fcee945102",
+          "ed180e4c68a39379943f11a70a11278d304088559454cd203ab9c15a7b376e4f",
+          "0a53a32a541f4b758f6aacaa4d31d9c770fe1063ead2762ae85294c924f33013",
+          "50af4a55d0f02117d9ba98516dd1b4411636168dd762a513be857558337e22be",
+          "ad466acbfac9a5ff26b1e948f6a4dcc94c9052f415f3693487c5e2bbb4ab038d",
+          "ed4600b08acd2a93f083df924ba8b1067e7775b5dab27e211858b9b642b268da",
+          "240dfd5ca67fa94a4c065e3a052d4868c66d41611abe884f495bf2864c7b066b",
+          "a35c77e84ebaa674ca137daf90cb7f07422526fd25a83e5407e4328739539eb2",
+          "aafc4ceb9939f1a29845fcd63748620cdb56906e922ef0c541b7b769abf0a269",
+          "65eedabc010df30fc25dd28fd79a9e17dc24cc4230fff167a2610fa4cf27d77c",
+          "51737e34dc252d8f4c4bb8f03d284cdf6426597204bd07136d0dc1cc4b38a48f",
+          "0104f8cbe5508e3ec31853badfcbdd3f5d276aaf16ba57c9c0f9fef78f36e43d",
+          "88a0000e01c85c9570b929d482e1fed46691794f3bac0e38650f4d5e7b163fd6",
+          "cea0fb4131e48b16e8fdc41110e197408829f43eab706cc54bc47a21ce8569e8",
+          "0d79bf51c412666d1ce55e4f752a713ede00a4edcc2a84ad9c02823f4bb0e572",
+          "c8657a3d3d70049d68bf9181ffedfa033d7e1a7852385e18f25b2881cd48db81",
+          "30b906aec8d24fdea9a13f1e0146d51e1e36950fe1afdedda47236e27e608d39",
+          "d3b009974af8bd913e95527ae7d3744f3bb59edd127b733f592642aeeb42ab1e",
+          "c5df126dc9d23b7b5d3e185b25f684a564d940ce8f9663617d3763d1f0d56586"
+        ],
+        "ordered_identities_sha256": "f3c6d5605b8c1bb74bd913e3531d37ac5bfdb932a3f538f1f1a0a259b9413070",
+        "records_sha256": "c4bd6e01561dc89fe702e8e813e53639cbb4ad3eee4e0c0d8b788b13fbd28cc8"
+      }
+    },
+    "call_manifest": [
+      {
+        "arm": "native_base",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_base",
+        "call_id": "FIT:base:0:native_base",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "e38cad86f70729c1507d87d836921bbfdea01bda0a49b94705d73d7e7d9278fa",
+          "36f9bfcce12f70dc8ac21a4e762f4ac74a41e71135df9a211f1d43f8bcd1bfa5",
+          "65eedabc010df30fc25dd28fd79a9e17dc24cc4230fff167a2610fa4cf27d77c",
+          "51737e34dc252d8f4c4bb8f03d284cdf6426597204bd07136d0dc1cc4b38a48f",
+          "ea8b6e1996f5710d06187d2e7274a9492b6ad9ea67abe2c43707df502d73ed39",
+          "a655cd2c547d1542367694677d522c041fb864838edf10e272128e2ae261d74d",
+          "f74ec63f3e5f65990709d84e2fd9d08a5e5f004c65185893a69281c41613829e",
+          "3ec9ccbd5f1f752e134ca82ca1706f3b1fd8c368a5c0ca7ddcedd548342633f5",
+          "ed4600b08acd2a93f083df924ba8b1067e7775b5dab27e211858b9b642b268da",
+          "240dfd5ca67fa94a4c065e3a052d4868c66d41611abe884f495bf2864c7b066b",
+          "37668f2cb64d62a5d4b2bd77df9823fffa6672697dee2a3e298cf1f6614c40c1",
+          "0ea2ee0448f5e5d2ae42e2a2dd519f092067baf9cfe83721c7b6d457c5776eea",
+          "b2f2a6bfb2e5fb7fdb9cc994b53650965c4399b98dcf61230d8ab827acecbe80",
+          "f8fc1f6d6c822f4f19a65fd1f23d1db70ef2cb1db8ef551de7a5c435f2cf0f18",
+          "27eafc3bc91e941536615cf2e16281ffde06c21e604faa418456183a091b1422",
+          "31844be069735c49ee994618887a9ce28f9e4e6650660f4b07813295d0161e08",
+          "2d097555afd636b0c8b343bb9ceb8b11359f6bbe86dc0c9f6aeacca4ab066b95",
+          "a831b4b3dcbed30ea55c01cfc03e0fe7b7467866f86e798b7af4f0d0abe9d283",
+          "4f56a0bc22791f16be7c7c4f278d5665a86823ce41931d82b346326ef8afc7df",
+          "a2abf184254c63be3fe34b4931f513eaba270916c13befbf77bf2eba4efa3626",
+          "d3b009974af8bd913e95527ae7d3744f3bb59edd127b733f592642aeeb42ab1e"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_base",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_base",
+        "call_id": "FIT:base:1:native_base",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "c5df126dc9d23b7b5d3e185b25f684a564d940ce8f9663617d3763d1f0d56586",
+          "6344fa7c0a1f9f983ea117dc5e5ee655adf5504805fb265fbb14f6ad0822e1bf",
+          "6ac814f7cf2c58eebf1cd5798320719c92db833e2a0979f13dec14f017a9125f",
+          "a92014ebae2de91da0da6e6a5bfd590ffd0c8f90d3d0ae9d3f5cbd90b1c91f4f",
+          "1d4ebf4aeb57b6540cd68eb468d153da939c7e54ee16e7177902702d5ee61cf3",
+          "998aa6cc9e2be777ed661a19f8c4d554de5144f99bee77b7c27590fb87b3c44c",
+          "2c8afddce63dc42bb18068a1f1c66d1a962b74f5bb6f6058d592ac87776ab5e1",
+          "cea0fb4131e48b16e8fdc41110e197408829f43eab706cc54bc47a21ce8569e8",
+          "0d79bf51c412666d1ce55e4f752a713ede00a4edcc2a84ad9c02823f4bb0e572",
+          "a070bc111b2a3b436de49bc921f26c3a82db7dcc15728d53fc685a2ae21789fa",
+          "03e22be191407bddc4993753e608e6a0a750c56f947f17db6bfeaf70d20cca03",
+          "c4d87a125230a4631bb2cd3d54d3ef8a5e359ef32843219971920e04f9f57c98",
+          "8da35bc980fda867918864f3343801bba2b813ac8470d6d35bf81a65fe6d98ee",
+          "92fd2dde9ac93ea2bdd3e256eaaa8d3ae7d9da23ad9059eae3918e51956e5f61",
+          "7f5380f541f0e3a30b9cfabd2112653be471a46cfc1c79c006076221ff08e1dc",
+          "b8e2f77dad158b657f3f2f8b9099f2ce07f0708eece5883df9ad1a8a802d10fc",
+          "b0c69cdd05c04f7f9b5d1c6521bc0d41313e837c6cbde4d5625a425b918ce798",
+          "2d75402d2396e2149d545781a6161568ea82c78c43e2a5fddb99bdec6a03f458",
+          "074258075a4500dc49c7e4d71b90af90cb78614fdeb63da80ee7965441bf2aa0",
+          "ed180e4c68a39379943f11a70a11278d304088559454cd203ab9c15a7b376e4f",
+          "0a53a32a541f4b758f6aacaa4d31d9c770fe1063ead2762ae85294c924f33013"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_base",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_base",
+        "call_id": "FIT:base:2:native_base",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "6252257ae78db9b5abe8d227140c0aa310c9df091f988ca009192f052afa02ad",
+          "6cbac959562274e173249bcba95d2e8c499b651ce17d81fd961fa748ded6bd72",
+          "aafc4ceb9939f1a29845fcd63748620cdb56906e922ef0c541b7b769abf0a269",
+          "a35c77e84ebaa674ca137daf90cb7f07422526fd25a83e5407e4328739539eb2",
+          "209e929d451616fd02d1f5e7176222573cc20283025c7e8bb975ccb2dde5a3f0",
+          "e7966953fdcbee753cf88dd65cdf8d93434569a49e3f4f8ed7525194964a36f9",
+          "7c78e22bbe62fb7744278fb3020513d03e66591dafb367738fd892edae1c2efb",
+          "2e6f92a8e9f443b60bd3bcfdb229d089b4682195c8d1ea5e9343407239d845fe",
+          "ad466acbfac9a5ff26b1e948f6a4dcc94c9052f415f3693487c5e2bbb4ab038d",
+          "50af4a55d0f02117d9ba98516dd1b4411636168dd762a513be857558337e22be",
+          "a37133b3b0e397fc533ec14d603be3a9ad7322f9357438b003c0e1ad0766d377",
+          "f27a603890327e446a48749860209f3ff346a174ee37d5e31ad065d1dbb6e20c",
+          "8bf52aebf02beabdf6404b0948aec8a1e5c355339afaeb02dbce755f542a9a0a",
+          "994b9cfa241f6774acdc7dcc46ebbbb84761e3317d5978941218f6b1dcf7eb5e",
+          "4c550708e664eda6a84604d67d1343c3fad072a5bbffe87ceb6ba13bd0a90cb2",
+          "5025b0d9d0a78cb232e8a96959b97bdb3820653591d8947c3b3e6e72002061af",
+          "5740be7828a9c3ab18b548029bae2eb2d984f0ace0f9eabdfdba1474ad36fc2d",
+          "88f3b12924cd10fae7e535c37d5f337ac1f2a6168c9bd461086faecadec2242d",
+          "fa78f281966071467694d392d52008a832b26f6f0241377568e261a0aa812d6a",
+          "9ebae7a2715f82b2eebbfcc6685f0ae51c2c6f81c3df8d709960cb024319090d",
+          "30b906aec8d24fdea9a13f1e0146d51e1e36950fe1afdedda47236e27e608d39"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_base",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_base",
+        "call_id": "FIT:base:3:native_base",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "c8657a3d3d70049d68bf9181ffedfa033d7e1a7852385e18f25b2881cd48db81",
+          "270a4466af5c23f1de62e6f7bb3c3e9a920150917e3a14d31e23a6b3c95e21a5",
+          "4169c3594e8c8166245e46bd874704744ba60cef65c07b661de2933d1cf483e4",
+          "71d0d898418f627a3c9c269afeac6c99c1ea7cc8e95d34dece192f722f4281f8",
+          "49142290ba857ae4cbda3b1b8f88e8f7c8dbcaf2b8ca7444ea45251bbf283a45",
+          "5a9b6d230b5d1a071018d29ca83b38a9ee943feb290c857858388d96846cd1a9",
+          "f9f75cc27a6eb4a7d59c0409e5a111c9fc97245c12fef09c5b9df4b40c6ed767",
+          "88a0000e01c85c9570b929d482e1fed46691794f3bac0e38650f4d5e7b163fd6",
+          "0104f8cbe5508e3ec31853badfcbdd3f5d276aaf16ba57c9c0f9fef78f36e43d",
+          "2e2474ce9aea366f7ecd0a8c2a3116df6e1e22905c1b72f676223f13f21bea1b",
+          "017ae36cc37e4f66051c558c8b81f01e005f0ea5ca1d23c5333578180c62d7bd",
+          "c33e00861ab8a3cc7b80c85466c0ca8b2456b5caa511b22214ba7e009f8a100e",
+          "6460ad08b3fbb39624bf105d364a4152128a34a43f67bde25404ee3bcc3e0705",
+          "32c781a482544bb17d6d2ed947a22331f4f3434a7d81e1bc33fb4f62be0c4997",
+          "e05d2cc1304dd31a60fbcb3972ea04c8c219b0ac7a35c717420938308c0cea60",
+          "c4f3c7969e37905a6a452d7e716a42d0754de4747a1e8d1c9f673a8ac90121ef",
+          "e504349e8a93e3d1f76eb94b9faa32d3ad7c58cd150a5a7c4da49d2cfff7bc9c",
+          "5e51311395d2b50e463f83ee04059e8602ddd73ec45dcc0e7aaf2fa10c30ce9d",
+          "2b54c93e039d3bb0994597bb072e142f340379b9b537e96ce04add27507ec9fc",
+          "c307a37bbae2bdd884cf4356d74ab6d07f0f339dcea1618d73df15fcee945102",
+          "f45184335583b40f06e1cb14917d3329523a1f329ef7b7bb1b9ed22d601ec947"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_donor",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_donor",
+        "call_id": "FIT:donor:0:native_donor",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "e38cad86f70729c1507d87d836921bbfdea01bda0a49b94705d73d7e7d9278fa",
+          "36f9bfcce12f70dc8ac21a4e762f4ac74a41e71135df9a211f1d43f8bcd1bfa5",
+          "65eedabc010df30fc25dd28fd79a9e17dc24cc4230fff167a2610fa4cf27d77c",
+          "51737e34dc252d8f4c4bb8f03d284cdf6426597204bd07136d0dc1cc4b38a48f",
+          "ea8b6e1996f5710d06187d2e7274a9492b6ad9ea67abe2c43707df502d73ed39",
+          "a655cd2c547d1542367694677d522c041fb864838edf10e272128e2ae261d74d",
+          "f74ec63f3e5f65990709d84e2fd9d08a5e5f004c65185893a69281c41613829e",
+          "3ec9ccbd5f1f752e134ca82ca1706f3b1fd8c368a5c0ca7ddcedd548342633f5",
+          "ed4600b08acd2a93f083df924ba8b1067e7775b5dab27e211858b9b642b268da",
+          "240dfd5ca67fa94a4c065e3a052d4868c66d41611abe884f495bf2864c7b066b",
+          "37668f2cb64d62a5d4b2bd77df9823fffa6672697dee2a3e298cf1f6614c40c1",
+          "0ea2ee0448f5e5d2ae42e2a2dd519f092067baf9cfe83721c7b6d457c5776eea",
+          "b2f2a6bfb2e5fb7fdb9cc994b53650965c4399b98dcf61230d8ab827acecbe80",
+          "f8fc1f6d6c822f4f19a65fd1f23d1db70ef2cb1db8ef551de7a5c435f2cf0f18",
+          "27eafc3bc91e941536615cf2e16281ffde06c21e604faa418456183a091b1422",
+          "31844be069735c49ee994618887a9ce28f9e4e6650660f4b07813295d0161e08",
+          "2d097555afd636b0c8b343bb9ceb8b11359f6bbe86dc0c9f6aeacca4ab066b95",
+          "a831b4b3dcbed30ea55c01cfc03e0fe7b7467866f86e798b7af4f0d0abe9d283",
+          "4f56a0bc22791f16be7c7c4f278d5665a86823ce41931d82b346326ef8afc7df",
+          "a2abf184254c63be3fe34b4931f513eaba270916c13befbf77bf2eba4efa3626",
+          "d3b009974af8bd913e95527ae7d3744f3bb59edd127b733f592642aeeb42ab1e"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_donor",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_donor",
+        "call_id": "FIT:donor:1:native_donor",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "c5df126dc9d23b7b5d3e185b25f684a564d940ce8f9663617d3763d1f0d56586",
+          "6344fa7c0a1f9f983ea117dc5e5ee655adf5504805fb265fbb14f6ad0822e1bf",
+          "6ac814f7cf2c58eebf1cd5798320719c92db833e2a0979f13dec14f017a9125f",
+          "a92014ebae2de91da0da6e6a5bfd590ffd0c8f90d3d0ae9d3f5cbd90b1c91f4f",
+          "1d4ebf4aeb57b6540cd68eb468d153da939c7e54ee16e7177902702d5ee61cf3",
+          "998aa6cc9e2be777ed661a19f8c4d554de5144f99bee77b7c27590fb87b3c44c",
+          "2c8afddce63dc42bb18068a1f1c66d1a962b74f5bb6f6058d592ac87776ab5e1",
+          "cea0fb4131e48b16e8fdc41110e197408829f43eab706cc54bc47a21ce8569e8",
+          "0d79bf51c412666d1ce55e4f752a713ede00a4edcc2a84ad9c02823f4bb0e572",
+          "a070bc111b2a3b436de49bc921f26c3a82db7dcc15728d53fc685a2ae21789fa",
+          "03e22be191407bddc4993753e608e6a0a750c56f947f17db6bfeaf70d20cca03",
+          "c4d87a125230a4631bb2cd3d54d3ef8a5e359ef32843219971920e04f9f57c98",
+          "8da35bc980fda867918864f3343801bba2b813ac8470d6d35bf81a65fe6d98ee",
+          "92fd2dde9ac93ea2bdd3e256eaaa8d3ae7d9da23ad9059eae3918e51956e5f61",
+          "7f5380f541f0e3a30b9cfabd2112653be471a46cfc1c79c006076221ff08e1dc",
+          "b8e2f77dad158b657f3f2f8b9099f2ce07f0708eece5883df9ad1a8a802d10fc",
+          "b0c69cdd05c04f7f9b5d1c6521bc0d41313e837c6cbde4d5625a425b918ce798",
+          "2d75402d2396e2149d545781a6161568ea82c78c43e2a5fddb99bdec6a03f458",
+          "074258075a4500dc49c7e4d71b90af90cb78614fdeb63da80ee7965441bf2aa0",
+          "ed180e4c68a39379943f11a70a11278d304088559454cd203ab9c15a7b376e4f",
+          "0a53a32a541f4b758f6aacaa4d31d9c770fe1063ead2762ae85294c924f33013"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_donor",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_donor",
+        "call_id": "FIT:donor:2:native_donor",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "6252257ae78db9b5abe8d227140c0aa310c9df091f988ca009192f052afa02ad",
+          "6cbac959562274e173249bcba95d2e8c499b651ce17d81fd961fa748ded6bd72",
+          "aafc4ceb9939f1a29845fcd63748620cdb56906e922ef0c541b7b769abf0a269",
+          "a35c77e84ebaa674ca137daf90cb7f07422526fd25a83e5407e4328739539eb2",
+          "209e929d451616fd02d1f5e7176222573cc20283025c7e8bb975ccb2dde5a3f0",
+          "e7966953fdcbee753cf88dd65cdf8d93434569a49e3f4f8ed7525194964a36f9",
+          "7c78e22bbe62fb7744278fb3020513d03e66591dafb367738fd892edae1c2efb",
+          "2e6f92a8e9f443b60bd3bcfdb229d089b4682195c8d1ea5e9343407239d845fe",
+          "ad466acbfac9a5ff26b1e948f6a4dcc94c9052f415f3693487c5e2bbb4ab038d",
+          "50af4a55d0f02117d9ba98516dd1b4411636168dd762a513be857558337e22be",
+          "a37133b3b0e397fc533ec14d603be3a9ad7322f9357438b003c0e1ad0766d377",
+          "f27a603890327e446a48749860209f3ff346a174ee37d5e31ad065d1dbb6e20c",
+          "8bf52aebf02beabdf6404b0948aec8a1e5c355339afaeb02dbce755f542a9a0a",
+          "994b9cfa241f6774acdc7dcc46ebbbb84761e3317d5978941218f6b1dcf7eb5e",
+          "4c550708e664eda6a84604d67d1343c3fad072a5bbffe87ceb6ba13bd0a90cb2",
+          "5025b0d9d0a78cb232e8a96959b97bdb3820653591d8947c3b3e6e72002061af",
+          "5740be7828a9c3ab18b548029bae2eb2d984f0ace0f9eabdfdba1474ad36fc2d",
+          "88f3b12924cd10fae7e535c37d5f337ac1f2a6168c9bd461086faecadec2242d",
+          "fa78f281966071467694d392d52008a832b26f6f0241377568e261a0aa812d6a",
+          "9ebae7a2715f82b2eebbfcc6685f0ae51c2c6f81c3df8d709960cb024319090d",
+          "30b906aec8d24fdea9a13f1e0146d51e1e36950fe1afdedda47236e27e608d39"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      },
+      {
+        "arm": "native_donor",
+        "arm_direction": "undirected",
+        "arm_role": "native",
+        "array_contracts": [
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "answer_logit",
+            "shape": [
+              "batch"
+            ]
+          },
+          {
+            "dtype": "float32",
+            "finite_policy": "always",
+            "name": "max_foil_logit",
+            "shape": [
+              "batch"
+            ]
+          }
+        ],
+        "call_family": "fit_native_donor",
+        "call_id": "FIT:donor:3:native_donor",
+        "call_kind": "native_answer_foil_logits",
+        "checkpoint_validation": "facade_verified_sha256",
+        "guard": "capability_only",
+        "logical_batch_size": 21,
+        "model_structure_validation": "facade_bilin18_structure",
+        "padded_sequence_length": 8,
+        "row_ids": [
+          "c8657a3d3d70049d68bf9181ffedfa033d7e1a7852385e18f25b2881cd48db81",
+          "270a4466af5c23f1de62e6f7bb3c3e9a920150917e3a14d31e23a6b3c95e21a5",
+          "4169c3594e8c8166245e46bd874704744ba60cef65c07b661de2933d1cf483e4",
+          "71d0d898418f627a3c9c269afeac6c99c1ea7cc8e95d34dece192f722f4281f8",
+          "49142290ba857ae4cbda3b1b8f88e8f7c8dbcaf2b8ca7444ea45251bbf283a45",
+          "5a9b6d230b5d1a071018d29ca83b38a9ee943feb290c857858388d96846cd1a9",
+          "f9f75cc27a6eb4a7d59c0409e5a111c9fc97245c12fef09c5b9df4b40c6ed767",
+          "88a0000e01c85c9570b929d482e1fed46691794f3bac0e38650f4d5e7b163fd6",
+          "0104f8cbe5508e3ec31853badfcbdd3f5d276aaf16ba57c9c0f9fef78f36e43d",
+          "2e2474ce9aea366f7ecd0a8c2a3116df6e1e22905c1b72f676223f13f21bea1b",
+          "017ae36cc37e4f66051c558c8b81f01e005f0ea5ca1d23c5333578180c62d7bd",
+          "c33e00861ab8a3cc7b80c85466c0ca8b2456b5caa511b22214ba7e009f8a100e",
+          "6460ad08b3fbb39624bf105d364a4152128a34a43f67bde25404ee3bcc3e0705",
+          "32c781a482544bb17d6d2ed947a22331f4f3434a7d81e1bc33fb4f62be0c4997",
+          "e05d2cc1304dd31a60fbcb3972ea04c8c219b0ac7a35c717420938308c0cea60",
+          "c4f3c7969e37905a6a452d7e716a42d0754de4747a1e8d1c9f673a8ac90121ef",
+          "e504349e8a93e3d1f76eb94b9faa32d3ad7c58cd150a5a7c4da49d2cfff7bc9c",
+          "5e51311395d2b50e463f83ee04059e8602ddd73ec45dcc0e7aaf2fa10c30ce9d",
+          "2b54c93e039d3bb0994597bb072e142f340379b9b537e96ce04add27507ec9fc",
+          "c307a37bbae2bdd884cf4356d74ab6d07f0f339dcea1618d73df15fcee945102",
+          "f45184335583b40f06e1cb14917d3329523a1f329ef7b7bb1b9ed22d601ec947"
+        ],
+        "shape_validation_mode": "dynamic_batched_token_matrix_exact_common_length_v1",
+        "split": "FIT"
+      }
+    ],
+    "call_summary": {
+      "call_count": 8,
+      "call_kind_counts": {
+        "native_answer_foil_logits": 8
+      },
+      "guard_counts": {
+        "capability_only": 8
+      },
+      "manifest_sha256": "ac179a95415a7ae906ab887b97a060c217f4a0efc77b7fbefe42c833c9b2f23e",
+      "maximum_batch_size": 21,
+      "shape_counts": {
+        "21x8": 8
+      }
+    },
+    "capability_scope": "FIT_native_only_no_reader_localization_or_selection",
+    "experiment_id": "circuit-battery-task21-verbatim-copy-capability-fit-v1",
+    "fit_authority_sha256": "c4bd6e01561dc89fe702e8e813e53639cbb4ad3eee4e0c0d8b788b13fbd28cc8",
+    "later_split_artifacts": [],
+    "later_split_generation": false,
+    "literal_price": {
+      "backward_calls": 0,
+      "evidence_bytes": 1344,
+      "example_evaluations": 168,
+      "forward_calls": 8,
+      "model_updates": 0,
+      "phase": "FIT"
+    },
+    "metric_manifest": [
+      {
+        "call_id": "FIT:base:0:native_base",
+        "foil_token_ids": [
+          [
+            2266,
+            7627,
+            9009
+          ],
+          [
+            7627,
+            9009
+          ],
+          [
+            7815,
+            7850,
+            31377
+          ],
+          [
+            7815,
+            7850
+          ],
+          [
+            2975,
+            23608,
+            29537
+          ],
+          [
+            2975,
+            23608
+          ],
+          [
+            2330,
+            8801,
+            29537
+          ],
+          [
+            2330,
+            29537
+          ],
+          [
+            2975,
+            7850,
+            31377
+          ],
+          [
+            7850,
+            31377
+          ],
+          [
+            6388,
+            7627,
+            9009
+          ],
+          [
+            6388,
+            9009
+          ],
+          [
+            2705,
+            3869,
+            6388
+          ],
+          [
+            2705,
+            3869
+          ],
+          [
+            7022,
+            8824,
+            18873
+          ],
+          [
+            7022,
+            18873
+          ],
+          [
+            6729,
+            8801,
+            15317
+          ],
+          [
+            6729,
+            8801
+          ],
+          [
+            2330,
+            6729,
+            8801
+          ],
+          [
+            2330,
+            8801
+          ],
+          [
+            7815,
+            15452,
+            17577
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "e38cad86f70729c1507d87d836921bbfdea01bda0a49b94705d73d7e7d9278fa",
+          "36f9bfcce12f70dc8ac21a4e762f4ac74a41e71135df9a211f1d43f8bcd1bfa5",
+          "65eedabc010df30fc25dd28fd79a9e17dc24cc4230fff167a2610fa4cf27d77c",
+          "51737e34dc252d8f4c4bb8f03d284cdf6426597204bd07136d0dc1cc4b38a48f",
+          "ea8b6e1996f5710d06187d2e7274a9492b6ad9ea67abe2c43707df502d73ed39",
+          "a655cd2c547d1542367694677d522c041fb864838edf10e272128e2ae261d74d",
+          "f74ec63f3e5f65990709d84e2fd9d08a5e5f004c65185893a69281c41613829e",
+          "3ec9ccbd5f1f752e134ca82ca1706f3b1fd8c368a5c0ca7ddcedd548342633f5",
+          "ed4600b08acd2a93f083df924ba8b1067e7775b5dab27e211858b9b642b268da",
+          "240dfd5ca67fa94a4c065e3a052d4868c66d41611abe884f495bf2864c7b066b",
+          "37668f2cb64d62a5d4b2bd77df9823fffa6672697dee2a3e298cf1f6614c40c1",
+          "0ea2ee0448f5e5d2ae42e2a2dd519f092067baf9cfe83721c7b6d457c5776eea",
+          "b2f2a6bfb2e5fb7fdb9cc994b53650965c4399b98dcf61230d8ab827acecbe80",
+          "f8fc1f6d6c822f4f19a65fd1f23d1db70ef2cb1db8ef551de7a5c435f2cf0f18",
+          "27eafc3bc91e941536615cf2e16281ffde06c21e604faa418456183a091b1422",
+          "31844be069735c49ee994618887a9ce28f9e4e6650660f4b07813295d0161e08",
+          "2d097555afd636b0c8b343bb9ceb8b11359f6bbe86dc0c9f6aeacca4ab066b95",
+          "a831b4b3dcbed30ea55c01cfc03e0fe7b7467866f86e798b7af4f0d0abe9d283",
+          "4f56a0bc22791f16be7c7c4f278d5665a86823ce41931d82b346326ef8afc7df",
+          "a2abf184254c63be3fe34b4931f513eaba270916c13befbf77bf2eba4efa3626",
+          "d3b009974af8bd913e95527ae7d3744f3bb59edd127b733f592642aeeb42ab1e"
+        ],
+        "side": "base",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          15452,
+          15452,
+          23608,
+          23608,
+          8801,
+          8801,
+          15317,
+          15317,
+          29537,
+          29537,
+          17577,
+          17577,
+          7627,
+          7627,
+          3869,
+          3869,
+          7022,
+          7022,
+          18873,
+          18873,
+          31377
+        ],
+        "transform_ids": [
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P"
+        ]
+      },
+      {
+        "call_id": "FIT:base:1:native_base",
+        "foil_token_ids": [
+          [
+            15452,
+            17577
+          ],
+          [
+            6729,
+            15317,
+            18873
+          ],
+          [
+            6729,
+            15317
+          ],
+          [
+            3869,
+            6388,
+            9009
+          ],
+          [
+            3869,
+            6388
+          ],
+          [
+            2266,
+            15452,
+            17577
+          ],
+          [
+            2266,
+            17577
+          ],
+          [
+            7815,
+            7850,
+            15452
+          ],
+          [
+            7815,
+            15452
+          ],
+          [
+            2330,
+            23608,
+            29537
+          ],
+          [
+            23608,
+            29537
+          ],
+          [
+            7022,
+            15317,
+            18873
+          ],
+          [
+            15317,
+            18873
+          ],
+          [
+            2705,
+            3869,
+            8824
+          ],
+          [
+            2705,
+            8824
+          ],
+          [
+            2266,
+            7627,
+            17577
+          ],
+          [
+            2266,
+            7627
+          ],
+          [
+            2705,
+            7022,
+            8824
+          ],
+          [
+            7022,
+            8824
+          ],
+          [
+            2975,
+            23608,
+            31377
+          ],
+          [
+            2975,
+            31377
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "c5df126dc9d23b7b5d3e185b25f684a564d940ce8f9663617d3763d1f0d56586",
+          "6344fa7c0a1f9f983ea117dc5e5ee655adf5504805fb265fbb14f6ad0822e1bf",
+          "6ac814f7cf2c58eebf1cd5798320719c92db833e2a0979f13dec14f017a9125f",
+          "a92014ebae2de91da0da6e6a5bfd590ffd0c8f90d3d0ae9d3f5cbd90b1c91f4f",
+          "1d4ebf4aeb57b6540cd68eb468d153da939c7e54ee16e7177902702d5ee61cf3",
+          "998aa6cc9e2be777ed661a19f8c4d554de5144f99bee77b7c27590fb87b3c44c",
+          "2c8afddce63dc42bb18068a1f1c66d1a962b74f5bb6f6058d592ac87776ab5e1",
+          "cea0fb4131e48b16e8fdc41110e197408829f43eab706cc54bc47a21ce8569e8",
+          "0d79bf51c412666d1ce55e4f752a713ede00a4edcc2a84ad9c02823f4bb0e572",
+          "a070bc111b2a3b436de49bc921f26c3a82db7dcc15728d53fc685a2ae21789fa",
+          "03e22be191407bddc4993753e608e6a0a750c56f947f17db6bfeaf70d20cca03",
+          "c4d87a125230a4631bb2cd3d54d3ef8a5e359ef32843219971920e04f9f57c98",
+          "8da35bc980fda867918864f3343801bba2b813ac8470d6d35bf81a65fe6d98ee",
+          "92fd2dde9ac93ea2bdd3e256eaaa8d3ae7d9da23ad9059eae3918e51956e5f61",
+          "7f5380f541f0e3a30b9cfabd2112653be471a46cfc1c79c006076221ff08e1dc",
+          "b8e2f77dad158b657f3f2f8b9099f2ce07f0708eece5883df9ad1a8a802d10fc",
+          "b0c69cdd05c04f7f9b5d1c6521bc0d41313e837c6cbde4d5625a425b918ce798",
+          "2d75402d2396e2149d545781a6161568ea82c78c43e2a5fddb99bdec6a03f458",
+          "074258075a4500dc49c7e4d71b90af90cb78614fdeb63da80ee7965441bf2aa0",
+          "ed180e4c68a39379943f11a70a11278d304088559454cd203ab9c15a7b376e4f",
+          "0a53a32a541f4b758f6aacaa4d31d9c770fe1063ead2762ae85294c924f33013"
+        ],
+        "side": "base",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          31377,
+          8824,
+          8824,
+          2266,
+          2266,
+          7850,
+          7850,
+          2975,
+          2975,
+          6729,
+          6729,
+          2705,
+          2705,
+          9009,
+          9009,
+          7815,
+          7815,
+          6388,
+          6388,
+          2330,
+          2330
+        ],
+        "transform_ids": [
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C"
+        ]
+      },
+      {
+        "call_id": "FIT:base:2:native_base",
+        "foil_token_ids": [
+          [
+            7627,
+            9009,
+            17577
+          ],
+          [
+            7627,
+            9009,
+            17577
+          ],
+          [
+            2975,
+            7815,
+            7850
+          ],
+          [
+            2975,
+            7815,
+            7850
+          ],
+          [
+            2330,
+            2975,
+            23608
+          ],
+          [
+            2330,
+            2975,
+            23608
+          ],
+          [
+            2330,
+            6729,
+            29537
+          ],
+          [
+            2330,
+            6729,
+            29537
+          ],
+          [
+            7850,
+            23608,
+            31377
+          ],
+          [
+            7850,
+            23608,
+            31377
+          ],
+          [
+            2266,
+            6388,
+            9009
+          ],
+          [
+            2266,
+            6388,
+            9009
+          ],
+          [
+            2705,
+            3869,
+            9009
+          ],
+          [
+            2705,
+            3869,
+            9009
+          ],
+          [
+            2705,
+            7022,
+            18873
+          ],
+          [
+            2705,
+            7022,
+            18873
+          ],
+          [
+            6729,
+            8801,
+            18873
+          ],
+          [
+            6729,
+            8801,
+            18873
+          ],
+          [
+            2330,
+            8801,
+            15317
+          ],
+          [
+            2330,
+            8801,
+            15317
+          ],
+          [
+            7850,
+            15452,
+            17577
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "6252257ae78db9b5abe8d227140c0aa310c9df091f988ca009192f052afa02ad",
+          "6cbac959562274e173249bcba95d2e8c499b651ce17d81fd961fa748ded6bd72",
+          "aafc4ceb9939f1a29845fcd63748620cdb56906e922ef0c541b7b769abf0a269",
+          "a35c77e84ebaa674ca137daf90cb7f07422526fd25a83e5407e4328739539eb2",
+          "209e929d451616fd02d1f5e7176222573cc20283025c7e8bb975ccb2dde5a3f0",
+          "e7966953fdcbee753cf88dd65cdf8d93434569a49e3f4f8ed7525194964a36f9",
+          "7c78e22bbe62fb7744278fb3020513d03e66591dafb367738fd892edae1c2efb",
+          "2e6f92a8e9f443b60bd3bcfdb229d089b4682195c8d1ea5e9343407239d845fe",
+          "ad466acbfac9a5ff26b1e948f6a4dcc94c9052f415f3693487c5e2bbb4ab038d",
+          "50af4a55d0f02117d9ba98516dd1b4411636168dd762a513be857558337e22be",
+          "a37133b3b0e397fc533ec14d603be3a9ad7322f9357438b003c0e1ad0766d377",
+          "f27a603890327e446a48749860209f3ff346a174ee37d5e31ad065d1dbb6e20c",
+          "8bf52aebf02beabdf6404b0948aec8a1e5c355339afaeb02dbce755f542a9a0a",
+          "994b9cfa241f6774acdc7dcc46ebbbb84761e3317d5978941218f6b1dcf7eb5e",
+          "4c550708e664eda6a84604d67d1343c3fad072a5bbffe87ceb6ba13bd0a90cb2",
+          "5025b0d9d0a78cb232e8a96959b97bdb3820653591d8947c3b3e6e72002061af",
+          "5740be7828a9c3ab18b548029bae2eb2d984f0ace0f9eabdfdba1474ad36fc2d",
+          "88f3b12924cd10fae7e535c37d5f337ac1f2a6168c9bd461086faecadec2242d",
+          "fa78f281966071467694d392d52008a832b26f6f0241377568e261a0aa812d6a",
+          "9ebae7a2715f82b2eebbfcc6685f0ae51c2c6f81c3df8d709960cb024319090d",
+          "30b906aec8d24fdea9a13f1e0146d51e1e36950fe1afdedda47236e27e608d39"
+        ],
+        "side": "base",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          15452,
+          15452,
+          23608,
+          23608,
+          8801,
+          8801,
+          15317,
+          15317,
+          29537,
+          29537,
+          17577,
+          17577,
+          7627,
+          7627,
+          3869,
+          3869,
+          7022,
+          7022,
+          18873,
+          18873,
+          31377
+        ],
+        "transform_ids": [
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2"
+        ]
+      },
+      {
+        "call_id": "FIT:base:3:native_base",
+        "foil_token_ids": [
+          [
+            7850,
+            15452,
+            17577
+          ],
+          [
+            6729,
+            7022,
+            15317
+          ],
+          [
+            6729,
+            7022,
+            15317
+          ],
+          [
+            3869,
+            6388,
+            7627
+          ],
+          [
+            3869,
+            6388,
+            7627
+          ],
+          [
+            2266,
+            7815,
+            17577
+          ],
+          [
+            2266,
+            7815,
+            17577
+          ],
+          [
+            7815,
+            15452,
+            31377
+          ],
+          [
+            7815,
+            15452,
+            31377
+          ],
+          [
+            8801,
+            23608,
+            29537
+          ],
+          [
+            8801,
+            23608,
+            29537
+          ],
+          [
+            8824,
+            15317,
+            18873
+          ],
+          [
+            8824,
+            15317,
+            18873
+          ],
+          [
+            2705,
+            6388,
+            8824
+          ],
+          [
+            2705,
+            6388,
+            8824
+          ],
+          [
+            2266,
+            7627,
+            15452
+          ],
+          [
+            2266,
+            7627,
+            15452
+          ],
+          [
+            3869,
+            7022,
+            8824
+          ],
+          [
+            3869,
+            7022,
+            8824
+          ],
+          [
+            2975,
+            29537,
+            31377
+          ],
+          [
+            2975,
+            29537,
+            31377
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "c8657a3d3d70049d68bf9181ffedfa033d7e1a7852385e18f25b2881cd48db81",
+          "270a4466af5c23f1de62e6f7bb3c3e9a920150917e3a14d31e23a6b3c95e21a5",
+          "4169c3594e8c8166245e46bd874704744ba60cef65c07b661de2933d1cf483e4",
+          "71d0d898418f627a3c9c269afeac6c99c1ea7cc8e95d34dece192f722f4281f8",
+          "49142290ba857ae4cbda3b1b8f88e8f7c8dbcaf2b8ca7444ea45251bbf283a45",
+          "5a9b6d230b5d1a071018d29ca83b38a9ee943feb290c857858388d96846cd1a9",
+          "f9f75cc27a6eb4a7d59c0409e5a111c9fc97245c12fef09c5b9df4b40c6ed767",
+          "88a0000e01c85c9570b929d482e1fed46691794f3bac0e38650f4d5e7b163fd6",
+          "0104f8cbe5508e3ec31853badfcbdd3f5d276aaf16ba57c9c0f9fef78f36e43d",
+          "2e2474ce9aea366f7ecd0a8c2a3116df6e1e22905c1b72f676223f13f21bea1b",
+          "017ae36cc37e4f66051c558c8b81f01e005f0ea5ca1d23c5333578180c62d7bd",
+          "c33e00861ab8a3cc7b80c85466c0ca8b2456b5caa511b22214ba7e009f8a100e",
+          "6460ad08b3fbb39624bf105d364a4152128a34a43f67bde25404ee3bcc3e0705",
+          "32c781a482544bb17d6d2ed947a22331f4f3434a7d81e1bc33fb4f62be0c4997",
+          "e05d2cc1304dd31a60fbcb3972ea04c8c219b0ac7a35c717420938308c0cea60",
+          "c4f3c7969e37905a6a452d7e716a42d0754de4747a1e8d1c9f673a8ac90121ef",
+          "e504349e8a93e3d1f76eb94b9faa32d3ad7c58cd150a5a7c4da49d2cfff7bc9c",
+          "5e51311395d2b50e463f83ee04059e8602ddd73ec45dcc0e7aaf2fa10c30ce9d",
+          "2b54c93e039d3bb0994597bb072e142f340379b9b537e96ce04add27507ec9fc",
+          "c307a37bbae2bdd884cf4356d74ab6d07f0f339dcea1618d73df15fcee945102",
+          "f45184335583b40f06e1cb14917d3329523a1f329ef7b7bb1b9ed22d601ec947"
+        ],
+        "side": "base",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          31377,
+          8824,
+          8824,
+          2266,
+          2266,
+          7850,
+          7850,
+          2975,
+          2975,
+          6729,
+          6729,
+          2705,
+          2705,
+          9009,
+          9009,
+          7815,
+          7815,
+          6388,
+          6388,
+          2330,
+          2330
+        ],
+        "transform_ids": [
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1"
+        ]
+      },
+      {
+        "call_id": "FIT:donor:0:native_donor",
+        "foil_token_ids": [
+          [
+            2266,
+            7627,
+            9009
+          ],
+          [
+            7627,
+            9009
+          ],
+          [
+            7815,
+            7850,
+            31377
+          ],
+          [
+            7815,
+            7850
+          ],
+          [
+            2975,
+            23608,
+            29537
+          ],
+          [
+            2975,
+            23608
+          ],
+          [
+            2330,
+            8801,
+            29537
+          ],
+          [
+            2330,
+            29537
+          ],
+          [
+            2975,
+            7850,
+            31377
+          ],
+          [
+            7850,
+            31377
+          ],
+          [
+            6388,
+            7627,
+            9009
+          ],
+          [
+            6388,
+            9009
+          ],
+          [
+            2705,
+            3869,
+            6388
+          ],
+          [
+            2705,
+            3869
+          ],
+          [
+            7022,
+            8824,
+            18873
+          ],
+          [
+            7022,
+            18873
+          ],
+          [
+            6729,
+            8801,
+            15317
+          ],
+          [
+            6729,
+            8801
+          ],
+          [
+            2330,
+            6729,
+            8801
+          ],
+          [
+            2330,
+            8801
+          ],
+          [
+            7815,
+            15452,
+            17577
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "e38cad86f70729c1507d87d836921bbfdea01bda0a49b94705d73d7e7d9278fa",
+          "36f9bfcce12f70dc8ac21a4e762f4ac74a41e71135df9a211f1d43f8bcd1bfa5",
+          "65eedabc010df30fc25dd28fd79a9e17dc24cc4230fff167a2610fa4cf27d77c",
+          "51737e34dc252d8f4c4bb8f03d284cdf6426597204bd07136d0dc1cc4b38a48f",
+          "ea8b6e1996f5710d06187d2e7274a9492b6ad9ea67abe2c43707df502d73ed39",
+          "a655cd2c547d1542367694677d522c041fb864838edf10e272128e2ae261d74d",
+          "f74ec63f3e5f65990709d84e2fd9d08a5e5f004c65185893a69281c41613829e",
+          "3ec9ccbd5f1f752e134ca82ca1706f3b1fd8c368a5c0ca7ddcedd548342633f5",
+          "ed4600b08acd2a93f083df924ba8b1067e7775b5dab27e211858b9b642b268da",
+          "240dfd5ca67fa94a4c065e3a052d4868c66d41611abe884f495bf2864c7b066b",
+          "37668f2cb64d62a5d4b2bd77df9823fffa6672697dee2a3e298cf1f6614c40c1",
+          "0ea2ee0448f5e5d2ae42e2a2dd519f092067baf9cfe83721c7b6d457c5776eea",
+          "b2f2a6bfb2e5fb7fdb9cc994b53650965c4399b98dcf61230d8ab827acecbe80",
+          "f8fc1f6d6c822f4f19a65fd1f23d1db70ef2cb1db8ef551de7a5c435f2cf0f18",
+          "27eafc3bc91e941536615cf2e16281ffde06c21e604faa418456183a091b1422",
+          "31844be069735c49ee994618887a9ce28f9e4e6650660f4b07813295d0161e08",
+          "2d097555afd636b0c8b343bb9ceb8b11359f6bbe86dc0c9f6aeacca4ab066b95",
+          "a831b4b3dcbed30ea55c01cfc03e0fe7b7467866f86e798b7af4f0d0abe9d283",
+          "4f56a0bc22791f16be7c7c4f278d5665a86823ce41931d82b346326ef8afc7df",
+          "a2abf184254c63be3fe34b4931f513eaba270916c13befbf77bf2eba4efa3626",
+          "d3b009974af8bd913e95527ae7d3744f3bb59edd127b733f592642aeeb42ab1e"
+        ],
+        "side": "donor",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          15452,
+          15452,
+          23608,
+          23608,
+          8801,
+          8801,
+          15317,
+          15317,
+          29537,
+          29537,
+          17577,
+          17577,
+          7627,
+          7627,
+          3869,
+          3869,
+          7022,
+          7022,
+          18873,
+          18873,
+          31377
+        ],
+        "transform_ids": [
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P"
+        ]
+      },
+      {
+        "call_id": "FIT:donor:1:native_donor",
+        "foil_token_ids": [
+          [
+            15452,
+            17577
+          ],
+          [
+            6729,
+            15317,
+            18873
+          ],
+          [
+            6729,
+            15317
+          ],
+          [
+            3869,
+            6388,
+            9009
+          ],
+          [
+            3869,
+            6388
+          ],
+          [
+            2266,
+            15452,
+            17577
+          ],
+          [
+            2266,
+            17577
+          ],
+          [
+            7815,
+            7850,
+            15452
+          ],
+          [
+            7815,
+            15452
+          ],
+          [
+            2330,
+            23608,
+            29537
+          ],
+          [
+            23608,
+            29537
+          ],
+          [
+            7022,
+            15317,
+            18873
+          ],
+          [
+            15317,
+            18873
+          ],
+          [
+            2705,
+            3869,
+            8824
+          ],
+          [
+            2705,
+            8824
+          ],
+          [
+            2266,
+            7627,
+            17577
+          ],
+          [
+            2266,
+            7627
+          ],
+          [
+            2705,
+            7022,
+            8824
+          ],
+          [
+            7022,
+            8824
+          ],
+          [
+            2975,
+            23608,
+            31377
+          ],
+          [
+            2975,
+            31377
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "c5df126dc9d23b7b5d3e185b25f684a564d940ce8f9663617d3763d1f0d56586",
+          "6344fa7c0a1f9f983ea117dc5e5ee655adf5504805fb265fbb14f6ad0822e1bf",
+          "6ac814f7cf2c58eebf1cd5798320719c92db833e2a0979f13dec14f017a9125f",
+          "a92014ebae2de91da0da6e6a5bfd590ffd0c8f90d3d0ae9d3f5cbd90b1c91f4f",
+          "1d4ebf4aeb57b6540cd68eb468d153da939c7e54ee16e7177902702d5ee61cf3",
+          "998aa6cc9e2be777ed661a19f8c4d554de5144f99bee77b7c27590fb87b3c44c",
+          "2c8afddce63dc42bb18068a1f1c66d1a962b74f5bb6f6058d592ac87776ab5e1",
+          "cea0fb4131e48b16e8fdc41110e197408829f43eab706cc54bc47a21ce8569e8",
+          "0d79bf51c412666d1ce55e4f752a713ede00a4edcc2a84ad9c02823f4bb0e572",
+          "a070bc111b2a3b436de49bc921f26c3a82db7dcc15728d53fc685a2ae21789fa",
+          "03e22be191407bddc4993753e608e6a0a750c56f947f17db6bfeaf70d20cca03",
+          "c4d87a125230a4631bb2cd3d54d3ef8a5e359ef32843219971920e04f9f57c98",
+          "8da35bc980fda867918864f3343801bba2b813ac8470d6d35bf81a65fe6d98ee",
+          "92fd2dde9ac93ea2bdd3e256eaaa8d3ae7d9da23ad9059eae3918e51956e5f61",
+          "7f5380f541f0e3a30b9cfabd2112653be471a46cfc1c79c006076221ff08e1dc",
+          "b8e2f77dad158b657f3f2f8b9099f2ce07f0708eece5883df9ad1a8a802d10fc",
+          "b0c69cdd05c04f7f9b5d1c6521bc0d41313e837c6cbde4d5625a425b918ce798",
+          "2d75402d2396e2149d545781a6161568ea82c78c43e2a5fddb99bdec6a03f458",
+          "074258075a4500dc49c7e4d71b90af90cb78614fdeb63da80ee7965441bf2aa0",
+          "ed180e4c68a39379943f11a70a11278d304088559454cd203ab9c15a7b376e4f",
+          "0a53a32a541f4b758f6aacaa4d31d9c770fe1063ead2762ae85294c924f33013"
+        ],
+        "side": "donor",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          31377,
+          8824,
+          8824,
+          2266,
+          2266,
+          7850,
+          7850,
+          2975,
+          2975,
+          6729,
+          6729,
+          2705,
+          2705,
+          9009,
+          9009,
+          7815,
+          7815,
+          6388,
+          6388,
+          2330,
+          2330
+        ],
+        "transform_ids": [
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C",
+          "P",
+          "C"
+        ]
+      },
+      {
+        "call_id": "FIT:donor:2:native_donor",
+        "foil_token_ids": [
+          [
+            7627,
+            9009,
+            15452
+          ],
+          [
+            7627,
+            9009,
+            15452
+          ],
+          [
+            7815,
+            7850,
+            23608
+          ],
+          [
+            7815,
+            7850,
+            23608
+          ],
+          [
+            2975,
+            8801,
+            23608
+          ],
+          [
+            2975,
+            8801,
+            23608
+          ],
+          [
+            2330,
+            15317,
+            29537
+          ],
+          [
+            2330,
+            15317,
+            29537
+          ],
+          [
+            7850,
+            29537,
+            31377
+          ],
+          [
+            7850,
+            29537,
+            31377
+          ],
+          [
+            6388,
+            9009,
+            17577
+          ],
+          [
+            6388,
+            9009,
+            17577
+          ],
+          [
+            2705,
+            3869,
+            7627
+          ],
+          [
+            2705,
+            3869,
+            7627
+          ],
+          [
+            3869,
+            7022,
+            18873
+          ],
+          [
+            3869,
+            7022,
+            18873
+          ],
+          [
+            6729,
+            7022,
+            8801
+          ],
+          [
+            6729,
+            7022,
+            8801
+          ],
+          [
+            2330,
+            8801,
+            18873
+          ],
+          [
+            2330,
+            8801,
+            18873
+          ],
+          [
+            15452,
+            17577,
+            31377
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "6252257ae78db9b5abe8d227140c0aa310c9df091f988ca009192f052afa02ad",
+          "6cbac959562274e173249bcba95d2e8c499b651ce17d81fd961fa748ded6bd72",
+          "aafc4ceb9939f1a29845fcd63748620cdb56906e922ef0c541b7b769abf0a269",
+          "a35c77e84ebaa674ca137daf90cb7f07422526fd25a83e5407e4328739539eb2",
+          "209e929d451616fd02d1f5e7176222573cc20283025c7e8bb975ccb2dde5a3f0",
+          "e7966953fdcbee753cf88dd65cdf8d93434569a49e3f4f8ed7525194964a36f9",
+          "7c78e22bbe62fb7744278fb3020513d03e66591dafb367738fd892edae1c2efb",
+          "2e6f92a8e9f443b60bd3bcfdb229d089b4682195c8d1ea5e9343407239d845fe",
+          "ad466acbfac9a5ff26b1e948f6a4dcc94c9052f415f3693487c5e2bbb4ab038d",
+          "50af4a55d0f02117d9ba98516dd1b4411636168dd762a513be857558337e22be",
+          "a37133b3b0e397fc533ec14d603be3a9ad7322f9357438b003c0e1ad0766d377",
+          "f27a603890327e446a48749860209f3ff346a174ee37d5e31ad065d1dbb6e20c",
+          "8bf52aebf02beabdf6404b0948aec8a1e5c355339afaeb02dbce755f542a9a0a",
+          "994b9cfa241f6774acdc7dcc46ebbbb84761e3317d5978941218f6b1dcf7eb5e",
+          "4c550708e664eda6a84604d67d1343c3fad072a5bbffe87ceb6ba13bd0a90cb2",
+          "5025b0d9d0a78cb232e8a96959b97bdb3820653591d8947c3b3e6e72002061af",
+          "5740be7828a9c3ab18b548029bae2eb2d984f0ace0f9eabdfdba1474ad36fc2d",
+          "88f3b12924cd10fae7e535c37d5f337ac1f2a6168c9bd461086faecadec2242d",
+          "fa78f281966071467694d392d52008a832b26f6f0241377568e261a0aa812d6a",
+          "9ebae7a2715f82b2eebbfcc6685f0ae51c2c6f81c3df8d709960cb024319090d",
+          "30b906aec8d24fdea9a13f1e0146d51e1e36950fe1afdedda47236e27e608d39"
+        ],
+        "side": "donor",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          17577,
+          17577,
+          2975,
+          2975,
+          2330,
+          2330,
+          6729,
+          6729,
+          23608,
+          23608,
+          2266,
+          2266,
+          9009,
+          9009,
+          2705,
+          2705,
+          18873,
+          18873,
+          15317,
+          15317,
+          7850
+        ],
+        "transform_ids": [
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2"
+        ]
+      },
+      {
+        "call_id": "FIT:donor:3:native_donor",
+        "foil_token_ids": [
+          [
+            15452,
+            17577,
+            31377
+          ],
+          [
+            6729,
+            8824,
+            15317
+          ],
+          [
+            6729,
+            8824,
+            15317
+          ],
+          [
+            2266,
+            3869,
+            6388
+          ],
+          [
+            2266,
+            3869,
+            6388
+          ],
+          [
+            2266,
+            7850,
+            17577
+          ],
+          [
+            2266,
+            7850,
+            17577
+          ],
+          [
+            2975,
+            7815,
+            15452
+          ],
+          [
+            2975,
+            7815,
+            15452
+          ],
+          [
+            6729,
+            23608,
+            29537
+          ],
+          [
+            6729,
+            23608,
+            29537
+          ],
+          [
+            2705,
+            15317,
+            18873
+          ],
+          [
+            2705,
+            15317,
+            18873
+          ],
+          [
+            2705,
+            8824,
+            9009
+          ],
+          [
+            2705,
+            8824,
+            9009
+          ],
+          [
+            2266,
+            7627,
+            7815
+          ],
+          [
+            2266,
+            7627,
+            7815
+          ],
+          [
+            6388,
+            7022,
+            8824
+          ],
+          [
+            6388,
+            7022,
+            8824
+          ],
+          [
+            2330,
+            2975,
+            31377
+          ],
+          [
+            2330,
+            2975,
+            31377
+          ]
+        ],
+        "metric": "answer_logit_minus_maximum_registered_foil_logit",
+        "row_ids": [
+          "c8657a3d3d70049d68bf9181ffedfa033d7e1a7852385e18f25b2881cd48db81",
+          "270a4466af5c23f1de62e6f7bb3c3e9a920150917e3a14d31e23a6b3c95e21a5",
+          "4169c3594e8c8166245e46bd874704744ba60cef65c07b661de2933d1cf483e4",
+          "71d0d898418f627a3c9c269afeac6c99c1ea7cc8e95d34dece192f722f4281f8",
+          "49142290ba857ae4cbda3b1b8f88e8f7c8dbcaf2b8ca7444ea45251bbf283a45",
+          "5a9b6d230b5d1a071018d29ca83b38a9ee943feb290c857858388d96846cd1a9",
+          "f9f75cc27a6eb4a7d59c0409e5a111c9fc97245c12fef09c5b9df4b40c6ed767",
+          "88a0000e01c85c9570b929d482e1fed46691794f3bac0e38650f4d5e7b163fd6",
+          "0104f8cbe5508e3ec31853badfcbdd3f5d276aaf16ba57c9c0f9fef78f36e43d",
+          "2e2474ce9aea366f7ecd0a8c2a3116df6e1e22905c1b72f676223f13f21bea1b",
+          "017ae36cc37e4f66051c558c8b81f01e005f0ea5ca1d23c5333578180c62d7bd",
+          "c33e00861ab8a3cc7b80c85466c0ca8b2456b5caa511b22214ba7e009f8a100e",
+          "6460ad08b3fbb39624bf105d364a4152128a34a43f67bde25404ee3bcc3e0705",
+          "32c781a482544bb17d6d2ed947a22331f4f3434a7d81e1bc33fb4f62be0c4997",
+          "e05d2cc1304dd31a60fbcb3972ea04c8c219b0ac7a35c717420938308c0cea60",
+          "c4f3c7969e37905a6a452d7e716a42d0754de4747a1e8d1c9f673a8ac90121ef",
+          "e504349e8a93e3d1f76eb94b9faa32d3ad7c58cd150a5a7c4da49d2cfff7bc9c",
+          "5e51311395d2b50e463f83ee04059e8602ddd73ec45dcc0e7aaf2fa10c30ce9d",
+          "2b54c93e039d3bb0994597bb072e142f340379b9b537e96ce04add27507ec9fc",
+          "c307a37bbae2bdd884cf4356d74ab6d07f0f339dcea1618d73df15fcee945102",
+          "f45184335583b40f06e1cb14917d3329523a1f329ef7b7bb1b9ed22d601ec947"
+        ],
+        "side": "donor",
+        "strict_correct_rule": "margin_gt_zero",
+        "target_token_ids": [
+          7850,
+          7022,
+          7022,
+          7627,
+          7627,
+          7815,
+          7815,
+          31377,
+          31377,
+          8801,
+          8801,
+          8824,
+          8824,
+          6388,
+          6388,
+          15452,
+          15452,
+          3869,
+          3869,
+          29537,
+          29537
+        ],
+        "transform_ids": [
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1",
+          "A2",
+          "A1"
+        ]
+      }
+    ],
+    "metric_manifest_sha256": "e8cab6e2fb8000bd144f92182abd71c7774d3afcd2dc1b1de50f9c1a9ec79faf",
+    "predicate_order": [
+      "metric_evidence_contract",
+      "native_capability_gate"
+    ],
+    "rung": 21,
+    "schema": "circuit_experiment_compiled_contract_v1",
+    "spec_sha256": "834f5b8f45facb7f585c96d7ee15b86e8a7a68f03117af929cf7843def8ab487",
+    "task21_authority_sha256": "191cb52e627f9ddd482e36214fc3486ccb2b08f7b75f7a15ae800dfee9be325b"
+  },
+  "experiment_id": "circuit-battery-task21-verbatim-copy-capability-fit-v1",
+  "model_backwards_executed": 0,
+  "model_forwards_executed": 0,
+  "model_updates_executed": 0,
+  "queue_touched": false,
+  "schema": "circuit_battery_task21_capability_fit_dryrun_v1"
+}

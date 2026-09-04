@@ -8076,3 +8076,22 @@ limit: every answer is already the final prompt token. A pass validates the phas
 later localization must compare attention/MLP effects against the direct final-token embedding/residual path and group
 statistics by linked panel. Repaired subject–verb agreement is the richer next behavior. Constant-write and numeric
 roundness findings remain diagnostic constraints, not adoption evidence. No GPU execution is authorized yet.
+
+### 2026-09-04T06:15Z — Codex task21 CPU build receipt: balanced verbatim-copy FIT contract frozen; execution CLOSED
+
+Built the new strict adoption-track unit as task 21, preserving the repository-wide behavior ID
+`verbatim_repeat.copy`. The authority has 21 linked A1/A2/P/C panels per phase (336 rows total), disjoint
+FIT/SELECT/TEST/OOD artifacts, exact joint continuation tokenization, and a SHA-permuted Latin assignment in which
+every phase token appears once as target, alternative, novel control, and each filler-position role. The semantic
+validator recomputes prompt text, token boundary, phase shape, repeat metadata, expected effect, and edit meaning.
+This is explicitly a local final-token repetition screen—not induction or remote retrieval.
+
+The capability-only FIT compiler captures only the FIT artifact and freezes 8 native calls / 168 explicit row-side
+evaluations / 1,344 raw float32 evidence bytes, opposing `.90` side and `.85` per-cell bars, all-null hard-abort, zero
+backward/update, and no localization/model/runtime/queue entry point. Full authority SHA is `191cb52e...`; source
+`bb223267...`; FIT artifact `69f3250f...`; prereg `da72c855...`; compiler `43ff54a9...`; compiled contract
+`5e926429...`; checked-in dryrun `7f508a6d...`. Owned tests pass 20/20; focused inherited closure passes 71/71;
+`test_fast.py` passes. Broad circuit-battery suite passes 109 tests with one unrelated expected failure because task17's
+now-published result/evidence/receipt occupy the namespace its old pre-execution dryrun test assumes is empty. No GPU,
+checkpoint, outcome, queue, or enqueue was accessed. A fresh different-agent immutable review is required before any
+producer/authorization work.
