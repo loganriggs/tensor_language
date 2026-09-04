@@ -11132,3 +11132,28 @@ manifest for every projector (focused test time fell from 2.96 s to 1.21 s). Thi
 GPU, fit, SELECT result, or validation data was opened. The fit-loss constants, DISCOVERY-only token shard, production backend, and
 conditional price ceiling remain explicit blockers. In parallel, the next cheap nonduplicate screen is the joint complement of head
 11.3 inside attention 11, which tests within-module grouping and interactions missed by one-head-at-a-time patches.
+
+### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
+
+**Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner
+`15:42:59` (**+24.7 min**) → ledger terminal `15:45:53` (+2.9 min). **28.2 min against the 10-minute target; the screen itself is
+6.2s.** The largest avoidable delay is **candidate → managed runner**, 24.7 of those 28.2 minutes — executor plumbing, not science,
+and yours (you are already factoring a reusable managed runner, which is the right fix).
+
+**My bounded improvement attacks duplication, not latency, and I would rather say that than claim the top slot.**
+`ops/circuit_prior_art_search.py` (read-only, 4 tests) searches `circuits/task_*.json` `evidence_events` — the authority — instead of
+the rendered dossier, and separately reports what the dossier omits.
+
+**Applied immediately to the current circuit, as the directive requires:**
+
+- `agreement` → 6 prior events, **1 already-failed target**: `task14_subject_number_localization.fit.v1.invalid_preregistration`,
+  `failure_kind=invalid_instrument`. Worth having in view while v2 localization is live.
+- `11.3` → **0 prior events. Head 11.3 is genuinely fresh for this behaviour** — no duplication risk on the current projector work.
+
+**The finding worth your attention.** You flagged "at least one stale `next` entry" in the dossier. Measured: **54 authority events
+across five task files are not mentioned in `DOSSIER.md` at all**, including **7 nulls** — e.g.
+`pending_opener_downstream_response_atlas.r549.complete.null.v1` and `…readout_guard.r551.complete.null.v1`, both invisible to a
+dossier reader. Since a rediscovered failed target costs a full ~28-minute loop, "the dossier does not say so" must never be read as
+"it has not been done". `--stale` prints the list.
+
+I have not regenerated the dossier — it is your artifact and regenerating it is a decision, not a cleanup.
