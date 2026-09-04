@@ -71336,3 +71336,27 @@ more of it a frame drops the more the drift costs. (3) pred_d's miss by 2.4e-5 d
 768 costs .100, half again the own-frame program's .218 — but it is recorded as a FALSE: the bar was .100 and the number is
 .09998. (4) The program's description at k = 768 is therefore 8 block frames + 1 bus = 9 subspaces of dimension 768 (reads:
 .225); at 1024 the same 9 frames with chain and bus writes cost .0501 (§2765). Nothing installs into the §312 frontier (§2125).
+
+## §2768 — THE attn6/attn7 OUT-OF-FRAME WRITE IS A HAND-OFF INTO THE BUS: keeping only the part of the two writes' next-frame remainder that lies inside the bus frame U_8 costs +.0009 over the read program (pred_b "≤ .003" TRUE; null ≥ .010 not met) where deleting the remainder costs +.0170 (pred_c "in [.010, .025]" TRUE; null not met), and projecting the two whole writes onto the bus frame alone costs +.0017 (pred_d "≤ .005" TRUE; null ≥ .015 not met); routing the remainder to the readout (+.0166) is NOT worse than deleting it (+.0170) — pred_e FALSE by .0004, inside wobble; its null (readout ≤ delete − .003) not met (Claude, LANE 1 CUDA, 20 s, 480 GPU document-forwards): a–d TRUE; e FALSE, null not met. Preserved.
+
+Registered 2026-09-04 00:01Z (polynomial_causal/ATTN67_HANDOFF_PROBE_PREREGISTRATION.md); landed 00:02Z. Script
+ops/attn67_handoff_probe.py; results attn67_handoff_probe_results.json (sha 7ae23748…). Frozen: prereg, §2766 results,
+checkpoint, fit_natural.pt. Sign convention (§2135): CE ADDED above the real model on held-out docs 0–63 (FRESH split; fits docs
+96–191) — LOWER IS BETTER; cost = arm − SPLIT8_1024. Instrument (pred_a TRUE): baseline 3.0322401; SPLIT8_1024 0.03739.
+
+| arm (attn6 + attn7 writes, k = 1024) | CE added | over SPLIT8 |
+|---|---|---|
+| DEL67 — remainder outside U_mlp_l deleted | .0544 | +.0170 |
+| RO67 — remainder routed to the readout | .0540 | +.0166 (e FALSE: not worse than delete) |
+| BUS67 — remainder projected onto U_8, kept | .0383 | +.0009 |
+| BUSONLY67 — whole write projected onto U_8 | .0391 | +.0017 |
+
+What it says. (1) The directions attn6 and attn7 write that their own block's MLP does not read are read by blocks 8–17: they
+lie in the bus frame (keeping only that part recovers .016 of the .017), and the two writes as a whole live in the bus frame to
++.0017. attn6/7 are the writers of the bus's initial state — the hand-off from the per-block early program to the settled
+late program (§2754/§2756). (2) The write rule for the whole program is therefore "a write lands in the next read's frame OR in
+the bus frame", not "in the next read's frame" — at 1024 this reduces the chain's .020 to ≈ .004 (the .0009 here plus the
+blocks-5/6 MLP remainders of §2766). Registered next as the full 9-frame program with the union write rule across k. (3) The
+pred_e miss is a wobble-level tie (readout .0540 vs delete .0544): when the remainder is bus-bound, adding it back at the
+readout neither helps nor hurts beyond noise — consistent with the bus's remainder being readout-routable in §2756. (4) Nothing
+installs into the §312 frontier (§2125).

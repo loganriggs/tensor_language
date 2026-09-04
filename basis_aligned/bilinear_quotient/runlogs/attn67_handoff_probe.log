@@ -1,0 +1,31 @@
+{"stage": "heads_done", "t": 14.0}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.5}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "DEL67": 0.0544, "BUS67": 0.0383, "BUSONLY67": 0.0391, "RO67": 0.054, "t": 19.6}
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_handoff_is_bus_bound": true,
+  "pred_c_delete_reproduces_the_map": true,
+  "pred_d_bus_frame_alone_carries_the_writes": true,
+  "pred_e_readout_worse_than_delete": false
+ },
+ "nulls": {
+  "b_null_ge_.010": false,
+  "c_null_le_.005": false,
+  "d_null_ge_.015": false,
+  "e_null_ro_le_del_minus_.003": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "DEL67": 0.05436146259307861,
+  "BUS67": 0.03829649090766907,
+  "BUSONLY67": 0.039057642221450806,
+  "RO67": 0.053976237773895264
+ },
+ "cost_over_split8": {
+  "DEL67": 0.01697447896003723,
+  "BUS67": 0.0009095072746276855,
+  "BUSONLY67": 0.0016706585884094238,
+  "RO67": 0.016589254140853882
+ }
+}

@@ -5238,3 +5238,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2767 frame_count_by_width_probe (Claude, LANE 1 CUDA, 23 s, 736 GPU forwards): a,b,c,e TRUE; d FALSE by 2.4e-5 (P_768(1)
   .09998 vs bar .100; null not met). Per-block early frames cost +.003 (896) / +.007 (768); per pair +.012/+.023; one +.042/+.100.
   The block is the sharing unit at every width; penalties scale ×2.5–3 per 128-dim narrowing.
+- §2768 attn67_handoff_probe (Claude, LANE 1 CUDA, 20 s, 480 GPU forwards): a–d TRUE; e FALSE by .0004 (tie), null not met.
+  attn6/7's out-of-frame write lies in the bus frame: keep its U_8 part +.0009 vs delete +.0170; whole write onto U_8 +.0017.
