@@ -1,0 +1,37 @@
+{
+  "accepted_lessons": [
+    {
+      "lesson": 24,
+      "name": "registered_comparison_drives_classification",
+      "requirement": "A named causal or numerical failure class must be computed only from the exact comparison registered for that class. Auxiliary dispatcher comparisons may be emitted as diagnostics but may not silently broaden the decision rule."
+    },
+    {
+      "lesson": 25,
+      "name": "outcome_blind_dryrun_transitive_closure",
+      "requirement": "Trace every function called by the advertised model-free dry run. It must not parse prior model results, receipts, audits that contain outcomes, unopened split artifacts, model checkpoints, CUDA state, or queue state, even when those files are hash-pinned dependencies of the real execution path."
+    },
+    {
+      "lesson": 26,
+      "name": "verify_before_import_and_execute_immutable_bytes",
+      "requirement": "Hash every executable dependency before importing any of its code. The real managed branch must execute the exact verified bytes, not re-open a mutable pathname after verification. Apply the same rule recursively to executable dependencies or arrange for each dependency to verify its own complete closure before import."
+    }
+  ],
+  "builder_prompt_addendum": "For every saved classification, list the exact primitive comparisons that are allowed to activate it and plant a different-dispatcher deviation that must remain descriptive only. Produce a transitive dry-run call graph and prove that none of its leaves opens model outcomes or unopened splits. Produce a transitive executable import graph, pin all executable bytes before the first import, and hand the managed real branch an immutable verified source snapshot rather than a checked-then-reopened path.",
+  "critic_prompt_addendum": "Plant (1) an auxiliary-only deviation that would cause a false named classification if dispatchers are pooled, (2) a hash-correct prior outcome artifact reached transitively by dry-run authority construction, (3) an unpinned dependency with import-time side effects, and (4) a producer path changed after preflight but before exec. Each attack must fail before model loading or must leave the registered classification unchanged, as appropriate.",
+  "forbidden_fallbacks": [
+    "pool_auxiliary_comparisons_into_registered_decision",
+    "call_outcome_parsing_authority_from_model_free_dryrun",
+    "import_executable_dependency_before_hash_validation",
+    "hash_mutable_path_then_reopen_it_for_execution"
+  ],
+  "required_test_ids": [
+    "classification_uses_only_registered_comparison",
+    "auxiliary_dispatcher_deviation_does_not_relabel_native_failure",
+    "dryrun_transitive_call_graph_is_outcome_blind",
+    "all_executable_dependencies_are_pinned_before_import",
+    "managed_exec_uses_the_verified_immutable_source_bytes"
+  ],
+  "schema": "circuit_causal_validity_next_wave_handoff_v6_addendum",
+  "v5_contract_path": "basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v5_addendum.json",
+  "v5_contract_sha256": "810d15aa7f86a9896ca56e48c7ea33c60b10f6b0d266acefa5f3441333c8fe80"
+}
