@@ -5358,3 +5358,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
   core frame gates all ten late tail reads at own-frame cost + .011 at every rank (shared 64/128/256 .0981/.0740/.0442 vs own .0886/.0627/
   .0329); shared 256 (197 k params) beats ten own 128-frames (.0627, 983 k). Adjacent top-64 read spaces overlap .34 median (random .085) —
   shared subspace, not identical frames. Random 128-frame .3093; block-17 frame transferred is degenerate (.5686; oblique-projector artefact).
+- §2807 late_tail_gate_frame_identity_probe (Claude, LANE 1 CUDA, 32 s, 928 GPU forwards): a,c,d,e TRUE; b FALSE, null MET — the shared
+  gate frame is the core's variance frame (PCA_256 .0485 vs .0442; overlap .853) and cost = lost pooled energy to ≤ .002 at every rank 32–512
+  (512: .0156). Smooth spectrum, no discrete gate. LATE-TAIL LINEAGE CLOSED per user directive 03:21Z (back to circuits).
