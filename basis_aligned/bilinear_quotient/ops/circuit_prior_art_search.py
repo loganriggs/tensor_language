@@ -107,7 +107,32 @@ def _fmt(task, e):
     return f"  {' '.join(bits)}\n      {task}  " + "  ".join(extra)
 
 
+def coverage():
+    """Per behaviour: what verdicts exist, and is there anything positive to build on?
+
+    Written after the mandatory search stopped me twice in one tick: both cheap candidates I could have
+    revived (`pronoun-antecedent-gender-reference-v1`, `quote-parity-pending-close-v1`) are recorded NULLS,
+    so authoring either would have rediscovered a known failed target. That is the gate working -- but it
+    answers "is this one dead?" one candidate at a time, and the expensive question when the fast loop
+    stalls is "where is there anything left to build on?". A behaviour with `held` results has a positive
+    foothold; one with only nulls/invalids has been probed and has not yielded.
+    """
+    out = {}
+    for task, tag, e in load_events():
+        rec = out.setdefault(task, collections.Counter())
+        rec[e.get("verdict") or "?"] += 1
+    return out
+
+
 if __name__ == "__main__":
+    if "--coverage" in sys.argv:
+        cov = coverage()
+        print(f"{'behaviour record':<44} {'held':>5} {'null':>5} {'inval':>6} {'incon':>6}  foothold")
+        for task, c in sorted(cov.items(), key=lambda kv: -kv[1].get("held", 0)):
+            foot = "YES" if c.get("held") else "none -- probed, nothing positive"
+            print(f"{task[:44]:<44} {c.get('held',0):>5} {c.get('null',0):>5} "
+                  f"{c.get('invalid',0):>6} {c.get('inconclusive',0):>6}  {foot}")
+        raise SystemExit(0)
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--stale" in sys.argv or not args:
         missing = stale_dossier()

@@ -11583,3 +11583,34 @@ stopping the fast circuit loop*, and it has stopped it: no runner execution sinc
 structural point I raised at 16:5xZ, now visible in the metric that actually tracks the target rather than inferable from a table.
 
 Nothing else changed. Watcher still armed at zero captures — correct, since no run has failed since it started.
+
+### 2026-09-04T19:15Z — Claude — **the gate stopped me from reviving a dead candidate; and where the footholds actually are**
+
+The fast loop has been stalled 71 minutes (0 terminals vs 6 needed), so I tried to restart it in parallel rather than report the stall
+a third time — the directive asks deep work to proceed without stopping the fast loop, and pronoun v2 looked like a one-line fix I had
+myself specified.
+
+**The mandatory prior-art search stopped me, correctly.** `pronoun-antecedent-gender-reference-v1` is a recorded **null** — v1 failed
+native capability because the model always chose ` he`. My introduction-order fix addresses a confound, **not the reason v1 actually
+failed**, so authoring it would have rediscovered a known failed target. `quote-parity-pending-close-v1` is a null too. **Both cheap
+candidates are exhausted**, which means this stall is not something I can fix with tooling: new behaviour design is the bottleneck and
+it is yours.
+
+**New: `python ops/circuit_prior_art_search.py --coverage`.** When the loop stalls the useful question stops being "is this candidate
+dead?" and becomes "where is there anything left to build on?":
+
+| behaviour record | held | null | invalid | inconclusive |
+|---|---|---|---|---|
+| bracket_pending_opener | **9** | 6 | 7 | 12 |
+| numbered_list_index_successor | **7** | 1 | 1 | 6 |
+| numeric_sequence_continuation | **3** | 2 | 0 | 3 |
+| increment_state / induction_selector / subject_verb | 2 each | | | |
+| successor_pointer | **0** | 1 | 0 | 0 |
+| *fast_screen_ledger (all fast screens)* | **0** | 3 | 0 | 4 |
+
+One observation offered as a pointer, not a criticism: **no fast screen has yet targeted a behaviour that already has a `held`
+foothold.** Nulls are a legitimate product — your directive says so explicitly — but `bracket_pending_opener` (9 held) and
+`numbered_list_index_successor` (7 held) are where a *positive* result has the most existing structure to attach to, and both are
+untouched by the fast loop so far.
+
+No candidate claimed, nothing authored, nothing of yours edited.
