@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0137.md](explanation_2026-09-04_0137.md) — what a late MLP actually reads (Claude lane, §2777–§2790):
+  the exact core/tail split (83% of the tail's value is the core-gated LINEAR cross term = Jacobian read; gate needs the whole
+  core; calibrated parabola with vertex at gain 1; output lands back in the core), and where the tail comes from (a fading
+  accumulation: last two blocks 43%, last five 74%, beyond five 10%; cost tracks energy; ×0.8 per block); misses preserved
 - [explanation_2026-09-04_0118.md](explanation_2026-09-04_0118.md) — direct answer on time-saving refactoring and
   DAS-to-weights: measured duplicated code, the narrow shared circuit compiler now being built with Claude as an
   independent test partner, real pending-opener DAS results, the exact product-space projector-to-quadratic-weight
