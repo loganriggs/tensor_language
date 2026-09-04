@@ -1,0 +1,36 @@
+{"stage": "heads_done", "t": 14.1}
+{"stage": "baseline", "ce": 3.032240092754364, "t": 14.5}
+{"stage": "arms", "SPLIT8_1024": 0.0374, "LATE_MLP_768": 0.1249, "BUS_768": 0.1636, "t": 17.1}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py:135: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  ra = torch.argsort(torch.argsort(torch.tensor(a))).double(); rb = torch.argsort(torch.argsort(torch.tensor(b))).double()
+{
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_width_cost_is_concentrated": true,
+  "pred_c_rare_targets_overweighted": false,
+  "pred_d_not_a_position_effect": true,
+  "pred_e_same_tokens_as_whole_program": true
+ },
+ "nulls": {
+  "b_null_top10_le_.35": false,
+  "c_null_rare_ratio_le_1": true,
+  "d_null_early_ratio_ge_4": false,
+  "e_null_rho_le_.10": false
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738696128129959,
+  "LATE_MLP_768": 0.12492626905441284,
+  "BUS_768": 0.16360001266002655
+ },
+ "summary": {
+  "rare_token_share": 0.2257080078125,
+  "freq_token_share": 0.28515625,
+  "early_token_share": 0.0625,
+  "n_tokens": 16384,
+  "rare_ratio": 0.6846013760727045,
+  "early_ratio": 1.53452406228306,
+  "spearman_mlp768_vs_split8": 0.5810599388769528,
+  "spearman_mlp768_vs_bus768": 0.9252462913744319,
+  "base_mean": 3.0322399139404297
+ }
+}

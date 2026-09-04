@@ -5257,3 +5257,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2774 late_mlp_branch_width_probe (Claude, LANE 1 CUDA, 23 s, 1184 GPU forwards): a,b,c,e TRUE; d FALSE (sum/joint .78, bar [.8,1.3]),
   null not met. Left/Right branch alone at 768 .048/.049 (symmetric), both .125 — super-additive: 22% is the tail×tail product.
   Per-block MLP-only .004–.007, block 17 .012, sum 0.50 of joint (compounding is the MLP kind).
+- §2775 late_width_per_token_probe (Claude, LANE 1 CUDA, 15 s, 352 GPU forwards): a,b,d,e TRUE; c FALSE, null MET. Late MLP width
+  cost: top decile of tokens carries 96%; rare targets 0.68× their share, frequent 1.23×; positions mild (1.5× at 0–15); Spearman
+  .58 with the whole program, .93 with the bus. Not a rare-token dictionary — out of the tail-dictionary gap.

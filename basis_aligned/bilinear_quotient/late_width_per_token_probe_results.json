@@ -1,0 +1,141 @@
+{
+ "rung": "late_width_per_token_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_width_cost_is_concentrated": true,
+  "pred_c_rare_targets_overweighted": false,
+  "pred_d_not_a_position_effect": true,
+  "pred_e_same_tokens_as_whole_program": true
+ },
+ "nulls": {
+  "b_null_top10_le_.35": false,
+  "c_null_rare_ratio_le_1": true,
+  "d_null_early_ratio_ge_4": false,
+  "e_null_rho_le_.10": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "b_min": 0.6,
+  "c_ratio": 1.5,
+  "d_ratio": 2.0,
+  "e_min": 0.3
+ },
+ "null_bars": {
+  "b_max": 0.35,
+  "c_ratio": 1.0,
+  "d_ratio": 4.0,
+  "e_max": 0.1
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "per-token CE for BASE / SPLIT8_1024 / late MLP reads through U_8 at 768 / bus 768; decomposed by concentration, fit-set target frequency, position",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "base_mean_per_token": 3.0322399139404297,
+  "split8_1024": 0.03738696128129959,
+  "prior_split8_1024": 0.0374,
+  "late_mlp_768": 0.12492626905441284,
+  "prior_late_mlp_768": 0.1249
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738696128129959,
+  "LATE_MLP_768": 0.12492626905441284,
+  "BUS_768": 0.16360001266002655
+ },
+ "per_arm": {
+  "SPLIT8_1024": {
+   "ce_added": 0.03738696128129959,
+   "top10_share": 1.514870487065247,
+   "top1_share": 0.35366373069870766,
+   "rare_share": 0.08626991782371957,
+   "freq_share": 0.3912513429173775,
+   "early_pos_share": 0.08504451505811188,
+   "mean_rare": 0.01429001148790121,
+   "mean_freq": 0.0512971356511116,
+   "mean_early": 0.05087289586663246,
+   "by_pos_bucket": [
+    0.042729899287223816,
+    0.049891822040081024,
+    0.04175817593932152,
+    0.03531549125909805,
+    0.03055281564593315,
+    0.038116175681352615,
+    0.027651246637105942,
+    0.033080048859119415
+   ],
+   "frac_tokens_hurt": 0.5955810546875
+  },
+  "LATE_MLP_768": {
+   "ce_added": 0.12492626905441284,
+   "top10_share": 0.9622079139659767,
+   "top1_share": 0.22334820054725502,
+   "rare_share": 0.15452001273906624,
+   "freq_share": 0.34955049465269344,
+   "early_pos_share": 0.09590775389269125,
+   "mean_rare": 0.08552469313144684,
+   "mean_freq": 0.1531372368335724,
+   "mean_early": 0.19170236587524414,
+   "by_pos_bucket": [
+    0.1703401803970337,
+    0.13856329023838043,
+    0.11598148196935654,
+    0.10733078420162201,
+    0.12532146275043488,
+    0.12106190621852875,
+    0.1043071523308754,
+    0.11650391668081284
+   ],
+   "frac_tokens_hurt": 0.62408447265625
+  },
+  "BUS_768": {
+   "ce_added": 0.16360001266002655,
+   "top10_share": 0.8623961666492547,
+   "top1_share": 0.19895521554719273,
+   "rare_share": 0.17124933885210608,
+   "freq_share": 0.324121453198289,
+   "early_pos_share": 0.0787254084179349,
+   "mean_rare": 0.12412671744823456,
+   "mean_freq": 0.18595515191555023,
+   "mean_early": 0.2060716450214386,
+   "by_pos_bucket": [
+    0.19012215733528137,
+    0.17634277045726776,
+    0.1553984433412552,
+    0.1554383486509323,
+    0.16846910119056702,
+    0.15892283618450165,
+    0.14990898966789246,
+    0.15419739484786987
+   ],
+   "frac_tokens_hurt": 0.65228271484375
+  }
+ },
+ "summary": {
+  "rare_token_share": 0.2257080078125,
+  "freq_token_share": 0.28515625,
+  "early_token_share": 0.0625,
+  "n_tokens": 16384,
+  "rare_ratio": 0.6846013760727045,
+  "early_ratio": 1.53452406228306,
+  "spearman_mlp768_vs_split8": 0.5810599388769528,
+  "spearman_mlp768_vs_bus768": 0.9252462913744319,
+  "base_mean": 3.0322399139404297
+ },
+ "price": {
+  "gpu_doc_forwards": 352,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 17.14181900024414
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_WIDTH_PER_TOKEN_PROBE_PREREGISTRATION.md": "58b276e429d4f13df1a86ffdaafc72a6cf42c8d7a7a9676be679aad4bfce5b6b",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_branch_width_probe_results.json": "a94f3ca4ff2abf00b722233006794aa5d93e27a0fefa5c05253e947dcb677768",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "aa43183da23b997381c89e012456d7f8e7b5a83c1b473b50872bfb4e2ceffb5c"
+}
