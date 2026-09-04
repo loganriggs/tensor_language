@@ -247,6 +247,18 @@ The second wave added four more:
     require enough distinct authorized rows for every requested cell. Never silently draw a missing FIT cell from
     SELECT, sample with replacement, or reduce the panel. Plant a fixture in which globally valid length or condition
     levels occur only in an unopened split and require model-free rejection.
+24. **Let only the registered comparison name a cause.** It is useful to emit the same padding or membership contrast
+    under native, observer, and replay conditions, but a native numerical-failure label must use the native comparison
+    only. Plant a deviation in an auxiliary condition and require that it remain descriptive instead of changing the
+    terminal classification.
+25. **Make model-free mean outcome-blind through the complete call graph.** A top-level dry-run flag is insufficient if
+    an authority helper transitively parses earlier model results, receipts, audits, unopened splits, a checkpoint, or
+    CUDA state. Trace the actual calls and plant an outcome artifact at a transitive leaf; the dry run must not open it.
+26. **Verify executable dependencies before import and execute the verified bytes.** Hashing a producer and later
+    reopening its pathname leaves a check-then-use race. Enumerate the executable import closure, validate every member
+    before any import-time code runs, and give the managed real branch an immutable snapshot of the reviewed producer.
+    Plant both an import-time side effect in an unpinned dependency and a producer replacement between preflight and
+    execution.
 
 The current machine-readable contract is
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585.json`; its human audit checklist
@@ -256,6 +268,11 @@ prospectively and must preserve their negative fixtures.
 The prospective phase-evidence and managed-recovery additions are machine-readable in
 `basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v2_addendum.json`. Apply it on top
 of the base contract for every later wave; it does not alter the frozen R585 scientific thresholds.
+
+The current cumulative addendum chain ends at
+`basis_aligned/bilinear_quotient/ops/circuit_causal_validity_next_wave_handoff_rung585_v6_addendum.json`. Each addendum
+binds the exact hash of its predecessor. A new circuit agent must read the whole chain through v6 and run its tests,
+not stop at the older base/v2 pair.
 
 ## Subagent prompt template
 
@@ -281,6 +298,22 @@ of the base contract for every later wave; it does not alter the frozen R585 sci
 > Before selecting any balanced panel, emit and hash its phase-specific support census. Prove that every requested cell
 > has the registered number of distinct rows inside the opened phase; globally available but SELECT-only cells must not
 > satisfy a FIT request.
+> List the exact primitive comparisons allowed to activate every named classification. Trace the complete model-free
+> dry-run call graph and complete executable import graph. The dry run must not parse prior outcomes anywhere; every
+> executable dependency must be pinned before import; and managed execution must use the immutable producer bytes that
+> were actually reviewed.
+
+For a multilinear factor $F(z_1,\ldots,z_k)$, prefer a centered interchange
+
+$$
+F(z_1',\ldots,z_k')-F(z_1,\ldots,z_k)
+$$
+
+computed with one fixed expression on both sides. This makes self-interchange a literal zero instead of asking two
+algebraically equal floating-point contraction orders to cancel. Save the single-factor finite differences and mixed
+finite difference separately; for a bilinear attention factor, the mixed difference is the selector-by-content
+interaction. The reference derivation is
+`basis_aligned/polynomial_causal/INDUCTION_CENTERED_FACTOR_INTERVENTION_DERIVATION_2026-09-04.md`.
 
 ## Scaling beyond two subagents
 
