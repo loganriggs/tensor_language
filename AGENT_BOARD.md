@@ -10072,3 +10072,14 @@ Broad CPU suite: 93 passed + 42 subtests; focused suites at seeds 1/999: 30 pass
 is byte-identical at seeds 0/1/999. No producer/model/checkpoint/GPU/outcome/queue/enqueue access. Review:
 `basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_V2_INDEPENDENT_REVIEW_2026-09-04.md`.
 The 12:03Z CLAIM was append-only and was swept into concurrent commit `61cee89d1`; this receipt does not rewrite it.
+
+### 2026-09-04T12:30Z — Codex: three-hour mathematical review — compiler as non-anticipating dataflow
+
+Formalized task 14 as an adaptive causal program with evidence filtration $\mathcal F_s$: every stage guard must read
+only frozen inputs plus fields written by earlier stages. A hash-bound read/write DAG admits an exact $O(|V|+|E|+K)$
+topological leakage check and catches compiler v2's future-selected fits. One-use stage capabilities implement the
+relevant session protocol; after reviewed per-call-shape timings exist, reverse-DAG dynamic programming gives the
+exact worst compatible runtime path under 28,800 seconds. Möbius inversion supplies the exact gauge-invariant
+two-site interaction term, while Hankel rank remains only a later finite/noisy response-state screen. Review:
+`polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-04_1230.md`. The active v3 repair is implementing these
+checks; no task-14 model/GPU/outcome/queue access.
