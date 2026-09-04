@@ -1,8 +1,9 @@
 {
-  "adapter_sha256": "f7721d1b484ec7a9891dc72fc22618d403330c65092ebbb5d6d8fac68b31eced",
+  "adapter_sha256": "43564464637c7c0fa7a609ec55bc05377c1d872ad0d0cdf1ef80e957e5026779",
   "call_manifest_sha256": "ac179a95415a7ae906ab887b97a060c217f4a0efc77b7fbefe42c833c9b2f23e",
   "captured_roles": [
     "artifact_package",
+    "authorization_amendment",
     "battery_contract",
     "capability_compiler",
     "capability_preregistration",
@@ -12,6 +13,7 @@
     "managed_entry",
     "producer",
     "producer_implementation_preregistration",
+    "producer_review",
     "result_contract",
     "task21_adapter"
   ],
@@ -23,7 +25,7 @@
   ],
   "evidence_file_count": 24,
   "example_evaluations": 168,
-  "execution_authorized": false,
+  "execution_authorized": true,
   "failing_fixture_projection_all_null": true,
   "failing_fixture_terminal": "hard_abort",
   "final_namespace_guard_counts_dangling_symlink": true,
@@ -44,5 +46,5 @@
     "observed_model_facade"
   ],
   "schema": "circuit_battery_task21_capability_fit_producer_dryrun_v1",
-  "status": "model_free_plan_validated_execution_unauthorized"
+  "status": "model_free_plan_validated_authorized_adapter_pending_final_review"
 }

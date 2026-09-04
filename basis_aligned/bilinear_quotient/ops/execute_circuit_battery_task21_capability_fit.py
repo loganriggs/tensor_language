@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Blocked immutable adapter candidate for task-21 FIT native capability.
+"""Prospectively authorized adapter successor for task-21 FIT native capability.
 
 The model-free branch validates the exact reviewed compiler and producer plan.
-The real branch is deliberately unreachable until a later prospective
-authorization and fresh independent review.
+The real branch is authorized only by an exact captured amendment and producer
+review, and remains ineligible for enqueue until this successor is independently
+reviewed at its new immutable hash.
 """
 
 # BQGATE: EXPERIMENT
@@ -25,7 +26,9 @@ REPO_ROOT = Path("/workspace/tensor_language")
 ADAPTER = Path(__file__).resolve()
 COMPILER_COMMIT = "9ebab94615eade27b1eb63e4f2c6239337b71dc9"
 COMPILER_REVIEW_COMMIT = "ca088ce0906160958a2586cff50b707699b7eb88"
-EXECUTION_AUTHORIZED = False
+PRODUCER_BUILD_COMMIT = "000a113eed35c7e8fac0d2ceed126925963cd0d7"
+PRODUCER_REVIEW_COMMIT = "6b8fe576594bb82a5a2093f2338603040739c9af"
+EXECUTION_AUTHORIZED = True
 
 REGISTERED_PREDICTIONS = {
     "pred_a_exact_instrument": (
@@ -113,6 +116,18 @@ FILES = (
         "prereg",
     ),
     FrozenFile(
+        "producer_review",
+        "basis_aligned/polynomial_causal/TASK21_CAPABILITY_FIT_PRODUCER_BLOCKED_ADAPTER_REVIEW_2026-09-04.md",
+        "8763602a753345a19312613160d32b3ffe537a7ebfcb4bcf4c83905a25b7ed29",
+        "prereg",
+    ),
+    FrozenFile(
+        "authorization_amendment",
+        "basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK21_CAPABILITY_FIT_AUTHORIZATION_AMENDMENT_2026-09-04.md",
+        "a31cf24ec79d86f084c29bdc18a909e1ff0457b4e0921fd6249f722adf2b08d1",
+        "prereg",
+    ),
+    FrozenFile(
         "fit_authority",
         "basis_aligned/bilinear_quotient/ops/circuit_battery_task21_copy_fit_authority.json",
         "69f3250f71904d0d0dc16253d9819c50587e85a3fd01f7776d36bcafad1b4e94",
@@ -151,6 +166,7 @@ BASE_LOAD_ORDER = (
     "managed_entry", "task21_adapter", "capability_compiler", "producer",
 )
 REAL_LOAD_ORDER = ("jacclust_package", "model_source", "observed_model_facade")
+AUTHORIZATION_ROLES = ("producer_review", "authorization_amendment")
 
 
 class AdapterError(RuntimeError):
@@ -273,6 +289,8 @@ def validate_captured_bytes(captured: Mapping[str, bytes]) -> None:
         item = file_by_role(role)
         if type(payload) is not bytes or hashlib.sha256(payload).hexdigest() != item.sha256:
             raise AdapterError(f"captured frozen bytes changed before module load: {role}")
+    if not set(AUTHORIZATION_ROLES).issubset(captured):
+        raise AdapterError("exact authorization amendment and producer review were not captured")
 
 
 def load_verified_closure(
@@ -310,7 +328,7 @@ def dispatch(environment: Mapping[str, str]) -> dict[str, object]:
     if mode == "1":
         report = producer.run_dryrun(captured)
         report["execution_authorized"] = EXECUTION_AUTHORIZED
-        report["status"] = "model_free_plan_validated_execution_unauthorized"
+        report["status"] = "model_free_plan_validated_authorized_adapter_pending_final_review"
         report["adapter_sha256"] = hashlib.sha256(ADAPTER.read_bytes()).hexdigest()
         report["captured_roles"] = sorted(captured)
         report["runtime_only_roles_excluded"] = sorted(

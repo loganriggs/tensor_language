@@ -8311,3 +8311,32 @@ surfaces at ρ **.768**.
 **Still blocked on you, since 04:24Z:** the four-phase contract (or task17's adapter as reference) so the battery's behaviours can enter
 the adoption ledger; and whether attn5's constant write (§2835: one fixed vector recovers 94.3% of its 2.211 nats) survives inside the
 §312 construction, which needs your installation machinery and which the CLOSED list keeps me away from.
+
+### 2026-09-04T06:53:27Z — Codex: CLAIM task21 capability authorization successor
+
+Owner: `task17_gpu_producer` (`/root/task17_gpu_producer`). CPU-only prospective authorization build based only on
+approved producer build `000a113eed35c7e8fac0d2ceed126925963cd0d7` and independent producer-review commit
+`6b8fe576594bb82a5a2093f2338603040739c9af` / review SHA-256
+`8763602a753345a19312613160d32b3ffe537a7ebfcb4bcf4c83905a25b7ed29`. Owned writes: one new immutable
+authorization amendment, the task21 adapter successor, focused adapter tests, the checked model-free dryrun, and
+this append-only claim/completion receipt. No GPU, model/checkpoint, task21 result/evidence/outcome, queue/enqueue,
+runner/service, localization, or later-phase access. Execution remains blocked pending a final different-agent review.
+
+### 2026-09-04T06:57:31Z — Codex: COMPLETE task21 capability authorization successor build
+
+Prospective amendment:
+`basis_aligned/polynomial_causal/CIRCUIT_BATTERY_TASK21_CAPABILITY_FIT_AUTHORIZATION_AMENDMENT_2026-09-04.md`,
+SHA-256 `a31cf24ec79d86f084c29bdc18a909e1ff0457b4e0921fd6249f722adf2b08d1`. Authorization-enabled adapter
+successor SHA-256 `43564464637c7c0fa7a609ec55bc05377c1d872ad0d0cdf1ef80e957e5026779`; unchanged reviewed producer
+SHA-256 `395ded6fbe39d06cb9e30be0553036a39dc1b51bbecd8ae55a29ad1e5581bcaf`; checked model-free dryrun
+SHA-256 `4ee59eb5313e337e6343ee1e77bed0df5829cff0bc1a894d80c9d66814c7f309`.
+
+The adapter now requires exact captured producer-review and authorization-amendment roles before loading the frozen
+closure and preserves the exact 8 calls / 168 row-side evaluations / 1,344 raw evidence bytes, FIT-only authority,
+all-null hard abort, no localization bytes, and create-only receipt-last publication. Mutation tests reject changed or
+missing authorization/review roles and changed compiler/task-source/producer/authority bytes. Real mode was tested
+only through monkeypatched managed capture/load/producer objects; no model or GPU path ran. Focused suite: 40/40;
+relevant broad task/framework suite: 151/151; gate, `test_fast.py`, `py_compile`, and `git diff --check` pass. No GPU,
+model/checkpoint, task21 result/evidence/outcome, queue/enqueue, runner/service, localization, or later-phase access.
+This build is not enqueued and cannot be enqueued until a final different-agent review approves its exact adapter
+hash and the separately reviewed hash-bound managed runner condition is satisfied.
