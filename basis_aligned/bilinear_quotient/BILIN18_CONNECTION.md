@@ -77098,3 +77098,52 @@ cleanly as §2914's positive did. And uniform ×0.25 reads **−0.2362 held out 
 **Correction of record:** two stale comments in `ops/frontier_tail_ridge_lambda.py` (a leftover header from the rung it was derived
 from, and an arm-count string in a print) were fixed after the run. **Comment text only; no code, constant, grid or predicate was
 touched, and the receipt above is from the executed file.**
+
+---
+
+## §2918 — **THE CP HALVING IS NOT A TRUNCATION CORRECTION: THE OPTIMAL SCALE IS 0.5 AT EVERY KEEP FRACTION — 0.25, 0.5 AND 1.0 ALIKE.** BOTH CONTROLS READ EXACTLY 0.0000, AND pred_d FAILED CLEANLY
+
+Written 2026-09-04T13:25Z. Rung `ops/frontier_cp_keep_scale`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_CP_KEEP_SCALE_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 167.4 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_cp_keep_scale_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+Building the ridge-λ rung surfaced a fact that reframes half the adopted correction: **the CP entries are not fitted at all.**
+`S[f'c{li}'] = ('cp', li, L[keep], Rw[keep], Dw[:,keep], db)` sub-selects the model's **own** `Left`/`Right`/`Down` weights, so §2902's
+`Dk × 0.5` cannot be the local-fitting artefact §2890/§2905 describe. And `select_units` keeps the top **2304** units of a bilinear MLP
+twice that wide — **the frontier keeps half the units and the adopted correction halves their weights**, a coincidence worth testing.
+
+| keep fraction | s=0.125 | s=0.25 | **s=0.5** | s=0.75 | s=1.0 | best |
+|---|---|---|---|---|---|---|
+| 0.25 (576 units) | +0.0527 | −0.0325 | **−0.0618** | −0.0328 | +0.0253 | **0.5** |
+| 0.50 (1152 units) | +0.0314 | −0.0539 | **−0.0753** | −0.0406 | +0.0296 | **0.5** |
+| 1.00 (2304 units) | −0.0014 | −0.0877 | **−0.1074** | −0.0669 | **0.0000** | **0.5** |
+
+**pred_a HELD** (+2.6736). **pred_b HELD — the identity cell reads exactly 0.0000**, so the masking-and-rescaling machinery is a
+verified physical no-op at its identity setting; this is the control §2879 taught me to register, and without it none of the other cells
+would mean anything. **pred_c HELD at deviation 0.0000** — §2902's −0.1074, read from that rung's receipt rather than remembered, is
+reproduced exactly. **pred_e HELD**: every row's optimum is interior, so no value here is a bound. **pred_d FAILED**, and
+`d_null_the_optimal_scale_is_independent_of_how_many_units_survive` is MET.
+
+**H_truncation is refuted. The 0.5 has nothing to do with the keep count.** Throwing away three quarters of the retained units — leaving
+576 of the model's 4608, **12.5%** — does not move the optimal scale by a single grid step. What changes is the *size* of the available
+gain (−0.0618, −0.0753, −0.1074, shrinking as fewer units remain, exactly as one would expect when there is less left to correct), while
+the *location* of the optimum is pinned.
+
+**What that leaves.** Read together with §2917 the pattern is now sharp, and it is a pattern about **what the corrections are not**:
+
+- the tail scalar is **not** a mis-tuned ridge penalty — more ridge is monotonically worse (§2917);
+- the CP scalar is **not** a truncation compensation — the optimum is invariant to how much was truncated (this section).
+
+Both adopted parameters are properties of **the objects themselves**, not of the procedures that produced them. The tail maps are ridge
+solutions and the CP units are the model's own weights — two entirely different provenances — and both want a fixed multiplicative
+correction that survives large changes in how they were built. That is a stronger and stranger fact than the local-objective story
+(§2890/§2905) predicted, because **the local-objective story does not apply to the CP side at all**: nothing was fitted there.
+
+**Registered next was a refit-at-lower-K version**, to test at fit time what this measured at eval time (§2897's distinction). **It is
+now much less interesting**: a relationship that is flat across a 4× change in surviving units at eval time is unlikely to be steep at
+fit time, and the honest ranking puts the invariance itself — why 0.5, and why the same 0.5 for objects with different provenance —
+above another K sweep. **Nothing was adopted from this rung**, and §2118's closure of K-reduction-for-price stays closed: no cell here
+is offered as a cheaper frontier.
