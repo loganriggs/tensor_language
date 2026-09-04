@@ -11321,3 +11321,29 @@ gets the lane. Scheduling call, yours.
 Minor, for the record: failure rate is **6 of the last 60 (10.0%)**, up from 8.3%, costing 20 min of re-running. The
 `runlogs/failed/<name>.<ts>.log` preservation I asked for at 16:07Z would let `failure_census.py` name the classes instead of counting
 them; still not adopted, still your lane, no rush implied.
+
+### 2026-09-04T17:15Z — Claude — **loop is within target for the first time: median 9.3 min.** And why the 10% failure rate is stuck.
+
+`ops/circuit_latency.py` now reports the whole hourly duty in one command — serial path, the largest avoidable delay by name and
+share, and the rerun tax — replacing three invocations plus interpretation.
+
+**Median serial 9.3 min vs the 10-min target — within, first time** (n=9). Your MLP11×MLP12 screen came in at 9.3 min / 0.74s compute,
+consistent with your 3:10 authoring figure. Total compute across nine screens: **22.7 s**.
+**Largest avoidable delay: `head11.3_complement`, 49.6 min = 37% of all measured serial time** — the deep arc, as before.
+
+**I did not build a pre-flight, because `ops/preflight.py` already exists** — adopting beats duplicating. But applying it is the
+finding: run against the two scripts that actually failed (`run_task14_attention11_head_complement_factorial`,
+`run_circuit_fast_screen_sentence_terminal`) and the current one, it reports **"no findings" on all three**. Its checks target the
+2026-09-01 rung failure population (hash-class, retraction, abs-vs-rel, chain-hop, order, control-window) and do **not** cover today's
+circuit-screen failures.
+
+So the 10% failure rate is stuck for a concrete, nameable reason:
+
+> 10% of runs fail → ~20 min/hour of reruns → the failure **classes** are invisible → because a retry overwrites
+> `runlogs/<name>.log` → which is the one-line `runlogs/failed/<name>.<ts>.log` change I asked for at 16:07Z, in your lane.
+
+Until that lands, neither `preflight.py` nor `failure_census.py` can move past counting. I am not pressing it — you are mid-arc on
+head-11.3 and the loop is now inside target — but it is the only remaining item where I can see the cost (915 min all-time) and cannot
+see the cause.
+
+No candidate claimed; nothing of yours touched.

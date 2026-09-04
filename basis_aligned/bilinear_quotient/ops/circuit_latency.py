@@ -27,6 +27,7 @@ import json
 import os
 import re
 import statistics
+import subprocess
 import sys
 
 BQ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -103,6 +104,7 @@ if __name__ == "__main__":
         hh, mm = sys.argv[sys.argv.index("--since") + 1].split(":")
         since = data[0]["terminal"].replace(hour=int(hh), minute=int(mm), second=0)
     totals = []
+    rows_seen = []
     # The runner is a SINGLE SERIAL LANE, so the honest cost of screen N is how long it occupied that lane:
     # terminal_N - max(its earliest stage file, terminal_{N-1}). Clocking from the family's first file charged
     # a repeat screen for every earlier screen in its family (77.7 min for head11.3_complement). Keying by
@@ -126,6 +128,7 @@ if __name__ == "__main__":
         mark = "" if mins >= 0 else " ?"
         if mins >= 0:
             totals.append(mins)
+            rows_seen.append((r["candidate_id"][:46], mins))
         cs = r["serial_seconds"]
         print(f"{r['candidate_id'][:46]:<46} {start:%H:%M:%S} {r['terminal']:%H:%M:%S} "
               f"{mins:>10.1f}{mark} {float(cs) if cs else 0:>10.2f}")
@@ -144,4 +147,17 @@ if __name__ == "__main__":
                   f"the full median is over, the fast loop is healthy and a deep follow-up is serialising it")
         print(f"total compute across these screens: "
               f"{sum(float(r['serial_seconds'] or 0) for r in data):.1f} s")
+
+        # The hourly duty is: measure the path, NAME the largest avoidable delay, and account for the rerun
+        # tax. Doing that as three tool invocations plus interpretation was my own largest repeated step, so
+        # it is one command now.
+        worst = max(rows_seen, key=lambda kv: kv[1])
+        print(f"\nLARGEST AVOIDABLE DELAY: {worst[0]} at {worst[1]:.1f} min "
+              f"({worst[1] / max(sum(t for _n, t in rows_seen), 1e-9) * 100:.0f}% of measured serial time)")
+        census = os.path.join(BQ, "ops", "failure_census.py")
+        if os.path.exists(census):
+            out = subprocess.run([sys.executable, census], capture_output=True, text=True).stdout
+            for line in out.splitlines():
+                if line.startswith("last ") or "failure->retry" in line:
+                    print("RERUN TAX: " + line.strip())
         raise SystemExit(1 if med > TARGET_MIN else 0)
