@@ -77576,3 +77576,57 @@ improvement is not evidence about the frontier**, which is exactly why §2923 re
 and why §2921's −0.2828 was not adopted on its own. **Registered as a standing caution: no site-level split or projection may be adopted
 on a standalone number** — §2922's CP result is hereby marked as *standalone only*, and the queued front-component rung inherits the same
 condition.
+
+---
+
+## §2927 — **VOID RUN, PRESERVED AS SCORED: THE FRONT-SPLIT KNOB WAS A NO-OP AND THE IDENTITY CONTROL COULD NOT HAVE CAUGHT IT.** EVERY ARM READ **EXACTLY 0.0000**; THE ROUTE-AGREEMENT PREDICATE IS WHAT SAVED THE RUNG
+
+Written 2026-09-04T13:52Z. Rung `ops/frontier_front_component_split`, run as registered.
+Preregistration: `polynomial_causal/FRONTIER_FRONT_COMPONENT_SPLIT_PREREGISTRATION.md` (frozen sha, verified at run time).
+Price: 0 GPU forwards, 158.6 GPU-seconds, **1 pipeline run** (`forwards_instrumented: false`, `pipeline_runs: 1`), 0 backwards, 0 fitted parameters.
+Results: frontier_front_component_split_results.json
+
+**SIGN CONVENTION (§2135): LOWER L2 IS BETTER.** A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**.
+
+The question — is the front `A` excess concentrated, like the tail's (§2921) and the CP side's (§2922)? — is **not answered here.**
+
+| arm | fresh |
+|---|---|
+| `f_identity` (all 64 components × 1.0 through the split path) | **0.0000** |
+| `f_uniform` (all × 0.5 through the split path) | **0.0000** |
+| `plain_half` (all × 0.5 through the plain multiply) | **−0.1649** |
+| every `top r` and `bot r`, r ∈ {4, 8, 16, 32, 48} | **0.0000** |
+
+**pred_a and pred_b HELD; pred_c, pred_d and pred_e FAILED.** `c_null_the_uniform_routes_disagree` is MET at a disagreement of
+**0.1649**.
+
+**The knob did nothing.** `_apply_front_split` was placed **before** `_apply_front` in `_cfg`, and `_apply_front(None)` resets `A` from
+the `_F0` snapshot — so on every arm the split was written and then immediately overwritten. `plain_half` survived only because it goes
+through `_apply_front` itself, which is why it alone reads a real number, and one that matches §2895's −0.1648 to 0.0001.
+
+**Scored as written: the rung is VOID for its scientific question.** pred_d's failure carries no information about the front site, and
+`d_null_the_front_excess_is_spread_across_components` is recorded as MET **only in the bookkeeping sense** — it must not be read as
+evidence, and I am flagging it here so no later section can cite it as one. **`frontier_front_split_fixed` is registered and queued with
+one line moved and every prediction, bar and null unchanged**, so it is a rerun rather than a redesign; this receipt is preserved under
+its own name.
+
+**The methodological finding, which is worth more than the rung.** I have been registering identity controls since §2918 and treating
+them as the guarantee that a new transform path is faithful. **They are not sufficient, and this is the proof: at its identity setting a
+faithful knob and a knob that does nothing produce the same measurement.** The identity arm is satisfied by exactly the failure it
+exists to exclude. §2919 was held back for lacking an identity control, §2921's identity control passed and vindicated it — and neither
+episode would have caught *this*.
+
+**What caught it was the route-agreement half of pred_c**: the same operation at a **non-identity** setting, through the new path and
+through an already-trusted one, required to agree. I added that clause to compare against §2895's published number, not as a structural
+check, and it is the only thing standing between this rung and a confidently-reported null result about the front site.
+
+**Standing rule adopted, for every new transform knob from here on — two controls, not one:**
+
+1. **identity** — apply at the setting that must change nothing; require 0.0000.
+2. **route agreement** — apply at a setting whose answer is already on record, through the new path *and* a trusted path; require them
+   to match.
+
+And a corollary about ordering: **a later `_apply_*` that resets its target from a snapshot when its argument is `None` will silently
+wipe an earlier one.** The tail-λ knob carries a comment saying exactly this — *"`_apply_tail_lambda` REBUILDS LW from the normal
+equations, so it must run BEFORE any scaling or it silently discards it"* — written by me, two rungs before I made the mirror-image
+mistake at the front site. **Knowing the hazard is not the same as checking for it**; the two controls above are the check.
