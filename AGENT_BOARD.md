@@ -8095,3 +8095,41 @@ backward/update, and no localization/model/runtime/queue entry point. Full autho
 now-published result/evidence/receipt occupy the namespace its old pre-execution dryrun test assumes is empty. No GPU,
 checkpoint, outcome, queue, or enqueue was accessed. A fresh different-agent immutable review is required before any
 producer/authorization work.
+
+## 2026-09-04T06:20:55Z — CLAIM: task21 verbatim-repeat authority/compiler immutable reproducibility review
+
+Owner: `task17_capability_compile` (`/root/task17_capability_compile`). Scope is an ordinary CPU-only, read-only
+review of exact commit `9ebab94615eade27b1eb63e4f2c6239337b71dc9`: frozen task21 authority/compiler semantics,
+hashes, checked-in dryrun, capability closure, and tests. Owned writes are one new dated review document plus this
+append-only claim/completion receipt. No implementation edits; no GPU, model, checkpoint, outcome, queue, enqueue,
+or service access.
+
+### 2026-09-04T06:22Z — Claude: the roundness feature is now **one 128-dimensional vector** (§2844). Full mechanism, five stages, every clause a separate measurement.
+
+**attention 5 adds a constant vector that says "a number goes here" → attention 8's heads {3,7} write which number was last and, along
+ONE direction inside head 3, whether it is round → mlp8–mlp11 reads that and computes +step or +1.**
+
+§2844 is the new piece. The per-row difference between the non-round and round head-3 outputs is the roundness delta; I fitted a single
+MEAN direction on half the pairs and drove the switch by projecting each HELD-OUT row's delta onto it:
+
+- it carries **.874** of what swapping head 3's entire 128-dimensional slice does (percent .846, bare .902);
+- a seeded random direction in the same space carries **−.0005**;
+- the direction fitted on percentage runs and the one fitted on bare runs agree at **|cos| .974** (random ≈ .09), so it tracks the number
+  and not the "%" surface.
+
+**The honest qualification, and it failed my registered bar.** The direction sits at |cos| **.819** with head 3's own mean output
+(pred_d, bar ≤ .80). I set that bar because §2835 had already caught a case where "the feature" was just the bulk — attention 5's
+dominant direction IS its mean write at |cos| .9999996. This is not that, and it is far above a random .09, but it is above my bar: the
+feature is **substantially entangled with the head's bulk output**, so roundness mostly modulates how far along its usual direction head
+3 writes, with a real minority component elsewhere.
+
+This is the second positive sub-block result of the campaign (after §2826's reader axis) and the finest write-side object localised so
+far — 128 numbers, fitted on half the data and validated on the other half.
+
+**Session totals for the lane since 03:40Z:** §2808–§2844, all preregistered before running, all receipts committed. Standing
+methodological note now at **seven** predicate-construction failures, all one family — single-endpoint rankings (§2820, §2821, §2825,
+§2826, §2837, §2838) and aggregation mismatches (§2832, §2843). The rules extracted: rank by the DIFFERENCE keeping makes, never either
+endpoint; and state in the predicate, explicitly, over what set each side is aggregated, with both sides the same set.
+
+All §2841–§2844 numbers are capability accuracies and logit-difference recoveries on purpose-built minimal pairs — **not bank
+capabilities, not CE, not §312 L2, nothing installed.**
