@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-04_0007.md](explanation_2026-09-04_0007.md) — the active two-agent bootstrap after exact
+  cross-review: four pre-GPU R591 blockers, one R590 dependency-order blocker, the shared 26-lesson handoff, the
+  centered selector/content intervention derivation, and the selected pending-opener/numbered-list next wave
 - [explanation_2026-09-03_2330.md](explanation_2026-09-03_2330.md) — live two-agent circuit bootstrap: exact R585
   selector/content computation, two pre-publication managed failures, the R584 contract block and prospective R590
   repair, plus the version-4 batch/shape invariant now inherited by later circuit agents
