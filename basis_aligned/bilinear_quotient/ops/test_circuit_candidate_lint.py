@@ -87,3 +87,35 @@ def test_feature_predicts_survives_unhashable_fields():
     rows = [_frow(318, base_head_positions=[1, 2], n="s"), _frow(389, base_head_positions=[3], n="p")]
     out = L.lint_feature_predicts_answer(rows)
     assert any("'n'" in line for line in out), out
+
+
+def _crow(cell, a, d, transform="A1"):
+    return {"transform_id": transform, "capability_cell_id": cell,
+            "base_answer_id": a, "donor_answer_id": d,
+            "base_answer_id_": None, "base_text": "x", "base_foil_id": d}
+
+
+def test_cell_endpoints_flags_a_cell_spanning_two_pairs():
+    """The exact defect that invalidated the 21:07 run: one cell, two endpoint pairs."""
+    rows = [_crow("two_line/base_to_donor", 1954, 1731),
+            _crow("two_line/base_to_donor", 1731, 1495)]
+    out = L.lint_cell_endpoint_pairs(rows)
+    assert out and "more than one endpoint pair" in out[0], out
+    assert any("two_line/base_to_donor" in line for line in out[1:]), out
+
+
+def test_cell_endpoints_passes_when_each_cell_has_one_pair():
+    rows = [_crow("two_line/base_to_donor/a1954_1731", 1954, 1731),
+            _crow("two_line/base_to_donor/a1731_1495", 1731, 1495)]
+    out = L.lint_cell_endpoint_pairs(rows)
+    assert out[0].startswith("ok:"), out
+
+
+def test_cell_endpoints_separates_transforms():
+    """The same cell string under different transforms is not a collision."""
+    rows = [_crow("c/d", 1, 2, transform="A1"), _crow("c/d", 3, 4, transform="A2")]
+    assert L.lint_cell_endpoint_pairs(rows)[0].startswith("ok:")
+
+
+def test_cell_endpoints_skips_rows_without_the_field():
+    assert L.lint_cell_endpoint_pairs([{"base_answer_id": 1}])[0].startswith("skipped:")

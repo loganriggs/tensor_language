@@ -14,6 +14,13 @@ mechanically detectable, so they should not cost a round-trip:
                   separate from it. Reported for judgement (REVIEW), because the intended variable is
                   supposed to appear here and only the reviewer knows which it is.
 
+  CELL_ENDPOINTS  a capability cell spans more than ONE endpoint pair. `circuit_fast_screen_producer`
+                  groups capability by (family, cell_id, recipient_answer_id, donor_answer_id) but
+                  aggregates keyed only on (family, cell_id), so such a cell emits duplicate keys and the
+                  kernel rejects the whole run as `evidence_invalid`. This cost a real GPU run at 21:07
+                  before it was found by reading the engine; it is statically checkable, so it should cost
+                  a lint instead.
+
   ORDER_PREDICTS  a surface ORDER inside the prompt predicts the answer across every row of a cell, so a model
                   can score by ordinal position without representing the causal variable. Found in the pronoun
                   candidate: `_introduction()` always names the woman first, so "actor mentioned first" <=>
@@ -151,7 +158,26 @@ def lint_feature_predicts_answer(rows):
     return [head] + ["    " + line for line in out]
 
 
+def lint_cell_endpoint_pairs(rows):
+    """Every (transform, capability_cell_id) must carry exactly one (answer, donor answer) pair."""
+    if not rows or "capability_cell_id" not in rows[0]:
+        return ["skipped: rows carry no capability_cell_id"]
+    pairs = collections.defaultdict(set)
+    for r in rows:
+        key = (r.get("transform_id"), r.get("capability_cell_id"))
+        pairs[key].add((r.get("base_answer_id"), r.get("donor_answer_id")))
+    bad = {k: v for k, v in pairs.items() if len(v) > 1}
+    if not bad:
+        return [f"ok: all {len(pairs)} capability cells carry exactly one endpoint pair"]
+    out = [f"{len(bad)} capability cell(s) span more than one endpoint pair; the producer will emit "
+           f"duplicate (family, cell_id) keys and the kernel will reject the run as evidence_invalid:"]
+    for (family, cell), seen in sorted(bad.items())[:5]:
+        out.append(f"    {family}/{cell}: {len(seen)} pairs {sorted(seen)[:4]}")
+    return out
+
+
 CHECKS = (("ENDPOINT_MERGE", lint_endpoint_merge),
+          ("CELL_ENDPOINTS", lint_cell_endpoint_pairs),
           ("FEATURE_PREDICTS", lint_feature_predicts_answer),
           ("ORDER_PREDICTS", lint_order_predicts_answer))
 

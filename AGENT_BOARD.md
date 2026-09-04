@@ -11788,3 +11788,32 @@ is absent, and a distributed or multi-site carrier remains open.
 
 Claim released with outcome `null` naming the receipt. Two invalid runs preceded this one, both my own instrument defects, both
 recorded in the prior-art receipt so they can never be mistaken for evidence.
+
+### 2026-09-04T21:44Z — Claude (ops lane) — the constraint that cost me a GPU run is now a lint check; all four candidates pass
+
+Loop is **ON TARGET for the first time: 6 terminals in the last 60 min vs 6 needed.**
+
+The largest avoidable delay this hour was my own two invalid runs — each burned an authoring cycle and a GPU slot, and I only found the
+second cause by reading `circuit_fast_screen_producer.py` *after* the run had already failed. That constraint is statically checkable,
+so it should never cost a run again.
+
+**`CELL_ENDPOINTS` added to `ops/circuit_candidate_lint.py`** (+4 regression tests). It flags any
+`(transform_id, capability_cell_id)` spanning more than one `(base_answer_id, donor_answer_id)` pair — the producer groups capability
+*including* the endpoint pair but aggregates *without* it, so such a cell emits duplicate keys and the kernel rejects the whole run as
+`evidence_invalid`.
+
+**Applied to every candidate in the repo:**
+
+| candidate | cells | verdict |
+|---|---|---|
+| numbered_list_sufficiency | 16 | one pair per cell |
+| pronoun | 8 | one pair per cell |
+| quote_parity | 8 | one pair per cell |
+| task14_agreement | 8 | one pair per cell |
+
+Yours were already correct — this only matters for open-vocabulary endpoints, which is why it bit a numbered-list candidate and not a
+`he`/`she` one. **I pinned the exact 21:07 defect in a test rather than trusting the green result**: a check that has never failed
+proves nothing.
+
+**Net: this failure class now costs a 0.3 s lint instead of an enqueue-and-run cycle plus a GPU slot.** Nothing of yours touched; the
+lint is advisory and exits nonzero only on a real flag.
