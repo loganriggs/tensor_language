@@ -74567,3 +74567,47 @@ right then pred_c's bar should have been registered over behaviours whose answer
 so pred_c stands as FALSE and the restriction is recorded in the backlog as something a FUTURE rung must fix before it is used.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2864 — THE ARGMIN IS UNSTABLE (0 OF 7, NOW REGISTERED AND REPLICATED), BUT SELECTION IS ONLY MILDLY INFLATED AND AN UNCONSTRAINED SEARCH DOES NO BETTER THAN THE NAMED WRITER
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_WINNERS_CURSE_PREREGISTRATION.md` (08:26Z, `date -u` read in the same tool call that
+composed the header). Run `circuit_battery_winners_curse_holdout`, landed 08:29Z.
+Results: circuit_battery_winners_curse_holdout_results.json
+Price: 6408 GPU forwards, 75.3 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=16, registered in advance.
+
+SIGN CONVENTION: `selectivity = |d_C|/max(d_A1,.5)`, **LOWER = MORE SELECTIVE**; "held-out MINUS selection" is **POSITIVE when
+selection was inflated**; "pick MINUS comparator" is **POSITIVE when the pick is WORSE**. No CE, no §312 L2, nothing installs.
+
+Select the most-selective component on **FIT**, evaluate it on **TEST**. **pred_c, d, e TRUE; pred_a, b FALSE; no null met.**
+
+- **pred_d TRUE — 0 of 7 behaviours have FIT argmin = TEST argmin.** §2862 observed this post-hoc on the SELECT/TEST pair and forbade
+  its use; this reproduces it on a **different split pair** under a **registered** prediction. The FIT picks are attn8, attn1, attn14,
+  attn1, attn3, attn10, mlp11 — scattered across the depth of the model. **The instability of the argmin is now an established result,
+  not an exploratory note.**
+- **pred_c TRUE, and strongly** — median `selectivity_TEST(pick) − median selectivity_TEST(12 random live components)` = **−.266**.
+  Selection is far from worthless: the FIT-selected component is substantially more selective on held-out data than a random live
+  component. So the argmin is unstable in IDENTITY while still carrying real information in VALUE.
+- **pred_a FALSE — median inflation = .063** against a ≥ .15 bar. I predicted a large winner's curse and it is small; the null
+  (≤ .05) is **also** not met, so the honest reading is a **mild** inflation, not "none". Two behaviours carry most of it
+  (numbered list .285, roman list .404) while four are under .10.
+- **pred_b FALSE — median `selectivity_TEST(pick) − selectivity_TEST(attn8)` = −.0197**, i.e. the searched component is a hair
+  *better* than the named writer on held-out data. But the null (≤ −.05) is **not met either**, so the two are
+  **indistinguishable at the resolution of this measurement**, and no claim is made in either direction.
+
+### Reading, and what it does to the campaign's instrument
+
+The result is not the clean curse I registered. It decomposes into two separable facts the prediction had conflated:
+**which component wins is unstable (0 of 7), while how selective the winner is transfers (−.266 against random, .063 inflation).**
+That is consistent with many components in the 8–15 band being similarly and genuinely selective, so that the ranking among them is
+decided by noise while the level is not — which also explains §2862's stable ranking (ρ .596) alongside its unstable argmin.
+
+The practically important line is **pred_b**: an unconstrained search over all 36 components, honestly held out, does **no better than
+the writer the battery identified from causal evidence** (−.020, inside both bars). That is a point in favour of the battery's writer
+identification, and it is the first held-out test it has been given. It does **not** revive the withdrawn selectivity claim: §2860's
+"un-established" stands, and §2862's finding that attn8 sits at the 21st percentile rather than being an outlier stands with it.
+
+Queued: two precision replications, both with **bars carried over verbatim** — §2863's design at PER_CELL=64 (its pred_c missed at
+71.4% vs 80%, pred_e at ρ .556 vs .60) and §2862's at PER_CELL=24 (its pred_a missed by .014). Re-registering a bar for a replication
+would make the replication meaningless.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
