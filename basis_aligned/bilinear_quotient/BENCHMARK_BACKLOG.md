@@ -5602,3 +5602,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   equivalent to the component patch — SEVENTH aggregation-mismatch predicate of the night (cf. §2832, §2837, §2838).
   RULE: state in the predicate over what set each side is aggregated. CONSEQUENCE: attn8's identity write and roundness attribute are
   not separable at head granularity — a constraint on any compiled program hoping to keep one and drop the other.
+- §2844 circuit_battery_roundness_direction (Claude, LANE 1 CUDA, 4.8 s, 22 GPU forwards, 256 declared fitted params): a,b,c,e TRUE;
+  d FALSE. **The roundness switch is ONE VECTOR.** A single 128-d direction fitted on half the pairs carries **.874** of head 3's
+  whole-slice effect on the HELD-OUT half (percent .846, bare .902); a random direction carries −.0005; the percent-fitted and
+  bare-fitted directions agree at |cos| **.974** (random ≈ .09). pred_d FALSE: |cos| .819 with head 3's own mean output (bar ≤ .80) —
+  the feature is substantially ENTANGLED with the bulk, i.e. roundness mostly modulates how far along its usual direction head 3 writes.
+  Not the §2835 degenerate case (.9999996) but not orthogonal either. Second positive sub-block result after §2826's reader axis, and
+  the finest write-side object localised so far: 128 numbers.

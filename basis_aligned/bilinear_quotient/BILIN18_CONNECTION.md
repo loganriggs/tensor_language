@@ -73567,3 +73567,42 @@ any compiled program that hoped to keep the identity write and drop the attribut
 Price: 24 GPU forwards, 4.7 GPU-seconds, 0 backwards, 0 fitted parameters.
 Results: circuit_battery_roundness_head_split_results.json. (Claude, LANE 1 CUDA.) b, c, d TRUE; a FALSE (marginal); e FALSE on a
 mis-constructed check, disclosed. Preserved.
+
+## §2844 — THE ROUNDNESS SWITCH IS ONE VECTOR: a single 128-dimensional direction fitted on half the pairs and applied to the held-out half carries **.874** of head 3's whole-slice effect, a random direction carries **−.0005**, and the direction fitted on percentage runs agrees with the one fitted on bare runs at |cos| **.974** — but it sits at |cos| .819 with the head's own mean output, so it is a feature ENTANGLED with the bulk rather than orthogonal to it (a, b, c, e TRUE; d FALSE)
+
+§2842 and §2843 put the step-versus-plus-one switch in attention 8 and then in heads {3, 7}. This rung asks what the feature IS: the
+per-row difference between the donor's and the base's head-3 output is the roundness delta; one MEAN direction is fitted on half the
+pairs and the switch is then driven by projecting each held-out row's delta onto that single fixed direction. Sign convention:
+`ld = logit(plus-one) − logit(step)`, `REC = (ld_patch − ld_base)/max(ld_donor − ld_base, 1e-3)`. **No CE, no §312 L2, nothing installs;
+256 declared fitted parameters, fitted on the fit half only.**
+
+**pred_a TRUE (null "≤ .15" not met) — one direction is most of the head.** On held-out pairs the fitted direction recovers a median
+**.874** of what swapping head 3's entire 128-dimensional slice does (percent .846, bare .902; absolute recoveries .363 and .244 against
+head-slice values .429 and .270). **The roundness switch is a one-dimensional, compilable feature: 128 numbers.**
+
+**pred_b TRUE (null "≥ .40" not met) — and the control is what makes that readable.** A seeded random unit direction in the same
+128-dimensional space recovers **−.0005** — nothing at all, against the fitted direction's .303. Projecting onto *anything* does not work.
+
+**pred_c TRUE (null "≤ .10" not met) — the direction is not a surface artefact.** The vector fitted on percentage runs and the one
+fitted on bare runs agree at |cos| **.974** (two random directions in R^128 sit at ≈ .09). Roundness is written the same way whether or
+not there is a "%" in the prompt.
+
+**pred_d FALSE — and it is the qualification that keeps this honest.** The fitted direction sits at |cos| **.819** with head 3's own
+mean output (bar ≤ .80), so it is largely aligned with where the head always points. I registered the .80 bar because §2835 had already
+caught a case where "the feature" was simply the bulk (attention 5's dominant direction IS its mean write, |cos| .9999996). This is not
+that — .819 is far from .9999996, and a random direction's .09 is far below it — but it is above my bar, so the honest statement is a
+feature **substantially entangled with the head's bulk output**, not one orthogonal to it. What varies with roundness is mostly *how
+far along its usual direction* head 3 writes, with a real but minority component elsewhere.
+
+**pred_e TRUE** — head 3's whole-slice arm is live in both formats (.429, .270), reproducing §2843, so the ratios above normalise
+against a measured quantity.
+
+**Where the mechanism stands.** Attention 5 decides that a number goes here, and does it by adding a constant vector (§2829, §2835).
+Attention 8's heads {3, 7} write which number was last (§2808, R576, §2820) and, along one 128-dimensional direction inside head 3 that
+transports across surfaces, whether that number is round (§2842, §2843, §2844). The mlp8–mlp11 stack reads the result and computes +step
+or +1 accordingly (§2818, §2819, §2841). Every clause is a separate measurement, and the last one is now specified down to a single
+vector — the finest object this campaign has localised on the write side, and the second positive sub-block result after §2826's reader
+axis.
+
+Price: 22 GPU forwards, 4.8 GPU-seconds, 0 backwards, 256 declared fitted parameters.
+Results: circuit_battery_roundness_direction_results.json. (Claude, LANE 1 CUDA.) a, b, c, e TRUE; d FALSE. Preserved.

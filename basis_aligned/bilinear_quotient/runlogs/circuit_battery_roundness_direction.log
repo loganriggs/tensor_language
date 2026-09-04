@@ -1,0 +1,26 @@
+[rdir] percent  head=0.429 fitted_dir=0.363 frac=0.846 rand=-0.000 bulk_cos=0.819
+[rdir] bare     head=0.270 fitted_dir=0.244 frac=0.902 rand=-0.001 bulk_cos=0.820
+{
+ "preds": {
+  "pred_a_one_fitted_direction_carries_the_switch": true,
+  "pred_b_random_direction_is_inert": true,
+  "pred_c_the_direction_transports_across_formats": true,
+  "pred_d_it_is_not_the_bulk_output": false,
+  "pred_e_full_delta_reproduces_the_head_patch": true
+ },
+ "nulls": {
+  "a_null_direction_fails": false,
+  "b_null_random_works": false,
+  "c_null_no_transport": false
+ },
+ "summary": {
+  "transport_cosine": 0.9741652011871338,
+  "medians": {
+   "head_recovery": 0.3494117259979248,
+   "fitted_direction_recovery": 0.3030664250254631,
+   "fraction_of_head": 0.8737686280797743,
+   "random_direction_recovery": -0.0004917595360893756,
+   "cos_direction_vs_bulk_output": 0.8193219602108002
+  }
+ }
+}
