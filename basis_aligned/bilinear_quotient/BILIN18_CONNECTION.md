@@ -76594,3 +76594,59 @@ frontier from +2.6736 to +2.5131.**
 an optimum. A rung extending the grid upward is registered next; until it runs, no claim is made about the best scale.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. **Flagged for the adoption ledger, not entered by this lane.**
+
+## §2906 — THE MOTIF OPTIMUM IS BRACKETED AT 1.25, BUT ADDING IT TO T+C BUYS ONLY **+0.0149** — **91% OF ITS STANDALONE −0.1604 IS ALREADY FIXED BY T+C**. pred_d FAILED AT MY OWN MATERIALITY BAR
+
+Registered `polynomial_causal/FRONTIER_MOTIF_BRACKET_AND_TRIPLE_PREREGISTRATION.md` (11:59Z). Run
+`frontier_motif_bracket_and_triple`, landed 12:02Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_motif_bracket_and_triple_results.json
+Price: 0 GPU forwards, 124.2 GPU-seconds, **1 pipeline run** for eleven arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+| motif scale, alone | **1.25** | 1.5 | 2.0 | 2.5 | 3.0 |
+|---|---|---|---|---|---|
+| fresh | **−0.1604** | −0.1523 | +0.0141 | +0.2436 | +0.4994 |
+| fitting window | **−0.1642** | −0.1360 | +0.1171 | +0.4433 | +0.8048 |
+
+| T+C+motif | m = **1.25** | m = 1.5 | m = 2.0 |
+|---|---|---|---|
+| fresh | **−0.3363** | −0.2747 | −0.0593 |
+| fitting window | **−0.3286** | −0.2686 | −0.0107 |
+
+**pred_a, b, c, e HELD; pred_d FAILED.** Both anchors are exact: T+C reads **−0.3214** against §2904's **−0.3213** (deviation
+**0.0001**) and motif-1.25 reads **−0.1604** against §2905's **−0.1605** (deviation **0.0001**).
+
+**pred_c HELD — the motif optimum is bracketed, and I want to be precise about how.** Within *this* rung's grid, 1.25 is the **lowest**
+point, so on its own it would sit at an edge. It is bracketed only by combining with §2905, which measured **1.1 → −0.0932** and
+**0.9 → +0.1393**. Across the two grids the union is {0.5, 0.75, 0.9, 1.1, **1.25**, 1.5, 2.0, 2.5, 3.0} and **1.25 is interior**, with
+1.1 and 1.5 both worse. §2905's "unbracketed lower bound" caveat is therefore **discharged** — the optimum lies between 1.1 and 1.5 and
+1.25 is the best measured point in it.
+
+### pred_d FAILED, and I am not reading around it
+
+`triple_beats_TC_by` = **+0.0149**, against a registered bar of **≥ +0.05**. `d_null_the_motif_scaling_adds_nothing` (≤ 0) did **not**
+fire either, so the increment is real but sits in the undecided band.
+
+**The substance: the motif correction is 91% redundant with T+C.** Alone it is worth **−0.1604**; added on top of T+C it contributes
+**+0.0149**. That is by far the strongest subadditivity measured between adopted corrections — §2904 found T·C nearly independent at
++0.0149 *interaction*, and here the motif block's entire standalone value is almost absorbed.
+
+**What I am and am not entering.** The registered adoption rule was *"a combined improvement beyond §2904's −0.3213 may be entered
+**only if** pred_a, pred_b and pred_e hold"* — and all three do, so the rule *permits* adoption. **I am not treating that as sufficient.**
+pred_d was my own registered threshold for whether the combination is worth having, and it failed. Adopting a gain I had pre-declared too
+small to count would be reading my own rule to my advantage, which is the move the standing rules exist to prevent.
+
+**Recorded, therefore:** the **best measured configuration** is T+C+motif@1.25 at **fresh −0.3363, in sample −0.3286, implied L2_F
++2.3372**. **The adopted configuration remains §2904's T+C at +2.3522**, and the motif increment of **+0.0149** is recorded as **real but
+below my materiality bar**. If a later rung wants it, the number is here and the reason it was not adopted is here with it.
+
+### One more thing this settles
+
+Motif scaling alone is strongly non-monotone above the optimum — **+0.4994 at 3.0** — so the correction is a genuine optimum and not a
+"more is better" direction. Combined with §2905's finding that scaling *down* is catastrophic (+0.9238 at 0.5), the motif gains sit in a
+narrow well around 1.25 with steep walls on both sides. That is a different shape from the tail block, whose curve was flat between .15
+and .30 (§2898), and it means the motif gain is a **sharply tuned** quantity where the tail's was not.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

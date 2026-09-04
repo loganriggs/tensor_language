@@ -5924,3 +5924,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   formula must encode the direction.
 - **[§2905] The mismatch is DIRECTIONAL per block.** Tail, CP and front want less; the motif heads want more. Any general account of
   "local criterion vs end-to-end score" must predict the sign, not just the existence, of the correction.
+
+- **[§2906] The motif correction is 91% redundant with T+C** (standalone −0.1604, increment on top of T+C only +0.0149). **Adopted
+  configuration remains §2904's T+C at +2.3522**; best *measured* is T+C+motif@1.25 at +2.3372, recorded but not adopted because
+  pred_d (≥.05) failed at my own materiality bar. **§2905's "unbracketed" caveat is discharged** — across §2905's and §2906's grids the
+  motif optimum is interior at 1.25 (1.1 and 1.5 both worse).
+- **[§2906] The motif gain is a SHARPLY tuned quantity**: +0.9238 at ×0.5 and +0.4994 at ×3.0, a narrow well around 1.25 with steep
+  walls. The tail block's curve was flat between .15 and .30 (§2898). Any joint optimisation must respect that the blocks have very
+  different curvature.
