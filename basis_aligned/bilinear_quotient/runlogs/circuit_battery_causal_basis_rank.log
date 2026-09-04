@@ -1,0 +1,49 @@
+[basis] keyed_line.counter_successor mlp10 k1=0.46 k2=0.44 k4=0.43 k8=0.44 rnd=0.001 E4=0.0124 gain=0.21 adm=True
+[basis] keyed_line.counter_successor mlp11 k1=0.30 k2=0.28 k4=0.28 k8=0.28 rnd=0.005 E4=0.0126 gain=0.17 adm=True
+[basis] month.successor              mlp10 k1=0.12 k2=0.12 k4=0.13 k8=0.13 rnd=-0.004 E4=0.0117 gain=0.15 adm=False
+[basis] month.successor              mlp11 k1=0.11 k2=0.11 k4=0.11 k8=0.11 rnd=-0.002 E4=0.0068 gain=0.07 adm=False
+[basis] numbered_list.index_successor mlp10 k1=0.31 k2=0.30 k4=0.25 k8=0.20 rnd=0.004 E4=0.0185 gain=0.63 adm=False
+[basis] numbered_list.index_successor mlp11 k1=0.23 k2=0.22 k4=0.21 k8=0.17 rnd=0.008 E4=0.0120 gain=0.39 adm=False
+[basis] numeric_run.last_plus_one    mlp10 k1=0.18 k2=0.19 k4=0.19 k8=0.19 rnd=0.002 E4=0.0059 gain=0.07 adm=False
+[basis] numeric_run.last_plus_one    mlp11 k1=0.05 k2=0.06 k4=0.05 k8=0.06 rnd=0.002 E4=0.0041 gain=0.08 adm=False
+[basis] paren_list.index_successor   mlp10 k1=0.25 k2=0.26 k4=0.24 k8=0.23 rnd=0.008 E4=0.0166 gain=0.50 adm=False
+[basis] paren_list.index_successor   mlp11 k1=0.22 k2=0.22 k4=0.22 k8=0.21 rnd=0.001 E4=0.0133 gain=0.36 adm=False
+[basis] roman_list.index_successor   mlp10 k1=0.48 k2=0.52 k4=0.58 k8=0.60 rnd=0.008 E4=0.0078 gain=0.37 adm=True
+[basis] roman_list.index_successor   mlp11 k1=0.15 k2=0.14 k4=0.15 k8=0.17 rnd=0.012 E4=0.0015 gain=0.37 adm=False
+[basis] verbatim_repeat.copy         mlp10 k1=0.02 k2=0.03 k4=0.02 k8=0.02 rnd=-0.003 E4=0.0038 gain=0.08 adm=False
+[basis] verbatim_repeat.copy         mlp11 k1=-0.01 k2=0.01 k4=0.00 k8=0.00 rnd=0.001 E4=0.0057 gain=0.04 adm=False
+{
+ "preds": {
+  "pred_a_four_causal_directions_carry_more": false,
+  "pred_b_share_grows_with_k": false,
+  "pred_c_random_basis_is_inert": true,
+  "pred_d_specificity_survives_the_wider_basis": true,
+  "pred_e_the_causal_basis_stays_low_energy": true
+ },
+ "nulls": {
+  "a_null_k4_le_.2": true,
+  "b_null_no_growth": true,
+  "c_null_random_ge_.3": false,
+  "e_null_high_energy": false
+ },
+ "share_by_k": {
+  "k1": 0.19918107986450195,
+  "k2": 0.20348364114761353,
+  "k4": 0.19710558652877808,
+  "k8": 0.17961794137954712
+ },
+ "energy_by_k": {
+  "k1": 0.0021477966802194715,
+  "k2": 0.004342071013525128,
+  "k4": 0.009747128700837493,
+  "k8": 0.01776275411248207
+ },
+ "medians": {
+  "growth": -0.001734703779220581,
+  "random_share": 0.001713395118713379,
+  "random_energy": 0.0032797434832900763,
+  "block_ratio": 0.4817652106285095,
+  "k4_ratio": 0.20005154609680176,
+  "specific_gain": 0.18997591733932495
+ }
+}

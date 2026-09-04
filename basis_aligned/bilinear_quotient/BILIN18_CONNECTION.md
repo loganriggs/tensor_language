@@ -72779,3 +72779,40 @@ program could actually use: the specific part of what mlp10 does to attention 8'
 
 Price: 664 GPU forwards, 11.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_causal_direction_read_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with no null met. Preserved.
+
+## §2827 — THE CAUSAL COMPONENT OF THE READ IS EXACTLY ONE DIMENSION WIDE: widening the unfitted competitor basis from k=1 to k=8 moves the damage share not at all (.199 → .203 → .197 → .180) while its energy grows eightfold (.0021 → .0178), and the specificity gain survives at .190 — so the extra axes add size without causality (c, d, e TRUE; a, b FALSE, a's and b's nulls MET)
+
+§2826 found that one unfitted direction `u = W_U[answer] − W_U[best competing candidate]` carries .199 of the reader block's damage and
+is 2.4× more task-specific than the block. Since the model chooses among many candidates, the obvious question was whether the
+remaining four fifths travels along further answer-versus-competitor axes. It does not. Per-row orthonormal spans of the top k
+competitors' axes, k ∈ {1, 2, 4, 8}, zero fitted parameters, OOD rows, readers mlp10 and mlp11.
+
+**pred_a FALSE and pred_b FALSE, both nulls MET — the curve is flat.** Median share of the block's A1 damage: **k=1 .199, k=2 .203,
+k=4 .197, k=8 .180** (bars: k=4 ≥ .40, growth ≥ .10). Growth from k=1 to k=8 is **−.0017** — the eighth direction leaves slightly less
+damage captured than the first alone, which is what adding causally irrelevant directions to a projection looks like when the
+intervention is not perfectly linear. Both registered nulls ("k=4 no better than .20", "no growth") are MET.
+
+**pred_e TRUE (null "≥ .30" not met) — and it is the control that makes the flatness meaningful.** The energy inside the basis grows
+almost exactly proportionally to k: **.0021, .0043, .0097, .0178** — an eightfold increase from k=1 to k=8, staying far below the .05
+bar. So the wider bases are capturing eight times as much of the removal effect's SIZE while capturing none of its additional DAMAGE.
+This is the §2825 lesson ("energy is not causality") measured a third time and now in the one place where it can be stated as a
+positive: the causal content of the read is concentrated in a single direction that is itself energetically negligible, and everything
+adjacent to it in the unembedding geometry is generic.
+
+**pred_d TRUE — and the specificity is the single axis's, not the basis's.** On the three admissible cells the k=4 arm's selectivity
+ratio is a median **.200** against its block's **.482**, a gain of **.190** (bar ≥ .10) — statistically the same as §2826's .169 at
+k=1. Widening the basis neither adds damage nor dilutes specificity, because the added directions do essentially nothing.
+
+**pred_c TRUE (null "≥ .30" not met).** A seeded random rank-4 basis carries **.0017** of the block's damage, against the causal
+basis's .197.
+
+**What §2826 and §2827 establish together.** The read of attention 8's write by mlp10/mlp11 splits into two parts: a **one-dimensional,
+unfitted, low-energy (0.2%), task-specific component along the answer-versus-competitor axis**, carrying a fifth of the block's effect
+on the margin at 2.4× the block's specificity; and a **generic remainder of four fifths** that is dense in units (§2822, §2823), has no
+transportable low-rank energy structure (§2824), is not aligned with the effect's own principal directions (§2825), and is not reached
+by any further competitor axis (this section). For a compiled tensor program that is an actionable decomposition — the specific part of
+this circuit is rank 1 and needs no fitting — and it is also a bound: the remaining four fifths of this block's effect on the margin has
+resisted every decomposition this campaign can apply.
+
+Price: 744 GPU forwards, 13.2 GPU-seconds, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_causal_basis_rank_results.json. (Claude, LANE 1 CUDA.) c, d, e TRUE; a, b FALSE with both nulls met. Preserved.

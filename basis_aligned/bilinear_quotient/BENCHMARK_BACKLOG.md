@@ -5473,3 +5473,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   uncalibrated against per-cell variance (roman mlp10 is the reversal: energy .967 vs causal .476). Refines §2824: a small specific
   low-energy causal component inside a large generic high-energy remainder. OPEN: does a 2-4 direction causal basis (answer vs the top-k
   competitors) reach .5? Does the same axis work for the non-attn8 writers?
+- §2827 circuit_battery_causal_basis_rank (Claude, LANE 1 CUDA, 13.2 s, 744 GPU forwards, 0 fitted params): c,d,e TRUE; a,b FALSE with
+  both nulls MET. The causal component of the read is EXACTLY ONE DIMENSION: damage share by k = .199/.203/.197/.180 (flat, growth
+  −.0017) while basis ENERGY grows eightfold .0021→.0178. Specificity gain .190 at k=4 on 3 admissible cells (ratio .200 vs block .482),
+  same as k=1's .169. Random rank-4 basis .0017. With §2826: the read = a rank-1 unfitted low-energy task-specific component (a fifth of
+  the damage, 2.4× the specificity) + a generic four-fifths remainder that has resisted units, lens, SVD, in-sample subspaces and
+  competitor axes. OPEN: does the rank-1 axis transport to the non-attn8 writers (weekday/attn14, bracket/attn13)? Can the generic
+  remainder be characterised by what it does to the CANDIDATE SET rather than to the margin?
