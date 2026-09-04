@@ -73351,8 +73351,10 @@ installs; diagnostics only; metric-constructed spans CLOSED (§2118 lineage).**
 | 8 | 8.953 | 4.831 | 4.122 |
 
 **pred_c TRUE — the set is not degenerate, and this is the clause §2838 lacked.** Deleting the saving-ranked four costs **3.463 nats**
-(bar ≥ 3.0) against **.060** for §2838's absolute-ranked four. The ranking now selects components that actually matter: attn1, attn5,
-mlp16, mlp0 — three of the four most expensive in the model (§2830).
+(bar ≥ 3.0) against **.060** for §2838's absolute-ranked four. The ranking selects, in order, **attn1, attn5, mlp0, attn0**
+(then mlp16, mlp4) — the four most expensive components in the model bar none, since §2830's cost ordering was mlp0, attn1, attn5,
+attn0. (Correction made minutes after first writing this section, which named the set "attn1, attn5, mlp16, mlp0": mlp16 is 5th by
+saving, not 4th. Every number in the table was always the measured value for the true set; only my prose naming of it was wrong.)
 
 **pred_b TRUE (null "worse by ≥ .30" not met) — it beats the ranking this lineage set out to improve on**, by **.351** nats at k = 4
 (1.035 against §2837's 1.386).

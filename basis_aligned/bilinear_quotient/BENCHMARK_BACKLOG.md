@@ -5562,7 +5562,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   saves <.01. STANDS: attn5+attn1 as constants cost .377 nats vs 3.019 to delete (2.64 nats saved). Next rung: saving-ranked selection,
   registered separately.
 - §2839 circuit_battery_saving_ranked_constant_set (Claude, LANE 1 CUDA, 11.4 s, 130 GPU doc-forwards, 82,944 declared fitted params):
-  b,c,e TRUE; a FALSE; d FALSE with null MET. The §2838 rule works: ranking by SAVING (zero−const) picks attn1, attn5, mlp16, mlp0 —
+  b,c,e TRUE; a FALSE; d FALSE with null MET. The §2838 rule works: ranking by SAVING (zero−const) picks attn1, attn5, mlp0, attn0 (mlp16 is 5th; my first draft misnamed the set and was corrected) —
   deleting them costs 3.463 nats (pred_c: NOT degenerate, vs .060 for §2838's set) and constanting them 1.035, saving **2.428 nats** and
   beating §2837's ratio ranking by .351. But pred_a FALSE (bar 4.0): the saving is one component — attn1 alone saves 2.220, #2 adds .42,
   #3 and #4 add nothing. pred_d FALSE with null MET: the composition is **SUB-additive** (−.224), the OPPOSITE of §2837 (+.646) and
