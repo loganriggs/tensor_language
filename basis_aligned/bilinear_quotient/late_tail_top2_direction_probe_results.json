@@ -1,0 +1,198 @@
+{
+ "rung": "late_tail_top2_direction_probe",
+ "status": "complete",
+ "smoke": false,
+ "sign_convention": "CE ADDED above the real model on held-out docs 0-63 (FRESH split; LOWER IS BETTER)",
+ "preds": {
+  "pred_a_instrument": true,
+  "pred_b_top_direction_is_a_position0_spike": false,
+  "pred_c_top_directions_are_readout_aligned": false,
+  "pred_d_dropping_top2_is_cheap": true,
+  "pred_e_top_direction_shared_across_late_blocks": false
+ },
+ "nulls": {
+  "b_null_pos0_share_le_.10": true,
+  "c_null_cos128_le_.30": false,
+  "d_null_drop_top2_ge_.010": false,
+  "e_null_shared_le_3_blocks": false
+ },
+ "bars": {
+  "ce_tol": 0.0001,
+  "repro_tol": 0.015,
+  "eig_tol": 0.05,
+  "b_min": 0.5,
+  "c_min": 0.6,
+  "d_max": 0.003,
+  "e_cos": 0.9,
+  "e_blocks": 8
+ },
+ "null_bars": {
+  "b_max": 0.1,
+  "c_max": 0.3,
+  "d_min": 0.01,
+  "e_blocks": 3
+ },
+ "device": "cuda",
+ "split": 8,
+ "program": "identity of the two dominant directions of the pooled late-origin tail covariance (\u00a72779): position profile, unembed alignment, sharing across late blocks, and the CE cost of removing them (mean-filled) from all late MLP reads vs 2 random complement directions",
+ "instrument": {
+  "baseline_ce": 3.032240092754364,
+  "prior_baseline": 3.0322401,
+  "split8_1024": 0.03738698363304138,
+  "prior_split8_1024": 0.0374,
+  "bus_896": 0.06615453958511353,
+  "prior_late_mlp_896": 0.0662,
+  "eig1": 1.4598617491580546,
+  "prior_eig1": 1.46
+ },
+ "ce_added": {
+  "SPLIT8_1024": 0.03738698363304138,
+  "BUS_896": 0.06615453958511353,
+  "DROP_TOP2_MLP": 0.0016679465770721436,
+  "DROP_RAND2_MLP": 0.0004957914352416992
+ },
+ "summary": {
+  "directions": {
+   "u1": {
+    "cos_unembed_top16": 0.2999407649040222,
+    "cos_unembed_top128": 0.3655880093574524,
+    "cos_wte_mean": 0.19911623001098633,
+    "share_pos0": 0.0016746992946423895,
+    "share_first8": 0.024269636152801356,
+    "eig": 1.4598617491580546
+   },
+   "u2": {
+    "cos_unembed_top16": 0.24729225039482117,
+    "cos_unembed_top128": 0.3475230038166046,
+    "cos_wte_mean": 0.02666185423731804,
+    "share_pos0": 0.004262731533126261,
+    "share_first8": 0.03209843660570017,
+    "eig": 0.6712538942417302
+   },
+   "floor_eig_3_16": [
+    0.1055025702303773,
+    0.07403195661327665,
+    0.06960190052432114,
+    0.06585358871426378,
+    0.06557173771007133,
+    0.06521581217759942,
+    0.06502629344586947,
+    0.06452979525746717,
+    0.06450676019664353,
+    0.06435331368187307,
+    0.06424817126280977,
+    0.06405269259428559,
+    0.06358316948960455,
+    0.06335263722975629
+   ],
+   "pos0_share_of_total_tail_energy": 0.3831805916224862
+  },
+  "per_block_top": [
+   {
+    "block": 8,
+    "cos_top1": 0.5579341650009155,
+    "cos_top2_sub": 0.43743324279785156,
+    "eig12": [
+     0.029761314534095886,
+     0.023489721051132565
+    ]
+   },
+   {
+    "block": 9,
+    "cos_top1": 0.809695839881897,
+    "cos_top2_sub": 0.5961958765983582,
+    "eig12": [
+     0.09230780429673612,
+     0.045888200961411614
+    ]
+   },
+   {
+    "block": 10,
+    "cos_top1": 0.875990092754364,
+    "cos_top2_sub": 0.6359837651252747,
+    "eig12": [
+     0.1637250272080689,
+     0.056005683107262165
+    ]
+   },
+   {
+    "block": 11,
+    "cos_top1": 0.8808135390281677,
+    "cos_top2_sub": 0.6368428468704224,
+    "eig12": [
+     0.20404852981204682,
+     0.06984174977440247
+    ]
+   },
+   {
+    "block": 12,
+    "cos_top1": 0.9079189300537109,
+    "cos_top2_sub": 0.6523860692977905,
+    "eig12": [
+     0.2544967009978011,
+     0.0708816749444951
+    ]
+   },
+   {
+    "block": 13,
+    "cos_top1": 0.9300897121429443,
+    "cos_top2_sub": 0.663511335849762,
+    "eig12": [
+     0.28523085834841067,
+     0.0779606057465548
+    ]
+   },
+   {
+    "block": 14,
+    "cos_top1": 0.9279096126556396,
+    "cos_top2_sub": 0.6629208922386169,
+    "eig12": [
+     0.3118360375562927,
+     0.08804761360895685
+    ]
+   },
+   {
+    "block": 15,
+    "cos_top1": 0.9123378396034241,
+    "cos_top2_sub": 0.6502389907836914,
+    "eig12": [
+     0.354488656841565,
+     0.10916894809448373
+    ]
+   },
+   {
+    "block": 16,
+    "cos_top1": 0.9130276441574097,
+    "cos_top2_sub": 0.6569461822509766,
+    "eig12": [
+     0.4612284380028241,
+     0.14712352525535682
+    ]
+   },
+   {
+    "block": 17,
+    "cos_top1": 0.9086548686027527,
+    "cos_top2_sub": 0.6523592472076416,
+    "eig12": [
+     0.43363495102972854,
+     0.16204785833304292
+    ]
+   }
+  ],
+  "n_blocks_sharing_top1": 6,
+  "drop_top2": 0.0016679465770721436,
+  "drop_rand2": 0.0004957914352416992
+ },
+ "price": {
+  "gpu_doc_forwards": 608,
+  "cpu_doc_forwards": 0,
+  "gpu_seconds": 19.84842014312744
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/LATE_TAIL_TOP2_DIRECTION_PROBE_PREREGISTRATION.md": "c00f8830d00c14f1e399d940be27318a92c8abdfa64de456ebf55715d61ba47e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/tail_read_output_frame_probe_results.json": "4cd9256f718555f42cf31958055a13614a367d5da24c127a0563dd9171ea3ac8",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1"
+ },
+ "script_sha256": "ce0d2b14e0a2ae5aee4e2076112b1dbd6a19382b31c869f310e046ef8d5a5be2"
+}

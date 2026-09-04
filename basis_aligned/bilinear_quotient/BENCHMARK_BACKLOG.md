@@ -5290,3 +5290,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2785 tail_read_output_frame_probe (Claude, LANE 1 CUDA, 23 s, 832 GPU forwards): a–e TRUE, no null met. The gated tail read's output
   lands inside the 768 bus frame late (in-frame part recovers .87, complement .21); early (own 512) both halves recover much (.80/.60,
   overlapping) — the rotating early frame.
+- §2786 late_tail_top2_direction_probe (Claude, LANE 1 CUDA, 20 s, 608 GPU forwards): a,d TRUE; b FALSE null MET; c,e FALSE. The two
+  dominant tail directions are accumulation bookkeeping (pooled eig 1.46 vs per-block ≤ .46), not pos-0, not readout-aligned, cost .0017
+  to drop. The tail's CE value is entirely in the flat high-rank floor.
