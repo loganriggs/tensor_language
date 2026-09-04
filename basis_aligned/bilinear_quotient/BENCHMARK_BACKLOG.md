@@ -5302,3 +5302,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - §2790 late_tail_writer_recency_probe (Claude, LANE 1 CUDA, 21 s, 832 GPU forwards): a,b,d,e TRUE; c FALSE with null met. The late tail
   channel is a fading accumulation: recent-2 blocks 43% of the .0711 late-origin cost, ≥5 back 10%; cost tracks energy (fade ≈ .8/block);
   windows sub-additive (.74). Fixes the tail argument's support to the last ~3–4 blocks. Next: T2 exact tail-restricted operator rank.
+- §2791 late_tail_read_operator_rank_probe (Claude, LANE 1 CUDA, 24 s, 392 GPU forwards + weight algebra): a–e TRUE, no null met. The core-gated
+  tail read J(c)·t is high-rank in gate (eff 228–452 of 768), tail input (221–369 of 384) and output (426–929); output 70.0% in core (at the bar);
+  constant gate 16%. P3 (low-rank W_l(c)) CLOSED exactly. Block 17 is the narrow, hard-reading outlier (T4 next).
+- §2792 caveat (no run): §2790's "fade ≈ .8/block" is confounded with writer identity (λ0 ≥ .88 late, mostly ≥ 1 — no architectural fade);
+  window costs stand; half-life language withdrawn pending late_tail_writer_identity_probe (writer fixed effects).
