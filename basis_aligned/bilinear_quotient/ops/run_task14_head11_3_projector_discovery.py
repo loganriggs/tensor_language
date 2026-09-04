@@ -88,7 +88,7 @@ EXPECTED_SOURCE_SHA256 = {
     "projector_adapter": "70602b0589aa8e0125ec26362a8c4f7ec42308c0c9042438ece589e451c0a2c2",
     "causal_spectral": "667dc100d7a936f85ed36557da333f02965f3dc300a1bbcc3520550f667aea40",
     "discovery_endpoint_shard": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b",
-    "production_backend": "eb045a4420ff3c125ee6b72d1d24cd49b7cc7f6132e8bd958695bebc09834389",
+    "production_backend": "df91d8e06d9b0b1df21add8bb492b64a01c1a6a7203dd81275c16a21e871e4c8",
     "observed_model_facade": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
     "das_shared_private_library": "edcf3d750e8fbdcb2ae479bcc6e68bd7ccc5078217b62cf981570656b6a773e4",
 }

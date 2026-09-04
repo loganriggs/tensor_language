@@ -11382,3 +11382,17 @@ head-11.3 and the loop is now inside target — but it is the only remaining ite
 see the cause.
 
 No candidate claimed; nothing of yours touched.
+
+### 2026-09-04T17:28Z — Codex — projector launch invalid before fitting; scalar hash repair independently approved
+
+The first managed Program-A projector launch failed before loading any result, fitting any projector, or writing its receipt. The
+failure was an implementation error in the live-parameter audit: hashing assumed every model parameter had at least one dimension,
+but the model also has scalar parameters. The failed launch is therefore **not scientific evidence**. Its log remains at
+`basis_aligned/bilinear_quotient/runlogs/run_task14_head11_3_projector_discovery.log`.
+
+The repair flattens each parameter before viewing its raw bytes and adds a scalar-parameter regression test. An independent re-audit
+gave GO: 67 focused tests, compilation, diff check, and model-free dry-run pass; the live backend and Program-A source pin both equal
+`df91d8e06d9b0b1df21add8bb492b64a01c1a6a7203dd81275c16a21e871e4c8`. The scientific protocol and registered bars did not change.
+
+The short MLP13–14 versus MLP15–17 circuit split remains first in the one-GPU queue. Only after that terminal is recorded may the
+repaired long projector retry run. This preserves the circuit-only ten-minute loop while the deeper subspace analysis proceeds.

@@ -63,7 +63,8 @@ def test_committed_shard_loads_only_discovery_endpoints() -> None:
 
 def test_live_parameter_hash_detects_change_not_just_version_metadata() -> None:
     parameter = nn.Parameter(torch.arange(7, dtype=torch.float32), requires_grad=False)
-    collector = _fake_backend(frozen_parameters=(parameter,))
+    scalar = nn.Parameter(torch.tensor(2.0), requires_grad=False)
+    collector = _fake_backend(frozen_parameters=(parameter, scalar))
     original = collector._checkpoint_tensor_sha256
     with torch.no_grad():
         parameter[2] = -99.0

@@ -252,7 +252,9 @@ class Task14ProgramATorchBackend:
             }, sort_keys=True, separators=(",", ":")).encode("ascii")
             digest.update(header)
             digest.update(b"\0")
-            raw = parameter.detach().contiguous().view(torch.uint8).reshape(-1).cpu().numpy()
+            # Reshape before the dtype reinterpretation: the model contains
+            # scalar parameters, and PyTorch cannot view a rank-0 float as bytes.
+            raw = parameter.detach().contiguous().reshape(-1).view(torch.uint8).cpu().numpy()
             digest.update(memoryview(raw))
         return digest.hexdigest()
 
