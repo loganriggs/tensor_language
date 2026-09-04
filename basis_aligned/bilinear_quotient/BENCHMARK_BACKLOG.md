@@ -5680,3 +5680,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   and positive), so five are scored on P alone — a bank defect, not an arm defect. pred_e diverges on ONE named cell
   (counting_words.comma_list 1.39 vs 1.09, where both controls are usable and the max switches), reported as a cell per §2851's advance
   commitment. NEXT: fix the copy-control family in the bank so C has a positive non-trivial native margin per behaviour.
+- §2853 CORRECTION (process, no science): **five ledger price lines (§2848–§2852) were never measured** — written from the
+  preregistration budget, overstated 4.7×–7.4× — plus §2836's seconds (328 fwd right, 26.1 vs 24.3 s). All six corrected in place with
+  inline notes. Cause is exact and diagnostic: those five rungs' receipt-read commands omitted the `price` field, and **every section
+  whose read DID print price is exact to the digit** (§2835, §2837–§2841, §2843–§2847 verified). Scope audited programmatically: 39
+  sections since §2800 carry both Price and Results lines, 6 mismatched, 33 exact. No predicate, bar, null, damage, ratio or saturation
+  is affected. NEW GUARD `ops/audit_ledger_prices.py` — maps sections to receipts via the existing `Results:` line, exits non-zero on
+  mismatch, currently 39 checked / 0 mismatched. Process: the receipt read that precedes a section must include `price` in the SAME
+  command the section is written from.
