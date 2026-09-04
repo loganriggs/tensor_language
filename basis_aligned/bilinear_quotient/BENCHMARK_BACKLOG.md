@@ -5715,3 +5715,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   dropped. FOUR-RUNG VERDICT (§2854–§2856): a weight-space bilinear analysis of this model is only as good as the output direction it is
   contracted against, and finding that direction is a causal question the weights do not answer — a real constraint on "compile from
   weights alone".
+- §2857 circuit_battery_copy_control_redesign (Claude, LANE 1 CUDA, 3.3 s, 81 GPU forwards, 0 fitted params): ALL FIVE preds TRUE, no
+  null met. **The bank defect §2851/§2852 identified is repairable and ONE design fixes it.** Adding a third identical label
+  (`v2_triple`) takes usable copy controls from **3 of 8 to 7 of 7 live**, median margin gain **2.63×**, and rescues the negative case
+  (month **−.72 → +1.89**; paren .09 → 1.48; numbered .20 → 1.54). Same design wins on all seven, so it is a protocol fix, not
+  per-task fitting. A1 margins reproduce §2852 to **.000** (target untouched). Zero control rows clash with their own group's successor
+  answer and zero are non-copyable — exact checks via `group_id`. NEGATIVE worth keeping: `v3_adjacent`, borrowed from §2841's
+  capability-1.00 verbatim_repeat form, is NEGATIVE on 4 of 7 list surfaces — that copy behaviour is surface-specific. NOT DONE: the
+  selectivity stage is not re-run, so §2852's verdict stands unchanged until a further protocol amendment.

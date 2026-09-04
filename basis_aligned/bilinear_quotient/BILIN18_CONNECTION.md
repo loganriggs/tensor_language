@@ -74186,3 +74186,55 @@ Price: 475 GPU forwards, 7.4 GPU-seconds, 0 backwards, 0 fitted parameters — r
 this section was written from, and every figure above likewise (§2853–§2855).
 Results: circuit_battery_bilinear_eigen_causal_axis_results.json. (Claude, LANE 1 CUDA.) b, c, d, e TRUE; a FALSE with its null not met.
 Preserved.
+
+## §2857 — THE COPY CONTROL IS REPAIRABLE, AND ONE DESIGN FIXES EVERY BEHAVIOUR: adding a third identical label takes usable copy controls from **3 of 8 to 7 of 7 live**, with a median **2.63×** margin gain and the negative-margin case (month) going from **−.72 to +1.89** — the same design wins on all seven, the target family is untouched to **.000**, and every control row is copyable and distinct from its own successor answer (all five preds TRUE, all three nulls not met)
+
+§2851 measured the copy control's own native margin at a median .39 — .09 on the paren list, .20 on the numbered list, −.72 on month —
+and §2852's protocol v3 gated the unusable ones out, leaving five of eight behaviours scored on the answer-preserving family alone.
+§2852 recorded that as bank work and stopped. This rung does the bank work. Sign convention: native margin m = logit(answer) − max
+logit(other candidate), **HIGHER means the model natively gives that answer**; usable means ≥ .50 and positive (§2852's bar).
+**No CE, no §312 L2; nothing installs.**
+
+| behaviour | v1 current | **v2 triple** | v3 adjacent | A1 margin | §2852's A1 |
+|---|---|---|---|---|---|
+| counting words (commas) | 1.66 | **2.26** | 0.36 | 1.23 | 1.23 |
+| keyed counter | 1.51 | **2.02** | −3.20 | 2.52 | 2.52 |
+| **month** | **−0.72** | **1.89** | 1.89 | 1.01 | 1.01 |
+| numbered list | 0.20 | **1.54** | −1.22 | 2.25 | 2.25 |
+| numeric run | 2.51 | **2.91** | 2.91 | 0.67 | 0.67 |
+| paren list | 0.09 | **1.48** | −1.72 | 1.56 | 1.56 |
+| roman list | 0.39 | **1.40** | −0.24 | 2.92 | 2.92 |
+
+**pred_a TRUE (null "≤ 3" not met) — 7 of 7 live behaviours now have a usable control**, against 3 of 8 under the current design.
+(`verbatim_repeat.copy` has no C family by construction and is skipped, not counted.) **pred_b TRUE (null "≤ 1.0" not met)** — the
+median best-over-current margin ratio is **2.63×**, and the three behaviours that were failing move .09 → 1.48, .20 → 1.54 and
+−.72 → 1.89.
+
+**pred_c TRUE (null "≤ 2" not met) — and this is what makes it a protocol fix rather than task-fitting.** The SAME design,
+`v2_triple`, wins on **all seven**. I registered this because a per-behaviour patchwork would have been task-fitting dressed as a
+repair, and would have had to be declared as such; it did not happen. The mechanism is unsurprising in hindsight: a third identical
+label makes the copy reading unambiguous, where two labels leave the successor reading live.
+
+**The failed design is informative too.** `v3_adjacent` — placing the token to copy immediately before the answer position — is
+**negative on four of seven** (keyed counter −3.20, paren list −1.72, numbered list −1.22, roman −0.24). It borrowed its form from
+§2841's `verbatim_repeat.copy`, which the model performs at capability 1.00, and the form does not transport into list surfaces: in a
+numbered list, putting a bare label adjacent to the answer position cues the model to continue the LIST, not to repeat. So the copy
+behaviour §2841 measured is surface-specific, which is a small negative result about that behaviour rather than about this repair.
+
+**pred_d TRUE — the target family is untouched to .000.** Every behaviour's A1 native margin reproduces §2852's value exactly on the
+same frozen SELECT rows (1.23, 2.52, 1.01, 2.25, 0.67, 1.56, 2.92), so the redesign changed only what it was supposed to change and the
+comparison is clean.
+
+**pred_e TRUE — and it is an exact check, not a heuristic.** Zero control rows across all seven behaviours have an answer equal to the
+A1 answer of the SAME generated situation (the bank's `group_id` makes this exact), and zero have an answer absent from their own
+prompt. The controls are copyable and are not the successor.
+
+**What this does and does not license.** It licenses adopting `v2_triple` as the bank's C family, which would restore a second control
+to five behaviours that currently have one — and therefore restore the meaning of the selectivity ratio §2851 and §2852 spent two rungs
+establishing was unmeasurable. It does NOT re-run the selectivity stage: that is a further protocol amendment, and under the v2/v3
+documents it re-runs every behaviour. **Until that runs, §2852's verdict stands as reported — zero behaviours selective, on one control
+for five of eight — and this section changes nothing about it.**
+
+Price: 81 GPU forwards, 3.3 GPU-seconds, 0 backwards, 0 fitted parameters — read from the receipt's `price` field in the same command
+this section was written from, and every figure above likewise (§2853).
+Results: circuit_battery_copy_control_redesign_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e ALL TRUE; no null met. Preserved.
