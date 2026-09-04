@@ -72142,3 +72142,98 @@ Preserved diagnostic hashes: old generator
 `9caf7e004e79ec475f4ceae79decc9477099139392c4bbe484249f070a140ca0`; raw result
 `6d1eda1cc05adf72c525375a0602bbafbf9b4335653be0e410de3d69da03265c`; mutable preregistration artifact
 `d60b4c0c82fd714e401933437192f2731318ae8ee04a5254286822049ca5d30b`.
+
+## §2810 — A CLOSED FORM FOR EVERY READER EDGE: a bilinear block's response to removing a write is EXACTLY a (2,2)-rational function of the removal fraction (verified to 8.3e-7), the read is 76% a CROSS term with the context and 32% an RMSNorm GAIN change, and linear attribution is wrong by .28 of the damage (a, b, d TRUE; c, e FALSE, nulls not met)
+
+Move 1 of MATHEMATICAL_REVIEW_2026-09-04_0404, run on §2809's five capable-and-localised behaviours in 5.4 GPU-seconds.
+
+**The identity.** bilin18's block MLP is `Bilinear` with `gated=False` and `squared_mlp=False` — checked in the checkpoint config, not
+assumed — so `mlp(u) = Down(Left(u) ⊙ Right(u)) + b = Q(u) + b` with Q homogeneous of degree 2, and RMSNorm is a pure rescaling
+`u ↦ √D·u/‖u‖`. Therefore, for a writer's final-position write W and a reader whose input residual is x, the path-patched arm at
+removal fraction t is EXACTLY
+
+  `mlp(rms_norm(x − tW)) − b = D · [ Q(x) − t·B(x,W) + t²·Q(W) ] / [ ‖x‖² − 2t⟨x,W⟩ + t²‖W‖² ]`,
+  `B(x,W) = Down(Left(x)⊙Right(W) + Left(W)⊙Right(x))`,
+
+a vector of quadratics over a scalar quadratic. **pred_a TRUE:** the closed form predicts the actual forward at t ∈ {.25,.5,.75,1} to a
+max relative deviation of 8.3e-7 (bar 1e-5), on every reader of every behaviour. Three vectors and three scalars therefore determine a
+reader edge's entire removal curve with no forward passes at all — an exact certificate, not a fit, and the first object in this
+campaign that is genuinely *compilable*: an edge can be stored as six numbers per row instead of a network.
+
+**pred_b TRUE (null not met) — the read is a CROSS term, not a self term.** The numerator splits the reader's use of W into a term
+LINEAR in W (`B(x,W)`: the reader reading W against its own context) and a term QUADRATIC in W (`Q(W)`: the reader squaring W alone).
+The cross fraction ‖B‖/(‖B‖+‖Q(W)‖) is .756 for the numbered list and .736–.766 across all five behaviours (bar ≥ .70, null ≤ .50).
+This is the finer-than-a-block statement the campaign wanted: inside mlp8/9/10, three quarters of what happens to the attention-8 write
+is a genuine bilinear READ of W against the residual, and a quarter is the block re-squaring the write on its own.
+
+**pred_c FALSE (null not met) — the RMSNorm gain channel is NOT negligible, at .32.** Freezing the numerator at t = 0 and moving only
+the denominator to t = 1 (a pure norm rescaling, no direction change) already reproduces .32 of the reader's full response (bar ≤ .25;
+null ≥ .50 not met), stable at .301–.349 across behaviours. About a third of "removing the write from this reader" is not the reader
+losing the write's direction — it is the reader's RMSNorm gain changing because the residual got shorter. Every attribution or
+patching method that treats the normalization as a constant is mis-attributing that third, and this is a measured, not argued, number.
+
+**pred_d TRUE (null not met) — linear attribution is materially wrong here.** Extrapolating linearly from a quarter-removal
+(`|4·d_m(t=.25) − d_m(t=1)|` over `max(|d_m(t=1)|,.5)`) misses the true full-removal damage by a median .280 of it (bar ≥ .25, null
+≤ .10), and by .571 on the keyed-counter behaviour. Attribution patching / EAP-style linearization (arXiv:2310.10348) is therefore
+provably off by that much on this architecture — a stateable error bar, which is exactly what the certificate is for.
+
+**pred_e FALSE (null not met) — but only just, and in the informative direction.** Half-removal damage differs from half of
+full-removal damage by a median .073 (bar ≥ .10, null ≤ .05); per behaviour .05–.22. So the curvature is real (the null of "linear to
+within .05" is not met) but at the LOGIT MARGIN level it is smaller than the .10 I registered. The reconciliation with pred_d is
+worth stating rather than smoothing over: the strong nonlinearity lives at small t (the t = .25 extrapolation is badly wrong) while the
+t = .5 point happens to sit near the chord. Registered as FALSE.
+
+**Re-use, again.** Every one of these five numbers is nearly constant across five behaviours with different surface forms (cross
+.736–.766; gain .301–.349). The same three MLP readers (mlp8, mlp9, mlp10) consume the attention-8 write the same way whether the
+last salient item is a digit after "N.", a digit after "N)", a counter after "Chapter", a month name or the last term of a bare number
+run. §2809 showed the same components; §2810 shows the same *algebra*.
+
+**Disclosure.** A 4-rows-per-cell smoke ran at 04:10Z before the registered run and printed its predicate values (a, b, d TRUE;
+c, e FALSE — the same verdicts). No bar and no null was amended after it; the preregistration sha
+99a3f59c12cd9849f77608ecd64fe0309beb1efb72f4ffe8a49ef693e79cb2d9 was frozen before the smoke, and the smoke receipt is kept separately.
+
+Price: 78 GPU forwards, 5.4 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_response_certificate_results.json. (Claude, LANE 1 CUDA.) a, b, d TRUE; c, e FALSE, nulls not met. Preserved.
+
+## §2811 — THE READER SET IS A 2-OF-4 THRESHOLD, NOT A PAIR: the Möbius transform of the reader damage set function gives redundancy order 2 on every behaviour, 83% of pairwise interactions positive, top-4 carrying .71 of the whole downstream read — but the super-additivity is milder at top-4 (.86) than over all 19 readers (.52), and my shared-profile clause was under-powered (b, c, e TRUE; a, d FALSE, d's null MET)
+
+Move 2 of MATHEMATICAL_REVIEW_2026-09-04_0404, run on §2809's five capable-and-localised behaviours in 6.8 GPU-seconds. All 16
+subsets of each behaviour's top-4 MLP readers were evaluated on A1/SELECT rows, and the damage set function v(S) transformed by
+m(S) = Σ_{T⊆S} (−1)^{|S|−|T|} v(T).
+
+**pred_c TRUE — redundancy order 2, on every behaviour.** No single reader carries half the joint four-reader damage; some PAIR does,
+on all five behaviours (bar ≥ 2). Combined with §2809's top-3 share of .49, the statement that replaces "the effect is distributed" is:
+**the successor computation is a 2-of-4 threshold over {mlp8, mlp9, mlp10, mlp11/mlp12}** — a compiled program must keep at least two
+of them, and which two is nearly free.
+
+**pred_b TRUE (null not met) — the interactions are positive, i.e. genuine backup.** A median 83% of the six pairwise Möbius
+coefficients are positive (bar ≥ .75; null ≤ .50): removing two readers together hurts MORE than the sum of removing each alone. That
+is the self-repair / hydra signature (McGrath et al., arXiv:2307.15771) measured directly on this model rather than inferred, and it
+is why single-component ablation under-counts these sets. Two behaviours are unanimous (numbered list and keyed counter, 6/6 positive),
+paren list 5/6, numeric run 4/6, month 2/6.
+
+**pred_e TRUE (null not met) — four readers ARE a usable summary.** The joint four-reader damage is a median .71 of removing ALL
+nineteen downstream reads (bar ≥ .50, null ≤ .25): keyed counter .78, paren list .78, numbered list .72, numeric run .63, month .52.
+So the compiled form of these circuits is writer + four readers, not writer + a layer stack.
+
+**pred_a FALSE (null not met) — super-additivity is real but MILDER at the top than over the whole read.** The four single-reader
+damages sum to a median .859 of the joint four-reader damage (bar was ≤ .70; the null "≥ 1.0", i.e. additive or saturating, is NOT
+met). Per behaviour: numbered list .685, paren list .723, numeric run .859, month .888, keyed counter .927. This is a real correction
+to the natural over-reading of §2808: over all nineteen readers the singles sum to .52 of the joint, but over the top four they sum to
+.86. The interaction is concentrated in the LONG TAIL of small readers, not among the big ones — the top few readers are close to
+additive with each other, and it is the many small reads (mlp13–mlp17, the near-zero and slightly negative ones) that only bite
+collectively. That is a sharper and more useful statement than the one I expected to register, and it was registered in the direction
+that could fail, and it failed.
+
+**pred_d FALSE, its null MET, and the clause was UNDER-POWERED — recorded as a design error, not a result.** I registered "the
+normalized order-2 interaction profiles correlate ≥ .50 across behaviours"; the measured median pair correlation is −.58, which meets
+the null (≤ 0). But the number is not usable: the top-4 reader SETS differ between behaviours (three take mlp12, two take mlp11), so
+the six pair keys only partly align and each correlation is computed over as few as three shared coefficients, giving the observed
+wild spread (−.9996, −.939, −.888, −.279, +.319, +.995). A Pearson correlation over three points is not a measurement of profile
+sharing. This is the same class of mistake my notes already flag (a consistency clause that compares the wrong object); the correct
+version fixes a COMMON reader set across behaviours before transforming, and it is queued as such rather than claimed here. The
+recorded verdict stays FALSE with the null met, as registered.
+
+Price: 221 GPU forwards, 6.8 GPU-seconds, 0 backwards, 0 fitted parameters.
+Results: circuit_battery_reader_interaction_transform_results.json. (Claude, LANE 1 CUDA.) b, c, e TRUE; a, d FALSE with d's null met,
+and pred_d additionally disclosed as under-powered. Preserved.

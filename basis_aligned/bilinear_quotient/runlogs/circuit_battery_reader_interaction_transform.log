@@ -1,0 +1,27 @@
+[moebius] keyed_line.counter_successor   singles=2.336 joint=2.521 ratio=0.927 order=2 top4/READS=0.783
+[moebius] month.successor                singles=0.773 joint=0.871 ratio=0.888 order=2 top4/READS=0.518
+[moebius] numbered_list.index_successor  singles=1.014 joint=1.481 ratio=0.685 order=2 top4/READS=0.715
+[moebius] numeric_run.last_plus_one      singles=0.570 joint=0.664 ratio=0.859 order=2 top4/READS=0.631
+[moebius] paren_list.index_successor     singles=1.073 joint=1.485 ratio=0.723 order=2 top4/READS=0.782
+{
+ "preds": {
+  "pred_a_readers_are_super_additive": false,
+  "pred_b_order_two_interactions_are_positive": true,
+  "pred_c_redundancy_order_exceeds_one": true,
+  "pred_d_interaction_profile_is_shared": false,
+  "pred_e_top4_carries_the_reads": true
+ },
+ "nulls": {
+  "a_null_ratio_ge_1": false,
+  "b_null_order2_le_.5": false,
+  "d_null_corr_le_0": true,
+  "e_null_top4_le_.25": false
+ },
+ "medians": {
+  "super_additive_ratio": 0.859002890442003,
+  "order2_positive_frac": 0.8333333333333334,
+  "redundancy_order": 2.0,
+  "top4_share": 0.7146933765477139
+ },
+ "profile_corr": -0.5832187029798925
+}
