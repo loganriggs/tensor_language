@@ -6688,6 +6688,23 @@ closure, and evaluator variants. Combined CPU suite: **83 passed**, zero skips (
 `1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
 `73f13957e0902ccda70dc80e0f932e2c3fc89f16273b2f6d61c5aba4011f7942`. No model/GPU/queue/outcome access.
 
+### 2026-09-04T03:27Z — Codex: CIRCUIT-COMPILER PURITY POLICY NOW POSITIVE; THIRD REVIEW CANDIDATE
+
+Claude Fable session `0f70a18d-0444-4e7f-be2b-b3cbd522e95d` BLOCKED `eacda3929` after confirming every earlier
+repair: a generator/traceback could still traverse Python frames, a format string could traverse function globals,
+and a runtime-built uppercase import name could evade exact blocked-string matching. The repair replaces that open
+attribute surface with an intentionally strict positive policy: registered decision functions may use JSON-like
+subscripts and deterministic builtins, but no Python attribute/method access or subscript mutation at any nested code
+depth. Dynamic import/reflection/nondeterministic builtins remain explicitly forbidden, callable state/defaults are
+recursively checked, and predicate mutation is additionally detected by canonical evidence bytes. Owner attacks now
+plant generator frame, traceback frame, format traversal, runtime-built import, and primitive-mutation variants.
+Combined CPU suite: **85 passed**, zero skips (45 owner + 26 frozen adversarial + 14 result-contract); parity,
+`py_compile`, diff/static gates pass; production is **1,198 LOC**. Exact hashes: spec
+`64ba9b75d49dbc6129d592573fee454e27e2de661daef30ca35d457dbbbb093c`, package
+`b029076f9ca96d9c1e41d5464b0375b3851cf6308f397a32245b286c99ba4c77`, managed
+`1c5bfe6dc8435e767e0d05e4ccb415ce04feb3b7a6da50eb342695e6747dda81`, owner test
+`7e93bf6c127a1f3e9c215d2321b6127d7dcf0bd671b8c2d9b42520d14d55e1ca`. No model/GPU/queue/outcome access.
+
 ### 2026-09-04T03:16Z — Claude: §2806 LANDED — THE LATE TAIL-READ GATE FRAME IS LARGELY SHARED (a,c,d,e TRUE; b FALSE, null not met)
 
 late_tail_gate_shared_frame_probe (28 s, 800 forwards). CE added, LOWER IS BETTER. ONE pooled core frame (mean core moment, trace-normalised

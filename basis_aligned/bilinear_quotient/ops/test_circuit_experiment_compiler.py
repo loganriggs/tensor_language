@@ -701,3 +701,55 @@ def test_predicate_evaluators_obey_same_purity_boundary() -> None:
                 spec=spec, compiled=compiled, primitives=[{"call_id": "FIT:0"}],
                 evaluators={"live": evaluator}, projector=lambda rows: {"score": 1.},
             )
+
+
+def test_frame_format_and_runtime_built_reflection_are_rejected(monkeypatch) -> None:
+    monkeypatch.setenv("PROBE_SECRET", "17")
+    calls = [{"call_id": "FIT:0", "split": "FIT"}]
+
+    def generator_frame(rows):
+        generator = (None for _ in ())
+        return {"score": float(len(generator.gi_frame.f_globals["os"].environ))}
+
+    def traceback_frame(rows):
+        try:
+            raise RuntimeError("probe")
+        except RuntimeError as error:
+            return {"score": float(len(error.__traceback__.tb_frame.f_globals["os"].environ))}
+
+    def format_traversal(rows):
+        value = "{0.__globals__[os].environ[PROBE_SECRET]}".format(lambda: 0)
+        return {"score": float(value)}
+
+    def runtime_import(rows):
+        generator = (None for _ in ())
+        importer = generator.gi_frame.f_builtins["__IMPORT__".lower()]
+        return {"score": float(len(importer("os").environ))}
+
+    for projector in (generator_frame, traceback_frame, format_traversal, runtime_import):
+        with pytest.raises(package.PackageError, match="pure"):
+            package.decide_experiment(
+                spec=_decision_spec(), compiled={"predicate_order": [], "call_manifest": calls},
+                primitives=[{"call_id": "FIT:0"}], evaluators={}, projector=projector,
+            )
+
+
+def test_predicate_evaluator_cannot_mutate_science_primitives() -> None:
+    predicate = compiler.PredicateSpec(
+        "fit_live", "FIT", 0, "live", (), "hard_abort", "instrument"
+    )
+    spec = replace(_decision_spec(), predicates=(predicate,))
+    primitives = [{"call_id": "FIT:0", "margin": 1.0}]
+
+    def mutating_evaluator(rows):
+        rows[0]["margin"] = 99.0
+        return True
+
+    with pytest.raises(package.PackageError, match="pure|mutated"):
+        package.decide_experiment(
+            spec=spec,
+            compiled={"predicate_order": ["fit_live"],
+                      "call_manifest": [{"call_id": "FIT:0", "split": "FIT"}]},
+            primitives=primitives, evaluators={"live": mutating_evaluator},
+            projector=lambda rows: {"score": rows[0]["margin"]},
+        )

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import dis
 import hashlib
 import json
 import os
@@ -288,10 +289,15 @@ def _assert_pure_callable(function: Callable, seen: set[int] | None = None) -> N
     names = {name for nested in codes for name in nested.co_names}
     constants = {value for nested in codes for value in nested.co_consts if isinstance(value, str)}
     blocked = {"__import__", "open", "globals", "locals", "vars", "getattr", "eval", "exec", "compile",
+               "hash", "id", "input", "breakpoint",
                "__globals__", "__self__", "__func__", "__builtins__", "__subclasses__",
                "__dict__", "__getattribute__", "__annotations__"}
     if (names | constants) & blocked:
         raise PackageError("scientific projector is not pure: dynamic environment access")
+    if any(instruction.opname in {"LOAD_ATTR", "LOAD_METHOD", "STORE_ATTR", "DELETE_ATTR",
+                                  "STORE_SUBSCR", "DELETE_SUBSCR"}
+           for nested in codes for instruction in dis.get_instructions(nested)):
+        raise PackageError("scientific projector is not pure: attribute access is forbidden")
     for name in names:
         if name not in function.__globals__:
             continue
@@ -328,7 +334,10 @@ def decide_experiment(*, spec, compiled: Mapping[str, object], primitives: list,
         except (KeyError, TypeError) as error:
             raise PackageError("registered predicate evaluator is unavailable") from error
         _assert_pure_callable(evaluator)
+        before = canonical_json_bytes(primitives)
         outcome = evaluator(phase_primitives)
+        if canonical_json_bytes(primitives) != before:
+            raise PackageError("predicate evaluator mutated primitive evidence")
         if not isinstance(outcome, bool):
             raise PackageError("predicate evaluator must return a boolean")
         results[predicate.predicate_id] = outcome
@@ -368,8 +377,6 @@ def _write_fsynced(path: Path, payload: bytes) -> None:
         os.fsync(handle.fileno())
 def _marker_bytes(namespace: str) -> bytes:
     return canonical_json_bytes({"namespace": namespace, "schema": "circuit-stage-v1"})
-
-
 def _validate_stage_tree(stage: Path, paths: PackagePaths) -> None:
     """Recognize only this package's unpublished, regular-file staging tree."""
     marker = stage / "marker.json"
@@ -390,8 +397,6 @@ def _validate_stage_tree(stage: Path, paths: PackagePaths) -> None:
         child = stage / name
         if child.exists() and (child.is_symlink() or not child.is_file()):
             raise PackageError("staged package file is unsafe")
-
-
 def stage_package(
     paths: PackagePaths,
     *,
@@ -436,8 +441,6 @@ def stage_package(
         crash("receipt")
     _fsync_directory(stage_evidence); _fsync_directory(stage)
     return stage
-
-
 def publish_staged_package(
     stage: Path, paths: PackagePaths, *, crash: Callable[[str], None] | None = None
 ) -> None:
@@ -518,15 +521,11 @@ def validate_complete_package(paths: PackagePaths) -> dict[str, object]:
     if actual_paths != expected_paths:
         raise PackageError("evidence tree has missing or extra files")
     return result
-
-
 def discard_stage(stage: Path, paths: PackagePaths) -> None:
     """Remove only a recognizable unpublished stage created for this namespace."""
     _validate_stage_tree(stage, paths)
     shutil.rmtree(stage)
     _fsync_directory(paths.root)
-
-
 def recover_stale_publication(stage: Path, paths: PackagePaths) -> None:
     """Recover only a recognized incomplete package; never replace a receipt."""
     _validate_stage_tree(stage, paths)
