@@ -65,6 +65,15 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _objective_signature(objective: object) -> tuple[object, ...]:
+    """Compare frozen objective values across enqueue-snapshot module identities."""
+
+    return tuple(
+        getattr(objective, name)
+        for name in program.FIT_OBJECTIVE.__dataclass_fields__
+    )
+
+
 def load_discovery_endpoints(
     path: Path = SHARD_PATH, *, expected_sha256: str = SHARD_SHA256
 ) -> dict[str, Endpoint]:
@@ -867,7 +876,12 @@ class Task14ProgramATorchBackend:
         objective: program.FitObjectiveConfig,
         permutation_id: int | None,
     ) -> program.FitResult:
-        if objective != program.FIT_OBJECTIVE or updates != program.UPDATES \
+        # The managed runner executes a byte snapshot as ``__main__``. Its
+        # frozen dataclass therefore has a different Python class identity from
+        # the otherwise identical module imported here; compare registered
+        # values, not dataclass identity.
+        if _objective_signature(objective) != _objective_signature(program.FIT_OBJECTIVE) \
+                or updates != program.UPDATES \
                 or batch_size != program.BATCH_SIZE or rank != initial_frame.shape[1] \
                 or self.denominator_floor != objective.denominator_floor:
             raise Task14BackendError("fit configuration differs from the frozen addendum")

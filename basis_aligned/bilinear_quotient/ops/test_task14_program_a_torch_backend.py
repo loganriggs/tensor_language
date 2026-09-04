@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
+from dataclasses import asdict, replace
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 import torch
@@ -69,6 +70,13 @@ def test_live_parameter_hash_detects_change_not_just_version_metadata() -> None:
     with torch.no_grad():
         parameter[2] = -99.0
     assert collector._live_parameter_sha256() != original
+
+
+def test_objective_signature_ignores_snapshot_class_identity() -> None:
+    snapshot_copy = SimpleNamespace(**asdict(program.FIT_OBJECTIVE))
+    assert backend._objective_signature(snapshot_copy) == backend._objective_signature(
+        program.FIT_OBJECTIVE
+    )
 
 
 def test_wrong_shard_hash_fails_closed(tmp_path: Path) -> None:
