@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 import sys
 
@@ -32,9 +33,16 @@ def _health() -> PROGRAM.FitHealth:
 
 
 class FakeBackend:
-    def __init__(self, *, leak: bool = False, wrong_ordinals: bool = False):
+    def __init__(
+        self, *, leak: bool = False, wrong_ordinals: bool = False,
+        missing_cell: bool = False, unhealthy_permutations: bool = False,
+        permutation_passes: bool = False,
+    ):
         self.leak = leak
         self.wrong_ordinals = wrong_ordinals
+        self.missing_cell = missing_cell
+        self.unhealthy_permutations = unhealthy_permutations
+        self.permutation_passes = permutation_passes
 
     def collect_spectral_inputs(self, relations):
         n = len(relations)
@@ -43,25 +51,47 @@ class FakeBackend:
         return PROGRAM.SpectralInputs(
             tuple(x.ordinal for x in relations), tuple(x.cell_key for x in relations),
             deltas, deltas.clone(), torch.ones(n, dtype=torch.float64),
-            validation_records_seen=int(self.leak), model_counts={},
+            validation_records_seen=int(self.leak), model_counts={
+                "forward_calls": 0, "backward_calls": 0,
+                "example_evaluations": 0,
+            },
         )
 
-    def _result(self, relations, frame, rank, start, *, passing):
+    def _result(self, relations, frame, rank, start, *, passing, healthy=True):
         ordinals = tuple(x.ordinal for x in relations)
         if self.wrong_ordinals:
             ordinals = ordinals[:-1]
+        target_cells = {
+            row.cell_key: PROGRAM.TargetCellScore(
+                0.9 if passing else 0.1, 0.8, 0.5,
+                row.cell_key.startswith("C_to_ordinary_singular|C|"),
+            ) for row in relations if row.role == "target"
+        }
+        control_cells = {
+            row.cell_key: PROGRAM.ControlCellScore(0.05, 0.05, 0.05)
+            for row in relations if row.role == "control"
+        }
+        if self.missing_cell:
+            target_cells.pop(next(iter(target_cells)))
+        health = _health() if healthy else PROGRAM.FitHealth(
+            False, True, True, True, True, True, 0.0, 0.1, 1.0, 0.8, 100
+        )
         return PROGRAM.FitResult(
-            rank, start, frame, _health(),
-            {"target": PROGRAM.TargetCellScore(0.9 if passing else 0.1, 0.8, 0.5)},
-            {"control": PROGRAM.ControlCellScore(0.05, 0.05, 0.05)},
-            tuple(0.5 for _ in relations), {},
+            rank, start, frame, health, target_cells, control_cells,
+            tuple(0.5 for row in relations if row.role == "target"),
+            {"forward_calls": 0, "backward_calls": 0, "example_evaluations": 0},
             validation_token_sequences_seen=int(self.leak), scored_ordinals=ordinals,
+            normalized_row_effect_ordinals=tuple(
+                row.ordinal for row in relations if row.role == "target"
+            ),
         )
 
     def fit_and_score(self, *, select_relations, rank, start, initial_frame,
                       permutation_id, **unused):
         return self._result(
-            select_relations, initial_frame, rank, start, passing=permutation_id is None
+            select_relations, initial_frame, rank, start,
+            passing=permutation_id is None or self.permutation_passes,
+            healthy=not (self.unhealthy_permutations and permutation_id is not None),
         )
 
     def score_fixed_frame(self, *, select_relations, frame, control_id):
@@ -81,9 +111,9 @@ def test_exact_discovery_partition_and_dryrun_contract() -> None:
     assert dryrun["fit_objective_constants"] == PROGRAM.asdict(PROGRAM.FIT_OBJECTIVE)
     assert dryrun["fit_objective_constants_blocking"] is False
     assert dryrun["primary_price"] == {
-        "forward_calls": 1199,
+        "forward_calls": 1206,
         "backward_calls": 902,
-        "example_evaluations": 37491,
+        "example_evaluations": 37700,
         "stored_frame_bytes": 141824,
     }
     assert dryrun["conditional_price"] == {
@@ -120,6 +150,8 @@ def test_fake_lifecycle_is_create_only_and_records_selection(tmp_path) -> None:
     assert receipt["program_b_opened"] is False
     assert receipt["validation_rows_loaded"] == 0
     assert receipt["analytic_operator_sha256"]
+    assert receipt["terminal"] == "program_a_selected"
+    assert len(receipt["projector_overlap_pairs"]) == 10
     with pytest.raises(FileExistsError):
         PROGRAM.execute_program_a(
             FakeBackend(), receipt_path=receipt_path, bundle_path=bundle_path
@@ -134,8 +166,38 @@ def test_backend_access_or_select_mismatch_fails_closed(tmp_path, backend) -> No
         )
 
 
-def test_cli_requires_explicit_dry_run_and_rejects_unknown_args() -> None:
-    with pytest.raises(SystemExit):
-        PROGRAM.main([])
+def test_missing_select_cell_fails_closed(tmp_path) -> None:
+    with pytest.raises(PROGRAM.ProgramAError, match="omits or invents"):
+        PROGRAM.execute_program_a(
+            FakeBackend(missing_cell=True), receipt_path=tmp_path / "receipt.json",
+            bundle_path=tmp_path / "bundle.pt",
+        )
+
+
+def test_unhealthy_permutation_is_instrument_invalid_not_scientific_null(tmp_path) -> None:
+    receipt = PROGRAM.execute_program_a(
+        FakeBackend(unhealthy_permutations=True),
+        receipt_path=tmp_path / "receipt.json", bundle_path=tmp_path / "bundle.pt",
+    )
+    assert receipt["terminal"] == "instrument_invalid"
+    assert "permutation_fit_health_failed" in receipt["instrument_invalid_reasons"]
+
+
+def test_passing_permutation_is_nonidentification_not_small_subspace_null(tmp_path) -> None:
+    receipt = PROGRAM.execute_program_a(
+        FakeBackend(permutation_passes=True),
+        receipt_path=tmp_path / "receipt.json", bundle_path=tmp_path / "bundle.pt",
+    )
+    assert receipt["terminal"] == "program_a_not_identified"
+    assert receipt["pred_c_small_subspace_null"] is False
+    assert receipt["nonidentification_reasons"] == ["permutation_control_not_rejected"]
+
+
+def test_cli_managed_environment_is_model_free_and_rejects_unknown_args(
+    monkeypatch, capsys,
+) -> None:
+    monkeypatch.setenv("BQLIB_DRYRUN", "1")
+    assert PROGRAM.main([]) == 0
+    assert json.loads(capsys.readouterr().out)["model_loaded"] is False
     with pytest.raises(SystemExit):
         PROGRAM.main(["--unknown"])

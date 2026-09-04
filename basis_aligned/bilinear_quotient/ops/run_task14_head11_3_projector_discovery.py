@@ -21,6 +21,7 @@ import hashlib
 import io
 import json
 import math
+import os
 from pathlib import Path
 from typing import Mapping, Protocol, Sequence
 
@@ -41,32 +42,55 @@ EXECUTION_ADDENDUM_PATH = ROOT.parent / (
     "polynomial_causal/"
     "TASK14_HEAD11_3_CAUSAL_PROJECTOR_EXECUTION_ADDENDUM_2026-09-04_1645.md"
 )
+IMPLEMENTATION_AMENDMENT_PATH = ROOT.parent / (
+    "polynomial_causal/"
+    "TASK14_HEAD11_3_CAUSAL_PROJECTOR_IMPLEMENTATION_AMENDMENT_2026-09-04_1705.md"
+)
+AUDIT_AMENDMENT_PATH = ROOT.parent / (
+    "polynomial_causal/"
+    "TASK14_HEAD11_3_CAUSAL_PROJECTOR_AUDIT_AMENDMENT_2026-09-04_1720.md"
+)
 AUTHORITY_PATH = ROOT / "ops/circuit_battery_task14_agreement_fit_authority.json"
 PARTITION_PATH = ROOT / "ops/circuit_battery_task14_fit_localization_partition_v2.json"
 DONORS_PATH = ROOT / "ops/circuit_battery_task14_fit_localization_donors_v2.json"
 ADAPTER_PATH = ROOT / "ops/task14_head11_3_projector_adapter.py"
 SPECTRAL_PATH = ROOT / "ops/task14_causal_spectral_rank_one.py"
 DISCOVERY_SHARD_PATH = ROOT / "ops/task14_projector_discovery_endpoint_shard_v1.json"
+BACKEND_PATH = ROOT / "ops/task14_program_a_torch_backend.py"
+FACADE_PATH = ROOT.parent / "polynomial_causal/bilin18_observed_model_facade.py"
+DAS_LIBRARY_PATH = ROOT / "ops/das_shared_private_lib.py"
+PROGRAM_A_RECEIPT_PATH = ROOT / "circuits/followups/task14_head11_3_causal_projector_program_a_v1_receipt.json"
+PROGRAM_A_BUNDLE_PATH = ROOT / "circuits/followups/task14_head11_3_causal_projector_program_a_v1_bundle.pt"
 
 SOURCE_PATHS = {
     "preregistration": PREREG_PATH,
     "execution_addendum": EXECUTION_ADDENDUM_PATH,
+    "implementation_amendment": IMPLEMENTATION_AMENDMENT_PATH,
+    "audit_amendment": AUDIT_AMENDMENT_PATH,
     "authority_opaque": AUTHORITY_PATH,
     "partition": PARTITION_PATH,
     "donors": DONORS_PATH,
     "projector_adapter": ADAPTER_PATH,
     "causal_spectral": SPECTRAL_PATH,
     "discovery_endpoint_shard": DISCOVERY_SHARD_PATH,
+    "production_backend": BACKEND_PATH,
+    "observed_model_facade": FACADE_PATH,
+    "das_shared_private_library": DAS_LIBRARY_PATH,
 }
 EXPECTED_SOURCE_SHA256 = {
     "preregistration": "dc0749a48c6c21cf00115d44804d7a8e24d411c7f202765ac84f41a1e5ce24ac",
     "execution_addendum": "32e25dc298a80203a689666e407215b0e997989ad37d8eefbd84dc9e9ae085e7",
+    "implementation_amendment": "5121f191ff4d616ee796e838eda844284d07b94e4ece88faf20582a403fadc7e",
+    "audit_amendment": "17982c8da1d881d48a53a99cc46c3b4c41a9509996f6f4375b3492da2459d14b",
     "authority_opaque": "e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f",
     "partition": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3",
     "donors": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a",
     "projector_adapter": "70602b0589aa8e0125ec26362a8c4f7ec42308c0c9042438ece589e451c0a2c2",
     "causal_spectral": "667dc100d7a936f85ed36557da333f02965f3dc300a1bbcc3520550f667aea40",
     "discovery_endpoint_shard": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b",
+    "production_backend": "eb045a4420ff3c125ee6b72d1d24cd49b7cc7f6132e8bd958695bebc09834389",
+    "observed_model_facade": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "das_shared_private_library": "edcf3d750e8fbdcb2ae479bcc6e68bd7ccc5078217b62cf981570656b6a773e4",
 }
 
 FIT_GROUP_NUMBERS = frozenset((0, 9, 10, 11, 16, 25, 26, 27))
@@ -118,9 +142,9 @@ MAX_EFFECT_STABILITY_MEDIAN = 0.10
 MAX_EFFECT_STABILITY_P90 = 0.20
 
 PRIMARY_PRICE = {
-    "forward_calls": 1199,
+    "forward_calls": 1206,
     "backward_calls": 902,
-    "example_evaluations": 37491,
+    "example_evaluations": 37700,
     "stored_frame_bytes": 141824,
 }
 RANK8_INCREMENTAL_PRICE = {
@@ -240,6 +264,7 @@ class FitResult:
     validation_records_seen: int = 0
     validation_token_sequences_seen: int = 0
     scored_ordinals: tuple[int, ...] = ()
+    normalized_row_effect_ordinals: tuple[int, ...] = ()
 
 
 class ProgramABackend(Protocol):
@@ -507,7 +532,9 @@ def target_cells_pass(result: FitResult) -> bool:
         if not (
             math.isfinite(value.full_head_fraction)
             and value.full_head_fraction >= MIN_TARGET_HEAD_FRACTION
+            and math.isfinite(value.direction_fraction)
             and value.direction_fraction >= MIN_TARGET_DIRECTION_FRACTION
+            and math.isfinite(value.native_donor_recovery)
             and value.native_donor_recovery >= floor
         ):
             return False
@@ -521,8 +548,10 @@ def control_cells_pass(result: FitResult) -> bool:
         if not (
             math.isfinite(value.normalized_margin_movement)
             and value.normalized_margin_movement <= MAX_CONTROL_MOVEMENT
+            and math.isfinite(value.full_head_normalized_movement)
             and value.normalized_margin_movement
                 <= value.full_head_normalized_movement + MAX_CONTROL_ABOVE_FULL_HEAD
+            and math.isfinite(value.normalized_full_vocabulary_rms)
             and value.normalized_full_vocabulary_rms <= MAX_CONTROL_VOCAB_RMS
         ):
             return False
@@ -559,15 +588,44 @@ def _effect_stability(passing: Sequence[FitResult]) -> tuple[float, float, bool]
     )
 
 
-def _rank8_licensed(rank4: Sequence[FitResult]) -> bool:
-    healthy = [x for x in rank4 if fit_is_healthy(x)]
-    return bool(healthy) and any(target_cells_pass(x) and not control_cells_pass(x) for x in healthy)
+def _rank8_licensed(
+    rank4: Sequence[FitResult], random_scores: Sequence[FitResult]
+) -> bool:
+    """Open rank 8 only for a control-only or stability-only rank-4 miss."""
+    target_random = [
+        result for result in rank4
+        if fit_is_healthy(result) and target_cells_pass(result)
+        and _random_bar_passes(result, random_scores)
+    ]
+    if any(not control_cells_pass(result) for result in target_random):
+        return True
+    otherwise_passing = [result for result in target_random if control_cells_pass(result)]
+    return len(otherwise_passing) >= 2 and not _effect_stability(otherwise_passing)[2]
+
+
+def _expected_score_cells(
+    relations: Sequence[Relation],
+) -> tuple[set[str], set[str], dict[str, bool]]:
+    targets = {row.cell_key for row in relations if row.role == "target"}
+    controls = {row.cell_key for row in relations if row.role == "control"}
+    coordinated = {
+        cell: cell.startswith("C_to_ordinary_singular|C|") for cell in targets
+    }
+    return targets, controls, coordinated
+
+
+def _validate_model_counts(counts: Mapping[str, int]) -> None:
+    required = {"forward_calls", "backward_calls", "example_evaluations"}
+    if set(counts) != required or any(
+        type(counts[key]) is not int or counts[key] < 0 for key in required
+    ):
+        raise ProgramAError("backend model counts are not exact nonnegative integers")
 
 
 def _check_score_provenance(
     result: FitResult,
     *,
-    expected_ordinals: tuple[int, ...],
+    expected_relations: Sequence[Relation],
     expected_rank: int,
 ) -> None:
     _require_discovery_access(
@@ -575,11 +633,26 @@ def _check_score_provenance(
         validation_records_seen=result.validation_records_seen,
         validation_token_sequences_seen=result.validation_token_sequences_seen,
     )
+    expected_ordinals = tuple(row.ordinal for row in expected_relations)
     if result.scored_ordinals != expected_ordinals:
         raise ProgramAError("backend score does not cover the exact inner SELECT ordinals")
+    target_ordinals = tuple(row.ordinal for row in expected_relations if row.role == "target")
+    if result.normalized_row_effect_ordinals != target_ordinals \
+            or len(result.normalized_row_effects) != len(target_ordinals) \
+            or not all(math.isfinite(value) for value in result.normalized_row_effects):
+        raise ProgramAError("backend row effects do not cover the exact ordered SELECT targets")
+    target_cells, control_cells, coordinated = _expected_score_cells(expected_relations)
+    if set(result.target_cells) != target_cells or set(result.control_cells) != control_cells:
+        raise ProgramAError("backend score omits or invents an exact SELECT cell")
+    if any(
+        result.target_cells[cell].coordinated_subject_cell != expected
+        for cell, expected in coordinated.items()
+    ):
+        raise ProgramAError("backend coordinated-subject cell flags changed")
     if result.rank != expected_rank or tuple(result.frame.shape) != (128, expected_rank):
         raise ProgramAError("backend score has the wrong rank or frame shape")
     adapter.validate_head_frame(result.frame)
+    _validate_model_counts(result.model_counts)
 
 
 def _fit_one(
@@ -598,7 +671,7 @@ def _fit_one(
         raise ProgramAError("backend returned a misidentified fit")
     _check_score_provenance(
         result,
-        expected_ordinals=tuple(row.ordinal for row in plan.select),
+        expected_relations=plan.select,
         expected_rank=rank,
     )
     return result
@@ -618,7 +691,7 @@ def _score_fixed(
     )
     _check_score_provenance(
         result,
-        expected_ordinals=tuple(row.ordinal for row in plan.select),
+        expected_relations=plan.select,
         expected_rank=frame.shape[1],
     )
     return result
@@ -645,7 +718,7 @@ def execute_program_a(
             backend, plan, frame=frame, control_id=f"haar-r{rank}-{index}"
         ) for index, frame in enumerate(deterministic_haar_frames(rank))]
 
-    opened_rank8 = _rank8_licensed(fits[4])
+    opened_rank8 = _rank8_licensed(fits[4], random_scores[4])
     if opened_rank8:
         fits[8] = [_fit_one(backend, plan, analytic_operator, rank=8, start=start)
                    for start in PRIMARY_STARTS]
@@ -663,30 +736,45 @@ def execute_program_a(
             break
 
     permutation_fits: list[FitResult] = []
+    permutations_fail: bool | None = None
     selected_rank = None
     selected_start = None
     stability = (math.inf, math.inf, False)
+    final_passing: list[FitResult] = []
+    instrument_invalid_reasons = [
+        f"rank_{rank}_has_fewer_than_{MIN_HEALTHY_PER_RANK}_healthy_primary_fits"
+        for rank in sorted(fits)
+        if sum(fit_is_healthy(result) for result in fits[rank]) < MIN_HEALTHY_PER_RANK
+    ]
     if provisional_rank is not None:
         fits[provisional_rank].extend(
             _fit_one(backend, plan, analytic_operator, rank=provisional_rank, start=start)
             for start in CONFIRMATION_STARTS
         )
-        passing = [x for x in fits[provisional_rank] if fit_is_healthy(x)
-                   and target_cells_pass(x) and control_cells_pass(x)
-                   and _random_bar_passes(x, random_scores[provisional_rank])]
-        stability = _effect_stability(passing)
+        final_passing = [x for x in fits[provisional_rank] if fit_is_healthy(x)
+                         and target_cells_pass(x) and control_cells_pass(x)
+                         and _random_bar_passes(x, random_scores[provisional_rank])]
+        stability = _effect_stability(final_passing)
         permutation_fits = [
             _fit_one(backend, plan, analytic_operator, rank=provisional_rank, start=index,
                      permutation_id=permutation_id)
             for index, permutation_id in enumerate(PERMUTATION_IDS)
         ]
-        permutations_fail = all(not (
-            fit_is_healthy(x) and target_cells_pass(x) and control_cells_pass(x)
+        if sum(fit_is_healthy(result) for result in fits[provisional_rank]) \
+                < MIN_FINAL_PASSING_STARTS:
+            instrument_invalid_reasons.append(
+                f"rank_{provisional_rank}_has_fewer_than_{MIN_FINAL_PASSING_STARTS}_healthy_total_fits"
+            )
+        if not all(fit_is_healthy(result) for result in permutation_fits):
+            instrument_invalid_reasons.append("permutation_fit_health_failed")
+        permutations_fail = all(fit_is_healthy(x) and not (
+            target_cells_pass(x) and control_cells_pass(x)
             and _random_bar_passes(x, random_scores[provisional_rank])
         ) for x in permutation_fits)
-        if len(passing) >= MIN_FINAL_PASSING_STARTS and stability[2] and permutations_fail:
+        if not instrument_invalid_reasons and len(final_passing) >= MIN_FINAL_PASSING_STARTS \
+                and stability[2] and permutations_fail:
             selected_rank = provisional_rank
-            selected_start = min(x.start for x in passing)
+            selected_start = min(x.start for x in final_passing)
 
     ordinary_fits = [x for rank in sorted(fits) for x in fits[rank]]
     all_fits = ordinary_fits + permutation_fits
@@ -706,6 +794,7 @@ def execute_program_a(
     counts = {key: sum(int(x.model_counts.get(key, 0)) for x in counted_results)
               for key in ("forward_calls", "backward_calls", "example_evaluations")}
     if inputs.model_counts is not None:
+        _validate_model_counts(inputs.model_counts)
         counts = {key: counts[key] + int(inputs.model_counts.get(key, 0)) for key in counts}
     expected_price = dict(PRIMARY_PRICE)
     if opened_rank8:
@@ -715,6 +804,22 @@ def execute_program_a(
         for key, value in CONDITIONAL_PRICE.items():
             expected_price[key] += value
         expected_price["stored_frame_bytes"] += 2048 * provisional_rank
+    if any(counts[key] > expected_price[key] for key in counts):
+        raise ProgramAError("backend model counts exceed the compatible execution ceiling")
+
+    projector_overlaps = []
+    for index, left in enumerate(final_passing):
+        for right in final_passing[index + 1:]:
+            rank = left.rank
+            raw = float(torch.linalg.matrix_norm(left.frame.T @ right.frame).square() / rank)
+            chance = rank / 128.0
+            corrected = (raw - chance) / (1.0 - chance)
+            if not math.isfinite(corrected):
+                raise ProgramAError("chance-corrected projector overlap is nonfinite")
+            projector_overlaps.append({
+                "left_start": left.start, "right_start": right.start,
+                "raw_overlap": raw, "chance_corrected_overlap": corrected,
+            })
 
     def summarize(result: FitResult) -> dict[str, object]:
         return {
@@ -729,9 +834,37 @@ def execute_program_a(
             "model_counts": dict(result.model_counts),
         }
 
+    nonidentification_reasons: list[str] = []
+    if provisional_rank is not None and selected_rank is None \
+            and not instrument_invalid_reasons:
+        if len(final_passing) < MIN_FINAL_PASSING_STARTS:
+            nonidentification_reasons.append("confirmation_fits_did_not_pass")
+        if not stability[2]:
+            nonidentification_reasons.append("causal_effects_not_stable_across_starts")
+        if permutations_fail is False:
+            nonidentification_reasons.append("permutation_control_not_rejected")
+        if not nonidentification_reasons:
+            nonidentification_reasons.append("registered_selection_gate_failed")
+    terminal = (
+        "instrument_invalid" if instrument_invalid_reasons else
+        "program_a_selected" if selected_rank is not None else
+        "program_a_not_identified" if provisional_rank is not None else
+        "small_linear_subspace_null"
+    )
     receipt: dict[str, object] = {
         "schema": SCHEMA, "experiment_id": EXPERIMENT_ID, "site_id": SITE_ID,
-        "terminal": "program_a_selected" if selected_rank is not None else "program_a_no_selection",
+        "terminal": terminal,
+        # pred_a: every registered source, replay, coverage, optimization-health,
+        # and execution-count check must hold; otherwise the instrument is invalid.
+        "pred_a_instrument_health": terminal != "instrument_invalid",
+        # pred_b: a causally selective projector is identified at the smallest
+        # licensed rank passing every finite SELECT/control/random/stability gate.
+        "pred_b_causal_projector_selected": terminal == "program_a_selected",
+        # pred_c: if all licensed healthy ranks miss, the registered small-linear-
+        # subspace hypothesis is null rather than extended into another rank sweep.
+        "pred_c_small_subspace_null": terminal == "small_linear_subspace_null",
+        "instrument_invalid_reasons": instrument_invalid_reasons,
+        "nonidentification_reasons": nonidentification_reasons,
         "program_b_opened": False, "validation_rows_loaded": 0,
         "source_sha256": dict(plan.source_sha256),
         "ordinal_sha256": dict(plan.ordinal_sha256),
@@ -745,6 +878,7 @@ def execute_program_a(
             "p90": stability[1] if math.isfinite(stability[1]) else None,
             "passed": stability[2],
         },
+        "projector_overlap_pairs": projector_overlaps,
         "literal_price": expected_price, "backend_reported_model_counts": counts,
         "fit_objective_constants": asdict(FIT_OBJECTIVE),
         "fit_receipts": {str(rank): [summarize(x) for x in fits[rank]] for rank in sorted(fits)},
@@ -760,11 +894,10 @@ def execute_program_a(
         "registered_execution_counts_exactly_reconciled": (
             counts == {key: expected_price[key] for key in counts}
         ),
-        "remaining_production_functions": [
-            "collect_head_deltas_downstream_gradients_and_full_head_denominators",
-            "finite_orthogonal_fit_and_select_backend",
-            "independent_receipt_and_bundle_audit",
-        ],
+        "registered_execution_counts_within_ceiling": all(
+            counts[key] <= expected_price[key] for key in counts
+        ),
+        "remaining_production_functions": ["independent_receipt_and_bundle_audit"],
     }
     _write_create_only(receipt_path, bundle_path, receipt, frames)
     return receipt
@@ -808,12 +941,8 @@ def compile_dryrun() -> dict[str, object]:
         "fit_objective_constants_blocking": False,
         "authority_parsed": False, "validation_rows_loaded": 0,
         "model_loaded": False, "gpu_accessed": False, "queue_touched": False,
-        "production_backend_available": False,
-        "remaining_production_functions": [
-            "collect_head_deltas_downstream_gradients_and_full_head_denominators",
-            "finite_orthogonal_fit_and_select_backend",
-            "independent_receipt_and_bundle_audit",
-        ],
+        "production_backend_available": True,
+        "remaining_production_functions": ["independent_receipt_and_bundle_audit"],
     }
 
 
@@ -821,9 +950,29 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
-    if not args.dry_run:
-        parser.error("production backend is not implemented; only --dry-run is legal")
-    print(json.dumps(compile_dryrun(), sort_keys=True, indent=2))
+    for name in ("BQLIB_DRYRUN", "BQLIB_NO_MODEL"):
+        if os.environ.get(name) not in {None, "1"}:
+            raise ProgramAError(f"{name} must be absent or exactly 1")
+    if args.dry_run or any(
+        os.environ.get(name) == "1" for name in ("BQLIB_DRYRUN", "BQLIB_NO_MODEL")
+    ):
+        print(json.dumps(compile_dryrun(), sort_keys=True, indent=2))
+        return 0
+
+    import task14_program_a_torch_backend as production
+
+    backend = production.Task14ProgramATorchBackend.load_production(device="cuda")
+    receipt = execute_program_a(
+        backend, receipt_path=PROGRAM_A_RECEIPT_PATH,
+        bundle_path=PROGRAM_A_BUNDLE_PATH,
+    )
+    print(json.dumps({
+        "terminal": receipt["terminal"],
+        "selected_rank": receipt["selected_rank"],
+        "literal_price": receipt["literal_price"],
+        "receipt_path": str(PROGRAM_A_RECEIPT_PATH),
+        "bundle_path": str(PROGRAM_A_BUNDLE_PATH),
+    }, sort_keys=True))
     return 0
 
 
