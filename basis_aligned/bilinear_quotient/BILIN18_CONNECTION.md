@@ -75390,3 +75390,65 @@ of headroom to recover and 5.3M parameters to spend it from. That is registered 
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. Nothing installs; these are measurements against the published
 frontier, which is untouched at norm-2304 / 2.6735 (§2125).
+
+## §2882 — THE FIRST DECOMPOSITION OF THE PUBLISHED +2.6735: THE TWO ATTENTION APPROXIMATIONS CARRY **0.8122 nats (30.4%)**, NEARLY EQUALLY (.3988 motif heads / .3864 tail dictionaries), AND **69.6% OF THE FRONTIER'S ERROR IS ELSEWHERE**
+
+Registered `polynomial_causal/FRONTIER_ERROR_DECOMPOSITION_PREREGISTRATION.md` (09:39Z). Run `frontier_error_decomposition`, landed
+09:47Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_error_decomposition_results.json
+Price: 0 GPU forwards, 375.9 GPU-seconds (4 full frontier pipeline runs; the parent is **not** forward-instrumented, so
+`forwards_instrumented: false` and `pipeline_runs: 4` sit beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+The blocks here are **approximations standing in for real components**, so restoring one to real should **lower** L2; the quantity is an
+**error share** = `L2_F(baseline) − L2_F(restored)`, **POSITIVE = that block contributes that much of the frontier's error**.
+§2128/§2129/§2133/§2134 RETRACTED; §2125 STANDS.
+
+**All five predictions TRUE; neither null met.**
+
+| arm | L2_F | L2_C | error share |
+|---|---|---|---|
+| BASELINE (published frontier) | **+2.6735** | +2.4233 | — |
+| motif heads off → attention 2–9 real | +2.2747 | +2.2881 | **+0.3988** |
+| tail dictionaries off → attention 10–17 real | **+2.2871** | | **+0.3864** |
+| both off → attention 2–17 real | **+1.8613** | | **+0.8122** |
+
+### Two exact internal validations, neither of which I registered — and both of which the arms had to pass to be believable
+
+1. **`L2_F(tail off) = 2.2871 = L1_F(baseline)`, exactly.** Removing the `a10L`–`a17L` entries from `order2` reduces the evaluated
+   config to `cfgF` — which is precisely what the L1 stage evaluates. The arm lands on the pipeline's own independently-computed L1
+   number to four decimals.
+2. **The measured tail share, +0.3864, is exactly the tail-attention increment this pipeline prints for *adding* those dictionaries**
+   (`increment +0.3864`). Restoring attention 10–17 to real recovers exactly what installing the dictionaries cost.
+
+Together with pred_d — both blocks move the number, so both are installed, per §2879's standing rule as a *measured* predicate — these
+make the decomposition trustworthy in a way §2874–§2876 were not.
+
+### The decomposition
+
+**pred_e HELD:** the two shares sum to +0.7852 against a joint of **+0.8122**, a drift of **+0.0270** (bar ≤ .30). The attention
+approximations are **very nearly additive**, and mildly **super**additive — a much weaker interaction than §2880 found *inside* the MLP
+stage (superadditive by 1.7754).
+
+| block | error share | % of +2.6735 |
+|---|---|---|
+| motif heads (attention 2–9) | +0.3988 | 14.9% |
+| tail dictionaries (attention 10–17) | +0.3864 | 14.5% |
+| **attention side, jointly** | **+0.8122** | **30.4%** |
+| **everything else (MLP/CP/base), by subtraction** | **+1.8613** | **69.6%** |
+
+**This is the first time the published +2.6735 has been split, and it redirects the search.** The two attention blocks contribute
+**almost equally** — .3988 and .3864, within 3% of each other — which is itself informative: there is no single dominant attention
+culprit, and "tail dictionaries / coverage credit" (a standing largest gap) is **not** larger than the motif-head error it sits beside.
+
+And **69.6% of the frontier's error is not on the attention side at all.** Restoring every attention approximation to the real
+component still leaves **+1.8613 nats** above the real model. The queued `frontier_mlp_side_error_share` splits that remainder into the
+CP units `c4`–`c9` and the front tables; on this evidence it is where most of the frontier's error lives, and where any improvement to
+the 2.6735 will have to come from.
+
+### Scope
+
+**Nothing installs and the frontier is untouched** — these are measurements against the published construction, which stands at
+norm-2304 / 2.6735 (§2125). The explained fraction is therefore **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68. What this
+section changes is *where to look*, not what is explained. The knob patched only the L2 evaluation, which is why `L1_F` is identical
+across arms (2.2871) — correctly, and it is the reason validation (1) above is a real check rather than a tautology.
