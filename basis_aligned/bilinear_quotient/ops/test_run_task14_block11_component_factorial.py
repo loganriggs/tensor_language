@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import pytest
 
 import circuit_prior_art
 import run_task14_block11_component_factorial as subject
@@ -76,6 +77,13 @@ def test_prior_art_and_dryrun_bind_exact_sources_without_model_access() -> None:
     assert dryrun["arms"] == [
         "empty", "R", "A", "R+A", "M", "R+M", "A+M", "R+A+M",
     ]
+
+
+def test_cli_requires_explicit_valid_arguments_and_supports_dry_run() -> None:
+    args = subject.parse_args(["--dry-run"])
+    assert args.dry_run is True
+    with pytest.raises(SystemExit):
+        subject.parse_args(["--unknown-argument"])
 
 
 def test_fixed_component_source_map_and_assembly_use_each_bit_once() -> None:

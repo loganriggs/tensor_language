@@ -56,6 +56,7 @@ through ops/enqueue.sh; the dry-run path imports no torch and touches no queue.
 
 from __future__ import annotations
 
+import argparse
 from dataclasses import asdict
 import hashlib
 import json
@@ -760,9 +761,23 @@ def run_science(
     return result
 
 
-def main() -> None:
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Run the frozen Task 14 block-11 component factorial.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="compile and print the CPU-only execution plan without loading the model",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    args = parse_args(argv)
     dryrun = compile_dryrun()
-    if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":
+    if args.dry_run or os.environ.get("BQLIB_DRYRUN") == "1" \
+            or os.environ.get("BQLIB_NO_MODEL") == "1":
         print(json.dumps(dryrun, sort_keys=True))
         return
     if RESULT.exists():

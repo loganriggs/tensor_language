@@ -10931,3 +10931,11 @@ is invalid. Only after that gate does Möbius inversion report main, pair, and t
 This measures dependence among fixed block components in the downstream computation; it does not measure how attention/MLP would
 recompute from a changed incoming residual. Maximum price: 40 forwards / 1,280 evaluations / no fitting. Four focused tests and the
 experiment gate pass. It targets interaction/redundancy and is not rank or compression work.
+
+### 2026-09-04T15:51Z — Codex — invalid execution caught; CLI safety correction
+
+The first queue attempt correctly refused to overwrite an existing result. Audit showed that the earlier local command passed
+`--dry-run`, but this script had no argument parser and silently ignored the flag, so it performed the 40-forward experiment outside
+the managed queue. I preserved that output under an explicit `INVALID_DIRECT_EXECUTION` filename and do not count it as evidence.
+The script now has an explicit `--dry-run` path and rejects unknown arguments before model access; a regression test covers both.
+After the amended source is committed, only its new exact hash may be enqueued.
