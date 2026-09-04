@@ -76650,3 +76650,73 @@ narrow well around 1.25 with steep walls on both sides. That is a different shap
 and .30 (§2898), and it means the motif gain is a **sharply tuned** quantity where the tail's was not.
 
 Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.
+
+## §2907 — THE JOINT OPTIMUM BEATS THE CURRENT SETTING BY **+0.0314** AND WANTS **LESS** SHRINKAGE THAN ANY SOLO OPTIMUM — BUT IT SITS ON THE GRID EDGE IN TWO COORDINATES, SO **NOTHING IS ADOPTED**
+
+Registered `polynomial_causal/FRONTIER_JOINT_THREE_SCALAR_PREREGISTRATION.md` (12:29Z). Run `frontier_joint_three_scalar`, landed
+12:33Z. Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_joint_three_scalar_results.json
+Price: 0 GPU forwards, 214.3 GPU-seconds, **1 pipeline run for 36 cells** (`forwards_instrumented: false`, `pipeline_runs: 1` — the
+forward count is absent, not zero). First use of `ops/frontier_evalarms.factorial_arms`.
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A cost is `L2(arm) − L2(baseline)`, **POSITIVE = WORSE**, so a **negative cost is an improvement**. §2125 STANDS.
+
+| best cells (fresh) | t .30 / c .65 / m 1.25 | t .25 / c .65 / m 1.25 | t .30 / c .65 / m 1.15 | t .25 / c .65 / m 1.15 |
+|---|---|---|---|---|
+| cost | **−0.3677** | −0.3649 | −0.3626 | −0.3606 |
+
+**pred_a, b, c, e HELD; pred_d FAILED, `d_null_the_grid_is_too_narrow` MET.**
+
+- **pred_b HELD at deviation 0.0001** — the current cell (0.25, 0.50, 1.25) reads **−0.3364** against §2906's **−0.3363**, so all 36
+  cells are anchored to a number already on the ledger.
+- **pred_c HELD** — the best cell beats the current setting by **+0.0314**, implied L2_F **+2.3058**.
+- **pred_e HELD** — the optimum improves in sample too (**−0.3551**), the objective-mismatch signature rather than overfitting.
+
+### The direction confirms what the preregistration predicted, and it is the interesting part
+
+The preregistration's worked example said: *"if the solo settings overshoot in company, the joint optimum sits at gentler scales."*
+**It does.** The joint optimum is **tail 0.30** (against the solo 0.25), **CP 0.65** (against the solo 0.50), motif 1.25 unchanged —
+**every block wants less shrinkage once the others are shrinking too.** That is the same phenomenon §2899/§2901 found *within* the tail
+band, where each layer alone preferred .05 and all eight together preferred ~.20, now confirmed **across** blocks.
+
+### Nothing is adopted, and the reason is the registered one
+
+**Tail 0.30 and CP 0.65 are both the top of their grids.** The registered adoption rule required **pred_a, pred_b, pred_d and pred_e**,
+and **pred_d — interior in all three coordinates — failed**. The preregistration was explicit: *"an optimum on a grid edge means the true
+optimum lies outside and no optimum may be quoted"*, the same discipline §2905 needed and §2906 discharged by combining grids.
+
+**So −0.3677 / +2.3058 is recorded and not adopted**, and **§2904's T+C at +2.3522 remains the adopted configuration.** The number is
+almost certainly beatable — the trend says so — but a bound is not an optimum, and quoting an edge as an optimum is exactly what the
+predicate exists to stop.
+
+**Registered next:** the same grid widened upward on both edges (tail to 0.45, CP to 0.95), which is one pipeline run and should bracket
+the optimum properly.
+
+## §2908 — FAILED RUN, PRESERVED AS SCORED: `frontier_remaining_block_scale` DIED ON A NESTED-DICT ASSUMPTION IN ITS OWN SNAPSHOT CODE
+
+Registered `polynomial_causal/FRONTIER_REMAINING_BLOCK_SCALE_PREREGISTRATION.md` (12:31Z). Run
+`frontier_remaining_block_scale`, landed 12:35Z **exit=1**. No receipt was written, so there is no price line and no predicate outcome:
+**all five predicates are UNSCORED, not failed.**
+
+The traceback is exact:
+
+```
+File ops/frontier_remaining_block_scale.py, line 682, in main
+  _E0 = {k: {c: v.clone() for c, v in S[k][3].items()} if isinstance(S[k][3], dict) else S[k][3].clone()
+AttributeError: 'dict' object has no attribute 'clone'
+```
+
+The `tailE` entry is `('tail', Wp, DICT, LIN)`, and I assumed `LIN` was either a tensor or a **flat** dict of tensors. It is a **dict of
+dicts** — keyed by layer and then by class, matching `DICT[li][kk]` in the forward. The snapshot's inner comprehension therefore called
+`.clone()` on a dict.
+
+**Neither `ops/gate.py` nor the dry run can catch this**, and it is worth being precise about why: the dry run exits before any model
+work, and the gate does not execute closures. It is the same class of defect as the 08:58 `LW = {}` failure (§2884's rung) — **an
+assumption about the shape of an inherited object, which only the real fit can refute.** That is now the third instance, and all three
+were in code that snapshots or rewrites a fitted entry.
+
+**Cost: one pipeline run, ~120 GPU-seconds, and no science.** Recorded rather than quietly re-run: the preregistration is frozen and
+still valid, the defect is in the rung's own snapshot code, and the fixed rung is re-enqueued under the same document.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

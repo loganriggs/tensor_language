@@ -5932,3 +5932,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2906] The motif gain is a SHARPLY tuned quantity**: +0.9238 at ×0.5 and +0.4994 at ×3.0, a narrow well around 1.25 with steep
   walls. The tail block's curve was flat between .15 and .30 (§2898). Any joint optimisation must respect that the blocks have very
   different curvature.
+
+- **[§2907] The joint optimum wants LESS shrinkage than any solo optimum** (tail .30 vs .25, CP .65 vs .50) — solo settings overshoot in
+  company, confirming across blocks what §2899/§2901 found within the tail band. **Not adopted: two coordinates sit on the grid edge**
+  (`d_null_the_grid_is_too_narrow`). Widen to tail ≤ .45, CP ≤ .95 and re-run; −0.3677 / +2.3058 is a bound, not an optimum.
+- **[§2908] Third failure of the same class: an assumption about the shape of an inherited fitted object.** `LIN` is a dict of DICTS,
+  not a flat dict. Neither the gate (does not execute closures) nor the dry run (exits before model work) can catch these. **Before
+  snapshotting any `S` entry, print its structure once in a dry-run-safe way** — or add a tiny shape-assertion helper to
+  `ops/frontier_evalarms.py` that walks an entry and reports its nesting, callable from a smoke path.
