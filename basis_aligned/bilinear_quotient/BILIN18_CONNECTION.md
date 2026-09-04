@@ -74648,3 +74648,45 @@ between their bar and their null** and so decided nothing — at PER_CELL=24, ba
 demonstrably separates a noise miss from a real one in this family of designs.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2866 — attn8's PERCENTILE MISS WAS ALSO A SAMPLE-SIZE LIMIT (.214 → .1875, pred_a FLIPS TRUE) — BUT THE WHOLE CROSSING IS .027 AND I AM NOT UPGRADING THE CLAIM ON IT
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_NULL_PRECISION_PREREGISTRATION.md` (08:29Z). Run
+`circuit_battery_null_precision_replication`, landed 08:33Z.
+Results: circuit_battery_null_precision_replication_results.json
+Price: 6696 GPU forwards, 81.3 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=24, **bars carried over verbatim
+from §2862**.
+
+SIGN CONVENTION: `selectivity = |d_C|/max(d_A1,.5)`, **LOWER = MORE SELECTIVE**; percentile = fraction of live components scoring
+LOWER, so **SMALL = attn8 is among the most selective**. No CE, no §312 L2, nothing installs.
+
+| clause | §2862 (PER_CELL 16) | **§2866 (PER_CELL 24)** | bar | verdict |
+|---|---|---|---|---|
+| pred_a attn8 is an outlier | .214 | **.1875** | ≤ .20 | **FALSE → TRUE** |
+| pred_b null not degenerate | 1.457 | 1.485 | ≥ .30 | TRUE both |
+| pred_c inherited bar is wrong | 6 | **5** | ≥ 4 | TRUE both |
+| pred_d component ranking stable | .596 | **.749** | ≥ .50 | TRUE both |
+| pred_e gate binds | yes | yes | — | TRUE both |
+
+**All five now TRUE, and I am deliberately not claiming what that appears to license.** The bar crossing is **.027** of movement on a
+statistic whose two measurements — .214 and .1875 — straddle the bar. Both §2865 and this section have now shown that this family of
+designs moves by that order with sample size, which cuts both ways: it explains the flip, and it means a bar crossing of .027 is not
+evidence that attn8 is an outlier. The per-behaviour spread makes the same point: counting words **.000**, keyed counter **.045**,
+paren list **.059** against numbered list **.222**, roman list **.286**, and **month at exactly .500 — the median live component**.
+A single median over that spread is not a stable summary of anything.
+
+**So the honest statement is unchanged from §2862 in substance:** attn8 sits somewhere around the 19th–21st percentile of live
+components, more selective than roughly four fifths of them, with at least one behaviour where it is exactly typical. The registered
+prediction is recorded TRUE because it is; the *claim* it would support is not adopted, and §2860's "selectivity un-established"
+stands.
+
+The strongest incidental result here is **pred_d at ρ .749** (from .596): the component ranking is substantially more reproducible than
+§2862 could see — which sharpens rather than softens §2864's finding that the *argmin* of that same ranking agrees on **0 of 7**. A
+well-ordered list whose minimum is unstable is precisely the signature of many components sharing a similar true value.
+
+Queued to settle it with a different POPULATION rather than a third rerun of the same one: the same 36-component sweep on the **OOD**
+split — held-out vocabulary pools, disjoint from SELECT and TEST — bars carried over verbatim
+(`CIRCUIT_BATTERY_NULL_OOD_PREREGISTRATION.md`, 08:36Z), registered so that a substantial move means "attn8's percentile" is not a
+single number and **neither §2862's FALSE nor this section's TRUE should be carried forward**.
+
+The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
