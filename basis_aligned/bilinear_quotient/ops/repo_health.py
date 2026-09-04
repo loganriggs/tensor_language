@@ -10,6 +10,12 @@ Every check here exists because something went wrong without it being noticed:
   bulk          a large untracked directory is one `git add -A` away from being committed (.fitcache
                 is 1.6 GB).
   tests         the ops-lane tests are fast; there is no reason for them to be red.
+  lanes         a silent lane is invisible in git, because BOTH agents commit as the same author -- a
+                per-author recency check returns one name and tells you nothing. The board is the only
+                place the lanes are distinguishable, so liveness is read from its entry headers. On
+                2026-09-04 one lane went quiet for ~4 h and it was only noticed by inference from an idle
+                queue.
+
   queue         a lane at depth < 2 means the runner is about to idle, historically the single largest
                 loss bucket (36% of a measured 48 h span).
 
@@ -17,7 +23,7 @@ Exit 0 = healthy. Exit 1 = at least one check failed. Read-only: it changes noth
 
 Usage:  python ops/repo_health.py [--quiet]
 """
-import os, re, sys, json, subprocess
+import os, re, sys, json, datetime, subprocess
 
 BQ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TL = os.path.dirname(os.path.dirname(BQ))
@@ -104,6 +110,47 @@ def check_tests():
     return r.returncode == 0, (tail[-1][:70] if tail else 'no output')
 
 
+BOARD = os.path.join(TL, "AGENT_BOARD.md")
+LANE_HEADER = re.compile(r"^###\s+(\d{4}-\d\d-\d\dT\d\d:\d\d)Z\s+[-—]+\s*([A-Za-z]+)")
+LANE_QUIET_MIN = 90
+# Only the two live agent lanes gate this check. Board headers also carry "USER DIRECTIVE", historical
+# "GPT"/"CLAUDE" entries and similar; counting those made the first version report four silent "lanes",
+# three of which are not agents at all. Same rule as the sparse-file bulk alarm: a check that cries wolf
+# gets ignored.
+AGENT_LANES = ("Claude", "Codex")
+
+
+def check_lanes():
+    """Minutes since each lane last wrote to the board. Both agents share a git author, so this is the
+    only lane-distinguishing liveness signal available."""
+    if not os.path.exists(BOARD):
+        return True, "no board"
+    latest = {}
+    for line in open(BOARD, errors="ignore"):
+        m = LANE_HEADER.match(line)
+        if not m:
+            continue
+        try:
+            when = datetime.datetime.strptime(m.group(1), "%Y-%m-%dT%H:%M")
+        except ValueError:
+            continue
+        lane = m.group(2)
+        if lane not in AGENT_LANES:
+            continue
+        if lane not in latest or when > latest[lane]:
+            latest[lane] = when
+    if not latest:
+        return True, "no parseable board entries"
+    now = datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None, microsecond=0)
+    parts, quiet = [], []
+    for lane, when in sorted(latest.items(), key=lambda kv: -kv[1].timestamp()):
+        mins = (now - when).total_seconds() / 60.0
+        parts.append(f"{lane} {mins:.0f}m")
+        if mins > LANE_QUIET_MIN:
+            quiet.append(f"{lane} silent {mins:.0f}m")
+    return not quiet, ", ".join(parts) + (f"  ({'; '.join(quiet)})" if quiet else "")
+
+
 def check_queue():
     depths = {}
     for name, f in (('lane 1', 'queue.txt'), ('lane 2', 'queue2.txt')):
@@ -114,7 +161,7 @@ def check_queue():
 
 
 CHECKS = [('ledger', check_ledger), ('orphans', check_orphans), ('renames', check_renames),
-          ('bulk', check_bulk), ('tests', check_tests), ('queue', check_queue)]
+          ('bulk', check_bulk), ('tests', check_tests), ('lanes', check_lanes), ('queue', check_queue)]
 
 if __name__ == '__main__':
     quiet = '--quiet' in sys.argv
