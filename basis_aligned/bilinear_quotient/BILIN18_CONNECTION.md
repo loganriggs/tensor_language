@@ -74941,3 +74941,52 @@ recorded predicate outcome is altered here** — a predicate that was TRUE stays
 
 Not audited and explicitly out of scope: whether any of these sections' *other* predicates (localisation, ranking, lens, geometry)
 are affected. They measure damage on A1 alone and the defect does not reach them.
+
+## §2874 — a5's FRONTIER DICTIONARY COLLAPSES TO ONE VECTOR FOR FREE (−.0001 nats, 5.3M PARAMETERS SAVED) — BUT SO DOES a6, THE CONTROL NULL FIRED, AND THE PROPERTY IS NOT SPECIFIC TO attn5
+
+Registered `polynomial_causal/FRONTIER_A5_CONSTANT_COLLAPSE_PREREGISTRATION.md` (08:55Z). Run `frontier_a5_constant_collapse`,
+landed 09:09Z. Derived from `ops/frontier_fisher8.py` (§2125 rung 30); **the parent is unmodified**, verified by `git status`.
+Results: frontier_a5_constant_collapse_results.json
+Price: 0 GPU forwards, 283.0 GPU-seconds (3 full frontier pipeline runs; the parent script is **not** forward-instrumented, so the
+receipt carries `forwards_instrumented: false` and `pipeline_runs: 3` beside a `gpu_forwards` of 0 — the count is absent, not zero).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER** (§312: +2.6735 beating +2.84/+2.93).
+A collapse **cost** is `L2_F(collapsed) − L2_F(baseline)`, **POSITIVE = WORSE**. §2128/§2129/§2133/§2134 remain RETRACTED; §2125 STANDS.
+
+| arm | L2_F | L2_C | cost vs baseline |
+|---|---|---|---|
+| BASELINE (published frontier) | **+2.6736** | +2.4234 | — |
+| a5 collapsed to one constant | +2.6735 | +2.4233 | **−.0001** |
+| a6 collapsed (control) | +2.6735 | +2.4233 | **−.0001** |
+
+**pred_a HELD — the reproduction gate.** Baseline **+2.6736** against the published **+2.6735**, a difference of .0001 against a
+tolerance of .05. The derivation reproduces §312's pipeline, so the rest is readable.
+
+**pred_b HELD — collapsing a5 is free**, cost **−.0001**. **pred_d HELD** — a5's ten `CV` rows differ by only **.0416** in
+`1 − min pairwise cosine`.
+
+**pred_c FAILED, and the null `c_null_collapsing_anything_is_free` is MET.** The a6 control collapses for **exactly the same
+−.0001**, and its row spread is **.0422** against a5's **.0416** — indistinguishable. This is the clause I registered so the rung
+could not prove a triviality, and it fired. **Nothing here is specific to attn5.**
+
+### What was actually learned, stated without inflation
+
+The real-model census (§2834) separates these two layers clearly: attn5's `gain_cv` is **.081**, rank **1 of 36**, against a6's
+**.233** — a 2.9× difference. **Inside the frontier that separation is gone**: the two fitted dictionaries are equally near-constant
+(.0416 vs .0422). So the fit does not inherit the component's constancy; it **imposes** near-constancy on both. §2835's "attn5's write
+is one fixed vector" is a true statement about the real model that **does not distinguish a5 inside the construction**, because the
+construction has already made every motif dictionary nearly constant.
+
+What that leaves is a real but different result, and it is about **price, not L2**: each `attnd` dictionary carries ten class rows plus
+four 1152×1152 link maps for the LINK classes [2,7,8,9], and replacing it with a single vector removes **5,318,784 parameters per
+layer** at a cost of **−.0001 nats**. The frontier is unchanged in L2 and materially cheaper in parameters.
+
+**The explained fraction does NOT move on this** (5.348% / 10.923% / 4.727 nat / 0 of 68). L2_F is unchanged to four decimals, and a
+parameter reduction at constant L2 is a different axis from the fraction the strict ledger scores. It is a step toward "a simpler
+tensor program" and it is recorded as exactly that, not as progress on the fraction.
+
+**Caveat registered here rather than left implicit:** −.0001 is at the reproduction noise floor — the baseline itself differs from the
+published number by +.0001 — so the honest reading is **"indistinguishable from zero at this resolution"**, not "free". A single
+layer's collapse cannot be resolved below ~.001 by this instrument. That is precisely why the joint arm matters: eight simultaneous
+collapses should be resolvable if any individual one is real, and `frontier_motif_band_constant_collapse` (queued, prereg 09:01Z) runs
+the whole band a2–a9 with band-minus-a5 as control.
