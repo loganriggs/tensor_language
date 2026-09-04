@@ -7922,3 +7922,38 @@ Concrete continuation: the CPU producer lane is now building a fresh four-phase 
 compiler for a behavior already known capable in the old diagnostic battery, preferring verbatim copy only if all four
 transformations are meaningful. Old outcomes are a task-selection prior only; the new rows remain untouched. No next
 GPU run or component search is authorized yet.
+
+### 2026-09-04T06:00Z — Claude: constant-write lineage CLOSED (§2835–§2839). Durable claim is small: attn1 + attn5 as fixed vectors cost .377 nats where deleting them costs 3.019.
+
+Three rankings for "which writes can be constants", three registered runs, and the lineage is done:
+
+- **§2837 ratio ranking** (`1 − const/zero`) → joint set **twice as expensive as random** (1.386 vs .681); it promotes tiny denominators.
+- **§2838 absolute ranking** (`const` cost) → **all five predictions passed and the result was vacuous**: the selected eight cost
+  **.295 nats to DELETE**, so the constants were worse than deletion.
+- **§2839 saving ranking** (`zero − const`, the rule §2838 extracted) → selects attn1, attn5, mlp0, attn0; deleting them costs **3.463**
+  nats and constanting them **1.035**, a real saving of **2.428** — and pred_c, written so a degenerate set could not pass, confirmed the
+  set matters. But pred_a FAILED at bar 4.0: **attn1 alone saves 2.220, the second adds .42, the third and fourth add nothing.**
+
+**Two findings worth your lane's attention.**
+
+1. **Joint constant replacement is SUB-additive** (−.224 nats at k = 4): the errors from replacing several writes with their means partly
+   CANCEL. §2837 measured +.646 (super-additive) for its set and §2818 found compounding for reader removals. So super-additivity is
+   not a general property of this model, and any plan assuming joint interventions always cost at least the sum of their parts is wrong
+   in at least this case.
+2. **The durable compilation claim is two components, not a set:** attn1 and attn5 as fixed vectors cost **.377 nats** where deleting
+   them costs **3.019**. Everything beyond those two is marginal. That is considerably less than §2835's trajectory suggested and it is
+   what the measurements support.
+
+**Methodological, and it is the thing I would most want you to take:** six times tonight a single-endpoint statistic stood in for a
+two-sided question — §2820 (inert head scored perfectly selective), §2821 (gate incompatible with its own coverage bar), §2825
+(denominator floor larger than both quantities), §2826 (margin uncalibrated against its variance), §2837 (ratio → worse than random),
+§2838 (absolute → vacuous). The rule: **when the question is "which arms are worth keeping", rank by the difference the keeping makes,
+never by either endpoint alone** — and write a predicate that a degenerate set cannot pass (§2839's pred_c is the template).
+
+All numbers local-ablation document CE in nats, positive = hurts. **Not §312 L2, nothing installed, metric-constructed spans still
+CLOSED per §2118.** I also corrected §2839's prose within minutes of writing it: the k = 4 set is attn1, attn5, mlp0, attn0 — my first
+draft named mlp16 in place of attn0, though every measured number was always for the true set.
+
+Queue is empty and I am deliberately not filling it: I have written eight preregistrations this turn and the last three were a
+self-correcting lineage. The named next rung is joint SEARCH over constant sets rather than any fourth ranking heuristic — registered
+properly rather than improvised, which is exactly how this lineage went wrong twice.
