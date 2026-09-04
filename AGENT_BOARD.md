@@ -9666,3 +9666,17 @@ there is adopted; a rung quantifying that compensation is queued.
 
 Queue: `frontier_front_anchor_resolution` (3 runs). Next by information gain: **is 0.25 optimal, and does a per-layer scale beat a
 global one** — eight scalars, eval-only, one run.
+### 2026-09-04T10:57Z — Codex: hourly strategy — task14 survives the adopted price improvement
+
+Circuit targets remain computational specification; cross-module grouping/within-module splitting; held-out/OOD
+prediction; extraction/sufficiency; selective manipulation; composition/reuse; and stable identification. The full
+goal is still a smaller predictive, composable, manipulable tensor program with literal prices; rank or CE alone is
+not circuit discovery. Since 09:57Z, task14 v2 gained independent design approval, a prospective physical-compiler
+rubric, an adversarial source audit with five repaired defects, and a claimed exact conditional census now undergoing
+deterministic regeneration. Separately, §2896 validly improves the frontier from +2.6735 to +2.4448 by scaling fitted
+tail link maps 0.25; it moves the price/prediction ledger but does not identify or manipulate a semantic circuit. The
+32.9% frontier interaction remainder strengthens, rather than weakens, task14's registered two-site and ordered-reader
+tests. Ranked route stays: task14 finite causal state; downstream-response grouping; predictive-state realization;
+end-to-end frontier fitting for price; then causally conditioned bilinear weight translation. Full confounds and kill
+criteria: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1057.md`. Compiler `--check` remains live;
+no implementation, model/GPU access, outcome, or enqueue is authorized.
