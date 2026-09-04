@@ -37,27 +37,36 @@ EXPERIMENT_ID = "task14-head11-3-causal-projector-program-a-v1"
 SITE_ID = adapter.SITE_ID
 
 PREREG_PATH = ROOT.parent / "polynomial_causal/TASK14_HEAD11_3_CAUSAL_PROJECTOR_PREREGISTRATION.md"
+EXECUTION_ADDENDUM_PATH = ROOT.parent / (
+    "polynomial_causal/"
+    "TASK14_HEAD11_3_CAUSAL_PROJECTOR_EXECUTION_ADDENDUM_2026-09-04_1645.md"
+)
 AUTHORITY_PATH = ROOT / "ops/circuit_battery_task14_agreement_fit_authority.json"
 PARTITION_PATH = ROOT / "ops/circuit_battery_task14_fit_localization_partition_v2.json"
 DONORS_PATH = ROOT / "ops/circuit_battery_task14_fit_localization_donors_v2.json"
 ADAPTER_PATH = ROOT / "ops/task14_head11_3_projector_adapter.py"
 SPECTRAL_PATH = ROOT / "ops/task14_causal_spectral_rank_one.py"
+DISCOVERY_SHARD_PATH = ROOT / "ops/task14_projector_discovery_endpoint_shard_v1.json"
 
 SOURCE_PATHS = {
     "preregistration": PREREG_PATH,
+    "execution_addendum": EXECUTION_ADDENDUM_PATH,
     "authority_opaque": AUTHORITY_PATH,
     "partition": PARTITION_PATH,
     "donors": DONORS_PATH,
     "projector_adapter": ADAPTER_PATH,
     "causal_spectral": SPECTRAL_PATH,
+    "discovery_endpoint_shard": DISCOVERY_SHARD_PATH,
 }
 EXPECTED_SOURCE_SHA256 = {
     "preregistration": "dc0749a48c6c21cf00115d44804d7a8e24d411c7f202765ac84f41a1e5ce24ac",
+    "execution_addendum": "32e25dc298a80203a689666e407215b0e997989ad37d8eefbd84dc9e9ae085e7",
     "authority_opaque": "e88fd860c28c9b369abe4a8ec28372f93bb94b6e841265206c43e6929a25ac2f",
     "partition": "1f43b767fb39082d7872629d1a8b700e90e055c9529d9d319fe483f77d91fad3",
     "donors": "ff702f2936e2445a247c6fca3a55d177e80974b2a5e14fb6de0a5fe2761db50a",
     "projector_adapter": "70602b0589aa8e0125ec26362a8c4f7ec42308c0c9042438ece589e451c0a2c2",
     "causal_spectral": "667dc100d7a936f85ed36557da333f02965f3dc300a1bbcc3520550f667aea40",
+    "discovery_endpoint_shard": "1e3b9a204c08a9c6af4ea7f5668abba719fd1943a8a7e7df0dc488f3183f4e1b",
 }
 
 FIT_GROUP_NUMBERS = frozenset((0, 9, 10, 11, 16, 25, 26, 27))
@@ -109,16 +118,21 @@ MAX_EFFECT_STABILITY_MEDIAN = 0.10
 MAX_EFFECT_STABILITY_P90 = 0.20
 
 PRIMARY_PRICE = {
-    "forward_calls": 1047,
-    "backward_calls": 900,
-    "example_evaluations": 33504,
-    "stored_frame_bytes": 10752,
+    "forward_calls": 1199,
+    "backward_calls": 902,
+    "example_evaluations": 37491,
+    "stored_frame_bytes": 141824,
 }
 RANK8_INCREMENTAL_PRICE = {
-    "forward_calls": 339,
+    "forward_calls": 395,
     "backward_calls": 300,
-    "example_evaluations": 10848,
+    "example_evaluations": 12355,
     "stored_frame_bytes": 12288,
+}
+CONDITIONAL_PRICE = {
+    "forward_calls": 420,
+    "backward_calls": 400,
+    "example_evaluations": 13380,
 }
 
 
@@ -173,6 +187,31 @@ class FitHealth:
 
 
 @dataclass(frozen=True)
+class FitObjectiveConfig:
+    target_coefficient: float = 1.0
+    control_coefficient: float = 1.0
+    huber_transition: float = 0.5
+    denominator_floor: float = 1e-6
+    control_normalizer: str = "detached_median_positive_fit_target_full_head_effect"
+    full_vocabulary_size: int = 50304
+    target_draws_per_update: int = 16
+    control_draws_per_update: int = 16
+    sampling: str = "uniform_cell_then_uniform_relation_with_replacement"
+    learning_rate: float = 0.03
+    learning_rate_schedule: str = "0.03*(1+cos(pi*t/99))/2"
+    adam_beta1: float = 0.9
+    adam_beta2: float = 0.999
+    adam_epsilon: float = 1e-8
+    weight_decay: float = 0.0
+    orthogonal_parametrization: str = "torch_householder"
+    schedule_seed_base: int = 14114000
+    permutation_rule: str = "within_cell_sha256_balanced_plus_minus_target_labels"
+
+
+FIT_OBJECTIVE = FitObjectiveConfig()
+
+
+@dataclass(frozen=True)
 class TargetCellScore:
     full_head_fraction: float
     direction_fraction: float
@@ -218,6 +257,7 @@ class ProgramABackend(Protocol):
         initial_frame: torch.Tensor,
         updates: int,
         batch_size: int,
+        objective: FitObjectiveConfig,
         permutation_id: int | None,
     ) -> FitResult: ...
 
@@ -552,6 +592,7 @@ def _fit_one(
             top_algebraic_frame(analytic_operator, rank), rank=rank, start=start
         ),
         updates=UPDATES, batch_size=BATCH_SIZE, permutation_id=permutation_id,
+        objective=FIT_OBJECTIVE,
     )
     if result.rank != rank or result.start != start or tuple(result.frame.shape) != (128, rank):
         raise ProgramAError("backend returned a misidentified fit")
@@ -670,6 +711,10 @@ def execute_program_a(
     if opened_rank8:
         expected_price = {key: expected_price[key] + RANK8_INCREMENTAL_PRICE[key]
                           for key in expected_price}
+    if provisional_rank is not None:
+        for key, value in CONDITIONAL_PRICE.items():
+            expected_price[key] += value
+        expected_price["stored_frame_bytes"] += 2048 * provisional_rank
 
     def summarize(result: FitResult) -> dict[str, object]:
         return {
@@ -701,6 +746,7 @@ def execute_program_a(
             "passed": stability[2],
         },
         "literal_price": expected_price, "backend_reported_model_counts": counts,
+        "fit_objective_constants": asdict(FIT_OBJECTIVE),
         "fit_receipts": {str(rank): [summarize(x) for x in fits[rank]] for rank in sorted(fits)},
         "random_control_verdicts": {
             str(rank): {
@@ -711,17 +757,13 @@ def execute_program_a(
             } for rank in sorted(random_scores)
         },
         "permutation_receipts": [summarize(x) for x in permutation_fits],
-        "registered_primary_price_exactly_reconciled": (
-            not opened_rank8 and provisional_rank is None
-            and counts == {key: PRIMARY_PRICE[key] for key in counts}
+        "registered_execution_counts_exactly_reconciled": (
+            counts == {key: expected_price[key] for key in counts}
         ),
         "remaining_production_functions": [
-            "freeze_fit_objective_target_control_coefficient_robust_transition_and_normalizers",
-            "build_discovery_only_endpoint_shard",
             "collect_head_deltas_downstream_gradients_and_full_head_denominators",
             "finite_orthogonal_fit_and_select_backend",
             "independent_receipt_and_bundle_audit",
-            "freeze_conditional_confirmation_and_permutation_price_ceiling",
         ],
     }
     _write_create_only(receipt_path, bundle_path, receipt, frames)
@@ -760,14 +802,14 @@ def compile_dryrun() -> dict[str, object]:
         "starts_per_primary_rank": len(PRIMARY_STARTS), "updates": UPDATES,
         "batch_size": BATCH_SIZE, "haar_controls_per_opened_rank": len(HAAR_SEEDS),
         "primary_price": dict(PRIMARY_PRICE), "rank8_incremental_price": dict(RANK8_INCREMENTAL_PRICE),
-        "fit_objective_constants": None,
-        "fit_objective_constants_blocking": True,
+        "conditional_price": dict(CONDITIONAL_PRICE),
+        "conditional_stored_frame_bytes": "2048 * selected_rank",
+        "fit_objective_constants": asdict(FIT_OBJECTIVE),
+        "fit_objective_constants_blocking": False,
         "authority_parsed": False, "validation_rows_loaded": 0,
         "model_loaded": False, "gpu_accessed": False, "queue_touched": False,
         "production_backend_available": False,
         "remaining_production_functions": [
-            "freeze_fit_objective_target_control_coefficient_robust_transition_and_normalizers",
-            "build_discovery_only_endpoint_shard",
             "collect_head_deltas_downstream_gradients_and_full_head_denominators",
             "finite_orthogonal_fit_and_select_backend",
             "independent_receipt_and_bundle_audit",

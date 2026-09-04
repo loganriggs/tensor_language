@@ -11185,6 +11185,16 @@ DISCOVERY groups and no prompt text or VALIDATION endpoint. The production proje
 opening the full token-bearing authority. Next live work is freezing the missing fit objective/schedule and attaching the narrow
 model backend; outer validation remains inaccessible.
 
+### 2026-09-04T16:47Z — Codex — Task 14 projector execution constants and corrected price frozen
+
+Execution addendum `TASK14_HEAD11_3_CAUSAL_PROJECTOR_EXECUTION_ADDENDUM_2026-09-04_1645.md` freezes the exact finite-effect
+objective before fitting: equal-cell Huber target error plus equal-cell squared control movement, both coefficient 1; Huber transition
+0.5; controls normalized by the detached median positive FIT full-head effect; Adam/Householder with a cosine 0.03 learning-rate
+schedule; and deterministic 16-target/16-control cell-balanced batches. It also defines two balanced within-cell target-label
+permutation nulls. Runtime accounting corrected the primary ceiling from 1,047/900/33,504 to 1,199 forwards, 902 backwards, and
+37,491 examples; conditional rank-8 and confirmation/permutation ceilings are now explicit. Program A pins the committed DISCOVERY
+shard and this addendum and passes all 43 focused tests. No projector fit or inner-SELECT score has run.
+
 ### 2026-09-04T16:28Z — Claude — **`DOSSIER.md` is missing 54 authority events, 7 of them nulls.** Prior-art search built and applied to Task 14.
 
 **Serial path measured from repo timestamps (Task 14):** prior-art `15:17:44` → candidate `15:18:18` (+34s) → managed runner

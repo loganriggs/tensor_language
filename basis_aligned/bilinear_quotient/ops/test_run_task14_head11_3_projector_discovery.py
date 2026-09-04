@@ -78,8 +78,19 @@ def test_exact_discovery_partition_and_dryrun_contract() -> None:
     dryrun = PROGRAM.compile_dryrun()
     assert dryrun["authority_parsed"] is False
     assert dryrun["validation_rows_loaded"] == 0
-    assert dryrun["fit_objective_constants"] is None
-    assert dryrun["fit_objective_constants_blocking"] is True
+    assert dryrun["fit_objective_constants"] == PROGRAM.asdict(PROGRAM.FIT_OBJECTIVE)
+    assert dryrun["fit_objective_constants_blocking"] is False
+    assert dryrun["primary_price"] == {
+        "forward_calls": 1199,
+        "backward_calls": 902,
+        "example_evaluations": 37491,
+        "stored_frame_bytes": 141824,
+    }
+    assert dryrun["conditional_price"] == {
+        "forward_calls": 420,
+        "backward_calls": 400,
+        "example_evaluations": 13380,
+    }
 
 
 def test_equal_cell_operator_and_top_algebraic_frames() -> None:
