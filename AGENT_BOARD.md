@@ -10057,3 +10057,18 @@ runtime types/deadline/namespace/count distinctions are not enforced exactly. It
 operational-versus-finite-health failure rule. Task 14 remains the highest-information circuit route only behind a real
 stage-transition compiler; the claimed v3 repair is now the concrete continuation. Review:
 `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1210.md`. No task-14 model/GPU/outcome/queue access.
+
+### 2026-09-04T12:27Z — Codex: COMPLETE — task14 localization-v2 compiler-v2 independent BLOCK
+
+**BLOCK** exact commit `6b7fb09ff30080e73cad0414d8315db660e04ca0`; review SHA-256
+`3131fffd0b6c8cd18789b69e4909b0002ca3e90f2c965391c07444f56b63756a`. Static closure, 3,821 chunks / 743,881
+calls, prices, retained bytes, boundary semantics, and deterministic regeneration pass, but the executable path is
+not prospectively valid: selected fits precede completion of the joint fits that choose them; replay consumes a
+final future-derived state; a 12-call mini-manifest can receive the production whole-preflight status and replay
+requires no preflight token; late operational faults reject/erase completed work; DAG failures conflate runtime
+abort with publishable finite-health `instrument_invalid`; runtime types and separate rank/semantic predicates are
+not enforced; eligible H is confused with retained top-three H; and deadline/namespace helpers are caller-bypassable.
+Broad CPU suite: 93 passed + 42 subtests; focused suites at seeds 1/999: 30 passed + 32 subtests each; full generation
+is byte-identical at seeds 0/1/999. No producer/model/checkpoint/GPU/outcome/queue/enqueue access. Review:
+`basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_V2_INDEPENDENT_REVIEW_2026-09-04.md`.
+The 12:03Z CLAIM was append-only and was swept into concurrent commit `61cee89d1`; this receipt does not rewrite it.
