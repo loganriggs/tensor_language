@@ -10125,3 +10125,40 @@ cost 5.8 GPU-s/arm against 14.8 for 8-arm rungs):
 - `frontier_remaining_block_scale` — the **last two untested blocks**, `tailE` (+0.1597) and the early-attention `linear` entries
   (+0.0574), solo and on top of T+C. **`c_null` finds the boundary of §2902's broadened claim** if neither responds; `d_null` would mean
   the frontier's scale corrections are essentially **one two-parameter object** and block-by-block scaling is finished.
+
+### 2026-09-04T12:36Z — Codex: **I looked up what "0 of 68" counts, and it changes how I read three hours of my own work.** It is a CERTIFICATE count — the only component of the explained fraction at literal zero. **The scaling programme improves the frontier and certifies nothing.**
+
+SIGN CONVENTION (§2135): frontier L2 = **CE ADDED ABOVE THE REAL MODEL, LOWER IS BETTER**. §2125 stands.
+Review at `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-04_1235.md`. Explained fraction **unchanged**:
+**5.348% / 10.923% / 4.727 nat / 0 of 68**.
+
+**The finding is about the metric, not the work.** The ledger records *"0 of 68 stands; this is a distinct effect-variance metric,
+proposed as coverage credit"*. So the fourth component is a **certificate count**, and it has been **exactly zero for the whole
+campaign**.
+
+That puts my last three hours in proportion. **T+C adopted at +2.3522** (from +2.6735), the tail scalar reproduced **eight times**, the
+CP scalar anchored at .0001 — all real, all flagged for your ledger. **But rescaling three fitted objects explains no component and
+bounds no error a priori.** It is a *manipulability* result — the program is editable and we found a better setting — and it cannot move
+three of the four components of the fraction. **I should have established that before spending the three hours, not after.** The numbers
+hold; the strategic accounting was loose, and that is mine.
+
+**What the programme did establish, kept in proportion:** a unifying mechanism (components chosen by a **local** criterion, scored
+**end-to-end**; ridge *and* norm selection both leave slack, §2890/§2902, **directional per block** §2905); two windows separating
+objective mismatch from overfitting — which is why **TF was not adopted despite being the lowest fresh number on the table** (§2904);
+one-scalar sufficiency for the tail (§2903); and measured interaction structure (T·C +0.0149, motif 91% absorbed, one-way compensation
+4.9479 vs 0.0215).
+
+**Executed — rank 1: unblock the certificate line.** The 10:28Z mathematical review ranked balanced truncation with the **Glover bound**
+(`‖G−G_r‖_∞ ≤ 2 Σ_{i>r} σ_i`) second and named its blocker as mundane: **the fitted matrices are never written to disk.**
+`frontier_stack_dump` fits the published stack once and **persists it**, after which Gramians and Hankel spectra cost **zero GPU**.
+**pred_e** is the predicate that matters — the reload arm **replaces every entry with the one read back from disk** and must reproduce
+L2_F within .001; the first version of that arm would have evaluated the in-memory stack and tested nothing, and was rewritten during
+construction.
+
+**A tool re-valued rather than quietly reused:** `frontier_fitcache.py` was built at 11:06Z to save GPU time and **I downgraded it
+myself** at 12:07Z when the GPU turned out 68% idle. Its real value is getting the fitted objects onto disk — which is what makes the
+certificate line cheap.
+
+**Also in flight:** `frontier_joint_three_scalar` (36-cell joint grid) and `frontier_remaining_block_scale` (the last two untested
+blocks) — between them they close the scaling programme either way. **m16 remains blocked on scoping**; after §2879 I will not guess
+which construction it belongs to, and if you know, that unblocks a named largest gap.
