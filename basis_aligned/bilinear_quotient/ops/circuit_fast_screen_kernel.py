@@ -6,8 +6,9 @@ common convention:
 
 * A1 and A2 are answer-changing target families.
 * P is a same-answer invariance family.
-* C is an answer-changing unrelated-behaviour negative control: transfer at C
-  is evidence against selectivity.
+* C is a registered active negative control.  It may either change an
+  unrelated answer or preserve the answer while changing a known distractor.
+  Movement at C is evidence against selectivity in both cases.
 
 All answer-changing records must express ``base_score``, ``donor_score``, and
 ``intervened_score`` on the same donor-oriented axis.  Recovery is deliberately
@@ -127,9 +128,10 @@ class HeadEvidenceRecord(InterventionEvidenceRecord, Protocol):
 class ScalarInterventionEvidence:
     """Convenient immutable implementation of the adapter protocol.
 
-    ``effect_scale`` is required only for P records.  It is a prospectively
-    registered positive task-effect unit, never inferred from the P pair.
-    ``donor_score`` is required for A1, A2, and C and unused for P.
+    ``effect_scale`` is required for same-answer P records and same-answer C
+    records.  It is a prospectively registered positive task-effect unit,
+    never inferred from the control pair. ``donor_score`` is required for A1,
+    A2, and answer-changing C records.
     """
 
     record_id: str
@@ -350,14 +352,19 @@ def _capability_scores(
     )
 
 
-def _family_score(family: Family, effects: Sequence[float]) -> FamilyScore:
+def _family_score(
+    family: Family, effects: Sequence[float], *, direction_defined: bool = True,
+) -> FamilyScore:
     if not effects:
         raise InvalidEvidenceError(f"missing required family {family}")
     mean = math.fsum(effects) / len(effects)
     mean_absolute = math.fsum(abs(value) for value in effects) / len(effects)
     if not math.isfinite(mean) or not math.isfinite(mean_absolute):
         raise InvalidEvidenceError(f"{family} mean effect must be finite")
-    direction = None if family == "P" else sum(value > 0.0 for value in effects) / len(effects)
+    direction = (
+        sum(value > 0.0 for value in effects) / len(effects)
+        if direction_defined else None
+    )
     return FamilyScore(family, len(effects), mean, mean_absolute, direction)
 
 
@@ -367,6 +374,7 @@ def score_site(
     evidence: Sequence[InterventionEvidenceRecord],
     expected_record_ids: Collection[str],
     capability: CapabilityEvidence,
+    c_answer_changes: bool = True,
 ) -> SiteScreenResult:
     """Validate and score one site, returning only screen/null/invalid.
 
@@ -377,6 +385,8 @@ def score_site(
 
     try:
         _validate_site(site)
+        if type(c_answer_changes) is not bool:
+            raise InvalidEvidenceError("c_answer_changes must be a literal bool")
         capability_scores = _capability_scores(capability)
         if type(expected_record_ids) in {str, bytes}:
             raise InvalidEvidenceError("expected_record_ids must be a collection of IDs")
@@ -410,13 +420,16 @@ def score_site(
                     f"family {family} contains duplicate pair_id {record.pair_id}"
                 )
             observed_pairs.add(pair_key)
-            if family == "P":
+            same_answer = family == "P" or (family == "C" and not c_answer_changes)
+            if same_answer:
                 if record.donor_score is not None:
                     raise InvalidEvidenceError(
-                        f"P record {record_id} must not define donor_score"
+                        f"same-answer record {record_id} must not define donor_score"
                     )
                 if record.effect_scale is None:
-                    raise InvalidEvidenceError(f"P record {record_id} lacks effect_scale")
+                    raise InvalidEvidenceError(
+                        f"same-answer record {record_id} lacks effect_scale"
+                    )
                 effect = normalized_same_answer_effect(
                     record.base_score, record.intervened_score, record.effect_scale
                 )
@@ -443,11 +456,12 @@ def score_site(
 
         a1 = _family_score("A1", effects["A1"])
         a2 = _family_score("A2", effects["A2"])
-        p = _family_score("P", effects["P"])
-        c = _family_score("C", effects["C"])
+        p = _family_score("P", effects["P"], direction_defined=False)
+        c = _family_score(
+            "C", effects["C"], direction_defined=c_answer_changes
+        )
         assert a1.direction_fraction is not None
         assert a2.direction_fraction is not None
-        assert c.direction_fraction is not None
 
         # Equal family weighting prevents a larger A1 or A2 cell from silently
         # dominating the target decision.

@@ -236,9 +236,10 @@ def validate_spec(spec: CircuitFastScreenSpec) -> None:
         raise FastScreenSpecError("head expansion and tie-break must remain the exact conditional nine-head rule")
     _validate_sha256(spec.authority_sha256, "authority digest")
     battery.validate_task(spec.task)
-    transforms = {item.transform_id: item for item in spec.task.transforms}
-    if not transforms["C"].answer_changes:
-        raise FastScreenSpecError("C must be an answer-changing unrelated-behavior control")
+    # C is a registered active negative control.  Some tasks use an unrelated
+    # answer-changing endpoint; others, such as agreement-attractor tests, keep
+    # the answer fixed while changing a distractor.  The task declaration is
+    # the authority and the producer scores the two cases differently.
     price = spec.declared_max_price
     if price.phase != "FIT" or price.backward_calls != 0 or price.model_updates != 0:
         raise FastScreenSpecError("maximum price must be FIT-only with zero backward/update calls")
@@ -609,7 +610,14 @@ def compile_screen(
                 "A1": "answer_changing_target",
                 "A2": "answer_changing_target",
                 "P": "same_answer_invariance_control",
-                "C": "answer_changing_unrelated_behavior_control",
+                "C": (
+                    "answer_changing_unrelated_behavior_control"
+                    if next(
+                        item for item in spec.task.transforms
+                        if item.transform_id == "C"
+                    ).answer_changes
+                    else "same_answer_active_negative_control"
+                ),
             },
             "bars": _json_value(asdict(spec.bars)),
             "tie_break": TIE_BREAK,

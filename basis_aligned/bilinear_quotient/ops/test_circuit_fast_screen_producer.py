@@ -15,11 +15,11 @@ import circuit_fast_screen_spec as screen
 SOURCE = Path(__file__).with_name("circuit_fast_screen_producer.py")
 
 
-def rows(groups: int = 1) -> list[dict[str, object]]:
+def rows(groups: int = 1, *, c_answer_changes: bool = True) -> list[dict[str, object]]:
     output = []
     for group in range(groups):
         for index, family in enumerate(screen.TRANSFORMS):
-            changes = family != "P"
+            changes = family not in ({"P"} if c_answer_changes else {"P", "C"})
             first, second = 10 + 2 * index, 11 + 2 * index
             if group % 2:
                 first, second = second, first
@@ -38,19 +38,19 @@ def rows(groups: int = 1) -> list[dict[str, object]]:
     return output
 
 
-def task() -> battery.BatteryTaskSpec:
+def task(*, c_answer_changes: bool = True) -> battery.BatteryTaskSpec:
     return battery.BatteryTaskSpec(
         task_id="fixture.behavior", generator_role="fixture", answer_role="pair",
         transforms=(
             battery.TransformSpec("A1", "a1", True, "toward_donor"),
             battery.TransformSpec("A2", "a2", True, "toward_donor"),
             battery.TransformSpec("P", "p", False, "invariant"),
-            battery.TransformSpec("C", "c", True, "registered_active"),
+            battery.TransformSpec("C", "c", c_answer_changes, "registered_active"),
         ),
     )
 
 
-def spec(authority) -> screen.CircuitFastScreenSpec:
+def spec(authority, *, c_answer_changes: bool = True) -> screen.CircuitFastScreenSpec:
     count = len(authority)
     maximum_evaluations = 264 * (count // 4)
     return screen.CircuitFastScreenSpec(
@@ -62,7 +62,8 @@ def spec(authority) -> screen.CircuitFastScreenSpec:
             alternative_explanation="lexical shortcut", circuit_prediction="selective transfer",
             opposing_null_prediction="no selective transfer",
         ),
-        task=task(), authority_sha256=framework.canonical_sha256(authority),
+        task=task(c_answer_changes=c_answer_changes),
+        authority_sha256=framework.canonical_sha256(authority),
         expected_fit_rows=count, batch_size=count // 4,
         semantic_position=screen.SemanticPositionSpec(
             "marked", "base_position", "donor_position"
@@ -158,6 +159,18 @@ def test_all_55_routes_screen_and_residual_module_scores_agree() -> None:
     assert len(result.intervention_logits) == 220
     assert (result.native_logits[0].answer_logit, result.native_logits[0].foil_logit) \
            == (1.0, 0.0)
+
+
+def test_same_answer_c_control_runs_all_sites_as_normalized_invariance() -> None:
+    authority = rows(c_answer_changes=False)
+    result = producer.run_science(
+        spec(authority, c_answer_changes=False), authority, backend=FakeBackend()
+    )
+    assert result.terminal == "screen"
+    assert len(result.site_results) == 55
+    assert all(item.c_direction_fraction is None for item in result.site_results)
+    assert all(abs((item.c_absolute_recovery or 0.0) - 0.05) < 1e-12
+               for item in result.site_results)
 
 
 def test_capability_cell_failure_stops_before_interventions() -> None:

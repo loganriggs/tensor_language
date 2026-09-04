@@ -477,9 +477,12 @@ def run_science(
             return finish("null", "native_behavior_incapable", head_stage="capability_stop")
 
         denominators = []
+        answer_changes = {
+            item.transform_id: item.answer_changes for item in spec.task.transforms
+        }
         for row in materialized:
             family = str(row["transform_id"])
-            if family not in {"A1", "A2", "C"}:
+            if not answer_changes[family]:
                 continue
             row_id = str(row[spec.task.row_id_field])
             base = -native[(row_id, "base")].margin
@@ -511,7 +514,7 @@ def run_science(
                             row_id, typed_family, site, answer, foil,
                         ))
                         native_base = native[(row_id, "base")].margin
-                        if family == "P":
+                        if not answer_changes[family]:
                             base_score, donor_score = native_base, None
                             intervened, scale = answer - foil, target_scale
                         else:
@@ -529,6 +532,7 @@ def run_science(
                 site, evidence=tuple(evidence),
                 expected_record_ids=tuple(record.record_id for record in evidence),
                 capability=capability,
+                c_answer_changes=answer_changes["C"],
             )
 
         for site_id in screen_spec.CEILING_SITE_IDS:

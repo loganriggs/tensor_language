@@ -61,6 +61,8 @@ def score(
     adapter: FakeModelAdapter,
     records: tuple[kernel.ScalarInterventionEvidence, ...] | None = None,
     capability: kernel.CapabilityEvidence = CAPABILITY,
+    *,
+    c_answer_changes: bool = True,
 ) -> kernel.SiteScreenResult:
     evidence = adapter.evidence() if records is None else records
     return kernel.score_site(
@@ -68,6 +70,7 @@ def score(
         evidence=evidence,
         expected_record_ids=tuple(record.record_id for record in evidence),
         capability=capability,
+        c_answer_changes=c_answer_changes,
     )
 
 
@@ -157,6 +160,35 @@ class FastScreenKernelTests(unittest.TestCase):
         self.assertAlmostEqual(high_transfer.c_signed_recovery or 0.0, 0.0)
         self.assertAlmostEqual(high_transfer.c_absolute_recovery or 0.0, 0.60)
         self.assertAlmostEqual(high_transfer.c_direction_fraction or 0.0, 0.50)
+
+    def test_c_can_be_a_same_answer_active_negative_control(self) -> None:
+        adapter = FakeModelAdapter(kernel.SiteRef("module", "c-same-answer"))
+        records = tuple(
+            replace(
+                record,
+                donor_score=None,
+                base_score=2.0,
+                intervened_score=2.0 + effect,
+                effect_scale=1.0,
+            ) if record.family == "C" else record
+            for record, effect in zip(
+                adapter.evidence(),
+                (0.0, 0.0, 0.0, 0.0, 0.05, -0.10, 0.0, 0.0),
+            )
+        )
+        result = score(adapter, records, c_answer_changes=False)
+        self.assertEqual(result.terminal, "screen")
+        self.assertAlmostEqual(result.c_absolute_recovery or 0.0, 0.075)
+        self.assertIsNone(result.c_direction_fraction)
+
+        c_index = next(index for index, record in enumerate(records)
+                       if record.family == "C")
+        mismatched = records[:c_index] + (
+            replace(records[c_index], donor_score=3.0, effect_scale=None),
+        ) + records[c_index + 1:]
+        invalid = score(adapter, mismatched, c_answer_changes=False)
+        self.assertEqual(invalid.terminal, "invalid")
+        self.assertIn("same-answer record", invalid.reasons[0])
 
     def test_capability_is_thresholded_per_family_not_pooled(self) -> None:
         adapter = FakeModelAdapter(kernel.SiteRef("head", "family-capability"))

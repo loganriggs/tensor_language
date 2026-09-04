@@ -14,7 +14,7 @@ import circuit_fast_screen_spec as screen
 SOURCE = Path(__file__).with_name("circuit_fast_screen_spec.py")
 
 
-def task_spec() -> battery.BatteryTaskSpec:
+def task_spec(*, c_answer_changes: bool = True) -> battery.BatteryTaskSpec:
     return battery.BatteryTaskSpec(
         task_id="fixture.linked_behavior",
         generator_role="fixture_generator",
@@ -23,7 +23,9 @@ def task_spec() -> battery.BatteryTaskSpec:
             battery.TransformSpec("A1", "answer_change_one", True, "toward_donor"),
             battery.TransformSpec("A2", "answer_change_two", True, "toward_donor"),
             battery.TransformSpec("P", "state_preserving", False, "invariant"),
-            battery.TransformSpec("C", "unrelated_answer_change", True, "registered_active"),
+            battery.TransformSpec(
+                "C", "unrelated_answer_change", c_answer_changes, "registered_active"
+            ),
         ),
     )
 
@@ -148,6 +150,24 @@ def test_compile_exact_native_and_55_site_ceiling_manifest() -> None:
     assert compiled["score_contract"]["family_roles"]["C"] == \
         "answer_changing_unrelated_behavior_control"
     screen.validate_compiled_screen(valid_spec(rows), rows, compiled)
+
+
+def test_same_answer_c_control_is_explicitly_typed_in_compiled_contract() -> None:
+    rows = authority()
+    for row in rows:
+        if row["transform_id"] == "C":
+            row["answer_changes"] = False
+            row["donor_answer_id"] = row["base_answer_id"]
+            row["donor_foil_id"] = row["base_foil_id"]
+    spec = replace(
+        valid_spec(rows),
+        task=task_spec(c_answer_changes=False),
+        authority_sha256=framework.canonical_sha256(rows),
+    )
+    compiled = screen.compile_screen(spec, rows)
+    assert compiled["score_contract"]["family_roles"]["C"] == \
+        "same_answer_active_negative_control"
+    screen.validate_compiled_screen(spec, rows, compiled)
 
 
 def test_32_linked_panels_have_exact_tiered_price() -> None:
@@ -314,14 +334,14 @@ def test_attention_scores_require_complete_finite_control_bound_inputs() -> None
         "skipped_no_passing_attention_module"
 
 
-def test_c_must_be_an_answer_changing_unrelated_control() -> None:
+def test_c_control_declaration_must_match_every_authority_row() -> None:
     rows = authority()
     spec = valid_spec(rows)
     transforms = tuple(
         replace(item, answer_changes=False) if item.transform_id == "C" else item
         for item in spec.task.transforms
     )
-    with pytest.raises(screen.FastScreenSpecError, match="C must be an answer-changing"):
+    with pytest.raises(screen.FastScreenSpecError, match="answer-change semantics"):
         screen.compile_screen(replace(spec, task=replace(spec.task, transforms=transforms)), rows)
 
 
