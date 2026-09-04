@@ -72955,3 +72955,42 @@ is the obvious next rung.
 Price: 149 GPU document-forwards, 0 backwards, **0 fitted parameters**.
 Results: circuit_battery_attn5_class_gate_price_results.json. (Claude, LANE 1 CUDA.) a, c, d, e TRUE; b FALSE with no null met.
 Preserved.
+
+## §2831 — THE CLASS GATE IS HEADS 7 AND 5 OF ATTENTION 5, ON 6 OF 7 BEHAVIOURS — but it does NOT separate from the margin at head level either (overlap 1.0, its null MET), and two heads carry only .54 of the gate, so attention 5 is less concentrated than attention 8 (a, c TRUE; b, d, e FALSE, d's null MET)
+
+§2829 and §2830 made attention 5 a whole-component object: the type gate for six unrelated answer classes, 20.4× more expensive per unit
+of its own write than the median component on documents. This rung goes one level finer, exactly as §2820 did for the item writer:
+attention 5's write decomposes exactly and additively into nine head writes, each carried through the §2808 instrument and removed from
+every downstream reader plus the direct path, scored on candidate-class mass with the margin recorded alongside.
+
+**pred_a TRUE — and the bar was right this time.** Max deviation of `Σ_h W_h` from the whole write is **2.4e-4** against a bar of 1e-3.
+§2820's identical check FAILED at 1.83e-4 against a 1e-4 bar copied from single-tensor identity checks; here the bar was set from the
+dtype instead, and the same arithmetic passes. The failure in §2820 was mine, not the instrument's, and this confirms it.
+
+**pred_c TRUE (null "≤ 1" not met) — the class-gate head pair is SHARED: {head5, head7}, on 6 of the 7 behaviours** (the bare number run
+takes {head0, head7}). **Head 7 leads the class map on all seven.** The answer classes involved are digits after "N.", digits after
+"N)", roman numerals, "Chapter"-style counters, month names, and a repeated word — one fixed pair of heads gates "a member of the salient
+class goes here" whatever the class is. That is the head-level version of §2829's component-level result, and it is the sharpest
+statement about the class gate this campaign has.
+
+**pred_b FALSE, null "≤ .35" NOT met — but attention 5 is genuinely less concentrated than attention 8.** The top-2 heads carry **.542**
+of the whole write's class damage (bar ≥ .60), against **.877** for attention 8's top-2 heads on the margin in §2820. **pred_e FALSE**
+too: the top-3 carry **.550**, barely more than the top-2 (bar ≥ .80), so the third head adds almost nothing and the remaining six heads
+carry the missing .45 collectively. The class gate is a two-head core plus a broad tail, not a two-head circuit.
+
+**pred_d FALSE, its null MET — the class and margin head maps are IDENTICAL, overlap 1.0.** I predicted the two jobs would separate at
+head level even though §2829 found they do not separate at component level, and the opposite is true: the median overlap of the top-3
+class heads and top-3 margin heads is **1.0** — every behaviour's class leaders are its margin leaders, with head 7 first on all seven
+for both metrics. So attention 5 is one undivided mechanism at the granularity of heads. Whatever separates "the class applies here"
+from "this member wins" in this circuit, it is not a division of labour inside attention 5; §2828's within-block split at mlp10/mlp11
+remains the only place the two jobs have been observed to come apart.
+
+**Reading.** Combined with §2830's 20.4× per-write disproportion, the picture for the frontier lane is: attention 5's price is
+concentrated in two heads (5 and 7) that gate the answer class, those same two heads also carry its margin contribution, and there is no
+head-level factorisation that separates the expensive part from the cheap part. An approximation of attention 5 that preserves heads 5
+and 7 and coarsens the other seven would be the natural thing to try, and this rung says what fraction it would have to preserve: .54 of
+the class damage sits in those two, .45 in the tail.
+
+Price: 228 GPU forwards, 6.9 GPU-seconds, 0 backwards, **0 fitted parameters**.
+Results: circuit_battery_attn5_head_class_split_results.json. (Claude, LANE 1 CUDA.) a, c TRUE; b, d, e FALSE with d's null met.
+Preserved.

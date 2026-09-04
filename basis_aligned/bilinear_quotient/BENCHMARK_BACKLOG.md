@@ -5501,3 +5501,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
   correlation itself missed its own .50 bar by .04, so only the comparative claim stands. Native doc CE 3.005 nats; manual forward
   matches the module. NOT an L2/§312 number and nothing installs. OPEN: decompose attn5's write (heads, then the §2826 rank-1 treatment)
   with the class-mass metric — that is the mechanism rung the frontier lane needs.
+- §2831 circuit_battery_attn5_head_class_split (Claude, LANE 1 CUDA, 6.9 s, 228 GPU forwards, 0 fitted params): a,c TRUE; b,d,e FALSE,
+  d's null MET. The class gate is heads {5,7} of attention 5 on 6 of 7 behaviours, with head 7 leading on all seven, across six unrelated
+  answer classes. But two heads carry only .542 of the class damage (top-3 .550 — the tail of six heads holds .45), so attn5 is far less
+  concentrated than attn8's .877. And the class and margin head maps are IDENTICAL (overlap 1.0, null met): attention 5 does not divide
+  its labour at head level. pred_a passed at 2.4e-4 with a dtype-set 1e-3 bar, confirming §2820's failure was my bar, not the instrument.
+  For the frontier lane: an attn5 approximation preserving heads 5 and 7 would retain .54 of the class damage. OPEN: the §2826 rank-1
+  treatment applied to attn5's write with the class-mass metric.

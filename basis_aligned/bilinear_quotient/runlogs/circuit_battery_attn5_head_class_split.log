@@ -1,0 +1,31 @@
+[a5heads] keyed_line.counter_successor class_top=['head7', 'head5', 'head0'] margin_top=['head7', 'head5', 'head8'] top2=0.13 top3=0.13 overlap=0.67
+[a5heads] month.successor              class_top=['head7', 'head5', 'head0'] margin_top=['head7', 'head5', 'head0'] top2=1.17 top3=1.21 overlap=1.00
+[a5heads] numbered_list.index_successor class_top=['head7', 'head5', 'head2'] margin_top=['head7', 'head2', 'head5'] top2=0.54 top3=0.55 overlap=1.00
+[a5heads] numeric_run.last_plus_one    class_top=['head7', 'head0', 'head2'] margin_top=['head7', 'head0', 'head2'] top2=0.69 top3=0.70 overlap=1.00
+[a5heads] paren_list.index_successor   class_top=['head7', 'head5', 'head2'] margin_top=['head7', 'head5', 'head3'] top2=0.50 top3=0.51 overlap=0.67
+[a5heads] roman_list.index_successor   class_top=['head7', 'head5', 'head2'] margin_top=['head7', 'head5', 'head2'] top2=0.29 top3=0.32 overlap=1.00
+[a5heads] verbatim_repeat.copy         class_top=['head7', 'head5', 'head0'] margin_top=['head7', 'head5', 'head2'] top2=0.80 top3=0.84 overlap=0.67
+{
+ "preds": {
+  "pred_a_head_decomposition_is_exact": true,
+  "pred_b_two_heads_carry_the_class_gate": false,
+  "pred_c_the_class_head_set_is_shared": true,
+  "pred_d_class_heads_differ_from_margin_heads": false,
+  "pred_e_class_gate_heads_are_few": false
+ },
+ "nulls": {
+  "b_null_top2_le_.35": false,
+  "c_null_pair_not_shared": false,
+  "d_null_same_heads": true,
+  "e_null_diffuse": false
+ },
+ "medians": {
+  "top2_class_share": 0.5424858957018553,
+  "top3_class_share": 0.5500392296432516,
+  "class_margin_overlap_top3": 1.0
+ },
+ "pairs": {
+  "('head5', 'head7')": 6,
+  "('head0', 'head7')": 1
+ }
+}
