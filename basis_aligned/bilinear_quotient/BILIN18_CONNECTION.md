@@ -74690,3 +74690,67 @@ split — held-out vocabulary pools, disjoint from SELECT and TEST — bars carr
 single number and **neither §2862's FALSE nor this section's TRUE should be carried forward**.
 
 The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
+
+## §2867 — THE WINNER'S CURSE IS REAL AFTER ALL (.063 → .197, pred_a FLIPS TRUE), SELECTION'S ADVANTAGE OVER RANDOM SHRINKS THREEFOLD, AND THE ARGMIN STILL NEVER REPRODUCES
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_WINNERS_CURSE_PRECISION_PREREGISTRATION.md` (08:33Z). Run
+`circuit_battery_winners_curse_precision`, landed 08:36Z.
+Results: circuit_battery_winners_curse_precision_results.json
+Price: 6768 GPU forwards, 94.4 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). PER_CELL=24, **bars carried over verbatim
+from §2864**.
+
+SIGN CONVENTION: `selectivity = |d_C|/max(d_A1,.5)`, **LOWER = MORE SELECTIVE**; "held-out MINUS selection" is **POSITIVE when selection
+was inflated**; "pick MINUS comparator" is **POSITIVE when the pick is WORSE**. No CE, no §312 L2, nothing installs.
+
+| clause | §2864 (PER_CELL 16) | **§2867 (PER_CELL 24)** | bar | null | verdict |
+|---|---|---|---|---|---|
+| pred_a inflation | .063 | **.197** | ≥ .15 | ≤ .05 | **FALSE → TRUE** |
+| pred_b pick vs named writer | −.020 | **−.031** | ≥ 0 | ≤ −.05 | FALSE both, **still undecided** |
+| pred_c selection beats random | −.266 | **−.088** | ≤ −.05 | ≥ 0 | TRUE both, **much weaker** |
+| pred_d argmin does not reproduce | 0 of 7 | **0 of 7** | ≤ 2 | ≥ 5 | TRUE both |
+
+**pred_a flips: the winner's curse is real.** Median inflation .063 → **.197**, crossing its bar. §2864 concluded "mild, not none" and
+that conclusion does not survive more data — recorded here, in the section that measures it. Roman list **.424**, numeric run **.327**
+and numbered list **.299** carry it, against three behaviours under .10.
+
+**pred_c holds but loses two thirds of its margin**, −.266 → **−.088** against a −.05 bar, with roman list now *positive* (+.253, i.e.
+the pick is worse than random there). Read together with pred_a, §2864's tidy decomposition — "which component wins is noise, how
+selective it is transfers" — is **substantially weakened**: at this sample size the value transfers only weakly, and one behaviour
+transfers not at all.
+
+**pred_b remains undecided a second time**, −.031 against a bar of ≥ 0 and a null of ≤ −.05 — inside both, again. Two runs at different
+sample sizes both land in the gap, so the honest statement is that an unconstrained held-out search over 36 components is
+**indistinguishable from the battery's causally-identified writer**, and no further data at this design will settle it; a different
+handle is needed.
+
+**pred_d is now three-for-three: 0 of 7 in §2862 (post-hoc, SELECT/TEST), 0 of 7 in §2864 (registered, FIT/TEST), 0 of 7 here.** The
+instability of the argmin is the single most reproducible finding of this arc.
+
+## §2868 — THE PERCENTILE IS THE SAME ON A DIFFERENT POPULATION: .214 / .1875 / .200 — SO THE NUMBER IS REAL AND SITS ON THE BAR, WHICH IS NOT AN OUTLIER
+
+Registered `polynomial_causal/CIRCUIT_BATTERY_NULL_OOD_PREREGISTRATION.md` (08:36Z). Run `circuit_battery_null_ood_handle`, landed
+08:40Z.
+Results: circuit_battery_null_ood_handle_results.json
+Price: 6984 GPU forwards, 108.7 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`). Scored on the **OOD** split — held-out
+vocabulary pools, disjoint from SELECT and TEST — with **bars carried over verbatim from §2862**.
+
+**All five preds TRUE, no null met**, and the number this rung was registered to settle:
+
+| | §2862 (SELECT, n=16) | §2866 (SELECT, n=24) | **§2868 (OOD, n=24)** |
+|---|---|---|---|
+| attn8's median percentile | .214 | .1875 | **.200** |
+| component ranking ρ | .596 | .749 | **.763** (OOD vs TEST) |
+| live components under the retired .25 bar | 6 | 5 | **8** |
+| null spread (p90−p10) | 1.457 | 1.485 | **1.479** |
+
+**Three measurements, two populations, spanning .1875 to .214, with the third landing on exactly .200 — the bar itself.** §2866
+declined to upgrade the claim on a .027 bar crossing and this rung vindicates that restraint: the percentile is a **stable, real
+quantity** that sits **at** the outlier threshold rather than below it. The prediction is recorded TRUE, as registered; the claim
+"attn8 is an outlier" is **still not adopted**, and now for a measured reason rather than a cautious one.
+
+The ranking clause is the strong result: **ρ .763 between OOD and TEST**, on populations built from disjoint vocabulary pools. Per-component
+selectivity survives a genuine distribution change — which, set beside §2867's third consecutive 0-of-7 argmin agreement, completes the
+picture: **the ordering of components is a robust fact about the model; the identity of its minimum is not.** That is what many
+components sharing a similar true value looks like, and it is the leading account of the 8–15 band.
+
+§2860's "selectivity un-established" stands. The explained fraction is **unchanged** (5.348% / 10.923% / 4.727 nat / 0 of 68).
