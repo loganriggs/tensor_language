@@ -72952,7 +72952,7 @@ component cost this campaign has is the class-mass map — which is a lead for t
 mechanism claim would need attn5's write decomposed the way attention 8's was in §2820 and §2826, with the class-mass metric, and that
 is the obvious next rung.
 
-Price: 149 GPU document-forwards, 0 backwards, **0 fitted parameters**.
+Price: 149 GPU document-forwards, 12.7 GPU-seconds, 0 backwards, **0 fitted parameters**. [seconds ADDED 2026-09-04T08:1xZ — the original line omitted them entirely, so `ops/audit_ledger_prices.py` could not parse it and skipped this section in silence; surfaced by the guard's new unauditable-section report (§2858). The forwards figure was always right and the receipt was always complete; 12.7 s is read from it.]
 Results: circuit_battery_attn5_class_gate_price_results.json. (Claude, LANE 1 CUDA.) a, c, d, e TRUE; b FALSE with no null met.
 Preserved.
 
@@ -74244,9 +74244,13 @@ Results: circuit_battery_copy_control_redesign_results.json. (Claude, LANE 1 CUD
 Registered `polynomial_causal/CIRCUIT_BATTERY_PROTOCOL_V5_PREREGISTRATION.md` (written 08:05:35Z, frozen into the rung's `HASHES`
 before execution, git 08:06:11Z; **the in-document header reads "08:0xZ", which is imprecise — these mtimes are authoritative**, and
 the rule adopted here is to read `date -u` BEFORE composing a preregistration header, as §2810 point 7 required of amendment headings).
-Run `circuit_battery_preserving_control_repair`, landed 08:06Z. Results: `circuit_battery_preserving_control_repair_results.json`.
-Price, read with `price` in the same command this section was written from (§2853): **368 GPU forwards, 0 backwards, 0 fitted
-parameters, 6.62 GPU-seconds**, `smoke: false`.
+Run `circuit_battery_preserving_control_repair`, landed 08:06Z.
+Results: circuit_battery_preserving_control_repair_results.json
+Price: 368 GPU forwards, 6.6 GPU-seconds (0 backwards, 0 fitted parameters, `smoke: false`) — read with `price` in the same command
+this section was written from (§2853). The canonical `Price:`/`Results:` wording is required: my first draft of this section wrapped
+the filename in backticks and buried the count in prose, and `ops/audit_ledger_prices.py` silently skipped the section — it counts only
+sections carrying BOTH lines in the form it can parse, so an unparseable section is invisible rather than flagged. Caught by the
+checked-count staying at 43 after this section was added.
 
 SIGN CONVENTION for everything below: damage `d_m = m_NATIVE − m_arm`, **POSITIVE = the arm HURTS that family's own answer**;
 `ratio = max over usable controls of |d_control| / max(d_A1, .5)`, **LOWER IS MORE SELECTIVE**. No CE and no §312 L2 appears here and

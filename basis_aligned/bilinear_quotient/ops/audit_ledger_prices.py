@@ -32,7 +32,7 @@ SEC_TOL = 0.15          # GPU-seconds wobble between the receipt write and the l
 def audit(since=0, verbose=True):
     text = LEDGER.read_text()
     marks = [(m.group(1), m.start()) for m in SEC.finditer(text)]
-    bad, checked = [], 0
+    bad, checked, halfnamed = [], 0, []
     for i, (num, start) in enumerate(marks):
         if int(num) < since:
             continue
@@ -40,6 +40,15 @@ def audit(since=0, verbose=True):
         body = text[start:end]
         pm, rm = PRICE.search(body), RESULTS.search(body)
         if not pm or not rm:
+            # A section that names one of the two in prose the regexes cannot parse used to be SKIPPED IN SILENCE,
+            # so an unauditable section was indistinguishable from an audited one (found 2026-09-04 08:1xZ when
+            # SS2858 was added and the checked count stayed at 43). Report those rather than swallow them.
+            # Exactly one of the two canonical lines present: the section makes an auditable claim but cannot be
+            # audited. (A section with NEITHER makes no price claim and is correctly silent. An earlier, looser
+            # heuristic keyed on the words "Price"/"GPU forward" anywhere in the body and flagged prose -- SS2830's
+            # "price cliff", SS2853's narrative about prices -- so it is the presence of the LINES that counts.)
+            if bool(pm) != bool(rm):
+                halfnamed.append(num)
             continue
         path = ROOT / rm.group(1)
         if not path.is_file():
@@ -58,12 +67,18 @@ def audit(since=0, verbose=True):
                 print(f"§{num}: ledger {wf} fwd / {ws} s  vs receipt {af} / {asec}  ({rm.group(1)})")
     if verbose:
         print(f"checked {checked} sections with both a Price and a Results line; {len(bad)} mismatched")
-    return bad, checked
+        if halfnamed:
+            print(f"UNAUDITABLE: {len(halfnamed)} section(s) mention a price or a receipt but not in the parseable "
+                  f"`Price: N GPU forwards, X GPU-seconds` / `Results: <file>.json` form: "
+                  + ", ".join("§" + n for n in halfnamed))
+    return bad, checked, halfnamed
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--since", type=int, default=0, help="only audit sections numbered >= this")
+    ap.add_argument("--strict", action="store_true",
+                    help="also fail when a section names a price or receipt unparseably")
     a = ap.parse_args()
-    bad, _ = audit(a.since)
-    sys.exit(1 if bad else 0)
+    bad, _checked, halfnamed = audit(a.since)
+    sys.exit(1 if (bad or (a.strict and halfnamed)) else 0)
