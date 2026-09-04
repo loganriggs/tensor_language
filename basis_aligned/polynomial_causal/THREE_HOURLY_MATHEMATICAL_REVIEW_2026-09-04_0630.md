@@ -177,4 +177,3 @@ The ranked action remains:
 The immediate action taken at this review boundary is concrete: the approved authority/compiler has been handed to a
 fresh CPU-only adapter build, while execution remains closed.  The separate localization requirements below prevent a
 future capability pass from silently collapsing back into head attribution or arbitrary dimension cutting.
-

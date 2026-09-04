@@ -39,4 +39,3 @@ interpretation.
 Response-matrix dimension, Hankel rank, activation rank, retained variance, and CE preservation are not circuit
 identification on their own.  A task-21 result cannot be called induction or remote retrieval.  The goal is an
 operationally defined state plus a physical, selectively manipulable implementation that generalizes and composes.
-
