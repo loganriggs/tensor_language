@@ -1,0 +1,45 @@
+[heldout] natural_heldout: ZERO=+2.2033 HEADS_57=+0.0784 MEAN_fit=+0.1132 RANK_8_fitbasis=+0.0825 RANK_32_fitbasis=+0.0490 RANK_128_fitbasis=+0.0173
+[heldout] code: ZERO=+2.0613 HEADS_57=+0.0574 MEAN_fit=+0.1423 RANK_8_fitbasis=+0.1099 RANK_32_fitbasis=+0.0752 RANK_128_fitbasis=+0.0295
+{
+ "preds": {
+  "pred_a_heldout_rank_transports": true,
+  "pred_b_cross_corpus_rank_transports": true,
+  "pred_c_parameter_free_heads_transport": true,
+  "pred_d_the_top_direction_is_stable": true,
+  "pred_e_instrument_reproduces_native_ce_matched": true
+ },
+ "nulls": {
+  "a_null_heldout_fails": false,
+  "b_null_cross_fails": false,
+  "c_null_heads_do_not_transport": false,
+  "d_null_direction_unstable": false
+ },
+ "summary": {
+  "arms": {
+   "natural_heldout": {
+    "native": 3.0985697507858276,
+    "ZERO": 2.2032614151636762,
+    "HEADS_57": 0.07840156555175781,
+    "MEAN_fit": 0.1132362286249795,
+    "heads57_energy_fraction": 0.7555596232414246,
+    "RANK_8_fitbasis": 0.0825047890345254,
+    "RANK_32_fitbasis": 0.0490413109461465,
+    "RANK_128_fitbasis": 0.017343759536743164
+   },
+   "code": {
+    "native": 3.8978872299194336,
+    "ZERO": 2.061294237772624,
+    "HEADS_57": 0.05743122100830078,
+    "MEAN_fit": 0.14228113492329886,
+    "heads57_energy_fraction": 0.773979663848877,
+    "RANK_8_fitbasis": 0.10991668701171875,
+    "RANK_32_fitbasis": 0.07521863778432225,
+    "RANK_128_fitbasis": 0.02948327859242772
+   }
+  },
+  "cos_top_direction_within_corpus": 1.0001301765441895,
+  "cos_top_direction_cross_corpus": 0.9969750642776489,
+  "heads_gap_vs_in_sample": 0.009898434448242191,
+  "in_sample_reference_heads57": 0.0883
+ }
+}

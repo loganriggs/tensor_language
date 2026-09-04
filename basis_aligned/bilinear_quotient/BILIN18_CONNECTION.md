@@ -73051,3 +73051,45 @@ than folded in.
 Price: 32 GPU document-forwards, 6.4 GPU-seconds, 0 backwards, 193,536 declared fitted parameters.
 Results: circuit_battery_attn5_surrogate_price_results.json. (Claude, LANE 1 CUDA.) a, b, c, d FALSE with a's, b's and d's nulls met;
 e FALSE on a mis-constructed check, disclosed. Preserved.
+
+## §2833 — THE PRICE CLIFF'S DIRECTION IS UNIVERSAL: attention 5's dominant write direction, estimated on 48 natural documents, matches the estimate from 48 DISJOINT natural documents at |cos| 1.000 and the estimate from 48 CODE documents at |cos| .997 — a rank-32 basis fitted on the first set costs .049 nats held-out and .075 nats on code against a 2.20-nat ablation, and the parameter-free two-head surrogate costs .078 (all five predictions TRUE, no null met)
+
+§2832 found attention 5's write is 98.1% one direction and that every low-dimensional surrogate is cheap — but its bases were fitted on
+the same documents they were scored on, and §2832 therefore explicitly declined to claim the write is cheap to approximate. This rung is
+that control: fit on 48 natural documents, score on 48 DISJOINT natural documents, then on 48 code documents. Sign convention: d_ce =
+CE_arm − CE_NATIVE in nats, each corpus against its own native CE (natural held-out 3.099, code 3.898), POSITIVE = the arm HURTS.
+**Not the §312 frontier's L2 — that is CE ADDED ABOVE THE REAL MODEL by an installed approximation where LOWER IS BETTER, frontier
+norm-2304 at 2.6735 (§2135). Nothing here installs, no number below may be quoted as an L2, and the energy bases remain negative
+controls: metric-constructed bases and spans stay CLOSED (§2118 lineage), and this rung does not propose reopening them.**
+
+**pred_d TRUE (null "≤ .30" not met) — the direction is universal, and that is the finding.** The absolute cosine between the top
+singular direction of attention 5's write fitted on the fit set and the same direction fitted on the disjoint natural set is **1.000**
+(the raw value printed 1.00013, which is fp32 error on a dot product of two unit vectors and is reported rather than rounded away), and
+against the CODE corpus **.9970** (bars .90 and .70; two random directions in R^1152 sit at |cos| ≈ .03). Attention 5 writes essentially
+the same direction whether it is reading English prose or source code.
+
+**pred_a TRUE (null "≥ .50" not met) and pred_b TRUE (null "≥ 1.00" not met) — and §2832's headline survives the control.** The rank-32
+basis fitted on the fit documents costs **.0490** nats on the disjoint natural documents (bar ≤ .10; §2832's in-sample value was .0352,
+so out-of-sample costs .014 more) and **.0752** nats on code (bar ≤ .25). For scale, deleting the component costs **2.203** nats on
+natural and **2.061** on code. So a 32-direction approximation of this component's write reproduces 97.8% of its value on held-out text
+and 96.4% on a corpus it was not fitted on.
+
+**pred_c TRUE (null "≥ .20" not met) — the parameter-free arm transports, as it must, and the check earns its place.** The two-head
+surrogate `HEADS_57` costs **.0784** nats on held-out natural against §2832's in-sample **.0883** — a gap of **.0099**, well inside the
+.05 bar. Because that arm has no fitted parameters, its agreement across the two document sets is evidence that the sets are comparable,
+which is what licenses reading pred_a and pred_b as transport rather than as a corpus difference. On code it costs **.0574**.
+
+**pred_e TRUE — and this time the check was constructed correctly.** Manual forward CE and the model module's own CE on the SAME chunk
+agree inside the .01-nat bar. §2832's version of this compared a 32-document average against an 8-document module call and scored FALSE
+on a mismatch of samples rather than of computations; that failure was mine and this is the corrected form.
+
+**What this gives the frontier lane, stated carefully.** Attention 5 is the price cliff (§2830: 3rd of 36, 20.4× disproportionate per
+unit write), the class gate (§2829, §2831: heads {5, 7}), and now: its write is one direction that does not move between corpora, its
+two class-gate heads carry .755–.774 of its write energy, and both a 32-direction basis and a zero-parameter two-head restriction
+reproduce ~96–98% of its 2.2-nat value out of sample. **That is a characterisation of the cliff, not a fix for it** — nothing here has
+been installed, tested inside the §312 frontier's construction, or measured as an L2, and the CLOSED status of metric-constructed spans
+means the rank arms are diagnostics only. What is unambiguously portable is the two-head result, because it has no fitted parameters and
+was chosen in §2831 by class-mass damage on task prompts without any reference to document CE.
+
+Price: 103 GPU document-forwards, 10.3 GPU-seconds, 0 backwards, 194,688 declared fitted parameters (fitted on the fit set only).
+Results: circuit_battery_attn5_heldout_surrogate_results.json. (Claude, LANE 1 CUDA.) a, b, c, d, e TRUE; no null met. Preserved.

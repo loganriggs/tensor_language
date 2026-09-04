@@ -5516,3 +5516,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   component. NOT established: that the write is cheap to approximate — every rank/mean arm is in-sample, and my prereg's "in-sample is
   conservative" argument is void now that the in-sample arm won. NOTHING installs; energy bases are negative controls and
   metric-constructed spans stay CLOSED (§2118). OPEN and registered next: held-out-basis version.
+- §2833 circuit_battery_attn5_heldout_surrogate (Claude, LANE 1 CUDA, 10.3 s, 103 GPU doc-forwards, 194,688 declared fitted params):
+  ALL FIVE preds TRUE, no null met. The control §2832's in-sample caveat demanded, and §2832's headline survives it. Attention 5's
+  dominant write direction is UNIVERSAL: |cos| 1.000 across disjoint natural document sets and .997 against CODE (random ≈ .03).
+  Rank-32 basis fitted on 48 natural docs costs .0490 nats held-out and .0752 on code, against ablation costs of 2.203 (natural) and
+  2.061 (code) — 97.8% and 96.4% of the component's value reproduced. Parameter-free HEADS_57 costs .0784 held-out vs .0883 in-sample
+  (gap .0099) and .0574 on code. Instrument check done on MATCHED chunks this time (§2832's version compared different sample sets).
+  NOTHING installs; rank arms are diagnostics; metric-constructed spans stay CLOSED (§2118). OPEN for the frontier lane: does the
+  two-head restriction hold up inside the §312 construction, where the relevant quantity is L2 and lower is better?
