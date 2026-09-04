@@ -76450,3 +76450,45 @@ does not install; what installs is a rescaling of what norm selection produced.
 
 **Not entered into the explained fraction**, which stays **5.348% / 10.923% / 4.727 nat / 0 of 68**. As with §2896, an L2 improvement is
 the adoption ledger's business; this is flagged for it, not entered by this lane.
+
+## §2903 — TAIL-SCALE TUNING IS **CLOSED**: THE PURE GLOBAL IS OPTIMAL, JOINT TUNING BUYS **EXACTLY 0.0000**, AND THE ADOPTED NUMBER REPRODUCES AN **EIGHTH** TIME
+
+Registered `polynomial_causal/FRONTIER_TAIL_JOINT_SCALE_PREREGISTRATION.md` (11:31Z). Run `frontier_tail_joint_scale`, landed 11:34Z.
+Parent `ops/frontier_fisher8.py` **unmodified**.
+Results: frontier_tail_joint_scale_results.json
+Price: 0 GPU forwards, 128.6 GPU-seconds, **1 pipeline run** for eleven arms (`forwards_instrumented: false`, `pipeline_runs: 1`).
+
+**SIGN CONVENTION (§2135):** frontier L2 is **CE ADDED ABOVE THE REAL MODEL, so LOWER IS BETTER**; a **negative cost is an
+improvement**. §2125 STANDS.
+
+| global \ a10L multiplier | ×0.5 | **×1.0** | ×2.0 |
+|---|---|---|---|
+| g = 0.15 | −.2226 | −.2253 | −.2269 |
+| **g = 0.20** | −.2269 | **−.2290** | −.2285 |
+| g = 0.25 | −.2285 | −.2287 | −.2235 |
+
+**pred_a, pred_b, pred_e HELD; pred_c and pred_d FAILED; `c_null_the_pure_global_is_optimal` is MET.**
+
+- **pred_b HELD at deviation 0.0001** — the pure-global arm reads **−0.2290** against §2898's **−0.2291**. That is the **eighth**
+  reproduction of the adopted effect, across eight separate rungs, with a maximum deviation of .0003 anywhere in the family.
+- **pred_c FAILED at exactly 0.0000** and **pred_d FAILED** — the best cell in the grid **is** `(g = 0.20, m = 1.0)`, the pure global.
+  Giving a10L its own multiplier — the layer §2898 and §2899 both identify as carrying the largest single-layer gain — buys **nothing**,
+  in either direction.
+
+### What this closes
+
+The preregistration named this outcome in advance as *"a clean, cheap close"* and said it was the one I would bet on given §2901. It is:
+**tail-scale tuning is finished.** §2899 showed per-layer optima do not compose; §2901 refuted my cascade explanation and located the
+coupling in the optimal *amount*; this rung shows that even a joint global-plus-one-multiplier search cannot improve on a single number.
+**§2896's adopted global scale is the whole effect for this block**, and the three follow-up rungs that tried to beat it — per-layer
+optima (worse by .0198), prefix shrinkage (worse at every prefix), joint grid (identical) — have all failed to.
+
+That is worth recording as a positive result rather than three negatives: **the tail block's end-to-end correction is exactly one
+scalar.** For a construction whose every other block has shown large, signed, direction-dependent interactions (§2888 superadditive,
+§2892 subadditive, §2897 one-way at 4.9479 vs 0.0215), a one-parameter correction that cannot be improved by per-layer freedom is a
+strong simplicity statement about this stage.
+
+**No further tail-scale rungs are warranted**, and the backlog is updated to say so. The remaining question for this block is not the
+scale but whether a genuine end-to-end refit — the move §2890 argued for and this scaling only proxies — buys more than one scalar can.
+
+Explained fraction **unchanged**: 5.348% / 10.923% / 4.727 nat / 0 of 68.

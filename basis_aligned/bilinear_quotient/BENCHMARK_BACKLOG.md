@@ -5906,3 +5906,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - **[§2902] DO THE ADOPTED SCALINGS COMPOSE?** Tail `LW` × 0.25 (−0.2287, §2896) and CP `Dk` × 0.5 (−0.1075, §2902) are different
   blocks. Additivity would give ≈ −0.336 → L2_F ≈ 2.338. Given §2888 found front×motif **super**additive and §2892 found motif layers
   **sub**additive, neither sign is safe to assume. One eval-only run.
+
+- **[§2903] CLOSED — tail-scale tuning.** The pure global 0.20 is optimal; a joint global × a10L-multiplier grid buys **exactly
+  0.0000**, and per-layer optima (§2899, worse by .0198) and prefix shrinkage (§2901, worse at every prefix) both failed to beat it.
+  **§2896's adopted single scalar is the whole effect for this block — do not spend further rungs on it.** The open question for the
+  tail is whether a genuine end-to-end refit beats one scalar, not what the scalar should be.
