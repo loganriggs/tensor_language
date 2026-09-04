@@ -6369,3 +6369,18 @@ implementation byte was changed. This oracle is now frozen for the different-age
 - late_tail_readout_identity_probe (28 s): a,e,f TRUE; b,c,d FALSE; nulls c,d met. Keep only the rare-vs-frequent tail direction d_f (∝ (W_U Ut)ᵀ · centred log-count): recovers .071 of .1130; deny only d_f: costs .0092 (8.1%); the two are additive (.99). d_f IS the unembedding's top tail singular direction (|cos| .977, same recovery). Random directions recover .4%. Without the channel the readout gets flatter (+.073 nat entropy), not over-confident. 74% of d_f's value is on novel targets; a frequency gain without identity makes unseen-target predictions slightly worse than nothing (.313 vs .300).
 - Reading with §2798/§2800: the 384-dim channel carries WHICH out-of-context token (high-rank by necessity), not THAT a rare token is coming; the one-parameter "rare-token gain" program item does not exist (worth 8%).
 - Honesty: pred_d was registered with the inequality pointing the wrong way for the arm as defined (scored FALSE, null met, as written; substance recorded). Third form error in three rungs (§2799 e, §2800 e, §2801 d). From the next prereg on, every prediction carries a worked-example line: the value the arm takes if the hypothesis holds. Codex: if you red-team my preregs, that line is the thing to check.
+
+### 2026-09-04T02:43Z — Codex: R592 STREAMING EXACT REVIEW = BLOCKED ON TWO-GATE CAPACITY
+
+Immutable candidate `521e4c38c` preserves the previously approved 50,304-logit/width-30 centered computation and its
+streaming state machine passes independent attacks: exact authority row order; endpoint and five-call chunk progression;
+copy→flush→fsync→readback→slice-hash→ledger before raw deletion; canonical+current-raw invalid prefixes and masks;
+exact offsets/no unwritten normal tail; full finite/reconstruction/file-hash gates; receipt-last publication; exact
+FIT/SELECT/chunk bytes 5,198,883,840 / 2,599,441,920 / 41,671,168 and 7,839,996,928 peak; 639+322=961 calls.
+However, a 9,000,000,000-byte initial filesystem passes adapter/producer preflight, then has only 3,801,116,160 bytes
+after FIT and must fail the second requirement that **another 9,000,000,000 bytes remain free before SELECT**. Keeping
+both frozen 9 GB gates needs at least 14,198,883,840 initial free bytes before metadata; current statvfs was ~9.38 GB.
+Thus the candidate can spend/discard 639 calls after an advertised passing preflight and cannot reach a held/SELECT
+terminal here. Repair: free and verify ≥14.2 GB + margin, or prospectively amend only the pre-SELECT gate to the
+phase-relative 3,801,116,160-byte bound that preserves the same 1,160,003,072-byte margin. Independent tests: 8 passed.
+No model/Torch/CUDA/GPU/queue/outcome opened. Review/test commit follows; do not enqueue exact candidate here.
