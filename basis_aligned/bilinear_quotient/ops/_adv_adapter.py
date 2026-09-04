@@ -63,6 +63,75 @@ def sha(b: bytes) -> str:
 
 
 # ----------------------------------------------------------------------------------------------------------------------
+# typed boundary extensions (2026-09-04, board 02:12): the fixture's inputs are carried INTO Codex's dataclasses
+# unchanged, as extra typed fields on frozen subclasses.  Each extension is literal JSON (asdict/spec_json render it), so
+# it enters spec_sha256 and therefore the contract hash; the current framework reads none of them (no adapter validation),
+# a framework that adopts the same field names consumes them without any change here.
+# ----------------------------------------------------------------------------------------------------------------------
+
+@dataclasses.dataclass(frozen=True)
+class ArmSpec:
+    """One arm exactly as the fixture declared it: a role-missing declaration keeps role=None (it is NOT defaulted)."""
+    name: str
+    role: str | None = None
+    direction: str | None = None
+
+
+@dataclasses.dataclass(frozen=True)
+class TypedCallFamilySpec(cs.CallFamilySpec):
+    """CallFamilySpec whose `arms` (names, what the compiler formats) are derived from typed `arm_specs`."""
+    arm_specs: tuple[ArmSpec, ...] = ()
+
+
+@dataclasses.dataclass(frozen=True)
+class PinnedAuthorityTableSpec(cs.AuthorityTableSpec):
+    """AuthorityTableSpec plus the preregistered canonical record digest: cs.canonical_sha256(rows) of the authority as
+    read at spec-construction time -- the same function compile_authority_tables applies to emit records_sha256."""
+    expected_records_sha256: str | None = None
+
+
+@dataclasses.dataclass(frozen=True)
+class TypedPredicateSpec(cs.PredicateSpec):
+    """PredicateSpec plus the fixture's predicate kind (instrument/authority/evidence/science); `evaluator_role` is now a
+    genuine role name resolved through the EvaluatorRegistry instead of a stand-in for the kind."""
+    kind: str | None = None
+
+
+class EvaluatorRegistry:
+    """Role -> live callable bindings (science projector, predicate evaluators).  Deliberately NOT serialisable: it never
+    enters the spec JSON, the contract hash or a package; json/pickle of it raise.  Lookup only, no validation."""
+
+    def __init__(self, bindings: Mapping[str, Callable]):
+        self._bindings = dict(bindings)
+
+    def __getitem__(self, role: str) -> Callable:
+        return self._bindings[role]
+
+    def __contains__(self, role: str) -> bool:
+        return role in self._bindings
+
+    def roles(self) -> tuple[str, ...]:
+        return tuple(sorted(self._bindings))
+
+    def bind(self, role: str, fn: Callable) -> "EvaluatorRegistry":
+        return EvaluatorRegistry({**self._bindings, role: fn})
+
+    def __deepcopy__(self, memo):
+        return self                          # callables are identities, not data
+
+    def __reduce__(self):
+        raise TypeError("EvaluatorRegistry holds live callables and is never serialised")
+
+
+def _arm_spec(a: Mapping) -> ArmSpec:
+    return ArmSpec(name=a["name"], role=a.get("role"), direction=a.get("direction"))
+
+
+def evaluator_role_for(predicate_id: str) -> str:
+    return f"{predicate_id}_evaluator"
+
+
+# ----------------------------------------------------------------------------------------------------------------------
 # spec construction on Codex's dataclasses
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -70,11 +139,15 @@ def sha(b: bytes) -> str:
 class SynthSpec:
     spec: cs.CircuitExperimentSpec
     base_dir: pathlib.Path
-    arms: list                       # the fixture's arm declarations (role/direction) -- Codex's spec cannot carry them
-    predicates: list                 # the fixture's predicate declarations (kind/evaluator) -- ditto
+    arms: list                       # the fixture's raw arm declarations (also carried typed in spec.calls[*].arm_specs)
+    predicates: list                 # the fixture's raw predicate declarations (kind/evaluator; typed in spec.predicates)
     science_names: list
-    projector: Callable
+    evaluators: EvaluatorRegistry    # projector_role -> projector, <predicate>.evaluator_role -> its evaluator
     batch: int
+
+    @property
+    def projector(self) -> Callable:
+        return self.evaluators[self.spec.science.projector_role]
 
 
 def build_synthetic_spec(*, experiment_id, rows_path, calls, arms, predicates, science_names, projector, batch=4):
@@ -84,24 +157,29 @@ def build_synthetic_spec(*, experiment_id, rows_path, calls, arms, predicates, s
     counts = {}
     for r in rows:
         counts[r["split"]] = counts.get(r["split"], 0) + 1
-    arm_names = tuple(a["name"] for a in arms)
+    arm_specs = tuple(_arm_spec(a) for a in arms)
     families = []
     for split in ("FIT", "SELECT"):
-        families.append(cs.CallFamilySpec(
-            name=f"{split.lower()}_margin", split=split, arms=arm_names, batch_size=batch, call_kind="margin",
-            guard="fit_always" if split == "FIT" else "selected_only", call_id_template="{split}:{arm}:{batch}",
-            sequence_field="ids", row_id_field="row_id", axis_order="arm_batch", sort_policy="canonical_json"))
-    preds = []
+        families.append(TypedCallFamilySpec(
+            name=f"{split.lower()}_margin", split=split, arms=tuple(a.name for a in arm_specs), batch_size=batch,
+            call_kind="margin", guard="fit_always" if split == "FIT" else "selected_only",
+            call_id_template="{split}:{arm}:{batch}", sequence_field="ids", row_id_field="row_id",
+            axis_order="arm_batch", sort_policy="canonical_json", arm_specs=arm_specs))
+    preds, bindings = [], {"projector": projector}
     for i, p in enumerate(predicates):
-        preds.append(cs.PredicateSpec(
-            predicate_id=p["predicate_id"], phase="FIT", priority=p.get("priority", i),
-            evaluator_role=p.get("kind", "evidence"), required_arrays=("margin",), disposition=p["disposition"]))
+        role = p.get("evaluator_role", evaluator_role_for(p["predicate_id"]))
+        preds.append(TypedPredicateSpec(
+            predicate_id=p["predicate_id"], phase="FIT", priority=p.get("priority", i), evaluator_role=role,
+            required_arrays=("margin",), disposition=p["disposition"], kind=p.get("kind")))
+        if "evaluator" in p:
+            bindings[role] = p["evaluator"]
     spec = cs.CircuitExperimentSpec(
         experiment_id=experiment_id, rung=0,
         artifacts=(cs.ArtifactRef("rows", rows_path.name, sha(rows_path.read_bytes()), "authority", dryrun_access=True),),
         phases=(cs.PhaseSpec("FIT"), cs.PhaseSpec("SELECT", opens_after="FIT")),
-        authority_tables=(cs.AuthorityTableSpec("rows", ("row_id",), group_fields=("group_id",),
-                                                expected_counts=counts, expected_total=len(rows)),),
+        authority_tables=(PinnedAuthorityTableSpec("rows", ("row_id",), group_fields=("group_id",),
+                                                   expected_counts=counts, expected_total=len(rows),
+                                                   expected_records_sha256=cs.canonical_sha256(rows)),),
         calls=tuple(families),
         arrays=(cs.ArraySpec("margin", ("margin",), "float64", ("batch",), True, "final_nonfinite_diagnostic"),),
         predicates=tuple(preds),
@@ -111,11 +189,11 @@ def build_synthetic_spec(*, experiment_id, rows_path, calls, arms, predicates, s
             output_types={n: ("boolean" if n.startswith("pred_") else "number") for n in science_names}),
     )
     cs.validate_spec(spec)
-    return SynthSpec(spec, base_dir, list(arms), list(predicates), list(science_names), projector, batch)
+    return SynthSpec(spec, base_dir, list(arms), list(predicates), list(science_names), EvaluatorRegistry(bindings), batch)
 
 
 def with_projector(synth: SynthSpec, projector) -> SynthSpec:
-    return dataclasses.replace(synth, projector=projector)
+    return dataclasses.replace(synth, evaluators=synth.evaluators.bind(synth.spec.science.projector_role, projector))
 
 
 def with_artifact(synth: SynthSpec, *, role, path, sha256, kind, executable=False) -> SynthSpec:
@@ -127,8 +205,9 @@ def with_artifact(synth: SynthSpec, *, role, path, sha256, kind, executable=Fals
 
 
 _MAPPING_FIELDS = {"expected_counts", "output_types"}
-_ITEM_TYPES = {"artifacts": cs.ArtifactRef, "phases": cs.PhaseSpec, "authority_tables": cs.AuthorityTableSpec,
-               "calls": cs.CallFamilySpec, "arrays": cs.ArraySpec, "predicates": cs.PredicateSpec}
+_ITEM_TYPES = {"artifacts": cs.ArtifactRef, "phases": cs.PhaseSpec, "authority_tables": PinnedAuthorityTableSpec,
+               "calls": TypedCallFamilySpec, "arrays": cs.ArraySpec, "predicates": TypedPredicateSpec,
+               "arm_specs": ArmSpec}
 
 
 def _tuples(v):
@@ -159,16 +238,19 @@ def dump_spec(synth: SynthSpec) -> str:
     cs.validate_spec(spec)
     return json.dumps({"spec": cs.spec_json(spec), "adapter": {
         "arms": synth.arms, "predicates": [{k: v for k, v in p.items() if k != "evaluator"} for p in synth.predicates],
-        "science_names": synth.science_names, "batch": synth.batch}}, sort_keys=True, indent=1)
+        "science_names": synth.science_names, "batch": synth.batch, "evaluator_roles": synth.evaluators.roles()}},
+        sort_keys=True, indent=1)
 
 
 def load_spec(spec_path: pathlib.Path) -> SynthSpec:
+    """Typed fields (arm_specs, expected_records_sha256, kind) round-trip through the spec JSON.  Callables do not: the
+    loaded registry binds only the projector role (default_projector); predicate evaluator roles stay UNBOUND."""
     data = json.loads(pathlib.Path(spec_path).read_text())
     spec = _from_json(cs.CircuitExperimentSpec, data["spec"])
     cs.validate_spec(spec)
     a = data["adapter"]
     return SynthSpec(spec, pathlib.Path(spec_path).parent, a["arms"], a["predicates"], a["science_names"],
-                     default_projector, a["batch"])
+                     EvaluatorRegistry({spec.science.projector_role: default_projector}), a["batch"])
 
 
 def default_projector(records):
@@ -335,7 +417,8 @@ class Package:
     compiled: Compiled
     evidence: Evidence
     result: dict
-    predicates_evaluated: bool = False       # Codex evaluates no predicate; see project_result
+    predicates_evaluated: bool = False       # True only once a FRAMEWORK function evaluated them; see project_result
+    evaluators: EvaluatorRegistry | None = None   # the bindings handed to the framework boundary for this package
 
     @property
     def scores(self) -> dict:
@@ -351,16 +434,19 @@ def _projector_of(synth: SynthSpec):
 
 
 def project_result(c: Compiled, evidence: Evidence) -> Package:
-    """Producer path: projection = projector(primitives); Codex's audit = validate_science_projection, which recomputes
-    the projector ONCE on the same evidence object.  No predicate is evaluated because Codex's PredicateSpec has no
-    evaluator (evaluator_role is a string) and no module resolves a terminal from predicate_order."""
+    """Producer path: projection = projector(primitives), projector resolved by science.projector_role through the
+    registry; Codex's audit = validate_science_projection, which recomputes the projector ONCE on the same evidence
+    object.  Every registered predicate evaluator is available here as c.synth.evaluators[predicate.evaluator_role]
+    alongside the typed predicates (kind/priority/disposition) in c.synth.spec.predicates and compiled predicate_order,
+    but NO Codex function takes them: no module evaluates a predicate or resolves a terminal, so predicates_evaluated
+    stays False and the terminal is the projector's unconditional 'ok'."""
     prim = {"records": evidence.primitives}
     projection = dict(c.synth.projector(evidence.primitives))
     pkg.validate_science_projection(prim, projection, _projector_of(c.synth))
     result = {"schema": "redteam_result_v1", "experiment_id": c.synth.spec.experiment_id, "contract_hash": c.contract_hash,
               "manifest_sha256": c.compiled["call_summary"]["manifest_sha256"], "projection": projection,
               "terminal": TERMINAL_OK, "predicate_order": c.compiled["predicate_order"]}
-    return Package(c, evidence, result)
+    return Package(c, evidence, result, predicates_evaluated=False, evaluators=c.synth.evaluators)
 
 
 def package_paths(target: pathlib.Path, namespace: str) -> pkg.PackagePaths:

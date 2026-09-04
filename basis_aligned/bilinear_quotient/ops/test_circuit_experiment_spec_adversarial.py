@@ -218,6 +218,18 @@ def test_adapter_manifest_is_the_generator_schedule(workdir):
     assert compiled.calls == calls
     assert compiled.max_price == len(calls) == 10
     assert api.validate_call_evidence(compiled, make_evidence(calls), workdir=workdir).ok
+    # the typed boundary carries the fixture's declarations losslessly (board 02:12) and the contract hash covers them
+    spec = compiled.synth.spec
+    for family in spec.calls:
+        assert [(a.name, a.role, a.direction) for a in family.arm_specs] == [(a["name"], a["role"], a["direction"]) for a in ARMS]
+        assert family.arms == tuple(a.name for a in family.arm_specs)
+    assert spec.authority_tables[0].expected_records_sha256 == compiled.compiled["authority"]["rows"]["records_sha256"]
+    assert compiled.synth.evaluators[spec.science.projector_role] is projector_mean_gap and spec.predicates == ()
+    roleless = api.build_synthetic_spec(experiment_id="redteam", rows_path=str(workdir / api.ROWS_FILE), calls=calls,
+                                        arms=[{"name": "native"}, {"name": "counterfactual"}], predicates=[],
+                                        science_names=list(SCIENCE_NAMES), projector=projector_mean_gap)
+    assert roleless.spec.calls[0].arm_specs[0].role is None and roleless.spec.calls[0].arms == spec.calls[0].arms
+    assert api.canon(api.cs.spec_json(roleless.spec)) != api.canon(api.cs.spec_json(spec))
 
 
 # --- A2 -----------------------------------------------------------------------------------------------------------------
@@ -227,11 +239,14 @@ def test_split_swap_preserving_counts_rejected(workdir):
     spec = _spec(workdir, rows, make_calls(rows))
     good = api.compile_experiment(spec, authority_inputs={"rows": _canon(rows)})
     swapped = _expect_refusal(
-        lambda: api.compile_experiment(spec, authority_inputs={"rows": _canon(bad)}), ("split",),
-        missing="A2: AuthorityTableSpec pins only expected_counts/expected_total; a count-preserving FIT/SELECT swap compiled clean "
-                "(compile_authority_tables emits records_sha256 but the spec cannot pin it and nothing compares it)")
+        lambda: api.compile_experiment(spec, authority_inputs={"rows": _canon(bad)}), ("split", "record", "digest"),
+        missing="A2: the spec pins expected_records_sha256 (= canonical_sha256(rows), the value compile_authority_tables emits as "
+                "records_sha256) but the compiler compares only expected_counts/expected_total, so a count-preserving FIT/SELECT swap "
+                f"compiled clean (pinned {spec.spec.authority_tables[0].expected_records_sha256[:12]}..., swapped rows hash "
+                f"{api.cs.canonical_sha256(bad)[:12]}...)")
     assert swapped is not None
     assert good.compiled["authority"]["rows"]["counts_by_split"] == {"FIT": 12, "SELECT": 6}
+    assert good.compiled["authority"]["rows"]["records_sha256"] == spec.spec.authority_tables[0].expected_records_sha256
 
 
 # --- A1 -----------------------------------------------------------------------------------------------------------------
@@ -239,8 +254,10 @@ def test_split_swap_preserving_counts_rejected(workdir):
 def test_arm_role_missing_rejected(workdir):
     rows = make_authority()
     _expect_refusal(lambda: _spec(workdir, rows, make_calls(rows), arms=[{"name": "native"}, {"name": "counterfactual"}]), ("role",),
-                    missing="A1: CallFamilySpec.arms is tuple[str, ...]; there is no ArmSpec(role, direction), so a spec whose arms "
-                            "declare no counterfactual/native role validated clean and the contract hash covers arm NAMES only")
+                    missing="A1: the typed arm declarations reach the spec as CallFamilySpec.arm_specs (ArmSpec(name, role=None, "
+                            "direction=None) for this role-missing input, distinct from the role-bearing ARMS in spec JSON and hash), "
+                            "but validate_spec/compile_call_manifest read only the arm NAMES, so a spec whose arms declare no "
+                            "counterfactual/native role validated clean")
 
 
 def test_dead_arm_identical_evidence_is_hard_abort(workdir):
@@ -303,11 +320,17 @@ def test_instrument_failure_dominates_science_success(workdir):
     compiled = _compile(workdir, rows, calls, predicates=preds)
     ev = make_evidence(calls)                          # science would be a clean positive gap; the instrument bound FAILS
     assert not preds[0]["evaluator"](ev)
+    registered = compiled.synth.spec.predicates[0]
+    assert registered.kind == "instrument" and registered.disposition == "hard_abort"
+    assert compiled.synth.evaluators[registered.evaluator_role] is preds[0]["evaluator"]     # reaches the boundary intact
     pkg = api.project_result(compiled, api.package_evidence(compiled, ev))
+    assert pkg.evaluators is not None and registered.evaluator_role in pkg.evaluators
     assert pkg.predicates_evaluated and pkg.terminal == "hard_abort" and pkg.scores.get("score_gap") is None, (
-        "A4: PredicateSpec carries evaluator_role (a string) and an int priority; no Codex module evaluates a predicate or resolves "
-        "a terminal from predicate_order, so a FAILING registered instrument bound cannot dominate the science projection "
-        f"(predicate_order={compiled.compiled['predicate_order']}, terminal={pkg.terminal!r}, score_gap={pkg.scores.get('score_gap')})")
+        "A4: the failing instrument evaluator is registered under evaluator_role "
+        f"{registered.evaluator_role!r} (kind={registered.kind!r}, disposition={registered.disposition!r}) and handed to the boundary, "
+        "but no Codex module evaluates a predicate or resolves a terminal from predicate_order, so a FAILING registered instrument "
+        f"bound cannot dominate the science projection (predicate_order={compiled.compiled['predicate_order']}, "
+        f"terminal={pkg.terminal!r}, score_gap={pkg.scores.get('score_gap')})")
 
 
 def test_science_priority_above_instrument_rejected_at_compile(workdir):
@@ -315,8 +338,9 @@ def test_science_priority_above_instrument_rejected_at_compile(workdir):
     preds = [{"predicate_id": "instrument_x", "kind": "instrument", "priority": 5, "evaluator": lambda ev: True, "disposition": "hard_abort"},
              {"predicate_id": "science_y", "kind": "science", "priority": 1, "evaluator": lambda ev: True, "disposition": "diagnostic"}]
     _expect_refusal(lambda: _compile(workdir, rows, calls, predicates=preds), ("priority",),
-                    missing="A4: PredicateSpec has no kind (instrument < authority < evidence < science); priority is a bare int and "
-                            "predicate_order a bare sort, so a science predicate at priority 1 above an instrument predicate at 5 compiled clean")
+                    missing="A4: the predicate kinds reach the spec typed (PredicateSpec.kind = 'instrument' / 'science') but nothing "
+                            "orders kinds (instrument < authority < evidence < science); priority is a bare int and predicate_order a "
+                            "bare sort, so a science predicate at priority 1 above an instrument predicate at 5 compiled clean")
 
 
 # --- A5 -----------------------------------------------------------------------------------------------------------------

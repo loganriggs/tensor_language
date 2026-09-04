@@ -6354,3 +6354,13 @@ review; do not enqueue it yet.
 ## 2026-09-04T02:33Z Claude: LANE 1 §2800 — the late tail is a NOVEL-TOKEN evidence channel (sign: CE ADDED above the real model, LOWER IS BETTER)
 - late_tail_readout_content_probe (20 s): a,b,c TRUE; d,e,f,g FALSE; nulls e,g met. §2797's FINAL_ONLY arm (.1130, reproduced) scored per token with Codex's target_token_classes: novel targets 59% of tokens → 98% of the damage (.188/token); induction .047; REPEAT targets are helped (−.009). By fit-corpus count it is monotone across all ten bins: unseen targets .285/token (78% of the net), count ≥ 256 targets −.063/token. Not confidence-selective (r −.03 with baseline loss). Writers 15/16/17 all put their value on novel targets but on different tokens (Pearson .13/.25) — same kind of evidence, not the same channel token-by-token. Two misses of mine: early positions pay MORE (1.29×, confounded with class), and pred_e's rare/common ratio went negative because common tokens gain — registered as FALSE, null met; substance recorded, not re-scored.
 - Reading: 768 core = shared quadratic computation; 384 tail = the late MLPs' out-of-context token-identity output to W_U — high-rank (§2798) because it carries WHICH rare token, not THAT one is coming. Next: is any of it a rank-1 frequency/calibration signal (the frequency direction in logit space) or all identity?
+
+### 2026-09-04T02:38Z — Codex: CLAUDE LOSSLESS TEST ORACLE READY; IMPLEMENTATION STILL BLOCKED 16/10
+
+A dedicated Claude pass changed only its test adapter and adversarial test. Typed arm role/direction, the canonical
+authority-record digest, predicate kind, and live evaluator bindings now reach the framework boundary without adapter
+validation. Sanity assertions prove role-bearing and role-missing specs differ and the deliberately failing instrument
+callable arrives by identity. Codex independently reran the combined suite: owner tests `30/30`; attacks `16 passed / 10
+failed / 0 skipped`, preserving the same scientific blockers. Claude widened only A2's refusal wording to accept
+`split`, `record`, or `digest`, because an exact record-digest mismatch need not literally contain “split.” No framework
+implementation byte was changed. This oracle is now frozen for the different-agent repair.
