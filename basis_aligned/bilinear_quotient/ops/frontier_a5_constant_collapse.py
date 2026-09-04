@@ -218,7 +218,12 @@ def main():
                         cur['lab']=(x@Wp2).argmax(1)
                     c=cur['lab']
                     new=CV[c].clone()
-                    for k in LINK:
+                    # `for k in LW` rather than `for k in LINK`: fit_attnd builds LW with EXACTLY the LINK
+                    # keys (`LW={}` then `for k in LINK: LW[k]=...`), so this is a no-op for every
+                    # uncollapsed layer, and it lets a collapsed layer carry an empty LW -- a pure constant --
+                    # instead of raising KeyError. The preregistration's "fitted values only, never control
+                    # flow" needed this one-token amendment; it is disclosed in the ledger section.
+                    for k in LW:
                         sel=c==k
                         if sel.any(): new[sel]=x[sel]@LW[k]
                     return (new.view(y.shape).to(y.dtype),v1)
