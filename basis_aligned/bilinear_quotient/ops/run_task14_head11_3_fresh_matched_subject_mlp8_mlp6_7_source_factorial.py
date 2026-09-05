@@ -30,10 +30,12 @@ import run_task14_head11_3_subject_attractor_score_payload_factorial as factors
 
 ROOT = Path(__file__).resolve().parent.parent
 PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1.json"
+OOM_AMENDMENT = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_oom_batching_amendment.json"
 LICENSE = ROOT / "circuits/fast_screens/task14_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_capability_license.json"
 PARENT_RESULT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json"
 OUT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_result.json"
 PRIOR_ART_SHA256 = "94a41203cd8b9176cad2323d353cba4c8b26d369a83598298ae178ffdd211c96"
+OOM_AMENDMENT_SHA256 = "9c1396d9c7a3ac311eda30901e943f5441bc566c46edf456b1ac805ddbee0ecc"
 LICENSE_SHA256 = "e2d784b17ab156280462ace15a52451757b85099446ea299c17a17e8593c0d0f"
 PARENT_RESULT_SHA256 = "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f"
 CANDIDATE_ID = "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1"
@@ -49,6 +51,7 @@ CONDITIONS = ("recipient",) + tuple(
 PARENT_CORNERS = {subset: subset.replace("X", "YZ") for subset in parent.SUBSETS}
 PARENT_TO_CHILD = dict(PARENT_CORNERS)
 PARENT_AGGREGATES = ("M", "EM", "AM")
+PATCH_CHUNKS = ((0, 3032), (3032, 6064))
 DOWNSTREAM_CAPTURE_REQUIRED = frozenset({
     "p", "u", "head", "E", "A", "M", "M0_3", "MR", "H", "HR", "R",
     "raw_state", "normalized_state", "current_pre", "cached_pre", "effective_pre",
@@ -89,11 +92,16 @@ def build_rows():
 def validate_preflight():
     for path, expected, label in (
         (PRIOR_ART, PRIOR_ART_SHA256, "prior-art receipt"),
+        (OOM_AMENDMENT, OOM_AMENDMENT_SHA256, "OOM batching amendment"),
         (PARENT_RESULT, PARENT_RESULT_SHA256, "parent E/A/U/W/X result"),
     ):
         if _sha256(path) != expected:
             raise MLP8MLP67SourceError(f"{label} changed")
     parent_result = json.loads(PARENT_RESULT.read_text())
+    amendment = json.loads(OOM_AMENDMENT.read_text())
+    if amendment.get("candidate_id") != CANDIDATE_ID \
+            or amendment.get("authorized_change", {}).get("physical_model_forwards") != 6:
+        raise MLP8MLP67SourceError("OOM batching amendment contract changed")
     predictions = parent_result.get("score", {}).get("predictions", {})
     if parent_result.get("terminal") != "valid_causal_screen" \
             or predictions.get("pred_a_instrument_and_parent_closure") is not True \
@@ -113,6 +121,7 @@ def compile_plan():
         "row_count": len(build_rows()), "conditions": list(CONDITIONS),
         "condition_count": len(CONDITIONS), "subject_position": SUBJECT_POSITION,
         "mlp_layer": MLP_LAYER, "prior_art_sha256": PRIOR_ART_SHA256,
+        "oom_batching_amendment_sha256": OOM_AMENDMENT_SHA256,
         "parent_result_sha256": PARENT_RESULT_SHA256,
         "license_sha256": LICENSE_SHA256,
         "capability_result_sha256": license_value["capability_result_sha256"],
@@ -130,7 +139,10 @@ def compile_plan():
         "parent_closure": "all 31 Y+Z-regrouped corners reproduce the parent E/A/U/W/X lattice at every registered endpoint",
         "causal_statistics": "complete 2^6 Moebius decomposition of each task-level set function",
         "downstream_background": "standalone fixed L11H3 interface; every other MLP4--10 slot remains recipient",
-        "price": {"logical_model_forwards": 4, "physical_model_forwards": 4,
+        "batching": {"condition_chunks": [list(chunk) for chunk in PATCH_CHUNKS],
+                     "order": "contiguous_then_concatenate",
+                     "storage": "offload each full-logit chunk to CPU before the next forward; concatenate and score on CPU"},
+        "price": {"logical_model_forwards": 4, "physical_model_forwards": 6,
                   "example_evaluations": 12224,
                   "causal_interventions": 6048, "backwards": 0,
                   "parameter_updates": 0, "capability_GPU_price": 0},
@@ -362,6 +374,28 @@ def _compile(recipient_tokens, recipient, opposite, attention, projection,
             "specs": specs, "heads": heads}
 
 
+def _slice_patch(patch, start, stop):
+    """Take one registered contiguous condition chunk on every batch axis."""
+    return {
+        "tokens": patch["tokens"][start:stop],
+        "finals": patch["finals"][start:stop],
+        "replacement_heads": patch["replacement_heads"][start:stop],
+        "native_reinstall_mask": patch["native_reinstall_mask"][start:stop],
+        "specs": patch["specs"][start:stop],
+    }
+
+
+def _maximum_chunk_closure(closures, key):
+    if len(closures) != len(PATCH_CHUNKS):
+        raise MLP8MLP67SourceError("closure count does not match frozen chunks")
+    return max(item[key] for item in closures)
+
+
+def _offload_full_logits(logits):
+    """Preserve every logit exactly while releasing its GPU storage promptly."""
+    return logits.detach().cpu()
+
+
 def evaluate(model, torch, F, facade):
     rows = build_rows(); n = len(rows); device = next(model.parameters()).device
     tokens, finals = downstream.depth.parent.v1._role_batch(rows, torch, device)
@@ -470,13 +504,31 @@ def evaluate(model, torch, F, facade):
 
     patch = _compile(tokens[:n], recipient, opposite, attention, projection,
                      slots, rows, torch, F)
-    native_patch = factors._native_logits(model, patch["tokens"], torch, F)
-    patched, _, _, patch_closure = downstream._decomposed_forward(
-        model, patch["tokens"], patch["finals"], torch, F, facade,
-        replacement_heads=patch["replacement_heads"],
-        native_reinstall_mask=patch["native_reinstall_mask"])
-    exactness["downstream_state_closure_max_absolute_error"] = patch_closure["state_sum_max_absolute_error"]
-    exactness["downstream_normalized_closure_max_absolute_error"] = patch_closure["normalized_state_max_absolute_error"]
+    if len(patch["specs"]) != PATCH_CHUNKS[-1][1]:
+        raise MLP8MLP67SourceError("condition batch does not match frozen chunks")
+    native_chunks = []
+    for start, stop in PATCH_CHUNKS:
+        chunk = _slice_patch(patch, start, stop)
+        native_gpu = factors._native_logits(model, chunk["tokens"], torch, F)
+        native_chunks.append(_offload_full_logits(native_gpu))
+        del native_gpu, chunk
+    patched_chunks, patch_closures = [], []
+    for start, stop in PATCH_CHUNKS:
+        chunk = _slice_patch(patch, start, stop)
+        chunk_patched, chunk_captured, chunk_projection, chunk_closure = \
+            downstream._decomposed_forward(
+                model, chunk["tokens"], chunk["finals"], torch, F, facade,
+                replacement_heads=chunk["replacement_heads"],
+                native_reinstall_mask=chunk["native_reinstall_mask"])
+        patched_chunks.append(_offload_full_logits(chunk_patched))
+        patch_closures.append(chunk_closure)
+        del chunk_patched, chunk_captured, chunk_projection, chunk
+    native_patch = torch.cat(native_chunks, dim=0)
+    patched = torch.cat(patched_chunks, dim=0)
+    exactness["downstream_state_closure_max_absolute_error"] = \
+        _maximum_chunk_closure(patch_closures, "state_sum_max_absolute_error")
+    exactness["downstream_normalized_closure_max_absolute_error"] = \
+        _maximum_chunk_closure(patch_closures, "normalized_state_max_absolute_error")
     exactness["parent_head_endpoint_max_absolute_error"] = max(
         float((patch["heads"][condition] - expected).abs().max())
         for condition, expected in {
@@ -783,7 +835,7 @@ def main(argv=None):
         "checkpoint_weights_sha256": checkpoint.weights_sha256, "score": scored,
         "numerical_diagnostics": numerical, "evidence": evidence,
         "evaluated_splits": ["LICENSED_HOLDOUT"], "forbidden_splits_opened": [],
-        "logical_model_forwards": 4, "physical_model_forwards": 4,
+        "logical_model_forwards": 4, "physical_model_forwards": 6,
         "causal_interventions": 6048,
     }
     payload = managed.atomic_create_json(OUT, result)

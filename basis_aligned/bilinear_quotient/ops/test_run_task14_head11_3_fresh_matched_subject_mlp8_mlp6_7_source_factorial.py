@@ -50,10 +50,15 @@ def test_plan_has_complete_factorial_frozen_price_and_scoped_license():
         for source in run.SOURCES for subset in run.SUBSETS
         for component in run.COMPONENTS}
     assert plan["price"] == {
-        "logical_model_forwards": 4, "physical_model_forwards": 4,
+        "logical_model_forwards": 4, "physical_model_forwards": 6,
         "example_evaluations": 12224,
         "causal_interventions": 6048, "backwards": 0,
         "parameter_updates": 0, "capability_GPU_price": 0}
+    assert plan["oom_batching_amendment_sha256"] == run.OOM_AMENDMENT_SHA256
+    assert plan["batching"] == {
+        "condition_chunks": [[0, 3032], [3032, 6064]],
+        "order": "contiguous_then_concatenate",
+        "storage": "offload each full-logit chunk to CPU before the next forward; concatenate and score on CPU"}
     license_value = licensing.validate_causal_preflight(
         run.capability.build_gate(), run.capability.CAPABILITY_RESULT, run.LICENSE,
         expected_license_sha256=run.LICENSE_SHA256,
@@ -73,9 +78,51 @@ def test_preflight_fails_closed_on_frozen_parent(monkeypatch):
     with pytest.raises(run.MLP8MLP67SourceError, match="prior-art receipt changed"):
         run.validate_preflight()
     monkeypatch.setattr(run, "PRIOR_ART_SHA256", run._sha256(run.PRIOR_ART))
+    monkeypatch.setattr(run, "OOM_AMENDMENT_SHA256", "0" * 64)
+    with pytest.raises(run.MLP8MLP67SourceError, match="OOM batching amendment changed"):
+        run.validate_preflight()
+    monkeypatch.setattr(run, "OOM_AMENDMENT_SHA256", run._sha256(run.OOM_AMENDMENT))
     monkeypatch.setattr(run, "PARENT_RESULT_SHA256", "0" * 64)
     with pytest.raises(run.MLP8MLP67SourceError, match="parent E/A/U/W/X result changed"):
         run.validate_preflight()
+
+
+def test_frozen_chunk_plan_slices_every_batch_axis_and_preserves_order():
+    torch = pytest.importorskip("torch")
+    size = 6064
+    values = torch.arange(size)
+    patch = {
+        "tokens": values[:, None], "finals": values + 1,
+        "replacement_heads": values[:, None] + 2,
+        "native_reinstall_mask": values.remainder(2).bool(),
+        "specs": list(range(size)),
+    }
+    assert run.PATCH_CHUNKS == ((0, 3032), (3032, 6064))
+    chunks = [run._slice_patch(patch, *bounds) for bounds in run.PATCH_CHUNKS]
+    assert all(len(chunk["specs"]) == 3032 for chunk in chunks)
+    for key in ("tokens", "finals", "replacement_heads", "native_reinstall_mask"):
+        assert torch.equal(torch.cat([chunk[key] for chunk in chunks]), patch[key])
+    assert chunks[0]["specs"] + chunks[1]["specs"] == patch["specs"]
+    closures = [{"state": 2e-6}, {"state": 4e-6}]
+    assert run._maximum_chunk_closure(closures, "state") == 4e-6
+    with pytest.raises(run.MLP8MLP67SourceError, match="closure count"):
+        run._maximum_chunk_closure(closures[:1], "state")
+
+
+def test_full_logits_are_detached_and_offloaded_before_retention():
+    calls = []
+
+    class Probe:
+        def detach(self):
+            calls.append("detach")
+            return self
+
+        def cpu(self):
+            calls.append("cpu")
+            return "cpu_full_logits"
+
+    assert run._offload_full_logits(Probe()) == "cpu_full_logits"
+    assert calls == ["detach", "cpu"]
 
 
 def test_downstream_replay_contract_keeps_every_required_parent_field():
