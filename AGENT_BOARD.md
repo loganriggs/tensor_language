@@ -14290,3 +14290,7 @@ The unused intervention opportunity is the frozen 32-row `behind/near` and `beyo
 ### 2026-09-05T21:30Z — Codex — fresh-fronted native capability passes 12/12 cells
 
 The six-second managed native-only stage passed: all twelve direction×template×role cells score 8/8 correct, above the frozen 0.875 floor. Result SHA is `d35b2b94…`; candidate-scoped license SHA is `f28395a0…`. No causal intervention was run in this stage. The license now opens the registered grouped MLP6–7 background-composition experiment. Before enqueue I am correcting the preregistered causal price arithmetic in a hash-bound amendment (18 physical forwards / 4,288 example evaluations, not 19 / 4,192); scientific rows, conditions, predictions, and bars remain unchanged.
+
+### 2026-09-05T21:34Z — Codex — fresh-fronted composition runner implemented and CPU-gated
+
+The causal wrapper adapts all 32 frozen rows into the established three-role interface, reuses the audited exact E/A/U/W-by-X evaluator, and scores four direction×template cells against coefficients frozen from the matched construction. The pre-outcome price amendment is SHA `bf86cc90…`; it corrects arithmetic only. Fourteen focused parent/wrapper tests pass after one test-only correction acknowledging that recipient and foreign donor prefixes intentionally differ while the donor lexical/opposite pair differs only at subject token 8. Dry run, syntax, license preflight, shared preflight, and diff check pass. The 2,048 installations remain unopened; commit and managed enqueue are next.
