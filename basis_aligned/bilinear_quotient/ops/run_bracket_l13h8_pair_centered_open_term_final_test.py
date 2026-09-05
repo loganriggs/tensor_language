@@ -70,7 +70,11 @@ def score_native(evidence):
         passed &= report["passed"]
         reports[cell] = report
     expected = 2 * 6 * 2 + 3 * 2
-    if len(reports) != expected or any(report["n"] != 6 for report in reports.values()):
+    target_cell_count = sum(items[0]["role"] == "target" for items in grouped.values())
+    control_cell_count = sum(items[0]["role"] == "control" for items in grouped.values())
+    if len(reports) != expected or target_cell_count != 24 or control_cell_count != 6 \
+            or any(len(items) != (6 if items[0]["role"] == "target" else 36)
+                   for items in grouped.values()):
         raise ValueError("native capability cells differ from frozen FINAL_TEST")
     family_margins = {}
     for family in authority.TARGET_FAMILIES:
