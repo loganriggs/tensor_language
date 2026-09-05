@@ -38,3 +38,7 @@ The breadth route remains valuable in parallel, but the post-hoc onset-versus-cu
 ## Continuation receipt
 
 The zero-outcome retry amendment is frozen at `circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_oom_retry_amendment.json`. The runner now uses 24 deterministic chunks, 50 physical forwards, 12,224 unchanged example evaluations, and 6,048 unchanged interventions. Ten focused tests and the no-model plan passed. The immediate action is to commit this bounded repair and enqueue the hash-audited runner through `bqrunner`; interpretation must follow when it lands.
+
+## Immediate result after the review
+
+The repaired run finished in 26 seconds. Exact instrument and parent closure passed. MLP6 and MLP7 are distributed, show a substantial interaction in some aggregates, and switch organization by direction; neither is a stable dominant unit. The number-specificity gate failed narrowly at `0.258574 > 0.25`, localized to the plural-to-singular `between_below` `EAUWY` full-margin arm. Completing the same-number lexical donor through MLP7 suppressed this effect by 62.6%, so the parent MLP6--7 unit remains the cleaner grouping and the child split is lexical-entangled. A targeted alternate-donor three-corner stability test is now claimed and implemented rather than opening another recursive split.

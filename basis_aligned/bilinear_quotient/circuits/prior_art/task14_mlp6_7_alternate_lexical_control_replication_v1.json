@@ -1,0 +1,33 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_alternate_lexical_control_replication_v1",
+  "created_utc": "2026-09-05T20:36:00Z",
+  "purpose": "Determine whether the sole failed number-specificity arm in the complete MLP6/MLP7 factorial is stable under a second same-number different-lemma donor family, and whether completing the donor state through MLP7 reproducibly cancels the MLP6-exposed lexical effect.",
+  "binding_parent": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_result.json",
+    "sha256": "eff2b9e7ab76b4335733e8bde6708435a18e6b0da14073373e211d9588994efa",
+    "finding": "Instrument and exact parent closure held. The only registered specificity failure was plural_to_singular/between_below, EAUWY full margin: lexical effect 0.02882576 over opposite-number full-source effect 0.11147976, ratio 0.25857393. EAUWYZ lexical effect was 0.01076782, so donor MLP7 suppressed 62.64% of the mixed-state lexical effect."
+  },
+  "novelty_audit": [
+    "The parent complete factorial used one fixed same-number lexical donor profile only.",
+    "Earlier Task14 controls establish that control-family choice can change causal verdicts; no receipt tests this MLP6/MLP7 mixed corner with an independent same-number donor profile.",
+    "This is a targeted stability test of three frozen corners, not a repeated full factorial, rank analysis, activation reconstruction, or threshold search."
+  ],
+  "alternate_donor_rule": {
+    "singular": {"rider": "leader", "sailor": "guard", "singer": "judge", "writer": "owner"},
+    "plural": {"owners": "sailors", "leaders": "singers", "guards": "writers", "judges": "riders"},
+    "construction": "Replace only the final one-token subject in the existing same-number donor endpoint according to this prospective cycle; retain each row's context, recipient, opposite-number source, answers, split, and intervention position."
+  },
+  "conditions": ["recipient", "lexical_EAUWY_full", "lexical_EAUWZ_full", "lexical_EAUWYZ_full"],
+  "primary_cell": "plural_to_singular__between_below",
+  "predictions": {
+    "pred_a_instrument_live": "Native role replay, raw/full-source MLP8 endpoint, propagated slot, installed head, and recipient no-op errors are each at most 5e-5; every alternate lexical donor has positive native answer margin.",
+    "pred_b_lexical_entanglement_replicates": "The primary-cell EAUWY full-margin collateral divided by the frozen parent opposite-number EAUWYZ full-margin effect is at least 0.25.",
+    "pred_c_control_family_sensitive": "The same ratio is below 0.25. This is mutually exclusive with prediction b and means the fine split is not stable across plausible lexical controls.",
+    "pred_d_mlp7_completion_cancels": "Prediction b holds and abs(EAUWYZ lexical full-margin effect) is at most 0.60 times abs(EAUWY), with the signed completion change opposing EAUWY.",
+    "pred_e_reciprocal_mixed_corner_quiet": "The primary-cell EAUWZ full-margin ratio is below 0.25."
+  },
+  "null": "If the instrument holds but b and d fail, the original lexical failure does not replicate as an MLP6-exposed/MLP7-cancelled interaction. The MLP6/7 split remains unpromoted because its registered parent control already failed; no threshold is relaxed.",
+  "price": {"physical_model_forwards": 3, "example_evaluations": 176, "causal_interventions": 48, "backwards": 0, "parameter_updates": 0},
+  "closed_claims": ["new independent text", "semantic uniqueness", "rank", "compression", "sufficiency outside the fixed L11H3 interface"]
+}
