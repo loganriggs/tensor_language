@@ -1,0 +1,83 @@
+{
+  "aliases_searched": [
+    "10.5",
+    "capability stop",
+    "control incapable",
+    "instruction following control",
+    "interrogative",
+    "mlp11 question slice",
+    "native_behavior_incapable",
+    "period",
+    "punctuation",
+    "question head",
+    "question mark",
+    "question state",
+    "question-specific",
+    "subject-verb number agreement control",
+    "terminal specificity"
+  ],
+  "candidate_id": "sentence_terminal.semantic_choice_context_control",
+  "canonical_objects": [
+    "question-state carrier at attention layer 10",
+    "head 10.5 terminal-state service",
+    "question rank-2 output channel at MLP11",
+    "sentence-terminal period-versus-question-mark choice"
+  ],
+  "decision_changed": "A passing common site converts a recorded null into the behaviour's first causal evidence and justifies a deeper subspace experiment. A no_selective_causal_site verdict is the honest null v1 was never able to reach. A second native_behavior_incapable, now with a control the model demonstrably performs, would instead indict the harness rather than the control choice.",
+  "matched_prior_claims": [
+    "RESULTS.md section 1282 found an attention-layer-10 carrier for question-mark targets.",
+    "RESULTS.md sections 1284-1289 localized the established question circuit to head 10.5 and its upstream writers.",
+    "RESULTS.md section 1313 found head 10.5 much stronger for question marks than periods or exclamation marks.",
+    "RESULTS.md sections 1597-1600 traced a rank-2 MLP11 question slice and question-mark output channel to heads 9.7 and 10.5 plus MLP9 and MLP10.",
+    "BILIN18_CONNECTION.md section 1345 narrowed the label question-specific because head 10.5 also serves comparative refinement.",
+    "BILIN18_CONNECTION.md section 1631 showed that head 10.5 identity is not by itself question-specific because random rank-2 bases also select it, while the concentration magnitude remains distinctive.",
+    "CIRCUIT_REGISTRY.md records the question circuit as closed at head grain and separately records its rank-2 MLP11 output channel.",
+    "circuits/DOSSIER.md contains no version-2 record for a bidirectional, construction-general period-versus-question-mark interchange test.",
+    "circuits/fast_screen_ledger.jsonl entry 0 records sentence_terminal.semantic_choice as terminal null with reason native_behavior_incapable.",
+    "circuits/fast_screens/sentence_terminal_semantic_choice_v1_result.json stops at head_stage capability_stop, so no site was ever screened and no causal claim exists for this behaviour.",
+    "That result's run.capability_cells show A1, A2 and P passing every ordered cell while both C cells fail at 0.50, and run.native_logits give A1/A2/P answer-versus-foil margins of +4.19/+4.99/+4.18 against +1.38 for C.",
+    "subject_verb.number_agreement passes native capability in every ledger entry that uses it, which is why it is chosen as the replacement control behaviour."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "component ablation",
+    "head localization",
+    "quadratic-form eigenspace",
+    "output-channel tracing"
+  ],
+  "novelty_delta": "The v1 screen never tested its hypothesis: it stopped at the native-capability gate because its control asked the model to follow an instruction ('Copy the visible mark ? after ...'), which GPT-2 small cannot do, so the control scored correct exactly when the shown mark was the period it defaults to. This candidate holds A1, A2 and P byte-identical to the v1 authority and replaces ONLY the control with subject-verb number agreement, which is carried by context rather than instruction and whose native capability already passes in the ledger. It therefore asks v1's unanswered question -- whether one site carries the period-versus-question-mark decision across both constructions while sparing an unrelated behaviour -- rather than a new one.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "canonical_objects",
+        "matched_prior_claims",
+        "novelty_delta"
+      ],
+      "sha256": "3d349f3045fb4658b30933898ad11a24e649457ae4b64e997fda313165335a9c",
+      "source": "circuits/fast_screen_sentence_terminal_prior_art.json"
+    },
+    {
+      "searched_terms": [
+        "head_stage",
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "1b7c151f0e004c7a7182fec716ffd56eda3197cde530301d9f924f53dd555410",
+      "source": "circuits/fast_screens/sentence_terminal_semantic_choice_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "sentence_terminal.semantic_choice",
+        "subject_verb.number_agreement",
+        "terminal"
+      ],
+      "sha256": "a387dec99c93630574db00d268df78684dca851f093896e89b1f60e3e3e41730",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, reviewing the v1 receipt and the v1 stored evidence directly",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
