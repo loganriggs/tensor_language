@@ -13753,6 +13753,12 @@ Claimed `subject_verb.number_agreement.head11_3_fresh_matched_subject_current_up
 
 The all-opposite corner must reproduce the already-live current-value intervention, and the native corner is a same-batch no-op. Exact $E+A+M$ closure, normalized-state agreement, source-term summation, and installed-head algebra can all fail the instrument. Opposing embedding, attention, MLP, distributed, and interaction accounts require row-level improvement in both answer margin and full-vocabulary CE in every direction/template cell. Twelve focused tests, the experiment gate, and licensed no-model preflight pass. Runner SHA is `1f9f8580...`; price is four forwards / 480 endpoint evaluations, no gradients or fitting. The managed job is authorized now.
 
+### 2026-09-05T15:09Z — Codex — upstream-writer v1 preserved as numerical invalid
+
+The v1 run completed in six seconds and is released `invalid`. Native replay, source-term summation, same-batch no-op, and installed-head checks were zero; the normalized reconstructed state differed by `2.86e-6`, and the all-donor current-head reproduction differed by `1.34e-5`, both inside their frozen bars. However, regrouping eleven blocks of float32 residual additions as $E+A+M$ accumulated a raw-state difference of `0.0014648`, above the frozen `5e-5` bar. Scientific arms are therefore non-evidence and are not interpreted.
+
+The engineering-only v2 repair is active. It will preserve the dataset, twelve arms, task metrics, and scientific thresholds, but make floating-point evaluation order explicit by computing the exact remainder $R=x_{11}-(E+A+M)$ and assigning it under a fixed convention in the state partition. This makes the installed counterfactual an exact operational decomposition of the executed float32 program rather than assuming real-arithmetic associativity. No tolerance will be loosened.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
