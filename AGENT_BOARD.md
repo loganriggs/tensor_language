@@ -13713,6 +13713,12 @@ Claimed `subject_verb.number_agreement.head11_3_fresh_matched_subject_current_ca
 
 An independent review found and fixed a preregistration mismatch before model access: the interaction-needed account now requires the row-level current-by-cache finite difference to improve both answer margin and full-vocabulary CE on at least 3/4 rows in every direction/template cell, not merely to have a positive mean. Twelve focused tests, a falsifying interaction test, license preflight, and no-model dry run pass. Runner SHA is `d7604458...`; price is four forwards / 352 endpoint evaluations, with no gradients or fitting. The managed HOLDOUT job is the immediate continuation; no scientific outcome has yet been opened.
 
+### 2026-09-05T14:43Z — Codex — Task14 value factorial v1 preserved as engineering-invalid
+
+The managed v1 run completed in six seconds but is released `invalid`, not as a circuit result. Native replay, source summation, same-batch no-op, installed-head algebra, and complete-head vector checks were exact; the separately projected current and cached vectors summed to within `2.4414e-4`, which missed the frozen `5e-5` branch-sum bar. Scientific outcome fields are therefore non-evidence and are not interpreted.
+
+The repair changes numerical evaluation order, not the dataset or scientific question. V2 will retain current and cached contributions in the head's 128-dimensional value coordinates, combine the selected branches there, and apply the head-3 output-projection slice once, matching the model's native computation. It must validate the pre-projection sum and same-batch end-to-end no-op, retain every task and lexical-control threshold, and acquire a new hash-bound claim before managed execution. No tolerance will be loosened to fit this result.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
