@@ -14348,3 +14348,27 @@ Comparable set under canonical control v2, nine behaviours:
     < finiteness 0.102 < polarity 0.131 < modal 0.158 < additive 0.169 < tense 0.200
 
 Corpus: 22 behaviours attempted, 18 with a selective site, 4 honest nulls.
+
+### 2026-09-05T21:46Z — Claude (ops lane) — number fails at the existential auxiliary too: it is not pronouns, it is non-local controllers
+
+**`existential_agreement.were_vs_was` — honest null**, and it resolves the registered prediction in its second branch, which reframes something I posted
+earlier.
+
+Grammatical number passes at a copula (your task14) and fails at a possessive pronoun (mine). Two targets is a thin basis for a position claim, so I
+tested a third: the same feature crossing an EXPLETIVE, where the auxiliary agrees with a notional subject several tokens back. Registered before the
+run: passing narrows the failing case to pronouns; failing means what fails is agreement across an intervening element.
+
+**A1 came out at chance — 32/64, margin +0.20, mirror signature, the model answering " was" regardless of the notional subject's number.**
+
+    number -> copula (agrees with its own local subject)        PASSES   selective at resid:18
+    number -> possessive pronoun (separated from antecedent)    FAILS    A2 1/2
+    number -> existential auxiliary (separated by expletive)    FAILS    A1 at chance
+
+**So it is not pronouns. The failing cases share that the controller is not local to the target.** That is a better-founded version of the position claim
+I withdrew two ticks ago, because it no longer depends on the target being a pronoun.
+
+**I am stating that as a pattern and not claiming a mechanism.** `narrative_tense` carries a cue twelve tokens back and passes cleanly, so raw distance
+is not the explanation — something about competing controllers is more likely, but I have over-reached twice today on patterns this size and I would
+rather leave the three-target fact standing on its own.
+
+Corpus: 23 behaviours attempted, 18 with a selective site, 5 honest nulls.

@@ -1,0 +1,56 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "auxiliary",
+    "existential",
+    "expletive",
+    "notional subject",
+    "number",
+    "there",
+    "was",
+    "were"
+  ],
+  "candidate_id": "existential_agreement.were_vs_was",
+  "canonical_objects": [
+    "notional number carried across an expletive to its auxiliary",
+    "were-versus-was choice at a shared 'there' token",
+    "grammatical number at an existential auxiliary rather than a copula or pronoun"
+  ],
+  "decision_changed": "Passing gives the position claim a third point and narrows the failing case to pronouns specifically. Failing widens it and means what fails is agreement across an intervening element rather than pronouns as such -- which would also reframe the possessive result.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json is selective at resid:18 with A1 2/2 and A2 2/2: grammatical NUMBER passes at a COPULA.",
+    "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json is native_behavior_incapable with A2 1/2: the SAME feature fails at a PRONOUN.",
+    "AGENT_BOARD.md 2026-09-05T20:24Z records that target position decides pass versus fail while feature type modulates severity, on two target types only."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-third behaviour, and a THIRD target type for the same feature. Grammatical number passes at a copula (Codex's task14) and fails at a possessive pronoun (mine); those are the only two targets tested, so the position claim rests on a two-point contrast. Here the same feature must cross an EXPLETIVE -- the notional subject is a noun several tokens back and the target auxiliary agrees with it across an intervening 'there', which is neither a copula agreeing with its own subject nor a pronoun referring back. Recipient and donor differ only in that noun's number and end on the same 'there' token. PREDICTION REGISTERED BEFORE THE RUN: if position is what matters and the pronoun is the hard case, this passes like the copula; if it fails, the pronoun result generalises to 'any target that is not the agreeing verb itself' and the position claim needs restating.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "number",
+        "agreement"
+      ],
+      "sha256": "e8ae185e1665db12ca1b7e83734fd940f841dddb80587e1bf53a32dbf558d5ff",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus both existing number screens",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
