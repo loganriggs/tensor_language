@@ -28,6 +28,8 @@ CAPABILITY_LICENSE_SHA256 = "27acd0cb5e7459630f89188abd2160622e07967ba0ee9194bf2
 BACKGROUNDS = ("", "EAUW")
 POINTS = ("base", "midpoint")
 MAXIMUM_NUMERICAL_ABSOLUTE_ERROR = 5e-5
+PRED_KEYS = ("pred_a_capability_license", "pred_b_gradient_instrument",
+             "pred_c_sixty_four_predictions_sealed",)
 
 
 class ProspectivePredictionError(ValueError):
@@ -73,10 +75,10 @@ def compile_plan():
         "capability_result_sha256": CAPABILITY_RESULT_SHA256,
         "capability_license_sha256": CAPABILITY_LICENSE_SHA256,
         "maximum_numerical_absolute_error": MAXIMUM_NUMERICAL_ABSOLUTE_ERROR,
-        "predictions": {
-            "pred_a_capability_license": "candidate-scoped native capability license validates",
-            "pred_b_gradient_instrument": "source/downstream closures <=5e-5 and all gradients finite and nonzero",
-            "pred_c_sixty_four_predictions_sealed": "exactly 64 unique base and midpoint JVP amplitudes are atomically written before causal evaluation"},
+        "predictions": dict(zip(PRED_KEYS, (
+            "candidate-scoped native capability license validates",
+            "source/downstream closures <=5e-5 and all gradients finite and nonzero",
+            "exactly 64 unique base and midpoint JVP amplitudes are atomically written before causal evaluation"))),
         "price": derive_price()}
 
 
@@ -153,9 +155,8 @@ def evaluate(model, torch, F, facade):
         and all(x["finite"] and x["l2_norm"] > 0 and x["nonzero_row_count"] == 64
                 for x in gradient_stats.values())
     keys = {(x["row_id"], x["background"]) for x in evidence}
-    predictions_status = {"pred_a_capability_license": True,
-        "pred_b_gradient_instrument": bool(instrument),
-        "pred_c_sixty_four_predictions_sealed": bool(len(evidence) == 64 and len(keys) == 64)}
+    predictions_status = dict(zip(PRED_KEYS, (True, bool(instrument),
+        bool(len(evidence) == 64 and len(keys) == 64))))
     return evidence, exactness, gradient_stats, predictions_status
 
 
