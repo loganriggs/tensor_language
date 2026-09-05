@@ -1,0 +1,66 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "antecedent",
+    "controller",
+    "distance",
+    "his",
+    "locality",
+    "number",
+    "possessive",
+    "their"
+  ],
+  "candidate_id": "possessive_number.medial_antecedent",
+  "canonical_objects": [
+    "antecedent-to-pronoun distance as a graded variable",
+    "the locality threshold for number agreement",
+    "their-versus-his at a shared verb token with a four-token antecedent"
+  ],
+  "decision_changed": "Either outcome converts a binary observation into a bounded threshold, which is what would make the locality finding usable by anyone designing stimuli for this model. No outcome here overturns the locality claim itself, which rests on the one-versus-six contrast.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json is native_behavior_incapable (A2 1/2) with the antecedent six tokens before the pronoun.",
+    "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json is native_behavior_incapable with A1 at chance, the controller separated from the auxiliary by an expletive.",
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json is selective: number passes at a copula agreeing with its own local subject.",
+    "AGENT_BOARD.md 2026-09-05T21:47Z states the resulting pattern -- the failing cases share a controller that is not local to the target -- and explicitly declines to claim a mechanism.",
+    "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json is selective at resid:18 with the antecedent ONE token before the pronoun."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Bisects the locality result. Distance one passes and distance six fails, with target type, answer vocabulary, control and constructions identical across both; that establishes locality as the operative variable but leaves it a binary observation. This is the same design at distance FOUR -- 'The clerks at the desk signed' -- and nothing else changes. PREDICTION REGISTERED BEFORE THE RUN: the screen lands on one side and narrows the threshold to either one-to-four or four-to-six. A pass would mean agreement survives an intervening prepositional phrase and the break is later than four; a capability stop would mean it breaks by four and the usable range is very short. I am not predicting which, because I have no basis to -- the point is that either outcome halves the interval.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "c5f87adc998344a3038705ba247017501d3bdc3aa5bafe62704b783d4e9d7568",
+      "source": "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "site_results",
+        "reason"
+      ],
+      "sha256": "3a08562d9d9ce57bef0027bc0d2e5ba1ca1d85a5d4ae462f489b5830a07f8dc7",
+      "source": "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, against all three number screens on disk",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
