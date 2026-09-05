@@ -13,7 +13,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
-| `task.subject_verb_number_agreement` | behavior_circuit | path_grouped | `complete_subject_number_at_final_position` | 4 | 4 | causally identify the internal features MLP15 and MLP17 read/write, using Task-14 donor counterfactuals and unrelated-behavior controls; the first head-11.3 projector fit was instrument-invalid and must not be cited as a subspace null |
+| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 4 | test joint reuse/composition with another identified program, broaden unrelated-behavior selectivity, and price the literal 10-vector upstream + two-reader downstream implementation; do not reopen rank/reconstruction sweeps |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
 | `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
@@ -39,6 +39,20 @@ late path MLP15 and MLP17 form a useful causal group: together they reproduce th
 contributes only 0.56% RMS, and the MLP15-by-MLP17 interaction is only 0.655% RMS. This groups module contributions to this task; it
 does not yet identify the internal features in either MLP.
 
+The L11H3 source-side interface is now more explicit. Grouped MLP6/7 E/A/U/W factor replacements form a complete 16-subset causal
+lattice. A target-free midpoint JVP predicts exact-minus-base margin amplitudes prospectively at cosine `>0.99999999`; one central
+row reader predicts all 512 lattice effects at cosine `0.99996`. Two fixed 1,152-D direction readers then transfer to a disjoint corpus
+without target-tail execution at cosine `0.96983`, and reader-chosen gains set a requested signed `0.04` margin edit with median
+absolute error `0.01013`.
+
+A fixed upstream program has also passed a prospective screen. Ten 1,152-D displacement vectors indexed only by answer direction and
+factor cardinality were exported from the second corpus and installed on 32 new noun forms in unseen near/beyond syntax. Their causal
+effects substitute each target text's native displacement at cosine `0.86301` with `0.93945` sign agreement; the frozen readers predict
+the installed effects at cosine `0.96927` with perfect signs. Cardinality reduces SSE `29.72%` versus a two-direction control. All ten
+literal writes preserve frozen numbered-list and bracket behaviors (worst median normalized collateral `0.000715`, zero answer flips)
+after a documented FP32 tripwire repair. This is a **screened reusable interface/program**, not adoption: broader selectivity, joint
+composition/reuse, and literal whole-program price remain open.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -53,15 +67,24 @@ does not yet identify the internal features in either MLP.
 | `agreement_mlp15_17_vs_16.v1` | complete | grouped MLP interaction | **MLP15+17 held** | active | `task14_head11_3_mlp15_17_vs_mlp16_factorial_v1_result.json` |
 | `agreement_mlp15_by_mlp17.v1` | complete | exact derived interaction | **additive** | active | `task14_head11_3_mlp15_mlp17_interaction_v1_result.json` |
 | `agreement_head11_3_projector_program_a.v1` | complete | learned causal subspace | **instrument invalid** | active | `task14_head11_3_causal_projector_program_a_v1_receipt.json` |
+| `agreement_mlp6_7_background_composition.v1` | complete | factor composition and continuous manipulation | **held** | active | `task14_fresh_fronted_mlp6_7_background_composition_transfer_v1_result.json`; `task14_fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1_result.json` |
+| `agreement_mlp6_7_midpoint_reader.v1` | complete | sealed prospective causal prediction | **held** | active | `task14_prospective_mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1_result.json` |
+| `agreement_mlp6_7_complete_lattice_reader.v1` | complete | 16-subset composition prediction | **held** | active | `task14_prospective_mlp6_7_single_reader_full_lattice_v1_result.json` |
+| `agreement_mlp6_7_fixed_direction_readers.v1` | complete | no-target-tail cross-corpus extraction | **held** | active | `task14_fixed_direction_reader_cross_corpus_transfer_v1_result.json` |
+| `agreement_mlp6_7_reader_guided_edit.v1` | complete | absolute signed manipulation | **held** | active | `task14_fixed_reader_guided_margin_edit_v1_result.json` |
+| `agreement_mlp6_7_upstream_cardinality_program.v1` | complete | prospective upstream substitution | **screen** | active | `task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json` |
+| `agreement_mlp6_7_program_collateral.v1` | invalid | projected-write selectivity | **instrument invalid** | superseded by v2 | `task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v1_result.json` |
+| `agreement_mlp6_7_program_collateral.v2` | complete | projected-write selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** use the established MLP15+17 causal grouping to define meaningful donor counterfactuals for internal MLP features, then test
-whether small rotated hidden/output subspaces reproduce each module's task effect while leaving unrelated behavior unchanged. A pass
-must be translated into the bilinear weights; generic low-rank approximation is not evidence for this circuit.
+**Next:** test whether this fixed upstream/downstream program composes predictably with a separately identified circuit intervention,
+then broaden collateral beyond the two current behaviors and price the literal executable interface. Keep the MLP15+17 internal-feature
+question separate: any future split must be identified by task-conditioned interchange and held-out causal prediction, not generic
+low-rank approximation.
 
 ### `subroutine.induction.equality_score` — site_live
 
