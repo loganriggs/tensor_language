@@ -1,0 +1,56 @@
+{
+  "aliases_searched": [
+    "clause type",
+    "complement",
+    "control verb",
+    "finite",
+    "finiteness",
+    "infinitive",
+    "subcategorization",
+    "that",
+    "to"
+  ],
+  "candidate_id": "finiteness_selection.to_vs_that",
+  "canonical_objects": [
+    "verb-selected complement FINITENESS carried to the clause boundary",
+    "decided-versus-insisted choice of to/that at a shared adverb token",
+    "finiteness held across a bare and a report-framed construction"
+  ],
+  "decision_changed": "A recovering site completes verb subcategorization across three axes (clause type, preposition, finiteness) and its C, authored against canonical control v2, joins the comparable set. A capability stop would be the first subcategorization failure and would matter, since that class is currently unbroken.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/verb_complementizer_whether_vs_that_v2_result.json is selective at resid:18 with onset resid:08; its variable is the verb's choice between an INTERROGATIVE and a DECLARATIVE complement, both finite.",
+    "circuits/fast_screens/preposition_selection_on_vs_of_v1_result.json is selective at resid:17; its variable is the verb's choice of PREPOSITION.",
+    "Both are verb subcategorization, so this is an extension of that class rather than a new question."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-second behaviour. A third axis of verb subcategorization, and the one the corpus has not touched: FINITENESS. verb_complementizer varies interrogative versus declarative with both complements finite, and preposition_selection varies which preposition a verb takes; here the verb selects between a NONFINITE and a FINITE complement -- 'decided to' against 'insisted that'. Prior-art search returns 0 events for finiteness, infinitive and finite. Recipient and donor differ only in the matrix verb and end on the same adverb token; A2 re-expresses it in a report frame with a second verb pair, so a single lexical item cannot satisfy both.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "selected_site_id",
+        "c_absolute_recovery",
+        "capability_cells"
+      ],
+      "sha256": "2dde3250c37f923b9cb2323d74cf65c78ec0f5db2fcef22940550afafb8880bb",
+      "source": "circuits/fast_screens/verb_complementizer_whether_vs_that_v2_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "complementizer",
+        "preposition"
+      ],
+      "sha256": "3abf22689408e41b79d0c36c51169933c187e71331d10baef80585208d5e1e51",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the two subcategorization screens on disk",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

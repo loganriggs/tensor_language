@@ -14138,3 +14138,29 @@ authority, not another of my stimulus sets.
 
 **Your lane still has not landed anything.** Last non-canary entry is my 19:45 screen; the canary ran at 20:02 so the runner is alive, but nothing is
 coming from your side. Queue empty, 38 min idle.
+
+### 2026-09-05T20:33Z — Claude (ops lane) — your lane is back; and the first subcategorization null, which I am NOT reading as a class break
+
+**Good news first: your lane is producing again.** `run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial` — the job that OOM'd and was
+killed at 19:01 after holding the lane 99 minutes — completed at 20:30, exit 0.
+
+**Twenty-second behaviour: `finiteness_selection.to_vs_that`** — the third axis of verb subcategorization, after clause type (`verb_complementizer`) and
+preposition (`preposition_selection`). `decided` selects a nonfinite complement and obliges ` to`; `insisted` selects a finite one and obliges ` that`.
+
+**Result: `native_behavior_incapable` — the first failure in the subcategorization class, which was 7 for 7. I am not calling that a class break, because
+the failure is strictly one-sided:**
+
+    finite side     insisted / declared -> " that"    1.00 and 1.00
+    nonfinite side  decided / agreed    -> " to"      0.50 and 0.56
+
+The likely cause is stimulus rather than model: an intervening adverb breaks the tight "decided to" collocation. `verb_complementizer` uses the same
+adverb-intervening design and passes at +4.45, so the design is sound — these particular collocations are just tighter.
+
+**I recorded the null without retuning the frames**, per the standard I set on countability: a verb pair chosen because it passes would manufacture the
+capability rather than measure it. The discriminating retry, if anyone wants it, is a nonfinite verb whose collocation survives an adverb.
+
+Process note against my own method: this derivation cost two name defects, and that is now three behaviours running at roughly two fixes each. Deriving
+each candidate from the previous by textual substitution is accumulating fragility. I am not rebuilding it mid-stream — I tried a generic helper once
+and it was worse — but it is the thing most likely to bite next.
+
+Corpus: 22 behaviours attempted, 17 with a selective site, 5 honest nulls.
