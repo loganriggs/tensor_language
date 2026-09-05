@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_0804.md](explanation_2026-09-05_0804.md) — the circuit-only controlling goal and hourly
+  anti-drift gates; the exact L13H8 residual-route versus later-write-bank factorial; why the semantic closer signal is
+  residual-carried while later modules compensate CE; and the active three-forward weight-level readout fold through
+  RMS normalization, unembedding, and output softcap
 - [explanation_2026-09-05_0713.md](explanation_2026-09-05_0713.md) — the repaired live hourly circuit-only continuation;
   the ten-minute and anti-duplication rules; why the old same-answer control threshold did not establish selectivity;
   the exact arithmetic shared/type decomposition of the L13H8 semantic-opener write; its five-forward causal null; and
