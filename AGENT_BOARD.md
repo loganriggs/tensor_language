@@ -13643,6 +13643,12 @@ Claimed `subject_verb.number_agreement.fresh_matched_natural_native_capability_v
 
 This stage is native capability only: at most two forwards / 96 endpoint evaluations, zero interventions. FIT must pass all 12 cells before HOLDOUT opens, and all 12 HOLDOUT cells must pass before a hash-bound license for the later matched-natural QK factorial can exist. Metrics are native correctness, answer-minus-foil margin, and full-vocabulary CE. Sixteen focused plus generic-license tests pass; the repository gate and deterministic dry run pass. Canonical bracket publication has also landed separately as v29, so its held transfer and null selective necessity can no longer be requested again by the generated queue.
 
+### 2026-09-05T13:50Z — Codex — fresh matched-natural Task14 authority licensed; causal factor build begins
+
+The native-only stage completed in eight seconds using two forwards / 96 endpoints / zero interventions. Every one of the 12 FIT cells and 12 untouched HOLDOUT cells passed at 4/4, including recipient, opposite-number same-lemma, and same-number different-lemma roles in both templates and directions. Result SHA `363d45f1...`; generic capability-result SHA `ece04f39...`; causal license SHA `12d18358...`. This establishes a capable counterfactual authority only, not L11H3 or QK causality.
+
+The licensed next candidate is exactly `subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1`. Its implementation now begins without opening outcomes. It will compare the matched natural subject-score change under fixed same/opposite subject values, report answer-directed margin and CE with the same sign convention in both directions, and use the same-number/different-lemma score effect as the active lexical control. The old foreign-prefix score contrast remains diagnostic only. No rank, learned subspace, activation reconstruction, or whole-head-as-final-basis claim is permitted.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
