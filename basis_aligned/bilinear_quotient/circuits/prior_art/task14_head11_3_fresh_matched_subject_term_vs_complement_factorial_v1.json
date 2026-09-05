@@ -1,0 +1,99 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_term_vs_complement_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "On licensed fresh HOLDOUT text, split the exact L11H3 write into the subject source term and the sum of every non-subject source term, then test their task effects and downstream interaction.",
+  "licensed_precondition": {
+    "authority_file_sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+    "authority_logical_sha256": "8862dc84c10a28c0857cb7b201adab46e72f2e7063069fcf1a09f50ec21947d7",
+    "capability_result_path": "circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license_result.json",
+    "capability_result_sha256": "ece04f3954ab8dd9fd3be73942af63cdf13d76f13854c07ccb02b31ce2d7553b",
+    "derivative_license_path": "circuits/fast_screens/task14_fresh_matched_subject_term_vs_complement_factorial_v1_capability_license.json",
+    "derivative_license_sha256": "9ac6596d92a0b7e75a65a31edebcb480676fa81505cd211028babc56ca1ecf18",
+    "causal_candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_term_vs_complement_factorial_v1",
+    "rows": "Licensed HOLDOUT only; FIT remains forbidden."
+  },
+  "motivating_result": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json",
+    "sha256": "69f954df45ec642cf2aa284f6ed2d20e68e0d9f9eefedc1546140a0579a2c981",
+    "terminal": "valid_causal_screen",
+    "finding": "Complete opposite head improved donor margin and CE in all four cells. The opposite subject self term helped singular-to-plural but harmed plural-to-singular. This receipt uses no other new outcome to choose its split or bars."
+  },
+  "prior_art_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "01f959e9821a0ccd192be30c50cb6a3c9b302a4ecf41778548cf74eabee03861",
+      "finding": "The canonical dossier contains source-value singleton and four-role value-group interventions, but no fresh natural full-term subject-versus-complement factorial."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v2_result.json",
+      "sha256": "9a154d12db1e95f4030e63c7611b866eb0196309a16b987c7cb5fb2d440b2884",
+      "finding": "The closest factorial used TEST_REUSE text, four semantic position groups, and donor effective values under recipient source scores. It did not replace natural donor source terms p_j u_j or test subject term versus the exact all-other-source complement."
+    },
+    {
+      "path": "circuits/prior_art/task14_head11_3_source_value_role_group_factorial_v1.json",
+      "sha256": "2d97b8aaa7d418b986d70520b6cd6839ce9e6cbc7666ee5ea629807e7e9c0b22",
+      "finding": "The old registered object was a source-value role game, not the two-component natural-head partition registered here."
+    }
+  ],
+  "exact_partition": {
+    "recipient_subject": "S_r = p_r,8 u_r,8",
+    "opposite_subject": "S_o = p_o,8 u_o,8",
+    "recipient_complement": "C_r = sum over j != 8 of p_r,j u_r,j = H_r - S_r",
+    "opposite_complement": "C_o = sum over j != 8 of p_o,j u_o,j = H_o - S_o",
+    "identity": "S_r + C_r = H_r and S_o + C_o = H_o exactly up to registered float32 tolerance."
+  },
+  "conditions": {
+    "native_neither": "S_r + C_r",
+    "opposite_subject_only": "S_o + C_r",
+    "opposite_complement_only": "S_r + C_o",
+    "complete_opposite_head": "S_o + C_o = H_o"
+  },
+  "estimands": {
+    "subject_main": "Y(S_o+C_r) - Y(S_r+C_r)",
+    "complement_main": "Y(S_r+C_o) - Y(S_r+C_r)",
+    "subject_by_complement_interaction": "Y(S_o+C_o) - Y(S_r+C_o) - Y(S_o+C_r) + Y(S_r+C_r)",
+    "conditional_complement": "Y(S_o+C_o) - Y(S_o+C_r) = complement_main + interaction"
+  },
+  "outcomes": {
+    "donor_margin_improvement": "Patched donor-answer-minus-recipient-answer margin minus the identical-index native margin; positive is better in both directions.",
+    "donor_CE_improvement": "Identical-index native donor-answer full-vocabulary CE minus patched donor-answer CE; positive is better in both directions.",
+    "baseline": "Every arm uses its exact index in a native 64-example batch with identical token order and batch shape."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "maximum_complete_head_vector_absolute_error": 0.00005,
+    "minimum_complete_head_mean_donor_margin_improvement": 0.05,
+    "minimum_complete_head_mean_donor_CE_improvement": 0.0,
+    "minimum_complete_head_row_improvement_fraction": 0.75,
+    "minimum_live_mean_donor_margin_magnitude": 0.05,
+    "minimum_directional_row_fraction": 0.75,
+    "minimum_positive_mean_donor_CE_improvement": 0.0,
+    "minimum_complement_recovery_of_complete_margin": 0.7,
+    "minimum_interaction_repair_of_subject_harm": 1.0
+  },
+  "opposing_predictions": {
+    "interaction_repairs_plural_to_singular": "In both plural-to-singular template cells, subject-only is harmful; the factorial interaction is positive in donor margin and CE on at least 3/4 rows and its mean donor-margin magnitude is at least the absolute subject-only harm.",
+    "complement_independently_carries_task": "Complement-only improves donor margin and CE on at least 3/4 rows in every cell, has mean donor-margin effect at least 0.05, and recovers at least 70% of the complete-head mean margin effect.",
+    "complement_asymmetry_persists": "Complement-only helps singular-to-plural but harms plural-to-singular by at least 0.05 mean donor margin, with matching answer-directed CE sign and at least 3/4 rows in each direction-template cell."
+  },
+  "instrument_gate": "Exact replay, source summation, same-batch native/no-op output, installed-head algebra, and complete-head capability must all pass before interpreting any scientific prediction.",
+  "terminal_policy": "Preserve the three opposing predictions independently. Do not alter rows, combine templates, tune bars, or reinterpret negative CE as helpful after outcomes.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 192,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "individual q or k semantics",
+    "individual non-subject source semantics",
+    "necessity or removal",
+    "syntax generality beyond the licensed templates",
+    "FIT performance",
+    "simplicity or rank"
+  ]
+}
