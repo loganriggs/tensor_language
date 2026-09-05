@@ -3807,6 +3807,506 @@
    ],
    "translation_ids": [],
    "next_missing": "The licensed current-versus-cached subject-value factorial is complete and must not be repeated. With recipient p_8 and the native non-subject complement fixed, the current-state value branch carried the task effect, the cached layer-0 branch did not, interaction-needed was null, lexical leakage was null, and the registered number-specificity alternative held. Next test a finer causal split within the current-state value branch and identify downstream readers. Necessity/selective removal and genuinely new OOD constructions remain open."
+  },
+  {
+   "claim_id": "grammatical_subject_number.v14",
+   "revision": 14,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v13",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "fresh_matched_subject_number_score_value_v1",
+     "role": "interchange",
+     "changes": [
+      "the exact token-8 subject-self score, subject effective value, or both between opposite subject numbers"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT template and attractors",
+      "all non-subject L11H3 source terms and answer position"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "same-batch native no-op and source algebra",
+      "complete opposite-head positive control",
+      "same-number different-lemma score"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "fresh_matched_same_number_lexical_score_v1",
+     "role": "invariance",
+     "changes": [
+      "the subject lemma in the exact token-8 self-score while preserving subject number"
+     ],
+     "holds_fixed": [
+      "subject number and is/are answer",
+      "template, attractors, value state, and non-subject source terms"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "matched opposite-number score effect",
+      "native and opposite subject-value states"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "fresh_matched_subject_term_complement_v1",
+     "role": "interchange",
+     "changes": [
+      "the exact subject source term p_8 u_8, exact all-other-source complement, or both between opposite subject numbers"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT text and answer position",
+      "the exact component not selected for replacement"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "same-batch native no-op and source-term sum",
+      "complete opposite-head positive control"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "fresh_matched_subject_current_cached_value_v1",
+     "role": "interchange",
+     "changes": [
+      "the subject current-state value branch, cached layer-0 value branch, or both using matched opposite-number or same-number lexical donors"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT text",
+      "recipient subject score p_8",
+      "native non-subject source-term complement"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "native-order branch reconstruction and same-batch no-op",
+      "complete opposite-head and joint-value positive controls"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "fresh_matched_subject_current_upstream_writer_families_v1",
+     "role": "interchange",
+     "changes": [
+      "the embedding/skip, cumulative attention-write, and cumulative MLP-write contributions to the subject pre-attention-11 state, singly and factorially"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT text",
+      "recipient subject score p_8",
+      "recipient cached layer-0 value branch",
+      "native non-subject source-term complement"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "fixed-remainder exact state closure",
+      "same-batch no-op",
+      "all-donor current-head reproduction",
+      "same-number different-lemma controls"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+     "tensor_path": "exact subject-source score and projected value factors",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject-source score, projected value, or both while retaining every other exact source term",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+     "tensor_path": "exact subject-source projected value contribution p_subject*u_subject",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace only the subject source projected value while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+     "tensor_path": "factorial interaction of the subject-source score and projected value",
+     "shape": [
+      "batch",
+      2,
+      2,
+      1152
+     ],
+     "intervention": "cross recipient or alternate-context scores with native or opposite-number subject projected values",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+     "tensor_path": "exact per-source projected value contributions p_k*u_k",
+     "shape": [
+      "batch",
+      "source_position",
+      1152
+     ],
+     "intervention": "replace selected source projected values while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+     "tensor_path": "semantic groups of exact source projected value contributions",
+     "shape": [
+      "batch",
+      4,
+      1152
+     ],
+     "intervention": "replace any subset of subject, intermediate, bridge, and attractor groups",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+     "tensor_path": "fronted-construction source score vector grouped as earlier, determiner, and subject-self scores",
+     "shape": [
+      "batch",
+      3
+     ],
+     "intervention": "replace selected source scores with donor scores while holding the installed subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+     "tensor_path": "the two bilinear QK branches composing the final-query to subject-self score",
+     "shape": [
+      "batch",
+      4,
+      128
+     ],
+     "intervention": "interchange q1, k1, q2, and k2 factors factorially while holding the donor subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+     "tensor_path": "exact subject source term p_8 u_8 and exact all-other-source complement sum_{j != 8} p_j u_j",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject term, complement, or both with the matched donor while retaining the other exact recipient component",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_effective_value.current_and_cached.final_position",
+     "tensor_path": "the current-state and layer-0 cached branches of the exact L11H3 subject effective value u_8",
+     "shape": [
+      "batch",
+      2,
+      128
+     ],
+     "intervention": "replace current and cached pre-projection value branches independently, sum in native order, then project once",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+     "tensor_path": "the E/A/M decomposition of the pre-attention-11 subject residual that feeds the L11H3 current-state value branch",
+     "shape": [
+      "batch",
+      3,
+      1152
+     ],
+     "intervention": "take recipient or matched donor E, A, and M families factorially at the subject position, add the frozen E-owned numerical remainder, apply native RMSNorm and V11H3, then install only the subject source term",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2",
+    "task14_fresh_matched_natural_split_v1"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
+    "task14_head11_3.fresh_matched_natural.capability.complete.v1",
+    "task14_head11_3.fresh_matched_qk.v1_engineering_failure.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v2_instrument.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v3_instrument.complete.v1",
+    "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
+    "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
+    "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
+    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.instrument.complete.v1",
+    "task14_head11_3.fresh_subject_term.interaction_repair.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.exact_localization.complete.v1",
+    "task14_head11_3.fresh_current_cached.v1_instrument.invalid.v1",
+    "task14_head11_3.fresh_current_cached.v2_instrument.complete.v1",
+    "task14_head11_3.fresh_current_cached.current_branch_use.complete.v1",
+    "task14_head11_3.fresh_current_cached.cached_branch_use.complete.v1",
+    "task14_head11_3.fresh_current_cached.interaction_needed.complete.v1",
+    "task14_head11_3.fresh_current_cached.lexical_leakage.complete.v1",
+    "task14_head11_3.fresh_current_cached.number_specificity.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.v1_instrument.invalid.v1",
+    "task14_head11_3.fresh_upstream_writers.v2_instrument.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.embedding_skip_family.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.earlier_attention_family.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.earlier_MLP_family.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.distributed_families.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.interaction_needed.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1",
+    "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "The licensed upstream-writer factorial is complete and must not be repeated. With recipient p_8, cached value, and native non-subject complement fixed, cumulative MLP writes from blocks 0--10 carried the current-state subject-value transfer; embedding/skip, cumulative earlier-attention, distributed-family, interaction-needed, and lexical-collateral predictions were null, while number-specificity held. This localizes a broad writer family only. It does not establish necessity, new syntax, downstream readers, or any individual MLP layer. Next causally split the cumulative MLP family without treating native MLP boundaries as final semantic units, and identify the downstream readers of the resulting computation."
   }
  ],
  "split_plans": [
@@ -4396,6 +4896,54 @@
   "task14_current_cached_v2_result": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_cached_value_factorial_v2_result.json",
    "sha256": "5749ccc87aa9631699da79a72504101651f6d9f91da9157d646e723151f52ca9",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v1_capability_license": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_subject_current_upstream_writer_factorial_v1_capability_license.json",
+   "sha256": "f0d1ebba9a7bc8ad5ec9936913a1d2dc5daa4e6f1f72a0571746b4aacc5b9f40",
+   "kind": "capability_license",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v2_capability_license": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_subject_current_upstream_writer_factorial_v2_capability_license.json",
+   "sha256": "bf8f9a3b71846a06ebaf577421547eb19149345d9011e3bf5417bcbd7338abc6",
+   "kind": "capability_license",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_scientific_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v1.json",
+   "sha256": "999884e00a3e730ccba9f60ae84aa99e55305cc9bcf537c77dbb2f971b6c7ea9",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v1_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial.py",
+   "sha256": "1f9f8580350fe4f59c0f69ce329800d7390c7848d0954e0a5905a26cdf7af8ae",
+   "kind": "experiment_runner",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v1_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v1_result.json",
+   "sha256": "72e8ea00ea82e3f76e45c098f1e758ced0bf74c457d1432ed886eeedb8990518",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v2_correction": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_numerical_repair_v2.json",
+   "sha256": "99befade2c755168e6eff45f2c3b58f1df556b709925eeff772bcf1d355606f4",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v2_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2.py",
+   "sha256": "7966a5d46a76e7bdf87c04958647d2ba88792eb71ae402f84755d94e0f612569",
+   "kind": "experiment_runner",
+   "status": "frozen"
+  },
+  "task14_upstream_writers_v2_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2_result.json",
+   "sha256": "5c021cad2f73663f2176a813fc1f4ceffef555b48d7d00c050d0f60d0a2434fa",
    "kind": "screen_result",
    "status": "frozen"
   }
@@ -7114,6 +7662,540 @@
    "notes": "The registered number-specificity alternative held on these licensed rows: every same-number lexical contrast was small relative to the matched opposite-number joint effect.",
    "design_key": "0bd87eec2514bc3e57ca84d8480c708b87828564434f8c997930c3e571031ab2",
    "execution_key": "9eb1dd633e687bf34b89c369944c09925d093f83baa919f6f9c6b4f4701fe70a"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.v1_instrument.invalid.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "null_control",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "implementation_failure",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "state_sum_max_absolute_error",
+     "estimate": 0.00146484375,
+     "ci95": null,
+     "bar": "<=0.00005"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_scientific_prior_art",
+   "result_artifact_id": "task14_upstream_writers_v1_invalid_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Engineering-only invalid result: regrouping the sequential float32 residual additions as E+A+M exceeded the frozen exactness bar. V1 scientific arms are not evidence.",
+   "design_key": "90d3241ab6d0473525514d0f402cd76130df9041857abbdd126f4d568a538e22",
+   "execution_key": "68b1164149d5d0526cfa3a3ec16885deee87e9407ab9cd162e126eee673ac66b"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.v2_instrument.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "native_replay_max_absolute_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "state_sum_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "normalized_state_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "source_term_sum_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "all_donor_current_head_max_absolute_error",
+     "estimate": 1.1444091796875e-05,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "same_batch_native_noop_endpoint_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "installed_head_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "minimum_all_donor_mean_margin",
+     "estimate": 0.2865443229675293,
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "minimum_all_donor_mean_CE",
+     "estimate": 0.24477934837341309,
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    },
+    {
+     "name": "minimum_all_donor_positive_row_fraction",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.75 in every cell"
+    },
+    {
+     "name": "uncorrected_state_max_absolute_error_diagnostic",
+     "estimate": 0.00146484375,
+     "ci95": null,
+     "bar": "diagnostic only"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.fresh_upstream_writers.v1_instrument.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The fixed-remainder v2 decomposition passed exact replay, recombination, installation, no-op, and live all-donor task controls. The numerical remainder is assigned to E by the frozen convention.",
+   "design_key": "a248021dee76393bce8507c2c00eac23ce1fbbf2deabc2c314a954cb54723c40",
+   "execution_key": "e36ab817503f6a3e6bcd092b68eb289bb6006ebea7c373ad2966da520b489147"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.embedding_skip_family.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "E_mean_margin_range",
+     "estimate": [
+      0.046048879623413086,
+      0.07410573959350586
+     ],
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "E_mean_CE_range",
+     "estimate": [
+      0.0402369499206543,
+      0.060805439949035645
+     ],
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    },
+    {
+     "name": "minimum_E_positive_row_fraction",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.75 in every cell"
+    },
+    {
+     "name": "E_over_all_donor_margin_range",
+     "estimate": [
+      0.09698385555611458,
+      0.16070421199247162
+     ],
+     "ci95": null,
+     "bar": ">=0.70 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The embedding/skip writer family did not reach the registered 70% recovery criterion in any licensed cell.",
+   "design_key": "cc76dfac69113741d9da2fd0403f01321f01c59fe6d26b1803745a84b986dfd5",
+   "execution_key": "120a93c3edeef6edbe0ed92d1d20bb3806e88a17a31041b4fae1566691c80299"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.earlier_attention_family.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "A_mean_margin_range",
+     "estimate": [
+      0.007970571517944336,
+      0.030716538429260254
+     ],
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "A_mean_CE_range",
+     "estimate": [
+      0.005978584289550781,
+      0.030937552452087402
+     ],
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    },
+    {
+     "name": "minimum_A_positive_row_fraction",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.75 in every cell"
+    },
+    {
+     "name": "A_over_all_donor_margin_range",
+     "estimate": [
+      0.01350984101659826,
+      0.06610744732721278
+     ],
+     "ci95": null,
+     "bar": ">=0.70 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The cumulative attention-write family from blocks 0--10 did not reach the registered 70% recovery criterion in any licensed cell.",
+   "design_key": "9c39321b46faadca32555d4aa4b0f15746d3a182457f62688c147d1bbe59d9ea",
+   "execution_key": "8a09b62c59b933e12ed48fb2451340537e1b37a353d859503e7235c701c7e43a"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.earlier_MLP_family.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "M_mean_margin_range",
+     "estimate": [
+      0.23220336437225342,
+      0.5335423946380615
+     ],
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "M_mean_CE_range",
+     "estimate": [
+      0.19796204566955566,
+      0.4851524829864502
+     ],
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    },
+    {
+     "name": "minimum_M_positive_row_fraction",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.75 in every cell"
+    },
+    {
+     "name": "M_over_all_donor_margin_range",
+     "estimate": [
+      0.7734154122176271,
+      0.9129719681530183
+     ],
+     "ci95": null,
+     "bar": ">=0.70 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The cumulative MLP-write family from blocks 0--10 carried at least 70% of the all-donor margin effect in every licensed cell, with positive margin and CE on at least 3/4 rows per cell.",
+   "design_key": "8b469b6eb3912423016e6a2664b088e66b6ac6e1672e2c61a897df777dccf75f",
+   "execution_key": "d750f27ef98b7bbb342ff9e6fd17bb2d8a21e83a6ce6a2f53b3f052a09d241b7"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.distributed_families.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "E_over_all_donor_margin_range",
+     "estimate": [
+      0.09698385555611458,
+      0.16070421199247162
+     ],
+     "ci95": null,
+     "bar": ">=0.25 in every cell"
+    },
+    {
+     "name": "A_over_all_donor_margin_range",
+     "estimate": [
+      0.01350984101659826,
+      0.06610744732721278
+     ],
+     "ci95": null,
+     "bar": ">=0.25 in every cell"
+    },
+    {
+     "name": "M_over_all_donor_margin_range",
+     "estimate": [
+      0.7734154122176271,
+      0.9129719681530183
+     ],
+     "ci95": null,
+     "bar": "<0.70 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The registered distributed-family account was null: M alone exceeded 70% recovery in every cell, while E and A did not provide two families above 25% in every cell.",
+   "design_key": "da1d0ad9f65909cabaf9b067b322d10f68df905c1ba7be6760d8720836a74e25",
+   "execution_key": "1fae62c00e1e6f4d6e18edc9f90a0db942ea4363bbf521541178f4bcbebe9bed"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.interaction_needed.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "maximum_M_over_all_donor_margin",
+     "estimate": 0.9129719681530183,
+     "ci95": null,
+     "bar": "<=0.50 in every cell"
+    },
+    {
+     "name": "total_interaction_over_all_donor_margin_range",
+     "estimate": [
+      -0.07396033345048882,
+      0.082605781659131
+     ],
+     "ci95": null,
+     "bar": ">=0.50 in every cell"
+    },
+    {
+     "name": "total_interaction_mean_margin_range",
+     "estimate": [
+      -0.04322254657745361,
+      0.048735976219177246
+     ],
+     "ci95": null,
+     "bar": ">0 with >=0.75 helpful rows in every cell"
+    },
+    {
+     "name": "total_interaction_mean_CE_range",
+     "estimate": [
+      -0.04141831398010254,
+      0.044132113456726074
+     ],
+     "ci95": null,
+     "bar": ">0 with >=0.75 helpful rows in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The registered interaction-needed account was null: M alone exceeded 50%, while total interactions were small and changed sign across cells.",
+   "design_key": "57eac873a7c7128dfceeb4b6c1e6e581766d91a4fd0df656e48042fd2f5dcb71",
+   "execution_key": "bff25fc9d4b20ad67697124bd460851cf2b458c96819ee7e40b17b18ff1bd578"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "maximum_lexical_margin_ratio",
+     "estimate": 0.1151079914864867,
+     "ci95": null,
+     "bar": "<=0.25 in every cell"
+    },
+    {
+     "name": "maximum_lexical_CE_ratio",
+     "estimate": 0.02847116771649172,
+     "ci95": null,
+     "bar": "<=0.25 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The registered number-specificity alternative held: all same-number different-lemma writer-family effects were small relative to the corresponding opposite-number all-donor effect.",
+   "design_key": "a2d17f759b3f680a2e500aeac726fd7d2acc254c38b40d0187cb11d4602e3fcb",
+   "execution_key": "ab01895498e2fe270cdd39bfbcf48374ae5393cfb2abb86ab86af4ccb12b5644"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1",
+   "claim_id": "grammatical_subject_number.v13",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_current_value_input.upstream_writer_families.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "maximum_lexical_margin_ratio",
+     "estimate": 0.1151079914864867,
+     "ci95": null,
+     "bar": ">=0.50 in any cell"
+    },
+    {
+     "name": "maximum_lexical_CE_ratio",
+     "estimate": 0.02847116771649172,
+     "ci95": null,
+     "bar": ">=0.50 in any cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_upstream_writers_v2_correction",
+   "result_artifact_id": "task14_upstream_writers_v2_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_current_cached_v2_result",
+    "task14_upstream_writers_v2_capability_license",
+    "task14_upstream_writers_v2_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The registered lexical-collateral prediction was null: no same-number different-lemma effect reached half of its opposite-number reference effect.",
+   "design_key": "bef158db883645237ebe8e2c52b0ed70a340f713a636f9850593b45fe0c67e1f",
+   "execution_key": "51f0e2bb37e7464553d1d6919546e3068c8ce3d6bee47ef58179099c3c658fa0"
   }
  ]
 }

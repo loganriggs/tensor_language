@@ -69,15 +69,11 @@ def test_v1_is_engineering_only_and_v2_supersedes_it() -> None:
 def test_exact_v12_prefix_and_idempotence(tmp_path, monkeypatch) -> None:
     plan = publish.build_plan()
     before = json.loads(RECORD.read_text())
-    # The repository may contain either the exact v12 migration source or the
-    # already-applied v13 record.  In both cases validate the immutable v12
-    # prefix and the exact v13 evidence suffix.
-    if before["claims"][-1]["claim_id"] == publish.NEW_CLAIM:
-        expected_v12_claims = before["claims"][:-1]
-        expected_v12_event_ids = expected_v12_claims[-1]["evidence_event_ids"]
-    else:
-        expected_v12_claims = before["claims"]
-        expected_v12_event_ids = before["claims"][-1]["evidence_event_ids"]
+    # The live record may now contain revisions after v13. An old publisher
+    # must remain an exact no-op there rather than assuming its revision is
+    # permanently the tail of the claim list.
+    v13_already_present = any(
+        claim["claim_id"] == publish.NEW_CLAIM for claim in before["claims"])
     circuits = tmp_path / "circuits"
     circuits.mkdir()
     copied = circuits / RECORD.name
@@ -89,10 +85,17 @@ def test_exact_v12_prefix_and_idempotence(tmp_path, monkeypatch) -> None:
     publish.apply_plan(plan, regenerate=False)
     assert copied.read_bytes() == first
     after = json.loads(first)
-    assert after["claims"][:-1] == expected_v12_claims
-    assert after["claims"][-1]["evidence_event_ids"] == (
-        expected_v12_event_ids + [x["event_id"] for x in plan["events"]]
-    )
+    if v13_already_present:
+        assert after == before
+        v13 = next(c for c in after["claims"] if c["claim_id"] == publish.NEW_CLAIM)
+        assert v13["evidence_event_ids"][-len(plan["events"]):] == [
+            x["event_id"] for x in plan["events"]]
+    else:
+        assert after["claims"][:-1] == before["claims"]
+        assert after["claims"][-1]["evidence_event_ids"] == (
+            before["claims"][-1]["evidence_event_ids"]
+            + [x["event_id"] for x in plan["events"]]
+        )
     ids = [x["event_id"] for x in after["evidence_events"]]
     assert len(ids) == len(set(ids))
 
