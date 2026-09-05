@@ -1,0 +1,52 @@
+{
+  "bars": {
+    "median_joint_projection_recovery_each_factor_target_family_min": 0.1,
+    "median_joint_rescue_cosine_each_factor_target_family_min": 0.25,
+    "median_live_centered_effect_norm_each_factor_family_min": 0.05,
+    "native_positive_fraction_each_family_min": 0.75,
+    "native_replay_max_absolute_logit_error_max": 1e-05,
+    "positive_joint_projection_fraction_each_factor_target_family_min": 0.6666666666666666
+  },
+  "bound_prior_result": "individual mediation result 7ae8f092...; read only after current outputs for the descriptive interaction diagnostic",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_r549_attention_joint_mediation",
+  "closed_splits": [
+    "TEST",
+    "OOD"
+  ],
+  "conditions": [
+    "native",
+    "native_replay",
+    "remove_mu",
+    "remove_delta",
+    "remove_mu_restore_joint_l14h1_l15h3_l16h1",
+    "remove_delta_restore_joint_l14h1_l15h3_l16h1"
+  ],
+  "estimand": "Joint centered-closer projection/cosine and full-vocabulary correct-answer CE damage/rescue; interaction diagnostics subtract the row-level sum of the three frozen individual projection recoveries and CE rescues from joint restoration.",
+  "fixed_joint_heads": [
+    "L14H1",
+    "L15H3",
+    "L16H1"
+  ],
+  "frozen_predictions": {
+    "pred_a": "native capability/replay hold and both upstream factor removals remain live",
+    "pred_b": "the all-three restoration meets the projection, cosine, and sign bars for both mu and delta in both target constructions despite negligible frozen individual rescues",
+    "pred_c": "with live upstream effects, joint restoration stays below a mediation bar for at least one factor in a target construction, favoring distributed use or bypass"
+  },
+  "individual_result_sha256": "7ae8f092a873b15d3f273196db380e46ef1e7f906b7d837395eb7b3dacf87917",
+  "interpretation_limit": "one fixed joint corner only; no subset factorial, site scan, selectivity proof, or representational decomposition",
+  "opened_splits": [
+    "FRESH_BASIC"
+  ],
+  "outcome_reads": [],
+  "price": {
+    "backwards": 0,
+    "example_evaluations": 144,
+    "model_forwards": 6,
+    "parameter_updates": 0
+  },
+  "prior_art_sha256": "c08ffec32d1aaba60cf081dc145c1645a187e5cf5f2a22e7ea2c6eee580759e1",
+  "rows": 24,
+  "rows_sha256": "61f8db59d41863f2cc48b141f7c14f73a6774c63bbbca3b41ae0d873dbd18ba7",
+  "schema": "bracket_l13h8_mu_delta_r549_attention_joint_mediation_plan_v1",
+  "triplet_groups": 8
+}
