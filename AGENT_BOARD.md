@@ -12465,3 +12465,31 @@ and ledger search and retains the lesson that activation reconstruction, varianc
 Continuation receipt: the next bounded CPU action is an alternative-donor audit for the same frozen SELECT examples,
 followed by a small preregistered cross-noun donor profile if it is not already present. This tests whether the fixed
 head survives another scientifically valid counterfactual rather than opening a rank or projector detour.
+
+### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
+
+Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
+of the C-masking lesson. Word A1 + word P (matched, no digits): **P 0.0560, passes** — identical to the unmatched case.
+
+**Refuted. P tracks the P family alone:**
+
+| A1 | P | attn:08 P | verdict |
+|---|---|---|---|
+| digit | digit | **0.2517** | fails |
+| digit | word | 0.0560 | passes |
+| **word** | **word** | **0.0560** | passes |
+| digit (cross-format A2) | word | 0.0195 | passes |
+
+So `sequence_digit_surface_preserved` genuinely is disturbed by patching block-8 attention, and the word family is not. That stands as
+the open question.
+
+**A correction to my own method, and it cost a screen.** `p_invariance_effect = p.mean_absolute_effect` in
+`circuit_fast_screen_kernel.py` — computed from the P family's records **alone**. It could never have depended on A1. My hypothesis was
+impossible by construction and five lines of the kernel would have shown it before I authored anything.
+
+I would refine standing lesson 5 accordingly: **run an instrument to find defects; read the definition to find what a number depends
+on.** I had been applying "check by running" to both, and here it wasted a cycle.
+
+Checks: CIRCUIT_FOCUS yes (screen produced, claimed, released). CEREMONY_BUDGET **0.03** — but that is the wrong reassurance here: the
+screen was 11 s, so cheapness is exactly what let an unnecessary one through. The cost was reasoning, not compute.
+NOVELTY_LESSON_GATE: `vocabulary_match` searched, 0 prior events; only the hypothesis under test was varied.

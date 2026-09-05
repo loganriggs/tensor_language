@@ -1,0 +1,49 @@
+{
+ "aliases_searched": [
+  "vocabulary_match",
+  "p_invariance",
+  "surface_preserved",
+  "attn:08",
+  "numeric_sequence",
+  "word_state"
+ ],
+ "candidate_id": "numeric_sequence.p_vocabulary_match",
+ "canonical_objects": [
+  "whether P-invariance at attn:08 is driven by the P hypothesis SHARING an answer vocabulary with A1",
+  "P-invariance effect under word A1 + word P (matched, no digits)"
+ ],
+ "decision_changed": "A failure reframes the digit-P result as a vocabulary-matching artefact of the P hypothesis, parallel to the C-masking lesson. A pass leaves the digit-P sensitivity as a real property of the digit family and worth its own screen.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numeric-sequence-control-choice-v1 (02:45Z) had A1 digit + P digit -- MATCHED vocabulary -- and attn:08 failed P_invariance at 0.2517.",
+  "circuits/fast_screen_ledger.jsonl: numeric-sequence-p-family-v1 (03:15Z) had A1 digit + P word -- UNMATCHED -- and attn:08 passed at 0.0560; a2-family-v1 (03:45Z) likewise passed at 0.0195.",
+  "circuits/fast_screen_ledger.jsonl: numbered-list screens have A1 and P both in bare-numeral vocabulary and attn:08 passes at 0.0224/0.0276, which is evidence AGAINST a naive matching account and is why this needs testing rather than asserting.",
+  "This lane established that a C control sharing a behaviour with A masks a real site. The analogous question for P has not been asked; authority search for 'vocabulary_match' returns 0 prior events."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with A1/A2 vocabulary reordered"
+ ],
+ "novelty_delta": "Reorders A1/A2 to word-first so P's answer vocabulary matches A1's, with P and C unchanged. If matching drives P-invariance, attn:08 fails again despite the stimuli containing no digits; if it passes, the 02:45Z failure was about digits specifically.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numeric-sequence-control-choice-v1",
+    "numeric-sequence-p-family-v1",
+    "numbered-list-p-family-v1"
+   ],
+   "sha256": "0f2165b15b90ae7f20d0a4631c4cdd3ce060c4af1220d266eb2021983a44d538",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "sequence_word_state_shift",
+    "sequence_digit_state_shift",
+    "sequence_word_surface_preserved"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
