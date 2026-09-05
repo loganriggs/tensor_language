@@ -34,7 +34,7 @@ SPLIT = builder.SPLIT
 DEFAULT_GROUPS = builder.DEFAULT_GROUPS
 DEFAULT_SEED = builder.DEFAULT_SEED
 
-TASK_ID = "finiteness_selection.to_vs_that"
+TASK_ID = "finiteness_selection.to_vs_that_v2"
 FINITENESS = (" to", " that")
 
 TASK_SPEC = battery.BatteryTaskSpec(
@@ -74,11 +74,19 @@ def _phrase(adjective: str, noun: str) -> str:
 
 
 def _bare(agent: str, adverb: str, nonfinite: bool) -> str:
-    return f"The {agent} {'decided' if nonfinite else 'insisted'} {adverb}"
+    """v2 nonfinite verb.
+
+    v1 used 'decided' and failed one-sided: the finite side scored 1.00 in both constructions
+    while the nonfinite side scored 0.50 and 0.56. That is the signature of a collocation broken
+    by the intervening adverb, not of a subcategorization failure -- verb_complementizer uses the
+    same adverb-intervening design and passes at +4.45. 'refused' takes an adverb far more
+    comfortably before its infinitive. The FINITE verbs are unchanged.
+    """
+    return f"The {agent} {'refused' if nonfinite else 'insisted'} {adverb}"
 
 
 def _report(agent: str, adverb: str, nonfinite: bool) -> str:
-    return f"In the notes the {agent} {'agreed' if nonfinite else 'declared'} {adverb}"
+    return f"In the notes the {agent} {'offered' if nonfinite else 'declared'} {adverb}"
 
 
 def _answer(nonfinite: bool) -> str:

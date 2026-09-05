@@ -1,0 +1,30 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_contextual_midpoint_tangent_readout_v1",
+  "created_utc": "2026-09-05T20:45:00Z",
+  "purpose": "Specify whether the jointly supported MLP6--7 source family is read through MLP8 and attention-11 head-3 as a locally quadratic response or whether RMS normalization and downstream value formation require materially nonlinear finite transport.",
+  "binding_evidence": [
+    {"path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json", "sha256": "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f", "finding": "MLP6--7 is the larger member of a distributed MLP4--7 parent while MLP4--5 remains contextually necessary; the pair-level split is number-specific."},
+    {"path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_result.json", "sha256": "eff2b9e7ab76b4335733e8bde6708435a18e6b0da14073373e211d9588994efa", "finding": "MLP6 and MLP7 do not form stable individually selective units: their effects are distributed, interacting, direction-dependent, and one child corner fails lexical specificity. Retain X=MLP6+MLP7."},
+    {"path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v2_result.json", "sha256": "55d5413306f4471b0c9b8345732d317d0c1c4b82395153a119af3d56514f5ad6", "finding": "The exact MLP8 bilinear response is direction-dependent and cancellation-rich; fixed cross/quadratic terms are intervention-live."},
+    {"path": "circuits/fast_screens/task14_head11_3_ood_fronted_subject_mlp8_polarized_response_factorial_v1_result.json", "sha256": "31e379a376f29a6b71cb33fc77078edcaee9a64783793984ed0ca6df1a9cfd0b", "finding": "The signed MLP8 cross/quadratic response pattern transfers to fronted syntax under reused text."}
+  ],
+  "novelty_audit": [
+    "No Task14 receipt differentiates endpoint versus midpoint Jacobian transport of an already causal MLP6--7 source through the exact MLP8-to-L11H3 computation.",
+    "Earlier MLP0 tangent/quotient work concerns a different module, task, and consumer family and does not answer this finite Task14 response question.",
+    "This tests an exact local response map and task-level causal replay; it does not fit a subspace, reduce rank, reconstruct activations, or price compression."
+  ],
+  "map": "For each existing HOLDOUT row and each source in {opposite-number, same-number lexical}, form two X=MLP6+MLP7 paths while retaining all other source families: recipient background compares subset empty to X; donor-context background compares EAUW to EAUWX. Define f(x) as native MLP8 RMSNorm and bilinear MLP, native residual propagation through blocks 9--11, native attention-11 head-3 current-value RMSNorm/c_v/projection with the recipient attention pattern and cached value fixed. Compare exact f(x1)-f(x0) with J_f(x0)(x1-x0) and J_f((x0+x1)/2)(x1-x0), then install exact and predicted head vectors into the native tail.",
+  "mathematical_discriminator": "For a degree-at-most-two map along the source path, the midpoint directional derivative equals the exact secant. Endpoint error isolates quadratic curvature; residual midpoint error isolates RMS normalization and later nonlinear value formation or higher path curvature.",
+  "predictions": {
+    "pred_a_instrument_and_parent_closure": "All replay/no-op/state/head gates are at most 5e-5, every exact finite arm reproduces its frozen parent Task14 margin and CE effects within 5e-5, and all JVP tensors are finite.",
+    "pred_b_midpoint_quadratic_readout": "For opposite-number sources in both backgrounds and all four direction/template cells, midpoint JVP head-delta cosine is at least 0.95, relative error at most 0.25, and installed task-margin recovery is in [0.75,1.25] with the exact sign.",
+    "pred_c_endpoint_local_readout": "The same cells satisfy endpoint-JVP cosine at least 0.90 and relative error at most 0.35 with task-margin recovery in [0.65,1.35] and the exact sign.",
+    "pred_d_material_nonquadratic_transport": "Prediction b fails and at least one opposite-number midpoint relative error exceeds 0.35 or installed task-margin recovery leaves [0.60,1.40]. This is the opposing account, not a rescue threshold.",
+    "pred_e_context_changes_readout": "The mean midpoint relative error differs by at least 0.15 between recipient and donor-context backgrounds in either grammatical direction.",
+    "pred_f_parent_level_lexical_specificity": "For exact and midpoint arms, absolute same-number lexical task-margin effects are at most 25% of the matched opposite-number exact effect in every background/cell."
+  },
+  "null": "If the instrument holds but b--e all fail, the tested endpoint and midpoint tangents do not give a stable computational specification of the finite parent-unit readout. Preserve the exact finite circuit and move to an operational downstream-equivalence test rather than tuning tangent thresholds.",
+  "price": {"physical_model_forwards": 4, "example_evaluations": 608, "causal_interventions": 192, "backwards": "JVP only; no optimization", "parameter_updates": 0},
+  "closed_claims": ["semantic uniqueness", "rank", "compression", "activation reconstruction", "new independent text", "necessity outside the fixed L11H3 interface"]
+}
