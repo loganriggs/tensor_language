@@ -15,8 +15,18 @@ import sys
 
 import torch
 
+# The frozen semantic-position helpers set BQLIB_NO_MODEL=1 while importing
+# their old model wrappers. Preserve the actual caller's request so that helper
+# internals cannot turn a managed execution into a dry run.
+_CALLER_BQLIB_NO_MODEL = os.environ.get("BQLIB_NO_MODEL")
+
 import final_ood_authority_attn8_h3_h7_cached_successor_v1 as authority
 import run_attn8_h3_h7_cross_behavior_factor_interchange_v2 as exact
+
+if _CALLER_BQLIB_NO_MODEL is None:
+    os.environ.pop("BQLIB_NO_MODEL", None)
+else:
+    os.environ["BQLIB_NO_MODEL"] = _CALLER_BQLIB_NO_MODEL
 
 
 ROOT = exact.ROOT

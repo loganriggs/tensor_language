@@ -2,8 +2,9 @@ import sys
 
 import torch
 
-import final_ood_authority_attn8_h3_h7_cached_successor_v1 as authority
 import run_attn8_h3_h7_cached_successor_final_ood_v1 as runner
+
+authority = runner.authority
 
 
 def test_plan_binds_cached_arm_and_exact_price():
