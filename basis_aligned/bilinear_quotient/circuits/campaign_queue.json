@@ -10,7 +10,7 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 75,
+  "held_events": 83,
   "blocking_events": 79
  },
  "work_items": [
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v17",
+   "active_claim_id": "grammatical_subject_number.v18",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 16,
+   "counterfactual_family_count": 17,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 7
+    "validated": 8
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -399,7 +399,15 @@
     "task14_head11_3.fresh_MLP8_polarized.background_stable.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.number_specificity.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1",
-    "task14_head11_3.fresh_MLP8_polarized.direction_polarization_exploratory.complete.v1"
+    "task14_head11_3.fresh_MLP8_polarized.direction_polarization_exploratory.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.scoped_capability.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.instrument.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.plural_to_singular_signed_split.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.singular_to_plural_signed_split.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.joint_direction_pattern.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -440,7 +448,15 @@
     "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.instrument.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.background_stable.complete.v1",
-    "task14_head11_3.fresh_MLP8_polarized.number_specificity.complete.v1"
+    "task14_head11_3.fresh_MLP8_polarized.number_specificity.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.scoped_capability.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.instrument.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.plural_to_singular_signed_split.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.singular_to_plural_signed_split.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.joint_direction_pattern.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1",
+    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -487,7 +503,7 @@
     "causal_site": "held",
     "learned_interchange": "blocked",
     "cross_family": "mixed",
-    "ood": "blocked",
+    "ood": "mixed",
     "selectivity": "mixed",
     "composition": "mixed",
     "compiled_weights": "missing"
@@ -501,7 +517,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The repaired licensed MLP8 invariant-response screen is complete and must not be repeated. Registered cross-dominant, quadratic-dominant, distributed, and downstream-interaction-needed all-cell claims were null; background stability and number specificity held, and lexical collateral was null. Exploratorily, the two exact invariant response components polarize by number-transfer direction and remain stable across recipient versus opposite-number MLP4--10 backgrounds. This is an exact within-MLP8 response split at subject position 8 through L11H3, not native product identities or a final semantic basis. OOD syntax, necessity, native product identities, and downstream readers remain untested."
+   "next_missing": "The prospective MLP8 intervention on reused fronted two-attractor OOD text is complete and must not be repeated. Scoped capability, exactness, both signed direction splits, their joint pattern, background stability, number specificity, and the algebraically dependent selective-removal pattern held. The OOD text and whole-head outcomes were previously open; only the MLP8 intervention was prospective, so this is not pristine held-out OOD. Independent selective removal, unrelated-behavior selectivity, necessity, native product identities, and downstream readers remain untested."
   },
   {
    "tag": "subroutine.induction.equality_score",
