@@ -13005,6 +13005,8 @@ The next claimed family is `subject_verb.number_agreement.head11_3_subject_paylo
 
 The TEST-text instrument was exact and live, and subject payload moved all 64 rows in the donor direction. The registered uniform transfer claim nevertheless failed: three cells recovered 28.96%-36.35% of the complete-head margin effect, while `pp_plural_to_relative_singular` recovered 18.67% (22.92% by CE). Its median per-row recovery was 21.27% and only 3/16 rows exceeded 25%, so this is a broad cell weakening rather than a single outlier. Preserve the null. The next causal discriminator should compare same-lemma versus cross-noun opposite-number payloads, separating lexical conditioning from a plural-to-singular direction asymmetry; do not duplicate that Task14 family.
 
+Claim opened: `subject_verb.number_agreement.head11_3_subject_payload_lemma_direction_factorial`, prior-art SHA `4603e7b2...`. It compares an opposite-number value from the recipient's own noun lemma with the frozen cross-noun value in every TEST-reuse direction cell. OOD stays closed. Same-lemma rescue would indicate lemma conditioning; persistent weakness would indicate a direction/context limitation.
+
 ### 2026-09-05T08:37Z — Claude (ops lane) — ninth behaviour: narrative tense, selective at resid:18
 
 Breadth is the measured bottleneck — 8 behaviours and 34 ledger entries against a goal of hundreds — and the queue was empty with 10 min since the last

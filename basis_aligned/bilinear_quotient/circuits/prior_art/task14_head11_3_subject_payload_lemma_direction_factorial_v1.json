@@ -1,0 +1,41 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_subject_payload_lemma_direction_factorial",
+  "timestamp_utc": "2026-09-05T08:44:01Z",
+  "search_terms": [
+    "Task14 same lemma subject payload",
+    "head11.3 payload lemma conditioned number direction",
+    "plural singular subject value cross noun",
+    "TEST subject payload same noun donor"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_subject_payload_test_transfer_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_payload_number_specificity_v1_result.json",
+    "ops/circuit_fast_screen_candidate_task14_phase_cross_syntax.py",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "TEST-reuse cross-noun subject-payload transfer",
+      "relation": "All rows moved correctly, but one plural-to-singular cell recovered only 18.67% of the complete-head margin effect. It cannot distinguish a weak direction from failure to transfer the value across noun lemmas."
+    },
+    {
+      "work": "SELECT matched number-specificity screen",
+      "relation": "Same-number cross-noun payloads caused little leakage, but that does not prove opposite-number effects have equal magnitude across lemmas."
+    }
+  ],
+  "novelty": "Exact paired TEST-reuse factorial comparing the recipient-score times an opposite-number value from the recipient's own noun lemma against the already-tested cross-noun opposite-number value. Causal masking makes later syntax irrelevant to the source value, so their difference tests lemma conditioning; the four direction cells test plural-to-singular asymmetry.",
+  "known_lessons_applied": [
+    "Preserve the parent every-cell null and reproduce its cross-noun arm exactly.",
+    "Use margin and CE effects, not activation norms or reconstruction.",
+    "Report every direction cell; do not hide the failed cell in a pooled average.",
+    "TEST text is reused and OOD remains closed."
+  ],
+  "source_sha256": {
+    "test_transfer_null": "157c907abb796012f2b6ba2b0fb8bd302daa66455d01376467b2acdc283b3c1b",
+    "phase_authority_factory": "75f7ea56f703bb07e55f478f734a3c7b79abf2cab1685aacd2b3ebee839fd59c",
+    "select_specificity_result": "2556df72200020fbc833e1e74381ca39cf251585878684b11388e705fe6bde57"
+  }
+}
