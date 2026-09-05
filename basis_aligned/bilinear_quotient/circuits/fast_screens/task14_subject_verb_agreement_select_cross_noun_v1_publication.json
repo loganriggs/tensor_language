@@ -1,0 +1,40 @@
+{
+  "schema": "circuit_cross_syntax_publication_spec_v1",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_replication_v3_result.json",
+  "result_artifact_id": "task14_fast_screen_select_cross_noun_managed_v3_result",
+  "canonical_tag": "task.subject_verb.number_agreement",
+  "source_claim_id": "grammatical_subject_number.v5",
+  "event_id": "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+  "test_type": "cross_family_transfer",
+  "family_ids": [
+    "a1_subject_number_preposition_v2",
+    "a2_subject_number_relative_clause_v2",
+    "p_cross_noun_subject_number_transfer_v2"
+  ],
+  "split_plan_id": "task14_select_cross_noun_split_v1",
+  "result_site_id": "attn:11:head:03",
+  "canonical_site": {
+    "site_id": "attention.block11.head3.pre_output_projection.final_position",
+    "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+    "shape": ["batch", 128],
+    "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position"
+  },
+  "claim_revision": {
+    "claim_id": "grammatical_subject_number.v6",
+    "revision": 6,
+    "status": "site_live",
+    "next_missing": "run selective removal or rescue/sufficiency with unrelated-behavior controls, then open the frozen TEST/OOD syntax pool"
+  },
+  "input_artifact_ids": [
+    "task14_authority",
+    "task14_select_cross_noun_candidate",
+    "task14_fast_screen_select_cross_syntax_v1_result",
+    "task14_fast_screen_full_state_v2_result"
+  ],
+  "sections": [
+    "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_replication_v3_result.json"
+  ],
+  "notes": "Held-out counterfactual-robustness screen. SELECT nouns/templates are disjoint from FIT, and each donor comes from a different noun group while preserving the target subject-number direction and attractor plurality. Matched-noun and cross-noun mean recoveries differ by only 0.00166 for head 11.3. The direct v1 and incomplete-publication v2 files are noncanonical; this event uses the managed v3 ledger receipt. No unrelated endpoint control was run, so this is not selectivity.",
+  "seed": null,
+  "claim_ledger_policy": "legacy_no_claim_event"
+}

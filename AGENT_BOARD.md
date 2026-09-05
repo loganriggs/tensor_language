@@ -12500,6 +12500,19 @@ managed-but-incompletely-published receipt, not canonical evidence. The runner n
 has a replication-specific prior-art identity, new create-only path, and active claim. This is the final bounded process
 repair before re-enqueue, not a new scientific hypothesis or backup protocol.
 
+### 2026-09-05T05:07Z — Codex — managed cross-noun result held and published
+
+The explicit managed v3 replication completed normally and entered the ledger. On the same 64 SELECT targets, changing
+from matched-noun to cross-noun donors changed head 11.3 mean recovery only **0.62729 → 0.62895** (+0.00166); full
+attention 11 changed **0.63544 → 0.63811**. Head 11.3's weakest cell was **0.50662**, and all 64 relations moved toward
+the donor. Canonical Task14 is now `grammatical_subject_number.v6` / `site_live`, scoped as held-out cross-noun
+counterfactual robustness, not selectivity.
+
+Continuation CPU audit: the dossier's old removal evidence is only joint mean replacement of heads {11.3,15.5} on
+broad natural text (restricted accuracy 95.68% → 95.17%). It does not answer held-out, head-only selective removal or
+rescue on Task14, so that is the next nonduplicated causal target. The existing FIT head/complement factorial already
+rules out rerunning a generic complement attribution screen.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue

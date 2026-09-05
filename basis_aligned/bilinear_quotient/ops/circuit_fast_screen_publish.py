@@ -297,20 +297,20 @@ def build_cross_syntax_plan(
         raise FastScreenPublishError("result file is missing or unsafe")
     result = json.loads(result_path.read_text())
     scopes = {
-        "task14_cross_syntax_interchange_result_v1": (
-            "new_cross_syntax_relations_not_unseen_text",
+        ("task14_cross_syntax_interchange_result_v1",
+         "new_cross_syntax_relations_not_unseen_text"):
             "FIT_VALIDATION_new_relations_not_unseen_text",
-        ),
-        "task14_targeted_cross_syntax_result_v1": (
-            "unseen_nouns_and_prompt_templates_after_fit_site_selection",
+        ("task14_targeted_cross_syntax_result_v1",
+         "unseen_nouns_and_prompt_templates_after_fit_site_selection"):
             "SELECT_HELD_OUT_unseen_nouns_and_prompt_templates",
-        ),
+        ("task14_targeted_cross_syntax_result_v1",
+         "unseen_nouns_templates_and_cross_noun_donors_after_fit_site_selection"):
+            "SELECT_HELD_OUT_cross_noun_counterfactual_robustness",
     }
-    if result.get("schema") not in scopes or result.get("terminal") != "screen":
+    scope_key = (result.get("schema"), result.get("validation_scope"))
+    if scope_key not in scopes or result.get("terminal") != "screen":
         raise FastScreenPublishError("only a successful targeted cross-syntax result can be promoted")
-    expected_scope, evaluation_role = scopes[result["schema"]]
-    if result.get("validation_scope") != expected_scope:
-        raise FastScreenPublishError("cross-syntax validation scope changed")
+    evaluation_role = scopes[scope_key]
     ledger_entry = _matching_cross_syntax_ledger_entry(result, value["result_path"], root)
     matches = [item for item in result.get("site_results", [])
                if item.get("site_id") == value["result_site_id"]]

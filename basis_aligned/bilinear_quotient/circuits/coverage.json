@@ -554,11 +554,12 @@
      "status": "held",
      "held_event_ids": [
       "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
-      "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+      "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
      ],
      "blocking_event_ids": [],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+     "latest_relevant_event_id": "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
     },
     "ood": {
      "status": "missing",
@@ -594,7 +595,7 @@
    "n_held_categories": 4,
    "n_blocked_categories": 0,
    "n_missing_categories": 3,
-   "next_missing": "test an independent cross-noun donor profile or the frozen TEST/OOD syntax pool, then selective removal and sufficiency with unrelated-behavior controls"
+   "next_missing": "run selective removal or rescue/sufficiency with unrelated-behavior controls, then open the frozen TEST/OOD syntax pool"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

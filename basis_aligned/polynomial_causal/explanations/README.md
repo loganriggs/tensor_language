@@ -13,7 +13,8 @@ state what was actually measured and what unit is being used.
 
 - [explanation_2026-09-05_0452.md](explanation_2026-09-05_0452.md) — held-out SELECT evidence that head 11.3 transfers
   subject number across prepositional-phrase and relative-clause prompts; the exact logit-margin recovery computation;
-  why matched-noun and cross-noun donors test different shortcuts; and the reusable phase runner and canonical dossier update
+  the later different-noun donor replication and inline comparison graph; why the two donor rules test different
+  shortcuts; the corrected dry-run failure; and the reusable runner and canonical dossier update
 - [explanation_2026-09-05_0421.md](explanation_2026-09-05_0421.md) — the circuit-scale operating goal; why target
   transfer must be separated from P/C control responses; the corrected shared-numeral interpretation at attention 8;
   byte-identical declarative numeric candidate builders; and the reviewed fast-screen-to-canonical publication path
