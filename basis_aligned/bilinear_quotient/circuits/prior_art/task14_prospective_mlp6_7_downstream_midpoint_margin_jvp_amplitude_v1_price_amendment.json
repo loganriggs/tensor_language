@@ -1,0 +1,15 @@
+{
+  "schema": "circuit_price_amendment_v1",
+  "candidate_id": "subject_verb.number_agreement.prospective_mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1",
+  "created_utc": "2026-09-05T22:18:00Z",
+  "prior_art_sha256": "b8e10492f622bb08cb0a2ae4370267e6782f9a4028ed907272d5f2ad04bad030",
+  "status": "PRE_CAUSAL_OUTCOME_PRICE_ONLY_CORRECTION",
+  "correction": "The causal q is exactly margin(exact)-margin(base), so the duplicated native patch batch is algebraically unnecessary. The required role decomposition contributes 96 evaluations and one forward; the single 128-row base/exact patched batch contributes 128 evaluations and one forward. Validation is therefore 2 forwards and 224 evaluations, not the preregistered 2 forwards and 256 evaluations.",
+  "unchanged": ["authority", "data", "predictions", "bars", "interventions", "scorer", "temporal_seal", "causal_installation_count"],
+  "corrected_price": {
+    "native_capability": {"physical_model_forwards": 1, "example_evaluations": 96},
+    "sealed_prediction": {"physical_model_forwards": 3, "example_evaluations": 224, "backwards": 2, "causal_interventions": 0},
+    "causal_validation": {"physical_model_forwards": 2, "example_evaluations": 224, "causal_interventions": 128},
+    "total": {"physical_model_forwards": 6, "example_evaluations": 544, "backwards": 2, "causal_interventions": 128, "parameter_updates": 0}
+  }
+}
