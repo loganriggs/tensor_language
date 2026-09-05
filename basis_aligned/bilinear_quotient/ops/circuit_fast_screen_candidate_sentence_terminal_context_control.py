@@ -238,9 +238,23 @@ V1_CONTROL = battery.TransformSpec(
     "C", "explicit_visible_punctuation_copy", True, "registered_active")
 CONTEXT_CONTROL = battery.TransformSpec(
     "C", "subject_number_agreement_context", True, "registered_active")
+# A control whose base and donor share an ANSWER but differ substantially in content. An
+# answer-changing control at the patched position is carried by any site that carries the
+# prediction (measured: C = 1.000 at resid:18), so it tests "does this site carry the
+# prediction", not "is this site specific". This one can only move if patching DISTURBS an
+# unrelated prediction, which is what "spares an unrelated behaviour" is supposed to mean.
+SAME_ANSWER_CONTROL = battery.TransformSpec(
+    "C", "subject_number_agreement_same_answer", False, "registered_active")
 
+SAME_ANSWER_TASK_ID = "sentence_terminal.semantic_choice_same_answer_control"
 V1_SPEC = _spec(v1.TASK_ID, V1_CONTROL)
 TASK_SPEC = _spec(TASK_ID, CONTEXT_CONTROL)
+SAME_ANSWER_SPEC = _spec(SAME_ANSWER_TASK_ID, SAME_ANSWER_CONTROL)
+
+_PLACES = (
+    "harbor", "market", "valley", "meadow", "orchard", "canyon", "island", "field",
+    "garden", "forest", "bridge", "tower", "cabin", "river", "ocean", "road",
+)
 
 
 def _control_row(*, kind: str, seed, task_id, group_number, group_id, forward,
@@ -259,8 +273,31 @@ def _control_row(*, kind: str, seed, task_id, group_number, group_id, forward,
             base_answer=base_mark, donor_answer=donor_mark,
             vocabulary=PUNCTUATION, matched_suffix=suffix, spec=spec,
         )
-    singular, plural = _SUBJECTS[_CASE[group_number]]
-    verb = _VERBS[_CASE[group_number]]
+    case = _CASE[group_number]
+    if kind == "same_answer":
+        # Same answer (" is") on both sides; the context differs in place, subject and
+        # reporter, and the shared trailing verb keeps the final input token matched.
+        verb = _VERBS[case]
+        subject_a = _SUBJECTS[case][0]
+        subject_b = _SUBJECTS[(case + 7) % len(_SUBJECTS)][0]
+        reporter_b = v1._REPORTERS[(case + 11) % len(v1._REPORTERS)][0]
+        place_a = _PLACES[case % len(_PLACES)]
+        place_b = _PLACES[(case + 5) % len(_PLACES)]
+        text_a = f"Beside the {place_a} the {subject_a} that the {reporter} {verb}"
+        text_b = f"Beside the {place_b} the {subject_b} that the {reporter_b} {verb}"
+        base_text, donor_text = (text_a, text_b) if forward else (text_b, text_a)
+        return _row(
+            seed=seed, task_id=task_id, group_number=group_number, group_id=group_id,
+            transform_id="C", construction_id="subject_number_agreement_same_answer",
+            direction_id="base_to_donor" if forward else "donor_to_base",
+            reporter=reporter, alternate_reporter=alternate, adjective=adjective,
+            object_name=object_name, base_text=base_text, donor_text=donor_text,
+            base_answer=" is", donor_answer=" is",
+            vocabulary=AGREEMENT, matched_suffix=f" {verb}", spec=spec,
+            sentence_types=("declarative", "declarative"),
+        )
+    singular, plural = _SUBJECTS[case]
+    verb = _VERBS[case]
     base_subject, donor_subject = (singular, plural) if forward else (plural, singular)
     base_text = _agreement_text(base_subject, reporter, verb)
     donor_text = _agreement_text(donor_subject, reporter, verb)
@@ -352,8 +389,11 @@ def _validate(rows, groups, seed, *, kind, task_id, spec) -> str:
         if cells.get((transform, "declarative_to_interrogative")) != half \
                 or cells.get((transform, "interrogative_to_declarative")) != half:
             raise CandidateBankError(f"{transform} ordered directions are unbalanced")
-    forward_id, reverse_id = (("period_to_question", "question_to_period") if kind == "v1"
-                              else ("singular_to_plural", "plural_to_singular"))
+    forward_id, reverse_id = {
+        "v1": ("period_to_question", "question_to_period"),
+        "context": ("singular_to_plural", "plural_to_singular"),
+        "same_answer": ("base_to_donor", "donor_to_base"),
+    }[kind]
     if cells.get(("C", forward_id)) != half or cells.get(("C", reverse_id)) != half:
         raise CandidateBankError("C ordered directions are unbalanced")
     return digest
@@ -374,6 +414,20 @@ def validate_rows(rows: Sequence[Mapping[str, object]], *, task_id: str = TASK_I
 def authority_sha256(task_id: str = TASK_ID, groups: int = DEFAULT_GROUPS,
                      seed: int = DEFAULT_SEED) -> str:
     return validate_rows(build_rows(task_id, groups, seed), groups=groups, seed=seed)
+
+
+def same_answer_rows(groups: int = DEFAULT_GROUPS, seed: int = DEFAULT_SEED):
+    rows = _build(groups, seed, kind="same_answer", task_id=SAME_ANSWER_TASK_ID,
+                  spec=SAME_ANSWER_SPEC)
+    _validate(rows, groups, seed, kind="same_answer", task_id=SAME_ANSWER_TASK_ID,
+              spec=SAME_ANSWER_SPEC)
+    return rows
+
+
+def same_answer_authority() -> str:
+    rows = same_answer_rows()
+    return _validate(rows, DEFAULT_GROUPS, DEFAULT_SEED, kind="same_answer",
+                     task_id=SAME_ANSWER_TASK_ID, spec=SAME_ANSWER_SPEC)
 
 
 def reproduces_v1_authority() -> tuple[bool, str, str]:

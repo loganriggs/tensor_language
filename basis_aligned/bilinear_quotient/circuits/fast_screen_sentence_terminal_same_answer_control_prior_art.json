@@ -1,0 +1,91 @@
+{
+  "aliases_searched": [
+    "10.5",
+    "answer-changing control",
+    "c_absolute_recovery range",
+    "capability stop",
+    "control falsifiability",
+    "control incapable",
+    "instruction following control",
+    "interrogative",
+    "mlp11 question slice",
+    "native_behavior_incapable",
+    "period",
+    "punctuation",
+    "question head",
+    "question mark",
+    "question state",
+    "question-specific",
+    "same-answer control",
+    "subject-verb number agreement control",
+    "terminal specificity",
+    "unfalsifiable selectivity clause"
+  ],
+  "candidate_id": "sentence_terminal.semantic_choice_same_answer_control",
+  "canonical_objects": [
+    "question-state carrier at attention layer 10",
+    "head 10.5 terminal-state service",
+    "question rank-2 output channel at MLP11",
+    "sentence-terminal period-versus-question-mark choice"
+  ],
+  "decision_changed": "If C stays near zero at every site including resid:18, the selectivity clause is weakly evidenced and the existing selective verdicts should be restated as target-recovery plus an untested control. If C rises at non-specific sites while staying low at specific ones, the clause discriminates and the concern is withdrawn. Either way this changes how the standing selective_causal_site records are read.",
+  "matched_prior_claims": [
+    "RESULTS.md section 1282 found an attention-layer-10 carrier for question-mark targets.",
+    "RESULTS.md sections 1284-1289 localized the established question circuit to head 10.5 and its upstream writers.",
+    "RESULTS.md section 1313 found head 10.5 much stronger for question marks than periods or exclamation marks.",
+    "RESULTS.md sections 1597-1600 traced a rank-2 MLP11 question slice and question-mark output channel to heads 9.7 and 10.5 plus MLP9 and MLP10.",
+    "BILIN18_CONNECTION.md section 1345 narrowed the label question-specific because head 10.5 also serves comparative refinement.",
+    "BILIN18_CONNECTION.md section 1631 showed that head 10.5 identity is not by itself question-specific because random rank-2 bases also select it, while the concentration magnitude remains distinctive.",
+    "CIRCUIT_REGISTRY.md records the question circuit as closed at head grain and separately records its rank-2 MLP11 output channel.",
+    "circuits/DOSSIER.md contains no version-2 record for a bidirectional, construction-general period-versus-question-mark interchange test.",
+    "circuits/fast_screen_ledger.jsonl entry 0 records sentence_terminal.semantic_choice as terminal null with reason native_behavior_incapable.",
+    "circuits/fast_screens/sentence_terminal_semantic_choice_v1_result.json stops at head_stage capability_stop, so no site was ever screened and no causal claim exists for this behaviour.",
+    "That result's run.capability_cells show A1, A2 and P passing every ordered cell while both C cells fail at 0.50, and run.native_logits give A1/A2/P answer-versus-foil margins of +4.19/+4.99/+4.18 against +1.38 for C.",
+    "subject_verb.number_agreement passes native capability in every ledger entry that uses it, which is why it is chosen as the replacement control behaviour.",
+    "circuits/fast_screens/sentence_terminal_semantic_choice_context_control_v1_result.json recovers A1 and A2 at 1.000 with P 0.035 at resid:18 and is refused only by C 1.000.",
+    "Across all 14 screens with site results, every selective_causal_site verdict has C at most 0.122 over 55-64 sites, and every screen whose control is answer-changing reaches C about 1.0 and returns a null.",
+    "circuits/fast_screens/bracket_positive_control_v1_result.json spares its control at resid:18 (C 0.034) and its cells carry recipient_answer_id equal to donor_answer_id, so that control is same-answer."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "component ablation",
+    "head localization",
+    "quadratic-form eigenspace",
+    "output-channel tracing"
+  ],
+  "novelty_delta": "Holds A1/A2/P byte-identical to the v1 sentence-terminal authority and installs a same-answer control whose base and donor differ in place, subject and reporter. This asks whether the C clause can fail at all in the configuration that underwrites every selective_causal_site verdict on disk: resid:18 demonstrably carries the whole prediction, so a control that stays near zero there is near-unfalsifiable, while a control that rises there and not at specific sites is discriminating. No prior screen varies the control's answer-changing status while holding the target families fixed.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "c_absolute_recovery",
+        "reasons"
+      ],
+      "sha256": "7722966e9b410a04f3ecc36b4b641e69876df7e7b43ab394164d275e17113434",
+      "source": "circuits/fast_screens/sentence_terminal_semantic_choice_context_control_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "recipient_answer_id",
+        "donor_answer_id",
+        "c_absolute_recovery"
+      ],
+      "sha256": "9e16d0af554af356a7e95a08828865a6bb8151a0deac61a5214c01fdd6f45b12",
+      "source": "circuits/fast_screens/bracket_positive_control_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "terminal",
+        "selected_site_id",
+        "candidate_id"
+      ],
+      "sha256": "d6999bf155ba6cc2968ed3dfd8fe507e2ab52a13cd9170c967a2fe788c7400b9",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, from the stored site_results of all 14 screens with sites",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
