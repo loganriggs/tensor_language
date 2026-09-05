@@ -375,10 +375,11 @@
      "blocking_event_ids": [
       "narrative_tense.past_present.v1.invalid_capability",
       "narrative_tense.short_cue.v2.invalid_capability",
-      "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
+      "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+      "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "narrative_tense.a1_template_capability_select_holdout.v1.held"
+     "latest_relevant_event_id": "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
     },
     "causal_site": {
      "status": "held",
@@ -439,7 +440,7 @@
    "n_held_categories": 3,
    "n_blocked_categories": 2,
    "n_missing_categories": 5,
-   "next_missing": "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen served_one_purpose construction, then run carrier confirmation only after that authority passes capability"
+   "next_missing": "run a staged native-capability compiler before any causal arms, or move this family out of the carrier queue until a capable A1+A2/P/C authority exists"
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",

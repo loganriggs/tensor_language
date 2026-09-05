@@ -18,35 +18,39 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     claim = record["claims"][-1]
     assert claim["status"] == "site_live"
     assert claim["next_missing"] == publish.NEXT_MISSING
-    assert "genuinely new lexical A1+A2" in claim["next_missing"]
-    assert "served_one_purpose" in claim["next_missing"]
-    assert "only after that authority passes capability" in claim["next_missing"]
+    assert "staged native-capability compiler" in claim["next_missing"]
+    assert "move this family out of the carrier queue" in claim["next_missing"]
     assert [claim["claim_id"] for claim in record["claims"]] == [
         "narrative_tense_at_final_position.v1", "narrative_tense_at_final_position.v2",
         "narrative_tense_at_final_position.v3", "narrative_tense_at_final_position.v4",
+        "narrative_tense_at_final_position.v5",
     ]
-    assert record["claims"][-1]["supersedes"] == record["claims"][2]["claim_id"]
+    assert record["claims"][-1]["supersedes"] == record["claims"][3]["claim_id"]
     assert record["claims"][0]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:5]
     ]
     assert record["claims"][1]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:6]
     ]
-    assert record["claims"][-1]["evidence_event_ids"] == [
-        event["event_id"] for event in record["evidence_events"]
-    ]
     assert record["claims"][2]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:7]
     ]
-    assert len(record["evidence_events"]) == 8
+    assert record["claims"][3]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"][:8]
+    ]
+    assert record["claims"][-1]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"]
+    ]
+    assert len(record["evidence_events"]) == 9
     assert [event["verdict"] for event in record["evidence_events"]] == [
-        "invalid", "held", "invalid", "invalid", "held", "invalid", "invalid", "held"
+        "invalid", "held", "invalid", "invalid", "held", "invalid", "invalid", "held",
+        "invalid",
     ]
     assert all(claim["status"] == "site_live" for claim in record["claims"])
 
 
 def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
-    event = publish.build_record()["evidence_events"][-3]
+    event = publish.build_record()["evidence_events"][-4]
     assert event["claim_id"] == "narrative_tense_at_final_position.v2"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -61,7 +65,7 @@ def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
 
 
 def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
-    event = publish.build_record()["evidence_events"][-2]
+    event = publish.build_record()["evidence_events"][-3]
     assert event["claim_id"] == "narrative_tense_at_final_position.v3"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -77,7 +81,7 @@ def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
 
 
 def test_template_selector_is_capability_only_not_carrier_or_lexical_ood() -> None:
-    event = publish.build_record()["evidence_events"][-1]
+    event = publish.build_record()["evidence_events"][-2]
     assert event["claim_id"] == "narrative_tense_at_final_position.v4"
     assert event["test_type"] == "capability"
     assert event["stage"] == "complete" and event["verdict"] == "held"
@@ -90,6 +94,28 @@ def test_template_selector_is_capability_only_not_carrier_or_lexical_ood() -> No
     assert event["notes"]["scientific_scope"] == (
         "dataset capability only; not carrier evidence and not lexical OOD"
     )
+
+
+def test_newlex_carrier_is_capability_invalid_and_descriptive_only() -> None:
+    event = publish.build_record()["evidence_events"][-1]
+    assert event["claim_id"] == "narrative_tense_at_final_position.v5"
+    assert event["test_type"] == "capability"
+    assert event["stage"] == event["verdict"] == "invalid"
+    assert event["failure_kind"] == "invalid_instrument"
+    assert event["result_artifact_id"] == "newlex_carrier_invalid_result"
+    assert event["prereg_artifact_id"] == "newlex_carrier_prior_art"
+    metrics = {metric["name"]: metric["estimate"] for metric in event["metrics"]}
+    assert metrics["A2_reciprocal_past_native_capability"] == [0.75, 0.5]
+    assert metrics["C_past_native_capability_range"] == [0.0, 0.5]
+    assert metrics["exactness_passed"] == 1.0
+    assert event["notes"]["scientific_status"] == (
+        "invalid native capability; no carrier conclusion"
+    )
+    assert event["notes"]["descriptive_only"] == {
+        "R_joint_fraction_of_complete_H3": "94.7-97.9%",
+        "R_effective_value_fraction_of_R_joint": "82.1-109.3%",
+        "post_last_change": "passed all target cells",
+    }
 
 
 def test_all_requested_artifacts_are_hash_bound() -> None:
@@ -137,23 +163,23 @@ def test_apply_is_idempotent_in_temporary_registry(tmp_path, monkeypatch) -> Non
     assert compact["circuits"][publish.TAG]["active_claim_id"] == expected["claims"][-1]["claim_id"]
 
 
-def test_exact_v3_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
+def test_exact_v4_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
     circuits = tmp_path / "circuits"
     circuits.mkdir()
     monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
     monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
     expected = publish.build_record()
     base = copy.deepcopy(expected)
-    base["claims"] = base["claims"][:3]
-    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:7]
-    base["evidence_events"] = base["evidence_events"][:7]
-    base["artifacts"].pop("a1_template_capability_prior_art")
-    base["artifacts"].pop("a1_template_capability_result")
+    base["claims"] = base["claims"][:4]
+    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:8]
+    base["evidence_events"] = base["evidence_events"][:8]
+    base["artifacts"].pop("newlex_carrier_prior_art")
+    base["artifacts"].pop("newlex_carrier_invalid_result")
     path = publish.registry.circuit_path(publish.TAG)
     path.write_text(json.dumps(base))
     publish.apply_record(expected)
     first = path.read_bytes()
-    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v4"
+    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v5"
     publish.apply_record(expected)
     assert path.read_bytes() == first
 
@@ -194,6 +220,26 @@ def test_v2_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) ->
     ):
         v2["artifacts"].pop(artifact_id)
     publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v2))
+    with pytest.raises(publish.PublicationError, match="canonical record differs"):
+        publish.apply_record(expected)
+
+
+def test_v3_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) -> None:
+    circuits = tmp_path / "circuits"
+    circuits.mkdir()
+    monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
+    monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
+    expected = publish.build_record()
+    v3 = copy.deepcopy(expected)
+    v3["claims"] = v3["claims"][:3]
+    v3["claims"][-1]["evidence_event_ids"] = v3["claims"][-1]["evidence_event_ids"][:7]
+    v3["evidence_events"] = v3["evidence_events"][:7]
+    for artifact_id in (
+        "a1_template_capability_prior_art", "a1_template_capability_result",
+        "newlex_carrier_prior_art", "newlex_carrier_invalid_result",
+    ):
+        v3["artifacts"].pop(artifact_id)
+    publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v3))
     with pytest.raises(publish.PublicationError, match="canonical record differs"):
         publish.apply_record(expected)
 

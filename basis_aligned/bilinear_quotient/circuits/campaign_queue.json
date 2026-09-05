@@ -11,7 +11,7 @@
   "legacy_candidates": 70,
   "open_experiments": 2,
   "held_events": 45,
-  "blocking_events": 35
+  "blocking_events": 36
  },
  "work_items": [
   {
@@ -245,7 +245,7 @@
    "tag": "task.narrative_tense.past_vs_present",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_narrative_tense_past_vs_present.json",
-   "active_claim_id": "narrative_tense_at_final_position.v4",
+   "active_claim_id": "narrative_tense_at_final_position.v5",
    "claim_status": "site_live",
    "causal_variable_id": "narrative_tense_at_final_position",
    "counterfactual_family_count": 4,
@@ -262,7 +262,8 @@
     "narrative_tense.attn11_head3_complement.v1.held",
     "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
     "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
-    "narrative_tense.a1_template_capability_select_holdout.v1.held"
+    "narrative_tense.a1_template_capability_select_holdout.v1.held",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -274,7 +275,8 @@
     "narrative_tense.past_present.v1.invalid_capability",
     "narrative_tense.short_cue.v2.invalid_capability",
     "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
-    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
    ],
    "coverage": {
     "capability": "mixed",
@@ -296,7 +298,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen served_one_purpose construction, then run carrier confirmation only after that authority passes capability"
+   "next_missing": "run a staged native-capability compiler before any causal arms, or move this family out of the carrier queue until a capable A1+A2/P/C authority exists"
   },
   {
    "tag": "task.numbered_list.index_successor",

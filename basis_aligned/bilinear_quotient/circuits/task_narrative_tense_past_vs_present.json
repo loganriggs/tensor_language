@@ -620,6 +620,161 @@
    ],
    "translation_ids": [],
    "next_missing": "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen served_one_purpose construction, then run carrier confirmation only after that authority passes capability"
+  },
+  {
+   "claim_id": "narrative_tense_at_final_position.v5",
+   "revision": 5,
+   "status": "site_live",
+   "supersedes": "narrative_tense_at_final_position.v4",
+   "causal_variable": {
+    "id": "narrative_tense_at_final_position",
+    "domain": "past or present narrative frame across direct narration and relative-clause constructions",
+    "read": "earlier lexical and inflectional tense cues",
+    "operation": "carry the narrative time frame to the copular continuation",
+    "write": "signed evidence for the one-token continuation ' was' versus ' is'",
+    "endpoint": "donor-answer versus recipient-answer logit margin and binary-contrast CE under exact donor interchange"
+   },
+   "alternative_explanations": [
+    "construction-specific lexical cue copying",
+    "a generic copula or output-token write shared with agreement",
+    "a broad attention-block effect not specific to head 3"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_direct_narration",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "direct-narration construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A2 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "a2_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "relative-clause construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "p_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording within a fixed narrative tense"
+     ],
+     "holds_fixed": [
+      "narrative tense",
+      "correct answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "c_same_answer_rewrite",
+     "role": "invariance",
+     "changes": [
+      "unrelated past-description wording"
+     ],
+     "holds_fixed": [
+      "correct answer was",
+      "answer position",
+      "final prompt token"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.final_position.after_block18",
+     "tensor_path": "final-position residual after block 18",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete residual state with the matched natural donor state",
+     "ceiling_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ]
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "attention block 11 output at the final position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete attention-block output with the matched natural donor output",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's slice before attention block 11 output projection at the final position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "replace head 3 alone, with the other eight heads as the exact factorial complement",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "evidence_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
+   ],
+   "translation_ids": [],
+   "next_missing": "run a staged native-capability compiler before any causal arms, or move this family out of the carrier queue until a capable A1+A2/P/C authority exists"
   }
  ],
  "split_plans": [
@@ -1045,6 +1200,70 @@
    "sections": [],
    "design_key": "4ba12dac019797c792cb87179b1151fd554fffc8b3947cf06361915646ec4892",
    "execution_key": "b0e4880c612652d67be322e947081e484f5a7ffdb96f3216c158691bcca92ca2"
+  },
+  {
+   "event_id": "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "newlex_carrier_invalid_result",
+   "prereg_artifact_id": "newlex_carrier_prior_art",
+   "metrics": [
+    {
+     "name": "A2_reciprocal_past_native_capability",
+     "estimate": [
+      0.75,
+      0.5
+     ],
+     "ci95": null,
+     "bar": ">=0.85 in each cell"
+    },
+    {
+     "name": "C_past_native_capability_range",
+     "estimate": [
+      0.0,
+      0.5
+     ],
+     "ci95": null,
+     "bar": ">=0.875 or 1.0 as preregistered per cell"
+    },
+    {
+     "name": "exactness_passed",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "must equal 1"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "scientific_status": "invalid native capability; no carrier conclusion",
+    "descriptive_only": {
+     "R_joint_fraction_of_complete_H3": "94.7-97.9%",
+     "R_effective_value_fraction_of_R_joint": "82.1-109.3%",
+     "post_last_change": "passed all target cells"
+    },
+    "exactness": "source sums, native reinstall, and pre-first-change controls passed"
+   },
+   "claim_id": "narrative_tense_at_final_position.v5",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "5dfe0f7d026865716becc8e9cacb978bf15bebef1540bb414448d4d2cf7b7efc",
+   "execution_key": "b007922a7127aacd1c5bff39525171d1a4196c143ef9c42b6cc7ba934582362f"
   }
  ],
  "translations": [],
@@ -1124,6 +1343,18 @@
   "a1_template_capability_result": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a1_direct_template_capability_select_holdout_v1_result.json",
    "sha256": "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359ee",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "newlex_carrier_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1.json",
+   "sha256": "e442d7e006615b7d3dd66687c13766cba1725cef44b808d5e30286ec4e8ac5ab",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "newlex_carrier_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1_result.json",
+   "sha256": "b6507832a93d3eac91ab20e146578619b3dc55c17ca10a1bd0fb73ceb4a31da2",
    "kind": "screen_result",
    "status": "frozen"
   }

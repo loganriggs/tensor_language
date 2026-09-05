@@ -38,10 +38,14 @@ THIRD_NEXT_MISSING = (
     "outcomes, and freeze an untouched construction holdout; rerun the unchanged-"
     "carrier experiment only if the selected authority is capable"
 )
-NEXT_MISSING = (
+FOURTH_NEXT_MISSING = (
     "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen "
     "served_one_purpose construction, then run carrier confirmation only after that "
     "authority passes capability"
+)
+NEXT_MISSING = (
+    "run a staged native-capability compiler before any causal arms, or move this "
+    "family out of the carrier queue until a capable A1+A2/P/C authority exists"
 )
 
 ARTIFACTS = {
@@ -110,6 +114,16 @@ ARTIFACTS = {
         "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359ee",
         "screen_result",
     ),
+    "newlex_carrier_prior_art": (
+        "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1.json",
+        "e442d7e006615b7d3dd66687c13766cba1725cef44b808d5e30286ec4e8ac5ab",
+        "preregistration",
+    ),
+    "newlex_carrier_invalid_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1_result.json",
+        "b6507832a93d3eac91ab20e146578619b3dc55c17ca10a1bd0fb73ceb4a31da2",
+        "screen_result",
+    ),
 }
 
 
@@ -144,6 +158,7 @@ def build_record() -> dict:
     revised_claim_id = "narrative_tense_at_final_position.v2"
     fresh_claim_id = "narrative_tense_at_final_position.v3"
     capability_claim_id = "narrative_tense_at_final_position.v4"
+    newlex_claim_id = "narrative_tense_at_final_position.v5"
     family_ids = ["a1_direct_narration", "a2_relative_clause", "p_surface_rewrite", "c_same_answer_rewrite"]
     families = [
         {
@@ -188,6 +203,7 @@ def build_record() -> dict:
         "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
         "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
         "narrative_tense.a1_template_capability_select_holdout.v1.held",
+        "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
     ]
     record = {
         "schema_version": 2,
@@ -286,10 +302,20 @@ def build_record() -> dict:
         "revision": 4,
         "status": "site_live",
         "supersedes": fresh_claim_id,
+        "evidence_event_ids": event_ids[:8],
+        "next_missing": FOURTH_NEXT_MISSING,
+    })
+    record["claims"].append(capability_claim)
+    newlex_claim = copy.deepcopy(capability_claim)
+    newlex_claim.update({
+        "claim_id": newlex_claim_id,
+        "revision": 5,
+        "status": "site_live",
+        "supersedes": capability_claim_id,
         "evidence_event_ids": event_ids,
         "next_missing": NEXT_MISSING,
     })
-    record["claims"].append(capability_claim)
+    record["claims"].append(newlex_claim)
 
     raw_events = [
         {
@@ -410,6 +436,29 @@ def build_record() -> dict:
                 "licensed_action": "construct a genuinely new lexical A1+A2 authority before carrier testing",
             },
         },
+        {
+            "event_id": event_ids[8], "event_claim_id": newlex_claim_id,
+            "test_type": "capability", "stage": "invalid", "verdict": "invalid",
+            "failure_kind": "invalid_instrument",
+            "site_id": "attention.block11.head3.pre_output_projection.final_position",
+            "result_artifact_id": "newlex_carrier_invalid_result",
+            "prereg_artifact_id": "newlex_carrier_prior_art",
+            "metrics": [
+                _metric("A2_reciprocal_past_native_capability", [0.75, 0.5], ">=0.85 in each cell"),
+                _metric("C_past_native_capability_range", [0.0, 0.5], ">=0.875 or 1.0 as preregistered per cell"),
+                _metric("exactness_passed", 1.0, "must equal 1"),
+            ],
+            "supersedes_event_id": None,
+            "notes": {
+                "scientific_status": "invalid native capability; no carrier conclusion",
+                "descriptive_only": {
+                    "R_joint_fraction_of_complete_H3": "94.7-97.9%",
+                    "R_effective_value_fraction_of_R_joint": "82.1-109.3%",
+                    "post_last_change": "passed all target cells",
+                },
+                "exactness": "source sums, native reinstall, and pre-first-change controls passed",
+            },
+        },
     ]
     for raw in raw_events:
         event_claim_id = raw.pop("event_claim_id", claim_id)
@@ -439,14 +488,14 @@ def apply_record(record: dict | None = None, *, regenerate: bool = True) -> Path
             if regenerate:
                 registry.rebuild_registry_v2()
             return path
-        # The only permitted migration is the exact v3 prefix emitted before
-        # the capability-only template selection result existed.
+        # The only permitted migration is the exact v4 prefix emitted before
+        # the new-lexical carrier instrument failed native capability.
         base = copy.deepcopy(value)
-        base["claims"] = base["claims"][:3]
-        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:7]
-        base["evidence_events"] = base["evidence_events"][:7]
-        base["artifacts"].pop("a1_template_capability_prior_art")
-        base["artifacts"].pop("a1_template_capability_result")
+        base["claims"] = base["claims"][:4]
+        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:8]
+        base["evidence_events"] = base["evidence_events"][:8]
+        base["artifacts"].pop("newlex_carrier_prior_art")
+        base["artifacts"].pop("newlex_carrier_invalid_result")
         if existing != base:
             raise PublicationError(f"canonical record differs: {path}")
         with registry._lock("registry"):
