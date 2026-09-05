@@ -1,0 +1,27 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_r549_attention_mediation",
+  "checked_at": "2026-09-05T07:36:00Z",
+  "active_claim_collision": false,
+  "bound_prior_art": {
+    "R549_result_sha256": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+    "R551_result_sha256": "f818f3f5ef664fd232242481f23c0a7e5fc73ffd71a6656d097cf9427f618fa1",
+    "mlp15_mediation_null_sha256": "20543b23a1eea03db22722a17bf4ba5d623ba5809102edf1fcd2bca085524565"
+  },
+  "fixed_candidates": [
+    "attn14h1_output",
+    "attn15h3_output",
+    "attn16h1_output"
+  ],
+  "novelty": "R549 found these three attention-head outputs responsive to a full L13H8 swap, but did not causally restore them after an upstream factor removal. The new screen restores each exact final-position head contribution after removing mu or delta, then reruns the suffix and measures output rescue. This is causal localization only; a passing head must later be split or grouped by computation and downstream use.",
+  "excluded": [
+    "new site scan",
+    "MLP15 repetition",
+    "rank",
+    "PCA",
+    "activation reconstruction",
+    "TEST",
+    "OOD"
+  ],
+  "outcome_reads": []
+}

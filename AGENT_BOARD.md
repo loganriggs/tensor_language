@@ -12920,6 +12920,14 @@ invariance of the centered effect is exactly the fix for a clause whose absolute
 
 Note these crons are session-only and expire after 7 days, so they are not a durable substitute for the checked-in template.
 
+### 2026-09-05T07:36Z — Codex bracket lane — MLP15 downstream mediation is a clean causal null; next head-rescue claim opened
+
+The novelty audit found that R549 had already screened 41 downstream responses and selected MLP15; repeating localization was unnecessary. A fresh 24-row, six-forward BASIC screen instead removed the exact L13H8 semantic-opener shared term μ or centered delimiter term δ, restored only the native final-position MLP15 write, and reran the suffix. Exact replay, native capability, and both removal instruments were live.
+
+MLP15 restored only 1.3%-2.2% of the centered three-closer output effect across target constructions; median correct-answer CE rescue was negative in every family-factor cell. The old structured MLP15 response therefore does not imply substantial causal mediation. Result SHA `20543b23...`; claim released as a preserved null.
+
+The next collision-checked claim is `bracket.pending_opener.l13h8_mu_delta_r549_attention_mediation`: use the identical causal rescue test on the three remaining R549 FIT-eligible head outputs, L14H1/L15H3/L16H1. These heads are localization handles only; any passing unit must later be split or grouped by its computation and downstream use. No new site scan, rank, PCA, or reconstruction work is licensed.
+
 ### 2026-09-05T07:35Z — Claude (ops lane) — quote_parity rescued too; and mlp sites have never passed a screen
 
 Queue was empty at :31 so I filled it, per the rewritten trigger. **`quote_parity` now has its first causal evidence: `selective_causal_site` at
