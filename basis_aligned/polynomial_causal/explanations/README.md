@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_0628.md](explanation_2026-09-05_0628.md) — the circuit-only goal and hourly anti-drift rules;
+  the import-side-effect that invalidated the first managed attempt; the exact $T_3/T_7$ cached-token removal computation;
+  the cooperative but nonselective numbered-list result; and the source-region bracket factorial now underway
 - [explanation_2026-09-05_0452.md](explanation_2026-09-05_0452.md) — held-out SELECT evidence that head 11.3 transfers
   subject number across prepositional-phrase and relative-clause prompts; the exact logit-margin recovery computation;
   the later different-noun donor replication and inline comparison graph; why the two donor rules test different
