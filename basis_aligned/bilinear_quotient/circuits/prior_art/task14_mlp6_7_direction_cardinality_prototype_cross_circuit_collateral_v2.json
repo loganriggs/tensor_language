@@ -1,0 +1,36 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v2",
+  "created_utc": "2026-09-05T23:04:43Z",
+  "purpose": "Numerical-tolerance-only audit of invalid collateral v1: correct the FP32 projected-addition absolute-error bar from 1e-5 to 5e-5 without rerunning or changing any behavior, prototype, outcome, or scientific preservation threshold.",
+  "invalid_v1": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v1_result.json",
+    "sha256": "b26fc7ece3a295bfe2796e2a252bab7d627cef2185656186f6b9e1f8f15b6824",
+    "failure": "maximum projected-write subtraction error 2.944469451904297e-5 exceeded 1e-5; all other five registered predictions passed"
+  },
+  "repair": {
+    "only_change": "maximum_install_absolute_error 1e-5 -> 5e-5",
+    "rationale": "The tripwire subtracts two FP32 values after additions whose largest program vector has L2 norm 57.73. A 5e-5 absolute bound covers the observed few-ULP cancellation while remaining far below the write scale.",
+    "gpu_rerun": false,
+    "scientific_threshold_changes": 0,
+    "row_or_prototype_changes": 0
+  },
+  "predictions": {
+    "pred_a_v1_receipt_and_single_repair": "The immutable v1 SHA validates; its only false prediction is pred_c; v2 changes exactly one numerical bar.",
+    "pred_b_repaired_projected_write_instrument": "The observed maximum install absolute error is <=5e-5, all ten vector norms are positive and finite, and the zero-add replay remains <=1e-4.",
+    "pred_c_numbered_list_preserved_unchanged": "All ten v1 numbered-list behavior×prototype cells pass their unchanged median/row/flip bars.",
+    "pred_d_bracket_preserved_unchanged": "All ten v1 bracket behavior×prototype cells pass their unchanged median/row/flip bars.",
+    "pred_e_complete_program_unchanged": "The v1 receipt contains exactly 320 unique row×prototype installations covering every row and all ten vectors.",
+    "pred_f_no_outcome_reopening_or_postselection": "No GPU/model execution, threshold tuning, scale, clipping, prototype selection, or outcome mutation occurs."
+  },
+  "null": "Any failed unchanged scientific cell remains a collateral null. Failure of the repaired instrument bar leaves the experiment invalid and requires a derived relative/ULP error audit, not a looser scientific test.",
+  "price": {
+    "physical_model_forwards": 0,
+    "example_evaluations": 0,
+    "causal_installations": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "immutable_receipts_read": 1
+  },
+  "closed_claims": ["universal_selectivity", "other_unmeasured_behaviors", "joint_program_composition", "rank", "compression"]
+}
