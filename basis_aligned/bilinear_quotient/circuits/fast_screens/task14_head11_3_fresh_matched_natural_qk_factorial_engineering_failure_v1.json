@@ -1,0 +1,16 @@
+{
+  "schema": "circuit_engineering_failure_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+  "timestamp_utc": "2026-09-05T14:01:51Z",
+  "runner_sha256": "73df3e51e330bc1791595e6f77d10b1e153784dd398f3109e74863174ba5ff8e",
+  "prior_art_sha256": "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44",
+  "capability_license_sha256": "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c",
+  "runlog_path": "runlogs/run_task14_head11_3_fresh_matched_natural_qk_factorial.log",
+  "runlog_sha256": "f8fdff355b171aee66cabb518dbaad24ced51ac6bedd99da5b0bc5334eb50f4f",
+  "exit_code": 1,
+  "result_written": false,
+  "scientific_outcome_scored": false,
+  "failure": "The patched-dispatch route-agreement check compared recipient head vectors computed under different batch shapes and exceeded its fixed tolerance. The exception occurred before scoring and before result creation.",
+  "classification": "engineering_failure_not_scientific_null",
+  "required_next_step": "Measure the batch-shape discrepancy, freeze a corrected route-agreement check and runner hash, rerun all CPU controls, then open a new claim before enqueueing. Do not change the scientific rows, predictions, or task thresholds."
+}
