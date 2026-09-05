@@ -10,8 +10,8 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 83,
-  "blocking_events": 79
+  "held_events": 86,
+  "blocking_events": 86
  },
  "work_items": [
   {
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v18",
+   "active_claim_id": "grammatical_subject_number.v19",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 17,
+   "counterfactual_family_count": 18,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 8
+    "validated": 9
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -407,7 +407,17 @@
     "task14_head11_3.OOD_MLP8_polarized.joint_direction_pattern.complete.v1",
     "task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1",
     "task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1",
-    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
+    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.M_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.E_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.A_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.distributed_additive.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.source_interaction_needed.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.direction_stable.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.direction_switch.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -456,7 +466,10 @@
     "task14_head11_3.OOD_MLP8_polarized.joint_direction_pattern.complete.v1",
     "task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1",
     "task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1",
-    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
+    "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.source_interaction_needed.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -496,7 +509,14 @@
     "task14_head11_3.fresh_MLP8_polarized.quadratic_dominant.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.distributed.complete.v1",
     "task14_head11_3.fresh_MLP8_polarized.downstream_interaction_needed.complete.v1",
-    "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1"
+    "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.M_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.E_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.A_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.distributed_additive.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.direction_stable.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.direction_switch.complete.v1",
+    "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -517,7 +537,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The prospective MLP8 intervention on reused fronted two-attractor OOD text is complete and must not be repeated. Scoped capability, exactness, both signed direction splits, their joint pattern, background stability, number specificity, and the algebraically dependent selective-removal pattern held. The OOD text and whole-head outcomes were previously open; only the MLP8 intervention was prospective, so this is not pristine held-out OOD. Independent selective removal, unrelated-behavior selectivity, necessity, native product identities, and downstream readers remain untested."
+   "next_missing": "The licensed MLP8 E/A/M input-writer factorial is complete and must not be repeated. M-, E-, and A-dominance, distributed-additive, direction-stable, direction-switch, and lexical-collateral predictions were null. Source interaction was required for the quadratic and full MLP8 responses; number specificity held. E/A/M are operational native writer families and the interactions are causal set-function effects after normalization, not unique semantic units or tensor identities. Individual writers, a gauge-stable within-input basis, new independent data, OOD replication of this input split, downstream readers, and necessity outside the fixed L11H3 interface remain untested."
   },
   {
    "tag": "subroutine.induction.equality_score",

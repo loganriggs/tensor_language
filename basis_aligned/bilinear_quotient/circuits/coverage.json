@@ -708,7 +708,9 @@
       "task14_head11_3.OOD_MLP8_polarized.instrument.complete.v1",
       "task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1",
       "task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1",
-      "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
+      "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.instrument.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
@@ -717,10 +719,11 @@
       "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1",
       "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1",
       "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1",
-      "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1"
+      "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1"
     },
     "composition": {
      "status": "mixed",
@@ -738,7 +741,8 @@
       "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_standalone.complete.v1",
       "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_conditional.complete.v1",
       "task14_head11_3.fresh_MLP4_10_conditional.same_layer_stable.complete.v1",
-      "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1"
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.source_interaction_needed.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.score_context_test.complete.v1",
@@ -766,10 +770,16 @@
       "task14_head11_3.fresh_MLP8_polarized.cross_dominant.complete.v1",
       "task14_head11_3.fresh_MLP8_polarized.quadratic_dominant.complete.v1",
       "task14_head11_3.fresh_MLP8_polarized.distributed.complete.v1",
-      "task14_head11_3.fresh_MLP8_polarized.downstream_interaction_needed.complete.v1"
+      "task14_head11_3.fresh_MLP8_polarized.downstream_interaction_needed.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.M_dominant.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.E_dominant.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.A_dominant.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.distributed_additive.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.direction_stable.complete.v1",
+      "task14_head11_3.fresh_MLP8_input_writers.direction_switch.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_MLP8_polarized.direction_polarization_exploratory.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP8_input_writers.direction_switch.complete.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -782,7 +792,7 @@
    "n_held_categories": 6,
    "n_blocked_categories": 5,
    "n_missing_categories": 1,
-   "next_missing": "The prospective MLP8 intervention on reused fronted two-attractor OOD text is complete and must not be repeated. Scoped capability, exactness, both signed direction splits, their joint pattern, background stability, number specificity, and the algebraically dependent selective-removal pattern held. The OOD text and whole-head outcomes were previously open; only the MLP8 intervention was prospective, so this is not pristine held-out OOD. Independent selective removal, unrelated-behavior selectivity, necessity, native product identities, and downstream readers remain untested."
+   "next_missing": "The licensed MLP8 E/A/M input-writer factorial is complete and must not be repeated. M-, E-, and A-dominance, distributed-additive, direction-stable, direction-switch, and lexical-collateral predictions were null. Source interaction was required for the quadratic and full MLP8 responses; number specificity held. E/A/M are operational native writer families and the interactions are causal set-function effects after normalization, not unique semantic units or tensor identities. Individual writers, a gauge-stable within-input basis, new independent data, OOD replication of this input split, downstream readers, and necessity outside the fixed L11H3 interface remain untested."
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

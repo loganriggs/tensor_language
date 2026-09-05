@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-213 events; 192 scientific protocols; 213 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+223 events; 202 scientific protocols; 223 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -234,5 +234,15 @@ No two registered events have the same execution key.
 | `task.subject_verb.number_agreement` | `task14_head11_3.OOD_MLP8_polarized.background_stability.complete.v1` | complete/held | invariance | `grammatical_subject_number.v17` | `f1b2a7cf0097` | `e794d340b9f5` | `ca140088f405` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.OOD_MLP8_polarized.number_specificity.complete.v1` | complete/held | invariance | `grammatical_subject_number.v17` | `b2301e1790aa` | `68665c8d3f93` | `40ea97b1dd6f` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.OOD_MLP8_polarized.selective_removal_direction_pattern.complete.v1` | complete/held | removal | `grammatical_subject_number.v17` | `87fc8b25f9ad` | `f2ebced0f0b5` | `ed6c1f0576a1` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.instrument.complete.v1` | complete/held | null_control | `grammatical_subject_number.v18` | `044546eeeac9` | `29f7e33c38db` | `256e063482f4` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.M_dominant.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `de96c7abaee4` | `095ea96acd63` | `d05f389f99ed` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.E_dominant.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `8549ca43446b` | `f91aa8a638f9` | `eb31f8fb52ce` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.A_dominant.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `2ed5436872af` | `f16907e5d93c` | `96c222fc4912` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.distributed_additive.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `24792fb2f944` | `43549a28a550` | `dfae33680841` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.source_interaction_needed.complete.v1` | complete/held | composition | `grammatical_subject_number.v18` | `8657b4f371de` | `d009d8184bae` | `aead623ae3fe` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.direction_stable.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `943ec48eec2a` | `8203c24f48fd` | `0935a555fb0f` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.direction_switch.complete.v1` | complete/null | composition | `grammatical_subject_number.v18` | `4030f368c772` | `b67887d829ae` | `2e9786774a77` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1` | complete/held | invariance | `grammatical_subject_number.v18` | `918fe78815e1` | `929316371699` | `c58e587e2076` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1` | complete/null | invariance | `grammatical_subject_number.v18` | `bf79e37b642a` | `dd49b193c741` | `093fe1d6fe0a` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |
