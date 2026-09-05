@@ -1,0 +1,65 @@
+{
+  "aliases_searched": [
+    "cue distance",
+    "tail length",
+    "position",
+    "localization",
+    "attention site",
+    "residual site",
+    "site family",
+    "final token"
+  ],
+  "candidate_id": "narrative_tense.short_cue_distance",
+  "canonical_objects": [
+    "narrative tense state read at a position adjacent to its cue",
+    "cue-to-prediction distance as a determinant of which site family localizes",
+    "attention versus residual site profile under a fixed behaviour"
+  ],
+  "decision_changed": "Attention sites passing here would mean the resid-only localization reported for five behaviours is a consequence of long cue distance in my stimuli and not evidence that those variables are carried only late; every one of those localization claims would need restating. A resid-only profile again would leave them standing and make late carriage the better-supported reading.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json selects resid:18 with passing sites resid:12-18 and no attention or module site passing, with the tense cue roughly ten tokens before the patched position.",
+    "The same resid-only profile holds for bracket_positive_control, sentence_terminal, quote_parity and correlative_state, all of which place a long shared tail between the cue and the prediction.",
+    "By contrast numbered_list, numeric_sequence and task14 screens DO pass attention sites, and their strongest is attn:08.",
+    "circuits/fast_screen_ledger.jsonl records no screen that varies cue-to-prediction distance while holding the behaviour fixed."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "site-family profile comparison"
+  ],
+  "novelty_delta": "Extends narrative_tense by varying ONE thing: the distance between the tense cue and the patched final position. A1, A2 and P lose the long shared tail so the cue sits two to four tokens before the prediction; the control is held BYTE-IDENTICAL to v2. The instrument patches only the final input token, so a head that writes the state at an EARLIER position and lets it flow forward is invisible to it. If the resid-only profile is a fact about these behaviours, the short-cue screen should still pass only residual sites. If it is a property of the design, attention sites should now pass, because the state has to be read at or near the patched position.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "site_id",
+        "reasons",
+        "a1"
+      ],
+      "sha256": "5466980e1aa0a59538e4e8fcfb29457814c01e91cbe39bf41a2d42140fc7e71a",
+      "source": "circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "site_id",
+        "reasons"
+      ],
+      "sha256": "6b24829ab9d5f9cc29530c452e5896074eb80b790b5185d41a7db553cca1b48a",
+      "source": "circuits/fast_screens/correlative_state_either_vs_neither_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "selected_site_id",
+        "terminal"
+      ],
+      "sha256": "291c77c62fa972274f69ac9afd0a6ac945e71c4dbc03ae90262f7936d7dc25ee",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, comparing site-family profiles across all screens with site results",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
