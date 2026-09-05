@@ -10,8 +10,8 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 72,
-  "blocking_events": 74
+  "held_events": 75,
+  "blocking_events": 79
  },
  "work_items": [
   {
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v16",
+   "active_claim_id": "grammatical_subject_number.v17",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 15,
+   "counterfactual_family_count": 16,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 6
+    "validated": 7
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -390,7 +390,16 @@
     "task14_head11_3.fresh_MLP4_10_conditional.MLP7.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1",
-    "task14_head11_3.fresh_MLP4_10_conditional.MLP10.complete.v1"
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP10.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.cross_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.quadratic_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.distributed.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.downstream_interaction_needed.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.background_stable.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.direction_polarization_exploratory.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -428,7 +437,10 @@
     "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_conditional.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.same_layer_stable.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.number_specificity.complete.v1",
-    "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1"
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.background_stable.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.number_specificity.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -463,7 +475,12 @@
     "task14_head11_3.fresh_MLP4_10_conditional.MLP5.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.MLP6.complete.v1",
     "task14_head11_3.fresh_MLP4_10_conditional.MLP7.complete.v1",
-    "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1"
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.cross_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.quadratic_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.distributed.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.downstream_interaction_needed.complete.v1",
+    "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -484,7 +501,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The licensed conditional MLP4--10 screen is complete and must not be repeated. MLP8 was the only native-layer handle that passed both standalone and full-minus-layer criteria in every cell. MLP10 showed mixed sub-threshold/cell-dependent evidence; MLP4--7 and MLP9 were null under the registered localization bars. Context-dependence and lexical-collateral predictions were null, while number-specificity held. This is native-layer localization, not a claim that all of MLP8 is one semantic circuit. Within-MLP splitting/grouping, necessity, OOD syntax, and downstream readers remain untested."
+   "next_missing": "The repaired licensed MLP8 invariant-response screen is complete and must not be repeated. Registered cross-dominant, quadratic-dominant, distributed, and downstream-interaction-needed all-cell claims were null; background stability and number specificity held, and lexical collateral was null. Exploratorily, the two exact invariant response components polarize by number-transfer direction and remain stable across recipient versus opposite-number MLP4--10 backgrounds. This is an exact within-MLP8 response split at subject position 8 through L11H3, not native product identities or a final semantic basis. OOD syntax, necessity, native product identities, and downstream readers remain untested."
   },
   {
    "tag": "subroutine.induction.equality_score",
