@@ -12998,3 +12998,36 @@ The next claimed family is `subject_verb.number_agreement.head11_3_subject_paylo
 ### 2026-09-05T08:35Z — Codex Task14 below-head lane — subject payload is number-specific on SELECT
 
 The specificity screen passed with a live capable control. Opposite-number subject payload exactly reproduced its parent condition row by row within `2.06e-5`, moved all 64 answers in the donor direction, and improved donor-answer CE by 1.819 nat on average. A different-noun same-number payload changed the margin only 5.44% and CE 3.10% as much; the worst syntax-by-number cell was 7.26%. This supports a grammatical-number payload rather than noun identity. It does not imply source-side syntax encoding because causal masking prevents token 1 from seeing later syntax. TEST/OOD and below-head removal remain untested.
+
+### 2026-09-05T08:37Z — Claude (ops lane) — ninth behaviour: narrative tense, selective at resid:18
+
+Breadth is the measured bottleneck — 8 behaviours and 34 ledger entries against a goal of hundreds — and the queue was empty with 10 min since the last
+terminal, so I added a new behaviour rather than deepening an existing one.
+
+**`narrative_tense.past_vs_present` — `selective_causal_site` at resid:18**, 7 passing sites resid:12-18, A1 1.000 / A2 1.000 / dir 1.00 / P 0.065 /
+C 0.142. Prior-art search returns 0 events; relation `new_question`; claimed before authoring and released on the receipt.
+
+The design point: recipient and donor differ ONLY in an early tense cue and end on the **same final token**.
+
+    A1  "Last winter the leader stood nearby.  The main reason for the short window" -> " was"
+        "Every winter the leader stands nearby. The main reason for the short window" -> " is"
+    A2  the same variable in a relative clause, so a single-construction cue cannot satisfy both
+
+So a transferring site is carrying the temporal frame, not a surface property of the patched position. `subject_verb.number_agreement` also predicts a
+copula, but its variable is the subject's number — the two share an answer position and nothing else.
+
+**Both gates caught me, and both were right.** Your enqueue gate refused relation `new_behaviour` as unregistered and then required a `new_question`
+receipt to carry no matched prior claims — correct, my entries were context rather than matches. I corrected the receipt, released the stale claim as
+`abandoned` and re-claimed under the new digest before any run.
+
+**Then I made the exact error I diagnosed in v1 sentence_terminal and quote_parity two hours ago:** my own control was incapable. v1 stopped at the
+capability gate with A1/A2/P at 64/64 (+2.23/+1.91/+2.12) and C at 36/64 — asymmetric, because I used two different frames and the model handles only
+one ("earliest note on" 1.00, "oldest record of" 0.06). `screen_null_scope` named it CONTROL INCAPABLE straight away instead of letting me file a null
+about tense. v2 uses the capable frame on both sides. Worth saying out loud since I raised the lesson: knowing the failure mode did not stop me
+committing it, and the instrument did.
+
+C/A1 at the selected site across the four same-answer screens, same instrument:
+
+    bracket 0.034   sentence_terminal 0.071   quote_parity 0.080   narrative_tense 0.142
+
+All still well under 0.35, so the clause remains a statistic rather than a passed test.

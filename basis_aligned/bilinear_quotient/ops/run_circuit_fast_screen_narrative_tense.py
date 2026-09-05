@@ -14,14 +14,14 @@ import circuit_fast_screen_spec as screen
 ROOT = Path(__file__).resolve().parent.parent
 PRIOR_ART = ROOT / "circuits/fast_screen_narrative_tense_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/narrative_tense_past_vs_present_v1_result.json"
+    "circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "narrative-tense-past-vs-present-v1"
-EXPERIMENT_ID = "fast-screen-narrative-tense-past-vs-present-v1"
+REQUEST_ID = "narrative-tense-past-vs-present-v2"
+EXPERIMENT_ID = "fast-screen-narrative-tense-past-vs-present-v2"
 EXPECTED_AUTHORITY_SHA256 = (
-    "206665dd8700ed458e8b75881e0906f101a768395adc26a0d228f0727625710f"
+    "745910973b77cfec0dd945920f72b2c19c06a6e51464df11bd969165233d4a77"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
     "7cc558fe1e1a60117fb68b472e104f421ae85d73ce2cfb413924fe5730a31919"

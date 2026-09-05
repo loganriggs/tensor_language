@@ -85,9 +85,14 @@ def _relative(subject: str, place: str, focus: str, past: bool) -> str:
 
 
 def _control(subject: str, place: str, focus: str, variant: int) -> str:
-    if variant == 0:
-        return f"Long ago the {subject} kept a fair nearby. The oldest record of the {focus} {place}"
-    return f"In those days the {subject} held a market nearby. The earliest note on the {focus} {place}"
+    # v1 used two DIFFERENT frames here and the model handled only one of them: the
+    # "earliest note on" frame scored 1.00 while "oldest record of" scored 0.06, so the
+    # control failed the capability gate and stopped the screen -- the same authoring error
+    # this candidate's own prior art documents in sentence_terminal and quote_parity.
+    # Both sides now use the frame the model demonstrably continues, varying only subject
+    # and place, which are irrelevant to tense.
+    return (f"In those days the {subject} held a market nearby. "
+            f"The earliest note on the {focus} {place}")
 
 
 def _answer(past: bool) -> str:
@@ -134,8 +139,8 @@ def _panel(seed: int, group_number: int, case_index: int) -> list[dict[str, Any]
                      construction_id="past_description_same_answer_rewrite",
                      direction_id="base_to_donor" if forward else "donor_to_base",
                      matched_suffix=control_tail,
-                     base_text=_control(subject, place, focus, 0 if forward else 1),
-                     donor_text=_control(alternate, place, focus, 1 if forward else 0),
+                     base_text=_control(subject if forward else alternate, place, focus, 0),
+                     donor_text=_control(alternate if forward else subject, place, focus, 0),
                      base_answer=TENSE[0], donor_answer=TENSE[0],
                      sentence_types=("past", "past")),
     ]
