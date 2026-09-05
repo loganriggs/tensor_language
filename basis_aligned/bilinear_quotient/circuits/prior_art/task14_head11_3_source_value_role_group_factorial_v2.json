@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_source_value_role_group_factorial",
+  "timestamp_utc": "2026-09-05T09:24:00Z",
+  "supersedes_prior_art_sha256": "2d97b8aaa7d418b986d70520b6cd6839ce9e6cbc7666ee5ea629807e7e9c0b22",
+  "reason_for_supersession": "Pre-outcome audit found that the first receipt mislabeled S+I sufficiency as compactness, allowed a bridge label without requiring a conditional bridge contribution, and scanned 44 high-order terms for any large interaction. The exact 16-corner design is unchanged; the estimands are corrected before execution.",
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "novelty": "Exact 16-corner within-game causal factorial over subject (S), first post-subject token (I), remaining bridge (B), and attractor phrase (A) source values under recipient scores. It tests S+I sufficiency, conditional bridge repair, and the named S-by-I interaction without searching over interaction terms.",
+  "factors": {
+    "S_subject": [1],
+    "I_initial_syntax": [2],
+    "B_remaining_bridge": {"pp": [3, 4], "relative": [3, 4, 5]},
+    "A_attractor_phrase": {"pp": [5, 6], "relative": [6, 7]}
+  },
+  "required_computation": [
+    "evaluate every one of 16 subsets simultaneously from the same captured native and donor values",
+    "define the game as v(T)=mean_margin(T)-mean_margin(empty) and normalize by v(full)",
+    "verify every subset reconstructs from its Möbius dividends and sum Shapley equals v(full) within 1e-8",
+    "report CE only as supporting evidence"
+  ],
+  "required_controls": [
+    "empty subset reproduces native",
+    "full subset reproduces the atlas joint-all-values arm row by row",
+    "complete-head arm reproduces the atlas complete-head arm row by row",
+    "groups are a disjoint exhaustive partition of positions 1 through final; source 0 stays native",
+    "native recipient/donor capability and complete-head direction are live in every cell"
+  ],
+  "registered_within_game_screens": {
+    "SI_sufficient": "v(SI)/v(full) is at least 0.70 in every cell",
+    "bridge_repairs_failed_SI": "in every cell below the SI bar, v(SIB)/v(full) is at least 0.80 and [v(SIB)-v(SI)]/v(full) is at least 0.10 with positive conditional CE benefit",
+    "named_SxI_interaction": "the SxI Möbius dividend has absolute magnitude at least 0.10 of v(full), a common sign across cells, and that sign in both deterministic lexical halves of every cell"
+  },
+  "descriptive_only": [
+    "A addition v(full)-v(SIB)",
+    "largest high-order dividend",
+    "S+I Shapley share and joint addition to B+A for necessity/redundancy context"
+  ],
+  "interpretation_limits": [
+    "The 0.70 and 0.80 thresholds were chosen after seeing singleton results on these reused TEST rows; outcomes are within-game characterization, not confirmation.",
+    "S+I sufficiency does not establish compactness or necessity.",
+    "Möbius dividends describe downstream task nonadditivity under this intervention family, not ontology labels.",
+    "Future unseen nouns/constructions are required before claiming a stable circuit decomposition."
+  ],
+  "source_sha256": {
+    "source_value_atlas_result": "6c76345138e4b8e727bc0bbbfd37fa0a09b156c51c8082c3c227e8b043b5341f"
+  }
+}
