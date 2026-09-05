@@ -32,7 +32,7 @@ $$
 \operatorname{MLP}_{16},\operatorname{Attn}_{17},\operatorname{MLP}_{17}\}.
 $$
 
-Write $Y_{AB}\in\mathbb{R}^{1152}$ for the final centered residual response under one of the four combinations. Then
+Write $Y_{AB}\in\mathbb{R}^{3}$ for the final three closer-token logits after subtracting their mean, under one of the four combinations. This is the task-facing output vector used by the experiment; it is not the 1152-dimensional residual activation. Then
 
 $$
 D_{\mathrm{total}}=Y_{NN}-Y_{RR},
