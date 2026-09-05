@@ -1,0 +1,94 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_ood_fronted_subject_mlp8_polarized_response_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Prospectively test whether the direction-dependent cancellation between MLP8's exact invariant base-by-change and change-by-change response terms generalizes to fronted two-attractor Task14 syntax, and score the algebraically equivalent selective-removal contrasts.",
+  "novelty_verdict": "Novel MLP8 intervention on previously opened OOD text. This is not pristine OOD data and cannot support a pristine-data claim.",
+  "prior_art": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v2_result.json",
+      "sha256": "55d5413306f4471b0c9b8345732d317d0c1c4b82395153a119af3d56514f5ad6",
+      "finding": "On licensed matched text, plural-to-singular changes had a strongly positive cross term and negative quadratic term, while singular-to-plural changes reversed those roles. The terms largely cancelled. OOD syntax and necessity were closed."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+      "sha256": "a35e3b905313b14635a2b34736548172ce5e56761f8913cf27d0d86152cb201f",
+      "finding": "The exact OOD fronted text and whole-head/QK outcomes are already open. Native base and donor accuracy was 1.0 in both directions. No MLP8 response polarization was run."
+    },
+    {
+      "path": "ops/circuit_battery_task14.py",
+      "sha256": "33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94",
+      "finding": "Frozen generator for the OOD A1 fronted-two-attractor rows."
+    },
+    {
+      "path": "ops/run_task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v2.py",
+      "sha256": "749bccf880e179c92c565c9eb43543faae0fcb6b04fd3813d2448581b0138cba",
+      "finding": "Audited numerical implementation of the exact MLP8 polarization; this successor must reuse its float64 local algebra, native endpoints, native-dtype installation, and sequential propagation."
+    }
+  ],
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_task14_ood_fronted_mlp8_polarized_response.py",
+    "file_sha256": "9945ef76cb65fe3717f54be478dab2d7444f92738c4075c3ea47b54ab252cccb",
+    "logical_sha256": "935412b14f145917fd65973779669eedce53f5001b865a64f4a018c4ea8dc02a",
+    "rows": 16,
+    "selection": "OOD A1 group numbers 0-7 and 16-23, chosen without MLP8 outcomes; two rows per direction by two-attractor-number state",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"],
+    "subject_position": 8,
+    "evaluation_role": "OOD_TEXT_REUSE_NEW_MLP8_INTERVENTION"
+  },
+  "capability": {
+    "policy": "A new candidate-scoped native-only result and license must pass before any causal intervention. Six direction-by-role cells each contain eight endpoints and require at least 0.875 native accuracy.",
+    "price": {"model_forwards": 1, "example_evaluations": 48, "causal_interventions": 0, "backwards": 0, "parameter_updates": 0},
+    "reuse_limit": "The fresh-matched license is forbidden; aggregate open OOD accuracy is prior evidence only and is not substituted for the scoped per-endpoint capability result."
+  },
+  "exact_computation": {
+    "input": "At subject position 8, xr and xd are the actual normalized MLP8 inputs for the recipient and matched opposite-number prompt; dx=xd-xr.",
+    "cross": "(Left(dx) * Right(xr)) + (Left(xr) * Right(dx)), with the fixed numerical remainder assigned prospectively as in v2.",
+    "quadratic": "Left(dx) * Right(dx).",
+    "output": "Apply MLP8 Down, propagate sequentially through native block-9/10/11 residual coefficients, replace only the MLP8 slot feeding the established L11H3 current-value branch, and retain recipient attention probabilities, cached values, and non-subject source terms.",
+    "gauge_limit": "Only cross and quadratic are scientific units; ordered Left-only and Right-only terms are not semantic claims."
+  },
+  "conditions": [
+    "standalone_recipient", "standalone_cross", "standalone_quadratic", "standalone_full",
+    "conditional_recipient", "conditional_cross", "conditional_quadratic", "conditional_full",
+    "lexical_recipient", "lexical_cross", "lexical_quadratic", "lexical_full"
+  ],
+  "backgrounds": {
+    "standalone": "Other MLP4-10 slots remain recipient.",
+    "conditional": "Other MLP4-7 and MLP9-10 slots use the opposite-number donor.",
+    "lexical": "Other MLP4-10 slots remain recipient and MLP8 receives a same-number different-lemma source."
+  },
+  "bars": {
+    "all_v2_exactness_bars": "unchanged",
+    "minimum_full_MLP8_mean_target_margin_improvement": 0.03,
+    "minimum_full_MLP8_mean_target_CE_improvement": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "plural_to_singular_minimum_cross_recovery": 1.5,
+    "plural_to_singular_maximum_quadratic_recovery": -0.5,
+    "singular_to_plural_maximum_cross_recovery": -0.1,
+    "singular_to_plural_minimum_quadratic_recovery": 1.1,
+    "maximum_background_recovery_difference": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25
+  },
+  "frozen_predictions": {
+    "pred_a_instrument_live": "Exactness passes and full MLP8 improves both target margin and target CE with at least 0.75 helpful rows in every direction and both causal backgrounds.",
+    "pred_b_plural_to_singular_cross_positive_quadratic_negative": "For CE and margin in both backgrounds, cross recovery is at least 1.5 and quadratic recovery is at most -0.5.",
+    "pred_c_singular_to_plural_cross_negative_quadratic_positive": "For CE and margin in both backgrounds, cross recovery is at most -0.1 and quadratic recovery is at least 1.1.",
+    "pred_d_signed_direction_pattern": "Both opposing signed direction predictions hold.",
+    "pred_e_background_stable": "Every cross/quadratic recovery changes by at most 0.25 between standalone and conditional backgrounds.",
+    "pred_f_number_specific": "Every same-number lexical full-effect ratio is at most 0.25.",
+    "pred_g_selective_removal_direction_pattern": "In the conditional donor-other-MLP background, plural-to-singular removal of cross hurts and removal of quadratic helps; singular-to-plural reverses those roles. This is algebraically dependent on the same four corners and is not independent evidence."
+  },
+  "opposing_outcomes": {
+    "direction_general": "All signed predictions hold in both CE and margin.",
+    "syntax_or_lexeme_specific": "Any required direction/background/outcome violates its signed threshold while the instrument remains live.",
+    "no_usable_test": "The scoped native capability, exactness, or full-MLP8 live gate fails."
+  },
+  "selective_removal_definition": {
+    "remove_cross": "conditional_full minus conditional_quadratic-corner; the quadratic corner equals the full donor MLP8 output with the cross response removed.",
+    "remove_quadratic": "conditional_full minus conditional_cross-corner; the cross corner equals the full donor MLP8 output with the quadratic response removed.",
+    "dependence_warning": "These are deterministic contrasts of the same factorial corners, not a second independent experiment."
+  },
+  "causal_price": {"model_forwards": 4, "example_evaluations": 480, "causal_interventions": 192, "backwards": 0, "parameter_updates": 0},
+  "closed_claims": ["pristine OOD confirmation", "ordered Left/Right semantics", "rank", "reconstruction", "complete Task14 circuit", "unrelated-behavior selectivity", "downstream-reader completeness"]
+}
