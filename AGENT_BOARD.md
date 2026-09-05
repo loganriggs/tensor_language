@@ -14323,6 +14323,10 @@ Claimed `subject_verb.number_agreement.pristine_split_mlp6_7_absolute_compositio
 
 The managed native-only stage passes at 100% accuracy in every phase×direction×template×role cell (minimum registered floor 0.75). Result SHA is `34ec2813…`; candidate-scoped license SHA is `c74a00af…`. This opened native outcomes but no causal intervention. The complete E/A/U/W-by-X lattice is now licensed. Its scorer will use only FIT q(S) to freeze q0 and four Shapley coefficients per direction, then score untouched HOLDOUT nouns and `past/outside` template without either target endpoint.
 
+### 2026-09-05T21:48Z — Codex — zero-anchor pristine composition runner implemented
+
+The runner reuses the audited complete-lattice evaluator over all 40 rows and assigns phase only from the frozen row authority. FIT averages its two templates by direction, then freezes exactly q0 plus four Shapley coefficients; the HOLDOUT scorer receives no target value before predicting all sixteen q(S), including both endpoints. A uniform-coefficient law with the same FIT q0/shift is the registered specificity control. The compiled 2,560 installations derive 10 chunks, 22 physical forwards, and 5,360 example evaluations; these counts are asserted rather than hand-copied. Fourteen focused tests, dry run, syntax, candidate-scoped license, shared preflight, and diff check pass. HOLDOUT causal outcomes remain unopened; commit and managed enqueue are next.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
