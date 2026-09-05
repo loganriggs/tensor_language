@@ -129,6 +129,10 @@ FROZEN = {
         "basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_COMPILER_V3_PREFREEZE_CHECKLIST_2026-09-04.md",
         "b5e0c92e650caac2c36ba85a227a6fe14eaa7611f411ebca378e74945c316930",
     ),
+    "v3_terminal_clarification": (
+        "basis_aligned/polynomial_causal/TASK14_FIT_LOCALIZATION_V2_PHYSICAL_COMPILER_PREREGISTRATION_V3_ADDENDUM_2026-09-04.md",
+        "42b056a194261e6bf0b7f692f9b368df15dc146ad577d03a61bbd181bf5b06e4",
+    ),
     "experiment_spec": (
         "basis_aligned/bilinear_quotient/ops/circuit_experiment_spec.py",
         "64ba9b75d49dbc6129d592573fee454e27e2de661daef30ca35d457dbbbb093c",
@@ -210,6 +214,15 @@ class DeadlineCapability:
 class TimingAuthorization:
     timing_token_ids: tuple[str, ...]
     authorization_id: str
+    _seal: object
+
+
+@dataclass(frozen=True)
+class CallPhaseRecorder:
+    call_id: str
+    requires_backward: bool
+    requires_optimizer_update: bool
+    recorder_id: str
     _seal: object
 
 
@@ -507,6 +520,43 @@ def _call(
         item_ids, kind=item_kind, position=position, endpoints=endpoints,
         records_by_id=records_by_id, uses=uses, extra_positions=extra_positions,
     )
+    logical_backward = participates_in_backward and batch_ordinal == batch_count - 1
+    optimizer_update = logical_backward and call_kind == "projector_intervention_train_forward"
+    cache = _cache_contract(
+        call_kind=call_kind, branch=branch, position=position, fit=fit,
+        batch_ordinal=batch_ordinal, logical_backward=logical_backward,
+        optimizer_update=optimizer_update, variant=variant,
+    )
+    native_output_mapping = None
+    if call_kind == "native_cache_full_forward":
+        # `_row_maps` inserts endpoints in the frozen array order: each exact
+        # FIT-authority row, base then donor.  Do not sort opaque row hashes.
+        endpoint_order = list(endpoints)
+        if len(endpoint_order) != 256:
+            raise CompileError("native output mapping requires the exact 256-endpoint table")
+        endpoint_index = {endpoint_id: index for index, endpoint_id in enumerate(endpoint_order)}
+        if any(item_id not in endpoint_index for item_id in item_ids):
+            raise CompileError("native output call contains a non-endpoint item")
+        native_output_mapping = {
+            "global_array": "native_answer_foil_logits",
+            "global_shape": [256, 2],
+            "endpoint_order": "FIT_authority_row_order_base_then_donor",
+            "endpoint_order_sha256": canonical_sha256(endpoint_order),
+            "global_row_indices": [endpoint_index[item_id] for item_id in item_ids],
+            "answer_column": 0,
+            "foil_column": 1,
+        }
+        cache["output_bindings"]["native_answer_foil_logits"] = [
+            "array:answer_logit->native_answer_foil_logits[global_row_indices,0]",
+            "array:foil_logit->native_answer_foil_logits[global_row_indices,1]",
+        ]
+        cache["output_bindings"]["fit_position_residuals"] = [
+            f"state:fit_position_residuals->global[item_ids_sha256={ids_digest}]",
+        ]
+        if branch.endswith(":C"):
+            cache["output_bindings"]["c_second_head_residuals"] = [
+                f"state:c_second_head_residuals->global[item_ids_sha256={ids_digest}]",
+            ]
     core: dict[str, Any] = {
         "array_contracts": [
             {"contiguous": "C", "dtype": "float32", "name": "answer_logit", "retained": retained, "shape": [len(item_ids)]},
@@ -518,8 +568,14 @@ def _call(
         "boundary": boundary,
         "branch": branch,
         "call_kind": call_kind,
-        "cache_reads": _cache_reads(call_kind, position, boundary),
-        "cache_writes": _cache_writes(call_kind),
+        "cache_reads": cache["reads"],
+        "cache_writes": cache["writes"],
+        "cache_bindings": cache["bindings"],
+        "cache_binding_tensor_contracts": cache["binding_tensor_contracts"],
+        "cache_output_bindings": cache["output_bindings"],
+        "cache_creates_before_forward": cache["creates_before_forward"],
+        "cache_source_bindings": cache["source_bindings"],
+        "cache_lifecycle": cache["lifecycle"],
         "forward_calls": 1,
         "item_count": len(item_ids),
         "item_ids": list(item_ids),
@@ -528,7 +584,9 @@ def _call(
         "item_uses": {
             item_id: list(uses.get(item_id, ())) for item_id in item_ids
         } if uses is not None else {},
-        "logical_backward_after_this_call": participates_in_backward and batch_ordinal == batch_count - 1,
+        "logical_backward_after_this_call": logical_backward,
+        "native_output_mapping": native_output_mapping,
+        "optimizer_update_after_this_call": optimizer_update,
         "participates_in_backward": participates_in_backward,
         "phase": PHASE,
         "position": position,
@@ -569,23 +627,190 @@ def _state_array_contracts(call_kind: str, branch: str, batch_size: int) -> list
     return []
 
 
-def _cache_reads(call_kind: str, position: str | None, boundary: int | None) -> list[str]:
-    if call_kind.startswith("native") or call_kind == "discovery_gradient_full_forward":
-        return []
-    reads = ["fit_position_residuals"]
-    if "projector" in call_kind or "necessity" in call_kind or "reader" in call_kind:
-        reads.append("fitted_projector_registry")
-    return reads
+def _fit_registry_key(*, site: str, objective: str, rank: int, seed: int) -> str:
+    """Identity of one projector actually written by a completed fit stream."""
+    if site not in {_site(position, boundary) for position in POSITIONS for boundary in BOUNDARIES}:
+        raise CompileError("fitted-projector registry key has invalid site")
+    if objective not in {"joint", "A1_only", "A2_only"}:
+        raise CompileError("fitted-projector registry key has invalid objective")
+    if type(rank) is not int or rank not in {1, 2, 4}:
+        raise CompileError("fitted-projector registry key has invalid rank")
+    if objective in {"A1_only", "A2_only"} and rank != 1:
+        raise CompileError("family-specific fitted projector exists only at rank one")
+    if type(seed) is not int or seed not in SEEDS:
+        raise CompileError("fitted-projector registry key has invalid seed")
+    return canonical_sha256({
+        "site": site, "objective": objective, "rank": rank, "seed": seed,
+    })
 
 
-def _cache_writes(call_kind: str) -> list[str]:
+def _required_projector_registry_keys(
+    *, call_kind: str, fit: Mapping[str, Any], variant: str | None,
+) -> list[str]:
+    """Ordered individual fit keys consumed by an evaluation intervention."""
+    if call_kind == "two_site_necessity_forward" or (
+        call_kind == "necessity_neutralization_forward" and "first_site" in fit
+    ):
+        sites = {
+            "neutral_first_Q": [fit["first_site"]],
+            "neutral_second_Q": [fit["second_site"]],
+            "neutral_both_Q": [fit["first_site"], fit["second_site"]],
+        }.get(variant)
+    elif call_kind == "ordered_H_Q_reader_forward":
+        sites = {
+            "upstream_H_patch": [fit["H_site"]],
+            "upstream_H_patch_then_native_Q_reset": [fit["H_site"], fit["Q_site"]],
+            "upstream_H_neutral": [fit["H_site"]],
+            "upstream_H_neutral_then_donor_Q_insert": [fit["H_site"], fit["Q_site"]],
+            "downstream_Q_patch": [fit["Q_site"]],
+        }.get(variant)
+    else:
+        sites = [fit.get("site")]
+    if not sites or any(type(site) is not str for site in sites):
+        raise CompileError("fitted-projector read lacks exact individual site keys")
+    return [
+        _fit_registry_key(
+            site=site, objective=fit["objective"], rank=fit["rank"], seed=fit["seed"],
+        )
+        for site in sites
+    ]
+
+
+def _cache_contract(
+    *, call_kind: str, branch: str, position: str | None,
+    fit: Mapping[str, Any] | None, batch_ordinal: int,
+    logical_backward: bool, optimizer_update: bool, variant: str | None = None,
+) -> dict[str, Any]:
+    """Exact cache/state lifecycle for each physical call kind."""
+    known = {
+        "native_cache_full_forward", "discovery_gradient_full_forward",
+        "full_state_intervention_forward", "projector_intervention_train_forward",
+        "final_discovery_projector_eval", "spectral_projector_intervention_forward",
+        "locked_projector_intervention_forward", "necessity_neutralization_forward",
+        "two_site_necessity_forward", "ordered_H_Q_reader_forward",
+    }
+    if call_kind not in known:
+        raise CompileError(f"unknown physical call kind cache contract: {call_kind}")
+    reads: list[str] = []
+    writes: list[str] = []
+    bindings: dict[str, list[str]] = {}
+    output_bindings: dict[str, list[str]] = {}
+    creates_before_forward: list[str] = []
+    source_bindings: dict[str, str] = {}
+    binding_tensor_contracts: dict[str, list[dict[str, Any]]] = {}
+    lifecycle = "read_only"
+
     if call_kind == "native_cache_full_forward":
-        return [
-            "fit_position_residuals", "c_second_head_residuals", "native_answer_foil_logits",
-        ]
-    if call_kind == "discovery_gradient_full_forward":
-        return ["discovery_H_Q_gradient_cache"]
-    return []
+        writes = ["fit_position_residuals", "native_answer_foil_logits"]
+        output_bindings = {
+            "fit_position_residuals": ["state:fit_position_residuals"],
+            "native_answer_foil_logits": ["array:answer_logit", "array:foil_logit"],
+        }
+        if branch.endswith(":C"):
+            writes.append("c_second_head_residuals")
+            output_bindings["c_second_head_residuals"] = ["state:c_second_head_residuals"]
+        lifecycle = "create_native_cache_slice"
+    elif call_kind == "discovery_gradient_full_forward":
+        writes = ["discovery_position_gradients"]
+        output_bindings = {
+            "discovery_position_gradients": ["state:discovery_position_gradients"],
+        }
+        lifecycle = "create_discovery_gradient_slice"
+    else:
+        reads = ["fit_position_residuals", "native_answer_foil_logits"]
+        if call_kind == "projector_intervention_train_forward":
+            if fit is None:
+                raise CompileError("projector training cache lifecycle lacks fit identity")
+            fit_core = {
+                key: fit[key] for key in ("objective", "rank", "seed", "site")
+            }
+            fit_id = _fit_registry_key(**fit_core)
+            bindings = {
+                "live_fit_state": [fit_id], "fitted_projector_registry": [fit_id],
+            }
+            binding_tensor_contracts = {
+                "live_fit_state": [{"key": fit_id, "projector_rank": fit["rank"]}],
+                "fitted_projector_registry": [{"key": fit_id, "projector_rank": fit["rank"]}],
+            }
+            if position == "Q":
+                reads.append("c_second_head_residuals")
+            first = int(fit.get("step", -1)) == 0 and batch_ordinal == 0
+            if first:
+                creates_before_forward.append("live_fit_state")
+                writes.append("live_fit_state")
+                source_bindings["live_fit_state"] = (
+                    "exact_v2_SHA_Rademacher_QR_U;Adam_m=zeros;Adam_v=zeros;step=0"
+                )
+                lifecycle = "initialize_U_Adam_m_Adam_v_step0_before_forward"
+            else:
+                reads.append("live_fit_state")
+                if optimizer_update:
+                    writes.append("live_fit_state")
+                    source_bindings["live_fit_state"] = "prior_live_fit_state_plus_exact_Adam_update"
+                    lifecycle = "read_graph_backward_Adam_update"
+                else:
+                    lifecycle = "read_live_U_retain_graph_no_state_update"
+            if optimizer_update and int(fit.get("step", -1)) == FIT_STEPS - 1:
+                writes.extend(["fitted_projector_registry", "fit_trace_registry"])
+                bindings["fit_trace_registry"] = [fit_id]
+                output_bindings.update({
+                    "fitted_projector_registry": ["retained:fitted_projector_array_for_fit_key"],
+                    "fit_trace_registry": ["retained:fit_objective_trace_for_fit_key"],
+                })
+                source_bindings.update({
+                    "fitted_projector_registry": "post_step399_updated_live_fit_state.U",
+                    "fit_trace_registry": "ordered_objective_values_steps_0_through_399",
+                })
+                lifecycle = "final_Adam_update_then_freeze_projector_and_trace"
+        elif call_kind == "spectral_projector_intervention_forward":
+            reads.append("discovery_position_gradients")
+            if fit is None or "site" not in fit:
+                raise CompileError("spectral cache lifecycle lacks site identity")
+            spectral_key = canonical_sha256({"site": fit["site"], "objective": "spectral_diagnostic"})
+            bindings["spectral_projector_registry"] = [spectral_key]
+            binding_tensor_contracts["spectral_projector_registry"] = [
+                {"key": spectral_key, "projector_rank": 1},
+            ]
+            if batch_ordinal == 0:
+                creates_before_forward.append("spectral_projector_registry")
+                writes.append("spectral_projector_registry")
+                output_bindings["spectral_projector_registry"] = ["retained:spectral_projector"]
+                source_bindings["spectral_projector_registry"] = (
+                    "CPU_float64_Lanczos(discovery_position_gradients,exact_site_record_deltas)"
+                )
+                lifecycle = "CPU_float64_Lanczos_from_gradient_then_float32_projector_before_forward"
+            else:
+                reads.append("spectral_projector_registry")
+                lifecycle = "read_existing_spectral_projector"
+        elif call_kind in {
+            "final_discovery_projector_eval", "locked_projector_intervention_forward",
+            "necessity_neutralization_forward", "two_site_necessity_forward",
+            "ordered_H_Q_reader_forward",
+        }:
+            reads.append("fitted_projector_registry")
+            if fit is not None:
+                keys = _required_projector_registry_keys(
+                    call_kind=call_kind, fit=fit, variant=variant,
+                )
+                bindings["fitted_projector_registry"] = keys
+                binding_tensor_contracts["fitted_projector_registry"] = [
+                    {"key": key, "projector_rank": fit["rank"]} for key in keys
+                ]
+            lifecycle = "read_frozen_fitted_projector"
+        elif call_kind == "full_state_intervention_forward":
+            lifecycle = "read_native_baseline_and_residuals"
+    if logical_backward and call_kind not in {
+        "discovery_gradient_full_forward", "projector_intervention_train_forward",
+    }:
+        raise CompileError("unexpected backward call kind")
+    if optimizer_update and call_kind != "projector_intervention_train_forward":
+        raise CompileError("unexpected optimizer update call kind")
+    return {
+        "reads": reads, "writes": writes, "bindings": bindings,
+        "binding_tensor_contracts": binding_tensor_contracts,
+        "output_bindings": output_bindings, "creates_before_forward": creates_before_forward,
+        "source_bindings": source_bindings, "lifecycle": lifecycle,
+    }
 
 
 def _batched_calls(
@@ -1250,7 +1475,11 @@ def _runtime_contract() -> dict[str, Any]:
                 "exact allowlisted receipt and independent-review digests, complete frozen physical-call-shape "
                 "coverage, reviewed fixed bootstrap/publication bounds, and longest compatible path <=28800"
             ),
-            "compatible_path_algorithm": "longest_compatible_stage_path reverse-topological recurrence with witness",
+            "compatible_path_algorithm": (
+                "future authority must combine reviewed per-shape p99 with frozen per-chunk shape multiplicities, "
+                "derive each stage's active chunks from typed predecessor state, and maximize compatible paths; "
+                "longest_compatible_stage_path is structure-only and non-authorizing"
+            ),
             "authorization_inequality": "bootstrap_seconds + longest_path_seconds + publication_seconds <= 28800",
         },
         "dead_intervention_tripwires": {
@@ -1455,6 +1684,7 @@ def _dag(
             "discovery_selection.reader_selection_eligible", "single_necessity.single_necessity_pass",
             "two_site_redundancy.redundancy_pass", "single_necessity.evidence_sha256",
             "selected_family_and_rank_fits.evidence_sha256", "locked_validation.evidence_sha256",
+            "two_site_redundancy.evidence_sha256",
         ), ("ordered_reader.reader_pass", "ordered_reader.evidence_sha256"),
          ("discovery_selection.reader_selection_eligible", "single_necessity.single_necessity_pass",
           "two_site_redundancy.redundancy_pass"), "necessity_route_pass_and_H_before_Q", ("terminal_projection",)),
@@ -1473,7 +1703,10 @@ def _dag(
     nodes: list[dict[str, Any]] = []
     for node, reads, writes, guard_reads, guard, successors in specs:
         optional_by_node = {
-            "ordered_reader": {"two_site_redundancy.redundancy_pass"},
+            "ordered_reader": {
+                "two_site_redundancy.redundancy_pass",
+                "two_site_redundancy.evidence_sha256",
+            },
             "terminal_projection": {
                 "discovery_full_ceilings.eligible_h_count", "discovery_full_ceilings.eligible_q_count",
                 "discovery_full_ceilings.natural_margin_denominators_above_threshold",
@@ -1524,6 +1757,10 @@ def _dag(
             },
             "physical_call_stage": node if node in CALL_STAGES else None,
             "calls": calls_by_stage.get(node) if node in CALL_STAGES else None,
+            "infrastructure_reads": (
+                ["sealed_capability_completion_evidence_and_replay_chain"]
+                if node == "terminal_projection" else []
+            ),
             "successors": list(successors),
             "capability_input": "GlobalPreflightToken" if node == "preflight" else "process_local_predecessor_StageCapability",
             "operational_failure": "operational_abort_no_scientific_terminal_no_package",
@@ -1556,6 +1793,7 @@ def _validate_dag(nodes: Sequence[Mapping[str, Any]]) -> None:
         if type(required) is not list or type(optional) is not list \
                 or type(writes) is not list or type(guard) is not dict \
                 or type(item.get("transition_reads")) is not list \
+                or type(item.get("infrastructure_reads")) is not list \
                 or type(guard.get("required_reads")) is not list \
                 or type(guard.get("optional_reads")) is not list:
             raise CompileError("stage DAG dataflow fields malformed")
@@ -1641,7 +1879,13 @@ def _validate_dag(nodes: Sequence[Mapping[str, Any]]) -> None:
 
 
 def longest_compatible_stage_path(stage_weights: Mapping[str, float]) -> dict[str, Any]:
-    """Exact DAG longest path; weights remain unavailable until reviewed timing exists."""
+    """Structural branch-path helper only; never a timing authorization.
+
+    Scalar stage weights cannot encode selected-boundary call-shape costs.  A
+    later timing authority must combine reviewed per-shape p99 values with each
+    frozen chunk's shape multiplicities and maximize over compatible typed
+    selection states.  This helper proves only the DAG recurrence/tie rule.
+    """
     nodes = _dag()
     names = [item["node"] for item in nodes]
     if type(stage_weights) is not dict or set(stage_weights) != set(names):
@@ -1665,6 +1909,7 @@ def longest_compatible_stage_path(stage_weights: Mapping[str, float]) -> dict[st
         "seconds": cost["preflight"],
         "witness": list(witness["preflight"]),
         "algorithm": "reverse_topological_max_successor_ties_earlier_frozen_order",
+        "authorization_status": "structural_only_non_authorizing",
     }
 
 
@@ -1713,9 +1958,11 @@ def initialization_entry_sign(
     _exact_int(rank, "initialization rank", minimum=1)
     _exact_int(d, "initialization row", minimum=0)
     _exact_int(j, "initialization column", minimum=0)
-    if seed not in SEEDS or rank not in RANKS or type(site) is not str \
+    if seed not in SEEDS or rank not in RANKS or not 0 <= d < WIDTH or not 0 <= j < rank \
+            or type(site) is not str \
             or site not in {_site(position, boundary) for position in POSITIONS for boundary in BOUNDARIES} \
-            or type(objective_name) is not str or objective_name not in {"joint", "A1_only", "A2_only"}:
+            or type(objective_name) is not str or objective_name not in {"joint", "A1_only", "A2_only"} \
+            or (objective_name != "joint" and rank != 1):
         raise CompileError("initialization coordinate differs from frozen v2 domain")
     text = "|".join((
         "task14-localization-v2-init", str(seed), str(rank), site,
@@ -2195,6 +2442,25 @@ def physical_call_shape(call: Mapping[str, Any]) -> dict[str, Any]:
     """
     if type(call) is not dict or call.get("schema") != CALL_SCHEMA:
         raise CompileError("physical call shape requires an exact canonical call mapping")
+    native_mapping = call.get("native_output_mapping")
+    if call["call_kind"] == "native_cache_full_forward":
+        expected_mapping_keys = {
+            "global_array", "global_shape", "endpoint_order", "endpoint_order_sha256",
+            "global_row_indices", "answer_column", "foil_column",
+        }
+        if type(native_mapping) is not dict or set(native_mapping) != expected_mapping_keys \
+                or native_mapping["global_array"] != "native_answer_foil_logits" \
+                or native_mapping["global_shape"] != [256, 2] \
+                or native_mapping["endpoint_order"] != "FIT_authority_row_order_base_then_donor" \
+                or len(native_mapping["global_row_indices"]) != call["item_count"] \
+                or len(set(native_mapping["global_row_indices"])) != call["item_count"] \
+                or any(type(index) is not int or not 0 <= index < 256
+                       for index in native_mapping["global_row_indices"]) \
+                or native_mapping["answer_column"] != 0 or native_mapping["foil_column"] != 1:
+            raise CompileError("native global output mapping is malformed")
+        _exact_sha(native_mapping["endpoint_order_sha256"], "native endpoint order SHA")
+    elif native_mapping is not None:
+        raise CompileError("non-native call carries a native output mapping")
     fit = call.get("fit")
     rank = None if fit is None else fit.get("rank")
     if rank is not None:
@@ -2227,14 +2493,39 @@ def physical_call_shape(call: Mapping[str, Any]) -> dict[str, Any]:
         "c_second_head_residuals": "second_head_residual_cache",
         "native_answer_foil_logits": "two_logit_cache",
         "fitted_projector_registry": "projector_parameter_cache",
-        "discovery_H_Q_gradient_cache": "gradient_position_cache",
+        "discovery_position_gradients": "gradient_position_cache",
+        "spectral_projector_registry": "spectral_projector_parameter_cache",
+        "live_fit_state": "live_projector_and_adam_state",
+        "fit_trace_registry": "fit_objective_trace_cache",
     }
 
     def cache_signature(items: Sequence[str]) -> dict[str, int]:
         output: dict[str, int] = defaultdict(int)
         for item in items:
-            output[cache_classes.get(item, "unknown_cache_class")] += 1
+            if item not in cache_classes:
+                raise CompileError(f"unknown physical cache operation: {item}")
+            output[cache_classes[item]] += 1
         return dict(sorted(output.items()))
+
+    def output_binding_signature(values: Sequence[str]) -> list[str]:
+        # Exact destinations stay in each call commitment, but slice identities do
+        # not create distinct timing shapes.  The operation before/after `->` does.
+        return sorted(
+            "->".join(part.split("[")[0] for part in value.split("->"))
+            for value in values
+        )
+
+    binding_tensor_signature: dict[str, list[int]] = {}
+    for cache_name, entries in sorted(call["cache_binding_tensor_contracts"].items()):
+        if cache_name not in cache_classes:
+            raise CompileError(f"unknown physical bound tensor cache: {cache_name}")
+        ranks: list[int] = []
+        for entry in entries:
+            if type(entry) is not dict or set(entry) != {"key", "projector_rank"}:
+                raise CompileError("physical bound tensor contract is malformed")
+            _exact_sha(entry["key"], "physical bound tensor key")
+            ranks.append(_exact_int(entry["projector_rank"], "bound projector rank", minimum=1))
+        binding_tensor_signature[cache_classes[cache_name]] = ranks
 
     variant_operations = {
         None: "registered_single_site_operation",
@@ -2263,6 +2554,28 @@ def physical_call_shape(call: Mapping[str, Any]) -> dict[str, Any]:
         "intervention_operation": variant_operations[call["variant"]],
         "cache_read_classes": cache_signature(call["cache_reads"]),
         "cache_write_classes": cache_signature(call["cache_writes"]),
+        "cache_binding_classes": {
+            key: len(value) for key, value in sorted(call["cache_bindings"].items())
+        },
+        "cache_binding_tensor_ranks": binding_tensor_signature,
+        "cache_output_binding_classes": {
+            cache_classes[key]: output_binding_signature(value)
+            for key, value in sorted(call["cache_output_bindings"].items())
+        },
+        "cache_create_classes": cache_signature(call["cache_creates_before_forward"]),
+        "cache_source_operation_classes": {
+            cache_classes[key]: value
+            for key, value in sorted(call["cache_source_bindings"].items())
+        },
+        "cache_lifecycle": call["cache_lifecycle"],
+        "native_output_mapping": (
+            None if native_mapping is None else {
+                "global_shape": native_mapping["global_shape"],
+                "mapped_row_count": len(native_mapping["global_row_indices"]),
+                "answer_column": native_mapping["answer_column"],
+                "foil_column": native_mapping["foil_column"],
+            }
+        ),
         "retained_output": _exact_bool(call["retained_output"], "physical retained output"),
         "array_contracts": array_signature(call["array_contracts"]),
         "state_array_contracts": array_signature(call["state_array_contracts"]),
@@ -2274,6 +2587,9 @@ def physical_call_shape(call: Mapping[str, Any]) -> dict[str, Any]:
         ),
         "logical_backward_after_this_call": _exact_bool(
             call["logical_backward_after_this_call"], "physical logical backward marker",
+        ),
+        "optimizer_update_after_this_call": _exact_bool(
+            call["optimizer_update_after_this_call"], "physical optimizer-update marker",
         ),
         "backward_graph_batch_count": (
             _exact_int(call["batch_count"], "physical graph batch count", minimum=1)
@@ -2309,6 +2625,10 @@ def _stage_call_contract(
     for stage in CALL_STAGES:
         stage_chunks = [chunk for chunk in chunks if chunk["stage"] == stage]
         stage_shapes = [row for row in shape_multiplicities if row["stage"] == stage]
+        if sum(int(row["template_call_count"]) for row in stage_shapes) != sum(
+            int(chunk["call_count"]) for chunk in stage_chunks
+        ):
+            raise CompileError(f"shape multiplicities differ from chunk calls at stage {stage}")
         core = {
             "stage": stage,
             "chunk_count": len(stage_chunks),
@@ -2317,6 +2637,15 @@ def _stage_call_contract(
             "template_call_count": sum(int(chunk["call_count"]) for chunk in stage_chunks),
             "shape_class_count": len(stage_shapes),
             "shape_multiplicities_root_sha256": canonical_sha256(stage_shapes),
+            "per_chunk_shape_multiplicities_root_sha256": canonical_sha256([
+                {
+                    "chunk_id": chunk["chunk_id"],
+                    "call_shape_multiplicities_sha256": canonical_sha256(
+                        chunk["call_shape_multiplicities"]
+                    ),
+                }
+                for chunk in stage_chunks
+            ]),
             "physical_price": _sum_price(stage_chunks),
         }
         result.append({**core, "stage_call_contract_sha256": canonical_sha256(core)})
@@ -2328,6 +2657,7 @@ def build_bundle() -> tuple[dict[str, Any], bytes]:
     chunk_call_ids: dict[str, list[str]] = defaultdict(list)
     call_shapes: dict[str, dict[str, Any]] = {}
     call_shape_counts: dict[str, int] = defaultdict(int)
+    chunk_shape_counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
 
     def visit(chunk_id: str, call: Mapping[str, Any]) -> None:
         call_id = str(call["call_id"])
@@ -2339,6 +2669,7 @@ def build_bundle() -> tuple[dict[str, Any], bytes]:
             raise CompileError("physical call-shape hash collision across execution signatures")
         call_shapes[shape["call_shape_sha256"]] = shape
         call_shape_counts[shape["call_shape_sha256"]] += 1
+        chunk_shape_counts[chunk_id][shape["call_shape_sha256"]] += 1
 
     chunks = _compiler_visit_call_descriptors(visit)
     call_offset = 0
@@ -2350,6 +2681,12 @@ def build_bundle() -> tuple[dict[str, Any], bytes]:
         chunk["call_index_count"] = len(call_ids)
         chunk["call_index_offset"] = call_offset
         chunk["call_index_slice_sha256"] = bytes_sha256(encoded)
+        chunk["call_shape_multiplicities"] = [
+            {"call_shape_sha256": shape_id, "call_count": count}
+            for shape_id, count in sorted(
+                chunk_shape_counts[str(chunk["chunk_id"])].items()
+            )
+        ]
         call_offset += len(call_ids)
     call_index_bytes = bytes(call_index)
     chunks_root = canonical_sha256(chunks)
@@ -2500,11 +2837,13 @@ def validate_manifest(value: Mapping[str, Any]) -> None:
         raise CompileError("manifest contract hash mismatch")
     expected_keys = {
         "artifact_closure", "stage_replay_contract", "stage_state_contract", "stage_ranges",
+        "stage_call_contract",
         "call_chunk_count", "call_chunks", "call_chunks_root_sha256", "call_index",
         "compiler_source_sha256",
         "conditional_price", "contract_sha256", "dag", "fit_only", "initialization",
         "model_contract", "physical_batching", "physical_call_shape_count", "physical_call_shapes",
         "physical_call_shapes_root_sha256", "retained_arrays", "retained_byte_contract",
+        "physical_call_shape_multiplicities", "physical_call_shape_multiplicities_root_sha256",
         "runtime_and_publication", "science", *_identity_contract().keys(),
     }
     if set(value) != expected_keys:
@@ -2519,7 +2858,6 @@ def validate_manifest(value: Mapping[str, Any]) -> None:
         "artifact_closure": _artifact_closure_contract(),
         "stage_replay_contract": _stage_replay_contract(),
         "stage_state_contract": _stage_state_contract(),
-        "dag": _dag(),
         "fit_only": _fit_only_contract(),
         "initialization": _initialization_contract(),
         "model_contract": _model_contract(),
@@ -2552,6 +2890,24 @@ def validate_manifest(value: Mapping[str, Any]) -> None:
         or shapes_root != CANONICAL_CALL_SHAPES_ROOT_SHA256
     ):
         raise CompileError("physical call shapes differ from frozen canonical registry")
+    multiplicities = value.get("physical_call_shape_multiplicities")
+    if type(multiplicities) is not list or not multiplicities \
+            or multiplicities != sorted(multiplicities, key=lambda item: item.get("call_shape_sha256", "")) \
+            or {item.get("call_shape_sha256") for item in multiplicities} \
+            != {item.get("call_shape_sha256") for item in shapes}:
+        raise CompileError("physical call-shape multiplicity registry changed")
+    for item in multiplicities:
+        if set(item) != {"call_shape_sha256", "stage", "template_call_count"} \
+                or type(item["template_call_count"]) is not int or item["template_call_count"] <= 0 \
+                or item["stage"] not in CALL_STAGES:
+            raise CompileError("physical call-shape multiplicity row malformed")
+    multiplicity_root = canonical_sha256(multiplicities)
+    if value.get("physical_call_shape_multiplicities_root_sha256") != multiplicity_root \
+            or (
+                CANONICAL_SHAPE_MULTIPLICITY_ROOT_SHA256 != "UNFROZEN"
+                and multiplicity_root != CANONICAL_SHAPE_MULTIPLICITY_ROOT_SHA256
+            ):
+        raise CompileError("physical call-shape multiplicity root changed")
     chunks = value.get("call_chunks")
     if type(chunks) is not list or type(value.get("call_chunk_count")) is not int \
             or value.get("call_chunk_count") != len(chunks):
@@ -2581,6 +2937,15 @@ def validate_manifest(value: Mapping[str, Any]) -> None:
         raise CompileError("conditional price differs from supplied call chunks")
     if value.get("stage_ranges") != _stage_ranges(chunks):
         raise CompileError("causal stage ranges/order changed")
+    stage_calls = _stage_call_contract(chunks, multiplicities)
+    if value.get("stage_call_contract") != stage_calls \
+            or (
+                CANONICAL_STAGE_CALL_CONTRACT_ROOT_SHA256 != "UNFROZEN"
+                and canonical_sha256(stage_calls) != CANONICAL_STAGE_CALL_CONTRACT_ROOT_SHA256
+            ):
+        raise CompileError("exact per-stage call/chunk/shape contract changed")
+    if value.get("dag") != _dag(stage_calls):
+        raise CompileError("DAG call/read/write contract differs from canonical stage graph")
     index = value.get("call_index")
     if type(index) is not dict or set(index) != {"byte_count", "call_count", "encoding", "path", "sha256"} \
             or index.get("encoding") != "ordered_raw_32_byte_SHA256_call_ids" \
@@ -2745,6 +3110,7 @@ class ChunkReplayReceipt:
     stage: str
     activation_guard: str
     guard_evaluated: bool
+    guard_result: bool
     guard_state_sha256: str
     status: str
     call_index_offset: int
@@ -2752,6 +3118,7 @@ class ChunkReplayReceipt:
     executed_call_count: int
     call_index_slice_sha256: str
     call_root_sha256: str
+    call_shape_multiplicities_sha256: str
     forward_calls: int
     backward_calls: int
     backward_graph_batches: int
@@ -2813,6 +3180,11 @@ class OperationalAbortState:
     optimizer_updates: int
     example_evaluations: int
     token_evaluations: int
+    root_token_id: str | None
+    capability_id: str | None
+    capability_chain_root_sha256: str | None
+    abort_id: str
+    _seal: object
     scientific_terminal: None = None
     package_allowed: bool = False
 
@@ -2844,6 +3216,8 @@ _STAGE_CAPABILITIES: dict[str, dict[str, Any]] = {}
 _STAGE_REPLAYS: dict[str, dict[str, Any]] = {}
 _STAGE_COMPLETIONS: dict[str, dict[str, Any]] = {}
 _SCIENTIFIC_TERMINALS: dict[str, dict[str, Any]] = {}
+_CALL_PHASE_RECORDERS: dict[str, dict[str, Any]] = {}
+_OPERATIONAL_ABORTS: dict[str, dict[str, Any]] = {}
 
 
 def _exact_bool(value: Any, name: str) -> bool:
@@ -3013,10 +3387,12 @@ def _issue_capability(
         if predecessor_completion.completion_id != canonical_sha256(completion_core) \
                 or any(public_completion[key] != completion_core[key] for key in public_completion):
             raise CompileError("public completion receipt fields differ from sealed core")
-        predecessor_completion_id = predecessor_completion.completion_id
         prior_capability = _STAGE_CAPABILITIES.get(predecessor_id)
-        if prior_capability is None:
-            raise CompileError("successor capability lacks prior capability state")
+        if predecessor_completion.capability_id != predecessor_id \
+                or prior_capability is None \
+                or prior_capability.get("completion_id") != predecessor_completion.completion_id:
+            raise CompileError("completion receipt does not belong to the exact predecessor capability")
+        predecessor_completion_id = predecessor_completion.completion_id
         prior_chain = prior_capability["core"]["capability_chain_root_sha256"]
     chain_root = canonical_sha256({
         "prior_chain_root_sha256": prior_chain,
@@ -3090,22 +3466,18 @@ def abort_stage(capability: StageCapability, reason: Any) -> OperationalAbortSta
         raise CompileError("stage capability is already consumed")
     if type(reason) is not str or not reason:
         raise CompileError("operational abort reason must be nonempty exact str")
-    nodes = tuple(node["node"] for node in _dag())
+    nodes = tuple(node["node"] for node in _captured_dag(capability))
     statuses = tuple(
         (node, "completed" if node in completed else "failed" if node == capability.next_stage else "skipped")
         for node in nodes
     )
     record["consumed"] = True
     progress = record["progress"]
-    return OperationalAbortState(
-        completed, capability.next_stage, reason, statuses,
-        **{key: progress[key] for key in (
-            "active_chunk_id", "active_chunk_call_offset", "attempted_call_count",
-            "completed_call_count", "completed_call_root_sha256",
-            "completed_slice_count", "completed_slice_root_sha256", "forward_calls",
-            "backward_calls", "backward_graph_batches", "optimizer_updates",
-            "example_evaluations", "token_evaluations",
-        )},
+    return _make_operational_abort(
+        completed=completed, failed_stage=capability.next_stage, reason=reason,
+        statuses=statuses, progress=progress, root_token_id=capability.root_token_id,
+        capability_id=capability.capability_id,
+        capability_chain_root_sha256=capability.capability_chain_root_sha256,
     )
 
 
@@ -3118,16 +3490,68 @@ def abort_preflight(reason: Any) -> OperationalAbortState:
         (node, "failed" if node == "preflight" else "skipped") for node in nodes
     )
     progress = _zero_progress("preflight")
-    return OperationalAbortState(
-        (), "preflight", reason, statuses,
-        **{key: progress[key] for key in (
-            "active_chunk_id", "active_chunk_call_offset", "attempted_call_count",
-            "completed_call_count", "completed_call_root_sha256",
-            "completed_slice_count", "completed_slice_root_sha256", "forward_calls",
-            "backward_calls", "backward_graph_batches", "optimizer_updates",
-            "example_evaluations", "token_evaluations",
-        )},
+    return _make_operational_abort(
+        completed=(), failed_stage="preflight", reason=reason, statuses=statuses,
+        progress=progress, root_token_id=None, capability_id=None,
+        capability_chain_root_sha256=None,
     )
+
+
+def _make_operational_abort(
+    *, completed: tuple[str, ...], failed_stage: str, reason: str,
+    statuses: tuple[tuple[str, str], ...], progress: Mapping[str, Any],
+    root_token_id: str | None, capability_id: str | None,
+    capability_chain_root_sha256: str | None,
+) -> OperationalAbortState:
+    progress_keys = (
+        "active_chunk_id", "active_chunk_call_offset", "attempted_call_count",
+        "completed_call_count", "completed_call_root_sha256", "completed_slice_count",
+        "completed_slice_root_sha256", "forward_calls", "backward_calls",
+        "backward_graph_batches", "optimizer_updates", "example_evaluations", "token_evaluations",
+    )
+    exact_progress = {key: progress[key] for key in progress_keys}
+    core = {
+        "schema": "task14_fit_localization_v2_operational_abort_v3",
+        "completed_stages": list(completed), "failed_stage": failed_stage,
+        "reason": reason, "node_statuses": [list(item) for item in statuses],
+        "progress": exact_progress, "root_token_id": root_token_id,
+        "capability_id": capability_id,
+        "capability_chain_root_sha256": capability_chain_root_sha256,
+        "scientific_terminal": None, "package_allowed": False,
+    }
+    abort_id, seal = canonical_sha256(core), object()
+    value = OperationalAbortState(
+        completed, failed_stage, reason, statuses,
+        *[exact_progress[key] for key in progress_keys],
+        root_token_id, capability_id, capability_chain_root_sha256, abort_id, seal,
+    )
+    _OPERATIONAL_ABORTS[abort_id] = {"seal": seal, "core": core}
+    return value
+
+
+def validate_operational_abort(value: OperationalAbortState) -> None:
+    if type(value) is not OperationalAbortState:
+        raise CompileError("operational abort must have exact type")
+    record = _OPERATIONAL_ABORTS.get(value.abort_id)
+    if record is None or record["seal"] is not value._seal:
+        raise CompileError("missing or forged process-local operational abort")
+    progress_keys = (
+        "active_chunk_id", "active_chunk_call_offset", "attempted_call_count",
+        "completed_call_count", "completed_call_root_sha256", "completed_slice_count",
+        "completed_slice_root_sha256", "forward_calls", "backward_calls",
+        "backward_graph_batches", "optimizer_updates", "example_evaluations", "token_evaluations",
+    )
+    core = {
+        "schema": "task14_fit_localization_v2_operational_abort_v3",
+        "completed_stages": list(value.completed_stages), "failed_stage": value.failed_stage,
+        "reason": value.reason, "node_statuses": [list(item) for item in value.node_statuses],
+        "progress": {key: getattr(value, key) for key in progress_keys},
+        "root_token_id": value.root_token_id, "capability_id": value.capability_id,
+        "capability_chain_root_sha256": value.capability_chain_root_sha256,
+        "scientific_terminal": value.scientific_terminal, "package_allowed": value.package_allowed,
+    }
+    if core != record["core"] or value.abort_id != canonical_sha256(core):
+        raise CompileError("public operational-abort fields differ from sealed core")
 
 
 _PAYLOAD_TYPES = {
@@ -3177,6 +3601,21 @@ def _root_global_token_id(capability: StageCapability) -> str:
     if predecessor not in _GLOBAL_TOKENS:
         raise CompileError("stage capability has no live global-preflight root")
     return predecessor
+
+
+def _captured_dag(capability: StageCapability) -> list[dict[str, Any]]:
+    root = _root_global_token_id(capability)
+    context = _GLOBAL_CONTEXTS.get(root)
+    if type(context) is not _PreflightContext:
+        raise CompileError("capability lacks captured manifest DAG")
+    manifest = strict_json(context.manifest_bytes, "captured manifest DAG")
+    dag = manifest.get("dag")
+    if type(dag) is not list:
+        # Unit-only synthetic tokens may carry only a minimal manifest.  They
+        # still use the exact static state graph, never a caller-supplied graph.
+        return _dag()
+    _validate_dag(dag)
+    return dag
 
 
 def _validate_stage_payload(stage: str, payload: object, history: Mapping[str, object]) -> None:
@@ -3230,6 +3669,8 @@ def _validate_stage_payload(stage: str, payload: object, history: Mapping[str, o
         )
         rh = _exact_site_tuple(payload.retained_h, "retained_h", maximum=3)
         rq = _exact_site_tuple(payload.retained_q, "retained_q", maximum=19)
+        if not valid_margin and any((eh, eq, ranked, rh, rq)):
+            raise CompileError("invalid natural-margin screen must not manufacture eligibility decisions")
         if len(ranked) != eh or len(rh) != min(3, eh):
             raise CompileError("retained H census must equal min(3, eligible H count)")
         if rh != tuple(sorted(site for site, _score in ranked[:3])):
@@ -3399,14 +3840,42 @@ def _validate_replay_receipt(
             or receipt.stage != stage or receipt.capability_id != capability.capability_id:
         raise CompileError("public replay receipt fields differ from sealed core")
     for child in receipt.chunk_receipts:
+        if type(child) is not ChunkReplayReceipt or child.stage != stage \
+                or child.guard_evaluated is not True or type(child.guard_result) is not bool \
+                or child.status not in {"active_completed", "inactive_skip_zero_calls"}:
+            raise CompileError("chunk replay receipt type/stage/guard/status changed")
         child_core = _chunk_receipt_core(child)
         if child.receipt_id != canonical_sha256(child_core):
             raise CompileError("chunk replay receipt ID changed")
-    if receipt.chunk_receipts_root_sha256 != canonical_sha256([
+        active = child.status == "active_completed"
+        if child.guard_result != active \
+                or child.executed_call_count != (child.template_call_count if active else 0) \
+                or (not active and any(getattr(child, key) for key in (
+                    "forward_calls", "backward_calls", "backward_graph_batches",
+                    "optimizer_updates", "example_evaluations", "token_evaluations",
+                ))):
+            raise CompileError("chunk replay guard/status/work relationship changed")
+    child_rows = [
         {**_chunk_receipt_core(item), "receipt_id": item.receipt_id}
         for item in receipt.chunk_receipts
-    ]):
+    ]
+    if receipt.chunk_receipts_root_sha256 != canonical_sha256(child_rows):
         raise CompileError("chunk replay receipt root changed")
+    expected_active_root = canonical_sha256([
+        {"chunk_receipt_id": item.receipt_id, "status": item.status}
+        for item in receipt.chunk_receipts
+    ])
+    sums = {
+        key: sum(getattr(item, key) for item in receipt.chunk_receipts)
+        for key in (
+            "template_call_count", "executed_call_count", "forward_calls", "backward_calls",
+            "backward_graph_batches", "optimizer_updates", "example_evaluations", "token_evaluations",
+        )
+    }
+    if receipt.active_path_root_sha256 != expected_active_root or any(
+        getattr(receipt, key) != value for key, value in sums.items()
+    ):
+        raise CompileError("stage replay root/ledger does not equal ordered child receipts")
     return core
 
 
@@ -3590,7 +4059,7 @@ def project_stagewise_terminal(capability: StageCapability) -> ScientificTermina
                                 )
     if terminal not in TERMINALS:
         raise CompileError("stagewise projector produced unknown terminal")
-    all_nodes = tuple(node["node"] for node in _dag())
+    all_nodes = tuple(node["node"] for node in _captured_dag(capability))
     statuses = tuple(
         (node, "completed" if node in completed or node == "terminal_projection" else "skipped")
         for node in all_nodes
@@ -3627,8 +4096,10 @@ def project_stagewise_terminal(capability: StageCapability) -> ScientificTermina
         "evidence_chain": [
             {
                 "stage": stage,
-                "evidence_sha256": _payload_evidence_sha256(history[stage]),
                 "completion_id": _STAGE_CAPABILITIES[next_id]["completion_id"],
+                "completion_core": _STAGE_COMPLETIONS[
+                    _STAGE_CAPABILITIES[next_id]["completion_id"]
+                ]["core"],
             }
             for stage, next_id in _completed_stage_capability_ids(capability)
         ],
@@ -4026,6 +4497,85 @@ def _stage_chunk_active(stage: str, chunk: Mapping[str, Any], history: Mapping[s
     raise CompileError(f"no active-chunk rule for {stage}")
 
 
+def _issue_call_phase_recorder(
+    capability: StageCapability, call: Mapping[str, Any], absolute_offset: int,
+    progress: dict[str, Any],
+) -> CallPhaseRecorder:
+    core = {
+        "capability_id": capability.capability_id,
+        "call_id": call["call_id"],
+        "absolute_offset": absolute_offset,
+        "requires_backward": bool(call["logical_backward_after_this_call"]),
+        "requires_optimizer_update": bool(call["optimizer_update_after_this_call"]),
+    }
+    recorder_id, seal = canonical_sha256(core), object()
+    if recorder_id in _CALL_PHASE_RECORDERS:
+        raise CompileError("physical call phase recorder is one-shot")
+    recorder = CallPhaseRecorder(
+        str(call["call_id"]), core["requires_backward"],
+        core["requires_optimizer_update"], recorder_id, seal,
+    )
+    _CALL_PHASE_RECORDERS[recorder_id] = {
+        "seal": seal, "core": core, "phase": "before_forward",
+        "call": dict(call), "progress": progress,
+    }
+    return recorder
+
+
+def _call_phase_record(recorder: CallPhaseRecorder) -> dict[str, Any]:
+    if type(recorder) is not CallPhaseRecorder:
+        raise OperationalAbort("physical call phase recorder has wrong type")
+    record = _CALL_PHASE_RECORDERS.get(recorder.recorder_id)
+    if record is None or record["seal"] is not recorder._seal:
+        raise OperationalAbort("missing or forged physical call phase recorder")
+    core = record["core"]
+    if recorder.recorder_id != canonical_sha256(core) \
+            or recorder.call_id != core["call_id"] \
+            or recorder.requires_backward != core["requires_backward"] \
+            or recorder.requires_optimizer_update != core["requires_optimizer_update"]:
+        raise OperationalAbort("public call phase recorder differs from sealed core")
+    return record
+
+
+def mark_forward_complete(recorder: CallPhaseRecorder) -> None:
+    record = _call_phase_record(recorder)
+    if record["phase"] != "before_forward":
+        raise OperationalAbort("forward completion duplicated or out of order")
+    call, progress = record["call"], record["progress"]
+    progress["forward_calls"] += int(call["forward_calls"])
+    progress["backward_graph_batches"] += int(bool(call["participates_in_backward"]))
+    progress["example_evaluations"] += int(call["item_count"])
+    progress["token_evaluations"] += int(call["item_count"]) * int(call["sequence_length"])
+    record["phase"] = "after_forward"
+
+
+def mark_backward_complete(recorder: CallPhaseRecorder) -> None:
+    record = _call_phase_record(recorder)
+    if not recorder.requires_backward or record["phase"] != "after_forward":
+        raise OperationalAbort("backward completion is absent, duplicated, or out of order")
+    record["progress"]["backward_calls"] += 1
+    record["phase"] = "after_backward"
+
+
+def mark_optimizer_update_complete(recorder: CallPhaseRecorder) -> None:
+    record = _call_phase_record(recorder)
+    if not recorder.requires_optimizer_update or record["phase"] != "after_backward":
+        raise OperationalAbort("optimizer update is absent, duplicated, or out of order")
+    record["progress"]["optimizer_updates"] += 1
+    record["phase"] = "complete"
+
+
+def _require_call_completion(recorder: CallPhaseRecorder) -> None:
+    record = _call_phase_record(recorder)
+    expected = (
+        "complete" if recorder.requires_optimizer_update
+        else "after_backward" if recorder.requires_backward else "after_forward"
+    )
+    if record["phase"] != expected:
+        raise OperationalAbort(f"producer returned before required physical call phase: {record['phase']}")
+    record["phase"] = "consumed"
+
+
 def replay_stage(
     token: GlobalPreflightToken, capability: StageCapability, visitor: Any,
 ) -> StageReplayReceipt:
@@ -4067,6 +4617,7 @@ def replay_stage(
         if _stage_chunk_active(stage, chunk, history)
     }
     local_counts = defaultdict(int)
+    local_shape_counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     progress = capability_record["progress"]
 
     def checked_visit(chunk_id: str, call: Mapping[str, Any]) -> None:
@@ -4081,24 +4632,20 @@ def replay_stage(
         if call.get("call_id") != expected:
             raise CompileError(f"stage descriptor mismatch: {chunk_id}:{local}")
         local_counts[chunk_id] += 1
+        shape_id = physical_call_shape(dict(call))["call_shape_sha256"]
+        local_shape_counts[chunk_id][shape_id] += 1
         if chunk_id in active_ids:
             progress["active_chunk_id"] = chunk_id
             progress["active_chunk_call_offset"] = absolute
             progress["attempted_call_count"] += 1
-            # Conservatively charge the whole attempted call before entering an
-            # opaque future producer callback.  A callback failure may happen
-            # after the model/backward work, so incurred work must not vanish.
-            progress["forward_calls"] += int(call["forward_calls"])
-            progress["backward_calls"] += int(bool(call["logical_backward_after_this_call"]))
-            progress["backward_graph_batches"] += int(bool(call["participates_in_backward"]))
-            progress["optimizer_updates"] += int(bool(call["logical_backward_after_this_call"]))
-            progress["example_evaluations"] += int(call["item_count"])
-            progress["token_evaluations"] += int(call["item_count"]) * int(call["sequence_length"])
+            recorder = _issue_call_phase_recorder(capability, call, absolute, progress)
             try:
-                visitor(chunk_id, dict(call))
+                visitor(chunk_id, dict(call), recorder)
+                _require_call_completion(recorder)
             except Exception as error:
                 raise OperationalAbort(
-                    f"physical visitor failed at {chunk_id} global call {absolute}: {type(error).__name__}"
+                    f"physical visitor failed/incomplete at {chunk_id} global call {absolute}: "
+                    f"{type(error).__name__}"
                 ) from error
             progress["completed_call_count"] += 1
             progress["completed_call_root_sha256"] = hashlib.sha256(
@@ -4123,6 +4670,11 @@ def replay_stage(
     captured_context = _GLOBAL_CONTEXTS[root_token_id]
     captured_inputs = parse_captured_inputs(captured_context.input_bytes)
     observed_chunks = _compiler_visit_stage_call_descriptors(stage, checked_visit, captured_inputs)
+    for item in observed_chunks:
+        item["call_shape_multiplicities"] = [
+            {"call_shape_sha256": shape_id, "call_count": count}
+            for shape_id, count in sorted(local_shape_counts[str(item["chunk_id"])].items())
+        ]
     index_fields = {"call_index_count", "call_index_offset", "call_index_slice_sha256"}
     frozen_core = [{key: item for key, item in chunk.items() if key not in index_fields} for chunk in chunks]
     if observed_chunks != frozen_core:
@@ -4137,7 +4689,8 @@ def replay_stage(
             "chunk_id": chunk_id,
             "stage": stage,
             "activation_guard": str(chunk["activation"]),
-            "guard_evaluated": active,
+            "guard_evaluated": True,
+            "guard_result": active,
             "guard_state_sha256": guard_state_sha256,
             "status": "active_completed" if active else "inactive_skip_zero_calls",
             "call_index_offset": int(chunk["call_index_offset"]),
@@ -4145,6 +4698,9 @@ def replay_stage(
             "executed_call_count": int(chunk["call_index_count"]) if active else 0,
             "call_index_slice_sha256": str(chunk["call_index_slice_sha256"]),
             "call_root_sha256": str(chunk["call_root_sha256"]),
+            "call_shape_multiplicities_sha256": canonical_sha256(
+                chunk["call_shape_multiplicities"]
+            ),
             "forward_calls": int(chunk["forward_calls"]) if active else 0,
             "backward_calls": int(chunk["backward_calls"]) if active else 0,
             "backward_graph_batches": int(chunk["backward_graph_batches"]) if active else 0,

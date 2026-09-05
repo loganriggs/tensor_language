@@ -1,0 +1,72 @@
+{
+  "bars": {
+    "factorial_ce_identity_max_absolute_error": 1e-06,
+    "factorial_vector_identity_max_absolute_error": 1e-05,
+    "median_live_centered_effect_norm_each_factor_family_min": 0.05,
+    "median_residual_projection_each_factor_target_family_min": 0.75,
+    "median_write_projection_or_absolute_interaction_projection_each_factor_target_family_min": 0.25,
+    "native_positive_fraction_each_family_min": 0.75,
+    "native_replay_max_absolute_logit_error_max": 1e-05
+  },
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_residual_write_bank_factorial",
+  "ce_factorial": {
+    "identity": "total = residual_path + write_bank + loss_interaction",
+    "loss_interaction": "L_RR-L_RN-L_NR+L_NN",
+    "residual_path": "L_RN-L_NN",
+    "total": "L_RR-L_NN",
+    "write_bank": "L_NR-L_NN"
+  },
+  "closed_splits": [
+    "TEST",
+    "OOD"
+  ],
+  "conditions": [
+    "native_model",
+    "native_replay_capture_bank",
+    "remove_mu_capture_bank",
+    "remove_delta_capture_bank",
+    "remove_mu_install_native_bank",
+    "native_mu_install_removed_bank",
+    "remove_delta_install_native_bank",
+    "native_delta_install_removed_bank"
+  ],
+  "frozen_predictions": {
+    "pred_a": "native capability/replay, live removals, and both exact factorial identities hold",
+    "pred_b": "residual-route projection is at least 0.75 for both factors in both target constructions",
+    "pred_c": "write-bank projection or absolute interaction projection reaches 0.25 for a target factor/construction"
+  },
+  "interpretation_limit": "grouped path factorial only; no site, head, rank, PCA, reconstruction, or selectivity claim",
+  "opened_splits": [
+    "FRESH_BASIC"
+  ],
+  "outcome_reads": [],
+  "price": {
+    "backwards": 0,
+    "example_evaluations": 192,
+    "model_forwards": 8,
+    "parameter_updates": 0
+  },
+  "prior_art_sha256": "eab7b8ef3c54e7583204451cc3659a1c7470c60ac1e6502e508b7269510fae47",
+  "rows": 24,
+  "rows_sha256": "61f8db59d41863f2cc48b141f7c14f73a6774c63bbbca3b41ae0d873dbd18ba7",
+  "schema": "bracket_l13h8_mu_delta_residual_write_bank_factorial_plan_v1",
+  "triplet_groups": 8,
+  "vector_factorial": {
+    "identity": "residual_path + write_bank - interaction = total",
+    "interaction": "C_NN-C_RN-C_NR+C_RR",
+    "residual_path": "C_NN-C_RN",
+    "total": "C_NN-C_RR",
+    "write_bank": "C_NN-C_NR"
+  },
+  "write_bank": [
+    "mlp13",
+    "attention14",
+    "mlp14",
+    "attention15",
+    "mlp15",
+    "attention16",
+    "mlp16",
+    "attention17",
+    "mlp17"
+  ]
+}

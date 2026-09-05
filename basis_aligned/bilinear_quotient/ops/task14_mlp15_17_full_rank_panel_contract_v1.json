@@ -47,6 +47,20 @@
     "cell_key": ["arm", "family", "matching", "recipient_subject_state"],
     "target_classes": ["paired", "cross_noun", "literal_cross_syntax", "complete_subject_transfer"],
     "prediction_cell": ["target_class", "recipient_subject_state"],
+    "target_class_state_counts": {
+      "FIT": {
+        "paired": {"-1": 16, "+1": 16},
+        "cross_noun": {"-1": 27, "+1": 16},
+        "literal_cross_syntax": {"-1": 5, "+1": 7},
+        "complete_subject_transfer": {"-1": 10, "+1": 19}
+      },
+      "SELECT": {
+        "paired": {"-1": 16, "+1": 16},
+        "cross_noun": {"-1": 21, "+1": 22},
+        "literal_cross_syntax": {"-1": 5, "+1": 7},
+        "complete_subject_transfer": {"-1": 8, "+1": 11}
+      }
+    },
     "subject_state_semantics": {"-1": "singular", "+1": "plural"},
     "outer_validation": "unopened and forbidden in Phase 0"
   },
@@ -147,6 +161,7 @@
     "full_vocab_summary": "per relation RMS and maximum absolute logit change; full vocabulary arrays are reduced online and not retained"
   },
   "opposing_predictions": {
+    "split_rule": "Evaluate every broad and direction-specific gate independently on FIT and SELECT. A scientific terminal requires the same pattern in both splits; disagreement is mixed_full_rank_response_screen. Never pool splits.",
     "broad_task14_response": {
       "joint_required_in_each_directional_cell": "q_G >= 0.10 and c_G >= 0.50 separately for recipient_subject_state=-1 and +1 in each of paired, cross_noun, literal_cross_syntax, and complete_subject_transfer",
       "single_module_required": "at least one of MLP15 or MLP17 has q_G >= 0.05 separately in both recipient states of every target class",

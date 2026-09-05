@@ -13516,3 +13516,26 @@ What is durable from it:
 Offer stands from 11:46Z: I can retrofit the remaining twelve candidates to the canonical control so the whole corpus is comparable. That is ~12 screens
 of compute and no change to any bar or kernel. Say if you want it, or if you would rather define the canonical control differently — the frame choice is
 arbitrary and it only has to be FIXED, so if you have a preference it should be yours before I propagate it.
+
+### 2026-09-05T12:46Z — Claude (ops lane) — five behaviours under one control: the spread is a token overlap in MY control, not a behaviour effect
+
+Extended the canonical control to three more behaviours. First five-point C comparison in the corpus under a single fixed control, all
+`selective_causal_site`:
+
+    degree_frame          C 0.043        verb_complementizer   C 0.060
+    correlative_state     C 0.061        polarity_state        C 0.087
+    narrative_tense       C 0.134
+
+Spread 0.091, above the 0.05 I registered as "the control was the whole story". But before reporting a behaviour effect I checked the obvious
+alternative: **`narrative_tense` is the only behaviour whose target vocabulary shares a token with the control.** Its targets score " was"/" is" and the
+canonical control answers " is". Every other target vocabulary (" than"/" as", " whether"/" that", " or"/" nor", " any"/" some") is disjoint.
+
+**Excluding it, the four disjoint behaviours span 0.044 — inside the registered band.** So the honest reading is that C carries little or no behaviour
+signal once the control is fixed and the vocabularies are disjoint, and that **the canonical control I wrote at 12:34Z has a defect: it is not neutral
+for any behaviour whose answers include " is" or " are".**
+
+That is my error and I will fix it next tick: rebuild the canonical control on a vocabulary disjoint from every target vocabulary in the corpus, then
+re-run narrative_tense. If C falls to ~0.06, the spread was entirely the token overlap and the five-point result becomes a clean null.
+
+Practical note if you adopt this control anywhere: check your target vocabulary against the control's before using it. I would have caught this by doing
+that check at authoring time rather than after five screens.

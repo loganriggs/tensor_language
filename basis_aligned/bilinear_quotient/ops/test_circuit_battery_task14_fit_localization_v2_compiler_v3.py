@@ -56,6 +56,8 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         self.m._STAGE_REPLAYS.clear()
         self.m._STAGE_COMPLETIONS.clear()
         self.m._SCIENTIFIC_TERMINALS.clear()
+        self.m._CALL_PHASE_RECORDERS.clear()
+        self.m._OPERATIONAL_ABORTS.clear()
         self.m._TIMING_CAPABILITIES.clear()
         self.m._TIMING_AUTHORIZATIONS.clear()
         self.m._DEADLINE_CAPABILITIES.clear()
@@ -88,10 +90,11 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         record["attempted"] = True
         child_core = {
             "chunk_id": "test-chunk", "stage": capability.next_stage,
-            "activation_guard": "test_only", "guard_evaluated": True,
+            "activation_guard": "test_only", "guard_evaluated": True, "guard_result": True,
             "guard_state_sha256": "21" * 32, "status": "active_completed",
             "call_index_offset": 0, "template_call_count": 1, "executed_call_count": 1,
             "call_index_slice_sha256": "20" * 32, "call_root_sha256": "23" * 32,
+            "call_shape_multiplicities_sha256": "24" * 32,
             "forward_calls": 1, "backward_calls": 0, "backward_graph_batches": 0,
             "optimizer_updates": 0, "example_evaluations": 1, "token_evaluations": 1,
         }
@@ -199,9 +202,9 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
     def test_exact_frozen_v2_initializer_known_answers(self) -> None:
         cases = (
             ((14001, 1, "H:-1", "joint", 0, 0), 1),
-            ((14001, 1, "H:-1", "joint", 0, 1), -1),
-            ((14005, 4, "Q:17", "A2_only", 1151, 3), 1),
-            ((14003, 2, "Q:7", "A1_only", 511, 1), -1),
+            ((14001, 2, "H:-1", "joint", 0, 1), 1),
+            ((14005, 1, "Q:17", "A2_only", 1151, 0), 1),
+            ((14003, 1, "Q:7", "A1_only", 511, 0), -1),
         )
         for (seed, rank, site, objective, d, j), expected in cases:
             self.assertEqual(self.m.initialization_entry_sign(
@@ -210,6 +213,15 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         contract = self.m._initialization_contract()
         self.assertIn("task14-localization-v2-init", contract["entry_text"])
         self.assertIsNone(contract["counter_encoding"])
+        for bad in (
+            dict(seed=14001, rank=1, site="H:-1", objective_name="joint", d=-1, j=0),
+            dict(seed=14001, rank=1, site="H:-1", objective_name="joint", d=1152, j=0),
+            dict(seed=14001, rank=1, site="H:-1", objective_name="joint", d=0, j=-1),
+            dict(seed=14001, rank=1, site="H:-1", objective_name="joint", d=0, j=1),
+            dict(seed=14001, rank=2, site="H:-1", objective_name="A1_only", d=0, j=0),
+        ):
+            with self.assertRaises(self.m.CompileError):
+                self.m.initialization_entry_sign(**bad)
 
     def test_frozen_closure_and_identity(self) -> None:
         for _role, (relative, digest) in self.m.FROZEN.items():
@@ -252,6 +264,105 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
             "spectral_finite_diagnostic.evidence_sha256",
         })
 
+    def test_dag_has_independently_specified_evidence_and_transition_matrix(self) -> None:
+        dag = {item["node"]: item for item in self.m._dag()}
+        expected_required = {
+            "native_cache": {"preflight.token"},
+            "discovery_gradients": {"native_cache.complete", "native_cache.evidence_sha256"},
+            "discovery_full_ceilings": {
+                "native_cache.evidence_sha256", "discovery_gradients.complete",
+                "discovery_gradients.gradient_denominators_above_threshold",
+                "discovery_gradients.evidence_sha256",
+            },
+            "joint_rank1_fits": {
+                "native_cache.evidence_sha256", "discovery_full_ceilings.evidence_sha256",
+                "discovery_full_ceilings.natural_margin_denominators_above_threshold",
+                "discovery_full_ceilings.retained_h", "discovery_full_ceilings.retained_q",
+            },
+            "spectral_finite_diagnostic": {
+                "discovery_full_ceilings.retained_h", "discovery_full_ceilings.retained_q",
+                "joint_rank1_fits.finite_optimizer_seed_health_ok",
+                "joint_rank1_fits.evidence_sha256",
+            },
+            "discovery_selection": {
+                "discovery_full_ceilings.retained_h", "discovery_full_ceilings.retained_q",
+                "discovery_full_ceilings.evidence_sha256", "joint_rank1_fits.evidence_sha256",
+                "joint_rank1_fits.finite_optimizer_seed_health_ok",
+                "spectral_finite_diagnostic.diagnostic_complete",
+                "spectral_finite_diagnostic.evidence_sha256",
+            },
+            "selected_family_and_rank_fits": {
+                "native_cache.evidence_sha256", "joint_rank1_fits.evidence_sha256",
+                "discovery_selection.selected_h", "discovery_selection.selected_q",
+                "discovery_selection.selection_evidence_sha256",
+            },
+            "validation_full_ceilings": {
+                "native_cache.evidence_sha256", "discovery_selection.selected_h",
+                "discovery_selection.selected_q", "discovery_selection.selection_evidence_sha256",
+                "selected_family_and_rank_fits.finite_optimizer_seed_health_ok",
+            },
+            "locked_validation": {
+                "discovery_selection.selected_h", "discovery_selection.selected_q",
+                "selected_family_and_rank_fits.evidence_sha256",
+                "validation_full_ceilings.evidence_sha256",
+                "selected_family_and_rank_fits.finite_optimizer_seed_health_ok",
+            },
+            "single_necessity": {
+                "discovery_selection.selected_h", "discovery_selection.selected_q",
+                "discovery_selection.top_two_q", "discovery_selection.reader_selection_eligible",
+                "selected_family_and_rank_fits.evidence_sha256",
+                "locked_validation.semantic_gates_pass", "locked_validation.evidence_sha256",
+            },
+            "two_site_redundancy": {
+                "discovery_selection.selected_h", "discovery_selection.selected_q",
+                "discovery_selection.top_two_q", "discovery_selection.reader_selection_eligible",
+                "single_necessity.single_necessity_pass", "single_necessity.evidence_sha256",
+                "selected_family_and_rank_fits.evidence_sha256",
+                "locked_validation.evidence_sha256",
+            },
+            "ordered_reader": {
+                "discovery_selection.selected_h", "discovery_selection.selected_q",
+                "discovery_selection.reader_selection_eligible",
+                "single_necessity.single_necessity_pass", "single_necessity.evidence_sha256",
+                "selected_family_and_rank_fits.evidence_sha256",
+                "locked_validation.evidence_sha256",
+            },
+        }
+        for stage, fields in expected_required.items():
+            self.assertEqual(set(dag[stage]["required_reads"]), fields)
+        self.assertEqual(set(dag["ordered_reader"]["optional_reads"]), {
+            "two_site_redundancy.redundancy_pass", "two_site_redundancy.evidence_sha256",
+        })
+        expected_transition = {
+            "discovery_gradients": {"discovery_gradients.gradient_denominators_above_threshold"},
+            "discovery_full_ceilings": {
+                "discovery_full_ceilings.natural_margin_denominators_above_threshold",
+                "discovery_full_ceilings.retained_h", "discovery_full_ceilings.retained_q",
+            },
+            "joint_rank1_fits": {"joint_rank1_fits.finite_optimizer_seed_health_ok"},
+            "selected_family_and_rank_fits": {
+                "selected_family_and_rank_fits.finite_optimizer_seed_health_ok",
+            },
+            "locked_validation": {
+                "locked_validation.higher_rank_rescue", "locked_validation.semantic_gates_pass",
+            },
+            "single_necessity": {
+                "single_necessity.single_necessity_pass", "discovery_selection.selected_h",
+                "discovery_selection.selected_q", "discovery_selection.top_two_q",
+                "discovery_selection.reader_selection_eligible",
+            },
+            "two_site_redundancy": {
+                "two_site_redundancy.redundancy_pass", "discovery_selection.selected_h",
+                "discovery_selection.selected_q", "discovery_selection.reader_selection_eligible",
+            },
+        }
+        for stage, fields in expected_transition.items():
+            self.assertEqual(set(dag[stage]["transition_reads"]), fields)
+        self.assertEqual(
+            {stage for stage, item in dag.items() if item["physical_call_stage"] is not None},
+            set(self.m.CALL_STAGES),
+        )
+
     def test_longest_path_uses_one_compatible_branch(self) -> None:
         weights = {item["node"]: 1.0 for item in self.m._dag()}
         result = self.m.longest_compatible_stage_path(weights)
@@ -270,12 +381,294 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
             endpoints=self.endpoints, records_by_id=self.records_by_id, retained=True,
         )
         shape = self.m.physical_call_shape(call)
-        for field in ("cache_reads", "cache_writes", "array_contracts", "state_array_contracts",
+        for field in ("cache_read_classes", "cache_write_classes", "array_contracts", "state_array_contracts",
                       "item_use_role_histogram", "logical_slot_histogram"):
             self.assertIn(field, shape)
         changed = copy.deepcopy(call)
         changed["cache_reads"] = ["different"]
-        self.assertNotEqual(shape["call_shape_sha256"], self.m.physical_call_shape(changed)["call_shape_sha256"])
+        with self.assertRaises(self.m.CompileError):
+            self.m.physical_call_shape(changed)
+
+    def test_cache_dependency_and_fit_state_lifecycle_are_exact(self) -> None:
+        non_c = self.m._cache_contract(
+            call_kind="native_cache_full_forward", branch="native:base:A1",
+            position=None, fit=None, batch_ordinal=0,
+            logical_backward=False, optimizer_update=False,
+        )
+        self.assertNotIn("c_second_head_residuals", non_c["writes"])
+        c_native = self.m._cache_contract(
+            call_kind="native_cache_full_forward", branch="native:base:C",
+            position=None, fit=None, batch_ordinal=0,
+            logical_backward=False, optimizer_update=False,
+        )
+        self.assertIn("c_second_head_residuals", c_native["writes"])
+        self.assertEqual(
+            c_native["output_bindings"]["native_answer_foil_logits"],
+            ["array:answer_logit", "array:foil_logit"],
+        )
+        gradient = self.m._cache_contract(
+            call_kind="discovery_gradient_full_forward", branch="gradient:base:A1",
+            position=None, fit=None, batch_ordinal=0,
+            logical_backward=True, optimizer_update=False,
+        )
+        self.assertEqual(gradient["writes"], ["discovery_position_gradients"])
+        spectral = self.m._cache_contract(
+            call_kind="spectral_projector_intervention_forward", branch="spectral:Q:0",
+            position="Q", fit={"objective": "spectral_diagnostic", "rank": 1,
+                                "seed": None, "site": "Q:0"}, batch_ordinal=0,
+            logical_backward=False, optimizer_update=False,
+        )
+        self.assertIn("discovery_position_gradients", spectral["reads"])
+        self.assertNotIn("spectral_projector_registry", spectral["reads"])
+        self.assertIn("spectral_projector_registry", spectral["creates_before_forward"])
+        fit = {"objective": "joint", "rank": 1, "seed": 14001, "site": "Q:0"}
+        first = self.m._cache_contract(
+            call_kind="projector_intervention_train_forward", branch="fit", position="Q",
+            fit={**fit, "step": 0}, batch_ordinal=0,
+            logical_backward=False, optimizer_update=False,
+        )
+        self.assertIn("c_second_head_residuals", first["reads"])
+        self.assertIn("live_fit_state", first["writes"])
+        self.assertIn("initialize_U_Adam", first["lifecycle"])
+        middle = self.m._cache_contract(
+            call_kind="projector_intervention_train_forward", branch="fit", position="Q",
+            fit={**fit, "step": 200}, batch_ordinal=0,
+            logical_backward=False, optimizer_update=False,
+        )
+        self.assertEqual(middle["writes"], [])
+        final = self.m._cache_contract(
+            call_kind="projector_intervention_train_forward", branch="fit", position="Q",
+            fit={**fit, "step": 399}, batch_ordinal=1,
+            logical_backward=True, optimizer_update=True,
+        )
+        self.assertEqual(
+            final["writes"],
+            ["live_fit_state", "fitted_projector_registry", "fit_trace_registry"],
+        )
+        self.assertEqual(
+            final["bindings"]["fit_trace_registry"],
+            final["bindings"]["fitted_projector_registry"],
+        )
+
+    def test_actual_generators_cover_every_call_kind_and_cache_shape_contract(self) -> None:
+        calls = []
+
+        def collect(chunk_id, call):
+            calls.append((chunk_id, call))
+
+        old = self.m._CALL_VISITOR
+        self.m._CALL_VISITOR = collect
+        try:
+            self.m._native_chunks(
+                self.authority, self.partition, self.endpoints, self.records_by_id,
+            )
+            self.m._ceiling_chunk(
+                partition_name="DISCOVERY", position="Q", boundary=0,
+                records=self.records, endpoints=self.endpoints,
+                records_by_id=self.records_by_id, activation="test",
+            )
+            self.m._fit_chunk(
+                position="Q", boundary=0, objective="joint", rank=1,
+                seed=self.m.SEEDS[0], records=self.records, endpoints=self.endpoints,
+                records_by_id=self.records_by_id, activation="test",
+            )
+            self.m._spectral_chunk(
+                position="Q", boundary=0, records=self.records, endpoints=self.endpoints,
+                records_by_id=self.records_by_id,
+            )
+            self.m._projected_eval_chunk(
+                partition_name="VALIDATION", position="Q", boundary=0,
+                objective="joint", rank=1, seed=self.m.SEEDS[0], records=self.records,
+                endpoints=self.endpoints, records_by_id=self.records_by_id,
+                activation="test",
+            )
+            self.m._necessity_chunk_exact(
+                authority=self.authority, partition=self.partition, boundary=0,
+                seed=self.m.SEEDS[0], endpoints=self.endpoints,
+                records_by_id=self.records_by_id,
+            )
+            self.m._redundancy_chunk(
+                authority=self.authority, partition=self.partition, first=0, second=1,
+                seed=self.m.SEEDS[0], endpoints=self.endpoints,
+                records_by_id=self.records_by_id,
+            )
+            self.m._reader_chunk(
+                h_boundary=-1, q_boundary=0, seed=self.m.SEEDS[0], records=self.records,
+                endpoints=self.endpoints, records_by_id=self.records_by_id,
+            )
+        finally:
+            self.m._CALL_VISITOR = old
+        expected = {
+            "native_cache_full_forward", "discovery_gradient_full_forward",
+            "full_state_intervention_forward", "projector_intervention_train_forward",
+            "final_discovery_projector_eval", "spectral_projector_intervention_forward",
+            "locked_projector_intervention_forward", "necessity_neutralization_forward",
+            "two_site_necessity_forward", "ordered_H_Q_reader_forward",
+        }
+        self.assertEqual({call["call_kind"] for _, call in calls}, expected)
+        for _, call in calls:
+            shape = self.m.physical_call_shape(call)
+            self.assertEqual(shape["call_shape_sha256"], self.m.canonical_sha256({
+                key: value for key, value in shape.items() if key != "call_shape_sha256"
+            }))
+        native = [call for _, call in calls if call["call_kind"] == "native_cache_full_forward"]
+        mapped = [
+            index for call in native for index in call["native_output_mapping"]["global_row_indices"]
+        ]
+        self.assertEqual(sorted(mapped), list(range(256)))
+        self.assertEqual(len(mapped), len(set(mapped)))
+        expected_endpoint_order = [
+            f"{row['row_id']}:{side}"
+            for row in self.authority["rows"]
+            for side in ("base", "donor")
+        ]
+        reconstructed = [None] * 256
+        for call in native:
+            mapping = call["native_output_mapping"]
+            self.assertEqual(
+                mapping["endpoint_order_sha256"],
+                self.m.canonical_sha256(expected_endpoint_order),
+            )
+            self.assertEqual(mapping["endpoint_order"], "FIT_authority_row_order_base_then_donor")
+            for index, endpoint_id in zip(mapping["global_row_indices"], call["item_ids"]):
+                reconstructed[index] = endpoint_id
+        self.assertEqual(reconstructed, expected_endpoint_order)
+        train = [call for _, call in calls if call["call_kind"] == "projector_intervention_train_forward"]
+        first = train[0]
+        middle = next(call for call in train if call["fit"]["step"] == 200 and call["batch_ordinal"] == 0)
+        final = train[-1]
+        self.assertEqual(first["fit"]["step"], 0)
+        self.assertEqual(first["batch_ordinal"], 0)
+        self.assertEqual(first["cache_creates_before_forward"], ["live_fit_state"])
+        self.assertNotIn("live_fit_state", first["cache_reads"])
+        self.assertIn("live_fit_state", middle["cache_reads"])
+        self.assertFalse(middle["optimizer_update_after_this_call"])
+        self.assertEqual(final["fit"]["step"], 399)
+        self.assertTrue(final["optimizer_update_after_this_call"])
+        self.assertIn("fitted_projector_registry", final["cache_writes"])
+        self.assertEqual(
+            final["cache_source_bindings"]["fitted_projector_registry"],
+            "post_step399_updated_live_fit_state.U",
+        )
+        spectral = [
+            call for _, call in calls if call["call_kind"] == "spectral_projector_intervention_forward"
+        ]
+        self.assertIn("spectral_projector_registry", spectral[0]["cache_creates_before_forward"])
+        self.assertNotIn("spectral_projector_registry", spectral[0]["cache_reads"])
+        for call in spectral[1:]:
+            self.assertIn("spectral_projector_registry", call["cache_reads"])
+
+    def test_composite_projector_reads_use_only_individual_written_fit_keys(self) -> None:
+        seed = self.m.SEEDS[0]
+        written = {
+            self.m._fit_registry_key(
+                site=self.m._site(position, boundary), objective=objective,
+                rank=rank, seed=fit_seed,
+            )
+            for position, boundary, objective, rank, fit_seed, _ in self.m._fit_templates()
+        }
+        redundancy_fit = {
+            "first_site": "Q:0", "second_site": "Q:1", "objective": "joint",
+            "rank": 1, "seed": seed,
+        }
+        expected_counts = {
+            "neutral_first_Q": 1, "neutral_second_Q": 1, "neutral_both_Q": 2,
+        }
+        for variant, count in expected_counts.items():
+            kind = "two_site_necessity_forward" if variant == "neutral_both_Q" \
+                else "necessity_neutralization_forward"
+            keys = self.m._required_projector_registry_keys(
+                call_kind=kind, fit=redundancy_fit, variant=variant,
+            )
+            self.assertEqual(len(keys), count)
+            self.assertTrue(set(keys) <= written)
+            cache = self.m._cache_contract(
+                call_kind=kind, branch="redundancy", position="Q", fit=redundancy_fit,
+                batch_ordinal=0, logical_backward=False, optimizer_update=False,
+                variant=variant,
+            )
+            tensors = cache["binding_tensor_contracts"]["fitted_projector_registry"]
+            self.assertEqual([item["projector_rank"] for item in tensors], [1] * count)
+        reader_fit = {
+            "H_site": "H:-1", "Q_site": "Q:0", "objective": "joint",
+            "rank": 1, "seed": seed,
+        }
+        reader_counts = {
+            "upstream_H_patch": 1,
+            "upstream_H_patch_then_native_Q_reset": 2,
+            "upstream_H_neutral": 1,
+            "upstream_H_neutral_then_donor_Q_insert": 2,
+            "downstream_Q_patch": 1,
+        }
+        for variant, count in reader_counts.items():
+            keys = self.m._required_projector_registry_keys(
+                call_kind="ordered_H_Q_reader_forward", fit=reader_fit, variant=variant,
+            )
+            self.assertEqual(len(keys), count)
+            self.assertTrue(set(keys) <= written)
+            cache = self.m._cache_contract(
+                call_kind="ordered_H_Q_reader_forward", branch="reader", position="H",
+                fit=reader_fit, batch_ordinal=0, logical_backward=False,
+                optimizer_update=False, variant=variant,
+            )
+            tensors = cache["binding_tensor_contracts"]["fitted_projector_registry"]
+            self.assertEqual([item["projector_rank"] for item in tensors], [1] * count)
+        with self.assertRaises(self.m.CompileError):
+            self.m._fit_registry_key(site="Q:0", objective="A1_only", rank=2, seed=seed)
+
+    def test_timing_shape_distinguishes_one_and_two_projector_reads(self) -> None:
+        seed = self.m.SEEDS[0]
+        endpoint = next(iter(self.endpoints))
+        fit = {
+            "first_site": "Q:0", "second_site": "Q:1", "objective": "joint",
+            "rank": 1, "seed": seed,
+        }
+        common = dict(
+            stage="two_site_redundancy", branch="redundancy", item_kind="endpoint",
+            item_ids=[endpoint], position="Q", boundary=0, endpoints=self.endpoints,
+            records_by_id=self.records_by_id, retained=True, fit=fit,
+        )
+        one = self.m._call(
+            call_kind="necessity_neutralization_forward", variant="neutral_first_Q", **common,
+        )
+        two = self.m._call(
+            call_kind="two_site_necessity_forward", variant="neutral_both_Q", **common,
+        )
+        one_shape, two_shape = map(self.m.physical_call_shape, (one, two))
+        self.assertEqual(
+            one_shape["cache_binding_tensor_ranks"]["projector_parameter_cache"], [1],
+        )
+        self.assertEqual(
+            two_shape["cache_binding_tensor_ranks"]["projector_parameter_cache"], [1, 1],
+        )
+        self.assertNotEqual(one_shape["call_shape_sha256"], two_shape["call_shape_sha256"])
+
+    def test_timing_shape_equivalence_ignores_identity_but_separates_work(self) -> None:
+        by_length = {}
+        for endpoint_id, endpoint in self.endpoints.items():
+            by_length.setdefault(endpoint["sequence_length"], []).append(endpoint_id)
+        first, second = next(values[:2] for values in by_length.values() if len(values) >= 2)
+        common = dict(
+            stage="native_cache", call_kind="native_cache_full_forward", branch="native:test",
+            item_kind="endpoint", position=None, boundary=None, endpoints=self.endpoints,
+            records_by_id=self.records_by_id, retained=True,
+        )
+        left = self.m._call(item_ids=[first], **common)
+        right = self.m._call(item_ids=[second], **common)
+        self.assertNotEqual(left["call_id"], right["call_id"])
+        self.assertEqual(
+            self.m.physical_call_shape(left)["call_shape_sha256"],
+            self.m.physical_call_shape(right)["call_shape_sha256"],
+        )
+        larger = self.m._call(item_ids=[first, second], **common)
+        self.assertNotEqual(
+            self.m.physical_call_shape(left)["call_shape_sha256"],
+            self.m.physical_call_shape(larger)["call_shape_sha256"],
+        )
+        malformed = copy.deepcopy(left)
+        malformed["native_output_mapping"]["global_row_indices"] = [999]
+        with self.assertRaises(self.m.CompileError):
+            self.m.physical_call_shape(malformed)
 
     def test_stage_capabilities_are_linear_and_first_start_works(self) -> None:
         token = self._fake_token()
@@ -344,12 +737,9 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         cap = self.m.start_stagewise_execution(self._fake_token())
         cap = self._advance(cap, self.m.NativeState(True, EVIDENCE))
         cap = self._advance(cap, self.m.GradientState(True, True, True, 0, EVIDENCE))
-        ordinary = self._ceiling()
         invalid = self.m.CeilingState(
-            True, True, False, 1, ordinary.eligible_h_count,
-            ordinary.eligible_h_ranked_scores, ordinary.retained_h,
-            ordinary.eligible_q_count, ordinary.retained_q,
-            ordinary.top_three_h_evidence_sha256, EVIDENCE,
+            True, True, False, 1, 0, (), (), 0, (),
+            self._top3_sha((), ()), EVIDENCE,
         )
         cap = self._advance(cap, invalid)
         terminal = self.m.project_stagewise_terminal(cap)
@@ -373,6 +763,8 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         pre = self.m.abort_preflight("source mismatch")
         self.assertEqual(dict(pre.node_statuses)["preflight"], "failed")
         self.assertFalse(pre.package_allowed)
+        self.assertIsNone(pre.root_token_id)
+        self.m.validate_operational_abort(pre)
         cap = self.m.start_stagewise_execution(self._fake_token())
         for payload in (
             self.m.NativeState(True, EVIDENCE),
@@ -386,11 +778,38 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
             self.assertFalse(probe.package_allowed)
             self.assertIsNone(probe.scientific_terminal)
             self.assertEqual(dict(probe.node_statuses)[probe.failed_stage], "failed")
+            self.assertIsNotNone(probe.root_token_id)
+            self.assertIsNotNone(probe.capability_id)
+            self.m.validate_operational_abort(probe)
             # Rebuild the same prefix in a fresh process-local session for the next stage.
             cap = self._rebuild_prefix_and_advance(payload, cap.next_stage)
         terminal_abort = self.m.abort_stage(cap, "terminal projection fault")
         self.assertEqual(terminal_abort.failed_stage, "terminal_projection")
         self.assertFalse(terminal_abort.package_allowed)
+        changed = self.m.OperationalAbortState(
+            completed_stages=terminal_abort.completed_stages,
+            failed_stage=terminal_abort.failed_stage, reason="changed",
+            node_statuses=terminal_abort.node_statuses,
+            active_chunk_id=terminal_abort.active_chunk_id,
+            active_chunk_call_offset=terminal_abort.active_chunk_call_offset,
+            attempted_call_count=terminal_abort.attempted_call_count,
+            completed_call_count=terminal_abort.completed_call_count,
+            completed_call_root_sha256=terminal_abort.completed_call_root_sha256,
+            completed_slice_count=terminal_abort.completed_slice_count,
+            completed_slice_root_sha256=terminal_abort.completed_slice_root_sha256,
+            forward_calls=terminal_abort.forward_calls,
+            backward_calls=terminal_abort.backward_calls,
+            backward_graph_batches=terminal_abort.backward_graph_batches,
+            optimizer_updates=terminal_abort.optimizer_updates,
+            example_evaluations=terminal_abort.example_evaluations,
+            token_evaluations=terminal_abort.token_evaluations,
+            root_token_id=terminal_abort.root_token_id,
+            capability_id=terminal_abort.capability_id,
+            capability_chain_root_sha256=terminal_abort.capability_chain_root_sha256,
+            abort_id=terminal_abort.abort_id, _seal=terminal_abort._seal,
+        )
+        with self.assertRaises(self.m.CompileError):
+            self.m.validate_operational_abort(changed)
 
     def _rebuild_prefix_and_advance(self, final_payload, final_stage):
         sequence = [
@@ -576,10 +995,20 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         offset = 0
         for chunk in chunks:
             ids = [call["call_id"] for owner, call in calls if owner == chunk["chunk_id"]]
+            shape_counts = {}
+            for owner, call in calls:
+                if owner != chunk["chunk_id"]:
+                    continue
+                shape_id = self.m.physical_call_shape(call)["call_shape_sha256"]
+                shape_counts[shape_id] = shape_counts.get(shape_id, 0) + 1
             encoded = b"".join(bytes.fromhex(item) for item in ids)
             chunk["call_index_offset"] = offset
             chunk["call_index_count"] = len(ids)
             chunk["call_index_slice_sha256"] = hashlib.sha256(encoded).hexdigest()
+            chunk["call_shape_multiplicities"] = [
+                {"call_shape_sha256": shape_id, "call_count": count}
+                for shape_id, count in sorted(shape_counts.items())
+            ]
             offset += len(ids)
         source = SOURCE.read_bytes()
         manifest = {
@@ -602,8 +1031,15 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         )
         cap = self.m.start_stagewise_execution(token)
         visited = []
+        def complete_call(chunk, call, recorder):
+            visited.append((chunk, call))
+            self.m.mark_forward_complete(recorder)
+            if recorder.requires_backward:
+                self.m.mark_backward_complete(recorder)
+            if recorder.requires_optimizer_update:
+                self.m.mark_optimizer_update_complete(recorder)
         with mock.patch.object(self.m, "safe_read", side_effect=AssertionError("reopened filesystem")):
-            receipt = self.m.replay_stage(token, cap, lambda chunk, call: visited.append((chunk, call)))
+            receipt = self.m.replay_stage(token, cap, complete_call)
         self.assertEqual(receipt.executed_call_count, 8)
         self.assertEqual(len(visited), 8)
         self.assertEqual(receipt.chunk_receipts[0].template_call_count, 8)
@@ -625,21 +1061,69 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         failed_cap = self.m.start_stagewise_execution(failed_token)
         calls_seen = 0
 
-        def fail_second(_chunk, _call):
+        def fail_second(_chunk, _call, recorder):
             nonlocal calls_seen
             calls_seen += 1
             if calls_seen == 2:
                 raise RuntimeError("planted callback failure")
+            self.m.mark_forward_complete(recorder)
 
         with self.assertRaises(self.m.OperationalAbort):
             self.m.replay_stage(failed_token, failed_cap, fail_second)
         aborted = self.m.abort_stage(failed_cap, "callback failure")
         self.assertEqual(aborted.attempted_call_count, 2)
         self.assertEqual(aborted.completed_call_count, 1)
-        self.assertEqual(aborted.forward_calls, 2)
+        self.assertEqual(aborted.forward_calls, 1)
         self.assertEqual(aborted.completed_slice_count, 0)
         self.assertEqual(aborted.active_chunk_call_offset, 1)
         self.assertFalse(aborted.package_allowed)
+
+    def test_call_phase_recorder_charges_only_exact_completed_phases(self) -> None:
+        call = {
+            "call_id": "42" * 32, "logical_backward_after_this_call": True,
+            "optimizer_update_after_this_call": True,
+            "participates_in_backward": True, "forward_calls": 1,
+            "item_count": 3, "sequence_length": 7,
+        }
+
+        def progress_after(phases):
+            self.m._CALL_PHASE_RECORDERS.clear()
+            cap = self.m.start_stagewise_execution(self._fake_token())
+            progress = self.m._STAGE_CAPABILITIES[cap.capability_id]["progress"]
+            recorder = self.m._issue_call_phase_recorder(cap, call, 9, progress)
+            for phase in phases:
+                phase(recorder)
+            return cap, recorder, progress
+
+        _cap, _recorder, before = progress_after(())
+        self.assertEqual((before["forward_calls"], before["backward_calls"], before["optimizer_updates"]), (0, 0, 0))
+        forward_cap, recorder, after_forward = progress_after((self.m.mark_forward_complete,))
+        self.assertEqual(
+            (after_forward["forward_calls"], after_forward["backward_graph_batches"],
+             after_forward["example_evaluations"], after_forward["token_evaluations"]),
+            (1, 1, 3, 21),
+        )
+        forward_abort = self.m.abort_stage(forward_cap, "failure after completed forward")
+        self.assertEqual(
+            (forward_abort.forward_calls, forward_abort.backward_graph_batches,
+             forward_abort.example_evaluations, forward_abort.token_evaluations,
+             forward_abort.backward_calls, forward_abort.optimizer_updates),
+            (1, 1, 3, 21, 0, 0),
+        )
+        with self.assertRaises(self.m.OperationalAbort):
+            self.m.mark_forward_complete(recorder)
+        _cap, _recorder, after_backward = progress_after((
+            self.m.mark_forward_complete, self.m.mark_backward_complete,
+        ))
+        self.assertEqual((after_backward["backward_calls"], after_backward["optimizer_updates"]), (1, 0))
+        _cap, recorder, after_update = progress_after((
+            self.m.mark_forward_complete, self.m.mark_backward_complete,
+            self.m.mark_optimizer_update_complete,
+        ))
+        self.m._require_call_completion(recorder)
+        self.assertEqual((after_update["backward_calls"], after_update["optimizer_updates"]), (1, 1))
+        with self.assertRaises(self.m.OperationalAbort):
+            self.m.mark_optimizer_update_complete(recorder)
 
     def test_preflight_hashes_captured_source_bytes_itself(self) -> None:
         source = SOURCE.read_bytes()
@@ -716,10 +1200,15 @@ class Task14LocalizationV3CompilerTests(unittest.TestCase):
         with self.assertRaises(self.m.OperationalAbort):
             self.m.start_deadline(lambda: 0.0, (timing,), authorization=forged)
         seal = object()
-        authorization_id = "66" * 32
+        authorization_core = {
+            "schema": "test_only_future_timing_authorization",
+            "timing_token_ids": [timing.token_id],
+        }
+        authorization_id = self.m.canonical_sha256(authorization_core)
         authorization = self.m.TimingAuthorization((timing.token_id,), authorization_id, seal)
         self.m._TIMING_AUTHORIZATIONS[authorization_id] = {
-            "seal": seal, "timing_token_ids": (timing.token_id,), "test_only": True,
+            "seal": seal, "timing_token_ids": (timing.token_id,),
+            "core": authorization_core, "test_only": True,
         }
         ticks = iter([0.0, 1.0, 2.0, 1.5])
         deadline = self.m.start_deadline(lambda: next(ticks), (timing,), authorization=authorization)

@@ -1,0 +1,50 @@
+{
+  "aliases_searched": [
+    "c_absolute_recovery",
+    "canonical control",
+    "comparability",
+    "confound",
+    "control frame",
+    "same-answer control"
+  ],
+  "candidate_id": "narrative_tense.canonical_control",
+  "canonical_objects": [
+    "a fixed same-answer control shared across behaviours",
+    "narrative_tense transfer scored against the canonical control",
+    "C compared across five behaviours under one control"
+  ],
+  "decision_changed": "A tight band confirms that C measures the control and carries almost no behaviour signal, which would mean the selectivity clause tells us even less than the 11:46Z finding suggested. A behaviour outside the band is the first evidence of a genuine per-behaviour control effect and would be worth localizing.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/correlative_state_canonical_control_v1_result.json and polarity_state_canonical_control_v1_result.json give C 0.061 and 0.087 under the canonical control, a gap of 0.026 against the 0.05 registered as a real type difference.",
+    "AGENT_BOARD.md 2026-09-05T12:34Z retires the dependency-type ordering and records that C is only comparable within a fixed control frame.",
+    "Under their own controls these behaviours read C 0.142 (narrative_tense), 0.079 (degree_frame) and 0.070 (verb_complementizer), values not comparable to each other or to the pair above."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "control-family substitution"
+  ],
+  "novelty_delta": "Varies ONE thing against the narrative_tense authority: the control becomes the canonical same-answer control, byte-identical to the one already used by correlative_state.canonical_control and polarity_state.canonical_control. A1, A2 and P are unchanged. Its previous C of 0.142 was measured under its own control and is not comparable to any other screen. Adding this brings the comparable set to five behaviours. PREDICTION REGISTERED BEFORE THE RUN, for the five together: if the control was the whole story, all five C values fall within a spread of 0.05; a behaviour landing outside that band is a real behaviour effect that survives holding the control fixed.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "0fa02c1dac433f1675d84ddf07aa4e29ca87877f444f3fe18ef191e3a365b398",
+      "source": "circuits/fast_screens/correlative_state_canonical_control_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "bb018cc9dbd08beb12ac1996b2165302ed97641ac49ee04b336073302f124610",
+      "source": "circuits/fast_screens/polarity_state_canonical_control_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, against the two canonical-control screens already run",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

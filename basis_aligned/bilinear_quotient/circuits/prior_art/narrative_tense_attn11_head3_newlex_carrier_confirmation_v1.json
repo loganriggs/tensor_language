@@ -1,0 +1,60 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "narrative_tense.attn11_head3_newlex_carrier_confirmation_v1",
+  "created_utc": "2026-09-05",
+  "question": "On a genuinely new lexical authority with licensed A1 wording and a new A2 construction, does exact L11H3 computation through token-identical sources reproduce the narrative-tense effect, specifically through effective values?",
+  "licenses": [
+    {"path": "circuits/fast_screens/narrative_tense_a1_direct_template_capability_select_holdout_v1_result.json", "sha256": "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359ee", "fact": "served_one_purpose won the frozen template selection and passed its construction holdout"},
+    {"path": "circuits/fast_screens/narrative_tense_attn11_head3_fresh_unchanged_carrier_value_v1_result.json", "sha256": "c066ed776544e6a540a5f8e7e55c205b93f1d260c07a84932cc4b35a83a2a564", "fact": "invalid on native A1 capability; strong carrier measurements remain descriptive only"}
+  ],
+  "novelty": "No prior narrative authority uses this 32-word subject pool, the new three-cue A2 relative construction, or this exact panel. After excluding both earlier narrative vocabularies, the first 16 eligible singular nouns are subjects, the next 16 are alternatives, and the last eight form fixed-rotated tail/location roles disjoint from both subject roles.",
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_narrative_tense_newlex_carrier_confirmation.py",
+    "sha256": "fba93e9f228ea5e59c97090ad45805b36b788b2d9a82c95a3d4cd9d192503c3d",
+    "authority_digest": "e8dc35550aa73a1380e5965c86d0fec420ea61b278dec71ad70a6ab55fd0ef06",
+    "groups": 16,
+    "rows": 64,
+    "subject_pool": ["door", "car", "star", "lamp", "train", "ship", "dog", "cat", "bird", "tree", "cabinet", "clock", "phone", "stone", "plant", "truck"],
+    "alternate_pool": ["boat", "gate", "ring", "plate", "branch", "glass", "horse", "shoe", "coat", "room", "hill", "lake", "paper", "file", "note", "song"],
+    "tail_location_pool": ["game", "player", "child", "person", "mouse", "woman", "man", "flower"],
+    "A1": "Yesterday/Today the SUBJECT served/serves one purpose. The central purpose of the TAIL -> was/is",
+    "A2": "The SUBJECT that served/serves one purpose yesterday/today attracted/attracts attention. The central purpose of the TAIL -> was/is",
+    "P": "Licensed served/serves frame with a distinct practical-purpose suffix; tense is held and four tense-by-lexical-direction cells are balanced",
+    "C": "Yesterday/Today the SUBJECT worked/works near the LOCATION. The central purpose of the fixed TAIL; tense is held within each pair and the four tense-by-lexical-direction cells are balanced",
+    "roles": "For every row, X is the exact changed-token set; self is final input; R is every token-identical non-self source. Pre/between/post causal-time groups are generated from X, never hard-coded."
+  },
+  "prefrozen_A1_to_A2_mappings": {
+    "remained": "The SUBJECT that remained/remains indoors yesterday/today attracted/attracts attention. The central purpose of the TAIL",
+    "served_one_purpose": "The SUBJECT that served/serves one purpose yesterday/today attracted/attracts attention. The central purpose of the TAIL",
+    "had_one_purpose": "The SUBJECT that had/has one purpose yesterday/today attracted/attracts attention. The central purpose of the TAIL"
+  },
+  "arms": ["expanded_native", "native_reinstall", "complete_head", "R_score", "R_effective_value", "R_joint", "complement_joint", "pre_first_change_effective_value", "between_changes_effective_value", "post_last_change_effective_value"],
+  "frozen_bars": {
+    "native_accuracy_each_A1_A2_direction_side_cell": "7/8 = 0.875",
+    "native_accuracy_each_P_C_tense_direction_side_cell": "4/4 = 1.0",
+    "source_sum_same_batch_reinstall_and_pre_first_exactness": 0.00005,
+    "complete_head_donorward_fraction_each_target_cell": 0.75,
+    "R_joint_fraction_of_complete_margin_and_full_vocab_CE": 0.5,
+    "R_joint_donorward_fraction": 0.75,
+    "R_joint_advantage_over_complement": 0.15,
+    "R_effective_value_fraction_of_R_joint_margin_and_full_vocab_CE": 0.7,
+    "R_effective_value_donorward_fraction": 0.75,
+    "P_C_absolute_effect_fraction_of_smallest_R_target_effect": 0.25,
+    "subgroup_fraction_of_R_effective_value": 0.7,
+    "subgroup_donorward_fraction": 0.75,
+    "minimum_live_control_and_target_R_factor_difference_norm": 1e-08
+  },
+  "reported_interactions": ["complete - R_joint - complement_joint + native", "R_joint - R_score - R_effective_value + native"],
+  "registered_outcomes": {
+    "pred_a_instrument_live": "Exactness, native A1/A2/P/C capability, and complete-H3 target effects pass.",
+    "pred_b_unchanged_carrier_route": "Token-identical R-joint passes target recovery, direction, complement advantage, liveness, and P/C selectivity.",
+    "pred_c_unchanged_carrier_effective_value": "R effective-value passes its recovery, direction, liveness, and P/C selectivity after pred_b.",
+    "pred_d_pre_first_negative_control": "Pre-first effective-value reinstall is numerically a no-op under the exactness bar.",
+    "pred_e_between_changes_effective_value": "The fixed between-change effective-value subgroup is sufficient and selective.",
+    "pred_f_post_last_change_effective_value": "The fixed post-last-change effective-value subgroup is sufficient and selective.",
+    "pred_g_distributed_R_effective_value": "R effective-value passes, but neither causal subgroup is sufficient alone.",
+    "pred_h_no_unchanged_carrier_route": "The instrument is live but R-joint does not pass the registered route tests."
+  },
+  "price": {"model_forwards": 6, "example_evaluations": 768, "backwards": 0, "parameter_updates": 0},
+  "interpretation_limits": ["Effective u includes the OV output projection.", "P and C must pass native capability and have live installed R changes; dead controls are uninformative.", "Large interaction contrasts prohibit additive allocation language."]
+}
