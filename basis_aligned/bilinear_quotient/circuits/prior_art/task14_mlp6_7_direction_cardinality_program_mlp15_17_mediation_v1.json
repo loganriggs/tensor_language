@@ -1,0 +1,45 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_cardinality_program_mlp15_17_mediation_v1",
+  "created_utc": "2026-09-05T23:22:00Z",
+  "purpose": "Test whether the already prospective, fixed ten-vector Task14 upstream program composes through the previously localized downstream MLP15+17 branch, using an exact four-corner mediator clamp without fitting or changing the program.",
+  "prior_art_search": {
+    "queries": [
+      "cardinality AND (MLP15 OR MLP17 OR mediation)",
+      "prototype AND (MLP15 OR MLP17 OR mediation)",
+      "MLP15 AND prototype"
+    ],
+    "result": "No existing experiment combines the fixed direction-cardinality prototype program with MLP15+17 mediation. Existing evidence separately establishes the program and localizes MLP15+17 for a natural head-11.3 donor intervention."
+  },
+  "immutable_inputs": {
+    "program_artifact": {
+      "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json",
+      "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"
+    },
+    "program_validation": {
+      "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json",
+      "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"
+    },
+    "natural_path_screen": {
+      "path": "circuits/followups/task14_head11_3_mlp15_17_vs_mlp16_factorial_v1_result.json",
+      "sha256": "e7765dbfd0269a32ab3e4ea8ccfeda1d4ceccabcce98e1d97d3dfd08c0ad8747"
+    }
+  },
+  "intervention": {
+    "rows": "all 32 rows and all 16 E/A/U/W background subsets from the untouched third corpus",
+    "upstream_corners": ["base head", "base head plus frozen direction-cardinality vector"],
+    "mediator_corners": ["native MLP15+17 response", "MLP15+17 final-token outputs clamped to their base-head values"],
+    "equation": "mediated_q = (program_native - base_native) - (program_clamped - base_replayed)",
+    "fit_operations": 0,
+    "program_changes": 0
+  },
+  "predictions": {
+    "pred_a_immutable_inputs_and_complete_instrument": "All immutable SHA checks pass; exactly 512 row-subset cells and all four corners are present; closure, base replay, and prior program-effect replay errors are each <=5e-5.",
+    "pred_b_mlp15_17_materially_mediate_program": "The mediated-effect vector has cosine >=0.50 with the full program effect, norm/full-effect norm in [0.15,1.50], and sign agreement >=0.65.",
+    "pred_c_mediation_generalizes_across_registered_cells": "Each direction x template group has mediated/full norm ratio >=0.10 and cosine >=0.25; each cardinality has mediated/full norm ratio >=0.10.",
+    "pred_d_direct_residual_route": "Opposing outcome: the clamped program effect matches the full effect with cosine >=0.95, relative L2 error <=0.15, and sign agreement >=0.90.",
+    "pred_e_fixed_program_and_price": "No vector, scale, row, subset, mediator, or threshold is selected after effects; price is at most 16 physical forwards, 2560 example evaluations, zero backwards, and zero parameter updates."
+  },
+  "terminal_rule": "Invalid if pred_a or pred_e fails; mediation_screen if pred_b and pred_c pass; direct_route_screen if pred_d passes; otherwise inconclusive.",
+  "closed_claims": ["natural mediation", "necessity", "universal downstream route", "semantic identity of MLP15 or MLP17", "rank", "compression", "cross-task reuse"]
+}
