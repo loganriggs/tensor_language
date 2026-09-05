@@ -31,11 +31,13 @@ import run_task14_head11_3_subject_attractor_score_payload_factorial as factors
 ROOT = Path(__file__).resolve().parent.parent
 PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1.json"
 OOM_AMENDMENT = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_oom_batching_amendment.json"
+OOM_RETRY_AMENDMENT = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_oom_retry_amendment.json"
 LICENSE = ROOT / "circuits/fast_screens/task14_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_capability_license.json"
 PARENT_RESULT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json"
 OUT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_result.json"
 PRIOR_ART_SHA256 = "94a41203cd8b9176cad2323d353cba4c8b26d369a83598298ae178ffdd211c96"
 OOM_AMENDMENT_SHA256 = "9c1396d9c7a3ac311eda30901e943f5441bc566c46edf456b1ac805ddbee0ecc"
+OOM_RETRY_AMENDMENT_SHA256 = "d1b559439472d939acedad38eaebc21d196fdaa4a23b628017ed1dd3f8081008"
 LICENSE_SHA256 = "e2d784b17ab156280462ace15a52451757b85099446ea299c17a17e8593c0d0f"
 PARENT_RESULT_SHA256 = "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f"
 CANDIDATE_ID = "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1"
@@ -51,7 +53,11 @@ CONDITIONS = ("recipient",) + tuple(
 PARENT_CORNERS = {subset: subset.replace("X", "YZ") for subset in parent.SUBSETS}
 PARENT_TO_CHILD = dict(PARENT_CORNERS)
 PARENT_AGGREGATES = ("M", "EM", "AM")
-PATCH_CHUNKS = ((0, 3032), (3032, 6064))
+PATCH_ROWS = 6064
+PATCH_CHUNK_ROWS = 256
+PATCH_CHUNKS = tuple(
+    (start, min(start + PATCH_CHUNK_ROWS, PATCH_ROWS))
+    for start in range(0, PATCH_ROWS, PATCH_CHUNK_ROWS))
 DOWNSTREAM_CAPTURE_REQUIRED = frozenset({
     "p", "u", "head", "E", "A", "M", "M0_3", "MR", "H", "HR", "R",
     "raw_state", "normalized_state", "current_pre", "cached_pre", "effective_pre",
@@ -93,15 +99,23 @@ def validate_preflight():
     for path, expected, label in (
         (PRIOR_ART, PRIOR_ART_SHA256, "prior-art receipt"),
         (OOM_AMENDMENT, OOM_AMENDMENT_SHA256, "OOM batching amendment"),
+        (OOM_RETRY_AMENDMENT, OOM_RETRY_AMENDMENT_SHA256,
+         "OOM retry amendment"),
         (PARENT_RESULT, PARENT_RESULT_SHA256, "parent E/A/U/W/X result"),
     ):
         if _sha256(path) != expected:
             raise MLP8MLP67SourceError(f"{label} changed")
     parent_result = json.loads(PARENT_RESULT.read_text())
     amendment = json.loads(OOM_AMENDMENT.read_text())
+    retry_amendment = json.loads(OOM_RETRY_AMENDMENT.read_text())
     if amendment.get("candidate_id") != CANDIDATE_ID \
             or amendment.get("authorized_change", {}).get("physical_model_forwards") != 6:
         raise MLP8MLP67SourceError("OOM batching amendment contract changed")
+    retry_change = retry_amendment.get("authorized_change", {})
+    if retry_amendment.get("candidate_id") != CANDIDATE_ID \
+            or retry_change.get("condition_chunk_rows") != PATCH_CHUNK_ROWS \
+            or retry_change.get("physical_model_forwards") != 50:
+        raise MLP8MLP67SourceError("OOM retry amendment contract changed")
     predictions = parent_result.get("score", {}).get("predictions", {})
     if parent_result.get("terminal") != "valid_causal_screen" \
             or predictions.get("pred_a_instrument_and_parent_closure") is not True \
@@ -122,6 +136,7 @@ def compile_plan():
         "condition_count": len(CONDITIONS), "subject_position": SUBJECT_POSITION,
         "mlp_layer": MLP_LAYER, "prior_art_sha256": PRIOR_ART_SHA256,
         "oom_batching_amendment_sha256": OOM_AMENDMENT_SHA256,
+        "oom_retry_amendment_sha256": OOM_RETRY_AMENDMENT_SHA256,
         "parent_result_sha256": PARENT_RESULT_SHA256,
         "license_sha256": LICENSE_SHA256,
         "capability_result_sha256": license_value["capability_result_sha256"],
@@ -139,10 +154,11 @@ def compile_plan():
         "parent_closure": "all 31 Y+Z-regrouped corners reproduce the parent E/A/U/W/X lattice at every registered endpoint",
         "causal_statistics": "complete 2^6 Moebius decomposition of each task-level set function",
         "downstream_background": "standalone fixed L11H3 interface; every other MLP4--10 slot remains recipient",
-        "batching": {"condition_chunks": [list(chunk) for chunk in PATCH_CHUNKS],
+        "batching": {"condition_chunk_rows": PATCH_CHUNK_ROWS,
+                     "condition_chunks": [list(chunk) for chunk in PATCH_CHUNKS],
                      "order": "contiguous_then_concatenate",
-                     "storage": "offload each full-logit chunk to CPU before the next forward; concatenate and score on CPU"},
-        "price": {"logical_model_forwards": 4, "physical_model_forwards": 6,
+                     "storage": "offload each chunk, retain subject-position logits, and score on CPU"},
+        "price": {"logical_model_forwards": 4, "physical_model_forwards": 50,
                   "example_evaluations": 12224,
                   "causal_interventions": 6048, "backwards": 0,
                   "parameter_updates": 0, "capability_GPU_price": 0},
@@ -396,6 +412,11 @@ def _offload_full_logits(logits):
     return logits.detach().cpu()
 
 
+def _subject_logits(full_logits):
+    """Retain exactly the preregistered scientific endpoint on CPU."""
+    return full_logits[:, SUBJECT_POSITION].detach().cpu()
+
+
 def evaluate(model, torch, F, facade):
     rows = build_rows(); n = len(rows); device = next(model.parameters()).device
     tokens, finals = downstream.depth.parent.v1._role_batch(rows, torch, device)
@@ -506,23 +527,28 @@ def evaluate(model, torch, F, facade):
                      slots, rows, torch, F)
     if len(patch["specs"]) != PATCH_CHUNKS[-1][1]:
         raise MLP8MLP67SourceError("condition batch does not match frozen chunks")
-    native_chunks = []
+    native_chunks, patched_chunks, patch_closures = [], [], []
+    noop_full_logit_error = 0.0
     for start, stop in PATCH_CHUNKS:
         chunk = _slice_patch(patch, start, stop)
-        native_gpu = factors._native_logits(model, chunk["tokens"], torch, F)
-        native_chunks.append(_offload_full_logits(native_gpu))
-        del native_gpu, chunk
-    patched_chunks, patch_closures = [], []
-    for start, stop in PATCH_CHUNKS:
-        chunk = _slice_patch(patch, start, stop)
+        native_full = _offload_full_logits(
+            factors._native_logits(model, chunk["tokens"], torch, F))
         chunk_patched, chunk_captured, chunk_projection, chunk_closure = \
             downstream._decomposed_forward(
                 model, chunk["tokens"], chunk["finals"], torch, F, facade,
                 replacement_heads=chunk["replacement_heads"],
                 native_reinstall_mask=chunk["native_reinstall_mask"])
-        patched_chunks.append(_offload_full_logits(chunk_patched))
+        patched_full = _offload_full_logits(chunk_patched)
+        native_chunks.append(native_full[:, SUBJECT_POSITION])
+        patched_chunks.append(patched_full[:, SUBJECT_POSITION])
+        local_noop = chunk["native_reinstall_mask"].detach().cpu()
+        if bool(local_noop.any()):
+            noop_full_logit_error = max(
+                noop_full_logit_error,
+                float((patched_full[local_noop] - native_full[local_noop]).abs().max()))
         patch_closures.append(chunk_closure)
-        del chunk_patched, chunk_captured, chunk_projection, chunk
+        del native_full, patched_full, chunk_patched, chunk_captured
+        del chunk_projection, chunk
     native_patch = torch.cat(native_chunks, dim=0)
     patched = torch.cat(patched_chunks, dim=0)
     exactness["downstream_state_closure_max_absolute_error"] = \
@@ -541,9 +567,9 @@ def evaluate(model, torch, F, facade):
         }.items())
     evidence = []
     for out_index, (row_index, condition, cell_id) in enumerate(patch["specs"]):
-        base = grandparent._both_metrics(native_patch[out_index, SUBJECT_POSITION],
+        base = grandparent._both_metrics(native_patch[out_index],
                                     rows[row_index], torch)
-        value = grandparent._both_metrics(patched[out_index, SUBJECT_POSITION],
+        value = grandparent._both_metrics(patched[out_index],
                                      rows[row_index], torch)
         item = {"row_id": rows[row_index]["row_id"], "cell_id": cell_id,
                 "condition": condition}
@@ -559,6 +585,9 @@ def evaluate(model, torch, F, facade):
             exactness["same_batch_native_noop_endpoint_max_absolute_error"] = max(
                 exactness["same_batch_native_noop_endpoint_max_absolute_error"],
                 float((patched[out_index] - native_patch[out_index]).abs().max()))
+    exactness["same_batch_native_noop_endpoint_max_absolute_error"] = max(
+        exactness["same_batch_native_noop_endpoint_max_absolute_error"],
+        noop_full_logit_error)
 
     parent_by_key = {(item["row_id"], item["condition"]): item
                      for item in json.loads(PARENT_RESULT.read_text())["evidence"]}
@@ -835,7 +864,7 @@ def main(argv=None):
         "checkpoint_weights_sha256": checkpoint.weights_sha256, "score": scored,
         "numerical_diagnostics": numerical, "evidence": evidence,
         "evaluated_splits": ["LICENSED_HOLDOUT"], "forbidden_splits_opened": [],
-        "logical_model_forwards": 4, "physical_model_forwards": 6,
+        "logical_model_forwards": 4, "physical_model_forwards": 50,
         "causal_interventions": 6048,
     }
     payload = managed.atomic_create_json(OUT, result)

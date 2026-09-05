@@ -1,0 +1,38 @@
+{
+  "schema": "circuit_preregistration_engineering_amendment_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1",
+  "created_utc": "2026-09-05T20:30:00Z",
+  "reason": "The prospectively frozen two-chunk rerun used 3032-row condition batches. It occupied the serial GPU lane for 99 minutes and terminated with exit 137 without a result artifact. The earlier diagnostic already showed that one 3032-row native full-logit forward requires a 10.23 GiB allocation while the process holds 25.34 GiB, so the two-chunk sizing was unsafe rather than scientifically informative.",
+  "binding_inputs": {
+    "original_preregistration_path": "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1.json",
+    "original_preregistration_sha256": "94a41203cd8b9176cad2323d353cba4c8b26d369a83598298ae178ffdd211c96",
+    "first_oom_amendment_path": "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_oom_batching_amendment.json",
+    "first_oom_amendment_sha256": "9c1396d9c7a3ac311eda30901e943f5441bc566c46edf456b1ac805ddbee0ecc",
+    "exit137_log_path": "runlogs/failed/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.20260905T190136Z.exit137.log",
+    "exit137_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observability_statement": {
+    "result_artifact_created": false,
+    "condition_outcomes_published_or_scored": false,
+    "prediction_tests_computed": false,
+    "only_new_observation": "The 3032-row physical batch plan can stall and be killed even after passing focused CPU tests."
+  },
+  "authorized_change": {
+    "condition_chunk_rows": 256,
+    "condition_chunks": "Deterministic contiguous half-open slices [0,256), [256,512), ... with final slice [5888,6064), preserving original order on every batch axis.",
+    "storage": "For each slice, offload logits to CPU, retain only the registered subject-position vocabulary vector for scientific scoring, and compute the unchanged same-batch native-noop full-logit maximum before discarding the transient full tensors.",
+    "role_forwards": "Keep the native and decomposed 48-example role passes unchanged.",
+    "logical_model_forwards": 4,
+    "physical_model_forwards": 50,
+    "example_evaluations": 12224,
+    "causal_interventions": 6048
+  },
+  "unchanged_scientific_contract": [
+    "all prompts, rows, roles, donor mappings, and condition order",
+    "all 379 conditions and all E/A/U/W/Y/Z interventions",
+    "all response definitions, CE and answer-margin endpoints, hypotheses, thresholds, controls, and closure gates",
+    "the exact subject position used for every scientific outcome",
+    "the logical compute, example-evaluation count, and intervention count"
+  ],
+  "invalid_changes": "Any outcome-dependent chunk choice, reordered row, changed intervention, relaxed gate, or scientific-result inspection before this amendment is frozen invalidates the rerun."
+}
