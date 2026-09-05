@@ -1,0 +1,31 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.direction_mediator_gain_fourth_corpus_transfer_v1",
+  "created_utc": "2026-09-05T23:39:00Z",
+  "purpose": "Prospectively validate the fixed ten-vector upstream program, two fixed readers, and six direction-only MLP15/17 mediator gains on a fourth disjoint Task14 corpus before any new causal clamp outcome is opened.",
+  "prior_art_search": {
+    "result": "Three earlier corpora validate midpoint/readout transfer and the ten-vector program; only the third corpus identifies and row-holdout-screens the six mediator gains. No fourth-corpus prospective mediator prediction exists.",
+    "simple_gain_result": {"path": "circuits/followups/task14_mlp6_7_direction_program_loo_mediator_gain_v2_result.json", "sha256": "cb792d42cacd2fc88974c8e522fae3c3942c5dc4d35a9f0b4e6a54eab48d2bd5"},
+    "program_artifact": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json", "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07"}
+  },
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_task14_direction_mediator_gain_transfer.py",
+    "file_sha256": "1622926cc7e1ac41e8368ae62a04842ec4f814014f9e9f5ea4c3c1351df6c3bb",
+    "logical_sha256": "5a64e8c09b20623350ad95681d496658533a31f04041cc145a7469fccd5f20b3",
+    "rows": 32,
+    "noun_forms": 32,
+    "templates": ["under_beyond", "beyond_under"],
+    "prior_overlap": 0
+  },
+  "stages": ["native-only capability and candidate-scoped license", "CPU-only temporal prediction seal", "eight-corner managed causal clamp validation"],
+  "predictions": {
+    "pred_a_authority_capability_and_seal": "All 12 direction x template x role native cells reach accuracy >=0.75; exactly 512 unique row-subset predictions are sealed before causal outcomes.",
+    "pred_b_fixed_reader_predicts_program_effect": "Frozen reader q_hat predicts installed program q with cosine >=0.90, relative L2 <=0.45, and signs >=0.85.",
+    "pred_c_mlp15_transfer": "Frozen six-gain MLP15 prediction reaches cosine >=0.75, relative L2 <=0.75, and signs >=0.65.",
+    "pred_d_mlp17_and_interaction_transfer": "Each frozen MLP17 and interaction prediction reaches cosine >=0.90, relative L2 <=0.40, and signs >=0.90.",
+    "pred_e_joint_and_each_template_transfer": "Frozen reconstructed joint mediation reaches cosine >=0.90, relative L2 <=0.40, signs >=0.90, and cosine >=0.85 within each unseen template.",
+    "pred_f_exact_fixed_program_and_price": "All base replay and decomposition errors <=5e-5; no fit, gain/vector/reader change, gradients, or updates; at most 17 causal physical forwards and 4192 causal example evaluations after one 96-example capability forward."
+  },
+  "terminal_rule": "Invalid if a/f fails; prospective_program_screen if b-e all pass; null if instrument passes and e fails; otherwise inconclusive.",
+  "closed_claims": ["native MLP activation reconstruction", "universal syntax transfer", "cross-task reuse", "selectivity beyond existing panels", "necessity", "rank", "whole-model replacement"]
+}
