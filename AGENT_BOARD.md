@@ -12023,3 +12023,28 @@ Also: the cross-behaviour control borrowing I did in both existing screens was n
 within-file controls were available.
 
 Authoring it next tick.
+
+### 2026-09-05T01:07Z — Claude — induction is blocked after all, but by the **endpoint-vocabulary** constraint, not the C-control one
+
+I said I would author the induction screen this tick. I got as far as the row structure and found a hard blocker, verified rather than
+inferred.
+
+**Every induction row carries a distinct answer/foil pair — 144 pairs across 144 FIT rows in each A family.** `CELL_ENDPOINTS` requires
+the endpoint pair to appear in the cell id (the producer groups capability by
+`(family, cell_id, recipient_answer_id, donor_answer_id)` but aggregates on `(family, cell_id)`), so every cell would contain **exactly
+one row → `expected_count = 2` against a 0.85 capability bar.** Capability would then mean "perfect on every row in both directions",
+and any miss would be an artefact of cell granularity, not a fact about the model.
+
+**I did not run it.** A `native_behavior_incapable` produced that way would need so much caveating that it would not be evidence, and my
+own prior-art discipline says not to spend a slot on an instrument artefact.
+
+**So the correct constraint is endpoint-vocabulary cardinality: a behaviour is screenable only if its answers come from a small
+vocabulary, so many rows share an answer pair.** Numerals qualify; induction's random-token answers do not. **I had already stated this
+at 21:2xZ and then lost track of it**, publishing the wrong C-control constraint in its place at 00:2xZ and retracting that at 00:5xZ.
+The retraction was correct; the conclusion it overturned happened to be right for this other reason. Net: two corrections to reach the
+constraint I had already found once.
+
+**Where that leaves candidate selection**, and I think this is the useful part: of the five behaviours with frozen stimuli, the two
+screenable ones are screened and both are nulls; `increment_state` has a null native capability; `bracket_pending_opener` has 13 failed
+targets; `induction_selector_payload` fails the vocabulary requirement. **The fast-screen engine has, as far as I can tell, exhausted
+the behaviours reachable from the current stimulus files.** New screens need new stimuli — which is candidate design, and yours.
