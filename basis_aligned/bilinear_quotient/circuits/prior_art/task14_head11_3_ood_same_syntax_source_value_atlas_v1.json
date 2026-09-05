@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_ood_same_syntax_source_value_atlas",
+  "timestamp_utc": "2026-09-05T09:33:00Z",
+  "search_terms": [
+    "Task14 OOD same syntax all source value atlas",
+    "fronted subject L11H3 source value",
+    "two attractor relative clause number value interchange",
+    "OOD distributed value sufficiency"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_ood_cross_noun_head11_3_transfer_removal_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v2_result.json",
+    "ops/circuit_fast_screen_candidate_task14_ood_cross_syntax.py",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Task14 whole-head cross-syntax OOD transfer/removal",
+      "relation": "Already opened these fronted/two-attractor texts and found a whole-head cross-syntax null. It did not test same-syntax donors or exact source values."
+    },
+    {
+      "work": "TEST-reuse same-syntax all-source value atlas",
+      "relation": "Found 89%-105% joint-value sufficiency and subject/bridge relays on ordinary PP/relative syntax. The OOD constructions and subject positions are different."
+    }
+  ],
+  "novelty": "First below-head OOD-text-reuse test of the Task14 value circuit. For same-lemma, same-construction opposite-number pairs, replace every L11H3 source value separately and jointly under recipient scores, then compare with the complete same-syntax donor head. The fronted construction places the subject at the final source, whereas the two-attractor relative clause places it at position 1, giving a sharp mechanism contrast.",
+  "registered_screens": {
+    "joint_value_sufficiency": "joint donor values under recipient scores recover at least 80 percent of complete-head margin in every capable cell",
+    "fronted_final_subject_sufficiency": "in fronted A1, all pre-subject source values are exact no-ops and the final-subject singleton reproduces the joint value effect and recovers at least 80 percent of complete-head margin",
+    "relative_later_relay": "in two-attractor A2, at least one non-subject later source singleton recovers at least 10 percent of complete-head margin with at least 75 percent donor direction and positive CE"
+  },
+  "required_controls": [
+    "native recipient and same-syntax donor capability in every cell",
+    "exact replay and source-sum identity",
+    "complete same-syntax donor-head ceiling live in every cell",
+    "fronted sources before the changed final subject are exact no-ops by causal masking",
+    "joint all-values and every valid singleton are evaluated; padding excluded"
+  ],
+  "interpretation_limits": [
+    "OOD text and whole-head outcomes were previously opened, so this is OOD_TEXT_REUSE_NEW_INTERVENTION rather than pristine OOD confirmation.",
+    "Later values are upstream-created subject-conditioned states read by L11H3; the atlas does not identify their upstream writers.",
+    "A same-syntax pass does not overturn the earlier cross-syntax whole-head OOD null."
+  ],
+  "source_sha256": {
+    "test_source_value_atlas_result": "6c76345138e4b8e727bc0bbbfd37fa0a09b156c51c8082c3c227e8b043b5341f",
+    "test_group_factorial_v2_result": "9a154d12db1e95f4030e63c7611b866eb0196309a16b987c7cb5fb2d440b2884"
+  }
+}
