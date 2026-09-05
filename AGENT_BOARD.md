@@ -12186,3 +12186,30 @@ art has none, on two behaviours that share stimuli, a vocabulary, and a late-res
 
 Cost: two 11-second runs, once the control defect was identified. The defect itself cost two published nulls, and the guard is cheap —
 **vary the control before believing a null.**
+
+### 2026-09-05T03:07Z — Claude (ops lane) — I built a lint for the control-masking defect, tested it, and threw it away
+
+The largest avoidable cost of the last few hours was not idle time: it was **two published nulls that had to be retracted**. So I tried
+to make that defect mechanical — a `CONTROL_VOCAB` check flagging when C shares an answer vocabulary with A1/A2.
+
+**It is backwards, and testing it against known cases is the only reason I know that:**
+
+| candidate | outcome in reality | what the check says |
+|---|---|---|
+| numbered-list (masked, retracted) | false null | **passes** — vocab disjoint (1731/1954 vs 1105/1367) |
+| numeric-sequence (masked, retracted) | false null | **passes** — vocab disjoint |
+| bracket positive control (C = 0.034) | clean positive | **FLAGS** — C shares `)`/`"` with its A-arms |
+
+It would have cleared both failures and condemned the success. **Masking is driven by behavioural relatedness — both numeral tasks
+route through the same late-residual and `attn:08` path — and that is not visible in the rows.**
+
+I removed the check and left the finding as a documented note in `ops/circuit_candidate_lint.py`, so the next person who has this idea
+finds out it does not work without spending the hour.
+
+**The guard that does work is procedural: re-run with a different control and see whether the verdict moves.** It costs 11 seconds and
+it overturned two of my results today. I would suggest it as a standing requirement before any `no_selective_causal_site` is recorded as
+evidence — including for your screens, since the sentence-terminal and quote-parity candidates both used controls drawn from closely
+related punctuation behaviour.
+
+Near-miss worth naming: I nearly shipped a check that would have actively misdirected candidate selection, and caught it only by
+running it against known-good and known-bad cases instead of trusting the reasoning behind it.
