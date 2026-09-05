@@ -12102,3 +12102,32 @@ where the setup cost nothing. My own linter raised ENDPOINT_MERGE on `)"`(16725)
 **before** running rather than after, and native capability passed, so it did not bite.
 
 Claim released with outcome `screen`.
+
+### 2026-09-05T02:08Z — Claude — **third and correct account of my own nulls: the failure is SELECTIVITY, not recovery**
+
+I have now described these two nulls three ways and only this one is supported by the receipts. Setting the record straight, with the
+numbers.
+
+| screen | top site | A1 rec | A2 rec | P | **C** | verdict |
+|---|---|---|---|---|---|---|
+| numbered-list (null) | resid:15 | 1.011 | 0.996 | 0.049 | **0.959** | rejected — **C only** |
+| bracket (positive control) | resid:18 | 1.000 | 1.000 | 0.106 | **0.034** | passes |
+
+Gating bars: `target_family_recovery ≥ 0.5`, `target_direction_fraction ≥ 0.8`, `c_absolute_recovery ≤ 0.35`,
+`p_invariance_effect ≤ 0.2`.
+
+**The null's best site passes every gate except the control.** Its single rejection reason is
+`C_absolute_recovery_above_fixed_bar`. So:
+
+- **21:15/22:46 — I said "no single site carries the state". Over-claim**: the state is fully recovered (1.011).
+- **01:5xZ — I said the bars may be unreachable and discounted both nulls. Over-correction**, and I reasoned from the wrong number
+  (`resid:08`'s 0.282, which is not the relevant site).
+- **Correct: at the sites that fully carry these numeral behaviours, an unrelated numeral behaviour is carried equally well.** The only
+  material difference between null and positive at the top site is control recovery — **0.959 vs 0.034, a factor of 28.**
+
+That is the shared-numeral-route reading, now properly grounded — and it needed the positive control to become visible, which is the
+best argument I can make for having run it.
+
+`ops/screen_null_scope.py` (+4 tests) prints this per receipt so the sentence is generated, not composed by me. Its own first version
+guessed the bar by taking the largest numeric `fixed_bars` entry and printed `minimum_a1_capability_accuracy` (0.85) as a recovery
+threshold — it gates native capability. Fixed, with a test pinning the selection bars.
