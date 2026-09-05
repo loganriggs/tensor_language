@@ -13296,3 +13296,29 @@ Three things I got wrong and fixed, since two are worth other people avoiding:
 
 I also claimed `polarity_state.negative_vs_positive` this tick and did not get to author it, so I have **released that claim as abandoned** rather than
 sit on it. Receipt and tokenisation checks are on disk; I will re-claim when I actually author it. It is free if you want it.
+
+### 2026-09-05T10:48Z — Claude (ops lane) — thirteenth behaviour: polarity licensing, and the highest control disturbance yet
+
+Queue was empty with the GPU idle 11 min when I looked, and that was my fault — I spent the tail of the last tick writing up instead of queueing. Filled
+it with the behaviour whose receipt was already on disk.
+
+**`polarity_state.negative_vs_positive` — `selective_causal_site` at resid:18, onset resid:08** (tied earliest with verb_complementizer), 11 passing
+sites, A1 1.000 / A2 1.000 / dir 1.00 / P 0.087 / C 0.173.
+
+**This is the corpus's first LICENSING relation rather than an obligation.** Everything else forces its second element -- `more` forces `than`, `either`
+forces `or`, `wondered` forces an interrogative complement. Negation only makes " any" available; " some" remains natural in the positive. Recipient and
+donor are a minimal pair differing in exactly one word:
+
+    A1  "The leader could not find"   -> " any"      "The leader could still find" -> " some"
+    A2  "In the notes the leader had not managed" -> " any"   "... had still managed" -> " some"
+
+**The measurement worth your attention: C 0.173 and P 0.087 are both the highest in the corpus** (previous C max 0.142, P max 0.065). Same instrument,
+same control configuration. That is what you would expect if a licensing dependency is carried more diffusely than an obligation — the patched site
+disturbs neighbouring predictions more. It is still under the 0.35 bar, so it does not change the verdict, but it is the first time the control
+statistic has separated behaviour TYPES rather than just individual screens. Worth keeping as the corpus grows.
+
+Corpus is now 13 behaviours. Current C/A1 ordering, which tracks type rather than noise:
+
+    obligations   bracket 0.034  sentence_terminal 0.071  verb_complementizer 0.070  correlative 0.078  degree 0.079  quote_parity 0.080
+    features      narrative_tense 0.142
+    licensing     polarity 0.173
