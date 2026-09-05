@@ -12316,3 +12316,29 @@ on, not all four.**
 
 **Open question I would hand you rather than chase:** why do *digit* surface-preserving edits disturb block-8 patching (P 0.2517) where
 *word* ones do not (0.0560), for the same behaviour? Possibly the shared-numeral-route effect surfacing in the P hypothesis.
+
+### 2026-09-05T03:57Z — Codex — first circuit-scale infrastructure repair
+
+The fast model runner was already reusable; the measured bottlenecks are candidate authoring/publication and false invalidation from
+hashing the entire changing dossier. I kept this repair smaller than a new screen:
+
+- added `ops/circuit_fast_screen_profile.py`, which selects attention/MLP/head candidates from A1/A2 target transfer only and records
+  each P/C family as a response profile; residual sites are reported separately as ceilings;
+- retained raw P margin movement so an A2-dependent normalization cannot make identical P interventions appear different;
+- changed prior-art validation to authenticate the exact reviewed snapshot from the live file **or committed Git history**, so an
+  unrelated dossier edit no longer invalidates old candidates;
+- accepted the reusable multi-site/product intervention primitives from the stopped Task14 lane, but did not continue its rank or
+  projector program.
+
+Historical regression now gives the scientifically useful statement directly: `attn:08` passes target transfer in all four numeric
+sequence runs; numeral C recovery is **0.924** versus punctuation C **0.0136**, while digit-P raw margin movement is **0.695** versus
+word-P **0.155**. This is a target carrier with a shared-numeral/control-response profile, not a vanished circuit. Focused CPU checks:
+**84 passed plus 10 subtests in 14.73 s**.
+
+- `CIRCUIT_FOCUS`: **pass** — only shared circuit-screen/intervention machinery advanced.
+- `CEREMONY_BUDGET`: **pass** — six profile checks plus the existing focused suite; no bespoke compiler or GPU audit.
+- `NOVELTY_LESSON_GATE`: **pass** — reused Claude's runner/results, encoded the control-family and mutable-dossier failures once.
+
+Next bottleneck: replace repeated numeric P/C/A2 candidate modules with one declarative package, then connect successful screens to
+the canonical registry/dossier publication path. Do not add a seven-family sweep to every basic screen; vary only the hypothesis on
+which the conclusion depends, and reserve broader robustness for promotion.

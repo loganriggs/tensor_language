@@ -7,6 +7,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 from typing import Any, Mapping, Sequence
 
 
@@ -119,8 +120,39 @@ def validate_receipts(receipts: Sequence[Mapping[str, Any]]) -> list[str]:
     return hashes
 
 
+def _hash_exists_in_git_history(root: Path, relative: Path, expected: str) -> bool:
+    """Prove an older reviewed snapshot without pinning an append-heavy live index."""
+    try:
+        repository = Path(subprocess.run(
+            ["git", "-C", str(root), "rev-parse", "--show-toplevel"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip()).resolve()
+        repository_relative = (root / relative).resolve().relative_to(repository)
+        history = subprocess.run(
+            ["git", "-C", str(repository), "log", "--format=%H", "--", str(repository_relative)],
+            check=True, capture_output=True, text=True,
+        ).stdout.splitlines()
+        for commit in history:
+            snapshot = subprocess.run(
+                ["git", "-C", str(repository), "show", f"{commit}:{repository_relative.as_posix()}"],
+                check=False, capture_output=True,
+            )
+            if snapshot.returncode == 0 and hashlib.sha256(snapshot.stdout).hexdigest() == expected:
+                return True
+    except (OSError, subprocess.CalledProcessError, ValueError):
+        return False
+    return False
+
+
 def validate_source_files(receipt: Mapping[str, Any], base_dir: Path) -> str:
-    """Validate the receipt and prove that every reviewed source hash is current."""
+    """Validate each reviewed snapshot against the live file or committed history.
+
+    Prior-art receipts prove what was reviewed.  Append-heavy indexes such as the
+    circuit dossier are expected to change afterward, so requiring their current
+    whole-file hash made unrelated publications invalidate every old candidate.
+    A changed file is accepted only when the exact reviewed bytes can still be
+    recovered from this repository's committed history.
+    """
     digest = validate_receipt(receipt)
     root = base_dir.resolve()
     for source in receipt["reviewed_sources"]:
@@ -131,9 +163,11 @@ def validate_source_files(receipt: Mapping[str, Any], base_dir: Path) -> str:
         if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
             raise PriorArtError(f"reviewed source is missing or unsafe: {relative}")
         observed = hashlib.sha256(path.read_bytes()).hexdigest()
-        if observed != source["sha256"]:
+        if observed != source["sha256"] and not _hash_exists_in_git_history(
+            root, relative, source["sha256"]
+        ):
             raise PriorArtError(
-                f"reviewed source changed: {relative}; "
+                f"reviewed source changed and snapshot cannot be authenticated: {relative}; "
                 f"expected={source['sha256']}, observed={observed}"
             )
     return digest

@@ -35,6 +35,39 @@ Advance the project toward a smaller, transparent tensor program that is jointly
 Low CE alone is not completion. A useful result should improve or clarify at least one
 adoption ledger without silently regressing the others.
 
+## Current circuit-scale agenda
+
+While the user's circuit-scale directive is active, the immediate goal is a reusable codebase that can produce
+hundreds of high-quality, non-duplicated circuit records. Target roughly one basic causal screen or honest null per
+10 serial minutes. Use deep confirmation only for candidates that pass the basic screen. Do not make rank reduction,
+activation/weight reconstruction, variance preservation, quantization, or compression the primary research task.
+
+Treat the following as demonstrated workflow failures and check them at every hourly checkpoint:
+
+1. **Topic drift:** Count circuit receipts produced since the previous checkpoint. If the current work does not improve
+   circuit datasets, intervention machinery, causal screening, identification, dossiers, or throughput, stop it and
+   return to the circuit queue. Mathematical reviews must produce a circuit-level test or tool, not a decomposition
+   detour.
+2. **Safeguards dominating the experiment:** A basic screen gets the small shared preflight: deterministic row build,
+   prior-art/claim collision check, semantic-position and endpoint checks, dry-run price, focused unit tests, one
+   positive-control replay, and managed execution. Do not attach a bespoke compiler, twenty backup protocols, or an
+   hour-scale audit suite to every basic screen. Crash-injection, full artifact-packaging proofs, independent outcome
+   audit, OOD, removal, and composition belong to promotion after a candidate passes, unless a concrete high-risk
+   boundary makes one necessary earlier. At the hourly checkpoint compare validation/review minutes with scientific
+   design plus execution minutes; if safeguards are the largest bucket, simplify or reuse them before opening more
+   candidates.
+3. **Duplicate work and forgotten lessons:** Before authoring a candidate, search task authorities, fast-screen and
+   follow-up ledgers, dossiers, prior-art receipts, and failure records. Explicitly check known lessons: activation-space
+   reconstruction/variance is not the target; CE or task logits are better functional outcomes but do not replace
+   causal transfer and selective controls; native head/MLP boundaries are not assumed semantic units; and control-family
+   choice can flip a verdict. Convert a new lesson into shared code or a short canonical failure record, not another
+   growing checklist copied into every preregistration.
+
+The basic-screen output is a **screen**, not an identified circuit. A high-quality circuit is promoted only with clear
+counterfactual semantics, native capability, causal transfer/localisation, robustness to plausible control and
+answer-preserving family choices, held-out/OOD prediction where applicable, selective intervention, and a dossier that
+states exactly which of these are held, failed, or untested.
+
 ## Restore working memory
 
 At the start of a research turn, read only the current slices needed to recover live state:
@@ -166,6 +199,11 @@ Measure serial wall time for each candidate through:
 Record where time went: scientific thinking, repeated authoring, validation/tests, GPU computation,
 review handoff, or idle/waiting. Do not use number of parallel agents or number of experiment arms to
 hide slow serial latency.
+
+Also record three explicit pass/fail lines: `CIRCUIT_FOCUS` (did the hour advance circuits or their shared
+infrastructure?), `CEREMONY_BUDGET` (did preflight/review remain smaller than the basic scientific screen, or was a
+specific elevated risk documented?), and `NOVELTY_LESSON_GATE` (was prior work searched and were relevant known
+failures applied?). A failed line forces the next bounded block to repair that workflow before unrelated research.
 
 The operating target is one new circuit screen or honest null receipt every 10 serial minutes using
 shared machinery. This does not lower the evidence standard or redefine a screen as an identified

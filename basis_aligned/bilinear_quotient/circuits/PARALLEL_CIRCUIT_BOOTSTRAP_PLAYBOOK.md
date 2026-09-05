@@ -1,5 +1,34 @@
 # Parallel circuit bootstrap playbook
 
+## Active circuit-scale goal — 2026-09-05
+
+Build and operate one reusable codebase that can produce hundreds of high-quality circuit records, with a target of
+one basic causal screen or honest null per roughly 10 serial minutes. The immediate product is circuit knowledge and
+the machinery that produces it. Rank reduction, activation/weight reconstruction, variance preservation,
+quantization, and compression are not primary research directions.
+
+Use two evidence tiers so quality checks do not consume the experiment:
+
+- **Basic screen:** deterministic linked counterfactual rows; prior-art and active-claim collision checks; native
+  capability; exact one-position causal intervention over the shared site grid; at least two target constructions;
+  answer-preserving and unrelated controls; row-level evidence; dry-run price; focused shared tests; and managed GPU
+  execution. This tier should use one declarative specification and shared executor/scorer rather than a new runner or
+  compiler per behavior.
+- **Promotion:** only after a promising screen, add held-out/OOD confirmation, control-family robustness, removal,
+  composition/reuse, finer within-module splitting, crash-safe evidence packaging, and independent outcome audit as
+  appropriate to the claim.
+
+The basic tier must not inherit the entire promotion checklist. A concrete elevated-risk boundary can justify one
+extra preflight check, but it must be named and reused. At each hourly repository-timestamp review, explicitly score
+`CIRCUIT_FOCUS`, `CEREMONY_BUDGET`, and `NOVELTY_LESSON_GATE`. If authoring, tests, or review dominate the basic
+screen, simplify the shared path before opening more bespoke work.
+
+Before a new candidate, search the task authorities, fast-screen/follow-up ledgers, dossiers, and failure records.
+Apply the established lessons rather than rediscovering them: activation reconstruction and variance are not the
+causal target; CE/task logits are better functional measurements but cannot replace transfer and selective controls;
+native component boundaries need not be semantic units; and a null that depends on one P or C family is provisional
+until a plausible alternative family is tested.
+
 This document turns one deeply investigated circuit into better datasets, tools, and prompts for the next parallel
 wave. The goal is not to produce many component scores. It is to identify behavior-level computations that:
 
@@ -142,9 +171,14 @@ The parent extracts five reusable objects from every completed track:
 These objects are added to the next prompt. This is the bootstrap step: later agents inherit tested code and concrete
 failure examples, not just prose conclusions.
 
-## First-wave lessons that are mandatory in later prompts
+## Promotion-stage lessons from earlier waves
 
-The first two-agent wave added four checks that are now part of the shared template:
+The numbered lessons below are a failure library for promotion and unusual high-risk experiments. They are **not** a
+25-item preflight for every basic screen. The basic tier uses only the compact checks listed in the active goal above;
+apply an item below before the screen only when its named failure mode is actually present. Repeatedly needed checks
+belong in shared code rather than copied prose.
+
+The first two-agent wave added four lessons:
 
 1. **Treat output structure as audited data.** Tests must validate field types as well as values. In particular, a
    scalar decision string must not serialize as a one-item JSON list. A scientifically held result with a malformed

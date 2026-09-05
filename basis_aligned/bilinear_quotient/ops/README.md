@@ -139,3 +139,14 @@ own. Three verdicts from this lane were overturned that way — two nulls on C, 
 other three hypotheses byte-identical. Before believing a verdict that hinges on one hypothesis, re-run with
 a different family for it. It costs ~11 s. Do not turn this into a standing four-way sweep on every screen:
 vary the hypothesis the conclusion actually rests on.
+
+Compare those focused reruns with `circuit_fast_screen_profile.py`. It selects candidate attention/MLP/head sites
+using A1/A2 target transfer only, reports residual boundaries separately as ceilings, and retains each named P/C
+response instead of allowing a related control to erase evidence for a shared target carrier. It also reports raw P
+margin movement because the historical normalized P score can change when an A2 family changes its target scale.
+
+```bash
+python ops/circuit_fast_screen_profile.py \
+  --member original=circuits/fast_screens/<original>_result.json \
+  --member alternate_P=circuits/fast_screens/<alternate>_result.json
+```
