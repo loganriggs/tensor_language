@@ -1,0 +1,81 @@
+{
+  "schema": "circuit_numerical_repair_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2",
+  "created_utc": "2026-09-05",
+  "repair_scope": "Engineering-only correction after the v1 raw E+A+M closure gate failed. V1 scientific arms are not interpreted as evidence, and no scientific row, arm, prediction, task metric, threshold, or split changes.",
+  "v1_provenance": {
+    "scientific_prior_art_path": "circuits/prior_art/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v1.json",
+    "scientific_prior_art_sha256": "999884e00a3e730ccba9f60ae84aa99e55305cc9bcf537c77dbb2f971b6c7ea9",
+    "runner_path": "ops/run_task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial.py",
+    "runner_sha256": "1f9f8580350fe4f59c0f69ce329800d7390c7848d0954e0a5905a26cdf7af8ae",
+    "invalid_result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v1_result.json",
+    "invalid_result_sha256": "72e8ea00ea82e3f76e45c098f1e758ced0bf74c457d1432ed886eeedb8990518",
+    "terminal": "invalid",
+    "failed_metric": "state_sum_max_absolute_error",
+    "observed": 0.00146484375,
+    "registered_maximum": 0.00005,
+    "passing_engineering_context": {
+      "normalized_state_max_absolute_error": 0.00000286102294921875,
+      "all_donor_current_head_max_absolute_error": 0.0000133514404296875,
+      "replay_source_noop_install_errors": 0.0
+    },
+    "scientific_outcome_policy": "not interpreted as scientific evidence"
+  },
+  "diagnosis": "The recursive E, A, and M tensors are mathematically complete, but regrouping many float32 residual additions as E+A+M changes the addition order from the native sequential residual path. The resulting 0.00146484375 raw-coordinate difference is floating-point grouping error, not an omitted writer. Loosening the tolerance would hide that distinction.",
+  "fixed_remainder_convention": {
+    "definition": "At the pre-attention-11 capture, R = native_reference - (E+A+M), using the exact v1 grouping.",
+    "ownership": "R belongs to the embedding/skip family. Whenever a corner takes E from a donor trajectory, it takes that trajectory's R as well; A and M never carry R.",
+    "evaluation_order": "For every corner, form base=E+A+M in the frozen v1 order and then corrected_state=base+R. RMSNorm and V11 receive corrected_state.",
+    "reason": "This leaves A as only propagated attention writes and M as only propagated MLP writes, while E means the residual path plus the finite-precision remainder needed to reproduce that trajectory's native state. Native and all-donor EAM corners therefore have their own matching R."
+  },
+  "repaired_checks": {
+    "uncorrected_state_max_absolute_error": "Report the old |E+A+M-reference| drift as a diagnostic; it is expected to reproduce v1 and is not a success metric.",
+    "state_sum_max_absolute_error": "Gate |(E+A+M)+R-reference| at the unchanged 0.00005 maximum.",
+    "normalized_state_max_absolute_error": "Gate RMSNorm((E+A+M)+R) against the native attention11 input at the unchanged 0.00005 maximum.",
+    "all_donor_current_head_max_absolute_error": "The all-opposite EAM+R state must reproduce the direct opposite current-branch head under the unchanged 0.00005 maximum.",
+    "same_batch_native_noop": "Retain the identical-order native/no-op endpoint check."
+  },
+  "unchanged_science": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "conditions": [
+      "recipient_EAM",
+      "opposite_E",
+      "opposite_A",
+      "opposite_M",
+      "opposite_EA",
+      "opposite_EM",
+      "opposite_AM",
+      "opposite_EAM",
+      "lexical_E",
+      "lexical_A",
+      "lexical_M",
+      "lexical_EAM"
+    ],
+    "predictions": [
+      "embedding_carries_task",
+      "attention_carries_task",
+      "MLP_carries_task",
+      "distributed_across_writer_families",
+      "interaction_is_needed",
+      "number_specific",
+      "lexical_collateral"
+    ],
+    "task_metrics": [
+      "answer_directed_target_margin_improvement",
+      "target_full_vocab_CE_improvement"
+    ],
+    "bars": "identical to frozen v1",
+    "price": {
+      "model_forwards": 4,
+      "example_evaluations": 480,
+      "backwards": 0,
+      "parameter_updates": 0
+    }
+  },
+  "v2_license": {
+    "path": "circuits/fast_screens/task14_fresh_matched_subject_current_upstream_writer_factorial_v2_capability_license.json",
+    "sha256": "bf8f9a3b71846a06ebaf577421547eb19149345d9011e3bf5417bcbd7338abc6"
+  },
+  "terminal_policy": "If corrected closure or any other frozen instrument gate fails, v2 is invalid and scientific metrics remain uninterpretable. Do not tune the tolerance, rows, arms, or predictions."
+}
