@@ -10,8 +10,8 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 89,
-  "blocking_events": 90
+  "held_events": 92,
+  "blocking_events": 94
  },
  "work_items": [
   {
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v20",
+   "active_claim_id": "grammatical_subject_number.v21",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 19,
+   "counterfactual_family_count": 20,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 10
+    "validated": 11
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -424,7 +424,14 @@
     "task14_head11_3.fresh_MLP8_depth_sources.distributed_depth.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.cross_depth_composition.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.direction_switch.complete.v1",
-    "task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1"
+    "task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.X_mlp6_7_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.W_mlp4_5_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.distributed_within_V.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.WX_composition.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.direction_switch.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -479,7 +486,10 @@
     "task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.instrument_parent_closure.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.V_late_dominant.complete.v1",
-    "task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1"
+    "task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.distributed_within_V.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -530,7 +540,11 @@
     "task14_head11_3.fresh_MLP8_depth_sources.U_early_dominant.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.distributed_depth.complete.v1",
     "task14_head11_3.fresh_MLP8_depth_sources.cross_depth_composition.complete.v1",
-    "task14_head11_3.fresh_MLP8_depth_sources.direction_switch.complete.v1"
+    "task14_head11_3.fresh_MLP8_depth_sources.direction_switch.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.X_mlp6_7_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.W_mlp4_5_dominant.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.WX_composition.complete.v1",
+    "task14_head11_3.fresh_MLP8_late_writer_halves.direction_switch.complete.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -551,7 +565,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The valid licensed MLP8 E/A/U/V depth-source factorial is complete and must not be repeated. Its earlier float32 regrouping attempt remains a separate invalid instrument with non-evidence scientific arms. In the repaired exact run, V=MLP4--7 was the dominant source of MLP8's prior-MLP input effect in both number directions; U=MLP0--3 dominance, distributed depth, cross-depth composition, and direction switching were null, while number specificity held. E/A/U/V are operational native writer groups, not a unique semantic basis. Individual MLP4--7 identities, within-group semantic units, OOD replication, independent data, downstream readers, and necessity outside the fixed L11H3 interface remain untested."
+   "next_missing": "The valid licensed MLP8 E/A/U/W/X factorial is complete and must not be repeated. Splitting the previously dominant V=MLP4--7 group into W=MLP4--5 and X=MLP6--7 found neither half dominant, while distributed contribution across the two halves held. W\u00d7X composition and direction switching were null, and number specificity held. W and X are operational native writer groups, not unique semantic units. Individual MLP4--7 identities, within-MLP semantic units, OOD replication, independent data, downstream readers, and necessity outside the fixed L11H3 interface remain untested."
   },
   {
    "tag": "subroutine.induction.equality_score",

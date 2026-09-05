@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-231 events; 210 scientific protocols; 231 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+238 events; 217 scientific protocols; 238 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -252,5 +252,12 @@ No two registered events have the same execution key.
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_depth_sources.cross_depth_composition.complete.v1` | complete/null | composition | `grammatical_subject_number.v19` | `4fc390dbfa25` | `4dc334270459` | `fee6827d1217` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_depth_sources.direction_switch.complete.v1` | complete/null | composition | `grammatical_subject_number.v19` | `158b4058e5a8` | `7c264f0829b5` | `82c3eb2b5f8f` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1` | complete/held | composition | `grammatical_subject_number.v19` | `af702415e146` | `53769dd2d5b4` | `1c648f1335da` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1` | complete/held | null_control | `grammatical_subject_number.v20` | `82fc1eced9b5` | `17453ce74cc2` | `8e306c037a9f` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.X_mlp6_7_dominant.complete.v1` | complete/null | composition | `grammatical_subject_number.v20` | `86fdb247a019` | `6ff4ce4e871c` | `7435d6589c20` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.W_mlp4_5_dominant.complete.v1` | complete/null | composition | `grammatical_subject_number.v20` | `9b025e170e22` | `221ea01d5cf9` | `2d54ba8d970f` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.distributed_within_V.complete.v1` | complete/held | composition | `grammatical_subject_number.v20` | `2dbdc6bdd926` | `03bdb2cb18bc` | `7154e915eb56` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.WX_composition.complete.v1` | complete/null | composition | `grammatical_subject_number.v20` | `3b8ddb6d1e86` | `6f8fa8e5ec47` | `e3ee3a036731` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.direction_switch.complete.v1` | complete/null | composition | `grammatical_subject_number.v20` | `ddd1d6dc1e07` | `807c63ac517c` | `0a312f066c1b` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1` | complete/held | composition | `grammatical_subject_number.v20` | `358f65b00862` | `9fad918c6b61` | `6b3c4472bbfd` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |
