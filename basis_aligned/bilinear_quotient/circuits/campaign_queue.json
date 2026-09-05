@@ -10,8 +10,8 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 66,
-  "blocking_events": 67
+  "held_events": 72,
+  "blocking_events": 74
  },
  "work_items": [
   {
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v15",
+   "active_claim_id": "grammatical_subject_number.v16",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 14,
+   "counterfactual_family_count": 15,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 5
+    "validated": 6
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -376,7 +376,21 @@
     "task14_head11_3.fresh_MLP_depth.interaction_needed.complete.v1",
     "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1",
     "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1",
-    "task14_head11_3.fresh_MLP_depth.G1_G2_exploratory.complete.v1"
+    "task14_head11_3.fresh_MLP_depth.G1_G2_exploratory.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_standalone.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_conditional.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.same_layer_stable.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.context_dependence.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP4.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP5.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP6.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP7.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP10.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -408,7 +422,13 @@
     "task14_head11_3.fresh_upstream_writers.earlier_MLP_family.complete.v1",
     "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1",
     "task14_head11_3.fresh_MLP_depth.instrument.complete.v1",
-    "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1"
+    "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.instrument.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_standalone.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_conditional.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.same_layer_stable.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.number_specificity.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -436,7 +456,14 @@
     "task14_head11_3.fresh_MLP_depth.G2.complete.v1",
     "task14_head11_3.fresh_MLP_depth.distributed_groups.complete.v1",
     "task14_head11_3.fresh_MLP_depth.interaction_needed.complete.v1",
-    "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1"
+    "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.context_dependence.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP4.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP5.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP6.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP7.complete.v1",
+    "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -457,7 +484,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The licensed upstream-MLP depth factorial is complete and must not be repeated. No single coarse group was sufficient under the registered all-cell bar; the distributed and interaction-needed accounts were also null, while number-specificity held and lexical collateral was null. G1+G2 recovery of 0.936--0.952 is exploratory because that pair was not registered as a carries-task claim. The screen supports a mostly additive MLP4--10 path dominated by MLP8--10, not an individual-MLP circuit. Next preregister conditional per-layer effects within MLP4--10. Necessity, OOD syntax, downstream readers, and individual MLPs remain untested."
+   "next_missing": "The licensed conditional MLP4--10 screen is complete and must not be repeated. MLP8 was the only native-layer handle that passed both standalone and full-minus-layer criteria in every cell. MLP10 showed mixed sub-threshold/cell-dependent evidence; MLP4--7 and MLP9 were null under the registered localization bars. Context-dependence and lexical-collateral predictions were null, while number-specificity held. This is native-layer localization, not a claim that all of MLP8 is one semantic circuit. Within-MLP splitting/grouping, necessity, OOD syntax, and downstream readers remain untested."
   },
   {
    "tag": "subroutine.induction.equality_score",

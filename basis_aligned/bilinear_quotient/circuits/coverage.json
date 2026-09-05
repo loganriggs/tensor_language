@@ -694,17 +694,20 @@
       "task14_head11_3.fresh_upstream_writers.v2_instrument.complete.v1",
       "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1",
       "task14_head11_3.fresh_MLP_depth.instrument.complete.v1",
-      "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1"
+      "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.instrument.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.number_specificity.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
       "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
       "task14_head11_3.fresh_current_cached.lexical_leakage.complete.v1",
       "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1",
-      "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1"
+      "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1"
     },
     "composition": {
      "status": "mixed",
@@ -718,7 +721,11 @@
       "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
       "task14_head11_3.fresh_subject_term.exact_localization.complete.v1",
       "task14_head11_3.fresh_current_cached.current_branch_use.complete.v1",
-      "task14_head11_3.fresh_upstream_writers.earlier_MLP_family.complete.v1"
+      "task14_head11_3.fresh_upstream_writers.earlier_MLP_family.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_standalone.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.at_least_one_conditional.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.same_layer_stable.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP8.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.score_context_test.complete.v1",
@@ -736,10 +743,16 @@
       "task14_head11_3.fresh_MLP_depth.G1.complete.v1",
       "task14_head11_3.fresh_MLP_depth.G2.complete.v1",
       "task14_head11_3.fresh_MLP_depth.distributed_groups.complete.v1",
-      "task14_head11_3.fresh_MLP_depth.interaction_needed.complete.v1"
+      "task14_head11_3.fresh_MLP_depth.interaction_needed.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.context_dependence.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP4.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP5.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP6.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP7.complete.v1",
+      "task14_head11_3.fresh_MLP4_10_conditional.MLP9.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_MLP_depth.G1_G2_exploratory.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP4_10_conditional.MLP10.complete.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -752,7 +765,7 @@
    "n_held_categories": 5,
    "n_blocked_categories": 5,
    "n_missing_categories": 1,
-   "next_missing": "The licensed upstream-MLP depth factorial is complete and must not be repeated. No single coarse group was sufficient under the registered all-cell bar; the distributed and interaction-needed accounts were also null, while number-specificity held and lexical collateral was null. G1+G2 recovery of 0.936--0.952 is exploratory because that pair was not registered as a carries-task claim. The screen supports a mostly additive MLP4--10 path dominated by MLP8--10, not an individual-MLP circuit. Next preregister conditional per-layer effects within MLP4--10. Necessity, OOD syntax, downstream readers, and individual MLPs remain untested."
+   "next_missing": "The licensed conditional MLP4--10 screen is complete and must not be repeated. MLP8 was the only native-layer handle that passed both standalone and full-minus-layer criteria in every cell. MLP10 showed mixed sub-threshold/cell-dependent evidence; MLP4--7 and MLP9 were null under the registered localization bars. Context-dependence and lexical-collateral predictions were null, while number-specificity held. This is native-layer localization, not a claim that all of MLP8 is one semantic circuit. Within-MLP splitting/grouping, necessity, OOD syntax, and downstream readers remain untested."
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",
