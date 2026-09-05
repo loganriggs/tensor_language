@@ -1,0 +1,55 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_fixed_upstream_displacement_prototype_v1",
+  "created_utc": "2026-09-05T22:43:45Z",
+  "purpose": "Test whether a held text's grouped-MLP6/7 upstream displacement can be replaced by a direction-and-factor-specific leave-one-row-out prototype while frozen downstream readers still predict its causal margin effect.",
+  "data_status": "Retrospective diagnostic on the second corpus. Per-row fixed-reader outputs were sealed before causal outcomes, but the corpus-level prototype rule and bars are registered after those artifacts opened; passing licenses a prospective third-corpus prototype export, not identification by itself.",
+  "binding_reader_predictions": {
+    "path": "circuits/fast_screens/task14_fixed_direction_reader_cross_corpus_transfer_v1_predictions.json",
+    "sha256": "1d6a5ce082efb6f59b492b5d80c690979e1d3df1bd532d73edf49caaefc8cc81",
+    "finding": "Contains 512 sealed fixed-reader outputs q_hat=g_direction dot delta_h for 32 rows and all 16 factor subsets."
+  },
+  "binding_causal_validation": {
+    "path": "circuits/fast_screens/task14_fixed_direction_reader_cross_corpus_transfer_v1_result.json",
+    "sha256": "e53160cff6407c27dfd3a0e6b15740984db0d8b4468fcb96a10d32cd4a5f13b9",
+    "finding": "Contains the corresponding 512 exact-minus-base causal margin effects; fixed readers transfer with perfect signs."
+  },
+  "binding_reader_artifact": {
+    "path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json",
+    "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57",
+    "finding": "Defines two frozen 1152-dimensional linear downstream readers."
+  },
+  "novelty_audit": [
+    "Repository searches for fixed upstream displacement, LOO head delta prototype, reader-coupled displacement, target-free upstream prediction, and displacement prototype found no prior candidate or receipt.",
+    "Prior work freezes downstream readers but still evaluates each target text's own upstream displacement. This screen removes the held row from the upstream prediction rule.",
+    "Activation reconstruction and head-vector cosine are explicitly not verdict metrics; only prediction of causal margin effects through the frozen reader counts."
+  ],
+  "map": "For held row i, direction d, and factor subset S, define the exact-subset prototype p[-i,d,S] as the mean grouped-MLP6/7 L11H3 displacement over every other row j with direction d at the same S. Predict q_i(S)=g_d dot p[-i,d,S]. By linearity this equals the leave-one-out mean of the sealed fixed-reader q_hat_j(S), so the causal screen needs no new GPU execution and never reads held-row displacement. The matched direction-cardinality control averages all q_hat_j(T) from other rows j and every subset T with |T|=|S|, removing factor identity at matched held-row exclusion.",
+  "predictions": {
+    "pred_a_instrument_and_complete_join": "All three artifact hashes validate; exactly 512 unique row/subset values join; directions/templates/cardinalities match and all source values are finite.",
+    "pred_b_exact_subset_prototype_predicts_all_effects": "Across all 512 held-row effects, exact-subset prototypes have cosine >=0.80, relative L2 error <=0.65, and sign agreement >=0.80.",
+    "pred_c_intermediate_compositions_transfer": "Across the 448 nonempty/nonfull intermediate subsets, exact-subset prototypes have cosine >=0.75, relative L2 error <=0.70, and sign agreement >=0.75.",
+    "pred_d_each_direction_template_cell_transfers": "Each of the four direction-template cells has cosine >=0.65, relative L2 error <=0.85, and sign agreement >=0.65.",
+    "pred_e_factor_identity_beats_cardinality_control": "Exact-subset prototypes reduce causal-prediction SSE by at least 10% versus direction-cardinality leave-one-row-out prototypes.",
+    "pred_f_target_free_provenance": "Every exact and control prediction excludes the held row, uses only sealed q_hat values and registered metadata, and performs no fit, scale, offset, causal-outcome lookup, target forward, backward, or intervention."
+  },
+  "null": "Failure of b-d means the upstream displacement law remains lexically/text dependent even though its downstream reader transfers. Failure of e means factor identity adds no reusable upstream structure beyond direction and cardinality. Preserve the result and do not export displacement vectors or tune groupings on this corpus.",
+  "price": {
+    "physical_model_forwards": 0,
+    "example_evaluations": 0,
+    "causal_interventions": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "sealed_scalar_inputs": 512,
+    "causal_scalar_targets": 512
+  },
+  "closed_claims": [
+    "prospective_identification",
+    "head_vector_reconstruction",
+    "standalone_upstream_execution",
+    "unrelated_behavior_selectivity",
+    "other_tasks",
+    "rank",
+    "compression"
+  ]
+}

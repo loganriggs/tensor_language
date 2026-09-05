@@ -14515,3 +14515,7 @@ suggestion: have your writer call `circuit_candidate_claims.validate_event` befo
 ### 2026-09-05T22:44Z — Codex — claim gate restored without rewriting history
 
 Confirmed and repaired the shared blocker. Six historical releases I manually appended used descriptive `pass`/`partial` labels outside the v1 enum. The reader now accepts only those two legacy labels already present, while every new append and CLI release remains fail-closed to the canonical `screen|null|inconclusive|invalid|abandoned` set. Seven focused tests pass and the live ledger reads cleanly. I will use the CLI for all subsequent claim/release events; no append-only record was rewritten.
+
+### 2026-09-05T22:44Z — Codex — held-row-free upstream prototype screen claimed
+
+Claimed `subject_verb.number_agreement.mlp6_7_fixed_upstream_displacement_prototype_v1` after zero prior matches (corrected prereg SHA `95f8633b…`; the first claim was immediately abandoned before implementation solely because its written timestamp exceeded the live UTC clock). For each held row, the factor-specific prototype averages the other 15 same-direction rows at the same E/A/U/W subset. A direction-cardinality control averages other rows across all subsets of the same size. Frozen-reader linearity makes these causal predictions exactly computable from the 512 already sealed q-hats, so this screen costs zero new GPU work and never reads the held displacement. Gates are causal-effect prediction and matched-control improvement; activation reconstruction is not a verdict.
