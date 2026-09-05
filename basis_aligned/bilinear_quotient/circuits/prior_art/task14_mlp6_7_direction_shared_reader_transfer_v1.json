@@ -1,0 +1,28 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_shared_reader_transfer_v1",
+  "created_utc": "2026-09-05T22:17:00Z",
+  "purpose": "Test whether row-specific L11H3 downstream margin readers collapse to a stable direction-level operational reader that transfers leave-one-row-out across syntax and nouns.",
+  "data_status": "RETROSPECTIVE_FROZEN_CAUSAL_LATTICE; gradients and reader-transfer predictions are new; diagnostic requiring prospective promotion if it passes",
+  "binding_parent": {
+    "path": "circuits/fast_screens/task14_prospective_mlp6_7_single_reader_full_lattice_v1_result.json",
+    "sha256": "3185f6632b12109236ac127eb9eb297eea8185949d6e4b396b332e530ffda107",
+    "finding": "One row-specific central reader prospectively predicts 512 amplitudes, including 448 unopened intermediates."
+  },
+  "novelty_audit": [
+    "Searches for direction-shared reader, leave-one-row-out downstream gradient, and shared margin-reader transfer found no prior authority event.",
+    "This is operational reader grouping across examples, not a low-rank fit or activation reconstruction."
+  ],
+  "map": "Recompute one target-free central margin gradient g_i per row exactly as in the sealed full-lattice test. For each row i, average g_j over all other rows with the same answer direction and predict all sixteen q_i(S) by g_LOO,direction dot delta_h_i(S). Compare only afterward with the frozen complete causal lattice. A global leave-one-row-out gradient is the matched sharing control; the already-validated row-specific reader is the upper benchmark.",
+  "predictions": {
+    "pred_a_gradient_instrument": "All source/downstream closures <=5e-5 and all 32 central gradients are finite and nonzero.",
+    "pred_b_direction_reader_transfers": "Across 512 amplitudes, direction-LOO cosine >=0.95, relative L2 error <=0.35, and sign agreement >=0.90.",
+    "pred_c_reader_transfers_each_template": "Each template separately has cosine >=0.90, relative L2 error <=0.45, and sign agreement >=0.85.",
+    "pred_d_reader_transfers_intermediate_composition": "The 448 intermediate amplitudes have cosine >=0.95, relative L2 error <=0.35, and sign agreement >=0.90.",
+    "pred_e_direction_grouping_beats_global": "Direction-LOO reduces squared error at least 20% versus global-LOO, demonstrating that answer direction is a necessary grouping variable.",
+    "pred_f_reader_geometry_is_stable": "Minimum row-gradient cosine with its direction-LOO reader is >=0.80."
+  },
+  "null": "Failure of b-d means the reader remains row/context-specific. Failure of e means one global reader is equally adequate. Failure of f means any task prediction is driven by displacement geometry despite unstable reader identity. No rank or post-outcome fitted reader is permitted.",
+  "price": {"physical_model_forwards": 2, "example_evaluations": 128, "backwards": 1, "causal_interventions": 0, "parameter_updates": 0},
+  "closed_claims": ["prospective_reader_transfer", "other_tasks", "global_reader", "rank", "compression", "activation_reconstruction"]
+}
