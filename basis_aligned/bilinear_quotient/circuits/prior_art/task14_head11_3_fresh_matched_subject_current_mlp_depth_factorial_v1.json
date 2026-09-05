@@ -1,0 +1,115 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_mlp_depth_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "On the unchanged 16 licensed HOLDOUT rows, split the accumulated MLP-written state that supplies the L11H3 current subject value into three balanced depth groups while measuring exact task behavior and all group interactions.",
+  "parent": {
+    "result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2_result.json",
+    "result_sha256": "5c021cad2f73663f2176a813fc1f4ceffef555b48d7d00c050d0f60d0a2434fa",
+    "terminal": "valid_causal_screen",
+    "required_predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_embedding_carries_task": false,
+      "pred_c_attention_carries_task": false,
+      "pred_d_MLP_carries_task": true,
+      "pred_e_distributed_across_writer_families": false,
+      "pred_f_interaction_is_needed": false,
+      "pred_g_number_specific": true,
+      "pred_h_lexical_collateral": false
+    }
+  },
+  "novelty_audit": [
+    {
+      "path": "circuits/followups/task14_head11_3_early_late_mlp_factorial_v1_result.json",
+      "relation": "This splits downstream compensating MLP13--17 effects after H11.3, not the upstream MLP0--10 writes read by the head."
+    },
+    {
+      "path": "circuits/followups/task14_head11_3_late_mlp_halves_factorial_v1_result.json",
+      "relation": "This subdivides downstream MLP13--17 and is not an upstream current-value decomposition."
+    },
+    {
+      "path": "ops/mlp10_exact_source_pair_causal_split_rung507.py",
+      "relation": "This supplies reusable exact residual-recurrence bookkeeping for another task and MLP10 reader; it contains no Task14 MLP0--10 causal interchange."
+    },
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "relation": "The canonical dossier contains no executed layerwise split of the upstream MLP-written family."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged parent v2 fresh matched-natural rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"]
+  },
+  "groups": {
+    "G0": [0, 1, 2, 3],
+    "G1": [4, 5, 6, 7],
+    "G2": [8, 9, 10]
+  },
+  "exact_computation": {
+    "propagation": "At every block entry, multiply every earlier MLP slot by that block's residual lambda0; at MLP i, add its native write to slot i. At the pre-attention-11 capture this equals w_i times the product of lambda0 from blocks i+1 through 11.",
+    "grouping_remainder": "Form G0, G1, G2 in fixed float32 order and rho_M = captured_M - ((G0+G1)+G2). rho_M belongs to G0, follows the G0 donor, and is added after the three groups.",
+    "fixed_state": "Recipient E, A, parent state remainder R, attention probability p_8, cached-value branch, and every non-subject L11H3 source term remain fixed.",
+    "endpoint": "RMS-normalize the recombined pre-L11 subject state, compute only current V11H3, add the fixed cached value in head-value coordinates, apply the native output projection once, install the exact subject head term, and run the native suffix.",
+    "invalid_policy": "Recipient or all-donor M-group closure above 0.00005, or failure of any inherited replay/source/no-op/install gate, makes the instrument invalid and all scientific arms non-evidence."
+  },
+  "conditions": [
+    "recipient_G012",
+    "opposite_G0", "opposite_G1", "opposite_G2",
+    "opposite_G01", "opposite_G02", "opposite_G12", "opposite_G012",
+    "lexical_G0", "lexical_G1", "lexical_G2", "lexical_G012"
+  ],
+  "outcomes": [
+    "answer_directed_target_margin_improvement",
+    "target_full_vocab_CE_improvement"
+  ],
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_state_sum_absolute_error": 0.00005,
+    "maximum_normalized_state_absolute_error": 0.00005,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_all_donor_current_head_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "maximum_recipient_grouped_M_absolute_error": 0.00005,
+    "maximum_all_donor_grouped_M_absolute_error": 0.00005,
+    "minimum_all_donor_mean_target_margin_improvement": 0.05,
+    "minimum_all_donor_mean_target_CE_improvement": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "minimum_group_recovery_fraction": 0.70,
+    "minimum_distributed_group_recovery_fraction": 0.25,
+    "minimum_distributed_group_count": 2,
+    "maximum_group_recovery_for_interaction": 0.50,
+    "minimum_total_interaction_recovery_fraction": 0.50,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_collateral_ratio": 0.50
+  },
+  "predictions": {
+    "pred_a_instrument_live": "All exactness gates pass and all-donor MLP groups help margin and CE in every target cell.",
+    "pred_b_G0_carries_task": "G0 alone recovers at least 70% of both all-M margin and CE with at least 75% helpful rows in every cell.",
+    "pred_c_G1_carries_task": "G1 alone meets the same frozen task bars.",
+    "pred_d_G2_carries_task": "G2 alone meets the same frozen task bars.",
+    "pred_e_distributed_across_depth_groups": "No group reaches 70%, while at least two groups each reach 25% of margin and CE and are helpful in every cell.",
+    "pred_f_interaction_is_needed": "No singleton reaches 50%, but the total non-additive factorial term reaches 50% of both margin and CE with helpful row signs in every cell.",
+    "pred_g_number_specific": "Every same-number lexical group effect is at most 25% of the all-M number effect for margin and CE.",
+    "pred_h_lexical_collateral": "At least one lexical effect reaches 50% of the number effect."
+  },
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 480,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "individual_MLP_layer_identification",
+    "attention_writer_decomposition",
+    "downstream_reader_identification",
+    "necessity",
+    "syntax_generality",
+    "FIT",
+    "rank",
+    "reconstruction"
+  ],
+  "routing": "Recurse only into a passing group. If no singleton passes but distribution or interaction passes, keep the causally grouped combination as the next object rather than ranking individual layers post hoc."
+}
