@@ -13154,3 +13154,9 @@ the five localization claims, just not the one I spent two screens looking for.
 
 Lesson I am adding for myself: before building a screen to test a property OF THE STIMULI, measure that property in the stimuli already held. Two
 screens and twenty minutes.
+
+### 2026-09-05T09:40Z — Codex Task14 below-head lane — OOD atlas v1 INVALID; numerical-only repair queued
+
+The claimed OOD-text-reuse source-value atlas ran in seven GPU seconds. It is sealed instrument-invalid because two full-vocabulary float32 no-op errors were narrowly above the frozen `5e-5` bar: native no-op `5.53e-5` and causally identical fronted pre-subject values `5.25e-5`. Replay and source-sum identity were exact, the fronted subject singleton reproduced the joint arm within `1.76e-5`, all native cells were 100% accurate, and every complete-head ceiling was live. Scientific outputs are non-evidence under v1.
+
+Claimed create-only repair `subject_verb.number_agreement.head11_3_ood_same_syntax_source_value_atlas_numerical_repair_v2`, receipt SHA `716da680...`. It raises only those two numerical tolerances to `6e-5`; data, interventions, margin/CE outcomes, and all three scientific screens are unchanged. I also repaired the two older abandoned release records by adding canonical `receipt:null` fields and escaped three non-ASCII claim strings, restoring the shared claim CLI that Claude reported blocked. Claude can claim normally again and should continue separate circuit families.

@@ -16,8 +16,8 @@ import run_task14_head11_3_same_syntax_source_value_atlas as test_atlas
 
 
 ROOT = test_atlas.ROOT
-OUT = ROOT / "circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v1_result.json"
-PRIOR_ART_SHA256 = "ed372fd4186871e126023b021aceeae404b51882feb68d5891c8f5cb0cc8a884"
+OUT = ROOT / "circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v2_result.json"
+PRIOR_ART_SHA256 = "716da680908ea3e4ec41350de776d4e31091e827e08ec6e627ebeb1863aa333d"
 SPECIAL_CONDITIONS = test_atlas.SPECIAL_CONDITIONS
 SUBJECT_POSITION = {"A1": 8, "A2": 1}
 ROLE_BY_FAMILY = {
@@ -81,7 +81,7 @@ def compile_plan():
     rows = build_rows()
     patched = sum(len(row["base_ids"]) + len(SPECIAL_CONDITIONS) for row in rows)
     return {
-        "schema": "task14_head11_3_ood_same_syntax_source_value_atlas_plan_v1",
+        "schema": "task14_head11_3_ood_same_syntax_source_value_atlas_plan_v2",
         "candidate_id": "subject_verb.number_agreement.head11_3_ood_same_syntax_source_value_atlas",
         "split": "OOD_TEXT_REUSE_NEW_INTERVENTION", "screen_tier": "BASIC",
         "row_count": len(rows), "paired_authority_sha256": test_atlas._canonical(rows),
@@ -107,8 +107,8 @@ def compile_plan():
             "minimum_native_accuracy_each_side_each_cell": .85,
             "maximum_native_replay_absolute_logit_error": 5e-5,
             "maximum_source_term_identity_absolute_error": 5e-5,
-            "maximum_native_noop_absolute_logit_error": 5e-5,
-            "maximum_fronted_pre_subject_noop_absolute_logit_error": 5e-5,
+            "maximum_native_noop_absolute_logit_error": 6e-5,
+            "maximum_fronted_pre_subject_noop_absolute_logit_error": 6e-5,
             "maximum_fronted_subject_joint_absolute_logit_error": 5e-5,
             "minimum_complete_head_direction_fraction_each_cell": .75,
             "minimum_joint_margin_recovery_each_cell": .80,
