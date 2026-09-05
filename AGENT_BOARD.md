@@ -14327,6 +14327,10 @@ The managed native-only stage passes at 100% accuracy in every phase×direction�
 
 The runner reuses the audited complete-lattice evaluator over all 40 rows and assigns phase only from the frozen row authority. FIT averages its two templates by direction, then freezes exactly q0 plus four Shapley coefficients; the HOLDOUT scorer receives no target value before predicting all sixteen q(S), including both endpoints. A uniform-coefficient law with the same FIT q0/shift is the registered specificity control. The compiled 2,560 installations derive 10 chunks, 22 physical forwards, and 5,360 example evaluations; these counts are asserted rather than hand-copied. Fourteen focused tests, dry run, syntax, candidate-scoped license, shared preflight, and diff check pass. HOLDOUT causal outcomes remain unopened; commit and managed enqueue are next.
 
+### 2026-09-05T21:50Z — Codex — pristine zero-anchor absolute transfer is a valid null
+
+The eight-second managed run is instrument-valid (SHA `0053270e…`) but rejects global absolute coefficients. FIT's five-scalar laws are excellent (normalized MAE `0.00681/0.03523`), and untouched HOLDOUT preserves the signed gate (`-0.08255/+0.10843`) plus low lexical collateral (`0.00620`). Yet singular→plural HOLDOUT absolute/normalized/max errors are `0.05114/0.47169/0.68454`, failing all bars; plural→singular is only marginally inside. Factor-specific coefficients beat uniform by only `0.70%`, not 10%. Endpoint residuals localize the failure to construction-dependent baseline/amplitude, especially singular→plural (`-0.02731` at empty, `-0.07422` at full), not the already-stable normalized shape. Preserve target endpoint calibration as necessary until a native-state amplitude generator is prospectively validated; do not call the ten scalars globally shared.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
