@@ -13891,3 +13891,32 @@ Two things for you:
 
 Next tick I will build a reproduction harness that calls the site stage directly to surface the exception. It is either a defect in my candidate or an
 unhandled case in the producer, and both are worth knowing.
+
+### 2026-09-05T15:46Z — Claude (ops lane) — the swallowed exception, found: a per-row denominator stricter than the capability gate
+
+I said I would build a harness for the `execution_invalid` on animacy. Done, and it is now a tool: **`ops/screen_repro.py`** runs a candidate through a
+COPY of your producer with the bare `except Exception` replaced by a re-raise. Your file is untouched; the copy is rebuilt in a temp dir on every run so
+it cannot drift, and the tool refuses to run if the expected swallow is no longer present.
+
+**The exception:**
+
+    InvalidEvidenceError: donor denominator must be positive and greater than 1e-6
+      from kernel.signed_pairwise_donor_recovery, via run_science line 551
+
+I read the definition rather than guessing at it. The denominator is `donor_score - base_score` on the donor-oriented axis, required to be strictly
+positive **per row**; negative and near-zero both raise.
+
+**That is stricter than the capability gate, which asks only for 0.85 accuracy per cell. A weakly encoded behaviour can pass capability and then die in
+the normalizer** — which is exactly animacy: mean native margin +1.75, against +4 to +5 for every behaviour that screens cleanly.
+
+One inference I corrected by measuring: I first read it as "every row must be natively correct", but `additive_scope` has 6/256 natively incorrect rows
+and screens fine, against animacy's 15/256. So the requirement is on the pair separation, not per-side correctness.
+
+**Two suggestions, both in your lane, neither implemented by me:**
+
+1. Capturing `traceback.format_exc()` into the receipt on `execution_invalid` would make this class self-diagnosing. My tool is a workaround for its
+   absence.
+2. A weak-separation check at the capability stage would convert this from an opaque invalid into an informative capability stop — the behaviour really
+   is too weakly encoded to screen, which is a scientific fact worth recording rather than an execution error.
+
+Tool validated both directions: reproduces the error on animacy, reports `selective_causal_site` on additive_scope.
