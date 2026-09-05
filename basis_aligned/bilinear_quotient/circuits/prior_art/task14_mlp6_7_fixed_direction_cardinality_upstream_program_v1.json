@@ -1,0 +1,60 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_fixed_direction_cardinality_upstream_program_v1",
+  "created_utc": "2026-09-05T22:50:22Z",
+  "purpose": "Export a 10-vector direction-by-cardinality grouped-MLP6/7 displacement program from the second corpus, then prospectively test whether it can replace each third-corpus target displacement and preserve the signed causal margin computation through frozen readers.",
+  "new_authority": {
+    "module": "ops/circuit_fast_screen_candidate_task14_cardinality_prototype_transfer.py",
+    "logical_sha256": "f1c0e7cf386c223352c220a0a2ae620b8b126bf739d9f21cd2f8e889263201cb",
+    "rows": 32,
+    "prompt_endpoints": 96,
+    "templates": ["near_beyond", "beyond_near"],
+    "noun_forms": 32,
+    "overlap_with_prior_task14_vocabulary_or_prompts": 0
+  },
+  "binding_training_artifacts": {
+    "reader": {
+      "path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json",
+      "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57"
+    },
+    "second_corpus_authority": {
+      "module": "ops/circuit_fast_screen_candidate_task14_fixed_reader_transfer.py",
+      "logical_sha256": "68ccb475b41e8f566dc4ac11d293429065e81b156ee19e3a4f6f229b1defb75e"
+    },
+    "selection_screen": {
+      "path": "circuits/fast_screens/task14_mlp6_7_fixed_upstream_displacement_prototype_v1_result.json",
+      "sha256": "9d87e3f5f186d7571f12504d11dab9cd8bb88f2f98b716718b8e596d1cdba98f",
+      "finding": "Factor-specific LOO prototypes beat direction-cardinality by only 2.52% SSE, rejecting the 32-vector table and selecting the 10-vector law."
+    }
+  },
+  "novelty_audit": [
+    "Searches for direction-cardinality prototype, cardinality displacement, upstream prototype, prototype native effect, and target-free displacement found only the immediately preceding retrospective selector screen.",
+    "Prior fixed-reader transfer predicts effects of each target text's own native displacement. This candidate exports fixed upstream vectors and installs them on entirely new text.",
+    "The 10-vector candidate is selected against a 32-vector factor-specific law before this third corpus exists; a two-vector direction-only program is the matched simpler control."
+  ],
+  "program": "On the second corpus, average all 1152-D exact-minus-base L11H3 displacements separately for direction d and cardinality k over all rows and all E/A/U/W subsets of size k, exporting p[d,k]. Also export p[d,*] averaged over all subsets as a direction-only control. On each new target row/subset, install h_base+p[d,k] or h_base+p[d,*]. No target exact displacement is used by either prototype method. Frozen reader g[d] seals predicted prototype effects g[d] dot p before any new causal lattice is opened.",
+  "predictions": {
+    "pred_a_authority_capability_and_artifacts": "The frozen 32-row/96-endpoint authority, native capability license, reader artifact, training authority, prototype artifact, temporal prediction seal, and all decomposition closures validate.",
+    "pred_b_reader_predicts_installed_prototype_effect": "Across all 512 cardinality-prototype installations, frozen-reader predictions versus observed prototype causal effects have cosine >=0.90, relative L2 error <=0.45, and sign agreement >=0.85.",
+    "pred_c_prototype_substitutes_native_displacement": "Observed cardinality-prototype effects versus the target text's native exact-minus-base effects have cosine >=0.75, relative L2 error <=0.75, and sign agreement >=0.75.",
+    "pred_d_intermediate_and_each_template_transfer": "The 448 intermediate subsets independently meet cosine >=0.70, relative L2 error <=0.85, signs >=0.70; each new template meets cosine >=0.65, relative L2 error <=0.90, signs >=0.65 against native effects.",
+    "pred_e_cardinality_beats_direction_only": "Cardinality prototypes reduce SSE to native causal effects by at least 10% versus the two-vector direction-only program on identical installations.",
+    "pred_f_target_free_program_and_price": "Prototype writes and sealed predictions never consume a third-corpus exact displacement or causal outcome; no fit/scale/offset/update occurs. Export stores exactly 12x1152=13824 scalars; validation uses the registered managed price."
+  },
+  "null": "Failure of b means the fixed downstream reader is not adequate for these exported writes. Failure of c-d means upstream displacements are too text-specific for this fixed program. Failure of e means cardinality is unnecessary and the two-vector program should be tested without post-hoc rescue. Preserve every miss and do not tune prototypes or bars on the third corpus.",
+  "price": {
+    "native_capability": {"physical_model_forwards": 1, "example_evaluations": 96},
+    "prototype_export": {"physical_model_forwards": 1, "example_evaluations": 96, "stored_scalars": 13824},
+    "prediction_seal": {"physical_model_forwards": 0, "sealed_predictions": 1024},
+    "causal_validation": {"physical_model_forwards": 9, "example_evaluations": 2144, "causal_installations": 2048, "maximum_patch_chunk_rows": 256, "patch_chunks": 8},
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "unrelated_behavior_selectivity",
+    "other_tasks",
+    "standalone_full-model replacement",
+    "rank",
+    "compression"
+  ]
+}
