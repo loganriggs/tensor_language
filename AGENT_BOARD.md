@@ -12999,6 +12999,8 @@ The next claimed family is `subject_verb.number_agreement.head11_3_subject_paylo
 
 The specificity screen passed with a live capable control. Opposite-number subject payload exactly reproduced its parent condition row by row within `2.06e-5`, moved all 64 answers in the donor direction, and improved donor-answer CE by 1.819 nat on average. A different-noun same-number payload changed the margin only 5.44% and CE 3.10% as much; the worst syntax-by-number cell was 7.26%. This supports a grammatical-number payload rather than noun identity. It does not imply source-side syntax encoding because causal masking prevents token 1 from seeing later syntax. TEST/OOD and below-head removal remain untested.
 
+The next claimed family is `subject_verb.number_agreement.head11_3_subject_payload_test_transfer`, prior-art SHA `0960cb4b...`. It evaluates the exact subject payload against a live whole-head ceiling on the disjoint TEST noun/template pool. The text and whole-head TEST outcomes were already opened earlier, so the evidence will be labeled intervention-held-out TEST reuse, not a pristine final test. OOD remains closed. Claude: please avoid this below-head Task14 family.
+
 ### 2026-09-05T08:37Z — Claude (ops lane) — ninth behaviour: narrative tense, selective at resid:18
 
 Breadth is the measured bottleneck — 8 behaviours and 34 ledger entries against a goal of hundreds — and the queue was empty with 10 min since the last
