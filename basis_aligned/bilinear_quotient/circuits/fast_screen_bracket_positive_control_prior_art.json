@@ -1,0 +1,81 @@
+{
+ "aliases_searched": [
+  "pending_opener",
+  "bracket",
+  "closer",
+  "resid8",
+  "r537",
+  "r538",
+  "r540",
+  "r544",
+  "r546",
+  "positive_control",
+  "instrument"
+ ],
+ "candidate_id": "bracket_pending_opener.instrument_positive_control",
+ "canonical_objects": [
+  "the pending opener type carried to the closer position",
+  "whether the fast-screen instrument can recover a site already known to transfer",
+  "construction-generality across opener substitution and close-then-reopen"
+ ],
+ "decision_changed": "Recovering a transferring site licenses reading the two prior nulls as evidence about those behaviours. Failing to recover one means the fixed bars, not the model, explain them, and both entries must be discounted.",
+ "matched_prior_claims": [
+  "task_bracket_pending_opener.json: pending_opener_capability.r537 established native capability and authorised the site screen.",
+  "task_bracket_pending_opener.json: R538 common-site full-state interchange selected resid8, with resid9-14 and attn13h8 also passing in frozen causal order. THIS CANDIDATE EXPECTS TO REDISCOVER THAT; rediscovery is declared replication, not discovery.",
+  "task_bracket_pending_opener.json: R540 cross-family DAS at resid8 is a STRONG NULL -- rank-1 directions passed targets while the non-opener control leaked, so target-passing alone is uninformative here.",
+  "task_bracket_pending_opener.json: R544 four-closer site gate is a STRONG NULL; only attn13h8 passed and no selection was made.",
+  "circuits/fast_screen_ledger.jsonl: this lane's two prior screens (numbered-list 21:15Z, numeric-sequence 22:46Z) both returned no_selective_causal_site. The engine has never produced a positive, which is the reason for this run.",
+  "Authority search for 'positive_control' returns 0 prior events: no recorded event tests whether this instrument can recover a known-transferring site.",
+  "SELF-FLAGGED HAZARD, recorded before the run: ops/circuit_candidate_lint.py raises ENDPOINT_MERGE twice on this candidate -- ')\"' (16725) and '\")' (4943) are single tokens that are neither the answer (')'=8) nor the foil ('\"'=1). Judged NON-BLOCKING here, unlike the quote-parity candidate I blocked on the same class at 15:0xZ: there '.\"' was LICENSED by the period-inside-quote convention, whereas ')\"' requires BOTH a paren and a quote to be pending and these stimuli have exactly one pending opener per row. Residual risk is that a merged token still attracts mass; if native capability fails, this is the first explanation to test rather than a fact about the model."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange",
+  "full-state interchange (prior, r538)",
+  "cross-family DAS (prior, r540)"
+ ],
+ "novelty_delta": "Not a discovery claim. Runs the fast-screen instrument on a behaviour where a transferring site (resid8) is already established by R538, to test whether the instrument's fixed bars are reachable at all. The two nulls this lane has produced have no interpretation until that is known.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "r537",
+    "r538",
+    "r540",
+    "r544",
+    "r546",
+    "r548",
+    "resid8",
+    "attn13h8"
+   ],
+   "sha256": "ad1ee205cd74b3f0a3430de045c2035c729c035e84e83f3b9ea75ae1ebaafebd",
+   "source": "circuits/task_bracket_pending_opener.json"
+  },
+  {
+   "searched_terms": [
+    "no_selective_causal_site",
+    "positive",
+    "bracket"
+   ],
+   "sha256": "736e3d0c929883ef069e3b07c9d931468a151caac51d59cf6bdb341351a5d00e",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "opener_type_substitution",
+    "closed_then_reopened_type",
+    "pending_state_preserved_surface_edit"
+   ],
+   "sha256": "c62cdf3929231e06de6883d74f3ab2c86bd524e02474bb2259267d6976e9e7d9",
+   "source": "pending_opener_multifamily_rows_rung537.json"
+  },
+  {
+   "searched_terms": [
+    "nonopener_punctuation_substitution"
+   ],
+   "sha256": "f2693b9b78a9266619afc45ceb6f70e4f2339aa1980263ca22d3ea4453145494",
+   "source": "pending_opener_controls_rung537.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

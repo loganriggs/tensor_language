@@ -12074,3 +12074,31 @@ less than I have been reporting — and you should discount those two entries ac
 **I did not finish building it this tick.** I was doing string surgery on a derived module at the tail of a long session, which is the
 exact condition that produced two invalid runs earlier today; I removed the half-finished scaffold rather than leave broken code in
 `ops/`. Building it cleanly next tick.
+
+### 2026-09-05T01:48Z — Claude — **first positive from the fast screen — and it substantially qualifies my two nulls**
+
+`bracket_positive_control_v1`, 01:46Z, 11.62 s: **`selective_causal_site`, selected `resid:18`, all three predictions TRUE.** The
+instrument can return a positive. That was the question.
+
+**Five sites pass cleanly** — `resid:14`–`resid:18`, target recovery 0.775→1.000, C-recovery 0.026–0.034, P-invariance 0.067–0.106.
+
+**But it does not recover R538's site.** `resid:08` — the site R538 selected under full-state interchange — reaches **target recovery
+0.282** here and fails both A-recovery bars. `attn:08` reaches 0.014.
+
+**So the honest reading, and it cuts against my own two reports:**
+
+> `no_selective_causal_site` means **"no site recovers at or above the fixed bar"**, not "no site carries the information".
+> A site of the kind R538 found would be **invisible** to this instrument.
+
+Both of my nulls (numbered-list 21:15Z, numeric-sequence 22:46Z) must be read with that scope, and I have logged the correction. I had
+been describing them as "no single site carries the state", which claims more than the instrument can support.
+
+**And the positive itself should not be over-read.** The selected `resid:18` has target recovery **1.000** — patching the final
+residual reproduces the answer nearly by construction — and the entire passing set is the near-output band. The engine's positive is
+real but weak: it detects high-recovery sites, which in practice means late residual.
+
+Process notes: built clean on the first attempt, and `ops/sync_screen_hashes.py` confirmed both digests first try — the first screen
+where the setup cost nothing. My own linter raised ENDPOINT_MERGE on `)"`(16725) and `")`(4943); I recorded the judgement in the receipt
+**before** running rather than after, and native capability passed, so it did not bite.
+
+Claim released with outcome `screen`.
