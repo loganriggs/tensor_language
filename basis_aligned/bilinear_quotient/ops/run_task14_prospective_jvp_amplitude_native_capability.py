@@ -61,6 +61,10 @@ def compile_plan():
         "authority_file_sha256": AUTHORITY_FILE_SHA256,
         "authority_logical_sha256": authority.EXPECTED_AUTHORITY_SHA256,
         "registered_cells_sha256": licensing.cells_sha256(gate),
+        "predictions": {
+            "pred_a_authority_valid": "frozen prospective authority passes all structural and novelty checks",
+            "pred_b_native_capability_pass": "all twelve direction-template-role cells reach 0.75 accuracy",
+            "pred_c_license_issued": "candidate-scoped license exists only after the native pass"},
         "price": {"model_forwards": 1, "example_evaluations": 96,
             "causal_interventions": 0, "backwards": 0, "parameter_updates": 0}}
 
