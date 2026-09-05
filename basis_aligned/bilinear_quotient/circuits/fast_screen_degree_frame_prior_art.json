@@ -1,0 +1,53 @@
+{
+  "aliases_searched": [
+    "comparative",
+    "equative",
+    "degree",
+    "than",
+    "as",
+    "more",
+    "gradable",
+    "complementizer",
+    "degree head",
+    "correlative"
+  ],
+  "candidate_id": "degree_frame.comparative_vs_equative",
+  "canonical_objects": [
+    "degree-construction state carried to its obligatory complementizer",
+    "more-versus-as choice of than/as at a shared adjective token",
+    "degree frame held across a verb-complement and a seem-predicate construction"
+  ],
+  "decision_changed": "A recovering site adds a second obligatory-syntax carrier to compare against correlative_state's resid:12-18 band; if the two land on the same band that is evidence the corpus is measuring a shared late assembly rather than per-behaviour mechanism. A capability stop would say GPT-2 small does not hold the degree head across the adjective.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Eleventh behaviour. The prior-art search over circuits/task_*.json returns 0 prior events for comparative, equative, degree, than and as. The nearest existing behaviour is correlative_state.either_vs_neither, which is also construction-obligatory, but its variable is a COORDINATION choice fixed by a paired connective, while this one is a DEGREE head: 'more' obliges 'than' and 'as' obliges 'as', and the two differ in what licenses the second element. Recipient and donor differ only in the degree word and end on the same adjective token, and A2 re-expresses the variable in a seem-predicate construction so a single-construction cue cannot satisfy both. The control is same-answer and drawn from a different licenser -- 'rather than', a preference construction that also obliges 'than' but carries no degree comparison -- so C and P are not the same edit. Its ceiling in this configuration is 0.034 to 0.142 against a 0.35 bar, so the C clause is a statistic, not a passed test.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "degree",
+        "comparative"
+      ],
+      "sha256": "25f9dc0f9016a3bf0c0326f95cd706e3fc733b8c224dee028f7b7bd4e50290fd",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "selected_site_id",
+        "c_absolute_recovery"
+      ],
+      "sha256": "6b24829ab9d5f9cc29530c452e5896074eb80b790b5185d41a7db553cca1b48a",
+      "source": "circuits/fast_screens/correlative_state_either_vs_neither_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's full behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
