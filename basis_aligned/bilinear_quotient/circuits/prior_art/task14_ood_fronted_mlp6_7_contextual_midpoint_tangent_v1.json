@@ -1,0 +1,60 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.ood_fronted_mlp6_7_contextual_midpoint_tangent_v1",
+  "created_utc": "2026-09-05T21:01:15Z",
+  "purpose": "Test whether the grouped MLP6--7 midpoint-quadratic transport law survives a fronted two-attractor syntax shift whose text and whole-MLP8 outcomes were already opened but whose grouped-source tangent intervention is prospective.",
+  "data_status": "OOD_TEXT_REUSE_NEW_MLP6_7_TANGENT_INTERVENTION; not pristine held-out data",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp8_native_capability_v1_result.json",
+      "sha256": "5db771b8910bca085d201893552b409e96f66d0f01921f0c1cb5e4ba905d8615",
+      "finding": "All 48 registered OOD recipient, opposite-number, and same-number lexical endpoints are natively capable."
+    },
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp8_polarized_response_v1_capability_license.json",
+      "sha256": "43090b258a75e257b8bd186dd970eb40c14ff166003a8d1a7fb160e2de3303d6",
+      "finding": "The scoped OOD intervention license passes and binds the native-capability receipt."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_subject_mlp8_polarized_response_factorial_v1_result.json",
+      "sha256": "31e379a376f29a6b71cb33fc77078edcaee9a64783793984ed0ca6df1a9cfd0b",
+      "finding": "Exact MLP8 cross/quadratic signed cancellation and lexical specificity transfer to this already-open OOD syntax."
+    },
+    {
+      "path": "circuits/fast_screens/task14_mlp6_7_contextual_midpoint_tangent_readout_v1_result.json",
+      "sha256": "48c72ea08c2573d520e639bbd34805ce6b60f4ec10d420fbbebed8e6112a65aa",
+      "finding": "On licensed matched HOLDOUT text, the midpoint JVP predicts the finite grouped-source head effect with minimum cosine 0.999927 and maximum relative error 0.013932; endpoint JVP fails."
+    }
+  ],
+  "novelty_audit": [
+    "The canonical Task14 authority contains no OOD MLP6--7 source split, tangent, or gain event.",
+    "Repository prior-art searches for {mlp6_7, OOD} and {quadratic, gain, OOD} return zero events.",
+    "This changes syntax and tests a new grouped-source intervention. It does not repeat the already-complete matched-text child factorial or the OOD whole-MLP8 response split."
+  ],
+  "map": "Reuse the 16 balanced fronted two-attractor rows. At subject position 8, form the same grouped X=MLP6+MLP7 displacement under recipient and donor E/A/U/W contexts for opposite-number and same-number lexical sources. Compare exact finite L11H3 head deltas with endpoint and midpoint JVP deltas through native MLP8, blocks 9--11, the fixed recipient L11H3 score/cached value/non-subject complement, and the native tail.",
+  "predictions": {
+    "pred_a_instrument_live": "All replay, no-op, state, normalized-state, and finite-tensor gates are at most 5e-5.",
+    "pred_b_ood_midpoint_geometry": "For every opposite-number direction/background cell, midpoint head-delta cosine is at least 0.95 and relative error is at most 0.25.",
+    "pred_c_ood_midpoint_task_prediction": "At least two of four opposite-number direction/background cells have absolute exact task-margin effect at least 0.002; for every such live cell, installed midpoint task recovery is in [0.70,1.30] with the exact sign.",
+    "pred_d_matched_strength_transfers": "Every opposite-number cell has cosine at least 0.989 and relative error at most 0.064, allowing 0.01 cosine and 0.05 relative-error degradation from the matched-text worst cases.",
+    "pred_e_context_changes_readout": "The mean midpoint relative error differs by at least 0.15 between recipient and donor E/A/U/W backgrounds in either grammatical direction.",
+    "pred_f_ood_lexical_specificity": "For exact and midpoint arms in every background/direction cell, absolute same-number lexical task-margin effect is at most 25% of the matched opposite-number exact effect, with denominator floored at 0.002."
+  },
+  "null": "If the instrument holds but prediction b fails, the grouped-source quadratic law does not transfer to fronted syntax. If b holds but fewer than two task cells are live, retain only an OOD head-geometry screen and do not claim behavioral prediction. If b and c hold but d fails, the law transfers qualitatively but with construction-dependent higher-order error.",
+  "price": {
+    "physical_model_forwards": 4,
+    "example_evaluations": 608,
+    "causal_interventions": 192,
+    "backwards": "two JVPs per source/background; no optimization",
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "pristine OOD confirmation",
+    "semantic uniqueness",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "independent-text coefficient sharing",
+    "necessity outside the fixed L11H3 interface"
+  ]
+}

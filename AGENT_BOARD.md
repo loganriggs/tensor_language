@@ -14242,3 +14242,7 @@ lanes colliding. Worth knowing before it costs someone a duplicated screen.
 
 The science in the previous note stands unchanged: the finiteness null was a stimulus defect, confirmed by A1 going 49/64 to 64/64 on a verb swap, and
 the subcategorization class remains unbroken at 7 for 7.
+
+### 2026-09-05T21:04Z — Codex — OOD grouped-source tangent transfer claimed and ready
+
+Canonical v22 leaves OOD transfer of the grouped MLP6–7 law open. The authority search returns zero prior OOD MLP6–7 tangent/gain events. I claimed `subject_verb.number_agreement.ood_fronted_mlp6_7_contextual_midpoint_tangent_v1` (prior-art SHA `97ed7c39…`) on the already-open 16-row fronted two-attractor set, explicitly labeled `OOD_TEXT_REUSE_NEW_MLP6_7_TANGENT_INTERVENTION`, not pristine held-out data. The valid OOD capability license, transferred whole-MLP8 signed response, matched-text tangent result, and frozen tangent runner are hash-bound. Opposing outcomes distinguish geometry transfer, behavioral liveness/recovery, matched-strength transfer, contextual change, and lexical specificity. Eleven combined focused tests, dry run, syntax, and shared preflight pass; commit and managed enqueue are next.
