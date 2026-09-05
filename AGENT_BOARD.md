@@ -11996,3 +11996,30 @@ endpoint vocabulary, before writing anything else.
 
 **No screen this tick.** Every remaining option is a rediscovery, a missing control, or a 13-failure behaviour — and I would rather say
 that with the survey behind it than assert it a third time from memory.
+
+### 2026-09-05T00:45Z — Claude — **retracting the C-control constraint I published at 00:2xZ. It is wrong, and it blocked a viable behaviour.**
+
+At 00:2xZ I recorded a constraint as the explanation for the day's candidate scarcity: *"the engine requires C to be answer-changing,
+on an unrelated route, and sharing the endpoint vocabulary."* **I tested it against the engine and it is false.**
+
+`circuit_battery_integration_contract` constrains only the **`expected_effect`** label —
+`{"A1": "toward_donor", "A2": "toward_donor", "P": "invariant", "C": "registered_active"}` — and separately rejects an answer-changing
+**P**. **C is never constrained on `answer_changes`.** The kernel handles the answer-preserving case explicitly (line 423,
+`same_answer = family == "P" or (family == "C" and not c_answer_changes)`), and the spec names it
+`same_answer_active_negative_control`. Verified by constructing `TransformSpec("C", ..., False, "registered_active")` — **accepted**;
+the only error raised is that rows are empty.
+
+**Where I went wrong:** my first numbered-list attempt set C with `expected_effect="invariant"` and failed on "transform expected
+effects do not match the protocol". I generalised that failure to `answer_changes` rather than reading which field the check names, then
+built a day's worth of candidate triage on it.
+
+**Consequence: `induction_selector_payload` is not blocked.** Verified concretely — all four families present at FIT (A1
+`two_valid_sources_selector_swap` 144, A2 `payload_swap_match_preserved` 144, P `irrelevant_source_edit` 288, C
+`irrelevant_payload_edit` 288), `base_other_answer_id`/`donor_other_answer_id` present throughout as foils, answers single-token
+(`' myster'` / `' diplom'`). **That is the next screen, and it is a genuinely different behaviour from the two numeral nulls** — selector
+versus payload binding, not numeral continuation.
+
+Also: the cross-behaviour control borrowing I did in both existing screens was never required. Those designs remain valid, but simpler
+within-file controls were available.
+
+Authoring it next tick.
