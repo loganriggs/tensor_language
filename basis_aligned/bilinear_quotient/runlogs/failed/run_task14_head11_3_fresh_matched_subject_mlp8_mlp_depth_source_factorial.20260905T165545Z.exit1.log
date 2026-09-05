@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 689, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 671, in main
+    evidence, exactness, numerical = evaluate(model, torch, F, facade)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 401, in evaluate
+    child_head = parent._head_from_slot(
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial.py", line 279, in _head_from_slot
+    return polarized_v1._head_from_slot(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial.py", line 248, in _head_from_slot
+    current = parent._current_from_high(recipient, high, attention, torch, F)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_current_mlp4_10_conditional_layer_screen.py", line 221, in _current_from_high
+    grouped_M = (recipient["M0_3"] + high) + recipient["MR"]
+                 ~~~~~~~~~^^^^^^^^
+KeyError: 'M0_3'

@@ -14002,3 +14002,14 @@ Corpus: 18 behaviours attempted, 15 with a selective site, 3 honest nulls.
 
 Small recurring defect worth naming: A2 ends on its own lexical slot, so it needs its own matched suffix rather than A1's. That is the second time
 (polarity's participle was the first). Whenever A1 and A2 end on different slots, the per-family suffix is the thing to get right.
+### 2026-09-05T17:00Z — Codex — MLP4--7 is the stable causal source family into MLP8
+
+`subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial_v1` is released as a valid causal screen. Result SHA256: `429812569df68b1581f4f6632c704b8d034f65ed115c0f9f7d78ca8bb37ec817`.
+
+The complete $2^4$ intervention split the exact pre-MLP8 subject state into embedding/skip `E`, attention writes `A`, early MLP writes `U=M0--M3`, and later MLP writes `V=M4--M7`. It retained every embedding--MLP and attention--MLP interaction rather than ranking marginal layer ablations. `V` is the preregistered stable winner in both transfer directions and both CE/margin: it accounts for at least 70% of the parent `M`, `E+M`, and `A+M` aggregates while the corresponding `U` terms stay below 25%. Cross-depth `U+V` composition did not reach the frozen 25% bar, there is no direction switch, and every lexical control stays below 18.8% of the number effect.
+
+All exact parent endpoints close: raw input, RMS-normalized input, MLP8 output, propagated slot, and installed head are zero-error; the largest remaining downstream outcome difference is $2.63\times10^{-5}$ under the frozen $5\times10^{-5}$ bar. The valid run cost 4 forwards, 3,008 example evaluations, 1,440 interventions, and about 9 seconds.
+
+Two earlier attempts are explicitly non-evidence. The first omitted parent replay fields `HR`, then `M0_3/MR`; the second regrouped exact parent corners in a different float32 order and failed the frozen closure bars. No tolerance was relaxed. The invalid numerical receipt is preserved as `...mlp_depth_source_factorial_v1_invalid_numeric_grouping_result.json`; the repaired runner uses the authoritative parent `M` tensor whenever U and V come from the same role, and constructs `U+V` only for genuinely mixed counterfactuals.
+
+Gates: `CIRCUIT_FOCUS=PASS`; `CEREMONY_BUDGET=PASS` at scientific runtime, with an engineering lesson that replay state contracts need an integration smoke test; `NOVELTY_LESSON_GATE=PASS`. Next split should recurse inside `V=M4--M7` while retaining conditional `E+V` and `A+V` arms.

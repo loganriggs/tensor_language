@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 677, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 659, in main
+    evidence, exactness, numerical = evaluate(model, torch, F, facade)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial.py", line 389, in evaluate
+    child_head = parent._head_from_slot(
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial.py", line 279, in _head_from_slot
+    return polarized_v1._head_from_slot(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial.py", line 247, in _head_from_slot
+    high = _high_with_mlp8(recipient, opposite, slot, background, torch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial.py", line 243, in _high_with_mlp8
+    return high + role["HR"]
+                  ~~~~^^^^^^
+KeyError: 'HR'
