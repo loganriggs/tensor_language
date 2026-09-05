@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_0713.md](explanation_2026-09-05_0713.md) — the repaired live hourly circuit-only continuation;
+  the ten-minute and anti-duplication rules; why the old same-answer control threshold did not establish selectivity;
+  the exact arithmetic shared/type decomposition of the L13H8 semantic-opener write; its five-forward causal null; and
+  the fresh downstream interaction test now being built
 - [explanation_2026-09-05_0650.md](explanation_2026-09-05_0650.md) — the exact projected-value source-region
   computation inside bracket head L13H8; the generic localization null; the construction-specific PREFIX and OPEN+POST
   effects; and their successful fresh SELECT confirmation
