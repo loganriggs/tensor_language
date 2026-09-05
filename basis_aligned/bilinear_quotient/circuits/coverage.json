@@ -662,14 +662,15 @@
       "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
       "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
       "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-      "task14_head11_3.test.transfer_removal.held.v1"
+      "task14_head11_3.test.transfer_removal.held.v1",
+      "task14_head11_3.fresh_MLP6_7_gain.extrapolation.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.subject_value_test.complete.v1",
       "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP6_7_gain.extrapolation.complete.v1"
     },
     "ood": {
      "status": "mixed",
@@ -712,7 +713,10 @@
       "task14_head11_3.fresh_MLP8_input_writers.instrument.complete.v1",
       "task14_head11_3.fresh_MLP8_input_writers.number_specificity.complete.v1",
       "task14_head11_3.fresh_MLP8_depth_sources.instrument_parent_closure.complete.v1",
-      "task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1"
+      "task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.instrument_parent_closure.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.instrument_parent_closure.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_gain.instrument.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
@@ -722,10 +726,14 @@
       "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1",
       "task14_head11_3.fresh_MLP4_10_conditional.lexical_collateral.complete.v1",
       "task14_head11_3.fresh_MLP8_polarized.lexical_collateral.complete.v1",
-      "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1"
+      "task14_head11_3.fresh_MLP8_input_writers.lexical_collateral.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.number_specificity.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.context_change.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.lexical_specificity.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_gain.lexical_specificity.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_MLP8_late_writer_halves.instrument_parent_closure.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP6_7_gain.lexical_specificity.complete.v1"
     },
     "composition": {
      "status": "mixed",
@@ -748,7 +756,13 @@
       "task14_head11_3.fresh_MLP8_depth_sources.V_late_dominant.complete.v1",
       "task14_head11_3.fresh_MLP8_depth_sources.number_specificity.complete.v1",
       "task14_head11_3.fresh_MLP8_late_writer_halves.distributed_within_V.complete.v1",
-      "task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1"
+      "task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.distributed.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.composition.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.direction_switch.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.midpoint_quadratic.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_gain.quadratic_head_prediction.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_gain.task_manipulation.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.score_context_test.complete.v1",
@@ -790,10 +804,14 @@
       "task14_head11_3.fresh_MLP8_late_writer_halves.X_mlp6_7_dominant.complete.v1",
       "task14_head11_3.fresh_MLP8_late_writer_halves.W_mlp4_5_dominant.complete.v1",
       "task14_head11_3.fresh_MLP8_late_writer_halves.WX_composition.complete.v1",
-      "task14_head11_3.fresh_MLP8_late_writer_halves.direction_switch.complete.v1"
+      "task14_head11_3.fresh_MLP8_late_writer_halves.direction_switch.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.MLP7_dominant.complete.v1",
+      "task14_head11_3.fresh_MLP8_mlp6_7_split.MLP6_dominant.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.endpoint_local.complete.v1",
+      "task14_head11_3.fresh_MLP6_7_tangent.material_nonquadratic.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_MLP8_late_writer_halves.number_specificity.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP6_7_gain.task_manipulation.complete.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -806,7 +824,7 @@
    "n_held_categories": 6,
    "n_blocked_categories": 5,
    "n_missing_categories": 1,
-   "next_missing": "The valid licensed MLP8 E/A/U/W/X factorial is complete and must not be repeated. Splitting the previously dominant V=MLP4--7 group into W=MLP4--5 and X=MLP6--7 found neither half dominant, while distributed contribution across the two halves held. W\u00d7X composition and direction switching were null, and number specificity held. W and X are operational native writer groups, not unique semantic units. Individual MLP4--7 identities, within-MLP semantic units, OOD replication, independent data, downstream readers, and necessity outside the fixed L11H3 interface remain untested."
+   "next_missing": "The MLP6--7 child split is complete and must not be repeated: neither layer is a stable semantic unit, while their grouped source has a validated context-preserving quadratic readout through MLP8 and L11H3. Frozen coefficients predict unseen interpolation and extrapolation interventions, but same-number lexical collateral remains above bar. OOD/independent-text transfer, coefficient sharing or generation, necessity outside the fixed L11H3 interface, and literal program pricing remain untested."
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

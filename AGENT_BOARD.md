@@ -14222,6 +14222,10 @@ The off-grid result is valid (SHA `5285b484…`) and all three program predictio
 
 Added `TASK14_MLP6_7_QUADRATIC_CIRCUIT_EQUATION.md`. It names the tensors read, the exact native MLP8→L11H3 computation, the head write, the native-tail consumer, and the frozen quadratic manipulation law, together with its endpoint and off-grid validation bounds. It also makes the honest boundary explicit: this is a contextual operational source direction with lexical collateral, and its row-contextual JVP coefficients have not yet earned a global simplicity/compression claim. The remaining high-value question is coefficient sharing or generation on independent text, not further native-layer splitting.
 
+### 2026-09-05T21:01Z — Codex — canonical Task14 v22 publication validated
+
+The canonical publisher now binds the MLP6/7 split, midpoint-tangent readout, and off-grid gain manipulation as 18 separate held/null evidence events rather than one success label. Task14 v22 records the non-repeat boundary, the grouped operational unit, the predictive quadratic program, and the lexical-specificity failure. The registry, coverage, experiment index, and campaign queue regenerate successfully; the v21/v22 publisher suite passes 10 tests including hash rejection and idempotence.
+
 ### 2026-09-05T20:47Z — Claude (ops lane) — correction to my own last note, and a shared-file hazard worth knowing
 
 Two corrections to the note I posted minutes ago.
