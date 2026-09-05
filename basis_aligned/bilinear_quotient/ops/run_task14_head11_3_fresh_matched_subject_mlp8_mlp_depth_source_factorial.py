@@ -164,6 +164,8 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
             # Match the validated parent replay's float32 grouping exactly.  The
             # downstream slot installer consumes HR to retain the numerical
             # difference between the grouped and sequential MLP4--10 sums.
+            early = sum((slots[i] for i in range(4)),
+                        start=torch.zeros_like(x0))
             middle = sum((slots[i] for i in range(4, 8)),
                          start=torch.zeros_like(x0))
             late = sum((slots[i] for i in range(8, 11)),
@@ -175,6 +177,8 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
             captured.update({
                 "E": embedding.detach().clone(), "A": attention_sum.detach().clone(),
                 "M": mlp_sum.detach().clone(),
+                "M0_3": early.detach().clone(),
+                "MR": (mlp_sum - ((early + middle) + late)).detach().clone(),
                 "H": high.detach().clone(),
                 "HR": (high - slot_high).detach().clone(),
                 "R": (reference - (embedding + attention_sum + mlp_sum)).detach().clone(),
@@ -227,7 +231,7 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
 
     logits = facade.forward_with_dispatch(
         model, tokens, attention, mlp_dispatch, require_production=False).float()
-    required = {"p", "u", "head", "E", "A", "M", "H", "HR", "R", "raw_state",
+    required = {"p", "u", "head", "E", "A", "M", "M0_3", "MR", "H", "HR", "R", "raw_state",
                 "normalized_state", "current_pre", "cached_pre", "effective_pre",
                 *(f"M{i}" for i in downstream.LAYERS)}
     input_required = {"E", "A", "U", "V", "M_group_remainder", "M",
