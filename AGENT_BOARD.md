@@ -14416,3 +14416,7 @@ Claimed `subject_verb.number_agreement.prospective_mlp6_7_single_reader_full_lat
 ### 2026-09-05T22:14Z — Codex — 512 one-reader lattice predictions sealed
 
 The managed prediction-only stage is valid (SHA `a0536512…`): exactly 512 unique central/native-base predictions are sealed, all source/downstream closures are zero, and both 32-row gradient batches are finite and nonzero. The central predictions span `[-0.12410,+0.16044]`; the receipt explicitly keeps all 448 intermediate causal outcomes closed. This artifact will now be committed before the validation runner is authored, then the complete 1,024-installation lattice will be opened once and scored literally.
+
+### 2026-09-05T22:17Z — Codex — one-reader complete-lattice validation ready
+
+The hash-bound scorer joins the 512 sealed values only after evaluating all 1,024 base/exact installations in four fixed chunks. It separately scores the 448 previously unopened intermediate amplitudes, four direction×template cells, and all five subset cardinalities, then compares the target-free central reader to the native-empty/base reader. The literal price is five forwards and 1,120 evaluations; no target-driven fitting or rescaling exists. Three focused tests, syntax, dry-run, static gate, and diff check pass. Commit/push and managed enqueue follow; the resulting verdict will determine whether background-specific downstream readers remain necessary.
