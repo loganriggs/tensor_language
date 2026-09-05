@@ -172,3 +172,33 @@ shown it before anything was authored.
 **The rule that follows:** *run* an instrument to find defects (every tool bug this lane found surfaced that
 way); *read* the definition to find what a number depends on. They are different questions and only the first
 is answered by experiment.
+
+### `screen_preflight.py` — is this run already in the ledger?
+
+`circuit_fast_screen_ledger.append_entry` refuses an execution whose key already appears:
+
+    (candidate_id, prior_art_sha256, spec_sha256, authority_sha256,
+     max_forward_calls, max_example_evaluations, max_evidence_bytes)
+
+**None of those seven fields comes from the screen's output.** They are fixed by the runner's
+PROTOCOL literals and by compiling the frozen rows — all CPU. But the check runs at *publish*
+time, after the science, so a duplicate costs a whole screen plus the round trip to work out why.
+
+    python ops/screen_preflight.py --runner run_circuit_fast_screen_<name>   # exit 1 if it would be refused
+    python ops/screen_preflight.py --all
+
+Reports the full 7-field key when the candidate exposes `compile_plan` (task14 engine), and a
+3-field partial key otherwise — labelled as partial, because a partial match can only *suspect*
+a duplicate while a partial mismatch *proves* there is none. `dev_*` probes are skipped: they
+never publish to this ledger.
+
+**Case it came from.** 2026-09-05T05:02Z: `task14_select_cross_noun` ran to completion and was
+then refused against ledger entry 25, identical in all seven fields. The fix varied one literal
+(`prior_art_sha256`). Validated against that exact history — the pre-fix runner on the ledger as
+of 05:02 reports DUPLICATE against entry 25; the post-fix runner reports CLEAR, and it published.
+Across all 22 runners it matches ground truth: every published runner predicts DUPLICATE, the one
+not yet in the ledger predicts CLEAR.
+
+**Fixing a refusal** means varying a key field — normally registering a distinguishing prior-art
+receipt. Do not vary one to dodge the check: two entries differing only in a digest are two claims
+of distinct evidence, and the ledger is what makes that claim.
