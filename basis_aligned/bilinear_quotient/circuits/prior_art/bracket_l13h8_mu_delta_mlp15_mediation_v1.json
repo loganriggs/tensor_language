@@ -1,0 +1,19 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_mlp15_mediation",
+  "checked_at": "2026-09-05T07:31:00Z",
+  "active_claim_collision": false,
+  "bound_prior_art": {
+    "R549_result_sha256": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+    "R551_result_sha256": "f818f3f5ef664fd232242481f23c0a7e5fc73ffd71a6656d097cf9427f618fa1",
+    "shared_contrast_basic_result_sha256": "37014b88e9341d63626d5152fca87e2df7de90c7dc76e2b309935bc330806c3a",
+    "interaction_select_result_sha256": "d686a2cb22e96049cb12ba1db5658dde9dac9240639bb5860edc1614faf594a7"
+  },
+  "novelty": "Fixed-hypothesis exact causal mediation at MLP15: separately remove the arithmetic semantic-opener shared term mu or centered delimiter contrast delta at L13H8, then restore only the native final-position MLP15 write and rerun layers 16-17. R549 was a broad downstream response atlas and R551 a readout guard; neither performed factor-specific causal rescue.",
+  "opposing_predictions": {
+    "mlp15_mediates": "with live mu and delta removals, final-position native MLP15 restoration has positive aligned recovery (projection >=0.25 and cosine >=0.50) in both target constructions and remains stable on matched rewrites",
+    "distributed_or_bypass": "at least one live factor has projection <0.25 or cosine <0.50 in a target construction, so its downstream use is not substantially mediated by the native final-position MLP15 write"
+  },
+  "excluded": ["MLP14", "module scan", "rank", "PCA", "projector", "reconstruction", "TEST", "OOD"],
+  "outcome_reads": []
+}
