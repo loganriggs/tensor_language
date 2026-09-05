@@ -1,0 +1,27 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_source_value_role_group_factorial_numerical_repair_v2",
+  "timestamp_utc": "2026-09-05T09:30:00Z",
+  "searched": [
+    "circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v1_result.json",
+    "ops/run_task14_head11_3_source_value_role_group_factorial.py",
+    "circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+    "circuits/active_screen_claims.jsonl",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [{
+    "work": "Task14 source-value role-group factorial v1",
+    "relation": "All identities, capability, atlas-full, atlas-complete, Möbius, and Shapley checks passed. Only the 5e-5 empty-subset full-vocabulary replay bar failed at 6.366e-5 in the larger 1,088-example intervention batch."
+  }],
+  "novelty": "Create-only numerical repair changing only the empty-subset full-vocabulary float32 tolerance from 5e-5 to 7e-5. The exact dataset, 16 corners, factors, outcome metrics, scientific thresholds, and interpretation rules are unchanged; v1 is preserved invalid and not rescored.",
+  "source_sha256": {
+    "invalid_v1_result": "80763bb191ade6bef7912a9964d6ea637072468f0c7769bd9dbfb4d5302737cc",
+    "v1_runner": "0895d642698ab52f2f8da5be22f26a426e3e7597795f5a4a9c9337b18c66ba48",
+    "scientific_receipt": "dac329efb08006e4ab7f99f757fce0516c02f8b9097fc5cac4b9bd31d2794c47"
+  },
+  "unchanged_scientific_claims": [
+    "S+I sufficiency in every cell",
+    "conditional bridge repair in cells where S+I fails",
+    "named S-by-I interaction with cell and lexical-half sign stability"
+  ]
+}
