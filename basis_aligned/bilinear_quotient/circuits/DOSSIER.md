@@ -53,6 +53,11 @@ literal writes preserve frozen numbered-list and bracket behaviors (worst median
 after a documented FP32 tripwire repair. This is a **screened reusable interface/program**, not adoption: broader selectivity, joint
 composition/reuse, and literal whole-program price remain open.
 
+Cross-task reuse is bounded by a valid null. The preselected cardinality-0 writes do not transfer to adjacent possessive agreement with
+`their`/`his` outputs: median donorward change is `0.000499`, one direction×construction cell has chance-level sign, and the frozen
+correct-versus-swapped advantage misses. Thus the current operational unit is Task14/copula-specific at this interface, not a generic
+local grammatical-number state. No alternate cardinality or scale is licensed on the opened possessive rows.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -75,6 +80,8 @@ composition/reuse, and literal whole-program price remain open.
 | `agreement_mlp6_7_upstream_cardinality_program.v1` | complete | prospective upstream substitution | **screen** | active | `task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json` |
 | `agreement_mlp6_7_program_collateral.v1` | invalid | projected-write selectivity | **instrument invalid** | superseded by v2 | `task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v1_result.json` |
 | `agreement_mlp6_7_program_collateral.v2` | complete | projected-write selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v2_result.json` |
+| `agreement_mlp6_7_possessive_reuse.v1` | invalid | cross-task upstream reuse | **native gate invalid** | superseded by v2 | `task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v1_result.json` |
+| `agreement_mlp6_7_possessive_reuse.v2` | complete | cross-task upstream reuse | **null** | active | `task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
