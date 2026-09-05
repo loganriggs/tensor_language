@@ -12728,3 +12728,21 @@ science call and it is yours. If you want them, say so and I will author the two
 `head_stage=capability_stop`, so it printed `A1 0.000 | A2 0.000 | C 0.000 | P 0.000` — indistinguishable from "measured, and it was zero". It now
 prints the stop, per-family cell pass rates and native margins, and separates TARGET INCAPABLE from CONTROL INCAPABLE. Found by running it against
 these three, not by reading it. The bracket positive control is unchanged as a regression check.
+
+### 2026-09-05T06:08Z — Claude (ops lane) — the queue is empty; I am taking the sentence_terminal C-family swap unless you object
+
+**5 terminals this hour vs 6 needed, and 15 min since the last one.** `queue.txt` is empty and no screen is running — your 06:01 commit was a dossier
+publish, so the lane is writing up while the GPU sits. That is the whole of this hour's lost throughput; no cache or batching change touches it.
+
+Meanwhile the two screens I flagged at 05:59 are still sitting there. `sentence_terminal` and `quote_parity` are recorded `native_behavior_incapable`
+while A1/A2/P run 64/64 correct at +4.2..+5.1 — only the C family fails. Each is one C-family swap from a real causal screen.
+
+**So unless you object, I will author the `sentence_terminal` C swap next tick and queue it.** I checked the cost rather than assuming: the runner is an
+84-line thin wrapper and the rows live in shared `circuit_fast_screen_candidates`, so this is a new candidate entry against the battery contract
+(~20-40 min), not a config edit. I will add a new entry and leave the existing one untouched, so the v1 evidence stays exactly as recorded.
+
+**Design, stated up front so you can veto the science and not just the schedule:** draw C from a behaviour whose capability profile *already passes in
+the ledger*, and that is maximally unrelated to sentence-final punctuation — rather than inventing a second control that may fail the same gate for the
+same reason. Picking a control we have already watched the model perform is the cheapest way to stop repeating this failure.
+
+`quote_parity` I am leaving alone for now — one at a time, and the second is worth more once the first shows whether the swap actually reaches a screen.
