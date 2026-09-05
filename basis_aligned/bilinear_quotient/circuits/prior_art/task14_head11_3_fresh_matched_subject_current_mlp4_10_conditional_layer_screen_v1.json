@@ -1,0 +1,90 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_mlp4_10_conditional_layer_screen_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Localize the Task14 L11H3 current-value effect within upstream MLP4--10 using both standalone donor writes and each layer's conditional contribution when all other MLP4--10 donor writes are present.",
+  "parent": {
+    "result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_mlp_depth_factorial_v1_result.json",
+    "result_sha256": "f18ce285152a1b3388ca3083de344dd9dd3675e4932b27bf44ea1f9e8e3f3073",
+    "terminal": "valid_causal_screen",
+    "finding": "MLP0--3 recovered only 4--6%, MLP4--7 recovered 22--27%, and MLP8--10 recovered 66--71% of the all-MLP effect across the four task cells. No single coarse group met the frozen 70% margin-and-CE bar in every cell; number specificity held and interaction-needed was null. The combined MLP4--10 family is therefore the preregistered localization target."
+  },
+  "novelty_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "relation": "The dossier explicitly says individual upstream MLP layers remain unidentified and requests a causal split of the accumulated family."
+    },
+    {
+      "path": "circuits/followups/task14_head11_3_early_late_mlp_factorial_v1_result.json",
+      "relation": "This measures downstream MLP13--17 compensation after H11.3, not MLP4--10 writes entering L11H3."
+    },
+    {
+      "path": "circuits/followups/task14_head11_3_mlp15_mlp17_interaction_v1_result.json",
+      "relation": "This is a downstream MLP15/17 interaction and does not test upstream current-value writers."
+    },
+    {
+      "path": "ops/mlp10_exact_source_pair_causal_split_rung507.py",
+      "relation": "This uses named upstream sources for a copy-task MLP10 reader. It is bookkeeping precedent, not a Task14 per-layer intervention."
+    },
+    {
+      "path": "circuits/METHOD_FAILURES.md",
+      "relation": "No registered failure or null duplicates the singleton-plus-leave-one Task14 MLP4--10 design."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural parent rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"]
+  },
+  "layer_handles": [4, 5, 6, 7, 8, 9, 10],
+  "conditions": {
+    "baselines": ["recipient_M4_10", "opposite_full_M4_10"],
+    "standalone": ["opposite_M4", "opposite_M5", "opposite_M6", "opposite_M7", "opposite_M8", "opposite_M9", "opposite_M10"],
+    "conditional_leave_one": ["opposite_except_M4", "opposite_except_M5", "opposite_except_M6", "opposite_except_M7", "opposite_except_M8", "opposite_except_M9", "opposite_except_M10"],
+    "same_number_lexical": ["lexical_M4", "lexical_M5", "lexical_M6", "lexical_M7", "lexical_M8", "lexical_M9", "lexical_M10", "lexical_full_M4_10"]
+  },
+  "exact_computation": {
+    "propagated_slots": "At each block entry, multiply every earlier MLP slot by that block's residual lambda0; at MLP i, add its native write to slot i. Thus slot i at pre-attention-11 equals the exact native write propagated through blocks i+1--11.",
+    "fixed_low_layers": "Recipient MLP0--3 and the parent's M-grouping remainder remain fixed in every arm.",
+    "high_layer_remainder": "Let H be the parent's exact G1+G2 MLP4--10 term. Sum propagated M4--10 slots in layer order and define rho_H=H-sum_i M_i. rho_H belongs to M4 and follows the M4 donor. Add it last within H.",
+    "fixed_context": "Recipient E, A, parent state remainder R, attention probability p_8, cached value, and every non-subject L11H3 term remain fixed.",
+    "endpoint": "Recompute RMSNorm and current V11H3 from the recombined pre-L11 subject state, combine current and cached values before one native output projection, install the resulting subject head term, and run the native suffix.",
+    "conditional_effect": "For layer i, standalone is F({i})-F(empty); conditional is F(full)-F(full without i), computed separately for answer margin and full-vocabulary target CE improvement."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_state_sum_absolute_error": 0.00005,
+    "maximum_normalized_state_absolute_error": 0.00005,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_full_donor_current_head_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "maximum_recipient_high_group_absolute_error": 0.00005,
+    "maximum_donor_high_group_absolute_error": 0.00005,
+    "minimum_full_donor_mean_target_margin_improvement": 0.05,
+    "minimum_full_donor_mean_target_CE_improvement": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "minimum_layer_recovery_fraction": 0.25,
+    "minimum_context_difference_fraction": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_collateral_ratio": 0.50
+  },
+  "predictions": {
+    "pred_a_instrument_live": "All exactness gates pass and full donor MLP4--10 improves both task metrics in every cell.",
+    "pred_b_at_least_one_standalone_layer": "One frozen layer handle alone recovers at least 25% of both full-family margin and CE, with at least 75% helpful rows, in every cell.",
+    "pred_c_at_least_one_conditional_layer": "For one layer, full minus leave-one recovers at least 25% of both full-family metrics with at least 75% helpful row-level conditional effects in every cell.",
+    "pred_d_same_layer_is_stable": "At least one layer passes both the standalone and conditional criteria across every cell.",
+    "pred_e_context_dependence": "At least one layer's standalone and conditional recovery differ by at least 25% of the full-family effect for margin or CE in every cell.",
+    "pred_f_number_specific": "All same-number lexical layer/full effects remain at most 25% of the full opposite-number MLP4--10 effect for both metrics.",
+    "pred_g_lexical_collateral": "At least one same-number lexical effect reaches 50% of the number effect."
+  },
+  "interpretation_limit": "MLP layer boundaries are localization handles only. A passing layer identifies where a useful write enters this path; it does not establish that the whole native MLP is one semantic circuit or that different passing layers should remain separate.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 864,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": ["within_MLP_semantic_basis", "necessity", "syntax_generality", "FIT", "downstream_reader", "rank", "reconstruction"]
+}
