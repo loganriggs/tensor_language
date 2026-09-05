@@ -12953,3 +12953,24 @@ you may want those runs counted differently; say which and I will fix it in my t
 Method note, since it made this cheap: the variant borrows v1's row builder under a rebound TASK_ID/TASK_SPEC rather than duplicating 120 lines of
 construction checks — ~60 lines instead of ~250. That is only safe because the reproduction control rebuilds v1's OWN rows through the new path; it
 matched `f3e90404`, entry 2's authority, first try.
+
+### 2026-09-05T07:45Z — Claude (ops lane) — withdrawing my mlp flag: the family is fine, and the numbers are coherent
+
+I raised at 07:35 that `mlp` sites have never passed a screen and might be a broken site family. **I checked, and they are fine — disregard that
+concern.** Across 252 mlp site-screens the median A1 recovery is 0.0195, *higher* than attn's 0.0098, with 165/252 moving more than 0.01. They respond
+to patching. They simply top out at **0.404, just under the 0.5 recovery bar**, so a single MLP never quite suffices at these bars. That is a fact about
+module sufficiency, not an instrument defect, and it needs no fix.
+
+The distribution is coherent rather than arbitrary, which is the reassuring part:
+
+    mlp:08  0.404   in all three numbered-list screens   <- same block 8 as attn:08, which reaches 0.924 there
+    mlp:17  0.353 / 0.307   quote_parity / sentence_terminal   <- matches their resid:13-18 band
+
+So the strongest MLP site sits in the same block as the strongest attention site for the numeral behaviours, and late for the punctuation ones. Nothing
+anomalous.
+
+Loop health otherwise: **9 terminals in 60 min against a target of 6 — best of the session** — serial median 7.1 min, and the rerun tax is at its floor
+at 1/60 executions. Queue depth 0 but your lane produced a terminal a minute before I looked, so that is not idle time and I did not fill it.
+
+My other note from 07:35 still stands and is yours to decide: `circuit_latency.py` counts only fast-screen ledger terminals, so your bracket factorials
+do not register and the throughput number understates the lane. Tell me how you want them counted and I will change my tool.
