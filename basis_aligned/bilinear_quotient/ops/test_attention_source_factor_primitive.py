@@ -2,6 +2,7 @@
 
 import torch
 import torch.nn.functional as F
+import pytest
 
 import attention_source_factor_primitive as primitive
 
@@ -50,6 +51,60 @@ def test_install_changes_only_selected_final_query_term():
     expected[1, 1] = torch.tensor([27.0, 37.0])
     assert torch.equal(got, expected)
     assert torch.equal(write, original)
+
+
+def test_row_varying_source_subset_replacement_is_exact():
+    native = {
+        "p": torch.tensor([[.2, .8], [.3, .7]]),
+        "u": torch.tensor([[[1., 2.], [3., 4.]], [[5., 6.], [7., 8.]]]),
+    }
+    donor = {
+        "p": torch.tensor([[.6, .4], [.9, .1]]),
+        "u": torch.tensor([[[9., 10.], [11., 12.]], [[13., 14.], [15., 16.]]]),
+    }
+    for factors in (native, donor):
+        factors["head"] = torch.einsum("bk,bkd->bd", factors["p"], factors["u"])
+    empty = torch.zeros(2, 2, dtype=torch.bool)
+    full = torch.ones(2, 2, dtype=torch.bool)
+    mixed = torch.tensor([[True, False], [False, True]])
+    assert torch.equal(
+        primitive.replace_head_source_subset(native, donor, empty, "joint", torch),
+        native["head"],
+    )
+    assert torch.allclose(
+        primitive.replace_head_source_subset(native, donor, full, "joint", torch),
+        donor["head"],
+    )
+    for mode in ("score", "value", "joint"):
+        got = primitive.replace_head_source_subset(native, donor, mixed, mode, torch)
+        chosen_p = donor["p"] if mode in {"score", "joint"} else native["p"]
+        chosen_u = donor["u"] if mode in {"value", "joint"} else native["u"]
+        expected = native["head"].clone()
+        for row, source in ((0, 0), (1, 1)):
+            expected[row] += (chosen_p[row, source] * chosen_u[row, source]
+                              - native["p"][row, source] * native["u"][row, source])
+        assert torch.allclose(got, expected)
+    left = torch.tensor([[True, False], [True, False]])
+    right = ~left
+    left_head = primitive.replace_head_source_subset(native, donor, left, "joint", torch)
+    right_head = primitive.replace_head_source_subset(native, donor, right, "joint", torch)
+    assert torch.allclose(left_head + right_head - native["head"], donor["head"])
+
+
+def test_source_subset_replacement_rejects_ambiguous_masks_and_shapes():
+    native = {"p": torch.ones(1, 2), "u": torch.ones(1, 2, 3),
+              "head": torch.ones(1, 3)}
+    donor = {key: value.clone() for key, value in native.items()}
+    with pytest.raises(ValueError, match="boolean"):
+        primitive.replace_head_source_subset(
+            native, donor, torch.ones(1, 2), "joint", torch)
+    with pytest.raises(ValueError, match="shapes"):
+        bad = {**donor, "u": torch.ones(1, 3, 3)}
+        primitive.replace_head_source_subset(
+            native, bad, torch.ones(1, 2, dtype=torch.bool), "joint", torch)
+    with pytest.raises(ValueError, match="mode"):
+        primitive.replace_head_source_subset(
+            native, donor, torch.ones(1, 2, dtype=torch.bool), "blend", torch)
 
 
 def test_generic_replay_equals_direct_formula_and_source_sum():

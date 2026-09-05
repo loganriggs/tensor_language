@@ -79,6 +79,41 @@ def source_terms(factors, source_positions, torch):
     return factors["p"][rows, source_positions].unsqueeze(-1) * factors["u"][rows, source_positions]
 
 
+def replace_head_source_subset(native, donor, mask, mode: str, torch):
+    """Return an exact mixed head after replacing a row-varying source subset.
+
+    ``mask[b, k]`` chooses sources. ``score`` replaces only ``p``; ``value``
+    replaces the full effective OV-projected ``u``; ``joint`` replaces both.
+    The function operates below the head boundary and never mutates its inputs.
+    """
+    if mode not in {"score", "value", "joint"}:
+        raise ValueError("source-subset mode must be score, value, or joint")
+    for label, factors in (("native", native), ("donor", donor)):
+        if set(factors) < {"p", "u", "head"}:
+            raise ValueError(f"{label} factors must contain p, u, and head")
+        p, u, head = factors["p"], factors["u"], factors["head"]
+        if p.ndim != 2 or u.ndim != 3 or head.ndim != 2 \
+                or u.shape[:2] != p.shape or head.shape != (p.shape[0], u.shape[2]):
+            raise ValueError(f"{label} factor shapes are inconsistent")
+    if native["p"].shape != donor["p"].shape \
+            or native["u"].shape != donor["u"].shape \
+            or native["head"].shape != donor["head"].shape:
+        raise ValueError("native and donor factor shapes differ")
+    if tuple(mask.shape) != tuple(native["p"].shape) or mask.dtype != torch.bool:
+        raise ValueError("source subset mask must be boolean with shape [batch,sources]")
+    if mask.device != native["p"].device or any(
+        tensor.device != native["p"].device
+        for factors in (native, donor) for tensor in (factors["p"], factors["u"], factors["head"])
+    ):
+        raise ValueError("source subset factors and mask must share one device")
+    chosen_p = donor["p"] if mode in {"score", "joint"} else native["p"]
+    chosen_u = donor["u"] if mode in {"value", "joint"} else native["u"]
+    weights = mask.to(native["p"].dtype)
+    old = torch.einsum("bk,bkd->bd", native["p"] * weights, native["u"])
+    new = torch.einsum("bk,bkd->bd", chosen_p * weights, chosen_u)
+    return native["head"] - old + new
+
+
 def install_source_terms(write, factors, final_positions, source_positions, replacement_terms, torch):
     """Replace exactly one head/source term at each row's final query."""
     native = source_terms(factors, source_positions, torch)
