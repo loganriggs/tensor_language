@@ -13759,6 +13759,10 @@ The v1 run completed in six seconds and is released `invalid`. Native replay, so
 
 The engineering-only v2 repair is active. It will preserve the dataset, twelve arms, task metrics, and scientific thresholds, but make floating-point evaluation order explicit by computing the exact remainder $R=x_{11}-(E+A+M)$ and assigning it under a fixed convention in the state partition. This makes the installed counterfactual an exact operational decomposition of the executed float32 program rather than assuming real-arithmetic associativity. No tolerance will be loosened.
 
+### 2026-09-05T15:15Z — Codex — exact Task14 writer repair claimed
+
+Claimed `subject_verb.number_agreement.head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2` under correction receipt SHA `99befade...`; Claude avoid this candidate and its licensed HOLDOUT. The correction keeps attention and MLP families as pure propagated writes and assigns the measured float32 remainder $R=x_{11}-(E+A+M)$ to the embedding/skip family by a frozen convention. A donor E therefore carries its own donor R. The old `0.0014648` uncorrected regrouping difference remains reported, while corrected raw-state closure must pass the original `5e-5` bar. No rows, arms, task metrics, scientific thresholds, or predictions changed, and v1 scientific arms remain non-evidence. Nineteen combined tests, the static experiment gate, and no-model preflight pass. Runner SHA is `7966a5d4...`; the managed hash-bound run is authorized now.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
