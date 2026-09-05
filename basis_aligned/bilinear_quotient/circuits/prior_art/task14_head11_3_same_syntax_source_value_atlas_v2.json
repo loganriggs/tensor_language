@@ -1,0 +1,67 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_same_syntax_source_value_atlas",
+  "timestamp_utc": "2026-09-05T09:13:00Z",
+  "supersedes_prior_art_sha256": "4bbd94b2d6e30eeb21b425066052661cfc0e212bec59b653f281df60987a5080",
+  "reason_for_supersession": "The first receipt correctly found no all-source atlas, but omitted that its subject-position singleton exactly reproduces the existing TEST same-lemma payload arm. This receipt records that arm as a required reproduction control before any outcome is run.",
+  "search_terms": [
+    "Task14 head11.3 all attention source positions value interchange",
+    "number agreement same syntax source value atlas",
+    "subject payload same lemma TEST reproduction",
+    "joint all-source value replacement nonadditivity"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_payload_lemma_direction_factorial_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_score_context_gate_factorial_v2_result.json",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "TEST same-lemma subject-payload arm",
+      "relation": "Exact duplicate of atlas source position 1 on these recipients. It is a frozen reproduction control, not novel evidence."
+    },
+    {
+      "work": "Task14 L11H3 subject/attractor score-value factorial",
+      "relation": "Established a number-specific subject value and near-zero attractor term on SELECT, but did not scan every exact source value on these same-syntax TEST pairs."
+    },
+    {
+      "work": "Task14 component/source-position localization",
+      "relation": "Localized whole head/MLP writes or activation sites; it did not causally interchange every exact L11H3 source summand."
+    }
+  ],
+  "novelty": "For 32 noun groups crossed with two recipient syntaxes, use same-lemma, same-syntax, opposite-number prompts differing only at subject token 1. Replace each exact projected source value separately under recipient scores, plus replace all values jointly and compare with the complete donor head. This locates individually causal later source values and distinguishes distributed value transport from remaining score-related effects.",
+  "required_computation": {
+    "singleton_k": "h - p_k u_native_k + p_k u_donor_k",
+    "joint_values": "sum_k p_native_k u_donor_k",
+    "complete_donor_head": "sum_k p_donor_k u_donor_k",
+    "margin_nonadditivity": "(M_joint-M_native) - sum_k(M_singleton_k-M_native)"
+  },
+  "required_controls": [
+    "native replay and exact source-sum identity",
+    "source position 0 is an exact no-op because the prefix precedes the changed subject",
+    "source position 1 reproduces the existing same-lemma TEST payload row by row",
+    "recipient and donor native capability and a live complete-head ceiling in every cell",
+    "exactly seven valid sources for PP and eight for relative-clause prompts; padding is excluded"
+  ],
+  "interpretation_limits": [
+    "Singleton task effects need not add because downstream computation is nonlinear; joint values are required for coverage.",
+    "Later donor-value differences show that L11H3 reads subject-conditioned information there, not that L11H3 created it.",
+    "The 64 rows are 32 lexical groups crossed with two syntaxes, not 64 independent noun contrasts.",
+    "TEST is reused; OOD, selective removal, and completeness remain closed."
+  ],
+  "known_lessons_applied": [
+    "The attention head is not treated as the final basis; its exact source summands are intervened on separately.",
+    "Task margin and CE, not activation reconstruction or variance, determine causal relevance.",
+    "If nonadditivity is material, promote only top semantic source groups to a small factorial rather than assigning unique singleton shares."
+  ],
+  "source_sha256": {
+    "score_context_v2_result": "7fc2eb5be67291eb4cfb4bf774fe8ba4ca9732b146c6039702f155d289bcf419",
+    "source_factor_result": "3885fe1ed2905cb51fc0e649f7e0107a1b2ecadb52ac30c11344f45de8242202",
+    "lemma_direction_result": "e6f5e469cd561e5ee5f2b70031ab9d754ec40b51af0b2d7dfcc61b3c8e207603",
+    "paired_endpoint_material": "35fbe5a60d42e3ad44fe897d229583ad9addc526fe5132a04c9b9534906a66f7"
+  }
+}
