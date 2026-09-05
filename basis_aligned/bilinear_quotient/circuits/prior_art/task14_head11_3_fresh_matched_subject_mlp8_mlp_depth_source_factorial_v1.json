@@ -1,0 +1,86 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Determine whether early MLP writes M0--M3 or later MLP writes M4--M7 form the embedding--MLP and attention--MLP source interactions that causally create MLP8's Task14 response.",
+  "parents": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial_v1_result.json",
+      "sha256": "da639bb23aef25b78da20170b52e31e4e2d5f64a95fd5586b2bf07a12cb1a7ed",
+      "finding": "The cross response is mostly an additive earlier-MLP signal, whereas roughly half the quadratic response is embedding--MLP or attention--MLP interaction. Embedding--attention and three-way interactions are small."
+    }
+  ],
+  "novelty_audit": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_mlp_depth_factorial_v1_result.json",
+      "sha256": "f18ce285152a1b3388ca3083de344dd9dd3675e4932b27bf44ea1f9e8e3f3073",
+      "relation": "This prior experiment split MLP depth at the later pre-attention-11 current-value input. It did not intervene on raw writer sources at MLP8 input or preserve the newly measured embedding--MLP and attention--MLP interactions."
+    },
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "8096a3bfc8b67cb3ec7d65129dbfc0ff1fe2756c4842ff936f453cca42bb4d6c",
+      "relation": "The canonical Task14 dossier contains MLP8 localization but no early-versus-late MLP writer factorial at MLP8 input."
+    },
+    {
+      "path": "polynomial_causal/explanations/MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md",
+      "sha256": "75c6caa3059f4488365ef2acfcb4ea52ff36c25c5b52b99c2181d8f59940ae92",
+      "relation": "The equality-circuit dossier closes native-product retuning and reconstruction/rank sweeps. This experiment selects no product coordinates and evaluates task behavior causally."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural Task14 HOLDOUT rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"],
+    "intervention_position": 8,
+    "disclosure": "Rows and all parent E/A/M outcomes are open. Only the M0--M3 versus M4--M7 refinement and its outcomes are prospective."
+  },
+  "exact_input_partition": {
+    "E": "propagated embedding/skip through block 8, including the fixed numerical remainder",
+    "A": "propagated attention writes A0--A8",
+    "U": "propagated early MLP writes M0--M3",
+    "V": "propagated later MLP writes M4--M7",
+    "closure": "The raw pre-MLP8 state is exactly E+A+U+V before native MLP8 RMSNorm.",
+    "corner": "For each subset of E,A,U,V, take donor values for listed source families and recipient values for the remainder, then run native RMSNorm.",
+    "operational_limit": "These are native writer-family path interventions, not a unique semantic residual-stream basis."
+  },
+  "conditions": {
+    "recipient_noop": 1,
+    "opposite_number": "15 nonempty E/A/U/V subsets times exact cross, quadratic, and full MLP8 response",
+    "same_number_lexical": "the same 15 subsets and response pieces",
+    "total": 91,
+    "downstream_background": "standalone fixed L11H3 interface; every other MLP4--M10 slot remains recipient"
+  },
+  "causal_statistics": {
+    "set_function": "For every response piece and task metric, measure the complete 2^4 source set function on CE and answer-directed margin.",
+    "mobius": "Compute every singleton and higher-order finite causal interaction over E,A,U,V.",
+    "parent_closure": "Regrouping U+V must reproduce every parent M, EM, AM, and EAM corner at the raw state, normalized input, MLP8 output, propagated slot, and downstream outcome.",
+    "interpretation": "Task-level terms include RMSNorm and downstream nonlinear interactions; they are not activation reconstruction or a linear attribution."
+  },
+  "predictions": {
+    "pred_a_instrument_and_parent_closure": "All numerical gates pass and regrouping U+V exactly reproduces the parent E/A/M factorial.",
+    "pred_b_V_late_dominant": "Terms containing V recover at least 70% of each parent M, EM, and AM aggregate in both metrics and directions, while corresponding U-only terms recover at most 25%.",
+    "pred_c_U_early_dominant": "The converse dominance criterion holds for U.",
+    "pred_d_distributed_depth": "Both U- and V-containing refinements recover at least 25% of at least one parent M-centered aggregate in both metrics and directions, and neither depth family dominates.",
+    "pred_e_cross_depth_composition": "Terms containing both U and V account for at least 25% of a parent M-centered aggregate in both metrics and directions.",
+    "pred_f_direction_switch": "An identified dominant depth family differs between plural-to-singular and singular-to-plural.",
+    "pred_g_number_specific": "Every same-number lexical corner is at most 25% of the corresponding opposite-number full-source response scale."
+  },
+  "bars": {
+    "maximum_numerical_absolute_error": 0.00005,
+    "minimum_dominant_recovery_fraction": 0.70,
+    "maximum_minor_recovery_fraction": 0.25,
+    "minimum_distributed_recovery_fraction": 0.25,
+    "minimum_cross_depth_interaction_fraction": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25
+  },
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 3008,
+    "causal_interventions": 1440,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "capability_GPU_price": 0
+  },
+  "closed_claims": ["unique_semantic_basis", "individual_MLP_identity", "rank", "quantization", "activation_reconstruction", "new_independent_data", "necessity_outside_fixed_L11H3_interface"]
+}
