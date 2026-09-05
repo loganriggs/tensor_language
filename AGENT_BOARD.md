@@ -14315,6 +14315,10 @@ The runner compiles 832 unique installations: two binary endpoints with base/exa
 
 The six-second managed run is valid (SHA `16665084…`) and all six gates pass. Across all new gains/cells, minimum opposite head-delta cosine is `0.98664`, maximum relative error `0.17819`, and live installed task recovery `0.82261–1.15703`. Mean q(r) is strictly decreasing for plural→singular (`0.13465` at -0.5 to `-0.06799` at 1.5) and increasing for singular→plural (`-0.04425` to `0.13536`), so the intervention smoothly drives the task use through zero with the registered sign reversal. Maximum template difference is `0.03015`; maximum absolute lexical effect is `0.01174`. The distributed background is therefore a continuously manipulable gate, not merely a binary subset descriptor. Next priority is the endpoint-calibration dependency: freeze absolute coefficients on a genuinely new FIT half and test untouched HOLDOUT text without target endpoint anchors.
 
+### 2026-09-05T21:45Z — Codex — pristine zero-target-anchor composition transfer claimed
+
+Claimed `subject_verb.number_agreement.pristine_split_mlp6_7_absolute_composition_transfer_v1` (prior-art SHA `4a066191…`) after zero matching authority events. Its frozen authority has 48 noun forms disjoint from all prior Task14 vocabularies and 120 unique matched endpoints. FIT has 32 rows over `near/behind` and `outside/past`; HOLDOUT has eight rows with disjoint nouns and the unseen reversed `past/outside` template. After a native-only gate, FIT alone freezes q0 plus four exact Shapley coefficients per direction. Those ten scalars must predict every absolute HOLDOUT q(S), including endpoints, with no target calibration. This directly tests coefficient generation/sharing on genuinely untouched text; HOLDOUT failure cannot be repaired by refitting.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /

@@ -1,0 +1,59 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.pristine_split_mlp6_7_absolute_composition_transfer_v1",
+  "created_utc": "2026-09-05T21:43:30Z",
+  "purpose": "Test whether a five-scalar-per-direction grouped-MLP6--7 gate learned on pristine FIT nouns/templates predicts absolute causal response on untouched HOLDOUT nouns and a third template without target endpoint calibration.",
+  "data_status": "NEW_FIT_AND_UNTOUCHED_HOLDOUT_TEXT; authority frozen before any native or causal model outcome",
+  "binding_evidence": [
+    {
+      "path": "ops/circuit_fast_screen_candidate_task14_pristine_split_mlp6_7_absolute_composition.py",
+      "sha256": "429124ece9c746f425b5bdd340280bbb4ac1ccb256302a92a4c45c5dba405ead",
+      "logical_sha256": "7d8220ed50c7b2ec526e32d81c791735027ba012b5034bdef837caf8a95f1b8f",
+      "finding": "Frozen 40-row authority has 32 FIT rows over two templates and 8 HOLDOUT rows over a third template, 48 disjoint one-token noun forms, 120 unique matched endpoints, and disjoint phase vocabularies."
+    },
+    {
+      "path": "circuits/fast_screens/task14_fresh_fronted_mlp6_7_background_composition_transfer_v1_result.json",
+      "sha256": "2685549927059d3623f68961c4cc8102d24bda3aeb02c7d8b22b2d747edb7a9a",
+      "finding": "Endpoint-calibrated gate shape transfers across two intervention-new constructions, leaving absolute amplitude generation open."
+    },
+    {
+      "path": "circuits/fast_screens/task14_fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1_result.json",
+      "sha256": "1666508493ac6e0cf7b05798da00852b293541d2561e3ffb928fce32df8134bf",
+      "finding": "The distributed binary gate continuously and predictively steers grouped-source task use, licensing a harder zero-target-anchor prediction test."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for absolute-composition holdout, zero-target-endpoint transfer, pristine MLP6-7 composition, and background-amplitude holdout found no prior event.",
+    "Prior cross-cell tests use each target's q(empty),q(EAUW) endpoints. This test supplies neither HOLDOUT endpoint to the predictor and changes both noun vocabulary and template."
+  ],
+  "map": "After a staged native-only capability pass, run the complete E/A/U/W-by-X lattice. On FIT only, average q(S) by direction, compute q0=q(empty) and exact four-factor Mobius/Shapley attributions a_E,a_A,a_U,a_W, then freeze q_hat(S)=q0+sum_{f in S}a_f. Apply those five scalars without refitting or target endpoints to every HOLDOUT q(S) mean. HOLDOUT uses disjoint nouns and only the unseen past/outside template.",
+  "predictions": {
+    "pred_a_native_capability_license": "Every registered phase/direction/template/role cell reaches at least 0.75 native accuracy; a candidate-scoped license is issued only on a complete pass.",
+    "pred_b_causal_instrument": "The complete 40x2x16x2 lattice exists and all native replay, decomposition, no-op, and Mobius closures are at most 5e-5.",
+    "pred_c_fit_five_scalar_law": "Within each FIT direction, the five-scalar additive law predicts the fourteen intermediate mean q(S) values with normalized MAE at most 0.15 and normalized maximum error at most 0.35.",
+    "pred_d_zero_anchor_holdout_prediction": "For each HOLDOUT direction, without target endpoints, absolute MAE across all sixteen q(S) values is at most 0.04, MAE normalized by |holdout endpoint shift| is at most 0.30, and maximum normalized error is at most 0.60.",
+    "pred_e_factor_specificity_beats_uniform": "On HOLDOUT, FIT factor-specific coefficients reduce aggregate squared error by at least 10% versus a uniform four-factor law using the same FIT q0 and endpoint shift.",
+    "pred_f_signed_gate_and_lexical_control": "HOLDOUT opposite context shift is <=-0.05 for plural-to-singular and >=0.05 for singular-to-plural; maximum absolute HOLDOUT same-number lexical q(S) is at most 0.02."
+  },
+  "null": "Failure of d means the shared profile requires target endpoint calibration and is not yet a coefficient generator. Failure of e means direction-level amplitude, not factor identity, explains any transfer. Failure of f limits either sign stability or operational selectivity. A native or causal instrument failure invalidates all downstream claims. Do not tune coefficients or bars after HOLDOUT opens.",
+  "price": {
+    "native_model_forwards": 1,
+    "native_example_evaluations": 120,
+    "causal_physical_model_forwards": 22,
+    "causal_example_evaluations": 5360,
+    "causal_installations": 2560,
+    "maximum_patch_chunk_rows": 256,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "deployed_gate_scalars": 10
+  },
+  "closed_claims": [
+    "semantic uniqueness",
+    "MLP6 versus MLP7 identity",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "necessity outside the fixed L11H3 interface",
+    "global transfer beyond this frozen phase/template split"
+  ]
+}
