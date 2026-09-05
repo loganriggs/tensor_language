@@ -2541,6 +2541,393 @@
    ],
    "translation_ids": [],
    "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
+  },
+  {
+   "claim_id": "grammatical_subject_number.v11",
+   "revision": 11,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v10",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "fresh_matched_subject_number_score_value_v1",
+     "role": "interchange",
+     "changes": [
+      "the exact token-8 subject-self score, subject effective value, or both between opposite subject numbers"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT template and attractors",
+      "all non-subject L11H3 source terms and answer position"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "same-batch native no-op and source algebra",
+      "complete opposite-head positive control",
+      "same-number different-lemma score"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "fresh_matched_same_number_lexical_score_v1",
+     "role": "invariance",
+     "changes": [
+      "the subject lemma in the exact token-8 self-score while preserving subject number"
+     ],
+     "holds_fixed": [
+      "subject number and is/are answer",
+      "template, attractors, value state, and non-subject source terms"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "matched opposite-number score effect",
+      "native and opposite subject-value states"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "failed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+     "tensor_path": "exact subject-source score and projected value factors",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject-source score, projected value, or both while retaining every other exact source term",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+     "tensor_path": "exact subject-source projected value contribution p_subject*u_subject",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace only the subject source projected value while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+     "tensor_path": "factorial interaction of the subject-source score and projected value",
+     "shape": [
+      "batch",
+      2,
+      2,
+      1152
+     ],
+     "intervention": "cross recipient or alternate-context scores with native or opposite-number subject projected values",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+     "tensor_path": "exact per-source projected value contributions p_k*u_k",
+     "shape": [
+      "batch",
+      "source_position",
+      1152
+     ],
+     "intervention": "replace selected source projected values while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+     "tensor_path": "semantic groups of exact source projected value contributions",
+     "shape": [
+      "batch",
+      4,
+      1152
+     ],
+     "intervention": "replace any subset of subject, intermediate, bridge, and attractor groups",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+     "tensor_path": "fronted-construction source score vector grouped as earlier, determiner, and subject-self scores",
+     "shape": [
+      "batch",
+      3
+     ],
+     "intervention": "replace selected source scores with donor scores while holding the installed subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+     "tensor_path": "the two bilinear QK branches composing the final-query to subject-self score",
+     "shape": [
+      "batch",
+      4,
+      128
+     ],
+     "intervention": "interchange q1, k1, q2, and k2 factors factorially while holding the donor subject value fixed",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2",
+    "task14_fresh_matched_natural_split_v1"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
+    "task14_head11_3.fresh_matched_natural.capability.complete.v1",
+    "task14_head11_3.fresh_matched_qk.v1_engineering_failure.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v2_instrument.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v3_instrument.complete.v1",
+    "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
+    "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
+    "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
+    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "The licensed fresh matched-natural QK factorial is complete and must not be repeated: its instrument was valid, but the registered number-discrimination, lexical-selectivity, and bidirectional task-use claims were null. The supported effect is directional asymmetry: the subject-self score/value combination helped singular-to-plural and harmed plural-to-singular. Next test a separately preregistered explanation of that asymmetry or a different causal score basis, with selective removal and unrelated-task controls; do not weaken these rows or bars."
   }
  ],
  "split_plans": [
@@ -2624,6 +3011,26 @@
    "sealed_before_outcomes": false,
    "sealed_at": "2026-09-05T04:59:00Z",
    "notes": "The relation builder and predictions existed before the first computation, but this registry split was appended after the managed replication outcome; do not treat it as a blind split-registration receipt."
+  },
+  {
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "unit": "16 frozen noun groups; each group keeps two templates and recipient/opposite-number/same-number-lexical endpoints together",
+   "partition_artifact_id": "task14_fresh_matched_capability_authority",
+   "builder_artifact_id": "task14_fresh_matched_capability_authority",
+   "seed": "task14-fresh-matched-natural-v1|groups-0-7-fit|groups-8-15-holdout",
+   "groups": {
+    "FIT": 8,
+    "LICENSED_HOLDOUT": 8
+   },
+   "leakage_group_keys": [
+    "noun group and forms",
+    "exact prompt and token ids",
+    "row id",
+    "template",
+    "direction"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-05T13:42:00Z"
   }
  ],
  "artifacts": {
@@ -2973,6 +3380,72 @@
    "path": "basis_aligned/polynomial_causal/explanations/explanation_2026-09-04_1330.md",
    "sha256": "110b15d648626ecb07e26ebce89e6e85f7c322adfee927abc5e8bf9138e0bc03",
    "kind": "administrative_closure",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_capability_authority": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_fast_screen_candidate_task14_fresh_matched_natural_native_capability.py",
+   "sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+   "kind": "counterfactual_authority",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_capability_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_fresh_matched_natural_native_capability_v1.json",
+   "sha256": "a0efc20022dfc96611b3bfb02a113c391c4d3b1f8c0533a3e6776c2026e2be5c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_capability_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_result.json",
+   "sha256": "363d45f17e877ddfff50d99e41d999ced0acc33f91ef93b972023ede78031e18",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_capability_license_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license_result.json",
+   "sha256": "ece04f3954ab8dd9fd3be73942af63cdf13d76f13854c07ccb02b31ce2d7553b",
+   "kind": "capability_result",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_capability_license": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license.json",
+   "sha256": "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c",
+   "kind": "capability_license",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_scientific_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_v1.json",
+   "sha256": "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_v1_engineering_failure": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_engineering_failure_v1.json",
+   "sha256": "34024d08e1d84dc6ad4ad7aca0a75f69ce91b7b971370026b736e019620cb034",
+   "kind": "engineering_failure",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_v2_repair": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_numerical_repair_v2.json",
+   "sha256": "1aaf9316c9475e8ca9a7ecc697d1f63d1f32dcecc2e37633dc8551926c0fce2b",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_v2_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v2_result.json",
+   "sha256": "d2655846b44aef36dfea791884ffe6899844a92fcb42e179c8ac3878f8b4d66f",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_v3_repair": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_same_batch_repair_v3.json",
+   "sha256": "9c170ed8db667743bd62d761ebdd1876790d81c0a95898e9268245d653814399",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fresh_matched_qk_v3_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json",
+   "sha256": "69f954df45ec642cf2aa284f6ed2d20e68e0d9f9eefedc1546140a0579a2c981",
+   "kind": "screen_result",
    "status": "frozen"
   }
  },
@@ -4577,6 +5050,426 @@
    "notes": "Administrative implementation terminal only. The registered DAS intervention was never executed, so this event reports no learned coordinate, scientific null, task effect, CE effect, or model conclusion. Later Task14 fast-screen and below-head evidence are separate experiments and remain unchanged.",
    "design_key": "a62f6adaef1dda122d32db455f544a863daff785f0599c64166c54e548ab3047",
    "execution_key": "8fcf3f72e80f2af6542f9fc2b3bfa51c7e390161597a7a5bc3d1476c523e5d72"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_natural.capability.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": null,
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_MATCHED_NATURAL_CAPABILITY_FIT_HOLDOUT",
+   "metrics": [
+    {
+     "name": "FIT_minimum_cell_accuracy",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.875 each cell"
+    },
+    {
+     "name": "HOLDOUT_minimum_cell_accuracy",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.875 each cell"
+    },
+    {
+     "name": "model_forwards",
+     "estimate": 2,
+     "ci95": null,
+     "bar": "2"
+    },
+    {
+     "name": "causal_interventions",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "0"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_capability_prior_art",
+   "result_artifact_id": "task14_fresh_matched_capability_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Native capability only. This licenses the bound causal candidate but is not QK evidence.",
+   "design_key": "ebed507cea6c6e2d77a63a815af367358ac77d9a9eb7a7fc3229736ec0c3037b",
+   "execution_key": "932a156963897ae4f1a6f2dbd712e407b6cf2fe188a9a93fd0b17e224917f642"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.v1_engineering_failure.invalid.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "null_control",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "implementation_failure",
+   "family_ids": [],
+   "site_id": null,
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "result_written",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must equal 0"
+    },
+    {
+     "name": "scientific_outcome_scored",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must equal 0"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_scientific_prior_art",
+   "result_artifact_id": "task14_fresh_matched_qk_v1_engineering_failure",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Pre-scoring engineering failure retained as provenance; it contains no scientific outcome.",
+   "design_key": "5649c8cf354810a5c35e382d4da1c3e84f3cb0943771b961b15b329970bffbea",
+   "execution_key": "9da1e12189aa191a71115a2b88986a82ce66bc75c014f772e87f8f9ca9dc1e14"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.v2_instrument.invalid.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "null_control",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": null,
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "patched_dispatch_recipient_head_max_absolute_error",
+     "estimate": 8.7738037109375e-05,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "same_score_same_value_endpoint_max_absolute_error",
+     "estimate": 2.574920654296875e-05,
+     "ci95": null,
+     "bar": "<=0.00007"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_v2_repair",
+   "result_artifact_id": "task14_fresh_matched_qk_v2_invalid_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.fresh_matched_qk.v1_engineering_failure.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Invalid numerical instrument. Scientific scores in this artifact are descriptive only and are not evidence.",
+   "design_key": "1d391060485667ccb2b2f0405831a6687d030522a723b10926bc9b5fad5b4820",
+   "execution_key": "061153c7fac0306532cffb618e4acf58b504341d382e6afbf959bdf3334a27d0"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.v3_instrument.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "native_replay_max_absolute_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "same_batch_native_noop_endpoint_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "source_term_sum_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "installed_term_max_absolute_error",
+     "estimate": 3.814697265625e-06,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "complete_head_vector_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "minimum_complete_head_mean_donor_margin_improvement",
+     "estimate": 0.34386491775512695,
+     "ci95": null,
+     "bar": ">=0.05 each cell"
+    },
+    {
+     "name": "minimum_complete_head_mean_donor_CE_improvement",
+     "estimate": 0.29966139793395996,
+     "ci95": null,
+     "bar": ">=0 each cell"
+    },
+    {
+     "name": "minimum_complete_head_row_improvement_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 each cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_v3_repair",
+   "result_artifact_id": "task14_fresh_matched_qk_v3_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.fresh_matched_qk.v2_instrument.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The corrected same-batch instrument and complete-head positive control passed. This validates the intervention, not the scientific hypotheses by itself.",
+   "design_key": "ba702c2e9cb54a6f6f1420f91f183191438db68975a0bcef813046178ec604d3",
+   "execution_key": "dcef7199f4fdeb0161c1f20cc4bbdd621077abbfc6c705872801b9fe70d10c13"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "minimum_number_score_absolute_mean_margin_effect",
+     "estimate": 0.09524405002593994,
+     "ci95": null,
+     "bar": ">=0.05 at both value states in every cell"
+    },
+    {
+     "name": "minimum_expected_row_sign_fraction",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": ">=0.75 at both value states in every cell"
+    },
+    {
+     "name": "cells_passing_both_value_state_signs",
+     "estimate": 2,
+     "ci95": null,
+     "bar": "4 of 4"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_scientific_prior_art",
+   "result_artifact_id": "task14_fresh_matched_qk_v3_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The score effect was large enough, but the registered number-dependent signs failed in both plural-to-singular cells.",
+   "design_key": "1eef209d552cd9ad4d11e53d1b545cf2feecee2101728f47d0c9978aca3aee38",
+   "execution_key": "237de0cada6b2082170ff2585ea6574aa0d64190910b910c8fbf2e446036791e"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "maximum_same_number_lexical_over_number_margin_ratio",
+     "estimate": 0.37623193672617516,
+     "ci95": null,
+     "bar": "<=0.25 in every value-state cell"
+    },
+    {
+     "name": "cells_passing_both_value_state_lexical_ratios",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "4 of 4"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_scientific_prior_art",
+   "result_artifact_id": "task14_fresh_matched_qk_v3_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Same-number lemma changes were not uniformly small relative to opposite-number score changes.",
+   "design_key": "45a9c99f56eee648dc809ef5d7cf3a752b1421cf349a4eeb61a0d7ce5df24a6b",
+   "execution_key": "2a5bc48007563257af21ed7e98d6f287361528a44c32fe0086ed095c29868da9"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "minimum_opposite_score_opposite_value_mean_donor_margin_improvement",
+     "estimate": -0.13620710372924805,
+     "ci95": null,
+     "bar": ">=0.05 each cell"
+    },
+    {
+     "name": "minimum_opposite_score_opposite_value_mean_donor_CE_improvement",
+     "estimate": -0.08924269676208496,
+     "ci95": null,
+     "bar": ">=0 each cell"
+    },
+    {
+     "name": "minimum_donor_helpful_row_fraction",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": ">=0.75 each cell"
+    },
+    {
+     "name": "direction_template_cells_passing_task_use",
+     "estimate": 2,
+     "ci95": null,
+     "bar": "4 of 4"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_scientific_prior_art",
+   "result_artifact_id": "task14_fresh_matched_qk_v3_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Opposite-number score with opposite-number value helped singular-to-plural but harmed plural-to-singular, so bidirectional task use failed.",
+   "design_key": "494c15712cd6a80b7e9e9627c32e3efa3d5f9ce5fee91c78d96bb2e6ab428c3d",
+   "execution_key": "db1aae312f597a32f8d058a5a1f09e7a8cfd817fa865d07c662682708be21955"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "singular_to_plural_minimum_donor_helpful_margin_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "1.0 in both templates"
+    },
+    {
+     "name": "plural_to_singular_maximum_donor_helpful_margin_fraction",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "0.0 in both templates"
+    },
+    {
+     "name": "singular_to_plural_mean_donor_margin_improvement_range",
+     "estimate": [
+      0.30822837352752686,
+      0.40423595905303955
+     ],
+     "ci95": null,
+     "bar": ">0"
+    },
+    {
+     "name": "plural_to_singular_mean_donor_margin_improvement_range",
+     "estimate": [
+      -0.13620710372924805,
+      -0.09524405002593994
+     ],
+     "ci95": null,
+     "bar": "<0"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_matched_qk_scientific_prior_art",
+   "result_artifact_id": "task14_fresh_matched_qk_v3_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_result",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_matched_capability_license"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Held alternative: the exact score/value combination has opposite task effects by direction. This does not rescue the separate bidirectional-use null.",
+   "design_key": "35e7ecb71a215441f4b3142c00f93aa2c4b99698ab29951b3245b3a2da176c22",
+   "execution_key": "e980c300f372fb8c604b0c8f83f67aacdcb91b463be9bc1ac8e999260e11dbfc"
   }
  ]
 }
