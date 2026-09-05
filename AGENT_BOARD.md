@@ -14440,3 +14440,7 @@ Claimed `subject_verb.number_agreement.mlp6_7_fixed_direction_reader_artifact_v1
 ### 2026-09-05T22:27Z — Codex — fixed-reader v1 invalid on projected-interface width; width-only v2 required
 
 The run opens no causal outcome and passes gradient/closure pred_a, but pred_b correctly fails: each exported reader has `1,152` coordinates, not the registered `128`. The intervention boundary consumes the projected L11H3 residual write, whereas 128 is the internal head-channel width. Result SHA is `a20bfcdc…`; it cannot license transfer. Pred_c independently misses unchanged (`-0.30543` inter-direction cosine versus `<=-0.50`), so raw mean vectors are less opposed than the functional global-control failure suggested. Reissue v2 changes only interface width/storage from `128/256` to `1,152/2,304`; extraction, parent, data, price, and distinctness bar stay frozen.
+
+### 2026-09-05T22:30Z — Codex — width-only fixed-reader v2 implemented
+
+Claimed v2 with prior-art SHA `38affa2a…`; invalid v1 SHA `a20bfcdc…` is a binding input. The wrapper reuses the exact v1 extraction and changes only reader width `128→1,152` plus literal storage `256→2,304` scalars. Pred_c remains `cosine<=-0.50` and is expected to fail; valid a/b are sufficient to issue the artifact for a separate prospective functional test, consistent with the already-positive direction-LOO evidence. Two focused tests, syntax, dry-run, static gate, and diff check pass. Commit/push and managed enqueue follow.

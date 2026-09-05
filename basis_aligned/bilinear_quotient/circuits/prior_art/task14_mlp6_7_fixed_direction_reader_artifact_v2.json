@@ -1,0 +1,17 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_fixed_direction_reader_artifact_v2",
+  "created_utc": "2026-09-05T22:28:00Z",
+  "status": "WIDTH_ONLY_REISSUE_BEFORE_V2_EXECUTION",
+  "invalid_parent": {"path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v1_result.json", "sha256": "a20bfcdc9bcb274e500e00585735d1fe69afd5e1c3185c352ff25b788d85b6b9", "failure": "Registered 128 coordinates but the projected L11H3 replacement interface has 1152."},
+  "correction": "Change reader_width 128->1152 and stored_scalars 256->2304 only.",
+  "unchanged": ["authority", "parent", "central-gradient extraction", "direction averaging", "no causal q input", "forwards", "evaluations", "backwards", "pred_a", "pred_c cosine <= -0.50", "null"],
+  "predictions": {
+    "pred_a_gradient_instrument": "All source/downstream closures <=5e-5 and all 32 gradients are finite and nonzero.",
+    "pred_b_two_readers_exported": "Exactly two finite 1152-coordinate projected-write direction readers are atomically written.",
+    "pred_c_direction_readers_are_distinct": "Their cosine is at most -0.50; this remains frozen despite v1 having opened the value."
+  },
+  "price": {"physical_model_forwards": 2, "example_evaluations": 128, "backwards": 1, "causal_interventions": 0, "parameter_updates": 0, "stored_scalars": 2304},
+  "null": "Failure of a/b invalidates export. Pred_c is expected to remain false from v1 and is preserved as an honest scientific miss; a valid a/b artifact may still be tested prospectively because the parent established functional direction grouping.",
+  "closed_claims": ["prospective_transfer", "global_reader", "rank", "compression", "activation_reconstruction"]
+}
