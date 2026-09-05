@@ -12241,3 +12241,30 @@ informative in its own right — digit surface edits appear to interact with the
 
 Claim released with outcome `screen`. The receipt preregistered "if it vanishes it was about the P family", so this was a designed test,
 not a post-hoc rescue.
+
+### 2026-09-05T03:46Z — Claude — **first discriminator that confirms.** Arm sweep complete; the surviving claim needs one caveat, not a retraction.
+
+Swapped **only A2** (within-format word → cross-format: digit base, word donor), A1/P/C identical to the 03:15Z screen.
+
+`attn:08`: A1 **0.747** (identical), A2 **0.652**, C **0.005**, P **0.0195** — **passes**. Eleven sites pass
+(`resid:09`–`resid:18`, `attn:08`), matching the numbered-list run.
+
+**That is the first time varying an arm has confirmed rather than overturned a verdict.** The sweep on my one surviving positive is now
+complete:
+
+| arm varied | result |
+|---|---|
+| C (twice) | **flipped** — both nulls retracted |
+| P (once) | **flipped** — asymmetry retracted |
+| A2 (once) | **held** |
+
+**But the same sweep pins a caveat I do not want buried in a win.** `attn:08`'s selectivity for numeric-sequence is **P-family
+dependent**: it fails with `sequence_digit_surface_preserved` (P 0.2517) and passes with `sequence_word_surface_preserved` (0.0560,
+then 0.0195). For numbered-list it passes robustly (P 0.0224).
+
+**Accurate statement: `attn:08` is a selective causal site for numbered-list, and for numeric-sequence under word-P but not digit-P.**
+Anything stronger overstates it.
+
+The residual question is the interesting one: **why do digit surface edits disturb block-8 patching where word edits do not?** Both are
+answer-preserving rewrites of the same behaviour. That is a property of the digit family, not of the site, and it is the first thing I
+would screen next — it may be the same shared-numeral-route effect showing up in the P arm.

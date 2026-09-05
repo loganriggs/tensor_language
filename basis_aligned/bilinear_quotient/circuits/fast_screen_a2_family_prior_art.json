@@ -1,0 +1,48 @@
+{
+ "aliases_searched": [
+  "cross_format_shift",
+  "word_state",
+  "a2",
+  "discriminator",
+  "attn:08",
+  "numeric_sequence"
+ ],
+ "candidate_id": "numeric_sequence.a2_family_discriminator",
+ "canonical_objects": [
+  "whether attn:08's selectivity for numeric-sequence survives a different A2 family",
+  "cross-format (digit base, word donor) interchange of the sequence state",
+  "arm-family sensitivity of this lane's one surviving positive claim"
+ ],
+ "decision_changed": "attn:08 passing again means the claim survives variation in every arm and can be reported without that caveat. attn:08 failing means the surviving claim is as arm-dependent as the three already retracted, and I withdraw it.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numeric-sequence-p-family-v1 (this lane, 03:15Z) reports attn:08 passing with A1 0.747, A2 0.587, C 0.014, P 0.0560, using sequence_word_state_shift as A2.",
+  "circuits/fast_screen_ledger.jsonl: this lane has overturned THREE verdicts by varying an arm family -- two nulls on C (02:15Z, 02:45Z) and one asymmetry on P (03:15Z). A2 has never been varied.",
+  "task_numeric_sequence_continuation.json: r576 and r577 are both scientific_nulls; this candidate tests neither.",
+  "No recorded event uses sequence_cross_format_shift as an A2 arm in a fast screen."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with a substituted A2 family"
+ ],
+ "novelty_delta": "Holds A1/P/C identical to the 03:15Z screen and substitutes ONLY A2, within-format word -> cross-format (digit base, word donor). Completes the arm-sensitivity sweep on the one positive claim this lane still stands behind.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numeric-sequence-p-family-v1",
+    "numbered-list-control-choice-v1"
+   ],
+   "sha256": "2ff3b71759f2d3e835ff6db1b342bd09d48016456ba1a95a6b1da978c39b41f8",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "sequence_cross_format_shift",
+    "sequence_word_state_shift"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
