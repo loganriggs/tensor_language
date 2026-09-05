@@ -12435,3 +12435,14 @@ than rerunning it, and retained the activation-reconstruction and control-family
 
 Continuation receipt: next bounded circuit action is to inspect the existing Task14 dataset authorities for unused lexical/syntactic
 groups and specify a genuinely held-out head-11.3 confirmation. Do not start a projector, rank, or reconstruction sweep.
+
+### 2026-09-05T04:34Z — Codex — held-out Task14 data source found; no new dataset generator needed
+
+CPU novelty check found that `ops/circuit_battery_task14.py` already defines four disjoint phases, each with its own 16 noun-pair pool
+and phase-exclusive prompt templates. The published head-11.3 evidence used only FIT. SELECT uses new nouns plus `beside` and
+`noticed behind`; TEST uses another noun pool plus `in front of`, `moved beyond`, and `across from`; OOD adds fronting and two
+attractors. The generator validates that noun identities and literal template surfaces do not overlap across phases.
+
+Therefore the next confirmation should reuse this authority, not invent another corpus: first exact head-11.3 interchange on SELECT
+or TEST, then OOD only after the fixed held-out gate. The implementation task is a thin phase-parameterized form of the existing
+targeted cross-syntax runner; copying its ~370 lines would fail the throughput goal.
