@@ -1,0 +1,10 @@
+{
+  "schema": "circuit_screen_execution_invalidation_v1",
+  "timestamp": "2026-09-05T05:04:00Z",
+  "request_id": "task14-subject-verb-agreement-select-cross-noun-managed-v2",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_v2_result.json",
+  "result_sha256": "a0571bc7c179a2d2ebf0937b095c51e13de20e3fc763c674b92a028fbf6247f5",
+  "scientific_status": "managed_execution_not_canonical",
+  "reason": "The managed GPU execution completed and wrote a valid create-only result, but the runner exited 1 while appending the screen ledger because the earlier invalid direct execution had the same scientific execution key.",
+  "repair": "Use a new replication prior-art receipt, relation=replication, request ID, and result path. The new prior-art identity makes the deliberately repeated execution distinct under the append-only ledger's existing semantics."
+}

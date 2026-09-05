@@ -9,6 +9,8 @@ def test_protocol_is_a_targeted_cross_noun_select_profile() -> None:
     assert protocol.phase == "SELECT"
     assert protocol.partition == "HELD_OUT"
     assert "cross_noun" in protocol.validation_scope
+    assert protocol.relation == "replication"
+    assert "managed-replication-v3" in protocol.request_id
     assert protocol.expected_authority_sha256 == \
         "9d5151f9e297788c0c8799cc60cc4c9bf1e6196e10df93793fb53094566091ae"
     assert protocol.candidate.compile_plan()["price"]["forward_calls"] == 8

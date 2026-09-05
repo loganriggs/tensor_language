@@ -12492,6 +12492,14 @@ The shared CLI now makes `--dry-run` genuinely model-free and rejects unknown ar
 identity is claimed for managed replication through `ops/enqueue.sh`; this is a process confirmation, not a second blind
 scientific test. No other lane should use or publish the v1 cross-noun result.
 
+### 2026-09-05T05:05Z — Codex — first managed replication wrote evidence but ledger rejected duplicate key
+
+The managed v2 run completed with the same scores, then exited 1 because the append-only screen ledger correctly
+refused the same authority/spec/prior-art execution key already occupied by invalid v1. The v2 result is preserved as a
+managed-but-incompletely-published receipt, not canonical evidence. The runner now supports `relation=replication`; v3
+has a replication-specific prior-art identity, new create-only path, and active claim. This is the final bounded process
+repair before re-enqueue, not a new scientific hypothesis or backup protocol.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue

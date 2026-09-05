@@ -1,0 +1,42 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.select_cross_noun_managed_replication",
+  "canonical_objects": [
+    "fixed Task14 SELECT cross-noun authority",
+    "managed execution replication",
+    "attention block 11 and head 11.3"
+  ],
+  "aliases_searched": [
+    "select cross noun v1",
+    "select cross noun managed v2",
+    "duplicate identical execution",
+    "managed replication"
+  ],
+  "method_families": ["exact replication", "managed GPU execution", "append-only publication"],
+  "matched_prior_claims": [
+    "The v1 computation was preregistered but ran directly because --dry-run was ignored; it is excluded from canonical evidence.",
+    "The managed v2 computation completed but its ledger append refused the duplicate scientific key inherited from v1.",
+    "Both noncanonical files produced identical scores; the next run is an explicit process replication, not a blind scientific test."
+  ],
+  "relation": "replication",
+  "novelty_delta": "No new scientific hypothesis. Re-execute the exact frozen authority through the managed runner using an explicit replication prior-art identity so the append-only ledger can record the process-compliant result.",
+  "decision_changed": "Only a successful managed result plus ledger append can become canonical evidence. A numerical mismatch would reveal nondeterminism and block publication.",
+  "reviewer": "Codex process-failure audit",
+  "reviewed_sources": [
+    {
+      "source": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_v1_invalid_execution.json",
+      "sha256": "7357b389d29ac91f1d4d20110fd8e71576a8d79d4fcd170fb8165ce12e01cceb",
+      "searched_terms": ["not_canonical", "direct GPU execution"]
+    },
+    {
+      "source": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_v2_result.json",
+      "sha256": "a0571bc7c179a2d2ebf0937b095c51e13de20e3fc763c674b92a028fbf6247f5",
+      "searched_terms": ["authority_sha256", "plan_sha256", "predictions"]
+    },
+    {
+      "source": "runlogs/run_circuit_fast_screen_task14_select_cross_noun.log",
+      "sha256": "f7b226a295679f52b55a73af93d7dec9a2c02ee39c4616f45d9c5632f22adc36",
+      "searched_terms": ["duplicate identical execution refused"]
+    }
+  ]
+}

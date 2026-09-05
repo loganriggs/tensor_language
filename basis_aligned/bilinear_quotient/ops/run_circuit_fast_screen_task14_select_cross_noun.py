@@ -17,12 +17,12 @@ REGISTERED_PREDICTIONS = (
 
 PROTOCOL = shared.TargetedCrossSyntaxProtocol(
     candidate=candidate,
-    request_id="task14-subject-verb-agreement-select-cross-noun-managed-v2",
-    experiment_id="fast-screen-task14-subject-verb-agreement-select-cross-noun-managed-v2",
+    request_id="task14-subject-verb-agreement-select-cross-noun-managed-replication-v3",
+    experiment_id="fast-screen-task14-subject-verb-agreement-select-cross-noun-managed-replication-v3",
     result_relative=Path(
-        "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_v2_result.json"
+        "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_managed_replication_v3_result.json"
     ),
-    prior_art_sha256="80d1cb2cfc53e41162384c4a0dc4caa8385997aff617bfe28fb81028e75ec7f8",
+    prior_art_sha256="c34890a24dbc5c640612257fd2880386a13bb6e81d15af9609b1ddf8ddce2364",
     expected_authority_sha256=(
         "9d5151f9e297788c0c8799cc60cc4c9bf1e6196e10df93793fb53094566091ae"
     ),
@@ -39,9 +39,10 @@ PROTOCOL = shared.TargetedCrossSyntaxProtocol(
         "control, so it does not establish held-out selectivity."
     ),
     novelty=(
-        "Within each SELECT target-subject-number and attractor-plurality stratum, use a "
-        "deterministic different-noun donor while retaining the A1/A2 syntax swap and fixed sites."
+        "Process-compliant managed replication of the frozen SELECT cross-noun profile after "
+        "the direct v1 and incomplete-publication v2 runs were excluded from canonical evidence."
     ),
+    relation="replication",
     checkpoint_sha256="680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
     config_sha256="428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
 )

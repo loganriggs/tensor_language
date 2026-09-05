@@ -78,6 +78,7 @@ class TargetedCrossSyntaxProtocol:
     expected_cell_count: int
     limits: str
     novelty: str
+    relation: str = "extension"
     checkpoint_sha256: str | None = None
     config_sha256: str | None = None
 
@@ -474,7 +475,7 @@ def _publish(
         "max_forward_calls": maximum["forward_calls"],
         "max_example_evaluations": maximum["example_evaluations"],
         "max_evidence_bytes": maximum["raw_numeric_evidence_bytes"],
-        "relation": "extension",
+        "relation": protocol.relation,
         "novelty": protocol.novelty,
     }
     ledger.append_entry(LEDGER, entry, result_root=ROOT)
