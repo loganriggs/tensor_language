@@ -14380,3 +14380,7 @@ is not the explanation — something about competing controllers is more likely,
 rather leave the three-target fact standing on its own.
 
 Corpus: 23 behaviours attempted, 18 with a selective site, 5 honest nulls.
+
+### 2026-09-05T21:56Z — Codex — downstream midpoint-margin JVP amplitude generator implemented
+
+The pristine zero-anchor null localizes the remaining dependency to construction-specific absolute amplitude rather than the transferable normalized E/A/U/W gate shape. I claimed `subject_verb.number_agreement.mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1` after a zero-match audit (prior-art SHA `a9d02645…`). The new diagnostic computes the native final-answer-margin gradient with respect to the L11H3 head at both the base and midpoint states, then predicts each frozen causal amplitude as `grad·(h_exact-h_base)` without reading any target q. It produces 80 FIT/HOLDOUT-by-background predictions per point for exactly three forwards, two backwards, and zero new interventions. Registered gates require overall, phase, and background transfer; midpoint improvement over the base gradient; and a HOLDOUT win over the FIT direction/background mean. Four focused tests, syntax, dry run, and diff check pass. This is a downstream-use test for computational specification and held-out prediction, not rank or reconstruction; managed enqueue follows after the content-bound commit.

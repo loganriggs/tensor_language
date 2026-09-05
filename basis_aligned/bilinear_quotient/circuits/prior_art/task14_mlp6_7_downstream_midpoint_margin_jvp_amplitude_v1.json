@@ -1,0 +1,50 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1",
+  "created_utc": "2026-09-05T21:50:20Z",
+  "purpose": "Test whether a native-state downstream margin derivative generates the construction-dependent absolute causal amplitude of grouped MLP6--7 without using target intervention outcomes as predictor inputs.",
+  "data_status": "RETROSPECTIVE_FROZEN_CAUSAL_TARGETS; midpoint/base downstream gradients are new and predictions are frozen before computing them; diagnostic before any prospective promotion",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_pristine_split_mlp6_7_absolute_composition_transfer_v1_result.json",
+      "sha256": "0053270e3c8179a2c9d1c71a1578cff5d992de1c39b199b2228cca1bcab8d920",
+      "finding": "Valid causal target: normalized shape transfers but FIT absolute baseline/amplitude fails on pristine HOLDOUT."
+    },
+    {
+      "path": "ops/circuit_fast_screen_candidate_task14_pristine_split_mlp6_7_absolute_composition.py",
+      "sha256": "429124ece9c746f425b5bdd340280bbb4ac1ccb256302a92a4c45c5dba405ead",
+      "logical_sha256": "7d8220ed50c7b2ec526e32d81c791735027ba012b5034bdef837caf8a95f1b8f",
+      "finding": "Frozen 40-row FIT/HOLDOUT authority with native capability 100% in all 18 cells."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for MLP6-7 margin JVP, downstream gradient, midpoint task gradient, amplitude generator, and native-state amplitude found no prior event.",
+    "Prior midpoint work differentiates grouped-source transport only to the L11H3 head vector. This test differentiates the native downstream answer margin with respect to that head interface, which is a distinct missing map."
+  ],
+  "map": "For each row and E/A/U/W endpoint background, generate base and exact grouped-X L11H3 head vectors from native weights. At h_base and h_mid=(h_base+h_exact)/2, differentiate the final signed answer margin through the unchanged native tail. Predict the unseen causal amplitude as grad_h margin dot (h_exact-h_base). Compare with the already-frozen exact-minus-base causal q only after predictions are computed. No causal target q, fitted coefficient, or target endpoint scale enters the predictor.",
+  "predictions": {
+    "pred_a_gradient_instrument": "All source and downstream decomposition closures are at most 5e-5, both replacement tensors receive finite nonzero gradients, and exactly 80 row/background amplitudes are predicted at each linearization point.",
+    "pred_b_midpoint_generates_amplitude": "Across all 80 amplitudes, midpoint prediction has cosine at least 0.90, relative L2 error at most 0.30, and sign agreement at least 0.90.",
+    "pred_c_midpoint_generalizes_by_phase": "FIT and HOLDOUT separately each have cosine at least 0.85, relative L2 error at most 0.35, and sign agreement at least 0.875.",
+    "pred_d_both_backgrounds_are_predictable": "Empty and EAUW backgrounds separately each have cosine at least 0.85 and relative L2 error at most 0.35.",
+    "pred_e_midpoint_improves_endpoint": "Midpoint relative L2 error is at least 20% lower than base-endpoint-gradient relative L2 error.",
+    "pred_f_holdout_amplitude_beats_fit_mean": "On HOLDOUT, midpoint JVP reduces squared error at least 30% versus assigning each row the FIT mean exact q for its direction/background."
+  },
+  "null": "Failure of b-d means one downstream tangent is not an amplitude generator and the target-endpoint dependency remains. Failure of e means the native endpoint derivative is sufficient and midpoint computation is unnecessary. Failure of f means a direction/background lookup explains any apparent success. Preserve the diagnostic level; only a pass merits prospective testing on new causal outcomes.",
+  "price": {
+    "physical_model_forwards": 3,
+    "example_evaluations": 280,
+    "backwards": 2,
+    "causal_interventions": 0,
+    "parameter_updates": 0,
+    "predicted_amplitudes_per_linearization": 80
+  },
+  "closed_claims": [
+    "prospective causal validation",
+    "semantic uniqueness",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "literal compute saving"
+  ]
+}
