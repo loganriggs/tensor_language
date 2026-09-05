@@ -1,0 +1,25 @@
+{
+  "schema": "circuit_screen_invalid_audit_v1",
+  "candidate_id": "numeric_successor.attn8_h3_h7_cross_behavior_factor_interchange_v2",
+  "timestamp_utc": "2026-09-05T10:49:00Z",
+  "outcome": "invalid",
+  "result_path": "basis_aligned/bilinear_quotient/circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v2_result.json",
+  "result_sha256": "6ee436ec07f78dcdb70e1c9327caa4dc3a17f4f21d6dc08d5a51f2093aa4a67d",
+  "reason": "The implementation omitted registered control native capability from pred_a_instrument_live. The step-two control was incapable: native registered-preference accuracy was 0.25 on FIT and 0.0 on SELECT, below the frozen 0.85 requirement. Therefore the emitted generic_numeral_or_copy_bus terminal is not scientific evidence.",
+  "controls_that_passed": {
+    "native_replay_relative_squared_error": 0.0,
+    "head_source_sum_relative_squared_error": 4.9695871924345755e-15,
+    "value_split_relative_squared_error": 5.447079268372453e-16,
+    "installed_term_max_absolute_error": 0.0,
+    "target_native_accuracy_minimum": 1.0,
+    "target_within_joint_recovery_minimum": 0.5306146652078876
+  },
+  "registered_gate_that_failed": {
+    "name": "minimum_control_native_capability",
+    "bar": 0.85,
+    "fit_step_two": 0.25,
+    "select_step_two": 0.0
+  },
+  "descriptive_only": "The fixed H3+H7 cached-value arm had cross/within ratios from 0.9317 to 1.0800 across all eight split-by-format-by-direction cells, with 100 percent donor-direction rows. This may motivate a capable-control repair but cannot establish selective sharing or a generic bus from this invalid run.",
+  "repair_rule": "Any successor must replace the incapable step-two dataset with a previously demonstrated native-capable control and must include every control's native capability in instrument validity. It may not weaken the 0.85 bar or reuse the emitted terminal."
+}

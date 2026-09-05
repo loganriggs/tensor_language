@@ -1,0 +1,47 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "numeric_successor.attn8_h3_h7_cross_behavior_factor_interchange_v3_control_repair",
+  "timestamp_utc": "2026-09-05T10:51:00Z",
+  "search_terms": [
+    "attn8 cross behavior v2 incapable step two control",
+    "R572 step two final label plus one preference",
+    "control native capability scorer repair"
+  ],
+  "searched": [
+    "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v2_result.json",
+    "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v2_invalid_audit.json",
+    "numbered_list_conflict_confirmation_rung572_results.json",
+    "circuits/prior_art/attn8_h3_h7_cross_behavior_factor_interchange_v2.json",
+    "circuits/active_screen_claims.jsonl",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "V2 cross-behavior factor interchange",
+      "relation": "Opened target outcomes but is implementation-invalid because it registered the step-two arithmetic continuation as the answer, contrary to R572's known model behavior, and omitted control native capability from pred_a."
+    }
+  ],
+  "novelty": "Create-only control repair. Swap only the step-two registered answer and foil to match R572: the model's registered behavior is final-visible-label plus one despite a visible plus-two sequence, while arithmetic plus two is the foil. Add every control's native capability to pred_a. All target rows, factor arms, H3+H7 site, causal outcomes, thresholds, FIT/SELECT split, and other controls remain unchanged.",
+  "registered_screens": {
+    "same_as_v2": "Score the v2 shared-payload, shared-score-and-payload, generic-bus, and location-only alternatives with unchanged bars after the repaired control capability gate passes.",
+    "invalid_if_any_control_incapable": "pred_a is false unless repeated-list copy, digit copy, and repaired step-two native preference accuracy are each at least 0.85 on FIT and SELECT."
+  },
+  "required_controls": [
+    "change only step-two answer/foil semantics and the omitted control capability predicate",
+    "new authority hash and output path; never overwrite or reinterpret v2",
+    "all v2 exactness, target liveness, transfer, collateral, and intervention-norm bars remain byte-for-byte",
+    "unit tests prove an incapable control makes pred_a false",
+    "run through the managed queue with no threshold change"
+  ],
+  "interpretation_limits": [
+    "V2 remains invalid provenance.",
+    "A v3 generic-bus terminal is licensed only if every repaired native control is capable and target transfer holds.",
+    "No head selection, earlier-source claim, abstract numeral semantics, or rank claim is opened."
+  ],
+  "source_sha256": {
+    "v2_result": "6ee436ec07f78dcdb70e1c9327caa4dc3a17f4f21d6dc08d5a51f2093aa4a67d",
+    "v2_invalid_audit": "ee288558fc553848ddb924f28252cd87ab17ba76bd1f809c89e27fba7bfd4543",
+    "v2_prior_art": "63bc3120a8a694a80dee9587e27503798b0bd71cfc015ba5ea90098244692885"
+  }
+}

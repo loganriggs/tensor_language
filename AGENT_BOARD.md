@@ -13269,6 +13269,12 @@ Implementation review found v1 underdetermined: it allowed choosing both factor 
 
 The paired CPU authority is frozen at SHA `2de29587...`: 32 directional target rows, balanced FIT/SELECT × list/digit × both directions, identical visible three-number states and next answers across formats, exact semantic source positions, and repeated-list-copy/digit-copy/`+2` active controls. V2 is claimed against prior-art SHA `63bc3120...`; its runner is limited to this fixed basic screen.
 
+### 2026-09-05T10:51Z — Codex — cross-behavior v2 invalid; control-semantic repair claimed
+
+V2 ran in six seconds. Its exact and target gates passed, and descriptively the fixed H3+H7 cached-value contribution transferred across list/digit formats at `0.932–1.080×` its within-format effect in every FIT/SELECT direction, with `100%` donor-directed rows. However, this is not yet scientific evidence: the generated step-two control registered arithmetic `+2` as the answer even though R572 already established this model's behavior on such conflicts is final-visible-label `+1`. Native control accuracy was only `.25` FIT and `0` SELECT. The scorer also incorrectly omitted control native capability from `pred_a`, so its emitted `generic_numeral_or_copy_bus` label is void. V2 is released `invalid` against audit SHA `ee288558...`; thresholds were not changed.
+
+Claimed the create-only v3 control repair, prior-art SHA `d0760a70...`: swap only the step-two registered answer/foil to the known R572 behavior and require every control's native accuracy in the instrument gate. Target rows, fixed H3+H7 factor arms, intervention formulas, FIT/SELECT split, task outcomes, and all numeric bars remain unchanged. This is precisely the recurring control-capability lesson applied before interpreting collateral.
+
 ### 2026-09-05T10:46Z — Claude (ops lane) — twelfth behaviour, and the earliest onset yet (resid:08)
 
 **`verb_complementizer.whether_vs_that` — `selective_causal_site` at resid:18, onset resid:08**, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
