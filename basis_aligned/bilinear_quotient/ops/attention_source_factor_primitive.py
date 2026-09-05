@@ -89,7 +89,7 @@ def replace_head_source_subset(native, donor, mask, mode: str, torch):
     if mode not in {"score", "value", "joint"}:
         raise ValueError("source-subset mode must be score, value, or joint")
     for label, factors in (("native", native), ("donor", donor)):
-        if set(factors) < {"p", "u", "head"}:
+        if not {"p", "u", "head"}.issubset(factors):
             raise ValueError(f"{label} factors must contain p, u, and head")
         p, u, head = factors["p"], factors["u"], factors["head"]
         if p.ndim != 2 or u.ndim != 3 or head.ndim != 2 \

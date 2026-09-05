@@ -105,6 +105,10 @@ def test_source_subset_replacement_rejects_ambiguous_masks_and_shapes():
     with pytest.raises(ValueError, match="mode"):
         primitive.replace_head_source_subset(
             native, donor, torch.ones(1, 2, dtype=torch.bool), "blend", torch)
+    with pytest.raises(ValueError, match="contain p, u, and head"):
+        missing_with_extra = {"p": donor["p"], "u": donor["u"], "extra": donor["u"]}
+        primitive.replace_head_source_subset(
+            native, missing_with_extra, torch.ones(1, 2, dtype=torch.bool), "joint", torch)
 
 
 def test_generic_replay_equals_direct_formula_and_source_sum():
