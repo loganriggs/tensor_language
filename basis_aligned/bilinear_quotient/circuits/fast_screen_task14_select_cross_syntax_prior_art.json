@@ -1,0 +1,73 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.select_cross_syntax",
+  "canonical_objects": [
+    "complete grammatical subject number",
+    "attention block 11 output",
+    "head 11.3 pre-output-projection slice",
+    "prepositional-phrase to relative-clause interchange",
+    "held-out nouns and prompt templates"
+  ],
+  "aliases_searched": [
+    "Task14 SELECT",
+    "subject verb agreement held out",
+    "head 11.3 cross syntax",
+    "agreement OOD",
+    "selective removal"
+  ],
+  "method_families": [
+    "native answer-versus-foil capability",
+    "exact one-position donor interchange",
+    "cross-family transfer",
+    "held-out lexical and template confirmation"
+  ],
+  "matched_prior_claims": [
+    "The FIT full-state screen found attention 11 and head 11.3, with explicit P and C controls.",
+    "The FIT cross-syntax screen transferred subject number between PP and relative-clause examples but reused FIT endpoints.",
+    "The canonical v4 claim explicitly names genuinely unseen text and syntax as the next missing evidence.",
+    "The Task14 generator already freezes disjoint FIT, SELECT, TEST, and OOD noun and template pools."
+  ],
+  "relation": "extension",
+  "novelty_delta": "Test only the two FIT-preselected carrier sites on the already-frozen SELECT noun and prompt-template pool. Cross-syntax donors retain opposite subject number, matched attractor number, a different lexical group, and a different syntax family. This is the first head-11.3 transfer test on prompts and nouns disjoint from FIT; it does not relocalize the model.",
+  "decision_changed": "A held SELECT result would license the separately frozen TEST or OOD confirmation and selective intervention work. A null would retract cross-corpus stability for head 11.3 without reopening a rank or activation-reconstruction search.",
+  "reviewer": "Codex circuit-throughput lane repository audit",
+  "reviewed_sources": [
+    {
+      "source": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "8f0810aee8ed7f2afbddda4b29d146d38dd2b907d2e2a673cab3926a894fbac7",
+      "searched_terms": [
+        "grammatical_subject_number.v4",
+        "cross_family_transfer",
+        "next_missing"
+      ]
+    },
+    {
+      "source": "circuits/DOSSIER.md",
+      "sha256": "1a6a52510668ecce89d45ec8884bb8cbcbe21984e7b68c59185ed270d27a1e40",
+      "searched_terms": [
+        "task.subject_verb_number_agreement",
+        "agreement_cross_syntax.v1",
+        "head 11.3"
+      ]
+    },
+    {
+      "source": "ops/circuit_battery_task14.py",
+      "sha256": "33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94",
+      "searched_terms": [
+        "SELECT",
+        "NOUN_PAIRS",
+        "_PHASE_TEMPLATES",
+        "template identities leak"
+      ]
+    },
+    {
+      "source": "circuits/fast_screen_ledger.jsonl",
+      "sha256": "a087343241bf2fb6b1d7f321d19018ec39f4fa83e4a3cc3676681e099036d0d4",
+      "searched_terms": [
+        "task14-subject-verb-agreement-full-state-v2",
+        "task14-subject-verb-agreement-cross-syntax-v1",
+        "subject_verb.number_agreement"
+      ]
+    }
+  ]
+}

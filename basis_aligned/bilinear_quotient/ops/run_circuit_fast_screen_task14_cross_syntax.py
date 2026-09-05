@@ -10,6 +10,7 @@ create-only and the ordinary append-only fast-screen ledger receives its hash.
 from __future__ import annotations
 
 from datetime import datetime, timezone
+from dataclasses import dataclass
 import hashlib
 import json
 import math
@@ -18,6 +19,7 @@ from pathlib import Path
 import statistics
 import time
 from typing import Callable, Mapping, Sequence
+from types import ModuleType
 
 import circuit_fast_screen_candidate_task14_cross_syntax as candidate
 import circuit_fast_screen_kernel as kernel
@@ -60,6 +62,56 @@ REGISTERED_PREDICTIONS = (
 )
 
 
+@dataclass(frozen=True)
+class TargetedCrossSyntaxProtocol:
+    candidate: ModuleType
+    request_id: str
+    experiment_id: str
+    result_relative: Path
+    prior_art_sha256: str
+    expected_authority_sha256: str
+    result_schema: str
+    phase: str
+    partition: str
+    validation_scope: str
+    expected_cell_count: int
+    limits: str
+    novelty: str
+    checkpoint_sha256: str | None = None
+    config_sha256: str | None = None
+
+
+DEFAULT_PROTOCOL = TargetedCrossSyntaxProtocol(
+    candidate=candidate, request_id=REQUEST_ID, experiment_id=EXPERIMENT_ID,
+    result_relative=RESULT_RELATIVE, prior_art_sha256=PRIOR_ART_SHA256,
+    expected_authority_sha256=EXPECTED_AUTHORITY_SHA256,
+    result_schema="task14_cross_syntax_interchange_result_v1",
+    phase="FIT", partition="VALIDATION",
+    validation_scope="new_cross_syntax_relations_not_unseen_text",
+    expected_cell_count=16,
+    limits=("This run tests cross-syntax transfer only. It has no unrelated "
+            "is/are endpoint control and does not identify a selective grammar state."),
+    novelty=("Literal PP-to-relative and relative-to-PP donor interchange at "
+             "preselected attention 11 and head 11.3; prior v2 donors stayed "
+             "within each construction."),
+)
+
+
+def _verify_checkpoint(protocol: TargetedCrossSyntaxProtocol) -> None:
+    """Bind a promoted confirmation to the exact files the lazy loader will use."""
+    if protocol.checkpoint_sha256 is None or protocol.config_sha256 is None:
+        return
+    import fastload
+    _config, blob, source = fastload._paths()
+    config_path = source.SNAP / "config.json"
+    if hashlib.sha256(config_path.read_bytes()).hexdigest() != protocol.config_sha256:
+        raise CrossSyntaxRunError("checkpoint config hash differs from protocol")
+    with open(blob, "rb") as handle:
+        observed = hashlib.file_digest(handle, "sha256").hexdigest()
+    if observed != protocol.checkpoint_sha256:
+        raise CrossSyntaxRunError("checkpoint weights hash differs from protocol")
+
+
 class CrossSyntaxRunError(ValueError):
     """Execution evidence differs from the frozen targeted plan."""
 
@@ -74,10 +126,12 @@ def _utc_text(value: datetime) -> str:
     return value.isoformat(timespec="microseconds").replace("+00:00", "Z")
 
 
-def _chunks(rows: Sequence[Mapping[str, object]]) -> list[list[Mapping[str, object]]]:
+def _chunks(
+    rows: Sequence[Mapping[str, object]], candidate_module: ModuleType = candidate,
+) -> list[list[Mapping[str, object]]]:
     return [
-        list(rows[start:start + candidate.BATCH_SIZE])
-        for start in range(0, len(rows), candidate.BATCH_SIZE)
+        list(rows[start:start + candidate_module.BATCH_SIZE])
+        for start in range(0, len(rows), candidate_module.BATCH_SIZE)
     ]
 
 
@@ -120,6 +174,8 @@ def _site(site_id: str) -> kernel.SiteRef:
 def _cell_capability(
     rows: Sequence[Mapping[str, object]],
     native: Mapping[tuple[str, str], tuple[float, float]],
+    candidate_module: ModuleType = candidate,
+    expected_cell_count: int = 16,
 ) -> list[dict[str, object]]:
     grouped: dict[str, list[tuple[bool, bool]]] = {}
     for row in rows:
@@ -143,13 +199,13 @@ def _cell_capability(
             "donor_correct_count": donor_correct,
             "target_accuracy": target_accuracy,
             "donor_accuracy": donor_accuracy,
-            "minimum_accuracy": candidate.MIN_NATIVE_CELL_ACCURACY,
+            "minimum_accuracy": candidate_module.MIN_NATIVE_CELL_ACCURACY,
             "passed": (
-                target_accuracy >= candidate.MIN_NATIVE_CELL_ACCURACY
-                and donor_accuracy >= candidate.MIN_NATIVE_CELL_ACCURACY
+                target_accuracy >= candidate_module.MIN_NATIVE_CELL_ACCURACY
+                and donor_accuracy >= candidate_module.MIN_NATIVE_CELL_ACCURACY
             ),
         })
-    if len(output) != 4 or any(item["row_count"] != 16 for item in output):
+    if len(output) != 4 or any(item["row_count"] != expected_cell_count for item in output):
         raise CrossSyntaxRunError("native capability cells lost exact balance")
     return output
 
@@ -159,6 +215,8 @@ def _score_site(
     rows: Sequence[Mapping[str, object]],
     native: Mapping[tuple[str, str], tuple[float, float]],
     patched: Mapping[str, tuple[float, float]],
+    candidate_module: ModuleType = candidate,
+    expected_cell_count: int = 16,
 ) -> dict[str, object]:
     grouped: dict[str, list[dict[str, object]]] = {}
     evidence = []
@@ -172,7 +230,7 @@ def _score_site(
         patched_target_margin = patched_pair[0] - patched_pair[1]
         denominator = target_margin + donor_margin
         if not math.isfinite(denominator) \
-                or denominator <= candidate.MIN_DONOR_DENOMINATOR:
+                or denominator <= candidate_module.MIN_DONOR_DENOMINATOR:
             raise CrossSyntaxRunError(f"invalid native donor effect: {row_id}")
         recovery = (target_margin - patched_target_margin) / denominator
         if not math.isfinite(recovery):
@@ -201,14 +259,16 @@ def _score_site(
             "row_count": len(records),
             "direction_fraction": direction,
             "mean_recovery": mean_recovery,
-            "minimum_direction_fraction": candidate.MIN_CELL_DIRECTION_FRACTION,
-            "minimum_mean_recovery": candidate.MIN_CELL_MEAN_RECOVERY,
+            "minimum_direction_fraction": candidate_module.MIN_CELL_DIRECTION_FRACTION,
+            "minimum_mean_recovery": candidate_module.MIN_CELL_MEAN_RECOVERY,
             "passed": (
-                direction >= candidate.MIN_CELL_DIRECTION_FRACTION
-                and mean_recovery >= candidate.MIN_CELL_MEAN_RECOVERY
+                direction >= candidate_module.MIN_CELL_DIRECTION_FRACTION
+                and mean_recovery >= candidate_module.MIN_CELL_MEAN_RECOVERY
             ),
         })
-    passed = len(cells) == 4 and all(cell["passed"] for cell in cells)
+    passed = len(cells) == 4 and all(
+        cell["row_count"] == expected_cell_count and cell["passed"] for cell in cells
+    )
     return {
         "site_id": site_id,
         "passed": passed,
@@ -226,19 +286,31 @@ def _score_site(
 
 def run_science(
     *,
+    protocol: TargetedCrossSyntaxProtocol = DEFAULT_PROTOCOL,
     backend: producer.ExecutionBackend | None = None,
     device: str = "cuda",
     wall_clock: Callable[[], datetime] = _utc_now,
     monotonic_clock: Callable[[], float] = time.perf_counter,
 ) -> dict[str, object]:
     """Execute at most 8 forwards and return a strict literal result tree."""
-    rows = candidate.build_rows()
-    authority_sha256 = candidate.validate_rows(rows)
-    if authority_sha256 != EXPECTED_AUTHORITY_SHA256:
+    candidate_module = protocol.candidate
+    for attribute, expected in (
+        ("PHASE", protocol.phase), ("PARTITION", protocol.partition),
+        ("VALIDATION_SCOPE", protocol.validation_scope),
+    ):
+        if getattr(candidate_module, attribute, None) != expected:
+            raise CrossSyntaxRunError(
+                f"candidate {attribute} differs from the frozen run protocol"
+            )
+    rows = candidate_module.build_rows()
+    authority_sha256 = candidate_module.validate_rows(rows)
+    if authority_sha256 != protocol.expected_authority_sha256:
         raise CrossSyntaxRunError(
             "derived authority differs from the reviewed runner constant"
         )
-    plan = candidate.compile_plan(rows)
+    plan = candidate_module.compile_plan(rows)
+    if backend is None:
+        _verify_checkpoint(protocol)
     executor = backend if backend is not None else producer.Bilin18TorchBackend.load(device)
     started_utc = wall_clock()
     started = monotonic_clock()
@@ -249,7 +321,7 @@ def run_science(
     donor_cache: dict[tuple[str, str], object] = {}
 
     for side in ("base", "donor"):
-        for chunk in _chunks(rows):
+        for chunk in _chunks(rows, candidate_module):
             batch = _batch(chunk, side)
             output = executor.native(batch, capture=side == "donor")
             forward_calls += 1
@@ -267,12 +339,14 @@ def run_science(
                     "foil_logit": finite[1],
                 })
 
-    capability = _cell_capability(rows, native)
+    capability = _cell_capability(
+        rows, native, candidate_module, protocol.expected_cell_count,
+    )
     capability_passed = all(cell["passed"] for cell in capability)
     missing_cache = [
         f"{row['row_id']}/{site_id}"
         for row in rows
-        for site_id in candidate.SITE_IDS
+        for site_id in candidate_module.SITE_IDS
         if (str(row["row_id"]), site_id) not in donor_cache
     ]
     if missing_cache:
@@ -280,10 +354,10 @@ def run_science(
 
     site_results = []
     if capability_passed:
-        for site_id in candidate.SITE_IDS:
+        for site_id in candidate_module.SITE_IDS:
             patched: dict[str, tuple[float, float]] = {}
             site = _site(site_id)
-            for chunk in _chunks(rows):
+            for chunk in _chunks(rows, candidate_module):
                 batch = _batch(chunk, "base")
                 output = executor.patched(batch, site=site, donor_cache=donor_cache)
                 forward_calls += 1
@@ -292,15 +366,19 @@ def run_science(
                     raise CrossSyntaxRunError("patched output count differs from batch")
                 for row_id, pair in zip(batch.row_ids, output.answer_foil):
                     patched[row_id] = _finite_pair(pair)
-            site_results.append(_score_site(site_id, rows, native, patched))
+            site_results.append(_score_site(
+                site_id, rows, native, patched, candidate_module,
+                protocol.expected_cell_count,
+            ))
 
+    results_by_site = {str(item["site_id"]): item for item in site_results}
     predictions = {
         REGISTERED_PREDICTIONS[0][0]: capability_passed,
         REGISTERED_PREDICTIONS[1][0]: bool(
-            site_results and site_results[0]["passed"]
+            results_by_site.get("attn:11", {}).get("passed")
         ),
         REGISTERED_PREDICTIONS[2][0]: bool(
-            len(site_results) == 2 and site_results[1]["passed"]
+            results_by_site.get("attn:11:head:03", {}).get("passed")
         ),
     }
     if not capability_passed:
@@ -312,23 +390,20 @@ def run_science(
     finished = monotonic_clock()
     finished_utc = wall_clock()
     active_evidence_bytes = evaluations * 8
-    return {
-        "schema": "task14_cross_syntax_interchange_result_v1",
-        "request_id": REQUEST_ID,
-        "experiment_id": EXPERIMENT_ID,
-        "candidate_id": candidate.TASK_ID,
+    result = {
+        "schema": protocol.result_schema,
+        "request_id": protocol.request_id,
+        "experiment_id": protocol.experiment_id,
+        "candidate_id": candidate_module.TASK_ID,
         "screen_tier_only": True,
         "execution_policy": "managed_queue_only",
         "create_only": True,
-        "phase": "FIT",
-        "partition": "VALIDATION",
-        "validation_scope": "new_cross_syntax_relations_not_unseen_text",
+        "phase": protocol.phase,
+        "partition": protocol.partition,
+        "validation_scope": protocol.validation_scope,
         "correction": plan["correction"],
-        "limits": (
-            "This run tests cross-syntax transfer only. It has no unrelated "
-            "is/are endpoint control and does not identify a selective grammar state."
-        ),
-        "source_sha256": dict(candidate.EXPECTED_SOURCE_SHA256),
+        "limits": protocol.limits,
+        "source_sha256": dict(candidate_module.EXPECTED_SOURCE_SHA256),
         "authority_sha256": authority_sha256,
         "plan_sha256": str(plan["compiled_sha256"]),
         "started_utc": _utc_text(started_utc),
@@ -350,10 +425,21 @@ def run_science(
         "native_evidence": native_evidence,
         "site_results": site_results,
     }
+    if protocol.checkpoint_sha256 is not None:
+        result["checkpoint"] = {
+            "weights_sha256": protocol.checkpoint_sha256,
+            "config_sha256": protocol.config_sha256,
+            "verified_before_model_load": backend is None,
+        }
+    return result
 
 
-def _publish(result: Mapping[str, object]) -> dict[str, object]:
-    payload = managed.atomic_create_json(RESULT, result)
+def _publish(
+    result: Mapping[str, object],
+    protocol: TargetedCrossSyntaxProtocol = DEFAULT_PROTOCOL,
+) -> dict[str, object]:
+    result_path = ROOT / protocol.result_relative
+    payload = managed.atomic_create_json(result_path, result)
     result_sha256 = hashlib.sha256(payload).hexdigest()
     terminal = str(result["terminal"])
     passing = [
@@ -368,15 +454,15 @@ def _publish(result: Mapping[str, object]) -> dict[str, object]:
     maximum = result["maximum_price"]
     active = result["active_price"]
     entry = {
-        "request_id": REQUEST_ID,
-        "candidate_id": candidate.TASK_ID,
+        "request_id": protocol.request_id,
+        "candidate_id": protocol.candidate.TASK_ID,
         "started_utc": result["started_utc"],
         "finished_utc": result["finished_utc"],
         "serial_seconds": result["serial_seconds"],
-        "prior_art_sha256": PRIOR_ART_SHA256,
+        "prior_art_sha256": protocol.prior_art_sha256,
         "spec_sha256": result["plan_sha256"],
         "authority_sha256": result["authority_sha256"],
-        "result_path": RESULT_RELATIVE.as_posix(),
+        "result_path": protocol.result_relative.as_posix(),
         "result_sha256": result_sha256,
         "terminal": terminal,
         "reasons": [] if terminal == "screen" else [str(result["reason"])],
@@ -388,36 +474,33 @@ def _publish(result: Mapping[str, object]) -> dict[str, object]:
         "max_example_evaluations": maximum["example_evaluations"],
         "max_evidence_bytes": maximum["raw_numeric_evidence_bytes"],
         "relation": "extension",
-        "novelty": (
-            "Literal PP-to-relative and relative-to-PP donor interchange at "
-            "preselected attention 11 and head 11.3; prior v2 donors stayed "
-            "within each construction."
-        ),
+        "novelty": protocol.novelty,
     }
     ledger.append_entry(LEDGER, entry, result_root=ROOT)
     return {
         "terminal": terminal,
         "reason": result["reason"],
-        "result_path": RESULT_RELATIVE.as_posix(),
+        "result_path": protocol.result_relative.as_posix(),
         "result_sha256": result_sha256,
         "active_price": active,
     }
 
 
-def main() -> None:
+def main(protocol: TargetedCrossSyntaxProtocol = DEFAULT_PROTOCOL) -> None:
     environment = os.environ
+    candidate_module = protocol.candidate
     if environment.get("BQLIB_DRYRUN") == "1" \
             or environment.get("BQLIB_NO_MODEL") == "1":
-        rows = candidate.build_rows()
-        digest = candidate.validate_rows(rows)
-        if digest != EXPECTED_AUTHORITY_SHA256:
+        rows = candidate_module.build_rows()
+        digest = candidate_module.validate_rows(rows)
+        if digest != protocol.expected_authority_sha256:
             raise CrossSyntaxRunError("reviewed authority digest changed")
-        print(json.dumps(candidate.compile_plan(rows), sort_keys=True))
+        print(json.dumps(candidate_module.compile_plan(rows), sort_keys=True))
         return
     if environment.get("BQLIB_DRYRUN") is not None \
             or environment.get("BQLIB_NO_MODEL") is not None:
         raise CrossSyntaxRunError("dry-run flags must be absent or exactly 1")
-    print(json.dumps(_publish(run_science()), sort_keys=True))
+    print(json.dumps(_publish(run_science(protocol=protocol), protocol), sort_keys=True))
 
 
 if __name__ == "__main__":

@@ -29,6 +29,9 @@ from typing import Any, Mapping, Sequence
 ROOT = Path(__file__).resolve().parent.parent
 TASK_ID = "subject_verb.number_agreement"
 SCHEMA = "task14_cross_syntax_interchange_authority_v1"
+PHASE = "FIT"
+PARTITION = "VALIDATION"
+VALIDATION_SCOPE = "new_cross_syntax_relations_not_unseen_text"
 SITE_IDS = ("attn:11", "attn:11:head:03")
 BATCH_SIZE = 32
 ANSWER_TOKEN_IDS = {" is": 318, " are": 389}
