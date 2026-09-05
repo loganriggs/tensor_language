@@ -2048,6 +2048,276 @@
    ],
    "translation_ids": [],
    "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v10",
+   "revision": 10,
+   "status": "specified",
+   "supersedes": "induction_selector_and_payload.v9",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2",
+    "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "adapt the already validated R557 selector-score/payload-value algebra and R558 interaction lattice to the frozen R578 rows in a separately preregistered factor experiment; do not repeat the native-capability screen"
   }
  ],
  "split_plans": [
@@ -2611,6 +2881,197 @@
    "notes": "Supersedes the preflight-rejected v1 authority before any model outcome. The only scientific-text clarification groups the same five frozen clauses into the runner-required top-level pred_a/b/c fields. Contrast-source edits are reported but not gated; scientific failures save raw evidence and return a null.",
    "design_key": "e923cdc98d4a5ce6d45eb6f926f088754ebb555ac4f5008dde364667c01105e9",
    "execution_key": "c87ba139df182d88e06320876ac6857674cd810f5c33183186e049040fb9c8e4"
+  },
+  {
+   "event_id": "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+   "claim_id": "induction_selector_and_payload.v10",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_three_source_final_token_logits",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_and_SELECT_native_selector_by_payload_capability_before_any_site_search",
+   "metrics": [
+    {
+     "name": "scientific_capability_predicates",
+     "estimate": 3,
+     "ci95": null,
+     "bar": "all 3 preregistered predicates hold"
+    },
+    {
+     "name": "independent_full_envelope_audit",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must pass"
+    }
+   ],
+   "prereg_artifact_id": "r580_capability_preregistration_v2",
+   "result_artifact_id": "r580_capability_result",
+   "input_artifact_ids": [
+    "r578_three_source_preregistration",
+    "r578_three_source_rows",
+    "r578_three_source_receipt",
+    "r578_three_source_builder",
+    "r578_three_source_test",
+    "r580_capability_implementation_v2",
+    "r580_capability_test_v2",
+    "r580_capability_dryrun_v2",
+    "r580_capability_receipt",
+    "r581_capability_audit_preregistration",
+    "r581_capability_audit_result"
+   ],
+   "seed": 580,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "induction_selector_payload_native_capability.r580.preregistered.v2",
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG580_PREREGISTRATION.md"
+   ],
+   "notes": "The native behavior screen was scientifically held, but R581 invalidated the result instrument because next_step was a one-item JSON list rather than the required scalar string. Preserve the scientific recomputation as descriptive evidence only.",
+   "design_key": "965e2d4fc3073623f3b2bce65b83af6a2998ddf3629db3f111b0b62eaeba7081",
+   "execution_key": "b70d426442e5718aa5dd1e71a3248505e572ec2f091eb68db8f77c380d7bddbd"
+  },
+  {
+   "event_id": "induction_selector_payload_native_capability.r586.complete.held.v1",
+   "claim_id": "induction_selector_and_payload.v10",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_three_source_final_token_logits",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "FIT_and_SELECT_native_selector_by_payload_capability_before_any_site_search",
+   "metrics": [
+    {
+     "name": "scientific_capability_predicates",
+     "estimate": 3,
+     "ci95": null,
+     "bar": "all 3 preregistered predicates hold"
+    },
+    {
+     "name": "unique_sequences",
+     "estimate": 3024,
+     "ci95": null,
+     "bar": "must equal 3024"
+    },
+    {
+     "name": "execution_envelope",
+     "estimate": 95,
+     "ci95": null,
+     "bar": "95 forwards, zero backwards/updates; FIT/SELECT only"
+    },
+    {
+     "name": "scalar_next_step",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "must be a scalar string"
+    }
+   ],
+   "prereg_artifact_id": "r586_capability_preregistration",
+   "result_artifact_id": "r586_capability_result",
+   "input_artifact_ids": [
+    "r586_capability_receipt"
+   ],
+   "seed": 586,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+   "replicates_event_id": "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+   "sections": [
+    "polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG586_PREREGISTRATION.md"
+   ],
+   "notes": "Prospective clean replication of R580 on the same frozen R578 rows and scientific contract. The result held with a corrected scalar next_step; FINAL_TEST/OOD stayed closed.",
+   "design_key": "e2f0d7b04ff614141213c283fd4fb44375e79eb63c7af74a5e9d16fc9579472f",
+   "execution_key": "f20ce35126c5f0fecce580134eee1a4e266f9d13a2d9153d5e5551bc8d427263"
+  },
+  {
+   "event_id": "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+   "claim_id": "induction_selector_and_payload.v10",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change"
+   ],
+   "site_id": "native_three_source_final_token_logits",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "independent_model_free_raw_evidence_and_result_envelope_audit",
+   "metrics": [
+    {
+     "name": "raw_rows_recomputed",
+     "estimate": 3240,
+     "ci95": null,
+     "bar": "must equal 3240"
+    },
+    {
+     "name": "factorial_groups_recomputed",
+     "estimate": 108,
+     "ci95": null,
+     "bar": "must equal 108"
+    },
+    {
+     "name": "bootstrap_cells_recomputed",
+     "estimate": 86,
+     "ci95": null,
+     "bar": "all 2,000-draw cells must match"
+    },
+    {
+     "name": "scientific_verdict_recomputed",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "must equal held_capability_screen"
+    },
+    {
+     "name": "result_receipt_binding",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "exact R586 result and receipt hashes must match"
+    }
+   ],
+   "prereg_artifact_id": "r587_capability_audit_preregistration",
+   "result_artifact_id": "r587_capability_audit_result",
+   "input_artifact_ids": [
+    "r586_capability_result",
+    "r586_capability_receipt"
+   ],
+   "seed": 587,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_AUDIT_RUNG587_PREREGISTRATION.md"
+   ],
+   "notes": "Frozen before R586 outcomes. Independently reconstructed all raw evidence and scientific gates, and verified the strict envelope plus exact result/receipt byte binding with zero model calls.",
+   "design_key": "b2f392fa11ede3720125855fd0e03788df92727ff073efbca341aa5c3cfb7224",
+   "execution_key": "586d329fd150ab47ca613c6a8dfbcce1ad9c9894d676b80feede56184f06ccd3"
   }
  ],
  "translations": [],
@@ -2841,6 +3302,60 @@
    "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung580_dryrun.json",
    "sha256": "3d21b62972aa0794598860228554068035af10fd743e8958bfc7a05d56d68588",
    "kind": "dryrun_receipt",
+   "status": "frozen"
+  },
+  "r580_capability_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung580_results.json",
+   "sha256": "7c7463a95931a51cd848ff9e8033bed77a26f7889a1a5fd1a3512ec2d1224b84",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r580_capability_receipt": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung580_receipt.json",
+   "sha256": "6a1ef728bca424ed27ec145adad1918923e91f190b96a9ff452b6838413b670a",
+   "kind": "receipt",
+   "status": "frozen"
+  },
+  "r581_capability_audit_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_AUDIT_RUNG581_PREREGISTRATION.md",
+   "sha256": "d2989383791cb179fecfa930742812cf8036a85bb9d2f3cfdd6555bb00640887",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r581_capability_audit_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_audit_rung581.json",
+   "sha256": "8ecc1562632212ee876a794377e31966776ec15de02b5cb8d31798e438502cdb",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "r586_capability_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_RUNG586_PREREGISTRATION.md",
+   "sha256": "a139948085a99a6e745d3e8bf5d08ae11b58480d30ddf5e75467b506dda3a9a5",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r586_capability_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_results.json",
+   "sha256": "14e7414bc7cf6b4a6a221079ac378752602b021b8b411124149dcc2c311666b8",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "r586_capability_receipt": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_rung586_receipt.json",
+   "sha256": "afd7533b1838b7d230858696a059f9c3a5903e75f031aa0c86f175f4bc0d9384",
+   "kind": "receipt",
+   "status": "frozen"
+  },
+  "r587_capability_audit_preregistration": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_SELECTOR_PAYLOAD_NATIVE_CAPABILITY_AUDIT_RUNG587_PREREGISTRATION.md",
+   "sha256": "1f8e51ca7dcb4c8c9bb73ba13403c098871e13b593d995ff516ed839c2a9c771",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "r587_capability_audit_result": {
+   "path": "basis_aligned/bilinear_quotient/induction_selector_payload_native_capability_audit_rung587.json",
+   "sha256": "72f0261fe32aa3d048c442ea1c08af932af6a368894610833e79aaaabf98bfe9",
+   "kind": "audit",
    "status": "frozen"
   }
  },

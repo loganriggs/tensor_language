@@ -2,13 +2,12 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-124 events; 103 scientific protocols; 124 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+127 events; 106 scientific protocols; 127 exact executions; 1 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v2` | capability | `induction_selector_and_payload.v9` | `ea5cdb21781d` |
 | `task.subject_verb.number_agreement` | `task14_subject_number_localization.fit.preregistered.v2` | das_interchange | `grammatical_subject_number.v2` | `69817802ffa2` |
 
 ## Repeats requiring review
@@ -78,6 +77,9 @@ No two registered events have the same execution key.
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v5` | `db35f5b293e1` | `32bfcbe7436b` | `57b14eb68d7a` | supersedes `induction_selector_payload_capability_audit.r555.preregistered.v1` |
 | `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v8` | `ea5cdb21781d` | `7937f22df3bf` | `4ad1235d01ee` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v2` | preregistered/inconclusive | capability | `induction_selector_and_payload.v9` | `ea5cdb21781d` | `e923cdc98d4a` | `c87ba139df18` | supersedes `induction_selector_payload_native_capability.r580.preregistered.v1` |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.invalid_instrument.v1` | invalid/invalid | capability | `induction_selector_and_payload.v10` | `bbe63e416451` | `965e2d4fc307` | `b70d426442e5` | supersedes `induction_selector_payload_native_capability.r580.preregistered.v2` |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability.r586.complete.held.v1` | complete/held | capability | `induction_selector_and_payload.v10` | `f32b5c5db280` | `e2f0d7b04ff6` | `f20ce35126c5` | supersedes `induction_selector_payload_native_capability.r580.invalid_instrument.v1` |
+| `task.induction.selector_payload` | `induction_selector_payload_native_capability_audit.r587.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v10` | `59fbd8358384` | `b2f392fa11ed` | `586d329fd150` | — |
 | `task.narrative_tense.past_vs_present` | `narrative_tense.past_present.v1.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `4fb743c96bf5` | — |
 | `task.narrative_tense.past_vs_present` | `narrative_tense.past_present.v2.held_localization` | complete/held | full_swap_ceiling | `narrative_tense_at_final_position.v1` | `377e769fe300` | `6fd84687cb8b` | `46ee09a66ff2` | — |
 | `task.narrative_tense.past_vs_present` | `narrative_tense.short_cue.v1.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `b1292bb0c034` | — |

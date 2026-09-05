@@ -737,26 +737,28 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "c3d19b9dd3323948bd6546f17f6040767939827a50c903186ffdb7edc9a4567f",
+   "record_sha256": "07516aad435a280e2c1dad70167554567bcba5cd7ce5bb730f884b7dd8cf93e7",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "induction_selector_and_payload.v9",
+   "active_claim_id": "induction_selector_and_payload.v10",
    "claim_status": "specified",
    "causal_variable_id": "induction_selector_payload",
    "interchange_family_count": 3,
    "invariance_family_count": 5,
-   "negative_event_count": 2,
+   "negative_event_count": 3,
    "active_negative_event_count": 2,
    "latest_blocker": "induction_selector_payload_capability.r554.complete.null.v1",
-   "latest_active_event": "induction_selector_payload_native_capability.r580.preregistered.v2",
+   "latest_active_event": "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
    "active_event_ids": [
     "induction_terminal_collateral_failure.legacy.v1",
     "induction_factor_intervention_semantics.r557.held.v1",
     "induction_selector_payload_capability.r554.complete.null.v1",
     "induction_selector_payload_capability_audit.r555.complete.held.v1",
-    "induction_selector_payload_native_capability.r580.preregistered.v2"
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
    ],
    "held_test_types": [
+    "capability",
     "null_control"
    ],
    "active_blocking_test_types": [
@@ -768,8 +770,11 @@
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
     "6eddaff09aca9329ee82c87abd93aedcf390e5284df9b33d433cd0ff2df02c12",
     "7937f22df3bf85532fa659eaf48875e87e3b8372afdf0592ed28e372473c71e5",
+    "965e2d4fc3073623f3b2bce65b83af6a2998ddf3629db3f111b0b62eaeba7081",
     "af9c5d30729500005100497a8d588d2dd1277eb54ba3d35afa91d560c730033b",
+    "b2f392fa11ede3720125855fd0e03788df92727ff073efbca341aa5c3cfb7224",
     "df1debf204fe76e337a0b23708dbbd430bae0715186582a5346b719d05bcaa13",
+    "e2f0d7b04ff614141213c283fd4fb44375e79eb63c7af74a5e9d16fc9579472f",
     "e6cc50c5fbeb8b6ec75fa02827baf54e3304f8373629d617533e6b52ad0722ff",
     "e923cdc98d4a5ce6d45eb6f926f088754ebb555ac4f5008dde364667c01105e9"
    ]

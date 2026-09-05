@@ -9,68 +9,11 @@
  "summary": {
   "canonical_work_items": 9,
   "legacy_candidates": 70,
-  "open_experiments": 2,
-  "held_events": 45,
+  "open_experiments": 1,
+  "held_events": 47,
   "blocking_events": 36
  },
  "work_items": [
-  {
-   "tag": "task.induction.selector_payload",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_induction_selector_payload.json",
-   "active_claim_id": "induction_selector_and_payload.v9",
-   "claim_status": "specified",
-   "causal_variable_id": "induction_selector_payload",
-   "counterfactual_family_count": 9,
-   "counterfactual_family_status_counts": {
-    "frozen": 8,
-    "proposed": 1
-   },
-   "split_plan_ids": [
-    "induction_selector_payload_three_source_split_r578_v1",
-    "joint_split_v1"
-   ],
-   "active_event_ids": [
-    "induction_terminal_collateral_failure.legacy.v1",
-    "induction_factor_intervention_semantics.r557.held.v1",
-    "induction_selector_payload_capability.r554.complete.null.v1",
-    "induction_selector_payload_capability_audit.r555.complete.held.v1",
-    "induction_selector_payload_native_capability.r580.preregistered.v2"
-   ],
-   "open_event_ids": [
-    "induction_selector_payload_native_capability.r580.preregistered.v2"
-   ],
-   "held_event_ids": [
-    "induction_factor_intervention_semantics.r557.held.v1",
-    "induction_selector_payload_capability_audit.r555.complete.held.v1"
-   ],
-   "blocking_event_ids": [
-    "induction_terminal_collateral_failure.legacy.v1",
-    "induction_selector_payload_capability.r554.complete.null.v1"
-   ],
-   "coverage": {
-    "capability": "blocked",
-    "causal_site": "missing",
-    "learned_interchange": "missing",
-    "cross_family": "missing",
-    "ood": "missing",
-    "selectivity": "mixed",
-    "composition": "missing",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "capability",
-    "causal_site",
-    "learned_interchange",
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
-  },
   {
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
@@ -476,6 +419,64 @@
    ],
    "work_state": "dataset_or_family_definition_needed",
    "next_missing": "materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace"
+  },
+  {
+   "tag": "task.induction.selector_payload",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_induction_selector_payload.json",
+   "active_claim_id": "induction_selector_and_payload.v10",
+   "claim_status": "specified",
+   "causal_variable_id": "induction_selector_payload",
+   "counterfactual_family_count": 9,
+   "counterfactual_family_status_counts": {
+    "frozen": 8,
+    "proposed": 1
+   },
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "active_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1"
+   ],
+   "blocking_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1"
+   ],
+   "coverage": {
+    "capability": "mixed",
+    "causal_site": "missing",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "mixed",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "capability",
+    "causal_site",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "dataset_or_family_definition_needed",
+   "next_missing": "adapt the already validated R557 selector-score/payload-value algebra and R558 interaction lattice to the frozen R578 rows in a separately preregistered factor experiment; do not repeat the native-capability screen"
   },
   {
    "tag": "task.successor.pointer",
