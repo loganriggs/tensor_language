@@ -13,6 +13,7 @@ import register_task14_head11_3_below_head_results as publish
 
 
 RECORD = publish.BQ / "circuits/task_subject_verb_number_agreement.json"
+V10_SPEC = publish.RESULT_DIR / "task14_head11_3_below_head_v10_publication.json"
 
 
 def test_plan_binds_complete_below_head_lineage_and_v9() -> None:
@@ -42,6 +43,28 @@ def test_literal_hash_and_terminal_mutations_are_rejected() -> None:
         publish.build_plan(changed)
 
 
+def test_v10_records_only_fresh_invalid_instrument_provenance() -> None:
+    plan = publish.build_plan(json.loads(V10_SPEC.read_text()))
+    assert len(plan["events"]) == 1
+    assert len(plan["artifacts"]) == 2
+    event = plan["events"][0]
+    assert event["stage"] == event["verdict"] == "invalid"
+    assert event["failure_kind"] == "invalid_instrument"
+    assert event["evaluation_role"] == "FRESH_TEXT"
+    assert "not scientific evidence" in event["notes"]
+    metrics = {m["name"]: m for m in event["metrics"]}
+    assert metrics["minimum_opposite_joint_expected_row_sign_count_of_8"]["estimate"] == 4
+    assert metrics["minimum_native_correct_count_of_8"]["estimate"] == 8
+    assert metrics["native_replay_max_absolute_logit_error"]["estimate"] == 0.0
+    assert metrics["direct_score_identity_max_absolute_error"]["estimate"] == pytest.approx(5.21540641784668e-08)
+    claim = plan["claim_revision"]
+    assert claim["claim_id"] == "grammatical_subject_number.v10"
+    assert claim["revision"] == 10
+    assert claim["supersedes"] == "grammatical_subject_number.v9"
+    assert claim["evidence_event_ids"][-1] == event["event_id"]
+    assert "Fresh-text natural-QK confirmation remains missing" in claim["next_missing"]
+
+
 def test_decisive_metrics_are_reduced_from_cell_scores() -> None:
     path = publish.RESULT_DIR / publish.RESULT_PATHS["subject_value_test"]
     result = json.loads(path.read_text())
@@ -68,3 +91,10 @@ def test_apply_is_idempotent_on_isolated_record(tmp_path, monkeypatch) -> None:
     record = json.loads(first)
     assert record["claims"][-1]["claim_id"] == "grammatical_subject_number.v9"
     assert len({event["event_id"] for event in record["evidence_events"]}) == len(record["evidence_events"])
+    v10 = publish.build_plan(json.loads(V10_SPEC.read_text()))
+    publish.apply_plan(v10, regenerate=False)
+    second = copied.read_bytes()
+    publish.apply_plan(v10, regenerate=False)
+    assert copied.read_bytes() == second
+    record = json.loads(second)
+    assert record["claims"][-1]["claim_id"] == "grammatical_subject_number.v10"

@@ -37,6 +37,7 @@ RESULT_PATHS = {
     "ood_score_role": "task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
     "ood_self_qk": "task14_head11_3_ood_fronted_self_qk_factorial_v1_result.json",
     "ood_natural_qk_specificity": "task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+    "fresh_natural_qk_specificity_invalid": "task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1_result.json",
 }
 REPAIRS = {
     "score_context_test": "score_context_test_invalid",
@@ -133,6 +134,25 @@ def decisive_metrics(key: str, result: dict) -> list[dict[str, Any]]:
             metric("qk1_signed_fraction_of_joint_range", [min(qk1_fraction), max(qk1_fraction)], ">=0.20 with >=0.75 row sign each direction"),
             metric("qk2_signed_fraction_of_joint_range", [min(qk2_fraction), max(qk2_fraction)], ">=0.20 with >=0.75 row sign each direction"),
         ]
+    if key == "fresh_natural_qk_specificity_invalid":
+        cells = list(score["cells"].values())
+        native_counts = [
+            count
+            for cell in cells
+            for count in cell["native_correct_of_8"].values()
+        ]
+        row_counts = [
+            round(cell["effects"]["opposite_joint"]["expected_margin_sign_fraction"] * 8)
+            for cell in cells
+        ]
+        return [
+            metric("minimum_opposite_joint_expected_row_sign_count_of_8", min(row_counts), ">=6 of 8 in every direction-by-template cell"),
+            metric("minimum_native_correct_count_of_8", min(native_counts), ">=7 of 8 for every recipient/donor role in every cell"),
+            metric("native_replay_max_absolute_logit_error", score["native_replay_max_absolute_logit_error"], "<=0.00007"),
+            metric("source_term_identity_max_absolute_error", score["source_term_identity_max_absolute_error"], "<=0.00005"),
+            metric("direct_score_identity_max_absolute_error", score["direct_score_identity_max_absolute_error"], "<=0.000005"),
+            metric("installed_term_max_absolute_error", score["installed_term_max_absolute_error"], "<=0.00005"),
+        ]
     raise PublicationError(f"no decisive-metric reducer for {key}")
 
 
@@ -197,22 +217,25 @@ def build_plan(spec: dict | None = None) -> dict[str, Any]:
             "replicates_event_id": None,
             "sections": [],
             "notes": (
-                "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence."
+                spec.get("entry_notes", {}).get(
+                    key,
+                    "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence.",
+                )
                 if verdict == "invalid" else
                 f"Below-head Task14 evidence on {role}. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation."
             ),
         })
     previous = copy.deepcopy(next(c for c in record["claims"] if c["claim_id"] == spec["base_claim_id"]))
     previous.update({
-        "claim_id": spec["new_claim_id"], "revision": 9, "supersedes": spec["base_claim_id"],
+        "claim_id": spec["new_claim_id"], "revision": spec.get("new_revision", 9), "supersedes": spec["base_claim_id"],
         "status": "site_live",
         "evidence_event_ids": previous["evidence_event_ids"] + [e["event_id"] for e in events],
-        "next_missing": (
+        "next_missing": spec.get("next_missing", (
             "Confirm the below-head subject-value, source-value-group, self-score, QK-branch, and natural-number "
             "specificity findings on fresh counterfactual text; test selective removal and upstream reuse. Current "
             "TEST/OOD analyses reuse text, the subject-value effect is direction-dependent, and neither QK branch "
             "alone is sufficient in the exact four-factor interchange."
-        ),
+        )),
     })
     known_sites = {site["site_id"] for site in previous["candidate_sites"]}
     site_specs = {

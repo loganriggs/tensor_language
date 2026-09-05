@@ -1,0 +1,65 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "numeric_successor.attn8_h3_h7_cross_behavior_factor_interchange",
+  "timestamp_utc": "2026-09-05T10:36:00Z",
+  "search_terms": [
+    "numbered list numeric sequence shared attention 8 head 3 head 7",
+    "cross behavior final label score cached value interchange",
+    "generic numeral copy bus selectivity"
+  ],
+  "searched": [
+    "circuits/task_numbered_list_index_successor.json",
+    "circuits/task_numeric_sequence_continuation.json",
+    "numbered_list_factor_localization_rung573_v2_results.json",
+    "numbered_list_cached_value_weight_removal_rung576_results.json",
+    "numeric_sequence_complete_state_factor_localization_rung577_results.json",
+    "circuits/active_screen_claims.jsonl",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "R573 numbered-list exact factor localization",
+      "relation": "Selected the final-label cached value through L8H3 and L8H7 within numbered lists, but did not interchange factors across behaviors."
+    },
+    {
+      "work": "R576 compiled cached-value removal",
+      "relation": "Established exact weight equivalence and causal necessity in lists and sequences, but failed repeated-list and word-copy selectivity; deletion did not distinguish score routing from cached value."
+    },
+    {
+      "work": "R577 numeric complete-state factor localization",
+      "relation": "The complete H3+H7 state passed all numeric target directions but failed active controls, so its finer factor stage stayed closed and no cross-format factor interchange was evaluated."
+    }
+  ],
+  "novelty": "First matched cross-behavior causal test of the exact L8H3/H7 semantic-source attention score and cached-value factors. A new paired authority gives numbered-list and digit-sequence prompts the same visible labels and next-label answers, removing the disjoint-label confound. It compares within-format and cross-format transfer of final-source score, cached value, and their joint term, plus earlier-source and two-head interactions.",
+  "registered_screens": {
+    "shared_payload_private_router": "cross-format cached-value transfer preserves at least 70 percent of within-format cached-value effect in all behavior-by-direction cells with at least 75 percent donor-direction rows and positive CE support, while score transfer may fail",
+    "shared_score_and_payload": "cross-format joint transfer preserves at least 70 percent of within-format joint effect and cross-format score transfer preserves at least 50 percent in every behavior-by-direction cell",
+    "cooperative_two_head_service": "if neither head alone qualifies, the joint H3+H7 term qualifies only when its margin interaction is at least 10 percent of the full effect with the same sign in both behaviors",
+    "generic_numeral_or_copy_bus": "target transfer holds but any repeated-list-copy, digit-copy, or step-two active control fails",
+    "location_only_null": "matched target transfer itself fails, leaving only the already-known shared module and head location"
+  },
+  "required_controls": [
+    "freeze a paired authority with identical visible labels and next-label answers across list and digit-sequence formats before outcomes",
+    "native recipient and donor capability at least 85 percent in every target and control cell",
+    "exact replay, source sum, and cached-value decomposition relative squared errors at most 1e-10; installed term error at most 1e-5",
+    "within-format joint effect recovers at least 50 percent of the natural margin effect with at least 75 percent donor-direction rows",
+    "same-state cross-format transfer is an invariance control and opposite-state transfer is the causal successor intervention",
+    "apply identical nonzero factor arms to repeated-list copy, digit-copy, and step-two controls; intervention norm at least 10 percent of target scale",
+    "controls preserve at least 75 percent answers or registered preferences, absolute mean CE change at most 0.10 nat, and median absolute margin change at most 25 percent of target scale",
+    "full-vocabulary RMS is descriptive only; task margin and CE determine the verdict",
+    "FIT chooses only a preordered factor subset and SELECT tests that identical subset without reselection"
+  ],
+  "interpretation_limits": [
+    "A pass establishes operational reuse on matched list and digit-sequence formats, not an abstract numeral concept.",
+    "The exact factors are source score and cached value contributions, not whole attention heads or a rank-reduced proxy.",
+    "Fresh numeric values, templates, and word-number transfer remain separate confirmation questions."
+  ],
+  "source_sha256": {
+    "numbered_list_dossier": "a90dcd5164812788ec09ee25be985d585027517568d1b6d3c9ae1cb425356ec1",
+    "numeric_sequence_dossier": "96da2a631f53ca694136560d8f97cfa6f7da6bf20356dace12fc7f14fb92f378",
+    "r573_result": "052930b8b9086e8b7606e3d05929f521f468c04427be8d1182720f1772ee43ec",
+    "r576_result": "a6041c28cefc4f695f6e649210884774ed576bae80c14c031473d6b8c8ff2f73",
+    "r577_result": "c2f6b9fc87175caff0d58e2a8692c8fc071b6c808491aa90a12694493c1fd4d8"
+  }
+}
