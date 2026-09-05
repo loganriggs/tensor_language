@@ -18,14 +18,14 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     claim = record["claims"][-1]
     assert claim["status"] == "site_live"
     assert claim["next_missing"] == publish.NEXT_MISSING
-    assert "predeclare A1 template capability selection on FIT" in claim["next_missing"]
-    assert "untouched construction holdout" in claim["next_missing"]
-    assert "only if the selected authority is capable" in claim["next_missing"]
+    assert "genuinely new lexical A1+A2" in claim["next_missing"]
+    assert "served_one_purpose" in claim["next_missing"]
+    assert "only after that authority passes capability" in claim["next_missing"]
     assert [claim["claim_id"] for claim in record["claims"]] == [
         "narrative_tense_at_final_position.v1", "narrative_tense_at_final_position.v2",
-        "narrative_tense_at_final_position.v3",
+        "narrative_tense_at_final_position.v3", "narrative_tense_at_final_position.v4",
     ]
-    assert record["claims"][-1]["supersedes"] == record["claims"][1]["claim_id"]
+    assert record["claims"][-1]["supersedes"] == record["claims"][2]["claim_id"]
     assert record["claims"][0]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:5]
     ]
@@ -35,15 +35,18 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     assert record["claims"][-1]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"]
     ]
-    assert len(record["evidence_events"]) == 7
+    assert record["claims"][2]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"][:7]
+    ]
+    assert len(record["evidence_events"]) == 8
     assert [event["verdict"] for event in record["evidence_events"]] == [
-        "invalid", "held", "invalid", "invalid", "held", "invalid", "invalid"
+        "invalid", "held", "invalid", "invalid", "held", "invalid", "invalid", "held"
     ]
     assert all(claim["status"] == "site_live" for claim in record["claims"])
 
 
 def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
-    event = publish.build_record()["evidence_events"][-2]
+    event = publish.build_record()["evidence_events"][-3]
     assert event["claim_id"] == "narrative_tense_at_final_position.v2"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -58,7 +61,7 @@ def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
 
 
 def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
-    event = publish.build_record()["evidence_events"][-1]
+    event = publish.build_record()["evidence_events"][-2]
     assert event["claim_id"] == "narrative_tense_at_final_position.v3"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -71,6 +74,22 @@ def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
         "R-joint target recovery", "R effective-value target recovery",
         "post-last-change effective-value concentration", "P/C selectivity measurements",
     ]
+
+
+def test_template_selector_is_capability_only_not_carrier_or_lexical_ood() -> None:
+    event = publish.build_record()["evidence_events"][-1]
+    assert event["claim_id"] == "narrative_tense_at_final_position.v4"
+    assert event["test_type"] == "capability"
+    assert event["stage"] == "complete" and event["verdict"] == "held"
+    assert event["failure_kind"] is None and event["site_id"] is None
+    metrics = {metric["name"]: metric["estimate"] for metric in event["metrics"]}
+    assert metrics["selected_template"] == "served_one_purpose"
+    assert metrics["minimum_construction_holdout_cell_accuracy"] == 0.875
+    assert metrics["maximum_construction_holdout_cell_accuracy"] == 1.0
+    assert event["family_ids"] == ["a1_direct_narration", "p_surface_rewrite"]
+    assert event["notes"]["scientific_scope"] == (
+        "dataset capability only; not carrier evidence and not lexical OOD"
+    )
 
 
 def test_all_requested_artifacts_are_hash_bound() -> None:
@@ -118,23 +137,23 @@ def test_apply_is_idempotent_in_temporary_registry(tmp_path, monkeypatch) -> Non
     assert compact["circuits"][publish.TAG]["active_claim_id"] == expected["claims"][-1]["claim_id"]
 
 
-def test_exact_v2_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
+def test_exact_v3_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
     circuits = tmp_path / "circuits"
     circuits.mkdir()
     monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
     monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
     expected = publish.build_record()
     base = copy.deepcopy(expected)
-    base["claims"] = base["claims"][:2]
-    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:6]
-    base["evidence_events"] = base["evidence_events"][:6]
-    base["artifacts"].pop("fresh_unchanged_carrier_prior_art")
-    base["artifacts"].pop("fresh_unchanged_carrier_invalid_result")
+    base["claims"] = base["claims"][:3]
+    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:7]
+    base["evidence_events"] = base["evidence_events"][:7]
+    base["artifacts"].pop("a1_template_capability_prior_art")
+    base["artifacts"].pop("a1_template_capability_result")
     path = publish.registry.circuit_path(publish.TAG)
     path.write_text(json.dumps(base))
     publish.apply_record(expected)
     first = path.read_bytes()
-    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v3"
+    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v4"
     publish.apply_record(expected)
     assert path.read_bytes() == first
 
@@ -155,6 +174,26 @@ def test_v1_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) ->
     ):
         v1["artifacts"].pop(artifact_id)
     publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v1))
+    with pytest.raises(publish.PublicationError, match="canonical record differs"):
+        publish.apply_record(expected)
+
+
+def test_v2_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) -> None:
+    circuits = tmp_path / "circuits"
+    circuits.mkdir()
+    monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
+    monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
+    expected = publish.build_record()
+    v2 = copy.deepcopy(expected)
+    v2["claims"] = v2["claims"][:2]
+    v2["claims"][-1]["evidence_event_ids"] = v2["claims"][-1]["evidence_event_ids"][:6]
+    v2["evidence_events"] = v2["evidence_events"][:6]
+    for artifact_id in (
+        "fresh_unchanged_carrier_prior_art", "fresh_unchanged_carrier_invalid_result",
+        "a1_template_capability_prior_art", "a1_template_capability_result",
+    ):
+        v2["artifacts"].pop(artifact_id)
+    publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v2))
     with pytest.raises(publish.PublicationError, match="canonical record differs"):
         publish.apply_record(expected)
 

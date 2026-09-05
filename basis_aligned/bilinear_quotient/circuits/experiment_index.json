@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 122,
- "design_count": 107,
- "protocol_count": 101,
- "execution_count": 122,
+ "event_count": 123,
+ "design_count": 108,
+ "protocol_count": 102,
+ "execution_count": 123,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -1049,6 +1049,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "fresh_unchanged_carrier_prior_art",
    "result_artifact_id": "fresh_unchanged_carrier_invalid_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.a1_template_capability_select_holdout.v1.held",
+   "claim_id": "narrative_tense_at_final_position.v4",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "4ba12dac019797c792cb87179b1151fd554fffc8b3947cf06361915646ec4892",
+   "protocol_key": "8cff978fbee0c043ef325917a0ffd7ae167f9e60878b807546e15beb0e32597e",
+   "execution_key": "b0e4880c612652d67be322e947081e484f5a7ffdb96f3216c158691bcca92ca2",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "a1_template_capability_prior_art",
+   "result_artifact_id": "a1_template_capability_result"
   },
   {
    "circuit": "task.numbered_list.index_successor",

@@ -33,10 +33,15 @@ SECOND_NEXT_MISSING = (
     "outcome-selected remaining-source (R) hypothesis; do not repair the no-op "
     "tolerance or control bar on the same rows"
 )
-NEXT_MISSING = (
+THIRD_NEXT_MISSING = (
     "predeclare A1 template capability selection on FIT, evaluate it before route "
     "outcomes, and freeze an untouched construction holdout; rerun the unchanged-"
     "carrier experiment only if the selected authority is capable"
+)
+NEXT_MISSING = (
+    "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen "
+    "served_one_purpose construction, then run carrier confirmation only after that "
+    "authority passes capability"
 )
 
 ARTIFACTS = {
@@ -95,6 +100,16 @@ ARTIFACTS = {
         "c066ed776544e6a540a5f8e7e55c205b93f1d260c07a84932cc4b35a83a2a564",
         "screen_result",
     ),
+    "a1_template_capability_prior_art": (
+        "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_a1_direct_template_capability_select_holdout_v1.json",
+        "3684ca71bc0f83a9aa38459b67985e8b09a70cd5899762a882fae521b8467522",
+        "preregistration",
+    ),
+    "a1_template_capability_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a1_direct_template_capability_select_holdout_v1_result.json",
+        "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359ee",
+        "screen_result",
+    ),
 }
 
 
@@ -128,6 +143,7 @@ def build_record() -> dict:
     claim_id = "narrative_tense_at_final_position.v1"
     revised_claim_id = "narrative_tense_at_final_position.v2"
     fresh_claim_id = "narrative_tense_at_final_position.v3"
+    capability_claim_id = "narrative_tense_at_final_position.v4"
     family_ids = ["a1_direct_narration", "a2_relative_clause", "p_surface_rewrite", "c_same_answer_rewrite"]
     families = [
         {
@@ -171,6 +187,7 @@ def build_record() -> dict:
         "narrative_tense.attn11_head3_complement.v1.held",
         "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
         "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+        "narrative_tense.a1_template_capability_select_holdout.v1.held",
     ]
     record = {
         "schema_version": 2,
@@ -259,10 +276,20 @@ def build_record() -> dict:
         "revision": 3,
         "status": "site_live",
         "supersedes": revised_claim_id,
+        "evidence_event_ids": event_ids[:7],
+        "next_missing": THIRD_NEXT_MISSING,
+    })
+    record["claims"].append(fresh_claim)
+    capability_claim = copy.deepcopy(fresh_claim)
+    capability_claim.update({
+        "claim_id": capability_claim_id,
+        "revision": 4,
+        "status": "site_live",
+        "supersedes": fresh_claim_id,
         "evidence_event_ids": event_ids,
         "next_missing": NEXT_MISSING,
     })
-    record["claims"].append(fresh_claim)
+    record["claims"].append(capability_claim)
 
     raw_events = [
         {
@@ -364,11 +391,31 @@ def build_record() -> dict:
                 "repair_prohibition": "do not select rows or weaken capability bars on this authority",
             },
         },
+        {
+            "event_id": event_ids[7], "event_claim_id": capability_claim_id,
+            "event_family_ids": ["a1_direct_narration", "p_surface_rewrite"],
+            "test_type": "capability", "stage": "complete", "verdict": "held",
+            "failure_kind": None, "site_id": None,
+            "result_artifact_id": "a1_template_capability_result",
+            "prereg_artifact_id": "a1_template_capability_prior_art",
+            "metrics": [
+                _metric("selected_template", "served_one_purpose", "maximum frozen FIT worst-cell rule"),
+                _metric("minimum_construction_holdout_cell_accuracy", 0.875, ">=0.875 for every A1/P direction-by-side cell"),
+                _metric("maximum_construction_holdout_cell_accuracy", 1.0, "descriptive"),
+            ],
+            "supersedes_event_id": None,
+            "notes": {
+                "scientific_scope": "dataset capability only; not carrier evidence and not lexical OOD",
+                "selection_rule": "global FIT worst-cell accuracy, then worst-cell signed margin, then fixed template order",
+                "licensed_action": "construct a genuinely new lexical A1+A2 authority before carrier testing",
+            },
+        },
     ]
     for raw in raw_events:
         event_claim_id = raw.pop("event_claim_id", claim_id)
+        event_family_ids = raw.pop("event_family_ids", family_ids)
         event = {
-            **raw, "claim_id": event_claim_id, "family_ids": family_ids,
+            **raw, "claim_id": event_claim_id, "family_ids": event_family_ids,
             "evaluation_role": "frozen FIT screen",
             "input_artifact_ids": ["narrative_tense_authority"],
             "split_plan_id": "narrative_tense_fit_v1", "seed": None,
@@ -392,14 +439,14 @@ def apply_record(record: dict | None = None, *, regenerate: bool = True) -> Path
             if regenerate:
                 registry.rebuild_registry_v2()
             return path
-        # The only permitted migration is the exact v2 prefix emitted before
-        # the fresh unchanged-carrier capability failure existed.
+        # The only permitted migration is the exact v3 prefix emitted before
+        # the capability-only template selection result existed.
         base = copy.deepcopy(value)
-        base["claims"] = base["claims"][:2]
-        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:6]
-        base["evidence_events"] = base["evidence_events"][:6]
-        base["artifacts"].pop("fresh_unchanged_carrier_prior_art")
-        base["artifacts"].pop("fresh_unchanged_carrier_invalid_result")
+        base["claims"] = base["claims"][:3]
+        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:7]
+        base["evidence_events"] = base["evidence_events"][:7]
+        base["artifacts"].pop("a1_template_capability_prior_art")
+        base["artifacts"].pop("a1_template_capability_result")
         if existing != base:
             raise PublicationError(f"canonical record differs: {path}")
         with registry._lock("registry"):

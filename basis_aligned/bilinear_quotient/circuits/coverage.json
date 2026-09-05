@@ -368,15 +368,17 @@
    "causal_variable_id": "narrative_tense_at_final_position",
    "categories": {
     "capability": {
-     "status": "blocked",
-     "held_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "narrative_tense.a1_template_capability_select_holdout.v1.held"
+     ],
      "blocking_event_ids": [
       "narrative_tense.past_present.v1.invalid_capability",
       "narrative_tense.short_cue.v2.invalid_capability",
       "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
+     "latest_relevant_event_id": "narrative_tense.a1_template_capability_select_holdout.v1.held"
     },
     "causal_site": {
      "status": "held",
@@ -434,10 +436,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 2,
+   "n_held_categories": 3,
    "n_blocked_categories": 2,
    "n_missing_categories": 5,
-   "next_missing": "predeclare A1 template capability selection on FIT, evaluate it before route outcomes, and freeze an untouched construction holdout; rerun the unchanged-carrier experiment only if the selected authority is capable"
+   "next_missing": "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen served_one_purpose construction, then run carrier confirmation only after that authority passes capability"
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",

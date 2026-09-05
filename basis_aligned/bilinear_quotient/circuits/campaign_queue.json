@@ -10,7 +10,7 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 2,
-  "held_events": 44,
+  "held_events": 45,
   "blocking_events": 35
  },
  "work_items": [
@@ -245,7 +245,7 @@
    "tag": "task.narrative_tense.past_vs_present",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_narrative_tense_past_vs_present.json",
-   "active_claim_id": "narrative_tense_at_final_position.v3",
+   "active_claim_id": "narrative_tense_at_final_position.v4",
    "claim_status": "site_live",
    "causal_variable_id": "narrative_tense_at_final_position",
    "counterfactual_family_count": 4,
@@ -261,12 +261,14 @@
     "narrative_tense.short_cue.v2.invalid_capability",
     "narrative_tense.attn11_head3_complement.v1.held",
     "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
-    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held"
    ],
    "open_event_ids": [],
    "held_event_ids": [
     "narrative_tense.past_present.v2.held_localization",
-    "narrative_tense.attn11_head3_complement.v1.held"
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held"
    ],
    "blocking_event_ids": [
     "narrative_tense.past_present.v1.invalid_capability",
@@ -275,7 +277,7 @@
     "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability"
    ],
    "coverage": {
-    "capability": "blocked",
+    "capability": "mixed",
     "causal_site": "held",
     "learned_interchange": "missing",
     "cross_family": "missing",
@@ -294,7 +296,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "predeclare A1 template capability selection on FIT, evaluate it before route outcomes, and freeze an untouched construction holdout; rerun the unchanged-carrier experiment only if the selected authority is capable"
+   "next_missing": "build a genuinely new lexical A1+A2 narrative-tense authority using the frozen served_one_purpose construction, then run carrier confirmation only after that authority passes capability"
   },
   {
    "tag": "task.numbered_list.index_successor",
