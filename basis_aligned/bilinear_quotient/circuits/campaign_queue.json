@@ -11,7 +11,7 @@
   "legacy_candidates": 70,
   "open_experiments": 2,
   "held_events": 42,
-  "blocking_events": 28
+  "blocking_events": 29
  },
  "work_items": [
   {
@@ -75,7 +75,7 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v9",
+   "active_claim_id": "grammatical_subject_number.v10",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "counterfactual_family_count": 8,
@@ -106,7 +106,8 @@
     "task14_head11_3.below_head.ood_value_atlas.complete.v1",
     "task14_head11_3.below_head.ood_score_role.complete.v1",
     "task14_head11_3.below_head.ood_self_qk.complete.v1",
-    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
    ],
    "open_event_ids": [
     "task14_subject_number_localization.fit.preregistered.v2"
@@ -133,7 +134,8 @@
     "task14_head11_3.ood.construction_general.null.v1",
     "task14_head11_3.below_head.subject_value_test.complete.v1",
     "task14_head11_3.below_head.score_context_test.complete.v1",
-    "task14_head11_3.below_head.ood_value_atlas.complete.v1"
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -141,18 +143,19 @@
     "learned_interchange": "planned",
     "cross_family": "mixed",
     "ood": "blocked",
-    "selectivity": "held",
+    "selectivity": "mixed",
     "composition": "mixed",
     "compiled_weights": "missing"
    },
    "acceptance_gaps": [
     "cross_family",
     "ood",
+    "selectivity",
     "composition",
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "Confirm the below-head subject-value, source-value-group, self-score, QK-branch, and natural-number specificity findings on fresh counterfactual text; test selective removal and upstream reuse. Current TEST/OOD analyses reuse text, the subject-value effect is direction-dependent, and neither QK branch alone is sufficient in the exact four-factor interchange."
+   "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
   },
   {
    "tag": "task.bracket.pending_opener",

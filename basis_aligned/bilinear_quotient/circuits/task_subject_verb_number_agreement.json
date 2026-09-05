@@ -2200,6 +2200,346 @@
    ],
    "translation_ids": [],
    "next_missing": "Confirm the below-head subject-value, source-value-group, self-score, QK-branch, and natural-number specificity findings on fresh counterfactual text; test selective removal and upstream reuse. Current TEST/OOD analyses reuse text, the subject-value effect is direction-dependent, and neither QK branch alone is sufficient in the exact four-factor interchange."
+  },
+  {
+   "claim_id": "grammatical_subject_number.v10",
+   "revision": 10,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v9",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+     "tensor_path": "exact subject-source score and projected value factors",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject-source score, projected value, or both while retaining every other exact source term",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+     "tensor_path": "exact subject-source projected value contribution p_subject*u_subject",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace only the subject source projected value while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+     "tensor_path": "factorial interaction of the subject-source score and projected value",
+     "shape": [
+      "batch",
+      2,
+      2,
+      1152
+     ],
+     "intervention": "cross recipient or alternate-context scores with native or opposite-number subject projected values",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+     "tensor_path": "exact per-source projected value contributions p_k*u_k",
+     "shape": [
+      "batch",
+      "source_position",
+      1152
+     ],
+     "intervention": "replace selected source projected values while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+     "tensor_path": "semantic groups of exact source projected value contributions",
+     "shape": [
+      "batch",
+      4,
+      1152
+     ],
+     "intervention": "replace any subset of subject, intermediate, bridge, and attractor groups",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+     "tensor_path": "fronted-construction source score vector grouped as earlier, determiner, and subject-self scores",
+     "shape": [
+      "batch",
+      3
+     ],
+     "intervention": "replace selected source scores with donor scores while holding the installed subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+     "tensor_path": "the two bilinear QK branches composing the final-query to subject-self score",
+     "shape": [
+      "batch",
+      4,
+      128
+     ],
+     "intervention": "interchange q1, k1, q2, and k2 factors factorially while holding the donor subject value fixed",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
   }
  ],
  "split_plans": [
@@ -2601,6 +2941,18 @@
   "task14_below_head_ood_natural_qk_specificity_prior_art": {
    "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1.json",
    "sha256": "f78a318377ce42bbd1c067244e5eb32afa5f6c9836f13bf9a89f4e211a94d85e",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_fresh_natural_qk_specificity_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1_result.json",
+   "sha256": "94a6c8945b983a5b9e277563175957b55278a9f36169f200643ef8e9a285af9d",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_fresh_natural_qk_specificity_invalid_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1.json",
+   "sha256": "e85974a4b7ef69bbc958e49acb3979bdf629795c9413cbaf4f8fda0afff3a7df",
    "kind": "preregistration",
    "status": "frozen"
   }
@@ -4074,6 +4426,67 @@
    "notes": "Below-head Task14 evidence on OOD_TEXT_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
    "design_key": "3266372a82fb58ea0d9f43badeb6ed5c8e5fc34aa0bb69911d38fadeeb5d6a01",
    "execution_key": "855101b866d7a8d2b0363742d17e86a89b82c98e509532133a40104c4f80e78a"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+   "claim_id": "grammatical_subject_number.v9",
+   "test_type": "invariance",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "FRESH_TEXT",
+   "metrics": [
+    {
+     "name": "minimum_opposite_joint_expected_row_sign_count_of_8",
+     "estimate": 4,
+     "ci95": null,
+     "bar": ">=6 of 8 in every direction-by-template cell"
+    },
+    {
+     "name": "minimum_native_correct_count_of_8",
+     "estimate": 8,
+     "ci95": null,
+     "bar": ">=7 of 8 for every recipient/donor role in every cell"
+    },
+    {
+     "name": "native_replay_max_absolute_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "source_term_identity_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "direct_score_identity_max_absolute_error",
+     "estimate": 5.21540641784668e-08,
+     "ci95": null,
+     "bar": "<=0.000005"
+    },
+    {
+     "name": "installed_term_max_absolute_error",
+     "estimate": 7.62939453125e-06,
+     "ci95": null,
+     "bar": "<=0.00005"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_fresh_natural_qk_specificity_invalid_prior_art",
+   "result_artifact_id": "task14_below_head_fresh_natural_qk_specificity_invalid_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Invalid-instrument provenance only; this is not scientific evidence and makes no fresh-transfer claim. Native recipient and both donor roles were correct on 8 of 8 rows in every cell, and exact/native replay controls passed. However, the singular-to-plural behind/near cell had only 4 of 8 rows with the registered opposite-joint margin direction, below the frozen 6 of 8 requirement.",
+   "design_key": "39c06e9321f956192d17834c4cc29068bb855df1a07a266fdbf8a9a94c2e77c3",
+   "execution_key": "48b6c2471e3395057b700a867f0c0f06e846f93af783d3ca879181566b712b00"
   }
  ]
 }
