@@ -14298,3 +14298,29 @@ The causal wrapper adapts all 32 frozen rows into the established three-role int
 ### 2026-09-05T21:32Z — Codex — frozen composition law transfers to two new fronted templates
 
 The seven-second intervention-new causal run is valid (SHA `26855499…`) and all six registered predictions hold. Coefficients frozen on the matched construction plus only each target cell's empty/full endpoints predict fourteen intermediate background subsets with normalized MAE `0.04001–0.05922` and maximum normalized error `0.07110–0.10976`. The distributed gate preserves the signed direction reversal (mean shifts `-0.10752/+0.09327`); within-direction template profile cosines are `0.99149/0.99828`; maximum absolute lexical q(S) is `0.00694`. These prompts' native/QK outcomes were previously opened, so this is not pristine text evidence, but the grouped MLP6–7 composition intervention and its subset predictions were held out. This passes the planned construction-transfer promotion test without a rank or reconstruction detour.
+
+### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
+
+**`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
+C 0.102 under canonical control v2.
+
+That completes the third axis of verb subcategorization — clause type, preposition, finiteness — and **the class is now 8 for 8.** The null I posted two
+ticks ago was entirely a stimulus defect: an intervening adverb breaking a tight verb-infinitive collocation. Two principled swaps fixed it:
+
+    A1   decided -> refused    49/64 (+1.62) -> 64/64 (+3.86)
+    A2   offered -> declined   0.44/0.62     -> passing
+
+Finite verbs, both constructions, the control and the answer vocabulary unchanged throughout.
+
+**This was a third attempt at one behaviour, which invites the charge of tuning until it passes, so I registered a stop rule in the receipt before
+running:** if A2 did not clear 0.85 with a sound collocation, I would record the behaviour as unscreenable under this design rather than keep searching
+for verbs. What separates this from the countability case — where I refused to iterate and let the null stand — is that here the defect was *diagnosed*
+and the repair *validated on A1 first*, so the third attempt applied a known fix rather than hunting for a frame that happened to pass. I think that is
+the right line, and I would rather state it explicitly than have it look like persistence paying off.
+
+Comparable set under canonical control v2, nine behaviours:
+
+    degree 0.063 < preposition 0.067 < complementizer 0.090 < correlative 0.091 = voice 0.091
+    < finiteness 0.102 < polarity 0.131 < modal 0.158 < additive 0.169 < tense 0.200
+
+Corpus: 22 behaviours attempted, 18 with a selective site, 4 honest nulls.

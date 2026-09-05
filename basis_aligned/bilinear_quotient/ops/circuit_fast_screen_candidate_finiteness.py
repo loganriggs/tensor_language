@@ -34,7 +34,7 @@ SPLIT = builder.SPLIT
 DEFAULT_GROUPS = builder.DEFAULT_GROUPS
 DEFAULT_SEED = builder.DEFAULT_SEED
 
-TASK_ID = "finiteness_selection.to_vs_that_v2"
+TASK_ID = "finiteness_selection.to_vs_that_v3"
 FINITENESS = (" to", " that")
 
 TASK_SPEC = battery.BatteryTaskSpec(
@@ -86,7 +86,9 @@ def _bare(agent: str, adverb: str, nonfinite: bool) -> str:
 
 
 def _report(agent: str, adverb: str, nonfinite: bool) -> str:
-    return f"In the notes the {agent} {'offered' if nonfinite else 'declared'} {adverb}"
+    # v3: 'offered quickly to' was the same broken collocation that 'decided firmly to' was in
+    # v1; 'declined' takes an adverb before its infinitive. Same repair v2 validated on A1.
+    return f"In the notes the {agent} {'declined' if nonfinite else 'declared'} {adverb}"
 
 
 def _answer(nonfinite: bool) -> str:

@@ -12,19 +12,19 @@ import circuit_fast_screen_spec as screen
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PRIOR_ART = ROOT / "circuits/fast_screen_finiteness_v2_prior_art.json"
+PRIOR_ART = ROOT / "circuits/fast_screen_finiteness_v3_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/finiteness_selection_to_vs_that_v2_result.json"
+    "circuits/fast_screens/finiteness_selection_to_vs_that_v3_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "finiteness-selection-to-vs-that-v2"
-EXPERIMENT_ID = "fast-screen-finiteness-selection-to-vs-that-v2"
+REQUEST_ID = "finiteness-selection-to-vs-that-v3"
+EXPERIMENT_ID = "fast-screen-finiteness-selection-to-vs-that-v3"
 EXPECTED_AUTHORITY_SHA256 = (
-    "37a0741f40fdc79cc3e9636238e324596fe36efa0aff1189e0774a83ea7fd7e6"
+    "3feaaf91fc1ae414ea629ea8e8297b64921ee6ee20bd5f254214454c199e4391"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
-    "71ad173f44c36b94e8ef61e6da3e41bad6eee87e786e563c836715e1e4bc46a4"
+    "a0988aa90bb6024cc0218605eed9616676eb37ab6bc2e40d90e124a6e0cbfda1"
 )
 REGISTERED_PREDICTIONS = (
     ("pred_a_native_capability", "Every ordered native capability cell passes."),
