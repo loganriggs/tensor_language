@@ -131,6 +131,36 @@ def followup_rows():
     return out
 
 
+def _completed_events(path, end_day):
+    """Parse append-order HH:MM records, reconstructing dates from the tail.
+
+    `_completed.txt` deliberately has no date column.  Treating every clock time
+    as `start_day` silently dropped every execution after the first midnight.
+    The file can also begin days before our first timestamped receipt, so a
+    forward anchor duplicates old history on the wrong dates.  Anchor the final
+    record to the known final day and walk backwards: a backwards traversal from
+    an early clock to a late clock crosses into the preceding day.
+    """
+    parsed = []
+    for raw in open(path, errors="ignore"):
+        match = re.match(r"^(\d\d):(\d\d)\s+(\S+)\s+exit=(\d+)", raw.strip())
+        if not match:
+            continue
+        parsed.append((datetime.time(int(match.group(1)), int(match.group(2))),
+                       match.group(3), match.group(4)))
+    day = end_day
+    following = None
+    dated = []
+    for clock, name, exit_code in reversed(parsed):
+        when = datetime.datetime.combine(day, clock)
+        if following is not None and when > following + datetime.timedelta(hours=12):
+            day -= datetime.timedelta(days=1)
+            when = datetime.datetime.combine(day, clock)
+        following = min(following, when) if following is not None else when
+        dated.append((when, name, exit_code))
+    yield from reversed(dated)
+
+
 def runner_rows(known):
     """Executions the receipt sources cannot explain, taken from the runner's own completion log.
 
@@ -143,14 +173,12 @@ def runner_rows(known):
     completed = os.path.join(BQ, "runlogs", "_completed.txt")
     if not os.path.exists(completed) or not known:
         return []
-    day = min(r["terminal"] for r in known).date()
+    day = max(r["terminal"] for r in known).date()
     first = min(r["terminal"] for r in known)
     out = []
-    for raw in open(completed, errors="ignore"):
-        m = re.match(r"^(\d\d):(\d\d)\s+(run_\S+)\s+exit=(\d+)", raw.strip())
-        if not m:
+    for when, name, exit_code in _completed_events(completed, day):
+        if not name.startswith("run_"):
             continue
-        when = datetime.datetime.combine(day, datetime.time(int(m.group(1)), int(m.group(2))))
         if when < first:
             continue
         # The stage marker is deliberately datetime.min, NOT `when`: a runner row has no authoring
@@ -158,25 +186,43 @@ def runner_rows(known):
         # terminal -- which the single-lane chaining below produces once the stage cannot win the max().
         # Setting the stage to `when` made start == terminal and every such row read 0.0 min, dragging the
         # median to zero across 35 rows.
-        out.append({"candidate_id": f"[runner] {m.group(3)}" + ("" if m.group(4) == "0" else " FAILED"),
+        out.append({"candidate_id": f"[runner] {name}" + ("" if exit_code == "0" else " FAILED"),
                     "terminal": when, "stages": {"runner": datetime.datetime.min},
                     "serial_seconds": None})
     return out
 
 
+def merge_receipts_and_runner_rows(data):
+    """Remove only as many same-minute runner rows as receipts can explain.
+
+    A minute can contain two fast runs.  The old set-of-minutes de-duplication
+    discarded both runner rows when one receipt existed, hiding the second
+    experiment.  Receipts remain the preferred rows; any excess runner events
+    in that minute are retained as otherwise-unrepresented terminals.
+    """
+    receipt_counts = {}
+    for row in data:
+        if row["candidate_id"].startswith("[runner]"):
+            continue
+        minute = row["terminal"].replace(second=0)
+        receipt_counts[minute] = receipt_counts.get(minute, 0) + 1
+    runner_seen = {}
+    merged = []
+    for row in sorted(data, key=lambda item: (item["terminal"],
+                                               item["candidate_id"].startswith("[runner]"))):
+        if row["candidate_id"].startswith("[runner]"):
+            minute = row["terminal"].replace(second=0)
+            runner_seen[minute] = runner_seen.get(minute, 0) + 1
+            if runner_seen[minute] <= receipt_counts.get(minute, 0):
+                continue
+        merged.append(row)
+    return merged
+
+
 if __name__ == "__main__":
     data = rows() + followup_rows()
     data += runner_rows(data)
-    # De-duplicate: a runner execution whose receipt row already lands in the same minute is the same event.
-    seen_minutes = set()
-    merged = []
-    for r in sorted(data, key=lambda r: (r["terminal"], r["candidate_id"].startswith("[runner]"))):
-        key = r["terminal"].replace(second=0)
-        if r["candidate_id"].startswith("[runner]") and key in seen_minutes:
-            continue
-        seen_minutes.add(key)
-        merged.append(r)
-    data = merged
+    data = merge_receipts_and_runner_rows(data)
     if not data:
         print("no ledger rows"); raise SystemExit(0)
     since = None
@@ -257,18 +303,18 @@ if __name__ == "__main__":
         # measured window that no ledger row explains are counted here.
         completed = os.path.join(BQ, "runlogs", "_completed.txt")
         if os.path.exists(completed) and data:
-            first = min(r["terminal"] for r in data).strftime("%H:%M")
+            first_terminal = min(r["terminal"] for r in data)
             runs = []
-            for raw in open(completed, errors="ignore"):
-                m = re.match(r"^(\d\d:\d\d)\s+(run_\S+)\s+exit=(\d+)", raw.strip())
-                if m and m.group(1) >= first:
-                    runs.append((m.group(1), m.group(2), m.group(3)))
+            last_day = max(r["terminal"] for r in data).date()
+            for when, name, exit_code in _completed_events(completed, last_day):
+                if when >= first_terminal and name.startswith("run_"):
+                    runs.append((when.strftime("%m-%d %H:%M"), name, exit_code))
             # Count, do NOT name-match: an earlier version token-matched run names against candidate ids and
             # called `run_task14_head11_3_projector_discovery` "covered" because it shares the token task14
             # with a ledger row. Counting cannot produce that false negative.
             gap = len(runs) - len(data)
             if gap > 0:
-                print(f"\nCOVERAGE GAP: {len(runs)} runner executions since {first} but only {len(data)} "
+                print(f"\nCOVERAGE GAP: {len(runs)} runner executions since {first_terminal:%m-%d %H:%M} but only {len(data)} "
                       f"ledger rows -- {gap} execution(s) are NOT described by the numbers above:")
                 for t, n, c in runs[-6:]:
                     print(f"   {t} {n} exit={c}")

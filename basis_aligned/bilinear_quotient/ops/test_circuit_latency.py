@@ -2,6 +2,7 @@
 import datetime
 import os
 import sys
+import tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import circuit_latency as C
@@ -32,3 +33,47 @@ def test_mtime_returns_none_for_a_missing_path():
 def test_first_existing_picks_the_earliest_match():
     hit = C._first_existing([os.path.join(C.BQ, "ops", "circuit_latency.py")])
     assert hit and hit[1].endswith("circuit_latency.py")
+
+
+def test_completed_events_advance_the_date_at_midnight():
+    with tempfile.NamedTemporaryFile("w", delete=False) as stream:
+        stream.write("23:58 run_before exit=0\n")
+        stream.write("00:04 run_after exit=0\n")
+        stream.write("00:04 bilin18_canary2 exit=0\n")
+        path = stream.name
+    try:
+        events = list(C._completed_events(path, datetime.date(2026, 9, 5)))
+    finally:
+        os.unlink(path)
+    assert events[0][0] == datetime.datetime(2026, 9, 4, 23, 58)
+    assert events[1][0] == datetime.datetime(2026, 9, 5, 0, 4)
+    assert events[2][0] == datetime.datetime(2026, 9, 5, 0, 4)
+
+
+def test_runner_rows_keep_post_midnight_executions(monkeypatch, tmp_path):
+    completed = tmp_path / "_completed.txt"
+    completed.write_text("23:58 run_before exit=0\n00:04 run_after exit=0\n")
+    monkeypatch.setattr(C, "BQ", str(tmp_path.parent))
+    runlogs = tmp_path.parent / "runlogs"
+    runlogs.mkdir(exist_ok=True)
+    (runlogs / "_completed.txt").write_text(completed.read_text())
+    known = [
+        {"terminal": datetime.datetime(2026, 9, 4, 23, 50)},
+        {"terminal": datetime.datetime(2026, 9, 5, 0, 10)},
+    ]
+    rows = C.runner_rows(known)
+    assert [row["terminal"] for row in rows] == [
+        datetime.datetime(2026, 9, 4, 23, 58),
+        datetime.datetime(2026, 9, 5, 0, 4),
+    ]
+
+
+def test_merge_keeps_a_second_runner_in_the_same_minute():
+    minute = datetime.datetime(2026, 9, 5, 7, 34)
+    receipt = {"candidate_id": "quote.receipt", "terminal": minute.replace(second=31)}
+    first = {"candidate_id": "[runner] run_quote", "terminal": minute}
+    second = {"candidate_id": "[runner] run_bracket", "terminal": minute}
+    merged = C.merge_receipts_and_runner_rows([receipt, first, second])
+    assert {row["candidate_id"] for row in merged} == {
+        "quote.receipt", "[runner] run_bracket",
+    }
