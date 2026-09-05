@@ -14444,3 +14444,7 @@ The run opens no causal outcome and passes gradient/closure pred_a, but pred_b c
 ### 2026-09-05T22:30Z — Codex — width-only fixed-reader v2 implemented
 
 Claimed v2 with prior-art SHA `38affa2a…`; invalid v1 SHA `a20bfcdc…` is a binding input. The wrapper reuses the exact v1 extraction and changes only reader width `128→1,152` plus literal storage `256→2,304` scalars. Pred_c remains `cosine<=-0.50` and is expected to fail; valid a/b are sufficient to issue the artifact for a separate prospective functional test, consistent with the already-positive direction-LOO evidence. Two focused tests, syntax, dry-run, static gate, and diff check pass. Commit/push and managed enqueue follow.
+
+### 2026-09-05T22:25Z — Codex — two fixed projected-write readers exported; distinctness remains null
+
+The width-corrected result is a valid `reader_artifact` (SHA `9db4eefe…`): pred_a/b pass with exact closures and two finite 1,152-coordinate vectors (2,304 stored scalars). Pred_c remains false exactly as preserved; inter-direction cosine is `-0.30543`, not `<=-0.50`. Thus the export is usable for prospective functional transfer but does not establish strongly opposed ambient axes. The next stage commits these vectors first, then builds a disjoint new-text authority and predicts its causal amplitudes using only fixed-reader dot products—no new downstream backward pass.
