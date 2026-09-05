@@ -161,10 +161,22 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
                 event.state, event.first_value, event.block.attn, finals, HEAD, torch, F)
             current, cached, effective, projection = value_v2._raw_value_branches(
                 event.state, event.first_value, event.block.attn, torch, F)
+            # Match the validated parent replay's float32 grouping exactly.  The
+            # downstream slot installer consumes HR to retain the numerical
+            # difference between the grouped and sequential MLP4--10 sums.
+            middle = sum((slots[i] for i in range(4, 8)),
+                         start=torch.zeros_like(x0))
+            late = sum((slots[i] for i in range(8, 11)),
+                       start=torch.zeros_like(x0))
+            high = middle + late
+            slot_high = sum((slots[i] for i in downstream.LAYERS),
+                            start=torch.zeros_like(x0))
             captured.update({name: value.detach().clone() for name, value in base.items()})
             captured.update({
                 "E": embedding.detach().clone(), "A": attention_sum.detach().clone(),
                 "M": mlp_sum.detach().clone(),
+                "H": high.detach().clone(),
+                "HR": (high - slot_high).detach().clone(),
                 "R": (reference - (embedding + attention_sum + mlp_sum)).detach().clone(),
                 "raw_state": reference.detach().clone(),
                 "normalized_state": event.state.detach().clone(),
@@ -215,7 +227,7 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
 
     logits = facade.forward_with_dispatch(
         model, tokens, attention, mlp_dispatch, require_production=False).float()
-    required = {"p", "u", "head", "E", "A", "M", "R", "raw_state",
+    required = {"p", "u", "head", "E", "A", "M", "H", "HR", "R", "raw_state",
                 "normalized_state", "current_pre", "cached_pre", "effective_pre",
                 *(f"M{i}" for i in downstream.LAYERS)}
     input_required = {"E", "A", "U", "V", "M_group_remainder", "M",
