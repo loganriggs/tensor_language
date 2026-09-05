@@ -1,0 +1,38 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_direct_readout_fold",
+  "timestamp_utc": "2026-09-05T08:04:00Z",
+  "search_terms": [
+    "L13H8 semantic opener direct unembed residual output",
+    "pending opener mu delta direct readout fold",
+    "W_O unembedding closer logits",
+    "direct lens final norm numbered list"
+  ],
+  "searched": [
+    "circuits/task_bracket_pending_opener.json",
+    "circuits/fast_screens/bracket_l13h8_mu_delta_residual_write_bank_factorial_v1_result.json",
+    "BILIN18_CONNECTION.md sections 2695, 2697, and 2808",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "bracket_l13h8_mu_delta_residual_write_bank_factorial_v1_result.json",
+      "relation": "Established that the three-closer semantic effect is residual-route dominated and later writes compensate CE, but did not fold the surviving residual vector through final normalization and unembedding."
+    },
+    {
+      "work": "BILIN18_CONNECTION.md section 2808 numbered-list cached-value read split",
+      "relation": "Used a zero-forward unembedding lens and reader-edge cuts for a different numbered-list tensor term. It supplies a relevant method warning: a direct lens is descriptive unless checked against the causal path."
+    },
+    {
+      "work": "pending-opener R540 closer-logit DAS null",
+      "relation": "Showed that optimizing a free direction for closer logits finds a nonselective readout shortcut. The proposed screen fits no direction: it contracts the already causal exact mu/delta tensors through fixed model weights."
+    }
+  ],
+  "novelty": "First exact weight-level readout of the causally isolated L13H8 semantic-opener mu/delta residual path. It separates the fixed unembedding contraction of each exact post-OV factor from final RMS-normalization scaling and output softcap, and checks the sum against the actual causal NN-versus-RN logits. No learned direction, rank, PCA, activation reconstruction, site scan, TEST, or OOD.",
+  "known_lessons_applied": [
+    "Measure task logits and CE; do not optimize activation reconstruction.",
+    "A direct lens alone is not causal, so compare it with the already isolated residual-path intervention.",
+    "Do not infer semantic selectivity from alignment to closer unembeddings; the tensor factor was fixed by prior causal experiments.",
+    "Keep the basic screen minimal and preserve the result or null before extending it."
+  ]
+}
