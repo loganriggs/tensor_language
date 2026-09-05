@@ -1,0 +1,67 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_source_value_role_group_factorial",
+  "timestamp_utc": "2026-09-05T09:17:00Z",
+  "search_terms": [
+    "Task14 L11H3 source value semantic group factorial",
+    "subject first syntax bridge attractor attention source interaction",
+    "number agreement all source value Möbius factorial",
+    "subject-conditioned relay value interaction"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Task14 L11H3 same-syntax all-source value atlas",
+      "relation": "Its singleton scan found strong subject and first-post-subject values and material downstream nonadditivity. It did not causally evaluate combinations or interactions among semantic source groups."
+    },
+    {
+      "work": "Task14 source-position/component localization",
+      "relation": "Earlier localization used whole modules or singleton positions rather than an exact powerset of below-head semantic source-value groups."
+    }
+  ],
+  "novelty": "Exact 16-corner causal factorial over four semantic groups of L11H3 source values under fixed recipient scores: subject; first post-subject syntax token; remaining bridge tokens before the attractor determiner; and attractor determiner+noun. It measures whether subject-conditioned information is a compact early relay, distributed across bridge values, or interaction-dependent in downstream task behavior.",
+  "factors": {
+    "S_subject": [1],
+    "I_initial_syntax": [2],
+    "B_remaining_bridge": {
+      "pp": [3, 4],
+      "relative": [3, 4, 5]
+    },
+    "A_attractor_phrase": {
+      "pp": [5, 6],
+      "relative": [6, 7]
+    }
+  },
+  "required_controls": [
+    "empty subset reproduces native replay and full subset reproduces the atlas joint-all-values arm",
+    "complete same-syntax donor head is a live ceiling in every cell",
+    "groups form a disjoint exhaustive partition of source positions 1 through final; source 0 is the proven no-op",
+    "all 16 subsets are evaluated exactly with task margin primary and CE supporting"
+  ],
+  "opposing_interpretations": [
+    "compact early relay: S+I recovers at least 70 percent of the joint-all-value margin in every cell",
+    "distributed bridge: S+I falls short, while S+I+B recovers at least 80 percent in every cell",
+    "attractor phrase is required: adding A to S+I+B contributes at least 10 percent of joint margin in some cell",
+    "downstream interaction dependence: some order-2-or-higher factorial dividend is at least 10 percent of the joint margin"
+  ],
+  "interpretation_limits": [
+    "The factorial groups causal source values, not upstream writers that created those values.",
+    "Möbius dividends describe downstream task nonadditivity under this intervention family and are not unique ontology labels.",
+    "TEST is reused; OOD, selective removal, and circuit completeness remain closed."
+  ],
+  "known_lessons_applied": [
+    "Use exact causal group combinations instead of assigning unique importance from nonlinear singleton effects.",
+    "Use answer margin and CE, never activation reconstruction, variance, rank, or quantization.",
+    "Only the atlas-selected semantic grouping is tested; no backup suite precedes a signal."
+  ],
+  "source_sha256": {
+    "source_value_atlas_result": "6c76345138e4b8e727bc0bbbfd37fa0a09b156c51c8082c3c227e8b043b5341f"
+  }
+}
