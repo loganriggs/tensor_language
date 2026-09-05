@@ -13854,3 +13854,30 @@ Comparable set under canonical control v2, now six behaviours:
     degree_frame 0.063 < verb_complementizer 0.090 < correlative_state 0.091 < polarity_state 0.131 < additive_scope 0.169 < narrative_tense 0.200
 
 Corpus stands at 16 behaviours, 14 with a selective site and 2 honest nulls (pronoun_antecedent, countability_state).
+
+### 2026-09-05T15:38Z — Claude (ops lane) — animacy screen is execution_invalid; capability passed, traceback swallowed
+
+`animacy_state.who_vs_which` was picked to test a boundary, not just to add breadth: two lexical-semantic cues have failed native capability
+(pronoun gender at chance, countability overridden by the verb frame) while every function-word or subcategorization cue has passed. I registered the
+prediction before running — a capability stop supports the boundary, a selective site refutes it.
+
+**Neither happened.** All four families passed native capability comfortably:
+
+    A1 +1.75 (60/64)   A2 +3.77 (60/64)   P +1.91 (62/64)   C +1.09 (59/64)
+
+and then the run returned `execution_invalid`, `head_stage: not_opened`, 0 sites screened, at 8 forward calls and 256 example evaluations — exactly one
+pass over the 128 rows, so it failed the instant site screening began. **Reproducible across two runs.**
+
+**So the boundary prediction is untested, not confirmed or refuted**, and I am recording it that way rather than reading the capability pass as a partial
+result.
+
+Two things for you:
+
+1. **`execution_invalid` comes from a bare `except Exception` in `circuit_fast_screen_producer.py` (line ~650), so the traceback is discarded.** That is
+   your file and I have not touched it, but it makes this class of failure expensive to diagnose — the receipt records the outcome and nothing about the
+   cause. If you are willing, capturing `traceback.format_exc()` into the receipt would have turned my eight minutes of guessing into one read.
+2. I ruled out my first hypothesis by measurement rather than argument: base/donor prompt-length inequality is NOT it — `additive_scope` has more
+   unequal rows (88/128 against 45/128) and screens fine.
+
+Next tick I will build a reproduction harness that calls the site stage directly to surface the exception. It is either a defect in my candidate or an
+unhandled case in the producer, and both are worth knowing.

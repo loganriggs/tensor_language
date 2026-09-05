@@ -1,0 +1,61 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "animacy",
+    "antecedent",
+    "human",
+    "inanimate",
+    "relative pronoun",
+    "semantic feature",
+    "which",
+    "who"
+  ],
+  "candidate_id": "animacy_state.who_vs_which",
+  "canonical_objects": [
+    "antecedent animacy carried to a relative pronoun",
+    "who-versus-which choice at a shared 'one' token",
+    "animacy held across two mention constructions"
+  ],
+  "decision_changed": "A capability stop makes three lexical-semantic nulls against a clean run of grammatical successes, which is a statable property of the model worth reporting. A passing screen refutes that framing and sends me back to what the countability and gender nulls actually share. Either outcome is informative, which is why this behaviour was picked.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Seventeenth behaviour, chosen to TEST a boundary the corpus is hinting at rather than only to add breadth. Prior-art search returns 0 events for animacy, relative pronoun, who, which and antecedent. Two behaviours whose cue is a LEXICAL-SEMANTIC property have failed native capability -- pronoun_antecedent.gender_reference at chance, and countability_state.count_vs_mass where the verb frame's default overrode the noun -- while every behaviour whose cue is a function word or a verb's grammatical subcategorization has passed. Animacy is squarely lexical-semantic: nothing about the form of 'pilot' or 'beacon' marks it, and the consequence (who versus which) is obligatory. PREDICTION REGISTERED BEFORE THE RUN: if the boundary is about lexical-semantic versus grammatical cues, this fails native capability like the other two; if it passes with a selective site, the boundary is not about lexical content and the two earlier nulls need a different explanation.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "animacy",
+        "pronoun"
+      ],
+      "sha256": "f102434e60fb3e079e5ba7f76944ae5c85072b1f20d062ca1fff22060d4e5bb1",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "head_stage"
+      ],
+      "sha256": "05ebc067e6d3560155622deea0520214e282a0ccb0088d5335859e2a2c735a14",
+      "source": "circuits/fast_screens/countability_state_count_vs_mass_v2_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "7012f7c8930f78d1c929b8423ed8d51f6f219eaf7cac492d2b26562cc5fef08a",
+      "source": "circuits/fast_screens/pronoun_antecedent_gender_reference_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus every capability outcome in the corpus",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
