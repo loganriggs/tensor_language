@@ -1,0 +1,41 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_subject_score_context_gate_factorial",
+  "timestamp_utc": "2026-09-05T08:51:26Z",
+  "search_terms": [
+    "Task14 subject score syntax gate payload",
+    "head11.3 recipient QK score cross syntax",
+    "PP plural subject payload weak attention score",
+    "number agreement score value interaction"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_subject_payload_test_transfer_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_payload_lemma_direction_factorial_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+    "ops/circuit_fast_screen_candidate_task14_phase_cross_syntax.py",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "SELECT subject score/value factorial",
+      "relation": "Swapping an opposite-number donor score alone had little average effect, but it did not swap same-number recipient-context scores or test whether a native score gates the donor payload."
+    },
+    {
+      "work": "TEST lemma-direction factorial",
+      "relation": "Same-lemma and cross-noun values were nearly identical, ruling out lemma conditioning. It leaves the recipient PP-plural context, including its final-query-to-subject score, as the unresolved source of weak recovery."
+    }
+  ],
+  "novelty": "Exact 2x2 source-term factorial crossing the native versus same-number opposite-syntax recipient score with native versus opposite-number subject value, applied at the original recipient. It asks whether cross-syntax QK scoring rescues the noun-general payload and reports task margin and CE in all four cells.",
+  "known_lessons_applied": [
+    "A score is tested only through its causal product with the identified payload, not by its magnitude or variance.",
+    "The alternative score comes from the same noun and grammatical number, changing only the later recipient context.",
+    "The prior cross-noun payload arm must reproduce exactly; OOD remains closed.",
+    "No rank, reconstruction, or activation-energy metric is used."
+  ],
+  "source_sha256": {
+    "lemma_direction_result": "e6f5e469cd561e5ee5f2b70031ab9d754ec40b51af0b2d7dfcc61b3c8e207603",
+    "phase_authority_factory": "75f7ea56f703bb07e55f478f734a3c7b79abf2cab1685aacd2b3ebee839fd59c"
+  }
+}
