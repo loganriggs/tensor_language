@@ -1,0 +1,30 @@
+{
+  "schema": "bracket_source_region_payload_dryrun_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_source_region_payload_factorial",
+  "status": "cpu_preflight_passed_not_enqueued",
+  "rows": 24,
+  "groups": 6,
+  "rows_sha256": "98252680b5c407b30195f6f8dfecd993d967cb47f4b59b2069e7f1606b351c50",
+  "freshness_check": {
+    "prior_r545_endpoint_texts": 1800,
+    "new_endpoint_texts": 48,
+    "exact_text_overlap": 0
+  },
+  "regions": ["PREFIX", "OPEN", "POST"],
+  "causal_corners": 8,
+  "conditions": 11,
+  "price": {
+    "model_forwards": 22,
+    "example_evaluations": 528,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "plan_stdout_sha256": "c1f3910f4b26bcc4e2cf239f4362febe970130a54a04ed37767abecbf5cb7ba7",
+  "candidate_source_sha256": "f5160853729948e8064f4325afe776b21bbc4f1a78b13746a4191a64fd2ec583",
+  "runner_source_sha256": "7519e0813ddf98c36443c57f8ee03c342b94866154d0b4d603aa862817c337cf",
+  "focused_tests": "8 passed",
+  "model_loaded": false,
+  "queue_touched": false,
+  "outcome_reads": [],
+  "closed_splits": ["SELECT", "FINAL_TEST", "OOD"]
+}
