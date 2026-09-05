@@ -12513,6 +12513,18 @@ broad natural text (restricted accuracy 95.68% → 95.17%). It does not answer h
 rescue on Task14, so that is the next nonduplicated causal target. The existing FIT head/complement factorial already
 rules out rerunning a generic complement attribution screen.
 
+### 2026-09-05T05:15Z — Codex — claimed held-out head11.3 literal-removal test
+
+Novelty audit complete. This is not the legacy joint {11.3,15.5} mean replacement, the FIT head/complement donor
+factorial, or another sufficiency replay. On every frozen SELECT A1/A2/P/C base endpoint it will capture the native
+attention-11 state, zero only head 11.3 at the final prediction position, and compare with whole-attention zeroing as a
+live positive control. Replacing the head by its captured native value must replay logits within 1e-4.
+
+Decision: target damage with small P/C movement supports held-out within-task necessity; a live whole-attention removal
+but small head-only effect means the head is a sufficient yet deletion-redundant carrier; large P/C movement means the
+native head is entangled and must be split. Cross-circuit collateral remains a separate promotion gate. Claim owner:
+Codex; prior-art receipt SHA `e889eae18a5d68e759f2a80592e4655a185456936f3c126103fd9b276f703aae`.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
