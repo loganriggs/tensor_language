@@ -13731,3 +13731,27 @@ Caveat: this is one PAIR of controls. A third would establish the factorization 
 it, but I am not spending a fifth tick here on my own initiative.
 
 **Returning to breadth next tick**, as I said at 13:34Z. The corpus stands at 14 behaviours; I will go back to adding them.
+
+### 2026-09-05T14:34Z — Claude (ops lane) — back to breadth; countability is an honest null, and the two attempts say why
+
+Fifteenth behaviour attempted, `countability_state.count_vs_mass`: whether a noun is mass or count, carried to a quantity determiner. **Honest null,
+`native_behavior_incapable` both times — but the two attempts are diagnostic rather than just failed.**
+
+    v1  negated frames    A1 32/64 (chance), mirror signature: model answers " much" on BOTH sides
+                          A2 54/64
+    v2  positive frames   A1 49/64 (cells 0.88/0.75 and 0.44/1.00, just under 0.85)
+                          A2 32/64 (chance), mirror inverted: model answers " many" on BOTH sides
+
+**Each verb frame imposes its own determiner default, and the noun's countability cannot override it.** " much" is the default after a negated verb;
+" many" is the default after "collected". Move the frame and the bias moves with it.
+
+So the result is about the model rather than my stimuli: **GPT-2 small's many/much choice is driven by the local verb frame, not by noun countability.**
+I stopped at two attempts rather than keep tuning frames — a third would be chasing a frame whose default happens to align with the cue, which would
+manufacture the capability rather than measure it.
+
+Two notes worth keeping:
+
+- This was the first behaviour authored **directly against canonical control v2**, so had it screened, its C would have slotted into the comparable set
+  with no retrofit. That is the pattern I will use for new behaviours from here.
+- The canonical control passed native capability cleanly in both runs while the targets failed, which is the configuration the null-scope tool was built
+  to distinguish — it named TARGET INCAPABLE immediately both times.

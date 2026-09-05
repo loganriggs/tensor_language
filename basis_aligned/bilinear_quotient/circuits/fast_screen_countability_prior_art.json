@@ -1,0 +1,51 @@
+{
+  "aliases_searched": [
+    "count noun",
+    "countability",
+    "determiner",
+    "grammatical number",
+    "many",
+    "mass noun",
+    "much",
+    "number feature",
+    "quantifier"
+  ],
+  "candidate_id": "countability_state.count_vs_mass",
+  "canonical_objects": [
+    "noun countability carried to a quantity determiner",
+    "count-versus-mass choice of many/much at a shared verb token",
+    "countability held across a fronted-PP and a scarcity construction"
+  ],
+  "decision_changed": "A recovering site adds a lexical-feature variable to a corpus whose other features are phrase-level, and its C slots directly into the comparable set. A capability stop would say GPT-2 small does not carry countability across the clause, which is worth recording since the cue is a single content word.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Fifteenth behaviour. Prior-art search over circuits/task_*.json returns 0 events for countability, mass, count, much and many. The nearest existing behaviour is subject_verb.number_agreement, whose variable is the SUBJECT'S NUMBER on a copula; this one is a LEXICAL property of a noun -- whether it is mass or count -- carried to a quantity determiner, and it is not marked on the target word at all. Recipient and donor differ only in that noun, which appears early, and end on the same verb token, so a transferring site is carrying countability rather than a surface property of the patched position. A2 re-expresses it in a scarcity construction. This is the first behaviour authored directly against canonical control v2, so its C is comparable with the five-behaviour set without a retrofit.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "countability",
+        "number"
+      ],
+      "sha256": "a424072ffa2e6c6767b3e9db8df4df6b79229a965e1b6a8b5905509b74049293",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "ad08f7ad24f81d7d13e6aaec4ec622b823f150e309e721e3a2c4720837a9d325",
+      "source": "circuits/fast_screens/polarity_state_canonical_control_v2_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

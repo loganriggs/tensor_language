@@ -1,0 +1,113 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_cached_value_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "On licensed fresh HOLDOUT text, causally split the exact L11H3 subject effective value into the current-state value branch and the layer-0 cached-value branch while holding the native subject score and every non-subject source term fixed.",
+  "licensed_precondition": {
+    "authority_file_sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+    "authority_logical_sha256": "8862dc84c10a28c0857cb7b201adab46e72f2e7063069fcf1a09f50ec21947d7",
+    "capability_result_path": "circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license_result.json",
+    "capability_result_sha256": "ece04f3954ab8dd9fd3be73942af63cdf13d76f13854c07ccb02b31ce2d7553b",
+    "derivative_license_path": "circuits/fast_screens/task14_fresh_matched_subject_current_cached_value_factorial_v1_capability_license.json",
+    "derivative_license_sha256": "ce418412936aab8a8df37460dc8ef54b0555980d3625377903e88cb686f8070f",
+    "rows": "Licensed HOLDOUT only; FIT remains forbidden."
+  },
+  "motivating_result": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_term_vs_complement_factorial_v1_result.json",
+    "sha256": "f398ec274c68aeabe956aa2b957de9ccfb275efe70eaf592809e3475dc9bbbc6",
+    "terminal": "valid_causal_screen",
+    "finding": "The exact opposite-donor subject term p_8 u_8 recovered 0.956--1.098 of the complete-head margin effect across the four direction/template cells; the non-subject complement and its interaction were small. This motivates splitting u_8 rather than another whole-head or source-position intervention."
+  },
+  "prior_art_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "f608a38d16acf6902364689c67696b37fa9c417c53718d9b6438a67cafa83189",
+      "finding": "Canonical v12 explicitly leaves the value side of p_8 u_8 as next_missing. It contains combined-effective-value swaps and downstream whole-head splits, but no current-state by cached-value factorial at L11H3/source 8."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json",
+      "sha256": "69f954df45ec642cf2aa284f6ed2d20e68e0d9f9eefedc1546140a0579a2c981",
+      "finding": "On the same licensed HOLDOUT, swapping the complete opposite-number effective value u_8 under native p_8 improved donor margin in every cell. It did not separate the two additive branches inside u_8 and did not use a same-number value donor."
+    },
+    {
+      "path": "../qk_mdl/qk_svagree_patch.json",
+      "sha256": "cc2629df72ef880cccf330cd5ca70af30dace4cc5870e1ea98b450c44a0b40f6",
+      "finding": "Old work globally removed the cached-value mixture or patched the layer-0 cache, affecting every downstream layer and head on one five-token template. It did not isolate L11H3/source 8 or use a held-out factorial."
+    },
+    {
+      "path": "../qk_mdl/qk_svagree_locus.json",
+      "sha256": "962b1b8599b9e43f83584db2eeee7871c37d76640e4756f76c1017dddd125a71",
+      "finding": "Old per-layer swaps replaced the post-mixture value stream for all nine heads. L11 had a descriptive 0.312 swing fraction, but current and cached branches, head 3, and source 8 were not causally separated."
+    }
+  ],
+  "exact_decomposition": {
+    "current_branch": "c = W_O,h3[(1-lambda_11) V_11 xhat_11,8]",
+    "cached_branch": "b = W_O,h3[lambda_11 V_0 xhat_0,8]",
+    "effective_value": "u_8 = c + b, up to the registered finite-precision branch-sum tolerance",
+    "model_detail": "The cached bus is produced once by block 0 c_v and reused by later attention blocks; it is not block 11 c_v applied to the embedding.",
+    "fixed_context": "Every scientific value arm uses recipient p_8 and the recipient sum over j != 8 of p_j u_j."
+  },
+  "conditions": {
+    "native_value": "recipient current + recipient cached",
+    "opposite_current_only": "opposite-number same-lemma current + recipient cached",
+    "opposite_cached_only": "recipient current + opposite-number same-lemma cached",
+    "opposite_both": "opposite-number same-lemma current + opposite-number same-lemma cached",
+    "lexical_current_only": "same-number different-lemma current + recipient cached",
+    "lexical_cached_only": "recipient current + same-number different-lemma cached",
+    "lexical_both": "same-number different-lemma current + same-number different-lemma cached",
+    "complete_opposite_head": "the complete opposite-number same-lemma L11H3 write; active task-capability control"
+  },
+  "estimands": {
+    "opposite_current_main": "Y(opposite current, recipient cached) - Y(recipient current, recipient cached)",
+    "opposite_cached_main": "Y(recipient current, opposite cached) - Y(recipient current, recipient cached)",
+    "opposite_interaction": "Y(opposite current, opposite cached) - Y(opposite current, recipient cached) - Y(recipient current, opposite cached) + Y(recipient current, recipient cached)",
+    "lexical_controls": "The same three contrasts with a same-number different-lemma donor; these test whether an apparent branch effect is number-specific rather than generic lexical transfer."
+  },
+  "outcomes": {
+    "answer_directed_margin_improvement": "Patched target-answer-minus-alternative-answer margin minus the identical-index native margin. The target is the opposite-number donor answer for number arms and the unchanged correct answer for lexical arms; positive is helpful in both number directions.",
+    "target_full_vocab_CE_improvement": "Identical-index native target-answer full-vocabulary CE minus patched target-answer CE; positive is helpful in both directions.",
+    "fixed_are_minus_is_change": "Patched logit(are)-logit(is) minus native logit(are)-logit(is). This signed diagnostic is reported separately and is never substituted for answer-directed task use.",
+    "baseline": "Every arm is compared with its exact index in a native batch with identical token order and batch shape."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_value_branch_sum_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "maximum_complete_head_vector_absolute_error": 0.00005,
+    "minimum_complete_head_mean_target_margin_improvement": 0.05,
+    "minimum_complete_head_mean_target_CE_improvement": 0.0,
+    "minimum_complete_head_row_improvement_fraction": 0.75,
+    "minimum_joint_value_mean_target_margin_improvement": 0.05,
+    "minimum_joint_value_mean_target_CE_improvement": 0.0,
+    "minimum_joint_value_row_improvement_fraction": 0.75,
+    "minimum_branch_recovery_fraction": 0.7,
+    "maximum_single_branch_recovery_for_interaction": 0.5,
+    "minimum_interaction_recovery_fraction": 0.5,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_leakage_ratio": 0.5
+  },
+  "opposing_predictions": {
+    "current_branch_carries_task": "In every direction/template cell, current-only improves answer-directed margin and CE on at least 3/4 rows and recovers at least 70% of the opposite-both mean margin effect.",
+    "cached_branch_carries_task": "In every direction/template cell, cached-only improves answer-directed margin and CE on at least 3/4 rows and recovers at least 70% of the opposite-both mean margin effect.",
+    "interaction_is_needed": "In every cell, neither single branch recovers more than 50% of the joint mean margin effect, while the positive current-by-cached interaction recovers at least 50% and is helpful in margin and CE on at least 3/4 rows.",
+    "lexical_leakage": "If any same-number lexical branch contrast reaches at least 50% of the corresponding opposite-number joint margin magnitude, a number-specific interpretation is invalidated. Number specificity is supported only if every such ratio is at most 25%; intermediate values remain unresolved."
+  },
+  "instrument_gate": "Exact replay, source-term summation, branch summation, same-batch native/no-op output, installed-head algebra, complete-head task capability, and a live opposite-both value intervention must pass before interpreting branch predictions.",
+  "terminal_policy": "Preserve every opposing prediction independently. Do not alter rows, pool templates, tune thresholds, or use the sign of fixed are-minus-is change as answer-directed success after outcomes.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 352,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "individual q or k semantics",
+    "necessity or removal",
+    "syntax generality beyond the licensed templates",
+    "FIT performance",
+    "downstream reader identity",
+    "simplicity or rank"
+  ]
+}
