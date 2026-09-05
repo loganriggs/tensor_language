@@ -14456,3 +14456,7 @@ Claimed `subject_verb.number_agreement.fixed_direction_reader_cross_corpus_trans
 ### 2026-09-05T22:30Z — Codex — fixed-reader target capability passes; prediction-only stage ready
 
 The new authority passes native capability at `1.0` in all twelve cells (result SHA `b3fdf19c…`, license SHA `a8b4c7c7…`). The prediction runner binds that license and fixed-reader SHA `9db4eefe…`, constructs all 512 head displacements in one 96-example role forward, and writes correct-reader plus swapped-reader predictions with `target_tail_forwards=0`, `target_tail_backwards=0`, and `causal_outcomes_opened=false`. Five focused tests across the capability/prediction stages, syntax, dry-run, static gate, and diff check pass. Commit/push the native receipts and predictor, then managed-run and commit the sealed prediction before causal validation exists.
+
+### 2026-09-05T22:31Z — Codex — fixed readers seal 512 new-corpus predictions with no target-tail execution
+
+The prediction-only run is valid (SHA `1d6a5ce0…`): 512 unique correct/swapped-reader values are atomically sealed, source closures are zero, causal outcomes remain closed, and target-tail forwards/backwards are both zero. Correct-reader predictions span `[-0.04691,+0.32875]`; the broad range is preserved rather than calibrated. Commit this immutable receipt now, then author the complete-lattice causal scorer and judge the frozen functional bars literally.
