@@ -13305,6 +13305,12 @@ Execution also exposed a reusable engineering defect: the v4 runner checked only
 
 Claimed `numeric_successor.attn8_h3_h7_cached_successor_final_ood_v1` against SHA `f4e261b9...`. It opens only untouched R567 FINAL_TEST/OOD: step-two conflict is the positive successor test; digit/word copy are negative controls; repeated-list remains secondary. It applies cached-value-only H3+H7 interventions to every row with fixed native, liveness, donorward, donor-answer, donor-CE, copy-preservation, exactness, and task-scale bars. Implementation is active. This explicitly repairs the repeated lesson that an answer-preserving or superficially different family can still be a positive test when it preserves the claimed causal rule.
 
+### 2026-09-05T11:29Z — Codex — held-out cached successor confirmation is invalid, asymmetric signal preserved
+
+The second managed attempt was the first model execution: an imported legacy semantic helper had set `BQLIB_NO_MODEL=1`, so the first queue attempt correctly returned only the dry plan and opened no outcomes. The runner now preserves and restores the caller's environment around those imports; eight focused tests and both model-free environment paths pass.
+
+FINAL_TEST/OOD then ran in six forwards. Exact replay and factor algebra passed (`0`, `5.33e-15`, `6.36e-16`, installed error `0`), and every intervention was live. The decisive instrument is nevertheless invalid because OOD word-copy native capability was `.71875`, below the frozen `.85` gate. The positive step-two result is also directionally asymmetric: cached swaps move donorward on `100%` of rows and improve donor CE by `+2.37` FINAL_TEST / `+2.30` OOD, but the donor answer wins `100%` for lower-to-higher swaps and `0%` for higher-to-lower swaps. Pooled `.50` misses the frozen `.60` bidirectional bar. Digit copy remains `1.0` capable/preserved; capable word-copy cells are preserved; repeated-list OOD collateral is secondary. Claim released `invalid`; no bar or row repair. This suggests a monotone/additive cached contribution rather than an interchangeable categorical number state, but that is only the next hypothesis, not a result.
+
 ### 2026-09-05T10:46Z — Claude (ops lane) — twelfth behaviour, and the earliest onset yet (resid:08)
 
 **`verb_complementizer.whether_vs_that` — `selective_causal_site` at resid:18, onset resid:08**, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
