@@ -1,0 +1,54 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_ood_fronted_score_role_factorial",
+  "timestamp_utc": "2026-09-05T09:46:00Z",
+  "search_terms": [
+    "Task14 L11H3 fronted source score factorial",
+    "fronted subject score value interaction",
+    "OOD A1 attention score source atlas"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_subject_score_context_gate_factorial_v2_result.json",
+    "circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v2_result.json",
+    "circuits/fast_screen_ledger.jsonl",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "TEST subject-score context gate",
+      "relation": "Changed only the subject-source score across PP/relative contexts; it did not split all source-score changes in fronted OOD syntax."
+    },
+    {
+      "work": "OOD same-syntax source-value atlas",
+      "relation": "Established that the fronted final-subject value recovers 127.71% versus 53.85% by number direction and that all earlier values are causal-mask no-ops; it did not intervene on source scores."
+    }
+  ],
+  "novelty": "First exact causal split of the fronted OOD L11H3 score contribution. First run the whole-score-vector by final-subject-value 2x2. Then, with the donor subject value fixed, cross recipient/donor scores for three preregistered semantic groups: fronted phrase positions 0-6, subject determiner position 7, and final subject/self position 8. Include all eight group corners and each source-score singleton under both native and donor subject values. Outcomes are answer margin and CE.",
+  "registered_screens": {
+    "earlier_score_sufficiency": "in the weak singular-recipient to plural-donor cell under the donor subject value, changing fronted-phrase plus subject-determiner scores recovers at least 70 percent of the all-score conditional correction, using a ratio of cell-mean marginals, with at least 75 percent donor direction and positive CE contribution",
+    "self_score_sufficiency": "independently, in that cell under the donor subject value, changing only the final subject/self score recovers at least 70 percent of the all-score conditional correction, using a ratio of cell-mean marginals, with at least 75 percent donor direction and positive CE contribution; both sufficiency screens may pass under redundancy",
+    "directional_score_need_reproduction": "complete-minus-value-only is positive and at least 30 percent of complete-head margin in the weak cell; this is a required reproduction of the parent atlas, not new evidence"
+  },
+  "required_controls": [
+    "native capability and complete-head donor direction in both A1 direction cells",
+    "exact factor replay and source-term sum",
+    "value-only arm reproduces OOD atlas v2",
+    "all donor scores plus the only changed donor value reproduce the complete donor head row by row",
+    "all pre-subject donor and recipient projected values are equal row by row",
+    "whole-score by final-value 2x2, eight semantic score-group corners under donor value, and every source-score singleton under both value states are evaluated in one batched intervention forward",
+    "the whole-score 2x2 closes exactly as total effect equals score main effect plus value main effect plus their interaction",
+    "three-factor M\u00f6bius reconstruction and Shapley efficiency hold exactly for both direction cells"
+  ],
+  "interpretation_limits": [
+    "This is an OOD-text-reuse within-family characterization, not pristine OOD confirmation.",
+    "The 30 percent score-need condition is already implied by the opened parent result and is only a liveness/reproduction gate.",
+    "Singleton source-score effects and their value interactions are descriptive because downstream effects need not add; the preregistered semantic-group factorial carries the causal interpretation.",
+    "The final self-score changes both query and key state; this experiment does not identify the separate Q, Q2, K, or K2 branch."
+  ],
+  "source_sha256": {
+    "ood_value_atlas_v2": "e0cdff4a7e71713d3ae8ab58dda72de83ee58930516d13faafbdc279a405ed66"
+  }
+}
