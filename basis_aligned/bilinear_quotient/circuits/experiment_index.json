@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 86,
- "design_count": 73,
+ "event_count": 87,
+ "design_count": 74,
  "protocol_count": 68,
- "execution_count": 86,
+ "execution_count": 87,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -46,7 +46,20 @@
   }
  ],
  "duplicate_execution_groups": [],
- "protocol_repeat_review": [],
+ "protocol_repeat_review": [
+  {
+   "protocol_key": "9906daa1fb9e90787d83768e88bc40728e1a880215c80b6e4b278f9989837ed0",
+   "event_ids": [
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+   ],
+   "unlinked_completed_event_ids": [
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+   ],
+   "planned_duplicate_event_ids": []
+  }
+ ],
  "events": [
   {
    "circuit": "subroutine.induction.equality_score",
@@ -1391,6 +1404,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": null,
    "result_artifact_id": "task14_fast_screen_cross_syntax_v1_result"
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+   "claim_id": "grammatical_subject_number.v4",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "65b7b948e258751e5d3f7bce6c9d6b00aa1e3ba70220767efa6913901fe911e9",
+   "protocol_key": "9906daa1fb9e90787d83768e88bc40728e1a880215c80b6e4b278f9989837ed0",
+   "execution_key": "7ff64a813bde5bd63672f3b614a058ac7e3135d83d233d75bfa488bc03585fbf",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "task14_fast_screen_select_cross_syntax_v1_result"
   },
   {
    "circuit": "task.successor.pointer",

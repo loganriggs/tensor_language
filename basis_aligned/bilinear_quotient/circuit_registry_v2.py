@@ -334,6 +334,25 @@ def append_artifacts(tag: str, artifacts: dict[str, dict]) -> Path:
     return path
 
 
+def append_split_plans(tag: str, split_plans: list[dict]) -> Path:
+    """Append frozen split authorities without manufacturing a claim revision."""
+    path = circuit_path(tag)
+    with _lock("registry"):
+        record = json.loads(path.read_text())
+        existing = {item["split_plan_id"]: item for item in record.get("split_plans", [])}
+        for split in split_plans:
+            split_id = split["split_plan_id"]
+            if split_id in existing and existing[split_id] != split:
+                raise ValueError(f"split-plan id collision: {split_id}")
+            if split_id not in existing:
+                record.setdefault("split_plans", []).append(split)
+                existing[split_id] = split
+        validate_v2(record)
+        _atomic_json(path, record)
+    rebuild_registry_v2()
+    return path
+
+
 def append_evidence_event(tag: str, event: dict) -> Path:
     """Append one immutable event, rejecting duplicate designs unless superseded."""
     path = circuit_path(tag)

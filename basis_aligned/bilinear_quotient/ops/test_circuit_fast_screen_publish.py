@@ -15,6 +15,7 @@ import circuit_fast_screen_publish as publish
 
 SPEC_PATH = publish.BQ / "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_publication.json"
 CROSS_SYNTAX_SPEC_PATH = publish.BQ / "circuits/fast_screens/task14_subject_verb_agreement_cross_syntax_v1_publication.json"
+SELECT_CROSS_SYNTAX_SPEC_PATH = publish.BQ / "circuits/fast_screens/task14_subject_verb_agreement_select_cross_syntax_v1_publication.json"
 RECORD_PATH = publish.BQ / "circuits/task_subject_verb_number_agreement.json"
 
 
@@ -24,6 +25,10 @@ def _spec() -> dict:
 
 def _cross_syntax_spec() -> dict:
     return json.loads(CROSS_SYNTAX_SPEC_PATH.read_text())
+
+
+def _select_cross_syntax_spec() -> dict:
+    return json.loads(SELECT_CROSS_SYNTAX_SPEC_PATH.read_text())
 
 
 def test_task14_plan_binds_real_ledger_result_and_nontrivial_site() -> None:
@@ -64,6 +69,17 @@ def test_cross_syntax_plan_rejects_an_unknown_family() -> None:
     spec["family_ids"][2] = "invented_cross_syntax_family"
     with pytest.raises(publish.FastScreenPublishError, match="unknown canonical family"):
         publish.build_cross_syntax_plan(spec)
+
+
+def test_select_cross_syntax_plan_is_held_out_and_checkpoint_bound() -> None:
+    plan = publish.build_cross_syntax_plan(_select_cross_syntax_spec())
+    assert plan["event"]["evaluation_role"] == \
+        "SELECT_HELD_OUT_unseen_nouns_and_prompt_templates"
+    assert plan["event"]["checkpoint_sha256"] == \
+        "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+    metrics = {item["name"]: item["estimate"] for item in plan["event"]["metrics"]}
+    assert metrics["cross_syntax_mean_donor_recovery"] == pytest.approx(0.6272903086)
+    assert metrics["minimum_cross_syntax_cell_recovery"] == pytest.approx(0.5038686541)
 
 
 def test_residual_ceiling_cannot_be_promoted_as_mechanistic_site() -> None:

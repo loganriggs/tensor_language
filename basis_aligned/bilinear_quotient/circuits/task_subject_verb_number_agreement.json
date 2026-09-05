@@ -878,6 +878,250 @@
    ],
    "translation_ids": [],
    "next_missing": "test head 11.3 on genuinely unseen text and syntax, then selective removal and sufficiency; the present cross-syntax relations reuse FIT examples"
+  },
+  {
+   "claim_id": "grammatical_subject_number.v5",
+   "revision": 5,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v4",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "test an independent cross-noun donor profile or the frozen TEST/OOD syntax pool, then selective removal and sufficiency with unrelated-behavior controls"
   }
  ],
  "split_plans": [
@@ -920,6 +1164,25 @@
    ],
    "sealed_before_outcomes": true,
    "sealed_at": "2026-09-04T09:56:02Z"
+  },
+  {
+   "split_plan_id": "task14_select_cross_syntax_split_v1",
+   "unit": "32 frozen Task14 SELECT panels; each panel contributes two cross-syntax relations and remains disjoint from FIT nouns and templates",
+   "partition_artifact_id": "task14_select_cross_syntax_candidate",
+   "builder_artifact_id": "task14_generator",
+   "seed": "ecaae3b5e7baddcc3e9d7b888133ad78f8f6185656bbb439a044248bd58157c1",
+   "groups": {
+    "SELECT_HELD_OUT": 32
+   },
+   "leakage_group_keys": [
+    "generator phase",
+    "noun pair",
+    "literal prompt template",
+    "source panel group_id",
+    "row id"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-05T04:45:57Z"
   }
  ],
  "artifacts": {
@@ -1016,6 +1279,18 @@
   "task14_fast_screen_cross_syntax_v1_result": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_subject_verb_agreement_cross_syntax_v1_result.json",
    "sha256": "ab1969b363f9a5578c29419bd53050186c0d06c08f01a53858e4e7f7e77d21d7",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_select_cross_syntax_candidate": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_fast_screen_candidate_task14_select_cross_syntax.py",
+   "sha256": "228cb2230ac2b2a088974cd5d404a77da689d55c8fe00bc3dfc94aff36633fcc",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fast_screen_select_cross_syntax_v1_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_subject_verb_agreement_select_cross_syntax_v1_result.json",
+   "sha256": "dbe254e8a62d2180d6d1901e6b917d56d9dd8cd8bf37cec27c4579c9d9427eb2",
    "kind": "screen_result",
    "status": "frozen"
   }
@@ -1487,6 +1762,72 @@
    "notes": "Screen-tier evidence only. Exact donor replacement at head 11.3 transfers subject number in all four PP-to-relative and relative-to-PP direction cells. This validates new cross-syntax relations within the FIT corpus, not held-out text, and the run contains no unrelated endpoint control. Historical result did not bind a checkpoint digest.",
    "design_key": "93a373b5e8dd1f5e217f65d7055952eb9ef586fe3e67fedaa64f4c106d0f9b05",
    "execution_key": "ee853d691f97a3f59d0652c2ad4e7e3ce942e34782a274c926c8e6b610ce6e85"
+  },
+  {
+   "event_id": "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+   "claim_id": "grammatical_subject_number.v4",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "a1_subject_number_preposition_v2",
+    "a2_subject_number_relative_clause_v2",
+    "c_complete_subject_cross_construction_transfer_v2"
+   ],
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "split_plan_id": "task14_select_cross_syntax_split_v1",
+   "evaluation_role": "SELECT_HELD_OUT_unseen_nouns_and_prompt_templates",
+   "metrics": [
+    {
+     "name": "minimum_native_cell_accuracy",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.85 in every syntax/number cell"
+    },
+    {
+     "name": "cross_syntax_mean_donor_recovery",
+     "estimate": 0.627290308598761,
+     "ci95": null,
+     "bar": ">=0.4"
+    },
+    {
+     "name": "minimum_cross_syntax_cell_recovery",
+     "estimate": 0.5038686541348127,
+     "ci95": null,
+     "bar": ">=0.4 in every direction cell"
+    },
+    {
+     "name": "minimum_cross_syntax_direction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every direction cell"
+    },
+    {
+     "name": "passing_preselected_site_count",
+     "estimate": 2,
+     "ci95": null,
+     "bar": ">=1; two preselected sites only"
+    }
+   ],
+   "prereg_artifact_id": null,
+   "result_artifact_id": "task14_fast_screen_select_cross_syntax_v1_result",
+   "input_artifact_ids": [
+    "task14_authority",
+    "task14_select_cross_syntax_candidate",
+    "task14_fast_screen_full_state_v2_result",
+    "task14_fast_screen_cross_syntax_v1_result"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "circuits/fast_screens/task14_subject_verb_agreement_select_cross_syntax_v1_result.json"
+   ],
+   "notes": "Held-out transfer screen. SELECT nouns and prompt templates are disjoint from FIT, and the two sites were preselected on FIT. The matched within-group donor changes syntax and subject number while holding noun identity and attractor number fixed. This run has no unrelated endpoint control and therefore does not establish held-out selectivity. Historical result did not bind a checkpoint digest.",
+   "design_key": "65b7b948e258751e5d3f7bce6c9d6b00aa1e3ba70220767efa6913901fe911e9",
+   "execution_key": "7ff64a813bde5bd63672f3b614a058ac7e3135d83d233d75bfa488bc03585fbf"
   }
  ]
 }

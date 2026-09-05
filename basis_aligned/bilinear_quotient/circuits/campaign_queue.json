@@ -10,7 +10,7 @@
   "canonical_work_items": 8,
   "legacy_candidates": 70,
   "open_experiments": 2,
-  "held_events": 30,
+  "held_events": 31,
   "blocking_events": 24
  },
  "work_items": [
@@ -75,7 +75,7 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v4",
+   "active_claim_id": "grammatical_subject_number.v5",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "counterfactual_family_count": 8,
@@ -90,7 +90,8 @@
     "task14_subject_number_localization.fit.preregistered.v2",
     "task14_subject_number_localization.fit.v2.authority_review_held",
     "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
-    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1"
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
    ],
    "open_event_ids": [
     "task14_subject_number_localization.fit.preregistered.v2"
@@ -99,7 +100,8 @@
     "task14_native_capability.fit.complete.held.v1",
     "task14_subject_number_localization.fit.v2.authority_review_held",
     "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
-    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1"
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1"
    ],
    "blocking_event_ids": [],
    "coverage": {
@@ -118,7 +120,7 @@
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "test head 11.3 on genuinely unseen text and syntax, then selective removal and sufficiency; the present cross-syntax relations reuse FIT examples"
+   "next_missing": "test an independent cross-noun donor profile or the frozen TEST/OOD syntax pool, then selective removal and sufficiency with unrelated-behavior controls"
   },
   {
    "tag": "task.bracket.pending_opener",

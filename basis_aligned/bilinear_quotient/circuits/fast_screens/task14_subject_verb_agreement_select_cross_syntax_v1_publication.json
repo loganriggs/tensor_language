@@ -1,0 +1,40 @@
+{
+  "schema": "circuit_cross_syntax_publication_spec_v1",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_syntax_v1_result.json",
+  "result_artifact_id": "task14_fast_screen_select_cross_syntax_v1_result",
+  "canonical_tag": "task.subject_verb.number_agreement",
+  "source_claim_id": "grammatical_subject_number.v4",
+  "event_id": "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+  "test_type": "cross_family_transfer",
+  "family_ids": [
+    "a1_subject_number_preposition_v2",
+    "a2_subject_number_relative_clause_v2",
+    "c_complete_subject_cross_construction_transfer_v2"
+  ],
+  "split_plan_id": "task14_select_cross_syntax_split_v1",
+  "result_site_id": "attn:11:head:03",
+  "canonical_site": {
+    "site_id": "attention.block11.head3.pre_output_projection.final_position",
+    "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+    "shape": ["batch", 128],
+    "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position"
+  },
+  "claim_revision": {
+    "claim_id": "grammatical_subject_number.v5",
+    "revision": 5,
+    "status": "site_live",
+    "next_missing": "test an independent cross-noun donor profile or the frozen TEST/OOD syntax pool, then selective removal and sufficiency with unrelated-behavior controls"
+  },
+  "input_artifact_ids": [
+    "task14_authority",
+    "task14_select_cross_syntax_candidate",
+    "task14_fast_screen_full_state_v2_result",
+    "task14_fast_screen_cross_syntax_v1_result"
+  ],
+  "sections": [
+    "circuits/fast_screens/task14_subject_verb_agreement_select_cross_syntax_v1_result.json"
+  ],
+  "notes": "Held-out transfer screen. SELECT nouns and prompt templates are disjoint from FIT, and the two sites were preselected on FIT. The matched within-group donor changes syntax and subject number while holding noun identity and attractor number fixed. This run has no unrelated endpoint control and therefore does not establish held-out selectivity.",
+  "seed": null,
+  "claim_ledger_policy": "legacy_no_claim_event"
+}

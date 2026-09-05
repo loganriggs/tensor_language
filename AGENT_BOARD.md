@@ -12446,3 +12446,22 @@ attractors. The generator validates that noun identities and literal template su
 Therefore the next confirmation should reuse this authority, not invent another corpus: first exact head-11.3 interchange on SELECT
 or TEST, then OOD only after the fixed held-out gate. The implementation task is a thin phase-parameterized form of the existing
 targeted cross-syntax runner; copying its ~370 lines would fail the throughput goal.
+
+### 2026-09-05T04:52Z — Codex — Task14 head 11.3 passes the frozen SELECT transfer test
+
+Managed result `task14_subject_verb_agreement_select_cross_syntax_v1_result.json` completed in 0.40 scientific seconds.
+On nouns and prompt templates disjoint from FIT, full attention 11 recovered **0.6354** of the matched donor change and
+head 11.3 recovered **0.6273**; their weakest construction/number cells were **0.5186** and **0.5039**, and every cell
+moved in the donor direction on every relation. All native target/donor accuracies were 1.0.
+
+This is held-out causal transfer, not held-out selectivity: no unrelated endpoint control was included. The canonical
+Task14 record is now `grammatical_subject_number.v5` / `site_live`, with SELECT scope and checkpoint hash bound. The
+shared runner now handles FIT and SELECT without a copied implementation.
+
+Hourly controls remain binding for all lanes: `CIRCUIT_FOCUS` requires circuit evidence or shared circuit machinery;
+`CEREMONY_BUDGET` forbids bespoke backup stacks from dominating a basic screen; `NOVELTY_LESSON_GATE` requires dossier
+and ledger search and retains the lesson that activation reconstruction, variance, and rank are not circuit targets.
+
+Continuation receipt: the next bounded CPU action is an alternative-donor audit for the same frozen SELECT examples,
+followed by a small preregistered cross-noun donor profile if it is not already present. This tests whether the fixed
+head survives another scientifically valid counterfactual rather than opening a rank or projector detour.

@@ -296,10 +296,20 @@ def build_cross_syntax_plan(
     if not result_path.is_file() or result_path.is_symlink():
         raise FastScreenPublishError("result file is missing or unsafe")
     result = json.loads(result_path.read_text())
-    if result.get("schema") != "task14_cross_syntax_interchange_result_v1" \
-            or result.get("terminal") != "screen":
-        raise FastScreenPublishError("only the successful legacy cross-syntax result can be promoted")
-    if result.get("validation_scope") != "new_cross_syntax_relations_not_unseen_text":
+    scopes = {
+        "task14_cross_syntax_interchange_result_v1": (
+            "new_cross_syntax_relations_not_unseen_text",
+            "FIT_VALIDATION_new_relations_not_unseen_text",
+        ),
+        "task14_targeted_cross_syntax_result_v1": (
+            "unseen_nouns_and_prompt_templates_after_fit_site_selection",
+            "SELECT_HELD_OUT_unseen_nouns_and_prompt_templates",
+        ),
+    }
+    if result.get("schema") not in scopes or result.get("terminal") != "screen":
+        raise FastScreenPublishError("only a successful targeted cross-syntax result can be promoted")
+    expected_scope, evaluation_role = scopes[result["schema"]]
+    if result.get("validation_scope") != expected_scope:
         raise FastScreenPublishError("cross-syntax validation scope changed")
     ledger_entry = _matching_cross_syntax_ledger_entry(result, value["result_path"], root)
     matches = [item for item in result.get("site_results", [])
@@ -360,13 +370,17 @@ def build_cross_syntax_plan(
         "failure_kind": None, "family_ids": value["family_ids"],
         "site_id": value["canonical_site"]["site_id"],
         "split_plan_id": value["split_plan_id"],
-        "evaluation_role": "FIT_VALIDATION_new_relations_not_unseen_text",
+        "evaluation_role": evaluation_role,
         "metrics": metrics, "prereg_artifact_id": None,
         "result_artifact_id": value["result_artifact_id"],
         "input_artifact_ids": value["input_artifact_ids"], "seed": value["seed"],
-        "checkpoint_sha256": None, "supersedes_event_id": None,
+        "checkpoint_sha256": result.get("checkpoint", {}).get("weights_sha256"),
+        "supersedes_event_id": None,
         "replicates_event_id": None, "sections": value["sections"],
-        "notes": value["notes"] + " Historical result did not bind a checkpoint digest.",
+        "notes": value["notes"] + (
+            " Historical result did not bind a checkpoint digest."
+            if result.get("checkpoint", {}).get("weights_sha256") is None else ""
+        ),
     }
     revision = copy.deepcopy(source_claim)
     revision.update(value["claim_revision"])

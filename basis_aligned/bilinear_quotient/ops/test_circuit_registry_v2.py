@@ -102,6 +102,25 @@ def test_append_artifacts_is_idempotent_and_refuses_hash_drift(tmp_path, monkeyp
         registry.append_artifacts(record["tag"], {"new_result": changed})
 
 
+def test_append_split_plans_is_idempotent_and_refuses_identity_drift(tmp_path, monkeypatch):
+    record = copy.deepcopy(task_records()["task.increment.state"])
+    record["tag"] = "task.test.append_split"
+    path = tmp_path / "task_test_append_split.json"
+    path.write_text(json.dumps(record))
+    monkeypatch.setattr(registry, "CIRCUITS", tmp_path)
+    monkeypatch.setattr(registry, "REGISTRY", tmp_path / "registry.json")
+    split = copy.deepcopy(record["split_plans"][0])
+    split["split_plan_id"] = "new_split"
+    registry.append_split_plans(record["tag"], [split])
+    registry.append_split_plans(record["tag"], [split])
+    saved = json.loads(path.read_text())
+    assert sum(item["split_plan_id"] == "new_split" for item in saved["split_plans"]) == 1
+    changed = copy.deepcopy(split)
+    changed["seed"] = "different"
+    with pytest.raises(ValueError, match="split-plan id collision"):
+        registry.append_split_plans(record["tag"], [changed])
+
+
 def test_registry_distinguishes_active_from_historical_invalid_events():
     compact = json.loads(registry.REGISTRY.read_text())["circuits"]
     bracket = compact["task.bracket.pending_opener"]
