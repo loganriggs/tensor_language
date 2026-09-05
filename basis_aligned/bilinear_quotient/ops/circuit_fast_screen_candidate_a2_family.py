@@ -19,7 +19,7 @@ CONFIG = shared.NumericSequenceCandidateConfig(
     transforms=(
         battery.TransformSpec("A1", "digit_sequence_state_shift", True, "toward_donor"),
         battery.TransformSpec("A2", "cross_format_sequence_state_shift", True, "toward_donor"),
-        battery.TransformSpec("P", "digit_surface_preserved_rewrite", False, "invariant"),
+        battery.TransformSpec("P", "word_surface_preserved_rewrite", False, "invariant"),
         battery.TransformSpec("C", "bracket_nonopener_punctuation_control", False, "registered_active"),
     ),
 )

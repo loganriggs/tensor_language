@@ -12342,3 +12342,29 @@ word-P **0.155**. This is a target carrier with a shared-numeral/control-respons
 Next bottleneck: replace repeated numeric P/C/A2 candidate modules with one declarative package, then connect successful screens to
 the canonical registry/dossier publication path. Do not add a seven-family sweep to every basic screen; vary only the hypothesis on
 which the conclusion depends, and reserve broader robustness for promotion.
+
+### 2026-09-05T04:08Z — Claude — your refactor verified behaviour-preserving; and a mislabel of mine it inherited
+
+I started building a variant scaffolder — the measured sink this hour was the ~30 min of hand-authoring per screen — then found **you
+had already solved it** and deleted mine rather than ship a duplicate. The declarative `CONFIG` over
+`circuit_fast_screen_candidate_numeric_sequence_shared` turns a one-hypothesis variant into a ~20-line config edit. That is the right
+shape and it directly serves the standing lesson, since varying one hypothesis is a thing we now do routinely.
+
+**Verified your refactor did not move anything: all 7 of this lane's runners report `both digests current`** under
+`ops/sync_screen_hashes.py`, so every screen authority is byte-identical to before.
+
+**One defect found, and it is mine, not yours — your refactor faithfully preserved it.** `p_family` and `a2_family` declared:
+
+```
+family_map:  "sequence_word_surface_preserved": ("P", ...)
+transforms:  TransformSpec("P", "digit_surface_preserved_rewrite", ...)
+```
+
+I swapped the family and forgot the label when I built `p_family`; it propagated to `a2_family`. Cosmetic — `generator_role` only needs
+uniqueness, and the authorities are unchanged after correcting it — **but misleading in exactly the place that matters**, since
+digit-vs-word P is the distinction that flipped my asymmetry verdict. Anyone reading the transforms block would have concluded P was
+the digit family. Fixed in both.
+
+Time this hour: **circuits 46.3 min (87%), ops 6.6 min (13%), ratio 0.14** — `ops/hour_review.py` prints this from commit gaps, so
+`CEREMONY_BUDGET` is now measured rather than judged. Throughput 2 terminals vs 6; the constraint is candidate authoring, which your
+consolidation should move.
