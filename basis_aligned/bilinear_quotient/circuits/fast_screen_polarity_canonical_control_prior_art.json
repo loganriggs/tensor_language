@@ -1,0 +1,53 @@
+{
+  "aliases_searched": [
+    "c_absolute_recovery",
+    "canonical control",
+    "comparability",
+    "confound",
+    "control frame",
+    "licensing",
+    "obligation",
+    "same-answer control"
+  ],
+  "candidate_id": "polarity_state.canonical_control",
+  "canonical_objects": [
+    "a fixed same-answer control shared across behaviours",
+    "C compared between two behaviours under an identical control",
+    "polarity_state transfer scored against the canonical control"
+  ],
+  "decision_changed": "A clear gap under an identical control restores the dependency-type finding on a sound footing and makes the canonical control worth adopting corpus-wide. Two similar values retire the finding for good. Either way this is the first C comparison in the corpus that holds the control fixed.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/interrogative_licensing_control_frame_variant_v1_result.json shows C moving 0.230 to 0.141 on a control-frame change alone, with verdict, selected site, passing band and P unchanged.",
+    "AGENT_BOARD.md 2026-09-05T11:46Z withdraws the dependency-type ordering because the six obligation screens and the two licensing screens each use their own control frame.",
+    "The battery permits a control to use its own answer vocabulary: sentence_terminal already scores punctuation in its targets and agreement in its control."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "control-family substitution"
+  ],
+  "novelty_delta": "Varies ONE thing against the polarity_state authority: the control becomes the canonical same-answer control in ops/circuit_fast_screen_canonical_control.py, byte-identical to the one used by its sibling candidate correlative_state.canonical_control. A1, A2 and P are unchanged. This behaviour is a LICENSING relation (not makes any available); its previous C was 0.173 under its own control frame, which is not comparable to any other screen's. PREDICTION REGISTERED BEFORE THE RUN, for the pair: under the IDENTICAL control, if the dependency-type difference is real, the licensing behaviour's C exceeds the obligation's by at least 0.05; if the two land within 0.03 of each other, there is no type difference and the earlier ordering was entirely an artefact of differing controls.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "d076aa28b3b1ff228d19e0e93fa9834266cfd31825e21176f311560c247d13aa",
+      "source": "circuits/fast_screens/interrogative_licensing_control_frame_variant_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "selected_site_id"
+      ],
+      "sha256": "cd18dac8f7a616fe5cc0990772ccf4755f504da120acec9f2168edc65475cfde",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, after measuring control-frame sensitivity directly",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

@@ -13480,3 +13480,31 @@ The corrected fresh-confirmation screen completed in 12 forwards / 1,536 example
 Descriptive only, because the authority is invalid: the token-identical R joint arm repeats the old signal extremely closely, recovering `98.4–100.0%` of complete-H3 margin/CE across all four A1/A2 direction cells with every row donorward. The full effective-value arm recovers `90.0–105.9%` of R joint. The post-last-change subgroup alone recovers `80.5–99.5%` of effective-value effects and passes every target cell; the between-change subgroup fails. Direct P/C specificity passes for R score, effective value, joint, and both causal subgroups. R-by-complement nonadditivity is tiny (margin at most `5.98e-4`; CE at most `1.38e-3`), while score-by-value interaction is material (`|margin| .082–.101`), so “effective value carries the effect” is supported descriptively but score/value contributions must not be treated as additive shares.
 
 `CIRCUIT_FOCUS: PASS` — this is a below-head, task-level carrier decomposition with full-vocabulary CE and capable propagation controls. `CEREMONY_BUDGET: PASS` — one seven-second GPU run; the longer serial interval was a necessary pre-execution counterfactual correction, not backup testing. `NOVELTY_LESSON_GATE: PASS` — the old invalid R result was canonicalized first, the repeated signal remains non-evidence, and the exact failed capability cell is recorded for the next fresh authority rather than silently filtered.
+
+### 2026-09-05T12:34Z — Claude (ops lane) — dependency-type ordering RETIRED on a preregistered criterion; canonical control now exists
+
+I built `ops/circuit_fast_screen_canonical_control.py`: one same-answer control, byte-identical wherever it is used, so C becomes comparable between
+screens that share it. Then I ran the first C comparison in the corpus that holds the control fixed.
+
+Retrofitted two behaviours, A1/A2/P unchanged, control rows verified byte-identical across both candidates before running:
+
+    correlative_state (obligation)   C 0.061      previously 0.078 under its own control
+    polarity_state    (licensing)    C 0.087      previously 0.173 under its own control
+    gap                              0.026        previously 0.095
+
+The prediction went into both receipts before either ran: a real type difference means licensing exceeds obligation by at least 0.05; within 0.03
+retires the finding. **The retire branch fired at 0.026.**
+
+**So the dependency-type ordering I posted at 11:33Z is retired — not by argument, by the criterion I registered in advance.** It was essentially all
+control-frame artefact. That is now two corrections on the same thread and I would rather log both than leave a tidy story standing.
+
+What is durable from it:
+
+- **The canonical control module.** Any two screens that use it can have their C compared; screens with their own controls cannot. It is in my lane and
+  I have applied it to two candidates so far.
+- **The mechanism note:** the battery permits a control to score its own answer vocabulary (a row's vocabulary is per-row), which is what makes one
+  fixed control usable across behaviours whose targets score different tokens. `sentence_terminal` already relied on that.
+
+Offer stands from 11:46Z: I can retrofit the remaining twelve candidates to the canonical control so the whole corpus is comparable. That is ~12 screens
+of compute and no change to any bar or kernel. Say if you want it, or if you would rather define the canonical control differently — the frame choice is
+arbitrary and it only has to be FIXED, so if you have a preference it should be yours before I propagate it.
