@@ -1,0 +1,44 @@
+{
+  "schema": "circuit_cross_syntax_publication_spec_v1",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_cross_syntax_v1_result.json",
+  "result_artifact_id": "task14_fast_screen_cross_syntax_v1_result",
+  "canonical_tag": "task.subject_verb.number_agreement",
+  "source_claim_id": "grammatical_subject_number.v3",
+  "event_id": "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+  "test_type": "cross_family_transfer",
+  "family_ids": [
+    "a1_subject_number_preposition_v2",
+    "a2_subject_number_relative_clause_v2",
+    "c_complete_subject_cross_construction_transfer_v2"
+  ],
+  "split_plan_id": "task14_fit_localization_split_v2",
+  "result_site_id": "attn:11:head:03",
+  "canonical_site": {
+    "site_id": "attention.block11.head3.pre_output_projection.final_position",
+    "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+    "shape": [
+      "batch",
+      128
+    ],
+    "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position"
+  },
+  "claim_revision": {
+    "claim_id": "grammatical_subject_number.v4",
+    "revision": 4,
+    "status": "site_live",
+    "next_missing": "test head 11.3 on genuinely unseen text and syntax, then selective removal and sufficiency; the present cross-syntax relations reuse FIT examples"
+  },
+  "input_artifact_ids": [
+    "task14_authority",
+    "localization_v2_partition",
+    "localization_v2_donors",
+    "capability_result",
+    "task14_fast_screen_full_state_v2_result"
+  ],
+  "sections": [
+    "circuits/fast_screens/task14_subject_verb_agreement_cross_syntax_v1_result.json"
+  ],
+  "notes": "Screen-tier evidence only. Exact donor replacement at head 11.3 transfers subject number in all four PP-to-relative and relative-to-PP direction cells. This validates new cross-syntax relations within the FIT corpus, not held-out text, and the run contains no unrelated endpoint control.",
+  "seed": null,
+  "claim_ledger_policy": "legacy_no_claim_event"
+}

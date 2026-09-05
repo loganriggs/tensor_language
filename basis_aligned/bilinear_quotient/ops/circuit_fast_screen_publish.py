@@ -28,6 +28,7 @@ import circuit_fast_screen_ledger as screen_ledger  # noqa: E402
 
 
 SCHEMA = "circuit_fast_screen_publication_spec_v1"
+CROSS_SYNTAX_SCHEMA = "circuit_cross_syntax_publication_spec_v1"
 SPEC_FIELDS = {
     "schema", "result_path", "result_artifact_id", "canonical_tag",
     "source_claim_id", "event_id", "test_type", "transform_to_family_id",
@@ -36,6 +37,9 @@ SPEC_FIELDS = {
 }
 SITE_FIELDS = {"site_id", "tensor_path", "shape", "intervention"}
 REVISION_FIELDS = {"claim_id", "revision", "status", "next_missing"}
+CROSS_SYNTAX_SPEC_FIELDS = (
+    SPEC_FIELDS - {"transform_to_family_id"}
+) | {"family_ids"}
 
 
 class FastScreenPublishError(ValueError):
@@ -107,6 +111,36 @@ def _matching_ledger_entry(result: Mapping[str, Any], result_path: str, root: Pa
         "spec_sha256": result.get("spec_sha256"),
         "authority_sha256": result.get("authority_sha256"),
         "selected_site_id": result.get("selected_site_id"),
+        "started_utc": result.get("started_utc"),
+        "finished_utc": result.get("finished_utc"),
+        "serial_seconds": result.get("serial_seconds"),
+    }
+    for field, observed in comparisons.items():
+        if entry[field] != observed:
+            raise FastScreenPublishError(f"result and ledger disagree on {field}")
+    return entry
+
+
+def _matching_cross_syntax_ledger_entry(
+    result: Mapping[str, Any], result_path: str, root: Path,
+) -> dict:
+    entries = screen_ledger.read_ledger(
+        root / "circuits" / "fast_screen_ledger.jsonl", result_root=root,
+    )
+    matches = [
+        entry for entry in entries
+        if entry["candidate_id"] == result.get("candidate_id")
+        and entry["result_path"] == result_path
+    ]
+    if len(matches) != 1:
+        raise FastScreenPublishError(
+            "result must have exactly one matching fast-screen ledger entry"
+        )
+    entry = matches[0]
+    comparisons = {
+        "terminal": result.get("terminal"),
+        "spec_sha256": result.get("plan_sha256"),
+        "authority_sha256": result.get("authority_sha256"),
         "started_utc": result.get("started_utc"),
         "finished_utc": result.get("finished_utc"),
         "serial_seconds": result.get("serial_seconds"),
@@ -236,6 +270,124 @@ def build_plan(spec: Mapping[str, Any], *, root: Path = BQ) -> dict[str, Any]:
     }
 
 
+def build_cross_syntax_plan(
+    spec: Mapping[str, Any], *, root: Path = BQ,
+) -> dict[str, Any]:
+    """Publish the one legacy cross-syntax screen without pretending it is OOD."""
+    if type(spec) is not dict or set(spec) != CROSS_SYNTAX_SPEC_FIELDS \
+            or spec.get("schema") != CROSS_SYNTAX_SCHEMA:
+        raise FastScreenPublishError("cross-syntax publication spec fields or schema changed")
+    value = copy.deepcopy(spec)
+    # Reuse the v1 validator for every shared field and the append-only claim rules.
+    validation_copy = copy.deepcopy(value)
+    validation_copy["schema"] = SCHEMA
+    validation_copy["transform_to_family_id"] = {
+        "A1": value["family_ids"][0],
+        "A2": value["family_ids"][1],
+        "P": value["family_ids"][2],
+        "C": value["family_ids"][2],
+    } if type(value.get("family_ids")) is list and len(value["family_ids"]) == 3 else None
+    validation_copy.pop("family_ids")
+    _validate_spec(validation_copy)
+    if len(set(value["family_ids"])) != 3:
+        raise FastScreenPublishError("cross-syntax family_ids must contain three distinct families")
+
+    result_path = root / value["result_path"]
+    if not result_path.is_file() or result_path.is_symlink():
+        raise FastScreenPublishError("result file is missing or unsafe")
+    result = json.loads(result_path.read_text())
+    if result.get("schema") != "task14_cross_syntax_interchange_result_v1" \
+            or result.get("terminal") != "screen":
+        raise FastScreenPublishError("only the successful legacy cross-syntax result can be promoted")
+    if result.get("validation_scope") != "new_cross_syntax_relations_not_unseen_text":
+        raise FastScreenPublishError("cross-syntax validation scope changed")
+    ledger_entry = _matching_cross_syntax_ledger_entry(result, value["result_path"], root)
+    matches = [item for item in result.get("site_results", [])
+               if item.get("site_id") == value["result_site_id"]]
+    if len(matches) != 1 or matches[0].get("passed") is not True:
+        raise FastScreenPublishError("published cross-syntax site did not pass its frozen gates")
+    site_result = matches[0]
+
+    record_path = registry.circuit_path(value["canonical_tag"])
+    if not record_path.is_file():
+        raise FastScreenPublishError("canonical behavior record does not exist")
+    record = json.loads(record_path.read_text())
+    registry.validate_v2(record)
+    source_claims = [claim for claim in record["claims"]
+                     if claim["claim_id"] == value["source_claim_id"]]
+    if len(source_claims) != 1:
+        raise FastScreenPublishError("source claim is missing or ambiguous")
+    source_claim = source_claims[0]
+    known_families = {family["family_id"] for family in source_claim["counterfactual_families"]}
+    if not set(value["family_ids"]) <= known_families:
+        raise FastScreenPublishError("publication names an unknown canonical family")
+    if value["split_plan_id"] not in {
+        item["split_plan_id"] for item in record.get("split_plans", [])
+    }:
+        raise FastScreenPublishError("publication names an unknown split plan")
+    if not set(value["input_artifact_ids"]) <= set(record["artifacts"]):
+        raise FastScreenPublishError("publication names an unknown input artifact")
+
+    cells = site_result.get("cells")
+    capability = result.get("capability_cells")
+    if type(cells) is not list or len(cells) != 4 or not all(c.get("passed") for c in cells):
+        raise FastScreenPublishError("cross-syntax site lacks four passing direction cells")
+    if type(capability) is not list or not capability or not all(c.get("passed") for c in capability):
+        raise FastScreenPublishError("cross-syntax result lacks native capability evidence")
+    passing = [item for item in result["site_results"] if item.get("passed") is True]
+    metrics = [
+        {"name": "minimum_native_cell_accuracy", "estimate": min(
+            min(item["target_accuracy"], item["donor_accuracy"]) for item in capability
+        ), "ci95": None, "bar": ">=0.85 in every syntax/number cell"},
+        {"name": "cross_syntax_mean_donor_recovery",
+         "estimate": site_result["overall_mean_recovery"], "ci95": None, "bar": ">=0.4"},
+        {"name": "minimum_cross_syntax_cell_recovery",
+         "estimate": min(item["mean_recovery"] for item in cells),
+         "ci95": None, "bar": ">=0.4 in every direction cell"},
+        {"name": "minimum_cross_syntax_direction_fraction",
+         "estimate": min(item["direction_fraction"] for item in cells),
+         "ci95": None, "bar": ">=0.75 in every direction cell"},
+        {"name": "passing_preselected_site_count", "estimate": len(passing),
+         "ci95": None, "bar": ">=1; two preselected sites only"},
+    ]
+    artifact = {
+        "path": str(result_path.relative_to(REPO)),
+        "sha256": _sha256(result_path), "kind": "screen_result", "status": "frozen",
+    }
+    event = {
+        "event_id": value["event_id"], "claim_id": value["source_claim_id"],
+        "test_type": value["test_type"], "stage": "complete", "verdict": "held",
+        "failure_kind": None, "family_ids": value["family_ids"],
+        "site_id": value["canonical_site"]["site_id"],
+        "split_plan_id": value["split_plan_id"],
+        "evaluation_role": "FIT_VALIDATION_new_relations_not_unseen_text",
+        "metrics": metrics, "prereg_artifact_id": None,
+        "result_artifact_id": value["result_artifact_id"],
+        "input_artifact_ids": value["input_artifact_ids"], "seed": value["seed"],
+        "checkpoint_sha256": None, "supersedes_event_id": None,
+        "replicates_event_id": None, "sections": value["sections"],
+        "notes": value["notes"] + " Historical result did not bind a checkpoint digest.",
+    }
+    revision = copy.deepcopy(source_claim)
+    revision.update(value["claim_revision"])
+    revision["supersedes"] = value["source_claim_id"]
+    revision["evidence_event_ids"] = list(dict.fromkeys(
+        source_claim.get("evidence_event_ids", []) + [value["event_id"]]
+    ))
+    sites = [site for site in revision["candidate_sites"]
+             if site["site_id"] != value["canonical_site"]["site_id"]]
+    sites.append({**value["canonical_site"], "ceiling_event_ids": [value["event_id"]]})
+    revision["candidate_sites"] = sites
+    return {
+        "schema": "circuit_fast_screen_publication_plan_v1",
+        "canonical_tag": value["canonical_tag"],
+        "ledger_request_id": ledger_entry["request_id"],
+        "result_artifact_id": value["result_artifact_id"], "artifact": artifact,
+        "event": event, "claim_revision": revision,
+        "claim_ledger_policy": value["claim_ledger_policy"],
+    }
+
+
 def _event_with_keys(record: dict, event: dict) -> dict:
     value = copy.deepcopy(event)
     value["design_key"] = registry.design_key(record, value)
@@ -274,7 +426,9 @@ def main() -> None:
     parser.add_argument("spec", type=Path)
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
-    plan = build_plan(json.loads(args.spec.read_text()))
+    spec = json.loads(args.spec.read_text())
+    plan = (build_cross_syntax_plan(spec) if spec.get("schema") == CROSS_SYNTAX_SCHEMA
+            else build_plan(spec))
     if args.apply:
         apply_plan(plan, regenerate_commands=(
             (sys.executable, "basis_aligned/bilinear_quotient/make_circuit_coverage.py"),

@@ -551,11 +551,13 @@
      "latest_relevant_event_id": "task14_subject_number_localization.fit.preregistered.v2"
     },
     "cross_family": {
-     "status": "missing",
-     "held_event_ids": [],
+     "status": "held",
+     "held_event_ids": [
+      "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1"
+     ],
      "blocking_event_ids": [],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1"
     },
     "ood": {
      "status": "missing",
@@ -588,10 +590,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 3,
+   "n_held_categories": 4,
    "n_blocked_categories": 0,
-   "n_missing_categories": 4,
-   "next_missing": "confirm the passing attention-11 and head-11.3 carrier on held-out syntax, then test selective removal and sufficiency before identifying a smaller subspace"
+   "n_missing_categories": 3,
+   "next_missing": "test head 11.3 on genuinely unseen text and syntax, then selective removal and sufficiency; the present cross-syntax relations reuse FIT examples"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

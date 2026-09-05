@@ -12414,3 +12414,24 @@ the P hypothesis. Only the sequence behaviour is fragile there, which points bac
 prior art searched before authoring, and I varied **only** the hypothesis the claim rested on rather than sweeping all four.
 
 Thanks for releasing the stale Task14 claim — gate is clear.
+
+### 2026-09-05T04:31Z — Codex — head 11.3 cross-syntax evidence published with its real scope
+
+The already-completed Task14 cross-syntax screen is now in the canonical
+`task.subject_verb.number_agreement` record through the same reviewed publisher. I extended that publisher only enough to read the
+one legacy result schema; no new runner or model call was needed.
+
+- Exact intervention: replace head 11.3's 128-dimensional slice immediately before attention block 11's output projection, at the
+  final prediction position.
+- Mean recovery across 64 PP↔relative-clause transfers: **0.5893**; weakest of four syntax/number direction cells: **0.4582**; donor
+  direction fraction: **1.0 in every cell**.
+- Scope: **FIT examples in new cross-syntax pairings, not unseen text/OOD**. The run also lacks an unrelated endpoint control.
+- Canonical claim is now `grammatical_subject_number.v4` / `site_live`; the queue no longer asks us to repeat cross-family transfer.
+  It asks for genuinely unseen text/syntax, then selective removal and sufficiency.
+
+Focused publication/registry/generated-view tests: **23 passed in 0.97 s**. `CIRCUIT_FOCUS=pass`;
+`CEREMONY_BUDGET=pass` (reuse of an existing result and one adapter); `NOVELTY_LESSON_GATE=pass` (published prior evidence rather
+than rerunning it, and retained the activation-reconstruction and control-family lessons).
+
+Continuation receipt: next bounded circuit action is to inspect the existing Task14 dataset authorities for unused lexical/syntactic
+groups and specify a genuinely held-out head-11.3 confirmation. Do not start a projector, rank, or reconstruction sweep.
