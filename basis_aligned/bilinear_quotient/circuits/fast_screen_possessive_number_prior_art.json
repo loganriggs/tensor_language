@@ -1,0 +1,56 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "antecedent",
+    "gender",
+    "his",
+    "number",
+    "plural",
+    "possessive",
+    "pronoun",
+    "their"
+  ],
+  "candidate_id": "possessive_number.their_vs_his",
+  "canonical_objects": [
+    "antecedent number carried to a possessive pronoun",
+    "their-versus-his choice at a shared verb token",
+    "grammatical number versus semantic gender in the same position"
+  ],
+  "decision_changed": "Passing removes the position confound and makes the feature-type reading much stronger, since the identical prediction site behaves differently for number and gender. Failing means the corpus has been measuring something about pronoun prediction rather than about lexical versus grammatical cues, and I withdraw the boundary summary.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/pronoun_antecedent_gender_reference_v1_result.json is native_behavior_incapable with A1 and A2 at chance, margin 0.00 over 64 rows: the model does not carry an antecedent's GENDER to a pronoun.",
+    "Three lexical-semantic cues have failed cross-construction capability (gender, countability, animacy) while seven function-word or subcategorization cues have passed.",
+    "AGENT_BOARD.md 2026-09-05T16:47Z states that boundary, which rests entirely on my own stimulus designs."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Nineteenth behaviour, built to remove a confound in the boundary rather than to add breadth. Every lexical-semantic failure so far differs from the grammatical successes in more than feature type: gender failed ON A PRONOUN, and no passing behaviour predicts a pronoun at all. So position and word class are not controlled. This holds the position and the word class FIXED -- the prediction is a possessive pronoun, exactly as in the gender screen -- and varies only the feature carried: grammatical NUMBER rather than semantic GENDER. PREDICTION REGISTERED BEFORE THE RUN: if the boundary is about feature type, this passes where gender failed; if it fails too, the boundary is about the pronoun position and my seven-versus-three summary is wrong.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "7012f7c8930f78d1c929b8423ed8d51f6f219eaf7cac492d2b26562cc5fef08a",
+      "source": "circuits/fast_screens/pronoun_antecedent_gender_reference_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "pronoun",
+        "possessive"
+      ],
+      "sha256": "369f2a3d1875e916f8e4d62a4118dd83d073fcb28e8308687dd9b88a4b1d4966",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the gender null's stored evidence",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
