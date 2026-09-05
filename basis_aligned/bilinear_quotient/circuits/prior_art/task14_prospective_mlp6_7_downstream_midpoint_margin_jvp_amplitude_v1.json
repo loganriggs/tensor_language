@@ -1,0 +1,45 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.prospective_mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1",
+  "created_utc": "2026-09-05T22:04:00Z",
+  "purpose": "Prospectively validate that the native downstream midpoint answer-margin JVP generates grouped-MLP6--7 absolute causal amplitudes on new nouns and unseen above/below constructions.",
+  "data_status": "NEW_TEXT; native capability opens first; immutable JVP prediction receipt must exist before any causal intervention outcome is evaluated",
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_task14_prospective_jvp_amplitude.py",
+    "file_sha256": "ca0b743dce3ec636924b25e260fd635af306d99b91cf93984e25f1e015e79f12",
+    "logical_sha256": "d9f16f8066e48607ddcf23fd7d99c2d1d6025fd6ccc541c3f140a95370a4c79f",
+    "rows": 32,
+    "endpoints": 96,
+    "novelty": "Thirty-two noun forms are disjoint from prior Task14 authorities; all 96 prompts are unique; above_below and below_above are new registered templates."
+  },
+  "binding_parent": {
+    "path": "circuits/fast_screens/task14_mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1_result.json",
+    "sha256": "0d1a08e846c6db34cded10d6c4ab84723c9b6c80c072fa64b23d2dc910c3a03c",
+    "finding": "Retrospective midpoint JVP generated 80 frozen amplitudes at cosine 0.999999992 and relative L2 error 0.000140."
+  },
+  "novelty_audit": [
+    "Searches for prospective JVP amplitude, sealed downstream-gradient prediction, and prediction-before-causal validation found no prior authority event.",
+    "The parent diagnostic used already-open causal targets. This candidate enforces temporal separation: prediction artifact first, causal outcomes second."
+  ],
+  "stages": {
+    "native_capability": "All 12 direction-by-template-by-role cells must reach at least 0.75 accuracy before either prediction or causal validation.",
+    "sealed_prediction": "For each row and background in {empty, EAUW}, compute base/exact grouped-X head endpoints and the midpoint native-tail answer-margin gradient; write 64 predicted q values plus base-gradient controls. No intervention outcome is evaluated or read.",
+    "causal_validation": "Only after binding the prediction receipt hash, install base/exact heads, measure 64 exact-minus-base q values, and score the frozen predictions without refitting or rescaling."
+  },
+  "predictions": {
+    "pred_a_instrument_and_temporal_seal": "Authority/capability/prediction hashes match; prediction receipt predates causal result; all numerical closures are at most 5e-5; exactly 64 unique predictions and targets exist.",
+    "pred_b_prospective_amplitude_generation": "Overall midpoint cosine is at least 0.999, relative L2 error at most 0.01, and sign agreement is 1.0.",
+    "pred_c_direction_and_template_transfer": "Each of four direction-by-template cells has midpoint cosine at least 0.995, relative L2 error at most 0.03, and sign agreement at least 0.9375.",
+    "pred_d_background_transfer": "Empty and EAUW separately each have midpoint cosine at least 0.995 and relative L2 error at most 0.03.",
+    "pred_e_midpoint_beats_base_gradient": "Midpoint relative L2 error is at least 50% lower than the frozen base-gradient prediction.",
+    "pred_f_no_lookup_or_scale_fit": "The scorer uses no fitted scale, offset, target endpoint, or direction/template mean; descriptive best affine repair is reported only after literal gates and cannot change them."
+  },
+  "null": "Any failure of b-d rejects prospective amplitude generation on the new construction and preserves target endpoint calibration. Failure of e retains a prospective endpoint-gradient generator but rejects the midpoint-specific claim. Native-capability failure terminates before causal outcomes. No post-outcome rescaling may rescue a gate.",
+  "price": {
+    "native_capability": {"physical_model_forwards": 1, "example_evaluations": 96},
+    "sealed_prediction": {"physical_model_forwards": 3, "example_evaluations": 224, "backwards": 2, "causal_interventions": 0},
+    "causal_validation": {"physical_model_forwards": 2, "example_evaluations": 256, "causal_interventions": 128},
+    "total": {"physical_model_forwards": 6, "example_evaluations": 576, "backwards": 2, "causal_interventions": 128, "parameter_updates": 0}
+  },
+  "closed_claims": ["other_tasks", "semantic_uniqueness", "rank", "compression", "activation_reconstruction", "literal_compute_saving"]
+}
