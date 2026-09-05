@@ -1,0 +1,115 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_upstream_writer_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "On licensed fresh HOLDOUT text, causally split the L11H3 subject current-value branch by the exact upstream write families that form its pre-attention state: embedding/skip, earlier attention writes, and earlier MLP writes.",
+  "licensed_precondition": {
+    "authority_file_sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+    "authority_logical_sha256": "8862dc84c10a28c0857cb7b201adab46e72f2e7063069fcf1a09f50ec21947d7",
+    "capability_result_path": "circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license_result.json",
+    "capability_result_sha256": "ece04f3954ab8dd9fd3be73942af63cdf13d76f13854c07ccb02b31ce2d7553b",
+    "derivative_license_path": "circuits/fast_screens/task14_fresh_matched_subject_current_upstream_writer_factorial_v1_capability_license.json",
+    "derivative_license_sha256": "f0d1ebba9a7bc8ad5ec9936913a1d2dc5daa4e6f1f72a0571746b4aacc5b9f40",
+    "rows": "Licensed HOLDOUT only; FIT remains forbidden."
+  },
+  "motivating_result": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_cached_value_factorial_v2_result.json",
+    "sha256": "5749ccc87aa9631699da79a72504101651f6d9f91da9157d646e723151f52ca9",
+    "terminal": "valid_causal_screen",
+    "finding": "The registered current-state value branch carried the task on licensed HOLDOUT, while the cached branch and interaction-needed accounts were null and the number-specific alternative held. This receipt uses only that registered terminal summary to choose the upstream split."
+  },
+  "prior_art_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "d4d8c1722586a7deaa671857424a0fde768026f24109227ec6c2d416fcc066ad",
+      "finding": "Canonical v13 explicitly leaves a finer causal split within the current-state value branch as next_missing. No Task14 event uses an E/A/M factorial at this site."
+    },
+    {
+      "path": "ops/mlp10_exact_source_pair_causal_split_rung507.py",
+      "sha256": "4bb6fbf9a12cbdae05162cff86abb84d31c834dfa2f7a1d92d75f5092d2e8035",
+      "finding": "Prior code decomposed an MLP10 input into propagated upstream writes for a different module and objective. It supports the residual bookkeeping, but did not intervene on Task14 L11H3, its subject source, or its current-value branch."
+    },
+    {
+      "path": "circuits/prior_art/task14_head11_3_source_value_role_group_factorial_v1.json",
+      "sha256": "2d97b8aaa7d418b986d70520b6cd6839ce9e6cbc7666ee5ea629807e7e9c0b22",
+      "finding": "The earlier Task14 factorial grouped source positions after the value projection. It explicitly did not identify the upstream writers that created a source value."
+    }
+  ],
+  "exact_state_decomposition": {
+    "recursion": "Start E=x0, A=0, M=0. At each block i entry set E=lambda0_i E + lambda1_i x0, A=lambda0_i A, M=lambda0_i M. After attention i add its write to A; after MLP i add its write to M.",
+    "capture_point": "Immediately after the block-11 entry recurrence and before RMSNorm/attention11. Thus E includes normalized embedding plus every propagated x0 injection, A includes propagated attention writes 0--10, and M includes propagated MLP writes 0--10.",
+    "identity": "E+A+M equals the raw pre-attention-11 residual; RMSNorm(E+A+M) equals the native attention11 input up to the registered tolerance.",
+    "current_value": "For each E/A/M corner, RMSNorm the combined state, apply block11 c_v, select head 3, multiply by (1-lambda_11), add the fixed recipient cached branch in 128-dimensional head-value coordinates, and apply the head-3 c_proj slice once.",
+    "installed_head": "Multiply that subject value by fixed recipient p_8, add the recipient sum over j != 8 of p_j u_j, and install the resulting L11H3 write at the final query."
+  },
+  "conditions": {
+    "recipient_EAM": "recipient E, recipient A, recipient M; same-batch no-op",
+    "opposite_E": "opposite-number same-lemma E only",
+    "opposite_A": "opposite-number same-lemma A only",
+    "opposite_M": "opposite-number same-lemma M only",
+    "opposite_EA": "opposite E and A",
+    "opposite_EM": "opposite E and M",
+    "opposite_AM": "opposite A and M",
+    "opposite_EAM": "opposite E, A, and M; must reproduce the previously registered opposite-current intervention",
+    "lexical_E": "same-number different-lemma E only",
+    "lexical_A": "same-number different-lemma A only",
+    "lexical_M": "same-number different-lemma M only",
+    "lexical_EAM": "same-number different-lemma E, A, and M"
+  },
+  "estimands": {
+    "main_effects": "Y(100)-Y(000), Y(010)-Y(000), and Y(001)-Y(000) for E, A, and M.",
+    "pair_interactions": "I_EA=Y(110)-Y(100)-Y(010)+Y(000), with analogous E/M and A/M definitions.",
+    "triple_interaction": "I_EAM=Y(111)-Y(110)-Y(101)-Y(011)+Y(100)+Y(010)+Y(001)-Y(000).",
+    "total_interaction": "Y(111)-Y(100)-Y(010)-Y(001)+2Y(000), equal to the sum of all pair and triple interaction terms.",
+    "lexical_controls": "Repeat each singleton and all-donor contrast using the same-number different-lemma endpoint."
+  },
+  "outcomes": {
+    "answer_directed_target_margin_improvement": "For opposite-number arms, patched opposite-answer-minus-recipient-answer margin minus native. For lexical arms, patched correct-answer-minus-foil margin minus native. Positive is helpful for the named target.",
+    "target_full_vocab_CE_improvement": "Native target-answer full-vocabulary CE minus patched target-answer CE at the identical batch index. Positive is helpful.",
+    "restriction": "No activation norm, variance, reconstruction, rank, or fitted score is an outcome."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_state_sum_absolute_error": 0.00005,
+    "maximum_normalized_state_absolute_error": 0.00005,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_all_donor_current_head_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "minimum_all_donor_mean_target_margin_improvement": 0.05,
+    "minimum_all_donor_mean_target_CE_improvement": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "minimum_family_recovery_fraction": 0.7,
+    "minimum_distributed_family_recovery_fraction": 0.25,
+    "minimum_distributed_family_count": 2,
+    "maximum_family_recovery_for_interaction": 0.5,
+    "minimum_total_interaction_recovery_fraction": 0.5,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_collateral_ratio": 0.5
+  },
+  "opposing_predictions": {
+    "embedding_carries_task": "In every direction/template cell, the E singleton improves target margin and CE on at least 3/4 rows and recovers at least 70% of the all-opposite EAM margin effect.",
+    "attention_carries_task": "The same criterion holds for the A singleton.",
+    "MLP_carries_task": "The same criterion holds for the M singleton.",
+    "distributed_across_writer_families": "In every cell no singleton reaches 70%, but at least two singleton families each recover at least 25% and improve both margin and CE on at least 3/4 rows.",
+    "interaction_is_needed": "In every cell no singleton recovers more than 50%, while total E/A/M interaction recovers at least 50% of the all-opposite margin effect and is positive in both margin and CE on at least 3/4 rows.",
+    "number_specific": "Every same-number lexical singleton/all-donor absolute mean margin and CE effect is at most 25% of the corresponding all-opposite effect.",
+    "lexical_collateral": "If any lexical singleton/all-donor absolute mean margin or CE effect reaches 50% of the corresponding all-opposite effect, the clean number-specific interpretation is invalidated. Intermediate ratios remain unresolved."
+  },
+  "instrument_gate": "Exact native replay, E+A+M closure before and after RMSNorm, source-term summation, all-donor reproduction of the registered current-branch intervention, same-batch no-op, installed-head algebra, and a live all-opposite task effect must pass before any writer-family prediction is interpreted.",
+  "terminal_policy": "Keep every opposing prediction separate. Do not drop rows, pool templates, tune thresholds, reinterpret a fixed-margin sign, or use any non-task metric after outcomes.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 480,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "individual attention or MLP block identity",
+    "downstream reader identity",
+    "necessity or removal",
+    "syntax generality beyond the licensed templates",
+    "FIT performance",
+    "rank or activation reconstruction"
+  ]
+}
