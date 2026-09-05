@@ -7,11 +7,11 @@
   "acceptance_gap": "missing, blocked, or mixed evidence in one program acceptance category"
  },
  "summary": {
-  "canonical_work_items": 8,
+  "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 2,
-  "held_events": 42,
-  "blocking_events": 31
+  "held_events": 44,
+  "blocking_events": 33
  },
  "work_items": [
   {
@@ -240,6 +240,56 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+  },
+  {
+   "tag": "task.narrative_tense.past_vs_present",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_narrative_tense_past_vs_present.json",
+   "active_claim_id": "narrative_tense_at_final_position.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "narrative_tense_at_final_position",
+   "counterfactual_family_count": 4,
+   "counterfactual_family_status_counts": {
+    "validated": 4
+   },
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "active_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.attn11_head3_complement.v1.held"
+   ],
+   "blocking_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability"
+   ],
+   "coverage": {
+    "capability": "blocked",
+    "causal_site": "held",
+    "learned_interchange": "missing",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "missing",
+    "composition": "held",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "capability",
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "split attention block 11 head 3 into exact source-score and cached-value terms, then test those terms with an output-token confound control that distinguishes shared copula writing from a shared agreement/tense semantic state"
   },
   {
    "tag": "task.numbered_list.index_successor",

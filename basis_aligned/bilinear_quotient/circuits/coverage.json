@@ -362,6 +362,80 @@
    "n_missing_categories": 6,
    "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
   },
+  "task.narrative_tense.past_vs_present": {
+   "kind": "behavior_circuit",
+   "claim_status": "site_live",
+   "causal_variable_id": "narrative_tense_at_final_position",
+   "categories": {
+    "capability": {
+     "status": "blocked",
+     "held_event_ids": [],
+     "blocking_event_ids": [
+      "narrative_tense.past_present.v1.invalid_capability",
+      "narrative_tense.short_cue.v2.invalid_capability"
+     ],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "narrative_tense.short_cue.v2.invalid_capability"
+    },
+    "causal_site": {
+     "status": "held",
+     "held_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "narrative_tense.past_present.v2.held_localization"
+    },
+    "learned_interchange": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "cross_family": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "composition": {
+     "status": "held",
+     "held_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "narrative_tense.attn11_head3_complement.v1.held"
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 2,
+   "n_blocked_categories": 1,
+   "n_missing_categories": 5,
+   "next_missing": "split attention block 11 head 3 into exact source-score and cached-value terms, then test those terms with an output-token confound control that distinguishes shared copula writing from a shared agreement/tense semantic state"
+  },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",
    "claim_status": "weights_translated",

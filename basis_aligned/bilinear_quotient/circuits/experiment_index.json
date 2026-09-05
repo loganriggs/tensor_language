@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 115,
- "design_count": 102,
- "protocol_count": 96,
- "execution_count": 115,
+ "event_count": 120,
+ "design_count": 105,
+ "protocol_count": 99,
+ "execution_count": 120,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -47,6 +47,19 @@
  ],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [
+  {
+   "protocol_key": "5c5e38af144c5a960e5ed58d6193cd5bb00b72c398ca6b435304350d4121604c",
+   "event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability"
+   ],
+   "unlinked_completed_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.short_cue.v1.invalid_capability"
+   ],
+   "planned_duplicate_event_ids": []
+  },
   {
    "protocol_key": "9906daa1fb9e90787d83768e88bc40728e1a880215c80b6e4b278f9989837ed0",
    "event_ids": [
@@ -924,6 +937,86 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "r580_capability_preregistration_v2",
    "result_artifact_id": null
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.past_present.v1.invalid_capability",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "protocol_key": "5c5e38af144c5a960e5ed58d6193cd5bb00b72c398ca6b435304350d4121604c",
+   "execution_key": "4fb743c96bf57b87a2a3d4441a3b700bfd8cc4be9e6bc913745566f0c757ea3f",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "past_present_v1_invalid_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.past_present.v2.held_localization",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "6fd84687cb8bfcbbcbea6ff42835fdf54682f22c5608f768f438d4f9df5dc832",
+   "protocol_key": "377e769fe3006b058a6618465b3e6c12a7cf6b7a5dcfd1284bfc733e982b79c4",
+   "execution_key": "46ee09a66ff22d0d188db0d1f03c3bfc608fd701ebc70b6e28f3fe431ef5d697",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "past_present_v2_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.short_cue.v1.invalid_capability",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "protocol_key": "5c5e38af144c5a960e5ed58d6193cd5bb00b72c398ca6b435304350d4121604c",
+   "execution_key": "b1292bb0c03422fb60c5060f2367172920a8a4c5cc1858f1119f7518c42fb2a7",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "short_cue_v1_invalid_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.short_cue.v2.invalid_capability",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "protocol_key": "5c5e38af144c5a960e5ed58d6193cd5bb00b72c398ca6b435304350d4121604c",
+   "execution_key": "8400e03af4b13138cc920ea19b636cf9693d890fbf0477a0899bb7757e753409",
+   "supersedes_event_id": "narrative_tense.short_cue.v1.invalid_capability",
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "short_cue_v2_invalid_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.attn11_head3_complement.v1.held",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "5dbf537c34eb90a2bc3f9db50ac0e47a15ae82b0614ace70263701163738b020",
+   "protocol_key": "2e99cd42e6a69296f05925c6267c47f4dd02bdd48a1e2771b91c1f336e829224",
+   "execution_key": "646b3fad704d032a624c8fd3bf21b20fb2ad4b7894169ca1d0a50c36550386ab",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "head3_complement_prior_art",
+   "result_artifact_id": "head3_complement_result"
   },
   {
    "circuit": "task.numbered_list.index_successor",

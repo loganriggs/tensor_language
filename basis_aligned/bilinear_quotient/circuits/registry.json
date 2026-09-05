@@ -774,6 +774,43 @@
     "e923cdc98d4a5ce6d45eb6f926f088754ebb555ac4f5008dde364667c01105e9"
    ]
   },
+  "task.narrative_tense.past_vs_present": {
+   "file": "task_narrative_tense_past_vs_present.json",
+   "schema_version": 2,
+   "n_members": null,
+   "headline": "",
+   "cert": 0,
+   "record_sha256": "713737ea88a8a55498f8d9192b2238102b46fe39f8e98e130bf1ccb1da4cfe05",
+   "kind": "behavior_circuit",
+   "identity_instance": null,
+   "active_claim_id": "narrative_tense_at_final_position.v1",
+   "claim_status": "site_live",
+   "causal_variable_id": "narrative_tense_at_final_position",
+   "interchange_family_count": 2,
+   "invariance_family_count": 2,
+   "negative_event_count": 3,
+   "active_negative_event_count": 2,
+   "latest_blocker": "narrative_tense.short_cue.v2.invalid_capability",
+   "latest_active_event": "narrative_tense.attn11_head3_complement.v1.held",
+   "active_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held"
+   ],
+   "held_test_types": [
+    "composition",
+    "full_swap_ceiling"
+   ],
+   "active_blocking_test_types": [
+    "capability"
+   ],
+   "design_keys": [
+    "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+    "5dbf537c34eb90a2bc3f9db50ac0e47a15ae82b0614ace70263701163738b020",
+    "6fd84687cb8bfcbbcbea6ff42835fdf54682f22c5608f768f438d4f9df5dc832"
+   ]
+  },
   "task.numbered_list.index_successor": {
    "file": "task_numbered_list_index_successor.json",
    "schema_version": 2,

@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-115 events; 96 scientific protocols; 115 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 1 protocol groups needing review.
+120 events; 99 scientific protocols; 120 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -17,6 +17,7 @@ No two registered events have the same execution key.
 
 | protocol | events | unlinked completed | planned duplicate |
 |---|---|---|---|
+| `5c5e38af144c` | narrative_tense.past_present.v1.invalid_capability, narrative_tense.short_cue.v1.invalid_capability, narrative_tense.short_cue.v2.invalid_capability | narrative_tense.past_present.v1.invalid_capability, narrative_tense.short_cue.v1.invalid_capability |  |
 | `9906daa1fb9e` | task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1, task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1 | task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1, task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1 |  |
 
 ## All registered evidence events
@@ -77,6 +78,11 @@ No two registered events have the same execution key.
 | `task.induction.selector_payload` | `induction_selector_payload_capability_audit.r555.complete.held.v1` | complete/held | null_control | `induction_selector_and_payload.v5` | `db35f5b293e1` | `32bfcbe7436b` | `57b14eb68d7a` | supersedes `induction_selector_payload_capability_audit.r555.preregistered.v1` |
 | `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v1` | preregistered/inconclusive | capability | `induction_selector_and_payload.v8` | `ea5cdb21781d` | `7937f22df3bf` | `4ad1235d01ee` | — |
 | `task.induction.selector_payload` | `induction_selector_payload_native_capability.r580.preregistered.v2` | preregistered/inconclusive | capability | `induction_selector_and_payload.v9` | `ea5cdb21781d` | `e923cdc98d4a` | `c87ba139df18` | supersedes `induction_selector_payload_native_capability.r580.preregistered.v1` |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.past_present.v1.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `4fb743c96bf5` | — |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.past_present.v2.held_localization` | complete/held | full_swap_ceiling | `narrative_tense_at_final_position.v1` | `377e769fe300` | `6fd84687cb8b` | `46ee09a66ff2` | — |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.short_cue.v1.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `b1292bb0c034` | — |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.short_cue.v2.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `8400e03af4b1` | supersedes `narrative_tense.short_cue.v1.invalid_capability` |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.attn11_head3_complement.v1.held` | complete/held | composition | `narrative_tense_at_final_position.v1` | `2e99cd42e6a6` | `5dbf537c34eb` | `646b3fad704d` | — |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.preregistered.v1` | preregistered/inconclusive | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `15d1b6f2a19a` | — |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.held.v1` | complete/held | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `5a3f5d3ad968` | supersedes `numbered_list_native_capability.r569.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_capability_audit.r571.held.v1` | complete/held | null_control | `numbered_list_index_successor.v2` | `ad9777b34532` | `7014c3e46952` | `f0e462ef047a` | — |

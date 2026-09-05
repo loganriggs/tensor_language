@@ -1,0 +1,118 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "narrative_tense.attn11_head3_source_route_and_cross_task_payload_v1",
+  "relation": "below_head_decomposition_and_cross_task_grouping",
+  "reviewer": "Codex circuit-only lane with independent read-only design audit",
+  "aliases_searched": [
+    "narrative tense H3 source value",
+    "narrative tense H3 score payload",
+    "tense cue source routing",
+    "agreement tense cross-task payload",
+    "was is are shared state"
+  ],
+  "canonical_objects": [
+    "exact source contributions p_k u_k of attention layer 11 head 3 at the final narrative-tense query",
+    "explicit tense-changing token sources versus final self source versus remaining sources",
+    "causal response of narrative tense to frozen Task14 singular and plural self-value vectors"
+  ],
+  "matched_prior_claims": [
+    "The valid narrative-tense H3/complement factorial found head 3 carries 91.14-96.83 percent of the whole attention-11 effect across all four target cells, but explicitly did not separate a shared semantic feature from a generic copula output write.",
+    "Task14 ordinary-syntax source-factor work found subject cached values are material; fronted Task14 work found the final self score and self value compose, with both complete QK branches needed for the natural score effect.",
+    "No narrative-tense H3 source, score, cached-value, or QK experiment and no equivalent active claim was found."
+  ],
+  "method_families": [
+    "exact attention source-term intervention",
+    "donor-to-recipient interchange",
+    "task margin and full-vocabulary cross-entropy",
+    "cross-task causal payload transfer"
+  ],
+  "source_partition": {
+    "S": "the final query/self source position",
+    "T": "all token positions whose token IDs differ between the paired narrative recipient and donor: A1 positions 0 and 4; A2 positions 3, 5, and 7",
+    "R": "all remaining causally available source positions",
+    "control_meaning": "on P and C, the changed-token positions are irrelevant subject rewrites; they test whether a T-labelled intervention merely reacts to any lexical difference"
+  },
+  "fixed_arms": [
+    "native exact replay",
+    "complete donor H3",
+    "S-score: donor p_S times recipient u_S",
+    "S-value: recipient p_S times donor u_S",
+    "S-joint: donor p_S times donor u_S",
+    "T-score: donor p_T times recipient u_T for all T positions",
+    "T-value: recipient p_T times donor u_T for all T positions",
+    "T-joint: donor p_T times donor u_T for all T positions",
+    "R-joint: donor p_R times donor u_R for all R positions",
+    "Task14-singular self value: narrative recipient p_S times the frozen Task14 singular u_8",
+    "Task14-plural self value: narrative recipient p_S times the frozen Task14 plural u_8"
+  ],
+  "cross_task_pairing": {
+    "task14_authority": "run_task14_head11_3_ood_fronted_score_role_factorial.build_rows()",
+    "task14_authority_digest": "c321eead9b4832e42806015f9248b6dbb418acfc78b9a38d6638c2d4a62d1eda",
+    "algorithm": "Sort the 32 fronted Task14 rows by group_id. Pair narrative group_number g with sorted Task14 row g; A1 and A2 reuse the same pair. From each row take exactly one singular/is endpoint and one plural/are endpoint. Persist all 64 target-row pair records and their canonical digest.",
+    "state_alignment": "For a narrative donor answer is, singular/is is matched and plural/are is unmatched. For a narrative donor answer was, plural/are is matched and singular/is is unmatched.",
+    "interpretation": "Both directions are required. In particular, a Task14 plural/are value must improve full-vocabulary CE for narrative was; suppressing is while boosting are is not semantic transfer."
+  },
+  "fixed_bars": {
+    "minimum_native_accuracy_each_A1_A2_side_cell": 0.85,
+    "maximum_native_replay_source_sum_and_install_error": 0.00005,
+    "minimum_complete_H3_donorward_fraction_each_target_cell": 0.75,
+    "complete_H3_mean_margin_and_full_vocab_CE_gain_each_target_cell": "both positive",
+    "route_minimum_fraction_of_complete_H3_margin_and_CE_each_target_cell": 0.5,
+    "route_minimum_row_direction_fraction_each_target_cell": 0.75,
+    "route_minimum_advantage_over_competing_joint_route": 0.15,
+    "factor_minimum_fraction_of_its_route_joint_margin_and_CE": 0.7,
+    "factor_minimum_row_direction_fraction": 0.75,
+    "cross_task_matched_minimum_direction_fraction_each_state": 0.75,
+    "cross_task_matched_minimum_fraction_of_within_narrative_S_value": 0.5,
+    "cross_task_full_vocab_CE_gain_each_state": "positive",
+    "P_C_absolute_normalized_movement": "no tested within-narrative route arm may exceed complete-H3 movement in the same control family"
+  },
+  "registered_predictions": {
+    "self_route": "S-joint clears all route bars and exceeds T-joint by at least 0.15 in every target cell.",
+    "tense_cue_route": "T-joint clears all route bars and exceeds S-joint by at least 0.15 in every target cell.",
+    "mixed_or_remaining_route": "Neither exclusive route prediction passes; report R and downstream interactions without forcing a label.",
+    "factor_readout": "Within a winning route, score-only or value-only clears 0.70 of its joint effect. Both passing means redundant/interactive support; neither means score-value composition is required.",
+    "cross_task_semantic_reuse": "Matched Task14 singular and plural values both move their registered narrative state donorward, improve the correct narrative token's full-vocabulary CE, and clear the recovery bar; unmatched states move recipientward.",
+    "generic_output_token_confound": "Only the singular/is transfer works, or the plural/are vector suppresses is without improving full-vocabulary CE for was. This is not shared semantic-state evidence."
+  },
+  "novelty_delta": "First exact below-head source-route decomposition for narrative tense and first registered cross-task payload test designed to separate shared operational state from a common copula token. It uses no fitted subspace, rank reduction, activation reconstruction, or post-outcome donor choice.",
+  "decision_changed": "The source route determines which exact H3 factors merit QK decomposition. Bidirectional cross-task success licenses grouping agreement and tense by downstream causal response; same-is-only success preserves a generic output-token explanation; failure blocks this registered mapping without claiming that no alternative mapping exists.",
+  "maximum_price": {
+    "model_forwards": 14,
+    "example_evaluations": 1600,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "reviewed_sources": [
+    {
+      "source": "circuits/fast_screens/narrative_tense_attn11_head3_complement_factorial_v1_result.json",
+      "sha256": "7f31c50639ef20dd35f5bdaa5dcb9024221025db8856043baf104074f5b3c32b",
+      "searched_terms": ["cells", "head3_fraction_of_full", "controls", "interpretation_limit"]
+    },
+    {
+      "source": "ops/circuit_fast_screen_candidate_narrative_tense.py",
+      "sha256": "ef6212bd87aba24d2dfaa50f995884c2cb14ad72ecf2b481cbfe18d766bcdf8c",
+      "searched_terms": ["A1", "A2", "P", "C", "token positions"]
+    },
+    {
+      "source": "ops/attention_source_factor_primitive.py",
+      "sha256": "e8a33f0c3196a05db967a85f1fdae1956e26a2eff3c571234d1ad2851a68be0d",
+      "searched_terms": ["p", "u", "head", "include_qk_factors"]
+    },
+    {
+      "source": "circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v2_result.json",
+      "sha256": "e0cdff4a7e71713d3ae8ab58dda72de83ee58930516d13faafbdc279a405ed66",
+      "searched_terms": ["fronted", "self", "source value", "full-vocabulary CE"]
+    },
+    {
+      "source": "circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
+      "sha256": "39269428f6948ceae892721c7f79906e1223b97c6eb0033de0c95be545ac1f8e",
+      "searched_terms": ["self score", "interaction", "fronted"]
+    },
+    {
+      "source": "ops/circuit_fast_screen_candidate_task14_ood_cross_syntax.py",
+      "sha256": "f9376fd662ecd7c4aa8e484ff2e744f0e0f222bf6a90a41f4914eb8a6931fda2",
+      "searched_terms": ["fronted", "OOD", "subject_number", "position"]
+    }
+  ]
+}

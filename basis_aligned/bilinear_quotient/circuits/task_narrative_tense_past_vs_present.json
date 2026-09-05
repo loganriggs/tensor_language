@@ -1,0 +1,464 @@
+{
+ "schema_version": 2,
+ "tag": "task.narrative_tense.past_vs_present",
+ "identity": {
+  "kind": "behavior_circuit",
+  "instance": null,
+  "identity_artifact_id": "narrative_tense_authority",
+  "aliases": [
+   "narrative_tense",
+   "past_vs_present"
+  ]
+ },
+ "claims": [
+  {
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "revision": 1,
+   "status": "site_live",
+   "supersedes": null,
+   "causal_variable": {
+    "id": "narrative_tense_at_final_position",
+    "domain": "past or present narrative frame across direct narration and relative-clause constructions",
+    "read": "earlier lexical and inflectional tense cues",
+    "operation": "carry the narrative time frame to the copular continuation",
+    "write": "signed evidence for the one-token continuation ' was' versus ' is'",
+    "endpoint": "donor-answer versus recipient-answer logit margin and binary-contrast CE under exact donor interchange"
+   },
+   "alternative_explanations": [
+    "construction-specific lexical cue copying",
+    "a generic copula or output-token write shared with agreement",
+    "a broad attention-block effect not specific to head 3"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_direct_narration",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "direct-narration construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A2 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "a2_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "relative-clause construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "p_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording within a fixed narrative tense"
+     ],
+     "holds_fixed": [
+      "narrative tense",
+      "correct answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "c_same_answer_rewrite",
+     "role": "invariance",
+     "changes": [
+      "unrelated past-description wording"
+     ],
+     "holds_fixed": [
+      "correct answer was",
+      "answer position",
+      "final prompt token"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.final_position.after_block18",
+     "tensor_path": "final-position residual after block 18",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete residual state with the matched natural donor state",
+     "ceiling_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ]
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "attention block 11 output at the final position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete attention-block output with the matched natural donor output",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's slice before attention block 11 output projection at the final position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "replace head 3 alone, with the other eight heads as the exact factorial complement",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "evidence_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held"
+   ],
+   "translation_ids": [],
+   "next_missing": "split attention block 11 head 3 into exact source-score and cached-value terms, then test those terms with an output-token confound control that distinguishes shared copula writing from a shared agreement/tense semantic state"
+  }
+ ],
+ "split_plans": [
+  {
+   "split_plan_id": "narrative_tense_fit_v1",
+   "unit": "frozen linked narrative template row, paired in both causal directions",
+   "partition_artifact_id": null,
+   "builder_artifact_id": "narrative_tense_authority",
+   "seed": null,
+   "groups": {
+    "FIT": 128
+   },
+   "leakage_group_keys": [
+    "template row",
+    "construction",
+    "causal direction",
+    "answer pair"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-05T08:36:11Z"
+  }
+ ],
+ "evidence_events": [
+  {
+   "event_id": "narrative_tense.past_present.v1.invalid_capability",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "past_present_v1_invalid_result",
+   "prereg_artifact_id": null,
+   "metrics": [
+    {
+     "name": "native_capability_gate_passed",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "must equal 1"
+    }
+   ],
+   "supersedes_event_id": null,
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "execution_key": "4fb743c96bf57b87a2a3d4441a3b700bfd8cc4be9e6bc913745566f0c757ea3f"
+  },
+  {
+   "event_id": "narrative_tense.past_present.v2.held_localization",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "site_id": "residual.final_position.after_block18",
+   "result_artifact_id": "past_present_v2_result",
+   "prereg_artifact_id": null,
+   "metrics": [
+    {
+     "name": "A1_target_recovery",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.55"
+    },
+    {
+     "name": "A2_target_recovery",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.55"
+    },
+    {
+     "name": "donor_direction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75"
+    },
+    {
+     "name": "P_normalized_movement",
+     "estimate": 0.06486810422088089,
+     "ci95": null,
+     "bar": "<=0.25"
+    },
+    {
+     "name": "C_normalized_movement",
+     "estimate": 0.14185669001905646,
+     "ci95": null,
+     "bar": "<=0.35"
+    }
+   ],
+   "supersedes_event_id": null,
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "6fd84687cb8bfcbbcbea6ff42835fdf54682f22c5608f768f438d4f9df5dc832",
+   "execution_key": "46ee09a66ff22d0d188db0d1f03c3bfc608fd701ebc70b6e28f3fe431ef5d697"
+  },
+  {
+   "event_id": "narrative_tense.short_cue.v1.invalid_capability",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "short_cue_v1_invalid_result",
+   "prereg_artifact_id": null,
+   "metrics": [
+    {
+     "name": "native_capability_gate_passed",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "must equal 1"
+    }
+   ],
+   "supersedes_event_id": null,
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "execution_key": "b1292bb0c03422fb60c5060f2367172920a8a4c5cc1858f1119f7518c42fb2a7"
+  },
+  {
+   "event_id": "narrative_tense.short_cue.v2.invalid_capability",
+   "test_type": "capability",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "short_cue_v2_invalid_result",
+   "prereg_artifact_id": null,
+   "metrics": [
+    {
+     "name": "native_capability_gate_passed",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "must equal 1"
+    }
+   ],
+   "supersedes_event_id": "narrative_tense.short_cue.v1.invalid_capability",
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "39aa142f1b1a16c7ec7b39e3200d0cd91e24113fc2c3252ddfe56948265834d5",
+   "execution_key": "8400e03af4b13138cc920ea19b636cf9693d890fbf0477a0899bb7757e753409"
+  },
+  {
+   "event_id": "narrative_tense.attn11_head3_complement.v1.held",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "head3_complement_result",
+   "prereg_artifact_id": "head3_complement_prior_art",
+   "metrics": [
+    {
+     "name": "minimum_head3_fraction_of_full",
+     "estimate": 0.9114422767818567,
+     "ci95": null,
+     "bar": ">=0.50 in every A1/A2 direction cell"
+    },
+    {
+     "name": "minimum_head3_donor_direction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every A1/A2 direction cell"
+    },
+    {
+     "name": "P_head3_normalized_movement",
+     "estimate": 0.022080523508868587,
+     "ci95": null,
+     "bar": "<= full-attention movement"
+    },
+    {
+     "name": "C_head3_normalized_movement",
+     "estimate": 0.05898047040283231,
+     "ci95": null,
+     "bar": "<= full-attention movement"
+    }
+   ],
+   "supersedes_event_id": null,
+   "claim_id": "narrative_tense_at_final_position.v1",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "5dbf537c34eb90a2bc3f9db50ac0e47a15ae82b0614ace70263701163738b020",
+   "execution_key": "646b3fad704d032a624c8fd3bf21b20fb2ad4b7894169ca1d0a50c36550386ab"
+  }
+ ],
+ "translations": [],
+ "artifacts": {
+  "narrative_tense_authority": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_fast_screen_candidate_narrative_tense.py",
+   "sha256": "ef6212bd87aba24d2dfaa50f995884c2cb14ad72ecf2b481cbfe18d766bcdf8c",
+   "kind": "dataset_authority",
+   "status": "frozen"
+  },
+  "past_present_v1_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_past_vs_present_v1_result.json",
+   "sha256": "5da1b51c762bbca72f210ce6520d5eb04095d0de9a80ee2cbf267ccdef5fa757",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "past_present_v2_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json",
+   "sha256": "5466980e1aa0a59538e4e8fcfb29457814c01e91cbe39bf41a2d42140fc7e71a",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "short_cue_v1_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_short_cue_distance_v1_result.json",
+   "sha256": "abe10c97d176b28fceebcb1d659d86f0a3103c0b5c04747748c0fedd9b09dd44",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "short_cue_v2_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_short_cue_distance_v2_result.json",
+   "sha256": "de6ad70ce25b1918a4fa888e59300286de850300ec5fd1ec071567bea1e106b1",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "head3_complement_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_attn11_head3_complement_factorial_v1.json",
+   "sha256": "704c1207c110e7f2384db1827d9a4dd5b03385b65586e7f5a87aaa7914b933e2",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "head3_complement_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_complement_factorial_v1_result.json",
+   "sha256": "7f31c50639ef20dd35f5bdaa5dcb9024221025db8856043baf104074f5b3c32b",
+   "kind": "screen_result",
+   "status": "frozen"
+  }
+ },
+ "provenance": {
+  "parent_fast_screen_result_sha256": "5466980e1aa0a59538e4e8fcfb29457814c01e91cbe39bf41a2d42140fc7e71a",
+  "head_factorial_result_sha256": "7f31c50639ef20dd35f5bdaa5dcb9024221025db8856043baf104074f5b3c32b"
+ }
+}
