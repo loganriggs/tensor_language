@@ -1,0 +1,54 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v1",
+  "created_utc": "2026-09-05T23:00:49Z",
+  "purpose": "Test whether the fixed 10-vector Task14 upstream program has small collateral when its literal projected L11H3 writes are added at the prediction position of two unrelated, native-capable behaviors.",
+  "binding_program": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json",
+    "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "finding": "Contains the ten selected 1152-D direction-cardinality writes and two direction-only controls, frozen before the third-corpus causal pass."
+  },
+  "binding_program_validation": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json",
+    "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0",
+    "finding": "All prospective prediction, native-substitution, template, intermediate, matched-control, and provenance gates pass."
+  },
+  "collateral_authority": {
+    "module": "ops/circuit_fast_screen_candidate_task14_head11_3_cross_circuit_collateral.py",
+    "file_sha256": "066799f544056db56b96b6d5d64bcb7a092b8cb98cab3e36e0d897ad4f0646a6",
+    "rows": 32,
+    "behaviors": ["numbered_list", "bracket_pending_opener"],
+    "prior_zero_removal_result_sha256": "57590fa85d1bec2f8235b8111c700721d3c5050140b9eccbd8196c703382806d"
+  },
+  "novelty_audit": [
+    "The prior collateral screen removes the native internal head-11.3 value and shows preservation; it does not install the newly extracted projected-write program.",
+    "Repository searches for prototype collateral, projected-write collateral, upstream-program selectivity, and unrelated-behavior prototype addition found no matching event.",
+    "All ten selected direction-cardinality writes are tested; no prototype is chosen after collateral outcomes."
+  ],
+  "intervention": "For every frozen unrelated row, run native and a zero-add replay, then add each of the ten 1152-D direction-cardinality vectors to the output of layer-11 attention projection at that row's registered final prediction position. This is the same projected residual-write interface used by the Task14 program. Score answer-minus-foil margin change normalized by the within-behavior median native margin. Do not pool behaviors or prototypes.",
+  "predictions": {
+    "pred_a_authority_native_capability": "All 32 frozen rows have positive native margins and both behavior scales are positive.",
+    "pred_b_projected_write_noop_replay": "Adding an exact zero vector through the same hook changes every answer/foil logit by at most 1e-4.",
+    "pred_c_all_ten_hooks_live": "Every prototype has positive finite norm and each installed output differs from the zero-add output at the registered position by that vector within 1e-5 maximum absolute error.",
+    "pred_d_numbered_list_preserved": "For every one of ten prototypes on numbered-list rows: median normalized absolute margin change <=0.10, at least 14/16 rows <=0.25, and <=1 answer flip.",
+    "pred_e_bracket_preserved": "For every one of ten prototypes on bracket rows: median normalized absolute margin change <=0.10, at least 14/16 rows <=0.25, and <=1 answer flip.",
+    "pred_f_literal_complete_program_test": "Exactly 320 nonzero installations cover all 32 rows x all ten registered vectors; no prototype scale, clipping, selection, or refit occurs and the registered managed price is obeyed."
+  },
+  "null": "Any behavior/prototype failure is selective-collateral evidence against adopting the literal program, even if most vectors preserve behavior. Preserve per-row effects and identify the failing direction/cardinality without rescaling. Passing gives narrow two-behavior selectivity only, not universal safety.",
+  "price": {
+    "physical_model_forwards": 3,
+    "example_evaluations": 384,
+    "nonzero_program_installations": 320,
+    "zero_add_replays": 32,
+    "native_evaluations": 32,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "universal_selectivity",
+    "other_unmeasured_behaviors",
+    "joint_program_composition",
+    "rank",
+    "compression"
+  ]
+}
