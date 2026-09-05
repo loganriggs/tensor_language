@@ -7,6 +7,7 @@ from __future__ import annotations
 from collections import Counter
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 from typing import Mapping, Sequence
@@ -14,7 +15,12 @@ from typing import Mapping, Sequence
 REPO = Path(__file__).resolve().parents[3]
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
+_CALLER_BQLIB_NO_MODEL = os.environ.get("BQLIB_NO_MODEL")
 import numbered_list_cached_value_weight_removal_rung576 as r576
+if _CALLER_BQLIB_NO_MODEL is None:
+    os.environ.pop("BQLIB_NO_MODEL", None)
+else:
+    os.environ["BQLIB_NO_MODEL"] = _CALLER_BQLIB_NO_MODEL
 
 
 ROOT = Path(__file__).resolve().parent.parent

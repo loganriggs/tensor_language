@@ -1,0 +1,12 @@
+{
+  "schema": "circuit_fast_screen_invalid_execution_v1",
+  "task_id": "numbered_list.index_successor.cached_term_head_source_factorial",
+  "attempted_at_utc": "2026-09-05T06:20:00Z",
+  "terminal": "invalid",
+  "science_executed": false,
+  "original_runner_sha256": "31bd7223c806e1532d0832e113956bff8d59ed899b2fe82871fb658e13e63b3c",
+  "captured_log_sha256": "24a3d447454441819689d571f7b16d4243a6e8163e5035f1758aaa61652407f5",
+  "cause": "Legacy R573/R576 helper imports unconditionally set BQLIB_NO_MODEL=1 inside the managed process, so main selected the dry-run branch.",
+  "correction": "The candidate and runner now preserve and restore the caller's BQLIB_NO_MODEL value around legacy imports; a focused regression test verifies that a normal import cannot force no-model mode.",
+  "rerun_policy": "The frozen scientific rows, conditions, predictions, thresholds, and split policy are unchanged. A corrected content-bound runner may repeat this attempt because no model forward or outcome scoring occurred."
+}

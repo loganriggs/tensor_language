@@ -19,11 +19,21 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
+# The frozen R573/R576 helper modules predate import-safe runners and set
+# BQLIB_NO_MODEL=1 at module import.  Preserve the caller's value so importing
+# those helpers cannot silently turn a managed science execution into a dry run.
+_CALLER_BQLIB_NO_MODEL = os.environ.get("BQLIB_NO_MODEL")
+
 import bilin18_observed_model_facade as facade
 import circuit_candidate_numbered_list_cached_term_head_source_factorial as candidate
 import circuit_fast_screen_managed_runner as managed
 import numbered_list_cached_value_weight_removal_rung576 as r576
 import numbered_list_factor_localization_rung573 as r573
+
+if _CALLER_BQLIB_NO_MODEL is None:
+    os.environ.pop("BQLIB_NO_MODEL", None)
+else:
+    os.environ["BQLIB_NO_MODEL"] = _CALLER_BQLIB_NO_MODEL
 
 
 ROOT = Path(__file__).resolve().parent.parent

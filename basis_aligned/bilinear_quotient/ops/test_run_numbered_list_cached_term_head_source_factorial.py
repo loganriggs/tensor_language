@@ -1,5 +1,11 @@
+import os
+
 import circuit_candidate_numbered_list_cached_term_head_source_factorial as candidate
 import run_numbered_list_cached_term_head_source_factorial as runner
+
+
+def test_legacy_helper_import_does_not_force_no_model_mode():
+    assert os.environ.get("BQLIB_NO_MODEL") != "1"
 
 
 def _records(*, t3_target=1.0, t7_target=0.1, joint_target=1.2,
