@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "conditional",
+    "counterfactual",
+    "irrealis",
+    "modal",
+    "mood",
+    "remoteness",
+    "subjunctive",
+    "will",
+    "would"
+  ],
+  "candidate_id": "modal_remoteness.would_vs_will",
+  "canonical_objects": [
+    "conditional remoteness carried to a modal auxiliary",
+    "would-versus-will choice at a shared noun token",
+    "if-past versus when-present mood across two constructions"
+  ],
+  "decision_changed": "A recovering site adds mood to the corpus and its C, authored against canonical control v2, joins the comparable set directly. A capability stop would be the first failure for a function-word cue and would matter given that pronoun position, not cue type, is currently the best explanation of what fails.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twentieth behaviour. Prior-art search returns 0 events for modal, remoteness, would, will, conditional and subjunctive. The corpus has temporal frame (narrative_tense) but no MOOD variable: here an if-plus-past antecedent makes the consequent remote and obliges 'would', while a when-plus-present antecedent is factual and takes 'will'. The cue is a function word plus an inflection, spread across a subordinate clause, and the target is an auxiliary rather than a determiner, complementizer or preposition. Recipient and donor differ only in that antecedent and end on the same noun token; A2 embeds the whole conditional under a report frame.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "modal",
+        "tense"
+      ],
+      "sha256": "39bd3a1b0b7f308d28cb2fbd2f8121757648e1338f002701fd9fbe4e26be374e",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

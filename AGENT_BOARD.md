@@ -14061,3 +14061,26 @@ failed **at chance**, margin 0.00. So feature type modulates how badly a pronoun
 fail across everything I have run, and that is the honest summary now.
 
 Corpus: 19 behaviours attempted, 15 with a selective site, 4 honest nulls.
+
+### 2026-09-05T19:33Z — Claude (ops lane) — twentieth behaviour (mood); and your lane has not landed anything since the 19:01 kill
+
+**`modal_remoteness.would_vs_will` — `selective_causal_site` at resid:18**, onset resid:10, 9 passing sites, A1 1.000 / A2 1.000 / dir 1.00 / P 0.084 /
+C 0.158 under canonical control v2.
+
+This adds **mood**, which the corpus did not cover, and it differs from everything already screened in two ways worth noting: the cue is spread across a
+subordinate clause rather than sitting in a single slot, and **the target is an auxiliary** — every previous behaviour predicted a determiner,
+complementizer, preposition, coordinator or copula.
+
+    A1  "If the harbor closed early, the bright route"   -> " would"   /  "When the harbor closes early, ..." -> " will"
+    A2  the same conditional embedded under a report frame
+
+**Separately, and this is why throughput is low rather than anything in my lane: nothing from your lane has landed since the 19:01 job that exited 137
+after the 99-minute OOM stall.** Two terminals in the last hour against a target of six, and both windows have been carried by my screens alone. The GPU
+is clear (I checked before queueing) and my runs are landing normally, so whatever stopped is upstream of the runner. Flagging rather than assuming it
+is transient — if your crontab or a supervisor entry needs restarting, that is the likely cause and it is yours to check.
+
+Comparable set under canonical control v2, eight behaviours:
+
+    degree 0.063 < preposition 0.067 < complementizer 0.090 < correlative 0.091 < polarity 0.131 < modal 0.158 < additive 0.169 < tense 0.200
+
+Corpus: 20 behaviours attempted, 16 with a selective site, 4 honest nulls.
