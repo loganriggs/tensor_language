@@ -1,0 +1,50 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v1",
+  "created_utc": "2026-09-05T23:09:02Z",
+  "purpose": "Test whether the frozen Task14 direction×cardinality-0 upstream number writes are reusable on adjacent possessive-number behavior with a different output vocabulary and downstream task branch.",
+  "binding_program": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_artifact_v1.json",
+    "sha256": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "vectors": ["plural_to_singular.cardinality_0", "singular_to_plural.cardinality_0"],
+    "selection": "Cardinality 0 is registered before reuse outcomes because the adjacent possessive authority has no E/A/U/W background factors."
+  },
+  "binding_task14_validation": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json",
+    "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"
+  },
+  "possessive_authority": {
+    "module": "ops/circuit_fast_screen_candidate_possessive_adjacent.py",
+    "file_sha256": "258dfd83967d3023c0d52f9703fa46e428f0009b6890e1c98b0102772359b8f8",
+    "logical_sha256": "d3b36d10d9fd0a749f938733256c88a2b3f7e546e1411eb688b74facbc012271",
+    "binding_result_path": "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json",
+    "binding_result_sha256": "3a08562d9d9ce57bef0027bc0d2e5ba1ca1d85a5d4ae462f489b5830a07f8dc7",
+    "selected_rows": "All 64 answer-changing A1/A2 rows; P/C controls are excluded because they do not define the registered plural<->singular direction map."
+  },
+  "novelty_audit": [
+    "Searches for possessive prototype, prototype possessive, cross-task number write, upstream reuse possessive, and adjacent L11H3 found no prior event.",
+    "The possessive screen identifies controller-local behavior at resid:18 but does not test Task14 L11H3 computation reuse.",
+    "The prior collateral test establishes preservation on unrelated tasks; this test instead demands useful donorward transfer on a related number task with `their`/`his` outputs."
+  ],
+  "intervention": "For each A1/A2 possessive base prompt, add the Task14 cardinality-0 projected L11H3 vector matching its registered plural-to-singular or singular-to-plural direction at the final prediction position. Measure the change in donor-answer minus base-answer logit margin. Compare with adding the opposite-direction cardinality-0 vector on the identical row. A zero-add replay validates the interface.",
+  "predictions": {
+    "pred_a_authorities_and_program_validate": "All immutable hashes, the possessive screen, exact row census, two finite 1152-D program vectors, and model checkpoint validate.",
+    "pred_b_native_capability_and_noop": "All 64 selected base prompts favor their base possessive answer; exact zero-add replay changes answer/foil logits by <=1e-4 and projected-addition error is <=5e-5.",
+    "pred_c_correct_write_moves_possessive_margin": "Correct-direction writes move donor-minus-base margin positively on >=75% of 64 rows and have median donorward change >=0.005 logits.",
+    "pred_d_each_direction_construction_transfers": "Each of four direction×construction cells has >=62.5% positive donorward changes and positive median change.",
+    "pred_e_direction_assignment_is_necessary": "Correct-direction change exceeds swapped-direction change on >=65% of rows and median(correct-swapped) >=0.005 logits.",
+    "pred_f_literal_cross_task_reuse": "Exactly 64 correct and 64 swapped unscaled installations are measured; no possessive outcome, gradient, fit, scale, offset, vector selection, or parameter update enters the writes."
+  },
+  "null": "Failure of c/d means the Task14 upstream write is not reusable for local possessive number. Failure of e means any effect is generic projected-write disturbance rather than direction-specific number computation. Preserve the null and do not tune cardinality or vector scale on these rows.",
+  "price": {
+    "physical_model_forwards": 4,
+    "example_evaluations": 256,
+    "correct_direction_installations": 64,
+    "swapped_direction_installations": 64,
+    "zero_add_replays": 64,
+    "native_evaluations": 64,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": ["possessive downstream reader identity", "other number tasks", "universal reuse", "rank", "compression"]
+}
