@@ -1,0 +1,135 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Identify which operational upstream writer families at the subject position make MLP8's direction-dependent cross and quadratic Task14 responses causally available to L11H3.",
+  "parents": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v2_result.json",
+      "sha256": "55d5413306f4471b0c9b8345732d317d0c1c4b82395153a119af3d56514f5ad6",
+      "finding": "The exact MLP8 cross and quadratic responses have opposite signs in the two number-transfer directions, are stable across recipient and donor downstream MLP backgrounds, and are number-specific."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_upstream_writer_factorial_v2_result.json",
+      "sha256": "5c021cad2f73663f2176a813fc1f4ceffef555b48d7d00c050d0f60d0a2434fa",
+      "finding": "At the later pre-attention-11 current-value input, the aggregate MLP writer family carried most Task14 effect. This motivates but does not answer which writer family MLP8 itself reads."
+    }
+  ],
+  "novelty_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "8096a3bfc8b67cb3ec7d65129dbfc0ff1fe2756c4842ff936f453cca42bb4d6c",
+      "relation": "The canonical dossier contains MLP8 localization and its cross/quadratic output split, but no causal factorial over the writer families at MLP8's input."
+    },
+    {
+      "path": "circuits/followups/task14_block11_component_factorial_v1_result.json",
+      "sha256": "b2b03a3dea912c69969d8f15fa10738e59e963ab559c6fd6799a25dffb97b8d2",
+      "relation": "This is a fixed-component factorial at block 11's prediction position, not an input-source split at MLP8's subject position."
+    },
+    {
+      "path": "polynomial_causal/explanations/MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md",
+      "sha256": "75c6caa3059f4488365ef2acfcb4ea52ff36c25c5b52b99c2181d8f59940ae92",
+      "relation": "The equality-circuit dossier closes retuning native product indices and generic reconstruction/rank sweeps. This experiment selects no product coordinates and measures Task14 behavior causally."
+    },
+    {
+      "path": "equality_mlp_product_term_group_rung467_results.json",
+      "sha256": "cc0480fc260c81b0fe512ec694413178de181b767f1dbfec43c56804b1ee5015",
+      "relation": "The code-only equality term group is a different task and coordinate-dependent object."
+    },
+    {
+      "path": "equality_mlp_product_term_natural_transfer_rung468_results.json",
+      "sha256": "115024d73722b2906eed0ce0739012a874c845664ba4be3e2dd9690980a37c6c",
+      "relation": "Natural-text transfer rejected the equality native-term list; no such list is reused here."
+    },
+    {
+      "path": "experiments/structure_mapping/bilin18_source_folding.py",
+      "relation": "This older MLP1 calculation decomposed activation variance and quadratic forms without a Task14 causal intervention. It supplies no result for MLP8 and activation reconstruction is not an endpoint here."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural Task14 HOLDOUT rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"],
+    "intervention_position": 8,
+    "disclosure": "The rows, MLP8 localization, full-input response outcomes, and direction signs are open. Only the E/A/M input-source interventions and their outcomes are prospective."
+  },
+  "exact_input_partition": {
+    "capture_point": "raw residual after attention8 and immediately before MLP8 RMSNorm at subject position 8",
+    "E": "the normalized token embedding propagated and reinjected by native skip coefficients through block 8",
+    "A": "the sum of native attention writes A0 through A8 after their exact residual propagation",
+    "M": "the sum of native MLP writes M0 through M7 after their exact residual propagation",
+    "epsilon": "native raw state minus the frozen floating-point grouping E+A+M; epsilon follows E only as numerical bookkeeping and has no semantic meaning",
+    "corner": "For S subset {E,A,M}, choose donor family values exactly for families in S and recipient values otherwise, then apply native RMSNorm to the assembled raw state.",
+    "operational_limit": "E, A, and M are native writer-family interventions, not a unique residual-stream semantic basis. Mixed corners are explicit cross-world path interventions."
+  },
+  "exact_response": {
+    "recipient": "x_r is the exact recipient normalized MLP8 input and x_S is one exact normalized writer-family corner",
+    "delta": "dx_S=x_S-x_r",
+    "cross": "(Left dx_S)*(Right x_r)+(Left x_r)*(Right dx_S)",
+    "quadratic": "(Left dx_S)*(Right dx_S)",
+    "full": "MLP8(x_S)-MLP8(x_r)",
+    "closure": "The cross and quadratic output responses sum exactly to the full response before the downstream nonlinear computation, after prospectively fixed numerical remainders are assigned to cross.",
+    "downstream_interface": "Apply Down and Down_bias once, cast once to the native slot dtype, sequentially propagate through block-9, block-10, and block-11 residual coefficients, replace only MLP8's subject-position slot, then use recipient L11H3 p_8, cached-value branch, and non-subject complement."
+  },
+  "conditions": {
+    "recipient_noop": 1,
+    "opposite_number": "seven nonempty E/A/M subsets times cross, quadratic, and full",
+    "same_number_lexical": "the same seven subsets times cross, quadratic, and full",
+    "total": 43,
+    "downstream_background": "standalone: all other MLP4 through MLP10 slots remain recipient. The parent experiment already found the complete MLP8 split stable across standalone and conditional backgrounds."
+  },
+  "causal_statistics": {
+    "set_function": "F_c(S) is the mean CE or margin effect of response component c from the normalized source corner S, after subtracting the recipient no-op in the same target orientation.",
+    "signed_recovery": "rho_c(S)=F_c(S)/F_c(EAM), retaining suppressive signs.",
+    "mobius": "For each response component and task metric, compute all singleton, pair, and triple Moebius terms of F over the full 2^3 source lattice.",
+    "interpretation": "These are causal set-function interactions caused by source composition, including RMSNorm mediation. They are not additive tensor identities or semantic coordinates, and CE nonlinearity is retained rather than linearized."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_input_state_closure_absolute_error": 0.00005,
+    "maximum_input_normalized_closure_absolute_error": 0.00005,
+    "maximum_hybrid_endpoint_absolute_error": 0.00005,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_product_closure_absolute_error": 0.00005,
+    "maximum_output_closure_absolute_error": 0.00005,
+    "maximum_propagated_endpoint_absolute_error": 0.00005,
+    "maximum_gauge_invariance_absolute_error": 0.00005,
+    "maximum_parent_head_endpoint_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "minimum_EAM_full_margin_effect": 0.03,
+    "minimum_EAM_full_CE_effect": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "minimum_dominant_recovery_fraction": 0.70,
+    "maximum_minor_recovery_fraction": 0.25,
+    "minimum_distributed_recovery_fraction": 0.25,
+    "maximum_additive_residual_fraction": 0.25,
+    "minimum_interaction_residual_fraction": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_collateral_ratio": 0.50
+  },
+  "predictions": {
+    "pred_a_instrument_live": "All exactness gates pass; opposite EAM full is live in every cell; and EAM cross/quadratic reproduce the previously open direction signs in both CE and margin.",
+    "pred_b_M_source_dominant": "M-only recovers at least 70% of every cross, quadratic, and full EAM effect in CE and margin with at least 75% row-sign agreement, while E-only and A-only each have at most 25% absolute recovery.",
+    "pred_c_E_source_dominant": "The same dominance criterion holds with E as the winner.",
+    "pred_d_A_source_dominant": "The same dominance criterion holds with A as the winner.",
+    "pred_e_distributed_additive": "No source dominates; at least two singleton sources reach 25% absolute recovery; and the aggregate source-interaction residual is at most 25% for every response component, cell, and metric.",
+    "pred_f_source_interaction_needed": "For at least one fixed response component, the aggregate source-interaction residual reaches 25% in both CE and margin in every task cell.",
+    "pred_g_direction_stable": "Every response component with an identified dominant singleton has the same winner in plural-to-singular and singular-to-plural transfer, and at least one component is identified.",
+    "pred_h_direction_switch": "At least one response component has identified but different dominant singleton winners in the two transfer directions.",
+    "pred_i_number_specific": "Every same-number different-lemma source corner is at most 25% of the corresponding opposite-number EAM response scale for CE and margin.",
+    "pred_j_lexical_collateral": "Any same-number different-lemma source corner reaches 50% of its corresponding opposite-number EAM response scale."
+  },
+  "gauge_limit": "Cross and quadratic are invariant to native-product Left/Right swaps and reciprocal rescaling. Ordered Left-only and Right-only hybrids are not scientific conditions. E/A/M remains an operational native-module partition with residual-stream reparameterization freedom.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 1472,
+    "causal_interventions": 672,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "capability_GPU_price": 0,
+    "capability_policy": "Issue a new candidate-scoped derivative license from the unchanged passing native-capability result and authority."
+  },
+  "closed_claims": ["unique_semantic_basis", "individual_attention_or_MLP_writer", "native_product_term_identity", "rank", "reconstruction", "necessity_outside_the_fixed_interface", "syntax_generality", "FIT", "new_independent_data"]
+}
