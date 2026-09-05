@@ -1,0 +1,153 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "narrative_tense.a2_c_native_capability_select_holdout_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Native-only dataset engineering: select one A2 construction and one same-tense C frame before any further narrative carrier intervention, then require an untouched lexical half to license the complete A1/A2/P/C causal authority.",
+  "scientific_scope": "Capability only. This receipt registers no L11H3, source-factor, carrier, or causal outcome.",
+  "prior_art_audit": [
+    {
+      "path": "circuits/task_narrative_tense_past_vs_present.json",
+      "sha256": "fb1e7455ffd69b68857253e596657e4092f30ffaa0e2db3c283e608e50131025",
+      "finding": "The latest claim is only site_live and requires staged native capability before any additional causal arms."
+    },
+    {
+      "path": "circuits/fast_screens/narrative_tense_attn11_head3_fresh_unchanged_carrier_value_v1_result.json",
+      "sha256": "c066ed776544e6a540a5f8e7e55c205b93f1d260c07a84932cc4b35a83a2a564",
+      "finding": "The first fresh carrier attempt was invalid because A1 past capability was .75; its post-last effective-value result is descriptive only."
+    },
+    {
+      "path": "circuits/fast_screens/narrative_tense_a1_direct_template_capability_select_holdout_v1_result.json",
+      "sha256": "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359ee",
+      "finding": "served_one_purpose was selected and passed its A1/P construction holdout, but that license did not cover new A2/C prompts or new lexical material."
+    },
+    {
+      "path": "circuits/fast_screens/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1_result.json",
+      "sha256": "b6507832a93d3eac91ab20e146578619b3dc55c17ca10a1bd0fb73ceb4a31da2",
+      "finding": "The 16-group new-lexicon causal attempt was invalid: A2 cells fell to .50-.75 and past C cells to 0-.50. No row or bar from it may be repaired after outcomes."
+    },
+    {
+      "path": "ops/native_capability_license.py",
+      "sha256": "681e8cea456369f519228f8eabfcc8dd43bbdf29c45f381e774fdc4452a22eb6",
+      "finding": "The fail-closed license binds one authority file, one logical authority digest, exact capability cells, and a reproducible passing native-only result."
+    }
+  ],
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_narrative_tense_a2_c_native_capability.py",
+    "file_sha256": "2eb632e88cd27d599aa745308a2973a2bfde29321e4f9ebb18a9ad0b8e46bf1b",
+    "logical_bank_sha256": "ee7b04735f5040ee0fc3128d47b587bef1841af9baace6596b7db734c762f64d",
+    "groups": 16,
+    "fit_groups": "0:8",
+    "holdout_groups": "8:16",
+    "stored_paired_rows": 128,
+    "stored_prompt_endpoints": 256,
+    "fit_paired_rows_opened": 64,
+    "fit_prompt_endpoints_opened": 128,
+    "selected_holdout_paired_rows_opened": 32,
+    "selected_holdout_prompt_endpoints_opened": 64,
+    "maximum_native_evidence_records": 192,
+    "total_prompt_tokens_across_stored_endpoints": 3984,
+    "causal_interventions": 0,
+    "freshness": "All 64 content nouns, complete prompt strings, and prompt token tuples are disjoint from the original narrative authority, the first fresh authority, and the failed new-lexicon authority. Cue words and the was/is answer vocabulary are intentionally shared."
+  },
+  "fixed_a1_and_p": {
+    "A1": "Yesterday/Today the SUBJECT served/serves one purpose. The central purpose of the TAIL -> was/is",
+    "P": "The same served_one_purpose tense and answer with only the subject changed; practical replaces central so P endpoints do not duplicate A1 endpoints.",
+    "reason": "served_one_purpose is the prior native-only A1 winner, but both A1 and P are reevaluated on this entirely new authority and are part of the eventual license."
+  },
+  "a2_candidates_in_fixed_tie_order": [
+    {
+      "template_id": "record_coordination",
+      "past": "The SUBJECT served one purpose yesterday and made a record. The central purpose of the TAIL",
+      "present": "The SUBJECT serves one purpose today and makes a record. The central purpose of the TAIL",
+      "prompt_tokens": 17,
+      "changed_token_positions": [2, 5, 7]
+    },
+    {
+      "template_id": "while_observers",
+      "past": "While the SUBJECT served one purpose yesterday, observers took notes. The central purpose of the TAIL",
+      "present": "While the SUBJECT serves one purpose today, observers take notes. The central purpose of the TAIL",
+      "prompt_tokens": 18,
+      "changed_token_positions": [3, 6, 9]
+    },
+    {
+      "template_id": "reported_frame",
+      "past": "Reports said the SUBJECT served one purpose yesterday. The central purpose of the TAIL",
+      "present": "Reports say the SUBJECT serves one purpose today. The central purpose of the TAIL",
+      "prompt_tokens": 15,
+      "changed_token_positions": [1, 4, 7]
+    }
+  ],
+  "c_candidates_in_fixed_tie_order": [
+    {
+      "template_id": "explicit_period",
+      "past": "In the past, the SUBJECT worked near the LOCATION. The central purpose of the TAIL -> was",
+      "present": "At present, the SUBJECT works near the LOCATION. The central purpose of the TAIL -> is",
+      "past_prompt_tokens": 17,
+      "present_prompt_tokens": 16,
+      "paired_changes": "subject and location only"
+    },
+    {
+      "template_id": "years_nowadays",
+      "past": "Years ago, the SUBJECT worked near the LOCATION. The central purpose of the TAIL -> was",
+      "present": "Nowadays, the SUBJECT works near the LOCATION. The central purpose of the TAIL -> is",
+      "prompt_tokens": 16,
+      "paired_changes": "subject and location only"
+    },
+    {
+      "template_id": "back_then_right_now",
+      "past": "Back then, the SUBJECT worked near the LOCATION. The central purpose of the TAIL -> was",
+      "present": "Right now, the SUBJECT works near the LOCATION. The central purpose of the TAIL -> is",
+      "prompt_tokens": 16,
+      "paired_changes": "subject and location only"
+    }
+  ],
+  "selection_rule": {
+    "fit_only": "Open native logits only for groups 0:8. Evaluate fixed A1/P once and all three A2 and all three C candidates. No attention factors, causal hooks, or groups 8:16 may be opened.",
+    "fixed_family_gate": "A1 and P must pass every registered FIT cell before any holdout is opened.",
+    "a2_eligibility": "Every A2 direction-by-side FIT cell has 4 examples and must be 4/4 correct; .875 is the registered threshold, whose attainable passing value is 1.0.",
+    "c_eligibility": "Every C tense-by-lexical-direction-by-side FIT cell has 2 examples and must be 2/2 correct; .875 is the registered threshold, whose attainable passing value is 1.0.",
+    "ranking": [
+      "maximize the minimum registered-cell accuracy",
+      "maximize the minimum registered-cell mean correct-answer-minus-foil margin",
+      "minimize the maximum registered-cell mean full-vocabulary correct-answer CE",
+      "use the fixed candidate order"
+    ],
+    "joint_choice": "Select A2 and C independently under the same frozen ranking, forming one of nine predeclared packages. Freeze both IDs and the matching package logical SHA before opening holdout.",
+    "failure": "If A1/P or every candidate in either selected family is incapable, stop with a native capability failure. Do not open holdout, drop rows, combine templates by cell, or fall back after holdout."
+  },
+  "holdout_rule": {
+    "boundary": "Groups 8:16 are lexically disjoint from FIT and no prompt in either half appeared in a prior narrative authority. Only the single frozen A2+C package is opened.",
+    "cells": "A1 and selected A2 each have four direction-by-side cells of 4 examples; P and selected C each have eight tense-by-lexical-direction-by-side cells of 2 examples.",
+    "bar": "Every one of the 24 HOLDOUT cells must have accuracy at least .875. At these counts that requires 4/4 for A1/A2 and 2/2 for P/C.",
+    "metrics": [
+      "native correct-answer accuracy",
+      "correct-answer-minus-foil was/is logit margin",
+      "full-vocabulary correct-answer cross-entropy"
+    ],
+    "failure": "Any failed cell finalizes as failed and emits no license. No template fallback or row removal is permitted."
+  },
+  "license_design": {
+    "implementation": "After FIT selects a package, construct one of the nine predeclared native_capability_license.CapabilityGate values. Its capability_id must include both selected template IDs; authority_path and file SHA are fixed here; authority_logical_sha256 is the predeclared selected-package digest below.",
+    "registered_package": "The selected package contains 64 paired rows and 128 endpoint evidence records: A1/A2/P/C on all 16 groups. It has 48 phase-specific registered cells, 24 FIT and 24 HOLDOUT, all at minimum_accuracy .875 with exact expected counts.",
+    "selection_binding": "native_capability_license_v1 has no selected-template field. Therefore generic selected cells are forbidden. The selected A2 and C IDs must be embedded in capability_id and causal_candidate_id, and the later compiler must independently recompute package_sha256 before finalizing or validating the license.",
+    "causal_preflight": "A later causal experiment must bind the exact license SHA, selected package logical SHA, registered-cells SHA, and candidate-specific causal ID before queueing or loading a model."
+  },
+  "predeclared_package_logical_sha256": {
+    "record_coordination+explicit_period": "5776b228a4350da3421883fef8f90102ebd00f69658dd7f7051105d749ebf2e3",
+    "record_coordination+years_nowadays": "d122e5bc3d0fb0ce4a1384948e74035e2dd1471f1193a5179372411198a4a8fb",
+    "record_coordination+back_then_right_now": "1f8b676ea7271e36b0703cbf32db97110f871e51f301ba76049fc272811c86d9",
+    "while_observers+explicit_period": "6f5058b30a92d2d4ac83c4e8f001c03a569f4e52e337ad173ee66b9da0ed75c8",
+    "while_observers+years_nowadays": "af5b3859abc2531356acbed70aa5909469a9a1058c23e88c304560ff4c192a1e",
+    "while_observers+back_then_right_now": "8f1ff2fc9ed4c54792f554bda3c5fd90e5c577538e43c3782c41e4ad518deb84",
+    "reported_frame+explicit_period": "b427429fe88c082743efbcdf30b5857763f92bb26e73330af30ef32585ea5758",
+    "reported_frame+years_nowadays": "241c06a262aa8019bfece40658a9be853847119328e44212356faa1807b493eb",
+    "reported_frame+back_then_right_now": "ee450098829b8061c96f4953848f80849eec278bca96f0d0615df22958403d3a"
+  },
+  "interpretation_limits": [
+    "The selected construction is capability-conditioned, so a later carrier result applies to that frozen capable construction rather than arbitrary narrative syntax.",
+    "A2 and C templates were frozen before their native outcomes, but their design was informed by the documented failures of the earlier relative A2 and yesterday/today C frames; this is lawful hypothesis generation, not independent confirmation of those old prompts.",
+    "Full-vocabulary CE and task margin are native capability diagnostics here, not simplicity or causal evidence.",
+    "The shared served/serves and was/is vocabulary prevents a claim of total lexical disjointness; only content nouns and complete prompts are disjoint.",
+    "The license utility does not verify that authority_logical_sha256 was recomputed from the authority file. The future compiler must perform that explicit check in addition to validate_gate."
+  ]
+}
