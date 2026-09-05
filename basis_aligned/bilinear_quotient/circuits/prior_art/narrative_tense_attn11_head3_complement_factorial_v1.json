@@ -1,0 +1,59 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "narrative_tense.attn11_head3_complement_factorial",
+  "relation": "within_module_decomposition",
+  "reviewer": "Codex circuit-only lane",
+  "aliases_searched": [
+    "narrative tense head 11.3",
+    "narrative tense attention 11 head",
+    "was is head 11.3",
+    "tense attention-head decomposition",
+    "agreement narrative tense shared head"
+  ],
+  "canonical_objects": [
+    "the partial causal effect of attention block 11 on narrative past-versus-present prediction",
+    "attention-11 head 3 versus the other eight heads on the frozen narrative-tense counterfactuals",
+    "whether the Task-14 agreement head is also active for narrative tense"
+  ],
+  "matched_prior_claims": [
+    "The frozen narrative-tense screen found attention block 11 moves the donor answer margin in both constructions, with A1 recovery 0.3516 and A2 recovery 0.2352, but it did not pass the 0.40 site-selection bar and therefore never expanded to heads.",
+    "The frozen Task-14 agreement screen found attention-11 head 3 carries most of attention block 11's agreement interchange effect.",
+    "The narrative-tense authority explicitly warns that agreement and tense share a copular answer position but encode different variables; a shared output token is therefore a live confound, not evidence of a shared semantic state.",
+    "The short-cue narrative-tense follow-up stopped at native capability and contains no attention-head evidence."
+  ],
+  "method_families": [
+    "donor-to-recipient interchange",
+    "exact attention-head output replacement",
+    "head-3 versus other-eight 2-by-2 causal decomposition",
+    "answer-margin and cross-entropy evaluation"
+  ],
+  "novelty_delta": "First fixed decomposition of the known partial attention-11 narrative-tense effect into head 3, the other eight heads, and their downstream interaction. It does not claim that a native head is the final basis. It is a cheap gate: only if head 3 is causally active on both tense constructions is a below-head source/value comparison with agreement licensed.",
+  "registered_predictions": {
+    "shared_copular_service": "Head 3 alone contributes at least half of the frozen full-attention-11 effect in every A1/A2 direction cell, moves at least 75 percent of rows donorward, and does not create larger normalized movement on P or C than the frozen whole attention block.",
+    "task_split": "The other eight heads or their interaction account for most of the frozen attention-11 effect, or head 3 fails the cellwise direction/effect requirements.",
+    "interpretation_limit": "Even a shared-copular-service result does not identify a shared tense/agreement state because both tasks can predict the token ' is'. It only licenses exact source-term and output-effect tests that can separate semantic reuse from a generic copula write."
+  },
+  "decision_changed": "A positive head-3 result advances to exact source-score/cached-value decomposition and cross-task downstream-response controls. A negative result kills the proposed agreement-by-tense head-3 grouping route and preserves the attention-11 effect as a different-head or interactive tense mechanism.",
+  "reviewed_sources": [
+    {
+      "source": "circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json",
+      "sha256": "5466980e1aa0a59538e4e8fcfb29457814c01e91cbe39bf41a2d42140fc7e71a",
+      "searched_terms": ["attn:11", "head_stage", "site_results", "A1", "A2"]
+    },
+    {
+      "source": "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json",
+      "sha256": "3c87e3973e1a7627f504ce26dfdaa3d7c48536f27a522e36c9e85741f09555c1",
+      "searched_terms": ["attn:11:head:03", "head_stage", "intervention_logits"]
+    },
+    {
+      "source": "circuits/fast_screens/narrative_tense_short_cue_distance_v1_result.json",
+      "sha256": "abe10c97d176b28fceebcb1d659d86f0a3103c0b5c04747748c0fedd9b09dd44",
+      "searched_terms": ["capability_stop", "head_stage"]
+    },
+    {
+      "source": "ops/circuit_fast_screen_candidate_narrative_tense.py",
+      "sha256": "ef6212bd87aba24d2dfaa50f995884c2cb14ad72ecf2b481cbfe18d766bcdf8c",
+      "searched_terms": ["subject_verb.number_agreement", "share an answer position", "A1", "A2", "P", "C"]
+    }
+  ]
+}
