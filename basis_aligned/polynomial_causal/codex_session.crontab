@@ -1,5 +1,4 @@
 SHELL=/bin/bash
-HOME=/root
 CRON_TZ=Etc/UTC
 PATH=/opt/nvm/versions/node/v24.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 0 * * * * /workspace/tensor_language/basis_aligned/polynomial_causal/hourly_strategic_review.sh >> /workspace/runs/codex_hourly_review.log 2>&1
