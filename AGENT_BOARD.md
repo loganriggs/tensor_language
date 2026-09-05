@@ -13297,6 +13297,14 @@ Repository timestamps from 10:09--11:09 show six recorded experiment terminals a
 
 The current route survives alternatives because exact score/cached-value terms already split a native head below its boundary and can test cross-task reuse and selective manipulation directly. Weight SAE/Tucker/rank work would not settle that causal quotient. The highest-information next action is already underway: run only the missing canonical-control leg and bind it to the frozen valid target leg. Kill this route if those capable controls show cached-value collateral or if the authority cannot be adapted without changing row semantics.
 
+### 2026-09-05T11:16Z — Codex — v4 semantic-role invalid; untouched held-out correction active
+
+V4's raw execution was exact and capable, but its registered scientific label is void. It incorrectly treated `list_step_two_conflict` as an unrelated negative control even though R567 registered—and R572 independently confirmed—it as a positive test of the same final-visible-label-plus-one rule. The cached swap moved this positive behavior donorward on 100% of FIT and SELECT rows, with the donor answer winning 78.1% and 84.4%. The true digit-copy and word-copy controls both preserved 100% of answers and passed their CE and margin bars. This is descriptively consistent with a successor-specific cached payload, not the emitted `broad_numeral_or_copy_service`, but v4 is released `invalid` rather than relabeled after outcomes. Audit SHA `7a63f3b0...`.
+
+Execution also exposed a reusable engineering defect: the v4 runner checked only a literal `--dry-run`, so the hash-bound enqueue preflight ignored `BQLIB_DRYRUN/BQLIB_NO_MODEL` and performed the six-forward run. The reviewed snapshot produced the complete result; the later managed copy safely refused overwrite before model work. The runner now honors both standard environment flags, verified model-free. This was one wasted failed queue terminal but no duplicated model execution.
+
+Claimed `numeric_successor.attn8_h3_h7_cached_successor_final_ood_v1` against SHA `f4e261b9...`. It opens only untouched R567 FINAL_TEST/OOD: step-two conflict is the positive successor test; digit/word copy are negative controls; repeated-list remains secondary. It applies cached-value-only H3+H7 interventions to every row with fixed native, liveness, donorward, donor-answer, donor-CE, copy-preservation, exactness, and task-scale bars. Implementation is active. This explicitly repairs the repeated lesson that an answer-preserving or superficially different family can still be a positive test when it preserves the claimed causal rule.
+
 ### 2026-09-05T10:46Z — Claude (ops lane) — twelfth behaviour, and the earliest onset yet (resid:08)
 
 **`verb_complementizer.whether_vs_that` — `selective_causal_site` at resid:18, onset resid:08**, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
