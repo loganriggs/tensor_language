@@ -1,0 +1,110 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Split the causally active upstream MLP8 write into the exact gauge-invariant base-by-change and change-by-change parts of its bilinear computation, while preserving the established L11H3 current-value interface.",
+  "parent": {
+    "result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_mlp4_10_conditional_layer_screen_v1_result.json",
+    "result_sha256": "5ca8b1ee5b23aad32e5fda9a3b4650c20c230228989ebd310c0804dfc695cba2",
+    "terminal": "valid_causal_screen",
+    "finding": "MLP8 alone passed both the standalone and conditional 25% Task14 margin-and-CE criteria in all four direction/template cells; number specificity held and large context dependence was null."
+  },
+  "novelty_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "relation": "The canonical Task14 record localizes a useful write to MLP8 but contains no within-MLP8 bilinear response split."
+    },
+    {
+      "path": "polynomial_causal/explanations/MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md",
+      "relation": "The closest MLP8 work concerns a different equality-matcher circuit. Its native product indices failed natural-text transfer, closing term-index retuning rather than this Task14 input-response decomposition."
+    },
+    {
+      "path": "equality_mlp_product_term_group_rung467_results.json",
+      "relation": "This selected equality-task native product coordinates on code and is neither Task14 nor an invariant branch-response factorial."
+    },
+    {
+      "path": "equality_mlp_product_term_natural_transfer_rung468_results.json",
+      "relation": "The code-selected equality terms failed natural transfer; this preregistration therefore does not select, rank, or tune native product coordinates."
+    },
+    {
+      "path": "polynomial_causal/TASK14_MLP15_17_PRODUCT_SUBSPACE_CAUSAL_INTERCHANGE_PREREGISTRATION.md",
+      "relation": "This parked, unexecuted downstream MLP15/17 projector design is a different site and learned object."
+    },
+    {
+      "path": "ops/circuit_intervention_primitives.py",
+      "relation": "Reuse exact_bilinear_response_terms for the already-tested algebra; no new generic intervention framework is needed."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural parent rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"],
+    "intervention_position": 8,
+    "position_meaning": "the subject token and L11H3 self-source, not an arbitrary final-token convention"
+  },
+  "exact_computation": {
+    "recipient_input": "x_r is MLP8's actual normalized input at subject position 8",
+    "source_input": "x_s is the opposite-number same-lemma input, or the same-number different-lemma control input, at the same position",
+    "delta": "dx=x_s-x_r",
+    "cross": "t_cross=(Left dx)*(Right x_r)+(Left x_r)*(Right dx)",
+    "quadratic": "t_quad=(Left dx)*(Right dx)",
+    "closure": "z_s=z_r+t_cross+t_quad",
+    "write": "Down is applied once to the selected product corner and Down_bias is added exactly once",
+    "propagation": "the MLP8 write is multiplied by the native block-9, block-10, and block-11 residual coefficients before replacing only the MLP8 slot in the pre-attention-11 subject state",
+    "downstream_interface": "recompute RMSNorm, L11 V head3 current branch, combine with recipient cached value, then use recipient p_8 and the recipient non-subject head complement before native suffix recomputation"
+  },
+  "conditions": {
+    "standalone": ["standalone_recipient", "standalone_cross", "standalone_quadratic", "standalone_full"],
+    "conditional": ["conditional_recipient", "conditional_cross", "conditional_quadratic", "conditional_full"],
+    "same_number_lexical": ["lexical_recipient", "lexical_cross", "lexical_quadratic", "lexical_full"]
+  },
+  "backgrounds": {
+    "standalone": "MLP4--7 and MLP9--10 use recipient writes",
+    "conditional": "MLP4--7 and MLP9--10 use opposite-number donor writes",
+    "lexical": "other MLP4--10 writes use recipient values"
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_state_sum_absolute_error": 0.00005,
+    "maximum_normalized_state_absolute_error": 0.00005,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_product_closure_absolute_error": 0.00005,
+    "maximum_output_closure_absolute_error": 0.00005,
+    "maximum_propagated_recipient_MLP8_absolute_error": 0.00005,
+    "maximum_propagated_source_MLP8_absolute_error": 0.00005,
+    "maximum_gauge_invariance_absolute_error": 0.00005,
+    "maximum_parent_head_endpoint_absolute_error": 0.00005,
+    "maximum_same_batch_native_noop_endpoint_error": 0.00007,
+    "maximum_installed_head_absolute_error": 0.00005,
+    "minimum_full_MLP8_mean_target_margin_improvement": 0.03,
+    "minimum_full_MLP8_mean_target_CE_improvement": 0.0,
+    "minimum_helpful_row_fraction": 0.75,
+    "minimum_dominant_recovery_fraction": 0.70,
+    "maximum_minor_recovery_fraction": 0.25,
+    "minimum_distributed_recovery_fraction": 0.25,
+    "minimum_interaction_recovery_fraction": 0.25,
+    "maximum_background_recovery_difference": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25,
+    "minimum_lexical_collateral_ratio": 0.50
+  },
+  "predictions": {
+    "pred_a_instrument_live": "All algebra, gauge, propagation, parent-endpoint, replay, installation, and live full-MLP8 gates pass in both causal backgrounds.",
+    "pred_b_cross_dominant": "The invariant base-by-change term recovers at least 70% of the full MLP8 CE and margin effect with at least 75% helpful rows in every task cell and both backgrounds, while the change-by-change term is at most 25%.",
+    "pred_c_quadratic_dominant": "The invariant change-by-change term satisfies the same 70% criterion while the base-by-change term is at most 25%.",
+    "pred_d_distributed": "Both invariant terms recover at least 25% in every task cell and background, while neither registered dominance account holds.",
+    "pred_e_downstream_interaction_needed": "The CE or margin interaction after the two exact writes are combined reaches 25% of the full MLP8 effect in every task cell and background.",
+    "pred_f_background_stable": "Cross and quadratic recovery each change by at most 25 percentage points between standalone and conditional backgrounds in every task cell and metric.",
+    "pred_g_number_specific": "The same-number different-lemma full response is at most 25% of the opposite-number standalone full response for CE and margin in every cell.",
+    "pred_h_lexical_collateral": "A same-number different-lemma full response reaches 50% of the opposite-number response in any cell."
+  },
+  "gauge_limit": "Independent reciprocal rescaling and Left/Right swapping of each native product leave t_cross and t_quad unchanged. Ordered Left-only and Right-only hybrid corners are therefore diagnostics only and cannot support semantic branch labels.",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 480,
+    "causal_interventions": 192,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": ["native_product_term_identity", "ordered_Left_or_Right_semantics", "rank", "reconstruction", "necessity", "syntax_generality", "FIT", "downstream_reader"]
+}
