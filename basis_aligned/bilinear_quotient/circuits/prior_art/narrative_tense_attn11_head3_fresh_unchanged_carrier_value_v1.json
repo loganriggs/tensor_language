@@ -1,0 +1,68 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "narrative_tense.attn11_head3_fresh_unchanged_carrier_value_v1",
+  "created_utc": "2026-09-05",
+  "question": "On fresh narrative-tense prompts, does the token-identical source region carry the donor-directed L11H3 effect through exact effective values after the head output projection?",
+  "prior_result": {
+    "path": "circuits/fast_screens/narrative_tense_attn11_head3_source_route_cross_task_payload_v1_result.json",
+    "sha256": "4a56ae3c8e3fe5dd375f68f520624d91ada9bdfd07fa0e54f23bff40957933a4",
+    "terminal": "invalid",
+    "reason": "The frozen native reinstall tolerance and an algebraically unsuitable partial-versus-whole control bound failed. It remains invalid; its strong R-joint movement is only an outcome-selected hypothesis for this fresh test."
+  },
+  "novelty_search": {
+    "searched": ["circuits/registry.json", "circuits/task_narrative_tense_past_vs_present.json", "circuits/active_screen_claims.jsonl", "circuits/fast_screens", "circuits/prior_art", "AGENT_BOARD.md"],
+    "finding": "No fresh-vocabulary, token-identical-carrier, exact effective-value screen for narrative-tense L11H3 was found."
+  },
+  "fresh_authority": {
+    "label": "fresh_confirmation",
+    "authority_sha256": "337c0b10f8f0d74bef5c1f3d9fef12b40231ebd78fe8fff38d8fb6af9b5f3178",
+    "groups": 32,
+    "rows": 128,
+    "source": "Flatten pronoun-authority objects and locations, remove every old narrative-tense word, preserve first occurrence, and require one GPT-2 token with a leading space.",
+    "vocabulary_size": 82,
+    "vocabulary_overlap_limit": "The 82 words cannot form three disjoint 32-word role sets. Alternate-subject and tail vocabularies overlap; require a unique subject/alternate/tail within each row and 32 unique tuples, not disjoint role vocabularies.",
+    "templates": {
+      "A1": "Yesterday/Today the SUBJECT remained/remains indoors. The central purpose of the TAIL -> was/is",
+      "A2": "The SUBJECT that remained/remains indoors yesterday/today drew/draws notice. The central purpose of the TAIL -> was/is",
+      "P": "Same A1 tense and answer; only the subject changes between two fresh alternate nouns not used by that group's A1/A2 endpoint.",
+      "C": "Same past answer; subject and earlier location change. C tests only past-tense selectivity."
+    },
+    "role_algorithm": "X is the exact set of changed token positions and self is the final input. R contains every non-self position with identical token IDs. Complement is X union self. Fixed causal-time subgroups are pre_first_change, between_changes, and post_last_change, excluding X.",
+    "required_invariants": ["zero old-lexeme overlap", "one-token answers and slots", "unique subject/alternate/tail within each row", "32 unique tuples", "equal pair lengths", "nonempty frozen differences", "target R token identity", "disjoint exhaustive R/complement partition", "balanced A1/A2 directions"]
+  },
+  "arms": ["expanded_native", "native_reinstall", "complete_head", "R_score", "R_effective_value", "R_joint", "complement_joint", "pre_first_change_effective_value", "between_changes_effective_value", "post_last_change_effective_value"],
+  "definitions": {
+    "score": "donor attention probability times recipient effective value",
+    "effective_value": "recipient native attention probability times donor u, where u includes the head output projection",
+    "joint": "donor attention probability times donor effective value",
+    "same_batch_control": "expanded_native is untouched while native_reinstall receives the saved native head in the same expanded call"
+  },
+  "bars": {
+    "minimum_native_accuracy_each_A1_A2_P_C_direction_side_cell": 0.85,
+    "maximum_source_sum_and_same_batch_native_reinstall_error": 0.00005,
+    "minimum_complete_H3_margin_and_full_vocab_CE_gain_each_target_cell": 0.0,
+    "minimum_complete_H3_donorward_fraction_each_target_cell": 0.75,
+    "R_joint_minimum_fraction_of_complete_margin_and_CE_each_target_cell": 0.5,
+    "R_joint_minimum_donorward_fraction_each_target_cell": 0.75,
+    "R_joint_minimum_advantage_over_complement_each_target_cell": 0.15,
+    "R_effective_value_minimum_fraction_of_R_joint_margin_and_CE_each_target_cell": 0.7,
+    "R_effective_value_minimum_donorward_fraction_each_target_cell": 0.75,
+    "maximum_each_R_or_causal_subgroup_P_C_absolute_effect_fraction_of_smallest_A1_A2_R_target_effect": 0.25,
+    "causal_subgroup_minimum_fraction_of_R_effective_value_margin_and_CE_each_target_cell": 0.7,
+    "causal_subgroup_minimum_donorward_fraction_each_target_cell": 0.75,
+    "minimum_live_installed_factor_difference_norm_each_tested_P_C_cell": 1e-08
+  },
+  "registered_outcomes": {
+    "pred_a_instrument_live": "Exactness, capability, and complete-H3 gates pass; selectivity is conditional, not instrument validity.",
+    "pred_b_unchanged_carrier_route": "R-joint passes recovery, direction, complement advantage, liveness, and direct P/C selectivity.",
+    "pred_c_unchanged_carrier_effective_value": "R effective value passes recovery, direction, liveness, and P/C selectivity after pred_b.",
+    "pred_d_pre_first_negative_control": "Pre-first effective-value installation is algebraically zero where prefixes match; any nonzero change invalidates exactness.",
+    "pred_e_between_changes_effective_value": "The fixed between-cues effective-value subgroup is sufficient and selective.",
+    "pred_f_post_last_change_effective_value": "The fixed post-last-cue effective-value subgroup is sufficient and selective.",
+    "pred_g_distributed_R_effective_value": "R effective value passes, but neither causal subgroup is sufficient alone.",
+    "pred_h_no_unchanged_carrier_route": "The instrument is live but R-joint fails its causal or selectivity gates."
+  },
+  "reported_interactions": ["complete_head - R_joint - complement_joint + expanded_native, for margin and CE", "R_joint - R_score - R_effective_value + expanded_native, for margin and CE"],
+  "price": {"model_forwards": 12, "example_evaluations": 1536, "backwards": 0, "parameter_updates": 0},
+  "interpretation_limits": ["u is after the output projection; this does not separately identify the cached pre-projection value.", "Large interaction contrasts forbid additive allocation language.", "A control cell with a numerically dead installed carrier change is uninformative, not selective.", "C tests only past-tense selectivity."]
+}

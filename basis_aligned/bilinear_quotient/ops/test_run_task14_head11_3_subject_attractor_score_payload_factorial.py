@@ -2,6 +2,8 @@
 
 import attention_source_factor_primitive as primitive
 import run_task14_head11_3_subject_attractor_score_payload_factorial as runner
+import pytest
+import torch
 
 
 def test_frozen_authority_positions_and_price():
@@ -49,3 +51,22 @@ def test_score_rejects_a_complete_head_that_does_not_improve_ce():
     ]
     scored = runner.score(evidence, 0, 0, 1)
     assert not scored["predictions"]["pred_a_instrument_live"]
+
+
+def test_masked_head_delta_is_exact_row_selection():
+    delta = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+    assert torch.equal(runner._masked_head_delta(delta, None, torch), delta)
+    assert torch.equal(
+        runner._masked_head_delta(delta, torch.tensor([False, True]), torch),
+        torch.tensor([[0.0, 0.0], [3.0, 4.0]]),
+    )
+    with pytest.raises(RuntimeError, match="boolean"):
+        runner._masked_head_delta(delta, torch.tensor([0.0, 1.0]), torch)
+    with pytest.raises(RuntimeError, match="one entry"):
+        runner._masked_head_delta(delta, torch.tensor([True]), torch)
+    replacement = delta + 10
+    installed = runner._same_batch_native_heads(
+        replacement, delta, torch.tensor([True, False]), torch)
+    assert torch.equal(installed, torch.tensor([[1.0, 2.0], [13.0, 14.0]]))
+    with pytest.raises(RuntimeError, match="boolean"):
+        runner._same_batch_native_heads(replacement, delta, torch.tensor([1, 0]), torch)

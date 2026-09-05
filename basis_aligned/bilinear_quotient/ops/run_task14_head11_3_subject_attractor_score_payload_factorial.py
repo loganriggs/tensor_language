@@ -77,8 +77,33 @@ def _pad(rows, side, length, torch, device):
     return tokens, torch.tensor(finals, device=device)
 
 
+def _masked_head_delta(delta, mask, torch):
+    """Select exact replacement rows; never permit fractional head scaling."""
+    if mask is None:
+        return delta
+    if tuple(mask.shape) != (delta.shape[0],):
+        raise RuntimeError("replacement head mask must have one entry per row")
+    if mask.dtype != torch.bool:
+        raise RuntimeError("replacement head mask must be boolean")
+    if mask.device != delta.device:
+        raise RuntimeError("replacement head mask must share the write device")
+    return delta * mask.unsqueeze(-1)
+
+
+def _same_batch_native_heads(replacement, native, mask, torch):
+    """Use factors captured in this dispatch for designated reinstall rows."""
+    if mask is None:
+        return replacement
+    if tuple(mask.shape) != (replacement.shape[0],) or replacement.shape != native.shape:
+        raise RuntimeError("native reinstall mask or head shape is invalid")
+    if mask.dtype != torch.bool or mask.device != replacement.device:
+        raise RuntimeError("native reinstall mask must be boolean on the write device")
+    return torch.where(mask.unsqueeze(-1), native.to(replacement.dtype), replacement)
+
+
 def _factor_forward(model, tokens, finals, torch, F, facade, *, source_positions=None,
-                    replacement_terms=None, replacement_heads=None):
+                    replacement_terms=None, replacement_heads=None,
+                    replacement_head_mask=None, native_reinstall_mask=None):
     captured = {}
 
     def attention(event):
@@ -94,7 +119,11 @@ def _factor_forward(model, tokens, finals, torch, F, facade, *, source_positions
             )
         if replacement_heads is not None:
             rows = torch.arange(tokens.size(0), device=tokens.device)
-            write[rows, finals] += (replacement_heads - factors["head"]).to(write.dtype)
+            installed = _same_batch_native_heads(
+                replacement_heads, factors["head"], native_reinstall_mask, torch)
+            delta = (installed - factors["head"]).to(write.dtype)
+            delta = _masked_head_delta(delta, replacement_head_mask, torch)
+            write[rows, finals] += delta
         return write, event.first_value
 
     logits = facade.forward_with_dispatch(
