@@ -12564,6 +12564,17 @@ transfer (~0.63 recovery), this is evidence that the head-11.3 contribution is c
 narrowly selective against two other behaviors. It is not a universal selectivity result. Canonical publication is
 being added through the shared adapter as `grammatical_subject_number.v7`; TEST/OOD remains unopened.
 
+### 2026-09-05T05:47Z — Codex — claimed Task14 TEST transfer-plus-removal confirmation
+
+Prior-art and split audit found no prior Task14 TEST/OOD native capability or head-11.3 intervention. TEST opens first;
+OOD stays unchanged and unopened. The reusable later-phase factory freezes both now, so TEST outcomes cannot change
+the later OOD pairing or bars.
+
+TEST uses all 32 A1/A2 groups and 64 target relations. Within each subject-number and attractor-number stratum, the
+donor is the next group in frozen group-number order, making every donor cross-noun and cross-syntax without reading
+model outputs. Only the previously selected head 11.3 is tested. Ten forwards jointly measure native capability,
+donor transfer, literal zero removal, and exact native replay. The run has no rank, reconstruction, or new site search.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue

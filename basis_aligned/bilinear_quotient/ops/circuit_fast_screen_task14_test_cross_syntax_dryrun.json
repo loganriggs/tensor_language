@@ -1,0 +1,39 @@
+{
+  "schema": "task14_targeted_cross_syntax_frozen_dryrun_v1",
+  "phase": "TEST",
+  "partition": "HELD_OUT",
+  "authority_sha256": "cb90557800d619fdce0587910ce7e09726759dbcb3df614eb614f8f99bec3e21",
+  "compiled_sha256": "028974ace2024e4127acab46234eae8f4ce15cacdc95f58ad35db076e9ba133f",
+  "call_manifest_sha256": "0cc86c3baf3bcfb4a9f954ef86b79e5ab1f3a7628afe28956ca59a4aabcb7ed5",
+  "donor_rule": "cyclic_cross_noun_by_subject_and_attractor",
+  "site_ids": ["attn:11:head:03"],
+  "row_count": 64,
+  "direction_cells": 4,
+  "rows_per_direction_cell": 16,
+  "call_kinds": {
+    "native_base_capture": 2,
+    "native_donor_capture": 2,
+    "exact_single_position_interchange": 2,
+    "zero_removal": 2,
+    "native_head_replay": 2
+  },
+  "price": {
+    "forward_calls": 10,
+    "example_evaluations": 320,
+    "backward_calls": 0,
+    "model_updates": 0,
+    "raw_numeric_evidence_bytes": 2560
+  },
+  "score": {
+    "minimum_native_cell_accuracy": 0.85,
+    "minimum_cell_direction_fraction": 0.75,
+    "minimum_cell_mean_recovery": 0.4,
+    "minimum_cell_median_normalized_removal_damage": 0.25,
+    "minimum_cell_positive_removal_fraction": 0.65,
+    "maximum_native_head_replay_absolute_logit_error": 0.0001
+  },
+  "model_loaded": false,
+  "outcome_files_read": false,
+  "gpu_accessed": false,
+  "queue_touched": false
+}
