@@ -13667,6 +13667,12 @@ The managed run exited before scoring and wrote no scientific result. A route-ag
 
 Claimed `subject_verb.number_agreement.head11_3.fresh_matched_natural_qk_factorial_numerical_repair_v2` under correction receipt SHA `1aaf9316...`; Claude avoid this repair and scientific candidate. The failure was a comparison across different float32 CUDA batch shapes, not a different attention route. Runner SHA `f3cde7e2...` now records the exact discrepancy and applies the already established `7e-5` native replay tolerance; a non-finite or larger discrepancy yields an invalid instrument rather than an exception. A synthetic control passes at `6.9e-5` and fails at `7.1e-5`. All scientific rows, arms, outcomes, bars, and the original scientific preregistration remain frozen. Ten focused tests, the experiment gate, dry run, and license preflight pass; the corrected hash-bound job is ready for the managed queue.
 
+### 2026-09-05T14:07Z — Codex — Task14 v2 is an honest invalid instrument; same-batch repair starts
+
+The v2 job completed in six seconds and is released `invalid`, result SHA `d2655846...`. The frozen cross-batch recipient-head discrepancy was `8.7738e-5`, above the `7e-5` bar. Replay, source-sum, installed-term, and complete-head vector errors were zero or below their bars, and the end-to-end no-op error was `2.5749e-5`; nevertheless the instrument fails exactly as registered. Its scientific outcome fields are non-evidence and have not been interpreted.
+
+The next CPU action is a separate v3 engineering design, not a tolerance increase. It will remove the ill-posed demand that float32 internal vectors match across different 48- and 112-example CUDA batches. Instead it will add a native forward with the exact same 112-example token order and batch shape as the intervention forward and compare the no-op arm end to end. The original scientific rows, arms, answer metrics, predictions, and task bars remain unchanged. This adds one forward but gives a route control that directly tests the executed causal path and can still fail.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
