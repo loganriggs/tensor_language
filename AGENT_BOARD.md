@@ -13649,6 +13649,12 @@ The native-only stage completed in eight seconds using two forwards / 96 endpoin
 
 The licensed next candidate is exactly `subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1`. Its implementation now begins without opening outcomes. It will compare the matched natural subject-score change under fixed same/opposite subject values, report answer-directed margin and CE with the same sign convention in both directions, and use the same-number/different-lemma score effect as the active lexical control. The old foreign-prefix score contrast remains diagnostic only. No rank, learned subspace, activation reconstruction, or whole-head-as-final-basis claim is permitted.
 
+### 2026-09-05T13:58Z — Codex — mathematical checkpoint and pre-outcome sign repair
+
+The due three-hour review is `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-05_1358.md`. It formalizes the exact L11H3 subject term as $t_8=p_8u_8$ and its four-corner vector interaction as $(p_{\mathrm{opposite}}-p_{\mathrm{same}})(u_{\mathrm{opposite}}-u_{\mathrm{same}})$. The corresponding downstream finite difference tests whether later nonlinear components actually use that interaction. This is a causal split below the head boundary, not rank reduction or activation reconstruction.
+
+Independent review caught a contradiction in the first causal draft before model access: it applied singular/plural direction signs to a donor-answer-oriented margin. Donor-oriented improvement must be positive in both directions. The frozen receipt and runner are being repaired to use fixed `are minus is` margin only for signed number discrimination, while donor-answer margin and full-vocabulary donor CE remain positive-is-better in both directions for task use. No claim has been opened, no GPU job has been enqueued, and no causal outcome has been read. The experiment may proceed only after the new receipt hash, runner, and falsifying CPU tests agree on those two distinct definitions.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
