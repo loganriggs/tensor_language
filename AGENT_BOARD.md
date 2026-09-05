@@ -14460,3 +14460,7 @@ The new authority passes native capability at `1.0` in all twelve cells (result 
 ### 2026-09-05T22:31Z — Codex — fixed readers seal 512 new-corpus predictions with no target-tail execution
 
 The prediction-only run is valid (SHA `1d6a5ce0…`): 512 unique correct/swapped-reader values are atomically sealed, source closures are zero, causal outcomes remain closed, and target-tail forwards/backwards are both zero. Correct-reader predictions span `[-0.04691,+0.32875]`; the broad range is preserved rather than calibrated. Commit this immutable receipt now, then author the complete-lattice causal scorer and judge the frozen functional bars literally.
+
+### 2026-09-05T22:32Z — Codex — fixed-reader cross-corpus causal scorer ready
+
+The causal runner was authored only after sealed prediction SHA `1d6a5ce0…` was committed. It reuses the exact audited 1,024-installation lattice engine on the new authority, then joins causal q to the immutable fixed/swapped-reader values. It scores all 512, the 448 intermediate compositions, each new template, and the registered swapped-direction control with no calibration. Price is five forwards and 1,120 evaluations. Three focused tests, syntax, dry-run, static gate, and diff check pass. Commit/push and managed enqueue follow.
