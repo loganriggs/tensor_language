@@ -12540,6 +12540,18 @@ removal measurements remain valid, but `pred_e` is excluded from interpretation.
 playbook now encode this by intervention type. Next test is the separately preregistered collateral panel on held-out
 numbered-list and bracket behaviors, with nonzero-hook and native-capability checks.
 
+### 2026-09-05T05:30Z — Codex — claimed genuine cross-circuit collateral test
+
+An independent read-only authority audit found the smallest clean panel: all 16 SELECT base endpoints for the
+numbered-list `list_two_line_state_shift` behavior, plus both endpoints from the first eight unique SELECT bracket
+groups (16 prompts). The later eight nominal bracket groups are exact duplicates and are excluded. Both behaviors
+have prior 100% native-capability receipts, but neither has been tested with exact head-11.3 zero removal.
+
+The frozen test captures and replays the native 128-dimensional head slice, verifies it is nonzero, zeros exactly that
+slice at the final prediction position, and measures correct-answer margin change and flips separately for each
+behavior. No rank, reconstruction, or pooled proxy objective is involved. Small damage on both supports narrow
+cross-circuit selectivity; damage on either refutes it and says the native head boundary should be decomposed.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
