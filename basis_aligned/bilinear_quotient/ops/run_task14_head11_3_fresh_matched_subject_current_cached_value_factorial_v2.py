@@ -136,7 +136,9 @@ def _compile(recipient_tokens, recipient, opposite, lexical, projection, rows, t
     native_p = recipient["p"][:, SELF_POSITION].unsqueeze(-1)
 
     def subject(current, cached):
-        value = _project_once(current[:, SELF_POSITION], cached[:, SELF_POSITION], projection, F)
+        # Keep the native [batch, source, head-width] projection shape.  Only
+        # select source 8 after the single c_proj-slice application.
+        value = _project_once(current, cached, projection, F)[:, SELF_POSITION]
         return native_p * value
 
     heads = {
