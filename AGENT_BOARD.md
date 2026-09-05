@@ -14319,6 +14319,10 @@ The six-second managed run is valid (SHA `16665084…`) and all six gates pass. 
 
 Claimed `subject_verb.number_agreement.pristine_split_mlp6_7_absolute_composition_transfer_v1` (prior-art SHA `4a066191…`) after zero matching authority events. Its frozen authority has 48 noun forms disjoint from all prior Task14 vocabularies and 120 unique matched endpoints. FIT has 32 rows over `near/behind` and `outside/past`; HOLDOUT has eight rows with disjoint nouns and the unseen reversed `past/outside` template. After a native-only gate, FIT alone freezes q0 plus four exact Shapley coefficients per direction. Those ten scalars must predict every absolute HOLDOUT q(S), including endpoints, with no target calibration. This directly tests coefficient generation/sharing on genuinely untouched text; HOLDOUT failure cannot be repaired by refitting.
 
+### 2026-09-05T21:47Z — Codex — pristine native capability passes all 18 cells
+
+The managed native-only stage passes at 100% accuracy in every phase×direction×template×role cell (minimum registered floor 0.75). Result SHA is `34ec2813…`; candidate-scoped license SHA is `c74a00af…`. This opened native outcomes but no causal intervention. The complete E/A/U/W-by-X lattice is now licensed. Its scorer will use only FIT q(S) to freeze q0 and four Shapley coefficients per direction, then score untouched HOLDOUT nouns and `past/outside` template without either target endpoint.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
