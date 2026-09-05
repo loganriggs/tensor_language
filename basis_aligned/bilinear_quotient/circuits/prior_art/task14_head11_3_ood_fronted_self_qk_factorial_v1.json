@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_ood_fronted_self_qk_factorial",
+  "timestamp_utc": "2026-09-05T09:58:00Z",
+  "search_terms": [
+    "Task14 fronted self Q K Q2 K2 factorial",
+    "L11H3 self score branch decomposition",
+    "attention query key downstream Shapley"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
+    "ops/attention1_query_key_downstream_shapley_rung496.py",
+    "circuits/fast_screen_ledger.jsonl",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Task14 fronted score-role factorial",
+      "relation": "Localized essentially all conditional score correction to the final subject's self score, but explicitly left Q, K, Q2, and K2 unresolved."
+    },
+    {
+      "work": "Attention1 query/key downstream Shapley rung496",
+      "relation": "Provides a method precedent for exact 16-corner query/key accounting on another circuit; it did not test Task14, L11H3, or the fronted self term."
+    }
+  ],
+  "novelty": "First exact Task14 localization of the fronted final-subject self score across its four normalized rotary factors q, k, q2, and k2. With donor u8 fixed and every non-self source term native, evaluate all 16 recipient/donor factor corners in p8=(q dot k/128)(q2 dot k2/128), then run the real downstream model and measure answer margin and CE.",
+  "registered_screens": {
+    "qk1_pair_sufficiency": "donor q and k with native q2 and k2 recover at least 70 percent of the signed 1111-minus-0000 task-margin effect in both direction cells, with at least 75 percent row agreement with the cell-total sign and CE contribution having the same sign as total CE",
+    "qk2_pair_sufficiency": "independently, donor q2 and k2 with native q and k meet the same two-cell signed-recovery, row-direction, and CE-sign bars; both branch screens may pass",
+    "branch_composition_dependence": "the named two-branch interaction v1111-v0011-v1100+v0000 has absolute magnitude at least 10 percent of the total, the same sign in both direction cells, and that sign repeats in both deterministic lexical halves"
+  },
+  "required_controls": [
+    "native recipient and donor task capability in both fronted direction cells",
+    "exact native replay and source-term sum",
+    "fixed donor projected value u8 and native source terms for every k other than 8",
+    "0000 and 1111 reproduce the opened donor-value and donor-self-score endpoints row by row",
+    "every installed self term equals the constructed scalar p8 times donor u8",
+    "all four factor vectors and both natural branch scalar scores are finite, nonzero, and recipient-donor distinct",
+    "all 16 masks occur exactly once per row; exact four-factor Mobius reconstruction and Shapley efficiency"
+  ],
+  "interpretation_limits": [
+    "This is a QK algebra/localization screen, not identification of four natural causal variables.",
+    "At a self source q, k, q2, and k2 naturally come from the same residual vector. The 14 mixed corners break that tie and probe an off-diagonal bilinear extension, so individual query-versus-key effects are descriptive and require later natural-counterfactual validation.",
+    "The scalar cross-kernel corners are invariant under paired query/key gauge changes, but the two QK branch labels retain an exchange symmetry.",
+    "OOD text is reused; pristine OOD, selectivity, completeness, and semantic naming remain closed."
+  ],
+  "source_sha256": {
+    "fronted_score_factorial_v2": "39269428f6948ceae892721c7f79906e1223b97c6eb0033de0c95be545ac1f8e"
+  }
+}
