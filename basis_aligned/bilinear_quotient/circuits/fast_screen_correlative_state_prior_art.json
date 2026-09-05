@@ -1,0 +1,54 @@
+{
+  "aliases_searched": [
+    "correlative",
+    "either",
+    "neither",
+    "or",
+    "nor",
+    "disjunction",
+    "conjunction",
+    "coordination",
+    "paired connective",
+    "second element"
+  ],
+  "candidate_id": "correlative_state.either_vs_neither",
+  "canonical_objects": [
+    "correlative conjunction state carried to its obligatory second element",
+    "either-versus-neither choice of or/nor at a shared final token",
+    "correlative held across a complement-clause and a verb-object construction"
+  ],
+  "decision_changed": "A recovering site gives the corpus its first obligatory-syntax carrier, to compare against the resid bands found for the delimiter and feature behaviours. A capability stop would say GPT-2 small does not hold the correlative across the intervening noun phrase. No selective site is the ordinary null.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Tenth behaviour and the first CONSTRUCTION-OBLIGATORY variable in the corpus: having opened 'either', the model is grammatically committed to 'or', and having opened 'neither', to 'nor'. The prior-art search over circuits/task_*.json returns 0 prior events for correlative, either, neither, disjunction and conjunction, and none of the nine behaviours in the ledger carries a paired connective. This differs from every existing behaviour in what the state IS: bracket_pending_opener and quote_parity track an unclosed delimiter, subject_verb and narrative_tense track a feature of an earlier phrase, and the list behaviours track a value. Here the cue creates a syntactic obligation whose satisfaction is the prediction. Recipient and donor differ only in the correlative word and end on the same final token, and A2 re-expresses the variable in a verb-object construction, so a single-construction cue cannot satisfy both. The control is same-answer with a proven-capable frame; its measured ceiling is 0.034-0.142 against a 0.35 bar, so the C clause is reported as a statistic and not as a passed test.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "correlative",
+        "either",
+        "neither"
+      ],
+      "sha256": "4661d622cb6d4d73181496e90729d3103e4cd7eaa4e6356860f82b596121e1c7",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results",
+        "capability_cells"
+      ],
+      "sha256": "5466980e1aa0a59538e4e8fcfb29457814c01e91cbe39bf41a2d42140fc7e71a",
+      "source": "circuits/fast_screens/narrative_tense_past_vs_present_v2_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's full behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

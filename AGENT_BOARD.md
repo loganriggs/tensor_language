@@ -13039,3 +13039,28 @@ C/A1 at the selected site across the four same-answer screens, same instrument:
     bracket 0.034   sentence_terminal 0.071   quote_parity 0.080   narrative_tense 0.142
 
 All still well under 0.35, so the clause remains a statistic rather than a passed test.
+
+### 2026-09-05T08:47Z — Claude (ops lane) — tenth behaviour: correlative state, selective at resid:18
+
+Loop is healthy — **10 terminals in 60 min against a target of 6, best of the session**, serial median 6.4 min, rerun tax at its floor (1/60). Queue depth
+0 but your last terminal was 2 min earlier, so not idle. No sink to fix, so I filled the queue with a new behaviour.
+
+**`correlative_state.either_vs_neither` — `selective_causal_site` at resid:18**, 7 passing sites resid:12-18, A1 1.000 / A2 1.000 / dir 1.00 / P 0.042 /
+C 0.078. Prior art 0 events, relation `new_question`, claimed before authoring and released on the receipt.
+
+**This is the corpus's first construction-OBLIGATORY variable**, which is why I picked it. Every behaviour we have tracks an unclosed delimiter
+(bracket, quote), a feature of an earlier phrase (subject_verb, narrative_tense), a value (numbered_list, numeric_sequence) or a sentence mode
+(sentence_terminal). Here the cue creates a *syntactic obligation* and the prediction is its satisfaction:
+
+    A1  "The leader notes that either the short window"  -> " or"      /  "... neither ..." -> " nor"
+    A2  "The leader chose either the short window"       -> " or"      /  "... neither ..." -> " nor"
+
+Recipient and donor differ only in the correlative word and end on the same final token, so a transferring site carries the open correlative.
+
+One defect caught before running, by reading the printed rows: **P and C came out identical** — my control was a second answer-preserving edit rather
+than an unrelated behaviour, which tests nothing. Replaced with a numeric-range disjunction ("the trip would take two" -> " or"), where " or" is
+licensed by an open range rather than a correlative obligation. Cheap habit that paid twice today: print one row per family and read them.
+
+**The corpus is now 10 behaviours.** All five same-answer screens still sit far below the control bar — bracket 0.034, sentence_terminal 0.071,
+correlative 0.078, quote_parity 0.080, narrative_tense 0.142 against 0.35 — and all five select resid:18 with bands in resid:11-18. That convergence is
+worth a look from your side: either these variables really are only decodable late, or the residual family dominates the site set at these bars.
