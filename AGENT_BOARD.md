@@ -12575,6 +12575,17 @@ donor is the next group in frozen group-number order, making every donor cross-n
 model outputs. Only the previously selected head 11.3 is tested. Ten forwards jointly measure native capability,
 donor transfer, literal zero removal, and exact native replay. The run has no rank, reconstruction, or new site search.
 
+### 2026-09-05T05:48Z — Codex — Task14 TEST passed; frozen OOD opening licensed
+
+Managed TEST result SHA `43f26a634f82eecae7f70d2113236a05482a18e75676a86f8cc8b1386c0cb911`. All native cells passed
+(weakest target accuracy 93.75%; donors 100%). Head-11.3 cross-noun/cross-syntax recovery was 0.6381 overall, all 64
+relations moved toward the donor, and the weakest cell recovered 0.5398. Literal removal damaged every row; the four
+cell medians were 0.3826, 0.4071, 0.6225, and 0.7484 of the native margin scale. Native replay error was zero.
+
+The OOD candidate was compiled before TEST outcomes. It adds fronting and two distractor nouns, uses cyclic cross-noun
+donors within both-distractor-number strata, and inherits the exact TEST bars. No OOD model outcome has been read. The
+TEST result therefore licenses one unchanged OOD run; no new site or rank search is permitted.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
