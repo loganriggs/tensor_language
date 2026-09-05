@@ -1,0 +1,44 @@
+{
+  "schema": "circuit_fast_screen_publication_spec_v1",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json",
+  "result_artifact_id": "task14_fast_screen_full_state_v2_result",
+  "canonical_tag": "task.subject_verb.number_agreement",
+  "source_claim_id": "grammatical_subject_number.v2",
+  "event_id": "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+  "test_type": "full_swap_ceiling",
+  "transform_to_family_id": {
+    "A1": "a1_subject_number_preposition_v2",
+    "A2": "a2_subject_number_relative_clause_v2",
+    "P": "p_noun_identity_same_state_v2",
+    "C": "c_attractor_number_coordinated_subject_v2"
+  },
+  "split_plan_id": "task14_fit_localization_split_v2",
+  "result_site_id": "attn:11",
+  "canonical_site": {
+    "site_id": "attention.block11.output.final_position",
+    "tensor_path": "full attention block 11 output at the final prediction position",
+    "shape": [
+      "batch",
+      1152
+    ],
+    "intervention": "exact donor replacement of the full attention-module output at the final prediction position"
+  },
+  "claim_revision": {
+    "claim_id": "grammatical_subject_number.v3",
+    "revision": 3,
+    "status": "site_live",
+    "next_missing": "confirm the passing attention-11 and head-11.3 carrier on held-out syntax, then test selective removal and sufficiency before identifying a smaller subspace"
+  },
+  "input_artifact_ids": [
+    "task14_authority",
+    "localization_v2_partition",
+    "localization_v2_donors",
+    "capability_result"
+  ],
+  "sections": [
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json"
+  ],
+  "notes": "Screen-tier evidence only. The historical overall ranker selected the trivial resid:18 ceiling; attention block 11 independently passed every frozen A1/A2/P/C gate and is the promoted mechanistic candidate. This does not identify a within-module subspace.",
+  "seed": null,
+  "claim_ledger_policy": "legacy_no_claim_event"
+}

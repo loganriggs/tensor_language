@@ -7,10 +7,10 @@
   "acceptance_gap": "missing, blocked, or mixed evidence in one program acceptance category"
  },
  "summary": {
-  "canonical_work_items": 7,
+  "canonical_work_items": 8,
   "legacy_candidates": 70,
-  "open_experiments": 1,
-  "held_events": 26,
+  "open_experiments": 2,
+  "held_events": 29,
   "blocking_events": 24
  },
  "work_items": [
@@ -70,6 +70,54 @@
    ],
    "work_state": "experiment_open",
    "next_missing": "execute and independently audit the frozen R580 FIT/SELECT native-capability screen; only a held, audited result may license adapting the existing R557 score/value algebra and R558 interaction lattice to R578"
+  },
+  {
+   "tag": "task.subject_verb.number_agreement",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_subject_verb_number_agreement.json",
+   "active_claim_id": "grammatical_subject_number.v3",
+   "claim_status": "site_live",
+   "causal_variable_id": "complete_grammatical_subject_number",
+   "counterfactual_family_count": 8,
+   "counterfactual_family_status_counts": {
+    "frozen": 8
+   },
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "active_event_ids": [
+    "task14_native_capability.fit.complete.held.v1",
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+   ],
+   "open_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2"
+   ],
+   "held_event_ids": [
+    "task14_native_capability.fit.complete.held.v1",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+   ],
+   "blocking_event_ids": [],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "held",
+    "learned_interchange": "planned",
+    "cross_family": "missing",
+    "ood": "missing",
+    "selectivity": "held",
+    "composition": "missing",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "cross_family",
+    "ood",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "experiment_open",
+   "next_missing": "confirm the passing attention-11 and head-11.3 carrier on held-out syntax, then test selective removal and sufficiency before identifying a smaller subspace"
   },
   {
    "tag": "task.bracket.pending_opener",

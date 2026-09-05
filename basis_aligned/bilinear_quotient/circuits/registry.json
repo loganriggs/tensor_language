@@ -875,30 +875,33 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "6146cca76807a03ba0219204b87f7bcba2ba95449c3faba88e6355a2b81d24bf",
+   "record_sha256": "b7afe18d26101e5b2ba6d97debc4f5070a67f2dc37fecc745a5d893e664d798d",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "grammatical_subject_number.v2",
-   "claim_status": "specified",
+   "active_claim_id": "grammatical_subject_number.v3",
+   "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "interchange_family_count": 4,
    "invariance_family_count": 3,
    "negative_event_count": 1,
    "active_negative_event_count": 0,
    "latest_blocker": null,
-   "latest_active_event": "task14_subject_number_localization.fit.v2.authority_review_held",
+   "latest_active_event": "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
     "task14_subject_number_localization.fit.preregistered.v2",
-    "task14_subject_number_localization.fit.v2.authority_review_held"
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
    ],
    "held_test_types": [
     "capability",
+    "full_swap_ceiling",
     "null_control"
    ],
    "active_blocking_test_types": [],
    "design_keys": [
     "0535e80f168d12207fe39ec82291ff82ed60c83cdb9c02ee3bc14fa690f7158e",
+    "0a5a932f5efe50758bbe39752b68772e7b3c389ee761cd4c6933698f91095da9",
     "481eb182f82eaf4be6ff6de42c77c32cfbea7348a521da375a87e30670ed60c1",
     "6fffb67974bc0c93ec560a57908f58c6a48575c76451539d716d5066def707a4",
     "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa",

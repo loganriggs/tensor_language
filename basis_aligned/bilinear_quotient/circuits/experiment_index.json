@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 84,
- "design_count": 71,
- "protocol_count": 66,
- "execution_count": 84,
+ "event_count": 85,
+ "design_count": 72,
+ "protocol_count": 67,
+ "execution_count": 85,
  "open_preregistrations": [
   {
    "circuit": "task.induction.selector_payload",
@@ -1359,6 +1359,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "localization_v2_prereg",
    "result_artifact_id": "localization_v2_review"
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+   "claim_id": "grammatical_subject_number.v2",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "design_key": "0a5a932f5efe50758bbe39752b68772e7b3c389ee761cd4c6933698f91095da9",
+   "protocol_key": "6040ad9ef5c771e2db1379c27b40dbfd24f23db1410cf7ed5f7c69923e3939a5",
+   "execution_key": "12f081545ae9d64f708820043b2b540db37a67b75e1fb698111286f9ff51cb0c",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": null,
+   "result_artifact_id": "task14_fast_screen_full_state_v2_result"
   },
   {
    "circuit": "task.successor.pointer",

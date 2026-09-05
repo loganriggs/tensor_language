@@ -298,9 +298,9 @@
       "induction_selector_payload_capability.r554.complete.null.v1"
      ],
      "planned_event_ids": [
-      "induction_selector_payload_native_capability.r580.preregistered.v1"
+      "induction_selector_payload_native_capability.r580.preregistered.v2"
      ],
-     "latest_relevant_event_id": "induction_selector_payload_native_capability.r580.preregistered.v1"
+     "latest_relevant_event_id": "induction_selector_payload_native_capability.r580.preregistered.v2"
     },
     "causal_site": {
      "status": "missing",
@@ -489,20 +489,21 @@
     "selectivity": {
      "status": "held",
      "held_event_ids": [
-      "numeric_sequence_capability_audit.r571.held.v1"
+      "numeric_sequence_capability_audit.r571.held.v1",
+      "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
      ],
      "blocking_event_ids": [],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "numeric_sequence_capability_audit.r571.held.v1"
+     "latest_relevant_event_id": "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
     },
     "composition": {
-     "status": "planned",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
+     "blocking_event_ids": [
+      "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1"
      ],
-     "latest_relevant_event_id": "numeric_sequence_complete_state_factor_localization.r577.preregistered.v1"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -513,9 +514,84 @@
     }
    },
    "n_held_categories": 2,
-   "n_blocked_categories": 1,
+   "n_blocked_categories": 2,
    "n_missing_categories": 4,
-   "next_missing": "run R577 to distinguish complete relation state and first/middle score/cached/own-value factors; R576 showed strong +1 dependence on the final cached-value term but failed selective reuse because number-word copy logits changed too broadly"
+   "next_missing": "R577 proves that complete final-query head/state swaps are broad rather than selective: split the transported numeric carrier by source/action or downstream bilinear use, with active surface/copy controls; do not repeat larger residual swaps or open R577's factor stage"
+  },
+  "task.subject_verb.number_agreement": {
+   "kind": "behavior_circuit",
+   "claim_status": "site_live",
+   "causal_variable_id": "complete_grammatical_subject_number",
+   "categories": {
+    "capability": {
+     "status": "held",
+     "held_event_ids": [
+      "task14_native_capability.fit.complete.held.v1"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "task14_native_capability.fit.complete.held.v1"
+    },
+    "causal_site": {
+     "status": "held",
+     "held_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+    },
+    "learned_interchange": {
+     "status": "planned",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [
+      "task14_subject_number_localization.fit.preregistered.v2"
+     ],
+     "latest_relevant_event_id": "task14_subject_number_localization.fit.preregistered.v2"
+    },
+    "cross_family": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "ood": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "selectivity": {
+     "status": "held",
+     "held_event_ids": [
+      "task14_subject_number_localization.fit.v2.authority_review_held"
+     ],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "task14_subject_number_localization.fit.v2.authority_review_held"
+    },
+    "composition": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    },
+    "compiled_weights": {
+     "status": "missing",
+     "held_event_ids": [],
+     "blocking_event_ids": [],
+     "planned_event_ids": [],
+     "latest_relevant_event_id": null
+    }
+   },
+   "n_held_categories": 3,
+   "n_blocked_categories": 0,
+   "n_missing_categories": 4,
+   "next_missing": "confirm the passing attention-11 and head-11.3 carrier on held-out syntax, then test selective removal and sufficiency before identifying a smaller subspace"
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

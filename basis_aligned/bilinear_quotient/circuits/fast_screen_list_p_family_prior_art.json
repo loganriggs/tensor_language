@@ -1,0 +1,45 @@
+{
+ "aliases_searched": [
+  "list_step_two",
+  "surface_preserved",
+  "p_invariance",
+  "attn:08",
+  "numbered_list"
+ ],
+ "candidate_id": "numbered_list.p_family_discriminator",
+ "canonical_objects": [
+  "whether attn:08's selectivity for numbered-list survives a different P family",
+  "P-invariance effect at block-8 attention under step-2 lists"
+ ],
+ "decision_changed": "attn:08 passing again means the numbered-list claim is P-robust and can be stated without the caveat carried by the sequence result. Failing means it is as P-dependent as the sequence one and the claim narrows to a single P family.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numbered-list-control-choice-v1 (this lane, 02:15Z) reports attn:08 passing with P 0.0224 using list_surface_preserved as P.",
+  "circuits/fast_screen_ledger.jsonl: for the sibling numeric-sequence behaviour the P family FLIPPED a verdict -- attn:08 P 0.2517 with sequence_digit_surface_preserved (02:45Z) versus 0.0560 with sequence_word_surface_preserved (03:15Z). The P hypothesis is therefore known to be sensitive, and the numbered-list claim has only been tested against one P family.",
+  "task_numbered_list_index_successor.json: r573 v2 / r574 hold the label factor at l8h7_l8h3_value_paths; this candidate makes no new claim about that site, only about the robustness of this lane's screen result."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with a substituted P family"
+ ],
+ "novelty_delta": "Holds A1/A2/C identical to the 02:15Z screen and substitutes ONLY P, list_surface_preserved -> list_step_two_conflict (step-2 lists, same answer-preserving shape).",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numbered-list-control-choice-v1",
+    "numeric-sequence-p-family-v1"
+   ],
+   "sha256": "e190de8ce485971f65ce34965e3bf45bd1312081c7184b8e4a53d08548576a7b",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "list_surface_preserved",
+    "list_step_two_conflict"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
