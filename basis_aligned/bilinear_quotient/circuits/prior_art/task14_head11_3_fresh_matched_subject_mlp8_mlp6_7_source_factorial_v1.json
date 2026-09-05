@@ -1,0 +1,119 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Determine whether MLP6, MLP7, or their normalization-mediated interaction implements the MLP6--7 contribution to the Task14 MLP8 computation, while retaining embedding, attention, MLP0--3, and MLP4--5 as live causal contexts.",
+  "parent": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json",
+    "sha256": "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f",
+    "finding": "MLP6--7 was usually larger than MLP4--5 but neither half globally dominated MLP4--7. Their interaction remained substantial and direction dependent, including full-response MLP effects of -22.7% for plural-to-singular and +49.3% for singular-to-plural. Splitting MLP6--7 must therefore preserve all earlier writer families and MLP4--5 as live contexts."
+  },
+  "novelty_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "3aa9c8f775f17b39f7f2020515a39b27570d136e2e3a24c8feb7db45e2916395",
+      "relation": "No canonical Task14 result causally separates MLP6 from MLP7 at raw pre-MLP8 input while preserving the complete upstream interaction lattice."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json",
+      "sha256": "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f",
+      "relation": "Binding parent evidence. It localizes a distributed MLP4--7 contribution and licenses the prospective MLP6 versus MLP7 refinement, but contains no opened MLP6/MLP7 outcomes."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_mlp_depth_factorial_v1_result.json",
+      "sha256": "f18ce285152a1b3388ca3083de344dd9dd3675e4932b27bf44ea1f9e8e3f3073",
+      "relation": "The older depth split intervened at the later pre-attention-11 current-value input rather than the raw pre-MLP8 input and did not test this child-to-parent interaction closure."
+    },
+    {
+      "path": "polynomial_causal/explanations/MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md",
+      "sha256": "75c6caa3059f4488365ef2acfcb4ea52ff36c25c5b52b99c2181d8f59940ae92",
+      "relation": "Older MLP6/7 observations concern equality or compression objects, not this Task14 causal computation through MLP8 and L11H3."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural Task14 HOLDOUT rows",
+    "roles": [
+      "recipient",
+      "opposite_same_lemma",
+      "same_number_different_lemma"
+    ],
+    "intervention_position": 8,
+    "disclosure": "The text, native outcomes, and all parent E/A/U/W/X outcomes are open. Only the MLP6-versus-MLP7 intervention outcomes are prospective; this is a mechanistic refinement on licensed rows, not new independent data."
+  },
+  "exact_input_partition": {
+    "E": "propagated embedding/skip contribution through block 8",
+    "A": "propagated attention writes A0--A8",
+    "U": "propagated MLP0--MLP3 writes",
+    "W": "propagated MLP4--MLP5 writes",
+    "Y": "propagated MLP6 write",
+    "Z": "propagated MLP7 write",
+    "corner": "For each subset of E,A,U,W,Y,Z, use donor values for listed families and recipient values otherwise at the raw pre-MLP8 residual state at subject position 8, then apply native MLP8 RMSNorm independently to that corner.",
+    "authoritative_same_role_grouping": "Let X be the exact parent MLP6--7 aggregate and XR = X - (Y + Z) its numerical grouping remainder. If Y and Z are both recipient, use the exact recipient X; if both are donor, use the exact donor X. Only genuinely mixed Y/Z corners are constructed from their separately selected writes plus XR, with XR prospectively following Y. Same-role corners must not be reconstructed from separate Y and Z tensors.",
+    "mixed_role_grouping": "For a mixed Y/Z corner, use Y_role + Z_role + XR_Y_role. The remainder assignment is numerical bookkeeping fixed before outcomes and has no semantic interpretation.",
+    "response_algebra": "At each normalized corner, evaluate exact MLP8 cross, quadratic, and full response pieces using the frozen v2 float64 local polarization computation; anchor recipient and donor endpoints to native float32 MLP8 outputs, assign numerical product/output closure remainders to cross, cast once to the native intervention dtype, and propagate sequentially through native lambdas 9--11 before installing the L11H3 current-value contribution.",
+    "operational_limit": "E/A/U/W/Y/Z are native writer families used as causal grouping variables. They are not claimed to be a unique semantic or gauge-fixed basis."
+  },
+  "conditions": {
+    "recipient_noop": 1,
+    "opposite_number": "all 63 nonempty subsets of E,A,U,W,Y,Z times exact cross, quadratic, and full MLP8 response",
+    "same_number_lexical": "the same complete 63-subset by three-response-piece factorial using a same-number, different-lemma source",
+    "total": 379,
+    "causal_interventions": 6048,
+    "downstream_background": "one standalone fixed L11H3 interface; all other MLP4--MLP10 output slots remain recipient",
+    "scientific_endpoints": [
+      "full-vocabulary cross-entropy loss",
+      "answer-directed correct-versus-foil logit margin"
+    ]
+  },
+  "causal_statistics": {
+    "set_function": "Compute the complete 2^6 Boolean factorial separately for direction, response piece, and endpoint, then calculate every finite Mobius interaction over E,A,U,W,Y,Z.",
+    "parent_corner_map": "A parent corner T over E,A,U,W,X maps to the fine corner T with X absent when parent X is recipient, and to (T without X) union {Y,Z} when parent X is donor. These authoritative same-role endpoints define the child-to-parent restriction.",
+    "parent_mobius_map": "For a parent coefficient not containing X, the coefficient must equal the fine coefficient on the same E/A/U/W set. For a parent coefficient R containing X, it must equal the sum of every fine coefficient Q such that Q outside {Y,Z} equals R outside {X} and Q intersects {Y,Z}. This sums the Y-only, Z-only, and YZ fine interactions, with any retained E/A/U/W context unchanged.",
+    "exact_child_to_parent_lattice_closure": "Under the stated corner map, reproduce all 31 nonempty parent E/A/U/W/X corners and all parent Mobius coefficients for both source roles, both number directions, all three response pieces, and both endpoints. Also check closure at raw pre-MLP8 state, normalized MLP8 input, MLP8 output, sequentially propagated slot, and installed L11H3 head contribution.",
+    "primary_aggregates": "Within each parent X-centered M, EM, and AM aggregate, report the signed and absolute recovery carried by Y-only, Z-only, and YZ-containing fine coefficients, retaining W and all other contextual indices rather than marginalizing them away."
+  },
+  "predictions": {
+    "pred_a_instrument_and_parent_closure": "All registered exactness gates pass, and authoritative same-role regrouping reproduces every parent corner and parent Mobius coefficient within 5e-5.",
+    "pred_b_Z_mlp7_dominant": "Disjoint Z-only refinements recover at least 70% of every parent X-centered M, EM, and AM aggregate in both endpoints and both number directions, while the corresponding disjoint Y-only and YZ-containing refinements each recover at most 25%.",
+    "pred_c_Y_mlp6_dominant": "The exact converse criterion holds: disjoint Y-only refinements recover at least 70% of every parent X-centered M, EM, and AM aggregate in both endpoints and directions, while corresponding disjoint Z-only and YZ-containing refinements each recover at most 25%.",
+    "pred_d_distributed_mlp6_7": "Disjoint Y-only and Z-only refinements each recover at least 25% of at least one parent X-centered aggregate in both endpoints and directions, neither child satisfies the global dominance criterion, and YZ-containing refinements remain below 25% for those aggregates.",
+    "pred_e_YZ_composition": "Fine Mobius terms containing both Y and Z reach at least 25% of a parent X-centered M, EM, or AM aggregate in both endpoints and both directions.",
+    "pred_f_direction_switch": "The larger of the signed Y-only and Z-only recoveries, or the sign of the YZ contribution, differs between plural-to-singular and singular-to-plural in at least one preregistered X-centered aggregate in both endpoints.",
+    "pred_g_number_specific": "For every subset and response piece, the absolute same-number different-lemma effect is at most 25% of the corresponding opposite-number full-source scale in both endpoints."
+  },
+  "opposing_alternatives": {
+    "exclusive_interpretation": "Predictions b and c are mutually exclusive single-child dominance alternatives because they use disjoint Y-only, Z-only, and YZ buckets. Prediction d is the additive distributed alternative when neither dominance rule holds and the YZ bucket is minor. Prediction e is the interaction-distributed alternative when the YZ bucket itself is large. Signed recovery is the sum of the stated fine Mobius coefficients divided by the signed parent coefficient; absolute recovery is reported alongside it to expose cancellation and is not substituted post hoc for the registered signed test.",
+    "direction_dependence": "Prediction f can hold with b, c, d, or e and tests a distinct directional organization rather than serving as a post-hoc rescue of a failed dominance prediction.",
+    "null": "If b--f all fail after exact closure and the lexical control passes, MLP6 versus MLP7 is an informative null at this grouping: the parent X contribution is not simply attributable to one child, a stable distribution, a large child interaction, or a direction switch under the registered bars."
+  },
+  "bars": {
+    "maximum_numerical_absolute_error": 0.00005,
+    "minimum_dominant_recovery_fraction": 0.70,
+    "maximum_minor_recovery_fraction": 0.25,
+    "minimum_distributed_recovery_fraction": 0.25,
+    "minimum_YZ_interaction_fraction": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25
+  },
+  "batching_policy": "No chunking is registered. Execute exactly one native role batch, one decomposed role batch, one native 379-condition evaluation batch, and one decomposed 379-condition intervention batch, for four physical and four logical forwards. If a pre-execution memory dry-run cannot execute this exact plan, do not open scientific outcomes; freeze a prospective engineering correction before any GPU causal run. Silent or outcome-dependent chunking invalidates the run.",
+  "price": {
+    "logical_model_forwards": 4,
+    "physical_model_forwards": 4,
+    "example_evaluations": 12224,
+    "causal_interventions": 6048,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "capability_GPU_price": 0,
+    "accounting": "Two 48-example role/decomposition passes plus two 6064-example native/intervention condition passes: 48 + 48 + 6064 + 6064 = 12224 evaluations; 378 non-noop conditions times 16 rows = 6048 causal interventions."
+  },
+  "closed_claims": [
+    "unique_semantic_basis",
+    "individual_MLP_semantics",
+    "rank",
+    "quantization",
+    "activation_reconstruction",
+    "new_independent_data",
+    "necessity_outside_fixed_L11H3_interface"
+  ]
+}
