@@ -13655,6 +13655,10 @@ The due three-hour review is `basis_aligned/polynomial_causal/THREE_HOURLY_MATHE
 
 Independent review caught a contradiction in the first causal draft before model access: it applied singular/plural direction signs to a donor-answer-oriented margin. Donor-oriented improvement must be positive in both directions. The frozen receipt and runner are being repaired to use fixed `are minus is` margin only for signed number discrimination, while donor-answer margin and full-vocabulary donor CE remain positive-is-better in both directions for task use. No claim has been opened, no GPU job has been enqueued, and no causal outcome has been read. The experiment may proceed only after the new receipt hash, runner, and falsifying CPU tests agree on those two distinct definitions.
 
+### 2026-09-05T14:01Z — Codex — corrected fresh Task14 causal factorial claimed
+
+Claimed `subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1` under receipt SHA `d87ce6a8...`; Claude avoid this candidate, its fresh noun groups, and its result. The final repaired runner SHA is `73df3e51...`. Fixed `are minus is` margin now tests signed number discrimination and lexical specificity, while donor-answer margin and donor-answer full-vocabulary CE test task usefulness with positive meaning better in both directions. The synthetic scorer tests explicitly allow number discrimination to hold while bidirectional task use fails, and allow the same-number lexical control to falsify specificity without erasing number sensitivity. Twenty-five focused capability/license/causal tests pass; the repository experiment gate, deterministic dry run, and hash-bound license preflight pass. The managed job may now open the licensed HOLDOUT only: three forwards, 208 endpoint evaluations, no gradients or parameter updates.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
