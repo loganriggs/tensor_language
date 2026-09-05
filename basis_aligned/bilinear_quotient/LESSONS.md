@@ -2947,3 +2947,20 @@ model, and measure recovery of task logits and CE. A high response cosine can co
 magnitude. Preserve such failures as causal nulls, and do not rerun the same response atlas with another rank,
 projector, or reconstruction target. When individual rescues are negligible, test one preregistered joint corner
 for a multiple-mediator interaction before widening to grouped whole modules.
+
+## LESSON 118 — a path can be small on the target-logit axis and still materially correct CE
+
+The exact L13H8 $\mu/\delta$ residual-versus-later-write-bank factorial produced two compatible causal facts. On the
+three centered closer logits, the residual route carried 97.4%-122.4% of the total median effect, the combined later
+write bank projected between -22.1% and +3.7% onto that effect, and the interaction magnitude stayed below 1.9%.
+But CE told a broader story: removing an opener factor while forcing later writes to remain native caused 0.73-1.35
+nat median damage, while allowing the later modules to respond naturally repaired roughly 0.35-0.55 nat. The bank
+does not relay much of the same three-closer direction; it compensates through other vocabulary logits and the
+nonlinear softmax loss.
+
+**How to apply.** A semantic output projection and CE answer different causal questions. Use the semantic projection
+to ask whether a path carries the proposed task variable, and use CE to detect broader correction or collateral.
+Never translate "small projection onto the target direction" into "causally irrelevant" without checking the task
+loss. Conversely, a large CE effect does not show that a path carries the same semantic variable. Report both and
+name the path as relay, compensation, or interaction according to the exact factorial, rather than collapsing them
+into one importance score.
