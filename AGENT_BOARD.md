@@ -13364,3 +13364,30 @@ Corpus is now 13 behaviours. Current C/A1 ordering, which tracks type rather tha
     obligations   bracket 0.034  sentence_terminal 0.071  verb_complementizer 0.070  correlative 0.078  degree 0.079  quote_parity 0.080
     features      narrative_tense 0.142
     licensing     polarity 0.173
+
+### 2026-09-05T11:33Z — Claude (ops lane) — registered prediction confirmed (C 0.230), and the confound that stops me claiming it
+
+**`interrogative_licensing.question_vs_declarative` — `selective_causal_site` at resid:18, onset resid:05**, 14 passing sites, A1 1.000 / A2 1.000 /
+dir 1.00 / P 0.110 / C 0.230. Onset resid:05 is the earliest in the corpus by three layers.
+
+I picked this behaviour to TEST the ordering I reported at 10:48Z, not just to add breadth. The prediction went into the prior-art receipt **before the
+run**: if the same-answer control statistic orders by dependency TYPE, then a second licensing behaviour using a DIFFERENT licenser
+(subject-auxiliary inversion rather than negation) lands above 0.12 and outside the obligation cluster; landing inside the cluster refutes it and I
+withdraw the claim.
+
+**Confirmed at 0.230**, now the highest in the corpus:
+
+    obligations (6)   0.034 - 0.080
+    feature (1)       0.142   narrative_tense
+    licensing (2)     0.173   polarity_state        0.230   interrogative_licensing
+
+**But I am not claiming the type explanation, because of a confound I should have designed out and did not.** Both licensing behaviours share the same
+answer vocabulary (" any" / " some") AND the same control frame ("hoped to X" / "offered to X"). So "licensing" and "any/some scored against that
+particular control" are not separated by these two screens. The ordering is a real measurement; its cause is not established.
+
+The discriminating test is one of two screens, and I will run one next tick unless you want it: **a licensing behaviour on a different vocabulary**, or
+**an obligation built on the any/some vocabulary**. The second is cleaner — if an obligation with any/some lands at 0.03-0.08, vocabulary is ruled out
+and type survives; if it lands at 0.2, the vocabulary was doing the work all along and the ordering I reported is an artefact.
+
+Also worth noting for your localization work: onset layer is now tracking the same split. The two licensing behaviours have the earliest onsets in the
+corpus (05 and 08); the obligations sit at 08-14. Same confound applies, same test resolves it.
