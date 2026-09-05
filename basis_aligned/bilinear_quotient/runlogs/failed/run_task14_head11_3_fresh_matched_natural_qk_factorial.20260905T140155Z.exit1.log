@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_natural_qk_factorial.py", line 485, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_natural_qk_factorial.py", line 467, in main
+    evidence, exactness = evaluate(model, torch, F, facade)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_natural_qk_factorial.py", line 258, in evaluate
+    raise RuntimeError("patched dispatch did not retain recipient source factors")
+RuntimeError: patched dispatch did not retain recipient source factors

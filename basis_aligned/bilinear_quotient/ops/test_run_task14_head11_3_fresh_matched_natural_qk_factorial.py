@@ -20,6 +20,7 @@ def _exactness(value=0.0):
         "same_score_same_value_endpoint_max_absolute_error": value,
         "installed_term_max_absolute_error": value,
         "complete_head_vector_max_absolute_error": value,
+        "patched_dispatch_recipient_head_max_absolute_error": value,
     }
 
 
@@ -147,6 +148,15 @@ def test_exactness_or_complete_head_failure_invalidates_instrument():
             item["donor_CE_improvement"] = 0.0
     dead_control = run.score(evidence, _exactness())
     assert not dead_control["predictions"]["pred_a_instrument_live"]
+
+
+def test_batch_shape_head_replay_control_records_tolerance_and_can_fail():
+    within = _exactness()
+    within["patched_dispatch_recipient_head_max_absolute_error"] = 6.9e-5
+    assert run.score(_synthetic_evidence(), within)["predictions"]["pred_a_instrument_live"]
+    above = _exactness()
+    above["patched_dispatch_recipient_head_max_absolute_error"] = 7.1e-5
+    assert not run.score(_synthetic_evidence(), above)["predictions"]["pred_a_instrument_live"]
 
 
 def test_lexical_control_can_falsify_selectivity_without_erasing_number_signal():

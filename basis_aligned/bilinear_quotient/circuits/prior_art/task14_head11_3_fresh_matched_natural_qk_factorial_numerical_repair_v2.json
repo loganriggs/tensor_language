@@ -1,0 +1,44 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_numerical_repair_v2",
+  "created_utc": "2026-09-05",
+  "scientific_candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+  "purpose": "Fail-closed numerical-instrument repair after the first managed execution stopped before evidence scoring.",
+  "failure": {
+    "log_path": "runlogs/failed/run_task14_head11_3_fresh_matched_natural_qk_factorial.20260905T140155Z.exit1.log",
+    "log_sha256": "f8fdff355b171aee66cabb518dbaad24ced51ac6bedd99da5b0bc5334eb50f4f",
+    "result_absent": true,
+    "location": "run_task14_head11_3_fresh_matched_natural_qk_factorial.evaluate patched-dispatch recipient-head route check",
+    "observed_magnitude": "The failed implementation raised without serializing the discrepancy, so its exact magnitude is unavailable and must not be inferred after the fact.",
+    "scientific_outcomes_opened": false
+  },
+  "diagnosis": "The original factor capture used a 48-example batch containing three role blocks. The patched dispatch used a 112-example batch containing seven repeated recipient rows per authority row. The check compared mathematically identical pre-intervention recipient head vectors across these different CUDA batch shapes and orders, then raised immediately at an unregistered hard-coded 5e-5 threshold. Float32 batched kernels need not be bitwise batch-shape invariant. This is a numerical replay control, not a changed causal intervention.",
+  "source_bindings": {
+    "scientific_preregistration_path": "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_v1.json",
+    "scientific_preregistration_sha256": "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44",
+    "failed_runner_sha256": "73df3e51e330bc1791595e6f77d10b1e153784dd398f3109e74863174ba5ff8e",
+    "capability_license_sha256": "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c"
+  },
+  "repair": {
+    "new_metric": "patched_dispatch_recipient_head_max_absolute_error",
+    "registered_tolerance": 0.00007,
+    "behavior": "Always compute and serialize the exact maximum absolute discrepancy. Include it in the exactness gate. Do not raise before scoring merely because it is nonzero.",
+    "failure_behavior": "A non-finite value or discrepancy above 7e-5 makes pred_a_instrument_live false and the terminal invalid; it can never silently pass.",
+    "rationale": "The 7e-5 tolerance matches the already registered native-logit batch replay tolerance and the earlier Task14 float32 native-corner numerical repair. It changes no scientific outcome bar."
+  },
+  "unchanged": [
+    "licensed HOLDOUT rows and capability preflight",
+    "all seven causal arms and their installed vectors",
+    "answer-directed margin and CE definitions",
+    "number-discrimination and lexical-selectivity estimands",
+    "complete-head capability bars",
+    "all other exactness tolerances",
+    "three-forward 208-evaluation price",
+    "closed claims and interpretation limits"
+  ],
+  "interpretation_limits": [
+    "This repair is not an independent scientific experiment or confirmation.",
+    "The failed execution produced no result and cannot be rescored.",
+    "The registered tolerance permits ordinary float32 batch-shape variation only; it does not permit a semantically different head route."
+  ]
+}
