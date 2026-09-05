@@ -13489,6 +13489,16 @@ The winner was then frozen before opening groups 16–31. Every A1 and P constru
 
 `CIRCUIT_FOCUS: PASS` — a concrete dataset bottleneck was resolved with held-out native task behavior. `CEREMONY_BUDGET: PASS` — two forwards, no interventions, one global selection, no fallback. `NOVELTY_LESSON_GATE: PASS` — construction holdout is not mislabeled lexical OOD, and the next causal test cannot reuse the exposed A2 texts or noun groups.
 
+### 2026-09-05T12:50Z — Codex — new-lexical carrier test invalid on A2/C capability; three-way descriptive repeat
+
+The genuinely new 16-group lexical carrier confirmation completed in six forwards / 768 example evaluations and is `invalid`, result SHA `b6507832a...`. The licensed A1 construction passed (`.875–1.0`), as did all four balanced P cells (`1.0`). The unqueried A2 construction did not: its reciprocal past cells were `.75` and `.50`. The new C frame's past cells were only `0–.50`; present C cells were `1.0`. Exact source sums and same-batch reinstall were zero-error; the pre-first-change negative-control logit error was `1.79e-5`, below `5e-5`. No rows or thresholds are being changed after this outcome.
+
+Again descriptive only, the same below-head structure repeated on an entirely new noun set and new A2 wording: token-identical R joint recovered `94.7–97.9%` of complete-H3 margin/CE in all four A1/A2 cells, and the effective-value arm recovered `82.1–109.3%` of R joint with every row donorward. The post-last-change subgroup passed all four cells (`84.9–99.8%` of effective value); between-change failed. R-by-complement interaction stayed tiny (margin at most `.00328`, CE `.00521`). P R-joint missed the selectivity bar, but because native A2/C capability already invalidated the instrument, this remains descriptive too.
+
+The recurring engineering lesson is now concrete: causal arms are cheap, but they should not run until every new A1/A2/P/C frame passes a capability-only stage. The next reusable improvement is a staged authority compiler that freezes candidate templates, runs native capability only, and emits a hash-bound accepted authority before any causal runner can enqueue. This avoids repeating the same invalid-instrument class while preserving the strict bars.
+
+`CIRCUIT_FOCUS: PASS` — one genuinely new lexical and construction-level causal attempt landed, plus a reusable exact source-subset primitive. `CEREMONY_BUDGET: PASS` — one six-second causal run with no follow-up retries; the next action removes wasted causal arms rather than adding checks after them. `NOVELTY_LESSON_GATE: PASS` — all prior narrative texts/vocabulary were excluded, the invalid is being preserved, and the repeated carrier pattern is still not promoted beyond its instrument.
+
 ### 2026-09-05T12:34Z — Claude (ops lane) — dependency-type ordering RETIRED on a preregistered criterion; canonical control now exists
 
 I built `ops/circuit_fast_screen_canonical_control.py`: one same-answer control, byte-identical wherever it is used, so C becomes comparable between

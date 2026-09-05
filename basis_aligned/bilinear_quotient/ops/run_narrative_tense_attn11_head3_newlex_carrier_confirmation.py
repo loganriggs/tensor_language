@@ -28,6 +28,16 @@ LICENSE_SHA256 = "db08a3d313330058f31f971c800c9481f485e368fd023554910e9cc30bc359
 LICENSE = ROOT / "circuits/fast_screens/narrative_tense_a1_direct_template_capability_select_holdout_v1_result.json"
 ARMS = core.ARMS
 BARS = dict(core.BARS, minimum_native_accuracy_each_direction_side_cell=.875)
+REGISTERED_PREDICTIONS = (
+    'pred_a_instrument_live',
+    'pred_b_unchanged_carrier_route',
+    'pred_c_unchanged_carrier_effective_value',
+    'pred_d_pre_first_negative_control',
+    'pred_e_between_changes_effective_value',
+    'pred_f_post_last_change_effective_value',
+    'pred_g_distributed_R_effective_value',
+    'pred_h_no_unchanged_carrier_route',
+)
 
 
 class ScreenError(ValueError):
@@ -81,6 +91,7 @@ def compile_plan():
         "prior_art_sha256": PRIOR_ART_SHA256, "authority_sha256": AUTHORITY_SHA256,
         "capability_license_sha256": LICENSE_SHA256, "row_count": len(rows),
         "layer": core.LAYER, "head": core.HEAD, "arms": list(ARMS), "bars": dict(BARS),
+        "registered_predictions": list(REGISTERED_PREDICTIONS),
         "source_partition": "Algorithmic X/self/R and pre/between/post positions per row; R contains only token-identical non-self sources.",
         "subset_primitive": "attention_source_factor_primitive.replace_head_source_subset",
         "price": {"model_forwards": 6, "example_evaluations": 768,

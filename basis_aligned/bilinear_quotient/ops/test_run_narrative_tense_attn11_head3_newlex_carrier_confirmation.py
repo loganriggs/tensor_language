@@ -72,6 +72,7 @@ def test_plan_price_bars_and_no_model_path():
     assert plan["price"] == {"model_forwards": 6, "example_evaluations": 768,
                              "backwards": 0, "parameter_updates": 0}
     assert plan["bars"]["minimum_native_accuracy_each_direction_side_cell"] == .875
+    assert plan["registered_predictions"] == list(run.REGISTERED_PREDICTIONS)
     assert plan["subset_primitive"].endswith("replace_head_source_subset")
     env = dict(os.environ, BQLIB_NO_MODEL="1", PYTHONDONTWRITEBYTECODE="1")
     completed = subprocess.run([sys.executable, str(Path(run.__file__))], env=env,
