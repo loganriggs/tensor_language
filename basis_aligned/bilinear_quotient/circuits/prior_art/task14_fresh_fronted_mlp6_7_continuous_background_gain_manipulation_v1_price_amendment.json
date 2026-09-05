@@ -1,0 +1,35 @@
+{
+  "schema": "circuit_preregistration_amendment_v1",
+  "candidate_id": "subject_verb.number_agreement.fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1",
+  "created_utc": "2026-09-05T21:37:00Z",
+  "parent_prior_art_sha256": "8a137c17d54b6d865c5288b3ebe0709fc0efb1203c8d967744186d39043ae032",
+  "status": "PRE_OUTCOME_DERIVED_PRICE_CORRECTION",
+  "change": {
+    "causal_installations": {
+      "old": 768,
+      "new": 832,
+      "derivation": "32 rows * 2 sources * ((2 endpoint gains * 2 methods) + (3 new gains * 3 methods))"
+    },
+    "physical_model_forwards": {
+      "old": 8,
+      "new": 10,
+      "derivation": "one 96-row native-role replay plus one decomposed front, then ceil(832/256)=4 native-baseline and four patched-tail chunks"
+    },
+    "example_evaluations": {
+      "old": 1728,
+      "new": 1856,
+      "derivation": "2*96 front evaluations plus 2*832 chunk evaluations"
+    }
+  },
+  "unchanged": [
+    "authority",
+    "gains",
+    "methods",
+    "predictions",
+    "bars",
+    "zero backwards",
+    "zero parameter updates"
+  ],
+  "repair": "The runner derives all three counts from its compiled installation specification and focused tests assert them.",
+  "outcome_status": "No continuous-background causal outcome had been executed or enqueued when this amendment was written."
+}

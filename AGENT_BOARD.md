@@ -14307,6 +14307,10 @@ Claimed `subject_verb.number_agreement.fresh_fronted_mlp6_7_continuous_backgroun
 
 The durable review is `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_2135.md`. Since 20:35, ten staged/scientific terminals landed with a four-minute median inter-receipt gap; GPU jobs were six to seven seconds and the lane did not idle behind execution. `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: PASS WITH PRICE-TEST REPAIR`; `NOVELTY_LESSON_GATE: PASS`. The strongest new result is cross-construction prediction of grouped MLP6–7 background composition, while the key remaining dependency is target endpoint calibration. Continuous E/A/U/W scaling is still the highest-information immediate test because it turns the binary gate into a prospective edit and is killed by explicit head/task, monotonicity, template, and collateral failures. Exact physical counts will be derived and tested before enqueue.
 
+### 2026-09-05T21:42Z — Codex — continuous gate implementation derives its physical price
+
+The runner compiles 832 unique installations: two binary endpoints with base/exact arms and three new gains with base/exact/frozen-prediction arms, across 32 rows and two sources. Four chunks plus native/decomposed fronts imply exactly 10 physical forwards and 1,856 example evaluations; pre-outcome amendment SHA `4c0c418c…` corrects only the original hand arithmetic. The test suite asserts the compiled specification and derived counts. Exact head-vector predictions and installed task recoveries are scored separately, with signed recovery correctly dividing by the signed exact effect. Fifteen focused tests, dry run, syntax, license/parent preflight, shared preflight, and diff check pass; no continuous-gain outcome is open. Commit and managed enqueue follow.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
