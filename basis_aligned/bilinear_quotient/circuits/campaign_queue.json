@@ -10,8 +10,8 @@
   "canonical_work_items": 8,
   "legacy_candidates": 70,
   "open_experiments": 2,
-  "held_events": 33,
-  "blocking_events": 24
+  "held_events": 42,
+  "blocking_events": 28
  },
  "work_items": [
   {
@@ -75,7 +75,7 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v7",
+   "active_claim_id": "grammatical_subject_number.v9",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "counterfactual_family_count": 8,
@@ -93,7 +93,20 @@
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-    "task14_head11_3_cross_circuit_collateral.select.held.v1"
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
    ],
    "open_event_ids": [
     "task14_subject_number_localization.fit.preregistered.v2"
@@ -105,26 +118,41 @@
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-    "task14_head11_3_cross_circuit_collateral.select.held.v1"
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
    ],
-   "blocking_event_ids": [],
+   "blocking_event_ids": [
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1"
+   ],
    "coverage": {
     "capability": "held",
     "causal_site": "held",
     "learned_interchange": "planned",
-    "cross_family": "held",
-    "ood": "missing",
+    "cross_family": "mixed",
+    "ood": "blocked",
     "selectivity": "held",
-    "composition": "missing",
+    "composition": "mixed",
     "compiled_weights": "missing"
    },
    "acceptance_gaps": [
+    "cross_family",
     "ood",
     "composition",
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "open the frozen TEST/OOD syntax pool, then decompose the causal agreement contribution below the native head boundary; the two-behavior collateral result does not establish universal selectivity"
+   "next_missing": "Confirm the below-head subject-value, source-value-group, self-score, QK-branch, and natural-number specificity findings on fresh counterfactual text; test selective removal and upstream reuse. Current TEST/OOD analyses reuse text, the subject-value effect is direction-dependent, and neither QK branch alone is sufficient in the exact four-factor interchange."
   },
   {
    "tag": "task.bracket.pending_opener",

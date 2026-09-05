@@ -1861,6 +1861,345 @@
    ],
    "translation_ids": [],
    "next_missing": "TEST transfer and removal held, but construction-general OOD transfer/removal did not; refine the hypothesis by OOD construction and decompose below the native head boundary before making a syntax-general claim"
+  },
+  {
+   "claim_id": "grammatical_subject_number.v9",
+   "revision": 9,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v8",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+     "tensor_path": "exact subject-source score and projected value factors",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject-source score, projected value, or both while retaining every other exact source term",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+     "tensor_path": "exact subject-source projected value contribution p_subject*u_subject",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace only the subject source projected value while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+     "tensor_path": "factorial interaction of the subject-source score and projected value",
+     "shape": [
+      "batch",
+      2,
+      2,
+      1152
+     ],
+     "intervention": "cross recipient or alternate-context scores with native or opposite-number subject projected values",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+     "tensor_path": "exact per-source projected value contributions p_k*u_k",
+     "shape": [
+      "batch",
+      "source_position",
+      1152
+     ],
+     "intervention": "replace selected source projected values while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+     "tensor_path": "semantic groups of exact source projected value contributions",
+     "shape": [
+      "batch",
+      4,
+      1152
+     ],
+     "intervention": "replace any subset of subject, intermediate, bridge, and attractor groups",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+     "tensor_path": "fronted-construction source score vector grouped as earlier, determiner, and subject-self scores",
+     "shape": [
+      "batch",
+      3
+     ],
+     "intervention": "replace selected source scores with donor scores while holding the installed subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+     "tensor_path": "the two bilinear QK branches composing the final-query to subject-self score",
+     "shape": [
+      "batch",
+      4,
+      128
+     ],
+     "intervention": "interchange q1, k1, q2, and k2 factors factorially while holding the donor subject value fixed",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "Confirm the below-head subject-value, source-value-group, self-score, QK-branch, and natural-number specificity findings on fresh counterfactual text; test selective removal and upstream reuse. Current TEST/OOD analyses reuse text, the subject-value effect is direction-dependent, and neither QK branch alone is sufficient in the exact four-factor interchange."
   }
  ],
  "split_plans": [
@@ -2083,6 +2422,186 @@
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_ood_cross_noun_head11_3_transfer_removal_v1_result.json",
    "sha256": "e64ba78c1965f4fd0544b55c2509d87ffd7c8fad38856dee1b1d6c3eb7c1f391",
    "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_factor_select_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+   "sha256": "3885fe1ed2905cb51fc0e649f7e0107a1b2ecadb52ac30c11344f45de8242202",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_factor_select_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_attractor_score_payload_factorial_v1.json",
+   "sha256": "9636504ee399f853a211a10529035d26f5ce89d3eb6847e28ed7c0d70ed95b45",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_specificity_select_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_number_specificity_v1_result.json",
+   "sha256": "2556df72200020fbc833e1e74381ca39cf251585878684b11388e705fe6bde57",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_specificity_select_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_payload_number_specificity_v1.json",
+   "sha256": "5a92eed7bdcca07486ce502c9140ec0006e1684c3c0a6fca09fb308eef3c736c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_test_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_test_transfer_v1_result.json",
+   "sha256": "157c907abb796012f2b6ba2b0fb8bd302daa66455d01376467b2acdc283b3c1b",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_test_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_payload_test_transfer_v1.json",
+   "sha256": "0960cb4b6a5893fcd0f0ec10b6b25937cd2e6d3ba0e7cc783c49401abcc1734a",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_lemma_direction_test_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_lemma_direction_factorial_v1_result.json",
+   "sha256": "e6f5e469cd561e5ee5f2b70031ab9d754ec40b51af0b2d7dfcc61b3c8e207603",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_subject_value_lemma_direction_test_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_payload_lemma_direction_factorial_v1.json",
+   "sha256": "4603e7b2ce1c087358369f104933b5cce5cadb9bb93d9a1b2cfc22d4cf595d9e",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_score_context_test_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_score_context_gate_factorial_v1_result.json",
+   "sha256": "e5a1a0f68abb7907a995fc4d08fe5400532663ae7e2c2e9f7f9a779492ebb726",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_score_context_test_invalid_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_score_context_gate_factorial_v1.json",
+   "sha256": "4a6409fd58216afe34e8402463894f8f24fdc308c6575d5a472f293fcb019763",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_score_context_test_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_score_context_gate_factorial_v2_result.json",
+   "sha256": "7fc2eb5be67291eb4cfb4bf774fe8ba4ca9732b146c6039702f155d289bcf419",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_score_context_test_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_subject_score_context_gate_factorial_capability_repair_v2.json",
+   "sha256": "7f5bb2186060f377cbb3d1d675e6e41b1b4d034f9a87327f4e12d80a2ab67df4",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_same_syntax_value_atlas_test_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+   "sha256": "6c76345138e4b8e727bc0bbbfd37fa0a09b156c51c8082c3c227e8b043b5341f",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_same_syntax_value_atlas_test_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_same_syntax_source_value_atlas_v2.json",
+   "sha256": "1a22ec9bd2c46144742bdc7780996c4b0a30f6293a1b445db1c97e8cbc02bce4",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_value_group_test_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v1_result.json",
+   "sha256": "80763bb191ade6bef7912a9964d6ea637072468f0c7769bd9dbfb4d5302737cc",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_value_group_test_invalid_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_source_value_role_group_factorial_v2.json",
+   "sha256": "dac329efb08006e4ab7f99f757fce0516c02f8b9097fc5cac4b9bd31d2794c47",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_value_group_test_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v2_result.json",
+   "sha256": "9a154d12db1e95f4030e63c7611b866eb0196309a16b987c7cb5fb2d440b2884",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_value_group_test_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_source_value_role_group_factorial_numerical_repair_v2.json",
+   "sha256": "181c55842f0585932254334d4b10f5c2f0dc1afd4d1445ddeae0d045a72774fd",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_value_atlas_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v1_result.json",
+   "sha256": "251fa5fa0e5a6d3082e8087830a8208ca0b6c0281c51921c50d6640e8e28b833",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_value_atlas_invalid_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_same_syntax_source_value_atlas_v1.json",
+   "sha256": "ed372fd4186871e126023b021aceeae404b51882feb68d5891c8f5cb0cc8a884",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_value_atlas_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v2_result.json",
+   "sha256": "e0cdff4a7e71713d3ae8ab58dda72de83ee58930516d13faafbdc279a405ed66",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_value_atlas_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_same_syntax_source_value_atlas_numerical_repair_v2.json",
+   "sha256": "716da680908ea3e4ec41350de776d4e31091e827e08ec6e627ebeb1863aa333d",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_score_role_invalid_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v1_result.json",
+   "sha256": "74793327fc38ce7d823ae0a81e320db0f10c76eaf03351467d3a50e4236805ed",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_score_role_invalid_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_fronted_score_role_factorial_v1.json",
+   "sha256": "eed11fd80aaad85a977df53722d5ac64e3f97d3d6274d175185367a2e4cef1b3",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_score_role_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
+   "sha256": "39269428f6948ceae892721c7f79906e1223b97c6eb0033de0c95be545ac1f8e",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_score_role_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_fronted_score_role_factorial_numerical_repair_v2.json",
+   "sha256": "60db6a5733520724db12185b1ca4149ae1e27715bb817a160f5b135dcbed9a99",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_self_qk_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_fronted_self_qk_factorial_v1_result.json",
+   "sha256": "f1a807d0f75a65f60bc2bbf230c21ccefcda5ec907a69f4bb9f42679ec156bfc",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_self_qk_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_fronted_self_qk_factorial_v1.json",
+   "sha256": "b91e8cf7b2df08458d79229093f05669e1be22b7eda0a480940e3df06b28baa7",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_natural_qk_specificity_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+   "sha256": "a35e3b905313b14635a2b34736548172ce5e56761f8913cf27d0d86152cb201f",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_below_head_ood_natural_qk_specificity_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1.json",
+   "sha256": "f78a318377ce42bbd1c067244e5eb32afa5f6c9836f13bf9a89f4e211a94d85e",
+   "kind": "preregistration",
    "status": "frozen"
   }
  },
@@ -2928,6 +3447,633 @@
    "notes": "Construction-general OOD transfer/removal is a scientific null. Frozen reason is literally TEST_cross_noun_transfer_failed although phase is OOD; interpret it as the OOD cross-noun transfer null without changing the source bytes. Frozen pp_* cell IDs denote the OOD A1 family ood_fronted_two_attractors, not ordinary prepositional-phrase examples.",
    "design_key": "38c80351833491f97b6407497fcecc9dcac3af9c878f7bd0fd8be3c08a4a652a",
    "execution_key": "fcaa59d944d51c98f79dcd59175e85c24913a8cecd6e09e8dad1994d99445b74"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.subject_factor_select.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "SELECT_BASIC",
+   "metrics": [
+    {
+     "name": "subject_value_margin_recovery",
+     "estimate": 0.4158214671381971,
+     "ci95": null,
+     "bar": ">=0.25"
+    },
+    {
+     "name": "subject_score_margin_recovery",
+     "estimate": 0.015761273499990798,
+     "ci95": null,
+     "bar": "diagnostic"
+    },
+    {
+     "name": "maximum_absolute_attractor_margin_recovery",
+     "estimate": 0.006637630668344344,
+     "ci95": null,
+     "bar": "diagnostic"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_subject_factor_select_prior_art",
+   "result_artifact_id": "task14_below_head_subject_factor_select_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on SELECT_BASIC. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "585235ea5095631a45dd41eb9888b6790db12aa201f631b8051c30bdc724d3ea",
+   "execution_key": "10461647407150b51b9dcd617af2bcd5bfcfaf7dc164295b819b0ca94303fbcd"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "SELECT_BASIC",
+   "metrics": [
+    {
+     "name": "opposite_number_mean_directed_margin_effect",
+     "estimate": 2.0826727226376534,
+     "ci95": null,
+     "bar": ">0"
+    },
+    {
+     "name": "same_number_absolute_margin_leakage_fraction",
+     "estimate": 0.05443392784774985,
+     "ci95": null,
+     "bar": "<=0.10"
+    },
+    {
+     "name": "same_number_absolute_ce_leakage_fraction",
+     "estimate": 0.03097462736060631,
+     "ci95": null,
+     "bar": "<=0.10"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_subject_value_specificity_select_prior_art",
+   "result_artifact_id": "task14_below_head_subject_value_specificity_select_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on SELECT_BASIC. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "e00a0b7d3857c420fc301ac8cc4f747df2d01c0a9b125b195eb4e62d4f7fecbe",
+   "execution_key": "4dcc767a8a301d497cc323d4e4e9e5f414c81396a231af48393a6e503efc763b"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.subject_value_test.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "passing_subject_value_cells",
+     "estimate": 3,
+     "ci95": null,
+     "bar": "4 of 4"
+    },
+    {
+     "name": "minimum_subject_value_margin_recovery",
+     "estimate": 0.18667551116735692,
+     "ci95": null,
+     "bar": ">=0.25 each cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_subject_value_test_prior_art",
+   "result_artifact_id": "task14_below_head_subject_value_test_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on TEST_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "008a896f5c15704c1dd6e7cfc874b6fb140a7956176f0b493e7962d63ebec010",
+   "execution_key": "236193396e211f72de449aee3aa35a137fe395f5926221d0a71319e5b8871614"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "weak_cell_same_lemma_margin_recovery",
+     "estimate": 0.18308756441397564,
+     "ci95": null,
+     "bar": ">=0.25 for rescue"
+    },
+    {
+     "name": "maximum_same_lemma_cross_noun_recovery_gap",
+     "estimate": 0.003991425154937167,
+     "ci95": null,
+     "bar": "diagnostic"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_subject_value_lemma_direction_test_prior_art",
+   "result_artifact_id": "task14_below_head_subject_value_lemma_direction_test_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on TEST_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "d5a23f0461e049806473f854d1670ec7475cd2f7681f49997c49f63656ecda05",
+   "execution_key": "c6d643e6a31e853f3a914541083dd4e55ae3e9bfebc4e173dd57719651d54782"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "instrument_live",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "1 required"
+    },
+    {
+     "name": "minimum_weak_cell_relative_score_contrast_fraction",
+     "estimate": 0.6875,
+     "ci95": null,
+     "bar": ">=0.75"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_score_context_test_invalid_prior_art",
+   "result_artifact_id": "task14_below_head_score_context_test_invalid_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence.",
+   "design_key": "192fafed4e6cf14aa36752b599838f00a281a5ab4d43faa9b333c09efa5ac80b",
+   "execution_key": "c78ed9e87f704ec27eac9119cddef77d4f2a28ed4c8456ccef07935259817515"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.score_context_test.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "maximum_absolute_score_value_interaction_recovery",
+     "estimate": 0.0759366901533225,
+     "ci95": null,
+     "bar": "<=0.05 for context-independent null"
+    },
+    {
+     "name": "rescued_weak_cell",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "1 for rescue"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_score_context_test_prior_art",
+   "result_artifact_id": "task14_below_head_score_context_test_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on TEST_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "4c3edda0e98d14927f635400bd19821c17e50151ebaa79c753da1b48e69b01dc",
+   "execution_key": "88b0b6e768f3e96132b0b4bf39bf7e500dfe2d006e2d3f87dae1926fc37a43f3"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "joint_value_margin_recovery_range",
+     "estimate": [
+      0.8939253778966556,
+      1.0501425993390423
+     ],
+     "ci95": null,
+     "bar": ">=0.80 each cell"
+    },
+    {
+     "name": "minimum_strongest_non_subject_source_recovery",
+     "estimate": 0.21419494059837685,
+     "ci95": null,
+     "bar": ">=0.10"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_same_syntax_value_atlas_test_prior_art",
+   "result_artifact_id": "task14_below_head_same_syntax_value_atlas_test_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on TEST_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "8317f5f754bd1f3e65f4d362ef1c28691f7be3b7fe3d7e1308ff8047519d1c89",
+   "execution_key": "71864dcc60a22e5da878ccd22fd49926fc6e55ccfa9321c0331e1c77157b59c8"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "empty_subset_max_absolute_logit_error",
+     "estimate": 6.365776062011719e-05,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "instrument_live",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "1 required"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_value_group_test_invalid_prior_art",
+   "result_artifact_id": "task14_below_head_value_group_test_invalid_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence.",
+   "design_key": "77d4b1be399cc6e90d9b0628d76e009b101b6972656ce84419261bc8a32e94c2",
+   "execution_key": "9a3d737a2ec4036089bb0cfadc77dd3e09d80647750bd2be6e0cea4f5d027c79"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.value_group_test.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "minimum_SI_margin_recovery_of_joint_values",
+     "estimate": 0.6020279297012426,
+     "ci95": null,
+     "bar": ">=0.70 each cell"
+    },
+    {
+     "name": "minimum_SIB_margin_recovery_of_joint_values",
+     "estimate": 0.9861107978241156,
+     "ci95": null,
+     "bar": ">=0.80 each cell"
+    },
+    {
+     "name": "bridge_repairs_failed_SI_cells",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "1"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_value_group_test_prior_art",
+   "result_artifact_id": "task14_below_head_value_group_test_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on TEST_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "1ee39b7f7c66a2c1b8df12e840555559ca227f5c2f8e7d3c1cd3d5bf6cf66764",
+   "execution_key": "d27f54ded3b1f4e12c101db1826e59b15c8fdc100efe87ccfcc4d6a2b8c0e29a"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "ood",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "native_noop_max_absolute_logit_error",
+     "estimate": 5.53131103515625e-05,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "instrument_live",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "1 required"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_value_atlas_invalid_prior_art",
+   "result_artifact_id": "task14_below_head_ood_value_atlas_invalid_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence.",
+   "design_key": "48891a06444b2acbf017bdb8fa0450c1546449640151f29e71a9976da21c6333",
+   "execution_key": "9a25f1ca9095536532c1ca9c07659e9e18bd1f11ecf9821d3dc26cc631b3d2cd"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "ood",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "OOD_joint_value_margin_recovery_range",
+     "estimate": [
+      0.5385421113610587,
+      1.2770825629386349
+     ],
+     "ci95": null,
+     "bar": ">=0.80 each cell"
+    },
+    {
+     "name": "fronted_subject_margin_recovery_range",
+     "estimate": [
+      0.5385422131266406,
+      1.2770832336883096
+     ],
+     "ci95": null,
+     "bar": ">=0.80 each direction"
+    },
+    {
+     "name": "two_attractor_relative_later_relay",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "1"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_value_atlas_prior_art",
+   "result_artifact_id": "task14_below_head_ood_value_atlas_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on OOD_TEXT_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "5c33bf70d8bc7eb5c9f807bace66566461fc2030c3cdec1e9459909d61110d0e",
+   "execution_key": "5199b340db8e00f93d1f6cb70c9a6e504ba9b741a20d4114c40122507eed1df4"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "native_corner_max_absolute_logit_error",
+     "estimate": 6.0558319091796875e-05,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "instrument_live",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "1 required"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_score_role_invalid_prior_art",
+   "result_artifact_id": "task14_below_head_ood_score_role_invalid_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Numerically or instrument-invalid attempt retained as provenance; it is not scientific evidence.",
+   "design_key": "ac80b5f982307d8ca8ae66b0c7f92eba49f31e86627bbbb8901688ec6049d241",
+   "execution_key": "10e91f844b7191bff45fc035e596c02b8f8aa117a8dbe5cddc4099e93db0f5a4"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_score_role.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "self_score_sufficiency",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "1"
+    },
+    {
+     "name": "self_score_margin_contribution_range",
+     "estimate": [
+      -0.14822769165039062,
+      0.576358824968338
+     ],
+     "ci95": null,
+     "bar": "direction-conditional"
+    },
+    {
+     "name": "maximum_absolute_earlier_score_margin_contribution",
+     "estimate": 0.03272339701652527,
+     "ci95": null,
+     "bar": "diagnostic"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_score_role_prior_art",
+   "result_artifact_id": "task14_below_head_ood_score_role_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on OOD_TEXT_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "48f7e34780fa346a158744a22df56e4b7cf0f02640cebd2244177b83553e12fc",
+   "execution_key": "ba2b9236373e532e5fb6373f94d0dc624ccb9caf534ae0343dd9eaf49639c55a"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_self_qk.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "qk1_pair_signed_recovery_range",
+     "estimate": [
+      0.5739083947251045,
+      0.7640191472601073
+     ],
+     "ci95": null,
+     "bar": ">=0.70 each direction for sufficiency"
+    },
+    {
+     "name": "qk2_pair_signed_recovery_range",
+     "estimate": [
+      0.24837924586702395,
+      0.39024304425994366
+     ],
+     "ci95": null,
+     "bar": ">=0.70 each direction for sufficiency"
+    },
+    {
+     "name": "branch_interaction_absolute_fraction_range",
+     "estimate": [
+      0.15426219152005102,
+      0.17771235940787158
+     ],
+     "ci95": null,
+     "bar": ">=0.10 each direction"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_self_qk_prior_art",
+   "result_artifact_id": "task14_below_head_ood_self_qk_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on OOD_TEXT_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "257f7c8014f18f166cdeecf9e3e9f1aed9f8d3067f1f1c8670530f17a6b3b463",
+   "execution_key": "57448a3bbdfbb61b2bf29c363f578c1185ca8c9d1c3288e4b1f0c38d686d17b8"
+  },
+  {
+   "event_id": "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+   "claim_id": "grammatical_subject_number.v8",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_TEXT_REUSE_NEW_INTERVENTION",
+   "metrics": [
+    {
+     "name": "joint_same_number_leakage_ratio_range",
+     "estimate": [
+      0.005757905072626622,
+      0.057294400041296364
+     ],
+     "ci95": null,
+     "bar": "<=0.25 each direction"
+    },
+    {
+     "name": "qk1_signed_fraction_of_joint_range",
+     "estimate": [
+      0.5380057305554712,
+      0.7820126970669415
+     ],
+     "ci95": null,
+     "bar": ">=0.20 with >=0.75 row sign each direction"
+    },
+    {
+     "name": "qk2_signed_fraction_of_joint_range",
+     "estimate": [
+      0.24381561886355188,
+      0.46201008475921795
+     ],
+     "ci95": null,
+     "bar": ">=0.20 with >=0.75 row sign each direction"
+    }
+   ],
+   "prereg_artifact_id": "task14_below_head_ood_natural_qk_specificity_prior_art",
+   "result_artifact_id": "task14_below_head_ood_natural_qk_specificity_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Below-head Task14 evidence on OOD_TEXT_REUSE_NEW_INTERVENTION. The result bytes and prior-art receipt are frozen; reused TEST/OOD text is not a pristine held-out confirmation.",
+   "design_key": "3266372a82fb58ea0d9f43badeb6ed5c8e5fc34aa0bb69911d38fadeeb5d6a01",
+   "execution_key": "855101b866d7a8d2b0363742d17e86a89b82c98e509532133a40104c4f80e78a"
   }
  ]
 }
