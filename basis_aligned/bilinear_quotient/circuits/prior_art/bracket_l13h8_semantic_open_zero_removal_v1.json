@@ -1,0 +1,23 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_semantic_open_zero_removal",
+  "checked_at": "2026-09-05T06:57:00Z",
+  "active_claim_collision": false,
+  "dossier_sha256": "ad1ee205cd74b3f0a3430de045c2035c729c035e84e83f3b9ea75ae1ebaafebd",
+  "parent_confirmation": {
+    "artifact": "circuits/fast_screens/bracket_l13h8_open_post_family_confirm_v1_result.json",
+    "sha256": "39d75e204bdc428f9f2c574eaff22483ede1a95c976c78ab409d58f242d66124",
+    "outcome": "OPEN-only sufficiency held on fresh rows; POST and OPENxPOST were negligible"
+  },
+  "split_policy": "The dossier's formal FINAL_TEST belongs to the older R545 authority. This newer source-region sequence therefore uses the honest phase name FRESH_HELDOUT_REMOVAL and leaves canonical FINAL_TEST and OOD closed.",
+  "novelty": "First exact zero-removal of only the identified semantic-OPEN projected L13H8 contribution, testing necessity and same-state collateral rather than another swap decomposition.",
+  "freshness": {
+    "new_endpoint_texts": 48,
+    "overlap_with_basic": 0,
+    "overlap_with_select": 0,
+    "overlap_with_open_post_confirm": 0,
+    "overlap_with_r545": 0
+  },
+  "excluded": ["source resweep", "site scan", "rank", "projector", "reconstruction", "MLP atlas"],
+  "outcome_reads": []
+}
