@@ -1,0 +1,27 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_source_region_family_interaction_select",
+  "checked_at": "2026-09-05T06:36:00Z",
+  "active_claim_collision": false,
+  "parent_basic_screen": {
+    "artifact": "circuits/fast_screens/bracket_l13h8_source_region_payload_factorial_v1_result.json",
+    "sha256": "e5471038a18c2b7b285723e1bbe41d56c0236cab9d4e665edc2daa7595e6205d",
+    "terminal": "null_live_instrument",
+    "exact_observation": {
+      "direct_prefix_mean_by_direction": [0.0, 0.0],
+      "completed_reopened_prefix_mean_by_direction": [-0.7928294503461516, -0.8434985694654641],
+      "direct_open_post_mean_by_direction": [0.9645064469037813, 0.995637465154981],
+      "completed_reopened_open_post_mean_by_direction": [1.6301293104305286, 1.616494056499784]
+    },
+    "controls_passed": true,
+    "instrument_live": true
+  },
+  "novelty": "First fresh held-out confirmation of the pre-stated construction-by-source-region interaction. It evaluates only PREFIX and OPEN+POST rather than repeating the eight-corner discovery sweep.",
+  "freshness": {
+    "select_endpoint_texts": 48,
+    "overlap_with_basic_screen_endpoint_texts": 0,
+    "overlap_with_r545_endpoint_texts": 0
+  },
+  "excluded": ["broad source sweep", "site scan", "MLP response atlas", "rank", "projector", "reconstruction"],
+  "outcome_reads": []
+}
