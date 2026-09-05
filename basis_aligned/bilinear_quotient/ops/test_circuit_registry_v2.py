@@ -131,10 +131,13 @@ def test_registry_distinguishes_active_from_historical_invalid_events():
     # target nulls, and R556's selective-linear-subspace null are active negative
     # evidence and must remain visible.
     # R560 v1 adds one historical implementation failure; v2 supersedes it.
-    # R560 v2 then adds the active single-source-factor scientific null.
-    assert bracket["negative_event_count"] == 13
-    assert bracket["active_negative_event_count"] == 11
-    assert bracket["latest_blocker"] == "pending_opener_source_factor_interchange.r560.v2.complete.null.v1"
+    # R560 v2 then adds the active single-source-factor scientific null.  The
+    # later semantic chain adds held transfer/extraction results while retaining
+    # its raw-removal, mediation, and FINAL_TEST selective-necessity nulls.
+    assert bracket["negative_event_count"] == 22
+    assert bracket["active_negative_event_count"] == 20
+    assert bracket["latest_blocker"] == \
+        "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
     record = task_records()["task.bracket.pending_opener"]
     superseded = {event.get("supersedes_event_id") for event in record["evidence_events"]}
     active_ids = {event["event_id"] for event in record["evidence_events"]

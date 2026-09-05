@@ -10,16 +10,16 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 47,
-  "blocking_events": 38
+  "held_events": 53,
+  "blocking_events": 47
  },
  "work_items": [
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_bracket_pending_opener.json",
-   "active_claim_id": "pending_opener_state.v28",
-   "claim_status": "specified",
+   "active_claim_id": "pending_opener_state.v29",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "counterfactual_family_count": 5,
    "counterfactual_family_status_counts": {
@@ -48,7 +48,22 @@
     "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
     "pending_opener_source_position_audit.r560.complete.held.v1",
     "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
-    "pending_opener_source_factor_audit.r561.complete.held.v1"
+    "pending_opener_source_factor_audit.r561.complete.held.v1",
+    "pending_opener.semantic_chain.source_region_payload.v1",
+    "pending_opener.semantic_chain.source_region_select.v1",
+    "pending_opener.semantic_chain.open_post_confirm.v1",
+    "pending_opener.semantic_chain.open_zero_removal.v1",
+    "pending_opener.semantic_chain.shared_contrast.v1",
+    "pending_opener.semantic_chain.shared_contrast_interaction.v1",
+    "pending_opener.semantic_chain.mlp15_mediation.v1",
+    "pending_opener.semantic_chain.attention_mediation.v1",
+    "pending_opener.semantic_chain.attention_joint.v1",
+    "pending_opener.semantic_chain.downstream_module.v1",
+    "pending_opener.semantic_chain.residual_write.v1",
+    "pending_opener.semantic_chain.direct_fold_v1.v1",
+    "pending_opener.semantic_chain.direct_fold_v2.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -60,7 +75,13 @@
     "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
     "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
     "pending_opener_source_position_audit.r560.complete.held.v1",
-    "pending_opener_source_factor_audit.r561.complete.held.v1"
+    "pending_opener_source_factor_audit.r561.complete.held.v1",
+    "pending_opener.semantic_chain.source_region_select.v1",
+    "pending_opener.semantic_chain.open_post_confirm.v1",
+    "pending_opener.semantic_chain.shared_contrast_interaction.v1",
+    "pending_opener.semantic_chain.residual_write.v1",
+    "pending_opener.semantic_chain.direct_fold_v2.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1"
    ],
    "blocking_event_ids": [
     "pending_opener_cross_family_das.r540.complete.v1",
@@ -73,17 +94,26 @@
     "pending_opener_downstream_response_atlas.r549.complete.null.v1",
     "pending_opener_downstream_readout_guard.r551.complete.null.v1",
     "pending_opener_target_invariance_das.r556.complete.null.v1",
-    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1"
+    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
+    "pending_opener.semantic_chain.source_region_payload.v1",
+    "pending_opener.semantic_chain.open_zero_removal.v1",
+    "pending_opener.semantic_chain.shared_contrast.v1",
+    "pending_opener.semantic_chain.mlp15_mediation.v1",
+    "pending_opener.semantic_chain.attention_mediation.v1",
+    "pending_opener.semantic_chain.attention_joint.v1",
+    "pending_opener.semantic_chain.downstream_module.v1",
+    "pending_opener.semantic_chain.direct_fold_v1.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
    ],
    "coverage": {
     "capability": "mixed",
     "causal_site": "mixed",
     "learned_interchange": "mixed",
-    "cross_family": "blocked",
+    "cross_family": "mixed",
     "ood": "missing",
     "selectivity": "mixed",
-    "composition": "blocked",
-    "compiled_weights": "blocked"
+    "composition": "mixed",
+    "compiled_weights": "mixed"
    },
    "acceptance_gaps": [
     "capability",
@@ -96,7 +126,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+   "next_missing": "selective necessity remains null; freeze an OOD-capable authority before opening OOD, and test a contrast definition that preserves distance-dependent CE without changing the held-out transfer claim"
   },
   {
    "tag": "task.narrative_tense.past_vs_present",

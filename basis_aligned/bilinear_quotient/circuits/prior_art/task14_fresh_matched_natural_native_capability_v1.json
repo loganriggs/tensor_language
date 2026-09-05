@@ -1,0 +1,91 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.fresh_matched_natural_native_capability_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Native-only capability licensing for a fresh matched-natural Task14 authority before any new L11H3 QK intervention is designed or run.",
+  "scientific_scope": "Capability only. This receipt registers no QK, attention-head, source-term, interchange, removal, or causal outcome.",
+  "prior_art_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "01f959e9821a0ccd192be30c50cb6a3c9b302a4ecf41778548cf74eabee03861",
+      "finding": "Claim v10 leaves fresh-text natural-QK confirmation missing and forbids weakening the failed liveness bar."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+      "sha256": "a35e3b905313b14635a2b34736548172ce5e56761f8913cf27d0d86152cb201f",
+      "finding": "The OOD-text result used a new intervention on previously opened text and therefore is not pristine fresh confirmation."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1_result.json",
+      "sha256": "94a6c8945b983a5b9e277563175957b55278a9f36169f200643ef8e9a285af9d",
+      "finding": "The first fresh result is instrument-invalid. Native roles and exact algebra passed, but opposite versus recipient score mixed subject number with a foreign prefix and failed one frozen row-sign cell. Its outcomes are not used to select rows, nouns, or templates here."
+    },
+    {
+      "path": "circuits/prior_art/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1.json",
+      "sha256": "e85974a4b7ef69bbc958e49acb3979bdf629795c9413cbaf4f8fda0afff3a7df",
+      "finding": "The prior authority supplied recipient and foreign same/opposite donors. It did not provide a token-8-only recipient/opposite pair plus a matched same-number lexical control."
+    },
+    {
+      "path": "ops/native_capability_license.py",
+      "sha256": "681e8cea456369f519228f8eabfcc8dd43bbdf29c45f381e774fdc4452a22eb6",
+      "finding": "The generic fail-closed license binds an authority file, logical digest, exact registered cells, and a reproducible passing native-only result."
+    }
+  ],
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_task14_fresh_matched_natural_native_capability.py",
+    "file_sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+    "logical_sha256": "8862dc84c10a28c0857cb7b201adab46e72f2e7063069fcf1a09f50ec21947d7",
+    "groups": 16,
+    "fit_groups": "0:8",
+    "holdout_groups": "8:16",
+    "templates": ["across_beside", "between_below"],
+    "stored_rows": 32,
+    "stored_prompt_endpoints": 96,
+    "fit_prompt_endpoints_opened_first": 48,
+    "holdout_prompt_endpoints_opened_only_after_fit_pass": 48,
+    "maximum_native_evidence_records": 96,
+    "causal_interventions": 0
+  },
+  "endpoint_roles": {
+    "recipient": "The grammatical subject has the recipient number and lemma.",
+    "opposite_same_lemma": "The exact same prefix and subject lemma are retained; only subject token 8 changes to the opposite-number form.",
+    "same_number_different_lemma": "The exact same prefix and grammatical number are retained; only subject token 8 changes to a different lemma from the same phase."
+  },
+  "balance_and_freshness": {
+    "cells": "For each phase, template, recipient-number direction, and endpoint role there are exactly four endpoints, covering all four two-attractor plurality states once.",
+    "token_alignment": "All prompts contain exactly nine GPT-2 tokens, the grammatical subject is token index 8, and paired roles differ from the recipient only at index 8.",
+    "prior_disjointness": "All 32 noun forms and all 96 complete prompt/token endpoints are disjoint from the original Task14 authority and the first fresh natural-QK authority.",
+    "phase_disjointness": "FIT and HOLDOUT use disjoint eight-pair noun vocabularies. The two frozen syntactic templates and is/are answer tokens are intentionally shared."
+  },
+  "native_capability_rule": {
+    "registered_cells": 24,
+    "examples_per_cell": 4,
+    "minimum_accuracy": 0.875,
+    "attainable_requirement": "Because each cell has four examples, every cell must be 4/4 correct.",
+    "fit_gate": "Evaluate only all 48 FIT endpoints. Every one of the 12 FIT cells must pass before HOLDOUT can be opened.",
+    "holdout_gate": "If FIT passes, evaluate all 48 HOLDOUT endpoints. Every one of the 12 HOLDOUT cells must pass before issuing a license.",
+    "metrics": [
+      "native correct-answer accuracy",
+      "correct-answer-minus-foil is/are logit margin",
+      "full-vocabulary correct-answer cross-entropy"
+    ],
+    "failure": "Any failed FIT cell stops before HOLDOUT. Any failed HOLDOUT cell emits no license. No row removal, role removal, template fallback, or threshold change is permitted."
+  },
+  "license_design": {
+    "capability_id": "subject_verb.number_agreement.fresh_matched_natural_native_capability_v1",
+    "causal_candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+    "binding": "A future causal runner must validate the exact authority file SHA, logical SHA, registered-cells SHA, capability-result SHA, license SHA, and causal candidate ID before enqueue or model loading."
+  },
+  "maximum_price": {
+    "model_forwards": 2,
+    "example_evaluations": 96,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "interpretation_limits": [
+    "Passing establishes only that every frozen natural endpoint is natively answerable; it is not causal evidence.",
+    "The HOLDOUT half is lexically and prompt-disjoint, not template-disjoint.",
+    "The later score comparison may isolate a matched natural subject-number change, but it will still combine the natural query and key changes caused by token 8.",
+    "Task margin and full-vocabulary CE are capability diagnostics here, not evidence of simplicity or circuit extraction."
+  ]
+}

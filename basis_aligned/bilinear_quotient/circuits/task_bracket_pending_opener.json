@@ -4992,6 +4992,232 @@
    ],
    "translation_ids": [],
    "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+  },
+  {
+   "claim_id": "pending_opener_state.v29",
+   "revision": 29,
+   "status": "site_live",
+   "supersedes": "pending_opener_state.v28",
+   "causal_variable": {
+    "id": "pending_opener_state_three_value_candidate",
+    "domain": "candidate parenthesis, square-bracket, or quote pending state; selected after R544 and not confirmed",
+    "read": "opener, closer, ordering, and recency evidence in the preceding context",
+    "operation": "maintain which opener type remains pending after completed earlier spans",
+    "write": "signed evidence for the matching closer token",
+    "endpoint": "symmetric donor-closer versus base-closer final-logit margin"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange",
+    "post-outcome exclusion of curly braces; requires entirely fresh confirmation rows"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_three_value_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct closer",
+      "one opener token among parenthesis, square, and quote"
+     ],
+     "holds_fixed": [
+      "ordinary words",
+      "sequence length",
+      "opener position",
+      "body order"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "three answer-preserving families",
+      "endpoint-gradient overlap"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_three_value_order",
+     "role": "interchange",
+     "changes": [
+      "which of two delimiter types remains pending",
+      "correct closer"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length",
+      "final lexical suffix",
+      "one completed span"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "direct construction",
+      "same-variable surface rewrite",
+      "wrong closer"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording",
+      "ordinary-word order"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "held-out lexical pool",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_extension",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "neutral intervening clause"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "core content words"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "short versus long",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+     "tensor_path": "exact p_k u_k post-output-projection contribution from the semantic pending-opener source to L13H8 at the final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor-term interchange or pair-mean replacement; no fitted projector",
+     "ceiling_event_ids": [
+      "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_three_value_fresh_split_r545_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+    "pending_opener_three_value_confirmation.r546.preregistered.v1",
+    "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
+    "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+    "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
+    "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
+    "pending_opener_downstream_response_atlas.r549.preregistered.v1",
+    "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+    "pending_opener_downstream_response_atlas.r549.complete.null.v1",
+    "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+    "pending_opener_target_invariance_das.r556.preregistered.v1",
+    "pending_opener_target_invariance_das.r556.complete.null.v1",
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+    "pending_opener_source_position_audit.r560.complete.held.v1",
+    "pending_opener_source_factor_interchange.r560.preregistered.v1",
+    "pending_opener_source_factor_interchange.r560.v1.invalid_implementation",
+    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+    "pending_opener_source_factor_audit.r561.preregistered.v1",
+    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
+    "pending_opener_source_factor_audit.r561.complete.held.v1",
+    "pending_opener.semantic_chain.source_region_payload.v1",
+    "pending_opener.semantic_chain.source_region_select.v1",
+    "pending_opener.semantic_chain.open_post_confirm.v1",
+    "pending_opener.semantic_chain.open_zero_removal.v1",
+    "pending_opener.semantic_chain.shared_contrast.v1",
+    "pending_opener.semantic_chain.shared_contrast_interaction.v1",
+    "pending_opener.semantic_chain.mlp15_mediation.v1",
+    "pending_opener.semantic_chain.attention_mediation.v1",
+    "pending_opener.semantic_chain.attention_joint.v1",
+    "pending_opener.semantic_chain.downstream_module.v1",
+    "pending_opener.semantic_chain.residual_write.v1",
+    "pending_opener.semantic_chain.direct_fold_v1.v1",
+    "pending_opener.semantic_chain.direct_fold_v2.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "selective necessity remains null; freeze an OOD-capable authority before opening OOD, and test a contrast definition that preserves distance-dependent CE without changing the held-out transfer claim"
   }
  ],
  "split_plans": [
@@ -7017,6 +7243,642 @@
    "notes": "Independent pre-outcome CPU audit exactly reproduced the R560 decision.",
    "design_key": "cc6fd461cca9e50febd10e97b03ac000f33e0c408b459908670d51929cb961cb",
    "execution_key": "5d7f2e382df2c7fcc64645a6177894f439d07b6147ef5322ce152e1f2d842ad1"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.source_region_payload.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "instrument",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "pass"
+    },
+    {
+     "name": "prespecified_region_localization",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "pass"
+    }
+   ],
+   "prereg_artifact_id": "bracket_source_region_payload_prior_art",
+   "result_artifact_id": "bracket_source_region_payload_result",
+   "input_artifact_ids": [
+    "bracket_source_region_payload_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Exhaustive PREFIX/OPEN/POST payload factorial was live but did not hold its original localization claim.",
+   "design_key": "c175eebdb5d320f7ef32f292e8e1bcc2433e28ae1006d3c5f516feabc180477e",
+   "execution_key": "1c780523c3946fd38c5c32cc000098ad707161c9ece34c1b3168a9d91347dbc9"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.source_region_select.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "OPEN_family_interaction",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "pass"
+    }
+   ],
+   "prereg_artifact_id": "bracket_source_region_select_prior_art",
+   "result_artifact_id": "bracket_source_region_select_result",
+   "input_artifact_ids": [
+    "bracket_source_region_select_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Fresh SELECT isolated semantic OPEN as the family interaction.",
+   "design_key": "4be7cd98da21d1311e4753a8fc204a2713aedc8749c0b6d7bd08b5b0f67bdfea",
+   "execution_key": "5c2af409364b55296b1d57d9db4b9ea985c8a05c34f00334f633e26ecde5140e"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.open_post_confirm.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "opener_payload_cells_passed",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "4/4"
+    }
+   ],
+   "prereg_artifact_id": "bracket_open_post_confirm_prior_art",
+   "result_artifact_id": "bracket_open_post_confirm_result",
+   "input_artifact_ids": [
+    "bracket_open_post_confirm_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Fresh confirmation held opener payload across both target families and directions.",
+   "design_key": "1b8f818c78cc9fc77cdeb6e69fe6ac8046fa880a068b293e0c019a4b3191dcdc",
+   "execution_key": "7e2120a91bd2ca4b9693b25f730c905af63400de9be8fe7f48d4067f7007f330"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.open_zero_removal.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "removal",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "target_cells_passed",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "4/4"
+    },
+    {
+     "name": "same_state_collateral",
+     "estimate": 0.9724998000919484,
+     "ci95": null,
+     "bar": "<=0.25"
+    }
+   ],
+   "prereg_artifact_id": "bracket_open_zero_removal_prior_art",
+   "result_artifact_id": "bracket_open_zero_removal_result",
+   "input_artifact_ids": [
+    "bracket_open_zero_removal_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Raw semantic-opener zero removal damaged controls almost as much as targets; it is not selectively necessary.",
+   "design_key": "9b0fb044a1e75af215ffebdc0c37ec6753ed315c488f76c056862452eb471a45",
+   "execution_key": "bcc5c5ea5024c31ea15165360fa412ced0dbbb9e00b18e2d2c33f84aa74a704c"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.shared_contrast.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "natural_swap_positive_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75"
+    },
+    {
+     "name": "completed_order_type_common_ratio",
+     "estimate": 1.8635033226155877,
+     "ci95": null,
+     "bar": ">=2"
+    }
+   ],
+   "prereg_artifact_id": "bracket_shared_contrast_prior_art",
+   "result_artifact_id": "bracket_shared_contrast_result",
+   "input_artifact_ids": [
+    "bracket_shared_contrast_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Exact triplet effect coding transferred type, but the stronger shared/common separation claim failed.",
+   "design_key": "c8d15f3410de4b42396571a51657bcca8a85dedb7439ea0df0e71c1d83557c11",
+   "execution_key": "bcc2b32b4a51bc107f06b71341fad1fb5e47fcac3dfd22b3ce1b0e305aaf1bf8"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.shared_contrast_interaction.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "additive_oblique",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "pass"
+    }
+   ],
+   "prereg_artifact_id": "bracket_shared_contrast_interaction_prior_art",
+   "result_artifact_id": "bracket_shared_contrast_interaction_result",
+   "input_artifact_ids": [
+    "bracket_shared_contrast_interaction_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Shared and centered delimiter terms were approximately additive under the frozen interaction bar.",
+   "design_key": "2ba18e1becbb18f2a09b49fcd82333d6072534c2f9971734e62fe0beb89eb534",
+   "execution_key": "1e2a164026c3f1f838d3b707a9c02e504fe3d6a6276d97170c1b74b328525204"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.mlp15_mediation.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "MLP15_rescue",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "pass required"
+    }
+   ],
+   "prereg_artifact_id": "bracket_mlp15_mediation_prior_art",
+   "result_artifact_id": "bracket_mlp15_mediation_result",
+   "input_artifact_ids": [
+    "bracket_mlp15_mediation_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Restoring MLP15 did not mediate either exact semantic factor.",
+   "design_key": "b813c0160670c000fb8a18146bdee9c3163e716f79e8e98a9c65718b26214b23",
+   "execution_key": "28d46b4f51e6e3996a412dc24f85a804a2fe3d6a02ff152942347899fa115768"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.attention_mediation.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "individual_R549_head_rescue",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "pass required"
+    }
+   ],
+   "prereg_artifact_id": "bracket_attention_mediation_prior_art",
+   "result_artifact_id": "bracket_attention_mediation_result",
+   "input_artifact_ids": [
+    "bracket_attention_mediation_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "No individual R549 attention handle mediated either factor.",
+   "design_key": "67d0e1ae1e78a0de9332d870d59acd0ed765beab03595b36cefed24f3a71ccd8",
+   "execution_key": "4c958f05ef9ec370946e4c9cc4b450d53895d1d83e3bce041c963028bb3fb268"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.attention_joint.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "joint_R549_head_rescue",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "pass required"
+    }
+   ],
+   "prereg_artifact_id": "bracket_attention_joint_prior_art",
+   "result_artifact_id": "bracket_attention_joint_result",
+   "input_artifact_ids": [
+    "bracket_attention_joint_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "The grouped R549 attention handles also failed mediation.",
+   "design_key": "840e51fa7377be68f4038e5de54c6ba7b098d615b9475ac5f469338aff12f133",
+   "execution_key": "ff25d225e896740f128a6e54a6fe737e1168c87407339049fa960ab639908312"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.downstream_module.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "all_later_module_rescue",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "pass required"
+    }
+   ],
+   "prereg_artifact_id": "bracket_downstream_module_prior_art",
+   "result_artifact_id": "bracket_downstream_module_result",
+   "input_artifact_ids": [
+    "bracket_downstream_module_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Freezing all later module writes did not preserve the exact factor's closer-axis effect.",
+   "design_key": "28ec8f2156fa870d268d3df7bea7d4c064318e294fb4516b6a79349571d66c5e",
+   "execution_key": "81d84fea3ab4c9eca42d4601ffa33b6bea16dfc646f686b2d53a5f539fb8c0f1"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.residual_write.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "residual_projection_range",
+     "estimate": [
+      0.974,
+      1.224
+     ],
+     "ci95": null,
+     "bar": ">=0.75"
+    },
+    {
+     "name": "later_write_projection_range",
+     "estimate": [
+      -0.221,
+      0.037
+     ],
+     "ci95": null,
+     "bar": "reported"
+    }
+   ],
+   "prereg_artifact_id": "bracket_residual_write_prior_art",
+   "result_artifact_id": "bracket_residual_write_result",
+   "input_artifact_ids": [
+    "bracket_residual_write_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Closer-axis signal is residual-route dominated; full-vocabulary CE shows later compensation.",
+   "design_key": "0a241e39e46b8d42ecad7423a460206432cb98111a3691a6f001ec5701ace495",
+   "execution_key": "3e2e8f7bc83024ef26785ee2d5df9474860b312c25577f84c733d91c45bf377f"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.direct_fold_v1.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "instrument_live",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must pass"
+    }
+   ],
+   "prereg_artifact_id": "bracket_direct_fold_v1_prior_art",
+   "result_artifact_id": "bracket_direct_fold_v1_result",
+   "input_artifact_ids": [
+    "bracket_direct_fold_v1_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "First direct fold used an invalid normalization identity.",
+   "design_key": "1ba38d3dcaa057ce8f36f0a739275166bf0f2c9fdc28296f5bf5a49f0f0e8765",
+   "execution_key": "be9e74548da37b7ca31df182c920ef06f079d542199891fea751aea43ba72a8c"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.direct_fold_v2.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "fresh semantic screen",
+   "metrics": [
+    {
+     "name": "direct_fold_projection_range",
+     "estimate": [
+      0.9838,
+      1.1197
+     ],
+     "ci95": null,
+     "bar": ">=0.75"
+    }
+   ],
+   "prereg_artifact_id": "bracket_direct_fold_v2_prior_art",
+   "result_artifact_id": "bracket_direct_fold_v2_result",
+   "input_artifact_ids": [
+    "bracket_direct_fold_v2_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Corrected exact RMS/unembedding/softcap fold accounts for the isolated residual closer-axis effect.",
+   "design_key": "51ab39362904f9ecbfd577327b8603129a7726c4052778176c0755b920f9db32",
+   "execution_key": "47e9b43213385dabcfcfc5794b1f3a8c11d4fdc9e49b3d4504001cc506cd05d1"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "held-out FINAL_TEST",
+   "metrics": [
+    {
+     "name": "open_swap_positive_cells",
+     "estimate": 24,
+     "ci95": null,
+     "bar": "24/24"
+    },
+    {
+     "name": "open_swap_median_fraction_complete_range",
+     "estimate": [
+      0.9799421606288387,
+      1.2119383614076955
+     ],
+     "ci95": null,
+     "bar": ">=0.50"
+    }
+   ],
+   "prereg_artifact_id": "bracket_pair_centered_final_prior_art",
+   "result_artifact_id": "bracket_pair_centered_final_result",
+   "input_artifact_ids": [
+    "bracket_pair_centered_final_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "On unopened R545 FINAL_TEST, exact opener-term interchange transferred the closer in every ordered-pair cell. OOD remains unopened.",
+   "design_key": "ac710936d323644668eae895a20f03ce1f7c8976b46659636bd684213b37edcd",
+   "execution_key": "327f8d567a2bfe3e647c6a998ce3adeed65add5e211e7c357f4602094e5898e6"
+  },
+  {
+   "event_id": "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1",
+   "claim_id": "pending_opener_state.v29",
+   "test_type": "removal",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "direct_three_value_type_substitution",
+    "completed_then_reopened_three_value_order",
+    "pending_type_preserved_surface_rewrite",
+    "pending_type_preserved_distance_extension",
+    "pending_type_preserved_nonopener_punctuation"
+   ],
+   "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+   "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+   "evaluation_role": "held-out FINAL_TEST",
+   "metrics": [
+    {
+     "name": "direct_midpoint_ratio",
+     "estimate": [
+      0.49089436629864325,
+      0.49456392450349285
+     ],
+     "ci95": null,
+     "bar": ">=0.50"
+    },
+    {
+     "name": "distance_control_midpoint_CE_ratio_max",
+     "estimate": 3.56249944627227,
+     "ci95": null,
+     "bar": "<=0.25"
+    }
+   ],
+   "prereg_artifact_id": "bracket_pair_centered_final_prior_art",
+   "result_artifact_id": "bracket_pair_centered_final_result",
+   "input_artifact_ids": [
+    "bracket_pair_centered_final_prior_art"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Pair-centered removal was directionally live but failed the registered direct-family ratio and control-CE selectivity bars; selective necessity is null.",
+   "design_key": "08fa0f064146526d5089b70aec49b203131dc8c55d3a09070e5847d6537422c8",
+   "execution_key": "02d4455f137c64c1b5ba5463d4d23d2a0d716a9bfb3002e0683393dcdc0678ca"
   }
  ],
  "translations": [],
@@ -7673,6 +8535,174 @@
    "path": "basis_aligned/bilinear_quotient/pending_opener_source_factor_interchange_rung561_audit.json",
    "sha256": "1422ad1ec065d92cbc04767582d942c0195e53bd236510a66cf11b4f5468f98b",
    "kind": "audit",
+   "status": "frozen"
+  },
+  "bracket_source_region_payload_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_source_region_payload_factorial_v1.json",
+   "sha256": "52ace3d1cb66118a2e09e12a7b802d636a4fbef9c32dd63741374826be51f2e0",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_source_region_payload_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_source_region_payload_factorial_v1_result.json",
+   "sha256": "e5471038a18c2b7b285723e1bbe41d56c0236cab9d4e665edc2daa7595e6205d",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_source_region_select_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_source_region_family_interaction_select_v1.json",
+   "sha256": "502329c0fa90a1f72569347f629158f5a93a93fd1e792444af4521eab4748b1d",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_source_region_select_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_source_region_family_interaction_select_v1_result.json",
+   "sha256": "8148996681c64edaac3c25e9dda85d122f1a170b3fa57ea0bb0a42bc6c02625a",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_open_post_confirm_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_open_post_family_confirm_v1.json",
+   "sha256": "a10b795d42ff4f66f052a5acc758323420172e4280ec998f517835c9874eb491",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_open_post_confirm_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_open_post_family_confirm_v1_result.json",
+   "sha256": "39d75e204bdc428f9f2c574eaff22483ede1a95c976c78ab409d58f242d66124",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_open_zero_removal_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_semantic_open_zero_removal_v1.json",
+   "sha256": "4a47c89f908925daa7574c665a7bde963130f2b24fb6a838d1e60fec8a9272b7",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_open_zero_removal_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_semantic_open_zero_removal_v1_result.json",
+   "sha256": "dac4bdf0596884e84e7a282ff36f2027137fda69952d25fa27f198523e967aca",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_shared_contrast_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_semantic_open_shared_contrast_v1.json",
+   "sha256": "283566ddade304cbde67fd3f88a8fe49d2d4067e73dac6529875f86fa88ab992",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_shared_contrast_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_semantic_open_shared_contrast_v1_result.json",
+   "sha256": "37014b88e9341d63626d5152fca87e2df7de90c7dc76e2b309935bc330806c3a",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_shared_contrast_interaction_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_shared_contrast_interaction_factorial_v1.json",
+   "sha256": "ada10afe3cd3ff617685cebf64218a23dff7b2553b92e9adea39afd7f6e834a4",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_shared_contrast_interaction_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_shared_contrast_interaction_select_v1_result.json",
+   "sha256": "d686a2cb22e96049cb12ba1db5658dde9dac9240639bb5860edc1614faf594a7",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_mlp15_mediation_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_mlp15_mediation_v1.json",
+   "sha256": "916c38eaf884be3e498b0a53e2e7c3d48fd249e02373c1f4e8d1970608bbd17f",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_mlp15_mediation_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_mlp15_mediation_v1_result.json",
+   "sha256": "20543b23a1eea03db22722a17bf4ba5d623ba5809102edf1fcd2bca085524565",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_attention_mediation_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_r549_attention_mediation_v1.json",
+   "sha256": "176815d395903cef47f13148d6a2d1fb7190d661e075c3851c263dff32466530",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_attention_mediation_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_r549_attention_mediation_v1_result.json",
+   "sha256": "7ae8f092a873b15d3f273196db380e46ef1e7f906b7d837395eb7b3dacf87917",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_attention_joint_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_r549_attention_joint_mediation_v1.json",
+   "sha256": "c08ffec32d1aaba60cf081dc145c1645a187e5cf5f2a22e7ea2c6eee580759e1",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_attention_joint_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_r549_attention_joint_mediation_v1_result.json",
+   "sha256": "dfe042e91eed84b0493558916c02d87637c5ea84f02f037d81dfd66e448e59fb",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_downstream_module_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_downstream_module_mediation_v1.json",
+   "sha256": "66fba6861aa6d5bd0048b7658fcf8440f9adde25f45e5e38d774fc83cfca55e4",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_downstream_module_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_downstream_module_mediation_v1_result.json",
+   "sha256": "925683ae1e04c9aa3f27b51e22370589ef459aeeacc093e62d5afcb3391ce2b3",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_residual_write_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_residual_write_bank_factorial_v1.json",
+   "sha256": "eab7b8ef3c54e7583204451cc3659a1c7470c60ac1e6502e508b7269510fae47",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_residual_write_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_residual_write_bank_factorial_v1_result.json",
+   "sha256": "bc38fe115de9f5dac166bbe7b4451592015df67c700e5b297524a1f66a76b17d",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_direct_fold_v1_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_direct_readout_fold_v1.json",
+   "sha256": "194f9df04b0a264c6510ddae0763c589a827c95a9348591842cd1adfee2bb717",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_direct_fold_v1_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_direct_readout_fold_v1_result.json",
+   "sha256": "05b13e9bc0de8c59122a05ae5a423951cae604629b9a56b0f791e9cf743f182d",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_direct_fold_v2_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_mu_delta_direct_readout_fold_v2.json",
+   "sha256": "ca99d6974cbbe99e137ce8943fc9aa0090d3dab82e38f7ccfbf1f0c0b701b0fd",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_direct_fold_v2_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_mu_delta_direct_readout_fold_v2_result.json",
+   "sha256": "31a40ed62409181e7977ca4182f34dbd5d7d9fa0d92c3270888bae53a94a21ae",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "bracket_pair_centered_final_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/bracket_l13h8_pair_centered_open_term_final_test_v1.json",
+   "sha256": "8910899470d14cd7190c290a506307a562017dde0dfc63105447d57ff8b85f63",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "bracket_pair_centered_final_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/bracket_l13h8_pair_centered_open_term_final_test_v1_result.json",
+   "sha256": "e64093354428d62eecd268360a79e8ef6549437babdaf9897d853134a44000f6",
+   "kind": "screen_result",
    "status": "frozen"
   }
  },

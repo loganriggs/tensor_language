@@ -1,0 +1,50 @@
+{
+  "aliases_searched": [
+    "c_absolute_recovery",
+    "canonical control",
+    "control frame",
+    "rank stability",
+    "same-answer control",
+    "vocabulary overlap"
+  ],
+  "candidate_id": "polarity_state.canonical_control_v2",
+  "canonical_objects": [
+    "a same-answer control with a vocabulary disjoint from every target",
+    "polarity transfer scored against canonical control v2",
+    "rank stability of the control statistic across two fixed controls"
+  ],
+  "decision_changed": "A preserved rank order across two unrelated controls makes the control statistic a reportable per-behaviour measurement. A reshuffle reduces the finding to a single outlier and I stop reporting an ordering. Either way the comparable set is complete and I return to adding behaviours.",
+  "matched_prior_claims": [
+    "Under canonical control v1 the five behaviours give C 0.043 degree_frame, 0.060 verb_complementizer, 0.061 correlative_state, 0.087 polarity_state, 0.134 narrative_tense.",
+    "Under canonical control v2, whose vocabulary is disjoint from every target, narrative_tense reads 0.200 and degree_frame 0.063; the gap widened from 0.091 to 0.137 and the token-overlap explanation was refuted.",
+    "AGENT_BOARD.md 2026-09-05T13:34Z records that absolute C is control-dependent while a per-behaviour difference survives two unrelated fixed controls, on two points only."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "control-family substitution"
+  ],
+  "novelty_delta": "Moves polarity from canonical control v1 to v2, A1/A2/P unchanged, completing the five-behaviour set under a second fixed control whose vocabulary is disjoint from every target. Its v1 value was 0.087. The per-behaviour difference reported at 13:34Z rests on TWO points (narrative_tense and degree_frame); three more make it an ordering or kill it. PREDICTION REGISTERED BEFORE THE RUN: if the v1 ordering is a stable property, all five keep their v1 rank order under v2 and narrative_tense stays the maximum; if ranks reshuffle among the middle three, the only supportable claim is that narrative_tense is an outlier and there is no ordering to report.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "83a895976fa1ce9c76dd36a5c02210a23bb801c2df4f1bdd854d42735d804b9e",
+      "source": "circuits/fast_screens/narrative_tense_canonical_control_v2_result.json"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "1db1b5ef92c778f6362e64e0469b95f41430e7ef5608d6021573a8f83382d009",
+      "source": "circuits/fast_screens/degree_frame_canonical_control_v2_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, after the v2 pair refuted the overlap explanation",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

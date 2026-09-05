@@ -118,7 +118,7 @@
   },
   "task.bracket.pending_opener": {
    "kind": "behavior_circuit",
-   "claim_status": "specified",
+   "claim_status": "site_live",
    "causal_variable_id": "pending_opener_state_three_value_candidate",
    "categories": {
     "capability": {
@@ -158,14 +158,17 @@
      "latest_relevant_event_id": "pending_opener_target_invariance_das.r556.complete.null.v1"
     },
     "cross_family": {
-     "status": "blocked",
-     "held_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "pending_opener.semantic_chain.open_post_confirm.v1",
+      "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1"
+     ],
      "blocking_event_ids": [
       "pending_opener_cross_family_das.r540.complete.v1",
       "pending_opener_downstream_response_atlas.r549.complete.null.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_downstream_response_atlas.r549.complete.null.v1"
+     "latest_relevant_event_id": "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1"
     },
     "ood": {
      "status": "missing",
@@ -184,34 +187,49 @@
      ],
      "blocking_event_ids": [
       "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
-      "pending_opener_downstream_readout_guard.r551.complete.null.v1"
+      "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+      "pending_opener.semantic_chain.open_zero_removal.v1",
+      "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_source_factor_audit.r561.complete.held.v1"
+     "latest_relevant_event_id": "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1"
     },
     "composition": {
-     "status": "blocked",
-     "held_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "pending_opener.semantic_chain.source_region_select.v1",
+      "pending_opener.semantic_chain.shared_contrast_interaction.v1"
+     ],
      "blocking_event_ids": [
-      "pending_opener_source_factor_interchange.r560.v2.complete.null.v1"
+      "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
+      "pending_opener.semantic_chain.source_region_payload.v1",
+      "pending_opener.semantic_chain.shared_contrast.v1",
+      "pending_opener.semantic_chain.mlp15_mediation.v1",
+      "pending_opener.semantic_chain.attention_mediation.v1",
+      "pending_opener.semantic_chain.attention_joint.v1",
+      "pending_opener.semantic_chain.downstream_module.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "pending_opener_source_factor_interchange.r560.v2.complete.null.v1"
+     "latest_relevant_event_id": "pending_opener.semantic_chain.downstream_module.v1"
     },
     "compiled_weights": {
-     "status": "blocked",
-     "held_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "pending_opener.semantic_chain.residual_write.v1",
+      "pending_opener.semantic_chain.direct_fold_v2.v1"
+     ],
      "blocking_event_ids": [
-      "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1"
+      "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+      "pending_opener.semantic_chain.direct_fold_v1.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1"
+     "latest_relevant_event_id": "pending_opener.semantic_chain.direct_fold_v2.v1"
     }
    },
-   "n_held_categories": 4,
+   "n_held_categories": 7,
    "n_blocked_categories": 7,
    "n_missing_categories": 1,
-   "next_missing": "build fresh rows and test an exact semantic source-region payload decomposition with same-pending-state matched donors; retain punctuation RMS as a required control and do not return to a linear-dimension sweep"
+   "next_missing": "selective necessity remains null; freeze an OOD-capable authority before opening OOD, and test a contrast definition that preserves distance-dependent CE without changing the held-out transfer claim"
   },
   "task.increment.state": {
    "kind": "behavior_circuit",
