@@ -775,6 +775,162 @@
    ],
    "translation_ids": [],
    "next_missing": "run a staged native-capability compiler before any causal arms, or move this family out of the carrier queue until a capable A1+A2/P/C authority exists"
+  },
+  {
+   "claim_id": "narrative_tense_at_final_position.v6",
+   "revision": 6,
+   "status": "site_live",
+   "supersedes": "narrative_tense_at_final_position.v5",
+   "causal_variable": {
+    "id": "narrative_tense_at_final_position",
+    "domain": "past or present narrative frame across direct narration and relative-clause constructions",
+    "read": "earlier lexical and inflectional tense cues",
+    "operation": "carry the narrative time frame to the copular continuation",
+    "write": "signed evidence for the one-token continuation ' was' versus ' is'",
+    "endpoint": "donor-answer versus recipient-answer logit margin and binary-contrast CE under exact donor interchange"
+   },
+   "alternative_explanations": [
+    "construction-specific lexical cue copying",
+    "a generic copula or output-token write shared with agreement",
+    "a broad attention-block effect not specific to head 3"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_direct_narration",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "direct-narration construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A2 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "a2_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "relative-clause construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "p_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording within a fixed narrative tense"
+     ],
+     "holds_fixed": [
+      "narrative tense",
+      "correct answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "c_same_answer_rewrite",
+     "role": "invariance",
+     "changes": [
+      "unrelated past-description wording"
+     ],
+     "holds_fixed": [
+      "correct answer was",
+      "answer position",
+      "final prompt token"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.final_position.after_block18",
+     "tensor_path": "final-position residual after block 18",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete residual state with the matched natural donor state",
+     "ceiling_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ]
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "attention block 11 output at the final position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete attention-block output with the matched natural donor output",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's slice before attention block 11 output projection at the final position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "replace head 3 alone, with the other eight heads as the exact factorial complement",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "evidence_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+    "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "narrative carrier causal work is blocked; a separately frozen authority must pass native capability and issue a hash-bound license, or move to another circuit"
   }
  ],
  "split_plans": [
@@ -1264,6 +1420,108 @@
    "sections": [],
    "design_key": "5dfe0f7d026865716becc8e9cacb978bf15bebef1540bb414448d4d2cf7b7efc",
    "execution_key": "b007922a7127aacd1c5bff39525171d1a4196c143ef9c42b6cc7ba934582362f"
+  },
+  {
+   "event_id": "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "site_id": null,
+   "result_artifact_id": "a2_c_capability_selector_result",
+   "prereg_artifact_id": "a2_c_capability_prior_art",
+   "metrics": [
+    {
+     "name": "selected_FIT_package",
+     "estimate": [
+      "while_observers",
+      "back_then_right_now"
+     ],
+     "ci95": null,
+     "bar": "one global A2+C package selected by the frozen FIT rule"
+    },
+    {
+     "name": "failed_HOLDOUT_cell_count",
+     "estimate": 3,
+     "ci95": null,
+     "bar": "must equal 0"
+    },
+    {
+     "name": "HOLDOUT_A1_past_to_present_base_accuracy",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.875"
+    },
+    {
+     "name": "HOLDOUT_A1_present_to_past_donor_accuracy",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.875"
+    },
+    {
+     "name": "HOLDOUT_A2_present_to_past_donor_accuracy",
+     "estimate": 0.75,
+     "ci95": null,
+     "bar": ">=0.875"
+    },
+    {
+     "name": "model_forwards",
+     "estimate": 2,
+     "ci95": null,
+     "bar": "must equal 2"
+    },
+    {
+     "name": "endpoint_evaluations",
+     "estimate": 192,
+     "ci95": null,
+     "bar": "must equal 192"
+    },
+    {
+     "name": "causal_interventions",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must equal 0"
+    },
+    {
+     "name": "license_emitted",
+     "estimate": 0,
+     "ci95": null,
+     "bar": "must equal 1 before causal work"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "scientific_status": "valid native-capability null; not an invalid instrument",
+    "selection": "FIT selected while_observers + back_then_right_now",
+    "failed_holdout_cells": [
+     "HOLDOUT/A1/served_one_purpose/past_to_present/base",
+     "HOLDOUT/A1/served_one_purpose/present_to_past/donor",
+     "HOLDOUT/A2/while_observers/present_to_past/donor"
+    ],
+    "license": "no hash-bound capability license was emitted",
+    "selected_package_artifact_id": "a2_c_capability_selected_package_result",
+    "authority_artifact_id": "a2_c_capability_authority"
+   },
+   "claim_id": "narrative_tense_at_final_position.v6",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "narrative_tense_authority",
+    "a2_c_capability_selected_package_result",
+    "a2_c_capability_authority"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "c940e90fae49ee72a0e134e8fec3eb9a7c0975eac99b62d2f7b97117418d3e19",
+   "execution_key": "88e38579565e0150ab62dbe7bcdc77a0ba56b7f758abef504554700aaa9227f4"
   }
  ],
  "translations": [],
@@ -1356,6 +1614,30 @@
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_newlex_carrier_confirmation_v1_result.json",
    "sha256": "b6507832a93d3eac91ab20e146578619b3dc55c17ca10a1bd0fb73ceb4a31da2",
    "kind": "screen_result",
+   "status": "frozen"
+  },
+  "a2_c_capability_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_a2_c_native_capability_select_holdout_v1.json",
+   "sha256": "8acbb3418bcd967a3c5891dcb65309f444ee8dd01dbd5828fc2110ff1fa65292",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "a2_c_capability_selector_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a2_c_native_capability_select_holdout_v1_result.json",
+   "sha256": "cdcbd4a79c477e28a5efab548c68a8d0764d041e4075752780c482dfdfaa5bbd",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "a2_c_capability_selected_package_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a2_c_native_capability_selected_package_v1_result.json",
+   "sha256": "73ae4ab4acf29bb2148a9b175e88c554290c904e436d2786830c673509400818",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "a2_c_capability_authority": {
+   "path": "basis_aligned/bilinear_quotient/ops/circuit_fast_screen_candidate_narrative_tense_a2_c_native_capability.py",
+   "sha256": "2eb632e88cd27d599aa745308a2973a2bfde29321e4f9ebb18a9ad0b8e46bf1b",
+   "kind": "dataset_authority",
    "status": "frozen"
   }
  },

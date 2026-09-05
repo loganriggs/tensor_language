@@ -43,9 +43,13 @@ FOURTH_NEXT_MISSING = (
     "served_one_purpose construction, then run carrier confirmation only after that "
     "authority passes capability"
 )
-NEXT_MISSING = (
+FIFTH_NEXT_MISSING = (
     "run a staged native-capability compiler before any causal arms, or move this "
     "family out of the carrier queue until a capable A1+A2/P/C authority exists"
+)
+NEXT_MISSING = (
+    "narrative carrier causal work is blocked; a separately frozen authority must "
+    "pass native capability and issue a hash-bound license, or move to another circuit"
 )
 
 ARTIFACTS = {
@@ -124,6 +128,26 @@ ARTIFACTS = {
         "b6507832a93d3eac91ab20e146578619b3dc55c17ca10a1bd0fb73ceb4a31da2",
         "screen_result",
     ),
+    "a2_c_capability_prior_art": (
+        "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_a2_c_native_capability_select_holdout_v1.json",
+        "8acbb3418bcd967a3c5891dcb65309f444ee8dd01dbd5828fc2110ff1fa65292",
+        "preregistration",
+    ),
+    "a2_c_capability_selector_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a2_c_native_capability_select_holdout_v1_result.json",
+        "cdcbd4a79c477e28a5efab548c68a8d0764d041e4075752780c482dfdfaa5bbd",
+        "screen_result",
+    ),
+    "a2_c_capability_selected_package_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_a2_c_native_capability_selected_package_v1_result.json",
+        "73ae4ab4acf29bb2148a9b175e88c554290c904e436d2786830c673509400818",
+        "screen_result",
+    ),
+    "a2_c_capability_authority": (
+        "basis_aligned/bilinear_quotient/ops/circuit_fast_screen_candidate_narrative_tense_a2_c_native_capability.py",
+        "2eb632e88cd27d599aa745308a2973a2bfde29321e4f9ebb18a9ad0b8e46bf1b",
+        "dataset_authority",
+    ),
 }
 
 
@@ -159,6 +183,7 @@ def build_record() -> dict:
     fresh_claim_id = "narrative_tense_at_final_position.v3"
     capability_claim_id = "narrative_tense_at_final_position.v4"
     newlex_claim_id = "narrative_tense_at_final_position.v5"
+    capability_null_claim_id = "narrative_tense_at_final_position.v6"
     family_ids = ["a1_direct_narration", "a2_relative_clause", "p_surface_rewrite", "c_same_answer_rewrite"]
     families = [
         {
@@ -204,6 +229,7 @@ def build_record() -> dict:
         "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
         "narrative_tense.a1_template_capability_select_holdout.v1.held",
         "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+        "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null",
     ]
     record = {
         "schema_version": 2,
@@ -312,10 +338,20 @@ def build_record() -> dict:
         "revision": 5,
         "status": "site_live",
         "supersedes": capability_claim_id,
+        "evidence_event_ids": event_ids[:9],
+        "next_missing": FIFTH_NEXT_MISSING,
+    })
+    record["claims"].append(newlex_claim)
+    capability_null_claim = copy.deepcopy(newlex_claim)
+    capability_null_claim.update({
+        "claim_id": capability_null_claim_id,
+        "revision": 6,
+        "status": "site_live",
+        "supersedes": newlex_claim_id,
         "evidence_event_ids": event_ids,
         "next_missing": NEXT_MISSING,
     })
-    record["claims"].append(newlex_claim)
+    record["claims"].append(capability_null_claim)
 
     raw_events = [
         {
@@ -459,14 +495,53 @@ def build_record() -> dict:
                 "exactness": "source sums, native reinstall, and pre-first-change controls passed",
             },
         },
+        {
+            "event_id": event_ids[9], "event_claim_id": capability_null_claim_id,
+            "test_type": "capability", "stage": "complete", "verdict": "null",
+            "failure_kind": "scientific_null", "site_id": None,
+            "result_artifact_id": "a2_c_capability_selector_result",
+            "prereg_artifact_id": "a2_c_capability_prior_art",
+            "event_input_artifact_ids": [
+                "narrative_tense_authority", "a2_c_capability_selected_package_result",
+                "a2_c_capability_authority",
+            ],
+            "metrics": [
+                _metric("selected_FIT_package", ["while_observers", "back_then_right_now"],
+                        "one global A2+C package selected by the frozen FIT rule"),
+                _metric("failed_HOLDOUT_cell_count", 3, "must equal 0"),
+                _metric("HOLDOUT_A1_past_to_present_base_accuracy", 0.75, ">=0.875"),
+                _metric("HOLDOUT_A1_present_to_past_donor_accuracy", 0.75, ">=0.875"),
+                _metric("HOLDOUT_A2_present_to_past_donor_accuracy", 0.75, ">=0.875"),
+                _metric("model_forwards", 2, "must equal 2"),
+                _metric("endpoint_evaluations", 192, "must equal 192"),
+                _metric("causal_interventions", 0, "must equal 0"),
+                _metric("license_emitted", 0, "must equal 1 before causal work"),
+            ],
+            "supersedes_event_id": None,
+            "notes": {
+                "scientific_status": "valid native-capability null; not an invalid instrument",
+                "selection": "FIT selected while_observers + back_then_right_now",
+                "failed_holdout_cells": [
+                    "HOLDOUT/A1/served_one_purpose/past_to_present/base",
+                    "HOLDOUT/A1/served_one_purpose/present_to_past/donor",
+                    "HOLDOUT/A2/while_observers/present_to_past/donor",
+                ],
+                "license": "no hash-bound capability license was emitted",
+                "selected_package_artifact_id": "a2_c_capability_selected_package_result",
+                "authority_artifact_id": "a2_c_capability_authority",
+            },
+        },
     ]
     for raw in raw_events:
         event_claim_id = raw.pop("event_claim_id", claim_id)
         event_family_ids = raw.pop("event_family_ids", family_ids)
+        event_input_artifact_ids = raw.pop(
+            "event_input_artifact_ids", ["narrative_tense_authority"]
+        )
         event = {
             **raw, "claim_id": event_claim_id, "family_ids": event_family_ids,
             "evaluation_role": "frozen FIT screen",
-            "input_artifact_ids": ["narrative_tense_authority"],
+            "input_artifact_ids": event_input_artifact_ids,
             "split_plan_id": "narrative_tense_fit_v1", "seed": None,
             "checkpoint_sha256": CHECKPOINT_SHA256,
             "replicates_event_id": None, "sections": [],
@@ -488,14 +563,16 @@ def apply_record(record: dict | None = None, *, regenerate: bool = True) -> Path
             if regenerate:
                 registry.rebuild_registry_v2()
             return path
-        # The only permitted migration is the exact v4 prefix emitted before
-        # the new-lexical carrier instrument failed native capability.
+        # The only permitted migration is the exact v5 prefix emitted before
+        # the separately frozen native-capability authority returned a valid null.
         base = copy.deepcopy(value)
-        base["claims"] = base["claims"][:4]
-        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:8]
-        base["evidence_events"] = base["evidence_events"][:8]
-        base["artifacts"].pop("newlex_carrier_prior_art")
-        base["artifacts"].pop("newlex_carrier_invalid_result")
+        base["claims"] = base["claims"][:5]
+        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:9]
+        base["evidence_events"] = base["evidence_events"][:9]
+        base["artifacts"].pop("a2_c_capability_prior_art")
+        base["artifacts"].pop("a2_c_capability_selector_result")
+        base["artifacts"].pop("a2_c_capability_selected_package_result")
+        base["artifacts"].pop("a2_c_capability_authority")
         if existing != base:
             raise PublicationError(f"canonical record differs: {path}")
         with registry._lock("registry"):

@@ -18,14 +18,16 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     claim = record["claims"][-1]
     assert claim["status"] == "site_live"
     assert claim["next_missing"] == publish.NEXT_MISSING
-    assert "staged native-capability compiler" in claim["next_missing"]
-    assert "move this family out of the carrier queue" in claim["next_missing"]
+    assert "narrative carrier causal work is blocked" in claim["next_missing"]
+    assert "hash-bound license" in claim["next_missing"]
+    assert "move to another circuit" in claim["next_missing"]
     assert [claim["claim_id"] for claim in record["claims"]] == [
         "narrative_tense_at_final_position.v1", "narrative_tense_at_final_position.v2",
         "narrative_tense_at_final_position.v3", "narrative_tense_at_final_position.v4",
         "narrative_tense_at_final_position.v5",
+        "narrative_tense_at_final_position.v6",
     ]
-    assert record["claims"][-1]["supersedes"] == record["claims"][3]["claim_id"]
+    assert record["claims"][-1]["supersedes"] == record["claims"][4]["claim_id"]
     assert record["claims"][0]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:5]
     ]
@@ -38,19 +40,22 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     assert record["claims"][3]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"][:8]
     ]
+    assert record["claims"][4]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"][:9]
+    ]
     assert record["claims"][-1]["evidence_event_ids"] == [
         event["event_id"] for event in record["evidence_events"]
     ]
-    assert len(record["evidence_events"]) == 9
+    assert len(record["evidence_events"]) == 10
     assert [event["verdict"] for event in record["evidence_events"]] == [
         "invalid", "held", "invalid", "invalid", "held", "invalid", "invalid", "held",
-        "invalid",
+        "invalid", "null",
     ]
     assert all(claim["status"] == "site_live" for claim in record["claims"])
 
 
 def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
-    event = publish.build_record()["evidence_events"][-4]
+    event = publish.build_record()["evidence_events"][-5]
     assert event["claim_id"] == "narrative_tense_at_final_position.v2"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -65,7 +70,7 @@ def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
 
 
 def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
-    event = publish.build_record()["evidence_events"][-3]
+    event = publish.build_record()["evidence_events"][-4]
     assert event["claim_id"] == "narrative_tense_at_final_position.v3"
     assert event["stage"] == event["verdict"] == "invalid"
     assert event["failure_kind"] == "invalid_instrument"
@@ -81,7 +86,7 @@ def test_fresh_event_is_capability_invalid_with_exactness_only() -> None:
 
 
 def test_template_selector_is_capability_only_not_carrier_or_lexical_ood() -> None:
-    event = publish.build_record()["evidence_events"][-2]
+    event = publish.build_record()["evidence_events"][-3]
     assert event["claim_id"] == "narrative_tense_at_final_position.v4"
     assert event["test_type"] == "capability"
     assert event["stage"] == "complete" and event["verdict"] == "held"
@@ -97,7 +102,7 @@ def test_template_selector_is_capability_only_not_carrier_or_lexical_ood() -> No
 
 
 def test_newlex_carrier_is_capability_invalid_and_descriptive_only() -> None:
-    event = publish.build_record()["evidence_events"][-1]
+    event = publish.build_record()["evidence_events"][-2]
     assert event["claim_id"] == "narrative_tense_at_final_position.v5"
     assert event["test_type"] == "capability"
     assert event["stage"] == event["verdict"] == "invalid"
@@ -116,6 +121,41 @@ def test_newlex_carrier_is_capability_invalid_and_descriptive_only() -> None:
         "R_effective_value_fraction_of_R_joint": "82.1-109.3%",
         "post_last_change": "passed all target cells",
     }
+
+
+def test_a2_c_capability_is_a_valid_null_and_emits_no_license() -> None:
+    event = publish.build_record()["evidence_events"][-1]
+    assert event["claim_id"] == "narrative_tense_at_final_position.v6"
+    assert event["test_type"] == "capability"
+    assert event["stage"] == "complete" and event["verdict"] == "null"
+    assert event["failure_kind"] == "scientific_null"
+    assert event["site_id"] is None
+    assert event["result_artifact_id"] == "a2_c_capability_selector_result"
+    assert event["prereg_artifact_id"] == "a2_c_capability_prior_art"
+    assert set(event["input_artifact_ids"]) == {
+        "narrative_tense_authority", "a2_c_capability_selected_package_result",
+        "a2_c_capability_authority",
+    }
+    metrics = {metric["name"]: metric for metric in event["metrics"]}
+    assert metrics["selected_FIT_package"]["estimate"] == [
+        "while_observers", "back_then_right_now"
+    ]
+    assert metrics["failed_HOLDOUT_cell_count"]["estimate"] == 3
+    for name in (
+        "HOLDOUT_A1_past_to_present_base_accuracy",
+        "HOLDOUT_A1_present_to_past_donor_accuracy",
+        "HOLDOUT_A2_present_to_past_donor_accuracy",
+    ):
+        assert metrics[name]["estimate"] == 0.75
+        assert metrics[name]["bar"] == ">=0.875"
+    assert metrics["model_forwards"]["estimate"] == 2
+    assert metrics["endpoint_evaluations"]["estimate"] == 192
+    assert metrics["causal_interventions"]["estimate"] == 0
+    assert metrics["license_emitted"]["estimate"] == 0
+    assert event["notes"]["scientific_status"] == (
+        "valid native-capability null; not an invalid instrument"
+    )
+    assert len(event["notes"]["failed_holdout_cells"]) == 3
 
 
 def test_all_requested_artifacts_are_hash_bound() -> None:
@@ -163,23 +203,43 @@ def test_apply_is_idempotent_in_temporary_registry(tmp_path, monkeypatch) -> Non
     assert compact["circuits"][publish.TAG]["active_claim_id"] == expected["claims"][-1]["claim_id"]
 
 
-def test_exact_v4_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
+def test_cli_is_idempotent_in_temporary_registry(tmp_path, monkeypatch, capsys) -> None:
+    expected = publish.build_record()
+    circuits = tmp_path / "circuits"
+    circuits.mkdir()
+    monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
+    monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
+    monkeypatch.setattr(publish, "REPO", tmp_path)
+    monkeypatch.setattr(publish, "build_record", lambda: expected)
+    publish.main()
+    path = circuits / publish.OUTPUT_NAME
+    first = path.read_bytes()
+    publish.main()
+    assert path.read_bytes() == first
+    output = capsys.readouterr().out
+    assert output.count('"gpu_used": false') == 2
+
+
+def test_exact_v5_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
     circuits = tmp_path / "circuits"
     circuits.mkdir()
     monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
     monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
     expected = publish.build_record()
     base = copy.deepcopy(expected)
-    base["claims"] = base["claims"][:4]
-    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:8]
-    base["evidence_events"] = base["evidence_events"][:8]
-    base["artifacts"].pop("newlex_carrier_prior_art")
-    base["artifacts"].pop("newlex_carrier_invalid_result")
+    base["claims"] = base["claims"][:5]
+    base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:9]
+    base["evidence_events"] = base["evidence_events"][:9]
+    for artifact_id in (
+        "a2_c_capability_prior_art", "a2_c_capability_selector_result",
+        "a2_c_capability_selected_package_result", "a2_c_capability_authority",
+    ):
+        base["artifacts"].pop(artifact_id)
     path = publish.registry.circuit_path(publish.TAG)
     path.write_text(json.dumps(base))
     publish.apply_record(expected)
     first = path.read_bytes()
-    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v5"
+    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v6"
     publish.apply_record(expected)
     assert path.read_bytes() == first
 
@@ -240,6 +300,27 @@ def test_v3_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) ->
     ):
         v3["artifacts"].pop(artifact_id)
     publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v3))
+    with pytest.raises(publish.PublicationError, match="canonical record differs"):
+        publish.apply_record(expected)
+
+
+def test_v4_prefix_is_not_an_allowed_migration_anymore(tmp_path, monkeypatch) -> None:
+    circuits = tmp_path / "circuits"
+    circuits.mkdir()
+    monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
+    monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
+    expected = publish.build_record()
+    v4 = copy.deepcopy(expected)
+    v4["claims"] = v4["claims"][:4]
+    v4["claims"][-1]["evidence_event_ids"] = v4["claims"][-1]["evidence_event_ids"][:8]
+    v4["evidence_events"] = v4["evidence_events"][:8]
+    for artifact_id in (
+        "newlex_carrier_prior_art", "newlex_carrier_invalid_result",
+        "a2_c_capability_prior_art", "a2_c_capability_selector_result",
+        "a2_c_capability_selected_package_result", "a2_c_capability_authority",
+    ):
+        v4["artifacts"].pop(artifact_id)
+    publish.registry.circuit_path(publish.TAG).write_text(json.dumps(v4))
     with pytest.raises(publish.PublicationError, match="canonical record differs"):
         publish.apply_record(expected)
 

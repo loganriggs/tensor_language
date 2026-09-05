@@ -377,10 +377,11 @@
       "narrative_tense.past_present.v1.invalid_capability",
       "narrative_tense.short_cue.v2.invalid_capability",
       "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
-      "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
+      "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+      "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability"
+     "latest_relevant_event_id": "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null"
     },
     "causal_site": {
      "status": "held",
@@ -441,7 +442,7 @@
    "n_held_categories": 3,
    "n_blocked_categories": 2,
    "n_missing_categories": 5,
-   "next_missing": "run a staged native-capability compiler before any causal arms, or move this family out of the carrier queue until a capable A1+A2/P/C authority exists"
+   "next_missing": "narrative carrier causal work is blocked; a separately frozen authority must pass native capability and issue a hash-bound license, or move to another circuit"
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",

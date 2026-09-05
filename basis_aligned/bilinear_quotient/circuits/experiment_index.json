@@ -7,10 +7,10 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 127,
- "design_count": 112,
- "protocol_count": 106,
- "execution_count": 127,
+ "event_count": 128,
+ "design_count": 113,
+ "protocol_count": 107,
+ "execution_count": 128,
  "open_preregistrations": [
   {
    "circuit": "task.subject_verb.number_agreement",
@@ -1113,6 +1113,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "newlex_carrier_prior_art",
    "result_artifact_id": "newlex_carrier_invalid_result"
+  },
+  {
+   "circuit": "task.narrative_tense.past_vs_present",
+   "event_id": "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null",
+   "claim_id": "narrative_tense_at_final_position.v6",
+   "test_type": "capability",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "design_key": "c940e90fae49ee72a0e134e8fec3eb9a7c0975eac99b62d2f7b97117418d3e19",
+   "protocol_key": "821e73e80f56e64c5b7db712dce3bca8ce47da053505ce641a390602bb92784b",
+   "execution_key": "88e38579565e0150ab62dbe7bcdc77a0ba56b7f758abef504554700aaa9227f4",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "prereg_artifact_id": "a2_c_capability_prior_art",
+   "result_artifact_id": "a2_c_capability_selector_result"
   },
   {
    "circuit": "task.numbered_list.index_successor",
