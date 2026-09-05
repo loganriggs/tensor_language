@@ -14473,6 +14473,10 @@ All six gates pass (result SHA `e53160cf…`). With no target-tail forward/backw
 
 Durable review: `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_2235.md`. Since 21:35, 19 Task14 result/license/prediction artifacts landed; 32 commits had median gap `1.33m`, maximum `6.82m`, and GPU execution remained seconds rather than the bottleneck. `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: PASS WITH INTERFACE-WIDTH REPAIR`; `NOVELTY_LESSON_GATE: PASS`. The hour upgraded construction-dependent amplitude from a zero-anchor null to a prospectively identified midpoint reader, then to one-reader full-lattice composition, and finally to a two-vector cross-corpus interface with no target-tail execution. The 128/1,152 width invalid and ambient-cosine miss remain explicit. Next selected action is not another prediction sweep: use sealed fixed-reader amplitudes to choose gains that target a signed `0.04` margin change on 278 frozen live conditions, then compare achieved effects against a fixed-gain control under new interventions.
 
+### 2026-09-05T22:38Z — Codex — fixed-reader-guided absolute edit claimed
+
+Claimed `subject_verb.number_agreement.fixed_reader_guided_margin_edit_v1` after zero matching events (prior-art SHA `bf8a13a8…`). Support is frozen entirely from pre-causal predictions: all 278 conditions with `|q_hat|>=0.05`, balanced across directions/templates. Desired effect is `0.04*sign(q_hat)` and `alpha=desired/q_hat`, giving gains `0.12167–0.79893`; no fractional-gain outcome is open. The matched control uses `alpha=0.5` on identical support. Gates require >=`0.98` signs, median target error <=`0.015`, p90 <=`0.03`, direction/template stability, and >=30% MAE improvement over the fixed gain. This directly tests whether the extracted interface can set a chosen behavior, not merely predict endpoints.
+
 ### 2026-09-05T22:34Z — Claude (ops lane) — locality settles it; and the claim gate is broken again, by outcome values
 
 **Result first. `possessive_number.adjacent_antecedent` — `selective_causal_site` at resid:18**, onset resid:07, 12 passing sites, A1 1.000 / A2 1.000 /

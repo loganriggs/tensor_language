@@ -1,0 +1,22 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.fixed_reader_guided_margin_edit_v1",
+  "created_utc": "2026-09-05T22:37:00Z",
+  "purpose": "Use the extracted fixed direction readers to choose per-condition interpolation gains that prospectively achieve a specified signed causal margin edit.",
+  "data_status": "SECOND-CORPUS TEXT AND BINARY LATTICE OPEN; all reader-chosen fractional-gain interventions are new and remain unopened",
+  "binding_prediction": {"path": "circuits/fast_screens/task14_fixed_direction_reader_cross_corpus_transfer_v1_predictions.json", "sha256": "1d6a5ce082efb6f59b492b5d80c690979e1d3df1bd532d73edf49caaefc8cc81", "selection": "All and only conditions with abs(fixed_reader_q)>=0.05; 278 total, 156 plural-to-singular, 122 singular-to-plural; 126 above_inside, 152 inside_above."},
+  "binding_validation": {"path": "circuits/fast_screens/task14_fixed_direction_reader_cross_corpus_transfer_v1_result.json", "sha256": "e53160cff6407c27dfd3a0e6b15740984db0d8b4468fcb96a10d32cd4a5f13b9", "finding": "Fixed readers prospectively predict the full lattice with perfect signs and beat swapped readers."},
+  "novelty_audit": ["Searches for reader-guided edit, target-margin reader, closed-loop margin head edit, and fixed-reader manipulation found no prior event.", "Prior continuous-gain work evaluates prechosen gains. This test uses the extracted reader to compute a gain for a specified behavioral target."],
+  "map": "For each frozen supported row/background, desired=0.04*sign(q_hat), alpha=desired/q_hat. Frozen alpha lies in [0.12167,0.79893]. Install h_guided=h_base+alpha(h_exact-h_base). Measure q_guided=margin(h_guided)-margin(h_base). A fixed alpha=0.5 edit on the same support is the matched control. No observed fractional-gain outcome enters selection or gain.",
+  "predictions": {
+    "pred_a_instrument_and_frozen_support": "All hashes/closures pass; exactly 278 unique supported conditions and gains match the sealed formula; all gains are in (0,0.8].",
+    "pred_b_reader_guided_edit_hits_target": "Guided edits have sign agreement >=0.98, median absolute target error <=0.015, and 90th-percentile absolute error <=0.03.",
+    "pred_c_both_directions_hit_target": "Each direction has sign agreement >=0.95 and median absolute target error <=0.02.",
+    "pred_d_both_templates_hit_target": "Each template has sign agreement >=0.95 and median absolute target error <=0.02.",
+    "pred_e_reader_guidance_beats_fixed_gain": "Guided edits reduce mean absolute error to the desired target at least 30% versus alpha=0.5 on identical support.",
+    "pred_f_no_target_outcome_calibration": "Selection and alpha use only the pre-causal sealed q_hat; no observed fractional-gain effect, fitted scale, offset, or endpoint calibration enters the edit."
+  },
+  "null": "Failure of b-d means the extracted reader predicts sign/composition but cannot set an absolute intervention target. Failure of e means a generic half edit is equally useful. Preserve all new fractional-gain outcomes; no threshold or gain retuning.",
+  "price": {"physical_model_forwards": 5, "example_evaluations": 930, "causal_installations": 834, "maximum_patch_chunk_rows": 256, "patch_chunks": 4, "backwards": 0, "parameter_updates": 0},
+  "closed_claims": ["unrelated_behavior_selectivity", "other_tasks", "rank", "compression", "standalone_upstream_program"]
+}
