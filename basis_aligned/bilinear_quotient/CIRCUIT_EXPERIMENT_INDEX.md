@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-121 events; 100 scientific protocols; 121 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+122 events; 101 scientific protocols; 122 exact executions; 2 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -84,6 +84,7 @@ No two registered events have the same execution key.
 | `task.narrative_tense.past_vs_present` | `narrative_tense.short_cue.v2.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v1` | `5c5e38af144c` | `39aa142f1b1a` | `8400e03af4b1` | supersedes `narrative_tense.short_cue.v1.invalid_capability` |
 | `task.narrative_tense.past_vs_present` | `narrative_tense.attn11_head3_complement.v1.held` | complete/held | composition | `narrative_tense_at_final_position.v1` | `2e99cd42e6a6` | `5dbf537c34eb` | `646b3fad704d` | — |
 | `task.narrative_tense.past_vs_present` | `narrative_tense.attn11_head3_source_route_cross_task.v1.invalid` | invalid/invalid | composition | `narrative_tense_at_final_position.v2` | `4ff1682b5b03` | `6254028b7c89` | `25e58c061258` | — |
+| `task.narrative_tense.past_vs_present` | `narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability` | invalid/invalid | capability | `narrative_tense_at_final_position.v3` | `8d27ba0cab15` | `67978dbd9cf1` | `af33d2cbe59e` | — |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.preregistered.v1` | preregistered/inconclusive | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `15d1b6f2a19a` | — |
 | `task.numbered_list.index_successor` | `numbered_list_native_capability.r569.held.v1` | complete/held | capability | `numbered_list_index_successor.v2` | `70ef3de5ed59` | `74a96f4ebc12` | `5a3f5d3ad968` | supersedes `numbered_list_native_capability.r569.preregistered.v1` |
 | `task.numbered_list.index_successor` | `numbered_list_capability_audit.r571.held.v1` | complete/held | null_control | `numbered_list_index_successor.v2` | `ad9777b34532` | `7014c3e46952` | `f0e462ef047a` | — |

@@ -28,10 +28,15 @@ FIRST_NEXT_MISSING = (
     "then test those terms with an output-token confound control that distinguishes "
     "shared copula writing from a shared agreement/tense semantic state"
 )
-NEXT_MISSING = (
+SECOND_NEXT_MISSING = (
     "build a fresh disjoint capable narrative-tense authority before testing the "
     "outcome-selected remaining-source (R) hypothesis; do not repair the no-op "
     "tolerance or control bar on the same rows"
+)
+NEXT_MISSING = (
+    "predeclare A1 template capability selection on FIT, evaluate it before route "
+    "outcomes, and freeze an untouched construction holdout; rerun the unchanged-"
+    "carrier experiment only if the selected authority is capable"
 )
 
 ARTIFACTS = {
@@ -80,6 +85,16 @@ ARTIFACTS = {
         "4a56ae3c8e3fe5dd375f68f520624d91ada9bdfd07fa0e54f23bff40957933a4",
         "screen_result",
     ),
+    "fresh_unchanged_carrier_prior_art": (
+        "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_attn11_head3_fresh_unchanged_carrier_value_v1.json",
+        "5978ab3cb345aff98b1af8f457db5db2dad05415cbc3c0dd2026e7747770b62c",
+        "preregistration",
+    ),
+    "fresh_unchanged_carrier_invalid_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_fresh_unchanged_carrier_value_v1_result.json",
+        "c066ed776544e6a540a5f8e7e55c205b93f1d260c07a84932cc4b35a83a2a564",
+        "screen_result",
+    ),
 }
 
 
@@ -112,6 +127,7 @@ def build_record() -> dict:
     artifacts = _bind_artifacts()
     claim_id = "narrative_tense_at_final_position.v1"
     revised_claim_id = "narrative_tense_at_final_position.v2"
+    fresh_claim_id = "narrative_tense_at_final_position.v3"
     family_ids = ["a1_direct_narration", "a2_relative_clause", "p_surface_rewrite", "c_same_answer_rewrite"]
     families = [
         {
@@ -154,6 +170,7 @@ def build_record() -> dict:
         "narrative_tense.short_cue.v2.invalid_capability",
         "narrative_tense.attn11_head3_complement.v1.held",
         "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
+        "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
     ]
     record = {
         "schema_version": 2,
@@ -232,10 +249,20 @@ def build_record() -> dict:
         "revision": 2,
         "status": "site_live",
         "supersedes": claim_id,
+        "evidence_event_ids": event_ids[:6],
+        "next_missing": SECOND_NEXT_MISSING,
+    })
+    record["claims"].append(revised_claim)
+    fresh_claim = copy.deepcopy(revised_claim)
+    fresh_claim.update({
+        "claim_id": fresh_claim_id,
+        "revision": 3,
+        "status": "site_live",
+        "supersedes": revised_claim_id,
         "evidence_event_ids": event_ids,
         "next_missing": NEXT_MISSING,
     })
-    record["claims"].append(revised_claim)
+    record["claims"].append(fresh_claim)
 
     raw_events = [
         {
@@ -312,6 +339,31 @@ def build_record() -> dict:
                 "repair_prohibition": "no tolerance or control-bar repair on these rows",
             },
         },
+        {
+            "event_id": event_ids[6], "event_claim_id": fresh_claim_id,
+            "test_type": "capability", "stage": "invalid", "verdict": "invalid",
+            "failure_kind": "invalid_instrument",
+            "site_id": "attention.block11.head3.pre_output_projection.final_position",
+            "result_artifact_id": "fresh_unchanged_carrier_invalid_result",
+            "prereg_artifact_id": "fresh_unchanged_carrier_prior_art",
+            "metrics": [
+                _metric("A1_past_minimum_native_capability", 0.75, ">=0.85 on both reciprocal side cells"),
+                _metric("source_sum_max_absolute_error", 0.0, "<=0.00005"),
+                _metric("same_batch_native_reinstall_max_absolute_error", 0.0, "<=0.00005"),
+                _metric("pre_first_change_install_max_absolute_error", 0.0000171661376953125, "<=0.00005"),
+            ],
+            "supersedes_event_id": None,
+            "notes": {
+                "scientific_status": "invalid capability; exactness passed but no route or selectivity conclusion",
+                "descriptive_only": [
+                    "R-joint target recovery",
+                    "R effective-value target recovery",
+                    "post-last-change effective-value concentration",
+                    "P/C selectivity measurements",
+                ],
+                "repair_prohibition": "do not select rows or weaken capability bars on this authority",
+            },
+        },
     ]
     for raw in raw_events:
         event_claim_id = raw.pop("event_claim_id", claim_id)
@@ -340,14 +392,14 @@ def apply_record(record: dict | None = None, *, regenerate: bool = True) -> Path
             if regenerate:
                 registry.rebuild_registry_v2()
             return path
-        # The only permitted migration is the exact v1 prefix emitted by this
-        # publisher before the invalid follow-up existed.
+        # The only permitted migration is the exact v2 prefix emitted before
+        # the fresh unchanged-carrier capability failure existed.
         base = copy.deepcopy(value)
-        base["claims"] = base["claims"][:1]
-        base["claims"][0]["evidence_event_ids"] = base["claims"][0]["evidence_event_ids"][:5]
-        base["evidence_events"] = base["evidence_events"][:5]
-        base["artifacts"].pop("source_route_cross_task_prior_art")
-        base["artifacts"].pop("source_route_cross_task_invalid_result")
+        base["claims"] = base["claims"][:2]
+        base["claims"][-1]["evidence_event_ids"] = base["claims"][-1]["evidence_event_ids"][:6]
+        base["evidence_events"] = base["evidence_events"][:6]
+        base["artifacts"].pop("fresh_unchanged_carrier_prior_art")
+        base["artifacts"].pop("fresh_unchanged_carrier_invalid_result")
         if existing != base:
             raise PublicationError(f"canonical record differs: {path}")
         with registry._lock("registry"):
