@@ -1,0 +1,55 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_background_subset_composition_transfer_v2",
+  "created_utc": "2026-09-05T21:18:20Z",
+  "purpose": "Test whether a frozen normalized E/A/U/W gate profile plus only the target empty/full endpoints predicts every intermediate background subset for grouped MLP6--7 across templates and syntax.",
+  "data_status": "RETROSPECTIVE_FROZEN_RECEIPT_REANALYSIS; predictions are frozen before inspecting subset-level prediction errors, but no new text or model outcome is opened",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json",
+      "sha256": "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f",
+      "finding": "Valid matched-text complete E/A/U/W/X full-response lattice with two templates per number direction."
+    },
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp6_7_eauw_background_gate_factorial_v1_result.json",
+      "sha256": "b4aec2e5b94b782f5d817c86b52567474f2986e28921044f90bec7cc5ae5e742",
+      "finding": "Valid fronted-OOD complete E/A/U/W-by-X response lattice with one cell per number direction."
+    },
+    {
+      "path": "circuits/fast_screens/task14_mlp6_7_background_gate_cross_syntax_stability_v1_result.json",
+      "sha256": "055b457d1300b4fb1db2ce09824b102cda949c33d2da7e2a09d3ae484283fd66",
+      "finding": "Normalized attribution profiles transfer across templates and syntax, while exact factor ordering does not."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for MLP6-7 subset prediction, additive background prediction, background-subset transfer, endpoint-calibrated background, and held-out composition subsets found no prior event performing this test.",
+    "Existing receipts decompose full lattices or compare aggregate Shapley profiles; none freezes coefficients from one cell and predicts the fourteen non-endpoint subsets of another cell."
+  ],
+  "map": "For a target cell define q(S) as the causal margin effect of installing X=MLP6+7 in background subset S. Take signed normalized source coefficients p_f from a different frozen cell. Calibrate only q(empty) and q(EAUW) in the target, then predict q_hat(S)=q(empty)+(q(EAUW)-q(empty))*sum_{f in S} p_f for all fourteen intermediate subsets. No target intermediate value, coefficient fit, or parameter optimization is allowed.",
+  "predictions": {
+    "pred_a_receipts_and_endpoints_close": "All bound receipts validate, all six lattices are complete, and the endpoint-calibrated law reproduces empty/full endpoints to 1e-12.",
+    "pred_b_matched_template_transfer": "Using the other matched template in the same direction, every target cell has intermediate-subset MAE divided by |endpoint shift| at most 0.20 and maximum normalized error at most 0.45.",
+    "pred_c_matched_to_ood_transfer": "Using the mean matched profile in the same direction, both OOD cells satisfy normalized MAE at most 0.20 and maximum normalized error at most 0.45.",
+    "pred_d_ood_to_matched_transfer": "Using the OOD profile in the same direction, all four matched cells satisfy normalized MAE at most 0.20 and maximum normalized error at most 0.45.",
+    "pred_e_cardinality_unbiased": "For subset cardinalities one, two, and three, the mean signed residual normalized by |endpoint shift| has absolute value at most 0.10 in every cross-syntax transfer cell.",
+    "pred_f_nontrivial_over_uniform": "Transferred coefficients reduce aggregate squared error versus the uniform four-factor profile by at least 10% in both matched-to-OOD and OOD-to-matched directions."
+  },
+  "null": "Failure of b-d means a stable Shapley profile is descriptive but not an executable subset-composition law. Failure of e localizes systematic missing interactions by subset cardinality. Failure of f means factor-specific coefficients add no predictive value beyond endpoint interpolation. Preserve misses; do not refit coefficients or relax bars.",
+  "price": {
+    "model_forwards": 0,
+    "example_evaluations": 0,
+    "causal_interventions": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "target_values_used_per_cell": 2,
+    "target_values_predicted_per_cell": 14
+  },
+  "closed_claims": [
+    "fresh held-out confirmation",
+    "global coefficient sharing without endpoint calibration",
+    "semantic uniqueness",
+    "rank",
+    "compression",
+    "activation reconstruction"
+  ]
+}
