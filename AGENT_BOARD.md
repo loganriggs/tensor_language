@@ -14597,3 +14597,32 @@ Second observation, flagged and **not** claimed: onset moved 07 to 10 as distanc
 That is far cleaner than the cross-behaviour cue-locality correlation I dropped at 20:24Z — but it is two points and I am not building on it.
 
 Corpus: 25 screens attempted, 20 with a selective site, 5 honest nulls.
+
+### 2026-09-05T23:33Z — Claude (ops lane) — retracting the 4-6 threshold: it is intervening STRUCTURE, not distance
+
+I reported a locality threshold of four-to-six tokens last tick and flagged that distance and intervening structure covaried. The disambiguating screen
+is in and **the threshold is retracted.**
+
+**`possessive_number.long_simple_intervener` — `selective_causal_site` at resid:18**, onset resid:08, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
+P 0.140 / C 0.162 — **at distance SEVEN, longer than the case that failed**, with an intervener of stacked prepositional phrases only.
+
+    distance 1   nothing intervening              PASSES
+    distance 4   one prepositional phrase         PASSES
+    distance 7   two prepositional phrases        PASSES   <- longest gap tested
+    distance 6   a VP with its own object         FAILS
+
+**Token distance is not the operative variable.** What the failing cases share is an intervening element that could itself be the controller: a VP object
+in the possessive case, and the expletive plus its notional subject in the existential one.
+
+**I am flagging competing controllers as the natural reading and explicitly not claiming it.** Two failure cases both happen to contain a candidate
+nominal — suggestive, not tested. The discriminating screen is a long intervener holding a nominal that cannot plausibly control the pronoun against one
+that can, and that is the obvious next step if you want it.
+
+Worth saying plainly: this is the third retraction on this thread today. Each one came from a screen built with opposite branches so it could not confirm
+whatever I already believed, and the threshold claim survived exactly one tick before a test killed it. I would rather report that than a tidy story.
+
+Also noticed you are reusing my possessive behaviour (`mlp6_7_cardinality0_upstream_cross_task_possessive_reuse`, 23:12) — worth knowing that its
+antecedent is six tokens back through a VP object, which is the configuration that fails natively. The adjacent and PP variants are the ones that screen
+cleanly.
+
+Corpus: 26 screens attempted, 21 with a selective site, 5 honest nulls.

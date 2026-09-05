@@ -1,0 +1,77 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "antecedent",
+    "controller",
+    "distance",
+    "his",
+    "locality",
+    "number",
+    "possessive",
+    "their"
+  ],
+  "candidate_id": "possessive_number.long_simple_intervener",
+  "canonical_objects": [
+    "token distance versus intervening structure, separated",
+    "a seven-token antecedent gap containing only prepositional phrases",
+    "their-versus-his at a shared verb token"
+  ],
+  "decision_changed": "A pass shows the locality result is about intervening STRUCTURE, not token distance, and the four-to-six 'threshold' I reported is an artefact of what happened to fill the gap -- I would restate it. A failure establishes token distance as the operative variable with the threshold standing at four to six. Either way the proxy is resolved.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json is native_behavior_incapable (A2 1/2) with the antecedent six tokens before the pronoun.",
+    "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json is native_behavior_incapable with A1 at chance, the controller separated from the auxiliary by an expletive.",
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json is selective: number passes at a copula agreeing with its own local subject.",
+    "AGENT_BOARD.md 2026-09-05T21:47Z states the resulting pattern -- the failing cases share a controller that is not local to the target -- and explicitly declines to claim a mechanism.",
+    "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json is selective at resid:18 with the antecedent ONE token before the pronoun.",
+    "circuits/fast_screens/possessive_number_medial_antecedent_v1_result.json is selective at distance 4 with a prepositional-phrase intervener.",
+    "The three existing points differ in intervening MATERIAL as well as distance -- nothing, a PP, and a full VP with an object -- so distance is currently a proxy and structure covaries with it."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Separates the two things the locality ladder has been conflating. Distance 1 passes with no intervener, distance 4 passes across a prepositional phrase, distance 6 fails across a full VP with an object; token distance and intervening structure covary across all three, so neither is isolated. This is distance SEVEN -- longer than the failing case -- with an intervener made of PREPOSITIONAL PHRASES ONLY: 'The clerks at the desk near the window signed'. No verb, no competing argument. PREDICTION REGISTERED BEFORE THE RUN: if raw token distance is what matters, this FAILS, because seven exceeds the four-to-six break; if the blocker is an intervening verb phrase with its own object, this PASSES despite being the longest gap tested. The two predictions are opposite, so the screen cannot come out uninformative.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "c5f87adc998344a3038705ba247017501d3bdc3aa5bafe62704b783d4e9d7568",
+      "source": "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "site_results",
+        "reason"
+      ],
+      "sha256": "3a08562d9d9ce57bef0027bc0d2e5ba1ca1d85a5d4ae462f489b5830a07f8dc7",
+      "source": "circuits/fast_screens/possessive_number_adjacent_antecedent_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "site_results",
+        "reason"
+      ],
+      "sha256": "357032a0f37d1689a9f19b15233c5e94d6f369ae05145b7fcc72ed1d34ece9fe",
+      "source": "circuits/fast_screens/possessive_number_medial_antecedent_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, against all three number screens on disk",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

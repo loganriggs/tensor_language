@@ -1,0 +1,18 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_program_loo_mediator_gain_v2",
+  "created_utc": "2026-09-05T23:31:55Z",
+  "purpose": "Promote the simpler six-scalar direction-only mediator law after the registered direction-by-cardinality model failed its necessity comparison, without reopening causal outcomes or changing prediction bars.",
+  "immutable_v1": {"path": "circuits/followups/task14_mlp6_7_direction_cardinality_program_loo_mediator_gain_v1_result.json", "sha256": "1d2d48143eb115bea931086fa59dbeb0fac3a24d857ed255891a6117138e9a72", "terminal": "inconclusive"},
+  "only_change": "Select the preregistered direction-only control as the candidate model because cardinality-specific gains improved joint SSE by only 0.1018% versus the frozen >=10% requirement.",
+  "model": "For each component in {m15,m17,interaction} and grammatical direction, one zero-intercept scalar multiplies the frozen reader q_hat; row-held-out folds are unchanged.",
+  "predictions": {
+    "pred_a_immutable_single_reduction": "The v1 SHA and evidence validate; the only model change removes cardinality from mediator gains; no causal/model execution occurs.",
+    "pred_b_all_components_predictive": "Under unchanged v1 bars, direction-only m15 has cosine >=0.75, relative L2 <=0.75, signs >=0.65; m17 has cosine >=0.90, relative L2 <=0.40, signs >=0.90; interaction has cosine >=0.90, relative L2 <=0.40, signs >=0.90.",
+    "pred_c_joint_and_each_group_predictive": "Joint mediation has cosine >=0.90, relative L2 <=0.40, signs >=0.90 and cosine >=0.85 in every direction x template group.",
+    "pred_d_cardinality_rejected": "The immutable cardinality SSE reduction remains <10%, so exactly six rather than thirty full-data gains are exported.",
+    "pred_e_no_reopening_and_price": "Zero GPU/model forwards, causal installations, gradients, updates, effect-threshold changes, row changes, or vector changes."
+  },
+  "terminal_rule": "screen if all predictions pass; invalid if a/e fails; otherwise null.",
+  "closed_claims": ["prospective fourth-corpus transfer", "native MLP activation reconstruction", "necessity", "universal composition", "rank"]
+}
