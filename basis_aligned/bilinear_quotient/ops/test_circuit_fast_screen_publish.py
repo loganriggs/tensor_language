@@ -144,3 +144,29 @@ def test_event_id_collision_is_refused_without_adding_a_claim(tmp_path, monkeypa
         publish.apply_plan(changed)
     record = json.loads(copied.read_text())
     assert sum(claim["claim_id"] == plan["claim_revision"]["claim_id"] for claim in record["claims"]) == 1
+
+
+def test_cross_circuit_collateral_plan_binds_each_behavior_and_claim_v7() -> None:
+    plan = publish.build_cross_circuit_collateral_plan()
+    assert plan["ledger_request_id"] == "task14-head11-3-cross-circuit-collateral-v1"
+    assert plan["event"]["test_type"] == "removal"
+    assert plan["event"]["evaluation_role"] == \
+        "SELECT_held_out_cross_circuit_collateral"
+    assert plan["event"]["checkpoint_sha256"] == \
+        "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+    metrics = {item["name"]: item["estimate"] for item in plan["event"]["metrics"]}
+    assert metrics["numbered_list_median_normalized_absolute_effect"] == \
+        pytest.approx(0.0007587780583940986)
+    assert metrics["bracket_pending_opener_median_normalized_absolute_effect"] == \
+        pytest.approx(0.023657173019042542)
+    assert metrics["numbered_list_answer_flips"] == 0
+    assert metrics["bracket_pending_opener_answer_flips"] == 0
+    assert plan["claim_revision"]["claim_id"] == "grammatical_subject_number.v7"
+    assert plan["claim_revision"]["status"] == "site_live"
+
+
+def test_cross_circuit_collateral_refuses_wrong_site_before_mutation() -> None:
+    spec = copy.deepcopy(publish.TASK14_CROSS_CIRCUIT_COLLATERAL_SPEC)
+    spec["result_site_id"] = "attn:11:head:04"
+    with pytest.raises(publish.FastScreenPublishError, match="selected site"):
+        publish.build_cross_circuit_collateral_plan(spec)

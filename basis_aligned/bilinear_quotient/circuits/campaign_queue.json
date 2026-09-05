@@ -10,7 +10,7 @@
   "canonical_work_items": 8,
   "legacy_candidates": 70,
   "open_experiments": 2,
-  "held_events": 32,
+  "held_events": 33,
   "blocking_events": 24
  },
  "work_items": [
@@ -75,7 +75,7 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v6",
+   "active_claim_id": "grammatical_subject_number.v7",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "counterfactual_family_count": 8,
@@ -92,7 +92,8 @@
     "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1"
    ],
    "open_event_ids": [
     "task14_subject_number_localization.fit.preregistered.v2"
@@ -103,7 +104,8 @@
     "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1"
    ],
    "blocking_event_ids": [],
    "coverage": {
@@ -122,7 +124,7 @@
     "compiled_weights"
    ],
    "work_state": "experiment_open",
-   "next_missing": "run selective removal or rescue/sufficiency with unrelated-behavior controls, then open the frozen TEST/OOD syntax pool"
+   "next_missing": "open the frozen TEST/OOD syntax pool, then decompose the causal agreement contribution below the native head boundary; the two-behavior collateral result does not establish universal selectivity"
   },
   {
    "tag": "task.bracket.pending_opener",

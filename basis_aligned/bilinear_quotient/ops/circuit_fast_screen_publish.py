@@ -13,7 +13,9 @@ import argparse
 import copy
 import hashlib
 import json
+import math
 from pathlib import Path
+import statistics
 import subprocess
 import sys
 from typing import Any, Mapping, Sequence
@@ -29,6 +31,7 @@ import circuit_fast_screen_ledger as screen_ledger  # noqa: E402
 
 SCHEMA = "circuit_fast_screen_publication_spec_v1"
 CROSS_SYNTAX_SCHEMA = "circuit_cross_syntax_publication_spec_v1"
+COLLATERAL_SCHEMA = "circuit_cross_circuit_collateral_publication_spec_v1"
 SPEC_FIELDS = {
     "schema", "result_path", "result_artifact_id", "canonical_tag",
     "source_claim_id", "event_id", "test_type", "transform_to_family_id",
@@ -40,6 +43,46 @@ REVISION_FIELDS = {"claim_id", "revision", "status", "next_missing"}
 CROSS_SYNTAX_SPEC_FIELDS = (
     SPEC_FIELDS - {"transform_to_family_id"}
 ) | {"family_ids"}
+COLLATERAL_SPEC_FIELDS = {
+    "schema", "result_path", "result_artifact_id", "canonical_tag",
+    "source_claim_id", "event_id", "test_type", "result_site_id",
+    "canonical_site_id", "claim_revision", "notes", "claim_ledger_policy",
+}
+
+# This is a semantic bridge, not a second experiment specification.  Every
+# numerical value is read back from the hash-bound result and ledger.
+TASK14_CROSS_CIRCUIT_COLLATERAL_SPEC = {
+    "schema": COLLATERAL_SCHEMA,
+    "result_path": (
+        "circuits/fast_screens/"
+        "task14_head11_3_cross_circuit_collateral_v1_result.json"
+    ),
+    "result_artifact_id": "task14_head11_3_cross_circuit_collateral_v1_result",
+    "canonical_tag": "task.subject_verb.number_agreement",
+    "source_claim_id": "grammatical_subject_number.v6",
+    "event_id": "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "test_type": "removal",
+    "result_site_id": "attn:11:head:03",
+    "canonical_site_id": (
+        "attention.block11.head3.pre_output_projection.final_position"
+    ),
+    "claim_revision": {
+        "claim_id": "grammatical_subject_number.v7",
+        "revision": 7,
+        "status": "site_live",
+        "next_missing": (
+            "open the frozen TEST/OOD syntax pool, then decompose the causal agreement "
+            "contribution below the native head boundary; the two-behavior collateral "
+            "result does not establish universal selectivity"
+        ),
+    },
+    "notes": (
+        "Literal zero-removal of Task14 head 11.3 preserved two separately scored "
+        "held-out behaviors. This is narrow cross-circuit selectivity evidence, not "
+        "a universal collateral guarantee and not a Task14 necessity result."
+    ),
+    "claim_ledger_policy": "legacy_no_claim_event",
+}
 
 
 class FastScreenPublishError(ValueError):
@@ -402,6 +445,160 @@ def build_cross_syntax_plan(
     }
 
 
+def _validate_collateral_spec(spec: Mapping[str, Any]) -> dict[str, Any]:
+    if type(spec) is not dict or set(spec) != COLLATERAL_SPEC_FIELDS \
+            or spec.get("schema") != COLLATERAL_SCHEMA:
+        raise FastScreenPublishError("collateral publication spec fields or schema changed")
+    value = copy.deepcopy(spec)
+    for field in (
+        "result_path", "result_artifact_id", "canonical_tag", "source_claim_id",
+        "event_id", "test_type", "result_site_id", "canonical_site_id", "notes",
+    ):
+        if type(value[field]) is not str or not value[field].strip():
+            raise FastScreenPublishError(f"{field} must be nonempty text")
+    relative = Path(value["result_path"])
+    if relative.is_absolute() or ".." in relative.parts:
+        raise FastScreenPublishError("result_path must remain inside the bilinear-quotient root")
+    if value["test_type"] != "removal":
+        raise FastScreenPublishError("cross-circuit collateral must publish as removal")
+    if value["claim_ledger_policy"] != "legacy_no_claim_event":
+        raise FastScreenPublishError("unsupported claim-ledger policy")
+    revision = value["claim_revision"]
+    if type(revision) is not dict or set(revision) != REVISION_FIELDS \
+            or type(revision["revision"]) is not int:
+        raise FastScreenPublishError("collateral claim revision is malformed")
+    if revision["status"] not in registry.CLAIM_STATUSES:
+        raise FastScreenPublishError("claim status is not registered")
+    return value
+
+
+def _finite_number(value: object, label: str) -> float:
+    if type(value) not in {int, float} or not math.isfinite(float(value)):
+        raise FastScreenPublishError(f"{label} must be finite")
+    return float(value)
+
+
+def build_cross_circuit_collateral_plan(
+    spec: Mapping[str, Any] = TASK14_CROSS_CIRCUIT_COLLATERAL_SPEC,
+    *, root: Path = BQ,
+) -> dict[str, Any]:
+    """Bind the successful head-11.3 collateral result to Task14 claim v7."""
+    value = _validate_collateral_spec(spec)
+    result_path = root / value["result_path"]
+    if not result_path.is_file() or result_path.is_symlink():
+        raise FastScreenPublishError("result file is missing or unsafe")
+    result = json.loads(result_path.read_text())
+    if (result.get("schema"), result.get("terminal"), result.get("reason")) != (
+        "task14_head11_3_cross_circuit_collateral_result_v1",
+        "screen", "both_unrelated_behaviors_preserved",
+    ):
+        raise FastScreenPublishError("collateral result is not the held registered result")
+    entry = _matching_cross_syntax_ledger_entry(result, value["result_path"], root)
+    if entry["selected_site_id"] != value["result_site_id"]:
+        raise FastScreenPublishError("collateral result and ledger disagree on selected site")
+    if result.get("partition") != "HELD_OUT_CROSS_CIRCUIT" \
+            or result.get("phase") != "SELECT":
+        raise FastScreenPublishError("collateral split scope changed")
+    checkpoint = result.get("checkpoint")
+    if type(checkpoint) is not dict or checkpoint.get("verified_before_model_load") is not True:
+        raise FastScreenPublishError("collateral checkpoint was not verified before model load")
+    checkpoint_sha = checkpoint.get("weights_sha256")
+    if type(checkpoint_sha) is not str or len(checkpoint_sha) != 64:
+        raise FastScreenPublishError("collateral checkpoint digest is missing")
+
+    active = result.get("active_price")
+    maximum = result.get("maximum_price")
+    if type(active) is not dict or active != maximum or (
+        active.get("forward_calls"), active.get("example_evaluations"),
+        active.get("raw_numeric_evidence_bytes"),
+    ) != (
+        entry["active_forward_calls"], entry["active_example_evaluations"],
+        entry["active_evidence_bytes"],
+    ):
+        raise FastScreenPublishError("collateral price differs from its ledger receipt")
+
+    evidence = result.get("evidence")
+    summaries = result.get("behavior_results")
+    if type(evidence) is not list or len(evidence) != 32 or type(summaries) is not list:
+        raise FastScreenPublishError("collateral evidence census changed")
+    by_behavior = {item.get("behavior"): item for item in summaries if type(item) is dict}
+    if set(by_behavior) != {"numbered_list", "bracket_pending_opener"}:
+        raise FastScreenPublishError("collateral behavior set changed")
+    metrics = []
+    for behavior in ("numbered_list", "bracket_pending_opener"):
+        rows = [row for row in evidence if row.get("behavior") == behavior]
+        summary = by_behavior[behavior]
+        if len(rows) != 16 or summary.get("passed_preservation") is not True:
+            raise FastScreenPublishError(f"{behavior} preservation did not hold")
+        effects = [_finite_number(row.get("normalized_absolute_effect"), "effect") for row in rows]
+        native = [_finite_number(row.get("native_margin"), "native margin") for row in rows]
+        flips = sum(row.get("answer_flipped") is True for row in rows)
+        expected = (
+            statistics.median(effects), min(native),
+            sum(effect <= 0.25 for effect in effects), flips,
+        )
+        observed = (
+            summary.get("median_normalized_absolute_effect"),
+            summary.get("minimum_native_margin"),
+            summary.get("rows_at_or_below_0_25"), summary.get("answer_flips"),
+        )
+        if any(not math.isclose(float(a), float(b), rel_tol=0.0, abs_tol=1e-15)
+               for a, b in zip(expected, observed)):
+            raise FastScreenPublishError(f"{behavior} summary does not recompute")
+        metrics.extend([
+            {"name": f"{behavior}_median_normalized_absolute_effect",
+             "estimate": expected[0], "ci95": None, "bar": "<=0.10"},
+            {"name": f"{behavior}_minimum_native_margin",
+             "estimate": expected[1], "ci95": None, "bar": ">0 on all 16 rows"},
+            {"name": f"{behavior}_rows_at_or_below_0_25",
+             "estimate": expected[2], "ci95": None, "bar": ">=14 of 16"},
+            {"name": f"{behavior}_answer_flips",
+             "estimate": expected[3], "ci95": None, "bar": "<=1 of 16"},
+        ])
+    metrics.extend([
+        {"name": "native_head_replay_max_abs_logit_error",
+         "estimate": result["replay_max_abs_logit_error"], "ci95": None, "bar": "<=0.0001"},
+        {"name": "minimum_native_head_norm", "estimate": result["minimum_native_head_norm"],
+         "ci95": None, "bar": ">=1e-8"},
+    ])
+
+    record = json.loads(registry.circuit_path(value["canonical_tag"]).read_text())
+    registry.validate_v2(record)
+    claims = [claim for claim in record["claims"] if claim["claim_id"] == value["source_claim_id"]]
+    if len(claims) != 1:
+        raise FastScreenPublishError("source claim is missing or ambiguous")
+    source_claim = claims[0]
+    if not any(site["site_id"] == value["canonical_site_id"]
+               for site in source_claim["candidate_sites"]):
+        raise FastScreenPublishError("canonical head site is absent from source claim")
+    revision = copy.deepcopy(source_claim)
+    revision.update(value["claim_revision"])
+    revision["supersedes"] = value["source_claim_id"]
+    revision["evidence_event_ids"] = list(dict.fromkeys(
+        source_claim.get("evidence_event_ids", []) + [value["event_id"]]
+    ))
+    artifact = {"path": str(result_path.relative_to(REPO)), "sha256": _sha256(result_path),
+                "kind": "screen_result", "status": "frozen"}
+    event = {
+        "event_id": value["event_id"], "claim_id": value["source_claim_id"],
+        "test_type": "removal", "stage": "complete", "verdict": "held",
+        "failure_kind": None, "family_ids": [], "site_id": value["canonical_site_id"],
+        "split_plan_id": None, "evaluation_role": "SELECT_held_out_cross_circuit_collateral",
+        "metrics": metrics, "prereg_artifact_id": None,
+        "result_artifact_id": value["result_artifact_id"], "input_artifact_ids": [],
+        "seed": None, "checkpoint_sha256": checkpoint_sha,
+        "supersedes_event_id": None, "replicates_event_id": None, "sections": [],
+        "notes": value["notes"],
+    }
+    return {
+        "schema": "circuit_fast_screen_publication_plan_v1",
+        "canonical_tag": value["canonical_tag"], "ledger_request_id": entry["request_id"],
+        "result_artifact_id": value["result_artifact_id"], "artifact": artifact,
+        "event": event, "claim_revision": revision,
+        "claim_ledger_policy": value["claim_ledger_policy"],
+    }
+
+
 def _event_with_keys(record: dict, event: dict) -> dict:
     value = copy.deepcopy(event)
     value["design_key"] = registry.design_key(record, value)
@@ -441,8 +638,12 @@ def main() -> None:
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
     spec = json.loads(args.spec.read_text())
-    plan = (build_cross_syntax_plan(spec) if spec.get("schema") == CROSS_SYNTAX_SCHEMA
-            else build_plan(spec))
+    if spec.get("schema") == CROSS_SYNTAX_SCHEMA:
+        plan = build_cross_syntax_plan(spec)
+    elif spec.get("schema") == COLLATERAL_SCHEMA:
+        plan = build_cross_circuit_collateral_plan(spec)
+    else:
+        plan = build_plan(spec)
     if args.apply:
         apply_plan(plan, regenerate_commands=(
             (sys.executable, "basis_aligned/bilinear_quotient/make_circuit_coverage.py"),
