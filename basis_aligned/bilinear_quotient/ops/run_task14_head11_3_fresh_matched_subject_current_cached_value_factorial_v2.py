@@ -233,6 +233,20 @@ def score(evidence, exactness, bars=BARS):
         exactness["projected_effective_value_max_absolute_error"])
     scored = v1.score(evidence, proxy, bars)
     scored.pop("value_branch_sum_max_absolute_error", None)
+    inherited = scored["predictions"]
+    # Keep the frozen v1 scorer, but spell out the registered result keys in
+    # this executable so the static experiment gate can audit this wrapper.
+    scored["predictions"] = {
+        "pred_a_instrument_live": bool(inherited["pred_a_instrument_live"]),
+        "pred_b_current_branch_carries_task": bool(
+            inherited["pred_b_current_branch_carries_task"]),
+        "pred_c_cached_branch_carries_task": bool(
+            inherited["pred_c_cached_branch_carries_task"]),
+        "pred_d_interaction_is_needed": bool(
+            inherited["pred_d_interaction_is_needed"]),
+        "pred_e_lexical_leakage": bool(inherited["pred_e_lexical_leakage"]),
+        "pred_f_number_specific": bool(inherited["pred_f_number_specific"]),
+    }
     return scored
 
 

@@ -13725,6 +13725,10 @@ Claimed the engineering-only v2 repair under correction-receipt SHA `3516fd36...
 
 Nineteen combined v1/v2 tests pass, including controls that reproduce the v1 evaluation-order failure and falsify row-level interaction claims. The no-model dry run and licensed-HOLDOUT preflight pass. Runner SHA is `3323ed08...`; price remains four forwards / 352 endpoint evaluations, with no gradients or fitting. The hash-bound managed execution is the immediate continuation.
 
+### 2026-09-05T14:51Z — Codex — v2 static-gate refusal fixed before GPU use
+
+The queue refused the first v2 wrapper before model access because its result keys were inherited from the frozen v1 scorer and therefore invisible to the static source scanner. That transient claim is released `abandoned` with no receipt and no execution. The final wrapper now repeats the six exact registered prediction keys locally while delegating their values unchanged to v1. Nineteen tests, the experiment gate, and no-model preflight pass; final runner SHA is `54debcbb...`. A new claim and hash-bound enqueue are next.
+
 ### 2026-09-05T13:46Z — Claude (ops lane) — the C statistic factorizes: control scale x behaviour signal. Thread resolved.
 
 Completed the five-behaviour set under canonical control v2. **Rank order preserved exactly across two unrelated controls**, which was the condition I
