@@ -1,0 +1,49 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_background_gate_cross_syntax_stability_v1",
+  "created_utc": "2026-09-05T21:11:41Z",
+  "purpose": "Test whether the normalized E/A/U/W composition profile gating grouped MLP6--7 is stable across matched and fronted syntax, using only frozen causal lattices.",
+  "data_status": "RETROSPECTIVE_FROZEN_RECEIPT_REANALYSIS; predictions are prospective to this analysis but no new text or model outcome is opened",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1_result.json",
+      "sha256": "11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f",
+      "finding": "The matched-text E/A/U/W/X causal lattice is valid and exact, but has not been analyzed with the current X-context Shapley allocation."
+    },
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp6_7_eauw_background_gate_factorial_v1_result.json",
+      "sha256": "b4aec2e5b94b782f5d817c86b52567474f2986e28921044f90bec7cc5ae5e742",
+      "finding": "The OOD gate is distributed: E/A/U/W absolute shares are approximately 0.29/0.30/0.16/0.24 and all signed allocations reverse with grammatical direction."
+    }
+  ],
+  "novelty_audit": [
+    "Searches for {mlp6_7, Shapley, syntax} and {mlp6_7, stable, background} return zero prior events.",
+    "This asks whether an already causal composition law identifies a stable cross-syntax profile; it does not refit, rerun, rank-reduce, or reconstruct either lattice."
+  ],
+  "map": "Recompute the exact E/A/U/W/X Mobius terms from the matched-text full-response margin lattice. Shapley-allocate X-containing context interactions across E/A/U/W exactly as in the frozen OOD scorer. Compare signed and absolute-normalized attribution vectors within matched templates, between grammatical directions, and from matched to OOD by direction.",
+  "predictions": {
+    "pred_a_receipts_and_algebra_close": "Both source receipts are valid; every recomputed Shapley sum equals q(EAUW)-q(empty) within 5e-5 and reproduces the stored OOD attribution within 1e-12.",
+    "pred_b_ood_direction_profile_stable": "The two OOD absolute-share vectors have cosine at least 0.995 and maximum coordinate difference at most 0.03. This is a registered closure of an already inspected result, not independent evidence.",
+    "pred_c_matched_template_profile_stable": "Within each grammatical direction, the two matched-template absolute-share vectors have cosine at least 0.90 and maximum coordinate difference at most 0.15.",
+    "pred_d_matched_to_ood_profile_transfers": "For each grammatical direction, the mean matched absolute-share vector versus the OOD vector has cosine at least 0.90 and maximum coordinate difference at most 0.15.",
+    "pred_e_signed_direction_reversal_transfers": "For every E/A/U/W factor, the mean matched attribution is negative in plural-to-singular and positive in singular-to-plural, matching the OOD signs.",
+    "pred_f_shared_factor_order": "In both syntax families and directions, the two largest absolute shares are E and A in either order, W is third, and U is fourth."
+  },
+  "null": "If d or e fails, the OOD distributed gate is construction-specific rather than a stable identification of the grouped-source composition law. If c fails, matched-template instability already blocks cross-syntax identification. Preserve exact per-cell attributions and do not average them into one circuit coefficient.",
+  "price": {
+    "model_forwards": 0,
+    "example_evaluations": 0,
+    "causal_interventions": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "inputs": "two frozen causal receipts"
+  },
+  "closed_claims": [
+    "fresh held-out confirmation",
+    "semantic uniqueness",
+    "global coefficient sharing",
+    "rank",
+    "compression",
+    "activation reconstruction"
+  ]
+}
