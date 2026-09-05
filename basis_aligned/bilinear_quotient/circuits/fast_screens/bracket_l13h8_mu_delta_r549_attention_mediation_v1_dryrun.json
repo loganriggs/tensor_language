@@ -1,0 +1,55 @@
+{
+  "bars": {
+    "median_live_centered_effect_norm_each_factor_family_min": 0.05,
+    "median_projection_recovery_each_factor_family_min": 0.1,
+    "median_rescue_cosine_each_factor_family_min": 0.25,
+    "native_positive_fraction_each_family_min": 0.75,
+    "native_replay_max_absolute_logit_error_max": 1e-05,
+    "positive_projection_fraction_each_factor_family_min": 0.6666666666666666
+  },
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_r549_attention_mediation",
+  "closed_splits": [
+    "TEST",
+    "OOD"
+  ],
+  "conditions": [
+    "native",
+    "native_replay",
+    "remove_mu",
+    "remove_delta",
+    "remove_mu_restore_l14h1",
+    "remove_mu_restore_l15h3",
+    "remove_mu_restore_l16h1",
+    "remove_delta_restore_l14h1",
+    "remove_delta_restore_l15h3",
+    "remove_delta_restore_l16h1"
+  ],
+  "estimand": "For each factor/head, d=C(native)-C(remove), r=C(restore)-C(remove), projection=dot(r,d)/(dot(d,d)+1e-8), cosine=dot(r,d)/(norm(r)norm(d)+1e-8); CE damage/rescue use the signed correct-answer full-vocabulary CE.",
+  "fixed_heads": [
+    "L14H1",
+    "L15H3",
+    "L16H1"
+  ],
+  "frozen_predictions": {
+    "pred_a": "native capability/replay hold and both upstream removals are live in every construction and stability rewrite",
+    "pred_b": "at least one fixed R549 head meets all projection, cosine, and sign bars for each factor separately across both target constructions; matching stability-rewrite reports are descriptive robustness evidence",
+    "pred_c": "with live upstream effects, no fixed R549 head meets the target-construction mediation bars for at least one factor, favoring distributed use or bypass over these response-localized heads"
+  },
+  "interpretation_limit": "causal localization only; no site selection, selectivity proof, or representational decomposition",
+  "opened_splits": [
+    "FRESH_BASIC"
+  ],
+  "outcome_reads": [],
+  "price": {
+    "backwards": 0,
+    "example_evaluations": 240,
+    "model_forwards": 10,
+    "parameter_updates": 0
+  },
+  "prior_art_sha256": "176815d395903cef47f13148d6a2d1fb7190d661e075c3851c263dff32466530",
+  "rows": 24,
+  "rows_authority_candidate_id": "bracket.pending_opener.l13h8_mu_delta_mlp15_mediation",
+  "rows_sha256": "61f8db59d41863f2cc48b141f7c14f73a6774c63bbbca3b41ae0d873dbd18ba7",
+  "schema": "bracket_l13h8_mu_delta_r549_attention_mediation_plan_v1",
+  "triplet_groups": 8
+}
