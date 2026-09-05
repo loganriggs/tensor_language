@@ -18,12 +18,39 @@ def test_record_is_existing_registry_v2_schema_and_claim_is_bounded() -> None:
     claim = record["claims"][-1]
     assert claim["status"] == "site_live"
     assert claim["next_missing"] == publish.NEXT_MISSING
-    assert "source-score and cached-value" in claim["next_missing"]
-    assert "output-token confound control" in claim["next_missing"]
-    assert len(record["evidence_events"]) == 5
-    assert [event["verdict"] for event in record["evidence_events"]] == [
-        "invalid", "held", "invalid", "invalid", "held"
+    assert "fresh disjoint capable narrative-tense authority" in claim["next_missing"]
+    assert "outcome-selected remaining-source (R) hypothesis" in claim["next_missing"]
+    assert "do not repair" in claim["next_missing"]
+    assert [claim["claim_id"] for claim in record["claims"]] == [
+        "narrative_tense_at_final_position.v1", "narrative_tense_at_final_position.v2"
     ]
+    assert record["claims"][-1]["supersedes"] == record["claims"][0]["claim_id"]
+    assert record["claims"][0]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"][:5]
+    ]
+    assert record["claims"][-1]["evidence_event_ids"] == [
+        event["event_id"] for event in record["evidence_events"]
+    ]
+    assert len(record["evidence_events"]) == 6
+    assert [event["verdict"] for event in record["evidence_events"]] == [
+        "invalid", "held", "invalid", "invalid", "held", "invalid"
+    ]
+    assert record["claims"][-1]["status"] == record["claims"][0]["status"] == "site_live"
+
+
+def test_new_event_is_invalid_only_and_preserves_descriptive_results() -> None:
+    event = publish.build_record()["evidence_events"][-1]
+    assert event["claim_id"] == "narrative_tense_at_final_position.v2"
+    assert event["stage"] == event["verdict"] == "invalid"
+    assert event["failure_kind"] == "invalid_instrument"
+    metrics = {metric["name"]: metric for metric in event["metrics"]}
+    assert metrics["installed_noop_max_absolute_error"]["estimate"] == 0.0000591278076171875
+    assert metrics["installed_noop_max_absolute_error"]["bar"] == "<=0.00005"
+    assert metrics["C_R_joint_mean_absolute_normalized_movement"]["estimate"] == 0.05991756523480643
+    assert metrics["C_complete_H3_mean_absolute_normalized_movement"]["estimate"] == 0.0589810113272569
+    assert event["notes"]["descriptive_R_target_recovery"].endswith("explicitly not evidence")
+    assert event["notes"]["cross_task_results"]["is_payload_transfer_passed"] is False
+    assert event["notes"]["cross_task_results"]["was_payload_transfer_passed"] is False
 
 
 def test_all_requested_artifacts_are_hash_bound() -> None:
@@ -50,6 +77,8 @@ def test_event_ids_are_globally_namespaced_and_new() -> None:
     assert all(event_id.startswith("narrative_tense.") for event_id in event_ids)
     existing_ids = set()
     for path in publish.registry.CIRCUITS.glob("task_*.json"):
+        if path.name == publish.OUTPUT_NAME:
+            continue
         document = json.loads(path.read_text())
         existing_ids.update(event["event_id"] for event in document.get("evidence_events", []))
     assert event_ids.isdisjoint(existing_ids)
@@ -67,6 +96,27 @@ def test_apply_is_idempotent_in_temporary_registry(tmp_path, monkeypatch) -> Non
     assert path.read_bytes() == first
     compact = json.loads((circuits / "registry.json").read_text())
     assert compact["circuits"][publish.TAG]["active_claim_id"] == expected["claims"][-1]["claim_id"]
+
+
+def test_exact_v1_prefix_migrates_once_then_is_idempotent(tmp_path, monkeypatch) -> None:
+    circuits = tmp_path / "circuits"
+    circuits.mkdir()
+    monkeypatch.setattr(publish.registry, "CIRCUITS", circuits)
+    monkeypatch.setattr(publish.registry, "REGISTRY", circuits / "registry.json")
+    expected = publish.build_record()
+    base = copy.deepcopy(expected)
+    base["claims"] = base["claims"][:1]
+    base["claims"][0]["evidence_event_ids"] = base["claims"][0]["evidence_event_ids"][:5]
+    base["evidence_events"] = base["evidence_events"][:5]
+    base["artifacts"].pop("source_route_cross_task_prior_art")
+    base["artifacts"].pop("source_route_cross_task_invalid_result")
+    path = publish.registry.circuit_path(publish.TAG)
+    path.write_text(json.dumps(base))
+    publish.apply_record(expected)
+    first = path.read_bytes()
+    assert json.loads(first)["claims"][-1]["claim_id"] == "narrative_tense_at_final_position.v2"
+    publish.apply_record(expected)
+    assert path.read_bytes() == first
 
 
 def test_existing_different_record_is_refused(tmp_path, monkeypatch) -> None:

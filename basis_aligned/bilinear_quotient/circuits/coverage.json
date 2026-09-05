@@ -415,13 +415,15 @@
      "latest_relevant_event_id": null
     },
     "composition": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
       "narrative_tense.attn11_head3_complement.v1.held"
      ],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "narrative_tense.attn11_head3_complement.v1.held"
+     "latest_relevant_event_id": "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid"
     },
     "compiled_weights": {
      "status": "missing",
@@ -432,9 +434,9 @@
     }
    },
    "n_held_categories": 2,
-   "n_blocked_categories": 1,
+   "n_blocked_categories": 2,
    "n_missing_categories": 5,
-   "next_missing": "split attention block 11 head 3 into exact source-score and cached-value terms, then test those terms with an output-token confound control that distinguishes shared copula writing from a shared agreement/tense semantic state"
+   "next_missing": "build a fresh disjoint capable narrative-tense authority before testing the outcome-selected remaining-source (R) hypothesis; do not repair the no-op tolerance or control bar on the same rows"
   },
   "task.numbered_list.index_successor": {
    "kind": "behavior_circuit",

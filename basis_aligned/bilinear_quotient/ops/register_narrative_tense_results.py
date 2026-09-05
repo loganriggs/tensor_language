@@ -10,6 +10,7 @@ specification fields, so the versioned task record is its canonical home.
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 from pathlib import Path
@@ -22,10 +23,15 @@ REPO = BQ.parents[1]
 TAG = "task.narrative_tense.past_vs_present"
 OUTPUT_NAME = "task_narrative_tense_past_vs_present.json"
 CHECKPOINT_SHA256 = "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
-NEXT_MISSING = (
+FIRST_NEXT_MISSING = (
     "split attention block 11 head 3 into exact source-score and cached-value terms, "
     "then test those terms with an output-token confound control that distinguishes "
     "shared copula writing from a shared agreement/tense semantic state"
+)
+NEXT_MISSING = (
+    "build a fresh disjoint capable narrative-tense authority before testing the "
+    "outcome-selected remaining-source (R) hypothesis; do not repair the no-op "
+    "tolerance or control bar on the same rows"
 )
 
 ARTIFACTS = {
@@ -64,6 +70,16 @@ ARTIFACTS = {
         "7f31c50639ef20dd35f5bdaa5dcb9024221025db8856043baf104074f5b3c32b",
         "screen_result",
     ),
+    "source_route_cross_task_prior_art": (
+        "basis_aligned/bilinear_quotient/circuits/prior_art/narrative_tense_attn11_head3_source_route_cross_task_payload_v1.json",
+        "18f97382fa020d7da7b0ab35d0c52537d500296cd3c5364cbb9ba68e4e664345",
+        "preregistration",
+    ),
+    "source_route_cross_task_invalid_result": (
+        "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_attn11_head3_source_route_cross_task_payload_v1_result.json",
+        "4a56ae3c8e3fe5dd375f68f520624d91ada9bdfd07fa0e54f23bff40957933a4",
+        "screen_result",
+    ),
 }
 
 
@@ -95,6 +111,7 @@ def _metric(name: str, estimate: object, bar: str) -> dict:
 def build_record() -> dict:
     artifacts = _bind_artifacts()
     claim_id = "narrative_tense_at_final_position.v1"
+    revised_claim_id = "narrative_tense_at_final_position.v2"
     family_ids = ["a1_direct_narration", "a2_relative_clause", "p_surface_rewrite", "c_same_answer_rewrite"]
     families = [
         {
@@ -136,6 +153,7 @@ def build_record() -> dict:
         "narrative_tense.short_cue.v1.invalid_capability",
         "narrative_tense.short_cue.v2.invalid_capability",
         "narrative_tense.attn11_head3_complement.v1.held",
+        "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
     ]
     record = {
         "schema_version": 2,
@@ -185,9 +203,11 @@ def build_record() -> dict:
                 },
             ],
             "split_plan_ids": ["narrative_tense_fit_v1"],
-            "evidence_event_ids": event_ids,
+            # Keep the historical revision frozen to the five events available
+            # when v1 was published.  The invalid follow-up belongs only to v2.
+            "evidence_event_ids": event_ids[:5],
             "translation_ids": [],
-            "next_missing": NEXT_MISSING,
+            "next_missing": FIRST_NEXT_MISSING,
         }],
         "split_plans": [{
             "split_plan_id": "narrative_tense_fit_v1",
@@ -206,6 +226,16 @@ def build_record() -> dict:
             "head_factorial_result_sha256": ARTIFACTS["head3_complement_result"][1],
         },
     }
+    revised_claim = copy.deepcopy(record["claims"][0])
+    revised_claim.update({
+        "claim_id": revised_claim_id,
+        "revision": 2,
+        "status": "site_live",
+        "supersedes": claim_id,
+        "evidence_event_ids": event_ids,
+        "next_missing": NEXT_MISSING,
+    })
+    record["claims"].append(revised_claim)
 
     raw_events = [
         {
@@ -258,10 +288,35 @@ def build_record() -> dict:
             ],
             "supersedes_event_id": None,
         },
+        {
+            "event_id": event_ids[5], "event_claim_id": revised_claim_id,
+            "test_type": "composition", "stage": "invalid", "verdict": "invalid",
+            "failure_kind": "invalid_instrument",
+            "site_id": "attention.block11.head3.pre_output_projection.final_position",
+            "result_artifact_id": "source_route_cross_task_invalid_result",
+            "prereg_artifact_id": "source_route_cross_task_prior_art",
+            "metrics": [
+                _metric("installed_noop_max_absolute_error", 0.0000591278076171875, "<=0.00005"),
+                _metric("C_R_joint_mean_absolute_normalized_movement", 0.05991756523480643, "<= complete-H3 C movement"),
+                _metric("C_complete_H3_mean_absolute_normalized_movement", 0.0589810113272569, "control reference only"),
+            ],
+            "supersedes_event_id": None,
+            "notes": {
+                "scientific_status": "invalid instrument; no route or cross-task conclusion",
+                "descriptive_R_target_recovery": "retained only in the hash-bound result artifact and explicitly not evidence",
+                "cross_task_results": {
+                    "is_payload_transfer_passed": False,
+                    "was_payload_transfer_passed": False,
+                    "status": "descriptive failures under an invalid instrument",
+                },
+                "repair_prohibition": "no tolerance or control-bar repair on these rows",
+            },
+        },
     ]
     for raw in raw_events:
+        event_claim_id = raw.pop("event_claim_id", claim_id)
         event = {
-            **raw, "claim_id": claim_id, "family_ids": family_ids,
+            **raw, "claim_id": event_claim_id, "family_ids": family_ids,
             "evaluation_role": "frozen FIT screen",
             "input_artifact_ids": ["narrative_tense_authority"],
             "split_plan_id": "narrative_tense_fit_v1", "seed": None,
@@ -281,8 +336,25 @@ def apply_record(record: dict | None = None, *, regenerate: bool = True) -> Path
     path = registry.circuit_path(TAG)
     if path.exists():
         existing = json.loads(path.read_text())
-        if existing != value:
+        if existing == value:
+            if regenerate:
+                registry.rebuild_registry_v2()
+            return path
+        # The only permitted migration is the exact v1 prefix emitted by this
+        # publisher before the invalid follow-up existed.
+        base = copy.deepcopy(value)
+        base["claims"] = base["claims"][:1]
+        base["claims"][0]["evidence_event_ids"] = base["claims"][0]["evidence_event_ids"][:5]
+        base["evidence_events"] = base["evidence_events"][:5]
+        base["artifacts"].pop("source_route_cross_task_prior_art")
+        base["artifacts"].pop("source_route_cross_task_invalid_result")
+        if existing != base:
             raise PublicationError(f"canonical record differs: {path}")
+        with registry._lock("registry"):
+            current = json.loads(path.read_text())
+            if current != base:
+                raise PublicationError(f"canonical record moved during publication: {path}")
+            registry._atomic_json(path, value)
         if regenerate:
             registry.rebuild_registry_v2()
         return path

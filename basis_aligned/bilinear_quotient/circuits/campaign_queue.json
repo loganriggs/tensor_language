@@ -11,7 +11,7 @@
   "legacy_candidates": 70,
   "open_experiments": 2,
   "held_events": 44,
-  "blocking_events": 33
+  "blocking_events": 34
  },
  "work_items": [
   {
@@ -245,7 +245,7 @@
    "tag": "task.narrative_tense.past_vs_present",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_narrative_tense_past_vs_present.json",
-   "active_claim_id": "narrative_tense_at_final_position.v1",
+   "active_claim_id": "narrative_tense_at_final_position.v2",
    "claim_status": "site_live",
    "causal_variable_id": "narrative_tense_at_final_position",
    "counterfactual_family_count": 4,
@@ -259,7 +259,8 @@
     "narrative_tense.past_present.v1.invalid_capability",
     "narrative_tense.past_present.v2.held_localization",
     "narrative_tense.short_cue.v2.invalid_capability",
-    "narrative_tense.attn11_head3_complement.v1.held"
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -268,7 +269,8 @@
    ],
    "blocking_event_ids": [
     "narrative_tense.past_present.v1.invalid_capability",
-    "narrative_tense.short_cue.v2.invalid_capability"
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid"
    ],
    "coverage": {
     "capability": "blocked",
@@ -277,7 +279,7 @@
     "cross_family": "missing",
     "ood": "missing",
     "selectivity": "missing",
-    "composition": "held",
+    "composition": "mixed",
     "compiled_weights": "missing"
    },
    "acceptance_gaps": [
@@ -286,10 +288,11 @@
     "cross_family",
     "ood",
     "selectivity",
+    "composition",
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "split attention block 11 head 3 into exact source-score and cached-value terms, then test those terms with an output-token confound control that distinguishes shared copula writing from a shared agreement/tense semantic state"
+   "next_missing": "build a fresh disjoint capable narrative-tense authority before testing the outcome-selected remaining-source (R) hypothesis; do not repair the no-op tolerance or control bar on the same rows"
   },
   {
    "tag": "task.numbered_list.index_successor",
