@@ -1,0 +1,29 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_open_post_family_confirm",
+  "checked_at": "2026-09-05T06:52:00Z",
+  "active_claim_collision": false,
+  "sole_discovery_authority": {
+    "artifact": "circuits/fast_screens/bracket_l13h8_source_region_payload_factorial_v1_result.json",
+    "sha256": "e5471038a18c2b7b285723e1bbe41d56c0236cab9d4e665edc2daa7595e6205d"
+  },
+  "exact_basic_screen_means": {
+    "direct_type": {
+      "base_to_donor": {"OPEN": 0.9580311583241122, "POST": 0.006302635232244812, "OPENxPOST": 0.0001726533474242838},
+      "donor_to_base": {"OPEN": 0.9845351738912004, "POST": 0.010834776477824257, "OPENxPOST": 0.00026751478595618956}
+    },
+    "completed_then_reopened": {
+      "base_to_donor": {"OPEN": 1.6033600394873107, "POST": 0.026131870400443985, "OPENxPOST": 0.0006374005427738631},
+      "donor_to_base": {"OPEN": 1.5927165200745854, "POST": 0.02358364525241602, "OPENxPOST": 0.000193891172782696}
+    }
+  },
+  "decision": "A stable opposing prediction exists: OPEN is sufficient, POST and OPENxPOST are negligible, and completed/reopened has larger OPEN amplitude than direct_type.",
+  "freshness": {
+    "new_endpoint_texts": 48,
+    "overlap_with_basic": 0,
+    "overlap_with_select": 0,
+    "overlap_with_r545": 0
+  },
+  "excluded": ["broad source resweep", "rank", "projector", "reconstruction", "MLP atlas"],
+  "outcome_reads": []
+}

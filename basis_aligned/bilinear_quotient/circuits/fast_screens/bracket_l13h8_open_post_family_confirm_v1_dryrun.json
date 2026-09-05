@@ -1,0 +1,19 @@
+{
+  "schema": "bracket_l13h8_open_post_family_confirm_dryrun_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_open_post_family_confirm",
+  "status": "cpu_preflight_passed_not_enqueued",
+  "rows": 24,
+  "groups": 6,
+  "rows_sha256": "4f282eafbd809b0a83e7c273574353ae8dc8dbbc2f80d15c449bd781650aea5b",
+  "payload_conditions": ["OPEN", "POST", "OPEN+POST"],
+  "price": {"model_forwards": 12, "example_evaluations": 288, "backwards": 0, "parameter_updates": 0},
+  "plan_stdout_sha256": "ab70abab91c415369747fc2d4e572283b3669d3ef0648857ae01309472577e10",
+  "candidate_source_sha256": "c0f4ac7a0dd7a253eb973c4f1721492f30dfad8b6e7ed9e7fb59221ec398dfc9",
+  "runner_source_sha256": "ca3a7a10bfb7da27912f98bdb25be7cd43902f3e59e7e8f0356833a5341e66ab",
+  "focused_tests": "3 passed",
+  "model_loaded": false,
+  "queue_touched": false,
+  "outcome_reads": [],
+  "opened_splits": ["FRESH_CONFIRM"],
+  "closed_splits": ["FINAL_TEST", "OOD"]
+}
