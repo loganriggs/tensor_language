@@ -692,16 +692,19 @@
       "task14_head11_3.fresh_current_cached.v2_instrument.complete.v1",
       "task14_head11_3.fresh_current_cached.number_specificity.complete.v1",
       "task14_head11_3.fresh_upstream_writers.v2_instrument.complete.v1",
-      "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1"
+      "task14_head11_3.fresh_upstream_writers.number_specificity.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.instrument.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.number_specificity.complete.v1"
      ],
      "blocking_event_ids": [
       "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
       "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
       "task14_head11_3.fresh_current_cached.lexical_leakage.complete.v1",
-      "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1"
+      "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_upstream_writers.lexical_collateral.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP_depth.lexical_collateral.complete.v1"
     },
     "composition": {
      "status": "mixed",
@@ -728,10 +731,15 @@
       "task14_head11_3.fresh_upstream_writers.embedding_skip_family.complete.v1",
       "task14_head11_3.fresh_upstream_writers.earlier_attention_family.complete.v1",
       "task14_head11_3.fresh_upstream_writers.distributed_families.complete.v1",
-      "task14_head11_3.fresh_upstream_writers.interaction_needed.complete.v1"
+      "task14_head11_3.fresh_upstream_writers.interaction_needed.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.G0.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.G1.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.G2.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.distributed_groups.complete.v1",
+      "task14_head11_3.fresh_MLP_depth.interaction_needed.complete.v1"
      ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_head11_3.fresh_upstream_writers.interaction_needed.complete.v1"
+     "latest_relevant_event_id": "task14_head11_3.fresh_MLP_depth.G1_G2_exploratory.complete.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -744,7 +752,7 @@
    "n_held_categories": 5,
    "n_blocked_categories": 5,
    "n_missing_categories": 1,
-   "next_missing": "The licensed upstream-writer factorial is complete and must not be repeated. With recipient p_8, cached value, and native non-subject complement fixed, cumulative MLP writes from blocks 0--10 carried the current-state subject-value transfer; embedding/skip, cumulative earlier-attention, distributed-family, interaction-needed, and lexical-collateral predictions were null, while number-specificity held. This localizes a broad writer family only. It does not establish necessity, new syntax, downstream readers, or any individual MLP layer. Next causally split the cumulative MLP family without treating native MLP boundaries as final semantic units, and identify the downstream readers of the resulting computation."
+   "next_missing": "The licensed upstream-MLP depth factorial is complete and must not be repeated. No single coarse group was sufficient under the registered all-cell bar; the distributed and interaction-needed accounts were also null, while number-specificity held and lexical collateral was null. G1+G2 recovery of 0.936--0.952 is exploratory because that pair was not registered as a carries-task claim. The screen supports a mostly additive MLP4--10 path dominated by MLP8--10, not an individual-MLP circuit. Next preregister conditional per-layer effects within MLP4--10. Necessity, OOD syntax, downstream readers, and individual MLPs remain untested."
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",

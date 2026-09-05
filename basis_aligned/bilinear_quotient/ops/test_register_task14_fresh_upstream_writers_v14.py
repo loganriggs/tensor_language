@@ -81,12 +81,8 @@ def test_v1_is_non_evidence_and_v2_supersedes_it() -> None:
 def test_exact_v13_prefix_and_idempotence(tmp_path, monkeypatch) -> None:
     plan = publish.build_plan()
     before = json.loads(RECORD.read_text())
-    if before["claims"][-1]["claim_id"] == publish.NEW_CLAIM:
-        expected_v13_claims = before["claims"][:-1]
-        expected_v13_event_ids = expected_v13_claims[-1]["evidence_event_ids"]
-    else:
-        expected_v13_claims = before["claims"]
-        expected_v13_event_ids = before["claims"][-1]["evidence_event_ids"]
+    v14_already_present = any(
+        claim["claim_id"] == publish.NEW_CLAIM for claim in before["claims"])
     circuits = tmp_path / "circuits"
     circuits.mkdir()
     copied = circuits / RECORD.name
@@ -98,10 +94,17 @@ def test_exact_v13_prefix_and_idempotence(tmp_path, monkeypatch) -> None:
     publish.apply_plan(plan, regenerate=False)
     assert copied.read_bytes() == first
     after = json.loads(first)
-    assert after["claims"][:-1] == expected_v13_claims
-    assert after["claims"][-1]["evidence_event_ids"] == (
-        expected_v13_event_ids + [x["event_id"] for x in plan["events"]]
-    )
+    if v14_already_present:
+        assert after == before
+        v14 = next(c for c in after["claims"] if c["claim_id"] == publish.NEW_CLAIM)
+        assert v14["evidence_event_ids"][-len(plan["events"]):] == [
+            x["event_id"] for x in plan["events"]]
+    else:
+        assert after["claims"][:-1] == before["claims"]
+        assert after["claims"][-1]["evidence_event_ids"] == (
+            before["claims"][-1]["evidence_event_ids"]
+            + [x["event_id"] for x in plan["events"]]
+        )
     ids = [x["event_id"] for x in after["evidence_events"]]
     assert len(ids) == len(set(ids))
 

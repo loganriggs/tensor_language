@@ -111,8 +111,10 @@ def build_plan() -> dict[str, Any]:
             docs[artifact_id] = json.loads(path.read_text())
 
     record = json.loads(registry.circuit_path(TAG).read_text())
-    if record["claims"][-1]["claim_id"] not in {BASE_CLAIM, NEW_CLAIM}:
-        raise PublicationError("canonical Task14 latest claim is not v13/v14")
+    # Keep this historical publisher auditable after later revisions land.
+    if record["claims"][-1]["claim_id"] not in {BASE_CLAIM, NEW_CLAIM} \
+            and not any(c["claim_id"] == NEW_CLAIM for c in record["claims"]):
+        raise PublicationError("canonical Task14 contains neither a v13 migration state nor v14")
     base = next(c for c in record["claims"] if c["claim_id"] == BASE_CLAIM)
     if registry._canonical_hash(base) != BASE_CLAIM_SHA256:
         raise PublicationError("canonical Task14 v13 is not the exact audited base")
