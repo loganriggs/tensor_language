@@ -1,0 +1,83 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Determine whether MLP4--5 or MLP6--7 implements the dominant MLP4--7 source interactions read by MLP8, while retaining embedding, attention, and MLP0--3 as live causal contexts.",
+  "parent": {
+    "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp_depth_source_factorial_v1_result.json",
+    "sha256": "429812569df68b1581f4f6632c704b8d034f65ed115c0f9f7d78ca8bb37ec817",
+    "finding": "MLP4--7 is the stable dominant depth family for parent M, EM, and AM aggregates, but singular-to-plural full response retains a large MLP0--3 by MLP4--7 interaction."
+  },
+  "novelty_audit": [
+    {
+      "path": "circuits/task_subject_verb_number_agreement.json",
+      "relation": "No canonical Task14 result causally splits MLP4--7 at raw pre-MLP8 input."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_mlp_depth_factorial_v1_result.json",
+      "sha256": "f18ce285152a1b3388ca3083de344dd9dd3675e4932b27bf44ea1f9e8e3f3073",
+      "relation": "This earlier depth split intervened at the later pre-attention-11 current-value input and did not preserve MLP8 source interactions."
+    },
+    {
+      "path": "polynomial_causal/explanations/MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md",
+      "sha256": "75c6caa3059f4488365ef2acfcb4ea52ff36c25c5b52b99c2181d8f59940ae92",
+      "relation": "Older MLP4/5 versus MLP6/7 work concerns equality/compression objects, not this Task14 causal computation."
+    }
+  ],
+  "data": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "row_builder": "unchanged fresh matched-natural Task14 HOLDOUT rows",
+    "roles": ["recipient", "opposite_same_lemma", "same_number_different_lemma"],
+    "intervention_position": 8,
+    "disclosure": "All parent E/A/U/V results are open. Only the MLP4--5 versus MLP6--7 refinement and its outcomes are prospective."
+  },
+  "exact_input_partition": {
+    "E": "propagated embedding/skip contribution through block 8",
+    "A": "propagated attention writes A0--A8",
+    "U": "propagated MLP0--MLP3 writes",
+    "W": "propagated MLP4--MLP5 writes",
+    "X": "propagated MLP6--MLP7 writes",
+    "corner": "For each subset of E,A,U,W,X, use donor values for listed families and recipient values otherwise, then apply native MLP8 RMSNorm.",
+    "numerical_policy": "Use authoritative parent U and V=W+X aggregates whenever a corner exactly matches a parent corner; construct W+X only for genuinely mixed W/X counterfactuals. Do not relax exactness bars.",
+    "operational_limit": "Native writer groups are causal localization handles, not a unique semantic gauge."
+  },
+  "conditions": {
+    "recipient_noop": 1,
+    "opposite_number": "31 nonempty subsets times exact cross, quadratic, and full MLP8 response",
+    "same_number_lexical": "the same 31 subsets and response pieces",
+    "total": 187,
+    "downstream_background": "standalone fixed L11H3 interface; all other MLP4--M10 slots remain recipient"
+  },
+  "causal_statistics": {
+    "set_function": "Complete 2^5 Boolean factorial scored by answer-directed margin and full-vocabulary CE.",
+    "mobius": "Compute every finite causal interaction over E,A,U,W,X and exactly aggregate them back to the parent E/A/U/V lattice.",
+    "parent_closure": "Regrouping W+X as V must reproduce every parent corner at raw input, RMSNorm input, MLP8 output, propagated slot, head output, CE, and margin."
+  },
+  "predictions": {
+    "pred_a_instrument_and_parent_closure": "All exactness gates and every parent-regrouping closure gate pass.",
+    "pred_b_X_mlp6_7_dominant": "X-containing refinements recover at least 70% of the parent V-centered M, EM, and AM aggregates in both metrics and directions, while corresponding W-only terms recover at most 25%.",
+    "pred_c_W_mlp4_5_dominant": "The converse dominance criterion holds for W.",
+    "pred_d_distributed_within_V": "Both W- and X-containing refinements recover at least 25% of a parent V-centered aggregate in both metrics and directions, and neither half dominates.",
+    "pred_e_WX_composition": "Terms containing both W and X reach at least 25% of a parent V-centered aggregate in both metrics and directions.",
+    "pred_f_direction_switch": "An identified dominant V half differs between plural-to-singular and singular-to-plural.",
+    "pred_g_number_specific": "Every same-number lexical corner is at most 25% of the corresponding opposite-number full-source response scale."
+  },
+  "bars": {
+    "maximum_numerical_absolute_error": 0.00005,
+    "minimum_dominant_recovery_fraction": 0.70,
+    "maximum_minor_recovery_fraction": 0.25,
+    "minimum_distributed_recovery_fraction": 0.25,
+    "minimum_within_V_interaction_fraction": 0.25,
+    "maximum_number_specific_lexical_ratio": 0.25
+  },
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 6080,
+    "causal_interventions": 2976,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "capability_GPU_price": 0
+  },
+  "closed_claims": ["unique_semantic_basis", "individual_MLP_identity", "rank", "quantization", "activation_reconstruction", "new_independent_data", "necessity_outside_fixed_L11H3_interface"]
+}
