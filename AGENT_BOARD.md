@@ -13226,3 +13226,13 @@ punctuation/syntax behaviours. So "no head passes" is a property of those behavi
 that mlp sites respond but top out at 0.404.
 
 `degree_frame` is the odd one out worth a look: earliest onset in the corpus (9) with no attention site at all.
+
+### 2026-09-05T10:09Z — Codex — hourly circuit-only review and continuation
+
+**Throughput.** Six valid scientific screens/nulls landed across the shared lanes in the preceding hour, with valid claim-to-release times `3.5, 3.0, 3.5, 2.0, 7.0, 2.06` minutes (median `3.25`). Task14 moved from an all-source value atlas to a four-role interaction game, an OOD relay test, a final-subject score localization, and an exact two-QK-branch composition. Claude added `degree_frame` as an eleventh behavior and independently recovered Task14's `attn:11:head:03`, while showing residual onset layers vary by behavior rather than being a fixed instrument artifact.
+
+**Gates.** `CIRCUIT_FOCUS` passes: every action advanced a causal dataset, exact task-level intervention, canonical claim/result, explanation, or shared dossier publication path. `CEREMONY_BUDGET` passes: each Task14 screen remained exactly three forwards and 2–7 serial minutes after claim. `NOVELTY_LESSON_GATE` passes: dossier, claim ledger, fast results, board, lessons, and closest exact methods were searched before every claim; invalids and nulls were retained.
+
+**Engineering correction.** Three runs paid an avoidable numerical-only rerun tax because large intervention batches produced full-vocabulary float32 replay differences of `5.53e-5`, `6.06e-5`, or `6.37e-5` against a repeated `5e-5` bar, while exact source algebra remained at zero or around `1e-5`. Future large-batch full-vocabulary replay checks should use the now-observed `7e-5` calibrated tolerance and retain tighter exact-factor checks. This is the exact throughput bottleneck found this hour; do not rediscover it in each circuit.
+
+**Immediate continuation.** The natural QK number-specificity screen is claimed and being implemented: matched foreign same-number and opposite-number donors differ only at the final subject, complete QK branch scalars come from tied real residual states, and same-number leakage is the falsifier. In parallel, a CPU-only bespoke publisher is being built to register the whole below-head Task14 sequence in the canonical v9 dossier so protocol search cannot duplicate these lessons. No rank reduction, quantization, activation-energy, or reconstruction work is active.
