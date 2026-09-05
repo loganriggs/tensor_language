@@ -40,7 +40,7 @@ def build_gate():
 
 
 def compile_plan():
-    gate=build_gate(); return {"schema":"task14_direction_mediator_gain_transfer_native_capability_plan_v1","capability_id":authority.CAPABILITY_ID,"causal_candidate_id":authority.CAUSAL_CANDIDATE_ID,"split":"FOURTH_CORPUS_NATIVE_ONLY","native_only":True,"row_count":32,"endpoint_evaluations":96,"minimum_accuracy_each_direction_template_role_cell":MINIMUM_ACCURACY,"prior_art_sha256":PRIOR_ART_SHA256,"authority_file_sha256":AUTHORITY_FILE_SHA256,"authority_logical_sha256":authority.EXPECTED_AUTHORITY_SHA256,"registered_cells_sha256":licensing.cells_sha256(gate),"price":{"model_forwards":1,"example_evaluations":96,"causal_interventions":0,"backwards":0,"parameter_updates":0}}
+    gate=build_gate(); return {"schema":"task14_direction_mediator_gain_transfer_native_capability_plan_v1","capability_id":authority.CAPABILITY_ID,"causal_candidate_id":authority.CAUSAL_CANDIDATE_ID,"split":"FOURTH_CORPUS_NATIVE_ONLY","native_only":True,"row_count":32,"endpoint_evaluations":96,"minimum_accuracy_each_direction_template_role_cell":MINIMUM_ACCURACY,"prior_art_sha256":PRIOR_ART_SHA256,"authority_file_sha256":AUTHORITY_FILE_SHA256,"authority_logical_sha256":authority.EXPECTED_AUTHORITY_SHA256,"registered_cells_sha256":licensing.cells_sha256(gate),"predictions":{"pred_a_authority_valid":"frozen fourth-corpus structure and novelty validate","pred_b_native_capability_pass":"all twelve registered cells reach accuracy >=0.75","pred_c_license_issued":"candidate-scoped license is issued only after capability passes"},"price":{"model_forwards":1,"example_evaluations":96,"causal_interventions":0,"backwards":0,"parameter_updates":0}}
 
 
 def evaluate(model,torch,F):
