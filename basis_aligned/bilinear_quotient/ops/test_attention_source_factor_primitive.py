@@ -81,3 +81,25 @@ def test_generic_replay_equals_direct_formula_and_source_sum():
     assert torch.allclose(write, direct, atol=1e-5, rtol=1e-5)
     assert torch.allclose(torch.einsum("bk,bkd->bd", factors["p"], factors["u"]),
                           factors["head"], atol=1e-5, rtol=1e-5)
+    assert set(factors) == {"p", "u", "head"}
+
+
+def test_optional_qk_factors_expose_selected_normalized_rotary_vectors():
+    generator = torch.Generator().manual_seed(17)
+    batch, length, width, heads, head_width = 2, 4, 18, 9, 2
+    attention = FakeAttention(width)
+    for layer in (attention.c_q, attention.c_k, attention.c_q2,
+                  attention.c_k2, attention.c_v, attention.c_proj):
+        layer.weight.data.copy_(torch.randn(layer.weight.shape, generator=generator))
+    state = torch.randn(batch, length, width, generator=generator)
+    first = torch.randn(batch, length, heads, head_width, generator=generator)
+    finals = torch.tensor([2, 3])
+    _, factors = primitive.replay_attention_with_source_factors(
+        state, first, attention, finals, 3, torch, F, include_qk_factors=True,
+    )
+    assert factors["q"].shape == factors["q2"].shape == (batch, head_width)
+    assert factors["k"].shape == factors["k2"].shape == (batch, length, head_width)
+    self_score = ((factors["q"] * factors["k"][torch.arange(batch), finals]).sum(-1) / head_width
+                  * (factors["q2"] * factors["k2"][torch.arange(batch), finals]).sum(-1)
+                  / head_width)
+    assert torch.allclose(self_score, factors["p"][torch.arange(batch), finals])

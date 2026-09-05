@@ -18,6 +18,7 @@ def _linear(value, weight, F):
 
 def replay_attention_with_source_factors(
     state, first_value, attention, final_positions, head_index: int, torch, F,
+    *, include_qk_factors: bool = False,
 ):
     """Replay an attention module and expose exact source factors for one head."""
     batch, length, width = state.shape
@@ -58,7 +59,15 @@ def replay_attention_with_source_factors(
     ]
     u = _linear(value[:, :, head_index].float(), head_slice.float(), F)
     head_write = torch.einsum("bk,bkd->bd", p, u)
-    return write, {"p": p, "u": u, "head": head_write}
+    factors = {"p": p, "u": u, "head": head_write}
+    if include_qk_factors:
+        factors.update({
+            "q": q[rows, final_positions, head_index].float(),
+            "k": k[:, :, head_index].float(),
+            "q2": q2[rows, final_positions, head_index].float(),
+            "k2": k2[:, :, head_index].float(),
+        })
+    return write, factors
 
 
 def source_terms(factors, source_positions, torch):
