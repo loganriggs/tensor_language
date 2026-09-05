@@ -1,0 +1,28 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_cardinality_program_loo_mediator_gain_v1",
+  "created_utc": "2026-09-05T23:29:47Z",
+  "purpose": "Ask whether the fixed reader's target-free program-effect prediction composes with MLP15/17 through a small direction-by-cardinality scalar gain law, using leave-one-row-out prediction before any fourth-corpus export.",
+  "prior_art_search": {
+    "result": "Existing results establish the ten-vector upstream program, fixed readers, grouped mediation, and the exact MLP15/17 split. None predicts MLP15/17 mediation from the fixed reader with a row-held-out scalar composition law.",
+    "program_validation": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_causal_validation_v1_result.json", "sha256": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0"},
+    "split_mediation": {"path": "circuits/followups/task14_mlp6_7_direction_cardinality_program_mlp15_vs_mlp17_mediation_v1_result.json", "sha256": "9c43f964aa0976b91925e188c6f66bd585891915ca64c32411c6ad9cf75660e5"}
+  },
+  "model": {
+    "input": "the already sealed fixed-reader prediction q_hat for each installed direction-cardinality vector",
+    "fit": "For each held row and component c in {m15,m17,interaction}, fit one zero-intercept scalar a[c,d,k] on all other rows of the same direction d and cardinality k; predict c=a*q_hat.",
+    "joint_prediction": "m_both_hat=m15_hat+m17_hat+interaction_hat",
+    "size": "30 scalar gains plus the already frozen ten 1,152-D writes and two 1,152-D readers",
+    "control": "six direction-only component gains under the identical leave-one-row-out folds"
+  },
+  "predictions": {
+    "pred_a_exact_join_and_row_holdout": "Exactly 512 unique cells join immutable sealed-reader and mediation evidence; every prediction excludes all cells from its row; all direction-cardinality folds have training support.",
+    "pred_b_mlp15_predictive": "LOO m15 prediction has cosine >=0.75, relative L2 error <=0.75, and sign agreement >=0.65.",
+    "pred_c_mlp17_predictive": "LOO m17 prediction has cosine >=0.90, relative L2 error <=0.40, and sign agreement >=0.90.",
+    "pred_d_joint_mediation_predictive": "LOO reconstructed joint mediation has cosine >=0.90, relative L2 error <=0.40, sign agreement >=0.90, and cosine >=0.85 in every direction x template group.",
+    "pred_e_cardinality_is_needed": "Direction-by-cardinality gains reduce joint-mediation SSE by >=10% relative to direction-only gains under identical row-held-out folds.",
+    "pred_f_fixed_price_and_scope": "CPU-only exact diagnostic, 512 predictions, 30 stored candidate scalars, zero GPU/model forwards, gradients, updates, scales, or threshold changes after scoring."
+  },
+  "terminal_rule": "Invalid if a or f fails; prototype_gain_screen if b-e all pass; null if instrument passes and d fails; otherwise inconclusive.",
+  "closed_claims": ["prospective fourth-corpus transfer", "native MLP output reconstruction", "semantic identity", "necessity", "universal composition", "rank"]
+}
