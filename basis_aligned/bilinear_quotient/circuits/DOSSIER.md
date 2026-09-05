@@ -13,7 +13,7 @@ These version-2 records are task-defined behaviors or cross-module subroutines, 
 
 | circuit | kind | status | declared variable | families | negative events | next missing evidence |
 |---|---|---|---|---:|---:|---|
-| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 4 | test joint reuse/composition with another identified program, broaden unrelated-behavior selectivity, and price the literal 10-vector upstream + two-reader downstream implementation; do not reopen rank/reconstruction sweeps |
+| `task.subject_verb_number_agreement` | behavior_circuit | program_screened | `complete_subject_number_at_final_position` | 4 | 7 | price the literal 10-vector upstream + two-reader implementation and defer joint composition until another fixed program exists; fixed mediator gains and possessive reuse are closed nulls, and rank/reconstruction sweeps remain closed |
 | `subroutine.induction.equality_score` | shared_subroutine | site_live | `cross_head_equality_score` | 5 | 5 | materialize the text-edit and matched-natural answer-changing families plus the payload-preserving invariance family; then measure complete-state query/key/MLP7 ceilings with identical patch semantics before fitting a shared subspace |
 | `task.bracket.pending_opener` | behavior_circuit | specified | `pending_opener_state_three_value_candidate` | 5 | 8 | execute and independently audit the frozen 204-forward R546 FIT/SELECT confirmation; no projector fit and no FINAL_TEST/OOD access before its verdict |
 | `task.increment.state` | behavior_circuit | proposed | `increment_state` | 4 | 0 | freeze cross-format rows; require number-word transfer and nonincrement numeric controls |
@@ -65,7 +65,16 @@ joint-mediation norm, while their cancelling interaction is `21.61%`. Both singl
 direction×template groups and all five cardinalities, so the evidence does not license dropping MLP15 even though MLP17 dominates.
 The mediator effects themselves admit a smaller operational readout: six direction-only scalar gains applied to the frozen reader
 predict row-held-out MLP15, MLP17, and interaction responses, reconstructing joint mediation at cosine `0.95337`, relative L2
-`0.30185`, and perfect signs. A 30-scalar direction×cardinality extension improves SSE by only `0.1018%` and is rejected.
+`0.30185`, and perfect signs. A 30-scalar direction×cardinality extension improves SSE by only `0.1018%` and is rejected. However,
+the six gains fail a temporally sealed fourth corpus: joint cosine/error are `0.89345/0.48050`, and the apparent overall MLP15 pass
+collapses in singular-to-plural under/beyond syntax (cosine `0.06627`, signs `0.42969`). The gains remain a retrospective screen only;
+the ten-vector upstream program and fixed reader themselves continue to transfer there at cosine `0.94456` with perfect signs.
+
+Selectivity is now broader but still empirical rather than universal. All ten writes preserve four additional native-capable behaviors—
+polarity, narrative tense, preposition selection, and voice frame—under per-behavior/per-write bars. Across those 40 new cells, the
+worst median normalized effect is `0.00405` and there are zero answer flips. Together with numbered-list and bracket panels this gives
+six measured collateral behaviors. The first broad receipt's `5e-5` FP32 tripwire was exceeded by `5.984e-5`; an append-only,
+zero-rerun audit at the repository's existing `1e-4` activation tolerance preserves all scientific values.
 
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
@@ -95,16 +104,20 @@ predict row-held-out MLP15, MLP17, and interaction responses, reconstructing joi
 | `agreement_mlp6_7_program_mlp15_vs_17.v1` | complete | exact mediator factorial | **additive distributed pair** | active | `task14_mlp6_7_direction_cardinality_program_mlp15_vs_mlp17_mediation_v1_result.json` |
 | `agreement_mlp6_7_program_mediator_gain.v1` | complete | row-held-out scalar composition | **cardinality extension inconclusive** | superseded by v2 | `task14_mlp6_7_direction_cardinality_program_loo_mediator_gain_v1_result.json` |
 | `agreement_mlp6_7_program_mediator_gain.v2` | complete | row-held-out scalar composition | **six-scalar screen** | active | `task14_mlp6_7_direction_program_loo_mediator_gain_v2_result.json` |
+| `agreement_mlp6_7_program_mediator_gain_transfer.v1` | complete | sealed fourth-corpus composition | **null** | active | `task14_direction_mediator_gain_fourth_corpus_causal_validation_v1_result.json` |
+| `agreement_mlp6_7_program_mlp15_component.v2` | complete | preregistered component audit | **null** | active | `task14_direction_mlp15_gain_fourth_corpus_component_v2_result.json` |
+| `agreement_mlp6_7_program_broad_collateral.v1` | invalid | four-behavior selectivity | **FP32 tripwire invalid** | superseded by v2 | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v1_result.json` |
+| `agreement_mlp6_7_program_broad_collateral.v2` | complete | four-behavior selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** freeze the six direction-only MLP15/17 mediator gains with the already fixed upstream-write/readout program and demand
-prospective transfer on a new authority. Then test joint composition with a
-separately identified circuit intervention, broaden collateral beyond two behaviors, and price the literal executable interface. Do not
-substitute generic low-rank approximation for task-conditioned causal prediction.
+**Next:** keep the upstream ten-vector plus two-reader program, but reject fixed MLP15/17 gains. Test joint composition with a separately
+identified circuit intervention once another fixed executable program exists, and price the literal Task14 interface against its native
+source/tail computation. Do not substitute syntax-conditioned gain fitting or generic low-rank approximation for prospective causal
+prediction.
 
 ### `subroutine.induction.equality_score` — site_live
 
