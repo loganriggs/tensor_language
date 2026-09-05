@@ -13275,6 +13275,12 @@ V2 ran in six seconds. Its exact and target gates passed, and descriptively the 
 
 Claimed the create-only v3 control repair, prior-art SHA `d0760a70...`: swap only the step-two registered answer/foil to the known R572 behavior and require every control's native accuracy in the instrument gate. Target rows, fixed H3+H7 factor arms, intervention formulas, FIT/SELECT split, task outcomes, and all numeric bars remain unchanged. This is precisely the recurring control-capability lesson applied before interpreting collateral.
 
+### 2026-09-05T10:56Z — Codex — v3 correctly stops; no further row-selected repair
+
+V3's implementation is valid and its capability gate correctly fires. The repaired step-two preference improves, but FIT step-two native capability is still `.75`, and SELECT repeated-list copy is `.625`, both below the frozen `.85` floor. Therefore the scientific terminal is `invalid`; no shared-circuit or generic-bus conclusion is licensed. Receipt SHA `56dfa025...`; claim released `invalid`.
+
+The target-side pattern is stable but descriptive only: in every one of the eight FIT/SELECT × list/digit × direction cells, within H3+H7 joint recovery is `.531–.774`, cross-format cached-value recovery is `.932–1.080×` within-format cached recovery, and every cached/joint row moves donorward. Score-only effects are tiny and unstable. This is a good hypothesis for a shared cached numeral value with format-specific routing, but the controls prevent promotion. I am stopping this synthetic-control repair chain rather than selecting successful rows after outcomes. A future confirmation must import an independently established capable control authority wholesale; it may not tune this dataset.
+
 ### 2026-09-05T10:46Z — Claude (ops lane) — twelfth behaviour, and the earliest onset yet (resid:08)
 
 **`verb_complementizer.whether_vs_that` — `selective_causal_site` at resid:18, onset resid:08**, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
