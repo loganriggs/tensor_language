@@ -44,25 +44,81 @@ def scope(path):
             "best_site": best, "why": why}
 
 
+
+# A screen can stop before any site is scored (`head_stage == "capability_stop"`): the engine refuses to
+# screen sites when the model cannot natively perform the cells. Then `run.site_results` is EMPTY, and the
+# site-oriented report above prints 0.000 for every field -- which reads as "measured, and it was zero"
+# rather than "never measured". That silent misreport is what this handles.
+TARGET_FAMILIES = ("A1", "A2")   # the behaviour under study; P and C are its edit and its control
+
+
+def capability_scope(doc):
+    """Which families failed the native-capability gate, and how strongly the model did each."""
+    run = doc.get("run") or {}
+    cells = run.get("capability_cells") or []
+    rows = run.get("native_logits") or []
+    families = {}
+    for cell in cells:
+        families.setdefault(cell["family"], []).append(cell)
+    margins = {}
+    for row in rows:
+        margins.setdefault(row["family"], []).append(row["answer_logit"] - row["foil_logit"])
+    failed = {f for f, cs in families.items() if any(not c.get("passed") for c in cs)}
+    return {"families": families, "margins": margins, "failed": failed,
+            "target_failed": failed & set(TARGET_FAMILIES), "head_stage": run.get("head_stage")}
+
+
+def print_capability_stop(doc):
+    cap = capability_scope(doc)
+    print(f"  STOPPED AT: {cap['head_stage']} -- no site was ever screened, so every site-level "
+          f"number is absent, not zero.")
+    for family in sorted(cap["families"]):
+        cells = cap["families"][family]
+        bad = [c for c in cells if not c.get("passed")]
+        margin = cap["margins"].get(family) or [0.0]
+        mean = sum(margin) / len(margin)
+        right = sum(1 for v in margin if v > 0)
+        mark = "FAIL" if bad else "ok  "
+        print(f"   {mark} {family:3s} {len(cells) - len(bad)}/{len(cells)} cells pass   "
+              f"native answer-vs-foil margin {mean:+.2f}  ({right}/{len(margin)} rows correct)")
+        for cell in bad:
+            print(f"        failing cell {cell['cell_id']}  base {cell['base_accuracy']:.2f} "
+                  f"donor {cell['donor_accuracy']:.2f} (bar {cell['minimum_accuracy']})")
+    if cap["target_failed"]:
+        print(f"  READ AS: TARGET INCAPABLE. {sorted(cap['target_failed'])} failed, so the model cannot "
+              "perform the behaviour under study. The null is about the model and it stands; no control "
+              "redesign changes it.")
+    elif cap["failed"]:
+        print(f"  READ AS: CONTROL INCAPABLE, NOT A NULL ABOUT THE BEHAVIOUR. {sorted(TARGET_FAMILIES)} "
+              f"pass natively -- the model DOES the behaviour -- and only {sorted(cap['failed'])} failed. "
+              "The verdict `native_behavior_incapable` names the wrong cause: what the model cannot do is "
+              "the CONTROL that was chosen. This is an authoring fix (pick a control the model can "
+              "perform), and the behaviour has never actually been screened.")
+
+
 if __name__ == "__main__":
     for path in sys.argv[1:]:
         s = scope(path)
         print(f"\n{os.path.basename(s['path'])}")
         print(f"  verdict {s['reason']}   selected {s['selected']}   sites {s['n_sites']}")
-        best_id, best = s["top"][0] if s["top"] else ("-", 0.0)
-        print(f"  best target recovery: {best:.3f} at {best_id}")
         print(f"  gating bars: {s['gating_bars']}")
-        print("  top sites: " + ", ".join(f"{i}={v:.3f}" for i, v in s["top"]))
+        if s["top"]:
+            best_id, best = s["top"][0]
+            print(f"  best target recovery: {best:.3f} at {best_id}")
+            print("  top sites: " + ", ".join(f"{i}={v:.3f}" for i, v in s["top"]))
         b = s["best_site"] or {}
-        a1, a2 = b.get("a1") or {}, b.get("a2") or {}
-        print(f"  best site detail: A1 recovery {a1.get('mean_absolute_effect', 0):.3f} "
-              f"dir {a1.get('direction_fraction', 0):.2f} | A2 {a2.get('mean_absolute_effect', 0):.3f} "
-              f"dir {a2.get('direction_fraction', 0):.2f} | C {b.get('c_absolute_recovery', 0):.3f} "
-              f"| P {b.get('p_invariance_effect', 0):.3f}")
-        print(f"  its rejection reasons: {b.get('reasons')}")
-        print("  rejection reasons across all sites: "
-              + ", ".join(f"{k} x{v}" for k, v in s["why"].most_common(4)))
-        if s["reason"] == "no_selective_causal_site":
+        if s["n_sites"]:
+            a1, a2 = b.get("a1") or {}, b.get("a2") or {}
+            print(f"  best site detail: A1 recovery {a1.get('mean_absolute_effect', 0):.3f} "
+                  f"dir {a1.get('direction_fraction', 0):.2f} | A2 {a2.get('mean_absolute_effect', 0):.3f} "
+                  f"dir {a2.get('direction_fraction', 0):.2f} | C {b.get('c_absolute_recovery', 0):.3f} "
+                  f"| P {b.get('p_invariance_effect', 0):.3f}")
+            print(f"  its rejection reasons: {b.get('reasons')}")
+            print("  rejection reasons across all sites: "
+                  + ", ".join(f"{k} x{v}" for k, v in s["why"].most_common(4)))
+        if s["n_sites"] == 0:
+            print_capability_stop(json.load(open(s["path"])))
+        elif s["reason"] == "no_selective_causal_site":
             print("  READ AS: the binding constraint is whichever reason above dominates -- state it "
                   "explicitly. If it is C_absolute_recovery, the target WAS recovered and the failure is "
                   "SELECTIVITY, not recovery.")

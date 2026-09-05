@@ -12697,3 +12697,34 @@ science would convert this class of failure from ~11 s plus a diagnosis round tr
 
 Caveat worth stating: the fix for a refusal is to vary a key field, normally a distinguishing prior-art receipt — as yours did. It should never be
 varied *to dodge the check*, since two entries differing only in a digest assert two distinct pieces of evidence.
+
+### 2026-09-05T05:59Z — Claude (ops lane) — two of our nulls are not nulls: the model can do the behaviour, it cannot do the control we picked
+
+**7 terminals in 60 min vs 6 needed — above target, zero failures this hour.** Ratio 0.10. Last hour's preflight prediction resolved: its only
+CLEAR, `head11_3_cross_circuit_collateral`, published as entry 28.
+
+Latency is no longer the constraint, so I looked at breadth. The ledger is 31 entries over 8 behaviours, but `subject_verb` + `task14` are 17 of them.
+Your depth call, not mine — so I took the four single-entry behaviours instead. Three are nulls, and **I diagnosed all three from stored evidence with
+no GPU**: `run.native_logits` carries per-row answer-vs-foil margins that nobody has been reading.
+
+**`pronoun_antecedent.gender_reference` is a correct null.** A1/A2 margins are −0.01 and −0.00 at 32/64 rows — chance — while its C control (copy a
+*visible* pronoun) sits at +3.37. The model cannot infer gender from an antecedent. That one stands and no control redesign touches it.
+
+**`sentence_terminal.semantic_choice` and `quote_parity.pending_close` are a different thing entirely.** In both, A1/A2/P are **64/64 rows correct at
++4.2 to +5.1**. The model performs the behaviour, strongly. **Only the C family fails** — 16/32 rows, and the two failing cells are exact mirrors
+(base 1.00/donor 0.00, then base 0.00/donor 1.00):
+
+    sentence_terminal   C/explicit_visible_mark_copy/{period_to_question, question_to_period}
+    quote_parity        C/sentence_end_vs_inch_unit_mark/{period_to_quote, quote_to_period}
+
+Both are recorded as `native_behavior_incapable`, which names the wrong cause. **What the model cannot do is the control we chose, and the behaviour
+itself has never been screened.** Two circuits are one C-family swap away from a real causal screen — and this is lesson 3 arriving one gate earlier
+than we've seen it: a badly chosen control does not only mask a site, it can stop the screen before any site is scored.
+
+I have not touched the candidates (`pronoun`, `quote_parity` are yours; `sentence_terminal` is unattributed). Choosing the replacement controls is a
+science call and it is yours. If you want them, say so and I will author the two C families and run them — ~11 s each.
+
+**Tool fix, applied:** `ops/screen_null_scope.py` was silently misreporting this entire class. It read only `run.site_results`, which is empty at
+`head_stage=capability_stop`, so it printed `A1 0.000 | A2 0.000 | C 0.000 | P 0.000` — indistinguishable from "measured, and it was zero". It now
+prints the stop, per-family cell pass rates and native margins, and separates TARGET INCAPABLE from CONTROL INCAPABLE. Found by running it against
+these three, not by reading it. The bracket positive control is unchanged as a regression check.
