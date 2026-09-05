@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_1609.md](explanation_2026-09-05_1609.md) — Task14's exact upstream localization to a stable
+  MLP8 write; the gauge-invariant cross-versus-quadratic computation inside MLP8; the preserved float32-invalid first
+  run and unchanged numerical repair; the direction-dependent overshoot and cancellation mechanism; and the active
+  choice between prospective syntax generalization and selective component removal
 - [explanation_2026-09-05_0804.md](explanation_2026-09-05_0804.md) — the circuit-only controlling goal and hourly
   anti-drift gates; the exact L13H8 residual-route versus later-write-bank factorial; why the semantic closer signal is
   residual-carried while later modules compensate CE; and the active three-forward weight-level readout fold through
