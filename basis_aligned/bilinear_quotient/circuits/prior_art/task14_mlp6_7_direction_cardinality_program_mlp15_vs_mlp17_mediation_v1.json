@@ -1,0 +1,32 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_direction_cardinality_program_mlp15_vs_mlp17_mediation_v1",
+  "created_utc": "2026-09-05T23:25:12Z",
+  "purpose": "Split the prospectively validated program's MLP15+17 mediation into exact MLP15-only, MLP17-only, and joint clamp effects, without fitting or changing the ten-vector program.",
+  "prior_art_search": {
+    "result": "The natural head-donor intervention has an existing exact MLP15-by-MLP17 additive-pair screen, and the fixed program has a grouped MLP15+17 mediation screen. No result splits MLP15 from MLP17 for the fixed direction-cardinality program.",
+    "natural_pair_result": {"path": "circuits/followups/task14_head11_3_mlp15_mlp17_interaction_v1_result.json", "sha256": "fdae100bd42177371b8429372f1d02ce24c1bb5eb0b29ac6a00e9511286968de", "terminal": "additive_pair_screen"},
+    "program_group_result": {"path": "circuits/followups/task14_mlp6_7_direction_cardinality_program_mlp15_17_mediation_v2_result.json", "sha256": "430f315a2223d564f8bd3eb2f0d12de43bdea4e6ebe950c1094b66a06a245ff2", "terminal": "mediation_screen"}
+  },
+  "intervention": {
+    "cells": "all 512 prospective third-corpus row x E/A/U/W-subset cells",
+    "corners": "base/program crossed with clamp set empty, {15}, {17}, {15,17}",
+    "definitions": {
+      "m15": "q_empty-q_15clamped",
+      "m17": "q_empty-q_17clamped",
+      "m_both": "q_empty-q_bothclamped",
+      "interaction": "m_both-m15-m17"
+    },
+    "fit_operations": 0,
+    "program_changes": 0
+  },
+  "predictions": {
+    "pred_a_complete_exact_factorial": "All immutable inputs validate; exactly 512 cells and eight corners per cell are present; no-clamp effect, base replay, and grouped both-clamp effect replay the immutable grouped result to <=5e-5.",
+    "pred_b_additive_distributed_pair": "Each singleton mediation norm is >=5% of the full program-effect norm, interaction norm is <=25% of joint-mediation norm, and m15+m17 predicts joint mediation with cosine >=0.90 and relative L2 error <=0.25.",
+    "pred_c_single_dominant_mediator": "Opposing outcome: one singleton is >=80% of joint-mediation norm and the other is <=10%, with dominant-to-joint cosine >=0.90.",
+    "pred_d_distribution_recurs_across_cells": "Both singleton norm ratios are >=3% of full effect in at least three of four direction x template groups and at least four of five cardinalities; joint interaction remains <=35% in every direction x template group.",
+    "pred_e_fixed_program_and_price": "No vectors, scales, rows, subsets, sites, or thresholds change after outcomes; price <=17 physical forwards, 4192 example evaluations, zero backwards, zero updates."
+  },
+  "terminal_rule": "Invalid if a or e fails; additive_distributed_screen if b and d pass; single_dominant_screen if c passes; otherwise inconclusive.",
+  "closed_claims": ["natural intervention equivalence", "necessity", "semantic identity of either MLP", "rank", "compression", "cross-task reuse"]
+}
