@@ -1,0 +1,65 @@
+{
+  "schema": "circuit_numerical_repair_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_current_cached_value_factorial_v2",
+  "created_utc": "2026-09-05",
+  "repair_scope": "Engineering-only correction after the v1 branch-sum exactness gate failed. No v1 scientific outcome is interpreted, and no scientific arm, prediction, task metric, threshold, row, or split is changed.",
+  "v1_provenance": {
+    "scientific_prior_art_path": "circuits/prior_art/task14_head11_3_fresh_matched_subject_current_cached_value_factorial_v1.json",
+    "scientific_prior_art_sha256": "9ca110e1614c6bc8e3fb1dd771060ae6ac35c39088eb80728a4eece2160f9b9c",
+    "runner_path": "ops/run_task14_head11_3_fresh_matched_subject_current_cached_value_factorial.py",
+    "runner_sha256": "d76044585a8d9c7d8aea95bada0ba9adb2aa19aac5e13e2cfbf52675eacc4f5f",
+    "invalid_result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_current_cached_value_factorial_v1_result.json",
+    "invalid_result_sha256": "df090c4e22070b6c151b12a4e80e25ca75c132d7210d3f57dc8de79c818ada8d",
+    "terminal": "invalid",
+    "failed_metric": "value_branch_sum_max_absolute_error",
+    "observed": 0.000244140625,
+    "registered_maximum": 0.00005,
+    "scientific_outcome_policy": "not interpreted as scientific evidence"
+  },
+  "diagnosis": "V1 separately projected the 128-dimensional current and cached branches through the 1152-by-128 head-3 c_proj slice and then added the two projected vectors. The native model first adds the two branches in 128-dimensional head-value coordinates and invokes c_proj once. Although these are equal over real arithmetic, changing the floating-point reduction order caused the registered exactness failure.",
+  "correction": {
+    "current_pre": "(1-lambda_11) V_11 xhat_11,8 in 128-dimensional head-value coordinates",
+    "cached_pre": "lambda_11 V_0 xhat_0,8 in 128-dimensional head-value coordinates",
+    "mixed_counterfactual": "Choose current_pre and cached_pre independently, add them in the native head-value dtype, then call the head-3 c_proj slice exactly once.",
+    "native_identity": "Validate native effective_pre == current_pre + cached_pre before projection, then validate c_proj_h3(effective_pre) == captured u_8 under the unchanged 0.00005 projection tolerance.",
+    "same_batch_route": "Retain the identical-order native/no-op endpoint comparison and native reinstall arm."
+  },
+  "unchanged_science": {
+    "split": "LICENSED_HOLDOUT",
+    "row_count": 16,
+    "conditions": [
+      "native_value",
+      "opposite_current_only",
+      "opposite_cached_only",
+      "opposite_both",
+      "lexical_current_only",
+      "lexical_cached_only",
+      "lexical_both",
+      "complete_opposite_head"
+    ],
+    "predictions": [
+      "current_branch_carries_task",
+      "cached_branch_carries_task",
+      "interaction_is_needed",
+      "lexical_leakage",
+      "number_specific"
+    ],
+    "metrics": [
+      "answer_directed_target_margin_improvement",
+      "target_full_vocab_CE_improvement",
+      "fixed_are_minus_is_change"
+    ],
+    "scientific_bars": "identical to the frozen v1 receipt",
+    "price": {
+      "model_forwards": 4,
+      "example_evaluations": 352,
+      "backwards": 0,
+      "parameter_updates": 0
+    }
+  },
+  "v2_license": {
+    "path": "circuits/fast_screens/task14_fresh_matched_subject_current_cached_value_factorial_v2_capability_license.json",
+    "sha256": "b5ba447870147311b76211b9ff52c4e672f7a095c96488381d8147ef9b403ab4"
+  },
+  "terminal_policy": "If any exactness or capability gate fails, v2 is invalid and all scientific metrics remain uninterpretable. Do not loosen a tolerance, change a row, or inspect v1 outcomes to repair it."
+}

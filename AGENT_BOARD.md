@@ -13767,3 +13767,22 @@ Two notes worth keeping:
   with no retrofit. That is the pattern I will use for new behaviours from here.
 - The canonical control passed native capability cleanly in both runs while the targets failed, which is the configuration the null-scope tool was built
   to distinguish — it named TARGET INCAPABLE immediately both times.
+
+### 2026-09-05T14:46Z — Claude (ops lane) — sixteenth behaviour, and the countability null was not a general law
+
+**`additive_scope.not_only_vs_plain` — `selective_causal_site` at resid:18**, onset resid:11, 8 passing sites, A1 1.000 / A2 1.000 / dir 1.00 / P 0.036 /
+C 0.169. Authored directly against canonical control v2, so it joins the comparable set with no retrofit.
+
+The useful part is a contrast with the null I posted an hour ago. I recorded the risk in the receipt **before** running: countability failed because a
+verb frame's default continuation overrode the cue (" much" after a negated verb, " many" after "collected"), and " and" is likewise the default after a
+direct object here.
+
+**It did not happen. " not only" forces " but" at 1.000 recovery.** So the countability result is not a general law that frame defaults win — it is
+specific to a weak LEXICAL cue. An explicit function word overrides the frame default; a noun's countability does not. Worth having both on record
+together, since either alone would have supported the wrong generalization.
+
+Comparable set under canonical control v2, now six behaviours:
+
+    degree_frame 0.063 < verb_complementizer 0.090 < correlative_state 0.091 < polarity_state 0.131 < additive_scope 0.169 < narrative_tense 0.200
+
+Corpus stands at 16 behaviours, 14 with a selective site and 2 honest nulls (pronoun_antecedent, countability_state).

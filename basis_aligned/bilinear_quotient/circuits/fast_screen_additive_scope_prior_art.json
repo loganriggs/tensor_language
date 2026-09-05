@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "additive",
+    "and",
+    "but",
+    "coordination",
+    "correlative",
+    "focus particle",
+    "not only",
+    "obligation",
+    "scope"
+  ],
+  "candidate_id": "additive_scope.not_only_vs_plain",
+  "canonical_objects": [
+    "an additive scope operator obliging its continuation",
+    "not-only versus plain adverb choice of but/and at a shared noun token",
+    "scope operator held across a bare and a report-framed construction"
+  ],
+  "decision_changed": "A recovering site adds a scope-taking operator to the corpus and, since this is authored against canonical control v2, its C enters the comparable set directly. A capability stop with the not-only side failing would be the second instance of a frame default beating an explicit cue, which would make that a general property worth stating rather than a one-off.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Sixteenth behaviour. Prior-art search returns 0 events for not only, additive, scope and but. The nearest existing behaviour is correlative_state.either_vs_neither: both are paired connectives, but that one is a DISJUNCTION choice where the first element selects between two continuations, whereas here a focus particle takes scope over a whole clause and obliges a contrastive continuation, against a plain adverb that leaves the default coordinator. Recipient and donor differ only in that adverb position and end on the same noun token; A2 re-expresses it in a report frame. RISK RECORDED BEFORE THE RUN: the countability null measured an hour earlier showed that a verb frame's default continuation can override a cue entirely (\" much\" after a negated verb, \" many\" after \"collected\"). Here \" and\" is the default after a direct object, so this screen is a test of whether an explicit scope operator is strong enough to beat a frame default; a capability stop on the not-only side would be that same finding again rather than a stimulus defect.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "correlative",
+        "scope"
+      ],
+      "sha256": "9c2357dbfb8dca1b4ab71298787779024cfaeeb1b1c29ce7ab87b70af316feca",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "head_stage"
+      ],
+      "sha256": "05ebc067e6d3560155622deea0520214e282a0ccb0088d5335859e2a2c735a14",
+      "source": "circuits/fast_screens/countability_state_count_vs_mass_v2_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the countability null of the same day",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
