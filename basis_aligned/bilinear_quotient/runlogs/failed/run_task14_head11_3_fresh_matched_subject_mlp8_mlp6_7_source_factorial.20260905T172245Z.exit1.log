@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.py", line 795, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.py", line 776, in main
+    evidence, exactness, numerical = evaluate(model, torch, F, facade)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.py", line 473, in evaluate
+    native_patch = factors._native_logits(model, patch["tokens"], torch, F)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_task14_head11_3_subject_attractor_score_payload_factorial.py", line 67, in _native_logits
+    return (30.0 * torch.tanh(logits / 30.0)).float()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 10.23 GiB. GPU 0 has a total capacity of 31.36 GiB of which 6.01 GiB is free. Including non-PyTorch memory, this process has 25.34 GiB memory in use. Of the allocated memory 24.62 GiB is allocated by PyTorch, and 144.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

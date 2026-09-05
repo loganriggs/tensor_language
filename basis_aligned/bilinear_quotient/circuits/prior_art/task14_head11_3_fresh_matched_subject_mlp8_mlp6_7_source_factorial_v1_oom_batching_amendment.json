@@ -1,0 +1,39 @@
+{
+  "schema": "circuit_preregistration_engineering_amendment_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1",
+  "created_utc": "2026-09-05T17:25:00Z",
+  "reason": "The first execution exhausted GPU memory while starting the native 6064-example condition evaluation. It failed before any condition logits were produced, before causal statistics or prediction tests were computed, and before any result artifact was written.",
+  "binding_inputs": {
+    "original_preregistration_path": "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1.json",
+    "original_preregistration_sha256": "94a41203cd8b9176cad2323d353cba4c8b26d369a83598298ae178ffdd211c96",
+    "original_runner_path": "ops/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.py",
+    "original_runner_sha256": "3ce836830973c9b18e5b4726560611f8f27da18a52a48659b67017722d490426",
+    "failed_runlog_path": "runlogs/failed/run_task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial.20260905T172245Z.exit1.log",
+    "failed_runlog_sha256": "36cb7a851199a0917593487ca8698ce81c5b202c2325eca27f1ad1a61c5af940"
+  },
+  "observability_statement": {
+    "result_artifact_created": false,
+    "condition_outcomes_observed": false,
+    "causal_statistics_computed": false,
+    "prediction_tests_computed": false,
+    "only_observation": "CUDA out-of-memory at the first full condition-batch native forward"
+  },
+  "authorized_change": {
+    "native_condition_forward": "Split the frozen 6064 examples into exactly two deterministic contiguous chunks of 3032 examples, preserving their original order, and concatenate logits in that order.",
+    "decomposed_condition_forward": "Use the identical two deterministic contiguous chunks of 3032 examples for the causal intervention forward, slicing every replacement tensor and reinstall mask on the same boundaries, and concatenate logits in the original order.",
+    "role_forwards": "Keep the native and decomposed 48-example role passes unchanged.",
+    "logical_model_forwards": 4,
+    "physical_model_forwards": 6,
+    "example_evaluations": 12224,
+    "causal_interventions": 6048
+  },
+  "unchanged_scientific_contract": [
+    "all prompts, rows, roles, and donor mappings",
+    "all 379 conditions and their order",
+    "all E/A/U/W/Y/Z interventions and the grouping-remainder rule",
+    "all response definitions and downstream propagation",
+    "all CE-loss and answer-margin endpoints",
+    "all hypotheses, thresholds, controls, and closure gates"
+  ],
+  "invalid_changes": "Any change beyond the two fixed contiguous condition-batch slices, or any outcome-dependent batch choice, invalidates the rerun."
+}
