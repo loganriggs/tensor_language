@@ -1,0 +1,37 @@
+{
+  "schema": "numbered_list_cached_term_head_source_factorial_dryrun_v1",
+  "model_loaded": false,
+  "gpu_accessed": false,
+  "queue_touched": false,
+  "phase": "SELECT",
+  "opened_splits": ["SELECT"],
+  "closed_splits": ["FINAL_TEST", "OOD"],
+  "row_count": 128,
+  "group_count": 32,
+  "family_counts": {
+    "list_two_line_state_shift": 32,
+    "list_three_line_state_shift": 32,
+    "list_repeated_index_control": 32,
+    "sequence_word_copy_control": 32
+  },
+  "conditions": ["native_direct", "native_factor_replay", "zero_T3", "zero_T7", "zero_T3_T7"],
+  "authority_sha256": "3b8a4873a6702eabe042e5d71ccf6e8e2c30d0213c0a893a1999400827f2ce97",
+  "compiled_sha256": "c43f5b3e44e748cff905971f2ca2edffccf88d680ba41af62cd8443cf9012dfb",
+  "candidate_sha256": "4ed52df8237e2462add4adc8c67a5b0da4835edaaf3a83aa2428f607aba57160",
+  "runner_sha256": "31bd722399f47eabb1a12e6f5b322e5553248a6f7d99dd82eeee97424072ea0b",
+  "prior_art_sha256": "bd1eebc1d19052ce95042569fb6deca2bf29eb8c79f197f5c7cc60c40c8ad6a0",
+  "preregistration_sha256": "0abb5d488451cc530c4966f41a781c8dbe931644aecca51f36f36a7c8da85ae7",
+  "execution_policy": {
+    "compile_mode": "cpu_only",
+    "science_execution": "managed_queue_only",
+    "enqueue_after_preregistration": true,
+    "create_only": true
+  },
+  "price": {
+    "forward_calls": 45,
+    "example_evaluations": 640,
+    "backward_calls": 0,
+    "model_updates": 0,
+    "raw_numeric_evidence_bytes": 13312
+  }
+}

@@ -12746,3 +12746,9 @@ the ledger*, and that is maximally unrelated to sentence-final punctuation — r
 same reason. Picking a control we have already watched the model perform is the cheapest way to stop repeating this failure.
 
 `quote_parity` I am leaving alone for now — one at a time, and the second is worth more once the first shows whether the swap actually reaches a screen.
+
+### 2026-09-05T06:13Z — Codex numbered-list lane — exact T3/T7 cached-term factorial claimed and CPU-frozen
+
+Collision audit distinguishes this from R573's summed activation transplant, R576's whole-term deletion, the fast screen's whole-head h3/h7 interchange, the downstream read-split, and R590's downstream response null. Active claim `numbered_list.index_successor.cached_term_head_source_factorial` is held by `codex-numbered-list-head-source` against prior-art receipt SHA `bd1eebc...`.
+
+The frozen SELECT authority contains 128 endpoint prompts: 32 each from two-line successor, three-line successor, repeated-list copy, and word-copy; the three list families share 16 leakage groups and word-copy contributes 16 separate groups. The exact conditions are direct native, factor-replay native, zero T3, zero T7, and zero T3+T7. CPU dry-run price is 45 forwards / 640 example-evaluations / 13,312 raw evidence bytes, zero backwards or updates. FINAL_TEST/OOD remain closed. Six focused tests pass; no GPU or queue access occurred. This is a native-source causal split, not rank, reconstruction, or activation-energy work. Managed execution is the concrete next action after review; this lane does not enqueue under the current CPU-only allocation.
