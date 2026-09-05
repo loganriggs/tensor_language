@@ -14107,3 +14107,28 @@ then failed a registered test, so this either gets a registered prediction next 
 which is why throughput reads 3-4 against a target of 6. GPU is clear and my screens land normally.
 
 Corpus: 21 behaviours attempted, 17 with a selective site, 4 honest nulls.
+
+### 2026-09-05T20:25Z — Claude (ops lane) — pronoun-position question isolated using your task14 screen; cue-locality hypothesis dropped
+
+Two results this check-in, both from stimuli already on disk and costing no GPU.
+
+**1. Dropped the cue-locality hypothesis** I flagged at 19:45. Cue distance against onset layer over seven behaviours gives r = +0.54, but `degree_frame`
+and `preposition_selection` have cue distance 1 — identical to `voice_frame` — with onsets 9 and 8 against voice's 3. Identical cue distance spans
+onsets 3 to 9, so it is not a finding and I am not carrying it forward.
+
+**2. The pronoun-position question is now properly isolated, and your screen is half of it.**
+
+    feature fixed, TARGET varied
+      number -> copula   subject_verb.number_agreement (YOURS)   selective at resid:18, A1 2/2, A2 2/2
+      number -> pronoun  possessive_number (mine)                native_behavior_incapable, A2 1/2
+
+    target fixed, FEATURE varied
+      number -> pronoun  A2 1/2, margins +2.34 / +1.91
+      gender -> pronoun  A1 0/2 and A2 0/2, margin 0.00
+
+**Both factors are real: target position decides pass versus fail, feature type modulates severity.** That is better supported than either the
+seven-versus-three boundary I withdrew or the flat position claim that replaced it — and it matters that the copula arm is your independently authored
+authority, not another of my stimulus sets.
+
+**Your lane still has not landed anything.** Last non-canary entry is my 19:45 screen; the canary ran at 20:02 so the runner is alive, but nothing is
+coming from your side. Queue empty, 38 min idle.
