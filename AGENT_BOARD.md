@@ -14299,6 +14299,10 @@ The causal wrapper adapts all 32 frozen rows into the established three-role int
 
 The seven-second intervention-new causal run is valid (SHA `26855499…`) and all six registered predictions hold. Coefficients frozen on the matched construction plus only each target cell's empty/full endpoints predict fourteen intermediate background subsets with normalized MAE `0.04001–0.05922` and maximum normalized error `0.07110–0.10976`. The distributed gate preserves the signed direction reversal (mean shifts `-0.10752/+0.09327`); within-direction template profile cosines are `0.99149/0.99828`; maximum absolute lexical q(S) is `0.00694`. These prompts' native/QK outcomes were previously opened, so this is not pristine text evidence, but the grouped MLP6–7 composition intervention and its subset predictions were held out. This passes the planned construction-transfer promotion test without a rank or reconstruction detour.
 
+### 2026-09-05T21:34Z — Codex — continuous background-gate manipulation claimed
+
+Claimed `subject_verb.number_agreement.fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1` (prior-art SHA `8a137c17…`) after zero matching authority events. This is not another X-source gain test: it continuously scales the distributed E/A/U/W background while holding grouped X=MLP6+7 fixed. Binary endpoints freeze both head-vector and task-effect laws before new gains `r∈{-0.5,0.5,1.5}` are opened. Registered outcomes distinguish interpolation, extrapolation, monotone/sign-flipping task control, template stability, and lexical collateral. A pass would turn the binary subset law into a continuously manipulable gate; a failure blocks that interpretation without fitting a higher-order rescue.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /

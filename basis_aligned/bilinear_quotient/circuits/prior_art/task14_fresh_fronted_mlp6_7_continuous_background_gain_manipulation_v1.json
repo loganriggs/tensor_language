@@ -1,0 +1,49 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1",
+  "created_utc": "2026-09-05T21:33:15Z",
+  "purpose": "Test whether the binary E/A/U/W gate law predicts continuous interpolation and extrapolation of the grouped MLP6--7 causal response on the fresh-fronted construction.",
+  "data_status": "FRESH_FRONTED_BINARY_LATTICE_OPEN; CONTINUOUS_BACKGROUND_GAINS_NEW; predictions frozen before any fractional or extrapolated background outcome",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_fresh_fronted_mlp6_7_background_composition_transfer_v1_result.json",
+      "sha256": "2685549927059d3623f68961c4cc8102d24bda3aeb02c7d8b22b2d747edb7a9a",
+      "finding": "Valid binary background lattice; frozen matched coefficients predict intermediate subsets, with direction shifts -0.10752/+0.09327."
+    },
+    {
+      "path": "circuits/fast_screens/task14_fresh_fronted_mlp6_7_background_composition_v1_capability_license.json",
+      "sha256": "f28395a0f6bba2ef1f72a0503021e5b4c6501a8cea290dad16b56751f3819801",
+      "finding": "Candidate source construction has a passing 12-cell native capability license."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for MLP6-7 continuous background, context gain, fractional E/A/U/W, and background extrapolation found no prior event.",
+    "The prior gain experiment scaled X=MLP6+7 inside a fixed background; this experiment instead scales the E/A/U/W background while measuring X, so it tests the newly identified gate rather than repeating source gain."
+  ],
+  "map": "At the pre-MLP8 raw-state interface define B(r)=B_recipient+r(B_EAUW_donor-B_recipient), holding donor X fixed for the exact arm and absent for the base arm. Let h_X(r)=h_exact(r)-h_base(r). Freeze endpoint laws h_hat_X(r)=h_X(0)+r(h_X(1)-h_X(0)) and q_hat(r)=q(0)+r(q(1)-q(0)), then evaluate new r in {-0.5,0.5,1.5}. Install both exact and predicted head vectors through the unchanged native tail.",
+  "predictions": {
+    "pred_a_instrument_and_binary_endpoint_closure": "All native replay/decomposition/no-op errors are at most 5e-5 and recomputed r=0,1 task effects match the bound binary receipt within 5e-5.",
+    "pred_b_midpoint_head_and_task_prediction": "At r=0.5 every opposite-source cell has head-delta cosine at least 0.98, relative error at most 0.15, and predicted-versus-exact task-effect recovery in [0.80,1.20] when |exact margin effect|>=0.01.",
+    "pred_c_extrapolated_head_and_task_prediction": "At r=-0.5 and 1.5 every opposite-source cell has head-delta cosine at least 0.95, relative error at most 0.30, and live task-effect recovery in [0.70,1.30].",
+    "pred_d_directional_gate_is_manipulable": "Mean opposite q(r) decreases monotonically with r for plural-to-singular and increases monotonically for singular-to-plural; r=1.5 has negative plural-to-singular mean and positive singular-to-plural mean.",
+    "pred_e_template_stable": "Within each direction and gain, exact q(r) differs between templates by at most 0.04 margin units.",
+    "pred_f_lexical_collateral_absolutely_small": "Maximum absolute exact same-number lexical q(r) is at most 0.02."
+  },
+  "null": "Failure of b/c means the binary additive profile does not define a continuous gate. Failure of d means the composition law predicts subsets but cannot steer task use continuously. Failure of e localizes template dependence. Failure of f preserves an operational rather than semantic circuit claim. Do not fit a higher-order gain law after opening these gains.",
+  "price": {
+    "physical_model_forwards": 8,
+    "example_evaluations": 1728,
+    "causal_installations": 768,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "new_gains": [-0.5, 0.5, 1.5]
+  },
+  "closed_claims": [
+    "pristine held-out text",
+    "semantic uniqueness",
+    "MLP6 versus MLP7 identity",
+    "rank",
+    "compression",
+    "activation reconstruction"
+  ]
+}
