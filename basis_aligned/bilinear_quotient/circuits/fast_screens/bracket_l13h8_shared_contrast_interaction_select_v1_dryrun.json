@@ -1,0 +1,21 @@
+{
+  "schema": "bracket_l13h8_shared_contrast_interaction_select_dryrun_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_shared_contrast_interaction_factorial",
+  "status": "cpu_preflight_passed_not_enqueued",
+  "rows": 24,
+  "triplet_groups": 8,
+  "rows_sha256": "2ce11bfc0f236da3bcf115726d8280a259ed8c9f5ff7e84a7bdb72806e5ee2cb",
+  "conditions": ["native", "native_replay", "natural_contrast_swap", "contrast_removed", "shared_removed", "opener_zero_both_removed"],
+  "price": {"model_forwards": 6, "example_evaluations": 144, "backwards": 0, "parameter_updates": 0},
+  "plan_stdout_sha256": "95a9c3f3e09b38c8d7bfc1a5fd286d6ba50fd7dae55fb4ba8a00d558ec69a69f",
+  "candidate_source_sha256": "1de34520215fb0ecb5794a65d8c7c7f12c634469d140cf5808250af8bd9bb11f",
+  "runner_source_sha256": "6a11930278cd179ec2b1d12b9da8911c7bea5610728e1f15b5bb54ccd14e3c90",
+  "parent_executor_source_sha256": "0530c5afc4120ec037562c767d742a348faaf28f42dcc91eccfe2661544f2c87",
+  "focused_tests": "7 passed",
+  "fresh_text_overlap_with_parent": 0,
+  "model_loaded": false,
+  "queue_touched": false,
+  "outcome_reads": [],
+  "opened_splits": ["SELECT"],
+  "closed_splits": ["TEST", "OOD"]
+}

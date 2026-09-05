@@ -1,0 +1,23 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_shared_contrast_interaction_factorial",
+  "checked_at": "2026-09-05T07:14:00Z",
+  "active_claim_collision": false,
+  "parent_result": {
+    "artifact": "circuits/fast_screens/bracket_l13h8_semantic_open_shared_contrast_v1_result.json",
+    "sha256": "37014b88e9341d63626d5152fca87e2df7de90c7dc76e2b309935bc330806c3a",
+    "outcome": "live entanglement null",
+    "direct_type_to_common_ratio": 2.1879038062496012,
+    "completed_type_to_common_ratio": 1.8635033226155877,
+    "shared_common_to_type_ratio": 1.5273395451406415,
+    "matched_invariance_difference": 0.029845566923058148
+  },
+  "novelty": "Adds only the joint mu+delta removal arm on fresh SELECT triplets, completing the exact two-factor causal factorial and measuring downstream Mobius interaction on centered-type and common-support closer axes.",
+  "interaction_definition": "For axis A in {S,M}, I_A=A_remove_both-A_remove_mu-A_remove_delta+A_native. Normalize sqrt(I_S^2+I_M^2) by sqrt((S_remove_both-S_native)^2+(M_remove_both-M_native)^2)+1e-6.",
+  "opposing_predictions": {
+    "additive_oblique": "median normalized interaction <=0.25 in each family; clean axis separation failed because the downstream output map is oblique, not because mu and delta combine nonadditively",
+    "nonlinear_interaction": "median normalized interaction >0.25 in either family; shared and contrast terms combine downstream, explaining the failed clean separation"
+  },
+  "excluded": ["new decomposition", "source/site sweep", "rank", "PCA", "projector", "reconstruction"],
+  "outcome_reads": []
+}
