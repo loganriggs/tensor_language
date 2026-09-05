@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_pair_centered_open_term_final_test_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Open only the frozen R545 FINAL_TEST and test whether the exact L13H8 pending-opener source term transfers delimiter type and whether removing its pairwise delimiter contrast is selectively necessary while preserving its shared baseline.",
+  "prior_art": [
+    {"path": "pending_opener_three_value_fresh_rows_rung545.json", "sha256": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9", "finding": "Outcome-blind four-way authority; FINAL_TEST and OOD have not been opened."},
+    {"path": "pending_opener_three_value_confirmation_rung546_results.json", "sha256": "209b9bfcc20bff13bb37d822137003d6878506e66b0d9321ba0a0f7e9d8f2c5c", "finding": "FIT and SELECT establish native capability and the complete L13H8 site; FINAL_TEST/OOD stayed closed."},
+    {"path": "pending_opener_source_factor_interchange_rung560_results.json", "sha256": "b7681928337767b5ec7086ebcfe58f0a9e25057dcdc60bd2175112ac1b953217", "finding": "FIT opener payload transferred target behavior, but the old whole-head-normalized control rule returned a source-factor null; do not repeat that selectivity rule."},
+    {"path": "circuits/fast_screens/bracket_l13h8_semantic_open_shared_contrast_v1_result.json", "sha256": "37014b88e9341d63626d5152fca87e2df7de90c7dc76e2b309935bc330806c3a", "finding": "On a separate fresh triplet authority, natural opener-term swaps and contrast damage were donor-directed; the stronger shared/common separation claim was null."},
+    {"path": "circuits/fast_screens/bracket_l13h8_semantic_open_zero_removal_v1_result.json", "sha256": "dac4bdf0596884e84e7a282ff36f2027137fda69952d25fa27f198523e967aca", "finding": "Raw opener-term zero removal damaged targets and controls alike. The successor must preserve the paired shared mean and remove only contrast."},
+    {"path": "circuits/fast_screens/bracket_l13h8_shared_contrast_interaction_select_v1_result.json", "sha256": "d686a2cb22e96049cb12ba1db5658dde9dac9240639bb5860edc1614faf594a7", "finding": "Shared and contrast removals were approximately additive on the separate triplet authority."},
+    {"path": "circuits/fast_screens/bracket_l13h8_mu_delta_residual_write_bank_factorial_v1_result.json", "sha256": "bc38fe115de9f5dac166bbe7b4451592015df67c700e5b297524a1f66a76b17d", "finding": "The causal mu/delta effect reaches the output mainly through the residual route; CE also records downstream compensation."},
+    {"path": "circuits/fast_screens/bracket_l13h8_mu_delta_direct_readout_fold_v2_result.json", "sha256": "31a40ed62409181e7977ca4182f34dbd5d7d9fa0d92c3270888bae53a94a21ae", "finding": "The exact factor's residual contribution folds through RMS normalization, unembedding, and softcap; this does not replace held-out causal validation."}
+  ],
+  "frozen_design": {
+    "split": "FINAL_TEST",
+    "rows": 180,
+    "endpoints": 360,
+    "closed_split": "OOD",
+    "source": "The final occurrence of the opener token corresponding to the endpoint's correct closer.",
+    "term": "t = p_k u_k, the exact post-output-projection L13H8 contribution from that source at the final position.",
+    "arms": ["native", "native_replay", "complete_head_donor_swap", "open_term_donor_swap", "pair_centered_contrast_removed"],
+    "pair_centered_contrast_removed": "Replace t_r by (t_r+t_d)/2. This preserves the pair mean and removes only the recipient-versus-donor contrast.",
+    "metrics": ["boolean correct closer", "three-closer answer margin", "full-vocabulary correct-answer CE", "donor-directed margin", "donor-answer CE improvement"],
+    "capability_first": "Native is evaluated first. If any registered native cell fails, stop after one forward and do not evaluate replay or a causal arm.",
+    "maximum_price": {"model_forwards": 5, "example_evaluations": 1800, "backwards": 0, "parameter_updates": 0}
+  },
+  "registered_bars": {
+    "native_target_accuracy_each_family_ordered_pair_side_min": 0.75,
+    "native_control_accuracy_each_family_side_min": 0.75,
+    "native_target_mean_margin_each_family_min": 0.0,
+    "native_replay_max_absolute_logit_error_max": 0.00001,
+    "complete_head_target_positive_fraction_each_family_pair_direction_min": 0.75,
+    "open_swap_target_positive_fraction_each_family_pair_direction_min": 0.75,
+    "open_swap_target_median_fraction_of_complete_head_each_family_direction_min": 0.5,
+    "midpoint_target_positive_margin_and_CE_damage_fraction_each_family_direction_min": 0.75,
+    "midpoint_target_median_margin_damage_fraction_of_complete_head_each_family_direction_min": 0.5,
+    "control_native_answer_preservation_each_family_direction_arm_min": 0.75,
+    "control_mean_absolute_margin_and_CE_change_each_arm_max_fraction_of_smallest_target_cell": 0.25
+  },
+  "registered_outcomes": {
+    "pred_a_instrument_live": "Native capability, replay exactness, and complete-head target ceiling all pass.",
+    "pred_b_pair_centered_open_term_held": "Under a live instrument, exact opener-term interchange transfers target closer behavior and pair-centered contrast removal selectively damages target margin and CE while controls preserve their answer and remain below the direct selectivity bars.",
+    "pred_c_transfer_without_selective_necessity": "Interchange transfers target behavior but midpoint removal or its selectivity gates fail.",
+    "pred_d_no_heldout_open_term_circuit": "The instrument is live but target interchange fails. Preserve this as a scientific null."
+  },
+  "interpretation_limits": [
+    "Pair-centering is an exact counterfactual defined by each frozen base/donor pair, not a globally identified delimiter basis.",
+    "This tests held-out lexical/template groups from the existing R545 distribution, not OOD.",
+    "No rank, projector, fitting, activation reconstruction, or compression claim is licensed."
+  ]
+}

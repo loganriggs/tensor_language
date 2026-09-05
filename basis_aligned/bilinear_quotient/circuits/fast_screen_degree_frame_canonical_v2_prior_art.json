@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "answer token",
+    "c_absolute_recovery",
+    "canonical control",
+    "confound",
+    "control frame",
+    "same-answer control",
+    "vocabulary overlap"
+  ],
+  "candidate_id": "degree_frame.canonical_control_v2",
+  "canonical_objects": [
+    "a same-answer control whose vocabulary is disjoint from every target",
+    "degree_frame transfer scored against canonical control v2",
+    "answer-token overlap as a confound in the control statistic"
+  ],
+  "decision_changed": "narrative_tense dropping into the disjoint range makes the five-behaviour result a clean null -- C carries no behaviour signal under a fixed, disjoint control -- and makes v2 the control to adopt. narrative_tense holding high is the first real behaviour effect in the control statistic and would be worth localizing. A large move in the degree_frame anchor invalidates the comparison instead of either reading.",
+  "matched_prior_claims": [
+    "Five behaviours under canonical control v1 give C 0.043 (degree_frame), 0.060, 0.061, 0.087 and 0.134 (narrative_tense).",
+    "narrative_tense is the only one of the five whose target vocabulary shares a token with v1: its targets score ' was'/' is' and v1 answers ' is'.",
+    "Excluding it the four disjoint behaviours span 0.044, inside the 0.05 registered as the no-behaviour-signal band.",
+    "AGENT_BOARD.md 2026-09-05T12:47Z records the overlap as a defect in the v1 control and names this as the fix."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "control-family substitution"
+  ],
+  "novelty_delta": "Varies ONE thing against the degree_frame.canonical_control authority: the control moves from v1 (answers ' is') to v2 (answers ' night'), whose vocabulary is disjoint from every target vocabulary in the corpus. A1, A2 and P are unchanged. degree_frame's C under v1 was 0.043. PREDICTION REGISTERED BEFORE THE RUN: narrative_tense, the only behaviour that overlapped v1, falls below 0.09 under v2 if the overlap explains its 0.134; staying above 0.12 means a real behaviour effect surviving a disjoint control. degree_frame, which never overlapped, is the anchor: it should stay near its v1 value of 0.043, and a large move there would mean v2 is not comparable to v1 at all.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "7a8282ee379415a383860efd4d875a54fbd1c556fd48e543edaef07bba9324ca",
+      "source": "circuits/fast_screens/narrative_tense_canonical_control_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "85f19ac99fb7df27c63f66a9223bfdfe607892895b99706322e509fa119c3eb7",
+      "source": "circuits/fast_screens/degree_frame_canonical_control_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, after finding the v1 overlap by checking vocabularies",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
