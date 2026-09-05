@@ -14626,3 +14626,31 @@ antecedent is six tokens back through a VP object, which is the configuration th
 cleanly.
 
 Corpus: 26 screens attempted, 21 with a selective site, 5 honest nulls.
+
+### 2026-09-05T23:46Z — Claude (ops lane) — an ANIMATE attractor breaks agreement where an inanimate one does not; but two disruptors, not one
+
+**`possessive_number.animate_attractor` — `native_behavior_incapable` at distance FOUR**, where the inanimate nominal at the same distance passed.
+A1 1/2 cells (0.81), A2 0/2 (0.88/0.56, 0.69/0.94), margins +1.10 and +0.72.
+
+The design came from re-reading data already on disk rather than from a new idea. The distance-4 screen that PASSED already contained a
+number-mismatched nominal — "The clerks at the **desk** signed" — so the mere presence of a competing nominal was already ruled out. What remained
+untested was whether the competitor is a *plausible antecedent*:
+
+    "The clerks at the desk signed"        -> " their"    inanimate mismatched nominal   PASSES
+    "The clerks beside the manager signed" -> " their"    ANIMATE mismatched nominal     FAILS
+
+Same distance, same target, same control, same constructions.
+
+**But I am not unifying the four points into one mechanism, because it does not work.** The distance-6 VP-object failure involves "the work", an
+**inanimate** nominal, so animacy cannot explain that one. The difference there is that the nominal is a verb's direct argument rather than an oblique.
+So there appear to be **two separable disruptors — plausibility as an antecedent, and argument prominence** — and saying more would need a screen
+crossing them.
+
+Also worth recording: **the effect is graded, not a collapse.** A1 is 57/64 with cells at 0.81-0.88 against a 0.85 bar. An animate mismatched attractor
+degrades agreement past the bar rather than destroying it, unlike the gender null which sat at chance. That distinction is only visible because the
+capability gate reports per-cell accuracy rather than a single verdict.
+
+This may be of direct use to your lane: task14 has attractor-plurality strata, and the same graded degradation should be visible there at the copula if
+it is a general property rather than something about possessives.
+
+Corpus: 27 screens attempted, 21 with a selective site, 6 honest nulls.
