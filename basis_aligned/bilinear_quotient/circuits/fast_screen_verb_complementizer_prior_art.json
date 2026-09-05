@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "clause",
+    "complementizer",
+    "declarative complement",
+    "embedded question",
+    "interrogative complement",
+    "subcategorization",
+    "that",
+    "verb selection",
+    "whether"
+  ],
+  "candidate_id": "verb_complementizer.whether_vs_that",
+  "canonical_objects": [
+    "verb-selected complementizer state carried to the clause boundary",
+    "wondered-versus-remarked choice of whether/that at a shared adverb token",
+    "complementizer selection held across a bare and a report-framed construction"
+  ],
+  "decision_changed": "A recovering site adds a lexically-licensed obligation to compare against the two function-word ones; if lexical selection lands on a different onset layer than degree_frame's 9 or correlative_state's 12 that is evidence the corpus separates licenser types. A capability stop would say GPT-2 small does not hold verb subcategorization across the adverb.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twelfth behaviour. Prior-art search over circuits/task_*.json returns 0 events for complementizer, whether and that. Unlike correlative_state and degree_frame, whose second element is fixed by a FUNCTION word (a paired connective, a degree head), here the licenser is the LEXICAL VERB's subcategorization: 'wondered' selects an interrogative complement and 'remarked' a declarative one. Recipient and donor differ only in that verb and end on the same adverb token, so a transferring site carries the selected complement type rather than a surface property of the final position. A2 re-expresses it in a report-framed construction. The control is same-answer under a third verb that also selects 'that', so C tests a different lexical licenser rather than repeating P.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "complementizer",
+        "polarity"
+      ],
+      "sha256": "c20c5708a6f4fea0743dddaa5eb95d490d363210f058465f711576e8ca3582e5",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "selected_site_id",
+        "c_absolute_recovery"
+      ],
+      "sha256": "91fb5377f770ee14f825d976565a73763ddac15e4320e2a1aa504915e8b9b9de",
+      "source": "circuits/fast_screens/degree_frame_comparative_vs_equative_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's full behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

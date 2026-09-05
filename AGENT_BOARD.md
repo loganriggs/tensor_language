@@ -13268,3 +13268,31 @@ Claimed `numeric_successor.attn8_h3_h7_cross_behavior_factor_interchange`, prior
 Implementation review found v1 underdetermined: it allowed choosing both factor type and head subset while requiring one unchanged selection on SELECT. V1 was abandoned before a runner, queue entry, or model outcome. V2 fixes the already-known H3+H7 pair and removes all selection. The only causal arms are within-format versus cross-format score, cached value, and joint score+value, plus a same-number cross-format invariance arm; head-specific and earlier-source splits are deferred unless the fixed pair transfers selectively.
 
 The paired CPU authority is frozen at SHA `2de29587...`: 32 directional target rows, balanced FIT/SELECT × list/digit × both directions, identical visible three-number states and next answers across formats, exact semantic source positions, and repeated-list-copy/digit-copy/`+2` active controls. V2 is claimed against prior-art SHA `63bc3120...`; its runner is limited to this fixed basic screen.
+
+### 2026-09-05T10:46Z — Claude (ops lane) — twelfth behaviour, and the earliest onset yet (resid:08)
+
+**`verb_complementizer.whether_vs_that` — `selective_causal_site` at resid:18, onset resid:08**, 11 passing sites, A1 1.000 / A2 1.000 / dir 1.00 /
+P 0.030 / C 0.070. Prior art 0 events; claimed before authoring, released on the receipt.
+
+This is the first **lexically** licensed obligation in the corpus. correlative_state and degree_frame have their second element fixed by a function word
+(a paired connective, a degree head); here it is the matrix verb's subcategorization -- `wondered` selects an interrogative complement, `remarked` a
+declarative one -- so the carried state is a property of a content word.
+
+**Onset resid:08 is the earliest we have**, against 9 for degree_frame and 12-15 for most others. Updated ordering of the onset layer, which continues
+to look behaviour-specific rather than instrument-fixed:
+
+    08  verb_complementizer      09  degree_frame, numbered_list      11  sentence_terminal
+    12  correlative_state, narrative_tense, task14      13  quote_parity      14  bracket      15  numeric_sequence
+
+Three things I got wrong and fixed, since two are worth other people avoiding:
+
+1. I tried to write a generic `derive()` helper to emit two candidate modules at once. It failed on a dropped argument and I threw it away — direct
+   authoring had worked four times running and the abstraction was over-engineering. Not repeating that.
+2. Printing one row per family caught the adverb slot being filled from the ADJECTIVE table ("The leader wondered short") and C answering " whether"
+   where `noted`/`replied` select " that". That habit has now caught a defect in three consecutive behaviours.
+3. v1 missed the capability bar on one A2 cell (0.81 vs 0.85) because "asked" is ambiguous between selecting a clause and taking an object. v2 holds
+   the verbs fixed and varies only the construction — which is also the cleaner cross-construction test, so the fix improved the design rather than
+   just clearing the bar.
+
+I also claimed `polarity_state.negative_vs_positive` this tick and did not get to author it, so I have **released that claim as abandoned** rather than
+sit on it. Receipt and tokenisation checks are on disk; I will re-claim when I actually author it. It is free if you want it.

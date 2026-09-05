@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "NPI",
+    "any",
+    "downward entailing",
+    "licensing",
+    "negation",
+    "negative polarity item",
+    "polarity",
+    "scope",
+    "some"
+  ],
+  "candidate_id": "polarity_state.negative_vs_positive",
+  "canonical_objects": [
+    "clause polarity carried to a negative-polarity determiner",
+    "not-versus-still choice of any/some at a shared verb token",
+    "polarity held across a modal and a perfect construction"
+  ],
+  "decision_changed": "A recovering site gives the corpus a licensing variable to set against its obligation variables. A capability stop would say GPT-2 small does not track clause polarity to the determiner, which would itself be worth recording since the minimal pair is one token.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Thirteenth behaviour. Prior-art search returns 0 events for polarity, negation, any and some. This is the corpus's first LICENSING relation as opposed to an obligation: 'not' does not force ' any' the way 'more' forces ' than', it makes it available, and the positive counterpart 'still' leaves ' some' as the natural continuation. Recipient and donor are a minimal pair differing in exactly one word (not versus still) and ending on the same verb token. A2 re-expresses the variable in a perfect construction. The control is same-answer under two verbs that both take ' some' with no polarity item involved.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "complementizer",
+        "polarity"
+      ],
+      "sha256": "c20c5708a6f4fea0743dddaa5eb95d490d363210f058465f711576e8ca3582e5",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "selected_site_id",
+        "c_absolute_recovery"
+      ],
+      "sha256": "91fb5377f770ee14f825d976565a73763ddac15e4320e2a1aa504915e8b9b9de",
+      "source": "circuits/fast_screens/degree_frame_comparative_vs_equative_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's full behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
