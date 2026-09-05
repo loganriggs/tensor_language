@@ -32,6 +32,7 @@ import circuit_fast_screen_ledger as screen_ledger  # noqa: E402
 SCHEMA = "circuit_fast_screen_publication_spec_v1"
 CROSS_SYNTAX_SCHEMA = "circuit_cross_syntax_publication_spec_v1"
 COLLATERAL_SCHEMA = "circuit_cross_circuit_collateral_publication_spec_v1"
+TRANSFER_REMOVAL_SCHEMA = "circuit_transfer_removal_phase_bundle_spec_v1"
 SPEC_FIELDS = {
     "schema", "result_path", "result_artifact_id", "canonical_tag",
     "source_claim_id", "event_id", "test_type", "transform_to_family_id",
@@ -81,6 +82,60 @@ TASK14_CROSS_CIRCUIT_COLLATERAL_SPEC = {
         "held-out behaviors. This is narrow cross-circuit selectivity evidence, not "
         "a universal collateral guarantee and not a Task14 necessity result."
     ),
+    "claim_ledger_policy": "legacy_no_claim_event",
+}
+
+# Both files are frozen experiment receipts.  In particular, this bridge records
+# the two known OOD label defects instead of rewriting the evidence that produced
+# the ledger hashes.
+TASK14_TEST_OOD_TRANSFER_REMOVAL_SPEC = {
+    "schema": TRANSFER_REMOVAL_SCHEMA,
+    "canonical_tag": "task.subject_verb.number_agreement",
+    "source_claim_id": "grammatical_subject_number.v7",
+    "result_site_id": "attn:11:head:03",
+    "canonical_site_id": "attention.block11.head3.pre_output_projection.final_position",
+    "phases": [
+        {
+            "phase": "TEST",
+            "result_path": "circuits/fast_screens/task14_test_cross_noun_head11_3_transfer_removal_v1_result.json",
+            "result_artifact_id": "task14_test_cross_noun_head11_3_transfer_removal_v1_result",
+            "event_id": "task14_head11_3.test.transfer_removal.held.v1",
+            "expected_schema": "task14_test_cross_noun_head11_3_transfer_removal_result_v1",
+            "expected_terminal": "screen",
+            "expected_reason": "TEST_transfer_and_removal_passed",
+            "evaluation_role": "TEST_HELD_OUT_unseen_nouns_and_prompt_templates",
+        },
+        {
+            "phase": "OOD",
+            "result_path": "circuits/fast_screens/task14_ood_cross_noun_head11_3_transfer_removal_v1_result.json",
+            "result_artifact_id": "task14_ood_cross_noun_head11_3_transfer_removal_v1_result",
+            "event_id": "task14_head11_3.ood.construction_general.null.v1",
+            "expected_schema": "task14_ood_cross_noun_head11_3_transfer_removal_result_v1",
+            "expected_terminal": "null",
+            "expected_reason": "TEST_cross_noun_transfer_failed",
+            "evaluation_role": "OOD_HELD_OUT_fronted_or_two_attractor_syntax",
+        },
+    ],
+    "ood_label_defects": {
+        "reason": (
+            "Frozen reason is literally TEST_cross_noun_transfer_failed although phase is OOD; "
+            "interpret it as the OOD cross-noun transfer null without changing the source bytes."
+        ),
+        "cell_ids": (
+            "Frozen pp_* cell IDs denote the OOD A1 family ood_fronted_two_attractors, "
+            "not ordinary prepositional-phrase examples."
+        ),
+    },
+    "claim_revision": {
+        "claim_id": "grammatical_subject_number.v8",
+        "revision": 8,
+        "status": "site_live",
+        "next_missing": (
+            "TEST transfer and removal held, but construction-general OOD transfer/removal did "
+            "not; refine the hypothesis by OOD construction and decompose below the native head "
+            "boundary before making a syntax-general claim"
+        ),
+    },
     "claim_ledger_policy": "legacy_no_claim_event",
 }
 
@@ -599,6 +654,162 @@ def build_cross_circuit_collateral_plan(
     }
 
 
+def _transfer_removal_metrics(result: Mapping[str, Any]) -> list[dict[str, Any]]:
+    expected_cells = {
+        "pp_plural_to_relative_singular", "pp_singular_to_relative_plural",
+        "relative_plural_to_pp_singular", "relative_singular_to_pp_plural",
+    }
+    capability = result.get("capability_cells")
+    transfer = result.get("transfer")
+    removal = result.get("removal")
+    if type(capability) is not list or len(capability) != 4 \
+            or {cell.get("cell_id") for cell in capability} != expected_cells \
+            or not all(cell.get("passed") is True for cell in capability):
+        raise FastScreenPublishError("phase result lacks four passing native capability cells")
+    if type(transfer) is not dict or type(removal) is not dict:
+        raise FastScreenPublishError("phase result lacks transfer/removal evidence")
+    transfer_cells = transfer.get("cells")
+    removal_cells = removal.get("cells")
+    if type(transfer_cells) is not list or type(removal_cells) is not list \
+            or {cell.get("cell_id") for cell in transfer_cells} != expected_cells \
+            or {cell.get("cell_id") for cell in removal_cells} != expected_cells \
+            or any(cell.get("row_count") != 16 for cell in transfer_cells + removal_cells) \
+            or len(transfer.get("evidence", [])) != 64 \
+            or len(removal.get("evidence", [])) != 64:
+        raise FastScreenPublishError("phase result transfer/removal cell census changed")
+    # Recompute the two statistics that determine the per-cell gates.
+    for cell in transfer_cells:
+        rows = [row for row in transfer["evidence"] if row.get("cell_id") == cell["cell_id"]]
+        recovery = [_finite_number(row.get("recovery"), "recovery") for row in rows]
+        observed = (cell.get("mean_recovery"), cell.get("direction_fraction"))
+        expected = (statistics.mean(recovery), sum(row.get("toward_donor") is True for row in rows) / 16)
+        if len(rows) != 16 or any(not math.isclose(float(a), float(b), abs_tol=1e-15)
+                                  for a, b in zip(observed, expected)):
+            raise FastScreenPublishError("transfer cell summary does not recompute")
+    for cell in removal_cells:
+        rows = [row for row in removal["evidence"] if row.get("cell_id") == cell["cell_id"]]
+        damage = [_finite_number(row.get("normalized_removal_damage"), "removal damage")
+                  for row in rows]
+        observed = (cell.get("median_normalized_damage"), cell.get("positive_damage_fraction"))
+        expected = (statistics.median(damage), sum(item > 0 for item in damage) / 16)
+        if len(rows) != 16 or any(not math.isclose(float(a), float(b), abs_tol=1e-15)
+                                  for a, b in zip(observed, expected)):
+            raise FastScreenPublishError("removal cell summary does not recompute")
+    return [
+        {"name": "minimum_native_target_or_donor_accuracy", "estimate": min(
+            min(cell["target_accuracy"], cell["donor_accuracy"]) for cell in capability
+        ), "ci95": None, "bar": ">=0.85 in every frozen cell"},
+        {"name": "minimum_cross_noun_transfer_mean_recovery", "estimate": min(
+            cell["mean_recovery"] for cell in transfer_cells
+        ), "ci95": None, "bar": ">=0.4 in every frozen cell"},
+        {"name": "minimum_cross_noun_transfer_direction_fraction", "estimate": min(
+            cell["direction_fraction"] for cell in transfer_cells
+        ), "ci95": None, "bar": ">=0.75 in every frozen cell"},
+        {"name": "minimum_literal_removal_median_damage", "estimate": min(
+            cell["median_normalized_damage"] for cell in removal_cells
+        ), "ci95": None, "bar": ">=0.25 in every frozen cell"},
+        {"name": "minimum_literal_removal_positive_fraction", "estimate": min(
+            cell["positive_damage_fraction"] for cell in removal_cells
+        ), "ci95": None, "bar": ">=0.75 in every frozen cell"},
+        {"name": "passing_transfer_cell_count", "estimate": sum(
+            cell.get("passed") is True for cell in transfer_cells
+        ), "ci95": None, "bar": "4 of 4"},
+        {"name": "passing_removal_cell_count", "estimate": sum(
+            cell.get("passed") is True for cell in removal_cells
+        ), "ci95": None, "bar": "4 of 4"},
+        {"name": "native_head_replay_max_abs_logit_error",
+         "estimate": result["replay_max_abs_logit_error"], "ci95": None, "bar": "<=0.0001"},
+        {"name": "minimum_native_head_norm", "estimate": result["minimum_native_head_norm"],
+         "ci95": None, "bar": ">=1e-8"},
+    ]
+
+
+def build_transfer_removal_phase_bundle_plan(
+    spec: Mapping[str, Any] = TASK14_TEST_OOD_TRANSFER_REMOVAL_SPEC,
+    *, root: Path = BQ,
+) -> dict[str, Any]:
+    """Bind frozen TEST success and OOD scientific null to Task14 claim v8."""
+    if spec != TASK14_TEST_OOD_TRANSFER_REMOVAL_SPEC:
+        raise FastScreenPublishError("transfer/removal publication spec changed")
+    value = copy.deepcopy(spec)
+    record = json.loads(registry.circuit_path(value["canonical_tag"]).read_text())
+    registry.validate_v2(record)
+    claims = [claim for claim in record["claims"] if claim["claim_id"] == value["source_claim_id"]]
+    if len(claims) != 1 or not any(
+        site["site_id"] == value["canonical_site_id"] for site in claims[0]["candidate_sites"]
+    ):
+        raise FastScreenPublishError("source claim or canonical site is missing")
+
+    artifacts: dict[str, dict[str, Any]] = {}
+    events = []
+    request_ids = []
+    for phase_spec in value["phases"]:
+        result_path = root / phase_spec["result_path"]
+        if not result_path.is_file() or result_path.is_symlink():
+            raise FastScreenPublishError("phase result file is missing or unsafe")
+        result = json.loads(result_path.read_text())
+        if (result.get("schema"), result.get("phase"), result.get("terminal"),
+                result.get("reason")) != (
+            phase_spec["expected_schema"], phase_spec["phase"],
+            phase_spec["expected_terminal"], phase_spec["expected_reason"],
+        ) or result.get("candidate_id") != "subject_verb.number_agreement" \
+                or result.get("partition") != "HELD_OUT":
+            raise FastScreenPublishError("phase result identity or frozen outcome changed")
+        entry = _matching_cross_syntax_ledger_entry(result, phase_spec["result_path"], root)
+        expected_selected = value["result_site_id"] if phase_spec["phase"] == "TEST" else None
+        if entry["selected_site_id"] != expected_selected:
+            raise FastScreenPublishError("phase result ledger selected-site receipt changed")
+        checkpoint = result.get("checkpoint")
+        if type(checkpoint) is not dict or checkpoint.get("verified_before_model_load") is not True:
+            raise FastScreenPublishError("phase checkpoint was not verified before model load")
+        active = result.get("active_price")
+        if active != result.get("maximum_price") or (
+            active.get("forward_calls"), active.get("example_evaluations"),
+            active.get("raw_numeric_evidence_bytes"),
+        ) != (entry["active_forward_calls"], entry["active_example_evaluations"],
+              entry["active_evidence_bytes"]):
+            raise FastScreenPublishError("phase price differs from its ledger receipt")
+        metrics = _transfer_removal_metrics(result)
+        is_ood = phase_spec["phase"] == "OOD"
+        notes = (
+            "Frozen TEST evidence: held on unseen nouns and prompt templates after FIT and SELECT."
+            if not is_ood else
+            "Construction-general OOD transfer/removal is a scientific null. "
+            + value["ood_label_defects"]["reason"] + " "
+            + value["ood_label_defects"]["cell_ids"]
+        )
+        artifacts[phase_spec["result_artifact_id"]] = {
+            "path": str(result_path.relative_to(REPO)), "sha256": _sha256(result_path),
+            "kind": "screen_result", "status": "frozen",
+        }
+        events.append({
+            "event_id": phase_spec["event_id"], "claim_id": value["source_claim_id"],
+            "test_type": "ood" if is_ood else "cross_family_transfer",
+            "stage": "complete", "verdict": "null" if is_ood else "held",
+            "failure_kind": "scientific_null" if is_ood else None,
+            "family_ids": [], "site_id": value["canonical_site_id"],
+            "split_plan_id": None, "evaluation_role": phase_spec["evaluation_role"],
+            "metrics": metrics, "prereg_artifact_id": None,
+            "result_artifact_id": phase_spec["result_artifact_id"], "input_artifact_ids": [],
+            "seed": None, "checkpoint_sha256": checkpoint["weights_sha256"],
+            "supersedes_event_id": None, "replicates_event_id": None,
+            "sections": [], "notes": notes,
+        })
+        request_ids.append(entry["request_id"])
+    revision = copy.deepcopy(claims[0])
+    revision.update(value["claim_revision"])
+    revision["supersedes"] = value["source_claim_id"]
+    revision["evidence_event_ids"] = list(dict.fromkeys(
+        claims[0].get("evidence_event_ids", []) + [event["event_id"] for event in events]
+    ))
+    return {
+        "schema": "circuit_fast_screen_publication_bundle_plan_v1",
+        "canonical_tag": value["canonical_tag"], "ledger_request_ids": request_ids,
+        "artifacts": artifacts, "events": events, "claim_revision": revision,
+        "claim_ledger_policy": value["claim_ledger_policy"],
+    }
+
+
 def _event_with_keys(record: dict, event: dict) -> dict:
     value = copy.deepcopy(event)
     value["design_key"] = registry.design_key(record, value)
@@ -632,6 +843,36 @@ def apply_plan(plan: Mapping[str, Any], *, regenerate_commands: Sequence[Sequenc
     return path
 
 
+def apply_bundle_plan(
+    plan: Mapping[str, Any], *, regenerate_commands: Sequence[Sequence[str]] = (),
+) -> Path:
+    """Apply an idempotent artifacts -> events -> claim prefix for a bundle."""
+    tag = plan["canonical_tag"]
+    registry.append_artifacts(tag, dict(plan["artifacts"]))
+    path = registry.circuit_path(tag)
+    for event in plan["events"]:
+        record = json.loads(path.read_text())
+        expected = _event_with_keys(record, event)
+        existing = [item for item in record["evidence_events"]
+                    if item["event_id"] == expected["event_id"]]
+        if existing and existing != [expected]:
+            raise FastScreenPublishError("event id collision")
+        if not existing:
+            registry.append_evidence_event(tag, event)
+    record = json.loads(path.read_text())
+    revision = plan["claim_revision"]
+    existing = [item for item in record["claims"] if item["claim_id"] == revision["claim_id"]]
+    if existing and existing != [revision]:
+        raise FastScreenPublishError("claim revision id collision")
+    if not existing:
+        registry.append_claim_revision(tag, revision)
+    final = json.loads(path.read_text())
+    registry.validate_v2(final)
+    for command in regenerate_commands:
+        subprocess.run(list(command), cwd=REPO, check=True, capture_output=True, text=True)
+    return path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("spec", type=Path)
@@ -642,10 +883,13 @@ def main() -> None:
         plan = build_cross_syntax_plan(spec)
     elif spec.get("schema") == COLLATERAL_SCHEMA:
         plan = build_cross_circuit_collateral_plan(spec)
+    elif spec.get("schema") == TRANSFER_REMOVAL_SCHEMA:
+        plan = build_transfer_removal_phase_bundle_plan(spec)
     else:
         plan = build_plan(spec)
     if args.apply:
-        apply_plan(plan, regenerate_commands=(
+        apply = apply_bundle_plan if "events" in plan else apply_plan
+        apply(plan, regenerate_commands=(
             (sys.executable, "basis_aligned/bilinear_quotient/make_circuit_coverage.py"),
             (sys.executable, "basis_aligned/bilinear_quotient/make_circuit_experiment_index.py"),
             (sys.executable, "basis_aligned/bilinear_quotient/make_circuit_campaign_queue.py"),

@@ -170,3 +170,37 @@ def test_cross_circuit_collateral_refuses_wrong_site_before_mutation() -> None:
     spec["result_site_id"] = "attn:11:head:04"
     with pytest.raises(publish.FastScreenPublishError, match="selected site"):
         publish.build_cross_circuit_collateral_plan(spec)
+
+
+def test_task14_test_held_and_ood_null_publish_as_claim_v8_dry_run() -> None:
+    plan = publish.build_transfer_removal_phase_bundle_plan()
+    assert plan["ledger_request_ids"] == [
+        "task14-test-cross-noun-head11-3-transfer-removal-v1",
+        "task14-ood-cross-noun-head11-3-transfer-removal-v1",
+    ]
+    test, ood = plan["events"]
+    assert (test["test_type"], test["verdict"], test["failure_kind"]) == (
+        "cross_family_transfer", "held", None,
+    )
+    assert (ood["test_type"], ood["verdict"], ood["failure_kind"]) == (
+        "ood", "null", "scientific_null",
+    )
+    test_metrics = {item["name"]: item["estimate"] for item in test["metrics"]}
+    ood_metrics = {item["name"]: item["estimate"] for item in ood["metrics"]}
+    assert test_metrics["passing_transfer_cell_count"] == 4
+    assert test_metrics["passing_removal_cell_count"] == 4
+    assert ood_metrics["minimum_cross_noun_transfer_mean_recovery"] == \
+        pytest.approx(0.259567175281274)
+    assert ood_metrics["passing_transfer_cell_count"] == 1
+    assert ood_metrics["passing_removal_cell_count"] == 2
+    assert "although phase is OOD" in ood["notes"]
+    assert "ood_fronted_two_attractors" in ood["notes"]
+    assert plan["claim_revision"]["claim_id"] == "grammatical_subject_number.v8"
+    assert plan["claim_revision"]["status"] == "site_live"
+
+
+def test_task14_test_ood_bridge_refuses_to_hide_a_frozen_label_defect() -> None:
+    spec = copy.deepcopy(publish.TASK14_TEST_OOD_TRANSFER_REMOVAL_SPEC)
+    spec["ood_label_defects"]["reason"] = "corrected reason"
+    with pytest.raises(publish.FastScreenPublishError, match="spec changed"):
+        publish.build_transfer_removal_phase_bundle_plan(spec)
