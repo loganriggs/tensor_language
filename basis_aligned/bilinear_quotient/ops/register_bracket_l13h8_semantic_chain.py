@@ -91,6 +91,7 @@ def _event(key, verdict, test_type, metrics, notes, *, stage="complete", failure
 def build_record():
     path = registry.circuit_path(TAG)
     current = json.loads(path.read_text())
+    migrating_intermediate = False
     if current.get("claims", [{}])[-1].get("claim_id") == "pending_opener_state.v29":
         if current["claims"][-1]["causal_variable"]["id"] == \
                 "pending_opener_exact_semantic_source_term":
@@ -98,11 +99,12 @@ def build_record():
             return current
         if _sha(path) != INTERMEDIATE_V29_SHA256:
             raise PublicationError("unexpected intermediate v29 dossier")
+        migrating_intermediate = True
         current["claims"].pop()
         current["evidence_events"] = current["evidence_events"][:-15]
         for artifact_id in _artifacts():
             current["artifacts"].pop(artifact_id)
-    if _sha(path) != BASE_SHA256:
+    if not migrating_intermediate and _sha(path) != BASE_SHA256:
         raise PublicationError("canonical bracket dossier differs from the audited v28 base")
     record = copy.deepcopy(current)
     additions = _artifacts()

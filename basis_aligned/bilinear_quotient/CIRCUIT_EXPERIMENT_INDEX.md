@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-129 events; 108 scientific protocols; 129 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+144 events; 123 scientific protocols; 144 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -65,6 +65,21 @@ No two registered events have the same execution key.
 | `task.bracket.pending_opener` | `pending_opener_source_factor_audit.r561.preregistered.v1` | preregistered/inconclusive | null_control | `pending_opener_state.v26` | `e2076e897a7f` | `8b700d8e9a96` | `5dbb5334ca97` | — |
 | `task.bracket.pending_opener` | `pending_opener_source_factor_interchange.r560.v2.complete.null.v1` | complete/null | composition | `pending_opener_state.v27` | `cbeed4440591` | `296131961be6` | `fd74b1c6abbb` | supersedes `pending_opener_source_factor_interchange.r560.v2.preregistered.v1` |
 | `task.bracket.pending_opener` | `pending_opener_source_factor_audit.r561.complete.held.v1` | complete/held | null_control | `pending_opener_state.v27` | `c075bb66f35d` | `cc6fd461cca9` | `5d7f2e382df2` | supersedes `pending_opener_source_factor_audit.r561.preregistered.v1` |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.source_region_payload.v1` | complete/null | composition | `pending_opener_state.v29` | `8021e937aeaf` | `c12d0fc05a3b` | `4dba078000a1` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.source_region_select.v1` | complete/held | composition | `pending_opener_state.v29` | `6ee594d24dc8` | `fdffc05d00e4` | `ed9804cafa92` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.open_post_confirm.v1` | complete/held | cross_family_transfer | `pending_opener_state.v29` | `775db0274cf0` | `9b19e4c97522` | `81d931b48b0c` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.open_zero_removal.v1` | complete/null | removal | `pending_opener_state.v29` | `418710b8eb9b` | `a345b6b53b96` | `ca1fe807585c` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.shared_contrast.v1` | complete/null | composition | `pending_opener_state.v29` | `8fac62a3eb98` | `559dcb445d83` | `f328fa89d29d` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.shared_contrast_interaction.v1` | complete/held | composition | `pending_opener_state.v29` | `5105ac44556a` | `4accb1068bc2` | `4f4c0ef970f5` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.mlp15_mediation.v1` | complete/null | composition | `pending_opener_state.v29` | `8f78dcf2f8ed` | `e342ef46674e` | `af1dc706e066` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.attention_mediation.v1` | complete/null | composition | `pending_opener_state.v29` | `4ff078d1fe50` | `7e193dcddf2c` | `9f26e060873b` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.attention_joint.v1` | complete/null | composition | `pending_opener_state.v29` | `edcd3322f5c3` | `0a6fe758aa39` | `5a0f03d46568` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.downstream_module.v1` | complete/null | composition | `pending_opener_state.v29` | `181a4411d8e9` | `5bd1afb6429b` | `c4d8645df609` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.residual_write.v1` | complete/held | compiled_equivalence | `pending_opener_state.v29` | `213e0a8f52e6` | `bea9320f860c` | `57b7cc8ae1aa` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.direct_fold_v1.v1` | invalid/invalid | compiled_equivalence | `pending_opener_state.v29` | `04b0dd3dd83d` | `d69ae5b92d5b` | `860d49734d31` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.direct_fold_v2.v1` | complete/held | compiled_equivalence | `pending_opener_state.v29` | `94d554a91538` | `5ec702d5c211` | `08215122c513` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1` | complete/held | cross_family_transfer | `pending_opener_state.v29` | `ea652b7c8b7e` | `321d489ff531` | `e0e6ddec53d4` | — |
+| `task.bracket.pending_opener` | `pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1` | complete/null | removal | `pending_opener_state.v29` | `515feddbb219` | `c7334cac0242` | `a44425284528` | — |
 | `task.increment.state` | `increment_postattn_rank4_das.legacy.v1` | complete/held | das_interchange | `increment_state.v1` | `af4ef28c6d4a` | `6bc87c9422a7` | `c7b2b12e2046` | — |
 | `task.increment.state` | `increment_native_capability.r564.preregistered.v1` | preregistered/inconclusive | capability | `increment_state.v3` | `4a5fa3ca6b65` | `5457e2c7894d` | `831ce8b246c5` | — |
 | `task.increment.state` | `increment_native_capability.r564.result.v1` | complete/null | capability | `increment_state.v3` | `4a5fa3ca6b65` | `5457e2c7894d` | `11413d3a7d6d` | supersedes `increment_native_capability.r564.preregistered.v1` |

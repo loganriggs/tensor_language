@@ -14,6 +14,8 @@ def test_record_preserves_exact_final_test_split_verdicts_and_ood_boundary():
     claim = record["claims"][-1]
     assert claim["claim_id"] == "pending_opener_state.v29"
     assert claim["status"] == "site_live"
+    assert claim["causal_variable"]["id"] == "pending_opener_exact_semantic_source_term"
+    assert "selective necessity" in claim["causal_variable"]["operation"]
     assert "selective necessity remains null" in claim["next_missing"]
     assert "OOD" in claim["next_missing"]
     events = {event["event_id"]: event for event in record["evidence_events"]}
