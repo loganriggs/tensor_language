@@ -91,13 +91,14 @@ def test_hybrid_uses_U_remainder_and_epsilon_follows_E():
               "V": torch.tensor([[2., 2., 0.]]),
               "M_group_remainder": torch.tensor([[.04, .05, .06]]),
               "epsilon": torch.tensor([[.4, .5, .6]])}
-    source_raw = ((source["E"] + source["A"])
-                  + (source["U"] + source["V"])) \
-        + source["M_group_remainder"] + source["epsilon"]
+    recipient["M"] = (recipient["U"] + recipient["V"]) \
+        + recipient["M_group_remainder"]
+    source["M"] = (source["U"] + source["V"]) \
+        + source["M_group_remainder"]
+    source_raw = (source["E"] + source["A"] + source["M"]) + source["epsilon"]
     source["input"] = F.rms_norm(source_raw, (3,))
-    recipient_raw = ((recipient["E"] + recipient["A"])
-                     + (recipient["U"] + recipient["V"])) \
-        + recipient["M_group_remainder"] + recipient["epsilon"]
+    recipient_raw = (recipient["E"] + recipient["A"] + recipient["M"]) \
+        + recipient["epsilon"]
     recipient["input"] = F.rms_norm(recipient_raw, (3,))
     observed, raw, endpoint = run._hybrid_input(recipient, source, "EU", F)
     expected_raw = ((source["E"] + recipient["A"])

@@ -209,14 +209,17 @@ def _decomposed_forward(model, tokens, finals, torch, F, facade, *,
             u_base = sum((slots[i] for i in range(4)), start=torch.zeros_like(x0))
             v_value = sum((slots[i] for i in range(4, 8)), start=torch.zeros_like(x0))
             group_remainder = mlp_sum - (u_base + v_value)
-            regrouped = ((embedding + attention_sum) + (u_base + v_value)) \
-                + group_remainder
+            epsilon = reference - (embedding + attention_sum + mlp_sum)
+            # Preserve the native sequential endpoint exactly.  U/V grouping is
+            # audited separately; it must not change the authoritative input
+            # merely through a different float32 addition order.
+            regrouped = reference - epsilon
             mlp8.update({
                 "E": embedding.detach().clone(), "A": attention_sum.detach().clone(),
                 "U": u_base.detach().clone(), "V": v_value.detach().clone(),
                 "M_group_remainder": group_remainder.detach().clone(),
                 "M": mlp_sum.detach().clone(),
-                "epsilon": (reference - (embedding + attention_sum + mlp_sum)).detach().clone(),
+                "epsilon": epsilon.detach().clone(),
                 "raw_state": reference.detach().clone(), "input": event.state.detach().clone(),
                 "regrouped": regrouped.detach().clone(),
             })
@@ -268,10 +271,17 @@ def _hybrid_input(recipient, source, subset, F):
     chosen = {family: source[family] if family in subset else recipient[family]
               for family in FAMILIES}
     epsilon = source["epsilon"] if "E" in subset else recipient["epsilon"]
-    remainder = source["M_group_remainder"] if "U" in subset \
-        else recipient["M_group_remainder"]
-    raw = ((chosen["E"] + chosen["A"]) + (chosen["U"] + chosen["V"])) \
-        + remainder + epsilon
+    has_u, has_v = "U" in subset, "V" in subset
+    if has_u == has_v:
+        # If both MLP halves come from the same role, use that role's already
+        # validated aggregate M tensor.  This makes every parent corner byte-
+        # for-byte independent of a new float32 regrouping.
+        chosen_m = source["M"] if has_u else recipient["M"]
+    else:
+        remainder = source["M_group_remainder"] if has_u \
+            else recipient["M_group_remainder"]
+        chosen_m = (chosen["U"] + chosen["V"]) + remainder
+    raw = (chosen["E"] + chosen["A"] + chosen_m) + epsilon
     normalized = F.rms_norm(raw, (raw.size(-1),))
     endpoint_error = 0.0
     if subset == "EAUV":
