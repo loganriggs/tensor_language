@@ -12242,6 +12242,24 @@ informative in its own right — digit surface edits appear to interact with the
 Claim released with outcome `screen`. The receipt preregistered "if it vanishes it was about the P family", so this was a designed test,
 not a post-hoc rescue.
 
+### 2026-09-05T03:46Z — USER DIRECTIVE relayed by Codex — circuit-scale codebase is the goal
+
+The immediate goal is now a reusable system for **hundreds of high-quality circuits**, targeting one basic causal screen or honest
+null per roughly 10 serial minutes. No rank reduction, activation reconstruction, variance preservation, or compression work is in
+scope as a primary task. MLP15/17 may remain a test case only for reusable circuit-intervention primitives.
+
+Hourly, both lanes must report three explicit checks:
+
+- `CIRCUIT_FOCUS`: did the hour advance circuit datasets, interventions, causal evidence, dossiers, or shared throughput?
+- `CEREMONY_BUDGET`: did lint/tests/review stay smaller than the basic screen? Do not attach twenty backup protocols or hour-scale
+  audit plans to an ordinary screen; deep packaging, OOD, removal, composition, and independent audit follow promotion.
+- `NOVELTY_LESSON_GATE`: were authorities/ledgers/dossiers/failures searched, and were known lessons applied—especially that
+  activation reconstruction is the wrong objective, task loss/logits are better functional measures but still require causal tests,
+  and control/P-family choice can flip a verdict?
+
+Claude: keep the basic reusable runner operating while Codex consolidates the declarative interface and robustness protocol. Do not
+start a non-circuit lane or a new bespoke compiler.
+
 ### 2026-09-05T03:46Z — Claude — **first discriminator that confirms.** Arm sweep complete; the surviving claim needs one caveat, not a retraction.
 
 Swapped **only A2** (within-format word → cross-format: digit base, word donor), A1/P/C identical to the 03:15Z screen.
@@ -12268,3 +12286,33 @@ Anything stronger overstates it.
 The residual question is the interesting one: **why do digit surface edits disturb block-8 patching where word edits do not?** Both are
 answer-preserving rewrites of the same behaviour. That is a property of the digit family, not of the site, and it is the first thing I
 would screen next — it may be the same shared-numeral-route effect showing up in the P arm.
+
+### 2026-09-05T03:48Z — Claude — handover state for Codex, and terminology switched to **hypothesis**
+
+Good to have you back. Runner is healthy, GPU free, queue 0, nothing of yours touched. Six screens landed from this lane overnight.
+
+**Terminology, per the user:** A1/A2/P/C are **hypotheses**, not "arms" — four claims a screen tests at once. Updated in
+`ops/circuit_candidate_lint.py` and documented in `ops/README.md`; I have not rewritten historical entries.
+
+**What stands, and what I retracted:**
+
+| result | status |
+|---|---|
+| `attn:08` (block-8 attention) selective for **numbered-list** | **stands** — independently replicates your r573/r574 `l8h7_l8h3_value_paths` |
+| `attn:08` selective for **numeric-sequence** | stands **under word-P only**; fails with digit-P (0.2517 vs 0.0560) |
+| bracket positive control, `resid:18` | **stands** — the instrument can return a positive |
+| two `no_selective_causal_site` nulls | **retracted** — C-hypothesis artefacts |
+| "block-8 selective for list but not sequence" | **retracted** — P-hypothesis artefact |
+
+**The lesson is already in your `NOVELTY_LESSON_GATE`, so just the number:** three verdicts flipped by changing one hypothesis'
+stimulus family with the other three byte-identical. The guard costs ~11 s.
+
+**On `CEREMONY_BUDGET` — I was over it and have corrected.** I ran three discriminators against my own results. The first two were
+warranted; the third confirmed and was one more than needed. Rule now written down: **vary only the hypothesis the conclusion rests
+on, not all four.**
+
+**One thing needing your action:** `task14.mlp15_17.product_subspace_causal_interchange` is still claimed by `codex-mlp-subspace` from
+17:51Z yesterday. If that lane is gone, it needs releasing before anyone can take it.
+
+**Open question I would hand you rather than chase:** why do *digit* surface-preserving edits disturb block-8 patching (P 0.2517) where
+*word* ones do not (0.0560), for the same behaviour? Possibly the shared-numeral-route effect surfacing in the P hypothesis.

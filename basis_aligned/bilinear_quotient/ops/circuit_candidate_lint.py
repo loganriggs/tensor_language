@@ -27,7 +27,7 @@ reports a false `no_selective_causal_site`. That cost this lane two published nu
 The obvious lint -- flag when C shares answer tokens with A1/A2 -- was written, tested, and DISCARDED because
 it is backwards: the two screens that actually masked have DISJOINT token vocabularies (numbered-list
 1731/1954 versus numeric-sequence 1105/1367), while the bracket positive control shares `)`/`"` with its own
-A-arms and produced a clean C of 0.034. Masking is driven by BEHAVIOURAL relatedness -- both tasks routed
+A1/A2 hypotheses and produced a clean C of 0.034. Masking is driven by BEHAVIOURAL relatedness -- both tasks routed
 through the same late-residual and block-8 path -- which is not visible in the rows. The reliable guard is
 procedural, not static: re-run with a different control and see whether the verdict moves. It costs 11 s.
 

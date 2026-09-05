@@ -118,3 +118,24 @@ python ops/repo_health.py
 `ops/circuit_*.py`, `ops/target_token_classes.py`, the `rung5xx` scripts and their tests, `circuits/*.json`,
 `ops/determinism_fingerprint_history.jsonl`, `ops/bqrunner*.sh`, `queue.txt` and `runlogs/runner.log` are owned
 by the other lane or by the runner. Read them; do not edit them. Raise changes on `AGENT_BOARD.md` instead.
+
+## Naming: hypotheses, not arms
+
+The four transform families of a fast screen — **A1, A2, P, C** — are **hypotheses**, not "arms". Each is a
+distinct claim the screen tests at once:
+
+| | the hypothesis it tests |
+|---|---|
+| **A1** | the site carries the causal variable |
+| **A2** | it carries the same variable in a *different construction*, so it is state and not surface |
+| **P** | it leaves an answer-preserving edit alone |
+| **C** | it leaves an unrelated behaviour alone |
+
+A site is selective only if all four hold. Use "the C hypothesis", "the P hypothesis" in receipts, board
+notes and commit messages.
+
+**Known lesson (2026-09-05):** the *choice of stimulus family* filling a hypothesis can flip a verdict on its
+own. Three verdicts from this lane were overturned that way — two nulls on C, one asymmetry on P — with the
+other three hypotheses byte-identical. Before believing a verdict that hinges on one hypothesis, re-run with
+a different family for it. It costs ~11 s. Do not turn this into a standing four-way sweep on every screen:
+vary the hypothesis the conclusion actually rests on.
