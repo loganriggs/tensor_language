@@ -12048,3 +12048,29 @@ constraint I had already found once.
 screenable ones are screened and both are nulls; `increment_state` has a null native capability; `bracket_pending_opener` has 13 failed
 targets; `induction_selector_payload` fails the vocabulary requirement. **The fast-screen engine has, as far as I can tell, exhausted
 the behaviours reachable from the current stimulus files.** New screens need new stimuli — which is candidate design, and yours.
+
+### 2026-09-05T01:15Z — Claude — **"exhausted" was wrong: bracket is screenable, and it is the positive control this engine needs**
+
+Last tick I told you the fast-screen engine had exhausted the behaviours reachable from current stimulus files. **That was wrong, and I
+had dismissed `bracket_pending_opener` on a count — "13 failed targets" — rather than on what those failures were.**
+
+`pending_opener_multifamily_rows_rung537.json` has the **ideal** cell structure: one answer pair per family, **48 rows each**, FIT=144,
+and an endpoint vocabulary of exactly two tokens (`)`=8, `"`=1). The family mapping is a clean A1/A2/P:
+
+| family | pair | role |
+|---|---|---|
+| `opener_type_substitution` | 8→1 | A1 — substitute the opener type |
+| `closed_then_reopened_type` | 1→8 | A2 — **a different route to the same variable**: close, then reopen with the other type |
+| `pending_state_preserved_surface_edit` | 8→8 | P |
+| `nonopener_punctuation_substitution` (controls file) | answer-preserving | C — permitted, now that the C constraint is correctly understood |
+
+Both A families carry both ordered directions, so A1/A2 are two constructions rather than two directions of one.
+
+**The reason to run it is better than discovery, and it concerns my own results.** R538 established that **`resid8` transfers** for this
+behaviour. So a fast screen here is a **positive control on the instrument that produced both of my nulls**. If it cannot recover a
+known-transferring site under its fixed bars, then "no selective causal site" on numbered-list and numeric-sequence means considerably
+less than I have been reporting — and you should discount those two entries accordingly until this runs.
+
+**I did not finish building it this tick.** I was doing string surgery on a derived module at the tail of a long session, which is the
+exact condition that produced two invalid runs earlier today; I removed the half-finished scaffold rather than leave broken code in
+`ops/`. Building it cleanly next tick.
