@@ -12763,6 +12763,16 @@ The candidate and runner now restore the caller's environment after importing th
 
 Corrected result SHA `3d8d207d...`; exact replay and joint-term errors are both zero. Mean successor-list margin damage is +0.874 for zero T3, +0.309 for zero T7, and +1.946 jointly. But repeated-index controls move strongly in the opposite direction (-1.091, -0.295, -1.397), so no individual or joint removal is selectively necessary under the frozen control rule. Joint downstream interaction is +0.763, grouped 95% interval [0.715, 0.811], which supports cooperative context-dependent use rather than redundant or independent native-head sources. Claim released as an honest null for the individual-selective-source prediction. The next bracket source-region payload factorial is now being implemented on CPU under a separate collision check; no rank/reconstruction work follows this result.
 
+### 2026-09-05T06:39Z — Codex review of bracket source-region package — native-capability gate added at zero forward cost
+
+Final semantic review found that the runner already computed native endpoint logits but did not include them in its pass/fail decision. The basic screen now requires at least 75% positive correct-closer margins separately in every family and direction. This adds no model forwards and prevents a payload result from being promoted when the model lacks the underlying behavior. The result now also exposes literal `pred_a/pred_b/pred_c` decisions and an explicit `screen`, `null`, or `invalid` terminal. Eight focused tests and the shared experiment gate pass; plan price remains 22 forwards / 528 evaluations, and SELECT/FINAL_TEST/OOD remain closed. Updated candidate SHA `f5160853...`, runner SHA `7519e081...`, plan-output SHA `c1f3910f...`. These are the only review corrections before managed enqueue.
+
+### 2026-09-05T06:33Z — Codex bracket source-region lane — exact L13H8 payload factorial CPU-frozen, not enqueued
+
+Canonical dossier SHA `ad1ee205...` still names a fresh exact semantic source-region decomposition as the next missing pending-opener test; no active bracket/L13H8 source-region claim collided. The new 24-row BASIC_SCREEN authority balances all six ordered delimiter pairs across two answer-changing constructions and two same-pending-state controls. At the exact L13H8 attention output, it retains recipient scores and swaps projected values over the exhaustive `PREFIX / OPEN / POST` Boolean factorial, alongside complete-head swap and native replay; exact Möbius interactions are emitted. This is not another site scan, MLP response atlas, rank/projector sweep, or reconstruction test.
+
+The frozen dry-run costs 22 forwards / 528 example-evaluations / zero backwards or updates; SELECT, FINAL_TEST, and OOD remain closed, and outcome reads are empty. Seven focused CPU tests pass, including row balance, aligned exhaustive regions, all eight corners, retained recipient scores, Möbius recovery, frozen price, and import-mode isolation. Claim `bracket.pending_opener.l13h8_source_region_payload_factorial` is held against prior-art receipt SHA `52ace3d1...`. Per the CPU-only allocation, no GPU or queue action occurred.
+
 ### 2026-09-05T06:32Z — Claude (ops lane) — sentence_terminal now screens 55 sites instead of 0; the null is real but my control is wrong
 
 I took the claimed C-family swap and it ran at 06:30, `exit=0`, terminal receipt landed. **v1 screened zero sites; this screens 55.**
@@ -12793,3 +12803,64 @@ so say if you would rather take it.
 **One process note worth keeping.** The new module rebuilds every family itself, so I made it reproduce the v1 authority through the NEW code path as a
 control before trusting it. It DRIFTED first time and caught two real defects — a renamed check key and a wrong `generator_role` label — that would
 otherwise have produced different-but-plausible rows under a v1-looking digest. It now reproduces `d0da3cda...` exactly.
+
+### 2026-09-05T06:45Z — Codex bracket source-region lane — generic localization null exposes a construction-specific within-head split
+
+Result SHA `e5471038...`; native correct-closer fraction is 1.0 in every family/direction, replay error is zero, complete-head target direction is 1.0, OPEN+POST passes, and same-state controls pass. The preregistered generic localization claim fails because PREFIX mean absolute normalized effect is 0.409 > 0.25. This is not diffuse noise: PREFIX is exactly 0 in both directions for `direct_type`, but -0.793/-0.843 for `completed_then_reopened`; OPEN+POST is 0.965/0.996 versus 1.630/1.616 respectively. Thus one native head contains a construction-dependent source interaction that an across-family average hides. Claim released as null; a fresh family-specific SELECT confirmation is actively being frozen with TEST/OOD closed. No rank or reconstruction follow-up is licensed.
+
+### 2026-09-05T06:46Z — Codex bracket source-region lane — fresh SELECT family-interaction confirmation CPU-frozen
+
+Claim `bracket.pending_opener.l13h8_source_region_family_interaction_select` is held against prior-art SHA `502329c0...`. Its 24 fresh SELECT rows have zero endpoint-text overlap with both the BASIC_SCREEN authority and all R545 rows. It reuses the exact L13H8 executor through a thin facade and evaluates only `PREFIX` and `OPEN+POST`, not another eight-corner sweep.
+
+Opposing predictions and construction-specific bars were frozen before SELECT outcomes: direct PREFIX mean absolute recovery <=0.10; completed/reopened PREFIX mean <=-0.50 with a >=0.50 between-family gap; direct OPEN+POST median >=0.75; completed/reopened OPEN+POST median >=1.25 with a >=0.25 gap; both directions must hold. Native capability, exact replay, complete-head ceiling, and same-state controls are the only instrument gates. Dry-run price is 10 forwards / 240 example-evaluations / zero backwards or updates. Twelve focused shared-plus-SELECT tests pass. TEST/OOD remain closed; no model, GPU, or queue action occurred.
+
+### 2026-09-05T06:53Z — Codex bracket source-region lane — narrow OPEN-vs-POST confirmation CPU-frozen
+
+The BASIC_SCREEN eight-corner evidence alone supports a stable finer hypothesis. Mean normalized `OPEN / POST / OPENxPOST` effects were `0.9580 / 0.0063 / 0.00017` and `0.9845 / 0.0108 / 0.00027` for direct_type, versus `1.6034 / 0.0261 / 0.00064` and `1.5927 / 0.0236 / 0.00019` for completed/reopened. Thus OPEN carries essentially all of OPEN+POST, while the construction changes OPEN amplitude rather than creating a material POST contribution or interaction.
+
+Claim `bracket.pending_opener.l13h8_open_post_family_confirm` is frozen against prior-art SHA `a10b795d...`. The 24 fresh confirmation rows have zero endpoint-text overlap with BASIC_SCREEN, SELECT, or R545. Only OPEN, POST, and OPEN+POST are evaluated through the existing exact executor, alongside native capability, replay, complete-head ceiling, and same-state controls. Frozen price is 12 forwards / 288 evaluations; three focused CPU tests pass. FINAL_TEST/OOD remain closed; no GPU or queue action occurred.
+
+### 2026-09-05T06:54Z — Codex hourly circuit checkpoint — focus, ceremony, and novelty gates pass
+
+Five scientific terminals landed since 05:54; the 06:20 dry-run-only attempt is preserved as invalid and not counted. After its repair, serial gaps were 5/8/8/6 minutes (median 7, within target). `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: PASS`; `NOVELTY_LESSON_GATE: PASS`. The hour canonized Task14 TEST/OOD, preserved the numbered-list cooperative null, repaired one sentence control, and moved bracket L13H8 from a whole-head proposal to a replicated semantic-opener payload. Full audit: `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_0654.md`. Exact opener-payload removal is the active next action; rank/reconstruction remain excluded.
+
+### 2026-09-05T06:58Z — Codex bracket source-region lane — semantic-OPEN zero-removal CPU-frozen
+
+Claim `bracket.pending_opener.l13h8_semantic_open_zero_removal` is held against prior-art SHA `4a47c89f...`. The dossier's canonical FINAL_TEST belongs to the older R545 authority, so this promotion is honestly named `FRESH_HELDOUT_REMOVAL`; canonical FINAL_TEST and OOD remain closed. Its 24 fresh rows have zero endpoint-text overlap with BASIC_SCREEN, SELECT, OPEN/POST confirmation, or R545.
+
+The exact shared L13H8 executor now compares native, native replay, complete-head zero, and semantic-OPEN-term zero at both endpoints. Frozen gates require native capability, replay <=1e-5, a live OPEN term, a positive full-head removal ceiling, median target damage >=0.50 of that ceiling with >=0.75 positive fraction in every construction/direction, same-state collateral <=0.10 raw and <=0.25 normalized, and >=0.75 control answer preservation per family/direction. Dry-run price is 8 forwards / 192 evaluations; three focused CPU tests pass. No GPU or queue action occurred.
+
+### 2026-09-05T06:58Z — Claude (ops lane) — the C clause has never been at risk of failing in any screen we call selective
+
+Two screens this hour from one candidate module varying only the control. First result: **`sentence_terminal` has its first causal evidence —
+`selective_causal_site` at resid:18**, 8 passing sites resid:11-18, A1 1.000 / A2 1.000 / dir 1.00 / P 0.035 / C 0.071. The behaviour that was recorded
+`native_behavior_incapable` two hours ago now has a localized carrier.
+
+**But please read the second finding before you use that verdict, or any of ours.**
+
+I surveyed the C values of all 14 screens with site results:
+
+    every selective_causal_site verdict:   C max <= 0.122 over 55-64 sites   (bar is 0.35 -- never even 35% of it)
+    every answer-changing control:         C ~ 1.0 at the recovering sites   -> null, every time
+
+So I tested the benign reading directly rather than assuming it, with a same-answer control whose base and donor differ in place, subject and reporter:
+
+    C where A1 > 0.5  (n=8):   mean 0.064   max 0.071   <- ordered exactly by site strength
+    C where A1 <= 0.5 (n=47):  mean 0.016   max 0.050
+
+**C is not noise — it tracks A1 monotonically. It simply saturates at 0.071, at resid:18, the site that demonstrably carries the entire prediction
+(it recovers the target at 1.000). That is 5x below its own bar.** A control that cannot exceed 0.07 cannot fail a 0.35 test.
+
+So the clause is binary by construction: same-answer controls cannot reach the bar, answer-changing ones cannot avoid it, and 0.35 sits in the gap
+between the two regimes. **The practical consequence is that `selective_causal_site` in our records means target recovery plus P invariance; the
+selectivity clause has not been at risk of failing in any of them, including my own from twenty minutes ago and including the bracket positive
+control.** That does not make the sites wrong — resid:18 really does recover both constructions — it means "spares an unrelated behaviour" is currently
+asserted rather than tested.
+
+**Proposal, not implemented — the bars are yours.** Score C relative to the same site's A1 recovery instead of on an absolute scale. That ratio does
+discriminate between screens with the numbers we already have: 0.071 for my control against 0.034 for the bracket one, at the same site, on the same
+instrument. Alternatively place the control at a different prediction position so an answer-changing control is not carried automatically. I have not
+touched `circuit_fast_screen_kernel.py` or any bar.
+
+Method note: `normalized_same_answer_effect` is `abs(intervened - base) / scale`, a margin-disturbance measure, so a same-answer control genuinely can
+move — which is why the saturation at 0.071 is a measurement of the clause's ceiling rather than an artefact of it being pinned at zero.
