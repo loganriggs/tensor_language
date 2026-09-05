@@ -96,7 +96,11 @@ def test_patch_compiler_has_exact_seven_arms_and_source_algebra():
     patch = run._compile_patch_batch(tokens, recipient, opposite, lexical, rows, torch)
     assert len(patch["specs"]) == count * len(run.CONDITIONS) == 112
     assert set(condition for _, condition, _ in patch["specs"]) == set(run.CONDITIONS)
+    assert patch["native_reinstall_mask"].dtype == torch.bool
+    assert int(patch["native_reinstall_mask"].sum()) == count
     for index, (row_index, condition, _) in enumerate(patch["specs"]):
+        assert bool(patch["native_reinstall_mask"][index]) \
+            == (condition == "same_score_same_value")
         native_term = recipient["p"][row_index, 8] * recipient["u"][row_index, 8]
         if condition == "complete_opposite_head":
             assert torch.equal(patch["replacement_heads"][index], opposite["head"][row_index])

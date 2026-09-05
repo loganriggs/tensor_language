@@ -26,7 +26,7 @@ PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_
 SCIENTIFIC_PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_v1.json"
 PREVIOUS_REPAIR_PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_numerical_repair_v2.json"
 OUT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json"
-PRIOR_ART_SHA256 = "1bb976d0cb4071cc025bdbf03818623d9fc949d579003fc24fc22990c059fded"
+PRIOR_ART_SHA256 = "9c170ed8db667743bd62d761ebdd1876790d81c0a95898e9268245d653814399"
 SCIENTIFIC_PRIOR_ART_SHA256 = "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44"
 PREVIOUS_REPAIR_PRIOR_ART_SHA256 = "1aaf9316c9475e8ca9a7ecc697d1f63d1f32dcecc2e37633dc8551926c0fce2b"
 EXPECTED_LICENSE_SHA256 = "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c"
@@ -152,7 +152,7 @@ def _compile_patch_batch(tokens, recipient, opposite, lexical, rows, torch):
         "lexical_score_opposite_value": (lexical["p"][:, SELF_POSITION],
                                          opposite["u"][:, SELF_POSITION]),
     }
-    indices, heads, specs, expected_terms = [], [], [], []
+    indices, heads, specs, expected_terms, native_reinstall = [], [], [], [], []
     native_term = recipient["p"][:, SELF_POSITION].unsqueeze(-1) \
         * recipient["u"][:, SELF_POSITION]
     for row_index, row in enumerate(rows):
@@ -167,6 +167,7 @@ def _compile_patch_batch(tokens, recipient, opposite, lexical, rows, torch):
             indices.append(row_index)
             heads.append(head)
             expected_terms.append(expected_term)
+            native_reinstall.append(condition == "same_score_same_value")
             specs.append((row_index, condition, f"{row['direction_id']}__{row['template_id']}"))
     index = torch.tensor(indices, dtype=torch.long, device=tokens.device)
     return {
@@ -174,6 +175,8 @@ def _compile_patch_batch(tokens, recipient, opposite, lexical, rows, torch):
         "finals": torch.full((len(index),), SELF_POSITION, dtype=torch.long, device=tokens.device),
         "replacement_heads": torch.stack(heads),
         "expected_terms": torch.stack(expected_terms),
+        "native_reinstall_mask": torch.tensor(
+            native_reinstall, dtype=torch.bool, device=tokens.device),
         "row_indices": index,
         "specs": specs,
     }
@@ -232,7 +235,8 @@ def evaluate(model, torch, F, facade):
     native_patch_batch = factors._native_logits(model, patch["tokens"], torch, F)
     patched, _patched_factors = factors._factor_forward(
         model, patch["tokens"], patch["finals"], torch, F, facade,
-        replacement_heads=patch["replacement_heads"])
+        replacement_heads=patch["replacement_heads"],
+        native_reinstall_mask=patch["native_reinstall_mask"])
 
     source_sum_error = max(float((torch.einsum("bk,bkd->bd", side["p"], side["u"])
                                   - side["head"]).abs().max())
@@ -260,7 +264,7 @@ def evaluate(model, torch, F, facade):
                 exactness["complete_head_vector_max_absolute_error"],
                 float((patch["replacement_heads"][output_index]
                        - opposite["head"][base_index]).abs().max()))
-        else:
+        elif condition != "same_score_same_value":
             observed_term = patch["replacement_heads"][output_index] \
                 - recipient["head"][base_index] + native_term
             exactness["installed_term_max_absolute_error"] = max(
