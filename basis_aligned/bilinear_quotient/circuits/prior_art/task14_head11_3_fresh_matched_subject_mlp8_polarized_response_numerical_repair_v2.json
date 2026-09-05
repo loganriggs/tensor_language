@@ -1,0 +1,38 @@
+{
+  "schema": "circuit_prior_art_correction_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v2",
+  "created_utc": "2026-09-05",
+  "corrects": {
+    "result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v1_result.json",
+    "result_sha256": "27c0a70502765b15dc6b2f4118e176d60b4cd63ec47bae1a19e366799f42dc39",
+    "terminal": "invalid",
+    "reason": "The scientific arms were never licensed because float32 regrouping exceeded frozen exactness bars: product and gauge 2.136e-4, output 3.433e-4, and propagated recipient/source writes about 3.31e-4. Replay, state, source, parent-head, native no-op, and installation gates passed; the complete MLP8 task effect remained live."
+  },
+  "scientific_freeze": {
+    "unchanged_from_v1": ["rows", "roles", "subject position 8", "t_cross and t_quad scientific conditions", "standalone and conditional backgrounds", "same-number different-lemma controls", "answer margin", "full-vocabulary target CE", "bars", "predictions", "scientific scoring", "price"],
+    "forbidden_changes": ["tolerance relaxation", "new rows", "new condition", "post-outcome threshold change", "rank", "reconstruction"]
+  },
+  "engineering_diagnosis": {
+    "product": "The exact identity was evaluated by separate float32 contractions and regrouped additions. Its observed residual is numerical, but v1 did not assign it to any condition.",
+    "output": "Separately applying Down to the two response pieces and adding them uses a different float32 reduction order from applying Down to the complete product.",
+    "propagation": "v1 multiplied the three residual coefficients first and then scaled the MLP8 write once; the native slot scales sequentially at blocks 9, 10, and 11."
+  },
+  "fixed_repair": {
+    "product_remainder": "Promote the captured native float32 inputs and weights to float64 for the local algebra, compute r_z=z_source-(z_recipient+t_cross+t_quad), and assign r_z to t_cross before any scientific outcome. Thus cross means invariant base-by-change plus numerical remainder; quadratic is unchanged.",
+    "output_remainder": "Apply Down in float64 to the mixed corners, retain the captured native float32 recipient/source MLP8 outputs as the endpoint authority, compute r_y=(y_full-y_recipient)-((y_cross-y_recipient)+(y_quadratic-y_recipient)) in float64, and assign r_y to the cross output before one cast to native float32 and propagation.",
+    "gauge_validation": "Validate the uncorrected mathematical t_cross and t_quad under deterministic independent per-product Left/Right swaps and reciprocal rescaling in float64.",
+    "propagation": "Propagate every corner sequentially through the native block-9, block-10, and block-11 residual coefficients, matching the parent's operation order.",
+    "bias_rule": "Left, Right, and Down must remain bias-free; Down_bias is added exactly once to each complete output corner and never to a response difference.",
+    "precision_boundary": "Captured native float32 MLP8 inputs and exact frozen weights are promoted to float64 only for the local Left/Right/Down corner algebra. Recipient and full-source outputs are then replaced by their captured native float32 MLP8 outputs, mixed outputs receive the fixed float64 remainder, and every corner is cast once to the native slot dtype before sequential residual propagation and the model intervention."
+  },
+  "interpretation_limit": "This is numerical-only because float64 evaluates the same fixed bilinear polynomials, the natural recipient/full endpoints are anchored to the exact native forward, and the actual causal intervention is installed at the original native dtype. The assigned remainders are bookkeeping, not learned or semantic components. Ordered Left-only and Right-only claims remain closed by gauge. A v2 scientific interpretation is permitted only if every original v1 exactness bar passes unchanged.",
+  "parent_preregistration": "circuits/prior_art/task14_head11_3_fresh_matched_subject_mlp8_polarized_response_factorial_v1.json",
+  "parent_runner_sha256": "22100ae8bbe1fec5fe55117321a0acf0380873169460ba123255668665ca75f6",
+  "price": {
+    "model_forwards": 4,
+    "example_evaluations": 480,
+    "causal_interventions": 192,
+    "backwards": 0,
+    "parameter_updates": 0
+  }
+}
