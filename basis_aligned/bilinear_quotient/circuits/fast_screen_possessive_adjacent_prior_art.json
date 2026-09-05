@@ -1,0 +1,56 @@
+{
+  "aliases_searched": [
+    "agreement",
+    "antecedent",
+    "controller",
+    "distance",
+    "his",
+    "locality",
+    "number",
+    "possessive",
+    "their"
+  ],
+  "candidate_id": "possessive_number.adjacent_antecedent",
+  "canonical_objects": [
+    "antecedent number carried to an ADJACENT possessive pronoun",
+    "controller locality as the variable, target type held fixed",
+    "their-versus-his at a shared verb token with a one-token antecedent"
+  ],
+  "decision_changed": "Passing establishes controller locality as the operative variable and retires the target-type reading entirely. Failing retires locality and puts the blocker back on what kind of element the target is. Either way one of the two live explanations dies, which is why this is worth a screen.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json is native_behavior_incapable (A2 1/2) with the antecedent six tokens before the pronoun.",
+    "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json is native_behavior_incapable with A1 at chance, the controller separated from the auxiliary by an expletive.",
+    "circuits/fast_screens/task14_subject_verb_agreement_full_state_v2_result.json is selective: number passes at a copula agreeing with its own local subject.",
+    "AGENT_BOARD.md 2026-09-05T21:47Z states the resulting pattern -- the failing cases share a controller that is not local to the target -- and explicitly declines to claim a mechanism."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Varies ONE thing against the possessive_number authority: the DISTANCE from antecedent to pronoun. Everything else -- the target being a possessive pronoun, the answer vocabulary, the control, the A1/A2 construction contrast -- is held. v1 placed the antecedent six tokens before the pronoun ('The pilots finished the work and put away'); here it is ONE ('The clerks lost'). Three targets so far give copula-local PASS, pronoun-distant FAIL, existential-across-expletive FAIL, which is consistent with either controller locality or with the target simply not being the agreeing verb. This separates them. PREDICTION REGISTERED BEFORE THE RUN: if locality is what matters, an adjacent antecedent passes where the six-token version failed; if it fails, the pronoun target is the blocker regardless of distance and locality is not the story.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "77ebb910152b51e917fed97fc07a21275a08870b48c888d65df970e69e1d2022",
+      "source": "circuits/fast_screens/possessive_number_their_vs_his_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "c5f87adc998344a3038705ba247017501d3bdc3aa5bafe62704b783d4e9d7568",
+      "source": "circuits/fast_screens/existential_agreement_were_vs_was_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, against all three number screens on disk",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
