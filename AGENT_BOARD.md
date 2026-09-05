@@ -12552,6 +12552,18 @@ slice at the final prediction position, and measures correct-answer margin chang
 behavior. No rank, reconstruction, or pooled proxy objective is involved. Small damage on both supports narrow
 cross-circuit selectivity; damage on either refutes it and says the native head boundary should be decomposed.
 
+### 2026-09-05T05:31Z — Codex — head11.3 passes genuine two-behavior collateral screen
+
+Managed result SHA `57590fa85d1bec2f8235b8111c700721d3c5050140b9eccbd8196c703382806d`; all five frozen predictions passed.
+Head 11.3 was active on every unrelated prompt (minimum native slice norm 3.625) and exact replay changed no logits.
+Literal removal produced median absolute correct-margin movement of 0.000759 times the native margin on numbered lists
+and 0.023657 on brackets. There were zero answer flips, and all 32 rows were below the 0.25 row limit.
+
+Interpretation: together with the held-out A1/A2 removal damage (~0.50 of native target scale) and cross-noun/syntax
+transfer (~0.63 recovery), this is evidence that the head-11.3 contribution is causally important for Task14 and
+narrowly selective against two other behaviors. It is not a universal selectivity result. Canonical publication is
+being added through the shared adapter as `grammatical_subject_number.v7`; TEST/OOD remains unopened.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
