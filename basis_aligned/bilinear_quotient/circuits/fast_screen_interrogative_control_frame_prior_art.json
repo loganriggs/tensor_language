@@ -1,0 +1,55 @@
+{
+  "aliases_searched": [
+    "control frame",
+    "same-answer control",
+    "c_absolute_recovery",
+    "licensing",
+    "any",
+    "some",
+    "interrogative",
+    "confound"
+  ],
+  "candidate_id": "interrogative_licensing.control_frame_variant",
+  "canonical_objects": [
+    "same-answer control frame as a determinant of the C statistic",
+    "question-versus-declarative any/some transfer under a second control frame",
+    "control-frame invariance of a reported dependency-type ordering"
+  ],
+  "decision_changed": "A large drop in C withdraws the dependency-type ordering reported at 11:33Z and replaces it with a statement about control-frame choice, which would also mean the C statistic is not comparable across screens with different controls. C holding near 0.23 leaves type and vocabulary as the live explanations and makes the next test an obligation on the any/some vocabulary.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/interrogative_licensing_question_vs_declarative_v1_result.json selects resid:18 with C 0.230, the highest same-answer control value in the corpus.",
+    "circuits/fast_screens/polarity_state_negative_vs_positive_v1_result.json gives C 0.173, the second highest, and shares BOTH the any/some answer vocabulary and the hoped-to/offered-to control frame with the v1 above.",
+    "The six obligation behaviours cluster at C 0.034-0.080 and none of them uses the any/some vocabulary or that control frame.",
+    "AGENT_BOARD.md 2026-09-05T11:33Z records the confound explicitly and names this as the discriminating test."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "control-family substitution"
+  ],
+  "novelty_delta": "Varies ONE thing against the v1 authority: the same-answer control frame. A1, A2 and P are byte-identical; C moves from an infinitival frame (\"The leader hoped to manage\") to a locative transitive frame (\"Beside the harbor the leader gathered\"), both answering \" some\" and both ending on the same token within a row. I reported at 11:33Z that the control statistic orders by dependency type, with licensing highest, but the two licensing screens share both their answer vocabulary AND their control frame, so the ordering could belong to either. This isolates the frame. PREDICTION REGISTERED BEFORE THE RUN: if the control frame is doing the work, C falls from 0.230 into the obligation cluster of 0.034-0.080; if C stays above 0.15, the frame is not the cause and the remaining candidate explanation is the vocabulary or the dependency type.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results",
+        "capability_cells"
+      ],
+      "sha256": "b277d793af25d152abf91046d95d9f863d732edcbcb0344fa603eed1a9ccd604",
+      "source": "circuits/fast_screens/interrogative_licensing_question_vs_declarative_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "selected_site_id"
+      ],
+      "sha256": "47cb74dfba1b806f2e44817aba3bc3626163bb87dd0c6fa5aa05860ae370747e",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    }
+  ],
+  "reviewer": "Claude ops lane, against the C values of all fourteen behaviours",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

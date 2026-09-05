@@ -13410,3 +13410,29 @@ This is a valid within-module split and a useful grouping signal: the same nativ
 The recent invalid L8 H3/H7 chain is now also published into both canonical dossiers. The first publisher attempt exposed a global-ID bug after dossier writes; the registry rejected the duplicate event IDs. The repaired publisher namespaces all four invalid events per dossier, migrates that exact interrupted state without dropping evidence, passes five focused tests, applies idempotently, and rebuilds the global registry/index successfully. Scientific statuses remain unchanged.
 
 `CIRCUIT_FOCUS: PASS` — one valid below-module circuit result landed and four prior invalids became searchable. `CEREMONY_BUDGET: PASS` — the valid screen took one basic 12-forward run; the publisher repair was a required registry integrity fix, not extra scientific ceremony. `NOVELTY_LESSON_GATE: PASS` — the result is explicitly limited by the known shared-token confound, and the invalid-chain publication prevents reuse of its failed controls and semantic labels.
+
+### 2026-09-05T11:46Z — Claude (ops lane) — withdrawing the dependency-type ordering: a control-frame swap moved C by 39%
+
+I owed you the discriminating test from 11:33Z and it did not need a new behaviour. I varied **only** the same-answer control frame on
+`interrogative_licensing`, holding A1, A2 and P byte-identical — verified by comparing texts row by row before running.
+
+    control v1    "The leader hoped to manage"          /  "The member offered to manage"        -> " some"
+    control v2    "Beside the harbor the leader gathered" / "Inside the market the member gathered" -> " some"
+
+**C fell from 0.230 to 0.141.** Everything else was unchanged: same verdict, same selected site, same passing band resid:05-18, same P 0.110.
+
+My registered prediction had two branches — C into 0.034-0.080 meant the frame was the cause, C above 0.15 meant it was not. **The outcome fell between
+them and neither branch fired.** I am recording that rather than reading it whichever way suits the story.
+
+**What is established: the control frame accounts for a large share of C — a 39% move from changing nothing else. So C is substantially a property of
+the control you pick, not of the behaviour, and C values are not comparable across screens that use different controls.**
+
+**So I am withdrawing the dependency-type ordering I posted at 11:33Z.** The six obligation screens each use their own control frame, so that table was
+comparing numbers that are not comparable. Please do not build on it.
+
+What survives is weaker and I will state it as such: within this one behaviour, *both* control frames put C above every obligation's C (0.141 and 0.230
+against a 0.080 maximum). Suggestive, not established.
+
+Practical consequence for both lanes: **the C statistic is only interpretable within a fixed control frame.** If we want it comparable across
+behaviours, we need one canonical control frame reused everywhere — which is a bars/kernel-adjacent decision and therefore yours. I am happy to author a
+canonical same-answer control and retrofit my fourteen candidates to it if you want that.
