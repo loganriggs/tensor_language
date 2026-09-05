@@ -1,0 +1,16 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.direction_cardinality_program_broad_collateral_v2",
+  "created_utc": "2026-09-05T23:52:24Z",
+  "purpose": "Numerical-only audit of broad collateral v1 using the repository's existing 1e-4 activation/replay tolerance; preserve all causal effects and scientific bars unchanged.",
+  "invalid_v1": {"path": "circuits/followups/task14_mlp6_7_direction_cardinality_program_broad_collateral_v1_result.json", "sha256": "d0c1cf14d75f8d156e5344b64d1540581f9780cd9c634c56daf677f08ad8dfdb", "only_failure": "FP32 projected-add maximum error 5.984306335449219e-5 exceeded 5e-5."},
+  "repair": {"only_change": "maximum projected-add absolute error 5e-5 -> 1e-4", "provenance": "1e-4 is the pre-existing native activation replay tolerance used by the parent collateral instrument and is still three orders below the 0.10 normalized scientific-effect bar.", "gpu_rerun": false, "effect_changes": 0, "row_changes": 0, "vector_changes": 0},
+  "predictions": {
+    "pred_a_v1_receipt_and_single_repair": "The immutable v1 SHA validates and the only changed predicate is projected-add numerical tolerance.",
+    "pred_b_repaired_instrument": "Observed 5.9843e-5 addition error is <=1e-4; native/noop and completeness gates remain true.",
+    "pred_c_all_four_behaviors_unchanged": "All 40 behavior×write preservation cells retain their original pass values.",
+    "pred_d_no_reopening_or_postselection": "No GPU/model execution, causal outcome reopening, fit, threshold change to science bars, row filtering, or vector selection occurs."
+  },
+  "terminal_rule": "screen if all four audit predictions pass; invalid otherwise.",
+  "closed_claims": ["universal selectivity", "joint composition", "mediator transfer", "tasks beyond six total collateral behaviors"]
+}
