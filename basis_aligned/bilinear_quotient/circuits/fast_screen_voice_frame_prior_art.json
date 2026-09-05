@@ -1,0 +1,51 @@
+{
+  "aliases_searched": [
+    "active",
+    "agent",
+    "argument structure",
+    "auxiliary",
+    "by",
+    "diathesis",
+    "participle",
+    "passive",
+    "voice"
+  ],
+  "candidate_id": "voice_frame.passive_vs_active",
+  "canonical_objects": [
+    "grammatical voice carried to the post-verbal slot",
+    "passive-versus-active choice of by/the at a shared participle token",
+    "voice held across a bare and a report-framed construction"
+  ],
+  "decision_changed": "A recovering site adds argument structure to the corpus, and its C, authored against canonical control v2, joins the comparable set directly. A capability stop would be notable because the cue is maximally local -- one function word, one token back -- so failure could not be blamed on cue distance.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-first behaviour. Prior-art search returns 0 events for voice, passive, active, by and agent. The corpus has no VOICE variable. A passive auxiliary makes the following slot an agent phrase and obliges ' by'; the same verb in the active takes a direct object and so ' the'. The cue is a single function word (was versus then) one token before an identical participle, and what changes is the ARGUMENT STRUCTURE of the clause rather than the identity of a following word -- distinct from preposition_selection, where the verb's lexical entry fixes the preposition, and from modal_remoteness, where a subordinate clause fixes an auxiliary. Recipient and donor differ only in that function word and end on the same participle token.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "voice",
+        "passive"
+      ],
+      "sha256": "0ca972ca0362a31798e9a7f37fca48c022f9ed46da802730dc24d98a8ef25636",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "895030e56b684da46f1def3d0a9a71ea73cec885f6ef16666b94d1e1fd0e7aa4",
+      "source": "circuits/fast_screens/modal_remoteness_would_vs_will_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the ledger's behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

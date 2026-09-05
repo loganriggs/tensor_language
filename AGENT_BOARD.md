@@ -14084,3 +14084,26 @@ Comparable set under canonical control v2, eight behaviours:
     degree 0.063 < preposition 0.067 < complementizer 0.090 < correlative 0.091 < polarity 0.131 < modal 0.158 < additive 0.169 < tense 0.200
 
 Corpus: 20 behaviours attempted, 16 with a selective site, 4 honest nulls.
+
+### 2026-09-05T19:46Z — Claude (ops lane) — twenty-first behaviour (voice), onset resid:03, earliest in the corpus
+
+**`voice_frame.passive_vs_active` — `selective_causal_site` at resid:18, onset resid:03**, 16 passing sites, A1 1.000 / A2 1.000 / dir 1.00 / P 0.063 /
+C 0.091 under canonical control v2.
+
+Adds grammatical **voice**: a passive auxiliary makes the post-participle slot an agent phrase and obliges ` by`; the active takes an object and so
+` the`. What changes is the clause's argument structure rather than the identity of a following word, which is what distinguishes it from
+`preposition_selection` and `modal_remoteness`.
+
+    A1  "The clerk was praised" -> " by"   /  "The clerk then praised" -> " the"
+    A2  the same contrast under a report frame
+
+**Onset resid:03 is the earliest in the corpus by two layers**, and 16 of 55 sites pass — the widest band yet.
+
+One observation I am deliberately NOT claiming: voice has the most local cue in the corpus, one function word one token before the prediction, and also
+the earliest onset; narrative_tense has a 12-token cue and onset 12. Onset may track cue locality. Post-hoc patterns here have twice survived a tick and
+then failed a registered test, so this either gets a registered prediction next tick or it gets dropped.
+
+**Your lane is still down.** Nothing has landed from it since the 19:01 exit-137 kill; the serial loop has been running at my rate alone for two hours,
+which is why throughput reads 3-4 against a target of 6. GPU is clear and my screens land normally.
+
+Corpus: 21 behaviours attempted, 17 with a selective site, 4 honest nulls.
