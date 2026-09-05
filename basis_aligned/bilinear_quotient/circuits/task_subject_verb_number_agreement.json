@@ -2928,6 +2928,427 @@
    ],
    "translation_ids": [],
    "next_missing": "The licensed fresh matched-natural QK factorial is complete and must not be repeated: its instrument was valid, but the registered number-discrimination, lexical-selectivity, and bidirectional task-use claims were null. The supported effect is directional asymmetry: the subject-self score/value combination helped singular-to-plural and harmed plural-to-singular. Next test a separately preregistered explanation of that asymmetry or a different causal score basis, with selective removal and unrelated-task controls; do not weaken these rows or bars."
+  },
+  {
+   "claim_id": "grammatical_subject_number.v12",
+   "revision": 12,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v11",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "fresh_matched_subject_number_score_value_v1",
+     "role": "interchange",
+     "changes": [
+      "the exact token-8 subject-self score, subject effective value, or both between opposite subject numbers"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT template and attractors",
+      "all non-subject L11H3 source terms and answer position"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "same-batch native no-op and source algebra",
+      "complete opposite-head positive control",
+      "same-number different-lemma score"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "fresh_matched_same_number_lexical_score_v1",
+     "role": "invariance",
+     "changes": [
+      "the subject lemma in the exact token-8 self-score while preserving subject number"
+     ],
+     "holds_fixed": [
+      "subject number and is/are answer",
+      "template, attractors, value state, and non-subject source terms"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "matched opposite-number score effect",
+      "native and opposite subject-value states"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "failed"
+    },
+    {
+     "family_id": "fresh_matched_subject_term_complement_v1",
+     "role": "interchange",
+     "changes": [
+      "the exact subject source term p_8 u_8, exact all-other-source complement, or both between opposite subject numbers"
+     ],
+     "holds_fixed": [
+      "licensed HOLDOUT text and answer position",
+      "the exact component not selected for replacement"
+     ],
+     "builder_artifact_id": "task14_fresh_matched_capability_authority",
+     "control_ids": [
+      "same-batch native no-op and source-term sum",
+      "complete opposite-head positive control"
+     ],
+     "split_plan_id": "task14_fresh_matched_natural_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_and_value.final_position",
+     "tensor_path": "exact subject-source score and projected value factors",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject-source score, projected value, or both while retaining every other exact source term",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.projected_value.final_position",
+     "tensor_path": "exact subject-source projected value contribution p_subject*u_subject",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace only the subject source projected value while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_source.score_by_value.final_position",
+     "tensor_path": "factorial interaction of the subject-source score and projected value",
+     "shape": [
+      "batch",
+      2,
+      2,
+      1152
+     ],
+     "intervention": "cross recipient or alternate-context scores with native or opposite-number subject projected values",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.all_source.projected_values.final_position",
+     "tensor_path": "exact per-source projected value contributions p_k*u_k",
+     "shape": [
+      "batch",
+      "source_position",
+      1152
+     ],
+     "intervention": "replace selected source projected values while retaining recipient source scores",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.source_value_role_groups.final_position",
+     "tensor_path": "semantic groups of exact source projected value contributions",
+     "shape": [
+      "batch",
+      4,
+      1152
+     ],
+     "intervention": "replace any subset of subject, intermediate, bridge, and attractor groups",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_source_score_roles.final_position",
+     "tensor_path": "fronted-construction source score vector grouped as earlier, determiner, and subject-self scores",
+     "shape": [
+      "batch",
+      3
+     ],
+     "intervention": "replace selected source scores with donor scores while holding the installed subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.fronted_subject_self_score.qk_factors.final_position",
+     "tensor_path": "the two bilinear QK branches composing the final-query to subject-self score",
+     "shape": [
+      "batch",
+      4,
+      128
+     ],
+     "intervention": "interchange q1, k1, q2, and k2 factors factorially while holding the donor subject value fixed",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+     "tensor_path": "exact subject source term p_8 u_8 and exact all-other-source complement sum_{j != 8} p_j u_j",
+     "shape": [
+      "batch",
+      2,
+      1152
+     ],
+     "intervention": "replace the subject term, complement, or both with the matched donor while retaining the other exact recipient component",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2",
+    "task14_fresh_matched_natural_split_v1"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test_invalid.invalid.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role_invalid.invalid.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
+    "task14_head11_3.fresh_matched_natural.capability.complete.v1",
+    "task14_head11_3.fresh_matched_qk.v1_engineering_failure.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v2_instrument.invalid.v1",
+    "task14_head11_3.fresh_matched_qk.v3_instrument.complete.v1",
+    "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
+    "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
+    "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
+    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.instrument.complete.v1",
+    "task14_head11_3.fresh_subject_term.interaction_repair.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.exact_localization.complete.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "The fresh licensed subject-term/complement factorial is complete and must not be repeated. It localizes the complete-head task effect to the exact full subject term p_8 u_8, while all three registered complement/interaction predictions were null. Next split the value side of that exact subject term to test what value-vector component carries the causal effect, then test which downstream readers reuse it. Necessity/selective removal and genuinely new OOD constructions remain open."
   }
  ],
  "split_plans": [
@@ -3445,6 +3866,30 @@
   "task14_fresh_matched_qk_v3_result": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json",
    "sha256": "69f954df45ec642cf2aa284f6ed2d20e68e0d9f9eefedc1546140a0579a2c981",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_fresh_subject_term_capability_license": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_fresh_matched_subject_term_vs_complement_factorial_v1_capability_license.json",
+   "sha256": "9ac6596d92a0b7e75a65a31edebcb480676fa81505cd211028babc56ca1ecf18",
+   "kind": "capability_license",
+   "status": "frozen"
+  },
+  "task14_fresh_subject_term_prior_art": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/task14_head11_3_fresh_matched_subject_term_vs_complement_factorial_v1.json",
+   "sha256": "ea9385643db35efc29e006b79b661f24ea9acf6912190c29d0fad480d857c84c",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "task14_fresh_subject_term_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_task14_head11_3_fresh_matched_subject_term_vs_complement_factorial.py",
+   "sha256": "2709accd9c6e62e8930ef4d2ca119e6155e2b768e532a44319132aada3880afa",
+   "kind": "experiment_runner",
+   "status": "frozen"
+  },
+  "task14_fresh_subject_term_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_fresh_matched_subject_term_vs_complement_factorial_v1_result.json",
+   "sha256": "f398ec274c68aeabe956aa2b957de9ccfb275efe70eaf592809e3475dc9bbbc6",
    "kind": "screen_result",
    "status": "frozen"
   }
@@ -5470,6 +5915,309 @@
    "notes": "Held alternative: the exact score/value combination has opposite task effects by direction. This does not rescue the separate bidirectional-use null.",
    "design_key": "35e7ecb71a215441f4b3142c00f93aa2c4b99698ab29951b3245b3a2da176c22",
    "execution_key": "e980c300f372fb8c604b0c8f83f67aacdcb91b463be9bc1ac8e999260e11dbfc"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_subject_term.instrument.complete.v1",
+   "claim_id": "grammatical_subject_number.v11",
+   "test_type": "null_control",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "native_replay_max_absolute_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "source_term_sum_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "same_batch_native_noop_endpoint_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00007"
+    },
+    {
+     "name": "installed_head_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "complete_head_vector_max_absolute_error",
+     "estimate": 7.62939453125e-06,
+     "ci95": null,
+     "bar": "<=0.00005"
+    },
+    {
+     "name": "minimum_complete_head_mean_margin",
+     "estimate": 0.34386146068573,
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "minimum_complete_head_mean_CE",
+     "estimate": 0.29966092109680176,
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_subject_term_prior_art",
+   "result_artifact_id": "task14_fresh_subject_term_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_subject_term_capability_license",
+    "task14_fresh_subject_term_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Exact algebra, no-op, and complete-donor-head controls passed; this validates the instrument only.",
+   "design_key": "06a6c769743a3e97a28cc947f78eb1cde1b7ae4ecf0a2db6fde07a7c335761f7",
+   "execution_key": "73356502ebffcb73560034d53d0599c4ced66d71598cc1152af35cd7c8e48163"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_subject_term.interaction_repair.complete.v1",
+   "claim_id": "grammatical_subject_number.v11",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "plural_to_singular_subject_mean_margin_range",
+     "estimate": [
+      0.3776482343673706,
+      0.3903869390487671
+     ],
+     "ci95": null,
+     "bar": "subject-only must be harmful in both cells"
+    },
+    {
+     "name": "plural_to_singular_interaction_mean_margin_range",
+     "estimate": [
+      -0.0030497312545776367,
+      0.002751469612121582
+     ],
+     "ci95": null,
+     "bar": "positive and at least the absolute subject-only harm"
+    },
+    {
+     "name": "plural_to_singular_interaction_mean_CE_range",
+     "estimate": [
+      -0.0020973682403564453,
+      0.002344846725463867
+     ],
+     "ci95": null,
+     "bar": "positive in both cells"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_subject_term_prior_art",
+   "result_artifact_id": "task14_fresh_subject_term_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_subject_term_capability_license",
+    "task14_fresh_subject_term_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Registered interaction-repair prediction was null: subject-only was helpful, not harmful, and the interaction was near zero.",
+   "design_key": "61a4980258d43cc529909f902a0a69002f5a79f0565c61945385b812c12e3af9",
+   "execution_key": "74b774bdfa19722b9413b7569eb627d350b4c83834d7322624bf8477b8631132"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1",
+   "claim_id": "grammatical_subject_number.v11",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "complement_mean_margin_range",
+     "estimate": [
+      -0.03073704242706299,
+      0.037290334701538086
+     ],
+     "ci95": null,
+     "bar": ">=0.05 in every cell"
+    },
+    {
+     "name": "complement_mean_CE_range",
+     "estimate": [
+      -0.02887558937072754,
+      0.03897738456726074
+     ],
+     "ci95": null,
+     "bar": ">=0 in every cell"
+    },
+    {
+     "name": "maximum_complement_over_complete_margin",
+     "estimate": 0.038709468248767,
+     "ci95": null,
+     "bar": ">=0.70 in every cell"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_subject_term_prior_art",
+   "result_artifact_id": "task14_fresh_subject_term_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_subject_term_capability_license",
+    "task14_fresh_subject_term_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Registered independent-complement prediction was null; the exact all-other-source complement did not carry the task on its own.",
+   "design_key": "fc9087b74634a229c792557bf33b2beab7c02974a56389cf6b3e8e447714e70b",
+   "execution_key": "57dbcc01b59bdd8cf782585f82b9f9a70090fb897276e8a165ec284b12e0a156"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1",
+   "claim_id": "grammatical_subject_number.v11",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "plural_to_singular_complement_mean_margin_range",
+     "estimate": [
+      -0.03073704242706299,
+      0.015268683433532715
+     ],
+     "ci95": null,
+     "bar": "<=-0.05 in both cells"
+    },
+    {
+     "name": "singular_to_plural_complement_mean_margin_range",
+     "estimate": [
+      -0.012209773063659668,
+      0.037290334701538086
+     ],
+     "ci95": null,
+     "bar": ">=0.05 in both cells"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_subject_term_prior_art",
+   "result_artifact_id": "task14_fresh_subject_term_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_subject_term_capability_license",
+    "task14_fresh_subject_term_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Registered complement-asymmetry prediction was null; complement effects did not meet the directional magnitude and sign bars.",
+   "design_key": "376db6278f3ed7a79807561d32f8a685e5dd05d45d0d2376f9cd69ec1832b1ab",
+   "execution_key": "3aca983471af828b79b86546adec5a22de7953eceee258985551ce61cc73e55f"
+  },
+  {
+   "event_id": "task14_head11_3.fresh_subject_term.exact_localization.complete.v1",
+   "claim_id": "grammatical_subject_number.v11",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.subject_term_and_complement.final_position",
+   "split_plan_id": "task14_fresh_matched_natural_split_v1",
+   "evaluation_role": "FRESH_LICENSED_HOLDOUT",
+   "metrics": [
+    {
+     "name": "subject_over_complete_mean_margin_range",
+     "estimate": [
+      0.9558769830532519,
+      1.0982569364251025
+     ],
+     "ci95": null,
+     "bar": ">=0.90 in every cell"
+    },
+    {
+     "name": "subject_over_complete_mean_CE_range",
+     "estimate": [
+      0.9542493736750819,
+      1.1033600160398578
+     ],
+     "ci95": null,
+     "bar": ">=0.90 in every cell"
+    },
+    {
+     "name": "maximum_absolute_complement_mean_margin",
+     "estimate": 0.037290334701538086,
+     "ci95": null,
+     "bar": "descriptive: <0.05"
+    },
+    {
+     "name": "maximum_absolute_complement_mean_CE",
+     "estimate": 0.03897738456726074,
+     "ci95": null,
+     "bar": "descriptive: <0.05"
+    },
+    {
+     "name": "maximum_absolute_interaction_mean_margin",
+     "estimate": 0.0030497312545776367,
+     "ci95": null,
+     "bar": "descriptive: <0.005"
+    },
+    {
+     "name": "maximum_absolute_interaction_mean_CE",
+     "estimate": 0.002344846725463867,
+     "ci95": null,
+     "bar": "descriptive: <0.005"
+    }
+   ],
+   "prereg_artifact_id": "task14_fresh_subject_term_prior_art",
+   "result_artifact_id": "task14_fresh_subject_term_result",
+   "input_artifact_ids": [
+    "task14_fresh_matched_capability_authority",
+    "task14_fresh_matched_capability_license_result",
+    "task14_fresh_subject_term_capability_license",
+    "task14_fresh_subject_term_runner"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Directly supported by the same registered factorial: replacing the exact full subject source term p_8 u_8 reproduced 0.956\u20131.098 of complete-head margin and 0.954\u20131.103 of complete-head CE, while the exact complement and interaction were small. This localizes the effect to the full subject term; it does not establish value-vector semantics, necessity/removal, new OOD generalization, or downstream reuse.",
+   "design_key": "b57e9f6e0bffcc1eada459e5af3d53fef5711bdf54aa3969804c7dd6d6632f23",
+   "execution_key": "0fa72d853a5a6648afb30e161b48818a5de6c4af8d4d72d969ff14cf61c6cf73"
   }
  ]
 }

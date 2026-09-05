@@ -2,7 +2,7 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-152 events; 131 scientific protocols; 152 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+157 events; 136 scientific protocols; 157 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
@@ -173,5 +173,10 @@ No two registered events have the same execution key.
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1` | complete/null | invariance | `grammatical_subject_number.v10` | `6ecbe2c019df` | `45a9c99f56ee` | `2a5bc4800756` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1` | complete/null | cross_family_transfer | `grammatical_subject_number.v10` | `1d856362951a` | `494c15712cd6` | `db1aae312f59` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1` | complete/held | composition | `grammatical_subject_number.v10` | `01034fbfc594` | `35e7ecb71a21` | `e980c300f372` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_subject_term.instrument.complete.v1` | complete/held | null_control | `grammatical_subject_number.v11` | `30cab23d2b95` | `06a6c769743a` | `73356502ebff` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_subject_term.interaction_repair.complete.v1` | complete/null | composition | `grammatical_subject_number.v11` | `210c51cb0b2a` | `61a4980258d4` | `74b774bdfa19` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1` | complete/null | composition | `grammatical_subject_number.v11` | `899773e24828` | `fc9087b74634` | `57dbcc01b59b` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1` | complete/null | composition | `grammatical_subject_number.v11` | `a832bead22d6` | `376db6278f3e` | `3aca983471af` | — |
+| `task.subject_verb.number_agreement` | `task14_head11_3.fresh_subject_term.exact_localization.complete.v1` | complete/held | composition | `grammatical_subject_number.v11` | `bcfaf16a0cb5` | `b57e9f6e0bff` | `0fa72d853a5a` | — |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

@@ -10,8 +10,8 @@
   "canonical_work_items": 9,
   "legacy_candidates": 70,
   "open_experiments": 0,
-  "held_events": 56,
-  "blocking_events": 50
+  "held_events": 58,
+  "blocking_events": 53
  },
  "work_items": [
   {
@@ -307,14 +307,14 @@
    "tag": "task.subject_verb.number_agreement",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v11",
+   "active_claim_id": "grammatical_subject_number.v12",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 10,
+   "counterfactual_family_count": 11,
    "counterfactual_family_status_counts": {
     "failed": 1,
     "frozen": 8,
-    "validated": 1
+    "validated": 2
    },
    "split_plan_ids": [
     "task14_fit_localization_split_v2",
@@ -348,7 +348,12 @@
     "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
     "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
     "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
-    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1"
+    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.instrument.complete.v1",
+    "task14_head11_3.fresh_subject_term.interaction_repair.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.exact_localization.complete.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -370,7 +375,9 @@
     "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
     "task14_head11_3.fresh_matched_natural.capability.complete.v1",
     "task14_head11_3.fresh_matched_qk.v3_instrument.complete.v1",
-    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1"
+    "task14_head11_3.fresh_matched_qk.directional_asymmetry.complete.v1",
+    "task14_head11_3.fresh_subject_term.instrument.complete.v1",
+    "task14_head11_3.fresh_subject_term.exact_localization.complete.v1"
    ],
    "blocking_event_ids": [
     "task14_head11_3.ood.construction_general.null.v1",
@@ -381,7 +388,10 @@
     "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
     "task14_head11_3.fresh_matched_qk.number_discrimination.complete.v1",
     "task14_head11_3.fresh_matched_qk.lexical_selectivity.complete.v1",
-    "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1"
+    "task14_head11_3.fresh_matched_qk.bidirectional_task_use.complete.v1",
+    "task14_head11_3.fresh_subject_term.interaction_repair.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_independent_use.complete.v1",
+    "task14_head11_3.fresh_subject_term.complement_asymmetry.complete.v1"
    ],
    "coverage": {
     "capability": "held",
@@ -402,7 +412,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "The licensed fresh matched-natural QK factorial is complete and must not be repeated: its instrument was valid, but the registered number-discrimination, lexical-selectivity, and bidirectional task-use claims were null. The supported effect is directional asymmetry: the subject-self score/value combination helped singular-to-plural and harmed plural-to-singular. Next test a separately preregistered explanation of that asymmetry or a different causal score basis, with selective removal and unrelated-task controls; do not weaken these rows or bars."
+   "next_missing": "The fresh licensed subject-term/complement factorial is complete and must not be repeated. It localizes the complete-head task effect to the exact full subject term p_8 u_8, while all three registered complement/interaction predictions were null. Next split the value side of that exact subject term to test what value-vector component carries the causal effect, then test which downstream readers reuse it. Necessity/selective removal and genuinely new OOD constructions remain open."
   },
   {
    "tag": "subroutine.induction.equality_score",
