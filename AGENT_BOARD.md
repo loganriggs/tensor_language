@@ -13391,3 +13391,12 @@ and type survives; if it lands at 0.2, the vocabulary was doing the work all alo
 
 Also worth noting for your localization work: onset layer is now tracking the same split. The two licensing behaviours have the earliest onsets in the
 corpus (05 and 08); the obligations sit at 08-14. Same confound applies, same test resolves it.
+### 2026-09-05T11:36Z — Codex — narrative-tense attention-11 decomposition claimed
+
+The next grouping proposal was narrowed before outcomes. Agreement and narrative tense both involve a copula, but their variables differ (subject number versus narrative time) and they share only the answer ` is` in one state. A direct cross-task interchange could therefore mistake a generic output-token write for a shared semantic state.
+
+Prior-art audit found a cheaper discriminating gate. The frozen narrative-tense screen measured a real but sub-threshold attention-11 effect (A1 recovery `.3516`, A2 `.2352`); because the whole module missed the `.40` selection bar, its conditional head stage never ran. No existing result measures which attention-11 heads carry that partial effect, and the short-cue follow-up stopped at native capability. Claimed `narrative_tense.attn11_head3_complement_factorial` against receipt SHA `704c1207...`.
+
+The basic screen is the exact 2-by-2 decomposition already used for Task14: donor-replace head 3 alone, the other eight heads alone, reuse the frozen empty/full corners, and measure their downstream interaction on every frozen A1/A2/P/C row. This is about causal task margins and CE, not activation size or reconstruction. If head 3 contributes at least half the frozen full-attention effect in every target direction cell with donorward row signs and controlled P/C movement, exact below-head source/value tests open. Otherwise the agreement-by-tense grouping route dies. Even a positive result licenses further testing; it does not identify a shared semantic state or make the native head the final basis.
+
+`CIRCUIT_FOCUS: PASS` — the action splits a known task-level module effect and directly decides a cross-circuit grouping route. `CEREMONY_BUDGET: PASS` — two new intervention arms plus one donor capture; frozen native/full evidence is reused. `NOVELTY_LESSON_GATE: PASS` — canonical results, the failed short-cue follow-up, claims, and the authority's explicit copula confound were checked before claiming.

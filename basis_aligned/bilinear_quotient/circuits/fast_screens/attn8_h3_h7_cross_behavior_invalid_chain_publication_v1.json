@@ -1,0 +1,35 @@
+{
+ "schema": "attn8_h3_h7_cross_behavior_invalid_chain_publication_spec_v1",
+ "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "destinations": [
+  {
+   "canonical_tag": "task.numbered_list.index_successor",
+   "base_claim_id": "numbered_list_index_successor.v9",
+   "new_claim_id": "numbered_list_index_successor.v10",
+   "new_revision": 10,
+   "family_ids": ["list_two_line_state_shift", "list_three_line_state_shift", "list_repeated_index_control", "list_step_two_conflict"],
+   "split_plan_id": "numbered_list_successor_split_r567_v1"
+  },
+  {
+   "canonical_tag": "task.numeric_sequence.continuation",
+   "base_claim_id": "numeric_sequence_continuation.v6",
+   "new_claim_id": "numeric_sequence_continuation.v7",
+   "new_revision": 7,
+   "family_ids": ["sequence_digit_state_shift", "sequence_word_state_shift", "sequence_cross_format_shift", "sequence_digit_copy_control", "sequence_word_copy_control"],
+   "split_plan_id": "numeric_sequence_continuation_split_r567_v1"
+  }
+ ],
+ "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim.",
+ "artifacts": [
+  ["attn8_h3_h7_cross_v2_prior", "circuits/prior_art/attn8_h3_h7_cross_behavior_factor_interchange_v2.json", "63bc3120a8a694a80dee9587e27503798b0bd71cfc015ba5ea90098244692885", "preregistration"],
+  ["attn8_h3_h7_cross_v2_raw", "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v2_result.json", "6ee436ec07f78dcdb70e1c9327caa4dc3a17f4f21d6dc08d5a51f2093aa4a67d", "screen_result"],
+  ["attn8_h3_h7_cross_v2_invalid_audit", "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v2_invalid_audit.json", "ee288558fc553848ddb924f28252cd87ab17ba76bd1f809c89e27fba7bfd4543", "invalid_audit"],
+  ["attn8_h3_h7_cross_v3_prior", "circuits/prior_art/attn8_h3_h7_cross_behavior_factor_interchange_v3_control_repair.json", "d0760a70470388dd4cd1d7ed24c3aacbd489f4c5389f5ceeef71f92c6811f055", "preregistration"],
+  ["attn8_h3_h7_cross_v3_result", "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v3_control_repair_result.json", "56dfa025df88192fb3f68e86b69cea6fdfe5164b9fc3c906edb52ca6b6f1fe1c", "screen_result"],
+  ["attn8_h3_h7_cross_v4_prior", "circuits/prior_art/attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls.json", "2276c565bf93eca0c0197d1541f703f5d2c962db3156292532de9b05ee1a19fe", "preregistration"],
+  ["attn8_h3_h7_cross_v4_raw", "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls_result.json", "41cd6b74d4e4f65c7707c826a8737f36706c878e653c8e6b32ee270a6c793669", "screen_result"],
+  ["attn8_h3_h7_cross_v4_invalid_audit", "circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v4_semantic_role_invalid_audit.json", "7a63f3b0f23a1562826400f01882aec3b28e9e2ebb70432cb6d3fa0a7dda9d10", "invalid_audit"],
+  ["attn8_h3_h7_cross_v5_prior", "circuits/prior_art/attn8_h3_h7_cached_successor_final_ood_v1.json", "f4e261b98011701e36d682075874d9730f7b206b91b966d30094096fea86147d", "preregistration"],
+  ["attn8_h3_h7_cross_v5_result", "circuits/fast_screens/attn8_h3_h7_cached_successor_final_ood_v1_result.json", "d044f1b294d00af2afda5f7c35ba622237eaabeb1722f332a8a2816f60f90e6d", "screen_result"]
+ ]
+}

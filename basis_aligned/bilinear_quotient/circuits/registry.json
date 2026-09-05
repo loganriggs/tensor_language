@@ -780,18 +780,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "a90dcd5164812788ec09ee25be985d585027517568d1b6d3c9ae1cb425356ec1",
+   "record_sha256": "eb6d723372b2ea3ae67a5d28c97f8edb94c0eee5451864d723c497a7fabb5ea0",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "numbered_list_index_successor.v9",
+   "active_claim_id": "numbered_list_index_successor.v10",
    "claim_status": "weights_translated",
    "causal_variable_id": "list_index_state",
    "interchange_family_count": 2,
    "invariance_family_count": 4,
-   "negative_event_count": 2,
-   "active_negative_event_count": 1,
-   "latest_blocker": "numbered_list_cached_value_removal.r576.complete.null.v1",
-   "latest_active_event": "numbered_list_cached_value_removal_audit.r579.complete.held.v1",
+   "negative_event_count": 6,
+   "active_negative_event_count": 2,
+   "latest_blocker": "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1",
+   "latest_active_event": "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1",
    "active_event_ids": [
     "numbered_list_native_capability.r569.held.v1",
     "numbered_list_capability_audit.r571.held.v1",
@@ -800,7 +800,8 @@
     "numbered_list_label_factor_audit.r574.complete.held.v1",
     "numbered_list_cached_value_weights.r576.complete.held.v1",
     "numbered_list_cached_value_removal.r576.complete.null.v1",
-    "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
+    "numbered_list_cached_value_removal_audit.r579.complete.held.v1",
+    "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "held_test_types": [
     "capability",
@@ -809,21 +810,26 @@
     "null_control"
    ],
    "active_blocking_test_types": [
+    "ood",
     "removal"
    ],
    "design_keys": [
     "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
     "469dfa51b9caba3337cd715e1b7885eed01684bb06ea9a204c2ce48cf2f15871",
     "49bf0e3c743533df4d87c6aeaf5c16d4a3c8c378224afb8cfb8c2c4f63b2d354",
+    "4f99aa4667e3a80f119f1c5870003f6001a1cfb1c1fde119de513e107f673812",
     "7014c3e469525d67c7c8bf39cba177335147d8136027e28503934fb5e56a1610",
     "74a96f4ebc128980505c1884977c59a691be88e3fe403c81d21340b1708080f8",
+    "76167b1a5f9467b989eb7231342cbd7036987a9b29d24090d043a0621556ff98",
     "7877e1549f1527cb7fbcb6d277b743310f1f1695f723bea39d0db5dab2d1e141",
     "8705f953819b3f185c964381f14bce467e82593f57e1837a48937ca7eae2ccc2",
     "9174409b37706899db0bf6359ee5e3b83adecc04b6dde5ca14b4624d234a47e7",
     "953e545b904b1e9333e7165468aa179df8a172ec7e6c597c3528d5f2aec6814c",
     "c943ab3906ab1df4bb72f431aceb9adad3669afa3b6fc7ad2fda3e6160171fbd",
     "f08ff67b960da25d4b9136118965b4012e8e352bb3eceb04e7ede9ae11a45598",
-    "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83"
+    "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83",
+    "fc97ac0ffdf6340937e49a2a3f1fdd0de790b5ae5501fab0e5ab63e34fe0f817",
+    "ff5ca75ef3545fe1f15fd635957163daf5ae8f8306c72de8ec689dca707a3c09"
    ]
   },
   "task.numeric_sequence.continuation": {
@@ -832,24 +838,25 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "96da2a631f53ca694136560d8f97cfa6f7da6bf20356dace12fc7f14fb92f378",
+   "record_sha256": "fd7c82d62fbd6392b93d53dd3de1b4706adb9886ba0cb5da22f23c3e2a5b2775",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "numeric_sequence_continuation.v6",
+   "active_claim_id": "numeric_sequence_continuation.v7",
    "claim_status": "specified",
    "causal_variable_id": "numeric_sequence_state_and_rule",
    "interchange_family_count": 3,
    "invariance_family_count": 5,
-   "negative_event_count": 2,
-   "active_negative_event_count": 2,
-   "latest_blocker": "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
-   "latest_active_event": "numeric_sequence_factor_localization_audit.r583.complete.held.v1",
+   "negative_event_count": 6,
+   "active_negative_event_count": 3,
+   "latest_blocker": "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1",
+   "latest_active_event": "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1",
    "active_event_ids": [
     "numeric_sequence_native_capability.r570.held.v1",
     "numeric_sequence_capability_audit.r571.held.v1",
     "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
     "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
-    "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+    "numeric_sequence_factor_localization_audit.r583.complete.held.v1",
+    "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "held_test_types": [
     "capability",
@@ -857,14 +864,19 @@
    ],
    "active_blocking_test_types": [
     "composition",
-    "cross_family_transfer"
+    "cross_family_transfer",
+    "ood"
    ],
    "design_keys": [
     "50e458fabc170c0aacf745e35b83e3bf232fc581a673257de7b57c8c10179950",
+    "653130ab93c4b7833723bcc4f7a190f45760b6c7639501388d44c9739e3261ae",
     "7cdf666dad7b7e7cc4db785113fd841139a0579c4f00700505417566c52a39ac",
+    "97ccaac167ef91b1cff7616bddd5b2169367af90ad2916798ae7251e3b0e6170",
     "9c80f1bfec6ca3eebbbab42e3deb7fc2b5bea861babd9e4a0d006563c828d17f",
+    "a9fe84a6ed8f64410055693469d59936899850655eaf23dedbce411607707739",
     "ad52860c409c15b613c9df6e1389cba527a8095a6e9dc3b0c27e7ccbfb348466",
     "b1d85e6a21e697206b97e36655ea6cffa83986fab4c0e16a6568c036988e7903",
+    "b55ec85c2cc35b0937b7c555c01e771d24e3821bb7f0d8cd016a5dde6f31941a",
     "bc7a7da1850ac7c55210c36aaddfc4ba4c3765d8efb368675f3993b04866c125",
     "ef7cae5cf8cfee0dd16d3f48799e81b0306f5ba2bfc8d460c92add0b543ca21f"
    ]

@@ -11,7 +11,7 @@
   "legacy_candidates": 70,
   "open_experiments": 2,
   "held_events": 42,
-  "blocking_events": 29
+  "blocking_events": 31
  },
  "work_items": [
   {
@@ -245,7 +245,7 @@
    "tag": "task.numbered_list.index_successor",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_numbered_list_index_successor.json",
-   "active_claim_id": "numbered_list_index_successor.v9",
+   "active_claim_id": "numbered_list_index_successor.v10",
    "claim_status": "weights_translated",
    "causal_variable_id": "list_index_state",
    "counterfactual_family_count": 6,
@@ -263,7 +263,8 @@
     "numbered_list_label_factor_audit.r574.complete.held.v1",
     "numbered_list_cached_value_weights.r576.complete.held.v1",
     "numbered_list_cached_value_removal.r576.complete.null.v1",
-    "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
+    "numbered_list_cached_value_removal_audit.r579.complete.held.v1",
+    "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -276,14 +277,15 @@
     "numbered_list_cached_value_removal_audit.r579.complete.held.v1"
    ],
    "blocking_event_ids": [
-    "numbered_list_cached_value_removal.r576.complete.null.v1"
+    "numbered_list_cached_value_removal.r576.complete.null.v1",
+    "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "coverage": {
     "capability": "held",
     "causal_site": "missing",
     "learned_interchange": "missing",
     "cross_family": "missing",
-    "ood": "missing",
+    "ood": "blocked",
     "selectivity": "mixed",
     "composition": "held",
     "compiled_weights": "held"
@@ -296,13 +298,13 @@
     "selectivity"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "the final-label cached-value term is exact and necessary but not selectively removable: split its downstream-read or source/action contributions using active repeated-list and word-copy controls; do not weaken the frozen collateral thresholds or repeat whole-term deletion"
+   "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim."
   },
   {
    "tag": "task.numeric_sequence.continuation",
    "kind": "behavior_circuit",
    "record_path": "circuits/task_numeric_sequence_continuation.json",
-   "active_claim_id": "numeric_sequence_continuation.v6",
+   "active_claim_id": "numeric_sequence_continuation.v7",
    "claim_status": "specified",
    "causal_variable_id": "numeric_sequence_state_and_rule",
    "counterfactual_family_count": 9,
@@ -318,7 +320,8 @@
     "numeric_sequence_capability_audit.r571.held.v1",
     "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
     "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
-    "numeric_sequence_factor_localization_audit.r583.complete.held.v1"
+    "numeric_sequence_factor_localization_audit.r583.complete.held.v1",
+    "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "open_event_ids": [],
    "held_event_ids": [
@@ -328,14 +331,15 @@
    ],
    "blocking_event_ids": [
     "numeric_sequence_cached_value_reuse.r576.complete.null.v1",
-    "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1"
+    "numeric_sequence_complete_state_factor_localization.r577.complete.null.v1",
+    "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
    ],
    "coverage": {
     "capability": "held",
     "causal_site": "missing",
     "learned_interchange": "missing",
     "cross_family": "blocked",
-    "ood": "missing",
+    "ood": "blocked",
     "selectivity": "held",
     "composition": "blocked",
     "compiled_weights": "missing"
@@ -349,7 +353,7 @@
     "compiled_weights"
    ],
    "work_state": "next_experiment_needed",
-   "next_missing": "R577 proves that complete final-query head/state swaps are broad rather than selective: split the transported numeric carrier by source/action or downstream bilinear use, with active surface/copy controls; do not repeat larger residual swaps or open R577's factor stage"
+   "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim."
   },
   {
    "tag": "subroutine.induction.equality_score",

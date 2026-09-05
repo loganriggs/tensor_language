@@ -398,11 +398,13 @@
      "latest_relevant_event_id": null
     },
     "ood": {
-     "status": "missing",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
     },
     "selectivity": {
      "status": "mixed",
@@ -438,9 +440,9 @@
     }
    },
    "n_held_categories": 4,
-   "n_blocked_categories": 1,
-   "n_missing_categories": 4,
-   "next_missing": "the final-label cached-value term is exact and necessary but not selectively removable: split its downstream-read or source/action contributions using active repeated-list and word-copy controls; do not weaken the frozen collateral thresholds or repeat whole-term deletion"
+   "n_blocked_categories": 2,
+   "n_missing_categories": 3,
+   "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim."
   },
   "task.numeric_sequence.continuation": {
    "kind": "behavior_circuit",
@@ -480,11 +482,13 @@
      "latest_relevant_event_id": "numeric_sequence_cached_value_reuse.r576.complete.null.v1"
     },
     "ood": {
-     "status": "missing",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "numeric_sequence.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1"
     },
     "selectivity": {
      "status": "held",
@@ -514,9 +518,9 @@
     }
    },
    "n_held_categories": 2,
-   "n_blocked_categories": 2,
-   "n_missing_categories": 4,
-   "next_missing": "R577 proves that complete final-query head/state swaps are broad rather than selective: split the transported numeric carrier by source/action or downstream bilinear use, with active surface/copy controls; do not repeat larger residual swaps or open R577's factor stage"
+   "n_blocked_categories": 3,
+   "n_missing_categories": 3,
+   "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim."
   },
   "task.subject_verb.number_agreement": {
    "kind": "behavior_circuit",
@@ -551,38 +555,58 @@
      "latest_relevant_event_id": "task14_subject_number_localization.fit.preregistered.v2"
     },
     "cross_family": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
       "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
       "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
-      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+      "task14_head11_3.test.transfer_removal.held.v1"
      ],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "task14_head11_3.below_head.subject_value_test.complete.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     "latest_relevant_event_id": "task14_head11_3.below_head.subject_value_test.complete.v1"
     },
     "ood": {
-     "status": "missing",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "task14_head11_3.ood.construction_general.null.v1",
+      "task14_head11_3.below_head.ood_value_atlas.complete.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "task14_head11_3.below_head.ood_value_atlas.complete.v1"
     },
     "selectivity": {
-     "status": "held",
+     "status": "mixed",
      "held_event_ids": [
-      "task14_subject_number_localization.fit.v2.authority_review_held"
+      "task14_subject_number_localization.fit.v2.authority_review_held",
+      "task14_head11_3_cross_circuit_collateral.select.held.v1",
+      "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+      "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
      ],
-     "blocking_event_ids": [],
+     "blocking_event_ids": [
+      "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": "task14_subject_number_localization.fit.v2.authority_review_held"
+     "latest_relevant_event_id": "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
     },
     "composition": {
-     "status": "missing",
-     "held_event_ids": [],
-     "blocking_event_ids": [],
+     "status": "mixed",
+     "held_event_ids": [
+      "task14_head11_3.below_head.subject_factor_select.complete.v1",
+      "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+      "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+      "task14_head11_3.below_head.value_group_test.complete.v1",
+      "task14_head11_3.below_head.ood_score_role.complete.v1",
+      "task14_head11_3.below_head.ood_self_qk.complete.v1"
+     ],
+     "blocking_event_ids": [
+      "task14_head11_3.below_head.score_context_test.complete.v1"
+     ],
      "planned_event_ids": [],
-     "latest_relevant_event_id": null
+     "latest_relevant_event_id": "task14_head11_3.below_head.ood_self_qk.complete.v1"
     },
     "compiled_weights": {
      "status": "missing",
@@ -592,10 +616,10 @@
      "latest_relevant_event_id": null
     }
    },
-   "n_held_categories": 4,
-   "n_blocked_categories": 0,
-   "n_missing_categories": 3,
-   "next_missing": "run selective removal or rescue/sufficiency with unrelated-behavior controls, then open the frozen TEST/OOD syntax pool"
+   "n_held_categories": 5,
+   "n_blocked_categories": 4,
+   "n_missing_categories": 1,
+   "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
   },
   "task.successor.pointer": {
    "kind": "behavior_circuit",
