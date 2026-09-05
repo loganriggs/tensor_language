@@ -58,6 +58,12 @@ Cross-task reuse is bounded by a valid null. The preselected cardinality-0 write
 correct-versus-swapped advantage misses. Thus the current operational unit is Task14/copula-specific at this interface, not a generic
 local grammatical-number state. No alternate cardinality or scale is licensed on the opened possessive rows.
 
+The fixed program now has an explicit downstream composition boundary. Clamping MLP15+17 to their matched base-program outputs removes
+`21.63%` of the full program-effect norm with cosine `0.95849` and perfect signs; this recurs in every direction×template and cardinality
+group. An exact singleton factorial shows a distributed, approximately additive pair: MLP15 carries `29.52%` and MLP17 `92.02%` of the
+joint-mediation norm, while their cancelling interaction is `21.61%`. Both singleton effects remain material in all four
+direction×template groups and all five cardinalities, so the evidence does not license dropping MLP15 even though MLP17 dominates.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -82,16 +88,18 @@ local grammatical-number state. No alternate cardinality or scale is licensed on
 | `agreement_mlp6_7_program_collateral.v2` | complete | projected-write selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v2_result.json` |
 | `agreement_mlp6_7_possessive_reuse.v1` | invalid | cross-task upstream reuse | **native gate invalid** | superseded by v2 | `task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v1_result.json` |
 | `agreement_mlp6_7_possessive_reuse.v2` | complete | cross-task upstream reuse | **null** | active | `task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v2_result.json` |
+| `agreement_mlp6_7_program_mlp15_17_mediation.v2` | complete | fixed-program downstream mediation | **held** | active | `task14_mlp6_7_direction_cardinality_program_mlp15_17_mediation_v2_result.json` |
+| `agreement_mlp6_7_program_mlp15_vs_17.v1` | complete | exact mediator factorial | **additive distributed pair** | active | `task14_mlp6_7_direction_cardinality_program_mlp15_vs_mlp17_mediation_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** test whether this fixed upstream/downstream program composes predictably with a separately identified circuit intervention,
-then broaden collateral beyond the two current behaviors and price the literal executable interface. Keep the MLP15+17 internal-feature
-question separate: any future split must be identified by task-conditioned interchange and held-out causal prediction, not generic
-low-rank approximation.
+**Next:** compress the measured MLP15/17 mediation law only at the operational scalar interface—direction×cardinality gains applied to
+the already fixed upstream-write/readout program—and demand prospective transfer on a new authority. Then test joint composition with a
+separately identified circuit intervention, broaden collateral beyond two behaviors, and price the literal executable interface. Do not
+substitute generic low-rank approximation for task-conditioned causal prediction.
 
 ### `subroutine.induction.equality_score` — site_live
 
