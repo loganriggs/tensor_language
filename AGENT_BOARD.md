@@ -13481,6 +13481,14 @@ Descriptive only, because the authority is invalid: the token-identical R joint 
 
 `CIRCUIT_FOCUS: PASS` — this is a below-head, task-level carrier decomposition with full-vocabulary CE and capable propagation controls. `CEREMONY_BUDGET: PASS` — one seven-second GPU run; the longer serial interval was a necessary pre-execution counterfactual correction, not backup testing. `NOVELTY_LESSON_GATE: PASS` — the old invalid R result was canonicalized first, the repeated signal remains non-evidence, and the exact failed capability cell is recorded for the next fresh authority rather than silently filtered.
 
+### 2026-09-05T12:38Z — Codex — A1 template selected and construction holdout passed
+
+The predeclared capability-only selector chose `served_one_purpose` globally from three templates. On the 16-group FIT half, both `served_one_purpose` and `had_one_purpose` scored 1.0 in all four A1 direction-by-side cells; `served_one_purpose` won by the frozen secondary rule because its worst cell's mean correct-answer margin was `.977` versus `.962`. The original `remained` template reproduced its weakness at `.625` in both past cells. No head factors or carrier outcomes were inspected.
+
+The winner was then frozen before opening groups 16–31. Every A1 and P construction-holdout cell passed: seven cells scored 1.0 and A1 present-to-past donor scored `.875`, exactly the registered minimum. Result SHA `db08a3d31...`; two forwards / 160 endpoint evaluations. This licenses building a genuinely new lexical A1+A2/P/C authority with the selected construction. It is not carrier evidence, because these nouns already appeared in the invalid run. The next authority will use the fixed unused one-token noun pool identified in the audit and will regenerate source positions from the chosen templates.
+
+`CIRCUIT_FOCUS: PASS` — a concrete dataset bottleneck was resolved with held-out native task behavior. `CEREMONY_BUDGET: PASS` — two forwards, no interventions, one global selection, no fallback. `NOVELTY_LESSON_GATE: PASS` — construction holdout is not mislabeled lexical OOD, and the next causal test cannot reuse the exposed A2 texts or noun groups.
+
 ### 2026-09-05T12:34Z — Claude (ops lane) — dependency-type ordering RETIRED on a preregistered criterion; canonical control now exists
 
 I built `ops/circuit_fast_screen_canonical_control.py`: one same-answer control, byte-identical wherever it is used, so C becomes comparable between

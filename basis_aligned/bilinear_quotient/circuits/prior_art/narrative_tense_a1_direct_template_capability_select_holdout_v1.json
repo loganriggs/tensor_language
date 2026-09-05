@@ -1,0 +1,39 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "narrative_tense.a1_direct_template_capability_select_holdout_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "Dataset engineering only: choose a grammatical direct-tense A1 wording with reliable native was/is behavior.",
+  "prior_result": {
+    "path": "circuits/fast_screens/narrative_tense_attn11_head3_fresh_unchanged_carrier_value_v1_result.json",
+    "sha256": "c066ed776544e6a540a5f8e7e55c205b93f1d260c07a84932cc4b35a83a2a564",
+    "terminal": "invalid",
+    "preserved_reason": "A1 past native capability was 0.75, below 0.85. This selector neither repairs nor reinterprets that circuit result."
+  },
+  "novelty_search": {
+    "searched": ["circuits/registry.json", "circuits/task_narrative_tense_past_vs_present.json", "circuits/active_screen_claims.jsonl", "circuits/prior_art", "ops", "AGENT_BOARD.md"],
+    "finding": "No frozen comparison of these three direct-tense templates with a FIT/held-out selection boundary was found."
+  },
+  "source_authority": {
+    "path": "ops/circuit_fast_screen_candidate_narrative_tense_fresh_unchanged_carrier.py",
+    "sha256": "3ad1054469ca5f6f4c37558e0a46433d4647ce705e4d2cdbe7e82c653ead336f",
+    "selection_groups": "0:16",
+    "construction_holdout_groups": "16:32",
+    "warning": "The holdout groups are held out from this template selection but appeared in the invalid carrier run. They are not lexically fresh evidence for a later carrier claim."
+  },
+  "templates_in_fixed_tie_order": [
+    {"template_id": "remained", "past": "Yesterday the SUBJECT remained indoors. The central purpose of the TAIL", "present": "Today the SUBJECT remains indoors. The central purpose of the TAIL"},
+    {"template_id": "served_one_purpose", "past": "Yesterday the SUBJECT served one purpose. The central purpose of the TAIL", "present": "Today the SUBJECT serves one purpose. The central purpose of the TAIL"},
+    {"template_id": "had_one_purpose", "past": "Yesterday the SUBJECT had one purpose. The central purpose of the TAIL", "present": "Today the SUBJECT has one purpose. The central purpose of the TAIL"}
+  ],
+  "selection_rule": "On groups 0:16 only, select one global template using native was/is logits. Primary: maximize the minimum accuracy over the four A1 direction-by-side cells. A template is eligible only if every cell has at least 7/8 correct. Secondary: maximize the minimum cell mean signed correct-answer-minus-foil margin. Tertiary: fixed template order. Freeze the winner before groups 16:32; no fallback or row drops.",
+  "holdout_rule": "For the frozen winner, all four A1 and all four same-tense subject-rewrite P direction-by-side cells on groups 16:32 must score at least 7/8 correct.",
+  "registered_outcomes": {
+    "pred_a_selection_complete": "At least one globally selected FIT template passes all four A1 cells at 7/8 or better.",
+    "pred_b_holdout_capable": "The frozen FIT winner passes all four A1 and all four P construction-holdout cells at 7/8 or better.",
+    "pred_c_no_eligible_template": "No template passes every FIT cell, so the holdout remains unopened and the dataset route stops."
+  },
+  "balance": "Each half has eight pairs in each ordered direction and eight endpoints in every direction-by-side cell.",
+  "reported_metrics": ["direction-by-side accuracy", "full-vocabulary CE", "signed correct-answer-minus-foil margin"],
+  "price": {"model_forwards": 2, "example_evaluations": 160, "backwards": 0, "parameter_updates": 0},
+  "interpretation_limit": "Capability and dataset selection only; not evidence for L11H3 or a carrier. A later carrier confirmation requires a newly pooled lexically disjoint authority."
+}
