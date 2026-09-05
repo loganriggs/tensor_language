@@ -1,0 +1,29 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v2",
+  "created_utc": "2026-09-05T23:13:44Z",
+  "purpose": "Native-capability-gate-only audit of invalid possessive reuse v1, replacing an erroneous all-row requirement with the frozen authority's >=0.75 accuracy per direction×construction cell.",
+  "invalid_v1": {
+    "path": "circuits/fast_screens/task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v1_result.json",
+    "sha256": "646353296ae9969515fa82819258efa61acbff978ea70ab967f9cbdffdc7e1c5",
+    "failure": "One of 64 base rows was native-incorrect, while every registered 16-row cell remained >=0.9375 accurate."
+  },
+  "repair": {
+    "only_change": "native base capability: all 64 correct -> each direction×construction cell accuracy >=0.75",
+    "rationale": "This is the capability standard of the frozen fast-screen authority bound before v1; the all-row strengthening was accidental and not justified by the source contract.",
+    "gpu_rerun": false,
+    "reuse_effect_threshold_changes": 0,
+    "row_or_vector_changes": 0
+  },
+  "predictions": {
+    "pred_a_v1_receipt_and_single_repair": "The immutable v1 SHA validates and v2 changes exactly the native capability predicate.",
+    "pred_b_repaired_native_capability_and_instrument": "Each of four 16-row cells has native base-answer accuracy >=0.75; zero-add and projected-addition errors retain their original bars.",
+    "pred_c_correct_write_moves_possessive_margin_unchanged": "The original >=0.75 positive fraction and >=0.005 median donorward-change bars are rescored unchanged.",
+    "pred_d_each_direction_construction_unchanged": "The original per-cell >=0.625 positive fraction and positive median bars are rescored unchanged.",
+    "pred_e_direction_assignment_unchanged": "The original >=0.65 correct-beats-swapped fraction and >=0.005 median advantage bars are rescored unchanged.",
+    "pred_f_no_outcome_reopening_or_postselection": "No GPU/model execution, vector/cardinality/row selection, fit, scale, or effect-threshold change occurs."
+  },
+  "null": "If the repaired instrument passes but c-e fail, record a valid cross-task reuse null: the Task14 upstream write is not a shared adjacent-possessive number state under this frozen mapping.",
+  "price": {"physical_model_forwards": 0, "example_evaluations": 0, "causal_installations": 0, "backwards": 0, "parameter_updates": 0, "immutable_receipts_read": 1},
+  "closed_claims": ["other cardinalities", "rescaled vectors", "possessive-specific reader fit", "other number tasks", "universal reuse", "rank", "compression"]
+}
