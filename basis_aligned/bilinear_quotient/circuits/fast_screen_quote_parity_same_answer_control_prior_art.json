@@ -1,0 +1,82 @@
+{
+  "aliases_searched": [
+    "10.7",
+    "13.8",
+    "capability stop",
+    "closer",
+    "closing quote",
+    "control ceiling",
+    "control incapable",
+    "inch unit mark control",
+    "inside quote",
+    "legacy quote DAS",
+    "pending quote",
+    "quote close",
+    "quote parity",
+    "quote state",
+    "same-answer control"
+  ],
+  "candidate_id": "quote_parity.pending_close_same_answer_control",
+  "canonical_objects": [
+    "pending ASCII quote state in the residual stream",
+    "delimiter-general closer head 13.8",
+    "quote matcher head 10.7",
+    "period-versus-closing-quote next-token choice"
+  ],
+  "decision_changed": "A recovering site gives quote_parity its first causal evidence and a localization to compare against sentence_terminal's resid:11-18 band. No recovering site is the honest null v1 could not reach. A second capability stop would indict the harness rather than the control choice.",
+  "matched_prior_claims": [
+    "RESULTS.md sections 667-668 found quote parity linearly decodable at block 6 but causally inert under removal of the decoded rank-one direction.",
+    "RESULTS.md sections 1549-1552 found that the close-quote ensemble announces a quote token but does not carry parity, while no single attention layer or MLP disruption localized the conditioning state.",
+    "RESULTS.md sections 1355-1358 established head 13.8 as a delimiter-general closer and a mid-depth quote-parity-gated extraction kit.",
+    "BILIN18_CONNECTION.md section 2399 found transferable quote signal in a behavior-anchored Hankel screen but not a small causally identified state.",
+    "CIRCUIT_REGISTRY.md records THE CLOSER as closed across brackets, quotes, and pipes, so rediscovering head 13.8 is replication rather than a new circuit.",
+    "circuits/DOSSIER.md marks the legacy quote L13H8 parity interchange result invalid because its rows were unsealed and records no valid quote-specific residual interchange result.",
+    "circuits/campaign_2026_08_30/09_quote_parity.md classifies quote parity at tier 2: the output owner and destination are known, but the decoded parity direction failed causally and the causal carrier remains unidentified.",
+    "circuits/fast_screen_ledger.jsonl entry 2 records quote_parity.pending_close as terminal null with reason native_behavior_incapable.",
+    "circuits/fast_screens/quote_parity_pending_close_v1_result.json stops at head_stage capability_stop with zero sites screened; A1/A2/P pass every ordered cell at native margins of +4.44/+5.07/+4.38 while both C cells fail at 0.50.",
+    "The failing control asks for an inch-mark double quote after a bare numeral, which GPT-2 small does not produce; it is unpassable by construction, exactly as the sentence-terminal instruction-copy control was.",
+    "circuits/fast_screens/sentence_terminal_semantic_choice_same_answer_control_v1_result.json measured the same-answer control ceiling at 0.071 against a 0.35 bar at the site carrying the whole prediction, so the C clause is not at risk in this configuration."
+  ],
+  "method_families": [
+    "linear probing",
+    "linear-direction removal",
+    "donor-to-recipient interchange",
+    "component ablation",
+    "head localization",
+    "rank-limited module replacement",
+    "behavior-anchored Hankel analysis"
+  ],
+  "novelty_delta": "Holds A1/A2/P byte-identical to the v1 quote-parity authority and replaces only the control, which the model cannot perform, with a same-answer control whose base and donor differ in content. This asks v1's unanswered question -- whether one site carries the pending-close state across both constructions while sparing an answer-preserving edit -- for a behaviour that has never been screened at all. The C clause is known not to be at risk in this configuration, so the result is reported as target recovery plus P invariance, with C/A1 at the selected site given as the discriminating statistic rather than the pass itself.",
+  "relation": "contradiction_test",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "canonical_objects",
+        "matched_prior_claims",
+        "novelty_delta"
+      ],
+      "sha256": "cf0d3d537dd25c558c7410cbd2bd728128ddcb21e2bb2718c08ba982f70ccad9",
+      "source": "circuits/fast_screen_quote_parity_prior_art.json"
+    },
+    {
+      "searched_terms": [
+        "head_stage",
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "973d84bfc00487e6d8db24d5142963b947a7a6fe1e2e96edcf8dd9edc6f54b82",
+      "source": "circuits/fast_screens/quote_parity_pending_close_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "1b5f200aeaf3b7c3f92a24977ddb43ac3ce6fa8edb66df5d3690535180f643fe",
+      "source": "circuits/fast_screens/sentence_terminal_semantic_choice_same_answer_control_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, from the v1 receipt and the v1 stored capability evidence",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
