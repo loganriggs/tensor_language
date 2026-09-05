@@ -8,6 +8,13 @@ import circuit_fast_screen_candidate_task14_select_cross_syntax as candidate
 import run_circuit_fast_screen_task14_cross_syntax as shared
 
 
+REGISTERED_PREDICTIONS = (
+    "pred_a_native_capability",
+    "pred_b_attention11_cross_syntax",
+    "pred_c_head11_3_cross_syntax",
+)
+
+
 PROTOCOL = shared.TargetedCrossSyntaxProtocol(
     candidate=candidate,
     request_id="task14-subject-verb-agreement-select-cross-syntax-v1",
