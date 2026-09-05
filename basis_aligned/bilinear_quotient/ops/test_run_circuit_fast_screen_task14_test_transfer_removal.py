@@ -55,4 +55,27 @@ def test_protocol_can_run_precompiled_ood_candidate() -> None:
                                 wall_clock=lambda: next(wall), monotonic_clock=lambda: next(mono))
     assert result["terminal"] == "screen"
     assert result["phase"] == "OOD"
+    assert result["reason"] == "OOD_transfer_and_removal_passed"
     assert result["plan_sha256"] == ood.compile_plan()["compiled_sha256"]
+
+
+class TransferFailureBackend(PassingBackend):
+    def patched(self, batch, *, site, donor_cache):
+        # Replaying the base answer for every patch makes donor transfer fail,
+        # while keeping the hook live and replay exact.
+        return producer.BatchOutput(tuple((2.0, 0.0) for _ in batch.row_ids), {})
+
+
+def test_ood_failure_reason_uses_protocol_phase() -> None:
+    import circuit_fast_screen_candidate_task14_ood_cross_syntax as ood
+    protocol = runner.RunProtocol(
+        candidate=ood, request_id="fake", experiment_id="fake",
+        result_relative=runner.Path("fake.json"), prior_art_sha256="a" * 64,
+        result_schema="fake_ood", novelty="fake", limits="fake",
+    )
+    now = datetime(2026, 9, 5, 5, 51, tzinfo=timezone.utc)
+    wall = iter((now, now + timedelta(seconds=1))); mono = iter((30.0, 31.0))
+    result = runner.run_science(protocol=protocol, backend=TransferFailureBackend(),
+                                wall_clock=lambda: next(wall), monotonic_clock=lambda: next(mono))
+    assert result["terminal"] == "null"
+    assert result["reason"] == "OOD_cross_noun_transfer_failed"

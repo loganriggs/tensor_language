@@ -222,18 +222,19 @@ def run_science(*, protocol: RunProtocol = TEST_PROTOCOL,
         "pred_d_native_head_replay": replay_passed,
         "pred_e_head_hook_live": hook_live,
     }
+    phase = candidate_module.PHASE
     if not replay_passed:
         terminal, reason = "invalid", "native_head_replay_failed"
     elif not hook_live:
         terminal, reason = "invalid", "head11_3_hook_inactive"
     elif not capability_passed:
-        terminal, reason = "null", "TEST_native_capability_failed"
+        terminal, reason = "null", f"{phase}_native_capability_failed"
     elif not transfer_passed:
-        terminal, reason = "null", "TEST_cross_noun_transfer_failed"
+        terminal, reason = "null", f"{phase}_cross_noun_transfer_failed"
     elif not removal["passed"]:
-        terminal, reason = "null", "TEST_literal_removal_failed"
+        terminal, reason = "null", f"{phase}_literal_removal_failed"
     else:
-        terminal, reason = "screen", "TEST_transfer_and_removal_passed"
+        terminal, reason = "screen", f"{phase}_transfer_and_removal_passed"
     finished, finished_utc = monotonic_clock(), wall_clock()
     active_price = {"forward_calls": calls, "example_evaluations": evaluations,
                     "backward_calls": 0, "model_updates": 0,

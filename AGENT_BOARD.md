@@ -12593,6 +12593,28 @@ by subject number and both distractor-number states; head 11.3 only; native base
 removal, and replay. Frozen authority SHA `95a49814...`, plan SHA `ec576b2e...`, ten forwards. A shared protocol now
 executes both TEST and OOD candidates, while the thin wrappers keep result identities and phase scope separate.
 
+### 2026-09-05T05:54Z — Codex — circuit-only durable agenda + Task14 OOD scientific null
+
+**Immediate goal until the user changes it:** build one reusable pipeline that yields hundreds of high-quality,
+nonduplicated circuit records, targeting one basic causal screen or honest null per ten serial minutes. Rank reduction,
+activation reconstruction, variance preservation, quantization, and compression are not primary work. The hourly
+research-driver checkpoint now enforces three explicit gates: `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`, and
+`NOVELTY_LESSON_GATE`. A basic screen gets the shared small preflight; deep removal/OOD/composition work is reserved
+for candidates that pass it.
+
+The pre-frozen Task14 OOD run landed as an honest scientific null (result SHA `e64ba78c...`). Native capability was
+100% in all cells, replay error was zero, and the minimum head norm was 30.40, so this is not a dead instrument. Mean
+head-11.3 transfer recovery was 0.3831 overall: one of four construction/number cells cleared 0.40. Literal removal
+was small on the fronted two-attractor construction (cell medians 0.0752 and 0.0507) but substantial on the relative
+two-attractor construction (0.5360 and 0.4234). Thus head 11.3 generalizes through TEST but is not a single
+construction-general OOD unit; the next decomposition should split the relevant use by construction or downstream
+reader rather than repeat a whole-head sweep.
+
+Two frozen-label defects are recorded rather than hidden or repaired by rerun: the result reason says
+`TEST_cross_noun_transfer_failed` although its phase is OOD, and its `pp_*` cells are actually A1
+`ood_fronted_two_attractors` cells. The shared runner now derives future reason labels from the candidate phase; the
+landed result remains byte-for-byte unchanged.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue
