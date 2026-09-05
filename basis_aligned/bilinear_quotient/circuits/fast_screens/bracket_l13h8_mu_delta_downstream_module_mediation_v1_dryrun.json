@@ -1,0 +1,69 @@
+{
+  "bars": {
+    "median_live_centered_effect_norm_each_factor_family_min": 0.05,
+    "median_projection_recovery_each_factor_target_family_min": 0.1,
+    "median_rescue_cosine_each_factor_target_family_min": 0.25,
+    "native_positive_fraction_each_family_min": 0.75,
+    "native_replay_max_absolute_logit_error_max": 1e-05,
+    "positive_projection_fraction_each_factor_target_family_min": 0.6666666666666666
+  },
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_downstream_module_mediation",
+  "closed_splits": [
+    "TEST",
+    "OOD"
+  ],
+  "conditions": [
+    "native",
+    "native_replay",
+    "remove_mu",
+    "remove_delta",
+    "remove_mu_restore_mlp13",
+    "remove_mu_restore_attention14",
+    "remove_mu_restore_mlp14",
+    "remove_mu_restore_attention15",
+    "remove_mu_restore_attention16",
+    "remove_mu_restore_mlp16",
+    "remove_mu_restore_attention17",
+    "remove_mu_restore_mlp17",
+    "remove_delta_restore_mlp13",
+    "remove_delta_restore_attention14",
+    "remove_delta_restore_mlp14",
+    "remove_delta_restore_attention15",
+    "remove_delta_restore_attention16",
+    "remove_delta_restore_mlp16",
+    "remove_delta_restore_attention17",
+    "remove_delta_restore_mlp17"
+  ],
+  "estimand": "For each factor/module, restore the complete native final-position module residual write after upstream removal; score centered-closer projection/cosine and signed correct-answer full-vocabulary CE damage/rescue.",
+  "fixed_modules": [
+    "mlp13",
+    "attention14",
+    "mlp14",
+    "attention15",
+    "attention16",
+    "mlp16",
+    "attention17",
+    "mlp17"
+  ],
+  "frozen_predictions": {
+    "pred_a": "native capability/replay hold and both factor removals are live in every construction and stability rewrite",
+    "pred_b": "at least one fixed complete module meets projection, cosine, and sign bars for each factor across both target constructions; stability rewrites are descriptive",
+    "pred_c": "with live upstream effects, no fixed complete module meets target-construction mediation bars for at least one factor, favoring distributed use or residual bypass"
+  },
+  "interpretation_limit": "intermediate causal localization only; no final basis, head response scan, selectivity proof, rank, PCA, or reconstruction",
+  "opened_splits": [
+    "FRESH_BASIC"
+  ],
+  "outcome_reads": [],
+  "price": {
+    "backwards": 0,
+    "example_evaluations": 480,
+    "model_forwards": 20,
+    "parameter_updates": 0
+  },
+  "prior_art_sha256": "66fba6861aa6d5bd0048b7658fcf8440f9adde25f45e5e38d774fc83cfca55e4",
+  "rows": 24,
+  "rows_sha256": "61f8db59d41863f2cc48b141f7c14f73a6774c63bbbca3b41ae0d873dbd18ba7",
+  "schema": "bracket_l13h8_mu_delta_downstream_module_mediation_plan_v1",
+  "triplet_groups": 8
+}

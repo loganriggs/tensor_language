@@ -1,0 +1,37 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_downstream_module_mediation",
+  "checked_at": "2026-09-05T07:50:00Z",
+  "active_claim_collision": false,
+  "bound_prior_art": {
+    "R549_response_atlas_sha256": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+    "mlp15_mediation_null_sha256": "20543b23a1eea03db22722a17bf4ba5d623ba5809102edf1fcd2bca085524565",
+    "individual_head_mediation_null_sha256": "7ae8f092a873b15d3f273196db380e46ef1e7f906b7d837395eb7b3dacf87917",
+    "joint_head_mediation_null_sha256": "dfe042e91eed84b0493558916c02d87637c5ea84f02f037d81dfd66e448e59fb"
+  },
+  "fixed_module_writes": [
+    "mlp13",
+    "attention14",
+    "mlp14",
+    "attention15",
+    "attention16",
+    "mlp16",
+    "attention17",
+    "mlp17"
+  ],
+  "novelty": "R549 measured response vectors but never restored complete downstream module writes. The selected MLP15 and three response-localized heads have now failed exact causal rescue individually and jointly. This screen restores each remaining complete attention or MLP write after mu or delta removal, allowing interactions within an attention block while avoiding another head-response or rank scan.",
+  "opposing_predictions": {
+    "module_mediation": "at least one complete module write recovers at least 10% of each live factor effect across both target constructions",
+    "distributed_or_residual_bypass": "no complete module write meets the causal recovery bars for at least one factor, implying the effect remains distributed across modules or travels primarily through the residual path"
+  },
+  "excluded": [
+    "MLP15 repetition",
+    "head-response scan",
+    "rank",
+    "PCA",
+    "activation reconstruction",
+    "TEST",
+    "OOD"
+  ],
+  "outcome_reads": []
+}
