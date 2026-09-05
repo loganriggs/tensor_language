@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_ood_fronted_natural_qk_number_specificity",
+  "timestamp_utc": "2026-09-05T10:08:00Z",
+  "search_terms": [
+    "Task14 natural QK branch number specificity",
+    "fronted self score same number noun control",
+    "L11H3 tied residual branch score"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_ood_fronted_self_qk_factorial_v1_result.json",
+    "circuits/fast_screens/task14_head11_3_subject_payload_number_specificity_v1_result.json",
+    "circuits/fast_screen_ledger.jsonl",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Fronted self-QK 16-corner factorial",
+      "relation": "Showed that both QK branches compose the self-score effect, but its individual q/k hybrid corners break the natural shared-residual tie and it did not test number specificity."
+    },
+    {
+      "work": "Subject-value number specificity",
+      "relation": "Used same-number noun controls for the projected value, not the self-score or either complete QK branch."
+    }
+  ],
+  "novelty": "First matched specificity test of the fronted self score and its two complete natural QK branch scalars. For each recipient, a frozen foreign group supplies a same-number A1 base donor and opposite-number A1 donor; those two donor prompts are identical except at final subject token 8. Within each branch q and k come from the same natural donor residual. With opposite-number donor u8 fixed and non-self terms native, compare recipient, same-number, and opposite-number branch scores using task margin and CE.",
+  "registered_screens": {
+    "joint_natural_score_number_specificity": "the tied opposite-number joint score is live in both direction cells, has the known cell-specific correction sign with at least 75 percent row agreement, and the absolute same-number joint effect is at most 25 percent of the opposite-number effect in every cell; CE supports the opposite-number sign",
+    "qk1_natural_score_number_specificity": "the opposite-number QK1-only arm is at least 20 percent of the opposite-number joint effect with at least 75 percent row sign agreement in both cells, and same-number QK1 leakage is at most 25 percent of that opposite-number QK1 effect in every cell",
+    "qk2_natural_score_number_specificity": "independently apply the same liveness, row-sign, and same-number-leakage tests to the complete natural QK2 scalar"
+  },
+  "required_controls": [
+    "frozen cyclic foreign-group pairing within recipient subject number and both attractor plurality states",
+    "same-number and opposite-number donor prompts differ only at final subject token 8 and both use a foreign noun/context relative to the recipient",
+    "within each natural branch q and k or q2 and k2 come from the same captured donor residual",
+    "opposite-number donor u8 is identical in every intervention arm and all non-self source terms remain native",
+    "same-number and opposite-number recipient-score baselines are identical",
+    "direct branch dot products and p=a times b exactly reproduce captured natural scores",
+    "native capability, finite live opposite-number joint correction, exact replay and source-term identities",
+    "report every cell and deterministic lexical half; do not select interactions"
+  ],
+  "interpretation_limits": [
+    "The joint same/opp score comparison is a tied natural-state counterfactual. Single-branch arms still mix one donor branch scalar with the recipient's other branch and are branch-level characterization.",
+    "This tests grammatical-number specificity against matched foreign-noun/context controls; it does not prove syntax-general semantics.",
+    "OOD text is reused; pristine OOD, individual query/key semantics, selectivity, and completeness remain closed."
+  ],
+  "source_sha256": {
+    "fronted_self_qk_factorial_v1": "f1a807d0f75a65f60bc2bbf230c21ccefcda5ec907a69f4bb9f42679ec156bfc"
+  }
+}
