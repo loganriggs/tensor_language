@@ -28,6 +28,7 @@ DEFAULT_LEDGER = ROOT / "circuits" / "active_screen_claims.jsonl"
 IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 OUTCOMES = {"screen", "null", "inconclusive", "invalid", "abandoned"}
+LEGACY_OUTCOMES = {"pass", "partial"}
 
 
 class ClaimError(ValueError):
@@ -66,7 +67,9 @@ def _validate_timestamp(value: object) -> str:
     return value
 
 
-def validate_event(event: Mapping[str, object]) -> dict[str, object]:
+def validate_event(
+    event: Mapping[str, object], *, allow_legacy_outcomes: bool = False,
+) -> dict[str, object]:
     if not isinstance(event, Mapping):
         raise ClaimError("claim event must be an object")
     kind = event.get("event")
@@ -90,7 +93,8 @@ def validate_event(event: Mapping[str, object]) -> dict[str, object]:
         if not isinstance(value["novelty"], str) or not value["novelty"].strip():
             raise ClaimError("novelty must be nonempty")
     else:
-        if value["outcome"] not in OUTCOMES:
+        allowed_outcomes = OUTCOMES | (LEGACY_OUTCOMES if allow_legacy_outcomes else set())
+        if value["outcome"] not in allowed_outcomes:
             raise ClaimError("release outcome is invalid")
         if not isinstance(value["reason"], str) or not value["reason"].strip():
             raise ClaimError("release reason must be nonempty")
@@ -146,7 +150,10 @@ def _read_unlocked(path: Path) -> tuple[dict[str, object], ...]:
             raise ClaimError(f"claim ledger line {number} is invalid JSON") from error
         if raw != _canonical(event):
             raise ClaimError(f"claim ledger line {number} is not canonical JSON")
-        events.append(validate_event(event))
+        # Six manually appended releases predate enforced writer validation and
+        # used the descriptive labels "pass"/"partial".  Keep the ledger
+        # append-only and readable, but never permit those labels on new writes.
+        events.append(validate_event(event, allow_legacy_outcomes=True))
     _active(events)  # validates event order as part of every read
     return tuple(events)
 

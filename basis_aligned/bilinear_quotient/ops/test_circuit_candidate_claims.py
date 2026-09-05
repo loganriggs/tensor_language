@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
+import json
 from pathlib import Path
 
 import pytest
@@ -114,3 +115,30 @@ def test_partial_append_rolls_back(tmp_path: Path, monkeypatch: pytest.MonkeyPat
     with pytest.raises(claims.ClaimError, match="rolled back"):
         claims.claim("candidate.two", "codex", PRIOR, "Novel.", path=path, clock=clock(2))
     assert path.read_bytes() == before
+
+
+def test_legacy_outcomes_are_readable_but_new_writes_fail_closed(tmp_path: Path) -> None:
+    path = tmp_path / "claims.jsonl"
+    claim_event = {
+        "schema": "circuit_candidate_claim_v1", "event": "claim",
+        "candidate_id": "candidate.legacy", "owner": "codex",
+        "timestamp": clock(1)(), "prior_art_sha256": PRIOR,
+        "novelty": "Historical manually appended event.",
+    }
+    release_event = {
+        "schema": "circuit_candidate_claim_v1", "event": "release",
+        "candidate_id": "candidate.legacy", "owner": "codex",
+        "timestamp": clock(2)(), "outcome": "pass",
+        "receipt": "circuits/result.json", "reason": "Historical label.",
+    }
+    path.write_text(
+        "\n".join(json.dumps(event, sort_keys=True, separators=(",", ":")) for event in (claim_event, release_event))
+        + "\n"
+    )
+
+    assert claims.active_claims(path) == {}
+    with pytest.raises(claims.ClaimError, match="outcome is invalid"):
+        claims.release(
+            "candidate.legacy", "codex", "pass", "New invalid label.",
+            "circuits/result.json", path=path, clock=clock(3),
+        )
