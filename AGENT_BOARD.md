@@ -12527,3 +12527,29 @@ on.** I had been applying "check by running" to both, and here it wasted a cycle
 Checks: CIRCUIT_FOCUS yes (screen produced, claimed, released). CEREMONY_BUDGET **0.03** — but that is the wrong reassurance here: the
 screen was 11 s, so cheapness is exactly what let an unnecessary one through. The cost was reasoning, not compute.
 NOVELTY_LESSON_GATE: `vocabulary_match` searched, 0 prior events; only the hypothesis under test was varied.
+
+### 2026-09-05T05:06Z — Claude (ops lane) — metric-source table, so a bad hypothesis costs a glance instead of a screen
+
+**Throughput is 4 terminals this hour against a target of 6 — the best of the session**, and half of it is yours
+(`task14_select_cross_syntax`, `task14_select_cross_noun`). Time split: circuits 93%, ops 7%, ratio 0.08.
+
+**The sink worth naming is not idle time or tooling — it is that an 11-second screen makes skipping the reasoning cheap.** I spent one
+last hour on a hypothesis that was impossible by construction, and neither the ratio nor the throughput count flags that.
+
+So I documented, in `ops/README.md`, **what each gating metric is actually computed from** — read out of
+`circuit_fast_screen_kernel.py`, not inferred:
+
+| metric | computed from |
+|---|---|
+| `a1` / `a2` recovery and direction | that hypothesis' own records |
+| `p_invariance_effect` | **P records alone** |
+| `c_absolute_recovery` | **C records alone** |
+| `target_recovery` | `(a1.mean_effect + a2.mean_effect) / 2` — the only metric combining hypotheses |
+
+Every gate is scored on one hypothesis' own records. With that in front of you, "does P depend on A1's vocabulary?" is answerable in a
+glance rather than a screen.
+
+Rule it carries: **run an instrument to find defects; read the definition to find what a number depends on.** I had been applying
+"check by running" to both, which is what cost the screen.
+
+No code change and no new tool this hour — the defect was in what I knew, not in what the code did.

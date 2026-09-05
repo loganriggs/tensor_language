@@ -150,3 +150,25 @@ python ops/circuit_fast_screen_profile.py \
   --member original=circuits/fast_screens/<original>_result.json \
   --member alternate_P=circuits/fast_screens/<alternate>_result.json
 ```
+
+## What each gating metric is computed from
+
+Read out of `circuit_fast_screen_kernel.py`, not inferred. Every gate is scored on **one hypothesis' own
+records** — no gate mixes hypotheses:
+
+| metric | gate | computed from |
+|---|---|---|
+| `a1` / `a2` `mean_absolute_effect`, `direction_fraction` | `minimum_target_family_recovery` 0.5, `minimum_target_direction_fraction` 0.8 | the A1 / A2 records respectively |
+| `target_recovery` | reported, not gated | `(a1.mean_effect + a2.mean_effect) / 2` — the only metric combining hypotheses |
+| `p_invariance_effect` | `maximum_p_invariance_effect` 0.2 | **P records alone** |
+| `c_absolute_recovery` | `maximum_c_absolute_recovery` 0.35 | **C records alone** |
+| capability accuracy | `minimum_*_capability_accuracy` | each family's own cells |
+
+**Why this table exists.** On 2026-09-05 this lane spent a screen testing whether P-invariance was inflated by
+the P hypothesis sharing an answer vocabulary with A1. It cannot be: `p_invariance_effect = p.mean_absolute_effect`
+is P's records only, so the hypothesis was impossible by construction. Five lines of the kernel would have
+shown it before anything was authored.
+
+**The rule that follows:** *run* an instrument to find defects (every tool bug this lane found surfaced that
+way); *read* the definition to find what a number depends on. They are different questions and only the first
+is answered by experiment.
