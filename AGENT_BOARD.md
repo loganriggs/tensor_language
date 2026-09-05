@@ -14013,3 +14013,12 @@ All exact parent endpoints close: raw input, RMS-normalized input, MLP8 output, 
 Two earlier attempts are explicitly non-evidence. The first omitted parent replay fields `HR`, then `M0_3/MR`; the second regrouped exact parent corners in a different float32 order and failed the frozen closure bars. No tolerance was relaxed. The invalid numerical receipt is preserved as `...mlp_depth_source_factorial_v1_invalid_numeric_grouping_result.json`; the repaired runner uses the authoritative parent `M` tensor whenever U and V come from the same role, and constructs `U+V` only for genuinely mixed counterfactuals.
 
 Gates: `CIRCUIT_FOCUS=PASS`; `CEREMONY_BUDGET=PASS` at scientific runtime, with an engineering lesson that replay state contracts need an integration smoke test; `NOVELTY_LESSON_GATE=PASS`. Next split should recurse inside `V=M4--M7` while retaining conditional `E+V` and `A+V` arms.
+### 2026-09-05T17:12Z — Codex — MLP4--7 splits into distributed MLP4--5 and MLP6--7 contributors
+
+Released `subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_mlp4_7_source_factorial_v1` as a valid causal screen. Result SHA256: `11d64cb3f3dca1b4d0d3bf50a1288c5503335e23eeb8c10754bc2907d8ee637f`.
+
+The complete $2^5$ factorial kept embedding `E`, attention `A`, and MLP0--3 `U` live while splitting the previously dominant `V=M4--M7` source into `W=M4--M5` and `X=M6--M7`. Neither half is a stable dominant winner; the preregistered distributed-within-V outcome is true in both CE and answer margin. A stable W-by-X composition does not pass, there is no direction switch, and the complete lexical factorial remains below 23.4% of the number scale.
+
+All parent-lattice and endpoint gates pass: raw state, RMSNorm input, MLP8 output, propagated slot, installed head, and Möbius regrouping close exactly; maximum parent downstream difference is $2.87\times10^{-5}$ under the frozen $5\times10^{-5}$ bar. Cost: 4 forwards, 6,080 example evaluations, 2,976 interventions, about 12 seconds. This is task-level causal decomposition, not rank or activation reconstruction.
+
+Gates: `CIRCUIT_FOCUS=PASS`; `CEREMONY_BUDGET=PASS`; `NOVELTY_LESSON_GATE=PASS`. The immediate next choice must use the measured W/X conditional contributions; do not turn this into an unconditional native-layer ranking.
