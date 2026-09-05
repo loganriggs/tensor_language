@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "tense",
+    "past",
+    "present",
+    "narrative",
+    "was",
+    "is",
+    "copula",
+    "verb inflection",
+    "temporal frame",
+    "aspect"
+  ],
+  "candidate_id": "narrative_tense.past_vs_present",
+  "canonical_objects": [
+    "narrative tense state carried to a copula prediction",
+    "past-versus-present was/is choice at a shared final token",
+    "tense cue held across a direct-narration and a relative-clause construction"
+  ],
+  "decision_changed": "A site recovering both constructions gives the corpus its ninth behaviour and a tense carrier to compare against the resid:13-18 bands found for sentence_terminal and quote_parity. A capability stop would say GPT-2 small does not hold the frame across the intervening clause, which is an honest null about the model. No selective site is the ordinary null.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "First screen of a temporal-frame variable in this corpus; the prior-art search over circuits/task_*.json returns 0 prior events and 0 already-failed targets for tense, past, present, narrative, was and is, and none of the eight behaviours in the ledger (bracket_pending_opener, numbered_list, numeric_sequence, pronoun_antecedent, quote_parity, sentence_terminal, subject_verb, task14) carries one. subject_verb.number_agreement also predicts a copula, but its variable is the SUBJECT'S NUMBER; the two share an answer position and nothing else. Recipient and donor differ only in an early tense cue and end on the same final token, so a site that transfers the was/is decision is carrying narrative tense rather than any surface property of the final position, and A2 re-expresses the same variable in a relative-clause construction so a single-construction lexical cue cannot satisfy both. The control is same-answer, whose measured ceiling is 0.071 against a 0.35 bar, so the C clause is reported as a statistic and not as a passed test.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "tense",
+        "copula"
+      ],
+      "sha256": "00923d43448c9dd9ab91e89b57c90e3a6bc9d262b8388d6769dd88fda7d6bfa0",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "c_absolute_recovery",
+        "site_results"
+      ],
+      "sha256": "1b5f200aeaf3b7c3f92a24977ddb43ac3ce6fa8edb66df5d3690535180f643fe",
+      "source": "circuits/fast_screens/sentence_terminal_semantic_choice_same_answer_control_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus a full read of the ledger's behaviour set",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
