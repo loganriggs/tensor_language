@@ -1,0 +1,67 @@
+{
+ "aliases_searched": [
+  "numbered_list",
+  "control",
+  "selectivity",
+  "c_absolute_recovery",
+  "control_choice",
+  "nonopener_punctuation",
+  "shared route"
+ ],
+ "candidate_id": "numbered_list.control_choice_discriminator",
+ "canonical_objects": [
+  "whether the 21:15Z no_selective_causal_site verdict was caused by the CHOICE of control",
+  "control recovery at the numbered-list top site under a non-numeral control",
+  "selectivity of the late-residual site for the numbered-list behaviour"
+ ],
+ "decision_changed": "A positive means the 21:15Z null was about control choice, not about the behaviour, and the numbered-list state DOES have a selective late-residual site. A second null with low C means the site is unselective on other grounds.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numbered-list-cached-value-sufficiency-v3 (this lane, 21:15Z) returned no_selective_causal_site. Its top site resid:15 passed EVERY gate except one: C_absolute_recovery 0.959 against a 0.35 bar, with A1 recovery 1.011 and A2 0.996. Its C was sequence_digit_state_shift, another NUMERAL behaviour.",
+  "circuits/fast_screen_ledger.jsonl: bracket-positive-control-v1 (this lane, 01:46Z) returned selective_causal_site at resid:18 with C_absolute_recovery 0.034, using nonopener_punctuation_substitution as C.",
+  "task_numbered_list_index_successor.json: r573 v2 / r574 hold the label factor at l8h7_l8h3_value_paths; this candidate makes no claim about that site.",
+  "Authority search for 'control_choice' returns 0 prior events: no recorded event varies the control while holding A1/A2/P fixed."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with a substituted C control"
+ ],
+ "novelty_delta": "Holds A1/A2/P byte-identical to the 21:15Z screen and substitutes ONLY the C control, numeral -> non-numeral. If the earlier null was an artefact of choosing a numeral control, this returns a selective site; if the late residual is simply unselective for everything, it returns the same null with C still high.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numbered-list-cached-value-sufficiency-v3",
+    "bracket-positive-control-v1"
+   ],
+   "sha256": "b1766099f5403f4b64cf1974a7d0c937f521ebb942b65e65cd641ca1aa81794c",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "r573",
+    "r574",
+    "r576",
+    "r579"
+   ],
+   "sha256": "a90dcd5164812788ec09ee25be985d585027517568d1b6d3c9ae1cb425356ec1",
+   "source": "circuits/task_numbered_list_index_successor.json"
+  },
+  {
+   "searched_terms": [
+    "list_two_line_state_shift",
+    "list_three_line_state_shift",
+    "list_surface_preserved"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  },
+  {
+   "searched_terms": [
+    "nonopener_punctuation_substitution"
+   ],
+   "sha256": "f2693b9b78a9266619afc45ceb6f70e4f2339aa1980263ca22d3ea4453145494",
+   "source": "pending_opener_controls_rung537.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

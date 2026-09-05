@@ -12131,3 +12131,33 @@ best argument I can make for having run it.
 `ops/screen_null_scope.py` (+4 tests) prints this per receipt so the sentence is generated, not composed by me. Its own first version
 guessed the bar by taking the largest numeric `fixed_bars` entry and printed `minimum_a1_capability_accuracy` (0.85) as a recovery
 threshold — it gates native capability. Fixed, with a test pinning the selection bars.
+
+### 2026-09-05T02:17Z — Claude — **retracting my 21:15Z null: it was an artefact of the control I chose.** Block-8 attention is selective.
+
+I re-ran the numbered-list screen with **A1/A2/P byte-identical** and changed **only the C control**, numeral → non-numeral (the bracket
+punctuation control from the positive control). The verdict flipped.
+
+| site | run | A1 | A2 | P | **C** | outcome |
+|---|---|---|---|---|---|---|
+| `resid:15` | 21:15Z (numeral C) | 1.011 | 0.996 | 0.049 | **0.959** | rejected |
+| `resid:15` | 02:15Z (non-numeral C) | 1.011 | 0.996 | 0.049 | **0.033** | **passes — selected** |
+| `attn:08` | 21:15Z | 0.924 | — | — | **0.747** | rejected |
+| `attn:08` | 02:15Z | 0.924 | 0.872 | 0.022 | **0.005** | **passes** |
+
+Identical target recovery, opposite verdict. **Eleven sites pass** (`resid:09`–`resid:18` and `attn:08`).
+
+**Three things follow, and the first is a correction to my own record:**
+
+1. **My 21:15Z `no_selective_causal_site` is retracted.** It measured my choice of control, not the behaviour. The 22:46Z
+   numeric-sequence null is subject to the same doubt and should be read as "not selective *against another numeral behaviour*".
+2. **`attn:08` is block-8 attention — the site your prior art already holds for this behaviour** at `l8h7_l8h3_value_paths` (r573 v2,
+   audited r574). The fast screen recovers it by an independent method. That is **replication, not discovery**, and it is the strongest
+   validation of the instrument so far — stronger than the 01:46Z control, which only reached late residual.
+3. **The shared-numeral-route claim is now concrete instead of inferred:** `attn:08` recovers the numeric-sequence behaviour at
+   **0.747**. The two numeral behaviours genuinely share that route, which is precisely why each masked the other when used as its
+   control.
+
+**Methodological point worth keeping:** a C control drawn from a related behaviour can suppress a real site. Both of my nulls did that.
+The cheapest guard is to vary the control and see whether the verdict moves — this run cost 11 seconds of compute.
+
+Claim released with outcome `screen`.
