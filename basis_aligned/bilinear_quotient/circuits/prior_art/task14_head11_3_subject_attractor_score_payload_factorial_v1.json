@@ -1,0 +1,40 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_subject_attractor_score_payload_factorial",
+  "timestamp_utc": "2026-09-05T08:14:00Z",
+  "search_terms": [
+    "head11.3 source score value payload subject attractor",
+    "attention11 head3 source position number agreement",
+    "Task14 QK OV subject noun attractor noun",
+    "subject verb agreement below head boundary"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "BILIN18_CONNECTION.md Task14/head11.3 sections",
+    "ops/circuit_fast_screen_candidate_task14_select_cross_noun.py",
+    "circuits/task_bracket_pending_opener.json R560 source-factor events",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Task14 SELECT cross-syntax and cross-noun head11.3 interchange",
+      "relation": "Establishes that complete head11.3 transfers subject-number behavior across syntax and noun identity, but does not identify which source position or whether QK scores versus projected values carry the transferable information."
+    },
+    {
+      "work": "Task14 TEST transfer/removal and OOD construction result",
+      "relation": "TEST held while construction-general OOD failed, explicitly leaving decomposition below the native head boundary as next_missing."
+    },
+    {
+      "work": "pending-opener R560 source-factor interchange",
+      "relation": "Provides the exact score-times-projected-value intervention pattern on a different head/task; it found payload dominance but a selectivity null. Reusing the method is shared infrastructure, not repeating the circuit."
+    }
+  ],
+  "novelty": "First below-head causal split of Task14 head11.3 at semantically aligned subject-head and attractor-noun sources. For each source it crosses native/donor double-QK score with native/donor post-OV value, measures donor-directed is/are margin recovery against the known complete-head ceiling, and separates subject evidence, distractor evidence, and score-payload interaction. No rank, learned subspace, activation reconstruction, TEST, or OOD.",
+  "known_lessons_applied": [
+    "Native attention-head boundaries are not assumed semantic units.",
+    "Use exact causal score/value hybrids and task margins, not response cosine or activation reconstruction.",
+    "This BASIC source-factor screen does not claim selectivity because it uses answer-changing donor rows; promotion requires separate capable controls.",
+    "The OOD failure is preserved and motivates a finer variable rather than a looser syntax-general claim."
+  ]
+}
