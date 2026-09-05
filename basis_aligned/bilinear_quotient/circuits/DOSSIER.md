@@ -63,6 +63,9 @@ The fixed program now has an explicit downstream composition boundary. Clamping 
 group. An exact singleton factorial shows a distributed, approximately additive pair: MLP15 carries `29.52%` and MLP17 `92.02%` of the
 joint-mediation norm, while their cancelling interaction is `21.61%`. Both singleton effects remain material in all four
 direction×template groups and all five cardinalities, so the evidence does not license dropping MLP15 even though MLP17 dominates.
+The mediator effects themselves admit a smaller operational readout: six direction-only scalar gains applied to the frozen reader
+predict row-held-out MLP15, MLP17, and interaction responses, reconstructing joint mediation at cosine `0.95337`, relative L2
+`0.30185`, and perfect signs. A 30-scalar direction×cardinality extension improves SSE by only `0.1018%` and is rejected.
 
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
@@ -90,14 +93,16 @@ direction×template groups and all five cardinalities, so the evidence does not 
 | `agreement_mlp6_7_possessive_reuse.v2` | complete | cross-task upstream reuse | **null** | active | `task14_mlp6_7_cardinality0_upstream_cross_task_possessive_reuse_v2_result.json` |
 | `agreement_mlp6_7_program_mlp15_17_mediation.v2` | complete | fixed-program downstream mediation | **held** | active | `task14_mlp6_7_direction_cardinality_program_mlp15_17_mediation_v2_result.json` |
 | `agreement_mlp6_7_program_mlp15_vs_17.v1` | complete | exact mediator factorial | **additive distributed pair** | active | `task14_mlp6_7_direction_cardinality_program_mlp15_vs_mlp17_mediation_v1_result.json` |
+| `agreement_mlp6_7_program_mediator_gain.v1` | complete | row-held-out scalar composition | **cardinality extension inconclusive** | superseded by v2 | `task14_mlp6_7_direction_cardinality_program_loo_mediator_gain_v1_result.json` |
+| `agreement_mlp6_7_program_mediator_gain.v2` | complete | row-held-out scalar composition | **six-scalar screen** | active | `task14_mlp6_7_direction_program_loo_mediator_gain_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
 reinterpret its target/control scores as a subspace null. The corrected receipt and bundle are internally hash-consistent; the first
 publication pair is retained only under `artifact_invalid` filenames.
 
-**Next:** compress the measured MLP15/17 mediation law only at the operational scalar interface—direction×cardinality gains applied to
-the already fixed upstream-write/readout program—and demand prospective transfer on a new authority. Then test joint composition with a
+**Next:** freeze the six direction-only MLP15/17 mediator gains with the already fixed upstream-write/readout program and demand
+prospective transfer on a new authority. Then test joint composition with a
 separately identified circuit intervention, broaden collateral beyond two behaviors, and price the literal executable interface. Do not
 substitute generic low-rank approximation for task-conditioned causal prediction.
 
