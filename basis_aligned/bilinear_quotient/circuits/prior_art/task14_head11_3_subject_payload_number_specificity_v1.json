@@ -1,0 +1,41 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_subject_payload_number_specificity",
+  "timestamp_utc": "2026-09-05T08:25:16Z",
+  "search_terms": [
+    "Task14 head11.3 subject payload same-state specificity",
+    "subject value cross-noun same number interchange",
+    "grammatical number below attention head control",
+    "subject source value noun identity syntax invariance"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+    "ops/circuit_fast_screen_candidate_task14_select_cross_syntax.py",
+    "ops/circuit_fast_screen_candidate_task14_select_cross_noun.py",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "Task14 whole-head P and cross-circuit controls",
+      "relation": "They test a complete native head boundary, not the newly localized subject-source projected value. The ordinary P rows also keep the subject token fixed, so they cannot test whether subject payload generalizes across noun identity."
+    },
+    {
+      "work": "Task14 L11H3 subject/attractor score-value factorial",
+      "relation": "It identifies a subject-payload signal on answer-changing SELECT rows, but its donors jointly change subject number, noun identity, and syntax. It explicitly makes no selectivity or stable-identification claim."
+    }
+  ],
+  "novelty": "First causally matched specificity test for the Task14 L11H3 subject-source projected value. For every recipient, both donors change subject noun and syntax; the same-state donor preserves grammatical number while the positive-control donor reverses it. The same exact payload-only intervention must stay small for the same-state donor and transfer the is/are answer for the opposite-state donor.",
+  "known_lessons_applied": [
+    "The control is paired with a live opposite-number positive control using the same intervention, so a dead or weak knob cannot make invariance pass.",
+    "Task margins and donor-answer CE are primary; activation reconstruction and rank are excluded.",
+    "This remains SELECT-only. TEST and OOD are closed until the below-head variable survives specificity."
+  ],
+  "source_sha256": {
+    "parent_result": "3885fe1ed2905cb51fc0e649f7e0107a1b2ecadb52ac30c11344f45de8242202",
+    "task_dossier": "614cc318202edba9823812698e57ea03e3802cee2c23a432be3037a4a2f41284",
+    "select_cross_syntax_authority": "228cb2230ac2b2a088974cd5d404a77da689d55c8fe00bc3dfc94aff36633fcc",
+    "select_cross_noun_authority": "37149301140c148c609a00bf25b7f267f7f85b570fa3c1a6e0bf0584d3aef684"
+  }
+}
