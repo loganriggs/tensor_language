@@ -14311,6 +14311,10 @@ The durable review is `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_2135
 
 The runner compiles 832 unique installations: two binary endpoints with base/exact arms and three new gains with base/exact/frozen-prediction arms, across 32 rows and two sources. Four chunks plus native/decomposed fronts imply exactly 10 physical forwards and 1,856 example evaluations; pre-outcome amendment SHA `4c0c418c…` corrects only the original hand arithmetic. The test suite asserts the compiled specification and derived counts. Exact head-vector predictions and installed task recoveries are scored separately, with signed recovery correctly dividing by the signed exact effect. Fifteen focused tests, dry run, syntax, license/parent preflight, shared preflight, and diff check pass; no continuous-gain outcome is open. Commit and managed enqueue follow.
 
+### 2026-09-05T21:41Z — Codex — continuous E/A/U/W control predicts and steers grouped MLP6–7
+
+The six-second managed run is valid (SHA `16665084…`) and all six gates pass. Across all new gains/cells, minimum opposite head-delta cosine is `0.98664`, maximum relative error `0.17819`, and live installed task recovery `0.82261–1.15703`. Mean q(r) is strictly decreasing for plural→singular (`0.13465` at -0.5 to `-0.06799` at 1.5) and increasing for singular→plural (`-0.04425` to `0.13536`), so the intervention smoothly drives the task use through zero with the registered sign reversal. Maximum template difference is `0.03015`; maximum absolute lexical effect is `0.01174`. The distributed background is therefore a continuously manipulable gate, not merely a binary subset descriptor. Next priority is the endpoint-calibration dependency: freeze absolute coefficients on a genuinely new FIT half and test untouched HOLDOUT text without target endpoint anchors.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
