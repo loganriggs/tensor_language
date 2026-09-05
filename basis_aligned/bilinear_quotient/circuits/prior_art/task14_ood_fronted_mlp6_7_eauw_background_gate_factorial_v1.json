@@ -1,0 +1,55 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.ood_fronted_mlp6_7_eauw_background_gate_factorial_v1",
+  "created_utc": "2026-09-05T21:06:39Z",
+  "purpose": "Identify which upstream E/A/U/W background factors compose with the grouped MLP6--7 source to gate its behavioral use across grammatical directions on reused fronted OOD text.",
+  "data_status": "OOD_TEXT_REUSE_NEW_EAUW_BY_MLP6_7_INTERVENTION; not pristine held-out data",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp6_7_contextual_midpoint_tangent_v1_result.json",
+      "sha256": "d22b73e6da04b90ca55ebaf3df209164628fd6916af1a7e4dcd50981086d9b68",
+      "finding": "The grouped-source head law transfers geometrically, but its exact task effect crosses from live recipient/dead donor-context in plural-to-singular to dead recipient/live donor-context in singular-to-plural."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_subject_mlp8_polarized_response_factorial_v1_result.json",
+      "sha256": "31e379a376f29a6b71cb33fc77078edcaee9a64783793984ed0ca6df1a9cfd0b",
+      "finding": "The exact whole-MLP8 signed response transfers to this OOD syntax with native capability and lexical specificity."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_mlp6_7_source_factorial_v1_result.json",
+      "sha256": "eff2b9e7ab76b4335733e8bde6708435a18e6b0da14073373e211d9588994efa",
+      "finding": "On matched HOLDOUT text, MLP6 and MLP7 remain one interacting operational source and the full E/A/U/W/Y/Z factorial is exact."
+    }
+  ],
+  "novelty_audit": [
+    "Canonical and repository searches for {mlp6_7, background, OOD} and {mlp6_7, composition, OOD} return zero prior events.",
+    "This does not repeat tangent geometry or split MLP6 from MLP7. It resolves the newly observed direction-by-background task-use gate by intervening on E/A/U/W composition."
+  ],
+  "map": "For every reused OOD row and source in {opposite-number, same-number lexical}, evaluate all 16 recipient/donor subsets T of E/A/U/W both without and with grouped X=MLP6+MLP7. Run the exact native MLP8-to-L11H3 map and native tail. For each cell form q(T)=effect(T union X)-effect(T), perform exact Boolean-lattice Mobius inversion on E/A/U/W/X, and Shapley-allocate every interaction containing X equally among its non-X background members. The signed allocations sum exactly to q(EAUW)-q(empty).",
+  "predictions": {
+    "pred_a_instrument_and_endpoint_closure": "All replay/no-op/state/normalized-state gates, finite checks, Mobius closure, and rowwise reproduction of the bound tangent empty/EAUW base/exact margin and CE endpoints are at most 5e-5.",
+    "pred_b_single_background_factor_gate": "The same one factor among E/A/U/W has at least 65% of absolute Shapley allocation mass in both directions and its signed allocation agrees with the total context shift.",
+    "pred_c_distributed_background_gate": "Prediction b fails and at least two background factors each have at least 20% absolute Shapley allocation share in both directions.",
+    "pred_d_higher_order_background_gate": "In either direction, Mobius terms containing X and at least two background factors carry at least 35% of the absolute nonempty-background interaction mass.",
+    "pred_e_direction_reversal": "The exact margin shift q(EAUW)-q(empty) is at most -0.05 for plural-to-singular and at least +0.05 for singular-to-plural. This is a closure/decomposition check of the already observed endpoints, not independent evidence.",
+    "pred_f_lexical_effect_absolutely_small": "Across all 16 backgrounds and both directions, absolute same-number lexical q(T) margin is at most 0.02. This is an absolute-collateral statement and does not repair the failed relative specificity claim."
+  },
+  "null": "If the instrument holds but neither b nor c holds, no stable first-order background gate is identified; preserve the exact signed interaction table. If d holds, a single-factor story is incomplete even when b also holds. Do not tune attribution thresholds or split MLP6/7 again.",
+  "price": {
+    "physical_model_forwards": 10,
+    "example_evaluations": 2144,
+    "causal_installations": 1024,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "maximum_patch_chunk_rows": 256
+  },
+  "closed_claims": [
+    "pristine OOD confirmation",
+    "semantic uniqueness",
+    "MLP6 versus MLP7 identity",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "necessity outside the fixed L11H3 interface"
+  ]
+}
