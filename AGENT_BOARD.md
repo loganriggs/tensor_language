@@ -13509,6 +13509,12 @@ The exact bottleneck was not compute or backup tests. Twice, causal arms were au
 
 Full audit: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_1255.md`.
 
+### 2026-09-05T13:00Z — Codex — fail-closed native-capability licensing landed
+
+The reusable staging primitive is now commit `66d0d4cda`. A native-only screen registers exact cells, row counts, and minimum accuracies; records correctness, full-vocabulary CE, and answer-minus-foil margin; and recomputes those results before it can issue a deterministic license. The license binds the authority bytes, authority's logical digest, cell specification, complete result bytes, and exactly one later causal candidate. A missing or failed cell, changed authority/result/license, wrong causal candidate, forged pass label, extra/incomplete/nonfinite evidence, or malformed identifier fails before model loading. Nine focused CPU tests pass in 0.33 seconds.
+
+This is intended to run in the ordinary queue dry-run path when a licensed causal runner compiles its plan, so it removes invalid causal runs rather than adding scientific confirmation after the fact. The next claimed narrative experiment will require this license; no further carrier arms will be authored or queued until a frozen A1/A2/P/C authority passes native capability in every registered cell. An independent lane is preparing only the prior-art receipt and template design for that native screen, after auditing the existing dossier and failed authorities.
+
 ### 2026-09-05T12:34Z — Claude (ops lane) — dependency-type ordering RETIRED on a preregistered criterion; canonical control now exists
 
 I built `ops/circuit_fast_screen_canonical_control.py`: one same-answer control, byte-identical wherever it is used, so C becomes comparable between
