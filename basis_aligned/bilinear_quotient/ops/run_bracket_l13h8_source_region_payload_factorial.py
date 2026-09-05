@@ -97,14 +97,22 @@ def replay_head(state, first_value, attention, finals, torch, F):
     return write, {"p": p.float(), "u": u, "head": native_head}
 
 
-def factor_forward(model, tokens, finals, masks, torch, F, facade, *, donor=None, corner=None, complete=False):
+def factor_forward(model, tokens, finals, masks, torch, F, facade, *, donor=None, corner=None,
+                   complete=False, replacement_terms=None, source_positions=None):
+    if replacement_terms is not None and (donor is not None or source_positions is None):
+        raise ValueError("exact term replacement needs source_positions and excludes donor mode")
     captured = {}
     def attention(event):
         if event.site != candidate.PATCH_LAYER:
             return event.block.attn(event.state, event.first_value)
         write, factors = replay_head(event.state, event.first_value, event.block.attn, finals, torch, F)
         captured.update({key: value.detach().clone() for key, value in factors.items()})
-        if donor is not None:
+        if replacement_terms is not None:
+            arange = torch.arange(tokens.size(0), device=tokens.device)
+            native_terms = factors["p"][arange, source_positions].unsqueeze(-1) \
+                * factors["u"][arange, source_positions]
+            write[arange, finals] += (replacement_terms - native_terms).to(write.dtype)
+        elif donor is not None:
             arange = torch.arange(tokens.size(0), device=tokens.device)
             if complete:
                 hybrid = donor["head"]

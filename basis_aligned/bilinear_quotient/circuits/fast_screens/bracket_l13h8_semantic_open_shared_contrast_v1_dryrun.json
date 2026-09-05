@@ -1,0 +1,21 @@
+{
+  "schema": "bracket_l13h8_semantic_open_shared_contrast_dryrun_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_semantic_open_shared_contrast",
+  "status": "cpu_preflight_passed_not_enqueued",
+  "rows": 24,
+  "triplet_groups": 8,
+  "rows_sha256": "5c44fa3519e8c2675fab1772b7a1c9e41cd333336c003ff3d58c97b1e198858d",
+  "conditions": ["native", "native_replay", "natural_contrast_swap", "contrast_removed", "shared_removed"],
+  "price": {"model_forwards": 5, "example_evaluations": 120, "backwards": 0, "parameter_updates": 0},
+  "plan_stdout_sha256": "b49e465d4ae6a878d619fcd52621bc2792c9784b209fbe0e4411e22bc58677d6",
+  "candidate_source_sha256": "3e697ac3765fd4837f31c0b5730bc537f5cfcc2e2e11ae38e7ba1f99deb75e44",
+  "runner_source_sha256": "0530c5afc4120ec037562c767d742a348faaf28f42dcc91eccfe2661544f2c87",
+  "shared_executor_source_sha256": "b4897139e6bc8451909c09c038bf46dae80ccdca5931e62fd8b7d7ed66c7f53e",
+  "focused_tests": "18 passed including shared executor regressions",
+  "fresh_text_overlap_with_all_prior_bracket_authorities": 0,
+  "model_loaded": false,
+  "queue_touched": false,
+  "outcome_reads": [],
+  "opened_splits": ["FRESH_BASIC"],
+  "closed_splits": ["TEST", "OOD"]
+}
