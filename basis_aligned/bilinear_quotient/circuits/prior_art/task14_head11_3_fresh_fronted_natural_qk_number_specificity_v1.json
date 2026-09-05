@@ -1,0 +1,56 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_fronted_natural_qk_number_specificity",
+  "timestamp_utc": "2026-09-05T10:23:00Z",
+  "search_terms": [
+    "Task14 fresh text natural QK number specificity",
+    "head11.3 self score unseen noun template confirmation",
+    "subject verb fresh authority below head"
+  ],
+  "searched": [
+    "circuits/task_subject_verb_number_agreement.json",
+    "circuits/active_screen_claims.jsonl",
+    "circuits/fast_screens/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+    "ops/circuit_battery_task14.py",
+    "AGENT_BOARD.md",
+    "LESSONS.md"
+  ],
+  "closest_prior_work": [
+    {
+      "work": "OOD-text-reuse natural QK number-specificity screen",
+      "relation": "Established tied natural-state specificity on an already-opened OOD authority; its result and canonical v9 dossier explicitly close pristine or fresh-text confirmation."
+    },
+    {
+      "work": "Four-phase Task14 stimulus authority",
+      "relation": "Contains the only existing Task14 prompt authority. All 64 noun pairs and all FIT, SELECT, TEST, and OOD template surfaces are already used, so it cannot supply a genuinely fresh confirmation."
+    }
+  ],
+  "novelty": "First fresh-text confirmation of the final-subject self-score and both complete natural QK branch scalars. It freezes 32 recipients built from 16 one-token noun pairs absent from the four-phase authority and two unseen fronted templates. Matched same-number and opposite-number foreign donors differ only at the final subject token; all new prompt strings and token sequences must be disjoint from the old authority.",
+  "registered_screens": {
+    "joint_fresh_number_specificity": "in every direction-by-template cell, the live opposite-number joint score has the expected margin and CE direction with at least 75 percent row agreement, while both the absolute margin and CE effects from a same-number foreign donor are at most 25 percent of the opposite-number effect",
+    "qk1_fresh_number_specificity": "in every direction-by-template cell, the opposite-number QK1-only margin is at least 20 percent of the joint margin with at least 75 percent row agreement and at most 25 percent same-number margin leakage; CE must have the expected sign",
+    "qk2_fresh_number_specificity": "independently apply the same branch-level tests to the complete natural QK2 scalar"
+  },
+  "required_controls": [
+    "freeze the 32-row new-noun and new-template authority before any model outcome",
+    "prove all 96 recipient, same-number, and opposite-number prompts and token tuples are unique and absent from the old Task14 authority",
+    "prove every new singular and plural noun form is absent from the old vocabulary and is one GPT-2 token after a space",
+    "same-number and opposite-number foreign donor prompts differ exactly at final subject token 8; recipient and same-number donor differ in noun, template, and prefix",
+    "balanced direction-by-template cells and balanced attractor-number diagnostic cells",
+    "native recipient, same-number donor, and opposite-number donor accuracy at least 7 of 8 in every direction-by-template cell",
+    "opposite joint absolute margin effect at least 0.05, expected margin and CE signs, and at least 6 of 8 expected row signs in every cell",
+    "native replay at most 0.00007; source and installed term identities at most 0.00005; direct score identity at most 0.000005",
+    "opposite-number subject value is fixed in all intervention arms and every non-self source term remains native",
+    "report all direction-by-attractor-state cells descriptively; do not select or pool away reversals"
+  ],
+  "interpretation_limits": [
+    "A pass confirms fresh lexical and template transfer within fronted two-attractor syntax, not syntax-general semantics.",
+    "Only joint same-number and opposite-number arms are fully tied natural QK states; each single-branch arm mixes one natural donor scalar with one recipient scalar.",
+    "This does not identify query versus key separately, establish selective removal, prove completeness, or identify upstream writers."
+  ],
+  "source_sha256": {
+    "canonical_task14_v9": "abeefe8372dc6c019753f8937725d41926f56d5b5dd04124449e4b334b050af6",
+    "ood_natural_qk_specificity_v1": "a35e3b905313b14635a2b34736548172ce5e56761f8913cf27d0d86152cb201f",
+    "task14_generator": "33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94"
+  }
+}
