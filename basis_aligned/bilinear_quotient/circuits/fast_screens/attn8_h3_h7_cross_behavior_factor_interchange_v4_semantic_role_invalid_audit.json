@@ -1,0 +1,34 @@
+{
+  "schema": "circuit_result_invalid_audit_v1",
+  "candidate_id": "numeric_successor.attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls",
+  "created_utc": "2026-09-05T11:15:00Z",
+  "terminal": "invalid",
+  "reason": "The scorer treated list_step_two_conflict as an unrelated negative control. R567 and R572 had already defined and confirmed it as a positive test of the numbered-list rule: read the final visible label and add one. Therefore its donor-directed response cannot diagnose a broad numeral/copy service.",
+  "result": {
+    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls_result.json",
+    "sha256": "41cd6b74d4e4f65c7707c826a8737f36706c878e653c8e6b32ee270a6c793669",
+    "emitted_terminal": "broad_numeral_or_copy_service",
+    "scientific_status": "void_due_to_preexisting_semantic_role_error"
+  },
+  "execution_provenance": {
+    "executed_script_sha256": "dc51b9a6eb7ef4bb2c5ca3f3bf20a0f4a729c2bb7edda0a0e7f6a1a7832ad230",
+    "execution": "The lane-1 enqueue hash-bound preflight snapshot ignored BQLIB_DRYRUN/BQLIB_NO_MODEL and completed the six-forward run before the queue append. The later managed copy refused to overwrite the result and exited 1 without model evaluation.",
+    "scientific_integrity": "The result came from the reviewed hash-bound bytes and passed exact replay; its raw measurements are retained, but the preregistered semantic verdict is invalid."
+  },
+  "exact_checks": {
+    "native_replay_relative_squared_error": 0.0,
+    "head_source_sum_relative_squared_error": 4.8275858546165055e-15,
+    "value_split_relative_squared_error": 6.25881339127722e-16,
+    "installed_term_max_absolute_error": 0.0
+  },
+  "descriptive_only": {
+    "list_step_two_cached_donorward_fraction_fit": 1.0,
+    "list_step_two_cached_donorward_fraction_select": 1.0,
+    "list_step_two_cached_donor_answer_wins_fit": 0.78125,
+    "list_step_two_cached_donor_answer_wins_select": 0.84375,
+    "digit_copy_cached_passed_fit_and_select": true,
+    "word_copy_cached_passed_fit_and_select": true,
+    "interpretation": "This pattern is consistent with a successor-specific cached payload and inconsistent with the emitted broad-copy label, but it is not promoted from this misregistered result."
+  },
+  "repair": "Use untouched R567 FINAL_TEST/OOD rows. Treat list_step_two_conflict as the positive successor test and digit/word copy as negative controls; freeze all gates before opening those splits."
+}

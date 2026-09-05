@@ -1,0 +1,52 @@
+{
+  "schema": "circuit_prior_art_v1",
+  "candidate_id": "numeric_successor.attn8_h3_h7_cached_successor_final_ood_v1",
+  "created_utc": "2026-09-05T11:15:14Z",
+  "owner": "codex-cross-behavior-factors",
+  "question": "On untouched FINAL_TEST and OOD rows, does the exact L8H3+H7 cached final-number payload causally transfer the model's final-label-plus-one rule while preserving true copy controls?",
+  "semantic_correction": {
+    "positive_family": "list_step_two_conflict",
+    "reason": "R567 registered this family as last visible label plus one against arithmetic continuation, and R572 independently confirmed that behavior on FIT and SELECT before v4.",
+    "negative_families": ["sequence_digit_copy_control", "sequence_word_copy_control"],
+    "secondary_family": "list_repeated_index_control",
+    "v4_invalid_audit_sha256": "7a63f3b0f23a1562826400f01882aec3b28e9e2ebb70432cb6d3fa0a7dda9d10"
+  },
+  "frozen_inputs": {
+    "r567_rows_sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+    "r572_step_two_confirmation_sha256": "3df046bdcc4fa4387a2dbef084ed732c5f6a05232b7fa64072af3cd4939daea1",
+    "list_semantic_map_sha256": "b4f4f8e58c03deb3a015141656572dcf1fd0fe0c12027c358b441459c245c16b",
+    "numeric_semantic_map_sha256": "a6a98715617cf91971655c252553f42d45b59937ecfbf46722b518333721de1d"
+  },
+  "split_policy": {
+    "opened": ["FINAL_TEST", "OOD"],
+    "closed_for_selection": ["FIT", "SELECT"],
+    "rows": "Every row in each declared family and split; deterministic complete adjacent-final-number pairing frozen by the model-free authority compiler before execution."
+  },
+  "intervention": {
+    "layer": 8,
+    "heads": [3, 7],
+    "factor": "cached_value_only",
+    "source": "mapped final semantic number",
+    "query": "mapped final query",
+    "operation": "Replace the donor cached-value factor only in the exact final-source H3+H7 summand; retain native attention scores and native current-value terms."
+  },
+  "bars": {
+    "minimum_native_accuracy_each_positive_and_negative_family": 0.85,
+    "minimum_positive_donorward_fraction": 0.75,
+    "minimum_positive_donor_answer_win_fraction": 0.60,
+    "minimum_positive_mean_donor_ce_gain": 0.0,
+    "minimum_intervention_norm_fraction_of_frozen_v3_cached_target_scale": 0.10,
+    "minimum_negative_answer_preservation": 0.75,
+    "maximum_negative_absolute_mean_ce_change": 0.10,
+    "maximum_negative_median_margin_change_fraction_of_frozen_v3_cached_target_scale": 0.25,
+    "exact_replay_and_factor_tolerances": "Same 1e-10 replay/decomposition and 1e-5 installed-term bars as v2-v4."
+  },
+  "frozen_outcomes": {
+    "cached_successor_payload_selective_ood": "Both held-out splits pass every positive transfer and negative copy-control bar.",
+    "cached_payload_not_selective": "Positive transfer passes but at least one capable negative copy-control bar fails.",
+    "no_held_out_successor_transfer": "Instrument and native capability pass, but positive transfer fails.",
+    "invalid": "Any native capability, authority hash, liveness, or exactness gate fails."
+  },
+  "claim_scope": "This can identify a fixed H3+H7 cached successor payload across list/digit/step-two constructions when combined with the already frozen cross-format target leg. It does not identify either head alone or a globally shared numeral variable.",
+  "anti_rank_gate": "No rank, reconstruction, variance, quantization, or fitted basis is computed."
+}

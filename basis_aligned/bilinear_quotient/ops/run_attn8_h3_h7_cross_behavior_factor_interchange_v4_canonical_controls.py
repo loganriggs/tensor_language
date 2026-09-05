@@ -9,6 +9,7 @@ from collections import defaultdict
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import statistics
 import sys
@@ -183,7 +184,8 @@ def score(evidence, exactness, target, bars):
 
 def main():
     plan = compile_plan()
-    if "--dry-run" in sys.argv:
+    if "--dry-run" in sys.argv or os.environ.get("BQLIB_DRYRUN") == "1" \
+            or os.environ.get("BQLIB_NO_MODEL") == "1":
         print(json.dumps(plan, indent=2, sort_keys=True)); return
     if OUT.exists(): raise RuntimeError(f"refusing to overwrite {OUT}")
     model, checkpoint = exact.r573.facade.load_bilin18(
