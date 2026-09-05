@@ -33,5 +33,7 @@ def test_semantic_positions_and_active_controls_are_explicit():
                          row["cross_opposite"], *row["controls"].values()):
             assert len(endpoint["source_positions"]) == 3
             assert endpoint["query_position"] == len(endpoint["ids"])-1
+            assert authority.ENC.encode(endpoint["text"] + endpoint["answer_text"]) == \
+                endpoint["ids"] + [endpoint["answer_id"]]
         for control in row["controls"].values():
             assert control["answer_id"] != control["preference_foil_id"]

@@ -140,6 +140,9 @@ def validate_rows(rows, verify_frozen_hash=True):
             if len(endpoint["source_positions"]) != 3 \
                     or endpoint["query_position"] != len(endpoint["ids"])-1:
                 raise ValueError("semantic source/query mapping changed")
+            if ENC.encode(endpoint["text"] + endpoint["answer_text"]) != \
+                    endpoint["ids"] + [endpoint["answer_id"]]:
+                raise ValueError("prompt and registered answer do not tokenize jointly")
     digest = canonical_sha256(rows)
     if verify_frozen_hash and digest != EXPECTED_ROWS_SHA256:
         raise ValueError(f"paired authority digest changed: {digest}")
