@@ -74,11 +74,20 @@ def _phrase(adjective: str, noun: str) -> str:
 
 
 def _notes(noun: str) -> str:
-    return f"In the notes the {noun} appeared often, the one"
+    """A1.
+
+    v1 used "In the notes the {noun} appeared often, the one" and it was the weakest family:
+    mean native margin +1.75 with a minimum of -2.36. `ops/screen_repro.py` showed the run died
+    in `kernel.signed_pairwise_donor_recovery`, which requires a strictly positive donor-versus-
+    base separation on EVERY row -- stricter than the 0.85-per-cell capability gate a weak
+    behaviour can still pass. Both frames are now definite and mention-based, the shape that
+    measured +3.77 in v1.
+    """
+    return f"The record mentions the {noun} twice, the one"
 
 
 def _record(noun: str) -> str:
-    return f"The record mentions a {noun} twice, the one"
+    return f"The list also names the {noun}, the one"
 
 
 def _answer(animate: bool) -> str:

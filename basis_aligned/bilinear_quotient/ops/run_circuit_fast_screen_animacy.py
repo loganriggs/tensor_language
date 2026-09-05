@@ -14,14 +14,14 @@ import circuit_fast_screen_spec as screen
 ROOT = Path(__file__).resolve().parent.parent
 PRIOR_ART = ROOT / "circuits/fast_screen_animacy_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/animacy_state_who_vs_which_v1_result.json"
+    "circuits/fast_screens/animacy_state_who_vs_which_v2_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "animacy-state-who-vs-which-v1"
-EXPERIMENT_ID = "fast-screen-animacy-state-who-vs-which-v1"
+REQUEST_ID = "animacy-state-who-vs-which-v2"
+EXPERIMENT_ID = "fast-screen-animacy-state-who-vs-which-v2"
 EXPECTED_AUTHORITY_SHA256 = (
-    "0e94a98181b06fdbe5e972c164c81d10e270a331c241628af0147115d161b689"
+    "c3610a891abf472436f7a4fa604d7525d81329360abebc70ec3913418433d564"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
     "558c8d59fd82a1077b0f3bbf47ae0180328980d001d6305d6052ab504f4b566a"

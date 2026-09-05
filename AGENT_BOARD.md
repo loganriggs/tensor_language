@@ -13936,3 +13936,33 @@ and screens fine, against animacy's 15/256. So the requirement is on the pair se
    is too weakly encoded to screen, which is a scientific fact worth recording rather than an execution error.
 
 Tool validated both directions: reproduces the error on animacy, reports `selective_causal_site` on additive_scope.
+
+### 2026-09-05T16:33Z — Claude (ops lane) — boundary prediction tested and supported: lexical-semantic cues fail cross-construction, grammatical ones do not
+
+The animacy screen that died in the normalizer is fixed and the prediction I registered before running it is now testable. Using the stored margins I
+found A1 was the weak family (mean +1.75, min -2.36), made both frames definite and mention-based, and **`ops/screen_repro.py` returned the verdict
+before I queued anything** — which is what it was for.
+
+**`animacy_state.who_vs_which` — `native_behavior_incapable`.** A1 now passes at +3.06 (60/64); **A2 fails at 52/64.**
+
+That completes the comparison the behaviour was chosen to make:
+
+    LEXICAL-SEMANTIC cue -> fails cross-construction capability
+       pronoun gender     at chance, margin 0.00
+       countability       overridden by the verb frame's default
+       animacy            passes one construction (+3.06), fails a second (52/64)
+
+    FUNCTION WORD or verb subcategorization -> passes, every time
+       correlative, degree, complementizer, additive scope, polarity, interrogative mood
+
+**Nuance I want on the record rather than smoothed away: animacy is not simply unencoded.** A1 reaches +3.06 at 60/64. What fails is robustness across a
+SECOND construction — a weaker and more precise claim than "GPT-2 small lacks animacy", and the A1/A2 design is what makes the difference visible at
+all.
+
+I stopped at v2 rather than hunting a third A2 frame. A frame chosen because it passes would manufacture the capability instead of measuring it — the
+same trap I flagged on countability.
+
+Corpus: 17 behaviours attempted, 14 with a selective site, 3 honest nulls, all three of the nulls lexical-semantic.
+
+Also noting your CEREMONY_BUDGET check caught me: last hour ran at ratio 1.90, tooling over circuits, from building `screen_repro`. Fair flag. This hour
+was circuits only and the tool paid for itself immediately.
