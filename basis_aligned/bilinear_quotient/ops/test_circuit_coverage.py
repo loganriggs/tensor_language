@@ -17,6 +17,8 @@ def test_generated_coverage_contains_only_canonical_task_records():
     assert set(result["records"]) == {
         "task.bracket.pending_opener", "task.increment.state", "task.induction.selector_payload",
         "task.successor.pointer", "subroutine.induction.equality_score",
+        "task.numbered_list.index_successor", "task.numeric_sequence.continuation",
+        "task.subject_verb.number_agreement",
     }
     assert len(result["categories"]) == 8
 

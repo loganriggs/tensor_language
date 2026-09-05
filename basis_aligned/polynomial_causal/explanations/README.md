@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_0421.md](explanation_2026-09-05_0421.md) — the circuit-scale operating goal; why target
+  transfer must be separated from P/C control responses; the corrected shared-numeral interpretation at attention 8;
+  byte-identical declarative numeric candidate builders; and the reviewed fast-screen-to-canonical publication path
+  that upgrades subject–verb agreement from stale “site missing” bookkeeping to a screen-tier attention-11 site
 - [explanation_2026-09-04_1650.md](explanation_2026-09-04_1650.md) — the new attention-11 head/complement causal
   factorial showing that all eight other heads jointly recover only 0.64–1.79% and interact with head 11.3 by at most 1.07%; an inline
   percentage graph; the invalid enqueue-preflight correction; the leakage-safe DISCOVERY endpoint shard; the frozen projector loss,

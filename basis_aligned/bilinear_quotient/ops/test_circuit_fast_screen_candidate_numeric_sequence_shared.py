@@ -34,17 +34,17 @@ CASES = (
         "circuit_fast_screen_candidate_p_family",
         "run_circuit_fast_screen_p_family",
         "5e6e2c8669c0d082e9b85ce2b925c6b21f8f875f4a47229ae4870de181a79489",
-        "edbe4d4d0d4835aa31068630646941828b086013664c41d80f555bd1e7a68b40",
+        "d380ade42e34a1d652cf4a59813f69009d534abb79d8b59a22094eeab8e499fb",
         "70af537ff79be361b579ff36d3610512f309f0e5a4d2bb47dc36bbc11c6653b6",
-        "b0c7d043bb7e750973dc3b8d2561699b0e139ede3fd91ff880221f7dd8b793f4",
+        "64aeaca61adf72881ee0fadb8d31765435e9b0f1dbc31fa481948defdcf997db",
     ),
     (
         "circuit_fast_screen_candidate_a2_family",
         "run_circuit_fast_screen_a2_family",
         "c830386d049a3894e30f9b900cef8d26d4863d2b919371193f6a5cbcdfe39872",
-        "33897b10dadb2530867c33d7b45a98ae5033cb348baaf2d631ca16d99842d1b7",
+        "40559dac015345c5f82d992922c09c2b6f16cae8622cddc0c0fcd0aaa7ab80cb",
         "19fdd8c8de78ebd73fa9054d8fa3b873efdbb4dbe3217edf249508eb4591d428",
-        "498a7e206976999eb9e81fe07385825bffdd3c3325c5bd258b2eec2c4760c223",
+        "7eedc86b0e2dcb514ce602be61880a62c6d0f4c650e20bdee24fa24838160b45",
     ),
 )
 
