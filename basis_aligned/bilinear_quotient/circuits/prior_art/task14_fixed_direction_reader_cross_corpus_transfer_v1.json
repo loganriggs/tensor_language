@@ -1,0 +1,22 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.fixed_direction_reader_cross_corpus_transfer_v1",
+  "created_utc": "2026-09-05T22:31:00Z",
+  "purpose": "Prospectively test whether two frozen projected-write direction readers predict the complete grouped-MLP6--7 causal lattice on disjoint nouns and unseen inside/above syntax without any downstream backward pass on target text.",
+  "data_status": "NEW_TEXT; native capability first; 512 fixed-reader predictions sealed before all causal outcomes",
+  "authority": {"path": "ops/circuit_fast_screen_candidate_task14_fixed_reader_transfer.py", "file_sha256": "04e247b848f4f13870033a6176cda2286b026056dce4998487ead290111d4de7", "logical_sha256": "68ccb475b41e8f566dc4ac11d293429065e81b156ee19e3a4f6f229b1defb75e", "rows": 32, "endpoints": 96, "templates": ["inside_above", "above_inside"], "noun_forms": 32},
+  "fixed_reader_artifact": {"path": "circuits/fast_screens/task14_mlp6_7_fixed_direction_reader_artifact_v2_result.json", "sha256": "9db4eefe16498cb65fb9c21ea3f2475c790c89ebb2e65a70e8ad6b7886f2ae57", "reader_count": 2, "reader_width": 1152, "note": "Instrument/export gates pass; ambient distinctness gate is an explicit null."},
+  "novelty_audit": ["No prior event freezes downstream readers on one corpus and predicts a new corpus without target-tail gradients.", "This tests extraction, OOD-style syntax transfer, composition, and operational reader reuse; it does not fit rank or causal outcomes."],
+  "stages": {"native_capability": "All twelve direction-template-role cells >=0.75 accuracy.", "sealed_prediction": "Generate new-text head displacements only, then dot with the already-frozen direction reader; zero downstream backward passes and zero causal outcomes.", "causal_validation": "After binding the prediction SHA, evaluate the complete base/exact E/A/U/W lattice and score with no fitting."},
+  "predictions": {
+    "pred_a_instrument_and_temporal_seal": "All hashes/licenses/closures pass and exactly 512 sealed predictions precede 512 causal targets.",
+    "pred_b_fixed_readers_transfer": "Overall cosine >=0.90, relative L2 error <=0.45, and sign agreement >=0.85.",
+    "pred_c_intermediate_composition_transfers": "The 448 intermediate amplitudes have cosine >=0.90, relative L2 error <=0.45, and sign agreement >=0.85.",
+    "pred_d_each_new_template_transfers": "Each template has cosine >=0.80, relative L2 error <=0.60, and sign agreement >=0.75.",
+    "pred_e_direction_choice_is_necessary": "Correct frozen readers reduce SSE at least 50% versus swapping the two readers between answer directions.",
+    "pred_f_no_target_tail_or_calibration": "Prediction uses zero target-tail backwards and no fitted scale, offset, endpoint, or causal q."
+  },
+  "null": "Failure of b-d means reader reuse is corpus-specific despite within-corpus LOO transfer. Failure of e means direction labels are unnecessary. No rescaling may rescue a gate. Ambient reader cosine is not re-tested or claimed.",
+  "price": {"native_capability": {"physical_model_forwards": 1, "example_evaluations": 96}, "sealed_prediction": {"physical_model_forwards": 1, "example_evaluations": 96, "backwards": 0, "causal_interventions": 0, "sealed_predictions": 512}, "causal_validation": {"physical_model_forwards": 5, "example_evaluations": 1120, "causal_interventions": 1024}, "total": {"physical_model_forwards": 7, "example_evaluations": 1312, "backwards": 0, "causal_interventions": 1024, "parameter_updates": 0}},
+  "closed_claims": ["other_tasks", "ambient_axis_uniqueness", "rank", "compression", "activation_reconstruction"]
+}
