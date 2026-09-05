@@ -46,6 +46,10 @@ def test_task14_plan_binds_real_ledger_result_and_nontrivial_site() -> None:
     assert metrics["P_normalized_margin_movement"] == pytest.approx(0.0331384574)
     assert metrics["C_absolute_recovery"] == pytest.approx(0.0356467249)
     assert metrics["passing_nonresidual_site_count"] == 2
+    assert len(plan["interpretation_limits"]) == 1
+    assert "not by itself discriminating evidence of cross-behavior selectivity" in \
+        plan["interpretation_limits"][0]
+    assert "active unrelated-behavior control" in plan["interpretation_limits"][0]
 
 
 def test_unknown_semantic_mapping_fails_before_a_plan_exists() -> None:

@@ -285,6 +285,18 @@ def build_plan(spec: Mapping[str, Any], *, root: Path = BQ) -> dict[str, Any]:
     known_families = {family["family_id"] for family in source_claim["counterfactual_families"]}
     if not set(value["transform_to_family_id"].values()) <= known_families:
         raise FastScreenPublishError("publication maps a transform to an unknown canonical family")
+    families = {
+        family["family_id"]: family for family in source_claim["counterfactual_families"]
+    }
+    c_family = families[value["transform_to_family_id"]["C"]]
+    c_text = " ".join(c_family.get("holds_fixed", [])).lower()
+    interpretation_limits = []
+    if "answer" in c_text:
+        interpretation_limits.append(
+            "The C family holds the endpoint answer fixed. Its absolute <=0.35 gate is "
+            "descriptive invariance, not by itself discriminating evidence of cross-behavior "
+            "selectivity; promotion still requires an active unrelated-behavior control."
+        )
     known_splits = {item["split_plan_id"] for item in record.get("split_plans", [])}
     if value["split_plan_id"] not in known_splits:
         raise FastScreenPublishError("publication names an unknown split plan")
@@ -365,6 +377,7 @@ def build_plan(spec: Mapping[str, Any], *, root: Path = BQ) -> dict[str, Any]:
         "event": event,
         "claim_revision": revision,
         "claim_ledger_policy": value["claim_ledger_policy"],
+        "interpretation_limits": interpretation_limits,
     }
 
 
