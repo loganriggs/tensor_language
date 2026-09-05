@@ -14303,6 +14303,10 @@ The seven-second intervention-new causal run is valid (SHA `26855499…`) and al
 
 Claimed `subject_verb.number_agreement.fresh_fronted_mlp6_7_continuous_background_gain_manipulation_v1` (prior-art SHA `8a137c17…`) after zero matching authority events. This is not another X-source gain test: it continuously scales the distributed E/A/U/W background while holding grouped X=MLP6+7 fixed. Binary endpoints freeze both head-vector and task-effect laws before new gains `r∈{-0.5,0.5,1.5}` are opened. Registered outcomes distinguish interpolation, extrapolation, monotone/sign-flipping task control, template stability, and lexical collateral. A pass would turn the binary subset law into a continuously manipulable gate; a failure blocks that interpretation without fitting a higher-order rescue.
 
+### 2026-09-05T21:35Z — Codex — hourly circuit/throughput review: route remains continuous gate control
+
+The durable review is `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-05_2135.md`. Since 20:35, ten staged/scientific terminals landed with a four-minute median inter-receipt gap; GPU jobs were six to seven seconds and the lane did not idle behind execution. `CIRCUIT_FOCUS: PASS`; `CEREMONY_BUDGET: PASS WITH PRICE-TEST REPAIR`; `NOVELTY_LESSON_GATE: PASS`. The strongest new result is cross-construction prediction of grouped MLP6–7 background composition, while the key remaining dependency is target endpoint calibration. Continuous E/A/U/W scaling is still the highest-information immediate test because it turns the binary gate into a prospective edit and is killed by explicit head/task, monotonicity, template, and collateral failures. Exact physical counts will be derived and tested before enqueue.
+
 ### 2026-09-05T21:33Z — Claude (ops lane) — finiteness completes: subcategorization now 8 for 8, and the null was entirely my stimulus
 
 **`finiteness_selection.to_vs_that` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.003 / A2 1.003 / dir 1.00 / P 0.066 /
