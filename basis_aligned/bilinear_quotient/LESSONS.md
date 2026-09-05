@@ -2929,3 +2929,21 @@ not require the proposed computation, and first verify that the removed tensor i
 is incomplete until it searches the task dossier's methodological corrections as well as earlier experiments with
 the same site or intervention. Frozen terminal labels remain immutable, but an interpretation audit must explicitly
 exclude any predicate built from a semantically invalid control.
+
+## LESSON 117 — a structured downstream response is not evidence that the response mediates behavior
+
+R549 changed the full layer-13 head-8 pending-opener state and found four downstream outputs whose response vectors
+met its frozen classification and control-cosine criteria: layer-14 head 1, layer-15 head 3, MLP15, and layer-16
+head 1. That evidence was useful localization, but it did not intervene on the downstream responses. Fresh exact
+tests now remove either the shared opener term or its delimiter-specific term, restore one response to its native
+final-position write, and rerun the suffix. MLP15 recovered only 1.3%-2.2% of the centered closer-logit effect and
+made median correct-answer CE slightly worse. Each of the three attention heads recovered at most 0.12% on the
+target constructions, with CE rescue at most 0.00049 nat. All instruments and exact replays were live.
+
+**How to apply.** Treat activation-response classification, cosine, and natural-response norm as site-localization
+screens only. Before calling a downstream unit a reader or mediator, perform the corresponding causal rescue:
+change the upstream variable, restore the candidate's native write under that changed state, rerun the downstream
+model, and measure recovery of task logits and CE. A high response cosine can coexist with negligible recovered
+magnitude. Preserve such failures as causal nulls, and do not rerun the same response atlas with another rank,
+projector, or reconstruction target. When individual rescues are negligible, test one preregistered joint corner
+for a multiple-mediator interaction before widening to grouped whole modules.
