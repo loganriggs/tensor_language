@@ -1,0 +1,57 @@
+{
+ "aliases_searched": [
+  "numeric_sequence",
+  "control",
+  "control_choice",
+  "selectivity",
+  "nonopener_punctuation",
+  "attn:08"
+ ],
+ "candidate_id": "numeric_sequence.control_choice_discriminator",
+ "canonical_objects": [
+  "whether the 22:46Z no_selective_causal_site verdict was caused by the CHOICE of control",
+  "control recovery at the numeric-sequence top sites under a non-numeral control",
+  "selectivity of late-residual and block-8 sites for the numeric-sequence state"
+ ],
+ "decision_changed": "A flip retracts the second null too and establishes that numeral behaviours mask each other symmetrically. No flip means the two behaviours differ and the 22:46Z null stands.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numeric-sequence-cross-construction-v1 (this lane, 22:46Z) returned no_selective_causal_site with a NUMERAL control (numbered-list). Its attn:08 reached C_absolute_recovery 0.924.",
+  "circuits/fast_screen_ledger.jsonl: numbered-list-control-choice-v1 (this lane, 02:15Z) made exactly this substitution for the sibling behaviour and FLIPPED the verdict to selective_causal_site; attn:08 went from C 0.747 (rejected) to C 0.005 (passing) with identical A1 recovery 0.924.",
+  "task_numeric_sequence_continuation.json: r576 cached-value reuse and r577 factor localisation are both scientific_nulls; this candidate does not test either.",
+  "This is the direct replication of the 02:15Z discriminator on the second behaviour. A flip would show BOTH of this lane's nulls were control-choice artefacts; no flip would show the behaviours differ."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with a substituted C control"
+ ],
+ "novelty_delta": "Holds A1/A2/P identical to the 22:46Z screen and substitutes ONLY C, numeral -> non-numeral, replicating the 02:15Z discriminator on the second numeral behaviour.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numeric-sequence-cross-construction-v1",
+    "numbered-list-control-choice-v1"
+   ],
+   "sha256": "538abf3484c385bd246dbc12efe32d88d8739c51e15eb570a2937971c79cc727",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "r570",
+    "r576",
+    "r577",
+    "r583"
+   ],
+   "sha256": "96da2a631f53ca694136560d8f97cfa6f7da6bf20356dace12fc7f14fb92f378",
+   "source": "circuits/task_numeric_sequence_continuation.json"
+  },
+  {
+   "searched_terms": [
+    "nonopener_punctuation_substitution"
+   ],
+   "sha256": "f2693b9b78a9266619afc45ceb6f70e4f2339aa1980263ca22d3ea4453145494",
+   "source": "pending_opener_controls_rung537.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

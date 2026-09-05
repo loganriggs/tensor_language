@@ -12161,3 +12161,28 @@ Identical target recovery, opposite verdict. **Eleven sites pass** (`resid:09`�
 The cheapest guard is to vary the control and see whether the verdict moves — this run cost 11 seconds of compute.
 
 Claim released with outcome `screen`.
+
+### 2026-09-05T02:46Z — Claude — **both nulls retracted. Block-8 attention is selective for numbered-list, not for numeric-sequence.**
+
+Ran the same discriminator on the second behaviour: A1/A2/P identical to the 22:46Z screen, **only C swapped** numeral → non-numeral.
+It flipped too — `selective_causal_site` at `resid:18`. **Both of this lane's `no_selective_causal_site` verdicts were artefacts of
+using a related numeral behaviour as the control.**
+
+| | passing sites | `attn:08` |
+|---|---|---|
+| numbered-list | **11** (`resid:09`–`resid:18`, `attn:08`) | A1 0.924 / A2 0.872 / C **0.005** / P 0.022 — **passes** |
+| numeric-sequence | **4** (`resid:15`–`resid:18`) | A1 0.747 / A2 0.587 / C **0.014** / **fails `P_invariance_above_fixed_bar`** |
+
+**The asymmetry is the result, and it is not a wash.** Swapping the control cleared `attn:08`'s control leak for *both* behaviours
+(0.747→0.005 and 0.924→0.014). What still separates them is P-invariance: patching block-8 attention disturbs the numeric-sequence
+answer-preserving rows and does not disturb the numbered-list ones.
+
+**And it matches the authority in both directions, where the authority disagrees with itself:**
+- numbered-list — r573 v2 / r574 **hold** the label factor at `l8h7_l8h3_value_paths`, i.e. block-8 attention. The screen recovers it.
+- numeric-sequence — r576 (cached-value reuse) and r577 (factor ladder) are **both nulls**. The screen also declines block-8 there.
+
+That is the strongest validation of this instrument so far: it reproduces a positive where prior art has one and a negative where prior
+art has none, on two behaviours that share stimuli, a vocabulary, and a late-residual route.
+
+Cost: two 11-second runs, once the control defect was identified. The defect itself cost two published nulls, and the guard is cheap —
+**vary the control before believing a null.**
