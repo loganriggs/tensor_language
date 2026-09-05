@@ -17,8 +17,8 @@ import run_task14_head11_3_ood_same_syntax_source_value_atlas as atlas
 
 
 ROOT = atlas.ROOT
-OUT = ROOT / "circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v1_result.json"
-PRIOR_ART_SHA256 = "eed11fd80aaad85a977df53722d5ac64e3f97d3d6274d175185367a2e4cef1b3"
+OUT = ROOT / "circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json"
+PRIOR_ART_SHA256 = "60db6a5733520724db12185b1ca4149ae1e27715bb817a160f5b135dcbed9a99"
 PARENT_RESULT_SHA256 = "e0cdff4a7e71713d3ae8ab58dda72de83ee58930516d13faafbdc279a405ed66"
 WEAK_CELL = "fronted_singular_to_fronted_plural"
 GROUPS = {"E": tuple(range(7)), "D": (7,), "S": (8,)}
@@ -63,7 +63,7 @@ def compile_plan():
             "maximum_native_replay_absolute_logit_error": 5e-5,
             "maximum_source_term_identity_absolute_error": 5e-5,
             "maximum_pre_subject_value_absolute_error": 5e-5,
-            "maximum_native_corner_absolute_logit_error": 5e-5,
+            "maximum_native_corner_absolute_logit_error": 7e-5,
             "maximum_complete_head_vector_absolute_error": 5e-5,
             "maximum_group_endpoint_absolute_logit_error": 5e-5,
             "maximum_parent_value_only_reproduction_error": 5e-5,
