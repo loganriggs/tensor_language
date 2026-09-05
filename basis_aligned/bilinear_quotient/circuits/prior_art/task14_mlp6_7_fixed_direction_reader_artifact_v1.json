@@ -1,0 +1,25 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_fixed_direction_reader_artifact_v1",
+  "created_utc": "2026-09-05T22:20:00Z",
+  "purpose": "Freeze the two direction-conditioned L11H3 downstream reader vectors needed for a no-new-tail-backward prospective cross-corpus test.",
+  "data_status": "CURRENT CORPUS READER EXTRACTION ONLY; no new causal outcome; exported vectors must be committed before the next text authority is opened",
+  "binding_parent": {
+    "path": "circuits/fast_screens/task14_mlp6_7_direction_shared_reader_transfer_v1_result.json",
+    "sha256": "c45ed6a7874a778ce7b29627b8a7ecd5562dc7e7574254bf91bcc710d18a4d46",
+    "finding": "Direction-LOO readers predict 512 amplitudes at cosine 0.9733 and perfect signs, while a global reader fails."
+  },
+  "novelty_audit": [
+    "Searches for fixed direction reader, mean direction gradient artifact, and reader export found no prior event.",
+    "This freezes an operational interface for prospective transfer; it does not fit rank, activations, or causal outcomes."
+  ],
+  "map": "Recompute each row's target-free central downstream answer-margin gradient using the already-registered 32-head centroid. Arithmetic-average the sixteen gradients in each signed answer direction and atomically store exactly two 128-coordinate float32 reader vectors. No causal q enters extraction.",
+  "predictions": {
+    "pred_a_gradient_instrument": "All source/downstream closures <=5e-5 and all 32 gradients are finite and nonzero.",
+    "pred_b_two_readers_exported": "Exactly two finite 128-coordinate direction readers are atomically written.",
+    "pred_c_direction_readers_are_distinct": "Their cosine is at most -0.50, consistent with the failed global-reader control and signed answer convention."
+  },
+  "null": "Instrument failure invalidates export. Failure of b blocks transfer. Failure of c means direction conditioning is not geometrically expressed in the mean readers despite its functional benefit; still preserve the artifact but do not claim distinct readers.",
+  "price": {"physical_model_forwards": 2, "example_evaluations": 128, "backwards": 1, "causal_interventions": 0, "parameter_updates": 0, "stored_scalars": 256},
+  "closed_claims": ["prospective_transfer", "global_reader", "rank", "compression", "activation_reconstruction"]
+}
