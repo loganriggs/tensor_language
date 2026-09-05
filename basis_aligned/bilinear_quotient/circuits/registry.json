@@ -875,18 +875,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "61507926fb8a811efbab96ba182f47ad53dd09c10bf87f8bf64a9cda67a7ae6d",
+   "record_sha256": "614cc318202edba9823812698e57ea03e3802cee2c23a432be3037a4a2f41284",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "grammatical_subject_number.v7",
+   "active_claim_id": "grammatical_subject_number.v8",
    "claim_status": "site_live",
    "causal_variable_id": "complete_grammatical_subject_number",
    "interchange_family_count": 4,
    "invariance_family_count": 3,
-   "negative_event_count": 1,
-   "active_negative_event_count": 0,
-   "latest_blocker": null,
-   "latest_active_event": "task14_head11_3_cross_circuit_collateral.select.held.v1",
+   "negative_event_count": 2,
+   "active_negative_event_count": 1,
+   "latest_blocker": "task14_head11_3.ood.construction_general.null.v1",
+   "latest_active_event": "task14_head11_3.ood.construction_general.null.v1",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
     "task14_subject_number_localization.fit.preregistered.v2",
@@ -895,7 +895,9 @@
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
     "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-    "task14_head11_3_cross_circuit_collateral.select.held.v1"
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1"
    ],
    "held_test_types": [
     "capability",
@@ -904,10 +906,13 @@
     "null_control",
     "removal"
    ],
-   "active_blocking_test_types": [],
+   "active_blocking_test_types": [
+    "ood"
+   ],
    "design_keys": [
     "0535e80f168d12207fe39ec82291ff82ed60c83cdb9c02ee3bc14fa690f7158e",
     "0a5a932f5efe50758bbe39752b68772e7b3c389ee761cd4c6933698f91095da9",
+    "38c80351833491f97b6407497fcecc9dcac3af9c878f7bd0fd8be3c08a4a652a",
     "481eb182f82eaf4be6ff6de42c77c32cfbea7348a521da375a87e30670ed60c1",
     "65b7b948e258751e5d3f7bce6c9d6b00aa1e3ba70220767efa6913901fe911e9",
     "6fffb67974bc0c93ec560a57908f58c6a48575c76451539d716d5066def707a4",
@@ -915,6 +920,7 @@
     "93a373b5e8dd1f5e217f65d7055952eb9ef586fe3e67fedaa64f4c106d0f9b05",
     "abaeb4335cad9bd0dbc33db5a072ec9653ada728470961ed490c6e12503d1deb",
     "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",
+    "c6546ea0323169e810c985c7a01824e8e1caa8b0e87adfc7b3447a3db6517230",
     "db36285974665286b144dcfb2e83c4bef505998b497859528acc5bbbf636e4ea"
    ]
   },

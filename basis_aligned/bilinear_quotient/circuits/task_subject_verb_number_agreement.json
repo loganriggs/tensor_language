@@ -1613,6 +1613,254 @@
    ],
    "translation_ids": [],
    "next_missing": "open the frozen TEST/OOD syntax pool, then decompose the causal agreement contribution below the native head boundary; the two-behavior collateral result does not establish universal selectivity"
+  },
+  {
+   "claim_id": "grammatical_subject_number.v8",
+   "revision": 8,
+   "status": "site_live",
+   "supersedes": "grammatical_subject_number.v7",
+   "causal_variable": {
+    "id": "complete_grammatical_subject_number",
+    "domain": "singular or plural complete subjects across prepositional-phrase, relative-clause, noun-identity, and coordinated-subject constructions",
+    "read": "local noun morphology at the subject-head position and complete grammatical-subject number at the prediction position",
+    "operation": "transport or compose local subject information into a syntax-general complete-subject state",
+    "write": "signed evidence for the one-token continuation ' is' versus ' are' at the prediction position",
+    "endpoint": "are-minus-is logit contrast under finite natural-donor interchange, neutralization, reset, rescue, and joint intervention"
+   },
+   "alternative_explanations": [
+    "a local singular/plural noun-morphology coordinate rather than complete-subject number",
+    "the number or identity of the nearest distractor noun",
+    "a syntax-specific or noun-specific direction",
+    "a generic high-damage residual direction",
+    "separate unrelated singular, plural, or coordinated-subject mechanisms",
+    "a singleton effect that hides compensation or interaction with another site"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_subject_number_preposition_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a prepositional-phrase construction"
+     ],
+     "holds_fixed": [
+      "prepositional syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A2 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "a2_subject_number_relative_clause_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and the grammatical is/are answer in a relative-clause construction"
+     ],
+     "holds_fixed": [
+      "relative-clause syntax",
+      "attractor number",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "paired and two cross-noun donors",
+      "A1 cross-syntax donors",
+      "P same-state noun edits"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_cross_noun_subject_number_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "ordinary subject number and noun identities using a different semantic group"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "grammatical agreement operation",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "two independently frozen donor matchings",
+      "P paired same-state edit",
+      "cross-syntax transfer"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "p_noun_identity_same_state_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby noun identity while its number is preserved"
+     ],
+     "holds_fixed": [
+      "grammatical subject number",
+      "is/are answer",
+      "syntax and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1/A2 opposite-state projected effects",
+      "coordinate leakage",
+      "output leakage"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_attractor_number_coordinated_subject_v2",
+     "role": "invariance",
+     "changes": [
+      "nearby attractor number under a coordinated plural subject"
+     ],
+     "holds_fixed": [
+      "complete-subject plural number",
+      "registered ' are' answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "absolute coordinated-plural state alignment",
+      "bidirectional coordinated-to-singular transfer",
+      "all native C errors retained"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_cross_construction_transfer_v2",
+     "role": "interchange",
+     "changes": [
+      "complete-subject number between coordinated plural and ordinary singular constructions in both causal directions"
+     ],
+     "holds_fixed": [
+      "attractor number",
+      "answer position",
+      "FIT partition"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "A1 and A2 ordinary families separately",
+      "coordinated-to-ordinary and ordinary-to-coordinated directions separately",
+      "coordinated/ordinary plural same-state controls"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "c_complete_subject_plural_cross_construction_control_v2",
+     "role": "invariance",
+     "changes": [
+      "surface construction and noun identities between coordinated plural and ordinary plural subjects"
+     ],
+     "holds_fixed": [
+      "complete-subject plural state",
+      "registered ' are' answer",
+      "attractor number and answer position"
+     ],
+     "builder_artifact_id": "localization_v2_donors",
+     "control_ids": [
+      "direction-matched coordinated/singular causal effects",
+      "absolute coordinated-plural alignment",
+      "paired C attractor-number control"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    },
+    {
+     "family_id": "subject_number_coordinate_neutralization_v2",
+     "role": "necessity",
+     "changes": [
+      "only the proposed rank-one coordinate, replacing it by the discovery midpoint at one or two frozen sites"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "all residual coordinates orthogonal to the candidate",
+      "model weights and answer contrast"
+     ],
+     "builder_artifact_id": "localization_v2_prereg",
+     "control_ids": [
+      "four ordinary family-by-state cells",
+      "top-two Q joint neutralization when singleton necessity fails",
+      "rank-two and rank-four falsifiers"
+     ],
+     "split_plan_id": "task14_fit_localization_split_v2",
+     "status": "frozen"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.local_subject_head.all_boundaries.v2",
+     "tensor_path": "ordinary subject-head residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic subject-head position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal local-noun-number coordinate; coordinated subjects never enter an H success gate",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "residual.complete_subject_prediction_position.all_boundaries.v2",
+     "tensor_path": "final-prompt-position residual at normalized embedding and after complete blocks 0 through 17",
+     "shape": [
+      "batch",
+      "semantic final prediction position",
+      "1152"
+     ],
+     "intervention": "replace a learned orthogonal complete-subject-number coordinate using ordinary and coordinated natural donors",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "full attention block 11 output at the final prediction position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor replacement of the full attention-module output at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's 128-dimensional slice immediately before attention block 11's output projection, at the final prediction position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "exact donor replacement of this one pre-output-projection head slice at the final prediction position",
+     "ceiling_event_ids": [
+      "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "evidence_event_ids": [
+    "task14_subject_number_localization.fit.preregistered.v2",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "TEST transfer and removal held, but construction-general OOD transfer/removal did not; refine the hypothesis by OOD construction and decompose below the native head boundary before making a syntax-general claim"
   }
  ],
  "split_plans": [
@@ -1822,6 +2070,18 @@
   "task14_head11_3_cross_circuit_collateral_v1_result": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_cross_circuit_collateral_v1_result.json",
    "sha256": "57590fa85d1bec2f8235b8111c700721d3c5050140b9eccbd8196c703382806d",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_test_cross_noun_head11_3_transfer_removal_v1_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_test_cross_noun_head11_3_transfer_removal_v1_result.json",
+   "sha256": "43f26a634f82eecae7f70d2113236a05482a18e75676a86f8cc8b1386c0cb911",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "task14_ood_cross_noun_head11_3_transfer_removal_v1_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/task14_ood_cross_noun_head11_3_transfer_removal_v1_result.json",
+   "sha256": "e64ba78c1965f4fd0544b55c2509d87ffd7c8fad38856dee1b1d6c3eb7c1f391",
    "kind": "screen_result",
    "status": "frozen"
   }
@@ -2510,6 +2770,164 @@
    "notes": "Literal zero-removal of Task14 head 11.3 preserved two separately scored held-out behaviors. This is narrow cross-circuit selectivity evidence, not a universal collateral guarantee and not by itself a complete Task14 necessity result.",
    "design_key": "abaeb4335cad9bd0dbc33db5a072ec9653ada728470961ed490c6e12503d1deb",
    "execution_key": "d807183ef025d1d501c9ce2673856d4bc658eee502e243bf36d29bf63284a9d6"
+  },
+  {
+   "event_id": "task14_head11_3.test.transfer_removal.held.v1",
+   "claim_id": "grammatical_subject_number.v7",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [],
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "TEST_HELD_OUT_unseen_nouns_and_prompt_templates",
+   "metrics": [
+    {
+     "name": "minimum_native_target_or_donor_accuracy",
+     "estimate": 0.9375,
+     "ci95": null,
+     "bar": ">=0.85 in every frozen cell"
+    },
+    {
+     "name": "minimum_cross_noun_transfer_mean_recovery",
+     "estimate": 0.5397860823541515,
+     "ci95": null,
+     "bar": ">=0.4 in every frozen cell"
+    },
+    {
+     "name": "minimum_cross_noun_transfer_direction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every frozen cell"
+    },
+    {
+     "name": "minimum_literal_removal_median_damage",
+     "estimate": 0.38259215377135386,
+     "ci95": null,
+     "bar": ">=0.25 in every frozen cell"
+    },
+    {
+     "name": "minimum_literal_removal_positive_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every frozen cell"
+    },
+    {
+     "name": "passing_transfer_cell_count",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "4 of 4"
+    },
+    {
+     "name": "passing_removal_cell_count",
+     "estimate": 4,
+     "ci95": null,
+     "bar": "4 of 4"
+    },
+    {
+     "name": "native_head_replay_max_abs_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.0001"
+    },
+    {
+     "name": "minimum_native_head_norm",
+     "estimate": 24.726137161254883,
+     "ci95": null,
+     "bar": ">=1e-8"
+    }
+   ],
+   "prereg_artifact_id": null,
+   "result_artifact_id": "task14_test_cross_noun_head11_3_transfer_removal_v1_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Frozen TEST evidence: held on unseen nouns and prompt templates after FIT and SELECT.",
+   "design_key": "c6546ea0323169e810c985c7a01824e8e1caa8b0e87adfc7b3447a3db6517230",
+   "execution_key": "2975196a5728dfff62cfbcb1fad85ae6a6ca210ac3d688549b07eae92281adcb"
+  },
+  {
+   "event_id": "task14_head11_3.ood.construction_general.null.v1",
+   "claim_id": "grammatical_subject_number.v7",
+   "test_type": "ood",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [],
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "split_plan_id": null,
+   "evaluation_role": "OOD_HELD_OUT_fronted_or_two_attractor_syntax",
+   "metrics": [
+    {
+     "name": "minimum_native_target_or_donor_accuracy",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.85 in every frozen cell"
+    },
+    {
+     "name": "minimum_cross_noun_transfer_mean_recovery",
+     "estimate": 0.259567175281274,
+     "ci95": null,
+     "bar": ">=0.4 in every frozen cell"
+    },
+    {
+     "name": "minimum_cross_noun_transfer_direction_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every frozen cell"
+    },
+    {
+     "name": "minimum_literal_removal_median_damage",
+     "estimate": 0.05065988600088302,
+     "ci95": null,
+     "bar": ">=0.25 in every frozen cell"
+    },
+    {
+     "name": "minimum_literal_removal_positive_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 in every frozen cell"
+    },
+    {
+     "name": "passing_transfer_cell_count",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "4 of 4"
+    },
+    {
+     "name": "passing_removal_cell_count",
+     "estimate": 2,
+     "ci95": null,
+     "bar": "4 of 4"
+    },
+    {
+     "name": "native_head_replay_max_abs_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=0.0001"
+    },
+    {
+     "name": "minimum_native_head_norm",
+     "estimate": 30.401691436767578,
+     "ci95": null,
+     "bar": ">=1e-8"
+    }
+   ],
+   "prereg_artifact_id": null,
+   "result_artifact_id": "task14_ood_cross_noun_head11_3_transfer_removal_v1_result",
+   "input_artifact_ids": [],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "Construction-general OOD transfer/removal is a scientific null. Frozen reason is literally TEST_cross_noun_transfer_failed although phase is OOD; interpret it as the OOD cross-noun transfer null without changing the source bytes. Frozen pp_* cell IDs denote the OOD A1 family ood_fronted_two_attractors, not ordinary prepositional-phrase examples.",
+   "design_key": "38c80351833491f97b6407497fcecc9dcac3af9c878f7bd0fd8be3c08a4a652a",
+   "execution_key": "fcaa59d944d51c98f79dcd59175e85c24913a8cecd6e09e8dad1994d99445b74"
   }
  ]
 }
