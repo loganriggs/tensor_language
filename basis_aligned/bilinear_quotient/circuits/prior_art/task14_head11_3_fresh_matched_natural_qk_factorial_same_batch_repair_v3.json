@@ -1,0 +1,53 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_same_batch_repair_v3",
+  "created_utc": "2026-09-05",
+  "scientific_candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+  "purpose": "Replace the ill-posed cross-batch internal-head equality check with an output-level native/no-op replay using identical token order and batch shape.",
+  "v2_terminal": {
+    "result_path": "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v2_result.json",
+    "result_sha256": "d2655846b44aef36dfea791884ffe6899844a92fcb42e179c8ac3878f8b4d66f",
+    "terminal": "invalid",
+    "registered_exactness_only": {
+      "patched_dispatch_recipient_head_max_absolute_error": 0.000087738037109375,
+      "maximum_allowed": 0.00007,
+      "same_score_same_value_endpoint_max_absolute_error": 0.00002574920654296875
+    },
+    "scientific_outcomes_inspected_for_repair": false
+  },
+  "diagnosis": "V2 compared internal recipient head tensors captured in a 48-example role-block batch with tensors captured in a differently ordered 112-example patched batch. Their 8.7738e-5 difference is float32 batch-shape dependence, not a meaningful equality target. The task-level no-op endpoint already differed by only 2.5749e-5, but that comparison also used outputs from different batch shapes.",
+  "source_bindings": {
+    "scientific_preregistration_sha256": "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44",
+    "v2_numerical_repair_sha256": "1aaf9316c9475e8ca9a7ecc697d1f63d1f32dcecc2e37633dc8551926c0fce2b",
+    "v2_runner_sha256": "f3cde7e2019d270e0bd671f0c464eca8030d3275ef31519f81c31acf109067bd",
+    "capability_license_sha256": "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c"
+  },
+  "repair": {
+    "removed_claim": "No equality or tolerance claim is made between internal head tensors computed in different batch shapes or orders.",
+    "added_forward": "Evaluate the exact 112-example patched token batch once with the native model and no intervention.",
+    "replacement_metric": "same_batch_native_noop_endpoint_max_absolute_error",
+    "comparison": "For the sixteen same_score_same_value arms, reinstall the native recipient head captured inside that same 112-example patched dispatch, then compare its logits with native logits at the identical 112-example indices, token order, and batch shape.",
+    "effect_baselines": "For every causal arm, compute recipient/donor margins and full-vocabulary CE improvements against native_patch_batch at that exact arm index. The 48-example replay batch is used only for its separately registered native-versus-factor-replay exactness check.",
+    "registered_tolerance": 0.00007,
+    "failure_behavior": "A non-finite value or discrepancy above 7e-5 makes pred_a_instrument_live false and the v3 result invalid.",
+    "price": {
+      "model_forwards": 4,
+      "example_evaluations": 320,
+      "backwards": 0,
+      "parameter_updates": 0
+    }
+  },
+  "unchanged": [
+    "exact capability-license and candidate-ID preflight before model load",
+    "licensed HOLDOUT rows",
+    "48-example role factor capture and native/replay comparison",
+    "all seven causal arms and installed vectors",
+    "source-sum, installed-term, and complete-head-vector exactness bars",
+    "complete-head capability bars",
+    "fixed are-minus-is number-discrimination estimands",
+    "answer-directed donor margin and CE estimands",
+    "lexical-selectivity ratio and every scientific prediction/bar",
+    "closed claims and interpretation limits"
+  ],
+  "terminal_policy": "V2 remains invalid. V3 uses a new schema and output path and cannot rescore V2. This repair is exactness-only and provides no scientific evidence by itself."
+}

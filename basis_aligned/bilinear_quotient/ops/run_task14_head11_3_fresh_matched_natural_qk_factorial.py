@@ -22,11 +22,13 @@ import run_task14_head11_3_subject_attractor_score_payload_factorial as factors
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_numerical_repair_v2.json"
+PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_same_batch_repair_v3.json"
 SCIENTIFIC_PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_v1.json"
-OUT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v2_result.json"
-PRIOR_ART_SHA256 = "1aaf9316c9475e8ca9a7ecc697d1f63d1f32dcecc2e37633dc8551926c0fce2b"
+PREVIOUS_REPAIR_PRIOR_ART = ROOT / "circuits/prior_art/task14_head11_3_fresh_matched_natural_qk_factorial_numerical_repair_v2.json"
+OUT = ROOT / "circuits/fast_screens/task14_head11_3_fresh_matched_natural_qk_factorial_v3_result.json"
+PRIOR_ART_SHA256 = "1bb976d0cb4071cc025bdbf03818623d9fc949d579003fc24fc22990c059fded"
 SCIENTIFIC_PRIOR_ART_SHA256 = "d87ce6a857d1ac0dd58aee02822dad3a2fa99448bc3bfce4bddedd84a1034c44"
+PREVIOUS_REPAIR_PRIOR_ART_SHA256 = "1aaf9316c9475e8ca9a7ecc697d1f63d1f32dcecc2e37633dc8551926c0fce2b"
 EXPECTED_LICENSE_SHA256 = "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c"
 CAUSAL_CANDIDATE_ID = \
     "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1"
@@ -43,10 +45,9 @@ CONDITIONS = (
 BARS = {
     "maximum_native_replay_absolute_logit_error": 7e-5,
     "maximum_source_term_sum_absolute_error": 5e-5,
-    "maximum_same_score_same_value_endpoint_error": 7e-5,
+    "maximum_same_batch_native_noop_endpoint_error": 7e-5,
     "maximum_installed_term_absolute_error": 5e-5,
     "maximum_complete_head_vector_absolute_error": 5e-5,
-    "maximum_patched_dispatch_recipient_head_absolute_error": 7e-5,
     "minimum_complete_head_mean_donor_margin_improvement": .05,
     "minimum_complete_head_mean_donor_CE_improvement": 0.0,
     "minimum_complete_head_row_improvement_fraction": .75,
@@ -76,7 +77,8 @@ def build_rows() -> list[dict]:
 
 def validate_preflight() -> dict:
     if _sha256(PRIOR_ART) != PRIOR_ART_SHA256 \
-            or _sha256(SCIENTIFIC_PRIOR_ART) != SCIENTIFIC_PRIOR_ART_SHA256:
+            or _sha256(SCIENTIFIC_PRIOR_ART) != SCIENTIFIC_PRIOR_ART_SHA256 \
+            or _sha256(PREVIOUS_REPAIR_PRIOR_ART) != PREVIOUS_REPAIR_PRIOR_ART_SHA256:
         raise FactorialError("causal or numerical-repair prior-art receipt changed")
     if capability.authority.CAUSAL_CANDIDATE_ID != CAUSAL_CANDIDATE_ID:
         raise FactorialError("causal candidate ID changed")
@@ -90,13 +92,14 @@ def compile_plan() -> dict:
     license_value = validate_preflight()
     rows = build_rows()
     return {
-        "schema": "task14_head11_3_fresh_matched_natural_qk_factorial_plan_v2",
+        "schema": "task14_head11_3_fresh_matched_natural_qk_factorial_plan_v3",
         "candidate_id": CAUSAL_CANDIDATE_ID,
         "split": "LICENSED_HOLDOUT", "screen_tier": "BASIC",
         "row_count": len(rows),
         "authority_logical_sha256": capability.AUTHORITY_LOGICAL_SHA256,
         "prior_art_sha256": PRIOR_ART_SHA256,
         "scientific_prior_art_sha256": SCIENTIFIC_PRIOR_ART_SHA256,
+        "previous_repair_prior_art_sha256": PREVIOUS_REPAIR_PRIOR_ART_SHA256,
         "numerical_repair_only": True,
         "capability_license_sha256": EXPECTED_LICENSE_SHA256,
         "capability_result_sha256": license_value["capability_result_sha256"],
@@ -104,7 +107,7 @@ def compile_plan() -> dict:
         "conditions": list(CONDITIONS), "bars": dict(BARS),
         "site": {"layer": 11, "head": 3, "source_position": SELF_POSITION,
                  "destination_position": SELF_POSITION},
-        "price": {"model_forwards": 3, "example_evaluations": 208,
+        "price": {"model_forwards": 4, "example_evaluations": 320,
                   "backwards": 0, "parameter_updates": 0},
         "metrics": ["recipient_answer_margin", "donor_answer_margin",
                     "recipient_full_vocab_CE_improvement",
@@ -191,6 +194,30 @@ def _endpoint_metrics(logits, row, torch):
     }
 
 
+def _comparison_metrics(native_logits, observed_logits, row, torch):
+    """Compare one patched arm with its identical-index native batch baseline."""
+    baseline = _endpoint_metrics(native_logits, row, torch)
+    observed = _endpoint_metrics(observed_logits, row, torch)
+    return {
+        "native_recipient_margin": baseline["recipient_margin"],
+        "native_donor_margin": baseline["donor_margin"],
+        "recipient_margin": observed["recipient_margin"],
+        "donor_margin": observed["donor_margin"],
+        "recipient_margin_improvement": observed["recipient_margin"]-baseline["recipient_margin"],
+        "donor_margin_improvement": observed["donor_margin"]-baseline["donor_margin"],
+        "native_are_minus_is_margin": baseline["are_minus_is_margin"],
+        "are_minus_is_margin": observed["are_minus_is_margin"],
+        "are_minus_is_margin_effect": observed["are_minus_is_margin"]
+            - baseline["are_minus_is_margin"],
+        "native_recipient_CE": baseline["recipient_CE"],
+        "native_donor_CE": baseline["donor_CE"],
+        "recipient_CE": observed["recipient_CE"],
+        "donor_CE": observed["donor_CE"],
+        "recipient_CE_improvement": baseline["recipient_CE"]-observed["recipient_CE"],
+        "donor_CE_improvement": baseline["donor_CE"]-observed["donor_CE"],
+    }
+
+
 def evaluate(model, torch, F, facade):
     rows = build_rows(); count = len(rows); device = next(model.parameters()).device
     tokens, finals = _role_batch(rows, torch, device)
@@ -202,7 +229,8 @@ def evaluate(model, torch, F, facade):
     lexical = role_factors["same_number_different_lemma"]
     recipient_tokens = tokens[:count]
     patch = _compile_patch_batch(recipient_tokens, recipient, opposite, lexical, rows, torch)
-    patched, patched_factors = factors._factor_forward(
+    native_patch_batch = factors._native_logits(model, patch["tokens"], torch, F)
+    patched, _patched_factors = factors._factor_forward(
         model, patch["tokens"], patch["finals"], torch, F, facade,
         replacement_heads=patch["replacement_heads"])
 
@@ -212,34 +240,17 @@ def evaluate(model, torch, F, facade):
     exactness = {
         "native_replay_max_absolute_logit_error": float((native-replay).abs().max()),
         "source_term_sum_max_absolute_error": source_sum_error,
-        "same_score_same_value_endpoint_max_absolute_error": 0.0,
+        "same_batch_native_noop_endpoint_max_absolute_error": 0.0,
         "installed_term_max_absolute_error": 0.0,
         "complete_head_vector_max_absolute_error": 0.0,
-        "patched_dispatch_recipient_head_max_absolute_error": 0.0,
     }
-    native_recipient = replay[:count]
     evidence = []
     for output_index, (row_index, condition, cell_id) in enumerate(patch["specs"]):
         row = rows[row_index]
-        baseline = _endpoint_metrics(native_recipient[row_index, SELF_POSITION], row, torch)
-        observed = _endpoint_metrics(patched[output_index, SELF_POSITION], row, torch)
         evidence.append({
             "row_id": row["row_id"], "cell_id": cell_id, "condition": condition,
-            "native_recipient_margin": baseline["recipient_margin"],
-            "native_donor_margin": baseline["donor_margin"],
-            "recipient_margin": observed["recipient_margin"],
-            "donor_margin": observed["donor_margin"],
-            "recipient_margin_improvement": observed["recipient_margin"]-baseline["recipient_margin"],
-            "donor_margin_improvement": observed["donor_margin"]-baseline["donor_margin"],
-            "native_are_minus_is_margin": baseline["are_minus_is_margin"],
-            "are_minus_is_margin": observed["are_minus_is_margin"],
-            "are_minus_is_margin_effect": observed["are_minus_is_margin"]
-                - baseline["are_minus_is_margin"],
-            "native_recipient_CE": baseline["recipient_CE"],
-            "native_donor_CE": baseline["donor_CE"],
-            "recipient_CE": observed["recipient_CE"], "donor_CE": observed["donor_CE"],
-            "recipient_CE_improvement": baseline["recipient_CE"]-observed["recipient_CE"],
-            "donor_CE_improvement": baseline["donor_CE"]-observed["donor_CE"],
+            **_comparison_metrics(native_patch_batch[output_index, SELF_POSITION],
+                                  patched[output_index, SELF_POSITION], row, torch),
         })
         base_index = row_index
         native_term = recipient["p"][base_index, SELF_POSITION] \
@@ -256,13 +267,9 @@ def evaluate(model, torch, F, facade):
                 exactness["installed_term_max_absolute_error"],
                 float((observed_term-patch["expected_terms"][output_index]).abs().max()))
         if condition == "same_score_same_value":
-            exactness["same_score_same_value_endpoint_max_absolute_error"] = max(
-                exactness["same_score_same_value_endpoint_max_absolute_error"],
-                float((patched[output_index]-native_recipient[row_index]).abs().max()))
-    # Record batch-shape replay variation rather than requiring bitwise equality.
-    expected_native_heads = recipient["head"][patch["row_indices"]]
-    exactness["patched_dispatch_recipient_head_max_absolute_error"] = float(
-        (patched_factors["head"]-expected_native_heads).abs().max())
+            exactness["same_batch_native_noop_endpoint_max_absolute_error"] = max(
+                exactness["same_batch_native_noop_endpoint_max_absolute_error"],
+                float((patched[output_index]-native_patch_batch[output_index]).abs().max()))
     return evidence, exactness
 
 
@@ -298,9 +305,8 @@ def _validate_scoring_inputs(evidence, exactness):
         raise FactorialError("evidence does not exactly cover the licensed factorial")
     expected_exactness = {
         "native_replay_max_absolute_logit_error", "source_term_sum_max_absolute_error",
-        "same_score_same_value_endpoint_max_absolute_error",
+        "same_batch_native_noop_endpoint_max_absolute_error",
         "installed_term_max_absolute_error", "complete_head_vector_max_absolute_error",
-        "patched_dispatch_recipient_head_max_absolute_error",
     }
     if set(exactness) != expected_exactness or any(
             type(value) not in (int, float) or not math.isfinite(float(value))
@@ -382,14 +388,12 @@ def score(evidence: Sequence[Mapping[str, object]], exactness: Mapping[str, floa
             bars["maximum_native_replay_absolute_logit_error"] and
         exactness["source_term_sum_max_absolute_error"] <=
             bars["maximum_source_term_sum_absolute_error"] and
-        exactness["same_score_same_value_endpoint_max_absolute_error"] <=
-            bars["maximum_same_score_same_value_endpoint_error"] and
+        exactness["same_batch_native_noop_endpoint_max_absolute_error"] <=
+            bars["maximum_same_batch_native_noop_endpoint_error"] and
         exactness["installed_term_max_absolute_error"] <=
             bars["maximum_installed_term_absolute_error"] and
         exactness["complete_head_vector_max_absolute_error"] <=
-            bars["maximum_complete_head_vector_absolute_error"] and
-        exactness["patched_dispatch_recipient_head_max_absolute_error"] <=
-            bars["maximum_patched_dispatch_recipient_head_absolute_error"])
+            bars["maximum_complete_head_vector_absolute_error"])
     complete_live = all(
         cell["complete_opposite_head"]["mean_donor_margin_improvement"] >=
             bars["minimum_complete_head_mean_donor_margin_improvement"] and
@@ -479,12 +483,12 @@ def main(argv: Sequence[str] | None = None):
     terminal = "invalid" if not scored["predictions"]["pred_a_instrument_live"] \
         else "valid_causal_screen"
     result = {
-        "schema": "task14_head11_3_fresh_matched_natural_qk_factorial_result_v2",
+        "schema": "task14_head11_3_fresh_matched_natural_qk_factorial_result_v3",
         "candidate_id": CAUSAL_CANDIDATE_ID, "terminal": terminal,
         "plan": plan, "checkpoint_weights_sha256": checkpoint.weights_sha256,
         "score": scored, "evidence": evidence,
         "evaluated_splits": ["LICENSED_HOLDOUT"], "forbidden_splits_opened": [],
-        "model_forwards": 3, "causal_interventions": len(evidence),
+        "model_forwards": 4, "causal_interventions": len(evidence),
     }
     payload = managed.atomic_create_json(OUT, result)
     print(json.dumps({"terminal": terminal, "predictions": scored["predictions"],

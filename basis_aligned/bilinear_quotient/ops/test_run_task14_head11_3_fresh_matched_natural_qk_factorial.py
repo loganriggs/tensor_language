@@ -17,10 +17,9 @@ def _exactness(value=0.0):
     return {
         "native_replay_max_absolute_logit_error": value,
         "source_term_sum_max_absolute_error": value,
-        "same_score_same_value_endpoint_max_absolute_error": value,
+        "same_batch_native_noop_endpoint_max_absolute_error": value,
         "installed_term_max_absolute_error": value,
         "complete_head_vector_max_absolute_error": value,
-        "patched_dispatch_recipient_head_max_absolute_error": value,
     }
 
 
@@ -59,7 +58,7 @@ def test_plan_validates_exact_license_and_uses_holdout_only():
     assert plan["split"] == "LICENSED_HOLDOUT"
     assert plan["row_count"] == 16
     assert plan["price"] == {
-        "model_forwards": 3, "example_evaluations": 208,
+        "model_forwards": 4, "example_evaluations": 320,
         "backwards": 0, "parameter_updates": 0,
     }
     rows = run.build_rows()
@@ -150,13 +149,33 @@ def test_exactness_or_complete_head_failure_invalidates_instrument():
     assert not dead_control["predictions"]["pred_a_instrument_live"]
 
 
-def test_batch_shape_head_replay_control_records_tolerance_and_can_fail():
+def test_same_batch_native_noop_control_records_tolerance_and_can_fail():
     within = _exactness()
-    within["patched_dispatch_recipient_head_max_absolute_error"] = 6.9e-5
+    within["same_batch_native_noop_endpoint_max_absolute_error"] = 6.9e-5
     assert run.score(_synthetic_evidence(), within)["predictions"]["pred_a_instrument_live"]
     above = _exactness()
-    above["patched_dispatch_recipient_head_max_absolute_error"] = 7.1e-5
+    above["same_batch_native_noop_endpoint_max_absolute_error"] = 7.1e-5
     assert not run.score(_synthetic_evidence(), above)["predictions"]["pred_a_instrument_live"]
+
+
+def test_arm_metrics_use_the_supplied_same_index_native_baseline():
+    torch = pytest.importorskip("torch")
+    row = next(row for row in run.build_rows()
+               if row["direction_id"] == "singular_to_plural")
+    native = torch.zeros(50257)
+    observed = torch.zeros(50257)
+    native[318], native[389] = 2.0, 0.0
+    observed[318], observed[389] = 1.0, 3.0
+    metrics = run._comparison_metrics(native, observed, row, torch)
+    assert metrics["native_recipient_margin"] == 2.0
+    assert metrics["native_donor_margin"] == -2.0
+    assert metrics["recipient_margin"] == -2.0
+    assert metrics["donor_margin"] == 2.0
+    assert metrics["recipient_margin_improvement"] == -4.0
+    assert metrics["donor_margin_improvement"] == 4.0
+    assert metrics["are_minus_is_margin_effect"] == 4.0
+    assert metrics["donor_CE_improvement"] > 0
+    assert metrics["recipient_CE_improvement"] < 0
 
 
 def test_lexical_control_can_falsify_selectivity_without_erasing_number_signal():
