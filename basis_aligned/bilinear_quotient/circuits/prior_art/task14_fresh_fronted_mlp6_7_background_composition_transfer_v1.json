@@ -1,0 +1,57 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.fresh_fronted_mlp6_7_background_composition_transfer_v1",
+  "created_utc": "2026-09-05T21:25:50Z",
+  "purpose": "Test the frozen grouped-MLP6--7 E/A/U/W composition law on the previously opened but intervention-new behind/near and beyond/under fronted constructions.",
+  "data_status": "FRESH_TEXT_OUTCOMES_ALREADY_OPEN_FROM_AN_INVALID_QK_SCREEN; NEW_MLP6_7_BACKGROUND_INTERVENTION; not pristine held-out text",
+  "binding_evidence": [
+    {
+      "path": "ops/circuit_fast_screen_candidate_task14_fresh_fronted_natural_qk_number_specificity.py",
+      "sha256": "245c0551b6d0988143e5caa7e9638623e33e0585af7c9cb3d4db52c9e72de652",
+      "logical_sha256": "c5a0753f8a03a77b88c7226808ec2053a19aaa19056682e2f67a9a3da146ae59",
+      "finding": "Frozen 32-row authority supplies two new fronted templates, disjoint nouns, matched subject-token counterfactuals, and 8 rows per direction/template cell."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1_result.json",
+      "finding": "The earlier QK screen was invalid for its intervention instrument, but records native correctness 8/8 for recipient, opposite, and lexical endpoints in all four construction cells. A clean candidate-scoped native-only license will nevertheless be required."
+    },
+    {
+      "path": "circuits/fast_screens/task14_mlp6_7_background_subset_composition_transfer_v2_result.json",
+      "sha256": "41724c7a40cf50dbcec28995aaeea7a6d2106af5a8472652acdde54fea3e6344",
+      "finding": "Frozen matched/OOD profiles predict intermediate background subsets from two target endpoints with worst normalized MAE 0.06397."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for fresh-fronted MLP6-7, MLP6-7 behind/near, MLP6-7 beyond/under, and fresh-fronted background gates found zero prior events.",
+    "Prior use of these prompts tested QK terms and was instrument-invalid; no grouped MLP6--7 or E/A/U/W-by-X intervention has been run on them."
+  ],
+  "map": "After a native-only capability pass, evaluate grouped X=MLP6+7 with and without every E/A/U/W background on all 32 rows. For each direction/template target, use the frozen matched-direction profile and only its observed q(empty),q(EAUW) endpoints to predict all fourteen intermediate q(S) means. Also compute exact Mobius/Shapley closure and lexical-source collateral.",
+  "predictions": {
+    "pred_a_native_capability_license": "Every direction/template/role cell reaches at least 0.875 native accuracy and a candidate-scoped license is issued.",
+    "pred_b_causal_instrument": "Native replay, decomposition closures, and no-op installation errors are at most 5e-5; all 32x2x16x2 conditions are present.",
+    "pred_c_transferred_subset_prediction": "For every four target cells, matched-direction frozen coefficients predict intermediate q(S) with normalized MAE at most 0.20 and normalized maximum error at most 0.45.",
+    "pred_d_distributed_signed_gate": "Every target has at least two E/A/U/W absolute Shapley shares at least 0.20, and mean context shift is <=-0.05 for plural-to-singular and >=0.05 for singular-to-plural.",
+    "pred_e_template_stability": "Within each direction, the two absolute-share profiles have cosine at least 0.90 and maximum coordinate difference at most 0.15.",
+    "pred_f_lexical_effect_absolutely_small": "Maximum absolute same-number lexical q(S) margin effect is at most 0.02."
+  },
+  "null": "Failure of c rejects construction transfer of the executable composition law even if aggregate profiles look similar. Failure of d/e localizes construction dependence. Failure of f preserves grouped computational scope without semantic uniqueness. A failed native capability or causal instrument invalidates all downstream claims.",
+  "price": {
+    "native_model_forwards": 1,
+    "native_example_evaluations": 96,
+    "causal_physical_model_forwards": 19,
+    "causal_example_evaluations": 4192,
+    "causal_installations": 2048,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "maximum_patch_chunk_rows": 256
+  },
+  "closed_claims": [
+    "pristine held-out text",
+    "semantic uniqueness",
+    "MLP6 versus MLP7 identity",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "necessity outside the fixed L11H3 interface"
+  ]
+}
