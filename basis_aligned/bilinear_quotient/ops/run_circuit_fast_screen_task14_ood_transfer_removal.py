@@ -8,6 +8,15 @@ import circuit_fast_screen_candidate_task14_ood_cross_syntax as candidate
 import run_circuit_fast_screen_task14_test_transfer_removal as shared
 
 
+REGISTERED_PREDICTIONS = (
+    "pred_a_native_capability",
+    "pred_b_head11_3_cross_noun_transfer",
+    "pred_c_head11_3_literal_removal",
+    "pred_d_native_head_replay",
+    "pred_e_head_hook_live",
+)
+
+
 PROTOCOL = shared.RunProtocol(
     candidate=candidate,
     request_id="task14-ood-cross-noun-head11-3-transfer-removal-v1",
