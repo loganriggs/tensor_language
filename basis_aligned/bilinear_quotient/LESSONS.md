@@ -2913,3 +2913,19 @@ identity before and after reading, verifies the queued digest, and compiles only
 that same process. A later path edit is a loud failed job, never a different experiment. Legacy bare
 paths remain accepted only for compatibility with entries queued before this protocol; new reviewed
 jobs must use the hash-bound form.
+
+## LESSON 116 — an answer-preserving donor pair is not a negative control for literal removal
+
+Task14's P and C families are useful controls for **interchange**: the donor edit preserves the proposed
+complete-subject-number variable, so replacing a selective state should make little difference between the paired
+prompts. They are not negative controls for deleting a native component. Every P and C base prompt still requires
+subject–verb agreement, so deleting an agreement component can legitimately damage its answer margin. The
+2026-09-05 head-11.3 removal run repeated a lesson already written in
+`explanations/explanation_2026-09-04_1330.md` by treating large P/C removal damage as lack of selectivity.
+
+**How to apply.** Label controls by both intervention and expected response. For donor interchange, use linked
+answer-preserving pairs. For literal removal, measure collateral on separately registered behaviors whose answers do
+not require the proposed computation, and first verify that the removed tensor is nonzero there. A prior-art receipt
+is incomplete until it searches the task dossier's methodological corrections as well as earlier experiments with
+the same site or intervention. Frozen terminal labels remain immutable, but an interpretation audit must explicitly
+exclude any predicate built from a semantically invalid control.

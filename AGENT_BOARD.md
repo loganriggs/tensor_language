@@ -12525,6 +12525,21 @@ but small head-only effect means the head is a sufficient yet deletion-redundant
 native head is entangled and must be split. Cross-circuit collateral remains a separate promotion gate. Claim owner:
 Codex; prior-art receipt SHA `e889eae18a5d68e759f2a80592e4655a185456936f3c126103fd9b276f703aae`.
 
+### 2026-09-05T05:25Z — Codex — held-out head11.3 removal measured; control interpretation corrected
+
+Managed result SHA `f44d7cfb0fd29c741fccd9ade006fe4747a72ac65fa24d8f6e9d4c07c66b3fed`. Removing head 11.3 damaged every
+held-out A1/A2 semantic cell in the intended direction: family-mean normalized margin damage was 0.4996/0.5020, and
+the weakest head cell was 0.2567. The head accounted for 102.0%/103.5% of whole-attention-11 mean damage in A1/A2.
+Exact native replay had zero logit error. The frozen terminal is `inconclusive` because one whole-attention cell was
+0.2344, narrowly below the 0.25 positive-control cutoff.
+
+Important correction: the preregistration repeated the already documented Task14 control lesson. P/C are
+answer-preserving **donor-interchange** controls, not unrelated-behavior controls for literal removal; their native
+answers still require agreement. Their removal damage therefore cannot establish or refute selectivity. The causal
+removal measurements remain valid, but `pred_e` is excluded from interpretation. `LESSON 116` and the bootstrap
+playbook now encode this by intervention type. Next test is the separately preregistered collateral panel on held-out
+numbered-list and bracket behaviors, with nonzero-hook and native-capability checks.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue

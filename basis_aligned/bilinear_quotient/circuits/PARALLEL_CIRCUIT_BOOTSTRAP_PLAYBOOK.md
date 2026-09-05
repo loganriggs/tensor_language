@@ -29,6 +29,12 @@ causal target; CE/task logits are better functional measurements but cannot repl
 native component boundaries need not be semantic units; and a null that depends on one P or C family is provisional
 until a plausible alternative family is tested.
 
+Control semantics depend on the intervention. An answer-preserving donor pair is an invariance control for donor
+interchange; it is not an unrelated-behavior control for literal removal, because its native answer may still use the
+removed computation. Removal selectivity requires separately registered behaviors plus a check that the removed
+activation was nonzero. Every prior-art receipt must search methodological corrections in the task dossier, not only
+results that share the proposed site or method.
+
 This document turns one deeply investigated circuit into better datasets, tools, and prompts for the next parallel
 wave. The goal is not to produce many component scores. It is to identify behavior-level computations that:
 
