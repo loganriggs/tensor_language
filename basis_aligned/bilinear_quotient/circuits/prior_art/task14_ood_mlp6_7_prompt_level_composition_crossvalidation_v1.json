@@ -1,0 +1,50 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.ood_mlp6_7_prompt_level_composition_crossvalidation_v1",
+  "created_utc": "2026-09-05T21:21:30Z",
+  "purpose": "Test whether the grouped MLP6--7 E/A/U/W composition law is stable at prompt level by leave-one-row-out coefficient transfer on the frozen fronted-OOD causal lattice.",
+  "data_status": "RETROSPECTIVE_FROZEN_RECEIPT_REANALYSIS; leave-one-row-out predictions are frozen before inspecting row-level endpoint liveness or subset errors; no new text or model outcome is opened",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_ood_fronted_mlp6_7_eauw_background_gate_factorial_v1_result.json",
+      "sha256": "b4aec2e5b94b782f5d817c86b52567474f2986e28921044f90bec7cc5ae5e742",
+      "finding": "Valid 16-row OOD causal lattice retains base and exact margin outcomes for every E/A/U/W background, direction, and source."
+    },
+    {
+      "path": "circuits/fast_screens/task14_mlp6_7_background_subset_composition_transfer_v2_result.json",
+      "sha256": "41724c7a40cf50dbcec28995aaeea7a6d2106af5a8472652acdde54fea3e6344",
+      "finding": "Population coefficients plus two target endpoints predict cross-cell intermediate subset means, but prompt-level stability is untested."
+    }
+  ],
+  "novelty_audit": [
+    "Authority searches for leave-one-row-out MLP6, MLP6 row profiles, prompt-level background gates, row-level composition prediction, and population-profile endpoints found no prior test; the sole match was the board's newly stated next step.",
+    "This changes the identification unit from construction means to prompts and forbids target-row intermediate conditions from coefficient estimation."
+  ],
+  "map": "For each direction and held-out row, compute the exact E/A/U/W Shapley gate profile from the other seven rows only. Use that profile and only the held-out row's q(empty), q(EAUW) endpoints to predict its fourteen intermediate q(S) values. Rows with |q(EAUW)-q(empty)| >= 0.02 are endpoint-live for normalized scoring; all rows remain in absolute-error and sign accounting.",
+  "predictions": {
+    "pred_a_receipt_and_row_lattices_close": "The bound receipt is valid and every one of 16 rows has one base and exact opposite-source margin outcome for every background subset; endpoint predictions close to 1e-12.",
+    "pred_b_endpoint_liveness_is_common": "At least 12 of 16 rows have absolute endpoint shift at least 0.02.",
+    "pred_c_loo_prompt_prediction": "Across endpoint-live rows, median normalized MAE is at most 0.20 and the 75th percentile is at most 0.30; maximum absolute MAE across all rows is at most 0.05 margin units.",
+    "pred_d_loo_beats_uniform": "Leave-one-row-out factor-specific coefficients reduce aggregate squared error by at least 10% versus uniform four-factor endpoint interpolation on endpoint-live rows.",
+    "pred_e_direction_sign_is_row_stable": "At least 75% of endpoint-live rows have endpoint-shift sign matching their direction's aggregate sign.",
+    "pred_f_no_cardinality_drift": "For each direction and subset cardinality one, two, and three, mean signed residual divided by endpoint scale over live rows has absolute value at most 0.15."
+  },
+  "null": "If c or d fails, the aggregate composition rule does not identify prompt-level computation. If b fails, normalized prompt scoring is underpowered and absolute errors control the conclusion. If e fails, direction-level gating averages heterogeneous prompt mechanisms. Preserve failures and do not drop live rows or refit target intermediates.",
+  "price": {
+    "model_forwards": 0,
+    "example_evaluations": 0,
+    "causal_interventions": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "leave_one_out_folds": 16,
+    "predicted_intermediate_conditions": 224
+  },
+  "closed_claims": [
+    "fresh held-out text",
+    "cross-construction identification",
+    "semantic uniqueness",
+    "rank",
+    "compression",
+    "activation reconstruction"
+  ]
+}
