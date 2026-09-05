@@ -941,7 +941,7 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "66baec16c9da2ac27166c29fa12e011e1dcc4524c877ab26da01c07f089d4bed",
+   "record_sha256": "01f959e9821a0ccd192be30c50cb6a3c9b302a4ecf41778548cf74eabee03861",
    "kind": "behavior_circuit",
    "identity_instance": null,
    "active_claim_id": "grammatical_subject_number.v10",
@@ -949,13 +949,12 @@
    "causal_variable_id": "complete_grammatical_subject_number",
    "interchange_family_count": 4,
    "invariance_family_count": 3,
-   "negative_event_count": 10,
-   "active_negative_event_count": 5,
-   "latest_blocker": "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
-   "latest_active_event": "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+   "negative_event_count": 11,
+   "active_negative_event_count": 6,
+   "latest_blocker": "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
+   "latest_active_event": "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
-    "task14_subject_number_localization.fit.preregistered.v2",
     "task14_subject_number_localization.fit.v2.authority_review_held",
     "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
     "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
@@ -975,7 +974,8 @@
     "task14_head11_3.below_head.ood_score_role.complete.v1",
     "task14_head11_3.below_head.ood_self_qk.complete.v1",
     "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
-    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1"
    ],
    "held_test_types": [
     "capability",
@@ -989,6 +989,7 @@
    "active_blocking_test_types": [
     "composition",
     "cross_family_transfer",
+    "das_interchange",
     "invariance",
     "ood"
    ],
@@ -1014,6 +1015,7 @@
     "8317f5f754bd1f3e65f4d362ef1c28691f7be3b7fe3d7e1308ff8047519d1c89",
     "8e1a8d8e1bf0ba3763499535c766e6dfa63e020593452efb8ca1e3808e92a3aa",
     "93a373b5e8dd1f5e217f65d7055952eb9ef586fe3e67fedaa64f4c106d0f9b05",
+    "a62f6adaef1dda122d32db455f544a863daff785f0599c64166c54e548ab3047",
     "abaeb4335cad9bd0dbc33db5a072ec9653ada728470961ed490c6e12503d1deb",
     "ac80b5f982307d8ca8ae66b0c7f92eba49f31e86627bbbb8901688ec6049d241",
     "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",

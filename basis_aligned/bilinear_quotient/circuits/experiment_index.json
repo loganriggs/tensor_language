@@ -7,28 +7,11 @@
   "open_preregistration": "preregistered inconclusive event not superseded by a result",
   "protocol_repeat_review": "repeat lacking an explicit supersedes or replicates link; inspect before running"
  },
- "event_count": 128,
- "design_count": 113,
- "protocol_count": 107,
- "execution_count": 128,
- "open_preregistrations": [
-  {
-   "circuit": "task.subject_verb.number_agreement",
-   "event_id": "task14_subject_number_localization.fit.preregistered.v2",
-   "claim_id": "grammatical_subject_number.v2",
-   "test_type": "das_interchange",
-   "stage": "preregistered",
-   "verdict": "inconclusive",
-   "failure_kind": null,
-   "design_key": "b8008de59bdbf3dacda684fd2f6cce414bb4a7cb905a02e84cd758be6b70a9f3",
-   "protocol_key": "69817802ffa26ec407cb5fb0ea96f4c55bf4ecb90148dd4daaa5d353777a8514",
-   "execution_key": "cf638e91a475eb227ac01949e348136665406fb05691ee027f85eca62e132b01",
-   "supersedes_event_id": "task14_subject_number_localization.fit.v1.invalid_preregistration",
-   "replicates_event_id": null,
-   "prereg_artifact_id": "localization_v2_prereg",
-   "result_artifact_id": null
-  }
- ],
+ "event_count": 129,
+ "design_count": 114,
+ "protocol_count": 108,
+ "execution_count": 129,
+ "open_preregistrations": [],
  "duplicate_execution_groups": [],
  "protocol_repeat_review": [
   {
@@ -2073,6 +2056,22 @@
    "replicates_event_id": null,
    "prereg_artifact_id": "task14_below_head_fresh_natural_qk_specificity_invalid_prior_art",
    "result_artifact_id": "task14_below_head_fresh_natural_qk_specificity_invalid_result"
+  },
+  {
+   "circuit": "task.subject_verb.number_agreement",
+   "event_id": "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1",
+   "claim_id": "grammatical_subject_number.v10",
+   "test_type": "das_interchange",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "implementation_failure",
+   "design_key": "a62f6adaef1dda122d32db455f544a863daff785f0599c64166c54e548ab3047",
+   "protocol_key": "3e4326d269272b0a3f3af3a8aa64b188fc3479bb4da8083de3394e232856eba8",
+   "execution_key": "8fcf3f72e80f2af6542f9fc2b3bfa51c7e390161597a7a5bc3d1476c523e5d72",
+   "supersedes_event_id": "task14_subject_number_localization.fit.preregistered.v2",
+   "replicates_event_id": null,
+   "prereg_artifact_id": "localization_v2_prereg",
+   "result_artifact_id": "localization_v2_administrative_stop"
   },
   {
    "circuit": "task.successor.pointer",

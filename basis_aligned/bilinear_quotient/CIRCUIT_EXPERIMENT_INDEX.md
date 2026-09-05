@@ -2,13 +2,13 @@
 
 Check this file and the canonical circuit record before starting an experiment. Renaming a script does not make it new: the protocol key ignores claim revision and execution details, while the execution key binds the exact split, seed, checkpoint, and artifacts.
 
-128 events; 107 scientific protocols; 128 exact executions; 1 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
+129 events; 108 scientific protocols; 129 exact executions; 0 open preregistrations; 0 duplicate execution-key groups; 2 protocol groups needing review.
 
 ## Open preregistrations
 
 | circuit | event | test | claim | protocol |
 |---|---|---|---|---|
-| `task.subject_verb.number_agreement` | `task14_subject_number_localization.fit.preregistered.v2` | das_interchange | `grammatical_subject_number.v2` | `69817802ffa2` |
+| — | — | — | — | — |
 
 ## Repeats requiring review
 
@@ -149,5 +149,6 @@ No two registered events have the same execution key.
 | `task.subject_verb.number_agreement` | `task14_head11_3.below_head.ood_self_qk.complete.v1` | complete/held | composition | `grammatical_subject_number.v8` | `20b8c961669e` | `257f7c8014f1` | `57448a3bbdfb` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1` | complete/held | invariance | `grammatical_subject_number.v8` | `baa24c4e8f3d` | `3266372a82fb` | `855101b866d7` | — |
 | `task.subject_verb.number_agreement` | `task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1` | invalid/invalid | invariance | `grammatical_subject_number.v9` | `f5fa5f1ed3c8` | `39c06e9321f9` | `48b6c2471e33` | — |
+| `task.subject_verb.number_agreement` | `task14_subject_number_localization.fit.v2.withdrawn.invalid.v1` | invalid/invalid | das_interchange | `grammatical_subject_number.v10` | `3e4326d26927` | `a62f6adaef1d` | `8fcf3f72e80f` | supersedes `task14_subject_number_localization.fit.preregistered.v2` |
 | `task.successor.pointer` | `successor_cross_family_transfer.legacy.v1` | complete/failed | cross_family_transfer | `successor_pointer_state.v1` | `ca6a09348d86` | `8e53db4fddf4` | `2188c85828bc` | — |
 | `task.successor.pointer` | `successor_layer8_input_ceiling.legacy.v1` | complete/null | full_swap_ceiling | `successor_pointer_state.v1` | `d28c2f815a88` | `c3d65e155a63` | `208ac9ce91fb` | — |

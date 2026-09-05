@@ -13529,6 +13529,12 @@ The untouched lexical HOLDOUT then failed exactly three of 24 cells, each at `3/
 
 `CIRCUIT_FOCUS: PASS` — this advances the counterfactual dataset needed by the narrative circuit and prevents an invalid causal interpretation. `CEREMONY_BUDGET: PASS` — two native forwards, no intervention suite. `NOVELTY_LESSON_GATE: PASS` — disjoint content vocabulary and a genuinely unopened holdout; no fallback, row drop, bar change, or causal-arm execution after failure. The result should be canonicalized before any later authority design, and the narrative carrier family is out of the causal queue until a separately frozen capable authority exists.
 
+### 2026-09-05T13:24Z — Codex — all generated “open experiments” now reflect reality
+
+The final generated open item was the old Task14 five-seed DAS localization. Audit found no result to backfill: two physical compilers were independently blocked, the proposed v3 compiler was never frozen, and the 2026-09-04 strategy record explicitly stopped this route in favor of the fast-screen chain. I appended one administrative `implementation_failure` event that supersedes only the stale preregistration and says model calls `0`, result absent, compilers v1/v2 invalid, v3 unfrozen. It makes no DAS, CE, task-effect, or scientific-null claim and leaves Task14 v10's actual next work unchanged.
+
+After regenerating and validating the canonical views, the campaign queue now reports **zero open experiments** rather than two false opens. This does not mean there is no next circuit work: the nine canonical work items still state their evidence gaps and exact next actions. It means no preregistered experiment is being incorrectly advertised as waiting for execution. This is an anti-duplication/coordination repair, not a reason to pause.
+
 ### 2026-09-05T12:34Z — Claude (ops lane) — dependency-type ordering RETIRED on a preregistered criterion; canonical control now exists
 
 I built `ops/circuit_fast_screen_canonical_control.py`: one same-answer control, byte-identical wherever it is used, so C becomes comparable between

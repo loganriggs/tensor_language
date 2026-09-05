@@ -9,97 +9,11 @@
  "summary": {
   "canonical_work_items": 9,
   "legacy_candidates": 70,
-  "open_experiments": 1,
+  "open_experiments": 0,
   "held_events": 47,
-  "blocking_events": 37
+  "blocking_events": 38
  },
  "work_items": [
-  {
-   "tag": "task.subject_verb.number_agreement",
-   "kind": "behavior_circuit",
-   "record_path": "circuits/task_subject_verb_number_agreement.json",
-   "active_claim_id": "grammatical_subject_number.v10",
-   "claim_status": "site_live",
-   "causal_variable_id": "complete_grammatical_subject_number",
-   "counterfactual_family_count": 8,
-   "counterfactual_family_status_counts": {
-    "frozen": 8
-   },
-   "split_plan_ids": [
-    "task14_fit_localization_split_v2"
-   ],
-   "active_event_ids": [
-    "task14_native_capability.fit.complete.held.v1",
-    "task14_subject_number_localization.fit.preregistered.v2",
-    "task14_subject_number_localization.fit.v2.authority_review_held",
-    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
-    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-    "task14_head11_3_cross_circuit_collateral.select.held.v1",
-    "task14_head11_3.test.transfer_removal.held.v1",
-    "task14_head11_3.ood.construction_general.null.v1",
-    "task14_head11_3.below_head.subject_factor_select.complete.v1",
-    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
-    "task14_head11_3.below_head.subject_value_test.complete.v1",
-    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
-    "task14_head11_3.below_head.score_context_test.complete.v1",
-    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
-    "task14_head11_3.below_head.value_group_test.complete.v1",
-    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
-    "task14_head11_3.below_head.ood_score_role.complete.v1",
-    "task14_head11_3.below_head.ood_self_qk.complete.v1",
-    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
-    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
-   ],
-   "open_event_ids": [
-    "task14_subject_number_localization.fit.preregistered.v2"
-   ],
-   "held_event_ids": [
-    "task14_native_capability.fit.complete.held.v1",
-    "task14_subject_number_localization.fit.v2.authority_review_held",
-    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
-    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
-    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
-    "task14_head11_3_cross_circuit_collateral.select.held.v1",
-    "task14_head11_3.test.transfer_removal.held.v1",
-    "task14_head11_3.below_head.subject_factor_select.complete.v1",
-    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
-    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
-    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
-    "task14_head11_3.below_head.value_group_test.complete.v1",
-    "task14_head11_3.below_head.ood_score_role.complete.v1",
-    "task14_head11_3.below_head.ood_self_qk.complete.v1",
-    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
-   ],
-   "blocking_event_ids": [
-    "task14_head11_3.ood.construction_general.null.v1",
-    "task14_head11_3.below_head.subject_value_test.complete.v1",
-    "task14_head11_3.below_head.score_context_test.complete.v1",
-    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
-    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1"
-   ],
-   "coverage": {
-    "capability": "held",
-    "causal_site": "held",
-    "learned_interchange": "planned",
-    "cross_family": "mixed",
-    "ood": "blocked",
-    "selectivity": "mixed",
-    "composition": "mixed",
-    "compiled_weights": "missing"
-   },
-   "acceptance_gaps": [
-    "cross_family",
-    "ood",
-    "selectivity",
-    "composition",
-    "compiled_weights"
-   ],
-   "work_state": "experiment_open",
-   "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
-  },
   {
    "tag": "task.bracket.pending_opener",
    "kind": "behavior_circuit",
@@ -358,6 +272,92 @@
    ],
    "work_state": "next_experiment_needed",
    "next_missing": "Cross-format H3+H7 cached-value transfer is descriptive only. The held-out v5 instrument was exact and every intervention was live, but OOD word-copy native capability was 0.71875 below the frozen 0.85 bar, while step-two transfer was directionally asymmetric (all lower-to-higher donor answers won and no higher-to-lower donor answers won). Do not repair thresholds or select rows. A new pre-outcome authority must establish capable OOD controls and bidirectional transfer before any shared-circuit claim."
+  },
+  {
+   "tag": "task.subject_verb.number_agreement",
+   "kind": "behavior_circuit",
+   "record_path": "circuits/task_subject_verb_number_agreement.json",
+   "active_claim_id": "grammatical_subject_number.v10",
+   "claim_status": "site_live",
+   "causal_variable_id": "complete_grammatical_subject_number",
+   "counterfactual_family_count": 8,
+   "counterfactual_family_status_counts": {
+    "frozen": 8
+   },
+   "split_plan_ids": [
+    "task14_fit_localization_split_v2"
+   ],
+   "active_event_ids": [
+    "task14_native_capability.fit.complete.held.v1",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1"
+   ],
+   "open_event_ids": [],
+   "held_event_ids": [
+    "task14_native_capability.fit.complete.held.v1",
+    "task14_subject_number_localization.fit.v2.authority_review_held",
+    "task14_subject_number_fast_screen.fit.full_state_v2.held.v1",
+    "task14_subject_number_fast_screen.fit.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_syntax_v1.held.v1",
+    "task14_subject_number_fast_screen.select.cross_noun_v1.held.v1",
+    "task14_head11_3_cross_circuit_collateral.select.held.v1",
+    "task14_head11_3.test.transfer_removal.held.v1",
+    "task14_head11_3.below_head.subject_factor_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_specificity_select.complete.v1",
+    "task14_head11_3.below_head.subject_value_lemma_direction_test.complete.v1",
+    "task14_head11_3.below_head.same_syntax_value_atlas_test.complete.v1",
+    "task14_head11_3.below_head.value_group_test.complete.v1",
+    "task14_head11_3.below_head.ood_score_role.complete.v1",
+    "task14_head11_3.below_head.ood_self_qk.complete.v1",
+    "task14_head11_3.below_head.ood_natural_qk_specificity.complete.v1"
+   ],
+   "blocking_event_ids": [
+    "task14_head11_3.ood.construction_general.null.v1",
+    "task14_head11_3.below_head.subject_value_test.complete.v1",
+    "task14_head11_3.below_head.score_context_test.complete.v1",
+    "task14_head11_3.below_head.ood_value_atlas.complete.v1",
+    "task14_head11_3.below_head.fresh_natural_qk_specificity_invalid.invalid.v1",
+    "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1"
+   ],
+   "coverage": {
+    "capability": "held",
+    "causal_site": "held",
+    "learned_interchange": "blocked",
+    "cross_family": "mixed",
+    "ood": "blocked",
+    "selectivity": "mixed",
+    "composition": "mixed",
+    "compiled_weights": "missing"
+   },
+   "acceptance_gaps": [
+    "learned_interchange",
+    "cross_family",
+    "ood",
+    "selectivity",
+    "composition",
+    "compiled_weights"
+   ],
+   "work_state": "next_experiment_needed",
+   "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
   },
   {
    "tag": "subroutine.induction.equality_score",

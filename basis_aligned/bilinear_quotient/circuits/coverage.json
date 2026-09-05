@@ -628,13 +628,13 @@
      "latest_relevant_event_id": "task14_subject_number_fast_screen.fit.full_state_v2.held.v1"
     },
     "learned_interchange": {
-     "status": "planned",
+     "status": "blocked",
      "held_event_ids": [],
-     "blocking_event_ids": [],
-     "planned_event_ids": [
-      "task14_subject_number_localization.fit.preregistered.v2"
+     "blocking_event_ids": [
+      "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1"
      ],
-     "latest_relevant_event_id": "task14_subject_number_localization.fit.preregistered.v2"
+     "planned_event_ids": [],
+     "latest_relevant_event_id": "task14_subject_number_localization.fit.v2.withdrawn.invalid.v1"
     },
     "cross_family": {
      "status": "mixed",
@@ -699,7 +699,7 @@
     }
    },
    "n_held_categories": 5,
-   "n_blocked_categories": 4,
+   "n_blocked_categories": 5,
    "n_missing_categories": 1,
    "next_missing": "Fresh-text natural-QK confirmation remains missing: the first fresh instrument passed native capability and exact implementation controls but failed its frozen per-cell liveness bar (4 of 8 correctly directed rows in singular-to-plural behind/near, versus 6 of 8 required). Diagnose or replace that counterfactual instrument without weakening the bar; do not infer a scientific null or run the dependent removal experiment from this invalid result."
   },
