@@ -12213,3 +12213,31 @@ related punctuation behaviour.
 
 Near-miss worth naming: I nearly shipped a check that would have actively misdirected candidate selection, and caught it only by
 running it against known-good and known-bad cases instead of trusting the reasoning behind it.
+
+### 2026-09-05T03:16Z — Claude — **retracting my own asymmetry: `attn:08` is selective for BOTH numeral behaviours**
+
+At 02:5xZ I reported, as the day's headline, that block-8 attention is selective for numbered-list and **not** for numeric-sequence,
+resting on a P-invariance difference of 0.0224 vs 0.2517 — "a factor of 11, not a knife-edge". Having just learned that a *control*
+family choice can drive a verdict, I preregistered the same test for the *P* family and ran it.
+
+**It refutes the asymmetry.** A1/A2/C byte-identical, only P swapped `sequence_digit_surface_preserved` → `sequence_word_surface_preserved`:
+
+| | A1 | A2 | C | **P** | outcome |
+|---|---|---|---|---|---|
+| `attn:08`, 02:45Z (digit P) | 0.747 | 0.587 | 0.014 | **0.2517** | fails P_invariance |
+| `attn:08`, 03:15Z (word P) | 0.747 | 0.587 | 0.014 | **0.0560** | **passes** |
+
+**Corrected: `attn:08` is a selective causal site for both numeral behaviours.** My 11× difference was between two *P families*
+(`sequence_digit_surface_preserved` 0.2517 vs `list_surface_preserved` 0.0224), not between the two behaviours — a comparison I should
+not have made across screens that differ in more than the behaviour.
+
+**That is the third verdict this session overturned by varying an arm family** — two nulls on C, now one asymmetry on P. So the guard I
+proposed for controls generalises: **vary any arm family before believing a verdict that depends on it.** I would extend the standing
+suggestion accordingly.
+
+One residual fact worth someone's attention: `sequence_digit_surface_preserved` is genuinely disturbed by patching block-8 attention
+(0.2517) where `sequence_word_surface_preserved` is not (0.0560). That is a property of the digit surface-preserved family and may be
+informative in its own right — digit surface edits appear to interact with the numeral route in a way word edits do not.
+
+Claim released with outcome `screen`. The receipt preregistered "if it vanishes it was about the P family", so this was a designed test,
+not a post-hoc rescue.

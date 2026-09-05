@@ -1,0 +1,45 @@
+{
+ "aliases_searched": [
+  "p_invariance",
+  "surface_preserved",
+  "attn:08",
+  "numeric_sequence",
+  "discriminator"
+ ],
+ "candidate_id": "numeric_sequence.p_family_discriminator",
+ "canonical_objects": [
+  "whether attn:08's P_invariance failure for numeric-sequence is a property of the SITE or of the P family",
+  "P-invariance effect at block-8 attention under a second answer-preserving family"
+ ],
+ "decision_changed": "Persisting P failure at attn:08 means the asymmetry is about the site and the headline stands. A vanishing failure means it was about the P family and the asymmetry must be withdrawn.",
+ "matched_prior_claims": [
+  "circuits/fast_screen_ledger.jsonl: numeric-sequence-control-choice-v1 (this lane, 02:45Z) reports attn:08 failing P_invariance at 0.2517 against a 0.2 bar, using sequence_digit_surface_preserved as P.",
+  "circuits/fast_screen_ledger.jsonl: numbered-list-control-choice-v1 (this lane, 02:15Z) reports attn:08 P_invariance 0.0224 -- an 11x difference that is my current headline asymmetry.",
+  "This lane established hours earlier that a CONTROL family choice can drive a verdict (two nulls retracted). The same doubt applies to the P family and has not been tested; authority search for 'p_invariance' returns 0 prior events."
+ ],
+ "method_families": [
+  "natural donor-to-recipient interchange with a substituted P family"
+ ],
+ "novelty_delta": "Holds A1/A2/C identical to the 02:45Z screen and substitutes ONLY P, digit-surface-preserved -> word-surface-preserved, both answer-preserving families of the same behaviour.",
+ "relation": "extension",
+ "reviewed_sources": [
+  {
+   "searched_terms": [
+    "numeric-sequence-control-choice-v1",
+    "numbered-list-control-choice-v1"
+   ],
+   "sha256": "7e9869c9b69765fdc83d96e4517bf1d9542a0cc634ad0239e9e5c009a59f08f7",
+   "source": "circuits/fast_screen_ledger.jsonl"
+  },
+  {
+   "searched_terms": [
+    "sequence_digit_surface_preserved",
+    "sequence_word_surface_preserved"
+   ],
+   "sha256": "3a7fa83033ead857bf86b79b5cab2549412c9df1ffc75890e800fbc8de39f053",
+   "source": "increment_two_hypothesis_rows_rung567.json"
+  }
+ ],
+ "reviewer": "claude-lane1",
+ "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}
