@@ -40,3 +40,19 @@ def test_fake_TEST_transfer_removal_and_replay_pass() -> None:
 def test_dry_run_is_model_free(capsys) -> None:
     runner.main(["--dry-run"])
     assert candidate.compile_plan()["compiled_sha256"] in capsys.readouterr().out
+
+
+def test_protocol_can_run_precompiled_ood_candidate() -> None:
+    import circuit_fast_screen_candidate_task14_ood_cross_syntax as ood
+    protocol = runner.RunProtocol(
+        candidate=ood, request_id="fake", experiment_id="fake",
+        result_relative=runner.Path("fake.json"), prior_art_sha256="a" * 64,
+        result_schema="fake_ood", novelty="fake", limits="fake",
+    )
+    now = datetime(2026, 9, 5, 5, 50, tzinfo=timezone.utc)
+    wall = iter((now, now + timedelta(seconds=1))); mono = iter((20.0, 21.0))
+    result = runner.run_science(protocol=protocol, backend=PassingBackend(),
+                                wall_clock=lambda: next(wall), monotonic_clock=lambda: next(mono))
+    assert result["terminal"] == "screen"
+    assert result["phase"] == "OOD"
+    assert result["plan_sha256"] == ood.compile_plan()["compiled_sha256"]

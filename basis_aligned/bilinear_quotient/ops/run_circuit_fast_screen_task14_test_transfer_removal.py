@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -13,6 +14,7 @@ import os
 from pathlib import Path
 import statistics
 import time
+from types import ModuleType
 from typing import Mapping, Protocol, Sequence
 
 import circuit_fast_screen_candidate_task14_test_cross_syntax as candidate
@@ -35,6 +37,30 @@ PRIOR_ART_SHA256 = "db6e5bd9c7a8592345fa75f467e60e8fddfe140c7f48a1355b75fef5a716
 HEAD_SITE_ID = "attn:11:head:03"
 CHECKPOINT_SHA256 = "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
 CONFIG_SHA256 = "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c"
+
+
+@dataclass(frozen=True)
+class RunProtocol:
+    candidate: ModuleType
+    request_id: str
+    experiment_id: str
+    result_relative: Path
+    prior_art_sha256: str
+    result_schema: str
+    novelty: str
+    limits: str
+
+
+TEST_PROTOCOL = RunProtocol(
+    candidate=candidate,
+    request_id=REQUEST_ID,
+    experiment_id=EXPERIMENT_ID,
+    result_relative=RESULT_RELATIVE,
+    prior_art_sha256=PRIOR_ART_SHA256,
+    result_schema="task14_test_cross_noun_head11_3_transfer_removal_result_v1",
+    novelty="First unopened TEST cross-noun transfer plus literal removal for preselected Task14 head11.3.",
+    limits="TEST only. OOD remains unopened and unchanged; unrelated-behavior selectivity comes from the prior collateral event.",
+)
 
 
 class Backend(Protocol):
@@ -86,10 +112,10 @@ def _norm(value: object) -> float:
     return result
 
 
-def _collect_native(executor, rows, side):
+def _collect_native(executor, rows, side, candidate_module):
     pairs, cache = {}, {}
     calls = evaluations = 0
-    for chunk in transfer._chunks(rows, candidate):
+    for chunk in transfer._chunks(rows, candidate_module):
         batch = transfer._batch(chunk, side)
         output = executor.native(batch, capture=True)
         calls += 1; evaluations += len(chunk); cache.update(output.captured)
@@ -97,10 +123,10 @@ def _collect_native(executor, rows, side):
     return pairs, cache, calls, evaluations
 
 
-def _collect_patched(executor, rows, cache):
+def _collect_patched(executor, rows, cache, candidate_module):
     pairs = {}; calls = evaluations = 0
     site = kernel.SiteRef("head", HEAD_SITE_ID)
-    for chunk in transfer._chunks(rows, candidate):
+    for chunk in transfer._chunks(rows, candidate_module):
         batch = transfer._batch(chunk, "base")
         output = executor.patched(batch, site=site, donor_cache=cache)
         calls += 1; evaluations += len(chunk)
@@ -122,9 +148,9 @@ def _zero_cache(rows, cache):
     return zeros, norms
 
 
-def _removal_score(rows, native_base, removed, plan):
+def _removal_score(rows, native_base, removed, plan, candidate_module):
     scale = statistics.median(abs(_margin(native_base[str(row["row_id"])])) for row in rows)
-    if scale <= candidate.MIN_DONOR_DENOMINATOR:
+    if scale <= candidate_module.MIN_DONOR_DENOMINATOR:
         raise TestRunError("native removal scale is too small")
     grouped, evidence = {}, []
     for row in rows:
@@ -151,31 +177,37 @@ def _removal_score(rows, native_base, removed, plan):
             "passed": all(cell["passed"] for cell in cells), "evidence": evidence}
 
 
-def run_science(*, backend: Backend | None = None, device: str = "cuda",
+def run_science(*, protocol: RunProtocol = TEST_PROTOCOL,
+                backend: Backend | None = None, device: str = "cuda",
                 wall_clock=_now, monotonic_clock=time.perf_counter) -> dict[str, object]:
-    rows = candidate.build_rows(); authority_sha = candidate.validate_rows(rows)
-    plan = candidate.compile_plan(rows)
+    candidate_module = protocol.candidate
+    rows = candidate_module.build_rows(); authority_sha = candidate_module.validate_rows(rows)
+    plan = candidate_module.compile_plan(rows)
     if backend is None:
         _verify_checkpoint()
     executor = backend if backend is not None else producer.Bilin18TorchBackend.load(device)
     started_utc, started = wall_clock(), monotonic_clock()
-    native_base, base_cache, calls, evaluations = _collect_native(executor, rows, "base")
-    native_donor, donor_cache, c, e = _collect_native(executor, rows, "donor")
+    native_base, base_cache, calls, evaluations = _collect_native(
+        executor, rows, "base", candidate_module,
+    )
+    native_donor, donor_cache, c, e = _collect_native(
+        executor, rows, "donor", candidate_module,
+    )
     calls += c; evaluations += e
-    interchanged, c, e = _collect_patched(executor, rows, donor_cache)
+    interchanged, c, e = _collect_patched(executor, rows, donor_cache, candidate_module)
     calls += c; evaluations += e
     zeros, norms = _zero_cache(rows, base_cache)
-    removed, c, e = _collect_patched(executor, rows, zeros)
+    removed, c, e = _collect_patched(executor, rows, zeros, candidate_module)
     calls += c; evaluations += e
-    replay, c, e = _collect_patched(executor, rows, base_cache)
+    replay, c, e = _collect_patched(executor, rows, base_cache, candidate_module)
     calls += c; evaluations += e
     native_for_shared = {(row_id, "base"): value for row_id, value in native_base.items()}
     native_for_shared.update({(row_id, "donor"): value for row_id, value in native_donor.items()})
-    capability = transfer._cell_capability(rows, native_for_shared, candidate, 16)
+    capability = transfer._cell_capability(rows, native_for_shared, candidate_module, 16)
     transfer_score = transfer._score_site(
-        HEAD_SITE_ID, rows, native_for_shared, interchanged, candidate, 16,
+        HEAD_SITE_ID, rows, native_for_shared, interchanged, candidate_module, 16,
     )
-    removal = _removal_score(rows, native_base, removed, plan)
+    removal = _removal_score(rows, native_base, removed, plan, candidate_module)
     replay_error = max(abs(a-b) for row in rows for a,b in zip(
         native_base[str(row["row_id"])], replay[str(row["row_id"])],
     ))
@@ -209,14 +241,14 @@ def run_science(*, backend: Backend | None = None, device: str = "cuda",
     if active_price != plan["price"]:
         raise TestRunError(f"active price differs from frozen plan: {active_price}")
     return {
-        "schema": "task14_test_cross_noun_head11_3_transfer_removal_result_v1",
-        "request_id": REQUEST_ID, "experiment_id": EXPERIMENT_ID,
-        "candidate_id": candidate.TASK_ID, "screen_tier_only": True,
+        "schema": protocol.result_schema,
+        "request_id": protocol.request_id, "experiment_id": protocol.experiment_id,
+        "candidate_id": candidate_module.TASK_ID, "screen_tier_only": True,
         "execution_policy": "managed_queue_only", "create_only": True,
-        "phase": candidate.PHASE, "partition": candidate.PARTITION,
-        "validation_scope": candidate.VALIDATION_SCOPE,
+        "phase": candidate_module.PHASE, "partition": candidate_module.PARTITION,
+        "validation_scope": candidate_module.VALIDATION_SCOPE,
         "authority_sha256": authority_sha, "plan_sha256": plan["compiled_sha256"],
-        "source_sha256": candidate.EXPECTED_SOURCE_SHA256,
+        "source_sha256": candidate_module.EXPECTED_SOURCE_SHA256,
         "checkpoint": {"weights_sha256": CHECKPOINT_SHA256, "config_sha256": CONFIG_SHA256,
                        "verified_before_model_load": backend is None},
         "started_utc": _utc(started_utc), "finished_utc": _utc(finished_utc),
@@ -227,19 +259,21 @@ def run_science(*, backend: Backend | None = None, device: str = "cuda",
         "minimum_native_head_norm": min(norms.values()),
         "native_base": native_base, "native_donor": native_donor,
         "active_price": active_price, "maximum_price": plan["price"],
-        "limits": "TEST only. OOD remains unopened and unchanged; unrelated-behavior selectivity comes from the prior collateral event.",
+        "limits": protocol.limits,
     }
 
 
-def _publish(result: Mapping[str, object]) -> dict[str, object]:
-    payload = managed.atomic_create_json(RESULT, result); result_sha = hashlib.sha256(payload).hexdigest()
+def _publish(result: Mapping[str, object], protocol: RunProtocol = TEST_PROTOCOL) -> dict[str, object]:
+    result_path = ROOT / protocol.result_relative
+    payload = managed.atomic_create_json(result_path, result)
+    result_sha = hashlib.sha256(payload).hexdigest()
     terminal = str(result["terminal"])
     entry = {
-        "request_id": REQUEST_ID, "candidate_id": candidate.TASK_ID,
+        "request_id": protocol.request_id, "candidate_id": protocol.candidate.TASK_ID,
         "started_utc": result["started_utc"], "finished_utc": result["finished_utc"],
-        "serial_seconds": result["serial_seconds"], "prior_art_sha256": PRIOR_ART_SHA256,
+        "serial_seconds": result["serial_seconds"], "prior_art_sha256": protocol.prior_art_sha256,
         "spec_sha256": result["plan_sha256"], "authority_sha256": result["authority_sha256"],
-        "result_path": RESULT_RELATIVE.as_posix(), "result_sha256": result_sha,
+        "result_path": protocol.result_relative.as_posix(), "result_sha256": result_sha,
         "terminal": terminal, "reasons": [] if terminal == "screen" else [str(result["reason"])],
         "selected_site_id": HEAD_SITE_ID if terminal == "screen" else None,
         "active_forward_calls": result["active_price"]["forward_calls"],
@@ -249,25 +283,29 @@ def _publish(result: Mapping[str, object]) -> dict[str, object]:
         "max_example_evaluations": result["maximum_price"]["example_evaluations"],
         "max_evidence_bytes": result["maximum_price"]["raw_numeric_evidence_bytes"],
         "relation": "extension",
-        "novelty": "First unopened TEST cross-noun transfer plus literal removal for preselected Task14 head11.3.",
+        "novelty": protocol.novelty,
     }
     ledger.append_entry(LEDGER, entry, result_root=ROOT)
     return {"terminal": terminal, "reason": result["reason"],
-            "result_path": RESULT_RELATIVE.as_posix(), "result_sha256": result_sha,
+            "result_path": protocol.result_relative.as_posix(), "result_sha256": result_sha,
             "active_price": result["active_price"]}
 
 
-def main(argv: Sequence[str] | None = None) -> None:
+def cli(protocol: RunProtocol, argv: Sequence[str] | None = None) -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
     flags = {name: os.environ.get(name) for name in ("BQLIB_DRYRUN", "BQLIB_NO_MODEL")}
     if any(value not in {None, "1"} for value in flags.values()):
         raise TestRunError("dry-run environment flags must be absent or exactly 1")
     if args.dry_run or "1" in flags.values():
-        print(json.dumps(candidate.compile_plan(), sort_keys=True)); return
-    if PRIOR_ART_SHA256 == "PENDING_PREREGISTRATION_HASH":
+        print(json.dumps(protocol.candidate.compile_plan(), sort_keys=True)); return
+    if protocol.prior_art_sha256 == "PENDING_PREREGISTRATION_HASH":
         raise TestRunError("prior-art receipt hash was not frozen before execution")
-    print(json.dumps(_publish(run_science()), sort_keys=True))
+    print(json.dumps(_publish(run_science(protocol=protocol), protocol), sort_keys=True))
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    cli(TEST_PROTOCOL, argv)
 
 
 if __name__ == "__main__":

@@ -12586,6 +12586,13 @@ The OOD candidate was compiled before TEST outcomes. It adds fronting and two di
 donors within both-distractor-number strata, and inherits the exact TEST bars. No OOD model outcome has been read. The
 TEST result therefore licenses one unchanged OOD run; no new site or rank search is permitted.
 
+### 2026-09-05T05:52Z — Codex — claimed pre-frozen Task14 OOD confirmation
+
+The OOD authority and calls have not changed since before TEST ran: 64 cross-noun/cross-syntax relations, stratified
+by subject number and both distractor-number states; head 11.3 only; native base/donor capture, interchange, zero
+removal, and replay. Frozen authority SHA `95a49814...`, plan SHA `ec576b2e...`, ten forwards. A shared protocol now
+executes both TEST and OOD candidates, while the thin wrappers keep result identities and phase scope separate.
+
 ### 2026-09-05T04:56Z — Claude — vocabulary-matching hypothesis **refuted**, and it was refutable without a screen
 
 Tested whether P-invariance at `attn:08` is inflated when the P hypothesis shares an answer vocabulary with A1 — the natural analogue

@@ -1,0 +1,34 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.ood_cross_noun_head11_3_transfer_removal",
+  "canonical_objects": [
+    "unopened Task14 OOD split",
+    "fronted or relative syntax with two distractor nouns",
+    "preselected head 11.3",
+    "cross-noun donor interchange and literal removal"
+  ],
+  "aliases_searched": ["Task14 OOD", "two attractors head11.3", "subject agreement fronted OOD", "OOD head removal"],
+  "method_families": ["out-of-distribution transfer", "literal removal", "native capability", "exact replay"],
+  "matched_prior_claims": [
+    "No Task14 OOD model outcome has been opened.",
+    "The outcome-blind OOD authority, donor rule, call manifest, and bars were frozen before TEST ran.",
+    "TEST passed native capability, cross-noun transfer, literal removal, and replay, satisfying the frozen condition for opening OOD."
+  ],
+  "relation": "extension",
+  "novelty_delta": "Open the unchanged OOD candidate once. It adds fronting and a second distractor noun while preserving both distractor-number states in cyclic cross-noun donor matching.",
+  "decision_changed": "A held result establishes OOD transfer/removal evidence for the current native head carrier. Any native-capability, transfer, or removal failure narrows the claim and stops publication as held OOD evidence.",
+  "methodological_lessons_checked": [
+    "OOD pairing and thresholds cannot be retuned from TEST outcomes.",
+    "No site or rank search is allowed.",
+    "P/C agreement rows are not used as unrelated removal controls.",
+    "OOD evidence is reported separately from prior SELECT collateral breadth."
+  ],
+  "reviewed_sources": [
+    {"source": "ops/circuit_battery_task14.py", "sha256": "33d7b62b3a0ffb4c798e75f085b7e96988e09b07be16667c5f9f8871c6339f94"},
+    {"source": "Task14 OOD records", "sha256": "f2e4a6fc68be3ff8a87efde056780996106b9fb10a532381588d3d47d9da40b6"},
+    {"source": "ops/circuit_fast_screen_task14_ood_cross_syntax_dryrun.json", "compiled_plan_sha256": "ec576b2e75cc0831a44520454f7e03ea62d19d8ea3d2bcc834844e253f80a004"},
+    {"source": "circuits/fast_screens/task14_test_cross_noun_head11_3_transfer_removal_v1_result.json", "sha256": "43f26a634f82eecae7f70d2113236a05482a18e75676a86f8cc8b1386c0cb911"},
+    {"source": "circuits/task_subject_verb_number_agreement.json", "active_claim_at_design": "grammatical_subject_number.v7"}
+  ],
+  "reviewer": "Codex conditional OOD gate using the pre-TEST frozen candidate"
+}
