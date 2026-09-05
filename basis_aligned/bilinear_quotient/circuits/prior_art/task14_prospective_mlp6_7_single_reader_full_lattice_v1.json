@@ -1,0 +1,38 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.prospective_mlp6_7_single_reader_full_lattice_v1",
+  "created_utc": "2026-09-05T22:10:00Z",
+  "purpose": "Test whether one native downstream answer-margin reader vector per row predicts the complete grouped-MLP6--7 by E/A/U/W causal composition lattice on new text.",
+  "data_status": "PROSPECTIVE_INTERMEDIATE_CAUSAL_OUTCOMES; empty/EAUW endpoints are already open, but all 14 intermediate background outcomes on this authority remain unopened; an immutable 512-value prediction receipt must precede their evaluation",
+  "authority": {
+    "path": "ops/circuit_fast_screen_candidate_task14_prospective_jvp_amplitude.py",
+    "file_sha256": "ca0b743dce3ec636924b25e260fd635af306d99b91cf93984e25f1e015e79f12",
+    "logical_sha256": "d9f16f8066e48607ddcf23fd7d99c2d1d6025fd6ccc541c3f140a95370a4c79f",
+    "rows": 32
+  },
+  "binding_parent": {
+    "path": "circuits/fast_screens/task14_prospective_mlp6_7_downstream_midpoint_margin_jvp_amplitude_v1_result.json",
+    "sha256": "714f61a8d3911564160236276c108900d341037b1046851fa19be00d5035463d",
+    "finding": "Separate midpoint readers prospectively generate empty and EAUW amplitudes at 0.000116 relative L2 error."
+  },
+  "novelty_audit": [
+    "Searches for single-gradient lattice, central-gradient composition, one-reader subset prediction, and full-lattice JVP found no prior authority event.",
+    "Earlier composition laws either consume target endpoints or use a distinct midpoint derivative per background. Here one row-level reader vector must serve all sixteen backgrounds."
+  ],
+  "map": "For every row, construct all 32 L11H3 heads h_base(S), h_exact(S) for S subset {E,A,U,W}. Define a target-free center c as their arithmetic mean. Differentiate the native final answer margin once at c to obtain reader g_c. Seal q_hat(S)=g_c dot (h_exact(S)-h_base(S)) for all 16 subsets. A native empty-base gradient supplies the matched one-reader control. Only after sealing 512 predictions may the complete 1,024-installation causal lattice be opened.",
+  "predictions": {
+    "pred_a_instrument_and_temporal_seal": "Hashes and capability license match; prediction receipt predates validation; source/downstream closures <=5e-5; exactly 512 unique predictions and targets.",
+    "pred_b_single_reader_full_lattice": "Across all 512 amplitudes, central-reader cosine >=0.995, relative L2 error <=0.05, and sign agreement >=0.95.",
+    "pred_c_unopened_intermediate_composition": "On the 448 previously unopened intermediate amplitudes alone, cosine >=0.99, relative L2 error <=0.08, and sign agreement >=0.90.",
+    "pred_d_direction_template_stability": "Each of four direction-template cells has cosine >=0.98 and relative L2 error <=0.10.",
+    "pred_e_cardinality_stability": "Each of five background-cardinality groups has cosine >=0.98 and relative L2 error <=0.10.",
+    "pred_f_center_beats_native_base_reader": "The central reader reduces overall relative L2 error at least 30% versus the one-reader gradient at each row's native empty-base head."
+  },
+  "null": "Failure of b or c means one row-level reader is insufficient for composition; retain background-specific midpoint readers. Failure of d/e localizes nonlinearity to syntax/direction or lattice depth. Failure of f means the simpler native-base reader is adequate. No fitted scale, offset, causal endpoint, or group mean may alter a gate.",
+  "price": {
+    "sealed_prediction": {"physical_model_forwards": 3, "example_evaluations": 160, "backwards": 2, "causal_interventions": 0, "sealed_predictions": 512},
+    "causal_validation": {"physical_model_forwards": 5, "example_evaluations": 1120, "backwards": 0, "causal_interventions": 1024, "maximum_patch_chunk_rows": 256},
+    "total": {"physical_model_forwards": 8, "example_evaluations": 1280, "backwards": 2, "causal_interventions": 1024, "parameter_updates": 0}
+  },
+  "closed_claims": ["other_tasks", "global_reader_shared_across_rows", "semantic_uniqueness", "rank", "compression", "activation_reconstruction", "literal_compute_saving"]
+}
