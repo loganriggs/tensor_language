@@ -1,0 +1,21 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.direction_cardinality_program_broad_collateral_v1",
+  "created_utc": "2026-09-05T23:50:09Z",
+  "purpose": "Broaden literal selectivity of all ten fixed Task14 projected writes from two unrelated behaviors to four additional native-capable behaviors without changing the program.",
+  "prior_art_search": {
+    "result": "The existing collateral screen covers numbered-list successor and bracket pending-opener only. No result installs all ten writes on polarity, narrative tense, preposition selection, or voice frame.",
+    "existing_two_behavior_result": {"path": "circuits/fast_screens/task14_mlp6_7_direction_cardinality_prototype_cross_circuit_collateral_v2_result.json", "sha256": "4efe92e1c925ebb9d9db0d1c5158a6d26bcd6e3bdcd3c0336bc162b479705e04"}
+  },
+  "authority": {"path": "ops/circuit_fast_screen_candidate_task14_program_broad_collateral.py", "file_sha256": "ca2541290fdd2ae70109a3b4a9e2c3770804c7bf05b4a487b1397c7192aea031", "logical_sha256": "f547177fd68314b7ebfec1ceb34ef205c44066e7a30bbd426a73defd76472c99", "behaviors": ["polarity", "narrative_tense", "preposition_selection", "voice_frame"], "rows_per_behavior": 32},
+  "predictions": {
+    "pred_a_authority_native_and_noop": "All 128 frozen source rows have positive native answer-minus-foil margins; zero-add replay changes either endpoint logit by <=1e-4.",
+    "pred_b_all_ten_writes_live": "Exactly ten nonzero 1,152-D vectors are installed; projected addition error <=5e-5.",
+    "pred_c_polarity_preserved": "For every write, median normalized absolute margin change <=0.10, at least 28/32 rows <=0.25, and <=2 native answers flip.",
+    "pred_d_narrative_tense_preserved": "The identical per-write preservation bars hold for narrative tense.",
+    "pred_e_preposition_and_voice_preserved": "The identical per-write preservation bars hold separately for preposition selection and voice frame.",
+    "pred_f_complete_fixed_program_and_price": "All 1,280 behavior×write installations are present without pooling; <=12 physical forwards, 1,536 examples, zero gradients, updates, fits, vector changes, or row selection after effects."
+  },
+  "terminal_rule": "screen if all gates pass; null if the instrument is valid and any behavior-specific preservation gate fails; invalid otherwise.",
+  "closed_claims": ["universal selectivity", "tasks outside six measured behaviors", "joint composition", "mediator-gain transfer", "necessity", "rank"]
+}
