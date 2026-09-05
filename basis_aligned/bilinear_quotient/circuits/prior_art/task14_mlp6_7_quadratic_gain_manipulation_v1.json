@@ -1,0 +1,42 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "subject_verb.number_agreement.mlp6_7_quadratic_gain_manipulation_v1",
+  "created_utc": "2026-09-05T20:50:00Z",
+  "purpose": "Test whether the midpoint-quadratic readout of the grouped MLP6--7 source is a predictive and manipulable tensor program at unseen interpolation and extrapolation gains.",
+  "binding_evidence": [
+    {
+      "path": "circuits/fast_screens/task14_mlp6_7_contextual_midpoint_tangent_readout_v1_result.json",
+      "sha256": "48c72ea08c2573d520e639bbd34805ce6b60f4ec10d420fbbebed8e6112a65aa",
+      "finding": "At the registered t=1 endpoint, midpoint JVP predicts the exact grouped-unit head delta with cosine at least 0.999927, relative error at most 0.013932, and installed opposite-number task recovery in [0.959081,1.046326]; endpoint JVP fails."
+    }
+  ],
+  "novelty_audit": [
+    "No receipt uses the frozen endpoint and midpoint derivatives to predict unseen gain manipulations of this causal source without fitting to those gains.",
+    "This is an intervention-level prediction of head vectors and native-tail task effects, not a rank, compression, reconstruction, or semantic-uniqueness claim."
+  ],
+  "map": "For each existing HOLDOUT row, source in {opposite-number, same-number lexical}, and background in {recipient: empty-to-YZ, donor-context: EAUW-to-EAUWYZ}, let d=x1-x0 and g(t)=f(x0+t d). Freeze b=J_f(x0)d and c=J_f(x0+d/2)d-b from the prior endpoint/midpoint construction. Predict g_hat(t)=f(x0)+t b+t^2 c at registered gains t in {-0.5,0.5,1.5}; compare with exact g(t), install both into the native tail, and score head geometry plus task-margin recovery.",
+  "registered_gains": [-0.5, 0.5, 1.5],
+  "predictions": {
+    "pred_a_instrument_closure": "All replay, no-op, state, normalized-state, and finite-tensor gates are at most 5e-5.",
+    "pred_b_quadratic_head_prediction": "For every opposite-number source/background/cell/gain, predicted-versus-exact head-delta cosine is at least 0.98 and relative error is at most 0.10.",
+    "pred_c_quadratic_task_manipulation": "For the same cells, installed predicted task-margin recovery relative to the exact gain intervention is in [0.80,1.20] with the exact sign.",
+    "pred_d_extrapolation_stable": "Predictions b and c hold separately at both extrapolation gains -0.5 and 1.5.",
+    "pred_e_lexical_effect_bounded": "At every background/cell/gain, absolute lexical exact and predicted task-margin effects are at most 25% of the matched opposite-number exact effect. This preserves, rather than repairs, the parent specificity discriminator."
+  },
+  "null": "If the instrument holds but the quadratic law fails at unseen gains, retain the midpoint result only as an endpoint secant identity and move to exact operational equivalence classes; do not add polynomial degree or tune gains post hoc.",
+  "price": {
+    "physical_model_forwards": 4,
+    "example_evaluations": 816,
+    "causal_interventions": 384,
+    "backwards": "two JVPs per source/background; no optimization",
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "semantic uniqueness",
+    "rank",
+    "compression",
+    "activation reconstruction",
+    "new independent text",
+    "necessity outside the fixed L11H3 interface"
+  ]
+}
