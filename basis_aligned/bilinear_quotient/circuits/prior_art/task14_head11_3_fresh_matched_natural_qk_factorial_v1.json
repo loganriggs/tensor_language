@@ -1,0 +1,105 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+  "created_utc": "2026-09-05",
+  "purpose": "On licensed fresh HOLDOUT text, causally test whether the natural L11H3 subject-self score distinguishes subject number, whether its downstream effect reverses with the subject effective-value state, and whether same-number lexical score changes are smaller.",
+  "licensed_precondition": {
+    "authority_path": "ops/circuit_fast_screen_candidate_task14_fresh_matched_natural_native_capability.py",
+    "authority_file_sha256": "3d02183780bdae4f4b317b3cf04410ac2184af83d69d9c517fba10522d4f3449",
+    "authority_logical_sha256": "8862dc84c10a28c0857cb7b201adab46e72f2e7063069fcf1a09f50ec21947d7",
+    "capability_result_path": "circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license_result.json",
+    "capability_result_sha256": "ece04f3954ab8dd9fd3be73942af63cdf13d76f13854c07ccb02b31ce2d7553b",
+    "license_path": "circuits/fast_screens/task14_fresh_matched_natural_native_capability_v1_license.json",
+    "license_sha256": "12d1835835612ce52629272309cbb49ff0af4d48dcabad45fe7e29e3fea94b4c",
+    "causal_candidate_id": "subject_verb.number_agreement.head11_3_fresh_matched_natural_qk_factorial_v1",
+    "evaluated_rows": "HOLDOUT only; all FIT rows are forbidden to the causal runner"
+  },
+  "prior_art_audit": [
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
+      "sha256": "39269428f6948ceae892721c7f79906e1223b97c6eb0033de0c95be545ac1f8e",
+      "finding": "On reused OOD text, changing the subject-self score had opposing effects under native versus donor subject values. This motivates a fixed score-by-value interaction prediction but is not fresh confirmation."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_ood_fronted_natural_qk_number_specificity_v1_result.json",
+      "sha256": "a35e3b905313b14635a2b34736548172ce5e56761f8913cf27d0d86152cb201f",
+      "finding": "Natural QK branches produced a signed number-dependent effect on reused OOD text. The result did not isolate a matched token-8-only score change on fresh text."
+    },
+    {
+      "path": "circuits/fast_screens/task14_head11_3_fresh_fronted_natural_qk_number_specificity_v1_result.json",
+      "sha256": "94a6c8945b983a5b9e277563175957b55278a9f36169f200643ef8e9a285af9d",
+      "finding": "The first fresh causal instrument was invalid because opposite-versus-recipient score also changed a foreign prefix and failed one registered liveness cell. Its contrast remains diagnostic only and is not recomputed here."
+    }
+  ],
+  "site": {
+    "layer": 11,
+    "head": 3,
+    "source_position": 8,
+    "destination_position": 8,
+    "score": "The exact natural subject-self source score p_8 captured by replay_attention_with_source_factors.",
+    "effective_value": "The exact post-OV subject-source vector u_8, so the installed source term is p_8 u_8.",
+    "background": "Every non-subject source term remains the recipient's exact native term."
+  },
+  "conditions": [
+    "same_score_same_value",
+    "opposite_score_same_value",
+    "same_score_opposite_value",
+    "opposite_score_opposite_value",
+    "lexical_score_same_value",
+    "lexical_score_opposite_value",
+    "complete_opposite_head"
+  ],
+  "estimands": {
+    "number_score_under_same_value": "Change in the fixed are-minus-is margin from opposite_score_same_value minus same_score_same_value.",
+    "number_score_under_opposite_value": "Change in the fixed are-minus-is margin from opposite_score_opposite_value minus same_score_opposite_value.",
+    "score_by_value_interaction": "number_score_under_opposite_value - number_score_under_same_value",
+    "lexical_score_under_same_value": "lexical_score_same_value - same_score_same_value",
+    "lexical_score_under_opposite_value": "lexical_score_opposite_value - same_score_opposite_value"
+  },
+  "metrics": {
+    "fixed_are_minus_is_margin": "The ' are' logit minus the ' is' logit, independent of which answer is donor-correct; used only for signed number discrimination and lexical selectivity.",
+    "recipient_margin": "recipient-answer logit minus opposite-answer logit",
+    "donor_margin": "opposite-answer logit minus recipient-answer logit",
+    "recipient_CE_improvement": "native recipient-answer full-vocabulary CE minus patched recipient-answer CE; positive is better",
+    "donor_CE_improvement": "native opposite-answer full-vocabulary CE minus patched opposite-answer CE; positive is better",
+    "rule": "CE improvement is always answer-directed. It is never multiplied by a singular/plural expected sign."
+  },
+  "bars": {
+    "maximum_native_replay_absolute_logit_error": 0.00007,
+    "maximum_source_term_sum_absolute_error": 0.00005,
+    "maximum_same_score_same_value_endpoint_error": 0.00007,
+    "maximum_installed_term_absolute_error": 0.00005,
+    "maximum_complete_head_vector_absolute_error": 0.00005,
+    "minimum_complete_head_mean_donor_margin_improvement": 0.05,
+    "minimum_complete_head_mean_donor_CE_improvement": 0.0,
+    "minimum_complete_head_row_improvement_fraction": 0.75,
+    "minimum_number_score_absolute_mean_are_minus_is_effect": 0.05,
+    "minimum_number_score_expected_row_sign_fraction": 0.75,
+    "maximum_same_number_lexical_over_number_margin_ratio": 0.25,
+    "minimum_answer_helpful_mean_margin_effect": 0.05,
+    "minimum_answer_helpful_mean_CE_improvement": 0.0,
+    "minimum_answer_helpful_row_fraction": 0.75
+  },
+  "fixed_predictions": {
+    "instrument": "Exact replay/source algebra/no-op installation must pass, and complete opposite-head replacement must improve donor margin and donor CE in every direction-by-template cell.",
+    "number_discrimination": "Using only fixed are-minus-is margin, at both value states the opposite-minus-same score effect is live and its sign reverses when the value state changes. Under opposite value it is positive for singular-to-plural and negative for plural-to-singular; under same value those signs reverse.",
+    "lexical_selectivity": "Using fixed are-minus-is margin at both value states and in every cell, the absolute mean same-number lexical score effect is at most one quarter of the matched opposite-number score effect.",
+    "bidirectional_task_use": "Opposite score under opposite value improves donor margin and donor CE in both subject-number directions.",
+    "directional_asymmetry": "The opposing alternative is that opposite score under opposite value helps singular-to-plural but harms plural-to-singular, despite a capable complete-head transplant."
+  },
+  "terminal_policy": "Fail exactness or complete-head capability -> invalid instrument. Otherwise preserve number-discrimination/selectivity and task-use predictions independently; do not repair rows, thresholds, or directions after outcomes.",
+  "price": {
+    "model_forwards": 3,
+    "example_evaluations": 208,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "closed_claims": [
+    "individual q versus k semantics",
+    "whole-head sufficiency",
+    "necessity or removal",
+    "syntax generality beyond the two licensed templates",
+    "FIT performance",
+    "simplicity or minimality"
+  ]
+}
