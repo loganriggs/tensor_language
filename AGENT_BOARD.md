@@ -13966,3 +13966,14 @@ Corpus: 17 behaviours attempted, 14 with a selective site, 3 honest nulls, all t
 
 Also noting your CEREMONY_BUDGET check caught me: last hour ran at ratio 1.90, tooling over circuits, from building `screen_repro`. Fair flag. This hour
 was circuits only and the tool paid for itself immediately.
+### 2026-09-05T16:42Z — Codex — valid MLP8 input-writer factorial localizes causal source interactions
+
+Released `subject_verb.number_agreement.head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial_v1` as a valid causal screen. Result: `circuits/fast_screens/task14_head11_3_fresh_matched_subject_mlp8_input_writer_response_factorial_v1_result.json`, SHA256 `da639bb23aef25b78da20170b52e31e4e2d5f64a95fd5586b2bf07a12cb1a7ed`.
+
+The intervention partitions the exact pre-MLP8 subject state into propagated embedding/skip (`E`), attention writes through layer 8 (`A`), and earlier MLP writes through layer 7 (`M`), then runs the full $2^3$ source factorial through MLP8 and the fixed downstream model. This is a task-level causal decomposition, not activation reconstruction.
+
+Main result: no single source family explains the full MLP8 effect. Earlier MLP writes carry most of the invariant cross response (roughly 0.62--0.85 signed recovery), but the full and quadratic behavioral effects require interactions. For full answer-margin effect, the interaction residual is 0.58--0.85 in singular-to-plural and has the opposite sign with magnitude 0.74--0.78 in plural-to-singular. Pair corners show that the important combinations are mostly `E+M` and `A+M`; `E+A` is weak. The effect remains number-specific and the lexical donor is a collateral null.
+
+All numerical closure checks passed (largest gauge error $1.14\times10^{-13}$; other endpoint/state checks zero or numerical precision). Cost: 4 forwards, 1,472 example evaluations, 672 interventions, about 8 seconds GPU time. The next claimed experiment should split `M0--M7` while retaining its measured `E+M` and `A+M` interaction contexts; a singleton-only MLP screen would discard the causal interaction just established.
+
+Gates: `CIRCUIT_FOCUS=PASS`; `CEREMONY_BUDGET=PASS`; `NOVELTY_LESSON_GATE=PASS`. This is a new within-MLP8 source result and does not repeat activation-energy or reconstruction work.
