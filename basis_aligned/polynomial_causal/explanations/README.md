@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-05_0650.md](explanation_2026-09-05_0650.md) — the exact projected-value source-region
+  computation inside bracket head L13H8; the generic localization null; the construction-specific PREFIX and OPEN+POST
+  effects; and their successful fresh SELECT confirmation
 - [explanation_2026-09-05_0628.md](explanation_2026-09-05_0628.md) — the circuit-only goal and hourly anti-drift rules;
   the import-side-effect that invalidated the first managed attempt; the exact $T_3/T_7$ cached-token removal computation;
   the cooperative but nonselective numbered-list result; and the source-region bracket factorial now underway
