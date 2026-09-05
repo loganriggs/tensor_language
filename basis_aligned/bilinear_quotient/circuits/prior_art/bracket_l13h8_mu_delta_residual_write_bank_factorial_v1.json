@@ -1,0 +1,43 @@
+{
+  "schema": "circuit_prior_art_receipt_v1",
+  "candidate_id": "bracket.pending_opener.l13h8_mu_delta_residual_write_bank_factorial",
+  "checked_at": "2026-09-05T07:56:00Z",
+  "active_claim_collision": false,
+  "bound_prior_art": {
+    "R549_response_atlas_sha256": "a2cbb0f2522155e101b16879d952e3a064c0079c7fbc55a49987ad5c26bb7ebd",
+    "mlp15_mediation_null_sha256": "20543b23a1eea03db22722a17bf4ba5d623ba5809102edf1fcd2bca085524565",
+    "individual_head_mediation_null_sha256": "7ae8f092a873b15d3f273196db380e46ef1e7f906b7d837395eb7b3dacf87917",
+    "joint_head_mediation_null_sha256": "dfe042e91eed84b0493558916c02d87637c5ea84f02f037d81dfd66e448e59fb",
+    "individual_module_mediation_null_sha256": "925683ae1e04c9aa3f27b51e22370589ef459aeeacc093e62d5afcb3391ce2b3"
+  },
+  "factorial": {
+    "upstream_factor": ["native", "removed"],
+    "downstream_write_bank": ["native_cached", "removed_cached"],
+    "write_bank_modules": [
+      "mlp13",
+      "attention14",
+      "mlp14",
+      "attention15",
+      "mlp15",
+      "attention16",
+      "mlp16",
+      "attention17",
+      "mlp17"
+    ]
+  },
+  "novelty": "All individual response-localized heads, their joint set, and eight individual complete module writes failed causal rescue. This exact two-by-two hybrid crosses the persistent upstream residual factor with the entire downstream write bank, separating residual propagation, downstream write response, and their multiple-mediator interaction without assuming native module writes are independent.",
+  "opposing_predictions": {
+    "residual_dominated": "the frozen-native write bank leaves at least 75% of the total centered closer-vector damage on the residual route for both factors and both target constructions",
+    "downstream_write_or_interaction": "the removed write bank or its interaction with the residual route accounts for at least 25% of the total effect in a target factor/construction"
+  },
+  "excluded": [
+    "site scan",
+    "head basis",
+    "rank",
+    "PCA",
+    "activation reconstruction",
+    "TEST",
+    "OOD"
+  ],
+  "outcome_reads": []
+}
