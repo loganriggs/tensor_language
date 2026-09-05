@@ -1,0 +1,12 @@
+{
+  "schema": "circuit_prior_art_receipt_correction_v1",
+  "timestamp": "2026-09-05T04:58:00Z",
+  "candidate_id": "subject_verb.number_agreement.select_cross_syntax",
+  "corrects_path": "circuits/fast_screen_task14_select_cross_syntax_prior_art.json",
+  "corrects_sha256": "544aa139689b11e9d8397794964ea0bfc82cadfb88e4dd522610d825e0c75f84",
+  "incorrect_text": "Cross-syntax donors retain opposite subject number, matched attractor number, a different lexical group, and a different syntax family.",
+  "correct_text": "Cross-syntax donors retain opposite subject number and matched attractor number, use the same frozen noun group, and change syntax family.",
+  "effect_on_result": "none",
+  "reason": "The frozen candidate rows, result novelty statement, and canonical publication all describe the executed matched-noun relation correctly. The erroneous prior-art sentence is retained because its hash is bound into the preregistration and result.",
+  "followup": "Treat a deterministic cross-noun SELECT donor profile as a separate counterfactual-robustness experiment."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "circuit_prior_art_and_novelty_receipt_v1",
+  "candidate_id": "subject_verb.number_agreement.select_cross_noun_cross_syntax",
+  "canonical_objects": [
+    "complete grammatical subject number",
+    "attention block 11 output",
+    "head 11.3 pre-output-projection slice",
+    "held-out SELECT nouns and prompt templates",
+    "alternative cross-noun donor matching"
+  ],
+  "aliases_searched": [
+    "Task14 SELECT cross noun",
+    "head 11.3 donor matching",
+    "cross_syntax_1",
+    "agreement held out lexical donor",
+    "subject verb agreement donor control"
+  ],
+  "method_families": [
+    "exact one-position donor interchange",
+    "cross-construction transfer",
+    "counterfactual-family robustness",
+    "paired causal-response comparison"
+  ],
+  "matched_prior_claims": [
+    "FIT selected attention 11 and head 11.3 and then established literal cross-syntax transfer on FIT endpoints.",
+    "The SELECT matched-noun test held the noun group fixed and passed at both preselected sites.",
+    "The frozen SELECT prior-art receipt accidentally described a different lexical group; its correction explicitly reserves cross-noun matching for a separate experiment.",
+    "Older Task14 donor authorities contain cross-noun relations, but no canonical held-out SELECT complete-head comparison of the matched-noun and cross-noun rules was published."
+  ],
+  "relation": "extension",
+  "novelty_delta": "Change only the SELECT donor matching rule. Within each target-subject-number and attractor-plurality stratum, use the next frozen noun group in cyclic group-number order, then swap A1 with A2 and reverse subject number. Sites, phase, thresholds, and checkpoint stay fixed.",
+  "decision_changed": "A pass would show that held-out head-11.3 transfer is robust to lexical matching. A null would narrow the current claim to matched lexical contexts and motivate interaction-aware decomposition before selective removal.",
+  "reviewer": "Codex circuit-throughput lane repository audit",
+  "reviewed_sources": [
+    {
+      "source": "circuits/task_subject_verb_number_agreement.json",
+      "sha256": "a454d0974fc84c3bc0015873883a2d5e02c47d69fc9c7efe7bd76c56ad18104f",
+      "searched_terms": ["grammatical_subject_number.v5", "SELECT_HELD_OUT", "next_missing"]
+    },
+    {
+      "source": "circuits/DOSSIER.md",
+      "sha256": "1a6a52510668ecce89d45ec8884bb8cbcbe21984e7b68c59185ed270d27a1e40",
+      "searched_terms": ["subject_verb", "head 11.3", "cross-syntax"]
+    },
+    {
+      "source": "circuits/fast_screen_ledger.jsonl",
+      "sha256": "b2d68f95b13e1c77ad12e5b7fd7fd81ff7ddaf426297d069513fa3614b034a57",
+      "searched_terms": ["task14", "SELECT", "cross-syntax"]
+    },
+    {
+      "source": "circuits/fast_screen_task14_select_cross_syntax_prior_art_correction.json",
+      "sha256": "d8c02b4c04dbc37d41bb5b4a4636d581f12f29007d55b3fb82472ff1fd873ca5",
+      "searched_terms": ["different lexical group", "cross-noun", "followup"]
+    }
+  ]
+}

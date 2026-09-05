@@ -6,6 +6,8 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 
 import pytest
+import json
+import sys
 
 import circuit_fast_screen_candidate_task14_cross_syntax as candidate
 import circuit_fast_screen_producer as producer
@@ -144,3 +146,21 @@ def test_mutated_derived_relation_is_rejected() -> None:
     with pytest.raises(candidate.CrossSyntaxAuthorityError, match="does not change"):
         candidate.validate_rows(rows)
 
+
+def test_cli_dry_run_cannot_fall_through_to_model_execution(
+    monkeypatch, capsys,
+) -> None:
+    monkeypatch.setattr(sys, "argv", ["runner", "--dry-run"])
+    monkeypatch.delenv("BQLIB_DRYRUN", raising=False)
+    monkeypatch.delenv("BQLIB_NO_MODEL", raising=False)
+    run.cli()
+    printed = json.loads(capsys.readouterr().out)
+    assert printed["gpu_accessed"] is False
+    assert printed["model_loaded"] is False
+    assert printed["authority_sha256"] == run.EXPECTED_AUTHORITY_SHA256
+
+
+def test_cli_rejects_unknown_arguments(monkeypatch) -> None:
+    monkeypatch.setattr(sys, "argv", ["runner", "--not-a-real-flag"])
+    with pytest.raises(run.CrossSyntaxRunError, match="unknown command-line"):
+        run.cli()

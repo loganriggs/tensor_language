@@ -17,6 +17,7 @@ import math
 import os
 from pathlib import Path
 import statistics
+import sys
 import time
 from typing import Callable, Mapping, Sequence
 from types import ModuleType
@@ -503,5 +504,17 @@ def main(protocol: TargetedCrossSyntaxProtocol = DEFAULT_PROTOCOL) -> None:
     print(json.dumps(_publish(run_science(protocol=protocol), protocol), sort_keys=True))
 
 
+def cli(protocol: TargetedCrossSyntaxProtocol = DEFAULT_PROTOCOL) -> None:
+    """Expose a real dry-run flag; never silently ignore command-line arguments."""
+    arguments = sys.argv[1:]
+    if arguments == ["--dry-run"]:
+        if os.environ.get("BQLIB_DRYRUN") not in {None, "1"}:
+            raise CrossSyntaxRunError("conflicting dry-run environment")
+        os.environ["BQLIB_DRYRUN"] = "1"
+    elif arguments:
+        raise CrossSyntaxRunError(f"unknown command-line arguments: {arguments}")
+    main(protocol)
+
+
 if __name__ == "__main__":
-    main()
+    cli()

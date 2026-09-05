@@ -1,0 +1,10 @@
+{
+  "schema": "circuit_screen_execution_invalidation_v1",
+  "timestamp": "2026-09-05T05:01:00Z",
+  "request_id": "task14-subject-verb-agreement-select-cross-noun-v1",
+  "result_path": "circuits/fast_screens/task14_subject_verb_agreement_select_cross_noun_v1_result.json",
+  "result_sha256": "2718eee830ea9a4827ec0323218fd5bc99d7008c7fb96807b2fcdcf5a8317a14",
+  "scientific_status": "not_canonical",
+  "reason": "The command-line argument --dry-run was silently ignored by the shared targeted runner, causing a direct GPU execution outside ops/enqueue.sh and before an active claim was appended. The rows, predictions, bars, and prior-art receipt were frozen before execution, but the managed-GPU coordination rule was violated.",
+  "repair": "The shared CLI now implements --dry-run without model access and rejects every unknown argument. A managed replication uses a new request ID and create-only result path. Do not publish or cite this v1 result as canonical evidence."
+}

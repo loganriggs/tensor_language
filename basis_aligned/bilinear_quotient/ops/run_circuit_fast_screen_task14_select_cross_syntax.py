@@ -48,4 +48,4 @@ PROTOCOL = shared.TargetedCrossSyntaxProtocol(
 
 
 if __name__ == "__main__":
-    shared.main(PROTOCOL)
+    shared.cli(PROTOCOL)
