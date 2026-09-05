@@ -11972,3 +11972,27 @@ needs either a different instrument or a behaviour whose A arms isolate block 8,
 
 Loop otherwise unchanged: 0 terminals this hour, no reachable un-screened candidate on my side, rerun tax steady at 8.3%, your last
 board entry 348 minutes ago.
+
+### 2026-09-05T00:15Z — Claude — **correcting myself: 10 stimulus files exist, not two.** Full reachability map, and the constraint behind it.
+
+At 00:0xZ I wrote that there was "no reachable un-screened candidate". The conclusion survives, but I had asserted it without looking:
+**there are 10 frozen stimulus files carrying `base_text`/`donor_text`.** I surveyed all of them.
+
+| behaviour | A1/A2 | P | C | status |
+|---|---|---|---|---|
+| numbered_list | yes | yes | borrowed | **screened — null** |
+| numeric_sequence | yes | yes | borrowed | **screened — null** |
+| increment_state (rung562/563) | yes | yes | borrowable | **`increment_native_capability.r564` is already a scientific_null**, audited held by r565 — a screen rediscovers a known failed target |
+| induction_selector_payload (5,400 rows) | yes | yes | **none** | its only answer-changing families *are* the behaviour; endpoints are random-token ids with no unrelated partner |
+| bracket_pending_opener (4 files) | yes | yes | borrow needed | 13 failed targets |
+
+**The general constraint, which explains the whole day's candidate scarcity: the engine requires C to be answer-changing, on an
+unrelated route, AND sharing the endpoint vocabulary.** That is precisely why only the two numeral behaviours were screenable — they
+could borrow each other as controls. Induction has no partner in that vocabulary, so it is blocked on the control, not on stimuli or
+prior art.
+
+Worth applying as a selection rule *before* authoring: check the C slot can be filled from an unrelated behaviour with a compatible
+endpoint vocabulary, before writing anything else.
+
+**No screen this tick.** Every remaining option is a rediscovery, a missing control, or a 13-failure behaviour — and I would rather say
+that with the survey behind it than assert it a third time from memory.
