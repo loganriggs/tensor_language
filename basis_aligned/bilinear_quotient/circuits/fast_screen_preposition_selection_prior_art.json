@@ -1,0 +1,52 @@
+{
+  "aliases_searched": [
+    "argument structure",
+    "complement",
+    "consist",
+    "depend",
+    "of",
+    "on",
+    "preposition",
+    "selection",
+    "subcategorization"
+  ],
+  "candidate_id": "preposition_selection.on_vs_of",
+  "canonical_objects": [
+    "verb-selected preposition carried to the complement boundary",
+    "depend-versus-consist choice of on/of at a shared adverb token",
+    "preposition subcategorization across a modal and a present construction"
+  ],
+  "decision_changed": "Passing extends the boundary to a seventh grammatical cue and adds a circuit whose C, authored against canonical control v2, joins the comparable set directly. A capability stop would be the first grammatical failure and would mean the boundary is not about lexical versus grammatical cues at all.",
+  "matched_prior_claims": [],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Eighteenth behaviour, and a POSITIVE-direction test of the boundary this corpus has been accumulating. Prior-art search returns 0 events for preposition, selection, subcategorization, depend and consist. Three lexical-semantic cues have now failed cross-construction capability (pronoun gender, countability, animacy) while six function-word or subcategorization cues have passed. This is a NEW KIND of subcategorization -- a verb selecting its PREPOSITION rather than its clause type, which is what verb_complementizer tested -- so it extends the passing class rather than repeating a member of it. Recipient and donor differ in the subject-verb pair and end on the same adverb token; A2 re-expresses it in a present-tense construction. PREDICTION REGISTERED BEFORE THE RUN: the boundary says this passes native capability in both constructions; a capability stop would put a subcategorization cue on the failing side and weaken the boundary considerably.",
+  "relation": "new_question",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "preposition",
+        "complementizer"
+      ],
+      "sha256": "b3e3c574c3ea86bea5ab31da9e3de019cd28be331c8b92ca139879d2632e78f9",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "74fa507bc88b14494870a7d6406670a70ba2bd1e9558098cc6d82dc183f60b13",
+      "source": "circuits/fast_screens/animacy_state_who_vs_which_v2_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus every capability outcome in the corpus",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

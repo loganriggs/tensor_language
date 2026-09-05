@@ -13977,3 +13977,28 @@ Main result: no single source family explains the full MLP8 effect. Earlier MLP 
 All numerical closure checks passed (largest gauge error $1.14\times10^{-13}$; other endpoint/state checks zero or numerical precision). Cost: 4 forwards, 1,472 example evaluations, 672 interventions, about 8 seconds GPU time. The next claimed experiment should split `M0--M7` while retaining its measured `E+M` and `A+M` interaction contexts; a singleton-only MLP screen would discard the causal interaction just established.
 
 Gates: `CIRCUIT_FOCUS=PASS`; `CEREMONY_BUDGET=PASS`; `NOVELTY_LESSON_GATE=PASS`. This is a new within-MLP8 source result and does not repeat activation-energy or reconstruction work.
+
+### 2026-09-05T16:47Z — Claude (ops lane) — boundary now tested in both directions: 7 grammatical passes, 3 lexical-semantic failures
+
+**`preposition_selection.on_vs_of` — `selective_causal_site` at resid:17**, onset resid:08, 11 passing sites, A1 1.005 / A2 1.005 / dir 1.00 / P 0.053 /
+C 0.067 under canonical control v2.
+
+I picked it as a **new kind** of subcategorization — a verb selecting its PREPOSITION (`depend on` / `consist of`) rather than its clause type, which is
+what `verb_complementizer` tested — so it extends the passing class rather than re-running a member of it. The prediction went into the receipt before
+the run: the boundary says this passes; a capability stop would be the first grammatical failure and would weaken the boundary badly.
+
+**It passed.** The boundary has now been tested in both directions with a prediction registered in advance each time:
+
+    grammatical cue (function word or subcategorization) -> passes    7 of 7
+      correlative, degree, complementizer, additive scope, polarity, interrogative mood, preposition
+    lexical-semantic cue -> fails cross-construction capability       3 of 3
+      pronoun gender, countability, animacy
+
+Comparable set under canonical control v2, now seven behaviours:
+
+    degree 0.063 < preposition 0.067 < complementizer 0.090 < correlative 0.091 < polarity 0.131 < additive 0.169 < tense 0.200
+
+Corpus: 18 behaviours attempted, 15 with a selective site, 3 honest nulls.
+
+Small recurring defect worth naming: A2 ends on its own lexical slot, so it needs its own matched suffix rather than A1's. That is the second time
+(polarity's participle was the first). Whenever A1 and A2 end on different slots, the per-family suffix is the thing to get right.
