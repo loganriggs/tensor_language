@@ -295,6 +295,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v1` | invalid | exact multi-source H1/H4 compression | **BF16 closure tripwire** | `aspectual_anchor_l9h1_h4_downstream_source_bank_v1_result.json` |
 | `aspectual_anchor.has_vs_had.l9h1_h4_downstream_source_bank_v2` | complete | sole BF16-corrected, science-identical source bank | **contextual source-bank screen** | `aspectual_anchor_l9h1_h4_downstream_source_bank_v2_result.json` |
 | `aspectual_anchor.has_vs_had.contextual_source_state_onset_v1` | complete | exact source-bank residual-depth sweep | **source carrier first sufficient at resid:5** | `aspectual_anchor_contextual_source_state_onset_v1_result.json` |
+| `aspectual_anchor.has_vs_had.block4_contextual_source_writer_factorial_v1` | complete | exact carried/attention4/MLP4 Boolean factorization | **MLP4 contextual writer screen** | `aspectual_anchor_block4_contextual_source_writer_factorial_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -323,6 +324,11 @@ The contextual carrier is now depth-localized. Exact replacement of the `last`+p
 rises from 31.20% recovery at resid:3 to 43.15% at resid:4, and first passes at resid:5 (A1 52.87%, A2 58.56%, both direction
 1.0). The raw cue state instead falls from 35.12% at embeddings to 3.11% at resid:5. This places the sufficient contextual write five
 boundaries before the final-subject onset at resid:10 and licenses an exact carried/attention/MLP factorization of block 4.
+
+That factorization closes to direct resid:5 replacement within 7.6e-6 scored logit. MLP4 is the decisive new writer: its exact
+three-factor Shapley contribution is 33.58 recovery points, versus 6.03 for attention4 and 16.11 for carried resid:4 state. Removing
+MLP4 from the full arm loses 33.56 points in A1 and 35.89 in A2. MLP4 alone recovers 31.89%; carried+MLP4 reaches 49.19%. The next
+factorization target is therefore the bilinear MLP4 response at the three contextual source positions.
 
 ### `subroutine.induction.equality_score` — site_live
 

@@ -1,0 +1,49 @@
+{
+  "schema": "aspectual_anchor_block4_contextual_source_writer_factorial_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.block4_contextual_source_writer_factorial_v1",
+  "created_utc": "2026-09-06T02:36:15Z",
+  "question": "Which exact block-4 term makes the `last`+period+`the` contextual source bank first sufficient at resid:5?",
+  "authority": {
+    "onset_result": {
+      "path": "circuits/followups/aspectual_anchor_contextual_source_state_onset_v1_result.json",
+      "sha256": "5ffc93473ba0895bdfb184a8a3045e64438600e168b392ecac6dd58c33138c63",
+      "resid4_mean_recovery": 0.43148779941634463,
+      "resid5_mean_recovery": 0.5571694806316478
+    },
+    "onset_runner": {
+      "path": "ops/run_aspectual_anchor_contextual_source_state_onset_v1.py",
+      "sha256": "4f8b0bb90e176621c8e313f07b5529601abaef4812f9865f3ffaa760c19ff33c"
+    },
+    "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+  },
+  "population": "The same 64 valid A1/A2 discovery rows and the frozen `last`+period+`the` source positions.",
+  "factorization": {
+    "boundary": "block 4 maps resid:4 to resid:5",
+    "carried": "lambda4[0] * (donor resid4 - base resid4); the embedding-skip difference is exactly zero at the source-bank tokens",
+    "attention4": "donor attention4 output minus base attention4 output",
+    "mlp4": "donor MLP4 output minus base MLP4 output",
+    "intervention": "add each selected native paired-difference term at the three base resid:5 source positions, then run the exact blocks5-17 suffix",
+    "arms": "all eight subsets of carried, attention4, and mlp4",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_component_closure": "The full three-term arm matches direct donor resid:5 source-bank replacement within 0.125 scored-logit max absolute difference on every row.",
+    "pred_b_full_factor_passes": "The full arm has A1 and A2 mean recovery at least 0.50 and direction fraction at least 0.80 in each, reproducing the resid:5 sufficiency decision.",
+    "pred_c_block4_writer_identified": "The larger exact factorial Shapley contribution among attention4 and MLP4 is at least 0.05, and removing that winner from the full arm reduces mean recovery in both A1 and A2.",
+    "pred_d_writer_increment": "Attention4 plus MLP4 Shapley contributions sum to at least 0.10 mean target recovery.",
+    "pred_e_exact_coverage": "All eight factorial arms plus the direct resid:5 ceiling produce all 64 row outcomes with finite logits and no dropped row."
+  },
+  "terminal": {
+    "screen": "A-E pass: license the frozen argmax of attention4 versus MLP4 as the block-4 contextual writer, retaining the other term according to its measured Shapley contribution.",
+    "null": "The run is valid but B, C, or D fails: retain resid:5 onset without a block-4 writer claim.",
+    "invalid": "Component closure, native capability, source alignment, finiteness, or coverage fails. No factor, module, row, or threshold may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 28,
+    "example_evaluations_max": 896,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First exact native-term Boolean factorization of the block that creates a sufficient aspectual contextual source carrier."
+}
