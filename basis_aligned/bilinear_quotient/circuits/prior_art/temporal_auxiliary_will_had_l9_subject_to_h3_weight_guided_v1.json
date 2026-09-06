@@ -1,0 +1,28 @@
+{
+  "schema": "temporal_auxiliary_l9_subject_to_h3_weight_guided_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.l9_subject_to_h3_weight_guided_v1",
+  "registered_utc": "2026-09-06T18:40:00Z",
+  "question": "Do the weight-enriched block9 H1/H4 heads causally write the cue-conditioned subject state that block11H3 reads, explaining part of the second cross-task H3 mode?",
+  "authority": {
+    "weight_interface_sha256": "5bf804ee1e61f918edceb0dc9e31ac68fa157de384a943391c4ca4eeb672246a",
+    "capability_sha256": "63b69e3bc57a0a8a9afcffa252737614f9a8a41b6732b9fff655d9da128ef8b2",
+    "builder_sha256": "31e40a5e8a8b285ce7afdb6327276c0aa28b4759083586d0310b0857c8b86764",
+    "known_fact": "Exact weights rank L9H1 first and L9H4 third among all 110 upstream head/MLP writers into the rank-two H3 read map; earlier causal work established L8H1 as the cue-to-subject writer and L9H1/H4 plus L11H3 as material readers, but did not test the serial subject-destination L9-to-H3 edge."
+  },
+  "frozen_design": {
+    "population": "All A1/A2 Next-year/Last-year rows from the passed capability authority.",
+    "writer": "Install the exact L8H1 cue-source response at the two subject-onset destinations.",
+    "capture": "Capture writer-induced block9 head-output deltas at the subject destinations and block11H3's final-query output response.",
+    "arms": "Install into an otherwise native base run each of nine block9 singleton head responses, H1+H4, their seven-head complement, and all nine heads, always only at subject destinations. Capture H3 on the same forward.",
+    "outcomes": "Behavioral donor recovery and rowwise norm of the H3 response projected into the frozen rank-two task-union basis. No fit or greedy selection occurs; H1/H4 are frozen by weights.",
+    "price": {"model_forwards": 36, "example_evaluations": 1152, "fit_updates": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_capability_capture_closure_and_price": "Authorities hold, v4 capability remains passed, all attention reconstructions <=5e-4, row coverage and exact price hold, and values are finite.",
+    "pred_b_writer_and_full_l9_subject_response_are_material": "The L8H1 writer is donorward on every row and all-nine L9 subject responses preserve at least 3% of its mean behavioral effect in both panels.",
+    "pred_c_weight_selected_pair_dominates_h3_response": "H1+H4 preserve at least 60% of the all-nine mean projected H3 response norm in both panels.",
+    "pred_d_unselected_complement_is_secondary": "The seven-head complement preserves at most 40% of the all-nine mean projected H3 response norm in both panels.",
+    "pred_e_both_weight_selected_heads_rank_near_top": "H1 and H4 each rank among the top four singleton heads by projected H3 response norm in both panels."
+  },
+  "decision": "screen if all predictions pass; distributed if A,B pass but C,D,or E fails; null if A holds but the complete L9 subject response is immaterial; invalid if A fails. This tests an exact serial edge, not generic weight correlation."
+}
