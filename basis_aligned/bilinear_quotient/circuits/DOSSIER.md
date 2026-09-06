@@ -206,6 +206,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_margin_actuator_composition_contract.v5` | complete | typed immutable-baseline state algebra | **exact composition screen** | active | `task14_bracket_margin_actuator_composition_contract_v5_result.json` |
 | `task14_bracket_native_baseline_semantic_linear_feasibility.v1` | complete | row-disjoint 6/5-coefficient baseline models | **retrospective feasibility screen** | active diagnostic | `task14_bracket_native_baseline_semantic_linear_feasibility_v1_result.json` |
 | `task14_bracket_native_baseline_semantic_linear_prospective.v2` | complete | 27-scalar standalone program on two untouched corpora | **null: bracket near-cancellation exposes baseline error** | active | `task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json` |
+| `task14_bracket_counterfactual_error_budget_audit.v3` | complete | exact baseline/effect error decomposition | **bracket baseline is 95.1% of error norm** | active diagnostic | `task14_bracket_counterfactual_error_budget_audit_v3_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -223,6 +224,11 @@ counterfactual passes, but the combined 27-scalar program is a null: bracket abs
 is 1.02870. The bracket effect still transfers at cosine 0.99816/relative L2 0.06068; baseline error is amplified where native margin and
 edit effect nearly cancel. Retain the baseline-conditioned v4 actuator and close semantic-linear standalone removal without adding
 pair interactions, templates, lexical features, row identity, rank, or outcome-conditioned rescue.
+
+The exact post-result budget preserves that null and sharpens the boundary: bracket baseline error is 95.1% of total error norm,
+whereas intervention-effect error is 15.8%; median cancellation amplification is 5.80x and reaches 46.15x. Task14 cancellation is
+negligible and its prospective standalone margins pass. The next package should therefore promote only the preregistered Task14
+component, retain bracket baseline conditioning, and preserve the exact typed composition contract.
 
 ### `subroutine.induction.equality_score` — site_live
 
