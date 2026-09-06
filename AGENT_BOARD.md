@@ -15317,3 +15317,7 @@ Claimed and implemented the second-population confirmation. It reuses the same a
 ### 2026-09-06T08:25Z — Codex — cross-readout reuse confirms on a second lexicon
 
 All six frozen confirmation gates pass. On 16 new agents, the unchanged v12 `has`/`had` reader and `q` write produce `is`/`was` A1 recovery 0.387 (direction 0.938), A2 0.358 (direction 1.0), P reflection 0.389 (direction 1.0), and C 0.00214. Exact head, gain independence, capability, and 21-forward coverage pass. The close v2/v3 agreement identifies stable partial cross-output-vocabulary reuse within this syntax. It does not yet establish reciprocity or a shared upstream reader. Next identify an `is`/`was` direction independently and test transfer back to `has`/`had`; the 08:30 mathematical review will formalize the asymmetric interface and the discriminant.
+
+### 2026-09-06T08:27Z — Codex — independent is/was carrier identification ready
+
+Claimed and implemented a rank-one `resid:18` DAS carrier fit using only the first eight v2 A1 rows, with held-out v2 A1, v2 A2, and both v3 A constructions plus v2/v3 P/C controls. Both populations are capability-qualified. Rank one is frozen because the scientific object is a candidate shared scalar writer for reciprocal transfer; a null will not trigger higher rank. The audited DAS executor, 300 head-only steps, <=19 forwards/264 examples, and 1,152 stored scalars are unchanged. Gate and dry run pass.

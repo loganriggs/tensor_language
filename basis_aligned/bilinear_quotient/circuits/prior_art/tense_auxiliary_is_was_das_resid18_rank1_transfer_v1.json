@@ -1,0 +1,44 @@
+{
+  "schema": "tense_auxiliary_is_was_das_resid18_rank1_transfer_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.das_resid18_rank1_transfer_v1",
+  "created_utc": "2026-09-06T08:26:00Z",
+  "question": "Does an independently fitted rank-one resid18 is/was circuit transfer causally across construction and a second agent lexicon while sparing same-answer controls?",
+  "novelty_search": {
+    "nearest_positive": "The frozen has/had q transfers partially to is/was on two populations, but no is/was direction has been fitted or tested.",
+    "new_question": "Identify the is/was direction independently so reciprocal transfer back to has/had can distinguish shared writer from one-way sensitivity.",
+    "anti_rank_drift": "Rank one is frozen because the causal hypothesis is a shared scalar writer; a null is not permission to raise rank. This is task-conditioned causal identification, not compression."
+  },
+  "authority": {
+    "v2_screen_sha256": "946131422a9d155551627617b3e5f4bb2f4331c5eb792aef96c996e07ab2840a",
+    "v3_screen_sha256": "b64f84c94021581e3c6d0ba5e35193a009faf064772a4e7c74639137d2be959b",
+    "v2_capability_sha256": "f76fbcd6174cc9e8e3f77352ee5461815156cdae421ecc43a0e0c3576b63af7e",
+    "v3_capability_sha256": "744d2fd3c8200ca00005357961df3d435a7a13dbdbd7c3a51a487daee76acec3",
+    "v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "v3_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"
+  },
+  "frozen_design": {
+    "site": "resid:18",
+    "rank": 1,
+    "fit": "First eight v2 A1 rows only; 300 final-head-only Adam steps targeting each donor is/was margin.",
+    "tests": ["last eight v2 A1", "all v2 A2", "all v3 A1", "all v3 A2"],
+    "controls": ["v2 P", "v2 C", "v3 P", "v3 C"],
+    "next_if_screen": "Freeze q_iswas and test it without refitting on has/had A/P/C panels in both directions.",
+    "rank_policy": "Do not increase rank after a null."
+  },
+  "predictions": {
+    "pred_a_authority_head_and_rank": "All hashes and capability screens pass, exact head <=1e-3, and q shape is 1152x1.",
+    "pred_b_heldout_lexical_a1": "Held-out v2 A1 absolute recovery >=0.50.",
+    "pred_c_cross_construction_lexical_a2": "v2 A2 absolute recovery >=0.50.",
+    "pred_d_prospective_construction_transfer": "v3 A1 and A2 absolute recovery each >=0.50.",
+    "pred_e_same_answer_selectivity": "Every v2/v3 P/C normalized disturbance <=0.20.",
+    "pred_f_exact_coverage": "At most 19 forwards/264 examples, 300 head-only steps, 1152 fit scalars, no transformer backward or model update."
+  },
+  "terminal": {
+    "screen": "A-F pass: identify an independent is/was rank-one carrier for reciprocal testing.",
+    "null": "Valid rank-one test misses recovery/selectivity; do not raise rank.",
+    "invalid": "Authority, capability, head, rank, or coverage failure."
+  },
+  "circuit_targets": ["computational specification", "held-out and OOD prediction", "selective manipulation", "composition and reuse", "stable identification"],
+  "price": {"model_forwards_max": 19, "example_evaluations_max": 264, "transformer_backwards": 0, "model_updates": 0, "final_head_gradient_steps": 300, "fit_parameters": 1152}
+}
