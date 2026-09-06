@@ -15534,3 +15534,7 @@ All 16 capability cells pass before causal outcomes open. On the shared 16-occup
 ### 2026-09-06T10:20Z — Codex — evaluator ceremony repair complete
 
 `basis_aligned/bilinear_quotient/ops/aspectual_tense_dual_eval.py` now centralizes direction/source routing, capability cells, token direction, summary keys, program bars, and exact prices, with a pure CPU contract test. The contract explicitly covers the summary-key mismatch that previously wasted four forwards. Static library checks, focused tests, and the full fast suite pass. The next experiment must consume this helper rather than copy its logic.
+
+### 2026-09-06T10:23Z — Codex — claimed internal task-affinity read
+
+The next fresh matched-population screen tests a zero-fit `resid:10` branch scalar: `max(has,had) - max(is,was)` under the exact intermediate head. Its sign selects the unchanged writer, while raw text supplies temporal direction and C abstention. Capability is sealed first; 12 target routing cells and both programs' causal bars must pass without threshold, feature, or rank rescue. This directly distinguishes between-pair task identity from the failed within-pair temporal-value gate and imports the new shared evaluator.

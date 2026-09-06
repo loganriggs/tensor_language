@@ -1,0 +1,62 @@
+{
+  "schema": "aspectual_tense_resid10_pair_support_task_gate_prior_art_v1",
+  "candidate_id": "aspectual_tense.resid10_pair_support_task_gate_v1",
+  "created_utc": "2026-09-06T10:21:55Z",
+  "evidence_class": "prospective_fit_free_internal_task_affinity_gate_with_causal_dispatch",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "ops/*aspectual*tense*", "AGENT_BOARD.md"],
+    "nearest_result": "Direction-signed within-pair has/had and is/was contrasts do not support a stable learned task gate; the external six-cue selector does route a prospectively validated dual program.",
+    "new_question": "Does a fixed between-pair answer-vocabulary support difference at resid:10 expose the model's task branch while temporal direction remains a separate raw-text input?"
+  },
+  "authorities": {
+    "shared_eval_sha256": "0e6dc9e7b8349bc4795f3ed65bc326e175a0a164ede19f4c6ae7ff10f56141ce",
+    "matched_v2_builder_sha256": "1f4b29bda3e26af3ee0102316ab0af166e317d1646e8b0b51332061245e606d6",
+    "matched_v2_has_rows_sha256": "7c2341ea65eb5915114ac4def7c3e7433d063e4cb3c988e518c91f1ff8e2b0ff",
+    "matched_v2_is_rows_sha256": "2efd47b9a89d0f092688a96d75bbc33e5b89991a8e5de28723c714319b9ccceb",
+    "raw_text_dual_program_sha256": "a756bfbeddaad7db2bb0c7feec1f3a6bd976b05fec36d231865b69e4813a976c",
+    "prospective_dual_screen_sha256": "36d54f861bd6dd70a493e306480a812b1fb9009e4e35c26fd77df5ab22d59ca7",
+    "q_has_basis_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "q_is_basis_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "q_has_prospective_result_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "q_is_prospective_result_sha256": "dad39b298a0e89e5e0271149574012ebf7f75e995b83f6ede12ebe3b1aa746e8"
+  },
+  "population": {
+    "rows": "A second 128-row matched authority: both banks share 16 new occupations disjoint from every earlier task bank; has/had uses 16 further new periods; all row IDs are new.",
+    "capability_first": "Four base/donor forwards score all 16 native bank/family/direction cells. All must pass before task-affinity or intervention outcomes are computed or persisted.",
+    "capability_bars": "A1/A2/P >=0.85 and C >=0.75, separately by bank and temporal direction.",
+    "no_rescue": "No lexical replacement, row removal, feature edit, threshold fit, gain/basis/rank change, or bar change after execution."
+  },
+  "frozen_task_gate": {
+    "site": "resid:10 at the intervention source's final token",
+    "head": "Checkpoint-exact RMS-normalized, 30*tanh-soft-capped unembedding logits.",
+    "has_support": "max(logit(has), logit(had))",
+    "is_support": "max(logit(is), logit(was))",
+    "affinity": "has_support - is_support",
+    "decision": "has_had iff affinity > 0; is_was iff affinity < 0; exact zero is invalid. No fitted threshold or scale.",
+    "direction": "The unchanged raw-text selector supplies only temporal direction. C still takes its registered raw-text abstention path; the new internal gate is tested only on A1/A2/P.",
+    "dispatch": "Apply the predicted bank's unchanged local reader, direction-affine gain, and rank-one writer; score the true task's target/foil margin.",
+    "conceptual_separation": "Between-pair support represents task identity; within-pair signed contrast represents temporal value."
+  },
+  "bars": {
+    "routing": "Task-bank accuracy >=0.75 in each of 12 bank x A1/A2/P x direction cells; no ties.",
+    "causal": "After affinity routing, each bank's A1/A2 recovery and P reflection have mean >=0.75 and direction fraction >=0.75.",
+    "control": "All 32 C rows raw-text-abstain and have exactly zero normalized effect.",
+    "identity": "Bases are hash-exact unit vectors; raw direction agrees on every target row; exact local/final head errors <=1e-4.",
+    "price": "Four forwards/256 examples, 128 rows, zero fitted scalars, grid/root/backward/update."
+  },
+  "predictions": {
+    "pred_a_authority_basis_rows_and_shared_contract": "All immutable hashes, fresh matched rows, bases, prior dual screen, and shared evaluation contract match.",
+    "pred_b_native_capability_first": "All 16 native cells pass before outcome access.",
+    "pred_c_fixed_pair_support_task_routing": "All 12 target routing cells pass 0.75 with no tie.",
+    "pred_d_affinity_dispatched_causal_preservation": "Both banks retain frozen A1/A2/P causal bars after predicted-bank dispatch.",
+    "pred_e_raw_text_control_abstention": "All C rows abstain with exactly zero effect.",
+    "pred_f_exact_identity_coverage_and_price": "Direction/head/basis identity and exact four-forward zero-fit price pass on all 128 rows."
+  },
+  "terminal": {
+    "screen": "A-F pass: between-pair resid:10 support is a bounded internal task-branch read for the dual program.",
+    "null": "Authority/capability/identity/price pass but routing or causal preservation misses; kill this affinity gate without threshold/feature rescue.",
+    "invalid": "Authority, capability, tie, identity, coverage, finiteness, or price fails; causal outcomes remain sealed if capability fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "extraction or sufficiency", "selective manipulation", "composition and reuse", "simplicity and compression"],
+  "price": {"model_forwards": 4, "example_evaluations": 256, "rows": 128, "task_gate_fitted_scalars": 0, "inherited_gain_scalars": 8, "basis_scalars": 2304, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
