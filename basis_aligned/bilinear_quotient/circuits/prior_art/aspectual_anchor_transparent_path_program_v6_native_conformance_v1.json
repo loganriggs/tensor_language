@@ -1,0 +1,22 @@
+{
+  "schema": "aspectual_anchor_transparent_path_program_v6_native_conformance_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.transparent_path_program_v6_native_conformance_v1",
+  "created_utc": "2026-09-06T05:41:00Z",
+  "question": "Does the released v6 API execute on real checkpoint tensors and reproduce the selected sparse suffix recurrence on the frozen confirmation population?",
+  "authority": {
+    "program": {"path": "ops/aspectual_anchor_transparent_path_program_v6.py", "sha256": "5997c8bae8b07a795dd36371636cb62d23db596e1ec53cf5978eab541082412f"},
+    "release": {"path": "circuits/followups/aspectual_anchor_transparent_path_program_release_v6_result.json", "sha256": "fe1c4364dc4c47ef640d1f9dc610f553890735a425a79f2baac9cad83ffff442", "terminal": "release"},
+    "empirical_parent": {"path": "circuits/followups/aspectual_anchor_mlp12_14_bilinear_compression_split_v1_result.json", "sha256": "21842ebd543ce8cb68fba680056224b0330da666004efb26f96ea72679ff558f", "terminal": "screen"},
+    "capture_runner": {"path": "ops/run_aspectual_anchor_mlp12_14_bilinear_compression_split_v1.py", "sha256": "110c18124deec634ec7b34e06048ca3f4b69e3d5483471cbeafd8dca255d4262"}
+  },
+  "population": {"phase": "confirmation", "row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b", "rows": 16},
+  "predictions": {
+    "pred_a_authority_capability_and_api": "Authorities, confirmation split, native capability, and v6 manifest pass.",
+    "pred_b_real_tensor_program_conformance": "V6-generated scored logits match the empirical selected_two_each reference within 0.125.",
+    "pred_c_recovery_conformance": "Mean and family recovery match the immutable reference within 1e-5.",
+    "pred_d_direction_and_effect": "Mean recovery is positive with direction fraction >=0.75 in A1/A2.",
+    "pred_e_exact_coverage": "Exactly 16 records occur within 10 forwards and 80 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {"screen": "A-E pass: v6 is empirically executable on checkpoint tensors.", "invalid": "Any authority, capability, API, control, recovery, coverage, or price predicate fails."},
+  "price": {"model_forwards_max": 10, "example_evaluations_max": 80, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
