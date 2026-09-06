@@ -83,3 +83,22 @@ def test_writer_contractions_match_explicit_maps():
     assert abs(head["score"] - torch.linalg.matrix_norm(head["contraction"])) < 1e-6
     mlp_result = subject.mlp_writer_to_read_map(mlp, read)
     assert torch.allclose(mlp_result["contraction"], read @ mlp.Down.weight)
+
+
+def test_complete_mlp_writer_tensor_replays_readout_and_is_gauge_invariant():
+    g = torch.Generator().manual_seed(21)
+    mlp = type("MLP", (), {})()
+    mlp.Left = Linear(torch.randn(7, 5, generator=g))
+    mlp.Right = Linear(torch.randn(7, 5, generator=g))
+    mlp.Down = Linear(torch.randn(5, 7, generator=g))
+    read = torch.randn(3, 5, generator=g)
+    result = subject.mlp_writer_to_read_tensor(mlp, read)
+    x = torch.randn(5, generator=g)
+    expected = read @ mlp.Down.weight @ (
+        (mlp.Left.weight @ x) * (mlp.Right.weight @ x))
+    actual = torch.einsum("aij,i,j->a", result["tensor"], x, x)
+    assert torch.allclose(actual, expected, atol=1e-5)
+    rotation = random_basis(3, 3, g)
+    rotated = subject.mlp_writer_to_read_tensor(mlp, rotation @ read)
+    assert abs(result["score"] - rotated["score"]) < 1e-4
+    assert abs(result["normalized_score"] - rotated["normalized_score"]) < 1e-7

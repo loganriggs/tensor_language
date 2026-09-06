@@ -144,6 +144,47 @@ def mlp_writer_to_read_map(mlp, read_map):
     return {"contraction": contraction, "score": float(torch.linalg.matrix_norm(contraction))}
 
 
+def mlp_writer_to_read_tensor(mlp, read_map):
+    """Contract the complete quadratic MLP operation into a downstream read map.
+
+    ``mlp_writer_to_read_map`` measures only whether the output factor can enter
+    the read subspace.  That is a useful incidence test, but it cannot distinguish
+    MLPs whose Left/Right factors respond differently to the live residual.  For
+    a bilinear MLP this routine returns the exact tensor
+
+    ``T[a,i,j] = sum_n (read @ Down)[a,n] Left[n,i] Right[n,j]``.
+
+    Squared MLPs use the same expression with identical Left/Right factors.  The
+    Frobenius score is invariant to an orthogonal change of readout coordinates.
+    The normalized score removes the separate Frobenius scales of all four
+    factors; it is a structural alignment score, not an activation-weighted one.
+    """
+    read = torch.as_tensor(read_map).float()
+    if hasattr(mlp, "Left") and hasattr(mlp, "Right") and hasattr(mlp, "Down"):
+        left = mlp.Left.weight.detach().float()
+        right = mlp.Right.weight.detach().float()
+        down = mlp.Down.weight.detach().float()
+    elif hasattr(mlp, "c_fc") and hasattr(mlp, "c_proj"):
+        left = mlp.c_fc.weight.detach().float()
+        right = left
+        down = mlp.c_proj.weight.detach().float()
+    else:
+        raise SubspaceWeightAtlasError("unsupported MLP weight factorization")
+    if (read.ndim != 2 or not torch.isfinite(read).all() or read.shape[1] != down.shape[0]
+            or left.ndim != 2 or right.ndim != 2 or down.ndim != 2
+            or left.shape != right.shape or down.shape[1] != left.shape[0]):
+        raise SubspaceWeightAtlasError("read map or MLP factors have incompatible shapes")
+    output = read @ down
+    tensor = torch.einsum("an,ni,nj->aij", output, left, right)
+    score = float(torch.linalg.vector_norm(tensor))
+    denominator = (float(torch.linalg.matrix_norm(read))
+                   * float(torch.linalg.matrix_norm(down))
+                   * float(torch.linalg.matrix_norm(left))
+                   * float(torch.linalg.matrix_norm(right)))
+    return {"output": output, "left": left, "right": right, "tensor": tensor,
+            "score": score, "normalized_score": score / denominator if denominator > 0 else 0.0}
+
+
 def mlp_subspace_tensor(mlp, source_basis, target_basis=None):
     """Return the exact quadratic weight tensor restricted between residual subspaces.
 

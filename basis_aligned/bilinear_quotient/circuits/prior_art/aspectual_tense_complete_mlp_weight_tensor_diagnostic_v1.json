@@ -1,0 +1,16 @@
+{
+  "schema": "aspectual_tense_complete_mlp_weight_tensor_diagnostic_prior_v1",
+  "candidate_id": "aspectual_tense.complete_mlp_weight_tensor_diagnostic_v1",
+  "registered_utc": "2026-09-06T17:04:48Z",
+  "scope": "Development-set metric diagnostic, not a fresh causal confirmation. The causal carrier outcomes are already known; this freezes the proposed complete tensor score before computing it.",
+  "hypothesis": "Contracting the target L9 value read map through Down, Left, and Right captures the complete quadratic MLP operation and ranks carrier-position causal writing better than the prior Down-only output-incidence score.",
+  "primary_metric": "Frobenius norm of T[a,i,j]=sum_n (read@Down)[a,n] Left[n,i] Right[n,j], normalized by the separate Frobenius norms of read, Down, Left, and Right.",
+  "population": "The same eight top/bottom MLPs per task in the source-position causal result.",
+  "predictions": {
+    "pred_a_exact_tensor_replay_gauge_finiteness_and_coverage": "Library tests prove exact replay and orthogonal read-gauge invariance; all 18 task/layer scores are finite and all 16 selected component matches are unique.",
+    "pred_b_complete_tensor_improves_both_mlp_rank_correlations": "The primary normalized complete-tensor Spearman exceeds the Down-only Spearman for both has/had (0.26190476) and is/was (-0.59523810).",
+    "pred_c_complete_tensor_repairs_is_was_ordering": "The is/was primary Spearman is positive and its top-six tensor-ranked MLPs include MLP4.",
+    "pred_d_zero_forward_development_scope": "No model forward, causal evaluation, fit, backward, or update is executed."
+  },
+  "decision": "screen means the metric graduates only to prospective testing on fresh causal data; null means the static complete tensor is still insufficient and activation-conditioned factors are required; invalid on implementation, matching, finiteness, or price failure"
+}
