@@ -210,6 +210,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_standalone_bracket_conditioned_hybrid.v6` | complete | 22-scalar strongest-boundary package | **predictive/composable/manipulable hybrid screen** | active | `task14_standalone_bracket_conditioned_hybrid_v6_result.json` |
 | `task14_bracket_transparent_margin_program_release.v7` | complete | hash-bound importable/CLI 22-scalar program | **executable release** | active | `task14_bracket_transparent_margin_program_release_v7_result.json` |
 | `bracket.pending_opener.native_baseline_l13h8_causal_ceiling_newest.v1` | complete | exact semantic-opener and whole-head zero removal on newest construction | **causal ceiling screen** | active | `bracket_native_baseline_l13h8_causal_ceiling_newest_v1_result.json` |
+| `bracket.pending_opener.l13h8_direct_readout_baseline_program.v1` | complete | six-scalar causal decomposition on outcome-sealed archive construction | **null: cancellation precision not reached** | active | `bracket_l13h8_direct_readout_baseline_program_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -248,6 +249,12 @@ L13H8 damages the correct closer on all 72 endpoints, explains 44.83% of native-
 and agrees with complete-head damage at cosine 0.97512. Every one of the six ordered delimiter pairs recurs. This licenses exactly one
 fixed direct-readout compression evaluated at the counterfactual-cancellation precision boundary; failure closes local L13H8 baseline
 compression without feature, site, rank, or reconstruction rescue.
+
+That sole direct-readout test is now a valid null. The checkpoint-fixed scalar readout transfers the semantic-term contribution at
+cosine 0.98622 and relative L2 0.16672, and the six-scalar causal decomposition improves native-baseline relative L2 from 0.28794 to
+0.20019. It nevertheless misses the frozen baseline precision and three ordered-pair bars; native/edit cancellation amplifies the
+remaining error to counterfactual cosine 0.77108, relative L2 0.75136, and sign agreement 0.73611. Local L13H8 bracket-baseline
+compression is closed. The v7 native-margin dependency remains the simplest honest boundary.
 
 ### `subroutine.induction.equality_score` — site_live
 
