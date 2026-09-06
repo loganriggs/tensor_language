@@ -1,0 +1,70 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_reader_mediation_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_reader_mediation_v1",
+  "created_utc": "2026-09-06T13:07:00Z",
+  "evidence_class": "prospective_fresh_selective_path_mediation",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*mediation*",
+      "circuits/followups/*will*had*mediation*",
+      "circuits/prior_art/*writer*reader*path*",
+      "circuits/followups/*writer*reader*path*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "On fresh Later/Previously text, block8H1 cue terms causally recover 0.1722/0.1132 and retain 98.2%/96.2% of H1. On discovery text, block9 H1/H4 read the contextualized subject onset. No intervention has selectively blocked that reader interface while actuating the upstream writer.",
+    "new_question": "Is the fresh block8H1 cue-write effect specifically mediated by block9 H1/H4 reading the two subject-onset states?"
+  },
+  "authorities": {
+    "fresh_writer_path_sha256": "2da5c4b424b620bbfe24cc98049a0520429102b7d37de45d49a48ef887181641",
+    "discovery_reader_source_partition_sha256": "c738d33cae91ee70f911ea5ea610d0156bc618b41b6574051d33ef6cd21e9f8d",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "attention_destination_evaluator_sha256": "3e66f65aa5ca4a84676a267f54b95f49fc2220c8efc6775cfac1a48ce972ab5b",
+    "fresh_rows_sha256": "c35d7f2159c47620b6f36f12c4f6c41c1630afae61a7f101ab9ff74e4e7e5e0a"
+  },
+  "population": "The same 64 capable fresh Later/Previously A1/A2 rows used for the prospective writer-path screen.",
+  "operator": {
+    "writer": "Install donor-minus-base block8H1 temporal-cue source terms at both subject-onset destinations.",
+    "reader_bank": "At the final semantic query, block9 heads 1 and 4 terms sourced from the two subject-onset positions.",
+    "reader_complement": "At the same query and heads, every other causal source term from prefix, cue, intervening suffix, and self.",
+    "clamp": "During the writer-actuated forward, replace the named hybrid block9 H1/H4 source terms by their exact native-base terms; retain the writer, every unclamped head/source term, and the native suffix.",
+    "fitting": "none"
+  },
+  "arms": [
+    "writer_only",
+    "writer_subject_reader_clamped",
+    "writer_reader_complement_clamped",
+    "writer_complete_h1h4_clamped",
+    "base_subject_reader_self_clamp"
+  ],
+  "predictions": {
+    "pred_a_authority_capability_exact_mediation_instrument": "All authorities and fresh capability hold; source reconstruction is within 5e-4; clamping native base subject-reader terms to themselves changes selected logits by at most 1e-4; every row and arm is finite and complete.",
+    "pred_b_fresh_writer_effect_recurrence": "Writer-only recovery remains within 0.03 of 0.1722 in A1 and 0.1132 in A2, with donorward fraction 1.0.",
+    "pred_c_subject_reader_mediates_writer": "Clamping the block9 H1/H4 subject-source bank retains at most 0.25 of writer-only mean recovery in both families.",
+    "pred_d_reader_path_is_source_selective": "Clamping the reader complement retains at least 0.75 of writer-only recovery, while clamping complete H1/H4 retains at most 0.25, in both families.",
+    "pred_e_exact_zero_fit_price": "Exactly 16 model forwards, 512 example evaluations, 256 writer-arm row records plus 64 self-clamp controls, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Promote the fresh cue→block8H1→subject bank→block9 H1/H4 path to selective mediation evidence.",
+    "null": "The instrument, writer recurrence, and price pass but subject-reader or complement-selectivity mediation fails; retain both identified endpoints without claiming a composed path.",
+    "invalid": "Authority, capability, dynamic source capture, reconstruction, self-clamp identity, recurrence, finiteness, coverage, or price fails."
+  },
+  "scope": "This tests causal composition and selective mediation of the identified writer and reader on fresh text. It does not yet isolate the carried-entry or MLP8 contributions, nor establish unrelated-task collateral preservation.",
+  "circuit_targets": [
+    "composition and reuse",
+    "selective manipulation",
+    "causal path mediation",
+    "held-out and OOD prediction"
+  ],
+  "price": {
+    "model_forwards": 16,
+    "example_evaluations": 512,
+    "rows": 64,
+    "writer_arm_records": 256,
+    "self_clamp_controls": 64,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
