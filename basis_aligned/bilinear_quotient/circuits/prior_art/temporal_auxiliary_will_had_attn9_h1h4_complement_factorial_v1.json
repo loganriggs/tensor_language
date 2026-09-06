@@ -1,0 +1,70 @@
+{
+  "schema": "temporal_auxiliary_will_had_attn9_h1h4_complement_factorial_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.attn9_h1h4_complement_factorial_v1",
+  "created_utc": "2026-09-06T12:13:00Z",
+  "evidence_class": "prospective_cross_task_head_grouping_factorial",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*",
+      "circuits/followups/*will*had*",
+      "circuits/fast_screens/*temporal*",
+      "circuits/prior_art/*h1h4*complement*",
+      "circuits/followups/*h1h4*complement*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The generic will/had screen found full attention 9 recovery 0.3575 but skipped head follow-up because no module reached its generic 0.50 bar. The prospective MLP4-local-V9 edge was a valid magnitude null at 0.04992 while preserving 99% local-value dominance. H1/H4 are established readers for has/had and is/was, but have not been tested against their seven-head complement on will/had.",
+    "new_question": "Do the already chosen L9H1/H4 heads capture the broader will/had attention-9 effect through inputs beyond MLP4, or is the new construction routed through the seven-head complement?"
+  },
+  "authorities": {
+    "temporal_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "reused_head_factorial_instrument_sha256": "578c93ea1004f03bc7ee2a0950bf70120b1d5582ea31f5d44703bafce128f82f",
+    "prospective_local_value_null_sha256": "52026d5df5994c75501ea005078fd649cf5685a5ac03f9ae680f87623b2ba4e7"
+  },
+  "population": "All 128 sealed will/had A1/A2/P/C rows. Native and full-attention-9 logits are frozen from the parent screen; only donor capture plus H1/H4-only and seven-head-complement patches are new.",
+  "factorial": {
+    "layer": 9,
+    "h1h4": [1, 4],
+    "complement": [0, 2, 3, 5, 6, 7, 8],
+    "corners": {
+      "empty": "frozen native base",
+      "h1h4": "new donor H1/H4 pre-c_proj slices",
+      "complement": "new donor seven-head pre-c_proj slices",
+      "full": "frozen whole-attention-9 donor patch"
+    },
+    "fitting": "none",
+    "no_rescue": "No layer, head, row, family, threshold, sign, or aggregation changes after execution."
+  },
+  "opposing_predictions": {
+    "shared_reader_group": "H1/H4 recover at least half of full attention 9 in every A1/A2 direction cell, with donorward fraction at least 0.75 and no larger normalized P/C movement than the full module.",
+    "different_reader_group": "H1/H4 fail the registered target fraction or selectivity bar; the complement and interaction report where the remaining effect resides."
+  },
+  "predictions": {
+    "pred_a_authority_capability_and_exact_partition": "All hashes, native capability cells, cached head coverage, finite logits, frozen full-attention coverage, and exact 128-row evidence coverage pass.",
+    "pred_b_shared_h1h4_reader_group": "H1/H4 mean recovery is at least 0.50 of the frozen full-attention-9 recovery in every A1/A2 direction cell and donorward fraction is at least 0.75.",
+    "pred_c_controls_selective": "H1/H4 mean absolute normalized movement is no greater than the frozen full-attention-9 movement in P and C.",
+    "pred_d_exact_zero_fit_price": "Exactly 12 model forwards and 384 example evaluations, with zero fits/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-D pass: the established H1/H4 reader group generalizes to the new will/had construction despite the bounded MLP4 edge.",
+    "null": "The instrument passes but H1/H4 target fraction or control selectivity fails; retain the exact complement and interaction as a bounded grouping null.",
+    "invalid": "Authority, capability, cache, coverage, finiteness, frozen-corner, or price checks fail."
+  },
+  "scope": "A screen groups the attention-9 reader heads only; it does not identify their new upstream sources or the full will/had circuit.",
+  "circuit_targets": [
+    "cross-boundary grouping",
+    "within-module splitting",
+    "held-out construction prediction",
+    "composition and reuse"
+  ],
+  "price": {
+    "model_forwards": 12,
+    "example_evaluations": 384,
+    "rows": 128,
+    "new_patch_arms": 2,
+    "batch_size": 32,
+    "fitted_scalars": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
