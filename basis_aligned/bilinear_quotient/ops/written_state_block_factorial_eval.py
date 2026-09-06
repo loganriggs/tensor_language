@@ -6,6 +6,7 @@ from __future__ import annotations
 import attention_path_mediation_eval as mediation
 import attention_source_group_eval as source_score
 import block_component_state_eval as components
+import residual_source_onset_eval as onset
 
 
 class WrittenStateBlockFactorialError(RuntimeError):
@@ -18,6 +19,19 @@ def pair_error(first, second):
         for pair_a, pair_b in zip(first.answer_foil, second.answer_foil)
         for a, b in zip(pair_a, pair_b)
     )
+
+
+def consumed_entry(backend, base_batch, donor_batch, base_states, writer_states, *, block_index, input_group):
+    """Reconstruct the entry from the state actually consumed after a boundary patch."""
+    positions = onset.positions_for_group(base_batch, donor_batch, input_group)
+    live_input = base_states[int(block_index)].clone()
+    for index, row_positions in enumerate(positions):
+        for position in row_positions:
+            live_input[index, position] = writer_states[int(block_index)][index, position].to(
+                device=live_input.device, dtype=live_input.dtype
+            )
+    block = backend.model.transformer.h[int(block_index)]
+    return block.lambdas[0] * live_input + block.lambdas[1] * base_states[0]
 
 
 def capture_crossing(
@@ -54,7 +68,7 @@ def capture_crossing(
         block_index,
         lambda: backend.forward_states(base_batch, maximum_boundary=output_boundary),
     )
-    hybrid_output, hybrid_states, hybrid_components, hybrid_error = components.capture(
+    hybrid_output, hybrid_states, hybrid_components, _prepatch_entry_error = components.capture(
         backend,
         base_batch,
         block_index,
@@ -66,6 +80,22 @@ def capture_crossing(
             boundary=block_index,
             group_name=input_group,
         ),
+    )
+    hybrid_components = dict(hybrid_components)
+    hybrid_components["entry"] = consumed_entry(
+        backend,
+        base_batch,
+        donor_batch,
+        hybrid_states,
+        writer_states,
+        block_index=block_index,
+        input_group=input_group,
+    )
+    hybrid_error = float(
+        (
+            components.assemble(hybrid_components, hybrid_components, components.COMPONENTS).float()
+            - hybrid_states[output_boundary].float()
+        ).abs().max()
     )
     return {
         "writer_output": writer_output,
