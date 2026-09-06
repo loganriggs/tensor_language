@@ -1,0 +1,1241 @@
+{
+  "bars": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "complement": 0.3,
+    "das": {
+      "complement_weight": 1.0,
+      "lr": 0.05,
+      "nested": false,
+      "seed": 0,
+      "steps": 120
+    },
+    "exact": 0.5,
+    "random": 0.1,
+    "ranks": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "selection": "smallest rank passing band+complement+sum+random on the selection split",
+    "sum": [
+      0.85,
+      1.15
+    ]
+  },
+  "candidate_id": "corpus.unit_rank_ladder_v21",
+  "confirmed": {
+    "dative": true,
+    "interrogative_licensing.question_vs_declarative": true,
+    "polarity_licensing": true,
+    "quantifier_number": true,
+    "verb_complementizer": true,
+    "voice_frame.passive_vs_active": true
+  },
+  "finished_utc": "2026-09-06T20:55:23.204691+00:00",
+  "predictions": {
+    "pred_a_rank1_minimal_where_in_band": true,
+    "pred_b_polarity_needs_rank2": true,
+    "pred_c_ladder_finds_rank": true,
+    "pred_d_selection_confirms": true,
+    "pred_e_random_bar_meaningful": true
+  },
+  "schema": "circuit_unit_rank_ladder_result_v1",
+  "seconds": 179.36588188260794,
+  "selected": {
+    "dative": 1,
+    "interrogative_licensing.question_vs_declarative": 1,
+    "polarity_licensing": 4,
+    "quantifier_number": 1,
+    "verb_complementizer": 1,
+    "voice_frame.passive_vs_active": 1
+  },
+  "semantics": "block_live",
+  "sets": {
+    "dative": {
+      "confirm_split": "fourth_pair",
+      "confirmed": true,
+      "exact_confirm": 0.7611229650378946,
+      "kind": "paired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": 0.19782663869066883,
+            "complement_fraction": 0.25991416338465034,
+            "exact_set": 0.7611229650378946,
+            "linearity_sum": 0.9656365715399455,
+            "random": 0.00031723788961286986,
+            "random_fraction": 0.0004168024145705225,
+            "subspace": 0.5371415317888415,
+            "subspace_fraction": 0.7057224081552952
+          },
+          "loss_history": [
+            [
+              0,
+              6.410345077514648,
+              6.413232803344727
+            ],
+            [
+              50,
+              0.10094751417636871,
+              0.10397937148809433
+            ],
+            [
+              100,
+              0.06729715317487717,
+              0.06927371025085449
+            ],
+            [
+              119,
+              0.060928359627723694,
+              0.06266777962446213
+            ]
+          ],
+          "select": {
+            "complement": -0.0028835600524393505,
+            "complement_fraction": -0.004514458432414044,
+            "exact_set": 0.6387388643863107,
+            "linearity_sum": 0.9494839107195844,
+            "random": -0.0076097738110587135,
+            "random_fraction": -0.01191374791068969,
+            "subspace": 0.6093558349385398,
+            "subspace_fraction": 0.9539983691519984
+          },
+          "select_passes": true
+        },
+        "2": {
+          "confirm": {
+            "complement": 0.12731323187371038,
+            "complement_fraction": 0.16727025424514913,
+            "exact_set": 0.7611229650378946,
+            "linearity_sum": 0.9675967159463392,
+            "random": -0.0063321789931746735,
+            "random_fraction": -0.00831952165949875,
+            "subspace": 0.6091468495282968,
+            "subspace_fraction": 0.8003264617011902
+          },
+          "loss_history": [
+            [
+              0,
+              6.386061668395996,
+              6.264338970184326
+            ],
+            [
+              50,
+              0.015675485134124756,
+              0.013899751007556915
+            ],
+            [
+              100,
+              0.005011958535760641,
+              0.004608167335391045
+            ],
+            [
+              119,
+              0.0037730911280959845,
+              0.003520902246236801
+            ]
+          ],
+          "select": {
+            "complement": -0.022764250247142223,
+            "complement_fraction": -0.035639369257754065,
+            "exact_set": 0.6387388643863107,
+            "linearity_sum": 0.9294730008155064,
+            "random": 0.015999160585899595,
+            "random_fraction": 0.025048046201590242,
+            "subspace": 0.6164547792657752,
+            "subspace_fraction": 0.9651123700732605
+          },
+          "select_passes": true
+        },
+        "4": {
+          "confirm": {
+            "complement": 0.06207871771838543,
+            "complement_fraction": 0.08156200846639107,
+            "exact_set": 0.7611229650378946,
+            "linearity_sum": 0.9742039151045728,
+            "random": 0.013452707317633731,
+            "random_fraction": 0.017674814629938217,
+            "subspace": 0.6794102546975324,
+            "subspace_fraction": 0.8926419066381818
+          },
+          "loss_history": [
+            [
+              0,
+              6.336298942565918,
+              6.182187557220459
+            ],
+            [
+              50,
+              0.006357317324727774,
+              0.0031079824548214674
+            ],
+            [
+              100,
+              0.0014861596282571554,
+              0.0012652608565986156
+            ],
+            [
+              119,
+              0.0009709323639981449,
+              0.0009577333694323897
+            ]
+          ],
+          "select": {
+            "complement": 0.00041610323837981537,
+            "complement_fraction": 0.0006514449982303805,
+            "exact_set": 0.6387388643863107,
+            "linearity_sum": 0.9486242931215599,
+            "random": 0.01944642625677396,
+            "random_fraction": 0.03044503370787959,
+            "subspace": 0.6055071004793521,
+            "subspace_fraction": 0.9479728481233296
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": 0.11300880666675586,
+            "complement_fraction": 0.14847641164148742,
+            "exact_set": 0.7611229650378946,
+            "linearity_sum": 0.9669738465629976,
+            "random": 0.04074694795417245,
+            "random_fraction": 0.05353530221249302,
+            "subspace": 0.622977194543371,
+            "subspace_fraction": 0.8184974349215102
+          },
+          "loss_history": [
+            [
+              0,
+              5.932605266571045,
+              5.087993621826172
+            ],
+            [
+              50,
+              0.0019305744208395481,
+              0.001832338864915073
+            ],
+            [
+              100,
+              0.00040987468673847616,
+              0.0005582496523857117
+            ],
+            [
+              119,
+              0.00026496368809603155,
+              0.00035599636612460017
+            ]
+          ],
+          "select": {
+            "complement": 0.0035286963828322555,
+            "complement_fraction": 0.005524474209382212,
+            "exact_set": 0.6387388643863107,
+            "linearity_sum": 0.9501034318888213,
+            "random": 0.01942586483651612,
+            "random_fraction": 0.03041284305626237,
+            "subspace": 0.6033392907513699,
+            "subspace_fraction": 0.9445789576794391
+          },
+          "select_passes": true
+        }
+      },
+      "selected_rank": 1,
+      "tested": true,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "interrogative_licensing.question_vs_declarative": {
+      "confirm_split": "A2",
+      "confirmed": true,
+      "exact_confirm": 0.5144091240579404,
+      "kind": "unpaired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": 0.07849875782925607,
+            "complement_fraction": 0.1525998551697819,
+            "exact_set": 0.5144091240579404,
+            "linearity_sum": 0.8881144084282317,
+            "random": 0.00974470160048515,
+            "random_fraction": 0.018943485145857475,
+            "subspace": 0.3783553970735465,
+            "subspace_fraction": 0.7355145532584498
+          },
+          "loss_history": [
+            [
+              0,
+              6.096430778503418,
+              6.172391891479492
+            ],
+            [
+              50,
+              0.02138952910900116,
+              0.030370518565177917
+            ],
+            [
+              100,
+              0.006820249371230602,
+              0.016407286748290062
+            ],
+            [
+              119,
+              0.004896677099168301,
+              0.013171043246984482
+            ]
+          ],
+          "select": {
+            "complement": 0.09969975073339526,
+            "complement_fraction": 0.15193261407347883,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.058401965745777,
+            "random": 0.013416476350477956,
+            "random_fraction": 0.020445390370473052,
+            "subspace": 0.594834551885501,
+            "subspace_fraction": 0.9064693516722983
+          },
+          "select_passes": true
+        },
+        "2": {
+          "confirm": {
+            "complement": 0.04023446482584043,
+            "complement_fraction": 0.07821491288577655,
+            "exact_set": 0.5144091240579404,
+            "linearity_sum": 0.9002585495847717,
+            "random": 0.0024094836781958355,
+            "random_fraction": 0.004683983167305648,
+            "subspace": 0.4228667470917339,
+            "subspace_fraction": 0.8220436366989952
+          },
+          "loss_history": [
+            [
+              0,
+              6.128406524658203,
+              6.034006595611572
+            ],
+            [
+              50,
+              0.002371827606111765,
+              0.004565880633890629
+            ],
+            [
+              100,
+              0.0009218041086569428,
+              0.0012404361041262746
+            ],
+            [
+              119,
+              0.0006516770808957517,
+              0.0009234647732228041
+            ]
+          ],
+          "select": {
+            "complement": 0.05663101450751403,
+            "complement_fraction": 0.08630009612328646,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.079258185959968,
+            "random": 0.002848702238342179,
+            "random_fraction": 0.004341142024975235,
+            "subspace": 0.6515893552489488,
+            "subspace_fraction": 0.9929580898366814
+          },
+          "select_passes": true
+        },
+        "4": {
+          "confirm": {
+            "complement": 0.051788880666625334,
+            "complement_fraction": 0.10067644263011187,
+            "exact_set": 0.5144091240579404,
+            "linearity_sum": 0.8627389507825869,
+            "random": 0.021090906094791077,
+            "random_fraction": 0.04100025662145042,
+            "subspace": 0.3920119072961117,
+            "subspace_fraction": 0.762062508152475
+          },
+          "loss_history": [
+            [
+              0,
+              5.796131610870361,
+              5.4252166748046875
+            ],
+            [
+              50,
+              0.001769219059497118,
+              0.0020328834652900696
+            ],
+            [
+              100,
+              0.0005362360388971865,
+              0.0007741213776171207
+            ],
+            [
+              119,
+              0.000361516373232007,
+              0.0005067973979748785
+            ]
+          ],
+          "select": {
+            "complement": 0.016559814637304614,
+            "complement_fraction": 0.025235528754187754,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 1.018728719957916,
+            "random": 0.019692265225376357,
+            "random_fraction": 0.030009075355867793,
+            "subspace": 0.6519404942933008,
+            "subspace_fraction": 0.9934931912037283
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": 0.0208620386037289,
+            "complement_fraction": 0.04055534326288331,
+            "exact_set": 0.5144091240579404,
+            "linearity_sum": 0.8749023170651942,
+            "random": -0.003194697320455643,
+            "random_fraction": -0.006210421182373525,
+            "subspace": 0.42919569595404006,
+            "subspace_fraction": 0.8343469738023108
+          },
+          "loss_history": [
+            [
+              0,
+              5.396854400634766,
+              4.914817810058594
+            ],
+            [
+              50,
+              0.0007600421668030322,
+              0.000967776111792773
+            ],
+            [
+              100,
+              6.878409476485103e-05,
+              8.187792263925076e-05
+            ],
+            [
+              119,
+              2.082405444525648e-05,
+              2.544502422097139e-05
+            ]
+          ],
+          "select": {
+            "complement": -0.0016255220454036304,
+            "complement_fraction": -0.002477135717747759,
+            "exact_set": 0.6562103294370865,
+            "linearity_sum": 0.9720328102468319,
+            "random": 0.04162600413906784,
+            "random_fraction": 0.06343393615089184,
+            "subspace": 0.6394834926811341,
+            "subspace_fraction": 0.9745099459645796
+          },
+          "select_passes": true
+        }
+      },
+      "selected_rank": 1,
+      "tested": true,
+      "units": [
+        "attn:09:head:07",
+        "attn:07:head:08",
+        "attn:03:head:00",
+        "attn:02:head:06"
+      ]
+    },
+    "polarity_licensing": {
+      "confirm_split": "fourth_pair",
+      "confirmed": true,
+      "exact_confirm": 0.5827728153807644,
+      "kind": "paired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": -0.07922387865654489,
+            "complement_fraction": -0.13594298938735266,
+            "exact_set": 0.5827728153807644,
+            "linearity_sum": 0.8507238688678338,
+            "random": -0.002514585335442061,
+            "random_fraction": -0.004314863818414581,
+            "subspace": 0.5750026228282686,
+            "subspace_fraction": 0.9866668582551865
+          },
+          "loss_history": [
+            [
+              0,
+              10.449380874633789,
+              10.308333396911621
+            ],
+            [
+              50,
+              0.011985532939434052,
+              0.009805671870708466
+            ],
+            [
+              100,
+              0.0076139806769788265,
+              0.006558489985764027
+            ],
+            [
+              119,
+              0.00685599772259593,
+              0.006050667725503445
+            ]
+          ],
+          "select": {
+            "complement": -0.061373282733152866,
+            "complement_fraction": -0.12362170129160863,
+            "exact_set": 0.49646042799864665,
+            "linearity_sum": 0.7620641543378286,
+            "random": 0.00019859434068043795,
+            "random_fraction": 0.0004000204839709386,
+            "subspace": 0.43970797895813796,
+            "subspace_fraction": 0.8856858556294372
+          },
+          "select_passes": false
+        },
+        "2": {
+          "confirm": {
+            "complement": -0.050341225682501614,
+            "complement_fraction": -0.08638224768533571,
+            "exact_set": 0.5827728153807644,
+            "linearity_sum": 0.7903641095711894,
+            "random": 0.0005470719568548688,
+            "random_fraction": 0.000938739663924492,
+            "subspace": 0.5109439429932147,
+            "subspace_fraction": 0.8767463572565252
+          },
+          "loss_history": [
+            [
+              0,
+              10.13946533203125,
+              9.88888168334961
+            ],
+            [
+              50,
+              0.008971776813268661,
+              0.006262326147407293
+            ],
+            [
+              100,
+              0.005565699189901352,
+              0.005245899315923452
+            ],
+            [
+              119,
+              0.004842085298150778,
+              0.004880067892372608
+            ]
+          ],
+          "select": {
+            "complement": -0.05551736685391285,
+            "complement_fraction": -0.11182636867497563,
+            "exact_set": 0.49646042799864665,
+            "linearity_sum": 0.7718476615268454,
+            "random": 0.00013350936661859076,
+            "random_fraction": 0.00026892247415730527,
+            "subspace": 0.43870918724528507,
+            "subspace_fraction": 0.883674030201821
+          },
+          "select_passes": false
+        },
+        "4": {
+          "confirm": {
+            "complement": -0.027142649370836196,
+            "complement_fraction": -0.046575009428163,
+            "exact_set": 0.5827728153807644,
+            "linearity_sum": 0.9008407758401895,
+            "random": -0.012154913301788656,
+            "random_fraction": -0.0208570355050742,
+            "subspace": 0.5521281645170155,
+            "subspace_fraction": 0.9474157852683525
+          },
+          "loss_history": [
+            [
+              0,
+              10.211071014404297,
+              9.850542068481445
+            ],
+            [
+              50,
+              0.004240948706865311,
+              0.003579857759177685
+            ],
+            [
+              100,
+              0.0023373309522867203,
+              0.0024448269978165627
+            ],
+            [
+              119,
+              0.001899153459817171,
+              0.002089481567963958
+            ]
+          ],
+          "select": {
+            "complement": -0.01584544882314514,
+            "complement_fraction": -0.031916841563832225,
+            "exact_set": 0.49646042799864665,
+            "linearity_sum": 0.8683606044593359,
+            "random": -0.012319140602348712,
+            "random_fraction": -0.024813942678191248,
+            "subspace": 0.4469521261701906,
+            "subspace_fraction": 0.9002774460231682
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": -0.052176135362151925,
+            "complement_fraction": -0.08953083257334467,
+            "exact_set": 0.5827728153807644,
+            "linearity_sum": 0.8099560629882383,
+            "random": 0.02990265511587277,
+            "random_fraction": 0.05131099860300685,
+            "subspace": 0.5241965105245273,
+            "subspace_fraction": 0.899486895561583
+          },
+          "loss_history": [
+            [
+              0,
+              10.653260231018066,
+              8.917795181274414
+            ],
+            [
+              50,
+              0.002066901884973049,
+              0.0019120825454592705
+            ],
+            [
+              100,
+              0.0008597736596129835,
+              0.0010941012296825647
+            ],
+            [
+              119,
+              0.0006367929745465517,
+              0.0009138121968135238
+            ]
+          ],
+          "select": {
+            "complement": -0.04662337634834401,
+            "complement_fraction": -0.09391156619731855,
+            "exact_set": 0.49646042799864665,
+            "linearity_sum": 0.7830885725975173,
+            "random": 0.019181481011837982,
+            "random_fraction": 0.03863647519534079,
+            "subspace": 0.4353958642609567,
+            "subspace_fraction": 0.8770001387948358
+          },
+          "select_passes": false
+        }
+      },
+      "selected_rank": 4,
+      "tested": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "confirm_split": "fourth_pair",
+      "confirmed": true,
+      "exact_confirm": 0.563942746724988,
+      "kind": "paired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": -0.04192600019185992,
+            "complement_fraction": -0.07434442669107602,
+            "exact_set": 0.563942746724988,
+            "linearity_sum": 1.0583299680883793,
+            "random": -0.001434247321275844,
+            "random_fraction": -0.0025432498770575876,
+            "subspace": 0.6387635093369894,
+            "subspace_fraction": 1.1326743947794553
+          },
+          "loss_history": [
+            [
+              0,
+              15.958216667175293,
+              15.961196899414062
+            ],
+            [
+              50,
+              0.04462675377726555,
+              0.03484523296356201
+            ],
+            [
+              100,
+              0.017108263447880745,
+              0.011302384547889233
+            ],
+            [
+              119,
+              0.01333847176283598,
+              0.008947594091296196
+            ]
+          ],
+          "select": {
+            "complement": 0.04874281056375147,
+            "complement_fraction": 0.07762350454582599,
+            "exact_set": 0.6279388034454892,
+            "linearity_sum": 1.107021771841743,
+            "random": -0.00026884970932252404,
+            "random_fraction": -0.0004281463541468538,
+            "subspace": 0.646399116234658,
+            "subspace_fraction": 1.029398267295917
+          },
+          "select_passes": true
+        },
+        "2": {
+          "confirm": {
+            "complement": -0.05297477774962256,
+            "complement_fraction": -0.09393644666460478,
+            "exact_set": 0.563942746724988,
+            "linearity_sum": 1.029233280482229,
+            "random": 0.031701303071557135,
+            "random_fraction": 0.05621369058411983,
+            "subspace": 0.6334034209655408,
+            "subspace_fraction": 1.123169727146834
+          },
+          "loss_history": [
+            [
+              0,
+              15.689982414245605,
+              15.319389343261719
+            ],
+            [
+              50,
+              0.007375441491603851,
+              0.004728266969323158
+            ],
+            [
+              100,
+              0.005191728938370943,
+              0.0036530913785099983
+            ],
+            [
+              119,
+              0.004760833457112312,
+              0.00331539916805923
+            ]
+          ],
+          "select": {
+            "complement": 0.0011217714027892726,
+            "complement_fraction": 0.001786434277726002,
+            "exact_set": 0.6279388034454892,
+            "linearity_sum": 1.0129621513774596,
+            "random": 0.013070070430167476,
+            "random_fraction": 0.02081424234089728,
+            "subspace": 0.6349564698687412,
+            "subspace_fraction": 1.0111757170997335
+          },
+          "select_passes": true
+        },
+        "4": {
+          "confirm": {
+            "complement": -0.022796385363923245,
+            "complement_fraction": -0.04042322646458314,
+            "exact_set": 0.563942746724988,
+            "linearity_sum": 1.0050448426830247,
+            "random": 0.027642011128387118,
+            "random_fraction": 0.049015633748131185,
+            "subspace": 0.5895841345283717,
+            "subspace_fraction": 1.045468069147608
+          },
+          "loss_history": [
+            [
+              0,
+              15.719503402709961,
+              15.417776107788086
+            ],
+            [
+              50,
+              0.00476012984290719,
+              0.003633801592513919
+            ],
+            [
+              100,
+              0.0030021050479263067,
+              0.0022482057102024555
+            ],
+            [
+              119,
+              0.002636756282299757,
+              0.0018720112275332212
+            ]
+          ],
+          "select": {
+            "complement": 0.0032807199573819837,
+            "complement_fraction": 0.00522458548409611,
+            "exact_set": 0.6279388034454892,
+            "linearity_sum": 1.0120545620765058,
+            "random": 0.015758781695829314,
+            "random_fraction": 0.025096046954513965,
+            "subspace": 0.6322276107744876,
+            "subspace_fraction": 1.0068299765924096
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": -0.0406458377561444,
+            "complement_fraction": -0.07207440470187611,
+            "exact_set": 0.563942746724988,
+            "linearity_sum": 1.0251730542907578,
+            "random": 0.016531708500118966,
+            "random_fraction": 0.029314515695297718,
+            "subspace": 0.6187847458613197,
+            "subspace_fraction": 1.097247458992634
+          },
+          "loss_history": [
+            [
+              0,
+              14.484289169311523,
+              13.438821792602539
+            ],
+            [
+              50,
+              0.0032287398353219032,
+              0.0024149820674210787
+            ],
+            [
+              100,
+              0.0013745714677497745,
+              0.0012478469870984554
+            ],
+            [
+              119,
+              0.0009649497224017978,
+              0.0009509483352303505
+            ]
+          ],
+          "select": {
+            "complement": 0.004876784353374832,
+            "complement_fraction": 0.007766336984776226,
+            "exact_set": 0.6279388034454892,
+            "linearity_sum": 1.0140511352928816,
+            "random": 0.014632683812252452,
+            "random_fraction": 0.02330272270476545,
+            "subspace": 0.6318852721749771,
+            "subspace_fraction": 1.0062847983081054
+          },
+          "select_passes": true
+        }
+      },
+      "selected_rank": 1,
+      "tested": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "verb_complementizer": {
+      "confirm_split": "fourth_pair",
+      "confirmed": true,
+      "exact_confirm": 0.604910254299322,
+      "kind": "paired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": 0.1479240313405708,
+            "complement_fraction": 0.2445388060281996,
+            "exact_set": 0.604910254299322,
+            "linearity_sum": 0.974747566575882,
+            "random": 0.004820204194126923,
+            "random_fraction": 0.007968461701331628,
+            "subspace": 0.4417107670344913,
+            "subspace_fraction": 0.7302087605476825
+          },
+          "loss_history": [
+            [
+              0,
+              26.411407470703125,
+              26.362966537475586
+            ],
+            [
+              50,
+              0.07988403737545013,
+              0.09434567391872406
+            ],
+            [
+              100,
+              0.05693584680557251,
+              0.07122886180877686
+            ],
+            [
+              119,
+              0.05132506042718887,
+              0.06596686691045761
+            ]
+          ],
+          "select": {
+            "complement": 0.05506117753734152,
+            "complement_fraction": 0.09671723717060883,
+            "exact_set": 0.5693005626309798,
+            "linearity_sum": 1.0171598793825278,
+            "random": 0.005743995121895519,
+            "random_fraction": 0.010089565159307198,
+            "subspace": 0.5240085140807912,
+            "subspace_fraction": 0.9204426422119191
+          },
+          "select_passes": true
+        },
+        "2": {
+          "confirm": {
+            "complement": 0.10622651461474797,
+            "complement_fraction": 0.17560706544443022,
+            "exact_set": 0.604910254299322,
+            "linearity_sum": 0.9783684592670803,
+            "random": 0.007203182734936856,
+            "random_fraction": 0.011907853576197724,
+            "subspace": 0.48559859887893747,
+            "subspace_fraction": 0.8027613938226501
+          },
+          "loss_history": [
+            [
+              0,
+              26.241165161132812,
+              26.3569393157959
+            ],
+            [
+              50,
+              0.04122720658779144,
+              0.035558637231588364
+            ],
+            [
+              100,
+              0.017117442563176155,
+              0.009076032787561417
+            ],
+            [
+              119,
+              0.014808843843638897,
+              0.007047233171761036
+            ]
+          ],
+          "select": {
+            "complement": 0.0307465150938388,
+            "complement_fraction": 0.05400752627354887,
+            "exact_set": 0.5693005626309798,
+            "linearity_sum": 1.0130762351495475,
+            "random": 0.005031409103399012,
+            "random_fraction": 0.0088378783259,
+            "subspace": 0.5459983555648734,
+            "subspace_fraction": 0.9590687088759986
+          },
+          "select_passes": true
+        },
+        "4": {
+          "confirm": {
+            "complement": 0.11545880019353143,
+            "complement_fraction": 0.1908693056084317,
+            "exact_set": 0.604910254299322,
+            "linearity_sum": 0.9749644325065379,
+            "random": 0.030055427134936422,
+            "random_fraction": 0.04968576234461448,
+            "subspace": 0.4743071826067925,
+            "subspace_fraction": 0.7840951268981061
+          },
+          "loss_history": [
+            [
+              0,
+              24.91170310974121,
+              24.98672103881836
+            ],
+            [
+              50,
+              0.012719348073005676,
+              0.008317234925925732
+            ],
+            [
+              100,
+              0.0062391189858317375,
+              0.003741969121620059
+            ],
+            [
+              119,
+              0.00488029420375824,
+              0.0028997387271374464
+            ]
+          ],
+          "select": {
+            "complement": 0.019167662307177147,
+            "complement_fraction": 0.03366879213783881,
+            "exact_set": 0.5693005626309798,
+            "linearity_sum": 0.9857498856731338,
+            "random": 0.02536356983806054,
+            "random_fraction": 0.04455216014690853,
+            "subspace": 0.542020302219962,
+            "subspace_fraction": 0.952081093535295
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": 0.08697380717658167,
+            "complement_fraction": 0.14377968724852405,
+            "exact_set": 0.604910254299322,
+            "linearity_sum": 0.9696726771783979,
+            "random": 0.03964371056711019,
+            "random_fraction": 0.06553651601266074,
+            "subspace": 0.49959113856250736,
+            "subspace_fraction": 0.8258929899298738
+          },
+          "loss_history": [
+            [
+              0,
+              24.876583099365234,
+              24.126211166381836
+            ],
+            [
+              50,
+              0.011789891868829727,
+              0.007190430536866188
+            ],
+            [
+              100,
+              0.0044990722090005875,
+              0.0025553025770932436
+            ],
+            [
+              119,
+              0.0031029328238219023,
+              0.0018733128672465682
+            ]
+          ],
+          "select": {
+            "complement": 0.006939181743053471,
+            "complement_fraction": 0.012188959924761999,
+            "exact_set": 0.5693005626309798,
+            "linearity_sum": 0.9912515567955577,
+            "random": 0.02717113992104424,
+            "random_fraction": 0.047727231807878176,
+            "subspace": 0.5573808872494922,
+            "subspace_fraction": 0.9790625968707957
+          },
+          "select_passes": true
+        }
+      },
+      "selected_rank": 1,
+      "tested": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:11:head:03",
+        "attn:07:head:08"
+      ]
+    },
+    "voice_frame.passive_vs_active": {
+      "confirm_split": "A2",
+      "confirmed": true,
+      "exact_confirm": 0.7002927345065432,
+      "kind": "unpaired",
+      "rungs": {
+        "1": {
+          "confirm": {
+            "complement": 0.022388476594352242,
+            "complement_fraction": 0.03197016831843635,
+            "exact_set": 0.7002927345065432,
+            "linearity_sum": 0.9823201755374114,
+            "random": 0.002159681626600283,
+            "random_fraction": 0.003083969774614453,
+            "subspace": 0.665523205293689,
+            "subspace_fraction": 0.950350007218975
+          },
+          "loss_history": [
+            [
+              0,
+              43.32659149169922,
+              43.119300842285156
+            ],
+            [
+              50,
+              0.02259388566017151,
+              0.03320357948541641
+            ],
+            [
+              100,
+              0.0020198444835841656,
+              0.014056473970413208
+            ],
+            [
+              119,
+              0.0011217135470360518,
+              0.011036794632673264
+            ]
+          ],
+          "select": {
+            "complement": 0.019518678611174282,
+            "complement_fraction": 0.027629269653121992,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.9702029232554701,
+            "random": 0.005247429543914329,
+            "random_fraction": 0.0074278924686821055,
+            "subspace": 0.6658805116097477,
+            "subspace_fraction": 0.9425736536023481
+          },
+          "select_passes": true
+        },
+        "2": {
+          "confirm": {
+            "complement": 0.0004812389690470245,
+            "complement_fraction": 0.000687196861161392,
+            "exact_set": 0.7002927345065432,
+            "linearity_sum": 0.9625026928777873,
+            "random": 0.005584766079615963,
+            "random_fraction": 0.00797490221507329,
+            "subspace": 0.6735524037962501,
+            "subspace_fraction": 0.961815496016626
+          },
+          "loss_history": [
+            [
+              0,
+              43.32898712158203,
+              41.55608367919922
+            ],
+            [
+              50,
+              0.03857873007655144,
+              0.04100742191076279
+            ],
+            [
+              100,
+              0.008752366527915001,
+              0.01893749088048935
+            ],
+            [
+              119,
+              0.005222325213253498,
+              0.014996728859841824
+            ]
+          ],
+          "select": {
+            "complement": 0.0018858678759978785,
+            "complement_fraction": 0.0026695020249104385,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.9501780631850437,
+            "random": 0.006314213425785157,
+            "random_fraction": 0.008937956757406008,
+            "subspace": 0.6693667736718858,
+            "subspace_fraction": 0.9475085611601333
+          },
+          "select_passes": true
+        },
+        "4": {
+          "confirm": {
+            "complement": 0.009014478311914974,
+            "complement_fraction": 0.012872443005234045,
+            "exact_set": 0.7002927345065432,
+            "linearity_sum": 0.9605861523292575,
+            "random": 0.004380151675525978,
+            "random_fraction": 0.006254743851672863,
+            "subspace": 0.6636770250318595,
+            "subspace_fraction": 0.9477137093240234
+          },
+          "loss_history": [
+            [
+              0,
+              42.715789794921875,
+              40.08937454223633
+            ],
+            [
+              50,
+              0.0012921409215778112,
+              0.0050073470920324326
+            ],
+            [
+              100,
+              6.44557221676223e-05,
+              0.0015382166020572186
+            ],
+            [
+              119,
+              2.096924617944751e-05,
+              0.0009883486200124025
+            ]
+          ],
+          "select": {
+            "complement": 0.012234783505852387,
+            "complement_fraction": 0.017318699660193226,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.9432186707289856,
+            "random": 0.007391114460549607,
+            "random_fraction": 0.01046234217672426,
+            "subspace": 0.6541014000109563,
+            "subspace_fraction": 0.9258999710687924
+          },
+          "select_passes": true
+        },
+        "8": {
+          "confirm": {
+            "complement": -0.0016296278544223005,
+            "complement_fraction": -0.0023270666310291044,
+            "exact_set": 0.7002927345065432,
+            "linearity_sum": 0.9712295159185542,
+            "random": 0.009420946548879356,
+            "random_fraction": 0.013452869185509638,
+            "subspace": 0.6817746013904928,
+            "subspace_fraction": 0.9735565825495833
+          },
+          "loss_history": [
+            [
+              0,
+              41.86988830566406,
+              33.42543029785156
+            ],
+            [
+              50,
+              0.0006682544481009245,
+              0.0021878795232623816
+            ],
+            [
+              100,
+              5.810886250401381e-06,
+              0.00034612190211191773
+            ],
+            [
+              119,
+              1.9333544969413197e-06,
+              0.00014673579426016659
+            ]
+          ],
+          "select": {
+            "complement": -0.006090077967610423,
+            "complement_fraction": -0.008620686355239004,
+            "exact_set": 0.7064493146661498,
+            "linearity_sum": 0.9453968689605046,
+            "random": 0.01229836530198531,
+            "random_fraction": 0.01740870158221784,
+            "subspace": 0.6739650481322828,
+            "subspace_fraction": 0.9540175553157436
+          },
+          "select_passes": true
+        }
+      },
+      "selected_rank": 1,
+      "tested": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  },
+  "tested": [
+    "dative",
+    "quantifier_number",
+    "polarity_licensing",
+    "verb_complementizer",
+    "interrogative_licensing.question_vs_declarative",
+    "voice_frame.passive_vs_active"
+  ]
+}
