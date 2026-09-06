@@ -1,0 +1,48 @@
+{
+  "schema": "temporal_auxiliary_will_had_subject_onset_block8_component_cube_prior_art_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.subject_onset_block8_component_cube_v2",
+  "created_utc": "2026-09-06T12:40:00Z",
+  "evidence_class": "prospective_instrument_repair_exact_block_component_factorial",
+  "invalid_predecessor": {
+    "receipt_sha256": "7dc3fc6b1d277a9db7c1ac273267cf871f1cd5781d2d84067c693e08659f2355",
+    "failure": "The v1 block-component recombination check was 2.44140625e-4 against a registered 2e-4 tolerance because it cast bfloat16 components to float32 before reassembly. V1 is retained as invalid and none of its component outcomes is authority for v2.",
+    "repair": "Preserve each captured component in native model dtype; reassemble in the model's exact operation order `(entry + attention) + mlp`; verify the resulting block-9 live state directly against the captured native state. All scientific predictions and the complete eight-arm design remain unchanged."
+  },
+  "authorities": {
+    "subject_onset_depth_result_sha256": "b1f5ca50c669019684b5308b10dcd083de67897327bc6eecbcd92c978fc9cdae",
+    "invalid_v1_receipt_sha256": "7dc3fc6b1d277a9db7c1ac273267cf871f1cd5781d2d84067c693e08659f2355",
+    "reused_v1_runner_sha256": "a309359d82347c61ea98ab75e0b68205792e456cd6e9dd4b9644ce48e46da552",
+    "temporal_fast_screen_sha256": "71a833c52c39b98be6f576d11749522e2725c540a29d61a2352e315978684ec9",
+    "rows_sha256": "b74ff65cf6b59142bf38172dae7f70a25e5f471bbeaa038f9b3971caedf913da"
+  },
+  "population": "The same sealed 64 A1/A2 will/had rows and two 32-row construction batches as v1.",
+  "factorial": {
+    "components": ["block8_entry_z8", "attention8_update", "mlp8_update"],
+    "arms": "All eight component subsets at the exact two-token subject-onset bank.",
+    "native_arithmetic": "Choose each base/donor component in native dtype, then calculate `(entry + attention) + mlp`, matching the transformer implementation exactly.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_cube": "All authorities and capability pass; manual replay is within 1e-4; native-order block-state recombination, empty/base logit closure, full/donor state closure, and Shapley efficiency are within 1e-7; all records are finite and complete.",
+    "pred_b_boundary9_effect_recurrence": "The all-components arm recovers 0.6445 plus or minus 0.03 in A1 and 0.5052 plus or minus 0.03 in A2, with donorward fraction 1.0.",
+    "pred_c_attention8_is_dominant_writer": "Attention8 has the largest positive Shapley value among carried entry, attention8, and MLP8 in both A1 and A2.",
+    "pred_d_attention8_is_material": "Omitting attention8 reduces mean recovery by at least 0.10 relative to all components in both A1 and A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 20 model forwards, 640 example evaluations, 512 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Promote block-8 attention at the subject-onset source bank.",
+    "null": "A, B, and E pass but the unchanged attention dominance/materiality hypothesis misses; retain the valid complete cube and its observed ranking.",
+    "invalid": "The repaired native-order instrument, authority, capability, recurrence, coverage, finiteness, or price fails."
+  },
+  "scope": "V2 repairs arithmetic validity only. It does not change the population, arms, causal estimand, component prediction, thresholds, or price after the invalid v1 outcomes.",
+  "price": {
+    "model_forwards": 20,
+    "example_evaluations": 640,
+    "intervention_records": 512,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
