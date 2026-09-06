@@ -1,0 +1,24 @@
+{
+  "schema": "temporal_q8_iswas_cdas_shared_specific_causal_prior_v2",
+  "candidate_id": "cross_task.temporal_q8_iswas_cdas_shared_specific_causal_v2",
+  "registered_utc": "2026-09-06T20:50:14Z",
+  "question": "Does the unchanged shared/specific causal decomposition pass after replacing v1's sub-ULP raw-state closure bar?",
+  "invalid_v1": {
+    "result_sha256": "69b4bd8f3c2550e3e31008509a1c99e73fd5b2f2722e15689b75f9c0f6d26e05",
+    "runner_sha256": "776145e7b2ba4c000dad0b7cba316d29ed4bddb24da2450fc91027aeb7f3e8f5",
+    "fault": "The frozen 1e-6 absolute write-state bar is below one float32 ULP at the observed resid18 scale. Raw closure was 4.8828125e-4 while final logits closed at 2.861e-6 and released cDAS metrics replayed at 1.192e-6."
+  },
+  "frozen_repair": {
+    "only_change": "Accept raw write-state closure at <=1e-3 while retaining the independently stronger <=1e-5 final-logit closure and <=1e-4 released-metric replay bars.",
+    "unchanged": "Rows, weight projector, cDAS axis, write decomposition, five arms, A/P/C outcomes, all four scientific materiality/selectivity/composition gates, price, and model execution are identical to v1.",
+    "rationale": "The revised state bar is two float32 quanta at the witnessed magnitude and cannot change any intervention output or scientific score."
+  },
+  "predictions": {
+    "pred_a_exact_authority_replay_decomposition_coverage_and_price": "Use <=1e-3 raw-state closure plus the unchanged <=1e-5 logit and <=1e-4 metric replay controls.",
+    "pred_b_temporal_q8_shared_component_is_causally_material": "Unchanged from v1.",
+    "pred_c_temporal_q8_shared_component_is_selective": "Unchanged from v1.",
+    "pred_d_iswas_specific_component_remains_material": "Unchanged from v1.",
+    "pred_e_shared_and_specific_compose_without_signed_reversal": "Unchanged from v1."
+  },
+  "decision": "Interpret only the independently rerun v2 receipt. No further tolerance repair is allowed on these rows."
+}
