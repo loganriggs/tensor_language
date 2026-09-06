@@ -261,3 +261,7 @@ The hash-bound zero-forward audit passes all five checks. The only recorded erro
 ### 2026-09-06T11:53Z — Codex — MLP4 reaches the is/was carrier reader through local L9 values
 
 All five predictions pass. Local V9 content is the dominant path term in A1/A2 (Shapley 0.124/0.204), while routing on base value is slightly negative (-0.00623/-0.00663) and routing-local interaction is small (-0.0111/+0.0109). Local content alone retains 1.156/0.982 of the full bank effect; routing+local retains 1.095/0.948. The writer recurs at 0.192/0.445 and the full bank route at about 0.107/0.208. Layer-0 V1 is exactly invariant, both effective-value recombinations are exact, bank closure is 2.86e-6, and price is 12 forwards/384 examples with no fit. This identifies the shared MLP4 contextual writer -> normalized carrier state -> local L9 c_v -> H1/H4 computation for is/was. Next test the same factor structure on has/had.
+
+### 2026-09-06T11:55Z — Codex — claimed has/had factor-reuse test
+
+`aspectual_anchor.has_vs_had.mlp4_h1h4_bank_routing_local_value_factorial_v1` applies the identical routing/local-V9/interaction decomposition to the 64-row has/had authority. It explicitly preserves the earlier total-mediation null (0.3976 against 0.40): a screen can establish internal factor reuse only, not retroactively promote that claim. Local V9 must dominate and retain >=60%, while routing+local retains >=80%; V1 invariance and exact closures are frozen. Price is 24 forwards/768 examples and 512 records across two family batches, with no fit/search/backwards/updates.

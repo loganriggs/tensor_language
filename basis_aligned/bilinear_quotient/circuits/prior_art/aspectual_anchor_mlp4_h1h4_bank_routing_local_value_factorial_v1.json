@@ -1,0 +1,44 @@
+{
+  "schema": "aspectual_anchor_mlp4_h1h4_bank_routing_local_value_factorial_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp4_h1h4_bank_routing_local_value_factorial_v1",
+  "created_utc": "2026-09-06T11:54:29Z",
+  "evidence_class": "exact_cross_task_internal_factor_reuse_test",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*mlp4*routing*local*", "circuits/followups/*mlp4*routing*local*", "circuits/prior_art/*writer*local*v9*", "circuits/followups/*writer*local*v9*", "AGENT_BOARD.md"],
+    "nearest_result": "The is/was MLP4-mediated carrier route is dominated by local L9 V9 content in both constructions. The older has/had mediation receipt is a valid null because bank/writer fraction was 0.3976 against 0.40, but its exact bank effect is live and the later typed-path release retains that bounded edge.",
+    "new_question": "Does has/had use the same routing-versus-local-value computation internally, despite its slightly weaker total MLP4-to-bank fraction?"
+  },
+  "authorities": {
+    "has_had_path_null_sha256": "649cc961fd4203a9d7489344bbf169754081a288b5d575bcefcab2caf41da9ab",
+    "has_had_path_instrument_sha256": "5449d45505267f2ebc92c9285b7a984fce773f834c2071e1d7e6d1a9f1949372",
+    "is_was_factor_screen_sha256": "9a00cefe8986b1459c334c445a28208ae54911b81e5a42d78e1bc878777f07e4",
+    "typed_shared_path_release_sha256": "afb17159330dc6abcf018d36313a7df2c78c6708b67feb8d2f2d9d2eee50faf0"
+  },
+  "population": "All 64 authority has/had A1/A2 rows, processed in the frozen two 32-row family batches, with the exact MLP4 left_change+right_change writer at last+period+determiner.",
+  "factorization": {
+    "factors": {
+      "routing_on_base_value": "(P_h-P_b) times base effective value",
+      "local_v9_content_change": "P_b times (1-lambda9)(V9_h-V9_b)",
+      "routing_local_interaction": "(P_h-P_b) times (1-lambda9)(V9_h-V9_b)"
+    },
+    "structural_control": "MLP4 occurs after layer 0, so hybrid V1 must equal base V1 exactly; the three factors sum to the hybrid-minus-base last+period+determiner H1/H4 term.",
+    "arms": "All eight subsets enter otherwise native base H1/H4 before c_proj.",
+    "scope": "The prior 0.3976 bank/writer miss remains a null. This test can establish internal factor reuse only; it cannot retroactively promote the total mediation claim.",
+    "fitting": "none",
+    "no_rescue": "No factor, source, head, family, row, sign, threshold, or aggregation changes after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_factorization": "Hashes/capability and all exact writer/value/source/factor closures pass at <=1e-4, except the inherited MLP4 tensor tolerance <=2e-3; V1 invariance and complete coverage pass.",
+    "pred_b_writer_and_bank_route_recur": "Writer remains within 0.02 of 0.33379277118533013; full factors remain within 0.03 of bank mediation 0.1327154237991511 with positive recovery and direction >=0.75 in A1/A2.",
+    "pred_c_local_value_factor_reuses": "Local V9 content has positive Shapley recovery, exceeds routing and interaction in A1/A2, and its single arm retains >=0.60 of full with direction >=0.75.",
+    "pred_d_interaction_is_secondary": "Routing+local without interaction retains >=0.80 of full with direction >=0.75 in A1/A2.",
+    "pred_e_exact_zero_fit_price": "Exactly 24 forwards/768 examples, 512 intervention records, eight arms across two batches, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: routing/local-value factor structure reuses across has/had and is/was, without changing the old total-mediation null.",
+    "null": "Instrument and route recurrence pass but internal factor reuse or secondary interaction misses.",
+    "invalid": "Authority, capability, capture, exact closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["cross-task internal computation reuse", "MLP4-to-H1H4 edge", "routing versus local value", "structural V1 control"],
+  "price": {"model_forwards": 24, "example_evaluations": 768, "intervention_records": 512, "factor_arms": 8, "family_batches": 2, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
