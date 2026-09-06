@@ -208,7 +208,7 @@ def main() -> None:
                          (*base_captures.values(), *changed_captures.values()))
     state = lambda output: converter.state(output, rows, torch, backend.device)
     base18, base_hidden18, core18, self18 = map(
-        state, (base11_output, base_hidden_output, core11_output, self_output))
+        state, (base_hidden_output, base_hidden_output, core11_output, self_output))
     states = {arm: state(value) for arm, value in outputs.items()}
     index = torch.arange(len(rows), device=backend.device)
     answers = torch.as_tensor([row["donor_answer_id"] for row in rows], device=backend.device)
