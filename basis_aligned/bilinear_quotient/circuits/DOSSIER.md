@@ -108,6 +108,13 @@ prompt, row, template, family, or model call to choose a vector. This removes pr
 external intervention specification, native base activation, and native downstream suffix/logit path are still required. The package
 is a compiled intervention dispatcher, not an autonomous predictor.
 
+A retrospective cross-construction diagnostic shows that bracket donorward effects may admit a much smaller suffix-free readout. Six
+ordered-pair scalar means transferred symmetrically between the direct-type and completed-then-reopened OOD families at cosine
+`0.98181`, relative L2 `0.19025`, norm ratio `0.99373`, and perfect signs across 144 endpoints. The two directional folds separately
+reach cosine `0.99767` and `0.98960`, again with perfect signs. This costs six FP32 scalars and a lookup, but it is feasibility evidence
+on already opened outcomes—not a promoted predictive program. A new untouched corpus is mandatory before the native suffix can be
+declared unnecessary for bracket effect prediction.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -146,6 +153,7 @@ is a compiled intervention dispatcher, not an autonomous predictor.
 | `bracket_under_norm_matched_task14_stress.v3` | complete | outcome-free norm-matched reverse robustness | **held at artificial matched norm** | active | `bracket_under_norm_matched_task14_program_stress_v3_result.json` |
 | `task14_bracket_compiled_dispatcher.v1` | abandoned | pre-execution specification audit | **contradictory self-pair rule** | superseded by v2 | none |
 | `task14_bracket_compiled_dispatcher.v2` | complete | exact combined dispatch and dependency boundary | **screen** | active | `task14_bracket_compiled_dispatcher_v2_result.json` |
+| `bracket_ordered_pair_suffix_free_scalar_feasibility.v1` | complete | bidirectional leave-family-out scalar transfer | **retrospective feasibility** | active diagnostic | `bracket_ordered_pair_suffix_free_scalar_feasibility_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -154,9 +162,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-whether the prior exact bracket readout-fold decomposition can yield a fixed prospective scalar reader for the six bracket vectors,
-analogous to Task14's fixed readers, before attempting base-state construction. Do not substitute additional arbitrary stress scaling,
-syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
+the six-scalar bracket effect table on a new untouched construction/corpus, with values frozen from only one existing family, before
+attempting base-state construction. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic
+low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
