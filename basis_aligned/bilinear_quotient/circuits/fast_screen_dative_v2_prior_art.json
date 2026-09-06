@@ -1,0 +1,66 @@
+{
+  "aliases_searched": [
+    "alternation",
+    "argument structure",
+    "benefactive",
+    "dative",
+    "ditransitive",
+    "for",
+    "recipient",
+    "subcategorization",
+    "to"
+  ],
+  "candidate_id": "dative_alternation.to_vs_for_v2",
+  "canonical_objects": [
+    "a verb selecting its dative preposition",
+    "sent-versus-bought choice of to/for at a shared object token",
+    "recipient versus benefactive across two constructions"
+  ],
+  "decision_changed": "A pass extends the subcategorization class from arbitrary lexical requirements to role-marking alternations, which is the generality question v1 was built to answer. A second one-sided failure means the benefactive continuation is genuinely weak in this model and the design cannot carry it, which I report as a limit of the design rather than of the class.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/preposition_selection_on_vs_of_v1_result.json is selective at resid:17: a verb selecting its preposition (depend on, consist of) is carried.",
+    "circuits/fast_screens/verb_complementizer_whether_vs_that_v2_result.json and finiteness_selection_to_vs_that_v3_result.json are selective: clause type and finiteness are also carried.",
+    "circuits/fast_screens/dative_alternation_to_vs_for_v1_result.json is native_behavior_incapable with a strictly ONE-SIDED failure: the recipient side (sent, mailed -> ' to') reads 1.00 and 0.94 while the benefactive side (bought, ordered -> ' for') reads 0.69, 0.12 and 0.19.",
+    "circuits/fast_screens/finiteness_selection_to_vs_that_v3_result.json is selective after the same class of repair: a one-sided v1 failure was traced to a broken collocation and fixed by two principled verb swaps, with the sound side untouched."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Varies ONE thing against the v1 authority: the BENEFACTIVE verbs. v1's failure was strictly one-sided, with a perfect recipient side, which is the signature of a broken collocation rather than a class limit -- the same shape as the finiteness v1 null that a verb swap repaired. 'bought' and 'ordered' become 'reserved' and 'prepared', whose benefactive collocation with a following 'for' is far stronger; the recipient verbs, both constructions, the control and the answer vocabulary are unchanged. STOP RULE REGISTERED, as on finiteness: if the benefactive side does not clear 0.85 with a second verb pair chosen for collocational strength, I record the dative alternation as unscreenable under this design and stop, rather than continue searching for verbs until something passes.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "site_results",
+        "capability_cells",
+        "c_absolute_recovery"
+      ],
+      "sha256": "3e57b618522f8cd1a11f5551d0691ba3921da306d8e194c041e4b219894823d8",
+      "source": "circuits/fast_screens/preposition_selection_on_vs_of_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "candidate_id",
+        "terminal",
+        "preposition",
+        "dative"
+      ],
+      "sha256": "d82c4da9c56d435d2b002c95563dce4b6a63cea71eda54d149be54eaa5168807",
+      "source": "circuits/fast_screen_ledger.jsonl"
+    },
+    {
+      "searched_terms": [
+        "capability_cells",
+        "native_logits",
+        "reason"
+      ],
+      "sha256": "dda6e8d7179fd81b075962c0b185389361deb99d9c557358de0584e8687a0669",
+      "source": "circuits/fast_screens/dative_alternation_to_vs_for_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, prior-art search plus the three subcategorization screens",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

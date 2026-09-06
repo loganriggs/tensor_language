@@ -1,0 +1,51 @@
+{
+  "schema": "aspectual_anchor_contextual_source_state_onset_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.contextual_source_state_onset_v1",
+  "created_utc": "2026-09-06T02:31:57Z",
+  "question": "At what residual depth does the `last`+period+`the` source-state bank become sufficient to causally transfer the aspectual decision?",
+  "authority": {
+    "source_bank_result": {
+      "path": "circuits/followups/aspectual_anchor_l9h1_h4_downstream_source_bank_v2_result.json",
+      "sha256": "6d694f92d35970f4eb5eba25ca3d9aff15cdbd1949db158a8be18e827e0423a7"
+    },
+    "parent_fast_screen": {
+      "path": "circuits/fast_screens/aspectual_anchor_has_vs_had_v1_result.json",
+      "sha256": "5ca2125e7d18bd6a377efcfa0c3a361b949e5a8fff4c053ae7481b4384c4fb94"
+    },
+    "row_builder": {
+      "path": "ops/circuit_fast_screen_candidate_aspectual.py",
+      "sha256": "cca10e7f49f27ae49af62adbb0afb55d1d0b43b7174d0a5920db6f842fb1db20",
+      "rows_sha256": "ca707c7720f0f36b43d7a01751bfc9ce9abeb1c3b7e0939f1616de82f4b468c3"
+    }
+  },
+  "population": "The 64 valid A1/A2 discovery rows, with both transfer directions and both constructions retained.",
+  "interventions": {
+    "source_bank": ["last token at cue+1", "period token at cue+2", "determiner `the` at cue+3"],
+    "origin_control": ["since/by cue token"],
+    "boundaries": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "boundary_semantics": "0 is normalized token embedding; n>0 is residual state after block n-1",
+    "operator": "simultaneously replace the named positions by paired donor residual states at one boundary, retaining every other base state and the exact base suffix",
+    "final_subject_control": "bound from the parent residual sweep; no boundary 0-9 passes the fixed 0.50 target recovery bar and resid:10 is the first pass",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_exact_instrument": "Manual native scored logits match the checkpoint backend within 1e-4, every source position is aligned, and source-bank boundary 0 is exactly inert because its three token identities are unchanged.",
+    "pred_b_source_bank_onset": "At least one source-bank boundary 1-9 has A1 and A2 mean recovery at least 0.50 and direction fraction at least 0.80 in each family.",
+    "pred_c_earlier_than_final_subject": "The earliest passing source-bank boundary is at most 9, strictly earlier than the parent final-subject onset at resid:10.",
+    "pred_d_origin_contextualization": "Report the cue-only curve under identical interventions; its result cannot rescue B or change the source-bank onset.",
+    "pred_e_exact_coverage": "All 20 registered source-bank/cue arms produce all 64 row outcomes with finite logits and no dropped row."
+  },
+  "terminal": {
+    "screen": "A, B, C, and E pass. D is descriptive. License the crossing block as the next writer-localization boundary.",
+    "null": "The run is valid but no source-bank boundary through 9 passes B.",
+    "invalid": "Manual identity, native capability, source alignment, boundary-0 inertness, finiteness, or coverage fails. No layer, position, threshold, or row may change after outcomes open."
+  },
+  "price": {
+    "model_forwards_max": 48,
+    "example_evaluations_max": 1536,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "novelty": "First causal depth localization of the contextual source-state bank; prior work localized the final query state and L9 source contributions but not when those source representations were written."
+}

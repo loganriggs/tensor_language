@@ -221,3 +221,23 @@ suffix to A2 fails `matched_long_final_suffix`. Hit on `polarity_state` (partici
 
 Neither is caught by review; both are caught in one second by calling `build_rows()` before
 writing a runner. Do that first.
+
+## The one-sided capability failure: a repairable stimulus defect, not a model limit
+
+When a screen returns `native_behavior_incapable` and the failure is **strictly one-sided** — one
+answer side at or near 1.00 across both constructions, the other well below the bar — that is the
+signature of a broken collocation in the weak side's frame, not a limit of the model or of the
+behaviour class. Twice now, swapping only the weak side's verbs has converted the null into a
+`selective_causal_site` with the strong side untouched:
+
+    finiteness_selection   v1 finite 1.00 / nonfinite 0.50   ->  decided->refused, offered->declined  -> selective
+    dative_alternation     v1 recipient 1.00 / benefactive 0.12 -> bought->reserved, ordered->prepared -> selective
+
+Contrast a genuine limit, which is symmetric: `pronoun_antecedent.gender_reference` sat at chance
+on BOTH sides with margin 0.00, and no redesign changes that.
+
+**How to use it without fooling yourself.** A one-sided failure licenses ONE repair of the weak
+side, with a stop rule registered in the prior-art receipt before running: if a second verb pair
+chosen for collocational strength still fails, record the behaviour as unscreenable under that
+design and stop. What makes this legitimate rather than tuning-until-it-passes is that the defect
+is diagnosed from the asymmetry first, and the repair leaves the passing side untouched.

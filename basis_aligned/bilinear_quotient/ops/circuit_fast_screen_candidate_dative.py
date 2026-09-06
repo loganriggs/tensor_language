@@ -38,7 +38,7 @@ SPLIT = builder.SPLIT
 DEFAULT_GROUPS = builder.DEFAULT_GROUPS
 DEFAULT_SEED = builder.DEFAULT_SEED
 
-TASK_ID = "dative_alternation.to_vs_for"
+TASK_ID = "dative_alternation.to_vs_for_v2"
 DATIVE = (" to", " for")
 
 TASK_SPEC = battery.BatteryTaskSpec(
@@ -80,11 +80,18 @@ def _phrase(adjective: str, noun: str) -> str:
 
 
 def _bare(agent: str, obj: str, recipient: bool) -> str:
-    return f"The {agent} quickly {'sent' if recipient else 'bought'} the {obj}"
+    """v2 benefactive verb.
+
+    v1 used 'bought' and failed one-sided: the recipient side read 1.00 and 0.94 while the
+    benefactive side read 0.69, 0.12 and 0.19. That is a broken collocation, not a class limit --
+    the same shape as the finiteness v1 null. 'reserved X for Y' is a far stronger benefactive
+    continuation. The RECIPIENT verbs are unchanged.
+    """
+    return f"The {agent} quickly {'sent' if recipient else 'reserved'} the {obj}"
 
 
 def _report(agent: str, obj: str, recipient: bool) -> str:
-    return f"In the notes the {agent} {'mailed' if recipient else 'ordered'} the {obj}"
+    return f"In the notes the {agent} {'mailed' if recipient else 'prepared'} the {obj}"
 
 
 def _answer(recipient: bool) -> str:

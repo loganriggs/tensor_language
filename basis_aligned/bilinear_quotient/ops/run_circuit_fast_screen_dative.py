@@ -12,19 +12,19 @@ import circuit_fast_screen_spec as screen
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PRIOR_ART = ROOT / "circuits/fast_screen_dative_prior_art.json"
+PRIOR_ART = ROOT / "circuits/fast_screen_dative_v2_prior_art.json"
 RESULT_RELATIVE = Path(
-    "circuits/fast_screens/dative_alternation_to_vs_for_v1_result.json"
+    "circuits/fast_screens/dative_alternation_to_vs_for_v2_result.json"
 )
 RESULT = ROOT / RESULT_RELATIVE
 LEDGER = ROOT / "circuits/fast_screen_ledger.jsonl"
-REQUEST_ID = "dative-alternation-to-vs-for-v1"
-EXPERIMENT_ID = "fast-screen-dative-alternation-to-vs-for-v1"
+REQUEST_ID = "dative-alternation-to-vs-for-v2"
+EXPERIMENT_ID = "fast-screen-dative-alternation-to-vs-for-v2"
 EXPECTED_AUTHORITY_SHA256 = (
-    "a45330f31bb03164ef7a496e6b3f1fb126207ca636899f088c878173528feb92"
+    "00a17f3b7b380f3a579ca43c0136b31abb59296f58939a3ff2e863af0b2237c7"
 )
 EXPECTED_PRIOR_ART_SHA256 = (
-    "1fc1c2002f761960b87e6bf41814e84859a6e6baf7c57fef7e367d3c4fb4fb92"
+    "a0c32c30abe3daa5e8d0e09c41d20b1446fd56dbce3526f12629226aec046cef"
 )
 REGISTERED_PREDICTIONS = (
     ("pred_a_native_capability", "Every ordered native capability cell passes."),
