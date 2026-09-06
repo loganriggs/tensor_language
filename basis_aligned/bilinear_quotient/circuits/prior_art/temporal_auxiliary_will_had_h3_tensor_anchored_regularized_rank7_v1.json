@@ -1,0 +1,32 @@
+{
+  "schema": "temporal_auxiliary_h3_tensor_anchored_regularized_rank7_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.h3_tensor_anchored_regularized_rank7_v1",
+  "registered_utc": "2026-09-06T19:35:02Z",
+  "question": "Can strongly constrained, regularized DAS compress the transferable checkpoint-derived rank-eight teacher to a stable rank-seven causal variable without task memorization?",
+  "authority": {
+    "nested_weight_screen_sha256": "adc318db1b08fd47c034cf4cd15b7234b16582b7ab134275f8c36265219254fc",
+    "rank7_v9_result_sha256": "d080cd9403321de37799c1c5088d3051e543df64aa632bf11bb257f1896014d3",
+    "diagnosis": "Rank seven transfers tensor geometry, complement selectivity, and downstream transport but misses v9 A2 behavior by 0.67 points; unconstrained scalar cDAS and raw response-SVD previously selected the wrong objects."
+  },
+  "frozen_hypothesis_class": {
+    "teacher": "The exact checkpoint-only rank-eight member of the v8 nested reader family.",
+    "student": "A rank-seven hyperplane inside that fixed rank-eight teacher. Parameterize only its unit normal in teacher coordinates (eight raw parameters); the remaining 120 H3 dimensions are inaccessible to the optimizer.",
+    "initialization": "The exact checkpoint-only rank-seven basis, plus two fixed random restarts."
+  },
+  "frozen_objective": {
+    "environments": "v1 and v2, A1 and A2 separately; even rows train and odd rows select. No v8/v9 gradients or selection.",
+    "sufficiency": "Full-vocabulary KL from full-H3 intervention to rank-seven student intervention, normalized by each environment's full-H3 versus base KL.",
+    "complement": "Full-vocabulary KL from base to the student's exact orthogonal-complement intervention, with the same normalization.",
+    "environment_balance": "Mean of the four environment losses plus 0.5 times their variance; model selection minimizes worst held-out environment loss.",
+    "noise": "Antithetic tangent noise on the eight-dimensional unit normal, sigma 0.03, averaged during every update.",
+    "anchor": "0.1 times squared Frobenius distance from the initial checkpoint-derived rank-seven projector.",
+    "optimization": "Adam, learning rate 0.02, 150 updates per restart, three restarts; model weights frozen."
+  },
+  "frozen_evaluation": {
+    "populations": "All previously capability-qualified v8 and v9 rows, evaluated only after the student is selected.",
+    "metrics": "Behavioral fraction of full H3, exact complement fraction, L15H5/H1 transport, full-vocabulary KL, restart agreement, and projector distance from the tensor initialization.",
+    "success": "At least 90% behavior and transport and at most 12% absolute complement in both panels of both banks, while improving v9 A2 behavior over the fixed weight rank seven and retaining at least 0.80 minimum restart projector overlap.",
+    "status": "Discovery/validation screen only; any successful student requires a new v10 capability bank for confirmation."
+  },
+  "decision": "If the regularized student passes, freeze it for v10. If it fails but rank eight remains sufficient, prefer the transparent rank-eight tensor variable. If restarts disagree, the constrained objective remains underidentified despite regularization."
+}
