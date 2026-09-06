@@ -100,6 +100,14 @@ interaction/own norm `0.17838`, norm ratio `0.91971`, and perfect signs across a
 declared artificial norm-matched scale. It does not upgrade the original-gain reverse test, establish a natural jointly instantiated
 prompt, or license arbitrary scaling as part of either program.
 
+The two programs are now compiled into one hash-bound dispatcher package. It contains exactly the ten selected Task14 vectors and six
+bracket vectors (`18,432` FP32 scalars, `73,728` bytes), reproduces dispatch for all 512 prospective Task14 cells and 144 OOD bracket
+targets, and returns exact zero for all 216 licensed bracket self-pair controls. Selection uses only
+`(recipient_number, donor_number, cardinality)` or `(recipient_closer_id, donor_closer_id)`; it no longer needs a recipient/donor role
+prompt, row, template, family, or model call to choose a vector. This removes prompt-lookup ceremony, not the substantive boundary: an
+external intervention specification, native base activation, and native downstream suffix/logit path are still required. The package
+is a compiled intervention dispatcher, not an autonomous predictor.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -136,6 +144,8 @@ prompt, or license arbitrary scaling as part of either program.
 | `task14_bracket_program_stress_composition.v1` | complete | two-sided four-corner composition | **inconclusive: reverse stress inert** | superseded in one direction by v2 | `task14_bracket_fixed_program_stress_composition_v1_result.json` |
 | `task14_under_bracket_program_stress.v2` | complete | one-sided four-corner composition audit | **held** | active | `task14_under_bracket_program_stress_composition_v2_result.json` |
 | `bracket_under_norm_matched_task14_stress.v3` | complete | outcome-free norm-matched reverse robustness | **held at artificial matched norm** | active | `bracket_under_norm_matched_task14_program_stress_v3_result.json` |
+| `task14_bracket_compiled_dispatcher.v1` | abandoned | pre-execution specification audit | **contradictory self-pair rule** | superseded by v2 | none |
+| `task14_bracket_compiled_dispatcher.v2` | complete | exact combined dispatch and dependency boundary | **screen** | active | `task14_bracket_compiled_dispatcher_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -143,10 +153,10 @@ reinterpret its target/control scores as a subspace null. The corrected receipt 
 publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
-simplicity claim. The immediate frontier is dependency compilation: measure which externally supplied Task14 direction/cardinality,
-bracket ordered-pair, counterfactual-role, native-context, and suffix dependencies can be derived from frozen prompt observables or
-eliminated. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank approximation
-for an executable selector/dependency result.
+simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
+whether the prior exact bracket readout-fold decomposition can yield a fixed prospective scalar reader for the six bracket vectors,
+analogous to Task14's fixed readers, before attempting base-state construction. Do not substitute additional arbitrary stress scaling,
+syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
