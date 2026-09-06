@@ -1,0 +1,22 @@
+{
+  "schema": "aspectual_anchor_sparse_suffix_missing_block_v1_design_audit_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.sparse_suffix_missing_block_v1_design_audit",
+  "created_utc": "2026-09-06T05:22:29Z",
+  "question": "Did v1's failed dense-control predicate compare extensionally identical suffix programs?",
+  "authority": {
+    "science_prior": {"path": "circuits/prior_art/aspectual_anchor_sparse_suffix_missing_block_compression_split_v1.json", "sha256": "2818b4116295a987d8ff4c5a5ce487bb730053230458146e5688f4deebb2649f"},
+    "science_runner": {"path": "ops/run_aspectual_anchor_sparse_suffix_missing_block_compression_split_v1.py", "sha256": "c8a20f6648078863f313329b473b3b246db06313f23a6e1e03c3394b35e34197"},
+    "science_result": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_missing_block_compression_split_v1_result.json", "sha256": "cebdd3b1b15fb0117c86197d61b5cbc2e344acf748cbdc78970f3f6632963cca", "terminal": "invalid"},
+    "sparse_parent": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_recurrence_confirmation_v1_result.json", "sha256": "db666e5e006d5ecb3300806399c682441ea92b990cb1155eaa76479899326ef2", "terminal": "null"}
+  },
+  "predictions": {
+    "pred_a_authority": "All hashes and terminals match.",
+    "pred_b_nonidentical_programs": "The all_omitted arm substitutes compressed attention/MLP terms at blocks 11 and 15, whereas writer_two_term retains their full captured native writes.",
+    "pred_c_failure_localized": "A fails only because the incommensurate raw-logit comparison exceeds 0.125; all remaining frozen predictions pass."
+  },
+  "terminal": {
+    "screen": "A-C pass: v1 remains invalid and a post-outcome repair may remove only the incommensurate comparison.",
+    "invalid": "Any audit predicate fails."
+  },
+  "price": {"model_forwards": 0, "example_evaluations": 0, "fit_parameters": 0}
+}

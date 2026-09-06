@@ -1,0 +1,39 @@
+{
+  "schema": "aspectual_anchor_sparse_suffix_missing_block_compression_split_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.sparse_suffix_missing_block_compression_split_v2",
+  "created_utc": "2026-09-06T05:24:08Z",
+  "question": "Under a post-outcome control repair, do two omitted suffix blocks compress the recovery gap around the corrected block11+15 program?",
+  "evidence_class": "post_outcome_repair_replication; selection and confirmation outcomes were exposed by invalid v1 and are not prospective evidence",
+  "authority": {
+    "v1_invalid_result": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_missing_block_compression_split_v1_result.json", "sha256": "cebdd3b1b15fb0117c86197d61b5cbc2e344acf748cbdc78970f3f6632963cca", "terminal": "invalid"},
+    "design_audit": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_missing_block_v1_design_audit_result.json", "sha256": "8537275c7ac7c3d30bc1c15887f1aa82765b0f436c7cfd843e5803c5cec3ff38", "terminal": "screen"},
+    "v1_engine": {"path": "ops/run_aspectual_anchor_sparse_suffix_missing_block_compression_split_v1.py", "sha256": "c8a20f6648078863f313329b473b3b246db06313f23a6e1e03c3394b35e34197"},
+    "sparse_null": {"path": "circuits/followups/aspectual_anchor_sparse_suffix_recurrence_confirmation_v1_result.json", "sha256": "db666e5e006d5ecb3300806399c682441ea92b990cb1155eaa76479899326ef2", "terminal": "null"}
+  },
+  "sole_correction": "Remove only the all_omitted-to-writer <=0.125 raw-logit predicate. Those programs differ at blocks 11 and 15 by construction; retain the value as a descriptive diagnostic.",
+  "population_split": {
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "fixed_program": "Lambda recurrence plus corrected source/MLP-resolved block11 and block15 writes.",
+    "candidate_new_write_blocks": [10, 12, 13, 14, 16, 17],
+    "selection_score": "0.5*((singleton-no_omitted)+(all_omitted-leave_one_out)); frozen block order breaks ties.",
+    "selected_width": 2,
+    "confirmation_arms": ["no_omitted", "selected_two", "all_omitted"],
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_instruments": "All authorities, splits, native capability, manual-base and bilinear reconstruction instruments pass.",
+    "pred_b_positive_selection_missing_signal": "All_omitted minus no_omitted is positive and selection yields two distinct blocks.",
+    "pred_c_two_block_increment_compression": "Selected two retain at least 70% of the omitted increment and add positively in A1/A2.",
+    "pred_d_total_program_sufficiency": "Selected-two reaches at least 85% of all_omitted total recovery with direction fraction >=0.75 in A1/A2.",
+    "pred_e_exact_coverage": "Exactly 304 finite records occur within 50 forwards and 400 evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: post-outcome repair supports factoring blocks 12 and 14; require fresh evidence before prospective transfer language.",
+    "null": "Valid repaired screen, but two blocks do not close enough of the gap.",
+    "invalid": "Authority, capability, instrument, coverage, or price fails."
+  },
+  "price": {"model_forwards_max": 50, "example_evaluations_max": 400, "model_backwards": 0, "model_updates": 0, "fit_parameters": 0}
+}
