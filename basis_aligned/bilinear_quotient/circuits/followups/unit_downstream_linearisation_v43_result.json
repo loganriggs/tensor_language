@@ -1,0 +1,175 @@
+{
+  "bars": {
+    "add_band": [
+      0.7,
+      1.3
+    ],
+    "ctrl_tol": 0.0001,
+    "lin_max": 0.5,
+    "local_min": 0.6,
+    "spread_max": 0.5,
+    "top3": [
+      15,
+      16,
+      17
+    ],
+    "top3_tol": 0.2
+  },
+  "behaviours": {
+    "polarity_licensing": {
+      "a_all_linearised": 0.014371484845280027,
+      "a_full": 0.01977851518074118,
+      "b_full": 0.02508193629460705,
+      "control_base_identity_err": 0.0,
+      "downstream": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "rec_all_linearised": {
+        "B": 0.0,
+        "D": 0.2579340587663879,
+        "DV": 0.2779233287562913,
+        "V": 0.014371484845280027
+      },
+      "rec_full": {
+        "B": 0.0,
+        "D": 0.26682566259465684,
+        "DV": 0.31168611407000507,
+        "V": 0.01977851518074118
+      },
+      "rows": 32,
+      "share_all_linearised": 0.22397733088219465,
+      "share_keep_one": {
+        "mlp:12": 0.3391203992528124,
+        "mlp:13": 0.31787932095313365,
+        "mlp:14": 0.3341873247965649,
+        "mlp:15": 0.3204187985011481,
+        "mlp:16": 0.4966963309073639,
+        "mlp:17": 0.29304850276088623
+      },
+      "share_keep_top3": 0.6922003640718314,
+      "stack_mlps": [
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11"
+      ],
+      "sum_keep_one": 2.1013506771719093,
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:03:head:00"
+      ]
+    },
+    "quantifier_number": {
+      "a_all_linearised": 0.022952680330292585,
+      "a_full": 0.021713441809916266,
+      "b_full": 0.008596149274199417,
+      "control_base_identity_err": 0.0,
+      "downstream": [
+        15,
+        16,
+        17
+      ],
+      "rec_all_linearised": {
+        "B": 0.0,
+        "D": 0.45447258718341305,
+        "DV": 0.4782258963440015,
+        "V": 0.022952680330292585
+      },
+      "rec_full": {
+        "B": 0.0,
+        "D": 0.44190064870084966,
+        "DV": 0.47221023978496535,
+        "V": 0.021713441809916266
+      },
+      "rows": 32,
+      "share_all_linearised": 0.09313807901159463,
+      "share_keep_one": {
+        "mlp:15": 0.7109240426219596,
+        "mlp:16": 0.5101870652998911,
+        "mlp:17": -0.38505896157137365
+      },
+      "share_keep_top3": 1.0,
+      "stack_mlps": [
+        "mlp:11",
+        "mlp:12",
+        "mlp:13",
+        "mlp:14"
+      ],
+      "sum_keep_one": 0.8360521463504771,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ]
+    },
+    "voice_frame": {
+      "a_all_linearised": 0.038805148288304246,
+      "a_full": 0.04037013573701484,
+      "b_full": 0.011499314438503161,
+      "control_base_identity_err": 0.0,
+      "downstream": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "rec_all_linearised": {
+        "B": 0.0,
+        "D": 0.1288122867886312,
+        "DV": 0.1744130167344858,
+        "V": 0.038805148288304246
+      },
+      "rec_full": {
+        "B": 0.0,
+        "D": 0.1323158352252676,
+        "DV": 0.1841852854007856,
+        "V": 0.04037013573701484
+      },
+      "rows": 32,
+      "share_all_linearised": 0.590955373373975,
+      "share_keep_one": {
+        "mlp:12": 0.8100497958519962,
+        "mlp:13": 0.720882742648702,
+        "mlp:14": 0.6352390138135839,
+        "mlp:15": 0.5934803792574845,
+        "mlp:16": 0.6168280240957358,
+        "mlp:17": 0.6031715528510262
+      },
+      "share_keep_top3": 0.6365789176836277,
+      "stack_mlps": [
+        "mlp:07",
+        "mlp:08",
+        "mlp:09",
+        "mlp:10",
+        "mlp:11"
+      ],
+      "sum_keep_one": 3.9796515085185287,
+      "units": [
+        "attn:07:head:08",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:04:head:01"
+      ]
+    }
+  },
+  "candidate_id": "corpus.unit_downstream_linearisation_v43",
+  "control_base_identity_ok": true,
+  "finished_utc": "2026-09-06T22:56:58.355466+00:00",
+  "predictions": {
+    "pred_a_linearised_removes": false,
+    "pred_b_quantifier_15": true,
+    "pred_c_quantifier_top3": true,
+    "pred_d_polarity_distributed": true,
+    "pred_e_products_additive": false
+  },
+  "schema": "circuit_unit_downstream_linearisation_result_v1",
+  "seconds": 2.591643087565899
+}
