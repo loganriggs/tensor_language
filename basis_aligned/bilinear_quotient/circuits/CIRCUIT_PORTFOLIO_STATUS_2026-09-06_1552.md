@@ -487,3 +487,10 @@ while L11H3 carries construction-dependent Q8 structure and is behavior-opposing
 matches the full auxiliary Q8 vector at cosine .85 in both panels (top L15H5 is .667/.746), so the
 strict terminal is distributed. All-head replay is exact. The five-head union L9H1/H4 + L11H1/H3 +
 L15H5 is now frozen for prospective v10 comparison against all heads in attention9/11/15.
+
+The prospective v10 five-head confirmation passes every gate. Complete attention9+11+15 removal
+captures 96.17%/96.41% of live complement behavior and 96.30%/96.76% of Q8 norm. The frozen
+L9H1/H4 + L11H1/H3 + L15H5 union retains 89.71%/82.62% of that behavior and 89.01%/80.76% of its
+Q8 norm, with behavior cosine .99973/.99937 and Q8 cosine .98872/.98298. Leaving out each layer
+worsens behavior or Q8 error in both panels. This promotes a transferable five-head, three-layer
+near-complete converter; its auxiliary destinations and value operations remain to be compiled.
