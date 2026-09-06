@@ -114,7 +114,8 @@ def all_mlp_units():
 # ----------------------------------------------------------------------------- forward
 
 def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None, q=None,
-                  grad=False, complement=False, capture_hidden=None, neuron_per_row=None):
+                  grad=False, complement=False, capture_hidden=None, neuron_per_row=None,
+                  return_logits=False):
     """The producer's exact forward with unit interventions at each row's semantic position.
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
@@ -140,6 +141,8 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
                   replicated-batch neuron sweep; needs donor_cache[(rid, hidden_key(layer))].
     Units of the form mlp:LL:neuron:J swap single hidden units of that MLP (exact, on-distribution).
     Returns answer/foil values as an (n,2) tensor. Gradients flow to q iff grad.
+    return_logits=True also returns the full final-position logits (n, V) as a second value (Tier 2
+    characterization: competitor tokens, log-prob shifts, off-target KL).
     """
     torch, F, model = backend.torch, backend.F, backend.model
     tokens, lengths = backend._tensor_batch(batch)
@@ -269,7 +272,8 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
         last = torch.tensor([l - 1 for l in lengths], device=logits.device)
         a = logits[idx, last, torch.tensor(batch.answer_ids, device=logits.device)].float()
         f = logits[idx, last, torch.tensor(batch.foil_ids, device=logits.device)].float()
-        return torch.stack([a, f], dim=1)
+        af = torch.stack([a, f], dim=1)
+        return (af, logits[idx, last].float()) if return_logits else af
 
 
 def verify_against_producer(backend, rows, *, layer, heads, mlp_layer, tolerance=1e-4):

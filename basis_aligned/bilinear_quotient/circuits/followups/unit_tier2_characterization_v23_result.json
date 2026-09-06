@@ -1,0 +1,721 @@
+{
+  "bars": {
+    "flip": 0.5,
+    "foil": 0.8,
+    "negative": 0.1,
+    "off_target_kl": 0.05,
+    "recovery": 0.5,
+    "sign": 0.9
+  },
+  "behaviours": {
+    "dative": {
+      "A1": {
+        "base_answer_is_argmax_before": 0.78125,
+        "base_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "competitor_is_foil_fraction": 0.46875,
+        "competitor_tokens_top": [
+          " to",
+          " and",
+          " for",
+          " of",
+          ","
+        ],
+        "donor_answer_is_argmax_after": 0.46875,
+        "donor_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 1.056664228439331,
+        "mean_recovery": 0.5645453258374263,
+        "median_base_answer_logprob_shift": -0.899186372756958,
+        "median_donor_answer_logprob_shift": 1.6698288917541504,
+        "median_full_kl_nats": 0.44165387749671936,
+        "median_margin_shift_nats": 2.4878745079040527,
+        "median_off_target_kl_nats": 0.4492577910423279,
+        "median_recovery": 0.5709583126696787,
+        "rows": 32,
+        "target_scale_nats": 4.546581268310547,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:14:head:08",
+          "attn:07:head:08",
+          "attn:06:head:03",
+          "attn:13:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          "TY",
+          " Plex",
+          "Sex",
+          " Tune",
+          "ths"
+        ]
+      },
+      "A2": {
+        "base_answer_is_argmax_before": 0.65625,
+        "base_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "competitor_is_foil_fraction": 0.15625,
+        "competitor_tokens_top": [
+          ",",
+          " of",
+          " for",
+          " to",
+          " board"
+        ],
+        "donor_answer_is_argmax_after": 0.4375,
+        "donor_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 0.18047821521759033,
+        "mean_recovery": 0.5784302902061105,
+        "median_base_answer_logprob_shift": -0.9263210296630859,
+        "median_donor_answer_logprob_shift": 1.1607978343963623,
+        "median_full_kl_nats": 0.14001424610614777,
+        "median_margin_shift_nats": 2.1085386276245117,
+        "median_off_target_kl_nats": 0.046299561858177185,
+        "median_recovery": 0.5648875476387556,
+        "rows": 32,
+        "target_scale_nats": 3.909614086151123,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:14:head:08",
+          "attn:07:head:08",
+          "attn:06:head:03",
+          "attn:13:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          "for",
+          " enter",
+          "du",
+          " belonged",
+          " retain"
+        ]
+      },
+      "C": {
+        "base_answer_is_argmax_before": 0.625,
+        "base_answer_tokens": [
+          " night"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " day",
+          " road",
+          " afternoon",
+          " canyon",
+          " field"
+        ],
+        "donor_answer_is_argmax_after": 0.625,
+        "donor_answer_tokens": [
+          " night"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.05211679821186902,
+        "max_off_target_kl_nats": 0.01624133624136448,
+        "median_abs_movement_over_scale": 0.022938955027398376,
+        "median_base_answer_logprob_shift": 0.006535053253173828,
+        "median_donor_answer_logprob_shift": 0.006535053253173828,
+        "median_full_kl_nats": 0.005603584460914135,
+        "median_margin_shift_nats": 0.024700403213500977,
+        "median_off_target_kl_nats": 0.005123588256537914,
+        "rows": 32,
+        "units": [
+          "attn:14:head:08",
+          "attn:07:head:08",
+          "attn:06:head:03",
+          "attn:13:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          " sides",
+          " raised",
+          " shelf",
+          " side",
+          " pav"
+        ]
+      },
+      "P": {
+        "base_answer_is_argmax_before": 0.78125,
+        "base_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " and",
+          " back",
+          " out",
+          ",",
+          " of"
+        ],
+        "donor_answer_is_argmax_after": 0.8125,
+        "donor_answer_tokens": [
+          " for",
+          " to"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.0720917910591773,
+        "max_off_target_kl_nats": 0.02063319832086563,
+        "median_abs_movement_over_scale": 0.013452094585013832,
+        "median_base_answer_logprob_shift": 0.010213136672973633,
+        "median_donor_answer_logprob_shift": 0.010213136672973633,
+        "median_full_kl_nats": 0.0023209908977150917,
+        "median_margin_shift_nats": -0.012167930603027344,
+        "median_off_target_kl_nats": 0.00254439702257514,
+        "rows": 32,
+        "units": [
+          "attn:14:head:08",
+          "attn:07:head:08",
+          "attn:06:head:03",
+          "attn:13:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          ",\"",
+          "\",",
+          " describing",
+          " Place",
+          " \","
+        ]
+      }
+    },
+    "polarity_licensing": {
+      "A1": {
+        "base_answer_is_argmax_before": 0.0,
+        "base_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " that",
+          " the"
+        ],
+        "donor_answer_is_argmax_after": 0.0,
+        "donor_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 0.3545677959918976,
+        "mean_recovery": 0.5848700852093098,
+        "median_base_answer_logprob_shift": -1.7561542987823486,
+        "median_donor_answer_logprob_shift": 2.3808226585388184,
+        "median_full_kl_nats": 0.14087504148483276,
+        "median_margin_shift_nats": 3.7724058628082275,
+        "median_off_target_kl_nats": 0.12367939949035645,
+        "median_recovery": 0.5917090633278135,
+        "rows": 32,
+        "target_scale_nats": 6.4026501178741455,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:08:head:01",
+          "attn:04:head:07",
+          "attn:03:head:00"
+        ],
+        "worst_row_top_gainers": [
+          " slowly",
+          " gradually",
+          " occasional",
+          " spots",
+          " occasionally"
+        ]
+      },
+      "A2": {
+        "base_answer_is_argmax_before": 0.0,
+        "base_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " that",
+          " to"
+        ],
+        "donor_answer_is_argmax_after": 0.0,
+        "donor_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 0.4290391802787781,
+        "mean_recovery": 0.6851189634310805,
+        "median_base_answer_logprob_shift": -2.9511194229125977,
+        "median_donor_answer_logprob_shift": 0.8653464317321777,
+        "median_full_kl_nats": 0.08846404403448105,
+        "median_margin_shift_nats": 4.09226393699646,
+        "median_off_target_kl_nats": 0.08663178235292435,
+        "median_recovery": 0.6864180554992914,
+        "rows": 32,
+        "target_scale_nats": 5.923567056655884,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:08:head:01",
+          "attn:04:head:07",
+          "attn:03:head:00"
+        ],
+        "worst_row_top_gainers": [
+          " occasionally",
+          " lax",
+          " underestimated",
+          "lees",
+          " admire"
+        ]
+      },
+      "C": {
+        "base_answer_is_argmax_before": 0.625,
+        "base_answer_tokens": [
+          " night"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " day",
+          " road",
+          " afternoon",
+          " canyon",
+          " field"
+        ],
+        "donor_answer_is_argmax_after": 0.625,
+        "donor_answer_tokens": [
+          " night"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.03571253422264388,
+        "max_off_target_kl_nats": 0.011158879846334457,
+        "median_abs_movement_over_scale": 0.01197289364404935,
+        "median_base_answer_logprob_shift": -0.016278505325317383,
+        "median_donor_answer_logprob_shift": -0.016278505325317383,
+        "median_full_kl_nats": 0.0030004908330738544,
+        "median_margin_shift_nats": 0.0614168643951416,
+        "median_off_target_kl_nats": 0.003212766256183386,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:08:head:01",
+          "attn:04:head:07",
+          "attn:03:head:00"
+        ],
+        "worst_row_top_gainers": [
+          " sides",
+          " raised",
+          " elev",
+          " structure",
+          " facade"
+        ]
+      },
+      "P": {
+        "base_answer_is_argmax_before": 0.0,
+        "base_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " the",
+          " that"
+        ],
+        "donor_answer_is_argmax_after": 0.0,
+        "donor_answer_tokens": [
+          " anything",
+          " something"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.042515822486085375,
+        "max_off_target_kl_nats": 0.0097736157476902,
+        "median_abs_movement_over_scale": 0.011327828714724791,
+        "median_base_answer_logprob_shift": 0.013429641723632812,
+        "median_donor_answer_logprob_shift": 0.013429641723632812,
+        "median_full_kl_nats": 0.0012506197672337294,
+        "median_margin_shift_nats": 0.02391529083251953,
+        "median_off_target_kl_nats": 0.0010418277233839035,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:08:head:01",
+          "attn:04:head:07",
+          "attn:03:head:00"
+        ],
+        "worst_row_top_gainers": [
+          " yours",
+          " Spr",
+          " Kend",
+          " Daisy",
+          " Timothy"
+        ]
+      }
+    },
+    "quantifier_number": {
+      "A1": {
+        "base_answer_is_argmax_before": 0.0625,
+        "base_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " are",
+          " in",
+          " and",
+          " of",
+          " at"
+        ],
+        "donor_answer_is_argmax_after": 0.0,
+        "donor_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 0.8074560165405273,
+        "mean_recovery": 0.6348028265537385,
+        "median_base_answer_logprob_shift": -1.0649139881134033,
+        "median_donor_answer_logprob_shift": 1.8812763690948486,
+        "median_full_kl_nats": 0.17294389009475708,
+        "median_margin_shift_nats": 3.2711005210876465,
+        "median_off_target_kl_nats": 0.14586888253688812,
+        "median_recovery": 0.6389771113640497,
+        "rows": 32,
+        "target_scale_nats": 5.19633412361145,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          " expire",
+          " leave",
+          " move",
+          " disappear",
+          " stay"
+        ]
+      },
+      "A2": {
+        "base_answer_is_argmax_before": 0.84375,
+        "base_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "competitor_is_foil_fraction": 0.28125,
+        "competitor_tokens_top": [
+          " are",
+          " were",
+          " and",
+          " of",
+          " in"
+        ],
+        "donor_answer_is_argmax_after": 0.4375,
+        "donor_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 0.5337529182434082,
+        "mean_recovery": 0.6291033192757949,
+        "median_base_answer_logprob_shift": -1.1723780632019043,
+        "median_donor_answer_logprob_shift": 2.469977855682373,
+        "median_full_kl_nats": 0.26957154273986816,
+        "median_margin_shift_nats": 3.7704215049743652,
+        "median_off_target_kl_nats": 0.12772557139396667,
+        "median_recovery": 0.623795462947698,
+        "rows": 32,
+        "target_scale_nats": 6.051720142364502,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          " weren",
+          " aren",
+          "'re",
+          " agree",
+          "'ve"
+        ]
+      },
+      "C": {
+        "base_answer_is_argmax_before": 0.625,
+        "base_answer_tokens": [
+          " night"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " day",
+          " road",
+          " afternoon",
+          " canyon",
+          " field"
+        ],
+        "donor_answer_is_argmax_after": 0.59375,
+        "donor_answer_tokens": [
+          " night"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.032757780968621024,
+        "max_off_target_kl_nats": 0.006400688551366329,
+        "median_abs_movement_over_scale": 0.011395822116122478,
+        "median_base_answer_logprob_shift": -0.013873100280761719,
+        "median_donor_answer_logprob_shift": -0.013873100280761719,
+        "median_full_kl_nats": 0.0020094309002161026,
+        "median_margin_shift_nats": 0.04128551483154297,
+        "median_off_target_kl_nats": 0.0017473027110099792,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          " retaining",
+          " sides",
+          " perimeter",
+          " tower",
+          " structure"
+        ]
+      },
+      "P": {
+        "base_answer_is_argmax_before": 0.0625,
+        "base_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " is",
+          " are",
+          " in",
+          " of",
+          " at"
+        ],
+        "donor_answer_is_argmax_after": 0.0625,
+        "donor_answer_tokens": [
+          " was",
+          " were"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.04607945719672925,
+        "max_off_target_kl_nats": 0.006266068667173386,
+        "median_abs_movement_over_scale": 0.01244661334099258,
+        "median_base_answer_logprob_shift": 0.003620147705078125,
+        "median_donor_answer_logprob_shift": 0.003620147705078125,
+        "median_full_kl_nats": 0.0012196926400065422,
+        "median_margin_shift_nats": -0.011162757873535156,
+        "median_off_target_kl_nats": 0.0013148835860192776,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:11:head:03"
+        ],
+        "worst_row_top_gainers": [
+          " joins",
+          " disembark",
+          " arrives",
+          " arrive",
+          " imagine"
+        ]
+      }
+    },
+    "voice_frame": {
+      "A1": {
+        "base_answer_is_argmax_before": 0.65625,
+        "base_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "competitor_is_foil_fraction": 0.1875,
+        "competitor_tokens_top": [
+          " to",
+          " that",
+          " me",
+          " by",
+          " the"
+        ],
+        "donor_answer_is_argmax_after": 0.34375,
+        "donor_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 4.2030792236328125,
+        "mean_recovery": 0.6454185146122435,
+        "median_base_answer_logprob_shift": -2.6466145515441895,
+        "median_donor_answer_logprob_shift": 4.278677940368652,
+        "median_full_kl_nats": 2.1559479236602783,
+        "median_margin_shift_nats": 6.868183851242065,
+        "median_off_target_kl_nats": 1.705430030822754,
+        "median_recovery": 0.6847223664201213,
+        "rows": 32,
+        "target_scale_nats": 9.719618082046509,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:01:head:05",
+          "attn:00:head:03",
+          "attn:04:head:01"
+        ],
+        "worst_row_top_gainers": [
+          " Kling",
+          " Browne",
+          " Ellis",
+          " Koen",
+          " Rosenthal"
+        ]
+      },
+      "A2": {
+        "base_answer_is_argmax_before": 0.46875,
+        "base_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "competitor_is_foil_fraction": 0.21875,
+        "competitor_tokens_top": [
+          " a",
+          " the",
+          " me",
+          " that",
+          " to"
+        ],
+        "donor_answer_is_argmax_after": 0.4375,
+        "donor_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "dropped": 0,
+        "max_off_target_kl_nats": 4.330410003662109,
+        "mean_recovery": 0.7002927345065432,
+        "median_base_answer_logprob_shift": -2.173995018005371,
+        "median_donor_answer_logprob_shift": 4.046319007873535,
+        "median_full_kl_nats": 1.20589280128479,
+        "median_margin_shift_nats": 5.3833982944488525,
+        "median_off_target_kl_nats": 1.2409541606903076,
+        "median_recovery": 0.7579570176681852,
+        "rows": 32,
+        "target_scale_nats": 8.516611814498901,
+        "toward_donor_fraction": 1.0,
+        "units": [
+          "attn:07:head:08",
+          "attn:01:head:05",
+          "attn:00:head:03",
+          "attn:04:head:01"
+        ],
+        "worst_row_top_gainers": [
+          " thereof",
+          " they",
+          " there",
+          " from",
+          " via"
+        ]
+      },
+      "C": {
+        "base_answer_is_argmax_before": 0.625,
+        "base_answer_tokens": [
+          " night"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " road",
+          " day",
+          " afternoon",
+          " canyon",
+          " field"
+        ],
+        "donor_answer_is_argmax_after": 0.625,
+        "donor_answer_tokens": [
+          " night"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.023605691392846764,
+        "max_off_target_kl_nats": 0.022075846791267395,
+        "median_abs_movement_over_scale": 0.007654469237435062,
+        "median_base_answer_logprob_shift": -0.031384825706481934,
+        "median_donor_answer_logprob_shift": -0.031384825706481934,
+        "median_full_kl_nats": 0.005480858497321606,
+        "median_margin_shift_nats": 0.020771026611328125,
+        "median_off_target_kl_nats": 0.005250443704426289,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:01:head:05",
+          "attn:00:head:03",
+          "attn:04:head:01"
+        ],
+        "worst_row_top_gainers": [
+          " lanes",
+          " shelf",
+          " structure",
+          "odge",
+          " shelves"
+        ]
+      },
+      "P": {
+        "base_answer_is_argmax_before": 0.65625,
+        "base_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "competitor_is_foil_fraction": 0.0,
+        "competitor_tokens_top": [
+          " to",
+          " me",
+          " a",
+          " for",
+          " him"
+        ],
+        "donor_answer_is_argmax_after": 0.65625,
+        "donor_answer_tokens": [
+          " by",
+          " the"
+        ],
+        "dropped": 0,
+        "max_abs_movement_over_scale": 0.06766016060084627,
+        "max_off_target_kl_nats": 0.011950194835662842,
+        "median_abs_movement_over_scale": 0.006771819769174764,
+        "median_base_answer_logprob_shift": -0.006589353084564209,
+        "median_donor_answer_logprob_shift": -0.006589353084564209,
+        "median_full_kl_nats": 0.0007038896437734365,
+        "median_margin_shift_nats": 0.00818634033203125,
+        "median_off_target_kl_nats": 0.0009738430380821228,
+        "rows": 32,
+        "units": [
+          "attn:07:head:08",
+          "attn:01:head:05",
+          "attn:00:head:03",
+          "attn:04:head:01"
+        ],
+        "worst_row_top_gainers": [
+          " symptoms",
+          " depression",
+          " immunity",
+          " cytok",
+          " charges"
+        ]
+      }
+    }
+  },
+  "candidate_id": "corpus.unit_tier2_characterization_v23",
+  "finished_utc": "2026-09-06T21:50:10.593054+00:00",
+  "predictions": {
+    "pred_a_direction_consistent": true,
+    "pred_b_competitor_is_foil": false,
+    "pred_c_flips_majority": false,
+    "pred_d_negatives_separated": true,
+    "pred_e_off_target_small": false
+  },
+  "schema": "circuit_unit_tier2_characterization_result_v1",
+  "seconds": 3.632424045354128,
+  "semantics": "block_live_exact_set",
+  "tier2_supported": {
+    "dative": false,
+    "polarity_licensing": false,
+    "quantifier_number": false,
+    "voice_frame": false
+  }
+}
