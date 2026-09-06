@@ -317,6 +317,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v2` | released | executable API/equation/evidence audit | **zero-fit tensor-equation program to resid10** | `aspectual_anchor_transparent_path_program_release_v2_result.json` |
 | `aspectual_anchor.has_vs_had.suffix_depth_adaptive_factorial_lexical_holdout_v1` | complete | frozen 16/16 suffix selection/confirmation | **block11 crossing confirmed without leakage** | `aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json` |
 | `aspectual_anchor.has_vs_had.block15_crossing_confirmation_v1` | complete | disjoint secondary suffix factorial | **block15 crossing confirmed** | `aspectual_anchor_block15_crossing_confirmation_v1_result.json` |
+| `aspectual_anchor.has_vs_had.attention11_15_head_compression_split_v1` | complete | split singleton/necessity plus compact-set test | **four-head suffix sets transfer disjointly** | `aspectual_anchor_attention11_15_head_compression_split_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -462,6 +463,13 @@ That block15 confirmation now screens on the untouched half. Its exact carried/a
 and 0.654%; the full crossing reaches 29.186% versus 26.084% for carried alone. Removing attention damages A1/A2 by 2.624/2.330
 points and removing MLP damages them by 0.462/0.773, so both new components recur across families. Closure is 2.9e-6. The suffix's
 two material selection-half gains—block11 and block15—are therefore both component-resolved on disjoint confirmation rows.
+
+Their attention terms also admit compact head sets. Selection ranks block11 H3/H7/H2/H6 and block15 H5/H1/H4/H6; on disjoint
+confirmation rows those four-head sets retain 96.23% and 101.57% of the respective all-head-minus-no-head increments, with positive
+increments in A1 and A2. Projection error is below 0.00035 and crossing tensor error below 0.00391. The selection rankings are highly
+concentrated: block11 H3 accounts for a 3.388-point endpoint score versus 0.117 for H7, while block15 H5 accounts for 1.964 points
+versus 0.380 for H1. Because confirmation outcomes for the singleton sets remain unopened, a frozen H3/H5 one-head compression test
+is licensed before source-term decomposition.
 
 ### `subroutine.induction.equality_score` — site_live
 

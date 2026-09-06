@@ -1,0 +1,67 @@
+{
+  "schema": "aspectual_anchor_attention11_15_head_compression_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.attention11_15_head_compression_split_v1",
+  "created_utc": "2026-09-06T04:17:31Z",
+  "question": "Can the disjointly confirmed attention11 and attention15 suffix terms each be compressed to four heads selected on one half and validated on the other?",
+  "authority": {
+    "block11_selection_confirmation": {
+      "path": "circuits/followups/aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1_result.json",
+      "sha256": "f534448e1b6e27195928d0e748147f43703225666fa102ece9d9a59d2f70c7ab",
+      "terminal": "screen",
+      "confirmation_attention_shapley": 0.0448724135652903
+    },
+    "block15_confirmation": {
+      "path": "circuits/followups/aspectual_anchor_block15_crossing_confirmation_v1_result.json",
+      "sha256": "0c53f422e8ae3a176737cecac0025f97f41cd5e5eda545eaea0f0766b5525252",
+      "terminal": "screen",
+      "confirmation_attention_shapley": 0.025021305322142248
+    },
+    "suffix_runner": {
+      "path": "ops/run_aspectual_anchor_suffix_depth_adaptive_factorial_lexical_holdout_v1.py",
+      "sha256": "38c6ed4d8e2f7c66d7c3a48bbcafb1d0848927a6c502caa4f322b2e1b0867c4d"
+    },
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    }
+  },
+  "data_status": "No per-head attention11 or attention15 intervention outcome has been computed on either split. Aggregate module-factorial outcomes are open, but they do not reveal head identity or selected-set compression.",
+  "population_split": {
+    "selection": "First 16 A1/A2 rows in builder order.",
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation": "Last 16 A1/A2 rows in builder order.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "boundaries": [11, 15],
+    "heads": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "selection_arms_per_boundary": ["no_attention_heads", "all_attention_heads", "nine_singletons", "nine_leave_one_out"],
+    "selection_score": "0.5 * ((singleton - no_heads) + (all_heads - leave_one_out)); ties resolve to lower head index.",
+    "selected_width": 4,
+    "confirmation_arms_per_boundary": ["no_attention_heads", "selected_four_heads", "all_attention_heads"],
+    "fixed_context": "Full carried and MLP boundary deltas are present in every head arm; only the projected attention delta varies.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_exact_instrument": "All hashes/terminals, split hashes/balance, native capability, native/manual, MLP4 tensor, attention projection, and all-head/direct crossing closures pass fixed tolerances.",
+    "pred_b_writer_recurrence": "Selection and confirmation writer means recur with positive A1/A2 means and at least 0.75 direction; pooled writer is within 0.01 of 0.2835613798.",
+    "pred_c_positive_selection_attention": "On selection rows, all-head minus no-head attention recovery is positive at both boundaries and each frozen rule returns exactly four distinct heads.",
+    "pred_d_disjoint_four_head_compression": "On confirmation rows, each selected four-head set retains at least 65% of the all-head-minus-no-head attention increment and has a positive increment in both A1 and A2.",
+    "pred_e_exact_coverage": "Selection arms and writer plus confirmation arms and writer produce exactly 768 finite records within 108 forwards and 896 example evaluations, without fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: promote the two four-head suffix attention sets and proceed to source-term identity.",
+    "null": "The run is valid and attention modules recur, but one selected four-head set fails disjoint compression.",
+    "invalid": "Authority, split, capability, alignment, instrument, writer recurrence, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 108,
+    "example_evaluations_max": 896,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "efficiency": "One model load and paired head captures serve both boundaries and both split phases; exact nine-head factorials are avoided in favor of frozen singleton/necessity selection plus disjoint compression.",
+  "novelty": "First leakage-controlled prospective head compression of the two confirmed material suffix attention amplifiers."
+}
