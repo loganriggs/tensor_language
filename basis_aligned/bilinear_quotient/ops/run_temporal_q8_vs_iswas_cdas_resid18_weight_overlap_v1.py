@@ -34,11 +34,6 @@ EXPECTED = {
     "family_runner": "7133350078536e96b9fa7c740d089bf57b806cca9162d9ad36a1055e1971b410",
 }
 DIMENSION, RANK, RANDOM_SAMPLES, SEED = 1152, 8, 4096, 20260906
-PREDICTION_KEYS = (
-    "pred_a_exact_weight_construction_shapes_and_invariance",
-    "pred_b_cross_task_overlap_exceeds_dimension_control",
-    "pred_c_shared_and_specific_components_are_nontrivial",
-)
 
 
 def sha(path):
@@ -76,8 +71,7 @@ def main():
     dryrun = {"candidate_id": CANDIDATE_ID, "dryrun": True, "gpu_accessed": False,
         "model_loaded": False, "queue_touched": False, "dimension": DIMENSION, "rank": RANK,
         "random_samples": RANDOM_SAMPLES, "seed": SEED, "model_forwards": 0,
-        "example_evaluations": 0, "fit_updates": 0, "transformer_backwards": 0,
-        "prediction_keys": list(PREDICTION_KEYS)}
+        "example_evaluations": 0, "fit_updates": 0, "transformer_backwards": 0}
     if os.environ.get("BQLIB_DRYRUN") == "1" or os.environ.get("BQLIB_NO_MODEL") == "1":
         print(json.dumps(dryrun, sort_keys=True)); return
     if OUT.exists():
