@@ -1,0 +1,52 @@
+{
+  "schema": "aspectual_anchor_base_margin_affine_fresh_lexicon_prior_art_v2",
+  "candidate_id": "aspectual_anchor.has_vs_had.base_margin_affine_fresh_lexicon_v2",
+  "created_utc": "2026-09-06T07:23:00Z",
+  "evidence_class": "preexecution_runtime_type_correction",
+  "supersedes": {
+    "prior_path": "circuits/prior_art/aspectual_anchor_base_margin_affine_fresh_lexicon_v1.json",
+    "prior_sha256": "ed7c5300c7e7ce867092c6a3698f2546464275001d48dd4a98508775479cfde3",
+    "failure_path": "circuits/followups/aspectual_anchor_base_margin_affine_fresh_lexicon_v1_failure.json",
+    "failure_sha256": "ce85e47e20d8a0a30792a624bc5a00b57d310fa839b0dc81c1bbb99ef76457f9"
+  },
+  "sole_correction": "Pass the already validated CircuitFastScreenSpec returned by the parent authority to the executor, rather than the metadata-only BatteryTaskSpec. Rows, row order, coefficients, fixed IDs, intervention semantics, capability definitions, predictions, bars, and prices are unchanged. V1 observed no population intervention outcomes.",
+  "authorities": {
+    "affine_result_sha256": "4358d288756b7baf0e6d06377f314024905b17a845f8c5cbe5d490fd1bba2c25",
+    "affine_audit_sha256": "f5f26d0c156467e32d8e5256a22b4d5c9b498fc2ff710b06832b53bc7d21ab8a",
+    "executor_sha256": "2777c63dd7205ba54e0e728e0cbf1324d90b24f9c638fa96eb0ff971d5404180",
+    "fresh_lexicon_builder_sha256": "4d884af47ec7e9e2b00effc91754948514b8e3bb893a58b6a98c4653ef37ab3f",
+    "fresh_lexicon_rows_sha256": "1127a313c7657ef2cace839219ff5cd6366df47151dcf63f89450abc85eaa02e",
+    "rank1_basis_sha256": "123c6e098fcccf68bd9b881bb81c6b95858a258baa688b79a947a3043bb61e39"
+  },
+  "prospective_boundary": {
+    "new_agents": 16,
+    "new_periods": 16,
+    "row_count": 64,
+    "prior_fresh_row_id_overlap": 0,
+    "population_outcomes_inspected_before_v2": false,
+    "target_guided_alphas_inspected_before_v2": false,
+    "scope": "New lexicon inside the two already tested archive/explanatory constructions; not unrestricted syntax OOD."
+  },
+  "frozen_predictor": {
+    "fixed_token_ids": {"has": 468, "had": 550},
+    "coefficients": {
+      "present_to_past": {"intercept": -132.28506295990428, "slope": -2035.2755463854235},
+      "past_to_present": {"intercept": -383.97355829906564, "slope": 2426.378924892433}
+    },
+    "actuator": "At the source state, confidence is the fixed current-tense has/had margin; alpha is the frozen direction-specific intercept plus slope times confidence; patch is x_source + alpha*q. No new-text donor activation, row outcome IDs, search, or outcome selects alpha."
+  },
+  "predictions": {
+    "pred_a_authority_novelty_source_capability_and_exact_head": "All hashes, zero old/new row-ID overlap, exact frozen coefficients, A base/donor capability, P source capability, C actual-task base capability, and exact-head replay pass. C has/had probe sign is not capability-gated.",
+    "pred_b_frozen_input_conditioned_actuator": "All 64 alphas use only four frozen coefficients, direction, fixed IDs, and source state; no new-text donor activation, row outcome IDs, grid, or outcome participates.",
+    "pred_c_new_lexicon_A_prediction": "A1 and A2 each have mean recovery >=0.75 and direction fraction >=0.75.",
+    "pred_d_new_lexicon_P_generalization": "P has mean margin reflection >=0.75 and direction fraction >=0.75.",
+    "pred_e_new_lexicon_C_selectivity": "C mean normalized unrelated effect <=0.20.",
+    "pred_f_exact_coverage_and_price": "All 64 rows are unique within 25 model forwards, 200 example evaluations, exactly 176 selected-head pair evaluations, zero grids/backwards/updates, and four inherited fit parameters."
+  },
+  "terminal": {
+    "screen": "A-F pass: frozen source-state gain predicts selective carrier actuation on genuinely new lexicon.",
+    "null": "Authority, frozen actuator, and coverage pass but new-lexicon A/P prediction or C selectivity misses.",
+    "invalid": "Authority, novelty, source capability, head control, frozen actuator, or coverage fails."
+  },
+  "price": {"model_forwards_max": 25, "example_evaluations_max": 200, "selected_head_pair_evaluations": 176, "grid_evaluations": 0, "model_backwards": 0, "model_updates": 0, "inherited_fit_parameters": 4, "stored_values_total": 1156}
+}

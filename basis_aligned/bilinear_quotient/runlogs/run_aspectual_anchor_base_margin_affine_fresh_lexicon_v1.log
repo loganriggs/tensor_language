@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_aspectual_anchor_base_margin_affine_fresh_lexicon_v1.py", line 178, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_aspectual_anchor_base_margin_affine_fresh_lexicon_v1.py", line 113, in main
+    measured = executor.measure(rows, spec, rank1, coefficients=affine.COEFFICIENTS, token_ids=affine.TOKEN_IDS)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/aspectual_anchor_affine_carrier_executor.py", line 59, in measure
+    for chunk in affine.parent.producer._chunks(family_rows, spec.batch_size):
+                                                             ^^^^^^^^^^^^^^^
+AttributeError: 'BatteryTaskSpec' object has no attribute 'batch_size'
