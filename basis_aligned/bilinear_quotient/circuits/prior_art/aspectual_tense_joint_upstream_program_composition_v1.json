@@ -1,0 +1,55 @@
+{
+  "schema": "aspectual_tense_joint_upstream_program_composition_prior_art_v1",
+  "candidate_id": "aspectual_tense.joint_upstream_program_composition_v1",
+  "created_utc": "2026-09-06T09:39:20Z",
+  "evidence_class": "promoted_program_joint_composition_and_interference_test",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "circuits/prior_art/*compos*", "circuits/followups/*compos*", "ops/*compos*", "AGENT_BOARD.md"],
+    "nearest_result": "The projected response-factor audit measured each frozen writer separately and found asymmetric off-task controllability/observability; no run has installed both independently computed upstream programs together.",
+    "new_question": "Do the released q_has and q_is read-compute-write programs compose predictably and preserve each task when their writes are installed simultaneously?"
+  },
+  "authorities": {
+    "q_has_program_release_sha256": "ed6afb3455bf5bfeea6e36f65ce33e9199290cb26540ee94da2c42accc785e7c",
+    "q_is_program_release_sha256": "9804a0d0f047f194f6cce3490828c3a6e9525940f8c2b822467bc52176957e98",
+    "q_has_prospective_screen_sha256": "a4cee1818acd6a28e999eda26d0447f94d080b913f4061d0e6dab4914cb3802c",
+    "q_is_prospective_screen_sha256": "dad39b298a0e89e5e0271149574012ebf7f75e995b83f6ede12ebe3b1aa746e8",
+    "q_has_basis_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "q_is_basis_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "projected_response_factor_audit_sha256": "28a9a49db15e2676d7c2a0a1c6b3ca039dc359fb91fdb47994cda2eb6a85bfc0",
+    "q_has_builder_sha256": "ae624913c5adfe07cf028acf6549cd5fe2debd4b090c71659218fe158089fe2c",
+    "q_is_builder_sha256": "b8541360334bd2793a02fae525a94dda05ce600fd4de5b6c3d953063d4c6b0ae",
+    "q_has_rows_sha256": "296c2186f477a6d450bbbb87fda5ba89b999eb4d3ac0dc18e31496ca47d5caf7",
+    "q_is_rows_sha256": "4eee90d9f39f6997c4926a0e7f6baecc4134c06535fe307d0a38f936b75defd5"
+  },
+  "frozen_operator": {
+    "populations": ["capability-qualified has/had v5", "capability-qualified is/was v6"],
+    "source_state": "donor for P and base otherwise, matching each released program",
+    "reads": "Both released programs independently read their own fixed token contrast from the same source resid:10 state.",
+    "writes": ["alpha_has*q_has", "alpha_is*q_is", "alpha_has*q_has + alpha_is*q_is"],
+    "scoring": "For each population, score its native output pair under base, own-only, partner-only, and joint writes using the exact RMS-normalized soft-capped head.",
+    "forbidden": ["refitting either gain", "changing either basis", "row selection", "dose/grid search", "using donor or outcome values to choose alpha"]
+  },
+  "bars": {
+    "joint_A": "Within each population, A1 and A2 joint mean recovery >=0.75 and direction fraction >=0.75.",
+    "joint_P": "Within each population, joint P mean reflection >=0.75 and direction fraction >=0.75.",
+    "joint_C": "Within each population, joint C mean normalized unrelated effect <=0.20.",
+    "additive_law": "For each population and family, mean absolute [joint delta - own delta - partner delta] / native target scale <=0.20.",
+    "partner_surcharge": "For each population and family, mean absolute joint-minus-own margin / native target scale <=0.50. This allows the already observed partial q_has-to-is/was response but rejects domination.",
+    "own_route_replay": "Own-only family metrics reproduce their immutable prospective receipts within 1e-5."
+  },
+  "predictions": {
+    "pred_a_authority_capability_basis_and_exact_heads": "All hashes, program releases, population capability, basis reconstructions, and exact local/final heads pass.",
+    "pred_b_frozen_dual_program_identity_and_own_route": "Both alphas exactly use the released programs with no forbidden inputs, and own-only route metrics replay within 1e-5.",
+    "pred_c_joint_has_had_program_preservation": "The has/had population passes joint A1/A2/P/C bars.",
+    "pred_d_joint_is_was_program_preservation": "The is/was population passes joint A1/A2/P/C bars.",
+    "pred_e_additive_composition_and_bounded_partner_surcharge": "Every population/family passes the additive-law and partner-surcharge bars.",
+    "pred_f_exact_coverage_and_price": "128 unique rows are measured in exactly four model forwards/256 examples, with eight inherited gain scalars, two 1,152-vectors, and zero fit/grid/root/backward/update."
+  },
+  "terminal": {
+    "screen": "A-F pass: the two bounded upstream programs compose predictably under simultaneous installation.",
+    "null": "Authority, identity, replay, and coverage pass but joint preservation or additive composition misses.",
+    "invalid": "Authority, capability, basis, exact head, frozen-program identity, own-route replay, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "held-out prediction", "selective manipulation", "composition and reuse", "stable identification"],
+  "price": {"model_forwards_exact": 4, "example_evaluations_exact": 256, "rows": 128, "inherited_gain_scalars": 8, "basis_scalars": 2304, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
