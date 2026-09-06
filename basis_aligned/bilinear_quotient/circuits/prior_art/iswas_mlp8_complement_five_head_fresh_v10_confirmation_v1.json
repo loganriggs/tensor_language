@@ -1,0 +1,29 @@
+{
+  "schema": "iswas_mlp8_complement_five_head_fresh_v10_confirmation_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_complement_five_head_fresh_v10_confirmation_v1",
+  "registered_utc": "2026-09-06T22:12:00Z",
+  "question": "Does the frozen five-head program L9H1/H4 + L11H1/H3 + L15H5 reproduce the near-complete three-attention-module converter on a construction not used to select the auxiliary heads?",
+  "authority": {
+    "auxiliary_head_atlas_result_sha256": "08975d2a9682a8f880e19230208efd56d7e410e274e6a3f4291b44248dfecd94",
+    "auxiliary_head_atlas_runner_sha256": "0aaf807785321fea563c304684d670f83f9f559ef2eab501274333930084dda1",
+    "v10_builder_sha256": "13e7954cde01b6b7d826915fc2ae02d4b9e16975150cf73aa5e0a1f906c1b757",
+    "v10_capability_sha256": "77e3c5b6e47dc9416133643f422c130427f90fed0746d26f211f54b681718b3d",
+    "previous_v10_core_confirmation_sha256": "eb4470b3ed1495a5ad11c0a1e685d0c6ca4e9942532a872f165bc16f07eb69f5",
+    "frozen_heads": {"attention9": [1, 4], "attention11": [1, 3], "attention15": [5]}
+  },
+  "frozen_design": {
+    "population": "All 27 jointly capable A1/A2 rows selected only by the prior v10 native-capability manifest.",
+    "actuation": "The exact weight-defined MLP8 post-cue hidden-product complement used by the confirmed v10 core experiment.",
+    "arms": "Live complement; L9H1/H4; all L9 heads; frozen five-head union; all heads in L9/L11/L15; five leave-one-head arms; three leave-one-module arms; and native self-clamp.",
+    "comparison": "Removed behavior and final-Q8 coordinates of the five-head union relative to the complete three-attention-module removal. No v10 head selection or fitting.",
+    "maximum_price": {"model_forwards": 17, "example_evaluations": 459, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_replay_self_clamp_finiteness_and_price": "All hashes, 27-row population, prior L9H1/H4 replay, self-clamp, finite metrics, and price pass.",
+    "pred_b_three_attention_route_is_material_and_coherent": "All three modules remove at least 90% behavior and 90% Q8 norm of the live complement, with behavior/Q8 cosine at least .98 in both panels.",
+    "pred_c_five_head_program_is_sufficient": "The five heads retain at least 80% behavior and 75% Q8 norm of the three-module removal, with behavior/Q8 cosine at least .98/.95 in both panels.",
+    "pred_d_each_module_contributes_to_the_five_head_union": "Leaving out all selected heads from any one of L9, L11, or L15 worsens behavior or Q8 relative error in both panels; individual leave-one effects are reported without requiring every head separately necessary.",
+    "pred_e_zero_fit_prospective_confirmation": "No v10 outcome changes the head set, rank, groups, thresholds, or weights; no gradients or updates."
+  },
+  "decision": "Screen promotes a transferable five-head near-complete converter and licenses exact c_v/c_proj/source-factor compilation for L11H1/H3 and L15H5. Null preserves the full three-attention route and redirects only the head compression."
+}

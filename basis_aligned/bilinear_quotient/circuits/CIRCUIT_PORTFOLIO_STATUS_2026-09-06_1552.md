@@ -479,3 +479,11 @@ with behavior cosine above .99994 and Q8 cosine above .99910. The entire MLP9--1
 Singleton-response nonadditivity is 50.76%/47.52%, confirming that their raw atlas effects must not
 be summed. The active refinement conditions on complete attention9 and splits all heads in
 attention11/15 before any further weight compilation.
+
+The conditional attention11/15 head atlas is a distributed-head null with a compact frozen union.
+Three heads meet materiality in both panels: L11H1, L11H3, and L15H5. L15H5 supplies 75.98%/47.88%
+of auxiliary behavior and 50.11%/33.42% of its Q8 norm; L11H1 is a smaller coherent behavior term,
+while L11H3 carries construction-dependent Q8 structure and is behavior-opposing in A1. No singleton
+matches the full auxiliary Q8 vector at cosine .85 in both panels (top L15H5 is .667/.746), so the
+strict terminal is distributed. All-head replay is exact. The five-head union L9H1/H4 + L11H1/H3 +
+L15H5 is now frozen for prospective v10 comparison against all heads in attention9/11/15.
