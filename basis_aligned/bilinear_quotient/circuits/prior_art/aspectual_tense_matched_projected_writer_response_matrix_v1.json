@@ -1,0 +1,56 @@
+{
+  "schema": "aspectual_tense_matched_projected_writer_response_matrix_prior_art_v1",
+  "candidate_id": "aspectual_tense.matched_projected_writer_response_matrix_v1",
+  "created_utc": "2026-09-06T08:43:00Z",
+  "question": "Does q_has transfer to capability-qualified is/was populations when both writer directions use the same rank-one projected-interchange operator?",
+  "novelty_search": {
+    "nearest_positive": "Program v12 uses an upstream scalar controller and an additive alpha*q_has edit to move is/was on two lexicons.",
+    "nearest_boundary": "The newly identified selective q_is uses projected interchange and transfers weakly to has/had; comparing that result directly to additive q_has transfer mixes intervention interfaces.",
+    "new_question": "Hold the projected-interchange operator fixed and measure the two writers against both output vocabularies; q_is cross-task values are a known route-agreement control, while q_has-to-is/was is unopened.",
+    "anti_rank_drift": "No fitting, rank choice, SVD, or parameter search occurs. This tests causal composition/reuse under matched interventions."
+  },
+  "authority": {
+    "q_has_result_sha256": "58b83a2714ae8d53cc799d5e6ae96c61cc476f22e09019e6e1f620581ff9a278",
+    "q_is_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "has_had_builder_sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+    "is_was_v2_builder_sha256": "4ed62d06e2ffe5c471efc70eeaa35c7524a66923f19c64c803faef7200d4a62f",
+    "is_was_v3_builder_sha256": "ac240f13478168948814f59c0425270dd345ba03053332b72b34857e9a022638",
+    "das_library_sha256": "49d67620b09c80edd1c999476ea9cfddb375f41016443f58cb6cc96111809d3f"
+  },
+  "frozen_design": {
+    "operator": "For every writer q and task row, x18' = x18 + ((x18_donor-x18_base) dot q) q; score through the exact final RMS/head.",
+    "writers": ["frozen q_has", "frozen selective q_is"],
+    "readout_populations": ["has/had lexical v5", "is/was v2", "is/was v3"],
+    "scales": "Each population uses the median absolute native A1 margin change from its first eight A1 rows for P/C normalization; A recovery uses each row's own native denominator.",
+    "known_outcomes": "q_has on has/had and q_is on both is/was and has/had were already opened; they are exact route-agreement controls, not new evidence.",
+    "unopened_outcomes": "q_has projected-interchange effects on every is/was v2/v3 A1/A2/P/C row.",
+    "no_fit": true
+  },
+  "predictions": {
+    "pred_a_authority_head_basis_and_route_agreement": "All hashes/basis shapes and two exact-head controls pass; reproduced known family scores differ by <=1e-5.",
+    "pred_b_q_has_projected_transfer_v2": "On is/was v2, q_has A1/A2 absolute recovery are each >=0.25 and P/C disturbance each <=0.20.",
+    "pred_c_q_has_projected_transfer_v3": "On is/was v3, q_has A1/A2 absolute recovery are each >=0.25 and P/C disturbance each <=0.20.",
+    "pred_d_matched_operator_asymmetry": "B-C pass while the route-agreement q_is-to-has/had A1/A2 values remain each <=0.20.",
+    "pred_e_exact_coverage": "Exactly 8 model forwards and 400 example evaluations; zero fitting, gradient steps, transformer backwards, model updates, or parameter search."
+  },
+  "opposing_outcomes": {
+    "asymmetric_projected_reuse": "B-C and D pass: q_has is a shared projected actuator while q_is is output-specific.",
+    "interface_specific_additive_reuse": "Either q_has cross A family is <=0.20: the earlier additive transfer shows output sensitivity to q_has, but not interchangeable projected state along q_has.",
+    "intermediate": "Cross recovery between 0.20 and 0.25 or mixed family/population results remain bounded and inconclusive; no thresholds or ranks change."
+  },
+  "terminal": {
+    "screen": "A-E pass: identify asymmetric projected writer reuse.",
+    "null": "A and E pass but B, C, or D misses: bound reuse to the additive controller/interface or an intermediate regime.",
+    "invalid": "Authority, head, route agreement, or exact coverage fails."
+  },
+  "circuit_targets": ["composition and reuse", "selective manipulation", "stable identification"],
+  "price": {
+    "model_forwards_exact": 8,
+    "example_evaluations_exact": 400,
+    "fit_parameters": 0,
+    "gradient_steps": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0,
+    "rank_grid_points": 0
+  }
+}
