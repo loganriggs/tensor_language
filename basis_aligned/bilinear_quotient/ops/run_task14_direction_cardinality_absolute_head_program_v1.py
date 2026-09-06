@@ -24,7 +24,7 @@ def _load():
  for p,h in EXPECTED.items():
   if _sha(p)!=h:raise ValueError(f"immutable input changed: {p}")
  disp,reference=json.loads(DISP.read_text()),json.loads(REFERENCE.read_text())
- if disp.get("terminal")!="prototype_artifact" or reference.get("terminal")!="program_screen" or not all(reference["score"]["predictions"].values()):raise ValueError("parent program invalid")
+ if disp.get("terminal")!="prototype_artifact" or reference.get("terminal")!="valid_causal_screen" or not all(reference["score"]["predictions"].values()):raise ValueError("parent program invalid")
  return reference
 def compile_plan():
  _load();return {"schema":"task14_direction_cardinality_absolute_head_program_plan_v1","candidate_id":CANDIDATE_ID,"prior_art_sha256":EXPECTED[PRIOR],"displacement_artifact_sha256":EXPECTED[DISP],"reference_validation_sha256":EXPECTED[REFERENCE],"export":{"split":"SECOND_CORPUS_TRAINING_ONLY","rows":32,"role_examples":96,"vectors":10,"width":1152},"validation":{"split":"PROSPECTIVE_THIRD_CORPUS_COMPLETE_CAUSAL_LATTICE","rows":32,"backgrounds":16,"methods":["base","absolute"],"installations":1024},"bars":dict(BARS),"price":{"physical_model_forwards":6,"example_evaluations":1216,"causal_installations":1024,"stored_fp32_scalars":11520,"backwards":0,"fits":0,"parameter_updates":0}}
