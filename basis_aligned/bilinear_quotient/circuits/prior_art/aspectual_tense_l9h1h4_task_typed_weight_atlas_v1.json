@@ -1,0 +1,38 @@
+{
+  "candidate_id": "aspectual_tense.l9h1h4_task_typed_weight_atlas_v1",
+  "created_utc": "2026-09-06T16:22:00Z",
+  "question": "Which exact upstream weight writers and downstream weight readers couple to the aspectual, tense, joint, and task-exclusive L9H1/H4 value subspaces?",
+  "authority": {
+    "capability_filtered_subspace_result_sha256": "0ae262ee932d6ecb93d1df028ac080f3a4597861620da79b7ad45a0f3ae2d16e",
+    "subspace_result_terminal": "valid null: shared cosine>=0.80 basis absent, task-typed bases and compact sufficient joint basis retained",
+    "weight_atlas_library_sha256": "b5cda0119a5028f2e8d2795e8b470fa680416576ba70519e0bb83ba1c1cf1f7d"
+  },
+  "frozen_design": {
+    "bases": ["has", "is", "joint", "has_not_is", "is_not_has"],
+    "gauge": "QR only within each stored span; task-exclusive bases are the nonzero SVD span of (I-P_other)U_task at relative tolerance 1e-6",
+    "upstream_read_map": "U.T times the concatenated block9 H1/H4 c_v row weights",
+    "upstream_writers": "normalized Frobenius contractions of that read map with every attention-head c_proj slice and MLP output factor in layers 0-8",
+    "downstream_state": "concatenated block9 H1/H4 c_proj columns times U, orthonormalized without changing span",
+    "downstream_readers": "exact attention q/k/q2/k2/v/o/ov contractions and restricted bilinear MLP tensors in layers 10-17",
+    "causal_interventions": 0,
+    "model_forwards": 0,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_basis_gauge_and_exact_coverage": "authority hashes and ranks 18/3/15 recur; all five derived bases and exact contractions are finite and gauge-valid; inventory is 81 upstream heads, 9 upstream MLPs, 72 downstream heads, and 8 downstream MLPs per basis",
+    "pred_b_mlp4_writer_positive_control": "MLP4 ranks in the top five of nine normalized upstream MLP writer capacities for has, is, and joint bases",
+    "pred_c_task_typed_weight_neighborhoods": "has versus is top-six normalized upstream-head lists or top-six downstream value-reader lists differ by at least two entries",
+    "pred_d_zero_fit_zero_causal_leakage": "zero forwards, backwards, updates, fitted scalars, and causal outcomes; rankings are discovery-only"
+  },
+  "terminal_rules": {
+    "invalid": "A or D fails",
+    "screen": "all predictions pass",
+    "null": "A and D pass but B or C fails"
+  },
+  "interpretation_limits": [
+    "Weight incidence is structural capacity, not contextual causal effect.",
+    "Top-ranked components must be frozen in a new preregistration before causal testing.",
+    "The absence of a cosine>=0.80 shared state is not relabeled by a shared component ranking."
+  ]
+}
