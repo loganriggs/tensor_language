@@ -1,0 +1,29 @@
+{
+  "schema": "aspectual_tense_construction_complete_modes_fresh_prior_v1",
+  "candidate_id": "aspectual_tense.construction_complete_modes_fresh_v1",
+  "registered_utc": "2026-09-06T18:13:00Z",
+  "question": "When endpoint-Jacobian modes are fit across both known constructions, do they close the task circuits on a wholly fresh matched lexicon, or is the remaining complement lexical/context-specific?",
+  "authority": {
+    "endpoint_result_sha256": "edba80528947b591c7d483d0edff90207835659d5036582b13af3020b25c5f78",
+    "endpoint_runner_sha256": "f9ef86bb4ba8256da54c892a48d47c524b7451f678f92325e46dc20a7daa1aa6",
+    "fresh_builder_sha256": "1b78f075b0a8d5e50578793fd512a45b635b6d353b85441ccaf3bf851efc4b05",
+    "fresh_row_digests": {"has_had": "d3a8926058996f6ef8e150a0a66812b1c3feaf7b268ba7f6de13be0e7946b7e7",
+      "is_was": "620d54aa95727bb29d02534974a23edb51bc8fdafc8fe63f00dc1f6c75a366d6"}
+  },
+  "frozen_design": {
+    "development_population": "All jointly capable original has/had and is/was A1 and A2 rows already used by the circuit program; no fresh-v4 row enters a basis.",
+    "basis": "For each retained component, use the complete relative-1e-6 span of answer-margin gradients at base and donor endpoints across both original constructions, unioned with static task weight-read modes.",
+    "fresh_population": "All A1/A2 rows from fresh lexicon v4; capability selection requires at least 12 jointly capable rows and at least 6 per direction in every task/panel.",
+    "arms": ["full_pruned_program", "construction_complete_mode_union", "orthogonal_union_complement"],
+    "maximum_price": {"model_forwards": 28, "example_evaluations": 566, "records": 192,
+      "transformer_backwards": 4, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_novelty_capability_projection_finiteness_and_price": "Authorities, fresh-row novelty, capability, projectors, coverage, finiteness and maximum price pass.",
+    "pred_b_full_programs_generalize": "Full pruned-program recovery is at least 0.60 and donorward on every fresh task/panel.",
+    "pred_c_construction_complete_modes_are_sufficient": "Mode-union recovery is at least 0.95 of full-program recovery and donorward on every fresh task/panel.",
+    "pred_d_construction_complete_complements_are_secondary": "Absolute complement recovery is at most 0.20 of full-program recovery on every fresh task/panel.",
+    "pred_e_mlp_modes_remain_compressive_without_causal_fit": "Every MLP union rank is below 1152 and <=390 for has/had or <=119 for is/was; no fresh outcome selects modes and no model update occurs."
+  },
+  "decision": "screen seals a construction-complete transparent mode program; null distinguishes program non-transfer, mode insufficiency, or complement non-inertness without threshold repair; invalid on authority, novelty, capability, projection, coverage, finiteness, or price failure"
+}
