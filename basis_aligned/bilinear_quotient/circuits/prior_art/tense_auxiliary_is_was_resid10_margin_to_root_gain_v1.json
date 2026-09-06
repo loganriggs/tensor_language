@@ -1,0 +1,40 @@
+{
+  "schema": "tense_auxiliary_is_was_resid10_margin_to_root_gain_prior_art_v1",
+  "candidate_id": "tense_auxiliary.is_vs_was.resid10_margin_to_root_gain_v1",
+  "created_utc": "2026-09-06T09:13:00Z",
+  "question": "Can a fixed local is/was contrast at resid10 compute the later donor-free q_is root gain with four affine coefficients and preserve selective causal effects?",
+  "novelty_search": {
+    "nearest_positive": "For has/had, a resid10 local unembedding contrast plus four direction-affine coefficients prospectively replaced a final-head root/grid controller. No upstream read or gain map exists for the distinct q_is writer.",
+    "new_question": "Fit only intercept+slope per direction from v4 A1 resid10 current-minus-other is/was contrast to immutable root alpha, then causally test v4 A2/P/C without root search.",
+    "scope": "This is a design-seen upstream-computation screen. A pass must be frozen and tested on another disjoint capability-qualified lexicon before identification.",
+    "anti_rank_drift": "q_is, rank one, reader rows, affine form, and four-parameter count are fixed. No rank, feature, regularization, clipping, or coefficient sweep."
+  },
+  "authority": {
+    "root_actuator_result_sha256": "342817d6f102497bcb48272337deb138f7c638c864b1213013516ef1454511cb",
+    "v4_builder_sha256": "1d90b1b7feebcf4eb467b41b9b4b168a6ecc62b3a4c4178a91a502bc7923b74b",
+    "q_is_result_sha256": "36f80c04e4a1b2c6a7e0594126cd71e8781aab987521f8865d7e6de842346c02",
+    "fixed_token_ids": {"is": 318, "was": 373}
+  },
+  "frozen_design": {
+    "calibration": "All 16 v4 A1 rows; response is the immutable root alpha. Each direction has eight rows.",
+    "feature": "At source resid10, exact soft-capped current-minus-other is/was local margin; current is the base tense and other is the requested tense.",
+    "fit": "Separate float64 ordinary least-squares intercept+slope per direction; exactly four coefficients, no ridge/clipping/grid.",
+    "causal_test": "Apply predicted alpha*q_is at source resid18 to all v4 A2, P (from answer-preserving donor surface), and C (alternating intended is/was direction); score exact final head. No root, donor activation/margin, row target/foil IDs, or outcomes select alpha.",
+    "next_if_screen": "Freeze coefficients before constructing/opening a fifth disjoint lexicon."
+  },
+  "predictions": {
+    "pred_a_authority_alignment_and_exact_heads": "Hashes, row/root-alpha alignment, basis, fixed IDs, and exact resid10/resid18 head replay <=1e-3 pass.",
+    "pred_b_upstream_affine_fit": "Each direction has eight nondegenerate finite rows and calibration R2>=0.50; every causal alpha exactly equals its direction's intercept+slope*resid10 feature and uses no forbidden input.",
+    "pred_c_design_seen_A2": "A2 mean recovery >=0.75 with direction fraction >=0.75.",
+    "pred_d_design_seen_P": "P mean margin reflection >=0.75 with direction fraction >=0.75.",
+    "pred_e_design_seen_C": "C normalized unrelated movement <=0.20.",
+    "pred_f_exact_coverage_and_price": "Exactly 16 calibration and 48 causal records within 16 forwards/240 examples, zero grid/backward/update, and exactly four fit scalars."
+  },
+  "terminal": {
+    "screen": "A-F pass: freeze the upstream four-scalar q_is controller for a fifth-lexicon prospective test.",
+    "null": "Valid affine fit or A2/P/C effect misses; retain root controller and do not add features/rank.",
+    "invalid": "Authority, alignment, head, fit integrity, actuator identity, or coverage fails."
+  },
+  "circuit_targets": ["computational specification", "extraction or sufficiency", "selective manipulation", "held-out prediction"],
+  "price": {"model_forwards_max": 16, "example_evaluations_max": 240, "calibration_records": 16, "causal_records": 48, "fit_parameters": 4, "grid_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}
