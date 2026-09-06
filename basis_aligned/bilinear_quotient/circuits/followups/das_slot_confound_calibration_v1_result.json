@@ -1,0 +1,68 @@
+{
+  "abs_cosine_between_directions": 0.21928808093070984,
+  "candidate_id": "number.slot_confound_calibration_v1",
+  "families": {
+    "aux_direction_on_pronoun_slot": {
+      "mean_absolute_recovery": 0.06740006804466248,
+      "mean_recovery": 0.06740006804466248,
+      "rows": 32
+    },
+    "aux_slot_a1_heldout": {
+      "mean_absolute_recovery": 0.9926386475563049,
+      "mean_recovery": 0.9926386475563049,
+      "rows": 16
+    },
+    "aux_slot_a2_report_frame": {
+      "mean_absolute_recovery": 1.050809621810913,
+      "mean_recovery": 1.050809621810913,
+      "rows": 32
+    },
+    "c_control": {
+      "rows": 32,
+      "same_answer_effect": 0.0009030817309394479
+    },
+    "p_head_noun_rewrite": {
+      "rows": 32,
+      "same_answer_effect": 0.05950968712568283
+    },
+    "pronoun_direction_on_aux_slot": {
+      "mean_absolute_recovery": 0.0864085853099823,
+      "mean_recovery": 0.0864085853099823,
+      "rows": 32
+    },
+    "pronoun_slot_a1_heldout": {
+      "mean_absolute_recovery": 0.885906994342804,
+      "mean_recovery": 0.885906994342804,
+      "rows": 16
+    }
+  },
+  "finished_utc": "2026-09-06T10:44:36.001832+00:00",
+  "head_verification": {
+    "max_abs_difference": 2.384185791015625e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_rank1_carries_both_constructions": true,
+  "pred_c_subspace_spares_p_and_c": true,
+  "pred_d_shared_number_direction": false,
+  "pred_e_distinct_number_directions": true,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_rank1_carries_both_constructions": true,
+    "pred_c_subspace_spares_p_and_c": true,
+    "pred_d_shared_number_direction": false,
+    "pred_e_distinct_number_directions": true
+  },
+  "rank": 1,
+  "reading": "distinct_number_directions",
+  "registered_calibration": "Both behaviours read the SAME variable -- head noun number (leaders vs leader). Only the READ SLOT differs: an auxiliary after a prepositional phrase versus a possessive pronoun after a verb. Vocabularies are disjoint. Any gap between this transfer and the matched-slot 1.053 is therefore attributable to read position alone.",
+  "registered_thresholds": {
+    "carry": 0.5,
+    "distinct": 0.2,
+    "shared": 0.5,
+    "spare": 0.2
+  },
+  "schema": "circuit_das_subspace_result_v1",
+  "site": "resid:18",
+  "target_scale": 9.443230628967285
+}
