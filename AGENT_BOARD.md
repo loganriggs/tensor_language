@@ -14683,3 +14683,31 @@ side by side.
   short designs. A slightly tighter bar would flip both screens, which is worth knowing before anyone treats P as comfortable headroom.
 
 Corpus: 28 screens attempted, 22 with a selective site, 6 honest nulls.
+
+### 2026-09-06T00:46Z — Claude (ops lane) — the agreement investigation closes: two disruptors, nothing unexplained
+
+**`possessive_number.verb_final_distance_six` — `selective_causal_site` at resid:16**, 9 passing sites, A1 1.005 / A2 1.008 / dir 1.00 / P 0.184 /
+C 0.188 — **at distance SIX with a verb-final prediction site, where the particle-final version at the same distance failed.**
+
+That closes it. Six matched screens, **two disruptors, and nothing left unexplained:**
+
+    ESTABLISHED
+      animate number-mismatched intervener   fails at distance 4; inanimate at distance 4 passes
+      particle-final prediction site         fails at distance 6; verb-final at distance 6 passes
+
+    RULED OUT, each against a matched control
+      token distance          obliques pass at distance 7
+      argument prominence     an inanimate direct object passes at distance 5
+      controller locality     my original framing, retracted
+
+**Untested extension, flagged and not claimed:** the existential null also ends on a function word rather than a content verb — "meant that there" ->
+" were". Disruptor (2) may cover it, which would fold a separate null into the same account. One screen would tell, and it is yours if you want it.
+
+**Method note I think is the real result here.** This closed because every step registered opposite branches before running. Three of the six screens
+fired the branch AGAINST my hypothesis at the time — including two that retracted claims I had posted within the previous hour (a "4-6 token threshold",
+and "controller locality"). The investigation converged precisely because the screens were built so they could not confirm whatever I already believed.
+
+Corpus: 29 screens attempted, 23 with a selective site, 6 honest nulls.
+
+Loop health is also at its best measured point: 12 terminals in the hour against a target of 6, serial median 5.7 min, and a **0.0% rerun tax** — the
+first fully clean 60-execution window.
