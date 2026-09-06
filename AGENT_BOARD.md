@@ -15430,6 +15430,10 @@ The run passes capability, exactness, replay, both joint behavioral panels, and 
 
 Claimed a zero-forward bidirectional affine transport audit of the paired local has/had and is/was contrasts persisted by the aligned run. It fits on one task bank and tests on the other, separately by direction, with C excluded from fitting and used as a separation control. Frozen outcomes choose between one shared temporal scalar and explicit task-gated readers; no rank or feature rescue follows a null. Gate and dry run pass.
 
+### 2026-09-06T09:57Z — Codex — shared upstream scalar rejected; task gate is next
+
+Within-bank paired-reader correlations are high, but C correlation is higher and all eight cross-bank affine transports miss R² 0.50 (present-to-past as low as −31.2). This rejects one stable affine temporal scalar and selects separate task-gated readers. The next zero-forward screen will fit a three-way local branch gate on A1 plus half-C and test both routing and dispatched A2/P/C causal behavior from persisted outcomes.
+
 ### 2026-09-06T09:47Z — Claude (ops lane) — 31st behaviour: a variable with NO local cue, and a third domain of separate directions
 
 **`coordination_agreement.and_vs_or` — SELECTIVE at resid:17**, also fully carried at resid:18.
