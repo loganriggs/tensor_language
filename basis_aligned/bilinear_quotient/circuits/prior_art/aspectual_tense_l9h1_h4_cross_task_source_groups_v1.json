@@ -1,0 +1,44 @@
+{
+  "schema": "aspectual_tense_l9h1_h4_cross_task_source_groups_prior_art_v1",
+  "candidate_id": "aspectual_tense.l9h1_h4_cross_task_source_groups_v1",
+  "created_utc": "2026-09-06T11:11:45Z",
+  "evidence_class": "unequal_length_cross_task_exact_attention_source_group_screen",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*cross_task*source*", "circuits/followups/*cross_task*source*", "circuits/prior_art/*l9h1_h4*source*", "circuits/followups/*l9h1_h4*source*", "AGENT_BOARD.md"],
+    "nearest_result": "H1/H4 carry about 92%/88% of block9 attention's direction-matched task-pair effect. Within each task, contextual carrier tokens dominate H1/H4 temporal transport, but no source grouping has tested cross-task answer-vocabulary identity across unequal prompt lengths.",
+    "new_question": "Do task-specific contextual carrier banks, rather than prefix/cue templates or the shared final occupation, carry H1/H4's cross-task answer-vocabulary effect?"
+  },
+  "authorities": {
+    "block9_task_result_sha256": "60ace001114aa43204a86820f26a5b03f99adcfaf83224efb260a96c404bd3c1",
+    "block9_task_instrument_sha256": "00d28d2a6626dbe418acd123346582f4150abdceceae8dcf78ab2e92c939a60d",
+    "source_instrument_sha256": "8e890efd3520cfbece1d71f3ffb58397c732d8fc9c9446c74af9ac0380f2ca01",
+    "is_was_source_result_sha256": "4c266158213edcda9f0c86b19064cabe6d673815167b69d9eff381ddadda9cf5",
+    "has_had_source_result_sha256": "6d694f92d35970f4eb5eba25ca3d9aff15cdbd1949db158a8be18e827e0423a7"
+  },
+  "population": "The same 16 direction- and occupation-matched cross-task A1 pairs, evaluated in both orientations with unequal sequence lengths allowed.",
+  "operator": {
+    "semantic_partition": {
+      "prefix_cue": "All task-specific tokens through and including since/by for has/had or this/that for is/was.",
+      "contextual_carrier": "Tokens after the cue and before the final occupation: last+period+determiner for has/had; moment+determiner for is/was.",
+      "self": "The identical final occupation token."
+    },
+    "arms": ["h1h4_complete", "h1h4_all_sources", "h1h4_prefix_cue", "h1h4_contextual_carrier", "h1h4_self"],
+    "intervention": "Replace the sum of exact L9 H1/H4 pattern-times-effective-value terms in each donor semantic group for the corresponding recipient group; group cardinalities may differ.",
+    "fitting": "none",
+    "no_rescue": "No semantic partition, head, task score, row, orientation, or threshold changes after execution."
+  },
+  "predictions": {
+    "pred_a_authority_capability_exact_source_partition": "Hashes, native capability, complete coverage, source reconstruction <=1e-4, finite terms, exact partition, and all-source versus complete-head logits <=1e-4 pass.",
+    "pred_b_h1h4_task_route_recurrence": "Complete H1/H4 mean task recovery remains within 0.05 of 0.4356718468865772 and 0.31288246508505524 with direction fraction 1.0.",
+    "pred_c_contextual_carrier_task_source": "Contextual-carrier intervention retains >=0.50 of complete H1/H4 task recovery and has direction fraction >=0.75 in both orientations.",
+    "pred_d_source_specificity": "Prefix/cue mean task recovery does not exceed contextual-carrier recovery, and self absolute recovery is <=0.25 of complete H1/H4 in both orientations.",
+    "pred_e_exact_zero_fit_price": "Exactly 12 forwards/192 examples, ten source-group orientation arms, zero fit/search/backward/update."
+  },
+  "terminal": {
+    "screen": "A-E pass: localize cross-task H1/H4 answer-vocabulary state to task-indexed contextual carrier banks.",
+    "null": "Instrument and H1/H4 recurrence pass but source localization or specificity misses.",
+    "invalid": "Authority, capability, exact source partition/closure, recurrence, finiteness, coverage, or price fails."
+  },
+  "circuit_targets": ["within-head splitting", "cross-boundary semantic grouping", "internal task-state source localization", "composition and reuse"],
+  "price": {"model_forwards": 12, "example_evaluations": 192, "source_group_orientation_arms": 10, "fitted_scalars": 0, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}

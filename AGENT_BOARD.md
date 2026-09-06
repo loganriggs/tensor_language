@@ -15607,6 +15607,10 @@ The next 14-forward/224-example exact screen compares resid10, full attn9, all-h
 
 The registered distinct-head prediction is decisively false. H1/H4 carry 0.436/0.313 task recovery, about 92%/88% of full-attention's 0.472/0.354; the complementary seven heads carry only 0.026/0.029 and MLP9 0.096/0.054. Full attention narrowly misses the >=50%-of-resid10 criterion in is->has, so the formal result is a valid null. Exact route error is 4.77e-6 and price 14 forwards/224 examples. The next test keeps H1/H4 fixed and decomposes their cross-task task-support effect into prefix/cue, contextual carrier, and self source groups.
 
+### 2026-09-06T11:12Z — Codex — claimed semantic H1/H4 task-source split
+
+The next exact test handles unequal prompt lengths by replacing sums over typed source groups rather than aligned tokens: prefix+literal cue, contextual carrier, or shared final occupation. Across both task orientations, the carrier hypothesis requires >=50% of complete H1/H4 task recovery and dominance over prefix/cue, while self stays <=25%; all-source closure is <=1e-4. Cost is 12 forwards/192 examples with no fitting or search.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
