@@ -30,6 +30,18 @@ OOD_BUILDER = ROOT / "ops/circuit_fast_screen_candidate_temporal_auxiliary.py"
 PARENT_RUNNER = ROOT / "ops/run_temporal_auxiliary_will_had_fresh_writer_to_reader_coefficients_v3.py"
 OUT = ROOT / "circuits/followups/temporal_auxiliary_will_had_summed_writer_compiler_ood_v1_result.json"
 CANDIDATE_ID = "temporal_auxiliary.will_vs_had.summed_writer_compiler_ood_v1"
+RESULT_SCHEMA = "temporal_auxiliary_summed_writer_compiler_ood_result_v1"
+EXPECTED_PARENT_TERMINAL = "writer_summary_insufficient"
+PREDICTION_NAMES = (
+    "pred_a_ood_capability_and_writer_closure",
+    "pred_b_ood_coefficient_prediction",
+    "pred_c_ood_program_material",
+    "pred_d_prediction_beats_intercept",
+    "pred_e_ood_p_selective",
+    "pred_f_price_exact",
+)
+TERMINAL_NAMES = {"success": "screen", "transfer_fail": "cue_specific",
+                  "behavioral_fail": "behavioral_null"}
 EXPECTED = {
     "prior": "4069c4c5fc683d1cd241fffe6e958e7cbc72f1fefa6ba73f58b04b721c13043d",
     "parent_result": "951830b296fe0b8ce47d8b7a08e78e0875ba40a1ed3216d049cdc00c11d01929",
@@ -69,7 +81,7 @@ def validate_static():
     fit_directions = {direction: sum(row["direction_id"] == direction for row in fit)
                       for direction in ("future_to_anterior", "anterior_to_future")}
     if (prior.get("candidate_id") != CANDIDATE_ID
-            or parent_result.get("terminal") != "writer_summary_insufficient"
+            or parent_result.get("terminal") != EXPECTED_PARENT_TERMINAL
             or fit_directions != {"future_to_anterior": 8, "anterior_to_future": 8}
             or {key: len(value) for key, value in family_rows.items()}
             != {"A1": 32, "A2": 32, "P": 32}
@@ -206,15 +218,12 @@ def main():
                   and all(math.isfinite(float(record["recovery"])) for record in records)
                   and all(math.isfinite(correlations[name][reader])
                           for name in correlations for reader in correlations[name]))
-    predictions = {"pred_a_ood_capability_and_writer_closure": pred_a,
-                   "pred_b_ood_coefficient_prediction": pred_b,
-                   "pred_c_ood_program_material": pred_c,
-                   "pred_d_prediction_beats_intercept": pred_d,
-                   "pred_e_ood_p_selective": pred_e, "pred_f_price_exact": pred_f}
+    predictions = dict(zip(PREDICTION_NAMES, (pred_a, pred_b, pred_c, pred_d, pred_e, pred_f)))
     terminal = "invalid" if not pred_a or not pred_f else (
-        "screen" if all(predictions.values()) else
-        "cue_specific" if not pred_b or not pred_c or not pred_d else "behavioral_null")
-    result = {"schema": "temporal_auxiliary_summed_writer_compiler_ood_result_v1",
+        TERMINAL_NAMES["success"] if all(predictions.values()) else
+        TERMINAL_NAMES["transfer_fail"] if not pred_b or not pred_c or not pred_d
+        else TERMINAL_NAMES["behavioral_fail"])
+    result = {"schema": RESULT_SCHEMA,
               "candidate_id": CANDIDATE_ID, "execution_policy": "managed_queue_only",
               "started_utc": started_utc, "finished_utc": utc_now(),
               "serial_seconds": time.perf_counter() - started, "authority_sha256": EXPECTED,

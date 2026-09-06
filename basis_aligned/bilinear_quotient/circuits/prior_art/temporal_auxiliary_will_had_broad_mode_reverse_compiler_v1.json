@@ -1,0 +1,46 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.broad_mode_reverse_compiler_v1",
+  "created_utc": "2026-09-06T14:55:00Z",
+  "question": "Does a summed-writer compiler trained in the broader Tomorrow/Earlier reader mode predict Later/Previously responses, reversing the failed narrow-to-broad transfer?",
+  "authority": {
+    "cross_cue_modes_result_sha256": "4c91680557c7c2cdcef67f69586fdc758c5605369a0be7b62477574caf1e4f42",
+    "cross_cue_terminal": "shared_mode with asymmetric original-to-fresh oracle response transfer",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "original_builder_sha256": "4d23947375504edaa51e4ef057ccd65f042c505728d1909bc06edf526633bc58"
+  },
+  "novelty": "The frozen forward compiler trained on Later/Previously failed causal OOD transfer. The factorial then found that Tomorrow/Earlier reader axes transfer in the reverse direction. No coefficient compiler has tested that prospective asymmetry.",
+  "frozen_design": {
+    "fit": "balanced 16-row Tomorrow/Earlier A1 lexical subset with eight rows per orientation",
+    "test": "all 32 Later/Previously A1, 32 A2, and 32 aligned P rows",
+    "compiler": "one summed writer SVD coefficient, two reader rank-one axes, and two affine coefficient maps (four scalars), all fitted only on Tomorrow/Earlier",
+    "answer_changing_arms": ["full_captured_response", "oracle_rank1_response", "predicted_rank1_response", "intercept_only_response", "zero_response"],
+    "control_arms": ["predicted_rank1_response", "intercept_only_response"],
+    "model_forwards": 38,
+    "example_evaluations": 1104,
+    "answer_changing_records": 320,
+    "fitted_scalars": 4,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_capability_and_writer_closure": "all answer-changing test rows natively correct and exact writer reconstruction <=1e-4 on fit/A1/A2/P",
+    "pred_b_reverse_coefficient_prediction": "both reader coefficient correlations absolute r>=0.60 on fresh A1 and A2",
+    "pred_c_reverse_program_material": "predicted program retains >=0.60 of full response and is donorward on >=0.75 of fresh A1/A2 rows",
+    "pred_d_prediction_beats_intercept": "predicted recovery exceeds intercept-only by >=0.15 of full response on A1/A2",
+    "pred_e_fresh_p_selective": "predicted-program normalized P effect <=0.20",
+    "pred_f_price_exact": "38 forwards, 1104 examples, 320 records, four scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, capability, alignment, closure, coverage, finiteness, or price fails",
+    "shared_compiler": "all predictions pass",
+    "coefficient_asymmetry": "oracle broad mode is material but predicted coefficients fail",
+    "response_asymmetry": "even oracle broad mode is not material on the test corpus",
+    "null": "other valid miss"
+  },
+  "interpretation_limits": [
+    "A pass selects a canonical basis across these two cue lexicons, not universal temporal language.",
+    "The exact block8H1 source terms remain native inputs to the compiler.",
+    "C selectivity remains inherited because C lacks aligned writer semantics."
+  ]
+}
