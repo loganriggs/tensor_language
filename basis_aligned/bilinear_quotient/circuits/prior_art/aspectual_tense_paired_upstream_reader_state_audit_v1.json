@@ -1,0 +1,42 @@
+{
+  "schema": "aspectual_tense_paired_upstream_reader_state_audit_prior_art_v1",
+  "candidate_id": "aspectual_tense.paired_upstream_reader_state_audit_v1",
+  "created_utc": "2026-09-06T09:53:28Z",
+  "evidence_class": "zero_forward_shared_state_vs_task_gated_reader_audit",
+  "novelty_search": {
+    "searched": ["circuits/prior_art/*aspectual*tense*", "circuits/followups/*aspectual*tense*", "ops/*aspectual*tense*", "AGENT_BOARD.md"],
+    "nearest_results": ["Projected response factors separated writer controllability and output observability.", "Aligned joint installation persisted both local reader contrasts but did not test their cross-population relation.", "Opposed-label intervention proved direction is regime metadata rather than a live fixed-state command."],
+    "new_question": "Are the local has/had and is/was contrasts stable affine observations of one upstream temporal state across both task populations, or must the composed program retain task-gated readers?"
+  },
+  "authorities": {
+    "aligned_joint_result_sha256": "46479986f81751af6141e8fcbaf19d4413198b119171711715414d2869f43e08",
+    "opposed_instrument_result_sha256": "cb25f6a064565ec7d59e6315e099c715b83d9850c195a4d522e84ca93cbf5d9c"
+  },
+  "frozen_analysis": {
+    "rows": "Use all A1/A2/P records from both banks; C is reported separately and never used for fitting.",
+    "directions": "Fit and score present_to_past and past_to_present separately.",
+    "maps": "For each direction and train bank, ordinary least squares c_is = intercept + slope*c_has; score R2 without refit on the other bank. Also fit the reverse c_has from c_is.",
+    "within_bank": "Report Pearson correlation of c_has and c_is for each bank/direction.",
+    "no_selection": "No family, row, residual coordinate, feature, rank, or threshold is selected after inspecting correlations."
+  },
+  "bars": {
+    "within_bank_shared_observation": "Absolute Pearson correlation >=0.70 in all four bank-by-direction target cells.",
+    "cross_bank_affine_transport": "All four train-bank/direction forward maps and all four reverse maps have held-out-bank R2 >=0.50.",
+    "control_separation": "The median absolute target-cell correlation exceeds the median absolute C-cell correlation by >=0.20.",
+    "coverage": "Exactly 96 target records and 32 C records, with no model forward, backward, update, grid, or root evaluation."
+  },
+  "predictions": {
+    "pred_a_hash_schema_identity_and_exact_coverage": "Both receipts are hash-bound, aligned records contain exact paired contrasts, and coverage is 96 target plus 32 C rows.",
+    "pred_b_within_bank_shared_temporal_observation": "All four target bank/direction correlations pass 0.70.",
+    "pred_c_bidirectional_cross_bank_affine_transport": "All eight held-out-bank R2 values pass 0.50.",
+    "pred_d_target_over_control_separation": "Target median absolute correlation exceeds C median by at least 0.20.",
+    "pred_e_zero_forward_price_and_no_postselection": "The audit uses fixed two-scalar affine maps only and zero GPU/model/search work."
+  },
+  "terminal": {
+    "screen": "A-E pass: compile one shared upstream temporal scalar with task-specific observation and writer maps.",
+    "null": "A/E pass but B/C/D misses: retain explicit task-gated readers; do not force a shared scalar by rank or feature search.",
+    "invalid": "Authority, identity, coverage, finiteness, or price fails."
+  },
+  "circuit_targets": ["computational specification", "cross-boundary grouping and within-module splitting", "composition and reuse", "stable identification"],
+  "price": {"model_forwards": 0, "example_evaluations": 0, "ols_fit_parameters": 16, "feature_dimensions": 2, "grid_evaluations": 0, "root_evaluations": 0, "transformer_backwards": 0, "model_updates": 0}
+}

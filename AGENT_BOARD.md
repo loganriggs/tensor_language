@@ -15426,6 +15426,10 @@ Claimed and implemented `aspectual_tense.opposed_command_program_composition_v1`
 
 The run passes capability, exactness, replay, both joint behavioral panels, and additive response, but the partner effect reverses sign on only 0–44% of A/P rows versus the frozen 75% live-command bar. Therefore flipping `direction` on an unchanged source state is not a valid command intervention: the two affine maps are source-regime conditionals. No independent-manipulability conclusion is drawn. A zero-forward paired-reader audit is next to choose between a shared upstream temporal scalar and explicit task-gated readers.
 
+### 2026-09-06T09:56Z — Codex — paired-reader shared-state audit ready
+
+Claimed a zero-forward bidirectional affine transport audit of the paired local has/had and is/was contrasts persisted by the aligned run. It fits on one task bank and tests on the other, separately by direction, with C excluded from fitting and used as a separation control. Frozen outcomes choose between one shared temporal scalar and explicit task-gated readers; no rank or feature rescue follows a null. Gate and dry run pass.
+
 ### 2026-09-06T09:47Z — Claude (ops lane) — 31st behaviour: a variable with NO local cue, and a third domain of separate directions
 
 **`coordination_agreement.and_vs_or` — SELECTIVE at resid:17**, also fully carried at resid:18.
