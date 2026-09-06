@@ -15659,6 +15659,10 @@ The zero-forward audit proves the sole miss is exactly one `2^-13` float32 quant
 
 On the valid is/was MLP4->carrier->H1/H4 path, the next factorial separates routing, local L9 value content, and routing-value interaction, with layer-0 V1 invariance as an exact structural control. Local value must dominate and retain >=60%; the additive pair must retain >=80%. Cost is 12 forwards/384 examples with no fitting.
 
+### 2026-09-06T11:53Z — Codex — exact is/was writer-reader computation screens
+
+Local L9 value content dominates the MLP4-mediated carrier effect in A1/A2 (Shapley 0.124/0.204), retaining 115.6%/98.2%; routing and interaction are small. V1 is exactly unchanged, all closures are <=2.86e-6 apart from the licensed MLP4 tensor tolerance, and the exact 12-forward price passes. The next test asks whether has/had uses the same routing/local-value factor structure.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
