@@ -1,0 +1,135 @@
+{
+  "alphas": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "bars": {
+    "instrument": 0.005,
+    "linear": [
+      0.85,
+      1.15
+    ],
+    "proportional": 0.1
+  },
+  "behaviours": {
+    "dative": {
+      "curve": {
+        "0.5": {
+          "feedback": 0.19118785663780835,
+          "feedback_fraction": 0.4527888403802677,
+          "rec_direct": 0.42224507228853564,
+          "rec_live": 0.2310572156507273
+        },
+        "1.0": {
+          "feedback": 0.39479006217823875,
+          "feedback_fraction": 0.41152463450451165,
+          "rec_direct": 0.959335186953214,
+          "rec_live": 0.5645451247749752
+        },
+        "1.5": {
+          "feedback": 0.5799141786013569,
+          "feedback_fraction": 0.4026891633976738,
+          "rec_direct": 1.440103760698088,
+          "rec_live": 0.8601895820967311
+        },
+        "2.0": {
+          "feedback": 0.7381548099411972,
+          "feedback_fraction": 0.4229504994184834,
+          "rec_direct": 1.7452510659192735,
+          "rec_live": 1.0070962559780763
+        }
+      },
+      "downstream_count": 31,
+      "rows": 32,
+      "units": [
+        "attn:14:head:08",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:13:head:08",
+        "attn:11:head:03"
+      ],
+      "v25_direct": 0.9593351805769043,
+      "v25_rec_set": 0.5645453258374263
+    },
+    "quantifier_number": {
+      "curve": {
+        "0.5": {
+          "feedback": -0.06302854597668683,
+          "feedback_fraction": -0.26831355991087985,
+          "rec_direct": 0.23490630140952146,
+          "rec_live": 0.2979348473862083
+        },
+        "1.0": {
+          "feedback": -0.1700137120054805,
+          "feedback_fraction": -0.36578670772263105,
+          "rec_direct": 0.46478920205705937,
+          "rec_live": 0.6348029140625399
+        },
+        "1.5": {
+          "feedback": -0.23613885798085676,
+          "feedback_fraction": -0.35470742587467197,
+          "rec_direct": 0.6657285434568015,
+          "rec_live": 0.9018674014376583
+        },
+        "2.0": {
+          "feedback": -0.23316401713526214,
+          "feedback_fraction": -0.2806435543005308,
+          "rec_direct": 0.8308190712464233,
+          "rec_live": 1.0639830883816854
+        }
+      },
+      "downstream_count": 61,
+      "rows": 32,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03"
+      ],
+      "v25_direct": 0.4647891314901199,
+      "v25_rec_set": 0.6348028265537385
+    }
+  },
+  "candidate_id": "corpus.unit_damper_law_v27",
+  "dative_feedback": [
+    0.19118785663780835,
+    0.39479006217823875,
+    0.5799141786013569,
+    0.7381548099411972
+  ],
+  "dative_feedback_fraction": [
+    0.4527888403802677,
+    0.41152463450451165,
+    0.4026891633976738,
+    0.4229504994184834
+  ],
+  "direct_linearity": {
+    "dative": {
+      "0.5": 0.8802868445377439,
+      "1.5": 1.0007650994725237,
+      "2.0": 0.9096148508125075
+    },
+    "quantifier_number": {
+      "0.5": 1.0108079119302924,
+      "1.5": 0.9548824004666013,
+      "2.0": 0.8937590068458913
+    }
+  },
+  "finished_utc": "2026-09-06T22:03:59.513933+00:00",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_direct_linear": true,
+    "pred_c_dative_monotone": true,
+    "pred_d_dative_proportional": true,
+    "pred_e_quantifier_monotone": false
+  },
+  "quantifier_conversion": [
+    0.06302854597668683,
+    0.1700137120054805,
+    0.23613885798085676,
+    0.23316401713526214
+  ],
+  "schema": "circuit_unit_damper_law_result_v1",
+  "seconds": 0.7722372151911259,
+  "semantics": "block_live_scaled_write_plus_base_freeze"
+}
