@@ -86,6 +86,13 @@ and **zero** native parameters. The licensed verdict is therefore `interface_sim
 standalone model. This also corrects the 23:35 reviews' arithmetic: their `13,824` upstream-vector count included the two controls; the
 selected upstream vectors are `11,520`, and `13,824` is the selected vectors-plus-readers total.
 
+Cross-program composition is asymmetric. In an exact four-corner stress test with the independently frozen bracket program, bracket
+vectors are strongly live on the Task14 panel (`2.2515×` the isolated Task14-effect norm), yet Task14 effects are preserved at cosine
+`0.99983`, relative L2 `0.01863`, and perfect signs; the interaction is only `1.863%` of Task14-effect norm. This one-sided gate is a
+valid composition screen. The reverse is not licensed: Task14-vector stress on bracket prompts is only `0.0004896×` bracket-effect norm,
+so its excellent numerical preservation is vacuous. The parent two-sided verdict remains inconclusive, and neither result establishes a
+single natural prompt that jointly instantiates both semantic variables.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -119,6 +126,8 @@ selected upstream vectors are `11,520`, and `13,824` is the selected vectors-plu
 | `agreement_mlp6_7_program_broad_collateral.v1` | invalid | four-behavior selectivity | **FP32 tripwire invalid** | superseded by v2 | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v1_result.json` |
 | `agreement_mlp6_7_program_broad_collateral.v2` | complete | four-behavior selectivity | **held narrowly** | active | `task14_mlp6_7_direction_cardinality_program_broad_collateral_v2_result.json` |
 | `agreement_mlp6_7_program_literal_price.v1` | complete | storage/compute/dependency audit | **interface simple, not end-to-end** | active | `task14_direction_cardinality_program_literal_price_v1_result.json` |
+| `task14_bracket_program_stress_composition.v1` | complete | two-sided four-corner composition | **inconclusive: reverse stress inert** | superseded in one direction by v2 | `task14_bracket_fixed_program_stress_composition_v1_result.json` |
+| `task14_under_bracket_program_stress.v2` | complete | one-sided four-corner composition audit | **held** | active | `task14_under_bracket_program_stress_composition_v2_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -202,8 +211,13 @@ endpoints, the fixed vectors reproduce exact per-prompt opener-term swaps at cos
 answer-preserving endpoints, producing zero logit change. This is a `6,912`-scalar interface program; it does not revive the failed
 pair-centered selective-necessity claim and does not infer the pending state from raw text autonomously.
 
-**Next:** preregister and run simultaneous Task14-at-L11H3 plus bracket-at-L13H8 interventions with single-program corners and an exact
-interaction term. Composition must be judged against fixed separate-program effects, not merely by coexisting dispatch code.
+The first simultaneous-program experiment is informative but asymmetric. Bracket-program stress is `2.2515×` the isolated Task14 effect
+and Task14 survives with only a `1.863%` interaction, licensing that direction. Task14 stress is only `0.0004896×` the bracket effect,
+so the reverse direction and the two-sided parent remain unlicensed rather than being called additive.
+
+**Next:** construct a bracket-side stressor from the Task14 program that is guaranteed live without outcome tuning—for example a frozen
+gain derived from artifact norms or a shared-input authority—then rerun only the missing reverse composition direction. Do not rescale
+from the opened bracket effects, and do not call mere co-dispatch semantic composition.
 
 ### `task.increment.state` — proposed
 
