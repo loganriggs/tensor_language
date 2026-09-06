@@ -1,0 +1,38 @@
+{
+  "schema": "temporal_auxiliary_block11h3_multicue_subspace_prior_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block11h3_multicue_subspace_v1",
+  "registered_utc": "2026-09-06T18:23:00Z",
+  "question": "Does task-family augmentation regularize block11H3 DAS into a stable shared causal direction, or do two cue families require a genuinely two-dimensional operational subspace?",
+  "authority": {
+    "fresh_v1_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "fresh_v2_builder_sha256": "adbfaf91ed2889cc42da85255edf9f5074f1002e9ad93dc1d4ff706de66d1144",
+    "sealed_v3_builder_sha256": "d434eb9d86aba45eae12b93974113c85f33251d204fb78b632e3116cdce21d6b",
+    "fresh_regularization_redteam_sha256": "0802864bae174aa73ffb5bb92d2f2df20ee3ca8baa128437f09504ba11146b92",
+    "aligned_parent_sha256": "3aea84323bae1c2e46a430ef5f08b838826504693e6b1ba8a05027ca065b379d"
+  },
+  "prior_art_search": {
+    "result": "No prior fit pools distinct cue families inside the closure-valid H3 component. The frozen-axis red team found two sharply different basins: unregularized/noise axes outperform DIM-like KL/aligned axes on future/past, while the reverse held on the earlier Later/Previously A2 panel.",
+    "novelty": "This is the first task-augmented fit and the first prospective test of whether cue-specific rank-one axes form a reusable rank-two causal subspace on a third unseen cue family."
+  },
+  "frozen_design": {
+    "fit_population": "All A1 and A2 rows from the already-open Later/Previously v1 and future/past v2 banks, pooled before fitting. V2 is training data here, never confirmatory evidence.",
+    "sealed_test": "All rows from the untouched next/prior-stage v3 bank. No v3 outcome changes any fit, basis, threshold, or terminal.",
+    "unit": "Closure-valid native block11 H3.",
+    "methods": {
+      "single_task_unregularized": "The previously frozen Later/Previously scalar cDAS rank-one axis.",
+      "pooled_dim": "Difference in means on all pooled v1+v2 A1+A2 activation deltas.",
+      "pooled_aligned_rank1": "One rank-one axis initialized at pooled DIM and optimized for 100 Adam steps at lr 0.03 on scalar match/complement plus 0.3 times centered full-vocabulary match/complement.",
+      "two_task_dim_union_rank2": "The orthonormal span of the separate v1 and v2 DIM axes; no outcome optimization. This is a matched operational falsifier for the universal rank-one claim, not a compression result."
+    },
+    "selection": "None. Rank 1 and the rank-2 union are both frozen by hypothesis; v3 is opened once.",
+    "price_max": {"model_forwards": 254, "example_evaluations": 29760, "transformer_backward_forwards": 200, "model_updates": 100}
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure_and_price": "Authorities hold; each sealed panel has at least 75% native base and donor accuracy; full-rank closure <=1e-4; values finite; price within the registered maximum.",
+    "pred_b_task_augmentation_beats_single_task_axis": "Pooled aligned rank 1 has lower full-vocabulary joint error than the frozen single-task unregularized axis on both sealed panels.",
+    "pred_c_optimization_beats_pooled_dim": "Pooled aligned rank 1 has lower full-vocabulary joint error than pooled DIM on both sealed panels.",
+    "pred_d_rank2_union_identifies_shared_subspace": "The rank-2 union has lower full-vocabulary joint error than every rank-one method on both panels and complement fraction magnitude <=0.30 in scalar effect on both panels.",
+    "pred_e_rank2_improvement_is_behavioral": "The rank-2 union scalar joint error is lower than every rank-one method on both panels and its subspace effect is donorward on at least 90% of rows in each panel."
+  },
+  "decision": "shared_rank1 if A,B,C pass and rank 1 is no worse than rank 2; shared_rank2 if A,D,E pass; task_conditioned if A passes but neither shared claim passes; invalid if A fails. A rank-2 pass identifies an operational subspace only inside H3 and still requires downstream reader/weight translation."
+}
