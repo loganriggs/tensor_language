@@ -208,9 +208,12 @@ def main():
                 record["split"] = split
                 records.append(record)
 
-    summaries = {split: {arm: source_groups.summarize_by_family([
-        record for record in records if record["split"] == split and record["arm"] == arm])
-        for arm in ARMS} for split in ("heldout", "a2")}
+    summaries = {}
+    for split in ("heldout", "a2"):
+        family = "A1" if split == "heldout" else "A2"
+        summaries[split] = {arm: {family: source_groups.summarize([
+            record for record in records
+            if record["split"] == split and record["arm"] == arm])} for arm in ARMS}
     fractions = {split: {arm: summaries[split][arm]["A1" if split == "heldout" else "A2"]["mean_recovery"]
         / summaries[split]["full_response"]["A1" if split == "heldout" else "A2"]["mean_recovery"]
         for arm in ARMS[1:]} for split in ("heldout", "a2")}
