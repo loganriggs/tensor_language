@@ -135,6 +135,13 @@ cosine `0.99853` and `0.99612`; all six ordered pairs have positive-effect and s
 endpoints dispatch their native term unchanged, with exactly zero maximum logit change and no answer loss. This licenses replacing the
 six displacement vectors with three absolute closer terms in the compiled bracket interface while retaining the no-edit path.
 
+The consolidated predictive/manipulable package now stores ten Task14 displacements, ten compile-time reader effects, three bracket
+absolute terms, and six bracket effect scalars: `14,992` FP32 scalars (`59,968` bytes). Compiling Task14's two dense readers into ten
+fixed dot products is exact within `7.03e-9`; exhaustive dispatch covers ten Task14 edits, six bracket edits, and three bracket no-edits.
+Relative to the previous complete operational inventory (both older vector banks, Task14 readers, and bracket scalars), storage falls
+`27.7215%`. Effect prediction for both programs is specification-only and suffix-free. Causal execution still needs model execution to
+the installation site and afterward; Task14 alone still reads its native L11H3 base term, while bracket needs the semantic opener position.
+
 **Append-only evidence ledger:**
 | event | stage | test | verdict | lifecycle | result artifact |
 |---|---|---|---|---|---|
@@ -177,6 +184,7 @@ six displacement vectors with three absolute closer terms in the compiled bracke
 | `bracket_suffix_free_scalar_fresh_corpus.v1` | complete | frozen six-scalar prediction on untouched third construction | **predictive screen** | active | `bracket_suffix_free_scalar_fresh_corpus_validation_v1_result.json` |
 | `bracket_l13h8_closer_absolute_term_program.v1` | complete | three absolute terms on untouched fourth construction | **program screen** | active | `bracket_l13h8_closer_absolute_term_program_v1_result.json` |
 | `bracket_absolute_term_program_ood_controls.v2` | complete | two OOD targets plus three no-edit control families | **program screen** | active | `bracket_absolute_term_program_ood_control_validation_v2_result.json` |
+| `task14_bracket_compiled_predictive_dispatcher.v3` | complete | exact strongest-program packaging and price | **predictive/manipulable interface** | active | `task14_bracket_compiled_predictive_dispatcher_v3_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -185,9 +193,9 @@ publication pair is retained only under `artifact_invalid` filenames.
 
 **Next:** keep both fixed programs and their bounded cross-program robustness, but reject fixed MLP15/17 gains and any end-to-end
 simplicity claim. Counterfactual role-prompt lookup is now eliminated at dispatch. The immediate frontier is the native suffix: test
-an updated combined package that replaces six bracket displacements by three absolute terms and adds the prospective six-scalar bracket
-effect reader plus Task14's two fixed readers, with literal storage and residual-dependency accounting. Do not substitute additional
-arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank approximation for an executable dependency-reduction result.
+a Task14 absolute-term analogue that replaces rather than adds to the native L11H3 base term, preserving its ten-way cardinality law and
+fixed scalar effects. Do not substitute additional arbitrary stress scaling, syntax-conditioned gain fitting, or generic low-rank
+approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
