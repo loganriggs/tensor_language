@@ -77,3 +77,20 @@ The reusable implementation is `ops/subspace_weight_atlas.py`; its exact OV cont
 bilinear replay, and basis-rotation invariance tests pass. The next experiment should
 apply it to both the constrained-DAS and difference-in-means block11H3 axes, then test
 whether the weight-predicted edges explain centered full-vocabulary causal effects.
+
+## 16:01 prospective validation update
+
+The first sealed application passed all gates. A rank-3 block8H1 writer subspace explains
+95.73% of fit activation energy. Exact value-weight contractions, computed before opening
+the evaluation head effects, rank `L15H5`, `L9H1`, `L11H3`, and `L9H4` first through
+fourth; the fifth known reader `L15H1` is at percentile 0.875. Across all 81 downstream
+heads, the value-weight score predicts absolute causal response with Spearman 0.526 on
+A1-heldout and 0.535 on untouched A2, exceeding the corresponding routing-weight
+correlations. Three of the top six weight-predicted readers independently clear the
+registered causal-effect bar on both splits.
+
+This changes the recommendation: first compare the aspectual, tense, and temporal writer
+subspaces using their gauge-invariant weight contractions and causally test the shared
+intersection/task-specific complements. The DAS-vs-DIM weight audit remains necessary for
+identification, but weight-guided reader discovery is already licensed as an efficiency
+tool rather than merely a proposed method.
