@@ -1,0 +1,82 @@
+{
+  "schema": "temporal_auxiliary_will_had_fresh_writer_subject_consumer_offset_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.fresh_writer_subject_consumer_offset_v1",
+  "created_utc": "2026-09-06T13:21:00Z",
+  "evidence_class": "prospective_exact_written_state_residual_boundary_sweep",
+  "question": "Through which latest residual boundary can the exact fresh block8H1 cue-written subject state still causally reach the auxiliary answer, and does the offset align with the previously identified block15 suffix consumer?",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*fresh*boundary*",
+      "circuits/followups/*fresh*boundary*",
+      "circuits/prior_art/*consumer*offset*",
+      "circuits/followups/*consumer*offset*",
+      "circuits/prior_art/aspectual_anchor_block15_crossing_confirmation_v1.json",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "The fresh writer is cue -> block8H1 -> subject onset and its block9 H1/H4 subject-source clamp removes only 44.69%/48.85%. A separate exact cube measures the remaining subject-position state at boundary10 as 0.092048/0.057827. Earlier has/had suffix work independently identifies material block11 and block15 consumers, but no residual offset sweep has been run for this fresh cue-written state.",
+    "novelty": "First downstream offset sweep of an exact source-resolved upstream attention write, rather than a natural donor residual or final-residual geometry."
+  },
+  "authority": {
+    "fresh_rows_builder": {
+      "path": "ops/circuit_candidate_temporal_auxiliary_fresh_cues_v1.py",
+      "sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+      "rows_sha256": "c35d7f2159c47620b6f36f12c4f6c41c1630afae61a7f101ab9ff74e4e7e5e0a"
+    },
+    "writer_screen": {
+      "path": "circuits/followups/temporal_auxiliary_will_had_block8h1_fresh_cue_path_v1_result.json",
+      "sha256": "2da5c4b424b620bbfe24cc98049a0520429102b7d37de45d49a48ef887181641",
+      "terminal": "screen"
+    },
+    "boundary10_bypass": {
+      "path": "circuits/followups/temporal_auxiliary_will_had_fresh_writer_block9_subject_bypass_cube_v1_result.json",
+      "sha256": "f9cf002e526b474eff8d0f19014fbe4c9f9e336d6969189baa2046043ff589d0",
+      "terminal": "null",
+      "boundary10_recovery": {"A1": 0.09204826735617808, "A2": 0.05782733513712361}
+    },
+    "written_state_capture": {
+      "path": "ops/attention_path_mediation_eval.py",
+      "sha256": "9180ef34ec376729103e200ae2b2a2ce93d5f8ed0b293b0b1b459a55d71a079d"
+    },
+    "boundary_sweep": {
+      "path": "ops/residual_source_onset_eval.py",
+      "sha256": "40b255e086ea1fff4dd9d2b7473eee77fc307e956517645653e050e0bff49fe0"
+    }
+  },
+  "data_status": "No block8H1 cue-written subject-state recovery has been measured after boundary10. Boundary10 is open only through the exact parent cube; boundaries11-18 are unopened. The block15 prediction comes from a different has/had authority and is not an outcome from these fresh rows.",
+  "population": {
+    "rows": 64,
+    "families": ["A1", "A2"],
+    "directions_per_family": ["base_future_to_past", "base_past_to_future"],
+    "lexical_and_construction_status": "Later/Previously, fresh nouns, bare frame plus unseen note frame; all eight native family/direction/side capability cells passed in the sealed writer screen."
+  },
+  "fixed_intervention": {
+    "upstream_write": "At block8 H1 only, add donor-minus-base exact cue pattern-times-effective-value source terms at both unchanged subject-onset destinations.",
+    "captured_states": "Capture residual boundaries 0-18 from that writer-actuated base run.",
+    "downstream_sweep": "For each boundary 10-18, replace only the two base subject-onset state vectors with the corresponding writer-actuated vectors, then run the native suffix.",
+    "endpoint": "Row-native answer-minus-foil logit recovery against the natural temporal donor denominator; no final-residual projection, DAS, fit, or scalar calibration.",
+    "boundaries": [10, 11, 12, 13, 14, 15, 16, 17, 18]
+  },
+  "opposing_predictions": {
+    "pred_a_authority_capability_exact_written_state_instrument": "All hashes, row authority, eight capability cells, nine-head inventory, native/manual identity, attention reconstruction, finite coverage, and ordered boundary schedule pass.",
+    "pred_b_writer_effect_recurrence": "The captured writer run exactly recurs the sealed H1-cue recovery within 1e-6 in A1 and A2, with direction fraction 1.0.",
+    "pred_c_boundary10_bypass_recurrence": "Boundary10 subject-state recovery exactly recurs the parent cube within 1e-6 in A1 and A2.",
+    "pred_d_block15_is_last_material_consumer_window": "Boundary15 recovery is at least 0.015 with direction at least 0.75 in both A1 and A2, while each boundary16 family recovery is at most half its boundary15 value. This prospective prediction is motivated by, but does not reuse outcomes from, the older block15 suffix circuit.",
+    "pred_e_inert_endpoint_and_exact_zero_fit_price": "Boundary18 is bitwise inert on scored logits (max absolute change <=1e-7); exactly 24 forwards, 768 example evaluations, and 576 intervention records occur with zero fits, grids, roots, backwards, updates, or learned scalars."
+  },
+  "terminal": {
+    "screen": "A-E pass: localize block15 as the final material consumer window and next decompose block15 on the same fresh writer authority.",
+    "null": "A-C and E pass but the block15 offset prediction fails; retain the full curve and decompose the empirically latest material crossing under a new preregistration.",
+    "invalid": "Authority, capability, exactness, recurrence, endpoint inertness, coverage, finiteness, or exact price fails; no curve is mechanism evidence."
+  },
+  "price": {
+    "model_forwards": 24,
+    "example_evaluations": 768,
+    "intervention_records": 576,
+    "fit_parameters": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  },
+  "scope_boundary": "This locates when subject-position state stops being available to the suffix. It does not by itself identify a native module, prove path completeness, or license block15 reuse if the registered crossing fails."
+}
