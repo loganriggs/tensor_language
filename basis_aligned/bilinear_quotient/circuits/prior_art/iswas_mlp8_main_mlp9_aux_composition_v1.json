@@ -1,0 +1,18 @@
+{
+  "candidate_id": "cross_task.iswas_mlp8_main_mlp9_aux_composition_v1",
+  "checked_utc": "2026-09-06T23:43:00Z",
+  "decision": "novel_composition_screen",
+  "components": {
+    "main": "attention9 heads 1 and 4 complete causal-position response",
+    "mlp9": "complete MLP9 response, whose exact Left/Right/interaction program transferred to v11",
+    "auxiliary": "attention11 heads 1/3 and attention15 head 5 complete causal-position response"
+  },
+  "background": "Weight-defined MLP8 post-cue complement actuation; attention9-15 and MLP9-14 otherwise clamped to their native base responses; MLP15-17 and attention16-17 remain live downstream consumers.",
+  "target": "The unrestricted MLP8-complement intervention on the same v11 rows.",
+  "predictions": {
+    "sufficient_program": "The joint three-component program retains at least 75 percent of unrestricted behavior and Q8 norm on both A panels with cosine at least .95.",
+    "missing_branch": "Coverage or directional alignment fails, requiring later MLP corrections or additional attention9 heads before weight compilation."
+  },
+  "factorial": "All eight component unions are executed; singleton summation is not assumed through nonlinear downstream computation.",
+  "fit_policy": "zero fit, response extraction screen before literal replacement"
+}
