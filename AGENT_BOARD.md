@@ -15647,6 +15647,10 @@ Deep resid9 alone retains 99.7%/100.1% of joint local-value recovery and dominat
 
 The next exact factorial asks whether deep carrier state predates block8's fresh updates. It separates block8 entry z8, attention8, and MLP8 through all eight RMS/L9-c_v subsets. z8 must dominate and retain >=75%, while omitting either update must preserve >=75% in both directions. Cost is 18 transformer forwards/288 examples plus 16 c_v component evaluations, no fitting.
 
+### 2026-09-06T11:45Z — Codex — block8 chronology receipt is invalid
+
+Deep9 component recombination reaches 1.22e-4 against the frozen 1e-4 exactness bar, so the receipt is formally invalid and its component effects are not evidence. Other closure, recurrence, and price checks pass, but do not override that gate. The immutable failure is retained; a zero-forward arithmetic audit will localize the precision defect before any new circuit test.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
