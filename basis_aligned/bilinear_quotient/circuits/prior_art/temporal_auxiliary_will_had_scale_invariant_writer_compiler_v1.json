@@ -1,0 +1,46 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.scale_invariant_writer_compiler_v1",
+  "created_utc": "2026-09-06T15:06:00Z",
+  "question": "Is the cross-cue coefficient-dose failure caused by a multiplicative scale change in the exact summed writer vector?",
+  "authority": {
+    "frame_result_sha256": "61815c859ef5d8dfe4accf8f631555560919ba6f87553edb14c607fb7b42e54c",
+    "frame_terminal": "cue_gain_missing",
+    "capability_manifest_sha256": "d59fdc0659f7db4632607a5fae860887bdf0f69f03af659b02ffcd6cc8c3be59"
+  },
+  "novelty": "All prior coefficient maps use the raw projection of the summed writer vector. This is the first scale-invariant writer coordinate and the registered final writer-only falsifier before adding reader-local state.",
+  "frozen_design": {
+    "fit_test": "identical original A1+A2 balanced fit and exact fresh capable A1/A2/P test rows as the frame-conditioned parent",
+    "target_feature": "writer-axis projection divided by the L2 norm of the full summed writer vector per row",
+    "baseline_feature": "raw writer-axis projection, using the same shared axes and frame-specific affine maps",
+    "axes": "shared summed-writer and two reader axes fitted jointly on original A1+A2 fit rows",
+    "programs": "normalized and raw frame-specific affine maps, eight scalars each; intercept-only retained",
+    "answer_changing_arms": ["full_response", "oracle_rank1", "normalized_predicted", "raw_predicted", "intercept_only", "zero"],
+    "control_arms": ["normalized_predicted", "raw_predicted", "intercept_only"],
+    "model_forwards": 48,
+    "example_evaluations": 1252,
+    "answer_changing_records": 354,
+    "fitted_scalars_total": 16,
+    "stored_axis_coordinates": 512,
+    "model_backwards": 0,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure": "all authority, capability, alignment, and exact closures pass",
+    "pred_b_normalized_coefficients_predict": "both coefficient correlations absolute r>=0.60 on fresh A1/A2",
+    "pred_c_normalized_program_material": "normalized program retains >=0.65 full response and is donorward on >=0.75 A1/A2 rows",
+    "pred_d_normalization_repairs_raw": "normalized A2 causal fraction >=0.60 and exceeds same-run raw fraction by >=0.10",
+    "pred_e_p_selective": "normalized-program P effect <=0.20",
+    "pred_f_price_exact": "48 forwards, 1252 examples, 354 records, 16 scalars, 512 axes, zero backwards/updates"
+  },
+  "terminal_rules": {
+    "invalid": "authority, rows, capability, closure, coverage, finiteness, or price fails",
+    "scale_invariant_compiler": "all predictions pass",
+    "writer_only_insufficient": "valid normalization does not repair causal dose; redirect to reader-local state",
+    "null": "other valid miss"
+  },
+  "interpretation_limits": [
+    "Normalization uses only the exact writer vector available at the typed circuit interface.",
+    "This is the final registered writer-only feature variant; failure closes that family rather than licensing further transforms.",
+    "C selectivity remains inherited."
+  ]
+}
