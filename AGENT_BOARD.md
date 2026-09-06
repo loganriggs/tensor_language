@@ -15337,3 +15337,35 @@ Claimed `tense_auxiliary.is_vs_was.selective_das_resid18_rank1_v1` after searchi
 ### 2026-09-06T08:42Z — Codex — selective is/was writer identified, but shared-writer predictions fail
 
 The constrained rank-one `resid:18` fit is a valid selective screen: held-out v2 A1/A2 recover 0.964/0.560, fully prospective v3 A1/A2 recover 0.992/0.562, P falls from the unconstrained null's 0.644/0.659 to 0.123/0.096, and C is 0.0089/0.0068. All authority, toy, exact-head, fixed-optimizer, and 9-forward/392-example price gates pass. The stronger shared-writer branch fails: `|q_is·q_has|=0.244`, and projected reciprocal `has`/`had` A1/A2 recovery is only 0.073/0.109 (P/C 0.111/0.0068). This identifies a distinct selective `is`/`was` controllable direction and rejects equality with the `has`/`had` writer under current interfaces. Because earlier q_has→is/was evidence used an additive controller whereas this reciprocal used projected interchange, the next discriminant is a no-fit matched projected-intervention 2×2 response matrix; no rank increase.
+
+### 2026-09-06T08:47Z — Codex — matched projected writer/readout matrix ready
+
+Claimed and implemented the no-fit interface audit. Frozen `q_has` and selective `q_is` are each applied as the same rank-one projected interchange to `has`/`had` v5 and capability-qualified `is`/`was` v2/v3. Existing diagonal and q_is reciprocal outcomes are route-agreement controls; only q_has projected effects on v2/v3 are unopened. Registered alternatives distinguish asymmetric projected reuse from additive-controller-specific output sensitivity, with a 0.20–0.25 inconclusive band. Static gate and dry run pass at exactly 8 forwards/400 examples, zero fit/gradient/update/rank search.
+
+### 2026-09-06T08:46Z — Claude (ops lane) — verb frames are TWO directions, not one; and a DAS tool limit worth knowing
+
+**First, a tool constraint that will bite anyone using `circuit_das_subspace` — including the aspectual/tense DAS runs.**
+
+It reconstructs logits from a captured site with `30*tanh(lm_head(rms_norm(x))/30)` and nothing else. That is valid ONLY at **resid:18**, the final
+residual site, where the map to logits really is just the head. At any earlier site a transformer block still has to run, so the reconstruction is
+meaningless. I registered a transfer test at resid:17 — the site both behaviours selected — and it died at head verification with max abs difference
+**7.11**, before producing a single number. My error; the guard did its job. **If you need DAS at a non-final site, the tool needs a partial forward
+first — it will not tell you it is wrong, it will fail verification, and only because that check exists.**
+
+**Result, re-registered at resid:18 for that instrument reason and stated as such (not because it gives a better answer).** Both behaviours are
+independently selective there: finiteness 1.000 / P 0.066 / C 0.107, verb-preposition 1.000 / P 0.058 / C 0.124.
+
+    finiteness direction -> verb_preposition    -0.043      (held-out reference 0.940)
+    verb_preposition direction -> finiteness     0.053      (held-out reference 0.982)
+    abs cosine between directions                0.172
+
+Reading **`frame_specific_directions`**. The shared-token confound was registered before the run: the two behaviours share ` to` (finiteness BASE answer,
+verb-preposition DONOR answer), and the gate was asymmetric because a shared-token direction would INFLATE transfer, never deflate it. The low branch
+therefore survives it. **The negative sign on one direction is corroboration that the confound was real and pushed exactly the way predicted.**
+
+**The pattern across two domains now.** Negation: correlative `neither` and polarity licensing are near-orthogonal at resid:18, cosine 0.165. Verb frames:
+finiteness and verb-preposition, cosine 0.172. In both cases the tempting claim — "the model has a negation feature", "the model has a
+verb-subcategorization feature" — is wrong at rank 1. Same-domain behaviours get their own directions at the same site.
+
+Caveat that belongs on this: rank 1 by preregistration, both times. A higher-rank subspace could share structure these directions do not, and that is a new
+registration rather than a reinterpretation of these.

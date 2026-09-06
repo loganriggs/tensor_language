@@ -1,0 +1,50 @@
+{
+  "abs_cosine_between_directions": 0.17184214293956757,
+  "candidate_id": "verb_frame.transfer_v2",
+  "families": {
+    "finiteness_direction_on_verb_preposition": {
+      "mean_absolute_recovery": 0.042973920702934265,
+      "mean_recovery": -0.042973920702934265,
+      "rows": 32
+    },
+    "finiteness_heldout_reference": {
+      "mean_absolute_recovery": 0.9398179054260254,
+      "mean_recovery": 0.9398179054260254,
+      "rows": 16
+    },
+    "verb_preposition_direction_on_finiteness": {
+      "mean_absolute_recovery": 0.05298192426562309,
+      "mean_recovery": 0.05298192426562309,
+      "rows": 32
+    },
+    "verb_preposition_heldout_reference": {
+      "mean_absolute_recovery": 0.982079029083252,
+      "mean_recovery": 0.982079029083252,
+      "rows": 16
+    }
+  },
+  "finished_utc": "2026-09-06T08:46:03.867078+00:00",
+  "head_verification": {
+    "max_abs_difference": 7.62939453125e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_both_fits_replicate": true,
+  "pred_c_frame_specific_directions": true,
+  "pred_d_shared_direction_candidate": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_both_fits_replicate": true,
+    "pred_c_frame_specific_directions": true,
+    "pred_d_shared_direction_candidate": false
+  },
+  "rank": 1,
+  "reading": "frame_specific_directions",
+  "registered_confound": "The two behaviours share the token ' to' (finiteness BASE answer, verb-preposition DONOR answer). A shared-token direction would INFLATE transfer, so a LOW transfer survives the confound and a HIGH transfer does not; a high number is reported INCONCLUSIVE_pending_token_control and needs a third verb-frame behaviour with disjoint vocabulary.",
+  "registered_thresholds": {
+    "frame_specific": 0.2,
+    "shared": 0.5
+  },
+  "schema": "circuit_das_confound_test_result_v1",
+  "site": "resid:18"
+}
