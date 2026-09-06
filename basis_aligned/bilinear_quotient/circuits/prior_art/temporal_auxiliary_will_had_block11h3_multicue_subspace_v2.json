@@ -1,0 +1,26 @@
+{
+  "schema": "temporal_auxiliary_block11h3_multicue_subspace_prior_v2",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block11h3_multicue_subspace_v2",
+  "registered_utc": "2026-09-06T18:31:00Z",
+  "question": "On a prospectively capable third cue family, does multi-task augmentation identify a shared H3 rank-one direction or a reusable rank-two operational subspace?",
+  "authority": {
+    "v1_design_runner_sha256": "fb339ee67bbab60531f5f3d5e27823bf5fa28fa23c26e5510f01d5736de2cd50",
+    "v4_builder_sha256": "31e40a5e8a8b285ce7afdb6327276c0aa28b4759083586d0310b0857c8b86764",
+    "v4_capability_result_sha256": "63b69e3bc57a0a8a9afcffa252737614f9a8a41b6732b9fff655d9da128ef8b2"
+  },
+  "correction": "V1 was invalid only because its sealed next/prior-stage bank failed native capability. Its intervention metrics are quarantined and do not set v2 axes, ranks, thresholds, or predictions. V2 changes only the sealed test authority to the capability-passed Next-year/Last-year bank.",
+  "frozen_design": {
+    "fit": "Exactly v1: pool all A1/A2 Later/Previously and future/past rows; compute pooled DIM; optimize one rank-one scalar-plus-0.3-centered-effect axis for 100 Adam updates; construct the rank-two union of separate task DIM axes.",
+    "test": "All A1/A2 Next-year/Last-year rows, with no capable-row filtering.",
+    "methods": ["single_task_unregularized", "pooled_dim", "pooled_aligned_rank1", "two_task_dim_union_rank2"],
+    "price_max": {"model_forwards": 254, "example_evaluations": 29760, "transformer_backward_forwards": 200, "model_updates": 100}
+  },
+  "predictions": {
+    "pred_a_authority_capability_closure_and_price": "Capability manifest holds, full-rank closure <=1e-4, values finite, fit improves its own objective, and price is within the frozen maximum.",
+    "pred_b_task_augmentation_beats_single_task_axis": "Pooled aligned rank 1 has lower full-vocabulary joint error than the frozen single-task axis on both panels.",
+    "pred_c_optimization_beats_pooled_dim": "Pooled aligned rank 1 has lower full-vocabulary joint error than pooled DIM on both panels.",
+    "pred_d_rank2_union_identifies_shared_subspace": "Rank 2 has lower full-vocabulary joint error than every rank 1 and absolute scalar complement fraction <=0.30 on both panels.",
+    "pred_e_rank2_improvement_is_behavioral": "Rank 2 has lower scalar joint error than every rank 1 and is donorward on >=90% of rows in both panels."
+  },
+  "decision": "shared_rank2 if A,D,E pass; shared_rank1 if A,B,C pass and pooled aligned is no worse than rank2; otherwise task_conditioned; invalid if A fails."
+}
