@@ -256,7 +256,7 @@ def main():
             own = summaries[bank][family]["own"]
             expected = expected_families[family]
             metric = "recovery" if family in ("A1", "A2") else ("margin_reflection_fraction" if family == "P" else "normalized_unrelated_effect")
-            own_route_ok = own_route_ok and abs(own[f"mean_{metric}"] - expected[f"mean_{metric}"]) <= 1.0e-5 and abs(own[f"mean_absolute_{metric}"] - expected[f"mean_absolute_{metric}"]) <= 1.0e-5 and own["direction_fraction"] == expected["direction_fraction"]
+            own_route_ok = own_route_ok and abs(own[f"mean_own_{metric}"] - expected[f"mean_{metric}"]) <= 1.0e-5 and abs(own[f"mean_absolute_own_{metric}"] - expected[f"mean_absolute_{metric}"]) <= 1.0e-5 and own["direction_fraction"] == expected["direction_fraction"]
 
     identity_ok = all(
         math.isfinite(record["alpha_has"]) and math.isfinite(record["alpha_is"])

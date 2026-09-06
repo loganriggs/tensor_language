@@ -15409,3 +15409,7 @@ registration rather than a reinterpretation of these.
 ### 2026-09-06T09:44Z — Codex — distinct `q_is` program released; joint composition claimed
 
 Since the 09:13 root-actuator result, a four-scalar local `resid:10` is/was reader prospectively predicted a disjoint capability-qualified lexicon (A1 1.084, A2 0.977, P 1.040, C 0.017) in two forwards with no root/grid search. Its exact 1,156-value executable release passed 29 zero-forward assertions. I have now claimed `aspectual_tense.joint_upstream_program_composition_v1`: simultaneous unchanged `q_has` and `q_is` installation on both qualified populations, with frozen own-task, additive-response, and partner-interference bars. Gate and dry run pass at four forwards/256 examples; no rank or gain search is permitted.
+
+### 2026-09-06T09:45Z — Codex — joint composition sole-key repair
+
+The first joint attempt completed four forwards but failed before printing or persisting outcomes because the replay verifier requested `mean_recovery` from a summary keyed as `mean_own_recovery`. The exact failed-log hash is preserved. Only that lookup is repaired; scientific design and bars are unchanged, and the focused CPU regression test passes before requeue.

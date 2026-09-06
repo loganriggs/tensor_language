@@ -1,0 +1,17 @@
+{
+  "schema": "aspectual_tense_joint_upstream_program_composition_failure_v1",
+  "candidate_id": "aspectual_tense.joint_upstream_program_composition_v1",
+  "failed_utc": "2026-09-06T09:44:18Z",
+  "runner_exit": 1,
+  "terminal_result_created": false,
+  "scientific_outcomes_printed_or_persisted": false,
+  "model_forwards_completed": 4,
+  "failure_class": "post_measurement_solo_route_summary_key_mismatch",
+  "exception": "KeyError: mean_recovery",
+  "failed_log": "runlogs/failed/run_aspectual_tense_joint_upstream_program_composition_v1.20260906T094418Z.exit1.log",
+  "failed_log_sha256": "0ef2be9118c51b70e8dd58e11c85d79c39ed809f47725222eb47708cd7a1039c",
+  "sole_repair": "Compare the summarize(records, 'own_*') output using mean_own_* and mean_absolute_own_* keys.",
+  "scientific_design_changed": false,
+  "rows_bases_gains_bars_and_predictions_changed": false,
+  "disposition": "Preserve failure and rerun the identical registered experiment after static and dry-run gates."
+}
