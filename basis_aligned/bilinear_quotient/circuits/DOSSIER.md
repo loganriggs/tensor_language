@@ -207,6 +207,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_native_baseline_semantic_linear_feasibility.v1` | complete | row-disjoint 6/5-coefficient baseline models | **retrospective feasibility screen** | active diagnostic | `task14_bracket_native_baseline_semantic_linear_feasibility_v1_result.json` |
 | `task14_bracket_native_baseline_semantic_linear_prospective.v2` | complete | 27-scalar standalone program on two untouched corpora | **null: bracket near-cancellation exposes baseline error** | active | `task14_bracket_native_baseline_semantic_linear_prospective_v2_result.json` |
 | `task14_bracket_counterfactual_error_budget_audit.v3` | complete | exact baseline/effect error decomposition | **bracket baseline is 95.1% of error norm** | active diagnostic | `task14_bracket_counterfactual_error_budget_audit_v3_result.json` |
+| `task14_standalone_bracket_conditioned_hybrid.v6` | complete | 22-scalar strongest-boundary package | **predictive/composable/manipulable hybrid screen** | active | `task14_standalone_bracket_conditioned_hybrid_v6_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -229,6 +230,11 @@ The exact post-result budget preserves that null and sharpens the boundary: brac
 whereas intervention-effect error is 15.8%; median cancellation amplification is 5.80x and reaches 46.15x. Task14 cancellation is
 negligible and its prospective standalone margins pass. The next package should therefore promote only the preregistered Task14
 component, retain bracket baseline conditioning, and preserve the exact typed composition contract.
+
+The v6 hybrid does exactly that in 22 scalars: Task14 is standalone on untouched data, bracket effect prediction transfers to the newest
+construction, and all typed composition cases remain exact. Its sole model-valued runtime dependency is the native unedited bracket
+margin. The next circuit-first frontier is a fixed readout of the already localized native bracket term/state, evaluated for the precision
+needed under counterfactual cancellation; semantic feature expansion remains closed.
 
 ### `subroutine.induction.equality_score` — site_live
 
