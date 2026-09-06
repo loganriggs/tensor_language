@@ -1,0 +1,21 @@
+{
+  "schema": "circuit_prior_art_preregistration_v1",
+  "candidate_id": "bracket.pending_opener.ordered_pair_suffix_free_scalar_feasibility_v1",
+  "created_utc": "2026-09-06T00:29:00Z",
+  "purpose": "Test whether the bracket program's native downstream suffix can be replaced, for donorward effect prediction only, by six ordered-pair scalar means transferred between the two OOD target constructions.",
+  "prior_art_search": {
+    "result": "The prior exact readout fold shows that final residual changes project directly through the unembedding, but it retains native downstream write-bank construction and context-specific RMS scales. The six-vector program validation reports effects in two OOD constructions but does not test a suffix-free scalar predictor.",
+    "program_validation": {"path": "circuits/followups/bracket_l13h8_ordered_pair_displacement_program_ood_validation_v1_result.json", "sha256": "3b267f069647824fb7557e9784c63becb0366f94fe4d274fea343ae2bc802e5f"},
+    "direct_readout_fold": {"path": "circuits/fast_screens/bracket_l13h8_mu_delta_direct_readout_fold_v2_result.json", "sha256": "31a40ed62409181e7977ca4182f34dbd5d7d9fa0d92c3270888bae53a94a21ae"}
+  },
+  "method": "For each ordered pair, predict every endpoint in one target family by the mean program donorward effect for the same pair in the other target family, symmetrically in both directions. No row predicts itself or uses its own family. Pool the two transferred folds only after predictions are frozen.",
+  "predictions": {
+    "pred_a_immutable_balanced_cross_family_instrument": "There are exactly two target families, six ordered pairs, 12 endpoints per pair-family, 144 target endpoints total, and all prior program/instrument gates remain true.",
+    "pred_b_suffix_free_transfer_overall": "Cross-family pair-scalar predictions reach cosine at least 0.80, relative L2 at most 0.60, norm ratio between 0.50 and 1.50, and sign agreement at least 0.90.",
+    "pred_c_each_direction_transfers": "Both family-to-family folds individually reach cosine at least 0.70 and sign agreement at least 0.85.",
+    "pred_d_six_scalar_price": "The predictor stores exactly six FP32 scalars (24 bytes), performs one lookup and no model forward, activation construction, suffix execution, fitting optimization, backward pass, or parameter update per prediction.",
+    "pred_e_scope_is_diagnostic": "A pass licenses retrospective cross-construction feasibility only and requires a new untouched corpus before promotion to a predictive program. It does not predict full logits, native behavior, or intervention effects outside the two registered constructions."
+  },
+  "terminal_rule": "feasibility_screen if all gates pass; null if immutable inputs are valid but transfer fails; invalid on input or balance mismatch.",
+  "closed_claims": ["prospective validation", "full-logit prediction", "native behavior prediction", "new construction transfer", "whole-model replacement"]
+}
