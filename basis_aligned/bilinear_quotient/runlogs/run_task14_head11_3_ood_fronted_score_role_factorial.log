@@ -1,0 +1,550 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_fronted_score_role_factorial_v2_result.json",
+  "terminal": "self_score_sufficiency_screen",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "pre_subject_value_max_absolute_error": 0.0,
+    "native_corner_max_absolute_logit_error": 6.0558319091796875e-05,
+    "complete_head_vector_max_absolute_error": 1.52587890625e-05,
+    "group_endpoint_max_absolute_logit_error": 0.0,
+    "parent_value_only_max_absolute_reproduction_error": 1.5735626220703125e-05,
+    "global_closure_max_absolute_error": 0.0,
+    "algebra_max_absolute_error": 5.551115123125783e-17,
+    "directional_score_need_reproduced": true,
+    "cells": {
+      "fronted_plural_to_fronted_singular": {
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "global_factorial": {
+          "corners": {
+            "A_native_scores_native_value": {
+              "mean_margin_delta": -1.4901161193847656e-07,
+              "mean_donor_ce_gain": -7.152557373046875e-07
+            },
+            "B_donor_scores_native_value": {
+              "mean_margin_delta": 0.18833395838737488,
+              "mean_donor_ce_gain": 0.20864731073379517
+            },
+            "C_native_scores_donor_value": {
+              "mean_margin_delta": 0.7376563251018524,
+              "mean_donor_ce_gain": 0.7088085114955902
+            },
+            "D_donor_scores_donor_value": {
+              "mean_margin_delta": 0.5776107609272003,
+              "mean_donor_ce_gain": 0.5800482928752899
+            }
+          },
+          "score_main_margin": 0.18833410739898682,
+          "value_main_margin": 0.7376564741134644,
+          "interaction_margin": -0.3483796715736389,
+          "all_score_conditional_margin": -0.1600455641746521,
+          "all_score_conditional_ce": -0.1287602186203003,
+          "directional_score_need_recovery": -0.2770820334402038,
+          "complete_direction_fraction": 1.0
+        },
+        "earlier_E_plus_D_route": {
+          "mean_margin_contribution": -0.012682169675827026,
+          "recovery_of_all_score_conditional_margin": null,
+          "direction_fraction": 0.375,
+          "mean_ce_contribution": -0.0008259713649749756
+        },
+        "self_S_route": {
+          "mean_margin_contribution": -0.14822769165039062,
+          "recovery_of_all_score_conditional_margin": null,
+          "direction_fraction": 0.0,
+          "mean_ce_contribution": -0.12865543365478516
+        },
+        "score_singletons": {
+          "native_value": [
+            {
+              "source_position": 0,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.00010082125663757324,
+              "recovery_of_same_value_all_score_correction": -0.0005353319057815846,
+              "direction_fraction": 0.5625,
+              "mean_ce_contribution": -0.00012767314910888672
+            },
+            {
+              "source_position": 1,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0003472864627838135,
+              "recovery_of_same_value_all_score_correction": 0.0018439913384785116,
+              "direction_fraction": 0.75,
+              "mean_ce_contribution": -0.0003184974193572998
+            },
+            {
+              "source_position": 2,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0016835927963256836,
+              "recovery_of_same_value_all_score_correction": 0.008939394035298042,
+              "direction_fraction": 0.6875,
+              "mean_ce_contribution": 0.0017068684101104736
+            },
+            {
+              "source_position": 3,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0010219216346740723,
+              "recovery_of_same_value_all_score_correction": 0.005426110271726437,
+              "direction_fraction": 0.5625,
+              "mean_ce_contribution": 0.0006707608699798584
+            },
+            {
+              "source_position": 4,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0004042983055114746,
+              "recovery_of_same_value_all_score_correction": 0.0021467078432849474,
+              "direction_fraction": 0.625,
+              "mean_ce_contribution": 0.00016391277313232422
+            },
+            {
+              "source_position": 5,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.00494733452796936,
+              "recovery_of_same_value_all_score_correction": 0.026268924924407907,
+              "direction_fraction": 0.8125,
+              "mean_ce_contribution": 0.005465477705001831
+            },
+            {
+              "source_position": 6,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0022906064987182617,
+              "recovery_of_same_value_all_score_correction": -0.012162462393843509,
+              "direction_fraction": 0.3125,
+              "mean_ce_contribution": -0.0019394159317016602
+            },
+            {
+              "source_position": 7,
+              "semantic_group": "D",
+              "mean_margin_contribution": -0.012613624334335327,
+              "recovery_of_same_value_all_score_correction": -0.06697472119382654,
+              "direction_fraction": 0.125,
+              "mean_ce_contribution": -0.0008469521999359131
+            },
+            {
+              "source_position": 8,
+              "semantic_group": "S",
+              "mean_margin_contribution": 0.19663184881210327,
+              "recovery_of_same_value_all_score_correction": 1.0440586228788482,
+              "direction_fraction": 1.0,
+              "mean_ce_contribution": 0.2054695188999176
+            }
+          ],
+          "donor_value": [
+            {
+              "source_position": 0,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.00012746453285217285,
+              "recovery_of_same_value_all_score_correction": 0.0007964265270924678,
+              "direction_fraction": 0.4375,
+              "mean_ce_contribution": -0.00015595555305480957
+            },
+            {
+              "source_position": 1,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0008414685726165771,
+              "recovery_of_same_value_all_score_correction": -0.005257681316917426,
+              "direction_fraction": 0.75,
+              "mean_ce_contribution": 0.0001379847526550293
+            },
+            {
+              "source_position": 2,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.002697855234146118,
+              "recovery_of_same_value_all_score_correction": -0.01685679480127324,
+              "direction_fraction": 0.6875,
+              "mean_ce_contribution": 0.0026474297046661377
+            },
+            {
+              "source_position": 3,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0010231435298919678,
+              "recovery_of_same_value_all_score_correction": -0.0063928265376692805,
+              "direction_fraction": 0.625,
+              "mean_ce_contribution": 0.0007262229919433594
+            },
+            {
+              "source_position": 4,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0007118880748748779,
+              "recovery_of_same_value_all_score_correction": -0.004448033774294547,
+              "direction_fraction": 0.6875,
+              "mean_ce_contribution": 0.0004515349864959717
+            },
+            {
+              "source_position": 5,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.005459308624267578,
+              "recovery_of_same_value_all_score_correction": -0.034110964914404164,
+              "direction_fraction": 0.8125,
+              "mean_ce_contribution": 0.005869805812835693
+            },
+            {
+              "source_position": 6,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0018393993377685547,
+              "recovery_of_same_value_all_score_correction": 0.011492972937139844,
+              "direction_fraction": 0.3125,
+              "mean_ce_contribution": -0.0014485716819763184
+            },
+            {
+              "source_position": 7,
+              "semantic_group": "D",
+              "mean_margin_contribution": -0.021378368139266968,
+              "recovery_of_same_value_all_score_correction": 0.13357676140238106,
+              "direction_fraction": 0.0,
+              "mean_ce_contribution": -0.008972406387329102
+            },
+            {
+              "source_position": 8,
+              "semantic_group": "S",
+              "mean_margin_contribution": -0.14822769165039062,
+              "recovery_of_same_value_all_score_correction": 0.9261593247822536,
+              "direction_fraction": 0.0,
+              "mean_ce_contribution": -0.12865543365478516
+            }
+          ]
+        },
+        "group_corners": {
+          "000": {
+            "mean_margin_delta": 0.7376563251018524,
+            "mean_donor_ce_gain": 0.7088085114955902
+          },
+          "001": {
+            "mean_margin_delta": 0.7464525699615479,
+            "mean_donor_ce_gain": 0.7170518338680267
+          },
+          "010": {
+            "mean_margin_delta": 0.7162779569625854,
+            "mean_donor_ce_gain": 0.6998361051082611
+          },
+          "011": {
+            "mean_margin_delta": 0.7249741554260254,
+            "mean_donor_ce_gain": 0.7079825401306152
+          },
+          "100": {
+            "mean_margin_delta": 0.5894286334514618,
+            "mean_donor_ce_gain": 0.580153077840805
+          },
+          "101": {
+            "mean_margin_delta": 0.5978191792964935,
+            "mean_donor_ce_gain": 0.5880557894706726
+          },
+          "110": {
+            "mean_margin_delta": 0.5693210363388062,
+            "mean_donor_ce_gain": 0.5722457468509674
+          },
+          "111": {
+            "mean_margin_delta": 0.5776107609272003,
+            "mean_donor_ce_gain": 0.5800482928752899
+          }
+        },
+        "mobius": {
+          "margin": {
+            "000": 0.7376563251018524,
+            "001": 0.008796244859695435,
+            "010": -0.021378368139266968,
+            "011": -0.00010004639625549316,
+            "100": -0.14822769165039062,
+            "101": -0.0004056990146636963,
+            "110": 0.0012707710266113281,
+            "111": -7.748603820800781e-07
+          },
+          "ce": {
+            "000": 0.7088085114955902,
+            "001": 0.008243322372436523,
+            "010": -0.008972406387329102,
+            "011": -9.688735008239746e-05,
+            "100": -0.12865543365478516,
+            "101": -0.0003406107425689697,
+            "110": 0.001065075397491455,
+            "111": -3.2782554626464844e-06
+          }
+        },
+        "shapley": {
+          "margin": {
+            "E": 0.008543113867441813,
+            "D": -0.020793264110883076,
+            "S": -0.14779541393121085
+          },
+          "ce": {
+            "E": 0.008023480574289957,
+            "D": -0.008489405115445455,
+            "S": -0.1282942940791448
+          }
+        }
+      },
+      "fronted_singular_to_fronted_plural": {
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "global_factorial": {
+          "corners": {
+            "A_native_scores_native_value": {
+              "mean_margin_delta": -1.8477439880371094e-06,
+              "mean_donor_ce_gain": -3.2782554626464844e-07
+            },
+            "B_donor_scores_native_value": {
+              "mean_margin_delta": -0.12504476308822632,
+              "mean_donor_ce_gain": -0.15118134021759033
+            },
+            "C_native_scores_donor_value": {
+              "mean_margin_delta": 0.6308520436286926,
+              "mean_donor_ce_gain": 0.6007541120052338
+            },
+            "D_donor_scores_donor_value": {
+              "mean_margin_delta": 1.1714092940092087,
+              "mean_donor_ce_gain": 1.0693909227848053
+            }
+          },
+          "score_main_margin": -0.12504291534423828,
+          "value_main_margin": 0.6308538913726807,
+          "interaction_margin": 0.6656001657247543,
+          "all_score_conditional_margin": 0.540557250380516,
+          "all_score_conditional_ce": 0.46863681077957153,
+          "directional_score_need_recovery": 0.4614589052221286,
+          "complete_direction_fraction": 1.0
+        },
+        "earlier_E_plus_D_route": {
+          "mean_margin_contribution": -0.03272339701652527,
+          "recovery_of_all_score_conditional_margin": -0.06053641310608671,
+          "direction_fraction": 0.375,
+          "mean_ce_contribution": -0.04728442430496216
+        },
+        "self_S_route": {
+          "mean_margin_contribution": 0.576358824968338,
+          "recovery_of_all_score_conditional_margin": 1.066230865579215,
+          "direction_fraction": 1.0,
+          "mean_ce_contribution": 0.5184924006462097
+        },
+        "score_singletons": {
+          "native_value": [
+            {
+              "source_position": 0,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.00026410818099975586,
+              "recovery_of_same_value_all_score_correction": -0.0021121403021728685,
+              "direction_fraction": 0.5625,
+              "mean_ce_contribution": -5.4955482482910156e-05
+            },
+            {
+              "source_position": 1,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0018382072448730469,
+              "recovery_of_same_value_all_score_correction": -0.014700610904764447,
+              "direction_fraction": 0.8125,
+              "mean_ce_contribution": 0.002920299768447876
+            },
+            {
+              "source_position": 2,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0014413297176361084,
+              "recovery_of_same_value_all_score_correction": -0.011526680369441034,
+              "direction_fraction": 0.4375,
+              "mean_ce_contribution": 0.0010557770729064941
+            },
+            {
+              "source_position": 3,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0013035237789154053,
+              "recovery_of_same_value_all_score_correction": 0.010424611225089043,
+              "direction_fraction": 0.3125,
+              "mean_ce_contribution": -0.00025284290313720703
+            },
+            {
+              "source_position": 4,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.002734959125518799,
+              "recovery_of_same_value_all_score_correction": -0.02187216379264321,
+              "direction_fraction": 0.875,
+              "mean_ce_contribution": 0.0030892789363861084
+            },
+            {
+              "source_position": 5,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0006950795650482178,
+              "recovery_of_same_value_all_score_correction": 0.005558728082552224,
+              "direction_fraction": 0.5625,
+              "mean_ce_contribution": -0.0012552738189697266
+            },
+            {
+              "source_position": 6,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.006668448448181152,
+              "recovery_of_same_value_all_score_correction": -0.053329278430714555,
+              "direction_fraction": 0.75,
+              "mean_ce_contribution": 0.00549653172492981
+            },
+            {
+              "source_position": 7,
+              "semantic_group": "D",
+              "mean_margin_contribution": -0.03700849413871765,
+              "recovery_of_same_value_all_score_correction": 0.29596634113044074,
+              "direction_fraction": 0.0625,
+              "mean_ce_contribution": -0.05263295769691467
+            },
+            {
+              "source_position": 8,
+              "semantic_group": "S",
+              "mean_margin_contribution": -0.10130536556243896,
+              "recovery_of_same_value_all_score_correction": 0.8101647764973268,
+              "direction_fraction": 0.0625,
+              "mean_ce_contribution": -0.11109498143196106
+            }
+          ],
+          "donor_value": [
+            {
+              "source_position": 0,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.00021278858184814453,
+              "recovery_of_same_value_all_score_correction": 0.00039364670753811115,
+              "direction_fraction": 0.5,
+              "mean_ce_contribution": -0.00010436773300170898
+            },
+            {
+              "source_position": 1,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0023108720779418945,
+              "recovery_of_same_value_all_score_correction": 0.00427498119082705,
+              "direction_fraction": 0.8125,
+              "mean_ce_contribution": 0.0033885538578033447
+            },
+            {
+              "source_position": 2,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0014132559299468994,
+              "recovery_of_same_value_all_score_correction": 0.002614442649602909,
+              "direction_fraction": 0.375,
+              "mean_ce_contribution": 0.001028507947921753
+            },
+            {
+              "source_position": 3,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0011247694492340088,
+              "recovery_of_same_value_all_score_correction": -0.00208075915815068,
+              "direction_fraction": 0.3125,
+              "mean_ce_contribution": 6.213784217834473e-05
+            },
+            {
+              "source_position": 4,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.0031445324420928955,
+              "recovery_of_same_value_all_score_correction": 0.00581720518942139,
+              "direction_fraction": 0.875,
+              "mean_ce_contribution": 0.00342366099357605
+            },
+            {
+              "source_position": 5,
+              "semantic_group": "E",
+              "mean_margin_contribution": -0.0004894137382507324,
+              "recovery_of_same_value_all_score_correction": -0.0009053874273376557,
+              "direction_fraction": 0.625,
+              "mean_ce_contribution": -0.001162201166152954
+            },
+            {
+              "source_position": 6,
+              "semantic_group": "E",
+              "mean_margin_contribution": 0.006872951984405518,
+              "recovery_of_same_value_all_score_correction": 0.012714568123112622,
+              "direction_fraction": 0.75,
+              "mean_ce_contribution": 0.005603104829788208
+            },
+            {
+              "source_position": 7,
+              "semantic_group": "D",
+              "mean_margin_contribution": -0.045024752616882324,
+              "recovery_of_same_value_all_score_correction": -0.08329321748101226,
+              "direction_fraction": 0.0625,
+              "mean_ce_contribution": -0.05944669246673584
+            },
+            {
+              "source_position": 8,
+              "semantic_group": "S",
+              "mean_margin_contribution": 0.576358824968338,
+              "recovery_of_same_value_all_score_correction": 1.066230865579215,
+              "direction_fraction": 1.0,
+              "mean_ce_contribution": 0.5184924006462097
+            }
+          ]
+        },
+        "group_corners": {
+          "000": {
+            "mean_margin_delta": 0.6308520436286926,
+            "mean_donor_ce_gain": 0.6007541120052338
+          },
+          "001": {
+            "mean_margin_delta": 0.6432012319564819,
+            "mean_donor_ce_gain": 0.6130249202251434
+          },
+          "010": {
+            "mean_margin_delta": 0.5858272910118103,
+            "mean_donor_ce_gain": 0.5413074195384979
+          },
+          "011": {
+            "mean_margin_delta": 0.5981286466121674,
+            "mean_donor_ce_gain": 0.5534696877002716
+          },
+          "100": {
+            "mean_margin_delta": 1.2072108685970306,
+            "mean_donor_ce_gain": 1.1192465126514435
+          },
+          "101": {
+            "mean_margin_delta": 1.2198123633861542,
+            "mean_donor_ce_gain": 1.1315248012542725
+          },
+          "110": {
+            "mean_margin_delta": 1.1588370203971863,
+            "mean_donor_ce_gain": 1.0571869909763336
+          },
+          "111": {
+            "mean_margin_delta": 1.1714092940092087,
+            "mean_donor_ce_gain": 1.0693909227848053
+          }
+        },
+        "mobius": {
+          "margin": {
+            "000": 0.6308520436286926,
+            "001": 0.012349188327789307,
+            "010": -0.045024752616882324,
+            "011": -4.7832727432250977e-05,
+            "100": 0.576358824968338,
+            "101": 0.0002523064613342285,
+            "110": -0.003349095582962036,
+            "111": 1.8611550331115723e-05
+          },
+          "ce": {
+            "000": 0.6007541120052338,
+            "001": 0.012270808219909668,
+            "010": -0.05944669246673584,
+            "011": -0.00010854005813598633,
+            "100": 0.5184924006462097,
+            "101": 7.4803829193115234e-06,
+            "110": -0.0026128292083740234,
+            "111": 3.4183263778686523e-05
+          }
+        },
+        "shapley": {
+          "margin": {
+            "E": 0.012457629044850668,
+            "D": -0.046717012921969094,
+            "S": 0.5748166342576345
+          },
+          "ce": {
+            "E": 0.012231672803560892,
+            "D": -0.060795982678731285,
+            "S": 0.5172011206547419
+          }
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_earlier_score_sufficiency": false,
+      "pred_c_self_score_sufficiency": true,
+      "pred_d_redundant_score_routes": false
+    }
+  }
+}

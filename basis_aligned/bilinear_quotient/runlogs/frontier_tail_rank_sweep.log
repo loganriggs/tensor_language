@@ -1,0 +1,34 @@
+ONE pipeline run, 10 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4234 | fresh +2.6736 | tail-attn increment +0.3865
+L2 empirical per arm: baseline +2.6736 | r1 +2.6442 | r2 +2.7534 | r4 +2.8039 | r8 +2.8222 | r16 +2.7971 | r32 +2.7842 | r64 +2.7409 | r128 +2.7096 | r256 +2.6882
+(a) baseline L2_F 2.6736 vs 2.6735 (tol .05): HELD
+    r1=-0.0294  r2=+0.0798  r4=+0.1303  r8=+0.1486  r16=+0.1235  r32=+0.1106  r64=+0.0673  r128=+0.0360  r256=+0.0146
+(b) turns in the curve = 1 <= 1: HELD
+(c) devs vs SS2887: r1 0.0000 r8 0.0003 r64 0.0001 <= 0.02: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_rank_sweep_results.json (166s, 1 pipeline run instead of 10)

@@ -1,0 +1,82 @@
+{
+ "rung": "frontier_tail_link_lowrank",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_rank8_recovers_most_of_the_link_map_value": false,
+  "pred_c_rank1_is_worse_than_rank8": false,
+  "pred_d_the_arms_are_connected": true,
+  "pred_e_the_parameter_accounting_is_stated": true
+ },
+ "nulls": {
+  "b_null_low_rank_does_not_recover": true,
+  "c_null_rank_does_not_matter": true
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "rank8_recovers": 0.05,
+  "monotone": 0.02,
+  "connected": 0.005
+ },
+ "null_bars": {
+  "rank8_recovers_ge": 0.12,
+  "monotone_le": 0.0
+ },
+ "baseline": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4232,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.49180126190186
+ },
+ "rank8": {
+  "L1_F": 2.2871,
+  "L2_C": 2.5588,
+  "L2_F": 2.8086,
+  "increment": 0.5215,
+  "orig_s312_a": false,
+  "orig_s312_b": true,
+  "runtime_s": 96.27062797546387
+ },
+ "rank1": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4708,
+  "L2_F": 2.6679,
+  "increment": 0.3807,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 96.29661726951599
+ },
+ "published_L2_F": 2.6735,
+ "S2881_full_drop_cost": 0.174,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_rank8": 2.8086,
+  "L2_F_rank1": 2.6679,
+  "cost_rank8_nats": 0.1351,
+  "cost_rank1_nats": -0.0056,
+  "cost_full_drop_S2881_nats": 0.174,
+  "fraction_recovered_rank8": 0.2236,
+  "fraction_recovered_rank1": 1.0322,
+  "params_full_link_maps": 42467328,
+  "params_rank8": 589824,
+  "params_rank1": 73728,
+  "compression_rank8": 72.0,
+  "L2_C_baseline": 2.4232,
+  "L2_C_rank8": 2.5588
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 288.1
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_LINK_LOWRANK_PREREGISTRATION.md": "b5d18177213b19c04ca0aa976e3733079f3f66c9e5361bd05f6be176c2773957",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_refit_split_results.json": "cd1a8028a8086706ba82a907436ae1acb74113d70c357d01bebaba21c81ecf95"
+ },
+ "self_reviewed": true
+}

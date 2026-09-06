@@ -1,0 +1,54 @@
+[null] counting_words.comma_list      attn8 sel=0.151 percentile=0.095 live_components=21/36
+[null] keyed_line.counter_successor   attn8 sel=0.229 percentile=0.316 live_components=19/36
+[null] month.successor                attn8 sel=0.187 percentile=0.250 live_components=28/36
+[null] numbered_list.index_successor  attn8 sel=0.344 percentile=0.200 live_components=15/36
+[null] numeric_run.last_plus_one      attn8 sel=0.2 percentile=0.211 live_components=19/36
+[null] paren_list.index_successor     attn8 sel=0.301 percentile=0.077 live_components=13/36
+[null] roman_list.index_successor     attn8 sel=0.068 percentile=0.130 live_components=23/36
+{
+ "preds": {
+  "pred_a_the_top_set_beats_a_random_subset": false,
+  "pred_b_the_top_set_survives_the_population_change": false,
+  "pred_c_the_band_is_contiguous_in_depth": true,
+  "pred_d_the_argmin_is_unstable_where_the_set_is_not": true,
+  "pred_e_inert_components_are_gated_out": true
+ },
+ "nulls": {
+  "a_null_top_set_is_random": true,
+  "b_null_set_does_not_survive_population": false,
+  "c_null_band_is_scattered": false,
+  "d_null_argmin_is_stable": false
+ },
+ "summary": {
+  "k": 8,
+  "median_jaccard_by_pair": {
+   "SELECT|TEST": 0.23076923076923078,
+   "SELECT|OOD": 0.23076923076923078,
+   "TEST|OOD": 0.3333333333333333,
+   "FIT|OOD": 0.45454545454545453
+  },
+  "median_random_subset_jaccard": 0.1915910755910756,
+  "population_overlap_test_vs_ood": 0.3333333333333333,
+  "median_depth_contiguity": 0.75,
+  "n_behaviours_with_one_argmin": 0,
+  "per_task_overlaps": {
+   "counting_words.comma_list": {
+    "SELECT|TEST": 0.3333333333333333,
+    "SELECT|OOD": 0.23076923076923078,
+    "TEST|OOD": 0.3333333333333333,
+    "FIT|OOD": 0.45454545454545453
+   },
+   "keyed_line.counter_successor": {
+    "SELECT|TEST": 0.3333333333333333,
+    "SELECT|OOD": 0.45454545454545453,
+    "TEST|OOD": 0.45454545454545453,
+    "FIT|OOD": 0.3333333333333333
+   },
+   "month.successor": {
+    "SELECT|TEST": 0.23076923076923078,
+    "SELECT|OOD": 0.23076923076923078,
+    "TEST|OOD": 0.3333333333333333,
+    "FIT|OOD": 0.3333333333333333
+   },
+   "numbered_list.index_successor": {
+    "SELECT|TEST": 0.2

@@ -1,0 +1,52 @@
+{
+  "candidate_id": "correlative.neither_axis_test_v1",
+  "families": {
+    "fitted_both_neither_heldout": {
+      "mean_absolute_recovery": 0.9754543900489807,
+      "mean_recovery": 0.9754543900489807,
+      "rows": 16
+    },
+    "fitted_either_neither_heldout": {
+      "mean_absolute_recovery": 0.9633718729019165,
+      "mean_recovery": 0.9633718729019165,
+      "rows": 16
+    },
+    "probed_both_either_A1": {
+      "mean_absolute_recovery": 0.03553386032581329,
+      "mean_recovery": 0.03553386032581329,
+      "rows": 32
+    },
+    "probed_both_either_A2": {
+      "mean_absolute_recovery": 0.020304040983319283,
+      "mean_recovery": 0.020304040983319283,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T05:52:42.789140+00:00",
+  "fitted_on": "union of both/neither and either/neither",
+  "head_verification": {
+    "max_abs_difference": 5.7220458984375e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_joint_fit_replicates": true,
+  "pred_c_correlative_state_feature": false,
+  "pred_d_cross_construction_on_probed": false,
+  "pred_e_neither_axis": true,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_joint_fit_replicates": true,
+    "pred_c_correlative_state_feature": false,
+    "pred_d_cross_construction_on_probed": false,
+    "pred_e_neither_axis": true
+  },
+  "probed_on": "correlative_pair.both_vs_either (no negative member)",
+  "rank": 1,
+  "reading": "neither_axis",
+  "registered_thresholds": {
+    "correlative_state": 0.5,
+    "neither_axis": 0.15
+  },
+  "schema": "circuit_das_confound_test_result_v1",
+  "site": "resid:18"
+}

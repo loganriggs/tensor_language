@@ -1,0 +1,53 @@
+[v6] counting_words.comma_list      arm=half     sel(SELECT)=0.627 sel(TEST)=0.352 pos_ctrl=0.267 old_style=1.267
+[v6] keyed_line.counter_successor   arm=quarter  sel(SELECT)=0.278 sel(TEST)=0.269 pos_ctrl=0.237 old_style=1.237
+[v6] month.successor                arm=full     sel(SELECT)=0.482 sel(TEST)=0.353 pos_ctrl=0.056 old_style=1.056
+[v6] numbered_list.index_successor  arm=half     sel(SELECT)=0.574 sel(TEST)=0.629 pos_ctrl=0.038 old_style=0.962
+[v6] numeric_run.last_plus_one      arm=quarter  sel(SELECT)=0.267 sel(TEST)=0.176 pos_ctrl=0.211 old_style=0.710
+[v6] paren_list.index_successor     arm=quarter  sel(SELECT)=0.470 sel(TEST)=0.529 pos_ctrl=0.004 old_style=0.996
+[v6] roman_list.index_successor     arm=half     sel(SELECT)=0.369 sel(TEST)=0.216 pos_ctrl=0.017 old_style=1.017
+{
+ "preds": {
+  "pred_a_the_two_controls_measure_different_things": true,
+  "pred_b_the_preserving_control_behaves_as_a_positive_control": true,
+  "pred_c_the_writer_opposes_the_copy_answer": true,
+  "pred_d_selectivity_generalises_to_held_out_splits": true,
+  "pred_e_the_behaviour_ordering_is_stable": true
+ },
+ "nulls": {
+  "a_null_metrics_agree": false,
+  "b_null_preserving_control_is_not_positive": false,
+  "c_null_writer_does_not_oppose_copy": false,
+  "d_null_does_not_generalise": false,
+  "e_null_ordering_is_noise": false
+ },
+ "summary": {
+  "median_metric_difference": 0.5735515154492332,
+  "median_positive_control": 0.05560951445062685,
+  "n_opposing_copy": 7,
+  "opposing": [
+   "counting_words.comma_list",
+   "keyed_line.counter_successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "paren_list.index_successor",
+   "roman_list.index_successor"
+  ],
+  "median_select_test_gap": 0.09118779003620148,
+  "spearman_select_test": 0.7142857142857144,
+  "n_common": 7,
+  "selectivity_SELECT": {
+   "counting_words.comma_list": 0.6272890285970281,
+   "keyed_line.counter_successor": 0.2780610040235443,
+   "month.successor": 0.4820579990013935,
+   "numbered_list.index_successor": 0.574477036486895,
+   "numeric_run.last_plus_one": 0.26729217171669006,
+   "paren_list.index_successor": 0.47007815828827376,
+   "roman_list.index_successor": 0.36876657740592267
+  },
+  "selectivity_TEST": {
+   "counting_words.comma_list": 0.3521767455398094,
+   "keyed_line.counter_successor": 0.2690733137693404,
+   "month.successor": 0.35306502290713765,
+   "numbered_list.index_successor": 0.6289479044076064,
+   "numeric_run.last_plus_one": 0.1761043816

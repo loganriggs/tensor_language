@@ -1,0 +1,60 @@
+[v6] alphabet_run.successor         arm=full     sel(SELECT)=0.051 sel(TEST)=0.307 pos_ctrl=0.099 old_style=1.099
+[v6] arithmetic.small_addition      arm=full     sel(SELECT)=0.009 sel(TEST)=0.157 pos_ctrl=0.118 old_style=0.273
+[v6] counting_words.successor       arm=full     sel(SELECT)=0.092 sel(TEST)=0.089 pos_ctrl=0.108 old_style=1.108
+[v6] induction.copy_successor       arm=full     sel(SELECT)=0.183 sel(TEST)=0.267 pos_ctrl=0.057 old_style=1.057
+[v6] keyed_line.counter_successor   arm=full     sel(SELECT)=0.145 sel(TEST)=0.165 pos_ctrl=0.011 old_style=0.989
+[v6] letter_list.index_successor    arm=full     sel(SELECT)=0.032 sel(TEST)=0.016 pos_ctrl=0.040 old_style=1.040
+[v6] month.successor                arm=full     sel(SELECT)=0.470 sel(TEST)=0.434 pos_ctrl=0.024 old_style=1.024
+[v6] numbered_list.index_successor  arm=full     sel(SELECT)=0.335 sel(TEST)=0.415 pos_ctrl=0.022 old_style=0.978
+[v6] numeric_run.last_plus_one      arm=full     sel(SELECT)=0.123 sel(TEST)=0.101 pos_ctrl=0.115 old_style=0.885
+[v6] numeric_sequence.continuation  arm=full     sel(SELECT)=0.396 sel(TEST)=0.444 pos_ctrl=0.429 old_style=0.396
+[v6] numeric_sequence.countdown     arm=full     sel(SELECT)=1.090 sel(TEST)=1.210 pos_ctrl=0.065 old_style=2.317
+[v6] paren_list.index_successor     arm=full     sel(SELECT)=0.204 sel(TEST)=0.303 pos_ctrl=0.016 old_style=0.984
+[v6] roman_list.index_successor     arm=full     sel(SELECT)=0.251 sel(TEST)=0.032 pos_ctrl=0.006 old_style=1.006
+[v6] weekday.successor              arm=full     sel(SELECT)=0.329 sel(TEST)=0.041 pos_ctrl=0.161 old_style=0.839
+{
+ "preds": {
+  "pred_a_the_two_controls_measure_different_things": true,
+  "pred_b_the_preserving_control_behaves_as_a_positive_control": true,
+  "pred_c_the_writer_opposes_the_copy_answer": false,
+  "pred_d_selectivity_generalises_to_held_out_splits": true,
+  "pred_e_the_behaviour_ordering_is_stable": true
+ },
+ "nulls": {
+  "a_null_metrics_agree": false,
+  "b_null_preserving_control_is_not_positive": false,
+  "c_null_writer_does_not_oppose_copy": false,
+  "d_null_does_not_generalise": false,
+  "e_null_ordering_is_noise": false
+ },
+ "summary": {
+  "median_metric_difference": 0.7712264273978584,
+  "median_positive_control": 0.06071538313480866,
+  "n_opposing_copy": 9,
+  "n_behaviours": 14,
+  "opposing": [
+   "counting_words.successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "numeric_sequence.continuation",
+   "numeric_sequence.countdown",
+   "paren_list.index_successor",
+   "roman_list.index_successor",
+   "weekday.successor"
+  ],
+  "median_select_test_gap": 0.08260084647479116,
+  "spearman_select_test": 0.6087912087912088,
+  "n_common": 14,
+  "selectivity_SELECT": {
+   "alphabet_run.successor": 0.050864191718324854,
+   "arithmetic.small_addition": 0.009100556373596191,
+   "counting_words.successor": 0.09210167850470755,
+   "induction.copy_successor": 0.18259408792738235,
+   "keyed_line.counter_successor": 0.14549971381894816,
+   "letter_list.index_successor": 0.03170030170110945,
+   "month.successor": 0.46996099876506986,
+   "numbered_list.index_successor": 0.33492699178777346,
+   "numeric_run.last_plus_one": 0.12289538591117359,
+   "numeric_sequence.continuation": 0.39633122086524963,
+   "numeric_sequence.countdown":

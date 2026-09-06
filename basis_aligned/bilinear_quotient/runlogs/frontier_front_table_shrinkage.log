@@ -1,0 +1,36 @@
+ONE pipeline run, 11 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9802 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+L2 empirical per arm: baseline +2.6735 | A000 +3.4056 | A025 +2.6531 | A050 +2.5087 | A075 +2.5437 | A090 +2.6098 | A110 +2.7548 | T000 +8.3033 | T050 +2.9215 | T075 +2.6399 | T090 +2.6470
+(a) baseline L2_F 2.6735 vs 2.6735 (tol .05): HELD
+    A : 0.0:+0.7321  0.25:-0.0204  0.5:-0.1648  0.75:-0.1298  0.9:-0.0637  1.1:+0.0813
+    tb: 0.0:+5.6298  0.5:+0.2480  0.75:-0.0336  0.9:-0.0265
+(b) A:=0 +0.7321 vs SS2877 +0.7536, dev 0.0215 <= 0.05: HELD
+(c) tb:=0 +5.6298 vs SS2877 +0.6814, dev 4.9484 <= 0.05: FAILED
+(d) improving scales A[0.25, 0.5, 0.75, 0.9] tb[0.75, 0.9]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_table_shrinkage_results.json (128s)

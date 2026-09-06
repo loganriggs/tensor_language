@@ -1,0 +1,126 @@
+ARM 1/4: BASELINE -- the published frontier
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2872
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6735 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/4: c4-c9 OFF -- MLPs 4-9 run REAL instead of CP-unit reconstructions
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.7072 | fresh +2.8875 | tail-attn increment +0.6003
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: FAILED
+ARM 3/4: front tables OFF -- m0E/m2E/m3E and m1 run REAL
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +1.4816 | fresh +1.6690 | tail-attn increment -0.6182
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM 4/4: BOTH off -- the whole MLP side runs REAL
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9802 | fresh +2.2872
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +1.6066 | fresh +1.6701 | tail-attn increment -0.6171
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+(a) baseline L2_F 2.6735 vs 2.6735 (tol .05): HELD
+(b) CP-unit error share -0.2140 >= 0.2: FAILED
+(c) front-table error share +1.0045 >= 0.1: HELD
+(d) both blocks move the number: HELD
+(e) additivity drift 0.2129 <= 0.3: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mlp_side_error_share_results.json (378s)

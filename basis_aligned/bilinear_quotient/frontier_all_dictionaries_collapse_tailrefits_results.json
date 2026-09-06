@@ -1,0 +1,95 @@
+{
+ "rung": "frontier_all_dictionaries_collapse",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_instrument_resolution_is_finer_than_one_milli_nat": true,
+  "pred_c_all_sixteen_dictionaries_collapse_cheaply": false,
+  "pred_d_the_joint_cost_is_resolvable_above_the_floor": true,
+  "pred_e_the_parameter_saving_is_stated": true
+ },
+ "nulls": {
+  "c_null_the_dictionaries_are_jointly_load_bearing": true,
+  "b_null_the_instrument_cannot_resolve_this_family": false,
+  "d_null_the_joint_cost_is_below_the_floor": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "floor": 0.001,
+  "all_free": 0.05,
+  "resolvable": 2.0
+ },
+ "null_bars": {
+  "all_free_ge": 0.2,
+  "floor_ge": 0.01
+ },
+ "dictionaries": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "baseline": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4232,
+  "L2_F": 2.6736,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.23377537727356
+ },
+ "baseline_repeat": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 94.15219902992249
+ },
+ "all_collapsed": {
+  "L1_F": 2.2871,
+  "L2_C": 2.7419,
+  "L2_F": 2.8747,
+  "increment": 0.5876,
+  "orig_s312_a": false,
+  "orig_s312_b": false,
+  "runtime_s": 90.64112257957458
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "L2_F_baseline_repeat": 2.6735,
+  "L2_F_all_collapsed": 2.8747,
+  "instrument_resolution_nats": 0.0001,
+  "cost_all_dictionaries_nats": 0.2011,
+  "L2_C_baseline": 2.4232,
+  "L2_C_all_collapsed": 2.7419,
+  "n_dictionaries_collapsed": 16,
+  "parameters_saved_per_layer": 5318784,
+  "parameters_saved_total": 85100544
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 280.0
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_ALL_DICTIONARIES_PREREGISTRATION.md": "b22f82669d8016d4716581de0fa91612fffc43448e98c2dfd0508baffc2fa726"
+ },
+ "self_reviewed": true
+}

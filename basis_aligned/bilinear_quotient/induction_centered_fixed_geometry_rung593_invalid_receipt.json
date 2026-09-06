@@ -1,0 +1,276 @@
+{
+  "call_prefix_sha256": "299d99658818a214220e100d53cca5b69a90a2cf118e1710ab8d23289060c97e",
+  "canonical_written_bounds": {
+    "directed_axis0": [
+      0,
+      0
+    ],
+    "endpoint_axis0": [
+      0,
+      1728
+    ],
+    "files": {
+      "endpoint_logits.npy": [
+        0,
+        1728
+      ],
+      "endpoint_tokens.npy": [
+        0,
+        1728
+      ],
+      "factor_e.npy": [
+        0,
+        1728
+      ],
+      "factor_u.npy": [
+        0,
+        1728
+      ],
+      "factorized_equality_term.npy": [
+        0,
+        1728
+      ],
+      "independent_full_native_write.npy": [
+        0,
+        1728
+      ],
+      "native_equality_term.npy": [
+        0,
+        1728
+      ],
+      "native_full_attention_write.npy": [
+        0,
+        1728
+      ],
+      "native_head_write.npy": [
+        0,
+        1728
+      ],
+      "native_non_equality_remainder.npy": [
+        0,
+        1728
+      ],
+      "support.npy": [
+        0,
+        1728
+      ]
+    },
+    "ledger_records": 54,
+    "phase": "FIT"
+  },
+  "diagnostic_sha256": "cf8887eea206fc6139ebb5eb4fea7a7b3daacd445c8935991753cfe3011324f8",
+  "evidence_files": {
+    "FIT/canonical_slice_ledger.jsonl": {
+      "byte_length": 254286,
+      "sha256": "b160fc47c46d302d70158a8b3d15600b4294e4979cebe11eda8d2d14f4a627c9"
+    },
+    "FIT/endpoint_logits.npy": {
+      "byte_length": 347701376,
+      "sha256": "fc60eae6f793133a204d739d2f8419332d5dae06ede6385d4f5bcd5cee7dd1a4"
+    },
+    "FIT/endpoint_tokens.npy": {
+      "byte_length": 414848,
+      "sha256": "24605d975b53fb1bc031367dc1b7484e8bab22356f83de02abe352732e8b79f0"
+    },
+    "FIT/factor_e.npy": {
+      "byte_length": 55424,
+      "sha256": "b90757454972a6ac00b2608baeae2887611837b187c8d51d6520d4a692cf9382"
+    },
+    "FIT/factor_u.npy": {
+      "byte_length": 63701120,
+      "sha256": "ef8e6d0b22b9a7e485cd95f82521ba53d7aaa095bd9955e3b647983b7da2f3f7"
+    },
+    "FIT/factorized_equality_term.npy": {
+      "byte_length": 31850624,
+      "sha256": "2d8dac82cbb35b1adfbe827acf319c132d62ccaee66d7197a27a877763a8fd8f"
+    },
+    "FIT/independent_full_native_write.npy": {
+      "byte_length": 31850624,
+      "sha256": "ea59b764da88fc2340b2b0d9a71d03549bcfa01c3f30057186037ba5f8c87992"
+    },
+    "FIT/native_equality_term.npy": {
+      "byte_length": 63701120,
+      "sha256": "d9916a4dd542fd48dce55e05a53aecabdd5af705df532fd9e477cec2652c62b3"
+    },
+    "FIT/native_full_attention_write.npy": {
+      "byte_length": 31850624,
+      "sha256": "ea59b764da88fc2340b2b0d9a71d03549bcfa01c3f30057186037ba5f8c87992"
+    },
+    "FIT/native_head_write.npy": {
+      "byte_length": 63701120,
+      "sha256": "c59bb9c39e3d8d7fc715f0c799d085653b95e26807201888a80d66f4a3ef846e"
+    },
+    "FIT/native_non_equality_remainder.npy": {
+      "byte_length": 63701120,
+      "sha256": "d41dfb301dab7f66079b5a8710552a4df79fe15b25ba729a2b8a837fab8161d8"
+    },
+    "FIT/support.npy": {
+      "byte_length": 13952,
+      "sha256": "6aad1b5fe23a46b933f73c19074c3669a9673a3e26c8b4a4b3d36bfacba85bce"
+    },
+    "call_prefix.jsonl": {
+      "byte_length": 273119,
+      "sha256": "299d99658818a214220e100d53cca5b69a90a2cf118e1710ab8d23289060c97e"
+    },
+    "calls/0054_FIT:directed:0000:native/factorized_equality_term.npy": {
+      "byte_length": 589952,
+      "sha256": "cbd94998dd85bb0d13fb0fd82b71ff77375dfbef0ddc7e1464b8961430abd12f"
+    },
+    "calls/0054_FIT:directed:0000:native/independent_full_native_write.npy": {
+      "byte_length": 589952,
+      "sha256": "42b0ff99d6058281fd71beaa20f5d5263d4a81b8081b31d17d297a958bd0111f"
+    },
+    "calls/0054_FIT:directed:0000:native/live_e.npy": {
+      "byte_length": 1152,
+      "sha256": "7c19fa0d26bde0164f79487a0844a66bfa4b6c45fc57d622eb3b81c359ecd690"
+    },
+    "calls/0054_FIT:directed:0000:native/live_u.npy": {
+      "byte_length": 1179776,
+      "sha256": "7fe715360158e3c4217809568eb17152cd949d44df83bbbb8cca84f59bb3c5d2"
+    },
+    "calls/0054_FIT:directed:0000:native/logits.npy": {
+      "byte_length": 6439040,
+      "sha256": "523818975850879e6bf9842f85508e601c6307c634f1382ad276ba74f261f859"
+    },
+    "calls/0054_FIT:directed:0000:native/native_equality_term.npy": {
+      "byte_length": 1179776,
+      "sha256": "6b6bcff445bb7bf86e64a2a9ee4083d1ab890f74e4e49b1017968c08ddcb6734"
+    },
+    "calls/0054_FIT:directed:0000:native/native_full_attention_write.npy": {
+      "byte_length": 589952,
+      "sha256": "42b0ff99d6058281fd71beaa20f5d5263d4a81b8081b31d17d297a958bd0111f"
+    },
+    "calls/0054_FIT:directed:0000:native/native_head_write.npy": {
+      "byte_length": 1179776,
+      "sha256": "cc11418dfd4cba85f9b70ce39271d15b9e5bffcd9049644fa7d922e3dea2ba40"
+    },
+    "calls/0054_FIT:directed:0000:native/native_non_equality_remainder.npy": {
+      "byte_length": 1179776,
+      "sha256": "cf57712fd49fb963aee3cb78ba9c6ffb13f65ac70732ed19a85fdb1ddcf5a4bc"
+    },
+    "calls/0054_FIT:directed:0000:native/tokens.npy": {
+      "byte_length": 7808,
+      "sha256": "936c36b831556c65c244e03791e05391b0584904a788c0b9b39fabe16cc602db"
+    },
+    "calls/0055_FIT:directed:0000:replay/hook_deltas.npy": {
+      "byte_length": 589952,
+      "sha256": "9840129ac7c044e1d9f69a9f1845d399e33fc1ddac9dccfc0c609bd43a7653b5"
+    },
+    "calls/0055_FIT:directed:0000:replay/logits.npy": {
+      "byte_length": 6439040,
+      "sha256": "523818975850879e6bf9842f85508e601c6307c634f1382ad276ba74f261f859"
+    },
+    "calls/0055_FIT:directed:0000:replay/planned_hook_deltas.npy": {
+      "byte_length": 589952,
+      "sha256": "9840129ac7c044e1d9f69a9f1845d399e33fc1ddac9dccfc0c609bd43a7653b5"
+    },
+    "calls/0055_FIT:directed:0000:replay/tokens.npy": {
+      "byte_length": 7808,
+      "sha256": "936c36b831556c65c244e03791e05391b0584904a788c0b9b39fabe16cc602db"
+    },
+    "calls/0056_FIT:directed:0000:score/hook_deltas.npy": {
+      "byte_length": 589952,
+      "sha256": "c746713db6d1d3770478a96ee28bea574a7d59992e6b41dbed6aed950a2876cf"
+    },
+    "calls/0056_FIT:directed:0000:score/logits.npy": {
+      "byte_length": 6439040,
+      "sha256": "703db0275aee6ae58821e985a7ca359fecad2f2c80427e155b9ec981e61ecfe3"
+    },
+    "calls/0056_FIT:directed:0000:score/planned_hook_deltas.npy": {
+      "byte_length": 589952,
+      "sha256": "1275b7ae2716cf8bfc56b7bcb0e881beb8aa5d7014bbbe17d7df0afd34c1f1c6"
+    },
+    "calls/0056_FIT:directed:0000:score/tokens.npy": {
+      "byte_length": 7808,
+      "sha256": "936c36b831556c65c244e03791e05391b0584904a788c0b9b39fabe16cc602db"
+    }
+  },
+  "executed_call_ids": [
+    "FIT:endpoint:0000",
+    "FIT:endpoint:0001",
+    "FIT:endpoint:0002",
+    "FIT:endpoint:0003",
+    "FIT:endpoint:0004",
+    "FIT:endpoint:0005",
+    "FIT:endpoint:0006",
+    "FIT:endpoint:0007",
+    "FIT:endpoint:0008",
+    "FIT:endpoint:0009",
+    "FIT:endpoint:0010",
+    "FIT:endpoint:0011",
+    "FIT:endpoint:0012",
+    "FIT:endpoint:0013",
+    "FIT:endpoint:0014",
+    "FIT:endpoint:0015",
+    "FIT:endpoint:0016",
+    "FIT:endpoint:0017",
+    "FIT:endpoint:0018",
+    "FIT:endpoint:0019",
+    "FIT:endpoint:0020",
+    "FIT:endpoint:0021",
+    "FIT:endpoint:0022",
+    "FIT:endpoint:0023",
+    "FIT:endpoint:0024",
+    "FIT:endpoint:0025",
+    "FIT:endpoint:0026",
+    "FIT:endpoint:0027",
+    "FIT:endpoint:0028",
+    "FIT:endpoint:0029",
+    "FIT:endpoint:0030",
+    "FIT:endpoint:0031",
+    "FIT:endpoint:0032",
+    "FIT:endpoint:0033",
+    "FIT:endpoint:0034",
+    "FIT:endpoint:0035",
+    "FIT:endpoint:0036",
+    "FIT:endpoint:0037",
+    "FIT:endpoint:0038",
+    "FIT:endpoint:0039",
+    "FIT:endpoint:0040",
+    "FIT:endpoint:0041",
+    "FIT:endpoint:0042",
+    "FIT:endpoint:0043",
+    "FIT:endpoint:0044",
+    "FIT:endpoint:0045",
+    "FIT:endpoint:0046",
+    "FIT:endpoint:0047",
+    "FIT:endpoint:0048",
+    "FIT:endpoint:0049",
+    "FIT:endpoint:0050",
+    "FIT:endpoint:0051",
+    "FIT:endpoint:0052",
+    "FIT:endpoint:0053",
+    "FIT:directed:0000:native",
+    "FIT:directed:0000:replay",
+    "FIT:directed:0000:score"
+  ],
+  "provenance": {
+    "adapter_sha256": "1333608efcdb2c1662fe9024aa034d1a805fe342dabc2cda1fdd475f491bb9c5",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "implementation_sha256": "193013a0c0cf1bec19be4843dee751c355d56f69fbf2d761df57baaa86c6024a",
+    "runtime_sha256": "768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777",
+    "source_sha256": {
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung593_runtime.py": "768c0ed002f107c7549070a0c162552a0e1825ed3de411ff85987a79a8165777",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_replay_native_numerics_rung591.py": "fb8239ded4f3e99510f37ea72337c2d69e4640f7a2556748c9062aa82b2751bc",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py": "fd772c3b9d6df4271ecbfc90c00c893db5a65ea06601f0c8f6e7a9e34c9a531b",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585_manifest.py": "7addbb8c07cbf29b985f5713e28d949c11a8da44e01c85c2044cbe764c04c962",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_implementation_preexecution_review.py": "3f8a559a14015498d375ba75271cf57647b9cc9841ef32b1e9e32406abf71323",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_logit_topology_amendment_review.py": "9b0ac1fe5347824135612cf675676d61d3d5f55c7b12c9d89652e0c30e7ed183",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_repair_preexecution_review.py": "ec1759555f8abf80cde08a93fe01c9e97fe32b6effc467085c75d06a551c6899",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/test_induction_centered_fixed_geometry_rung592_streaming_preexecution_review.py": "7c84f858625b92af4b7242b168cf7d321d8dcc7ae82a5988bfcb9372d099514b",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_DIAGNOSTIC_PREFIX_AMENDMENT.md": "f153fa3df6d7d00e951d2e7d2f0a270e6383f9133d0d34049a9eee57640b2c62",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_IMPLEMENTATION_PREEXECUTION_REVIEW.md": "9b8e4ce54d1b34d650ef088f841672cf01a4482257446b611ba37e1353a457cf",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT.md": "15219749dd1d696e52c3129052cadce6758b7186390303eace216d98c953188e",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_LOGIT_TOPOLOGY_AMENDMENT_INDEPENDENT_REVIEW.md": "7b127fc100192d2ed0eb432ad2cfbf506d151314b1e9419d1e3fa424eb487772",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_NONFINITE_MASK_AMENDMENT.md": "f93ce1e524e6a0298a0b28f036ac35c75621c5bc80cf4cc0cac7bbe7589a99dc",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PHASE_RELATIVE_CAPACITY_AMENDMENT.md": "da634dd10da654739d761a6c8f8ce9c1434d8946a7477ba6d9c005c873386458",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION.md": "870fec55da7207a6e850e64ea705d4f9bb96b2cef40326b2cf59732466dd341a",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_PREREGISTRATION_AMENDMENT.md": "5e9fe2bcf41b88c199b5dfab2ba3ec7d0fa8f4b4b2952173c1984391e4d53094",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_REPAIR_PREEXECUTION_REVIEW.md": "e88ea815b154d922df44143d549c735068d6947e729d668b4849cfbd23e4f444",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_PREEXECUTION_REVIEW.md": "8a22980fb766b8b51cac81acb69ad8e84cd886dae053613591acabc415c6f225",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG592_STREAMING_STORAGE_AMENDMENT.md": "2df290b9670adfb8541d675e51fc607f856f7f70c083248fdba14ab8cf90df07",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CENTERED_FIXED_GEOMETRY_RUNG593_INSTRUMENT_REPAIR_AMENDMENT.md": "df0ceebf57818534a9b4ac5de4cd82ca64f2c1228cdfd476e350e62e5707729c"
+    }
+  },
+  "schema": "induction_centered_fixed_geometry_rung593_invalid_receipt_v1"
+}

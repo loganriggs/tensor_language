@@ -1,0 +1,109 @@
+{
+ "rung": "frontier_motif_band_constant_collapse",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_whole_motif_band_collapses_cheaply": true,
+  "pred_c_the_band_without_a5_also_collapses": true,
+  "pred_d_frontier_row_spread_tracks_the_real_model_census": true,
+  "pred_e_the_parameter_saving_is_stated": true
+ },
+ "nulls": {
+  "b_null_the_band_class_structure_is_load_bearing": false,
+  "c_null_a5_is_the_only_collapsible_one": false,
+  "d_null_frontier_spread_is_unrelated_to_the_census": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "band_free": 0.1,
+  "no_a5_free": 0.1,
+  "census_rho": 0.5,
+  "row_cos": 0.05
+ },
+ "null_bars": {
+  "band_free_ge": 0.3,
+  "no_a5_free_ge": 0.3,
+  "census_rho_le": 0.1
+ },
+ "band": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "band_without_a5": [
+  2,
+  3,
+  4,
+  6,
+  7,
+  8,
+  9
+ ],
+ "baseline": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.25021576881409
+ },
+ "band_collapsed": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4232,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 91.99774765968323
+ },
+ "band_without_a5_collapsed": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4233,
+  "L2_F": 2.6736,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 92.1427812576294
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_band_collapsed": 2.6735,
+  "L2_F_band_without_a5_collapsed": 2.6736,
+  "cost_band_nats": 0.0,
+  "cost_band_without_a5_nats": 0.0001,
+  "a5_implied_share_nats": -0.0001,
+  "L2_C_baseline": 2.4233,
+  "L2_C_band_collapsed": 2.4232,
+  "frontier_row_spread_by_layer": {
+   "2": 0.5519059300422668,
+   "3": 0.6937070488929749,
+   "4": 0.580933690071106,
+   "5": 0.04162853956222534,
+   "6": 0.04218137264251709,
+   "7": 0.10866302251815796,
+   "8": 0.6619848608970642,
+   "9": 0.2727421522140503
+  },
+  "spearman_frontier_spread_vs_census_gain_cv": 0.6904761904761906,
+  "parameters_saved_per_collapsed_layer": 5318784,
+  "parameters_saved_whole_band": 42550272
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 279.4
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_MOTIF_BAND_COLLAPSE_PREREGISTRATION.md": "e7ae6d6c33ac9e97bedbae89b5944acfc68d3964fc8e40e4b571e4d413e21549"
+ },
+ "self_reviewed": true
+}

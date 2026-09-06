@@ -1,0 +1,1189 @@
+{
+ "rung": "circuit_battery_v6_precision_replication",
+ "preds": {
+  "pred_a_the_two_controls_measure_different_things": true,
+  "pred_b_the_preserving_control_behaves_as_a_positive_control": true,
+  "pred_c_the_writer_opposes_the_copy_answer": false,
+  "pred_d_selectivity_generalises_to_held_out_splits": true,
+  "pred_e_the_behaviour_ordering_is_stable": true
+ },
+ "nulls": {
+  "a_null_metrics_agree": false,
+  "b_null_preserving_control_is_not_positive": false,
+  "c_null_writer_does_not_oppose_copy": false,
+  "d_null_does_not_generalise": false,
+  "e_null_ordering_is_noise": false
+ },
+ "bars": {
+  "differ": 0.3,
+  "positive_ctrl": 0.25,
+  "oppose_frac": 0.8,
+  "generalise": 0.15,
+  "stable": 0.6,
+  "floor": 0.5
+ },
+ "null_bars": {
+  "differ_le": 0.1,
+  "positive_ctrl_ge": 0.5,
+  "oppose_frac_le": 0.5,
+  "generalise_ge": 0.4,
+  "stable_le": 0.2
+ },
+ "tasks": [
+  "alphabet_run.successor",
+  "arithmetic.small_addition",
+  "counting_words.successor",
+  "induction.copy_successor",
+  "keyed_line.counter_successor",
+  "letter_list.index_successor",
+  "month.successor",
+  "numbered_list.index_successor",
+  "numeric_run.last_plus_one",
+  "numeric_sequence.continuation",
+  "numeric_sequence.countdown",
+  "paren_list.index_successor",
+  "roman_list.index_successor",
+  "weekday.successor"
+ ],
+ "splits": [
+  "SELECT",
+  "TEST",
+  "OOD"
+ ],
+ "smoke": false,
+ "summary": {
+  "median_metric_difference": 0.7712264273978584,
+  "median_positive_control": 0.06071538313480866,
+  "n_opposing_copy": 9,
+  "n_behaviours": 14,
+  "opposing": [
+   "counting_words.successor",
+   "month.successor",
+   "numbered_list.index_successor",
+   "numeric_run.last_plus_one",
+   "numeric_sequence.continuation",
+   "numeric_sequence.countdown",
+   "paren_list.index_successor",
+   "roman_list.index_successor",
+   "weekday.successor"
+  ],
+  "median_select_test_gap": 0.08260084647479116,
+  "spearman_select_test": 0.6087912087912088,
+  "n_common": 14,
+  "selectivity_SELECT": {
+   "alphabet_run.successor": 0.050864191718324854,
+   "arithmetic.small_addition": 0.009100556373596191,
+   "counting_words.successor": 0.09210167850470755,
+   "induction.copy_successor": 0.18259408792738235,
+   "keyed_line.counter_successor": 0.14549971381894816,
+   "letter_list.index_successor": 0.03170030170110945,
+   "month.successor": 0.46996099876506986,
+   "numbered_list.index_successor": 0.33492699178777346,
+   "numeric_run.last_plus_one": 0.12289538591117359,
+   "numeric_sequence.continuation": 0.39633122086524963,
+   "numeric_sequence.countdown": 1.0902955532073975,
+   "paren_list.index_successor": 0.2035017645808691,
+   "roman_list.index_successor": 0.251397945557695,
+   "weekday.successor": 0.3286015563815236
+  },
+  "selectivity_TEST": {
+   "alphabet_run.successor": 0.3071745038032532,
+   "arithmetic.small_addition": 0.15737061202526093,
+   "counting_words.successor": 0.08884588447258572,
+   "induction.copy_successor": 0.26732528860760224,
+   "keyed_line.counter_successor": 0.16549769389079522,
+   "letter_list.index_successor": 0.016201720898703937,
+   "month.successor": 0.4343503719916834,
+   "numbered_list.index_successor": 0.4153974840571359,
+   "numeric_run.last_plus_one": 0.10090917055573795,
+   "numeric_sequence.continuation": 0.4441535770893097,
+   "numeric_sequence.countdown": 1.2095917463302612,
+   "paren_list.index_successor": 0.3033786011844471,
+   "roman_list.index_successor": 0.03226433780660034,
+   "weekday.successor": 0.041028180662718364
+  },
+  "selectivity_OOD": {
+   "alphabet_run.successor": 0.7994272708892822,
+   "arithmetic.small_addition": 0.059297114610672,
+   "counting_words.successor": 0.023121001155333554,
+   "induction.copy_successor": 0.26397355464650485,
+   "keyed_line.counter_successor": 0.22815034948710503,
+   "letter_list.index_successor": 0.23756753248698273,
+   "month.successor": 0.1525799861014469,
+   "numbered_list.index_successor": 0.3244760141631479,
+   "numeric_run.last_plus_one": 0.21017395579685302,
+   "numeric_sequence.continuation": 0.2800455391407013,
+   "numeric_sequence.countdown": 1.0276916027069092,
+   "paren_list.index_successor": 0.30276128881025294,
+   "roman_list.index_successor": 0.03416090459755274,
+   "weekday.successor": 0.04992738831072489
+  },
+  "positive_control_SELECT": {
+   "alphabet_run.successor": 0.09929769539803521,
+   "arithmetic.small_addition": 0.11763143539428711,
+   "counting_words.successor": 0.10769816745610347,
+   "induction.copy_successor": 0.05657232968514467,
+   "keyed_line.counter_successor": 0.011279502150388608,
+   "letter_list.index_successor": 0.04032789448672112,
+   "month.successor": 0.024281238242895745,
+   "numbered_list.index_successor": 0.02186680923708742,
+   "numeric_run.last_plus_one": 0.11548601212620631,
+   "numeric_sequence.continuation": 0.4291675090789795,
+   "numeric_sequence.countdown": 0.06485843658447266,
+   "paren_list.index_successor": 0.01566398258603405,
+   "roman_list.index_successor": 0.005832358670209127,
+   "weekday.successor": 0.1610561025731374
+  },
+  "ratio_old_style_SELECT": {
+   "alphabet_run.successor": 1.0992976953980351,
+   "arithmetic.small_addition": 0.2727198600769043,
+   "counting_words.successor": 1.1076981674561035,
+   "induction.copy_successor": 1.0565723296851446,
+   "keyed_line.counter_successor": 0.9887204978496114,
+   "letter_list.index_successor": 1.0403278944867211,
+   "month.successor": 1.0242812382428959,
+   "numbered_list.index_successor": 0.9781331907629126,
+   "numeric_run.last_plus_one": 0.8845139878737937,
+   "numeric_sequence.continuation": 0.39633122086524963,
+   "numeric_sequence.countdown": 2.3169350624084473,
+   "paren_list.index_successor": 0.9843360174139659,
+   "roman_list.index_successor": 1.0058323586702091,
+   "weekday.successor": 0.8389438974268626
+  }
+ },
+ "tasks_detail": {
+  "alphabet_run.successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": -0.4708555340766907,
+       "damage": 1.0950785875320435,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.24033379554748535,
+       "damage": 1.203817367553711,
+       "n": 64
+      },
+      "C3": {
+       "native": 4.458897590637207,
+       "damage": 0.055700287222862244,
+       "n": 64
+      }
+     },
+     "selectivity": 0.050864191718324854,
+     "positive_control": 0.09929769539803521,
+     "ratio_old_style": 1.0992976953980351
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": -0.5261151194572449,
+       "damage": 0.20328237116336823,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.4886054992675781,
+       "damage": 0.23153817653656006,
+       "n": 64
+      },
+      "C3": {
+       "native": 4.4031267166137695,
+       "damage": 0.1535872519016266,
+       "n": 64
+      }
+     },
+     "selectivity": 0.3071745038032532,
+     "positive_control": 0.05651161074638367,
+     "ratio_old_style": 0.4630763530731201
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -1.5865991115570068,
+       "damage": 0.118506520986557,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.4656014442443848,
+       "damage": 0.14509406685829163,
+       "n": 64
+      },
+      "C3": {
+       "native": 5.099014759063721,
+       "damage": 0.3997136354446411,
+       "n": 64
+      }
+     },
+     "selectivity": 0.7994272708892822,
+     "positive_control": 0.05317509174346924,
+     "ratio_old_style": 0.7994272708892822
+    }
+   }
+  },
+  "arithmetic.small_addition": {
+   "arm": "full",
+   "writer": "attn11",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": -2.003171920776367,
+       "damage": -0.0775442123413086,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.827073097229004,
+       "damage": -0.13635993003845215,
+       "n": 64
+      },
+      "C3": {
+       "native": -3.0217437744140625,
+       "damage": 0.004550278186798096,
+       "n": 64
+      }
+     },
+     "selectivity": 0.009100556373596191,
+     "positive_control": 0.11763143539428711,
+     "ratio_old_style": 0.2727198600769043
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": -2.052079916000366,
+       "damage": -0.047026149928569794,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.7950514554977417,
+       "damage": -0.1433771550655365,
+       "n": 64
+      },
+      "C3": {
+       "native": -2.867628574371338,
+       "damage": -0.07868530601263046,
+       "n": 64
+      }
+     },
+     "selectivity": 0.15737061202526093,
+     "positive_control": 0.1927020102739334,
+     "ratio_old_style": 0.286754310131073
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -2.022099018096924,
+       "damage": -0.043781884014606476,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.7583208084106445,
+       "damage": -0.16302496194839478,
+       "n": 64
+      },
+      "C3": {
+       "native": -3.0010454654693604,
+       "damage": -0.029648557305336,
+       "n": 64
+      }
+     },
+     "selectivity": 0.059297114610672,
+     "positive_control": 0.2384861558675766,
+     "ratio_old_style": 0.32604992389678955
+    }
+   }
+  },
+  "counting_words.successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 0.3855256140232086,
+       "damage": 1.4146697521209717,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.5732259750366211,
+       "damage": 1.5670270919799805,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.5005228519439697,
+       "damage": -0.13029345870018005,
+       "n": 64
+      }
+     },
+     "selectivity": 0.09210167850470755,
+     "positive_control": 0.10769816745610347,
+     "ratio_old_style": 1.1076981674561035
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 0.3325871229171753,
+       "damage": 1.8103398084640503,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.4144493341445923,
+       "damage": 1.8620240688323975,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.9681769609451294,
+       "damage": -0.16084124147891998,
+       "n": 64
+      }
+     },
+     "selectivity": 0.08884588447258572,
+     "positive_control": 0.028549480117877835,
+     "ratio_old_style": 1.0285494801178778
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -0.325666606426239,
+       "damage": 1.0814474821090698,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.14486992359161377,
+       "damage": 1.0620779991149902,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.086520195007324,
+       "damage": 0.025004148483276367,
+       "n": 64
+      }
+     },
+     "selectivity": 0.023121001155333554,
+     "positive_control": 0.017910701457554527,
+     "ratio_old_style": 0.9820892985424454
+    }
+   }
+  },
+  "induction.copy_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 1.1307365894317627,
+       "damage": 1.7486610412597656,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.2947971820831299,
+       "damage": 1.8475868701934814,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.013824701309204,
+       "damage": 0.31929516792297363,
+       "n": 64
+      }
+     },
+     "selectivity": 0.18259408792738235,
+     "positive_control": 0.05657232968514467,
+     "ratio_old_style": 1.0565723296851446
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 1.3096027374267578,
+       "damage": 1.9468995332717896,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.4421643018722534,
+       "damage": 2.0030956268310547,
+       "n": 64
+      },
+      "C3": {
+       "native": 3.017408609390259,
+       "damage": 0.5204554796218872,
+       "n": 64
+      }
+     },
+     "selectivity": 0.26732528860760224,
+     "positive_control": 0.02886440342652242,
+     "ratio_old_style": 1.0288644034265224
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 0.6566256284713745,
+       "damage": 1.7751736640930176,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.649032473564148,
+       "damage": 1.744174838066101,
+       "n": 64
+      },
+      "C3": {
+       "native": 3.1149778366088867,
+       "damage": 0.4685989022254944,
+       "n": 64
+      }
+     },
+     "selectivity": 0.26397355464650485,
+     "positive_control": 0.01746241883480995,
+     "ratio_old_style": 0.9825375811651901
+    }
+   }
+  },
+  "keyed_line.counter_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 2.4802324771881104,
+       "damage": 3.075819969177246,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.5047104358673096,
+       "damage": 3.041126251220703,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.8527376651763916,
+       "damage": 0.44753092527389526,
+       "n": 64
+      }
+     },
+     "selectivity": 0.14549971381894816,
+     "positive_control": 0.011279502150388608,
+     "ratio_old_style": 0.9887204978496114
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 2.4982833862304688,
+       "damage": 3.363755226135254,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.53684663772583,
+       "damage": 3.3323802947998047,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.9884531497955322,
+       "damage": 0.5566937327384949,
+       "n": 64
+      }
+     },
+     "selectivity": 0.16549769389079522,
+     "positive_control": 0.009327352683594956,
+     "ratio_old_style": 0.990672647316405
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 2.4851624965667725,
+       "damage": 3.0129170417785645,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.404388904571533,
+       "damage": 2.89036226272583,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.7889152765274048,
+       "damage": 0.6873980760574341,
+       "n": 64
+      }
+     },
+     "selectivity": 0.22815034948710503,
+     "positive_control": 0.04067645320243822,
+     "ratio_old_style": 0.9593235467975618
+    }
+   }
+  },
+  "letter_list.index_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": -0.45993679761886597,
+       "damage": 0.7593094110488892,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.4580010771751404,
+       "damage": 0.7899307608604431,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.7811026573181152,
+       "damage": 0.024070337414741516,
+       "n": 64
+      }
+     },
+     "selectivity": 0.03170030170110945,
+     "positive_control": 0.04032789448672112,
+     "ratio_old_style": 1.0403278944867211
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": -0.8105205297470093,
+       "damage": 0.9192193746566772,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.8257535696029663,
+       "damage": 0.9920731782913208,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.7664947509765625,
+       "damage": 0.014892935752868652,
+       "n": 64
+      }
+     },
+     "selectivity": 0.016201720898703937,
+     "positive_control": 0.07925616631160978,
+     "ratio_old_style": 1.0792561663116098
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -0.6523575782775879,
+       "damage": 1.1939465999603271,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -0.7204769849777222,
+       "damage": 1.1338884830474854,
+       "n": 64
+      },
+      "C3": {
+       "native": 3.2842350006103516,
+       "damage": 0.2836429476737976,
+       "n": 64
+      }
+     },
+     "selectivity": 0.23756753248698273,
+     "positive_control": 0.05030218010992906,
+     "ratio_old_style": 0.949697819890071
+    }
+   }
+  },
+  "month.successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 1.1490346193313599,
+       "damage": 0.8751518726348877,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.97847580909729,
+       "damage": 0.8964016437530518,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.8445794582366943,
+       "damage": -0.41128724813461304,
+       "n": 64
+      }
+     },
+     "selectivity": 0.46996099876506986,
+     "positive_control": 0.024281238242895745,
+     "ratio_old_style": 1.0242812382428959
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 1.1025429964065552,
+       "damage": 1.3636149168014526,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.3525868654251099,
+       "damage": 1.4898219108581543,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.6395782232284546,
+       "damage": -0.5922866463661194,
+       "n": 64
+      }
+     },
+     "selectivity": 0.4343503719916834,
+     "positive_control": 0.09255325128940187,
+     "ratio_old_style": 1.0925532512894018
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 1.2023439407348633,
+       "damage": 1.3308229446411133,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.384526252746582,
+       "damage": 1.4102779626846313,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.8257346153259277,
+       "damage": -0.2030569463968277,
+       "n": 64
+      }
+     },
+     "selectivity": 0.1525799861014469,
+     "positive_control": 0.05970367310201803,
+     "ratio_old_style": 1.059703673102018
+    }
+   }
+  },
+  "numbered_list.index_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 2.3074588775634766,
+       "damage": 2.6881446838378906,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.27232027053833,
+       "damage": 2.629363536834717,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.5668083429336548,
+       "damage": -0.9003322124481201,
+       "n": 64
+      }
+     },
+     "selectivity": 0.33492699178777346,
+     "positive_control": 0.02186680923708742,
+     "ratio_old_style": 0.9781331907629126
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 2.537738800048828,
+       "damage": 2.9294121265411377,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.5838470458984375,
+       "damage": 3.029524803161621,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.2563738822937012,
+       "damage": -1.2168704271316528,
+       "n": 64
+      }
+     },
+     "selectivity": 0.4153974840571359,
+     "positive_control": 0.03417500587009928,
+     "ratio_old_style": 1.0341750058700994
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 2.2293848991394043,
+       "damage": 2.702688694000244,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 2.171443223953247,
+       "damage": 2.661807060241699,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.5050288438796997,
+       "damage": -0.8769576549530029,
+       "n": 64
+      }
+     },
+     "selectivity": 0.3244760141631479,
+     "positive_control": 0.015126282893512274,
+     "ratio_old_style": 0.9848737171064877
+    }
+   }
+  },
+  "numeric_run.last_plus_one": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 0.7164052724838257,
+       "damage": 1.2429563999176025,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.4860626459121704,
+       "damage": 1.0994123220443726,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.8155362606048584,
+       "damage": -0.15275360643863678,
+       "n": 64
+      }
+     },
+     "selectivity": 0.12289538591117359,
+     "positive_control": 0.11548601212620631,
+     "ratio_old_style": 0.8845139878737937
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 0.6748998761177063,
+       "damage": 1.195340633392334,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.7048042416572571,
+       "damage": 1.2746394872665405,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.982931613922119,
+       "damage": -0.12062083184719086,
+       "n": 64
+      }
+     },
+     "selectivity": 0.10090917055573795,
+     "positive_control": 0.06633996340370295,
+     "ratio_old_style": 1.066339963403703
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 0.7360537052154541,
+       "damage": 1.2382482290267944,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.5933876037597656,
+       "damage": 1.1770188808441162,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.8105478286743164,
+       "damage": -0.26024752855300903,
+       "n": 64
+      }
+     },
+     "selectivity": 0.21017395579685302,
+     "positive_control": 0.04944836321777068,
+     "ratio_old_style": 0.9505516367822293
+    }
+   }
+  },
+  "numeric_sequence.continuation": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": -1.2860376834869385,
+       "damage": 0.05043591558933258,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.3321841955184937,
+       "damage": -0.16414783895015717,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.9823548793792725,
+       "damage": -0.19816561043262482,
+       "n": 64
+      }
+     },
+     "selectivity": 0.39633122086524963,
+     "positive_control": 0.4291675090789795,
+     "ratio_old_style": 0.39633122086524963
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": -1.0132238864898682,
+       "damage": 0.10298403352499008,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.1080812215805054,
+       "damage": -0.10252654552459717,
+       "n": 64
+      },
+      "C3": {
+       "native": 3.172671318054199,
+       "damage": -0.22207678854465485,
+       "n": 64
+      }
+     },
+     "selectivity": 0.4441535770893097,
+     "positive_control": 0.4110211580991745,
+     "ratio_old_style": 0.4441535770893097
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -1.5112576484680176,
+       "damage": -0.10435932129621506,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -1.4439135789871216,
+       "damage": -0.1647939682006836,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.937765121459961,
+       "damage": -0.14002276957035065,
+       "n": 64
+      }
+     },
+     "selectivity": 0.2800455391407013,
+     "positive_control": 0.12086929380893707,
+     "ratio_old_style": 0.3295879364013672
+    }
+   }
+  },
+  "numeric_sequence.countdown": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": false,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": -2.471146583557129,
+       "damage": -1.19089674949646,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -2.313405990600586,
+       "damage": -1.1584675312042236,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.785889148712158,
+       "damage": -0.5451477766036987,
+       "n": 64
+      }
+     },
+     "selectivity": 1.0902955532073975,
+     "positive_control": 0.06485843658447266,
+     "ratio_old_style": 2.3169350624084473
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": -2.229980707168579,
+       "damage": -1.1397992372512817,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -2.262418270111084,
+       "damage": -1.2078702449798584,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.6979570388793945,
+       "damage": -0.6047958731651306,
+       "n": 64
+      }
+     },
+     "selectivity": 1.2095917463302612,
+     "positive_control": 0.13614201545715332,
+     "ratio_old_style": 2.415740489959717
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": -2.4843883514404297,
+       "damage": -1.2268469333648682,
+       "n": 64
+      },
+      "P_donor": {
+       "native": -2.4174656867980957,
+       "damage": -1.2231431007385254,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.496570587158203,
+       "damage": -0.5138458013534546,
+       "n": 64
+      }
+     },
+     "selectivity": 1.0276916027069092,
+     "positive_control": 0.007407665252685547,
+     "ratio_old_style": 2.446286201477051
+    }
+   }
+  },
+  "paren_list.index_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 1.4985719919204712,
+       "damage": 2.2212648391723633,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.5029855966567993,
+       "damage": 2.1864709854125977,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.6541274785995483,
+       "damage": -0.45203131437301636,
+       "n": 64
+      }
+     },
+     "selectivity": 0.2035017645808691,
+     "positive_control": 0.01566398258603405,
+     "ratio_old_style": 0.9843360174139659
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 1.5925827026367188,
+       "damage": 2.380910634994507,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.588626503944397,
+       "damage": 2.3498058319091797,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.5029178857803345,
+       "damage": -0.7223173379898071,
+       "n": 64
+      }
+     },
+     "selectivity": 0.3033786011844471,
+     "positive_control": 0.013064246355218164,
+     "ratio_old_style": 0.9869357536447818
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 1.64931058883667,
+       "damage": 2.272195339202881,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 1.5699712038040161,
+       "damage": 2.2543296813964844,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.590437889099121,
+       "damage": -0.6879327893257141,
+       "n": 64
+      }
+     },
+     "selectivity": 0.30276128881025294,
+     "positive_control": 0.007862729712606495,
+     "ratio_old_style": 0.9921372702873935
+    }
+   }
+  },
+  "roman_list.index_successor": {
+   "arm": "full",
+   "writer": "attn8",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 3.011091947555542,
+       "damage": 3.4953644275665283,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 3.0530333518981934,
+       "damage": 3.5157506465911865,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.4398128986358643,
+       "damage": -0.8787274360656738,
+       "n": 64
+      }
+     },
+     "selectivity": 0.251397945557695,
+     "positive_control": 0.005832358670209127,
+     "ratio_old_style": 1.0058323586702091
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 0.20615491271018982,
+       "damage": 2.695697784423828,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.1665443778038025,
+       "damage": 2.7135815620422363,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.116515874862671,
+       "damage": -0.08697490394115448,
+       "n": 64
+      }
+     },
+     "selectivity": 0.03226433780660034,
+     "positive_control": 0.006634192349655634,
+     "ratio_old_style": 1.0066341923496556
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 0.21839267015457153,
+       "damage": 2.7514147758483887,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.19627298414707184,
+       "damage": 2.6946144104003906,
+       "n": 64
+      },
+      "C3": {
+       "native": 2.221409797668457,
+       "damage": -0.09399081766605377,
+       "n": 64
+      }
+     },
+     "selectivity": 0.03416090459755274,
+     "positive_control": 0.02064405772135314,
+     "ratio_old_style": 0.9793559422786469
+    }
+   }
+  },
+  "weekday.successor": {
+   "arm": "full",
+   "writer": "attn14",
+   "capable": true,
+   "per_split": {
+    "SELECT": {
+     "cond": {
+      "A1": {
+       "native": 0.8858623504638672,
+       "damage": 0.544015645980835,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.7912470102310181,
+       "damage": 0.456398606300354,
+       "n": 64
+      },
+      "C3": {
+       "native": 0.2474331557750702,
+       "damage": -0.17876438796520233,
+       "n": 64
+      }
+     },
+     "selectivity": 0.3286015563815236,
+     "positive_control": 0.1610561025731374,
+     "ratio_old_style": 0.8389438974268626
+    },
+    "TEST": {
+     "cond": {
+      "A1": {
+       "native": 0.3753125071525574,
+       "damage": 0.9705493450164795,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.4327693581581116,
+       "damage": 1.0376195907592773,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.2182447910308838,
+       "damage": 0.0398198738694191,
+       "n": 64
+      }
+     },
+     "selectivity": 0.041028180662718364,
+     "positive_control": 0.06910544640227337,
+     "ratio_old_style": 1.0691054464022733
+    },
+    "OOD": {
+     "cond": {
+      "A1": {
+       "native": 0.49518346786499023,
+       "damage": 1.029738426208496,
+       "n": 64
+      },
+      "P_donor": {
+       "native": 0.5109330415725708,
+       "damage": 1.0433070659637451,
+       "n": 64
+      },
+      "C3": {
+       "native": 1.0770148038864136,
+       "damage": -0.051412150263786316,
+       "n": 64
+      }
+     },
+     "selectivity": 0.04992738831072489,
+     "positive_control": 0.013176782967310298,
+     "ratio_old_style": 1.0131767829673104
+    }
+   }
+  }
+ },
+ "price": {
+  "gpu_forwards": 962,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 15.766702890396118
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/polynomial_causal/CIRCUIT_BATTERY_V6_PRECISION_PREREGISTRATION.md": "227598985cc07cc7643f89981b9741c94ba5f349cd3653b0b32ad9869f2a89d1",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_battery_v2_results.json": "5924b2549d285175c80fbf7c8fc95a8a2fa06020acc1827bc472ddea69d9ec93",
+  "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+ }
+}

@@ -1,0 +1,30 @@
+{
+  "pred_a_exact_replay_and_fit_complete_head_ceiling": true,
+  "pred_b_fit_exact_factor_selected": true,
+  "pred_c_selected_factor_holds_on_select": true,
+  "fit_choice": {
+    "fixed_order": [
+      "final_label_cached_value",
+      "final_label_value",
+      "all_label_cached_value",
+      "final_label_joint",
+      "all_label_joint",
+      "final_label_score",
+      "final_label_own_value"
+    ],
+    "eligible_arms": [
+      "final_label_cached_value",
+      "final_label_value",
+      "final_label_joint"
+    ],
+    "selected_arm": "final_label_cached_value"
+  },
+  "selected_factor_held": true,
+  "model_forwards": 280,
+  "evaluated_splits": [
+    "FIT",
+    "SELECT"
+  ],
+  "decision": "held_exact_label_factor",
+  "next_step": "compile_selected_factor_to_weights_and_downstream_consumers"
+}

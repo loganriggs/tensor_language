@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_animacy.py", line 83, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_animacy.py", line 79, in main
+    managed.run_managed(CONFIG, candidate, root=ROOT)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_fast_screen_managed_runner.py", line 254, in run_managed
+    raise FileExistsError(f"refusing to overwrite prior screen result: {result_path}")
+FileExistsError: refusing to overwrite prior screen result: /workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/animacy_state_who_vs_which_v1_result.json

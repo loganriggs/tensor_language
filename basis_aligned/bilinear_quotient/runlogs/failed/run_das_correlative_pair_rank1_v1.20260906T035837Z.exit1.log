@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_das_correlative_pair_rank1_v1.py", line 122, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_das_correlative_pair_rank1_v1.py", line 66, in main
+    ok, worst = das.verify_head(backend, families["A1"][:8], SITE)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_das_subspace.py", line 75, in verify_head
+    acts = torch.stack([torch.as_tensor(out.captured[(rid, side)]) for rid, side in key_rows])
+                                        ~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: ('6d9381ab5d9d2727327987aa2b8ce7ce605119a41388eb2e9951b001590c2d72', 'base')

@@ -1,0 +1,37 @@
+ONE pipeline run, 15 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6736 | tail-attn increment +0.3864
+L2 empirical per arm: baseline +2.6736 | g010 +2.4568 | g015 +2.4482 | g020 +2.4445 | g025 +2.4448 | g030 +2.4482 | g040 +2.4632 | L10 +2.6038 | L11 +2.6440 | L12 +2.6496 | L13 +2.6680 | L14 +2.6460 | L15 +2.6434 | L16 +2.6559 | L17 +2.6269
+(a) baseline L2_F 2.6736 vs 2.6735: HELD
+    global: 0.1:-0.2168  0.15:-0.2254  0.2:-0.2291  0.25:-0.2288  0.3:-0.2254  0.4:-0.2104
+    layers: a10L:-0.0698  a11L:-0.0296  a12L:-0.0240  a13L:-0.0056  a14L:-0.0276  a15L:-0.0302  a16L:-0.0177  a17L:-0.0467
+(b) s=.25 -0.2288 vs SS2896 -0.2287, dev 0.0001: HELD
+(c) best global s=0.2 at -0.2291 -> L2_F 2.4445: HELD
+(d) best single layer a10L -0.0698 vs global -0.2288: HELD
+(e) sum of singles -0.2512 vs global -0.2288, gap 0.0224: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_scale_profile_results.json (142s)

@@ -1,0 +1,35 @@
+ONE pipeline run, 7 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6736 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6736 | motif_off +2.2747 | M050 +3.5974 | M075 +3.0869 | M090 +2.8129 | M110 +2.5804 | M125 +2.5131
+(a) baseline L2_F 2.6736 vs 2.6735: HELD
+(b) motif off -0.3989 vs SS2882-implied -0.3988, dev 0.0001: HELD
+    fresh: s=0.5:+0.9238  s=0.75:+0.4133  s=0.9:+0.1393  s=1.1:-0.0932  s=1.25:-0.1605
+    fit:   s=0.5:+1.3103  s=0.75:+0.5118  s=0.9:+0.1589  s=1.1:-0.1003  s=1.25:-0.1640
+(c) scales improving: [1.1, 1.25]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motif_gain_scale_results.json (114s)

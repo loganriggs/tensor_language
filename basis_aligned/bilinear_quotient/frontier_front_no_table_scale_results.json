@@ -1,0 +1,109 @@
+{
+ "rung": "frontier_front_no_table_scale",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_table_drop_reproduces_S2897": true,
+  "pred_c_scaling_still_helps_after_the_table_is_gone": true,
+  "pred_d_the_gain_is_smaller_than_with_the_table_present": true,
+  "pred_e_the_arms_are_connected": true
+ },
+ "nulls": {
+  "b_null_the_anchor_fails": false,
+  "c_null_the_mismatch_was_pair_specific": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.02,
+  "still_improves": 0.02,
+  "connected": 0.005
+ },
+ "null_bars": {
+  "anchor_ge": 0.05,
+  "no_improvement": 0.0
+ },
+ "a_scales": [
+  0.25,
+  0.5,
+  0.75,
+  0.9
+ ],
+ "run1": {
+  "baseline": {
+   "L1_F": 2.2872,
+   "L2_C": 2.4233,
+   "L2_F": 2.6736,
+   "increment": 0.3864
+  },
+  "runtime_s": 95.25142407417297
+ },
+ "run2": {
+  "tb_dropped": {
+   "L1_F": 3.046,
+   "L2_C": 3.848,
+   "L2_F": 3.355,
+   "increment": 0.309
+  },
+  "A025": {
+   "L1_F": 3.046,
+   "L2_C": 5.8721,
+   "L2_F": 5.0378,
+   "increment": 1.9918
+  },
+  "A050": {
+   "L1_F": 3.046,
+   "L2_C": 4.6108,
+   "L2_F": 3.8692,
+   "increment": 0.8232
+  },
+  "A075": {
+   "L1_F": 3.046,
+   "L2_C": 3.8645,
+   "L2_F": 3.3343,
+   "increment": 0.2883
+  },
+  "A090": {
+   "L1_F": 3.046,
+   "L2_C": 3.808,
+   "L2_F": 3.3172,
+   "increment": 0.2712
+  },
+  "runtime_s": 107.22619414329529
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "cost_table_dropped_refit": 0.6814,
+  "S2897_anchor": 0.6811,
+  "anchor_deviation": 0.0003,
+  "cost_by_A_scale_vs_frontier": {
+   "0.25": 2.3642,
+   "0.5": 1.1956,
+   "0.75": 0.6607,
+   "0.9": 0.6436
+  },
+  "gain_vs_table_dropped": {
+   "0.25": -1.6828,
+   "0.5": -0.5142,
+   "0.75": 0.0207,
+   "0.9": 0.0378
+  },
+  "best_A_scale": 0.9,
+  "best_gain": 0.0378,
+  "S2895_gain_with_table_present": 0.1648,
+  "implied_L2_F_best": 3.3172
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 2,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 202.5
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_FRONT_NO_TABLE_SCALE_PREREGISTRATION.md": "9f3dcf41100de384012b2ccce4600f22d5b74661a7dcafb27c06e734e564b53d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_anchor_resolution_results.json": "467bcec26283290bcc40c4ee9930173795dfb243a2858d0b77ddf77da56caac1",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_table_shrinkage_results.json": "b852f7f26bf55f65e6bebdceb0ed49bf3bd1f4021b93181d797620bc9f43fc14"
+ },
+ "self_reviewed": true
+}

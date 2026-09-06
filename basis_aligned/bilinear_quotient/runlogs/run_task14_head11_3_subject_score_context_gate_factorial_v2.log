@@ -1,0 +1,383 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_score_context_gate_factorial_v2_result.json",
+  "terminal": "weak_cell_natural_score_no_interaction_null",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "native_corner_max_absolute_logit_error": 2.5272369384765625e-05,
+    "source_term_identity_max_absolute_error": 0.0,
+    "score_context_subject_value_max_absolute_error": 0.0,
+    "natural_score_contrast": {
+      "pp_plural_to_relative_singular": {
+        "mean_absolute_difference": 0.04000940918922424,
+        "maximum_absolute_difference": 0.13658565282821655,
+        "fraction_above_epsilon": 1.0,
+        "mean_absolute_relative_difference": 0.20024055242538452,
+        "fraction_above_relative_threshold": 0.6875,
+        "relative_threshold_is_diagnostic_only": true
+      },
+      "pp_singular_to_relative_plural": {
+        "mean_absolute_difference": 0.041559889912605286,
+        "maximum_absolute_difference": 0.09767807275056839,
+        "fraction_above_epsilon": 1.0,
+        "mean_absolute_relative_difference": 0.2699733078479767,
+        "fraction_above_relative_threshold": 0.8125,
+        "relative_threshold_is_diagnostic_only": true
+      },
+      "relative_plural_to_pp_singular": {
+        "mean_absolute_difference": 0.04000940918922424,
+        "maximum_absolute_difference": 0.13658565282821655,
+        "fraction_above_epsilon": 1.0,
+        "mean_absolute_relative_difference": 0.3483572006225586,
+        "fraction_above_relative_threshold": 0.6875,
+        "relative_threshold_is_diagnostic_only": true
+      },
+      "relative_singular_to_pp_plural": {
+        "mean_absolute_difference": 0.041559889912605286,
+        "maximum_absolute_difference": 0.09767807275056839,
+        "fraction_above_epsilon": 1.0,
+        "mean_absolute_relative_difference": 0.4713892340660095,
+        "fraction_above_relative_threshold": 0.8125,
+        "relative_threshold_is_diagnostic_only": true
+      }
+    },
+    "parent_payload_max_absolute_reproduction_error": 1.9550323486328125e-05,
+    "exact_preflight_live": true,
+    "cells": {
+      "pp_plural_to_relative_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "score_context": 0.9375,
+          "opposite_value": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head_ceiling_passed": true,
+        "conditions": {
+          "native_score_native_value": {
+            "mean_margin_delta": 1.2218952178955078e-06,
+            "margin_direction_fraction": 0.5,
+            "mean_donor_ce_gain": -5.960464477539063e-08,
+            "margin_recovery_of_complete_head": 3.200461440969358e-07,
+            "ce_recovery_of_complete_head": -2.113639729067213e-08
+          },
+          "opposite_syntax_score_native_value": {
+            "mean_margin_delta": 0.02380073070526123,
+            "margin_direction_fraction": 0.625,
+            "mean_donor_ce_gain": 0.0273592472076416,
+            "margin_recovery_of_complete_head": 0.006234030526797436,
+            "ce_recovery_of_complete_head": 0.009701859993185995
+          },
+          "native_score_opposite_value": {
+            "mean_margin_delta": 0.7127024829387665,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.6463157832622528,
+            "margin_recovery_of_complete_head": 0.186675320610323,
+            "ce_recovery_of_complete_head": 0.2291899770855297
+          },
+          "opposite_syntax_score_opposite_value": {
+            "mean_margin_delta": 0.6781580448150635,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.6139006018638611,
+            "margin_recovery_of_complete_head": 0.1776272336225304,
+            "ce_recovery_of_complete_head": 0.2176952327603611
+          },
+          "complete_head": {
+            "mean_margin_delta": 3.817872017621994,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.82000020891428
+          }
+        },
+        "opposite_syntax_score_contrast": {
+          "mean_absolute_difference": 0.04000940918922424,
+          "maximum_absolute_difference": 0.13658565282821655,
+          "fraction_above_epsilon": 1.0,
+          "mean_absolute_relative_difference": 0.20024055242538452,
+          "fraction_above_relative_threshold": 0.6875,
+          "relative_threshold_is_diagnostic_only": true
+        },
+        "opposite_value_effect": {
+          "at_native_score": {
+            "mean_margin_effect": 0.7127012610435486,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.1866750005641789,
+            "mean_ce_benefit": 0.6463158428668976,
+            "ce_recovery_of_complete_head": 0.229189998221927
+          },
+          "at_opposite_syntax_score": {
+            "mean_margin_effect": 0.6543573141098022,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.17139320309573297,
+            "mean_ce_benefit": 0.5865413546562195,
+            "ce_recovery_of_complete_head": 0.2079933727671751
+          }
+        },
+        "score_by_value_interaction": {
+          "mean_margin_interaction": -0.05834394693374634,
+          "margin_interaction_recovery_of_complete_head": -0.01528179746844593,
+          "mean_ce_interaction": -0.0597744882106781,
+          "ce_interaction_recovery_of_complete_head": -0.0211966254547519
+        },
+        "zero_to_twice_native_score_span": {
+          "row_count": 16,
+          "mean_donor_directed_margin_span": 0.6344092190265656,
+          "margin_span_recovery_of_complete_head": 0.16616827806127318,
+          "margin_span_direction_fraction": 0.9375,
+          "mean_donor_answer_ce_benefit": 0.6108308583498001
+        }
+      },
+      "pp_singular_to_relative_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "score_context": 1.0,
+          "opposite_value": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head_ceiling_passed": true,
+        "conditions": {
+          "native_score_native_value": {
+            "mean_margin_delta": -3.5762786865234375e-07,
+            "margin_direction_fraction": 0.4375,
+            "mean_donor_ce_gain": 1.7881393432617188e-07,
+            "margin_recovery_of_complete_head": -7.115149058340854e-08,
+            "ce_recovery_of_complete_head": 5.184154551259679e-08
+          },
+          "opposite_syntax_score_native_value": {
+            "mean_margin_delta": 0.04787662625312805,
+            "margin_direction_fraction": 0.8125,
+            "mean_donor_ce_gain": 0.043007105588912964,
+            "margin_recovery_of_complete_head": 0.009525245711000007,
+            "ce_recovery_of_complete_head": 0.012468574276128777
+          },
+          "native_score_opposite_value": {
+            "mean_margin_delta": 1.827096313238144,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.6551103591918945,
+            "margin_recovery_of_complete_head": 0.3635080974428202,
+            "ce_recovery_of_complete_head": 0.47984783365878053
+          },
+          "opposite_syntax_score_opposite_value": {
+            "mean_margin_delta": 1.5086202919483185,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.3682048469781876,
+            "margin_recovery_of_complete_head": 0.30014602301826615,
+            "ce_recovery_of_complete_head": 0.39666849293631185
+          },
+          "complete_head": {
+            "mean_margin_delta": 5.026287794113159,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.4492400363087654
+          }
+        },
+        "opposite_syntax_score_contrast": {
+          "mean_absolute_difference": 0.041559889912605286,
+          "maximum_absolute_difference": 0.09767807275056839,
+          "fraction_above_epsilon": 1.0,
+          "mean_absolute_relative_difference": 0.2699733078479767,
+          "fraction_above_relative_threshold": 0.8125,
+          "relative_threshold_is_diagnostic_only": true
+        },
+        "opposite_value_effect": {
+          "at_native_score": {
+            "mean_margin_effect": 1.8270966708660126,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.36350816859431073,
+            "mean_ce_benefit": 1.6551101803779602,
+            "ce_recovery_of_complete_head": 0.47984778181723503
+          },
+          "at_opposite_syntax_score": {
+            "mean_margin_effect": 1.4607436656951904,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.29062077730726615,
+            "mean_ce_benefit": 1.3251977413892746,
+            "ce_recovery_of_complete_head": 0.3841999186601831
+          }
+        },
+        "score_by_value_interaction": {
+          "mean_margin_interaction": -0.36635300517082214,
+          "margin_interaction_recovery_of_complete_head": -0.0728873912870446,
+          "mean_ce_interaction": -0.3299124389886856,
+          "ce_interaction_recovery_of_complete_head": -0.09564786315705193
+        },
+        "zero_to_twice_native_score_span": {
+          "row_count": 16,
+          "mean_donor_directed_margin_span": 3.0303097665309906,
+          "margin_span_recovery_of_complete_head": 0.6028922120377033,
+          "margin_span_direction_fraction": 1.0,
+          "mean_donor_answer_ce_benefit": 2.5504795983433723
+        }
+      },
+      "relative_plural_to_pp_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "score_context": 0.9375,
+          "opposite_value": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head_ceiling_passed": true,
+        "conditions": {
+          "native_score_native_value": {
+            "mean_margin_delta": -1.1920928955078125e-07,
+            "margin_direction_fraction": 0.375,
+            "mean_donor_ce_gain": 5.960464477539062e-07,
+            "margin_recovery_of_complete_head": -3.3378142933919736e-08,
+            "ce_recovery_of_complete_head": 2.5556408862750477e-07
+          },
+          "opposite_syntax_score_native_value": {
+            "mean_margin_delta": -0.1278311312198639,
+            "margin_direction_fraction": 0.4375,
+            "mean_donor_ce_gain": -0.09610643982887268,
+            "margin_recovery_of_complete_head": -0.03579222546615122,
+            "ce_recovery_of_complete_head": -0.04120711531568557
+          },
+          "native_score_opposite_value": {
+            "mean_margin_delta": 1.1157984733581543,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.8977006375789642,
+            "margin_recovery_of_complete_head": 0.312419284348917,
+            "ce_recovery_of_complete_head": 0.3849029654781537
+          },
+          "opposite_syntax_score_opposite_value": {
+            "mean_margin_delta": 1.1840987801551819,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.9501600712537766,
+            "margin_recovery_of_complete_head": 0.3315431077631202,
+            "ce_recovery_of_complete_head": 0.4073957551047665
+          },
+          "complete_head": {
+            "mean_margin_delta": 3.5714775919914246,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.332277789711952
+          }
+        },
+        "opposite_syntax_score_contrast": {
+          "mean_absolute_difference": 0.04000940918922424,
+          "maximum_absolute_difference": 0.13658565282821655,
+          "fraction_above_epsilon": 1.0,
+          "mean_absolute_relative_difference": 0.3483572006225586,
+          "fraction_above_relative_threshold": 0.6875,
+          "relative_threshold_is_diagnostic_only": true
+        },
+        "opposite_value_effect": {
+          "at_native_score": {
+            "mean_margin_effect": 1.1157985925674438,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.31241931772705994,
+            "mean_ce_benefit": 0.8977000415325165,
+            "ce_recovery_of_complete_head": 0.3849027099140651
+          },
+          "at_opposite_syntax_score": {
+            "mean_margin_effect": 1.3119299113750458,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.3673353332292714,
+            "mean_ce_benefit": 1.0462665110826492,
+            "ce_recovery_of_complete_head": 0.44860287042045205
+          }
+        },
+        "score_by_value_interaction": {
+          "mean_margin_interaction": 0.19613131880760193,
+          "margin_interaction_recovery_of_complete_head": 0.05491601550221146,
+          "mean_ce_interaction": 0.14856646955013275,
+          "ce_interaction_recovery_of_complete_head": 0.06370016050638695
+        },
+        "zero_to_twice_native_score_span": {
+          "row_count": 16,
+          "mean_donor_directed_margin_span": 0.7211698293685913,
+          "margin_span_recovery_of_complete_head": 0.20192478065261313,
+          "margin_span_direction_fraction": 1.0,
+          "mean_donor_answer_ce_benefit": 0.6407139301300049
+        }
+      },
+      "relative_singular_to_pp_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "score_context": 1.0,
+          "opposite_value": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head_ceiling_passed": true,
+        "conditions": {
+          "native_score_native_value": {
+            "mean_margin_delta": 5.364418029785156e-07,
+            "margin_direction_fraction": 0.5625,
+            "mean_donor_ce_gain": -1.7881393432617188e-07,
+            "margin_recovery_of_complete_head": 1.0109130762347748e-07,
+            "ce_recovery_of_complete_head": -5.154855887347807e-08
+          },
+          "opposite_syntax_score_native_value": {
+            "mean_margin_delta": -0.07304021716117859,
+            "margin_direction_fraction": 0.1875,
+            "mean_donor_ce_gain": -0.049038320779800415,
+            "margin_recovery_of_complete_head": -0.013764272323538551,
+            "ce_recovery_of_complete_head": -0.014136788474006852
+          },
+          "native_score_opposite_value": {
+            "mean_margin_delta": 1.53682479262352,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.307120829820633,
+            "margin_recovery_of_complete_head": 0.2896113371699956,
+            "ce_recovery_of_complete_head": 0.37681736216290157
+          },
+          "opposite_syntax_score_opposite_value": {
+            "mean_margin_delta": 1.8667426705360413,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.5762325674295425,
+            "margin_recovery_of_complete_head": 0.3517836539084719,
+            "ce_recovery_of_complete_head": 0.45439701109771313
+          },
+          "complete_head": {
+            "mean_margin_delta": 5.306507706642151,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.46884448826313
+          }
+        },
+        "opposite_syntax_score_contrast": {
+          "mean_absolute_difference": 0.041559889912605286,
+          "maximum_absolute_difference": 0.09767807275056839,
+          "fraction_above_epsilon": 1.0,
+          "mean_absolute_relative_difference": 0.4713892340660095,
+          "fraction_above_relative_threshold": 0.8125,
+          "relative_threshold_is_diagnostic_only": true
+        },
+        "opposite_value_effect": {
+          "at_native_score": {
+            "mean_margin_effect": 1.536824256181717,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.28961123607868794,
+            "mean_ce_benefit": 1.3071210086345673,
+            "ce_recovery_of_complete_head": 0.37681741371146044
+          },
+          "at_opposite_syntax_score": {
+            "mean_margin_effect": 1.9397828876972198,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.36554792623201043,
+            "mean_ce_benefit": 1.625270888209343,
+            "ce_recovery_of_complete_head": 0.46853379957172
+          }
+        },
+        "score_by_value_interaction": {
+          "mean_margin_interaction": 0.40295863151550293,
+          "margin_interaction_recovery_of_complete_head": 0.0759366901533225,
+          "mean_ce_interaction": 0.3181498795747757,
+          "ce_interaction_recovery_of_complete_head": 0.09171638586025951
+        },
+        "zero_to_twice_native_score_span": {
+          "row_count": 16,
+          "mean_donor_directed_margin_span": 2.4000728130340576,
+          "margin_span_recovery_of_complete_head": 0.4522885757858956,
+          "margin_span_direction_fraction": 1.0,
+          "mean_donor_answer_ce_benefit": 1.9535215497016907
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_causal_score_span_live": true,
+      "pred_c_opposite_syntax_score_rescues_weak_cell": false,
+      "pred_d_weak_cell_natural_score_no_interaction": true,
+      "pred_e_natural_score_mixed_result": false
+    }
+  }
+}

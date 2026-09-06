@@ -1,0 +1,38 @@
+ONE pipeline run, 16 arms against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | l0.25_s0.15 +2.4466 | l0.25_s0.25 +2.4452 | l0.25_s0.4 +2.4657 | l0.25_s0.6 +2.5209 | l0.25_s1.0 +2.6728 | l1.0_s0.15 +2.4482 | l1.0_s0.25 +2.4448 | l1.0_s0.4 +2.4629 | l1.0_s0.6 +2.5165 | l1.0_s1.0 +2.6735 | l4.0_s0.15 +2.4526 | l4.0_s0.25 +2.4492 | l4.0_s0.4 +2.4672 | l4.0_s0.6 +2.5226 | l4.0_s1.0 +2.6930
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) identity cell (lambda x1, scale 1.0) +0.0000, |.| <= 0.005: HELD
+(c) cell (lambda x1, scale 0.25) -0.2287 vs SS2896 -0.2287: HELD
+    lambda x0.25: s0.15 -0.2269 | s0.25 -0.2283 | s0.4 -0.2078 | s0.6 -0.1526 | s1.0 -0.0007   -> best scale 0.25 at -0.2283
+    lambda x1.0: s0.15 -0.2253 | s0.25 -0.2287 | s0.4 -0.2106 | s0.6 -0.1570 | s1.0 +0.0000   -> best scale 0.25 at -0.2287
+    lambda x4.0: s0.15 -0.2209 | s0.25 -0.2243 | s0.4 -0.2063 | s0.6 -0.1509 | s1.0 +0.0195   -> best scale 0.25 at -0.2243
+(d) optimal scale independent of the penalty: {0.25: 0.25, 1.0: 0.25, 4.0: 0.25}: HELD
+(e) every optimum interior to [0.15, 0.25, 0.4, 0.6, 1.0]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_ridge_scale_interaction_results.json (172s, 16 arms x 3 windows in one run)

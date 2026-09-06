@@ -1,0 +1,134 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_lemma_direction_factorial_v1_result.json",
+  "terminal": "plural_to_singular_asymmetry_screen",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "parent_cross_noun_max_absolute_reproduction_error": 1.7642974853515625e-05,
+    "cells": {
+      "pp_plural_to_relative_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "same_lemma": 1.0,
+          "cross_noun": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 3.8178716897964478,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.8200009167194366,
+          "ceiling_passed": true
+        },
+        "same_lemma_payload": {
+          "mean_margin_delta": 0.6990048289299011,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.18308756441397564,
+          "mean_donor_ce_gain": 0.6475591063499451,
+          "ce_recovery_of_complete_head": 0.22963081412869307
+        },
+        "cross_noun_payload": {
+          "mean_margin_delta": 0.7127029299736023,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.18667545372945746,
+          "mean_donor_ce_gain": 0.6463157832622528,
+          "ce_recovery_of_complete_head": 0.2291899195600705
+        }
+      },
+      "pp_singular_to_relative_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "same_lemma": 1.0,
+          "cross_noun": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 5.02628618478775,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.449239306151867,
+          "ceiling_passed": true
+        },
+        "same_lemma_payload": {
+          "mean_margin_delta": 1.844080924987793,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.3668873711506868,
+          "mean_donor_ce_gain": 1.684919536113739,
+          "ce_recovery_of_complete_head": 0.48849018191014243
+        },
+        "cross_noun_payload": {
+          "mean_margin_delta": 1.8270948827266693,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.36350792922544733,
+          "mean_donor_ce_gain": 1.6551091969013214,
+          "ce_recovery_of_complete_head": 0.4798475982659025
+        }
+      },
+      "relative_plural_to_pp_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "same_lemma": 1.0,
+          "cross_noun": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 3.57147753238678,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.3322771042585373,
+          "ceiling_passed": true
+        },
+        "same_lemma_payload": {
+          "mean_margin_delta": 1.1015426516532898,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.308427714206322,
+          "mean_donor_ce_gain": 0.8941962420940399,
+          "ce_recovery_of_complete_head": 0.38340051465639075
+        },
+        "cross_noun_payload": {
+          "mean_margin_delta": 1.1157979369163513,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.31241913936125915,
+          "mean_donor_ce_gain": 0.8976999074220657,
+          "ce_recovery_of_complete_head": 0.3849027655345683
+        }
+      },
+      "relative_singular_to_pp_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "same_lemma": 1.0,
+          "cross_noun": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 5.306508034467697,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.4688446670770645,
+          "ceiling_passed": true
+        },
+        "same_lemma_payload": {
+          "mean_margin_delta": 1.5492909252643585,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.2919605351016433,
+          "mean_donor_ce_gain": 1.3274505734443665,
+          "ce_recovery_of_complete_head": 0.3826780097832716
+        },
+        "cross_noun_payload": {
+          "mean_margin_delta": 1.5368243157863617,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.2896112294194467,
+          "mean_donor_ce_gain": 1.3071200549602509,
+          "ce_recovery_of_complete_head": 0.3768171193614337
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_lemma_conditioning_rescues_weak_cell": false,
+      "pred_c_plural_to_singular_asymmetry_persists": true,
+      "pred_d_same_lemma_direction_symmetric_rescue": false,
+      "pred_e_mixed_result": false
+    }
+  }
+}

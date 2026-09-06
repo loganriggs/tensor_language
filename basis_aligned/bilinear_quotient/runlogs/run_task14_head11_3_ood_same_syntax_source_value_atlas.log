@@ -1,0 +1,431 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_ood_same_syntax_source_value_atlas_v2_result.json",
+  "terminal": "ood_same_syntax_source_value_atlas_null",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "native_noop_max_absolute_logit_error": 5.53131103515625e-05,
+    "fronted_pre_subject_noop_max_absolute_logit_error": 5.245208740234375e-05,
+    "fronted_subject_joint_max_absolute_logit_error": 1.7642974853515625e-05,
+    "cells": {
+      "fronted_plural_to_fronted_singular": {
+        "row_count": 16,
+        "target_family": "A1",
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 0.5776077210903168,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 0.5800462961196899
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "fronted_preposition",
+            "mean_margin_delta": -2.980232238769531e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -5.159612882500806e-07,
+            "mean_donor_ce_gain": -2.384185791015625e-07
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "first_attractor_determiner",
+            "mean_margin_delta": 2.682209014892578e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": 4.643651594250726e-07,
+            "mean_donor_ce_gain": -2.086162567138672e-07
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "first_attractor",
+            "mean_margin_delta": -4.76837158203125e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -8.255380612001291e-07,
+            "mean_donor_ce_gain": -8.344650268554688e-07
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "fronted_preposition",
+            "mean_margin_delta": 6.854534149169922e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": 1.1867109629751856e-06,
+            "mean_donor_ce_gain": 1.4901161193847656e-07
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "second_attractor_determiner",
+            "mean_margin_delta": -7.152557373046875e-07,
+            "margin_direction_fraction": 0.4375,
+            "margin_recovery_of_complete_head": -1.2383070918001936e-06,
+            "mean_donor_ce_gain": -5.960464477539062e-07
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "second_attractor",
+            "mean_margin_delta": -2.682209014892578e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -4.643651594250726e-07,
+            "mean_donor_ce_gain": -4.172325134277344e-07
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "punctuation",
+            "mean_margin_delta": -4.172325134277344e-07,
+            "margin_direction_fraction": 0.5625,
+            "margin_recovery_of_complete_head": -7.223458035501129e-07,
+            "mean_donor_ce_gain": -2.384185791015625e-07
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "subject_determiner",
+            "mean_margin_delta": -7.748603820800781e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -1.3414993494502097e-06,
+            "mean_donor_ce_gain": 2.9802322387695312e-08
+          },
+          {
+            "source_position": 8,
+            "semantic_role": "subject",
+            "mean_margin_delta": 0.7376531362533569,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 1.2770832336883096,
+            "mean_donor_ce_gain": 0.7088066935539246
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 0.7376527488231659,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 1.2770825629386349,
+          "mean_donor_ce_gain": 0.7088067531585693,
+          "passed": true
+        },
+        "family_specific_screen_passed": true
+      },
+      "fronted_singular_to_fronted_plural": {
+        "row_count": 16,
+        "target_family": "A1",
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 1.1714106798171997,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 1.0693916082382202
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "fronted_preposition",
+            "mean_margin_delta": -9.834766387939453e-07,
+            "margin_direction_fraction": 0.4375,
+            "margin_recovery_of_complete_head": -8.395660512053879e-07,
+            "mean_donor_ce_gain": -9.238719940185547e-07
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "first_attractor_determiner",
+            "mean_margin_delta": -6.258487701416016e-07,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -5.342693053125195e-07,
+            "mean_donor_ce_gain": -1.4901161193847656e-07
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "first_attractor",
+            "mean_margin_delta": -5.364418029785156e-07,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -4.5794511883930247e-07,
+            "mean_donor_ce_gain": -8.046627044677734e-07
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "fronted_preposition",
+            "mean_margin_delta": -2.4139881134033203e-06,
+            "margin_direction_fraction": 0.3125,
+            "margin_recovery_of_complete_head": -2.0607530347768613e-06,
+            "mean_donor_ce_gain": -1.6689300537109375e-06
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "second_attractor_determiner",
+            "mean_margin_delta": -6.556510925292969e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -5.597107008035919e-07,
+            "mean_donor_ce_gain": -5.662441253662109e-07
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "second_attractor",
+            "mean_margin_delta": -8.344650268554688e-07,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -7.123590737500261e-07,
+            "mean_donor_ce_gain": -6.258487701416016e-07
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "punctuation",
+            "mean_margin_delta": -7.152557373046875e-07,
+            "margin_direction_fraction": 0.3125,
+            "margin_recovery_of_complete_head": -6.105934917857366e-07,
+            "mean_donor_ce_gain": -8.940696716308594e-08
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "subject_determiner",
+            "mean_margin_delta": -1.4007091522216797e-06,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -1.1957455880804008e-06,
+            "mean_donor_ce_gain": -4.470348358154297e-07
+          },
+          {
+            "source_position": 8,
+            "semantic_role": "subject",
+            "mean_margin_delta": 0.6308540999889374,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.5385422131266406,
+            "mean_donor_ce_gain": 0.600756824016571
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 0.6308539807796478,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.5385421113610587,
+          "mean_donor_ce_gain": 0.6007568836212158,
+          "passed": false
+        },
+        "family_specific_screen_passed": false
+      },
+      "two_attractor_relative_plural_to_two_attractor_relative_singular": {
+        "row_count": 16,
+        "target_family": "A2",
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 4.7990178763866425,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.7705272138118744
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "subject_determiner",
+            "mean_margin_delta": -1.4901161193847656e-07,
+            "margin_direction_fraction": 0.625,
+            "margin_recovery_of_complete_head": -3.105043902246784e-08,
+            "mean_donor_ce_gain": 1.4901161193847656e-06
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "mean_margin_delta": 1.3645690977573395,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.28434340794428836,
+            "mean_donor_ce_gain": 1.1197646856307983
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "relative_marker",
+            "mean_margin_delta": 0.6312540769577026,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.13153817993964154,
+            "mean_donor_ce_gain": 0.5500262975692749
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "relative_pronoun",
+            "mean_margin_delta": -0.00677335262298584,
+            "margin_direction_fraction": 0.125,
+            "margin_recovery_of_complete_head": -0.0014114039158540804,
+            "mean_donor_ce_gain": -0.00947040319442749
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "relative_verb",
+            "mean_margin_delta": 0.37913691997528076,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.07900302306453313,
+            "mean_donor_ce_gain": 0.36446982622146606
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "preposition",
+            "mean_margin_delta": 0.266372948884964,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.05550572132594889,
+            "mean_donor_ce_gain": 0.22890815138816833
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "first_attractor_determiner",
+            "mean_margin_delta": 0.05783581733703613,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.012051594477614835,
+            "mean_donor_ce_gain": 0.050636082887649536
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "first_attractor",
+            "mean_margin_delta": 0.09389200806617737,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.019564838157442355,
+            "mean_donor_ce_gain": 0.09181621670722961
+          },
+          {
+            "source_position": 8,
+            "semantic_role": "preposition",
+            "mean_margin_delta": 0.07924395799636841,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.016512536530919136,
+            "mean_donor_ce_gain": 0.0726153552532196
+          },
+          {
+            "source_position": 9,
+            "semantic_role": "second_attractor_determiner",
+            "mean_margin_delta": -0.0008276104927062988,
+            "margin_direction_fraction": 0.25,
+            "margin_recovery_of_complete_head": -0.0001724541383307864,
+            "mean_donor_ce_gain": -0.0006194412708282471
+          },
+          {
+            "source_position": 10,
+            "semantic_role": "second_attractor",
+            "mean_margin_delta": -0.009660869836807251,
+            "margin_direction_fraction": 0.3125,
+            "margin_recovery_of_complete_head": -0.0020130931131436577,
+            "mean_donor_ce_gain": -0.010053962469100952
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 4.8819094598293304,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 1.0172726140176622,
+          "mean_donor_ce_gain": 2.8132039308547974,
+          "passed": true
+        },
+        "family_specific_screen_passed": true
+      },
+      "two_attractor_relative_singular_to_two_attractor_relative_plural": {
+        "row_count": 16,
+        "target_family": "A2",
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 5.817480623722076,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.688158944249153
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "subject_determiner",
+            "mean_margin_delta": -9.238719940185547e-07,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -1.5880963835981855e-07,
+            "mean_donor_ce_gain": -2.9802322387695312e-08
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "mean_margin_delta": 2.015760749578476,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.34650063832765704,
+            "mean_donor_ce_gain": 1.7211337685585022
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "relative_marker",
+            "mean_margin_delta": 1.5266927182674408,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.2624319386715291,
+            "mean_donor_ce_gain": 1.3336701691150665
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "relative_pronoun",
+            "mean_margin_delta": -0.01553499698638916,
+            "margin_direction_fraction": 0.25,
+            "margin_recovery_of_complete_head": -0.002670399437695029,
+            "mean_donor_ce_gain": -0.011175394058227539
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "relative_verb",
+            "mean_margin_delta": 0.877654641866684,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.1508650734972543,
+            "mean_donor_ce_gain": 0.7429333329200745
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "preposition",
+            "mean_margin_delta": 0.7470086216926575,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.1284075822524553,
+            "mean_donor_ce_gain": 0.6718936860561371
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "first_attractor_determiner",
+            "mean_margin_delta": 0.20306634902954102,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.03490623556209068,
+            "mean_donor_ce_gain": 0.18420332670211792
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "first_attractor",
+            "mean_margin_delta": 0.26551029086112976,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.04564008168389118,
+            "mean_donor_ce_gain": 0.22926777601242065
+          },
+          {
+            "source_position": 8,
+            "semantic_role": "preposition",
+            "mean_margin_delta": 0.23997563123703003,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.04125078307239663,
+            "mean_donor_ce_gain": 0.2066444754600525
+          },
+          {
+            "source_position": 9,
+            "semantic_role": "second_attractor_determiner",
+            "mean_margin_delta": -0.00642770528793335,
+            "margin_direction_fraction": 0.25,
+            "margin_recovery_of_complete_head": -0.0011048950058764177,
+            "mean_donor_ce_gain": -0.006017059087753296
+          },
+          {
+            "source_position": 10,
+            "semantic_role": "second_attractor",
+            "mean_margin_delta": -0.019355416297912598,
+            "margin_direction_fraction": 0.375,
+            "margin_recovery_of_complete_head": -0.003327113152553799,
+            "mean_donor_ce_gain": -0.017014533281326294
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 5.517346262931824,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.9484081890077317,
+          "mean_donor_ce_gain": 3.583313897252083,
+          "passed": true
+        },
+        "family_specific_screen_passed": true
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_joint_value_sufficiency": false,
+      "pred_c_fronted_final_subject_sufficiency": false,
+      "pred_d_two_attractor_relative_later_relay": true
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+ "rung": "frontier_a5_constant_collapse",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_collapsing_a5_is_free": true,
+  "pred_c_the_control_layer_is_not_free": false,
+  "pred_d_a5_rows_are_near_identical": true,
+  "pred_e_the_parameter_saving_is_stated": true
+ },
+ "nulls": {
+  "b_null_a5_class_structure_is_load_bearing": false,
+  "c_null_collapsing_anything_is_free": true
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "a5_free": 0.02,
+  "ctrl_ratio": 5.0,
+  "ctrl_abs": 0.05,
+  "row_cos": 0.05
+ },
+ "null_bars": {
+  "a5_free_ge": 0.05,
+  "ctrl_ratio_le": 2.0
+ },
+ "collapsed_layer": 5,
+ "control_layer": 6,
+ "baseline": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4234,
+  "L2_F": 2.6736,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.40879034996033
+ },
+ "a5_collapsed": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 93.84415173530579
+ },
+ "control_collapsed": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 93.77212381362915
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "L2_F_a5_collapsed": 2.6735,
+  "L2_F_control_collapsed": 2.6735,
+  "cost_a5_nats": -0.0001,
+  "cost_control_nats": -0.0001,
+  "L2_C_baseline": 2.4234,
+  "L2_C_a5_collapsed": 2.4233,
+  "row_spread_a5": 0.04162859916687012,
+  "row_spread_control": 0.04218035936355591,
+  "parameters_saved_per_collapsed_layer": 5318784
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 283.0
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_A5_CONSTANT_COLLAPSE_PREREGISTRATION.md": "127dfa8e945f001d656676f56df60196fb5acf282a47fc104a64ee012b9c679d"
+ },
+ "self_reviewed": true
+}

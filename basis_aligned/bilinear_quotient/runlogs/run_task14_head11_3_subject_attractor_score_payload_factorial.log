@@ -1,0 +1,67 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_attractor_score_payload_factorial_v1_result.json",
+  "terminal": "subject_payload_screen",
+  "score": {
+    "native_positive_fraction": 1.0,
+    "native_replay_max_absolute_logit_error": 4.0531158447265625e-05,
+    "source_term_identity_max_absolute_error": 0.0,
+    "conditions": {
+      "subject_score": {
+        "mean_margin_delta": 0.07894162833690643,
+        "margin_direction_fraction": 0.515625,
+        "margin_recovery_of_complete_head": 0.015761273499990798,
+        "mean_donor_ce_gain": 0.06174631789326668,
+        "ce_recovery_of_complete_head": 0.017433390397306736
+      },
+      "subject_payload": {
+        "mean_margin_delta": 2.082675851881504,
+        "margin_direction_fraction": 1.0,
+        "margin_recovery_of_complete_head": 0.4158214671381971,
+        "mean_donor_ce_gain": 1.8188767358660698,
+        "ce_recovery_of_complete_head": 0.5135397429810141
+      },
+      "subject_joint": {
+        "mean_margin_delta": 2.36143559217453,
+        "margin_direction_fraction": 1.0,
+        "margin_recovery_of_complete_head": 0.47147788821927467,
+        "mean_donor_ce_gain": 2.0474115870893,
+        "ce_recovery_of_complete_head": 0.578064032310329
+      },
+      "attractor_score": {
+        "mean_margin_delta": 0.006923310458660126,
+        "margin_direction_fraction": 0.609375,
+        "margin_recovery_of_complete_head": 0.0013822895722214739,
+        "mean_donor_ce_gain": 0.004124287515878677,
+        "ce_recovery_of_complete_head": 0.0011644469958408967
+      },
+      "attractor_payload": {
+        "mean_margin_delta": -0.021997623145580292,
+        "margin_direction_fraction": 0.28125,
+        "margin_recovery_of_complete_head": -0.004391986358167461,
+        "mean_donor_ce_gain": -0.02822957932949066,
+        "ce_recovery_of_complete_head": -0.007970309712288414
+      },
+      "attractor_joint": {
+        "mean_margin_delta": -0.03324511647224426,
+        "margin_direction_fraction": 0.28125,
+        "margin_recovery_of_complete_head": -0.006637630668344344,
+        "mean_donor_ce_gain": -0.03604709729552269,
+        "ce_recovery_of_complete_head": -0.010177499505781467
+      },
+      "complete_head": {
+        "mean_margin_delta": 5.008581846952438,
+        "margin_direction_fraction": 1.0,
+        "margin_recovery_of_complete_head": 1.0,
+        "mean_donor_ce_gain": 3.5418422054499388,
+        "ce_recovery_of_complete_head": 1.0
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_subject_payload": true,
+      "pred_c_subject_score": false,
+      "pred_d_attractor_driven": false,
+      "pred_e_neither_or_other_source": false
+    }
+  }
+}

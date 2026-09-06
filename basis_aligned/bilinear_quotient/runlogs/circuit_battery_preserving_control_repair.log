@@ -1,0 +1,58 @@
+[v5] counting_words.comma_list      arm=half     identical=0.00 dP_base-dA1=+0.3379 old=1.39 new=1.27 (SS2852 1.39)
+[v5] keyed_line.counter_successor   arm=quarter  identical=1.00 dP_base-dA1=+0.0000 old=1.00 new=1.24 (SS2852 1.00)
+[v5] month.successor                arm=full     identical=0.00 dP_base-dA1=+0.0260 old=1.03 new=1.06 (SS2852 1.03)
+[v5] numbered_list.index_successor  arm=half     identical=1.00 dP_base-dA1=+0.0000 old=1.00 new=0.96 (SS2852 1.00)
+[v5] numeric_run.last_plus_one      arm=quarter  identical=0.00 dP_base-dA1=-0.1420 old=0.26 new=0.27 (SS2852 0.26)
+[v5] paren_list.index_successor     arm=quarter  identical=1.00 dP_base-dA1=+0.0000 old=1.00 new=1.00 (SS2852 1.00)
+[v5] roman_list.index_successor     arm=half     identical=1.00 dP_base-dA1=+0.0000 old=1.00 new=1.02 (SS2852 1.00)
+{
+ "preds": {
+  "pred_a_the_preserving_control_is_byte_identical_to_the_target": true,
+  "pred_b_the_identity_forces_the_damage_to_coincide": true,
+  "pred_c_the_donor_side_control_is_informative": false,
+  "pred_d_the_corrected_score_changes_the_verdict": false,
+  "pred_e_the_derived_rows_are_valid": true
+ },
+ "nulls": {
+  "a_null_no_task_is_degenerate": false,
+  "c_null_donor_control_is_also_the_target": false,
+  "d_null_verdict_unchanged": true
+ },
+ "summary": {
+  "n_tasks_censused": 21,
+  "n_degenerate_preserving_control": 11,
+  "max_dP_base_minus_dA1": 0.0,
+  "median_donor_control_separation": 0.07226502895355225,
+  "selective_corrected": [],
+  "verdict_flipped": [],
+  "n_live": 7,
+  "max_a1_native_drift": 0.0,
+  "arm_reproduces": true,
+  "ratios_new": {
+   "counting_words.comma_list": 1.2667877358520017,
+   "keyed_line.counter_successor": 1.2367327981382974,
+   "month.successor": 1.0556095144506268,
+   "numbered_list.index_successor": 0.9615326357673265,
+   "numeric_run.last_plus_one": 0.26729217171669006,
+   "paren_list.index_successor": 0.995525010861277,
+   "roman_list.index_successor": 1.0171600941958816
+  },
+  "ratios_2852": {
+   "counting_words.comma_list": 1.393204054899712,
+   "keyed_line.counter_successor": 1.0,
+   "month.successor": 1.0311402999260935,
+   "numbered_list.index_successor": 1.0,
+   "numeric_run.last_plus_one": 0.25646981596946716,
+   "paren_list.index_successor": 1.0,
+   "roman_list.index_successor": 1.0
+  },
+  "derived_rows_checked": 168,
+  "derived_rows_invalid": 0
+ },
+ "price": {
+  "gpu_forwards": 368,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 6.621572494506836
+ }
+}

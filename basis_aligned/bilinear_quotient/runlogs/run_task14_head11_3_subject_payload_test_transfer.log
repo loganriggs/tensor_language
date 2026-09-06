@@ -1,0 +1,103 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_test_transfer_v1_result.json",
+  "terminal": "subject_payload_test_transfer_null",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "cells": {
+      "pp_plural_to_relative_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 3.817877858877182,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.820004850625992,
+          "ceiling_passed": true
+        },
+        "subject_payload": {
+          "mean_margin_delta": 0.7127043008804321,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.18667551116735692,
+          "mean_donor_ce_gain": 0.6463192403316498,
+          "ce_recovery_of_complete_head": 0.22919082574917493,
+          "passed": false
+        }
+      },
+      "pp_singular_to_relative_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 5.026287764310837,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.449241526424885,
+          "ceiling_passed": true
+        },
+        "subject_payload": {
+          "mean_margin_delta": 1.8270969688892365,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.3635082300425656,
+          "mean_donor_ce_gain": 1.6551121324300766,
+          "ce_recovery_of_complete_head": 0.4798481404535301,
+          "passed": true
+        }
+      },
+      "relative_plural_to_pp_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 3.5714782178401947,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.3322774320840836,
+          "ceiling_passed": true
+        },
+        "subject_payload": {
+          "mean_margin_delta": 1.1157993078231812,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.3124194632490147,
+          "mean_donor_ce_gain": 0.8977010399103165,
+          "ce_recovery_of_complete_head": 0.3849031970043744,
+          "passed": true
+        }
+      },
+      "relative_singular_to_pp_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "native_capability_passed": true,
+        "complete_head": {
+          "mean_margin_delta": 5.306510180234909,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.4688464403152466,
+          "ceiling_passed": true
+        },
+        "subject_payload": {
+          "mean_margin_delta": 1.5368259251117706,
+          "margin_direction_fraction": 1.0,
+          "margin_recovery_of_complete_head": 0.2896114155845713,
+          "mean_donor_ce_gain": 1.307121217250824,
+          "ce_recovery_of_complete_head": 0.37681726180188985,
+          "passed": true
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_subject_payload_transfers_each_cell": false,
+      "pred_c_subject_payload_fails_some_cell": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+loaded 32 link maps: layers [10, 11, 12, 13, 14, 15, 16, 17], classes [2, 7, 8, 9], shapes_ok True
+  svd (10, 2) done
+  svd (10, 7) done
+  svd (10, 8) done
+  svd (10, 9) done
+  svd (11, 2) done
+  svd (11, 7) done
+  svd (11, 8) done
+  svd (11, 9) done
+  svd (12, 2) done
+  svd (12, 7) done
+  svd (12, 8) done
+  svd (12, 9) done
+  svd (13, 2) done
+  svd (13, 7) done
+  svd (13, 8) done
+  svd (13, 9) done
+  svd (14, 2) done
+  svd (14, 7) done
+  svd (14, 8) done
+  svd (14, 9) done
+  svd (15, 2) done
+  svd (15, 7) done
+  svd (15, 8) done
+  svd (15, 9) done
+  svd (16, 2) done
+  svd (16, 7) done
+  svd (16, 8) done
+  svd (16, 9) done
+  svd (17, 2) done
+  svd (17, 7) done
+  svd (17, 8) done
+  svd (17, 9) done
+(a) random null 0.0275 vs theory 0.0278: HELD
+(b) 32 maps, 8 layers x 4 classes, all 1152x1152: HELD
+(c) cross-LAYER overlap 0.1690 = 6.1x null (bar 4.0x): HELD
+(d) cross-CLASS overlap 0.2342 = 8.4x null (bar 4.0x): HELD
+(e) raw matrix cosine max 0.7871 < 0.9: HELD
+    adjacent layers: {'10-11': 0.1666, '11-12': 0.2007, '12-13': 0.1961, '13-14': 0.2932, '14-15': 0.2128, '15-16': 0.288, '16-17': 0.2065}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tail_subspace_alignment_results.json (3s CPU, 0 GPU-seconds)

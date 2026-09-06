@@ -1,0 +1,122 @@
+{
+ "rung": "frontier_cp_unit_scale",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_cp_drop_arm_reproduces_S2883": true,
+  "pred_c_scaling_the_cp_units_improves_the_frontier": true,
+  "pred_d_the_arms_are_connected": true,
+  "pred_e_both_windows_are_reported": true
+ },
+ "nulls": {
+  "b_null_the_anchor_fails": false,
+  "c_null_the_mismatch_is_confined_to_ridge_fits": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.02,
+  "improves": 0.0,
+  "connected": 0.005
+ },
+ "null_bars": {
+  "anchor_ge": 0.05,
+  "no_improvement": 0.0
+ },
+ "scales": [
+  0.5,
+  0.75,
+  0.9,
+  1.1,
+  1.25
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2872,
+   "L2_C": 2.4232,
+   "L2_F": 2.6736,
+   "increment": 0.3864
+  },
+  "cp_dropped": {
+   "L1_F": 2.2872,
+   "L2_C": 2.7071,
+   "L2_F": 2.8875,
+   "increment": 0.6003
+  },
+  "D050": {
+   "L1_F": 2.2872,
+   "L2_C": 2.2619,
+   "L2_F": 2.5661,
+   "increment": 0.279
+  },
+  "D075": {
+   "L1_F": 2.2872,
+   "L2_C": 2.3212,
+   "L2_F": 2.6066,
+   "increment": 0.3195
+  },
+  "D090": {
+   "L1_F": 2.2872,
+   "L2_C": 2.3788,
+   "L2_F": 2.6434,
+   "increment": 0.3563
+  },
+  "D110": {
+   "L1_F": 2.2872,
+   "L2_C": 2.4697,
+   "L2_F": 2.7061,
+   "increment": 0.419
+  },
+  "D125": {
+   "L1_F": 2.2872,
+   "L2_C": 2.5431,
+   "L2_F": 2.7553,
+   "increment": 0.4682
+  },
+  "runtime_s": 113.60807967185974
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "L2_C_baseline": 2.4232,
+  "cost_cp_dropped": 0.2139,
+  "S2883_share": -0.214,
+  "anchor_target_as_cost": 0.214,
+  "anchor_deviation": 0.0001,
+  "cost_fresh_by_scale": {
+   "0.5": -0.1075,
+   "0.75": -0.067,
+   "0.9": -0.0302,
+   "1.1": 0.0325,
+   "1.25": 0.0817
+  },
+  "cost_fit_by_scale": {
+   "0.5": -0.1613,
+   "0.75": -0.102,
+   "0.9": -0.0444,
+   "1.1": 0.0465,
+   "1.25": 0.1199
+  },
+  "scales_that_improve": [
+   0.5,
+   0.75,
+   0.9
+  ],
+  "best_scale": 0.5,
+  "best_cost_fresh": -0.1075,
+  "best_cost_fit": -0.1613,
+  "S2896_tail_gain_for_reference": -0.2287,
+  "implied_L2_F_best": 2.5661
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 113.6
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_CP_UNIT_SCALE_PREREGISTRATION.md": "cab5f8807241bc14b54647e37b4f2cdf30506e6eb58129808bfe0ca6492de1a6",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mlp_side_error_share_results.json": "cb3142892675744daa73220a0a6adcaad32d5f8e251813de66fbe6a393b90074"
+ },
+ "self_reviewed": true
+}

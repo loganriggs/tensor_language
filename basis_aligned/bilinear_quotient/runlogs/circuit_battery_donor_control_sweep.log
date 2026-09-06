@@ -1,0 +1,62 @@
+[sweep] alphabet_run.successor           attn8  ident=0.00 pubPisFULL=False deg=+1.06 cor=+1.08 (pub 1.0632823000794271)
+[sweep] arithmetic.small_addition        attn11 ident=1.00 pubPisFULL=True deg=-0.14 cor=+0.32 (pub -0.14244365692138672)
+[sweep] bracket.close_innermost          attn13 ident=1.00 pubPisFULL=True deg=+1.00 cor=+1.10 (pub 1.0)
+[sweep] counting_words.successor         attn8  ident=0.00 pubPisFULL=False deg=+1.13 cor=+1.11 (pub 1.1258687009431732)
+[sweep] induction.copy_successor         attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+1.01 (pub 1.0)
+[sweep] keyed_line.counter_successor     attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+1.10 (pub 1.0)
+[sweep] letter_list.index_successor      attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+1.06 (pub 1.0)
+[sweep] month.successor                  attn8  ident=0.00 pubPisFULL=False deg=+1.03 cor=+1.58 (pub 1.0311402999260935)
+[sweep] numbered_list.index_successor    attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+0.98 (pub 1.0)
+[sweep] numeric_run.last_plus_one        attn8  ident=0.00 pubPisFULL=False deg=+0.94 cor=+0.87 (pub 0.9397077995055069)
+[sweep] numeric_sequence.continuation    attn8  ident=0.00 pubPisFULL=False deg=+0.10 cor=+0.50 (pub 0.09507966041564941)
+[sweep] numeric_sequence.countdown       attn8  ident=0.00 pubPisFULL=False deg=-0.55 cor=+2.35 (pub -0.5509616136550903)
+[sweep] paren_list.index_successor       attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+0.99 (pub 1.0)
+[sweep] roman_list.index_successor       attn8  ident=1.00 pubPisFULL=True deg=+1.00 cor=+1.03 (pub 1.0)
+[sweep] verbatim_repeat.copy             attn8  ident=1.00 pubPisFULL=True deg=+0.55 cor=+0.90 (pub 0.5470210909843445)
+[sweep] weekday.successor                attn14 ident=0.00 pubPisFULL=False deg=+0.88 cor=+1.24 (pub 0.8793032765388489)
+{
+ "preds": {
+  "pred_a_the_structural_census_predicts_the_landed_receipt": true,
+  "pred_b_the_degenerate_control_reproduces_the_target": true,
+  "pred_c_the_donor_control_separates_from_the_target": false,
+  "pred_d_some_behaviour_is_selective_once_corrected": false,
+  "pred_e_the_correction_is_not_a_uniform_shift": false
+ },
+ "nulls": {
+  "a_null_census_does_not_predict": false,
+  "c_null_donor_control_tracks_target": false,
+  "d_null_still_none_selective": true,
+  "e_null_uniform_shift": false
+ },
+ "summary": {
+  "n_tasks": 16,
+  "census_receipt_agreement": 1.0,
+  "max_degenerate_reproduction_gap": 0.0,
+  "n_degenerate": 9,
+  "median_donor_separation": 0.101063072681427,
+  "n_donor_separating": 5,
+  "selective_corrected": [],
+  "n_capable": 8,
+  "corrected_iqr": 0.1761318731766831,
+  "ratio_corrected": {
+   "keyed_line.counter_successor": 1.0985393131308139,
+   "month.successor": 1.5791058623540994,
+   "numbered_list.index_successor": 0.9767876287218455,
+   "numeric_run.last_plus_one": 0.8689007403774768,
+   "paren_list.index_successor": 0.9868787630028774,
+   "roman_list.index_successor": 1.034528876594405,
+   "verbatim_repeat.copy": 0.9014548659324646,
+   "weekday.successor": 1.2407273054122925
+  },
+  "ratio_published": {
+   "keyed_line.counter_successor": 1.0,
+   "month.successor": 1.0311402999260935,
+   "numbered_list.index_successor": 1.0,
+   "numeric_run.last_plus_one": 0.9397077995055069,
+   "paren_list.index_successor": 1.0,
+   "roman_list.index_successor": 1.0,
+   "verbatim_repeat.copy": 0.5470210909843445,
+   "weekday.successor": 0.8793032765388489
+  }
+ },
+ "p

@@ -1,0 +1,46 @@
+[null] counting_words.comma_list      attn8 sel=0.03 percentile=0.000 live_components=21/36
+[null] keyed_line.counter_successor   attn8 sel=0.104 percentile=0.045 live_components=22/36
+[null] month.successor                attn8 sel=0.482 percentile=0.500 live_components=28/36
+[null] numbered_list.index_successor  attn8 sel=0.325 percentile=0.222 live_components=18/36
+[null] numeric_run.last_plus_one      attn8 sel=0.097 percentile=0.188 live_components=16/36
+[null] paren_list.index_successor     attn8 sel=0.248 percentile=0.059 live_components=17/36
+[null] roman_list.index_successor     attn8 sel=0.243 percentile=0.286 live_components=21/36
+{
+ "preds": {
+  "pred_a_the_identified_writer_is_an_outlier_on_the_new_metric": true,
+  "pred_b_the_null_distribution_is_not_degenerate": true,
+  "pred_c_the_inherited_bar_is_not_the_right_bar": true,
+  "pred_d_the_writers_rank_is_stable_across_held_out_splits": true,
+  "pred_e_inert_components_are_gated_out": true
+ },
+ "nulls": {
+  "a_null_writer_is_typical": false,
+  "b_null_every_component_scores_alike": false,
+  "c_null_inherited_bar_is_fine": false,
+  "d_null_component_ranking_is_noise": false
+ },
+ "summary": {
+  "median_writer_percentile": 0.1875,
+  "writer_percentile": {
+   "counting_words.comma_list": 0.0,
+   "keyed_line.counter_successor": 0.045454545454545456,
+   "month.successor": 0.5,
+   "numbered_list.index_successor": 0.2222222222222222,
+   "numeric_run.last_plus_one": 0.1875,
+   "paren_list.index_successor": 0.058823529411764705,
+   "roman_list.index_successor": 0.2857142857142857
+  },
+  "median_null_spread_p90_p10": 1.4846327677369118,
+  "null_spread": {
+   "counting_words.comma_list": 1.4846327677369118,
+   "keyed_line.counter_successor": 1.796260072660067,
+   "month.successor": 3.7930551076243533,
+   "numbered_list.index_successor": 1.254201313006636,
+   "numeric_run.last_plus_one": 1.8587928023189306,
+   "paren_list.index_successor": 0.7950439545446255,
+   "roman_list.index_successor": 1.1665825471282005
+  },
+  "median_components_under_inherited_bar": 5.0,
+  "components_under_inherited_bar": {
+   "counting_words.comma_list": 6,
+   "keyed_line.counter_succes

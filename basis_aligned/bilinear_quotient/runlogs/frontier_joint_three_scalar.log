@@ -1,0 +1,35 @@
+ONE pipeline run, 37 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | cp_s035_moti100_tail020 +2.3921 | cp_s035_moti100_tail025 +2.3803 | cp_s035_moti100_tail030 +2.3722 | cp_s035_moti115_tail020 +2.3953 | cp_s035_moti115_tail025 +2.3806 | cp_s035_moti115_tail030 +2.3703 | cp_s035_moti125_tail020 +2.4177 | cp_s035_moti125_tail025 +2.4014 | cp_s035_moti125_tail030 +2.3910 | cp_s035_moti140_tail020 +2.4657 | cp_s035_moti140_tail025 +2.4478 | cp_s035_moti140_tail030 +2.4358 | cp_s050_moti100_tail020 +2.3602 | cp_s050_moti100_tail025 +2.3522 | cp_s050_moti100_tail030 +2.3502 | cp_s050_moti115_tail020 +2.3397 | cp_s050_moti115_tail025 +2.3298 | cp_s050_moti115_tail030 +2.3239 | cp_s050_moti125_tail020 +2.3482 | cp_s050_moti125_tail025 +2.3371 | cp_s050_moti125_tail030 +2.3308 | cp_s050_moti140_tail020 +2.3789 | cp_s050_moti140_tail025 +2.3669 | cp_s050_moti140_tail030 +2.3616 | cp_s065_moti100_tail020 +2.3657 | cp_s065_moti100_tail025 +2.3615 | cp_s065_moti100_tail030 +2.3611 | cp_s065_moti115_tail020 +2.3193 | cp_s065_moti115_tail025 +2.3129 | cp_s065_moti115_tail030 +2.3109 | cp_s065_moti125_tail020 +2.3161 | cp_s065_moti125_tail025 +2.3086 | cp_s065_moti125_tail030 +2.3058 | cp_s065_moti140_tail020 +2.3364 | cp_s065_moti140_tail025 +2.3289 | cp_s065_moti140_tail030 +2.3251
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) cell (.25,.5,1.25) -0.3364 vs SS2906 -0.3363, dev 0.0001: HELD
+(c) best cell t=0.3 c=0.65 m=1.25 at -0.3677 (fit -0.3551) beats current by +0.0314: HELD
+(d) interior in all three: FAILED
+    implied L2_F = 2.3058   (adopted T+C = 2.3522)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_joint_three_scalar_results.json (214s, 36 cells in one run)

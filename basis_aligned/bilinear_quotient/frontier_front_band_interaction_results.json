@@ -1,0 +1,153 @@
+{
+ "rung": "frontier_front_band_interaction",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_front_band_is_subadditive": true,
+  "pred_c_the_singles_reproduce_S2889": true,
+  "pred_d_the_arms_are_connected": true,
+  "pred_e_most_pairs_are_subadditive": true
+ },
+ "nulls": {
+  "b_null_the_front_band_is_additive": false,
+  "c_null_this_rung_disagrees_with_S2889": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "subadditive": 0.1,
+  "singles_repro": 0.01,
+  "connected": 0.005,
+  "n_pairs": 2
+ },
+ "null_bars": {
+  "subadditive_le": 0.02,
+  "singles_repro_ge": 0.03
+ },
+ "subsets": [
+  [
+   2
+  ],
+  [
+   3
+  ],
+  [
+   4
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   2,
+   3,
+   4
+  ]
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "increment": 0.3864
+  },
+  "a2": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2258,
+   "L2_F": 2.4789,
+   "increment": 0.1917
+  },
+  "a3": {
+   "L1_F": 2.2871,
+   "L2_C": 2.337,
+   "L2_F": 2.5155,
+   "increment": 0.2284
+  },
+  "a4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.1818,
+   "L2_F": 2.4794,
+   "increment": 0.1922
+  },
+  "a23": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2241,
+   "L2_F": 2.4657,
+   "increment": 0.1786
+  },
+  "a24": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2229,
+   "L2_F": 2.4227,
+   "increment": 0.1355
+  },
+  "a34": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2217,
+   "L2_F": 2.4223,
+   "increment": 0.1351
+  },
+  "a234": {
+   "L1_F": 2.2871,
+   "L2_C": 2.306,
+   "L2_F": 2.4334,
+   "increment": 0.1463
+  },
+  "runtime_s": 117.84221243858337
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "share_by_subset": {
+   "a2": 0.1946,
+   "a3": 0.158,
+   "a4": 0.1941,
+   "a23": 0.2078,
+   "a24": 0.2508,
+   "a34": 0.2512,
+   "a234": 0.2401
+  },
+  "singles": {
+   "a2": 0.1946,
+   "a3": 0.158,
+   "a4": 0.1941
+  },
+  "sum_of_singles": 0.5467,
+  "share_triple_a234": 0.2401,
+  "subadditivity_nats": 0.3066,
+  "pairwise_interactions": {
+   "a23": -0.1448,
+   "a24": -0.1379,
+   "a34": -0.1009
+  },
+  "n_pairs_subadditive": 3,
+  "S2889_singles": {
+   "a2": 0.1946,
+   "a3": 0.1579,
+   "a4": 0.1941
+  },
+  "max_single_deviation": 0.0001,
+  "S2889_whole_band_sum": 0.7441,
+  "S2882_whole_band_joint": 0.3988,
+  "pipeline_runs_saved_vs_per_arm": 7
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 117.8
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_FRONT_BAND_INTERACTION_PREREGISTRATION.md": "4b157e716c403714f196692e2c9434d358023e20fb6b3c576d18493e5c52541e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motif_band_profile_results.json": "444a40253595d9dd214ed30d4d609b1989d9deb3557f3133267ebdee96f33e29"
+ },
+ "self_reviewed": true
+}

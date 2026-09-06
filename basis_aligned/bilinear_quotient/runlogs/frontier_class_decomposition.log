@@ -1,0 +1,46 @@
+ONE pipeline run, 3 arms + the real model, decomposed over 10 token classes
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4234 | fresh +2.6736 | tail-attn increment +0.3865
+L2 per arm: baseline +2.6736 | svd_identity +2.6736 | S2923 +2.2732
+(a) baseline L2_F 2.6736 vs 2.6735: HELD
+(b) identity +0.0000; weighted damage 2.6736 vs scalar 2.6736: HELD
+     cls       n     real  dmg base  dmg S2923     gain
+       0     308   3.6437    1.3519     0.8911   0.4608
+       1      53   0.9446    1.8514     1.7594   0.0920
+       2     759   5.9418    0.3645     0.3526   0.0119
+       3     971   0.9859    0.8640     0.7888   0.0752
+       4    1475   1.2079    0.9589     0.8682   0.0907
+       5     329   5.0719    3.8219     3.1783   0.6436
+       6     134   2.6418    1.6124     1.1795   0.4329
+       7    3415   2.4509    4.1037     2.8088   1.2949
+       8    8989   1.9504    2.4854     2.1914   0.2940
+       9   14287   4.7671    2.8879     2.5658   0.3221
+(c) top-2 classes hold 0.7337 of the gain (bar 0.5): HELD
+(d) worst class gain +0.0119 >= -0.02: HELD
+(e) weighted gain +0.4004 vs measured +0.4004: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_class_decomposition_results.json (110s, 3 arms x 3 windows in one run)

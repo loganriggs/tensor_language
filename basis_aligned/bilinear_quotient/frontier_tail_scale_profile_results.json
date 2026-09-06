@@ -1,0 +1,182 @@
+{
+ "rung": "frontier_tail_scale_profile",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_s025_arm_reproduces_S2896": true,
+  "pred_c_the_optimum_is_interior": true,
+  "pred_d_no_single_layer_matches_the_global_scale": true,
+  "pred_e_the_per_layer_gains_are_not_additive": false
+ },
+ "nulls": {
+  "b_null_the_anchor_fails": false,
+  "e_null_the_layers_are_additive": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.01,
+  "interior": 0.22,
+  "single_vs_global": 0.05,
+  "nonadditive": 0.05
+ },
+ "null_bars": {
+  "anchor_ge": 0.03,
+  "additive_le": 0.02
+ },
+ "grid": [
+  0.1,
+  0.15,
+  0.2,
+  0.25,
+  0.3,
+  0.4
+ ],
+ "layers": [
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6736,
+   "increment": 0.3864
+  },
+  "g010": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3064,
+   "L2_F": 2.4568,
+   "increment": 0.1697
+  },
+  "g015": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2904,
+   "L2_F": 2.4482,
+   "increment": 0.1611
+  },
+  "g020": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2785,
+   "L2_F": 2.4445,
+   "increment": 0.1574
+  },
+  "g025": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2702,
+   "L2_F": 2.4448,
+   "increment": 0.1577
+  },
+  "g030": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2667,
+   "L2_F": 2.4482,
+   "increment": 0.1611
+  },
+  "g040": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2667,
+   "L2_F": 2.4632,
+   "increment": 0.176
+  },
+  "L10": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3407,
+   "L2_F": 2.6038,
+   "increment": 0.3167
+  },
+  "L11": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4031,
+   "L2_F": 2.644,
+   "increment": 0.3569
+  },
+  "L12": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4101,
+   "L2_F": 2.6496,
+   "increment": 0.3625
+  },
+  "L13": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4374,
+   "L2_F": 2.668,
+   "increment": 0.3808
+  },
+  "L14": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3697,
+   "L2_F": 2.646,
+   "increment": 0.3589
+  },
+  "L15": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3922,
+   "L2_F": 2.6434,
+   "increment": 0.3562
+  },
+  "L16": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4183,
+   "L2_F": 2.6559,
+   "increment": 0.3688
+  },
+  "L17": {
+   "L1_F": 2.2871,
+   "L2_C": 2.429,
+   "L2_F": 2.6269,
+   "increment": 0.3397
+  },
+  "runtime_s": 142.10690212249756
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "global_cost_by_scale": {
+   "0.1": -0.2168,
+   "0.15": -0.2254,
+   "0.2": -0.2291,
+   "0.25": -0.2288,
+   "0.3": -0.2254,
+   "0.4": -0.2104
+  },
+  "per_layer_cost_at_scale_025": {
+   "a10L": -0.0698,
+   "a11L": -0.0296,
+   "a12L": -0.024,
+   "a13L": -0.0056,
+   "a14L": -0.0276,
+   "a15L": -0.0302,
+   "a16L": -0.0177,
+   "a17L": -0.0467
+  },
+  "best_global_scale": 0.2,
+  "best_global_cost": -0.2291,
+  "S2896_adopted_s025": -0.2287,
+  "anchor_deviation": 0.0001,
+  "best_single_layer": 10,
+  "best_single_cost": -0.0698,
+  "sum_of_single_layer_gains": -0.2512,
+  "global_gain_at_025": -0.2288,
+  "nonadditivity_nats": 0.0224,
+  "implied_L2_F_at_best": 2.4445,
+  "pipeline_runs_saved_vs_per_arm": 14
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 142.1
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_SCALE_PROFILE_PREREGISTRATION.md": "e7fa0507b0b2356a2df6da0fa36285e396d473d72f23d9faae51531ac0ab49a7",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_anchor_resolution_results.json": "5aef0a10442ce19305652c324d08b2d76200b0219d97738ea0323c9d11dab3d3"
+ },
+ "self_reviewed": true
+}

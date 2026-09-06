@@ -1,0 +1,140 @@
+{
+ "rung": "frontier_tail_shrinkage_anchored",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_empty_arm_reproduces_S2881": false,
+  "pred_c_the_empty_and_zero_arms_differ": true,
+  "pred_d_some_scale_below_one_improves": true,
+  "pred_e_the_scale_grid_reproduces_S2893": true
+ },
+ "nulls": {
+  "b_null_the_anchor_still_fails": true,
+  "c_null_the_two_zero_arms_are_the_same": false,
+  "d_null_no_scale_improves": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.02,
+  "arms_differ": 0.1,
+  "improves": 0.0,
+  "repro_prior": 0.02
+ },
+ "null_bars": {
+  "anchor_ge": 0.05,
+  "arms_same_le": 0.02,
+  "improves_none": 0
+ },
+ "scales": [
+  0.0,
+  0.25,
+  0.5,
+  0.75,
+  1.0
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6736,
+   "increment": 0.3864
+  },
+  "lw_empty": {
+   "L1_F": 2.2871,
+   "L2_C": 2.6194,
+   "L2_F": 2.7866,
+   "increment": 0.4995
+  },
+  "s000": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3527,
+   "L2_F": 2.4872,
+   "increment": 0.2001
+  },
+  "s025": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2702,
+   "L2_F": 2.4448,
+   "increment": 0.1577
+  },
+  "s050": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2759,
+   "L2_F": 2.4873,
+   "increment": 0.2002
+  },
+  "s075": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3348,
+   "L2_F": 2.5717,
+   "increment": 0.2846
+  },
+  "s100": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6736,
+   "increment": 0.3864
+  },
+  "runtime_s": 114.17700386047363
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "L2_C_baseline": 2.4232,
+  "cost_fresh": {
+   "lw_empty": 0.113,
+   "s000": -0.1864,
+   "s025": -0.2288,
+   "s050": -0.1863,
+   "s075": -0.1019,
+   "s100": 0.0
+  },
+  "cost_fit": {
+   "lw_empty": 0.1962,
+   "s000": -0.0705,
+   "s025": -0.153,
+   "s050": -0.1473,
+   "s075": -0.0884,
+   "s100": 0.0
+  },
+  "cost_lw_empty": 0.113,
+  "cost_scale_zero": -0.1864,
+  "S2881_anchor": 0.174,
+  "anchor_deviation": 0.061,
+  "gap_between_the_two_zero_arms": 0.2994,
+  "scales_below_one_that_improve": [
+   0.0,
+   0.25,
+   0.5,
+   0.75
+  ],
+  "best_scale": 0.25,
+  "best_cost_fresh": -0.2288,
+  "best_cost_fit": -0.153,
+  "S2893_scale_grid": {
+   "0.0": -0.1863,
+   "0.25": -0.2287,
+   "0.5": -0.186,
+   "0.75": -0.1017,
+   "0.9": -0.0421,
+   "1.0": 0.0,
+   "1.1": 0.0436,
+   "1.25": 0.1091
+  },
+  "max_deviation_vs_S2893": 0.0003,
+  "pipeline_runs_saved_vs_per_arm": 6
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 114.2
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_SHRINKAGE_ANCHORED_PREREGISTRATION.md": "258026c23779a51fa530e493cf58c4cbb240ad62f63a3e4a39dcf42ca4c19892",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_refit_split_results.json": "cd1a8028a8086706ba82a907436ae1acb74113d70c357d01bebaba21c81ecf95",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_link_shrinkage_results.json": "4a24b6c46945e95d7547d930e7ae5aa9fe451cdbfa2f25ea8267afa89e88cbe7"
+ },
+ "self_reviewed": true
+}

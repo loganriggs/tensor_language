@@ -1,0 +1,97 @@
+ARM 1/3: BASELINE -- reproduction of the published frontier
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2872
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4234 | fresh +2.6736 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/3: a5 collapsed to a single constant
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+COLLAPSED a5 to a single constant
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 3/3: a6 collapsed -- like-for-like control from the same motif band
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+COLLAPSED a6 to a single constant
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+(a) baseline L2_F 2.6736 vs 2.6735 (tol .05): HELD
+(b) a5 collapse cost -0.0001 <= 0.02 (LOWER L2 IS BETTER): HELD
+(c) a6 control cost -0.0001: FAILED
+(d) row spread a5 0.0416 vs a6 0.0422: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_a5_constant_collapse_results.json (283s)

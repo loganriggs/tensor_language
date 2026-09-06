@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_factor_localization_rung573.py", line 545, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/numbered_list_factor_localization_rung573.py", line 537, in main
+    raise RuntimeError(f"forward price exceeded: {total_forwards} > {maximum_forwards}")
+RuntimeError: forward price exceeded: 280 > 278

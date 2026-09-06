@@ -1,0 +1,81 @@
+{
+ "rung": "frontier_tail_anchor_resolution",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_refit_time_arm_reproduces_S2881": true,
+  "pred_c_the_frozen_arm_reproduces_S2894": true,
+  "pred_d_the_two_applications_genuinely_differ": true,
+  "pred_e_the_s025_arm_reproduces_the_curve": true
+ },
+ "nulls": {
+  "b_null_the_refit_arm_does_not_reproduce_S2881": false,
+  "d_null_the_distinction_is_not_the_cause": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "refit_anchor": 0.02,
+  "frozen_anchor": 0.02,
+  "distinction": 0.04,
+  "curve": 0.01
+ },
+ "null_bars": {
+  "refit_anchor_ge": 0.05,
+  "distinction_le": 0.01
+ },
+ "frozen_arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "increment": 0.3863
+  },
+  "frozen_empty": {
+   "L1_F": 2.2871,
+   "L2_C": 2.6194,
+   "L2_F": 2.7866,
+   "increment": 0.4995
+  },
+  "s025": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2702,
+   "L2_F": 2.4448,
+   "increment": 0.1576
+  },
+  "runtime_s": 101.43351578712463
+ },
+ "refit_arm": {
+  "L1_F": 2.2872,
+  "L2_C": 2.696,
+  "L2_F": 2.8475,
+  "increment": 0.5604
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "cost_refit_time_empty": 0.174,
+  "S2881_refit_time": 0.174,
+  "refit_anchor_deviation": 0.0,
+  "cost_frozen_empty": 0.1131,
+  "S2894_frozen": 0.113,
+  "frozen_anchor_deviation": 0.0001,
+  "distinction_nats": 0.0609,
+  "cost_s025": -0.2287,
+  "S2894_s025": -0.2288,
+  "curve_deviation": 0.0001,
+  "adoption_gate_all_of_a_b_c_e": true
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 2,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 194.6
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_ANCHOR_RESOLUTION_PREREGISTRATION.md": "a7b339c25760c3afc7f551d5819d5d3604e8442a4e5cd482026124b1a80f7e62",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_refit_split_results.json": "cd1a8028a8086706ba82a907436ae1acb74113d70c357d01bebaba21c81ecf95",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_shrinkage_anchored_results.json": "4d3e7fdd91828d96cb5056e3bd3c2e5ac96140b571f2927cb25d0c5f273d37b5"
+ },
+ "self_reviewed": true
+}

@@ -1,0 +1,83 @@
+{
+ "rung": "frontier_interaction_front_motif",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_interaction_term_is_large": true,
+  "pred_c_the_joint_restoration_exceeds_either_alone": true,
+  "pred_d_both_arms_are_connected": true,
+  "pred_e_the_fit_once_refactor_reproduces_S2883s_baseline": true
+ },
+ "nulls": {
+  "b_null_the_two_blocks_are_additive": false,
+  "e_null_the_refactor_changed_the_construction": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "interaction": 0.15,
+  "joint_exceeds": 0.1,
+  "connected": 0.005,
+  "refactor": 0.001
+ },
+ "null_bars": {
+  "interaction_le": 0.05,
+  "refactor_ge": 0.01
+ },
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4233,
+   "L2_F": 2.6735,
+   "increment": 0.3864
+  },
+  "front_off": {
+   "L1_F": 2.2871,
+   "L2_C": 1.4816,
+   "L2_F": 1.6689,
+   "increment": -0.6182
+  },
+  "motif_off": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2881,
+   "L2_F": 2.2747,
+   "increment": -0.0124
+  },
+  "both_off": {
+   "L1_F": 2.2871,
+   "L2_C": 1.0518,
+   "L2_F": 0.9678,
+   "increment": -1.3193
+  },
+  "runtime_s": 104.38935708999634
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_front_off": 1.6689,
+  "L2_F_motif_off": 2.2747,
+  "L2_F_both_off": 0.9678,
+  "share_front_tables_nats": 1.0046,
+  "share_motif_heads_nats": 0.3988,
+  "share_both_nats": 1.7057,
+  "sum_of_singles_nats": 1.4034,
+  "interaction_nats": 0.3023,
+  "S2883_share_front": 1.0045,
+  "S2882_share_motif": 0.3988,
+  "refactor_baseline_deviation": 0.0,
+  "S2886_closure_gap_for_reference": 0.8807,
+  "pipeline_runs_saved_vs_per_arm": 3
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 104.4
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_INTERACTION_FRONT_MOTIF_PREREGISTRATION.md": "ea786059fb00995c224e7cf39fe7a0abcbf5e231a90d32c7b453d8adc2ab410d",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mlp_side_error_share_results.json": "cb3142892675744daa73220a0a6adcaad32d5f8e251813de66fbe6a393b90074",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_error_decomposition_results.json": "2a269d51e87f95d00e8f485e162b7a56710a185f2bf2e38947bfb29da715d2b3"
+ },
+ "self_reviewed": true
+}

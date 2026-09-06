@@ -1,0 +1,46 @@
+[null] counting_words.comma_list      attn8 sel=0.151 percentile=0.095 live_components=21/36
+[null] keyed_line.counter_successor   attn8 sel=0.229 percentile=0.316 live_components=19/36
+[null] month.successor                attn8 sel=0.187 percentile=0.250 live_components=28/36
+[null] numbered_list.index_successor  attn8 sel=0.344 percentile=0.200 live_components=15/36
+[null] numeric_run.last_plus_one      attn8 sel=0.2 percentile=0.211 live_components=19/36
+[null] paren_list.index_successor     attn8 sel=0.301 percentile=0.077 live_components=13/36
+[null] roman_list.index_successor     attn8 sel=0.068 percentile=0.130 live_components=23/36
+{
+ "preds": {
+  "pred_a_the_identified_writer_is_an_outlier_on_the_new_metric": true,
+  "pred_b_the_null_distribution_is_not_degenerate": true,
+  "pred_c_the_inherited_bar_is_not_the_right_bar": true,
+  "pred_d_the_writers_rank_is_stable_across_held_out_splits": true,
+  "pred_e_inert_components_are_gated_out": true
+ },
+ "nulls": {
+  "a_null_writer_is_typical": false,
+  "b_null_every_component_scores_alike": false,
+  "c_null_inherited_bar_is_fine": false,
+  "d_null_component_ranking_is_noise": false
+ },
+ "summary": {
+  "median_writer_percentile": 0.2,
+  "writer_percentile": {
+   "counting_words.comma_list": 0.09523809523809523,
+   "keyed_line.counter_successor": 0.3157894736842105,
+   "month.successor": 0.25,
+   "numbered_list.index_successor": 0.2,
+   "numeric_run.last_plus_one": 0.21052631578947367,
+   "paren_list.index_successor": 0.07692307692307693,
+   "roman_list.index_successor": 0.13043478260869565
+  },
+  "median_null_spread_p90_p10": 1.4790925093633185,
+  "null_spread": {
+   "counting_words.comma_list": 1.807266646137448,
+   "keyed_line.counter_successor": 1.5091562735791573,
+   "month.successor": 1.4790925093633185,
+   "numbered_list.index_successor": 1.1022292852401734,
+   "numeric_run.last_plus_one": 1.9620989009737968,
+   "paren_list.index_successor": 0.7616143970334639,
+   "roman_list.index_successor": 0.5989369769420161
+  },
+  "median_components_under_inherited_bar": 8.0,
+  "components_under_inherited_bar": {
+   "counting_words.comma_list": 9,
+   "keyed_line.cou

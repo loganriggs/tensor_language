@@ -1,0 +1,145 @@
+{
+ "rung": "frontier_motif_band_profile",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_a2_dominates_the_band": false,
+  "pred_c_a5_and_a2_reproduce_S2885": true,
+  "pred_d_most_layers_are_connected": true,
+  "pred_e_the_fit_once_refactor_reproduces_S2885s_baseline": true
+ },
+ "nulls": {
+  "b_null_the_band_is_flat": true,
+  "c_null_the_two_rungs_disagree": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "dominance": 1.5,
+  "a5_repro": 0.01,
+  "connected": 0.005,
+  "n_connected": 6,
+  "refactor": 0.001
+ },
+ "null_bars": {
+  "dominance_le": 1.15,
+  "a5_repro_ge": 0.02
+ },
+ "band": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "increment": 0.3864
+  },
+  "a2": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2258,
+   "L2_F": 2.4789,
+   "increment": 0.1918
+  },
+  "a3": {
+   "L1_F": 2.2871,
+   "L2_C": 2.337,
+   "L2_F": 2.5156,
+   "increment": 0.2285
+  },
+  "a4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.1819,
+   "L2_F": 2.4794,
+   "increment": 0.1923
+  },
+  "a5": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4011,
+   "L2_F": 2.6138,
+   "increment": 0.3267
+  },
+  "a6": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3417,
+   "L2_F": 2.607,
+   "increment": 0.3198
+  },
+  "a7": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3984,
+   "L2_F": 2.6416,
+   "increment": 0.3545
+  },
+  "a8": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3923,
+   "L2_F": 2.6545,
+   "increment": 0.3673
+  },
+  "a9": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4135,
+   "L2_F": 2.6531,
+   "increment": 0.366
+  },
+  "runtime_s": 121.5939428806305
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "error_share_by_layer": {
+   "a2": 0.1946,
+   "a3": 0.1579,
+   "a4": 0.1941,
+   "a5": 0.0597,
+   "a6": 0.0665,
+   "a7": 0.0319,
+   "a8": 0.019,
+   "a9": 0.0204
+  },
+  "ranked_layers": [
+   "a2",
+   "a4",
+   "a3",
+   "a6",
+   "a5",
+   "a7",
+   "a9",
+   "a8"
+  ],
+  "top_layer": "a2",
+  "top_share": 0.1946,
+  "second_share": 0.1941,
+  "dominance_ratio": 1.003,
+  "sum_of_layer_shares": 0.7441,
+  "S2882_whole_band_share": 0.3988,
+  "a5_share": 0.0597,
+  "a5_share_S2885": 0.0597,
+  "a2_share": 0.1946,
+  "a2_share_S2885": 0.1946,
+  "a5_deviation": 0.0,
+  "a2_deviation": 0.0,
+  "n_layers_connected": 8,
+  "refactor_baseline_deviation": 0.0,
+  "pipeline_runs_saved_vs_per_arm": 8
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 121.6
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_MOTIF_BAND_PROFILE_PREREGISTRATION.md": "800d15e453612da42e4b12c1c919fcdd655c336a1443ed436643da0b97ab02af",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_attn5_error_share_results.json": "d47f24e61518d1d48063e5e32e91659249b3f412880efaa9386fba0fa87838ab"
+ },
+ "self_reviewed": true
+}

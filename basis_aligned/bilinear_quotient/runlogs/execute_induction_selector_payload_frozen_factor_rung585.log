@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py", line 3426, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py", line 3416, in main
+    payload = run_dryrun() if args.dry_run else run_science()
+                                                ^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/induction_selector_payload_frozen_factor_rung585.py", line 3118, in run_science
+    raise RuntimeError(
+RuntimeError: replay/native full-logit comparison failed before publishable evidence

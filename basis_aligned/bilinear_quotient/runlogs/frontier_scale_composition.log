@@ -1,0 +1,38 @@
+ONE pipeline run, 8 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | T +2.4447 | C +2.5661 | F +2.5085 | TC +2.3522 | TF +2.3399 | CF +2.5245 | TCF +2.3850
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+    fresh: T:-0.2288  C:-0.1074  F:-0.1650  TC:-0.3213  TF:-0.3336  CF:-0.1490  TCF:-0.2885
+    fit:   T:-0.1531  C:-0.1612  F:+0.0959  TC:-0.2899  TF:-0.0206  CF:-0.0012  TCF:-0.0823
+(b) T -0.2288 vs SS2896 -0.2287, dev 0.0001: HELD
+(c) C -0.1074 vs SS2902 -0.1075, dev 0.0001: HELD
+(d) triple -0.2885 beats best single T by +0.0597: HELD
+(e) singles sum -0.5012, nonadditivity +0.2127: HELD
+    implied L2_F(triple) = 2.3850   pairwise {'TC': 0.0149, 'TF': 0.0602, 'CF': 0.1234}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_scale_composition_results.json (118s)

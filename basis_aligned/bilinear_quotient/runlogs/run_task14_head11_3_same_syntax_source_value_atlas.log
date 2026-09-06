@@ -1,0 +1,800 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_same_syntax_source_value_atlas_v1_result.json",
+  "terminal": "non_subject_source_signal_screen",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "native_noop_max_absolute_logit_error": 4.9591064453125e-05,
+    "source_zero_max_absolute_logit_error": 4.9591064453125e-05,
+    "subject_parent_max_absolute_reproduction_error": 2.765655517578125e-05,
+    "cells": {
+      "pp_plural_to_pp_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 3.978398472070694,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.991164341568947
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "determiner",
+            "recipient_token_examples": [
+              "The"
+            ],
+            "donor_token_examples": [
+              "The"
+            ],
+            "mean_margin_delta": 2.9206275939941406e-06,
+            "margin_direction_fraction": 0.625,
+            "margin_recovery_of_complete_head": 7.341214346671513e-07,
+            "mean_donor_ce_gain": 1.7881393432617188e-06,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "recipient_token_examples": [
+              " boxes",
+              " branches",
+              " churches",
+              " coats",
+              " farms",
+              " glasses",
+              " hills",
+              " horses",
+              " islands",
+              " lakes",
+              " parks",
+              " plates",
+              " rings",
+              " rooms",
+              " schools",
+              " shoes"
+            ],
+            "donor_token_examples": [
+              " box",
+              " branch",
+              " church",
+              " coat",
+              " farm",
+              " glass",
+              " hill",
+              " horse",
+              " island",
+              " lake",
+              " park",
+              " plate",
+              " ring",
+              " room",
+              " school",
+              " shoe"
+            ],
+            "mean_margin_delta": 0.6990079283714294,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.1757008337095019,
+            "mean_donor_ce_gain": 0.6475618183612823,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " in"
+            ],
+            "donor_token_examples": [
+              " in"
+            ],
+            "mean_margin_delta": 0.8521528244018555,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.21419494059837685,
+            "mean_donor_ce_gain": 0.7590569704771042,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " front"
+            ],
+            "donor_token_examples": [
+              " front"
+            ],
+            "mean_margin_delta": 0.23336240649223328,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.0586573738479172,
+            "mean_donor_ce_gain": 0.22052913904190063,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " of"
+            ],
+            "donor_token_examples": [
+              " of"
+            ],
+            "mean_margin_delta": 0.14067482948303223,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.03535966305803782,
+            "mean_donor_ce_gain": 0.12476801872253418,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "attractor_determiner",
+            "recipient_token_examples": [
+              " the"
+            ],
+            "donor_token_examples": [
+              " the"
+            ],
+            "mean_margin_delta": 0.01212051510810852,
+            "margin_direction_fraction": 0.875,
+            "margin_recovery_of_complete_head": 0.0030465814807635353,
+            "mean_donor_ce_gain": 0.012036144733428955,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "attractor",
+            "recipient_token_examples": [
+              " boxes",
+              " branch",
+              " churches",
+              " coat",
+              " farm",
+              " glasses",
+              " hill",
+              " horse",
+              " islands",
+              " lakes",
+              " parks",
+              " plate",
+              " ring",
+              " room",
+              " schools",
+              " shoes"
+            ],
+            "donor_token_examples": [
+              " boxes",
+              " branch",
+              " churches",
+              " coat",
+              " farm",
+              " glasses",
+              " hill",
+              " horse",
+              " islands",
+              " lakes",
+              " parks",
+              " plate",
+              " ring",
+              " room",
+              " schools",
+              " shoes"
+            ],
+            "mean_margin_delta": -0.025649160146713257,
+            "margin_direction_fraction": 0.0625,
+            "margin_recovery_of_complete_head": -0.006447106876492257,
+            "mean_donor_ce_gain": -0.02398565411567688,
+            "descriptive_non_subject_signal": false
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 4.118652641773224,
+          "mean_donor_ce_gain": 3.051914446055889,
+          "margin_recovery_of_complete_head": 1.0352539270983405
+        },
+        "joint_minus_sum_single": {
+          "margin": 2.206980377435684,
+          "ce_gain": 1.3119462206959724
+        }
+      },
+      "pp_singular_to_pp_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 6.1522767543792725,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 4.026837408542633
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "determiner",
+            "recipient_token_examples": [
+              "The"
+            ],
+            "donor_token_examples": [
+              "The"
+            ],
+            "mean_margin_delta": 5.662441253662109e-07,
+            "margin_direction_fraction": 0.4375,
+            "margin_recovery_of_complete_head": 9.203814262145324e-08,
+            "mean_donor_ce_gain": 8.046627044677734e-07,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "recipient_token_examples": [
+              " box",
+              " branch",
+              " church",
+              " coat",
+              " farm",
+              " glass",
+              " hill",
+              " horse",
+              " island",
+              " lake",
+              " park",
+              " plate",
+              " ring",
+              " room",
+              " school",
+              " shoe"
+            ],
+            "donor_token_examples": [
+              " boxes",
+              " branches",
+              " churches",
+              " coats",
+              " farms",
+              " glasses",
+              " hills",
+              " horses",
+              " islands",
+              " lakes",
+              " parks",
+              " plates",
+              " rings",
+              " rooms",
+              " schools",
+              " shoes"
+            ],
+            "mean_margin_delta": 1.8440852463245392,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.2997402945197312,
+            "mean_donor_ce_gain": 1.684922531247139,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " in"
+            ],
+            "donor_token_examples": [
+              " in"
+            ],
+            "mean_margin_delta": 2.9214653074741364,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.474859214581756,
+            "mean_donor_ce_gain": 2.574024260044098,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " front"
+            ],
+            "donor_token_examples": [
+              " front"
+            ],
+            "mean_margin_delta": 1.1384596228599548,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.18504688074209016,
+            "mean_donor_ce_gain": 1.0567941814661026,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " of"
+            ],
+            "donor_token_examples": [
+              " of"
+            ],
+            "mean_margin_delta": 0.7277470827102661,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.11828906789543335,
+            "mean_donor_ce_gain": 0.6877318471670151,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "attractor_determiner",
+            "recipient_token_examples": [
+              " the"
+            ],
+            "donor_token_examples": [
+              " the"
+            ],
+            "mean_margin_delta": 0.07207432389259338,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.011715065295346137,
+            "mean_donor_ce_gain": 0.0664200484752655,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "attractor",
+            "recipient_token_examples": [
+              " box",
+              " branches",
+              " church",
+              " coats",
+              " farms",
+              " glass",
+              " hills",
+              " horses",
+              " island",
+              " lake",
+              " park",
+              " plates",
+              " rings",
+              " rooms",
+              " school",
+              " shoe"
+            ],
+            "donor_token_examples": [
+              " box",
+              " branches",
+              " church",
+              " coats",
+              " farms",
+              " glass",
+              " hills",
+              " horses",
+              " island",
+              " lake",
+              " park",
+              " plates",
+              " rings",
+              " rooms",
+              " school",
+              " shoe"
+            ],
+            "mean_margin_delta": -0.12369060516357422,
+            "margin_direction_fraction": 0.0625,
+            "margin_recovery_of_complete_head": -0.020104850627132402,
+            "mean_donor_ce_gain": -0.11853355169296265,
+            "descriptive_non_subject_signal": false
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 5.916075646877289,
+          "mean_donor_ce_gain": 3.980040855705738,
+          "margin_recovery_of_complete_head": 0.9616075288983298
+        },
+        "joint_minus_sum_single": {
+          "margin": -0.6640658974647522,
+          "ce_gain": -1.9713192656636238
+        }
+      },
+      "relative_plural_to_relative_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 3.3511675596237183,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.1268915235996246
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "determiner",
+            "recipient_token_examples": [
+              "The"
+            ],
+            "donor_token_examples": [
+              "The"
+            ],
+            "mean_margin_delta": -3.8743019104003906e-07,
+            "margin_direction_fraction": 0.5,
+            "margin_recovery_of_complete_head": -1.156105101123446e-07,
+            "mean_donor_ce_gain": 3.5762786865234375e-07,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "recipient_token_examples": [
+              " boxes",
+              " branches",
+              " churches",
+              " coats",
+              " farms",
+              " glasses",
+              " hills",
+              " horses",
+              " islands",
+              " lakes",
+              " parks",
+              " plates",
+              " rings",
+              " rooms",
+              " schools",
+              " shoes"
+            ],
+            "donor_token_examples": [
+              " box",
+              " branch",
+              " church",
+              " coat",
+              " farm",
+              " glass",
+              " hill",
+              " horse",
+              " island",
+              " lake",
+              " park",
+              " plate",
+              " ring",
+              " room",
+              " school",
+              " shoe"
+            ],
+            "mean_margin_delta": 1.101542204618454,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.32870400689308993,
+            "mean_donor_ce_gain": 0.8941946476697922,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "relative_marker",
+            "recipient_token_examples": [
+              " that"
+            ],
+            "donor_token_examples": [
+              " that"
+            ],
+            "mean_margin_delta": 0.921946257352829,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.27511195455005794,
+            "mean_donor_ce_gain": 0.7389291822910309,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "relative_pronoun",
+            "recipient_token_examples": [
+              " I"
+            ],
+            "donor_token_examples": [
+              " I"
+            ],
+            "mean_margin_delta": 0.004385232925415039,
+            "margin_direction_fraction": 0.875,
+            "margin_recovery_of_complete_head": 0.001308568684613141,
+            "mean_donor_ce_gain": 0.0043502748012542725,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "relative_verb",
+            "recipient_token_examples": [
+              " moved"
+            ],
+            "donor_token_examples": [
+              " moved"
+            ],
+            "mean_margin_delta": 0.1510356068611145,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.04506954790349944,
+            "mean_donor_ce_gain": 0.14300522208213806,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " beyond"
+            ],
+            "donor_token_examples": [
+              " beyond"
+            ],
+            "mean_margin_delta": 0.20094925165176392,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.05996395228722232,
+            "mean_donor_ce_gain": 0.1739937961101532,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "attractor_determiner",
+            "recipient_token_examples": [
+              " the"
+            ],
+            "donor_token_examples": [
+              " the"
+            ],
+            "mean_margin_delta": 0.045512884855270386,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.013581202385589082,
+            "mean_donor_ce_gain": 0.03666102886199951,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "attractor",
+            "recipient_token_examples": [
+              " boxes",
+              " branch",
+              " churches",
+              " coat",
+              " farm",
+              " glasses",
+              " hill",
+              " horse",
+              " islands",
+              " lakes",
+              " parks",
+              " plate",
+              " ring",
+              " room",
+              " schools",
+              " shoes"
+            ],
+            "donor_token_examples": [
+              " boxes",
+              " branch",
+              " churches",
+              " coat",
+              " farm",
+              " glasses",
+              " hill",
+              " horse",
+              " islands",
+              " lakes",
+              " parks",
+              " plate",
+              " ring",
+              " room",
+              " schools",
+              " shoes"
+            ],
+            "mean_margin_delta": -0.031849056482315063,
+            "margin_direction_fraction": 0.0625,
+            "margin_recovery_of_complete_head": -0.009503868701179238,
+            "mean_donor_ce_gain": -0.03190913796424866,
+            "descriptive_non_subject_signal": false
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 3.5192038118839264,
+          "mean_donor_ce_gain": 2.20929092168808,
+          "margin_recovery_of_complete_head": 1.0501425993390423
+        },
+        "joint_minus_sum_single": {
+          "margin": 1.1256818175315857,
+          "ce_gain": 0.25006555020809174
+        }
+      },
+      "relative_singular_to_relative_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 4.595097035169601,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.0478065609931946
+        },
+        "sources": [
+          {
+            "source_position": 0,
+            "semantic_role": "determiner",
+            "recipient_token_examples": [
+              "The"
+            ],
+            "donor_token_examples": [
+              "The"
+            ],
+            "mean_margin_delta": -7.748603820800781e-07,
+            "margin_direction_fraction": 0.4375,
+            "margin_recovery_of_complete_head": -1.6862764293104392e-07,
+            "mean_donor_ce_gain": -6.258487701416016e-07,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 1,
+            "semantic_role": "subject",
+            "recipient_token_examples": [
+              " box",
+              " branch",
+              " church",
+              " coat",
+              " farm",
+              " glass",
+              " hill",
+              " horse",
+              " island",
+              " lake",
+              " park",
+              " plate",
+              " ring",
+              " room",
+              " school",
+              " shoe"
+            ],
+            "donor_token_examples": [
+              " boxes",
+              " branches",
+              " churches",
+              " coats",
+              " farms",
+              " glasses",
+              " hills",
+              " horses",
+              " islands",
+              " lakes",
+              " parks",
+              " plates",
+              " rings",
+              " rooms",
+              " schools",
+              " shoes"
+            ],
+            "mean_margin_delta": 1.5492927134037018,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.3371621320607256,
+            "mean_donor_ce_gain": 1.327452152967453,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 2,
+            "semantic_role": "relative_marker",
+            "recipient_token_examples": [
+              " that"
+            ],
+            "donor_token_examples": [
+              " that"
+            ],
+            "mean_margin_delta": 1.956177979707718,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.4257098304422459,
+            "mean_donor_ce_gain": 1.6024549752473831,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 3,
+            "semantic_role": "relative_pronoun",
+            "recipient_token_examples": [
+              " I"
+            ],
+            "donor_token_examples": [
+              " I"
+            ],
+            "mean_margin_delta": 0.004463762044906616,
+            "margin_direction_fraction": 0.8125,
+            "margin_recovery_of_complete_head": 0.0009714184511757241,
+            "mean_donor_ce_gain": 0.0032408535480499268,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 4,
+            "semantic_role": "relative_verb",
+            "recipient_token_examples": [
+              " moved"
+            ],
+            "donor_token_examples": [
+              " moved"
+            ],
+            "mean_margin_delta": 0.401044636964798,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.08727664158021327,
+            "mean_donor_ce_gain": 0.34423142671585083,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 5,
+            "semantic_role": "preposition",
+            "recipient_token_examples": [
+              " beyond"
+            ],
+            "donor_token_examples": [
+              " beyond"
+            ],
+            "mean_margin_delta": 0.5455732643604279,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.11872943273771175,
+            "mean_donor_ce_gain": 0.4828939437866211,
+            "descriptive_non_subject_signal": true
+          },
+          {
+            "source_position": 6,
+            "semantic_role": "attractor_determiner",
+            "recipient_token_examples": [
+              " the"
+            ],
+            "donor_token_examples": [
+              " the"
+            ],
+            "mean_margin_delta": 0.14737826585769653,
+            "margin_direction_fraction": 1.0,
+            "margin_recovery_of_complete_head": 0.03207293877141311,
+            "mean_donor_ce_gain": 0.13203227519989014,
+            "descriptive_non_subject_signal": false
+          },
+          {
+            "source_position": 7,
+            "semantic_role": "attractor",
+            "recipient_token_examples": [
+              " box",
+              " branches",
+              " church",
+              " coats",
+              " farms",
+              " glass",
+              " hills",
+              " horses",
+              " island",
+              " lake",
+              " park",
+              " plates",
+              " rings",
+              " rooms",
+              " school",
+              " shoe"
+            ],
+            "donor_token_examples": [
+              " box",
+              " branches",
+              " church",
+              " coats",
+              " farms",
+              " glass",
+              " hills",
+              " horses",
+              " island",
+              " lake",
+              " park",
+              " plates",
+              " rings",
+              " rooms",
+              " school",
+              " shoe"
+            ],
+            "mean_margin_delta": -0.0725851058959961,
+            "margin_direction_fraction": 0.0,
+            "margin_recovery_of_complete_head": -0.01579620742292269,
+            "mean_donor_ce_gain": -0.0638713538646698,
+            "descriptive_non_subject_signal": false
+          }
+        ],
+        "joint_all_values": {
+          "mean_margin_delta": 4.107673853635788,
+          "mean_donor_ce_gain": 2.8200254291296005,
+          "margin_recovery_of_complete_head": 0.8939253778966556
+        },
+        "joint_minus_sum_single": {
+          "margin": -0.4236708879470825,
+          "ce_gain": -1.0084082186222076
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_non_subject_source_signal": true,
+      "pred_c_subject_only_among_single_sources": false
+    }
+  }
+}

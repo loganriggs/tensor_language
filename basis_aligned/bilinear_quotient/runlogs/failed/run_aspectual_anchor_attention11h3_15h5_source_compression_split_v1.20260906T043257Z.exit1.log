@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_aspectual_anchor_attention11h3_15h5_source_compression_split_v1.py", line 548, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_aspectual_anchor_attention11h3_15h5_source_compression_split_v1.py", line 375, in main
+    control = parent_logits[(boundary, str(row["row_id"]))]
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: (11, '8751b601098dbb6cbf1e31d9da1cc6e92463fe6b73b808619423988212632617')

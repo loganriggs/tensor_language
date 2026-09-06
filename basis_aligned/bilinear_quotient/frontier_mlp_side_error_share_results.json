@@ -1,0 +1,88 @@
+{
+ "rung": "frontier_mlp_side_error_share",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_cp_units_carry_a_large_share_of_the_error": false,
+  "pred_c_the_front_tables_carry_a_measurable_share": true,
+  "pred_d_both_blocks_are_installed_and_move_the_number": true,
+  "pred_e_the_two_shares_are_roughly_additive": true
+ },
+ "nulls": {
+  "b_null_the_cp_units_are_error_free": true,
+  "c_null_the_front_tables_are_error_free": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "cp_share": 0.2,
+  "front_share": 0.1,
+  "installed": 0.01,
+  "additive": 0.3
+ },
+ "null_bars": {
+  "cp_share_le": 0.05,
+  "front_share_le": 0.02
+ },
+ "baseline": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4232,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.44903326034546
+ },
+ "cp_off": {
+  "L1_F": 2.2871,
+  "L2_C": 2.7072,
+  "L2_F": 2.8875,
+  "increment": 0.6003,
+  "orig_s312_a": false,
+  "orig_s312_b": false,
+  "runtime_s": 93.9053328037262
+ },
+ "front_off": {
+  "L1_F": 2.2871,
+  "L2_C": 1.4816,
+  "L2_F": 1.669,
+  "increment": -0.6182,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "runtime_s": 94.37182021141052
+ },
+ "both_off": {
+  "L1_F": 2.2872,
+  "L2_C": 1.6066,
+  "L2_F": 1.6701,
+  "increment": -0.6171,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "runtime_s": 93.857666015625
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_cp_off": 2.8875,
+  "L2_F_front_off": 1.669,
+  "L2_F_both_off": 1.6701,
+  "error_share_cp_units_nats": -0.214,
+  "error_share_front_tables_nats": 1.0045,
+  "error_share_both_nats": 1.0034,
+  "additivity_drift_nats": 0.2129,
+  "L1_F_baseline": 2.2872,
+  "L1_F_cp_off": 2.2871,
+  "L2_C_baseline": 2.4232,
+  "L2_C_cp_off": 2.7072
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 4,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 377.6
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_MLP_SIDE_ERROR_SHARE_PREREGISTRATION.md": "cd2125a9b60b5a312c583dde87afd6d25a27f62b1cb6625bb9b6f06431f0f7c3"
+ },
+ "self_reviewed": true
+}

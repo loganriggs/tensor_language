@@ -1,0 +1,99 @@
+{
+ "rung": "frontier_tail_link_lowrank_frozen",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_cost_is_monotone_in_rank_once_the_fits_are_frozen": false,
+  "pred_c_rank64_is_essentially_free": false,
+  "pred_d_the_arms_are_connected": true,
+  "pred_e_rank1_is_cheap": true
+ },
+ "nulls": {
+  "b_null_still_nonmonotone": true,
+  "e_null_rank1_was_an_artifact_of_the_sequential_refit": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "monotone_tol": -0.01,
+  "rank64_free": 0.02,
+  "connected": 0.005,
+  "rank1_cheap": 0.05
+ },
+ "null_bars": {
+  "still_nonmonotone": -0.05,
+  "rank1_expensive_ge": 0.1
+ },
+ "baseline": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.22309756278992
+ },
+ "rank64": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4832,
+  "L2_F": 2.7409,
+  "increment": 0.4537,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 96.29264950752258
+ },
+ "rank8": {
+  "L1_F": 2.2871,
+  "L2_C": 2.6133,
+  "L2_F": 2.8224,
+  "increment": 0.5352,
+  "orig_s312_a": false,
+  "orig_s312_b": true,
+  "runtime_s": 96.68054723739624
+ },
+ "rank1": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4172,
+  "L2_F": 2.6441,
+  "increment": 0.3569,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 96.37371468544006
+ },
+ "published_L2_F": 2.6735,
+ "S2884_void_costs": {
+  "rank8": 0.1351,
+  "rank1": -0.0056
+ },
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_rank64": 2.7409,
+  "L2_F_rank8": 2.8224,
+  "L2_F_rank1": 2.6441,
+  "cost_rank64_nats": 0.0674,
+  "cost_rank8_nats": 0.1489,
+  "cost_rank1_nats": -0.0294,
+  "monotone_gap_1_vs_8": -0.1783,
+  "monotone_gap_8_vs_64": 0.0815,
+  "S2884_sequential_rank8": 0.1351,
+  "S2884_sequential_rank1": -0.0056,
+  "params_full": 42467328,
+  "params_rank64": 4718592,
+  "params_rank8": 589824,
+  "params_rank1": 73728,
+  "compression_rank1": 576.0,
+  "L2_C_baseline": 2.4233,
+  "L2_C_rank1": 2.4172
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 4,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 384.6
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_LINK_LOWRANK_FROZEN_PREREGISTRATION.md": "c0fc3205efcfe9f4a01fa4f3678266109b6cecc51785f7901511a3fab34c4b3c",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_link_lowrank_results.json": "7368b30e00f8f76a9b7c68b1968d9b5ef2083d204c90ca64559ab7213b7c8a25"
+ },
+ "self_reviewed": true
+}

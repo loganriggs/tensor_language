@@ -1,0 +1,74 @@
+{
+  "candidate_id": "possessive_number.das_resid18_rank1_v1",
+  "families": {
+    "C": {
+      "mean_absolute_recovery": 0.0028162619564682245,
+      "rows": 32,
+      "same_answer_effect": 0.0028162619564682245
+    },
+    "P": {
+      "mean_absolute_recovery": 0.14716669917106628,
+      "rows": 32,
+      "same_answer_effect": 0.14716669917106628
+    },
+    "fitted_adjacent_A2": {
+      "mean_absolute_recovery": 0.8373323678970337,
+      "mean_recovery": 0.8373323678970337,
+      "rows": 32
+    },
+    "fitted_adjacent_heldout": {
+      "mean_absolute_recovery": 0.885906994342804,
+      "mean_recovery": 0.885906994342804,
+      "rows": 16
+    },
+    "inanimate_argument_dist5": {
+      "mean_absolute_recovery": 0.7039555311203003,
+      "mean_recovery": 0.7039555311203003,
+      "rows": 32
+    },
+    "long_simple_dist7_two_pp": {
+      "mean_absolute_recovery": 0.7352918386459351,
+      "mean_recovery": 0.7352918386459351,
+      "rows": 32
+    },
+    "medial_dist4_pp": {
+      "mean_absolute_recovery": 0.8320995569229126,
+      "mean_recovery": 0.8320995569229126,
+      "rows": 32
+    },
+    "verb_final_dist6": {
+      "mean_absolute_recovery": 0.6936208009719849,
+      "mean_recovery": 0.6936208009719849,
+      "rows": 32
+    }
+  },
+  "finished_utc": "2026-09-06T06:44:28.340558+00:00",
+  "fitted_on": "possessive_number.adjacent_antecedent A1 (distance 1)",
+  "head_verification": {
+    "max_abs_difference": 2.86102294921875e-06,
+    "passed": true
+  },
+  "pred_a_head_reproduces_producer": true,
+  "pred_b_heldout_transfer": true,
+  "pred_c_number_feature": true,
+  "pred_d_subspace_selective": true,
+  "pred_e_cross_construction": true,
+  "pred_f_design_specific": false,
+  "predictions": {
+    "pred_a_head_reproduces_producer": true,
+    "pred_b_heldout_transfer": true,
+    "pred_c_number_feature": true,
+    "pred_d_subspace_selective": true,
+    "pred_e_cross_construction": true,
+    "pred_f_design_specific": false
+  },
+  "rank": 1,
+  "reading": "number_feature_survives_intervening_material",
+  "registered_thresholds": {
+    "design_specific": 0.15,
+    "number_feature": 0.5
+  },
+  "schema": "circuit_das_sibling_transfer_result_v1",
+  "sibling_minimum": 0.6936208009719849,
+  "site": "resid:18"
+}

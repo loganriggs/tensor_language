@@ -1,0 +1,41 @@
+ONE pipeline run, 14 arms against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | cp_identity +2.6735 | cp_uniform +2.5661 | plain_half +2.5661 | top64 +2.6647 | bot64 +2.5599 | top128 +2.6721 | bot128 +2.5455 | top256 +2.6566 | bot256 +2.5595 | top576 +2.5559 | bot576 +2.6796 | top1152 +2.5498 | bot1152 +2.6870
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) split path at scale 1.0 +0.0000, |.| <= 0.005: HELD
+(c) uniform via split -0.1074 / plain multiply -0.1074 vs SS2902 -0.1074: HELD
+    r=64: top -0.0088 | bot -0.1136
+    r=128: top -0.0014 | bot -0.1280
+    r=256: top -0.0169 | bot -0.1140
+    r=576: top -0.1176 | bot +0.0061
+    r=1152: top -0.1237 | bot +0.0135
+(d) CP excess concentrated: best bot128 -0.1280 vs uniform -0.1074: HELD
+(e) best split interior to [64, 128, 256, 576, 1152]: FAILED
+    tail comparison (SS2919): top64 -0.2614 vs uniform -0.2287, a gain of 0.0327
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_cp_unit_split_results.json (158s, 14 arms x 3 windows in one run)

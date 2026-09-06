@@ -1,0 +1,1993 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_source_value_role_group_factorial_v2_result.json",
+  "terminal": "role_group_factorial_screen",
+  "score": {
+    "native_replay_max_absolute_logit_error": 0.0,
+    "source_term_identity_max_absolute_error": 0.0,
+    "empty_subset_max_absolute_logit_error": 6.365776062011719e-05,
+    "atlas_full_subset_max_absolute_reproduction_error": 1.5735626220703125e-05,
+    "atlas_complete_head_max_absolute_reproduction_error": 1.239776611328125e-05,
+    "mobius_reconstruction_max_absolute_error": 0.0,
+    "shapley_efficiency_max_absolute_error": 0.0,
+    "cells": {
+      "pp_plural_to_pp_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 3.978396564722061,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.9911620765924454
+        },
+        "subsets": {
+          "empty": {
+            "subset_mask": 0,
+            "groups": [],
+            "mean_donor_margin": -3.720017731189728,
+            "mean_donor_ce": 5.654602974653244,
+            "mean_margin_delta": 2.0563602447509766e-06,
+            "margin_direction_fraction": 0.6875,
+            "mean_donor_ce_gain": 1.519918441772461e-06,
+            "game_margin_from_empty": 0.0,
+            "game_ce_gain_from_empty": 0.0,
+            "margin_recovery_of_joint_values": 0.0,
+            "margin_recovery_of_complete_head": 0.0,
+            "ce_recovery_of_joint_values": 0.0,
+            "ce_recovery_of_complete_head": 0.0
+          },
+          "S": {
+            "subset_mask": 1,
+            "groups": [
+              "S"
+            ],
+            "mean_donor_margin": -3.0210132002830505,
+            "mean_donor_ce": 5.007043719291687,
+            "mean_margin_delta": 0.699006587266922,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.6475607752799988,
+            "game_margin_from_empty": 0.6990045309066772,
+            "game_ce_gain_from_empty": 0.647559255361557,
+            "margin_recovery_of_joint_values": 0.16971689196067247,
+            "margin_recovery_of_complete_head": 0.17570006396672805,
+            "ce_recovery_of_joint_values": 0.21218142175623053,
+            "ce_recovery_of_complete_head": 0.216490861671816
+          },
+          "I": {
+            "subset_mask": 2,
+            "groups": [
+              "I"
+            ],
+            "mean_donor_margin": -2.867866665124893,
+            "mean_donor_ce": 4.895547971129417,
+            "mean_margin_delta": 0.8521531224250793,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.7590565234422684,
+            "game_margin_from_empty": 0.8521510660648346,
+            "game_ce_gain_from_empty": 0.7590550035238266,
+            "margin_recovery_of_joint_values": 0.20690056218363187,
+            "margin_recovery_of_complete_head": 0.21419460131782203,
+            "ce_recovery_of_joint_values": 0.248714489840689,
+            "ce_recovery_of_complete_head": 0.2537659224365895
+          },
+          "SI": {
+            "subset_mask": 3,
+            "groups": [
+              "S",
+              "I"
+            ],
+            "mean_donor_margin": -1.240475207567215,
+            "mean_donor_ce": 3.5301409512758255,
+            "mean_margin_delta": 2.4795445799827576,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.1244635432958603,
+            "game_margin_from_empty": 2.479542523622513,
+            "game_ce_gain_from_empty": 2.1244620233774185,
+            "margin_recovery_of_joint_values": 0.6020279297012426,
+            "margin_recovery_of_complete_head": 0.6232517254839673,
+            "ce_recovery_of_joint_values": 0.6961083002908454,
+            "ce_recovery_of_complete_head": 0.7102463754814724
+          },
+          "B": {
+            "subset_mask": 4,
+            "groups": [
+              "B"
+            ],
+            "mean_donor_margin": -3.237540364265442,
+            "mean_donor_ce": 5.204474598169327,
+            "mean_margin_delta": 0.48247942328453064,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.450129896402359,
+            "game_margin_from_empty": 0.4824773669242859,
+            "game_ce_gain_from_empty": 0.45012837648391724,
+            "margin_recovery_of_joint_values": 0.11714453273936075,
+            "margin_recovery_of_complete_head": 0.12127432725098201,
+            "ce_recovery_of_joint_values": 0.1474905626078267,
+            "ce_recovery_of_complete_head": 0.15048612043005938
+          },
+          "SB": {
+            "subset_mask": 5,
+            "groups": [
+              "S",
+              "B"
+            ],
+            "mean_donor_margin": -1.905640959739685,
+            "mean_donor_ce": 4.0055317878723145,
+            "mean_margin_delta": 1.8143788278102875,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.6490727066993713,
+            "game_margin_from_empty": 1.8143767714500427,
+            "game_ce_gain_from_empty": 1.6490711867809296,
+            "margin_recovery_of_joint_values": 0.440527025049072,
+            "margin_recovery_of_complete_head": 0.4560572939205719,
+            "ce_recovery_of_joint_values": 0.5403401558874303,
+            "ce_recovery_of_complete_head": 0.5513145541947911
+          },
+          "IB": {
+            "subset_mask": 6,
+            "groups": [
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": -1.6565263271331787,
+            "mean_donor_ce": 3.8464777767658234,
+            "mean_margin_delta": 2.063493460416794,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.8081267178058624,
+            "game_margin_from_empty": 2.063491404056549,
+            "game_ce_gain_from_empty": 1.8081251978874207,
+            "margin_recovery_of_joint_values": 0.5010115560049173,
+            "margin_recovery_of_complete_head": 0.5186741368003138,
+            "ce_recovery_of_joint_values": 0.5924563227604737,
+            "ce_recovery_of_complete_head": 0.6044892090726326
+          },
+          "SIB": {
+            "subset_mask": 7,
+            "groups": [
+              "S",
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": 0.4915720224380493,
+            "mean_donor_ce": 2.565123602747917,
+            "mean_margin_delta": 4.211591809988022,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.0894808918237686,
+            "game_margin_from_empty": 4.211589753627777,
+            "game_ce_gain_from_empty": 3.089479371905327,
+            "margin_recovery_of_joint_values": 1.0225655079402471,
+            "margin_recovery_of_complete_head": 1.0586148678524228,
+            "ce_recovery_of_joint_values": 1.0123090978777083,
+            "ce_recovery_of_complete_head": 1.0328692637828858
+          },
+          "A": {
+            "subset_mask": 8,
+            "groups": [
+              "A"
+            ],
+            "mean_donor_margin": -3.7345865070819855,
+            "mean_donor_ce": 5.667583465576172,
+            "mean_margin_delta": -0.01456671953201294,
+            "margin_direction_fraction": 0.25,
+            "mean_donor_ce_gain": -0.012978971004486084,
+            "game_margin_from_empty": -0.01456877589225769,
+            "game_ce_gain_from_empty": -0.012980490922927856,
+            "margin_recovery_of_joint_values": -0.003537269437865283,
+            "margin_recovery_of_complete_head": -0.003661971765571212,
+            "ce_recovery_of_joint_values": -0.0042532308762738506,
+            "ce_recovery_of_complete_head": -0.0043396147017601035
+          },
+          "SA": {
+            "subset_mask": 9,
+            "groups": [
+              "S",
+              "A"
+            ],
+            "mean_donor_margin": -3.0612513720989227,
+            "mean_donor_ce": 5.0446388721466064,
+            "mean_margin_delta": 0.6587684154510498,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.6099656224250793,
+            "game_margin_from_empty": 0.658766359090805,
+            "game_ce_gain_from_empty": 0.6099641025066376,
+            "margin_recovery_of_joint_values": 0.15994714490350911,
+            "margin_recovery_of_complete_head": 0.16558589581851496,
+            "ce_recovery_of_joint_values": 0.19986286879315726,
+            "ce_recovery_of_complete_head": 0.20392211685216113
+          },
+          "IA": {
+            "subset_mask": 10,
+            "groups": [
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -2.918496251106262,
+            "mean_donor_ce": 4.942202508449554,
+            "mean_margin_delta": 0.8015235364437103,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.7124019861221313,
+            "game_margin_from_empty": 0.8015214800834656,
+            "game_ce_gain_from_empty": 0.7124004662036896,
+            "margin_recovery_of_joint_values": 0.19460780070057251,
+            "margin_recovery_of_complete_head": 0.20146847279903116,
+            "ce_recovery_of_joint_values": 0.23342750879918,
+            "ce_recovery_of_complete_head": 0.2381684602712206
+          },
+          "SIA": {
+            "subset_mask": 11,
+            "groups": [
+              "S",
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -1.3176215589046478,
+            "mean_donor_ce": 3.5865349173545837,
+            "mean_margin_delta": 2.4023982286453247,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.068069577217102,
+            "game_margin_from_empty": 2.40239617228508,
+            "game_ce_gain_from_empty": 2.0680680572986603,
+            "margin_recovery_of_joint_values": 0.5832969510077108,
+            "margin_recovery_of_complete_head": 0.6038604078809112,
+            "ce_recovery_of_joint_values": 0.6776300655934158,
+            "ce_recovery_of_complete_head": 0.6913928447684183
+          },
+          "BA": {
+            "subset_mask": 12,
+            "groups": [
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -3.271627962589264,
+            "mean_donor_ce": 5.236368998885155,
+            "mean_margin_delta": 0.4483918249607086,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.41823549568653107,
+            "game_margin_from_empty": 0.44838976860046387,
+            "game_ce_gain_from_empty": 0.4182339757680893,
+            "margin_recovery_of_joint_values": 0.10886813253574708,
+            "margin_recovery_of_complete_head": 0.11270615216605218,
+            "ce_recovery_of_joint_values": 0.13703993707214687,
+            "ce_recovery_of_complete_head": 0.13982324095407916
+          },
+          "SBA": {
+            "subset_mask": 13,
+            "groups": [
+              "S",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -1.9688923954963684,
+            "mean_donor_ce": 4.060863047838211,
+            "mean_margin_delta": 1.7511273920536041,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.5937414467334747,
+            "game_margin_from_empty": 1.7511253356933594,
+            "game_ce_gain_from_empty": 1.593739926815033,
+            "margin_recovery_of_joint_values": 0.4251697038672618,
+            "margin_recovery_of_complete_head": 0.44015856820842003,
+            "ce_recovery_of_joint_values": 0.5222101310133784,
+            "ce_recovery_of_complete_head": 0.5328163055044592
+          },
+          "IBA": {
+            "subset_mask": 14,
+            "groups": [
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -1.7294013798236847,
+            "mean_donor_ce": 3.9049255549907684,
+            "mean_margin_delta": 1.9906184077262878,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.7496789395809174,
+            "game_margin_from_empty": 1.990616351366043,
+            "game_ce_gain_from_empty": 1.7496774196624756,
+            "margin_recovery_of_joint_values": 0.4833176400183353,
+            "margin_recovery_of_complete_head": 0.5003564423460414,
+            "ce_recovery_of_joint_values": 0.5733051291367527,
+            "ce_recovery_of_complete_head": 0.5849490515257272
+          },
+          "SIBA": {
+            "subset_mask": 15,
+            "groups": [
+              "S",
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": 0.39863258600234985,
+            "mean_donor_ce": 2.6026898995041847,
+            "mean_margin_delta": 4.118652373552322,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.051914595067501,
+            "game_margin_from_empty": 4.118650317192078,
+            "game_ce_gain_from_empty": 3.0519130751490593,
+            "margin_recovery_of_joint_values": 1.0,
+            "margin_recovery_of_complete_head": 1.0352538391254655,
+            "ce_recovery_of_joint_values": 1.0,
+            "ce_recovery_of_complete_head": 1.0203101660829499
+          }
+        },
+        "summary": {
+          "SI_recovery_of_joint": 0.6020279297012426,
+          "SIB_recovery_of_joint": 1.0225655079402471,
+          "conditional_B_fraction_of_joint": 0.42053757823900456,
+          "conditional_B_ce_gain": 0.9650173485279083,
+          "conditional_B_row_direction_fraction": 1.0,
+          "A_addition_fraction_of_joint": -0.022565507940247198,
+          "SI_shapley_fraction_of_joint": 0.7422575171784442,
+          "SI_addition_to_BA_fraction_of_joint": 0.8911318674642529,
+          "largest_high_order_dividend": {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": 0.928386926651001,
+            "absolute_fraction_of_joint_margin": 0.2254104755569383
+          }
+        },
+        "joint_values": {
+          "game_margin": 4.118650317192078,
+          "game_ce_gain": 3.0519130751490593
+        },
+        "margin_mobius_dividends": [
+          {
+            "subset": "empty",
+            "subset_mask": 0,
+            "order": 0,
+            "margin_dividend": 0.0,
+            "absolute_fraction_of_joint_margin": 0.0
+          },
+          {
+            "subset": "S",
+            "subset_mask": 1,
+            "order": 1,
+            "margin_dividend": 0.6990045309066772,
+            "absolute_fraction_of_joint_margin": 0.16971689196067247
+          },
+          {
+            "subset": "I",
+            "subset_mask": 2,
+            "order": 1,
+            "margin_dividend": 0.8521510660648346,
+            "absolute_fraction_of_joint_margin": 0.20690056218363187
+          },
+          {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": 0.928386926651001,
+            "absolute_fraction_of_joint_margin": 0.2254104755569383
+          },
+          {
+            "subset": "B",
+            "subset_mask": 4,
+            "order": 1,
+            "margin_dividend": 0.4824773669242859,
+            "absolute_fraction_of_joint_margin": 0.11714453273936075
+          },
+          {
+            "subset": "SB",
+            "subset_mask": 5,
+            "order": 2,
+            "margin_dividend": 0.6328948736190796,
+            "absolute_fraction_of_joint_margin": 0.15366560034903878
+          },
+          {
+            "subset": "IB",
+            "subset_mask": 6,
+            "order": 2,
+            "margin_dividend": 0.7288629710674286,
+            "absolute_fraction_of_joint_margin": 0.17696646108192468
+          },
+          {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.11218798160552979,
+            "absolute_fraction_of_joint_margin": 0.027239015931319662
+          },
+          {
+            "subset": "A",
+            "subset_mask": 8,
+            "order": 1,
+            "margin_dividend": -0.01456877589225769,
+            "absolute_fraction_of_joint_margin": 0.003537269437865283
+          },
+          {
+            "subset": "SA",
+            "subset_mask": 9,
+            "order": 2,
+            "margin_dividend": -0.025669395923614502,
+            "absolute_fraction_of_joint_margin": 0.006232477619298065
+          },
+          {
+            "subset": "IA",
+            "subset_mask": 10,
+            "order": 2,
+            "margin_dividend": -0.03606081008911133,
+            "absolute_fraction_of_joint_margin": 0.008755492045194085
+          },
+          {
+            "subset": "SIA",
+            "subset_mask": 11,
+            "order": 3,
+            "margin_dividend": -0.0008473694324493408,
+            "absolute_fraction_of_joint_margin": 0.00020573959117438297
+          },
+          {
+            "subset": "BA",
+            "subset_mask": 12,
+            "order": 2,
+            "margin_dividend": -0.01951882243156433,
+            "absolute_fraction_of_joint_margin": 0.004739130765748388
+          },
+          {
+            "subset": "SBA",
+            "subset_mask": 13,
+            "order": 3,
+            "margin_dividend": -0.003494441509246826,
+            "absolute_fraction_of_joint_margin": 0.0008484433588985018
+          },
+          {
+            "subset": "IBA",
+            "subset_mask": 14,
+            "order": 3,
+            "margin_dividend": -0.002726644277572632,
+            "absolute_fraction_of_joint_margin": 0.0006620237377742578
+          },
+          {
+            "subset": "SIBA",
+            "subset_mask": 15,
+            "order": 4,
+            "margin_dividend": 0.009946823120117188,
+            "absolute_fraction_of_joint_margin": 0.0024150686157057666
+          }
+        ],
+        "mobius_reconstruction_max_absolute_error": 0.0,
+        "shapley_efficiency_absolute_error": 0.0,
+        "SxI_interaction": {
+          "margin_dividend": 0.928386926651001,
+          "absolute_fraction_of_joint_margin": 0.2254104755569383,
+          "sign": 1,
+          "lexical_halves": [
+            {
+              "half": 0,
+              "group_ids": [
+                "TEST:00cf3373e49b68b61efd",
+                "TEST:06bf68b43b2a9d913c47",
+                "TEST:2e2135283ee226d07c5a",
+                "TEST:30fb0f71a26bae65bb95",
+                "TEST:3cf2f1dfd44d3fee53e4",
+                "TEST:51e2793c4bfdd85ddb9b",
+                "TEST:60db8edb8aa5646af47e",
+                "TEST:6d7fe0e4676909a58c5e"
+              ],
+              "SxI_dividend": 0.9798852205276489,
+              "sign": 1
+            },
+            {
+              "half": 1,
+              "group_ids": [
+                "TEST:7f0df50f05c69cdd823b",
+                "TEST:8f2d6d03e8a256d5a10e",
+                "TEST:9ca8c3ff5aa960823039",
+                "TEST:a18ef7e845226f2f2bf9",
+                "TEST:c0c6cbcc6c5107353f7a",
+                "TEST:c1f0f1da8abb1b1e4656",
+                "TEST:d652dc9d127dbc36989a",
+                "TEST:fb29a80dd04a5183e0b2"
+              ],
+              "SxI_dividend": 0.876888632774353,
+              "sign": 1
+            }
+          ]
+        },
+        "margin_shapley": {
+          "S": {
+            "value": 1.4304541746775308,
+            "fraction_of_joint_margin": 0.34731139196414085
+          },
+          "I": {
+            "value": 1.6266449838876724,
+            "fraction_of_joint_margin": 0.39494612521430333
+          },
+          "B": {
+            "value": 1.116613894701004,
+            "fraction_of_joint_margin": 0.27111160421656394
+          },
+          "A": {
+            "value": -0.055062736074129745,
+            "fraction_of_joint_margin": -0.01336912139500816
+          }
+        }
+      },
+      "pp_singular_to_pp_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 6.152274817228317,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 4.0268372893333435
+        },
+        "subsets": {
+          "empty": {
+            "subset_mask": 0,
+            "groups": [],
+            "mean_donor_margin": -4.224229484796524,
+            "mean_donor_ce": 6.033245474100113,
+            "mean_margin_delta": 8.940696716308594e-08,
+            "margin_direction_fraction": 0.5,
+            "mean_donor_ce_gain": 1.4901161193847656e-07,
+            "game_margin_from_empty": 0.0,
+            "game_ce_gain_from_empty": 0.0,
+            "margin_recovery_of_joint_values": 0.0,
+            "margin_recovery_of_complete_head": 0.0,
+            "ce_recovery_of_joint_values": 0.0,
+            "ce_recovery_of_complete_head": 0.0
+          },
+          "S": {
+            "subset_mask": 1,
+            "groups": [
+              "S"
+            ],
+            "mean_donor_margin": -2.380146771669388,
+            "mean_donor_ce": 4.348323032259941,
+            "mean_margin_delta": 1.8440828025341034,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.6849225908517838,
+            "game_margin_from_empty": 1.8440827131271362,
+            "game_ce_gain_from_empty": 1.6849224418401718,
+            "margin_recovery_of_joint_values": 0.3117069939301685,
+            "margin_recovery_of_complete_head": 0.2997399771484721,
+            "ce_recovery_of_joint_values": 0.42334297452840347,
+            "ce_recovery_of_complete_head": 0.41842327384405353
+          },
+          "I": {
+            "subset_mask": 2,
+            "groups": [
+              "I"
+            ],
+            "mean_donor_margin": -1.3027631044387817,
+            "mean_donor_ce": 3.4592197239398956,
+            "mean_margin_delta": 2.9214664697647095,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.5740258991718292,
+            "game_margin_from_empty": 2.9214663803577423,
+            "game_ce_gain_from_empty": 2.5740257501602173,
+            "margin_recovery_of_joint_values": 0.4938181442767963,
+            "margin_recovery_of_complete_head": 0.47485953848757073,
+            "ce_recovery_of_joint_values": 0.6467334581854289,
+            "ce_recovery_of_complete_head": 0.6392177198166246
+          },
+          "SI": {
+            "subset_mask": 3,
+            "groups": [
+              "S",
+              "I"
+            ],
+            "mean_donor_margin": 0.4072153866291046,
+            "mean_donor_ce": 2.455361023545265,
+            "mean_margin_delta": 4.631444960832596,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.5778845995664597,
+            "game_margin_from_empty": 4.631444871425629,
+            "game_ce_gain_from_empty": 3.5778844505548477,
+            "margin_recovery_of_joint_values": 0.7828573784400792,
+            "margin_recovery_of_complete_head": 0.7528020137293147,
+            "ce_recovery_of_joint_values": 0.8989566571162629,
+            "ce_recovery_of_complete_head": 0.8885098139009184
+          },
+          "B": {
+            "subset_mask": 4,
+            "groups": [
+              "B"
+            ],
+            "mean_donor_margin": -2.233460396528244,
+            "mean_donor_ce": 4.2261077761650085,
+            "mean_margin_delta": 1.9907691776752472,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.8071378469467163,
+            "game_margin_from_empty": 1.99076908826828,
+            "game_ce_gain_from_empty": 1.8071376979351044,
+            "margin_recovery_of_joint_values": 0.33650152658332866,
+            "margin_recovery_of_complete_head": 0.32358260113698045,
+            "ce_recovery_of_joint_values": 0.45405000813611845,
+            "ce_recovery_of_complete_head": 0.44877345869474705
+          },
+          "SB": {
+            "subset_mask": 5,
+            "groups": [
+              "S",
+              "B"
+            ],
+            "mean_donor_margin": -0.35310789942741394,
+            "mean_donor_ce": 2.864569067955017,
+            "mean_margin_delta": 3.8711216747760773,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.1686765551567078,
+            "game_margin_from_empty": 3.87112158536911,
+            "game_ce_gain_from_empty": 3.168676406145096,
+            "margin_recovery_of_joint_values": 0.6543392353954588,
+            "margin_recovery_of_complete_head": 0.6292179235116,
+            "ce_recovery_of_joint_values": 0.7961416275222728,
+            "ce_recovery_of_complete_head": 0.7868896055320082
+          },
+          "IB": {
+            "subset_mask": 6,
+            "groups": [
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": 0.5108329057693481,
+            "mean_donor_ce": 2.415502868592739,
+            "mean_margin_delta": 4.735062479972839,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.6177427545189857,
+            "game_margin_from_empty": 4.735062390565872,
+            "game_ce_gain_from_empty": 3.617742605507374,
+            "margin_recovery_of_joint_values": 0.800371942824741,
+            "margin_recovery_of_complete_head": 0.7696441611005734,
+            "ce_recovery_of_joint_values": 0.9089711654745158,
+            "ce_recovery_of_complete_head": 0.8984079429010908
+          },
+          "SIB": {
+            "subset_mask": 7,
+            "groups": [
+              "S",
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": 1.722373515367508,
+            "mean_donor_ce": 2.0456942319869995,
+            "mean_margin_delta": 5.946603089570999,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.9875513911247253,
+            "game_margin_from_empty": 5.946603000164032,
+            "game_ce_gain_from_empty": 3.9875512421131134,
+            "margin_recovery_of_joint_values": 1.005159764300366,
+            "margin_recovery_of_complete_head": 0.9665697935845877,
+            "ce_recovery_of_joint_values": 1.0018869486223658,
+            "ce_recovery_of_complete_head": 0.9902439447145543
+          },
+          "A": {
+            "subset_mask": 8,
+            "groups": [
+              "A"
+            ],
+            "mean_donor_margin": -4.279715180397034,
+            "mean_donor_ce": 6.088966682553291,
+            "mean_margin_delta": -0.05548560619354248,
+            "margin_direction_fraction": 0.5,
+            "mean_donor_ce_gain": -0.05572105944156647,
+            "game_margin_from_empty": -0.055485695600509644,
+            "game_ce_gain_from_empty": -0.055721208453178406,
+            "margin_recovery_of_joint_values": -0.009378798065098967,
+            "margin_recovery_of_complete_head": -0.009018728397036511,
+            "ce_recovery_of_joint_values": -0.01400015902519707,
+            "ce_recovery_of_complete_head": -0.013837462119658488
+          },
+          "SA": {
+            "subset_mask": 9,
+            "groups": [
+              "S",
+              "A"
+            ],
+            "mean_donor_margin": -2.4513262808322906,
+            "mean_donor_ce": 4.417295962572098,
+            "mean_margin_delta": 1.7729032933712006,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.615949660539627,
+            "game_margin_from_empty": 1.7729032039642334,
+            "game_ce_gain_from_empty": 1.6159495115280151,
+            "margin_recovery_of_joint_values": 0.2996754561511667,
+            "margin_recovery_of_complete_head": 0.28817035269613495,
+            "ce_recovery_of_joint_values": 0.4060132715372088,
+            "ce_recovery_of_complete_head": 0.4012949606403245
+          },
+          "IA": {
+            "subset_mask": 10,
+            "groups": [
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -1.368748962879181,
+            "mean_donor_ce": 3.5179193168878555,
+            "mean_margin_delta": 2.8554806113243103,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.5153263062238693,
+            "game_margin_from_empty": 2.855480521917343,
+            "game_ce_gain_from_empty": 2.5153261572122574,
+            "margin_recovery_of_joint_values": 0.4826644940473663,
+            "margin_recovery_of_complete_head": 0.464134097833389,
+            "ce_recovery_of_joint_values": 0.6319849690768999,
+            "ce_recovery_of_complete_head": 0.624640624014058
+          },
+          "SIA": {
+            "subset_mask": 11,
+            "groups": [
+              "S",
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": 0.35734763741493225,
+            "mean_donor_ce": 2.4830194637179375,
+            "mean_margin_delta": 4.5815772116184235,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.5502261593937874,
+            "game_margin_from_empty": 4.581577122211456,
+            "game_ce_gain_from_empty": 3.5502260103821754,
+            "margin_recovery_of_joint_values": 0.7744281870101276,
+            "margin_recovery_of_complete_head": 0.7446964347856487,
+            "ce_recovery_of_joint_values": 0.8920073720674347,
+            "ce_recovery_of_complete_head": 0.8816412870185593
+          },
+          "BA": {
+            "subset_mask": 12,
+            "groups": [
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -2.3046204447746277,
+            "mean_donor_ce": 4.2928022891283035,
+            "mean_margin_delta": 1.9196091294288635,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.7404433339834213,
+            "game_margin_from_empty": 1.9196090400218964,
+            "game_ce_gain_from_empty": 1.7404431849718094,
+            "margin_recovery_of_joint_values": 0.3244732783009118,
+            "margin_recovery_of_complete_head": 0.3120161398912778,
+            "ce_recovery_of_joint_values": 0.43729276590260163,
+            "ce_recovery_of_complete_head": 0.43221095363898987
+          },
+          "SBA": {
+            "subset_mask": 13,
+            "groups": [
+              "S",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -0.4081524610519409,
+            "mean_donor_ce": 2.902203246951103,
+            "mean_margin_delta": 3.8160771131515503,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.1310423761606216,
+            "game_margin_from_empty": 3.816077023744583,
+            "game_ce_gain_from_empty": 3.1310422271490097,
+            "margin_recovery_of_joint_values": 0.6450350026112961,
+            "margin_recovery_of_complete_head": 0.6202708976943552,
+            "ce_recovery_of_joint_values": 0.786685901321168,
+            "ce_recovery_of_complete_head": 0.777543765039328
+          },
+          "IBA": {
+            "subset_mask": 14,
+            "groups": [
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": 0.4640280306339264,
+            "mean_donor_ce": 2.439195893704891,
+            "mean_margin_delta": 4.688257604837418,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.5940497294068336,
+            "game_margin_from_empty": 4.68825751543045,
+            "game_ce_gain_from_empty": 3.5940495803952217,
+            "margin_recovery_of_joint_values": 0.7924604718121425,
+            "margin_recovery_of_complete_head": 0.7620364263153273,
+            "ce_recovery_of_joint_values": 0.9030182055770858,
+            "ce_recovery_of_complete_head": 0.8925241628002876
+          },
+          "SIBA": {
+            "subset_mask": 15,
+            "groups": [
+              "S",
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": 1.691847950220108,
+            "mean_donor_ce": 2.0532043650746346,
+            "mean_margin_delta": 5.916077524423599,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 3.9800412580370903,
+            "game_margin_from_empty": 5.916077435016632,
+            "game_ce_gain_from_empty": 3.9800411090254784,
+            "margin_recovery_of_joint_values": 1.0,
+            "margin_recovery_of_complete_head": 0.961608122324078,
+            "ce_recovery_of_joint_values": 1.0,
+            "ce_recovery_of_complete_head": 0.9883789244646604
+          }
+        },
+        "summary": {
+          "SI_recovery_of_joint": 0.7828573784400792,
+          "SIB_recovery_of_joint": 1.005159764300366,
+          "conditional_B_fraction_of_joint": 0.22230238586028683,
+          "conditional_B_ce_gain": 0.4096667915582657,
+          "conditional_B_row_direction_fraction": 1.0,
+          "A_addition_fraction_of_joint": -0.005159764300366039,
+          "SI_shapley_fraction_of_joint": 0.7131464977858263,
+          "SI_addition_to_BA_fraction_of_joint": 0.6755267216990881,
+          "largest_high_order_dividend": {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.5347076654434204,
+            "absolute_fraction_of_joint_margin": 0.09038212756961947
+          }
+        },
+        "joint_values": {
+          "game_margin": 5.916077435016632,
+          "game_ce_gain": 3.9800411090254784
+        },
+        "margin_mobius_dividends": [
+          {
+            "subset": "empty",
+            "subset_mask": 0,
+            "order": 0,
+            "margin_dividend": 0.0,
+            "absolute_fraction_of_joint_margin": 0.0
+          },
+          {
+            "subset": "S",
+            "subset_mask": 1,
+            "order": 1,
+            "margin_dividend": 1.8440827131271362,
+            "absolute_fraction_of_joint_margin": 0.3117069939301685
+          },
+          {
+            "subset": "I",
+            "subset_mask": 2,
+            "order": 1,
+            "margin_dividend": 2.9214663803577423,
+            "absolute_fraction_of_joint_margin": 0.4938181442767963
+          },
+          {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": -0.13410422205924988,
+            "absolute_fraction_of_joint_margin": 0.022667759766885617
+          },
+          {
+            "subset": "B",
+            "subset_mask": 4,
+            "order": 1,
+            "margin_dividend": 1.99076908826828,
+            "absolute_fraction_of_joint_margin": 0.33650152658332866
+          },
+          {
+            "subset": "SB",
+            "subset_mask": 5,
+            "order": 2,
+            "margin_dividend": 0.03626978397369385,
+            "absolute_fraction_of_joint_margin": 0.0061307148819616285
+          },
+          {
+            "subset": "IB",
+            "subset_mask": 6,
+            "order": 2,
+            "margin_dividend": -0.17717307806015015,
+            "absolute_fraction_of_joint_margin": 0.02994772803538398
+          },
+          {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.5347076654434204,
+            "absolute_fraction_of_joint_margin": 0.09038212756961947
+          },
+          {
+            "subset": "A",
+            "subset_mask": 8,
+            "order": 1,
+            "margin_dividend": -0.055485695600509644,
+            "absolute_fraction_of_joint_margin": 0.009378798065098967
+          },
+          {
+            "subset": "SA",
+            "subset_mask": 9,
+            "order": 2,
+            "margin_dividend": -0.01569381356239319,
+            "absolute_fraction_of_joint_margin": 0.0026527397139028603
+          },
+          {
+            "subset": "IA",
+            "subset_mask": 10,
+            "order": 2,
+            "margin_dividend": -0.010500162839889526,
+            "absolute_fraction_of_joint_margin": 0.0017748521643310788
+          },
+          {
+            "subset": "SIA",
+            "subset_mask": 11,
+            "order": 3,
+            "margin_dividend": 0.031811922788619995,
+            "absolute_fraction_of_joint_margin": 0.005377198513381284
+          },
+          {
+            "subset": "BA",
+            "subset_mask": 12,
+            "order": 2,
+            "margin_dividend": -0.015674352645874023,
+            "absolute_fraction_of_joint_margin": 0.0026494502173178463
+          },
+          {
+            "subset": "SBA",
+            "subset_mask": 13,
+            "order": 3,
+            "margin_dividend": 0.03180930018424988,
+            "absolute_fraction_of_joint_margin": 0.005376755212156963
+          },
+          {
+            "subset": "IBA",
+            "subset_mask": 14,
+            "order": 3,
+            "margin_dividend": 0.03485533595085144,
+            "absolute_fraction_of_joint_margin": 0.005891629434149462
+          },
+          {
+            "subset": "SIBA",
+            "subset_mask": 15,
+            "order": 4,
+            "margin_dividend": -0.031648099422454834,
+            "absolute_fraction_of_joint_margin": 0.005349507299402997
+          }
+        ],
+        "mobius_reconstruction_max_absolute_error": 0.0,
+        "shapley_efficiency_absolute_error": 0.0,
+        "SxI_interaction": {
+          "margin_dividend": -0.13410422205924988,
+          "absolute_fraction_of_joint_margin": 0.022667759766885617,
+          "sign": -1,
+          "lexical_halves": [
+            {
+              "half": 0,
+              "group_ids": [
+                "TEST:05aa45535fe6197f7014",
+                "TEST:0aae6794d6e30aff66a9",
+                "TEST:0c92ff3b6c85ee182f3f",
+                "TEST:0d923892486c5d140363",
+                "TEST:10ca3593c4826439b605",
+                "TEST:3684fcb83db037d1ef13",
+                "TEST:40401579a7d749103df7",
+                "TEST:61590ba65ec2cb5e45cb"
+              ],
+              "SxI_dividend": -0.24387162923812866,
+              "sign": -1
+            },
+            {
+              "half": 1,
+              "group_ids": [
+                "TEST:62aa070ddebdeb1ef796",
+                "TEST:6ccec7569f09db1a1c88",
+                "TEST:8198a1d44e01edf9abdc",
+                "TEST:a2001e654434a3606d46",
+                "TEST:d3a81a13123be90b70cc",
+                "TEST:ead63cf8fd15fd876c4a",
+                "TEST:f54cf58affb6bf6608b5",
+                "TEST:fb34d99341ed4fd84052"
+              ],
+              "SxI_dividend": -0.024336814880371094,
+              "sign": -1
+            }
+          ]
+        },
+        "margin_shapley": {
+          "S": {
+            "value": 1.6223777482906976,
+            "fraction_of_joint_margin": 0.2742320001912106
+          },
+          "I": {
+            "value": 2.596652155121167,
+            "fraction_of_joint_margin": 0.4389144975946156
+          },
+          "B": {
+            "value": 1.7485538969437282,
+            "fraction_of_joint_margin": 0.2955596704320035
+          },
+          "A": {
+            "value": -0.05150636533896128,
+            "fraction_of_joint_margin": -0.008706168217829704
+          }
+        }
+      },
+      "relative_plural_to_relative_singular": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 0.9375,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 3.3511686623096466,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 2.1268918365240097
+        },
+        "subsets": {
+          "empty": {
+            "subset_mask": 0,
+            "groups": [],
+            "mean_donor_margin": -2.6898901164531708,
+            "mean_donor_ce": 5.7743655145168304,
+            "mean_margin_delta": -1.1324882507324219e-06,
+            "margin_direction_fraction": 0.4375,
+            "mean_donor_ce_gain": 3.8743019104003906e-07,
+            "game_margin_from_empty": 0.0,
+            "game_ce_gain_from_empty": 0.0,
+            "margin_recovery_of_joint_values": 0.0,
+            "margin_recovery_of_complete_head": 0.0,
+            "ce_recovery_of_joint_values": 0.0,
+            "ce_recovery_of_complete_head": 0.0
+          },
+          "S": {
+            "subset_mask": 1,
+            "groups": [
+              "S"
+            ],
+            "mean_donor_margin": -1.5883459150791168,
+            "mean_donor_ce": 4.880169361829758,
+            "mean_margin_delta": 1.1015430688858032,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.8941965401172638,
+            "game_margin_from_empty": 1.101544201374054,
+            "game_ce_gain_from_empty": 0.8941961526870728,
+            "margin_recovery_of_joint_values": 0.31300932878430304,
+            "margin_recovery_of_complete_head": 0.32870449457320444,
+            "ce_recovery_of_joint_values": 0.404743328225588,
+            "ce_recovery_of_complete_head": 0.42042389619044385
+          },
+          "I": {
+            "subset_mask": 2,
+            "groups": [
+              "I"
+            ],
+            "mean_donor_margin": -1.7679433822631836,
+            "mean_donor_ce": 5.035436257719994,
+            "mean_margin_delta": 0.9219456017017365,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.7389296442270279,
+            "game_margin_from_empty": 0.9219467341899872,
+            "game_ce_gain_from_empty": 0.7389292567968369,
+            "margin_recovery_of_joint_values": 0.2619758045875229,
+            "margin_recovery_of_complete_head": 0.27511200631560445,
+            "ce_recovery_of_joint_values": 0.3344642960277586,
+            "ce_recovery_of_complete_head": 0.34742211338987167
+          },
+          "SI": {
+            "subset_mask": 3,
+            "groups": [
+              "S",
+              "I"
+            ],
+            "mean_donor_margin": -0.0400233268737793,
+            "mean_donor_ce": 3.9341922104358673,
+            "mean_margin_delta": 2.6498656570911407,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.8401736915111542,
+            "game_margin_from_empty": 2.6498667895793915,
+            "game_ce_gain_from_empty": 1.8401733040809631,
+            "margin_recovery_of_joint_values": 0.7529729847784917,
+            "margin_recovery_of_complete_head": 0.7907291624507752,
+            "ce_recovery_of_joint_values": 0.8329244823604723,
+            "ce_recovery_of_complete_head": 0.8651936466540621
+          },
+          "B": {
+            "subset_mask": 4,
+            "groups": [
+              "B"
+            ],
+            "mean_donor_margin": -2.3058229982852936,
+            "mean_donor_ce": 5.433060675859451,
+            "mean_margin_delta": 0.38406598567962646,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.3413052260875702,
+            "game_margin_from_empty": 0.3840671181678772,
+            "game_ce_gain_from_empty": 0.34130483865737915,
+            "margin_recovery_of_joint_values": 0.10913460459951767,
+            "margin_recovery_of_complete_head": 0.11460691981500438,
+            "ce_recovery_of_joint_values": 0.1544860777163597,
+            "ce_recovery_of_complete_head": 0.16047117808076944
+          },
+          "SB": {
+            "subset_mask": 5,
+            "groups": [
+              "S",
+              "B"
+            ],
+            "mean_donor_margin": -0.9302501082420349,
+            "mean_donor_ce": 4.398557543754578,
+            "mean_margin_delta": 1.7596388757228851,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.3758083581924438,
+            "game_margin_from_empty": 1.7596400082111359,
+            "game_ce_gain_from_empty": 1.3758079707622528,
+            "margin_recovery_of_joint_values": 0.5000105644286735,
+            "margin_recovery_of_complete_head": 0.5250824967426082,
+            "ce_recovery_of_joint_values": 0.6227370755423928,
+            "ce_recovery_of_complete_head": 0.6468631583121514
+          },
+          "IB": {
+            "subset_mask": 6,
+            "groups": [
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": -1.1285966336727142,
+            "mean_donor_ce": 4.567377820611,
+            "mean_margin_delta": 1.5612923502922058,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.2069880813360214,
+            "game_margin_from_empty": 1.5612934827804565,
+            "game_ce_gain_from_empty": 1.2069876939058304,
+            "margin_recovery_of_joint_values": 0.4436494009689482,
+            "margin_recovery_of_complete_head": 0.4658952264444975,
+            "ce_recovery_of_joint_values": 0.5463233261413198,
+            "ce_recovery_of_complete_head": 0.5674889870650012
+          },
+          "SIB": {
+            "subset_mask": 7,
+            "groups": [
+              "S",
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": 0.8122841119766235,
+            "mean_donor_ce": 3.560187950730324,
+            "mean_margin_delta": 3.5021730959415436,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.2141779512166977,
+            "game_margin_from_empty": 3.5021742284297943,
+            "game_ce_gain_from_empty": 2.2141775637865067,
+            "margin_recovery_of_joint_values": 0.9951604331075323,
+            "margin_recovery_of_complete_head": 1.0450605688154393,
+            "ce_recovery_of_joint_values": 1.002211420566237,
+            "ce_recovery_of_complete_head": 1.04103910023236
+          },
+          "A": {
+            "subset_mask": 8,
+            "groups": [
+              "A"
+            ],
+            "mean_donor_margin": -2.6774096190929413,
+            "mean_donor_ce": 5.770549654960632,
+            "mean_margin_delta": 0.01247936487197876,
+            "margin_direction_fraction": 0.625,
+            "mean_donor_ce_gain": 0.00381624698638916,
+            "game_margin_from_empty": 0.012480497360229492,
+            "game_ce_gain_from_empty": 0.00381585955619812,
+            "margin_recovery_of_joint_values": 0.003546396138027652,
+            "margin_recovery_of_complete_head": 0.0037242223886242284,
+            "ce_recovery_of_joint_values": 0.001727186694078213,
+            "ce_recovery_of_complete_head": 0.0017941013692705685
+          },
+          "SA": {
+            "subset_mask": 9,
+            "groups": [
+              "S",
+              "A"
+            ],
+            "mean_donor_margin": -1.5745589137077332,
+            "mean_donor_ce": 4.878836274147034,
+            "mean_margin_delta": 1.115330070257187,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.8955296277999878,
+            "game_margin_from_empty": 1.1153312027454376,
+            "game_ce_gain_from_empty": 0.8955292403697968,
+            "margin_recovery_of_joint_values": 0.31692697461260666,
+            "margin_recovery_of_complete_head": 0.33281858215299265,
+            "ce_recovery_of_joint_values": 0.40534672865836874,
+            "ce_recovery_of_complete_head": 0.42105067356568765
+          },
+          "IA": {
+            "subset_mask": 10,
+            "groups": [
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -1.7502179443836212,
+            "mean_donor_ce": 5.032925084233284,
+            "mean_margin_delta": 0.9396710395812988,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.7414408177137375,
+            "game_margin_from_empty": 0.9396721720695496,
+            "game_ce_gain_from_empty": 0.7414404302835464,
+            "margin_recovery_of_joint_values": 0.2670125769713899,
+            "margin_recovery_of_complete_head": 0.2804013365957897,
+            "ce_recovery_of_joint_values": 0.3356009378168207,
+            "ce_recovery_of_complete_head": 0.3486027909605814
+          },
+          "SIA": {
+            "subset_mask": 11,
+            "groups": [
+              "S",
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -0.022102296352386475,
+            "mean_donor_ce": 3.937617927789688,
+            "mean_margin_delta": 2.6677866876125336,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.8367479741573334,
+            "game_margin_from_empty": 2.6677878201007843,
+            "game_ce_gain_from_empty": 1.8367475867271423,
+            "margin_recovery_of_joint_values": 0.7580653357959334,
+            "margin_recovery_of_complete_head": 0.7960768582331299,
+            "ce_recovery_of_joint_values": 0.8313738871815746,
+            "ce_recovery_of_complete_head": 0.8635829783093005
+          },
+          "BA": {
+            "subset_mask": 12,
+            "groups": [
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -2.291842430830002,
+            "mean_donor_ce": 5.430084049701691,
+            "mean_margin_delta": 0.3980465531349182,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.3442818522453308,
+            "game_margin_from_empty": 0.39804768562316895,
+            "game_ce_gain_from_empty": 0.34428146481513977,
+            "margin_recovery_of_joint_values": 0.11310725320476284,
+            "margin_recovery_of_complete_head": 0.11877876816526207,
+            "ce_recovery_of_joint_values": 0.15583339907795918,
+            "ce_recovery_of_complete_head": 0.1618706973730271
+          },
+          "SBA": {
+            "subset_mask": 13,
+            "groups": [
+              "S",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -0.9149660766124725,
+            "mean_donor_ce": 4.398877650499344,
+            "mean_margin_delta": 1.7749229073524475,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.3754882514476776,
+            "game_margin_from_empty": 1.7749240398406982,
+            "game_ce_gain_from_empty": 1.3754878640174866,
+            "margin_recovery_of_joint_values": 0.504353598939245,
+            "margin_recovery_of_complete_head": 0.5296433031864799,
+            "ce_recovery_of_joint_values": 0.6225921844367055,
+            "ce_recovery_of_complete_head": 0.646712653834552
+          },
+          "IBA": {
+            "subset_mask": 14,
+            "groups": [
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -1.1099338233470917,
+            "mean_donor_ce": 4.567889288067818,
+            "mean_margin_delta": 1.5799551606178284,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.2064766138792038,
+            "game_margin_from_empty": 1.579956293106079,
+            "game_ce_gain_from_empty": 1.2064762264490128,
+            "margin_recovery_of_joint_values": 0.44895253245106675,
+            "margin_recovery_of_complete_head": 0.47146427181530254,
+            "ce_recovery_of_joint_values": 0.5460918187252687,
+            "ce_recovery_of_complete_head": 0.5672485105875262
+          },
+          "SIBA": {
+            "subset_mask": 15,
+            "groups": [
+              "S",
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": 0.8293155431747437,
+            "mean_donor_ce": 3.565073624253273,
+            "mean_margin_delta": 3.5192045271396637,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.2092922776937485,
+            "game_margin_from_empty": 3.5192056596279144,
+            "game_ce_gain_from_empty": 2.2092918902635574,
+            "margin_recovery_of_joint_values": 1.0,
+            "margin_recovery_of_complete_head": 1.050142805167692,
+            "ce_recovery_of_joint_values": 1.0,
+            "ce_recovery_of_complete_head": 1.0387420047999312
+          }
+        },
+        "summary": {
+          "SI_recovery_of_joint": 0.7529729847784917,
+          "SIB_recovery_of_joint": 0.9951604331075323,
+          "conditional_B_fraction_of_joint": 0.24218744832904063,
+          "conditional_B_ce_gain": 0.3740042597055435,
+          "conditional_B_row_direction_fraction": 1.0,
+          "A_addition_fraction_of_joint": 0.004839566892467674,
+          "SI_shapley_fraction_of_joint": 0.8170149169535271,
+          "SI_addition_to_BA_fraction_of_joint": 0.8868927467952371,
+          "largest_high_order_dividend": {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": 0.6263758540153503,
+            "absolute_fraction_of_joint_margin": 0.17798785140666576
+          }
+        },
+        "joint_values": {
+          "game_margin": 3.5192056596279144,
+          "game_ce_gain": 2.2092918902635574
+        },
+        "margin_mobius_dividends": [
+          {
+            "subset": "empty",
+            "subset_mask": 0,
+            "order": 0,
+            "margin_dividend": 0.0,
+            "absolute_fraction_of_joint_margin": 0.0
+          },
+          {
+            "subset": "S",
+            "subset_mask": 1,
+            "order": 1,
+            "margin_dividend": 1.101544201374054,
+            "absolute_fraction_of_joint_margin": 0.31300932878430304
+          },
+          {
+            "subset": "I",
+            "subset_mask": 2,
+            "order": 1,
+            "margin_dividend": 0.9219467341899872,
+            "absolute_fraction_of_joint_margin": 0.2619758045875229
+          },
+          {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": 0.6263758540153503,
+            "absolute_fraction_of_joint_margin": 0.17798785140666576
+          },
+          {
+            "subset": "B",
+            "subset_mask": 4,
+            "order": 1,
+            "margin_dividend": 0.3840671181678772,
+            "absolute_fraction_of_joint_margin": 0.10913460459951767
+          },
+          {
+            "subset": "SB",
+            "subset_mask": 5,
+            "order": 2,
+            "margin_dividend": 0.2740286886692047,
+            "absolute_fraction_of_joint_margin": 0.07786663104485282
+          },
+          {
+            "subset": "IB",
+            "subset_mask": 6,
+            "order": 2,
+            "margin_dividend": 0.25527963042259216,
+            "absolute_fraction_of_joint_margin": 0.07253899178190765
+          },
+          {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.06106799840927124,
+            "absolute_fraction_of_joint_margin": 0.017352779097237515
+          },
+          {
+            "subset": "A",
+            "subset_mask": 8,
+            "order": 1,
+            "margin_dividend": 0.012480497360229492,
+            "absolute_fraction_of_joint_margin": 0.003546396138027652
+          },
+          {
+            "subset": "SA",
+            "subset_mask": 9,
+            "order": 2,
+            "margin_dividend": 0.0013065040111541748,
+            "absolute_fraction_of_joint_margin": 0.0003712496902759333
+          },
+          {
+            "subset": "IA",
+            "subset_mask": 10,
+            "order": 2,
+            "margin_dividend": 0.005244940519332886,
+            "absolute_fraction_of_joint_margin": 0.0014903762458393617
+          },
+          {
+            "subset": "SIA",
+            "subset_mask": 11,
+            "order": 3,
+            "margin_dividend": -0.0011109113693237305,
+            "absolute_fraction_of_joint_margin": 0.00031567105670124066
+          },
+          {
+            "subset": "BA",
+            "subset_mask": 12,
+            "order": 2,
+            "margin_dividend": 0.0015000700950622559,
+            "absolute_fraction_of_joint_margin": 0.00042625246721751924
+          },
+          {
+            "subset": "SBA",
+            "subset_mask": 13,
+            "order": 3,
+            "margin_dividend": -3.039836883544922e-06,
+            "absolute_fraction_of_joint_margin": 8.637849496600104e-07
+          },
+          {
+            "subset": "IBA",
+            "subset_mask": 14,
+            "order": 3,
+            "margin_dividend": -0.0005626976490020752,
+            "absolute_fraction_of_joint_margin": 0.00015989336896598684
+          },
+          {
+            "subset": "SIBA",
+            "subset_mask": 15,
+            "order": 4,
+            "margin_dividend": -0.0018239319324493408,
+            "absolute_fraction_of_joint_margin": 0.0005182794382759049
+          }
+        ],
+        "mobius_reconstruction_max_absolute_error": 0.0,
+        "shapley_efficiency_absolute_error": 0.0,
+        "SxI_interaction": {
+          "margin_dividend": 0.6263758540153503,
+          "absolute_fraction_of_joint_margin": 0.17798785140666576,
+          "sign": 1,
+          "lexical_halves": [
+            {
+              "half": 0,
+              "group_ids": [
+                "TEST:00cf3373e49b68b61efd",
+                "TEST:06bf68b43b2a9d913c47",
+                "TEST:2e2135283ee226d07c5a",
+                "TEST:30fb0f71a26bae65bb95",
+                "TEST:3cf2f1dfd44d3fee53e4",
+                "TEST:51e2793c4bfdd85ddb9b",
+                "TEST:60db8edb8aa5646af47e",
+                "TEST:6d7fe0e4676909a58c5e"
+              ],
+              "SxI_dividend": 0.6991611123085022,
+              "sign": 1
+            },
+            {
+              "half": 1,
+              "group_ids": [
+                "TEST:7f0df50f05c69cdd823b",
+                "TEST:8f2d6d03e8a256d5a10e",
+                "TEST:9ca8c3ff5aa960823039",
+                "TEST:a18ef7e845226f2f2bf9",
+                "TEST:c0c6cbcc6c5107353f7a",
+                "TEST:c1f0f1da8abb1b1e4656",
+                "TEST:d652dc9d127dbc36989a",
+                "TEST:fb29a80dd04a5183e0b2"
+              ],
+              "SxI_dividend": 0.5535905957221985,
+              "sign": 1
+            }
+          ]
+        },
+        "margin_shapley": {
+          "S": {
+            "value": 1.5312164252003033,
+            "fraction_of_joint_margin": 0.4351028536826685
+          },
+          "I": {
+            "value": 1.3440270945429802,
+            "fraction_of_joint_margin": 0.38191206327085875
+          },
+          "B": {
+            "value": 0.6284707511464754,
+            "fraction_of_joint_margin": 0.17858312696988662
+          },
+          "A": {
+            "value": 0.015491388738155365,
+            "fraction_of_joint_margin": 0.0044019560765861205
+          }
+        }
+      },
+      "relative_singular_to_relative_plural": {
+        "row_count": 16,
+        "native_accuracy": {
+          "base": 1.0,
+          "donor": 1.0
+        },
+        "complete_head": {
+          "mean_margin_delta": 4.595096081495285,
+          "margin_direction_fraction": 1.0,
+          "mean_donor_ce_gain": 3.0478069484233856
+        },
+        "subsets": {
+          "empty": {
+            "subset_mask": 0,
+            "groups": [],
+            "mean_donor_margin": -3.4248766005039215,
+            "mean_donor_ce": 6.382614344358444,
+            "mean_margin_delta": 2.980232238769531e-07,
+            "margin_direction_fraction": 0.5,
+            "mean_donor_ce_gain": -4.470348358154297e-07,
+            "game_margin_from_empty": 0.0,
+            "game_ce_gain_from_empty": 0.0,
+            "margin_recovery_of_joint_values": 0.0,
+            "margin_recovery_of_complete_head": 0.0,
+            "ce_recovery_of_joint_values": 0.0,
+            "ce_recovery_of_complete_head": 0.0
+          },
+          "S": {
+            "subset_mask": 1,
+            "groups": [
+              "S"
+            ],
+            "mean_donor_margin": -1.875582993030548,
+            "mean_donor_ce": 5.055161535739899,
+            "mean_margin_delta": 1.5492939054965973,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.3274523615837097,
+            "game_margin_from_empty": 1.5492936074733734,
+            "game_ce_gain_from_empty": 1.3274528086185455,
+            "margin_recovery_of_joint_values": 0.37717053926757826,
+            "margin_recovery_of_complete_head": 0.3371623966063446,
+            "ce_recovery_of_joint_values": 0.4707234777449809,
+            "ce_recovery_of_complete_head": 0.43554359940849596
+          },
+          "I": {
+            "subset_mask": 2,
+            "groups": [
+              "I"
+            ],
+            "mean_donor_margin": -1.468700259923935,
+            "mean_donor_ce": 4.780160188674927,
+            "mean_margin_delta": 1.9561766386032104,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.6024537086486816,
+            "game_margin_from_empty": 1.9561763405799866,
+            "game_ce_gain_from_empty": 1.6024541556835175,
+            "margin_recovery_of_joint_values": 0.47622483028395995,
+            "margin_recovery_of_complete_head": 0.42570956208241667,
+            "ce_recovery_of_joint_values": 0.5682407601933821,
+            "ce_recovery_of_complete_head": 0.5257728533339221
+          },
+          "SI": {
+            "subset_mask": 3,
+            "groups": [
+              "S",
+              "I"
+            ],
+            "mean_donor_margin": -0.08704078197479248,
+            "mean_donor_ce": 3.906016707420349,
+            "mean_margin_delta": 3.337836116552353,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.4765971899032593,
+            "game_margin_from_empty": 3.337835818529129,
+            "game_ce_gain_from_empty": 2.476597636938095,
+            "margin_recovery_of_joint_values": 0.8125853805815219,
+            "margin_recovery_of_complete_head": 0.7263908652467105,
+            "ce_recovery_of_joint_values": 0.8782177754761162,
+            "ce_recovery_of_complete_head": 0.8125834998241034
+          },
+          "B": {
+            "subset_mask": 4,
+            "groups": [
+              "B"
+            ],
+            "mean_donor_margin": -2.45490762591362,
+            "mean_donor_ce": 5.553259491920471,
+            "mean_margin_delta": 0.9699692726135254,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.8293544054031372,
+            "game_margin_from_empty": 0.9699689745903015,
+            "game_ce_gain_from_empty": 0.829354852437973,
+            "margin_recovery_of_joint_values": 0.23613582309661174,
+            "margin_recovery_of_complete_head": 0.21108785483211595,
+            "ce_recovery_of_joint_values": 0.2940946735655006,
+            "ce_recovery_of_complete_head": 0.2721152837016117
+          },
+          "SB": {
+            "subset_mask": 5,
+            "groups": [
+              "S",
+              "B"
+            ],
+            "mean_donor_margin": -0.9199545085430145,
+            "mean_donor_ce": 4.38874264061451,
+            "mean_margin_delta": 2.504922389984131,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.9938712567090988,
+            "game_margin_from_empty": 2.504922091960907,
+            "game_ce_gain_from_empty": 1.9938717037439346,
+            "margin_recovery_of_joint_values": 0.609815216231958,
+            "margin_recovery_of_complete_head": 0.5451294265746415,
+            "ce_recovery_of_joint_values": 0.707039991531148,
+            "ce_recovery_of_complete_head": 0.6541988181946216
+          },
+          "IB": {
+            "subset_mask": 6,
+            "groups": [
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": -0.5629448592662811,
+            "mean_donor_ce": 4.200683385133743,
+            "mean_margin_delta": 2.8619320392608643,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.181930512189865,
+            "game_margin_from_empty": 2.8619317412376404,
+            "game_ce_gain_from_empty": 2.181930959224701,
+            "margin_recovery_of_joint_values": 0.6967280656053126,
+            "margin_recovery_of_complete_head": 0.622823046674215,
+            "ce_recovery_of_joint_values": 0.7737270377201296,
+            "ce_recovery_of_complete_head": 0.7159019570952163
+          },
+          "SIB": {
+            "subset_mask": 7,
+            "groups": [
+              "S",
+              "I",
+              "B"
+            ],
+            "mean_donor_margin": 0.6257450580596924,
+            "mean_donor_ce": 3.5913233011960983,
+            "mean_margin_delta": 4.050621956586838,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.79129059612751,
+            "game_margin_from_empty": 4.050621658563614,
+            "game_ce_gain_from_empty": 2.791291043162346,
+            "margin_recovery_of_joint_values": 0.9861107978241156,
+            "margin_recovery_of_complete_head": 0.8815096761253153,
+            "ce_recovery_of_joint_values": 0.9898101225934899,
+            "ce_recovery_of_complete_head": 0.9158359077192425
+          },
+          "A": {
+            "subset_mask": 8,
+            "groups": [
+              "A"
+            ],
+            "mean_donor_margin": -3.351717561483383,
+            "mean_donor_ce": 6.315364599227905,
+            "mean_margin_delta": 0.07315933704376221,
+            "margin_direction_fraction": 0.875,
+            "mean_donor_ce_gain": 0.06724929809570312,
+            "game_margin_from_empty": 0.07315903902053833,
+            "game_ce_gain_from_empty": 0.06724974513053894,
+            "margin_recovery_of_joint_values": 0.017810332442198804,
+            "margin_recovery_of_complete_head": 0.015921111925200862,
+            "ce_recovery_of_joint_values": 0.02384720096999509,
+            "ce_recovery_of_complete_head": 0.022064962206785072
+          },
+          "SA": {
+            "subset_mask": 9,
+            "groups": [
+              "S",
+              "A"
+            ],
+            "mean_donor_margin": -1.7964127957820892,
+            "mean_donor_ce": 4.991294682025909,
+            "mean_margin_delta": 1.6284641027450562,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.391319215297699,
+            "game_margin_from_empty": 1.6284638047218323,
+            "game_ce_gain_from_empty": 1.3913196623325348,
+            "margin_recovery_of_joint_values": 0.3964442688215388,
+            "margin_recovery_of_complete_head": 0.354391676657154,
+            "ce_recovery_of_joint_values": 0.49337108321742373,
+            "ce_recovery_of_complete_head": 0.4564986188026958
+          },
+          "IA": {
+            "subset_mask": 10,
+            "groups": [
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -1.3917835056781769,
+            "mean_donor_ce": 4.721935883164406,
+            "mean_margin_delta": 2.0330933928489685,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 1.6606780141592026,
+            "game_margin_from_empty": 2.0330930948257446,
+            "game_ce_gain_from_empty": 1.6606784611940384,
+            "margin_recovery_of_joint_values": 0.49494996639608513,
+            "margin_recovery_of_complete_head": 0.4424484404174108,
+            "ce_recovery_of_joint_values": 0.5888874810419531,
+            "ce_recovery_of_complete_head": 0.5448765257435674
+          },
+          "SIA": {
+            "subset_mask": 11,
+            "groups": [
+              "S",
+              "I",
+              "A"
+            ],
+            "mean_donor_margin": -0.020301878452301025,
+            "mean_donor_ce": 3.86603906750679,
+            "mean_margin_delta": 3.4045750200748444,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.5165748298168182,
+            "game_margin_from_empty": 3.4045747220516205,
+            "game_ce_gain_from_empty": 2.516575276851654,
+            "margin_recovery_of_joint_values": 0.8288327517126505,
+            "margin_recovery_of_complete_head": 0.7409148060607563,
+            "ce_recovery_of_joint_values": 0.8923941089547662,
+            "ce_recovery_of_complete_head": 0.8257003542017204
+          },
+          "BA": {
+            "subset_mask": 12,
+            "groups": [
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -2.376208245754242,
+            "mean_donor_ce": 5.486549466848373,
+            "mean_margin_delta": 1.0486686527729034,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 0.896064430475235,
+            "game_margin_from_empty": 1.0486683547496796,
+            "game_ce_gain_from_empty": 0.8960648775100708,
+            "margin_recovery_of_joint_values": 0.2552949337464934,
+            "margin_recovery_of_complete_head": 0.22821467411154406,
+            "ce_recovery_of_joint_values": 0.3177504862606971,
+            "ce_recovery_of_complete_head": 0.29400316118237096
+          },
+          "SBA": {
+            "subset_mask": 13,
+            "groups": [
+              "S",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -0.8453654646873474,
+            "mean_donor_ce": 4.337020128965378,
+            "mean_margin_delta": 2.579511433839798,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.0455937683582306,
+            "game_margin_from_empty": 2.579511135816574,
+            "game_ce_gain_from_empty": 2.0455942153930664,
+            "margin_recovery_of_joint_values": 0.6279736787459644,
+            "margin_recovery_of_complete_head": 0.5613617408794591,
+            "ce_recovery_of_joint_values": 0.7253811336064901,
+            "ce_recovery_of_complete_head": 0.671169221020131
+          },
+          "IBA": {
+            "subset_mask": 14,
+            "groups": [
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": -0.4924604594707489,
+            "mean_donor_ce": 4.155284345149994,
+            "mean_margin_delta": 2.9324164390563965,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.2273295521736145,
+            "game_margin_from_empty": 2.9324161410331726,
+            "game_ce_gain_from_empty": 2.2273299992084503,
+            "margin_recovery_of_joint_values": 0.7138872657418106,
+            "margin_recovery_of_complete_head": 0.6381620947692869,
+            "ce_recovery_of_joint_values": 0.7898258352432398,
+            "ce_recovery_of_complete_head": 0.7307975986998246
+          },
+          "SIBA": {
+            "subset_mask": 15,
+            "groups": [
+              "S",
+              "I",
+              "B",
+              "A"
+            ],
+            "mean_donor_margin": 0.682797372341156,
+            "mean_donor_ce": 3.5625875741243362,
+            "mean_margin_delta": 4.107674270868301,
+            "margin_direction_fraction": 1.0,
+            "mean_donor_ce_gain": 2.820026323199272,
+            "game_margin_from_empty": 4.1076739728450775,
+            "game_ce_gain_from_empty": 2.820026770234108,
+            "margin_recovery_of_joint_values": 1.0,
+            "margin_recovery_of_complete_head": 0.8939255893662192,
+            "ce_recovery_of_joint_values": 1.0,
+            "ce_recovery_of_complete_head": 0.9252642368614892
+          }
+        },
+        "summary": {
+          "SI_recovery_of_joint": 0.8125853805815219,
+          "SIB_recovery_of_joint": 0.9861107978241156,
+          "conditional_B_fraction_of_joint": 0.17352541724259377,
+          "conditional_B_ce_gain": 0.3146934062242508,
+          "conditional_B_row_direction_fraction": 1.0,
+          "A_addition_fraction_of_joint": 0.013889202175884413,
+          "SI_shapley_fraction_of_joint": 0.7716370443161245,
+          "SI_addition_to_BA_fraction_of_joint": 0.7447050662535065,
+          "largest_high_order_dividend": {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.178629070520401,
+            "absolute_fraction_of_joint_margin": 0.043486671946526965
+          }
+        },
+        "joint_values": {
+          "game_margin": 4.1076739728450775,
+          "game_ce_gain": 2.820026770234108
+        },
+        "margin_mobius_dividends": [
+          {
+            "subset": "empty",
+            "subset_mask": 0,
+            "order": 0,
+            "margin_dividend": 0.0,
+            "absolute_fraction_of_joint_margin": 0.0
+          },
+          {
+            "subset": "S",
+            "subset_mask": 1,
+            "order": 1,
+            "margin_dividend": 1.5492936074733734,
+            "absolute_fraction_of_joint_margin": 0.37717053926757826
+          },
+          {
+            "subset": "I",
+            "subset_mask": 2,
+            "order": 1,
+            "margin_dividend": 1.9561763405799866,
+            "absolute_fraction_of_joint_margin": 0.47622483028395995
+          },
+          {
+            "subset": "SI",
+            "subset_mask": 3,
+            "order": 2,
+            "margin_dividend": -0.16763412952423096,
+            "absolute_fraction_of_joint_margin": 0.04080998897001638
+          },
+          {
+            "subset": "B",
+            "subset_mask": 4,
+            "order": 1,
+            "margin_dividend": 0.9699689745903015,
+            "absolute_fraction_of_joint_margin": 0.23613582309661174
+          },
+          {
+            "subset": "SB",
+            "subset_mask": 5,
+            "order": 2,
+            "margin_dividend": -0.014340490102767944,
+            "absolute_fraction_of_joint_margin": 0.003491146132231951
+          },
+          {
+            "subset": "IB",
+            "subset_mask": 6,
+            "order": 2,
+            "margin_dividend": -0.0642135739326477,
+            "absolute_fraction_of_joint_margin": 0.015632587775259044
+          },
+          {
+            "subset": "SIB",
+            "subset_mask": 7,
+            "order": 3,
+            "margin_dividend": -0.178629070520401,
+            "absolute_fraction_of_joint_margin": 0.043486671946526965
+          },
+          {
+            "subset": "A",
+            "subset_mask": 8,
+            "order": 1,
+            "margin_dividend": 0.07315903902053833,
+            "absolute_fraction_of_joint_margin": 0.017810332442198804
+          },
+          {
+            "subset": "SA",
+            "subset_mask": 9,
+            "order": 2,
+            "margin_dividend": 0.006011158227920532,
+            "absolute_fraction_of_joint_margin": 0.0014633971117617823
+          },
+          {
+            "subset": "IA",
+            "subset_mask": 10,
+            "order": 2,
+            "margin_dividend": 0.0037577152252197266,
+            "absolute_fraction_of_joint_margin": 0.0009148036699263742
+          },
+          {
+            "subset": "SIA",
+            "subset_mask": 11,
+            "order": 3,
+            "margin_dividend": -0.016189008951187134,
+            "absolute_fraction_of_joint_margin": 0.0039411620927583555
+          },
+          {
+            "subset": "BA",
+            "subset_mask": 12,
+            "order": 2,
+            "margin_dividend": 0.005540341138839722,
+            "absolute_fraction_of_joint_margin": 0.0013487782076829098
+          },
+          {
+            "subset": "SBA",
+            "subset_mask": 13,
+            "order": 3,
+            "margin_dividend": -0.01012149453163147,
+            "absolute_fraction_of_joint_margin": 0.0024640452476370877
+          },
+          {
+            "subset": "IBA",
+            "subset_mask": 14,
+            "order": 3,
+            "margin_dividend": -0.011972695589065552,
+            "absolute_fraction_of_joint_margin": 0.0029147141833101627
+          },
+          {
+            "subset": "SIBA",
+            "subset_mask": 15,
+            "order": 4,
+            "margin_dividend": 0.006867259740829468,
+            "absolute_fraction_of_joint_margin": 0.0016718122680201496
+          }
+        ],
+        "mobius_reconstruction_max_absolute_error": 0.0,
+        "shapley_efficiency_absolute_error": 0.0,
+        "SxI_interaction": {
+          "margin_dividend": -0.16763412952423096,
+          "absolute_fraction_of_joint_margin": 0.04080998897001638,
+          "sign": -1,
+          "lexical_halves": [
+            {
+              "half": 0,
+              "group_ids": [
+                "TEST:05aa45535fe6197f7014",
+                "TEST:0aae6794d6e30aff66a9",
+                "TEST:0c92ff3b6c85ee182f3f",
+                "TEST:0d923892486c5d140363",
+                "TEST:10ca3593c4826439b605",
+                "TEST:3684fcb83db037d1ef13",
+                "TEST:40401579a7d749103df7",
+                "TEST:61590ba65ec2cb5e45cb"
+              ],
+              "SxI_dividend": -0.1646796464920044,
+              "sign": -1
+            },
+            {
+              "half": 1,
+              "group_ids": [
+                "TEST:62aa070ddebdeb1ef796",
+                "TEST:6ccec7569f09db1a1c88",
+                "TEST:8198a1d44e01edf9abdc",
+                "TEST:a2001e654434a3606d46",
+                "TEST:d3a81a13123be90b70cc",
+                "TEST:ead63cf8fd15fd876c4a",
+                "TEST:f54cf58affb6bf6608b5",
+                "TEST:fb34d99341ed4fd84052"
+              ],
+              "SxI_dividend": -0.17058861255645752,
+              "sign": -1
+            }
+          ]
+        },
+        "margin_shapley": {
+          "S": {
+            "value": 1.394715500374635,
+            "fraction_of_joint_margin": 0.3395389969103659
+          },
+          "I": {
+            "value": 1.7749179030458133,
+            "fraction_of_joint_margin": 0.43209804740575863
+          },
+          "B": {
+            "value": 0.8682711745301882,
+            "fraction_of_joint_margin": 0.21137782118788798
+          },
+          "A": {
+            "value": 0.06976939489444098,
+            "fraction_of_joint_margin": 0.016985134495987507
+          }
+        }
+      }
+    },
+    "predictions": {
+      "pred_a_instrument_live": true,
+      "pred_b_SI_sufficient_all_cells": false,
+      "pred_c_bridge_repairs_failed_SI_cells": true,
+      "pred_d_SxI_interaction_shared": false
+    }
+  }
+}

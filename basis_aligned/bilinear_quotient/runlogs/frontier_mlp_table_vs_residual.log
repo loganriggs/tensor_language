@@ -1,0 +1,95 @@
+ARM 1/3: BASELINE -- reproduction of the published frontier
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2872
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/3: quadratic residual dropped (A := 0), token tables kept
+a2-input probe acc 0.68
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +3.0708 | fresh +3.0559
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +3.7839 | fresh +3.4271 | tail-attn increment +0.3713
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: HELD
+ARM 3/3: token tables dropped (tb := 0), quadratic residual kept
+a2-input probe acc 0.66
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +3.3322 | fresh +3.0456
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +3.8480 | fresh +3.3549 | tail-attn increment +0.3093
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: HELD
+(a) baseline L2_F 2.6735 vs 2.6735 (tol .05): HELD
+(b) asymmetry +0.0722 >= 0.1: FAILED
+(c) dropping the TABLE costs +0.6814 >= 0.2: HELD
+(d) dropping the RESIDUAL costs +0.7536 <= 0.1: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mlp_table_vs_residual_results.json (283s)

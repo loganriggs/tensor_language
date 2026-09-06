@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls.py", line 215, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls.py", line 188, in main
+    if OUT.exists(): raise RuntimeError(f"refusing to overwrite {OUT}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: refusing to overwrite /workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/attn8_h3_h7_cross_behavior_factor_interchange_v4_canonical_controls_result.json

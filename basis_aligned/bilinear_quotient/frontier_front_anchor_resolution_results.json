@@ -1,0 +1,85 @@
+{
+ "rung": "frontier_front_anchor_resolution",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_refit_time_tb_arm_reproduces_S2877": true,
+  "pred_c_the_refit_time_A_arm_reproduces_S2877": true,
+  "pred_d_the_token_table_compensation_is_large": true,
+  "pred_e_the_residual_compensation_is_small": true
+ },
+ "nulls": {
+  "b_null_the_tb_anchor_fails_at_refit_time": false,
+  "c_null_the_A_anchor_fails_at_refit_time": false,
+  "d_null_the_compensation_is_not_the_cause": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.05,
+  "tb_compensation": 3.0,
+  "a_compensation": 0.1
+ },
+ "null_bars": {
+  "anchor_ge": 0.1,
+  "tb_compensation_le": 1.0
+ },
+ "frozen_arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6736,
+   "increment": 0.3865
+  },
+  "froz_tb0": {
+   "L1_F": 2.2871,
+   "L2_C": 8.2949,
+   "L2_F": 8.3026,
+   "increment": 6.0154
+  },
+  "froz_A0": {
+   "L1_F": 2.2871,
+   "L2_C": 3.8722,
+   "L2_F": 3.4056,
+   "increment": 1.1185
+  },
+  "a050": {
+   "L1_F": 2.2871,
+   "L2_C": 2.5191,
+   "L2_F": 2.5086,
+   "increment": 0.2215
+  },
+  "runtime_s": 104.73233485221863
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "cost_refit_time_tb0": 0.6811,
+  "S2877_refit_tb0": 0.6814,
+  "tb_anchor_deviation": 0.0003,
+  "cost_refit_time_A0": 0.7535,
+  "S2877_refit_A0": 0.7536,
+  "A_anchor_deviation": 0.0001,
+  "cost_frozen_tb0": 5.629,
+  "S2895_frozen_tb0": 5.6298,
+  "cost_frozen_A0": 0.732,
+  "S2895_frozen_A0": 0.7321,
+  "token_table_refit_compensation_nats": 4.9479,
+  "residual_refit_compensation_nats": 0.0215,
+  "cost_a_scale_050": -0.165,
+  "S2895_a_scale_050": -0.1648,
+  "adoption_gate_all_of_a_b_c": true
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 292.8
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_FRONT_ANCHOR_RESOLUTION_PREREGISTRATION.md": "d3dad199091d07199b4b1e9cabadb2b9ac194f00f6c7e50f41d8e5375c8a37f0",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mlp_table_vs_residual_results.json": "7e58624a7c98bdc64eb383a6393a0b69f4ff15a5b711648fd6a9d7bc9dc9893e",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_table_shrinkage_results.json": "b852f7f26bf55f65e6bebdceb0ed49bf3bd1f4021b93181d797620bc9f43fc14"
+ },
+ "self_reviewed": true
+}

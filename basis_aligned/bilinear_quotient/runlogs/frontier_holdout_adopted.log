@@ -1,0 +1,38 @@
+ONE pipeline run, 3 arms x 2 fresh windows against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | TC +2.3522 | G +2.2999
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) gain on the SELECTION window +0.3736 >= 0.25: HELD
+(c) gain on the HELD-OUT window +0.3539 >= 0.75 x +0.3736 = +0.2802: HELD
+(d) baselines comparable: holdout 2.6710 vs selection 2.6735, offset -0.0025: HELD
+(e) gain keeps its sign off the selection window: HELD
+(f) the extra search survives off the selection window: +0.0370 > 0: HELD
+    SELECTION BIAS   TC +0.0044 | G +0.0197 nats   (positive = the number flatters itself)
+    EXTRA FROM 95-CELL SEARCH   on FR +0.0523 | on the HELD-OUT window +0.0370
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_holdout_adopted_results.json (107s, 2 arms x 2 windows in one run)

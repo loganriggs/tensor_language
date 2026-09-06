@@ -1,0 +1,47 @@
+[wc] counting_words.comma_list      FIT-pick=attn8    fit=0.014 test=0.151 live=24/36
+[wc] keyed_line.counter_successor   FIT-pick=attn4    fit=0.109 test=0.233 live=25/36
+[wc] month.successor                FIT-pick=attn14   fit=0.009 test=0.041 live=28/36
+[wc] numbered_list.index_successor  FIT-pick=attn1    fit=0.042 test=0.342 live=16/36
+[wc] numeric_run.last_plus_one      FIT-pick=mlp7     fit=0.026 test=0.276 live=18/36
+[wc] paren_list.index_successor     FIT-pick=attn10   fit=0.093 test=nan live=15/36
+[wc] roman_list.index_successor     FIT-pick=mlp11    fit=0.001 test=0.399 live=23/36
+{
+ "preds": {
+  "pred_a_selection_is_inflated": true,
+  "pred_b_the_selected_component_does_not_beat_the_named_writer": true,
+  "pred_c_selection_still_carries_signal_against_a_random_component": true,
+  "pred_d_the_argmin_does_not_reproduce": true,
+  "pred_e_inert_components_are_gated_out": true
+ },
+ "nulls": {
+  "a_null_selection_is_honest": false,
+  "b_null_selection_beats_the_named_writer": false,
+  "c_null_selection_is_worthless": false,
+  "d_null_argmin_reproduces": false
+ },
+ "summary": {
+  "fit_selected_component": {
+   "counting_words.comma_list": "attn8",
+   "keyed_line.counter_successor": "attn4",
+   "month.successor": "attn14",
+   "numbered_list.index_successor": "attn1",
+   "numeric_run.last_plus_one": "mlp7",
+   "paren_list.index_successor": "attn10",
+   "roman_list.index_successor": "mlp11"
+  },
+  "median_inflation_test_minus_fit": 0.19341878407296284,
+  "inflation": {
+   "counting_words.comma_list": 0.13692490943961827,
+   "keyed_line.counter_successor": 0.12407620996236801,
+   "month.successor": 0.03167909937391622,
+   "numbered_list.index_successor": 0.299993210913879,
+   "numeric_run.last_plus_one": 0.2499126587063074,
+   "roman_list.index_successor": 0.3972156047821045
+  },
+  "median_pick_minus_named_writer_on_test": 0.002283642414944484,
+  "vs_named_writer": {
+   "counting_words.comma_list": 0.0,
+   "keyed_line.counter_successor": 0.004567284829888968,
+   "month.successor": -0.14628261357023176,
+   "numbered_list.index_successor": -0.001658343490699321,
+ 

@@ -1,0 +1,54 @@
+{
+  "aliases_searched": [
+    "and",
+    "both",
+    "conjunction",
+    "coordination",
+    "correlative",
+    "disjunction",
+    "either",
+    "or",
+    "paired connective"
+  ],
+  "candidate_id": "correlative_pair.both_vs_either",
+  "canonical_objects": [
+    "a correlative contrast with no negative member",
+    "both-versus-either choice of and/or at a shared noun token",
+    "the discriminating case for a shared correlative direction"
+  ],
+  "decision_changed": "The screen itself adds a third correlative pair. Its real purpose is the DAS transfer that follows: if the jointly-fitted direction carries this pair too, the shared structure is correlative state; if it reads near zero, the direction is a `neither` axis and the interesting reading of the joint fit dies. A rank-1 direction separating {both, either} from {neither} would place both and either on the SAME side, so near-zero transfer is the expected outcome under the `neither` reading.",
+  "matched_prior_claims": [
+    "circuits/fast_screens/correlative_pair_both_vs_neither_v1_result.json and correlative_state_either_vs_neither_v1_result.json are both selective at resid:18.",
+    "circuits/followups/das_correlative_joint_fit_v1_result.json shows ONE rank-1 direction serving both of those pairs at 0.975 and 0.963.",
+    "Both of those pairs contrast against the SAME element -- `neither` answering ' nor' -- so the shared direction may encode `neither` rather than correlative state."
+  ],
+  "method_families": [
+    "activation patching",
+    "donor-to-recipient interchange",
+    "linked A1/A2/P/C battery",
+    "native capability gating"
+  ],
+  "novelty_delta": "Twenty-eighth behaviour, authored specifically to break a confound in my own result. The two correlative pairs already screened both put `neither` on their donor side, so the single direction that serves both may be a `neither` axis rather than a correlative-state feature. This pair contains NO negative member: `both` obliges ' and', `either` obliges ' or'. It is the discriminating case, and it is a legitimate behaviour in its own right -- a conjunction/disjunction contrast rather than a polarity one.",
+  "relation": "extension",
+  "reviewed_sources": [
+    {
+      "searched_terms": [
+        "families",
+        "reading",
+        "registered_thresholds"
+      ],
+      "sha256": "e162b6619c97b58ba67df84d67d23824bd45a6aa5abb4ae38d2afcceb97600ad",
+      "source": "circuits/followups/das_correlative_joint_fit_v1_result.json"
+    },
+    {
+      "searched_terms": [
+        "site_results",
+        "selected_site_id"
+      ],
+      "sha256": "ab8b82815cce738aef7729e786a1757b5c877f046959b869e190af077cece08b",
+      "source": "circuits/fast_screens/correlative_pair_both_vs_neither_v1_result.json"
+    }
+  ],
+  "reviewer": "Claude ops lane, after finding the shared-side confound in the joint fit",
+  "schema": "circuit_prior_art_and_novelty_receipt_v1"
+}

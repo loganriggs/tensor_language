@@ -1,0 +1,149 @@
+{
+ "rung": "frontier_tail_rank_sweep",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_curve_has_at_most_one_turn": true,
+  "pred_c_the_three_known_ranks_reproduce_S2887": true,
+  "pred_d_the_arms_are_connected": true,
+  "pred_e_the_shape_is_recorded": true
+ },
+ "nulls": {
+  "c_null_this_rung_disagrees_with_S2887": false,
+  "b_null_the_curve_is_erratic": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "repro_prior": 0.02,
+  "connected": 0.005,
+  "shape": 1
+ },
+ "null_bars": {
+  "repro_prior_ge": 0.05
+ },
+ "ranks": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256
+ ],
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4234,
+   "L2_F": 2.6736,
+   "increment": 0.3865
+  },
+  "r1": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4172,
+   "L2_F": 2.6442,
+   "increment": 0.357
+  },
+  "r2": {
+   "L1_F": 2.2871,
+   "L2_C": 2.5385,
+   "L2_F": 2.7534,
+   "increment": 0.4662
+  },
+  "r4": {
+   "L1_F": 2.2871,
+   "L2_C": 2.5707,
+   "L2_F": 2.8039,
+   "increment": 0.5168
+  },
+  "r8": {
+   "L1_F": 2.2871,
+   "L2_C": 2.6131,
+   "L2_F": 2.8222,
+   "increment": 0.5351
+  },
+  "r16": {
+   "L1_F": 2.2871,
+   "L2_C": 2.5526,
+   "L2_F": 2.7971,
+   "increment": 0.51
+  },
+  "r32": {
+   "L1_F": 2.2871,
+   "L2_C": 2.528,
+   "L2_F": 2.7842,
+   "increment": 0.497
+  },
+  "r64": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4832,
+   "L2_F": 2.7409,
+   "increment": 0.4537
+  },
+  "r128": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4531,
+   "L2_F": 2.7096,
+   "increment": 0.4225
+  },
+  "r256": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4346,
+   "L2_F": 2.6882,
+   "increment": 0.401
+  },
+  "runtime_s": 166.3473765850067
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6736,
+  "cost_by_rank": {
+   "1": -0.0294,
+   "2": 0.0798,
+   "4": 0.1303,
+   "8": 0.1486,
+   "16": 0.1235,
+   "32": 0.1106,
+   "64": 0.0673,
+   "128": 0.036,
+   "256": 0.0146
+  },
+  "turns_in_the_curve": 1,
+  "worst_rank": 8,
+  "worst_cost": 0.1486,
+  "best_rank": 1,
+  "best_cost": -0.0294,
+  "S2887_rank1": -0.0294,
+  "S2887_rank8": 0.1489,
+  "S2887_rank64": 0.0674,
+  "deviation_rank1": 0.0,
+  "deviation_rank8": 0.0003,
+  "deviation_rank64": 0.0001,
+  "params_by_rank": {
+   "1": 73728,
+   "2": 147456,
+   "4": 294912,
+   "8": 589824,
+   "16": 1179648,
+   "32": 2359296,
+   "64": 4718592,
+   "128": 9437184,
+   "256": 18874368
+  },
+  "params_full": 42467328,
+  "pipeline_runs_saved_vs_per_arm": 9
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 166.3
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_TAIL_RANK_SWEEP_PREREGISTRATION.md": "a2e4624a1c25f14ea30b05f2270bfecdc5d3085cb18c9a8e6da85a2b92ecf589",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_link_lowrank_frozen_results.json": "0700fd3a179728ef827bb33d6c515ee0ce9ed2da155f663d2027cac7c63f585c"
+ },
+ "self_reviewed": true
+}

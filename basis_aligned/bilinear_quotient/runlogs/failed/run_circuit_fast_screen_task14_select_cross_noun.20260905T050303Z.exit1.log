@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_task14_select_cross_noun.py", line 51, in <module>
+    shared.cli(PROTOCOL)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_task14_cross_syntax.py", line 516, in cli
+    main(protocol)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_task14_cross_syntax.py", line 504, in main
+    print(json.dumps(_publish(run_science(protocol=protocol), protocol), sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_circuit_fast_screen_task14_cross_syntax.py", line 480, in _publish
+    ledger.append_entry(LEDGER, entry, result_root=ROOT)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_fast_screen_ledger.py", line 302, in append_entry
+    raise ScreenLedgerError("duplicate identical execution refused")
+circuit_fast_screen_ledger.ScreenLedgerError: duplicate identical execution refused

@@ -1,0 +1,38 @@
+ONE pipeline run, 8 arms against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2872
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3863
+L2 per arm: baseline +2.6735 | uniform +2.4448 | top64 +2.4121 | bot64 +2.7224 | top256 +2.4391 | bot256 +2.6849 | top576 +2.4454 | bot576 +2.6740
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) uniform x0.25 -0.2287 vs SS2896 -0.2287: HELD
+    r=64: top -0.2614 | bot +0.0489 | sum -0.2125
+    r=256: top -0.2344 | bot +0.0114 | sum -0.2230
+    r=576: top -0.2281 | bot +0.0005 | sum -0.2276
+(c) no split beats uniform: best top64 -0.2614 vs uniform -0.2287: FAILED
+(d) both halves carry gain at every r: FAILED  {64: False, 256: False, 576: False}
+(e) additivity at r=256: +0.0057, |.| <= 0.05: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_spectral_split_results.json (132s, 8 arms x 3 windows in one run)

@@ -1,0 +1,88 @@
+{
+ "rung": "frontier_band_constant_vs_deleted",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_constants_are_doing_work": false,
+  "pred_c_the_constant_arm_reproduces_S2875": true,
+  "pred_d_deleting_the_stage_is_expensive": false,
+  "pred_e_the_parameter_accounting_is_stated": true
+ },
+ "nulls": {
+  "b_null_the_constants_are_not_doing_work": true,
+  "d_null_the_whole_stage_is_removable": true
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "separation": 0.1,
+  "const_repro": 0.01,
+  "delete_costs": 0.2
+ },
+ "null_bars": {
+  "separation_le": 0.02,
+  "delete_costs_lt": 0.05
+ },
+ "band": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "baseline": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.27483034133911
+ },
+ "band_constant": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 91.85127806663513
+ },
+ "band_zero": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 91.98757266998291
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_band_constant": 2.6735,
+  "L2_F_band_zero": 2.6735,
+  "cost_constant_nats": 0.0,
+  "cost_zero_nats": 0.0,
+  "separation_nats": 0.0,
+  "L2_C_baseline": 2.4233,
+  "L2_C_band_constant": 2.4233,
+  "L2_C_band_zero": 2.4233,
+  "parameters_saved_by_constants": 42550272,
+  "vectors_remaining_if_constant": 8,
+  "vectors_remaining_if_deleted": 0
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 3,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 279.1
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_BAND_CONSTANT_VS_DELETED_PREREGISTRATION.md": "2ba5ff67a323464237d739ad8ee49dfb689eced4075778a100491db15c14fbce"
+ },
+ "self_reviewed": true
+}

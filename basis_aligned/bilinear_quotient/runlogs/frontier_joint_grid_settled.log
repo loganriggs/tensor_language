@@ -1,0 +1,35 @@
+ONE pipeline run, 28 evaluations against the same fitted stack
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+L2 per arm: baseline +2.6735 | cp_s065_moti115_tail025 +2.3129 | cp_s065_moti115_tail030 +2.3107 | cp_s065_moti115_tail035 +2.3123 | cp_s065_moti125_tail025 +2.3087 | cp_s065_moti125_tail030 +2.3058 | cp_s065_moti125_tail035 +2.3069 | cp_s065_moti135_tail025 +2.3191 | cp_s065_moti135_tail030 +2.3155 | cp_s065_moti135_tail035 +2.3156 | cp_s080_moti115_tail025 +2.3151 | cp_s080_moti115_tail030 +2.3152 | cp_s080_moti115_tail035 +2.3186 | cp_s080_moti125_tail025 +2.3005 | cp_s080_moti125_tail030 +2.2999 | cp_s080_moti125_tail035 +2.3023 | cp_s080_moti135_tail025 +2.3042 | cp_s080_moti135_tail030 +2.3036 | cp_s080_moti135_tail035 +2.3059 | cp_s095_moti115_tail025 +2.3304 | cp_s095_moti115_tail030 +2.3324 | cp_s095_moti115_tail035 +2.3373 | cp_s095_moti125_tail025 +2.3043 | cp_s095_moti125_tail030 +2.3061 | cp_s095_moti125_tail035 +2.3102 | cp_s095_moti135_tail025 +2.3044 | cp_s095_moti135_tail030 +2.3057 | cp_s095_moti135_tail035 +2.3096
+(a) baseline L2_F 2.6735 vs 2.6735: HELD
+(b) cell (.25,.5,1.25) -0.3736 vs SS2906 -0.3736, dev 0.0000: HELD
+(c) best cell t=0.3 c=0.8 m=1.25 at -0.3736 (fit -0.3445) beats current by +0.0000: HELD
+(d) interior in all three: HELD
+    implied L2_F = 2.2999   (adopted T+C = 2.3522)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_joint_grid_settled_results.json (184s, 27 cells in one run)

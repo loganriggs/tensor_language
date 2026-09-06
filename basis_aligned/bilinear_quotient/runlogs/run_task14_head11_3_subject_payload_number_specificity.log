@@ -1,0 +1,52 @@
+{
+  "result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/fast_screens/task14_head11_3_subject_payload_number_specificity_v1_result.json",
+  "terminal": "number_specific_payload_screen",
+  "score": {
+    "native_accuracy": 1.0,
+    "native_replay_max_absolute_logit_error": 2.4318695068359375e-05,
+    "source_term_identity_max_absolute_error": 0.0,
+    "parent_opposite_condition_max_absolute_reproduction_error": 2.0503997802734375e-05,
+    "opposite_number": {
+      "mean_directed_margin_effect": 2.0826727226376534,
+      "margin_direction_fraction": 1.0,
+      "mean_donor_answer_ce_gain": 1.8188758976757526
+    },
+    "same_number": {
+      "mean_absolute_task_margin_change": 0.11336805671453476,
+      "mean_absolute_base_answer_ce_change": 0.05633900314569473,
+      "absolute_margin_leakage_over_live_effect": 0.05443392784774985,
+      "absolute_ce_leakage_over_live_effect": 0.03097462736060631
+    },
+    "cells": {
+      "a1_plural": {
+        "opposite_mean_directed_margin_effect": 2.1825696527957916,
+        "opposite_mean_donor_answer_ce_gain": 1.8593929708003998,
+        "same_absolute_margin_over_opposite_effect": 0.06244607334332539,
+        "same_absolute_ce_over_opposite_gain": 0.04037145255616306
+      },
+      "a1_singular": {
+        "opposite_mean_directed_margin_effect": 3.350349187850952,
+        "opposite_mean_donor_answer_ce_gain": 2.921886295080185,
+        "same_absolute_margin_over_opposite_effect": 0.05127297626317188,
+        "same_absolute_ce_over_opposite_gain": 0.015166060830824593
+      },
+      "a2_plural": {
+        "opposite_mean_directed_margin_effect": 1.1151807308197021,
+        "opposite_mean_donor_answer_ce_gain": 0.9479680359363556,
+        "same_absolute_margin_over_opposite_effect": 0.06315657371701885,
+        "same_absolute_ce_over_opposite_gain": 0.07258660090820296
+      },
+      "a2_singular": {
+        "opposite_mean_directed_margin_effect": 1.6825913190841675,
+        "opposite_mean_donor_answer_ce_gain": 1.5462562888860703,
+        "same_absolute_margin_over_opposite_effect": 0.04455386936603725,
+        "same_absolute_ce_over_opposite_gain": 0.024036335344794796
+      }
+    },
+    "predictions": {
+      "pred_a_opposite_number_control_live": true,
+      "pred_b_number_specific_payload": true,
+      "pred_c_noun_or_syntax_sensitive_payload": false
+    }
+  }
+}

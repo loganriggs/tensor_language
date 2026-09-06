@@ -1,0 +1,46 @@
+[wc] counting_words.comma_list      OOD-pick=attn10   sel=0.008 eval=0.468 live=21/36
+[wc] keyed_line.counter_successor   OOD-pick=mlp15    sel=0.029 eval=0.749 live=19/36
+[wc] month.successor                OOD-pick=attn10   sel=0.010 eval=0.115 live=28/36
+[wc] numbered_list.index_successor  OOD-pick=attn6    sel=0.077 eval=0.321 live=15/36
+[wc] numeric_run.last_plus_one      OOD-pick=mlp5     sel=0.105 eval=0.545 live=19/36
+[wc] paren_list.index_successor     OOD-pick=attn1    sel=0.243 eval=0.303 live=13/36
+[wc] roman_list.index_successor     OOD-pick=attn1    sel=0.012 eval=0.567 live=23/36
+{
+ "preds": {
+  "pred_a_selection_is_inflated": true,
+  "pred_b_the_selected_component_does_not_beat_the_named_writer": true,
+  "pred_c_selection_still_carries_signal_against_a_random_component": false,
+  "pred_d_the_argmin_does_not_reproduce": true,
+  "pred_e_inert_components_are_gated_out": true
+ },
+ "nulls": {
+  "a_null_selection_is_honest": false,
+  "b_null_selection_beats_the_named_writer": false,
+  "c_null_selection_is_worthless": false,
+  "d_null_argmin_reproduces": false
+ },
+ "summary": {
+  "fit_selected_component": {
+   "counting_words.comma_list": "attn10",
+   "keyed_line.counter_successor": "mlp15",
+   "month.successor": "attn10",
+   "numbered_list.index_successor": "attn6",
+   "numeric_run.last_plus_one": "mlp5",
+   "paren_list.index_successor": "attn1",
+   "roman_list.index_successor": "attn1"
+  },
+  "median_inflation_test_minus_fit": 0.43921997398138046,
+  "inflation": {
+   "counting_words.comma_list": 0.4598309099674225,
+   "keyed_line.counter_successor": 0.7201105561107397,
+   "month.successor": 0.10582280158996582,
+   "numbered_list.index_successor": 0.2434241639086575,
+   "numeric_run.last_plus_one": 0.43921997398138046,
+   "paren_list.index_successor": 0.06009349226951599,
+   "roman_list.index_successor": 0.5547006750814439
+  },
+  "median_pick_minus_named_writer_on_test": 0.24501261934708118,
+  "vs_named_writer": {
+   "counting_words.comma_list": 0.4538668497379092,
+   "keyed_line.counter_successor": 0.5127807474207193,
+   "month.successor": -0.047454377777

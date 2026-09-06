@@ -1,0 +1,26 @@
+{
+  "instrument_exact": true,
+  "pred_a_list_state_shifts": true,
+  "pred_b_list_invariances": true,
+  "pred_c_list_step_two_conflict": true,
+  "pred_d_sequence_state_shifts": true,
+  "pred_e_sequence_invariances": true,
+  "pred_f_sequence_middle_necessity": true,
+  "list_all_gates_pass": true,
+  "sequence_all_gates_pass": true,
+  "evaluated_splits": {
+    "numbered_list_index_successor": [
+      "FIT",
+      "SELECT"
+    ],
+    "numeric_sequence_continuation": [
+      "FIT",
+      "SELECT"
+    ]
+  },
+  "model_forwards": 30,
+  "next_step": {
+    "numbered_list_index_successor": "audit_then_legacy_factor_localization",
+    "numeric_sequence_continuation": "audit_then_cross_format_site_search"
+  }
+}

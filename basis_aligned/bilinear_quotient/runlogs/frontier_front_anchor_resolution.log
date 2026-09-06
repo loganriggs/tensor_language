@@ -1,0 +1,94 @@
+RUN 1/3: frozen stack -- baseline / tb:=0 / A:=0 / a_scale=.5
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +2.4232 | fresh +2.6736 | tail-attn increment +0.3865
+L2 empirical per arm: baseline +2.6736 | froz_tb0 +8.3026 | froz_A0 +3.4056 | a050 +2.5086
+RUN 2/3: refit-time tb:=0 (SS2877 operation)
+a2-input probe acc 0.66
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +3.3322 | fresh +3.0460
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +3.8480 | fresh +3.3547 | tail-attn increment +0.3088
+L2 empirical per arm: single +3.3547
+RUN 3/3: refit-time A:=0 (SS2877 operation)
+a2-input probe acc 0.68
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +3.0709 | fresh +3.0556
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+L2 empirical: C +3.7837 | fresh +3.4271 | tail-attn increment +0.3714
+L2 empirical per arm: single +3.4271
+(a) baseline L2_F 2.6736 vs 2.6735: HELD
+(b) refit tb:=0 +0.6811 vs SS2877 +0.6814, dev 0.0003: HELD
+(c) refit A:=0 +0.7535 vs SS2877 +0.7536, dev 0.0001: HELD
+(d) token-table refit compensation 4.9479 >= 3.0: HELD
+(e) residual refit compensation 0.0215 <= 0.1: HELD
+ADOPTION GATE (a,b,c): OPEN
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_anchor_resolution_results.json (293s)

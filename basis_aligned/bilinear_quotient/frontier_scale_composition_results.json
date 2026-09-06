@@ -1,0 +1,139 @@
+{
+ "rung": "frontier_scale_composition",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_tail_arm_reproduces_S2896": true,
+  "pred_c_the_cp_arm_reproduces_S2902": true,
+  "pred_d_the_combination_beats_the_best_single": true,
+  "pred_e_the_three_blocks_are_not_additive": true
+ },
+ "nulls": {
+  "b_null_the_tail_anchor_fails": false,
+  "c_null_the_cp_anchor_fails": false,
+  "d_null_the_combination_does_not_help": false,
+  "e_null_the_blocks_are_additive": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "anchor": 0.01,
+  "combo_beats": 0.05,
+  "nonadditive": 0.05
+ },
+ "null_bars": {
+  "anchor_ge": 0.03,
+  "combo_le": 0.0,
+  "additive_le": 0.02
+ },
+ "scales": {
+  "tail": 0.25,
+  "cp": 0.5,
+  "front": 0.5
+ },
+ "arms": {
+  "baseline": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4232,
+   "L2_F": 2.6735,
+   "increment": 0.3864
+  },
+  "T": {
+   "L1_F": 2.2871,
+   "L2_C": 2.2701,
+   "L2_F": 2.4447,
+   "increment": 0.1576
+  },
+  "C": {
+   "L1_F": 2.2871,
+   "L2_C": 2.262,
+   "L2_F": 2.5661,
+   "increment": 0.2789
+  },
+  "F": {
+   "L1_F": 2.2871,
+   "L2_C": 2.5191,
+   "L2_F": 2.5085,
+   "increment": 0.2214
+  },
+  "TC": {
+   "L1_F": 2.2871,
+   "L2_C": 2.1333,
+   "L2_F": 2.3522,
+   "increment": 0.065
+  },
+  "TF": {
+   "L1_F": 2.2871,
+   "L2_C": 2.4026,
+   "L2_F": 2.3399,
+   "increment": 0.0528
+  },
+  "CF": {
+   "L1_F": 2.2871,
+   "L2_C": 2.422,
+   "L2_F": 2.5245,
+   "increment": 0.2374
+  },
+  "TCF": {
+   "L1_F": 2.2871,
+   "L2_C": 2.3409,
+   "L2_F": 2.385,
+   "increment": 0.0979
+  },
+  "runtime_s": 118.04631900787354
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_C_baseline": 2.4232,
+  "cost_fresh": {
+   "T": -0.2288,
+   "C": -0.1074,
+   "F": -0.165,
+   "TC": -0.3213,
+   "TF": -0.3336,
+   "CF": -0.149,
+   "TCF": -0.2885
+  },
+  "cost_fit": {
+   "T": -0.1531,
+   "C": -0.1612,
+   "F": 0.0959,
+   "TC": -0.2899,
+   "TF": -0.0206,
+   "CF": -0.0012,
+   "TCF": -0.0823
+  },
+  "sum_of_singles": -0.5012,
+  "cost_triple": -0.2885,
+  "nonadditivity_nats": 0.2127,
+  "pairwise_interactions": {
+   "TC": 0.0149,
+   "TF": 0.0602,
+   "CF": 0.1234
+  },
+  "best_single": "T",
+  "combination_beats_best_single_by": 0.0597,
+  "S2896_tail": -0.2287,
+  "tail_deviation": 0.0001,
+  "S2902_cp": -0.1075,
+  "cp_deviation": 0.0001,
+  "S2895_front": -0.1648,
+  "front_deviation": 0.0002,
+  "implied_L2_F_triple": 2.385,
+  "adoption_gate_all_of_a_b_c": true
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 1,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 118.0
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_SCALE_COMPOSITION_PREREGISTRATION.md": "4b1a26f37b52d3a76a0ed1514f93689e23df3e228045b1a04c6758a0095caa58",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_anchor_resolution_results.json": "5aef0a10442ce19305652c324d08b2d76200b0219d97738ea0323c9d11dab3d3",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_cp_unit_scale_results.json": "80c1d7934eee7c6abf329c7491a07022892367742b090b918099f5e38e28f976",
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_front_table_shrinkage_results.json": "b852f7f26bf55f65e6bebdceb0ed49bf3bd1f4021b93181d797620bc9f43fc14"
+ },
+ "self_reviewed": true
+}

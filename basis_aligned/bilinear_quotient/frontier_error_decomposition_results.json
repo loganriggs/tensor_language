@@ -1,0 +1,89 @@
+{
+ "rung": "frontier_error_decomposition",
+ "preds": {
+  "pred_a_the_baseline_reproduces_the_published_frontier": true,
+  "pred_b_the_motif_heads_carry_a_large_share_of_the_error": true,
+  "pred_c_the_tail_dictionaries_carry_a_large_share": true,
+  "pred_d_both_blocks_are_installed_and_move_the_number": true,
+  "pred_e_the_two_shares_are_roughly_additive": true
+ },
+ "nulls": {
+  "b_null_the_motif_heads_are_error_free": false,
+  "c_null_the_tail_dictionaries_are_error_free": false
+ },
+ "bars": {
+  "reproduce": 0.05,
+  "motif_share": 0.3,
+  "tail_share": 0.2,
+  "installed": 0.01,
+  "additive": 0.3
+ },
+ "null_bars": {
+  "motif_share_le": 0.05,
+  "tail_share_le": 0.05
+ },
+ "baseline": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 95.27536964416504
+ },
+ "motif_off": {
+  "L1_F": 2.2871,
+  "L2_C": 2.2881,
+  "L2_F": 2.2747,
+  "increment": -0.0125,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "runtime_s": 93.55170702934265
+ },
+ "tail_off": {
+  "L1_F": 2.2871,
+  "L2_C": 1.9801,
+  "L2_F": 2.2871,
+  "increment": 0.0,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "runtime_s": 93.76647162437439
+ },
+ "both_off": {
+  "L1_F": 2.2871,
+  "L2_C": 1.5809,
+  "L2_F": 1.8613,
+  "increment": -0.4258,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "runtime_s": 93.31876134872437
+ },
+ "published_L2_F": 2.6735,
+ "summary": {
+  "L2_F_baseline": 2.6735,
+  "L2_F_motif_off": 2.2747,
+  "L2_F_tail_off": 2.2871,
+  "L2_F_both_off": 1.8613,
+  "error_share_motif_heads_nats": 0.3988,
+  "error_share_tail_dicts_nats": 0.3864,
+  "error_share_both_nats": 0.8122,
+  "additivity_drift_nats": 0.027,
+  "L1_F_baseline": 2.2871,
+  "L1_F_motif_off": 2.2871,
+  "L2_C_baseline": 2.4233,
+  "L2_C_motif_off": 2.2881,
+  "residual_L2_F_after_both": 1.8613
+ },
+ "price": {
+  "gpu_forwards": 0,
+  "forwards_instrumented": false,
+  "pipeline_runs": 4,
+  "backwards": 0,
+  "fitted_parameters": 0,
+  "gpu_seconds": 375.9
+ },
+ "hashes": {
+  "/workspace/tensor_language/basis_aligned/bilinear_quotient/../polynomial_causal/FRONTIER_ERROR_DECOMPOSITION_PREREGISTRATION.md": "1718660c607a8a021711fb14f0923cf863e054b55d3467d9e04db17099a27a6d"
+ },
+ "self_reviewed": true
+}
