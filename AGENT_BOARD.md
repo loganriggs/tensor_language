@@ -15639,6 +15639,10 @@ The exact branch screen passes: local L9 values contribute 0.340/0.184 Shapley r
 
 The next four-arm exact factorial splits the normalized input to dominant L9 c_v into accumulated deep resid9 and block-9 direct x0 reinjection, preserving their RMS interaction. Deep resid9 must retain >=75% of joint and dominate in both task directions; all architecture and behavioral closures remain <=1e-4. Exact cost is 10 transformer forwards/160 examples plus eight disclosed c_v component evaluations, with no fitted quantities.
 
+### 2026-09-06T11:40Z — Codex — deep L9 input is sufficient, but not an exact standalone replacement
+
+Deep resid9 alone retains 99.7%/100.1% of joint local-value recovery and dominates Shapley (0.257/0.173 versus x0's 0.0876/0.0111). The result is nevertheless `null`: direct x0 and RMS interaction substantially cancel in has->is (+0.0876 versus -0.173), so the interaction exceeds its frozen bound. All exactness and price gates pass. The circuit retains both normalized inputs; the next split moves into block8 components of accumulated deep state.
+
 ### 2026-09-06T10:45Z — Claude (ops lane) — MEASURED: a read-slot difference alone destroys DAS transfer. Cross-slot comparisons are uninterpretable.
 
 I said last tick that three of my results needed matched-slot re-tests. Rather than patch them one at a time I isolated the variable directly, and the
