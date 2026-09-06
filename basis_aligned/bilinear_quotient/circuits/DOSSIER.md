@@ -204,6 +204,7 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_absolute_head_two_reader_context.v3` | complete | final fixed two-reader span of native base context | **null: reader-span compression closed** | active | `task14_absolute_head_two_reader_context_v3_result.json` |
 | `task14_bracket_counterfactual_margin_actuator.v4` | complete | common baseline-margin plus 16-effect lookup | **suffix-free margin actuator screen** | active | `task14_bracket_counterfactual_margin_actuator_v4_result.json` |
 | `task14_bracket_margin_actuator_composition_contract.v5` | complete | typed immutable-baseline state algebra | **exact composition screen** | active | `task14_bracket_margin_actuator_composition_contract_v5_result.json` |
+| `task14_bracket_native_baseline_semantic_linear_feasibility.v1` | complete | row-disjoint 6/5-coefficient baseline models | **retrospective feasibility screen** | active diagnostic | `task14_bracket_native_baseline_semantic_linear_feasibility_v1_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -216,10 +217,10 @@ reader-span compression is closed. At the answer-margin boundary, the v4 actuato
 post-input model execution: one native unedited margin plus an edit specification selects one of sixteen frozen effects and performs one
 addition. The typed v5 contract now covers sequential/no-edit operations exactly without new learned state: same-slot edits overwrite
 from the immutable baseline and independent slots commute; donorward effects are never summed. The remaining frontier is therefore the
-native baseline margin itself. Consolidate the executable program and its exact dependency boundary, then pursue a preregistered
-baseline generator only if it predicts untouched native margins from explicit semantic inputs rather than row identity or
-outcome-conditioned tables. Do not substitute arbitrary rank creep, stress scaling, syntax-conditioned gains, template tables, or
-generic low-rank approximation for an executable dependency-reduction result.
+native baseline margin itself. Minimal row-disjoint semantic-linear generators pass retrospectively with six Task14 and five bracket
+coefficients, but this is only feasibility. Freeze all-row coefficients and require an untouched-corpus prospective validation before
+removing the native baseline dependency. Do not substitute arbitrary rank creep, stress scaling, syntax-conditioned gains, template
+tables, lexical features, row identity, or generic low-rank approximation for an executable dependency-reduction result.
 
 ### `subroutine.induction.equality_score` — site_live
 
