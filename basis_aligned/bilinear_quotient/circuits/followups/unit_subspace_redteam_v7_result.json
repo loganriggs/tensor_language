@@ -1,0 +1,2729 @@
+{
+  "candidate_id": "corpus.unit_subspace_redteam_v7",
+  "finished_utc": "2026-09-06T14:18:32.266141+00:00",
+  "instrument": {
+    "heads_max_abs_error": 0.0,
+    "mlp_max_abs_error": 0.0,
+    "native_max_abs_error": 0.0,
+    "passed": true,
+    "tolerance": 0.0001
+  },
+  "predictions": {
+    "pred_a_block_full_rank_equals_exact": true,
+    "pred_b_cached_cross_layer_bias_bounded": false,
+    "pred_c_dim_is_linear": true,
+    "pred_d_fitted_directions_exploit_nonlin": false,
+    "pred_e_das_directions_not_unique": true,
+    "pred_f_cdas_rank_repairs_mlp_sets": true,
+    "pred_g_signed_dim_survives_mixed_rows": true
+  },
+  "registered": {
+    "band": [
+      0.5,
+      1.2
+    ],
+    "bias_bar": 0.1,
+    "block_mode": "one subspace per (layer, kind) block applied to the LIVE value",
+    "cdas_ranks": [
+      1,
+      2,
+      4
+    ],
+    "complement_bar": 0.3,
+    "cos_bar": 0.9,
+    "das_objective": "match_exact_set_patch",
+    "lambda": 1.0,
+    "linear_band": [
+      0.85,
+      1.15
+    ],
+    "lr": 0.05,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps": 120
+  },
+  "schema": "circuit_unit_subspace_redteam_result_v7",
+  "seed_in_band": {
+    "correlative_pair.both_vs_neither": true,
+    "modal_remoteness.would_vs_will": true,
+    "numbered_list.control_choice_discriminator": false,
+    "polarity_state.negative_vs_positive.heads": true,
+    "polarity_state.negative_vs_positive.with_mlp04": true,
+    "possessive_number.adjacent_antecedent.heads": true,
+    "possessive_number.adjacent_antecedent.with_mlp08": true
+  },
+  "serial_seconds": 186.14253633841872,
+  "sets": {
+    "correlative_pair.both_vs_neither": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.01344909401541627,
+            "complement_fraction": 0.02393248835264439,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9742568185562179,
+            "subspace": 0.5340439771125235,
+            "subspace_fraction": 0.9503243302035735
+          },
+          "c_effect": 0.0003439169408247071,
+          "cosine_to_dim": {
+            "07:heads": 0.9144393801689148,
+            "08:heads": 0.8978617191314697,
+            "14:heads": 0.8970006108283997
+          },
+          "held": {
+            "complement": -0.007186266755378517,
+            "complement_fraction": -0.015843203216956286,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 0.9710142326910983,
+            "subspace": 0.44762543829356893,
+            "subspace_fraction": 0.9868574359080546
+          },
+          "loss_history": [
+            [
+              0,
+              101.9634017944336,
+              102.12179565429688
+            ],
+            [
+              50,
+              0.005823616869747639,
+              0.004369582049548626
+            ],
+            [
+              100,
+              0.0024082544259727,
+              0.0022127884440124035
+            ],
+            [
+              119,
+              0.002039531944319606,
+              0.0018905738834291697
+            ]
+          ],
+          "p_effect": 0.010867136959115523
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.010227705175995392,
+            "complement_fraction": 0.018200068697431463,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.977174502046385,
+            "subspace": 0.5389049864957124,
+            "subspace_fraction": 0.9589744333489535
+          },
+          "c_effect": 0.00022440870541087427,
+          "cosine_to_dim": {
+            "07:heads": 0.8603779673576355,
+            "08:heads": 0.89421147108078,
+            "14:heads": 0.8776054978370667
+          },
+          "held": {
+            "complement": -0.013676942257912404,
+            "complement_fraction": -0.030152871157545807,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 0.9557359506940815,
+            "subspace": 0.44718608781013597,
+            "subspace_fraction": 0.9858888218516273
+          },
+          "loss_history": [
+            [
+              0,
+              101.9634017944336,
+              null
+            ],
+            [
+              50,
+              0.0049865515902638435,
+              null
+            ],
+            [
+              100,
+              0.0026329709216952324,
+              null
+            ],
+            [
+              119,
+              0.0022422149777412415,
+              null
+            ]
+          ],
+          "p_effect": 0.010654883861019515
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.015536819986958635,
+            "complement_fraction": 0.027647569639174037,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9754378283198908,
+            "subspace": 0.5326199310354709,
+            "subspace_fraction": 0.9477902586807168
+          },
+          "cosine_to_dim": {
+            "07:heads": 0.8527267575263977,
+            "08:heads": 0.8969342112541199,
+            "14:heads": 0.8484328985214233
+          },
+          "held": {
+            "complement": -0.012956220809246573,
+            "complement_fraction": -0.02856393259421099,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 0.9520880341866567,
+            "subspace": 0.4448107198379914,
+            "subspace_fraction": 0.9806519667808676
+          },
+          "loss_history": [
+            [
+              0,
+              101.00515747070312,
+              null
+            ],
+            [
+              50,
+              0.0037603527307510376,
+              null
+            ],
+            [
+              100,
+              0.0015803202986717224,
+              null
+            ],
+            [
+              119,
+              0.0011903245467692614,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.00864939647648662,
+            "complement_fraction": 0.015391488838849674,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9761632998476254,
+            "subspace": 0.5399150403092552,
+            "subspace_fraction": 0.9607718110087757
+          },
+          "cosine_to_dim": {
+            "07:heads": 0.8856813311576843,
+            "08:heads": 0.9169555306434631,
+            "14:heads": 0.8129189610481262
+          },
+          "held": {
+            "complement": -0.002104033679553394,
+            "complement_fraction": -0.004638657914491638,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 0.979573117832027,
+            "subspace": 0.44642540194962255,
+            "subspace_fraction": 0.9842117757465186
+          },
+          "loss_history": [
+            [
+              0,
+              99.91769409179688,
+              null
+            ],
+            [
+              50,
+              0.0043685296550393105,
+              null
+            ],
+            [
+              100,
+              0.0026483337860554457,
+              null
+            ],
+            [
+              119,
+              0.0022352593950927258,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.018968001178697413,
+            "complement_fraction": 0.033753312064126455,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9844471321875015,
+            "subspace": 0.5342516155576336,
+            "subspace_fraction": 0.950693820123375
+          },
+          "c_effect": 0.00031253928436585977,
+          "held": {
+            "complement": 0.00047341210686014187,
+            "complement_fraction": 0.001043708015533803,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 1.0011652171142114,
+            "subspace": 0.45364184589153905,
+            "subspace_fraction": 1.0001215090986775
+          },
+          "p_effect": 0.010409128178313168
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5584339322860797,
+            "complement_fraction": 0.9937259390735511,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9988133434480613,
+            "subspace": 0.002858916244689914,
+            "subspace_fraction": 0.005087404374510165
+          },
+          "held": {
+            "complement": 0.4513219255681165,
+            "complement_fraction": 0.9950068966883295,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 0.9964444605546946,
+            "subspace": 0.0006520598947147179,
+            "subspace_fraction": 0.0014375638663650266
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": 0.09434605811932656,
+            "complement_fraction": 0.1678875866634952,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 1.1130506236010875,
+            "subspace": 0.5311435382884241,
+            "subspace_fraction": 0.9451630369375923
+          },
+          "held": {
+            "complement": 0.09083493731617118,
+            "complement_fraction": 0.20025924726806002,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 1.2908609239188267,
+            "subspace": 0.494682449309714,
+            "subspace_fraction": 1.0906016766507667
+          }
+        },
+        "das_norm_shares": {
+          "attn:07:head:08": 0.34258121252059937,
+          "attn:08:head:01": 0.35645413398742676,
+          "attn:14:head:08": 0.3009647727012634
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.020352070566723727,
+            "complement_fraction": 0.0362162455873974,
+            "exact_set": 0.5619597016927088,
+            "linearity_sum": 0.9836176449639535,
+            "subspace": 0.5324014077769044,
+            "subspace_fraction": 0.9474013993765561
+          },
+          "held": {
+            "complement": -0.007153112233175582,
+            "complement_fraction": -0.015770109098590994,
+            "exact_set": 0.453586730976686,
+            "linearity_sum": 1.015665718899799,
+            "subspace": 0.46784560543402104,
+            "subspace_fraction": 1.03143582799839
+          }
+        },
+        "dim_norm_shares": {
+          "attn:07:head:08": 0.03004029393196106,
+          "attn:08:head:01": 0.28550469875335693,
+          "attn:14:head:08": 0.6844550371170044
+        }
+      },
+      "cdas_rank_sweep": {},
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "both_to_neither",
+          "neither_to_both"
+        ],
+        "even_rows_directions": [
+          "both_to_neither"
+        ],
+        "exact_mixed_eval": 0.5468058582941586,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "neither_to_both"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "07:heads": 8,
+          "08:heads": 8,
+          "14:heads": 8
+        },
+        "signed_fraction": 0.999158695816428,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.30062177563995,
+        "unsigned_mean_norm": {
+          "07:heads": 2.4279558658599854,
+          "08:heads": 6.281105995178223,
+          "14:heads": 5.155362606048584
+        }
+      },
+      "exact_set": {
+        "a2": 0.5619597016927088,
+        "fit": 0.6497469439988572,
+        "held": 0.453586730976686
+      },
+      "fit_rows": 16,
+      "kind": "heads",
+      "mean_pairwise_seed_cosine": 0.9235370953877767,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "07:heads": 0.9383824467658997,
+          "08:heads": 0.9355051517486572,
+          "14:heads": 0.9372990727424622
+        },
+        "0-2": {
+          "07:heads": 0.9004573822021484,
+          "08:heads": 0.9181751012802124,
+          "14:heads": 0.9180206060409546
+        },
+        "1-2": {
+          "07:heads": 0.9007384777069092,
+          "08:heads": 0.9253050088882446,
+          "14:heads": 0.937950611114502
+        }
+      },
+      "parameters_per_rank": 384,
+      "seconds": 20.73919950798154,
+      "semantics": {
+        "block_error": 4.736548769868065e-08,
+        "block_live_full_rank": 0.4535866836111983,
+        "blocks": 3,
+        "cached_bias_fraction": 0.00717210499382424,
+        "cached_joint_full_rank": 0.4568399026350563,
+        "exact": 0.453586730976686,
+        "layers": [
+          7,
+          8,
+          14
+        ]
+      },
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08"
+      ]
+    },
+    "modal_remoteness.would_vs_will": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.03547627187042732,
+            "complement_fraction": 0.07043016607983968,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.9832360942295115,
+            "subspace": 0.4597880861911666,
+            "subspace_fraction": 0.9128059281496719
+          },
+          "c_effect": 0.0006433212087502497,
+          "cosine_to_dim": {
+            "09:heads": 0.8340320587158203,
+            "11:heads": 0.8876176476478577
+          },
+          "held": {
+            "complement": 0.007990949166541576,
+            "complement_fraction": 0.015430097664312638,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.9778268280503162,
+            "subspace": 0.4984066541812753,
+            "subspace_fraction": 0.9623967303860035
+          },
+          "loss_history": [
+            [
+              0,
+              7.865883827209473,
+              7.895204544067383
+            ],
+            [
+              50,
+              0.0025788545608520508,
+              0.0024108237121254206
+            ],
+            [
+              100,
+              0.0021386248990893364,
+              0.0018537224968895316
+            ],
+            [
+              119,
+              0.0019885243382304907,
+              0.001653902931138873
+            ]
+          ],
+          "p_effect": 0.025248445502982785
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.03096279406953611,
+            "complement_fraction": 0.061469670110154,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.9839914581860401,
+            "subspace": 0.46468204722210654,
+            "subspace_fraction": 0.922521788075886
+          },
+          "c_effect": 0.0006951572526185762,
+          "cosine_to_dim": {
+            "09:heads": 0.8448429107666016,
+            "11:heads": 0.8908039927482605
+          },
+          "held": {
+            "complement": 0.008384804557755662,
+            "complement_fraction": 0.01619061146879221,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.9828844750080734,
+            "subspace": 0.5006320563359954,
+            "subspace_fraction": 0.9666938635392812
+          },
+          "loss_history": [
+            [
+              0,
+              7.865883827209473,
+              null
+            ],
+            [
+              50,
+              0.0026168138720095158,
+              null
+            ],
+            [
+              100,
+              0.0020178412087261677,
+              null
+            ],
+            [
+              119,
+              0.0018247246043756604,
+              null
+            ]
+          ],
+          "p_effect": 0.02556724331610187
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.011218397213023305,
+            "complement_fraction": 0.022271606829168344,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.9884078741128344,
+            "subspace": 0.4866510302301589,
+            "subspace_fraction": 0.966136267283666
+          },
+          "cosine_to_dim": {
+            "09:heads": 0.7788801193237305,
+            "11:heads": 0.7712734937667847
+          },
+          "held": {
+            "complement": 0.005677189535797076,
+            "complement_fraction": 0.010962350926088429,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.9687531514772465,
+            "subspace": 0.4960213321972134,
+            "subspace_fraction": 0.9577908005511581
+          },
+          "loss_history": [
+            [
+              0,
+              7.936702251434326,
+              null
+            ],
+            [
+              50,
+              0.002052925294265151,
+              null
+            ],
+            [
+              100,
+              0.0012141818879172206,
+              null
+            ],
+            [
+              119,
+              0.001009483472444117,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.04308480841689657,
+            "complement_fraction": 0.08553520571166907,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.9862577116352177,
+            "subspace": 0.45370156395390304,
+            "subspace_fraction": 0.9007225059235486
+          },
+          "cosine_to_dim": {
+            "09:heads": 0.8835817575454712,
+            "11:heads": 0.8410993814468384
+          },
+          "held": {
+            "complement": 0.01138228253750047,
+            "complement_fraction": 0.0219785819601758,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.9872710419288974,
+            "subspace": 0.49990629652955865,
+            "subspace_fraction": 0.9652924599687216
+          },
+          "loss_history": [
+            [
+              0,
+              7.940645694732666,
+              null
+            ],
+            [
+              50,
+              0.0025674300268292427,
+              null
+            ],
+            [
+              100,
+              0.0015429905615746975,
+              null
+            ],
+            [
+              119,
+              0.0012826223392039537,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.050916021862038745,
+            "complement_fraction": 0.10108232028905528,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.9876060056864657,
+            "subspace": 0.44654949765529933,
+            "subspace_fraction": 0.8865236853974104
+          },
+          "c_effect": 0.0009136167578041792,
+          "held": {
+            "complement": 0.0043829268418124675,
+            "complement_fraction": 0.008463198528138436,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.9980989177272684,
+            "subspace": 0.5125131996931105,
+            "subspace_fraction": 0.98963571919913
+          },
+          "p_effect": 0.022664853527312682
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5022522514691388,
+            "complement_fraction": 0.9971089863710293,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 0.999416816255251,
+            "subspace": 0.0011624734820380165,
+            "subspace_fraction": 0.0023078298842217335
+          },
+          "held": {
+            "complement": 0.5169726707032157,
+            "complement_fraction": 0.9982467204435385,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 0.99930562968676,
+            "subspace": 0.0005483886180535442,
+            "subspace_fraction": 0.0010589092432214515
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": 0.029193540035589372,
+            "complement_fraction": 0.05795721378713862,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 1.0473668087016028,
+            "subspace": 0.4983740027051033,
+            "subspace_fraction": 0.9894095949144641
+          },
+          "held": {
+            "complement": 0.028927879839461493,
+            "complement_fraction": 0.05585819679761181,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 1.0364784688262274,
+            "subspace": 0.507844273959747,
+            "subspace_fraction": 0.9806202720286156
+          }
+        },
+        "das_norm_shares": {
+          "attn:09:head:04": 0.5634506344795227,
+          "attn:11:head:03": 0.4365493953227997
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.029218742023018655,
+            "complement_fraction": 0.05800724667015038,
+            "exact_set": 0.5037084795485417,
+            "linearity_sum": 1.037281621521296,
+            "subspace": 0.4932688064171193,
+            "subspace_fraction": 0.9792743748511458
+          },
+          "held": {
+            "complement": 0.0012056540713494227,
+            "complement_fraction": 0.002328053862260914,
+            "exact_set": 0.5178806602775672,
+            "linearity_sum": 1.0400968571131382,
+            "subspace": 0.5374403930430249,
+            "subspace_fraction": 1.0377688032508772
+          }
+        },
+        "dim_norm_shares": {
+          "attn:09:head:04": 0.2094411998987198,
+          "attn:11:head:03": 0.7905586957931519
+        }
+      },
+      "cdas_rank_sweep": {},
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "factual_to_remote",
+          "remote_to_factual"
+        ],
+        "even_rows_directions": [
+          "remote_to_factual"
+        ],
+        "exact_mixed_eval": 0.5118993967786412,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "factual_to_remote"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "09:heads": 8,
+          "11:heads": 8
+        },
+        "signed_fraction": 0.994725831394343,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.07827797427677795,
+        "unsigned_mean_norm": {
+          "09:heads": 5.404882431030273,
+          "11:heads": 9.53715991973877
+        }
+      },
+      "exact_set": {
+        "a2": 0.5037084795485417,
+        "fit": 0.5170077793472332,
+        "held": 0.5178806602775672
+      },
+      "fit_rows": 16,
+      "kind": "heads",
+      "mean_pairwise_seed_cosine": 0.8361914753913879,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "09:heads": 0.7876981496810913,
+          "11:heads": 0.8289048671722412
+        },
+        "0-2": {
+          "09:heads": 0.8736990094184875,
+          "11:heads": 0.8854669332504272
+        },
+        "1-2": {
+          "09:heads": 0.8469456434249878,
+          "11:heads": 0.7944342494010925
+        }
+      },
+      "parameters_per_rank": 256,
+      "seconds": 21.66780686378479,
+      "semantics": {
+        "block_error": 4.1505861747559436e-08,
+        "block_live_full_rank": 0.5178806187717054,
+        "blocks": 2,
+        "cached_bias_fraction": 0.0262700633669874,
+        "cached_joint_full_rank": 0.5314854180395961,
+        "exact": 0.5178806602775672,
+        "layers": [
+          9,
+          11
+        ]
+      },
+      "units": [
+        "attn:09:head:04",
+        "attn:11:head:03"
+      ]
+    },
+    "numbered_list.control_choice_discriminator": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.7577448108200958,
+            "complement_fraction": 1.0038976167896256,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.001531174860034,
+            "subspace": -0.001786197180136316,
+            "subspace_fraction": -0.0023664419295916896
+          },
+          "c_effect": 3.053787156397479e-05,
+          "cosine_to_dim": {
+            "08:heads": 0.8252363204956055
+          },
+          "held": {
+            "complement": 0.01242147034256991,
+            "complement_fraction": 0.015618095006379836,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 1.0045709527443756,
+            "subspace": 0.7865394971393297,
+            "subspace_fraction": 0.9889528577379957
+          },
+          "loss_history": [
+            [
+              0,
+              45.68183898925781,
+              45.68911361694336
+            ],
+            [
+              50,
+              0.00447296816855669,
+              0.009845606982707977
+            ],
+            [
+              100,
+              0.0036776915658265352,
+              0.007315321825444698
+            ],
+            [
+              119,
+              0.0034565236419439316,
+              0.006830896250903606
+            ]
+          ],
+          "p_effect": 0.005000812610436214
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.7569612577539454,
+            "complement_fraction": 1.002859527126055,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.0018151333478644,
+            "subspace": -0.0007883114300115777,
+            "subspace_fraction": -0.0010443937781904986
+          },
+          "c_effect": 1.857963018736419e-05,
+          "cosine_to_dim": {
+            "08:heads": 0.8206321001052856
+          },
+          "held": {
+            "complement": 0.010588498487873363,
+            "complement_fraction": 0.013313413855022025,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 0.9631445882666003,
+            "subspace": 0.7554250219749771,
+            "subspace_fraction": 0.9498311744115783
+          },
+          "loss_history": [
+            [
+              0,
+              45.68183898925781,
+              null
+            ],
+            [
+              50,
+              0.0045721703208982944,
+              null
+            ],
+            [
+              100,
+              0.0036232282873243093,
+              null
+            ],
+            [
+              119,
+              0.003281614277511835,
+              null
+            ]
+          ],
+          "p_effect": 0.004493002660202991
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.759498597939358,
+            "complement_fraction": 1.0062211202755527,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.003826313037295,
+            "subspace": -0.001807607396765338,
+            "subspace_fraction": -0.0023948072382574954
+          },
+          "cosine_to_dim": {
+            "08:heads": 0.8143129944801331
+          },
+          "held": {
+            "complement": -0.00630737414310979,
+            "complement_fraction": -0.007930556197543638,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 0.9231559814718256,
+            "subspace": 0.7405169330383633,
+            "subspace_fraction": 0.9310865376693693
+          },
+          "loss_history": [
+            [
+              0,
+              45.6544075012207,
+              null
+            ],
+            [
+              50,
+              0.0036530850920826197,
+              null
+            ],
+            [
+              100,
+              0.002163287252187729,
+              null
+            ],
+            [
+              119,
+              0.0018761074170470238,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.7574621908860248,
+            "complement_fraction": 1.0035231879921997,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.001972888225926,
+            "subspace": -0.0011701707260409243,
+            "subspace_fraction": -0.0015502997662736554
+          },
+          "cosine_to_dim": {
+            "08:heads": 0.8297706842422485
+          },
+          "held": {
+            "complement": 0.009651227399431165,
+            "complement_fraction": 0.012134939125194292,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 0.9960490063547971,
+            "subspace": 0.7825320181966765,
+            "subspace_fraction": 0.9839140672296028
+          },
+          "loss_history": [
+            [
+              0,
+              45.40400695800781,
+              null
+            ],
+            [
+              50,
+              0.0038346671499311924,
+              null
+            ],
+            [
+              100,
+              0.0029763313941657543,
+              null
+            ],
+            [
+              119,
+              0.002740254858508706,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.7597608109743089,
+            "complement_fraction": 1.0065685130087256,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.0064495557477224,
+            "subspace": -8.978928301759363e-05,
+            "subspace_fraction": -0.00011895726100328565
+          },
+          "c_effect": 1.6968309428553297e-05,
+          "held": {
+            "complement": -0.001600149407843859,
+            "complement_fraction": -0.002011942611210817,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 1.0026693924372247,
+            "subspace": 0.7990487573510013,
+            "subspace_fraction": 1.0046813350484356
+          },
+          "p_effect": 0.006212804576728055
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.7514217278622266,
+            "complement_fraction": 0.9955204853048214,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.0007145599818148,
+            "subspace": 0.003920502517069434,
+            "subspace_fraction": 0.005194074676993294
+          },
+          "held": {
+            "complement": 0.7924806928536164,
+            "complement_fraction": 0.9964230006887238,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 0.9992006429938863,
+            "subspace": 0.002209129954821597,
+            "subspace_fraction": 0.0027776423051624824
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": 0.7569612577539454,
+            "complement_fraction": 1.002859527126055,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.0018151333478644,
+            "subspace": -0.0007883114300115777,
+            "subspace_fraction": -0.0010443937781904986
+          },
+          "held": {
+            "complement": 0.010588498487873363,
+            "complement_fraction": 0.013313413855022025,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 0.9631445882666003,
+            "subspace": 0.7554250219749771,
+            "subspace_fraction": 0.9498311744115783
+          }
+        },
+        "das_norm_shares": {
+          "attn:08:head:03": 0.5242099761962891,
+          "attn:08:head:07": 0.4757898449897766
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.7597608109743089,
+            "complement_fraction": 1.0065685130087256,
+            "exact_set": 0.7548028784481984,
+            "linearity_sum": 1.0064495557477224,
+            "subspace": -8.978928301759363e-05,
+            "subspace_fraction": -0.00011895726100328565
+          },
+          "held": {
+            "complement": -0.001600149407843859,
+            "complement_fraction": -0.002011942611210817,
+            "exact_set": 0.7953255718764589,
+            "linearity_sum": 1.0026693924372247,
+            "subspace": 0.7990487573510013,
+            "subspace_fraction": 1.0046813350484356
+          }
+        },
+        "dim_norm_shares": {
+          "attn:08:head:03": 0.6694521903991699,
+          "attn:08:head:07": 0.3305477797985077
+        }
+      },
+      "cdas_rank_sweep": {},
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "base_to_donor"
+        ],
+        "even_rows_directions": [
+          "base_to_donor",
+          "donor_to_base"
+        ],
+        "exact_mixed_eval": 0.8215509204697227,
+        "mixed_rows": 32,
+        "odd_rows_directions": [
+          "base_to_donor",
+          "donor_to_base"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "08:heads": 16
+        },
+        "signed_fraction": 1.0000734623522611,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.30176083282155364,
+        "unsigned_mean_norm": {
+          "08:heads": 3.7004928588867188
+        }
+      },
+      "exact_set": {
+        "a2": 0.7548028784481984,
+        "fit": 0.8477762690629864,
+        "held": 0.7953255718764589
+      },
+      "fit_rows": 32,
+      "kind": "heads",
+      "mean_pairwise_seed_cosine": 0.8590134382247925,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "08:heads": 0.8479483127593994
+        },
+        "0-2": {
+          "08:heads": 0.8759809732437134
+        },
+        "1-2": {
+          "08:heads": 0.8531110286712646
+        }
+      },
+      "parameters_per_rank": 256,
+      "seconds": 24.009480472654104,
+      "semantics": {
+        "block_error": 4.3042836961326714e-08,
+        "block_live_full_rank": 0.7953256149192959,
+        "blocks": 1,
+        "cached_bias_fraction": 5.411976991984954e-08,
+        "cached_joint_full_rank": 0.7953256149192959,
+        "exact": 0.7953255718764589,
+        "layers": [
+          8
+        ]
+      },
+      "units": [
+        "attn:08:head:03",
+        "attn:08:head:07"
+      ]
+    },
+    "polarity_state.negative_vs_positive.heads": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.09587565561599039,
+            "complement_fraction": 0.16946042144833645,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9445593496787454,
+            "subspace": 0.4385278714416384,
+            "subspace_fraction": 0.775098928230409
+          },
+          "c_effect": 0.014356282924404802,
+          "cosine_to_dim": {
+            "04:heads": 0.8273159265518188,
+            "05:heads": 0.6387186050415039,
+            "07:heads": 0.8051706552505493,
+            "08:heads": 0.6093336939811707
+          },
+          "held": {
+            "complement": 0.0296636397451142,
+            "complement_fraction": 0.05525174504377072,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.9862220553012214,
+            "subspace": 0.4998207364309797,
+            "subspace_fraction": 0.9309703102574507
+          },
+          "loss_history": [
+            [
+              0,
+              9.437858581542969,
+              9.356302261352539
+            ],
+            [
+              50,
+              0.007209463976323605,
+              0.008465724065899849
+            ],
+            [
+              100,
+              0.002637443132698536,
+              0.0033194534480571747
+            ],
+            [
+              119,
+              0.0018158939201384783,
+              0.0023491994943469763
+            ]
+          ],
+          "p_effect": 0.009339779641208178
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.10084828253362417,
+            "complement_fraction": 0.17824954990595734,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9255669353764218,
+            "subspace": 0.4228099025886847,
+            "subspace_fraction": 0.7473173854704644
+          },
+          "c_effect": 0.011065186562305833,
+          "cosine_to_dim": {
+            "04:heads": 0.7865688800811768,
+            "05:heads": 0.753263533115387,
+            "07:heads": 0.7588109970092773,
+            "08:heads": 0.5933274030685425
+          },
+          "held": {
+            "complement": 0.023146521077956235,
+            "complement_fraction": 0.04311290496508083,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.969106455821824,
+            "subspace": 0.49714880637983383,
+            "subspace_fraction": 0.9259935508567432
+          },
+          "loss_history": [
+            [
+              0,
+              9.437858581542969,
+              null
+            ],
+            [
+              50,
+              0.0023145717568695545,
+              null
+            ],
+            [
+              100,
+              0.0001714020036160946,
+              null
+            ],
+            [
+              119,
+              6.054482946638018e-05,
+              null
+            ]
+          ],
+          "p_effect": 0.008433409918681337
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.1085691625983276,
+            "complement_fraction": 0.19189622153819272,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9189759277689254,
+            "subspace": 0.41136002686742706,
+            "subspace_fraction": 0.7270797062307327
+          },
+          "cosine_to_dim": {
+            "04:heads": 0.7334986329078674,
+            "05:heads": 0.6891413927078247,
+            "07:heads": 0.792896568775177,
+            "08:heads": 0.5581589341163635
+          },
+          "held": {
+            "complement": 0.0281599708150195,
+            "complement_fraction": 0.05245099863942849,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.971413700842199,
+            "subspace": 0.49337407380969256,
+            "subspace_fraction": 0.9189627022027705
+          },
+          "loss_history": [
+            [
+              0,
+              9.31032943725586,
+              null
+            ],
+            [
+              50,
+              0.0027454043738543987,
+              null
+            ],
+            [
+              100,
+              0.00017632849630899727,
+              null
+            ],
+            [
+              119,
+              6.0073871281929314e-05,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.09984018194332551,
+            "complement_fraction": 0.17646773000812466,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.931705434097909,
+            "subspace": 0.4272909827950522,
+            "subspace_fraction": 0.7552377040897843
+          },
+          "cosine_to_dim": {
+            "04:heads": 0.6944423317909241,
+            "05:heads": 0.5818220376968384,
+            "07:heads": 0.7902763485908508,
+            "08:heads": 0.682945728302002
+          },
+          "held": {
+            "complement": 0.017549572028794914,
+            "complement_fraction": 0.032687980561184285,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.9778187098936799,
+            "subspace": 0.5074232034616447,
+            "subspace_fraction": 0.9451307293324956
+          },
+          "loss_history": [
+            [
+              0,
+              9.401556015014648,
+              null
+            ],
+            [
+              50,
+              0.004061536863446236,
+              null
+            ],
+            [
+              100,
+              0.0005301506607793272,
+              null
+            ],
+            [
+              119,
+              0.00022905407240614295,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.15778902222200406,
+            "complement_fraction": 0.27889242617290777,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9081253945436747,
+            "subspace": 0.35600125894963214,
+            "subspace_fraction": 0.6292329683707669
+          },
+          "c_effect": 0.018736415211164266,
+          "held": {
+            "complement": 0.0021079492242872134,
+            "complement_fraction": 0.003926283966036717,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.9995426067120099,
+            "subspace": 0.5345279845712606,
+            "subspace_fraction": 0.9956163227459732
+          },
+          "p_effect": 0.010011143686309622
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5644902050639546,
+            "complement_fraction": 0.9977376158629512,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9991626409534217,
+            "subspace": 0.0008062367227131261,
+            "subspace_fraction": 0.0014250250904704657
+          },
+          "held": {
+            "complement": 0.5358544854541009,
+            "complement_fraction": 0.9980870744544212,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 0.9982592574419126,
+            "subspace": 9.24418605626614e-05,
+            "subspace_fraction": 0.00017218298749131832
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": 0.10460724140100386,
+            "complement_fraction": 0.184893517551138,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9905645774728353,
+            "subspace": 0.45582467233726387,
+            "subspace_fraction": 0.8056710599216973
+          },
+          "held": {
+            "complement": 0.08339532851892088,
+            "complement_fraction": 0.15533284076940837,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 1.4359455111780735,
+            "subspace": 0.6875372511390783,
+            "subspace_fraction": 1.280612670408665
+          }
+        },
+        "das_norm_shares": {
+          "attn:04:head:07": 0.18616412580013275,
+          "attn:05:head:08": 0.29679515957832336,
+          "attn:07:head:08": 0.20154428482055664,
+          "attn:08:head:01": 0.3154965341091156
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.1933877994572672,
+            "complement_fraction": 0.34181333925114915,
+            "exact_set": 0.5657701945773815,
+            "linearity_sum": 0.9101195114877063,
+            "subspace": 0.32153069364580383,
+            "subspace_fraction": 0.5683061722365571
+          },
+          "held": {
+            "complement": -0.00692051822270926,
+            "complement_fraction": -0.012890215485942866,
+            "exact_set": 0.5368814997899978,
+            "linearity_sum": 1.0918277091593327,
+            "subspace": 0.5931026162284493,
+            "subspace_fraction": 1.1047179246452756
+          }
+        },
+        "dim_norm_shares": {
+          "attn:04:head:07": 0.9646894931793213,
+          "attn:05:head:08": 0.01200093887746334,
+          "attn:07:head:08": 0.010252198204398155,
+          "attn:08:head:01": 0.013057389296591282
+        }
+      },
+      "cdas_rank_sweep": {},
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "negative_to_positive",
+          "positive_to_negative"
+        ],
+        "even_rows_directions": [
+          "negative_to_positive"
+        ],
+        "exact_mixed_eval": 0.5752718742405243,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "positive_to_negative"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "04:heads": 8,
+          "05:heads": 8,
+          "07:heads": 8,
+          "08:heads": 8
+        },
+        "signed_fraction": 0.9273006517886941,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.057898826017319494,
+        "unsigned_mean_norm": {
+          "04:heads": 24.925090789794922,
+          "05:heads": 3.701408863067627,
+          "07:heads": 2.3151357173919678,
+          "08:heads": 6.15090799331665
+        }
+      },
+      "exact_set": {
+        "a2": 0.5657701945773815,
+        "fit": 0.5866333051356094,
+        "held": 0.5368814997899978
+      },
+      "fit_rows": 16,
+      "kind": "heads",
+      "mean_pairwise_seed_cosine": 0.7916318625211716,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "04:heads": 0.8962724208831787,
+          "05:heads": 0.7870256900787354,
+          "07:heads": 0.8034576177597046,
+          "08:heads": 0.780552089214325
+        },
+        "0-2": {
+          "04:heads": 0.8566862940788269,
+          "05:heads": 0.6359483599662781,
+          "07:heads": 0.8633303642272949,
+          "08:heads": 0.7275331616401672
+        },
+        "1-2": {
+          "04:heads": 0.8987395763397217,
+          "05:heads": 0.7228953242301941,
+          "07:heads": 0.8555288314819336,
+          "08:heads": 0.6716126203536987
+        }
+      },
+      "parameters_per_rank": 512,
+      "seconds": 22.265427723526955,
+      "semantics": {
+        "block_error": 1.376803059338627e-07,
+        "block_live_full_rank": 0.5368813621096918,
+        "blocks": 4,
+        "cached_bias_fraction": 0.0825957430056918,
+        "cached_joint_full_rank": 0.5812256261711628,
+        "exact": 0.5368814997899978,
+        "layers": [
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "attn:04:head:07",
+        "attn:05:head:08"
+      ]
+    },
+    "polarity_state.negative_vs_positive.with_mlp04": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.18873986088999647,
+            "complement_fraction": 0.3174453445307224,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9356742284212812,
+            "subspace": 0.36757330215749673,
+            "subspace_fraction": 0.6182288838905589
+          },
+          "c_effect": 0.022036376803460433,
+          "cosine_to_dim": {
+            "04:mlp": 0.3704550862312317,
+            "07:heads": 0.8341716527938843,
+            "08:heads": 0.5532006025314331,
+            "10:heads": 0.6646137833595276
+          },
+          "held": {
+            "complement": 0.1254076189928821,
+            "complement_fraction": 0.21741550306911686,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.943860242719713,
+            "subspace": 0.41902120062028864,
+            "subspace_fraction": 0.7264447396505962
+          },
+          "loss_history": [
+            [
+              0,
+              8.583471298217773,
+              8.550609588623047
+            ],
+            [
+              50,
+              0.010218627750873566,
+              0.019588567316532135
+            ],
+            [
+              100,
+              0.00566093809902668,
+              0.008292518556118011
+            ],
+            [
+              119,
+              0.004234024323523045,
+              0.006140272133052349
+            ]
+          ],
+          "p_effect": 0.012829057710517467
+        },
+        "cdas_rank2": {
+          "a2": {
+            "complement": 0.18719974983820378,
+            "complement_fraction": 0.31485500096923774,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9396717682960163,
+            "subspace": 0.37149018493664004,
+            "subspace_fraction": 0.6248167673267785
+          },
+          "c_effect": 0.029292748918896265,
+          "held": {
+            "complement": 0.13640666194664372,
+            "complement_fraction": 0.23648422055434906,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.945583378333609,
+            "subspace": 0.4090160809677179,
+            "subspace_fraction": 0.7090991577792599
+          },
+          "loss_history": [
+            [
+              0,
+              8.611318588256836,
+              8.52237319946289
+            ],
+            [
+              50,
+              0.005155729129910469,
+              0.008609931915998459
+            ],
+            [
+              100,
+              0.0007548395078629255,
+              0.001059128437191248
+            ],
+            [
+              119,
+              0.0004351492098066956,
+              0.0005555166280828416
+            ]
+          ],
+          "p_effect": 0.010280155283350498,
+          "rank": 2
+        },
+        "cdas_rank4": {
+          "a2": {
+            "complement": 0.12635551894233774,
+            "complement_fraction": 0.21251987288147126,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9400344071281717,
+            "subspace": 0.43255002587030805,
+            "subspace_fraction": 0.7275145342467004
+          },
+          "c_effect": 0.012189502208724235,
+          "held": {
+            "complement": 0.07644042611543753,
+            "complement_fraction": 0.13252252002048448,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.9556354271675883,
+            "subspace": 0.4747804475323556,
+            "subspace_fraction": 0.8231129071471038
+          },
+          "loss_history": [
+            [
+              0,
+              8.266695022583008,
+              8.049579620361328
+            ],
+            [
+              50,
+              0.0009661090443842113,
+              0.00077668676385656
+            ],
+            [
+              100,
+              0.00013086498074699193,
+              7.944123353809118e-05
+            ],
+            [
+              119,
+              5.924915603827685e-05,
+              3.7126017559785396e-05
+            ]
+          ],
+          "p_effect": 0.01375124042906719,
+          "rank": 4
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.18357946811987888,
+            "complement_fraction": 0.30876597678561957,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9158568382073659,
+            "subspace": 0.360951095067136,
+            "subspace_fraction": 0.6070908614217463
+          },
+          "c_effect": 0.01199140298763991,
+          "cosine_to_dim": {
+            "04:mlp": 0.5008563995361328,
+            "07:heads": 0.7992902398109436,
+            "08:heads": 0.6011569499969482,
+            "10:heads": 0.7007761001586914
+          },
+          "held": {
+            "complement": 0.14326420783920568,
+            "complement_fraction": 0.24837294631139845,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 1.0256172701361843,
+            "subspace": 0.44832295144846385,
+            "subspace_fraction": 0.7772443238247858
+          },
+          "loss_history": [
+            [
+              0,
+              8.583471298217773,
+              null
+            ],
+            [
+              50,
+              0.0016451157862320542,
+              null
+            ],
+            [
+              100,
+              2.391089583397843e-05,
+              null
+            ],
+            [
+              119,
+              4.637942765839398e-06,
+              null
+            ]
+          ],
+          "p_effect": 0.014685279514055138
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.20779230898779158,
+            "complement_fraction": 0.34949003780345556,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9128681346279367,
+            "subspace": 0.3349612947712728,
+            "subspace_fraction": 0.5633780968244811
+          },
+          "cosine_to_dim": {
+            "04:mlp": 0.5354440212249756,
+            "07:heads": 0.760769784450531,
+            "08:heads": 0.4781728684902191,
+            "10:heads": 0.686805009841919
+          },
+          "held": {
+            "complement": 0.1186208840599389,
+            "complement_fraction": 0.20564954019148385,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.966244188957907,
+            "subspace": 0.4387192383893695,
+            "subspace_fraction": 0.7605946487664231
+          },
+          "loss_history": [
+            [
+              0,
+              8.736594200134277,
+              null
+            ],
+            [
+              50,
+              0.0030618286691606045,
+              null
+            ],
+            [
+              100,
+              0.00021201529307290912,
+              null
+            ],
+            [
+              119,
+              8.501361298840493e-05,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.22381962373480668,
+            "complement_fraction": 0.37644669882766746,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9183074201737056,
+            "subspace": 0.322167954045099,
+            "subspace_fraction": 0.5418607213460381
+          },
+          "cosine_to_dim": {
+            "04:mlp": 0.48122408986091614,
+            "07:heads": 0.7894313931465149,
+            "08:heads": 0.6015065312385559,
+            "10:heads": 0.6503828167915344
+          },
+          "held": {
+            "complement": 0.15609604225867008,
+            "complement_fraction": 0.27061912049134046,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.999990745870698,
+            "subspace": 0.42070946003659865,
+            "subspace_fraction": 0.7293716253793575
+          },
+          "loss_history": [
+            [
+              0,
+              8.782648086547852,
+              null
+            ],
+            [
+              50,
+              0.006840296555310488,
+              null
+            ],
+            [
+              100,
+              0.0005061913398094475,
+              null
+            ],
+            [
+              119,
+              0.00018358309171162546,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.190669416163295,
+            "complement_fraction": 0.32069070211250167,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9040646992530212,
+            "subspace": 0.346850029348869,
+            "subspace_fraction": 0.5833739971405196
+          },
+          "c_effect": 0.029764631762245062,
+          "held": {
+            "complement": 0.04838625577619531,
+            "complement_fraction": 0.08388582947109104,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.9867081178877962,
+            "subspace": 0.5207576827124925,
+            "subspace_fraction": 0.9028222884167052
+          },
+          "p_effect": 0.012551998983381486
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5914227718485244,
+            "complement_fraction": 0.9947257812285503,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9989765625801571,
+            "subspace": 0.0025273386263140194,
+            "subspace_fraction": 0.004250781351606788
+          },
+          "held": {
+            "complement": 0.5749410753680007,
+            "complement_fraction": 0.9967584437061014,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 0.9995673191529176,
+            "subspace": 0.0016201898064316358,
+            "subspace_fraction": 0.0028088754468162135
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": 0.07769999047949534,
+            "complement_fraction": 0.1306851670414925,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 1.518856984931966,
+            "subspace": 0.8253494981549644,
+            "subspace_fraction": 1.3881718178904734
+          },
+          "held": {
+            "complement": 0.4812307466756713,
+            "complement_fraction": 0.8342956011847752,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 5.224258223336936,
+            "subspace": 2.532178028430823,
+            "subspace_fraction": 4.3899626221521615
+          }
+        },
+        "das_norm_shares": {
+          "attn:07:head:08": 0.047392066568136215,
+          "attn:08:head:01": 0.04237139970064163,
+          "attn:10:head:05": 0.030764786526560783,
+          "mlp:04": 0.8794718384742737
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.4020509875477868,
+            "complement_fraction": 0.6762175920825261,
+            "exact_set": 0.5945586039984601,
+            "linearity_sum": 0.9462068839436257,
+            "subspace": 0.16052445646346825,
+            "subspace_fraction": 0.2699892918610997
+          },
+          "held": {
+            "complement": 0.0806814238012155,
+            "complement_fraction": 0.13987501305697783,
+            "exact_set": 0.5768108401773665,
+            "linearity_sum": 1.0550189691638763,
+            "subspace": 0.527864954205259,
+            "subspace_fraction": 0.9151439561068984
+          }
+        },
+        "dim_norm_shares": {
+          "attn:07:head:08": 2.1780677343485877e-05,
+          "attn:08:head:01": 2.7740272344090044e-05,
+          "attn:10:head:05": 2.1385909349191934e-05,
+          "mlp:04": 0.9999291300773621
+        }
+      },
+      "cdas_rank_sweep": {
+        "1": {
+          "C": 0.022,
+          "P": 0.013,
+          "a2": 0.618,
+          "comp": 0.217,
+          "held": 0.726,
+          "sum": 0.944
+        },
+        "2": {
+          "C": 0.029,
+          "P": 0.01,
+          "a2": 0.625,
+          "comp": 0.236,
+          "held": 0.709,
+          "sum": 0.946
+        },
+        "4": {
+          "C": 0.012,
+          "P": 0.014,
+          "a2": 0.728,
+          "comp": 0.133,
+          "held": 0.823,
+          "sum": 0.956
+        }
+      },
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "negative_to_positive",
+          "positive_to_negative"
+        ],
+        "even_rows_directions": [
+          "negative_to_positive"
+        ],
+        "exact_mixed_eval": 0.5889247380079047,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "positive_to_negative"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "04:mlp": 8,
+          "07:heads": 8,
+          "08:heads": 8,
+          "10:heads": 8
+        },
+        "signed_fraction": 0.8937127184151137,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.03836487009333034,
+        "unsigned_mean_norm": {
+          "04:mlp": 2367.43994140625,
+          "07:heads": 2.3151357173919678,
+          "08:heads": 6.15090799331665,
+          "10:heads": 4.819684982299805
+        }
+      },
+      "exact_set": {
+        "a2": 0.5945586039984601,
+        "fit": 0.557134669179595,
+        "held": 0.5768108401773665
+      },
+      "fit_rows": 16,
+      "kind": "mlp",
+      "mean_pairwise_seed_cosine": 0.7311740517616272,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "04:mlp": 0.7720208168029785,
+          "07:heads": 0.8251678347587585,
+          "08:heads": 0.7577624320983887,
+          "10:heads": 0.8654167652130127
+        },
+        "0-2": {
+          "04:mlp": 0.7837988138198853,
+          "07:heads": 0.9192522764205933,
+          "08:heads": 0.4335130453109741,
+          "10:heads": 0.7622969150543213
+        },
+        "1-2": {
+          "04:mlp": 0.7407076358795166,
+          "07:heads": 0.8248939514160156,
+          "08:heads": 0.29638439416885376,
+          "10:heads": 0.792873740196228
+        }
+      },
+      "parameters_per_rank": 1536,
+      "seconds": 36.02820269390941,
+      "semantics": {
+        "block_error": 9.202917861106386e-08,
+        "block_live_full_rank": 0.5768109322065451,
+        "blocks": 4,
+        "cached_bias_fraction": 0.12354067291440653,
+        "cached_joint_full_rank": 0.6480704395172026,
+        "exact": 0.5768108401773665,
+        "layers": [
+          4,
+          7,
+          8,
+          10
+        ]
+      },
+      "units": [
+        "attn:07:head:08",
+        "attn:08:head:01",
+        "mlp:04",
+        "attn:10:head:05"
+      ]
+    },
+    "possessive_number.adjacent_antecedent.heads": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.01340246509066106,
+            "complement_fraction": 0.025176391952781926,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 0.9987679581536308,
+            "subspace": 0.5182842324285898,
+            "subspace_fraction": 0.973591566200849
+          },
+          "c_effect": 0.0009130676466972986,
+          "cosine_to_dim": {
+            "03:heads": 0.9347693920135498,
+            "04:heads": 0.8836672306060791,
+            "09:heads": 0.8959988355636597,
+            "10:heads": 0.91535484790802
+          },
+          "held": {
+            "complement": -0.004706747668997699,
+            "complement_fraction": -0.00847406755830519,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.9465417048713831,
+            "subspace": 0.5304439963231157,
+            "subspace_fraction": 0.9550157724296883
+          },
+          "loss_history": [
+            [
+              0,
+              12.046834945678711,
+              12.048259735107422
+            ],
+            [
+              50,
+              0.00898650474846363,
+              0.029846379533410072
+            ],
+            [
+              100,
+              0.005157354287803173,
+              0.019640054553747177
+            ],
+            [
+              119,
+              0.0046118516474962234,
+              0.01789766177535057
+            ]
+          ],
+          "p_effect": 0.03331720335797255
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.008486631827308468,
+            "complement_fraction": 0.015942050048102997,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 1.0022342202214733,
+            "subspace": 0.525045304535001,
+            "subspace_fraction": 0.9862921701733703
+          },
+          "c_effect": 0.0008290619338344387,
+          "cosine_to_dim": {
+            "03:heads": 0.9165772199630737,
+            "04:heads": 0.8645362854003906,
+            "09:heads": 0.8831576704978943,
+            "10:heads": 0.9367800951004028
+          },
+          "held": {
+            "complement": -0.005985944678584451,
+            "complement_fraction": -0.01077714446872059,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.9391404027154493,
+            "subspace": 0.5276122912859224,
+            "subspace_fraction": 0.9499175471841699
+          },
+          "loss_history": [
+            [
+              0,
+              12.046834945678711,
+              null
+            ],
+            [
+              50,
+              0.003072190098464489,
+              null
+            ],
+            [
+              100,
+              0.0006712778122164309,
+              null
+            ],
+            [
+              119,
+              0.0004289819626137614,
+              null
+            ]
+          ],
+          "p_effect": 0.03865557599745814
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.010488099417928401,
+            "complement_fraction": 0.019701786201219297,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 1.0062992447920869,
+            "subspace": 0.5252078225544918,
+            "subspace_fraction": 0.9865974585908677
+          },
+          "cosine_to_dim": {
+            "03:heads": 0.8987331986427307,
+            "04:heads": 0.8761696219444275,
+            "09:heads": 0.8911561965942383,
+            "10:heads": 0.9301584959030151
+          },
+          "held": {
+            "complement": -0.007504015429414932,
+            "complement_fraction": -0.01351029164496682,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.947054410948583,
+            "subspace": 0.533526036197649,
+            "subspace_fraction": 0.9605647025935499
+          },
+          "loss_history": [
+            [
+              0,
+              12.209551811218262,
+              null
+            ],
+            [
+              50,
+              0.002964370884001255,
+              null
+            ],
+            [
+              100,
+              0.0006871963851153851,
+              null
+            ],
+            [
+              119,
+              0.00044751696987077594,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.010181025161756074,
+            "complement_fraction": 0.01912495038932149,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 1.0043856709060153,
+            "subspace": 0.5244962199782341,
+            "subspace_fraction": 0.9852607205166939
+          },
+          "cosine_to_dim": {
+            "03:heads": 0.9163236021995544,
+            "04:heads": 0.8748809099197388,
+            "09:heads": 0.9174283742904663,
+            "10:heads": 0.9236148595809937
+          },
+          "held": {
+            "complement": -0.006085700697963431,
+            "complement_fraction": -0.010956746033753096,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.9565621712667788,
+            "subspace": 0.5373886126565443,
+            "subspace_fraction": 0.9675189173005319
+          },
+          "loss_history": [
+            [
+              0,
+              12.116194725036621,
+              null
+            ],
+            [
+              50,
+              0.0033564730547368526,
+              null
+            ],
+            [
+              100,
+              0.000891596544533968,
+              null
+            ],
+            [
+              119,
+              0.0006046577473171055,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.008790481939368234,
+            "complement_fraction": 0.016512829338656332,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 0.9845623025457575,
+            "subspace": 0.515333940424191,
+            "subspace_fraction": 0.9680494732071011
+          },
+          "c_effect": 0.001216979890916704,
+          "held": {
+            "complement": -0.00045712717577987545,
+            "complement_fraction": -0.0008230155603648127,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.9902447968968466,
+            "subspace": 0.5504683652810726,
+            "subspace_fraction": 0.9910678124572114
+          },
+          "p_effect": 0.028685362907842134
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5324748502409749,
+            "complement_fraction": 1.0002484948837436,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 0.9996589646172118,
+            "subspace": -0.000313832054724039,
+            "subspace_fraction": -0.0005895302665317069
+          },
+          "held": {
+            "complement": 0.5550883690756357,
+            "complement_fraction": 0.9993857056242126,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 0.9982431759902125,
+            "subspace": -0.0006345947391368263,
+            "subspace_fraction": -0.001142529634000049
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": -0.26740696072666725,
+            "complement_fraction": -0.5023212079729934,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 0.9284308378082912,
+            "subspace": 0.7616502151276966,
+            "subspace_fraction": 1.4307520457812846
+          },
+          "held": {
+            "complement": 0.14495348692460772,
+            "complement_fraction": 0.2609754606353499,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 1.5305753253482044,
+            "subspace": 0.7051733022756497,
+            "subspace_fraction": 1.2695998647128546
+          }
+        },
+        "das_norm_shares": {
+          "attn:03:head:04": 0.19870412349700928,
+          "attn:04:head:05": 0.2203543335199356,
+          "attn:09:head:06": 0.3427634537220001,
+          "attn:10:head:05": 0.2381780594587326
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.0078302334698557,
+            "complement_fraction": 0.01470901252757191,
+            "exact_set": 0.5323425658369655,
+            "linearity_sum": 1.1192752822769776,
+            "subspace": 0.5880076421753644,
+            "subspace_fraction": 1.1045662697494056
+          },
+          "held": {
+            "complement": -0.001537945371594216,
+            "complement_fraction": -0.002768929608382314,
+            "exact_set": 0.555429566334381,
+            "linearity_sum": 1.1767139862481515,
+            "subspace": 0.6551196844530058,
+            "subspace_fraction": 1.1794829158565339
+          }
+        },
+        "dim_norm_shares": {
+          "attn:03:head:04": 0.2294996678829193,
+          "attn:04:head:05": 0.7631094455718994,
+          "attn:09:head:06": 0.0029830981511622667,
+          "attn:10:head:05": 0.004407812375575304
+        }
+      },
+      "cdas_rank_sweep": {},
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "plural_to_singular",
+          "singular_to_plural"
+        ],
+        "even_rows_directions": [
+          "plural_to_singular"
+        ],
+        "exact_mixed_eval": 0.5831711526880268,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "singular_to_plural"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "03:heads": 8,
+          "04:heads": 8,
+          "09:heads": 8,
+          "10:heads": 8
+        },
+        "signed_fraction": 0.9898161717584482,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.12910954389986454,
+        "unsigned_mean_norm": {
+          "03:heads": 37.70262908935547,
+          "04:heads": 64.30181884765625,
+          "09:heads": 5.154581069946289,
+          "10:heads": 4.119045734405518
+        }
+      },
+      "exact_set": {
+        "a2": 0.5323425658369655,
+        "fit": 0.5788661452991863,
+        "held": 0.555429566334381
+      },
+      "fit_rows": 16,
+      "kind": "heads",
+      "mean_pairwise_seed_cosine": 0.9669841378927231,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "03:heads": 0.983245849609375,
+          "04:heads": 0.9913775324821472,
+          "09:heads": 0.9365538358688354,
+          "10:heads": 0.950830340385437
+        },
+        "0-2": {
+          "03:heads": 0.9841662645339966,
+          "04:heads": 0.9903202056884766,
+          "09:heads": 0.9219437837600708,
+          "10:heads": 0.9621621966362
+        },
+        "1-2": {
+          "03:heads": 0.9812762141227722,
+          "04:heads": 0.994502604007721,
+          "09:heads": 0.9572657942771912,
+          "10:heads": 0.9501650333404541
+        }
+      },
+      "parameters_per_rank": 512,
+      "seconds": 23.667091324925423,
+      "semantics": {
+        "block_error": 1.6675196201632048e-07,
+        "block_live_full_rank": 0.555429733086343,
+        "blocks": 4,
+        "cached_bias_fraction": 0.2103760925235408,
+        "cached_joint_full_rank": 0.6722786681718529,
+        "exact": 0.555429566334381,
+        "layers": [
+          3,
+          4,
+          9,
+          10
+        ]
+      },
+      "units": [
+        "attn:04:head:05",
+        "attn:03:head:04",
+        "attn:09:head:06",
+        "attn:10:head:05"
+      ]
+    },
+    "possessive_number.adjacent_antecedent.with_mlp08": {
+      "block_live": {
+        "cdas": {
+          "a2": {
+            "complement": 0.053048477972549704,
+            "complement_fraction": 0.09853636656378381,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0624905971531335,
+            "subspace": 0.5189587007438929,
+            "subspace_fraction": 0.9639542305893498
+          },
+          "c_effect": 0.000846764408290904,
+          "cosine_to_dim": {
+            "04:heads": 0.8199877738952637,
+            "08:mlp": 0.5778923034667969,
+            "09:heads": 0.8125231266021729,
+            "10:heads": 0.8781909942626953
+          },
+          "held": {
+            "complement": 0.06540338455048934,
+            "complement_fraction": 0.12355123864222056,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0463251761210726,
+            "subspace": 0.4884818586146864,
+            "subspace_fraction": 0.922773937478852
+          },
+          "loss_history": [
+            [
+              0,
+              12.057744979858398,
+              12.072183609008789
+            ],
+            [
+              50,
+              0.006589159369468689,
+              0.012289725244045258
+            ],
+            [
+              100,
+              0.004775079898536205,
+              0.00439976342022419
+            ],
+            [
+              119,
+              0.004248118028044701,
+              0.003497031284496188
+            ]
+          ],
+          "p_effect": 0.0484456268114926
+        },
+        "cdas_rank2": {
+          "a2": {
+            "complement": 0.04548188585167066,
+            "complement_fraction": 0.08448159019023009,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.034257091889262,
+            "subspace": 0.5113253769930126,
+            "subspace_fraction": 0.9497755016990319
+          },
+          "c_effect": 0.0013191861826981808,
+          "held": {
+            "complement": 0.04452347416108342,
+            "complement_fraction": 0.08410773263591907,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0229195502402026,
+            "subspace": 0.49697170989214506,
+            "subspace_fraction": 0.9388118176042836
+          },
+          "loss_history": [
+            [
+              0,
+              12.135780334472656,
+              12.136530876159668
+            ],
+            [
+              50,
+              0.005226368550211191,
+              0.0030344659462571144
+            ],
+            [
+              100,
+              0.002194594359025359,
+              0.0008567610057070851
+            ],
+            [
+              119,
+              0.0016382246976718307,
+              0.0006262685055844486
+            ]
+          ],
+          "p_effect": 0.05096130471532566,
+          "rank": 2
+        },
+        "cdas_rank4": {
+          "a2": {
+            "complement": 0.05100240392830854,
+            "complement_fraction": 0.09473582958807045,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0360033280218581,
+            "subspace": 0.5067449703924248,
+            "subspace_fraction": 0.9412674984337877
+          },
+          "c_effect": 0.001980252503646968,
+          "held": {
+            "complement": 0.04479503275236866,
+            "complement_fraction": 0.08462072444127935,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.012489787985827,
+            "subspace": 0.4911790269560975,
+            "subspace_fraction": 0.9278690635445477
+          },
+          "loss_history": [
+            [
+              0,
+              11.54012680053711,
+              11.568408966064453
+            ],
+            [
+              50,
+              0.0019347771303728223,
+              0.0009020635043270886
+            ],
+            [
+              100,
+              0.00044398129102773964,
+              0.00016942439833655953
+            ],
+            [
+              119,
+              0.00024446271709166467,
+              9.744586714077741e-05
+            ]
+          ],
+          "p_effect": 0.05710020501874243,
+          "rank": 4
+        },
+        "das_seed0": {
+          "a2": {
+            "complement": 0.02649341677827114,
+            "complement_fraction": 0.049210931716866226,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0303054037693122,
+            "subspace": 0.5281863976177235,
+            "subspace_fraction": 0.981094472052446
+          },
+          "c_effect": 0.0008754594420681846,
+          "cosine_to_dim": {
+            "04:heads": 0.7765873074531555,
+            "08:mlp": 0.5925658345222473,
+            "09:heads": 0.8296166658401489,
+            "10:heads": 0.8724910020828247
+          },
+          "held": {
+            "complement": 0.07067510567869045,
+            "complement_fraction": 0.13350986203215853,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0661821483000522,
+            "subspace": 0.4937216726333808,
+            "subspace_fraction": 0.9326722862678936
+          },
+          "loss_history": [
+            [
+              0,
+              12.057744979858398,
+              null
+            ],
+            [
+              50,
+              0.0021294306498020887,
+              null
+            ],
+            [
+              100,
+              0.0002535464591346681,
+              null
+            ],
+            [
+              119,
+              0.00011434307089075446,
+              null
+            ]
+          ],
+          "p_effect": 0.05224510439742432
+        },
+        "das_seed1": {
+          "a2": {
+            "complement": 0.027182485314104513,
+            "complement_fraction": 0.05049086117817106,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0166718913855928,
+            "subspace": 0.5201575305222581,
+            "subspace_fraction": 0.9661810302074217
+          },
+          "cosine_to_dim": {
+            "04:heads": 0.8682107329368591,
+            "08:mlp": 0.5963274240493774,
+            "09:heads": 0.8247972726821899,
+            "10:heads": 0.8373685479164124
+          },
+          "held": {
+            "complement": 0.07814843927533052,
+            "complement_fraction": 0.14762747427802958,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0874819171690242,
+            "subspace": 0.4975236365528424,
+            "subspace_fraction": 0.9398544428909945
+          },
+          "loss_history": [
+            [
+              0,
+              12.252084732055664,
+              null
+            ],
+            [
+              50,
+              0.001557814422994852,
+              null
+            ],
+            [
+              100,
+              0.0001731400698190555,
+              null
+            ],
+            [
+              119,
+              6.739929813193157e-05,
+              null
+            ]
+          ]
+        },
+        "das_seed2": {
+          "a2": {
+            "complement": 0.01955886792190157,
+            "complement_fraction": 0.03633016163295767,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.021241349939522,
+            "subspace": 0.5302411820104787,
+            "subspace_fraction": 0.9849111883065643
+          },
+          "cosine_to_dim": {
+            "04:heads": 0.8340089321136475,
+            "08:mlp": 0.5766316056251526,
+            "09:heads": 0.8691956996917725,
+            "10:heads": 0.8375672101974487
+          },
+          "held": {
+            "complement": 0.0787774558909937,
+            "complement_fraction": 0.14881572749345348,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.103663664136632,
+            "subspace": 0.5054606289165462,
+            "subspace_fraction": 0.9548479366431785
+          },
+          "loss_history": [
+            [
+              0,
+              12.165192604064941,
+              null
+            ],
+            [
+              50,
+              0.0026519428938627243,
+              null
+            ],
+            [
+              100,
+              0.0003501166356727481,
+              null
+            ],
+            [
+              119,
+              0.00016680591215845197,
+              null
+            ]
+          ]
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.019735324317672522,
+            "complement_fraction": 0.03665792545881537,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0153360444612076,
+            "subspace": 0.5268855190079291,
+            "subspace_fraction": 0.9786781190023923
+          },
+          "c_effect": 0.0014503642329581332,
+          "held": {
+            "complement": 0.023111632580369926,
+            "complement_fraction": 0.04365937408245702,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0366041657847396,
+            "subspace": 0.5256276728812789,
+            "subspace_fraction": 0.9929447917022826
+          },
+          "p_effect": 0.03533755195308604
+        },
+        "rand": {
+          "a2": {
+            "complement": 0.5385234192834408,
+            "complement_fraction": 1.0002952596143053,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.0007984938137977,
+            "subspace": 0.0002709234090697394,
+            "subspace_fraction": 0.0005032341994923911
+          },
+          "held": {
+            "complement": 0.5296692736204384,
+            "complement_fraction": 1.0005796378322256,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.0005746340142134,
+            "subspace": -2.648833287868626e-06,
+            "subspace_fraction": -5.0038180122050844e-06
+          }
+        }
+      },
+      "cached_joint": {
+        "das": {
+          "a2": {
+            "complement": -0.27322246596304844,
+            "complement_fraction": -0.5075046464768893,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.1234248145336465,
+            "subspace": 0.8780344618369441,
+            "subspace_fraction": 1.6309294610105358
+          },
+          "held": {
+            "complement": 0.27122529469409407,
+            "complement_fraction": 0.5123621864658668,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 2.705952004562329,
+            "subspace": 1.1612040477753187,
+            "subspace_fraction": 2.1935898180964624
+          }
+        },
+        "das_norm_shares": {
+          "attn:04:head:05": 0.09290345013141632,
+          "attn:09:head:06": 0.0931398868560791,
+          "attn:10:head:05": 0.08931775391101837,
+          "mlp:08": 0.7246389389038086
+        },
+        "dim": {
+          "a2": {
+            "complement": 0.11947393479797869,
+            "complement_fraction": 0.22192017347157458,
+            "exact_set": 0.538364462000035,
+            "linearity_sum": 1.208848046373132,
+            "subspace": 0.5313268933274858,
+            "subspace_fraction": 0.9869278729015574
+          },
+          "held": {
+            "complement": 0.08136220801019567,
+            "complement_fraction": 0.15369849201864375,
+            "exact_set": 0.5293624351260803,
+            "linearity_sum": 1.2909732178300128,
+            "subspace": 0.6020305182628516,
+            "subspace_fraction": 1.1372747258113691
+          }
+        },
+        "dim_norm_shares": {
+          "attn:04:head:05": 0.14525866508483887,
+          "attn:09:head:06": 0.0005678358720615506,
+          "attn:10:head:05": 0.0008390316506847739,
+          "mlp:08": 0.8533345460891724
+        }
+      },
+      "cdas_rank_sweep": {
+        "1": {
+          "C": 0.001,
+          "P": 0.048,
+          "a2": 0.964,
+          "comp": 0.124,
+          "held": 0.923,
+          "sum": 1.046
+        },
+        "2": {
+          "C": 0.001,
+          "P": 0.051,
+          "a2": 0.95,
+          "comp": 0.084,
+          "held": 0.939,
+          "sum": 1.023
+        },
+        "4": {
+          "C": 0.002,
+          "P": 0.057,
+          "a2": 0.941,
+          "comp": 0.085,
+          "held": 0.928,
+          "sum": 1.012
+        }
+      },
+      "direction_purity": {
+        "directions_in_fit_half": [
+          "plural_to_singular",
+          "singular_to_plural"
+        ],
+        "even_rows_directions": [
+          "plural_to_singular"
+        ],
+        "exact_mixed_eval": 0.5658128052771365,
+        "mixed_rows": 16,
+        "odd_rows_directions": [
+          "singular_to_plural"
+        ],
+        "rows_flipped_by_sign_alignment": {
+          "04:heads": 8,
+          "08:mlp": 8,
+          "09:heads": 8,
+          "10:heads": 8
+        },
+        "signed_fraction": 0.9778942830954691,
+        "unsigned_degenerate": false,
+        "unsigned_fraction": 0.12954386436460708,
+        "unsigned_mean_norm": {
+          "04:heads": 64.30181884765625,
+          "08:mlp": 268.93304443359375,
+          "09:heads": 5.154581069946289,
+          "10:heads": 4.119045734405518
+        }
+      },
+      "exact_set": {
+        "a2": 0.538364462000035,
+        "fit": 0.5780408269892419,
+        "held": 0.5293624351260803
+      },
+      "fit_rows": 16,
+      "kind": "mlp",
+      "mean_pairwise_seed_cosine": 0.8943289568026861,
+      "pairwise_seed_cosines": {
+        "0-1": {
+          "04:heads": 0.9281684756278992,
+          "08:mlp": 0.8671725988388062,
+          "09:heads": 0.8538316488265991,
+          "10:heads": 0.8505293726921082
+        },
+        "0-2": {
+          "04:heads": 0.9355950951576233,
+          "08:mlp": 0.9069458842277527,
+          "09:heads": 0.8635295629501343,
+          "10:heads": 0.8944159746170044
+        },
+        "1-2": {
+          "04:heads": 0.9784675240516663,
+          "08:mlp": 0.8944318890571594,
+          "09:heads": 0.907256007194519,
+          "10:heads": 0.8516034483909607
+        }
+      },
+      "parameters_per_rank": 1536,
+      "seconds": 37.37411879003048,
+      "semantics": {
+        "block_error": 1.67380253435212e-07,
+        "block_live_full_rank": 0.5293622677458268,
+        "blocks": 4,
+        "cached_bias_fraction": 0.4059443166922186,
+        "cached_joint_full_rank": 0.7442541071358658,
+        "exact": 0.5293624351260803,
+        "layers": [
+          4,
+          8,
+          9,
+          10
+        ]
+      },
+      "units": [
+        "attn:04:head:05",
+        "mlp:08",
+        "attn:09:head:06",
+        "attn:10:head:05"
+      ]
+    }
+  }
+}

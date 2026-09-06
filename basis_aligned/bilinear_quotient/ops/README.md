@@ -247,7 +247,19 @@ is diagnosed from the asymmetry first, and the repair leaves the passing side un
 Interchange localizes a behaviour to whole modules. The rest of the protocol asks WHICH units
 carry it and in what direction -- all by interchange on held-out rows, never by reconstruction.
 Library: `ops/circuit_unit_greedy.py`. Runners: `run_unit_greedy_protocol_v2`,
-`run_unit_greedy_heads_only_v3`, `run_unit_subspace_trust_v4`, `run_unit_greedy_battery_v5`.
+`run_unit_greedy_heads_only_v3`, `run_unit_subspace_trust_v4`, `run_unit_greedy_battery_v5`,
+`run_unit_greedy_pooled_possessive_v6`, `run_unit_subspace_redteam_v7` (the red team; read it first).
+
+**Semantics (fixed by v7, 2026-09-06 14:18):** a direction is one subspace PER (layer, kind) BLOCK,
+applied to the block's LIVE value: `live + q q^T (donor - live)` (`q` a dict, "block-live" mode).
+The earlier joint direction over the CONCATENATED set added a CACHED delta `q q^T (donor - base)`
+at every unit; at a later layer the live value already carries the earlier patch, so that is
+activation addition, not DAS. Its full-rank version overshoots the exact set by 1-41% on the
+multi-layer sets (v7 `semantics.cached_bias_fraction`: 0.007, 0.026, 0.083, 0.124, 0.21, 0.41), and
+a fitted direction exploits the overshoot. The block-live full-rank control equals the exact set to
+float precision on all seven sets. A joint rank-1 direction across layers is not a well-defined
+single-pass intervention (its projection coefficient needs every block's live delta at once), so
+per-block directions are the only coherent object; "rank 1" now means rank 1 per block.
 
 **Retracted:** every `resid:18` DAS result. At the final residual the margin is
 `(w_answer - w_foil) . rms_norm(x)`, so patching it copies the logits (all 50 behaviours = 1.000)
@@ -260,30 +272,49 @@ and a rank-1 DAS there recovers the lm_head difference direction. Tautological.
 | 0 capability + module sweep | 36 module interchanges (18 attn, 18 mlp) | ~1 s | A1/A2 >= 0.5, P <= 0.20, C <= 0.35 |
 | 1 head sweep | all 162 heads, pre-c_proj 128-d slices at the semantic position | ~4 s | -- |
 | 2 greedy set | forward selection over the top 12 heads, gain floor 0.02, <= 6 heads, every candidate score recorded | ~2 s | joint >= 0.50; A2 of the exact set >= 0.50; P/C through the exact set |
-| 3 direction | **diff-in-means** over the concatenated set (mean of donor - base, unit norm; no search) fit on even A1 rows | ~0.1 s | held-out and A2 fraction of the exact-set effect in [0.50, 1.20]; **complement** (swap everything but the axis) <= 0.30; random <= 0.10; P/C through the subspace |
-| 4 DAS (secondary) | rank fixed in advance, exact-set objective (`target="exact_set"`), optional complement loss term | ~15 s / 200 steps | same bars as step 3; report cosine to diff-in-means |
+| 3 direction | **diff-in-means** per block (sign-aligned mean of donor - base, unit norm; no search) fit on even A1 rows, block-live patch | ~0.1 s | held-out and A2 fraction of the exact-set effect in [0.50, 1.20]; **complement** (swap everything but the axis) <= 0.30; random <= 0.10; P/C through the subspace |
+| 4 DAS (secondary) | `fit_block_subspace`, rank per block fixed in advance, exact-set objective, optional complement loss term (`complement_weight`, doubles the cost); 3 seeds for the non-uniqueness check | ~9 s / 120 steps (~18 s with the complement term) | same bars as step 3; report cosine to diff-in-means |
 | 5 MLP units | single bilinear product terms (`mlp:LL:neuron:J`, hook `mlp.Down`), exact sweep of all 4608 then greedy | ~30 s per MLP | fraction of the whole module's effect; A2 transfer |
 | 6 siblings | the set and its direction on every matched sibling, plus the known-null sibling as the negative case (`prepare(valid_only=True)` drops donor-invalid rows and counts them) | ~10 s per sibling | set >= 0.35; direction >= 0.50, complement <= 0.30 |
 
 A whole battery over seven sets and two MLPs (v4) took 167 GPU-s; the possessive-sibling +
-aspectual battery (v5) is one ~3 min enqueue. Everything after step 0 is run from one runner with
+aspectual battery (v5) is one ~3 min enqueue; the v7 red team (7 sets x {dim, 3 DAS seeds, cdas,
+random, cached-vs-live control, purity control} + cdas rank sweep on 2 sets) took 186 GPU-s. Everything after step 0 is run from one runner with
 predictions registered in the docstring (the gate reads them), one enqueue, no per-circuit rung.
 
-### What v2-v4 established about trust
+### What v2-v7 established about trust
 
 - DAS on a partial set must target the set's own exact-patch margin; a donor target turns the fit
   into steering-vector search (v1: held-out 1.5-4.2, P 0.42).
-- Even with the right target, a set containing an 1152-d MLP output steers (held-out 3.9, complement
-  0.83, P 0.24): the Makelov, Lange & Nanda 2023 dormant-direction illusion. The complement test is
-  what exposes it; a random-direction baseline alone does not (random ~0 there too).
-- A complement-inertness loss term repairs most of it (held-out 1.24, complement 0.53, P 0.04) but
-  not to the bar with 16 rows at rank 1.
-- **Diff-in-means beats both fits on every set** (held-out 0.92-1.18, complement <= 0.15, P <= 0.05),
-  so it is the primary direction; DAS is a check. DAS matching the margin does not mean it found the
-  same direction (cosine to diff-in-means 0.4-0.8 -- the margin is a 1-d readout).
+- **Retracted (v7):** "a set containing an 1152-d MLP output steers" (v4: held-out 3.9-4.4,
+  complement 0.83) and "the complement-loss term does not reach the bar". Both were the cached
+  cross-layer semantics above. Under block-live patching, plain DAS on the same MLP sets is in band
+  (held-out 0.78 / 0.93, complement 0.25 / 0.13, S + C = 1.03 / 1.07), the complement term lowers
+  the complement further (0.22 / 0.12 at rank 1; 0.13 / 0.09 at rank 4), and P/C are at noise. The
+  same diff-in-means directions evaluated under the old semantics read 1.01 and 1.32 instead of
+  0.90 and 0.99 -- the inflation is the semantics, not the direction.
+- **Linearity sum:** report subspace + complement as a fraction of the exact set. A carried variable
+  gives S + C = 1; a direction exploiting the bilinear MLP or softmax gives S + C > 1. Under
+  block-live semantics every direction on every set sits in 0.92-1.10; under cached semantics the
+  fitted directions reached 1.3-5.2. This is the criterion that separates "complement inert" from
+  "subspace matches by a nonlinear route".
+- **Diff-in-means is still primary** (held-out 0.90-1.005, complement <= 0.08, S + C 0.99-1.04,
+  P <= 0.035 on all seven sets, no search); DAS is a check. Three DAS seeds agree on the margin
+  within 0.05 but only to |cos| 0.73-0.97 on the direction (mean 0.86): the margin is a 1-d readout
+  that a family of directions satisfies. Cosine of DAS to diff-in-means 0.5-0.93 per block.
+- **Direction purity:** the screens alternate directions row by row (even rows one direction,
+  odd rows the reverse); an unsigned mean over mixed rows cancels (0.04-0.30 of exact vs 0.89-1.0
+  sign-aligned). The library sign-aligns each row's delta with row 0's geometrically -- not by
+  `direction_id`, because the spec-authored list candidate labels duplicate rows with opposite
+  ids. Held-out odd rows are therefore the REVERSE direction on fresh sentences, a stronger test
+  than "held-out" suggests.
 - Report the delta's own rank: for four of five head sets the set's delta is itself 94-99% rank-1,
   so a rank-1 result there is a fact about what the heads write, not a discovered subspace. The
-  possessive set (65%) is the informative case: a third of what its heads change is inert.
+  joint diff-in-means direction is owned by whichever unit has the largest delta norm (the MLP at
+  0.85-1.0 of the norm, one head at 0.68-0.96 on the head sets); per-block directions remove that
+  dominance, which is another reason for block mode.
+- 16 fit rows against 256-1536 parameters per rank: any fitted direction is overparameterised, and
+  only the held-out / A2 / complement / S + C numbers count.
 
 ### Scope discipline
 

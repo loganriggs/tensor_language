@@ -326,3 +326,8 @@
 - Improvement (repo lane, done): shared battery helpers moved into `circuit_unit_greedy.py` (greedy_heads, direction_battery, pc_effects, set_battery); README protocol section rewritten with measured per-step costs so the DAS/direction step is accounted (user request 13:49). Queue filled twice (v5, v6).
 - Spans: v4 author 21 min / run 167 s; v5 author 9 min / run 24 s (+1 crash); v6 author 4 min / run 8 s; README + refactor 6 min. ops/circuits ratio this hour ~ 0.3 (refactor + README) / 0.7 circuits.
 - CIRCUIT_FOCUS: yes -- aspectual localized to 3 heads (0.605 selective), possessive pooled set across five designs, attractor null explained. CEREMONY_BUDGET: dry-run + py_compile only (< 5 s per runner). NOVELTY_LESSON_GATE: prior-art search (0 events), claim filed and released, v4 lesson (diff-in-means primary, complement always) applied.
+
+## 2026-09-06 14:21 UTC (red team, user request)
+- v7 red team: author 12 min (incl. CPU smoke test that caught an exact-cancellation NaN and the list candidate's duplicate-row labelling), run 186 GPU-s, one enqueue, no crash.
+- Finding: the cached cross-layer semantics (v2-v6) inflated multi-layer direction effects 1-41% at full rank; two v4 conclusions retracted (board). Block-live mode + linearity sum + geometric sign alignment now in `circuit_unit_greedy.py`; README updated.
+- Method lesson: my "~2% discrepancy, small in effect" was two sets checked by hand; the registered bar failed on 4 of 5 multi-layer sets. Full-rank controls go in the runner with a bar, not in a scratch check.

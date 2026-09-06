@@ -69,6 +69,19 @@ def batch_of(rows, side):
 MLP_HIDDEN = 4 * N_EMBD
 
 
+def block_key(unit):
+    """(layer, kind) -- the hook at which a unit is intervened; units sharing it can share a q."""
+    return (unit_layer(unit), "heads" if ":head:" in unit else "neurons" if ":neuron:" in unit else "mlp")
+
+
+def blocks_of(units):
+    """Ordered {block_key: [units in the given order]}."""
+    out = {}
+    for u in units:
+        out.setdefault(block_key(u), []).append(u)
+    return out
+
+
 def unit_dim(unit):
     if ":head:" in unit:
         return HEAD_DIM
@@ -106,10 +119,19 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
 
     units        unit ids to intervene on, in a fixed order (the order defines the concatenation)
     q            None  -> EXACT replacement of each unit by its donor value (producer semantics)
-                 (D,r) -> SUBSPACE patch: live + slice_u( q q^T (donor - base) ), where the
-                          donor-minus-base difference is the cached native difference over the
-                          concatenated unit space, D = sum of unit dims. With one layer and q
-                          spanning everything this equals exact replacement.
+                 (D,r) -> JOINT-CACHED subspace patch: live + slice_u( q q^T (donor - base) ), the
+                          cached native difference over the concatenated unit space, D = sum of
+                          unit dims. With one layer and q spanning everything this equals exact
+                          replacement. ACROSS layers it does not: the later layer's live value
+                          already carries the earlier patch, and the cached offset is then a
+                          donor-derived steering vector, not a swap of the live state (red-team
+                          finding 2026-09-06; the discrepancy at full rank was ~2% on the head
+                          sets, but the semantics are those of activation addition).
+                 dict  -> BLOCK-LIVE subspace patch, the standard multi-site interchange: one
+                          orthonormal (D_blk, r_blk) per (layer, kind) block, keyed as
+                          block_key(unit); at each hook, live + q q^T (donor - LIVE) over that
+                          block's units. At full rank it equals exact replacement exactly, in
+                          every configuration. Total rank = sum of the block ranks.
     complement    with q: patch (I - q q^T)(donor - base) instead -- swap everything EXCEPT the
                   learned axes (the dormant-direction test of Makelov, Lange & Nanda 2023).
     capture_hidden a dict to receive the MLP hidden (Left*Right product) vector at the semantic
@@ -128,6 +150,9 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
         by_layer.setdefault(unit_layer(u), []).append(u)
 
     projected = None
+    block_q = q if isinstance(q, dict) else None
+    if block_q is not None:
+        q = None
     if q is not None:
         offsets, off = {}, 0
         for u in units:
@@ -172,13 +197,35 @@ def forward_units(backend, batch, *, units=(), donor_cache=None, base_cache=None
         if not here:
             return value
         changed = value.clone()
-        for u in here:
+
+        def span(u):
             if kind == "heads":
-                h = int(u.rsplit(":", 1)[1]); s, e = h * HEAD_DIM, (h + 1) * HEAD_DIM
-            elif kind == "neurons":
-                j = int(u.rsplit(":", 1)[1]); s, e = j, j + 1
+                h = int(u.rsplit(":", 1)[1]); return h * HEAD_DIM, (h + 1) * HEAD_DIM
+            if kind == "neurons":
+                j = int(u.rsplit(":", 1)[1]); return j, j + 1
+            return 0, N_EMBD
+
+        if block_q is not None:
+            qb = block_q[(layer, kind)]
+            spans = [span(u) for u in here]
+            live_blk = torch.cat([value[idx, pos, s:e] for s, e in spans], dim=1).float()   # (n, D_blk)
+            if kind == "neurons":
+                donor_blk = torch.cat([torch.stack([torch.as_tensor(donor_cache[(rid, hidden_key(layer))])[s:e]
+                                                    for rid in batch.row_ids]) for s, e in spans], dim=1)
             else:
-                s, e = 0, N_EMBD
+                donor_blk = torch.cat([donor_value(u) for u in here], dim=1)
+            d_live = donor_blk.to(value.device).float() - live_blk
+            proj = (d_live @ qb) @ qb.T
+            if complement:
+                proj = d_live - proj
+            o = 0
+            for (s, e) in spans:
+                changed[idx, pos, s:e] = value[idx, pos, s:e] + proj[:, o:o + (e - s)].to(value.dtype)
+                o += e - s
+            return changed
+
+        for u in here:
+            s, e = span(u)
             if q is None:
                 if kind == "neurons":
                     changed[idx, pos, s:e] = torch.stack(
@@ -446,7 +493,9 @@ def diff_in_means_direction(backend, prep, units):
     delta = torch.stack([
         torch.cat([cached(prep.donor_cache, rid, u).float() - cached(prep.base_cache, rid, u).float()
                    for u in units]) for rid in prep.base_batch.row_ids]).to(backend.device)
-    d = delta.mean(0)
+    d = (delta * _orientation(delta)[:, None]).mean(0)
+    if float(d.norm()) < 1e-3:
+        raise ValueError("diff-in-means cancelled: rows are not direction-pure and carry no direction_id")
     return (d / d.norm()).unsqueeze(1)
 
 
@@ -537,3 +586,114 @@ def set_battery(backend, module, units, *, rank=1, seed=1):
             "diff_in_means": {"a1_heldout": direction_battery(backend, held, units, q, q_rand),
                               "a2": direction_battery(backend, a2, units, q, q_rand),
                               **{k.lower() + "_effect": v for k, v in pc_effects(backend, module, units, scale, q=q).items()}}}
+
+
+# ----------------------------------------------------------------------------- block-live variants
+# The same three direction sources in the standard multi-site interchange semantics (q is a dict
+# of per-(layer, kind) orthonormal matrices; the patch uses donor - LIVE at each hook).
+
+def _orientation(delta):
+    """Sign that aligns each row's delta with row 0's (geometric sign alignment). The screens
+    alternate directions row by row, so a mean over MIXED rows cancels unless the deltas are
+    oriented; v4-v6 fitted on even rows, which are direction-pure for the older candidates.
+    Labels are not used: the spec-authored list candidate labels duplicate rows with opposite
+    `direction_id`, so a label-based sign would cancel EXACT duplicates."""
+    sign = (delta @ delta[0]).sign()
+    sign[sign == 0] = 1.0
+    return sign
+
+
+def _cached_delta(backend, prep, units):
+    torch = backend.torch
+
+    def cached(cache, rid, u):
+        if ":neuron:" in u:
+            j = int(u.rsplit(":", 1)[1])
+            return torch.as_tensor(cache[(rid, hidden_key(unit_layer(u)))])[j:j + 1]
+        return torch.as_tensor(cache[(rid, u)])
+    return torch.stack([
+        torch.cat([cached(prep.donor_cache, rid, u).float() - cached(prep.base_cache, rid, u).float()
+                   for u in units]) for rid in prep.base_batch.row_ids]).to(backend.device)
+
+
+def block_diff_in_means(backend, prep, units):
+    """Per-block unit-norm mean of the native (donor - base): rank 1 in every block."""
+    out = {}
+    for key, us in blocks_of(units).items():
+        delta = _cached_delta(backend, prep, us)
+        d = (delta * _orientation(delta)[:, None]).mean(0)
+        if float(d.norm()) < 1e-3:
+            raise ValueError("diff-in-means cancelled: rows are not direction-pure and carry no direction_id")
+        out[key] = (d / d.norm()).unsqueeze(1)
+    return out
+
+
+def block_random_subspace(backend, units, *, rank=1, seed=1):
+    torch = backend.torch
+    gen = torch.Generator(device="cpu").manual_seed(seed)
+    out = {}
+    for key, us in blocks_of(units).items():
+        q, _ = torch.linalg.qr(torch.randn(sum(unit_dim(u) for u in us), rank, generator=gen))
+        out[key] = q.to(backend.device)
+    return out
+
+
+def block_identity(backend, units):
+    """Full rank in every block: must reproduce the exact set to float precision (the control)."""
+    torch = backend.torch
+    return {key: torch.eye(sum(unit_dim(u) for u in us), device=backend.device)
+            for key, us in blocks_of(units).items()}
+
+
+def fit_block_subspace(backend, prep, units, *, rank=1, steps=200, lr=0.05, seed=0,
+                       complement_weight=0.0):
+    """DAS with one rank-`rank` subspace per block, all fitted jointly on the final margin against
+    the exact-set target; optional complement-inertness term as in fit_joint_subspace."""
+    torch = backend.torch
+    for p in backend.model.parameters():
+        p.requires_grad_(False)
+    torch.manual_seed(seed)
+    blocks = blocks_of(units)
+    raws = {key: (torch.randn(sum(unit_dim(u) for u in us), rank, device=backend.device) * 0.02
+                  ).requires_grad_(True) for key, us in blocks.items()}
+    opt = torch.optim.Adam(list(raws.values()), lr=lr)
+    target = torch.tensor(patched_axis(backend, prep, units), device=backend.device)
+    base_target = torch.tensor(prep.base_axis, device=backend.device)
+    history = []
+
+    def qs():
+        return {key: torch.linalg.qr(raw)[0] for key, raw in raws.items()}
+    for step in range(steps):
+        opt.zero_grad()
+        q = qs()
+        out = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
+                            base_cache=prep.base_cache, q=q, grad=True)
+        match = ((-(out[:, 0] - out[:, 1]) - target) ** 2).mean()
+        loss, inert = match, None
+        if complement_weight > 0:
+            comp = forward_units(backend, prep.base_batch, units=units, donor_cache=prep.donor_cache,
+                                 base_cache=prep.base_cache, q=q, grad=True, complement=True)
+            inert = ((-(comp[:, 0] - comp[:, 1]) - base_target) ** 2).mean()
+            loss = match + complement_weight * inert
+        loss.backward()
+        opt.step()
+        if step % 50 == 0 or step == steps - 1:
+            history.append((step, float(match.detach()), None if inert is None else float(inert.detach())))
+    with torch.no_grad():
+        q = {key: v.detach() for key, v in qs().items()}
+    return q, history
+
+
+def block_cosines(qa, qb):
+    """|cos| between two block-rank-1 direction sets, per block."""
+    return {f"{k[0]:02d}:{k[1]}": float((qa[k][:, 0] @ qb[k][:, 0]).abs()) for k in qa}
+
+
+def norm_shares(q, units):
+    """How much of a joint direction's norm sits in each unit (which head 'owns' the direction)."""
+    out, off = {}, 0
+    for u in units:
+        d = unit_dim(u)
+        out[u] = float((q[off:off + d, 0] ** 2).sum())
+        off += d
+    return out
