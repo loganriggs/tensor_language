@@ -426,3 +426,10 @@ with union-to-all cosine .9996/.9995 behavior and .9882/.9825 Q8. Both heads are
 and material. This promotes the transferable topology to `MLP8 post-cue complement -> L9H1/H4 ->
 shared Q8`. The current developmental atlas partitions the H1/H4 write by destination before exact
 attention source-factor and weight compilation.
+
+The destination atlas passes and identifies a single writer destination. Restoring H1/H4 only at
+the final query removes 61.63%/57.74% of live complement behavior and 62.12%/55.91% of final-Q8
+norm, accounting for 82.55%/85.05% of the complete H1/H4 response removal. Q8 cosine is
+.9759/.9700. Prefix and cue destinations are exactly zero; post-cue intermediate and subject-
+determiner responses are small. The active exact tensor decomposition now partitions all query
+sources and all three attention response factors and validates their H1/H4 c_v/c_proj contraction.

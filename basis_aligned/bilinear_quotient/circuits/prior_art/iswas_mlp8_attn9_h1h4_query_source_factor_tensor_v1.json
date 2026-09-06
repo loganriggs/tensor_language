@@ -1,0 +1,27 @@
+{
+  "schema": "iswas_mlp8_attn9_h1h4_query_source_factor_tensor_prior_v1",
+  "candidate_id": "cross_task.iswas_mlp8_attn9_h1h4_query_source_factor_tensor_v1",
+  "registered_utc": "2026-09-06T21:42:00Z",
+  "question": "Which exact attention source regions and pattern/value factors convert the MLP8 post-cue complement through attention9 H1/H4 at the final query, and how do the literal c_v/c_proj weights expose that write?",
+  "authority": {
+    "destination_atlas_result_sha256": "25c239436eb3cbf6fdd18237132bbd3a11683d977dd57dfe3877a2db78b95e7e",
+    "destination_atlas_runner_sha256": "2fb6d8ed81e122161eb4ee8669b84639a3e26aa5859c2936ae3b39cb5f46ed3c",
+    "attention_factor_library_sha256": "608ae6bf74af96663ec022b907c53d371670a36e5d7ec4fd1667b3c6add58dfd"
+  },
+  "frozen_design": {
+    "population_actuation_destination_heads": "The same 27 capable v10 rows; frozen MLP8 post-cue Down complement; attention9 heads1+4; final-query destination only.",
+    "source_partition": ["prefix_before_cue", "cue", "post_cue_before_subject", "subject_determiner", "self"],
+    "factorization": "For every source group compute exactly (P_live-P_base)V_base, P_base(V_live-V_base), and (P_live-P_base)(V_live-V_base) using captured native attention9 patterns and c_v values. Their 15 cells exactly sum to the live-minus-base H1/H4 query response.",
+    "causal_arms": "In the live complement context replace query H1/H4 by base response plus: empty; each of 15 cells; each five group unions; each three factor unions; and the complete sum.",
+    "weight_tensor": "Apply the exact H1/H4 columns of attention9 c_proj to every raw response delta and validate against captured post-c_proj output. Report c_v reads of the changed post-cue residual and c_proj writes into Q8; no fitted map is allowed.",
+    "maximum_price": {"model_forwards": 29, "example_evaluations": 783, "fit_updates": 0, "transformer_backwards": 0, "model_updates": 0}
+  },
+  "predictions": {
+    "pred_a_authority_partition_factor_native_weight_closure_finiteness_and_price": "All hashes, exact partitions, raw three-factor closure, complete causal replay, c_proj weight replay, finiteness, identity, and price pass at max absolute error 0.001.",
+    "pred_b_postcue_sources_dominate_query_conversion": "The post-cue-before-subject group union retains at least 0.75 of complete H1/H4 query behavior and Q8 norm in both panels.",
+    "pred_c_base_pattern_value_transport_is_dominant": "The all-source base-pattern value-change union retains at least 0.75 of complete query behavior and Q8 norm in both panels.",
+    "pred_d_pattern_value_interaction_is_secondary": "The all-source interaction union is at most 0.20 of complete absolute behavior and Q8 norm in both panels.",
+    "pred_e_zero_fit_literal_weight_interface": "Every source/factor response is computed from native tensors and exact c_v/c_proj weights with zero fits, gradients, or updates."
+  },
+  "decision": "Screen yields a literal MLP8-postcue -> L9H1/H4-value -> c_proj -> Q8 tensor edge. Null identifies whether source spread, pattern routing, or interaction prevents that simpler program and freezes the measured alternative for later confirmation."
+}
