@@ -142,3 +142,31 @@ def test_legacy_outcomes_are_readable_but_new_writes_fail_closed(tmp_path: Path)
             "candidate.legacy", "codex", "pass", "New invalid label.",
             "circuits/result.json", path=path, clock=clock(3),
         )
+
+
+def test_legacy_correction_and_descriptive_terminal_are_read_only_compatible(tmp_path: Path) -> None:
+    path = tmp_path / "claims.jsonl"
+    events = [
+        {
+            "schema": "circuit_candidate_claim_v1", "event": "claim",
+            "candidate_id": "candidate.corrected", "owner": "codex",
+            "timestamp": clock(1)(), "prior_art_sha256": PRIOR, "novelty": "Original.",
+        },
+        {
+            "schema": "circuit_candidate_claim_v1", "event": "claim_correction",
+            "candidate_id": "candidate.corrected", "owner": "codex",
+            "timestamp": clock(2)(), "prior_art_sha256": PRIOR, "novelty": "Historical correction.",
+        },
+        {
+            "schema": "circuit_candidate_claim_v1", "event": "release",
+            "candidate_id": "candidate.corrected", "owner": "codex",
+            "timestamp": clock(3)(), "outcome": "certificate",
+            "receipt": "circuits/certificate.json", "reason": "Historical descriptive terminal.",
+        },
+    ]
+    path.write_text("\n".join(json.dumps(event, sort_keys=True, separators=(",", ":")) for event in events) + "\n")
+    assert claims.active_claims(path) == {}
+    with pytest.raises(claims.ClaimError, match="unknown or missing"):
+        claims.validate_event(events[1])
+    with pytest.raises(claims.ClaimError, match="outcome is invalid"):
+        claims.validate_event(events[2])

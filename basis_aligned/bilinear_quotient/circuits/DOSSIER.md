@@ -211,6 +211,8 @@ rank, new direction, template table, or threshold change is allowed.
 | `task14_bracket_transparent_margin_program_release.v7` | complete | hash-bound importable/CLI 22-scalar program | **executable release** | active | `task14_bracket_transparent_margin_program_release_v7_result.json` |
 | `bracket.pending_opener.native_baseline_l13h8_causal_ceiling_newest.v1` | complete | exact semantic-opener and whole-head zero removal on newest construction | **causal ceiling screen** | active | `bracket_native_baseline_l13h8_causal_ceiling_newest_v1_result.json` |
 | `bracket.pending_opener.l13h8_direct_readout_baseline_program.v1` | complete | six-scalar causal decomposition on outcome-sealed archive construction | **null: cancellation precision not reached** | active | `bracket_l13h8_direct_readout_baseline_program_v1_result.json` |
+| `task14_bracket_transparent_program_boundary_certificate.v8` | complete | hash-bound release/null boundary | **empirical minimality certificate** | active | `task14_bracket_transparent_program_boundary_certificate_v8_result.json` |
+| `task14_bracket_text_selector_program_release.v9` | complete | exact controlled-text delimiter stack over 2,088 prompts | **selector-compiled executable screen** | active | `task14_bracket_text_selector_program_release_v9_result.json` |
 
 **Important negative result:** the Program-A optimizer improved its objective by 0.025–0.047 across nine fits, below the registered
 minimum improvement of 0.05. It therefore cannot answer whether a small causal subspace exists. Do not repeat the same optimizer or
@@ -255,6 +257,14 @@ cosine 0.98622 and relative L2 0.16672, and the six-scalar causal decomposition 
 0.20019. It nevertheless misses the frozen baseline precision and three ordered-pair bars; native/edit cancellation amplifies the
 remaining error to counterfactual cosine 0.77108, relative L2 0.75136, and sign agreement 0.73611. Local L13H8 bracket-baseline
 compression is closed. The v7 native-margin dependency remains the simplest honest boundary.
+
+The v8 certificate makes that boundary append-only and hash-bound: v7 remains minimal only within the tested semantic-linear and
+single fixed L13H8-readout classes. It does not claim universal minimality, free-form support, or whole-model replacement.
+
+The v9 executable removes a different dependency rather than retrying baseline compression. A transparent delimiter-stack reader
+infers the pending closer directly from controlled-domain raw text with zero learned scalars. It matches all 2,088 labeled endpoints
+across five frozen corpora and all 6,264 corresponding v7 equations exactly, while rejecting balanced, multiply-pending, mismatched,
+and malformed inputs. The bracket API now retains only raw text, one native unedited donorward margin, and the desired closer edit.
 
 ### `subroutine.induction.equality_score` — site_live
 

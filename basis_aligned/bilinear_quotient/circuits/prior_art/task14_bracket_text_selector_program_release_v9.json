@@ -1,0 +1,24 @@
+{
+  "schema": "task14_bracket_text_selector_program_release_prior_art_v9",
+  "candidate_id": "cross_behavior.task14_bracket_text_selector_program_release_v9",
+  "created_utc": "2026-09-06T01:51:30Z",
+  "purpose": "Remove the externally supplied bracket recipient-closer selector from v7 by compiling an exact delimiter-stack read from raw controlled-domain text, without changing the native-margin dependency or frozen edit effects.",
+  "authority": {
+    "transparent_margin_program.py": "ad0aadf4318fae7c13908350ab49a87cad00d20ae5386fed5ec27ba0851ab98d",
+    "task14_bracket_transparent_program_boundary_certificate_v8_result.json": "7364d8dde67343cc3d222f97558f7bdbaa8df5737ad71abb60a35e1948524790",
+    "pending_opener_three_value_fresh_rows_rung545.json": "07b64d2e48a6ca67685c81d3475a064daba612d6fe7ff233efd5b6c157b940a9",
+    "bracket_suffix_free_fresh_corpus_v1_rows.json": "d808806fd1b05f834cf6ef4fa71465464c0403f66dc13ece8a24cffcc40142f9",
+    "bracket_absolute_term_fresh_corpus_v1_rows.json": "92ee66ce0a4bf084789bf0c2af394a107a49df19dbf3c9fbfbebbe467d873c76",
+    "bracket_native_baseline_fresh_corpus_v1_rows.json": "ad246a0ab2affd0a351b971c100c27c2ad09597d0d9e7b84b636e1eb4c8fb399",
+    "bracket_l13h8_direct_readout_fresh_corpus_v1_rows.json": "09424b15ad797491b4968bdb9e84b3f81f7062a6b42b057e85c725b25c1b4f8c"
+  },
+  "predictions": {
+    "pred_a_authority_and_v8_boundary": "All hashes hold and v8 is a valid certificate.",
+    "pred_b_exact_text_selector": "Infer the labeled pending closer exactly on all 2,088 base/donor prompt endpoints across five frozen corpora.",
+    "pred_c_v7_equation_conformance": "For every endpoint and each of three requested donor closer IDs, the text API exactly matches v7 after substituting the labeled recipient ID (6,264 cases).",
+    "pred_d_strict_malformed_rejection": "Reject balanced, multiply-pending, mismatched-close, invalid-target, and non-string inputs.",
+    "pred_e_scope_and_price": "Add zero fitted scalars and zero model calls. Remove only recipient_closer_id; retain raw controlled-domain text, native unedited donorward margin, and desired donor closer/edit specification."
+  },
+  "price": {"stored_fp32_scalars": 22, "new_fitted_scalars": 0, "model_forwards": 0, "fits": 0, "selector_prompt_cases": 2088, "equation_cases": 6264},
+  "terminal": {"release": "A-E pass.", "invalid": "Any authority, selector, conformance, rejection, boundary, or price check fails."}
+}

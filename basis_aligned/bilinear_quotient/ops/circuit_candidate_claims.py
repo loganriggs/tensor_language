@@ -28,7 +28,8 @@ DEFAULT_LEDGER = ROOT / "circuits" / "active_screen_claims.jsonl"
 IDENTIFIER = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]*$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 OUTCOMES = {"screen", "null", "inconclusive", "invalid", "abandoned"}
-LEGACY_OUTCOMES = {"pass", "partial"}
+LEGACY_OUTCOMES = {"pass", "partial", "diagnostic_complete", "release", "certificate"}
+LEGACY_EVENT_KINDS = {"claim_correction"}
 
 
 class ClaimError(ValueError):
@@ -75,11 +76,12 @@ def validate_event(
     kind = event.get("event")
     common = {"schema", "event", "candidate_id", "owner", "timestamp"}
     expected = common | (
-        {"prior_art_sha256", "novelty"} if kind == "claim"
+        {"prior_art_sha256", "novelty"} if kind == "claim" or (allow_legacy_outcomes and kind in LEGACY_EVENT_KINDS)
         else {"outcome", "receipt", "reason"} if kind == "release"
         else set()
     )
-    if kind not in {"claim", "release"} or set(event) != expected:
+    allowed_kinds = {"claim", "release"} | (LEGACY_EVENT_KINDS if allow_legacy_outcomes else set())
+    if kind not in allowed_kinds or set(event) != expected:
         raise ClaimError("claim event has unknown or missing fields")
     value = dict(event)
     if value["schema"] != "circuit_candidate_claim_v1":
@@ -87,7 +89,7 @@ def validate_event(
     _validate_identifier(value["candidate_id"], "candidate_id")
     _validate_identifier(value["owner"], "owner")
     _validate_timestamp(value["timestamp"])
-    if kind == "claim":
+    if kind == "claim" or kind in LEGACY_EVENT_KINDS:
         if not isinstance(value["prior_art_sha256"], str) or not SHA256.fullmatch(value["prior_art_sha256"]):
             raise ClaimError("prior_art_sha256 must be a lowercase SHA-256")
         if not isinstance(value["novelty"], str) or not value["novelty"].strip():
@@ -166,6 +168,12 @@ def _active(events: Sequence[Mapping[str, object]]) -> dict[str, dict[str, objec
             if candidate in active:
                 raise ClaimError(f"candidate {candidate} has overlapping claims")
             active[candidate] = dict(event)
+        elif event["event"] in LEGACY_EVENT_KINDS:
+            claim = active.get(candidate)
+            if claim is None:
+                raise ClaimError(f"candidate {candidate} was corrected without an active claim")
+            if claim["owner"] != event["owner"]:
+                raise ClaimError(f"candidate {candidate} was corrected by a different owner")
         else:
             claim = active.get(candidate)
             if claim is None:
