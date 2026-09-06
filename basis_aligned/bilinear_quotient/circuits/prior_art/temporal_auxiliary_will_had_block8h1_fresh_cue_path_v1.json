@@ -1,0 +1,64 @@
+{
+  "schema": "temporal_auxiliary_will_had_block8h1_fresh_cue_path_prior_art_v1",
+  "candidate_id": "temporal_auxiliary.will_vs_had.block8h1_fresh_cue_path_v1",
+  "created_utc": "2026-09-06T13:00:00Z",
+  "evidence_class": "prospective_fresh_lexical_and_construction_path_prediction",
+  "novelty_search": {
+    "searched": [
+      "circuits/prior_art/*will*had*fresh*",
+      "circuits/followups/*will*had*fresh*",
+      "circuits/prior_art/*block8h1*path*",
+      "circuits/followups/*block8h1*path*",
+      "AGENT_BOARD.md"
+    ],
+    "nearest_results": "Discovery text identifies a direct cue-term path through block8H1 at the two subject-onset destinations, but only for Tomorrow/Earlier in bare/report frames. No result tests different cue tokens and a new embedding frame.",
+    "new_question": "Does the exact block8H1 cue-to-subject path predict the model's Later/Previously decision in fresh bare and note frames?"
+  },
+  "authorities": {
+    "identified_source_path_sha256": "8865fe22a3c12e367709706ff0b941b3c2488d1d9608ce1921a4cfa73b22c6b9",
+    "head1_screen_sha256": "febac51eeb2bf452f6bc80f1dd4d221714da899274888fd2d0bc950e7e03e55a",
+    "fresh_builder_sha256": "5a753c56b278024431d209d0e8c4ed353d8f2086206847a148591c11181e56c9",
+    "fresh_rows_sha256": "c35d7f2159c47620b6f36f12c4f6c41c1630afae61a7f101ab9ff74e4e7e5e0a",
+    "attention_destination_evaluator_sha256": "3e66f65aa5ca4a84676a267f54b95f49fc2220c8efc6775cfac1a48ce972ab5b"
+  },
+  "population": "All 64 fresh A1/A2 Later/Previously rows: 32 bare frames and 32 new note frames, balanced across both transfer directions. Their complete target texts are absent from the discovery authority.",
+  "arms": {
+    "full_attention": "Replace all nine block-8 head outputs at both subject-onset destinations.",
+    "h1_complete": "Replace complete block8H1 outputs at both destinations.",
+    "h1_all_sources": "Install donor-minus-base H1 terms from every causal source at both destinations.",
+    "h1_cue": "Install only the Later/Previously cue source terms into H1 at both destinations.",
+    "h1_noncue": "Install prefix plus local H1 source terms, excluding the cue."
+  },
+  "predictions": {
+    "pred_a_fresh_native_capability_and_exact_instrument": "Every fresh family/direction base+donor cell has native accuracy at least 0.85; source reconstruction is within 5e-4; H1 all-sources/complete selected-logit closure is within 1e-4; all rows are aligned and finite.",
+    "pred_b_fresh_cue_path_is_causal": "H1 cue-only mean recovery is at least 0.10 in A1 and 0.06 in A2, with donorward fraction at least 0.75 in both.",
+    "pred_c_head_and_source_specificity_recur": "H1 cue-only retains at least 0.75 of complete H1, and complete H1 retains at least 0.75 of full block-8 attention recovery, in both families.",
+    "pred_d_noncue_sources_are_secondary": "H1 noncue mean absolute recovery is at most 0.35 of complete H1 recovery in both families.",
+    "pred_e_exact_zero_fit_price": "Exactly 14 model forwards, 448 example evaluations, five arms, 320 arm-row records, and zero fits/searches/backwards/updates."
+  },
+  "terminal": {
+    "screen": "A-E pass. Upgrade the block8H1 cue-to-subject writer from discovery screen to fresh lexical/construction identification evidence.",
+    "null": "Native capability and the instrument pass but the registered H1 cue path does not recur; retain the exact fresh effects and do not promote the path.",
+    "capability_stop": "The sealed fresh behavior is not natively supported at 0.85 in every target cell; report capability without interpreting causal arms.",
+    "invalid": "Authority, alignment, reconstruction, closure, finiteness, coverage, or price fails."
+  },
+  "scope": "This tests held-out prediction for the identified writer path. It does not yet establish selective preservation on unrelated behaviors or composition with the downstream L9H1/H4 reader.",
+  "circuit_targets": [
+    "held-out and OOD prediction",
+    "stable identification",
+    "causal writer reuse",
+    "computational specification"
+  ],
+  "price": {
+    "model_forwards": 14,
+    "example_evaluations": 448,
+    "rows": 64,
+    "arms": 5,
+    "intervention_records": 320,
+    "fitted_scalars": 0,
+    "grid_evaluations": 0,
+    "root_evaluations": 0,
+    "transformer_backwards": 0,
+    "model_updates": 0
+  }
+}
