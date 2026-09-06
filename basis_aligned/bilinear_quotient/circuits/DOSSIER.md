@@ -323,6 +323,7 @@ whole-model replacement.
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_projection_query_diagnostic_v1` | complete diagnostic | frozen confirmation query-index audit | **v1 failure localized exactly to off-query indices** | `aspectual_anchor_attention11h3_15h5_source_projection_query_diagnostic_v1_result.json` |
 | `aspectual_anchor.has_vs_had.attention11h3_15h5_source_compression_release_v1` | released | zero-forward immutable evidence-class audit | **three-role 11H3/15H5 banks released with post-outcome-repair label** | `aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json` |
 | `aspectual_anchor.has_vs_had.transparent_path_program_release_v3` | released | executable API/equation/evidence audit | **source-resolved paired-causal program through block15** | `aspectual_anchor_transparent_path_program_release_v3_result.json` |
+| `aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v1` | complete | split exact bilinear-response factorials | **two-term MLP11 and MLP15 suffix responses transfer disjointly** | `aspectual_anchor_mlp11_15_bilinear_compression_split_v1_result.json` |
 
 The fixed L8/L9 module bank recovers 68.33% of the native donor effect: A1 65.81%, A2 70.85%, with perfect directional recurrence.
 Its P and canonical-C effects are 11.69% and 7.77%. Removing attention layer 9 loses 38.72 recovery points, and exact factorial Shapley
@@ -501,6 +502,13 @@ six-role causal-prefix partitions, computes the frozen L11H3/L15H5 source sums, 
 projection space, and composes source-resolved suffix crossings. All five zero-forward release audits and 33 deterministic equation
 and rejection cases pass. The program stores no fitted scalar or vector. It remains a paired-causal program: full carried and MLP
 deltas at blocks11/15 and native blocks10,12-14,16-17/readout are dependencies, not silently modeled transparent components.
+
+The remaining full MLP11/15 terms now compress as exact bilinear responses. Selection chooses Left-change+Right-change at MLP11 and
+Left-change+bilinear-interaction at MLP15. On disjoint confirmation rows those pairs retain 101.15% and 110.07% of the respective
+all-three-minus-empty MLP increments, with positive increments in A1 and A2. Exact three-term response reconstruction errors are
+0.00115/0.00299, and the all-three scored outputs match the released source-resolved crossings within 4.8e-6. All five frozen gates
+pass in 60 forwards and 480 evaluations. The next compilation can therefore replace both native suffix MLP deltas with these typed
+two-term equations; the intervening native blocks and carried-state recurrence remain explicit dependencies.
 
 ### `subroutine.induction.equality_score` — site_live
 

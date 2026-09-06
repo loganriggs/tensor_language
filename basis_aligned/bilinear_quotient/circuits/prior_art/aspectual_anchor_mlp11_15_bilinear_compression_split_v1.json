@@ -1,0 +1,69 @@
+{
+  "schema": "aspectual_anchor_mlp11_15_bilinear_compression_split_prior_art_v1",
+  "candidate_id": "aspectual_anchor.has_vs_had.mlp11_15_bilinear_compression_split_v1",
+  "created_utc": "2026-09-06T04:48:50Z",
+  "question": "Can the full MLP11 and MLP15 suffix deltas be replaced by two of their three exact bilinear response terms, selected on one split and confirmed on the other inside the released source-resolved head crossings?",
+  "authority": {
+    "source_bank_release": {
+      "path": "circuits/followups/aspectual_anchor_attention11h3_15h5_source_compression_release_v1_result.json",
+      "sha256": "e80f06ef21344139d33d7bc0793a20f564bf360ad2f7ea2d76edd52ab3421df5",
+      "terminal": "release"
+    },
+    "source_scientific_result": {
+      "path": "circuits/followups/aspectual_anchor_attention11h3_15h5_source_compression_split_v1_result.json",
+      "sha256": "7b4ba19260f4d311ca959331e60f29c64136f416566582d510591c96d5243adb",
+      "immutable_terminal": "invalid",
+      "released_via": "source_bank_release"
+    },
+    "source_backend_runner": {
+      "path": "ops/run_aspectual_anchor_attention11h3_15h5_source_compression_split_v1.py",
+      "sha256": "419c0be9a1c9cebf594225c492b9402af7240d7ffd95d7987320d3e2ecb18a30"
+    },
+    "holdout_builder": {
+      "path": "ops/circuit_candidate_aspectual_lexical_holdout_v5.py",
+      "sha256": "d06a4298af5ef375664d113c1528bbdd94c846c8b213ea92a6f7b75175846859",
+      "rows_sha256": "18dfe9b5e86387017f3b8a81d378cc4892b4ee5a219ea7e35bf02548cd54e493"
+    }
+  },
+  "data_status": "No Left-change, Right-change, or bilinear-interaction intervention outcome has been computed for MLP11 or MLP15 on either split.",
+  "population_split": {
+    "selection": "First 16 A1/A2 rows in immutable builder order.",
+    "selection_row_ids_sha256": "d150ff72d1423058a01aa2140563315c041b1be98a59066e8dc4a98688775fe8",
+    "confirmation": "Last 16 A1/A2 rows in immutable builder order.",
+    "confirmation_row_ids_sha256": "ad198e745d3c2b900e097219aae918f9ec506271f159bdcdf9852db56e12e55b"
+  },
+  "frozen_design": {
+    "boundaries": [11, 15],
+    "head_by_boundary": {"11": 3, "15": 5},
+    "source_bank_by_boundary": {
+      "11": ["determiner", "period", "self"],
+      "15": ["period", "determiner", "self"]
+    },
+    "mlp_factors": ["left_change", "right_change", "bilinear_interaction"],
+    "selection_arms": "Exact eight-subset factorial per boundary.",
+    "selection_rule": "Rank exact three-player Shapley contributions descending with frozen factor order for ties; retain the top two.",
+    "confirmation_arms": ["empty", "selected_two", "all_three"],
+    "fixed_context": "Full carried boundary delta plus the released dominant-head source-bank attention delta; only the MLP response factors vary.",
+    "fitting": "none"
+  },
+  "predictions": {
+    "pred_a_authority_split_capability_and_exact_instrument": "All hashes/terminals/splits, native capability, native/manual, writer, attention-term, source-projection, MLP-term, and all-three/source-control closures pass.",
+    "pred_b_writer_and_source_control_recurrence": "Writer controls remain positive and recurrent; each all-three MLP arm matches the immutable all-source head crossing within 0.125 scored logit.",
+    "pred_c_positive_selection_mlp_signal": "All-three minus empty recovery is positive at both boundaries and each selection returns two distinct factors.",
+    "pred_d_disjoint_two_term_compression": "On confirmation rows each selected two-factor response retains at least 70% of all-three-minus-empty MLP recovery and has positive increments in A1 and A2.",
+    "pred_e_exact_coverage": "Exactly 384 finite records are produced within 60 forwards and 480 example evaluations, with no fits, backwards, or updates."
+  },
+  "terminal": {
+    "screen": "A-E pass: compile the selected MLP11/15 bilinear responses into the transparent suffix program.",
+    "null": "The run is valid and controls recur, but one or both two-factor responses fail disjoint compression.",
+    "invalid": "Authority, split, capability, alignment, instrument, control, finiteness, coverage, or price fails."
+  },
+  "price": {
+    "model_forwards_max": 60,
+    "example_evaluations_max": 480,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0
+  },
+  "efficiency": "Both suffix MLPs share one model load and cached paired states; only three confirmation arms per boundary are run after selection."
+}
